@@ -1,6 +1,6 @@
 ---
-title: Visa sekretess information från min konto Portal – Azure AD
-description: Lär dig mer om hur din organisation använder din sekretess information på sidan sekretess i portalen mitt konto.
+title: Visa sekretessrelaterad information från portalen Mitt konto - Azure AD
+description: Läs om hur din organisation använder din sekretessrelaterade information från sekretesssidan på portalen Mitt konto.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,40 +12,40 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: 94187cc7c0c3500a86d47a5f244457ee020581a3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062446"
 ---
-# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Se hur din organisation använder dina sekretess-relaterade data
+# <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Visa hur din organisation använder dina sekretessrelaterade data
 
-Du kan se hur din organisation använder dina data från sidan **Sekretess** i portalen **mitt konto** .
+Du kan visa hur din organisation använder dina data från **sekretesssidan** på portalen **Mitt konto.**
 
 ## <a name="view-your-privacy-related-info"></a>Visa din sekretessrelaterade information
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
+1. Logga in på ditt arbets- eller https://myprofile.microsoft.com/ skolkonto och gå sedan till din sida.
 
-2. Välj **Sekretess** i det vänstra navigerings fönstret eller Välj länken **Granska sekretess** från **Sekretess** blocket.
+2. Välj **Sekretess** i det vänstra navigeringsfönstret eller välj **sekretesslänken Granska** i **sekretessblocket.**
 
-    ![Sidan mitt konto, som visar markerade sekretess länkar](media/my-account-portal/my-account-portal-privacy.png)
+    ![Sidan Mitt konto, som visar markerade sekretesslänkar](media/my-account-portal/my-account-portal-privacy.png)
 
 3. Granska informationen, inklusive:
 
-    - **Terminal.** En lista med onlinetjänster som du är ansluten till med ditt arbets-eller skol konto.
+    - **Tjänster.** En lista över onlinetjänster som du är ansluten till med ditt arbets- eller skolkonto.
 
-    - **Användningsvillkor**. Din organisations användnings villkor.
+    - **Användarvillkor**. Organisationens användarvillkor.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har visat hur din organisation använder dina data kan du:
+När du har tittat på hur din organisation använder dina data kan du:
 
-- Visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
+- Visa eller hantera [din säkerhetsinformation](user-help-security-info-overview.md).
 
 - Visa eller hantera dina anslutna [enheter](my-account-portal-devices-page.md).
 
 - Visa eller hantera dina [organisationer](my-account-portal-organizations-page.md).
 
-- Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md).
+- Visa din [inloggningsaktivitet](my-account-portal-sign-ins-page.md).
 
-- Du kan också visa Microsoft Office-relaterade kontakt inställningar och sekretess information från [sidan Office-portalen, säkerhets & sekretess](https://portal.office.com/account/#security).
+- Du kan också visa dina Kontaktinställningar och sekretessinformation för Microsoft Office från [office-portalen, sekretesssidan säkerhet &](https://portal.office.com/account/#security).

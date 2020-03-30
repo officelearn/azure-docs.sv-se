@@ -1,6 +1,6 @@
 ---
-title: Vilka arkitektur alternativ för Azure Firewall Manager?
-description: Jämför och kontrast med hubb virtuellt nätverk eller säkra arkitekturer för virtuella hubbar med Azure Firewall Manager.
+title: Vilka är arkitekturalternativen för Azure Firewall Manager?
+description: Jämför och kontrastera med virtuella hubbnätverk eller säkra virtuella hubbarkitekturer med Azure Firewall Manager.
 author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
@@ -8,43 +8,43 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: victorh
 ms.openlocfilehash: b946a360ced05500a4ef89cda7c623d8ae16658e
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444581"
 ---
-# <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Vilka arkitektur alternativ för Azure Firewall Manager?
+# <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Vilka är arkitekturalternativen för Azure Firewall Manager?
 
-Azure Firewall Manager kan tillhandahålla säkerhets hantering för två typer av nätverks arkitektur:
+Azure Firewall Manager kan tillhandahålla säkerhetshantering för två nätverksarkitekturtyper:
 
-- **skyddad virtuell hubb**
+- **säker virtuell hubb**
 
-   En [virtuell WAN-hubb i Azure](../virtual-wan/virtual-wan-about.md#resources) är en Microsoft-hanterad resurs som gör att du enkelt kan skapa Hubbs-och eker-arkitekturer. När säkerhets-och routningsprinciperna är associerade med en sådan hubb kallas den för en *[säker virtuell hubb](secured-virtual-hub.md)* . 
-- **hubb virtuellt nätverk**
+   En [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) är en Microsoft-hanterad resurs som gör att du enkelt kan skapa hubb- och ekrararkitekturer. När säkerhet och routningsprinciper är associerade med ett sådant nav kallas det för ett *[skyddat virtuellt nav](secured-virtual-hub.md)*. 
+- **virtuellt nätverk för nav**
 
-   Det här är ett standard Azure Virtual Network som du skapar och hanterar själv. När säkerhets principer är associerade med en sådan hubb kallas det ett *nav virtuellt nätverk*. För närvarande stöds endast Azure Firewall-principen. Du kan använda peer-ekrar för virtuella nätverk som innehåller dina arbets belastnings servrar och-tjänster. Du kan också hantera brand väggar i fristående virtuella nätverk som inte är peer-kopplade till ekrar.
+   Det här är ett virtuellt standardnätverk för Azure som du skapar och hanterar själv. När säkerhetsprinciper är associerade med ett sådant nav kallas det för ett *virtuellt navnätverk*. För närvarande stöds endast Azure Firewall Policy. Du kan peer spoke virtuella nätverk som innehåller din arbetsbelastning servrar och tjänster. Du kan också hantera brandväggar i fristående virtuella nätverk som inte är peered till någon eker.
 
 ## <a name="comparison"></a>Jämförelse
 
-I följande tabell jämförs dessa två arkitektur alternativ och kan hjälpa dig att avgöra vilken som passar din organisations säkerhets krav:
+I följande tabell jämförs dessa två arkitekturalternativ och du kan avgöra vilken som är rätt för organisationens säkerhetskrav:
 
 
-|  |**Hubb virtuellt nätverk**|**Skyddad virtuell hubb**  |
+|  |**Virtuellt hub-nätverk**|**Skyddad virtuell hubb**  |
 |---------|---------|---------|
 |**Underliggande resurs**     |Virtuellt nätverk|Virtuell WAN-hubb|
-|**Hubb & eker**     |Använder peering för virtuella nätverk|Automatiserad användning av hubb för virtuell nätverks anslutning|
-|**Lokal anslutning**     |VPN Gateway upp till 10 Gbit/s och 30 S2S-anslutningar; ExpressRoute|Mer skalbar VPN Gateway upp till 20 Gbit/s och 1000 S2S-anslutningar; Express Route|
-|**Automatisk gren anslutning med SDWAN**      |Stöds inte|Stöds|
-|**Hubbar per region**     |Flera virtuella nätverk per region|Enskild virtuell hubb per region. Flera hubbar kan användas med flera virtuella WAN|
-|**Azure-brandvägg – flera offentliga IP-adresser**      |Kunden tillhandahöll|Automatiskt genererad. Är tillgänglig via GA.|
-|**Azure Firewall-Tillgänglighetszoner**     |Stöds|Inte tillgänglig i för hands versionen. Är tillgänglig via GA|
-|**Avancerad Internet säkerhet med säkerhet från tredje part som tjänst partner**     |Kund etablerade och hanterade VPN-anslutningar till partner tjänsten som du väljer|Automatiserad via betrodd säkerhets partner och partner hanterings upplevelse|
-|**Centraliserad flödes hantering för att dirigera trafik till hubben**     |Kundhanterad användardefinierad väg|Stöds med BGP|
-|**Brand vägg för webbaserade program på Application Gateway** |Stöds i Virtual Network|Stöds för närvarande i eker-nätverk|
-|**Virtuell nätverks installation**|Stöds i Virtual Network|Stöds för närvarande i eker-nätverk|
+|**Hub & talade**     |Använder virtual network peering|Automatiserad med virtuell hubbnätverksanslutning|
+|**Anslutning på prem**     |VPN Gateway upp till 10 Gbit/s och 30 S2S-anslutningar. ExpressRoute (ort)|Mer skalbar VPN-gateway upp 20 Gbit/s och 1000 S2S-anslutningar. Expressrutt|
+|**Automatiserad filialanslutning med SDWAN**      |Stöds inte|Stöds|
+|**Nav per region**     |Flera virtuella nätverk per region|En virtuell hubb per region. Flera hubbar möjliga med flera virtuella WAN|
+|**Azure-brandväggen – flera offentliga IP-adresser**      |Kunden tillhandahålls|Genereras automatiskt. Ska vara tillgänglig av GA.|
+|**Tillgänglighetszoner för Azure-brandväggen**     |Stöds|Inte tillgängligt i förhandsversionen. Ska vara tillgänglig av GA|
+|**Avancerad Internetsäkerhet med tredjepartssäkerhet som tjänstpartner**     |Kunden etablerade och hanterade VPN-anslutning till partnertjänst val|Automatiserad via Trusted Security Partner flöde och partner hantering erfarenhet|
+|**Centraliserad rutthantering för att dirigera trafik till navet**     |Kundhanterad användardefinierad väg|Stöds med BGP|
+|**Brandvägg för webbaserade program på Application Gateway** |Stöds i virtuellt nätverk|Stöds för närvarande i ekernätverk|
+|**Virtuell nätverksinstallation**|Stöds i virtuellt nätverk|Stöds för närvarande i ekernätverk|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs [Översikt över Azure Firewall Manager Preview Deployment](deployment-overview.md)
-- Läs mer om [skyddade virtuella nav](secured-virtual-hub.md).
+- Granska [distributionsdistributionsöversikten för förhandsversionen av Azure Firewall Manager](deployment-overview.md)
+- Läs mer om [säkra virtuella hubbar](secured-virtual-hub.md).

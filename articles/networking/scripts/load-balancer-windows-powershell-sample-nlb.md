@@ -1,6 +1,6 @@
 ---
-title: Belastnings Utjämnings trafik till virtuella datorer för HA-Azure PowerShell
-description: Azure PowerShell skript exempel – belastnings Utjämnings trafik till virtuella datorer för hög tillgänglighet
+title: Belastningsbalanstrafik till virtuella datorer för HA - Azure PowerShell
+description: Exempel på Azure PowerShell-skript – belastningsutjämnad trafik till virtuella datorer för hög tillgänglighet
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
@@ -13,17 +13,17 @@ ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: allensu
 ms.openlocfilehash: 1f0ff6cad90a4e5578a4f0c578a7da5cbbb75457
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74067074"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Belastningsutjämna trafik till virtuella datorer för hög tillgänglighet
 
-Det här skript exemplet skapar allt som behövs för att köra flera virtuella Windows-datorer som kon figurer ATS i en hög tillgänglig och belastningsutjämnad konfiguration. När du har kört skriptet har du tre virtuella datorer som är anslutna till en Azure-tillgänglighetsuppsättning och är tillgängliga via Azure Load Balancer.
+Det här skriptexemplet skapar allt som behövs för att köra flera virtuella Windows-datorer som konfigurerats i en konfiguration med hög tillgänglig och belastningsbalanserad. När du har kört skriptet har du tre virtuella datorer som är anslutna till en Azure-tillgänglighetsuppsättning och är tillgängliga via Azure Load Balancer.
 
-Om det behövs installerar du Azure PowerShell med hjälp av instruktionerna i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) och kör sedan `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om det behövs installerar du Azure PowerShell med hjälp av instruktionen som finns i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)och kör `Connect-AzAccount` sedan för att skapa en anslutning med Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,7 +60,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) | Skapar ett virtuellt nätverkskort och ansluter det till det virtuella nätverket, undernätet och NSG. |
 | [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | Skapar en tillgänglighetsuppsättning. Tillgänglighetsuppsättningar garanterar programmets drifttid genom att fördela virtuella datorer mellan fysiska resurser så att hela uppsättningen inte berörs om något fel inträffar. |
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
-| [New-AzVM](/powershell/module/az.compute/new-azvm)  | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Kommandot specificerar även vilken avbildning av virtuell dator som ska användas samt administrativa autentiseringsuppgifter.  |
+| [New-AzVM](/powershell/module/az.compute/new-azvm)  | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Kommandot specificerar även avbildningen av den virtuella dator som ska användas samt administrativa autentiseringsuppgifter.  |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

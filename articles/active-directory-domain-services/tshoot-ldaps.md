@@ -1,6 +1,6 @@
 ---
-title: Felsöka säker LDAP i Azure AD Domain Services | Microsoft Docs
-description: Lär dig hur du felsöker säker LDAP (LDAPs) för en Azure Active Directory Domain Services hanterad domän
+title: Felsöka säker LDAP i Azure AD Domain Services | Microsoft-dokument
+description: Lär dig hur du felsöker säker LDAP (LDAPS) för en hanterad Azure Active Directory Domain Services-domän
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,36 +12,36 @@ ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: iainfou
 ms.openlocfilehash: 22d1b6e2344256b52cfdbc48720a680a770a4216
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132171"
 ---
-# <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Felsöka problem med säker LDAP-anslutning till en Azure Active Directory Domain Services hanterad domän
+# <a name="troubleshoot-secure-ldap-connectivity-issues-to-an-azure-active-directory-domain-services-managed-domain"></a>Felsöka problem med säker LDAP-anslutning till en hanterad Azure Active Directory Domain Services-domän
 
-Program och tjänster som använder LDAP (Lightweight Directory Access Protocol) för att kommunicera med Azure Active Directory Domain Services (Azure AD DS) kan [konfigureras för att använda säker LDAP](tutorial-configure-ldaps.md). Ett lämpligt certifikat och nödvändiga nätverks portar måste vara öppna för att säker LDAP ska fungera korrekt.
+Program och tjänster som använder LDAP (Lightweight Directory Access Protocol) för att kommunicera med Azure Active Directory Domain Services (Azure AD DS) kan [konfigureras för att använda säker LDAP](tutorial-configure-ldaps.md). Ett lämpligt certifikat och nödvändiga nätverksportar måste vara öppna för att säker LDAP ska fungera korrekt.
 
 Den här artikeln hjälper dig att felsöka problem med säker LDAP-åtkomst i Azure AD DS.
 
-## <a name="common-connection-issues"></a>Vanliga anslutnings problem
+## <a name="common-connection-issues"></a>Vanliga anslutningsproblem
 
-Om du har problem med att ansluta till en Azure AD DS-hanterad domän med säker LDAP kan du läsa följande fel söknings steg. Efter varje fel söknings steg försöker du ansluta till den hanterade Azure AD DS-domänen igen:
+Om du har problem med att ansluta till en Azure AD DS-hanterad domän med säker LDAP läser du följande felsökningssteg. Efter varje felsökningssteg kan du försöka ansluta till den Azure AD DS-hanterade domänen igen:
 
-* Utfärdarens kedja av det säkra LDAP-certifikatet måste vara betrodd på klienten. Du kan lägga till rot certifikat utfärdaren (CA) i det betrodda rot certifikat arkivet på klienten för att upprätta förtroendet.
-    * Se till att [Exportera och tillämpa certifikatet på klient datorer][client-cert].
-* Kontrol lera att det säkra LDAP-certifikatet för din hanterade domän har DNS-namnet i attributen *subject* eller *Alternativt namn på certifikat mottagare* .
-    * Granska [kraven för säkra LDAP-certifikat][certs-prereqs] och skapa ett ersättnings certifikat om det behövs.
-* Kontrol lera att LDAP-klienten, till exempel *Ldp. exe* , ansluter till den säkra LDAP-slutpunkten med ett DNS-namn, inte IP-adressen.
-    * Certifikatet som används för den hanterade Azure AD DS-domänen innehåller inte tjänstens IP-adresser, bara DNS-namnen.
-* Kontrol lera DNS-namnet som LDAP-klienten ansluter till. Den måste matcha den offentliga IP-adressen för säker LDAP på den hanterade domänen i Azure AD DS.
-    * Om DNS-namnet matchar den interna IP-adressen uppdaterar du DNS-posten för att matcha den externa IP-adressen.
-* För extern anslutning måste nätverks säkerhets gruppen innehålla en regel som tillåter trafik till TCP-port 636 från Internet.
-    * Om du kan ansluta till den hanterade Azure AD DS-domänen med hjälp av säker LDAP från resurser som är direkt anslutna till det virtuella nätverket, men inte externa anslutningar, kontrollerar du att du [skapar en regel för nätverks säkerhets grupper för att tillåta säker LDAP-trafik][ldaps-nsg].
+* Utfärdarkedjan för det säkra LDAP-certifikatet måste vara betrodd på klienten. Du kan lägga till rotcertifikatutfärdaren i det betrodda rotcertifikatarkivet på klienten för att upprätta förtroendet.
+    * Se till att du [exporterar och tillämpar certifikatet på klientdatorer][client-cert].
+* Kontrollera att det säkra LDAP-certifikatet för den hanterade domänen har DNS-namnet i *attributet Ämne* eller *Ämnesalternativnamn.*
+    * Granska de [säkra LDAP-certifikatkraven][certs-prereqs] och skapa ett ersättningscertifikat om det behövs.
+* Kontrollera att LDAP-klienten, till exempel *ldp.exe* ansluter till den säkra LDAP-slutpunkten med ett DNS-namn, inte IP-adressen.
+    * Certifikatet som tillämpas på den Hanterade Azure AD DS-domänen innehåller inte TJÄNSTENS IP-adresser, bara DNS-namnen.
+* Kontrollera DNS-namnet som LDAP-klienten ansluter till. Den måste lösa till den offentliga IP-adressen för säker LDAP på Azure AD DS-hanterad domän.
+    * Om DNS-namnet matchas till den interna IP-adressen uppdaterar du DNS-posten så att den matchar till den externa IP-adressen.
+* För extern anslutning måste nätverkssäkerhetsgruppen innehålla en regel som tillåter trafik till TCP-port 636 från Internet.
+    * Om du kan ansluta till azure AD DS-hanterad domän med säker LDAP från resurser som är direkt anslutna till det virtuella nätverket men inte externa anslutningar, se till att du [skapar en regel för nätverkssäkerhetsgrupp för att tillåta säker LDAP-trafik][ldaps-nsg].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du fortfarande har problem [öppnar du en support förfrågan för Azure][azure-support] om du behöver ytterligare fel sökning.
+Om du fortfarande har problem [öppnar du en Azure-supportbegäran för][azure-support] ytterligare felsökningshjälp.
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

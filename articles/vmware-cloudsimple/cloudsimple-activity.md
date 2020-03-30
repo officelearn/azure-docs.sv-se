@@ -1,7 +1,7 @@
 ---
-title: Aktivitetsledning
-description: Beskriver aktivitets koncept i VMware-lösning enligt AVS
-titleSuffix: Azure VMware Solutions (AVS)
+title: CloudSimple aktivitetshantering
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Beskriver aktivitetskoncept för VMware-lösning från CloudSimple
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 04/30/2019
@@ -9,33 +9,33 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ca20413b4f21ddfcf01021f8b003b30ad2195579
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 985fcc0aa99723fde5e0c11babe3777c31cbd4c3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025103"
 ---
-# <a name="activity-management-overview"></a>Översikt över aktivitets hantering
+# <a name="activity-management-overview"></a>Översikt över aktivitetshantering
 
-AVS håller koll på all aktivitet som kan påverka driften av din moln miljö för privata moln. Aktiviteterna omfattar aviseringar, händelser, aktiviteter och gransknings aktiviteter. [Aktivitets sidorna](monitor-activity.md) sammanfattar all aktuell aktivitet och gör det möjligt att öka detalj nivån för ytterligare information.
+CloudSimple håller reda på all aktivitet som kan påverka hur din privata molnmiljö fungerar. Aktiviteter inkluderar aviseringar, händelser, uppgifter och granskningsaktivitet. [Aktivitetssidorna](monitor-activity.md) sammanfattar all aktuell aktivitet och gör att du kan öka detaljnivån för ytterligare information.
 
-## <a name="events"></a>Events
+## <a name="events"></a>Händelser
 
-Händelser spårar användare och system aktivitet på AVS-portalen. Händelser visar den aktivitet som är associerad med en speciell resurs och påverkannas allvarlighets grad.  Du kan visa händelserna från AVS-portalen.
+Händelser spårar användar- och systemaktivitet på CloudSimple-portalen. Händelser visar aktiviteten som är associerad med en viss resurs och hur allvarlig effekten är.  Du kan visa händelserna från CloudSimple-portalen.
 
 ## <a name="alerts"></a>Aviseringar
 
-Aviseringar är aviseringar om eventuella betydande aktiviteter i din AVS-miljö. Händelser som påverkar fakturerings-eller användar åtkomst visas som aviseringar. Du kan bekräfta aviseringar från AVS-portalen.
+Aviseringar är aviseringar om någon betydande aktivitet i din CloudSimple-miljö. Händelser som påverkar fakturering eller användaråtkomst visas som aviseringar.  Du kan bekräfta aviseringar från CloudSimple-portalen.
 
 ## <a name="tasks"></a>Aktiviteter
 
-Uppgifter spårar alla användar åtgärder som tar mer än 30 sekunder att slutföra. Du kan övervaka förloppet för en aktivitet från AVS-portalen. För slutförda uppgifter omfattar informationen den totala tiden för slut för ande.
+Uppgifter spårar alla användaråtgärder som tar mer än 30 sekunder att slutföra. Du kan övervaka förloppet för en uppgift från CloudSimple-portalen.  För slutförda uppgifter innehåller informationen den totala tiden för slutförande.
 
 ## <a name="audit"></a>Granska
 
-Gransknings loggar håller reda på användar åtgärder. Gransknings loggar innehåller de parametrar som har angetts för åtgärden av användaren. Du kan använda gransknings loggar för att övervaka användar aktivitet för alla användare.
+Granskningsloggar håller reda på användaråtgärder. Granskningsloggar innehåller de parametrar som tillhandahålls för åtgärden av användaren.  Du kan använda granskningsloggar för att övervaka användaraktivitet för alla användare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Visa konto sammanfattningen](account.md)
+* [Visa sammanfattning av kontot](account.md)

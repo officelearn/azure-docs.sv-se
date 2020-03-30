@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Konfigurera meta Networks Connector för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till meta Networks Connector.
+title: 'Självstudiekurs: Konfigurera Meta Networks Connector för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
+description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetableringa användarkonton till Meta Networks Connector.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,114 +16,114 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: Zhchia
 ms.openlocfilehash: 03c2dc6253fba5c2c7d59f3aefc5c1c663ed8248
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77061370"
 ---
-# <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Självstudie: Konfigurera meta Networks Connector för automatisk användar etablering
+# <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Meta Networks Connector för automatisk etablering av användare
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i meta Networks Connector och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till meta Networks Connector.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i Meta Networks Connector och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetableras användare och/eller grupper till Meta Networks Connector.
 
 > [!NOTE]
-> I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
+> Den här kopplingen är för närvarande i offentlig förhandsversion. Mer information om de allmänna användningsvillkoren för förhandsversionen av Microsoft Azure finns i [Tilläggsvillkor för Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
 
 * En Azure AD-klient
-* [En klient för meta Networks Connector](https://www.metanetworks.com/)
-* Ett användar konto i meta Networks Connector med administratörs behörighet.
+* [En Meta Networks Connector-klient](https://www.metanetworks.com/)
+* Ett användarkonto i Meta Networks Connector med administratörsbehörighet.
 
-## <a name="assigning-users-to-meta-networks-connector"></a>Tilldela användare till meta Networks Connector
+## <a name="assigning-users-to-meta-networks-connector"></a>Tilldela användare till Meta Networks Connector
 
-Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett koncept som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller grupper som har tilldelats ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till meta Networks Connector. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till meta Networks Connector genom att följa anvisningarna här:
-* [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
+Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Meta Networks Connector. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Meta Networks Connector genom att följa instruktionerna här:
+* [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
 
-## <a name="important-tips-for-assigning-users-to-meta-networks-connector"></a>Viktiga tips för att tilldela användare till meta Networks Connector
+## <a name="important-tips-for-assigning-users-to-meta-networks-connector"></a>Viktiga tips för att tilldela användare till Meta Networks Connector
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas till meta Networks Connector för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas Meta Networks Connector för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till meta Networks Connector måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med **standard åtkomst** rollen undantas från etablering.
+* När du tilldelar en användare till Meta Networks Connector måste du välja en giltig programspecifik roll (om tillgänglig) i tilldelningsdialogrutan. Användare med rollen **Standardåtkomst** är undantagna från etablering.
 
-## <a name="setup-meta-networks-connector-for-provisioning"></a>Konfigurera meta Networks-anslutning för etablering
+## <a name="setup-meta-networks-connector-for-provisioning"></a>Konfigurera Meta Networks Connector för etablering
 
-1. Logga in på din [Administratörs konsol för meta Networks Connector](https://login.metanetworks.com/login/) med ditt organisations namn. Gå till **Administration > API-nycklar**.
+1. Logga in på [administratörskonsolen Meta Networks Connector](https://login.metanetworks.com/login/) med ditt organisationsnamn. Navigera till **Administration > API-nycklar**.
 
-    ![Administratörs konsol för meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/apikey.png)
+    ![Administratörskonsol för MetaNätverkskoppling](media/meta-networks-connector-provisioning-tutorial/apikey.png)
 
-2.  Klicka på plus tecknet på den övre högra sidan av skärmen för att skapa en ny **API-nyckel**.
+2.  Klicka på plustecknet längst upp till höger på skärmen för att skapa en ny **API-nyckel**.
 
-    ![Meta Networks Connector plus ikon](media/meta-networks-connector-provisioning-tutorial/plusicon.png)
+    ![Ikon för Meta Networks Connector plus](media/meta-networks-connector-provisioning-tutorial/plusicon.png)
 
-3.  Ange **API-nyckelns namn** och **Beskrivning av API-nyckeln**.
+3.  Ange **API-nyckelnamn** och **API-nyckelbeskrivning**.
 
-    ![Meta Networks Connector Create token](media/meta-networks-connector-provisioning-tutorial/keyname.png)
+    ![Skapa token för metanätverkskoppling](media/meta-networks-connector-provisioning-tutorial/keyname.png)
 
-4.  Aktivera **Skriv** behörighet för **grupper** och **användare**.
+4.  Aktivera **Write** skrivbehörighet för **grupper** och **användare**.
 
-    ![Behörighet för meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/privileges.png)
+    ![Behörigheter för Meta-nätverksanslutning](media/meta-networks-connector-provisioning-tutorial/privileges.png)
 
-5.  Klicka på **Lägg till**. Kopiera **hemligheten** och spara den eftersom det är den enda gången du kan visa den. Det här värdet anges i fältet Hemlig token på fliken etablering i appen för meta Networks Connector i Azure Portal.
+5.  Klicka på **Lägg till**. Kopiera **SECRET** och spara den eftersom detta kommer att vara den enda gången du kan visa den. Det här värdet anges i fältet Hemlig token på fliken Etablering i ditt Meta Networks Connector-program i Azure-portalen.
 
-    ![Meta Networks Connector Create token](media/meta-networks-connector-provisioning-tutorial/token.png)
+    ![Skapa token för metanätverkskoppling](media/meta-networks-connector-provisioning-tutorial/token.png)
 
-6.  Lägg till en IdP genom att gå till **Administration > inställningar > IdP > skapa nytt**.
+6.  Lägg till ett IDP genom att navigera till **Administration > Inställningar > IdP > Skapa nytt**.
 
-    ![Meta Networks Connector Lägg till IdP](media/meta-networks-connector-provisioning-tutorial/newidp.png)
+    ![Lägg till IdP för MetaNätverkskoppling](media/meta-networks-connector-provisioning-tutorial/newidp.png)
 
-7.  På **konfigurations** sidan för IDP kan du **namnge** IDP-konfigurationen och välja en **ikon**.
+7.  På **idP-konfigurationssidan** kan du **namnge** IdP-konfigurationen och välja en **ikon**.
 
-    ![IdP namn för meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/idpname.png)
+    ![IdP-namn för MetaNätverkskoppling](media/meta-networks-connector-provisioning-tutorial/idpname.png)
 
-    ![IdP-ikon för meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/icon.png)
+    ![Ikon för Meta Networks Connector IdP](media/meta-networks-connector-provisioning-tutorial/icon.png)
 
-8.  Under **Konfigurera scim** väljer du det API-nyckel namn som skapades i föregående steg. Klicka på **Spara**.
+8.  Under **Konfigurera SCIM** väljer du api-nyckelnamnet som skapats i föregående steg. Klicka på **Spara**.
 
-    ![Meta Networks Connector konfigurera SCIM](media/meta-networks-connector-provisioning-tutorial/configure.png)
+    ![MetaNätverkskoppling konfigurerar SCIM](media/meta-networks-connector-provisioning-tutorial/configure.png)
 
-9.  Gå till **Administration > inställningar > fliken IDP**. Klicka på namnet på IdP-konfigurationen som skapades i föregående steg för att visa **IDP-ID: t**. Detta **ID** läggs till i slutet av **klient-URL:** en när du anger värdet i fältet **klient-URL** på fliken etablering i appen för ditt meta Network Connector i Azure Portal.
+9.  Navigera till **fliken Administration > Inställningar > IdP**. Klicka på namnet på IdP-konfigurationen som skapats i föregående steg för att visa **IdP-ID**. Det här **ID:t** läggs till i slutet av **klient-URL:en** när värdet anges i **url-fältet klient** i fliken Etablering i ditt Meta Networks Connector-program i Azure-portalen.
 
-    ![IdP-ID för meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/idpid.png)
+    ![Id-ID för MetaNätverkskoppling](media/meta-networks-connector-provisioning-tutorial/idpid.png)
 
-## <a name="add-meta-networks-connector-from-the-gallery"></a>Lägg till meta Networks Connector från galleriet
+## <a name="add-meta-networks-connector-from-the-gallery"></a>Lägga till Meta Networks Connector från galleriet
 
-Innan du konfigurerar meta Network Connector för automatisk användar etablering med Azure AD måste du lägga till meta Networks Connector från Azure AD-programgalleriet till listan över hanterade SaaS-program.
+Innan du konfigurerar Meta Networks Connector för automatisk användaretablering med Azure AD måste du lägga till Meta Networks Connector från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Gör så här om du vill lägga till meta Networks Connector från Azure AD-programgalleriet:**
+**Så här lägger du till Meta Networks Connector från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
+1. Välj **Azure Active Directory**i **[Azure-portalen](https://portal.azure.com)** i den vänstra navigeringspanelen .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **Enterprise-program**och välj sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **Nytt program** högst upp i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **meta Networks Connector**, väljer **meta Networks Connector** i resultat panelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
+4. I sökrutan anger du **Meta Networks Connector**, väljer Meta Networks **Connector** på resultatpanelen och klickar sedan på knappen **Lägg** till för att lägga till programmet.
 
     ![Meta Networks Connector i resultatlistan](common/search-new-app.png)
 
-## <a name="configuring-automatic-user-provisioning-to-meta-networks-connector"></a>Konfigurera automatisk användar etablering till meta Networks Connector 
+## <a name="configuring-automatic-user-provisioning-to-meta-networks-connector"></a>Konfigurera automatisk användaretablering till Meta Networks Connector 
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i meta Networks Connector baserat på användar-och/eller grupp tilldelningar i Azure AD.
+I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Meta Networks Connector baserat på användar- och/eller grupptilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för meta Networks Connector genom att följa anvisningarna i [självstudien om enkel inloggning i meta Networks Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/metanetworksconnector-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användar etablering, även om de här två funktionerna är på varandra
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för Meta Networks Connector , enligt instruktionerna i [den enkla inloggningskursen För MetaNätverkskopplingen](https://docs.microsoft.com/azure/active-directory/saas-apps/metanetworksconnector-tutorial). Enkel inloggning kan konfigureras oberoende av automatisk användaretablering, även om dessa två funktioner kompletterar varandra
 
-### <a name="to-configure-automatic-user-provisioning-for-meta-networks-connector-in-azure-ad"></a>Konfigurera automatisk användar etablering för meta Networks Connector i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-meta-networks-connector-in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för Meta Networks Connector i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -131,64 +131,64 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Länken för Meta Networks Connector i programlistan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering.**
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Fliken Etablering](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ställ in **etableringsläget** på **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Fliken Etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , in`https://api.metanetworks.com/v1/scim/<IdP ID>` i **klient-URL**. Mata in **scim-autentiseringstoken** som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till meta Networks Connector. Om anslutningen Miss lyckas kontrollerar du att det finns administratörs behörighet för ditt meta Network Connector-konto och försöker igen.
+5. Under avsnittet **Administratörsautentiseringsuppgifter** anger du i `https://api.metanetworks.com/v1/scim/<IdP ID>` **klient-URL.** Ange värdet **för SCIM-autentiseringstoken** som hämtats tidigare i **hemlig token**. Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till Meta Networks Connector. Om anslutningen misslyckas kontrollerar du att ditt Meta Networks Connector-konto har administratörsbehörighet och försöker igen.
 
-    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Url till klient + token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
+6. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan - **Skicka ett e-postmeddelande när ett fel inträffar**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-7. Klicka på **Save** (Spara).
+7. Klicka på **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till meta Networks Connector**.
+8. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory Users till Meta Networks Connector**.
 
-    ![Användar mappningar för meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/usermappings.png)
+    ![Användarmappningar för Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/usermappings.png)
 
-9. Granska de användarattribut som synkroniseras från Azure AD till meta Networks Connector i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i meta Networks-anslutningen för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+9. Granska användarattributen som synkroniseras från Azure AD till Meta Networks Connector i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Meta Networks Connector för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
 
-    ![Användarattribut för meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/userattributes.png)
+    ![Användarattribut för Meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/userattributes.png)
 
-10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till meta Networks Connector**.
+10. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory Groups till Meta Networks Connector**.
 
-    ![Grupp mappningar för meta Networks Connector](media/meta-networks-connector-provisioning-tutorial/groupmappings.png)
+    ![Mappningar i Meta Networks Connector-grupp](media/meta-networks-connector-provisioning-tutorial/groupmappings.png)
 
-11. Granska gruppattributen som synkroniseras från Azure AD till meta Networks Connector i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i meta Networks-anslutningen för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+11. Granska gruppattributen som synkroniseras från Azure AD till Meta Networks Connector i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha grupperna i Meta Networks Connector för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
 
-    ![Attribut för meta Network Connector-grupp](media/meta-networks-connector-provisioning-tutorial/groupattributes.png)
+    ![Attribut för Meta Networks Connector-grupp](media/meta-networks-connector-provisioning-tutorial/groupattributes.png)
 
-12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Om du vill aktivera Azure AD Provisioning-tjänsten för meta Networks Connector ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+13. Om du vill aktivera Azure AD-etableringstjänsten för Meta Networks Connector ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
 
-14. Definiera de användare och/eller grupper som du vill etablera till meta Networks-anslutningen genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+14. Definiera de användare och/eller grupper som du vill etablera till Meta Networks Connector genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 15. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på meta Networks-anslutningsprogrammet.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etableringsaktivitetsrapporten, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på Meta Networks Connector.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)
 

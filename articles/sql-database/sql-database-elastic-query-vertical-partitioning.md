@@ -1,6 +1,6 @@
 ---
-title: Fråga över molndatabaser med olika scheman
-description: så här konfigurerar du frågor över flera databaser över lodräta partitioner
+title: Fråga över molndatabaser med olika schema
+description: konfigurera frågor över flera databaser över lodräta partitioner
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,37 +12,37 @@ ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
 ms.openlocfilehash: d5983d25685242a696300f293231bbf987e8442d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73823721"
 ---
-# <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Fråga över moln databaser med olika scheman (förhands granskning)
+# <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Fråga över molndatabaser med olika scheman (förhandsgranskning)
 
 ![Fråga över tabeller i olika databaser][1]
 
-Lodrätt partitionerade databaser använder olika uppsättningar tabeller i olika databaser. Det innebär att schemat är olika i olika databaser. Till exempel är alla tabeller för inventering i en databas medan alla redovisnings tabeller finns på en andra databas. 
+Vertikalt partitionerade databaser använder olika uppsättningar tabeller i olika databaser. Det innebär att schemat är olika på olika databaser. Alla tabeller för lager finns till exempel i en databas medan alla redovisningsrelaterade tabeller finns i en andra databas. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Användaren måste ha ÄNDRINGs behörighet för en extern DATA källa. Den här behörigheten ingår i ALTER DATABASE-behörigheten.
-* ÄNDRA behörigheter för en extern DATA källa krävs för att referera till den underliggande data källan.
+* Användaren måste ha behörigheten ÄNDRA extern datakälla. Den här behörigheten ingår i behörigheten ALTER DATABASE.
+* ÄNDRA EVENTUELLA externa datakällbehörigheter behövs för att referera till den underliggande datakällan.
 
 ## <a name="overview"></a>Översikt
 
 > [!NOTE]
-> Till skillnad från vågrät partitionering, är dessa DDL-instruktioner inte beroende av att definiera en data nivå med en Shard-karta via klient biblioteket för Elastic Database.
+> Till skillnad från horisontell partitionering är dessa DDL-satser inte beroende av att definiera en datanivå med en fragmentkarta via klientbiblioteket för elastisk databas.
 >
 
-1. [SKAPA HUVUD NYCKEL](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [SKAPA DATABASENS BEGRÄNSADE AUTENTISERINGSUPPGIFTER](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [SKAPA EXTERN DATA KÄLLA](https://msdn.microsoft.com/library/dn935022.aspx)
+1. [SKAPA HUVUDNYCKEL](https://msdn.microsoft.com/library/ms174382.aspx)
+2. [SKAPA DATABASSCOPED-AUTENTISERINGSUPPGIFTER](https://msdn.microsoft.com/library/mt270260.aspx)
+3. [SKAPA EXTERN DATAKÄLLA](https://msdn.microsoft.com/library/dn935022.aspx)
 4. [SKAPA EXTERN TABELL](https://msdn.microsoft.com/library/dn935021.aspx) 
 
-## <a name="create-database-scoped-master-key-and-credentials"></a>Skapa databasens begränsade huvud nyckel och autentiseringsuppgifter
+## <a name="create-database-scoped-master-key-and-credentials"></a>Skapa huvudnyckel och autentiseringsuppgifter för databasomfattade
 
-Autentiseringsuppgiften används av den elastiska frågan för att ansluta till dina fjärrdatabaser.  
+Autentiseringsuppgifterna används av den elastiska frågan för att ansluta till fjärrdatabaserna.  
 
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'master_key_password';
     CREATE DATABASE SCOPED CREDENTIAL <credential_name>  WITH IDENTITY = '<username>',  
@@ -50,12 +50,12 @@ Autentiseringsuppgiften används av den elastiska frågan för att ansluta till 
     [;]
 
 > [!NOTE]
-> Se till att `<username>` inte innehåller något **"\@servername"** -suffix. 
+> Kontrollera att `<username>` suffixet "servernamn" inte innehåller något **"servernamn".\@** 
 >
 
-## <a name="create-external-data-sources"></a>Skapa externa data källor
+## <a name="create-external-data-sources"></a>Skapa externa datakällor
 
-Uttryck
+Syntax:
 
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH 
@@ -66,12 +66,12 @@ Uttryck
                 ) [;] 
 
 > [!IMPORTANT]
-> TYP parametern måste anges som **RDBMS**. 
+> Parametern TYPE måste anges till **RDBMS**. 
 >
 
 ### <a name="example"></a>Exempel
 
-I följande exempel visas användningen av CREATE-instruktionen för externa data källor. 
+Följande exempel illustrerar användningen av CREATE-satsen för externa datakällor. 
 
     CREATE EXTERNAL DATA SOURCE RemoteReferenceData 
     WITH 
@@ -82,13 +82,13 @@ I följande exempel visas användningen av CREATE-instruktionen för externa dat
         CREDENTIAL= SqlUser 
     ); 
 
-Hämta listan över aktuella externa data Källor: 
+Så här hämtar du listan över aktuella externa datakällor: 
 
     select * from sys.external_data_sources; 
 
 ### <a name="external-tables"></a>Externa tabeller
 
-Uttryck
+Syntax:
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
     ( { <column_definition> } [ ,...n ])     
@@ -122,32 +122,32 @@ I följande exempel visas hur du hämtar listan över externa tabeller från den
 
     select * from sys.external_tables; 
 
-### <a name="remarks"></a>Kommentarer
+### <a name="remarks"></a>Anmärkningar
 
-Elastisk fråga utökar den befintliga syntaxen för den externa tabellen för att definiera externa tabeller som använder externa data källor av typen RDBMS. En extern tabell definition för vertikal partitionering omfattar följande aspekter: 
+Elastisk fråga utökar den befintliga externa tabellsyntaxen för att definiera externa tabeller som använder externa datakällor av typen RDBMS. En extern tabelldefinition för vertikal partitionering omfattar följande aspekter: 
 
-* **Schema**: DDL: en för den externa tabellen definierar ett schema som dina frågor kan använda. Det schema som anges i den externa tabell definitionen måste matcha schemat för tabellerna i fjärrdatabasen där faktiska data lagras. 
-* **Fjärran sluten databas referens**: det externa tabell-DDL: en refererar till en extern data källa. Den externa data källan anger SQL Database Server namnet och databas namnet för fjärrdatabasen där de faktiska tabell data lagras. 
+* **Schema**: Den externa tabellen DDL definierar ett schema som dina frågor kan använda. Schemat som anges i den externa tabelldefinitionen måste matcha schemat för tabellerna i fjärrdatabasen där de faktiska data lagras. 
+* **Referens för fjärrdatabas:** DDL för extern tabell refererar till en extern datakälla. Den externa datakällan anger SQL Database-servernamnet och databasnamnet för fjärrdatabasen där de faktiska tabelldata lagras. 
 
-Med hjälp av en extern data källa som beskrivs i föregående avsnitt är syntaxen för att skapa externa tabeller följande: 
+Med hjälp av en extern datakälla som beskrivs i föregående avsnitt är syntaxen för att skapa externa tabeller följande: 
 
-DATA_SOURCE-satsen definierar den externa data källan (t. ex. fjärrdatabasen vid vertikal partitionering) som används för den externa tabellen.  
+Den DATA_SOURCE satsen definierar den externa datakällan (dvs. fjärrdatabasen vid vertikal partitionering) som används för den externa tabellen.  
 
-SCHEMA_NAME-och OBJECT_NAME-satserna ger möjlighet att mappa den externa tabell definitionen till en tabell i ett annat schema på fjärrdatabasen eller till en tabell med ett annat namn. Detta är användbart om du vill definiera en extern tabell till en katalogvy eller DMV på din fjärrdatabas, eller någon annan situation där fjärrtabellens namn redan används lokalt.  
+Satserna SCHEMA_NAME och OBJECT_NAME ger möjlighet att mappa den externa tabelldefinitionen till en tabell i ett annat schema i fjärrdatabasen eller till en tabell med ett annat namn. Detta är användbart om du vill definiera en extern tabell till en katalogvy eller DMV på fjärrdatabasen - eller någon annan situation där fjärrtabellnamnet redan tas lokalt.  
 
-Följande DDL-instruktion släpper en befintlig extern tabell definition från den lokala katalogen. Den påverkar inte fjärrdatabasen. 
+Följande DDL-sats släpper en befintlig extern tabelldefinition från den lokala katalogen. Det påverkar inte fjärrdatabasen. 
 
     DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 
-**Behörigheter för att skapa/släppa extern tabell**: ändra behörigheter för externa data källor krävs för extern tabell-DDL, vilket också krävs för att referera till den underliggande data källan.  
+**Behörigheter för EXTERN TABELL SKAPA/SLÄPP**: ÄNDRA EVENTUELLA externa datakällbehörigheter behövs för extern tabell-DDL som också behövs för att referera till den underliggande datakällan.  
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 
-Användare med åtkomst till den externa tabellen får automatiskt till gång till de underliggande fjärrtabellerna under de autentiseringsuppgifter som angavs i definitionen för den externa data källan. Du bör noggrant hantera åtkomst till den externa tabellen för att undvika oönskad höjning av privilegier genom den externa data källans autentiseringsuppgifter. Vanliga SQL-behörigheter kan användas för att bevilja eller återkalla åtkomst till en extern tabell precis som om det vore en vanlig tabell.  
+Användare med åtkomst till den externa tabellen får automatiskt åtkomst till de underliggande fjärrtabellerna under den autentiseringsuppgifter som anges i definitionen av extern datakälla. Du bör noggrant hantera åtkomsten till den externa tabellen för att undvika oönskad behörighetshöjning via autentiseringsuppgifterna för den externa datakällan. Vanliga SQL-behörigheter kan användas för att bevilja eller återkalla åtkomst till en extern tabell precis som om det vore en vanlig tabell.  
 
-## <a name="example-querying-vertically-partitioned-databases"></a>Exempel: fråga lodrätt partitionerade databaser
+## <a name="example-querying-vertically-partitioned-databases"></a>Exempel: fråga vertikalt partitionerade databaser
 
-Följande fråga utför en tre vägs koppling mellan de två lokala tabellerna för beställningar och order rader och fjär tabellen för kunder. Detta är ett exempel på användnings fall för referens data för elastisk fråga: 
+Följande fråga utför en trevägskoppling mellan de två lokala tabellerna för order och orderrader och fjärrtabellen för kunder. Detta är ett exempel på referensdata användningsfall för elastisk fråga: 
 
 ```sql
     SELECT      
@@ -165,16 +165,16 @@ Följande fråga utför en tre vägs koppling mellan de två lokala tabellerna f
     WHERE c_id = 100
 ```
 
-## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Lagrad procedur för fjärran sluten T-SQL-körning: SP\_execute_remote
+## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Lagrad procedur för fjärr-T-SQL-körning: sp\_execute_remote
 
-Elastiska frågor introducerar också en lagrad procedur som ger direkt åtkomst till fjärrdatabasen. Den lagrade proceduren kallas [sp\_köra \_fjärran sluten](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra fjärrlagrade procedurer eller t-SQL-kod i fjärrdatabasen. Det tar följande parametrar: 
+Elastisk fråga introducerar också en lagrad procedur som ger direkt åtkomst till fjärrdatabasen. Den lagrade proceduren kallas [sp\_kör \_fjärrkontroll](https://msdn.microsoft.com/library/mt703714) och kan användas för att köra fjärrbevarade procedurer eller T-SQL-kod på fjärrdatabasen. Det tar följande parametrar: 
 
-* Data källans namn (nvarchar): namnet på den externa data källan av typen RDBMS. 
-* Fråga (nvarchar): T-SQL-frågan som ska köras på fjärrdatabasen. 
-* Parameter deklaration (nvarchar) – valfritt: sträng med data typs definitioner för de parametrar som används i Frågeparametern (till exempel sp_executesql). 
-* Parameter värde List – valfritt: kommaavgränsad lista över parameter värden (till exempel sp_executesql).
+* Datakällnamn (nvarchar): Namnet på den externa datakällan för typen RDBMS. 
+* Fråga (nvarchar): Den T-SQL-fråga som ska köras i fjärrdatabasen. 
+* Parameterdeklaration (nvarchar) - valfritt: Sträng med datatypsdefinitioner för de parametrar som används i parametern Query (t.ex. sp_executesql). 
+* Parametervärdelista - valfri: Kommaavgränsad lista över parametervärden (t.ex. sp_executesql).
 
-Tjänsten SP\_köra\_använder den externa data källan som tillhandahölls i anrops parametrarna för att köra angivet T-SQL-uttryck på fjärrdatabasen. Den externa data källans autentiseringsuppgifter används för att ansluta till fjärrdatabasen.  
+F-körningsfjärrklassen\_\_använder den externa datakällan som anges i anropsparametrarna för att köra det angivna T-SQL-uttrycket på fjärrdatabasen. Den använder autentiseringsuppgifterna för den externa datakällan för att ansluta till fjärrdatabasen.  
 
 Exempel: 
 
@@ -186,20 +186,20 @@ Exempel:
 
 ## <a name="connectivity-for-tools"></a>Anslutning för verktyg
 
-Du kan använda vanliga SQL Server anslutnings strängar för att ansluta dina BI-och data integrerings verktyg till databaser på SQL DB-servern där elastisk fråga har Aktiver ATS och externa tabeller har definierats. Kontrol lera att SQL Server stöds som data källa för ditt verktyg. Referera sedan till den elastiska fråge databasen och dess externa tabeller precis som andra SQL Server databas som du skulle ansluta till med ditt verktyg. 
+Du kan använda vanliga SQL Server-anslutningssträngar för att ansluta bi- och dataintegrationsverktygen till databaser på SQL DB-servern som har elastiska frågeaktiverade och externa tabeller definierade. Kontrollera att SQL Server stöds som en datakälla för ditt verktyg. Se sedan den elastiska frågedatabasen och dess externa tabeller precis som alla andra SQL Server-databaser som du skulle ansluta till med verktyget. 
 
 ## <a name="best-practices"></a>Bästa praxis
 
-* Se till att den elastiska frågans slut punkts databas har fått åtkomst till fjärrdatabasen genom att aktivera åtkomst för Azure-tjänster i dess konfiguration av SQL DB-brandväggen. Se också till att de autentiseringsuppgifter som anges i definitionen för den externa data källan kan logga in i fjärrdatabasen och har behörighet att komma åt fjärrtabellen.  
-* Elastisk fråga fungerar bäst för frågor där merparten av beräkningen kan utföras på fjärrdatabaserna. Du får vanligt vis bästa möjliga frågeresultat med selektiva filter-predikat som kan utvärderas på fjärrdatabaser eller kopplingar som kan utföras helt på fjärrdatabasen. Andra fråge mönster kan behöva läsa in stora mängder data från fjärrdatabasen och kan fungera dåligt. 
+* Kontrollera att den elastiska frågeslutpunktsdatabasen har fått åtkomst till fjärrdatabasen genom att aktivera åtkomst för Azure Services i sql DB-brandväggskonfigurationen. Kontrollera också att autentiseringsuppgifterna i definitionen av extern datakälla kan logga in på fjärrdatabasen och har behörighet att komma åt fjärrtabellen.  
+* Elastisk fråga fungerar bäst för frågor där det mesta av beräkningen kan göras på fjärrdatabaserna. Du får vanligtvis bästa frågeprestanda med selektiva filter predikater som kan utvärderas på fjärrdatabaser eller kopplingar som kan utföras helt på fjärrdatabasen. Andra frågemönster kan behöva läsa in stora mängder data från fjärrdatabasen och kan fungera dåligt. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * En översikt över elastisk fråga finns i [Översikt över elastiska frågor](sql-database-elastic-query-overview.md).
-* En lodrät partitionerings guide finns i [komma igång med kors databas fråga (lodrät partitionering)](sql-database-elastic-query-getting-started-vertical.md).
-* En självstudie för horisontell partitionering (horisontell partitionering) finns i [komma igång med elastisk fråga för horisontell partitionering (horisontell partitionering)](sql-database-elastic-query-getting-started.md).
-* För syntax och exempel frågor för vågrätt partitionerade data, se [fråga efter vågrätt partitionerade data)](sql-database-elastic-query-horizontal-partitioning.md)
-* Se [sp\_köra \_-fjärråtkomst](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr-Azure SQL Database eller uppsättning databaser som är som Shards i ett schema med vågrät partitionering.
+* En lodrät partitioneringsdjälva finns i [Komma igång med fråga över flera databaser (lodrät partitionering)](sql-database-elastic-query-getting-started-vertical.md).
+* En självstudiekurs för vågrät partitionering (sharding) finns i [Komma igång med elastisk fråga för vågrät partitionering (sharding)](sql-database-elastic-query-getting-started.md).
+* Syntax- och exempelfrågor för vågrätt partitionerade data finns i [Fråga vågrätt partitionerade data)](sql-database-elastic-query-horizontal-partitioning.md)
+* Se [\_sp \_kör fjärrkontroll](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör en Transact-SQL-uttryck på en enda fjärr Azure SQL-databas eller uppsättning databaser som fungerar som shards i ett vågrätt partitioneringsschema.
 
 
 <!--Image references-->

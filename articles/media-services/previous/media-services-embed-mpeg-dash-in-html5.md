@@ -1,6 +1,6 @@
 ---
-title: Bädda in en video med MPEG-streck för anpassningsbar uppspelning i ett HTML5-program med bindestreck. js | Microsoft Docs
-description: I det här avsnittet visas hur du bäddar in ett MPEG-STRECKs anpassningsbart strömmande video i ett HTML5-program med bindestreck. js.
+title: Bädda in en MPEG-DASH Adaptiv strömmande video i ett HTML5-program med DASH.js | Microsoft-dokument
+description: Det här avsnittet visar hur du bäddar in en MPEG-DASH Adaptive Streaming Video i ett HTML5-program med DASH.js.
 author: Juliako
 manager: femila
 editor: ''
@@ -15,33 +15,33 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77564864"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Bädda in en video med MPEG-streck för anpassningsbar uppspelning i ett HTML5-program med bindestreck. js  
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Bädda in MPEG-DASH-anpassad direktuppspelad video i ett HTML5-program med DASH.js  
 
 ## <a name="overview"></a>Översikt
-MPEG-bindestreck är en ISO-standard för anpassningsbar strömning av video innehåll, vilket ger avsevärda fördelar för utvecklare som vill leverera högkvalitativ, anpassad video strömnings kvalitet. Med MPEG-streck justeras video strömmen automatiskt till en lägre definition när nätverket blir överbelastat. Detta minskar sannolikheten för att visnings programmet ser en "pausad" video medan spelaren laddar ned de kommande sekunderna för uppspelning (det vill säga att det minskar sannolikheten för buffring). När nätverket överbelastas minskar Videos pelaren i tur och tillbaka till en data ström med högre kvalitet. Den här möjligheten att anpassa bandbredden som krävs leder också till en snabbare start tid för video. Det innebär att de första sekunderna kan spelas upp i ett fast-till-nedladdning av lägre kvalitets segment och sedan gå upp till en högre kvalitet när tillräckligt med innehåll har buffrats.
+MPEG-DASH är en ISO-standard för adaptiv strömning av videoinnehåll, vilket ger betydande fördelar för utvecklare som vill leverera högkvalitativ, adaptiv videostreamingutgång. Med MPEG-DASH justeras videoströmmen automatiskt till en lägre definition när nätverket blir överbelastat. Detta minskar sannolikheten för att tittaren ser en "pausad" video medan spelaren hämtar de närmaste sekunderna för att spela upp (det vill ha minskar sannolikheten för buffring). I takt med att nätverksbelastningen minskar återgår videospelaren i sin tur till en ström av högre kvalitet. Denna förmåga att anpassa den bandbredd som krävs resulterar också i en snabbare starttid för video. Det innebär att de första sekunderna kan spelas i en snabb att ladda ner lägre kvalitet segment och sedan steg upp till en högre kvalitet när tillräckligt innehåll har buffrats.
 
-Bindestreck. js är en MPEG-STRECKad video spelare med öppen källkod skriven i Java Script. Målet är att tillhandahålla en robust, plattforms oberoende spelare som kan återanvändas fritt i program som kräver video uppspelning. Den innehåller uppspelning av MPEG-streck i alla webbläsare som stöder W3C-medie käll tillägg (MSE), idag som är Chrome, Microsoft Edge och IE11 (andra webbläsare har angett sin avsikt att stödja MSE). Om du vill ha mer information om bindestreck. js, se JS-databasen GitHub. js.
+Dash.js är en MPEG-DASH-videospelare med öppen källkod skriven i JavaScript. Dess mål är att tillhandahålla en robust, plattformsoberoende spelare som fritt kan återanvändas i program som kräver videouppspelning. Det ger MPEG-DASH uppspelning i alla webbläsare som stöder W3C Media Source Extensions (MSE), idag som är Chrome, Microsoft Edge och IE11 (andra webbläsare har angett sin avsikt att stödja MSE). Mer information om DASH.js finns i GitHub dash.js-databasen.
 
-## <a name="creating-a-browser-based-streaming-video-player"></a>Skapa en webbläsarbaserad strömmande Videos pelare
-Om du vill skapa en enkel webb sida som visar en Videos pelare med de förväntade kontrollerna som en uppspelning, paus, återspolning osv., måste du:
+## <a name="creating-a-browser-based-streaming-video-player"></a>Skapa en webbläsarbaserad strömmande videospelare
+För att skapa en enkel webbsida som visar en videospelare med de förväntade kontrollerna en sådan uppspelning, paus, spola tillbaka etc., måste du:
 
 1. Skapa en HTML-sida
-2. Lägg till video tag gen
-3. Lägg till bindestreck. js-spelaren
+2. Lägg till videotaggen
+3. Lägg till dash.js-spelaren
 4. Initiera spelaren
-5. Lägg till CSS-format
+5. Lägg till lite CSS-format
 6. Visa resultaten i en webbläsare som implementerar MSE
 
-Det går bara att utföra en fåtal av rader med JavaScript-kod när spelaren initieras. Med hjälp av bindestreck. js är det mycket enkelt att bädda in video med MPEG-streck i dina webbläsarbaserade program.
+Initiera spelaren kan slutföras på bara en handfull rader JavaScript-kod. Med dash.js är det verkligen så enkelt att bädda in MPEG-DASH-video i dina webbläsarbaserade program.
 
 ## <a name="creating-the-html-page"></a>Skapa HTML-sidan
-Det första steget är att skapa en standard-HTML-sida som innehåller **video** elementet, spara filen som basicPlayer. html, som i följande exempel:
+Det första steget är att skapa **video** en standard HTML-sida som innehåller videoelementet, spara den här filen som basicPlayer.html, som följande exempel illustrerar:
 
 ```html
     <!DOCTYPE html>
@@ -54,17 +54,17 @@ Det första steget är att skapa en standard-HTML-sida som innehåller **video**
     </html>
 ```
 
-## <a name="adding-the-dashjs-player"></a>Lägga till bindestreck. js-spelaren
-Om du vill lägga till referens implementeringen för bindestreck. js i programmet måste du hämta bindestreck. all. js-filen från den senaste versionen av bindestreck. js-projektet. Detta bör sparas i Java Script-mappen i ditt program. Den här filen är en bekväm fil som drar samman all nödvändig snedstreck. js-kod i en enda fil. Om du har en titt på den. js-lagringsplatsen hittar du de enskilda filerna, test koden och mycket mer, men om du vill göra det kan du använda bindestreck. js. sedan är filen bindestreck. all. js det du behöver.
+## <a name="adding-the-dashjs-player"></a>Lägga till DASH.js-spelaren
+Om du vill lägga till referensimplementeringen för dash.js i programmet måste du hämta filen dash.all.js från den senaste versionen av dash.js-projektet. Detta bör sparas i JavaScript-mappen i ditt program. Denna fil är en bekvämlighet fil som drar ihop alla nödvändiga dash.js kod i en enda fil. Om du har en titt runt dash.js-arkivet hittar du de enskilda filerna, testkoden och mycket mer, men om allt du vill göra är att använda dash.js, så är dash.all.js-filen vad du behöver.
 
-Lägg till en-skript-tagg till head-avsnittet i basicPlayer. html om du vill lägga till bindestreck. js-spelaren i dina program:
+Om du vill lägga till dash.js-spelaren i dina program lägger du till en skripttagg i huvudavsnittet i basicPlayer.html:
 
 ```html
     <!-- DASH-AVC/265 reference implementation -->
     < script src="js/dash.all.js"></script>
 ```
 
-Skapa sedan en funktion för att initiera spelaren när sidan läses in. Lägg till följande skript efter den rad där du läser in streck. alla. js:
+Skapa sedan en funktion för att initiera spelaren när sidan läses in. Lägg till följande skript efter den rad där du läser in dash.all.js:
 
 ```html
     <script>
@@ -80,19 +80,19 @@ Skapa sedan en funktion för att initiera spelaren när sidan läses in. Lägg t
     </script>
 ```
 
-Den här funktionen skapar först en DashContext. Detta används för att konfigurera programmet för en specifik körnings miljö. Från en teknisk synpunkt definierar den de klasser som beroende inmatnings ramverket ska använda när programmet konstrueras. I de flesta fall använder du bindestreck. di. DashContext.
+Den här funktionen skapar först en DashContext. Detta används för att konfigurera programmet för en specifik körningsmiljö. Ur teknisk synvinkel definierar den de klasser som beroendeinjektionsramen ska använda när programmet byggs. I de flesta fall använder du Dash.di.DashContext.
 
-Sedan instansierar du den primära klassen för bindestreck. js Framework, Media Player. Den här klassen innehåller de kärn metoder som krävs, till exempel Play och Pause, hanterar relationen med video elementet och hanterar även tolkningen av filen med medie presentations beskrivningen (MPD), som beskriver videon som ska spelas upp.
+Därefter instansierar du den primära klassen för dash.js-ramverket, MediaPlayer. Den här klassen innehåller de grundläggande metoder som behövs, till exempel uppspelning och paus, hanterar relationen med videoelementet och hanterar även tolkningen av MPD-filen (Media Presentation Description), som beskriver videon som ska spelas upp.
 
-Funktionen Startup () i Media Player-klassen anropas för att säkerställa att spelaren är redo att spela upp video. Bland annat säkerställer funktionen att alla nödvändiga klasser (som definieras av kontexten) har lästs in. När spelaren är klar kan du koppla video-elementet till det med hjälp av funktionen attachView (). Start funktionen gör att Media Player kan mata in video strömmen i-elementet och även styra uppspelningen vid behov.
+Funktionen startup() för klassen MediaPlayer anropas för att säkerställa att spelaren är redo att spela upp video. Funktionen säkerställer bland annat att alla nödvändiga klasser (enligt sammanhanget definieras). När spelaren är klar kan du ansluta videoelementet till den med funktionen attachView(). Startfunktionen gör det möjligt för MediaPlayer att injicera videoströmmen i elementet och även styra uppspelningen efter behov.
 
-Skicka webb adressen till MPD-filen till Media Player så att den vet om videon som förväntas spelas upp. Funktionen setupVideo () som nyss skapats måste utföras när sidan har lästs in helt. Gör detta med hjälp av onLoad-händelsen i Body-elementet. Ändra `<body>`-elementet till:
+Skicka URL:en till MPD-filen till MediaPlayer så att den vet om videon som den förväntas spela upp. Den setupVideo() funktion som just skapats måste köras när sidan har lästs in helt. Gör detta genom att använda onload händelsen av kroppselementet. Ändra `<body>` elementet till:
 
 ```html
     <body onload="setupVideo()">
 ```
 
-Ange Slutligen storleken på video elementet med CSS. I en anpassningsbar strömmande miljö är detta särskilt viktigt eftersom storleken på videon som spelas upp kan ändras när uppspelningen anpassas till att ändra nätverks förhållandena. I den här enkla demon tvingar du bara video elementet att vara 80% av det tillgängliga webbläsarfönstret genom att lägga till följande CSS i head-avsnittet på sidan:
+Slutligen anger du storleken på videoelementet med CSS. I en anpassningsbar strömningsmiljö är detta särskilt viktigt eftersom storleken på den video som spelas upp kan ändras när uppspelningen anpassas till förändrade nätverksförhållanden. I denna enkla demo helt enkelt tvinga videoelementet att vara 80% av det tillgängliga webbläsarfönstret genom att lägga till följande CSS till huvudavsnittet på sidan:
 
 ```html
     <style>
@@ -104,9 +104,9 @@ Ange Slutligen storleken på video elementet med CSS. I en anpassningsbar ström
 ```
 
 ## <a name="playing-a-video"></a>Spela upp en video
-Om du vill spela upp en video, kan du peka din webbläsare i filen basicPlayback. html och klicka på spela upp i Videos pelaren som visas.
+Om du vill spela upp en video pekar du webbläsaren på filen basicPlayback.html och klickar på play på videospelaren som visas.
 
-## <a name="media-services-learning-paths"></a>Utbildningsvägar för Media Services
+## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback
@@ -114,5 +114,5 @@ Om du vill spela upp en video, kan du peka din webbläsare i filen basicPlayback
 
 ## <a name="see-also"></a>Se även
 
-[GitHub bindestreck. js-lagringsplats](https://github.com/Dash-Industry-Forum/dash.js) 
+[GitHub dash.js-databas](https://github.com/Dash-Industry-Forum/dash.js) 
 

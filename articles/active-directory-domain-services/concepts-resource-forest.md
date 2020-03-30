@@ -1,6 +1,6 @@
 ---
-title: Resurs skogens koncept för Azure AD Domain Services | Microsoft Docs
-description: Lär dig mer om hur en resurs skog är i Azure Active Directory Domain Services och hur de gynnar din organisation i hybrid miljö med begränsade alternativ för användarautentisering eller säkerhets problem.
+title: Resursskogskoncept för Azure AD-domäntjänster | Microsoft-dokument
+description: Lär dig vad en resursskog är i Azure Active Directory Domain Services och hur de gynnar din organisation i hybridmiljö med begränsade alternativ för användarautentisering eller säkerhetsproblem.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -11,112 +11,112 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
 ms.openlocfilehash: a583e32cbc3d58d5dfc5616335b2f38ad20fac14
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74233615"
 ---
-# <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Principer och funktioner för resurs skogar för Azure Active Directory Domain Services
+# <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Resursskogskoncept och funktioner för Azure Active Directory Domain Services
 
-Azure Active Directory Domain Services (AD DS) är en inloggnings upplevelse för äldre, lokala, branschspecifika program. Användare, grupper och lösenords-hashar för lokala och moln användare synkroniseras med den hanterade Azure AD DS-domänen. Dessa synkroniserade lösen ords-hashar är vad som ger användare en enda uppsättning autentiseringsuppgifter som de kan använda för den lokala AD DS, Office 365 och Azure Active Directory.
+Azure Active Directory Domain Services (AD DS) ger en inloggningsupplevelse för äldre, lokala affärsprogram. Användare, grupper och lösenordsh hashar för lokala användare och molnanvändare synkroniseras med Azure AD DS-hanterade domänen. Dessa synkroniserade lösenordstecken är det som ger användarna en enda uppsättning autentiseringsuppgifter som de kan använda för den lokala AD DS, Office 365 och Azure Active Directory.
 
-Även om det är säkert och ger ytterligare säkerhets förmåner, kan vissa organisationer inte synkronisera dessa hashar för användar lösen ord till Azure AD eller Azure AD DS. Användare i en organisation kanske inte känner till sitt lösen ord eftersom de bara använder autentisering med smartkort. De här begränsningarna förhindrar att vissa organisationer använder Azure AD DS för att lyfta och byta lokala klassiska program till Azure.
+Även om det är säkert och ger ytterligare säkerhetsfördelar kan vissa organisationer inte synkronisera dessa användarlösenordshar till Azure AD eller Azure AD DS. Användare i en organisation kanske inte känner till sitt lösenord eftersom de bara använder smartkortsautentisering. Dessa begränsningar hindrar vissa organisationer från att använda Azure AD DS för att lyfta och flytta lokala klassiska program till Azure.
 
-För att lösa dessa behov och begränsningar kan du skapa en Azure AD DS-hanterad domän som använder en resurs skog. I den här konceptuella artikeln förklaras vad skogar är och hur de litar på andra resurser för att tillhandahålla en säker autentiseringsmetod. Azure AD DS resurs skogar är för närvarande en för hands version.
+För att åtgärda dessa behov och begränsningar kan du skapa en Azure AD DS-hanterad domän som använder en resursskog. I den här begreppsmässiga artikeln beskrivs vilka skogar som är och hur de litar på andra resurser för att tillhandahålla en säker autentiseringsmetod. Azure AD DS-resursskogar är för närvarande i förhandsversion.
 
 > [!IMPORTANT]
-> Azure AD DS-resurs skogar har för närvarande inte stöd för Azure HDInsight eller Azure Files. Standard användar skogar i Azure AD DS stöder båda dessa ytterligare tjänster.
+> Azure AD DS-resursskogar stöder för närvarande inte Azure HDInsight eller Azure Files. Standardskogarna för Azure AD DS-användare stöder båda dessa ytterligare tjänster.
 
 ## <a name="what-are-forests"></a>Vad är skogar?
 
-En *skog* är en logisk konstruktion som används av Active Directory Domain Services (AD DS) för att gruppera en eller flera *domäner*. Domänerna lagrar sedan objekt för användare eller grupper och tillhandahåller Authentication Services.
+En *skog* är en logisk konstruktion som används av AD DS (Active Directory Domain Services) för att gruppera en eller flera *domäner*. Domänerna lagrar sedan objekt för användare eller grupper och tillhandahåller autentiseringstjänster.
 
-I Azure AD DS innehåller skogen bara en domän. Lokala AD DS-skogar innehåller ofta många domäner. I stora organisationer, särskilt efter sammanslagning och förvärv, kan du få flera lokala skogar som var och en innehåller flera domäner.
+I Azure AD DS innehåller skogen bara en domän. Lokala AD DS-skogar innehåller ofta många domäner. I stora organisationer, särskilt efter sammanslagningar och förvärv, kan du sluta med flera lokala skogar som var och en sedan innehåller flera domäner.
 
-Som standard skapas en Azure AD DS-hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. Användar konton kan autentiseras direkt mot Azure AD DS-hanterad domän, t. ex. för att logga in på en domänansluten virtuell dator. En användar skog fungerar när lösen ordets hash-värden kan synkroniseras och användarna inte använder exklusiva inloggnings metoder som smartkort-autentisering.
+Som standard skapas en Azure AD DS-hanterad domän som en *användarskog.* Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användarkonton som skapats i en lokal AD DS-miljö. Användarkonton kan autentisera direkt mot azure AD DS-hanterad domän, till exempel för att logga in på en domänansluten virtuell dator. En användarskog fungerar när lösenordshã¤net kan synkroniseras och användarna inte använder exklusiva inloggningsmetoder som smartkortsautentisering.
 
-I en Azure AD DS- *resurs* kan användare autentiseras över ett enkelriktat skogs *förtroende* från sina lokala AD DS. Med den här metoden synkroniseras inte användar objekt och lösen ordets hash-värden till Azure AD DS. Användar objekt och autentiseringsuppgifter finns bara i den lokala AD DS. Med den här metoden kan företag hantera resurser och programplattformar i Azure som är beroende av klassisk autentisering, t. ex. LDAP, Kerberos eller NTLM, men eventuella autentiseringsproblem eller problem tas bort. Azure AD DS resurs skogar är för närvarande en för hands version.
+I en Azure AD *DS-resursskog* autentiserar användare över ett enkelriktat *skogsförtroende* från sin lokala AD DS. Med den här metoden synkroniseras inte användarobjekt och lösenordsharhare till Azure AD DS. The user objects and credentials only exist in the on-premises AD DS. Med den här metoden kan företag vara värd för resurser och programplattformar i Azure som är beroende av klassisk autentisering, till exempel LDAPS, Kerberos eller NTLM, men eventuella autentiseringsproblem eller problem tas bort. Azure AD DS-resursskogar är för närvarande i förhandsversion.
 
-Resurs skogar ger också möjlighet att lyfta och flytta dina program en komponent i taget. Många äldre lokala program är flera nivåer, ofta med hjälp av en webb server eller klient del och många databasbaserade komponenter. Dessa nivåer gör det svårt att lyfta upp och ned hela programmet till molnet i ett enda steg. Med resurs skogar kan du lyfta ditt program till molnet i stegvisa metoder, vilket gör det enklare att flytta ditt program till Azure.
+Resursskogar ger också möjlighet att lyfta och flytta dina program en komponent i taget. Många äldre lokala program är flera nivåer, ofta med hjälp av en webbserver eller klientdel och många databasrelaterade komponenter. Dessa nivåer gör det svårt att lyfta och flytta hela programmet till molnet i ett steg. Med resursskogar kan du lyfta ditt program till molnet i stegvis metod, vilket gör det enklare att flytta ditt program till Azure.
 
-## <a name="what-are-trusts"></a>Vad är förtroenden?
+## <a name="what-are-trusts"></a>Vad är truster?
 
-Organisationer som har mer än en domän behöver ofta användare för att komma åt delade resurser i en annan domän. Åtkomst till dessa delade resurser kräver att användare i en domän autentiseras till en annan domän. För att tillhandahålla dessa funktioner för autentisering och auktorisering mellan klienter och servrar i olika domäner måste det finnas ett *förtroende* mellan de två domänerna.
+Organisationer som har mer än en domän behöver ofta användare för att komma åt delade resurser i en annan domän. Åtkomst till dessa delade resurser kräver att användare i en domän autentiserar till en annan domän. Om du vill tillhandahålla dessa autentiserings- och auktoriseringsfunktioner mellan klienter och servrar i olika domäner måste det finnas ett *förtroende* mellan de två domänerna.
 
-Med domän förtroenden har autentiseringen för varje domän förtroende för de autentiseringar som kommer från den andra domänen. Förtroenden hjälper till att ge kontrollerad åtkomst till delade resurser i en resurs domän (domänen med *förtroende* ) genom att verifiera att inkommande autentiseringsbegäranden kommer från en betrodd utfärdare (den *betrodda* domänen). Förtroenden fungerar som bryggor som bara tillåter verifierade autentiseringsbegäranden att resa mellan domäner.
+Med domänförtroende litar autentiseringsmekanismerna för varje domän på de autentiseringar som kommer från den andra domänen. Förtroenden hjälper till att ge kontrollerad åtkomst till delade resurser i en resursdomän (den *betrodda* domänen) genom att verifiera att inkommande autentiseringsbegäranden kommer från en betrodd myndighet (den *betrodda* domänen). Förtroenden fungerar som bryggor som endast tillåter validerade autentiseringsbegäranden att resa mellan domäner.
 
-Hur ett förtroende passerar autentiseringsbegäranden beror på hur det är konfigurerat. Förtroenden kan konfigureras på något av följande sätt:
+Hur ett förtroende skickar autentiseringsbegäranden beror på hur det konfigureras. Förtroenden kan konfigureras på något av följande sätt:
 
-* **Enkelriktad** – ger åtkomst från den betrodda domänen till resurser i domänen med förtroende.
-* **Dubbelriktat** -ger åtkomst från varje domän till resurser i den andra domänen.
+* **Enkelriktad** – ger åtkomst från den betrodda domänen till resurser i den betrodda domänen.
+* **Dubbelriktad** - ger åtkomst från varje domän till resurser i den andra domänen.
 
-Förtroenden konfigureras också för att hantera ytterligare förtroende relationer på något av följande sätt:
+Förtroenden är också konfigurerade för att hantera ytterligare förtroenderelationer på något av följande sätt:
 
-* Icke- **transitivt** – förtroendet finns bara mellan de två betrodda partner domänerna.
-* **Transitivt** förtroende utökas automatiskt till alla andra domäner som någon av partnerna litar på.
+* **Icke-transitiv** - Förtroendet finns bara mellan de två förtroendepartnerdomänerna.
+* **Transitiv** - Förtroende utökas automatiskt till alla andra domäner som någon av partnerna litar på.
 
-I vissa fall upprättas förtroende relationer automatiskt när domäner skapas. Andra tider måste du välja en typ av förtroende och uttryckligen upprätta lämpliga relationer. De olika typerna av förtroenden som används och strukturen för de här förtroende relationerna beror på hur Active Directory katalog tjänsten är organiserad och om olika versioner av Windows finns i nätverket.
+I vissa fall upprättas förtroenderelationer automatiskt när domäner skapas. Andra gånger måste du välja en typ av förtroende och uttryckligen upprätta lämpliga relationer. Vilka typer av förtroenden som används och strukturen för dessa förtroenderelationer beror på hur Active Directory-katalogtjänsten är organiserad och om olika versioner av Windows samexisterar i nätverket.
 
 ## <a name="trusts-between-two-forests"></a>Förtroenden mellan två skogar
 
-Du kan utöka domän förtroenden inom en enda skog till en annan skog genom att manuellt skapa ett enkelriktat eller dubbelriktat skogs förtroende. Ett skogs förtroende är ett transitivt förtroende som bara finns mellan en skogs rots domän och en andra skogs rots domän.
+Du kan utöka domänförtroende inom en enskild skog till en annan skog genom att manuellt skapa ett enkelriktad eller dubbelriktad skogsförtroende. Ett skogsförtroende är ett transitivt förtroende som bara finns mellan en skogsrotdomän och en andra skogsrotdomän.
 
-* Med ett enkelriktat skogs förtroende kan alla användare i en skog lita på alla domäner i den andra skogen.
-* Ett dubbelriktat skogs förtroende utgör en transitiv förtroende relation mellan varje domän i båda skogarna.
+* Ett envägsskogsförtroende gör att alla användare i en skog kan lita på alla domäner i den andra skogen.
+* Ett dubbelriktad skogsförtroende bildar en transitiv förtroenderelation mellan alla domäner i båda skogarna.
 
-Förtroendets transitivhet för skogs förtroenden är begränsat till de två skogens partner. Skogs förtroendet utökas inte till ytterligare skogar som är betrodda av någon av partnerna.
+Skogsförtroendets transitivitet är begränsad till de två skogspartnerna. Skogsförtroendet sträcker sig inte till ytterligare skogar som någon av partnerna litar på.
 
-![Diagram över skogs förtroende från Azure AD DS till lokal AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
+![Diagram över skogsförtroende från Azure AD DS till lokalt AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 
-Du kan skapa olika konfigurationer för domän-och skogs förtroende beroende på organisationens Active Directory struktur. Azure AD DS stöder bara ett enkelriktat skogs förtroende. I den här konfigurationen kan resurser i Azure AD DS lita på alla domäner i en lokal skog.
+Du kan skapa olika domän- och skogsförtroendekonfigurationer beroende på organisationens Active Directory-struktur. Azure AD DS stöder bara ett enkelriktat skogsförtroende. I den här konfigurationen kan resurser i Azure AD DS lita på alla domäner i en lokal skog.
 
-## <a name="supporting-technology-for-trusts"></a>Stöd teknik för förtroenden
+## <a name="supporting-technology-for-trusts"></a>Stödteknik för truster
 
-Förtroenden använder olika tjänster och funktioner, till exempel DNS för att hitta domänkontrollanter i partner skogar. Förtroenden är också beroende av autentiseringsprotokollen NTLM och Kerberos och på Windows-baserade mekanismer för auktorisering och åtkomst kontroll för att tillhandahålla en säker infrastruktur för kommunikation mellan Active Directory domäner och skogar. Följande tjänster och funktioner hjälper till att stödja lyckade förtroende relationer.
+Förtroenden använder olika tjänster och funktioner, till exempel DNS för att hitta domänkontrollanter i partnerskogar. Förtroenden är också beroende av NTLM- och Kerberos-autentiseringsprotokoll och på Windows-baserade auktoriserings- och åtkomstkontrollmekanismer för att tillhandahålla en säker kommunikationsinfrastruktur över Active Directory-domäner och skogar. Följande tjänster och funktioner hjälper till att stödja framgångsrika förtroenderelationer.
 
 ### <a name="dns"></a>DNS
 
-AD DS behöver DNS för plats och namn för domänkontrollant (DC). Följande stöd från DNS tillhandahålls för att AD DS ska fungera korrekt:
+AD DS behöver DNS för domänkontrollantplats (DC) plats och namngivning. Följande stöd från DNS tillhandahålls för att AD DS ska fungera:
 
-* En namn matchnings tjänst som låter nätverks värdar och-tjänster hitta domänkontrollanter.
-* En namngivnings struktur som gör det möjligt för ett företag att spegla sin organisations struktur i namnen på dess katalog tjänst domäner.
+* En namnmatchningstjänst som gör att nätverksvärdar och tjänster kan hitta domänkontrollanter.
+* En namngivningsstruktur som gör det möjligt för ett företag att återspegla dess organisationsstruktur i namnen på dess katalogtjänstdomäner.
 
-En DNS-domän namn rymd distribueras vanligt vis som speglar AD DS-domänens namnrymd. Om det finns ett befintligt DNS-namnområde före AD DS-distributionen, partitioneras DNS-namnrymden vanligt vis för Active Directory och en DNS-underdomän och delegering för Active Directory skogs roten skapas. Ytterligare DNS-domännamn läggs sedan till för varje Active Directory underordnad domän.
+Ett DNS-domännamnområde distribueras vanligtvis som speglar AD DS-domännamnsområdet. Om det finns ett befintligt DNS-namnområde före AD DS-distributionen partitioneras vanligtvis DNS-namnområdet för Active Directory och en DNS-underdomän och delegering för Active Directory-skogsroten skapas. Ytterligare DNS-domännamn läggs sedan till för varje underordnad Active Directory-domän.
 
-DNS används också för att stödja platsen för Active Directory domänkontrollanter. DNS-zonerna fylls med DNS-resursposter som gör det möjligt för nätverks värdar och tjänster att hitta Active Directory domänkontrollanter.
+DNS används också för att stödja platsen för Active Directory-domänkontrollanter. DNS-zonerna fylls i med DNS-resursposter som gör det möjligt för nätverksvärdar och tjänster att hitta Active Directory-domänkontrollanter.
 
-### <a name="applications-and-net-logon"></a>Program och Net Logon
+### <a name="applications-and-net-logon"></a>Applikationer och Net Logon
 
-Både program och tjänsten Net Logon är komponenter i modellen Windows-distribuerad säkerhets kanal. Program som är integrerade med Windows Server och Active Directory använder autentiseringsprotokoll för att kommunicera med tjänsten Net Logon så att en säker sökväg kan upprättas över vilken autentisering kan utföras.
+Både program och Net Logon-tjänsten är komponenter i Windows distribuerade säkerhetskanalmodell. Program som är integrerade med Windows Server och Active Directory använder autentiseringsprotokoll för att kommunicera med tjänsten Net Logon så att en säker sökväg kan upprättas över vilken autentisering kan ske.
 
 ### <a name="authentication-protocols"></a>Autentiseringsprotokoll
 
-Active Directory DCs autentiserar användare och program med något av följande protokoll:
+Active Directory-domänkontrollanter autentiserar användare och program med något av följande protokoll:
 
 * **Autentiseringsprotokoll för Kerberos version 5**
-    * Kerberos version 5-protokollet är det standard autentiseringsprotokoll som används av lokala datorer som kör Windows och som stöder operativ system från tredje part. Det här protokollet anges i RFC 1510 och är fullständigt integrerat med Active Directory, SMB (Server Message Block), HTTP och RPC (Remote Procedure Call) samt de klient-och serverprogram som använder dessa protokoll.
-    * När Kerberos-protokollet används behöver inte servern kontakta DOMÄNKONTROLLANTen. Klienten får i stället en biljett för en server genom att begära en från en DOMÄNKONTROLLANT i Server konto domänen. Servern verifierar sedan biljetten utan att konsultera någon annan instans.
-    * Om en dator som ingår i en transaktion inte stöder Kerberos version 5-protokollet används NTLM-protokollet.
+    * Kerberos version 5-protokollet är standardautentiseringsprotokollet som används av lokala datorer som kör Windows och stöder operativsystem från tredje part. Det här protokollet anges i RFC 1510 och är helt integrerat med Active Directory, servermeddelandeblock (SMB), HTTP och RPC (Remote Procedure Call), samt klient- och serverprogram som använder dessa protokoll.
+    * När Kerberos-protokollet används behöver servern inte kontakta domänkontrollanten. I stället får klienten en biljett till en server genom att begära en från en domänkontrollant i serverkontodomänen. Servern validerar sedan biljetten utan att rådfråga någon annan myndighet.
+    * Om någon dator som ingår i en transaktion inte stöder Kerberos version 5-protokollet används NTLM-protokollet.
 
 * **NTLM-autentiseringsprotokoll**
-    * NTLM-protokollet är ett klassiskt protokoll för nätverksautentisering som används av äldre operativ system. Av kompatibilitetsskäl används den av Active Directory domäner för att bearbeta autentiseringsbegäranden från program som har utformats för tidigare Windows-baserade klienter och servrar och operativ system från tredje part.
-    * När NTLM-protokollet används mellan en klient och en server måste servern kontakta en domän verifierings tjänst på en DOMÄNKONTROLLANT för att verifiera klientens autentiseringsuppgifter. Servern autentiserar klienten genom att vidarebefordra klientens autentiseringsuppgifter till en DOMÄNKONTROLLANT i klient konto domänen.
-    * När två Active Directory domäner eller skogar är anslutna med ett förtroende kan autentiseringsbegäranden som görs med hjälp av dessa protokoll dirigeras för att ge åtkomst till resurser i båda skogarna.
+    * NTLM-protokollet är ett klassiskt nätverksautentiseringsprotokoll som används av äldre operativsystem. Av kompatibilitetsskäl används den av Active Directory-domäner för att bearbeta nätverksautentiseringsbegäranden som kommer från program som utformats för tidigare Windows-baserade klienter och servrar och operativsystem från tredje part.
+    * När NTLM-protokollet används mellan en klient och en server måste servern kontakta en domänautentiseringstjänst på en domänkontrollant för att verifiera klientautentiseringsuppgifterna. Servern autentiserar klienten genom att vidarebefordra klientautentiseringsuppgifterna till en domänkontrollant i klientkontodomänen.
+    * När två Active Directory-domäner eller skogar är anslutna av ett förtroende kan autentiseringsbegäranden som görs med hjälp av dessa protokoll dirigeras för att ge åtkomst till resurser i båda skogarna.
 
-## <a name="authorization-and-access-control"></a>Auktorisering och åtkomst kontroll
+## <a name="authorization-and-access-control"></a>Auktoriserings- och åtkomstkontroll
 
-Auktoriserings-och förtroende tekniker fungerar tillsammans för att tillhandahålla en säker infrastruktur för kommunikation mellan Active Directory domäner eller skogar. Auktorisering avgör vilken åtkomst nivå en användare har till resurser i en domän. Förtroenden underlättar för användare mellan domäner genom att ange en sökväg för autentisering av användare i andra domäner, så att deras begär anden till delade resurser i dessa domäner kan verifieras.
+Auktoriserings- och förtroendetekniker arbetar tillsammans för att tillhandahålla en säker kommunikationsinfrastruktur över Active Directory-domäner eller skogar. Auktorisering avgör vilken åtkomstnivå en användare har till resurser i en domän. Förtroenden underlättar godkännande över flera domäner för användare genom att tillhandahålla en sökväg för att autentisera användare i andra domäner så att deras begäranden till delade resurser i dessa domäner kan auktoriseras.
 
-När en autentiseringsbegäran som görs i en betrodd domän verifieras av den betrodda domänen skickas den till mål resursen. Mål resursen avgör sedan om du vill auktorisera den specifika begäran som gjorts av användaren, tjänsten eller datorn i den betrodda domänen baserat på dess konfiguration för åtkomst kontroll.
+När en autentiseringsbegäran som görs i en betrodd domän valideras av den betrodda domänen skickas den till målresursen. Målresursen avgör sedan om den specifika begäran som gjorts av användaren, tjänsten eller datorn i den betrodda domänen ska godkännas.
 
-Förtroenden tillhandahåller den här metoden för att verifiera autentiseringsbegäranden som skickas till en betrodd domän. Åtkomst kontroll metoder på resurs datorn fastställer den slutgiltiga åtkomst nivån som beviljats till begär anden i den betrodda domänen.
+Förtroenden tillhandahåller den här mekanismen för att validera autentiseringsbegäranden som skickas till en betrodd domän. Åtkomstkontrollmekanismer på resursdatorn bestämmer den slutliga åtkomstnivån som beviljas beställaren i den betrodda domänen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om förtroenden finns i [Hur fungerar skogs förtroenden i Azure AD DS?][concepts-trust]
+Mer information om förtroenden finns [i Hur fungerar skogsförtroende i Azure AD DS?][concepts-trust]
 
-För att komma igång med att skapa en Azure AD DS-hanterad domän med en resurs skog, se [skapa och konfigurera en Azure AD DS-hanterad domän][tutorial-create-advanced]. Du kan sedan [skapa ett utgående skogs förtroende till en lokal domän (för hands version)][create-forest-trust].
+Information om hur du skapar en Azure AD DS-hanterad domän med en resursskog finns i [Skapa och konfigurera en Azure AD DS-hanterad domän][tutorial-create-advanced]. Du kan sedan [skapa ett utgående skogsförtroende till en lokal domän (förhandsversion).][create-forest-trust]
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

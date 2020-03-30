@@ -1,5 +1,5 @@
 ---
-title: Använd Tabell-API och Java för att bygga en app-Azure Cosmos DB
+title: Använda tabell-API:et och Java för att skapa en app - Azure Cosmos DB
 description: Den här snabbstarten visar hur du använder tabell-API i Azure Cosmos DB för att skapa ett program med Azure-portalen och Java
 author: SnehaGunda
 ms.service: cosmos-db
@@ -10,28 +10,28 @@ ms.date: 04/10/2018
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: c8427333a0a395ca4a0998662cacf13dea662e04
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77212866"
 ---
-# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB Tabell-API data
+# <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Snabbstart: Skapa en Java-app för att hantera AZURE Cosmos DB Table API-data
 
 > [!div class="op_single_selector"]
-> * [NET](create-table-dotnet.md)
+> * [.NET](create-table-dotnet.md)
 > * [Java](create-table-java.md)
 > * [Node.js](create-table-nodejs.md)
 > * [Python](create-table-python.md)
 > 
 
-I den här snabb starten skapar du ett Azure Cosmos DB Tabell-API konto och använder Datautforskaren och en Java-app som klonas från GitHub för att skapa tabeller och entiteter. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
+I den här snabbstarten skapar du ett Azure Cosmos DB Table API-konto och använder Data Explorer och en Java-app som klonats från GitHub för att skapa tabeller och entiteter. Azure Cosmos DB är en databastjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckelvärde- och diagramdatabaser med globala distributions- och vågräta skalfunktioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI för `https://localhost:8081` och nyckeln `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
-- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Peka din `JAVA_HOME` miljö variabel till den mapp där JDK är installerad.
-- Ett [binärt maven-Arkiv](https://maven.apache.org/download.cgi). 
+- Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB Emulator](https://aka.ms/cosmosdb-emulator) med en URI av `https://localhost:8081` och nyckeln `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- [Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Peka `JAVA_HOME` din miljövariabel till mappen där JDK är installerat.
+- En [Maven binära arkiv](https://maven.apache.org/download.cgi). 
 - [Git](https://www.git-scm.com/downloads). 
 
 ## <a name="create-a-database-account"></a>Skapa ett databaskonto
@@ -46,7 +46,7 @@ I den här snabb starten skapar du ett Azure Cosmos DB Tabell-API konto och anv�
 
 [!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
-## <a name="add-sample-data"></a>Lägg till exempeldata
+## <a name="add-sample-data"></a>Lägga till exempeldata
 
 [!INCLUDE [cosmos-db-create-table-add-sample-data](../../includes/cosmos-db-create-table-add-sample-data.md)]
 
@@ -74,15 +74,15 @@ Nu ska vi klona en Table-app från GitHub, ange anslutningssträngen och köra a
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
-Gå nu tillbaka till Azure-portalen för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
+Gå nu tillbaka till Azure Portal för att hämta information om din anslutningssträng och kopiera den till appen. På så vis kan appen kommunicera med den värdbaserade databasen. 
 
-1. Välj **anslutnings sträng**i Azure Cosmos DB-kontot i [Azure Portal](https://portal.azure.com/). 
+1. Välj **Anslutningssträng**i ditt Azure Cosmos DB-konto i [Azure-portalen](https://portal.azure.com/). 
 
-   ![Visa anslutnings Strängs informationen i fönstret anslutnings sträng](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
+   ![Visa information om anslutningssträngen i fönstret Anslutningssträng](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
 
 2. Kopiera PRIMÄR ANSLUTNINGSSTRÄNG med hjälp av kopieringsknappen till höger.
 
-3. Öppna *config. Properties* från mappen *C:\git-samples\storage-Table-Java-Getting-started\src\main\resources* 
+3. Öppna *config.properties* från mappen *C:\git-samples\storage-table-java-getting-started\src\main\resources.* 
 
 5. Kommentera ut rad ett och avkommentera rad två. De två första raderna bör nu se ut så här.
 
@@ -97,9 +97,9 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
     > Om slutpunkten använder documents.azure.com innebär det att du har ett förhandsversionskonto, och du måste skapa ett [nytt tabell-API-konto](#create-a-database-account) för att kunna arbeta med den allmänt tillgängliga SDK:n för tabell-API.
     >
 
-7. Spara filen *config. Properties* .
+7. Spara filen *config.properties.*
 
-Du har nu uppdaterat din app med all information den behöver för att kommunicera med Azure Cosmos DB. 
+Du har nu uppdaterat appen med all information som behövs för kommunikation med Azure Cosmos DB. 
 
 ## <a name="run-the-app"></a>Kör appen
 
@@ -119,7 +119,7 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 
     Du kan nu gå tillbaka till datautforskaren och se frågan, ändra och arbeta med dessa nya data. 
 
-## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure Portal
+## <a name="review-slas-in-the-azure-portal"></a>Granska serviceavtal i Azure-portalen
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
@@ -129,7 +129,7 @@ Du har nu uppdaterat din app med all information den behöver för att kommunice
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar ett Azure Cosmos DB-konto, skapar en tabell med hjälp av Datautforskaren och kör en Java-app för att lägga till tabell data.  Du kan nu ställa frågor mot dina data med tabell-API:t.  
+I den här snabbstarten lärde du dig hur du skapar ett Azure Cosmos DB-konto, skapar en tabell med Data Explorer och kör en Java-app för att lägga till tabelldata.  Du kan nu ställa frågor mot dina data med tabell-API:t.  
 
 > [!div class="nextstepaction"]
 > [Importera tabelldata till tabell-API](table-import.md)

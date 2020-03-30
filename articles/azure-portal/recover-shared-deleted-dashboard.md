@@ -1,6 +1,6 @@
 ---
-title: Återställa en borttagen instrument panel i Azure Portal | Microsoft Docs
-description: Om du tar bort en publicerad instrument panel i Azure Portal kan du återställa instrument panelen.
+title: Återställa en borttagen instrumentpanel i Azure-portalen | Microsoft-dokument
+description: Om du tar bort en publicerad instrumentpanel i Azure-portalen kan du återställa instrumentpanelen.
 services: azure-portal
 author: mgblythe
 ms.author: mblythe
@@ -9,32 +9,32 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: af0c72f0bc5dd8f3a3cbae7b82b1ac56447cbb08
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77133295"
 ---
-# <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Återställa en borttagen instrument panel i Azure Portal
+# <a name="recover-a-deleted-dashboard-in-the-azure-portal"></a>Återställa en borttagen instrumentpanel i Azure-portalen
 
-Om du är i det offentliga Azure-molnet och du tar bort en _publicerad_ instrument panel i Azure Portal kan du återställa instrument panelen inom 14 dagar från borttagningen. Om du befinner dig i ett moln i Azure-myndigheter eller om instrument panelen inte har publicerats kan du inte återställa den och du måste återskapa den. Mer information om hur du publicerar en instrument panel finns i [publicera instrument panel](azure-portal-dashboard-share-access.md#publish-dashboard). Följ de här stegen för att återställa en publicerad instrument panel:
+Om du är i det offentliga Azure-molnet och tar bort en _publicerad_ instrumentpanel i Azure-portalen kan du återställa instrumentpanelen inom 14 dagar efter borttagningen. Om du är i ett Azure government-moln eller om instrumentpanelen inte publiceras kan du inte återställa det och du måste återskapa det. Mer information om hur du publicerar en instrumentpanel finns i [Publicera instrumentpanel](azure-portal-dashboard-share-access.md#publish-dashboard). Så här återställer du en publicerad instrumentpanel:
 
-1. Välj **resurs grupper**på Azure Portal-menyn och välj sedan den resurs grupp där du publicerade instrument panelen (som standard kallas den för **instrument paneler**).
+1. På Portal-menyn i Azure väljer du **Resursgrupper**och väljer sedan den resursgrupp där du publicerade instrumentpanelen (som standard heter den **instrumentpaneler**).
 
-1. Under **aktivitets logg**expanderar du åtgärden **ta bort instrument panel** . Välj fliken **ändrings historik** och välj sedan **\<borttagen resurs\>** .
+1. Expandera åtgärden Ta **bort instrumentpanel** under **Aktivitetslogg.** Välj fliken **Ändra historik** och välj ** \<\>** sedan borttagen resurs .
 
-    ![Skärm bild av fliken ändrings historik](media/recover-shared-deleted-dashboard/change-history-tab.png)
+    ![Skärmbild av fliken Ändringshistorik](media/recover-shared-deleted-dashboard/change-history-tab.png)
 
-1. Markera och kopiera innehållet i den vänstra rutan och spara sedan till en textfil med fil namns tillägget _. JSON_ . Portalen använder JSON-filen för att återskapa instrument panelen.
+1. Markera och kopiera innehållet i den vänstra rutan och spara sedan i en textfil med _filnamnstillägget .json._ Portalen använder JSON-filen för att återskapa instrumentpanelen.
 
-    ![Skärm bild av skillnad i ändrings historik](media/recover-shared-deleted-dashboard/change-history-diff.png)
+    ![Skärmbild av ändringshistorik diff](media/recover-shared-deleted-dashboard/change-history-diff.png)
 
-1. Välj **instrument paneler**på Azure Portal-menyn och välj sedan **Ladda upp**.
+1. På Portal-menyn i Azure väljer du **Instrumentpaneler**och väljer sedan **Ladda upp**.
 
-    ![Skärm bild av inladdade instrument panel](media/recover-shared-deleted-dashboard/dashboard-upload.png)
+    ![Skärmbild av instrumentpanelsuppladdning](media/recover-shared-deleted-dashboard/dashboard-upload.png)
 
-1. Välj den JSON-fil som du sparade. Portalen skapar instrument panelen på nytt med samma namn och element som den borttagna instrument panelen.
+1. Markera den JSON-fil som du sparade. Portalen återskapar instrumentpanelen med samma namn och element som den borttagna instrumentpanelen.
 
-1. Välj **dela** för att publicera instrument panelen och återupprätta lämplig åtkomst kontroll.
+1. Välj **Dela** om du vill publicera instrumentpanelen och återupprätta lämplig åtkomstkontroll.
 
-    ![Skärm bild av instrument panelens resurs](media/recover-shared-deleted-dashboard/dashboard-share.png)
+    ![Skärmbild av instrumentpanelsresurs](media/recover-shared-deleted-dashboard/dashboard-share.png)

@@ -1,6 +1,6 @@
 ---
-title: Utforma och implementera en Oracle-databas på Azure | Microsoft Docs
-description: Utforma och implementera en Oracle-databas i din Azure-miljö.
+title: Designa och implementera en Oracle-databas på Azure | Microsoft-dokument
+description: Designa och implementera en Oracle-databas i din Azure-miljö.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
@@ -15,68 +15,68 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: c2c2d1a9affe13d485bfeef52c781ed259b53bc8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70100113"
 ---
-# <a name="design-and-implement-an-oracle-database-in-azure"></a>Utforma och implementera en Oracle-databas i Azure
+# <a name="design-and-implement-an-oracle-database-in-azure"></a>Designa och implementera en Oracle-databas i Azure
 
 ## <a name="assumptions"></a>Antaganden
 
-- Du planerar att migrera en Oracle-databas från en lokal plats till Azure.
-- Du har ett [diagnostiskt paket](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) för Oracle Database du vill migrera
+- Du planerar att migrera en Oracle-databas från lokalt till Azure.
+- Du har [diagnostikpaketet](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) för Oracle-databasen som du vill migrera
 - Du har en förståelse för de olika måtten i Oracle AWR-rapporter.
-- Du har en grundläggande förståelse för program prestanda och plattforms användning.
+- Du har en grundläggande förståelse för programprestanda och plattformsutnyttjande.
 
 ## <a name="goals"></a>Mål
 
-- Lär dig hur du optimerar din Oracle-distribution i Azure.
-- Utforska alternativ för prestanda justering för en Oracle-databas i en Azure-miljö.
+- Förstå hur du optimerar din Oracle-distribution i Azure.
+- Utforska alternativ för prestandajustering för en Oracle-databas i en Azure-miljö.
 
 ## <a name="the-differences-between-an-on-premises-and-azure-implementation"></a>Skillnaderna mellan en lokal och Azure-implementering 
 
-Nedan följer några viktiga saker att tänka på när du migrerar lokala program till Azure. 
+Följande är några viktiga saker att tänka på när du migrerar lokala program till Azure. 
 
-En viktig skillnad är att i en Azure-implementering delas resurser som virtuella datorer, diskar och virtuella nätverk mellan andra klienter. Dessutom kan resurser begränsas baserat på kraven. I stället för att fokusera på att undvika att Miss lyckas (MTBF) är Azure mer fokuserat på att sluta fungera (MTTR).
+En viktig skillnad är att i en Azure-implementering delas resurser som virtuella datorer, diskar och virtuella nätverk mellan andra klienter. Dessutom kan resurser begränsas baserat på kraven. Istället för att fokusera på att undvika misslyckas (MTBF), azure är mer inriktad på att överleva felet (MTTR).
 
 I följande tabell visas några av skillnaderna mellan en lokal implementering och en Azure-implementering av en Oracle-databas.
 
 > 
 > |  | **Lokal implementering** | **Azure-implementering** |
 > | --- | --- | --- |
-> | **Nätverk** |LAN/WAN  |SDN (program varu Defined Networking)|
-> | **Säkerhets grupp** |Verktyg för begränsning av IP/port |[Nätverks säkerhets grupp (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Återhämtning** |MTBF (genomsnittlig tid mellan haverier) |MTTR (genomsnittlig tid för återställning)|
-> | **Planerat underhåll** |Korrigeringar/uppgraderingar|[Tillgänglighets uppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (uppdatering/uppgraderingar som hanteras av Azure) |
+> | **Nätverk** |LAN/WAN  |SDN (programvarudefinierat nätverk)|
+> | **Säkerhetsgrupp** |Begränsningsverktyg för IP/port |[Nätverkssäkerhetsgrupp (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+> | **Motståndskraft** |MTBF (medeltid mellan fel) |MTTR (genomsnittlig tid till återhämtning)|
+> | **Planerat underhåll** |Korrigering/uppgraderingar|[Tillgänglighetsuppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (korrigering/uppgraderingar som hanteras av Azure) |
 > | **Resurs** |Dedikerad  |Delas med andra klienter|
-> | **Regioner** |Datacenter |[Region par](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Storage** |SAN/fysiska diskar |[Azure-hanterad lagring](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Skalning** |Lodrät skala |Horisontell skalning|
+> | **Regioner** |Datacenter |[Regionpar](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
+> | **Lagring** |SAN/fysiska diskar |[Azure-hanterad lagring](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+> | **Skala** |Vertikal skala |Horisontell skalning|
 
 
 ### <a name="requirements"></a>Krav
 
-- Bestäm databasens storlek och tillväxt hastighet.
-- Fastställ IOPS-kraven, som du kan beräkna utifrån Oracle AWR-rapporter eller andra verktyg för nätverks övervakning.
+- Bestäm databasens storlek och tillväxttakt.
+- Bestäm IOPS-kraven, som du kan uppskatta baserat på OracleS AWR-rapporter eller andra verktyg för nätverksövervakning.
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
-Det finns fyra möjliga områden som du kan finjustera för att förbättra prestanda i en Azure-miljö:
+Det finns fyra potentiella områden som du kan ställa in för att förbättra prestanda i en Azure-miljö:
 
-- Storlek på virtuell dator
-- Nätverks data flöde
-- Disk typer och konfigurationer
-- Inställningar för disk-cache
+- Storlek för virtuell dator
+- Nätverksdataflöde
+- Disktyper och diskkonfigurationer
+- Inställningar för diskcachen
 
 ### <a name="generate-an-awr-report"></a>Generera en AWR-rapport
 
-Om du har en befintlig Oracle-databas och planerar att migrera till Azure har du flera alternativ. Om du har ett [diagnostiskt paket](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) för dina Oracle-instanser kan du köra rapporten Oracle AWR för att hämta måtten (IOPS, Mbps, GiBs och så vidare). Välj sedan den virtuella datorn baserat på de mått som du har samlat in. Eller så kan du kontakta infrastruktur teamet för att få liknande information.
+Om du har en befintlig Oracle-databas och planerar att migrera till Azure har du flera alternativ. Om du har [diagnostikpaketet](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) för Oracle-instanserna kan du köra Oracle AWR-rapporten för att hämta måtten (IOPS, Mbps, GiBs och så vidare). Välj sedan den virtuella datorn baserat på de mått som du har samlat in. Eller så kan du kontakta infrastrukturteamet för att få liknande information.
 
-Du kan överväga att köra din AWR-rapport under både regelbundna och högsta arbets belastningar, så att du kan jämföra. Utifrån dessa rapporter kan du ändra storlek på de virtuella datorerna baserat på antingen den genomsnittliga arbets belastningen eller den maximala arbets belastningen.
+Du kan överväga att köra din AWR-rapport under både vanliga och högsta arbetsbelastningar, så att du kan jämföra. Baserat på dessa rapporter kan du ändra storlek på de virtuella datorerna baserat på antingen den genomsnittliga arbetsbelastningen eller den maximala arbetsbelastningen.
 
-Följande är ett exempel på hur du skapar en AWR-rapport (generera dina AWR-rapporter med hjälp av Oracle Enterprise Manager, om din aktuella installation har en):
+Nedan följer ett exempel på hur du skapar en AWR-rapport (Generera dina AWR-rapporter med din Oracle Enterprise Manager, om din aktuella installation har en):
 
 ```bash
 $ sqlplus / as sysdba
@@ -84,155 +84,155 @@ SQL> EXEC DBMS_WORKLOAD_REPOSITORY.CREATE_SNAPSHOT;
 SQL> @?/rdbms/admin/awrrpt.sql
 ```
 
-### <a name="key-metrics"></a>Nyckel mått
+### <a name="key-metrics"></a>Viktiga mått
 
-Följande är de mått som du kan hämta från AWR-rapporten:
+Följande är de mått som du kan få från AWR-rapporten:
 
 - Totalt antal kärnor
-- PROCESSOR klock hastighet
+- CPU-klockhastighet
 - Totalt minne i GB
 - CPU-användning
-- Högsta data överförings hastighet
-- Antal i/O-ändringar (Läs/skriv)
-- Gör om logg frekvens (Mbit/s)
-- Nätverks data flöde
-- Hastighet för nätverks fördröjning (låg/hög)
-- Databas storlek i GB
-- Byte som tagits emot via SQL * net från/till klient
+- Högsta dataöverföringshastighet
+- I/O-ändringar (läs/skriv)
+- Gör om logghastighet (MBPs)
+- Nätverksdataflöde
+- Nätverksfördröjning (låg/hög)
+- Databasstorlek i GB
+- Byte som tas emot via SQL*Net från/till klient
 
-### <a name="virtual-machine-size"></a>Storlek på virtuell dator
+### <a name="virtual-machine-size"></a>Storlek för virtuell dator
 
-#### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Beräkna VM-storlek baserat på CPU, minne och I/O-användning från AWR-rapporten
+#### <a name="1-estimate-vm-size-based-on-cpu-memory-and-io-usage-from-the-awr-report"></a>1. Uppskatta VM-storlek baserat på CPU-, minnes- och I/O-användning från AWR-rapporten
 
-En sak som du kan titta på är de fem främsta förgrundade händelserna som visar var systemets Flask hals är.
+En sak du kan titta på är de fem tidsinställda förgrundshändelser som visar var systemet flaskhalsar är.
 
-I följande diagram är till exempel logg fils synkronisering överst. Det anger det antal väntande vänte tid som krävs innan LGWR skriver till logg filen för att göra om-logg filen. Dessa resultat visar att det krävs bättre lagring eller diskar. Dessutom visar diagrammet också antalet processor kärnor (kärnor) och mängden minne.
+I följande diagram finns till exempel loggfilssynkroniseringen överst. Det anger antalet väntetider som krävs innan LGWR skriver loggbufferten till omvärdet loggfilen. Dessa resultat visar att bättre prestanda lagring eller diskar krävs. Dessutom visar diagrammet också antalet PROCESSORER (kärnor) och mängden minne.
 
-![Skärm bild av rapport sidan för AWR](./media/oracle-design/cpu_memory_info.png)
+![Skärmbild av rapportsidan för AWR](./media/oracle-design/cpu_memory_info.png)
 
-Följande diagram visar det totala I/O för Läs-och skriv åtgärder. Det fanns 59 GB läst och 247,3 GB som skrevs under rapportens tid.
+Följande diagram visar den totala I/O för läsning och skrivning. Det fanns 59 GB läsa och 247,3 GB skrivs under tidpunkten för rapporten.
 
-![Skärm bild av rapport sidan för AWR](./media/oracle-design/io_info.png)
+![Skärmbild av rapportsidan för AWR](./media/oracle-design/io_info.png)
 
 #### <a name="2-choose-a-vm"></a>2. Välj en virtuell dator
 
-Nästa steg är att välja en virtuell dator av en liknande storlek som uppfyller dina krav baserat på den information som du har samlat in från AWR-rapporten. Du hittar en lista över tillgängliga virtuella datorer i artikel [minnet optimerat](../../linux/sizes-memory.md).
+Baserat på den information som du samlat in från AWR-rapporten är nästa steg att välja en virtuell dator av liknande storlek som uppfyller dina krav. Du hittar en lista över tillgängliga virtuella datorer i artikeln [Minnesoptimerad](../../linux/sizes-memory.md).
 
-#### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Finjustera storleken på den virtuella datorn med en liknande VM-serie som baseras på ACU
+#### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Finjustera vm-storleksändringen med en liknande VM-serie baserad på ACU
 
-När du har valt den virtuella datorn ska du tänka på ACU för den virtuella datorn. Du kan välja en annan virtuell dator baserat på ACU-värdet som bättre passar dina behov. Mer information finns i [Azure Compute Unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
+När du har valt den virtuella datorn bör du vara uppmärksam på ACU för den virtuella datorn. Du kan välja en annan virtuell dator baserat på det ACU-värde som passar dina behov bättre. Mer information finns i [Azure compute unit](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
 
-![Skärm bild av sidan ACU units](./media/oracle-design/acu_units.png)
+![Skärmbild av sidan ACU-enheter](./media/oracle-design/acu_units.png)
 
-### <a name="network-throughput"></a>Nätverks data flöde
+### <a name="network-throughput"></a>Nätverksdataflöde
 
-I följande diagram visas relationen mellan genomflödet och IOPS:
+Följande diagram visar förhållandet mellan dataflöde och IOPS:
 
-![Skärm bild av data flöde](./media/oracle-design/throughput.png)
+![Skärmbild av dataflöde](./media/oracle-design/throughput.png)
 
-Det totala nätverks data flödet beräknas utifrån följande information:
-- SQL * net-trafik
-- Mbit/s x antal servrar (utgående data ström som Oracle data Guard)
-- Andra faktorer, till exempel programreplikering
+Det totala nätverksflödet beräknas utifrån följande information:
+- SQL*Nettotrafik
+- MBps x antal servrar (utgående ström som Oracle Data Guard)
+- Andra faktorer, till exempel applikationsreplikering
 
-![Skärm bild av SQL * net-dataflöde](./media/oracle-design/sqlnet_info.png)
+![Skärmbild av SQL*Net-dataflödet](./media/oracle-design/sqlnet_info.png)
 
-Utifrån dina krav på nätverks bandbredd finns det olika typer av gatewayer som du kan välja mellan. Dessa omfattar Basic, VpnGw och Azure ExpressRoute. Mer information finns på sidan med [priser för VPN gateway](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
+Baserat på kraven på nätverksbandbredd finns det olika gatewaytyper som du kan välja mellan. Dessa inkluderar grundläggande, VpnGw och Azure ExpressRoute. Mer information finns på [prissidan för VPN-gatewayen](https://azure.microsoft.com/pricing/details/vpn-gateway/?v=17.23h).
 
 **Rekommendationer**
 
-- Nätverks fördröjningen är högre jämfört med en lokal distribution. Att minska antalet nätverks fördröjningar kan förbättra prestanda avsevärt.
-- För att minska antalet turer kan du konsolidera program som har höga transaktioner eller "chatty"-appar på samma virtuella dator.
-- Använd Virtual Machines med [accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) för bättre nätverks prestanda.
-- För vissa Linux-distrubutions bör du överväga att aktivera [stöd för trimning/avmappning](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Nätverksfördröjningen är högre jämfört med en lokal distribution. Att minska nätverksrundningsresor kan avsevärt förbättra prestanda.
+- För att minska tur och retur genom att konsolidera program som har höga transaktioner eller "pratsamma" appar på samma virtuella dator.
+- Använd virtuella datorer med [accelererade nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) för bättre nätverksprestanda.
+- För vissa Linux-avstrumationer kan du överväga att aktivera [TRIM/UNMAP-stöd](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Installera [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) på en separat virtuell dator.
-- Enorma sidor är inte aktiverade på Linux som standard. Överväg att aktivera enorma sidor och `use_large_pages = ONLY` ange Oracle dB. Detta kan hjälpa till att öka prestandan. Mer information hittar du [här](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Enorma sidor är inte aktiverade på Linux som standard. Överväg att aktivera `use_large_pages = ONLY` stora sidor och ställ in på Oracle DB. Detta kan bidra till att öka prestanda. Mer information finns [här](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
-### <a name="disk-types-and-configurations"></a>Disk typer och konfigurationer
+### <a name="disk-types-and-configurations"></a>Disktyper och diskkonfigurationer
 
-- *Standard operativ system diskar*: Dessa disk typer erbjuder beständiga data och cachelagring. De är optimerade för åtkomst till operativ systemet vid start och har inte utformats för antingen transaktions-eller informations lager (analytiska) arbets belastningar.
+- *Standard-OS-diskar:* Dessa disktyper erbjuder beständiga data och cachelagring. De är optimerade för OS-åtkomst vid start och är inte utformade för antingen transaktions- eller informationslagerarbetsbelastningar (analytiska) arbetsbelastningar.
 
-- *Ohanterade diskar*: Med dessa disk typer hanterar du de lagrings konton som lagrar den virtuella hård disk filen (VHD) som motsvarar dina virtuella dator diskar. VHD-filer lagras som Page blobbar i Azure Storage-konton.
+- *Ohanterat diskar:* Med dessa disktyper hanterar du lagringskonton som lagrar VHD-filerna (Virtual Hard Disk) som motsvarar dina VM-diskar. VHD-filer lagras som sidblobar i Azure-lagringskonton.
 
-- *Hanterade diskar*: Azure hanterar de lagrings konton som du använder för dina virtuella dator diskar. Du anger disk typen (Premium eller standard) och storleken på den disk som du behöver. Azure skapar och hanterar disken åt dig.
+- *Hanterade diskar*: Azure hanterar de lagringskonton som du använder för dina VM-diskar. Du anger disktypen (premium eller standard) och storleken på den disk som du behöver. Azure skapar och hanterar disken åt dig.
 
-- *Premium Storage-diskar*: Dessa disk typer passar bäst för produktions arbets belastningar. Premium Storage stöder VM-diskar som kan kopplas till vissa virtuella datorer i storleks serien, till exempel DS, DSv2, GS och F-seriens virtuella datorer. Premium-disken har olika storlekar och du kan välja mellan diskar som sträcker sig från 32 GB till 4 096 GB. Varje disk storlek har sina egna prestanda krav. Beroende på dina program krav kan du koppla en eller flera diskar till den virtuella datorn.
+- *Premium-lagringsdiskar*: Dessa disktyper är bäst lämpade för produktionsarbetsbelastningar. Premiumlagring stöder VM-diskar som kan kopplas till virtuella datorer i storleksserien, till exempel virtuella datorer i DS, DSv2, GS och F-serien. Premiumdisken levereras med olika storlekar, och du kan välja mellan diskar från 32 GB till 4 096 GB. Varje diskstorlek har sina egna prestandaspecifikationer. Beroende på dina programkrav kan du koppla en eller flera diskar till den virtuella datorn.
 
-När du skapar en ny hanterad disk från portalen kan du välja **konto typen** för den typ av disk som du vill använda. Tänk på att inte alla tillgängliga diskar visas på den nedrullningsbara menyn. När du har valt en viss VM-storlek visar menyn endast de tillgängliga Premium Storage-SKU: erna som baseras på den virtuella dator storleken.
+När du skapar en ny hanterad disk från portalen kan du välja **kontotyp** för den typ av disk som du vill använda. Tänk på att inte alla tillgängliga diskar visas på den nedrullningsvänliga menyn. När du har valt en viss vm-storlek visar menyn endast tillgängliga premiumlagringssskuser som baseras på den virtuella datorns storlek.
 
-![Skärm bild av sidan hanterad disk](./media/oracle-design/premium_disk01.png)
+![Skärmbild av den hanterade disksidan](./media/oracle-design/premium_disk01.png)
 
-När du har konfigurerat lagringen på en virtuell dator kanske du vill läsa in testa diskarna innan du skapar en databas. Att känna till i/O-priset vad gäller både svars tid och data flöde kan hjälpa dig att avgöra om de virtuella datorerna stöder det förväntade data flödet med svars mål.
+När du har konfigurerat lagringen på en virtuell dator kanske du vill läsa in testa diskarna innan du skapar en databas. Att känna till I/O-hastigheten både när det gäller svarstid och dataflöde kan hjälpa dig att avgöra om de virtuella datorerna stöder det förväntade dataflödet med svarstidsmål.
 
-Det finns ett antal verktyg för belastnings testning av program, till exempel Oracle Orion, Sysbench och Fio.
+Det finns ett antal verktyg för testning av programbelastning, till exempel Oracle Orion, Sysbench och Fio.
 
-Kör belastnings testet igen när du har distribuerat en Oracle-databas. Starta dina vanliga arbets belastningar och resultatet visar din miljös bas linje.
+Kör belastningstestet igen när du har distribuerat en Oracle-databas. Starta dina vanliga och högsta arbetsbelastningar, och resultaten visar dig baslinjen för din miljö.
 
-Det kan vara mer viktigt att ändra lagrings utrymme baserat på IOPS-priset snarare än lagrings storleken. Om till exempel den nödvändiga IOPS är 5 000, men du bara behöver 200 GB, kan du fortfarande hämta P30-klass Premium-disken även om den har mer än 200 GB lagrings utrymme.
+Det kan vara viktigare att ändra storlek på lagringen baserat på IOPS-hastigheten i stället för lagringsstorleken. Om den nödvändiga IOPS är 5 000, men du bara behöver 200 GB, kan du fortfarande få premiumdisken i P30-klassen även om den levereras med mer än 200 GB lagringsutrymme.
 
-IOPS-priset kan hämtas från AWR-rapporten. Den bestäms av processen för att göra om-loggen, fysiska läsningar och skrivnings takt.
+IOPS-kursen kan erhållas från rapporten AWR. Det bestäms av omrubbningsloggen, fysiska läsningar och skrivfrekvens.
 
-![Skärm bild av rapport sidan för AWR](./media/oracle-design/awr_report.png)
+![Skärmbild av rapportsidan för AWR](./media/oracle-design/awr_report.png)
 
-Till exempel är Restore-storleken 12 200 000 byte per sekund, vilket är lika med 11,63 Mbit/s.
-IOPS är 12 200 000/2 358 = 5 174.
+Omringsstorleken är till exempel 12 200 000 byte per sekund, vilket är lika med 11,63 MBPs.
+IOPS är 12.200.000 / 2.358 = 5.174.
 
-När du har en tydlig bild av I/O-kraven kan du välja en kombination av enheter som passar bäst för att uppfylla dessa krav.
-
-**Rekommendationer**
-
-- För data tabell utrymme sprider du i/O-arbetsbelastningen över flera diskar med hjälp av hanterad lagring eller Oracle ASM.
-- När I/O-blocket ökar för Läs intensiva och skriv intensiva åtgärder, lägger du till fler data diskar.
-- Öka block storleken för stora sekventiella processer.
-- Använd data komprimering för att minska I/O (för både data och index).
-- Separera återupprepnings loggar, system, och temporärt, och ångra TS på separata data diskar.
-- Lägg inte till några programfiler på standard OS-diskar (/dev/SDA). Diskarna är inte optimerade för start tider för snabb virtuell dator och de kanske inte ger dig bästa prestanda för ditt program.
-- När du använder virtuella datorer i M-serien på Premium Storage aktiverar du [Skrivningsaccelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) on REG logs disks.
-
-### <a name="disk-cache-settings"></a>Inställningar för disk-cache
-
-Det finns tre alternativ för cachelagring av värdar:
-
-- *ReadOnly*: Alla begär Anden cachelagras för framtida läsningar. Alla skrivningar sparas direkt i Azure Blob Storage.
-
-- *Readwrite*: Det här är en "Read-Ahead"-algoritm. Läsningarna och skrivningarna cachelagras för framtida läsningar. Skrivningar som inte skrivs över sparas i det lokala cacheminnet först. Den ger också den lägsta disk fördröjningen för lätta arbets belastningar. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
-
-- *Ingen* (inaktive rad): Med det här alternativet kan du kringgå cacheminnet. Alla data överförs till disk och sparas i Azure Storage. Med den här metoden får du det högsta I/O-priset för I/O-intensiva arbets belastningar. Du måste också ta med "transaktions kostnader".
+När du har en tydlig bild av I/O-kraven kan du välja en kombination av enheter som är bäst lämpade för att uppfylla dessa krav.
 
 **Rekommendationer**
 
-För att maximera data flödet rekommenderar vi att du börjar med **ingen** för cachelagring av värden. Tänk på att du måste inaktivera "barriärer" när du monterar fil systemet med alternativen **ReadOnly** eller **ingen** för Premium Storage. Uppdatera/etc/fstab-filen med UUID: n till diskarna.
+- För datatabellutrymme sprider du I/O-arbetsbelastningen över ett antal diskar med hjälp av hanterad lagring eller Oracle ASM.
+- När I/O-blockstorleken ökar för läsintensiva och skrivintensiva åtgärder lägger du till fler datadiskar.
+- Öka blockstorleken för stora sekventiella processer.
+- Använd datakomprimering för att minska I/O (för både data och index).
+- Separata gör om loggar, system och temps och ångraR TS på separata datadiskar.
+- Placera inga programfiler på standard-OS-diskar (/dev/sda). Dessa diskar är inte optimerade för snabba starttider för virtuella datorer, och de kanske inte ger bra prestanda för ditt program.
+- När du använder virtuella datorer i M-serien på Premium-lagring aktiverar du [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) på omredares disk.
 
-![Skärm bild av sidan hanterad disk](./media/oracle-design/premium_disk02.png)
+### <a name="disk-cache-settings"></a>Inställningar för diskcachen
 
-- Använd standardcachelagring för **läsning och skrivning** för OS-diskar.
-- För SYSTEM, TEMP och ångra Använd **ingen** för cachelagring.
-- För DATA använder du **ingen** för cachelagring. Om databasen är skrivskyddad eller Läs intensiv använder du skrivskyddad cachelagring .
+Det finns tre alternativ för värdcachelagring:
 
-När din datadisk-inställning har sparats kan du inte ändra inställningen för cachelagring av värden om du inte avmonterar enheten på operativ system nivå och sedan monterar den igen när du har gjort ändringen.
+- *ReadOnly*: Alla begäranden cachelagras för framtida läsningar. Alla skrivningar sparas direkt till Azure Blob-lagring.
+
+- *ReadWrite*: Detta är en "read-ahead" algoritm. Läser och skriver cachelagras för framtida läsningar. Icke-skrivningar sparas först i den lokala cachen. Det ger också den lägsta diskfördröjningen för ljusarbetsbelastningar. Om du använder ReadWrite-cache med ett program som inte hanterar beständiga data som krävs kan data gå förlorade om den virtuella datorn kraschar.
+
+- *Ingen* (inaktiverad): Genom att använda det här alternativet kan du kringgå cachen. Alla data överförs till disken och sparas till Azure Storage. Den här metoden ger dig den högsta I/O-hastigheten för I/O-intensiva arbetsbelastningar. Du måste också ta hänsyn till "transaktionskostnader".
+
+**Rekommendationer**
+
+För att maximera dataflödet rekommenderar vi att du börjar med **Ingen** för värdcachelagring. För Premium Storage bör du tänka på att du måste inaktivera "hinder" när du monterar filsystemet med **ReadOnly-** eller **None-alternativen.** Uppdatera filen /etc/fstab med UUID till diskarna.
+
+![Skärmbild av den hanterade disksidan](./media/oracle-design/premium_disk02.png)
+
+- För OS-diskar använder du **standardcache-cachelagring av läs-/skriv.**
+- För SYSTEM, TEMP och ÅNGRA används **Ingen** för cachelagring.
+- För DATA använder du **Ingen** för cachelagring. Men om databasen är skrivskyddad eller läsintensiv använder du **Skrivskyddad** cachelagring.
+
+När datadiskinställningen har sparats kan du inte ändra inställningen för värdcachen om du inte avmonterar enheten på OS-nivå och sedan monterar om den när du har gjort ändringen.
 
 ## <a name="security"></a>Säkerhet
 
-När du har konfigurerat och konfigurerat Azure-miljön är nästa steg att skydda nätverket. Här följer några rekommendationer:
+När du har konfigurerat och konfigurerat din Azure-miljö är nästa steg att skydda nätverket. Här är några rekommendationer:
 
-- *NSG-princip*: NSG kan definieras av ett undernät eller ett nätverkskort. Det är enklare att kontrol lera åtkomst på under näts nivån, både för säkerhet och tvinga framning av saker som program brand väggar.
+- *NSG-princip*: NSG kan definieras av ett undernät eller nätverkskort. Det är enklare att styra åtkomsten på undernätsnivå, både för säkerhet och tvångsroutning för saker som programbrandvägger.
 
-- *Hopp*: För säkrare åtkomst bör administratörer inte ansluta direkt till program tjänsten eller databasen. En hoppning används som ett medium mellan administratörs datorn och Azure-resurserna.
-![Skärm bild av sidan för bygel-topologin](./media/oracle-design/jumpbox.png)
+- *Jumpbox*: För säkrare åtkomst bör administratörer inte ansluta direkt till programtjänsten eller databasen. En jumpbox används som ett medium mellan administratörsmaskinen och Azure-resurser.
+![Skärmbild av sidan Hoppboxtopologi](./media/oracle-design/jumpbox.png)
 
-    Administratörs datorn ska endast erbjuda IP-begränsad åtkomst till hoppet. Hoppet ska ha åtkomst till programmet och databasen.
+    Administratörsdatorn bör endast erbjuda IP-begränsad åtkomst till jumpboxen. Jumpboxen ska ha tillgång till programmet och databasen.
 
-- *Privat nätverk* (undernät): Vi rekommenderar att du har program tjänsten och databasen på separata undernät, så att kontrollen kan ställas in av NSG-principen på ett bättre sätt.
+- *Privat nätverk* (undernät): Vi rekommenderar att du har programtjänsten och databasen på separata undernät, så bättre kontroll kan ställas in av NSG-principen.
 
 
-## <a name="additional-reading"></a>Ytterligare resurser
+## <a name="additional-reading"></a>Ytterligare läsning
 
 - [Konfigurera Oracle ASM](configure-oracle-asm.md)
-- [Konfigurera Oracle data Guard](configure-oracle-dataguard.md)
-- [Konfigurera den gyllene Oracle-grinden](configure-oracle-golden-gate.md)
-- [Säkerhets kopiering och återställning i Oracle](oracle-backup-recovery.md)
+- [Konfigurera Oracle Data Guard](configure-oracle-dataguard.md)
+- [Konfigurera Oracle Golden Gate](configure-oracle-golden-gate.md)
+- [Oracle säkerhetskopiering och återställning](oracle-backup-recovery.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
+- [Självstudiekurs: Skapa virtuella datorer med hög tillgång](../../linux/create-cli-complete.md)
 - [Utforska Azure CLI-exempel för VM-distribution](../../linux/cli-samples.md)

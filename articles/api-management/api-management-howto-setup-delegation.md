@@ -1,6 +1,6 @@
 ---
-title: Så här delegerar du användar registrering och produkt prenumeration
-description: Lär dig hur du delegerar användar registrering och produkt prenumeration till en tredje part i Azure API Management.
+title: Så här delegerar du användarregistrering och produktprenumeration
+description: Lär dig hur du delegerar användarregistrering och produktprenumeration till en tredje part i Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,133 +14,133 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: a69babdf2fffb4cb9d963f1806f3c85755e50294
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74454355"
 ---
-# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Så här delegerar du användar registrering och produkt prenumeration
+# <a name="how-to-delegate-user-registration-and-product-subscription"></a>Så här delegerar du användarregistrering och produktprenumeration
 
-Med delegering kan du använda din befintliga webbplats för att hantera utvecklares inloggning/registrering och prenumeration på produkter, i stället för att använda de inbyggda funktionerna i Developer-portalen. Det gör att din webbplats kan äga användar data och utföra valideringen av dessa steg på ett anpassat sätt.
+Med delegering kan du använda din befintliga webbplats för att hantera utvecklarens inloggning/registrering och prenumeration på produkter, i stället för att använda de inbyggda funktionerna i utvecklarportalen. Det gör att din webbplats att äga användardata och utföra valideringen av dessa steg på ett anpassat sätt.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"> </a>Delegera inloggning och registrering av utvecklare
+## <a name="delegating-developer-sign-in-and-sign-up"></a><a name="delegate-signin-up"> </a>Delegera in- och registrering av utvecklare
 
-För att delegera utvecklare, logga in och registrera dig på din befintliga webbplats måste du skapa en särskild Delegerings slut punkt på din webbplats. Den måste fungera som ingångs punkt för en sådan begäran som initieras från API Management Developer-portalen.
+Om du vill delegera utvecklare, logga in och registrera dig på din befintliga webbplats måste du skapa en särskild delegeringsslutpunkt på webbplatsen. Den måste fungera som startpunkt för en sådan begäran som initieras från API Management-utvecklarportalen.
 
-Det slutliga arbets flödet är följande:
+Det slutliga arbetsflödet kommer att vara följande:
 
-1. Developer klickar på länken Logga in eller registrera på API Management Developer-portalen
-2. Webbläsaren omdirigeras till Delegerings slut punkten
-3. Delegerings slut punkt i retur omdirigeringar till eller visar ett gränssnitt där användaren uppmanas att logga in eller registrera sig
-4. Vid lyckad omdirigeras användaren tillbaka till den API Management Developer Portal-sida som de startade från
+1. Utvecklaren klickar på inloggnings- eller registreringslänken på utvecklarportalen för API Management
+2. Webbläsaren omdirigeras till slutpunkten för delegering
+3. Delegeringslutpunkt i returomdirigeringar till eller presenterar användargränssnittet där användaren uppmanas att logga in eller registrera sig
+4. När den lyckas omdirigeras användaren tillbaka till api management-utvecklarportalsidan som de startade från
 
-Börja med att konfigurera API Management för att dirigera begär Anden via din Delegerings slut punkt. I Azure Portal söker du efter **säkerhet** i API Management resurs och klickar sedan på objektet **delegering** . Klicka på kryss rutan om du vill aktivera "delegera inloggning & registrera dig".
+Till att börja med ska vi först konfigurera API Management för att dirigera begäranden via dendelegeringsslutpunkten. Sök efter **säkerhet** i API Management-resursen i Azure-portalen och klicka sedan på objektet **Delegering.** Klicka i kryssrutan om du vill aktivera "Delegera inloggning & registrera dig".
 
-![Sidan delegering][api-management-delegation-signin-up]
+![Sidan Delegering][api-management-delegation-signin-up]
 
-* Bestäm vilken URL för din särskilda Delegerings slut punkt som ska användas och ange den i fältet för **Delegerings slut punkt** . 
-* I fältet delegera autentiseringsnyckel anger du en hemlighet som ska användas för att beräkna en signatur som du får för att kontrol lera att begäran verkligen kommer från Azure API Management. Du kan klicka på knappen **generera** om du vill att API Management slumpmässigt ska generera en nyckel åt dig.
+* Bestäm vilken URL för den särskilda delegeringsslutpunkten ska vara och ange den i **url-fältet För delegering.** 
+* Ange en hemlighet som ska användas för att beräkna en signatur som du har angett för verifiering för att säkerställa att begäran verkligen kommer från Azure API Management i fältet Delegeringsautentisering. Du kan klicka på **generera** knappen för att få API Management slumpmässigt generera en nyckel för dig.
 
-Nu måste du skapa **Delegerings slut punkten**. Det måste utföra ett antal åtgärder:
+Nu måste du skapa **delegeringslutpunkten**. Den måste utföra ett antal åtgärder:
 
-1. Ta emot en begäran i följande format:
+1. Ta emot en begäran i följande formulär:
    
-   > *http:\//www.yourwebsite.com/apimdelegation? operation = signin & returnUrl = {URL för käll sidan} & salt = {String} & sig = {sträng}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL för källsidan}&salt={string}&sig={string}*
    > 
    > 
    
-    Frågeparametrar för inloggnings-/registrerings fallet:
+    Frågeparametrar för inloggnings- och registreringsfodralet:
    
-   * **åtgärd**: identifierar vilken typ av delegeringsbegäran det är – det kan bara vara **inloggning** i det här fallet
-   * **ReturnUrl**: URL: en till sidan där användaren klickade på inloggnings-eller registrerings länk
-   * **salt**: en särskild salt sträng som används för att beräkna en säkerhets-hash
-   * **sig**: en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
-2. Kontrol lera att begäran kommer från Azure API Management (valfritt, men rekommenderas för säkerhet)
+   * **åtgärd**: identifierar vilken typ av delegeringsbegäran det är - det kan bara vara **Inloggning** i det här fallet
+   * **returnUrl**: webbadressen till den sida där användaren klickade på en inloggning eller registrera dig länk
+   * **salt**: en speciell saltsträng som används för att beräkna en säkerhetshh
+   * **sig**: en beräknad säkerhet hash som ska användas för jämförelse med din egen beräknade hash
+2. Kontrollera att begäran kommer från Azure API Management (valfritt men rekommenderas starkt för säkerhet)
    
-   * Beräkna en HMAC-SHA512 hash av en sträng baserat på parametrarna **ReturnUrl** och **salt** fråga ([exempel kod anges nedan]):
+   * Beräkna en HMAC-SHA512 hash av en sträng baserat på **parametrarna returnUrl** och **salt** fråga[(exempelkod som anges nedan):]
      
-     > HMAC (**salt** + ' \n ' + **ReturnUrl**)
+     > HMAC(**salt** + '\n' + **returnUrl**)
      > 
      > 
-   * Jämför det ovan beräknade hashvärdet med värdet för **sig** -Frågeparametern. Om de två hasharna matchar går du vidare till nästa steg, annars nekar du begäran.
-3. Kontrol lera att du får en begäran om att logga in/registrera: **åtgärdens** frågeparameter anges till "**signin**".
-4. Presentera användaren användar gränssnitt för att logga in eller registrera dig
-5. Om användaren är inloggad måste du skapa ett motsvarande konto för dem i API Management. [Skapa en användare] med API Management REST API. När du gör det, se till att du anger användar-ID: t till samma värde som i ditt användar arkiv eller till ett ID som du kan hålla reda på.
+   * Jämför den ovan beräknade hash-värdet med värdet för **parametern sig query.** Om de två hasharmatchningen går du vidare till nästa steg och nekar annars begäran.
+3. Kontrollera att du får en begäran om inloggning/registrering: åtgärdsfrågeparametern ställs in på "**SignIn**". **operation**
+4. Presentera användargränssnittet för att logga in eller registrera sig
+5. Om användaren registrerar sig måste du skapa ett motsvarande konto för dem i API Management. [Skapa en användare] med REST-API:et för API-hantering. När du gör det, se till att du ställer in användar-ID till samma värde som i din användarbutik eller till ett ID som du kan hålla reda på.
 6. När användaren har autentiserats:
    
-   * [begär en token för enkel inloggning (SSO)] via API Management REST API
-   * Lägg till en returnUrl-frågeparameter till URL: en för SSO som du har fått från API-anropet ovan:
+   * [begära en SSO-token (Single-sign-on)] via API Management REST API
+   * lägga till en returnUrl-frågeparameter till SSO-URL:en som du har fått från API-anropet ovan:
      
-     > till exempel https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > till exempel,https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
      > 
      > 
-   * omdirigera användaren till den ovan producerade URL: en
+   * omdirigera användaren till ovanstående producerade WEBBADRESS
 
-Förutom **inloggnings** åtgärden kan du också utföra konto hantering genom att följa de föregående stegen och använda någon av följande åtgärder:
+Förutom **SignIn-åtgärden** kan du även utföra kontohantering genom att följa föregående steg och använda någon av följande åtgärder:
 
-* **ChangePassword**
+* **ÄndraPassword**
 * **ChangeProfile**
 * **CloseAccount**
 
-Du måste skicka följande frågeparametrar för konto hanterings åtgärder.
+Du måste skicka följande frågeparametrar för kontohanteringsåtgärder.
 
-* **åtgärd**: identifierar vilken typ av delegeringsbegäran den är (ChangePassword, ChangeProfile eller closeaccount)
-* **userId**: användar-ID för det konto som ska hanteras
-* **salt**: en särskild salt sträng som används för att beräkna en säkerhets-hash
-* **sig**: en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
+* **åtgärd**: identifierar vilken typ av delegeringsbegäran det är (ChangePassword, ChangeProfile eller CloseAccount)
+* **userId**: användarens ID för kontot för att hantera
+* **salt**: en speciell saltsträng som används för att beräkna en säkerhetshh
+* **sig**: en beräknad säkerhet hash som ska användas för jämförelse med din egen beräknade hash
 
-## <a name="delegate-product-subscription"> </a>Delegera produkt prenumeration
-Att delegera produkt prenumeration fungerar på samma sätt som att delegera användar inloggning. Det slutliga arbets flödet skulle vara följande:
+## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegera produktprenumeration
+Delegera produktprenumeration fungerar på samma sätt att delegera användarloggning i/upp. Det slutliga arbetsflödet skulle vara följande:
 
-1. Utvecklare väljer en produkt i API Management Developer-portalen och klickar på knappen Prenumerera.
-2. Webbläsaren omdirigeras till Delegerings slut punkten.
-3. Delegerings slut punkten utför nödvändiga produkt prenumerations steg. Det är upp till dig att utforma stegen. De kan omfatta omdirigering till en annan sida för att begära fakturerings information, ställa in ytterligare frågor eller bara lagra informationen och inte kräva någon användar åtgärd.
+1. Utvecklaren väljer en produkt i utvecklarportalen för API Management och klickar på knappen Prenumerera.
+2. Webbläsaren omdirigeras till slutpunkten för delegering.
+3. Slutpunkten för delegering utför nödvändiga produktprenumerationssteg. Det är upp till dig att utforma stegen. De kan omfatta omdirigering till en annan sida för att begära faktureringsinformation, ställa ytterligare frågor eller helt enkelt lagra informationen och inte kräva någon användaråtgärd.
 
-Om du vill aktivera funktionen klickar du på **delegera produkt prenumeration**på sidan **delegering** .
+Om du vill aktivera funktionen klickar du på **Delegera produktprenumeration**på sidan **Delegering.**
 
-Se sedan till att Delegerings slut punkten utför följande åtgärder:
+Kontrollera sedan att delegeringsslutpunkten gör följande:
 
-1. Ta emot en begäran i följande format:
+1. Ta emot en begäran i följande formulär:
    
-   > *http:\//www.yourwebsite.com/apimdelegation? åtgärd = {åtgärd} & Produktnr = {produkt att prenumerera på} & userId = {User-förfrågan} & salt = {String} & sig = {sträng}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}*
    >
    
-    Frågeparametrar för ärende om produkt prenumeration:
+    Frågeparametrar för produktprenumerationsärelet:
    
-   * **åtgärd**: identifierar vilken typ av Delegerings förfrågan den är. För produkt prenumerations begär Anden är giltiga alternativ:
-     * "Prenumerera": en begäran om att prenumerera på användaren till en viss produkt med angivet ID (se nedan)
-     * "Avregistrera": en begäran om att avbryta prenumerationen på en användare från en produkt
-     * "Förnya": en begäran om att förnya en prenumeration (till exempel som kan upphöra att gälla)
-   * **Produktnr**: ID för produkten som användaren har begärt att prenumerera på
-   * **subscriptionId**: vid avregistrering och *förnyelse* -ID: *t för produkt* prenumerationen
-   * **userId**: ID för den användare som begäran görs om
-   * **salt**: en särskild salt sträng som används för att beräkna en säkerhets-hash
-   * **sig**: en beräknad säkerhets-hash som ska användas för jämförelse med din egen beräknade hash
+   * **åtgärd**: identifierar vilken typ av delegeringsbegäran den är. För produktprenumerationsförfrågningar är de giltiga alternativen:
+     * "Prenumerera": en begäran om att prenumerera användaren på en viss produkt med medföljande ID (se nedan)
+     * "Avsluta prenumeration": en begäran om att avsluta prenumerationen på en användare från en produkt
+     * "Förnya": en begäran om att förnya en prenumeration (till exempel som kan löpa ut)
+   * **productId**: ID för den produkt som användaren begärde att prenumerera på
+   * **subscriptionId**: på *Avsluta prenumeration* och *förnya* - ID för produktprenumerationen
+   * **userId**: användarens ID som begäran görs för
+   * **salt**: en speciell saltsträng som används för att beräkna en säkerhetshh
+   * **sig**: en beräknad säkerhet hash som ska användas för jämförelse med din egen beräknade hash
 
-2. Kontrol lera att begäran kommer från Azure API Management (valfritt, men rekommenderas för säkerhet)
+2. Kontrollera att begäran kommer från Azure API Management (valfritt men rekommenderas starkt för säkerhet)
    
-   * Beräkna en HMAC-SHA512 av en sträng baserat på parametrarna **productId**, **userId**och **salt** fråga:
+   * Beräkna en HMAC-SHA512 för en sträng baserat på parametrarna **productId**, **userId**och **salt** query:
      
-     > HMAC (**salt** + ' \n ' + **productId** + ' \n ' + **userId**)
+     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
      > 
      > 
-   * Jämför det ovan beräknade hashvärdet med värdet för **sig** -Frågeparametern. Om de två hasharna matchar går du vidare till nästa steg, annars nekar du begäran.
-3. Bearbeta produkt prenumeration baserat på den typ av åtgärd som har begärts i **drift** , till exempel fakturering, ytterligare frågor osv.
-4. När du prenumererar användaren på produkten på din sida ska du prenumerera på den API Management produkten genom att [anropar REST API för prenumerationer].
+   * Jämför den ovan beräknade hash-värdet med värdet för **parametern sig query.** Om de två hasharmatchningen går du vidare till nästa steg och nekar annars begäran.
+3. Bearbeta produktprenumeration baserat på vilken typ av åtgärd som begärs i **drift** - till exempel fakturering, ytterligare frågor, etc.
+4. När du har prenumererat på användaren på produkten på din sida prenumererar du användaren på API Management-produkten genom att [anropa REST API för prenumerationer].
 
-## <a name="delegate-example-code"></a> Exempel kod
+## <a name="example-code"></a><a name="delegate-example-code"> </a> Exempelkod
 
-Följande kod exempel visar hur du:
+Dessa kodexempel visar hur du:
 
-* Ta *Delegerings validerings nyckeln*, som anges på skärmen delegering på utgivar portalen
-* Skapa en HMAC som sedan används för att validera signaturen och bevisa giltigheten för den skickade returnUrl.
+* Ta *delegeringsvalideringsnyckeln*, som anges på skärmen Delegering på utgivarportalen
+* Skapa en HMAC, som sedan används för att validera signaturen, som bevisar giltigheten av den skickade returnUrl.
 
-Samma kod fungerar för productId och userId med mindre modifiering.
+Samma kod fungerar för productId och userId med liten modifiering.
 
-**C#kod för att generera hash för returnUrl**
+**C# kod för att generera hash av returnUrl**
 
 ```csharp
 using System.Security.Cryptography;
@@ -157,7 +157,7 @@ using (var encoder = new HMACSHA512(Convert.FromBase64String(key)))
 }
 ```
 
-**NodeJS-kod för att generera hash för returnUrl**
+**NodeJS-kod för att generera hash av returnUrl**
 
 ```
 var crypto = require('crypto');
@@ -175,10 +175,10 @@ var signature = digest.toString('base64');
 ```
 
 > [!IMPORTANT]
-> Du måste [Publicera om Developer-portalen](api-management-howto-developer-portal-customize.md#publish) för att Delegerings ändringarna ska börja gälla.
+> Du måste [publicera om utvecklarportalen](api-management-howto-developer-portal-customize.md#publish) för att delegeringsändringarna ska börja gälla.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om delegering finns i följande videoklipp:
+Mer information om delegering finns i följande video:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Delegating-User-Authentication-and-Product-Subscription-to-a-3rd-Party-Site/player]
 > 
@@ -186,10 +186,10 @@ Mer information om delegering finns i följande videoklipp:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[begär en token för enkel inloggning (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
+[begära en SSO-token (Single-sign-on)]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
 [skapa en användare]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
-[anropar REST API för prenumerationer]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
+[anropa REST API för prenumerationer]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
 [Next steps]: #next-steps
-[exempel kod anges nedan]: #delegate-example-code
+[exempelkod som anges nedan]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 

@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från DB2 med Azure Data Factory
-description: Lär dig hur du kopierar data från DB2 till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
+description: Lär dig hur du kopierar data från DB2 till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: jingwang
 ms.openlocfilehash: 22ecac12e049e58e533cdde0078f4a25f6bb2aa6
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77423835"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
@@ -23,43 +23,43 @@ ms.locfileid: "77423835"
 > * [Version 1](v1/data-factory-onprem-db2-connector.md)
 > * [Aktuell version](connector-db2.md)
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en DB2-databas. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en DB2-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här DB2 Database Connector stöds för följande aktiviteter:
+Den här DB2-databaskopplingen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från DB2-databasen till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen över [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
+Du kan kopiera data från DB2-databasen till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-I synnerhet stöder denna DB2-anslutning följande IBM DB2-plattformar och versioner med Distributed Relations databas arkitektur (SQLAM), version 9, 10 och 11:
+Den här DB2-anslutningen stöder följande IBM DB2-plattformar och versioner med DRDA-version 9, 10 och 11 (Distributed Relational Database Architecture Architecture) (Distributed Relational Database Architecture) version 9, 10 och 11:
 
-* IBM DB2 för z/OS 12,1
-* IBM DB2 för z/OS 11,1
-* IBM DB2 för z/OS 10,1
-* IBM DB2 för i 7,3
-* IBM DB2 för i 7,2
-* IBM DB2 för i 7,1
+* IBM DB2 för z/OS 12.1
+* IBM DB2 för z/OS 11.1
+* IBM DB2 för z/OS 10.1
+* IBM DB2 för i 7.3
+* IBM DB2 för i 7.2
+* IBM DB2 för i 7.1
 * IBM DB2 för LUW 11
 * IBM DB2 för LUW 10,5
-* IBM DB2 för LUW 10,1
+* IBM DB2 för LUW 10.1
 
 >[!TIP]
->DB2 Connector är byggd ovanpå Microsoft OLE DB Provider för DB2. Information om hur du felsöker DB2 Connector-fel finns i [felkoder för DataProvider](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
+>DB2-kontakten är byggd ovanpå Microsoft OLE DB Provider för DB2. Information om felsÃ¶kning av DB2-anslutningsfel finns i [felkoder för dataprovidern](https://docs.microsoft.com/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-Integration Runtime tillhandahåller en inbyggd DB2-drivrutin, och du behöver därför inte installera någon driv rutin manuellt när du kopierar data från DB2.
+Integration Runtime tillhandahåller en inbyggd DB2-drivrutin, därför behöver du inte installera någon drivrutin manuellt när du kopierar data från DB2.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för DB2 Connector.
+I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för DB2-koppling.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
@@ -67,18 +67,18 @@ Följande egenskaper stöds för DB2-länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **DB2** | Ja |
-| server |Namnet på DB2-servern. Du kan ange port numret som följer Server namnet avgränsat med kolon, t. ex. `server:port`. |Ja |
-| database |Namnet på DB2-databasen. |Ja |
-| authenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtet värde är: **Basic**. |Ja |
-| användarnamn |Ange användar namnet för att ansluta till DB2-databasen. |Ja |
-| lösenord |Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| packageCollection | Ange under där de nödvändiga paketen skapas automatiskt av ADF när du frågar databasen. | Nej |
-| certificateCommonName | När du använder Secure Sockets Layer (SSL) eller Transport Layer Security kryptering (TLS) måste du ange ett värde för certifikatets egna namn. | Nej |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
+| typ | Egenskapen Type måste anges till: **Db2** | Ja |
+| server |Namn på DB2-servern. Du kan ange portnumret efter servernamnet avgränsat med kolon `server:port`t.ex. |Ja |
+| databas |Namn på DB2-databasen. |Ja |
+| authenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtet värde är: **Grundläggande**. |Ja |
+| användarnamn |Ange användarnamn som ska anslutas till DB2-databasen. |Ja |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
+| packageCollection paket | Ange under var de nödvändiga paketen skapas automatiskt av ADF när du frågar databasen. | Inga |
+| certifikatKommernamn | När du använder SSL-kryptering (Secure Sockets Layer) eller TLS-kryptering (Transport Layer Security) måste du ange ett värde för certifikatets gemensamma namn. | Inga |
+| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges används standardkörningen för Azure Integration. |Inga |
 
 > [!TIP]
-> Om du får ett fel meddelande om att tillstånden `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`är orsaken till att ett nödvändigt paket inte skapas för användaren. Som standard försöker ADF skapa ett paket under samlingen med namnet som den användare som du använde för att ansluta till DB2. Ange egenskapen för paket samling för att ange under var du vill att ADF ska skapa nödvändiga paket när du frågar databasen.
+> Om du får ett `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`felmeddelande som anger skapas inte orsaken ett nödvändigt paket för användaren. Som standard försöker ADF skapa ett paket under samling som heter som den användare som du använde för att ansluta till DB2. Ange egenskapen paketsamling för att ange under var du vill att ADF ska skapa de paket som behövs när du frågar databasen.
 
 **Exempel:**
 
@@ -107,16 +107,16 @@ Följande egenskaper stöds för DB2-länkad tjänst:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av DB2-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av DB2-datauppsättningen.
 
-Följande egenskaper stöds för att kopiera data från DB2:
+Så här kopierar du data från DB2:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **Db2Table** | Ja |
-| schema | Schemats namn. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| table | Namnet på tabellen. |Nej (om ”query” i aktivitetskälla har angetts)  |
-| tableName | Namnet på tabellen med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table` för nya arbets belastningar. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Datauppsättningens typegenskap måste anges till: **Db2Table** | Ja |
+| Schemat | Namnet på schemat. |Nej (om "fråga" i aktivitetskällan har angetts)  |
+| tabell | Tabellens namn. |Nej (om "fråga" i aktivitetskällan har angetts)  |
+| tableName | Namn på tabellen med schema. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` `table` och för ny arbetsbelastning. | Nej (om "fråga" i aktivitetskällan har angetts) |
 
 **Exempel**
 
@@ -136,20 +136,20 @@ Följande egenskaper stöds för att kopiera data från DB2:
 }
 ```
 
-Om du använder `RelationalTable` typ av data uppsättning, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya som skickas.
+Om du `RelationalTable` använde maskinskriven datauppsättning stöds den fortfarande som den är, medan du föreslås använda den nya framöver.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av DB2-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av DB2-källa.
 
 ### <a name="db2-as-source"></a>DB2 som källa
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att kopiera data från DB2:
+Om du vill kopiera data från DB2 stöds följande egenskaper i avsnittet kopiera **aktivitetskälla:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **Db2Source** | Ja |
-| query | Använda anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nej (om ”tableName” i datauppsättningen har angetts) |
+| typ | Egenskapen Type property för kopians aktivitetskälla måste anges till: **Db2Source** | Ja |
+| DocumentDB | Använd den anpassade SQL-frågan för att läsa data. Till exempel: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Nej (om "tableName" i datauppsättningen har angetts) |
 
 **Exempel:**
 
@@ -183,44 +183,44 @@ Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** för att k
 ]
 ```
 
-Om du använder `RelationalSource` typ av källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya som skickas.
+Om du `RelationalSource` använde den maskinskrivna källan stöds den fortfarande som den är, medan du föreslås använda den nya framåt.
 
-## <a name="data-type-mapping-for-db2"></a>Data typs mappning för DB2
+## <a name="data-type-mapping-for-db2"></a>Mappning av datatyp för DB2
 
-När du kopierar data från DB2 används följande mappningar från DB2-datatyper för att Azure Data Factory interimistiska data typer. Se [mappningar av schema och data typer](copy-activity-schema-and-type-mapping.md) för att lära dig mer om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren.
+Vid kopiering av data från DB2 används följande mappningar från DB2-datatyper till Azure Data Factory interimsdatatyper. Se [Schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md) om du vill veta mer om hur du kopierar aktivitetsschemat och datatypen till diskhon.
 
-| Typ av DB2-databas | Data factory tillfälliga datatyp |
+| Databastyp för DB2 | Data fabrik interim datatyp |
 |:--- |:--- |
-| BigInt |Int64 |
+| Bigint |Int64 |
 | Binär |Byte[] |
 | Blob |Byte[] |
 | Char |String |
-| CLOB |String |
-| Datum |Datum/tid |
+| Clob |String |
+| Datum |Datumtid |
 | DB2DynArray |String |
-| DbClob |String |
-| decimaltal |decimaltal |
-| DecimalFloat |decimaltal |
-| Double-värde |Double-värde |
-| Float |Double-värde |
-| Graphic |String |
+| DbClob (D.) |String |
+| Decimal |Decimal |
+| DecimalFloat |Decimal |
+| Double |Double |
+| Float (Flyttal) |Double |
+| Grafisk |String |
 | Integer |Int32 |
-| LongVarBinary |Byte[] |
-| LongVarChar |String |
-| LongVarGraphic |String |
-| Numeric |decimaltal |
-| Verkligen |Enkel |
-| SmallInt |Int16 |
-| Tid |Tidsintervall |
+| LongVarBinary (LångVarBinary) |Byte[] |
+| LongVarChar (Olikart) |String |
+| LongVarGraphic (olikartade) |String |
+| Numerisk |Decimal |
+| Verkliga |Enkel |
+| Smallint |Int16 (int16) |
+| Tid |TimeSpan |
 | Tidsstämpel |DateTime |
-| VarBinary |Byte[] |
-| VarChar |String |
-| VarGraphic |String |
+| Varbinary |Byte[] |
+| Varchar |String |
+| Vargrafiska |String |
 | Xml |Byte[] |
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

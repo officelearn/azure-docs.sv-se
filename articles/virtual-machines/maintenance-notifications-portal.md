@@ -1,6 +1,6 @@
 ---
-title: Använd portalen för underhålls meddelanden
-description: Visa underhålls meddelanden för virtuella datorer som körs i Azure och starta självbetjänings underhållet med hjälp av portalen.
+title: Använda portalen för underhållsmeddelanden
+description: Visa underhållsmeddelanden för virtuella datorer som körs i Azure och starta självbetjäningsunderhåll med hjälp av portalen.
 author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,65 +8,65 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
 ms.openlocfilehash: 46fcc825ac49f0181ac74e9c3e2deaea577f3329
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77115737"
 ---
-# <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Hantera meddelanden för planerat underhåll med hjälp av portalen
+# <a name="handling-planned-maintenance-notifications-using-the-portal"></a>Hantera planerade underhållsmeddelanden med hjälp av portalen
 
-**Den här artikeln gäller för virtuella datorer som kör både Linux och Windows.**
+**Den här artikeln gäller virtuella datorer som kör både Linux och Windows.**
 
-När du har schemalagt en [planerad underhålls](maintenance-notifications.md) våg kan du söka efter en lista över virtuella datorer som påverkas. 
+När en [planerad underhållsvåg](maintenance-notifications.md) har schemalagts kan du söka efter en lista över virtuella datorer som påverkas. 
 
-Du kan använda Azure Portal och leta efter virtuella datorer som är schemalagda för underhåll.
+Du kan använda Azure-portalen och leta efter virtuella datorer som schemalagts för underhåll.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Klicka på **Virtual Machines**i det vänstra navigerings fältet.
+2. Klicka på Virtuella datorer i den vänstra **navigeringen.**
 
-3. Öppna listan med tillgängliga kolumner genom att välja **Redigera kolumner** i rutan Virtual Machines.
+3. I fönstret Virtuella datorer väljer du knappen **Redigera kolumner** för att öppna listan över tillgängliga kolumner.
 
-4. Markera och Lägg till följande kolumner:
+4. Markera och lägg till följande kolumner:
 
-   **Underhålls status**: visar underhålls status för den virtuella datorn. Följande är de potentiella värdena:
+   **Underhållsstatus**: Visar underhållsstatus för den virtuella datorn. Följande är de potentiella värdena:
       
       | Värde | Beskrivning |
       |-------|-------------|
-      | Starta nu | Den virtuella datorn är i fönstret för självbetjänings underhåll där du kan starta underhållet själv. Se nedan om hur du startar underhåll på den virtuella datorn. | 
-      | Schemalagd | Den virtuella datorn är schemalagd för underhåll utan något alternativ för dig att starta underhållet. Du kan lära dig underhålls fönstret genom att välja den underhålls schemalagda perioden i den här vyn eller genom att klicka på den virtuella datorn. | 
-      | Redan uppdaterat | Den virtuella datorn har redan uppdaterats och ingen ytterligare åtgärd krävs för tillfället. | 
-      | Försök igen senare | Du har initierat underhåll utan att lyckas. Du kommer att kunna använda alternativet för självbetjänings underhåll vid ett senare tillfälle. | 
-      | Försök igen nu | Du kan försöka med ett tidigare misslyckat självinitierat underhåll. | 
-      | - | Din virtuella dator ingår inte i en planerad underhålls våg. |
+      | Starta nu | Den virtuella datorn finns i självbetjäningsunderhållsfönstret som låter dig starta underhållet själv. Se nedan om hur du startar underhåll på din virtuella dator. | 
+      | Schemalagd | Den virtuella datorn är schemalagd för underhåll utan något alternativ för dig att starta underhållet. Du kan lära dig om underhållsfönstret genom att välja fönstret Underhåll - Schemalagt i den här vyn eller genom att klicka på den virtuella datorn. | 
+      | Redan uppdaterad | Den virtuella datorn har redan uppdaterats och inga ytterligare åtgärder krävs just nu. | 
+      | Försök igen senare | Du har initierat underhåll utan framgång. Du kommer att kunna använda underhållsalternativet för självbetjäning vid ett senare tillfälle. | 
+      | Försök igen nu | Du kan försöka igen med ett tidigare misslyckat självinitierat underhåll. | 
+      | - | Den virtuella datorn ingår inte i en planerad underhållsvåg. |
       
 
-   **Underhåll – självbetjänings fönstret**: visar tidsfönstret när du kan starta underhållet på dina virtuella datorer själv.
+   **Underhåll - Självbetjäningsfönster**: Visar tidsfönstret när du kan självstarta underhåll på dina virtuella datorer.
    
-   **Underhåll – schemalagt fönster**: visar tidsfönstret när Azure ska underhålla din virtuella dator för att slutföra underhållet. 
+   **Underhåll - Schemalagt fönster**: Visar tidsfönstret när Azure kommer att underhålla din virtuella dator för att slutföra underhållet. 
 
 
 
-## <a name="notification-and-alerts-in-the-portal"></a>Aviseringar och aviseringar i portalen
+## <a name="notification-and-alerts-in-the-portal"></a>Meddelanden och varningar i portalen
 
-Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till Prenumerationens ägare och gruppen med medägare. Du kan lägga till ytterligare mottagare och kanaler i den här kommunikationen genom att skapa Azure aktivitets logg aviseringar. Mer information finns i [skapa aktivitets logg aviseringar för tjänst meddelanden](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till prenumerationsägaren och ägargruppen. Du kan lägga till ytterligare mottagare och kanaler i den här kommunikationen genom att skapa Azure-aktivitetsloggaviseringar. Mer information finns i [Skapa aktivitetsloggaviseringar för tjänstmeddelanden](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 
-Se till att ange **händelse typ** som **planerat underhåll**och **tjänster** som **Virtual Machine Scale Sets** och/eller **Virtual Machines**.
+Se till att du anger **händelsetypen** som **planerat underhåll**och **tjänster** som **skaluppsättningar för virtuella datorer** och/eller **virtuella datorer**.
 
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Starta underhåll på den virtuella datorn från portalen
 
-När du tittar på informationen om den virtuella datorn kommer du att kunna se mer underhålls information.  
-Längst upp i vyn VM-information läggs ett nytt meddelande band till om din virtuella dator ingår i en planerad underhålls våg. Dessutom läggs ett nytt alternativ till för att starta underhåll när det är möjligt. 
+När du tittar på den virtuella datorn detaljer, kommer du att kunna se mer underhållsrelaterade detaljer.  
+Högst upp i den virtuella datorns informationsvy läggs ett nytt meddelandemenyer till om den virtuella datorn ingår i en planerad underhållsvåg. Dessutom läggs ett nytt alternativ till för att starta underhållet när det är möjligt. 
 
 
-Klicka på underhålls meddelandet för att se underhålls sidan med mer information om planerat underhåll. Därifrån kommer du att kunna **Starta underhåll** på den virtuella datorn.
+Klicka på underhållsmeddelandet för att se underhållssidan med mer information om det planerade underhållet. Därifrån kommer du att kunna **börja underhåll** på din virtuella dator.
 
-När du startar underhållet underhålls den virtuella datorn och underhålls statusen uppdateras för att avspegla resultatet inom några minuter.
+När du har påbörjat underhållet kommer den virtuella datorn att underhållas och underhållsstatusen uppdateras så att den återspeglar resultatet inom några minuter.
 
-Om du missade fönstret för självbetjäning kommer du fortfarande att kunna se fönstret när den virtuella datorn kommer att behållas av Azure. 
+Om du missade självbetjäningsfönstret kan du fortfarande se fönstret när den virtuella datorn kommer att underhållas av Azure. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också hantera planerat underhåll med hjälp av [Azure CLI](maintenance-notifications-cli.md) eller [PowerShell](maintenance-notifications-powershell.md).
+Du kan också hantera planerat underhåll med [Azure CLI](maintenance-notifications-cli.md) eller [PowerShell](maintenance-notifications-powershell.md).

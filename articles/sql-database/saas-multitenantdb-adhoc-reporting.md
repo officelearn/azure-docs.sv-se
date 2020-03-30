@@ -1,6 +1,6 @@
 ---
-title: Ad hoc-rapporterings frågor över flera databaser
-description: Kör ad hoc-rapporterings frågor över flera SQL-databaser i ett exempel på en app för flera klient organisationer.
+title: Ad hoc-rapporteringsfrågor i flera databaser
+description: Kör ad hoc-rapporteringsfrågor i flera SQL-databaser i ett appexempel för flera innehavare.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,145 +12,145 @@ ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
 ms.openlocfilehash: c0d1829c52041446b4feb43d8af262265e2680fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822173"
 ---
-# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Köra Ad hoc Analytics-frågor över flera Azure SQL-databaser
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Köra ad hoc-analysfrågor i flera Azure SQL-databaser
 
-I den här självstudien kör du distribuerade frågor över hela uppsättningen klient databaser för att aktivera Ad hoc-interaktiv rapportering. Dessa frågor kan extrahera insikter som ligger inom den dagliga drift informationen för Wingtip Ticket SaaS-appen. Om du vill göra dessa utdrag distribuerar du en ytterligare analys databas till katalog servern och använder elastisk fråga för att aktivera distribuerade frågor.
+I den här självstudien kör du distribuerade frågor över hela uppsättningen klientdatabaser för att aktivera interaktiv ad hoc-rapportering. Dessa frågor kan extrahera insikter begravda i den dagliga operativa data i Wingtip Biljetter SaaS app. Om du vill göra dessa extraheringar distribuerar du ytterligare en analysdatabas till katalogservern och använder Elastisk fråga för att aktivera distribuerade frågor.
 
 
 I den här guiden lär du dig:
 
 > [!div class="checklist"]
 > 
-> * Så här distribuerar du en ad hoc-rapporterings databas
-> * Så här kör du distribuerade frågor över alla klient databaser
+> * Distribuera en ad hoc-rapportdatabas
+> * Så här kör du distribuerade frågor i alla klientdatabaser
 
 
 Följande krav måste uppfyllas för att kunna köra den här självstudiekursen:
 
-* Wingtip biljetter SaaS-appen för flera klient organisationer har distribuerats. Om du vill distribuera på mindre än fem minuter läser du [distribuera och utforska Wingtip-biljetterna SaaS-databas program för flera innehavare](saas-multitenantdb-get-started-deploy.md)
+* Wingtip-biljetterna SaaS Databasapp för flera innehavare distribueras. Information om hur du distribuerar på mindre än fem minuter finns i [Distribuera och utforska Wingtip Tickets SaaS-databasprogrammet för flera innehavare](saas-multitenantdb-get-started-deploy.md)
 * Azure PowerShell ska ha installerats. Mer information finns i [Kom igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* SQL Server Management Studio (SSMS) har installerats. Information om hur du hämtar och installerar SSMS finns i [hämta SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+* SQL Server Management Studio (SSMS) är installerat. Mer hÃ¤r hämtning och installation av SSMS finns i [HÃ¤m fÃ¤r HÃ¤mtningsstudio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-## <a name="ad-hoc-reporting-pattern"></a>Ad hoc-rapporterings mönster
+## <a name="ad-hoc-reporting-pattern"></a>Ad hoc-rapporteringsmönster
 
-![rapport mönster för adhoc](media/saas-multitenantdb-adhoc-reporting/adhocreportingpattern_shardedmultitenantDB.png)
+![adhoc rapporteringsmönster](media/saas-multitenantdb-adhoc-reporting/adhocreportingpattern_shardedmultitenantDB.png)
 
-SaaS-program kan analysera den stora mängden klient data som lagras centralt i molnet. Analyserna avslöjar insikter om driften och användningen av ditt program. Dessa insikter kan hjälpa till med utveckling av funktioner, användbarhets förbättringar och andra investeringar i dina appar och tjänster.
+SaaS-program kan analysera den stora mängden klientdata som lagras centralt i molnet. Analyserna visar insikter om hur ditt program fungerar och används. Dessa insikter kan vägleda funktionsutveckling, förbättringar av användbarheten och andra investeringar i dina appar och tjänster.
 
-Det är lätt att komma åt en enkel databas med flera klienter, men inte så enkelt när du har distribuerat tusentals databaser. En metod är att använda [elastisk fråga](sql-database-elastic-query-overview.md)som aktiverar frågor i en distribuerad uppsättning databaser med ett gemensamt schema. Dessa databaser kan distribueras mellan olika resurs grupper och prenumerationer. Men en gemensam inloggning måste ha åtkomst för att extrahera data från alla databaser. Elastisk fråga använder en enda *huvud* databas där externa tabeller definieras som speglar tabeller eller vyer i de distribuerade (klient) databaserna. Frågorna som skickas till huvuddatabasen kompileras för att skapa en distribuerad frågeplan, och delar av frågan skickas ned till klientdatabaserna efter behov. Elastisk fråga använder Shard-kartan i katalog databasen för att bestämma platsen för alla klient databaser. Det är enkelt att konfigurera och fråga med hjälp av standard [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference), och stöder ad hoc-frågor från verktyg som Power BI och Excel.
+Det är lätt att komma åt en enkel databas med flera klienter, men inte så enkelt när du har distribuerat tusentals databaser. En metod är att använda [Elastisk fråga](sql-database-elastic-query-overview.md), vilket möjliggör frågor över en distribuerad uppsättning databaser med gemensamt schema. Dessa databaser kan distribueras över olika resursgrupper och prenumerationer. Men en vanlig inloggning måste ha tillgång till extrahera data från alla databaser. Elastisk fråga använder en databas med ett *enda huvud* där externa tabeller definieras som speglar tabeller eller vyer i de distribuerade (klientdatabaserna). Frågorna som skickas till huvuddatabasen kompileras för att skapa en distribuerad frågeplan, och delar av frågan skickas ned till klientdatabaserna efter behov. Elastisk fråga använder fragmentmappningen i katalogdatabasen för att fastställa platsen för alla klientdatabaser. Installationsprogrammet och frågan är enkla med [standardtransakt-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)och stöder ad hoc-frågor från verktyg som Power BI och Excel.
 
-Genom att distribuera frågor över klient databaserna ger elastiska frågor omedelbar insyn i direkt produktions data. Eftersom en elastisk fråga hämtar data från potentiellt många databaser kan fråge svars tiden ibland vara högre än för motsvarande frågor som skickas till en enda databas för flera innehavare. Se till att utforma frågor för att minimera de data som returneras. Elastiska frågor passar ofta bäst för frågor mot små mängder real tids data, i stället för att skapa ofta använda eller komplexa analys frågor eller rapporter. Om frågor inte fungerar bra tittar du på [körnings planen](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) för att se vilken del av frågan som har flyttats ned till fjärrdatabasen. Och utvärdera hur mycket data som returneras. Frågor som kräver komplex analytisk bearbetning kan hanteras bättre genom att spara de extraherade klient data i en databas som är optimerad för analys frågor. SQL Database och SQL Data Warehouse skulle kunna vara värd för Analytics-databasen.
+Genom att distribuera frågor över klientdatabaserna ger Elastic Query omedelbar inblick i liveproduktionsdata. Men eftersom Elastisk fråga hämtar data från potentiellt många databaser kan frågefördröjningen ibland vara högre än för motsvarande frågor som skickas till en enda databas med flera innehavare. Var noga med att utforma frågor för att minimera de data som returneras. Elastisk fråga är ofta bäst lämpad för att fråga små mängder realtidsdata, i motsats till att skapa ofta använda eller komplexa analysfrågor eller rapporter. Om frågor inte fungerar bra kan du titta på [körningsplanen](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) för att se vilken del av frågan som har flyttats ned till fjärrdatabasen. Och bedöma hur mycket data som returneras. Frågor som kräver komplex analytisk bearbetning kan vara bättre betjänt genom att spara extraherade klientdata i en databas som är optimerad för analysfrågor. SQL Database och SQL Data Warehouse kan vara värd för en sådan analysdatabas.
 
-Det här mönstret för analys beskrivs i [själv studie kursen för klient analys](saas-multitenantdb-tenant-analytics.md).
+Det här mönstret för analys förklaras i [självstudien](saas-multitenantdb-tenant-analytics.md)för klientanalys .
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta Wingtip-biljetterna SaaS källkod och skript för databas program för flera innehavare
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta källkoden och skripten för Wingtip-biljetterna SaaS Multi-tenant Database
 
-Wingtip-biljetterna SaaS-skript för flera klient organisationer och program käll kod är tillgängliga i [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub lagrings platsen. Ta en titt på den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ned och avblockera Wingtip Ticket SaaS-skript.
+Wingtip-biljetterna SaaS-databasskript för flera innehavare och programkällakod finns i [WingtipTicketsSAaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub-repo. Kolla in den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ner och låsa upp Wingtip Tickets SaaS skript.
 
-## <a name="create-ticket-sales-data"></a>Skapa biljett försäljnings data
+## <a name="create-ticket-sales-data"></a>Skapa biljettförsäljningsdata
 
-Om du vill köra frågor mot en mer intressant data uppsättning skapar du biljett försäljnings data genom att köra biljett generatorn.
+Om du vill köra frågor mot en mer intressant datauppsättning skapar du biljettförsäljningsdata genom att köra biljettgeneratorn.
 
-1. I *POWERSHELL ISE*öppnar du modulen...\\inlärning\\operativa analyser\\adhoc repor ting\\*demo-AdhocReporting. ps1* -skript och anger följande värden:
-   * **$DemoScenario** = 1, **Köp biljetter för händelser på alla platser**.
-2. Tryck på **F5** för att köra skriptet och generera biljett försäljning. Fortsätt med stegen i den här själv studie kursen medan skriptet körs. Biljett data frågas i avsnittet *köra Ad hoc-frågor* och väntar på att biljett generatorn ska slutföras.
+1. I *PowerShell ISE*, öppna ... \\Utbildningsmoduler\\Operational\\Analytics Adhoc Reporting\\*Demo-AdhocReporting.ps1-skript* och ange följande värden:
+   * **$DemoScenario** = 1, **Köp biljetter till evenemang på alla arenor.**
+2. Tryck på **F5** för att köra skriptet och generera biljettförsäljning. Medan skriptet körs fortsätter du stegen i den här självstudien. Biljettdata efterfrågas i avsnittet *Kör ad hoc-distribuerade frågor,* så vänta tills biljettgeneratorn har slutförts.
 
-## <a name="explore-the-tenant-tables"></a>Utforska klient tabellerna 
+## <a name="explore-the-tenant-tables"></a>Utforska klienttabellerna 
 
-I Wingtip-biljetterna SaaS för flera klient organisationer lagras klienter i en hanterings modell för Hybrid innehavare – där klient data antingen lagras i en databas för flera innehavare eller en enskild klient databas och kan flyttas mellan de två. När du frågar över alla klient databaser är det viktigt att elastiska frågor kan behandla data som om de ingår i en enda logisk databas shardade av klienten. 
+I Wingtip Tickets SaaS Multi-tenant Database-programmet lagras klienter i en hybridklienthanteringsmodell - där klientdata antingen lagras i en databas med flera innehavare eller en enda klientdatabas och kan flyttas mellan de två. När du frågar över alla klientdatabaser är det viktigt att Elastic Query kan behandla data som om de är en del av en enda logisk databas som är fragmenterad av klienten. 
 
-För att uppnå det här mönstret innehåller alla klient tabeller en *VenueId* -kolumn som identifierar vilken klient som data tillhör. *VenueId* beräknas som en hash av plats namnet, men alla metoder kan användas för att införa ett unikt värde för den här kolumnen. Den här metoden liknar hur klient nyckeln beräknas för användning i katalogen. Tabeller som innehåller *VenueId* används av elastisk fråga för att parallellisera frågor och skicka dem till rätt fjärran sluten klient databas. Detta minskar dramatiskt mängden data som returneras och resulterar i en bättre prestanda, särskilt när det finns flera klienter vars data lagras i en enda klient databas.
+För att uppnå det här mönstret innehåller alla klienttabeller en *VenueId-kolumn* som identifierar vilken klient data tillhör. *VenueId* beräknas som ett hash-värde för platsnamnet, men alla tillvägagångssätt kan användas för att introducera ett unikt värde för den här kolumnen. Den här metoden liknar hur klientnyckeln beräknas för användning i katalogen. Tabeller som innehåller *VenueId* används av Elastic Query för att parallellisera frågor och skicka dem till lämplig fjärrklientdatabas. Detta minskar dramatiskt mängden data som returneras och resulterar i en ökning av prestanda, särskilt när det finns flera klienter vars data lagras i enskilda klientdatabaser.
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>Distribuera databasen som används för ad hoc-distribuerade frågor
 
-Den här övningen distribuerar *AdHocReporting* -databasen. Det här är huvud databasen som innehåller det schema som används för frågor över alla klient databaser. Databasen distribueras till den befintliga katalog servern, som är den server som används för alla hanterings relaterade databaser i exempel programmet.
+Den här övningen distribuerar *databasen för adorapportering.* Det här är huvuddatabasen som innehåller schemat som används för att fråga över alla klientdatabaser. Databasen distribueras till den befintliga katalogservern, som är den server som används för alla hanteringsrelaterade databaser i exempelappen.
 
-1. Öppna...\\Learning-moduler\\operativa analyser\\adhoc-rapportering\\*demo-AdhocReporting. ps1* i *PowerShell ISE* och ange följande värden:
-   * **$DemoScenario** = 2, **distribuera ad hoc Analytics-databasen**.
+1. Öppna... \\Learning\\Modules\\Operational Analytics\\Adhoc Reporting*Demo-AdhocReporting.ps1* i *PowerShell ISE* och ange följande värden:
+   * **$DemoScenario** = 2, **Distribuera ad hoc-analysdatabas**.
 
-2. Tryck på **F5** för att köra skriptet och skapa *AdHocReporting* -databasen.
+2. Tryck på **F5** för att köra skriptet och skapa *databasen för adhocreporting.*
 
 I nästa avsnitt lägger du till schema i databasen så att den kan användas för att köra distribuerade frågor.
 
-## <a name="configure-the-head-database-for-running-distributed-queries"></a>Konfigurera Head-databasen för att köra distribuerade frågor
+## <a name="configure-the-head-database-for-running-distributed-queries"></a>Konfigurera huvuddatabasen för att köra distribuerade frågor
 
-Den här övningen lägger till schemat (den externa data källan och externa tabell definitioner) till ad hoc-rapporterings databasen som aktiverar frågor över alla klient databaser.
+Den här övningen lägger till schema (externa datakällor och externa tabelldefinitioner) i ad hoc-rapportdatabasen som gör det möjligt att fråga över alla klientdatabaser.
 
-1. Öppna SQL Server Management Studio och Anslut till adhoc-rapporterings databasen som du skapade i föregående steg. Namnet på databasen är *AdHocReporting*.
-2. Öppna. ..\Learning Modules\Operational Analytics\Adhoc repor ting \ *Initialize-AdhocReportingDB. SQL* i SSMS.
-3. Granska SQL-skriptet och Observera följande:
+1. Öppna SQL Server Management Studio och anslut till Adhoc-rapportdatabasen som du skapade i föregående steg. Namnet på databasen är *adhocreporting*.
+2. Öppna ...\Utbildningsmoduler\Operativa analyser\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* i SSMS.
+3. Granska SQL-skriptet och notera följande:
 
-   Elastisk fråga använder en databas med begränsade autentiseringsuppgifter för att komma åt var och en av klient databaserna. Den här autentiseringsuppgiften måste vara tillgänglig i alla databaser och bör normalt beviljas de minsta rättigheter som krävs för att aktivera dessa ad hoc-frågor.
+   Elastisk fråga använder en databasomfattad autentiseringsuppgifter för att komma åt var och en av klientdatabaserna. Den här autentiseringsinformationen måste vara tillgänglig i alla databaser och bör normalt beviljas de minimirättigheter som krävs för att dessa ad hoc-frågor ska kunna aktiveras.
 
     ![skapa autentiseringsuppgift](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   Genom att använda katalog databasen som extern data källa distribueras frågor till alla databaser som är registrerade i katalogen när frågan körs. Eftersom Server namn skiljer sig åt för varje distribution får det här initierings skriptet platsen för katalog databasen genom att hämta den aktuella servern (@@servername) där skriptet körs.
+   Genom att använda katalogdatabasen som extern datakälla distribueras frågor till alla databaser som registreras i katalogen när frågan körs. Eftersom servernamn är olika för varje distribution hämtar det här initieringsskriptet platsen@servernameför katalogdatabasen genom att hämta den aktuella servern (@ ) där skriptet körs.
 
-    ![Skapa extern data Källa](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
+    ![skapa extern datakälla](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   De externa tabeller som refererar till klient organisations tabeller definieras med **distribution = shardade (VenueId)** . Detta dirigerar en fråga för en viss *VenueId* till lämplig databas och förbättrar prestanda för många scenarier som visas i nästa avsnitt.
+   De externa tabeller som refererar till klienttabeller definieras med **DISTRIBUTION = SHARDED(VenueId)**. Detta dirigerar en fråga för en viss *VenueId* till lämplig databas och förbättrar prestanda för många scenarier som visas i nästa avsnitt.
 
     ![skapa externa tabeller](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 
-   Den lokala tabellen *VenueTypes* som skapas och fylls i. Den här referens data tabellen är vanlig i alla klient databaser, så den kan visas här som en lokal tabell och fyllas i med gemensamma data. För vissa frågor kan detta minska mängden data som flyttas mellan klient databaserna och *AdHocReporting* -databasen.
+   Den lokala tabellen *VenueTypes* som skapas och fylls i. Den här referensdatatabellen är vanlig i alla klientdatabaser, så den kan representeras här som en lokal tabell och fyllas med vanliga data. För vissa frågor kan detta minska mängden data som flyttas mellan klientdatabaserna och *adhocreporting-databasen.*
 
-    ![Skapa tabell](media/saas-multitenantdb-adhoc-reporting/create-table.png)
+    ![skapa tabell](media/saas-multitenantdb-adhoc-reporting/create-table.png)
 
-   Om du inkluderar referens tabeller på det här sättet måste du uppdatera tabellens schema och data när du uppdaterar klient databaserna.
+   Om du inkluderar referenstabeller på det här sättet måste du uppdatera tabellschemat och data när du uppdaterar klientdatabaserna.
 
-4. Tryck på **F5** för att köra skriptet och initiera *AdHocReporting* -databasen. 
+4. Tryck på **F5** för att köra skriptet och initiera databasen för *adorapportering.* 
 
 Nu kan du köra distribuerade frågor och samla in insikter över alla klienter!
 
-## <a name="run-ad-hoc-distributed-queries"></a>Köra Ad hoc-distribuerade frågor
+## <a name="run-ad-hoc-distributed-queries"></a>Köra ad hoc-distribuerade frågor
 
-Nu när *AdHocReporting* -databasen har kon figurer ATS kan du gå vidare och köra några distribuerade frågor. Ta med körnings planen för att få en bättre förståelse för var frågans bearbetning sker. 
+Nu när *adhocreporting-databasen* har konfigurerats, gå vidare och kör några distribuerade frågor. Inkludera körningsplanen för en bättre förståelse av var frågebearbetningen sker. 
 
-När du inspekterar körnings planen kan du hovra över plan ikonerna för mer information. 
+När du inspekterar körningsplanen håller du muspekaren över planikonerna för mer information. 
 
-1. I *SSMS*öppnar du...\\Learning-moduler\\operativa analyser\\adhoc repor ting\\*demo-AdhocReportingQueries. SQL*.
-2. Se till att du är ansluten till **AdHocReporting** -databasen.
-3. Välj menyn **fråga** och klicka på **Inkludera faktisk körnings plan**
-4. Markera *vilka platser som är registrerade för tillfället?* fråga och tryck på **F5**.
+1. I *SSMS*, öppna ... \\Utbildningsmoduler\\Operational\\Analytics Adhoc Reporting\\*Demo-AdhocReportingQueries.sql*.
+2. Kontrollera att du är ansluten till **databasen för adhocreporting.**
+3. Välj **frågemenyn** och klicka på **Inkludera faktisk körningsplan**
+4. Markera frågan Vilka platser som för **F5**närvarande *är registrerade?*
 
-   Frågan returnerar hela plats listan, som illustrerar hur snabbt och enkelt det är att fråga över alla klienter och returnera data från varje klient.
+   Frågan returnerar hela platslistan, vilket illustrerar hur snabbt och enkelt det är att fråga över alla klienter och returnera data från varje klient.
 
-   Granska planen och se att hela kostnaden är den fjärranslutna frågan eftersom vi bara ska gå till varje klient databas och välja plats information.
+   Kontrollera planen och se till att hela kostnaden är fjärrfrågan eftersom vi helt enkelt går till varje klientdatabas och väljer platsinformation.
 
-   ![Välj * från dbo. Platser](media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
+   ![VÄLJ * FRÅN DBO. Platser](media/saas-multitenantdb-adhoc-reporting/query1-plan.png)
 
-5. Välj nästa fråga och tryck på **F5**.
+5. Markera nästa fråga och tryck på **F5**.
 
-   Den här frågan ansluter till data från klient databaserna och den lokala *VenueTypes* -tabellen (lokal, som den är en tabell i *AdHocReporting* -databasen).
+   Den här frågan kopplar data från klientdatabaserna och den lokala *venueTypes-tabellen* (lokal, eftersom det är en tabell i *adhocreporting-databasen).*
 
-   Kontrol lera planen och se att merparten av kostnaden är fjärrfrågan eftersom vi frågar efter klientens plats information (dbo. Platser) och gör en snabb lokal anslutning med den lokala *VenueTypes* -tabellen för att visa det egna namnet.
+   Kontrollera planen och se till att majoriteten av kostnaden är fjärrfrågan eftersom vi frågar varje klientlokalsinformation (dbo. Arenor) och gör sedan en snabb lokal koppling till den lokala *venuetypes-tabellen* för att visa det egna namnet.
 
-   ![Anslut till fjärranslutna och lokala data](media/saas-multitenantdb-adhoc-reporting/query2-plan.png)
+   ![Gå med på fjärrdata och lokala data](media/saas-multitenantdb-adhoc-reporting/query2-plan.png)
 
-6. Välj nu den *dag där de mest Biljetterna såldes?* fråga och tryck på **F5**.
+6. Välj nu frågan På vilken dag var de **F5** *mest sålda biljetterna?*
 
-   Den här frågan gör en mer komplex anslutning och agg regering. Det är viktigt att Observera att det mesta av bearbetningen görs via fjärr anslutning, och en gång till får du tillbaka bara de rader vi behöver, och returnerar bara en rad för varje platss sammanlagda biljett försäljning per dag.
+   Den här frågan gör lite mer komplex sammanfogning och aggregering. Vad som är viktigt att notera är att det mesta av behandlingen sker på distans, och återigen tar vi tillbaka bara de rader vi behöver, returnerar bara en enda rad för varje plats sammanlagda biljettförsäljning räknas per dag.
 
-   ![query](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
+   ![DocumentDB](media/saas-multitenantdb-adhoc-reporting/query3-plan.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden lärde du dig hur man:
+I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
 > 
 > * Köra distribuerade frågor över alla klientdatabaser
-> * Distribuera en ad hoc-rapporterings databas och Lägg till schemat i den för att köra distribuerade frågor.
+> * Distribuera en ad hoc-rapportdatabas och lägga till schema i den för att köra distribuerade frågor.
 
-Testa nu [själv studie kursen för klient analys](saas-multitenantdb-tenant-analytics.md) för att utforska extrahering av data till en separat analys databas för mer komplex analys bearbetning.
+Prova nu [självstudien för Tenant Analytics](saas-multitenantdb-tenant-analytics.md) för att undersöka extrahera data till en separat analysdatabas för mer komplex analysbearbetning.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -1,7 +1,7 @@
 ---
-title: Hämta en token för att anropa ett webb-API (mobilappar) | Azure
+title: Skaffa en token för att anropa ett webb-API (mobilappar) | Azure
 titleSuffix: Microsoft identity platform
-description: 'Lär dig hur du skapar en mobilapp som anropar webb-API: er. (Hämta en token för appen.)'
+description: Läs om hur du skapar en mobilapp som anropar webb-API:er. (Hämta en token för appen.)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,21 +17,21 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: 9427235f47a31da75426559a4285634ab2837577
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77132450"
 ---
-# <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Hämta en token för en mobilapp som anropar webb-API: er
+# <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Skaffa en token för en mobilapp som anropar webb-API:er
 
-Innan din app kan anropa skyddade webb-API: er måste den ha en åtkomsttoken. Den här artikeln vägleder dig genom processen för att hämta en token med hjälp av Microsoft Authentication Library (MSAL).
+Innan appen kan anropa skyddade webb-API:er behöver den en åtkomsttoken. I den här artikeln får du hjälp med en token med hjälp av Microsoft Authentication Library (MSAL).
 
-## <a name="define-a-scope"></a>Definiera ett omfång
+## <a name="define-a-scope"></a>Definiera ett scope
 
-När du begär en token måste du definiera ett omfång. Omfånget avgör vilka data som din app kan komma åt.  
+När du begär en token måste du definiera ett scope. Omfattningen avgör vilka data din app kan komma åt.  
 
-Det enklaste sättet att definiera ett omfång är att kombinera önskade webb-API: er `App ID URI` med omfånget `.default`. Den här definitionen talar om för Microsoft Identity Platform att appen kräver alla omfattningar som anges i portalen.
+Det enklaste sättet att definiera ett scope är `App ID URI` att `.default`kombinera de önskade webb-API:erna med omfånget . Den här definitionen talar om för Microsofts identitetsplattform att appen kräver alla scope som anges i portalen.
 
 ### <a name="android"></a>Android
 ```Java
@@ -50,9 +50,9 @@ var scopes = new [] {"https://graph.microsoft.com/.default"};
 
 ## <a name="get-tokens"></a>Hämta token
 
-### <a name="acquire-tokens-via-msal"></a>Hämta token via MSAL
+### <a name="acquire-tokens-via-msal"></a>Skaffa token via MSAL
 
-MSAL gör att appar kan hämta token tyst och interaktivt. När du anropar `AcquireTokenSilent()` eller `AcquireTokenInteractive()`returnerar MSAL en åtkomsttoken för de begärda omfattningarna. Rätt mönster är att göra en tyst begäran och sedan återgå till en interaktiv begäran.
+MSAL tillåter appar att hämta tokens tyst och interaktivt. När du `AcquireTokenSilent()` `AcquireTokenInteractive()`ringer eller returnerar MSAL en åtkomsttoken för de begärda scope. Det korrekta mönstret är att göra en tyst begäran och sedan falla tillbaka till en interaktiv begäran.
 
 #### <a name="android"></a>Android
 
@@ -86,7 +86,7 @@ sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 
 #### <a name="ios"></a>iOS
 
-Försök att hämta en token i bakgrunden:
+Försök först att skaffa en token tyst:
 
 ```objc
 
@@ -148,7 +148,7 @@ application.acquireTokenSilent(with: silentParameters) { (result, error) in
 }
 ```
 
-Om MSAL returnerar `MSALErrorInteractionRequired`försöker du att förvärva token interaktivt:
+Om MSAL `MSALErrorInteractionRequired`returnerar kan du prova att hämta token interaktivt:
 
 ```objc
 UIViewController *viewController = ...; // Pass a reference to the view controller that should be used when getting a token interactively
@@ -184,12 +184,12 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 MSAL för iOS och macOS stöder olika modifierare för att få en token interaktivt eller tyst:
 * [Vanliga parametrar för att hämta en token](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALTokenParameters.html#/Configuration%20parameters)
-* [Parametrar för att hämta en interaktiv token](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALInteractiveTokenParameters.html#/Configuring%20MSALInteractiveTokenParameters)
-* [Parametrar för att hämta en tyst token](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALSilentTokenParameters.html)
+* [Parametrar för att få en interaktiv token](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALInteractiveTokenParameters.html#/Configuring%20MSALInteractiveTokenParameters)
+* [Parametrar för att få en tyst token](https://azuread.github.io/microsoft-authentication-library-for-objc/Classes/MSALSilentTokenParameters.html)
 
 #### <a name="xamarin"></a>Xamarin
 
-I följande exempel visas den minsta koden för att få en token interaktivt. Exemplet använder Microsoft Graph för att läsa användarens profil.
+I följande exempel visas den minimala koden för att få en token interaktivt. I exemplet används Microsoft Graph för att läsa användarens profil.
 
 ```csharp
 string[] scopes = new string[] {"user.read"};
@@ -210,45 +210,45 @@ catch(MsalUiRequiredException)
 
 #### <a name="mandatory-parameters-in-msalnet"></a>Obligatoriska parametrar i MSAL.NET
 
-`AcquireTokenInteractive` har endast en obligatorisk parameter: `scopes`. Parametern `scopes` räknar upp strängar som definierar de omfång som en token krävs för. Om token är för Microsoft Graph kan du hitta de omfattningar som krävs i API-referensen för varje Microsoft Graph-API. I referensen går du till avsnittet "behörigheter". 
+`AcquireTokenInteractive`har bara en obligatorisk `scopes`parameter: . Parametern `scopes` räknar upp strängar som definierar de scope som en token krävs för. Om token är för Microsoft Graph kan du hitta de scope som krävs i API-referensen för varje Microsoft Graph API. Gå till avsnittet Behörigheter i referensen. 
 
-Om du till exempel vill [lista användarens kontakter](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)använder du avsnittet "User. Read", "Contacts. Read". Mer information finns i [referens för Microsoft Graph-behörigheter](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Om du till exempel vill [visa användarens kontakter](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts)använder du scopet "User.Read", "Contacts.Read". Mer information finns i [Microsoft Graph-behörighetsreferens](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
-På Android kan du ange överordnad aktivitet när du skapar appen med hjälp av `PublicClientApplicationBuilder`. Om du inte anger den överordnade aktiviteten vid den tiden kan du senare ange den genom att använda `.WithParentActivityOrWindow` som i följande avsnitt. Om du anger en överordnad aktivitet återgår token till den överordnade aktiviteten efter interaktionen. Om du inte anger det genererar `.ExecuteAsync()`-anropet ett undantag.
+På Android kan du ange överordnad `PublicClientApplicationBuilder`aktivitet när du skapar appen med hjälp av . Om du inte anger den överordnade aktiviteten vid den tidpunkten `.WithParentActivityOrWindow` kan du senare ange den med hjälp av som i följande avsnitt. Om du anger överordnad aktivitet återgår token till den överordnade aktiviteten efter interaktionen. Om du inte anger det, `.ExecuteAsync()` genererar samtalet ett undantag.
 
-#### <a name="specific-optional-parameters-in-msalnet"></a>Vissa valfria parametrar i MSAL.NET
+#### <a name="specific-optional-parameters-in-msalnet"></a>Specifika valfria parametrar i MSAL.NET
 
 I följande avsnitt beskrivs de valfria parametrarna i MSAL.NET. 
 
-##### <a name="withprompt"></a>WithPrompt
+##### <a name="withprompt"></a>MedPrompt
 
-Parametern `WithPrompt()` styr interaktivitet med användaren genom att ange en prompt.
+Parametern `WithPrompt()` styr interaktivitet med användaren genom att ange en fråga.
 
 <img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
 
 Klassen definierar följande konstanter:
 
-- `SelectAccount` tvingar säkerhetstokentjänst (STS) att Visa dialog rutan för konto val. Dialog rutan innehåller de konton som användaren har en session för. Du kan använda det här alternativet om du vill låta användaren välja mellan olika identiteter. Det här alternativet driver MSAL för att skicka `prompt=select_account` till identitets leverantören. 
+- `SelectAccount`tvingar säkerhetstokentjänsten (STS) att presentera dialogrutan för kontoval. Dialogrutan innehåller de konton som användaren har en session för. Du kan använda det här alternativet när du vill låta användaren välja mellan olika identiteter. Det här alternativet ger `prompt=select_account` MSAL att skicka till identitetsprovidern. 
     
-    `SelectAccount` konstant är standard och ger den bästa möjliga upplevelsen baserat på tillgänglig information. Den tillgängliga informationen kan innehålla konto, närvaro för en session för användaren och så vidare. Ändra inte det här standardvärdet om du inte har en lämplig anledning att göra det.
-- med `Consent` kan du uppmana användaren att godkänna även om medgivande beviljades tidigare. I det här fallet skickar MSAL `prompt=consent` till identitets leverantören. 
+    Konstanten `SelectAccount` är standard, och det ger effektivt bästa möjliga upplevelse baserat på tillgänglig information. Den tillgängliga informationen kan innehålla konto, närvaro av en session för användaren och så vidare. Ändra inte denna standard om du inte har en god anledning att göra det.
+- `Consent`gör att du kan fråga användaren om samtycke även om samtycke beviljades tidigare. I det här fallet `prompt=consent` skickar MSAL till identitetsprovidern. 
 
-    Du kanske vill använda `Consent` konstant i säkerhetsfokuserade program där organisationens styrning kräver att användare ser dialog rutan medgivande varje gången de använder programmet.
-- `ForceLogin` gör det möjligt för tjänsten att fråga användaren om autentiseringsuppgifter även om frågan inte behövs. 
+    Du kanske vill `Consent` använda konstanten i säkerhetsfokuserade program där organisationsstyrningen kräver att användarna ser dialogrutan medgivande varje gång de använder programmet.
+- `ForceLogin`gör det möjligt för tjänsten att fråga användaren efter autentiseringsuppgifter även om uppmaningen inte behövs. 
 
-    Det här alternativet kan vara användbart om hämtningen av token Miss lyckas och du vill låta användaren logga in igen. I det här fallet skickar MSAL `prompt=login` till identitets leverantören. Du kanske vill använda det här alternativet i säkerhetsfokuserade program där organisationens styrning kräver att användaren loggar in varje gång de kommer åt specifika delar av programmet.
-- `Never` är endast för .NET 4,5 och Windows Runtime (WinRT). Den här konstanten kommer inte att fråga användaren, men den kommer att försöka använda den cookie som lagras i den dolda inbäddade vyn. Mer information finns i [använda webbläsare med MSAL.net](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
+    Det här alternativet kan vara användbart om tokeninsamlingen misslyckas och du vill låta användaren logga in igen. I det här fallet `prompt=login` skickar MSAL till identitetsprovidern. Du kanske vill använda det här alternativet i säkerhetsfokuserade program där organisationsstyrningen kräver att användaren loggar in varje gång de kommer åt specifika delar av programmet.
+- `Never`är för endast .NET 4.5 och Windows Runtime (WinRT). Den här konstanten frågar inte användaren, men den försöker använda cookien som lagras i den dolda inbäddade webbvyn. Mer information finns i [Använda webbläsare med MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
 
-    Om det här alternativet Miss lyckas genererar `AcquireTokenInteractive` ett undantag för att meddela dig att det krävs en användar gränssnitts interaktion. Sedan måste du använda en annan `Prompt`-parameter.
-- `NoPrompt` skickar inte någon prompt till identitets leverantören. 
+    Om det här `AcquireTokenInteractive` alternativet misslyckas genererar du ett undantag för att meddela dig om att en gränssnittsinteraktion behövs. Då måste du `Prompt` använda en annan parameter.
+- `NoPrompt`skickar ingen uppmaning till identitetsleverantören. 
 
-    Det här alternativet är användbart endast för principer för redigering och profiler i Azure Active Directory B2C. Mer information finns i [B2C-information](https://aka.ms/msal-net-b2c-specificities).
+    Det här alternativet är endast användbart för redigeringsprofilprinciper i Azure Active Directory B2C. Mer information finns i [B2C-detaljer](https://aka.ms/msal-net-b2c-specificities).
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Använd `WithExtraScopeToConsent` modifierare i ett avancerat scenario där du vill att användaren ska kunna ge sitt första medgivande till flera resurser. Du kan använda den här modifieraren när du inte vill använda ett stegvist godkännande, som normalt används med MSAL.NET eller Microsoft Identity Platform 2,0. Mer information finns i [få användar medgivande framför flera resurser](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
+Använd `WithExtraScopeToConsent` modifieraren i ett avancerat scenario där du vill att användaren ska ge förhandsgodkännande till flera resurser. Du kan använda den här modifieraren när du inte vill använda inkrementellt medgivande, som normalt används med MSAL.NET eller Microsoft identity platform 2.0. Mer information finns i [Ha användaren samtycke i förväg för flera resurser](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
-Här är ett kod exempel: 
+Här är ett kodexempel: 
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -258,16 +258,16 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
 
 ##### <a name="other-optional-parameters"></a>Andra valfria parametrar
 
-Mer information om de andra valfria parametrarna för `AcquireTokenInteractive`finns i [referens dokumentationen för AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
+Mer information om de `AcquireTokenInteractive`andra valfria parametrarna för finns i [referensdokumentationen för AcquireTokenInteractiveParameterBuilder](/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods).
 
 ### <a name="acquire-tokens-via-the-protocol"></a>Hämta token via protokollet
 
-Vi rekommenderar inte att du använder protokollet direkt för att hämta tokens. Om du gör det stöder appen inte vissa scenarier som inbegriper enkel inloggning (SSO), enhets hantering och villkorlig åtkomst.
+Vi rekommenderar inte direkt att använda protokollet för att hämta token. Om du gör det stöder appen inte vissa scenarier som innebär enkel inloggning (SSO), enhetshantering och villkorlig åtkomst.
 
-När du använder protokollet för att hämta token för mobila appar, gör du två begär Anden: 
+När du använder protokollet för att hämta token för mobilappar gör du två begäranden: 
 
 * Hämta en auktoriseringskod.
-* Exchange-koden för en token.
+* Byt ut koden mot en token.
 
 #### <a name="get-an-authorization-code"></a>Hämta en auktoriseringskod
 
@@ -281,7 +281,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="get-access-and-refresh-the-token"></a>Få åtkomst till och uppdatera token
+#### <a name="get-access-and-refresh-the-token"></a>Få åtkomst och uppdatera token
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1
@@ -298,4 +298,4 @@ client_id=<CLIENT_ID>
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Anropar ett webb-API](scenario-mobile-call-api.md)
+> [Anropa ett webb-API](scenario-mobile-call-api.md)

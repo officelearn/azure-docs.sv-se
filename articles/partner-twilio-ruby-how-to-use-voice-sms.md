@@ -1,6 +1,6 @@
 ---
-title: Använda Twilio för röst och SMS (ruby) | Microsoft Docs
-description: Lär dig att ringa ett telefonsamtal och skicka ett SMS-meddelande med Twilio-API-tjänsten på Azure. Kod exempel som skrivits i Ruby.
+title: Hur man använder Twilio för röst och SMS (Ruby) | Microsoft-dokument
+description: Läs om hur du ringer ett telefonsamtal och skickar ett SMS-meddelande med Twilio API-tjänsten på Azure. Kodexempel skrivna i Ruby.
 services: ''
 documentationcenter: ruby
 author: georgewallace
@@ -13,80 +13,80 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 4822e6feb29f5a17c653a60937b895ec584e0ee4
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69637201"
 ---
-# <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Använda Twilio för röst-och SMS-funktioner i ruby
-Den här guiden visar hur du utför vanliga programmerings åtgärder med Twilio API-tjänsten på Azure. Scenarierna som ingår är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst-och SMS i dina program finns i avsnittet [Nästa steg](#NextSteps) .
+# <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Hur man använder Twilio för röst- och SMS-funktioner i Ruby
+Den här guiden visar hur du utför vanliga programmeringsuppgifter med Twilio API-tjänsten på Azure. Scenarierna som omfattas är att ringa ett telefonsamtal och skicka ett SMS-meddelande (Short Message Service). Mer information om Twilio och hur du använder röst och SMS i dina program finns i avsnittet [Nästa steg.](#NextSteps)
 
-## <a id="WhatIs"></a>Vad är Twilio?
-Twilio är ett webb tjänst-API för telefoni som gör att du kan använda dina befintliga webb språk och-kunskaper för att bygga röst-och SMS-program. Twilio är en tjänst från tredje part (inte en Azure-funktion och inte en Microsoft-produkt).
+## <a name="what-is-twilio"></a><a id="WhatIs"></a>Vad är Twilio?
+Twilio är en telefoni webbtjänst API som låter dig använda dina befintliga webbspråk och färdigheter för att bygga röst-och SMS-program. Twilio är en tjänst från tredje part (inte en Azure-funktion och inte en Microsoft-produkt).
 
-Med **Twilio Voice** kan dina program ringa och ta emot telefonsamtal. Med **TWILIO SMS** kan dina program skapa och ta emot SMS-meddelanden. **Twilio-klienten** gör att dina program kan aktivera röst kommunikation med befintliga Internet anslutningar, inklusive mobila anslutningar.
+**Twilio Voice** gör det möjligt för dina program att ringa och ta emot telefonsamtal. **Twilio SMS** gör att dina program kan göra och ta emot SMS.Twilio SMS allows your applications to make and receive SMS messages. **Twilio Client** gör att dina program kan aktivera röstkommunikation med befintliga Internet-anslutningar, inklusive mobila anslutningar.
 
-## <a id="Pricing"></a>Priser och Special erbjudanden för Twilio
-Information om priser för Twilio finns på [Twilio-priser][twilio_pricing]. Azure-kunder får ett [Special erbjudande][special_offer]: en kostnads fri kredit på 1000 texter eller 1000 inkommande minuter. Om du vill registrera dig för det här erbjudandet eller få mer information [https://ahoy.twilio.com/azure][special_offer]kan du besöka.  
+## <a name="twilio-pricing-and-special-offers"></a><a id="Pricing"></a>Twilio Prissättning och specialerbjudanden
+Information om Twilio prissättning finns på [Twilio Prissättning][twilio_pricing]. Azure-kunder får ett [specialerbjudande:][special_offer]en gratis kredit på 1000 texter eller 1000 inkommande minuter. För att registrera dig för detta erbjudande [https://ahoy.twilio.com/azure][special_offer]eller få mer information, besök .  
 
-## <a id="Concepts"></a>Tryck
-Twilio-API: et är ett RESTful-API som tillhandahåller röst-och SMS-funktioner för program. Klient bibliotek är tillgängliga på flera språk. en lista finns i [TWILIO API-bibliotek][twilio_libraries].
+## <a name="concepts"></a><a id="Concepts"></a>Begrepp
+Twilio API är ett RESTful API som tillhandahåller röst- och SMS-funktioner för program. Klientbibliotek är tillgängliga på flera språk. för en lista, se [Twilio API-bibliotek][twilio_libraries].
 
-### <a id="TwiML"></a>TwiML
-TwiML är en uppsättning XML-baserade instruktioner som informerar Twilio om hur man bearbetar ett anrop eller SMS.
+### <a name="twiml"></a><a id="TwiML"></a>TwiML (TwiML)
+TwiML är en uppsättning XML-baserade instruktioner som informerar Twilio om hur du bearbetar ett samtal eller SMS.
 
-Följande TwiML skulle till exempel konvertera texten **Hello World** till tal.
+Som ett exempel skulle följande TwiML konvertera texten **Hello World** till tal.
 
     <?xml version="1.0" encoding="UTF-8" ?>
     <Response>
        <Say>Hello World</Say>
     </Response>
 
-Alla TwiML-dokument `<Response>` har samma rot element. Därifrån använder du Twilio-verb för att definiera appens beteende.
+Alla TwiML-dokument har `<Response>` som rotelement. Därifrån använder du Twilio Verbs för att definiera beteendet för ditt program.
 
-### <a id="Verbs"></a>TwiML-verb
-Twilio-verb är XML-taggar som talar om förTwilio vad som ska utföras. Exempelvis instruerar verbet Twilio till audibly att leverera ett meddelande på ett samtal. **&lt;&gt;** 
+### <a name="twiml-verbs"></a><a id="Verbs"></a>TwiML-verb
+Twilio Verbs är XML-taggar som talar om för Twilio vad de ska **göra**. Säg-verbet ** &lt;&gt; ** instruerar twilio att hörbart leverera ett meddelande i ett samtal. 
 
 Följande är en lista över Twilio-verb.
 
-* **Ringupp&gt;: &lt;** Ansluter anroparen till en annan telefon.
-* **Samlain&gt;: &lt;** Samlar in numeriska siffror som anges på telefon tangent bordet.
-* Koppla:  **&lt;&gt;** Avslutar ett anrop.
-* **Spelaupp&gt;: &lt;** Spelar upp en ljudfil.
-* Pausa:  **&lt;&gt;** Väntar i tyst läge under ett angivet antal sekunder.
-* Post:  **&lt;&gt;** Registrerar anroparens röst och returnerar en URL för en fil som innehåller inspelningen.
-* Omdirigera:  **&lt;&gt;** Överför kontroll av ett anrop eller SMS till TwiML på en annan URL.
-* **&lt;Reject&gt;** : Avvisar ett inkommande samtal till ditt Twilio-nummer utan fakturering
-* Säg:  **&lt;&gt;** Konverterar text till tal som görs i ett samtal.
-* **&lt;Sms&gt;** : Skickar ett SMS-meddelande.
+* **Slå :&gt;Ansluter den som ringer till en annan telefon. &lt;**
+* **Samla:&gt;Samlar numeriska siffror som anges på telefonens knappsats. &lt;**
+* **Hangup&gt;: Avslutar ett &lt;** samtal.
+* **Spela upp&gt;: Spelar upp en ljudfil. &lt;**
+* **Paus:&gt;Väntar tyst på ett visst antal &lt;** sekunder.
+* **Post:&gt;Spelar in den som ringer röst och returnerar en URL för en fil som innehåller &lt;** inspelningen.
+* **Omdirigering&gt;: Överför kontroll över ett samtal eller SMS till TwiML på en annan webbadress. &lt;**
+* **Avvisa:&gt;Avvisar ett inkommande samtal till ditt Twilio-nummer utan att fakturera &lt;** dig
+* **Säg:&gt;Konverterar text till tal som görs på ett &lt;** samtal.
+* Sms : Skickar ett SMS. ** &lt;&gt;**
 
-Mer information om Twilio-verb, deras attribut och TwiML finns i [TwiML][twiml]. Mer information om Twilio-API: et finns i [Twilio-API][twilio_api].
+Mer information om Twilio-verb, deras attribut och TwiML finns i [TwiML][twiml]. Mer information om Twilio-API:et finns i [Twilio API][twilio_api].
 
-## <a id="CreateAccount"></a>Skapa ett Twilio-konto
-När du är redo att skaffa ett Twilio-konto kan du registrera dig på [testa Twilio][try_twilio]. Du kan börja med ett kostnads fritt konto och uppgradera kontot senare.
+## <a name="create-a-twilio-account"></a><a id="CreateAccount"></a>Skapa ett Twilio-konto
+När du är redo att skaffa ett Twilio-konto registrerar du dig på [Try Twilio][try_twilio]. Du kan börja med ett kostnadsfritt konto och uppgradera ditt konto senare.
 
-När du registrerar dig för ett Twilio-konto får du ett kostnads fritt telefonnummer för ditt program. Du får också ett konto-SID och en auth-token. Båda kommer att behövas för att göra Twilio-API-anrop. För att förhindra obehörig åtkomst till ditt konto bör du skydda din autentiseringstoken. Ditt konto-SID och auth-token visas på [sidan för Twilio-kontot][twilio_account]i fälten med namnet konto- **sid** respektive **autentiseringstoken**.
+När du registrerar dig för ett Twilio-konto får du ett gratis telefonnummer för din ansökan. Du får också ett SID-konto och en auth-token. Båda kommer att behövas för att göra Twilio API-anrop. För att förhindra obehörig åtkomst till ditt konto, hålla din autentiseringstoken säker. Ditt konto SID och auth token kan visas på [Twilio-kontosidan][twilio_account], i fälten som heter **ACCOUNT SID** och **AUTH TOKEN**, respektive.
 
-### <a id="VerifyPhoneNumbers"></a>Verifiera telefonnummer
-Förutom det antal som du får av Twilio kan du också kontrol lera de tal som du styr (d.v.s. din mobiltelefon nummer eller ditt hem telefonnummer) för användning i dina program. 
+### <a name="verify-phone-numbers"></a><a id="VerifyPhoneNumbers"></a>Verifiera telefonnummer
+Utöver det nummer du får av Twilio kan du också verifiera nummer som du styr (dvs. din mobiltelefon eller ditt hemtelefonnummer) för användning i dina program. 
 
-Information om hur du verifierar ett telefonnummer finns i [Hantera tal][verify_phone].
+Information om hur du verifierar ett telefonnummer finns i [Hantera nummer][verify_phone].
 
-## <a id="create_app"></a>Skapa ett ruby-program
-Ett ruby-program som använder Twilio-tjänsten och körs i Azure skiljer sig från andra ruby-program som använder tjänsten Twilio. Även om Twilio Services är RESTful och kan anropas från ruby på flera sätt, kommer den här artikeln att fokusera på hur du använder Twilio Services med [Twilio Helper Library för ruby][twilio_ruby].
+## <a name="create-a-ruby-application"></a><a id="create_app"></a>Skapa ett Ruby-program
+Ett Ruby-program som använder Tjänsten Twilio och körs i Azure skiljer sig inte från något annat Ruby-program som använder Tjänsten Twilio. Medan Twilio tjänster är RESTful och kan kallas från Ruby på flera sätt, kommer den här artikeln att fokusera på hur man använder Twilio tjänster med [Twilio helper bibliotek för Ruby][twilio_ruby].
 
-Börja med att [skapa en ny virtuell Azure Linux-dator][azure_vm_setup] för att fungera som värd för ditt nya ruby-webbprogram. Ignorera stegen som beskriver hur du skapar en räler-app och konfigurera den virtuella datorn. Se till att du skapar en slut punkt med en extern port på 80 och en intern port på 5000.
+Konfigurera först [en ny Virtuell Azure Linux-dator][azure_vm_setup] för att fungera som värd för ditt nya Ruby-webbprogram. Ignorera stegen som innebär att skapa en Rails-app, bara konfigurera den virtuella datorn. Se till att du skapar en slutpunkt med en extern port på 80 och en intern port på 5000.
 
-I exemplen nedan kommer vi att använda [Sinatra][sinatra], ett mycket enkelt webb ramverk för ruby. Men du kan verkligen använda Twilio Helper Library för ruby med andra webb ramverk, inklusive Ruby on-räler.
+I exemplen nedan kommer vi att använda [Sinatra][sinatra], en mycket enkel webb ram för Ruby. Men du kan säkert använda Twilio hjälpare bibliotek för Ruby med någon annan webb ram, inklusive Ruby on Rails.
 
-Använda SSH i din nya virtuella dator och skapa en katalog för din nya app. I katalogen skapar du en fil med namnet Gemfile och kopierar följande kod till den:
+SSH i din nya virtuella dator och skapa en katalog för din nya app. I katalogen skapar du en fil som heter Gemfile och kopierar följande kod till den:
 
     source 'https://rubygems.org'
     gem 'sinatra'
     gem 'thin'
 
-Kör `bundle install`på kommando raden. Detta kommer att installera beroendena ovan. Skapa sedan en fil med `web.rb`namnet. Det här är den plats där koden för din webbapp bor. Klistra in följande kod i den:
+Kör på `bundle install`kommandoraden . Detta kommer att installera beroenden ovan. Skapa sedan en `web.rb`fil som heter . Det är här koden för din webbapp finns. Klistra in följande kod i den:
 
     require 'sinatra'
 
@@ -94,23 +94,23 @@ Kör `bundle install`på kommando raden. Detta kommer att installera beroendena 
         "Hello Monkey!"
     end
 
-Nu bör du kunna köra kommandot `ruby web.rb -p 5000`. Detta skapar en liten webb server på port 5000. Du bör kunna bläddra till den här appen i webbläsaren genom att gå till den URL som du har ställt in för din virtuella Azure-dator. När du har nått din webbapp i webbläsaren är du redo att börja skapa en Twilio-app.
+Nu bör du kunna köra kommandot `ruby web.rb -p 5000`. Detta kommer att snurra upp en liten webbserver på port 5000. Du bör kunna bläddra till den här appen i din webbläsare genom att besöka webbadressen som du konfigurerar för din Virtuella Azure-dator. När du kan nå din webbapp i webbläsaren är du redo att börja bygga en Twilio-app.
 
-## <a id="configure_app"></a>Konfigurera ditt program så att det använder Twilio
-Du kan konfigurera webbappen så att den använder Twilio-biblioteket genom att `Gemfile` uppdatera din att inkludera den här raden:
+## <a name="configure-your-application-to-use-twilio"></a><a id="configure_app"></a>Konfigurera ditt program för att använda Twilio
+Du kan konfigurera webbappen så att den `Gemfile` använder Twilio-biblioteket genom att uppdatera din för att inkludera den här raden:
 
     gem 'twilio-ruby'
 
-Kör `bundle install`på kommando raden. Öppna `web.rb` och inkludera den här raden överst:
+Kör `bundle install`. Nu `web.rb` öppna och inklusive denna linje högst upp:
 
     require 'twilio-ruby'
 
-Nu har du angett att du vill använda Twilio Helper-biblioteket för ruby i din webbapp.
+Nu är du redo att använda Twilio-hjälpbiblioteket för Ruby i webbappen.
 
-## <a id="howto_make_call"></a>Hur: Gör ett utgående samtal
-Följande visar hur du gör ett utgående samtal. Viktiga begrepp är bland annat att använda Twilio Helper-biblioteket för ruby för att göra REST API samtal och återge TwiML. Ersätt värdena för **från** -och **till** -telefonnumret och se till att du verifierar **från** telefonnumret för ditt Twilio-konto innan du kör koden.
+## <a name="how-to-make-an-outgoing-call"></a><a id="howto_make_call"></a>Så här: Ringa ett utgående samtal
+Följande visar hur du ringer ett utgående samtal. Viktiga begrepp är att använda Twilio helper-biblioteket för Ruby att göra REST API-anrop och göra TwiML. Ersätt dina värden med **telefonnummer från** och till och till och se **till** att du verifierar **Från-numret** för ditt Twilio-konto innan du kör koden.
 
-Lägg till den här `web.md`funktionen i:
+Lägg till `web.md`den här funktionen i:
 
     # Set your account ID and authentication token.
     sid = "your_twilio_account_sid";
@@ -140,16 +140,16 @@ Lägg till den här `web.md`funktionen i:
        </Response>"
     end
 
-Om du öppnar `http://yourdomain.cloudapp.net/make_call` i en webbläsare kommer det att utlösa anropet till Twilio-API: et för att ringa telefonsamtalet. De två första parametrarna i `client.account.calls.create` är ganska själv för klar ande: antalet anrop är `from` och numret som anropet är `to`. 
+Om du öppnar `http://yourdomain.cloudapp.net/make_call` upp i en webbläsare, som kommer att utlösa samtalet till Twilio API för att ringa telefonsamtalet. De två första `client.account.calls.create` parametrarna i är ganska självförklarande: numret samtalet är `from` och numret samtalet är `to`. 
 
-Den tredje parametern (`url`) är den URL som Twilio begär för att få instruktioner om vad som ska utföras när anropet är anslutet. I det här fallet ställer vi in en URL (`http://yourdomain.cloudapp.net`) som returnerar ett enkelt TwiML-dokument och `<Say>` använder verbet för att göra vissa text till tal och säger "Hello apa" till den person som tar emot samtalet.
+Den tredje`url`parametern ( ) är den URL som Twilio begär för att få instruktioner om vad du ska göra när samtalet är anslutet. I det här fallet ställer`http://yourdomain.cloudapp.net`vi in en URL ( ) `<Say>` som returnerar ett enkelt TwiML-dokument och använder verbet för att göra lite text-till-tal och säga "Hello Monkey" till den person som tar emot samtalet.
 
-## <a id="howto_receive_sms"></a>Hur: Ta emot ett SMS-meddelande
-I det tidigare exemplet initierade vi ett **utgående** telefonsamtal. Den här gången ska vi använda telefonnumret som Twilio gav oss under registreringen för att bearbeta ett **inkommande** SMS-meddelande.
+## <a name="how-to-receive-an-sms-message"></a><a id="howto_receive_sms"></a>Så här: Får du ett SMS-meddelande
+I föregående exempel initierade vi ett **utgående** telefonsamtal. Den här gången, låt oss använda telefonnumret som Twilio gav oss under registreringen för att bearbeta ett **inkommande** SMS-meddelande.
 
-Logga först in på din Twilio- [instrumentpanel][twilio_account]. Klicka på "siffror" i det övre navigerings fältet och klicka sedan på Twilio-talet som du angav. Du ser två URL: er som du kan konfigurera. En URL till en röst förfrågan och en URL för SMS-begäran. Detta är de URL: er som Twilio anropar varje gång ett telefonsamtal görs eller om ett SMS skickas till ditt nummer. URL-adresserna kallas även "Webhooks".
+Logga först in på [instrumentpanelen i Twilio][twilio_account]. Klicka på "Nummer" i den övre navigeringen och klicka sedan på Twilio nummer du angavs. Du ser två webbadresser som du kan konfigurera. En url för röstbegäran och en URL för SMS-begäran. Dessa är webbadresserna som Twilio ringer när ett telefonsamtal görs eller ett SMS skickas till ditt nummer. Webbadresserna kallas även "webbkrokar".
 
-Vi vill bearbeta inkommande SMS-meddelanden, så vi uppdaterar URL: en till `http://yourdomain.cloudapp.net/sms_url`. Gå vidare och klicka på Spara ändringar längst ned på sidan. Nu ska `web.rb` vi gå tillbaka till vårt program för att hantera detta:
+Vi vill behandla inkommande SMS-meddelanden, så låt oss `http://yourdomain.cloudapp.net/sms_url`uppdatera webbadressen till . Gå vidare och klicka på Spara ändringar längst ned på sidan. Nu, tillbaka `web.rb` i låt oss programmera vår ansökan för att hantera detta:
 
     post '/sms_url' do
       "<Response>
@@ -157,19 +157,19 @@ Vi vill bearbeta inkommande SMS-meddelanden, så vi uppdaterar URL: en till `htt
        </Response>"
     end
 
-När du har gjort ändringen ska du se till att starta om din webbapp. Ta nu en titt på din telefon och skicka ett SMS till din Twilio-nummer. Du bör uppmanas att få ett SMS-svar som säger "Hej, tack för ping! Twilio och Azure Rock! ".
+När du har gjort ändringen måste du se till att starta webbappen igen. Nu, ta ut telefonen och skicka ett SMS till din Twilio nummer. Du bör snabbt få ett SMS svar som säger "Hej, tack för ping! Twilio och Azure rock!".
 
-## <a id="additional_services"></a>Hur: Använd ytterligare Twilio-tjänster
-Förutom exemplen som visas här erbjuder Twilio webbaserade API: er som du kan använda för att utnyttja ytterligare Twilio-funktioner från ditt Azure-program. Fullständig information finns i [TWILIO API-dokumentationen][twilio_api_documentation].
+## <a name="how-to-use-additional-twilio-services"></a><a id="additional_services"></a>Så här använder du ytterligare Twilio-tjänster
+Förutom de exempel som visas här erbjuder Twilio webbaserade API:er som du kan använda för att utnyttja ytterligare Twilio-funktioner från ditt Azure-program. Fullständig information finns i [Twilio API-dokumentationen][twilio_api_documentation].
 
-### <a id="NextSteps"></a>Nästa steg
-Nu när du har lärt dig grunderna i Twilio-tjänsten kan du följa dessa länkar för att lära dig mer:
+### <a name="next-steps"></a><a id="NextSteps"></a>Nästa steg
+Nu när du har lärt dig grunderna i Tjänsten Twilio följer du de här länkarna för att lära dig mer:
 
-* [Twilio säkerhets rikt linjer][twilio_security_guidelines]
-* [Twilio HowTos och exempel kod][twilio_howtos]
-* [Twilio snabb starts guider][twilio_quickstarts] 
+* [Twilio säkerhetsriktlinjer][twilio_security_guidelines]
+* [Twilio HowTos och exempelkod][twilio_howtos]
+* [Twilio Snabbstart Tutorials][twilio_quickstarts] 
 * [Twilio på GitHub][twilio_on_github]
-* [Prata med Twilio-support][twilio_support]
+* [Prata med Twilio Support][twilio_support]
 
 [twilio_ruby]: https://www.twilio.com/docs/ruby/install
 

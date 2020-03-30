@@ -1,6 +1,6 @@
 ---
-title: Distribuera moduler från Visual Studio Code-Azure IoT Edge
-description: Använd Visual Studio Code med Azure IoT-verktyg för att skicka en IoT Edge modul från din IoT Hub till din IoT Edge enhet, enligt konfigurationen i ett distributions manifest.
+title: Distribuera moduler från Visual Studio Code - Azure IoT Edge
+description: Använd Visual Studio-kod med Azure IoT-verktyg för att skicka en IoT Edge-modul från din IoT-hubb till din IoT Edge-enhet, som konfigurerats av ett distributionsmanifest.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -10,32 +10,32 @@ ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: e1b2e2a80670cf0409f8f8477563b9a209cc8706
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77209213"
 ---
-# <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuera Azure IoT Edge-moduler från Visual Studio Code
+# <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Distribuera Azure IoT Edge-moduler från Visual Studio-kod
 
-När du skapar IoT Edge moduler med din affärslogik som du vill distribuera dem till dina enheter att fungera på gränsen. Om du har flera moduler som arbetar tillsammans för att samla in och bearbeta data kan du distribuera dem på en gång och deklarera routningsregler som förenar dem.
+När du har skapat IoT Edge-moduler med din affärslogik vill du distribuera dem till dina enheter för att fungera på gränsen. Om du har flera moduler som arbetar tillsammans för att samla in och bearbeta data kan du distribuera dem alla på en gång och deklarera routningsreglerna som ansluter dem.
 
-Den här artikeln visar hur du skapar ett manifest för distribution av JSON och sedan använda den filen för att skicka distributionen till en IoT Edge-enhet. Information om hur du skapar en distribution som riktar sig till flera enheter baserat på deras delade taggar finns i [distribuera IoT Edge moduler i skala med Visual Studio Code](how-to-deploy-monitor-vscode.md).
+Den här artikeln visar hur du skapar ett JSON-distributionsmanifest och sedan använder filen för att skicka distributionen till en IoT Edge-enhet. Information om hur du skapar en distribution som riktar sig till flera enheter baserat på deras delade taggar finns i [Distribuera IoT Edge-moduler i stor skala med Visual Studio Code](how-to-deploy-monitor-vscode.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En [IoT-hubb](../iot-hub/iot-hub-create-through-portal.md) i din Azure-prenumeration.
-* En [IoT Edge-enhet](how-to-register-device.md#register-with-visual-studio-code) med IoT Edge runtime installerad.
+* En [IoT Edge-enhet](how-to-register-device.md#register-with-visual-studio-code) med IoT Edge-körningen installerad.
 * [Visual Studio Code](https://code.visualstudio.com/).
-* [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) för Visual Studio Code.
+* [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) för Visual Studio-kod.
 
-## <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
+## <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributionsmanifest
 
-Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Mer information om hur distributions manifest fungerar och hur du skapar dem finns i [förstå hur IoT Edge moduler kan användas, konfigureras och återanvändas](module-composition.md).
+Ett distributionsmanifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan modulerna och önskade egenskaper för modultvillingarna. Mer information om hur distributionsmanifest fungerar och hur du skapar dem finns i [Förstå hur IoT Edge-moduler kan användas, konfigureras och återanvändas](module-composition.md).
 
-Om du vill distribuera moduler med Visual Studio Code, spara distribution manifestet arbeta lokalt som en. JSON-fil. Du använder sökvägen till filen i nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på din enhet.
+Om du vill distribuera moduler med Visual Studio-kod sparar du distributionsmanifestet lokalt som en . JSON-fil. Du kommer att använda filsökvägen i nästa avsnitt när du kör kommandot för att tillämpa konfigurationen på enheten.
 
-Här är ett manifest för grundläggande distribution med en modul som exempel:
+Här är ett grundläggande distributionsmanifest med en modul som exempel:
 
    ```json
    {
@@ -101,21 +101,21 @@ Här är ett manifest för grundläggande distribution med en modul som exempel:
    }
    ```
 
-## <a name="sign-in-to-access-your-iot-hub"></a>Logga in att få åtkomst till din IoT-hubb
+## <a name="sign-in-to-access-your-iot-hub"></a>Logga in för att komma åt din IoT-hubb
 
-Du kan använda Azure IoT-tillägg för Visual Studio Code för att utföra åtgärder med IoT-hubben. För dessa åtgärder ska fungera måste du logga in på ditt Azure-konto och välj IoT-hubben som du arbetar med.
+Du kan använda Azure IoT-tilläggen för Visual Studio-kod för att utföra åtgärder med din IoT-hubb. För att dessa åtgärder ska fungera måste du logga in på ditt Azure-konto och välja den IoT-hubb som du arbetar med.
 
-1. Öppna vyn **Utforskare** i Visual Studio Code.
+1. Öppna **Utforskarvyn** i Visual Studio-kod.
 
 1. Expandera avsnittet **Azure IoT Hub** längst ned i Utforskaren.
 
-   ![Avsnittet Expandera Azure IoT Hub](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Expandera avsnittet Azure IoT Hub](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. Klicka på **...** i avsnitts rubriken för **Azure IoT Hub** . Om du inte ser de tre punkterna, hovrar du över rubriken.
+1. Klicka på **...** i avsnittshuvudet för **Azure IoT Hub.** Om du inte ser ellipsen håller du muspekaren över huvudet.
 
-1. Välj **välj IoT Hub**.
+1. Välj **Välj IoT Hub**.
 
-1. Följ anvisningarna för att göra det om du inte har loggat in på kontot.
+1. Om du inte är inloggad på ditt Azure-konto följer du anvisningarna för att göra det.
 
 1. Välj din Azure-prenumeration.
 
@@ -123,31 +123,31 @@ Du kan använda Azure IoT-tillägg för Visual Studio Code för att utföra åtg
 
 ## <a name="deploy-to-your-device"></a>Distribuera till din nya enhet
 
-Du distribuerar moduler på din enhet genom att använda manifestet distribution som du har konfigurerat med informationen som modulen.
+Du distribuerar moduler till enheten genom att använda distributionsmanifestet som du konfigurerade med modulinformationen.
 
-1. I vyn Visual Studio Code Explorer expanderar du avsnittet **Azure IoT Hub** och expanderar sedan noden **enheter** .
+1. Expandera avsnittet **Azure IoT Hub** i utforskaren i Utforskaren i Visual Studio-kod och expandera sedan noden **Enheter.**
 
-1. Högerklicka på den IoT Edge enhet som du vill konfigurera med distributions manifestet.
+1. Högerklicka på IoT Edge-enheten som du vill konfigurera med distributionsmanifestet.
 
     > [!TIP]
-    > För att bekräfta att enheten du har valt är en IoT Edge enhet, väljer du den för att expandera listan över moduler och kontrollerar förekomsten av **$edgeHub** och **$edgeAgent**. Varje IoT Edge enhet innehåller dessa två moduler.
+    > Om du vill bekräfta att enheten du har valt är en IoT Edge-enhet markerar du den för att expandera listan över moduler och verifiera förekomsten av **$edgeHub** och **$edgeAgent**. Varje IoT Edge-enhet innehåller dessa två moduler.
 
-1. Välj **skapa distribution för en enskild enhet**.
+1. Välj **Skapa distribution för en enhet**.
 
-1. Navigera till den distributions manifest-JSON-fil som du vill använda och klicka på **Välj gräns distributions manifest**.
+1. Navigera till den JSON-fil för distributionsmanifest som du vill använda och klicka på **Välj edge-distributionsmanifest**.
 
-   ![Välj Edge-distribution Manifest](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
+   ![Välj edge-distributionsmanifest](./media/how-to-deploy-modules-vscode/select-deployment-manifest.png)
 
-Resultatet av distributionen skrivs ut i VS Code-utdata. Lyckade distributioner tillämpas inom några minuter om målenheten körs och är ansluten till internet.
+Resultatet av distributionen skrivs ut i VS-kodutdata. Lyckade distributioner tillämpas inom några minuter om målenheten körs och är ansluten till internet.
 
 ## <a name="view-modules-on-your-device"></a>Visa moduler på enheten
 
-När du har distribuerat moduler till din enhet kan du Visa alla i **Azure IoT Hub** -avsnittet. Välj pilen bredvid din IoT Edge-enhet så att det expanderas. Alla pågående moduler visas.
+När du har distribuerat moduler till din enhet kan du visa dem alla i avsnittet **Azure IoT Hub.** Markera pilen bredvid IoT Edge-enheten för att expandera den. Alla moduler som körs för närvarande visas.
 
-Om du nyligen har distribuerat nya moduler till en enhet hovrar du över avsnittet om **Azure IoT Hub-enheter** och väljer uppdaterings ikonen för att uppdatera vyn.
+Om du nyligen har distribuerat nya moduler till en enhet håller du muspekaren över avsnittshuvudet för **Azure IoT Hub Devices** och väljer uppdateringsikonen för att uppdatera vyn.
 
 Högerklicka på namnet på en modul för att visa och redigera modultvillingen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [distribuerar och övervakar IoT Edge moduler i skala med Visual Studio Code](how-to-deploy-monitor.md)
+Lär dig hur du [distribuerar och övervakar IoT Edge-moduler i stor skala med Visual Studio-kod](how-to-deploy-monitor.md)

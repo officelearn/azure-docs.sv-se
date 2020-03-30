@@ -9,20 +9,20 @@ ms.date: 02/07/2020
 ms.author: jife
 ms.custom: include file
 ms.openlocfilehash: e1416b8b99c66daa4a27fa7f9bd7a20dfa9519e3
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77087441"
 ---
-Azure Data Share gör det möjligt för organisationer att enkelt och säkert dela data med sina kunder och partners.
+Med Azure Data Share kan organisationer enkelt och säkert dela data med sina kunder och partner.
 
 | **Resurs** | **Gräns** |
 | --- | --- |
-| Maximalt antal data resurs resurser per Azure-prenumeration |50 |
-| Maximalt antal skickade resurser per data resurs resurs |100 |
-| Maximalt antal mottagna resurser per data resurs resurs |100 |
+| Maximalt antal dataresursresurser per Azure-prenumeration |50 |
+| Maximalt antal skickade resurser per resurs för dataresurs |100 |
+| Maximalt antal mottagna resurser per dataresursresurs |100 |
 | Maximalt antal inbjudningar per skickad resurs |100 |
-| Maximalt antal resurs prenumerationer per skickad resurs |100 |
-| Maximalt antal data uppsättningar per resurs |100 |
-| Maximalt antal ögonblicks bild scheman per resurs |1 |
+| Maximalt antal aktieteckningar per skickad aktie |100 |
+| Maximalt antal datamängder per aktie |100 |
+| Maximalt antal ögonblicksbildscheman per aktie |1 |

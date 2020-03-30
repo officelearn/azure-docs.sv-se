@@ -8,10 +8,10 @@ ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.openlocfilehash: 99fb4a4b07ecbd4a85abbc62ec52a0f5960654c5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77461580"
 ---
 # <a name="create-an-apache-cordova-app"></a>Skapa en Apache Cordova-app
@@ -22,7 +22,7 @@ I den här kursen får du lära dig hur du lägger till en molnbaserad serverdel
 
 Du måste slutföra den här kursen innan du påbörjar någon annan Apache Cordova-kurs om att använda funktionen Mobile Apps i Azure Apptjänst.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 * En PC-dator med [Visual Studio Community 2017] eller senare.
@@ -34,7 +34,7 @@ Du kan också kringgå Visual Studio och direkt använda kommandoraden i Apache 
 ## <a name="create-an-azure-mobile-app-backend"></a>Skapa serverdelen för en Azure-mobilapp
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Skapa en databas anslutning och konfigurera klient-och Server projektet
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Skapa en databasanslutning och konfigurera klient- och serverprojektet
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-apache-cordova-app"></a>Hämta och köra Apache Cordova-appen
@@ -43,5 +43,5 @@ Du kan också kringgå Visual Studio och direkt använda kommandoraden i Apache 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 
-[Visual Studio Community 2017]: https://www.visualstudio.com/
-[Visual Studio Tools för Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+[Visual Studio-gemenskapen 2017]: https://www.visualstudio.com/
+[Visual Studio Verktyg för Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx

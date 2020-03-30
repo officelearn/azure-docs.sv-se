@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: användar etablering för LinkedIn-höjning – Azure AD'
-description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till LinkedIn-höjning.
+title: 'Självstudiekurs: Användaretablering för LinkedIn Elevate - Azure AD'
+description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetableringa användarkonton till LinkedIn Elevate.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -16,111 +16,111 @@ ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa0a26eaeac431ed2c78c5bd938bbbe7dff14e0e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057421"
 ---
-# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LinkedIn-höjning för automatisk användar etablering
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera LinkedIn Elevate för automatisk användaretablering
 
-Syftet med den här självstudien är att visa de steg du behöver utföra på LinkedIn-höjning och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till LinkedIn-höjning.
+Syftet med den här självstudien är att visa de steg du behöver för att utföra i LinkedIn Elevate och Azure AD för att automatiskt etablera och avetableras användarkonton från Azure AD till LinkedIn Elevate.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
 * En Azure Active Directory-klientorganisation
-* En LinkedIn-höjnings klient
-* Ett administratörs konto på LinkedIn upphöjt med åtkomst till LinkedIn-konto Center
+* En LinkedIn Elevate-klient
+* Ett administratörskonto i LinkedIn Elevate med åtkomst till LinkedIn Account Center
 
 > [!NOTE]
-> Azure Active Directory integreras med LinkedIn-höjning med [scim](http://www.simplecloud.info/) -protokollet.
+> Azure Active Directory integreras med LinkedIn Elevate med [SCIM-protokollet.](http://www.simplecloud.info/)
 
-## <a name="assigning-users-to-linkedin-elevate"></a>Tilldela användare till LinkedIn-höjning
+## <a name="assigning-users-to-linkedin-elevate"></a>Tilldela användare till LinkedIn Elevate
 
-Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett koncept som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk etablering av användarkonto synkroniseras endast användare och grupper som har "tilldelats" till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som ska representera de användare som behöver åtkomst till LinkedIn-höjning. När du har bestämt dig kan du tilldela dessa användare till LinkedIn-höjning genom att följa anvisningarna här:
+Innan du konfigurerar och aktiverar etableringstjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till LinkedIn Elevate. När du har bestämt dig kan du tilldela dessa användare till LinkedIn Elevate genom att följa instruktionerna här:
 
-[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
+[Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Viktiga tips för att tilldela användare till LinkedIn-höjning
+### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Viktiga tips för att tilldela användare till LinkedIn Elevate
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas till LinkedIn-höjning för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+* Vi rekommenderar att en enda Azure AD-användare tilldelas LinkedIn Elevate för att testa etableringskonfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till LinkedIn-höjning måste du välja **användar** rollen i tilldelnings dialog rutan. Rollen "standard åtkomst" fungerar inte för etablering.
+* När du tilldelar en användare till LinkedIn Elevate måste du välja **användarrollen** i tilldelningsdialogrutan. Rollen "Standardåtkomst" fungerar inte för etablering.
 
-## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Konfigurera användar etablering för LinkedIn-höjning
+## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Konfigurera användaretablering till LinkedIn Elevate
 
-Det här avsnittet vägleder dig genom att ansluta din Azure AD till LinkedIn-höjning SCIM-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i LinkedIn-höjning baserat på användar-och grupp tilldelning i Azure AD.
+Det här avsnittet hjälper dig att ansluta din Azure AD till LinkedIn Elevates SCIM-användarkontos etablerings-API och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i LinkedIn Elevate baserat på användar- och grupptilldelning i Azure AD.
 
-**Tips:** Du kan också välja att aktivera SAML-baserad enkel inloggning för LinkedIn-höjning genom att följa anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
+**Tips:** Du kan också välja att aktivera SAML-baserad enkel inloggning för LinkedIn Elevate, enligt instruktionerna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till LinkedIn-höjning i Azure AD:
+### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Så här konfigurerar du automatisk etablering av användarkonton till LinkedIn Elevate i Azure AD:
 
-Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företags administratör kan du själv etablera en åtkomsttoken. I ditt konto Center går du till **inställningar &gt; globala inställningar** och öppnar installations panelen för **scim** .
+Det första steget är att hämta din LinkedIn-åtkomsttoken. Om du är företagsadministratör kan du självetablering av en åtkomsttoken. Gå till **Globala &gt; inställningar i** ditt kontocenter och öppna panelen KONFIGURERA **SCIM.**
 
 > [!NOTE]
-> Om du ansluter till konto Center direkt i stället för via en länk kan du nå det med hjälp av följande steg.
+> Om du använder kontocentret direkt i stället för via en länk kan du nå det med hjälp av följande steg.
 
-1. Logga in på konto Center.
+1. Logga in på Account Center.
 
-2. Välj **administratörs &gt; administratörs inställningar** .
+2. Välj ** &gt; Administratörsadministratörsinställningar** .
 
-3. Klicka på **avancerade integreringar** på den vänstra sid panelen. Du dirigeras till konto centret.
+3. Klicka på **Avancerade integreringar** i det vänstra sidofältet. Du dirigeras till kontocentret.
 
-4. Klicka på **+ Lägg till ny scim-konfiguration** och följ proceduren genom att fylla i varje fält.
-
-    > [!NOTE]
-    > När tilldela licenser inte är aktiverat innebär det att endast användar data synkroniseras.
-
-    ![LinkedIn-höjning-etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
+4. Klicka på **+ Lägg till ny SCIM-konfiguration** och följ proceduren genom att fylla i varje fält.
 
     > [!NOTE]
-    > När autolicense-tilldelning har Aktiver ATS måste du anteckna program instansen och licens typen. Licenser tilldelas för första och första gången tills alla licenser har vidtagits.
+    > När licenser för automatisk tilldelning inte är aktiverade betyder det att endast användardata synkroniseras.
 
-    ![LinkedIn-höjning-etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
+    ![LinkedIn Höja etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
-5. Klicka på **generera token**. Du bör se att din åtkomsttoken visas under fältet **åtkomsttoken** .
+    > [!NOTE]
+    > När automatisk licenstilldelning är aktiverat måste du notera programinstansen och licenstypen. Licenser tilldelas enligt först till kvarn-principen tills alla licenser tas.
 
-6. Spara din åtkomsttoken i Urklipp eller på datorn innan du lämnar sidan.
+    ![LinkedIn Höja etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
-7. Logga sedan in på [Azure Portal](https://portal.azure.com)och bläddra till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
+5. Klicka på **Generera token**. Du bör se din åtkomsttokenvisning under **fältet Åtkomsttoken.**
 
-8. Om du redan har konfigurerat LinkedIn-höjning för enkel inloggning kan du söka efter din instans av LinkedIn-höjning med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **LinkedIn-höjning** i program galleriet. Välj LinkedIn Upphöj från Sök resultatet och Lägg till det i listan över program.
+6. Spara åtkomsttoken i Urklipp eller datorn innan du lämnar sidan.
 
-9. Välj din instans av LinkedIn-höjning och välj sedan fliken **etablering** .
+7. Logga sedan in på [Azure-portalen](https://portal.azure.com)och bläddra till **avsnittet Azure Active Directory > Enterprise Apps > Alla program.**
 
-10. Ställ in **etablerings läget** på **automatiskt**.
+8. Om du redan har konfigurerat LinkedIn Elevate för enkel inloggning söker du efter din instans av LinkedIn Elevate med hjälp av sökfältet. Annars väljer du **Lägg till** och sök efter **LinkedIn Elevate** i programgalleriet. Välj LinkedIn Elevate från sökresultaten och lägg till det i listan över program.
 
-    ![LinkedIn-höjning-etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
+9. Välj din instans av LinkedIn Elevate och välj sedan fliken **Etablering.**
 
-11. Fyll i följande fält under **admin-autentiseringsuppgifter** :
+10. Ställ in **etableringsläget** på **Automatiskt**.
 
-    * I fältet **klient-URL** anger du `https://api.linkedin.com`.
+    ![LinkedIn Höja etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
-    * I fältet **hemlig token** anger du den åtkomsttoken som du skapade i steg 1 och klickar på **Testa anslutning** .
+11. Fyll i följande fält under **Administratörsautentiseringsuppgifter:**
 
-    * Du bör se ett meddelande om att det är klart på upperright-sidan i portalen.
+    * Ange i fältet `https://api.linkedin.com` **Klient-URL.**
 
-12. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan nedan.
+    * I fältet **Hemlig token** anger du den åtkomsttoken som du skapade i steg 1 och klickar på **Testa anslutning** .
 
-13. Klicka på **Save** (Spara).
+    * Du bör se en framgångsmeddelande på den övre sidan av portalen.
 
-14. I avsnittet **mappningar för attribut** granskar du de användar-och Gruppattribut som ska synkroniseras från Azure AD till LinkedIn-höjning. Observera att attributen som har valts som **matchande** egenskaper kommer att användas för att matcha användar konton och grupper i LinkedIn-höjning för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
+12. Ange e-postadressen till en person eller grupp som ska få etableringsfelmeddelanden i fältet **E-postmeddelande** och markera kryssrutan nedan.
 
-    ![LinkedIn-höjning-etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
+13. Klicka på **Spara**.
 
-15. Om du vill aktivera Azure AD Provisioning-tjänsten för LinkedIn-höjning ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
+14. I avsnittet **Attributmappningar** granskar du användar- och gruppattributen som ska synkroniseras från Azure AD till LinkedIn Elevate. Observera att de attribut som valts som **matchande** egenskaper används för att matcha användarkonton och grupper i LinkedIn Elevate för uppdateringsåtgärder. Välj knappen Spara om du vill utföra eventuella ändringar.
 
-16. Klicka på **Save** (Spara).
+    ![LinkedIn Höja etablering](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
-Detta startar den inledande synkroniseringen av alla användare och/eller grupper som tilldelats LinkedIn-höjning i avsnittet användare och grupper. Observera att den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i din LinkedIn-höjnings app.
+15. Om du vill aktivera Azure AD-etableringstjänsten för LinkedIn Elevate ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar**
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+16. Klicka på **Spara**.
+
+Detta startar den första synkroniseringen av alla användare och/eller grupper som tilldelats LinkedIn Elevate i avsnittet Användare och grupper. Observera att den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge tjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitetsloggar, som beskriver alla åtgärder som utförs av etableringstjänsten i din LinkedIn Elevate-app.
+
+Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

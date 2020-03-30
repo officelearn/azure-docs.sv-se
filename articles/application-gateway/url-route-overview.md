@@ -1,6 +1,6 @@
 ---
 title: Översikt över dirigering av URL-baserat innehåll med Azure Application Gateway
-description: Den här artikeln innehåller en översikt över den Azure Application Gateway-URL-baserad innehålls dirigering, UrlPathMap-konfiguration och PathBasedRouting-regel.
+description: Den här artikeln innehåller en översikt över URL-baserad innehållsroutning för Azure Application Gateway, UrlPathMap-konfiguration och PathBasedRouting-regeln.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,10 +8,10 @@ ms.date: 09/10/2019
 ms.author: victorh
 ms.topic: conceptual
 ms.openlocfilehash: e20acb131b1a091fef858dab34705f4a8d3b4c4a
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77251846"
 ---
 # <a name="url-path-based-routing-overview"></a>Översikt över URL-sökvägsbaserad routning
@@ -24,10 +24,10 @@ I följande exempel servar Application Gateway trafik åt contoso.com från tre 
 
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1.png)
 
-Begär Anden för http\://contoso.com/video/* dirigeras till VideoServerPool och http-\://contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
+Begäranden\:om http //contoso.com/video/* dirigeras till VideoServerPool\:och http //contoso.com/images/* dirigeras till ImageServerPool. DefaultServerPool väljs om inget av sökvägsmönstren matchar.
 
 > [!IMPORTANT]
-> För v1 SKU bearbetas regler i den ordning de visas i portalen. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren. För v2-SKU: n har exakta matchningar högre prioritet. Vi rekommenderar dock starkt att du konfigurerar lyssnare för flera platser först innan du konfigurerar en grundläggande lyssnare. Detta säkerställer att trafik dirigeras till rätt serverdel.
+> För v1 SKU bearbetas regler i den ordning de visas i portalen. Om en grundläggande lyssnare visas först och matchar en inkommande begäran kommer den att bearbetas av den lyssnaren. För v2 SKU har exakta matchningar högre prioritet. Det rekommenderas dock starkt att konfigurera lyssnare på flera webbplatser först innan du konfigurerar en grundläggande lyssnare. Detta säkerställer att trafik dirigeras till rätt serverdel.
 
 ## <a name="urlpathmap-configuration-element"></a>UrlPathMap-konfigurationselementet
 
@@ -64,15 +64,15 @@ UrlPathMap-elementet används för att ange sökvägsmönster till mappningar f�
 
 ### <a name="pathpattern"></a>PathPattern
 
-PathPattern är en lista över Sök vägs mönster som ska matchas. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som matas till Sök vägs matcharen innehåller ingen text efter den första? eller #, och dessa tecken är inte tillåtna här. Annars tillåts alla tecken som tillåts i en URL i PathPattern.
+PathPattern är en lista över banmönster som ska matchas. Vart och ett måste börja med / och ett * får bara förekomma på slutet följt av ett /. Strängen som matas till sökvägen matchar innehåller inte någon text efter den första ? eller #, och dessa tecken är inte tillåtna här. Annars tillåts alla tecken som tillåts i en URL i PathPattern.
 
 De mönster som stöds beror på om du distribuerar Application Gateway v1 eller v2:
 
-#### <a name="v1"></a>v1
+#### <a name="v1"></a>v1 (på)
 
-Sök vägs regler är Skift läges känsliga.
+Sökvägsregler är skiftlägeskänsliga.
 
-|mönster för v1-sökväg  |Stöds?  |
+|v1 bana mönster  |Stöds?  |
 |---------|---------|
 |`/images/*`     |ja|
 |`/images*`     |nej|
@@ -83,9 +83,9 @@ Sök vägs regler är Skift läges känsliga.
 
 #### <a name="v2"></a>v2
 
-Sök vägs regler är Skift läges känsliga.
+Sökvägsregler är skiftlägeskänsliga.
 
-|sökväg till v2-sökväg  |Stöds?  |
+|v2-banmönster  |Stöds?  |
 |---------|---------|
 |`/images/*`     |ja|
 |`/images*`     |ja|

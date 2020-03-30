@@ -1,6 +1,6 @@
 ---
 title: Hantera åtkomst till Azure-hantering med villkorlig åtkomst i Azure AD
-description: Lär dig mer om att använda villkorlig åtkomst i Azure AD för att hantera åtkomst till Azure-hantering.
+description: Lär dig mer om hur du använder villkorlig åtkomst i Azure AD för att hantera åtkomst till Azure-hantering.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,36 +16,36 @@ ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.openlocfilehash: f3341f1c30a1581b8507652c322c00581e3972aa
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77137416"
 ---
-# <a name="manage-access-to-azure-management-with-conditional-access"></a>Hantera åtkomst till Azure-hantering med villkorlig åtkomst
+# <a name="manage-access-to-azure-management-with-conditional-access"></a>Hantera åtkomst till Azure-hantering med villkorad åtkomst
 
 > [!CAUTION]
-> Se till att du förstår hur villkorlig åtkomst fungerar innan du konfigurerar en princip för hantering av åtkomst till Azure-hantering. Se till att du inte skapar villkor som kan blockera din egen åtkomst till portalen.
+> Se till att du förstår hur villkorlig åtkomst fungerar innan du konfigurerar en princip för att hantera åtkomst till Azure-hantering. Se till att du inte skapar villkor som kan blockera din egen åtkomst till portalen.
 
-Villkorlig åtkomst i Azure Active Directory (Azure AD) styr åtkomsten till molnappar baserat på särskilda villkor som du anger. För att tillåta åtkomst skapar du principer för villkorlig åtkomst som tillåter eller blockerar åtkomst baserat på om kraven i principen är uppfyllda. 
+Villkorlig åtkomst i Azure Active Directory (Azure AD) styr åtkomsten till molnappar baserat på specifika villkor som du anger. Om du vill tillåta åtkomst skapar du principer för villkorlig åtkomst som tillåter eller blockerar åtkomst baserat på om kraven i principen är uppfyllda eller inte. 
 
-Normalt använder du villkorlig åtkomst för att kontrol lera åtkomsten till dina molnappar. Du kan också konfigurera principer för att styra åtkomsten till Azure-hantering baserat på vissa villkor (till exempel inloggnings risk, plats eller enhet) och för att genomdriva krav som Multi-Factor Authentication.
+Vanligtvis använder du villkorlig åtkomst för att styra åtkomsten till dina molnappar. Du kan också ställa in principer för att styra åtkomsten till Azure-hantering baserat på vissa villkor (till exempel inloggningsrisk, plats eller enhet) och för att tillämpa krav som multifaktorautentisering.
 
-Om du vill skapa en princip för Azure-hantering väljer du **Microsoft Azure hantering** under **molnappar** när du väljer den app som principen ska tillämpas på.
+Om du vill skapa en princip för Azure-hantering väljer du **Microsoft Azure Management** under **Molnappar** när du väljer den app som principen ska tillämpas på.
 
 ![Villkorlig åtkomst för hantering av Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-Principen som du skapar gäller för alla slut punkter för Azure-hantering, inklusive följande:
+Principen som du skapar gäller för alla Slutpunkter för Azure-hantering, inklusive följande:
 
-- Azure-portalen
-- Azure Resource Manager Provider
-- Klassiska tjänst hanterings-API: er
+- Azure Portal
+- Azure Resource Manager-provider
+- Api:er för klassisk tjänsthantering
 - Azure PowerShell
-- Administratörs Portal för Visual Studio-prenumerationer
+- Visual Studio-prenumerationsadministratörsportal
 - Azure DevOps
-- Azure Data Factory Portal
+- Azure Data Factory-portal
 
-Observera att principen gäller för Azure PowerShell, som anropar Azure Resource Manager API. Den gäller inte för [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), som anropar Microsoft Graph.
+Observera att principen gäller för Azure PowerShell, som anropar Azure Resource Manager API. Det gäller inte [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), som anropar Microsoft Graph.
 
 
-Mer information om hur du konfigurerar och använder villkorlig åtkomst finns i [villkorlig åtkomst i Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+Mer information om hur du konfigurerar och använder villkorlig åtkomst finns [i Villkorlig åtkomst i Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).

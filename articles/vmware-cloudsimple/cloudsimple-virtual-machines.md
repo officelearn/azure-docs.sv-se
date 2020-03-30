@@ -1,7 +1,7 @@
 ---
-title: Översikt över Azure VMware-lösningar (AVS) – virtuella datorer
-description: Lär dig mer om virtuella datorer i AVS och deras fördelar.
-titleSuffix: Azure VMware Solutions (AVS)
+title: Översikt över virtuella datorer
+titleSuffix: Azure VMware Solution by CloudSimple
+description: Läs mer om CloudSimple virtuella datorer och deras fördelar.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,33 +9,33 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0e6cc6d51e37cea98cc553a236295311d21f595a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 436a5ab6fb286ce206f981487b6a29d774ecd1a1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024916"
 ---
-# <a name="avs-virtual-machines-overview"></a>Översikt över AVS-virtuella datorer
+# <a name="cloudsimple-virtual-machines-overview"></a>CloudSimple virtuella datorer översikt
 
-Med AVS kan du hantera virtuella VMware-datorer (VM) från Azure Portal. Ett kluster eller en resurspool från ditt vSphere-kluster hanteras via Azure genom att mappas till din prenumeration.
+CloudSimple kan du hantera virtuella VMware-datorer (VMs) från Azure-portalen.  Ett kluster eller en resurspool från ditt vSphere-kluster hanteras via Azure genom att mappa det till din prenumeration.
 
-Om du vill skapa en virtuell AVS-dator från Azure måste det finnas en VM-mall i ditt molns privata moln vCenter. Mallen används för att anpassa operativ system och program. Mallen VM kan vara skärpd för att uppfylla företagets säkerhets principer. Du kan använda mallen för att skapa virtuella datorer och sedan använda dem från Azure Portal med en självbetjänings modell.
+Om du vill skapa en CloudSimple-virtuell dator från Azure måste det finnas en VM-mall på ditt privata moln vCenter.  Mallen används för att anpassa operativsystemet och programmen.  Mallen VM kan härdas för att uppfylla företagets säkerhetsprinciper.  Du kan använda mallen för att skapa virtuella datorer och sedan använda dem från Azure-portalen med hjälp av en självbetjäningsmodell.
 
-## <a name="benefits"></a>Erbjudande
+## <a name="benefits"></a>Fördelar
 
-Virtuella AVS-datorer från Azure Portal tillhandahåller en självbetjänings funktion som användare kan använda för att skapa och hantera virtuella VMware-datorer.
+CloudSimple virtuella datorer från Azure Portal ger en självbetjäningsmekanism för användare att skapa och hantera virtuella VMware-datorer.
 
-* Skapa en virtuell dator i AVS-molnet i din moln-vCenter
-* Hantera VM-egenskaper
-  * Lägg till/ta bort diskar
-  * Lägg till/ta bort nätverkskort
-* Energi åtgärder för din AVS-VM
-  * Ström och avstängning
+* Skapa en CloudSimple-vm på ditt privata moln vCenter
+* Hantera vm-egenskaper
+  * Lägga till/ta bort diskar
+  * Lägga till/ta bort nätverkskort
+* Power-drift av din CloudSimple-vm
+  * Slå på och stänga av
   * Återställ virtuell dator
 * Ta bort virtuell dator
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du [använder virtuella VMware-datorer i Azure](quickstart-create-vmware-virtual-machine.md)
-* Lär dig hur du [mappar din Azure-prenumeration](azure-subscription-mapping.md)
+* Lär dig hur du [använder virtuella virtuella datorer med VMware på Azure](quickstart-create-vmware-virtual-machine.md)
+* Läs om hur du [kartlägger din Azure-prenumeration](azure-subscription-mapping.md)

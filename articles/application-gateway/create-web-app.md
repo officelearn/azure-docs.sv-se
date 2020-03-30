@@ -1,5 +1,5 @@
 ---
-title: Konfigurera App Service med PowerShell
+title: Konfigurera Apptjänst med PowerShell
 titleSuffix: Azure Application Gateway
 description: Den här artikeln innehåller råd om hur du konfigurerar webbappar som backend-värdar på en befintlig eller ny programgateway.
 services: application-gateway
@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
 ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74089516"
 ---
-# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Konfigurera App Service med Application Gateway med PowerShell
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>Konfigurera apptjänst med programgateway med PowerShell
 
-Med Application Gateway kan du ha en App Service app eller en annan tjänst för flera innehavare som en medlem i Server delen. I den här artikeln får du lära dig hur du konfigurerar en App Service-app med Application Gateway. Det första exemplet visar hur du konfigurerar en befintlig programgateway för att använda en webbapp som en medlem i en serverdelspool. Det andra exemplet visar hur du skapar en ny programgateway med en webbapp som en medlem i en serverdelspool.
+Med programgateway kan du ha en App Service-app eller annan tjänst med flera innehavare som en backend-poolmedlem. I den här artikeln får du lära dig att konfigurera en App Service-app med Application Gateway. Det första exemplet visar hur du konfigurerar en befintlig programgateway för att använda en webbapp som en medlem i en serverdelspool. Det andra exemplet visar hur du skapar en ny programgateway med en webbapp som en medlem i en serverdelspool.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -160,9 +160,9 @@ DnsSettings              : {
 
 ## <a name="restrict-access"></a>Begränsa åtkomst
 
-Webbapparna som distribueras i de här exemplen använder offentliga IP-adresser som kan nås direkt från Internet. Detta hjälper till med fel sökning när du lär dig mer om en ny funktion och testar nya saker. Men om du planerar att distribuera en funktion till produktion, vill du lägga till fler begränsningar.
+De webbappar som distribueras i dessa exempel använder offentliga IP-adresser som kan nås direkt från Internet. Detta hjälper till med felsökning när du lär dig om en ny funktion och provar nya saker. Men om du tänker distribuera en funktion i produktionen, bör du lägga till fler begränsningar.
 
-Ett sätt som du kan begränsa åtkomsten till dina webbappar är att använda [Azure App Service statiska IP-begränsningar](../app-service/app-service-ip-restrictions.md). Du kan till exempel begränsa webbappen så att den bara tar emot trafik från Application Gateway. Använd funktionen för IP-begränsning i App Service för att Visa programgatewayens VIP som den enda adressen med åtkomst.
+Ett sätt att begränsa åtkomsten till dina webbappar är att använda [statiska IP-begränsningar för Azure App Service](../app-service/app-service-ip-restrictions.md). Du kan till exempel begränsa webbappen så att den bara tar emot trafik från programgatewayen. Använd ip-begränsningsfunktionen för apptjänsten för att lista programmets gateway VIP som den enda adressen med åtkomst.
 
 ## <a name="next-steps"></a>Nästa steg
 

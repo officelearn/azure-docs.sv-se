@@ -1,6 +1,6 @@
 ---
-title: Skapa en Event Grid data anslutning för Azure Datautforskaren med hjälp av python
-description: I den här artikeln får du lära dig hur du skapar en Event Grid data anslutning för Azure Datautforskaren med hjälp av python.
+title: Skapa en händelserutnätsdataanslutning för Azure Data Explorer med hjälp av Python
+description: I den här artikeln får du lära dig hur du skapar en Event Grid-dataanslutning för Azure Data Explorer med hjälp av Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,13 +8,13 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.openlocfilehash: 1439383598517f57bc77e718d4ded7f53941d3bb
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77444204"
 ---
-# <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-python"></a>Skapa en Event Grid data anslutning för Azure Datautforskaren med hjälp av python
+# <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-python"></a>Skapa en händelserutnätsdataanslutning för Azure Data Explorer med hjälp av Python
 
 > [!div class="op_single_selector"]
 > * [Portal](ingest-data-event-grid.md)
@@ -22,29 +22,29 @@ ms.locfileid: "77444204"
 > * [Python](data-connection-event-grid-python.md)
 > * [Azure Resource Manager-mall](data-connection-event-grid-resource-manager.md)
 
-I den här artikeln skapar du en Event Grid data anslutning för Azure Datautforskaren med hjälp av python. Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Datautforskaren erbjuder inmatning, eller data inläsning från Event Hubs, IoT-hubbar och blobbar skrivna till BLOB-behållare.
+I den här artikeln skapar du en Event Grid-dataanslutning för Azure Data Explorer med hjälp av Python. Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning, eller datainläsning, från eventhubbar, IoT-hubbar och blobbar skrivna till blob-behållare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4 +](https://www.python.org/downloads/).
+* [Python 3.4+](https://www.python.org/downloads/).
 
 * [Ett kluster och en databas](create-cluster-database-python.md).
 
-* [Tabell-och kolumn mappning](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+* [Tabell- och kolumnmappning](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 
-* [Databas-och tabell principer](database-table-policies-csharp.md) (valfritt).
+* [Databas- och tabellprinciper](database-table-policies-csharp.md) (valfritt).
 
-* [Ett lagrings konto med en Event Grid prenumeration](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
+* [Ett lagringskonto med en Event Grid-prenumeration](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-## <a name="add-an-event-grid-data-connection"></a>Lägg till en Event Grid data anslutning
+## <a name="add-an-event-grid-data-connection"></a>Lägga till en dataanslutning för händelserutnät
 
-I följande exempel visas hur du lägger till en Event Grid data anslutning program mässigt. Se [skapa en Event Grid data anslutning i Azure datautforskaren](ingest-data-event-grid.md#create-an-event-grid-data-connection-in-azure-data-explorer) för att lägga till en Event Grid data anslutning med hjälp av Azure Portal.
+I följande exempel visas hur du lägger till en dataanslutning för händelserutnät programmässigt. Se [skapa en händelserutnätsdataanslutning i Azure Data Explorer](ingest-data-event-grid.md#create-an-event-grid-data-connection-in-azure-data-explorer) för att lägga till en event grid-dataanslutning med Azure-portalen.
 
 
 ```Python
@@ -88,20 +88,20 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 ```
 |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Även känt som katalog-ID.|
-| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Det prenumerations-ID som du använder för att skapa resurser.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som har åtkomst till resurser i din klient organisation.|
-| client_secret | *xxxxxxxxxxxxxx* | Klient hemligheten för programmet som har åtkomst till resurser i din klient organisation. |
-| resource_group_name | *testrg* | Namnet på resurs gruppen som innehåller klustret.|
-| cluster_name | *mykustocluster* | Namnet på klustret.|
-| database_name | *mykustodatabase* | Namnet på mål databasen i klustret.|
-| data_connection_name | *myeventhubconnect* | Det önskade namnet för din data anslutning.|
-| table_name | *StormEvents* | Namnet på mål tabellen i mål databasen.|
-| mapping_rule_name | *StormEvents_CSV_Mapping* | Namnet på kolumn mappningen som är relaterad till mål tabellen.|
-| data_format | *SKV* | Meddelandets data format.|
-| event_hub_resource_id | *Resurs-ID* | Resurs-ID för Händelsehubben där Event Grid har kon figurer ATS för att skicka händelser. |
-| storage_account_resource_id | *Resurs-ID* | Resurs-ID för ditt lagrings konto som innehåller data för inmatning. |
-| consumer_group | *$Default* | Konsument gruppen för Händelsehubben.|
-| location | *USA, centrala* | Platsen för data anslutnings resursen.|
+| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Kallas även katalog-ID.|
+| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Prenumerations-ID som du använder för att skapa resurser.|
+| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som kan komma åt resurser i din klient.|
+| client_secret | *xxxxxxxxxxxxxx* | Klienthemligheten för programmet som kan komma åt resurser i din klientorganisation. |
+| resource_group_name | *testrg* | Namnet på resursgruppen som innehåller klustret.|
+| cluster_name | *mykustocluster (en)* | Namnet på klustret.|
+| database_name | *mykustodatabas* | Namnet på måldatabasen i klustret.|
+| data_connection_name | *myeventhubconnect* | Önskat namn på din dataanslutning.|
+| Table_name | *StormEvents* | Namnet på måltabellen i måldatabasen.|
+| mapping_rule_name | *StormEvents_CSV_Mapping* | Namnet på kolumnmappningen som är relaterad till måltabellen.|
+| data_format | *Csv* | Meddelandets dataformat.|
+| event_hub_resource_id | *Resurs-ID* | Resurs-ID:t för händelsehubben där händelserutnätet är konfigurerat för att skicka händelser. |
+| storage_account_resource_id | *Resurs-ID* | Resurs-ID:t för ditt lagringskonto som innehåller data för inmatning. |
+| consumer_group | *$Default* | Konsumentgruppen för din Event Hub.|
+| location | *USA, centrala* | Platsen för dataanslutningsresursen.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

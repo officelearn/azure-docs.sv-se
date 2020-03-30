@@ -1,6 +1,6 @@
 ---
-title: Problem med att konfigurera lösen ord för SSO för Azure AD Gallery-appen
-description: Förstå vanliga problem när du konfigurerar enkel inloggning för lösen ord för program som redan finns med i Azure AD-programgalleriet
+title: Problem med att konfigurera lösenord SSO för Azure AD Gallery-appen
+description: Förstå de vanliga problem som personer ställs inför när du konfigurerar Enkel inloggning för lösenord för program som redan finns med i Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,98 +15,98 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e933c82229415a71182096a6aca9a2e535934d89
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77159054"
 ---
-# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera enkel inloggning med lösen ord för ett Azure AD Gallery-program
+# <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problem med att konfigurera lösenord enkel inloggning för ett Azure AD Gallery-program
 
-Den här artikeln hjälper dig att förstå vanliga problem med att konfigurera **enkel inloggning för lösen ord** med ett Azure AD Gallery-program.
+Den här artikeln hjälper dig att förstå de vanliga problem som personer ställs inför när du konfigurerar enkel inloggning för lösenord med ett Azure AD **Gallery-program.**
 
-## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Autentiseringsuppgifterna fylls i, men tillägget skickas inte
+## <a name="credentials-are-filled-in-but-the-extension-does-not-submit-them"></a>Autentiseringsuppgifterna är ifyllda, men tillägget skickar dem inte
 
-Det här problemet uppstår vanligt vis om program leverantören har ändrat sin inloggnings sida nyligen för att lägga till ett fält, ändrat en identifierare som används för att identifiera fälten för användar namn och lösen ord eller ändra hur inloggnings upplevelsen fungerar för programmet. I många fall kan Microsoft samar beta med program leverantörer för att snabbt lösa problemen.
+Det här problemet uppstår vanligtvis om programleverantören nyligen har ändrat sin inloggningssida för att lägga till ett fält, ändrat en identifierare som används för att identifiera fälten användarnamn och lösenord eller ändrat hur inloggningsupplevelsen fungerar för deras program. Lyckligtvis kan Microsoft i många fall arbeta med programleverantörer för att snabbt lösa dessa problem.
 
-Microsoft har teknik för att automatiskt identifiera när integreringen bryts, men det kanske inte går att hitta problemen direkt, eller så tar det en stund att åtgärda problemet. Om någon av dessa integreringar inte fungerar som den ska kan du öppna ett support ärende så att det kan åtgärdas så snabbt som möjligt.
+Microsoft har tekniker för att automatiskt identifiera när integreringar bryts, men det kanske inte går att hitta problemen direkt eller så tar det lite tid att åtgärda problemen. Om en av dessa integreringar inte fungerar korrekt öppnar du ett supportärende så att det kan åtgärdas så snabbt som möjligt.
 
-**Om du är kontakt med den här appens leverantör kan du** skicka dem på vårt sätt så att Microsoft kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
+**Om du har kontakt med programmets leverantör skickar du** dem på vårt sätt så att Microsoft kan arbeta med dem för att integrera sitt program med Azure Active Directory. Du kan skicka leverantören till [listningen av ditt program i Azure Active Directory-programgalleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
 
-## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Autentiseringsuppgifterna fylls i och skickas, men sidan indikerar att autentiseringsuppgifterna är felaktiga
+## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Autentiseringsuppgifterna fylls i och skickas, men sidan anger att autentiseringsuppgifterna är felaktiga
 
-Prova med följande saker för att lösa problemet:
+Lös problemet genom att först prova följande:
 
-- Låt användaren först försöka logga in på **program webbplatsen direkt** med de autentiseringsuppgifter som lagras för dem.
+- Låt användaren först försöka **logga in på programmets webbplats direkt** med de autentiseringsuppgifter som lagras för dem.
 
-  * Om inloggningen fungerar kan du klicka på knappen **uppdatera autentiseringsuppgifter** på **program** panelen i avsnittet **appar** i [program åtkomst panelen](https://myapps.microsoft.com/) för att uppdatera dem till det senaste kända fungerande användar namnet och lösen ordet.
+  * Om inloggningen fungerar ska användaren klicka på knappen **Uppdatera autentiseringsuppgifter** på **programpanelen** i avsnittet **Appar** på [programåtkomstpanelen](https://myapps.microsoft.com/) för att uppdatera dem till det senast kända användarnamnet och lösenordet för fungerande.
 
-  * Om du eller någon annan administratör har tilldelat autentiseringsuppgifterna för den här användaren, hittar du användarens eller gruppens program tilldelning genom att gå till fliken **användare & grupper** i programmet, välja tilldelningen och klicka på knappen **uppdatera autentiseringsuppgifter** .
+  * Om du eller en annan administratör har tilldelat autentiseringsuppgifterna för den här användaren letar du reda på användarens eller gruppens programtilldelning genom att navigera till fliken **Användare & grupper** i programmet, väljer tilldelningen och klickar på knappen Uppdatera **autentiseringsuppgifter.**
 
-- Om användaren har tilldelat sina egna autentiseringsuppgifter, måste användaren **kontrol lera att deras lösen ord inte har gått ut i programmet** , och i så fall **uppdatera sitt utgångna lösen ord** genom att logga in till programmet direkt.
+- Om användaren har tilldelat sina egna autentiseringsuppgifter ska användaren **kontrollera att lösenordet inte har upphört att gälla i programmet** och i så fall uppdatera sitt **utgångna lösenord** genom att logga in på programmet direkt.
 
-  * När lösen ordet har uppdaterats i programmet ber du användaren att klicka på knappen **uppdatera autentiseringsuppgifter** på **program** panelen i avsnittet **appar** i [program åtkomst panelen](https://myapps.microsoft.com/) för att uppdatera dem till det senaste kända fungerande användar namnet och lösen ordet.
+  * När lösenordet har uppdaterats i programmet ber du användaren att klicka på knappen **Uppdatera autentiseringsuppgifter** på **programpanelen** i avsnittet **Appar** på [programåtkomstpanelen](https://myapps.microsoft.com/) för att uppdatera dem till det senast kända fungerande användarnamnet och lösenordet.
 
-  * Om du eller någon annan administratör har tilldelat autentiseringsuppgifterna för den här användaren, hittar du användarens eller gruppens program tilldelning genom att gå till fliken **användare & grupper** i programmet, välja tilldelningen och klicka på knappen **uppdatera autentiseringsuppgifter** .
+  * Om du eller en annan administratör har tilldelat autentiseringsuppgifterna för den här användaren letar du reda på användarens eller gruppens programtilldelning genom att navigera till fliken **Användare & grupper** i programmet, väljer tilldelningen och klickar på knappen Uppdatera **autentiseringsuppgifter.**
 
-- Låt användaren uppdatera åtkomst panelens webb läsar tillägg genom att följa stegen nedan i avsnittet [Installera åtkomst panelens webb läsar tillägg](#how-to-install-the-access-panel-browser-extension) .
+- Låt användaren uppdatera webbläsartillägget för åtkomstpanelen genom att följa stegen nedan i avsnittet [Installera webbläsartillägg för åtkomstpanelen.](#how-to-install-the-access-panel-browser-extension)
 
-- Se till att åtkomst panelens webb läsar tillägg körs och är aktiverade i användarens webbläsare.
+- Kontrollera att webbläsartillägget för åtkomstpanelen körs och är aktiverat i användarens webbläsare.
 
-- Se till att användarna inte försöker logga in på programmet från åtkomst panelen i **Incognito, InPrivate eller privat läge**. Åtkomst panels tillägget stöds inte i de här lägena.
+- Kontrollera att användarna inte försöker logga in på programmet från åtkomstpanelen i **inkognito-, inPrivat eller Privat läge**. Tillägget för åtkomstpanelen stöds inte i dessa lägen.
 
-Om de tidigare förslagen inte fungerar, kan det vara fallet att en ändring har inträffat på den program sida där det tillfälligt har brutits mellan programmets integrering med Azure AD. Detta kan till exempel inträffa när program leverantören introducerar ett skript på sidan som beter sig annorlunda för manuella kontra automatiserade ingångar, vilket innebär att automatiserad integrering, som vår egen, ska brytas. I många fall kan Microsoft samar beta med program leverantörer för att snabbt lösa problemen.
+Om de tidigare förslagen inte fungerar kan det vara så att en ändring har skett på programsidan som tillfälligt har brutit programmets integrering med Azure AD. Detta kan till exempel inträffa när programleverantören introducerar ett skript på sin sida som fungerar annorlunda för manuell vs automatiserad indata, vilket gör att automatiserad integrering, som vår egen, går sönder. Lyckligtvis kan Microsoft i många fall arbeta med programleverantörer för att snabbt lösa dessa problem.
 
-Microsoft har teknik för att automatiskt identifiera när program integreringen bryts, men det kanske inte går att hitta problemen direkt, eller så kan det ta lite tid att åtgärda problemet. När en integrering inte fungerar som den ska kan du öppna ett support ärende för att få den åtgärdad så snabbt som möjligt. 
+Microsoft har tekniker för att automatiskt identifiera när programintegreringar bryts, men det kanske inte går att hitta problemen direkt eller så kan problemen ta lite tid att åtgärda. När en integrering inte fungerar korrekt kan du öppna ett supportärende för att få det åtgärdat så snabbt som möjligt. 
 
-Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
+Dessutom, om **du är i kontakt med det här programmets leverantör,** **skicka dem vårt sätt** så att vi kan arbeta med dem för att integrera deras program med Azure Active Directory. Du kan skicka leverantören till [listningen av ditt program i Azure Active Directory-programgalleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>Tillägget fungerar i Chrome och Firefox, men inte i Internet Explorer
 
-Det finns två huvudsakliga orsaker till det här problemet:
+Det finns två huvudorsakare till problemet:
 
-- Beroende på vilka säkerhets inställningar som Aktiver ATS i Internet Explorer, om webbplatsen inte är en del av en **betrodd zon**, blockeras ibland vårt skript från att köras för programmet.
+- Beroende på vilka säkerhetsinställningar som är aktiverade i Internet Explorer, om webbplatsen inte är en del av en **betrodd zon**, blockeras ibland vårt skript från att köras för programmet.
 
-  *  Du löser detta genom att instruera användaren att **lägga till programmets webbplats** i listan över **Betrodda platser** i **säkerhets inställningarna för Internet Explorer**. Du kan skicka dina användare till artikeln [så här lägger du till en plats i listan Mina betrodda webbplatser](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) för detaljerade anvisningar.
+  *  Lös detta genom att instruera användaren att **lägga till programmets webbplats** i listan **Betrodda platser** i sina **säkerhetsinställningar i Internet Explorer**. Du kan skicka användarna till artikeln [Hur du lägger till en webbplats i listan över betrodda webbplatser](https://answers.microsoft.com/en-us/ie/forum/ie9-windows_7/how-do-i-add-a-site-to-my-trusted-sites-list/98cc77c8-b364-e011-8dfc-68b599b31bf5) för detaljerade instruktioner.
 
-- I sällsynta fall kan Internet Explorers säkerhets validering ibland medföra att sidan läses in långsammare än med körningen av vårt skript.
+- I sällsynta fall kan Internet Explorers säkerhetsvalidering ibland leda till att sidan läses in långsammare än körningen av vårt skript.
 
-  * Den här situationen kan tyvärr variera beroende på webbläsarens version, datorns hastighet eller besöks plats. I det här fallet rekommenderar vi att du kontaktar supporten så att vi kan åtgärda integreringen för det specifika programmet.
+  * Tyvärr kan den här situationen variera beroende på webbläsarversion, datorhastighet eller besökt webbplats. I det här fallet föreslår vi att du kontaktar supporten så att vi kan åtgärda integreringen för det här specifika programmet.
 
-Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
+Dessutom, om **du är i kontakt med det här programmets leverantör,** **skicka dem vårt sätt** så att vi kan arbeta med dem för att integrera deras program med Azure Active Directory. Du kan skicka leverantören till [listningen av ditt program i Azure Active Directory-programgalleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
 
-## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Kontrol lera om programmets inloggnings sida har ändrats nyligen eller kräver ett ytterligare fält
+## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Kontrollera om programmets inloggningssida har ändrats nyligen eller kräver ytterligare ett fält
 
-Om programmets inloggnings sida har ändrats drastiskt gör det ibland att våra integrationer kan brytas. Ett exempel på detta är när en program leverantör lägger till ett inloggnings fält, en captcha eller Multi-Factor Authentication i deras upplevelser. I många fall kan Microsoft samar beta med program leverantörer för att snabbt lösa problemen.
+Om programmets inloggningssida har ändrats drastiskt, ibland detta orsakar våra integrationer att bryta. Ett exempel på detta är när en programleverantör lägger till ett inloggningsfält, en captcha eller multifaktorautentisering i sina upplevelser. Lyckligtvis kan Microsoft i många fall arbeta med programleverantörer för att snabbt lösa dessa problem.
 
-Microsoft har teknik för att automatiskt identifiera när program integreringen bryts, men det kanske inte går att hitta problemen direkt, eller så kan det ta lite tid att åtgärda problemet. När en integrering inte fungerar som den ska kan du öppna ett support ärende för att få den åtgärdad så snabbt som möjligt. 
+Microsoft har tekniker för att automatiskt identifiera när programintegreringar bryts, men det kanske inte går att hitta problemen direkt eller så kan problemen ta lite tid att åtgärda. När en integrering inte fungerar korrekt kan du öppna ett supportärende för att få det åtgärdat så snabbt som möjligt. 
 
-Förutom detta, **om du är i kontakt med den här appens leverantör, skickar du** **dem på vårt sätt** så att vi kan samar beta med dem för att internt integrera sina program med Azure Active Directory. Du kan skicka leverantören till [listan över ditt program i Azure Active Directory program galleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
+Dessutom, om **du är i kontakt med det här programmets leverantör,** **skicka dem vårt sätt** så att vi kan arbeta med dem för att integrera deras program med Azure Active Directory. Du kan skicka leverantören till [listningen av ditt program i Azure Active Directory-programgalleriet](../azuread-dev/howto-app-gallery-listing.md) för att komma igång.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Så här installerar du åtkomst panelens webb läsar tillägg
+## <a name="how-to-install-the-access-panel-browser-extension"></a>Så här installerar du webbläsartillägget för åtkomstpanelen
 
-Om du vill installera åtkomst panelens webb läsar tillägg följer du stegen nedan:
+Så här installerar du webbläsartillägget för åtkomstpanelen:
 
-1.  Öppna [åtkomst panelen](https://myapps.microsoft.com) i någon av de webbläsare som stöds och logga in som en **användare** i Azure AD.
+1.  Öppna [åtkomstpanelen](https://myapps.microsoft.com) i en av webbläsarna som stöds och logga in som **användare** i din Azure AD.
 
-2.  Klicka på ett **Password-SSO-program** på åtkomst panelen.
+2.  klicka på ett **lösenords-SSO-program** på åtkomstpanelen.
 
-3.  I uppmana att du uppmanas att installera program varan väljer du **Installera nu**.
+3.  I prompten som ber om att installera programvaran väljer du **Installera nu**.
 
-4.  Baserat på din webbläsare dirigeras du till nedladdnings länken. **Lägg till** tillägget i webbläsaren.
+4.  Baserat på din webbläsare dirigeras du till nedladdningslänken. **Lägg till** tillägget i webbläsaren.
 
-5.  Om webbläsaren frågar väljer du antingen **Aktivera** eller **Tillåt** tillägget.
+5.  Om webbläsaren frågar väljer du att **aktivera** eller **tillåt** tillägget.
 
-6.  **Starta om** webbläsarsessionen när den har installerats.
+6.  Starta om webbläsarsessionen **när** den har installerats.
 
-7.  Logga in på åtkomst panelen och se om du kan **Starta** dina inloggnings program för lösen ord
+7.  Logga in på åtkomstpanelen och se om du kan **starta** dina lösenords-SSO-program
 
-Du kan också ladda ned tillägget för Chrome och Firefox från de direkta länkarna nedan:
+Du kan också ladda ner tillägget för Chrome och Firefox från de direkta länkarna nedan:
 
--   [Tillägg för Chrome Access panel](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+-   [Tillägg till panelen Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
--   [Åtkomst panels tillägg för Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+-   [Tillägg till Firefox-åtkomstpanelen](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
 ## <a name="next-steps"></a>Nästa steg
-[Tillhandahålla enkel inloggning till dina appar med Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md)
+[Ge enkel inloggning till dina appar med Programproxy](application-proxy-configure-single-sign-on-with-kcd.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Anslut Citrix Analytics (säkerhet) till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter Citrix Analytics (säkerhet) till Azure Sentinel.
+title: Anslut Citrix Analytics (säkerhet) till Azure Sentinel| Microsoft-dokument
+description: Lär dig hur du ansluter Citrix Analytics (Säkerhet) till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,37 +15,37 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: bbc77340375b22f137045d68b7449dd1e8adc4b7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588390"
 ---
 # <a name="connect-citrix-analytics-security"></a>Ansluta Citrix Analytics (Security) 
 
-Med Citrix Analytics-integrering (Security) med Azure Sentinel kan du exportera data som analyseras för riskfyllda händelser från Citrix Analytics (säkerhet) till Azure Sentinel. Du kan skapa anpassade instrument paneler, analysera data från andra källor tillsammans med det från Citrix Analytics (säkerhet) och skapa anpassade arbets flöden med Logic Apps för att övervaka och minimera säkerhets händelser. 
+Citrix Analytics (Säkerhet) integration med Azure Sentinel hjälper dig att exportera data som analyserats för riskfyllda händelser från Citrix Analytics (Säkerhet) till Azure Sentinel. Du kan skapa anpassade instrumentpaneler, analysera data från andra källor tillsammans med dem från Citrix Analytics (Säkerhet) och skapa anpassade arbetsflöden med Hjälp av Logic Apps för att övervaka och minska säkerhetshändelser. 
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Läs-och skriv behörigheter till Azure Sentinel-arbetsytan.
+- Läs- och skrivbehörigheter till Arbetsytan Azure Sentinel.
 
-- Rättighet till Citrix Security Analytics i Citrix Cloud.
+- Rätt till Citrix Security Analytics i Citrix Cloud.
 
 
-## <a name="connect-azure-sentinel-to-citrix-analytics-security"></a>Anslut Azure Sentinel till Citrix Analytics (säkerhet)
+## <a name="connect-azure-sentinel-to-citrix-analytics-security"></a>Ansluta Azure Sentinel till Citrix Analytics (säkerhet)
 
-1. I Azure Portal går du till **Azure Sentinel** > **data Connectors** och väljer sedan **Citrix Analytics-anslutningen (Security)** .
+1. I Azure-portalen navigerar du till **Azure Sentinel** > **Data-kopplingar** och väljer sedan **Citrix Analytics (Security)-anslutningsappen.**
 
-2. Välj **Öppna kopplings sida**.
+2. Välj **Öppna kopplingssida**.
 
-3. Följ instruktionerna på sidan om **Citrix Analytics (säkerhet)** .
+3. Följ instruktionerna på sidan **Citrix Analytics (Security).**
 
 ## <a name="next-steps"></a>Nästa steg
-I det här dokumentet har du lärt dig hur du ansluter Citrix Analytics (säkerhet) till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+I det här dokumentet har du lärt dig hur du ansluter Citrix Analytics (Säkerhet) till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
+- Läs om hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+- [Använd arbetsböcker](tutorial-monitor-your-data.md) för att övervaka dina data.
 
 

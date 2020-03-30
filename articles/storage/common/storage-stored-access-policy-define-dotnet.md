@@ -1,6 +1,6 @@
 ---
-title: Definiera en lagrad åtkomst princip med .NET-Azure Storage
-description: Lär dig hur du definierar en lagrad åtkomst princip med hjälp av .NET-klient biblioteket.
+title: Definiera en lagrad åtkomstprincip med .NET - Azure Storage
+description: Lär dig hur du definierar en lagrad åtkomstprincip med hjälp av .NET-klientbiblioteket.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,17 +10,17 @@ ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 272d676d0a5a55262b1c68d0bae9a9ab229df72c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68990746"
 ---
-# <a name="define-a-stored-access-policy-with-net"></a>Definiera en lagrad åtkomst princip med .NET
+# <a name="define-a-stored-access-policy-with-net"></a>Definiera en lagrad åtkomstprincip med .NET
 
-En lagrad åtkomst princip ger ytterligare kontroll nivå över signaturer för delad åtkomst på tjänst nivå (SAS) på Server sidan. Att definiera en lagrad åtkomst princip används för att gruppera signaturer för delad åtkomst och för att ge ytterligare begränsningar för signaturer för delad åtkomst som är kopplade till principen. Du kan använda en lagrad åtkomst princip för att ändra start tid, förfallo tid eller behörigheter för en SAS eller återkalla den när den har utfärdats.
+En lagrad åtkomstprincip ger ytterligare en nivå av kontroll över SAS -signaturer (Shared Access) på serversidan. Att definiera en princip för lagrad åtkomst används för att gruppera signaturer för delad åtkomst och ge ytterligare begränsningar för signaturer för delad åtkomst som är bundna av principen. Du kan använda en lagrad åtkomstprincip för att ändra starttid, utgångstid eller behörigheter för en SAS, eller för att återkalla den när den har utfärdats.
   
- Följande lagrings resurser har stöd för lagrade åtkomst principer:  
+ Följande lagringsresurser stöder principer för lagrad åtkomst:  
   
 - Blob-containrar  
 - Filresurser  
@@ -28,13 +28,13 @@ En lagrad åtkomst princip ger ytterligare kontroll nivå över signaturer för 
 - Tabeller  
   
 > [!NOTE]
-> En lagrad åtkomst princip på en behållare kan associeras med en signatur för delad åtkomst som beviljar behörigheter till själva behållaren eller till de blobbar som den innehåller. På samma sätt kan en lagrad åtkomst princip på en fil resurs associeras med en signatur för delad åtkomst som beviljar behörighet till själva resursen eller filer som den innehåller.  
+> En lagrad åtkomstprincip på en behållare kan associeras med en delad åtkomstsignatur som ger behörighet till själva behållaren eller till de blobbar som den innehåller. På samma sätt kan en lagrad åtkomstprincip för en filresurs associeras med en signatur med delad åtkomst som ger behörighet till själva resursen eller till de filer den innehåller.  
 >
-> Lagrade åtkomst principer stöds endast för en tjänst-SAS. Lagrade åtkomst principer stöds inte för konto-SAS eller användar Delegerings-SAS.  
+> Principer för lagrad åtkomst stöds endast för en tjänst SAS. Principer för lagrad åtkomst stöds inte för SAS- eller användardelegerings SAS för konto.  
 
-## <a name="create-a-stored-access-policy"></a>Skapa en lagrad åtkomst princip
+## <a name="create-a-stored-access-policy"></a>Skapa en lagrad åtkomstprincip
 
-Följande kod skapar en lagrad åtkomst princip på en behållare. Du kan använda åtkomst principen för att ange begränsningar för en tjänst-SAS på behållaren eller dess blobbar.
+Följande kod skapar en lagrad åtkomstprincip på en behållare. Du kan använda åtkomstprincipen för att ange begränsningar för en service-SAS på behållaren eller dess blobbar.
 
 ```csharp
 private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer container, string policyName)
@@ -58,8 +58,8 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-- [Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)](storage-sas-overview.md)
-- [Definiera en lagrad åtkomst princip](/rest/api/storageservices/define-stored-access-policy)
+- [Bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av SIGNATURER för delad åtkomst (SAS)](storage-sas-overview.md)
+- [Definiera en lagrad åtkomstprincip](/rest/api/storageservices/define-stored-access-policy)
 

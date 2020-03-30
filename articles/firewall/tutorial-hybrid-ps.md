@@ -1,6 +1,6 @@
 ---
-title: Distribuera & Konfigurera Azure-brandväggen i hybrid nätverk med PowerShell
-description: I den här artikeln får du lära dig hur du distribuerar och konfigurerar Azure-brandväggen med hjälp av Azure PowerShell.
+title: Distribuera & konfigurera Azure-brandväggen i hybridnätverk med PowerShell
+description: I den här artikeln får du lära dig hur du distribuerar och konfigurerar Azure-brandväggen med Azure PowerShell.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -9,10 +9,10 @@ ms.date: 01/08/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ms.openlocfilehash: 37bb28419f23fee2c179171a2e5c0e4e851ac9a0
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471762"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
@@ -25,7 +25,7 @@ I den här artikeln skapar du tre virtuella nätverk:
 
 - **VNet-Hub** – brandväggen finns i det här virtuella nätverket.
 - **VNet-Spoke** – det virtuella ekernätverket representerar den arbetsbelastning som finns på Azure.
-- **VNet-Onprem** – det lokala virtuella nätverket representerar ett lokalt nätverk. I en verklig distribution kan den anslutas antingen via en VPN-eller ExpressRoute-anslutning. För enkelhetens skull använder den här artikeln en VPN gateway-anslutning och ett Azure-placerat virtuellt nätverk används för att representera ett lokalt nätverk.
+- **VNet-Onprem** – det lokala virtuella nätverket representerar ett lokalt nätverk. I en faktisk distribution kan den anslutas via antingen en VPN- eller ExpressRoute-anslutning. För enkelhetens skull använder den här artikeln en VPN-gatewayanslutning och ett Azure-lokaliserat virtuellt nätverk används för att representera ett lokalt nätverk.
 
 ![Brandvägg i ett hybridnätverk](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -41,41 +41,41 @@ I den här artikeln kan du se hur du:
 > * Peera de virtuella hubb- och ekernätverken
 > * Skapa vägarna
 > * Skapa de virtuella datorerna
-> * Testa brandväggen
+> * testa brandväggen.
 
-Om du vill använda Azure Portal i stället för att slutföra den här kursen, se [Självstudier: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal](tutorial-hybrid-portal.md).
+Om du vill använda Azure-portalen i stället för att slutföra den här självstudien läser du [Självstudiekurs: Distribuera och konfigurera Azure-brandväggen i ett hybridnätverk med Azure-portalen](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Den här artikeln kräver att du kör PowerShell lokalt. Du måste ha installerat Azure PowerShell-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
+Den här artikeln kräver att du kör PowerShell lokalt. Du måste ha Azure PowerShell-modulen installerad. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzAccount` för att skapa en anslutning till Azure.
 
 Det finns tre viktiga krav för att det här scenariot ska fungera korrekt:
 
-- En användardefinierad väg (UDR, User-Defined Route) i ekerundernätet som pekar på IP-adressen för Azure Firewall som standardgateway. Väg spridning för virtuell nätverksgateway måste **inaktive ras** i den här routningstabellen.
+- En användardefinierad väg (UDR, User-Defined Route) i ekerundernätet som pekar på IP-adressen för Azure Firewall som standardgateway. Förökning av virtuell nätverksgateway måste **inaktiveras** i den här vägtabellen.
 - En UDR i hubbgatewayens undernät måste peka på brandväggens IP-adress som nästa hopp till ekernätverken.
 
    Det krävs ingen UDR i Azure Firewall-undernätet eftersom det lär sig vägarna från BGP.
 - Se till att ange **AllowGatewayTransit** vid peering av VNet-Hub till VNet-Spoke och **UseRemoteGateways** vid peering av VNet-Spoke till VNet-Hub.
 
-Se avsnittet [skapa vägar](#create-the-routes) i den här artikeln för att se hur dessa vägar skapas.
+Se avsnittet [Skapa rutter](#create-the-routes) i den här artikeln för att se hur dessa vägar skapas.
 
 >[!NOTE]
->Azure-brandväggen måste ha direkt Internet anslutning. Om din AzureFirewallSubnet lär sig en standard väg till ditt lokala nätverk via BGP måste du åsidosätta detta med en 0.0.0.0/0-UDR med **NextHopType** -värdet som **Internet** för att upprätthålla direkt Internet anslutning.
+>Azure-brandväggen måste ha direkt Internet-anslutning. Om din AzureFirewallSubnet lär sig en standardväg till ditt lokala nätverk via BGP måste du åsidosätta detta med en UDR 0.0.0/0 med **NextHopType-värdet** som **Internet** för att upprätthålla direkt Internet-anslutning.
 >
->Azure-brandväggen kan konfigureras för att stödja Tvingad tunnel trafik. Mer information finns i [Tvingad tunnel trafik i Azure Firewall](forced-tunneling.md).
+>Azure-brandväggen kan konfigureras för att stödja påtvingad tunnel. Mer information finns i [Azure Firewall forced tunneling](forced-tunneling.md).
 
 >[!NOTE]
 >Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om en UDR pekar på Azure Firewall som standardgateway. För att undernät till undernät-trafik ska kunna skickas till brandväggen i det här scenariot måste en UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
 
 Om du vill läsa relaterad referensdokumentation för Azure PowerShell går du till [Azure PowerShell-referensen](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="declare-the-variables"></a>Deklarera variablerna
 
-I följande exempel deklaras variablerna med hjälp av värdena för den här artikeln. I vissa fall kan du behöva ersätta vissa värden med dina egna för att de ska fungera i din prenumeration. Ändra variablerna om det behövs och kopiera och klistra in dem i PowerShell-konsolen.
+I följande exempel deklareras variablerna med hjälp av värdena för den här artikeln. I vissa fall kan du behöva ersätta vissa värden med dina egna för att de ska fungera i din prenumeration. Ändra variablerna om det behövs och kopiera och klistra in dem i PowerShell-konsolen.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -119,7 +119,7 @@ $SNnameGW = "GatewaySubnet"
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Skapa brandväggens virtuella hubbnätverk
 
-Skapa först en resurs grupp som innehåller resurserna för den här artikeln:
+Skapa först resursgruppen så att resurserna för den här artikeln innehåller:
 
 ```azurepowershell
   New-AzResourceGroup -Name $RG1 -Location $Location1
@@ -139,7 +139,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Begär en offentlig IP-adress som ska allokeras till den VPN-gateway som du skapar för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till VPN-gatewayen.
+Begär att en offentlig IP-adress ska tilldelas den VPN-gateway som du skapar för ditt virtuella nätverk. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till VPN-gatewayen.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -178,7 +178,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Begär en offentlig IP-adress som ska allokeras till den gateway som du skapar för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till gatewayen.
+Begär att en offentlig IP-adress ska tilldelas den gateway som du skapar för det virtuella nätverket. Observera att *AllocationMethod* är **Dynamic**. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till gatewayen.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -203,7 +203,7 @@ $AzfwPrivateIP
 
 ```
 
-### <a name="configure-network-rules"></a>konfigurera nätverksregler
+### <a name="configure-network-rules"></a>Konfigurera nätverksregler
 
 <!--- $Rule3 = New-AzFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
@@ -293,7 +293,7 @@ Skapa anslutningen mellan det lokala virtuella nätverket och det virtuella hubb
 
 #### <a name="verify-the-connection"></a>Verifiera anslutningen
 
-Du kan verifiera en lyckad anslutning med hjälp av cmdleten *Get-AzVirtualNetworkGatewayConnection* , med eller utan *-Debug*. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Vid uppmaning väljer du **A** för att köra **Alla**. I exemplet avser *-Name* namnet på den anslutning som du vill testa.
+Du kan verifiera en lyckad anslutning med hjälp av cmdleten *Get-AzVirtualNetworkGatewayConnection,* med eller utan *-Debug*. Använd följande cmdlet-exempel genom att konfigurera värdena för att matcha dina egna. Vid uppmaning väljer du **A** för att köra **Alla**. I exemplet *refererar -Namn* till namnet på den anslutning som du vill testa.
 
 ```azurepowershell
 Get-AzVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1
@@ -452,7 +452,7 @@ New-AzVm `
     -Size "Standard_DS2"
 ```
 
-## <a name="test-the-firewall"></a>Testa brandväggen
+## <a name="test-the-firewall"></a>testa brandväggen.
 
 Först hämtar du och sedan antecknar den privata IP-adressen för den virtuella datorn **VM-spoke-01**.
 
@@ -472,7 +472,7 @@ Från **VM-Onprem** öppnar du ett fjärrskrivbord till **VM-spoke-01** på den 
 
 Anslutningen bör upprättas, och du bör kunna logga in med ditt valda användarnamn och lösenord.
 
-Nu har du verifierat att brand Väggs reglerna fungerar:
+Så nu har du verifierat att brandväggsreglerna fungerar:
 
 <!---- You can ping the server on the spoke VNet.--->
 - Du kan bläddra i webbservern på det virtuella ekernätverket.

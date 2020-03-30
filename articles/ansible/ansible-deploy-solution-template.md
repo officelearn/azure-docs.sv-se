@@ -1,17 +1,17 @@
 ---
-title: Snabb start – distribuera Ansible lösnings mal len för Azure till CentOS
-description: I den här snabb starten lär du dig hur du distribuerar Ansible-lösningen på en virtuell CentOS-dator som finns på Azure, tillsammans med verktyg som kon figurer ATS för att fungera med Azure.
+title: Snabbstart – distribuera den ätbara lösningsmallen för Azure till CentOS
+description: I den här snabbstarten kan du lära dig hur du distribuerar Den ätbara lösningsmallen på en Virtuell CentOS-dator som finns på Azure, tillsammans med verktyg som konfigurerats för att fungera med Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
 ms.date: 04/30/2019
 ms.openlocfilehash: cc3a6c1f0ef36b51b62e6aa58f317aee13149589
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77193794"
 ---
-# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Snabb start: Distribuera Ansible lösnings mal len för Azure till CentOS
+# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Snabbstart: Distribuera den ätbara lösningsmallen för Azure till CentOS
 
 Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-instans på en virtuell CentOS-dator med Ansible och en uppsättning verktyg som konfigurerats att fungera med Azure. Här är några av verktygen:
 
@@ -19,15 +19,15 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
 - **Azure Command-Line Interface (CLI) 2.0** – [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) är en plattformsoberoende kommandoradsmiljö för hantering av Azure-resurser. 
 - **Hanterade identiteter för Azure-resurser** – Funktionen [Hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview) hjälper dig att skydda autentiseringsuppgifterna för molnprogram.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## <a name="deploy-the-ansible-solution-template"></a>Distribuera mallen för Ansible-lösning
+## <a name="deploy-the-ansible-solution-template"></a>Distribuera den ansible-lösningsmallen
 
 1. Bläddra till [Ansible-lösningsmallen på Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
-1. Välj **GET IT NOW** (Hämta nu).
+1. Välj **HÄMTA DEN NU**.
 
 1. Ett fönster visas som beskriver användningsvillkoren, sekretesspolicyn och Azure Marketplace-användningsvillkoren. Välj **Fortsätt**.
 
@@ -85,4 +85,4 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Snabb start: Konfigurera en virtuell Linux-dator i Azure med Ansible](./ansible-create-vm.md)
+> [Snabbstart: Konfigurera en virtuell Linux-dator i Azure med Ansible](./ansible-create-vm.md)

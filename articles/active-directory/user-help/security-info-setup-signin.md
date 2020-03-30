@@ -1,6 +1,6 @@
 ---
-title: Konfigurera din säkerhets information (för hands version) från en inloggnings tolk – Azure AD
-description: Hur du ställer in din säkerhets information (för hands version) för ditt arbets-eller skol konto när du har tillfrågats från din organisations inloggnings sida.
+title: Konfigurera din säkerhetsinformation (förhandsversion) från en inloggningsfråga – Azure AD
+description: Så här konfigurerar du säkerhetsinformation (förhandsversion) för ditt arbets- eller skolkonto när du har fått information från organisationens inloggningssida.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,13 +12,13 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: curtand
 ms.openlocfilehash: c216dbfef99422fc49fde774dc57d5cbcc9f879a
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77063993"
 ---
-# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Konfigurera din säkerhets information (för hands version) från en inloggnings tolk
+# <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Konfigurera säkerhetsinformation (förhandsgranskning) från en inloggningsfråga
 
 Du kan följa de här stegen om du uppmanas att konfigurera säkerhetsinformation omedelbart efter att du har loggat in på ditt arbets- eller skolkonto.
 
@@ -26,16 +26,16 @@ Det här meddelandet visas endast om du inte har konfigurerat den säkerhetsinfo
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
-## <a name="security-verification-versus-password-reset-authentication"></a>Säkerhets verifiering jämfört med autentisering av lösen ords återställning
+## <a name="security-verification-versus-password-reset-authentication"></a>Säkerhetsverifiering kontra autentisering om återställning av lösenord
 
-Metoder för säkerhets information används för både dubbelriktad säkerhets verifiering och för lösen ords återställning. Dock kan inte alla metoder användas för båda.
+Metoder för säkerhetsinformation används för både tvåfaktorssäkerhetsverifiering och för återställning av lösenord. Dock kan inte alla metoder användas för båda.
 
 | Metod | Används för |
 | ------ | -------- |
 | Autentiseringsapp | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
 | SMS | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
 | Telefonsamtal | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
-| Säkerhets nyckel | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| Säkerhetsnyckel | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
 | E-postkonto | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
 | Säkerhetsfrågor | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
 
@@ -70,7 +70,7 @@ Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets
 4. Öppna Microsoft Authenticator-appen, välj att tillåta meddelanden (om du uppmanas), välj **Lägg till konto** från ikonen **Customize and control** (Anpassa och styr) uppe till höger och välj sedan **Arbets- eller skolkonto**.
 
     >[!Note]
-    >Om det här är första gången du konfigurerar Microsoft Authenticator-appen kan du få en fråga om du vill tillåta att appen får åtkomst till kameran (iOS) eller tillåter att appen tar bilder och spelar in video (Android). Du måste välja **Tillåt** så att Authenticator-appen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera Authenticator-appen, men du måste lägga till kod informationen manuellt. Information om hur du lägger till koden manuellt finns i se [lägga till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
+    >Om det är första gången du konfigurerar Microsoft Authenticator-appen kan du få en uppmaning om du vill tillåta appen att komma åt kameran (iOS) eller låta appen ta bilder och spela in video (Android). Du måste välja **Tillåt** så att autentiseringsappen kan komma åt kameran för att ta en bild av QR-koden i nästa steg. Om du inte tillåter kameran kan du fortfarande konfigurera autentiseringsappen, men du måste lägga till kodinformationen manuellt. Information om hur du lägger till koden manuellt finns i [Lägg till ett konto manuellt i appen](user-help-auth-app-add-account-manual.md).
 
 5. Gå tillbaka till sidan **Konfigurera ditt konto** på datorn och välj sedan **Nästa**.
 
@@ -80,7 +80,7 @@ Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets
 
 6. Skanna den angivna koden med Microsoft Authenticator-appens QR-kodläsare, som infördes på din mobila enhet efter att du skapade arbets- eller skolkontot i steg 5.
 
-    Authenticator-appen bör lägga till ditt arbets- eller skolkonto utan att någon ytterligare information krävs från dig. Men om QR-koden inte kan läsa koden kan du välja att **inte skanna QR-bilden** och manuellt ange koden och webb adressen i Microsoft Authenticator-appen. Mer information om att lägga till en kod manuellt finns i [Lägga till ett konto i appen manuellt](user-help-auth-app-add-account-manual.md).
+    Authenticator-appen bör lägga till ditt arbets- eller skolkonto utan att någon ytterligare information krävs från dig. Om QR-kodläsaren inte kan läsa koden kan du välja **den kan inte skanna QR-avbildningen** och manuellt ange koden och webbadressen i Microsoft Authenticator-appen. Mer information om att lägga till en kod manuellt finns i [Lägga till ett konto i appen manuellt](user-help-auth-app-add-account-manual.md).
 
 7. Välj **Nästa** på sidan **Skanna QR-koden** på datorn.
 
@@ -115,38 +115,38 @@ Följ de här stegen för att konfigurera säkerhetsinformation för ditt arbets
     ![Sidan om att guiden har slutförts](media/security-info/securityinfo-prompt-setup-success.png)
 
     >[!Note]
-    >Om din organisation kräver att du använder applösenord, kan du se ytterligare ett avsnitt i den här guiden, där du kan konfigurera den. Om du ser ett tredje avsnitt, som kallas **applösenord**, måste du fylla i det innan du kan slutföra guiden. Anvisningar om hur du lägger till ett applösenord finns i avsnittet [Hantera applösenord](#manage-your-app-passwords) i den här artikeln.
+    >Om din organisation kräver att du använder applösenord kan du se ytterligare ett avsnitt i den här guiden, där du kan konfigurera det. Om du ser ett tredje avsnitt, som kallas **Applösenord,** måste du fylla i det innan du kan slutföra guiden. Steg om hur du lägger till ett applösenord finns i avsnittet [Hantera applösenord](#manage-your-app-passwords) i den här artikeln.
 
 ### <a name="manage-your-app-passwords"></a>Hantera dina applösenord
 
-Vissa appar, till exempel Outlook 2010, stöder inte tvåstegsverifiering. Detta saknar stöd innebär att om du använder tvåstegsverifiering i din organisation fungerar inte appen. För att komma runt det här problemet kan du skapa ett automatiskt genererat lösen ord som ska användas med varje icke-webbapp, separat från det normala lösen ordet.
+Vissa appar, till exempel Outlook 2010, stöder inte tvåstegsverifiering. Den här bristen på stöd innebär att om du använder tvåstegsverifiering i din organisation fungerar inte appen. För att komma runt det här problemet kan du skapa ett automatiskt uppringda lösenord som ska användas med varje app som inte är en webbläsare, separat från ditt vanliga lösenord.
 
 >[!Note]
->Om du inte ser det här alternativet i guiden innebär det att administratören inte har konfigurerat det. Om detta inte är konfigurerat, men du vet att du behöver använda applösenord, kan du följa stegen i [sidan Konfigurera applösenord från sidan säkerhets information (förhands granskning)](security-info-app-passwords.md).
+>Om du inte ser det här alternativet i guiden betyder det att administratören inte har konfigurerat det. Om detta inte är konfigurerat, men du vet att du behöver använda applösenord, kan du följa stegen i [sidan Konfigurera applösenord från sidan Säkerhetsinformation (förhandsversion).](security-info-app-passwords.md)
 
 När du använder applösenord är det viktigt att komma ihåg:
 
 - Applösenord skapas automatiskt och anges bara en gång per app.
 
-- Det finns en gräns på 40 lösen ord per användare. Om du försöker skapa en efter den gränsen uppmanas du att ta bort ett befintligt lösen ord innan du får skapa det nya.
+- Det finns en gräns på 40 lösenord per användare. Om du försöker skapa ett efter den gränsen uppmanas du att ta bort ett befintligt lösenord innan du får skapa det nya.
 
-- Använd ett applösenord per enhet, inte per app. Du kan till exempel skapa ett enda lösen ord för alla appar på din bärbara dator och sedan ett nytt lösen ord för alla appar på Skriv bordet.
+- Använd ett applösenord per enhet, inte per app. Skapa till exempel ett enda lösenord för alla appar på din bärbara dator och sedan ett annat enda lösenord för alla appar på skrivbordet.
 
-#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Så här lägger du till applösenord i inloggnings guiden
+#### <a name="to-add-app-passwords-in-the-sign-in-wizard"></a>Så här lägger du till applösenord i inloggningsguiden
 
-1. När du har slutfört de föregående avsnitten i guiden väljer du **Nästa** och slutför **appens lösen ord** .
+1. När du har avslutat föregående avsnitt i guiden väljer du **Nästa** och fyller i avsnittet **Applösenord.**
 
-2. Skriv namnet på den app som behöver lösen ordet, till exempel `Outlook 2010`, och välj sedan **Nästa**.
+2. Skriv namnet på appen som behöver lösenordet, till exempel `Outlook 2010`, och välj sedan **Nästa**.
 
-    ![Lägg till appens lösen ords namn i guiden](media/security-info/app-password-app-password.png)
+    ![Lägga till appens lösenordsnamn i guiden](media/security-info/app-password-app-password.png)
 
-3. Kopiera lösen ords koden från skärmen **applösenord** och klistra in den i appens **lösen ord** (i det här exemplet Outlook 2010).
+3. Kopiera lösenordskoden från **skärmen Applösenord** och klistra in den i området **Lösenord** i appen (i det här exemplet Outlook 2010).
 
-    ![Sidan applösenord med lösen ord för kopiering](media/security-info/app-password-copy-password.png)
+    ![Sidan Applösenord, med lösenord för kopiering](media/security-info/app-password-copy-password.png)
 
-4. När du har kopierat lösen ordet och klistrat in det i appen går du tillbaka till den här guiden för att se till att all information om inloggnings metoden är korrekt och väljer sedan **slutförd**.
+4. När du har kopierat lösenordet och klistrat in det i appen går du tillbaka till den här guiden för att kontrollera att all information om inloggningsmetoden är korrekt och väljer sedan **Klar**.
 
-    ![Sidan applösenord, med kompletterings meddelande](media/security-info/app-password-complete.png)
+    ![Sidan Applösenord, med meddelande om slutförande](media/security-info/app-password-complete.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -156,11 +156,11 @@ När du använder applösenord är det viktigt att komma ihåg:
 
     - [Konfigurera säkerhetsinformation för SMS](security-info-setup-text-msg.md).
 
-    - [Konfigurera säkerhetsinformation till att använda telefonsamtal](security-info-setup-phone-number.md).
+    - [Konfigurera säkerhetsinformation för att använda telefonsamtal](security-info-setup-phone-number.md).
 
-    - [Konfigurera säkerhetsinformation till att använda e-post](security-info-setup-email.md).
+    - [Konfigurera säkerhetsinformation för att använda e-post](security-info-setup-email.md).
 
-    - [Konfigurera säkerhetsinformation till att använda fördefinierade säkerhetsfrågor](security-info-setup-questions.md).
+    - [Ställ in säkerhetsinformation för att använda fördefinierade säkerhetsfrågor](security-info-setup-questions.md).
 
 - Information om hur du loggar in med din angivna metod finns i [Så loggar du in](user-help-sign-in.md).
 

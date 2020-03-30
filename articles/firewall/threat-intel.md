@@ -1,6 +1,6 @@
 ---
-title: Filtrering baserad på Azure Firewall Threat Intelligence
-description: Hotinformationsbaserad filtrering kan aktiveras för brandväggen för att avisera och avvisa trafik från/till kända skadliga IP-adresser och domäner.
+title: Azure Firewall hot intelligens baserad filtrering
+description: Hot intelligens-baserad filtrering kan aktiveras för brandväggen att varna och neka trafik från / till kända skadliga IP-adresser och domäner.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,29 +8,29 @@ ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: c291dbe9c1eb37e68174a2353e296a376c7d0896
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168669"
 ---
-# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Azure Firewall Threat Intelligence-baserad filtrering
+# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Intelligensbaserad filtrering av Azure Firewall-hot
 
-Hotinformationsbaserad filtrering kan aktiveras för brandväggen för att avisera och avvisa trafik från/till kända skadliga IP-adresser och domäner. IP-adresserna och domänerna hämtas från Microsoft Threat Intelligence-feeden. [Intelligent Security graphs](https://www.microsoft.com/en-us/security/operations/intelligence) befogenheter Microsoft Threat intelligence och används av flera tjänster, inklusive Azure Security Center.
+Hot intelligens-baserad filtrering kan aktiveras för brandväggen att varna och neka trafik från / till kända skadliga IP-adresser och domäner. IP-adresser och domäner kommer från Microsoft Threat Intelligence-feeden. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) driver Microsofts hotinformation och används av flera tjänster, inklusive Azure Security Center.
 
-![Hot information för brand vägg](media/threat-intel/firewall-threat.png)
+![Intelligens för brandhot](media/threat-intel/firewall-threat.png)
 
-Om du har aktiverat Hot information-baserad filtrering bearbetas de associerade reglerna före någon av NAT-reglerna, nätverks reglerna eller program reglerna.
+Om du har aktiverat filtrering baserad på hotinformation bearbetas de associerade reglerna före någon av NAT-reglerna, nätverksreglerna eller programreglerna.
 
-Du kan välja att bara logga en avisering när en regel utlöses, eller så kan du välja avisering och neka läge.
+Du kan välja att bara logga en avisering när en regel utlöses, eller så kan du välja varnings- och neka-läge.
 
-Som standard är Hot information-baserad filtrering aktive rad i varnings läge. Du kan inte stänga av den här funktionen eller ändra läget tills Portal gränssnittet blir tillgängligt i din region.
+Som standard aktiveras filtrering av hotinformation i varningsläge. Du kan inte stänga av den här funktionen eller ändra läget förrän portalgränssnittet blir tillgängligt i din region.
 
-![Gränssnitt för Threat Intelligence-baserad filtrerings Portal](media/threat-intel/threat-intel-ui.png)
+![Hot intelligens baserat filtrering portal gränssnitt](media/threat-intel/threat-intel-ui.png)
 
 ## <a name="logs"></a>Loggar
 
-Följande logg utdrag visar en utlöst regel:
+Följande loggutdrag visar en utlöst regel:
 
 ```
 {
@@ -46,12 +46,12 @@ Följande logg utdrag visar en utlöst regel:
 
 ## <a name="testing"></a>Testning
 
-- **Utgående testning** -utgående trafik aviseringar bör vara en sällsynt förekomst, vilket innebär att din miljö har komprometterats. För att testa utgående aviseringar fungerar, har ett test-FQDN skapats som utlöser en avisering. Använd **testmaliciousdomain.eastus.cloudapp.Azure.com** för dina utgående tester.
+- **Utgående testning** - Utgående trafikvarningar bör vara en sällsynt händelse, eftersom det innebär att din miljö har komprometterats. För att testa utgående aviseringar fungerar har ett test FQDN skapats som utlöser en avisering. Använd **testmaliciousdomain.eastus.cloudapp.azure.com** för dina utgående tester.
 
-- **Inkommande testning** – du kan vänta på att se aviseringar på inkommande trafik om DNAt regler har kon figurer ATS i brand väggen. Detta gäller även om endast vissa källor tillåts i DNAT-regeln och trafik nekas annars. Azure-brandväggen varnas inte för alla kända port skannrar. endast på skannrar som är kända för att även delta i skadlig aktivitet.
+- **Inkommande testning** - Du kan förvänta dig att se aviseringar om inkommande trafik om DNAT-regler är konfigurerade i brandväggen. Detta gäller även om endast specifika källor tillåts på DNAT-regeln och trafik nekas annars. Azure-brandväggen varnar inte för alla kända portskannrar. endast på skannrar som är kända för att också delta i skadlig aktivitet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se [exempel för Azure Firewall-Log Analytics](log-analytics-samples.md)
+- Se [exempel på Azure Firewall Log Analytics](log-analytics-samples.md)
 - Lär dig hur du [distribuerar och konfigurerar en Azure-brandvägg](tutorial-firewall-deploy-portal.md)
-- Granska [Microsoft Security Intelligence-rapporten](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)
+- Granska [microsoft security intelligence-rapporten](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)

@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Använd Azure CLI för att skapa en virtuell Linux-dator'
+title: 'Snabbstart: Använd Azure CLI för att skapa en Virtuell Linux-dator'
 description: I den här snabbstarten lär du dig hur du använder Azure CLI för att skapa en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -20,31 +20,31 @@ ms.custom:
 - seo-javascript-october2019
 - seo-python-october2019
 ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72427917"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Linux-dator med Azure CLI
 
-Den här snabb starten visar hur du använder Azures kommando rads gränssnitt (CLI) för att distribuera en virtuell Linux-dator (VM) i Azure. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript.
+Den här snabbstarten visar hur du använder Azure command-line interface (CLI) för att distribuera en virtuell Linux-dator (VM) i Azure. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript.
 
 I den här självstudien installerar vi Ubuntu 16.04 LTS. För att kunna se hur den virtuella datorn fungerar i praktiken ansluter du den till SSH och installerar NGINX-webbservern.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också öppna Cloud Shell på en separat flik i webbläsaren genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Välj **Kopiera** för att kopiera kod blocken, klistra in den i Cloud Shell och välj **RETUR** för att köra den.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också öppna Cloud Shell i [https://shell.azure.com/bash](https://shell.azure.com/bash)en separat webbläsarflik genom att gå till . Välj **Kopiera** om du vill kopiera kodblocken, klistra in den i Molnskalet och välj **Retur** för att köra den.
 
 Om du föredrar att installera och använda detta CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -54,7 +54,7 @@ az group create --name myResourceGroup --location eastus
 
 Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm).
 
-Följande exempel skapar virtuell dator med namnet *myVM* och lägger till ett användarkonto med namnet *azureuser*. Parametern `--generate-ssh-keys` används för att automatiskt generera en SSH-nyckel och placera den på standardnyckelplatsen ( *~/.ssh*). Om du i stället vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Följande exempel skapar virtuell dator med namnet *myVM* och lägger till ett användarkonto med namnet *azureuser*. Parametern `--generate-ssh-keys` används för att automatiskt generera en SSH-nyckel och placera den på standardnyckelplatsen (*~/.ssh*). Om du i stället vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azurecli-interactive
 az vm create \
@@ -117,7 +117,7 @@ Använd valfri webbläsare för att visa välkomstsidan för NGINX. Använd den 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs du använda kommandot [az group delete](/cli/azure/group) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. 
+När det inte längre behövs kan du använda kommandot [az-gruppborttagning](/cli/azure/group) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser. 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

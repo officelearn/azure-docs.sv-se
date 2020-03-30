@@ -1,6 +1,6 @@
 ---
-title: Schemalägga jobb med Azure IoT Hub (Java) | Microsoft Docs
-description: Schemalägga ett Azure IoT Hub-jobb för att anropa en direkt metod och ange önskad egenskap på flera enheter. Du använder Azure IoT-enhetens SDK för Java för att implementera de simulerade apparna och Azure IoT service SDK för Java för att implementera en service app för att köra jobbet.
+title: Schemalägga jobb med Azure IoT Hub (Java) | Microsoft-dokument
+description: Så här schemalägger du ett Azure IoT Hub-jobb för att anropa en direkt metod och ange en önskad egenskap på flera enheter. Du använder Azure IoT-enheten SDK för Java för att implementera de simulerade enhetsapparna och Azure IoT-tjänsten SDK för Java för att implementera en tjänstapp för att köra jobbet.
 author: wesmc7777
 manager: philmea
 ms.author: wesmc
@@ -10,94 +10,94 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/16/2019
 ms.openlocfilehash: 9227192b2f7c554943fb3716ba1d1066f814c447
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110315"
 ---
-# <a name="schedule-and-broadcast-jobs-java"></a>Schema-och sändnings jobb (Java)
+# <a name="schedule-and-broadcast-jobs-java"></a>Schemalägga och sända jobb (Java)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Använd Azure IoT Hub för att schemalägga och spåra jobb som uppdaterar miljon tals enheter. Använd jobb för att:
+Använd Azure IoT Hub för att schemalägga och spåra jobb som uppdaterar miljontals enheter. Använd jobb för att:
 
 * Uppdatera önskade egenskaper
-* Uppdatera Taggar
-* Anropa direkt metoder
+* Uppdatera taggar
+* Anropa direkta metoder
 
-Ett jobb radbryter en av dessa åtgärder och spårar körningen mot en uppsättning enheter. En enhet med dubbla frågor definierar den uppsättning av enheter som jobbet körs mot. En backend-app kan till exempel använda ett jobb för att anropa en direkt metod på 10 000 enheter som startar om enheterna. Du kan ange en uppsättning enheter med en enhet med dubbla frågor och schemalägga jobbet så att det körs vid ett senare tillfälle. Jobbet spårar förloppet när var och en av enheterna tar emot och kör metoden starta om Direct.
+Ett jobb radbryts en av dessa åtgärder och spårar körningen mot en uppsättning enheter. En enhetstvillingfråga definierar den uppsättning enheter som jobbet körs mot. En backend-app kan till exempel använda ett jobb för att anropa en direkt metod på 10 000 enheter som startar om enheterna. Du anger uppsättningen enheter med en enhetstvillingfråga och schemalägger jobbet så att det körs vid en framtida tidpunkt. Jobbet spårar förloppet när var och en av enheterna får och kör metoden för omstart direkt.
 
 Mer information om var och en av dessa funktioner finns i:
 
-* Enhetens dubbla och egenskaper: [Kom igång med enhets dubbla](iot-hub-java-java-twin-getstarted.md)
+* Enhetstvilling och egenskaper: [Kom igång med enhetstvillingar](iot-hub-java-java-twin-getstarted.md)
 
-* Direkta metoder: [IoT Hub Developer Guide – direkta metoder](iot-hub-devguide-direct-methods.md) och [Självstudier: Använd direkta metoder](quickstart-control-device-java.md)
+* Direkta metoder: [IoT Hub developer guide - direkta metoder](iot-hub-devguide-direct-methods.md) och [handledning: Använd direkta metoder](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Skapa en app för enheten som implementerar en direkt metod som kallas **lockDoor**. Enhets appen tar också emot önskade egenskaps ändringar från backend-appen.
+* Skapa en enhetsapp som implementerar en direkt metod som kallas **lockDoor**. Enhetsappen tar också emot önskade egenskapsändringar från backend-appen.
 
-* Skapa en backend-app som skapar ett jobb för att anropa metoden **lockDoor** Direct på flera enheter. Ett annat jobb skickar önskade egenskaps uppdateringar till flera enheter.
+* Skapa en backend-app som skapar ett jobb för att anropa **metoden lockDoor** direct på flera enheter. Ett annat jobb skickar önskade egenskapsuppdateringar till flera enheter.
 
-I slutet av den här självstudien har du en app för Java-konsolen och en Java-konsol backend-app:
+I slutet av den här självstudien har du en java-konsolenhetsapp och en serverdelsapp för Java-konsolen:
 
-**simulerad enhet** som ansluter till din IoT Hub, implementerar **lockDoor** Direct-metoden och hanterar önskade egenskaps ändringar.
+**simulerad enhet** som ansluter till din IoT-hubb, implementerar **direct-metoden lockDoor** och hanterar önskade egenskapsändringar.
 
-**Schemalägg – jobb** som använder jobb för att anropa metoden **lockDoor** Direct och uppdatera enheten med dubbla önskade egenskaper på flera enheter.
+**schema-jobb** som använder jobb för att anropa **lockDoor** direkt metod och uppdatera enheten dubbla önskade egenskaper på flera enheter.
 
 > [!NOTE]
-> Artikeln [Azure IoT SDK](iot-hub-devguide-sdks.md) : er innehåller information om Azure IoT SDK: er som du kan använda för att bygga både enhets-och backend-appar.
+> Artikeln [Azure IoT SDK:er](iot-hub-devguide-sdks.md) innehåller information om Azure IoT SDK:er som du kan använda för att skapa både enhets- och backend-appar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* [Java se Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **långsiktigt stöd** för att hämta hämtningar för JDK 8.
+* [Java SE Utveckling Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Se till att du väljer **Java 8** under **Långsiktigt stöd** för att komma till nedladdningar för JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
-* Ett aktivt Azure-konto. (Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.)
+* Ett aktivt Azure-konto. (Om du inte har ett konto kan du skapa ett [kostnadsfritt konto på](https://azure.microsoft.com/pricing/free-trial/) bara några minuter.)
 
-* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Kontrollera att port 8883 är öppen i brandväggen. Enhetsexemplet i den här artikeln använder MQTT-protokollet, som kommunicerar över port 8883. Den här porten kan vara blockerad i vissa företags- och utbildningsnätverksmiljöer. Mer information och sätt att lösa problemet finns i [Ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT Hub
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT-hubben
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-Du kan också använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) -verktyget för att lägga till en enhet i IoT Hub.
+Du kan också använda [IoT-tillägget för Azure CLI-verktyget för](https://github.com/Azure/azure-iot-cli-extension) att lägga till en enhet i din IoT-hubb.
 
-## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutningssträngen för IoT-hubb
 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
-## <a name="create-the-service-app"></a>Skapa tjänst appen
+## <a name="create-the-service-app"></a>Skapa tjänstappen
 
-I det här avsnittet skapar du en Java-konsol-app som använder jobb för att:
+I det här avsnittet skapar du en Java-konsolapp som använder jobb för att:
 
-* Anropa metoden **lockDoor** Direct på flera enheter.
+* Anropa **lockDoor** direct-metoden på flera enheter.
 
 * Skicka önskade egenskaper till flera enheter.
 
 Så här skapar du appen:
 
-1. Skapa en tom mapp med namnet **IoT-Java-Schedule-Jobs**på din utvecklings dator.
+1. På din utvecklingsmaskin skapar du en tom mapp med namnet **iot-java-schedule-jobs**.
 
-2. I mappen **IoT-Java-Schedule-Jobs** skapar du ett Maven-projekt med namnet **schema-Jobs** med hjälp av följande kommando i kommando tolken. Observera att detta är ett enda långt kommando:
+2. Skapa ett Maven-projekt som kallas **schemajobb** med följande kommando i kommandotolken i **iot-java-schedule-jobs.** Observera att detta är ett enda långt kommando:
 
    ```cmd/sh
    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-3. I kommando tolken navigerar du till mappen **schema-Jobs** .
+3. I kommandotolken navigerar du till mappen **schema-jobb.**
 
-4. Använd en text redigerare och öppna filen **Pom. XML** i mappen **schema-Jobs** och Lägg till följande beroende till noden **beroenden** . Detta beroende gör att du kan använda **IoT-service-client-** paketet i din app för att kommunicera med IoT-hubben:
+4. Öppna **filen pom.xml** i mappen **schema-jobb** med hjälp av en textredigerare och lägg till följande beroende i **beroendenoden.** Med det här beroendet kan du använda **iot-service-klientpaketet** i appen för att kommunicera med din IoT-hubb:
 
     ```xml
     <dependency>
@@ -109,9 +109,9 @@ Så här skapar du appen:
     ```
 
     > [!NOTE]
-    > Du kan söka efter den senaste versionen av **IoT-service-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Du kan söka efter den senaste versionen av **iot-service-client** med [Maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-5. Lägg till följande **build** -nod efter noden **beroenden** . Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
+5. Lägg till följande **byggnod** efter **beroendenoden.** Den här konfigurationen instruerar Maven att använda Java 1.8 för att skapa appen:
 
     ```xml
     <build>
@@ -129,9 +129,9 @@ Så här skapar du appen:
     </build>
     ```
 
-6. Spara och Stäng filen **Pom. XML** .
+6. Spara och stäng **filen pom.xml.**
 
-7. Öppna **Schedule-jobs\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
+7. Öppna **filen schedule-jobs\src\main\java\com\mycompany\app\App.java** med hjälp av en textredigerare.
 
 8. Lägg till följande **Import**-instruktioner i filen:
 
@@ -151,7 +151,7 @@ Så här skapar du appen:
     import java.util.UUID;
     ```
 
-9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{youriothubconnectionstring}` med din IoT Hub-anslutningssträng som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen:
+9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{youriothubconnectionstring}` med anslutningssträngen för IoT-hubb som du kopierade tidigare i [Hämta anslutningssträngen för IoT-hubben:](#get-the-iot-hub-connection-string)
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -162,7 +162,7 @@ Så här skapar du appen:
     private static final long maxExecutionTimeInSeconds = 30;
     ```
 
-10. Lägg till följande metod i klassen **app** för att schemalägga ett jobb för att uppdatera de önskade egenskaperna för **byggnad** och **golv** i enheten:
+10. Lägg till följande metod i **klassen App** om du vill schemalägga ett jobb för att uppdatera önskade egenskaper för **byggnad** och **golv** i enhetstvillingen:
 
     ```java
     private static JobResult scheduleJobSetDesiredProperties(JobClient jobClient, String jobId) {
@@ -192,7 +192,7 @@ Så här skapar du appen:
     }
     ```
 
-11. Om du vill schemalägga ett jobb för att anropa **lockDoor** -metoden lägger du till följande metod i klassen **app** :
+11. Om du vill schemalägga ett jobb för att anropa **metoden lockDoor** lägger du till följande metod i klassen **App:**
 
     ```java
     private static JobResult scheduleJobCallDirectMethod(JobClient jobClient, String jobId) {
@@ -216,7 +216,7 @@ Så här skapar du appen:
     };
     ```
 
-12. Om du vill övervaka ett jobb lägger du till följande metod i klassen **app** :
+12. Om du vill övervaka ett jobb lägger du till följande metod i **klassen App:**
 
     ```java
     private static void monitorJob(JobClient jobClient, String jobId) {
@@ -243,7 +243,7 @@ Så här skapar du appen:
     }
     ```
 
-13. Om du vill fråga efter information om de jobb som du körde lägger du till följande metod:
+13. Om du vill fråga efter information om de jobb du körde lägger du till följande metod:
 
     ```java
     private static void queryDeviceJobs(JobClient jobClient, String start) throws Exception {
@@ -260,13 +260,13 @@ Så här skapar du appen:
     }
     ```
 
-14. Uppdatera signaturen för **main** -metoden för att inkludera följande `throws`-sats:
+14. Uppdatera **main** huvudmetodsignaturen `throws` så att den innehåller följande sats:
 
     ```java
     public static void main( String[] args ) throws Exception
     ```
 
-15. Om du vill köra och övervaka två jobb sekventiellt ersätter du koden i **main** -metoden med följande kod:
+15. Om du vill köra och övervaka två jobb sekventiellt ersätter du koden i **huvudmetoden** med följande kod:
 
     ```java
     // Record the start time
@@ -293,9 +293,9 @@ Så här skapar du appen:
     System.out.println("Shutting down schedule-jobs app");
     ```
 
-16. Spara och Stäng **Schedule-jobs\src\main\java\com\mycompany\app\App.java** -filen
+16. Spara och stäng **filen schema-jobb\src\main\java\com\mycompany\app\App.java**
 
-17. Bygg appen **schema-Jobs** och korrigera eventuella fel. I kommando tolken navigerar du till mappen **schema-Jobs** och kör följande kommando:
+17. Skapa **appen schema-jobb** och korrigera eventuella fel. I kommandotolken navigerar du till mappen **schema-jobb** och kör följande kommando:
 
     ```cmd/sh
     mvn clean package -DskipTests
@@ -303,17 +303,17 @@ Så här skapar du appen:
 
 ## <a name="create-a-device-app"></a>Skapa en enhetsapp
 
-I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egenskaper som skickas från IoT Hub och implementerar direkt metod anropet.
+I det här avsnittet skapar du en Java-konsolapp som hanterar önskade egenskaper som skickas från IoT Hub och implementerar direktmetodanropet.
 
-1. I mappen **IoT-Java-Schedule-Jobs** skapar du ett Maven-projekt med namnet **simulerad enhet** med hjälp av följande kommando i kommando tolken. Observera att detta är ett enda långt kommando:
+1. Skapa ett Maven-projekt som kallas **simulerad enhet** med följande kommando i kommandotolken i mappen **iot-java-schedule-jobs.** Observera att detta är ett enda långt kommando:
 
    ```cmd/sh
    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
    ```
 
-2. I kommando tolken navigerar du till mappen **simulerad enhet** .
+2. I kommandotolken navigerar du till mappen **med simulerade enheter.**
 
-3. Använd en text redigerare och öppna filen **Pom. XML** i mappen **simulerad enhet** och Lägg till följande beroenden i noden **beroenden** . Det här beroendet gör att du kan använda **IoT-Device-client-** paketet i din app för att kommunicera med IoT Hub:
+3. Öppna **filen pom.xml** i mappen **simulerad enhet** med hjälp av en textredigerare och lägg till följande beroenden i **beroendenoden.** Med det här beroendet kan du använda **iot-device-client-paketet** i appen för att kommunicera med din IoT-hubb:
 
     ```xml
     <dependency>
@@ -324,9 +324,9 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     ```
 
     > [!NOTE]
-    > Du kan söka efter den senaste versionen av **IoT-Device-client** med [maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > Du kan söka efter den senaste versionen av **iot-device-client** med [Maven-sökning](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-4. Lägg till följande beroende till noden **beroenden** . Detta beroende konfigurerar en NOP för fasad för Apache [SLF4J](https://www.slf4j.org/) som används av enhets klientens SDK för att implementera loggning. Den här konfigurationen är valfri, men om du utelämnar den kan du se en varning i-konsolen när du kör appen. Mer information om loggning i enhets klientens SDK finns i avsnittet om [loggning](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)i *exemplen för Readme-filen för Azure IoT-enhetens SDK för Java* .
+4. Lägg till följande beroende i **beroendenoden.** Det här beroendet konfigurerar en NOP för Apache [SLF4J](https://www.slf4j.org/) loggningsfasaden, som används av enhetsklienten SDK för att implementera loggning. Den här konfigurationen är valfri, men om du utelämnar den kan du se en varning i konsolen när du kör appen. Mer information om hur du loggar in enhetsklienten SDK finns i [Loggning](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)i *exempel för Azure IoT-enheten SDK för* Java-readme-fil.
 
     ```xml
     <dependency>
@@ -336,7 +336,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     </dependency>
     ```
 
-5. Lägg till följande **build** -nod efter noden **beroenden** . Den här konfigurationen instruerar maven att använda Java 1,8 för att bygga appen:
+5. Lägg till följande **byggnod** efter **beroendenoden.** Den här konfigurationen instruerar Maven att använda Java 1.8 för att skapa appen:
 
     ```xml
     <build>
@@ -354,9 +354,9 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     </build>
     ```
 
-6. Spara och Stäng filen **Pom. XML** .
+6. Spara och stäng **filen pom.xml.**
 
-7. Öppna **Simulated-device\src\main\java\com\mycompany\app\App.java** -filen med hjälp av en text redigerare.
+7. Öppna filen **simulerad enhet\src\main\java\com\mycompany\app\App.java** med hjälp av en textredigerare.
 
 8. Lägg till följande **Import**-instruktioner i filen:
 
@@ -369,7 +369,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     import java.util.Scanner;
     ```
 
-9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{yourdeviceconnectionstring}` med enhets anslutnings strängen som du kopierade tidigare i avsnittet [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub) :
+9. Lägg till följande variabler på klassnivå till klassen **App**. Ersätt `{yourdeviceconnectionstring}` med den enhetsanslutningssträng som du kopierade tidigare i avsnittet Registrera en ny enhet i avsnittet [IoT-hubb:](#register-a-new-device-in-the-iot-hub)
 
     ```java
     private static String connString = "{yourdeviceconnectionstring}";
@@ -380,7 +380,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
 
     Den här exempelappen använder variabeln **protocol** när den instantierar ett **DeviceClient**-objekt.
 
-10. Om du vill skriva ut enhetens dubbla meddelanden till-konsolen lägger du till följande kapslade klass i klassen **app** :
+10. Om du vill skriva ut dubbla enhetsmeddelanden till konsolen lägger du till följande kapslade klass i **klassen App:**
 
     ```java
     // Handler for device twin operation notifications from IoT Hub
@@ -391,7 +391,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     }
     ```
 
-11. Om du vill skriva ut direkta metod meddelanden till-konsolen lägger du till följande kapslade klass i klassen **app** :
+11. Om du vill skriva ut direktmetodmeddelanden till konsolen lägger du till följande kapslade klass i **klassen App:**
 
     ```java
     // Handler for direct method notifications from IoT Hub
@@ -402,7 +402,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     }
     ```
 
-12. Om du vill hantera direkta metod anrop från IoT Hub lägger du till följande kapslade klass i klassen **app** :
+12. Om du vill hantera direktmetodanrop från IoT Hub lägger du till följande kapslade klass i **klassen App:**
 
     ```java
     // Handler for direct method calls from IoT Hub
@@ -427,15 +427,15 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     }
     ```
 
-13. Uppdatera signaturen för **main** -metoden för att inkludera följande `throws`-sats:
+13. Uppdatera **main** huvudmetodsignaturen `throws` så att den innehåller följande sats:
 
     ```java
     public static void main( String[] args ) throws IOException, URISyntaxException
     ```
 
-14. Ersätt koden i **main** -metoden med följande kod för att:
-    * Skapa en enhets klient för att kommunicera med IoT Hub.
-    * Skapa ett **enhets** objekt för att lagra enhetens dubbla egenskaper.
+14. Ersätt koden i **huvudmetoden** med följande kod till:
+    * Skapa en enhetsklient för att kommunicera med IoT Hub.
+    * Skapa ett **enhetsobjekt** för att lagra enhetstvillingegenskaperna.
 
     ```java
     // Create a device client
@@ -451,7 +451,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     };
     ```
 
-15. Starta enhets klient tjänsterna genom att lägga till följande kod i **main** -metoden:
+15. Om du vill starta enhetens klienttjänster **main** lägger du till följande kod i huvudmetoden:
 
     ```java
     try {
@@ -469,7 +469,7 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     }
     ```
 
-16. Om du vill vänta tills användaren trycker på **RETUR** -tangenten innan du stänger av, lägger du till följande kod i slutet av **main** -metoden:
+16. Om du vill vänta på att användaren ska trycka på **Retur** innan du stänger av lägger du till följande kod i slutet av **huvudmetoden:**
 
     ```java
     // Close the app
@@ -481,44 +481,44 @@ I det här avsnittet ska du skapa en Java-konsol-app som hanterar önskade egens
     scanner.close();
     ```
 
-17. Spara och Stäng filen **Simulated-device\src\main\java\com\mycompany\app\App.java** .
+17. Spara och stäng **filen simulerad enhet\src\main\java\com\mycompany\app\App.java.**
 
-18. Bygg den **simulerade Device-** appen och korrigera eventuella fel. I kommando tolken navigerar du till mappen **simulerad enhet** och kör följande kommando:
+18. Skapa appen **med simulerade enheter** och korrigera eventuella fel. I kommandotolken navigerar du till mappen **simulerad enhet** och kör följande kommando:
 
     ```cmd/sh
     mvn clean package -DskipTests
     ```
 
-## <a name="run-the-apps"></a>Köra apparna
+## <a name="run-the-apps"></a>Kör apparna
 
-Du är nu redo att köra-konsol programmen.
+Du är nu redo att köra konsolapparna.
 
-1. Kör följande kommando i en kommando tolk i mappen **simulerad enhet** för att starta enhets appen som lyssnar efter önskade egenskaps ändringar och direkta metod anrop:
+1. Vid en kommandotolk i mappen **simulerad enhet** kör du följande kommando för att starta enhetsappens lyssning efter önskade egenskapsändringar och direkta metodanrop:
 
    ```cmd/sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
    ```
 
-   ![Enhets klienten startar](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
+   ![Enhetsklienten startar](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
-2. Kör följande kommando i en kommando tolk i `schedule-jobs`-mappen för att köra tjänsten **schema-Jobs** för att köra två jobb. Den första uppsättningen anger önskade egenskaps värden, den andra anropar den direkta metoden:
+2. Kör följande kommando `schedule-jobs` i en kommandotolk i mappen för att köra tjänstappen **schema-jobb** för att köra två jobb. Den första anger önskade egenskapsvärden, den andra anropar den direkta metoden:
 
    ```cmd\sh
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
    ```
 
-   ![Java IoT Hub service-appen skapar två jobb](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
+   ![Java IoT Hub service app skapar två jobb](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
 
-3. Enhets appen hanterar önskad egenskaps ändring och det direkta metod anropet:
+3. Enhetsappen hanterar önskad egenskapsändring och direktmetodanrop:
 
-   ![Enhets klienten svarar på ändringarna](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
+   ![Enhetsklienten svarar på ändringarna](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien använde du ett jobb för att schemalägga en direkt metod till en enhet och uppdateringen av enhetens egenskaper.
+I den här självstudien använde du ett jobb för att schemalägga en direkt metod till en enhet och uppdateringen av enhetstvillingens egenskaper.
 
-Använd följande resurser för att lära dig att:
+Använd följande resurser för att lära dig hur du:
 
-* Skicka telemetri från enheter med självstudierna [Kom igång med IoT Hub](quickstart-send-telemetry-java.md) .
+* Skicka telemetri från enheter med självstudien [Kom igång med IoT Hub.](quickstart-send-telemetry-java.md)
 
-* Kontrol lera enheter interaktivt (t. ex. genom att aktivera en fläkt från en användardefinierad app) med självstudierna [Använd direkt metoder](quickstart-control-device-java.md) . s
+* Styra enheter interaktivt (till exempel aktivera en fläkt från en användarstyrd app) med [självstudien Använd direktmetoder.](quickstart-control-device-java.md)

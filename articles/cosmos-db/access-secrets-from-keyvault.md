@@ -1,6 +1,6 @@
 ---
-title: Använd Key Vault för att lagra och komma åt Azure Cosmos DB nycklar
-description: Använd Azure Key Vault för att lagra och komma åt Azure Cosmos DB anslutnings sträng, nycklar, slut punkter.
+title: Använd Key Vault för att lagra och komma åt Azure Cosmos DB-nycklar
+description: Använd Azure Key Vault för att lagra och komma åt Azure Cosmos DB-anslutningssträng, nycklar, slutpunkter.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -10,86 +10,86 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 55e6bbc338c1ac6f9ef935b4a3a05c32f2b5e9f5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72755212"
 ---
-# <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Skydda Azure Cosmos-nycklar med hjälp av Azure Key Vault 
+# <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Skydda Azure Cosmos-nycklar med Azure Key Vault 
 
-När du använder Azure Cosmos DB för dina program kan du komma åt databasen, samlingarna, dokumenten med hjälp av slut punkten och nyckeln i appens konfigurations fil.  Men det är inte säkert att skicka nycklar och URL: er direkt i program koden eftersom de är tillgängliga i klartext-format för alla användare. Du vill se till att slut punkten och nycklarna är tillgängliga, men via en säker mekanism. Det är här som Azure Key Vault kan hjälpa dig att lagra och hantera program hemligheter på ett säkert sätt.
+När du använder Azure Cosmos DB för dina program kan du komma åt databasen, samlingarna, dokumenten med hjälp av slutpunkten och nyckeln i appens konfigurationsfil.  Det är dock inte säkert att placera nycklar och URL direkt i programkoden eftersom de är tillgängliga i klartextformat för alla användare. Du vill se till att slutpunkten och nycklarna är tillgängliga, men via en säker mekanism. Med Azure Key Vault kan du då säkert lagra och hantera programhemligheter.
 
-Följande steg krävs för att lagra och läsa Azure Cosmos DB åtkomst nycklar från Key Vault:
+Följande steg krävs för att lagra och läsa Azure Cosmos DB-åtkomstnycklar från Key Vault:
 
 * Skapa en Key Vault-lösning  
-* Lägg till Azure Cosmos DB åtkomst nycklar i Key Vault  
+* Lägga till Azure Cosmos DB-åtkomstnycklar i Key Vault  
 * Skapa ett Azure-webbprogram  
-* Registrera programmet & bevilja behörighet att läsa Key Vault  
+* Registrera & bevilja behörigheter för att läsa Nyckelvalvet  
 
 
 ## <a name="create-a-key-vault"></a>Skapa en Key Vault-lösning
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).  
-2. Välj **skapa en resurs > säkerhets > Key Vault**.  
+1. Logga in på [Azure Portal](https://portal.azure.com/).  
+2. Välj **Skapa en resurs > säkerhet > nyckelvalv**.  
 3. Ange följande information i avsnittet **Skapa nyckelvalv** avsnittet Ange följande information:  
-   * **Namn:** Ange ett unikt namn för din Key Vault.  
-   * **Prenumeration:** Välj den prenumeration som du vill använda.  
+   * **Namn:** Ange ett unikt namn för ditt Key Vault.  
+   * **Prenumeration:** Välj den prenumeration som du ska använda.  
    * Under **Resursgrupp** väljer du **Skapa ny** och anger ett resursgruppsnamn.  
-   * Välj en plats i rullgardinsmenyn plats.  
-   * Lämna standardvärdena för övriga alternativ.  
+   * Välj en plats i listrutan Plats.  
+   * Lämna andra alternativ till deras standardvärden.  
 4. När du har angett den här informationen väljer du **Skapa**.  
 
-## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Lägg till Azure Cosmos DB åtkomst nycklar till Key Vault.
-1. Navigera till Key Vault som du skapade i föregående steg, öppna fliken **hemligheter** .  
-2. Välj **+ generera/importera**, 
+## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Lägg till Azure Cosmos DB-åtkomstnycklar i Key Vault.
+1. Navigera till det nyckelvalv som du skapade i föregående steg och öppna fliken **Hemligheter.**  
+2. Välj **+Generera/importera**, 
 
-   * Välj **manuell** för **överförings alternativ**.
+   * Välj **Manuell** för **uppladdningsalternativ**.
    * Ange ett **namn** för din hemlighet
-   * Ange anslutnings strängen för ditt Cosmos DB konto i fältet **värde** . Och välj sedan **skapa**.
+   * Ange anslutningssträngen för ditt Cosmos DB-konto i fältet **Värde.** Välj sedan **Skapa**.
 
    ![Skapa en hemlighet](./media/access-secrets-from-keyvault/create-a-secret.png)
 
-4. När hemligheten har skapats öppnar du den och kopierar den * * hemliga identifieraren i följande format. Du kommer att använda den här identifieraren i nästa avsnitt. 
+4. När hemligheten har skapats öppnar du den och kopierar den **Hemliga identifieraren som är i följande format. Du kommer att använda den här identifieraren i nästa avsnitt. 
 
    `https://<Key_Vault_Name>.vault.azure.net/secrets/<Secret _Name>/<ID>`
 
 ## <a name="create-an-azure-web-application"></a>Skapa ett Azure-webbprogram
 
-1. Skapa ett Azure-webbprogram eller så kan du ladda ned appen från [GitHub-lagringsplatsen](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Det är ett enkelt MVC-program.  
+1. Skapa ett Azure-webbprogram eller så kan du hämta appen från [GitHub-databasen](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Det är en enkel MVC ansökan.  
 
-2. Zippa upp det hämtade programmet och öppna filen **HomeController.cs** . Uppdatera det hemliga ID: t på följande rad:
+2. Packa upp det nedladdade programmet och öppna **HomeController.cs** filen. Uppdatera det hemliga ID:et på följande rad:
 
    `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
 
-3. **Spara** filen och **Bygg** lösningen.  
-4. Distribuera sedan programmet till Azure. Högerklicka på projektet och välj **publicera**. Skapa en ny App Service-profil (du kan namnge appen WebAppKeyVault1) och välja **publicera**.   
+3. **Spara** filen, **Bygg** lösningen.  
+4. Distribuera sedan programmet till Azure. Högerklicka på projektet och välj **publicera**. Skapa en ny apptjänstprofil (du kan namnge appen WebAppKeyVault1) och välja **Publicera**.   
 
-5. När programmet har distribuerats. Från Azure Portal navigerar du till den webbapp som du har distribuerat och aktiverar den **hanterade tjänst identiteten** för det här programmet.  
+5. När programmet har distribuerats. Från Azure-portalen navigerar du till webbapp som du har distribuerat och aktiverar **programmets hanterade tjänstidentitet.**  
 
-   ![Hanterad tjänst identitet](./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png)
+   ![Hanterad tjänstidentitet](./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png)
 
-Om du kommer att köra programmet nu visas följande fel, eftersom du inte har gett några behörigheter till det här programmet i Key Vault.
+Om du kör programmet nu visas följande fel, eftersom du inte har gett någon behörighet till det här programmet i Key Vault.
 
-![App distribuerad utan åtkomst](./media/access-secrets-from-keyvault/app-deployed-without-access.png)
+![Appen distribueras utan åtkomst](./media/access-secrets-from-keyvault/app-deployed-without-access.png)
 
-## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Registrera programmet & bevilja behörighet att läsa Key Vault
+## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Registrera & bevilja behörigheter för att läsa Nyckelvalvet
 
 I det här avsnittet registrerar du programmet med Azure Active Directory och ger behörighet för programmet att läsa Key Vault. 
 
-1. Navigera till Azure Portal och öppna **Key Vault** som du skapade i föregående avsnitt.  
+1. Navigera till Azure-portalen och öppna **nyckelvalvet** som du skapade i föregående avsnitt.  
 
-2. Öppna **åtkomst principer**, Välj **+ Lägg till ny** hitta den webbapp som du har distribuerat, Välj behörigheter och välj **OK**.  
+2. Öppna **Åtkomstprinciper**, välj **+Lägg till ny** hitta webbappen du distribuerade, välj behörigheter och välj **OK**.  
 
-   ![Lägg till åtkomst princip](./media/access-secrets-from-keyvault/add-access-policy.png)
+   ![Lägg till åtkomstprincip](./media/access-secrets-from-keyvault/add-access-policy.png)
 
-Om du kör programmet kan du nu läsa hemligheten från Key Vault.
+Nu, om du kör programmet, kan du läsa hemligheten från Key Vault.
 
-![App distribuerad med hemlighet](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
+![Appen distribueras med hemlighet](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-På samma sätt kan du lägga till en användare för att komma åt nyckel valvet. Du måste lägga till dig själv i Key Vault genom att välja **åtkomst principer** och sedan bevilja alla behörigheter du behöver för att köra programmet från Visual Studio. När det här programmet körs från Skriv bordet tar det emot din identitet.
+På samma sätt kan du lägga till en användare för att komma åt nyckeln Arkiv. Du måste lägga till dig själv i Key Vault genom att välja **Åtkomstprinciper** och sedan bevilja alla behörigheter du behöver för att köra programmet från Visual Studio. När det här programmet körs från skrivbordet tar det din identitet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill konfigurera en brand vägg för Azure Cosmos DB se artikeln om [brand Väggs stöd](firewall-support.md) .
-* Information om hur du konfigurerar tjänst slut punkten för virtuellt nätverk finns i artikeln [skydda åtkomst med hjälp av VNet-tjänsten](vnet-service-endpoint.md) .
+* Information om hur du konfigurerar en brandvägg för Azure Cosmos DB finns i artikeln [om brandväggsstöd.](firewall-support.md)
+* Om du vill konfigurera slutpunkten för virtuella nätverkstjänster läser du [säker åtkomst med hjälp av slutpunktsartikeln för VNet-tjänsten.](vnet-service-endpoint.md)

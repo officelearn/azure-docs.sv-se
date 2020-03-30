@@ -1,6 +1,6 @@
 ---
-title: Sparat tillstånd i Linux-Azure Event Grid IoT Edge | Microsoft Docs
-description: Bevara metadata i Linux
+title: Beständigt tillstånd i Linux – Azure Event Grid IoT Edge | Microsoft-dokument
+description: Beständiga metadata i Linux
 author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
@@ -10,26 +10,26 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086650"
 ---
-# <a name="persist-state-in-linux"></a>Sparat tillstånd i Linux
+# <a name="persist-state-in-linux"></a>Persist tillstånd i Linux
 
-Ämnen och prenumerationer som skapas i Event Grid-modulen lagras som standard i behållar fil systemet. Utan persistence, om modulen har distribuerats om, kommer alla metadata som skapats att gå förlorade. Om du vill bevara data mellan distributioner och omstarter måste du spara data utanför behållar fil systemet.
+Ämnen och prenumerationer som skapats i modulen Event Grid lagras som standard i behållarfilsystemet. Utan beständighet, om modulen distribueras om, skulle alla metadata som skapas gå förlorade. Om du vill bevara data över distributioner och omstarter måste du spara data utanför behållarfilsystemet.
 
-Som standard sparas endast metadata och händelser lagras fortfarande i minnet för bättre prestanda. Följ avsnittet beständiga händelser för att aktivera händelse beständighet.
+Som standard sparas endast metadata och händelser lagras fortfarande i minnet för bättre prestanda. Följ avsnittet Beständiga händelser för att även aktivera händelsebeständighet.
 
-Den här artikeln innehåller steg för att distribuera Event Grid-modulen med persistence i Linux-distributioner.
+Den här artikeln innehåller stegen för att distribuera modulen Event Grid med uthållighet i Linux-distributioner.
 
 > [!NOTE]
->Event Grid-modulen körs som en låg privilegie rad användare med UID `2000` och namn `eventgriduser`.
+>Modulen Event Grid körs som en användare `2000` med `eventgriduser`låg behörighet med UID och namn .
 
-## <a name="persistence-via-volume-mount"></a>Persistence via volym montering
+## <a name="persistence-via-volume-mount"></a>Persistens via volymfäste
 
- [Docker-volymer](https://docs.docker.com/storage/volumes/) används för att bevara data mellan distributioner. Du kan låta Docker skapa en namngiven volym automatiskt som en del av distributionen av Event Grid-modulen. Det här alternativet är det enklaste alternativet. Du kan ange det volym namn som ska skapas i avsnittet **bindningar** på följande sätt:
+ [Docker-volymer](https://docs.docker.com/storage/volumes/) används för att bevara data över distributioner. Du kan låta docker automatiskt skapa en namngiven volym som en del av distributionen av modulen Event Grid. Det här alternativet är det enklaste alternativet. Du kan ange det volymnamn som ska skapas i avsnittet **Bindningar** på följande sätt:
 
 ```json
   {
@@ -42,9 +42,9 @@ Den här artikeln innehåller steg för att distribuera Event Grid-modulen med p
 ```
 
 >[!IMPORTANT]
->Ändra inte den andra delen av bind-värdet. Den pekar på en angiven plats i modulen. För modulen Event Grid i Linux måste den vara **/app/metadataDb**.
+>Ändra inte den andra delen av bindningsvärdet. Det pekar på en specifik plats i modulen. För Event Grid-modulen på Linux måste det vara **/app/metadataDb**.
 
-Följande konfiguration leder till exempel till skapandet av volymen **egmetadataDbVol** där metadata kommer att sparas.
+Följande konfiguration kommer till exempel att resultera i skapandet av volymen **egmetadataDbVol** där metadata kommer att bevaras.
 
 ```json
  {
@@ -77,29 +77,29 @@ Följande konfiguration leder till exempel till skapandet av volymen **egmetadat
 }
 ```
 
-I stället för att montera en volym kan du skapa en katalog på värd systemet och montera den katalogen.
+I stället för att montera en volym kan du skapa en katalog på värdsystemet och montera den katalogen.
 
-## <a name="persistence-via-host-directory-mount"></a>Beständighet via värd katalog montering
+## <a name="persistence-via-host-directory-mount"></a>Persistens via värdkatalogfäste
 
-I stället för en Docker-volym har du också möjlighet att montera en Host-mapp.
+I stället för en dockervolym har du också möjlighet att montera en värdmapp.
 
-1. Skapa först en användare med namnet **eventgriduser** och ID **2000** på värddatorn genom att köra följande kommando:
+1. Skapa först en användare med namn **eventgriduser** och ID **2000** på värddatorn genom att köra följande kommando:
 
     ```sh
     sudo useradd -u 2000 eventgriduser
     ```
-1. Skapa en katalog på värd fil systemet genom att köra följande kommando.
+1. Skapa en katalog på värdfilsystemet genom att köra följande kommando.
 
    ```sh
    md <your-directory-name-here>
    ```
 
-    Om du till exempel kör följande kommando skapas en katalog med namnet **myhostdir**.
+    Om du till exempel kör följande kommando skapas en katalog som heter **myhostdir**.
 
     ```sh
     md /myhostdir
     ```
-1. Sedan gör du **eventgriduser** ägare av den här mappen genom att köra följande kommando.
+1. Gör sedan **eventgriduser** till ägare av den här mappen genom att köra följande kommando.
 
    ```sh
    sudo chown eventgriduser:eventgriduser -hR <your-directory-name-here>
@@ -110,7 +110,7 @@ I stället för en Docker-volym har du också möjlighet att montera en Host-map
     ```sh
     sudo chown eventgriduser:eventgriduser -hR /myhostdir
     ```
-1. Använd **bindningar** för att montera katalogen och distribuera om Event Grid-modulen från Azure Portal.
+1. Använd **Bindningar** för att montera katalogen och distribuera om modulen Event Grid från Azure-portalen.
 
     ```json
     {
@@ -157,20 +157,20 @@ I stället för en Docker-volym har du också möjlighet att montera en Host-map
     ```
 
     >[!IMPORTANT]
-    >Ändra inte den andra delen av bind-värdet. Den pekar på en angiven plats i modulen. För modulen Event Grid i Linux måste den vara **/app/metadataDb** och **/app/eventsDb**
+    >Ändra inte den andra delen av bindningsvärdet. Det pekar på en specifik plats i modulen. För Event Grid-modulen på Linux måste det vara **/app/metadataDb** och **/app/eventsDb**
 
 
-## <a name="persist-events"></a>Kvarhåll händelser
+## <a name="persist-events"></a>Bevara händelser
 
-Om du vill aktivera händelse persistence måste du först aktivera beständiga metadata antingen via volym montering eller värd katalog montering med hjälp av ovanstående avsnitt.
+Om du vill aktivera händelsebeständighet måste du först aktivera metadatabeständighet antingen via volymmontering eller värdkatalogfäste med hjälp av ovanstående avsnitt.
 
-Viktiga saker att tänka på när du behåller händelser:
+Viktiga saker att notera om kvarstående händelser:
 
-* Beständiga händelser aktive ras för en prenumeration per händelse och är valbar när en volym eller katalog har monterats.
-* Händelse persistence konfigureras för en händelse prenumeration när den skapas och kan inte ändras när händelse prenumerationen har skapats. Om du vill växla händelse beständighet måste du ta bort och återskapa händelse prenumerationen.
-* Beständiga händelser är nästan alltid långsammare än i minnes åtgärder, men hastigheten är mycket beroende av enhetens egenskaper. Kompromissen mellan hastighet och tillförlitlighet är till för alla meddelande system, men vanligt vis blir det bara en märkbart synligt i stor skala.
+* Beständiga händelser aktiveras per händelseprenumeration och är opt-in när en volym eller katalog har monterats.
+* Händelsebeständighet har konfigurerats på en händelseprenumeration vid skapande och kan inte ändras när händelseprenumerationen har skapats. Om du vill växla händelsebeständighet måste du ta bort och återskapa händelseprenumerationen.
+* Ihållande händelser är nästan alltid långsammare än i minnesoperationer, men hastighetsskillnaden är mycket beroende av enhetens egenskaper. Avvägningen mellan hastighet och tillförlitlighet är inneboende i alla meddelandesystem men i allmänhet bara blir en märkbar i stor skala.
 
-Om du vill aktivera händelse beständighet för en händelse prenumeration anger `persistencePolicy` `true`:
+Om du vill aktivera händelsebeständighet `persistencePolicy` `true`för en händelseprenumeration ställer du in på:
 
  ```json
         {

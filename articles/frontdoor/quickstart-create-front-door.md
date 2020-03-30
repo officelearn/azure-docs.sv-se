@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en profil för front dörren för hög tillgänglighet för program'
+title: 'Snabbstart: Skapa frontdörrprofil för hög tillgänglighet av applikationer'
 description: I den här snabbstartsartikeln beskrivs hur du skapar en Front Door för ditt globala webbprogram för hög tillgänglighet och höga prestanda.
 services: front-door
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a98a933113322509f6fda8678350e9415d0b4058
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184518"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471429"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Snabbstart: Skapa en Front Door för en global webbapp med hög tillgänglighet
 
@@ -26,7 +26,7 @@ I den här snabbstartsartikeln beskrivs hur du skapar en Front Door-profil som g
 
 Det scenario som beskrivs i den här snabbstarten innehåller två instanser av en webbapp som körs i olika Azure-regioner. En Front Door-konfiguration som baseras på jämnt [viktade serverdelar med samma prioritet](front-door-routing-methods.md) skapas som hjälper dig att dirigera användartrafik till den närmaste uppsättningen webbplatsserverdelar där programmet körs. Front Door övervakar webbappen kontinuerligt och ger automatisk redundans till nästa tillgängliga serverdel när den närmaste platsen inte är tillgänglig.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure 
 Logga in på Azure Portal på https://portal.azure.com.
@@ -34,7 +34,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 ## <a name="prerequisites"></a>Krav
 Den här snabbstarten kräver att du har distribuerat två instanser av en webbapp som körs i olika Azure-regioner (*USA, östra* och *Europa, västra*). Båda webbprograminstanserna körs med aktiv/aktiv-läget. De innebär att båda två kan hantera trafik när som helst till skillnad från en konfiguration av typen aktiv eller vänteläge där den ena fungerar som en redundansväxling.
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Webb** > **Webbapp** > **Skapa**.
+1. Välj **Skapa en resurs** > **Webbapp** > **Web App** > **skapa**längst upp till vänster på skärmen .
 2. I **Webbapp** anger eller väljer du följande information och anger standardinställningarna där de inte har angetts:
 
      | Inställning         | Värde     |
@@ -42,7 +42,7 @@ Den här snabbstarten kräver att du har distribuerat två instanser av en webba
      | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD1* |
      | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanEastUS* och väljer sedan **OK**. 
-     |      Plats  |   USA, östra        |
+     |      Location  |   USA, östra        |
     |||
 
 3. Välj **Skapa**.
@@ -54,7 +54,7 @@ Den här snabbstarten kräver att du har distribuerat två instanser av en webba
      | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD2* |
      | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanWestEurope* och väljer sedan **OK**. 
-     |      Plats  |   Europa, västra      |
+     |      Location  |   Europa, västra      |
     |||
 
 
@@ -62,7 +62,7 @@ Den här snabbstarten kräver att du har distribuerat två instanser av en webba
 ### <a name="a-add-a-frontend-host-for-front-door"></a>A. Lägga till en klientdelsvärd för Front Door
 Skapa en Front Door-konfiguration som dirigerar trafik för användare baserat på den kortaste svarstiden mellan två serverdelar.
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Front Door** > **Skapa**.
+1. Välj Skapa en resurs Skapa en **resurs** > **Nätverksdörr** > **Front Door** > **skapa**längst upp till vänster på skärmen .
 2. I **Skapa en Front Door** börjar du med att lägga till den grundläggande informationen och ange en prenumeration där du vill att åtkomsten ska konfigureras. På samma sätt som för andra Azure-resurser måste du också ange en ResourceGroup och region för en resursgrupp om du skapar en ny. Slutligen måste du ange ett namn på din Front Door.
 3. När den grundläggande informationen har fyllts i är det första steget du behöver definiera **klientdelsvärden** för konfigurationen. Resultatet bör vara ett giltigt domännamn som `myappfrontend.azurefd.net`. Det här värdnamnet måste vara globalt unikt men Front Door tar hand om den verifieringen. 
 
@@ -72,10 +72,10 @@ Därefter måste du konfigurera programmets serverdelar i en serverdelspool för
 
 1. Klicka på ikonen ”+” för att lägga till en serverdelspool och ange därefter ett **namn** på serverdelspoolen, till exempel `myBackendPool`.
 2. Klicka på alternativet för att lägga till serverdelar och lägg till dina webbplatser som skapades tidigare.
-3. Välj **Typ av målvärd** som ”App Service”, välj prenumerationen där du skapade webbplatsen och välj sedan den första webbplatsen från **Målvärdsnamn**, det vill säga  *myAppServicePlanEastUS.azurewebsites.net*.
+3. Välj **Typ av målvärd** som ”App Service”, välj prenumerationen där du skapade webbplatsen och välj sedan den första webbplatsen från **Målvärdsnamn**, det vill säga * myAppServicePlanEastUS.azurewebsites.net*.
 4. Lämna de återstående fälten som de är för tillfället och klicka på **Lägg till**.
 5. Upprepa steg 2 till 4 för att lägga till den andra webbplatsen, det vill säga *myAppServicePlanWestEurope.azurewebsites.net*
-6. Du kan välja att uppdatera inställningarna för Hälsoavsökningar och belastningsutjämning för serverdelspoolen, men standardvärdena bör också fungera. Klicka på **Lägg till**.
+6. Du kan också välja att uppdatera inställningarna för hälsoavsökningar och belastningsutjämning för serverdapoolen, men standardvärdena bör också fungera. Klicka på **Lägg till**.
 
 
 ### <a name="c-add-a-routing-rule"></a>C. Lägga till en hanteringsregel

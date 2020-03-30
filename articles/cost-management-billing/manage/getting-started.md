@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 3/11/2020
 ms.author: banders
-ms.openlocfilehash: e22663cf8cabd5d2abf487c96f2d69aeaaa90ab7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 0e0003b3adfdb6ebba49bd8d014fc0ba287ca3aa
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199712"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238150"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -25,6 +25,8 @@ När du registrerar dig för Azure finns det flera saker du kan göra för att f
 - Integrera fakturerings- och kostnadsdata i ditt eget rapportsystem med hjälp av API:erna för [fakturering](https://docs.microsoft.com/rest/api/billing/) och [förbrukning](https://docs.microsoft.com/rest/api/consumption/).
 - Använd ytterligare resurser och verktyg för Enterprise-avtal (EA), Cloud Solution Provider (CSP) och Azure Sponsorship-kunder.
 - Använd [några av de populäraste Azure-tjänsterna utan kostnad i 12 månader](create-free-services.md) med ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Tillsammans med rekommendationerna nedan kan du läsa [Undvika att debiteras för ett kostnadsfritt konto](avoid-charges-free-account.md).
+
+Om du behöver avbryta din Azure-prenumeration läser du [Avbryta din Azure-prenumeration](cancel-azure-subscription.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Få en kostnadsuppskattning innan du lägger till Azure-tjänster
 
@@ -67,7 +69,7 @@ Du kan övervaka kostnader med följande verktyg:
 
 Skapa [budgetar](../costs/tutorial-acm-create-budgets.md) för att hantera kostnader och skapa [aviseringar](../costs/cost-mgt-alerts-monitor-usage-spending.md) som automatiskt meddelar mottagarna om kostnadsavvikelser och överförbrukning.
 
-### <a name="costs"></a> Utforska och analysera kostnader med kostnadsanalys
+### <a name="explore-and-analyze-costs-with-cost-analysis"></a><a name="costs"></a> Utforska och analysera kostnader med kostnadsanalys
 
 När dina Azure-tjänster är igång bör du regelbundet kontrollera kostnaderna så att du sparar dina utgifter för Azure. Du kan använda kostnadsanalys till att ta reda på var kostnaderna för din Azure-användning kommer ifrån.
 
@@ -120,7 +122,7 @@ Om du använder Azure via ett Microsoft-kundavtal (MCA) kan du också [jämföra
 
 Du kan använda Azure-API:erna för [fakturering](https://docs.microsoft.com/rest/api/billing/) och [förbrukning](https://docs.microsoft.com/rest/api/consumption/) till att hämta fakturerings- och kostnadsdata programmatiskt. Använd RateCard-API:et och användnings-API:et tillsammans för att visa din fakturerade användning. Mer information finns i [Få insikter om din resursförbrukning i Microsoft Azure](usage-rate-card-overview.md).
 
-## <a name="other-offers"></a> Ytterligare resurser och särskilda fall
+## <a name="additional-resources-and-special-cases"></a><a name="other-offers"></a> Ytterligare resurser och särskilda fall
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>EA- och CSP-kunder och kunder med sponsring
 Prata med din kontoansvarige eller Azure-partner för att komma igång.
@@ -133,7 +135,7 @@ Prata med din kontoansvarige eller Azure-partner för att komma igång.
 
 Om du hanterar IT för en stor organisation rekommenderar vi att du läser [Azure Enterprise-kodskelett](/azure/architecture/cloud-adoption-guide/subscription-governance) och [faktabladet om företags-IT](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (nedladdning av PDF-fil, endast på engelska).
 
-### <a name="EA"></a> Kostnadsvyer för Enterprise-avtal på Azure-portalen
+### <a name="enterprise-agreement-cost-views-in-the-azure-portal"></a><a name="EA"></a> Kostnadsvyer för Enterprise-avtal på Azure-portalen
 
 Enterprise-kostnadsvyer finns för närvarande som en offentlig förhandsversion. Saker att tänka på:
 

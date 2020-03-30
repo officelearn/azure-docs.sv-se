@@ -1,5 +1,5 @@
 ---
-title: Visa dina faktureringskonton i Azure-portalen | Microsoft Docs
+title: Visa dina faktureringskonton på Azure-portalen
 description: Lär dig hur du visar dina faktureringskonton i Azure-portalen.
 author: amberbhargava
 tags: billing
@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: banders
-ms.openlocfilehash: 0117496642c17db97535eca74aad334f1517a665
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4dab11afb2ddd910a4d6619d088031279ebf3172
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199474"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238014"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Faktureringskonton och omfång på Azure-portalen
 

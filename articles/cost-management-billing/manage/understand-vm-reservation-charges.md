@@ -1,17 +1,17 @@
 ---
-title: Förstå rabatten för Azure Reserved VM Instances | Microsoft Docs
+title: Förstå Azure Reserved VM Instances-rabatter
 description: Lär dig hur rabatten för Azure Reserved VM Instances tillämpas på virtuella datorer som körs.
 author: yashesvi
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 89b1e22419564e4cc46124a9d3e6ca26f81defa0
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ca54d5a0d196cbc39256668f21e19bdf9162dfbf
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200460"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202798"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Så tillämpas rabatten för Azure-reservation på virtuella datorer
 

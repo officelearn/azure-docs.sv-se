@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: ef6ef96bf248c449b318cebaba9c53f63e448855
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c6883dfd0f4c3bc11afdd68ead8c8c84729b1880
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199168"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065693"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termer i filen för Azure-användning och -avgifter för ett Microsoft-kundavtal
 
@@ -88,6 +88,8 @@ meterCategory | Namnet på mätarens klassificeringskategori. Det här kan till 
 meterSubCategory | Namnet på mätarens underkategori
 meterRegion | Namnet på den region där mätaren för tjänsten är tillgänglig. Anger datacentrets plats för vissa tjänster som prissätts beroende på var datacentret ligger.
 offer | Namnet på det köpta erbjudandet
+PayGPrice | Resursens butikspris.
+PricingModel | Identifierare som anger hur mätarens priser bestäms (värden: på begäran, reservation, punkt)
 productId | Unik identifierare för den produkt som avgifterna gäller
 produkt | Namnet på den produkt som avgifterna gäller
 subscription ID | Unik identifierare för den prenumeration som avgifterna gäller

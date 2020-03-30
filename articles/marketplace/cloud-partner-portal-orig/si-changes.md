@@ -1,59 +1,58 @@
 ---
-title: Viktig information om säljar insikter
-description: Innehåller information om ändringar i säljar insikts funktionen.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Säljaren Insights viktig information
+description: Innehåller information om ändringar i funktionen Säljarstatistik.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 3/3/2019
-ms.author: pabutler
-ms.openlocfilehash: 4f7e461241793b27d838c04311509f43932df291
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 1b88a8353c1cb9f97f18d720171f0827d7d85254
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808949"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285409"
 ---
-# <a name="seller-insights-release-notes"></a>Viktig information om säljar insikter 
+# <a name="seller-insights-release-notes"></a>Säljaren Insights viktig information 
 
-(Lanserings datum: 1 mars 2019)
+(Utgivningsdatum: 1 mars 2019)
 
-Den här artikeln innehåller information om ändringar i säljar insikter-funktionen i [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
+Den här artikeln innehåller information om ändringar i funktionen Säljarstatistik i [Cloud Partner Portal](https://cloudpartner.azure.com/#insights).
 
-## <a name="release-highlights-for-march-1-2019"></a>Versions markeringar för 1 mars 2019
+## <a name="release-highlights-for-march-1-2019"></a>Höjdpunkter för 1 mars 2019
 
-* *Kund trend* har lagts till i Sammanfattning
-* *De fem främsta kunderna* om Sammanfattning återspeglar alla Azure-prenumerationer som kunden har
-* *Normaliserad användnings trend & aktiva beställningar trender* i sammandrag som flyttats under *månatliga beställningar snabbt*
-* *Rapporten om avbetalnings avstämning* har uppdaterats
-* *De fem främsta kunderna* om utbetalning återspeglar alla Azure-prenumerationer som kunden har
-* *Användnings rapport* uppdaterad med kund-ID
-* *Kund besittning* på order & användning visar alla Azure-prenumerationer som kunden har
-
-
-(Lanserings datum: 28 juli 2018)
-
-## <a name="release-highlights-for-july-28-2018"></a>Versions markeringar den 28 juli 2018
+* *Kundtrend* tillagd i sammanfattning
+* *De fem bästa kunderna* i Sammanfattning återspeglar alla Azure-prenumerationer som en kund har
+* *Normaliserad användningstrend & trend för aktiva order* vid sammanfattning flyttas under *månadsorder med ett ögonkast*
+* *Rapporten för utbetalningsavstämning* uppdaterad
+* *De fem bästa kunderna* på utbetalningen återspeglar alla Azure-prenumerationer som en kund har
+* *Användningsrapport* uppdaterad med kund-ID
+* *Kundtidsorder* på order & användning återspeglar alla Azure-prenumerationer som en kund har
 
 
--   *Uppskattade priser* ger en översikt över kund avgifter med valuta omvandlings konsekvenser.
--   *Prognostiserade utbetalningar* ger en tidigare vy över potentiella utbetalningar.
--  *Användnings referens identifierare* ger data åter givning mellan kund användning och beställningar med utbetalningar
--   *Användningen på en daglig kornig het* ger mer detaljerad information och bättre insikter om kund användning.
+(Utgivningsdatum: 28 juli 2018)
+
+## <a name="release-highlights-for-july-28-2018"></a>Höjdpunkter för 28 juli 2018
 
 
-### <a name="changes-to-data-structure-and-taxonomy"></a>Ändringar i data struktur och taxonomi
+-   *Uppskattade priser* ger en bild av kundavgifter med valutakonverteringskonsekvenser.
+-   *Prognostiserade utbetalningar* ger en tidigare bild av potentiella utbetalningar.
+-  *Användningsreferensidentifierare* ger dataåtergivning mellan kundanvändning och order med utbetalningar
+-   *Användning på en daglig spannmål* ger mer granularitet och bättre insikter i kundanvändning.
 
-I följande tabell visas de mått som har lagts till eller som väsentligen har ändrats i den här versionen. 
+
+### <a name="changes-to-data-structure-and-taxonomy"></a>Ändringar i datastruktur och taxonomi
+
+I följande tabell visas de mått som har lagts till eller ändrats väsentligt med den här versionen. 
 
 | **Ny term**                   |    **Definition**                                                             |
 |--------------------------------|  ---------------------------------------------------------------------------- |
-| Pris (CC)                     | Priset för en enhets användning för en specifik SKU (i kundens valuta).       |
-| Uppskattad utökad avgift (CC) | Uppskattad utökad avgift för antalet användnings enheter för en viss SKU (i kundens valuta). Det här värdet kan inte vara exakt på grund av avrundning eller trunkering-fel.   |
-| Utgivar valuta (PC)        | Valuta som föredras av utgivaren för utbetalning.                               |
-| Uppskattat pris (PC)           | Uppskattat pris för en användnings enhet för en specifik SKU som baseras på sekundär Exchange-konvertering vid användning av datum beräknas (i utgivar valutan). Det här värdet kan inte vara exakt på grund av avrundning eller trunkering-fel.   |
-| Uppskattad utökad avgift (PC) | Uppskattad utökad avgift för antalet användnings enheter för en viss SKU som baseras på sekundär Exchange-konvertering vid användning av datum beräknas (i utgivar valutan). Det här värdet kan inte vara exakt på grund av avrundning eller trunkering-fel. |
-| Beräknad utbetalning (PC)          | Beräknad betalning för antalet användnings enheter för en specifik SKU som baseras på sekundär Exchange-konvertering på det datum då användningen beräknas (i utgivar valutan). Det här värdet kan inte vara exakt på grund av avrundning eller trunkering-fel.   |
-| Användnings referens                | Identifieraren för en eller flera dagar av kund användning för en specifik SKU som är kopplad till en post i utbetalnings rapporten. |
+| Pris (CC)                     | Pris för en användningsenhet för en viss SKU (i kundens valuta).       |
+| Uppskattad utökad laddning (CC) | Uppskattad utökad avgift för antalet enheter av användningsenheter för en viss SKU (i kundens valuta). Det här värdet kanske inte är exakt på grund av avrundnings- eller trunkeringsfel.   |
+| Utgivarvalutan (PC)        | Valuta som utgivaren föredrar för utbetalning.                               |
+| Uppskattat pris (PC)           | Uppskattat pris för en användningsenhet för en viss SKU baserat på valutakonvertering på datumanvändningen beräknas (i utgivarens valuta). Det här värdet kanske inte är exakt på grund av avrundnings- eller trunkeringsfel.   |
+| Uppskattad utökad laddning (PC) | Uppskattad utökad avgift för antalet enheter av användningsenheter för en viss SKU baserat på valutakonvertering på datumanvändningen beräknas (i utgivarens valuta). Det här värdet kanske inte är exakt på grund av avrundnings- eller trunkeringsfel. |
+| Beräknad utbetalning (PC)          | Uppskattad betalning för antalet enheter av användningsenheter för en viss SKU baserat på valutakonvertering det datum då användningen beräknas (i utgivarens valuta). Det här värdet kanske inte är exakt på grund av avrundnings- eller trunkeringsfel.   |
+| Användningsreferens                | Identifieraren för en eller flera dagar av kundanvändning för en viss SKU som är associerad med en post i utbetalningsrapporten. |
 |  |  |

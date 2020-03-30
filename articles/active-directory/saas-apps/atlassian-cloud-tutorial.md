@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 03/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a54b096019e9e38bc800ae313016a430062dab
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 46c48d6f7d751e6d767921fad21e6213c6b1203b
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74964335"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384032"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Självstudiekurs: Integrera Atlassian Cloud med Azure Active Directory
 
@@ -31,7 +30,7 @@ I den här självstudien får du lära dig hur du integrerar Atlassian Cloud med
 * Gör att användarna automatiskt loggas in i Atlassian Cloud med sina Azure AD-konton.
 * Hantera dina konton på en central plats - Azure-portalen.
 
-Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -47,7 +46,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö
 
 * Atlassian Cloud stöder **SP- och IDP**-initierad enkel inloggning
 * Atlassian Cloud stöder [automatisk etablering och avetablering av användare](atlassian-cloud-provisioning-tutorial.md)
-
+* När du har konfigurerat Atlassian Cloud kan du framtvinga sessionskontroll, som skyddar exfiltrering och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>Lägga till Atlassian Cloud från galleriet
 
 Om du vill konfigurera integreringen av Atlassian Cloud i Azure AD måste du lägga till Atlassian Cloud från galleriet till din lista över hanterade SaaS-appar.
@@ -93,7 +92,7 @@ Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
     d. Skriv en URL med följande mönster i textrutan **Vidarebefordransstatus**: `https://<instancename>.atlassian.net`
 
     > [!NOTE]
-    > Föregående värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL:en. Du kommer att få dessa verkliga värden från **Atlassian Cloud SAML Konfiguration** skärmen som förklaras senare i **Konfigurera Atlassian Cloud Single Sign-On** av handledning.
+    > Föregående värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL:en. Du kommer att få dessa verkliga värden från **Atlassian Cloud SAML Konfiguration** skärmen som förklaras senare i steg 7 av **Konfigurera Atlassian Cloud SSO** i handledningen.
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -222,8 +221,12 @@ När du väljer atlassiska molnpanelen på åtkomstpanelen ska du automatiskt lo
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Atlassian Cloud med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Så här skyddar du Atlassian Cloud med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

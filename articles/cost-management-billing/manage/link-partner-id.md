@@ -1,5 +1,5 @@
 ---
-title: Länka ett Azure-konto till ett partner-ID | Microsoft Docs
+title: Koppla ett Azure-konto till ett partner-ID
 description: Spåra interaktioner med Azure-kunder genom att länka ett partner-ID till det användarkonto som du använder för att hantera kundens resurser.
 author: dhirajgandhi
 ms.reviewer: dhgandhi
@@ -7,18 +7,18 @@ ms.author: banders
 ms.date: 02/13/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: 761f4345c591864b8158d7216d737ac287692252
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: c3f5dd4d1b67f5b1079a56d5c3428d286fd9d77f
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651397"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79204808"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Länka ett partner-ID till dina Azure-konton
 
-Microsoft-partner tillhandahåller tjänster som hjälper kunder att uppnå affärs- och verksamhetsmål med produkter från Microsoft. När du på uppdrag av kunden hanterar, konfigurerar och ger support för Azure-tjänster behöver partneranvändarna åtkomst till kundens miljö. Med Partneradministratörslänk kan partner associera sina partnernätverks-ID:n med autentiseringsuppgifterna som används för tjänstleverans.
+Microsoft-partner tillhandahåller tjänster som hjälper kunder att uppnå affärs- och verksamhetsmål med produkter från Microsoft. När du på uppdrag av kunden hanterar, konfigurerar och ger support för Azure-tjänster behöver partneranvändarna åtkomst till kundens miljö. Med Partneradministratörslänk (PAL) kan partner associera sina partnernätverks-ID:n med autentiseringsuppgifterna som används för tjänstleverans.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+PAL gör det möjligt för Microsoft att identifiera och uppmärksamma partner som skapar kundframgång med Azure. Microsoft kan påverka och skapa Azure-relaterade intäkter för din organisation baserat på kontots behörigheter (RBAC-roll) och omfång (prenumeration, resursgrupp och resurs).
 
 ## <a name="get-access-from-your-customer"></a>Få åtkomst från kunden
 

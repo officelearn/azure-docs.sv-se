@@ -1,6 +1,6 @@
 ---
-title: Koda anpassade transformering med Media Services v3 CLI - Azure | Microsoft Docs
-description: Det här avsnittet visar hur du använder Azure Media Services v3 att koda en anpassad transformering med hjälp av CLI.
+title: Koda anpassad transformering med Media Services v3 Azure CLI | Microsoft-dokument
+description: Det här avsnittet visar hur du använder Azure Media Services v3 för att koda en anpassad transformering med Azure CLI.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,37 +12,39 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 42b7c2d86525c428253137b424fe58bb61edba70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762011"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382961"
 ---
-# <a name="how-to-encode-with-a-custom-transform---cli"></a>Koda med en anpassad transformering – CLI
+# <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Så här kodar du med en anpassad transformering - Azure CLI
 
-När kodning med Azure Media Services, du kan komma igång snabbt med en av de rekommenderade inbyggda förinställningar, baserat på branschens bästa praxis, som visas i den [Streaming filer](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) Snabbstart. Du kan också skapa en anpassad förinställning om du vill rikta in dina specifika krav för scenario eller enhet.
+När du kodar med Azure Media Services kan du komma igång snabbt med en av de rekommenderade inbyggda förinställningarna, baserat på branschens bästa praxis, vilket visas i snabbstarten [för strömmande filer.](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) Du kan också skapa en anpassad förinställning för att rikta in dig på ditt specifika scenario eller enhetskrav.
 
 ## <a name="considerations"></a>Överväganden
 
-När du skapar anpassade förinställningar, gäller följande:
+När du skapar anpassade förinställningar gäller följande överväganden:
 
-* Alla värden för höjd och bredd på AVC innehåll måste vara en multipel av 4.
-* I Azure Media Services v3 är alla kodning bithastighet i bitar per sekund. Detta skiljer sig från förinställningar med våra v2 API: er, som används kilobit per sekund som enheten. Till exempel om bithastigheten i v2 har angetts som 128 (kbit/s) skulle i v3 det ställas in till 128000 (bitar per sekund).
+* Alla värden för höjd och bredd på AVC-innehåll måste vara en multipel av 4.
+* I Azure Media Services v3 är alla kodningbithastigheter i bitar per sekund. Detta skiljer sig från förinställningar med våra v2 API: er, som använde kilobit / sekund som enhet. Om bithastigheten i v2 till exempel angavs som 128 (kilobit/sekund) i v3 skulle den vara inställd på 128000 (bitar/sekund).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Krav
 
-[Skapa ett Media Services-konto](create-account-cli-how-to.md). <br/>Se till att komma ihåg resursgruppens namn och namnet på Media Services-konto. 
+[Skapa ett Media Services-konto](create-account-cli-how-to.md).
+
+Se till att komma ihåg resursgruppsnamnet och mediatjänstkontonamnet.
 
 [!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="define-a-custom-preset"></a>Definiera en anpassad förinställning
 
-I följande exempel definierar begärandetexten för en ny omvandling. Vi definierar en uppsättning utdata som vi vill genereras när den här transformeringen används. 
+I följande exempel definieras begäranden för en ny transformering. Vi definierar en uppsättning utdata som vi vill ska genereras när den här transformeringen används.
 
-I det här exemplet vi först lägga till ett AacAudio lager för ljud encoding och två H264Video lager för den videokodning. I video lager tilldela vi etiketter, så att de kan användas i utdata-filnamn. Nu ska vill vi utdata till att även omfatta miniatyrer. I exemplet nedan anger vi bilder i PNG-format, genereras på 50% av lösningen på indatavideon och på tre tidsstämplar - {25%, 50%, 75} med längden på indatavideon. Slutligen kan vi ange formatet för utdatafilerna – en för video och ljud, och en annan för miniatyrbilderna. Eftersom vi har flera H264Layers, måste vi använda makron som producerar unika namn per lager. Vi kan använda en `{Label}` eller `{Bitrate}` makro exemplet visar tidigare.
+I det här exemplet lägger vi först till ett AacAudio-lager för ljudkodning och två H264Video-lager för videokodningen. I videolagren tilldelar vi etiketter så att de kan användas i utdatafilnamnen. Därefter vill vi att utdata även ska innehålla miniatyrer. I exemplet nedan anger vi bilder i PNG-format, genererade med 50 % av upplösningen på indatavideon och vid tre tidsstämplar - {25 %, 50 %, 75} av indatavideons längd. Slutligen anger vi formatet för utdatafilerna - en för video + ljud och en annan för miniatyrerna. Eftersom vi har flera H264Layers, måste vi använda makron som producerar unika namn per lager. Vi kan antingen `{Label}` `{Bitrate}` använda ett eller makro, visar exemplet den förra.
 
-Det dags att spara den här transformeringen i en fil. I det här exemplet vi ge filen namnet `customPreset.json`. 
+Vi ska spara den här transformeringen i en fil. I det här exemplet `customPreset.json`namnger vi filen .
 
 ```json
 {
@@ -120,25 +122,24 @@ Det dags att spara den här transformeringen i en fil. I det här exemplet vi ge
         }
     ]
 }
-
 ```
 
-## <a name="create-a-new-transform"></a>Skapa en ny omvandling  
+## <a name="create-a-new-transform"></a>Skapa en ny transformering  
 
-I det här exemplet skapar vi en **transformera** som baseras på anpassad förinställning som vi definierade tidigare. När du skapar en transformering, bör du först kontrollera om det redan finns. Om vi finns återanvända den. Följande `show` kommandot returnerar de `customTransformName` transformera om den finns:
+I det här exemplet skapar vi en **transformering** som baseras på den anpassade förinställning som vi definierade tidigare. När du skapar en transformering bör du först kontrollera om det redan finns någon. Om transformeringen finns kan du återanvända den. Följande `show` kommando returnerar transformeringen `customTransformName` om den finns:
 
-```cli
+```azurecli-interactive
 az ams transform show -a amsaccount -g amsResourceGroup -n customTransformName
 ```
 
-Följande CLI-kommando skapar transformeringen baserat på anpassad förinställning (definieras tidigare). 
+Följande Azure CLI-kommando skapar transformeringen baserat på den anpassade förinställningen (definierad tidigare).
 
-```cli
+```azurecli-interactive
 az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName --description "Basic Transform using a custom encoding preset" --preset customPreset.json
 ```
 
-Du måste skicka ett jobb under den transformeringen för Media Services att tillämpa transformering på angivna video eller ljud. Ett komplett exempel som visar hur du skickar ett jobb under en transformering, se [snabbstarten: Stream videofiler - CLI](stream-files-cli-quickstart.md).
+För att Media Services ska kunna tillämpa transformeringen på den angivna videon eller ljudet måste du skicka ett jobb under transformeringen. Ett komplett exempel som visar hur du skickar ett jobb under en transformering finns i [Snabbstart: Strömma videofiler - Azure CLI](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](/cli/azure/ams)

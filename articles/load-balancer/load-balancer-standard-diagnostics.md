@@ -1,6 +1,6 @@
 ---
-title: Diagnostik med mått, aviseringar och resurs hälsa – Azure Standard Load Balancer
-description: Använd de tillgängliga måtten, aviseringarna och resurs hälso informationen för att diagnostisera Azure-Standard Load Balancer.
+title: Diagnostik med mått, aviseringar och resurshälsa - Azure Standard Load Balancer
+description: Använd tillgänglig mått, aviseringar och resurshälsoinformation för att diagnostisera din Azure Standard Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -12,198 +12,226 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: c362829b1babf954868452a3858da1f319008a9a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d0e66cefac496f3a54690b17a1e3de705f39c7fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990784"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80337003"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Standard Load Balancer-diagnostik med mått, aviseringar och resurshälsa
 
-Azure Standard Load Balancer visar följande diagnostiska funktioner:
+Azure Standard Load Balancer visar följande diagnostikfunktioner:
 
-* **Flerdimensionella mått och aviseringar**: ger stöd för flera dimensionella diagnoser via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för standard konfiguration av belastningsutjämnare. Du kan övervaka, hantera och felsöka standard belastnings Utjämnings resurserna.
+* **Flerdimensionella mått och aviseringar**: Tillhandahåller flerdimensionella diagnostikfunktioner via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för standardbelastningsutjämnarekonfigurationer. Du kan övervaka, hantera och felsöka dina standardbelastningsutjämnareresurser.
 
-* **Resurs hälsa**: Load Balancer sidan på sidan Azure Portal och Resource Health (under övervakaren) visar Resource Health avsnittet för standard Load Balancer. 
+* **Resurshälsa**: Sidan Belastningsutjämnare i Azure-portalen och sidan Resurshälsa (under Övervakar) visar avsnittet Resurshälsa för standardbelastningsutjämning. 
 
-Den här artikeln ger en snabb genom gång av de här funktionerna och ger dig möjlighet att använda dem för Standard Load Balancer. 
+Den här artikeln innehåller en snabb rundtur i dessa funktioner, och den erbjuder sätt att använda dem för Standard Load Balancer. 
 
-## <a name = "MultiDimensionalMetrics"></a>Flerdimensionella mått
+## <a name="multi-dimensional-metrics"></a><a name = "MultiDimensionalMetrics"></a>Flerdimensionella mätvärden
 
-Azure Load Balancer tillhandahåller flerdimensionella mått via Azure-måtten i Azure Portal och det hjälper dig att få diagnostiska insikter i real tid i dina belastnings Utjämnings resurser. 
+Azure Load Balancer tillhandahåller flerdimensionella mått via Azure-måtten i Azure-portalen, och det hjälper dig att få diagnostiska insikter i realtid i dina belastningsbalansresurser. 
 
-De olika Standard Load Balancer-konfigurationerna tillhandahåller följande mått:
+De olika standardbelastningsutjämningskonfigurationerna innehåller följande mått:
 
-| Mått | Resurstyp | Beskrivning | Rekommenderad agg regering |
+| Mått | Resurstyp | Beskrivning | Rekommenderad aggregering |
 | --- | --- | --- | --- |
-| Tillgänglighet för data Sök väg (VIP-tillgänglighet)| Offentlig och intern belastningsutjämnare | Standard Load Balancer använder kontinuerligt data Sök vägen inifrån en region för belastnings utjämningens klient del, hela vägen till den SDN-stack som har stöd för den virtuella datorn. Så länge som felfria instanser är kvar, följer måtten samma sökväg som programmets belastningsutjämnade trafik. Den data Sök väg som dina kunder använder verifieras också. Måttet är osynligt för ditt program och stör inte andra åtgärder.| Medel |
-| Status för hälso avsökning (DIP-tillgänglighet) | Offentlig och intern belastningsutjämnare | Standard Load Balancer använder en distribuerad hälso-/Bing-tjänst som övervakar din program slut punkts hälsa enligt dina konfigurations inställningar. Det här måttet innehåller en filtrerad mängd eller per slut punkt för varje instans slut punkt i belastningsutjämnaren. Du kan se hur Load Balancer visar hälso tillståndet för ditt program, som anges i konfigurationen för hälso avsökningen. |  Medel |
-| SYN-paket (Synchronization) | Offentlig och intern belastningsutjämnare | Standard Load Balancer avslutar inte Transmission Control Protocol (TCP) anslutningar eller interagerar med TCP-eller UDP-paketfilter. Flöden och deras hand skakningar är alltid mellan källan och den virtuella dator instansen. För att bättre felsöka dina scenarier med TCP-protokoll kan du använda räknare för SYN paket för att förstå hur många TCP-anslutningsfel som görs. Måttet rapporterar antalet TCP-SYN-paket som tagits emot.| Medel |
-| SNAT-anslutningar | Offentlig belastningsutjämnare |Standard Load Balancer rapporterar antalet utgående flöden som är maskerade till den offentliga IP-adressen klient delen. Käll Network Address Translations portar (SNAT) är en exhaustible-resurs. Det här måttet kan ge en indikation på hur mycket ditt program förlitar sig på SNAT för utgående, ursprungliga flöden. Räknare för lyckade och misslyckade utgående SNAT-flöden rapporteras och kan användas för att felsöka och förstå hälso tillståndet för dina utgående flöden.| Medel |
-| Allokerade SNAT-portar | Offentlig belastningsutjämnare | Standard Load Balancer rapporterar antalet SNAT-portar som tilldelas per server dels instans | Snitt. |
-| Använda SNAT-portar | Offentlig belastningsutjämnare | Standard Load Balancer rapporterar antalet SNAT-portar som används per server dels instans. | Medel | 
-| Byte räknare |  Offentlig och intern belastningsutjämnare | Standard Load Balancer rapporterar de data som bearbetas per klient del. Du kanske märker att bytena inte distribueras jämnt över Server dels instanserna. Detta förväntas vara att Azures Load Balancer algoritmen baseras på flöden | Medel |
-| Paket räknare |  Offentlig och intern belastningsutjämnare | Standard Load Balancer rapporterar de paket som bearbetas per klient del.| Medel |
+| Tillgänglighet för datasökväg (VIP-tillgänglighet)| Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnaren tränar kontinuerligt datasökvägen inifrån en region till belastningsutjämnarfronten, hela vägen till SDN-stacken som stöder den virtuella datorn. Så länge felfria instanser finns kvar följer mätningen samma sökväg som programmets belastningsbalanserade trafik. Den datasökväg som dina kunder använder valideras också. Mätningen är osynlig för ditt program och stör inte andra åtgärder.| Medel |
+| Hälsoavsökningsstatus(DIP-tillgänglighet) | Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnaren använder en distribuerad hälsoavsökningstjänst som övervakar programmets slutpunkts hälsotillstånd enligt dina konfigurationsinställningar. Det här måttet ger en samlad eller filtrerad vy per slutpunkt för varje instansslutpunkt i belastningsutjämnaren. Du kan se hur belastningsutjämnaren visar hälsotillståndet för ditt program, vilket indikeras av hälsoavsökningskonfigurationen. |  Medel |
+| SYN-paket (synkronisera) | Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnar inte TCP-anslutningar (Transmission Control Protocol) eller interagerar med TCP- eller UDP-paketflöden. Flöden och deras handslag är alltid mellan källan och VM-instansen. Om du vill felsöka dina TCP-protokollscenarier kan du använda SYN-paketräknare för att förstå hur många TCP-anslutningsförsök som görs. Måttet rapporterar antalet TCP SYN-paket som togs emot.| Medel |
+| SNAT-anslutningar | Offentlig belastningsutjämnare |Standardbelastningsutjämnaren rapporterar antalet utgående flöden som är maskerade till den offentliga IP-adressens klientdel. SNAT-portar (Source Network Address Translation) är en uttömlig resurs. Det här måttet kan ge en indikation på hur tungt ditt program är beroende av SNAT för utgående ursprungsflöden. Räknare för lyckade och misslyckade utgående SNAT-flöden rapporteras och kan användas för att felsöka och förstå hälsotillståndet för dina utgående flöden.| Medel |
+| Tilldelade SNAT-portar | Offentlig belastningsutjämnare | Standardbelastningsutjämnare rapporterar antalet SNAT-portar som allokerats per serverdelsinstans | Genomsnittliga. |
+| Använda SNAT-portar | Offentlig belastningsutjämnare | Standardbelastningsutdelningsrapporter antalet SNAT-portar som används per serverd-instans. | Medel | 
+| Byte räknare |  Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnare rapporterar de data som bearbetas per frontend. Du kanske märker att bytena inte fördelas lika mellan serverdelsinstanserna. Detta förväntas eftersom Azures load balancer-algoritm baseras på flöden | Medel |
+| Paketräknare |  Offentlig och intern belastningsutjämnare | Standardbelastningsutjämnaren rapporterar de paket som bearbetas per frontend.| Medel |
 
-### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Visa dina belastnings Utjämnings mått i Azure Portal
+### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Visa dina belastningsutjämnaremått i Azure-portalen
 
-Azure Portal exponerar måtten för belastnings utjämning via sidan mått, som finns tillgänglig på resurs sidan för belastnings utjämning för en viss resurs och sidan Azure Monitor. 
+Azure-portalen visar belastningsutjämnarmåtten via sidan Mått, som är tillgänglig på både belastningsutjämnarresurssidan för en viss resurs och sidan Azure Monitor. 
 
-Så här visar du måtten för dina Standard Load Balancer resurser:
-1. Gå till sidan mått och gör något av följande:
-   * På sidan belastnings Utjämnings resurs väljer du mått typen i list rutan.
-   * På sidan Azure Monitor väljer du belastnings Utjämnings resursen.
-2. Ange lämplig agg regerings typ.
-3. Du kan också konfigurera filtrering och gruppering som krävs.
+Så här visar du måtten för standardbelastningsutjämningsresurserna:
+1. Gå till sidan Mått och gör något av följande:
+   * På sidan belastningsutjämnareresurs väljer du måtttypen i listrutan.
+   * På sidan Azure Monitor väljer du belastningsutjämnarens resurs.
+2. Ange lämplig måttaggregeringstyp.
+3. Du kan också konfigurera den nödvändiga filtrningen och gruppningen.
+4. Du kan också konfigurera tidsintervall och aggregering. Som standard visas tid i UTC.
 
-    ![Mått för Standard Load Balancer](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
+  >[!NOTE] 
+  >Tidsaggregering är viktigt när du tolkar vissa mått eftersom data samplas en gång per minut. Om tidsaggregering är inställd på fem minuter och måttaggregeringstyp Summa används för mått som SNAT-allokering, visar diagrammet fem gånger den totala allokerade SNAT-portarna. 
 
-    *Bild: tillgänglighets mått för data Sök väg för Standard Load Balancer*
+![Mått för standardbelastningsbalanser](./media/load-balancer-standard-diagnostics/lbmetrics1anew.png)
 
-### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Hämta flerdimensionella mått via programmerings gränssnitt
+*Bild: Tillgänglighetsmått för datasökväg för standardbelastningsutjämning*
 
-API-vägledning för att hämta flerdimensionella mått definitioner och värden finns i [genom gång av Azure monitoring REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Dessa mått kan skrivas till ett lagrings konto via alternativet "alla mått". 
+### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Hämta flerdimensionella mått programmässigt via API:er
 
-### <a name = "DiagnosticScenarios"></a>Vanliga diagnostiska scenarier och rekommenderade vyer
+Api-vägledning för att hämta flerdimensionella måttdefinitioner och värden finns i [Azure Monitoring REST API-genomgång](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough#retrieve-metric-definitions-multi-dimensional-api). Dessa mått kan bara skrivas till ett lagringskonto via alternativet "Alla mått". 
 
-#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Är data Sök vägen tillgänglig för alla VIP för belastningsutjämnare?
+### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Vanliga diagnostiska scenarier och rekommenderade vyer
 
-Måttet VIP-tillgänglighet beskriver hälsan för data Sök vägen inom regionen till den beräknings värd där de virtuella datorerna finns. Måttet är en reflektion av Azure-infrastrukturens hälso tillstånd. Du kan använda måttet för att:
-- Övervaka extern tillgänglighet för din tjänst
-- Gå djupare och lär dig om den plattform där din tjänst distribueras är felfri eller om ditt gäst operativ system eller program instansen är felfritt.
-- Isolera om en händelse är relaterad till din tjänst eller det underliggande data planet. Blanda inte ihop detta mått med status för hälso avsökning ("DIP-tillgänglighet").
+#### <a name="is-the-data-path-up-and-available-for-my-load-balancer-vip"></a>Är datasökvägen uppe och tillgänglig för min belastningsutjämnare VIP?
 
-Så här hämtar du data Sök vägs tillgänglighet för dina Standard Load Balancer-resurser:
-1. Kontrol lera att rätt belastnings Utjämnings resurs har valts. 
-2. I list rutan **mått** väljer du **tillgänglighet för data Sök väg**. 
-3. Välj **AVG**i list rutan **agg regering** . 
-4. Lägg också till ett filter på klient delens IP-adress eller frontend-port som dimension med den begärda frontend-IP-adressen eller klient dels porten och gruppera dem sedan efter den valda dimensionen.
+Vip-tillgänglighetsmåttet beskriver hälsotillståndet för datasökvägen i regionen till beräkningsvärden där dina virtuella datorer finns. Måttet är en återspegling av hälsotillståndet för Azure-infrastrukturen. Du kan använda måttet för att:
+- Övervaka tjänstens externa tillgänglighet
+- Gräva djupare och förstå om plattformen där din tjänst distribueras är felfri eller om gästoperativsystemet eller programinstansen är felfri.
+- Isolera om en händelse är relaterad till din tjänst eller det underliggande dataplanet. Blanda inte ihop det här måttet med hälsoavsökningsstatusen ("DIP-tillgänglighet").
 
-![VIP-sökning](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
+Så här hämtar du datasökvägstillgängligheten för standardbelastningsutjämningsresurserna:
+1. Kontrollera att rätt belastningsutjämnad resurs är markerad. 
+2. Välj Tillgänglighet för **datasökväg**i listrutan **Mått** . 
+3. Välj **Medel**i listrutan **Aggregering** . 
+4. Lägg dessutom till ett filter på frontend IP-adressen eller Frontend-porten som dimension med den erforderliga ip-adressen eller frontend-porten och gruppera dem efter den valda dimensionen.
 
-*Bild: information om Load Balancer-frontend-probing*
+![VIP-sondering](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-Måttet genereras av en aktiv mätning på band. En avsöknings tjänst i regionen kommer att ha trafik för måttet. Tjänsten aktive ras så snart du skapar en distribution med en offentlig klient del och den fortsätter tills du tar bort klient delen. 
+*Figur: Belastningsutjämnare Frontend sondering detaljer*
 
-Ett paket som matchar distributionens klient del och regel genereras med jämna mellanrum. Den passerar regionen från källan till värden där en virtuell dator i backend-poolen finns. Belastnings Utjämnings infrastrukturen utför samma belastnings utjämning och översättnings åtgärder som för all annan trafik. Den här avsökningen är inaktive rad på den belastningsutjämnade slut punkten. När avsökningen har inträffat på beräknings värden, där en felfri virtuell dator i backend-poolen finns, genererar beräknings värden ett svar till tjänsten för avsökning. Den virtuella datorn ser inte den här trafiken.
+Måttet genereras av en aktiv, in-band-mätning. En sonderingstjänst inom regionen har sitt ursprung i trafiken för mätningen. Tjänsten aktiveras så fort du skapar en distribution med en offentlig klientdel och den fortsätter tills du tar bort klientdelen. 
 
-VIP-tillgängligheten Miss lyckas av följande orsaker:
-- Distributionen har inga friska virtuella datorer kvar i backend-poolen. 
-- Det har uppstått ett avbrott i infrastrukturen.
+Ett paket som matchar distributionens klientdel och regel genereras med jämna mellanrum. Den korsar regionen från källan till värden där en virtuell dator i backend-poolen finns. Belastningsutjämnarinfrastrukturen utför samma belastningsutjämning och översättningsåtgärder som för all annan trafik. Den här avsökningen är i-bandet på din belastningsbalanserade slutpunkt. När avsökningen anländer till beräkningsvärden, där en felfri virtuell dator i backend-poolen finns, genererar beräkningsvärden ett svar på avsökningstjänsten. Den virtuella datorn ser inte den här trafiken.
 
-I diagnostiskt syfte kan du använda [tillgänglighets måttet data Sök väg tillsammans med status för hälso avsökningen](#vipavailabilityandhealthprobes).
+VIP-tillgänglighet misslyckas av följande skäl:
+- Distributionen har inga felfria virtuella datorer kvar i backend-poolen. 
+- Ett avbrott i infrastrukturen har inträffat.
 
-Använd **Average** som agg regering för de flesta scenarier.
+För diagnostikändamål kan du använda [måttet Tillgänglighet för datasökväg tillsammans med hälsoavsökningsstatusen](#vipavailabilityandhealthprobes).
 
-#### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>Är backend-instanserna för min VIP att svara på avsökningar?
+Använd **Medel** som aggregering för de flesta scenarier.
 
-Måttet hälso avsöknings status beskriver hälso tillståndet för din program distribution enligt konfigurationen när du konfigurerar belastnings utjämningens hälso avsökning. Belastningsutjämnaren använder status för hälso avsökningen för att avgöra var nya flöden ska skickas. Hälso avsökningar härstammar från en Azure-infrastruktur och visas i den virtuella datorns gäst operativ system.
+#### <a name="are-the-back-end-instances-for-my-vip-responding-to-probes"></a>Svarar backend-instanserna för min VIP på sonder?
 
-Så här hämtar du hälso avsöknings statusen för dina Standard Load Balancer resurser:
-1. Välj status mått för **hälso avsökning** med **genomsnittlig** agg regerings typ. 
-2. Använd ett filter för den begärda IP-adressen eller porten för klient delen (eller båda).
+Hälsoavsökningsstatusmåttet beskriver hälsotillståndet för programdistributionen som konfigurerats av dig när du konfigurerar hälsoavsökningen för din belastningsutjämnare. Belastningsutjämnaren använder hälsoavsökningens status för att avgöra var nya flöden ska skickas. Hälsoavsökningar kommer från en Azure-infrastrukturadress och är synliga i gästoperativsystemet för den virtuella datorn.
 
-Hälso avsökningar fungerar inte på grund av följande orsaker:
-- Du konfigurerar en hälso avsökning på en port som inte lyssnar eller inte svarar eller som använder fel protokoll. Om tjänsten använder regler för direkt Server retur (DSR eller flytande IP) kontrollerar du att tjänsten lyssnar på IP-adressen för NÄTVERKSKORTets IP-konfiguration och inte bara på den loopback som är konfigurerad med klient delens IP-adress.
-- Din avsökning tillåts inte av nätverks säkerhets gruppen, den virtuella datorns gäst operativ system brand vägg eller program skikts filter.
+Så här hämtar du hälsoavsökningsstatus för standardbelastningsutjämningsresurserna:
+1. Välj måttet Status för **hälsoavsökning** med avg-aggregeringstyp. **Avg** 
+2. Använd ett filter på önskad frontend IP-adress eller port (eller båda).
 
-Använd **Average** som agg regering för de flesta scenarier.
+Hälsoavsökningar misslyckas av följande skäl:
+- Du konfigurerar en hälsoavsökning till en port som inte lyssnar eller inte svarar eller använder fel protokoll. Om din tjänst använder DSR-regler (Direct Server return) eller flytande IP kontrollerar du att tjänsten lyssnar på IP-adressen för nätverkskortets IP-konfiguration och inte bara på loopback som konfigureras med klient-TV-adressen.
+- Avsökningen är inte tillåten av nätverkssäkerhetsgruppen, den virtuella datorns gäst-OS-brandvägg eller programlagerfiltren.
 
-#### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Hur gör jag för att kontrollerar du statistiken för utgående anslutning? 
+Använd **Medel** som aggregering för de flesta scenarier.
 
-Måttet SNAT-anslutningar beskriver volymen av lyckade och misslyckade anslutningar för [utgående flöden](https://aka.ms/lboutbound).
+#### <a name="how-do-i-check-my-outbound-connection-statistics"></a>Hur kollar jag min utgående anslutningsstatistik? 
 
-En misslyckad anslutnings volym på större än noll anger antalet SNAT-portar. Du måste undersöka ytterligare för att avgöra vad som kan orsaka dessa problem. SNAT-portens överbelastnings manifest kan inte upprätta ett [utgående flöde](https://aka.ms/lboutbound). Läs artikeln om utgående anslutningar för att förstå scenarier och mekanismer i arbetet, och för att lära dig hur du minimerar och designar för att undvika SNAT-portar. 
+SNAT-anslutningarna beskriver volymen för lyckade och misslyckade anslutningar för [utgående flöden](https://aka.ms/lboutbound).
 
-För att hämta SNAT-anslutnings statistik:
-1. Välj Metric-typ för **SNAT-anslutningar** och **Sum** som agg regering. 
-2. Gruppera efter **anslutnings tillstånd** för lyckade och MISSLYCKAde SNAT-anslutnings räkningar som representeras av olika rader. 
+En misslyckad anslutningsvolym på större än noll indikerar utmattning av SNAT-portar. Du måste undersöka ytterligare för att avgöra vad som kan orsaka dessa fel. SNAT-portutmatt manifesterar som ett misslyckande med att upprätta ett [utgående flöde](https://aka.ms/lboutbound). Läs artikeln om utgående anslutningar för att förstå scenarier och mekanismer på jobbet och lär dig hur du kan minska och utforma för att undvika utmattning av SNAT-portar. 
+
+Så här hämtar du SNAT-anslutningsstatistik:
+1. Välj **SNAT-anslutningsmåtttyp** och **Summa** som aggregering. 
+2. Gruppera efter **anslutningstillstånd** för lyckade och misslyckade SNAT-anslutningsantal som representeras av olika rader. 
 
 ![SNAT-anslutning](./media/load-balancer-standard-diagnostics/LBMetrics-SNATConnection.png)
 
-*Bild: antal Load Balancer SNAT-anslutningar*
+*Bild: Antal SNAT-anslutningar för belastningsutjämnare*
 
 
-#### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Hur gör jag för att kontrol lera inkommande/utgående anslutnings försök för min tjänst?
+#### <a name="how-do-i-check-my-snat-port-usage-and-allocation"></a>Hur kontrollerar jag min SNAT-portanvändning och allokering?
 
-Måttet SYN paket beskriver volymen av TCP-SYN-paket, som har anlänt eller skickats (för [utgående flöden](https://aka.ms/lboutbound)) som är associerade med en speciell klient del. Du kan använda det här måttet för att förstå TCP-anslutnings försök till din tjänst.
+SNAT-användningsmåttet anger hur många unika flöden som upprättas mellan en internetkälla och en serverad virtuell dator eller virtuell datorskalauppsättning som ligger bakom en belastningsutjämnare och inte har en offentlig IP-adress. Genom att jämföra detta med SNAT-allokeringsmåttet kan du avgöra om din tjänst har erfarenhet eller riskerar SNAT-utmattning och resulterande utgående flödesfel. 
 
-Använd **Total** som agg regering för de flesta scenarier.
+Om dina mått indikerar risk för [utgående flödesfel](https://aka.ms/lboutbound) refererar du till artikeln och vidtar åtgärder för att minska detta för att säkerställa tjänstens hälsotillstånd.
 
-![SYN anslutning](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
+Så här visar du SNAT-portanvändning och allokering:
+1. Ställ in tidsaggregeringen för diagrammet till 1 minut för att säkerställa att önskade data visas.
+1. Välj **SNAT-användning** och/eller **SNAT-allokering** som måtttyp och **Medel** som aggregering
+    * Som standard är detta det genomsnittliga antalet SNAT-portar som allokerats till eller används av varje start-VM eller VMSSes, vilket motsvarar alla offentliga sidnummer som mappas till belastningsutjämnaren, aggregerade över TCP och UDP.
+    * Om du vill visa totala SNAT-portar som används av eller allokerats för belastningsutjämnaren använder måttaggregering **Summa**
+1. Filtrera till en viss **protokolltyp**, en uppsättning **serverdels-IP-adresser**och/eller **ip-adresser för klientdel**.
+1. Om du vill övervaka hälsotillstånd per serverdels- eller klientdelsinstans använder du delning. 
+    * Med delning av anteckningar kan endast ett enda mått visas åt gången. 
+1. Om du till exempel vill övervaka SNAT-användning för TCP-flöden per dator, aggregera efter **medelvärde,** dela upp efter **serverdelars IP-adresser** och filtrera efter **protokolltyp**. 
 
-*Bild: Load Balancer SYN antal*
+![SNAT tilldelning och användning](./media/load-balancer-standard-diagnostics/snat-usage-and-allocation.png)
+
+*Figur: Genomsnittlig TCP SNAT-portallokering och -användning för en uppsättning virtuella datorer med bakåtsträvning*
+
+![SNAT-användning efter serverd-instans](./media/load-balancer-standard-diagnostics/snat-usage-split.png)
+
+*Bild: TCP SNAT-portanvändning per serveradinstans*
+
+#### <a name="how-do-i-check-inboundoutbound-connection-attempts-for-my-service"></a>Hur kontrollerar jag inkommande/utgående anslutningsförsök för min tjänst?
+
+Ett SYN-paketmått beskriver volymen av TCP SYN-paket, som har anlänt eller skickats (för [utgående flöden)](https://aka.ms/lboutbound)som är associerade med en specifik klientdel. Du kan använda det här måttet för att förstå TCP-anslutningsförsök till din tjänst.
+
+Använd **Summa** som aggregering för de flesta scenarier.
+
+![SYN-anslutning](./media/load-balancer-standard-diagnostics/LBMetrics-SYNCount.png)
+
+*Figur: Syn-antal belastningsutjämnare*
 
 
-#### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Hur gör jag för att kontrollerar du användningen av nätverks bandbredden? 
+#### <a name="how-do-i-check-my-network-bandwidth-consumption"></a>Hur kontrollerar jag mobilens bandbredd? 
 
-Måttet byte och paket räknare beskriver mängden byte och paket som skickas eller tas emot av din tjänst per klient del.
+Måttet byte och paketräknare beskriver volymen av byte och paket som skickas eller tas emot av din tjänst per front-end-basis.
 
-Använd **Total** som agg regering för de flesta scenarier.
+Använd **Summa** som aggregering för de flesta scenarier.
 
-Så här hämtar du statistik för byte eller antal paket:
-1. Välj Metric-typen antal **byte** och/eller **antal paket** , med **AVG** as aggregation. 
+Så här hämtar du statistik över antal byte eller paket:
+1. Välj måtttypen **Antal byte** och/eller **Antal paket,** med **Genomsnittlig** som aggregering. 
 2. Gör något av följande:
-   * Använd ett filter på en speciell frontend IP-adress, frontend-port, backend-IP eller backend-port.
-   * Hämta allmän statistik för belastnings Utjämnings resursen utan filtrering.
+   * Använd ett filter på en specifik front-end IP-, frontend-port, backend IP- eller backend-port.
+   * Få övergripande statistik för din belastningsutjämnad resurs utan filtrering.
 
 ![Antal byte](./media/load-balancer-standard-diagnostics/LBMetrics-ByteCount.png)
 
-*Bild: antal Load Balancer byte*
+*Bild: Antal belastningsutjämnare byte*
 
-#### <a name = "vipavailabilityandhealthprobes"></a>Hur gör jag för att diagnostisera distribution av belastningsutjämnare?
+#### <a name="how-do-i-diagnose-my-load-balancer-deployment"></a><a name = "vipavailabilityandhealthprobes"></a>Hur diagnostiserar jag min belastningsutjämnad distribution?
 
-Genom att använda en kombination av måtten VIP-tillgänglighet och hälso avsökning i ett enskilt diagram kan du identifiera var du ska leta efter problemet och lösa problemet. Du kan se till att Azure fungerar som den ska och använda den här kunskapen för att avgörande fastställa att konfigurationen eller programmet är rotor saken.
+Genom att använda en kombination av VIP-tillgänglighet och hälsoavsökningsmått på ett enda diagram kan du identifiera var du ska leta efter problemet och lösa problemet. Du kan få en försäkran om att Azure fungerar korrekt och använda den här kunskapen för att slutgiltigt fastställa att konfigurationen eller programmet är grundorsaken.
 
-Du kan använda hälso avsöknings mått för att förstå hur Azure visar hälsan för distributionen enligt den konfiguration som du har angett. Att titta på hälso avsökningar är alltid ett bra första steg vid övervakning eller bestämning av en orsak.
+Du kan använda hälsoavsökningsmått för att förstå hur Azure visar hälsotillståndet för din distribution enligt den konfiguration du har angett. Att titta på hälso-sonder är alltid ett bra första steg i övervakning eller fastställande av en orsak.
 
-Du kan ta steget vidare och använda VIP-tillgänglighet för att få inblick i hur Azure visar hälso tillståndet för det underliggande data planet som ansvarar för din speciella distribution. När du kombinerar båda måtten kan du isolera var felet kan vara, vilket visas i det här exemplet:
+Du kan ta det ett steg längre och använda VIP-tillgänglighetsmått för att få insikt i hur Azure visar hälsotillståndet för det underliggande dataplanet som är ansvarigt för din specifika distribution. När du kombinerar båda mätvärdena kan du isolera var felet kan vara, vilket illustreras i det här exemplet:
 
-![Kombinera status mått för data Sök vägs tillgänglighet och hälso avsökning](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
+![Kombinera datasökvägstillgänglighet och statusmått för hälsoavsökning](./media/load-balancer-standard-diagnostics/lbmetrics-dipnvipavailability-2bnew.png)
 
-*Bild: kombinera status mått för data Sök vägs tillgänglighet och hälso avsökning*
+*Bild: Kombinera datasökvägstillgänglighet och statusmått för hälsoavsökning*
 
 Diagrammet visar följande information:
-- Den infrastruktur som är värd för dina virtuella datorer var inte tillgänglig och 0 procent i början av diagrammet. Senare var infrastrukturen felfritt och de virtuella datorerna var tillgängliga och fler än en VM placerades i Server delen. Den här informationen anges av den blå spårningen för tillgänglighet för data Sök vägar (VIP-tillgänglighet), som var senare vid 100 procent. 
-- Status för hälso avsökning (DIP-tillgänglighet), som anges av den lila spåret, är vid 0 procent i början av diagrammet. Det inringade området i grönt visar var hälso avsökningens status (DIP-tillgänglighet) blev felfri, och vid vilken tidpunkt kundens distribution kunde ta emot nya flöden.
+- Infrastrukturen som är värd för dina virtuella datorer var inte tillgänglig och 0 procent i början av diagrammet. Senare var infrastrukturen felfri och de virtuella datorerna kunde nås och mer än en virtuell dator placerades i den bakre delen. Den här informationen indikeras av den blå spårningen för datasökvägstillgänglighet (VIP-tillgänglighet), som senare var 100 procent. 
+- Hälsoavsökningsstatusen (DIP-tillgänglighet), som indikeras av den lila spårningen, är 0 procent i början av diagrammet. Det inringade området i gröna högdagrar där hälsoavsökningsstatusen (DIP-tillgänglighet) blev felfri och då kunde kundens distribution acceptera nya flöden.
 
-Med hjälp av diagrammet kan kunderna felsöka distributionen på egen hand utan att gissa eller be om andra problem. Tjänsten var inte tillgänglig eftersom hälso avsökningar misslyckades på grund av en felaktig konfiguration eller ett misslyckat program.
+Diagrammet gör det möjligt för kunder att felsöka distributionen på egen hand utan att behöva gissa eller fråga support om andra problem uppstår. Tjänsten var inte tillgänglig eftersom hälsoavsökningar misslyckades på grund av antingen en felkonfiguration eller ett misslyckat program.
 
-## <a name = "ResourceHealth"></a>Resurs hälso status
+## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Hälsostatus för resurser
 
-Hälso status för de Standard Load Balancer resurserna exponeras via den befintliga **resurs hälsan** under **övervaka > service Health**.
+Hälsostatus för standardbelastningsutjämningsresurserna exponeras via den befintliga **resurshälsan** under **Övervaka > Service Health**.
 
-Så här visar du hälso tillståndet för dina offentliga Standard Load Balancer-resurser:
-1. Välj **övervaka** > **service Health**.
+Så här visar du hälsotillståndet för dina offentliga standardbelastningsutjämningsresurser:
+1. Välj **Övervaka** > **tjänstens hälsotillstånd**.
 
-   ![Övervaknings sida](./media/load-balancer-standard-diagnostics/LBHealth1.png)
+   ![Sidan Övervaka](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   *Bild: Service Health länken på Azure Monitor*
+   *Bild: Länken Tjänsthälsa på Azure Monitor*
 
-2. Välj **Resource Health**och kontrol lera att **prenumerations-ID** och **resurs typ = Load Balancer** har marker ATS.
+2. Välj **Resurshälsa**och kontrollera sedan att **prenumerations-ID** och **resurstyp = belastningsutjämnaren** är markerade.
 
-   ![Resurs hälso status](./media/load-balancer-standard-diagnostics/LBHealth3.png)
+   ![Hälsostatus för resurser](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   *Bild: Välj resurs för hälso tillstånds visning*
+   *Bild: Välj resurs för hälsovy*
 
-3. I listan väljer du Load Balancer resursen för att visa dess historiska hälso status.
+3. Välj resursen Belastningsutjämnare i listan för att visa dess historiska hälsostatus.
 
-    ![Load Balancer hälso status](./media/load-balancer-standard-diagnostics/LBHealth4.png)
+    ![Hälsostatus för belastningsutjämnaren](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   *Bild: Load Balancer vyn resurs hälsa*
+   *Bild: Hälsovy över resurshanteraren för belastningsutjämning*
  
-De olika resurs hälso status och deras beskrivningar visas i följande tabell: 
+De olika resurshälsostatusarna och beskrivningarna av dessa visas i följande tabell: 
 
-| Resurs hälso status | Beskrivning |
+| Hälsostatus för resurser | Beskrivning |
 | --- | --- |
-| Tillgänglig | Standard belastnings Utjämnings resursen är felfri och tillgänglig. |
-| Inte tillgänglig | Standard belastnings Utjämnings resursen är inte felfri. Diagnostisera hälsan genom att välja **Azure Monitor** > **mått**.<br>(Statusen*otillgänglig* kan även betyda att resursen inte är ansluten till standard belastnings utjämningen.) |
-| Okänt | Resursens hälso status för din standard belastnings Utjämnings resurs har ännu inte uppdaterats.<br>(*Okänd* status kan också betyda att resursen inte är ansluten till din standard belastningsutjämnare.)  |
+| Tillgängligt | Standardbelastningsutjämnarens resurs är felfri och tillgänglig. |
+| Inte tillgänglig | Standardbelastningsutjämnarens resurs är inte felfri. Diagnostisera hälsotillståndet genom att välja **Azure Monitor** > **Metrics**.<br>(Status*som inte är tillgänglig* kan också innebära att resursen inte är ansluten till standardbelastningsutjämnaren.) |
+| Okänt | Resurshälsostatus för standardbelastningsutjämningsresursen har inte uppdaterats ännu.<br>*(Okänd* status kan också innebära att resursen inte är ansluten till standardbelastningsutjämnaren.)  |
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information finns i [Standard Load Balancer](load-balancer-standard-overview.md).
-- Läs mer om den [utgående anslutningen till belastningsutjämnaren](https://aka.ms/lboutbound).
+- Läs mer om utgående anslutning med [lastjämbalanserare](https://aka.ms/lboutbound).
 - Läs mer om [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
-- Lär dig mer om [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) och [hur du hämtar mått via REST API](/rest/api/monitor/metrics/list).
+- Lär dig mer om [AZURE Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) och hur du hämtar mått via REST [API](/rest/api/monitor/metrics/list).

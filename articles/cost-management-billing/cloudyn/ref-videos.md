@@ -1,24 +1,26 @@
 ---
-title: Utbildningsvideor för Cloudyn i Azure | Microsoft Docs
+title: Utbildningsvideor för Cloudyn i Azure
 description: Med utbildningsvideorna för Cloudyn lär du dig hur du kommer igång och använder dess funktioner.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 3344dfb1518eeb495b019138c72d566ce4064017
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9acad813914614fd2cdaad4fd348e9e19225c67e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201109"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463772"
 ---
 # <a name="cloudyn-walk-through-training-videos"></a>Utbildningsvideor med genomgång av Cloudyn
 
 Följande videor innehåller demonstrationer som visar hur du kommer igång med Cloudyn och använder dess funktioner. Cloudyn stöder kostnadsuppföljning och optimering i flera moln, t.ex. Microsoft Azure, Amazon Web Services och Google Cloud Platform.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="overview-video"></a>Översiktsvideo
 

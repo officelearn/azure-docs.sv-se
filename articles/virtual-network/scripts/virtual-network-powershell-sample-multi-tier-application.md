@@ -1,5 +1,5 @@
 ---
-title: Skapa ett VNet för program med flera nivåer – Azure PowerShell skript exempel
+title: Skapa ett VNet för program på flera nivåer – exempel på Azure PowerShell-skript
 description: Azure PowerShell-skriptexempel – Skapa ett virtuellt nätverk för flernivåprogram.
 services: virtual-network
 documentationcenter: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
 ms.openlocfilehash: 32140429d96d73100c4bd5a2ae274e508a15b7a8
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74091310"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Skapa ett nätverk för flernivåprogram – skriptexempel
@@ -35,7 +35,7 @@ Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/powershe
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 <!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 -->
-Ett Undernäts-ID tilldelas efter att du har skapat ett virtuellt nätverk. Mer specifikt, med hjälp av cmdleten New-AzVirtualNetwork med alternativet-Subnet. Om du konfigurerar undernätet med hjälp av cmdleten New-AzVirtualNetworkSubnetConfig före anropet till New-AzVirtualNetwork ser du inte undernäts-ID förrän du har anropat New-AzVirtualNetwork.
+ Ett undernäts-ID tilldelas när du har skapat ett virtuellt nätverk, mer specifikt med hjälp av cmdleten New-AzVirtualNetwork med alternativet -Subnet (Undernät). Om du konfigurerar undernätet med hjälp av cmdleten New-AzVirtualNetworkSubnetConfig före anropet till New-AzVirtualNetwork ser du inte undernäts-ID förrän du har anropat New-AzVirtualNetwork.
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
@@ -49,7 +49,7 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i tabellen länkar till kommandospecifik dokumentation:
+I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
 
 | Kommando | Anteckningar |
 |---|---|

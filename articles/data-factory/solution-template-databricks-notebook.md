@@ -1,6 +1,6 @@
 ---
 title: Omvandling med Azure Databricks
-description: Lär dig hur du använder en lösnings mall för att transformera data med hjälp av en Databricks Notebook i Azure Data Factory.
+description: Lär dig hur du använder en lösningsmall för att omvandla data med hjälp av en Databricks-anteckningsbok i Azure Data Factory.
 services: data-factory
 ms.author: abnarain
 author: nabhishek
@@ -11,45 +11,51 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: e771bc152ab50f907a8f2ad384e887c00d3f627a
-ms.sourcegitcommit: e6bce4b30486cb19a6b415e8b8442dd688ad4f92
+ms.openlocfilehash: 9a05b09f958d741fa56c586fbc7f5c5908dbbce6
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78933941"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384389"
 ---
 # <a name="transformation-with-azure-databricks"></a>Omvandling med Azure Databricks
 
-I den här självstudien skapar du en pipeline från slut punkt till slut punkt som innehåller **verifierings**-, **kopierings**-och **Notebook** -aktiviteter i Data Factory.
+I den här självstudien skapar du en end-to-end-pipeline som innehåller **aktiviteterna Verifiering,** **Kopiera data**och **Anteckningsbok** i Azure Data Factory.
 
--   **Validerings** aktivitet används för att se till att käll data uppsättningen är klar för efterföljande konsumtion innan du utlöser kopierings-och analys jobbet.
+- **Valideringen** säkerställer att källdatauppsättningen är klar för nedströmsförbrukning innan du utlöser kopierings- och analysjobbet.
 
--   **Kopierings** aktiviteten kopierar käll filen/data uppsättningen till mottagar lagringen. Mottagar lagringen monteras som DBFS i antecknings boken för Databricks så att data uppsättningen kan konsumeras direkt av Spark.
+- **Kopiera data** duplicerar källdatauppsättningen till diskhonlagringen, som är monterad som DBFS i azure databricks-anteckningsboken. På så sätt kan datauppsättningen direkt förbrukas av Spark.
 
--   **Databricks Notebook** -aktivitet utlöser Databricks Notebook som transformerar data uppsättningen och lägger till den i en bearbetad mapp/SQL DW.
+- **Anteckningsboken** utlöser den bärbara datorn Databricks som omvandlar datauppsättningen. Den lägger också till datauppsättningen i en bearbetad mapp eller Azure SQL Data Warehouse.
 
-För att den här mallen ska vara enkel, skapar mallen ingen schemalagd utlösare. Du kan lägga till det om det behövs.
+För enkelhetens skull skapar mallen i den här självstudien ingen schemalagd utlösare. Du kan lägga till en om det behövs.
 
-![1](media/solution-template-Databricks-notebook/pipeline-example.png)
+![Diagram över rörledningen](media/solution-template-Databricks-notebook/pipeline-example.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-1. Skapa ett **Blob Storage-konto** och en behållare med namnet `sinkdata` som ska användas som **mottagare**. Anteckna **lagrings kontots namn**, **behållar namn**och **åtkomst nyckel**, eftersom de refereras senare i mallen.
+- Ett Azure Blob-lagringskonto `sinkdata` med en behållare som kallas för användning som en mottagare.
 
-2. Se till att du har en **Azure Databricks arbets yta** eller skapa en ny.
+  Anteckna lagringskontonamnet, behållarnamnet och åtkomstnyckeln. Du behöver dessa värden senare i mallen.
 
-3. **Importera den bärbara datorn för omvandling**. 
-    1. I Azure Databricks kan du referera till följande skärm dum par för att importera en **Transformation** -anteckningsbok till arbets ytan Databricks. Den behöver inte finnas på samma plats som nedan, men kom ihåg sökvägen du väljer för senare.
-   
-       ![2](media/solution-template-Databricks-notebook/import-notebook.png)    
-    
-    1. Välj "Importera från: **URL**" och ange följande URL i text rutan:
-    
-       * `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`
-        
-       ![3](media/solution-template-Databricks-notebook/import-from-url.png)    
+- En Azure Databricks-arbetsyta.
 
-4. Nu ska vi uppdatera **omvandlings** antecknings boken med information om lagrings anslutningen. Gå till **kommando 5** (som visas i nedanstående kodfragment) i den importerade antecknings boken ovan och ersätt `<storage name>`och `<access key>` med din egen lagrings anslutnings information. Se till att det här kontot är samma lagrings konto som skapades tidigare och att det innehåller `sinkdata` containern.
+## <a name="import-a-notebook-for-transformation"></a>Importera en anteckningsbok för omvandling
+
+Så här **Transformation** importerar du en transformationsanteckningsbok till databricksarbetsytan:
+
+1. Logga in på din Azure Databricks-arbetsyta och välj sedan **Importera**.
+       ![Menykommando för import](media/solution-template-Databricks-notebook/import-notebook.png) av en arbetsyta Arbetsytans sökväg kan skilja sig från den som visas, men kom ihåg den senare.
+1. Välj **Importera från: URL**. Skriv i `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`textrutan .
+
+   ![Val för import av en anteckningsbok](media/solution-template-Databricks-notebook/import-from-url.png)
+
+1. Nu ska vi uppdatera anteckningsboken **Transformation** med din lagringsanslutningsinformation.
+
+   Gå till **kommando 5** i den importerade anteckningsboken enligt följande kodavsnitt.
+
+   - Ersätt `<storage name>` `<access key>` och med din egen lagringsanslutningsinformation.
+   - Använd lagringskontot `sinkdata` med behållaren.
 
     ```python
     # Supply storageName and accessKey values  
@@ -73,95 +79,104 @@ För att den här mallen ska vara enkel, skapar mallen ingen schemalagd utlösar
       print e \# Otherwise print the whole stack trace.  
     ```
 
-5.  Generera en **Databricks** -åtkomsttoken för Data Factory att få åtkomst till Databricks. **Spara åtkomsttoken** för senare användning i skapa en länkad Databricks-tjänst, som ser ut ungefär som "dapi32db32cbb4w6eee18b7d87e45exxxxxx".
+1. Generera en **Databricks-åtkomsttoken** för Data Factory för att komma åt Databricks.
+   1. I din Databricks-arbetsyta väljer du din användarprofilikon längst upp till höger.
+   1. Välj **Användarinställningar**.
+    ![Menykommando för användarinställningar](media/solution-template-Databricks-notebook/user-setting.png)
+   1. Välj **Generera ny token** under fliken **Åtkomsttoken.**
+   1. Välj **Generera**.
 
-    ![4](media/solution-template-Databricks-notebook/user-setting.png)
+    ![Knappen "Generera"](media/solution-template-Databricks-notebook/generate-new-token.png)
 
-    ![5](media/solution-template-Databricks-notebook/generate-new-token.png)
+   *Spara åtkomsttoken* för senare användning för att skapa en Databricks-länkad tjänst. Åtkomsttoken ser `dapi32db32cbb4w6eee18b7d87e45exxxxxx`ut ungefär som .
 
-## <a name="how-to-use-this-template"></a>Använda den här mallen
+## <a name="how-to-use-this-template"></a>Så här använder du den här mallen
 
-1.  Gå till **transformering med Azure Databricks** mall. Skapa nya länkade tjänster för följande anslutningar. 
-    
-    ![Inställningar för anslutningar](media/solution-template-Databricks-notebook/connections-preview.png)
+1. Gå till mallen **Transformation with Azure Databricks** och skapa nya länkade tjänster för följande anslutningar.
 
-    1.  **Källans BLOB-anslutning** – för åtkomst till käll data. 
-        
-        Du kan använda det offentliga blob-lagring som innehåller källfilerna för det här exemplet. Referens följande skärm bild för konfiguration. Använd **SAS-URL** nedan för att ansluta till käll lagring (skrivskyddad åtkomst): 
-        * `https://storagewithdata.blob.core.windows.net/data?sv=2018-03-28&si=read%20and%20list&sr=c&sig=PuyyS6%2FKdB2JxcZN0kPlmHSBlD8uIKyzhBWmWzznkBw%3D`
+   ![Inställning av anslutningar](media/solution-template-Databricks-notebook/connections-preview.png)
 
-        ![6](media/solution-template-Databricks-notebook/source-blob-connection.png)
+    - **Källa Blob-anslutning** - för att komma åt källdata.
 
-    1.  **Mål-BLOB-anslutning** – för att kopiera data till. 
-        
-        I den länkade mottagar tjänsten väljer du en lagrings enhet som skapats i **förutsättning** 1.
+       I den här övningen kan du använda den offentliga blob-lagring som innehåller källfilerna. Referera till följande skärmbild för konfigurationen. Använd följande **SAS-URL** för att ansluta till källlagring (skrivskyddad åtkomst):
 
-        ![7](media/solution-template-Databricks-notebook/destination-blob-connection.png)
+       `https://storagewithdata.blob.core.windows.net/data?sv=2018-03-28&si=read%20and%20list&sr=c&sig=PuyyS6%2FKdB2JxcZN0kPlmHSBlD8uIKyzhBWmWzznkBw%3D`
 
-    1.  **Azure Databricks** – för att ansluta till Databricks-kluster.
+        ![Val för autentiseringsmetod och SAS-URL](media/solution-template-Databricks-notebook/source-blob-connection.png)
 
-        Skapa en länkad Databricks-tjänst med hjälp av åtkomst nyckeln som genererades i **förutsättningen** 2. c. Om du har ett *interaktivt kluster*kan du välja det. (I det här exemplet används det *nya jobb kluster* alternativet.)
+    - **Målblobanslutning** - om du vill lagra kopierade data.
 
-        ![8](media/solution-template-Databricks-notebook/databricks-connection.png)
+       I fönstret **Nytt länkat tjänst** väljer du din sink storage-blob.
 
-1. Välj **Använd den här mallen**så ser du en pipeline som skapats på det sätt som visas nedan:
-    
-    ![Skapa en pipeline](media/solution-template-Databricks-notebook/new-pipeline.png)   
+       ![Sink storage blob som en ny länkad tjänst](media/solution-template-Databricks-notebook/destination-blob-connection.png)
+
+    - **Azure Databricks** - för att ansluta till Databricks-klustret.
+
+        Skapa en Databricks-länkad tjänst med hjälp av åtkomstnyckeln som du genererade tidigare. Du kan välja att välja ett *interaktivt kluster* om du har ett. I det här exemplet används alternativet **Nytt jobbkluster.**
+
+        ![Val för anslutning till klustret](media/solution-template-Databricks-notebook/databricks-connection.png)
+
+1. Välj **Använd den här mallen**. Du ser en pipeline skapad.
+
+    ![Skapa en pipeline](media/solution-template-Databricks-notebook/new-pipeline.png)
 
 ## <a name="pipeline-introduction-and-configuration"></a>Introduktion och konfiguration av pipeline
 
-I den nya pipelinen som skapas har de flesta inställningar kon figurer ATS automatiskt med standardvärdena. Kolla in konfigurationerna och uppdateringen där det behövs för att passa dina egna inställningar. Mer information finns under instruktioner och skärm dum par för referens.
+I den nya pipelinen konfigureras de flesta inställningar automatiskt med standardvärden. Granska konfigurationerna för pipelinen och gör nödvändiga ändringar.
 
-1.  En flagga för validering av aktivitets **tillgänglighet** skapas för att göra en käll tillgänglighets kontroll. *SourceAvailabilityDataset* som skapades i föregående steg har valts som data uppsättning.
+1. Kontrollera att **källdatauppsättningsvärdet** är inställt på det som `SourceAvailabilityDataset` du skapade tidigare i flaggan Tillgänglighet för **valideringsaktivitet.** **Availability flag**
 
-    ![12](media/solution-template-Databricks-notebook/validation-settings.png)
+   ![Värde för källdatauppsättning](media/solution-template-Databricks-notebook/validation-settings.png)
 
-1.  En kopierings aktivitet **fil till BLOB** skapas för kopiering av data uppsättningar från källa till mottagare. Referera till skärm dum par för konfigurationer av källa och mottagare i kopierings aktiviteten.
+1. Kontrollera flikarna Källa och **Sink** i **fil-till-blob-loben** **Kopiera** **dataaktivitet.** Ändra inställningar om det behövs.
 
-    ![13](media/solution-template-Databricks-notebook/copy-source-settings.png)
+   - **Source** Fliken ![Källa Källa](media/solution-template-Databricks-notebook/copy-source-settings.png)
 
-    ![14](media/solution-template-Databricks-notebook/copy-sink-settings.png)
+   - Fliken ![Sink för **handfat** för handfat](media/solution-template-Databricks-notebook/copy-sink-settings.png)
 
-1.  En **transformering** av en Notebook-aktivitet skapas och den länkade tjänsten som skapades i föregående steg väljs.
-    ![16](media/solution-template-Databricks-notebook/notebook-activity.png)
+1. Granska och uppdatera sökvägar och inställningar efter behov i **aktivitetsomvandlingen**för **anteckningsbok.**
 
-     1. Välj fliken **Inställningar** . För *Notebook-sökväg*definierar mallen en sökväg som standard. Du kan behöva bläddra och välja rätt Notebook-sökväg som laddats upp i **krav** 2. 
+   **Databricks länkad tjänst** ska fyllas i i förfyllnad ![med värdet från ett tidigare steg, som visad: Fyll i värde för den länkade databricks-tjänsten](media/solution-template-Databricks-notebook/notebook-activity.png)
 
-         ![17](media/solution-template-Databricks-notebook/notebook-settings.png)
-    
-     1. Kolla in de *grundläggande parametrarna* som skapats som det visas i skärm bilden. De skickas till den Databricks Notebook från Data Factory. 
+   Så här kontrollerar du inställningarna **för anteckningsboken:**
+  
+    1. Välj fliken **Inställningar.** Kontrollera att standardsökvägen är korrekt för **sökväg för anteckningsbok.** Du kan behöva bläddra och välja rätt sökväg till anteckningsboken.
 
-         ![Bas parametrar](media/solution-template-Databricks-notebook/base-parameters.png)
+       ![Sökväg till anteckningsbok](media/solution-template-Databricks-notebook/notebook-settings.png)
 
-1.  **Pipeline-parametrar** definieras enligt nedan.
+    1. Expandera **väljaren Basparametrar** och kontrollera att parametrarna matchar det som visas i följande skärmbild. Dessa parametrar skickas till databricks-anteckningsboken från Data Factory.
 
-    ![15](media/solution-template-Databricks-notebook/pipeline-parameters.png)
+       ![Basparametrar](media/solution-template-Databricks-notebook/base-parameters.png)
 
-1. Konfigurerar data uppsättningar.
-    1.  **SourceAvailabilityDataset** skapas för att kontrol lera om käll data är tillgängliga.
+1. Kontrollera att **pipelineparametrarna** matchar vad ![som visas i följande skärmbild: Pipelineparametrar](media/solution-template-Databricks-notebook/pipeline-parameters.png)
 
-        ![9](media/solution-template-Databricks-notebook/source-availability-dataset.png)
+1. Anslut till dina datauppsättningar.
 
-    1.  **SourceFilesDataset** – för att kopiera källdata.
+   - **SourceAvailabilityDataset** - för att kontrollera att källdata är tillgängliga.
 
-        ![10](media/solution-template-Databricks-notebook/source-file-dataset.png)
+     ![Val för länkad tjänst och filsökväg för SourceAvailabilityDataset](media/solution-template-Databricks-notebook/source-availability-dataset.png)
 
-    1.  **DestinationFilesDataset** – för kopiering till Sink-/destinations platsen.
+   - **SourceFilesDataset** - för att komma åt källdata.
 
-        1.  Länkad tjänst – *sinkBlob_LS* skapades i föregående steg.
+       ![Val för länkad tjänst och filsökväg för SourceFilesDataset](media/solution-template-Databricks-notebook/source-file-dataset.png)
 
-        2.  Fil Sök väg – *sinkdata/staged_sink*.
+   - **DestinationFilesDataset** - för att kopiera data till sink-målplatsen. Ange följande värden:
 
-            ![11](media/solution-template-Databricks-notebook/destination-dataset.png)
+     - **Länkad tjänst** - `sinkBlob_LS`, skapad i ett tidigare steg.
 
+     - **Sökväg till fil** - `sinkdata/staged_sink`.
 
-1.  Välj **Felsök** för att köra pipelinen. Du kan hitta en länk till Databricks-loggar för mer detaljerade Spark-loggar.
+       ![Val för länkad tjänst och filsökväg för DestinationFilesDataset](media/solution-template-Databricks-notebook/destination-dataset.png)
 
-    ![18](media/solution-template-Databricks-notebook/pipeline-run-output.png)
+1. Välj **Felsöka** om du vill köra pipelinen. Du hittar länken till Databricks loggar för mer detaljerade Spark loggar.
 
-    Du kan också kontrol lera data filen med Storage Explorer. (För att korrelera med Data Factory pipelines körs lägger det här exemplet till pipeline-körningen från Data Factory till mappen utdata. På så sätt kan du spåra filerna som genereras via varje körning.)
+    ![Länk till Databricks loggar från utdata](media/solution-template-Databricks-notebook/pipeline-run-output.png)
 
-    ![19](media/solution-template-Databricks-notebook/verify-data-files.png)
+    Du kan också verifiera datafilen med hjälp av Azure Storage Explorer.
+
+    > [!NOTE]
+    > För korrelerar med Data Factory pipeline körs, lägger det här exemplet pipeline kör ID från datafabriken till utdatamappen. Detta hjälper till att hålla reda på filer som genereras av varje körning.
+    > ![Bifogat pipeline-kör-ID](media/solution-template-Databricks-notebook/verify-data-files.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

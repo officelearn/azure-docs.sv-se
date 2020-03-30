@@ -1,6 +1,6 @@
 ---
-title: CLI-skript – Hämta långsamma Query-loggar – Azure Database for MariaDB
-description: Det här exemplet på Azure CLI-skriptet visar hur du aktiverar och laddar ned långsamma frågemeddelanden för en Azure Database for MariaDB-Server.
+title: CLI-skript - Hämta långsamma frågeloggar - Azure Database för MariaDB
+description: Det här exemplet på Azure CLI-skriptet visar hur du aktiverar och hämtar långsamma frågeloggar för en Azure-databas för MariaDB-server.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -9,10 +9,10 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 12/02/2019
 ms.openlocfilehash: a6d4ed70418f39b24a68362d5006f3f374693cb6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74777369"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Aktivera och ladda ned serverns långsamma frågeloggar för en Azure Database for MariaDB-server med hjälp av Azure CLI
@@ -33,7 +33,7 @@ När skriptet har körts kan följande kommando användas för att ta bort resur
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder de kommandon som beskrivs i följande tabell:
 
-| **Kommando** | **Anteckningar** |
+| **Kommandot** | **Obs!** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | Skapar en MariaDB-server som är värd för databaserna. |

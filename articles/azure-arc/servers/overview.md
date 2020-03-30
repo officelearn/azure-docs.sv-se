@@ -1,55 +1,55 @@
 ---
-title: Översikt över Azure Arc for Servers (för hands version)
-description: Lär dig hur du använder Azure Arc för servrar för att hantera datorer som ligger utanför Azure, som om det är en Azure-resurs.
+title: Översikt över Azure Arc för servrar (förhandsversion)
+description: Lär dig hur du använder Azure Arc för servrar för att hantera datorer som finns utanför Azure som om det är en Azure-resurs.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
-ms.date: 02/24/2020
+keywords: azure automation, DSC, powershell, önskad tillståndskonfiguration, uppdateringshantering, ändringsspårning, lager, runbooks, python, grafisk, hybrid
+ms.date: 03/24/2020
 ms.topic: overview
-ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 85a6f8dcb9f551d81a607adc9ae482f4025d804f
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79241376"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80366351"
 ---
-# <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure-båge för servrar (förhands granskning)
+# <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure Arc för servrar (förhandsversion)
 
-Med Azure Arc för servrar (för hands version) kan du hantera dina Windows-och Linux-datorer utanför Azure på företagets nätverk eller annan moln leverantör, på samma sätt som du hanterar virtuella datorer i Azure. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar.
+Med Azure Arc för servrar (förhandsversion) kan du hantera dina Windows- och Linux-datorer som finns utanför Azure i ditt företagsnätverk eller annan molnleverantör, på samma sätt som du hanterar inbyggda virtuella Azure-datorer. När en hybriddator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resursgrupp i en prenumeration och drar nytta av vanliga Azure-konstruktioner som Azure-princip och tillämpa taggar.
 
-För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Azure måste den Azure-anslutna dator agenten installeras på varje dator som du planerar att ansluta till Azure. Den här agenten levererar inga andra funktioner och ersätter inte Azure [Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
+För att kunna leverera den här upplevelsen med dina hybriddatorer som finns utanför Azure måste Azure Connected Machine-agenten installeras på varje dator som du planerar att ansluta till Azure. Den här agenten levererar inga andra funktioner och ersätter inte Azure [Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics-agenten för Windows och Linux krävs när du proaktivt vill övervaka operativsystemet och arbetsbelastningar som körs på datorn, hantera det med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
 
 >[!NOTE]
->Den här för hands versionen är avsedd i utvärderings syfte och vi rekommenderar att du inte hanterar kritiska produktions datorer.
+>Den här förhandsversionen är avsedd för utvärderingsändamål och vi rekommenderar att du inte hanterar kritiska produktionsdatorer.
 >
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-Azure-båge för servrar (för hands version) stöder följande scenarier med anslutna datorer:
+Azure Arc för servrar (förhandsversion) stöder följande scenarier med anslutna datorer:
 
-- Tilldela [Azure policy gäst konfigurationer](../../governance/policy/concepts/guest-configuration.md) med samma erfarenhet som princip tilldelning för virtuella Azure-datorer.
-- Loggdata som samlas in av Log Analytics-agenten och lagras på arbets ytan Log Analytics. datorn är registrerad med nu innehåller egenskaper som är speciella för datorn, t. ex. resurs-ID, som kan användas för att ge stöd åt [resurs kontexts](../../azure-monitor/platform/design-logs-deployment.md#access-mode) loggar.
+- Tilldela [Azure Policy-gästkonfigurationer](../../governance/policy/concepts/guest-configuration.md) med samma upplevelse som principtilldelning för virtuella Azure-datorer.
+- Loggdata som samlas in av Log Analytics-agenten och lagras på log Analytics-arbetsytan som datorn är registrerad med innehåller nu egenskaper som är specifika för datorn, till exempel Resurs-ID, som kan användas för att stödja [resurskontextloggåtkomst.](../../azure-monitor/platform/design-logs-deployment.md#access-mode)
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Med Azure Arc for Servers (för hands version) stöds endast vissa regioner:
+Med Azure Arc för servrar (förhandsversion) stöds bara vissa regioner:
 
-- WestUS2
+- WestUS2 (På andra sätt)
 - Västeuropa
-- WestAsia
+- WestAsia (på ett år)
 
-I de flesta fall ska den plats som du väljer när du skapar installations skriptet vara den Azure-region som är geografiskt närmast din dators plats. Data i vila lagras i den region i Azure som innehåller den region som du anger, vilket även kan påverka ditt val av region om du har data placering krav. Om den Azure-region som datorn är ansluten till påverkas av ett avbrott påverkas inte den anslutna datorn, men hanterings åtgärder som använder Azure kan inte slutföras. För återhämtning i händelse av ett regionalt avbrott, om du har flera platser som tillhandahåller en geografiskt redundant tjänst, är det bäst att ansluta datorerna på varje plats till en annan Azure-region.
+I de flesta fall bör den plats du väljer när du skapar installationsskriptet vara den Azure-region som ligger geografiskt närmast datorns plats. Data i vila lagras inom Azure-geografin som innehåller den region du anger, vilket också kan påverka ditt val av region om du har krav på dataplacering. Om Azure-regionen som datorn är ansluten till påverkas av ett avbrott påverkas inte den anslutna datorn, men hanteringsåtgärder som använder Azure kanske inte kan slutföras. För återhämtning i händelse av ett regionalt avbrott, om du har flera platser som tillhandahåller en geografiskt redundant tjänst, är det bäst att ansluta datorerna på varje plats till en annan Azure-region.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-Följande versioner av operativ systemet Windows och Linux stöds officiellt för den Azure-anslutna dator agenten: 
+Följande versioner av Operativsystemet Windows och Linux stöds officiellt för Azure Connected Machine-agenten: 
 
-- Windows Server 2012 R2 och högre (inklusive Windows Server Core)
+- Windows Server 2012 R2 och senare (inklusive Windows Server Core)
 - Ubuntu 16,04 och 18,04
 - CentOS Linux 7
 - SUSE Linux Enterprise Server (SLES) 15
@@ -57,40 +57,40 @@ Följande versioner av operativ systemet Windows och Linux stöds officiellt fö
 - Amazon Linux 7
 
 >[!NOTE]
->Den här för hands versionen av den anslutna dator agenten för Windows stöder endast Windows Server som kon figurer ATS för att använda det engelska språket.
+>Den här förhandsversionen av Agenten ansluten dator för Windows stöder endast Windows Server som konfigurerats för att använda det engelska språket.
 >
 
 ### <a name="required-permissions"></a>Nödvändiga behörigheter
 
-- För att publicera datorer är du medlem i rollen **Azure Connected Machine onboarding** .
+- Till inbyggda datorer är du medlem i azure **connected machine onboarding-rollen.**
 
-- Om du vill läsa, ändra, återställa och ta bort en dator är du medlem i rollen **resurs administratör för Azure Connected Machine** . 
+- Om du vill läsa, ändra, gå in på den igen och ta bort en dator är du medlem i azure **connected machine resource administrator-rollen.** 
 
-### <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
+### <a name="azure-subscription-and-service-limits"></a>Azure-prenumerations- och tjänstgränser
 
-Innan du konfigurerar dina datorer med Azure Arc for Servers (för hands version) bör du granska gränsen för Azure Resource Manager [prenumerations gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) och [resurs gruppen](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) för att planera för antalet datorer som ska anslutas.
+Innan du konfigurerar dina datorer med Azure Arc för servrar (förhandsversion) bör du granska [prenumerationsgränserna](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) för Azure Resource Manager och [resursgruppsgränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) för att planera för antalet datorer som ska anslutas.
 
-## <a name="tls-12-protocol"></a>TLS 1.2-protokollet
+## <a name="tls-12-protocol"></a>TLS 1.2-protokoll
 
-För att säkerställa säkerheten för data som överförs till Azure rekommenderar vi starkt att du konfigurerar datorn att använda Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**. 
+För att säkerställa säkerheten för data under överföring till Azure rekommenderar vi starkt att du konfigurerar datorn för att använda Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har visat sig vara sårbara och medan de fortfarande arbetar för att tillåta bakåtkompatibilitet rekommenderas de **inte**. 
 
 |Plattform/språk | Support | Mer information |
 | --- | --- | --- |
-|Linux | Linux-distributioner tenderar att förlita sig på [openssl](https://www.openssl.org) för TLS 1,2-stöd. | Kontrol lera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
-| Windows Server 2012 R2 och senare | Stöds och aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
+|Linux | Linux-distributioner tenderar att förlita sig på [OpenSSL](https://www.openssl.org) för TLS 1.2-stöd. | Kontrollera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
+| Windows Server 2012 R2 och senare | Stöds och aktiveras som standard. | Så här bekräftar du att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).|
 
-### <a name="networking-configuration"></a>Nätverks konfiguration
+### <a name="networking-configuration"></a>Konfiguration av nätverk
 
-Den anslutna dator agenten för Linux och Windows kommunicerar på ett säkert sätt till Azure-bågen via TCP-port 443. Om datorn ansluter via en brand vägg eller proxyserver för att kommunicera via Internet kan du läsa igenom kraven nedan för att förstå kraven på nätverks konfigurationen.
+Connected Machine-agenten för Linux och Windows kommunicerar utgående säkert till Azure Arc via TCP-port 443. Om datorn ansluter via en brandvägg eller proxyserver för att kommunicera via Internet granskar du kraven nedan för att förstå kraven i nätverkskonfigurationen.
 
-Om den utgående anslutningen begränsas av din brand vägg eller proxyserver kontrollerar du att URL: erna i listan nedan inte är blockerade. Om du bara tillåter de IP-adressintervall eller domän namn som krävs för att agenten ska kunna kommunicera med tjänsten, måste du också tillåta åtkomst till följande service märken och URL: er.
+Om utgående anslutning begränsas av brandväggen eller proxyservern kontrollerar du att webbadresserna som anges nedan inte är blockerade. Om du bara tillåter de IP-intervall eller domännamn som krävs för att agenten ska kunna kommunicera med tjänsten, måste du också tillåta åtkomst till följande tjänsttaggar och webbadresser.
 
-Service märken:
+Tjänsttaggar:
 
 - AzureActiveDirectory
 - AzureTrafficManager
 
-Er
+Webbadresser:
 
 | Agentresurs | Beskrivning |
 |---------|---------|
@@ -99,20 +99,20 @@ Er
 |dc.services.visualstudio.com|Application Insights|
 |agentserviceapi.azure-automation.net|Gästkonfiguration|
 |*-agentservice-prod-1.azure-automation.net|Gästkonfiguration|
-|*. his.hybridcompute.azure-automation.net|Hybrid identitets tjänst|
+|*.his.hybridcompute.azure-automation.net|Hybrid identitetstjänst|
 
-En lista över IP-adresser för varje service tag/region finns i JSON-filen – [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publicerar veckovis uppdateringar som innehåller varje Azure-tjänst och de IP-intervall som används. Mer information finns i [service tag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+En lista över IP-adresser för varje tjänsttag/region finns i JSON-filen – [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publicerar veckouppdateringar som innehåller varje Azure-tjänst och de IP-intervall som används. Mer information finns i [Service-taggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-URL: erna i föregående tabell krävs utöver informationen om tjänst Tagns IP-adressintervall eftersom majoriteten av tjänsterna för närvarande inte har en registrering av service tag. Därför kan IP-adresserna ändras. Om det krävs IP-adressintervall för brand Väggs konfigurationen ska **AzureCloud** -tjänst tag gen användas för att ge åtkomst till alla Azure-tjänster. Inaktivera inte säkerhetsövervakning eller granskning av dessa URL: er, Tillåt dem som andra Internet trafik.
+Webbadresserna i den föregående tabellen krävs utöver ip-adressintervallinformationen för Service Tag, eftersom de flesta tjänster för närvarande inte har någon Service Tag-registrering. Ip-adresserna kan därför komma att ändras. Om IP-adressintervall krävs för brandväggskonfigurationen bör **AzureCloud-servicetag** användas för att tillåta åtkomst till alla Azure-tjänster. Inaktivera inte säkerhetsövervakning eller inspektion av dessa webbadresser, tillåt dem på samma sätt som annan Internettrafik.
 
-### <a name="register-azure-resource-providers"></a>Registrera Azure-resurs leverantörer
+### <a name="register-azure-resource-providers"></a>Registrera Azure-resursleverantörer
 
-Azure båg for-servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
+Azure Arc för servrar (förhandsversion) beror på följande Azure-resursleverantörer i din prenumeration för att kunna använda den här tjänsten:
 
-- **Microsoft. HybridCompute**
-- **Microsoft. GuestConfiguration**
+- **Microsoft.HybridCompute**
+- **Microsoft.GuestConfiguration**
 
-Om de inte är registrerade kan du registrera dem med hjälp av följande kommandon:
+Om de inte är registrerade kan du registrera dem med följande kommandon:
 
 Azure PowerShell:
 
@@ -131,33 +131,34 @@ az provider register --namespace 'Microsoft.HybridCompute'
 az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-Du kan också registrera resurs leverantörerna i Azure Portal genom att följa stegen under [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+Du kan också registrera resursleverantörerna i Azure-portalen genom att följa stegen under [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-## <a name="connected-machine-agent"></a>Ansluten dator agent
+## <a name="connected-machine-agent"></a>Ansluten maskinagent
 
-Du kan ladda ned Azure Connected Machine agent-paketet för Windows och Linux från de platser som anges nedan.
+Du kan hämta Agentpaketet för Azure Connected Machine för Windows och Linux från de platser som anges nedan.
 
 - [Windows agent Windows Installer-paketet](https://aka.ms/AzureConnectedMachineAgent) från Microsoft Download Center.
-- Linux Agent-paketet distribueras från Microsofts [paket lagrings plats](https://packages.microsoft.com/) med det önskade paket formatet för distributionen (. RPM eller. DEB).
+- Linux-agentpaketet distribueras från Microsofts [paketarkiv](https://packages.microsoft.com/) med det önskade paketformatet för distributionen (. RPM eller . deb).
 
 >[!NOTE]
->Under för hands versionen har endast ett paket släppts, vilket är lämpligt för Ubuntu 16,04 eller 18,04.
+>Under den här förhandsversionen har endast ett paket släppts, som är lämpligt för Ubuntu 16.04 eller 18.04.
 
-Azure Connected Machine agent för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov. För Windows kan agent uppdateringen automatiskt utföras med hjälp av Windows Update och för Ubuntu med hjälp av kommando rads verktyget [apt](https://help.ubuntu.com/lts/serverguide/apt.html) .
+Azure Connected Machine-agenten för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på dina behov. För mer information, se [här](manage-agent.md)
 
-### <a name="agent-status"></a>Agent status
+### <a name="agent-status"></a>Agentstatus
 
-Den anslutna dator agenten skickar ett vanligt pulsslags meddelande till tjänsten var 5: e minut. Om det inte har tagits emot i 15 minuter anses datorn vara offline och statusen kommer automatiskt att ändras till **frånkopplad** i portalen. När du tar emot ett efterföljande pulsslags meddelande från den anslutna dator agenten kommer dess status automatiskt att ändras till **ansluten**.
+Den anslutna datorn agent skickar ett regelbundet pulsslag meddelande till tjänsten var 5 minuter. Om en inte tas emot på 15 minuter betraktas datorn som offline och statusen ändras automatiskt till **Frånkopplad** i portalen. När du tar emot ett efterföljande pulsslagsmeddelande från agenten ansluten dator ändras dess status automatiskt till **Ansluten**.
 
-## <a name="install-and-configure-agent"></a>Installera och konfigurera agenten
+## <a name="install-and-configure-agent"></a>Installera och konfigurera agent
 
-Att ansluta datorer i din hybrid miljö direkt med Azure kan utföras med hjälp av olika metoder beroende på dina behov. I följande tabell beskrivs varje metod för att avgöra vilken som fungerar bäst för din organisation.
+Ansluta datorer i din hybridmiljö direkt med Azure kan utföras med olika metoder beroende på dina krav. I följande tabell beskrivs varje metod för att avgöra vilken som fungerar bäst för din organisation.
 
 | Metod | Beskrivning |
 |--------|-------------|
-| Interaktivt | Installera agenten manuellt på ett enda eller litet antal datorer enligt stegen i [ansluta datorer från Azure Portal](onboard-portal.md).<br> Från Azure Portal kan du generera ett skript och köra det på datorn för att automatisera installations-och konfigurations stegen för agenten.|
-| I skala | Installera och konfigurera agenten för flera datorer efter att [ansluta datorerna med ett huvud namn för tjänsten](onboard-service-principal.md).<br> Den här metoden skapar ett huvud namn för tjänsten för att ansluta datorer icke-interaktivt.|
+| Interaktivt | Installera agenten manuellt på ett eller flera datorer i [anslutningsstegen i Connect-datorer från Azure-portalen](onboard-portal.md).<br> Från Azure-portalen kan du generera ett skript och köra det på datorn för att automatisera installations- och konfigurationsstegen för agenten.|
+| I stor skala | Installera och konfigurera agenten för flera datorer som följer [Connect-datorerna med hjälp av ett huvudnamn för tjänsten](onboard-service-principal.md).<br> Den här metoden skapar ett huvudnamn för tjänsten för att ansluta datorer som inte är interaktivt.|
+| I stor skala | Installera och konfigurera agenten för flera datorer enligt metoden [Använda Windows PowerShell DSC](onboard-dsc.md).<br> Den här metoden använder ett tjänsthuvudnamn för att ansluta datorer som inte interaktivt ansluter till PowerShell DSC. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill börja utvärdera Azure-bågen för servrar (för hands version) följer du artikeln [Connect hybrid Machines to Azure från Azure Portal](onboard-portal.md). 
+- Om du vill börja utvärdera Azure Arc för servrar (förhandsversion) följer du artikeln [Anslut hybriddatorer till Azure från Azure-portalen](onboard-portal.md). 

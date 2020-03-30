@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: d0a28bafef887bf0c40aa88eba1873f82cf36fd7
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: 5d1dc90832a399aa9ee253b2c7962b8536c1926a
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80346081"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383012"
 ---
-# <a name="cli-example-upload-a-local-file-to-a-container"></a>CLI-exempel: Ladda upp en lokal fil till en container 
+# <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Azure CLI-exempel: Ladda upp en lokal fil till en behållare
 
 Azure CLI-skriptet i den här artikeln visar hur du laddar upp en lokal fil till en lagringscontainer.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Krav
 
 * [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 * Granska [hantera tillgångar](manage-asset-concept.md).
@@ -34,7 +34,7 @@ Azure CLI-skriptet i den här artikeln visar hur du laddar upp en lokal fil till
 
 ## <a name="example-script"></a>Exempelskript
 
-```Azure CLI 
+```azurecli-interactive
 #!/bin/bash
 # Update the following variables for your own settings:
 storageAccountName=build2018storage

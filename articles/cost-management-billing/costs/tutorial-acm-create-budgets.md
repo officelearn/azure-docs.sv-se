@@ -1,20 +1,19 @@
 ---
-title: Självstudie – Skapa och hantera Azure-budgetar | Microsoft Docs
+title: Självstudie – Skapa och hantera Azure-budgetar
 description: Den här självstudien hjälper dig att planera och ta hänsyn till kostnaderna för de Azure-tjänster som du använder.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/11/2020
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: b81236fd63d9289f797056cf7aaceb7d826511af
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: f7c1ac65026fd366be1003842ff70a78b9082339
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128348"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80155944"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
@@ -28,6 +27,7 @@ Exemplen i den här självstudien vägleder dig genom att skapa och redigera en 
 
 Titta på videon [Apply budgets to subscriptions using the Azure portal](https://www.youtube.com/watch?v=UrkHiUx19Po) (Använda budgetar för prenumerationer med Azure-portalen) för att se hur du kan skapa budgetar i Azure för att övervaka utgifterna.
 
+>[!VIDEO https://www.youtube.com/embed/UrkHiUx19Po]
 
 I den här guiden får du lära dig att:
 

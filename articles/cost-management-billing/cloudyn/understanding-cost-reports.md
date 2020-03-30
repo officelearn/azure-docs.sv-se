@@ -1,24 +1,26 @@
 ---
-title: Förstå Cloudyn-kostnadshanteringsrapporter i Azure | Microsoft Docs
+title: Förstå Cloudyn-kostnadshanteringsrapporter i Azure
 description: Den här artikeln hjälper dig att förstå den grundläggande strukturen och funktionerna i Cloudyn-kostnadshanteringsrapporter.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 89bcbf75396a1eda9de4a715739adb3a3696e137
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5d4f8e26aef5fbfb20c1721d1851a4940863121b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773992"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474551"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Förstå Cloudyn-kostnadshanteringsrapporter
 
 Den här artikeln hjälper dig att förstå den grundläggande strukturen och funktionerna i Cloudyn-kostnadshanteringsrapporter. De flesta Cloudyn-rapporter är intuitiva och har ett enhetligt utseende. När du har läst den här artikeln är du redo att använda alla kostnadshanteringsrapporter. Eftersom många av standardfunktionerna är tillgängliga i de olika rapporterna kan du enkelt navigera i rapporterna. Rapporter är anpassningsbara, och det finns flera alternativ att välja bland för att beräkna och visa resultat.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="report-fields-and-options"></a>Rapportfält och alternativ
 

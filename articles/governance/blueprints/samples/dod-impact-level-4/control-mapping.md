@@ -1,374 +1,434 @@
 ---
-title: DoD effekt nivå 4 skiss exempel kontroller
-description: Kontroll mappning av DoD effekt nivå 4 skiss exempel. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-ms.date: 02/09/2020
+title: Provkontroller för DoD Impact Level 4-skiss
+description: Kontrollera mappningen av skissexemplet DoD Impact Level 4. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärdering.
+ms.date: 03/06/2020
 ms.topic: sample
-ms.openlocfilehash: 15ab3bc8bf53d54161ecc3b1f0dc138c3ff923c1
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 001c838ed6a19269a6abbcebd59ee2e344b6a296
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77154846"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79415401"
 ---
-# <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Kontroll mappning av DoD effekt nivå 4 skiss exempel
+# <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Kontrollkartläggning av ritningsprovet dod impact level 4
 
-I följande artikel beskrivs hur DoD IL4-skissen för Azure skisser på nivå 4 () mappar till DoD påverkan på nivå 4. Mer information om kontrollerna finns i [DoD Cloud Computing Security Requirements guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). Försvars information system Agency (DISA) är ett organ i USA: s departement (DoD) som ansvarar för att utveckla och underhålla DoD Cloud Computing Security Requirements guide (SRG). SRG definierar grundläggande säkerhets krav för moln tjänst leverantörer (CSP: er) som är värdar för DoD information, system och program och för DoD användning av moln tjänster.  
+I följande artikel beskrivs hur azure blueprints Department of Defense Impact Level 4 (DoD IL4) skiss exempelmappningar till DoD Impact Level 4-kontrollerna. Mer information om kontrollerna finns i [DoD Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). Defense Information Systems Agency (DISA) är en byrå för det amerikanska försvarsdepartementet (DoD) som ansvarar för att utveckla och underhålla DoD Cloud Computing Security Requirements Guide (SRG). SRG definierar grundläggande säkerhetskrav för molntjänstleverantörer (CSP: er) som är värd för DoD-information, system och program och för DoD:s användning av molntjänster.  
 
-Följande mappningar är till **DoD påverkan på nivå 4** . Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. Många av de mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på och välj **\[för hands versions\]: DoD påverkan nivå 4** inbyggt princip initiativ.
+Följande mappningar är till **Kontrollerna för DoD-påverkansnivå 4.** Använd navigeringen till höger för att hoppa direkt till en specifik kontrollmappning. Många av de mappade kontrollerna implementeras med ett [Azure Policy-initiativ.](../../../policy/overview.md) Om du vill granska hela initiativet öppnar du **Princip** i Azure-portalen och väljer sidan **Definitioner.** Leta sedan reda på och välj det inbyggda principinitiativet ** \[Förhandsgranska:\]DoD Impact Level 4.**
 
 > [!IMPORTANT]
-> Varje kontroll nedan är kopplad till en eller flera [Azure policy](../../../policy/overview.md) -definitioner. Dessa principer kan hjälpa dig att [utvärdera efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta ingen 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan är **kompatibel** i Azure policy endast som avser själva principerna. Detta garanterar inte att du är helt kompatibel med alla krav för en kontroll. Standarden för efterlevnad innehåller dessutom kontroller som inte åtgärdas av några Azure Policy definitioner för tillfället. Därför är regelefterlevnad i Azure Policy bara en partiell vy av din övergripande kompatibilitetsstatus. Kopplingarna mellan kontroller och Azure Policy definitioner för det här skiss exemplet för efterlevnad kan ändras med tiden.
-> Om du vill visa ändrings historiken läser du [inchecknings historiken för GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/DoDIL4/control-mapping.md).
+> Varje kontroll nedan är associerad med en eller flera [Azure-principdefinitioner.](../../../policy/overview.md) Dessa policyer kan hjälpa dig att [bedöma efterlevnaden](../../../policy/how-to/get-compliance-data.md) av kontrollen. Det finns dock ofta inte en 1:1 eller fullständig matchning mellan en kontroll och en eller flera principer. Som sådan refererar **kompatibel** i Azure-princip endast till principerna själva. Detta säkerställer inte att du är helt kompatibel med alla krav på en kontroll. Dessutom innehåller efterlevnadsstandarden kontroller som inte åtgärdas av några Azure-principdefinitioner just nu. Därför är efterlevnad i Azure Policy bara en partiell bild av din övergripande efterlevnadsstatus. Associationerna mellan kontroller och Azure-principdefinitioner för det härmplet för efterlevnadsritning kan ändras med tiden.
+> Om du vill visa ändringshistoriken läser du [GitHub Commit-historiken](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/DoDIL4/control-mapping.md).
 
-## <a name="ac-2-account-management"></a>Konto hantering för AC-2
+## <a name="ac-2-account-management"></a>AC-2 Kontohantering
 
-Den här skissen hjälper dig att granska konton som kanske inte uppfyller organisationens krav på konto hantering. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som granskar externa konton med Läs-, skriv-och ägar behörigheter för en prenumeration och föråldrade konton. Genom att granska de konton som granskas av dessa principer kan du vidta lämpliga åtgärder för att säkerställa att konto hanterings kraven är uppfyllda.
+Den här skissen hjälper dig att granska konton som kanske inte uppfyller organisationens kontohanteringskrav. Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som granskar externa konton med läs-, skriv- och ägarbehörigheter för en prenumeration och föråldrade konton. Genom att granska de räkenskaper som granskas av dessa principer kan du vidta lämpliga åtgärder för att säkerställa att kontohanteringskraven uppfylls.
 
-- Föråldrade konton bör tas bort från din prenumeration
-- Föråldrade konton med ägar behörigheter bör tas bort från din prenumeration
-- Externa konton med ägar behörigheter bör tas bort från din prenumeration
-- Externa konton med Läs behörighet bör tas bort från din prenumeration
-- Externa konton med Skriv behörighet bör tas bort från din prenumeration
+- Inaktuella konton ska tas bort från din prenumeration
+- Inaktuella konton med ägarbehörigheter ska tas bort från din prenumeration
+- Externa konton med ägarbehörigheter ska tas bort från din prenumeration
+- Externa konton med läsbehörighet bör tas bort från din prenumeration
+- Externa konton med skrivbehörighet ska tas bort från din prenumeration
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) konto hantering | Rollbaserade scheman
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Kontohantering | Rollbaserade system
 
-Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar också [Azure policy](../../../policy/overview.md) definitioner för att granska användningen av Azure Active Directory autentisering för SQL-servrar och Service Fabric. Med hjälp av Azure Active Directory-autentisering möjliggörs förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster. Dessutom tilldelar den här skissen en Azure Policy-definition för att granska användningen av anpassade RBAC-regler. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att kontrol lera behovet och korrekt implementering eftersom anpassade RBAC-regler är fel känsliga.
+Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access-control/overview.md) (RBAC) som hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure-portalen kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar också [Azure-principdefinitioner](../../../policy/overview.md) för granskning av Azure Active Directory-autentisering för SQL-servrar och tjänstinfrastruktur. Med Hjälp av Azure Active Directory-autentisering möjliggör förenklad behörighetshantering och centraliserad identitetshantering för databasanvändare och andra Microsoft-tjänster. Dessutom tilldelar den här skissen en Azure-principdefinition för att granska användningen av anpassade RBAC-regler. Att förstå var anpassade RBAC-regler implementeras kan hjälpa dig att verifiera behov och korrekt implementering, eftersom anpassade RBAC-regler är felbenägna.
 
-- En Azure Active Directory administratör bör tillhandahållas för SQL-servrar
-- Granska användningen av anpassade RBAC-regler
-- Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering
+- En Azure Active Directory-administratör bör etableras för SQL-servrar
+- Granskningsanvändning av anpassade RBAC-regler
+- Service Fabric-kluster bör endast använda Azure Active Directory för klientautentisering
 
-## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>AC-2 (12) konto hantering | Konto övervakning/ovanlig-användning
+## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>AC-2 (12) Kontohantering | Kontoövervakning / Atypisk användning
 
-Just-in-Time (JIT)-åtkomst till virtuella datorer låser inkommande trafik till virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs. Alla JIT-begäranden för att komma åt virtuella datorer loggas i aktivitets loggen så att du kan övervaka ovanlig-användning. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer som har stöd för just-in-Time-åtkomst men ännu inte har kon figurer ATS.
+Åtkomst till virtuella datorer (JUST-in-time) låser sig för inkommande trafik till virtuella Azure-datorer, vilket minskar exponeringen för attacker samtidigt som enkel åtkomst till virtuella datorer vid behov kan anslutas till virtuella datorer. Alla JIT-begäranden om åtkomst till virtuella datorer loggas i aktivitetsloggen så att du kan övervaka för atypisk användning. Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att övervaka virtuella datorer som kan stödja just-in-time-åtkomst men som ännu inte har konfigurerats.
 
-- Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer
+- Just-in-time-kontroller av nätverksåtkomst ska tillämpas på virtuella datorer
 
-## <a name="ac-4-information-flow-enforcement"></a>AC-4-informations flöde-tvång
+## <a name="ac-4-information-flow-enforcement"></a>AC-4 Information Flow Verkställighet
 
-Med resurs delning mellan ursprung (CORS) kan App Services resurser begäras från en extern domän. Microsoft rekommenderar att du endast tillåter att domäner interagerar med API-, funktions-och webb program. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka åtkomst begränsningar för CORS-resurser i Azure Security Center. Att förstå CORS-implementeringar kan hjälpa dig att kontrol lera att informations flödes kontrollerna implementeras.
+Korsursprungsresursdelning (CORS) kan tillåta att App Services-resurser begärs från en extern domän. Microsoft rekommenderar att du endast tillåter nödvändiga domäner att interagera med dina API-, funktions- och webbprogram. Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som hjälper dig att övervaka BEGRÄNSNINGAR för ÅTKOMST TILL CORS-resurser i Azure Security Center. Genom att förstå CORS-implementeringar kan du kontrollera att informationsflödeskontroller implementeras.
 
-- CORS bör inte tillåta alla resurser åtkomst till ditt webb program
+- CORS bör inte tillåta alla resurser att komma åt ditt webbprogram
 
-## <a name="ac-5-separation-of-duties"></a>AC-5-separering av uppgifter
+## <a name="ac-5-separation-of-duties"></a>AC-5 Tulldelning
 
-Att ha bara en Azure-prenumerations ägare tillåter inte administrativ redundans. Att ha för många Azure-prenumerationer kan däremot öka risken för intrång via ett komprometterat ägar konto. Den här skissen hjälper dig att underhålla ett lämpligt antal prenumerations ägare i Azure genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar antalet ägare för Azure-prenumerationer. Den här skissen tilldelar också Azure Policy definitioner som hjälper dig att styra medlemskap i gruppen Administratörer på virtuella Windows-datorer. Att hantera prenumerations ägare och administratörs behörighet för virtuell dator kan hjälpa dig att implementera lämplig uppdelning av uppgifter.
+Att bara ha en Azure-prenumerationsägare tillåter inte administrativ redundans. Omvänt kan för många Azure-prenumerationsägare öka risken för ett intrång via ett komprometterat ägarkonto. Den här skissen hjälper dig att underhålla ett lämpligt antal Azure-prenumerationsägare genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som granskar antalet ägare för Azure-prenumerationer. Den här skissen tilldelar också Azure-principdefinitioner som hjälper dig att kontrollera medlemskap i gruppen Administratörer på virtuella Datorer i Windows. Genom att hantera administratörsbehörighet och administratörsbehörighet för virtuella datorer kan du implementera lämplig åtskillnad mellan uppgifter.
 
-- Högst 3 ägare bör anges för din prenumeration
-- Granska virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
-- Granska virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
-- Distribuera krav för att granska virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
-- Distribuera krav för att granska virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
+- Högst 3 ägare bör utses för din prenumeration
+- Granska virtuella Windows-datorer där gruppen Administratörer innehåller någon av de angivna medlemmarna
+- Granska virtuella windows-datorer där gruppen Administratörer inte innehåller alla angivna medlemmar
+- Distribuera krav för granskning av virtuella Windows-datorer där gruppen Administratörer innehåller någon av de angivna medlemmarna
+- Distribuera krav för granskning av virtuella Windows-datorer där gruppen Administratörer inte innehåller alla angivna medlemmar
 - Det bör finnas fler än en ägare som tilldelats din prenumeration
 
-## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>AC-6 (7) minsta behörighet | Granskning av användar behörigheter
+## <a name="ac-6-7-least-privilege--review-of-user-privileges"></a>AC-6 (7) Minst privilegium | Granskning av användarbehörigheter
 
-Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-access-control/overview.md) (RBAC) för att hjälpa dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure Portal kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner till gransknings konton som ska prioriteras för granskning. Att granska dessa konto indikatorer kan hjälpa dig att se till att minst behörighets kontroller implementeras.
+Azure implementerar [rollbaserad åtkomstkontroll](../../../../role-based-access-control/overview.md) (RBAC) som hjälper dig att hantera vem som har åtkomst till resurser i Azure. Med hjälp av Azure-portalen kan du granska vem som har åtkomst till Azure-resurser och deras behörigheter. Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) till granskningskonton som ska prioriteras för granskning. Genom att granska dessa kontoindikatorer kan du se till att lägsta behörighetskontroller implementeras.
 
-- Högst 3 ägare bör anges för din prenumeration
-- Granska virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
-- Granska virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
-- Distribuera krav för att granska virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
-- Distribuera krav för att granska virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
+- Högst 3 ägare bör utses för din prenumeration
+- Granska virtuella Windows-datorer där gruppen Administratörer innehåller någon av de angivna medlemmarna
+- Granska virtuella windows-datorer där gruppen Administratörer inte innehåller alla angivna medlemmar
+- Distribuera krav för granskning av virtuella Windows-datorer där gruppen Administratörer innehåller någon av de angivna medlemmarna
+- Distribuera krav för granskning av virtuella Windows-datorer där gruppen Administratörer inte innehåller alla angivna medlemmar
 - Det bör finnas fler än en ägare som tilldelats din prenumeration
 
-## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) fjärråtkomst | Automatiserad övervakning/kontroll
+## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) Fjärråtkomst | Automatiserad övervakning / kontroll
 
-Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst genom att tilldela [Azure policy](../../../policy/overview.md) definitioner till Övervakare som fjärrfelsökning för Azure App Service program är inaktive rad och princip definitioner som granskar virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord. Den här skissen tilldelar också en Azure Policy definition som hjälper dig att övervaka obegränsad åtkomst till lagrings konton. Genom att övervaka dessa indikatorer kan du se till att du ser till att fjärranslutna metoder överensstämmer med din säkerhets princip.
+Den här skissen hjälper dig att övervaka och styra fjärråtkomst genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) för att övervaka att fjärrfelsökning för Azure App Service-programmet är inaktiverat och principdefinitioner som granskar virtuella Linux-datorer som tillåter fjärranslutningar från konton utan lösenord. Den här skissen tilldelar också en Azure-principdefinition som hjälper dig att övervaka obegränsad åtkomst till lagringskonton. Genom att övervaka dessa indikatorer kan du se till att fjärråtkomstmetoderna följer din säkerhetsprincip.
 
-- \[för hands version\]: granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- \[för hands version\]: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- Granska obegränsad nätverks åtkomst till lagrings konton
-- Fjärrfelsökning bör inaktive ras för API-appen
-- Fjärrfelsökning bör inaktive ras för Funktionsapp
-- Fjärrfelsökning bör stängas av för webbprogram
+- \[Preview\]: Granska virtuella Linux-datorer som tillåter fjärranslutningar från konton utan lösenord
+- \[Preview\]: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärranslutningar från konton utan lösenord
+- Granska obegränsad nätverksåtkomst till lagringskonton
+- Fjärrfelsökning bör inaktiveras för API-app
+- Fjärrfelsökning bör inaktiveras för Funktionsapp
+- Fjärrfelsökning bör inaktiveras för webbprogram
 
-## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) innehåll i gransknings poster | Centraliserad hantering av innehåll för planerad gransknings post
+## <a name="ac-23-data-mining"></a>AC-23 Data Mining
 
-Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som möjliggör centraliserad konfiguration och hantering. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar och tillämpar distribution av log Analyticss agenten på virtuella Azure-datorer.
+Den här skissen innehåller principdefinitioner som hjälper dig att se till att datasäkerhetsmeddelanden är korrekt aktiverade. Dessutom säkerställer den här skissen att granskning och avancerad datasäkerhet konfigureras på SQL-servrar.
 
-- \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
-- \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Avancerad datasäkerhet bör aktiveras på dina SQL-hanterade instanser
+- Avancerade typer av skydd mot hot bör ställas in på alla i avancerade datasäkerhetsinställningar för SQL-servern
+- Avancerade typer av skydd mot hot bör ställas in på alla i SQL-hanterade instans avancerade datasäkerhetsinställningar
+- Granskning bör aktiveras vid avancerade datasäkerhetsinställningar på SQL Server
+- E-postmeddelanden till administratörer och prenumerationsägare bör aktiveras i avancerade datasäkerhetsinställningar för SQL-servern
+- E-postmeddelanden till administratörer och prenumerationsägare bör aktiveras i avancerade inställningar för SQL-hanterad instans
+- Avancerade datasäkerhetsinställningar för SQL-servern bör innehålla en e-postadress för att ta emot säkerhetsaviseringar
+- Avancerade datasäkerhetsinställningar för SQL-hanterad instans bör innehålla en e-postadress för att ta emot säkerhetsaviseringar
 
-## <a name="au-5-response-to-audit-processing-failures"></a>AU-5-svar på gransknings bearbetnings problem
+## <a name="au-3-2-content-of-audit-records--centralized-management-of-planned-audit-record-content"></a>AU-3 (2) Innehållet i revisionshandlingar | Centraliserad hantering av planerat granskningspostinnehåll
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som övervakar konfigurationer för granskning och händelse loggning. Övervakning av de här konfigurationerna kan ge en indikator för ett fel eller en felaktig konfiguration av systemet och hjälpa dig att vidta lämpliga åtgärder.
+Loggdata som samlas in av Azure Monitor lagras på en Log Analytics-arbetsyta som möjliggör centraliserad konfiguration och hantering. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som granskar och framtvingar distribution av Log Analytics-agenten på virtuella Azure-datorer.
+
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent – OS-avbildning (VM)
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent i VMSS - VM-avbildning (OS) olistad
+- \[Förhandsversion:\]Arbetsyta för granskningslogganalys för virtuell dator – rapportfelmatchning
+- \[Förhandsversion:\]Distribuera logganalysagent för VMSS (Linux VMSS)
+- \[Preview\]: Distribuera LoggAnalys agent för Linux virtuella datorer
+- \[Förhandsversion:\]Distribuera logganalysagent för VMSS (Windows VMSS)
+- \[Förhandsgranskning:\]Distribuera logganalysagent för virtuella Windows-datorer
+
+## <a name="au-5-response-to-audit-processing-failures"></a>AU-5 Svar på fel i granskningsbehandling
+
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som övervakar gransknings- och händelseloggningskonfigurationer. Övervakning av dessa konfigurationer kan ge en indikator på ett granskningssystemfel eller felkonfiguration och hjälpa dig att vidta korrigerande åtgärder.
 
 - Granska diagnostikinställning
-- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
-- Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
+- Granskning bör aktiveras vid avancerade datasäkerhetsinställningar på SQL Server
+- Avancerad datasäkerhet bör aktiveras på dina hanterade instanser
+- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
 
-## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) gransknings granskning, analys och rapportering | Central granskning och analys
+## <a name="au-6-4-audit-review-analysis-and-reporting--central-review-and-analysis"></a>AU-6 (4) Granskning, analys och rapportering av revision | Central granskning och analys
 
-Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som möjliggör central rapportering och analys. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar och tillämpar distribution av log Analyticss agenten på virtuella Azure-datorer.
+Loggdata som samlas in av Azure Monitor lagras på en Log Analytics-arbetsyta som möjliggör centraliserad rapportering och analys. Den här skissen hjälper dig att se till att händelser loggas genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som granskar och framtvingar distribution av Log Analytics-agenten på virtuella Azure-datorer.
 
-- \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
-- \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent – OS-avbildning (VM)
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent i VMSS - VM-avbildning (OS) olistad
+- \[Förhandsversion:\]Arbetsyta för granskningslogganalys för virtuell dator – rapportfelmatchning
+- \[Förhandsversion:\]Distribuera logganalysagent för VMSS (Linux VMSS)
+- \[Preview\]: Distribuera LoggAnalys agent för Linux virtuella datorer
+- \[Förhandsversion:\]Distribuera logganalysagent för VMSS (Windows VMSS)
+- \[Förhandsgranskning:\]Distribuera logganalysagent för virtuella Windows-datorer
 
-## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) gransknings granskning, analys och rapportering | Funktioner för integration/genomsökning och övervakning
+## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Granskning, analys och rapportering av revision | Funktioner för integration / skanning och övervakning
 
-Den här skissen innehåller princip definitioner som granskar poster med analys av sårbarhets bedömning på virtuella datorer, skalnings uppsättningar för virtuell dator, SQL-hanterade instanser och SQL-servrar.
-Dessa princip definitioner granskar också konfigurationen av diagnostikloggar för att ge inblick i åtgärder som utförs i Azure-resurser. Dessa insikter ger real tids information om säkerhets statusen för dina distribuerade resurser och kan hjälpa dig att prioritera åtgärds åtgärder.
-För detaljerad sårbarhets genomsökning och övervakning rekommenderar vi också att du använder Azure Sentinel och Azure Security Center.
+Den här skissen innehåller principdefinitioner som granskar poster med analys av sårbarhetsbedömning på virtuella datorer, skaluppsättningar för virtuella datorer, SQL-hanterade instanser och SQL-servrar.
+Dessa principdefinitioner granskar också konfigurationen av diagnostikloggar för att ge insikt i åtgärder som utförs inom Azure-resurser. Dessa insikter ger information i realtid om säkerhetstillståndet för dina distribuerade resurser och kan hjälpa dig att prioritera reparationsåtgärder.
+För detaljerad sårbarhetsskanning och övervakning rekommenderar vi att du även använder Azure Sentinel och Azure Security Center.
 
-- \[för hands version\]: sårbarhets bedömning måste vara aktiverat på Virtual Machines
-- \[för hands version\]: Aktivera Azure Monitor for VMs
-- \[för hands version\]: Aktivera Azure Monitor för VM Scale Sets (VMSS)
-- Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
+- \[Preview\]: Sårbarhetsbedömning bör aktiveras på virtuella datorer
+- Sårbarhetsbedömning bör aktiveras på dina SQL-servrar
 - Granska diagnostikinställning
-- Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser
-- Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar
-- Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas
-- Säkerhets risker i SQL-databaser bör åtgärdas
-- Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
-- Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
+- Sårbarhetsbedömning bör aktiveras på dina SQL-hanterade instanser
+- Sårbarhetsbedömning bör aktiveras på dina SQL-servrar
+- Sårbarheter i säkerhetskonfigurationen på dina datorer bör åtgärdas
+- Säkerhetsproblem i DINA SQL-databaser bör åtgärdas
+- Sårbarheter bör åtgärdas med en sårbarhetsbedömningslösning
+- Säkerhetsproblem i säkerhetskonfigurationen på dina skaluppsättningar för virtuella datorer bör åtgärdas
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent – OS-avbildning (VM)
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent i VMSS - VM-avbildning (OS) olistad
 
-## <a name="au-12-audit-generation"></a>AU – 12 gransknings generation
+## <a name="au-12-audit-generation"></a>AU-12 Audit Generation
 
-Den här skissen innehåller princip definitioner som granskar och tillämpar distribution av Log Analytics-agenten på virtuella Azure-datorer och konfiguration av gransknings inställningar för andra typer av Azure-resurser.
-Dessa princip definitioner granskar också konfigurationen av diagnostikloggar för att ge inblick i åtgärder som utförs i Azure-resurser. Dessutom konfigureras granskning och avancerad data säkerhet på SQL-servrar.
+Den här skissen innehåller principdefinitioner som granskar och framtvingar distribution av Log Analytics-agenten på virtuella Azure-datorer och konfiguration av granskningsinställningar för andra Azure-resurstyper.
+Dessa principdefinitioner granskar också konfigurationen av diagnostikloggar för att ge insikt i åtgärder som utförs inom Azure-resurser. Dessutom konfigureras granskning och avancerad datasäkerhet på SQL-servrar.
 
-- \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
-- \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent – OS-avbildning (VM)
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent i VMSS - VM-avbildning (OS) olistad
+- \[Förhandsversion:\]Arbetsyta för granskningslogganalys för virtuell dator – rapportfelmatchning
+- \[Förhandsversion:\]Distribuera logganalysagent för VMSS (Linux VMSS)
+- \[Preview\]: Distribuera LoggAnalys agent för Linux virtuella datorer
+- \[Förhandsversion:\]Distribuera logganalysagent för VMSS (Windows VMSS)
+- \[Förhandsgranskning:\]Distribuera logganalysagent för virtuella Windows-datorer
 - Granska diagnostikinställning
-- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
-- Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
-- Distribuera avancerad data säkerhet på SQL-servrar
+- Granskning bör aktiveras vid avancerade datasäkerhetsinställningar på SQL Server
+- Avancerad datasäkerhet bör aktiveras på dina hanterade instanser
+- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Distribuera avancerad datasäkerhet på SQL-servrar
 - Distribuera granskning på SQL-servrar
-- Distribuera diagnostikinställningar för nätverks säkerhets grupper
+- Distribuera diagnostikinställningar för nätverkssäkerhetsgrupper
 
-## <a name="au-12-01-audit-generation--system-wide--time-correlated-audit-trail"></a>AU-12 (01) gransknings generation | Systemomfattande/tidskorrelerade gransknings spårning
+## <a name="au-12-01-audit-generation--system-wide--time-correlated-audit-trail"></a>AU-12 (01) Revisionsgenerering | Systemomfattande / tidsrelerade verifieringskedja
 
-Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser.
-Den här inbyggda principen kräver att du anger en matris med resurs typer för att kontrol lera om diagnostikinställningar är aktiverade eller inte.
+Den här skissen hjälper dig att se till att systemhändelser loggas genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som granskar logginställningar på Azure-resurser.
+Den här inbyggda principen kräver att du anger en matris med resurstyper för att kontrollera om diagnostikinställningar är aktiverade eller inte.
 
 - Granska diagnostikinställning
 
-## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM – 7 (2) minst funktions sätt | Förhindra program körning
+## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Minst funktionalitet | Förhindra programkörning
 
-Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Program kontroll kan köras i ett tvingande läge som förhindrar att icke-godkända program körs. Den här skissen tilldelar en Azure Policy-definition som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men inte har kon figurer ATS än.
+Adaptiv programkontroll i Azure Security Center är en intelligent, automatiserad heltäckande lösning för vitlistning av program som kan blockera eller förhindra att viss programvara körs på dina virtuella datorer. Programkontroll kan köras i ett tvingande läge som förhindrar att ett icke-godkänt program körs. Den här skissen tilldelar en Azure Policy-definition som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men ännu inte har konfigurerats.
 
-- Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
+- Adaptiva programkontroller bör aktiveras på virtuella datorer
 
-## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM – 7 (5) de lägsta funktionerna | Auktoriserad program vara/vit listning
+## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Minst funktionalitet | Auktoriserad programvara / vitlistning
 
-Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Med program kontroll kan du skapa godkända program listor för dina virtuella datorer. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men inte har kon figurer ATS än.
+Adaptiv programkontroll i Azure Security Center är en intelligent, automatiserad heltäckande lösning för vitlistning av program som kan blockera eller förhindra att viss programvara körs på dina virtuella datorer. Programkontroll hjälper dig att skapa godkända programlistor för dina virtuella datorer. Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men ännu inte har konfigurerats.
 
-- Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
+- Adaptiva programkontroller bör aktiveras på virtuella datorer
 
-## <a name="cm-11-user-installed-software"></a>CM – 11 användare-installerad program vara
+## <a name="cm-11-user-installed-software"></a>CM-11 Programvara för användarinstallerad programvara
 
-Adaptiva program kontroller i Azure Security Center är en intelligent, automatiserad komplett applikation vit listning-lösning som kan blockera eller förhindra specifik program vara från att köras på dina virtuella datorer. Program kontroll kan hjälpa dig att upprätthålla och övervaka efterlevnaden av principer för begränsning av program vara. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men inte har kon figurer ATS än.
+Adaptiv programkontroll i Azure Security Center är en intelligent, automatiserad heltäckande lösning för vitlistning av program som kan blockera eller förhindra att viss programvara körs på dina virtuella datorer. Programkontroll kan hjälpa dig att genomdriva och övervaka efterlevnaden av principer för begränsning av programvara. Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att övervaka virtuella datorer där ett program vitlista rekommenderas men ännu inte har konfigurerats.
 
-- Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
+- Adaptiva programkontroller bör aktiveras på virtuella datorer
 
-## <a name="cp-7-alternate-processing-site"></a>CP-7 alternativ bearbetnings plats
+## <a name="cp-7-alternate-processing-site"></a>Alternativ bearbetningsplats för CP-7
 
-Azure Site Recovery replikerar arbets belastningar som körs på virtuella datorer från en primär plats till en sekundär plats. Om ett avbrott uppstår på den primära platsen växlar arbets belastningen över den sekundära platsen. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som granskar virtuella datorer utan haveri beredskap konfigurerad. Övervakning av den här indikatorn kan hjälpa dig att se till att de nödvändiga kontrollerna är på plats.
+Azure Site Recovery replikerar arbetsbelastningar som körs på virtuella datorer från en primär plats till en sekundär plats. Om ett avbrott inträffar på den primära platsen misslyckas arbetsbelastningen över den sekundära platsen. Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som granskar virtuella datorer utan haveriberedskap konfigurerad. Övervakning av den här indikatorn kan hjälpa dig att se till att nödvändiga beredskapskontroller finns på plats.
 
-- Granska virtuella datorer utan haveri beredskap har kon figurer ATS
+- Granska virtuella datorer utan haveriberedskap konfigurerad
 
-## <a name="cp-9-05--information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) informations system säkerhets kopiering | Överför till en annan lagrings plats
+## <a name="cp-9-05--information-system-backup--transfer-to-alternate-storage-site"></a>CP-9 (05) Säkerhetskopiering av informationssystem | Överför till alternativ lagringsplats
 
-Den här skissen tilldelar Azure Policy definitioner som granskar organisationens säkerhets kopierings information till den alternativa lagrings platsen elektroniskt. Överväg att använda Azure Data Box för fysisk leverans av metadata för lagring.
+Den här skissen tilldelar Azure-principdefinitioner som granskar organisationens systemsäkerhetsinformation till den alternativa lagringsplatsen elektroniskt. För fysisk leverans av lagringsmetadata bör du överväga att använda Azure Data Box.
 
-- Geo-redundant lagring ska vara aktiverat för lagrings konton
-- Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for PostgreSQL
-- Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for MySQL
-- Geo-redundant säkerhets kopiering måste aktive ras för Azure Database for MariaDB
-- Långsiktig Geo-redundant säkerhets kopiering ska aktive ras för Azure SQL-databaser
+- Geo redundant lagring bör aktiveras för lagringskonton
+- Geo redundant säkerhetskopiering bör aktiveras för Azure Database för PostgreSQL
+- Geo redundant säkerhetskopiering bör aktiveras för Azure Database for MySQL
+- Geo redundant säkerhetskopiering bör aktiveras för Azure Database för MariaDB
+- Långsiktig geo-redundant säkerhetskopiering bör aktiveras för Azure SQL-databaser
 
-## <a name="ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>IA-2 (1) identifiering och autentisering (företags användare) | Nätverks åtkomst till privilegierade konton
+## <a name="ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>IA-2 (1) Identifiering och autentisering (organisatoriska användare) | Nätverksåtkomst till privilegierade konton
 
-Den här skissen hjälper dig att begränsa och kontrol lera privilegie rad åtkomst genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för granskning av konton med ägare och/eller Skriv behörigheter som inte har Multi-Factor Authentication aktiverat. Multi-Factor Authentication hjälper till att skydda konton även om en viss autentiseringsinformation komprometteras. Genom att övervaka konton utan att Multi-Factor Authentication har Aktiver ATS kan du identifiera konton som kan vara sannolikare.
+Den här skissen hjälper dig att begränsa och kontrollera privilegierad åtkomst genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) för att granska konton med ägare och/eller skrivbehörighet som inte har multifaktorautentisering aktiverad. Multifaktorautentisering hjälper till att skydda konton även om en del av autentiseringsinformationen äventyras. Genom att övervaka konton utan multifaktorautentisering aktiverat kan du identifiera konton som kan vara mer benägna att komprometteras.
 
-- MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration
+- MFA ska aktiveras på konton med ägarbehörighet för din prenumeration
+- MFA ska aktiveras på konton med skrivbehörighet för din prenumeration
 
-## <a name="ia-2-2-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>IA-2 (2) identifiering och autentisering (företags användare) | Nätverks åtkomst till konton som inte är privilegierade
+## <a name="ia-2-2-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>IA-2 (2) Identifiering och autentisering (organisatoriska användare) | Nätverksåtkomst till konton som inte är privilegierade
 
-Den här skissen hjälper dig att begränsa och kontrol lera åtkomst genom att tilldela en [Azure policy](../../../policy/overview.md) -definition till gransknings konton med Läs behörighet som inte har Multi-Factor Authentication aktiverat. Multi-Factor Authentication hjälper till att skydda konton även om en viss autentiseringsinformation komprometteras. Genom att övervaka konton utan att Multi-Factor Authentication har Aktiver ATS kan du identifiera konton som kan vara sannolikare.
+Den här skissen hjälper dig att begränsa och kontrollera åtkomst genom att tilldela en [Azure-principdefinition](../../../policy/overview.md) för granskning av konton med läsbehörigheter som inte har multifaktorautentisering aktiverad. Multifaktorautentisering hjälper till att skydda konton även om en del av autentiseringsinformationen äventyras. Genom att övervaka konton utan multifaktorautentisering aktiverat kan du identifiera konton som kan vara mer benägna att komprometteras.
 
-- MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration
+- MFA ska aktiveras på konton med läsbehörighet för din prenumeration
 
-## <a name="ia-5-authenticator-management"></a>IA-5 Authenticator-hantering
+## <a name="ia-5-authenticator-management"></a>IA-5 Autentiseringshantering
 
-Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord och/eller har felaktiga behörigheter som angetts för passwd-filen. Den här skissen tilldelar också princip definitioner som granskar konfigurationen av lösen ords krypterings typen för virtuella Windows-datorer. Genom att övervaka dessa indikatorer kan du se till att system autentiserare följer organisationens principer för identifiering och autentisering.
+Den här skissen tilldelar [Azure Policy-definitioner](../../../policy/overview.md) som granskar virtuella Linux-datorer som tillåter fjärranslutningar från konton utan lösenord och/eller har felaktiga behörigheter för passwd-filen. Den här skissen tilldelar också principdefinitioner som granskar konfigurationen av lösenordskrypteringstypen för virtuella Windows-datorer. Genom att övervaka dessa indikatorer kan du se till att systemautentiseringspersonerna följer organisationens identifierings- och autentiseringsprincip.
 
-- \[för hands version\]: granska virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644
-- \[för hands version\]: granska virtuella Linux-datorer som har konton utan lösen ord
-- \[för hands version\]: granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
-- \[för hands version\]: Distribuera krav för att granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
-- \[för hands version\]: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
+- \[Preview\]: Audit Linux virtuella datorer som inte har passwd filbehörigheter inställd på 0644
+- \[Preview:\]Granska virtuella Linux-datorer som har konton utan lösenord
+- \[Preview\]: Granska virtuella Windows-datorer som inte lagrar lösenord med reversibla kryptering
+- \[Förhandsversion\]: Distribuera krav för granskning av virtuella Linux-datorer som inte har passwd-filbehörigheterna inställda på 0644
+- \[Preview\]: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösenord
+- \[Preview\]: Distribuera krav för granskning av virtuella Windows-datorer som inte lagrar lösenord med reversibla kryptering
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Authenticator-hantering | Lösenordsbaserad autentisering
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Förvaltning av autentiseringsperson | Lösenordsbaserad autentisering
 
-Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte kräver lägsta möjliga styrka och andra lösen ords krav. Medvetenheten om virtuella datorer som strider mot principen för lösen ords styrka hjälper dig att vidta åtgärder för att se till att lösen ord för alla virtuella dator användar konton följer organisationens lösen ords princip.
+Den här skissen hjälper dig att framtvinga starka lösenord genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som granskar virtuella Windows-datorer som inte tillämpar minsta styrka och andra lösenordskrav. Medvetenhet om virtuella datorer i strid med principen om lösenordsstyrka hjälper dig att vidta korrigerande åtgärder för att säkerställa att lösenord för alla användarkonton för virtuella datorer följer organisationens lösenordsprincip.
 
-- \[för hands version\]: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[för hands version\]: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[för hands version\]: granska virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
-- \[för hands version\]: granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[för hands version\]: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[för hands version\]: granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[för hands version\]: Distribuera krav för att granska virtuella Windows-datorer som inte lagrar lösen ord med omvänd kryptering
+- \[Preview\]: Granska virtuella windows-datorer som tillåter återanvändning av de tidigare 24 lösenorden
+- \[Preview\]: Granska virtuella windows-datorer som inte har en maximal lösenordsålder på 70 dagar
+- \[Preview\]: Granska virtuella windows-datorer som inte har en lägsta lösenordsålder på 1 dag
+- \[Förhandsgranskning\]: Granska virtuella windows-datorer som inte har inställningen för lösenordskomplexitet aktiverad
+- \[Preview\]: Granska virtuella windows-datorer som inte begränsar den minsta lösenordslängden till 14 tecken
+- \[Preview\]: Granska virtuella Windows-datorer som inte lagrar lösenord med reversibla kryptering
+- \[Förhandsversion\]: Distribuera krav för granskning av virtuella Windows-datorer som tillåter återanvändning av de tidigare 24 lösenorden
+- \[Förhandsversion\]: Distribuera krav för granskning av virtuella Windows-datorer som inte har en maximal lösenordsålder på 70 dagar
+- \[Förhandsversion\]: Distribuera krav för granskning av virtuella Windows-datorer som inte har en lägsta lösenordsålder på 1 dag
+- \[Förhandsversion\]: Distribuera krav för granskning av virtuella Windows-datorer som inte har inställningen för lösenordskomplexitet aktiverad
+- \[Förhandsgranskning\]: Distribuera krav för granskning av virtuella Windows-datorer som inte begränsar den minsta lösenordslängden till 14 tecken
+- \[Preview\]: Distribuera krav för granskning av virtuella Windows-datorer som inte lagrar lösenord med reversibla kryptering
 
-## <a name="ra-5-vulnerability-scanning"></a>RA-5 sårbarhets-genomsökning
+## <a name="ir-6-2-incident-reporting--vulnerabilities-related-to-incidents"></a>IR-6 (2) IncidentRapportering | Sårbarheter relaterade till incidenter
 
-Den här skissen hjälper dig att hantera problem med informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar sårbarheter för operativ system, sårbarheter i SQL och säkerhets risker för virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser. Den här skissen tilldelar också princip definitioner som granskar och tillämpar avancerad data säkerhet på SQL-servrar. Avancerad data säkerhet inkluderar sårbarhets bedömning och avancerade hot skydds funktioner som hjälper dig att förstå sårbarheter i dina distribuerade resurser.
+Den här skissen innehåller principdefinitioner som granskar poster med analys av sårbarhetsbedömning på virtuella datorer, skaluppsättningar för virtuella datorer och SQL-servrar. Dessa insikter ger information i realtid om säkerhetstillståndet för dina distribuerade resurser och kan hjälpa dig att prioritera reparationsåtgärder.
 
-- Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
-- Distribuera avancerad data säkerhet på SQL-servrar
-- Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
-- Säkerhets problem i säkerhets konfiguration på dina virtuella datorer bör åtgärdas
-- Säkerhets risker i SQL-databaser bör åtgärdas
-- Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
+- Säkerhetsproblem i säkerhetskonfigurationen på dina skaluppsättningar för virtuella datorer bör åtgärdas
+- Sårbarheter bör åtgärdas med en sårbarhetsbedömningslösning
+- Sårbarheter i säkerhetskonfigurationen på dina datorer bör åtgärdas
+- Säkerhetsproblem i behållarens säkerhetskonfigurationer bör åtgärdas
+- Säkerhetsproblem i DINA SQL-databaser bör åtgärdas
 
-## <a name="sc-5-denial-of-service-protection"></a>SC-5 denial of service-skydd
+## <a name="ra-5-vulnerability-scanning"></a>RA-5 Sårbarhetsskanning
 
-Azures standard nivå för DDoS (distributed denial of Service) tillhandahåller ytterligare funktioner och funktioner för att minska risken för den grundläggande tjänst nivån. Bland dessa ytterligare funktioner ingår Azure Monitor-integrering och möjligheten att gå igenom rapporter efter angrepps minskning. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som revisioner om standard nivån för DDoS är aktive rad. Att förstå funktions skillnaden mellan tjänst nivåerna kan hjälpa dig att välja den bästa lösningen för att åtgärda denial of service Protection för din Azure-miljö.
+Den här skissen hjälper dig att hantera sårbarheter i informationssystem genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som övervakar sårbarheter i operativsystemet, SQL-sårbarheter och sårbarheter för virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller rapporteringsfunktioner som gör att du kan ha insikt i realtid om säkerhetstillståndet för distribuerade Azure-resurser. Den här skissen tilldelar också principdefinitioner som granskar och framtvingar avancerad datasäkerhet på SQL-servrar. Avancerad datasäkerhet inkluderade sårbarhetsbedömning och avancerade hotskyddsfunktioner som hjälper dig att förstå sårbarheter i dina distribuerade resurser.
 
-- DDoS Protection standard ska vara aktive rad
+- Avancerad datasäkerhet bör aktiveras på dina hanterade instanser
+- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Distribuera avancerad datasäkerhet på SQL-servrar
+- Säkerhetsproblem i säkerhetskonfigurationen på dina skaluppsättningar för virtuella datorer bör åtgärdas
+- Sårbarheter i säkerhetskonfigurationen på dina virtuella datorer bör åtgärdas
+- Säkerhetsproblem i DINA SQL-databaser bör åtgärdas
+- Sårbarheter bör åtgärdas med en sårbarhetsbedömningslösning
 
-## <a name="sc-7-boundary-protection"></a>SC-7 gränser skydd
+## <a name="sc-5-denial-of-service-protection"></a>SC-5 Skydd över överbelastning
 
-Den här skissen hjälper dig att hantera och kontrol lera system gränser genom att tilldela en [Azure policy](../../../policy/overview.md) -definition som övervakar för nätverks säkerhets grupps härdnings rekommendationer i Azure Security Center. Azure Security Center analyserar trafik mönster för virtuella datorer som är riktade mot Internet och ger regel rekommendationer för nätverks säkerhets grupper för att minska risken för angrepp.
-Dessutom tilldelar skissen princip definitioner som övervakar oskyddade slut punkter, program och lagrings konton. Slut punkter och program som inte skyddas av en brand vägg och lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet.
+Azures ddos-standardnivå (Distributed Denial of Service) ger ytterligare funktioner och begränsningsfunktioner över den grundläggande tjänstnivån. Dessa ytterligare funktioner inkluderar Azure Monitor-integrering och möjligheten att granska rapporter efter attacken. Den här skissen tilldelar en [Azure-principdefinition](../../../policy/overview.md) som granskar om DDoS-standardnivån är aktiverad. Genom att förstå kapacitetsskillnaden mellan tjänstnivåerna kan du välja den bästa lösningen för att hantera överbelastningsskydd för din Azure-miljö.
 
-- Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta
-- Åtkomst via slut punkt mot Internet bör vara begränsad
-- NSG: er-reglerna för webb program på IaaS bör vara härdade
-- Granska obegränsad nätverks åtkomst till lagrings konton
+- DDoS Protection Standard bör aktiveras
 
-## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) gränser skydd | Åtkomst punkter
+## <a name="sc-7-boundary-protection"></a>Gränsskydd för SC-7
 
-Just-in-Time (JIT)-åtkomst till virtuella datorer låser inkommande trafik till virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs. Åtkomst till virtuella JIT-datorer hjälper dig att begränsa antalet externa anslutningar till dina resurser i Azure. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer som har stöd för just-in-Time-åtkomst men ännu inte har kon figurer ATS.
+Den här skissen hjälper dig att hantera och styra systemgränsen genom att tilldela en [Azure Policy-definition](../../../policy/overview.md) som övervakar för rekommendationer för nätverkssäkerhetsgrupper som härdar i Azure Security Center. Azure Security Center analyserar trafikmönster för Internet som är vänt mot virtuella datorer och tillhandahåller regelrekommendationer för nätverkssäkerhetsgrupper för att minska den potentiella angreppsytan.
+Dessutom tilldelar den här skissen också principdefinitioner som övervakar oskyddade slutpunkter, program och lagringskonton. Slutpunkter och program som inte skyddas av en brandvägg och lagringskonton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informationssystemet.
 
-- Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer
+- Regler för nätverkssäkerhetsgrupp för internetvända virtuella datorer bör skärpas
+- Åtkomst via internetvänd slutpunkt bör begränsas
+- NSGs-reglerna för webbapplikationer på IaaS bör härdas
+- Granska obegränsad nätverksåtkomst till lagringskonton
 
-## <a name="sc-7-4-boundary-protection--external-telecommunications-services"></a>SC-7 (4) gränser skydd | Externa telekommunikations tjänster
+## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Gränsskydd | Åtkomstpunkter
 
-Just-in-Time (JIT)-åtkomst till virtuella datorer låser inkommande trafik till virtuella Azure-datorer, vilket minskar exponeringen för attacker och ger enkel åtkomst till att ansluta till virtuella datorer när det behövs. Åtkomst till JIT-fjärråtkomst hjälper dig att hantera undantag till trafik flödes principen genom att under lätta åtkomst förfrågningar och godkännande processer. Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka virtuella datorer som har stöd för just-in-Time-åtkomst men ännu inte har kon figurer ATS.
+Åtkomst till virtuella datorer (JUST-in-time) låser sig för inkommande trafik till virtuella Azure-datorer, vilket minskar exponeringen för attacker samtidigt som enkel åtkomst till virtuella datorer vid behov kan anslutas till virtuella datorer. JIT virtuell dator åtkomst hjälper dig att begränsa antalet externa anslutningar till dina resurser i Azure. Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att övervaka virtuella datorer som kan stödja just-in-time-åtkomst men som ännu inte har konfigurerats.
 
-- Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer
+- Just-in-time-kontroller av nätverksåtkomst ska tillämpas på virtuella datorer
 
-## <a name="sc-8-1-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>SC-8 (1) överförings konfidentialitet och integritet | Kryptografiskt eller alternativt fysiskt skydd
+## <a name="sc-7-4-boundary-protection--external-telecommunications-services"></a>SC-7 (4) Gränsskydd | Externa telekommunikationstjänster
 
-Den här skissen hjälper dig att skydda konfidentiell och integritet på överförd information genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att övervaka kryptografisk mekanism som implementerats för kommunikations protokoll. Att säkerställa att kommunikationen är korrekt krypterad kan hjälpa dig att uppfylla organisationens krav eller skydda information från obehörigt utlämnande av information och ändringar.
+Åtkomst till virtuella datorer (JUST-in-time) låser sig för inkommande trafik till virtuella Azure-datorer, vilket minskar exponeringen för attacker samtidigt som enkel åtkomst till virtuella datorer vid behov kan anslutas till virtuella datorer. ÅTKOMST till virtuella datorer för JIT hjälper dig att hantera undantag från din trafikflödesprincip genom att underlätta åtkomstbegäran och godkännandeprocesser. Den här skissen tilldelar en [Azure Policy-definition](../../../policy/overview.md) som hjälper dig att övervaka virtuella datorer som kan stödja just-in-time-åtkomst men som ännu inte har konfigurerats.
 
-- API-appen bör bara vara tillgänglig via HTTPS
-- Granska Windows-webbservrar som inte använder säkra kommunikations protokoll
-- Distribuera krav för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
-- Funktionen App bör enbart vara åtkomliga via HTTPS
-- Endast säkra anslutningar till din Redis Cache ska vara aktiverade
-- Säker överföring till lagrings konton ska vara aktiverat
-- Webbprogram bör enbart vara åtkomliga via HTTPS
+- Just-in-time-kontroller av nätverksåtkomst ska tillämpas på virtuella datorer
 
-## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) skydd av information i vila | Kryptografiskt skydd
+## <a name="sc-8-1-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>SC-8 (1) Sekretess och integritet för överföring | Kryptografiskt eller alternativt fysiskt skydd
 
-Den här skissen hjälper dig att genomdriva principen om användningen av kryptografiska kontroller för att skydda informationen i vila genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som tillämpar vissa kryptografiska kontroller och granska användningen av svaga kryptografiska inställningar. Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver princip definitionerna som tilldelas av den här skissen kryptering för data Lake Storage-konton. Kräv transparent data kryptering på SQL-databaser; och granska saknad kryptering på SQL-databaser, virtuella dator diskar och variabler för Automation-konto.
+Den här skissen hjälper dig att skydda den konfidentiella och integriteten hos överförd information genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som hjälper dig att övervaka kryptografisk mekanism som implementeras för kommunikationsprotokoll. Om du säkerställer att kommunikationen är korrekt krypterad kan du uppfylla organisationens krav eller skydda information från obehörigt röjande och ändring.
 
-- Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
-- Distribuera avancerad data säkerhet på SQL-servrar
-- Distribuera transparent data kryptering för SQL DB
-- Disk kryptering bör tillämpas på virtuella datorer
-- Kräv kryptering för Data Lake Store-konton
-- transparent datakryptering på SQL-databaser ska aktive ras
+- API-app bör endast vara tillgänglig via HTTPS
+- Granska Windows-webbservrar som inte använder säkra kommunikationsprotokoll
+- Distribuera krav för granskning av Windows-webbservrar som inte använder säkra kommunikationsprotokoll
+- Funktionsappen ska endast vara tillgänglig via HTTPS
+- Endast säkra anslutningar till Redis-cachen ska aktiveras
+- Säker överföring till lagringskonton ska vara aktiverat
+- Webbprogrammet ska endast vara tillgängligt via HTTPS
 
-## <a name="si-2-flaw-remediation"></a>SI-2 fel reparation
+## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) Skydd av information i vila | Kryptografiskt skydd
 
-Den här skissen hjälper dig att hantera fel i informations systemet genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar saknade system uppdateringar, sårbarheter för operativ system, sårbarheter i SQL och virtuella dator sårbarheter i Azure Security Center. Azure Security Center tillhandahåller rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser. Den här skissen tilldelar också en princip definition som garanterar korrigering av operativ systemet för skalnings uppsättningar för virtuella datorer.
+Den här skissen hjälper dig att tillämpa din princip om användningen av kryptografkontroller för att skydda information i vila genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som tillämpar specifika kryptografkontroller och granskningsanvändning av svaga kryptografiska inställningar. Om du förstår var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan du vidta korrigerande åtgärder för att säkerställa att resurser konfigureras i enlighet med din informationssäkerhetsprincip. De principdefinitioner som tilldelas av den här skissen kräver kryptering för lagringskonton för datasjöar. kräver transparent datakryptering i SQL-databaser. och granska kryptering som saknas i SQL-databaser, diskar för virtuella datorer och automatiseringskonto.
 
-- Kräv automatisk uppdatering av operativ system avbildningar på Virtual Machine Scale Sets
-- System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras
-- System uppdateringar bör installeras på dina virtuella datorer
-- Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas
-- Säkerhets problem i säkerhets konfiguration på dina virtuella datorer bör åtgärdas
-- Säkerhets risker i SQL-databaser bör åtgärdas
-- Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning
+- Avancerad datasäkerhet bör aktiveras på dina hanterade instanser
+- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Distribuera avancerad datasäkerhet på SQL-servrar
+- Distribuera SQL DB-transparent datakryptering
+- Diskkryptering bör tillämpas på virtuella datorer
+- Kräv kryptering på DataSjölagringskonton
+- Transparent datakryptering i SQL-databaser bör aktiveras
 
-## <a name="si-3-malicious-code-protection"></a>SI-3 skadlig kod skydd
+## <a name="si-2-flaw-remediation"></a>SI-2 Fel sanering
 
-Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig kod skydd, genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakas för saknade Endpoint Protection på virtuella datorer i Azure Security Center och tillämpa Microsoft Antimalware-lösningen på virtuella Windows-datorer.
+Den här skissen hjälper dig att hantera brister i informationssystemet genom att tilldela [Azure-principdefinitioner](../../../policy/overview.md) som övervakar systemuppdateringar som saknas, sårbarheter i operativsystemet, SQL-sårbarheter och sårbarheter för virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller rapporteringsfunktioner som gör att du kan ha insikt i realtid om säkerhetstillståndet för distribuerade Azure-resurser. Den här skissen tilldelar också en principdefinition som säkerställer korrigering av operativsystemet för skalningsuppsättningar för virtuella datorer.
 
-- Distribuera standard Microsoft IaaSAntimalware-tillägget för Windows Server
-- Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar
-- Övervaka saknade Endpoint Protection i Azure Security Center
+- Kräv automatisk OS-bildkorrigering på skalningsuppsättningar för virtuella datorer
+- Systemuppdateringar på skalningsuppsättningar för virtuella datorer bör installeras
+- Systemuppdateringar bör installeras på dina virtuella datorer
+- Säkerhetsproblem i säkerhetskonfigurationen på dina skaluppsättningar för virtuella datorer bör åtgärdas
+- Sårbarheter i säkerhetskonfigurationen på dina virtuella datorer bör åtgärdas
+- Säkerhetsproblem i DINA SQL-databaser bör åtgärdas
+- Sårbarheter bör åtgärdas med en sårbarhetsbedömningslösning
 
-## <a name="si-3-1-malicious-code-protection--central-management"></a>SI-3 (1) skadlig kod skydd | Central hantering
+## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Felsanering | Borttagning av tidigare versioner av programvara / firmware
 
-Den här skissen hjälper dig att hantera Endpoint Protection, inklusive skadlig kod skydd, genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som övervakar för saknade Endpoint Protection på virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller centraliserade hanterings-och rapporterings funktioner som gör att du kan få inblick i real tid i säkerhets läget för distribuerade Azure-resurser.
+Den här skissen tilldelar principdefinitioner som hjälper dig att se till att program använder den senaste versionen av .NET Framework, HTTP, Java, PHP, Python och TLS. Den här skissen tilldelar också en principdefinition som säkerställer att Kubernetes Services uppgraderas till den icke-sårbara versionen.
 
-- Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar
-- Övervaka saknade Endpoint Protection i Azure Security Center
+- Se till att ".Net Framework"-versionen är den senaste, om den används som en del av API-appen
+- Se till att ".Net Framework"-versionen är den senaste, om den används som en del av funktionsappen
+- Se till att ".Net Framework"-versionen är den senaste, om den används som en del av webbappen
+- Kontrollera att HTTP-versionen är den senaste, om den används för att köra Api-appen
+- Kontrollera att HTTP-versionen är den senaste, om den används för att köra funktionsappen
+- Kontrollera att HTTP-versionen är den senaste, om den används för att köra webbappen
+- Se till att "Java-versionen" är den senaste, om den används som en del av Api-appen
+- Se till att "Java-versionen" är den senaste, om den används som en del av funktionsappen
+- Se till att "Java-versionen" är den senaste, om den används som en del av webbappen
+- Se till att "PHP-versionen" är den senaste, om den används som en del av Api-appen
+- Se till att "PHP-versionen" är den senaste, om den används som en del av funktionsappen
+- Se till att "PHP-versionen" är den senaste, om den används som en del av webbappen
+- Se till att Python-versionen är den senaste, om den används som en del av Api-appen
+- Se till att Python-versionen är den senaste, om den används som en del av funktionsappen
+- Se till att Python-versionen är den senaste, om den används som en del av webbappen
+- Senaste TLS-versionen ska användas i din API-app
+- Senaste TLS-versionen ska användas i din funktionsapp
+- Senaste TLS-versionen ska användas i din Webbapp
+- \[Preview\]: Kubernetes Services bör uppgraderas till en icke-sårbar Kubernetes version
 
-## <a name="si-4-information-system-monitoring"></a>SI-4 övervakning av informations system
+## <a name="si-3-malicious-code-protection"></a>SI-3 Skydd mot skadlig kod
 
-Den här skissen hjälper dig att övervaka systemet genom att granska och framtvinga loggning och data säkerhet i Azure-resurser. Mer specifikt är principerna tilldelade granskning och tillämpar distribution av Log Analytics agenten och förbättrade säkerhets inställningar för SQL-databaser, lagrings konton och nätverks resurser. Dessa funktioner kan hjälpa dig att identifiera avvikande beteende och indikatorer på attacker så att du kan vidta lämpliga åtgärder.
+Den här skissen hjälper dig att hantera slutpunktsskydd, inklusive skadligt kodskydd, genom att tilldela [Azure Policy-definitioner](../../../policy/overview.md) som övervakar saknade slutpunktsskydd på virtuella datorer i Azure Security Center och framtvingar Microsofts lösning mot skadlig kod på virtuella Windows-datorer.
 
-- \[för hands version\]: granska Log Analytics agent distribution-VM avbildning (OS) har inte listats
-- \[för hands version\]: granska Log Analytics agent distribution i VMSS-VM-avbildningen (OS) visas inte
-- \[för hands version\]: granska Log Analytics arbets yta för VM-rapportera fel
-- \[för hands version\]: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Linux-datorer
-- \[för hands version\]: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)
-- \[för hands version\]: Distribuera Log Analytics agent för virtuella Windows-datorer
-- Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
-- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
-- Distribuera avancerad data säkerhet på SQL-servrar
-- Distribuera Avancerat skydd på lagrings konton
+- Distribuera standardtillägget Microsoft IaaSAntimalware för Windows Server
+- Slutpunktsskyddslösningen bör installeras på skalningsuppsättningar för virtuella datorer
+- Övervaka saknade slutpunktsskydd i Azure Security Center
+
+## <a name="si-3-1-malicious-code-protection--central-management"></a>SI-3 (1) Skydd mot skadlig kod | Central ledning
+
+Den här skissen hjälper dig att hantera slutpunktsskydd, inklusive skadligt kodskydd, genom att tilldela [Azure-principdefinitioner](../../../policy/overview.md) som övervakar saknade slutpunktsskydd på virtuella datorer i Azure Security Center. Azure Security Center tillhandahåller centraliserade hanterings- och rapporteringsfunktioner som gör att du kan ha insikt i realtid om säkerhetstillståndet för distribuerade Azure-resurser.
+
+- Slutpunktsskyddslösningen bör installeras på skalningsuppsättningar för virtuella datorer
+- Övervaka saknade slutpunktsskydd i Azure Security Center
+
+## <a name="si-4-information-system-monitoring"></a>ÖVERVAKNING AV INFORMATIONSSYSTEM I SI-4
+
+Den här skissen hjälper dig att övervaka ditt system genom att granska och upprätthålla loggning och datasäkerhet över Azure-resurser. Närmare bestämt de principer som tilldelats granskning och framtvinga distribution av Log Analytics-agenten och förbättrade säkerhetsinställningar för SQL-databaser, lagringskonton och nätverksresurser. Dessa funktioner kan hjälpa dig att upptäcka avvikande beteende och indikatorer på attacker så att du kan vidta lämpliga åtgärder.
+
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent – OS-avbildning (VM)
+- \[Förhandsversion:\]Distribution av granskningslogganalysagent i VMSS - VM-avbildning (OS) olistad
+- \[Förhandsversion:\]Arbetsyta för granskningslogganalys för virtuell dator – rapportfelmatchning
+- \[Förhandsversion:\]Distribuera logganalysagent för VMSS (Linux VMSS)
+- \[Preview\]: Distribuera LoggAnalys agent för Linux virtuella datorer
+- \[Förhandsversion:\]Distribuera logganalysagent för VMSS (Windows VMSS)
+- \[Förhandsgranskning:\]Distribuera logganalysagent för virtuella Windows-datorer
+- Avancerad datasäkerhet bör aktiveras på dina hanterade instanser
+- Avancerad datasäkerhet bör aktiveras på dina SQL-servrar
+- Distribuera avancerad datasäkerhet på SQL-servrar
+- Distribuera avancerat skydd mot hot på lagringskonton
 - Distribuera granskning på SQL-servrar
-- Distribuera nätverks övervakare när virtuella nätverk skapas
-- Distribuera hot identifiering på SQL-servrar
+- Distribuera nätverksbevakare när virtuella nätverk skapas
+- Distribuera hotidentifiering på SQL-servrar
 - Tillåtna platser
-- Tillåtna platser för resurs grupper
+- Tillåtna platser för resursgrupper
 
-## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>SI-4 (18) information system övervakning | Analysera trafik/konvertera exfiltrering
+## <a name="si-4-12-information-system-monitoring--automated-alerts"></a>SI-4 (12) Övervakning av informationssystem | Automatiska varningar
 
-Avancerat skydd för Azure Storage identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagrings konton. Skydds aviseringar innehåller avvikande åtkomst mönster, avvikande extrakt/uppladdningar och misstänkt lagrings aktivitet. Dessa indikatorer kan hjälpa dig att identifiera konverterad exfiltrering av information.
+Den här skissen innehåller principdefinitioner som hjälper dig att se till att datasäkerhetsmeddelanden är korrekt aktiverade. Dessutom säkerställer den här skissen att standardprisnivån är aktiverad för Azure Security Center. Observera att standardprisnivån möjliggör hotidentifiering för nätverk och virtuella datorer, vilket ger hotinformation, avvikelseidentifiering och beteendeanalys i Azure Security Center.
 
-- Distribuera Avancerat skydd på lagrings konton
+- E-postmeddelande till prenumerationsägaren för varningar om hög allvarlighetsgrad bör aktiveras
+- En e-postadress för säkerhetskontakter ska anges för din prenumeration 
+- E-postmeddelanden till administratörer och prenumerationsägare bör aktiveras i avancerade inställningar för SQL-hanterad instans 
+- E-postmeddelanden till administratörer och prenumerationsägare bör aktiveras i avancerade datasäkerhetsinställningar för SQL-servern 
+- Ett telefonnummer för säkerhetskontakter ska anges för din prenumeration
+- Avancerade datasäkerhetsinställningar för SQL-servern bör innehålla en e-postadress för att ta emot säkerhetsaviseringar
+- Standardprisnivå för Security Center-standard bör väljas
+
+## <a name="si-4-18-information-system-monitoring--analyze-traffic--covert-exfiltration"></a>SI-4 (18) Övervakning av informationssystem | Analysera trafik / Dold Exfiltration
+
+Avancerat skydd mot hot för Azure Storage identifierar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja lagringskonton. Skyddsaviseringar omfattar avvikande åtkomstmönster, avvikande extraherar/uppladdningar och misstänkt lagringsaktivitet. Dessa indikatorer kan hjälpa dig att upptäcka dold exfiltration av information.
+
+- Distribuera avancerat skydd mot hot på lagringskonton
 
 > [!NOTE]
-> Tillgängligheten för vissa Azure Policy definitioner kan variera i Azure Government och andra nationella moln. 
+> Tillgängligheten för specifika Azure-principdefinitioner kan variera i Azure Government och andra nationella moln. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har granskat kontroll mappningen av DoD-effekten nivå 4 kan du gå till följande artiklar om du vill veta mer om skissen och hur du distribuerar det här exemplet:
+Nu när du har granskat kontrollmappningen av DoD Impact Level 4-skissen kan du besöka följande artiklar om hur du använder skissen och hur du distribuerar det här exemplet:
 
 > [!div class="nextstepaction"]
-> [DoD-effekt nivå 4 skiss – översikt](./index.md)
-> [DoD effekt nivå 4 skiss – distribuera steg](./deploy.md)
+> [DoD Impact Level 4-skiss - Översikt](./index.md)
+> [DoD Impact Level 4-skiss - Distributionssteg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 
-- Mer information om [livscykeln för en skiss](../../concepts/lifecycle.md).
+- Läs mer om [skisslivscykeln](../../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../../concepts/parameters.md).
-- Lär dig hur du anpassar [sekvensordningen för en skiss](../../concepts/sequencing-order.md).
-- Lär dig hur du använder [resurslåsning för en skiss](../../concepts/resource-locking.md).
+- Lär dig att anpassa [ordningsföljden för skisssekvensering](../../concepts/sequencing-order.md).
+- Ta reda på hur du använder [skiss resurs låsning](../../concepts/resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../../how-to/update-existing-assignments.md).

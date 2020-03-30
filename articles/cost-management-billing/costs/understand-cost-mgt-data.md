@@ -1,26 +1,24 @@
 ---
-title: Översikt av Azure Cost Management-data | Microsoft Docs
+title: Förstå Azure Cost Management-data
 description: Den här artikeln hjälper dig att bättre förstå data som ingår i Azure Cost Management samt hur ofta de bearbetas, samlas in, visas och stängs.
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
-ms.custom: ''
-ms.openlocfilehash: ff3ed7ee65fd34ef9cd3541832f9cffc306e1aa8
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 2af84ccf679d28251e34f4c76ced38b0cb653a58
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78245379"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203023"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
 Den här artikeln hjälper dig att bättre förstå kostnads- och användningsdata i Azure som ingår i Azure Cost Management. Den förklarar hur ofta data bearbetas, samlas in, visas och stängs. Du faktureras för Azure-användning månatligen. Även om faktureringscykler är månadsperioder varierar cykelns startdatum och slutdatum efter prenumerationstyp. Hur ofta Cost Management tar emot användningsdata varierar beroende på olika faktorer. Dessa faktorer omfattar hur lång tid det tar att bearbeta data och hur ofta Azure-tjänster genererar användning till faktureringssystemet.
 
-Cost Management omfattar all användning och alla inköp, inklusive reservationer och erbjudanden från tredje part för Enterprise-avtalskonton (EA). Microsoft-kundavtalskonton och enskilda prenumerationer med Betala per användning-priser omfattar endast användning från Azure- och Marketplace-tjänster. Support och andra kostnader ingår inte. Kostnader beräknas tills en faktura genereras och påverkar inte krediter.
+Cost Management omfattar all användning och alla inköp, inklusive reservationer och erbjudanden från tredje part för Enterprise-avtalskonton (EA). Microsoft-kundavtalskonton och enskilda prenumerationer med Betala per användning-priser omfattar endast användning från Azure- och Marketplace-tjänster. Support och andra kostnader ingår inte. Kostnader beräknas tills en faktura genereras och tar inte med krediter i beräkningen.
 
 Om du har en ny prenumeration kan du inte använda Cost Management-funktioner direkt. Det kan ta upp till 48 timmar innan du kan använda alla Cost Management-funktioner.
 
@@ -165,9 +163,9 @@ Oavsett om du använder [Cost Management-API:er](../index.yml), Power BI eller A
 Kostnaderna som visas i Cost Management avrundas. Kostnaderna som returneras av fråge-API:et avrundas inte. Ett exempel:
 
 - Kostnadsanalys på Azure-portalen – avgifterna avrundas med standardavrundningsregler: värden från 0,5 och högre avrundas uppåt, annars avrundas kostnaderna nedåt. Avrundning görs endast när värden visas. Ingen avrundning görs under databearbetning och aggregering. Till exempel aggregeras kostnader i en kostnadsanalys så här:
-  - Kostnad 1: 0,004 USD
+  -    Kostnad 1: 0,004 USD
   - Kostnad 2: 0,004 USD
-  - Den aggregerade kostnaden blir: 0,004 + 0,004 = 0,008. Kostnaden som visas är 0,01.
+  -    Den aggregerade kostnaden blir: 0,004 + 0,004 = 0,008. Kostnaden som visas är 0,01.
 - Fråge-API – kostnader visas med åtta decimaler och ingen avrundning görs.
 
 

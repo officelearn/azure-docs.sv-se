@@ -1,67 +1,67 @@
 ---
-title: Säkerhets kopiering och återställning – Azure CLI – Azure Database for MariaDB
-description: Lär dig hur du säkerhetskopierar och återställer en server i Azure Database for MariaDB med hjälp av Azure CLI.
+title: Säkerhetskopiering och återställning - Azure CLI - Azure Database för MariaDB
+description: Lär dig hur du säkerhetskopierar och återställer en server i Azure Database för MariaDB med hjälp av Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 4564aff5e8fe2119a494af33e71ff927718646db
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/27/2020
+ms.openlocfilehash: 6faae80c78fe07d33579cc3fb7c76ce668969992
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765881"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80369274"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Säkerhetskopiera och återställa en server i Azure Database for MariaDB med Azure CLI
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>Säkerhetskopierar och återställer en server i Azure Database för MariaDB med Hjälp av Azure CLI
 
-Azure Database for MariaDB servrar säkerhets kopie ras regelbundet för att aktivera återställnings funktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt på en ny server.
+Azure Database för MariaDB-servrar säkerhetskopieras med jämna mellanrum för att aktivera återställningsfunktioner. Med den här funktionen kan du återställa servern och alla dess databaser till en tidigare tidpunkt, på en ny server.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här instruktions guiden behöver du:
+För att slutföra den här guiden behöver du:
 
-- En [Azure Database for MariaDB-Server och-databas](quickstart-create-mariadb-server-database-using-azure-cli.md)
+- En [Azure-databas för MariaDB-server och databas](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!IMPORTANT]
-> Den här instruktions guiden kräver att du använder Azure CLI version 2,0 eller senare. Bekräfta versionen genom att ange `az --version`i kommando tolken för Azure CLI. Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
+> Den här programguiden kräver att du använder Azure CLI version 2.0 eller senare. Om du vill bekräfta versionen anger du `az --version`i kommandotolken i Azure CLI . Information om hur du installerar eller uppgraderar finns i [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
-## <a name="set-backup-configuration"></a>Ange konfiguration för säkerhets kopiering
+## <a name="set-backup-configuration"></a>Ange konfiguration för säkerhetskopiering
 
-Du väljer mellan att konfigurera servern för antingen lokalt redundanta säkerhets kopieringar eller geografiskt redundanta säkerhets kopieringar när servern skapas.
+Du kan välja mellan att konfigurera servern för antingen lokalt redundanta säkerhetskopior eller geografiskt redundanta säkerhetskopior när servern skapas.
 
 > [!NOTE]
-> När en server har skapats har den typ av redundans som den har, geografiskt redundant vs lokalt redundant, inte växlats.
+> När en server har skapats kan den typ av redundans som den har, geografiskt redundant kontra lokalt redundant, inte växlas.
 >
 
-När du skapar en server via `az mariadb server create` kommandot, bestämmer `--geo-redundant-backup`-parametern ditt alternativ för redundans av säkerhets kopia. Om `Enabled`tas geo-redundanta säkerhets kopieringar. Eller om `Disabled` lokalt redundanta säkerhets kopieringar görs.
+När du skapar `az mariadb server create` en server `--geo-redundant-backup` via kommandot bestämmer parametern alternativet För säkerhetskopieringsredundans. Om `Enabled`tas geo redundanta säkerhetskopior. Eller `Disabled` om lokalt redundanta säkerhetskopior tas.
 
-Kvarhållningsperioden för säkerhets kopior anges av parametern `--backup-retention`.
+Lagringsperioden för säkerhetskopiering ställs `--backup-retention`in av parametern .
 
-Mer information om hur du anger dessa värden under skapa finns i [snabb starten för Azure Database for MariaDB Server CLI](quickstart-create-mariadb-server-database-using-azure-cli.md).
+Mer information om hur du anger dessa värden under skapa finns i [Azure Database for MariaDB server CLI Quickstart](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
-Du kan ändra kvarhållningsperioden för säkerhets kopior för en server på följande sätt:
+Lagringsperioden för säkerhetskopiering för en server kan ändras på följande sätt:
 
 ```azurecli-interactive
 az mariadb server update --name mydemoserver --resource-group myresourcegroup --backup-retention 10
 ```
 
-I föregående exempel ändras kvarhållningsperioden för säkerhets kopior på mydemoserver till 10 dagar.
+I föregående exempel ändras lagringsperioden för säkerhetskopiering för mindemoserver till 10 dagar.
 
-Kvarhållningsperioden för säkerhets kopior styr hur långt tillbaka i tiden en tidpunkts återställning kan hämtas, eftersom den baseras på tillgängliga säkerhets kopior. Återställning av tidpunkt för tidpunkt beskrivs ytterligare i nästa avsnitt.
+Lagringsperioden för säkerhetskopiering styr hur långt tillbaka i tiden en point-in-time-återställning kan hämtas, eftersom den baseras på tillgängliga säkerhetskopior. Tidsåterställning beskrivs ytterligare i nästa avsnitt.
 
-## <a name="server-point-in-time-restore"></a>Återställning av Server-in-Time-återställning
+## <a name="server-point-in-time-restore"></a>Återställning av serverpunkt i tid
 
-Du kan återställa servern till en tidigare tidpunkt. Återställda data kopieras till en ny server och den befintliga servern är kvar som den är. Om en tabell till exempel råkat släppas efter middag idag, kan du återställa till tiden strax före 12.00. Sedan kan du hämta den saknade tabellen och data från den återställda kopian av servern.
+Du kan återställa servern till en tidigare tidpunkt. Återställda data kopieras till en ny server och den befintliga servern lämnas som den är. Om en tabell till exempel av misstag tas bort vid lunchtid i dag kan du återställa till tiden strax före klockan tolv. Sedan kan du hämta den saknade tabellen och data från den återställda kopian av servern.
 
-Om du vill återställa servern använder du kommandot Azure CLI [AZ MariaDB Server Restore](/cli/azure/mariadb/server#az-mariadb-server-restore) .
+Om du vill återställa servern använder du kommandot Azure CLI [az mariadb server restore.](/cli/azure/mariadb/server#az-mariadb-server-restore)
 
-### <a name="run-the-restore-command"></a>Kör kommandot Restore
+### <a name="run-the-restore-command"></a>Kör återställningskommandot
 
-Återställ servern genom att ange följande kommando i kommando tolken för Azure CLI:
+Om du vill återställa servern anger du följande kommando i kommandotolken i Azure CLI:
 
 ```azurecli-interactive
 az mariadb server restore --resource-group myresourcegroup --name mydemoserver-restored --restore-point-in-time 2018-03-13T13:59:00Z --source-server mydemoserver
@@ -71,38 +71,38 @@ Kommandot `az mariadb server restore` kräver följande parametrar:
 
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Resurs gruppen där käll servern finns.  |
+| resource-group |  myresourcegroup |  Den resursgrupp där källservern finns.  |
 | namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
-| restore-point-in-time | 2018-03-13T13:59:00Z | Välj en tidpunkt då du vill återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd ISO8601 datum-och tids format. Du kan till exempel använda din egen lokala tidszon som `2018-03-13T05:59:00-08:00`. Du kan också använda formatet UTC-Zulu, till exempel `2018-03-13T13:59:00Z`. |
+| restore-point-in-time | 2018-03-13T13:59:00Z | Välj en tidpunkt att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd datum- och tidsformatet ISO8601. Du kan till exempel använda en egen `2018-03-13T05:59:00-08:00`lokal tidszon, till exempel . Du kan också använda UTC Zulu-formatet, till exempel `2018-03-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
 
-WWhen du återställer en server till en tidigare tidpunkt skapas en ny server. Den ursprungliga servern och dess databaser från den angivna tidpunkten kopieras till den nya servern.
+WNär du återställer en server till en tidigare tidpunkt skapas en ny server. Den ursprungliga servern och dess databaser från den angivna tidpunkten kopieras till den nya servern.
 
-Plats-och pris nivå värden för den återställda servern förblir samma som den ursprungliga servern. 
+Plats- och prisnivåvärdena för den återställda servern förblir desamma som den ursprungliga servern. 
 
-När återställnings processen har slutförts letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt då återställningen initierades. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
+När återställningen är klar letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggningsnamn och lösenord för serveradministratörer som var giltigt för den befintliga servern när återställningen initierades. Lösenordet kan ändras från den nya serverns **översiktssida.**
 
-Den nya servern som skapades under en återställning saknar de brand Väggs regler eller virtuella nätverks slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den här nya servern.
+Den nya servern som skapades under en återställning har inte de slutpunkter för VNet-tjänsten som fanns på den ursprungliga servern. Dessa regler måste ställas in separat för den nya servern. Brandväggsregler från den ursprungliga servern återställs.
 
-## <a name="geo-restore"></a>Geo-återställning
+## <a name="geo-restore"></a>Geo återställa
 
-Om du har konfigurerat servern för geografiskt redundanta säkerhets kopieringar kan en ny server skapas från säkerhets kopian av den befintliga servern. Den nya servern kan skapas i vilken region som helst som Azure Database for MariaDB tillgänglig.  
+Om du har konfigurerat servern för geografiskt redundanta säkerhetskopior kan en ny server skapas från säkerhetskopian av den befintliga servern. Den här nya servern kan skapas i alla regioner som Azure Database för MariaDB är tillgänglig.  
 
-Om du vill skapa en server med hjälp av en Geo-redundant säkerhets kopia använder du kommandot Azure CLI `az mariadb server georestore`.
+Om du vill skapa en server med `az mariadb server georestore` hjälp av en geo redundant säkerhetskopiering använder du kommandot Azure CLI.
 
 > [!NOTE]
-> När en server först skapas kanske den inte är omedelbart tillgänglig för geo Restore. Det kan ta några timmar för nödvändiga metadata att fyllas i.
+> När en server först skapas kanske den inte är omedelbart tillgänglig för geoåterställning. Det kan ta några timmar innan de nödvändiga metadata fylls i.
 >
 
-För geo-återställning av servern, i kommando tolken för Azure CLI, anger du följande kommando:
+Om du vill återställa servern geo anger du följande kommando i Kommandotolken i Azure CLI:
 
 ```azurecli-interactive
 az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8
 ```
 
-Det här kommandot skapar en ny server med namnet *mydemoserver-långsiktig återställning* i östra USA som ska tillhöra *myresourcegroup*. Det är en Generell användning, gen 5-Server med 8 virtuella kärnor. Servern skapas från den geo-redundanta säkerhets kopieringen av *mydemoserver*, som också finns i resurs gruppen *myresourcegroup*
+Detta kommando skapar en ny server som kallas *mydemoserver-georestored* i östra USA som kommer att *tillhöra myresourcegroup*. Det är ett allmänt syfte, Gen 5 server med 8 vCores. Servern skapas från den geosertaundanta säkerhetskopian av *mindemoserver*, som också finns i resursgruppen *myresourcegroup*
 
-Om du vill skapa den nya servern i en annan resurs grupp än den befintliga servern, kvalificerar du Server namnet som i följande exempel i parametern `--source-server`:
+Om du vill skapa den nya servern i en annan resursgrupp än den befintliga servern, kvalificerar du servernamnet som i följande exempel i `--source-server` parametern:
 
 ```azurecli-interactive
 az mariadb server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMariaDB/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
@@ -113,20 +113,20 @@ Kommandot `az mariadb server georestore` kräver följande parametrar:
 
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
-|resource-group| myresourcegroup | Namnet på den resurs grupp som den nya servern ska tillhöra.|
-|namn | mydemoserver – omåterställd | Namnet på den nya servern. |
-|source-server | mydemoserver | Namnet på den befintliga server vars geo-redundanta säkerhets kopieringar används. |
+|resource-group| myresourcegroup | Namnet på den resursgrupp som den nya servern kommer att tillhöra.|
+|namn | mydemoserver-georestored | Namnet på den nya servern. |
+|source-server | mydemoserver | Namnet på den befintliga servern vars geo redundanta säkerhetskopior används. |
 |location | eastus | Platsen för den nya servern. |
-|sku-name| GP_Gen5_8 | Den här parametern anger pris nivån, beräknings genereringen och antalet virtuella kärnor för den nya servern. GP_Gen5_8 mappar till en Generell användning, gen 5-Server med 8 virtuella kärnor.|
+|sku-name| GP_Gen5_8 | Den här parametern anger prisnivå, beräkningsgenerering och antal virtuella kärnor för den nya servern. GP_Gen5_8 kartor till ett allmänt syfte, Gen 5 server med 8 vCores.|
 
-När du skapar en ny server med en geo-återställning ärver den samma lagrings storlek och pris nivå som käll servern. Dessa värden kan inte ändras när de skapas. När den nya servern har skapats kan dess lagrings storlek skalas upp.
+När du skapar en ny server genom en geoåterställning ärver den samma lagringsstorlek och prisnivå som källservern. Dessa värden kan inte ändras när de skapas. När den nya servern har skapats kan lagringsstorleken skalas upp.
 
-När återställnings processen har slutförts letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggnings namn och lösen ord för Server administratören som var giltiga för den befintliga servern vid den tidpunkt då återställningen initierades. Du kan ändra lösen ordet från den nya serverns **översikts** sida.
+När återställningen är klar letar du reda på den nya servern och kontrollerar att data återställs som förväntat. Den nya servern har samma inloggningsnamn och lösenord för serveradministratörer som var giltigt för den befintliga servern när återställningen initierades. Lösenordet kan ändras från den nya serverns **översiktssida.**
 
-Den nya servern som skapades under en återställning saknar de brand Väggs regler eller virtuella nätverks slut punkter som fanns på den ursprungliga servern. Dessa regler måste konfigureras separat för den här nya servern.
+Den nya servern som skapades under en återställning har inte de slutpunkter för VNet-tjänsten som fanns på den ursprungliga servern. Dessa regler måste ställas in separat för den nya servern. Brandväggsregler från den ursprungliga servern återställs.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om tjänstens [säkerhets kopior](concepts-backup.md)
-- Lär dig mer om [repliker](concepts-read-replicas.md)
-- Läs mer om alternativ för [affärs kontinuitet](concepts-business-continuity.md)
+- Läs mer om tjänstens [säkerhetskopior](concepts-backup.md)
+- Läs mer om [repliker](concepts-read-replicas.md)
+- Läs mer om alternativ [för affärskontinuitet](concepts-business-continuity.md)

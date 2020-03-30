@@ -1,26 +1,28 @@
 ---
-title: Konfigurera lagringskonton för Cloudyn i Azure | Microsoft Docs
+title: Konfigurera lagringskonton för Cloudyn i Azure
 description: I den här artikeln beskrivs hur du konfigurerar Azure Storage-konton och AWS-lagringsbucketar för Cloudyn.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: ec6c68d209f867ab3547e855f3cf754bc27d53c5
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ROBOTS: NOINDEX
+ms.openlocfilehash: c741f303958630415d54cabc62c04430f0b8b89d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117618"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474602"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Konfigurera lagringskonton för Cloudyn
 
 <!--- intent: As a Cloudyn user, I want to configure Cloudyn to use my cloud service provider storage account to store my reports. -->
 
 Du kan spara Cloudyn-rapporter i Cloudyn-portalen, Azure Storage eller AWS-lagringsbucketar. Det kostar inget att spara rapporterna i Cloudyn-portalen. Men att spara rapporter till molntjänstleverantörens lagring är valfritt och medför ytterligare kostnader. Den här artikeln hjälper dig att konfigurera Azure Storage-konton och AWS-lagringsbucketar (Amazon Web Services) för att lagra dina rapporter.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 

@@ -6,14 +6,14 @@ ms.reviewer: micflan
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/20/2020
 ms.author: banders
-ms.openlocfilehash: e45ef26f3d0a4b968b601e70658c5f3680492682
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3b4a5601f18a07ba1ecd6fdd93628d671a0acad2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199032"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80065645"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Förstå villkoren i filen för din Azure-användning och dina avgifter
 
@@ -74,10 +74,12 @@ MeterName | Alla | Namnet på mätaren.
 MeterRegion | Alla | Namnet på datacenterplatsen för tjänster som prissätts baserat på plats. Se Location.
 MeterSubCategory | Alla | Namn på kategorin för mätarens underklassificering.
 OfferId<sup>1</sup> | Alla | Namnet på det köpta erbjudandet.
+PayGPrice | Alla | Resursens butikspris.
 PartNumber<sup>1</sup> | EA, PAYG | Identifierare som används för att hämta specifik mätarprissättning.
 PlanName | EA, PAYG | Namn på Marketplace-plan.
 PreviousInvoiceId | MCA | Referens till en ursprunglig faktura om det här radobjektet är en återbetalning.
 PricingCurrency | MCA | Valuta som används vid klassificering baserat på förhandlade priser.
+PricingModel | Alla | Identifierare som anger hur mätarens pris bestäms. (Värden: på begäran, reservation, punkt)
 Produkt | Alla | Namn på produkten.
 ProductId<sup>1</sup> | MCA | Unik identifierare för produkten.
 ProductOrderId | Alla | Unik identifierare för produktbeställningen.

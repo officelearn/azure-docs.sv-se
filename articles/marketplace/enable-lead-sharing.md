@@ -1,18 +1,18 @@
 ---
 title: Aktivera leaddelning på Azure Marketplace | Azure
 description: Lär dig hur du aktiverar leaddelning för Azure Marketplace och AppSource för app- och tjänstutgivare.
-author: jm-aditi-ms
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dsindona
-ms.openlocfilehash: 09282f3a54eeded52c63fab6bfe13528eaace48a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b41a29fb3548937e9071cfb9f065dd46f63df83e
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80286310"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387626"
 ---
 # <a name="enable-lead-sharing"></a>Aktivera delning av lead
 Om du ser till att leadhantering är aktiverat för dina uppgifter på [Azure Marketplace](https://azuremarketplace.microsoft.com) eller [Microsoft AppSource](https://appsource.microsoft.com) kan du få kontaktinformation för följande målgrupper:

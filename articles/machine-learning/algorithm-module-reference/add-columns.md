@@ -1,7 +1,7 @@
 ---
-title: 'Lägg till kolumner: modulreferens'
+title: 'Lägg till kolumner: Modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen Lägg till kolumner i Azure Machine Learning för att sammanfoga två data uppsättningar.
+description: Lär dig hur du använder modulen Lägg till kolumner i Azure Machine Learning för att sammanfoga två datauppsättningar.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,41 +9,41 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 55fe3a2a4fd0f45b0873e47f29b7ea013558be40
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: f2e067f76d6ed7d89a38e9b8920c407f161969a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152490"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456786"
 ---
-# <a name="add-columns-module"></a>Lägg till kolumner-modul
+# <a name="add-columns-module"></a>Modulen Lägg till kolumner
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
 
-Använd den här modulen för att sammanfoga två data uppsättningar. Du kan kombinera alla kolumner från de två data uppsättningarna som du anger som indata för att skapa en enskild data uppsättning. Om du behöver sammanfoga fler än två data uppsättningar använder du flera instanser av **Lägg till kolumner**.
+Använd den här modulen för att sammanfoga två datauppsättningar. Du kombinerar alla kolumner från de två datauppsättningar som du anger som indata för att skapa en enda datauppsättning. Om du behöver sammanfoga fler än två datauppsättningar använder du flera instanser av **Lägg till kolumner**.
 
 
 
-## <a name="how-to-configure-add-columns"></a>Så här konfigurerar du Lägg till kolumner
-1. Lägg till modulen **Lägg till kolumner** i din pipeline.
+## <a name="how-to-configure-add-columns"></a>Konfigurera Lägga till kolumner
+1. Lägg till modulen **Lägg till kolumner** i pipelinen.
 
-2. Anslut de två data uppsättningarna som du vill sammanfoga. Om du vill kombinera fler än två data uppsättningar kan du kedja samman flera kombinationer av **Lägg till kolumner**.
+2. Anslut de två datauppsättningar som du vill sammanfoga. Om du vill kombinera fler än två datauppsättningar kan du kedja ihop flera kombinationer av **Lägg till kolumner**.
 
-    - Det går att kombinera två kolumner som har ett annat antal rader. Data uppsättningen för utdata fylls med värden som saknas för varje rad i den mindre käll kolumnen.
+    - Det är möjligt att kombinera två kolumner som har ett annat antal rader. Utdatauppsättningen ärvad med saknade värden för varje rad i den mindre källkolumnen.
 
-    - Du kan inte välja enskilda kolumner som ska läggas till. Alla kolumner från varje data uppsättning sammanfogas när du använder **Lägg till kolumner**. Om du bara vill lägga till en delmängd av kolumnerna använder du Välj kolumner i data uppsättning för att skapa en data uppsättning med de kolumner som du vill använda.
+    - Du kan inte välja enskilda kolumner att lägga till. Alla kolumner från varje datauppsättning sammanfogas när du använder **Lägg till kolumner**. Om du bara vill lägga till en delmängd av kolumnerna använder du därför Markera kolumner i datauppsättning för att skapa en datauppsättning med de kolumner du vill använda.
 
-3. Köra en pipeline.
+3. Skicka pipelinen.
 
 ### <a name="results"></a>Resultat
 När pipelinen har körts:
 
-- Om du vill se de första raderna i den nya data uppsättningen högerklickar du på modulen **Lägg till kolumner** och väljer visualisera. Eller Välj modulen och växla till fliken **utdata** i den högra panelen, klicka på histogrammets ikon i **portens utdata** för att visualisera resultatet.
+- Om du vill visa de första raderna i den nya datauppsättningen högerklickar du på modulen **Lägg till kolumner** och väljer Visualisera. Eller Välj modul och växla till fliken **Utdata** på den högra panelen klickar du på histogramikonen i **portutgångarna** för att visualisera resultatet.
 
-Antalet kolumner i den nya data mängden motsvarar summan av kolumnerna i båda data uppsättningarna.
+Antalet kolumner i den nya datauppsättningen är lika med summan av kolumnerna för båda indatauppsättningarna.
 
-Om det finns två kolumner med samma namn i indata-datauppsättningarna läggs ett numeriskt suffix till i kolumnens namn. Om det till exempel finns två instanser av en kolumn med namnet TargetOutcome skulle den vänstra kolumnen byta namn TargetOutcome_1 och den högra kolumnen får namnet TargetOutcome_2.
+Om det finns två kolumner med samma namn i indatauppsättningarna läggs ett numeriskt suffix till i namnet på kolumnen. Om det till exempel finns två förekomster av en kolumn med namnet TargetOutcome, döps den vänstra kolumnen om TargetOutcome_1 och den högra kolumnen döps om TargetOutcome_2.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

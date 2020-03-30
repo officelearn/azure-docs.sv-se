@@ -1,6 +1,6 @@
 ---
-title: Hämta resultatet av ett jobb – Azure Media Services
-description: Den här artikeln visar hur du hämtar resultatet av ett jobb.
+title: Ladda ned resultatet av ett jobb - Azure Media Services
+description: Den här artikeln visar hur du hämtar resultaten av ett jobb.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,18 +11,22 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
 ms.author: juliako
-ms.openlocfilehash: 0c81523d43fd316c3dc65cc2a5b34557f24014b5
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.openlocfilehash: bae7104eaded8c2ed153bc141faf7eba0bb86bae
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78303417"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346301"
 ---
-# <a name="download-the-results-of-a-job"></a>Hämta resultatet av ett jobb
+# <a name="download-the-results-of-a-job"></a>Ladda ner resultatet av ett jobb
 
-I Azure Media Services, när du bearbetar dina videor (till exempel kodning eller analys), måste du skapa en utgående [till gång](assets-concept.md) för att lagra resultatet av [jobbet](transforms-jobs-concept.md). Du kan sedan hämta dessa resultat till en lokal mapp med hjälp av media service och Storage-API: er. 
+I Azure Media Services måste du när du bearbetar dina videor (till exempel kodning eller analys) skapa en [utdatatillgång](assets-concept.md) för att lagra resultatet av ditt [jobb](transforms-jobs-concept.md). Du kan sedan hämta dessa resultat till en lokal mapp med api:er för medietjänst och lagring. 
 
-Den här artikeln visar hur du hämtar resultaten med Java-och .NET-SDK: er.
+Den här artikeln visar hur du hämtar resultaten med Java och .NET SDK:er.
+
+## <a name="prerequisites"></a>Krav 
+
+Granska [hantera tillgångar](manage-asset-concept.md).
 
 ## <a name="java"></a>Java
 
@@ -67,7 +71,7 @@ private static void downloadResults(MediaManager manager, String resourceGroup, 
 }
 ```
 
-Se fullständig kod exempel: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
+Se hela kodexemplet: [KodningMedMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-java/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/src/main/java/sample/EncodingWithMESPredefinedPreset.java)
 
 ## <a name="net"></a>.NET
 
@@ -116,8 +120,8 @@ private async static Task DownloadResults(IAzureMediaServicesClient client, stri
 }
 ```
 
-Se fullständig kod exempel: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
+Se hela kodexemplet: [KodningMedMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa ett jobb inmatat från en HTTPS-URL](job-input-from-http-how-to.md).
+[Skapa en jobbinmatning från en HTTPS-URL](job-input-from-http-how-to.md).

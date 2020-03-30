@@ -1,6 +1,6 @@
 ---
 title: Skapa en testmiljö för Azure Firewall
-description: Det här Skriptexemplet skapar en brandvägg och en testmiljö för nätverket. Nätverket har ett VNet, med tre undernät.
+description: Det här Skriptexemplet skapar en brandvägg och en testmiljö för nätverket. Nätverket har ett virtuella nätverk med tre undernät.
 services: virtual-network
 author: vhorne
 ms.service: firewall
@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 11/19/2019
 ms.author: victorh
 ms.openlocfilehash: 6cb0eafce354ba54dd161fee52efe46677ad2765
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "74195889"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Skapa en testmiljö för Azure Firewall
@@ -21,7 +21,7 @@ Det här Skriptexemplet skapar en brandvägg och en testmiljö för nätverket. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Brand väggen finns i AzureFirewallSubnet och konfigureras med en regel samling för program med en enda regel som ger åtkomst till `www.microsoft.com`.
+Brandväggen finns i AzureFirewallSubnet och är konfigurerad med en programregelsamling `www.microsoft.com`med en enda regel som ger åtkomst till .
 
 Dessutom skapas en användardefinierad väg som skickar nätverkstrafik från ServersSubnet via brandväggen där brandväggsreglerna tillämpas.
 
@@ -34,7 +34,7 @@ Du kan använda `PowerShellGet` om du behöver uppgradera, och det är inbyggt i
 > [!NOTE]
 >I andra Windows-versionen måste du installera `PowerShellGet` innan du kan använda det. Du kan köra `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` för att avgöra om det är installerat på datorn. Om du inte ser några utdata måste du installera den senaste versionen av [Windows Management-ramverket](https://www.microsoft.com/download/details.aspx?id=54616).
 
-Mer information finns i [installera Azure PowerShell](/powershell/azure/install-Az-ps)
+Mer information finns i [Installera Azure PowerShell](/powershell/azure/install-Az-ps)
 
 Befintliga Azure PowerShell-installationer som gjorts med installationsprogrammet för Web Platform kommer att så i konflikt med installationen av PowerShellGet och måste tas bort.
 
@@ -57,7 +57,7 @@ Remove-AzResourceGroup -Name AzfwSampleScriptEastUS -Force
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i tabellen länkar till kommandospecifik dokumentation:
+I det här skriptet används följande kommandon för att skapa en resursgrupp, ett virtuellt nätverk och nätverkssäkerhetsgrupper. Varje kommando i följande tabell länkar till kommandospecifik dokumentation:
 
 | Kommando | Anteckningar |
 |---|---|
@@ -72,9 +72,9 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig) | Skapar en virtuell datorkonfiguration. Den här konfigurationen omfattar information som virtuellt datornamn, operativsystem och administrativa autentiseringsuppgifter. Konfigurationen används vid skapande av virtuell dator. |
 | [New-AzVM](/powershell/module/az.compute/new-azvm) | Skapa en virtuell dator. |
 |[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp och alla resurser som ingår i gruppen. |
-|[New-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)| Skapar en ny Azure Firewall-brandvägg.|
-|[Get-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/get-azfirewall)|Hämtar ett Azure Firewall-objekt.|
-|[New-AzFirewallApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallapplicationrule)|Skapar en ny Azure Firewall-programregel.|
+|[Nya-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall)| Skapar en ny Azure Firewall-brandvägg.|
+|[Få-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/get-azfirewall)|Hämtar ett Azure Firewall-objekt.|
+|[Nya-AzFirewallApplicationRule](https://docs.microsoft.com/powershell/module/az.network/new-azfirewallapplicationrule)|Skapar en ny Azure Firewall-programregel.|
 |[Set-AzFirewall](https://docs.microsoft.com/powershell/module/az.network/set-azfirewall)|Sparar ändringarna i Azure Firewall-objektet.|
 
 ## <a name="next-steps"></a>Nästa steg

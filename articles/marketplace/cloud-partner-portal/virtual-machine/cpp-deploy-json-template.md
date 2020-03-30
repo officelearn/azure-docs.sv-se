@@ -1,23 +1,22 @@
 ---
-title: Mall för Azure VHD-distribution | Azure Marketplace
-description: Listar den Azure Resource Manager mall som krävs för att distribuera en ny virtuell Azure-dator från en virtuell användar hård disk.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Distributionsmall för Azure VHD | Azure Marketplace
+description: Visar den Azure Resource Manager-mall som krävs för att distribuera en ny virtuell Azure-dator från en virtuell hårddisk för användare.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: ddaf9213980e666ea69c700ad26b9db52886c9cb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2db8c05d086c7b4e8537a1c17b1ca84eedb19857
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821416"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277879"
 ---
-# <a name="virtual-hard-disk-deployment-template"></a>Mall för distribution av virtuell hård disk 
+# <a name="virtual-hard-disk-deployment-template"></a>Distributionsmall för virtuell hårddisk 
 
-Följande Azure Resource Manager mall definierar en ny virtuell Azure-dator-instans (VM) som skapats från lokal virtuell hård disk (VHD).  Den här mallen används i artikeln [distribuera en virtuell Azure-dator från en VHD-användare](./cpp-deploy-vm-user-image.md). 
+Följande Azure Resource Manager-mall definierar en ny Azure-instans (VIRTUELL) som skapats från vhd-instans (Local Virtual Virtual Hard Disk).  Den här mallen används i artikeln [Distribuera en Virtuell Azure-dator från en virtuell användar-HÅRDDISK](./cpp-deploy-vm-user-image.md). 
 
 ```json
 {

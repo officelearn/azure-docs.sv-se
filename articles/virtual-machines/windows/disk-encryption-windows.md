@@ -1,52 +1,52 @@
 ---
-title: Azure Disk Encryption scenarier på virtuella Windows-datorer
-description: Den här artikeln innehåller anvisningar om hur du aktiverar Microsoft Azure disk kryptering för virtuella Windows-datorer för olika scenarier
+title: Azure Disk Encryption-scenarier på virtuella Windows-datorer
+description: Den här artikeln innehåller instruktioner om hur du aktiverar Microsoft Azure Disk Encryption för Virtuella Windows-datorer för olika scenarier
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4795eeb24d1d0ac373a700a6b60b8facec0e37d
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: ed64ee3d0e024c32be08ed4e010a6933033c3f87
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064012"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476526"
 ---
-# <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption scenarier på virtuella Windows-datorer
+# <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
-Azure Disk Encryption använder BitLockers externa nyckel skydd för att tillhandahålla volym kryptering för operativ system och data diskar för virtuella Azure-datorer (VM) och är integrerat med Azure Key Vault för att hjälpa dig att styra och hantera disk krypterings nycklar och hemligheter. En översikt över tjänsten finns i [Azure Disk Encryption för virtuella Windows-datorer](disk-encryption-overview.md).
+Azure Disk Encryption använder BitLocker extern nyckelskydd för att tillhandahålla volymkryptering för operativsystem och datadiskar för virtuella Azure-datorer (VMs) och är integrerad med Azure Key Vault för att hjälpa dig att styra och hantera diskkrypteringsnycklar och hemligheter. En översikt över tjänsten finns i [Azure Disk Encryption för virtuella datorer i Windows](disk-encryption-overview.md).
 
-Det finns många disk krypterings scenarier och stegen kan variera beroende på scenariot. I följande avsnitt beskrivs scenarierna i större detalj för virtuella Windows-datorer.
+Det finns många diskkrypteringsscenarier och stegen kan variera beroende på scenariot. Följande avsnitt beskriver scenarierna mer i detalj för virtuella datorer i Windows.
 
-Du kan bara använda disk kryptering för virtuella datorer med [stödda VM-storlekar och operativ system](disk-encryption-overview.md#supported-vms-and-operating-systems). Du måste också uppfylla följande krav:
+Du kan bara använda diskkryptering på virtuella datorer med [vm-storlekar och operativsystem som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems). Du måste också uppfylla följande förutsättningar:
 
-- [Nätverks krav](disk-encryption-overview.md#networking-requirements)
-- [grupprincip krav](disk-encryption-overview.md#group-policy-requirements)
-- [Lagrings krav för krypterings nyckel](disk-encryption-overview.md#encryption-key-storage-requirements)
+- [Krav på nätverk](disk-encryption-overview.md#networking-requirements)
+- [Krav på grupprincip](disk-encryption-overview.md#group-policy-requirements)
+- [Lagringskrav för krypteringsnyckel](disk-encryption-overview.md#encryption-key-storage-requirements)
 
 >[!IMPORTANT]
-> - Om du tidigare har använt Azure Disk Encryption med Azure AD för att kryptera en virtuell dator måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Mer information finns i [Azure Disk Encryption med Azure AD (tidigare version)](disk-encryption-overview-aad.md) . 
+> - Om du tidigare har använt Azure Disk Encryption med Azure AD för att kryptera en virtuell dator måste du fortsätta använda det här alternativet för att kryptera din virtuella dator. Mer information finns i [Azure Disk Encryption med Azure AD (tidigare version).](disk-encryption-overview-aad.md) 
 >
-> - Du bör [ta en ögonblicks bild](snapshot-copy-managed-disk.md) och/eller skapa en säkerhets kopia innan diskarna krypteras. Säkerhets kopieringar säkerställer att ett återställnings alternativ är möjligt om ett oväntat fel uppstår under krypteringen. Virtuella datorer med hanterade diskar kräver en säkerhets kopia innan krypteringen utförs. När du har gjort en säkerhets kopia kan du använda [cmdleten Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att kryptera hanterade diskar genom att ange parametern-skipVmBackup. Mer information om hur du säkerhetskopierar och återställer krypterade virtuella datorer finns i [säkerhetskopiera och återställa krypterade virtuella Azure-datorer](../../backup/backup-azure-vms-encryption.md). 
+> - Du bör [ta en ögonblicksbild](snapshot-copy-managed-disk.md) och/eller skapa en säkerhetskopia innan diskarna krypteras. Säkerhetskopior säkerställer att ett återställningsalternativ är möjligt om ett oväntat fel inträffar under krypteringen. Virtuella datorer med hanterade diskar kräver en säkerhetskopia innan kryptering sker. När en säkerhetskopia har gjorts kan du använda [cmdleten Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att kryptera hanterade diskar genom att ange parametern -skipVmBackup. Mer information om hur du säkerhetskopierar och återställer krypterade virtuella datorer finns i [Säkerhetskopiera och återställa krypterad Azure VM](../../backup/backup-azure-vms-encryption.md). 
 >
-> - Kryptering eller inaktivera kryptering kan leda till att en virtuell dator startas om.
+> - Om du krypterar eller inaktiverar kryptering kan en virtuell dator startas om.
 
-## <a name="install-tools-and-connect-to-azure"></a>Installera verktyg och Anslut till Azure
+## <a name="install-tools-and-connect-to-azure"></a>Installera verktyg och ansluta till Azure
 
 [!INCLUDE [disk-encryption-install-cli-powershell](../../../includes/disk-encryption-install-cli-powershell.md)]
 
-## <a name="enable-encryption-on-an-existing-or-running-windows-vm"></a>Aktivera kryptering på en befintlig eller Windows-VM som körs
-I det här scenariot kan du aktivera kryptering med hjälp av Resource Manager-mallen, PowerShell-cmdletar eller CLI-kommandon. Om du behöver schema information för tillägget för virtuell dator kan du läsa artikeln [Azure Disk Encryption för Windows-tillägg](../extensions/azure-disk-enc-windows.md) .
+## <a name="enable-encryption-on-an-existing-or-running-windows-vm"></a>Aktivera kryptering på en befintlig eller körad Windows VM
+I det här fallet kan du aktivera kryptering med hjälp av Resource Manager-mallen, PowerShell-cmdlets eller CLI-kommandon. Om du behöver schemainformation för tillägget för den virtuella datorn läser du artikeln [Azure Disk Encryption for Windows-tillägg.](../extensions/azure-disk-enc-windows.md)
 
-## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a>Aktivera kryptering på befintliga eller aktiva virtuella IaaS-datorer i Windows
-Du kan aktivera kryptering med hjälp av en mall, PowerShell-cmdletar eller CLI-kommandon. Om du behöver schema information för tillägget för virtuell dator kan du läsa artikeln [Azure Disk Encryption för Windows-tillägg](../extensions/azure-disk-enc-windows.md) .
+## <a name="enable-encryption-on-existing-or-running-iaas-windows-vms"></a>Aktivera kryptering på befintliga eller körande virtuella IaaS Windows-datorer
+Du kan aktivera kryptering med hjälp av en mall, PowerShell-cmdlets eller CLI-kommandon. Om du behöver schemainformation för tillägget för den virtuella datorn läser du artikeln [Azure Disk Encryption for Windows-tillägg.](../extensions/azure-disk-enc-windows.md)
 
-### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a>Aktivera kryptering på befintliga eller aktiva virtuella datorer med Azure PowerShell 
-Använd cmdleten [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att aktivera kryptering på en virtuell IaaS-dator som körs i Azure. 
+### <a name="enable-encryption-on-existing-or-running-vms-with-azure-powershell"></a>Aktivera kryptering på befintliga eller krävda virtuella datorer med Azure PowerShell 
+Använd [cmdleten Set-AzVMDiskEncryptionExtension](/powershell/module/az.compute/set-azvmdiskencryptionextension) för att aktivera kryptering på en virtuell IaaS-dator i Azure. 
 
--  **Kryptera en virtuell dator som körs:** Skriptet nedan initierar variablerna och kör cmdleten Set-AzVMDiskEncryptionExtension. Resurs gruppen, den virtuella datorn och nyckel valvet bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden.
+-  **Kryptera en virtuell dator som körs:** Skriptet nedan initierar dina variabler och kör cmdleten Set-AzVMDiskEncryptionExtension. Resursgruppen, den virtuella datorn och nyckelvalvet borde redan ha skapats som förutsättningar. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden.
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -77,21 +77,21 @@ Använd cmdleten [set-AzVMDiskEncryptionExtension](/powershell/module/az.compute
      ```
      
    >[!NOTE]
-   > Syntaxen för värdet för parametern disk-encryptning-nyckel valv är den fullständiga ID-strängen:/Subscriptions/[Subscription-ID-GUID]/resourceGroups/[resurs grupp-namn]/providers/Microsoft.KeyVault/vaults/[nyckel valv-namn]</br> Syntaxen för värdet för nyckeln Key-Encryption-Key är den fullständiga URI: n till KEK som i: https://[Key Vault-Name]. valv. Azure. net/Keys/[kekname]/[KEK-Unique-ID] 
+   > Syntaxen för värdet för parametern disk-encryption-keyvault är den fullständiga identifierarsträngen: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> Syntaxen för värdet för parametern key-encryption-key är den fullständiga URI till KEK som i: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Kontrol lera att diskarna är krypterade:** Använd cmdleten [Get-AzVmDiskEncryptionStatus](/powershell/module/az.compute/get-azvmdiskencryptionstatus) för att kontrol lera krypterings statusen för en virtuell IaaS-dator. 
+- **Kontrollera att diskarna är krypterade:** Om du vill kontrollera krypteringsstatus för en virtuell IaaS-dator använder du cmdleten [Get-AzVmDiskEncryptionStatus.](/powershell/module/az.compute/get-azvmdiskencryptionstatus) 
      ```azurepowershell-interactive
      Get-AzVmDiskEncryptionStatus -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
     
-- **Inaktivera disk kryptering:** Om du vill inaktivera krypteringen använder du cmdleten [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) . Inaktivera datadisk kryptering på virtuell Windows-dator när både operativ system och data diskar har krypterats fungerar inte som förväntat. Inaktivera kryptering på alla diskar i stället.
+- **Inaktivera diskkryptering:** Om du vill inaktivera krypteringen använder du cmdleten [Disable-AzVMDiskEncryption.](/powershell/module/az.compute/disable-azvmdiskencryption) Att inaktivera kryptering av datadiskar på Windows-datorer när både operativsystemet och datadiskarna har krypterats fungerar inte som förväntat. Inaktivera kryptering på alla diskar i stället.
 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM'
      ```
 
-### <a name="enable-encryption-on-existing-or-running-vms-with-the-azure-cli"></a>Aktivera kryptering på befintliga eller aktiva virtuella datorer med Azure CLI
-Använd kommandot [AZ VM Encryption Enable](/cli/azure/vm/encryption#az-vm-encryption-enable) för att aktivera kryptering på en virtuell IaaS-dator som körs i Azure.
+### <a name="enable-encryption-on-existing-or-running-vms-with-the-azure-cli"></a>Aktivera kryptering på befintliga eller krävd virtuella datorer med Azure CLI
+Använd kommandot [az vm-kryptering aktivera](/cli/azure/vm/encryption#az-vm-encryption-enable) för att aktivera kryptering på en virtuell IaaS-dator i Azure.
 
 - **Kryptera en virtuell dator som körs:**
 
@@ -106,52 +106,52 @@ Använd kommandot [AZ VM Encryption Enable](/cli/azure/vm/encryption#az-vm-encry
      ```
 
      >[!NOTE]
-     > Syntaxen för värdet för parametern disk-encryptning-nyckel valv är den fullständiga ID-strängen:/Subscriptions/[Subscription-ID-GUID]/resourceGroups/[resurs grupp-namn]/providers/Microsoft.KeyVault/vaults/[nyckel valv-namn] </br> Syntaxen för värdet för nyckeln Key-Encryption-Key är den fullständiga URI: n till KEK som i: https://[Key Vault-Name]. valv. Azure. net/Keys/[kekname]/[KEK-Unique-ID] 
+     > Syntaxen för värdet för parametern disk-encryption-keyvault är den fullständiga identifierarsträngen: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name] </br> Syntaxen för värdet för parametern key-encryption-key är den fullständiga URI till KEK som i: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
-- **Kontrol lera att diskarna är krypterade:** Om du vill kontrol lera krypterings statusen för en virtuell IaaS-dator använder du kommandot [AZ VM Encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) . 
+- **Kontrollera att diskarna är krypterade:** Om du vill kontrollera krypteringsstatusen för en virtuell virtuell dator iAAS använder du kommandot [az vm-krypteringsvisning.](/cli/azure/vm/encryption#az-vm-encryption-show) 
 
      ```azurecli-interactive
      az vm encryption show --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup"
      ```
 
-- **Inaktivera kryptering:** Om du vill inaktivera kryptering använder du kommandot [AZ VM Encryption Disable](/cli/azure/vm/encryption#az-vm-encryption-disable) . Inaktivera datadisk kryptering på virtuell Windows-dator när både operativ system och data diskar har krypterats fungerar inte som förväntat. Inaktivera kryptering på alla diskar i stället.
+- **Inaktivera kryptering:** Om du vill inaktivera kryptering använder du kommandot [az vm-kryptering inaktivera.](/cli/azure/vm/encryption#az-vm-encryption-disable) Att inaktivera kryptering av datadiskar på Windows-datorer när både operativsystemet och datadiskarna har krypterats fungerar inte som förväntat. Inaktivera kryptering på alla diskar i stället.
 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type [ALL, DATA, OS]
      ```
 
-### <a name="using-the-resource-manager-template"></a>Använda Resource Manager-mallen
+### <a name="using-the-resource-manager-template"></a>Använda mallen Resurshanteraren
 
-Du kan aktivera disk kryptering på befintliga eller köra IaaS virtuella Windows-datorer i Azure med hjälp av [Resource Manager-mallen för att kryptera en Windows-VM som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
+Du kan aktivera diskkryptering på befintliga eller körande virtuella IaaS Windows-datorer i Azure genom att använda [resource manager-mallen för att kryptera en windows-virtuell dator som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
 
-1. I mallen för Azure snabb start klickar **du på distribuera till Azure**.
+1. Klicka på Distribuera till **Azure**i snabbstartsmallen i Azure .
 
-2. Välj prenumeration, resurs grupp, plats, inställningar, juridiska villkor och avtal. Klicka på **köp** för att aktivera kryptering på den befintliga eller aktiva virtuella IaaS-datorn.
+2. Välj prenumeration, resursgrupp, plats, inställningar, juridiska villkor och avtal. Klicka på **Köp** om du vill aktivera kryptering på den befintliga eller körande virtuella virtuella datorn för IaaS.
 
-I följande tabell visas parametrarna för Resource Manager-mallen för befintliga eller aktiva virtuella datorer:
+I följande tabell visas mallparametrarna för Resurshanteraren för befintliga eller pågående virtuella datorer:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| vmName | Namnet på den virtuella dator som ska köra krypterings åtgärden. |
-| keyVaultName | Namnet på nyckel valvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med hjälp av cmdleten `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` eller Azure CLI-kommandot `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
-| keyVaultResourceGroup | Namnet på den resurs grupp som innehåller nyckel valvet|
-|  keyEncryptionKeyURL | URL: en för nyckel krypterings nyckeln i formatet https://&lt;nyckel valv-Name&gt;. vault.azure.net/key/&lt;nyckel namn&gt;. Lämna fältet tomt om du inte vill använda en KEK. |
-| volumeType | Typ av volym som krypterings åtgärden utförs på. Giltiga värden är _OS_, _data_och _alla_. 
-| forceUpdateTag | Skicka ett unikt värde som ett GUID varje gång åtgärden måste tvingas köras. |
-| resizeOSDisk | Vill du ändra storlek på operativ systemets partition så att den upptar full OS VHD innan du delar upp system volymen. |
+| vmName | Namn på den virtuella datorn för att köra krypteringsåtgärden. |
+| keyVaultName | Namn på nyckelvalvet som BitLocker-nyckeln ska överföras till. Du kan hämta den med `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` kommandot cmdlet eller Azure CLI`az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
+| keyVaultResourceGroup | Namn på resursgruppen som innehåller nyckelvalvet|
+|  keyEncryptionKeyURL | URL:en för nyckelkrypteringsnyckeln i&lt;formatet https://&gt;keyvault-name&lt;.vault.azure.net/key/&gt;nyckelnamn . Om du inte vill använda en KEK lämnar du det här fältet tomt. |
+| volumeType (volumeType) | Typ av volym som krypteringsåtgärden utförs på. Giltiga värden är _OS,_ _Data_och _Alla_. 
+| forceUpdateTag | Skicka in ett unikt värde som ett GUID varje gång operationen måste tvångskörning. |
+| ändra storlek påOSDisk | Bör OS-partitionen storleksas för att uppta full OS VHD innan du delar systemvolymen. |
 | location | Plats för alla resurser. |
 
 
-## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Nya virtuella IaaS-datorer som skapats från kund-krypterade VHD-och krypterings nycklar
+## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Nya virtuella IaaS-datorer som skapats från kundkrypterade virtuella hårddiskar och krypteringsnycklar
 
-I det här scenariot kan du skapa en ny virtuell dator från en förkrypterad virtuell hård disk och tillhör ande krypterings nycklar med hjälp av PowerShell-cmdletar eller CLI-kommandon. 
+I det här fallet kan du skapa en ny virtuell dator från en förkrypterad virtuell hårddisk och tillhörande krypteringsnycklar med PowerShell-cmdlets eller CLI-kommandon. 
 
-Följ anvisningarna i [förbereda en förkrypterad Windows-VHD](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd). När avbildningen har skapats kan du använda stegen i nästa avsnitt för att skapa en krypterad virtuell Azure-dator.
+Använd instruktionerna i [Förbereda en förkrypterad Windows VHD](disk-encryption-sample-scripts.md#prepare-a-pre-encrypted-windows-vhd). När avbildningen har skapats kan du använda stegen i nästa avsnitt för att skapa en krypterad Azure VM.
 
 
-### <a name="encrypt-vms-with-pre-encrypted-vhds-with-azure-powershell"></a>Kryptera virtuella datorer med förkrypterade virtuella hård diskar med Azure PowerShell
-Du kan aktivera disk kryptering på din krypterade virtuella hård disk med PowerShell-cmdleten [set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). Exemplet nedan visar några vanliga parametrar. 
+### <a name="encrypt-vms-with-pre-encrypted-vhds-with-azure-powershell"></a>Kryptera virtuella datorer med förkrypterade virtuella hårddiskar med Azure PowerShell
+Du kan aktivera diskkryptering på din krypterade virtuella hårddisk med hjälp av PowerShell cmdlet [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk#examples). Exemplet nedan ger dig några vanliga parametrar. 
 
 ```azurepowershell
 $VirtualMachine = New-AzVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
@@ -160,14 +160,14 @@ New-AzVM -VM $VirtualMachine -ResourceGroupName "MyVirtualMachineResourceGroup"
 ```
 
 ## <a name="enable-encryption-on-a-newly-added-data-disk"></a>Aktivera kryptering på en nyligen tillagd datadisk
-Du kan [lägga till en ny disk till en virtuell Windows-dator med hjälp av PowerShell](attach-disk-ps.md), eller [via Azure Portal](attach-managed-disk-portal.md). 
+Du kan [lägga till en ny disk i en Windows VM med PowerShell](attach-disk-ps.md)eller [via Azure-portalen](attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Aktivera kryptering på en nyligen tillagd disk med Azure PowerShell
- När du använder PowerShell för att kryptera en ny disk för virtuella Windows-datorer ska en ny version av sekvens anges. Sekvens-versionen måste vara unik. Skriptet nedan genererar en GUID för sekvens-versionen. I vissa fall kan en nyligen tillagd datadisk krypteras automatiskt av Azure Disk Encryption tillägget. Automatisk kryptering sker vanligt vis när den virtuella datorn startas om efter att den nya disken är online. Detta beror vanligt vis på att "alla" angavs för volym typen när disk kryptering tidigare kördes på den virtuella datorn. Om automatisk kryptering sker på en nyligen tillagd datadisk rekommenderar vi att du kör cmdleten Set-AzVmDiskEncryptionExtension igen med en ny sekvens-version. Om den nya datadisken krypteras automatiskt och du inte vill vara krypterad dekrypterar du alla enheter och krypterar först om med en ny sekvens version som anger OS som typ av volym. 
+ När powershell-data för att kryptera en ny disk för virtuella Windows-datorer kan en ny sekvensversion anges. Sekvensversionen måste vara unik. Skriptet nedan genererar ett GUID för sekvensversionen. I vissa fall kan en nyligen tillagd datadisk krypteras automatiskt av Azure Disk Encryption-tillägget. Automatisk kryptering inträffar vanligtvis när den virtuella datorn startas om när den nya disken är online. Detta beror vanligtvis på att "Alla" angavs för volymtypen när diskkryptering tidigare kördes på den virtuella datorn. Om automatisk kryptering sker på en nyligen tillagd datadisk rekommenderar vi att du kör cmdleten Set-AzVmDiskEncryptionExtension igen med ny sekvensversion. Om den nya datadisken är automatiskt krypterad och du inte vill krypteras, dekryptera alla enheter först och sedan kryptera med en ny sekvensversion som anger OS för volymtypen. 
   
  
 
--  **Kryptera en virtuell dator som körs:** Skriptet nedan initierar variablerna och kör cmdleten Set-AzVMDiskEncryptionExtension. Resurs gruppen, den virtuella datorn och nyckel valvet bör redan ha skapats som krav. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden. I det här exemplet används "alla" för parametern-VolumeType, som innehåller både OS-och data volymer. Om du bara vill kryptera operativ system volymen använder du "OS" för parametern-VolumeType. 
+-  **Kryptera en virtuell dator som körs:** Skriptet nedan initierar dina variabler och kör cmdleten Set-AzVMDiskEncryptionExtension. Resursgruppen, den virtuella datorn och nyckelvalvet borde redan ha skapats som förutsättningar. Ersätt MyKeyVaultResourceGroup, MyVirtualMachineResourceGroup, MySecureVM och MySecureVault med dina värden. I det här exemplet används "Alla" för parametern -VolumeType, som innehåller både OS- och Datavolymer. Om du bara vill kryptera OS-volymen använder du "OS" för parametern -VolumeType. 
 
      ```azurepowershell
       $KVRGname = 'MyKeyVaultResourceGroup';
@@ -181,7 +181,7 @@ Du kan [lägga till en ny disk till en virtuell Windows-dator med hjälp av Powe
 
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $VMRGname -VMName $vmName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType "All" –SequenceVersion $sequenceVersion;
     ```
-- **Kryptera en virtuell dator som körs med KEK:** I det här exemplet används "alla" för parametern-VolumeType, som innehåller både OS-och data volymer. Om du bara vill kryptera operativ system volymen använder du "OS" för parametern-VolumeType.
+- **Kryptera en virtuell dator som körs med KEK:** I det här exemplet används "Alla" för parametern -VolumeType, som innehåller både OS- och Datavolymer. Om du bara vill kryptera OS-volymen använder du "OS" för parametern -VolumeType.
 
      ```azurepowershell
      $KVRGname = 'MyKeyVaultResourceGroup';
@@ -200,10 +200,10 @@ Du kan [lägga till en ny disk till en virtuell Windows-dator med hjälp av Powe
      ```
 
     >[!NOTE]
-    > Syntaxen för värdet för parametern disk-encryptning-nyckel valv är den fullständiga ID-strängen:/Subscriptions/[Subscription-ID-GUID]/resourceGroups/[resurs grupp-namn]/providers/Microsoft.KeyVault/vaults/[nyckel valv-namn]</br> Syntaxen för värdet för nyckeln Key-Encryption-Key är den fullständiga URI: n till KEK som i: https://[Key Vault-Name]. valv. Azure. net/Keys/[kekname]/[KEK-Unique-ID] 
+    > Syntaxen för värdet för parametern disk-encryption-keyvault är den fullständiga identifierarsträngen: /subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br> Syntaxen för värdet för parametern key-encryption-key är den fullständiga URI till KEK som i: https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id] 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Aktivera kryptering på en nyligen tillagd disk med Azure CLI
- Azure CLI-kommandot kommer automatiskt att tillhandahålla en ny version av sekvensen när du kör kommandot för att aktivera kryptering. Exemplet använder "alla" för volym typ parametern. Du kan behöva ändra volym typs parametern till OS om du bara krypterar OS-disken. Till skillnad från PowerShell-syntaxen kräver CLI inte att användaren anger en unik sekvens-version när krypteringen aktive ras. CLI genererar automatiskt och använder sitt eget unika sekvens versions värde.   
+ Azure CLI-kommandot tillhandahåller automatiskt en ny sekvensversion åt dig när du kör kommandot för att aktivera kryptering. I exemplet används "Alla" för parametern för volymtyp. Du kan behöva ändra parametern för volymtyp till OPERATIVSYSTEMET om du bara krypterar OS-disken. I motsats till Powershell-syntaxen kräver CLI inte att användaren tillhandahåller en unik sekvensversion när kryptering aktiveras. CLI genererar och använder automatiskt sitt eget unika sekvensversionsvärde.   
 
 -  **Kryptera en virtuell dator som körs:**
 
@@ -219,40 +219,41 @@ Du kan [lägga till en ny disk till en virtuell Windows-dator med hjälp av Powe
 
 
 ## <a name="disable-encryption"></a>Inaktivera kryptering
-Du kan inaktivera kryptering med Azure PowerShell, Azure CLI eller med en Resource Manager-mall. Inaktivera datadisk kryptering på virtuell Windows-dator när både operativ system och data diskar har krypterats fungerar inte som förväntat. Inaktivera kryptering på alla diskar i stället.
+Du kan inaktivera kryptering med Azure PowerShell, Azure CLI eller med en Resource Manager-mall. Att inaktivera kryptering av datadiskar på Windows-datorer när både operativsystemet och datadiskarna har krypterats fungerar inte som förväntat. Inaktivera kryptering på alla diskar i stället.
 
-- **Inaktivera disk kryptering med Azure PowerShell:** Om du vill inaktivera krypteringen använder du cmdleten [disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) . 
+- **Inaktivera diskkryptering med Azure PowerShell:** Om du vill inaktivera krypteringen använder du cmdleten [Disable-AzVMDiskEncryption.](/powershell/module/az.compute/disable-azvmdiskencryption) 
      ```azurepowershell-interactive
      Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
      ```
 
-- **Inaktivera kryptering med Azure CLI:** Om du vill inaktivera kryptering använder du kommandot [AZ VM Encryption Disable](/cli/azure/vm/encryption#az-vm-encryption-disable) . 
+- **Inaktivera kryptering med Azure CLI:** Om du vill inaktivera kryptering använder du kommandot [az vm-kryptering inaktivera.](/cli/azure/vm/encryption#az-vm-encryption-disable) 
      ```azurecli-interactive
      az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
      ```
 - **Inaktivera kryptering med en Resource Manager-mall:** 
 
-    1. Klicka på **distribuera till Azure** från den [inaktivera disk kryptering vid körning av Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) -mall.
-    2. Välj prenumeration, resurs grupp, plats, virtuell dator, volym typ, juridiska villkor och avtal.
-    3.  Klicka på **köp** för att inaktivera disk kryptering på en Windows-VM som körs. 
+    1. Klicka på **Distribuera till Azure** från inaktivera [diskkryptering på windows VM-mallen.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
+    2. Välj prenumeration, resursgrupp, plats, virtuell dator, volymtyp, juridiska termer och avtal.
+    3.  Klicka på **Köp** om du vill inaktivera diskkryptering på en windows-virtuell dator som körs. 
 
 ## <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
 Azure Disk Encryption fungerar inte för följande scenarier, funktioner och teknik:
 
-- Kryptering av virtuella datorer på Basic-nivå eller virtuella datorer som skapats via den klassiska skapande metoden för virtuella datorer.
-- Kryptera virtuella datorer som kon figurer ATS med programvarubaserade RAID-system.
-- Kryptering av virtuella datorer som kon figurer ATS med Lagringsdirigering (S2D) eller Windows Server-versioner innan 2016 har kon figurer ATS med Windows lagrings utrymmen.
-- Integrering med ett lokalt nyckel hanterings system.
-- Azure Files (delat fil system).
+- Kryptera grundläggande virtuell nivå eller virtuella datorer som skapats via den klassiska metoden för att skapa virtuella datorer.
+- Kryptera virtuella datorer som konfigurerats med programvarubaserade RAID-system.
+- Kryptera virtuella datorer som konfigurerats med S2D (Storage Spaces Direct) eller Windows Server före 2016 som konfigurerats med Windows Storage Spaces.
+- Integration med ett lokalt nyckelhanteringssystem.
+- Azure-filer (delat filsystem).
 - NFS (Network File System).
 - Dynamiska volymer.
 - Windows Server-behållare, som skapar dynamiska volymer för varje behållare.
-- Tillfälliga OS-diskar.
-- Kryptering av delade/distribuerade fil system som (men inte begränsat till) DFS, GFS, DRDB och CephFS.
+- Efemära OPERATIVSYSTEM diskar.
+- Kryptering av delade/distribuerade filsystem som (men inte begränsat till) DFS, GFS, DRDB och CephFS.
+- Flytta en krypterad virtuella datorer till en annan prenumeration.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure Disk Encryption](disk-encryption-overview.md)
-- [Azure Disk Encryption exempel skript](disk-encryption-sample-scripts.md)
-- [Azure Disk Encryption fel sökning](disk-encryption-troubleshooting.md)
+- [Översikt över Azure Disk-kryptering](disk-encryption-overview.md)
+- [Exempelskript för Azure Disk Encryption](disk-encryption-sample-scripts.md)
+- [Felsökning för Azure Disk Encryption](disk-encryption-troubleshooting.md)

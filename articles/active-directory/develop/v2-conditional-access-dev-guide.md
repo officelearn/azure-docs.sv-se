@@ -1,13 +1,13 @@
 ---
-title: Vägledning för utvecklare för Azure Active Directory villkorlig åtkomst
-description: Vägledning för utvecklare och scenarier för villkorlig åtkomst och Microsoft Identity Platform i Azure AD.
+title: Utvecklarvägledning för Azure Active Directory Villkorlig åtkomst
+description: Utvecklarvägledning och scenarier för Azure AD-villkorlig åtkomst och Microsoft-identitetsplattform.
 services: active-directory
 keywords: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 02/25/2020
+ms.date: 03/16/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
@@ -16,109 +16,109 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c1f581cf5971cfa4eafda60c679a64d827109bb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a9d82840681450ec855cb35c8700da2a53b9dd6b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78202148"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481457"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Vägledning för utvecklare för Azure Active Directory villkorlig åtkomst
+# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Utvecklarvägledning för Azure Active Directory Villkorlig åtkomst
 
-Funktionen för villkorlig åtkomst i Azure Active Directory (Azure AD) erbjuder ett av flera sätt som du kan använda för att skydda din app och skydda en tjänst. Med villkorlig åtkomst kan utvecklare och företags kunder skydda tjänster på flera olika sätt:
+Funktionen Villkorlig åtkomst i Azure Active Directory (Azure AD) erbjuder ett av flera sätt som du kan använda för att skydda din app och skydda en tjänst. Med villkorlig åtkomst kan utvecklare och företagskunder skydda tjänster på många olika sätt, bland annat:
 
 * Multi-Factor Authentication
-* Tillåter endast att Intune-registrerade enheter får åtkomst till vissa tjänster
-* Begränsa användar platser och IP-intervall
+* Tillåter endast Intune-registrerade enheter att komma åt specifika tjänster
+* Begränsa användarplatser och IP-intervall
 
-Mer information om alla funktioner för villkorlig åtkomst finns i [villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Mer information om de fullständiga funktionerna i villkorlig åtkomst finns [i Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
-För utvecklare som skapar appar för Azure AD visar den här artikeln hur du kan använda villkorlig åtkomst och du får också lära dig om effekten av åtkomst till resurser som du inte har kontroll över som kan ha villkorliga åtkomst principer tillämpade. Artikeln utforskar också konsekvenserna av villkorlig åtkomst i Flow-, Web Apps-och Access-Microsoft Graph och anropar API: er.
+För utvecklare som skapar appar för Azure AD visar den här artikeln hur du kan använda villkorlig åtkomst och du får också lära dig om effekten av att komma åt resurser som du inte har kontroll över som kan ha principer för villkorlig åtkomst tillämpad. I artikeln undersöks också konsekvenserna av villkorlig åtkomst i flödets för-, webbappar, åtkomst till Microsoft Graph och anropa API:er.
 
-Kunskaper om appar för [en](quickstart-register-app.md) och [flera innehavare](howto-convert-app-to-be-multi-tenant.md) och [vanliga autentiserings mönster](authentication-scenarios.md) antas.
+Kunskap om appar [med en](quickstart-register-app.md) och [flera innehavare](howto-convert-app-to-be-multi-tenant.md) och [vanliga autentiseringsmönster](authentication-scenarios.md) antas.
 
 > [!NOTE]
-> Om du använder den här funktionen krävs en licens för Azure AD Premium P1. Hitta rätt licens för dina behov i [Jämför allmänt tillgängliga funktioner i Free, Basic och Premium-utgåvorna](https://azure.microsoft.com/pricing/details/active-directory/).
-> Kunder med [Microsoft 365 Business licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst.
+> För att använda den här funktionen krävs en Azure AD Premium P1-licens. Hitta rätt licens för dina behov i [Jämför allmänt tillgängliga funktioner i Free, Basic och Premium-utgåvorna](https://azure.microsoft.com/pricing/details/active-directory/).
+> Kunder med [Microsoft 365 Business-licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också tillgång till funktioner för villkorlig åtkomst.
 
 ## <a name="how-does-conditional-access-impact-an-app"></a>Hur påverkar villkorlig åtkomst en app?
 
-### <a name="app-types-impacted"></a>Program typer som påverkas
+### <a name="app-types-impacted"></a>Apptyper påverkade
 
-I de flesta vanliga fall ändrar inte villkorlig åtkomst appens beteende eller kräver ändringar från utvecklaren. Endast i vissa fall när en app indirekt eller tyst begär en token för en tjänst, kräver en app kod ändringar för att hantera utmaningarna med villkorlig åtkomst. Det kan vara så enkelt som att utföra en interaktiv inloggnings förfrågan.
+I de flesta vanliga fall ändrar villkorlig åtkomst inte en apps beteende eller kräver några ändringar från utvecklaren.Endast i vissa fall när en app indirekt eller tyst begär en token för en tjänst, kräver en app kodändringar för att hantera villkorade åtkomst "utmaningar".Det kan vara så enkelt som att utföra en interaktiv inloggningsbegäran.
 
-Mer specifikt kräver följande scenarier kod för att hantera utmaningarna för villkorlig åtkomst:
+I följande scenarier krävs kod för att hantera villkorade åtkomst "utmaningar":
 
-* Appar som utför ett flöde på samma vägnar
-* Appar som har åtkomst till flera tjänster/resurser
-* Appar med en sida med MSAL. js
-* Web Apps att anropa en resurs
+* Appar som utför flödet för den skull
+* Appar som använder flera tjänster/resurser
+* Ensidiga appar med MSAL.js
+* Webbappar som anropar en resurs
 
-Principer för villkorlig åtkomst kan tillämpas på appen, men kan också tillämpas på ett webb-API som appen får åtkomst till. Mer information om hur du konfigurerar en princip för villkorlig åtkomst finns i [snabb start: KRÄV MFA för vissa appar med Azure Active Directory villkorlig åtkomst](../conditional-access/app-based-mfa.md).
+Principer för villkorlig åtkomst kan tillämpas på appen, men kan också tillämpas på ett webb-API som appen har åtkomst till. Mer information om hur du konfigurerar en princip för villkorlig åtkomst finns i [Snabbstart: Kräv MFA för specifika appar med Azure Active Directory Villkorlig åtkomst](../conditional-access/app-based-mfa.md).
 
-Beroende på scenariot kan en företags kund tillämpa och ta bort principer för villkorlig åtkomst när som helst. För att din app ska fortsätta att fungera när en ny princip tillämpas måste du implementera "utmanings hanteringen". I följande exempel visas utmanings hantering.
+Beroende på scenariot kan en företagskund tillämpa och ta bort principer för villkorlig åtkomst när som helst. För att appen ska fortsätta fungera när en ny princip tillämpas måste du implementera "utmaningshanteringen". Följande exempel illustrerar utmaningshantering.
 
 ### <a name="conditional-access-examples"></a>Exempel på villkorlig åtkomst
 
-Vissa scenarier kräver kod ändringar för att hantera villkorlig åtkomst medan andra fungerar som de är. Här följer några scenarier som använder villkorlig åtkomst för att utföra Multi-Factor Authentication som ger viss insikt i skillnaden.
+Vissa scenarier kräver kodändringar för att hantera villkorlig åtkomst medan andra fungerar som de är. Här är några scenarier med villkorlig åtkomst för att göra multifaktorautentisering som ger en inblick i skillnaden.
 
-* Du skapar en iOS-app med en enda klient och tillämpar en princip för villkorlig åtkomst. Appen loggar in en användare och begär inte åtkomst till ett API. När användaren loggar in anropas principen automatiskt och användaren måste utföra Multi-Factor Authentication (MFA). 
-* Du skapar en inbyggd app som använder en mellan nivå tjänst för att få åtkomst till ett underordnat API. En företags kund på företaget som använder den här appen tillämpar en princip på det underordnade API: et. När en användare loggar in begär den interna appen åtkomst till mellan nivån och skickar token. Mellan nivån utför flöde på egen räkning för att begära åtkomst till det underordnade API: et. I det här läget presenteras en anspråks utmaning för mellan nivån. Mellan nivån skickar utmaningen tillbaka till den inbyggda appen, som måste följa principen för villkorlig åtkomst.
+* Du skapar en iOS-app med en klient och tillämpar en princip för villkorlig åtkomst. Appen loggar in en användare och begär inte åtkomst till ett API. När användaren loggar in anropas principen automatiskt och användaren måste utföra MFA (Multifaktorautentisering). 
+* Du skapar en inbyggd app som använder en tjänst på mellannivå för att komma åt ett efterföljande API. En företagskund på företaget som använder den här appen tillämpar en princip på API:et i efterföljande led. När en slutanvändare loggar in begär den inbyggda appen åtkomst till mellannivån och skickar token. Den mellersta nivån utför för-på-av flödet för att begära åtkomst till nedströms API. Vid denna punkt, en fordran "utmaning" presenteras för den mellersta nivån. Den mellersta nivån skickar tillbaka utmaningen till den inbyggda appen, som måste följa principen villkorlig åtkomst.
 
 #### <a name="microsoft-graph"></a>Microsoft Graph
 
-Microsoft Graph har särskilda överväganden när du skapar appar i miljöer med villkorlig åtkomst. I allmänhet har Mechanics för villkorlig åtkomst samma, men principerna som användarna ser baseras på underliggande data som din app begär från grafen. 
+Microsoft Graph har särskilda överväganden när du skapar appar i miljöer med villkorlig åtkomst. I allmänhet fungerar mekaniken för villkorlig åtkomst på samma sätt, men de principer som användarna ser baseras på de underliggande data som appen begär från diagrammet. 
 
-Mer specifikt representerar alla Microsoft Graph omfattningarna en viss data uppsättning som individuellt kan tillämpa principer. Eftersom principer för villkorlig åtkomst tilldelas till de särskilda data uppsättningarna, tillämpar Azure AD principer för villkorlig åtkomst baserat på data bakom grafen – i stället för själva grafen.
+Specifikt representerar alla Microsoft Graph-scope en viss datauppsättning som kan tillämpas individuellt. Eftersom principer för villkorlig åtkomst tilldelas specifika datauppsättningar kommer Azure AD att tillämpa principer för villkorlig åtkomst baserat på data bakom Graph – i stället för Själva graph.
 
-Om en app till exempel begär följande Microsoft Graph omfattningar,
+Om en app till exempel begär följande Microsoft Graph-scope
 
 ```
 scopes="Bookings.Read.All Mail.Read"
 ```
 
-En app kan förvänta sina användare att uppfylla alla principer som anges för bokningar och Exchange. Vissa omfång kan mappas till flera data uppsättningar om den beviljar åtkomst. 
+En app kan förvänta sig att användarna uppfyller alla policyer som anges i Bokningar och Exchange. Vissa scope kan mappas till flera datauppsättningar om de ger åtkomst. 
 
 ### <a name="complying-with-a-conditional-access-policy"></a>Följa en princip för villkorlig åtkomst
 
-För flera olika topologier för appar utvärderas en princip för villkorlig åtkomst när sessionen upprättas. När en princip för villkorlig åtkomst fungerar på kornig het för appar och tjänster, beror den punkt där den anropas i stor utsträckning på det scenario du försöker utföra.
+För flera olika apptopologier utvärderas en princip för villkorlig åtkomst när sessionen upprättas. När en princip för villkorlig åtkomst fungerar på detaljerna i appar och tjänster beror den punkt där den anropas i hög grad på vilket scenario du försöker uppnå.
 
-När din app försöker få åtkomst till en tjänst med en princip för villkorlig åtkomst kan det uppstå en utmaning för villkorlig åtkomst. Denna utmaning är kodad i `claims` parameter som ingår i ett svar från Azure AD. Här är ett exempel på den här anrops parametern: 
+När din app försöker komma åt en tjänst med en princip för villkorlig åtkomst kan den stöta på en utmaning för villkorlig åtkomst. Den här utmaningen kodas i parametern `claims` som kommer i ett svar från Azure AD. Här är ett exempel på den här utmaningsparametern: 
 
 ```
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-Utvecklare kan ta denna utmaning och lägga till den på en ny begäran till Azure AD. Om du skickar det här läget ombeds slutanvändaren utföra alla åtgärder som krävs för att följa principen för villkorlig åtkomst. I följande scenarier beskrivs information om felet och hur du extraherar parametern.
+Utvecklare kan anta den här utmaningen och lägga till den på en ny begäran till Azure AD. Om du skickar det här tillståndet uppmanas slutanvändaren att utföra alla åtgärder som krävs för att följa principen villkorlig åtkomst. I följande scenarier förklaras specifika fel och hur du extraherar parametern.
 
 ## <a name="scenarios"></a>Scenarier
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
-Villkorlig åtkomst i Azure AD är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Kunder med [Microsoft 365 Business licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också till gång till funktioner för villkorlig åtkomst.
+Azure AD Villkorlig åtkomst är en funktion som ingår i [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Kunder med [Microsoft 365 Business-licenser](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) har också tillgång till funktioner för villkorlig åtkomst.
 
-### <a name="considerations-for-specific-scenarios"></a>Överväganden för vissa scenarier
+### <a name="considerations-for-specific-scenarios"></a>Överväganden för specifika scenarier
 
-Följande information gäller endast i följande scenarier för villkorlig åtkomst:
+Följande information gäller endast i dessa scenarier för villkorlig åtkomst:
 
-* Appar som utför ett flöde på samma vägnar
-* Appar som har åtkomst till flera tjänster/resurser
-* Appar med en sida med MSAL. js
+* Appar som utför flödet för den skull
+* Appar som använder flera tjänster/resurser
+* Ensidiga appar med MSAL.js
 
-I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. Kärn drifts principen är villkorliga åtkomst principer utvärderas när token begärs för tjänsten som har en tillämpad princip för villkorlig åtkomst.
+I följande avsnitt beskrivs vanliga scenarier som är mer komplexa. Den grundläggande driftsprincipen är principer för villkorlig åtkomst utvärderas när token begärs för tjänsten som har en princip för villkorlig åtkomst tillämpad.
 
-## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: app som presterar på uppdrag av Flow
+## <a name="scenario-app-performing-the-on-behalf-of-flow"></a>Scenario: App som utför flödet för den skull
 
-I det här scenariot går vi igenom det fall där en inbyggd app anropar en webb tjänst/API. I sin tur utför tjänsten "on-of-of"-flödet för att anropa en underordnad tjänst. I vårt fall har vi tillämpat vår princip för villkorlig åtkomst till den underordnade tjänsten (webb-API 2) och använder en inbyggd app i stället för en server/daemon-app. 
+I det här fallet går vi igenom det fall där en inbyggd app anropar en webbtjänst/ETT-API. I sin tur gör den här tjänsten "för"-för-på"-flödet för att anropa en nedströmstjänst. I vårt fall har vi tillämpat vår policy för villkorlig åtkomst på nedströmstjänsten (Webb-API 2) och använder en inbyggd app i stället för en server/daemon-app. 
 
-![App som utför Flow-diagrammet på uppdrag](./media/v2-conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
+![App som utför flödesdiagrammet för den skull](./media/v2-conditional-access-dev-guide/app-performing-on-behalf-of-scenario.png)
 
-Den inledande token-begäran för webb-API 1 efterfrågar inte slutanvändaren för Multi-Factor Authentication eftersom webb-API 1 inte alltid når det underordnade API: t. När Web API 1 försöker begära en token för användaren för webb-API 2, Miss lyckas begäran eftersom användaren inte har loggat in med Multi-Factor Authentication.
+Den första tokenbegäran för Webb-API 1 uppmanar inte slutanvändaren för multifaktorautentisering eftersom webb-API 1 kanske inte alltid träffar nedströms-API:et. När Webb-API 1 försöker begära en token för användaren för Webb-API 2 misslyckas begäran eftersom användaren inte har loggat in med multifaktorautentisering.
 
 Azure AD returnerar ett HTTP-svar med några intressanta data:
 
 > [!NOTE]
-> I den här instansen är det en beskrivning av Multi-Factor Authentication-fel, men det finns ett brett utbud av `interaction_required` som är möjligt för villkorlig åtkomst.
+> I det här fallet är det en multifaktorautentisering felbeskrivning, `interaction_required` men det finns ett brett utbud av möjliga som rör villkorlig åtkomst.
 
 ```
 HTTP 400; Bad Request
@@ -127,19 +127,19 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-I webb-API 1 fångar vi fel `error=interaction_required`och skickar tillbaka `claims`-utmaningen till Skriv bords appen. I det här läget kan Desktop-appen skapa ett nytt `acquireToken()` samtal och lägga till `claims`-utmaningen som en extra frågesträngparametern. Den här nya begäran kräver att användaren utför Multi-Factor Authentication och skickar sedan den nya token tillbaka till webb-API 1 och slutför flödet på uppdrag av.
+I Webb-API 1 fångar `error=interaction_required`vi upp `claims` felet och skickar tillbaka utmaningen till skrivbordsappen. Då kan skrivbordsappen ringa `acquireToken()` ett nytt samtal `claims`och lägga till utmaningen som en extra frågesträngparameter. Den här nya begäran kräver att användaren gör multifaktorautentisering och sedan skickar tillbaka den nya token till Webb-API 1 och slutför flödet för den skull.This new request requires the user to do multi-factor authentication and then send this new token back to Web API 1 and complete the on-behalf-of flow.
 
-För att testa det här scenariot, se vårt [exempel på .NET-kod](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Den visar hur du skickar tillbaka anspråks utmaningarna från webb-API 1 till den interna appen och skapar en ny begäran i klient programmet.
+Det här scenariot finns i exemplet [med .NET-kod](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Den visar hur du skickar anspråksutmaningen tillbaka från Webb-API 1 till den inbyggda appen och konstruerar en ny begäran i klientappen.
 
-## <a name="scenario-app-accessing-multiple-services"></a>Scenario: appen använder flera tjänster
+## <a name="scenario-app-accessing-multiple-services"></a>Scenario: App som använder flera tjänster
 
-I det här scenariot går vi igenom det fall då en webbapp får åtkomst till två tjänster som har en tilldelad princip för villkorlig åtkomst. Beroende på din program logik kan det finnas en sökväg där appen inte behöver åtkomst till båda webb tjänsterna. I det här scenariot spelar ordningen där du begär en token en viktig roll i slut användar upplevelsen.
+I det här fallet går vi igenom det fall där en webbapp får åtkomst till två tjänster varav en har tilldelats en princip för villkorlig åtkomst. Beroende på applogiken kan det finnas en sökväg där appen inte kräver åtkomst till båda webbtjänsterna. I det här fallet spelar den ordning i vilken du begär en token en viktig roll i slutanvändarens upplevelse.
 
-Vi antar att vi har webb tjänsten A och B och att webb tjänsten B har samma princip för villkorlig åtkomst som tillämpas. Även om den inledande interaktiva auth-begäran kräver godkännande för båda tjänsterna, krävs inte principen för villkorlig åtkomst i samtliga fall. Om appen begär en token för Web Service B, anropas principen och efterföljande förfrågningar för webb tjänsten A följer också.
+Låt oss anta att vi har webbtjänst A och B och webbtjänst B har vår policy för villkorlig åtkomst tillämpad. Den ursprungliga interaktiva auth-begäran kräver samtycke för båda tjänsterna, men principen villkorlig åtkomst krävs inte i alla fall. Om appen begär en token för webbtjänst B anropas principen och efterföljande begäranden om webbtjänst A lyckas också enligt följande.
 
-![App-åtkomst till flödes diagram för flera tjänster](./media/v2-conditional-access-dev-guide/app-accessing-multiple-services-scenario.png)
+![Flödesdiagram för flera tjänster](./media/v2-conditional-access-dev-guide/app-accessing-multiple-services-scenario.png)
 
-Alternativt, om appen ursprungligen begär en token för webb tjänst A, så anropar inte slutanvändaren principen för villkorlig åtkomst. Detta gör att appens utvecklare kan styra slut användar upplevelsen och inte tvinga den villkorliga åtkomst principen att anropas i samtliga fall. Väskan är om appen senare begär en token för webb tjänst B. I det här läget måste slutanvändaren följa principen för villkorlig åtkomst. När appen försöker `acquireToken`kan den generera följande fel (illustreras i följande diagram):
+Alternativt, om appen först begär en token för webbtjänst A, anropar slutanvändaren inte principen villkorlig åtkomst. På så sätt kan apputvecklaren styra slutanvändarens upplevelse och inte tvinga principen villkorlig åtkomst att anropas i alla fall. Det knepiga fallet är om appen senare begär en token för webbtjänst B. Nu måste slutanvändaren följa principen villkorlig åtkomst. När appen försöker `acquireToken`kan den generera följande fel (illustrerat i följande diagram):
 
 ```
 HTTP 400; Bad Request
@@ -150,23 +150,23 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![App som använder flera tjänster som begär en ny token](./media/v2-conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-Om appen använder MSAL-biblioteket, görs ett försök att hämta token alltid interaktivt. När den här interaktiva begäran sker har slutanvändaren möjlighet att följa den villkorliga åtkomsten. Detta är sant om begäran är en `AcquireTokenSilentAsync` eller `PromptBehavior.Never` i vilket fall appen behöver utföra en interaktiv ```AcquireToken```-begäran för att ge slutanvändaren möjlighet att följa principen.
+Om appen använder MSAL-biblioteket görs alltid ett försök att hämta token interaktivt. När den här interaktiva begäran inträffar har slutanvändaren möjlighet att följa villkorlig åtkomst. Detta gäller om inte begäran `AcquireTokenSilentAsync` `PromptBehavior.Never` är en eller i vilket ```AcquireToken``` fall appen behöver utföra en interaktiv begäran för att ge slutanvändaren möjlighet att följa principen.
 
-## <a name="scenario-single-page-app-spa-using-msaljs"></a>Scenario: en app med en sida (SPA) med MSAL. js
+## <a name="scenario-single-page-app-spa-using-msaljs"></a>Scenario: Ensidig app (SPA) med MSAL.js
 
-I det här scenariot går vi igenom fallet när vi har en enda sida-app (SPA) med hjälp av MSAL. js för att anropa ett skyddat webb-API för villkorlig åtkomst. Det här är en enkel arkitektur men har vissa olika delarna som måste beaktas när du utvecklar kring villkorlig åtkomst.
+I det här fallet går vi igenom fallet när vi har en ensidig app (SPA), med MSAL.js för att anropa ett skyddat webb-API för villkorlig åtkomst. Detta är en enkel arkitektur men har några nyanser som måste beaktas när man utvecklar runt Villkorlig åtkomst.
 
-I MSAL. js finns det några funktioner som hämtar token: `loginPopup()`, `acquireTokenSilent(...)`, `acquireTokenPopup(…)`och `acquireTokenRedirect(…)`.
+I MSAL.js finns det några funktioner som `loginPopup()` `acquireTokenSilent(...)`hämtar `acquireTokenPopup(…)`token: , , och `acquireTokenRedirect(…)`.
 
-* `loginPopup()` erhåller en ID-token via en interaktiv inloggnings förfrågan men får inte åtkomst-token för någon tjänst (inklusive ett skyddat webb-API för villkorlig åtkomst).
-* `acquireTokenSilent(…)` kan sedan användas för att tyst erhålla en åtkomsttoken, vilket innebär att den inte visar gränssnitt i någon omständighet.
-* `acquireTokenPopup(…)` och `acquireTokenRedirect(…)` används båda för att interaktivt begära en token för en resurs, vilket innebär att de alltid visar inloggnings gränssnittet.
+* `loginPopup()`hämtar en ID-token via en interaktiv inloggningsbegäran men får inte åtkomsttoken för någon tjänst (inklusive ett skyddat webb-API för villkorlig åtkomst).
+* `acquireTokenSilent(…)`kan sedan användas för att tyst få en åtkomsttoken vilket innebär att det inte visar användargränssnittet under några omständigheter.
+* `acquireTokenPopup(…)`och `acquireTokenRedirect(…)` används båda för att interaktivt begära en token för en resurs vilket innebär att de alltid visar inloggningsgränssnittet.
 
-När en app behöver en åtkomsttoken för att anropa ett webb-API, försöker den `acquireTokenSilent(…)`. Om token-sessionen har upphört att gälla eller om vi måste följa en princip för villkorlig åtkomst, Miss lyckas *acquireToken* -funktionen och appen använder `acquireTokenPopup()` eller `acquireTokenRedirect()`.
+När en app behöver en åtkomsttoken för att `acquireTokenSilent(…)`anropa ett webb-API försöker den en . Om tokensessionen har upphört att gälla eller om vi måste följa en princip `acquireTokenPopup()` för `acquireTokenRedirect()`villkorlig åtkomst misslyckas funktionen *acquireToken* och appen använder eller .
 
-![En app med en sida med MSAL Flow-diagram](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
+![Ensidig app med msal-flödesdiagram](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
-Låt oss gå igenom ett exempel med vårt scenario för villkorlig åtkomst. Slutanvändaren precis landats på platsen och har ingen session. Vi utför ett `loginPopup()`-anrop, hämtar en ID-token utan Multi-Factor Authentication. Sedan träffar användaren en knapp som kräver att appen begär data från ett webb-API. Appen försöker göra ett `acquireTokenSilent()`-anrop, men det Miss lyckas eftersom användaren inte har utfört Multi-Factor Authentication än och måste följa principen för villkorlig åtkomst.
+Låt oss gå igenom ett exempel med vårt scenario med villkorlig åtkomst. Slutanvändaren har precis landat på webbplatsen och har ingen session. Vi utför `loginPopup()` ett samtal, får en ID-token utan multifaktorautentisering. Sedan trycker användaren på en knapp som kräver att appen begär data från ett webb-API. Appen försöker göra `acquireTokenSilent()` ett samtal men misslyckas eftersom användaren inte har utfört multifaktorautentisering ännu och måste följa principen villkorlig åtkomst.
 
 Azure AD skickar tillbaka följande HTTP-svar:
 
@@ -176,13 +176,14 @@ error=interaction_required
 error_description=AADSTS50076: Due to a configuration change made by your administrator, or because you moved to a new location, you must use multi-factor authentication to access '<Web API App/Client ID>'.
 ```
 
-Vår app måste fånga `error=interaction_required`. Programmet kan sedan använda antingen `acquireTokenPopup()` eller `acquireTokenRedirect()` på samma resurs. Användaren tvingas göra en Multi-Factor Authentication. När användaren har slutfört Multi-Factor Authentication utfärdas appen en ny åtkomsttoken för den begärda resursen.
+Vår app måste `error=interaction_required`fånga . Programmet kan sedan `acquireTokenPopup()` använda `acquireTokenRedirect()` antingen eller på samma resurs. Användaren är tvungen att göra en multifaktorautentisering. När användaren har slutfört multifaktorautentiseringen får appen en ny åtkomsttoken för den begärda resursen.
 
-Om du vill testa det här scenariot, se vår [JS-kod exempel för JS på egen räkning](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). I det här kod exemplet används en princip för villkorlig åtkomst och webb-API som du registrerade tidigare med en JS-SPA för att demonstrera det här scenariot. Det visar hur du kan hantera anspråks utmaningen och få en åtkomsttoken som kan användas för ditt webb-API. Du kan också checka ut kod exemplet för generella [. js-kod](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) om du vill ha hjälp med ett vinkel Spa
+För att prova det här scenariot, se vår [JS SPA På uppdrag av kodexempel](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Det här kodexemplet använder principen villkorlig åtkomst och webb-API som du registrerade tidigare med ett JS SPA för att demonstrera det här scenariot. Den visar hur du hanterar anspråksutmaningen på rätt sätt och får en åtkomsttoken som kan användas för webb-API:et. Alternativt kan du checka ut det allmänna [kodexemplet Angular.js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) för vägledning om ett vinkelspa
 
 ## <a name="see-also"></a>Se även
 
-* Mer information om funktionerna finns [i villkorlig åtkomst i Azure Active Directory](/azure/active-directory/conditional-access/overview).
-* Fler kod exempel för Azure AD finns i [exempel](sample-v2-code.md).
-* Mer information om MSAL SDK: er och åtkomst till referens dokumentationen finns i [Översikt över Microsoft Authentication Library](msal-overview.md).
-* Mer information om scenarier med flera innehavare finns i [så här loggar du in användare med hjälp av mönster för flera innehavare](howto-convert-app-to-be-multi-tenant.md).
+* Mer information om funktionerna finns [i Villkorlig åtkomst i Azure Active Directory](/azure/active-directory/conditional-access/overview).
+* Mer Azure AD-kodexempel finns i [exempel](sample-v2-code.md).
+* Mer information om MSAL SDK:er och få tillgång till referensdokumentationen finns i [översikt över Microsoft Authentication Library](msal-overview.md).
+* Mer information om scenarier med flera innehavare finns [i Så här loggar du in användare med flera innehavare](howto-convert-app-to-be-multi-tenant.md).
+* Läs mer om [villkorlig åtkomst och så att du skyddar åtkomsten till IoT-appar](/azure/architecture/example-scenario/iot-aad/iot-aad).

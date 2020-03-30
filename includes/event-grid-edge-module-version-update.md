@@ -9,11 +9,11 @@ ms.date: 01/16/2020
 ms.author: babanisa
 ms.custom: include file
 ms.openlocfilehash: cca628a54d9ac84fbb8a798168f72adbaa24aa48
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76844569"
 ---
 >[!NOTE]
-> Kontrol lera alltid versionen av din avbildning för att se till att den har den feautures som du behöver. Om du redan har en tidigare version av behållar avbildningen som redan har hämtats på din dator måste du ange den versions tagg som du vill använda, eller ta bort den befintliga avbildningen innan du hämtar den `:latest`-taggen igen. Mer information om avbildnings versioner och-taggar finns i [versions anteckningar](../articles/event-grid/edge/release-notes.md).
+> Kontrollera alltid vilken version av bilden du behöver för att säkerställa att den har de feauturer du behöver. Om du redan har dragit en tidigare version av behållaravbildningen på datorn måste du ange den versionstagg `:latest` du vill ha eller ta bort den befintliga avbildningen innan du drar igen med taggen. Mer information om bildversioner och taggar finns i [viktig information](../articles/event-grid/edge/release-notes.md).

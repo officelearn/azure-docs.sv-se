@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: eb4e7907c3dcffed035307c2084160ce6051be13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 98b21969ce86f84b20fbe78dbdf3002769ef65f5
+ms.sourcegitcommit: d0fd35f4f0f3ec71159e9fb43fcd8e89d653f3f2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79409957"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80387877"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Dataidentifiering & klassificering för Azure SQL Database och Azure Synapse Analytics
 
@@ -89,17 +89,11 @@ När principen för hela klienten har definierats kan du fortsätta med klassifi
 
 4. Om du vill hämta en rapport i **Excel-format** klickar du på alternativet Exportera i fönstrets övre meny.
 
-   ![Exportera till Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
-
 5. <a id="step-5"></a>Om du vill börja klassificera dina data klickar du på **fliken Klassificering** högst upp i fönstret.
-
-    ![Klassificera data för dig](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. Klassificeringsmotorn söker igenom databasen efter kolumner som innehåller potentiellt känsliga data och innehåller en lista över **rekommenderade kolumnklassificeringar**. Så här visar och tillämpar du klassificeringsrekommendationer:
 
-   - Om du vill visa listan över rekommenderade kolumnklassificeringar klickar du på rekommendationerpanelen längst ned i fönstret:
-
-      ![Klassificera dina data](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
+   - Om du vill visa listan över rekommenderade kolumnklassificeringar klickar du på rekommendationerpanelen längst ned i fönstret
 
    - Granska listan med rekommendationer – om du vill acceptera en rekommendation för en viss kolumn markerar du kryssrutan i den vänstra kolumnen på den aktuella raden. Du kan också markera *alla rekommendationer* som accepterade genom att markera kryssrutan i tabellens huvud för rekommendationer.
 
@@ -107,21 +101,15 @@ När principen för hela klienten har definierats kan du fortsätta med klassifi
 
    - Om du vill använda de valda rekommendationerna klickar du på den blå **knappen Acceptera valda rekommendationer.**
 
-      ![Tillämpa rekommendationer](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
-
 7. Du kan också klassificera kolumner **manuellt** som ett alternativ, eller dessutom, till den rekommendationsbaserade klassificeringen:
 
    - Klicka på **Lägg till klassificering** i fönstrets övre meny.
-
-      ![Lägg till klassificering manuellt](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
    - I det sammanhangsfönster som öppnas markerar du den schema > tabell > kolumn som du vill klassificera och informationstypen och känslighetsetiketten. Klicka sedan på den blå **Lägg till klassificeringsknappen** längst ned i kontextfönstret.
 
       ![Markera kolumn för att klassificera](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
 8. Om du vill slutföra klassificeringen och beständigt märka databaskolumnerna med de nya klassificeringsmetadata klickar du på **Spara** i fönstrets övre meny.
-
-   ![Spara](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a name="auditing-access-to-sensitive-data"></a><a id="subheading-3"></a>Granska åtkomst till känsliga data
 

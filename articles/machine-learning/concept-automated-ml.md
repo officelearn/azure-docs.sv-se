@@ -1,5 +1,5 @@
 ---
-title: Vad är automatiserad ML/AutoML
+title: Vad är automatiserad ML / AutoML
 titleSuffix: Azure Machine Learning
 description: Lär dig hur Azure Machine Learning automatiskt kan välja en algoritm åt dig och generera en modell från den för att spara tid genom att använda de parametrar och kriterier som du anger för att välja den bästa algoritmen för din modell.
 services: machine-learning
@@ -10,287 +10,212 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 02/28/2020
-ms.openlocfilehash: 501158ffa8d05bc34dd39c21680012b1f3308def
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: c8864e00be9f491d87478c253286070b9334a26e
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283893"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80383199"
 ---
-# <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
+# <a name="what-is-automated-machine-learning"></a>Vad är automatiserad maskininlärning?
 
-Automatisk maskin inlärning, som även kallas automatiserad ML, är en process för att automatisera tids krävande, repetitiva uppgifter om utveckling av Machine Learning-modeller. Det gör det möjligt för data experter, analytiker och utvecklare att bygga ML-modeller med hög skalbarhet, effektivitet och produktivitet samtidigt som modell kvaliteten försämras. Automatisk ML baseras på en Ban brytande från vår [Microsoft Research-avdelning](https://arxiv.org/abs/1705.05355).
+Automatiserad maskininlärning, även kallad automatiserad ML, är processen att automatisera tidskrävande, iterativa uppgifter maskininlärning modellutveckling. Det gör det möjligt för datavetare, analytiker och utvecklare att bygga ML-modeller med hög skala, effektivitet och produktivitet samtidigt som modellkvaliteten upprätthålls. Automated ML bygger på ett genombrott från vår [Microsoft Research-avdelning.](https://arxiv.org/abs/1705.05355)
 
-Traditionell miljö utveckling för maskin inlärning är resurs intensiv, vilket kräver betydande domän kunskap och tid för att producera och jämföra dussin tals modeller. Använd automatisk ML när du vill Azure Machine Learning för att träna och finjustera en modell för att använda det målmått du anger. Tjänsten itererar sedan igenom ML-algoritmer med funktions val där varje iteration genererar en modell med en utbildnings poäng. Ju högre poäng, desto bättre blir modellen att "passa" dina data.
+Traditionell maskininlärningsmodellutveckling är resurskrävande, vilket kräver betydande domänkunskap och tid för att producera och jämföra dussintals modeller. Med automatiserad maskininlärning påskyndar du den tid det tar att få produktionsklara ML-modeller med stor lätthet och effektivitet.
 
-Med automatisk maskin inlärning kan du påskynda den tid det tar att få produktions klara ML-modeller med mycket enkelt och effektivt.
+ 
 
-## <a name="when-to-use-automated-ml"></a>När du ska använda automatisk ML
 
-Automatiserad ML demokratiserar sakernas utvecklings processen för maskin inlärning och ger användarna möjlighet att, oavsett data vetenskaps expert, identifiera en pipeline för maskin inlärning från slut punkt till slut punkt för alla problem.
+## <a name="when-to-use-automated-ml"></a>När ska automatiserad ML användas
 
-Data experter, analytiker och utvecklare i olika branscher kan använda automatisk ML för att:
+Använd automatiserad ML när du vill att Azure Machine Learning ska träna och finjustera en modell åt dig med hjälp av det målmått du anger. Automatiserad ML demokratiserar maskininlärningsmodellens utvecklingsprocess och ger användarna, oavsett expertis inom datavetenskap, möjlighet att identifiera en end-to-end machine learning pipeline för eventuella problem.
 
-+ Implementera maskin inlärnings lösningar utan omfattande programmerings kunskap
+Dataforskare, analytiker och utvecklare i olika branscher kan använda automatiserad ML för att:
+
++ Implementera maskininlärningslösningar utan omfattande programmeringskunskaper
 + Spara tid och resurser
-+ Utnyttja metod tips för data vetenskap
-+ Ge smidig problemlösning
++ Utnyttja bästa praxis för datavetenskap
++ Ge flexibel problemlösning
 
-I följande tabell visas vanliga automatiserade ML-användnings fall. 
+I följande tabell visas vanliga automatiska ML-användningsfall. 
 
-Klassificering| Prognosticering för tids serier | Regression
+Klassificering| Prognostisering av tidsserier | Regression
 ---|---|---
-[Bedrägeri identifiering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[Försäljnings prognoser](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)|[Prestanda förutsägelse för CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb)
-|[Marknadsförings förutsägelse](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)|[Prognoser för efter frågan](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
-|[Data klassificering för diskussions grupper](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)|[Produkt prognos för dryck](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)|
+[Upptäckt av bedrägerier](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[Försäljningsprognoser](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)|[Förutsägelse av CPU-prestanda](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb)
+|[Marknadsföring Förutsägelse](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)|[Efterfrågeprognostisering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
+|[Klassificering av diskussionsgruppsdata](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)|[Prognos för dryckesproduktion](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)|
 
-## <a name="how-automated-ml-works"></a>Så här fungerar automatisk ML
+## <a name="design-automated-ml-experiments"></a>Designa automatiserade ML-experiment
 
-Med hjälp av **Azure Machine Learning**kan du utforma och köra dina AUTOMATISERAde ml-experiment med följande steg:
+Med Hjälp av **Azure Machine Learning**kan du utforma och köra dina automatiserade ML-utbildningsexperiment med följande steg:
 
-1. **Identifiera det ml-problem** som ska lösas: klassificering, Prognosticering eller regression
+1. **Identifiera ml-problemet** som ska lösas: klassificering, prognoser eller regression
 
-1. **Ange källa och format för etiketten utbildnings data**: numpy-matriser eller Pandas-dataframe
+1. **Ange källan och formatet för de märkta träningsdata:** Numpy arrayer eller Pandas dataram
 
-1. **Konfigurera beräknings målet för modell träning**, till exempel din [lokala dator, Azure Machine Learning beräkningar, fjärranslutna virtuella datorer eller Azure Databricks](how-to-set-up-training-targets.md).  Lär dig mer om automatisk utbildning [på en fjär resurs](how-to-auto-train-remote.md).
+1. **Konfigurera beräkningsmålet för modellutbildning**, till exempel din [lokala dator, Azure Machine Learning Computes, fjärr-virtuella datorer eller Azure Databricks](how-to-set-up-training-targets.md).  Läs mer om automatiserad utbildning [på en fjärrresurs](how-to-auto-train-remote.md).
 
-1. **Konfigurera de automatiserade Machine Learning-parametrarna** som avgör hur många iterationer över olika modeller, inställningar för funktionalisering, avancerade förbearbetnings-/och vilka mått som ska visas när du bestämmer den bästa modellen.  Du kan konfigurera inställningarna för automatisk inlärnings experiment i [Azure Machine Learning Studio](https://ml.azure.com)eller [med SDK](how-to-configure-auto-train.md). 
+1. **Konfigurera de automatiska maskininlärningsparametrarna** som avgör hur många iterationer över olika modeller, hyperparameterinställningar, avancerad förbearbetning/medbearbetning och vilka mått som ska undersökas när du fastställer den bästa modellen.  Du kan konfigurera inställningarna för experiment för automatisk utbildning i [Azure Machine Learning studio](https://ml.azure.com)eller med [SDK](how-to-configure-auto-train.md). 
 
     [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-1. **Skicka in utbildnings körningen.**
+1. **Skicka in träningskörningen.**
 
-  ![Automatisk maskin inlärning](./media/concept-automated-ml/automl-concept-diagram2.png)
+## <a name="how-automated-ml-works"></a>Så här fungerar automatiserad ML
 
-Under utbildningen skapar Azure Machine Learning ett antal parallella pipelines som testar olika algoritmer och parametrar. Det stoppas när det träffar de slut kriterier som definierats i experimentet.
+Under utbildningen skapar Azure Machine Learning ett antal parallella pipelines som provar olika algoritmer och parametrar. Tjänsten itererar genom ML algoritmer paras ihop med funktionsval, där varje iteration producerar en modell med en utbildning poäng. Ju högre poäng, desto bättre anses modellen "passa" dina data.  Det kommer att sluta när det träffar exit kriterier som definieras i experimentet. Följande diagram illustrerar den här processen. 
 
-Du kan också kontrol lera den loggade körnings informationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Inlärnings körningen skapar ett serialiserat python-objekt (`.pkl` fil) som innehåller modellen och data förbearbetningen.
+  ![Automatiserad maskininlärning](./media/concept-automated-ml/automl-concept-diagram2.png)
 
-När modell byggnaden automatiseras, kan du också [lära dig hur viktiga eller relevanta funktioner är](how-to-configure-auto-train.md#explain) i de genererade modellerna.
+
+Du kan också granska den loggade körningsinformationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Utbildningskörningen ger ett Serialiserat`.pkl` Python-objekt ( fil) som innehåller modellen och dataförbearbetningen.
+
+Medan modellbyggnaden är automatiserad kan du också [lära dig hur viktiga eller relevanta funktioner är](how-to-configure-auto-train.md#explain) för de genererade modellerna.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
 <a name="preprocess"></a>
 
-## <a name="preprocessing"></a>Förbearbeta
+## <a name="preprocessing"></a>Förbehandling
 
-I varje automatiserad maskin inlärnings experiment förbehandlas dina data med hjälp av standard metoderna och kan du välja genom avancerad förbearbetning.
+I varje automatiserat maskininlärningsexperiment förarbetas dina data med standardmetoderna och eventuellt genom avancerad förbearbetning.
 
 > [!NOTE]
-> Automatiserad bearbetning av Machine Learning för bearbetning (funktions normalisering, hantering av saknade data, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma för bearbetnings steg som tillämpas på dina indata-data automatiskt.
+> Automatiserade förbearbetningssteg för maskininlärning (funktionsnormalisering, hantering av data som saknas, konvertering av text till numeriska osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma förbearbetningssteg som tillämpas under träningen automatiskt på dina indata.
 
-### <a name="automatic-preprocessing-standard"></a>Automatisk för bearbetning (standard)
+### <a name="automatic-preprocessing-standard"></a>Automatisk förbehandling (standard)
 
-I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt eller normaliseras för att hjälpa algoritmerna att fungera bra.  I modell utbildningen används en av följande skalnings-eller normaliserings tekniker för varje modell.
+I varje automatiserat maskininlärningsexperiment skalas eller normaliseras dina data automatiskt för att hjälpa algoritmer att fungera bra.  Under modellutbildningen tillämpas en av följande skalnings- eller normaliseringstekniker på varje modell.
 
-|Skala&nbsp;&&nbsp;normalisering| Beskrivning |
+|Skalning&nbsp;&&nbsp;normalisering| Beskrivning |
 | ------------- | ------------- |
-| [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardisera funktioner genom att ta bort medelvärdet och skalan till enhets avvikelse  |
-| [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transformerar funktioner genom att skala varje funktion efter minsta och högsta värde för kolumnen  |
-| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |Skala varje funktion efter dess maximala absoluta värde |
-| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |De här skalnings funktionerna efter deras quantile-intervall |
-| [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) |Linjär linjär reducering med enkel värdes nedbrytning av data för att projicera den till ett lägre dimensionellt utrymme |
-| [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Den här transformeringen utför linjär minskning genom trunkering av sammansatta värde diskompositioner (SVD). I motsats till PCA centrerar denna uppskattning inte data innan du beräknar ett uppdelnings värde för en enkel värde, vilket innebär att det fungerar med scipy. glesa matriser effektivt |
-| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Varje exempel (det vill säga varje rad i data matrisen) med minst en komponent som inte är noll skalas om oberoende av andra prover så att dess norm (L1 eller L2) är lika med ett |
+| [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardisera funktioner genom att ta bort medelvärdet och skalningen till enhetsavvikelse  |
+| [MinMaxScalar (påminn)](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Omvandlar funktioner genom att skala varje funktion efter den kolumnens lägsta och högsta  |
+| [MaxAbsScaler](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MaxAbsScaler.html#sklearn.preprocessing.MaxAbsScaler) |Skala varje funktion efter dess högsta absoluta värde |
+| [RobustScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.RobustScaler.html) |Denna Scaler funktioner av deras quantile sortiment |
+| [Pca](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html) |Linjär dimensionalitetsminskning med hjälp av singularvärdesdedelning av data för att projicera den till ett lägre dimensionellt utrymme |
+| [TrunkeradSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Denna transformator utför linjär dimensionalitetsminskning med hjälp av trunkerad singularvärdesdekomposit (SVD). I motsats till PCA, centrerar denna estimator inte data innan du beräknar singularvärdet nedbrytning, vilket innebär att det kan arbeta med scipy.sparse matriser effektivt |
+| [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Varje prov (det vill säga varje rad i datamatrisen) med minst en komponent som inte är noll skalas om skalas om oberoende av andra prover så att dess norm (l1 eller l2) är lika med en |
 
-### <a name="advanced-preprocessing-optional-featurization"></a>Avancerad för bearbetning: valfria funktionalisering
+### <a name="advanced-preprocessing-optional-featurization"></a>Avancerad förbearbetning: valfri featurization
 
-Ytterligare avancerade för bearbetnings-och funktionalisering är också tillgängliga, till exempel data guardrails, kodning och transformeringar. [Läs mer om vad funktionalisering ingår](how-to-use-automated-ml-for-ml-models.md#featurization). Aktivera den här inställningen med:
+Ytterligare avancerad förbearbetning och medsättning är också tillgängliga, till exempel dataskyddsräckor, kodning och transformeringar. [Läs mer om vad medsättning ingår](how-to-use-automated-ml-for-ml-models.md#featurization). Aktivera den här inställningen med:
 
-+ Azure Machine Learning Studio: aktivera **Automatisk funktionalisering** i avsnittet **Visa ytterligare konfiguration** [med de här stegen](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
++ Azure Machine Learning studio: Aktivera **automatisk featurization** i avsnittet **Visa ytterligare konfiguration** med dessa [steg](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-+ Python SDK: Ange `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` för [`AutoMLConfig`-klassen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
-
-## <a name="prevent-over-fitting"></a>Förhindra överanpassning
-
-Överanpassning i maskin inlärning sker när en modell passar inlärnings data för bra, och det kan leda till att det inte är korrekt förutsägelse på osett test data. Med andra ord har modellen helt enkelt bevisat vissa mönster och brus i tränings data, men är inte tillräckligt flexibel för att göra förutsägelser på verkliga data. I de flesta egregious-fall förutsätter en överordnad modell att de kombinationer av funktions värden som visas under utbildningen alltid ger exakt samma utdata för målet. 
-
-Det bästa sättet att förhindra överanpassning är att följa ML Best-Practices, inklusive:
-
-* Använda fler utbildnings data och ta bort statistisk kompensation
-* Förhindra mål läckage
-* Använda färre funktioner
-* **Regulariseringshastigheten och dess parameter optimering**
-* **Komplexitets begränsningar för modeller**
-* **Kors validering**
-
-I samband med automatisk ML är de första tre objekten ovan de **bästa metoderna som du implementerar**. De tre sista objekten med fet stil är **bästa metoder för automatisk ml-implementering** som standard för att skydda mot överanpassning. I andra inställningar än automatiserade ML är alla sex bästa metoder följande för att undvika överanpassnings modeller.
-
-### <a name="best-practices-you-implement"></a>Metod tips som du implementerar
-
-Att använda **mer data** är det enklaste och bästa möjliga sättet att förhindra överanpassning, och som en extra bonus ökar precisionen ofta. När du använder mer data blir det svårare för modellen att memorera exakta mönster, och det tvingas att uppnå lösningar som är mer flexibla för att hantera fler villkor. Det är också viktigt att känna igen **statistisk kompensation**för att säkerställa att dina utbildnings data inte innehåller isolerade mönster som inte finns i real tids förutsägelse data. Det här scenariot kan vara svårt att lösa eftersom det kanske inte finns överanvändning mellan dina tåg-och test uppsättningar, men det kan finnas överanvändning i jämförelse med Live test-data.
-
-Mål läckage är ett liknande problem, där du kanske inte ser överanvändning mellan träna/test-uppsättningar, men i stället visas den i förutsägelse tiden. Mål läckage uppstår när din modell "fuskar" under utbildningen genom att ha åtkomst till data som den inte bör ha vid förutsägelse tiden. Om ditt problem till exempel är att förutsäga på måndagen är ett råvaru pris på fredag, men en av dina funktioner av misstag som innehåller data från torsdagar, som skulle vara data modellen kommer inte att ha vid förutsägelse, eftersom den inte kan se i framtiden. Mål läckage är ett enkelt misstag att sakna, men karakteriseras ofta av onormalt hög precision för ditt problem. Om du försöker förutsäga börs priset och tränat en modell med 95% noggrannhet, finns det troligen mål som läcker i dina funktioner.
-
-Att ta bort funktioner kan också bidra till överanpassning genom att förhindra att modellen har för många fält att använda för att komma ihåg vissa mönster, vilket gör att det blir mer flexibelt. Det kan vara svårt att mäta kvantitativt, men om du kan ta bort funktioner och behålla samma precision har du förmodligen gjort modellen mer flexibel och minskat risken för överanpassning.
-
-### <a name="best-practices-automated-ml-implements"></a>Best-Practices med automatisk ML-implementering
-
-Regulariseringshastigheten är en process för att minimera en kostnads funktion för att beivra komplexa och över-anpassade modeller. Det finns olika typer av regulariseringshastigheten-funktioner, men i allmänhet tar de med sig en koefficient för modell effektiv storlek, varians och komplexitet. Med automatisk ML används L1 (lasso), L2 (Ridge) och ElasticNet (L1 och L2 samtidigt) i olika kombinationer med olika modell inställningar för en modell som styr överanpassningen. I enkla termer varierar automatiserade ML till hur mycket en modell är reglerad och väljer det bästa resultatet.
-
-Med automatisk ML implementeras även explicita begränsningar för modell komplexitet för att förhindra överanpassning. I de flesta fall är den här implementeringen särskilt för besluts träd eller skogs-algoritmer, där det enskilda trädets max djup är begränsat och det totala antalet träd som används i skogs-eller Ensemble-teknikerna är begränsade.
-
-Kors validering (ka) är en process där du tar många del mängder av dina fullständiga tränings data och tränar en modell på varje delmängd. Idén är att en modell kan få "fram" och ha stor precision med en delmängd, men genom att använda många del uppsättningar kan modellen inte uppnå denna höga noggrannhet varje gång. När du gör CV anger du en data uppsättning för en verifierings spärr, anger dina CV-vikningar (antal del mängder) och automatiserade ML tränar din modell och justerar de båda parametrarna för att minimera fel i validerings uppsättningen. En ka-vikning kan vara överdrivet, men genom att använda många av dem minskar sannolikheten att den slutliga modellen är överdrivet. Kompromissen är att ka resulterar i längre inlärnings tider och därmed högre kostnad, eftersom i stället för att träna en modell en gång, träna den en gång för varje *n* CV-deluppsättning.
-
-> [!NOTE]
-> Kors validering är inte aktiverat som standard. den måste konfigureras i automatiserade ML-inställningar. Men efter att ka har kon figurer ATS och en verifierings data uppsättning har angetts automatiseras processen.
-
-### <a name="identifying-over-fitting"></a>Identifiera överanpassning
-
-Tänk på följande utbildade modeller och deras motsvarande tåg-och test noggrannhet.
-
-| Modell | Träna precision | Test noggrannhet |
-|-------|----------------|---------------|
-| A | 99,9 % | 95% |
-| B | 87% | 87% |
-| C | 99,9 % | 45% |
-
-Med tanke på modell **A**, finns det en vanlig felbegrepp att om test precisionen för osett-data är lägre än den korrekta inlärningen är modellen överdrivet. Test precisionen bör dock alltid vara mindre än inlärnings precisionen och skillnaden för överanpassning jämfört med lämplig anpassning visas till *hur mycket* mindre exakt. 
-
-När du jämför modeller **a** och **B**är modell **a** en bättre modell eftersom den har högre test precision, och även om test noggrannheten är något lägre vid 95% är det inte en stor skillnad som tyder på överanpassning. Du väljer inte modell **B** eftersom tågets och testernas noggrannhet är närmare tillsammans.
-
-Modell **C** är ett tydligt Skift läge vid överanpassning. inlärnings precisionen är mycket hög men test noggrannheten är inte tillgänglig någonstans i närheten. Den här skillnaden är underkänd, men kommer från kännedom om ditt problem och dina data och vilka fel som kan uppstå. 
++ Python SDK: `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` Ange för [ `AutoMLConfig` klassen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 ## <a name="classification--regression"></a>Klassificering & regression
 
-Klassificering och regression är de vanligaste typerna av Machine Learning-uppgifter. Båda är typer av övervakad utbildning där modeller lär sig använda tränings data och tillämpar dem på nya data. Azure Machine Learning erbjuder featurizations specifikt för dessa uppgifter, till exempel djup neurala Network text featurizers för klassificering. Läs mer om [funktionalisering-alternativ](how-to-use-automated-ml-for-ml-models.md#featurization). 
+Klassificering och regression är de vanligaste typerna av maskininlärningsuppgifter. Båda är typer av övervakad inlärning där modeller lär sig med hjälp av träningsdata och tillämpar dessa lärdomar på nya data. Azure Machine Learning erbjuder featurizations specifikt för dessa uppgifter, till exempel djup neural nätverkstext med hjälp av klassificering. Läs mer om [featurization alternativ](how-to-use-automated-ml-for-ml-models.md#featurization). 
 
-Det huvudsakliga målet med klassificerings modeller är att förutsäga vilka kategorier nya data kommer att ingå i baserat på inlärnings data. Vanliga klassificerings exempel är bedrägeri identifiering, hand SKRIFTS igenkänning och objekt identifiering.  Läs mer och se ett exempel på [klassificering med automatiserad maskin inlärning](tutorial-train-models-with-aml.md).
+Huvudsyftet med klassificeringsmodeller är att förutsäga vilka kategorier nya data som kommer att falla in baserat på lärdomar från dess utbildningsdata. Vanliga klassificeringsexempel är bedrägeriidentifiering, handskriftsigenkänning och objektidentifiering.  Läs mer och se ett exempel [på klassificering med automatiserad maskininlärning](tutorial-train-models-with-aml.md).
 
-Det skiljer sig från klassificeringen där förutsägande utdatakolumner är kategoriska. Regressions modeller förutsäger numeriska utmatnings värden baserat på oberoende förförutsägelser. Syftet med regressionen är att hjälpa till att upprätta relationen mellan de oberoende förutsägande variablerna genom att uppskatta hur en variabel påverkar de andra. Till exempel, bil pris baserat på funktioner som gas mil, säkerhets klassificering osv. Läs mer och se ett exempel på [regression med automatiserad maskin inlärning](tutorial-auto-train-models.md).
+Skiljer sig från klassificeringen där förväntade utdatavärden är kategoriska, regressionsmodeller förutsäga numeriska utdatavärden baserat på oberoende prediktorer. I regression är målet att bidra till att fastställa förhållandet mellan dessa oberoende prediktorvariabler genom att uppskatta hur en variabel påverkar de andra. Till exempel bil pris baserat på funktioner som, gas körsträcka, säkerhetsbetyg, etc. Läs mer och se ett exempel [på regression med automatiserad maskininlärning](tutorial-auto-train-models.md).
 
-## <a name="time-series-forecasting"></a>Prognoser för tids serier
+## <a name="time-series-forecasting"></a>Prognostisering av tidsserier
 
-Att skapa prognoser är en viktig del av alla verksamheter, vare sig det gäller intäkter, inventering, försäljning eller kund efter frågan. Du kan använda automatiserad ML för att kombinera teknik och metoder och få en rekommenderad prognos för tids serier med hög kvalitet.
+Byggprognoser är en integrerad del av alla företag, oavsett om det är intäkter, lager, försäljning eller kundefterfrågan. Du kan använda automatiserad ML för att kombinera tekniker och metoder och få en rekommenderad, högkvalitativ tidsserieprognos.
 
-Ett automatiserat experiment med tids serier behandlas som ett multivarierad Regressions problem. Tidigare tids serie värden är "pivoterade" för att bli ytterligare dimensioner för modellerings regressor tillsammans med andra förutsägelser. Den här metoden, till skillnad från klassiska Time Series-metoder, har en fördel med att använda flera sammanhangsbaserade variabler och deras relation till varandra under utbildningen. Med automatisk ML får du en enda, men ofta ingrenad modell för alla objekt i data uppsättningen och förutsägelserna. Mer data är därför tillgängliga för att uppskatta modell parametrar och generalisering till osett-serien blir möjlig.
+Ett automatiserat tidsserieexperiment behandlas som ett multivariat regressionsproblem. Tidigare tidsserievärden är "pivoterade" för att bli ytterligare dimensioner för regressor tillsammans med andra prediktorer. Detta tillvägagångssätt, till skillnad från klassiska tidsseriemetoder, har en fördel av att naturligt införliva flera kontextuella variabler och deras förhållande till varandra under träning. Automatiserad ML lär sig en enda, men ofta internt grenade modell för alla objekt i datauppsättningen och förutsägelsehorisonterna. Mer data är således tillgängliga för att uppskatta modellparametrar och generalisering till osynliga serier blir möjligt.
 
-Läs mer och se ett exempel på [automatiserad maskin inlärning för tids serie prognoser](how-to-auto-train-forecast.md). Eller, se [antecknings boken för energi förbrukning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) för detaljerade kod exempel på avancerad prognos konfiguration, inklusive:
+Läs mer och se ett exempel på [automatiserad maskininlärning för tidsserieprognoser](how-to-auto-train-forecast.md). Eller se [anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) för energiförbrukning för detaljerade kodexempel på avancerad prognoskonfiguration, inklusive:
 
-* jul avkänning och funktionalisering
-* Time-Series och DNN-elever (Auto-ARIMA, Prophet, ForecastTCN)
-* många modeller stöder gruppering
-* kors validering av rullande ursprung
-* konfigurerbar lags
-* mängd funktioner för rullande fönster
+* semester upptäckt och featurization
+* tidsserier och DNN-elever (Auto-ARIMA, Profet, ForecastTCN)
+* många modeller stöder genom gruppering
+* validering av korsvalidering av rullande ursprung
+* konfigurerbara fördröjningar
+* sammanlagt funktioner för rullande fönster
 
-## <a name="ensemble"></a>Ensemble-modeller
+## <a name="ensemble-models"></a><a name="ensemble"></a>Ensemble modeller
 
-Automatisk Machine Learning stöder Ensemble-modeller som är aktiverade som standard. Ensemble-inlärningen förbättrar maskin inlärnings resultatet och förutsäger prestanda genom att kombinera flera modeller i stället för att använda enskilda modeller. Ensemble-iterationerna visas som de slutliga iterationerna av din körning. Automatiserad Machine Learning använder både röstnings-och stack-Ensemble-metoder för att kombinera modeller:
+Automatiserad maskininlärning stöder ensemblemodeller som är aktiverade som standard. Ensemble lärande förbättrar maskininlärning resultat och prediktiva prestanda genom att kombinera flera modeller i motsats till att använda enstaka modeller. Ensemble iterationer visas som de slutliga iterationer av din körning. Automatiserad maskininlärning använder både röstnings- och staplingsensemblemetoder för att kombinera modeller:
 
-* **Röstning**: förutsäger baserat på viktat medelvärde för förutsebara klass sannolikheter (för klassificerings aktiviteter) eller förutsägande Regressions mål (för Regressions aktiviteter).
-* **Stackning**: stackning kombinerar heterogena modeller och tågen en meta-modell som baseras på utdata från de enskilda modellerna. De aktuella standard-meta-modellerna är LogisticRegression för klassificerings uppgifter och ElasticNet för Regressions-/prognos uppgifter.
+* **Röstning**: förutsäger baserat på det vägda genomsnittet av förväntade klasspronolikheter (för klassificeringsuppgifter) eller förväntade regressionsmål (för regressionsaktiviteter).
+* **Stapling:** stapling kombinerar heterogena modeller och tränar en metamodell baserad på utdata från de enskilda modellerna. De aktuella standardmetamodellerna är LogisticRegression för klassificeringsuppgifter och ElasticNet för regressions-/prognosaktiviteter.
 
-[Caruana Ensemble-algoritmen](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) med sorterad Ensemble-initiering används för att bestämma vilka modeller som ska användas i ensemblen. På hög nivå initierar den här algoritmen ensemblen med upp till fem modeller med de bästa enskilda poängen, och kontrollerar att dessa modeller är inom tröskelvärdet 5% för att undvika en dålig inledande ensemble. För varje Ensemble-iteration läggs en ny modell till i den befintliga ensemblen och den resulterande poängen beräknas. Om en ny modell förbättrar den befintliga Ensemble-poängen uppdateras ensemblen för att inkludera den nya modellen.
+[Caruana ensemble urval algoritm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) med sorterad ensemble initiering används för att bestämma vilka modeller som ska användas i ensemblen. På en hög nivå initierar denna algoritm ensemblen med upp till fem modeller med de bästa individuella poängen, och verifierar att dessa modeller ligger inom 5% tröskel för bästa poäng för att undvika en dålig första ensemble. Sedan för varje ensemble iteration, en ny modell läggs till den befintliga ensemblen och den resulterande poängen beräknas. Om en ny modell förbättrade den befintliga ensemblen poäng, är ensemblen uppdateras för att inkludera den nya modellen.
 
-Se [hur du](how-to-configure-auto-train.md#ensemble) ändrar standardinställningar för ensemble i automatiserad maskin inlärning.
+Se [hur du](how-to-configure-auto-train.md#ensemble) ändrar standardinställningarna för ensemble i automatiserad maskininlärning.
 
-## <a name="imbalance"></a>Obalanserade data
+## <a name="use-with-onnx-in-c-apps"></a>Använd med ONNX i C#-appar
 
-Obalanserade data finns vanligt vis i data om klassificerings scenarier för maskin inlärning och refererar till data som innehåller ett oproportionerligt förhållande mellan observationerna i varje klass. Den här obalansen kan leda till en felaktigt uppfattad positiv effekt av en modells exakthet, eftersom indatan har en förskjutning mot en klass, vilket resulterar i att den tränade modellen imiterar den bias. 
+Med Azure Machine Learning kan du använda automatiserad ML för att skapa en Python-modell och få den konverterad till ONNX-formatet. ONNX-körningen stöder C#, så du kan använda den modell som skapats automatiskt i dina C#-appar utan att behöva ändra om eller någon av de nätverksdynningar som REST-slutpunkter introducerar. Prova ett exempel på detta flöde [i denna Jupyter anteckningsbok](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
 
-Som en del av målet att förenkla arbets flödet för Machine Learning har automatiserad ML byggts med funktioner som hjälper dig att hantera obalanserade data, till exempel 
+## <a name="automated-ml-in-azure-machine-learning"></a>Automatiserat ML i Azure Machine Learning
 
-- En **Vikt kolumn**: automatisk ml stöder en viktad kolumn som indata, vilket gör att rader i data kan viktas upp eller ned, vilket kan göra en klass mer eller mindre viktig.
+Azure Machine Learning erbjuder två upplevelser för att arbeta med automatiserad ML
 
-- Algoritmerna som används av automatiserad ML kan hantera obalans på upp till 20:1 korrekt, vilket innebär att den vanligaste klassen kan ha 20 gånger fler rader i data än den minsta gemensamma klassen.
+* För kod erfarna kunder, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
 
-### <a name="identify-models-with-imbalanced-data"></a>Identifiera modeller med obalanserade data
+* För kunder med begränsad/ingen kodupplevelse kan Azure Machine Learning studio på[https://ml.azure.com](https://ml.azure.com/)  
 
-Eftersom klassificerings algoritmer ofta utvärderas efter precision, är det ett bra sätt att kontrol lera om en modells precisions Poäng är ett bra sätt att identifiera om den har påverkats av obalanserade data. Har den verkligen hög exakthet eller verkligen låg precision för vissa klasser?
-
-Dessutom genererar automatiserade ML-körningar följande diagram automatiskt, som kan hjälpa dig att förstå rätthet i klassificeringen av din modell och identifiera modeller som kan påverkas av data som är fördelade.
-
-Diagram| Beskrivning
----|---
-[Förvirring mat ris](how-to-understand-automated-ml.md#confusion-matrix)| Utvärderar de korrekt klassificerade etiketterna mot de faktiska etiketterna i data. 
-[Precision – återkalla](how-to-understand-automated-ml.md#precision-recall-chart)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet mellan hittade etikett instanser av data 
-[ROC kurvor](how-to-understand-automated-ml.md#roc)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet falskt positiva etiketter.
-
-### <a name="handle-imbalanced-data"></a>Hantera förbalanserade data 
-
-Följande tekniker är ytterligare alternativ för att hantera sambalanserade data utanför automatiserad ML. 
-
-- Omsampling till till och med klassen obalans, antingen genom att ta sampling av de mindre klasserna eller nedåt, och samtidigt ta bort de större klasserna. Dessa metoder kräver expertis för att bearbeta och analysera.
-
-- Använd ett prestanda mått som fungerar bättre med obalanserade data. Till exempel är F1-poängen ett viktat medelvärde för precision och åter kallelse. Precision mäter en klassificerares exakta värde – låg precision visar ett stort antal falska positiva identifieringar--, samtidigt som åtgärdar mått för en klassificerares komplettahet – låg återkallning anger ett stort antal falska negativa värden. 
-
-## <a name="use-with-onnx-in-c-apps"></a>Använda med ONNX i C# appar
-
-Med Azure Machine Learning kan du använda automatisk ML för att bygga en python-modell och konvertera den till ONNX-format. ONNX runtime stöder C#, så du kan använda modellen som skapats automatiskt i dina C# appar utan att behöva koda om eller någon av nätverks fördröjningarna som rest-slutpunkter introducerar. Prova ett exempel på det här flödet [i den här Jupyter-anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb).
-
-## <a name="automated-ml-in-azure-machine-learning"></a>Automatiserad ML i Azure Machine Learning
-
-Azure Machine Learning erbjuder två upplevelser för att arbeta med automatiserade ML
-
-* För kod erfarna kunder [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
-
-* För kunder med begränsade/inga kod upplevelser Azure Machine Learning Studio på [https://ml.azure.com](https://ml.azure.com/)  
-
-I följande avsnitt sammanfattas de funktioner som stöds av den hög nivå som stöds i varje miljö.
+Följande sammanfattar den höga nivå automatiserade ML-funktioner som stöds i varje upplevelse.
 
 <a name="parity"></a>
 
-### <a name="experiment-settings"></a>Experiment inställningar 
+### <a name="experiment-settings"></a>Inställningar för experiment 
 
-Med följande inställningar kan du konfigurera ditt automatiserade ML-experiment. 
+Med följande inställningar kan du konfigurera det automatiska ML-experimentet. 
 
-| | Python SDK| tilläggsprogrammet
+| | Python SDK| Studio
 ----|:----:|:----:
-Dela upp data i tåg/verifierings uppsättningar| ✓|✓
-Har stöd för ML-aktiviteter: klassificering, regression och Prognosticering| ✓| ✓
+Dela upp data i tåg-/valideringsuppsättningar| ✓|✓
+Stöder ML-uppgifter: klassificering, regression och prognostisering| ✓| ✓
 Optimerar baserat på primärt mått| ✓| ✓
-Stöder AML Compute as Compute Target | ✓|✓
-Konfigurera en prognos horisont, mål lags & rullande fönster|✓|✓
-Ange avslutnings villkor |✓|✓ 
+Stöder AML-beräkning som beräkningsmål | ✓|✓
+Konfigurera prognoshorisont, målfördröjningar & rullande fönster|✓|✓
+Ange avslutningsvillkor |✓|✓ 
 Ange samtidiga iterationer| ✓|✓
 Släpp kolumner| ✓|✓
 Blockera algoritmer|✓|✓
 Korsvalidering |✓|✓
-Stöder utbildning i Azure Databricks kluster| ✓|
-Visa namn på förtillverkade funktioner|✓|
-Sammanfattning av funktionalisering| ✓|
-Funktionalisering – helgdag|✓|
-Utförlig nivå för loggfiler| ✓|
+Stöder utbildning i Azure Databricks-kluster| ✓|
+Visa konstruerade funktionsnamn|✓|
+Sammanfattning av medarisering| ✓|
+Semester med|✓|
+Verbositetsnivå för loggfiler| ✓|
 
-### <a name="model-settings"></a>Modell inställningar
+### <a name="model-settings"></a>Modellinställningar
 
-De här inställningarna kan tillämpas på den bästa modellen som ett resultat av ditt automatiserade ML-experiment.
+Dessa inställningar kan tillämpas på den bästa modellen som ett resultat av ditt automatiserade ML-experiment.
 
-||Python SDK|tilläggsprogrammet
+||Python SDK|Studio
 ----|:----:|:----:
-Bästa modell registrering| ✓|✓
-Bästa modell distribution| ✓| ✓
-Bästa modell förklaring| ✓|✓
-Aktivera röstnings Ensemble & stack Ensemble-modeller| ✓|✓
-Visa bästa modellen baserat på icke-primära mått|✓|Aktivera/inaktivera kompatibilitet för ONNX-modell|✓|
+Bästa modellregistrering| ✓|✓
+Bästa modelldistribution| ✓| ✓
+Bästa modellen förklaringsförmåga| ✓|✓
+Aktivera röstningsensemblen & stackensemblens modeller| ✓|✓
+Visa bästa modell baserat på icke-primärt mått|✓|
+Aktivera/inaktivera ONNX-modellkompatibilitet|✓|
 Testa modellen | ✓| |
 
-### <a name="run-control-settings"></a>Kör kontroll inställningar
+### <a name="run-control-settings"></a>Kör kontrollinställningar
 
-Med de här inställningarna kan du granska och kontrol lera experiment körningarna och dess underordnade körningar. 
+Med de här inställningarna kan du granska och styra experimentkörningarna och dess underordnade körningar. 
 
-||Python SDK| tilläggsprogrammet
+||Python SDK| Studio
 ----|:----:|:----:
-Kör sammanfattnings tabell| ✓|✓
+Kör sammanfattningstabell| ✓|✓
 Avbryt körning| ✓|✓
 Avbryt underordnad körning| ✓| ✓
-Hämta guardrails| ✓|✓
+Få skyddsräcken| ✓|✓
 Pausa körning| ✓| 
-Återuppta körning| ✓| 
+Återuppta körningen| ✓| 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se exempel och lär dig hur du skapar modeller med hjälp av automatisk maskin inlärning:
+Se exempel och lär dig hur du bygger modeller med automatiserad maskininlärning:
 
-+ Följ [själv studie kursen: träna en Regressions modell automatiskt med Azure Machine Learning](tutorial-auto-train-models.md)
++ Följ [självstudien: Träna automatiskt en regressionsmodell med Azure Machine Learning](tutorial-auto-train-models.md)
 
-+ Konfigurera inställningarna för automatiskt utbildnings experiment:
-  + [Använd de här stegen](how-to-use-automated-ml-for-ml-models.md)i Azure Machine Learning Studio.
-  + [Använd de här stegen](how-to-configure-auto-train.md)med python SDK.
++ Konfigurera inställningarna för automatiska träningsexperiment:
+  + I Azure Machine Learning studio [använder du dessa steg](how-to-use-automated-ml-for-ml-models.md).
+  + Använd dessa [steg](how-to-configure-auto-train.md)med Python SDK .
 
-+ Lär dig hur du automatiskt tränar använda Time Series-data med hjälp av [de här stegen](how-to-auto-train-forecast.md).
++ Lär dig hur du tränar automatiskt med hjälp av tidsseriedata, [gör så här](how-to-auto-train-forecast.md).
 
-+ Prova [Jupyter Notebook exempel för automatisk maskin inlärning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
++ Prova [Jupyter notebook-exempel för automatiserad maskininlärning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 
-* Automatisk ML är också tillgängligt i andra Microsoft-lösningar som, [ml.net](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) och [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
+* Automatiserad ML finns även i andra Microsoft-lösningar, till exempel [ML.NET,](https://docs.microsoft.com/dotnet/machine-learning/automl-overview) [HDInsight,](../hdinsight/spark/apache-spark-run-machine-learning-automl.md) [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) och [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

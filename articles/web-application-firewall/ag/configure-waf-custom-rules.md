@@ -1,7 +1,7 @@
 ---
-title: Konfigurera version 2 av anpassade regler med PowerShell
+title: Konfigurera anpassade regler för v2 med PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Lär dig hur du konfigurerar WAF v2-anpassade regler med hjälp av Azure PowerShell. Du kan skapa egna regler som utvärderas för varje begäran som passerar genom brand väggen.
+description: Lär dig hur du konfigurerar anpassade WAF v2-regler med Azure PowerShell. Du kan skapa egna regler som utvärderas för varje begäran som passerar genom brandväggen.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,29 +9,29 @@ ms.topic: article
 ms.date: 11/16/2019
 ms.author: victorh
 ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77471643"
 ---
-# <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Konfigurera brand vägg för webbaserade program v2 på Application Gateway med en anpassad regel med hjälp av Azure PowerShell
+# <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Konfigurera brandvägg för webbprogram v2 på Application Gateway med en anpassad regel med Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Med anpassade regler kan du skapa egna regler som utvärderas för varje begäran som passerar genom brand väggen för webbaserade program (WAF) v2. Dessa regler innehåller högre prioritet än resten av reglerna i de hanterade regel uppsättningarna. De anpassade reglerna har en åtgärd (för att tillåta eller blockera), ett matchnings villkor och en operator för att tillåta fullständig anpassning.
+Med anpassade regler kan du skapa egna regler som utvärderats för varje begäran som passerar via WAF-brandväggen (Web Application Firewall) v2. Dessa regler har högre prioritet än resten av reglerna i de hanterade regeluppsättningarna. De anpassade reglerna har en åtgärd (för att tillåta eller blockera), ett matchningsvillkor och en operatör för fullständig anpassning.
 
-Den här artikeln skapar en Application Gateway WAF v2 som använder en anpassad regel. Den anpassade regeln blockerar trafik om begär ande huvudet innehåller användar agentens *evilbot*.
+I den här artikeln skapas en APPLICATION Gateway WAF v2 som använder en anpassad regel. Den anpassade regeln blockerar trafik om begäranden innehåller User-Agent *evilbot*.
 
-Mer information om anpassade regel exempel finns i [skapa och använda anpassade brand Väggs regler för webb program](create-custom-waf-rules.md)
+Mer information om hur du ser fler anpassade regelexempel finns i [Skapa och använda anpassade brandväggsregler för webbprogram](create-custom-waf-rules.md)
 
-Om du vill köra Azure PowerShell i den här artikeln i ett kontinuerligt skript som du kan kopiera, klistra in och köra, se [Azure Application Gateway PowerShell-exempel](powershell-samples.md).
+Om du vill köra Azure PowerShell i den här artikeln i ett kontinuerligt skript som du kan kopiera, klistra in och köra läser du [Azure Application Gateway PowerShell-exempel](powershell-samples.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell-modul
 
-Om du väljer att installera och använda Azure PowerShell lokalt kräver det här skriptet Azure PowerShell-modulens version 2.1.0 eller senare.
+Om du väljer att installera och använda Azure PowerShell lokalt kräver det här skriptet Azure PowerShell-modul version 2.1.0 eller senare.
 
 1. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
 2. Skapa en anslutning med Azure genom att köra `Connect-AzAccount`.
@@ -40,7 +40,7 @@ Om du väljer att installera och använda Azure PowerShell lokalt kräver det h�
 
 ## <a name="example-script"></a>Exempelskript
 
-### <a name="set-up-variables"></a>Konfigurera variabler
+### <a name="set-up-variables"></a>Ställ in variabler
 
 ```azurepowershell
 $rgname = "CustomRulesTest"
@@ -74,7 +74,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-frontend-port"></a>Skapa pool och frontend-port
+### <a name="create-pool-and-frontend-port"></a>Skapa pool- och frontend-port
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -89,7 +89,7 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name "pool1" `
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 80
 ```
 
-### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Skapa en lyssnare, http-inställning, regel och autoskalning
+### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Skapa en lyssnare, http-inställning, regel och automatisk skalning
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Http `
@@ -106,7 +106,7 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 ```
 
-### <a name="create-two-custom-rules-and-apply-it-to-waf-policy"></a>Skapa två anpassade regler och tillämpa den på WAF-principen
+### <a name="create-two-custom-rules-and-apply-it-to-waf-policy"></a>Skapa två anpassade regler och tillämpa dem på WAF-principen
 
 ```azurepowershell
 # Create WAF config
@@ -125,7 +125,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule -Name allowUS -Priority 14 -
 $wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafpolicyNew -ResourceGroup $rgname -Location $location -CustomRule $rule,$rule2
 ```
 
-### <a name="create-the-application-gateway"></a>Skapa Application Gateway
+### <a name="create-the-application-gateway"></a>Skapa programgatewayen
 
 ```azurepowershell
 $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
@@ -140,4 +140,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer om brand vägg för webbaserade program på Application Gateway](ag-overview.md)
+[Läs mer om brandvägg för webbprogram i Application Gateway](ag-overview.md)

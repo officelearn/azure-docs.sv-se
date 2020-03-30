@@ -12,14 +12,14 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 53abc28a6923c2d55b3bb39defb08778485a9744
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3aeeb989d15dc74849c85fa58cbefa891809f3c5
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212453"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80347090"
 ---
-# <a name="create-an-azure-notification-hub-in-the-azure-portal"></a>Skapa en Azure-meddelandehubb i Azure-portalen 
+# <a name="quickstart-create-an-azure-notification-hub-in-the-azure-portal"></a>Snabbstart: Skapa en Azure-meddelandehubb i Azure-portalen 
 Azure Notification Hubs innehåller en lättanvänd och uppskalad push-motor som gör det möjligt för dig att skicka meddelanden till valfri plattform (iOS, Android, Windows, Kindle, Baidu osv) från valfri serverdel (molnet eller lokalt). Mer information om tjänsten finns i [Vad är Azure Notification Hubs?](notification-hubs-push-notification-overview.md).
 
 I den här snabbstarten skapar du en meddelandehubb i Azure-portalen. Det första avsnittet innehåller steg för att skapa en Notification Hubs-namnrymd och en hubb i den namnrymden. Det andra avsnittet innehåller steg för att skapa en meddelandehubb i en befintlig Notification Hubs-namnrymd. 
@@ -32,7 +32,7 @@ I det här avsnittet skapar du en namnrymd och en hubb i namnrymden.
 ## <a name="create-a-notification-hub-in-an-existing-namespace"></a>Skapa en meddelandehubb i en befintlig namnrymd
 I det här avsnittet skapar du en meddelandehubb i en befintlig namnrymd. 
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Alla tjänster** på den vänstra menyn, sök efter **Notification Hub** (Meddelandehubb), välj **stjärnan** (`*`) intill **Notification Hub Namespaces** (Namnrymder för meddelandehubb) för att lägga till den i avsnittet **FAVORITES** (Favoriter) på den vänstra menyn. Välj **Notification Hub Namespaces** (Namnrymder för meddelandehubb). 
 
       ![Azure-portalen – välj Namnrymder för meddelandehubb](./media/create-notification-hub-portal/select-notification-hub-namespaces-all-services.png)

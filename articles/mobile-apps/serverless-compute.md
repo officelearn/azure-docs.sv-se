@@ -1,105 +1,104 @@
 ---
-title: Bygg upp en server lös mobil program Server del med Azure Functions och andra tjänster
-description: Lär dig mer om de beräknings tjänster som används för att bygga en solid Server lös Server lös mobil program Server del.
-author: elamalani
-manager: elamalani
+title: Skapa en serverlös mobilprogram back end med Azure Functions och andra tjänster
+description: Lär dig mer om de beräkningstjänster som används för att skapa en solid, serverlös mobilappens serverdel.
+author: codemillmatt
 ms.service: vs-appcenter
 ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.author: emalani
-ms.openlocfilehash: ec7091a32a1be8d875e16d8e0a9b20b5e80de387
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 03/24/2020
+ms.author: masoucou
+ms.openlocfilehash: d6a2bbc984a8808d2cd8a9b292e55d80f43f2e9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291965"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240150"
 ---
-# <a name="build-mobile-back-end-components-with-compute-services"></a>Bygg mobila Server dels komponenter med beräknings tjänster
-Varje mobil program behöver en server del som ansvarar för data lagring, affärs logik och säkerhet. Genom att hantera infrastrukturen som värd och köra backend-kod måste du ändra storlek, etablera och skala flera servrar. Du måste också hantera OS-uppdateringar och den berörda maskin varan och använda säkerhets korrigeringar. Sedan måste du övervaka alla dessa infrastruktur komponenter för prestanda, tillgänglighet och fel tolerans. 
+# <a name="build-mobile-back-end-components-with-compute-services"></a>Skapa mobila backend-komponenter med beräkningstjänster
+Varje mobilprogram behöver en back end som ansvarar för datalagring, affärslogik och säkerhet. För att hantera infrastrukturen så att den är värd för och kör backend-kod måste du ändra storlek, etablera och skala flera servrar. Du måste också hantera OS-uppdateringar och den berörda maskinvaran och tillämpa säkerhetskorrigeringar. Då måste du övervaka alla dessa infrastrukturkomponenter för prestanda, tillgänglighet och feltolerans. 
 
-Server lös arkitektur är användbart för den här typen av scenario eftersom du inte har några servrar att hantera och inga operativ system eller relaterade program-eller maskin varu uppdateringar att hantera. Server lös arkitektur sparar tid och kostnad för utvecklare, vilket innebär snabbare tid till marknad och fokuserat på att utveckla program.
+Serverlös arkitektur är praktiskt för den här typen av scenario eftersom du inte har några servrar att hantera och inga os eller relaterade program- eller maskinvaruuppdateringar att hantera. Serverlös arkitektur sparar utvecklare tid och kostnad, vilket innebär snabbare tid att marknadsföra och fokuserad energi på att bygga applikationer.
 
 ## <a name="benefits-of-compute"></a>Fördelar med beräkning
-- Abstraktion av servrar innebär att du inte behöver bekymra dig om värd, uppdatering och säkerhet, vilket innebär att du bara kan fokusera på koden.
-- Med snabb och effektiv skalning säkerställs att resurser tillhandahålls automatiskt eller på begäran, oavsett vilken skala du behöver.
-- Hög tillgänglighet och fel tolerans.
-- Micro-fakturering garanterar att du bara faktureras för när din kod körs.
-- Kod körningar i molnet skrivet på valfritt språk.
+- Abstraktion av servrar innebär att det inte finns någon anledning att oroa sig för hosting, patchning och säkerhet, vilket gör att du kan fokusera enbart på koden.
+- Omedelbar och effektiv skalning säkerställer att resurser etableras automatiskt eller på begäran oavsett vilken skala du behöver.
+- Hög tillgänglighet och feltolerans.
+- Mikrofakturering säkerställer att du bara faktureras för när koden körs.
+- Koden körs i molnet som skrivs på det språk du väljer.
 
-Använd följande tjänster för att aktivera server lös beräknings funktioner i dina mobila appar.
+Använd följande tjänster för att aktivera serverlösa beräkningsfunktioner i dina mobilappar.
 
 ## <a name="azure-functions"></a>Azure Functions
-[Azure Functions](https://azure.microsoft.com/services/functions/) är en händelse driven beräknings upplevelse som du kan använda för att köra din kod, skrivet i valfritt programmeringsspråk, utan att oroa dig för servrar. Du behöver inte hantera programmet eller infrastrukturen för att köra det. Funktioner skalas på begäran och du betalar bara för den tid som koden körs. Azure Functions är ett bra sätt att implementera ett API för ett mobil program. De är enkla att implementera och underhålla och är tillgängliga via HTTP.
+[Azure Functions](https://azure.microsoft.com/services/functions/) är en händelsedriven beräkningsupplevelse som du kan använda för att köra din kod, skriven på det programmeringsspråk du väljer, utan att behöva oroa dig för servrar. Du behöver inte hantera programmet eller infrastrukturen för att köra det på. Funktioner skalas på begäran och du betalar bara för den tid koden körs. Azure-funktioner är ett bra sätt att implementera ett API för ett mobilt program. De är lätta att implementera och underhålla och är tillgängliga via HTTP.
 
 **Huvudfunktioner**
-- Händelse driven och skalbart där du kan använda utlösare och bindningar för att definiera när en funktion anropas och vilka data som den ansluter till.
-- Ta med dina egna beroenden eftersom Functions har stöd för NuGet och NPM, så att du kan använda dina favorit bibliotek.
+- Händelsedriven och skalbar där du kan använda utlösare och bindningar för att definiera när en funktion anropas och vilka data den ansluter.
+- Ta med egna beroenden eftersom Functions stöder NuGet och NPM, så att du kan använda dina favoritbibliotek.
 - Integrerad säkerhet så att du kan skydda HTTP-utlösta funktioner med OAuth-leverantörer som Azure Active Directory, Facebook, Google, Twitter och Microsoft-konto.
-- Förenklad integrering med olika [Azure-tjänster](/azure/azure-functions/functions-overview) och SaaS-erbjudanden (Software as a Service).
-- Flexibel utveckling så att du kan koda dina funktioner direkt i Azure Portal eller konfigurera kontinuerlig integrering och distribuera din kod via GitHub, Azure DevOps Services och andra utvecklingsverktyg som stöds.
-- Functions runtime är öppen källkod och tillgänglig på [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
-- Förbättrad utvecklings upplevelse där du kan koda, testa och felsöka lokalt med hjälp av deras prioriterade redigerings program eller lättanvända webb gränssnitt med övervakning med integrerade verktyg och inbyggda DevOps-funktioner.
-- Olika programmeringsspråk och värd alternativ för utveckling, till exempel C#Node. js, Java, java script eller python.
-- Pris modellen betala per användning innebär att du bara betalar för den tid som du ägnat åt att köra din kod.
+- Förenklad integrering med olika [Azure-tjänster](/azure/azure-functions/functions-overview) och programvara som en tjänst (SaaS) erbjudanden.
+- Flexibel utveckling så att du kan koda dina funktioner direkt i Azure-portalen eller konfigurera kontinuerlig integrering och distribuera din kod via GitHub, Azure DevOps Services och andra utvecklingsverktyg som stöds.
+- Funktioner körtid är öppen källkod och tillgänglig på [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
+- Förbättrad utvecklingsupplevelse där du kan koda, testa och felsöka lokalt med hjälp av deras föredragna redigerare eller lättanvända webbgränssnitt med övervakning med integrerade verktyg och inbyggda DevOps-funktioner.
+- Olika programmeringsspråk och värdalternativ för utveckling, till exempel C#, Node.js, Java, JavaScript eller Python.
+- Pay-per-use prismodell innebär att du betalar bara för den tid du kör din kod.
 
-**Reference**
-- [Azure-portalen](https://portal.azure.com)
+**Referenser**
+- [Azure-portal](https://portal.azure.com)
 - [Azure Functions-dokumentation](/azure/azure-functions/)
-- [Guide för Azure Functions utvecklare](/azure/azure-functions/functions-reference)
+- [Utvecklarguide för Azure Functions](/azure/azure-functions/functions-reference)
 - [Snabbstarter](/azure/azure-functions/functions-create-first-function-vs-code)
-- [Exempel](/samples/browse/?products=azure-functions&languages=csharp)
+- [Prover](/samples/browse/?products=azure-functions&languages=csharp)
 
 ## <a name="azure-app-service"></a>Azure Apptjänst
-Med [Azure App Service](https://azure.microsoft.com/services/app-service/)kan du bygga och vara värd för webbappar och RESTful-API: er i valfritt programmeringsspråk utan att behöva hantera infrastrukturen. Den erbjuder automatisk skalning och hög tillgänglighet, stöder både Windows och Linux och aktiverar automatiserade distributioner från GitHub, Azure DevOps eller git lagrings platsen.
+Med [Azure App Service](https://azure.microsoft.com/services/app-service/)kan du skapa och vara värd för webbappar och RESTful API:er på det programmeringsspråk du väljer utan att hantera infrastrukturen. Den erbjuder automatisk skalning och hög tillgänglighet, stöder både Windows och Linux och möjliggör automatiserade distributioner från GitHub, Azure DevOps eller valfri Git-repo.
 
 **Huvudfunktioner**
-- Stöd för flera språk och ramverk för ASP.NET, ASP.NET Core, Java, ruby, Node. js, PHP eller python. Du kan också köra PowerShell och andra skript eller körbara filer som bakgrunds tjänster.
-- DevOps-optimering genom kontinuerlig integrering och distribution med Azure DevOps, GitHub, BitBucket, Docker Hub eller Azure Container Registry. Hantera dina appar i App Service genom att använda Azure PowerShell eller plattforms oberoende kommando rads gränssnitt (CLI).
+- Stöd för flera språk och ramverk för ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP eller Python. Du kan också köra PowerShell och andra skript och körbara filer som bakgrundstjänster.
+- DevOps optimering genom kontinuerlig integrering och distribution med Azure DevOps, GitHub, BitBucket, Docker Hub eller Azure Container Registry. Hantera dina appar i App Service med Azure PowerShell eller det plattformsoberoende kommandoradsgränssnittet (CLI).
 - Global skala med hög tillgänglighet för att skala upp eller ut manuellt eller automatiskt.
-- Anslutningar till SaaS-plattformar och lokala data som du kan välja mellan fler än 50 anslutningar för företags system som SAP, SaaS-tjänster som Salesforce och Internet tjänster som Facebook. Få åtkomst till lokala data med hjälp av hybrid anslutningar och virtuella Azure-nätverk.
-- Azure App Service är ISO, SOC och PCI-kompatibel. Autentisera användare med Azure Active Directory eller med inloggning för sociala medier som Google, Facebook, Twitter och Microsoft. Skapa IP-adressbegränsningar och hantera tjänst identiteter.
-- Programmallar för att välja bland en omfattande lista över programmallar i Azure Marketplace, till exempel WordPress, Joomla och Drupal.
+- Anslutningar till SaaS-plattformar och lokala data för att välja mellan mer än 50 anslutningsappar för företagssystem som SAP, SaaS-tjänster som Salesforce och internettjänster som Facebook. Få åtkomst till lokala data med hjälp av hybridanslutningar och Virtuella Azure-nätverk.
+- Azure App Service är ISO-, SOC- och PCI-kompatibel. Autentisera användare med Azure Active Directory eller med inloggning för sociala medier som Google, Facebook, Twitter och Microsoft. Skapa IP-adressbegränsningar och hantera tjänstidentiteter.
+- Programmallar att välja från en omfattande lista över programmallar i Azure Marketplace, till exempel WordPress, Joomla och Drupal.
 - Visual Studio-integrering med dedikerade verktyg i Visual Studio effektiviserar arbetet med att skapa, distribuera och felsöka.
 
-**Reference**
-- [Azure-portalen](https://portal.azure.com/)
-- [Azure App Service dokumentation](/azure/app-service/)
+**Referenser**
+- [Azure-portal](https://portal.azure.com/)
+- [Dokumentation för Azure App Service](/azure/app-service/)
 - [Snabbstarter](/azure/app-service/app-service-web-get-started-dotnet)
-- [Exempel](/azure/app-service/samples-cli)
-- [självstudiekurserna](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
+- [Prover](/azure/app-service/samples-cli)
+- [Självstudier](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 
 ## <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
-[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) hanterar din värdbaserade Kubernetes-miljö. AKS gör det snabbt och enkelt att distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Dessutom elimineras belastningen för pågående åtgärder och underhåll. AKS-regler, uppgraderingar och skalning av resurser på begäran, utan att ta dina program offline.
+[Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) hanterar din värdbaserade Kubernetes-miljö. AKS gör det snabbt och enkelt att distribuera och hantera containerbaserade program utan kunskaper om orkestrering av containrar. Det eliminerar också bördan av löpande drift och underhåll. AKS-bestämmelser, uppgraderingar och skalor resurser på begäran, utan att ta dina program offline.
 
 **Huvudfunktioner**
-- Du kan enkelt migrera befintliga program till behållare och köra dem i AKS.
-- Förenkla distributionen och hanteringen av mikrotjänster-baserade program.
-- Skydda DevOps för AKS för att uppnå balans mellan hastighet och säkerhet och leverera kod snabbare i stor skala.
-- Skala enkelt med hjälp av AKS och Azure Container Instances för att etablera poddar inuti Container Instances som börjar på några sekunder.
+- Migrera enkelt befintliga program till behållare och kör inom AKS.
+- Förenkla distributionen och hanteringen av mikrotjänstbaserade program.
+- Säkra DevOps för AKS för att uppnå balans mellan hastighet och säkerhet och leverera kod snabbare i stor skala.
+- Skala enkelt med hjälp av AKS- och Azure Container-instanser för att etablera poddar inuti behållarinstanser som startar på några sekunder.
 - Distribuera och hantera IoT-enheter på begäran.
-- Träna maskin inlärnings modeller med hjälp av verktyg som TensorFlow och KubeFlow.
+- Träna maskininlärningsmodeller med hjälp av verktyg som TensorFlow och KubeFlow.
 
-**Reference**
-- [Azure-portalen](https://portal.azure.com/)
-- [Dokumentation om Azure Kubernetes service](/azure/aks/)
+**Referenser**
+- [Azure-portal](https://portal.azure.com/)
+- [Azure Kubernetes-tjänstdokumentation](/azure/aks/)
 - [Snabbstarter](/azure/aks/kubernetes-walkthrough-portal)
-- [självstudiekurserna](/azure/aks/tutorial-kubernetes-prepare-app)
+- [Självstudier](/azure/aks/tutorial-kubernetes-prepare-app)
 
 ## <a name="azure-container-instances"></a>Azure Container Instances
-[Azure Container instances](https://azure.microsoft.com/services/container-instances/) är en bra lösning för alla scenarier som kan användas i isolerade behållare, till exempel enkla program, uppgifts automatisering och bygg jobb. Utveckla appar snabbt utan att hantera virtuella datorer.
+[Azure Container Instances](https://azure.microsoft.com/services/container-instances/) är en bra lösning för alla scenarier som kan fungera i isolerade behållare, till exempel enkla program, automatisering av uppgifter och skapa jobb. Utveckla appar snabbt utan att hantera virtuella datorer.
 
 **Huvudfunktioner**
-- Snabba start tider som Container Instances kan starta behållare i Azure på några sekunder, utan att behöva etablera och hantera virtuella datorer.
+- Snabba starttider som behållarinstanser kan starta behållare i Azure på några sekunder, utan att behöva etablera och hantera virtuella datorer.
 - Offentlig IP-anslutning och anpassat DNS-namn.
-- Säkerhet på hypervisor-nivå som garanterar att ditt program är isolerat i en behållare som i en virtuell dator.
-- Anpassade storlekar för optimal användning genom att tillåta exakta specifikationer för processor kärnor och minne. Du betalar för vad du behöver och faktureras per sekund, så att du kan finjustera dina utgifter utifrån dina faktiska behov.
-- Beständig lagring för att hämta och spara tillstånd. Container Instances erbjuder direkt montering av Azure Filess resurser.
-- Linux-och Windows-behållare som schemalagts med samma API.
+- Hypervisor-nivå säkerhet som garanterar ditt program är så isolerade i en behållare som det skulle vara i en virtuell dator.
+- Anpassade storlekar för optimal användning genom att tillåta exakta specifikationer för CPU-kärnor och minne. Du betalar för vad du behöver och faktureras per sekund, så att du kan finjustera dina utgifter utifrån dina faktiska behov.
+- Beständig lagring för att hämta och bevara tillstånd. Behållarinstanser erbjuder direkt montering av Azure Files-resurser.
+- Linux- och Windows-behållare som schemalagts med samma API.
 
-**Reference**
-- [Azure-portalen](https://portal.azure.com/)
-- [Azure Container Instances dokumentation](/azure/container-instances/)
+**Referenser**
+- [Azure-portal](https://portal.azure.com/)
+- [Dokumentation av Azure Container Instances](/azure/container-instances/)
 - [Snabbstarter](/azure/container-instances/container-instances-quickstart-portal)
-- [Exempel](https://azure.microsoft.com/resources/samples/?sort=0&term=aci)
-- [självstudiekurserna](/azure/container-instances/container-instances-tutorial-prepare-app)
+- [Prover](https://azure.microsoft.com/resources/samples/?sort=0&term=aci)
+- [Självstudier](/azure/container-instances/container-instances-tutorial-prepare-app)

@@ -1,6 +1,6 @@
 ---
-title: Data inmatning för Azure Datautforskaren
-description: Lär dig mer om olika sätt att mata in data i Azure Datautforskaren
+title: Inmatning av Azure Data Explorer-data
+description: Lär dig mer om olika sätt att använda (läsa in) data i Azure Data Explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,59 +8,59 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 4846a19c403cce16bed704ed4e7c70499f3b5d13
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246401"
 ---
-# <a name="azure-data-explorer-data-ingestion"></a>Data inmatning för Azure Datautforskaren
+# <a name="azure-data-explorer-data-ingestion"></a>Inmatning av Azure Data Explorer-data
 
-Data inmatning är den process som används för att läsa in data poster från en eller flera källor för att skapa eller uppdatera en tabell i Azure Datautforskaren. Data blir tillgängliga för fråga när de har matats in. Diagrammet nedan visar flödet från slut punkt till slut punkt för arbete i Azure Datautforskaren, inklusive data inmatning.
+Datainmatning är den process som används för att läsa in dataposter från en eller flera källor för att skapa eller uppdatera en tabell i Azure Data Explorer. När data har förtärs blir de tillgängliga för frågan. Diagrammet nedan visar det end-to-end-flödet för arbete i Azure Data Explorer, inklusive datainmatning.
 
 ![Dataflöde](media/ingest-data-overview/data-flow.png)
 
-Tjänsten Azure Datautforskaren data management, som är ansvarig för data inmatning, innehåller följande funktioner:
+Datahanteringstjänsten i Azure Data Explorer, som ansvarar för datainmatning, innehåller följande funktioner:
 
-1. **Data hämtning**: Hämta data från externa källor (Event Hubs) eller begäran om läsning av begäran från en Azure-kö.
+1. **Data hämtar**: Hämta data från externa källor (Event Hubs) eller läs inmatningsbegäranden från en Azure-kö.
 
-1. **Batching**: batch-data flödar till samma databas och tabell för att optimera inmatnings data flödet.
+1. **Batchbearbetning**: Batchdata som flödar till samma databas och tabell för att optimera inmatningsdataflödet.
 
-1. **Verifiering**: preliminär verifiering och format konvertering vid behov.
+1. **Validering**: Preliminär validering och format konvertering om det behövs.
 
-1. **Datamanipulering**: matcha schema, organisera, indexera, koda och komprimera data.
+1. **Datamanipulering**: Matcha schema, organisera, indexera, koda och komprimera data.
 
-1. **Beständig punkt i**inmatnings flödet: hantera inmatnings belastning på motorn och hantera återförsök vid tillfälliga haverier.
+1. **Persistenspunkt i intagsflödet**: Hantera intagsbelastning på motorn och hantera återförsök vid tillfälliga fel.
 
-1. **Genomför data inmatningen**: gör data tillgängliga för fråga.
+1. **Begår dataindet:** Gör data tillgängliga för fråga.
 
-## <a name="ingestion-methods"></a>Inmatnings metoder
+## <a name="ingestion-methods"></a>Metoder för förtligande
 
-Azure Datautforskaren stöder flera inmatnings metoder, var och en med egna mål scenarier, fördelar och nack delar. Azure Datautforskaren erbjuder pipelines och kopplingar till vanliga tjänster, programmerings inmatning med SDK: er och direkt åtkomst till motorn för utforsknings syfte.
+Azure Data Explorer stöder flera inmatningsmetoder, var och en med sina egna målscenarier, fördelar och nackdelar. Azure Data Explorer erbjuder pipelines och kopplingar till vanliga tjänster, programmatiskt inmatning med SDK:er och direkt åtkomst till motorn i utforskningssyfte.
 
-### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>Inmatning med pipelines, kopplingar och plugin-program
+### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>Intag med pipelines, kopplingar och plugin-program
 
-Azure Datautforskaren stöder för närvarande:
+Azure Data Explorer stöder för närvarande:
 
-* Event Grid pipeline, som kan hanteras med hjälp av hanterings guiden i Azure Portal. Mer information finns i mata [in Azure-blobar i azure datautforskaren](ingest-data-event-grid.md).
+* Event Grid pipeline, som kan hanteras med hjälp av hanteringsguiden i Azure-portalen. Mer information finns i [Ingest Azure Blobbar i Azure Data Explorer](ingest-data-event-grid.md).
 
-* Pipeline för Event Hub, som kan hanteras med hjälp av hanterings guiden i Azure Portal. Mer information finns i mata [in data från händelsehubben till Azure datautforskaren](ingest-data-event-hub.md).
+* Event Hub pipeline, som kan hanteras med hjälp av hanteringsguiden i Azure-portalen. Mer information finns i [Ingest data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md).
 
-* Logstash-plugin-programmet finns i mata in [data från Logstash till Azure datautforskaren](ingest-data-logstash.md).
+* Logstash plugin, se [Ingest data från Logstash till Azure Data Explorer](ingest-data-logstash.md).
 
-* Kafka Connector finns i mata [in data från Kafka till Azure datautforskaren](ingest-data-kafka.md).
+* Kafka-anslutning, se [Ingest data från Kafka i Azure Data Explorer](ingest-data-kafka.md).
 
-### <a name="ingestion-using-integration-services"></a>Inmatning med integrerings tjänster
+### <a name="ingestion-using-integration-services"></a>Intag med hjälp av integrationstjänster
 
-* Azure Data Factory (ADF), en fullständigt hanterad data integrerings tjänst för analytiska arbets belastningar i Azure, för att kopiera data till och från Azure Datautforskaren med [stödda data lager och format](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Mer information finns i [Kopiera data från Azure Data Factory till Azure datautforskaren](/azure/data-explorer/data-factory-load-data).
+* Azure Data Factory (ADF), en fullständigt hanterad dataintegrationstjänst för analytiska arbetsbelastningar i Azure, för att kopiera data till och från Azure Data Explorer med hjälp av [datalager och format som stöds](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats). Mer information finns i [Kopiera data från Azure Data Factory till Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
 
-### <a name="programmatic-ingestion"></a>Program mässig inmatning
+### <a name="programmatic-ingestion"></a>Programmatiskt intag
 
-Azure Datautforskaren innehåller SDK: er som kan användas för frågor och data inmatning. Programmerings utmatningen är optimerad för att minska inmatnings kostnader (KSV) genom att minimera lagrings transaktioner under och efter inmatnings processen.
+Azure Data Explorer tillhandahåller SDK:er som kan användas för fråge- och datainmatning. Programmatiskt intag är optimerat för att minska intagskostnaderna (COGs), genom att minimera lagringstransaktioner under och efter intagsprocessen.
 
-**Tillgängliga SDK: er och projekt med öppen källkod**:
+**Tillgängliga SDK:er och projekt med öppen källkod:**
 
-Kusto erbjuder klient-SDK som kan användas för att mata in och fråga data med:
+Kusto erbjuder klient SDK som kan användas för att inta och fråga data med:
 
 * [Python SDK](/azure/kusto/api/python/kusto-python-client-library)
 
@@ -72,89 +72,89 @@ Kusto erbjuder klient-SDK som kan användas för att mata in och fråga data med
 
 * [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
-**Metoder**för att mata in program vara:
+**Programmatiska intagstekniker:**
 
-* Inmatning av data via Azure Datautforskaren data Management Service (hög genom strömning och tillförlitlig inmatning):
+* Intag av data via datahanteringstjänsten i Azure Data Explorer (högdataflöde och tillförlitligt inmatning):
 
-    [**Batch**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) -inmatning (tillhandahålls av SDK): klienten överför data till Azure Blob Storage (som anges av Azure datautforskaren data Management-tjänsten) och skickar ett meddelande till en Azure-kö. Batch-inmatning är den rekommenderade tekniken för data inmatning med hög volym, tillförlitlig och billig.
+    [**Batchinmatning**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (tillhandahålls av SDK): klienten överför data till Azure Blob storage (som anges av Azure Data Explorer datahanteringstjänst) och publicerar ett meddelande till en Azure-kö. Batch intag är den rekommenderade tekniken för hög volym, tillförlitlig och billig datainmatning.
 
-* Mata in data direkt i Azure Datautforskaren-motorn (passar bäst för utforskning och prototyper):
+* Intag av data direkt i Azure Data Explorer-motorn (mest lämplig för utforskning och prototyper):
 
-  * **Infogad**inmatning: kontroll kommando (. Mata in text) som innehåller in-band-data är avsedda för ad hoc-testning.
+  * **Inline intag:** kontrollkommando (.inmatningsinline) som innehåller in-band-data är avsedd för ad hoc-testning.
 
-  * Mata in **från fråga**: kontroll kommando (. set,. Set-eller-append,. Set-eller-Replace) som pekar på frågeresultat används för att generera rapporter eller små temporära tabeller.
+  * **Intag av fråga**: kontrollkommando (.set, .set-or-append, .set-or-replace) som pekar på frågeresultat används för att generera rapporter eller små temporära tabeller.
 
-  * Inmatning **från lagring**: kontroll kommando (. Mata in i) med data som lagras externt (till exempel Azure Blob Storage) ger effektiv Mass inmatning av data.
+  * **Intas från lagring:** kontrollkommando (.ingest in) med data som lagras externt (till exempel Azure Blob Storage) möjliggör effektiv massinmatning av data.
 
-**Svars tid för olika metoder**:
+**Latens av olika metoder:**
 
 | Metod | Svarstid |
 | --- | --- |
-| **Infogad inmatning** | Omgående |
-| **Mata in från fråga** | Tid för fråga + bearbetnings tid |
-| **Mata in från lagring** | Hämtnings tid + bearbetnings tid |
-| **Inhämtning i kö** | Tid för batch + bearbetnings tid |
+| **Inline intag** | Omedelbar |
+| **Inta från fråga** | Frågetid + bearbetningstid |
+| **Inta från lagring** | Nedladdningstid + bearbetningstid |
+| **Köat intag** | Batchtid + bearbetningstid |
 | |
 
-Bearbetnings tiden beror på data storleken, färre än några sekunder. Standardvärdet för satsvis kompilering är 5 minuter.
+Bearbetningstiden beror på datastorleken, mindre än några sekunder. Batching-tiden är som standard 5 minuter.
 
-## <a name="choosing-the-most-appropriate-ingestion-method"></a>Välja den lämpligaste inmatnings metoden
+## <a name="choosing-the-most-appropriate-ingestion-method"></a>Välja den lämpligaste intagsmetoden
 
-Innan du börjar mata in data bör du ställa följande frågor.
+Innan du börjar få in data bör du ställa dig följande frågor.
 
 * Var finns mina data? 
-* Vad är data formatet och kan det ändras? 
-* Vilka är de obligatoriska fälten som ska frågas? 
-* Vad är den förväntade data volymen och hastigheten? 
-* Hur många händelse typer förväntas (visas som antalet tabeller)? 
-* Hur ofta ska händelse schemat förväntas ändras? 
-* Hur många noder kommer att generera data? 
+* Vad är dataformatet och kan det ändras? 
+* Vilka är de obligatoriska fält som ska efterfrågas? 
+* Vad är den förväntade datavolymen och hastigheten? 
+* Hur många händelsetyper förväntas (visas som antalet tabeller)? 
+* Hur ofta förväntas händelseschemat ändras? 
+* Hur många noder genererar data? 
 * Vad är käll-OS? 
-* Vilka är latens kraven? 
-* Kan en av de befintliga pipelinen för förbrukade inmatnings hantering användas? 
+* Vilka är svarstidskraven? 
+* Kan en av de befintliga hanterade inmatningspipelorna användas? 
 
-För organisationer med en befintlig infrastruktur som baseras på en meddelande tjänst som Event Hub och IoT Hub, är det sannolikt den lämpligaste lösningen med hjälp av en anslutning. Inmatningen i kö är lämplig för stora data volymer.
+För organisationer med en befintlig infrastruktur som baseras på en meddelandetjänst som Event Hub och IoT Hub är det troligen den lämpligaste lösningen att använda en anslutningsapp. Köat inmatning är lämpligt för stora datavolymer.
 
-## <a name="supported-data-formats"></a>Data format som stöds
+## <a name="supported-data-formats"></a>Dataformat som stöds
 
-För alla inmatnings metoder förutom inmatning från fråga formaterar du data så att Azure Datautforskaren kan parsa det. 
-* De data format som stöds är: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (Line-separerad, multi-line), Avro, Orc och Parquet. 
-* Stöder ZIP-och GZIP-komprimering.
+För alla inmatningsmetoder förutom att använda från frågan formaterar du data så att Azure Data Explorer kan tolka dem. 
+* De dataformat som stöds är: TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (linjeavskiljande, multi-line), Avro, Orc och Parkett. 
+* Stöder ZIP- och GZIP-komprimering.
 
 > [!NOTE]
-> När data matas in härleds data typer baserat på mål tabellens kolumner. Om en post är ofullständig eller om ett fält inte kan parsas som den data typ som krävs fylls motsvarande tabell kolumner med null-värden.
+> När data används härledas datatyper baserat på måltabellkolumnerna. Om en post är ofullständig eller om ett fält inte kan tolkas som den datatyp som krävs fylls motsvarande tabellkolumner med null-värden.
 
-## <a name="ingestion-recommendations-and-limitations"></a>Rekommendationer och begränsningar för inmatningar
+## <a name="ingestion-recommendations-and-limitations"></a>Rekommendationer och begränsningar för förtärdning
 
-* Den gällande bevarande principen för inmatade data härleds från databasens bevarande princip. Se [bevarande princip](/azure/kusto/concepts/retentionpolicy) för mer information. Inmatning av data kräver en **Table** -eller **databas** inmatnings behörighet.
-* Inmatningen stöder en maximal fil storlek på 5 GB. Rekommendationen är att hämta filer mellan 100 MB och 1 GB.
+* Den effektiva lagringsprincipen för inmatade data härleds från databasens lagringsprincip. Mer information finns i [bevarandeprincipen.](/azure/kusto/concepts/retentionpolicy) För att få data krävs **behörigheter för tabellingestor** **eller Databasingestor.**
+* Inmatning stöder en maximal filstorlek på 5 GB. Rekommendationen är att inta filer mellan 100 MB och 1 GB.
 
-## <a name="schema-mapping"></a>Schema mappning
+## <a name="schema-mapping"></a>Schemamappning
 
-Schema mappning hjälper till att binda käll data fält till mål tabell kolumner.
+Schemamappning hjälper till att binda källdatafält till måltabellkolumner.
 
-* [CSV-mappning](/azure/kusto/management/mappings?branch=master#csv-mapping) (valfritt) fungerar med alla ordinal-baserade format. Det kan utföras med hjälp av kommando parametern för att mata in eller [skapas i tabellen](/azure/kusto/management/create-ingestion-mapping-command) och refereras till i kommando parametern för intag.
-* [JSON-mappning](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatorisk) och [Avro-mappning](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatorisk) kan utföras med hjälp av kommando parametern intag. De kan också [skapas i förväg i tabellen](/azure/kusto/management/create-ingestion-mapping-command) och refereras till i kommando parametern för intag.
+* [CSV Mapping](/azure/kusto/management/mappings?branch=master#csv-mapping) (valfritt) fungerar med alla ordningsbaserade format. Den kan utföras med hjälp av den inta kommandoparametern eller [skapas i föraningen i tabellen](/azure/kusto/management/create-ingestion-mapping-command) och refereras från kommandoparametern ingest.
+* [JSON Mapping](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatorisk) och [Avro-mappning](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatoriskt) kan utföras med hjälp av kommandoparametern för intant. De kan också [skapas i förakan i tabellen](/azure/kusto/management/create-ingestion-mapping-command) och refereras från kommandoparametern för int.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Mata in data från Händelsehubben till Azure Datautforskaren](ingest-data-event-hub.md)
+> [Mata in data från Event Hub i Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Mata in data med Event Grid-prenumeration i Azure Datautforskaren](ingest-data-event-grid.md)
+> [Övra data med Event Grid-prenumeration i Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
-> [Mata in data från Kafka till Azure Datautforskaren](ingest-data-kafka.md)
+> [Mata in data från Kafka i Azure Data Explorer](ingest-data-kafka.md)
 
 > [!div class="nextstepaction"]
-> [Mata in data med Azure Datautforskaren python-biblioteket](python-ingest-data.md)
+> [Mata in data med hjälp av Python-biblioteket i Azure Data Explorer](python-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Mata in data med hjälp av Azure Datautforskaren Node-biblioteket](node-ingest-data.md)
+> [Mata in data med hjälp av Node-biblioteket i Azure Data Explorer](node-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Mata in data med Azure Datautforskaren .NET standard SDK (för hands version)](net-standard-ingest-data.md)
+> [Hämtar data med Hjälp av Azure Data Explorer .NET Standard SDK (förhandsversion)](net-standard-ingest-data.md)
 
 > [!div class="nextstepaction"]
-> [Mata in data från Logstash till Azure Datautforskaren](ingest-data-logstash.md)
+> [Mata in data från Logstash i Azure Data Explorer](ingest-data-logstash.md)

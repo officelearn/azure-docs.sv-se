@@ -1,5 +1,5 @@
 ---
-title: Ladda ned stora mängder slumpmässiga data från Azure Storage | Microsoft Docs
+title: Ladda ned stora mängder slumpmässiga data från Azure Storage | Microsoft-dokument
 description: Lär dig hur du använder Azure SDK för att ladda ned stora mängder slumpmässiga data från ett Azure Storage-konto
 author: roygara
 ms.service: storage
@@ -8,26 +8,26 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: b3fe9c7481e79b8eeda9f18e9a036fa8c72e658d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "75372099"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Ladda ned stora mängder slumpmässiga data från Azure Storage
 
 Den här självstudiekursen är den tredje delen i en serie. Den här kursen visar hur du laddar ned stora mängder data från Azure Storage.
 
-I den tredje delen i serien får du lära dig hur du:
+I den tredje delen i serien får du lära dig att:
 
 > [!div class="checklist"]
 > * Uppdatera programmet
-> * Köra programmet
-> * Verifiera antalet anslutningar
+> * Köra appen
+> * Validera antalet anslutningar
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien måste du ha slutfört den tidigare lagrings kursen: [överför stora mängder slumpmässiga data parallellt till Azure Storage][previous-tutorial].
+För att kunna slutföra den här kursen måste du ha slutfört den tidigare lagringskursen: [Överföra stora mängder slumpmässiga data parallellt till Azure Storage][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Fjärranslut till din virtuella dator
 
@@ -85,7 +85,7 @@ När programmet har uppdaterats måste du bygga programmet på nytt. Öppna en `
 dotnet build
 ```
 
-## <a name="run-the-application"></a>Köra programmet
+## <a name="run-the-application"></a>Köra appen
 
 Nu när programmet har byggts om är det dags att köra programmet med den uppdaterade koden. Öppna en `Command Prompt`, om den inte redan är öppen, och navigera till `D:\git\storage-dotnet-perf-scale-app`.
 
@@ -100,7 +100,7 @@ I följande tabell visas de [BlobRequestOptions](/dotnet/api/microsoft.azure.sto
 
 |Egenskap|Värde|Beskrivning|
 |---|---|---|
-|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| sant| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs. |
+|[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Den här egenskapen inaktiverar kontrollen av MD5-hashen för innehållet som har överförts. Överföringen går snabbare om MD5-verifieringen inaktiveras. Däremot bekräftas inte giltigheten eller integriteten för de filer som överförs. |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| false| Den här egenskapen anger om en MD5-hash beräknas och sparas.   |
 
 Aktiviteten `DownloadFilesAsync` visas i följande exempel:
@@ -203,8 +203,8 @@ C:\>
 I den tredje delen i serien lärde du dig hur du laddar ned stora mängder slumpmässiga data från ett lagringskonto. Du fick till exempel veta hur du gör för att:
 
 > [!div class="checklist"]
-> * Köra programmet
-> * Verifiera antalet anslutningar
+> * Köra appen
+> * Validera antalet anslutningar
 
 Gå vidare till den fjärde delen i serien och lär dig hur du kontrollerar mått för dataflöde och svarstid i Portal.
 

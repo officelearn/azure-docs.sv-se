@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Image Builder med ett bild galleri för virtuella Windows-datorer (för hands version)
-description: Skapa Azures delade Galleri avbildnings versioner med Azure Image Builder och Azure PowerShell.
+title: Använda Azure Image Builder med ett bildgalleri för virtuella Windows-datorer (förhandsgranskning)
+description: Skapa Azure Shared Gallery-avbildningsversioner med Azure Image Builder och Azure PowerShell.
 author: cynthn
 ms.author: cynthn
 ms.date: 01/14/2020
@@ -8,44 +8,44 @@ ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
 ms.openlocfilehash: d5856780d0d9f1a1943bca1c2f076bb3ec914e1d
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76263361"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>För hands version: skapa en Windows-avbildning och distribuera den till ett delat avbildnings Galleri 
+# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Förhandsgranska: Skapa en Windows-avbildning och distribuera den till ett delat bildgalleri 
 
-Den här artikeln visar hur du kan använda Azure Image Builder och Azure PowerShell för att skapa en avbildnings version i ett [delat avbildnings Galleri](shared-image-galleries.md)och sedan distribuera avbildningen globalt. Du kan också göra detta med hjälp av [Azure CLI](../linux/image-builder-gallery.md).
+Den här artikeln är att visa hur du kan använda Azure Image Builder och Azure PowerShell för att skapa en avbildningsversion i ett [delat avbildningsgalleri](shared-image-galleries.md)och sedan distribuera avbildningen globalt. Du kan också göra detta med hjälp av [Azure CLI](../linux/image-builder-gallery.md).
 
-Vi kommer att använda en. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [armTemplateWinSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Vi kommer att hämta och redigera en lokal version av mallen, så den här artikeln skrivs med hjälp av den lokala PowerShell-sessionen.
+Vi kommer att använda en .json-mall för att konfigurera avbildningen. Den .json filen vi använder är här: [armTemplateWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). Vi kommer att ladda ner och redigera en lokal version av mallen, så den här artikeln är skriven med hjälp av lokala PowerShell-session.
 
-För att distribuera avbildningen till ett delat avbildnings Galleri använder mallen [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) som värde för avsnittet `distribute` i mallen.
+Om du vill distribuera bilden till ett delat bildgalleri använder `distribute` mallen [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) som värde för avsnittet i mallen.
 
-Azure Image Builder kör automatiskt Sysprep för att generalisera avbildningen, det här är ett allmänt Sysprep-kommando som du kan [åsidosätta](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) om det behövs. 
+Azure Image Builder kör automatiskt sysprep för att generalisera avbildningen, detta är ett allmänt sysprep-kommando, som du kan [åsidosätta](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) om det behövs. 
 
-Tänk på hur många gånger du lager anpassningar. Du kan köra Sysprep-kommandot upp till 8 gånger på en enda Windows-avbildning. När du har kört Sysprep 8 gånger måste du återskapa Windows-avbildningen. Mer information finns i [gränser för hur många gånger du kan köra Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
+Tänk på hur många gånger du lager anpassningar. Du kan köra kommandot Sysprep upp till 8 gånger på en enda Windows-avbildning. När du har kört Sysprep 8 gånger måste du återskapa Windows-avbildningen. Mer information finns i [Gränser för hur många gånger du kan köra Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 
 > [!IMPORTANT]
-> Azure Image Builder är för närvarande en offentlig för hands version.
+> Azure Image Builder är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registrera funktionerna
-Om du vill använda Azure Image Builder i för hands versionen måste du registrera den nya funktionen.
+Om du vill använda Azure Image Builder under förhandsversionen måste du registrera den nya funktionen.
 
 ```powershell
 Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-Kontrol lera status för funktions registreringen.
+Kontrollera status för funktionsregistreringen.
 
 ```powershell
 Get-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
 ```
 
-Vänta tills `RegistrationState` `Registered` innan du går vidare till nästa steg.
+Vänta `RegistrationState` tills är `Registered` innan du går vidare till nästa steg.
 
-Kontrol lera leverantörs registreringarna. Se till att varje retur `Registered`.
+Kontrollera din leverantörsregistreringar. Kontrollera att `Registered`varje retur .
 
 ```powershell
 Get-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages | Format-table -Property ResourceTypes,RegistrationState
@@ -54,7 +54,7 @@ Get-AzResourceProvider -ProviderNamespace Microsoft.Compute | Format-table -Prop
 Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | Format-table -Property ResourceTypes,RegistrationState
 ```
 
-Om de inte returnerar `Registered`använder du följande för att registrera providern:
+Om de inte `Registered`återvänder använder du följande för att registrera leverantörerna:
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.VirtualMachineImages
@@ -65,7 +65,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 ## <a name="create-variables"></a>Skapa variabler
 
-Vi kommer att använda vissa delar av informationen flera gånger, så vi skapar några variabler för att lagra informationen. Ersätt värdena för variablerna, t. ex. `username` och `vmpassword`, med din egen information.
+Vi kommer att använda vissa bitar av information upprepade gånger, så vi kommer att skapa några variabler för att lagra denna information. Ersätt värdena för variablerna, gilla `username` och `vmpassword`med din egen information.
 
 ```powershell
 # Get existing context
@@ -95,7 +95,7 @@ $runOutputName="winclientR01"
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resurs grupp och ge Azure Image Builder behörighet att skapa resurser i den resurs gruppen.
+Skapa en resursgrupp och ge Azure Image Builder behörighet att skapa resurser i den resursgruppen.
 
 ```powershell
 New-AzResourceGroup `
@@ -109,11 +109,11 @@ New-AzRoleAssignment `
 
 
 
-## <a name="create-the-shared-image-gallery"></a>Skapa galleriet för delad avbildning
+## <a name="create-the-shared-image-gallery"></a>Skapa galleriet Delad bild
 
-Om du vill använda Image Builder med ett delat bild galleri måste du ha ett befintligt bild galleri och en bild definition. Image Builder skapar inte bild galleriet och bild definitionen åt dig.
+Om du vill använda Image Builder med ett delat bildgalleri måste du ha ett befintligt bildgalleri och en bilddefinition. Image Builder skapar inte bildgalleriet och bilddefinitionen åt dig.
 
-Om du inte redan har ett galleri och en bild definition som ska användas börjar du med att skapa dem. Börja med att skapa ett bild galleri.
+Om du inte redan har ett galleri och en bilddefinition att använda börjar du med att skapa dem. Skapa först ett bildgalleri.
 
 ```powershell
 # Image gallery name
@@ -148,7 +148,7 @@ New-AzGalleryImageDefinition `
 
 ## <a name="download-and-configure-the-template"></a>Hämta och konfigurera mallen
 
-Hämta. JSON-mallen och konfigurera den med dina variabler.
+Hämta .json-mallen och konfigurera den med dina variabler.
 
 ```powershell
 
@@ -177,9 +177,9 @@ Invoke-WebRequest `
 ```
 
 
-## <a name="create-the-image-version"></a>Skapa avbildnings versionen
+## <a name="create-the-image-version"></a>Skapa bildversionen
 
-Din mall måste skickas till tjänsten. då laddas alla beroende artefakter, som skript, och lagras i den mellanlagrings resurs gruppen, med *IT_* .
+Mallen måste skickas till tjänsten, detta hämtar alla beroende artefakter, till exempel skript, och lagrar dem i mellanlagringsresursgruppen, som föregås av *IT_*.
 
 ```powershell
 New-AzResourceGroupDeployment `
@@ -190,7 +190,7 @@ New-AzResourceGroupDeployment `
    -svclocation $location
 ```
 
-För att skapa den avbildning som du behöver för att köra körningen på mallen.
+För att skapa avbildningen måste du anropa "Kör" på mallen.
 
 ```powershell
 Invoke-AzResourceAction `
@@ -201,16 +201,16 @@ Invoke-AzResourceAction `
    -Action Run
 ```
 
-Det kan ta en stund att skapa avbildningen och replikera den till båda regionerna. Vänta tills den här delen är klar innan du fortsätter med att skapa en virtuell dator.
+Det kan ta en stund att skapa avbildningen och replikera den till båda regionerna. Vänta tills den här delen är klar innan du går vidare till att skapa en virtuell dator.
 
-Information om alternativ för att automatisera skapandet av avbildnings statusen finns i [README](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) för den här mallen på GitHub.
+Information om alternativ för att automatisera hur du får status för bildversion finns i [Readme](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/readme.md#get-status-of-the-image-build-and-query) för den här mallen på GitHub.
 
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Skapa en virtuell dator från avbildnings versionen som skapades av Azure Image Builder.
+Skapa en virtuell dator från avbildningsversionen som skapades av Azure Image Builder.
 
-Hämta avbildnings versionen som du har skapat.
+Hämta den bildversion du skapade.
 ```powershell
 $imageVersion = Get-AzGalleryImageVersion `
    -ResourceGroupName $imageResourceGroup `
@@ -218,7 +218,7 @@ $imageVersion = Get-AzGalleryImageVersion `
    -GalleryImageDefinitionName $imageDefName
 ```
 
-Skapa den virtuella datorn i den andra regionen där avbildningen replikerades.
+Skapa den virtuella datorn i den andra regionen som var avbildningen replikerades.
 
 ```powershell
 $vmResourceGroup = "myResourceGroup"
@@ -255,36 +255,36 @@ New-AzVM -ResourceGroupName $vmResourceGroup -Location $replRegion2 -VM $vmConfi
 ```
 
 ## <a name="verify-the-customization"></a>Verifiera anpassningen
-Skapa en fjärr skrivbords anslutning till den virtuella datorn med det användar namn och lösen ord som du angav när du skapade den virtuella datorn. Öppna en kommando tolk i den virtuella datorn och skriv:
+Skapa en anslutning till fjärrskrivbord till den virtuella datorn med det användarnamn och lösenord som du angav när du skapade den virtuella datorn. Öppna en cmd-prompt i den virtuella datorn och skriv:
 
 ```console
 dir c:\
 ```
 
-Du bör se en katalog med namnet `buildActions` som skapades under bild anpassningen.
+Du bör se `buildActions` en katalog med namnet som skapades under avbildningsanpassning.
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du nu vill försöka anpassa avbildnings versionen för att skapa en ny version av samma avbildning, **hoppar du över det här steget** och fortsätter med att [använda Azure Image Builder för att skapa en annan avbildnings version](image-builder-gallery-update-image-version.md).
+Om du nu vill försöka anpassa avbildningsversionen igen för att skapa en ny version av samma avbildning **hoppar du över det här steget** och fortsätter med att använda Azure Image Builder för att skapa en annan [avbildningsversion](image-builder-gallery-update-image-version.md).
 
 
-Detta tar bort den avbildning som har skapats, tillsammans med alla andra resursfiler. Kontrol lera att du är färdig med distributionen innan du tar bort resurserna.
+Då tas bilden bort, tillsammans med alla andra resursfiler. Kontrollera att du är klar med den här distributionen innan du tar bort resurserna.
 
-Ta först bort resurs grupp mal len, annars kommer den mellanlagrings resurs grupp (*IT_* ) som används av AIB inte att rensas.
+Ta bort resursgruppmallen först, annars rensas inte mellanlagringsresursgruppen (*IT_*) som används av AIB.
 
-Hämta ResourceID för avbildnings mal len. 
+Hämta ResourceID för bildmallen. 
 
 ```powerShell
 $resTemplateId = Get-AzResource -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2019-05-01-preview"
 ```
 
-Ta bort avbildnings mal len.
+Ta bort bildmall.
 
 ```powerShell
 Remove-AzResource -ResourceId $resTemplateId.ResourceId -Force
 ```
 
-Ta bort resurs gruppen.
+ta bort resursgruppen.
 
 ```powerShell
 Remove-AzResourceGroup $imageResourceGroup -Force
@@ -292,4 +292,4 @@ Remove-AzResourceGroup $imageResourceGroup -Force
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-Information om hur du uppdaterar avbildnings versionen som du skapade finns i [använda Azure Image Builder för att skapa en annan avbildnings version](image-builder-gallery-update-image-version.md).
+Mer information om hur du uppdaterar avbildningsversionen som du skapade finns i [Använda Azure Image Builder för att skapa en annan avbildningsversion](image-builder-gallery-update-image-version.md).

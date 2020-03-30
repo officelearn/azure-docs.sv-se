@@ -1,5 +1,5 @@
 ---
-title: Skript exempel för Azure CLI – konfigurera IPv6-frontend
+title: Exempel på Azure CLI-skript – Konfigurera IPv6-frontend
 titlesuffix: Azure Virtual Network
 description: Aktivera IPv6-slutpunkter med Azure CLI i Azure Virtual Network
 services: virtual-network
@@ -12,37 +12,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/23/2019
 ms.author: kumud
-ms.openlocfilehash: 0661c5231e2fce4d6a675c07be6b0ae914c99997
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1ef8742bc4f8de2d08d9bb4fc98b3df6f9420737
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201397"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80235027"
 ---
-# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Konfigurera IPv6-slutpunkter i skript exempel för virtuella nätverk (för hands version)
+# <a name="configure-ipv6-endpoints-in-virtual-network-script-sample-preview"></a>Konfigurera IPv6-slutpunkter i exempel på virtuellt nätverksskript (förhandsgranskning)
 
-Den här artikeln visar hur du distribuerar ett program med dubbla stackar (IPv4 + IPv6) i Azure som innehåller ett virtuellt nätverk med dubbla stackar med ett dubbelt stack-undernät, en belastningsutjämnare med dubbla (IPv4 + IPv6) frontend-konfigurationer, virtuella datorer med nätverkskort som har en dubbel IP-konfiguration, regler för dubbla nätverks säkerhets grupper och dubbla offentliga IP-adresser.
+Den här artikeln visar hur du distribuerar ett IPv4 + IPv6-program (Dual Stack) i Azure som innehåller ett virtuellt nätverk med dubbla staplar med ett undernät med dubbla staplar, en belastningsutjämnare med dubbla frontend-konfigurationer (IPv4 + IPv6), virtuella datorer med nätverkskort som har en dubbel IP-konfiguration. regler för säkerhetsgrupp med dubbla nätverk och dubbla offentliga IPs.
 
-Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/bash), eller från en lokal installation av Azure CLI. Om du använder CLI lokalt kräver skriptet att du kör version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
+Du kan köra skriptet från Azure [Cloud Shell](https://shell.azure.com/bash) eller från en lokal installation av Azure CLI. Om du använder CLI lokalt kräver skriptet att du kör version 2.0.28 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör CLI lokalt måste du också köra `az login` för att skapa en anslutning till Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
-Om du vill använda funktionen IPv6 för Azure Virtual Network måste du konfigurera din prenumeration bara en gång på följande sätt:
+## <a name="prerequisites"></a>Krav
+Om du vill använda funktionen IPv6 för Azure virtuellt nätverk måste du konfigurera prenumerationen endast en gång enligt följande:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature register --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
-Det tar upp till 30 minuter för funktions registrering att slutföras. Du kan kontrol lera din registrerings status genom att köra följande Azure CLI-kommando:
 
-```azurelci
+Det tar upp till 30 minuter innan funktionsregistreringen är klar. Du kan kontrollera din registreringsstatus genom att köra följande Azure CLI-kommando:
+
+```azurecli
 az feature show --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
 az feature show --name AllowIPv6CAOnStandardLB --namespace Microsoft.Network
 ```
+
 När registreringen är klar kör du följande kommando:
 
-```azurelci
+```azurecli
 az provider register --namespace Microsoft.Network
 ```
 
@@ -261,6 +263,7 @@ az vm create \
 --image MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest
 
 ```
+
 ## <a name="clean-up-deployment"></a>Rensa distribution
 
 Kör följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
@@ -286,7 +289,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#az-network-nsg-rule-create) | Skapar en NSG-regel för att tillåta inkommande trafik. I det här exemplet öppnas port 22 för SSH-trafik. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#az-network-nic-create) | Skapar ett virtuellt nätverkskort och ansluter det till det virtuella nätverket, undernätet och NSG. |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule#az-network-lb-rule-create) | Skapar en tillgänglighetsuppsättning. Tillgänglighetsuppsättningar garanterar programmets drifttid genom att fördela virtuella datorer mellan fysiska resurser så att hela uppsättningen inte berörs om något fel inträffar. |
-| [az vm create](/cli/azure/vm#az-vm-create) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även avbildningen av den virtuella dator som ska användas samt administrativa autentiseringsuppgifter.  |
+| [az vm create](/cli/azure/vm#az-vm-create) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Kommandot specificerar även avbildningen av den virtuella dator som ska användas samt administrativa autentiseringsuppgifter.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg

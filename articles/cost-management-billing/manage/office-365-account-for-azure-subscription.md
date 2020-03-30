@@ -1,5 +1,5 @@
 ---
-title: Registrera dig för Azure med ett Office 365-konto | Microsoft Docs
+title: Registrera dig för ett Azure med Office 365-konto
 description: Lär dig hur du skapar en Azure-prenumeration med hjälp av ett Office 365-konto
 author: JiangChen79
 ms.reviewer: adwise
@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 265d9bcafa7caf9af0f8c4c7f33de044fa02349c
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: b42a5b83f5442755614a3cb2ae81cffda09b4b3b
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199593"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79238116"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>Registrera dig för en Azure-prenumeration med ditt Office 365-konto
 Om du har en Office 365-prenumeration kan du använda ditt Office 365-konto för att skapa en Azure-prenumeration. Logga in på [Azure-portalen](https://portal.azure.com/) med ditt användarnamn och lösenord för Office 365. Om du vill konfigurera virtuella datorer eller använda andra Azure-tjänster måste du registrera dig för en Azure-prenumeration. Du kan dela din Azure-prenumeration med andra och [använda rollbaserad åtkomstkontroll för att hantera åtkomst till din Azure-prenumeration och dina resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
@@ -35,7 +35,7 @@ Spara tid och undvik kontospridning genom att registrera dig för Azure med hjä
 
 - Om du behöver lägga till andra personer i din organisation till Azure-prenumerationen kan du läsa [Kom igång med åtkomsthantering i Azure-portalen](../../role-based-access-control/overview.md).
 
-## <a id="more-about-subs">Mer information om Azure- och Office 365-prenumerationer</a>
+## <a name=""></a><a id="more-about-subs">Mer information om Azure- och Office 365-prenumerationer</a>
 Office 365 och Azure använder Azure AD-tjänsten för att hantera användare och prenumerationer. Azure-katalogen är som en container där du kan gruppera användare och prenumerationer. Om du vill använda samma användarkonton för dina Azure- och Office 365-prenumerationer behöver du se till att Azure-prenumerationerna skapas i samma katalog som Office 365-prenumerationerna. Tänk på följande punkter:
 
 * En prenumeration skapas under en katalog

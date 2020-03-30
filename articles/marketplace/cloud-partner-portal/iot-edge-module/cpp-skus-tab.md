@@ -1,89 +1,88 @@
 ---
-title: 'Azure IoT Edge modul SKU: er | Azure Marketplace'
-description: 'Skapa SKU: er för en IoT Edge-modul.'
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: 'Azure IoT Edge-modulSKU: er | Azure Marketplace'
+description: Skapa SKU:er för en IoT Edge-modul.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.author: pabutler
-ms.openlocfilehash: 230f3d6438d44c4e1e1721c0cb1453c85958e282
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 49ae69263735d6ec35cd911a20100472b32c0b59
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813853"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286565"
 ---
-# <a name="iot-edge-module-skus-tab"></a>Fliken SKU: er för IoT Edge modul
+# <a name="iot-edge-module-skus-tab"></a>Fliken SKU:er för IoT-kantmodul
 
-På fliken **SKU: er** på sidan **ny erbjudande** kan du skapa en eller flera SKU: er och koppla dem till ditt nya erbjudande.  Du kan använda olika SKU: er för att särskilja en lösning med hjälp av funktions uppsättningar, fakturerings modeller eller någon annan egenskap.
+På fliken **SKU:er** på sidan **Nytt erbjudande** kan du skapa en eller flera SKU:er och koppla dem till ditt nya erbjudande.  Du kan använda olika SKU:er för att skilja en lösning efter funktionsuppsättningar, faktureringsmodeller eller någon annan egenskap.
 
 
 ## <a name="sku-settings"></a>SKU-inställningar
 
-När du börjar skapa ett nytt erbjudande finns det inga SKU: er kopplade till erbjudandet. Följ dessa steg om du vill skapa en ny SKU:
+När du börjar skapa ett nytt erbjudande finns det inga SKU:er som är associerade med erbjudandet. Så här skapar du en ny SKU:
 
-- På sidan **IoT Edge moduler > nytt erbjudande** väljer du fliken **SKU: er** .
-- Under SKU: er väljer du **+ ny SKU** för att öppna en dialog ruta.
+- På sidan **IoT Edge Modules > Nytt erbjudande** väljer du fliken **SKU:er.**
+- Under SKU väljer du **+ Ny SKU** för att öppna en dialogruta.
 
-  ![Ny SKU-knapp på fliken ny erbjudande för IoT Edge moduler](./media/iot-edge-module-skus-tab-new-sku.png)
+  ![Knappen Ny SKU på fliken Nytt erbjudande för IoT Edge-moduler](./media/iot-edge-module-skus-tab-new-sku.png)
 
-- I dialog rutan **ny SKU** anger du en identifierare för SKU: n och väljer sedan **OK**.
-(Följande tabell innehåller namngivnings konventioner för identifierare.)
+- I dialogrutan **Ny SKU** anger du en identifierare för SKU:n och väljer sedan **OK**.
+(I följande tabell anges namngivningskonventionerna för identifierare.)
 
-Fliken **SKU: er** uppdateras och visar de fält som du redigerar för att konfigurera SKU: n. En asterisk (*) som läggs till i fält namnet visar att det är obligatoriskt.
+Fliken **SKU uppdateras** och visar de fält som du redigerar för att konfigurera SKU. En asterisk (*) som läggs till i fältnamnet anger att det krävs.
 
-|  **Fält**       |     **Beskrivning**                                                          |
+|  **Field**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-| **SKU-ID\***       | Identifierare för denna SKU. Namnet får innehålla högst 50 tecken, bestående av gemena alfanumeriska tecken eller bindestreck (-), men får inte sluta med ett bindestreck. **Obs:** Du kan inte ändra namnet när erbjudandet har publicerats. Namnet är offentligt synligt i produkt-URL: er. |
+| **SKU-ID\***       | Identifierare för den här SKU:n. Det här namnet har högst 50 tecken, som består av gemener alfanumeriska tecken eller streck (-), men kan inte sluta med ett streck. **Anm.:** Du kan inte ändra det här namnet när erbjudandet har publicerats. Namnet visas offentligt i produktadresser. |
 |  |  |
 
 
-## <a name="sku-details"></a>SKU-information
+## <a name="sku-details"></a>SKU-detaljer
 
-Konfigurera **SKU-informationen** för att definiera hur din SKU ska visas på webbplatserna för Azure Marketplace och Azure Portal.
+Konfigurera **SKU-information** för att definiera hur din SKU ska visas på Azure Marketplace- och Azure Portal-webbplatserna.
 
-![IoT Edge modul SKU metadata](media/iot-edge-module-skus-tab-metadata.png)
+![IoT Edge-modul sku metadata](media/iot-edge-module-skus-tab-metadata.png)
 
-I följande tabell beskrivs syfte, innehåll och formatering för fält under SKU- **information**. Obligatoriska fält förutsägs av en asterisk (*).
+I följande tabell beskrivs syfte, innehåll och formatering för fält under **SKU-information**. Obligatoriska fält åtalas av en asterisk (*).
 
-|  **Fält**       |     **Beskrivning**                                                          |
+|  **Field**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Rubrik\***        | Rubrik för denna SKU. Maximal längd på 50 tecken. <br/> Den visas i Azure-portalen och används som standard namn på modul (utan blank steg och specialtecken) när den distribueras. Se bilderna nedan om du vill se exakt var det här fältet visas.|
-| **Sammanfattning\***      | Kort sammanfattning av denna SKU. Maximal längd på 100 tecken. Sammanfatta **inte** erbjudandet, bara SKU: n.  Den här sammanfattningen visas på Azure Marketplace. Se bilderna nedan om du vill se exakt var det här fältet visas.|
-| **Beskrivning\***  | Kort beskrivning av denna SKU. Maximal längd på 3000 tecken. Beskriv inte erbjudandet men bara den här SKU: n. Den kommer att visas på Azure Marketplace och i Azure Portal. I Azure Portal läggs den till i Marketplace-beskrivningen som beskriver erbjudandet som definierats på Marketplace-fliken.  Det kan vara samma som SKU-sammanfattningen. Se bilderna nedan om du vill se exakt var det här fältet visas.|
-| **Dölj den här SKU-\*** | Behåll standardinställningen, som är **Nej**. |
+| **Titel\***        | Titel för denna SKU. Maximal längd på 50 tecken. <br/> Den visas i Azure Portal och kommer att användas som standardmodulnamn (utan mellanslag och specialtecken) när den distribueras. Se bilderna nedan för att se exakt var det här fältet visas.|
+| **Sammanfattning\***      | Kort sammanfattning av denna SKU. Maximal längd på 100 tecken. Sammanfatta **inte** erbjudandet, bara SKU.  Den här sammanfattningen visas på Azure Marketplace. Se bilderna nedan för att se exakt var det här fältet visas.|
+| **Beskrivning\***  | Kort beskrivning av denna SKU. Maximal längd på 3 000 tecken. Beskriv INTE erbjudandet utan just denna SKU. Den visas på den azurblå marknadsplatsen och i Azure-portalen. I Azure-portalen läggs den till i Marketplace-beskrivningen som beskriver erbjudandet som definierats på fliken Marketplace.  Det kan vara samma som SKU-sammanfattningen. Se bilderna nedan för att se exakt var det här fältet visas.|
+| **Dölj den här SKU:n\*** | Behåll standardinställningen, som är **Nej**. |
 |  |  |
 
 
-### <a name="sku-example"></a>SKU-exempel
+### <a name="sku-example"></a>Exempel på SKU
 
- I följande exempel visas hur fälten SKU **title**, **Summary**och **Description** visas i olika vyer.
+ Följande exempel visar hur fälten **SKU-rubrik,** **sammanfattning**och **Beskrivning** visas i olika vyer.
  
 
-#### <a name="on-the-azure-marketplace-website"></a>På webbplatsen för Azure Marketplace:
+#### <a name="on-the-azure-marketplace-website"></a>På Webbplatsen för Azure Marketplace:
 
-- När du tittar på SKU-information:
+- När du tittar på SKU detaljer:
 
-    ![Hur SKU: er visas på webbplatsen för Azure Marketplace](media/iot-edge-module-ampdotcom-pdp-plans.png)
+    ![Så här visas SKU:er på Azure Marketplace-webbplatsen](media/iot-edge-module-ampdotcom-pdp-plans.png)
 
 
 #### <a name="on-the-azure-portal-website"></a>På Azure Portal-webbplatsen:
 
-- När du bläddrar SKU: er:
+- När du surfar på SKU:
 
-    ![Hur IoT Edge-modulen visas när du bläddrar i Azure Portal #1](media/iot-edge-module-portal-browse.png)
+    ![Så här visas IoT Edge-modulen när du surfar på Azure-portalen #1](media/iot-edge-module-portal-browse.png)
 
-    ![Hur IoT Edge-modulen visas när du bläddrar i Azure Portal #2](media/iot-edge-module-portal-product-picker.png)
+    ![Så här visas IoT Edge-modulen när du surfar på Azure-portalen #2](media/iot-edge-module-portal-product-picker.png)
 
-- Vid sökning efter SKU: er:
+- När du söker efter SKU:
 
-    ![Hur IoT Edge-modulen visas när du söker i Azure Portal](media/iot-edge-module-portal-search.png)
+    ![Så här visas IoT Edge-modulen när du söker i Azure-portalen](media/iot-edge-module-portal-search.png)
 
-- När du tittar på SKU-information:
+- När du tittar på SKU detaljer:
 
-    ![Hur IoT Edge modul visas när du tittar på produkt informationen i portalen](./media/iot-edge-module-portal-pdp.png)
+    ![Hur IoT Edge-modulen visas när du tittar på produktinformationen i portalen](./media/iot-edge-module-portal-pdp.png)
 
 - När du distribuerar modulen:
     
@@ -92,50 +91,50 @@ I följande tabell beskrivs syfte, innehåll och formatering för fält under SK
 
 ## <a name="sku-content"></a>SKU-innehåll
 
-Under **Edge module-avbildningar**anger du den information vi behöver för att ladda upp din IoT Edge-modul.
+Under **Edge Module Images**kan vi tillhandahålla den information vi behöver för att ladda upp din IoT Edge-modul.
 
-Ge oss åtkomst till din [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR) som innehåller din IoT Edge module-avbildning så att vi kan ladda upp den och certifiera den. När den har publicerats kopieras och distribueras IoT Edge-modulen med hjälp av ett offentligt behållar register som finns på Azure Marketplace.
+Ge oss åtkomst till ditt [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR) som innehåller din IoT Edge-modulavbildning så att vi kan ladda upp den och certifiera den. När den har publicerats kopieras och distribueras IoT Edge-modulen med hjälp av ett offentligt behållarregister som finns i Azure Marketplace.
 
-Du kan rikta flera plattformar och tillhandahålla flera versioner genom taggar. Lär dig mer om [taggar och versioner i "förbereda din IoT Edge-modul tekniska till gångar"](./cpp-create-technical-assets.md).
+Du kan rikta in dig på flera plattformar och tillhandahålla flera versioner via taggar. Läs mer om [taggar och versionshantering i "Förbered dina tekniska resurser för IoT Edge-modulen".](./cpp-create-technical-assets.md)
 
-![IoT Edge module-bilder](./media/iot-edge-module-skus-tab-acr.png)
+![IoT Edge-modulbilder](./media/iot-edge-module-skus-tab-acr.png)
 
-I följande tabell beskrivs syftet, innehållet och formateringen av fälten för avsnitten **avbildning av lagrings plats** och **avbildnings version**.  Obligatoriska fält förutsägs av en asterisk (*).
+I följande tabell beskrivs syftet, innehållet och formateringen för fälten för avsnitten **Information om bilddatabasen** och **bildversion**.  Obligatoriska fält åtalas av en asterisk (*).
 
 
-|  **Fält**       |     **Beskrivning**                                                          |
+|  **Field**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-|  |  ***Information om avbildnings lager***    |
-| **Prenumerations-ID\***        | ID för Azure-prenumerationen för din ACR.|
-| **Resurs grupp namn\***      | Resurs grupps namnet för din ACR.|
-| **Register namn\***  | Ditt ACR-register namn. Kopiera bara register namnet, inte inloggnings Server namnet (till exempel utan `azurecr.io`.) |
-| **Namn på databas\***  | Databas namnet för din ACR som innehåller din IoT Edge-modul. **Obs:** När namnet har angetts kan det inte ändras senare. Använd ett unikt namn för att se till att inget annat erbjudande i ditt konto har samma namn. |
-| **Användar namn\*** | Det användar namn som är associerat med din ACR (admin användar namn). |
-| **Lösen ord\*** | Lösen ordet som är kopplat till din ACR. |
-|    |  ***Avbildnings version***   |
-| **Bildtagg eller sammanfattad\*** | Det måste minst innehålla en `latest`-tagg och en versions tagg (till exempel från och med `xx.xx.xx-` där xx är ett tal). De bör vara [manifest-Taggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla Taggar som en manifest tag refererar till måste också läggas till så att vi kan ladda upp dem. Du kan lägga till flera versioner av en IoT Edge-modul med hjälp av taggar. Alla manifest Taggar (utom `latest`) måste börja med antingen `X.Y-` eller `X.Y.Z-` där X, Y, Z är heltal. Lär dig mer om [taggar och versioner i "förbereda din IoT Edge-modul tekniska till gångar"](./cpp-create-technical-assets.md). <br/> Om en `latest` tag till exempel pekar på det som pekar på `1.0.1-linux-x64`, `1.0.1-linux-arm32`, och `1.0.1-windows-arm32`, måste du lägga till dessa 6-Taggar här. |
+|  |  ***Information om bilddatabas***    |
+| **Prenumerations-ID\***        | Azure-prenumerations-ID för din ACR.|
+| **Namn på resursgrupp\***      | Resursgruppnamnet för ACR.|
+| **Registernamn\***  | Ditt ACR-registernamn. Kopiera endast registrets namn, INTE inloggningsserverns namn `azurecr.io`(till exempel utan .) |
+| **Databasnamn\***  | Databasnamnet på ACR som innehåller din IoT Edge-modul. **Anm.:** När namnet har angetts kan det inte ändras senare. Använd ett unikt namn för att säkerställa att inget annat erbjudande i ditt konto har samma namn. |
+| **Användarnamn\*** | Användarnamnet som är kopplat till din ACR (admin användarnamn). |
+| **Lösenord\*** | Lösenordet som är kopplat till acr-systemet. |
+|    |  ***Bildversion***   |
+| **Bildtagg eller sammanfattning\*** | Den måste åtminstone `latest` innehålla en tagg och en versionstagg (till exempel från `xx.xx.xx-` där xx är ett tal). De bör vara [manifesttaggar](https://github.com/estesp/manifest-tool) för att rikta in sig på flera plattformar. Alla taggar som refereras av en manifesttagg måste också läggas till så att vi kan ladda upp dem. Du kan lägga till flera versioner av en IoT Edge-modul med hjälp av taggar. Alla manifesttaggar `latest`(utom) `X.Y-` måste `X.Y.Z-` börja med antingen eller där X, Y, Z är heltal. Läs mer om [taggar och versionshantering i "Förbered dina tekniska resurser för IoT Edge-modulen".](./cpp-create-technical-assets.md) <br/> Om till exempel `latest` en tagg pekar `1.0.1-linux-x64` `1.0.1-linux-arm32`på att `1.0.1-windows-arm32`pekar på , , och måste dessa 6 taggar läggas till här. |
 |  |  |
 
 
-### <a name="help-your-customers-launch-by-using-default-settings"></a>Hjälp dina kunder att starta med hjälp av standardinställningar
+### <a name="help-your-customers-launch-by-using-default-settings"></a>Hjälp dina kunder att starta genom att använda standardinställningar
 
-Definiera de vanligaste inställningarna för att distribuera IoT Edge-modulen. Optimera kund distributioner genom att låta dem starta IoT Edge modulen med dessa standardinställningar.
+Definiera de vanligaste inställningarna för att distribuera IoT Edge-modulen. Optimera kunddistributioner genom att låta dem starta din IoT Edge-modul direkt med dessa standardvärden.
 
-![Standardinställningar för IoT Edge modul vid distribution](./media/iot-edge-module-skus-tab-iot-edge-defaults.png)
+![Standardinställningar för IoT Edge-modul vid distribution](./media/iot-edge-module-skus-tab-iot-edge-defaults.png)
 
-I följande tabell beskrivs ändamålet, innehållet och formateringen av fälten för **standard vägar**, **dubbla önskade egenskaper**, **standardvariabler**och standard- **CreateOptions**.
+I följande tabell beskrivs syfte, innehåll och formatering för fälten för **Standardvägar**, **Önskade standardtvillingegenskaper**, **Standardmiljövariabler**och **Standard createoptions**.
 
-|  **Fält**       |     **Beskrivning**                                                          |
+|  **Field**       |     **Beskrivning**                                                          |
 |  ---------       |     ---------------                                                          |
-| **Standard vägar**        | Varje standard väg namn och-värde måste innehålla färre än 512 tecken. Du kan definiera upp till fem standard vägar. Se till att du använder rätt [Route-syntax](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) i ditt flödes värde. Om du vill referera till din modul använder du dess standardmodulnamn, som är din **SKU-rubrik** utan blank steg och specialtecken. Om du vill referera till andra moduler som ännu inte är kända använder du `<FROM_MODULE_NAME>`s konventionen för att låta kunderna veta att de behöver uppdatera den här informationen. Läs mer om [IoT Edge vägar](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Om modul `ContosoModule` till exempel lyssnar efter indata på `ContosoInput` och utdata i `ContosoOutput`, är det klokt att definiera följande två standard vägar:<br/>-Namn #1: `ToContosoModule`<br/>-Värde #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>-Namn #2: `FromContosoModuleToCloud`<br/>-Värde #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
-| **Standardvärden för dubbla önskade egenskaper**      | Alla standardvärden med dubbla önskade egenskaper måste vara färre än 512 tecken. Du kan definiera upp till 5 namn/värde-dubbla önskade egenskaper. Värdena för de dubbla önskade egenskaperna måste vara giltiga JSON, icke-Escaped, utan matriser och med en maximal kapslad hierarki på 4. Läs mer om de [dubbla önskade egenskaperna](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Om en modul till exempel stöder dynamiskt konfigurerbara uppdaterings hastigheter via de två önskade egenskaperna, är det klokt att definiera följande standardvärden för den dubbla önskade egenskapen:<br/> -Namn #1: `RefreshRate`<br/>-Värde #1: `60`|
-| **Standardvariabler för miljön**  | Varje standard namn och värde för miljövariabler måste innehålla färre än 512 tecken. Du kan definiera upp till fem miljövariabler av namn/värde. <br/>Om en modul till exempel måste godkänna användnings villkoren innan den startas, kan du definiera följande miljö variabel:<br/> -Namn #1: `ACCEPT_EULA`<br/>-Värde #1: `Y`|
-| **Standard createOptions**  | CreateOptions måste innehålla färre än 512 tecken. Det måste vara en giltig JSON, icke-Escaped. Läs mer om [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Om en modul till exempel kräver bindning av en port kan du definiera följande createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|
+| **Standardvägar**        | Varje standardflödesnamn och värde måste vara färre än 512 tecken. Du kan definiera upp till 5 standardvägar. Se till att använda en korrekt [flödessyntax](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) i flödesvärdet. Om du vill referera till modulen använder du standardmodulnamnet, som blir din **SKU-titel** utan blanksteg och specialtecken. Om du vill referera till andra `<FROM_MODULE_NAME>` moduler som ännu inte är kända använder du konventionen för att informera dina kunder om att de behöver uppdatera den här informationen. Läs mer om [IoT Edge-rutter](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes). <br/> Om modulen `ContosoModule` till exempel lyssnar `ContosoInput` efter indata `ContosoOutput`på och utdata på är det klokt att definiera följande två standardvägar:<br/>- Namn #1:`ToContosoModule`<br/>- Värde #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- Namn #2:`FromContosoModuleToCloud`<br/>- Värde #2:`FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
+| **Standardegenskaper för dubbla önskade egenskaper**      | Varje standardtvillingalternativa egenskapsnamn och värde måste vara färre än 512 tecken. Du kan definiera upp till 5 namn/värde twin önskade egenskaper. Värden för dubbla önskade egenskaper måste vara giltiga JSON, som inte har rymts, utan matriser och med en maximal kapslad hierarki på 4. Läs mer om [dubbla önskade egenskaper](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties). <br/> Om en modul till exempel stöder en dynamiskt konfigurerbar uppdateringsfrekvens via dubbla önskade egenskaper, är det vettigt att definiera följande önskade standardtvillingegenskaper:<br/> - Namn #1:`RefreshRate`<br/>- Värde #1:`60`|
+| **Standardmiljövariabler**  | Varje standardmiljövariablers namn och värde måste vara färre än 512 tecken. Du kan definiera upp till 5 namn/värde miljövariabler. <br/>Om en modul till exempel måste acceptera användningsvillkor innan den startas kan du definiera följande miljövariabel:<br/> - Namn #1:`ACCEPT_EULA`<br/>- Värde #1:`Y`|
+| **Standard createOptions**  | CreateOptions måste vara färre än 512 tecken. Det måste vara giltigt JSON, utan flykt. Läs mer om [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules). <br/> Om en modul till exempel kräver bindning av en port kan du definiera följande createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|
 |   |   |
 
-Spara inställningarna för SKU genom att välja **Spara** . 
+Välj **Spara** om du vill spara SKU-inställningarna. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd [fliken Marketplace](./cpp-marketplace-tab.md) för att skapa en Marketplace-beskrivning för ditt erbjudande.
+Använd [fliken Marketplace](./cpp-marketplace-tab.md) för att skapa en marknadsplatsbeskrivning för ditt erbjudande.

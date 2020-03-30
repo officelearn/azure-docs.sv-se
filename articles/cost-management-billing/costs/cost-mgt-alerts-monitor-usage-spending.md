@@ -1,5 +1,5 @@
 ---
-title: Övervaka användning och utgifter med kostnadsaviseringar | Microsoft Docs
+title: Övervaka användningen och utgifterna med kostnadsaviseringar
 description: I den här artikeln beskrivs hur kostnadsaviseringar hjälper dig att övervaka användning och utgifter i Azure Cost Management.
 author: bandersmsft
 ms.author: banders
@@ -7,13 +7,12 @@ ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.custom: ''
-ms.openlocfilehash: 3ce643767ad8ba6116c9e93f23b1c8a7819d7277
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: e3816c167aea80f32c35c7196de166de57dc9622
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199950"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79203074"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>Använda kostnadsaviseringar för att övervaka användning och utgifter
 

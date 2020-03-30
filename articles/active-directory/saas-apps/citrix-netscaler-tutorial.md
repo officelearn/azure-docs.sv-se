@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 03/27/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 785242a2cf51571a6d13b2b4691d33e46369bf94
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7400c8288d8901460e462ce43b69815e178a718c
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977915"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384015"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-kerberos-based-authentication"></a>Självstudiekurs: Azure Active Directory enkel inloggningsintegrering med Citrix NetScaler (Kerberos-baserad autentisering)
 
@@ -31,7 +30,7 @@ I den här självstudien får du lära dig hur du integrerar Citrix NetScaler me
 * Gör att användarna automatiskt loggas in på Citrix NetScaler med sina Azure AD-konton.
 * Hantera dina konton på en central plats - Azure-portalen.
 
-Mer information om integrering av SaaS-appar (Software as a Service) med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om integrering av SaaS-appar (Software as a Service) med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -51,6 +50,8 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö
 * [Kerberos-baserad autentisering för Citrix NetScaler](#publish-the-web-server)
 
 * [Rubrikbaserad autentisering för Citrix NetScaler](header-citrix-netscaler-tutorial.md#publish-the-web-server)
+
+* När du har konfigurerat Citrix NetScaler kan du framtvinga sessionskontroll, som skyddar exfiltrering och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-citrix-netscaler-from-the-gallery"></a>Lägg till Citrix NetScaler från galleriet
 
@@ -102,7 +103,7 @@ Så här aktiverar du Azure AD SSO med hjälp av Azure-portalen:
 
     1. Ange en URL med följande mönster i textrutan **Identifierare:**`https://<Your FQDN>`
 
-    1. Ange en URL med följande mönster i textrutan **Svara** url:`https://<Your FQDN>/CitrixAuthService/AuthService.asmx`
+    1. Ange en URL med följande mönster i textrutan **Svara** url:`http(s)://<Your FQDN>.of.vserver/cgi/samlauth`
 
 1. Om du vill konfigurera programmet i **SP-initierat** läge väljer du **Ange ytterligare webbadresser** och slutför följande steg:
 
@@ -456,10 +457,14 @@ När du väljer Citrix NetScaler-panelen på åtkomstpanelen ska du automatiskt 
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova Citrix NetScaler med Azure AD](https://aad.portal.azure.com/)
 
 - [Konfigurera Citrix NetScaler enkel inloggning för rubrikbaserad autentisering](header-citrix-netscaler-tutorial.md)
+
+- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Hur man skyddar Citrix NetScaler med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

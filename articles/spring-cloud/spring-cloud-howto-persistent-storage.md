@@ -1,72 +1,72 @@
 ---
-title: Använda beständig lagring i Azure våren Cloud | Microsoft Docs
-description: Använda beständig lagring i Azure våren Cloud
+title: Så här använder du beständig lagring i Azure Spring Cloud | Microsoft-dokument
+description: Så här använder du beständig lagring i Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.openlocfilehash: 0e49d59386b19aa8da46b8c8e6acfe50e2124541
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76278537"
 ---
 # <a name="use-persistent-storage-in-azure-spring-cloud"></a>Använda beständig lagring i Azure Spring Cloud
 
-Azure våren Cloud tillhandahåller två typer av lagring för ditt program: beständigt och temporärt.
+Azure Spring Cloud innehåller två typer av lagring för ditt program: beständig och tillfällig.
 
-Som standard tillhandahåller Azure våren Cloud tillfällig lagring för varje program instans. Den tillfälliga lagringen är begränsad till 5 GB per instans med standard monterings Sök vägen/tmp.
-
-> [!WARNING]
-> Om du startar om en program instans tas den tillhör ande tillfälliga lagringen bort permanent.
-
-Beständig lagring är en fil resurs behållare som hanteras av Azure och tilldelas per program. Data som lagras i beständig lagring delas av alla instanser av ett program. En Azure våren-moln instans kan ha högst 10 program med beständig lagring aktive rad. Varje program tilldelas 50 GB beständig lagring. Standard monterings vägen för beständigt lagrings utrymme är/persistent.
+Som standard tillhandahåller Azure Spring Cloud tillfällig lagring för varje programinstans. Tillfällig lagring är begränsad till 5 GB per instans med standardmonterad bana /tmp.
 
 > [!WARNING]
-> Om du inaktiverar ett programs permanenta lagrings utrymme frigörs all lagring och alla lagrade data går förlorade.
+> Om du startar om en programinstans tas den associerade tillfälliga lagringen bort permanent.
 
-## <a name="use-the-azure-portal-to-enable-persistent-storage"></a>Använd Azure Portal för att aktivera beständig lagring
+Beständig lagring är en filresursbehållare som hanteras av Azure och allokeras per program. Data som lagras i beständig lagring delas av alla instanser av ett program. En Azure Spring Cloud-instans kan ha högst 10 program med beständig lagring aktiverad. Varje program tilldelas 50 GB beständig lagring. Standardmonterasökvägen för beständig lagring är /persistent.
 
-1. Välj **alla resurser**på **Start** sidan för din Azure Portal.
+> [!WARNING]
+> Om du inaktiverar ett programs beständiga lagring frigörs all lagring och alla lagrade data går förlorade.
 
-    >![Leta upp ikonen alla resurser](media/portal-all-resources.jpg)
+## <a name="use-the-azure-portal-to-enable-persistent-storage"></a>Använda Azure-portalen för att aktivera beständig lagring
 
-1. Välj moln resursen Azure våren som behöver beständigt lagrings utrymme. I det här exemplet kallas det valda programmet för att bli av **med.**
+1. Välj **Alla resurser**på **startsidan** för din Azure-portal .
+
+    >![Leta reda på ikonen Alla resurser](media/portal-all-resources.jpg)
+
+1. Välj azure spring cloud-resursen som behöver beständig lagring. I det här exemplet anropas det valda programmet **uppspjänande**.
 
     > ![Välj ditt program](media/select-service.jpg)
 
-1. Under **inställnings** rubriken väljer du **appar**.
+1. Under rubriken **Inställningar** väljer du **Appar**.
 
-1. Dina Azure våren Cloud-tjänster visas i en tabell.  Välj den tjänst som du vill lägga till beständig lagring för. I det här exemplet är **Gateway** -tjänsten vald.
+1. Dina Azure Spring Cloud-tjänster visas i en tabell.  Välj den tjänst som du vill lägga till beständig lagring till. I det här exemplet är **gateway-tjänsten** markerad.
 
     > ![Välj din tjänst](media/select-gateway.jpg)
 
-1. På sidan konfiguration av tjänsten väljer du **konfiguration**
+1. Välj **Konfigurationssida** på tjänstens konfigurationssida
 
-1. Välj fliken **beständig lagring** och välj **Aktivera**.
+1. Välj fliken **Beständigt lagringsutrymme** och välj **Aktivera**.
 
     > ![Aktivera beständig lagring](media/enable-persistent-storage.jpg)
 
-När beständig lagring har Aktiver ATS visas dess storlek och sökväg på konfigurations sidan.
+När beständig lagring har aktiverats visas dess storlek och sökväg på konfigurationssidan.
 
-## <a name="use-the-azure-cli-to-modify-persistent-storage"></a>Använd Azure CLI för att ändra beständig lagring
+## <a name="use-the-azure-cli-to-modify-persistent-storage"></a>Använda Azure CLI för att ändra beständig lagring
 
-Om det behövs installerar du våren Cloud-tillägget för Azure CLI:
+Om det behövs installerar du springmoln-tillägget för Azure CLI:
 
 ```azurecli
 az extension add --name spring-cloud
 ```
-Andra åtgärder:
+Övriga verksamheter:
 
-* Så här skapar du en app med beständig lagring aktive rad:
+* Så här skapar du en app med beständig lagring aktiverad:
 
     ```azurecli
     az spring-cloud app create -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
     ```
 
-* Så här aktiverar du beständigt lagrings utrymme för en befintlig app:
+* Så här aktiverar du beständig lagring för en befintlig app:
 
     ```azurecli
     az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
@@ -79,9 +79,9 @@ Andra åtgärder:
     ```
 
     > [!WARNING]
-    > Om du inaktiverar ett programs permanenta lagrings utrymme frigörs all lagring och alla lagrade data går förlorade permanent.
+    > Om du inaktiverar ett programs beständiga lagring frigörs all lagring och alla lagrade data går förlorade permanent.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [program-och tjänst kvoter](spring-cloud-quotas.md).
-* Lär dig hur du [skalar ditt program manuellt](spring-cloud-tutorial-scale-manual.md).
+* Läs mer om [program- och tjänstkvoter](spring-cloud-quotas.md).
+* Lär dig hur du [skalar programmet manuellt](spring-cloud-tutorial-scale-manual.md).

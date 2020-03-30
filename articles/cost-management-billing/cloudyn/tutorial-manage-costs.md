@@ -1,20 +1,20 @@
 ---
-title: Självstudie – Hantera kostnader med Cloudyn i Azure | Microsoft Docs
+title: Självstudie – Hantera kostnader med Cloudyn i Azure
 description: I den här självstudien lär du dig att hantera kostnader med hjälp av kostnadsallokering, showback- och chargeback-rapporter.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: a492f611ed5a785ae148894baf3f24c2df773df2
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769914"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79474585"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Självstudier: Hantera kostnader med hjälp av Cloudyn
 
@@ -31,6 +31,8 @@ I den här guiden får du lära dig att:
 > * Skapar showback- och chargeback-rapporter.
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 

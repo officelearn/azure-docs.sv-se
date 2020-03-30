@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Azure Active Directory integrering med Cezanne HR-programvara | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Cezanne HR Software | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cezanne HR Software.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fa689e6138f8d965e59f7cfa7a85e0835301086c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73158710"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Självstudie: Azure Active Directory integrering med Cezanne HR-programvara
+# <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Självstudiekurs: Azure Active Directory-integrering med Cezanne HR-programvara
 
 I den här självstudien lär du dig att integrera Cezanne HR Software med Azure Active Directory (AD Azure).
 Integreringen av Cezanne HR Software med Azure AD medför följande fördelar:
@@ -33,13 +33,13 @@ Integreringen av Cezanne HR Software med Azure AD medför följande fördelar:
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Cezanne HR Software behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Cezanne HR Software-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -54,7 +54,7 @@ För att konfigurera integreringen av Cezanne HR Software i Azure AD måste du l
 
 **Utför följande steg för att lägga till Cezanne HR Software från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -79,7 +79,7 @@ För att konfigurera och testa enkel inloggning för Azure AD med Cezanne HR Sof
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Cezanne HR Software](#configure-cezanne-hr-software-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa Cezanne HR Software-testanvändare](#create-cezanne-hr-software-test-user)** – för att ha en motsvarighet för Britta Simon i Cezanne HR Software som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -92,7 +92,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ce
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **Cezanne HR Software** och väljer **Enkel inloggning**.
 
-    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -161,7 +161,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ce
 
     f. Klicka på ikonen **Ladda upp** för att ladda upp det nedladdade certifikatet från Azure-portalen.
 
-    g. Klicka på knappen **OK**.
+    g. Klicka **på** ok.
 
 6. Klicka på knappen **Spara**.
 
@@ -175,7 +175,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare** högst upp på skärmen.
 
     ![Knappen Ny användare](common/new-user.png)
 
@@ -185,7 +185,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
+    b. I fältet **Användarnamn** skriver **du\@brittasimon yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
@@ -204,7 +204,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken för Cezanne HR Software i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -214,7 +214,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
@@ -222,7 +222,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 För att Azure AD-användare ska kunna logga in i Cezanne HR Software måste de etableras till Cezanne HR Software. När det gäller Cezanne HR Software är etablering en manuell uppgift.
 
-**Utför följande steg för att etablera ett användarkonto:**
+**Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på din Cezanne HR Software-företagswebbplats som administratör.
 
@@ -236,11 +236,11 @@ För att Azure AD-användare ska kunna logga in i Cezanne HR Software måste de 
 
     a. Ange **Intern användare** till AV.
 
-    b. I textrutan **Förnamn** skriver du förnamnet på användaren: **Britta**.  
+    b. Skriv förnamnet för användaren som **Britta**i textrutan **Förnamn** .  
 
-    c. I textrutan **Efternamn** skriver du efternamnet på användaren: **Simon**.
+    c. Skriv efternamn för användaren som **Simon**i textrutan **Efternamn** .
 
-    d. I textrutan **E-post** skriver du e-postadressen för användaren: Brittasimon@contoso.com.
+    d. Skriv **e-postadressen** till användaren som Brittasimon@contoso.com.
 
 4. I avsnittet **Kontoinformation** utför du följande steg:
 
@@ -252,25 +252,25 @@ För att Azure AD-användare ska kunna logga in i Cezanne HR Software måste de 
 
     c. Välj **HR Professional** som **Säkerhetsroll**.
 
-    d. Klicka på **OK**
+    d. Klicka på **OK**.
 
 5. Gå till fliken **Enkel inloggning** och markera **Lägg till ny** i området **SAML 2.0 Identifiers** (SAML 2.0-identifierare).
 
-    ![Användarvänlig](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Användare")
+    ![Användare](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "Användare")
 
 6. Välj din identitetsprovider för **Identitetsprovider**. I textrutan för **Användaridentifierare** anger du e-postadressen för kontot Britta Simon.
 
-    ![Användarvänlig](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Användare")
+    ![Användare](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "Användare")
 
 7. Klicka på knappen **Spara**.
 
-    ![Användarvänlig](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Användare")
+    ![Användare](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "Användare")
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Cezanne HR Software-panelen i åtkomstpanelen bör du automatiskt loggas in på Cezanne HR Software som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Cezanne HR Software-panelen i åtkomstpanelen bör du automatiskt loggas in på Cezanne HR Software som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

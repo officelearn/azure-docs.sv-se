@@ -1,6 +1,6 @@
 ---
-title: Händelseschema för Azure Event Grid Azure-Appkonfiguration
-description: Beskriver de egenskaper som har angetts för konfiguration av Azure-händelser med Azure Event Grid
+title: Azure Event Grid Azure App Konfiguration händelseschema
+description: Beskriver de egenskaper som tillhandahålls för Azure App-konfigurationshändelser med Azure Event Grid
 services: event-grid
 author: jimmyca
 ms.service: event-grid
@@ -8,30 +8,30 @@ ms.topic: reference
 ms.date: 05/30/2019
 ms.author: jimmyca
 ms.openlocfilehash: fe0274f723692eea3cfd25cc0e9e146b35dce2ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66735788"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Azure Event Grid-Händelseschema för konfiguration av Azure
+# <a name="azure-event-grid-event-schema-for-azure-app-configuration"></a>Azure Event Grid-händelseschema för Azure App-konfiguration
 
-Den här artikeln innehåller egenskaperna och schemat för konfiguration av Azure-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaper och schema för Azure App Configuration-händelser. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-En lista över exempel på skript och självstudier finns i [konfiguration av Azure-händelsekälla](event-sources.md#app-configuration).
+En lista över exempelskript och självstudier finns i [händelsekällan för Azure App Configuration](event-sources.md#app-configuration).
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-Konfiguration av Azure genererar följande händelsetyper:
+Azure App-konfigurationen avger följande händelsetyper:
 
-| eventType | Beskrivning |
+| Händelsetyp | Beskrivning |
 | ---------- | ----------- |
-| Microsoft.AppConfiguration.KeyValueModified | Utlöses när en nyckel / värde-skapas eller ersatts. |
-| Microsoft.AppConfiguration.KeyValueDeleted | Utlöses när en nyckel / värde-tas bort. |
+| Microsoft.AppConfiguration.KeyValueModified | Utlöses när ett nyckelvärde skapas eller ersätts. |
+| Microsoft.AppConfiguration.KeyValueDeleted | Utlöses när ett nyckelvärde tas bort. |
 
-## <a name="example-event"></a>Exempel-händelse
+## <a name="example-event"></a>Exempel händelse
 
-I följande exempel visar schemat för en ändrad nyckel / värde-händelse: 
+I följande exempel visas schemat för en nyckelvärdesmodifierad händelse: 
 
 ```json
 [{
@@ -50,7 +50,7 @@ I följande exempel visar schemat för en ändrad nyckel / värde-händelse:
 }]
 ```
 
-Schemat för en borttagen händelse nyckel / värde-liknar: 
+Schemat för en borttagen nyckelvärde-händelse är liknande: 
 
 ```json
 [{
@@ -69,31 +69,31 @@ Schemat för en borttagen händelse nyckel / värde-liknar:
 }]
 ```
  
-## <a name="event-properties"></a>Egenskaper för händelse
+## <a name="event-properties"></a>Händelseegenskaper
 
-En händelse har följande översta data:
+En händelse har följande data på den högsta nivån:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| topic | string | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| topic | string | Publisher-definierade sökvägen till ämne för händelsen. |
-| eventType | string | En av typerna som registrerade händelsen för den här händelsekällan. |
-| eventTime | string | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
-| id | string | Unik identifierare för händelsen. |
-| data | objekt | Händelsedata för App-konfiguration. |
-| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
-| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
+| ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet kan inte skrivas. Event Grid ger det här värdet. |
+| Ämne | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| Händelsetyp | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
+| Händelsetid | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
+| id | sträng | Unik identifierare för händelsen. |
+| data | objekt | Händelsedata för appkonfiguration. |
+| Dataversion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| Metadataversion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Dataobjektet har följande egenskaper:
 
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| key | string | Nyckeln för nyckel / värde som har ändrats eller tagits bort. |
-| label | string | Etiketten, om något av nyckel / värde som har ändrats eller tagits bort. |
-| etag | string | För `KeyValueModified` etag för det nya nyckel-värdet. För `KeyValueDeleted` etag nyckel / värde som har tagits bort. |
+| key | sträng | Nyckeln till nyckelvärdet som har ändrats eller tagits bort. |
+| etikett | sträng | Etiketten, om sådan finns, av nyckelvärdet som har ändrats eller tagits bort. |
+| Etag | sträng | För `KeyValueModified` etag av det nya nyckelvärdet. För `KeyValueDeleted` etag av nyckelvärdet som togs bort. |
  
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [vad är Event Grid?](overview.md)
-* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
-* Läs en introduktion till Azure App-konfigurationshändelser [väg konfiguration av Azure-händelser – Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* En introduktion till Azure Event Grid finns i [Vad är Event Grid?](overview.md)
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md).
+* En introduktion till att arbeta med Azure App-konfigurationshändelser finns i [Route Azure App Configuration events - Azure CLI](../azure-app-configuration/howto-app-configuration-event.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

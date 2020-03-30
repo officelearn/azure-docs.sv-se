@@ -1,20 +1,20 @@
 ---
-title: Självstudie – tilldela åtkomst med Cloudyn i Azure | Microsoft Docs
+title: Självstudie – Tilldela åtkomst med Cloudyn i Azure
 description: I den här självstudien lärde du dig att tilldela åtkomst till Cloudyn-data med användarkonton som definierar åtkomstnivåer till entiteter.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/24/2020
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
 ms.reviewer: benshy
-ms.openlocfilehash: b93dfd7699ab2f1e2851b4d1f7e6d4c721186a2e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ROBOTS: NOINDEX
+ms.openlocfilehash: e8fff8b75ff419cffc7f496f921dcba734109e5a
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76774009"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79463619"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>Självstudier: Tilldela åtkomst till Cloudyn-data
 
@@ -33,6 +33,8 @@ När du registrerade ditt Azure-avtal eller -konto skapades ett konto med admini
 
 
 Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## <a name="prerequisites"></a>Krav
 
@@ -68,9 +70,9 @@ Du kan inte ta bort dig själv som användare.
 > [!WARNING]
 > När du tar bort en användare kan den inte återställas.
 
-1.  I Cloudyn-portalen klickar du på kugghjulssymbolen uppe till höger och väljer **Användarhantering**.
-2.  I listan över användare väljer du den användare som du vill ta bort och klickar sedan på **Ta bort användare** (papperskorgssymbolen).
-3.  I rutan Ta bort användare klickar du på **Ja** och sedan på **OK**.
+1.    I Cloudyn-portalen klickar du på kugghjulssymbolen uppe till höger och väljer **Användarhantering**.
+2.    I listan över användare väljer du den användare som du vill ta bort och klickar sedan på **Ta bort användare** (papperskorgssymbolen).
+3.    I rutan Ta bort användare klickar du på **Ja** och sedan på **OK**.
 
 
 ## <a name="delete-or-export-personal-data"></a>Ta bort eller exportera personliga data

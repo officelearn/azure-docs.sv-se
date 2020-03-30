@@ -1,45 +1,44 @@
 ---
-title: Distribuera och göra förutsägelser med ONNX i SQL Database Edge Preview
-description: Lär dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Database Edge Preview och kör sedan inbyggt FÖRUTSÄGELSEr på data med den överförda ONNX-modellen.
-keywords: Distribuera SQL Database Edge
+title: Distribuera och göra förutsägelser med ONNX i förhandsversionen av SQL Database Edge
+description: Lär dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Database Edge Preview och kör sedan inbyggt PREDICT på data med den uppladdade ONNX-modellen.
+keywords: distribuera sql-databaskant
 services: sql-database-edge
 ms.service: sql-database-edge
 ms.subservice: machine-learning
 ms.topic: conceptual
-author: ronychatterjee
-ms.author: achatter
-ms.reviewer: davidph
-ms.date: 11/04/2019
-ms.openlocfilehash: 37fc04919b844d1edf87be62a587c34de4a8c4d5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: dphansen
+ms.author: davidph
+ms.date: 03/26/2020
+ms.openlocfilehash: aff9346595d3b8985d3558658af32d05f88c0554
+ms.sourcegitcommit: 07d62796de0d1f9c0fa14bfcc425f852fdb08fb1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692335"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80365452"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Distribuera och göra förutsägelser med en ONNX-modell i SQL Database Edge Preview
+# <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>Distribuera och göra förutsägelser med en ONNX-modell i förhandsversionen av SQL Database Edge
 
-I den här snabb starten får du lära dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Database Edge Preview och sedan kör inbyggt FÖRUTSÄGELSEr på data med den överförda ONNX-modellen. Mer information finns i [Machine Learning och AI med ONNX i SQL Database Edge Preview](onnx-overview.md).
+I den här snabbstarten får du lära dig hur du tränar en modell, konverterar den till ONNX, distribuerar den till Azure SQL Database Edge Preview och kör sedan inbyggt PREDICT på data med den uppladdade ONNX-modellen. Mer information finns i [Maskininlärning och AI med ONNX i FÖRHANDSVERSIONEN AV SQL Database Edge](onnx-overview.md).
 
-Den här snabb starten baseras på **scikit – lära** och använder [data uppsättningen Boston](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
+Denna snabbstart är baserad på **scikit-lära och** använder [Boston Housing datauppsättning](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har distribuerat en Azure SQL Database Edge-modul följer du stegen för att [distribuera SQL Database Edge Preview med hjälp av Azure Portal](deploy-portal.md).
+* Om du inte har distribuerat en Azure SQL Database Edge-modul följer du stegen [för att distribuera SQL Database Edge Preview med Azure-portalen](deploy-portal.md).
 
 * Installera [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
-* Öppna Azure Data Studio och följ de här stegen för att installera de paket som behövs för den här snabb starten:
+* Öppna Azure Data Studio och följ dessa steg för att installera de paket som behövs för den här snabbstarten:
 
-    1. Öppna en [ny antecknings bok](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) som är ansluten till python 3-kernel. 
-    1. Klicka på **Hantera paket** och under **Lägg till ny**, Sök efter **sklearn**och installera scikit-lära-paketet. 
-    1. Installera också **onnxmltools**-, **onnxruntime**-, **skl2onnx**-och **sqlalchemy** -paketen.
+    1. Öppna [ny anteckningsbok](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) som är ansluten till Python 3-kärnan. 
+    1. Klicka på **Hantera paket** och under Lägg **till nytt,** sök efter **scikit-learn**och installera scikit-learn-paketet. 
+    1. Också, installera **setuptools**, **numpy**, **onnxmltools**, **onnxruntime**, **skl2onnx**, **pyodbc**, och **sqlalchemy** paket.
     
-* För varje skript del nedan anger du den i en cell i Azure Data Studio Notebook och kör cellen.
+* För varje skriptdel nedan anger du den i en cell i azure datastudio-anteckningsboken och kör cellen.
 
-## <a name="train-a-pipeline"></a>Träna en pipeline
+## <a name="train-a-pipeline"></a>Träna en rörledning
 
-Dela data uppsättningen för att använda funktioner för att förutsäga median värdet för ett hus.
+Dela datauppsättningen för att använda funktioner för att förutsäga medianvärdet för ett hus.
 
 ```python
 import numpy as np
@@ -62,7 +61,6 @@ x = df.drop(['MEDV'], axis = 1)
 # y is what we are trying to predict - the median value
 y = df.iloc[:,-1]
 
-
 # Split the data frame into features and target
 x_train = df.drop(['MEDV'], axis = 1)
 y_train = df.iloc[:,-1]
@@ -74,7 +72,7 @@ print("\n*** Training dataset y\n")
 print(y_train.head())
 ```
 
-**Utdata**:
+**Utdata:**
 
 ```text
 *** Training dataset x
@@ -103,7 +101,7 @@ print(y_train.head())
 Name: MEDV, dtype: float64
 ```
 
-Skapa en pipeline för att träna LinearRegression-modellen. Du kan också använda andra Regressions modeller.
+Skapa en pipeline för att träna linjärregressionsmodellen. Du kan också använda andra regressionsmodeller.
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -127,7 +125,7 @@ model = Pipeline(
 model.fit(x_train, y_train)
 ```
 
-Kontrol lera modellens exakthet och beräkna sedan R2-poängen och genomsnitts meddelandet.
+Kontrollera modellens noggrannhet och beräkna sedan R2-poängen och medelvärdet för kvadratfel.
 
 ```python
 # Score the model
@@ -139,7 +137,7 @@ print('*** Scikit-learn r2 score: {}'.format(sklearn_r2_score))
 print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 ```
 
-**Utdata**:
+**Utdata:**
 
 ```text
 *** Scikit-learn r2 score: 0.7406426641094094
@@ -148,7 +146,7 @@ print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 
 ## <a name="convert-the-model-to-onnx"></a>Konvertera modellen till ONNX
 
-Konvertera data typerna till de SQL-datatyper som stöds. Den här konverteringen krävs även för andra dataframes.
+Konvertera datatyperna till de SQL-datatyper som stöds. Denna konvertering kommer att krävas för andra dataramar också.
 
 ```python
 from skl2onnx.common.data_types import FloatTensorType, Int64TensorType, DoubleTensorType
@@ -171,7 +169,7 @@ def convert_dataframe_schema(df, drop=None, batch_axis=False):
     return inputs
 ```
 
-Använd `skl2onnx`, konvertera LinearRegression-modellen till ONNX-formatet och spara den lokalt.
+Konvertera `skl2onnx`linjärregressionsmodellen till ONNX-formatet med hjälp av och spara den lokalt.
 
 ```python
 # Convert the scikit model to onnx format
@@ -183,10 +181,10 @@ onnxmltools.utils.save_model(onnx_model, onnx_model_path)
 
 ## <a name="test-the-onnx-model"></a>Testa ONNX-modellen
 
-När du har konverterat modellen till ONNX-format kan du göra så att modellen visar liten till ingen försämring i prestandan.
+När du har konverterat modellen till ONNX-format får du en poäng på modellen så att den inte försämras i prestanda.
 
 > [!NOTE]
-> ONNX runtime använder Floats i stället för dubbla så att små avvikelser är möjliga.
+> ONNX Runtime använder flöten istället för dubblar så små avvikelser är möjliga.
 
 ```python
 import onnxruntime as rt
@@ -213,7 +211,7 @@ print('MSE are equal' if sklearn_mse == onnx_mse else 'Difference in MSE scores:
 print()
 ```
 
-**Utdata**:
+**Utdata:**
 
 ```text
 *** Onnx r2 score: 0.7406426691136831
@@ -225,7 +223,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>Infoga ONNX-modellen
 
-Lagra modellen i Azure SQL Database kant i en `models` tabell i en databas `onnx`. I anslutnings strängen anger du **Server adressen**, **användar namnet**och **lösen ordet**.
+Lagra modellen i Azure SQL Database `models` Edge i `onnx`en tabell i en databas . I anslutningssträngen anger du **serveradressen,** **användarnamnet**och **lösenordet**.
 
 ```python
 import pyodbc
@@ -285,10 +283,10 @@ conn.commit()
 
 Läs in data i Azure SQL Database Edge.
 
-Skapa först två tabeller, **funktioner** och **mål**för att lagra del mängder av data uppsättningen Boston.
+Skapa först två tabeller, **funktioner** och **mål**, för att lagra delmängder av Boston bostäder datauppsättning.
 
-* **Funktioner** innehåller alla data som används för att förutsäga målet, median värdet. 
-* **Målet** innehåller median värdet för varje post i data uppsättningen. 
+* **Funktioner** innehåller alla data som används för att förutsäga målet, medianvärdet. 
+* **Målet** innehåller medianvärdet för varje post i datauppsättningen. 
 
 ```python
 import sqlalchemy
@@ -343,7 +341,7 @@ print(x_train.head())
 print(y_train.head())
 ```
 
-Använd slutligen `sqlalchemy` för att infoga `x_train` och `y_train` Pandas dataframes i tabellerna `features` respektive `target`. 
+Slutligen kan `sqlalchemy` du `x_train` använda `y_train` för att infoga dataramarna och pandor i tabellerna `features` respektive . `target` 
 
 ```python
 db_connection_string = 'mssql+pyodbc://' + username + ':' + password + '@' + server + '/' + database + '?driver=ODBC+Driver+17+for+SQL+Server'
@@ -352,14 +350,14 @@ x_train.to_sql(features_table_name, sql_engine, if_exists='append', index=False)
 y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
 ```
 
-Nu kan du visa data i-databasen.
+Nu kan du visa data i databasen.
 
-## <a name="run-predict-using-the-onnx-model"></a>Köra förutsägelse med ONNX-modellen
+## <a name="run-predict-using-the-onnx-model"></a>Kör PREDICT med ONNX-modellen
 
-Med modellen i Azure SQL Database Edge kan du köra Native PREDICT på data med den överförda ONNX-modellen.
+Med modellen i Azure SQL Database Edge kör du inbyggd PREDICT på data med den uppladdade ONNX-modellen.
 
 > [!NOTE]
-> Ändra Notebook-kärnan till SQL för att köra den återstående cellen.
+> Ändra anteckningsbokskärnan till SQL för att köra den återstående cellen.
 
 ```sql
 USE onnx
@@ -393,6 +391,6 @@ SELECT predict_input.id
 FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-* [Machine Learning och AI med ONNX i SQL Database Edge](onnx-overview.md)
+* [Maskininlärning och AI med ONNX i SQL Database Edge](onnx-overview.md)

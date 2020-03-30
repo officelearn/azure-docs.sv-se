@@ -1,7 +1,7 @@
 ---
-title: C#Självstudie om autokomplettering och förslag
+title: C# handledning om automatisk komplettering och förslag
 titleSuffix: Azure Cognitive Search
-description: I den här självstudien visas automatisk komplettering och förslag som ett sätt att samla in Sök villkors information från användare som använder list rutan. Det bygger på ett befintligt hotell projekt.
+description: Den här självstudien visar automatisk komplettering och förslag som ett sätt att samla in söktermen från användare med hjälp av listrutan. Det bygger på ett befintligt hotellprojekt.
 manager: nitinme
 author: tchristiani
 ms.author: terrychr
@@ -9,42 +9,42 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.openlocfilehash: 8f244d64fe33a1529cf66314515bbe16e05ccffb
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "77121531"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C#Självstudie: Lägg till komplettering och förslag – Azure Kognitiv sökning
+# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C# självstudiekurs: Lägg till automatisk komplettering och förslag - Azure Cognitive Search
 
-Lär dig hur du implementerar automatisk komplettering (Skriv-Ahead och förslag) när en användare börjar skriva i sökrutan. I den här självstudien visar vi resultaten för resultat och förslag separat, och visar sedan en metod för att kombinera dem för att skapa en rikare användar upplevelse. En användare behöver bara ange två eller tre nycklar för att hitta alla resultat som är tillgängliga. Den här självstudien bygger på det växlings projekt som skapades i [ C# självstudien: Sök Resultat sid brytning – Azure kognitiv sökning](tutorial-csharp-paging.md) själv studie kurs.
+Lär dig hur du implementerar automatisk komplettering (type-ahead och förslag) när en användare börjar skriva i sökrutan. I den här guiden kommer vi att visa typ-ahead resultat och förslagsresultat separat, sedan visa en metod för att kombinera dem för att skapa en rikare användarupplevelse. En användare kanske bara behöver skriva två eller tre nycklar för att hitta alla tillgängliga resultat. Den här självstudien bygger på det växlingsprojekt som skapats i [C#-självstudien: Sökresultatuppväxling -](tutorial-csharp-paging.md) Azure Cognitive Search-självstudien.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
-> * Lägg till förslag
-> * Lägg till markering i förslagen
-> * Lägg till autokomplettering
-> * Kombinera autokomplettering och förslag
+> * Lägga till förslag
+> * Lägga till markering i förslagen
+> * Lägg till automatisk komplettering
+> * Kombinera komplettera automatiskt och förslag
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
-[ C# Själv studie kursen: sid brytning av Sök Resultat – Azure kognitiv sökning](tutorial-csharp-paging.md) Project up och igång. Projektet kan antingen vara din egen version, som du har slutfört i föregående självstudie eller installera det från GitHub: [skapa första app](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Har [C# Tutorial: Sökresultat sidnumrering - Azure Cognitive Search](tutorial-csharp-paging.md) projektet igång. Det här projektet kan antingen vara din egen version, som du slutförde i föregående självstudiekurs eller installera den från GitHub: [Skapa den första appen](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
-## <a name="add-suggestions"></a>Lägg till förslag
+## <a name="add-suggestions"></a>Lägga till förslag
 
-Vi börjar med det enklaste fallet med att erbjuda alternativ till användaren: en listruta med förslag.
+Låt oss börja med det enklaste fallet att erbjuda upp alternativ till användaren: en rullgardinslista med förslag.
 
-1. I filen index. cshtml ändrar du **TextBoxFor** -instruktionen till följande.
+1. Ändra **TextBoxFor-satsen** till följande i filen index.cshtml.
 
     ```cs
      @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautosuggest" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-    Nyckeln här är att vi har angett ID för sökrutan till **azureautosuggest**.
+    Nyckeln här är att vi har satt ID för sökrutan till **azureautosuggest**.
 
-2. Följ den här instruktionen, efter att ha stängt **&lt;/div&gt;** , ange det här skriptet.
+2. Ange det här skriptet efter den här satsen efter den avslutande ** &lt;&gt;/diven.**
 
     ```javascript
     <script>
@@ -59,13 +59,13 @@ Vi börjar med det enklaste fallet med att erbjuda alternativ till användaren: 
     </script>
     ```
 
-    Vi har kopplat det här skriptet till sökrutan via samma ID. Dessutom krävs minst två tecken för att utlösa sökningen och vi kallar den **föreslå** åtgärden i Start styrenheten med två frågeparametrar: **högdagrar** och **fuzzy**, båda anges som falskt i den här instansen.
+    Vi har anslutit skriptet till sökrutan via samma ID. Dessutom behövs minst två tecken för att utlösa sökningen, och vi **anropar** åtgärden Föreslå i hemkontrollanten med två frågeparametrar: **högdagrar** och **suddiga**, båda inställda på false i det här fallet.
 
-### <a name="add-references-to-jquery-scripts-to-the-view"></a>Lägg till referenser till jQuery-skript i vyn
+### <a name="add-references-to-jquery-scripts-to-the-view"></a>Lägga till referenser till jquery-skript i vyn
 
-Funktionen Autoavsluta som anropades i skriptet ovan är inte något som vi behöver skriva skapar eftersom den är tillgänglig i jQuery-biblioteket. 
+Den komplettera automatiskt funktion som kallas i skriptet ovan är inte något vi måste skriva oss själva eftersom det finns i jquery biblioteket. 
 
-1. Du kommer åt jQuery-biblioteket genom att ändra &lt;Head&gt;-avsnittet i visnings filen till följande kod.
+1. Om du vill komma åt &lt;jquery-biblioteket ändrar du huvudavsnittet&gt; i vyfilen till följande kod.
 
     ```cs
     <head>
@@ -80,7 +80,7 @@ Funktionen Autoavsluta som anropades i skriptet ovan är inte något som vi beh�
     </head>
     ```
 
-2. Vi måste också ta bort eller kommentera ut en rad som refererar till jQuery i filen _Layout. cshtml (i **vyer/delad** mapp). Leta upp följande rader och kommentera ut den första skript raden som visas. Den här ändringen förhindrar konflikt referenser till jQuery.
+2. Vi måste också ta bort, eller kommentera ut, en rad som refererar till jquery i _Layout.cshtml-filen (i mappen **Vyer/Delad).** Leta reda på följande rader och kommentera den första skriptraden som visas. Denna ändring undviker att kollidera referenser till jquery.
 
     ```html
     <environment include="Development">
@@ -90,11 +90,11 @@ Funktionen Autoavsluta som anropades i skriptet ovan är inte något som vi beh�
     </environment>
     ```
 
-    Nu kan vi använda de fördefinierade jQuery-funktionerna i Komplettera automatiskt.
+    Nu kan vi använda de fördefinierade automatisk komplettering jquery funktioner.
 
-### <a name="add-the-suggest-action-to-the-controller"></a>Lägg till föreslå-åtgärden i kontrollanten
+### <a name="add-the-suggest-action-to-the-controller"></a>Lägg till åtgärden Föreslå i styrenheten
 
-1. I Start styrenheten lägger du till den **föreslåde** åtgärden (t. ex. efter **sid** åtgärden).
+1. Lägg till åtgärden **Föreslå** (t.ex. efter sidåtgärden) i hemkontrollanten. **Page**
 
     ```cs
         public async Task<ActionResult> Suggest(bool highlights, bool fuzzy, string term)
@@ -126,34 +126,34 @@ Funktionen Autoavsluta som anropades i skriptet ovan är inte något som vi beh�
         }
     ```
 
-    Den **övre** parametern anger hur många resultat som ska returneras (om inget anges är standardvärdet 5). En _förslags ställare_ anges i Azure-indexet, som görs när data har kon figurer ATS och inte av en klient app, till exempel den här självstudien. I det här fallet kallas förslags texten "SG", och den söker i fältet **HotelName** – ingenting annat. 
+    Parametern **Top** anger hur många resultat som ska returneras (om det inte anges är standardvärdet 5). En _förslagsman_ anges på Azure-indexet, vilket görs när data ställs in, och inte av en klientapp som den här självstudien. I det här fallet kallas förslagsfören "sg", och den söker i **HotelName-fältet** - inget annat. 
 
-    Med fuzzy Matching kan "nära Cachemissar" tas med i utdata. Om parametern **markeringar** har angetts till True läggs FETSTILTA HTML-taggar till i utdata. Vi kommer att ställa in dessa två parametrar på True i nästa avsnitt.
+    Fuzzy matchning tillåter "nära missar" som ska ingå i utdata. Om parametern **Highlights** är true läggs fet html-taggar till i utdata. Vi kommer att ställa in dessa två parametrar till sant i nästa avsnitt.
 
-2. Du kan få några syntaxfel. I så fall lägger du till följande två **using** -uttryck högst upp i filen.
+2. Du kan få några syntaxfel. Om så är fallet lägger du till följande två **med hjälp** av satser överst i filen.
 
     ```cs
     using System.Collections.Generic;
     using System.Linq;
     ```
 
-3. Kör appen. Får du ett utbud av alternativ när du anger "Po", till exempel? Prova nu "pa".
+3. Kör appen. Får du en rad alternativ när du anger "po", till exempel? Försök nu "pa".
 
-    ![Om du skriver "Po" påvisar vi två förslag](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
+    ![Skriva "po" avslöjar två förslag](./media/tutorial-csharp-create-first-app/azure-search-suggest-po.png)
 
-    Observera att bokstäverna du anger _måste_ starta ett ord och inte bara inkluderas i ordet.
+    Observera att de bokstäver du anger _måste_ starta ett ord, och inte bara ingå i ordet.
 
-4. I Visa skript, ange **& fuzzy** till true och kör appen igen. Skriv nu "Po". Observera att sökningen förutsätter att du fick en bokstav fel!
+4. I vyskriptet anger du **&luddig till** true och kör appen igen. Skriv nu in "po". Observera att sökningen förutsätter att du fick ett brev fel!
  
-    ![Skriv "pa" med fuzzy-inställt på Sant](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
+    ![Skriva "pa" med luddig inställd på true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Om du är intresse rad av [Lucene-frågesyntaxen i Azure kognitiv sökning](https://docs.microsoft.com/azure/search/query-lucene-syntax) beskrivs den logik som används i fuzzy-sökningar i detalj.
+    Om du är intresserad beskriver [Lucene-frågesyntaxen i Azure Cognitive Search](https://docs.microsoft.com/azure/search/query-lucene-syntax) logiken som används vid luddiga sökningar i detalj.
 
-## <a name="add-highlighting-to-the-suggestions"></a>Lägg till markering i förslagen
+## <a name="add-highlighting-to-the-suggestions"></a>Lägga till markering i förslagen
 
-Vi kan förbättra utseendet på förslagen till användaren en bit genom att ange parametern **markeringar** till true. Först måste vi dock lägga till en kod i vyn för att visa den fetstilta texten.
+Vi kan förbättra utseendet på förslagen till användaren lite, genom att ställa in **parametern Highlights** till true. Men först måste vi lägga till lite kod i vyn för att visa fet text.
 
-1. I vyn (index. cshtml) lägger du till följande skript efter det **azureautosuggest** -skript som du angav ovan.
+1. Lägg till följande skript efter **azureautosuggest-skriptet** som du angav ovan i vyn (index.cshtml).
 
     ```javascript
     <script>
@@ -182,23 +182,23 @@ Vi kan förbättra utseendet på förslagen till användaren en bit genom att an
     </script>
     ```
 
-2. Ändra nu text rutans ID så att det ser ut så här.
+2. Nu ändra ID för textrutan så att den lyder som följer.
 
     ```cs
     @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azuresuggesthighlights" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-3. Kör appen igen och se att din angivna text är fet i förslagen. Anta att du skriver "pa".
+3. Kör appen igen och du bör se din angivna text fetstilt i förslagen. Säg, prova att skriva "pa".
  
-    ![Skriv "pa" med markering](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
+    ![Skriva "pa" med markering](./media/tutorial-csharp-create-first-app/azure-search-suggest-highlight.png)
 
-4. Logiken som används i markerings skriptet ovan är inte foolproof. Om du anger en term som visas två gånger i samma namn är de fetstilta resultaten inte riktigt vad du vill ha. Försök att skriva "Mo".
+4. Logiken som används i markeringsskriptet ovan är inte idiotsäker. Om du anger en term som visas två gånger med samma namn är de fetstilt resultaten inte riktigt vad du vill ha. Prova att skriva "mo".
 
-    En av frågorna som en utvecklare behöver för att svara är, när är ett skript fungerar "tillräckligt bra", och när bör dess knep tas emot. Vi kommer inte att titta närmare på några ytterligare i den här självstudien, men att hitta en exakt algoritm är något att tänka på om du tar markeringar vidare.
+    En av de frågor en utvecklare måste svara på är, när är ett skript som fungerar "tillräckligt bra", och när bör dess egenheter åtgärdas. Vi kommer inte att ta belysa längre i den här guiden, men att hitta en exakt algoritm är något att överväga om att ta belysa ytterligare.
 
-## <a name="add-autocompletion"></a>Lägg till autokomplettering
+## <a name="add-autocompletion"></a>Lägg till automatisk komplettering
 
-En annan variation, som skiljer sig något från förslag, är autokomplettering (kallas ibland "typ Ahead"). Återigen börjar vi med den enklaste implementeringen, innan du går vidare till att förbättra användar upplevelsen.
+En annan variant, som skiljer sig något från förslag, är automatisk komplettering (kallas ibland "type-ahead"). Återigen kommer vi att börja med den enklaste implementeringen, innan vi går vidare till att förbättra användarupplevelsen.
 
 1. Ange följande skript i vyn, efter dina tidigare skript.
 
@@ -215,13 +215,13 @@ En annan variation, som skiljer sig något från förslag, är autokomplettering
     </script>
     ```
 
-2. Ändra nu text rutans ID så att det kan tolkas på följande sätt.
+2. Nu ändra ID för textrutan, så det står som följer.
 
     ```cs
     @Html.TextBoxFor(m => m.searchText, new { @class = "searchBox", @id = "azureautocompletebasic" }) <input value="" class="searchBoxSubmit" type="submit">
     ```
 
-3. I Start styrenheten måste vi ange åtgärden för **automatisk komplettering** , till exempel under **föreslå** åtgärd.
+3. I hemkontrollanten måste vi ange åtgärden **Komplettera automatiskt,** säg, under **åtgärden Föreslå.**
 
     ```cs
         public async Task<ActionResult> AutoComplete(string term)
@@ -244,23 +244,23 @@ En annan variation, som skiljer sig något från förslag, är autokomplettering
         }
     ```
 
-    Observera att vi använder samma *förslags* funktion, som kallas "SG", i sökningen som vi gjorde för förslag (så att vi bara försöker komplettera om hotell namnen).
+    Observera att vi använder samma *förslagsfunktion,* som kallas "sg", i autocomplete-sökningen som vi gjorde för förslag (så vi försöker bara komplettera hotellnamnen automatiskt).
 
-    Det finns ett antal **AutocompleteMode** -inställningar och vi använder **OneTermWithContext**. Se [Azure-kompletteraren](https://docs.microsoft.com/rest/api/searchservice/autocomplete) för att se en beskrivning av alternativen här.
+    Det finns en rad **inställningar för Komplettera automatisktmode,** och vi använder **OneTermWithContext**. Se [Azure Komplettera automatiskt](https://docs.microsoft.com/rest/api/searchservice/autocomplete) för en beskrivning av alternativen här.
 
-4. Kör appen. Observera hur intervallet för de alternativ som visas i list rutan är enkla ord. Försök att skriva ord som börjar med "re". Observera hur antalet alternativ minskar när fler bokstäver skrivs.
+4. Kör appen. Lägg märke till hur det alternativintervall som visas i listrutan är enstaka ord. Prova att skriva ord som börjar med "re". Lägg märke till hur antalet alternativ minskar när fler bokstäver skrivs in.
 
-    ![Skriva med grundläggande autoifyllning](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
+    ![Skriva med grundläggande automatisk komplettering](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocompletebasic.png)
 
-    I takt med att det finns rekommenderar vi att du har kört det här skriptet. För att göra det mer användarvänligt är det bäst att lägga till förslags sökningen.
+    Som det ser ut, de förslag skript du körde tidigare är förmodligen mer användbart än denna automatisk komplettering skript. Om du vill göra automatisk komplettering mer användarvänligt läggs det bäst till i förslagssökningen.
 
-## <a name="combine-autocompletion-and-suggestions"></a>Kombinera autokomplettering och förslag
+## <a name="combine-autocompletion-and-suggestions"></a>Kombinera komplettera automatiskt och förslag
 
-Att kombinera autokomplettering och förslag är den mest komplexa av våra alternativ och ger förmodligen den bästa användar upplevelsen. Det vi vill ha är att visa, infoga text med den text som skrivs, det första valet av Azure-Kognitiv sökning för att komplettera texten. Vi vill också ha en rad förslag som en nedrullningsbar listruta.
+Att kombinera komplettera automatiskt och förslag är det mest komplexa av våra alternativ, och ger förmodligen den bästa användarupplevelsen. Vad vi vill är att visa, infogad med den text som skrivs, det första valet av Azure Cognitive Search för automatisk komplettering av texten. Dessutom vill vi ha en rad förslag som en rullgardinslista.
 
-Det finns bibliotek som erbjuder den här funktionen – ofta kallat "intern ifyllning" eller liknande namn. Vi kommer dock att implementera den här funktionen internt så att du kan se vad som händer. Vi kommer att börja arbeta på kontrollanten först i det här exemplet.
+Det finns bibliotek som erbjuder den här funktionen - ofta kallad "inline autocompletion" eller ett liknande namn. Men vi kommer att implementera den här funktionen, så att du kan se vad som händer. Vi kommer att börja arbeta med den registeransvarige först i detta exempel.
 
-1. Vi måste lägga till en åtgärd i kontrollanten som bara returnerar ett resultat för autokomplettering, tillsammans med ett angivet antal förslag. Vi kommer att anropa den här åtgärden **AutocompleteAndSuggest**. I Start styrenheten lägger du till följande åtgärd, efter dina andra nya åtgärder.
+1. Vi måste lägga till en åtgärd till styrenheten som returnerar bara ett resultat för automatisk komplettering, tillsammans med ett visst antal förslag. Vi kommer att kalla denna åtgärd **Komplettera automatisktAndSuggest**. Lägg till följande åtgärd i hemkontrollanten och följer dina andra nya åtgärder.
 
     ```cs
         public async Task<ActionResult> AutocompleteAndSuggest(string term)
@@ -309,9 +309,9 @@ Det finns bibliotek som erbjuder den här funktionen – ofta kallat "intern ify
         }
     ```
 
-    Ett alternativ för autokomplettering returneras överst i **resultat** listan, följt av alla förslag.
+    Ett alternativ för automatisk komplettering returneras högst upp i **resultatlistan,** följt av alla förslag.
 
-2. Först implementerar vi ett stick i vyn så att ett ljust grått ord för automatisk komplettering återges direkt under Bolder text som anges av användaren. HTML innehåller relativ placering för detta ändamål. Ändra **TextBoxFor** -instruktionen (och dess omgivande &lt;div&gt;-instruktioner) till följande, och Observera att en andra sökruta som identifieras som **nedan är rätt** under vår vanliga sökruta genom att hämta den här sökrutan 39 pixlar från sin standard plats!
+2. I vyn implementerar vi först ett trick så att ett ljusgrått ord för automatisk komplettering återges rätt under fetare text som anges av användaren. HTML innehåller relativ positionering för detta ändamål. Ändra **TextBoxFor-satsen** (och dess omgivande &lt;div-satser)&gt; till följande, och notera att en andra sökruta som identifieras som **under** är precis under vår normala sökruta, genom att dra den här sökrutan 39 pixlar bort från sin standardplats!
 
     ```cs
     <div id="underneath" class="searchBox" style="position: relative; left: 0; top: 0">
@@ -322,9 +322,9 @@ Det finns bibliotek som erbjuder den här funktionen – ofta kallat "intern ify
     </div>
     ```
 
-    Observera att vi ändrar ID: t igen till **azureautocomplete** i det här fallet.
+    Observera att vi ändrar ID igen, till **azureautocomplete** i det här fallet.
 
-3. I vyn anger du även följande skript när du har angett alla skript som du har angett hittills. Det är mycket för IT.
+3. Också i vyn, ange följande skript, efter alla skript som du har angett hittills. Det är ganska mycket till det.
 
     ```javascript
     <script>
@@ -433,38 +433,38 @@ Det finns bibliotek som erbjuder den här funktionen – ofta kallat "intern ify
     </script>
     ```
 
-    Observera att smarta använder funktionen **Interval** för att både ta bort den underliggande texten när den inte längre matchar vad användaren skriver, och även för att ange samma Skift läge (övre eller lägre) när användaren skriver (som "pa" matchar "pa", "pa", "pa" vid sökning), så att den översatta texten är snygg.
+    Lägg märke till den smarta användningen av **intervallfunktionen** för att både rensa den underliggande texten när den inte längre matchar vad användaren skriver, och även för att ställa in samma fall (övre eller nedre) som användaren skriver (som "pa" matchar "PA", "pA", "Pa" när du söker), så att den överlagrade texten är snygg.
 
     Läs igenom kommentarerna i skriptet för att få en mer fullständig förståelse.
 
-4. Slutligen måste vi göra en mindre justering av två HTML-klasser för att göra dem transparenta. Lägg till följande rad i klasserna **searchBoxForm** och **search** i filen Hotels. CSS.
+4. Slutligen måste vi göra en mindre justering av två HTML-klass för att göra dem transparenta. Lägg till följande rad i **klassen searchBoxForm** och **searchBox** i filen hotels.css.
 
     ```html
         background: rgba(0,0,0,0);
     ```
 
-5. Kör nu appen. Ange "pa" i sökrutan. Får du "Palace" som förslag på Autoavsluta, tillsammans med två hotell som innehåller "pa"?
+5. Kör nu appen. Skriv in "pa" i sökrutan. Får du "palats" som komplettera automatiskt förslag, tillsammans med två hotell som innehåller "pa"?
 
-    ![Skriva med Komplettera automatiskt och förslag](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
+    ![Skriva med infogad komplettera automatiskt och förslag](./media/tutorial-csharp-create-first-app/azure-search-suggest-autocomplete.png)
 
-6. Försök att tabba för att godkänna Autoavsluta-förslaget och försök att välja förslag med piltangenterna och TABB-tangenten och försök igen med musen och med ett enkelt klick. Kontrol lera att skriptet hanterar alla dessa situationer prydligt.
+6. Försök tabbing för att acceptera förslaget komplettera automatiskt och försök att välja förslag med piltangenterna och tabbtangenten och försök igen med musen och ett enda klick. Kontrollera att skriptet hanterar alla dessa situationer snyggt.
 
-    Du kan bestämma att det är enklare att läsa in ett bibliotek som erbjuder den här funktionen åt dig, men nu vet du att du kan få intern ifyllning på ett sätt som fungerar!
+    Du kanske bestämmer dig för att det är enklare att ladda i ett bibliotek som erbjuder den här funktionen för dig, men nu vet du minst ett sätt att få inline automatisk komplettering att fungera!
 
 ## <a name="takeaways"></a>Lärdomar
 
 Tänk på följande takeaways från det här projektet:
 
-* Autoifyllning (kallas även "typ Ahead") och förslag kan göra det möjligt för användaren att skriva några nycklar för att hitta exakt det du söker.
-* Autokomplettering och förslag som fungerar tillsammans kan ge en omfattande användar upplevelse.
-* Testa alltid funktioner för autokomplettering med alla former av inmatade.
-* Det kan vara användbart att använda funktionen **setInterval** för att verifiera och korrigera gränssnitts element.
+* Komplettera automatiskt (kallas även "type-ahead") och förslag kan göra det möjligt för användaren att skriva bara några nycklar för att hitta exakt vad de vill.
+* Komplettera automatiskt och förslag som arbetar tillsammans kan ge en rik användarupplevelse.
+* Testa alltid automatisk kompletteringsfunktioner med alla former av indata.
+* Använda **setInterval-funktionen** kan vara användbart för att verifiera och korrigera gränssnittselement.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I nästa självstudie har vi en titt på ett annat sätt att förbättra användar upplevelsen genom att använda Faces för att begränsa sökningar med ett enda klick.
+I nästa handledning har vi en titt på ett annat sätt att förbättra användarupplevelsen, med hjälp av aspekter för att begränsa sökningar med ett enda klick.
 
 > [!div class="nextstepaction"]
-> [C#Självstudie: använda Faces för att under lätta navigeringen – Azure Kognitiv sökning](tutorial-csharp-facets.md)
+> [C# Självstudiekurs: Använd aspekter för att underlätta navigering - Azure Cognitive Search](tutorial-csharp-facets.md)
 
 

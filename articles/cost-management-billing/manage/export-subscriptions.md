@@ -1,7 +1,6 @@
 ---
-title: Exportera information på toppnivån för din Azure-prenumeration | Microsoft Docs
+title: Exportera information på den översta nivån i din Azure-prenumeration
 description: Här beskrivs hur du kan visa ID:n för alla Azure-prenumerationer som är kopplade till ditt konto.
-keywords: ''
 author: bandersmsft
 ms.reviewer: matrive
 tags: billing
@@ -9,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 83b6a9db0107cb35448aec491c81c2630e87ddd7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 87135b309f0406528bcada1cd906dd2f8535d1ae
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199729"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79202904"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>Exportera och visa information på toppnivån för en prenumeration
 Om du behöver visa de prenumerations-ID:n som är kopplade till din användare kan du [ladda ned en .json-fil med din prenumerationsinformation från Azure-kontocentret](https://account.azure.com/subscriptions/download).

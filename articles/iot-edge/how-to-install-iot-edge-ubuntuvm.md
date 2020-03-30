@@ -1,105 +1,172 @@
 ---
-title: Kör Azure IoT Edge på Ubuntu Virtual Machines | Microsoft Docs
-description: Azure IoT Edge installations anvisningar på Ubuntu 16,04 Azure Marketplace Virtual Machines
-author: gregman-msft
-manager: arjmands
+title: Kör Azure IoT Edge på virtuella Ubuntu-datorer | Microsoft-dokument
+description: Installationsinstruktioner för Azure IoT Edge för Ubuntu 18.04 LTS-virtuella datorer
+author: toolboc
+manager: veyalla
 ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/09/2019
-ms.author: philmea
-ms.openlocfilehash: 49a783e1360aeddc8eeaadba442acf578d9d6f7f
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 03/19/2020
+ms.author: pdecarlo
+ms.openlocfilehash: 64e2787aa282e75893fa34e6de1373e6afed09fe
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046050"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349601"
 ---
-# <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på Ubuntu Virtual Machines
+# <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på virtuella Ubuntu-datorer
 
-Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet.
+Azure IoT Edge-körningen är det som förvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter så små som en Raspberry Pi eller så stor som en industriell server. När en enhet har konfigurerats med IoT Edge-körningen kan du börja distribuera affärslogik till den från molnet.
 
-Mer information om hur IoT Edge runtime fungerar och vilka komponenter som ingår finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
+Mer information om hur IoT Edge-körningen fungerar och vilka komponenter som ingår finns [i Förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
 
-Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime på en virtuell Ubuntu 16,04-dator med hjälp av den förkonfigurerade [Azure IoT Edge på Azure Marketplace-erbjudandet](https://aka.ms/azure-iot-edge-ubuntuvm).
+I den här artikeln visas stegen för att distribuera en Ubuntu 18.04 LTS-virtuell dator med Azure IoT Edge-körningen installerad och konfigurerad med hjälp av en förhandad enhetsanslutningssträng. Distributionen utförs med hjälp av en [moln-init-baserad](../virtual-machines/linux/using-cloud-init.md
+) [Azure Resource Manager-mall](../azure-resource-manager/templates/overview.md) som underhålls i projektdatabasen [iotedge-vm.](https://github.com/Azure/iotedge-vm-deploy)
 
-Vid den första starten förinstallerar Azure IoT Edge Ubuntu VM den senaste versionen av Azure IoT Edge Runtime. Det innehåller också ett skript för att ange anslutnings strängen och sedan starta om körningen, som kan utlösas via en fjärr anslutning via Azures virtuella dator portal eller Azure-kommandoraden, så att du enkelt kan konfigurera och ansluta IoT Edge-enheten utan att starta en SSH eller fjärr anslutning fjärrskrivbordssession. Det här skriptet väntar på att ange anslutnings strängen tills IoT Edge-klienten är helt installerad så att du inte behöver skapa den i din automatisering.
+Vid första start installerar den virtuella Ubuntu 18.04 [LTS-datorn den senaste versionen av Azure IoT Edge-körningen via cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/master/cloud-init.txt). Den ställer också in en medföljande anslutningssträng innan körningen startar, så att du enkelt kan konfigurera och ansluta IoT Edge-enheten utan att behöva starta en SSH- eller fjärrskrivbordssession. 
 
-## <a name="deploy-from-the-azure-marketplace"></a>Distribuera från Azure Marketplace
+## <a name="deploy-using-deploy-to-azure-button"></a>Distribuera med knappen Distribuera till Azure
 
-1. Navigera till Azure IoT Edge Marketplace-erbjudande för [Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm) eller genom att söka Azure IoT Edge på Ubuntu på [Azure Marketplace](https://azuremarketplace.microsoft.com/)
-2. Välj **Hämta nu** och **Fortsätt** sedan i nästa dialog ruta.
-3. När du är i Azure Portal väljer du **skapa** och följer guiden för att distribuera den virtuella datorn.
-    * Om det är första gången du försöker ta bort en virtuell dator är det enklast att använda ett lösen ord och att aktivera SSH på den offentliga menyn för inkommande port.
-    * Om du har en resurs intensiv arbets belastning bör du uppgradera storleken på den virtuella datorn genom att lägga till fler processorer och/eller minne.
-4. När den virtuella datorn har distribuerats konfigurerar du den så att den ansluter till din IoT Hub:
-    1. Kopiera enhets anslutnings strängen från din IoT Edge enhet som skapats i din IoT Hub (du kan följa anvisningarna för att [Hämta anslutnings strängen i Azure Portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) om du inte är bekant med den här processen)
-    1. Välj den virtuella dator resurs som du skapade nyligen från Azure Portal och öppna **kommando alternativet Kör**
-    1. Välj alternativet **RunShellScript**
-    1. Kör skriptet nedan via kommando fönstret med enhets anslutnings strängen: `/etc/iotedge/configedge.sh "{device_connection_string}"`
-    1. Välj **Kör**
-    1. Vänta en stund och skärmen bör sedan ange ett meddelande som anger att anslutnings strängen har angetts.
+Med [knappen Distribuera till Azure](../azure-resource-manager/templates/deploy-to-azure-button.md) kan du använda en strömlinjeformad distribution av Azure Resource [Manager-mallar](../azure-resource-manager/templates/overview.md) som underhålls på GitHub.  Det här avsnittet visar användningen av knappen Distribuera till Azure som finns i projektdatabasen [iotedge-vm.](https://github.com/Azure/iotedge-vm-deploy)  
 
-## <a name="deploy-from-the-azure-portal"></a>Distribuera från Azure Portal
 
-Från Azure Portal söker du efter "Azure IoT Edge" och väljer **Ubuntu Server 16,04 LTS + Azure IoT Edge runtime** för att starta arbets flödet för skapande av virtuella datorer. Därifrån slutför du steg 3 och 4 i anvisningarna för att distribuera från Azure Marketplace ovan.
+1. Vi distribuerar en Azure IoT Edge-aktiverad Linux-virtuell dator med iotedge-vm-deploy Azure Resource Manager-mallen.  Börja med att klicka på knappen nedan:
+
+    [![Distribuera till Azure-knappen för iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
+
+1. I det nyligen lanserade fönstret fyller du i de tillgängliga formulärfälten:
+
+    > [!div class="mx-imgBorder"]
+    > [![Skärmbild som visar iotedge-vm-deploy-mallen](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
+
+    **Prenumeration:** Den aktiva Azure-prenumerationen som ska distribuera den virtuella datorn till.
+
+    **Resursgrupp**: En befintlig eller nyskapade resursgrupp som innehåller den virtuella datorn och den är associerade resurser.
+
+    **DNS-etikettprefix:** Ett obligatoriskt värde som du väljer som används för att prefixa värdnamnet för den virtuella datorn.
+
+    **Administratörsanvändarnamn**: Ett användarnamn som kommer att tillhandahållas rotbehörigheter vid distribution.
+
+    **Device Connection String**: En [enhetsanslutningssträng](how-to-register-device.md) för en enhet som skapades i den avsedda [IoT Hub](../iot-hub/about-iot-hub.md).
+
+    **VM-storlek:** [Storleken på](../cloud-services/cloud-services-sizes-specs.md) den virtuella datorn som ska distribueras
+
+    **Ubuntu OS Version**: Den version av Ubuntu OS som ska installeras på basen virtuell maskin.
+
+    **Plats**: Den [geografiska region](https://azure.microsoft.com/global-infrastructure/locations/) som den virtuella datorn ska distribueras till, det här värdet är som standard platsen för den valda resursgruppen.
+
+    **Autentiseringstyp:** Välj **sshPublicKey** eller **lösenord** beroende på dina önskemål.
+
+    **Admin Lösenord eller nyckel:** Värdet på SSH Public Key eller värdet av lösenordet beroende på valet av autentiseringstyp.
+
+    När alla fält har fyllts i markerar du kryssrutan längst ned på sidan för att acceptera villkoren och väljer **Inköp** för att påbörja distributionen.
+
+1. Kontrollera att distributionen har slutförts.  En resurs för virtuella datorer ska ha distribuerats till den valda resursgruppen.  Notera maskinnamnet, bör detta vara i `vm-0000000000000`formatet . Ta också del av det associerade **DNS-namnet** `<dnsLabelPrefix>`, som ska vara i formatet . `<location>`.cloudapp.azure.com.
+
+    **DNS-namnet** kan erhållas från avsnittet **Översikt på** den nyligen distribuerade virtuella datorn i Azure-portalen.
+
+    > [!div class="mx-imgBorder"]
+    > [![Skärmdump som visar dns-namnet på iotedge-vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+
+1. Om du vill SSH i den här virtuella datorn efter installationen använder du det associerade **DNS-namnet** med kommandot:`ssh <adminUsername>@<DNS_Name>`
 
 ## <a name="deploy-from-azure-cli"></a>Distribuera från Azure CLI
 
-1. Om du använder Azure CLI på Skriv bordet startar du genom att logga in:
+1. Kontrollera att du har installerat Azure CLI iot-tillägget med:
+    ```azurecli-interactive
+    az extension add --name azure-iot
+    ```
+
+1. Om du använder Azure CLI på skrivbordet börjar du sedan med att logga in:
 
    ```azurecli-interactive
    az login
    ```
 
-1. Om du har flera prenumerationer väljer du den prenumeration som du vill använda:
-   1. Lista dina prenumerationer:
+1. Om du har flera prenumerationer väljer du den prenumeration du vill använda:
+   1. Visa dina prenumerationer:
 
       ```azurecli-interactive
       az account list --output table
       ```
 
-   1. Kopiera SubscriptionID-fältet för den prenumeration du vill använda.
+   1. Kopiera fältet SubscriptionID för den prenumeration som du vill använda.
 
-   1. Ange din arbets prenumeration med det ID som du precis har kopierat:
+   1. Ange din arbetsprenumeration med det ID som du kopierade:
 
       ```azurecli-interactive
-      az account set -s {SubscriptionId}
+      az account set -s <SubscriptionId>
       ```
 
-1. Skapa en ny resurs grupp (eller ange en befintlig i nästa steg):
+1. Skapa en ny resursgrupp (eller ange en befintlig i nästa steg):
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
 
-1. Godkänn användnings villkoren för den virtuella datorn. Om du vill granska villkoren först följer du stegen i [distribuera från Azure Marketplace](#deploy-from-the-azure-marketplace).
-
-   ```azurecli-interactive
-   az vm image terms accept --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
-   ```
-
 1. Skapa en ny virtuell dator:
 
-   ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
-   ```
-
-1. Ange anslutnings strängen för enheten (du kan följa anvisningarna för att [Hämta anslutnings strängen med Azure CLI](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) om du inte är bekant med den här processen):
+    Om du vill `password`använda en **authenticationType** av läser du exemplet nedan:
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
+   az group deployment create \
+   --name edgeVm \
+   --resource-group IoTEdgeResources \
+   --template-uri "https://aka.ms/iotedge-vm-deploy" \
+   --parameters dnsLabelPrefix='my-edge-vm1' \
+   --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
+   --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+   --parameters authenticationType='password' \
+   --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
-Om du vill använda SSH i den här virtuella datorn efter installationen använder du publicIpAddress med kommandot: `ssh azureuser@{publicIpAddress}`
+    Om du vill autentisera med en SSH-nyckel kan `sshPublicKey`du göra det genom att ange en **authenticationType** för och sedan ange värdet för SSH-nyckeln i parametern **adminPasswordOrKey.**  Ett exempel på detta visas nedan.
+
+    ```azurecli-interactive
+    #Generate the SSH Key
+    ssh-keygen -m PEM -t rsa -b 4096 -q -f ~/.ssh/iotedge-vm-key -N ""  
+
+    #Create a VM using the iotedge-vm-deploy script
+    az group deployment create \
+    --name edgeVm \
+    --resource-group IoTEdgeResources \
+    --template-uri "https://aka.ms/iotedge-vm-deploy" \
+    --parameters dnsLabelPrefix='my-edge-vm1' \
+    --parameters adminUsername='<REPLACE_WITH_USERNAME>' \
+    --parameters deviceConnectionString=$(az iot hub device-identity show-connection-string --device-id <REPLACE_WITH_DEVICE-NAME> --hub-name <REPLACE-WITH-HUB-NAME> -o tsv) \
+    --parameters authenticationType='sshPublicKey' \
+    --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
+     
+    ```
+
+1. Kontrollera att distributionen har slutförts.  En resurs för virtuella datorer ska ha distribuerats till den valda resursgruppen.  Notera maskinnamnet, bör detta vara i `vm-0000000000000`formatet . Ta också del av det associerade **DNS-namnet** `<dnsLabelPrefix>`, som ska vara i formatet . `<location>`.cloudapp.azure.com.
+
+    **DNS-namnet** kan erhållas från JSON-formaterade utdata från föregående steg, inom **utdataavsnittet** som en del av den **offentliga SSH-posten.**  Värdet för den här posten kan användas för att SSH till den nyligen distribuerade datorn.
+
+    ```bash
+    "outputs": {
+      "public SSH": {
+        "type": "String",
+        "value": "ssh <adminUsername>@<DNS_Name>"
+      }
+    }
+    ```
+
+    **DNS-namnet** kan också hämtas från avsnittet **Översikt på** den nyligen distribuerade virtuella datorn i Azure-portalen.
+
+    > [!div class="mx-imgBorder"]
+    > [![Skärmdump som visar dns-namnet på iotedge-vm](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+
+1. Om du vill SSH i den här virtuella datorn efter installationen använder du det associerade **DNS-namnet** med kommandot:`ssh <adminUsername>@<DNS_Name>`
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge enhet som har installerats med körnings miljön kan du [distribuera IoT Edge moduler](how-to-deploy-modules-portal.md).
+Nu när du har etablerat en IoT Edge-enhet med körningen installerad kan du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
 
-Om du har problem med IoT Edge runtime-installationen kan du kolla in [fel söknings](troubleshoot.md) sidan.
+Om du har problem med att IoT Edge-körningen installeras korrekt kan du läsa [felsökningssidan.](troubleshoot.md)
 
-Om du vill uppdatera en befintlig installation till den senaste versionen av IoT Edge, se [uppdatera IoT Edge Security daemon och runtime](how-to-update-iot-edge.md).
+Information om hur du uppdaterar en befintlig installation till den senaste versionen av IoT Edge finns i [Uppdatera säkerhetsdemonen och körningen i IoT Edge](how-to-update-iot-edge.md).
 
-Om du vill öppna portarna för att få åtkomst till den virtuella datorn via SSH eller andra inkommande anslutningar läser du dokumentationen om att [öppna portar och slut punkter till en virtuell Linux](../virtual-machines/linux/nsg-quickstart.md) -dator.
+Om du vill öppna portar för åtkomst till den virtuella datorn via SSH eller andra inkommande anslutningar läser du azure Virtual Machines-dokumentationen om [hur du öppnar portar och slutpunkter till en Virtuell Linux-dator](../virtual-machines/linux/nsg-quickstart.md)

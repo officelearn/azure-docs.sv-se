@@ -1,6 +1,6 @@
 ---
-title: Azure Relay autentisering och auktorisering | Microsoft Docs
-description: Den här artikeln innehåller en översikt över autentisering med signatur för delad åtkomst (SAS) med Azure Relay-tjänsten.
+title: Autentisering och auktorisering av Azure Relay | Microsoft-dokument
+description: Den här artikeln innehåller en översikt över SAS-autentisering (Shared Access Signature) med Azure Relay-tjänsten.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -15,41 +15,41 @@ ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
 ms.openlocfilehash: aac5c973a99b13d5918a0162feb7f1ede443463b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76514586"
 ---
-# <a name="azure-relay-authentication-and-authorization"></a>Azure Relay autentisering och auktorisering
+# <a name="azure-relay-authentication-and-authorization"></a>Azure Relay-autentisering och auktorisering
 
-Program kan autentiseras för Azure Relay att använda autentisering med signatur för delad åtkomst (SAS). SAS-autentisering gör det möjligt för program att autentisera till Azure Relay tjänsten med hjälp av en åtkomst nyckel som kon figurer ATS i relä namn området. Du kan sedan använda den här nyckeln för att generera en token för signatur för delad åtkomst som klienter kan använda för att autentisera till relä tjänsten.
+Program kan autentisera till Azure Relay med SAS-autentisering (Shared Access Signature). SAS-autentisering gör det möjligt för program att autentisera till Azure Relay-tjänsten med hjälp av en åtkomstnyckel som konfigurerats på Relay-namnområdet. Du kan sedan använda den här nyckeln för att generera en signaturtoken för delad åtkomst som klienter kan använda för att autentisera till relay-tjänsten.
 
 ## <a name="shared-access-signature-authentication"></a>Autentisering av signatur för delad åtkomst
 
-[SAS-autentisering](../service-bus-messaging/service-bus-sas.md) gör att du kan ge en användare åtkomst till Azure Relay resurser med vissa rättigheter. SAS-autentisering innebär konfiguration av en kryptografisk nyckel med tillhör ande behörigheter på en resurs. Klienter kan sedan få åtkomst till den resursen genom att presentera en SAS-token som består av resurs-URI: n som används och förfallo datum signerad med den konfigurerade nyckeln.
+[MED SAS-autentisering](../service-bus-messaging/service-bus-sas.md) kan du bevilja en användare åtkomst till Azure Relay-resurser med specifika rättigheter. SAS-autentisering innebär konfiguration av en kryptografisk nyckel med associerade rättigheter på en resurs. Klienter kan sedan få åtkomst till den resursen genom att presentera en SAS-token, som består av att resursen URI används och en förfallodatum som har signerats med den konfigurerade nyckeln.
 
-Du kan konfigurera nycklar för SAS i ett relä namn område. Till skillnad från Service Bus meddelanden stöder [relä hybridanslutningar](relay-hybrid-connections-protocol.md) obehöriga eller anonyma avsändare. Du kan aktivera anonym åtkomst för entiteten när du skapar den, som du ser i följande skärm bild från portalen:
+Du kan konfigurera nycklar för SAS på ett relay-namnområde. Till skillnad från Service Bus-meddelanden stöder [Relay Hybrid-anslutningar](relay-hybrid-connections-protocol.md) obehöriga eller anonyma avsändare. Du kan aktivera anonym åtkomst för entiteten när du skapar den, som visas i följande skärmbild från portalen:
 
 ![][0]
 
-Om du vill använda SAS kan du konfigurera ett [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -objekt i ett relä namn område som består av följande:
+Om du vill använda SAS kan du konfigurera ett [SharedAccessAuthorizationRule-objekt](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) på ett Relay-namnområde som består av följande:
 
-* *Namn* som identifierar regeln.
+* *KeyName* som identifierar regeln.
 * *PrimaryKey* är en kryptografisk nyckel som används för att signera/validera SAS-token.
 * *SecondaryKey* är en kryptografisk nyckel som används för att signera/validera SAS-token.
-* *Rättigheter* som representerar samlingen av beviljade behörigheterna Lyssna, skicka eller hantera.
+* *Rättigheter* som representerar samlingen av rättigheter lyssna, Skicka eller Hantera som beviljats.
 
-Auktoriseringsregler som kon figurer ATS på namn områdes nivå kan bevilja åtkomst till alla relä anslutningar i ett namn område för klienter med token som signerats med motsvarande nyckel. Upp till 12 sådana auktoriseringsregler kan konfigureras i ett relä namn område. Som standard konfigureras en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) med alla rättigheter för varje namnrymd när den först har tillhandahållits.
+Auktoriseringsregler som konfigurerats på namnområdesnivå kan bevilja åtkomst till alla relay-anslutningar i ett namnområde för klienter med token signerade med motsvarande nyckel. Upp till 12 sådana auktoriseringsregler kan konfigureras på ett relay-namnområde. Som standard konfigureras en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) med alla rättigheter för varje namnområde när det först etableras.
 
-För att få åtkomst till en entitet kräver klienten en SAS-token som genereras med en speciell [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). SAS-token genereras med hjälp av HMAC-SHA256 för en resurs sträng som består av resurs-URI till vilken åtkomst begärs, och ett förfallo datum med en kryptografisk nyckel som är kopplad till auktoriseringsregeln.
+För att komma åt en entitet kräver klienten en SAS-token som genereras med hjälp av en specifik [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). SAS-token genereras med HMAC-SHA256 för en resurssträng som består av resurs-URI som åtkomst begärs till och en förfallodatum med en kryptografisk nyckel som är associerad med auktoriseringsregeln.
 
-Stöd för SAS-autentisering för Azure Relay ingår i Azure .NET SDK-versionerna 2,0 och senare. SAS har stöd för en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Alla API: er som accepterar en anslutnings sträng som parameter är stöd för SAS-anslutningssträngar.
+SAS-autentiseringsstöd för Azure Relay ingår i Azure .NET SDK version 2.0 och senare. SAS innehåller stöd för en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule). Alla API:er som accepterar en anslutningssträng som en parameter innehåller stöd för SAS-anslutningssträngar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Fortsätt att läsa [Service Bus autentisering med signaturer för delad åtkomst](../service-bus-messaging/service-bus-sas.md) för mer information om SAS.
-- Mer information om Hybridanslutningar-funktionen finns i [Azure Relay Hybridanslutningars protokoll hand bok](relay-hybrid-connections-protocol.md) .
-- För motsvarande information om Service Bus autentisering och auktorisering av meddelanden, se [Service Bus autentisering och auktorisering](../service-bus-messaging/service-bus-authentication-and-authorization.md). 
+- Fortsätt läsa [Service Bus-autentisering med signaturer](../service-bus-messaging/service-bus-sas.md) för delad åtkomst för mer information om SAS.
+- Mer information om hybridanslutningsfunktionen finns i [protokollguiden för Azure Relay Hybrid Connections.](relay-hybrid-connections-protocol.md)
+- Mer information om autentisering och auktorisering för Service Bus Messaging finns i [Autentisering och auktorisering för Service Bus](../service-bus-messaging/service-bus-authentication-and-authorization.md)Messaging . 
 
 [0]: ./media/relay-authentication-and-authorization/hcanon.png

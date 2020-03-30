@@ -1,6 +1,6 @@
 ---
-title: Återställa en volym från en säkerhetskopia på en StorSimple 8000-serien | Microsoft Docs
-description: Beskriver hur du använder StorSimple Device Manager-tjänsten säkerhetskopieringskatalogen för att återställa en StorSimple-volym från en säkerhetskopia.
+title: Återställa en volym från säkerhetskopiering på en StorSimple 8000-serie | Microsoft-dokument
+description: I artikeln beskrivs hur du ansÃ¤nder Ã¤ nã¤tts i storsimple-tjänsthanterarens servicerÃ¤llningskatalog fÃ¥ller en StorSimple-volym frÃ¥n en säkerhetskopia.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,132 +15,132 @@ ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
 ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60723398"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Återställa en StorSimple-volym från en säkerhetskopia
 
 ## <a name="overview"></a>Översikt
 
-Den här självstudien beskrivs återställningen utförs på en enhet i StorSimple 8000-serien med en befintlig säkerhetskopia. Använd den **säkerhetskopieringskatalog** bladet för att återställa en volym från en lokal eller säkerhetskopiering i molnet. Den **säkerhetskopieringskatalog** bladet visar alla säkerhetskopior som skapas när manuella eller automatiska säkerhetskopior tas. Återställningen från en säkerhetskopia ger volymen är online direkt, medan data hämtas i bakgrunden.
+Den här självstudien beskriver återställningen som utförs på en StorSimple 8000-serieenhet med hjälp av en befintlig säkerhetskopia. Använd **bladet Säkerhetskopieringskatalog** för att återställa en volym från en lokal säkerhetskopiering eller molnsäkerhetskopiering. Katalogbladet **För säkerhetskopiering** visar alla säkerhetskopior som skapas när manuella eller automatiska säkerhetskopior görs. Återställningen från en säkerhetskopia visar volymen online direkt medan data hämtas i bakgrunden.
 
-En alternativ metod för att starta återställning är att gå till **enheter > [enheten] > volymer**. I den **volymer** bladet väljer du en volym, högerklicka för att öppna snabbmenyn och välj sedan **återställa**.
+En alternativ metod för att starta återställningen är att gå till **Enheter > [Enheten] > volymer**. I bladet **Volymer** väljer du en volym, högerklickar för att anropa snabbmenyn och väljer sedan **Återställ**.
 
 ## <a name="before-you-restore"></a>Innan du återställer
 
-Innan du startar en återställning kan du granska följande varningar:
+Innan du påbörjar en återställning bör du läsa följande varningar:
 
-* **Du måste koppla från volymen** – ta frånkoppla volymen på värden och på enheten innan du startar återställningen igen. Även om återställningen tar automatiskt volymen är online på enheten, måste du manuellt Anslut enheten på värden. Du kan använda volymen är online på värden när volymen är online på enheten. (Du behöver inte vänta tills återställningen har slutförts.) Mer information om procedurer går du till [koppla från en volym](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline).
+* **Du måste koppla från volymen** – Koppla volymen från värden och enheten innan du påbörjar återställningen. Även om återställningen automatiskt för volymen online på enheten, måste du manuellt ansluta enheten på värden. Du kan ansluta volymen till värden så fort volymen är online på enheten. (Du behöver inte vänta tills återställningen är klar.) Om du vill ha procedurer går du till [Ta en volym offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline).
 
-* **Volymtyp efter återställning** – borttagna volymer återställs beroende på vilken i ögonblicksbilden, det vill säga volymer som fästs lokalt återställs som lokalt fixerade volymer och volymer som har nivåindelade återställs som nivåindelade volymer.
+* **Volymtyp efter återställning** – Borttagna volymer återställs baserat på typen i ögonblicksbilden. det vill än volymer som fästas lokalt återställs som lokalt fästa volymer och volymer som har nivåindelat återställs som nivåindelade volymer.
 
-    För befintliga volymer åsidosätter aktuella användningstyp volymens den typ som sparades i ögonblicksbilden. Till exempel om du återställer en volym från en ögonblicksbild som vidtogs när typ av volym har nivåer och volymtyp är nu Fäst lokalt (på grund av en konvertering som utfördes) kommer sedan volymen att återställas som en lokalt Fäst volym. Om en befintlig lokalt Fäst volym har utökats och därefter återställts från en äldre ögonblicksbilden när volymen var mindre, på samma sätt kan behåller den återställda volymen den aktuella utökade storleken.
+    För befintliga volymer åsidosätter den aktuella användningstypen för volymen den typ som lagras i ögonblicksbilden. Om du till exempel återställer en volym från en ögonblicksbild som togs när volymtypen nivåindelades och den volymtypen nu är lokalt fäst (på grund av en konverteringsåtgärd som utfördes), återställs volymen som en lokalt fäst volym. På samma sätt, om en befintlig lokalt fäst volym expanderades och därefter återställdes från en äldre ögonblicksbild som togs när volymen var mindre, behåller den återställda volymen den aktuella utökade storleken.
 
-    Du kan inte konvertera en volym från en nivåindelad volym till en lokalt Fäst volym eller från en lokalt Fäst volym till en nivåindelad volym när volymen återställs. Vänta tills återställningen är klar och du kan sedan konvertera volymen till en annan typ. Information om hur du konverterar en volym, går du till [ändra volymtyp](storsimple-8000-manage-volumes-u2.md#change-the-volume-type). 
+    Du kan inte konvertera en volym från en nivåindelad volym till en lokalt fäst volym eller från en lokalt fäst volym till en nivåindelad volym medan volymen återställs. Vänta tills återställningen är klar och sedan kan du konvertera volymen till en annan typ. Information om hur du konverterar en volym finns i [Ändra volymtyp](storsimple-8000-manage-volumes-u2.md#change-the-volume-type). 
 
-* **Volymens storlek återspeglas i återställda volymen** – detta är viktigt om du återställer en lokalt Fäst volym som har tagits bort (eftersom lokalt fixerade volymer är helt etablerad). Se till att du har tillräckligt med utrymme innan du försöker återställa en lokalt Fäst volym som tidigare har tagits bort.
+* **Volymstorleken återspeglas i den återställda volymen** – Det här är en viktig faktor om du återställer en lokalt fäst volym som har tagits bort (eftersom lokalt fästa volymer är helt etablerade). Kontrollera att du har tillräckligt med utrymme innan du försöker återställa en lokalt fäst volym som tidigare har tagits bort.
 
-* **Du kan inte utöka en volym när den återställs** – vänta tills återställningen har slutförts innan du försöker att utöka volymen. Information om hur du utökar en volym, går du till [ändra en volym](storsimple-8000-manage-volumes-u2.md#modify-a-volume).
+* **Du kan inte expandera en volym medan den återställs** – Vänta tills återställningen är klar innan du försöker expandera volymen. Information om hur du expanderar en volym finns i [Ändra en volym](storsimple-8000-manage-volumes-u2.md#modify-a-volume).
 
-* **Du kan utföra en säkerhetskopiering när du återställer en lokal volym** – för procedurer går du till [använda StorSimple Device Manager-tjänsten för att hantera principer för säkerhetskopiering](storsimple-8000-manage-backup-policies-u2.md).
+* **Du kan utföra en säkerhetskopia medan du återställer en lokal volym** – För procedurer gå till [Använd Tjänsten StorSimple Device Manager för att hantera principer för säkerhetskopiering](storsimple-8000-manage-backup-policies-u2.md).
 
-* **Du kan avbryta en återställningsåtgärd** – om du avbryter återställningsjobbet, och sedan volymen kommer att återställas till det tillstånd som innan du startade återställningen igen. Mer information om procedurer går du till [avbryta ett jobb](storsimple-8000-manage-jobs-u2.md#cancel-a-job).
+* **Du kan avbryta en återställningsåtgärd** – Om du avbryter återställningsjobbet återställs volymen tillbaka till det tillstånd som den befann sig i innan du påbörjade återställningen. Om du vill ha procedurer går du till [Avbryt ett jobb](storsimple-8000-manage-jobs-u2.md#cancel-a-job).
 
-## <a name="how-does-restore-work"></a>Hur återställs arbete
+## <a name="how-does-restore-work"></a>Hur återställer arbete
 
-För enheter som kör uppdatering 4 eller senare kan har en termisk karta-baserad återställning implementerats. Som värden begär att få åtkomst till data nå din enhet, begärandena spåras och en termisk karta skapas. Hög begärandehastighet resulterar i datasegment med högre termisk medan lägre begärandehastighet översätts till segment med lägre termisk. Du måste ansluta till data minst två gånger för att markeras som _frekvent_. En fil som ändras markeras också _frekvent_. När du startar återställningen sker proaktiv hydrering av data baserat på den termiska kartan. För versioner före uppdatering 4 data laddas ned under återställning som baseras på åtkomst endast.
+För enheter som kör uppdatering 4 eller senare implementeras en heatmap-baserad återställning. När värden begär att få åtkomst till data når enheten spåras dessa begäranden och en värmekarta skapas. Hög begäranhetsfrekvens resulterar i datasegment med högre värme medan lägre begäranhetsfrekvens översätts till bitar med lägre värme. Du måste komma åt data minst två gånger för att markeras som _heta_. En fil som har ändrats markeras också som _het_. När du har initierat återställningen sker proaktiv återfuktning av data baserat på värmekartan. För tidigare versioner än uppdatering 4 hämtas data under återställningen endast baserat på åtkomst.
 
-Följande villkor gäller för den termiska kartan-baserade återställningar:
+Följande varningar gäller för heatmap-baserade återställningar:
 
-* Termisk karta spårning aktiveras endast för nivåindelade volymer och lokalt fixerade volymer stöds inte.
+* Heatmap-spårning är endast aktiverat för nivåindelade volymer och lokalt fästa volymer stöds inte.
 
-* Termisk karta-baserad återställning stöds inte när du klonar en volym till en annan enhet. 
+* Värmekartabaserad återställning stöds inte vid kloning av en volym till en annan enhet. 
 
-* Om det finns en återställning på plats och en lokal ögonblicksbild för volymen som ska återställas finns på enheten, så vi inte rehydrate (eftersom data är redan tillgänglig lokalt). 
+* Om det finns en återställning på plats och en lokal ögonblicksbild för volymen som ska återställas finns på enheten, så återfuktar vi inte (eftersom data redan är tillgängliga lokalt). 
 
-* Som standard när du återställer startas återuppväckning jobb som proaktivt rehydrate data baserat på den termiska kartan. 
+* När du återställer initieras som standard rehydreringsjobb som proaktivt återfuktar data baserat på värmekartan. 
 
-Windows PowerShell-cmdlets kan användas att fråga efter jobb som körs återuppväckning, avbryts återuppväckning och hämta status för jobbet återuppväckning i uppdatering 4.
+I uppdatering 4 kan Windows PowerShell-cmdlets användas för att fråga köra rehydreringsjobb, avbryta ett rehydreringsjobb och få status för rehydreringsjobbet.
 
-* `Get-HcsRehydrationJob` – Denna cmdlet hämtar status för jobbet återuppväckning. Ett enda återuppväckning jobb utlöses för en volym.
+* `Get-HcsRehydrationJob`- Den här cmdleten får status som rehydreringsjobbet. Ett enda rehydreringsjobb utlöses för en volym.
 
-* `Set-HcsRehydrationJob` – Denna cmdlet kan du pausa, stoppa och återuppta jobbet återuppväckning när återuppväckning pågår.
+* `Set-HcsRehydrationJob`- Denna cmdlet kan du pausa, stoppa, återuppta rehydrering jobb, när rehydrering pågår.
 
-Mer information om återuppväckning cmdletar går du till [cmdlet-referens för Windows PowerShell för StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+Mer information om rehydrerings cmdlets finns i [Windows PowerShell cmdlet reference for StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
-Med automatisk återuppväckning kan vanligtvis förväntas högre tillfälliga läsprestanda. Den faktiska storleken på förbättringar är beroende av olika faktorer, till exempel åtkomstmönster och dataomsättningen datatyp. 
+Med automatisk rehydrering förväntas vanligtvis högre övergående läsprestanda. Den faktiska omfattningen av förbättringar beror på olika faktorer som åtkomstmönster, dataomsättning och datatyp. 
 
-Om du vill avbryta ett jobb för återuppväckning kan du använda PowerShell-cmdleten. Om du vill inaktivera permanent återuppväckning jobb för alla framtida återställningar [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+Om du vill avbryta ett rehydreringsjobb kan du använda PowerShell-cmdleten. Om du vill inaktivera rehydreringsjobb permanent för alla framtida återställningar [kontaktar du Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
-## <a name="how-to-use-the-backup-catalog"></a>Hur du använder säkerhetskopieringskatalogen
+## <a name="how-to-use-the-backup-catalog"></a>Så här använder du säkerhetskopieringskatalogen
 
-Den **säkerhetskopieringskatalogen** bladet ger ange en fråga som hjälper dig att begränsa din säkerhetskopia. Du kan filtrera de säkerhetskopior som hämtas baserat på följande parametrar:
+**Bladet Säkerhetskopieringskatalog** innehåller en fråga som hjälper dig att begränsa valet av säkerhetskopia. Du kan filtrera de säkerhetskopieringsuppsättningar som hämtas baserat på följande parametrar:
 
-* **Tidsintervall** – intervallet datum och tid när säkerhetskopian skapades.
-* **Enheten** – enheten där säkerhetskopian skapades.
-* **Säkerhetskopieringspolicy** eller **volym** – den princip för säkerhetskopiering eller en volym som är associerade med den här säkerhetskopian.
+* **Tidsintervall** – Datum och tidsintervall när säkerhetskopian skapades.
+* **Enhet** – Enheten där säkerhetskopian skapades.
+* **Säkerhetskopieringsprincip** eller **Volym** – Säkerhetskopieringsprincipen eller volymen som är associerad med den här säkerhetskopian.
 
-Filtrerade säkerhetskopiorna visas sedan som en tabell baserat på följande attribut:
+De filtrerade säkerhetskopieringsuppsättningarna tabuleras sedan baserat på följande attribut:
 
-* **Namn på** – namnet på den princip för säkerhetskopiering eller en volym som är associerade med säkerhetskopian.
-* **Typ** – säkerhetskopior kan lokala ögonblicksbilder eller molnbaserade ögonblicksbilder. En lokal ögonblicksbild är en säkerhetskopia av din volymdata som lagras lokalt på enheten, medan en ögonblicksbild i molnet som refererar till säkerhetskopian av volymdata som finns i molnet. Lokala ögonblicksbilder ger snabbare åtkomst medan väljs ögonblicksbilder av molndata för dataåterhämtning.
-* **Storlek** – den verkliga storleken hos säkerhetskopierade.
-* **Skapad** – datum och tid när säkerhetskopiorna som har skapats. 
-* **Volymer** -antalet volymer som är associerade med säkerhetskopian.
-* **Initierade** – säkerhetskopieringar kan initieras automatiskt enligt ett schema eller manuellt av en användare. (Du kan använda en princip för säkerhetskopiering för att schemalägga säkerhetskopieringar. Du kan också använda den **säkerhetskopiera** kan ta en interaktiv eller på begäran-säkerhetskopiering.)
+* **Namn** – Namnet på säkerhetskopieringsprincipen eller volymen som är associerad med säkerhetskopian.
+* **Typ** – Säkerhetskopieringsuppsättningar kan vara lokala ögonblicksbilder eller ögonblicksbilder av molnet. En lokal ögonblicksbild är en säkerhetskopia av alla volymdata som lagras lokalt på enheten, medan en ögonblicksbild i molnet refererar till säkerhetskopiering av volymdata som finns i molnet. Lokala ögonblicksbilder ger snabbare åtkomst, medan ögonblicksbilder i molnet väljs för dataåtersåterkoppling.
+* **Storlek** – Den faktiska storleken på säkerhetskopian.
+* **Skapad på** – Datum och tid då säkerhetskopiorna skapades. 
+* **Volymer** - Antalet volymer som är associerade med säkerhetskopian.
+* **Initierad** – Säkerhetskopiorna kan initieras automatiskt enligt ett schema eller manuellt av en användare. (Du kan använda en princip för säkerhetskopiering för att schemalägga säkerhetskopior. Du kan också använda alternativet **Ta säkerhetskopiera** för att göra en interaktiv säkerhetskopiering eller säkerhetskopiering på begäran.)
 
-## <a name="how-to-restore-your-storsimple-volume-from-a-backup"></a>Hur du återställer din StorSimple-volym från en säkerhetskopia
+## <a name="how-to-restore-your-storsimple-volume-from-a-backup"></a>Så här återställer du StorSimple-volymen från en säkerhetskopia
 
-Du kan använda den **säkerhetskopieringskatalogen** bladet för att återställa din StorSimple-volym från en specifik säkerhetskopia. Kom ihåg men, som återställer en volym återgår volymen till tillståndet den var i när säkerhetskopian skapades. Alla data som lagts till efter säkerhetskopieringen går förlorade.
+Du kan använda bladet **Säkerhetskopieringskatalog** för att återställa StorSimple-volymen från en viss säkerhetskopia. Tänk dock på att återställa en volym kommer att återställa volymen till det tillstånd den var i när säkerhetskopian togs. Alla data som har lagts till efter säkerhetskopieringen kommer att gå förlorade.
 
 > [!WARNING]
-> Återställa från en säkerhetskopia kommer att ersätta de befintliga volymerna från säkerhetskopian. Detta kan orsaka förlust av data som har skrivits när säkerhetskopian skapades.
+> Om du återställer från en säkerhetskopia ersätts de befintliga volymerna från säkerhetskopian. Detta kan orsaka förlust av data som skrevs efter säkerhetskopieringen togs.
 
 
-### <a name="to-restore-your-volume"></a>Att återställa volymen
-1. Gå till StorSimple Device Manager-tjänsten och klicka sedan på **säkerhetskopieringskatalog**.
+### <a name="to-restore-your-volume"></a>Så här återställer du volymen
+1. Gå till tjänsten StorSimple Device Manager och klicka sedan på **Säkerhetskopieringskatalog**.
 
-2. Välj en säkerhetskopia på följande sätt:
+2. Välj en säkerhetskopia enligt följande:
    
    1. Ange tidsintervallet.
-   2. Välj rätt enhet.
-   3. I listrutan, väljer du den volym eller säkerhetskopiering principen för säkerhetskopiering som du vill välja.
-   4. Klicka på **tillämpa** att köra frågan.
+   2. Välj lämplig enhet.
+   3. I listrutan väljer du volym- eller säkerhetskopieringsprincipen för den säkerhetskopia som du vill välja.
+   4. Klicka på **Använd** för att köra den här frågan.
 
-      Säkerhetskopiorna som är associerade med den valda volymen eller princip för säkerhetskopiering ska visas i listan över säkerhetskopieringsuppsättningar.
+      De säkerhetskopior som är associerade med den valda volym- eller säkerhetskopieringsprincipen ska visas i listan över säkerhetskopior.
    
-      ![Säkerhetskopian lista](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![Lista över säkerhetskopior](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
-3. Expandera den säkerhetskopia du vill visa de tillhörande volymerna. Dessa volymer måste vara offline på värden och enheten innan du kan återställa dem. Åtkomst till volymerna på den **volymer** bladet för din enhet, och följ sedan stegen i [koppla från en volym](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) att ta dem offline.
+3. Expandera säkerhetskopian för att visa de associerade volymerna. Dessa volymer måste tas offline på värden och enheten innan du kan återställa dem. Öppna volymerna på **enhetens volymblad** och följ sedan stegen i [Koppla från volymen](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) för att koppla från dem.
    
    > [!IMPORTANT]
-   > Kontrollera att du har vidtagit volymer från värden först innan du utför volymerna som är offline på enheten. Om du inte vidtar volymerna som är offline på värden, kan det leda till att data skadas.
+   > Se till att du har tagit volymerna offline på värden först, innan du tar volymerna offline på enheten. Om du inte tar volymerna offline på värden kan det leda till skadade data.
    
-4. Gå tillbaka till den **säkerhetskopieringskatalogen** fliken och välj en säkerhetskopia. Högerklicka och välj sedan snabbmenyn **återställa**.
+4. Navigera tillbaka till fliken **Säkerhetskopieringskatalog** och välj en säkerhetskopia. Högerklicka och välj sedan **Återställ**på snabbmenyn .
 
-    ![Säkerhetskopian lista](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Lista över säkerhetskopior](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
-5. Du uppmanas att bekräfta. Granska informationen om återställning och markera sedan kryssrutan bekräftelse.
+5. Du uppmanas att bekräfta. Granska återställningsinformationen och markera sedan kryssrutan Bekräftelse.
    
     ![Bekräftelsesida](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7. Klicka på **återställa**. Detta startar ett jobb för återställning som du kan visa genom att öppna den **jobb** sidan.
+7. Klicka på **Återställ**. Då initieras ett återställningsjobb som du kan visa genom att öppna sidan **Jobb.**
 
    ![Bekräftelsesida](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
-8. När återställningen är klar kan du kontrollera att innehållet i dina volymer har ersatts av volymer från säkerhetskopian.
+8. När återställningen är klar kontrollerar du att innehållet i dina volymer ersätts av volymer från säkerhetskopian.
 
 
 ## <a name="if-the-restore-fails"></a>Om återställningen misslyckas
 
-Du får en avisering om återställningen misslyckas av någon anledning. Om detta inträffar kan du uppdatera listan säkerhetskopiering för att verifiera att säkerhetskopian fortfarande är giltig. Om säkerhetskopian är giltig och att du återställer från molnet, kan sedan anslutningsproblem vara orsaken till problemet.
+Du får en avisering om återställningen misslyckas av någon anledning. Om detta inträffar uppdaterar du säkerhetskopieringslistan för att kontrollera att säkerhetskopian fortfarande är giltig. Om säkerhetskopian är giltig och du återställer från molnet kan anslutningsproblem orsaka problemet.
 
-För att slutföra återställningen ta frånkoppla volymen på värden och försök återställa igen. Observera att alla volymdata som utfördes under återställningsprocessen ändringar går förlorade.
+Slutför återställningen genom att koppla från volymen på värden och försöka återställa återställningen igen. Observera att alla ändringar av volymdata som utfördes under återställningsprocessen kommer att gå förlorade.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [hantera StorSimple-volymer](storsimple-8000-manage-volumes-u2.md).
-* Lär dig hur du [använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Lär dig hur du [hanterar StorSimple-volymer](storsimple-8000-manage-volumes-u2.md).
+* Lär dig hur du [använder Tjänsten StorSimple Device Manager för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

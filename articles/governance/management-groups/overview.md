@@ -1,14 +1,14 @@
 ---
-title: Organisera dina resurser med hanterings grupper – Azure-styrning
+title: Organisera dina resurser med hanteringsgrupper - Azure-styrning
 description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
 ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240942"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
@@ -23,7 +23,7 @@ Du kan skapa en flexibel struktur för hanteringsgrupper och prenumerationer fö
 
 ![Exempel på ett hierarkiträd för hanteringsgrupp](./media/tree.png)
 
-Du kan till exempel skapa en hierarki som tillämpar en princip som begränsar VM-platser till regionen USA, västra i gruppen med namnet ”Produktion”. Den här principen ärver till alla Enterprise-avtal-prenumerationer (EA) som är underordnade till den hanterings gruppen och gäller för alla virtuella datorer under dessa prenumerationer. Den här säkerhetsprincipen kan inte ändras av resursen eller prenumerationsägaren, vilket leder till bättre styrning.
+Du kan till exempel skapa en hierarki som tillämpar en princip som begränsar VM-platser till regionen USA, västra i gruppen med namnet ”Produktion”. Den här principen ärver på alla EA-prenumerationer (Enterprise Agreement) som är underordnade den hanteringsgruppen och gäller för alla virtuella datorer under dessa prenumerationer. Den här säkerhetsprincipen kan inte ändras av resursen eller prenumerationsägaren, vilket leder till bättre styrning.
 
 Ett annat scenario där du kan använda hanteringsgrupper är för att ge användaråtkomst till flera prenumerationer. Genom att flytta flera prenumerationer under hanteringsgruppen kan du skapa en tilldelning av [rollbaserad åtkomstkontroll](../../role-based-access-control/overview.md) (RBAC) till den. Detta gör även att alla prenumerationer ärver åtkomsten.
 Genom att tilldela till hanteringsgruppen kan du ge användarna åtkomst till allt de behöver istället för att skapa skript för RBAC för flera prenumerationer.
@@ -45,7 +45,7 @@ Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och 
 ### <a name="important-facts-about-the-root-management-group"></a>Viktiga fakta om rothanteringsgruppen
 
 - Som standard är rothanteringsgruppens visningsnamn **Klientorganisationens rotgrupp**. ID:t är samma som ID:t för Azure Active Directory.
-- Om du vill ändra visningsnamnet måste ditt konto ha tilldelats rollen Ägare eller Deltagare i rothanteringsgruppen. Se [ändra namnet på en hanterings grupp](manage.md#change-the-name-of-a-management-group) för att uppdatera namnet på en hanterings grupp.
+- Om du vill ändra visningsnamnet måste ditt konto ha tilldelats rollen Ägare eller Deltagare i rothanteringsgruppen. Se [Ändra namnet på en hanteringsgrupp](manage.md#change-the-name-of-a-management-group) för att uppdatera namnet på en hanteringsgrupp.
 - Rothanteringsgruppen kan inte flyttas eller tas bort, till skillnad från andra hanteringsgrupper.  
 - Alla prenumerationer och hanteringsgrupper är underordnade rothanteringsgruppen i katalogen.
   - Alla resurser i katalogen är underordnade rothanteringsgruppen för global hantering.
@@ -82,7 +82,7 @@ Om du har frågor om återfyllningsprocessen kan du kontakta: managementgroups@m
 ## <a name="management-group-access"></a>Åtkomst till hanteringsgrupp
 
 Azure-hanteringsgrupper har stöd för [Azures rollbaserade åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md) för alla resursåtkomster och rolldefinitioner.
-Dessa behörigheter ärvs av underordnade resurser som finns i hierarkin. En RBAC-roll kan tilldelas till en hanterings grupp som ärver hierarkin till resurserna.
+Dessa behörigheter ärvs av underordnade resurser som finns i hierarkin. Alla RBAC-roller kan tilldelas en hanteringsgrupp som ärver ned hierarkin till resurserna.
 RBAC-rollen VM-deltagare kan till exempel tilldelas till en hanteringsgrupp. Rollen har ingen åtgärd för hanteringsgruppen, men ärver av alla virtuella datorer under hanteringsgruppen.
 
 Följande diagram visar listan över roller och åtgärder som stöds för hanteringsgrupper.
@@ -98,16 +98,16 @@ Följande diagram visar listan över roller och åtgärder som stöds för hante
 |Administratör för användaråtkomst   |        |        |        |        | X             | X             |       |
 
 *: MG-deltagare och MG-läsare tillåter endast användare att utföra dessa åtgärder inom hanteringsgruppsomfånget.  
-\* *: Roll tilldelningar för rot hanterings gruppen krävs inte för att flytta en prenumeration eller hanterings grupp till och från den.  Läs [Hantera dina resurser med hanteringsgrupper](manage.md) för mer information om att flytta objekt inom hierarkin.
+**: Rolltilldelningar i rothanteringsgruppen behöver inte flytta en prenumeration eller hanteringsgrupp till och från den.  Läs [Hantera dina resurser med hanteringsgrupper](manage.md) för mer information om att flytta objekt inom hierarkin.
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Anpassad roll definition och tilldelning för RBAC
+## <a name="custom-rbac-role-definition-and-assignment"></a>Anpassad DEFINITION och tilldelning av RBAC-roll
 
-Anpassad RBAC-roll-support för hanterings grupper är för närvarande en för hands version med vissa [begränsningar](#limitations).  Du kan definiera hanteringsgruppers omfattning i rolldefinitionens tilldelningsbara omfattning.  Den anpassade RBAC-rollen är sedan tillgänglig för tilldelning för den hanteringsgruppen och alla hanteringsgrupper, prenumerationer, resursgrupper och resurser under den. Den här anpassade rollen ärvs nedåt i hierarkin precis som en inbyggd roll.    
+Anpassat RBAC-rollstöd för hanteringsgrupper är för närvarande i förhandsversion med vissa [begränsningar](#limitations).  Du kan definiera hanteringsgruppers omfattning i rolldefinitionens tilldelningsbara omfattning.  Den anpassade RBAC-rollen är sedan tillgänglig för tilldelning för den hanteringsgruppen och alla hanteringsgrupper, prenumerationer, resursgrupper och resurser under den. Den här anpassade rollen ärvs nedåt i hierarkin precis som en inbyggd roll.    
 
-### <a name="example-definition"></a>Exempel definition
-Att [definiera och skapa en anpassad roll](../../role-based-access-control/custom-roles.md) ändras inte med inkludering av hanterings grupper. Använd den fullständiga sökvägen för att definiera hanterings gruppens **/providers/Microsoft.Management/managementgroups/{GroupID}** . 
+### <a name="example-definition"></a>Exempeldefinition
+[Definiera och skapa en anpassad roll](../../role-based-access-control/custom-roles.md) ändras inte med inkludering av hanteringsgrupper. Använd den fullständiga sökvägen för att definiera hanteringsgruppen **/providers/Microsoft.Management/managementgroups/{groupId}**. 
 
-Använd hanterings gruppens ID och inte hanterings gruppens visnings namn. Detta vanliga fel inträffar eftersom båda är anpassade definierade fält när du skapar en hanterings grupp. 
+Använd hanteringsgruppens ID och inte hanteringsgruppens visningsnamn. Det här vanliga felet inträffar eftersom båda är anpassade definierade fält när de skapar en hanteringsgrupp. 
 
 ```json
 ...
@@ -140,46 +140,46 @@ Använd hanterings gruppens ID och inte hanterings gruppens visnings namn. Detta
 ...
 ```
 
-### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Problem med att bryta sökvägen till roll definitionen och tilldelnings-hierarkin
-Roll definitioner är tilldelnings bara omfång var som helst inom hanterings gruppens hierarki. En roll definition kan definieras i en överordnad hanterings grupp medan den faktiska roll tilldelningen finns i den underordnade prenumerationen. Eftersom det finns en relation mellan de två objekten visas ett fel meddelande när du försöker avgränsa tilldelningen från definitionen. 
+### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Problem med att bryta rolldefinitionen och tilldelningshierarkisökvägen
+Rolldefinitioner kan tilldelas omfång var som helst i hanteringsgruppshierarkin. En rolldefinition kan definieras i en överordnad hanteringsgrupp medan den faktiska rolltilldelningen finns på den underordnade prenumerationen. Eftersom det finns en relation mellan de två objekten visas ett felmeddelande när du försöker separera tilldelningen från dess definition. 
 
-Exempel: Låt oss titta på en liten del av en hierarki för ett visuellt objekt. 
+Till exempel: Låt oss titta på en liten del av en hierarki för ett visuellt objekt. 
 
-![under träd](./media/subtree.png)
+![underträd](./media/subtree.png)
 
-Anta att du har definierat en anpassad roll i marknadsförings hanterings gruppen. Den anpassade rollen tilldelas sedan de två kostnads fria utvärderings prenumerationerna.  
+Anta att det finns en anpassad roll definierad i marknadsföringshanteringsgruppen. Den anpassade rollen tilldelas sedan på de två kostnadsfria utvärderingsprenumerationerna.  
 
-Om vi försöker flytta en av dessa prenumerationer till en underordnad till produktions hanterings gruppen skulle den här flyttningen bryta sökvägen från prenumerations roll tilldelningen till roll definitionen för hanterings gruppen för marknadsföring. I det här scenariot får du ett fel meddelande om att flyttningen inte är tillåten eftersom den kommer att bryta den här relationen.  
+Om vi försöker flytta en av dessa prenumerationer till att vara underordnad produktionshanteringsgruppen, bryter det här steget vägen från prenumerationsrolltilldelning till rolldefinitionen för marknadsföringshanteringsgrupp. I det här fallet får du ett felmeddelande om att flytten inte är tillåten eftersom det kommer att bryta den här relationen.  
 
 Det finns ett par olika alternativ för att åtgärda det här scenariot:
-- Ta bort roll tilldelningen från prenumerationen innan du flyttar prenumerationen till en ny överordnad MG.
-- Lägg till prenumerationen i roll definitionen för det tilldelnings bara omfånget.
-- Ändra det tilldelnings bara omfånget i roll definitionen. I exemplet ovan kan du uppdatera tilldelnings bara omfattningarna från marknadsföring till rot hanterings gruppen så att definitionen kan nås av båda grenar i hierarkin.   
-- Skapa ytterligare en anpassad roll som ska definieras i den andra grenen.  Den nya rollen kräver även att roll tilldelningen ändras i prenumerationen.  
+- Ta bort rolltilldelningen från prenumerationen innan prenumerationen flyttas till en ny överordnad MG.
+- Lägg till prenumerationen i rolldefinitionens assignable-scope.
+- Ändra det assignable omfånget inom rolldefinitionen. I exemplet ovan kan du uppdatera de assignable scopesna från marknadsföring till rothanteringsgrupp så att definitionen kan nås av båda grenarna i hierarkin.   
+- Skapa ytterligare en anpassad roll som ska definieras i den andra grenen.  Den här nya rollen kräver att rolltilldelningen ändras även på prenumerationen.  
 
 ### <a name="limitations"></a>Begränsningar  
-Det finns begränsningar som finns när du använder anpassade roller i hanterings grupper. 
+Det finns begränsningar som finns när du använder anpassade roller i hanteringsgrupper. 
 
- - Du kan bara definiera en hanterings grupp i de tilldelnings bara omfånget för en ny roll.  Den här begränsningen är på plats för att minska antalet situationer där roll definitioner och roll tilldelningar är frånkopplade.  Detta inträffar när en prenumeration eller hanterings grupp med en roll tilldelning flyttas till en annan överordnad som inte har roll definitionen.   
- - Åtgärder för RBAC-dataplan får inte definieras i anpassade roller för hanterings grupper.  Den här begränsningen är på plats eftersom det finns ett latens problem med RBAC-åtgärder för att uppdatera data Plans resurs leverantörerna. Den här svars tids frågan bearbetas och de här åtgärderna inaktive ras från roll definitionen för att minska riskerna.
- - Azure Resource Manager validerar inte hanterings gruppens existens i roll definitionens tilldelnings omfång.  Om det finns ett skrivfel eller felaktigt ID för hanterings grupp i listan, kommer roll definitionen fortfarande att skapas.   
+ - Du kan bara definiera en hanteringsgrupp i de assignable omfången för en ny roll.  Den här begränsningen finns för att minska antalet situationer där rolldefinitioner och rolltilldelningar kopplas från.  Detta händer när en prenumeration eller hanteringsgrupp med en rolltilldelning flyttas till en annan förälder som inte har rolldefinitionen.   
+ - RBAC Data Plane-åtgärder tillåts inte definieras i anpassade roller i hanteringsgruppen.  Den här begränsningen finns på plats eftersom det finns ett svarstidsproblem med RBAC-åtgärder som uppdaterar dataplanresursleverantörerna. Det här latensproblemet bearbetas och dessa åtgärder inaktiveras från rolldefinitionen för att minska eventuella risker.
+ - Azure Resource Manager validerar inte hanteringsgruppens existens i rolldefinitionens assignable scope.  Om det finns ett stavfel eller ett felaktigt hanteringsgrupp-ID i listan skapas rolldefinitionen fortfarande.   
 
-## <a name="moving-management-groups-and-subscriptions"></a>Flytta hanterings grupper och prenumerationer 
+## <a name="moving-management-groups-and-subscriptions"></a>Flytta hanteringsgrupper och prenumerationer 
 
-För att en hanterings grupp eller prenumeration ska vara underordnad en annan hanterings grupp måste tre regler utvärderas som sant.
+För att en hanteringsgrupp eller prenumeration ska vara underordnad en annan hanteringsgrupp måste tre regler utvärderas som sanna.
 
-Om du utför flytt åtgärden behöver du: 
+Om du gör flytten behöver du: 
 
--  Hanterings gruppens Skriv-och roll tilldelning Skriv behörigheter för den underordnade prenumerationen eller hanterings gruppen.
-   - Exempel på inbyggd roll exempel **ägare**
-- Skriv åtkomst till hanterings grupp för den överordnade mål hanterings gruppen.
-   - Exempel på inbyggda roller: **ägare**, **deltagare**, **hanterings grupp deltagare**
-- Skriv åtkomst till hanterings grupp för den befintliga överordnade hanterings gruppen.
-   - Exempel på inbyggda roller: **ägare**, **deltagare**, **hanterings grupp deltagare**
+-  Skrivbehörighet för hanteringsgrupp och skrivbehörighet för rolltilldelning för den underordnade prenumerationen eller hanteringsgruppen.
+   - Det inbyggda rollexempeln **Ägare**
+- Skrivbehörighet för ledningsgruppen för ledningsgruppen för hantering av ledningsgruppen för ledningsgruppen.
+   - Inbyggt rollexempel: **Ägare**, **Deltagare**, **Management Group Contributor**
+- Skrivbehörighet för hanteringsgrupper i den befintliga överordnade hanteringsgruppen.
+   - Inbyggt rollexempel: **Ägare**, **Deltagare**, **Management Group Contributor**
 
-**Undantag**: om målet eller den befintliga överordnade hanterings gruppen är rot hanterings gruppen gäller inte behörighets kraven. Eftersom rot hanterings gruppen är standard landnings platsen för alla nya hanterings grupper och prenumerationer behöver du inte behörigheter för den för att flytta ett objekt.
+**Undantag**: Om målet eller den befintliga överordnade hanteringsgruppen är rothanteringsgruppen gäller inte behörighetskraven. Eftersom rothanteringsgruppen är standardlandningsplatsen för alla nya hanteringsgrupper och prenumerationer behöver du inte behörigheter för att flytta ett objekt.
 
-Om ägar rollen för prenumerationen ärvs från den aktuella hanterings gruppen är dina flyttnings mål begränsade. Du kan bara flytta prenumerationen till en annan hanterings grupp där du har ägar rollen. Du kan inte flytta den till en hanterings grupp där du är deltagare eftersom du förlorar prenumerationens ägarskap. Om du är direkt tilldelad till ägar rollen för prenumerationen (ärvs inte från hanterings gruppen) kan du flytta den till en hanterings grupp där du är deltagare. 
+Om ägarrollen i prenumerationen ärvs från den aktuella hanteringsgruppen är dina flyttmål begränsade. Du kan bara flytta prenumerationen till en annan hanteringsgrupp där du har rollen Ägare. Du kan inte flytta den till en hanteringsgrupp där du är en deltagare eftersom du skulle förlora äganderätten till prenumerationen. Om du är direkt tilldelad ägarrollen för prenumerationen (inte ärvd från hanteringsgruppen) kan du flytta den till en hanteringsgrupp där du är deltagare. 
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Granska hanteringsgrupper med hjälp av aktivitetsloggar
 
@@ -187,7 +187,7 @@ Hanteringsgrupper kan användas i [Azure-aktivitetsloggar](../../azure-monitor/p
 
 ![Aktivitetsloggar med hanteringsgrupper](media/al-mg.png)
 
-När du vill fråga hanteringsgrupper utanför Microsoft Azure-portalen är målområdet för hanteringsgrupper: **"/providers/Microsoft.Management/managementGroups/{yourMgID}"** .
+När du vill fråga hanteringsgrupper utanför Microsoft Azure-portalen är målområdet för hanteringsgrupper: **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
 ## <a name="next-steps"></a>Nästa steg
 

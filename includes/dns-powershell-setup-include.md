@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
 ms.openlocfilehash: 32c516ccee3a9f4f7604a3e330285703a776b47d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67133519"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Konfigurera Azure PowerShell för Azure DNS
@@ -38,7 +38,7 @@ Find-Module -Name AzureRM.Dns
 Find-Module -Name AzureRM.Network 
 ``` 
  
-Utdata från kommandona ovan ska visa att versionen av AzureRM.Dns är 4.1.0 eller högre version och för AzureRM.Network är 5.4.0 eller senare version.  
+Utdata för ovanstående kommandon måste visa att versionen av AzureRM.Dns är 4.1.0 eller högre version, och för AzureRM.Network är 5.4.0 eller högre version.  
 
 Om systemet har tidigare versioner installerar du antingen den senaste versionen av Azure PowerShell eller så hämtar du de ovan nämnda modulerna från PowerShell-galleriet med hjälp av länkarna ovan bredvid modulversionerna. Du kan sedan installera dem med hjälp av kommandona nedan. Båda modulerna som krävs och är helt bakåtkompatibla. 
 
@@ -52,7 +52,7 @@ Install-Module -Name AzureRM.Network -Force
 
 ### <a name="sign-in-to-your-azure-account"></a>Logga in på ditt Azure-konto
 
-Öppna PowerShell-konsolen och anslut till ditt konto. Mer information finns i [logga in med AzureRM](/powershell/azure/azurerm/authenticate-azureps).
+Öppna PowerShell-konsolen och anslut till ditt konto. Mer information finns [i Logga in med AzureRM](/powershell/azure/azurerm/authenticate-azureps).
 
 ```powershell
 Connect-AzureRmAccount

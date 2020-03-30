@@ -1,30 +1,30 @@
 ---
-title: Anspråk matchare i anpassade principer
+title: Anspråkslösare i anpassade principer
 titleSuffix: Azure AD B2C
-description: Lär dig hur du använder anspråk matchare i en anpassad princip i Azure Active Directory B2C.
+description: Lär dig hur du använder anspråkslösare i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/20/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: cba97b84f77bd4e2d4cfd97601fa4f8637105eb4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189845"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80051411"
 ---
-# <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
+# <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråkslösare i Azure Active Directory B2C-anpassade principer
 
-Anspråk matchare i Azure Active Directory B2C (Azure AD B2C) [anpassade principer](custom-policy-overview.md) ger Sammanhangs information om en auktoriseringsbegäran, till exempel princip namn, KORRELATIONS-ID för begäran, användar gränssnitts språk med mera.
+Anspråkslösare i Azure Active Directory B2C (Azure AD B2C) [anpassade principer](custom-policy-overview.md) ger kontextinformation om en auktoriseringsbegäran, till exempel principnamnet, begäran om korrelations-ID, användargränssnittsspråk med mera.
 
-Om du vill använda en anspråks lösare i ett indata-eller utgående anspråk definierar du en sträng **claimType**, under elementet [ClaimsSchema](claimsschema.md) , och anger sedan **DefaultValue** till anspråks lösa ren i elementet indata-eller utdata-anspråk. Azure AD B2C läser värdet för anspråks matcharen och använder värdet i den tekniska profilen.
+Om du vill använda en anspråksmatchningsutlösare i ett indata- eller utdataanspråk definierar du en sträng **ClaimType**under elementet [ClaimsSchema](claimsschema.md) och ställer sedan in **DefaultValue** till anspråksmatcharen i indata- eller utdataanspråkselementet. Azure AD B2C läser värdet för anspråksmatcharen och använder värdet i den tekniska profilen.
 
-I följande exempel definieras en anspråks typ med namnet `correlationId` med en `string`s **datatyp** .
+I följande exempel definieras en `correlationId` med namnet anspråkstyp med en **DataType** av `string`.
 
 ```XML
 <ClaimType Id="correlationId">
@@ -34,116 +34,118 @@ I följande exempel definieras en anspråks typ med namnet `correlationId` med e
 </ClaimType>
 ```
 
-I den tekniska profilen mappar du anspråks matcharen till anspråks typen. Azure AD B2C fyller i värdet för anspråks matcharen `{Context:CorrelationId}` till anspråks `correlationId` och skickar anspråket till den tekniska profilen.
+I den tekniska profilen mappar du anspråkslösaren till anspråkstypen. Azure AD B2C fyller i värdet `{Context:CorrelationId}` på anspråksmatcharen i anspråket `correlationId` och skickar anspråket till den tekniska profilen.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
-## <a name="claim-resolver-types"></a>Typer av anspråks matchare
+## <a name="claim-resolver-types"></a>Typer av anspråksmatchningsstöd
 
-I följande avsnitt listas tillgängliga anspråks lösningar.
+I följande avsnitt listas tillgängliga anspråkslösare.
 
 ### <a name="culture"></a>Kultur
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {Culture: LanguageName} | Den två bokstävernas ISO-kod för språket. | en |
-| {Culture: LCID}   | LCID för språk koden. | 1033 |
-| {Culture: RegionName} | ISO-koden för den två bokstaven för regionen. | USA |
-| {Culture: RFC5646} | Språk koden RFC5646. | sv-SE |
+| {Kultur:Språknamn} | De två bokstaven ISO-kod för språket. | en |
+| {Kultur:LCID}   | LCID av språkkod. | 1033 |
+| {Kultur:RegionNamn} | Regionens ISO-kod med två bokstäver. | USA |
+| {Kultur:RFC5646} | Språkkoden för RFC5646. | sv-SE |
 
 ### <a name="policy"></a>Princip
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {Princip: PolicyId} | Princip namnet för den förlitande parten. | B2C_1A_signup_signin |
-| {Princip: RelyingPartyTenantId} | Klient-ID för den förlitande part principen. | your-tenant.onmicrosoft.com |
-| {Policy:TenantObjectId} | Klientens objekt-ID för den förlitande part principen. | 00000000-0000-0000-0000-000000000000 |
-| {Policy:TrustFrameworkTenantId} | Klient-ID för förtroende ramverket. | your-tenant.onmicrosoft.com |
+| {Princip:PolicyId} | Det förlitande partiprincipnamnet. | B2C_1A_signup_signin |
+| {Princip:RelyingPartyTenantId} | Klient-ID för den förlitande partens princip. | your-tenant.onmicrosoft.com |
+| {Princip:TenantObjectId} | Klientobjekt-ID för den förlitande partens princip. | 00000000-0000-0000-0000-000000000000 |
+| {Princip:TrustFrameworkTenantId} | Klient-ID för förtroenderamverket. | your-tenant.onmicrosoft.com |
 
 ### <a name="openid-connect"></a>OpenID Connect
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` frågesträng. | Saknas |
-| {OIDC:ClientId} |Parametern `client_id` frågesträng. | 00000000-0000-0000-0000-000000000000 |
-| {OIDC:DomainHint} |Parametern `domain_hint` frågesträng. | facebook.com |
-| {OIDC: LoginHint} |  Parametern `login_hint` frågesträng. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`. | Saknas |
-| {OIDC:Nonce} |Parametern `Nonce` frågesträng. | defaultNonce |
-| {OIDC: prompt} | Parametern `prompt` frågesträng. | inloggning |
-| {OIDC:Resource} |Parametern `resource` frågesträng. | Saknas |
-| {OIDC: omfång} |Parametern `scope` frågesträng. | OpenID |
-| {OIDC: RedirectUri} |Parametern `redirect_uri` frågesträng. | https://jwt.ms |
+| {OIDC:AuthenticationContextReferences} |Parametern `acr_values` för frågesträngen. | Ej tillämpligt |
+| {OIDC:ClientId} |Parametern `client_id` för frågesträngen. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC:DomainHint} |Parametern `domain_hint` för frågesträngen. | facebook.com |
+| {OIDC:LoginHint} |  Parametern `login_hint` för frågesträngen. | someone@contoso.com |
+| {OIDC:MaxAge} | Den `max_age`. | Ej tillämpligt |
+| {OIDC:Nonce} |Parametern `Nonce` för frågesträngen. | standardIngynce |
+| {OIDC:Password}| [Autentiseringsuppgifterna för resursägares lösenord flödar](ropc-custom.md) användarens lösenord.| lösenord1| 
+| {OIDC:Prompt} | Parametern `prompt` för frågesträngen. | inloggning |
+| {OIDC:RedirectUri} |Parametern `redirect_uri` för frågesträngen. | https://jwt.ms |
+| {OIDC:Resource} |Parametern `resource` för frågesträngen. | Ej tillämpligt |
+| {OIDC:scope} |Parametern `scope` för frågesträngen. | Openid |
+| {OIDC:Användarnamn}| [Resursägarens lösenordsautentiseringsuppgifter flödar](ropc-custom.md) användarens användarnamn.| emily@contoso.com| 
 
 ### <a name="context"></a>Kontext
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {Context: BuildNumber} | Versionen av ID Experience Framework (versions nummer).  | 1.0.507.0 |
-| {Context: CorrelationId} | Korrelations-ID  | 00000000-0000-0000-0000-000000000000 |
-| {Context:DateTimeInUtc} |Datum tid i UTC.  | 10/10/2018 12:00:00 PM |
-| {Context: DeploymentMode} |Princip distributions läget.  | Produktion |
-| {Context: IPAddress} | Användarens IP-adress. | 11.111.111.11 |
-| {Context: KMSI avgör} | Anger om kryss rutan [Behåll mig inloggad](custom-policy-keep-me-signed-in.md) är markerad. |  true |
+| {Kontext:BuildNumber} | Identity Experience Framework-versionen (byggnummer).  | 1.0.507.0 |
+| {Context:CorrelationId} | Korrelations-ID.  | 00000000-0000-0000-0000-000000000000 |
+| {Sammanhang:DateTimeInUtc} |Datumtiden i UTC.  | 2018-10-10 12:00:00 |
+| {Kontext:DeploymentMode} |Principdistributionsläget.  | Produktion |
+| {Kontext:IPAddress} | Användarens IP-adress. | 11.111.111.11 |
+| {Sammanhang:KMSI} | Anger om [kryssrutan Behåll mig inloggad](custom-policy-keep-me-signed-in.md) är markerad. |  true |
 
-### <a name="non-protocol-parameters"></a>Parametrar som inte är protokoll
+### <a name="non-protocol-parameters"></a>Parametrar som inte är protokollsst.
 
-Alla parameter namn som ingår i en OIDC-eller OAuth2-begäran kan mappas till ett anspråk i användar resan. Begäran från programmet kan till exempel innehålla en frågesträngparametern med namnet `app_session`, `loyalty_number`eller en anpassad frågesträng.
+Alla parameternamn som ingår som en del av en OIDC- eller OAuth2-begäran kan mappas till ett anspråk i användarfärden. Begäran från programmet kan till exempel innehålla en frågesträngparameter med namnet `app_session`, `loyalty_number`eller en anpassad frågesträng.
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {OAUTH-KV: campaignId} | En frågesträngparametern. | hawaii |
-| {OAUTH-KV: app_session} | En frågesträngparametern. | A3C5R |
-| {OAUTH-KV:loyalty_number} | En frågesträngparametern. | 1234 |
-| {OAUTH-KV: valfri anpassad frågesträng} | En frågesträngparametern. | Saknas |
+| {OAUTH-KV:campaignId} | En frågesträngparameter. | Hawaii |
+| {OAUTH-KV:app_session} | En frågesträngparameter. | A3C5R |
+| {OAUTH-KV:loyalty_number} | En frågesträngparameter. | 1234 |
+| {OAUTH-KV:någon anpassad frågesträng} | En frågesträngparameter. | Ej tillämpligt |
 
 ### <a name="oauth2"></a>OAuth2
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {oauth2:access_token} | Åtkomsttoken. | Saknas |
+| {oauth2:access_token} | Åtkomsttoken. | Ej tillämpligt |
 
 
 ### <a name="saml"></a>SAML
 
 | Begär | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {SAML: AuthnContextClassReferences} | Värdet för `AuthnContextClassRef` element från SAML-begäran. | urn: Oasis: Names: TC: SAML: 2.0: AC: klasser: PasswordProtectedTransport |
-| {SAML: NameIdPolicyFormat} | Attributet `Format` från `NameIDPolicy`-elementet i SAML-begäran. | urn: Oasis: Names: TC: SAML: 1.1: NameID-format: emailAddress |
-| {SAML: Issuer} |  SAML-`Issuer` element värde för SAML-begäran.| https://contoso.com |
-| {SAML: AllowCreate} | Värdet för `AllowCreate`-attributet från `NameIDPolicy`-elementet i SAML-begäran. | True |
-| {SAML: ForceAuthn} | Värdet för `ForceAuthN`-attributet från `AuthnRequest`-elementet i SAML-begäran. | True |
-| {SAML: ProviderName} | Värdet för `ProviderName`-attributet från `AuthnRequest`-elementet i SAML-begäran.| Contoso.com |
+| {SAML:AuthnContextClassReferences} | Elementvärdet `AuthnContextClassRef` från SAML-begäran. | urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport |
+| {SAML:NameIdPolicyFormat} | Attributet, `Format` från `NameIDPolicy` elementet i SAML-begäran. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML:Utfärdare} |  SAML-elementvärdet `Issuer` för SAML-begäran.| `https://contoso.com` |
+| {SAML:AllowCreate} | Attributvärdet, `AllowCreate` från `NameIDPolicy` elementet i SAML-begäran. | True |
+| {SAML:ForceAuthn} | Attributvärdet, `ForceAuthN` från `AuthnRequest` elementet i SAML-begäran. | True |
+| {SAML:ProviderName} | Attributvärdet, `ProviderName` från `AuthnRequest` elementet i SAML-begäran.| Contoso.com |
 
-## <a name="using-claim-resolvers"></a>Använda anspråks matchare
+## <a name="using-claim-resolvers"></a>Använda anspråkslösare
 
-Du kan använda anspråk matchare med följande element:
+Du kan använda anspråkslösare med följande element:
 
 | Objekt | Element | Inställningar |
 | ----- | ----------------------- | --------|
-|Application Insights teknisk profil |`InputClaim` | |
-|[Azure Active Directory](active-directory-technical-profile.md) teknisk profil| `InputClaim`, `OutputClaim`| 1, 2|
-|[OAuth2](oauth2-technical-profile.md) teknisk profil| `InputClaim`, `OutputClaim`| 1, 2|
-|[OpenID Connect](openid-connect-technical-profile.md) , teknisk profil| `InputClaim`, `OutputClaim`| 1, 2|
-|Teknisk profil för [anspråks omvandling](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
-|Teknisk profil för [RESTful-Provider](restful-technical-profile.md)| `InputClaim`| 1, 2|
+|Teknisk profil för Application Insights |`InputClaim` | |
+|Teknisk profil för [Azure Active Directory](active-directory-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Teknisk profil för [OAuth2](oauth2-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Teknisk profil för [OpenID Connect](openid-connect-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|Teknisk profil [för skadeomvandling](claims-transformation-technical-profile.md)| `InputClaim`, `OutputClaim`| 1, 2|
+|[RESTful leverantör](restful-technical-profile.md) teknisk profil| `InputClaim`| 1, 2|
 |[SAML2](saml-technical-profile.md) teknisk profil| `OutputClaim`| 1, 2|
-|[Egen, kontrollerad](self-asserted-technical-profile.md) teknisk profil| `InputClaim`, `OutputClaim`| 1, 2|
-|[ContentDefinition](contentdefinitions.md)| `LoadUri`| |
+|[Självförsäkrad](self-asserted-technical-profile.md) teknisk profil| `InputClaim`, `OutputClaim`| 1, 2|
+|[InnehållDefinition](contentdefinitions.md)| `LoadUri`| |
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |[RelyingParty](relyingparty.md#technicalprofile) teknisk profil| `OutputClaim`| 2 |
 
-Autentiseringsinställningar
-1. `IncludeClaimResolvingInClaimsHandling` metadata måste anges till `true`.
-1. Attributet indata-eller utgående anspråk `AlwaysUseDefaultValue` måste anges till `true`.
+Inställningar:
+1. Metadata `IncludeClaimResolvingInClaimsHandling` måste anges `true`till .
+1. Attributet `AlwaysUseDefaultValue` input- eller utdataanspråk måste anges till `true`.
 
-## <a name="claim-resolvers-samples"></a>Exempel på anspråks lösare
+## <a name="claim-resolvers-samples"></a>Exempel på anspråkslösare
 
 ### <a name="restful-technical-profile"></a>RESTful teknisk profil
 
-I en [RESTful](restful-technical-profile.md) teknisk profil kanske du vill skicka användar språket, princip namnet, omfattningen och klient-ID: t. Baserat på dessa anspråk kan REST API köra anpassad affärs logik, och om det behövs kan du generera ett lokaliserat fel meddelande.
+I en [RESTful](restful-technical-profile.md) teknisk profil kanske du vill skicka användarspråk, principnamn, omfattning och klient-ID. Baserat på anspråk kan REST API köra anpassad affärslogik och vid behov skapa ett lokaliserat felmeddelande.
 
 I följande exempel visas en RESTful teknisk profil med det här scenariot:
 
@@ -169,13 +171,13 @@ I följande exempel visas en RESTful teknisk profil med det här scenariot:
 
 ### <a name="direct-sign-in"></a>Direkt inloggning
 
-Med hjälp av anspråks matchare kan du fylla i inloggnings namnet eller dirigera inloggningen till en speciell social identitetsprovider, till exempel Facebook, LinkedIn eller en Microsoft-konto. Mer information finns i [Konfigurera direkt inloggning med Azure Active Directory B2C](direct-signin.md).
+Med hjälp av anspråkslösare kan du fylla i inloggningsnamnet eller direktinstallera till en viss leverantör av social identitet, till exempel Facebook, LinkedIn eller ett Microsoft-konto. Mer information finns [i Konfigurera direkt inloggning med Azure Active Directory B2C](direct-signin.md).
 
-### <a name="dynamic-ui-customization"></a>Anpassning av dynamiskt gränssnitt
+### <a name="dynamic-ui-customization"></a>Anpassning av dynamiskt användargränssnitt
 
-Med Azure AD B2C kan du skicka frågesträngs parametrar till definitions slut punkter för HTML-innehåll för att dynamiskt återge sid innehållet. Detta gör det till exempel möjligt att ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en anpassad parameter som du skickar från ditt webb program eller mobil program. Mer information finns i [Konfigurera användar gränssnittet dynamiskt genom att använda anpassade principer i Azure Active Directory B2C](custom-policy-ui-customization.md). Du kan också lokalisera HTML-sidan baserat på en språk parameter, eller så kan du ändra innehållet baserat på klient-ID: t.
+Med Azure AD B2C kan du skicka frågesträngparametrar till slutpunkterna för HTML-innehållsdefinition för att dynamiskt återge sidinnehållet. Detta gör det till exempel möjligt att ändra bakgrundsavbildningen på sign-up- eller inloggningssidan för Azure AD B2C baserat på en anpassad parameter som du skickar från ditt webb- eller mobilappprogram. Mer information finns i [Dynamiskt konfigurera användargränssnittet med hjälp av anpassade principer i Azure Active Directory B2C](custom-policy-ui-customization.md). Du kan också lokalisera HTML-sidan baserat på en språkparameter eller ändra innehållet baserat på klient-ID.
 
-Följande exempel skickar i frågesträngparametern med namnet **campaignId** med värdet `hawaii`, en **språkkod** `en-US`och en **app** som representerar klient-ID:
+Följande exempel skickas i frågesträngparametern **CampaignId** `Hawaii`med värdet `en-US`, en **språkkod** för och en **app** som representerar klient-ID:
 
 ```XML
 <UserJourneyBehaviors>
@@ -187,15 +189,15 @@ Följande exempel skickar i frågesträngparametern med namnet **campaignId** me
 </UserJourneyBehaviors>
 ```
 
-Därför skickar Azure AD B2C ovanstående parametrar till sidan HTML-innehåll:
+Därför skickar Azure AD B2C ovanstående parametrar till HTML-innehållssidan:
 
 ```
 /selfAsserted.aspx?campaignId=hawaii&language=en-US&app=0239a9cc-309c-4d41-87f1-31288feb2e82
 ```
 
-### <a name="content-definition"></a>Innehålls definition
+### <a name="content-definition"></a>Definition av innehåll
 
-I en [ContentDefinition](contentdefinitions.md) `LoadUri`kan du skicka anspråk matchare för att hämta innehåll från olika platser, baserat på de parametrar som används.
+I en [ContentDefinition](contentdefinitions.md) `LoadUri`kan du skicka anspråkslösare för att hämta innehåll från olika platser, baserat på de parametrar som används.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -204,9 +206,9 @@ I en [ContentDefinition](contentdefinitions.md) `LoadUri`kan du skicka anspråk 
 </ContentDefinition>
 ```
 
-### <a name="application-insights-technical-profile"></a>Application Insights teknisk profil
+### <a name="application-insights-technical-profile"></a>Teknisk profil för Application Insights
 
-Med Azure Application insikter och anspråks matchare kan du få insikter om användar beteendet. I Application Insights teknisk profil skickar du inloggade anspråk som är sparade för att Azure Application insikter. Mer information finns i [spåra användar beteende i Azure AD B2C-transporter med hjälp av Application Insights](analytics-with-application-insights.md). I följande exempel skickas princip-ID: t, korrelations-ID, språk och klient-ID till Azure Application insikter.
+Med Azure Application Insights och anspråkslösare kan du få insikter om användarbeteende. I den tekniska profilen Application Insights skickar du indataanspråk som sparas till Azure Application Insights. Mer information finns [i Spåra användarbeteende i Azure AD B2C-färder med hjälp av Application Insights](analytics-with-application-insights.md). I följande exempel skickas princip-ID, korrelations-ID, språk och klient-ID till Azure Application Insights.
 
 ```XML
 <TechnicalProfile Id="AzureInsights-Common">
@@ -222,9 +224,9 @@ Med Azure Application insikter och anspråks matchare kan du få insikter om anv
 </TechnicalProfile>
 ```
 
-### <a name="relying-party-policy"></a>Princip för förlitande part
+### <a name="relying-party-policy"></a>Förlitande partipolitik
 
-I en teknisk profil för [förlitande part](relyingparty.md) , kanske du vill skicka klient-ID eller KORRELATIONS-ID till det förlitande part programmet i JWT.
+I en teknisk profil för [förlitande part](relyingparty.md) princip kan du skicka klient-ID eller korrelations-ID till det förlitande part-programmet inom JWT.
 
 ```XML
 <RelyingParty>

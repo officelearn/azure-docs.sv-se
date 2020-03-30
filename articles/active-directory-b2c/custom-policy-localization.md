@@ -1,6 +1,6 @@
 ---
-title: Lokalisera användar gränssnittet för din app med en anpassad princip
-description: Lär dig mer om att lokalisera ett användar gränssnitt med en anpassad princip i Azure Active Directory B2C.
+title: Lokalisera användargränssnittet i din app med en anpassad princip
+description: Lär dig mer om lokalisering av ett användargränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,26 +11,26 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 1401cbe1920c7c6df804aadbba1751612ba9cf06
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126790"
 ---
-# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalisera användar gränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C
+# <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalisera användargränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Med språk anpassning i Azure Active Directory B2C (Azure AD B2C) kan du anpassa olika språk efter kundens behov. Microsoft tillhandahåller översättningarna för 36-språk, men du kan också tillhandahålla egna översättningar för alla språk. Även om din upplevelse bara är avsedd för ett enda språk kan du anpassa valfri text på sidorna. 
+Med språkanpassning i Azure Active Directory B2C (Azure AD B2C) kan du anpassa olika språk som passar dina kunders behov. Microsoft tillhandahåller översättningar för 36 språk, men du kan också tillhandahålla egna översättningar för alla språk. Även om din upplevelse endast tillhandahålls för ett enda språk kan du anpassa all text på sidorna. 
 
-Den här artikeln visar hur du stöder flera språk i principen för användar resor. Lokalisering kräver tre steg: Konfigurera den explicita listan över språk som stöds, ange språkspecifika strängar och samlingar och redigera [innehålls definitionen](contentdefinitions.md) för sidan. 
+I den här artikeln visas hur du stöder flera språk eller språk i principen för användarresor. Lokalisering kräver tre steg: konfigurera den explicita listan över språk som stöds, tillhandahålla språkspecifika strängar och samlingar och redigera [innehållsdefinitionen](contentdefinitions.md) för sidan. 
 
-## <a name="set-up-the-list-of-supported-languages"></a>Konfigurera en lista över språk som stöds
+## <a name="set-up-the-list-of-supported-languages"></a>Ställa in listan över språk som stöds
 
-Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>  .
+Öppna filen för tillägg i principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
 
-1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
-1. Lägg till `Localization`-elementet med de språk som stöds: Engelska (standard) och spanska.  
+1. Sök efter elementet [BuildingBlocks.](buildingblocks.md) Om elementet inte finns lägger du till det.
+1. Lägg `Localization` till elementet med språk som stöds: engelska (standard) och spanska.  
 
 
 ```XML
@@ -44,12 +44,12 @@ Den här artikeln visar hur du stöder flera språk i principen för användar r
 
 ## <a name="provide-language-specific-labels"></a>Ange språkspecifika etiketter
 
-[LocalizedResources](localization.md#localizedresources) för `Localization`-elementet innehåller listan över lokaliserade strängar. Elementet lokaliserade resurser har en identifierare som används för att identifiera lokaliserade resurser unikt. Den här identifierare används senare i [innehålls definitions](contentdefinitions.md) elementet.
+[Elementets localizedResources](localization.md#localizedresources) `Localization` innehåller en lista över lokaliserade strängar. Det lokaliserade resurselementet har en identifierare som används för att unikt identifiera lokaliserade resurser. Den här identifern används senare i [innehållsdefinitionselementet.](contentdefinitions.md)
 
-Du konfigurerar lokaliserade resurs element för innehålls definitionen och valfritt språk som du vill stödja. Om du vill anpassa enhetliga registrerings-eller inloggnings sidor för engelska och spanska lägger du till följande `LocalizedResources` element efter slutet av `</SupportedLanguages>`-elementet.
+Du konfigurerar lokaliserade resurselement för innehållsdefinitionen och alla språk som du vill stödja. Om du vill anpassa de enhetliga registrerings- eller inloggningssidorna för engelska och spanska lägger du till följande `LocalizedResources` element efter elementets `</SupportedLanguages>` .
 
 > [!NOTE]
-> I följande exempel lade vi till pund `#`s symbolen i begging för varje rad, så att du kan easly hitta de lokaliserade etiketterna på skärmen.
+> I följande prov lade `#` vi till pundsymbolen vid tiggeri av varje rad, så att du kan easly hitta de lokaliserade etiketterna på skärmen.
 
 ```XML
 <!--Local account sign-up or sign-in page English-->
@@ -212,11 +212,11 @@ Du konfigurerar lokaliserade resurs element för innehålls definitionen och val
 </LocalizedResources>
 ```
 
-## <a name="edit-the-content-definition-with-the-localization"></a>Redigera innehålls definitionen med lokalisering
+## <a name="edit-the-content-definition-with-the-localization"></a>Redigera innehållsdefinitionen med lokaliseringen
 
-Klistra in hela innehållet i ContentDefinitions-elementet som du kopierade som ett underordnat objekt till BuildingBlocks-elementet.
+Klistra in hela innehållet i contentdefinitions-elementet som du kopierade som underordnad i elementet BuildingBlocks.
 
-I följande exempel läggs de engelska (en) och spanska (ES) anpassade strängarna till i registrerings-eller inloggnings sidan och på registrerings sidan för lokalt konto. **LocalizedResourcesReferenceId** för varje **LocalizedResourcesReference** är detsamma som deras nationella inställningar, men du kan använda valfri sträng som identifierare. För varje språk-och sid kombination pekar du på motsvarande **LocalizedResources** som du skapade tidigare.
+I följande exempel läggs anpassade strängar på anpassade strängar på den engelska (en) och spanska (es) till på registrerings- eller inloggningssidan och på registreringssidan för lokala konton. **LocalizedResourcesReferenceId** för varje **LocalizedResourcesReference** är samma som deras språk, men du kan använda vilken sträng som helst som identifierare. För varje språk- och sidkombination pekar du på motsvarande **LocalizedResources som** du tidigare skapade.
 
 ```XML
 <ContentDefinitions>
@@ -238,21 +238,21 @@ I följande exempel läggs de engelska (en) och spanska (ES) anpassade strängar
 
 ##  <a name="upload-and-test-your-updated-custom-policy"></a>Ladda upp och testa din uppdaterade anpassade princip
 
-### <a name="upload-the-custom-policy"></a>Överför den anpassade principen
+### <a name="upload-the-custom-policy"></a>Ladda upp den anpassade principen
 
-1. Spara tilläggs filen.
-1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
+1. Spara tilläggsfilen.
+1. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att välja **katalog + prenumerationsfilter** i den övre menyn och välja den katalog som innehåller din klient.
 1. Sök efter och välj **Azure AD B2C**.
-1. Under **principer**väljer du **Identity Experience Framework**.
-1. Välj **överför anpassad princip**.
-1. Ladda upp tilläggs filen som du har ändrat tidigare.
+1. Under **Principer**väljer du **Identity Experience Framework**.
+1. Välj **Ladda upp anpassad princip**.
+1. Ladda upp tilläggsfilen som du tidigare har ändrat.
 
 ### <a name="test-the-custom-policy-by-using-run-now"></a>Testa den anpassade principen med hjälp av **Kör nu**
 
-1. Välj den princip som du överförde och välj sedan **Kör nu**.
-1. Du bör kunna se den lokaliserade registrerings-eller inloggnings sidan.
-1. Klicka på registrerings länken och du bör kunna se den lokaliserade anmälnings sidan.
-1. Ändra webbläsarens standard språk till spanska. Du kan också lägga till parametern frågesträng `ui_locales` till auktoriseringsbegäran. Ett exempel: 
+1. Välj den princip som du har laddat upp och välj sedan **Kör nu**.
+1. Du bör kunna se den lokaliserade registrerings- eller inloggningssidan.
+1. Klicka på anmälningslänken så ska du kunna se den lokaliserade registreringssidan.
+1. Växla standardspråk för webbläsaren till spanska. Du kan också lägga till `ui_locales` frågesträngparametern i auktoriseringsbegäran. Ett exempel: 
 
 ```http
 https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
@@ -260,6 +260,6 @@ https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [lokaliserings](localization.md) ELEMENTET i IEF-referensen.
-- Se listan över [lokaliserings Strängs-ID: n](localization-string-ids.md) som finns i Azure AD B2C.
+- Läs mer om [lokaliseringselementet](localization.md) i IEF-referensen.
+- Se listan över [lokaliseringssträng-ID:er som](localization-string-ids.md) är tillgängliga i Azure AD B2C.
 

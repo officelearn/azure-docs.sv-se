@@ -1,7 +1,7 @@
 ---
-title: Felsök vanliga problem med Sök indexering
+title: Felsöka vanliga problem med sökindexerare
 titleSuffix: Azure Cognitive Search
-description: Åtgärda fel och vanliga problem med indexerare i Azure Kognitiv sökning, inklusive anslutning av data källor, brand väggar och saknade dokument.
+description: Åtgärda fel och vanliga problem med indexerare i Azure Cognitive Search, inklusive datakällanslutning, brandvägg och dokument som saknas.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,71 +9,71 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 1e3692920c35a6965a23c0305aeeebfc80505d85
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77190920"
 ---
-# <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Felsöka vanliga indexerings problem i Azure Kognitiv sökning
+# <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Felsöka vanliga indexeringsproblem i Azure Cognitive Search
 
-Indexerare kan köra ett antal problem när de indexerar data i Azure Kognitiv sökning. De huvudsakliga kategorier av felen är:
+Indexerare kan stöta på ett antal problem när du indexerar data till Azure Cognitive Search. De viktigaste kategorierna av fel är:
 
-* [Ansluta till en data källa eller andra resurser](#connection-errors)
-* [Dokument bearbetning](#document-processing-errors)
-* [Dokument inmatning till ett index](#index-errors)
+* [Ansluta till en datakälla eller andra resurser](#connection-errors)
+* [Bearbetning av dokument](#document-processing-errors)
+* [Dokumentintag till ett index](#index-errors)
 
 ## <a name="connection-errors"></a>Anslutningsfel
 
 > [!NOTE]
-> Indexerare har begränsat stöd för åtkomst till data källor och andra resurser som skyddas av Azure Network Security-mekanismer. För närvarande kan indexerarna bara komma åt data källor via motsvarande begränsningar för begränsning av IP-adressintervall eller NSG-regler i förekommande fall. Information om hur du kommer åt varje data källa som stöds finns nedan.
+> Indexerare har begränsat stöd för åtkomst till datakällor och andra resurser som skyddas av Azure-nätverksäkerhetsmekanismer. För närvarande kan indexerare endast komma åt datakällor via motsvarande IP-adressintervallbegränsningsmekanismer eller NSG-regler när det är tillämpligt. Information om hur du kommer åt varje datakälla som stöds finns nedan.
 >
-> Du kan ta reda på IP-adressen för din Sök tjänst genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net`).
+> Du kan ta reda på IP-adressen för din söktjänst genom `<your-search-service-name>.search.windows.net`att pinga dess fullt kvalificerade domännamn (t.ex.. ).
 >
-> Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) genom att antingen använda [NEDLADDNINGs bara JSON-filer](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) eller genom att använda [API: et för identifiering av service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
+> Du kan ta reda på `AzureCognitiveSearch` IP-adressintervallet [för servicetag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) genom att antingen använda [nedladdningsbara JSON-filer](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) eller via [Api för Service Tag Discovery](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
 
-### <a name="configure-firewall-rules"></a>Konfigurera brand Väggs regler
+### <a name="configure-firewall-rules"></a>Konfigurera brandväggsregler
 
-Azure Storage, CosmosDB och Azure SQL tillhandahåller en konfigurerbar brand vägg. Det finns inget speciellt fel meddelande när brand väggen är aktive rad. Normalt är brand Väggs fel allmänt och ser ut som `The remote server returned an error: (403) Forbidden` eller `Credentials provided in the connection string are invalid or have expired`.
+Azure Storage, CosmosDB och Azure SQL tillhandahåller en konfigurerbar brandvägg. Det finns inget specifikt felmeddelande när brandväggen är aktiverad. Normalt är brandväggsfel generiska `The remote server returned an error: (403) Forbidden` `Credentials provided in the connection string are invalid or have expired`och ser ut som eller .
 
-Det finns två alternativ för att tillåta indexerare att få åtkomst till dessa resurser i en sådan instans:
+Det finns 2 alternativ för att tillåta indexerare att komma åt dessa resurser i en sådan instans:
 
-* Inaktivera brand väggen genom att tillåta åtkomst från **alla nätverk** (om möjligt).
-* Alternativt kan du tillåta åtkomst för Sök tjänstens IP-adress och IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) i brand Väggs reglerna för din resurs (begränsning för IP-adressintervall).
+* Inaktivera brandväggen genom att tillåta åtkomst från **alla nätverk** (om möjligt).
+* Du kan också tillåta åtkomst för IP-adressen för söktjänsten `AzureCognitiveSearch` och IP-adressintervallet för [servicetag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) i brandväggsreglerna för din resurs (begränsning av IP-adressintervall).
 
-Information om hur du konfigurerar begränsningar för IP-adressintervall för varje typ av data källa finns i följande länkar:
+Information om hur du konfigurerar IP-adressintervallbegränsningar för varje datakälltyp finns i följande länkar:
 
-* [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
+* [Azure-lagring](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
 * [Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
 * [Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
 
-**Begränsning**: som anges i dokumentationen ovan för Azure Storage fungerar begränsningarna för IP-adressintervall bara om Sök tjänsten och ditt lagrings konto finns i olika regioner.
+**Begränsning**: Som anges i dokumentationen ovan för Azure Storage fungerar IP-adressintervallbegränsningar endast om söktjänsten och ditt lagringskonto finns i olika regioner.
 
-Azure Functions (som kan användas som en [anpassad webb-API-kunskap](cognitive-search-custom-skill-web-api.md)) stöder också [IP-adressbegränsningar](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). Listan med IP-adresser som ska konfigureras är IP-adressen för Sök tjänsten och IP-adressintervallet för `AzureCognitiveSearch` service tag.
+Azure-funktioner (som kan användas som en [anpassad webb-API-färdighet)](cognitive-search-custom-skill-web-api.md)stöder också [IP-adressbegränsningar](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). Listan över IP-adresser som ska konfigureras är IP-adressen för `AzureCognitiveSearch` söktjänsten och IP-adressintervallet för servicetag.
 
-Information om hur du kommer åt data i SQL Server på en virtuell Azure-dator beskrivs [här](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+Information om hur du kommer åt data i SQL-servern på en virtuell Azure-dator beskrivs [här](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
-### <a name="configure-network-security-group-nsg-rules"></a>Konfigurera regler för nätverks säkerhets grupper (NSG)
+### <a name="configure-network-security-group-nsg-rules"></a>Konfigurera NSG-regler (Network Security Group)
 
-Vid åtkomst till data i en SQL-hanterad instans, eller när en virtuell Azure-dator används som webb tjänst-URI för en [anpassad webb-API-kunskap](cognitive-search-custom-skill-web-api.md), behöver kunder inte bekymra sig om vissa IP-adresser.
+När du använder data i en SQL-hanterad instans, eller när en Azure VM används som webbtjänst URI för en [anpassad webb-API-färdighet,](cognitive-search-custom-skill-web-api.md)behöver kunderna inte vara berörda av specifika IP-adresser.
 
-I sådana fall kan den virtuella Azure-datorn eller SQL-hanterade instansen konfigureras så att de finns i ett virtuellt nätverk. Sedan kan en nätverks säkerhets grupp konfigureras för att filtrera den typ av nätverks trafik som kan flöda in i och ut ur de virtuella nätverkets undernät och nätverks gränssnitt.
+I sådana fall kan den virtuella Azure-datorn eller sql-hanterade instansen konfigureras för att finnas i ett virtuellt nätverk. Sedan kan en nätverkssäkerhetsgrupp konfigureras för att filtrera den typ av nätverkstrafik som kan flöda in och ut ur det virtuella nätverkets undernät och nätverksgränssnitt.
 
-Du kan använda taggen `AzureCognitiveSearch` service direkt i reglerna för inkommande [NSG](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) utan att behöva leta upp dess IP-adressintervall.
+Service-taggen `AzureCognitiveSearch` kan användas direkt i de inkommande [NSG-reglerna](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) utan att behöva slå upp sitt IP-adressintervall.
 
 Mer information om hur du kommer åt data i en SQL-hanterad instans beskrivs [här](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
-### <a name="cosmosdb-indexing-isnt-enabled"></a>CosmosDB "indexering" är inte aktive rad
+### <a name="cosmosdb-indexing-isnt-enabled"></a>CosmosDB "Indexering" är inte aktiverat
 
-Azure Kognitiv sökning har ett implicit beroende av Cosmos DB indexering. Om du inaktiverar automatisk indexering i Cosmos DB, returnerar Azure Kognitiv sökning ett lyckat tillstånd, men det går inte att indexera container innehåll. Instruktioner för hur du kontrollerar inställningar och aktiverar indexering finns i [Hantera indexering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
+Azure Cognitive Search har ett implicit beroende av Cosmos DB-indexering. Om du inaktiverar automatisk indexering i Cosmos DB returnerar Azure Cognitive Search ett lyckat tillstånd, men misslyckas med att indexera behållarinnehållet. Instruktioner om hur du kontrollerar inställningar och aktiverar indexering finns [i Hantera indexering i Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 
-## <a name="document-processing-errors"></a>Fel vid dokument bearbetning
+## <a name="document-processing-errors"></a>Fel i dokumentbearbetning
 
-### <a name="unprocessable-or-unsupported-documents"></a>Dokument som inte kan hanteras eller som inte stöds
+### <a name="unprocessable-or-unsupported-documents"></a>Dokument som inte kan bearbetas eller inte stöds
 
-BLOB-indexeraren [dokument vars dokument format stöds explicit.](search-howto-indexing-azure-blob-storage.md#SupportedFormats).. Ibland innehåller en Blob Storage-behållare dokument som inte stöds. Andra gånger kan det finnas problematiska dokument. Du kan undvika att stoppa din indexerare på dessa dokument genom att [ändra konfigurations alternativ](search-howto-indexing-azure-blob-storage.md#DealingWithErrors):
+Blob-indexerardokumenten [som dokumentformat uttryckligen stöds.](search-howto-indexing-azure-blob-storage.md#SupportedFormats) Ibland innehåller en blob-lagringsbehållare dokument som inte stöds. Andra gånger kan det finnas problematiska dokument. Du kan undvika att stoppa indexeraren på dessa dokument genom [att ändra konfigurationsalternativ:](search-howto-indexing-azure-blob-storage.md#DealingWithErrors)
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -86,12 +86,12 @@ api-key: [admin key]
 }
 ```
 
-### <a name="missing-document-content"></a>Dokument innehåll saknas
+### <a name="missing-document-content"></a>Dokumentinnehåll som saknas saknas
 
-BLOB-indexeraren [söker efter och extraherar text från blobbar i en behållare](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Vissa problem med extrahering av text är:
+Blob-indexeraren [hittar och extraherar text från blobbar i en behållare](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Några problem med att extrahera text är:
 
-* Dokumentet innehåller bara skannade bilder. PDF-blobar som inte har text innehåll, till exempel scannade bilder (JPGs), genererar inte resultat i en standard-BLOB för BLOB-indexering. Om du har bild innehåll med text element kan du använda [kognitiv sökning](cognitive-search-concept-image-scenarios.md) för att hitta och extrahera texten.
-* BLOB-indexeraren har kon figurer ATS för att endast indexera metadata. För att extrahera innehåll måste BLOB-indexeraren konfigureras för att [extrahera både innehåll och metadata](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
+* Dokumentet innehåller bara skannade bilder. PDF-blobbar som har innehåll som inte är text, till exempel skannade bilder (JPGs), ger inte resultat i en standardpipelare för blobindexering. Om du har bildinnehåll med textelement kan du använda [kognitiv sökning](cognitive-search-concept-image-scenarios.md) för att söka efter och extrahera texten.
+* Blob-indexeraren är konfigurerad för att bara indexera metadata. Om du vill extrahera innehåll måste blobindexeraren konfigureras för att [extrahera både innehåll och metadata:](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
@@ -104,14 +104,14 @@ api-key: [admin key]
 }
 ```
 
-## <a name="index-errors"></a>Index fel
+## <a name="index-errors"></a>Indexfel
 
 ### <a name="missing-documents"></a>Dokument som saknas
 
-Indexerare hittar dokument från en [data källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Ibland visas ett dokument från data källan som har indexerats för att saknas i ett index. Det finns några vanliga orsaker till att dessa fel inträffar:
+Indexerare hittar dokument från en [datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source). Ibland verkar ett dokument från datakällan som borde ha indexerats saknas i ett index. Det finns ett par vanliga orsaker till att dessa fel kan inträffa:
 
-* Dokumentet har inte indexerats. Kontrol lera portalen för att köra en lyckad indexerare.
-* Dokumentet uppdaterades när indexeraren kördes. Om indexeraren är enligt ett [schema](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule), kommer den att köras igen och hämta dokumentet.
-* [Frågan](/rest/api/searchservice/create-data-source) som anges i data källan utesluter dokumentet. Indexerare kan inte indexera dokument som inte är en del av data källan.
-* [Fält mappningar](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) eller [AI-berikning](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) har ändrat dokumentet och det ser annorlunda ut än förväntat.
-* Använd [Sök-API: et](https://docs.microsoft.com/rest/api/searchservice/lookup-document) för att hitta ditt dokument.
+* Dokumentet har inte indexerats. Kontrollera om det finns en lyckad indexeringskörning i portalen.
+* Dokumentet uppdaterades efter indexeringskörningen. Om indexeraren har ett [schema](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-schedule)körs den så småningom och hämtar dokumentet.
+* Frågan [query](/rest/api/searchservice/create-data-source) som anges i datakällan utesluter dokumentet. Indexerare kan inte indexera dokument som inte ingår i datakällan.
+* [Fältmappningar](https://docs.microsoft.com/rest/api/searchservice/create-indexer#fieldmappings) eller [AI-anrikning](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) har ändrat dokumentet och det ser annorlunda ut än förväntat.
+* Använd [uppslagsdokument-API:et](https://docs.microsoft.com/rest/api/searchservice/lookup-document) för att hitta dokumentet.

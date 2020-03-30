@@ -1,6 +1,6 @@
 ---
-title: Anpassa gränssnittet för fjärr styrnings lösning – Azure | Microsoft Docs
-description: Den här artikeln innehåller information om hur du kan få åtkomst till käll koden för gränssnittet för fjärr styrnings Accelerator och göra vissa anpassningar.
+title: Anpassa användargränssnittet för fjärrövervakningslösning – Azure | Microsoft-dokument
+description: Den här artikeln innehåller information om hur du kan komma åt källkoden för lösningsacceleratorgränssnittet för fjärrövervakning och göra vissa anpassningar.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -9,80 +9,80 @@ services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: eb3d5fea68b5b1b6e648943cb3dbaab5857e9e07
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68607999"
 ---
-# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa acceleratorn för fjärr styrnings lösning
+# <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa lösningsacceleratorn för fjärrövervakning
 
-Den här artikeln innehåller information om hur du får åtkomst till käll koden och hur du anpassar gränssnittet för Remote Monitoring Solution Accelerator.
+Den här artikeln innehåller information om hur du kan komma åt källkoden och anpassa lösningsacceleratorgränssnittet för fjärrövervakning.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-a-local-development-environment-for-the-ui"></a>Förbered en lokal utvecklings miljö för användar gränssnittet
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>Förbereda en lokal utvecklingsmiljö för användargränssnittet
 
-GRÄNSSNITTs koden för fjärrövervakning av Solution Accelerator implementeras med hjälp av reakta. js-ramverket. Du hittar käll koden i [Azure-IoT-PC-Remote-Monitoring-webui GitHub-](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) lagringsplatsen.
+Gränssnittskoden för fjärrövervakningslösningslösning implementeras med hjälp av React.js-ramverket. Du hittar källkoden i [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub-databasen.
 
-Om du vill göra ändringar i användar gränssnittet kan du köra en kopia av det lokalt. För att utföra åtgärder som att hämta telemetri ansluter den lokala kopian till en distribuerad instans av lösningen.
+Om du vill göra ändringar i användargränssnittet kan du köra en kopia av det lokalt. Om du vill slutföra åtgärder som att hämta telemetri ansluter den lokala kopian till en distribuerad instans av lösningen.
 
-Följande steg beskriver processen för att konfigurera en lokal miljö för UI-utveckling:
+I följande steg beskrivs processen för att konfigurera en lokal miljö för gränssnittsutveckling:
 
-1. Distribuera en **grundläggande** instans av Solution Accelerator med **PC** cli. Anteckna namnet på distributionen och de autentiseringsuppgifter som du har angett för den virtuella datorn. Mer information finns i [distribuera med CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
+1. Distribuera en **grundläggande** instans av lösningsacceleratorn med hjälp av **PCS** CLI. Anteckna namnet på distributionen och de autentiseringsuppgifter som du angav för den virtuella datorn. Mer information finns i [Distribuera med CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. Använd Azure Portal eller Azure Cloud Shell för att aktivera SSH-åtkomst till den virtuella datorn som är värd för mikrotjänsterna i lösningen. Exempel:
+1. Om du vill aktivera SSH-åtkomst till den virtuella datorn som är värd för mikrotjänsterna i din lösning använder du Azure-portalen eller Azure Cloud Shell. Ett exempel:
 
     ```azurecli-interactive
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Aktivera endast SSH-åtkomst under testning och utveckling. Om du aktiverar SSH [bör du inaktivera det så snart du är klar med det](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+    Aktivera endast SSH-åtkomst under test och utveckling. Om du aktiverar SSH [bör du inaktivera det så fort du är klar med det](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
-1. Använd Azure Portal eller Azure Cloud Shell för att hitta namnet och den offentliga IP-adressen för den virtuella datorn. Exempel:
+1. Använd Azure-portalen eller Azure Cloud Shell för att hitta namnet och den offentliga IP-adressen för din virtuella dator. Ett exempel:
 
     ```azurecli-interactive
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. Använd SSH för att ansluta till den virtuella datorn. Använd IP-adressen från föregående steg och de autentiseringsuppgifter du angav när du körde datorerna för att distribuera lösningen. `ssh` Kommandot är tillgängligt i Azure Cloud Shell.
+1. Använd SSH för att ansluta till din virtuella dator. Använd IP-adressen från föregående steg och de autentiseringsuppgifter du angav när du körde **datorer** för att distribuera lösningen. Kommandot `ssh` är tillgängligt i Azure Cloud Shell.
 
-1. Om du vill tillåta att det lokala UX: en ansluter kör du följande kommandon i bash-gränssnittet på den virtuella datorn:
+1. Om du vill att den lokala användarupplevelsen ska ansluta kör du följande kommandon vid bash-skalet i den virtuella datorn:
 
     ```sh
     cd /app
     sudo ./start.sh --unsafe
     ```
 
-1. När du har granskat kommandot slutförs och webbplatsen startar kan du koppla från den virtuella datorn.
+1. När du ser att kommandot har slutförts och webbplatsen startar kan du koppla från den virtuella datorn.
 
-1. I din lokala kopia av databasen [Azure-IoT-PC-Remote-Monitoring – webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) , redigerar du **. kuvert** -filen för att lägga till URL: en för din distribuerade lösning:
+1. Redigera **.env-filen** i den lokala kopian av [azure-iot-pcs-remote-monitoring-webui-databasen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) för att lägga till URL:en för den distribuerade lösningen:
 
     ```config
     NODE_PATH = src/
     REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
     ```
 
-1. I en kommando tolk navigerar du till din lokala kopia av `azure-iot-pcs-remote-monitoring-webui` mappen.
+1. I en kommandotolk navigerar du `azure-iot-pcs-remote-monitoring-webui` till den lokala kopian av mappen.
 
-1. Kör följande kommandon för att installera de nödvändiga biblioteken och köra användar gränssnittet lokalt:
+1. Om du vill installera de bibliotek som krävs och köra användargränssnittet lokalt kör du följande kommandon:
 
     ```cmd/sh
     npm install
     npm start
     ```
 
-1. Föregående kommando kör användar gränssnittet lokalt på http:\//localhost: 3000/instrument panel. Du kan redigera koden medan platsen körs och se att den uppdateras dynamiskt.
+1. Föregående kommando kör användargränssnittet lokalt\/på http: /localhost:3000/dashboard. Du kan redigera koden medan webbplatsen körs och se den uppdateras dynamiskt.
 
 ## <a name="customize-the-layout"></a>Anpassa layouten
 
-Varje sida i fjärr styrnings lösningen består av en uppsättning kontroller som kallas *paneler* i käll koden. **Instrument panels** sidan består av fem paneler: Översikt, kartor, aviseringar, telemetri och analys. Du hittar käll koden som definierar varje sida och dess paneler i webui GitHub-lagringsplatsen [PC-Remote-Monitoring](https://github.com/Azure/pcs-remote-monitoring-webui) . Till exempel är den kod som definierar **instrument panels** sidan, dess layout och panelerna på sidan placerad i mappen [src/Components/Pages/Dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) .
+Varje sida i lösningen för fjärrövervakning består av en uppsättning kontroller, så kallade *paneler* i källkoden. **Instrumentpanelssidan** består av fem paneler: Översikt, Karta, Aviseringar, Telemetri och Analys. Du hittar källkoden som definierar varje sida och dess paneler i [GitHub-databasen för pcs-remote-monitoring-webui.](https://github.com/Azure/pcs-remote-monitoring-webui) Koden som definierar **instrumentpanelssidan,** dess layout och panelerna på sidan finns till exempel i mappen [src/components/pages/dashboard.](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard)
 
-Eftersom panelerna hanterar sin egen layout och storlek kan du enkelt ändra layouten för en sida. Gör följande ändringar i **PageContent** -elementet i `src/components/pages/dashboard/dashboard.js` filen för att:
+Eftersom panelerna hanterar sin egen layout och storlek kan du enkelt ändra layouten på en sida. Gör följande ändringar i **PageContent-elementet** `src/components/pages/dashboard/dashboard.js` i filen till:
 
-* Växla placeringen av panelerna kartor och telemetri.
-* Ändra relativa bredder för kartan och analys panelerna.
+* Byt positionerna för kart- och telemetripanelerna.
+* Ändra kartans och analyspanelernas relativa bredd.
 
 ```javascript
 <PageContent className="dashboard-container">
@@ -152,9 +152,9 @@ Eftersom panelerna hanterar sin egen layout och storlek kan du enkelt ändra lay
 </PageContent>
 ```
 
-![Ändra panelens layout](./media/iot-accelerators-remote-monitoring-customize/layout.png)
+![Ändra panellayout](./media/iot-accelerators-remote-monitoring-customize/layout.png)
 
-Du kan också lägga till flera instanser av samma panel eller flera versioner om du [duplicerar och anpassar en panel](#duplicate-and-customize-an-existing-control). I följande exempel visas hur du lägger till två instanser av panelen telemetri. Redigera `src/components/pages/dashboard/dashboard.js` filen om du vill göra dessa ändringar:
+Du kan också lägga till flera instanser av samma panel, eller flera versioner om du [duplicerar och anpassar en panel](#duplicate-and-customize-an-existing-control). I följande exempel visas hur du lägger till två förekomster av telemetripanelen. Om du vill göra `src/components/pages/dashboard/dashboard.js` dessa ändringar redigerar du filen:
 
 ```javascript
 <PageContent className="dashboard-container">
@@ -235,29 +235,29 @@ Du kan också lägga till flera instanser av samma panel eller flera versioner o
 </PageContent>
 ```
 
-Du kan sedan Visa olika telemetri på varje panel:
+Du kan sedan visa olika telemetri på varje panel:
 
-![Flera telemetri paneler](./media/iot-accelerators-remote-monitoring-customize/multiple-telemetry.png)
+![Flera telemetripaneler](./media/iot-accelerators-remote-monitoring-customize/multiple-telemetry.png)
 
 ## <a name="duplicate-and-customize-an-existing-control"></a>Duplicera och anpassa en befintlig kontroll
 
-Följande steg beskriver hur du duplicerar en befintlig panel, ändrar den och använder sedan den ändrade versionen. I stegen används **aviserings** panelen som exempel:
+I följande steg beskrivs hur du duplicerar en befintlig panel, ändrar den och använder sedan den ändrade versionen. Stegen använder **varningspanelen** som ett exempel:
 
-1. I din lokala kopia av lagrings platsen gör du en kopia av mappen aviseringar i `src/components/pages/dashboard/panels` mappen. Namnge den nya kopian **cust_alerts**.
+1. Gör en kopia av **mappen** i `src/components/pages/dashboard/panels` den lokala kopian av databasen. Ge den nya **kopian namnet cust_alerts**.
 
-1. I filen **alertsPanel. js** i mappen **cust_alerts** redigerar du namnet på klassen som ska **CustAlertsPanel**:
+1. Redigera namnet på den klass som ska vara **CustAlertsPanel**i mappen **alertsPanel.js** i **mappen cust_alerts** :
 
     ```javascript
     export class CustAlertsPanel extends Component {
     ```
 
-1. Lägg till följande rad i `src/components/pages/dashboard/panels/index.js` filen:
+1. Lägg till följande `src/components/pages/dashboard/panels/index.js` rad i filen:
 
     ```javascript
     export * from './cust_alerts';
     ```
 
-1. Ersätt `alertsPanel` med `CustAlertsPanel` i`src/components/pages/dashboard/dashboard.js` filen:
+1. Ersätt `alertsPanel` `CustAlertsPanel` med `src/components/pages/dashboard/dashboard.js` i filen:
 
     ```javascript
     import {
@@ -281,11 +281,11 @@ Följande steg beskriver hur du duplicerar en befintlig panel, ändrar den och a
     </Cell>
     ```
 
-Nu har du ersatt den ursprungliga **aviserings** panelen med en kopia som heter **CustAlerts**. Den här kopian är samma som originalet. Nu kan du ändra kopian. Om du till exempel vill ändra kolumn ordningen i panelen **aviseringar** :
+Du har nu ersatt den ursprungliga **varningspanelen** med en kopia som heter **CustAlerts**. Den här kopian är samma som originalet. Du kan nu ändra kopian. Om du till exempel vill ändra kolumnordningen på **varningspanelen:**
 
 1. Öppna filen `src/components/pages/dashboard/panels/cust_alerts/alertsPanel.js`.
 
-1. Ändra kolumn definitionerna som du ser i följande kodfragment:
+1. Ändra kolumndefinitionerna enligt följande kodavsnitt:
 
     ```javascript
     this.columnDefs = [
@@ -302,15 +302,15 @@ Nu har du ersatt den ursprungliga **aviserings** panelen med en kopia som heter 
     ];
     ```
 
-Följande skärm bild visar den nya versionen av **aviserings** panelen:
+Följande skärmbild visar den nya versionen av **varningspanelen:**
 
-![aviserings panelen har uppdaterats](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
+![varningspanelen uppdaterad](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
 
-## <a name="customize-the-telemetry-chart"></a>Anpassa telemetri-diagrammet
+## <a name="customize-the-telemetry-chart"></a>Anpassa telemetridiagrammet
 
-Filerna i `src/components/pages/dashboard/panels/telemtry` mappen definierar telemetri-diagrammet på **instrument panelens** sida. Användar gränssnittet hämtar Telemetrin från Server delen av lösningen i `src/services/telemetryService.js` filen. Följande steg visar hur du ändrar den tids period som visas i telemetri-diagrammet från 15 till 5 minuter:
+Filerna i `src/components/pages/dashboard/panels/telemtry` mappen definierar telemetridiagrammet på **instrumentpanelssidan.** Användargränssnittet hämtar telemetrin från lösningens baksida `src/services/telemetryService.js` i filen. Följande steg visar hur du ändrar tidsperioden som visas i telemetridiagrammet från 15 till 5 minuter:
 
-1. Leta upp funktionen med namnet **getTelemetryByDeviceIdP15M**i filen.`src/services/telemetryService.js` Gör en kopia av den här funktionen och ändra kopian enligt följande:
+1. Leta `src/services/telemetryService.js` reda på funktionen **getTelemetryByDeviceIdP15M**i filen . Gör en kopia av denna funktion och ändra kopian enligt följande:
 
     ```javascript
     static getTelemetryByDeviceIdP5M(devices = []) {
@@ -323,21 +323,21 @@ Filerna i `src/components/pages/dashboard/panels/telemtry` mappen definierar tel
     }
     ```
 
-1. Om du vill använda den här nya funktionen för att fylla i telemetri `src/components/pages/dashboard/dashboard.js` -diagrammet öppnar du filen. Leta upp raden som initierar telemetri-dataströmmen och ändra den på följande sätt:
+1. Om du vill använda den nya funktionen för `src/components/pages/dashboard/dashboard.js` att fylla i telemetridiagrammet öppnar du filen. Leta reda på raden som initierar telemetriströmmen och ändra den på följande sätt:
 
     ```javascript
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
-Telemetri-diagrammet visar nu fem minuters telemetri-data:
+Telemetridiagrammet visar nu fem minuter telemetridata:
 
-![Telemetri diagram som visar en dag](./media/iot-accelerators-remote-monitoring-customize/telemetry-period.png)
+![Telemetridiagram som visar en dag](./media/iot-accelerators-remote-monitoring-customize/telemetry-period.png)
 
-## <a name="add-a-new-kpi"></a>Lägg till en ny KPI
+## <a name="add-a-new-kpi"></a>Lägga till en ny KPI
 
-Sidan **instrument panel** visar KPI: er i **Analytics** -panelen. Dessa KPI: er beräknas i `src/components/pages/dashboard/dashboard.js` filen. KPI: erna återges av `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` filen. Följande steg beskriver hur du beräknar och återger ett nytt KPI-värde på **instrument panelens** sida. Exemplet visar hur du lägger till en ny procentuell ändring i varnings aviserings-KPI:
+På **sidan Instrumentpanel** visas KPI:er på **analyspanelen.** Dessa KPI:er beräknas `src/components/pages/dashboard/dashboard.js` i filen. KPI:erna återges av `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` filen. I följande steg beskrivs hur du beräknar och renderar ett nytt KPI-värde på **instrumentpanelssidan.** Exemplet som visas är att lägga till en ny procentuell förändring i KPI:er för varningsaviseringar:
 
-1. Öppna filen `src/components/pages/dashboard/dashboard.js`. Ändra **initialState** -objektet så att det innehåller en **warningAlertsChange** -egenskap enligt följande:
+1. Öppna filen `src/components/pages/dashboard/dashboard.js`. Ändra **initialState-objektet** så att det innehåller en **varningAlertsChange-egenskap** enligt följande:
 
     ```javascript
     const initialState = {
@@ -357,7 +357,7 @@ Sidan **instrument panel** visar KPI: er i **Analytics** -panelen. Dessa KPI: er
     };
     ```
 
-1. Ändra **currentAlertsStats** -objektet så att det innehåller **totalWarningCount** som en egenskap:
+1. Ändra objektet **currentAlertsStats** så att **det inkluderar totalWarningCount** som egenskap:
 
     ```javascript
     return {
@@ -369,7 +369,7 @@ Sidan **instrument panel** visar KPI: er i **Analytics** -panelen. Dessa KPI: er
     };
     ```
 
-1. Beräkna den nya KPI: n. Hitta beräkningen för antalet kritiska varningar. Duplicera koden och ändra kopian enligt följande:
+1. Beräkna den nya KPI:n. Hitta beräkningen för antalet kritiska aviseringar. Duplicera koden och ändra kopian enligt följande:
 
     ```javascript
     // ================== Warning Alerts Count - START
@@ -382,7 +382,7 @@ Sidan **instrument panel** visar KPI: er i **Analytics** -panelen. Dessa KPI: er
     // ================== Warning Alerts Count - END
     ```
 
-1. Ta med den nya **warningAlertsChange** -KPI: en i KPI-dataströmmen:
+1. Inkludera den nya **varnings-KPI:nÄndning** i KPI-strömmen:
 
     ```javascript
     return ({
@@ -400,7 +400,7 @@ Sidan **instrument panel** visar KPI: er i **Analytics** -panelen. Dessa KPI: er
     });
     ```
 
-1. Inkludera den nya **warningAlertsChange** -KPI: en i de tillstånds data som används för att återge gränssnittet:
+1. Inkludera den nya **varnings-KPI:nÄndsänd** i tillståndsdata som används för att återge användargränssnittet:
 
     ```javascript
     const {
@@ -419,7 +419,7 @@ Sidan **instrument panel** visar KPI: er i **Analytics** -panelen. Dessa KPI: er
     } = this.state;
     ```
 
-1. Uppdatera data som skickas till panelen KPI: er:
+1. Uppdatera data som skickas till KPI:erna:
 
     ```javascript
     <AnalyticsPanel
@@ -435,7 +435,7 @@ Sidan **instrument panel** visar KPI: er i **Analytics** -panelen. Dessa KPI: er
       t={t} />
     ```
 
-Nu har du slutfört ändringarna i `src/components/pages/dashboard/dashboard.js` filen. Följande steg beskriver de ändringar som ska göras i `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` filen för att visa den nya KPI: en:
+Du har nu slutfört ändringarna `src/components/pages/dashboard/dashboard.js` i filen. I följande steg beskrivs de `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` ändringar som ska görs i filen för att visa den nya KPI:n:
 
 1. Ändra följande kodrad för att hämta det nya KPI-värdet enligt följande:
 
@@ -443,7 +443,7 @@ Nu har du slutfört ändringarna i `src/components/pages/dashboard/dashboard.js`
     const { t, isPending, criticalAlertsChange, warningAlertsChange, alertsPerDeviceId, topAlerts, timeSeriesExplorerUrl, error } = this.props;
     ```
 
-1. Ändra markeringen för att visa det nya KPI-värdet enligt följande:
+1. Ändra markeringen för att visa det nya KPI-värdet på följande sätt:
 
     ```javascript
     <div className="analytics-cell">
@@ -469,13 +469,13 @@ Nu har du slutfört ändringarna i `src/components/pages/dashboard/dashboard.js`
     </div>
     ```
 
-På **instrument panels** sidan visas nu det nya KPI-värdet:
+**Instrumentpanelssidan** visar nu det nya KPI-värdet:
 
-![Varnings-KPI](./media/iot-accelerators-remote-monitoring-customize/new-kpi.png)
+![KPI för varning](./media/iot-accelerators-remote-monitoring-customize/new-kpi.png)
 
 ## <a name="customize-the-map"></a>Anpassa kartan
 
-Se sidan [Anpassa kartan](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) i GitHub för mer information om kart komponenterna i lösningen.
+Mer information om kartkomponenterna i lösningen finns på [sidan Anpassa karta](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) i GitHub.
 
 <!--
 ### Connect an external visualization tool
@@ -484,25 +484,25 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 -->
 
-## <a name="other-customization-options"></a>Andra anpassnings alternativ
+## <a name="other-customization-options"></a>Andra anpassningsalternativ
 
-Om du vill ändra lagret och visualiserings lagret ytterligare i lösningen för fjärrövervakning kan du redigera koden. Relevanta GitHub-databaser är:
+Om du vill ändra lagret presentation och visualiseringar ytterligare i lösningen För fjärrövervakning kan du redigera koden. Relevanta GitHub-databaser är:
 
-* [Konfigurations mikrotjänsten för Azure IoT-lösningar (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
-* [Konfigurations mikrotjänsten för Azure IoT-lösningar (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
-* [Webb gränssnitt för Azure IoT-datorer med fjärr övervakning](https://github.com/Azure/pcs-remote-monitoring-webui)
+* [Konfigurationsmikrotjänsten för Azure IoT Solutions (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config)
+* [Konfigurationsmikrotjänsten för Azure IoT Solutions (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config)
+* [Webbgränssnittet för fjärrövervakning av Azure IoT-datorer](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om vilka resurser som är tillgängliga som hjälper dig att anpassa webb gränssnittet i Solution Accelerator för fjärr styrning. Mer information om hur du anpassar användar gränssnittet finns i följande artiklar:
+I den här artikeln har du lärt dig om de resurser som finns tillgängliga för att hjälpa dig att anpassa webbgränssnittet i lösningsacceleratorn för fjärrövervakning. Mer information om hur du anpassar användargränssnittet finns i följande artiklar:
 
-* [Lägg till en anpassad sida i webb gränssnittet för webb gränssnittet för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-page.md)
-* [Lägg till en anpassad tjänst i webb gränssnittet för webb gränssnittet för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-service.md)
-* [Lägg till ett anpassat rutnät i webb gränssnittet för lösnings Accelerator för fjärr styrning](iot-accelerators-remote-monitoring-customize-grid.md)
-* [Lägg till en anpassad utfällning i webb gränssnittet för lösnings Accelerator för fjärr styrning](iot-accelerators-remote-monitoring-customize-flyout.md)
-* [Lägg till en anpassad panel i instrument panelen i webb gränssnittet för webb gränssnitt för fjärrövervakning av Solution Accelerator](iot-accelerators-remote-monitoring-customize-panel.md)
+* [Lägga till en anpassad sida i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-page.md)
+* [Lägga till en anpassad tjänst i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-service.md)
+* [Lägga till ett anpassat rutnät i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Lägga till ett anpassat utfällbart alternativ i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Lägga till en anpassad panel på instrumentpanelen i webbgränssnittet för lösningsaccelerator för fjärrövervakning](iot-accelerators-remote-monitoring-customize-panel.md)
 
-Mer information om lösnings acceleratorn för fjärrövervakning finns i [arkitektur](iot-accelerators-remote-monitoring-sample-walkthrough.md) för fjärrövervakning
+Mer begreppsmässig information om lösningsacceleratorn för fjärrövervakning finns i [Fjärrövervakningsarkitektur](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Mer information om hur du anpassar fjärr styrnings lösning mikrotjänster finns i [Anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md).
+Mer information om hur du anpassar mikrotjänsterna för lösning för fjärrövervakning finns i [Anpassa och distribuera om en mikrotjänst](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

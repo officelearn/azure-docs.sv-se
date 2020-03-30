@@ -1,7 +1,7 @@
 ---
-title: Hitta exakt en stund i videor – Video Indexer
+title: Sök efter exakta ögonblick i videor med Video Indexer
 titleSuffix: Azure Media Services
-description: Det här avsnittet visar hur du hittar en exakt stund i videor med Video Indexer.
+description: Läs om hur du söker efter exakta ögonblick i videor med Video Indexer.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,50 +10,52 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8ebf7606d1a0932cc2254e14a40a2fff550fd35f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1c3326456fefbbef9228cf26b5821f306cd21601
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833801"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127914"
 ---
-# <a name="find-exact-moments-within-videos"></a>Hitta exakta ögonblick i videor
+# <a name="search-for-exact-moments-in-videos-with-video-indexer"></a>Sök efter exakta ögonblick i videor med Video Indexer
 
-Det här avsnittet visar de sökalternativ som gör att du kan hitta exakt en stund i videor.
+I det här avsnittet visas de sökalternativ som gör att du kan söka efter exakta ögonblick i videor.
 
-1. Gå till [Video Indexer](https://www.videoindexer.ai/)-webbplatsen och logga in.
+1. Gå till [videoindexerarens](https://www.videoindexer.ai/) webbplats och logga in.
 2. Sök bland alla videor i ditt konto.
 
-    I följande exempel söker vi efter alla videor som talar om säkerheten och i vilken Satya visas.
+    I följande exempel söker vi efter alla videor som talar om säkerhet och där Satya visas.
 
-    ![Search](./media/video-indexer-search/video-indexer-search01.png)
-3. Sök i de sammanfattande insikterna av videon.
+    ![Sök efter video i Video Indexer](./media/video-indexer-search/video-indexer-search01.png)
 
-    Du kan sedan söka i en video genom att klicka på **spela upp** på videon. Sedan kan du söka i videon genom att välja fliken **Sök** . 
+3. Sök i videons sammanfattade insikter.
 
-    I följande exempel söker vi efter "Secure" i den valda videon.
+    Du kan sedan söka i en video genom att välja **Spela upp** på videon. Sedan kan du söka efter exakta ögonblick i videon genom att välja fliken **Sök.**
 
-    ![Search](./media/video-indexer-search/video-indexer-search02.png)
+    I följande exempel söker vi efter "säker" inuti den valda videon.
 
-    Om du klickar på ett av resultaten kommer spelaren att flytta dig till det momentet i videon. Du kan nå Player/Insights-vyn och synkroniseringen i ditt program. Mer information finns i [bädda in video Indexer-widgetar i ditt program](video-indexer-embed-widgets.md). 
-4. Sök igenom den detaljerade indelningen av videon.
-    
-    Om du vill skapa ett eget klipp baserat på videon som du hittat, trycker du på knappen **Redigera** . På den här sidan visas video tillsammans med insikter som filter. Mer information finns i [Visa och redigera video Indexer insikter](video-indexer-view-edit.md). 
+    ![Sök i en video med Video Indexer](./media/video-indexer-search/video-indexer-search02.png)
 
-    Du kan söka i videon om du bara vill visa de rader du är intresse rad av och använda sido insikter för att filtrera de delar som du vill se. När du är klar kan du förhandsgranska ditt klipp och trycka på **publicera** för att skapa det nya klippet som visas i galleriet.
-    
-    I följande exempel sökte vi efter texten "Mixad verklighet". Vi har också använt ytterligare filter, som du ser på skärmen nedan.
-    
-    ![Search](./media/video-indexer-search/video-indexer-search03.png)
+    Om du väljer ett av resultaten tar spelaren dig till det exakta ögonblicket i videon. Du kan uppnå vyn player/insights och synkronisering i appen. Mer information finns [i Bädda in videoindexeringswidgetar i appen](video-indexer-embed-widgets.md).
 
-## <a name="next-steps"></a>Nästa steg 
+4. Sök igenom den detaljerade uppdelningen av videon.
 
-När du har hittat videon som du vill arbeta med kan du fortsätta att bearbeta videon, enligt beskrivningen i något av följande avsnitt: 
+    Om du vill skapa ett eget klipp baserat på videon du hittade väljer du knappen **Redigera.** På den här sidan visas videon tillsammans med dess insikter som filter. Mer information finns i [Visa och redigera videoindexeringsstatistik](video-indexer-view-edit.md).
 
-- [Använd dina videor med djupgående insikter](use-editor-create-project.md)
+    Du kan söka efter exakta ögonblick i videon för att bara visa de rader du är intresserad av. Använd sidoinsikterna för att filtrera de delar du vill se. När du är klar kan du förhandsgranska klippet och välja **Publicera** för att skapa det nya klippet som visas i galleriet.
+
+    I följande exempel sökte vi efter texten "mixad verklighet". Vi tillämpade också ytterligare filter, som visas på skärmen nedan.
+
+    ![Sök efter exakt ögonblick i Video Indexer](./media/video-indexer-search/video-indexer-search03.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+När du hittar det exakta ögonblicket i videon du vill arbeta med kan du fortsätta att bearbeta videon. Mer information finns i följande avsnitt:
+
+- [Använd dina videors djupa insikter](use-editor-create-project.md)
 - [Bearbeta innehåll med Video Indexer REST API](video-indexer-use-apis.md)
 - [Bädda in visuella widgetar i ditt program](video-indexer-embed-widgets.md)
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
 [Översikt över Video Indexer](video-indexer-overview.md)

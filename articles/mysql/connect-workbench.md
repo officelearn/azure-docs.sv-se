@@ -1,18 +1,18 @@
 ---
-title: Anslut med MySQL Workbench – Azure Database for MySQL
+title: Anslut med MySQL Workbench - Azure Database för MySQL
 description: Den här snabbstarten förklarar hur du använder MySQL Workbench för att ansluta till och fråga efter data från Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 16218dcac2f0a4301b52b0efc54fc04ae39d5e22
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 9b6b4143ea2eeefcf0d0afbe281f7e27ca7794a1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770687"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067847"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: Använda MySQL Workbench för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett MySQL Workbench-program. 
@@ -40,24 +40,24 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Ansluta till servern med MySQL Workbench 
 Ansluta till Azure MySQL-servern med GUI-verktyget MySQL Workbench:
 
-1.  Starta programmet MySQL Workbench på datorn. 
+1.    Starta programmet MySQL Workbench på datorn. 
 
-2.  I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
+2.    I dialogrutan **Konfigurera ny anslutning** anger du följande information på fliken **Parametrar**:
 
     ![konfigurera ny anslutning](./media/connect-workbench/2-setup-new-connection.png)
 
     | **Inställning** | **Föreslaget värde** | **Fältbeskrivning** |
     |---|---|---|
-    |   Anslutningsnamn | Demoanslutning | Ange ett namn på anslutningen. |
+    |    Anslutningsnamn | Demoanslutning | Ange ett namn på anslutningen. |
     | Anslutningsmetod | Standard (TCP/IP) | Standard (TCP/IP) är tillräckligt. |
-    | Värdnamn | *servernamn* | Ange det värde för servernamn som användes när du tidigare skapade Azure Database för MySQL. Vår exempelserver visas som mydemoserver.mysql.database.azure.com. Använd det fullständiga domännamnet (\*.mysql.database.azure.com) som i det här exemplet. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg namnet på servern.  |
+    | Värdnamn | *serverns namn* | Ange det värde för servernamn som användes när du tidigare skapade Azure Database för MySQL. Vår exempelserver visas som mydemoserver.mysql.database.azure.com. Använd det fullständiga domännamnet (\*.mysql.database.azure.com) som i det här exemplet. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg namnet på servern.  |
     | Port | 3306 | Använd alltid port 3306 när du ansluter till Azure Database för MySQL. |
-    | Användarnamn |  *inloggning för serveradministratör* | Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för MySQL. Vår användarnamn i exemplet är myadmin@mydemoserver. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg användarnamnet. Formatet är *användar namn\@servername*.
-    | Lösenord | ditt lösenord | Klicka på knappen **Spara i valvet...** för att spara lösenordet. |
+    | Användarnamn |  *inloggningsnamn för serveradministratör* | Ange det användarnamn för serveradministratörsinloggning som användes när du tidigare skapade Azure Database för MySQL. Vår användarnamn i exemplet är myadmin@mydemoserver. Följ anvisningarna i föregående avsnitt för att hitta anslutningsinformation om du inte kommer ihåg användarnamnet. Formatet är *\@användarnamn servernamn*.
+    | lösenord | ditt lösenord | Klicka på **Lagra i Arkiv...** för att spara lösenordet. |
 
 3.   Klicka på **Testanslutning** för att testa om alla parametrar är rätt konfigurerade. 
 
-4.   Spara anslutningen genom att klicka på **OK**. 
+4.   Spara anslutningen genom att klicka på **OK.** 
 
 5.   I listan **MySQL-anslutningar** klickar du på panelen som motsvarar din server och väntar sedan tills anslutningen har upprättats.
 

@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Data Lake Analytics med Azure Java SDK
-description: Den här artikeln beskriver hur du använder Azure Java SDK för att skriva appar som hanterar Data Lake Analytics jobb, data källor & användare.
+description: I den här artikeln beskrivs hur du använder Azure Java SDK för att skriva appar som hanterar DataSjöanalys-jobb, datakällor & användare.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -10,30 +10,30 @@ ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.openlocfilehash: b8c7d2ba1c782c3b6ae3034d6a9aab5eb19be954
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70813636"
 ---
 # <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Hantera Azure Data Lake Analytics med hjälp av en Java-app
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, data källor, användare och jobb med hjälp av en app som skrivits med hjälp av Azure Java SDK. 
+I den här artikeln beskrivs hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av en app som skrivits med Azure Java SDK. 
 
-## <a name="prerequisites"></a>Förutsättningar
-* **Java Development Kit (JDK) 8** (med Java version 1,8).
-* **IntelliJ** eller någon annan lämplig Java Development Environment. Anvisningarna i det här dokumentet använder IntelliJ.
-* Skapa ett program med Azure Active Directory (AAD) och hämta dess **klient-ID**, **innehavar-ID** och **nyckel**. Mer information om AAD-program och instruktioner för hur du hämtar ett klient-ID finns i [Skapa Active Directory-program och tjänstobjekt med portalen](../active-directory/develop/howto-create-service-principal-portal.md). Svars-URI och nyckel är tillgängligt från portalen när du har skapat programmet och genererat nyckeln.
+## <a name="prerequisites"></a>Krav
+* **Java Development Kit (JDK) 8** (med Java version 1.8).
+* **IntelliJ** eller annan lämplig Java utvecklingsmiljö. Instruktionerna i det här dokumentet använder IntelliJ.
+* Skapa ett program med Azure Active Directory (AAD) och hämta dess **klient-ID**, **innehavar-ID** och **nyckel**. Mer information om AAD-program och instruktioner för hur du hämtar ett klient-ID finns i [Skapa Active Directory-program och tjänstobjekt med portalen](../active-directory/develop/howto-create-service-principal-portal.md). Reply URI och Key är tillgängliga från portalen när du har skapat programmet och nyckeln genereras.
 
-## <a name="authenticating-using-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
+## <a name="authenticating-using-azure-active-directory"></a>Autentisera med Azure Active Directory
 
-Koden i följande kodfragment innehåller kod för **icke-interaktiv** autentisering, där programmet tillhandahåller egna autentiseringsuppgifter.
+Koden efter kodavsnittet innehåller kod för **icke-interaktiv** autentisering, där programmet tillhandahåller sina egna autentiseringsuppgifter.
 
 ## <a name="create-a-java-application"></a>Skapa ett Java-program
-1. Öppna IntelliJ och skapa ett Java-projekt med hjälp av **app-mallen för kommando raden** .
+1. Öppna IntelliJ och skapa ett **Java-projekt med kommandoradsappmallen.**
 2. Högerklicka på projektet på vänster sida av skärmen och klicka på **Lägg till stöd för Framework**. Välj **Maven** och klicka på **OK**.
-3. Öppna den nyligen skapade filen **"pom.xml"** och lägg till följande fragment av text mellan taggen **\</version >** och **\</project>** :
+3. Öppna den nyligen skapade filen **"pom.xml"** och lägg till följande fragment av text mellan taggen **\</version >** och **\</project>**:
 
 ```
 <dependencies>
@@ -76,9 +76,9 @@ Koden i följande kodfragment innehåller kod för **icke-interaktiv** autentise
 </dependencies>
 ```
 
-Gå till **fil > inställningar > Build > körning > distribution**. Välj **build Tools > Maven > importera**. Markera sedan **Importera Maven-projekt automatiskt**.
+Gå till **Inställningar för fil > > > > distribution**. Välj **Byggverktyg > Maven > importera**. Kontrollera sedan **Importera Maven-projekt automatiskt**.
 
-Öppna `Main.java` och Ersätt det befintliga kod blocket med följande kod:
+Öppna `Main.java` och ersätt det befintliga kodblocket med följande kod:
 
 ```java
 import com.microsoft.azure.CloudException;
@@ -307,7 +307,7 @@ public class Main {
 }
 ```
 
-Ange värdena för parametrarna som anropas i kodfragmentet:
+Ange värden för parametrar som kallas i kodavsnittet:
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`
@@ -320,5 +320,5 @@ Ange värdena för parametrarna som anropas i kodfragmentet:
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om U-SQL finns i [Kom igång med Azure Data Lake Analytics U-SQL-språket](data-lake-analytics-u-sql-get-started.md) och [U-SQL-språkreferens](https://docs.microsoft.com/u-sql/).
-* Information om hanteringsuppgifter finns i [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md).
+* Hanteringsuppgifter finns i [Hantera Azure Data Lake Analytics med Azure-portalen](data-lake-analytics-manage-use-portal.md).
 * Om du vill få en översikt över Data Lake Analytics, se [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md).

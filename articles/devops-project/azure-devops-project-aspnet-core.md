@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 7d2ccdfa1fe553d0795a82856dd255f4a54138bf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70898027"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för .NET med Azure DevOps Projects
@@ -41,27 +41,27 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
     ![Startar kontinuerlig leverans](_img/azure-devops-project-aspnet-core/fullbrowser.png)
 
-## <a name="select-a-sample-application-and-azure-service"></a>Välj ett exempelprogrammet och en Azure-tjänst
+## <a name="select-a-sample-application-and-azure-service"></a>Välj ett exempelprogram och en Azure-tjänst
 
 1. Välj **.NET**-exempelprogrammet. .NET-exempel innehåller antingen ASP.NET-ramverket med öppen källkod eller det plattformsoberoende .NET Core-ramverket.
 
    ![.NET-ramverk](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-2. Det här exemplet är ett ASP.NET Core MVC-program. Välj **.net Core** Application Framework och välj sedan **Nästa**.    
+2. Det här exemplet är ett ASP.NET Core MVC-program. Välj **.NET** Core-programramverket och välj sedan **Nästa**.    
     
-3. Välj **Windows-webbapp** som distributions mål och välj sedan **Nästa**. Du kan också välja andra Azure-tjänster för din distribution. Program ramverket som du valde tidigare avgör vilken typ av distributions mål för Azure-tjänsten som är tillgänglig här.
+3. Välj **Windows Web App** som ett distributionsmål och välj sedan **Nästa**. Du kan också välja andra Azure-tjänster för distributionen. Programramverket, som du valde tidigare, dikterar vilken typ av Azure-tjänstdistributionsmålet som är tillgängligt här.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Konfigurera Azure DevOps och en Azure-prenumeration 
 
-1. Ange ett **projekt namn**.
+1. Ange ett **projektnamn**.
 
-2. Skapa en ny kostnads fri **Azure DevOps-organisation** eller Välj en befintlig organisation i list rutan.
+2. Skapa en ny kostnadsfri **Azure DevOps-organisation** eller välj en befintlig organisation i listrutan.
 
-3. Välj din **Azure-prenumeration**, ange ett namn för din **webbapp** eller gör standardvärdet och välj sedan **slutfört**. Efter några minuter visas översikten över DevOps Projects distribution i Azure Portal. 
+3. Välj din **Azure-prenumeration,** ange ett namn för **din webbapp** eller ta standard och välj sedan **Klar**. Efter några minuter visas distributionsöversikten för DevOps-projekt i Azure-portalen. 
 
-4. Välj **gå till resurs** om du vill visa DevOps-instrumentpanelen för projektet. I det övre högra hörnet fäster du **projektet** på instrument panelen för snabb åtkomst. En exempel app har kon figurer ATS i en lagrings platsen i din **Azure DevOps-organisation**. En version körs och din app distribueras till Azure.
+4. Välj **Gå till resurs** om du vill visa instrumentpanelen DevOps Project. I det övre högra hörnet fäster du **Project** på instrumentpanelen för snabb åtkomst. En exempelapp har konfigurerats i en repo i din **Azure DevOps-organisation**. En version körs och din app distribueras till Azure.
 
-5. Instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och appen i Azure. Välj **Bläddra** till höger under Azure-resurser för att Visa appen som körs.
+5. Instrumentpanelen ger insyn i kodlagringsplatsen, CI/CD-pipelinen och appen i Azure. Till höger under Azure-resurser väljer du **Bläddra** för att visa din app som körs.
 
    ![Instrumentpanelsvy](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
@@ -69,17 +69,17 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
 DevOps Projects skapade en Git-lagringsplats i Azure Repos eller GitHub. Visa lagringsplatsen och gör kodändringar i programmet genom att utföra följande:
 
-1. Till vänster om DevOps Projects-instrumentpanelen väljer du länken för din **huvudgren**. Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
+1. Till vänster om instrumentpanelen DevOps Projects **master** väljer du länken för huvudgrenen. Den här länken öppnar en vy till den nyligen skapade Git-lagringsplatsen.
 
-2. I de följande stegen kan du använda webbläsaren för att göra och bekräfta kod ändringar direkt till **huvud** grenen. Du kan också klona git-lagringsplatsen i din favorit-IDE genom att välja **klona** från det övre högra hörnet på sidan databas. 
+2. I de följande stegen kan du använda webbläsaren för att göra **master** och genomföra kodändringar direkt till huvudgrenen. Du kan också klona din Git-databas i din favorit-IDE genom att välja **Klona** längst upp till höger på databassidan. 
 
-3. Till vänster navigerar du program fil strukturen till **Application/ASPNET-Core-dotNet-Core/pages/index. cshtml**.
+3. Till vänster navigerar du i programfilstrukturen till **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
 4. Välj **Redigera** och gör en ändring i h2-rubriken. Du kan till exempel skriva **Komma igång direkt med Azure DevOps Projects** eller göra någon annan ändring.
 
       ![Ändringar i koden](_img/azure-devops-project-aspnet-core/codechange.png)
 
-5. Välj **genomför**, lämna en kommentar och välj **genomför** igen.
+5. Välj **Commit**, lämna en kommentar och välj **Commit** igen.
 
 6. I webbläsaren går du till instrumentpanelen för Azure DevOps-projektet.  Du bör nu se att en version håller på att skapas. De ändringar du utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
 
@@ -87,10 +87,10 @@ DevOps Projects skapade en Git-lagringsplats i Azure Repos eller GitHub. Visa la
 
 I föregående steg konfigurerade Azure DevOps Projects automatiskt en fullständig CI/CD-pipeline. Utforska och anpassa pipelinen efter behov. Bekanta dig med Azure DevOps-bygg- och versionspipelines genom att utföra följande steg.
 
-1. Välj **Bygg-pipelines** längst upp på DevOps Projects-instrumentpanelen.  
+1. Välj **Skapa pipelines** längst upp på DevOps Projects-instrumentpanelen.  
 Länken öppnar en webbläsarflik och Azure DevOps-bygg-pipelinen för det nya projektet.
 
-1. Välj ellipsen (...).  Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel lägga till en ny version i en kö, pausa en version och redigera bygg-pipelinen.
+1. Välj ellipsen (...).  Den här åtgärden öppnar en meny där du kan starta flera aktiviteter, till exempel att köa en ny version, pausa en version och redigera byggpipelinen.
 
 1. Välj **Redigera**.
 
@@ -101,7 +101,7 @@ Länken öppnar en webbläsarflik och Azure DevOps-bygg-pipelinen för det nya p
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.   
 I fönsterrutan **Historik** ser du en spårningslogg över de senaste ändringarna för versionen.  Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
@@ -128,7 +128,7 @@ Uppgifter är de aktiviteter som distributionsprocessen utför. I det här exemp
 
 1. Till höger väljer du alternativet för att **visa versioner**. Den här vyn visar en historik över versioner.
 
-1. Välj ellipsen (...) bredvid en av versionerna och välj **Öppna**.  
+1. Välj ellipsen (...) bredvid en av dina versioner och välj sedan **Öppna**.  
 Det finns flera menyer att utforska, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
 
 
@@ -150,6 +150,6 @@ Se den här självstudien för att lära dig mer om att ändra dessa bygg- och v
 > [!div class="nextstepaction"]
 > [Anpassa CD-process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videor
+## <a name="videos"></a>Videoklipp
 
 > [!VIDEO https://www.youtube.com/embed/itwqMf9aR0w]

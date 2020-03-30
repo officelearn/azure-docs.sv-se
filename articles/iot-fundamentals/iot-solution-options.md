@@ -1,6 +1,6 @@
 ---
-title: Lösnings alternativ för Azure Sakernas Internet (IoT)
-description: Vägledning om hur du väljer mellan en plattforms tjänst eller en hanterad app Platform-metod för att skapa en IoT-lösning. Platform service-metoden använder tjänster som IoT Hub och digital, dubbla som bygg stenar. Den hanterade appens plattforms metod använder IoT Central för att snabbt komma igång.
+title: Alternativ för Azure Internet of Things (IoT)
+description: Vägledning om hur du väljer mellan en plattformstjänster eller en hanterad appplattformsmetod för att skapa en IoT-lösning. Plattformstjänsten använder tjänster som IoT Hub och Digital Twins som byggstenar. Metoden för hanterad appplattform använder IoT Central för att snabbt komma igång.
 author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
@@ -8,71 +8,71 @@ ms.topic: overview
 ms.date: 02/05/2020
 ms.author: dobett
 ms.openlocfilehash: 046116addf643d6c0eb0faf2f821b6ef78d440c6
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77050342"
 ---
-# <a name="choose-the-right-iot-solution"></a>Välj rätt IoT-lösning
+# <a name="choose-the-right-iot-solution"></a>Välj den rätta IoT-lösningen
 
-För att bygga en IoT-lösning för din verksamhet väljer du vanligt vis antingen *plattforms tjänsterna* eller den *hanterade appens plattforms* metod.
+Om du vill skapa en IoT-lösning för ditt företag väljer du vanligtvis att använda antingen *plattformstjänsterna* eller metoden *med hanterad appplattform.*
 
-Plattforms tjänster tillhandahåller Bygg stenar för anpassade och flexibla IoT-program. Du har fler alternativ att välja och kod när du ansluter enheter, och du kan mata in, lagra och analysera dina data. Azure IoT Platform-tjänster omfattar de produkter som Azure IoT Hub och digitala Azure-datorer.
+Plattformstjänster tillhandahåller byggstenarna för skräddarsydda och flexibla IoT-applikationer. Du har fler alternativ att välja och koda när du ansluter enheter och inta, lagra och analysera dina data. Azure IoT-plattformstjänster inkluderar produkterna Azure IoT Hub och Azure Digital Twins.
 
-Med en hanterad app-plattform kan du komma igång med att skapa appar snabbare än plattforms tjänster genom att minska antalet beslut som behövs för att uppnå resultaten. Den hanterade App-plattformen tar hand om de flesta delar av lösningen, så att du kan fokusera på att lägga till bransch kunskap och skala och ansluta enheter. Azure IoT Central är en hanterad app-plattform.
+Med en hanterad appplattform kan du komma igång med att skapa appar snabbare än plattformstjänster genom att minska antalet beslut som krävs för att uppnå resultat. Den hanterade appplattformen tar hand om de flesta delar av din lösning, så att du kan fokusera på att lägga till branschkunskap och skala och ansluta enheter. Azure IoT Central är en hanterad appplattform.
 
 Om du vill välja mellan dessa två metoder bör du tänka på följande:
 
 - Hur du vill hantera din lösning.
-- Vilken anpassnings nivå och kontroll du vill ha över din lösning.
-- Vilken pris struktur du vill ha.
+- Vilken nivå av anpassning och kontroll du vill ha över din lösning.
+- Vilken prisstruktur du vill ha.
 
 ## <a name="management"></a>Hantering
 
-Var vill du spendera din system hanterings tid och dina resurser? 
+Var vill du spendera tid och resurser för systemhantering? 
 
-- Välj plattforms tjänstens metod för att få fullständig kontroll över de underliggande tjänsterna i din lösning. Till exempel vill du:
+- Välj plattformstjänster för att ha full kontroll över de underliggande tjänsterna i din lösning. Du vill till exempel:
 
-    - Hantera skalning och säkra tjänster så att de passar dina behov.
-    - Använd interna eller partner kunskaper för att publicera enheter och tillhandahålla tjänster.
+    - Hantera skalning och säkring av tjänster för att uppfylla dina behov.
+    - Utnyttja intern expertis eller partnerexpertis för att använda inbyggda enheter och tillhandahållandestjänster.
 
-- Välj den hanterade appens plattforms metod för att dra nytta av en plattform som hanterar skalbarhet, säkerhet och hantering av dina IoT-program och-enheter.
+- Välj metoden för hanterad appplattform för att dra nytta av en plattform som hanterar skalning, säkerhet och hantering av dina IoT-program och enheter.
 
 ## <a name="control"></a>Kontroll
 
-Vilka element i din lösning vill du anpassa?
+Vilka delar av din lösning vill du anpassa?
 
-- Välj plattforms tjänst metoden för total anpassning och kontroll över lösnings arkitekturen.
+- Välj plattformstjänster för total anpassning och kontroll över lösningsarkitekturen.
 
-- Välj den hanterade appens plattforms metod för anpassning, instrument paneler, användar roller, enheter och telemetri. Du vill dock inte hantera den underliggande IoT System Management-omkostnaderna.
+- Välj metoden för hanterad appplattform för att anpassa varumärke, instrumentpaneler, användarroller, enheter och telemetri. Du vill dock inte hantera de underliggande IoT-systemhanteringskostnaderna.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
-Vilken pris struktur passar bäst för dina behov?
+Vilken prisstruktur passar bäst dina behov?
 
-- Välj plattforms tjänstens metod för att finjustera tjänster och kontrol lera mina totala kostnader.
+- Välj plattformstjänster för att finjustera tjänster och kontrollera mina totala kostnader.
 
-- Välj den hanterade appens plattforms metod för en enkel, förutsägbar pris struktur.
+- Välj metoden för hanterad appplattform för en enkel och förutsägbar prisstruktur.
 
 ## <a name="summary"></a>Sammanfattning
 
-Plattforms tjänstens metod är lämplig för ett företag med moln lösning och expert kunskaper som vill:
+Plattformstjänster är lämplig för ett företag med molnlösning och enhetsexpertis som vill:
 
 - Finjustera tjänsterna i lösningen.
-- Ha en hög kontroll över tjänsterna i lösningen.
+- Ha en hög grad av kontroll över tjänsterna i lösningen.
 - Anpassa lösningen helt.
 
-Den hanterade appens plattforms metod är lämplig för ett företag som:
+Metoden med hanterad appplattform är lämplig för ett företag som:
 
-- Vill inte tilldela omfattande resurser till system design, utveckling och hantering.
-- Vill ha en förutsägbar pris struktur.
-- Vill ha vissa anpassnings funktioner.
+- Vill inte avsätta omfattande resurser till systemdesign, utveckling och hantering.
+- Vill ha en förutsägbar prisstruktur.
+- Vill ha några anpassningsfunktioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-En mer omfattande förklaring av de olika tjänsterna och plattformarna och hur de används finns i [Azure IoT-tjänster och-tekniker](iot-services-and-technologies.md).
+En mer omfattande förklaring av de olika tjänsterna och plattformarna och hur de används finns i [Azure IoT-tjänster och -tekniker](iot-services-and-technologies.md).
 
-Mer information om de viktigaste attributen för lyckad IoT-lösning finns i [8 attributen för lyckad IoT-lösning](https://aka.ms/8attributes) White Paper.
+Mer information om de viktigaste attributen för framgångsrika IoT-lösningar finns i [faktabladets 8 attribut för framgångsrika IoT-lösningar.](https://aka.ms/8attributes)
 
 En detaljerad beskrivning av IoT-arkitekturen finns i [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (Referensarkitektur för Microsoft Azure IoT).

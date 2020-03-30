@@ -14,10 +14,10 @@ ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: dd5ce117645ef2b368bbf8f0e441770d6e746b5b
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70881072"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>Vad är Dedikerad HSM i Azure?
@@ -46,7 +46,7 @@ Många kunder behöver fullständig administrativ kontroll och enskild åtkomst 
  
  Det står kunden fritt att inaktivera den här övervakningen vid behov. Om de inaktiverar den så kommer de dock inte att få proaktiva hälsovarningar från Microsoft.
 
-### <a name="high-performance"></a>Hög kapacitet
+### <a name="high-performance"></a>Höga prestanda
 
 Gemalto-enheten har valts för den här tjänsten av många olika skäl. Den har ett brett stöd för krypteringsalgoritmer, en mängd olika operativsystem och ett brett API-stöd. Den specifika modell som distribueras erbjuder utmärkta prestanda med 10 000 åtgärder per sekund för RSA-2048. Den har stöd för 10 partitioner som kan användas för unika programinstanser. Det här är en enhet med låg svarstid, hög kapacitet och högt dataflöde.
 
@@ -60,7 +60,7 @@ Azure dedikerad HSM är en specialiserad tjänst som uppfyller unika krav hos en
 
 ### <a name="best-fit"></a>Passar bäst
 
-Azure dedikerad HSM lämpar sig bäst för ”lift and shift”-scenarier som kräver direkt och enskild åtkomst till HSM-enheter. Exempel:
+Azure dedikerad HSM lämpar sig bäst för ”lift and shift”-scenarier som kräver direkt och enskild åtkomst till HSM-enheter. Exempel på rekommendationer:
 
 - Migrera program från en lokal plats till virtuella Azure-datorer
 - Migrera program från Amazon AWS EC2 till virtuella datorer som använder tjänsten AWS Cloud HSM Classic (Amazon erbjuder inte denna tjänst för nya kunder)
@@ -68,7 +68,7 @@ Azure dedikerad HSM lämpar sig bäst för ”lift and shift”-scenarier som kr
 
 ### <a name="not-a-fit"></a>Passar inte
 
-Azure dedikerad HSM lämpar sig inte för följande typ av scenario: Microsoft-molntjänster som stöder kryptering med kundhanterade nycklar (till exempel Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Database och kundnycklar för Office 365) som inte är integrerade med Azure dedikerad HSM.
+AzureDedic HSM passar inte bra för följande typ av scenario: Microsofts molntjänster som stöder kryptering med kundhanterade nycklar (till exempel Azure Information Protection, Azure Disk Encryption, Azure Data Lake Store, Azure Storage, Azure SQL Databas och kundnyckel för Office 365) som inte är integrerade med Azure Dedicated HSM.
 
 ### <a name="it-depends"></a>Det beror på
 

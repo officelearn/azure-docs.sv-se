@@ -2,52 +2,68 @@
 title: Distribuera resurser med PowerShell och mall
 description: Använd Azure Resource Manager och Azure PowerShell för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: c31cde9d3023c49a03f4a7a6c434c16405c88bea
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/16/2020
+ms.openlocfilehash: e595aa8f86a24e59c8e00d24ea8e9dcb0875a8f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79273883"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153275"
 ---
-# <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuera resurser med Resource Manager-mallar och Azure PowerShell
+# <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Distribuera resurser med ARM-mallar och Azure PowerShell
 
-Lär dig hur du använder Azure PowerShell med Resource Manager-mallar för att distribuera dina resurser till Azure. Mer information om begreppen för att distribuera och hantera dina Azure-lösningar finns i [Översikt över mall-distribution](overview.md).
+Lär dig hur du använder Azure PowerShell med ARM-mallar (Azure Resource Manager) för att distribuera dina resurser till Azure. Mer information om begreppen att distribuera och hantera dina Azure-lösningar finns i [översikt över malldistribution](overview.md).
 
-## <a name="deployment-scope"></a>Distributions omfång
+## <a name="deployment-scope"></a>Distributionsomfattning
 
-Du kan rikta din distribution till antingen en Azure-prenumeration eller en resurs grupp i en prenumeration. I de flesta fall riktar du distribution till en resurs grupp. Använd prenumerations distributioner för att tillämpa principer och roll tilldelningar i prenumerationen. Du kan också använda prenumerations distributioner för att skapa en resurs grupp och distribuera resurser till den. Beroende på distributionens omfattning använder du olika kommandon.
+Du kan rikta distributionen till en resursgrupp, prenumeration, hanteringsgrupp eller klient. I de flesta fall riktar du distributionen till en resursgrupp. Om du vill använda principer och rolltilldelningar i ett större omfång använder du prenumerations-, hanteringsgrupp- eller klientdistributioner. När du distribuerar till en prenumeration kan du skapa en resursgrupp och distribuera resurser till den.
 
-Använd [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)för att distribuera till en **resurs grupp**:
+Beroende på distributionens omfattning använder du olika kommandon.
+
+Om du vill distribuera till en **resursgrupp**använder du [New-AzResourceGroupDeployment:](/powershell/module/az.resources/new-azresourcegroupdeployment)
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
 ```
 
-Om du vill distribuera till en **prenumeration**använder du [New-AzDeployment](/powershell/module/az.resources/new-azdeployment):
+Om du vill distribuera till en **prenumeration**använder du New-AzSubscriptionDeployment:
 
 ```azurepowershell
-New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-Mer information om distributioner på prenumerations nivå finns i [skapa resurs grupper och resurser på prenumerations nivå](deploy-to-subscription.md).
+Mer information om distributioner på prenumerationsnivå finns i [Skapa resursgrupper och resurser på prenumerationsnivå](deploy-to-subscription.md).
 
-För närvarande stöds endast distributioner av hanterings grupper via REST API. Mer information om distributioner på hanterings grupp nivå finns i [Skapa resurser på hanterings grupps nivå](deploy-to-management-group.md).
+Om du vill distribuera till en **hanteringsgrupp**använder du [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
 
-I exemplen i den här artikeln används resurs grupps distributioner.
+```azurepowershell
+New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
+```
 
-## <a name="prerequisites"></a>Förutsättningar
+Mer information om distributioner på hanteringsgruppsnivå finns i [Skapa resurser på hanteringsgruppsnivå](deploy-to-management-group.md).
 
-Du behöver en mall för att distribuera. Om du inte redan har ett kan du hämta och spara en exempel-mall från lagrings platsen för Azure snabb starts [mal len](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) . Det lokala fil namnet som används i den här artikeln är **c:\MyTemplates\azuredeploy.JSON**.
+Om du vill distribuera till en **klient**använder du [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
+
+```azurepowershell
+New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+Mer information om distributioner på klientnivå finns i [Skapa resurser på klientnivå](deploy-to-tenant.md).
+
+Exemplen i den här artikeln använder resursgruppsdistributioner.
+
+## <a name="prerequisites"></a>Krav
+
+Du behöver en mall för att distribuera. Om du inte redan har en, ladda ner och spara ett [exempel mall](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) från Azure Quickstart mallar repo. Det lokala filnamnet som används i den här artikeln är **c:\MyTemplates\azuredeploy.json**.
 
 Om du inte använder Azure Cloud Shell för att distribuera mallar måste du installera Azure PowerShell och ansluta till Azure:
 
-- **Installera Azure PowerShell-cmdlets på den lokala datorn.** Mer information finns i [Kom igång med Azure PowerShell](/powershell/azure/get-started-azureps).
-- **Anslut till Azure med hjälp av [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** . Om du har flera Azure-prenumerationer kan du också behöva köra [set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Mer information finns i [använda flera Azure-prenumerationer](/powershell/azure/manage-subscriptions-azureps).
+- **Installera Azure PowerShell-cmdlets på din lokala dator.** Mer information finns i [Kom igång med Azure PowerShell](/powershell/azure/get-started-azureps).
+- **Anslut till Azure med [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Om du har flera Azure-prenumerationer kan du också behöva köra [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Mer information finns i [Använda flera Azure-prenumerationer](/powershell/azure/manage-subscriptions-azureps).
 
 ## <a name="deploy-local-template"></a>Distribuera lokal mall
 
-I följande exempel skapas en resurs grupp och en mall distribueras från den lokala datorn. Namnet på resurs gruppen får bara innehålla alfanumeriska tecken, punkter, under streck, bindestreck och parenteser. Det kan vara upp till 90 tecken. Det får inte sluta med en punkt.
+I följande exempel skapas en resursgrupp och en mall distribueras från den lokala datorn. Namnet på resursgruppen kan bara innehålla alfanumeriska tecken, punkter, understreck, bindestreck och parentes. Det kan vara upp till 90 tecken. Det kan inte sluta i en period.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -60,11 +76,11 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 Det kan ta några minuter att slutföra distributionen.
 
-## <a name="deploy-remote-template"></a>Distribuera fjärran sluten mall
+## <a name="deploy-remote-template"></a>Distribuera fjärrmall
 
-I stället för att lagra Resource Manager-mallar på den lokala datorn kanske du föredrar att lagra dem på en extern plats. Du kan lagra mallar i ett lager för käll kontroll (till exempel GitHub). Du kan också lagra dem i ett Azure Storage-konto för delad åtkomst i din organisation.
+I stället för att lagra ARM-mallar på den lokala datorn kanske du föredrar att lagra dem på en extern plats. Du kan lagra mallar i en källkontrolldatabas (till exempel GitHub). Du kan också lagra dem i ett Azure-lagringskonto för delad åtkomst i din organisation.
 
-Om du vill distribuera en extern mall använder du parametern **TemplateUri** . Använd URI i exemplet för att distribuera exempel mal len från GitHub.
+Om du vill distribuera en extern mall använder du parametern **TemplateUri.** Använd URI i exemplet för att distribuera exempelmallen från GitHub.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -75,13 +91,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-I föregående exempel krävs en offentligt tillgänglig URI för mallen som fungerar i de flesta fall eftersom din mall inte ska innehålla känsliga data. Om du behöver ange känsliga data (som ett administratörs lösen ord) skickar du det värdet som en säker parameter. Men om du inte vill att din mall ska vara offentligt tillgänglig kan du skydda den genom att lagra den i en privat lagrings behållare. Information om hur du distribuerar en mall som kräver en SAS-token (signatur för delad åtkomst) finns i [distribuera privat mall med SAS-token](secure-template-with-sas-token.md). Information om hur du går igenom självstudierna finns i [Självstudier: integrera Azure Key Vault i Resource Manager malldistribution](template-tutorial-use-key-vault.md).
+I föregående exempel krävs en allmänt tillgänglig URI för mallen, som fungerar för de flesta scenarier eftersom mallen inte ska innehålla känsliga data. Om du behöver ange känsliga data (till exempel ett administratörslösenord) skickar du det värdet som en säker parameter. Men om du inte vill att mallen ska vara allmänt tillgänglig kan du skydda den genom att lagra den i en privat lagringsbehållare. Information om hur du distribuerar en mall som kräver en SAS-token (Shared Access Signature) finns [i Distribuera en privat mall med SAS-token](secure-template-with-sas-token.md). Information om hur du går igenom en självstudiekurs finns [i Självstudiekurs: Integrera Azure Key Vault i ARM-malldistributionen](template-tutorial-use-key-vault.md).
 
 ## <a name="deploy-from-azure-cloud-shell"></a>Distribuera från Azure Cloud Shell
 
-Du kan använda [Azure Cloud Shell](https://shell.azure.com) för att distribuera mallen. Om du vill distribuera en extern mall anger du mallens URI. Om du vill distribuera en lokal mall måste du först läsa in din mall till lagrings kontot för Cloud Shell. Om du vill ladda upp filer till gränssnittet väljer du Meny ikonen **Ladda upp/ladda ned filer** från fönstret Shell.
+Du kan använda [Azure Cloud Shell](https://shell.azure.com) för att distribuera din mall. Om du vill distribuera en extern mall anger du URI-listan för mallen. Om du vill distribuera en lokal mall måste du först läsa in mallen i lagringskontot för ditt Cloud Shell. Om du vill ladda upp filer till skalet väljer du menyikonen **Ladda upp/ladda ned filer** i skalfönstret.
 
-Om du vill öppna Cloud Shell bläddrar du till [https://shell.azure.com](https://shell.azure.com)eller väljer **prova-den** från följande kod avsnitt:
+Om du vill öppna [https://shell.azure.com](https://shell.azure.com)molnskalet bläddrar du till eller väljer **Prova på** följande kodavsnitt:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -92,15 +108,15 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-Om du vill klistra in koden i gränssnittet högerklickar du inuti gränssnittet och väljer sedan **Klistra in**.
+Om du vill klistra in koden i skalet högerklickar du i skalet och väljer sedan **Klistra in**.
 
-## <a name="pass-parameter-values"></a>Pass parameter värden
+## <a name="pass-parameter-values"></a>Skicka parametervärden
 
-Om du vill skicka parameter värden kan du använda antingen infogade parametrar eller en parameter fil.
+Om du vill skicka parametervärden kan du använda antingen infogade parametrar eller en parameterfil.
 
 ### <a name="inline-parameters"></a>Infogade parametrar
 
-Om du vill skicka infogade parametrar anger du namnet på parametern med kommandot `New-AzResourceGroupDeployment`. Om du till exempel vill skicka en sträng och matris till en mall använder du:
+Om du vill skicka infogade parametrar anger `New-AzResourceGroupDeployment` du namnen på parametern med kommandot. Om du till exempel vill skicka en sträng och matris till en mall använder du:
 
 ```powershell
 $arrayParam = "value1", "value2"
@@ -120,9 +136,9 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $arrayParam
 ```
 
-Att hämta ett parameter värde från en fil är användbart när du behöver ange konfigurations värden. Du kan till exempel ange [värden för Cloud-Init för en virtuell Linux-dator](../../virtual-machines/linux/using-cloud-init.md).
+Det är praktiskt att hämta ett parametervärde från en fil när du behöver ange konfigurationsvärden. Du kan till exempel ange [molninitvärden för en virtuell Linux-dator](../../virtual-machines/linux/using-cloud-init.md).
 
-Om du behöver skicka en matris med objekt skapar du hash-tabeller i PowerShell och lägger till dem i en matris. Skicka matrisen som en parameter under distributionen.
+Om du behöver skicka in en matris med objekt skapar du hash-tabeller i PowerShell och lägger till dem i en matris. Skicka matrisen som en parameter under distributionen.
 
 ```powershell
 $hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
@@ -133,13 +149,13 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $subnetArray
 ```
 
-### <a name="parameter-files"></a>Parameter-filer
+### <a name="parameter-files"></a>Parameterfiler
 
-I stället för att skicka parametrar som infogade värden i skriptet, kan det vara lättare att använda en JSON-fil som innehåller parameter värden. Parameter filen kan vara en lokal fil eller en extern fil med en tillgänglig URI.
+I stället för att skicka parametrar som infogade värden i skriptet kan det vara enklare att använda en JSON-fil som innehåller parametervärdena. Parameterfilen kan vara en lokal fil eller en extern fil med en tillgänglig URI.
 
-Mer information om parameter filen finns i [create Resource Manager parameter File](parameter-files.md).
+Mer information om parameterfilen finns i [Skapa Resource Manager-parameterfil](parameter-files.md).
 
-Om du vill skicka en lokal parameter fil använder du parametern **TemplateParameterFile** :
+Om du vill skicka en lokal parameterfil använder du parametern **TemplateParameterFile:**
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -147,7 +163,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
 
-Om du vill skicka en extern parameter fil använder du parametern **TemplateParameterUri** :
+Om du vill skicka en extern parameterfil använder du parametern **TemplateParameterUri:**
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
@@ -155,16 +171,16 @@ New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Example
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
 
-## <a name="test-template-deployments"></a>Testa mall distributioner
+## <a name="test-template-deployments"></a>Testa malldistributioner
 
-Använd [test-AzResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment)om du vill testa din mall och parameter värden utan att behöva distribuera några resurser. 
+Om du vill testa mall- och parametervärden utan att distribuera några resurser använder du [Test-AzResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment). 
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType Standard_GRS
 ```
 
-Om inga fel upptäcks slutförs kommandot utan svar. Om ett fel upptäcks returnerar kommandot ett fel meddelande. Om du till exempel skickar ett felaktigt värde för lagrings kontots SKU returneras följande fel:
+Om inga fel upptäcks avslutas kommandot utan svar. Om ett fel upptäcks returneras ett felmeddelande i kommandot. Om du till exempel skickar ett felaktigt värde för lagringskontot SKU returneras följande fel:
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName testgroup `
@@ -177,7 +193,7 @@ Message : Deployment template validation failed: 'The provided value 'badSku' fo
 Details :
 ```
 
-Om din mall har ett syntaxfel returnerar kommandot ett fel som anger att mallen inte kunde parsas. Meddelandet anger rad numret och positionen för tolknings felet.
+Om mallen har ett syntaxfel returnerar kommandot ett fel som anger att det inte kunde tolka mallen. Meddelandet anger radnumret och placeringen av tolkningsfelet.
 
 ```powershell
 Test-AzResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
@@ -186,7 +202,7 @@ Test-AzResourceGroupDeployment : After parsing a value an unexpected character w
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill återställa till en lyckad distribution när du får ett fel, se [återställa vid fel till lyckad distribution](rollback-on-error.md).
-- Information om hur du hanterar resurser som finns i resurs gruppen men som inte har definierats i mallen finns i [Azure Resource Manager distributions lägen](deployment-modes.md).
-- Information om hur du definierar parametrar i din mall finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).
-- Information om hur du distribuerar en mall som kräver en SAS-token finns i [distribuera privat mall med SAS-token](secure-template-with-sas-token.md).
+- Om du vill återställa till en lyckad distribution när du får ett fel finns [i Återställning vid fel till en lyckad distribution](rollback-on-error.md).
+- Information om hur resurser som finns i resursgruppen men som inte har definierats i mallen ska [hanteras](deployment-modes.md).
+- Information om hur du definierar parametrar i mallen finns i [Förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+- Information om hur du distribuerar en mall som kräver en SAS-token finns i [Distribuera privat mall med SAS-token](secure-template-with-sas-token.md).

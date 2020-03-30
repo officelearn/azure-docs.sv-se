@@ -1,19 +1,19 @@
 ---
-title: Kör kod på standard-Linux-behållare
-description: Azure App Service kan köra koden på färdiga Linux-behållare. Ta reda på hur du kan köra dina Linux-webbprogram på Azure.
+title: Kör kod på standardbehållare för Linux
+description: Azure App Service kan köra din kod på färdiga Linux-behållare. Ta reda på hur du kan köra dina Linux-webbprogram på Azure.
 keywords: azure app service, linux, oss
 author: msangapu-msft
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: 65352b8f8f85f5e7a2e25ae99d5ca3368ad78711
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 27f085543869b1a77db9c97ca2e7ae7d3d3b7b88
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79126527"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80046418"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introduktion till Azure App Service i Linux
 
@@ -21,7 +21,7 @@ ms.locfileid: "79126527"
 
 ## <a name="languages"></a>Språk
 
-App Service i Linux stöder ett antal inbyggda avbildningar i syfte att öka utvecklarnas produktivitet. Språken inkluderar: Node. js, Java (JRE 8 & JRE 11), PHP, python, .NET Core och Ruby. Kör [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) för att visa de senaste språken och versioner som stöds. Om det saknas stöd för den körmiljö som ditt program behöver för att fungera tillhandahåller vi anvisningar för hur du [skapar en egen Docker-avbildning](tutorial-custom-docker-image.md) som distribueras till Web App for Containers.
+App Service i Linux stöder ett antal inbyggda avbildningar i syfte att öka utvecklarnas produktivitet. Språk inkluderar: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core och Ruby. Kör [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) för att visa de senaste språken och versioner som stöds. Om det saknas stöd för den körmiljö som ditt program behöver för att fungera tillhandahåller vi anvisningar för hur du [skapar en egen Docker-avbildning](tutorial-custom-docker-image.md) som distribueras till Web App for Containers.
 
 ## <a name="deployments"></a>Distributioner
 
@@ -54,18 +54,18 @@ Kontrollera [instrumentpanelen för Azure-status](https://azure.microsoft.com/st
 
 Azure-portalen visar endast de funktioner som för närvarande fungerar tillsammans med Web App for Containers. Allt fler funktioner kommer att bli synliga i portalen i takt med att vi aktiverar dem.
 
-App Service på Linux stöds bara med [kostnads fria, Basic-, standard-och Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) App Service-planer och har inte någon [delad](https://azure.microsoft.com/pricing/details/app-service/plans/) nivå. Det går inte att skapa en Linux-webbapp i en App Service plan som redan är värd för Web Apps som inte är Linux.  
+App service på Linux stöds endast med [kostnadsfria, grundläggande, standard- och](https://azure.microsoft.com/pricing/details/app-service/plans/) premiumapptjänstplaner och har ingen [delad](https://azure.microsoft.com/pricing/details/app-service/plans/) nivå. Du kan inte skapa en Linux Web App i en App Service-plan som redan är värd för icke-Linux Web Apps.  
 
-Baserat på en aktuell begränsning för samma resurs grupp kan du inte blanda Windows-och Linux-appar i samma region.
+Baserat på en aktuell begränsning kan du för samma resursgrupp inte blanda Windows- och Linux-appar i samma region.
 
 ## <a name="troubleshooting"></a>Felsökning
 
 > [!NOTE]
-> Det finns en ny integrerad loggnings funktion med [Azure Monitoring (för hands version)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) . 
+> Det finns nya integrerade loggningsfunktioner med [Azure Monitoring (förhandsversion).](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview) 
 >
 >
 
-När det inte går att starta appen eller om du vill kontrollera loggen i din app kan du öppna Docker-loggarna i katalogen LogFiles. Katalogen är åtkomlig via SCM-webbplatsen eller via FTP. Om du vill logga `stdout` och `stderr` från din behållare måste du aktivera **program loggning** under **App Service loggar**. Inställningen utförs direkt. App Service identifierar ändringen och startar om behållaren automatiskt.
+När det inte går att starta appen eller om du vill kontrollera loggen i din app kan du öppna Docker-loggarna i katalogen LogFiles. Katalogen är åtkomlig via SCM-webbplatsen eller via FTP. Om du `stdout` `stderr` vill logga och från behållaren måste du aktivera **programloggning** under **App Service Loggar**. Inställningen utförs direkt. App Service identifierar ändringen och startar om behållaren automatiskt.
 
 Du kommer åt SCM-webbplatsen från **Avancerade verktyg** i menyn **Utvecklingsverktyg**.
 
@@ -76,12 +76,12 @@ Du kommer åt SCM-webbplatsen från **Avancerade verktyg** i menyn **Utvecklings
 I följande artiklar hjälper vi dig att komma igång med App Service i Linux med webappar som skrivits på flera olika språk:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](https://docs.microsoft.com/azure/app-service/containers/quickstart-php)
+* [Php](https://docs.microsoft.com/azure/app-service/containers/quickstart-php)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)
 * [Ruby](quickstart-ruby.md)
-* [Go](quickstart-docker-go.md)
+* [Kör](quickstart-docker-go.md)
 * [Appar med flera containrar](quickstart-multi-container.md)
 
 Mer information om App Service på Linux finns i:

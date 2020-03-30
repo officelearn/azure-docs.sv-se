@@ -1,6 +1,6 @@
 ---
-title: Skapa en anpassad Azure DevTest Labs-avbildning från en VHD-fil | Microsoft Docs
-description: Lär dig hur du skapar en anpassad avbildning i Azure DevTest Labs från en VHD-fil med hjälp av Azure portal
+title: Skapa en anpassad avbildning i Azure DevTest Labs från en VHD-fil | Microsoft-dokument
+description: Lär dig hur du skapar en anpassad avbildning i Azure DevTest Labs från en VHD-fil med Azure-portalen
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 853c138c8cf73b41b0cebb6c1d349865e18eab6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "61296169"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Skapa en anpassad avbildning från en VHD-fil
@@ -31,58 +31,58 @@ ms.locfileid: "61296169"
 
 ## <a name="step-by-step-instructions"></a>Stegvisa instruktioner
 
-Följande steg beskriver hur du skapar en anpassad avbildning från en VHD-fil med hjälp av Azure portal:
+I följande steg kan du skapa en anpassad avbildning från en VHD-fil med Azure-portalen:
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
+1. Välj **Alla tjänster**och välj sedan **DevTest Labs** i listan.
 
-1. Listan över labbar, Välj önskade labbet.  
+1. Välj önskat labb i listan över labb.  
 
-1. På den testmiljön huvudfönstret väljer **konfiguration och principer**. 
+1. I labbets huvudfönster väljer du **Konfiguration och principer**. 
 
-1. På den **konfiguration och principer** väljer **anpassade avbildningar**.
+1. Välj **Anpassade avbildningar**i fönstret **Konfiguration och principer** .
 
-1. På den **anpassade avbildningar** väljer **+ Lägg till**.
+1. Välj **+Lägg till**i fönstret **Anpassade bilder** .
 
-    ![Lägg till anpassad avbildning](./media/devtest-lab-create-template/add-custom-image.png)
+    ![Lägg till anpassad bild](./media/devtest-lab-create-template/add-custom-image.png)
 
-1. Ange namnet på den anpassade avbildningen. Det här namnet visas i listan över grundläggande avbildningar när du skapar en virtuell dator.
+1. Ange namnet på den anpassade bilden. Det här namnet visas i listan över basavbildningar när du skapar en virtuell dator.
 
-1. Ange beskrivning av den anpassade avbildningen. Den här beskrivningen visas i listan över grundläggande avbildningar när du skapar en virtuell dator.
+1. Ange beskrivningen av den anpassade bilden. Den här beskrivningen visas i listan över basavbildningar när du skapar en virtuell dator.
 
-1. För **OS-typ**, väljer du antingen **Windows** eller **Linux**.
+1. För **OS-typ**väljer du antingen **Windows** eller **Linux**.
 
-    - Om du väljer **Windows**, ange via kryssrutan om *sysprep* har körts på datorn. 
-    - Om du väljer **Linux**, ange via kryssrutan om *avetablering* har körts på datorn. 
+    - Om du väljer **Windows**anger du via kryssrutan om *sysprep* har körts på datorn. 
+    - Om du väljer **Linux**anger du via kryssrutan om *avetablera* har körts på datorn. 
 
-1. Välj en **VHD** från den nedrullningsbara menyn. Det här är den virtuella Hårddisken som ska användas för att skapa nya anpassade avbildningen. Om det behövs väljer du **överföra en virtuell Hårddisk med hjälp av PowerShell**.
+1. Välj en **virtuell hårddisk** på den nedrullningsbara menyn. Det här är den virtuella hårddisken som ska användas för att skapa den nya anpassade avbildningen. Om det behövs väljer du att **ladda upp en virtuell hårddisk med PowerShell**.
 
-1. Du kan också ange ett namn, plan erbjudandet och plan publisher om den avbildning som används för att skapa den anpassade avbildningen inte är en licensierad avbildning (som publicerats av Microsoft).
+1. Du kan också ange ett plannamn, ett abonnemangserbjudande och en planutgivare om den bild som används för att skapa den anpassade avbildningen inte är en licensierad avbildning (publicerad av Microsoft).
 
-   - **Namn på prenumerationsavtal:** Ange namnet på Marketplace-avbildning (SKU) från den här anpassade avbildningen har skapats 
-   - **Planera erbjudande:** Ange produktnyckel (erbjudandet) av Marketplace-avbildning från vilken den här anpassade avbildningen har skapats 
-   - **Planera utgivare:** Ange utgivaren av Marketplace-avbildning från vilken den här anpassade avbildningen har skapats
+   - **Planens namn:** Ange namnet på den Marketplace-avbildning (SKU) som den här anpassade avbildningen skapas från 
+   - **Planera erbjudande:** Ange produkten (erbjudandet) för Marketplace-avbildningen som den här anpassade avbildningen skapas från 
+   - **Planera utgivare:** Ange utgivaren av Marketplace-avbildningen som den här anpassade avbildningen skapas från
 
    > [!NOTE]
-   > Om den avbildning som du använder för att skapa en anpassad avbildning är **inte** en licensierad avbildning och sedan de här fälten är tomma och kan fyllas i om du väljer. Om avbildningen **är** en licensierad avbildning och sedan fälten är fylls i med information om supportavtalet automatiskt. Om du försöker ändra dem i det här fallet visas ett varningsmeddelande.
+   > Om bilden du använder för att skapa en anpassad avbildning **inte** är en licensierad avbildning är dessa fält tomma och kan fyllas i om du vill. Om bilden **är** en licensierad bild fylls fälten i automatiskt med planinformationen. Om du försöker ändra dem i det här fallet visas ett varningsmeddelande.
    >
    >
 
-1. Välj **OK** att skapa den anpassade avbildningen.
+1. Välj **OK** om du vill skapa den anpassade bilden.
 
-Efter några minuter, den anpassade avbildningen skapas och lagras i den testmiljön storage-konto. Bilden är tillgänglig i listan över grundläggande avbildningar när en lab användare vill skapa en ny virtuell dator.
+Efter några minuter skapas den anpassade avbildningen och lagras i labbets lagringskonto. När en labbanvändare vill skapa en ny virtuell dator är avbildningen tillgänglig i listan över basavbildningar.
 
-![Anpassad avbildning som är tillgängliga i listan över grundläggande avbildningar](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+![Anpassad bild tillgänglig i listan över basbilder](./media/devtest-lab-create-template/custom-image-available-as-base.png)
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="related-blog-posts"></a>Relaterade blogginlägg
 
-- [Anpassade avbildningar eller formler?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Anpassade bilder eller formler?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Kopiera anpassade avbildningar mellan Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägg till en virtuell dator i labbet](./devtest-lab-add-vm.md)
+- [Lägga till en virtuell dator i labbet](./devtest-lab-add-vm.md)

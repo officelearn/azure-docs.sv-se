@@ -17,30 +17,30 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: b912dfe3fb6461a925977192a6631ecac1357d35
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77049815"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för Python med Azure DevOps Projects
 
-I den här snabb starten använder du den förenklade Azure DevOps Projects upplevelsen för att ställa in en pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för din python-app i Azure-pipelines. Du kan använda Azure DevOps Projects för att ställa in allt du behöver för att utveckla, distribuera och övervaka din app. 
+I den här snabbstarten använder du den förenklade Azure DevOps-projektupplevelsen för att konfigurera en kontinuerlig integrationspipelines (CI) och CD-pipeline (Continuous Delivery) för python-appen i Azure Pipelines. Du kan använda Azure DevOps-projekt för att konfigurera allt du behöver för att utveckla, distribuera och övervaka din app. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
-- Ett [Azure DevOps](https://azure.microsoft.com/services/devops/) -konto och en organisation.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- Ett [Azure DevOps-konto](https://azure.microsoft.com/services/devops/) och organisation.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com)och välj **skapa en resurs**i den vänstra rutan. 
+1. Logga in på [Azure-portalen](https://portal.azure.com)och välj **Skapa en resurs**i den vänstra rutan . 
 
-   ![Skapa en Azure-resurs i Azure Portal](_img/azure-devops-project-python/fullbrowser.png)
+   ![Skapa en Azure-resurs i Azure-portalen](_img/azure-devops-project-python/fullbrowser.png)
 
-1. Sök efter och välj **DevOps Projects**och välj sedan **skapa**.
+1. Sök efter och välj **DevOps-projekt**och välj sedan **Skapa**.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Välj ett exempelprogram och en Azure-tjänst
 
@@ -80,16 +80,16 @@ Du kan klona Git-lagringsplatsen till din favorit-IDE.  I kommande steg kan du a
 
 1. Välj **Redigera** och gör en ändring i en del av texten. Du kan till exempel ändra en del av texten för en av div-taggarna.
 
-1. Välj **Checka in** och spara sedan ändringarna.
+1. Välj **Incheckning** och spara sedan ändringarna.
 
 1. I webbläsaren går du till DevOps Projects-instrumentpanelen.   
-    Du bör nu se att en version håller på att skapas. De ändringar du just utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
+    Du bör nu se att en version håller på att skapas. De ändringar som du just utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
 
 ## <a name="examine-the-cicd-pipeline"></a>Granska CI/CD-pipelinen
 
 I föregående steg konfigurerade DevOps Projects automatiskt en fullständig CI/CD-pipeline. Utforska och anpassa pipelinen efter behov. Utför följande för att bekanta dig med bygg- och versionspipelines:
 
-1. Välj **Bygg-pipelines** längst upp på DevOps Projects-instrumentpanelen.  
+1. Välj **Skapa pipelines** längst upp på DevOps Projects-instrumentpanelen.  
 En webbläsarflik visar bygg-pipelinen för det nya projektet.
 
 1. Peka på fältet **Status** och välj **ellipsen** (...).  
@@ -97,20 +97,20 @@ En webbläsarflik visar bygg-pipelinen för det nya projektet.
 
 1. Välj **Redigera**.
 
-1. I det här fönstret kan du granska de olika uppgifterna för bygg-pipelinen.  
+1. I den här fönsterrutan kan du granska de olika uppgifterna för bygg-pipelinen.  
         Versionen utför olika uppgifter som att hämta källor från Git-lagringsplatsen, återställa beroenden och publicera utdata för distributioner.
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
         Du kan se en spårningslogg över de senaste ändringarna för versionen.  Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
 
-1. Välj **utlösare**.  
+1. Välj **Utlösare**.  
          DevOps Projects skapar automatiskt en CI-utlösare, och varje incheckning till lagringsplatsen startar en ny version.  Du kan välja att inkludera eller exkludera grenar från CI-processen.
 
-1. Välj **kvarhållning**.  
+1. Välj **Kvarhållning**.  
         Beroende på ditt scenario kan du ange principer för att behålla eller ta bort ett visst antal versioner.
 
 1. Välj **Byggen och versioner** och sedan **Versioner**.   
@@ -120,7 +120,7 @@ En webbläsarflik visar bygg-pipelinen för det nya projektet.
 Versionspipelinen definierar versionsprocessen.  
         
 12. Under **Artefakter** väljer du **Släpp**.   
-Den bygg-pipeline du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
+Den bygg-pipeline som du undersökte i de föregående stegen skapar de utdata som används för artefakten. 
 
 1. Intill ikonen **Släpp** väljer du **Utlösare av kontinuerlig distribution**.  
         Versionspipelinen har en aktiverad CD-utlösare som kör en distribution varje gång en ny versionsartefakt är tillgänglig. Du kan även inaktivera utlösaren så att dina distributioner kräver manuell körning. 
@@ -130,7 +130,7 @@ Uppgifter är de aktiviteter som distributionsprocessen utför. I det här exemp
 
 1. Till höger väljer du **Visa versioner** för att visa en historik över versioner.  
         
-1. Välj ellipsen (...) bredvid en av versionerna och välj **Öppna**.  
+1. Välj ellipsen (...) bredvid en av dina versioner och välj sedan **Öppna**.  
         Det finns flera menyer att utforska från den här vyn, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.
 
 1. Välj **Incheckningar**. 

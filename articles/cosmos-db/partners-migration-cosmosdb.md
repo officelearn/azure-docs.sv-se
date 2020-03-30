@@ -1,61 +1,61 @@
 ---
-title: Migrerings-och program utvecklings partner för Azure Cosmos DB
-description: Visar en lista över Microsoft-partner med lösningar som har stöd för Azure Cosmos DB.
+title: Migrerings- och programutvecklingspartner för Azure Cosmos DB
+description: Visar Microsoft-partner med migreringslösningar som stöder Azure Cosmos DB.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76988183"
 ---
-# <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och application development partner
+# <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL-migrerings- och programutvecklingspartner
 
-Från NoSQL migrering till programutveckling, kan du välja från en mängd olika erfarna systemintegrationspartner och verktyg för Azure Cosmos DB-lösningar. 
+Från NoSQL-migrering till programutveckling kan du välja mellan en mängd erfarna systemintegratörer partner och verktyg för att stödja dina Azure Cosmos DB-lösningar. 
 
 ## <a name="migration-tools"></a>Migreringsverktyg
 
-|**Partner**  |**Funktioner och upplevelse**  |**Länder/regioner som stöds**  |**Kontakta**  |
+|**Partner**  |**Funktioner & upplevelse**  |**Länder/regioner som stöds**  |**Kontakt**  |
 |---------|---------|---------|---------|
-|![Striims][2]    |  [Flytta data i realtid till Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) från en mängd olika datakällor. <br/> Striims fören klar insamling och data flytt i real tid från en rad olika lokala källor, inklusive Enterprise-dokument och Relations databaser, sensorer och loggfiler till Azure Cosmos DB. |   USA   |  [Webbplats](https://www.striim.com/)       |
+|![Striim (Striim)][2]    |  [Flytta realtidsdata till Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) från en mängd olika datakällor. <br/> Striim förenklar insamling och förflyttning i realtid av data från en mängd olika lokala källor, inklusive företagsdokument och relationsdatabaser, sensorer och loggfiler i Azure Cosmos DB. |   USA   |  [Webbplats](https://www.striim.com/)       |
 
-## <a name="systems-integrator-partners"></a>Systemintegrationspartner
+## <a name="systems-integrator-partners"></a>Partners för systemintegratör
 
-|**Partner**  |**Funktioner och upplevelse**  |**Länder/regioner som stöds**  |**Kontakta**  |
+|**Partner**  |**Funktioner & upplevelse**  |**Länder/regioner som stöds**  |**Kontakt**  |
 |---------|---------|---------|---------|
-| ![10thMagnitude][13] | NoSQL-migrering; Ny apputveckling | USA | [Webbplats](https://www.10thmagnitude.com/)|
-|![Altoros utveckling LLC][3]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling |   USA, Norge, Finland, Vitryssland, Argentina |  [Webbplats](https://www.altoros.com/)     |
-|![Attunix Redapt][4]     |   NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling      |    USA     |  [Webbplats](https://www.attunix.com/)       |
-| ![Avanade][26] | Ny apputveckling <br/> Appinnovation (befintliga appar) | Österrike, Tyskland, Schweiz, Italien, Norge, Spanien, Storbritannien | [Webbplats](https://www.avanade.com/)
-|![Bluemetal Architects][5]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    Nordamerika, Asien –     |  [Webbplats](https://www.bluemetal.com/)       |
-|![Capax globala LLC][6]     |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](https://www.capaxglobal.com/)       |
-| ![Capgemini][14] | NoSQL-migrering; Appinnovation (befintliga appar); Ny apputveckling | USA, Frankrike, Storbritannien, Nederländerna, Finland  | [Webbplats](https://www.capgemini.com/) | 
-|![Coeo][7]     |   Appinnovation (befintliga appar) <br/> Ny apputveckling |    Storbritannien     |  [Webbplats](https://www.coeo.com/)       |
-| ![Cognizant][15] | NoSQL-migrering |USA, Kanada, Storbritannien, Danmark, Nederländerna, Schweiz, Australien, Japan | [Webbplats](https://www.cognizant.com/)|
-|![Infosys][8]     |  NoSQL-migrering       |    Globalt     |  [Webbplats](https://www.infosys.com/)       |
-| ![Lagash][16] | NoSQL-migrering <br/> Ny apputveckling | Argentina, Chile, Colombia, Mexiko| [Webbplats](https://www.lagash.com/)|
-| ![Lambda3 Informatics][17] | NoSQL-migrering <br/> Ny apputveckling | Brasilien| [Webbplats](https://www.lambda3.com.br/)|
-|![Neal Analytics][9]     |     Utveckling av appar (nya appar)    |    USA     |  [Webbplats](https://www.nealanalytics.com/)       |
-|![Pragmatic fungerar programvara Inc][10]    |   NoSQL-migrering      |   USA      |  [Webbplats](https://www.pragmaticworks.com/)       |
-| ![Ricoh globala][18] | NoSQL-migrering <br/> Appinnovation (befintliga appar)| Storbritannien  | [Webbplats](https://www.ricoh.com/)|
-| ![SNP tekniker][19] | NoSQL-migrering| USA | [Webbplats](https://www.snp.com/)|
-| ![Solidsoft svar][20] | NoSQL-migrering | Kroatien, Sverige, Danmark, Irland, Bulgarien, Slovenien, Cypern, Malta, Litauen, Tjeckien, Island och Schweiz och Liechtenstein| [Webbplats](https://www.reply.com/solidsoft-reply/)|
-| ![Spanska peka tekniker][21] | NoSQL-migrering| Irland| [Webbplats](https://www.spanishpoint.ie/)|
-| ![Syone][22] | NoSQL-migrering| Portugal| [Webbplats](https://www.syone.com/)|
-|![Tallan][11]    |  NoSQL-migrering <br/> Appinnovation (befintliga appar) <br/> Ny apputveckling       |    USA     |  [Webbplats](https://www.tallan.com/)       |
-| ![KAMERASYSTEM][23] | Appinnovation (befintliga appar) <br/> Ny apputveckling | USA, Storbritannien, Frankrike, Malaysia, Danmark, Norge, Sverige| [Webbplats](https://www.tcs.com/)|
-|![VTeamLabs][12]    | NoSQL-migrering       |  USA      | [Webbplats](https://www.vteamlabs.com/)       |
-| ![Vit ankor][24] |NoSQL-migrering <br/> Ny apputveckling | Tyskland | [Webbplats](https://whiteducksoftware.com/)|
-| ![Visa IT][25] | Ny apputveckling | Portugal, Storbritannien| [Webbplats](https://www.xpand-it.com/)|
+| ![10.Magnitude][13] | NoSQL-migrering; Utveckling av nya appar | USA | [Webbplats](https://www.10thmagnitude.com/)|
+|![Altoros Utveckling LLC][3]    |  NoSQL-migrering, <br/> Appinnovation (befintliga appar), <br/> Utveckling av nya appar |   USA, Norge, Finland, Vitryssland, Argentina |  [Webbplats](https://www.altoros.com/)     |
+|![Attunix Redapt][4]     |   NoSQL-migrering, <br/> Appinnovation (befintliga appar), <br/> Utveckling av nya appar      |    USA     |  [Webbplats](https://www.attunix.com/)       |
+| ![Avanade][26] | Ny apputveckling, <br/> Appinnovation (befintliga appar) | Österrike, Tyskland, Schweiz, Italien, Norge, Spanien, Storbritannien | [Webbplats](https://www.avanade.com/)
+|![Bluemetal Arkitekter][5]     |  NoSQL-migrering, <br/> Appinnovation (befintliga appar), <br/> Utveckling av nya appar       |    Nordamerika, Asien-Stillahavsområdet     |  [Webbplats](https://www.bluemetal.com/)       |
+|![Capax Globala LLC][6]     |  NoSQL-migrering, <br/> Appinnovation (befintliga appar), <br/> Utveckling av nya appar       |    USA     |  [Webbplats](https://www.capaxglobal.com/)       |
+| ![Capgemini][14] | NoSQL-migrering; Appinnovation (befintliga appar). Utveckling av nya appar | USA, Frankrike, Storbritannien, Nederländerna, Finland  | [Webbplats](https://www.capgemini.com/) | 
+|![Coeo (coeo)][7]     |   Appinnovation (befintliga appar), <br/> Utveckling av nya appar |    Storbritannien     |  [Webbplats](https://www.coeo.com/)       |
+| ![Cognizant (cognizants)][15] | NoSQL-migrering |USA, Kanada, Storbritannien, Danmark, Nederländerna, Schweiz, Australien, Japan | [Webbplats](https://www.cognizant.com/)|
+|![Infosys][8]     |  NoSQL-migrering       |    Global     |  [Webbplats](https://www.infosys.com/)       |
+| ![Lagash (lagash)][16] | NoSQL-migrering, <br/> Utveckling av nya appar | Argentina, Chile, Colombia, Mexiko| [Webbplats](https://www.lagash.com/)|
+| ![Lambda3 informatik][17] | NoSQL-migrering, <br/> Utveckling av nya appar | Brasilien| [Webbplats](https://www.lambda3.com.br/)|
+|![Neal Analys][9]     |     Apputveckling (nya appar)    |    USA     |  [Webbplats](https://www.nealanalytics.com/)       |
+|![Pragmatic Works Software Inc][10]    |   NoSQL-migrering      |   USA      |  [Webbplats](https://www.pragmaticworks.com/)       |
+| ![Ricoh Globala][18] | NoSQL-migrering, <br/> Appinnovation (befintliga appar)| Storbritannien  | [Webbplats](https://www.ricoh.com/)|
+| ![SNP-teknik][19] | NoSQL-migrering| USA | [Webbplats](https://www.snp.com/)|
+| ![Solidsoft Svar][20] | NoSQL-migrering | Kroatien, Sverige, Danmark, Irland, Bulgarien, Slovenien, Cypern, Malta, Litauen, Tjeckien, Island och Schweiz och Liechtenstein| [Webbplats](https://www.reply.com/solidsoft-reply/)|
+| ![Spanska Point Technologies][21] | NoSQL-migrering| Irland| [Webbplats](https://www.spanishpoint.ie/)|
+| ![Syone (syone)][22] | NoSQL-migrering| Portugal| [Webbplats](https://www.syone.com/)|
+|![Tallan ()][11]    |  NoSQL-migrering, <br/> Appinnovation (befintliga appar), <br/> Utveckling av nya appar       |    USA     |  [Webbplats](https://www.tallan.com/)       |
+| ![Tcs][23] | Appinnovation (befintliga appar), <br/> Utveckling av nya appar | USA, Storbritannien, Frankrike, Malaysia, Danmark, Norge, Sverige| [Webbplats](https://www.tcs.com/)|
+|![VTeamLabs (svenska)][12]    | NoSQL-migrering       |  USA      | [Webbplats](https://www.vteamlabs.com/)       |
+| ![Vit anka][24] |NoSQL-migrering, <br/> Utveckling av nya appar | Tyskland | [Webbplats](https://whiteducksoftware.com/)|
+| ![Xpoch IT][25] | Utveckling av nya appar | Portugal, Storbritannien| [Webbplats](https://www.xpand-it.com/)|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om några av Microsofts andra partner, finns det [Microsoft Partner-webbplats](https://partner.microsoft.com/en-US/).
+Mer information om några av Microsofts andra partner finns på [Webbplatsen för Microsoft Partner](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png

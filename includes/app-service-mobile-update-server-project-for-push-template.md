@@ -5,20 +5,20 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 675ad278cb8bdc0ced4eff3bd77572f44c9808fc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68857509"
 ---
-I det här avsnittet uppdaterar du kod i ditt befintliga Mobile Apps Server dels projekt för att skicka ett push-meddelande varje gång ett nytt objekt läggs till. Den här processen drivs av [mal](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) funktionen i Azure Notification Hubs, vilket möjliggör push-meddelanden mellan plattformar. De olika klienterna är registrerade för push-meddelanden med hjälp av mallar och en enda Universal push kan komma till alla klient plattformar.
+I det här avsnittet uppdaterar du koden i ditt befintliga backend-projekt för mobilappar för att skicka ett push-meddelande varje gång ett nytt objekt läggs till. Den här processen drivs av [mallfunktionen](../articles/notification-hubs/notification-hubs-templates-cross-platform-push-messages.md) i Azure Notification Hubs, som möjliggör push-enheter över flera plattformar. De olika klienterna är registrerade för push-meddelanden med hjälp av mallar, och en enda universell push kan komma till alla klientplattformar.
 
-Välj en av följande procedurer som matchar backend-projektets typ&mdash;, antingen [.NET Server](#dotnet) del eller [Node. js-Server delen](#nodejs).
+Välj en av följande procedurer som matchar&mdash;backend-projekttypen antingen [.NET-backend](#dotnet) eller [Node.js-backend](#nodejs).
 
-### <a name="dotnet"></a>.NET-Server dels projekt
+### <a name="net-back-end-project"></a><a name="dotnet"></a>.NET-backend-projekt
 
-1. I Visual Studio högerklickar du på Server projektet. Välj sedan **Hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`och välj sedan **Installera**. Den här processen installerar Notification Hubs bibliotek för att skicka meddelanden från Server delen.
-2. Öppna **kontrollanter** > **TodoItemController.cs**i Server projektet. Lägg sedan till följande using-satser:
+1. Högerklicka på serverprojektet i Visual Studio. Välj sedan **Hantera NuGet-paket**. Sök `Microsoft.Azure.NotificationHubs`efter och välj sedan **Installera**. Den här processen installerar biblioteket Meddelandehubbar för att skicka meddelanden från serverdelen.
+2. Öppna **Controllers** > **TodoItemController.cs**i serverprojektet . Lägg sedan till följande med hjälp av satser:
 
     ```csharp
     using System.Collections.Generic;
@@ -26,7 +26,7 @@ Välj en av följande procedurer som matchar backend-projektets typ&mdash;, anti
     using Microsoft.Azure.Mobile.Server.Config;
     ```
 
-3. I **PostTodoItem** -metoden lägger du till följande kod efter anropet till **InsertAsync**:  
+3. I **posttodoitem-metoden** lägger du till följande kod efter anropet till **InsertAsync:**  
 
     ```csharp
     // Get the settings for the server project.
@@ -64,14 +64,14 @@ Välj en av följande procedurer som matchar backend-projektets typ&mdash;, anti
     }
     ```
 
-    Den här processen skickar ett meddelande från en mall som innehåller objektet. Text när ett nytt objekt infogas.
+    Den här processen skickar ett mallmeddelande som innehåller objektet. Text när ett nytt objekt infogas.
 
-4. Publicera om Server projektet.
+4. Publicera om serverprojektet.
 
-### <a name="nodejs"></a>Node. js-backend-projekt
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Nod.js backend-projekt
 
-1. Konfigurera ditt Server dels projekt.
-2. Ersätt den befintliga koden i todoitem. js med följande kod:
+1. Ställ in ditt backend-projekt.
+2. Ersätt den befintliga koden i todoitem.js med följande kod:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -114,6 +114,6 @@ Välj en av följande procedurer som matchar backend-projektets typ&mdash;, anti
     module.exports = table;  
     ```
 
-    Den här processen skickar ett meddelande i en mall som innehåller objektet. text när ett nytt objekt infogas.
+    Den här processen skickar ett mallmeddelande som innehåller objektet.text när ett nytt objekt infogas.
 
-3. Publicera om Server projektet när du redigerar filen på den lokala datorn.
+3. När du redigerar filen på den lokala datorn publicerar du om serverprojektet.

@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bfda5fe7592d4c3f3f9550f406cf7635c43168ed
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 69a9722436aea1cf794e6e3f3ce02ec79180cff3
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896199"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80159480"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Virtuella Linux-datorer i Azure
 
@@ -51,18 +51,18 @@ I den här tabellen finns några exempel på hur du kan hämta en lista över ti
 
 | Metod | Beskrivning |
 | --- | --- |
-| Azure portal |Välj en plats i listan när du skapar en virtuell dator. |
+| Azure Portal |Välj en plats i listan när du skapar en virtuell dator. |
 | Azure PowerShell |Använd kommandot [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
-| REST-API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
+| REST API |Använd åtgärden [List locations](https://docs.microsoft.com/rest/api/resources/subscriptions) (Listplatser). |
 | Azure CLI |Använd åtgärden [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
 
 ## <a name="availability"></a>Tillgänglighet
 Azure har tillkännagivit ett branschledande serviceavtal på 99,9 % för virtuella datorer med en instans, förutsatt att du distribuerar den virtuella datorn med premiumlagring för alla diskar.  För att distributionen ska kunna omfattas av standardserviceavtalet på 99,95 % för virtuella datorer behöver du fortfarande distribuera två eller flera virtuella datorer som kör arbetsbelastningen i en tillgänglighetsuppsättning. En tillgänglighetsuppsättning säkerställer att dina virtuella datorer distribueras via flera feldomäner i Azure-datacentren och på värdar med olika underhållsfönster. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
-## <a name="vm-size"></a>VM-storlek
+## <a name="vm-size"></a>Storlek på virtuell dator
 [Storleken](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) på den virtuella datorn som du använder bestäms av den arbetsbelastning som du vill köra. Storleken som du väljer avgör sedan faktorer som processorkraft, minne och lagringskapacitet. Azure erbjuder en rad olika storlekar för att passa en mängd olika användningar.
 
-Azure debiterar ett [pris per timme](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) baserat på storleken och operativsystemet för den virtuella datorn. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
+Azure debiterar ett [timpris](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) baserat på den virtuella datorns storlek och operativsystem. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
 
 ## <a name="vm-limits"></a>Begränsningar för den virtuella datorn
 Prenumerationen har [standardkvotgränser](../../azure-resource-manager/management/azure-subscription-service-limits.md) som kan påverka ditt projekt om många virtuella datorer distribueras. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region. Begränsningen kan ökas om du [anmäler ett supportärende och begär en ökning](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
@@ -93,27 +93,17 @@ Microsoft har ett nära samarbete med partner för att se till att de tillgängl
 * Docker – [Azure Marketplace – Azure Container Service med Docker Swarm](https://azure.microsoft.com/marketplace/partners/microsoft/acsswarms/)
 * Jenkins – [Azure Marketplace – CloudBees Jenkins Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cloudbees.cloudbees-core-contact)
 
-## <a name="vm-sizes"></a>VM-storlekar
-[Storleken](sizes.md) på den virtuella datorn som du använder bestäms av den arbetsbelastning som du vill köra. Storleken som du väljer avgör sedan faktorer som processorkraft, minne och lagringskapacitet. Azure erbjuder en rad olika storlekar för att passa en mängd olika användningar.
-
-Azure debiterar ett [pris per timme](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) baserat på storleken och operativsystemet för den virtuella datorn. För delar av timmar tar Azure bara betalt för användningen per minut. Lagringsutrymme prissätts och debiteras separat.
 
 ## <a name="cloud-init"></a>Cloud-init 
 
-All infrastruktur måste vara kod för att uppnå en korrekt DevOps-kultur.  När all infrastruktur finns i kod kan den enkelt återskapas.  Azure fungerar med alla större automatiseringsverktyg som Ansible, Chef, SaltStack och Puppet.  Azure har även en egen verktygsuppsättning för automatisering:
+All infrastruktur måste vara kod för att uppnå en korrekt DevOps-kultur.  När all infrastruktur lever i kod kan den enkelt återskapas.  Azure fungerar med alla större automatiseringsverktyg som Ansible, Chef, SaltStack och Puppet.  Azure har även en egen verktygsuppsättning för automatisering:
 
 * [Azure-mallar](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure har stöd för [Cloud-Init](https://cloud-init.io/) i de flesta Linux-distributioner som har stöd för det.  Vi arbetar aktivt med våra godkända Linux-distribution partner för att få cloud-init aktiverat-avbildningarna i Azure marketplace. De här avbildningarna gör att dina Cloud-Init-distributioner och-konfigurationer fungerar sömlöst med virtuella datorer och skalnings uppsättningar för virtuella datorer.
+Azure stöder för [cloud-init](https://cloud-init.io/) över de flesta Linux-distributioner som stöder det.  Vi arbetar aktivt med våra godkända Linux-distributioner för att ha moln-init-aktiverade avbildningar tillgängliga på Azure-marknadsplatsen. Dessa avbildningar gör att dina molninitdistributioner och konfigurationer fungerar sömlöst med virtuella datorer och skalningsuppsättningar för virtuella datorer.
 
 * [Använda cloud-init på virtuella Azure Linux-datorer](using-cloud-init.md)
-
-## <a name="quotas"></a>Kvoter
-Varje Azure-prenumeration har standardkvotgränser som kan påverka ditt projekt om många virtuella datorer distribueras. Den aktuella gränsen på basis av per prenumeration är 20 virtuella datorer per region.  Kvotgränser kan höjas snabbt och enkelt genom att skicka in ett supportärende med en fråga om ökning av gränsen.  Mer information om kvotgränser:
-
-* [Tjänstbegränsningar för Azure-prenumeration](../../azure-resource-manager/management/azure-subscription-service-limits.md)
-
 
 ## <a name="storage"></a>Lagring
 * [Introduktion till Microsoft Azure Storage](../../storage/common/storage-introduction.md)
@@ -129,9 +119,9 @@ Varje Azure-prenumeration har standardkvotgränser som kan påverka ditt projekt
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa din första virtuella dator!
+Skapa din första VM!
 
-- [Portalen](quick-create-portal.md)
+- [Portal](quick-create-portal.md)
 - [Azure CLI](quick-create-cli.md)
-- [PowerShell](quick-create-powershell.md)
+- [Powershell](quick-create-powershell.md)
 

@@ -1,6 +1,6 @@
 ---
-title: 'Översikt över API: er för Azure Event Hubs .NET Framework | Microsoft Docs'
-description: 'Den här artikeln innehåller en sammanfattning av några av de viktiga Event Hubs .NET Framework klient-API: er (hantering och körning).'
+title: Översikt över Azure Event Hubs .NET Framework API:er | Microsoft-dokument
+description: Den här artikeln innehåller en sammanfattning av några av de viktigaste eventhubderna .NET Framework-klient-API:er (hantering och körning).
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
 ms.openlocfilehash: b14759ed39037bfa172366a2ed8f8ca089786ec6
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79137619"
 ---
-# <a name="event-hubs-net-framework-api-overview"></a>Översikt över Event Hubs .NET Framework API
+# <a name="event-hubs-net-framework-api-overview"></a>Översikt över eventhubbar .NET Framework API
 
-I den här artikeln sammanfattas några av de viktigaste Azure-Event Hubs [.NET Framework klient-API: er](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Det finns två kategorier: hanterings-och körnings-API: er. API: er för körning består av alla åtgärder som behövs för att skicka och ta emot ett meddelande. Med hanterings åtgärder kan du hantera ett Event Hubs enhets tillstånd genom att skapa, uppdatera och ta bort entiteter.
+Den här artikeln sammanfattar några av de viktigaste Azure Event Hubs [.NET Framework-klient-API:erna](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Det finns två kategorier: api:er för hantering och körning. Körnings-API:er består av alla åtgärder som behövs för att skicka och ta emot ett meddelande. Med hanteringsåtgärder kan du hantera ett entitetstillstånd för eventhubbar genom att skapa, uppdatera och ta bort entiteter.
 
-[Övervaknings scenarier](event-hubs-metrics-azure-monitor.md) omfattar både hantering och körnings tid. Detaljerad referens dokumentation om .NET-API: er finns i API-referenserna [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.net standard](/dotnet/api/microsoft.azure.eventhubs)och [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) .
+[Övervakningsscenarier](event-hubs-metrics-azure-monitor.md) sträcker sig över både hantering och körning. Detaljerad referensdokumentation för .NET API:er finns i [.NET Framework,](/dotnet/api/microsoft.servicebus.messaging.eventhubclient) [.NET Standard](/dotnet/api/microsoft.azure.eventhubs)och [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) API-referenser.
 
 ## <a name="management-apis"></a>API:er för hantering
 
-Om du vill utföra följande hanterings åtgärder måste du ha behörighet att **Hantera** i Event Hubs namnrymd:
+För att kunna utföra följande hanteringsåtgärder måste du ha **hantera** behörigheter för namnområdet Event Hubs:
 
 ### <a name="create"></a>Skapa
 
@@ -35,7 +35,7 @@ ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-### <a name="update"></a>Uppdatera
+### <a name="update"></a>Uppdatering
 
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
@@ -54,7 +54,7 @@ await namespaceManager.UpdateEventHubAsync(ehd);
 await namespaceManager.DeleteEventHubAsync("event hub name");
 ```
 
-## <a name="run-time-apis"></a>API: er för körning
+## <a name="run-time-apis"></a>Körnings-API:er
 ### <a name="create-publisher"></a>Skapa utgivare
 
 ```csharp
@@ -100,7 +100,7 @@ var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index
 var consumer = await defaultConsumerGroup.CreateReceiverAsync(partitionId: index,startingOffset:-1); 
 ```
 
-### <a name="consume-message"></a>Använda meddelande
+### <a name="consume-message"></a>Förbruka meddelande
 
 ```csharp
 var message = await consumer.ReceiveAsync();
@@ -113,9 +113,9 @@ var info = message.GetBytes();
 msg = UnicodeEncoding.UTF8.GetString(info);
 ```
 
-## <a name="event-processor-host-apis"></a>Värd-API: er för händelse processorer
+## <a name="event-processor-host-apis"></a>API:er för värdbehörig för händelseprocessor
 
-Dessa API: er ger återhämtning till arbets processer som kan bli otillgängliga, genom att distribuera partitioner mellan tillgängliga arbetare.
+Dessa API:er ger återhämtning till arbetsprocesser som kan bli otillgängliga genom att distribuera partitioner över tillgängliga arbetare.
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -132,7 +132,7 @@ await host.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await host.UnregisterEventProcessorAsync();
 ```
 
-[IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) -gränssnittet definieras enligt följande:
+[Gränssnittet IEventProcessor](/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) definieras på följande sätt:
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -184,4 +184,4 @@ Mer information om scenarier i händelsehubbar finns i följande länkar:
 .NET API-referenser finns här:
 
 * [Microsoft.ServiceBus.Messaging](/dotnet/api/microsoft.servicebus.messaging)
-* [Microsoft. Azure. EventHubs. EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)
+* [Microsoft.Azure.EventHubs.EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost)

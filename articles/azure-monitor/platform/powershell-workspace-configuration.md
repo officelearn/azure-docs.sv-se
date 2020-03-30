@@ -1,21 +1,21 @@
 ---
-title: Använd PowerShell för att skapa och konfigurera en Log Analytics-arbetsyta | Microsoft Docs
-description: Log Analytics arbets ytor i Azure Monitor lagra data från servrar i din lokala infrastruktur eller i molnet. Du kan samla in Maskindata från Azure storage när genereras av Azure-diagnostik.
+title: Skapa & konfigurera logganalys med PowerShell
+description: Log Analytics-arbetsytor i Azure Monitor lagrar data från servrar i din lokala infrastruktur eller molninfrastruktur. Du kan samla in datordata från Azure-lagring när de genereras av Azure-diagnostik.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 6f3f21a7148c59de452d6407fd9a1067b86faae4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2584cedceab1386cbab9c72bb4b510eebe2122bd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77659330"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80054700"
 ---
-# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Hantera Log Analytics arbets yta i Azure Monitor med PowerShell
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Hantera log analytics-arbetsyta i Azure Monitor med PowerShell
 
-Du kan använda [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights/) för att utföra olika funktioner på en Log Analytics arbets yta i Azure Monitor från en kommando rad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell:
+Du kan använda [Logg Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights/) för att utföra olika funktioner på en Log Analytics-arbetsyta i Azure Monitor från en kommandorad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell är:
 
 * Skapa en arbetsyta
 * Lägga till eller ta bort en lösning
@@ -26,34 +26,34 @@ Du kan använda [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/p
 * Samla in händelser från syslog på Linux-datorer
 * Samla in händelser från Windows-händelseloggar
 * Samla in anpassade händelseloggar
-* Lägg till log analytics-agenten till en Azure-dator
-* Konfigurera log analytics för att indexera data som samlas in med Azure-diagnostik
+* Lägga till logganalysagenten på en virtuell Azure-dator
+* Konfigurera logganalys för att indexera data som samlats in med Azure-diagnostik
 
-Den här artikeln innehåller två kodexempel som illustrerar några av de funktioner som du kan utföra från PowerShell.  Du kan referera till [referensen Log Analytics PowerShell-cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) för andra funktioner.
+Den här artikeln innehåller två kodexempel som illustrerar några av de funktioner som du kan utföra från PowerShell.  Du kan referera till [logganalysens PowerShell-cmdletreferens](https://docs.microsoft.com/powershell/module/az.operationalinsights/) för andra funktioner.
 
 > [!NOTE]
-> Log Analytics kallades tidigare för Operational Insights, vilket är anledningen till det är det namn som används i cmdlets.
+> Log Analytics kallades tidigare Operational Insights, vilket är anledningen till att det är namnet som används i cmdlets.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
-Dessa exempel fungerar med version 1.0.0 eller senare av modulen AZ. OperationalInsights.
+## <a name="prerequisites"></a>Krav
+Dessa exempel fungerar med version 1.0.0 eller senare av modulen Az.OperationalInsights.
 
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Skapa och konfigurera en Log Analytics-arbetsyta
+## <a name="create-and-configure-a-log-analytics-workspace"></a>Skapa och konfigurera en logganalysarbetsyta
 Följande skriptexempel illustrerar hur du:
 
 1. Skapa en arbetsyta
-2. Lista över tillgängliga lösningar
-3. Lägga till lösningar i arbetsytan
+2. Lista tillgängliga lösningar
+3. Lägga till lösningar på arbetsytan
 4. Importera sparade sökningar
 5. Exportera sparade sökningar
 6. Skapa en datorgrupp
 7. Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
-8. Samla in prestandaräknare för logisk Disk från Linux-datorer (% noder i procent; Ledigt utrymme i MB; Använt utrymme; i % Disköverföringar/sek; Diskläsningar/sek; Diskskrivningar/sek)
-9. Samla in syslog-händelser från Linux-datorer
-10. Samla in händelser för fel och varningar från programmets händelselogg från Windows-datorer
-11. Samla in prestandaräknaren för minne tillgängligt, MB från Windows-datorer
+8. Samla in räknare för logisk disk perf från Linux-datorer (% Begagnade innoder; Gratis Megabyte; Använt utrymme i %. Disköverföringar/sek; Diskläsningar/sek; Diskskrivningar per sekund)
+9. Samla syslog-händelser från Linux-datorer
+10. Samla in fel- och varningshändelser från programhändelseloggen från Windows-datorer
+11. Prestandaräknare för samla in minnes tillgängliga Mbytes från Windows-datorer
 12. Samla in en anpassad logg
 
 ```powershell
@@ -158,7 +158,7 @@ New-AzOperationalInsightsComputerGroup -ResourceGroupName $ResourceGroup -Worksp
 Enable-AzOperationalInsightsIISLogCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Linux Perf
-New-AzOperationalInsightsLinuxPerformanceObjectDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -ObjectName "Logical Disk" -InstanceName "*"  -CounterNames @("% Used Inodes", "Free Megabytes", "% Used Space", "Disk Transfers/sec", "Disk Reads/sec", "Disk Reads/sec", "Disk Writes/sec") -IntervalSeconds 20  -Name "Example Linux Disk Performance Counters"
+New-AzOperationalInsightsLinuxPerformanceObjectDataSource -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName -ObjectName "Logical Disk" -InstanceName "*"  -CounterNames @("% Used Inodes", "Free Megabytes", "% Used Space", "Disk Transfers/sec", "Disk Reads/sec", "Disk Writes/sec") -IntervalSeconds 20  -Name "Example Linux Disk Performance Counters"
 Enable-AzOperationalInsightsLinuxPerformanceCollection -ResourceGroupName $ResourceGroup -WorkspaceName $WorkspaceName
 
 # Linux Syslog
@@ -178,11 +178,11 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ```
 
 > [!NOTE]
-> Formatet för **CustomLogRawJson** -parametern som definierar konfigurationen för en anpassad logg kan vara komplext. Använd [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) för att hämta konfigurationen för en befintlig anpassad logg. Egenskapen **Properties** är den konfiguration som krävs för parametern **CustomLogRawJson** .
+> Formatet för parametern **CustomLogRawJson** som definierar konfigurationen för en anpassad logg kan vara komplext. Använd [Get-AzOperationalInsightsDataSource](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightsdatasource?view=azps-3.2.0) för att hämta konfigurationen för en befintlig anpassad logg. Egenskapen **Properties** är den konfiguration som krävs för parametern **CustomLogRawJson.**
 
-I ovanstående exempel regexDelimiter definierades som "\\n" för ny rad. Logg avgränsaren kan också vara en tidsstämpel.  Följande format stöds:
+I exemplet ovan definierades regexDelimiter som "n"\\för nyrad. Loggavgränsaren kan också vara en tidsstämpel.  Dessa är de format som stöds:
 
-| Format | JSON RegEx-formatet använder två \\ för varje \ i ett standard-RegEx så om testning i en RegEx-app minskar \\ till \ | | |
+| Format | Json RegEx-formatet \\ använder två för varje \ i en vanlig \\ RegEx så om testning i en RegEx-app minskar till \ | | |
 | --- | --- | --- | --- |
 | `YYYY-MM-DD HH:MM:SS` | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 | `M/D/YYYY HH:MM:SS AM/PM` | `(([0-1]\\d)|[0-9])/(([0-3]\\d)|(\\d))/((\\d{2})|(\\d{4}))\\s((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]\\s(AM|PM|am|pm)` | | |
@@ -191,22 +191,22 @@ I ovanstående exempel regexDelimiter definierades som "\\n" för ny rad. Logg a
 | `yyMMdd HH:mm:ss` | `([0-9]{2}([0][1-9]|[1][0-2])([0-2][0-9]|[3][0-1])\\s\\s?([0-1]?[0-9]|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
 | `ddMMyy HH:mm:ss` | `(([0-2][0-9]|[3][0-1])([0][1-9]|[1][0-2])[0-9]{2}\\s\\s?([0-1]?[0-9]|[2][0-3]):[0-5][0-9]:[0-5][0-9])` | | |
 | `MMM d HH:mm:ss` | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s\\s?([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0-1]?[0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9])` | | |
-| `MMM  d HH:mm:ss` <br> två blank steg efter MMM | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s\\s([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
+| `MMM  d HH:mm:ss` <br> två utrymmen efter MMM | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s\\s([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
 | `MMM d HH:mm:ss` | `(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\s([0]?[1-9]|[1-2][0-9]|[3][0-1])\\s([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])` | | |
-| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> där + är + eller a- <br> där zzzz tids förskjutning | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
-| `yyyy-MM-ddTHH:mm:ss` <br> T är en literal bokstav T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
+| `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> där + är + eller a - <br> där zzzz tid offset | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
+| `yyyy-MM-ddTHH:mm:ss` <br> T är en bokstav T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
-## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Konfigurera Log Analytics för att skicka Azure Diagnostics
-För övervakning utan Agent för Azure-resurser, måste resurserna som har Azure-diagnostik aktiverad och konfigurerad för att skriva till en Log Analytics-arbetsyta. Den här metoden skickar data direkt till arbets ytan och kräver inte att data skrivs till ett lagrings konto. Resurser som stöds är:
+## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Konfigurera Logganalys för att skicka Azure-diagnostik
+För agentless övervakning av Azure-resurser måste resurserna ha Azure-diagnostik aktiverat och konfigurerat för att skriva till en Log Analytics-arbetsyta. Den här metoden skickar data direkt till arbetsytan och kräver inte att data skrivs till ett lagringskonto. Resurser som stöds omfattar:
 
 | Resurstyp | Loggar | Mått |
 | --- | --- | --- |
 | Programgateways    | Ja | Ja |
 | Automation-konton     | Ja | |
 | Batch-konton          | Ja | Ja |
-| Data Lake analytics     | Ja | |
+| Analys av datasjö     | Ja | |
 | Data Lake store         | Ja | |
-| Elastiska SQL-Pool        |     | Ja |
+| Elastisk SQL-pool        |     | Ja |
 | Namnområde för händelsehubb     |     | Ja |
 | IoT-hubbar                |     | Ja |
 | Key Vault               | Ja | |
@@ -215,14 +215,14 @@ För övervakning utan Agent för Azure-resurser, måste resurserna som har Azur
 | Nätverkssäkerhetsgrupper | Ja | |
 | Azure Cache for Redis             |     | Ja |
 | Söktjänster         | Ja | Ja |
-| Service Bus-namnområde   |     | Ja |
+| Service Bus namnområde   |     | Ja |
 | SQL (v12)               |     | Ja |
 | Webbplatser               |     | Ja |
-| Server webbgrupper        |     | Ja |
+| Webbservergrupper        |     | Ja |
 
-Information om tillgängliga mått finns i [mått som stöds med Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
+Mer information om tillgängliga mått finns [i mått som stöds med Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
-Mer information om tillgängliga loggar finns i [tjänster och scheman som stöds för resurs loggar](../../azure-monitor/platform/diagnostic-logs-schema.md).
+Mer information om tillgängliga loggar finns [i tjänster som stöds och schema för resursloggar](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -232,21 +232,21 @@ $resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/D
 Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-Du kan också använda cmdleten föregående för att samla in loggar från resurser som finns i olika prenumerationer. Cmdleten kan fungera mellan prenumerationer eftersom du tillhandahåller ID: t för både resursen som skapar loggar och arbets ytan som loggarna skickas till.
+Du kan också använda den föregående cmdleten för att samla in loggar från resurser som finns i olika prenumerationer. Cmdlet kan arbeta över prenumerationer eftersom du tillhandahåller ID för både resursskapande loggar och arbetsytan loggarna skickas till.
 
 
-## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Konfigurera Log Analytics arbets yta för att samla in Azure Diagnostics från Storage
-Du måste först skriva data till Azure storage för att samla in loggdata från en instans av en klassisk molntjänst eller ett service fabric-kluster som körs. En Log Analytics arbets yta konfigureras sedan för att samla in loggarna från lagrings kontot. Resurser som stöds är:
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Konfigurera Log Analytics-arbetsyta för att samla in Azure-diagnostik från lagring
+Om du vill samla in loggdata från en instans som körs av en klassisk molntjänst eller ett tjänstinfrastrukturkluster måste du först skriva data till Azure-lagring. En Log Analytics-arbetsyta konfigureras sedan för att samla in loggarna från lagringskontot. Resurser som stöds omfattar:
 
-* Klassiska cloud services (webb- och worker-roller)
-* Service fabric-kluster
+* Klassiska molntjänster (webb- och arbetsroller)
+* Kluster för servicevävnad
 
 I följande exempel visas hur du:
 
-1. Lista de befintliga lagrings konton och platser som arbets ytan kommer att indexera data från
-2. Skapa en konfiguration för att läsa från ett lagringskonto
-3. Uppdatera nyligen skapade konfigurationen att indexera data från fler platser
-4. Ta bort den nyligen skapade konfigurationen
+1. Lista befintliga lagringskonton och platser som arbetsytan ska indexera data från
+2. Skapa en konfiguration som ska läsas från ett lagringskonto
+3. Uppdatera den nyskapade konfigurationen för att indexera data från ytterligare platser
+4. Ta bort den nyskapade konfigurationen
 
 ```powershell
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
@@ -270,9 +270,9 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 
 ```
 
-Du kan också använda det här skriptet för att samla in loggar från lagringskonton i olika prenumerationer. Skriptet kan arbeta mellan prenumerationer eftersom du tillhandahåller resurs-ID för lagrings kontot och en motsvarande åtkomst nyckel. När du ändrar att snabbtangent som du behöver uppdatera storage insight om du vill att den nya nyckeln.
+Du kan också använda föregående skript för att samla in loggar från lagringskonton i olika prenumerationer. Skriptet kan arbeta över prenumerationer eftersom du tillhandahåller lagringskontoresurs-ID och en motsvarande åtkomstnyckel. När du ändrar åtkomstnyckeln måste du uppdatera lagringsinsikten för att få den nya nyckeln.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Granska Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights/) för ytterligare information om hur du använder PowerShell för att konfigurera Log Analytics.
+* [Granska Logg Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/az.operationalinsights/) för ytterligare information om hur du använder PowerShell för konfiguration av Logganalys.
 

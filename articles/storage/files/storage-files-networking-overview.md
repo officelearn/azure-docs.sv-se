@@ -1,84 +1,88 @@
 ---
-title: Azure Files nätverks överväganden | Microsoft Docs
-description: En översikt över nätverks alternativ för Azure Files.
+title: Azure Files nätverksöverväganden | Microsoft-dokument
+description: En översikt över nätverksalternativ för Azure-filer.
 author: roygara
 ms.service: storage
 ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 09d7f93c7a1d8ad9e567ecfe0bb3854d9d54f6e0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597753"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067154"
 ---
-# <a name="azure-files-networking-considerations"></a>Azure Files nätverks överväganden 
+# <a name="azure-files-networking-considerations"></a>Överväganden för Azure Files-nätverk 
 Du kan ansluta till en Azure-filresurs på två sätt:
 
-- Åtkomst till resursen direkt via SMB eller fileraste protokollen. Detta åtkomst mönster används i första hand för att eliminera så många lokala servrar som möjligt.
-- Skapa ett cacheminne för Azure-filresursen på en lokal server med Azure File Sync och få åtkomst till fil resursens data från den lokala servern med ditt protokoll (SMB, NFS, FTPS osv.) för ditt användnings fall. Det här åtkomst mönstret är användbart eftersom det kombinerar det bästa av både lokala prestanda och moln skalning och tjänster som kan anslutas utan server, till exempel Azure Backup.
+- Komma åt resursen direkt via SMB- eller FileREST-protokollen. Det här åtkomstmönstret används främst när så många lokala servrar som möjligt ska elimineras.
+- Skapa en cache av Azure-filresursen på en lokal server med Azure File Sync och komma åt filresursens data från den lokala servern med ditt protokoll val (SMB, NFS, FTPS, etc.) för ditt användningsfall. Det här åtkomstmönstret är praktiskt eftersom det kombinerar det bästa av både lokala prestanda och molnskala och serverlösa attacherbara tjänster, till exempel Azure Backup.
 
-Den här artikeln fokuserar på hur du konfigurerar nätverk för när ditt användnings fall anropar åtkomst till Azure-filresursen direkt i stället för att använda Azure File Sync. Mer information om nätverks överväganden för en Azure File Sync distribution finns i [konfigurera Azure File Sync proxy-och brand Väggs inställningar](storage-sync-files-firewall-and-proxy.md).
+Den här artikeln fokuserar på hur du konfigurerar nätverk för när ditt användningsfall kräver åtkomst till Azure-filresursen direkt i stället för att använda Azure File Sync. Mer information om nätverksöverväganden för en Azure File Sync-distribution finns i [konfigurera proxy- och brandväggsinställningar för Azure File Sync](storage-sync-files-firewall-and-proxy.md).
 
-Nätverks konfigurationen för Azure-filresurser görs på Azure Storage-kontot. Ett lagrings konto är en hanterings konstruktion som representerar en delad pool av lagring där du kan distribuera flera fil resurser, samt andra lagrings resurser, till exempel BLOB-behållare eller köer. Lagrings konton visar flera inställningar som hjälper dig att skydda nätverks åtkomsten till dina fil resurser: nätverks slut punkter, inställningar för lagrings konto brand vägg och kryptering under överföring.
+Nätverkskonfiguration för Azure-filresurser görs på Azure-lagringskontot. Ett lagringskonto är en hanteringskonstruktion som representerar en delad lagringspool där du kan distribuera flera filresurser, samt andra lagringsresurser, till exempel blob-behållare eller köer. Lagringskonton visar flera inställningar som hjälper dig att skydda nätverksåtkomst till dina filresurser: nätverksslutpunkter, brandväggsinställningar för lagringskonton och kryptering under överföring. 
 
-## <a name="accessing-your-azure-file-shares"></a>Åtkomst till dina Azure-filresurser
-När du distribuerar en Azure-filresurs inom ett lagrings konto är fil resursen omedelbart tillgänglig via lagrings kontots offentliga slut punkt. Det innebär att autentiserade begär Anden, till exempel begär Anden som har godkänts av en användares inloggnings identitet, kan komma från eller utanför Azure. 
+Vi rekommenderar att du läser [Planering för en Azure Files-distribution](storage-files-planning.md) innan du läser den här konceptuella guiden.
 
-I många kund miljöer kommer en första montering av Azure-filresursen på din lokala arbets Station att Miss lyckas, även om monteringar från virtuella Azure-datorer lyckas. Orsaken till detta är att många organisationer och Internet leverantörer (ISP) blockerar porten som SMB använder för att kommunicera, Port 445. Den här övningen kommer från säkerhets anvisningar om äldre och föråldrade versioner av SMB-protokollet. Även om SMB 3,0 är ett Internet-säkert protokoll, är äldre versioner av SMB, särskilt SMB 1,0. Azure-filresurser kan bara nås externt via SMB 3,0 och det fileraste protokollet (som också är ett säkert protokoll för Internet) via den offentliga slut punkten.
+## <a name="accessing-your-azure-file-shares"></a>Komma åt dina Azure-filresurser
+När du distribuerar en Azure-filresurs i ett lagringskonto är filresursen omedelbart tillgänglig via lagringskontots offentliga slutpunkt. Det innebär att autentiserade begäranden, till exempel begäranden som auktoriserats av en användares inloggningsidentitet, kan komma säkert inifrån eller utanför Azure. 
 
-Eftersom det enklaste sättet att komma åt din Azure-filresurs från lokalt är att öppna ditt lokala nätverk till port 445, rekommenderar Microsoft följande steg för att ta bort SMB 1,0 från din miljö:
+I många kundmiljöer misslyckas en första montering av Azure-filresursen på din lokala arbetsstation, även om fästen från virtuella Azure-datorer lyckas. Anledningen till detta är att många organisationer och Internet-leverantörer (IsPs) blockera den port som SMB använder för att kommunicera, port 445. Den här metoden kommer från säkerhetsvägledning om äldre och inaktuella versioner av SMB-protokollet. Även om SMB 3.0 är ett internetsäkert protokoll, äldre versioner av SMB, särskilt SMB 1.0 är det inte. Azure-filresurser kan endast nås externt via SMB 3.0 och FileREST-protokollet (som också är ett internetsäkert protokoll) via den offentliga slutpunkten.
 
-1. Se till att SMB 1,0 tas bort eller inaktive ras på din organisations enheter. Alla Windows-och Windows Server-versioner som stöds för närvarande stöder borttagning eller inaktive ring av SMB 1,0 och från och med Windows 10, version 1709, SMB 1,0 installeras inte i Windows som standard. Mer information om hur du inaktiverar SMB 1,0 finns i våra OS-/regionsspecifika sidor:
+Eftersom det enklaste sättet att komma åt din Azure-filresurs från lokalt är att öppna det lokala nätverket till port 445, rekommenderar Microsoft följande steg för att ta bort SMB 1.0 från din miljö:
+
+1. Kontrollera att SMB 1.0 tas bort eller inaktiveras på organisationens enheter. Alla versioner av Windows och Windows Server som för närvarande stöds av att ta bort eller inaktivera SMB 1.0, och från och med Windows 10, version 1709, är SMB 1.0 inte installerat i Windows som standard. Mer information om hur du inaktiverar SMB 1.0 finns på våra OS-specifika sidor:
     - [Skydda Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
-    - [Skydda Linux](storage-how-to-use-files-linux.md#securing-linux)
-2. Se till att inga produkter i organisationen kräver SMB 1,0 och ta bort de som gör. Vi underhåller en [SMB1 produkt-Clearinghouse](https://aka.ms/stillneedssmb1)som innehåller alla de första och tredje parts produkter som är kända för att Microsoft ska kräva SMB 1,0. 
-3. Valfritt Använd en brand vägg från en tredje part med din organisations lokala nätverk för att förhindra att SMB 1,0-trafik lämnar din organisations gränser.
+    - [Säkra Linux](storage-how-to-use-files-linux.md#securing-linux)
+2. Se till att inga produkter inom organisationen kräver SMB 1.0 och ta bort de som gör det. Vi har ett [SMB1 Product Clearinghouse](https://aka.ms/stillneedssmb1), som innehåller alla första och tredje parts produkter som microsoft känner till för att kräva SMB 1.0. 
+3. (Valfritt) Använd en brandvägg från tredje part med organisationens lokala nätverk för att förhindra att SMB 1.0-trafik lämnar organisationsgränsen.
 
-Om din organisation kräver att port 445 ska blockeras per princip eller förordning, eller om din organisation kräver trafik till Azure för att följa en deterministisk sökväg kan du använda Azure VPN Gateway eller ExpressRoute för tunnel trafik till dina Azure-filresurser.
+Om din organisation kräver att port 445 blockeras per princip eller förordning, eller om din organisation kräver trafik till Azure för att följa en deterministisk sökväg, kan du använda Azure VPN Gateway eller ExpressRoute för tunneltrafik till dina Azure-filresurser.
 
 > [!Important]  
-> Även om du väljer att använda en alternativ metod för att få åtkomst till dina Azure-filresurser rekommenderar Microsoft fortfarande att du tar bort SMB 1,0 från din miljö.
+> Även om du bestämmer dig för att använda en alternativ metod för att komma åt dina Azure-filresurser rekommenderar Microsoft fortfarande att du tar bort SMB 1.0 från din miljö.
 
-### <a name="tunneling-traffic-over-a-virtual-private-network-or-expressroute"></a>Tunnel trafik över ett virtuellt privat nätverk eller ExpressRoute
-När du upprättar en nätverks tunnel mellan ditt lokala nätverk och Azure, peering du ditt lokala nätverk med ett eller flera virtuella nätverk i Azure. Ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md), eller VNet, liknar ett traditionellt nätverk som du kommer att använda lokalt. Precis som ett Azure Storage-konto eller en virtuell Azure-dator är ett VNet en Azure-resurs som distribueras i en resurs grupp. 
+### <a name="tunneling-traffic-over-a-virtual-private-network-or-expressroute"></a>Tunneltrafik över ett virtuellt privat nätverk eller ExpressRoute
+När du upprättar en nätverkstunnel mellan det lokala nätverket och Azure peering du ditt lokala nätverk med ett eller flera virtuella nätverk i Azure. Ett [virtuellt nätverk](../../virtual-network/virtual-networks-overview.md), eller virtuellt nätverk, liknar ett traditionellt nätverk som du skulle driva lokalt. Precis som ett Azure-lagringskonto eller en Virtuell Azure-dator är ett virtuellt nätverk en Azure-resurs som distribueras i en resursgrupp. 
 
-Azure Files stöder följande mekanismer för tunnel trafik mellan dina lokala arbets stationer och servrar och Azure:
+Azure Files stöder följande mekanismer för tunneltrafik mellan lokala arbetsstationer och servrar och Azure:
 
-- [Azure VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): en VPN-gateway är en speciell typ av virtuell nätverksgateway som används för att skicka krypterad trafik mellan ett virtuellt Azure-nätverk och en annan plats (till exempel lokalt) via Internet. En Azure-VPN Gateway är en Azure-resurs som kan distribueras i en resurs grupp tillsammans med ett lagrings konto eller andra Azure-resurser. VPN-gatewayer exponerar två olika typer av anslutningar:
-    - [Punkt-till-plats (P2s) VPN gateway-](../../vpn-gateway/point-to-site-about.md) anslutningar, som är VPN-anslutningar mellan Azure och en enskild klient. Den här lösningen är främst användbar för enheter som inte är en del av organisationens lokala nätverk, t. ex. kunder som vill kunna montera sin Azure-filresurs från hemmet, ett kafé eller ett hotell på resan. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. För att förenkla distributionen av en P2S VPN-anslutning, se [Konfigurera en punkt-till-plats (P2s) VPN i Windows för användning med Azure Files](storage-files-configure-p2s-vpn-windows.md) och [Konfigurera en punkt-till-plats (P2s) VPN på Linux för användning med Azure Files](storage-files-configure-p2s-vpn-linux.md).
-    - [VPN för plats-till-plats (S2S)](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), som är VPN-anslutningar mellan Azure och din organisations nätverk. Med en S2S VPN-anslutning kan du konfigurera en VPN-anslutning en gång, för en VPN-server eller en enhet som finns i din organisations nätverk, i stället för att göra för varje klient enhet som behöver åtkomst till Azure-filresursen. Information om hur du fören klar distributionen av en S2S VPN-anslutning finns i [Konfigurera en plats-till-plats (S2S) VPN för användning med Azure Files](storage-files-configure-s2s-vpn.md).
-- [ExpressRoute](../../expressroute/expressroute-introduction.md), som gör att du kan skapa en definierad väg mellan Azure och ditt lokala nätverk som inte passerar Internet. Eftersom ExpressRoute tillhandahåller en dedikerad sökväg mellan ditt lokala data Center och Azure, kan ExpressRoute vara användbart när nätverks prestanda är ett övervägande. ExpressRoute är också ett användbart alternativ när din organisations policy eller myndighets krav kräver en deterministisk sökväg till dina resurser i molnet.
+- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): En VPN-gateway är en specifik typ av virtuell nätverksgateway som används för att skicka krypterad trafik mellan ett virtuellt Azure-nätverk och en alternativ plats (till exempel lokalt) via internet. En Azure VPN Gateway är en Azure-resurs som kan distribueras i en resursgrupp längs sidan av ett lagringskonto eller andra Azure-resurser. VPN-gateways exponerar två olika typer av anslutningar:
+    - [P2S-vpn-gateway-anslutningar (Point-to-Site),](../../vpn-gateway/point-to-site-about.md) som är VPN-anslutningar mellan Azure och en enskild klient. Den här lösningen är främst användbar för enheter som inte ingår i organisationens lokala nätverk, till exempel distansarbetare som vill kunna montera sin Azure-filresurs hemifrån, ett kafé eller hotell på resande fot. Om du vill använda en P2S VPN-anslutning med Azure Files måste en P2S VPN-anslutning konfigureras för varje klient som vill ansluta. Information om hur du förenklar distributionen av en P2S VPN-anslutning finns i [Konfigurera en P2S-VPN (Point-to-Site) i Windows för användning med Azure Files](storage-files-configure-p2s-vpn-windows.md) och Konfigurera ett [P2S-VPN (Point-to-Site) på Linux för användning med Azure Files](storage-files-configure-p2s-vpn-linux.md).
+    - [Plats till plats (S2S) VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), som är VPN-anslutningar mellan Azure och organisationens nätverk. Med en S2S VPN-anslutning kan du konfigurera en VPN-anslutning en gång för en VPN-server eller enhet som finns i organisationens nätverk, i stället för att göra för varje klientenhet som behöver komma åt din Azure-filresurs. Information om hur du förenklar distributionen av en S2S VPN-anslutning finns i [Konfigurera ett S2S-VPN (Site-to-Site) för användning med Azure Files](storage-files-configure-s2s-vpn.md).
+- [ExpressRoute](../../expressroute/expressroute-introduction.md), som gör att du kan skapa en definierad väg mellan Azure och ditt lokala nätverk som inte passerar internet. Eftersom ExpressRoute tillhandahåller en dedikerad sökväg mellan ditt lokala datacenter och Azure kan ExpressRoute vara användbart när nätverksprestanda är en faktor. ExpressRoute är också ett bra alternativ när organisationens policy eller regelkrav kräver en deterministisk väg till dina resurser i molnet.
 
-Oavsett vilken tunnel metod du använder för att få åtkomst till dina Azure-filresurser behöver du en mekanism för att säkerställa att trafiken till ditt lagrings konto går via tunneln i stället för din vanliga Internet anslutning. Det är tekniskt möjligt att dirigera till den offentliga slut punkten för lagrings kontot, men detta kräver en hård kodning av alla IP-adresser för Azure Storage-kluster i en region, eftersom lagrings konton kan flyttas mellan lagrings kluster när som helst. Detta kräver också konstant uppdatering av IP-adress mappningar eftersom nya kluster läggs till hela tiden.
+Oavsett vilken tunnelmetod du använder för att komma åt dina Azure-filresurser behöver du en mekanism för att säkerställa att trafiken till ditt lagringskonto går över tunneln i stället för din vanliga internetanslutning. Det är tekniskt möjligt att dirigera till den offentliga slutpunkten för lagringskontot, men detta kräver hårdkodning av alla IP-adresser för Azure-lagringskluster i en region, eftersom lagringskonton kan flyttas mellan lagringskluster när som helst. Detta kräver också att ip-adressmappningar ständigt uppdateras eftersom nya kluster läggs till hela tiden.
 
-I stället för att hårdkoda IP-adressen för dina lagrings konton till reglerna för VPN-routning rekommenderar vi att du använder privata slut punkter, vilket ger ditt lagrings konto en IP-adress från adress utrymmet för ett virtuellt Azure-nätverk. Eftersom du skapar en tunnel till Azure skapar peering mellan ditt lokala nätverk och ett eller flera virtuella nätverk, så att detta möjliggör rätt routning på ett hållbart sätt.
+I stället för att hårdkoda IP-adressen för dina lagringskonton i dina VPN-routningsregler rekommenderar vi att du använder privata slutpunkter som ger ditt lagringskonto en IP-adress från adressutrymmet i ett virtuellt Azure-nätverk. Eftersom skapandet av en tunnel till Azure upprättar peering mellan ditt lokala nätverk och ett eller flera virtuella nätverk, möjliggör detta rätt routning på ett hållbart sätt.
 
-### <a name="private-endpoints"></a>Privata slut punkter
-Förutom den offentliga standard slut punkten för ett lagrings konto tillhandahåller Azure Files alternativet att ha en eller flera privata slut punkter. En privat slut punkt är en slut punkt som endast är tillgänglig i ett virtuellt Azure-nätverk. När du skapar en privat slut punkt för ditt lagrings konto hämtar ditt lagrings konto en privat IP-adress från det virtuella nätverkets adress utrymme, ungefär som hur en lokal fil server eller NAS-enhet tar emot en IP-adress inom den dedikerade adressen utrymme för ditt lokala nätverk. 
+### <a name="private-endpoints"></a>Privata slutpunkter
+Förutom standardslutpunkten för ett lagringskonto ger Azure Files möjlighet att ha en eller flera privata slutpunkter. En privat slutpunkt är en slutpunkt som endast är tillgänglig i ett virtuellt Azure-nätverk. När du skapar en privat slutpunkt för ditt lagringskonto får ditt lagringskonto en privat IP-adress från ditt virtuella nätverks adressutrymme, ungefär som hur en lokal filserver eller NAS-enhet tar emot en IP-adress inom den dedikerade adressen utrymme i ditt lokala nätverk. 
 
-En privat privat slut punkt är associerad med ett specifikt Azure Virtual Network-undernät. Ett lagrings konto kan ha privata slut punkter i fler än ett virtuellt nätverk.
+En enskild privat slutpunkt är associerad med ett specifikt Azure-virtuellt nätverksundernät. Ett lagringskonto kan ha privata slutpunkter i mer än ett virtuellt nätverk.
 
-Med hjälp av privata slut punkter med Azure Files kan du:
-- Anslut säkert till dina Azure-filresurser från lokala nätverk med hjälp av en VPN-eller ExpressRoute-anslutning med privat peering.
-- Skydda dina Azure-filresurser genom att konfigurera lagrings kontots brand vägg för att blockera alla anslutningar på den offentliga slut punkten. Som standard blockeras inte anslutningar till den offentliga slut punkten genom att skapa en privat slut punkt.
-- Öka säkerheten för det virtuella nätverket genom att göra det möjligt att blockera exfiltrering av data från det virtuella nätverket (och peering-gränser).
+Med hjälp av privata slutpunkter med Azure Files kan du:
+- Anslut till dina Azure-filresurser från lokala nätverk med hjälp av en VPN- eller ExpressRoute-anslutning med privat peering.
+- Skydda dina Azure-filresurser genom att konfigurera brandväggen för lagringskonto för att blockera alla anslutningar på den offentliga slutpunkten. Som standard blockeras inte anslutningar till den offentliga slutpunkten när du skapar en privat slutpunkt.
+- Öka säkerheten för det virtuella nätverket genom att du kan blockera exfiltration av data från det virtuella nätverket (och peering gränser).
 
-### <a name="private-endpoints-and-dns"></a>Privata slut punkter och DNS
-När du skapar en privat slut punkt skapar vi som standard också en (eller uppdaterar en befintlig) privat DNS-zon som motsvarar `privatelink` under domänen. Det krävs inget krav för att skapa en privat DNS-zon för att använda en privat slut punkt för ditt lagrings konto, men det rekommenderas i allmänhet och uttryckligen krävs när du monterar en Azure-filresurs med en Active Directory användarens huvud namn eller åtkomst från det fileraste API: et.
+Information om hur du skapar en privat slutpunkt finns i [Konfigurera privata slutpunkter för Azure Files](storage-files-networking-endpoints.md).
+
+### <a name="private-endpoints-and-dns"></a>Privata slutpunkter och DNS
+När du skapar en privat slutpunkt skapar vi som standard också en (eller uppdaterar en befintlig) privat DNS-zon som motsvarar underdomänen. `privatelink` Strängt taget krävs det inte att skapa en privat DNS-zon för att använda en privat slutpunkt för ditt lagringskonto, men det rekommenderas starkt i allmänhet och krävs uttryckligen när du monterar din Azure-filresurs med ett active directory-användarobjekt eller åtkomst från FileREST API.
 
 > [!Note]  
-> I den här artikeln används DNS-suffixet för lagrings kontot för Azures offentliga regioner, `core.windows.net`. Den här kommentarer gäller också för Azures suveräna moln, till exempel Azure-molnet för amerikanska myndigheter och molnet i molnet, och ersätter bara de nödvändiga suffixen för din miljö. 
+> Den här artikeln använder DNS-suffixet för `core.windows.net`lagringskontot för Azure Public-regionerna . Den här kommentaren gäller även Azure Sovereign-moln som Azure US Government-molnet och Azure China-molnet – bara ersätta lämpliga suffix för din miljö. 
 
-I din privata DNS-zon skapar vi en A-post för `storageaccount.privatelink.file.core.windows.net` och en CNAME-post för det reguljära namnet på lagrings kontot, som följer mönstret `storageaccount.file.core.windows.net`. Eftersom din privata Azure-DNS-zon är ansluten till det virtuella nätverket som innehåller den privata slut punkten kan du se DNS-konfigurationen när du anropar `Resolve-DnsName`-cmdleten från PowerShell på en virtuell Azure-dator (alternativt `nslookup` i Windows och Linux):
+I din privata DNS-zon skapar `storageaccount.privatelink.file.core.windows.net` vi en A-post för och en CNAME-post `storageaccount.file.core.windows.net`för det vanliga namnet på lagringskontot, som följer mönstret . Eftersom din privata Azure DNS-zon är ansluten till det virtuella nätverket som innehåller `Resolve-DnsName` den privata slutpunkten kan du observera `nslookup` DNS-konfigurationen när du anropar cmdleten från PowerShell i en Virtuell Azure -dator (växelvis i Windows och Linux):
 
 ```powershell
 Resolve-DnsName -Name "storageaccount.file.core.windows.net"
 ```
 
-I det här exemplet matchar lagrings kontot `storageaccount.file.core.windows.net` den privata IP-adressen för den privata slut punkten, vilket sker `192.168.0.4`.
+I det här exemplet `storageaccount.file.core.windows.net` matchas lagringskontot till den privata IP-adressen för den privata slutpunkten, som råkar vara `192.168.0.4`.
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -105,7 +109,7 @@ TimeToExpiration       : 2419200
 DefaultTTL             : 300
 ```
 
-Om du kör samma kommando från en lokal plats ser du att samma lagrings konto namn matchar den offentliga IP-adressen för lagrings kontot i stället. `storageaccount.file.core.windows.net` är en CNAME-post för `storageaccount.privatelink.file.core.windows.net`, vilket i sin tur är en CNAME-post för Azure Storage-kluster som är värd för lagrings kontot:
+Om du kör samma kommando från lokala ser du att samma lagringskontonamn matchas till lagringskontots offentliga IP-adress i stället. `storageaccount.file.core.windows.net` är en CNAME-post för `storageaccount.privatelink.file.core.windows.net`, som i sin tur är en CNAME-post för Azure-lagringsklustret som är värd för lagringskontot:
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -122,27 +126,27 @@ Section    : Answer
 IP4Address : 52.239.194.40
 ```
 
-Detta återspeglar det faktum att lagrings kontot kan exponera både den offentliga slut punkten och en eller flera privata slut punkter. För att säkerställa att lagrings konto namnet matchas mot den privata IP-adressen för den privata slut punkten måste du ändra konfigurationen på dina lokala DNS-servrar. Detta kan åstadkommas på flera sätt:
+Detta återspeglar det faktum att lagringskontot kan exponera både den offentliga slutpunkten och en eller flera privata slutpunkter. Om du vill vara säkra på att lagringskontonamnet matchas till den privata slutpunktens privata IP-adress måste du ändra konfigurationen på dina lokala DNS-servrar. Detta kan åstadkommas på flera sätt:
 
-- Ändra hosts-filen på klienterna för att göra `storageaccount.file.core.windows.net` matcha den önskade privata IP-adressen för den privata slut punkten. Detta rekommenderas inte för produktions miljöer eftersom du behöver göra dessa ändringar för varje klient som vill montera dina Azure-filresurser och ändringar av lagrings kontot eller den privata slut punkten hanteras inte automatiskt.
-- Skapa en post för `storageaccount.file.core.windows.net` i dina lokala DNS-servrar. Detta har fördelen att klienter i din lokala miljö kan lösa lagrings kontot automatiskt utan att behöva konfigurera varje klient, men den här lösningen är också sårbar för att ändra värd filen eftersom ändringar inte återspeglas. Även om den här lösningen är sårbar kan det vara det bästa valet för vissa miljöer.
-- Vidarebefordra `core.windows.net`s zonen från dina lokala DNS-servrar till din Azures privata DNS-zon. Den privata Azure-DNS-värden kan nås via en särskild IP-adress (`168.63.129.16`) som endast är tillgänglig i virtuella nätverk som är länkade till Azures privata DNS-zon. För att lösa den här begränsningen kan du köra ytterligare DNS-servrar i ditt virtuella nätverk som vidarebefordrar `core.windows.net` till Azures privata DNS-zon. För att förenkla den här konfigurationen har vi tillhandahållit PowerShell-cmdletar som automatiskt distribuerar DNS-servrar i det virtuella Azure-nätverket och konfigurerar dem efter behov.
+- Ändra hosts-filen på dina `storageaccount.file.core.windows.net` klienter för att lösa den önskade privata slutpunktens privata IP-adress. Detta rekommenderas starkt för produktionsmiljöer, eftersom du behöver göra dessa ändringar i varje klient som vill montera dina Azure-filresurser och ändringar i lagringskontot eller den privata slutpunkten inte hanteras automatiskt.
+- Skapa en A-post för `storageaccount.file.core.windows.net` i dina lokala DNS-servrar. Detta har fördelen att klienter i din lokala miljö kommer att kunna automatiskt lösa lagringskontot utan att behöva konfigurera varje klient, men den här lösningen är på samma sätt spröd till att ändra hosts-filen eftersom ändringar inte är Återspeglas. Även om denna lösning är spröd, kan det vara det bästa valet för vissa miljöer.
+- Vidarebefordra `core.windows.net` zonen från dina lokala DNS-servrar till din privata AZURE DNS-zon. Azure private DNS-värden kan nås via`168.63.129.16`en särskild IP-adress ( ) som endast är tillgänglig i virtuella nätverk som är länkade till Azure private DNS-zonen. Om du vill lösa den här begränsningen kan du köra `core.windows.net` ytterligare DNS-servrar i det virtuella nätverket som vidarebefordras till azure-zonen för privat DNS. För att förenkla den här konfigurationen har vi tillhandahållit PowerShell-cmdlets som automatiskt distribuerar DNS-servrar i ditt virtuella Azure-nätverk och konfigurerar dem efter behov. Mer information om hur du konfigurerar DNS-vidarebefordran finns i [Konfigurera DNS med Azure-filer](storage-files-networking-dns.md).
 
-## <a name="storage-account-firewall-settings"></a>Brand Väggs inställningar för lagrings konto
-En brand vägg är en nätverks princip som styr vilka begär Anden som kan få åtkomst till den offentliga slut punkten för ett lagrings konto. Med hjälp av lagrings kontots brand vägg kan du begränsa åtkomsten till lagrings kontots offentliga slut punkt till vissa IP-adresser eller intervall eller till ett virtuellt nätverk. I allmänhet kommer de flesta brand Väggs principer för ett lagrings konto att begränsa nätverks åtkomsten till ett eller flera virtuella nätverk. 
+## <a name="storage-account-firewall-settings"></a>Brandväggsinställningar för lagringskonto
+En brandvägg är en nätverksprincip som styr vilka begäranden som har åtkomst till den offentliga slutpunkten för ett lagringskonto. Med hjälp av brandväggen för lagringskonto kan du begränsa åtkomsten till lagringskontots offentliga slutpunkt till vissa IP-adresser eller-intervall eller till ett virtuellt nätverk. I allmänhet begränsar de flesta brandväggsprinciper för ett lagringskonto nätverksåtkomst till ett eller flera virtuella nätverk. 
 
-Det finns två sätt att begränsa åtkomsten till ett lagrings konto till ett virtuellt nätverk:
-- Skapa en eller flera privata slut punkter för lagrings kontot och begränsa all åtkomst till den offentliga slut punkten. Detta säkerställer att endast trafik som härstammar från de önskade virtuella nätverken kan komma åt Azure-filresurserna i lagrings kontot.
-- Begränsa den offentliga slut punkten till ett eller flera virtuella nätverk. Detta fungerar med hjälp av en funktion i det virtuella nätverket med namnet *tjänst slut punkter*. När du begränsar trafiken till ett lagrings konto via en tjänst slut punkt har du fortfarande åtkomst till lagrings kontot via den offentliga IP-adressen.
+Det finns två metoder för att begränsa åtkomsten till ett lagringskonto till ett virtuellt nätverk:
+- Skapa en eller flera privata slutpunkter för lagringskontot och begränsa all åtkomst till den offentliga slutpunkten. Detta säkerställer att endast trafik som kommer inifrån önskade virtuella nätverk kan komma åt Azure-filresurserna i lagringskontot.
+- Begränsa den offentliga slutpunkten till ett eller flera virtuella nätverk. Detta fungerar med hjälp av en funktion i det virtuella nätverket som kallas *tjänstslutpunkter*. När du begränsar trafiken till ett lagringskonto via en tjänstslutpunkt, är du fortfarande tillgång till lagringskontot via den offentliga IP-adressen.
 
-Mer information om hur du konfigurerar lagrings kontots brand vägg finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Mer information om hur du konfigurerar brandväggen för [lagringskonto finns i konfigurera Azure-lagringsbrand brandväggar och virtuella nätverk](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="encryption-in-transit"></a>Kryptering under överföring
-Som standard har alla Azure Storage-konton kryptering under överföring aktiverat. Det innebär att när du monterar en fil resurs över SMB eller åtkomst till den via det fileraste protokollet (till exempel via Azure Portal, PowerShell/CLI eller Azure SDK: er), tillåter Azure Files bara anslutningen om den görs med SMB 3.0 + med kryptering eller HTTPS. Klienter som inte har stöd för SMB 3,0 eller klienter som stöder SMB 3,0 men inte SMB-kryptering kommer inte att kunna montera Azure-filresursen om kryptering i överföring är aktiverat. Mer information om vilka operativ system som stöder SMB 3,0 med kryptering finns i vår detaljerade dokumentation för [Windows](storage-how-to-use-files-windows.md), [MacOS](storage-how-to-use-files-mac.md)och [Linux](storage-how-to-use-files-linux.md). Alla aktuella versioner av PowerShell, CLI och SDK: er stöder HTTPS.  
+Som standard har alla Azure-lagringskonton kryptering i transit aktiverat. Det innebär att när du monterar en filresurs över SMB eller kommer åt den via FileREST-protokollet (till exempel via Azure-portalen, PowerShell/CLI eller Azure SDK) tillåter Azure-filer endast anslutningen om den görs med SMB 3.0+ med kryptering eller HTTPS. Klienter som inte stöder SMB 3.0 eller klienter som stöder SMB 3.0 men inte SMB-kryptering kan inte montera Azure-filresursen om kryptering under överföring är aktiverad. Mer information om vilka operativsystem som stöder SMB 3.0 med kryptering finns i vår detaljerade dokumentation för [Windows,](storage-how-to-use-files-windows.md) [macOS](storage-how-to-use-files-mac.md)och [Linux](storage-how-to-use-files-linux.md). Alla aktuella versioner av PowerShell, CLI och SDK-erna stöder HTTPS.  
 
-Du kan inaktivera kryptering under överföring för ett Azure Storage-konto. När krypteringen är inaktive rad kan Azure Files också tillåta SMB 2,1, SMB 3,0 utan kryptering och okrypterade filer för API-anrop via HTTP. Den främsta anledningen till att inaktivera kryptering vid överföring är att stödja ett äldre program som måste köras på ett äldre operativ system, till exempel Windows Server 2008 R2 eller äldre Linux-distribution. Azure Files tillåter endast SMB 2,1-anslutningar inom samma Azure-region som Azure-filresursen. en SMB 2,1-klient utanför Azure-filresursens region, till exempel lokalt eller i en annan Azure-region, kommer inte att kunna komma åt fil resursen.
+Du kan inaktivera kryptering under överföring för ett Azure-lagringskonto. När kryptering är inaktiverat tillåter Azure Files också SMB 2.1, SMB 3.0 utan kryptering och okrypterade FileREST API-anrop via HTTP. Den främsta orsaken till att inaktivera kryptering under överföring är att stödja ett äldre program som måste köras på ett äldre operativsystem, till exempel Windows Server 2008 R2 eller äldre Linux-distribution. Azure-filer tillåter endast SMB 2.1-anslutningar inom samma Azure-region som Azure-filresursen. en SMB 2.1-klient utanför Azure-regionen i Azure-filresursen, till exempel lokalt eller i en annan Azure-region, kan inte komma åt filresursen.
 
-Mer information om kryptering i överföring finns i [krav på säker överföring i Azure Storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Mer information om kryptering under överföring finns i [kräva säker överföring i Azure-lagring](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="see-also"></a>Se även
 - [Azure Files-översikt](storage-files-introduction.md)

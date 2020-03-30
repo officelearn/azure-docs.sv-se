@@ -1,6 +1,6 @@
 ---
-title: Skapa en skalnings uppsättning som använder virtuella Azure-datorer (för hands version)
-description: Lär dig hur du skapar skalnings uppsättningar för virtuella Azure-datorer som använder virtuella datorer för att spara pengar.
+title: Skapa en skalningsuppsättning som använder virtuella Azure Spot-datorer (förhandsversion)
+description: Lär dig hur du skapar Azure-skalningsuppsättningar för virtuella datorer som använder spot-datorer för att spara på kostnader.
 author: cynthn
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
@@ -9,57 +9,57 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: cynthn
 ms.openlocfilehash: 37e914fe6bafe9587be525faf3e01c897cdd8230
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77162692"
 ---
-# <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>För hands version: virtuella Azure-datorer för skalnings uppsättningar för virtuella datorer 
+# <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>Förhandsversion: Virtuella Azure Spot-datorer för skalningsuppsättningar för virtuella datorer 
 
-Med hjälp av Azure-punkt på skalnings uppsättningar kan du dra nytta av vår outnyttjade kapacitet till betydande kostnads besparingar. Vid alla tidpunkter då Azure behöver kapaciteten återkommer Azure-infrastrukturen att ta bort plats instanser. Därför är det bra för arbets belastningar som kan hantera avbrott som bearbetnings jobb, utvecklings-/test miljöer, stora beräknings arbets belastningar med mera.
+Med Hjälp av Azure Spot på skalningsuppsättningar kan du dra nytta av vår outnyttjade kapacitet till en betydande kostnadsbesparingar. När som helst när Azure behöver tillbaka kapaciteten kommer Azure-infrastrukturen att ta bort Spot-instanser. Därför är Spot-instanser bra för arbetsbelastningar som kan hantera avbrott som batchbearbetningsjobb, utvecklings-/testmiljöer, stora beräkningsarbetsbelastningar med mera.
 
-Mängden tillgänglig kapacitet kan variera beroende på storlek, region, tid och dag. När du distribuerar plats instanser på skalnings uppsättningar, kommer Azure att allokera instansen endast om det finns tillgänglig kapacitet, men det finns inget service avtal för dessa instanser. En dekor Skale uppsättning distribueras i en enskild feldomän och ger inga garantier för hög tillgänglighet.
+Mängden tillgänglig kapacitet kan variera beroende på storlek, region, tid på dygnet och mycket mer. När du distribuerar Spot-instanser på skalningsuppsättningar allokerar Azure instansen endast om det finns kapacitet tillgänglig, men det finns inget serviceavtal för dessa instanser. En spotskalauppsättning distribueras i en enda feldomän och erbjuder inga höga tillgänglighetsgarantier.
 
 > [!IMPORTANT]
-> Punkt instanser finns för närvarande i offentlig för hands version.
-> Den här för hands versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Spot-instanser är för närvarande i offentlig förhandsversion.
+> Den här förhandsversionen rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
-Priser för punkt instanser är varierande, baserat på region och SKU. Mer information finns i avsnittet om priser för [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
-
-
-Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset som ska `-1`avlägsnas instansen utifrån pris. Priset för instansen är det aktuella priset för dekor eller priset för en standard instans, vilket någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
-
-## <a name="eviction-policy"></a>Borttagnings princip
-
-När du skapar dekor skalnings uppsättningar kan du ställa in principen för att *frigöra* (standard) eller *ta bort*. 
-
-Principen *frigör* flyttar de inaktuella instanserna till läget Stoppad-frigjord, så att du kan distribuera om avlägsnade instanser. Det finns dock ingen garanti för att allokeringen ska lyckas. De friallokerade virtuella datorerna räknas över till kvoten för din skalnings uppsättning och du debiteras för de underliggande diskarna. 
-
-Om du vill att dina instanser i din dekor Skale uppsättning ska tas bort när de avlägsnas, kan du ange vilken borttagnings princip som ska *tas bort*. När du har angett en princip för borttagning kan du skapa nya virtuella datorer genom att öka antalet skalnings uppsättnings instanser. De avlägsnade virtuella datorerna tas bort tillsammans med deras underliggande diskar och därför debiteras du inte för lagringen. Du kan också använda funktionen för automatisk skalning i skalnings uppsättningar för att automatiskt försöka och kompensera för avlägsnade virtuella datorer, men det finns ingen garanti för att allokeringen kommer att lyckas. Vi rekommenderar att du bara använder funktionen för automatisk skalning på dekor skalnings uppsättningar när du anger att borttagnings principen ska tas bort för att undvika kostnaden för diskarna och vid kvot gränser. 
-
-Användare kan välja att ta emot meddelanden i den virtuella datorn via [Azure schemalagda händelser](../virtual-machines/linux/scheduled-events.md). Detta meddelar dig om dina virtuella datorer avlägsnas och du har 30 sekunder på dig att slutföra jobben och utföra avstängnings uppgifter innan avlägsnandet. 
+Prissättningen för Spot-instanser varierar, baserat på region och SKU. Mer information finns i priser för [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-## <a name="deploying-spot-vms-in-scale-sets"></a>Distribuera virtuella datorer i skalnings uppsättningar
+Med rörlig prissättning har du möjlighet att ange ett maxpris, i US-dollar (USD), med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett maxpris på 0,98765 USD per timme. Om du anger maxpriset `-1`så att det inte ska vräkas instansen baserat på priset. Priset för instansen kommer att vara det aktuella priset för Spot eller priset för en standardinstans, som någonsin är mindre, så länge det finns kapacitet och kvot tillgänglig.
 
-Om du vill distribuera virtuella datorer på skalnings uppsättningar kan du ställa in den nya *prioritets* flaggan på *plats*. Alla virtuella datorer i din skalnings uppsättning anges till dekor. Använd någon av följande metoder för att skapa en skalnings uppsättning med virtuella datorer:
-- [Azure Portal](#portal)
+## <a name="eviction-policy"></a>Policy för vräkning
+
+När du skapar spotskalauppsättningar kan du ange att vräkningsprincipen ska *deallocate* (standard) eller *Ta bort*. 
+
+*Deallocate-principen* flyttar dina vräkta instanser till det stoppade deallocated tillståndet så att du kan distribuera om bortreverade instanser. Det finns dock ingen garanti för att tilldelningen kommer att lyckas. De utdelade virtuella datorerna räknas mot din skalningsuppsättningsinstanskvot och du debiteras för de underliggande diskarna. 
+
+Om du vill att dina instanser i spotskalauppsättningen ska tas bort när de vräkas kan du ställa in vräkningsprincipen för att *ta bort*. När vräkningsprincipen är inställd på att ta bort kan du skapa nya virtuella datorer genom att öka egenskapen skalningsuppsättningsantal. De vräkta virtuella datorerna tas bort tillsammans med deras underliggande diskar och därför debiteras du inte för lagringen. Du kan också använda funktionen för automatisk skalning av skalningsuppsättningar för att automatiskt försöka kompensera för vräkta virtuella datorer, men det finns ingen garanti för att allokeringen kommer att lyckas. Vi rekommenderar att du bara använder funktionen för automatisk skalning på spotskalauppsättningar när du ställer in vräkningsprincipen för att ta bort för att undvika kostnaden för dina diskar och slå kvotgränser. 
+
+Användare kan välja att ta emot aviseringar via [Azure Scheduled Events](../virtual-machines/linux/scheduled-events.md). Detta meddelar dig om dina virtuella datorer håller på att vräkas och du kommer att ha 30 sekunder på dig att slutföra alla jobb och utföra avstängningsuppgifter före vräkningen. 
+
+
+## <a name="deploying-spot-vms-in-scale-sets"></a>Distribuera spot-virtuella datorer i skalningsuppsättningar
+
+Om du vill distribuera spot-datorer i skalningsuppsättningar kan du ange den nya *prioritetsflaggan* till *Spot*. Alla virtuella datorer i skalningsuppsättningen ställs in på Spot. Om du vill skapa en skalningsuppsättning med punkt-virtuella datorer använder du någon av följande metoder:
+- [Azure-portal](#portal)
 - [Azure CLI](#azure-cli)
 - [Azure PowerShell](#powershell)
-- [Azure Resource Manager mallar](#resource-manager-templates)
+- [Azure Resource Manager-mallar](#resource-manager-templates)
 
-## <a name="portal"></a>Portal
+## <a name="portal"></a>Portalen
 
-Processen för att skapa en skalnings uppsättning som använder virtuella datorer är samma som i [artikeln komma igång](quick-create-portal.md). När du distribuerar en skalnings uppsättning kan du välja att ange flaggan för punkt och avpolicyn: ![skapa en skalnings uppsättning med virtuella datorer](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+Processen för att skapa en skalningsuppsättning som använder spot-datorer är samma som beskrivs i [artikeln komma igång](quick-create-portal.md). När du distribuerar en skalningsuppsättning kan du välja att ange platsflagga och vräkningsprincipen: ![Skapa en skalningsuppsättning med spot-datorer](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Processen att skapa en skalnings uppsättning med virtuella datorer är samma som beskrivs i [artikeln komma igång](quick-create-cli.md). Lägg bara till "--prioritets plats" och Lägg till `--max-price`. I det här exemplet använder vi `-1` för `--max-price` så att instansen inte avlägsnas baserat på priset.
+Processen för att skapa en skalningsuppsättning med start-datorer för plats är samma som beskrivs i [artikeln komma igång](quick-create-cli.md). Lägg bara till "--Prioritet Spot", och lägg till `--max-price`. I det här `-1` exemplet `--max-price` använder vi för så att instansen inte kommer att vräkas baserat på pris.
 
 ```azurecli
 az vmss create \
@@ -75,8 +75,8 @@ az vmss create \
 
 ## <a name="powershell"></a>PowerShell
 
-Processen att skapa en skalnings uppsättning med virtuella datorer är samma som beskrivs i [artikeln komma igång](quick-create-powershell.md).
-Lägg bara till "-prioritets plats" och ange en `-max-price` till [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
+Processen för att skapa en skalningsuppsättning med start-datorer för plats är samma som beskrivs i [artikeln komma igång](quick-create-powershell.md).
+Lägg bara till "-Prioriterad `-max-price` plats", och leverera en till [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -90,9 +90,9 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
-Den process som används för att skapa en skalnings uppsättning som använder virtuella datorer är samma som beskrivs i komma igång-artikeln för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). 
+Processen för att skapa en skalningsuppsättning som använder spot-datorer är densamma som beskrivs i artikeln komma igång för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). 
 
-Använd`"apiVersion": "2019-03-01"` eller senare för distribution av dekor mallar. Lägg till egenskaperna `priority`, `evictionPolicy` och `billingProfile` i avsnittet `"virtualMachineProfile":` i mallen: 
+Använd`"apiVersion": "2019-03-01"` eller senare för spotmalldistributioner. Lägg `priority`till `evictionPolicy` `billingProfile` , och `"virtualMachineProfile":` egenskaperna i avsnittet i mallen: 
 
 ```json
                 "priority": "Spot",
@@ -102,76 +102,76 @@ Använd`"apiVersion": "2019-03-01"` eller senare för distribution av dekor mall
                 }
 ```
 
-Om du vill ta bort instansen när den har avlägsnats ändrar du `evictionPolicy` parametern till `Delete`.
+Om du vill ta bort instansen när `evictionPolicy` den `Delete`har vräkts ändrar du parametern till .
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-**F:** När det har skapats är en punkt instans samma som standard instans?
+**F:** När du har skapat, är en Spot-instans samma som standardinstansen?
 
-**A:** Ja, förutom att det inte finns något service avtal för virtuella datorer på plats och de kan avlägsnas när som helst.
-
-
-**F:** Vad ska jag göra när du har avlägsnat, men behöver fortfarande kapacitet?
-
-**A:** Vi rekommenderar att du använder virtuella standard datorer i stället för virtuella datorer för virtuella datorer om du behöver kapacitet direkt.
+**A.** Ja, förutom att det inte finns något serviceavtal för start-och-start-datorer och de kan när som helst vräkas.
 
 
-**F:** Hur hanteras kvoten för dekor?
+**F:** Vad ska man göra när du blir vräkt, men fortfarande behöver kapacitet?
 
-**A:** Punkt instanser och standard instanser kommer att ha separata kvotmallar. Kvoten för kvoten kommer att delas mellan virtuella datorer och skalnings uppsättnings instanser. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-
-
-**F:** Kan jag begära ytterligare kvot för platsen?
-
-**A:** Ja, du kommer att kunna skicka begäran om att öka din kvot för virtuella datorer med hjälp av [standard kvot processen](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests).
+**A.** Vi rekommenderar att du använder vanliga virtuella datorer i stället för Spot-virtuella datorer om du behöver kapacitet direkt.
 
 
-**F:** Kan jag konvertera befintliga skalnings uppsättningar till dekor skalnings uppsättningar?
+**F:** Hur hanteras kvoten för Spot?
 
-**A:** Nej, det går bara att ställa in `Spot`-flaggan när den skapas.
-
-
-**F:** Måste jag börja använda `Spot` i stället för att använda `low` för låg prioritets skalnings uppsättningar?
-
-**A:** För tillfället kommer både `low` och `Spot` fungera, men du bör börja överföra via `Spot`.
+**A.** Spotinstanser och standardinstanser har separata kvotpooler. Spotkvoten delas mellan virtuella datorer och skalningsuppsättningsinstanser. Läs mer i dokumentationen om [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
 
 
-**F:** Kan jag skapa en skalnings uppsättning med både vanliga virtuella datorer och virtuella datorer?
+**F:** Kan jag begära ytterligare kvot för Spot?
 
-**A:** Nej, en skalnings uppsättning kan inte stödja fler än en prioritets typ.
-
-
-**F:**  Kan jag använda autoskalning med dekor skalnings uppsättningar?
-
-**A:** Ja, du kan ange regler för automatisk skalning på din plats skalnings uppsättning. Om dina virtuella datorer avlägsnas kan autoskalning försöka skapa nya virtuella dator datorer. Kom ihåg att du inte garanterar den här kapaciteten. 
+**A.** Ja, du kommer att kunna skicka begäran om att öka din kvot för spot-datorer genom [standardprocessen för kvotbegäran.](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests)
 
 
-**F:**  Kan autoskalning användas med både borttagnings principer (frigör och ta bort)?
+**F:** Kan jag konvertera befintliga skaluppsättningar till Spot-skalningsuppsättningar?
 
-**A:** Vi rekommenderar att du ställer in en princip för borttagning när du använder autoskalning. Detta beror på att friallokerade instanser räknas mot ditt kapacitets antal i skalnings uppsättningen. När du använder autoskalning når du förmodligen antalet mål instanser snabbt på grund av de frikopplade, avlägsnade instanserna. 
+**A.** Nej, inställningen `Spot` av flaggan stöds bara vid skapande.
 
 
-**F:** Vilka kanaler stöder virtuella datorer?
+**F:** Om jag `low` använde för skaluppsättningar med låg prioritet, måste jag börja använda `Spot` i stället?
 
-**A:** Se tabellen nedan för tillgänglighet för dekor datorer.
+**A.** För nu, `low` `Spot` både och kommer att fungera, `Spot`men du bör börja övergången till att använda .
+
+
+**F:** Kan jag skapa en skalningsuppsättning med både vanliga virtuella datorer och spot-datorer?
+
+**A.** Nej, en skalningsuppsättning kan inte stödja mer än en prioritetstyp.
+
+
+**F:**  Kan jag använda automatisk skalning med dekorskalauppsättningar?
+
+**A.** Ja, du kan ställa in regler för automatisk skalning på din Spot-skalningsuppsättning. Om dina virtuella datorer har vvrats ut kan automatisk skalning försöka skapa nya virtuella spot-datorer. Kom ihåg att du inte är garanterad denna kapacitet ändå. 
+
+
+**F:**  Fungerar automatisk skalning med både vräkningsprinciper (deallocate och delete)?
+
+**A.** Vi rekommenderar att du ställer in din vräkningsprincip så att den tas bort när du använder automatisk skalning. Detta beror på att deallocated instanser räknas mot din kapacitetsantal på skalningsuppsättningen. När du använder automatisk skalning kommer du sannolikt att nå ditt antal målinstanser snabbt på grund av de dislokaliserade, vräkta instanserna. 
+
+
+**F:** Vilka kanaler har stöd för virtuella spotds?
+
+**A.** Se tabellen nedan för Spot VM-tillgänglighet.
 
 <a name="channel"></a>
 
-| Azure-kanaler               | Tillgänglighet för Azure-VM-VM       |
+| Azure-kanaler               | Azure Spot virtuella datorer tillgänglighet       |
 |------------------------------|-----------------------------------|
 | Enterprise-avtal         | Ja                               |
 | Betala per användning                | Ja                               |
-| Cloud Service Provider (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
+| Molntjänstleverantör (CSP) | [Kontakta din partner](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
 | Fördelar                     | Inte tillgängligt                     |
-| Sponsrat                    | Inte tillgängligt                     |
-| Kostnads fri utvärdering                   | Inte tillgängligt                     |
+| Sponsrade                    | Inte tillgängligt                     |
+| Kostnadsfri utvärderingsversion                   | Inte tillgängligt                     |
 
 
-**F:** Var kan jag skicka frågor?
+**F:** Var kan jag ställa frågor?
 
-**A:** Du kan skicka och tagga din fråga med `azure-spot` på [f & A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
+**A.** Du kan lägga upp `azure-spot` och tagga din fråga med på [Q&A](https://docs.microsoft.com/answers/topics/azure-spot.html). 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat en skalnings uppsättning med virtuella datorer kan du prova att distribuera vår [mall för automatisk skalning med hjälp av dekor](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
+Nu när du har skapat en skalningsuppsättning med spot-datorer kan du prova att distribuera vår [mall för automatisk skalning med Spot](https://github.com/Azure/vm-scale-sets/tree/master/preview/lowpri).
 
-Se [prissättnings sidan för den virtuella datorns skalnings uppsättning](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) för pris information.
+Läs prissidan för [den virtuella datorns skala för](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) prisinformation.

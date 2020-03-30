@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault kund data funktioner – Azure Key Vault | Microsoft Docs
-description: Lär dig mer om kund information i Key Vault
+title: Kunddatafunktioner för Azure Key Vault – Azure Key Vault | Microsoft-dokument
+description: Läs mer om kunddata i Key Vault
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -10,56 +10,56 @@ ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 67e1aeab4211249075b51bd0138d7875756a3483
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70883316"
 ---
-# <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault kund data funktioner
+# <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault kunddatafunktioner
 
-Azure Key Vault tar emot kund information under skapandet eller uppdateringen av valv, nycklar, hemligheter, certifikat och hanterade lagrings konton. Den här kund informationen är direkt synlig i Azure Portal och via REST API. Kund information kan redige ras eller tas bort genom att uppdatera eller ta bort objektet som innehåller data.
+Azure Key Vault tar emot kunddata när valv, nycklar, hemligheter, certifikat och hanterade lagringskonton skapas eller uppdateras. Dessa kunddata är direkt synliga i Azure-portalen och via REST API. Kunddata kan redigeras eller tas bort genom att uppdatera eller ta bort objektet som innehåller data.
 
-System åtkomst loggar genereras när en användare eller ett program har åtkomst till Key Vault. Detaljerade åtkomst loggar är tillgängliga för kunder som använder Azure Insights.
+Systemåtkomstloggar genereras när en användare eller ett program kommer åt Key Vault. Detaljerade åtkomstloggar är tillgängliga för kunder som använder Azure Insights.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="identifying-customer-data"></a>Identifiera kund information
+## <a name="identifying-customer-data"></a>Identifiera kunddata
 
-Följande information identifierar kund information inom Azure Key Vault:
+Följande information identifierar kunddata i Azure Key Vault:
 
-- Åtkomst principer för Azure Key Vault innehåller objekt-ID: n som representerar användare, grupper eller program
-- Certifikat ämnen kan innehålla e-postadresser eller andra användar-eller organisations identifierare
-- Certifikat kontakter kan innehålla användares e-postadresser, namn eller telefonnummer
-- Certifikat utfärdare kan innehålla e-postadresser, namn, telefonnummer, kontoautentiseringsuppgifter och organisations information
-- Godtyckliga taggar kan tillämpas på objekt i Azure Key Vault. Dessa objekt omfattar valv, nycklar, hemligheter, certifikat och lagrings konton. De taggar som används kan innehålla personliga data
-- Azure Key Vault åtkomst loggar innehåller objekt-ID: n, [UPN](../active-directory/hybrid/plan-connect-userprincipalname.md): er och IP-adresser för varje REST API-anrop
-- Azure Key Vault diagnostikloggar kan innehålla objekt-ID: n och IP-adresser för REST API-anrop
+- Åtkomstprinciper för Azure Key Vault innehåller objekt-ID:er som representerar användare, grupper eller program
+- Certifikatämnen kan innehålla e-postadresser eller andra användar- eller organisationsidentifierare
+- Certifikatkontakter kan innehålla e-postadresser, namn eller telefonnummer för användare
+- Certifikatutfärdare kan innehålla e-postadresser, namn, telefonnummer, kontouppgifter och organisationsinformation
+- Godtyckliga taggar kan tillämpas på objekt i Azure Key Vault. Dessa objekt omfattar valv, nycklar, hemligheter, certifikat och lagringskonton. De taggar som används kan innehålla personuppgifter
+- Azure Key Vault-åtkomstloggar innehåller objekt-ID:er, [UPN](../active-directory/hybrid/plan-connect-userprincipalname.md)och IP-adresser för varje REST API-anrop
+- Diagnostikloggar för Azure Key Vault kan innehålla objekt-ID:er och IP-adresser för REST API-anrop
 
-## <a name="deleting-customer-data"></a>Tar bort kunddata
+## <a name="deleting-customer-data"></a>Ta bort kunddata
 
-Samma REST-API: er, Portal upplevelse och SDK: er som används för att skapa valv, nycklar, hemligheter, certifikat och hanterade lagrings konton kan också uppdatera och ta bort dessa objekt.
+Samma REST-API:er, portalupplevelsen och SDK:er som används för att skapa valv, nycklar, hemligheter, certifikat och hanterade lagringskonton kan också uppdatera och ta bort dessa objekt.
 
-Med mjuk borttagning kan du återställa borttagna data i 90 dagar efter borttagningen. När du använder mjuk borttagning kan data tas bort permanent innan lagrings perioden på 90 dagar går ut genom att utföra en rensnings åtgärd. Om valvet eller prenumerationen har kon figurer ATS för att blockera rensnings åtgärder går det inte att ta bort data permanent förrän den schemalagda kvarhållningsperioden har passerat.
+Med mjuk borttagning kan du återställa borttagna data i 90 dagar efter borttagningen. När du använder mjuk borttagning kan data tas bort permanent innan lagringsperioden på 90 dagar upphör att gälla genom att utföra en rensningsåtgärd. Om valvet eller prenumerationen har konfigurerats för att blockera rensningsåtgärder, är det inte möjligt att ta bort data permanent förrän den schemalagda kvarhållningsperioden har passerats.
 
 ## <a name="exporting-customer-data"></a>Exportera kunddata
 
-Samma REST-API: er, Portal upplevelse och SDK: er som används för att skapa valv, nycklar, hemligheter, certifikat och hanterade lagrings konton gör det också möjligt att visa och exportera dessa objekt.
+Samma REST-API:er, portalupplevelse och SDK:er som används för att skapa valv, nycklar, hemligheter, certifikat och hanterade lagringskonton gör det också möjligt att visa och exportera dessa objekt.
 
-Azure Key Vault åtkomst loggning är en valfri funktion som kan aktive ras för att generera loggar för varje REST API-anrop. Loggarna överförs till ett lagrings konto i prenumerationen där du tillämpar den bevarande princip som uppfyller organisationens krav.
+Azure Key Vault åtkomstloggning är en valfri funktion som kan aktiveras för att generera loggar för varje REST API-anrop. Dessa loggar överförs till ett lagringskonto i din prenumeration där du tillämpar bevarandeprincipen som uppfyller organisationens krav.
 
-Azure Key Vault diagnostikloggar som innehåller personliga data kan hämtas genom att göra en export förfrågan i användar sekretess portalen. Den här begäran måste göras av klient organisationens administratör.
+Diagnostikloggar för Azure Key Vault som innehåller personuppgifter kan hämtas genom att göra en exportbegäran i användarsekretessportalen. Den här begäran måste göras av klientadministratören.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Key Vault-loggning](key-vault-logging.md)
+- [Loggning av Azure Key Vault](key-vault-logging.md)
 
-- [Översikt över Azure Key Vault mjuk borttagning](key-vault-soft-delete-cli.md)
+- [Översikt av mjuk borttagning för Azure Key Vault](key-vault-soft-delete-cli.md)
 
-- [Azure Key Vault nyckel åtgärder](https://docs.microsoft.com/rest/api/keyvault/key-operations)
+- [Azure Key Vault-nyckelåtgärder](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
-- [Azure Key Vault hemliga åtgärder](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
+- [Hemliga åtgärder för Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
-- [Azure Key Vault certifikat och principer](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
+- [Certifikat och principer för Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
 
-- [Azure Key Vault lagrings konto åtgärder](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)
+- [Azure Key Vault-lagringskontoåtgärder](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

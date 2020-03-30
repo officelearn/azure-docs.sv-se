@@ -1,6 +1,6 @@
 ---
-title: Konfigurera privata IP-adresser för virtuella datorer – Azure Portal
-description: Lär dig hur du konfigurerar privata IP-adresser för virtuella datorer med hjälp av Azure Portal.
+title: Konfigurera privata IP-adresser för virtuella datorer - Azure-portal
+description: Lär dig hur du konfigurerar privata IP-adresser för virtuella datorer med Hjälp av Azure-portalen.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,90 +13,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/04/2016
+ms.date: 02/07/2020
 ms.author: kumud
-ms.openlocfilehash: b1019b15463a03282c5d1bd8f0a878433d7f488e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: b50875105696dc5c556e2a4a9e756078cf995327
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199571"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80060364"
 ---
-# <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>Konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure Portal
+# <a name="configure-a-private-ip-address-for-a-vm-using-the-azure-portal"></a>Konfigurera en privat IP-adress för en virtuell dator med Azure-portalen
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
-Följande exempel steg förväntar sig en enkel miljö som redan har skapats. Om du vill köra stegen som de visas i det här dokumentet skapar du först test miljön som beskrivs i [skapa ett virtuellt nätverk](quick-create-portal.md).
+Följande exempelsteg förväntar sig att en enkel miljö redan ska skapas. Om du vill köra stegen som de visas i det här dokumentet skapar du först [ett virtuellt nätverk](quick-create-portal.md#create-a-virtual-network). Men i steg 3 använder du dessa värden i stället:
 
-## <a name="how-to-create-a-vm-for-testing-static-private-ip-addresses"></a>Så här skapar du en virtuell dator för att testa statiska privata IP-adresser
-Du kan inte ange en statisk privat IP-adress när du skapar en virtuell dator i distributions läget i Resource Manager med hjälp av Azure Portal. Du måste först skapa den virtuella datorn och sedan ange dess privata IP-adress som statisk.
+| Inställning | Värde |
+| ------- | ----- |
+| Namn | *TestVNet* |
+| Adressutrymme | *192.168.0.0/16* |
+| Resursgrupp | **TestRG** (om det behövs väljer du **Skapa ny** för att skapa den) |
+| Undernät – Namn | *Frontend* |
+| Undernät – adressintervall | *192.168.1.0/24* |
 
-Följ dessa steg om du vill skapa en virtuell dator med namnet *DNS01* i *klient delens* undernät med namnet *TestVNet*:
+## <a name="create-a-vm-for-testing-static-private-ip-addresses"></a>Skapa en virtuell dator för testning av statiska privata IP-adresser
+När du skapar en virtuell dator i distributionsläge för Resource Manager kan du inte ange en statisk privat IP-adress med Azure-portalen. I stället skapar du den virtuella datorn först. Då kan du ställa in dess privata IP vara statisk.
 
-1. Navigera till https://portal.azure.com från en webbläsare och logga in med ditt Azure-konto vid behov.
-2. Klicka på **skapa en resurs** > **Compute** > **Windows Server 2012 R2 Data Center**, Lägg märke till att listan **Välj en distributions modell** redan innehåller **Resource Manager**och klicka sedan på **skapa**, som visas i följande figur.
-   
-    ![Skapa virtuell dator i Azure Portal](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
-3. I fönstret **grundläggande** anger du namnet på den virtuella dator som ska skapas (*DNS01* i scenariot), det lokala administratörs kontot och lösen ordet som visas i följande bild.
-   
-    ![Fönstret grundläggande](./media/virtual-networks-static-ip-arm-pportal/figure02.png)
-4. Kontrol lera att den valda **platsen** är *Central USA*, klicka sedan på **Välj befintlig** under **resurs grupp**, klicka på **resurs grupp** igen och klicka sedan på *TestRG*. Klicka sedan på **OK**.
-   
-    ![Fönstret grundläggande](./media/virtual-networks-static-ip-arm-pportal/figure03.png)
-5. I fönstret **Välj en storlek** väljer du **a1 standard**och klickar sedan på **Välj**.
-   
-    ![Välj ett storleks fönster](./media/virtual-networks-static-ip-arm-pportal/figure04.png)    
-6. I fönstret **Inställningar** kontrollerar du att egenskaperna har angetts med följande värden och klickar sedan på **OK**.
-   
-    -**lagrings konto**: *vnetstorage*
-   
-   * **Nätverk**: *TestVNet*
-   * **Undernät**: *FrontEnd*
-     
-     ![Välj ett storleks fönster](./media/virtual-networks-static-ip-arm-pportal/figure05.png)     
-7. I fönstret **Sammanfattning** klickar du på **OK**. Observera följande panel som visas på instrument panelen.
-   
-    ![Skapa virtuell dator i Azure Portal](./media/virtual-networks-static-ip-arm-pportal/figure06.png)
+Så här skapar du en virtuell dator med namnet *DNS01* i *FrontEnd-undernätet* i ett virtuellt nätverk med namnet *TestVNet:*
 
-Vi rekommenderar att du inte statiskt tilldelar den privata IP-adress som tilldelats den virtuella Azure-datorn i operativ systemet på en virtuell dator, om det inte behövs, t. ex. När [du tilldelar flera IP-adresser till en virtuell Windows-dator](virtual-network-multiple-ip-addresses-portal.md). Om du manuellt ställer in den privata IP-adressen i operativ systemet måste du se till att den är samma adress som den privata IP-adress som tilldelats Azure- [nätverks gränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller så kan du förlora anslutningen till den virtuella datorn. Läs mer om inställningar för [privata IP-adresser](virtual-network-network-interface-addresses.md#private) . Du bör aldrig manuellt tilldela offentliga IP-adress som tilldelats till en Azure virtuell dator i den virtuella datorns operativsystem.
+1. På [Portal-menyn i Azure](https://portal.azure.com) väljer du **Skapa en resurs**.
 
-## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>Hur du hämtar statiska privata IP-adressinformation för en virtuell dator
-Utför följande steg för att visa information om statisk privat IP-adress för den virtuella datorn som skapades med stegen ovan.
+    ![Skapa en resurs, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/create-a-resource.png)
+2. Välj **Beräkna** > **virtuell dator**.
 
-1. Klicka på **Bläddra alla** > **virtuella datorer** > **DNS01** > **alla inställningar** > **nätverks gränssnitt** från Azure Portal och klicka sedan på det enda nätverks gränssnitt som visas.
+    ![Skapa VM, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/compute-virtual-machine.png)
+3. I **Basics**anger du värden för objekt som beskrivs i följande tabell. Välj sedan **Nästa:&nbsp;&nbsp;Diskar** och sedan **Nästa:&nbsp;&nbsp;Nätverk**.
+
+    | Objekt | Värde |
+    | --- | --- |
+    | **Prenumeration** | Din nuvarande prenumeration |
+    | **Resursgrupp** | **TestRG** (välj från listrutan) |
+    | **Namn på virtuell dator** | *DNS01 (PÅ)* |
+    | **Regionen** | **Jag är mycket bra på att vi måste ta tid på Östra USA** |
+    | **Bild** | **Windows Server 2019 Datacenter** |
+    | **Storlek** | **VM-storlek** **på B1ls**, **Erbjudande** av **standard** |
+    | **Användarnamn** | Användarnamnet för ditt administratörskonto |
+    | **Lösenord** | Lösenordet för administratörskontots användarnamn |
+    | **Bekräfta lösenord** | Lösenordet igen |
+
+    ![Fliken Grunderna, Skapa en virtuell dator, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-basics.png)
+4. Ange värden för objekt som beskrivs i följande tabell i **Nätverk**och välj sedan **Nästa**.
+
+    | Objekt | Värde |
+    | --- | --- |
+    | **Virtuellt nätverk** | **TestVNet** |
+    | **Undernät** | **Frontend** |
+
+    ![Fliken Nätverk, Skapa en virtuell dator, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-networking.png)
+5. I **Management**väljer du **vnetstorage**under **Diagnostiklagringskonto**. Om lagringskontot inte visas i listan väljer du **Skapa nytt**, anger ett **namn på** *vnetstorage*och väljer **OK**. Slutligen väljer du **Granska&nbsp;+&nbsp;skapa**.
+
+    ![Fliken Hantering, Skapa en virtuell dator, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-management.png)
+6. Granska översiktsinformationen i **Granska + skapa**och välj sedan **Skapa**.
+
+    ![Fliken Granska + skapa, skapa en virtuell dator, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/create-a-virtual-machine-review-create.png)
+
+Följande meddelande visas när den virtuella datorn har skapats.
+
+![Meddelande om slutförande av distribution, Skapa en virtuell dator, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/deployment-is-complete.png)
+
+## <a name="retrieve-private-ip-address-information-for-a-vm"></a>Hämta privat IP-adressinformation för en virtuell dator
+Så här visar du den privata IP-adressinformationen för den nya virtuella datorn:
+
+1. Gå till [Azure-portalen](https://portal.azure.com) för att hitta din virtuella dator. Sök efter och välj **Virtuella datorer**.
+
+    ![Virtuella datorer, sökruta, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/search-box-virtual-machines.png)
+
+2. Välj namnet på den nya virtuella datorn (**DNS01**).
+
+    ![Lista över virtuella datorer, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/virtual-machine-list.png)
+
+3. Välj **Nätverk**och välj det enda nätverksgränssnittet i listan.
+
+    ![Nätverksgränssnitt, nätverk, virtuell dator, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/networking-network-interface.png)
+
+4. Välj **IP-konfigurationer**och välj IP-konfigurationen i tabellen.
+
+    ![IP-konfiguration, Nätverksgränssnitt, nätverk, virtuell dator, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/network-interface-ip-configurations.png)
+
+5. I **privata IP-adressinställningar,** under det virtuella **testvnet/frontend-nätverket/undernätet,** notera **tilldelningsvärdet** (**dynamiskt** eller **statiskt)** och **IP-adressen**.
+
+    ![Dynamisk eller statisk tilldelning, gamla privata IP-adressinställningar, IP-konfiguration, Nätverksgränssnitt, nätverk, virtuell dator, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/private-ip-address-settings-old.png)
+
+## <a name="add-a-static-private-ip-address-to-an-existing-vm"></a>Lägga till en statisk privat IP-adress till en befintlig virtuell dator
+Så här lägger du till en statisk privat IP-adress till den nya virtuella datorn:
+
+1. På sidan IP-konfiguration anger du tilldelningen för din privata IP-adress till **Static**.
+2. Ändra din privata **IP-adress** till *192.168.1.101*och välj sedan **Spara**.
    
-    ![Panelen för att distribuera VM](./media/virtual-networks-static-ip-arm-pportal/figure07.png)
-2. I fönstret **nätverks gränssnitt** klickar du på **alla inställningar** > **IP-adresser** och noterar **tilldelnings** **-och IP-adress** värden.
-   
-    ![Panelen för att distribuera VM](./media/virtual-networks-static-ip-arm-pportal/figure08.png)
-
-## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Så här lägger du till en statisk privat IP-adress till en befintlig virtuell dator
-Följ dessa steg om du vill lägga till en statisk privat IP-adress till den virtuella datorn som skapades med stegen ovan:
-
-1. I rutan **IP-adresser** som visas ovan klickar du på **statisk** under **tilldelning**.
-2. Skriv *192.168.1.101* för **IP-adress**och klicka sedan på **Spara**.
-   
-    ![Skapa virtuell dator i Azure Portal](./media/virtual-networks-static-ip-arm-pportal/figure09.png)
+    ![Dynamisk eller statisk tilldelning, nya privata IP-adressinställningar, IP-konfiguration, Nätverksgränssnitt, nätverk, virtuell dator, Azure-portal](./media/virtual-networks-static-ip-arm-pportal/private-ip-address-settings-new.png)
 
 > [!NOTE]
-> Om du efter att ha klickat på **Spara**, Observera att tilldelningen fortfarande är inställd på **dynamisk**, betyder det att den angivna IP-adressen redan används. Försök med en annan IP-adress.
-> 
-> 
+> Om du märker när du har valt **Spara** att tilldelningen fortfarande är inställd på **Dynamisk**används redan IP-adressen som du skrev. Prova en annan IP-adress.
 
-Vi rekommenderar att du inte statiskt tilldelar den privata IP-adress som tilldelats den virtuella Azure-datorn i operativ systemet på en virtuell dator, om det inte behövs, t. ex. När [du tilldelar flera IP-adresser till en virtuell Windows-dator](virtual-network-multiple-ip-addresses-portal.md). Om du manuellt ställer in den privata IP-adressen i operativ systemet måste du se till att den är samma adress som den privata IP-adress som tilldelats Azure- [nätverks gränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller så kan du förlora anslutningen till den virtuella datorn. Läs mer om inställningar för [privata IP-adresser](virtual-network-network-interface-addresses.md#private) . Du bör aldrig manuellt tilldela offentliga IP-adress som tilldelats till en Azure virtuell dator i den virtuella datorns operativsystem.
+## <a name="remove-a-static-private-ip-address-from-a-vm"></a>Ta bort en statisk privat IP-adress från en virtuell dator
+Så här tar du bort den statiska privata IP-adressen från den virtuella datorn:
 
-## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>Ta bort en statisk privat IP-adress från en virtuell dator
-Slutför följande steg för att ta bort den statiska privata IP-adressen från den virtuella datorn som skapades ovan:
-
-I rutan **IP-adresser** som visas ovan klickar du på **dynamisk** under **tilldelning**och sedan på **Spara**.
+På sidan IP-konfiguration anger du tilldelningen för den privata IP-adressen till **Dynamisk**och väljer sedan **Spara**.
 
 ## <a name="set-ip-addresses-within-the-operating-system"></a>Ange IP-adresser i operativsystemet
 
-Vi rekommenderar att du inte statiskt tilldelar den privata IP-adress som tilldelats den virtuella Azure-datorn i operativ systemet på en virtuell dator, om det inte behövs, t. ex. När [du tilldelar flera IP-adresser till en virtuell Windows-dator](virtual-network-multiple-ip-addresses-portal.md). Om du manuellt ställer in den privata IP-adressen i operativ systemet måste du se till att den är samma adress som den privata IP-adress som tilldelats Azure- [nätverks gränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings), eller så kan du förlora anslutningen till den virtuella datorn. Läs mer om inställningar för [privata IP-adresser](virtual-network-network-interface-addresses.md#private) . Du bör aldrig manuellt tilldela offentliga IP-adress som tilldelats till en Azure virtuell dator i den virtuella datorns operativsystem.
+Inifrån operativsystemet för en virtuell dator bör du inte statiskt tilldela den *privata* IP som har tilldelats Azure VM. Gör endast statisk tilldelning av en privat IP när det är nödvändigt, till exempel när [du tilldelar många IP-adresser till virtuella datorer](virtual-network-multiple-ip-addresses-portal.md). Om du ställer in den privata IP-adressen manuellt i operativsystemet kontrollerar du att den matchar den privata IP-adressen som tilldelats [Azure-nätverksgränssnittet](virtual-network-network-interface-addresses.md#change-ip-address-settings). Annars kan du förlora anslutningen till den virtuella datorn. Läs mer om [privata IP-adressinställningar.](virtual-network-network-interface-addresses.md#private)
+
+Du bör heller aldrig manuellt tilldela den *offentliga* IP-adressen som tilldelats en virtuell Azure-dator i den virtuella datorns operativsystem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om att hantera [Inställningar för IP-adresser](virtual-network-network-interface-addresses.md).
-
+Läs mer om hur du hanterar [IP-adressinställningar](virtual-network-network-interface-addresses.md).

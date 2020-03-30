@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa ett data vetenskaps experiment'
+title: 'Snabbstart: Skapa ett datavetenskapsexperiment'
 titleSuffix: ML Studio (classic) - Azure
 description: Den här snabbstarten om maskininlärning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
 services: machine-learning
@@ -11,19 +11,19 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
 ms.openlocfilehash: c4c50ba53bc40ad6ae6fc60b3992f9ab992eb268
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79204570"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Snabb start: skapa ditt första data vetenskaps experiment i Azure Machine Learning Studio (klassisk)
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Snabbstart: Skapa ditt första datavetenskapsexperiment i Azure Machine Learning Studio (klassiskt)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
-I den här snabb starten skapar du ett Machine Learning-experiment i [Azure Machine Learning Studio (klassisk)](what-is-ml-studio.md) som förutsäger priset på en bil baserat på olika variabler, till exempel tekniska specifikationer.
+I den här snabbstarten skapar du ett maskininlärningsexperiment i [Azure Machine Learning Studio (klassiskt)](what-is-ml-studio.md) som förutsäger priset på en bil baserat på olika variabler som märke och tekniska specifikationer.
 
 Om maskininlärning är nytt för dig är videoserien [Datavetenskap för nybörjare](data-science-for-beginners-the-5-questions-data-science-answers.md) en bra introduktion som med enkelt språk förklarar vad maskininlärning är.
 
@@ -47,21 +47,21 @@ Den här snabbstarten följer standardarbetsflödet för ett experiment:
 ## <a name="get-the-data"></a>Hämta data
 
 Det första du behöver för maskininlärning är data.
-Det finns flera exempel data uppsättningar som ingår i Studio (klassisk) som du kan använda, eller så kan du importera data från många källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)** , som ingår i arbetsytan.
+Det finns flera exempeldatauppsättningar som ingår i Studio (klassisk) som du kan använda, eller så kan du importera data från många källor. I det här exemplet kommer vi att använda exempeluppsättningen **Automobile price data (Raw)**, som ingår i arbetsytan.
 Den här datauppsättningen innehåller poster för ett antal olika bilar, inklusive uppgifter om modell, tekniska specifikationer och pris.
 
 > [!TIP]
-> En arbetskopia av följande experiment finns i [Azure AI-galleriet](https://gallery.azure.ai). Gå till **[ditt första data vetenskaps experiment – pris förutsägelse för bilbilar](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** och klicka på **Öppna i Studio** för att ladda ned en kopia av experimentet i arbets ytan Machine Learning Studio (klassisk).
+> En arbetskopia av följande experiment finns i [Azure AI-galleriet](https://gallery.azure.ai). Gå till **[Ditt första datavetenskapsexperiment - Bilprisförutsägelse](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** och klicka på **Öppna i Studio** för att hämta en kopia av experimentet till din Machine Learning Studio -arbetsyta (klassisk).
 
 Så här gör du för att få datauppsättningen till experimentet.
 
-1. Skapa ett nytt experiment genom att klicka på **+ ny** längst ned i fönstret Machine Learning Studio (klassisk). Välj **EXPERIMENT** >  **Tomt experiment**.
+1. Skapa ett nytt experiment genom att klicka på **+NYTT** längst ned i machine learning studio -fönstret (klassiskt). Välj **EXPERIMENT** >  **Tomt experiment**.
 
 1. Experimentet får ett standardnamn som visas överst i arbetsytan. Markera texten och byt namn på den till ett mer beskrivande namn, exempelvis **Förutsägelse av bilpriser**. Namnet behöver inte vara unikt.
 
     ![Byt namn på experimentet](./media/create-experiment/rename-experiment.png)
 
-1. Till vänster om arbetsytan för experimentet finns en palett med datauppsättningar och moduler. Skriv **automobile** i sökrutan överst på den här paletten för att leta upp datauppsättningen **Automobile price data (Raw)** . Dra datauppsättningen till experimentarbetsytan.
+1. Till vänster om arbetsytan för experimentet finns en palett med datauppsättningar och moduler. Skriv **automobile** i sökrutan överst på den här paletten för att leta upp datauppsättningen **Automobile price data (Raw)**. Dra datauppsättningen till experimentarbetsytan.
 
     ![Leta upp datamängden för bilar och dra den till experimentets arbetsyta](./media/create-experiment/type-automobile.png)
 
@@ -89,16 +89,16 @@ En datauppsättning kräver vanligtvis viss bearbetning i förväg innan den kan
 
 Först lägger vi till en modul som tar bort kolumnen **normalized-losses** helt. Sedan lägger vi till en till modul som tar bort rader där data saknas.
 
-1. Skriv **Markera kolumner** i sökrutan längst upp i modulen modul för att hitta modulen [Välj kolumner i data uppsättning][select-columns] . Dra den sedan till experimentarbetsytan. Den här modulen gör att vi kan välja vilka kolumner med data som vi vill ta med eller utelämna i modellen.
+1. Skriv **välj kolumner** i sökrutan överst på modulpaletten för att leta upp modulen [Välj kolumner i datamängd][select-columns]. Dra den sedan till experimentarbetsytan. Den här modulen gör att vi kan välja vilka kolumner med data som vi vill ta med eller utelämna i modellen.
 
 1. Anslut utdataporten för datauppsättningen **Automobile price data (Raw)** till indataporten för Välj kolumner i datauppsättningen.
 
     ![Lägg till modulen "Välj kolumner i datamängd" till experimentarbetsytan och anslut den](./media/create-experiment/type-select-columns.png)
 
-1. Klicka på modulen [Välj kolumner i data uppsättning][select-columns] och klicka på **Starta kolumn väljaren** i rutan **Egenskaper** .
+1. Klicka på modulen [Välj kolumner i datauppsättning][select-columns] och klicka på **Starta kolumnväljaren** i rutan **Egenskaper**.
 
    - Klicka på **Med regler** till vänster.
-   - Under **Börjar med** klickar du på **Alla kolumner**. Dessa regler styr genom att [Markera kolumner i data uppsättningen][select-columns] för att gå igenom alla kolumner (utom de kolumner som vi håller på att undanta).
+   - Under **Börjar med** klickar du på **Alla kolumner**. De här reglerna instruerar [Välj kolumner i datamängd][select-columns] att gå igenom alla kolumner (förutom dem som vi ska utesluta).
    - I listrutorna väljer du **Exkludera** och **kolumnnamn** och klickar sedan i textrutan. En lista med kolumner visas. Välj **normalized-losses** så läggs den till i textrutan.
    - Stäng kolumnväljaren genom att klicka på bockmarkeringen (OK) längst ned till höger.
 
@@ -109,11 +109,11 @@ Först lägger vi till en modul som tar bort kolumnen **normalized-losses** helt
      ![Egenskapsrutan visar att kolumnen ”normalized-losses” är utelämnad](./media/create-experiment/showing-excluded-column.png)
 
      > [!TIP] 
-     > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I det här fallet dubbelklickar du på modulen [Välj kolumner i data uppsättning][select-columns] och skriver kommentaren "exkludera normaliserade förluster".
+     > Du kan lägga till en kommentar till en modul genom att dubbelklicka på modulen och skriva text. På så sätt kan du snabbt se vad modulen gör i experimentet. I vårt exempel dubbelklickar du på modulen [Välj kolumner i datauppsättning][select-columns] och skriver kommentaren ”Exkludera normaliserade förluster”.
 
      ![Lägga till en kommentar genom att dubbelklicka på en modul](./media/create-experiment/add-comment.png)
 
-1. Dra modulen [Rensa data som saknas][clean-missing-data] till experimentets arbets yta och Anslut den till modulen [Välj kolumner i data uppsättning][select-columns] . I fönstret **Egenskaper** väljer du **Ta bort hela raden** under **Rensningsläge**. Med de här alternativen rensas data som [saknas][clean-missing-data] för att rensa data genom att ta bort rader som innehåller värden som saknas. Dubbelklicka på modulen och skriv kommentaren ”Ta bort rader med värden som saknas”.
+1. Dra modulen [Rensa data som saknas][clean-missing-data] till experimentarbetsytan och anslut den till modulen [Välj kolumner i datauppsättning][select-columns]. I fönstret **Egenskaper** väljer du **Ta bort hela raden** under **Rensningsläge**. De här alternativen instruerar modulen [Rensa data som saknas][clean-missing-data] att rensa data genom att ta bort rader som har saknade värden. Dubbelklicka på modulen och skriv kommentaren ”Ta bort rader med värden som saknas”.
 
     ![Ställ in rengöringsläget på ”Ta bort hela raden” för modulen ”Rensa data som saknas”](./media/create-experiment/set-remove-entire-row.png)
 
@@ -124,15 +124,15 @@ Först lägger vi till en modul som tar bort kolumnen **normalized-losses** helt
     ![Efter körning bör experimentet se ut ungefär så här](./media/create-experiment/early-experiment-run.png)
 
 > [!TIP]
-> Varför kör vi experimentet nu? Genom att köra experimentet kan kolumn definitionerna för våra data skickas från data uppsättningen via modulen [Välj kolumner i data uppsättning][select-columns] och genom modulen [Rensa data som saknas][clean-missing-data] . Det innebär att alla moduler som vi ansluter till [rensa saknade data][clean-missing-data] också har samma information.
+> Varför kör vi experimentet nu? När experimentet körs överförs kolumndefinitionerna för våra data från datauppsättningen genom modulen [Välj kolumner i datauppsättning][select-columns] och genom modulen [Rensa data som saknas][clean-missing-data]. Detta innebär att alla moduler som vi ansluter till [Rensa data som saknas][clean-missing-data] får samma information.
 
-Nu har vi rena data. Om du vill visa den rensade data uppsättningen klickar du på den vänstra utdataporten för modulen [Rensa data som saknas][clean-missing-data] och väljer **visualisera**. Observera att kolumnen **normalized-losses** inte längre ingår och att det inte finns några värden som saknas.
+Nu har vi rena data. Om du vill visa den rensade datauppsättningen klickar du på den vänstra indataporten för modulen [Rensa data som saknas][clean-missing-data] och väljer **Visualisera**. Observera att kolumnen **normalized-losses** inte längre ingår och att det inte finns några värden som saknas.
 
 Nu när vi har rensat bort data kan vi ange vilka funktioner som vi vill använda i förutsägelsemodellen.
 
 ## <a name="define-features"></a>Definiera funktioner
 
-I Machine Learning är *funktioner* enskilda mätbara egenskaper av något du är intresse rad av. I vår datauppsättning representerar varje rad en bil och varje kolumn är en funktion i den bilen.
+Inom maskininlärning är *funktionerna* individuella mätbara egenskaper hos något du är intresserad av. I vår datauppsättning representerar varje rad en bil och varje kolumn är en funktion i den bilen.
 
 Det krävs en del experimenterande och kunskap om det problem som ska lösas för att hitta en bra uppsättning funktioner för att skapa en förutsägelsemodell. Vissa funktioner är bättre för att förutsäga målet än andra. Vissa funktioner har en stark korrelation med andra funktioner och kan tas bort. Till exempel är city-mpg och highway-mpg nära relaterade så att vi kan behålla en och ta bort den andra utan att förutsägelsen påverkas avsevärt.
 
@@ -140,7 +140,7 @@ Vi ska skapa en modell som använder en delmängd av funktionerna i vår dataupp
 
     make, body-style, wheel-base, engine-size, horsepower, peak-rpm, highway-mpg, price
 
-1. Dra en annan [Välj kolumner i data uppsättnings][select-columns] modulen till experimentets arbets yta. Anslut den vänstra utdataporten för modulen [Rensa data som saknas][clean-missing-data] till indata för modulen [Välj kolumner i data uppsättning][select-columns] .
+1. Dra en till modul av typen [Välj kolumner i datauppsättning][select-columns] till experimentarbetsytan. Anslut den vänstra utdataporten för modulen [Rensa data som saknas][clean-missing-data] till indataporten för modulen [Välj kolumner i datauppsättning][select-columns].
 
     ![Ansluta modulen ”Välj kolumner i datamängd” till modulen ”Rensa data som saknas”](./media/create-experiment/connect-clean-to-select.png)
 
@@ -172,24 +172,24 @@ Vi tränar modellen genom att ge den en uppsättning data som innehåller priset
 
 Vi använder våra data både för träning och testning av modellen genom att dela in data i separata tränings- och testningsdatauppsättningar.
 
-1. Markera och dra modulen [dela data][split] till arbets ytan för experimentet och koppla den till den sista [Välj kolumner i modulen data uppsättning][select-columns] .
+1. Markera och dra modulen [Dela data][split] till experimentarbetsytan och anslut den till den sista modulen av typen [Välj kolumner i datauppsättning][select-columns].
 
-1. Klicka på modulen [dela data][split] för att markera den. Leta upp **Del av rader i den första utdatauppsättningen** (i fönstret **Egenskaper** på höger sida i arbetsytan) och ange 0,75. På så sätt kan vi använda 75 procent av våra data för att träna modellen, och lämna 25 procent för testning.
+1. Klicka på modulen [Dela data][split] för att välja den. Leta upp **Del av rader i den första utdatauppsättningen** (i fönstret **Egenskaper** på höger sida i arbetsytan) och ange 0,75. På så sätt kan vi använda 75 procent av våra data för att träna modellen, och lämna 25 procent för testning.
 
     ![Ställa in värdet för ”Dela data” på 0,75](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
     > Genom att ändra parametern **Slumptal** kan du generera olika slumpmässiga prov för träning och testning. Den här parametern styr den pseudoslumpmässiga talgeneratorns startvärden (seeding).
 
-1. Kör experimentet. När experimentet körs skickar du kolumn definitionerna [Välj kolumner i data uppsättning][select-columns] och [dela data][split] till de moduler som vi ska lägga till härnäst.  
+1. Kör experimentet. När experimentet har körts överför modulerna [Välj kolumner i datauppsättning][select-columns] och [Dela data][split] kolumndefinitionerna till de moduler som vi ska lägga till härnäst.  
 
-1. Välj inlärningsalgoritmen genom att expandera kategorin **Machine Learning** på modulpaletten till vänster om arbetsytan och expandera **Initiera modell**. Nu visas flera kategorier av moduler som kan användas för att initiera algoritmer för Machine Learning. För det här experimentet väljer du modulen [linjär regression][linear-regression] under **Regressions** kategorin och drar den till experimentets arbets yta. (Du kan också hitta modulen genom att skriva "linjär regression" i rutan Sök på paletten.)
+1. Välj inlärningsalgoritmen genom att expandera kategorin **Machine Learning** på modulpaletten till vänster om arbetsytan och expandera **Initiera modell**. Nu visas flera kategorier av moduler som kan användas för att initiera algoritmer för maskininlärning. I det här experimentet väljer du modulen [Linjär regression][linear-regression] under kategorin **Regression** och drar den till arbetsytan för experimentet. (Du kan också hitta modulen genom att skriva "linjär regression" i rutan Sök på paletten.)
 
-1. Leta upp och dra modulen [träna modell][train-model] till arbets ytan för experimentet. Anslut utdataporten för modulen [linjär regression][linear-regression] till vänster indata för modulen [träna modell][train-model] och Anslut utbildnings data utmatningen (den vänstra porten) för modulen [dela data][split] till rätt indata för modulen [träna modell][train-model] .
+1. Leta upp och dra modulen [Träna modell][train-model] till arbetsytan för experimentet. Anslut utdataporten för modulen [Linjär regression][linear-regression] till den vänstra indataporten för modulen [Träna modell][train-model] och anslut träningsresultatet (vänster port) för modulen [Dela data][split] till den högra indatasporten för modulen [Träna modell][train-model].
 
     ![Anslut modulen ”Träna modell” till de båda modulerna ”Linjär regression” och ”Dela data”](./media/create-experiment/connect-train-model.png)
 
-1. Klicka på modulen [träna modell][train-model] , klicka på **Starta kolumn väljaren** i rutan **Egenskaper** och välj kolumnen **pris** . **Pris** är det värde som vår modell ska förutsäga.
+1. Klicka på modulen [Träna modell][train-model], klicka på **Starta kolumnväljaren** i rutan **Egenskaper** och välj kolumnen **price**. **Pris** är det värde som vår modell ska förutsäga.
 
     Du väljer **pris**kolumnen i kolumnväljaren genom att dra den från listan över **tillgängliga kolumner** till listan över **markerade kolumner**.
 
@@ -205,21 +205,21 @@ Nu har vi en tränad regressionsmodell som kan användas för att poängsätta n
 
 Nu när vi har tränat modellen med 75 procent av våra data kan vi använda den för att bedöma de övriga 25 procenten av dessa data och se hur bra vår modell fungerar.
 
-1. Leta upp och dra modulen [Poäng modell][score-model] till experimentets arbets yta. Anslut utdata från modulen [träna modell][train-model] till den vänstra Indataporten för [Poäng modell][score-model]. Anslut test data utmatningen (höger port) för modulen [dela data][split] till den högra Indataporten för [Poäng modellen][score-model].
+1. Leta upp och dra modulen [Poängsätta modell][score-model] till arbetsytan för experimentet. Anslut utdataporten för modulen [Träna modell][train-model] till den vänstra indataporten för [Poängsätta modell][score-model]. Anslut utdataporten för testning (den högra porten) för modulen [Dela data][split] till den högra indataporten för [Poängsätta modell][score-model].
 
     ![Ansluta modulen ”Poängsätta modell” till de båda modulerna ”Träna modell” och ”Dela data”](./media/create-experiment/connect-score-model.png)
 
-1. Kör experimentet och visa utdata från modulen [Poäng modell][score-model] genom att klicka på utdataporten för [Poäng modell][score-model] och välj **visualisera**. Utdata innehåller de förväntade värdena för pris och de kända värdena från testdata.  
+1. Kör experimentet och visa utdata från modulen [Poängsätta modell][score-model] genom att klicka på utdataporten för [Poängsätta modell][score-model] och välja **Visualisera**. Utdata innehåller de förväntade värdena för pris och de kända värdena från testdata.  
 
     ![Utdata från modulen ”Poängsätta modell”](./media/create-experiment/score-model-output.png)
 
-1. Slutligen testar vi resultatets kvalitet. Markera och dra modulen [utvärdera modell][evaluate-model] till arbets ytan för experimentet och Anslut utdata från modulen [Poäng modell][score-model] till den vänstra inmatningen för [utvärdera modell][evaluate-model]. Det slutliga experimentet bör se ut ungefär så här:
+1. Slutligen testar vi resultatets kvalitet. Markera och dra modulen [Utvärdera modell][evaluate-model] till experimentarbetsytan och anslut utdataporten för modulen [Poängsätta modell][score-model] till den vänstra indataporten för [Utvärdera modell][evaluate-model]. Det slutliga experimentet bör se ut ungefär så här:
 
     ![Det slutliga experimentet](./media/create-experiment/complete-linear-regression-experiment.png)
 
 1. Kör experimentet.
 
-Du visar utdata från modulen [utvärdera modell][evaluate-model] genom att klicka på utdataporten och sedan välja **visualisera**.
+Du visar utdata från modulen [Utvärdera modell][evaluate-model] genom att klicka på utdataporten och sedan välja **Visualisera**.
 
 ![Utvärderingsresultat för experimentet](./media/create-experiment/evaluation-results.png)
 
@@ -242,7 +242,7 @@ För all felstatistik gäller att mindre är bättre. Ett mindre värde anger at
 I den här snabbstarten skapade du ett enkelt experiment med hjälp av en exempeldatamängd. Fortsätt till självstudien om en förutsägande lösning för att utforska processen med att skapa och distribuera en modell i närmare detalj.
 
 > [!div class="nextstepaction"]
-> [Självstudie: utveckla en förutsägelse lösning i Studio (klassisk)](tutorial-part1-credit-risk.md)
+> [Handledning: Utveckla en prediktiv lösning i Studio (klassisk)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera GoToMeeting för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudiekurs: Konfigurera GoToMeeting för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GoToMeeting.
 services: active-directory
 documentationCenter: na
@@ -16,84 +16,84 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f0ac06fc3018b4230cbf32712067c48400599082
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058271"
 ---
-# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Självstudie: Konfigurera GoToMeeting för automatisk användar etablering
+# <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera GoToMeeting för automatisk användaretablering
 
-Syftet med den här självstudien är att visa de steg du behöver utföra i GoToMeeting och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till GoToMeeting.
+Syftet med den här självstudien är att visa de steg du behöver för att utföra i GoToMeeting och Azure AD för att automatiskt etablera och avetableras användarkonton från Azure AD till GoToMeeting.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active Directory-klient.
-*   En aktive rad GoToMeeting-prenumeration med enkel inloggning.
-*   Ett användar konto i GoToMeeting med grupp administratörs behörighet.
+*   En Azure Active-katalogklient.
+*   En GoToMeeting enkel inloggning aktiverad prenumeration.
+*   Ett användarkonto i GoToMeeting med behörigheter för teamadministratör.
 
 ## <a name="assigning-users-to-gotomeeting"></a>Tilldela användare till GoToMeeting
 
-Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett koncept som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk etablering av användarkonto synkroniseras endast användare och grupper som har "tilldelats" till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till GoToMeeting-appen. När du har bestämt dig kan du tilldela dessa användare till GoToMeeting-appen genom att följa anvisningarna här:
+Innan du konfigurerar och aktiverar etableringstjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till din GoToMeeting-app. När du har bestämt dig kan du tilldela dessa användare till din GoToMeeting-app genom att följa instruktionerna här:
 
-[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-gotomeeting"></a>Viktiga tips för att tilldela användare till GoToMeeting
 
-*   Vi rekommenderar att en enda Azure AD-användare tilldelas GoToMeeting för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+*   Vi rekommenderar att en enda Azure AD-användare tilldelas GoToMeeting för att testa etableringskonfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till GoToMeeting måste du välja en giltig användar roll. Rollen "standard åtkomst" fungerar inte för etablering.
+*   När du tilldelar en användare till GoToMeeting måste du välja en giltig användarroll. Rollen "Standardåtkomst" fungerar inte för etablering.
 
-## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk användar etablering
+## <a name="enable-automated-user-provisioning"></a>Aktivera automatisk etablering av användare
 
-Det här avsnittet vägleder dig genom att ansluta din Azure AD till GoToMeeting-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i GoToMeeting baserat på användar-och grupp tilldelning i Azure AD.
+Det här avsnittet hjälper dig att ansluta ditt Azure AD till GoToMeetings API för etablering av användarkonton och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i GoToMeeting baserat på användar- och grupptilldelning i Azure AD.
 
 > [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för GoToMeeting enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserad enkel inloggning för GoToMeeting, enligt instruktionerna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
 
-### <a name="to-configure-automatic-user-account-provisioning"></a>Konfigurera automatisk etablering av användar konto:
+### <a name="to-configure-automatic-user-account-provisioning"></a>Så här konfigurerar du automatisk etablering av användarkonton:
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
+1. I [Azure-portalen](https://portal.azure.com)bläddrar du till **avsnittet Azure Active Directory > Enterprise Apps > Alla program.**
 
-1. Om du redan har konfigurerat GoToMeeting för enkel inloggning söker du efter din instans av GoToMeeting med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **GoToMeeting** i program galleriet. Välj GoToMeeting från Sök resultaten och Lägg till den i listan över program.
+1. Om du redan har konfigurerat GoToMeeting för enkel inloggning söker du efter din instans av GoToMeeting med hjälp av sökfältet. Annars väljer du **Lägg till** och söker efter **GoToMeeting** i programgalleriet. Välj GoToMeeting från sökresultaten och lägg till det i listan över program.
 
-1. Välj din instans av GoToMeeting och välj sedan fliken **etablering** .
+1. Välj din förekomst av GoToMeeting och välj sedan fliken **Etablering.**
 
-1. Ställ in **etablerings** läget på **automatiskt**. 
+1. Ställ in **etableringsläget** på **Automatiskt**. 
 
-    ![etablerings](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Etableringen](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
-1. Under avsnittet admin credentials, utför följande steg:
+1. Gör följande under avsnittet Administratörsautentiseringsuppgifter:
    
-    a. Skriv användar namnet för en administratör i text rutan **GoToMeeting admin-användarnamn** .
+    a. Skriv användarnamnet för en administratör i textrutan **GoToMeeting Admin User Name.**
 
-    b. Administratörens lösen ord i text rutan administratörs **lösen ord för GoToMeeting** .
+    b. I textrutan **GoToMeeting Admin Password,** administratörens lösenord.
 
-1. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din GoToMeeting-app. Om anslutningen Miss lyckas kontrollerar du att ditt GoToMeeting-konto har team administratörs behörighet och försöker sedan igen med **"admin credentials"** .
+1. Klicka på Testa **anslutning** i Azure-portalen för att säkerställa att Azure AD kan ansluta till din GoToMeeting-app. Om anslutningen misslyckas kontrollerar du att ditt GoToMeeting-konto har behörigheten Teamadministratör och försöker med steget **"Administratörsautentiseringsuppgifter"** igen.
 
-1. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan.
-
-1. Klicka på **Spara.**
-
-1. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till GoToMeeting.**
-
-1. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till GoToMeeting. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i GoToMeeting för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
-
-1. Om du vill aktivera Azure AD Provisioning-tjänsten för GoToMeeting ändrar du **etablerings statusen** till **på** i avsnittet Inställningar
+1. Ange e-postadressen till en person eller grupp som ska få etableringsfelmeddelanden i fältet **E-postmeddelande** och markera kryssrutan.
 
 1. Klicka på **Spara.**
 
-Den första synkroniseringen av alla användare och/eller grupper som är kopplade till GoToMeeting startas i avsnittet användare och grupper. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i GoToMeeting-appen.
+1. Under avsnittet Mappningar väljer du **Synkronisera Azure Active Directory-användare till GoToMeeting.**
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+1. I avsnittet **Attributmappningar** granskar du de användarattribut som synkroniseras från Azure AD till GoToMeeting. De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i GoToMeeting för uppdateringsåtgärder. Välj knappen Spara om du vill utföra eventuella ändringar.
+
+1. Om du vill aktivera Azure AD-etableringstjänsten för GoToMeeting ändrar **du etableringsstatusen** till **På** i avsnittet Inställningar
+
+1. Klicka på **Spara.**
+
+Den startar den första synkroniseringen av alla användare och/eller grupper som tilldelats GoToMeeting i avsnittet Användare och grupper. Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge tjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitetsloggar, som beskriver alla åtgärder som utförs av etableringstjänsten i gotomeeting-appen.
+
+Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](tutorial-list.md)
+* [Hantera etablering av användarkonton för Enterprise Apps](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 

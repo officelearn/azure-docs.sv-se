@@ -1,24 +1,24 @@
 ---
-title: 'Snabb start: skapa en server-Azure Portal-Azure Database for MySQL'
+title: 'Snabbstart: Skapa en server - Azure portal - Azure Database för MySQL'
 description: Den här artikeln beskriver hur du använder Azure Portal för att snabbt skapa ett exempel på en Azure-databas för MySQL-server på fem minuter.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: bbf2e3204cb1e703aba445822bfb699fae13a112
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 3/20/2020
+ms.openlocfilehash: 50a3eebaa18674a0d0a7e9da88b8d3386e5016c5
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454315"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067802"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Skapa en Azure Database för MySQL-server med Azure Portal
 
 Azure Database för MySQL är en hanterad tjänst som du använder för att köra, hantera och skala högtillgängliga MySQL-databaser i molnet. Den här snabbstarten visar hur du skapar en Azure Database for MySQL-server på ungefär fem minuter med Azure Portal.  
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 Öppna webbläsaren och gå sedan till [Azure Portal](https://portal.azure.com/). Ange dina autentiseringsuppgifter och logga in på portalen. Standardvyn är instrumentpanelen.
@@ -28,9 +28,9 @@ Du skapar en Azure Database för MySQL-server med en definierad uppsättning [Co
 
 Följ de här stegen för att skapa en Azure Database för MySQL-server:
 
-1. Välj **skapa en resurs** (+) i det övre vänstra hörnet i portalen.
+1. Välj **Skapa en resurs** (+) i det övre vänstra hörnet av portalen.
 
-2. Välj **Databaser** > **Azure-databas för MySQL**. Du kan också ange **MySQL** i sökrutan för att hitta tjänsten.
+2. Välj **Databaser** > **Azure Database för MySQL**. Du kan också ange **MySQL** i sökrutan för att hitta tjänsten.
 
    ![Alternativet Azure-databas för MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
 
@@ -40,24 +40,24 @@ Följ de här stegen för att skapa en Azure Database för MySQL-server:
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning** 
     ---|---|---
-    servernamn | Unikt servernamn | Ange ett unikt namn som identifierar din Azure Database for MySQL-server. Till exempel mydemoserver. Domännamnet *.mysql.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
+    servernamn | Unikt servernamn | Ange ett unikt namn som identifierar din Azure-databas för MySQL-server. Till exempel mydemoserver. Domännamnet *.mysql.database.azure.com* läggs till i det servernamn du anger. Ditt servernamn får bara innehålla gemener, siffror och bindestreck. Det måste innehålla mellan 3 och 63 tecken.
     Prenumeration | Din prenumeration | Välj den Azure-prenumeration som ska användas för servern. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
-    Resursgrupp | *myresourcegroup* | Ange ett nytt eller ett befintligt resursgruppnamn.
+    Resursgrupp | *myresourcegroup myresourcegroup myresourcegroup myre* | Ange ett nytt eller ett befintligt resursgruppnamn.
     Välj källa | *Tom* | Välj *Tom* om du vill skapa en ny server från början. (Du kan välja *Säkerhetskopiering* om du vill skapa en server från en geo-säkerhetskopia av en befintlig Azure Database for MySQL-server).
-    inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Inloggningsnamnet för administratören får inte vara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
+    inloggning för serveradministratör | myadmin | Ett inloggningskonto som du använder när du ansluter till servern. Administratörs-inloggningsnamnet kan inte **vara azure_superuser**, **admin**, **administratör**, **root**, **gäst**eller **offentlig**.
     lösenord | *Ditt val* | Ange ett nytt lösenord för serverns administratörskonto. Det måste innehålla mellan 8 och 128 tecken. Lösenordet måste innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv).
     Bekräfta lösenord | *Ditt val*| Bekräfta administratörslösenordet.
-    Location | *Regionen som ligger närmast dina användare*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
+    Location | *Regionen närmast användarna*| Välj den plats som är närmast dina användare eller dina andra Azure-program.
     Version | *Senaste huvudversion*| Välj den senaste huvudversionen (om du inte har särskilda behov som gör att du måste ha en annan version).
-    Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **Prisnivå**. Välj sedan fliken **generell användning** . *gen 5*, *4 virtuella kärnor*, *100 GB*och *7 dagar* är standardvärden för **beräknings generering**, **vCore**, **lagring**och **bevarande period för säkerhets kopior**. Du kan lämna dessa skjutreglage som de är. Välj **Geografiskt redundant** bland **redundansalternativen för säkerhetskopiering** om du vill använda geo-redundant lagring för dina serversäkerhetskopior. Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
+    Prisnivå | **Generell användning**, **Gen 5**, **2 virtuella kärnor**, **5 GB**, **7 dagar**, **Geografiskt redundant** | Konfigurationerna för beräkning, lagring och säkerhetskopiering för den nya servern. Välj **prisnivå**. Välj sedan fliken Allmänt *Gen 5* **ändamål.** *4 vCores* *100 GB* *7 days* **Compute Generation** **vCore** **Storage** **Backup Retention Period** Du kan lämna dessa skjutreglage som de är. Om du vill aktivera serversäkerhetskopior i geoupptundsslorad lagring väljer du **Geografiskt redundant** i **alternativen för säkerhetsredundans.** Spara den valda prisnivån genom att välja **OK**. På nästa skärmbild visas dessa val.
   
    > [!NOTE]
-   > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med prissättning](https://azure.microsoft.com/pricing/details/mysql/).
+   > Överväg att använda prisnivån Basic om lätt beräkning och I/O är lämpligt för din arbetsbelastning. Observera att servrar som skapas på prisnivån Basic inte senare kan skalas till Generell användning eller Minnesoptimerad. Mer information finns på [sidan med priser](https://azure.microsoft.com/pricing/details/mysql/).
    > 
 
    ![Skapa server – prisnivåintervall](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4. Välj **Skapa** för att etablera servern. Etableringen kan ta upp till 20 minuter.
+4. Välj **Granska + skapa** för att etablera servern. Etableringen kan ta upp till 20 minuter.
    
 5. Välj **Aviseringar** (klockikonen) i verktygsfältet för att övervaka distributionsprocessen.
    
@@ -67,9 +67,9 @@ Följ de här stegen för att skapa en Azure Database för MySQL-server:
 
 Azure Database för MySQL-tjänsten skapar en brandvägg på servernivå. Den förhindrar att externa program och verktyg ansluter till servern eller databaser på servern, om inte en brandväggsregel konfigureras som öppnar brandväggen för specifika IP-adresser. 
 
-1. Leta upp servern när distributionen är klar. Om det behövs kan du söka efter den. Välj exempelvis **Alla resurser** på menyn till vänster. Ange sedan Server namnet, till exempel **mydemoserver**, för att söka efter den nya servern. Välj servernamnet i sökresultatlistan. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
+1. Leta upp servern när distributionen är klar. Om det behövs kan du söka efter den. Välj exempelvis **Alla resurser** på menyn till vänster. Ange sedan servernamnet, till exempel **mydemoserver,** för att söka efter den nyskapade servern. Välj servernamnet i sökresultatlistan. **Översikt**-sidan för din server öppnas och innehåller alternativ ytterligare konfiguration.
 
-2. På serversidan väljer du **Anslutningssäkerhet**.
+2. Välj **Anslutningssäkerhet**på serversidan .
 
 3. Under **Brandväggsregler** väljer du den tomma textrutan i kolumnen **Regelnamn** och börjar skapa brandväggsregeln. Ange det exakta intervallet med IP-adresser för de klienter som ska komma åt den här servern.
    
@@ -92,7 +92,7 @@ Gör så här för att hitta de här värdena:
 
 2. Håll markören över varje fält så att kopieringssymbolen visas till höger om texten. Välj kopieringssymbolen för att kopiera värdena.
 
-I det här exemplet är Server namnet **mydemoserver.mysql.Database.Azure.com**och inloggningen för Server administratören är **administratör\@mydemoserver**.
+I det här exemplet är servernamnet **mydemoserver.mysql.database.azure.com**och serveradministratörens inloggning är **myadmin\@mydemoserver**.
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>Ansluta till MySQL med mysql-kommandoradsverktyget
 Anslut till servern med kommandoradverktyget **mysql.exe**. Du kan hämta MySQL [här](https://dev.mysql.com/downloads/) och installera programmet på din dator. 
@@ -111,9 +111,9 @@ Anslut till servern med kommandoradverktyget **mysql.exe**. Du kan hämta MySQL 
 
     mysql-parameter |Föreslaget värde|Beskrivning
     ---|---|---
-    --host | *Servernamn* | Värdet för servernamn som användes när du tidigare skapade Azure Database för MySQL-server. Exempelservern är **mydemoserver.mysql.database.azure.com**. Använd det fullständiga domännamnet ( **\*.mysql.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
-    --användare | *Inloggning för serveradministratör* |Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för MySQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn\@servername*.
-    -p | *Vänta på uppmaning* |När du uppmanas att ange ett lösenord anger du samma lösenord som när du skapade servern. Observera att det angivna lösenordet inte visas i bash-kommandotolken när du skriver. Välj **Retur** när du har angett lösenordet.
+    --host | *Servernamn* | Värdet för servernamn som användes när du tidigare skapade Azure Database för MySQL-server. Exempelservern är **mydemoserver.mysql.database.azure.com**. Använd det fullständigt kvalificerade domännamnet (**\*.mysql.database.azure.com**) som visas i exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. 
+    --användare | *Inloggningsnamn för serveradministratör* |Ange det användarnamn för serveradministratörsinloggning som du angav tidigare när du skapade Azure Database för MySQL-server. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *\@användarnamn servernamn*.
+    -p | *Vänta tills du uppmanas att* |När du uppmanas att ange ett lösenord anger du samma lösenord som när du skapade servern. Observera att det angivna lösenordet inte visas i bash-kommandotolken när du skriver. Välj **Retur** när du har angett lösenordet.
 
    När du är ansluten visar mysql-verktyget en `mysql>`-kommandotolk där du kan skriva kommandon. 
 
@@ -171,11 +171,11 @@ Nu har du anslutit till Azure Database för MySQL-server och skapat en tom anvä
 ## <a name="connect-to-the-server-by-using-the-mysql-workbench-gui-tool"></a>Ansluta till servern med användargränssnittsverktyget MySQL Workbench
 Gör så här om du vill ansluta till servern med användargränssnittsverktyget MySQL Workbench:
 
-1.  Öppna programmet MySQL Workbench på klientdatorn. Du kan ladda ned och installera MySQL Workbench [här](https://dev.mysql.com/downloads/workbench/).
+1.    Öppna programmet MySQL Workbench på klientdatorn. Du kan ladda ned och installera MySQL Workbench [här](https://dev.mysql.com/downloads/workbench/).
 
-2. Skapa en ny anslutning. Välj plus ikonen (+) bredvid rubriken **MySQL-anslutningar** .
+2. Skapa en ny anslutning. Välj plusikonen (+) bredvid rubriken **MySQL-anslutningar.**
 
-3. I dialog rutan **Konfigurera ny anslutning** anger du din server anslutnings information på fliken **parametrar** . plats hållarnas värden visas som exempel. Ersätt Värddatornamn, Användarnamn och Lösenord med dina egna värden.
+3. I dialogrutan **Konfigurera ny anslutning** anger du serveranslutningsinformationen på fliken **Parametrar.** Ersätt Värddatornamn, Användarnamn och Lösenord med dina egna värden.
 
    ![Skapa en ny anslutning](./media/quickstart-create-mysql-server-database-using-azure-portal/setup-new-connection.png)
 
@@ -183,10 +183,10 @@ Gör så här om du vill ansluta till servern med användargränssnittsverktyget
     |---|---|---|
      Anslutningsnamn | Demoanslutning | En etikett för anslutningen. |
     Anslutningsmetod | Standard (TCP/IP) | Standard (TCP/IP) är tillräckligt. |
-    Värdnamn | *Servernamn* | Det värde för servernamn som du använde tidigare när du skapade Azure Database för MySQL-server. Exempelservern är **mydemoserver.mysql.database.azure.com**. Använd det fullständiga domännamnet ( **\*.mysql.database.azure.com**) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.|
+    Värdnamn | *Servernamn* | Det värde för servernamn som du använde tidigare när du skapade Azure Database för MySQL-server. Exempelservern är **mydemoserver.mysql.database.azure.com**. Använd det fullständigt kvalificerade domännamnet (**\*.mysql.database.azure.com**) som visas i exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.|
      Port | 3306 | Den port som ska användas vid anslutning till din Azure Database för MySQL-server. |
-    Användarnamn |  *Inloggning för serveradministratör* | Den inloggningsinformation för serveradministratör som du uppgav tidigare när du skapade Azure Database för MySQL-server. Vårt exempel användar namn är **\@mydemoserver**. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *användar namn\@servername*.
-    lösenord | *Ditt lösenord* | Välj **lagra i valv** för att spara lösen ordet. |
+    Användarnamn |  *Inloggningsnamn för serveradministratör* | Den inloggningsinformation för serveradministratör som du uppgav tidigare när du skapade Azure Database för MySQL-server. Vårt exempel användarnamn är **myadmin\@mydemoserver**. Om du inte kommer ihåg användarnamnet följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation. Formatet är *\@användarnamn servernamn*.
+    lösenord | *Ditt lösenord* | Välj **Lagra i Arkiv** om du vill spara lösenordet. |
 
 4. Välj **Testanslutning** för att testa om alla parametrar är rätt konfigurerade. Välj **OK** för att spara anslutningen. 
 
@@ -202,22 +202,22 @@ Du kan rensa de resurser som du skapade i snabbstarten på två sätt. Du kan ta
 
 Så här tar du bort hela resursgruppen, inklusive den nya servern:
 
-1.  Leta reda på resursgruppen på Azure Portal. Klicka på **Resursgrupper** på den vänstra menyn och sedan på namnet på resursgruppen (**myresourcegroup** i vårt exempel).
+1.    Leta reda på resursgruppen på Azure Portal. Klicka på **Resursgrupper** på den vänstra menyn och sedan på namnet på resursgruppen (**myresourcegroup** i vårt exempel).
 
-2.  Välj **Ta bort** på din resursgruppssida. Ange sedan namnet på resurs gruppen (till exempel vårt **myresourcegroup**) i rutan för att bekräfta borttagningen och välj **ta bort**.
+2.    Välj **Ta bort** på din resursgruppssida. Ange sedan namnet på resursgruppen (till exempel vårt exempel **myresourcegroup)** i rutan för att bekräfta borttagningen och välj **Ta bort**.
 
 Gör så här om du vill ta bort den nyligen skapade servern:
 
-1. Leta upp din server i Azure Portal om du inte redan har den öppen. Välj **Alla resurser** på menyn på vänster sida av Azure Portal. Sök sedan efter den server som du skapade.
+1. Leta upp din server i Azure Portal om du inte redan har den öppen. Välj **Alla resurser**på menyn till vänster i Azure-portalen . Sök sedan efter den server som du skapade.
 
 2. Välj **Ta bort** på sidan **Översikt**. 
 
    ![Azure Database för MySQL – Ta bort server](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
 
-3. Bekräfta namnet på den server som du vill ta bort och visa de databaser under den som påverkas. Ange namnet på servern i rutan (till exempel vårt exempel **mydemoserver**). Välj **Ta bort**.
+3. Bekräfta namnet på den server som du vill ta bort och visa de databaser under den som påverkas. Ange ditt servernamn i rutan (till exempel vårt exempel **mydemoserver).** Välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa din första Azure-databas för MySQL](./tutorial-design-database-using-portal.md)
+> [Skapa din första Azure Database for MySQL-databas](./tutorial-design-database-using-portal.md)
 

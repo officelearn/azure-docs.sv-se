@@ -1,42 +1,40 @@
 ---
-title: Översikt över program utveckling
+title: Översikt över programutveckling
 description: Läs mer om tillgängliga anslutningsbibliotek och bästa praxis för program som ansluter till SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 26aa9948a44727ff4c8092eb5131b1c054bf5442
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 741906bbe9de68459b2e4a704a243fde4771b3a2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257009"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80067331"
 ---
-# <a name="sql-database-application-development-overview"></a>Översikt över SQL Database program utveckling
+# <a name="sql-database-application-development-overview"></a>Översikt över utveckling av SQL Database-program
 
-Den här artikeln beskriver grundläggande överväganden som utvecklare bör tänka på då de skriver kod för att ansluta till Azure SQL Database. Den här artikeln gäller alla distributions modeller för Azure SQL Database (enkel databas, elastiska pooler, hanterade instanser).
+Den här artikeln beskriver grundläggande överväganden som utvecklare bör tänka på då de skriver kod för att ansluta till Azure SQL Database. Den här artikeln gäller alla distributionsmodeller av Azure SQL Database (Single database, Elastic pools, Managed instance).
 
 > [!TIP]
-> Titta på komma igång-guiderna för [enskilda databaser](sql-database-single-database-quickstart-guide.md) och [hanterade instanser](sql-database-managed-instance-quickstart-guide.md) om du behöver konfigurera din Azure SQL Database.
+> Titta på komma igång-guiderna för [enskilda databaser](sql-database-single-database-quickstart-guide.md) och [hanterade instanser](sql-database-managed-instance-quickstart-guide.md) om du behöver konfigurera din Azure SQL-databas.
 >
 
 ## <a name="language-and-platform"></a>Språk och plattform
 
-Du kan använda olika [programmeringsspråk och plattformar](sql-database-connect-query.md) för att ansluta och fråga Azure SQL Database. Du kan hitta [exempel program](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) som du kan använda för att ansluta till Azure SQL Database.
+Du kan använda olika [programmeringsspråk och plattformar](sql-database-connect-query.md) för att ansluta och fråga Azure SQL Database. Du kan hitta [exempelprogram](https://azure.microsoft.com/resources/samples/?service=sql-database&sort=0) som du kan använda för att ansluta till Azure SQL Database.
 
-Du kan utnyttja verktyg med öppen källkod som [Cheetah](https://github.com/wunderlist/cheetah), [SQL-CLI](https://www.npmjs.com/package/sql-cli), [vs Code](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Du kan också använda API: erna Azure Portal, PowerShell och REST för att få ytterligare produktivitet.
+Du kan utnyttja verktyg med öppen källkod som [gepard](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS-kod](https://code.visualstudio.com/). Azure SQL Database fungerar dessutom med Microsoft-verktyg som [Visual Studio](https://www.visualstudio.com/downloads/) och [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx). Du kan också använda Azure-portalen, PowerShell och REST API:er som hjälper dig att få ytterligare produktivitet.
 
 ## <a name="authentication"></a>Autentisering
 
-Åtkomst till Azure SQL Database skyddas med inloggningar och brand väggar. Azure SQL Database stöder användare och inloggningar både SQL Server och [Azure Active Directory (AAD)-autentisering](sql-database-aad-authentication.md) . AAD-inloggningar är bara tillgängliga i hanterade instanser. 
+Åtkomst till Azure SQL Database är skyddad med inloggningar och brandväggar. Azure SQL Database stöder användare och inloggningar för både SQL Server och [Azure Active Directory (AAD).](sql-database-aad-authentication.md) AAD-inloggningar är endast tillgängliga i Hanterad instans. 
 
-Lär dig mer om [att hantera databas åtkomst och inloggning](sql-database-manage-logins.md).
+Läs mer om hur du [hanterar åtkomst till databaser och inloggning](sql-database-manage-logins.md).
 
 ## <a name="connections"></a>Anslutningar
 
@@ -44,21 +42,21 @@ I din klient för anslutningslogik åsidosätter du standardvärdet för timeout
 
 Om du använder en [anslutningspool](https://msdn.microsoft.com/library/8xx3tyca.aspx), måste du stänga anslutningen så snart programmet inte aktivt använder den och inte förbereder sig för att återanvända den.
 
-Undvik tids krävande transaktioner eftersom en infrastruktur eller ett anslutnings haveri kan återställa transaktionen. Om möjligt kan du dela upp transaktionen i flera mindre transaktioner och använda [batching för att förbättra prestanda](sql-database-use-batching-to-improve-performance.md).
+Undvik tidskrävande transaktioner eftersom alla infrastruktur- eller anslutningsfel kan återställa transaktionen. Om möjligt, dela upp transaktionen i flera mindre transaktioner och använda [batchbearbetning för att förbättra prestanda](sql-database-use-batching-to-improve-performance.md).
 
 ## <a name="resiliency"></a>Återhämtning
 
-Azure SQL Database är en moln tjänst där du kan vänta på tillfälliga fel som inträffar i den underliggande infrastrukturen eller i kommunikationen mellan moln enheter. Även om Azure SQL Database är elastisk på de transitiva infrastruktur felen kan dessa problem påverka din anslutning. När ett tillfälligt fel uppstår när du ansluter till SQL Database, ska koden [försöka anropa igen](sql-database-connectivity-issues.md). Vi rekommenderar att logik för omprövning använder begränsningslogik så att den inte överbelastar SQL Database med flera klienter som försöker samtidigt. Omprövnings logik är beroende av [fel meddelanden för SQL Database klient program](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
+Azure SQL Database är en molntjänst där du kan förvänta dig tillfälliga fel som inträffar i den underliggande infrastrukturen eller i kommunikationen mellan molnentiteter. Även om Azure SQL Database är flexibel på transitiva infrastrukturfel, kan dessa fel påverka din anslutning. När ett tillfälligt fel uppstår vid anslutning till SQL Database ska koden [försöka igen.](sql-database-connectivity-issues.md) Vi rekommenderar att logik för omprövning använder begränsningslogik så att den inte överbelastar SQL Database med flera klienter som försöker samtidigt. Logiken för återförsök beror på [felmeddelandena för SQL Database-klientprogram](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md).
 
-Mer information om hur du förbereder för planerade underhålls händelser på din Azure SQL-databas finns i [Planera för underhålls händelser i Azure i Azure SQL Database](sql-database-planned-maintenance.md).
+Mer information om hur du förbereder dig för planerade underhållshändelser i din Azure SQL-databas finns [i planera för Azure-underhållshändelser i Azure SQL Database](sql-database-planned-maintenance.md).
 
 ## <a name="network-considerations"></a>Nätverksöverväganden
 
-- På den dator som är värd för ditt klientprogram, ska du se till att brandväggen tillåter utgående TCP-kommunikation på port 1433.  Mer information: [Konfigurera en Azure SQL Database brand vägg](sql-database-configure-firewall-settings.md).
-- Om klient programmet ansluter till SQL Database medan klienten körs på en virtuell dator i Azure måste du öppna vissa port intervall på den virtuella datorn. Mer information: [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Klient anslutningar till Azure SQL Database ibland kringgå proxyn och interagera direkt med databasen. Andra portar än 1433 blir viktiga. Mer information [Azure SQL Database anslutnings arkitektur](sql-database-connectivity-architecture.md) och [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
-- Nätverks konfiguration för en hanterad instans finns i [nätverks konfiguration för hanterade instanser](sql-database-howto-managed-instance.md#network-configuration).
+- På den dator som är värd för ditt klientprogram, ska du se till att brandväggen tillåter utgående TCP-kommunikation på port 1433.  Mer information: [Konfigurera en Azure SQL Database-brandvägg](sql-database-configure-firewall-settings.md).
+- Om klientprogrammet ansluter till SQL Database medan klienten körs på en virtuell Azure-dator (VM) måste du öppna vissa portintervall på den virtuella datorn. Mer information: [Portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+- Klientanslutningar till Azure SQL Database kringgår ibland proxyn och interagerar direkt med databasen. Andra portar än 1433 blir viktiga. Mer information finns [i Azure SQL Database-anslutningsarkitektur](sql-database-connectivity-architecture.md) [och portar utöver 1433 för ADO.NET 4.5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
+- För nätverkskonfiguration för en hanterad instans finns i [nätverkskonfiguration för hanterade instanser](sql-database-howto-managed-instance.md#network-configuration).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska alla [funktionerna i SQL Database](sql-database-technical-overview.md).
+Utforska alla funktioner i [SQL Database](sql-database-technical-overview.md).

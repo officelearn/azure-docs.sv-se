@@ -1,6 +1,6 @@
 ---
-title: Konfigurera hanterade identiteter på virtuell Azure-dator med mall – Azure AD
-description: Stegvisa instruktioner för att konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av en Azure Resource Manager-mall.
+title: Konfigurera hanterade identiteter på Azure VM med mallen - Azure AD
+description: Steg-för-steg-instruktioner för att konfigurera hanterade identiteter för Azure-resurser på en Virtuell Azure-dator med hjälp av en Azure Resource Manager-mall.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -16,47 +16,47 @@ ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e5540697e8e64586d73e34d253fb95e549fc0301
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75972153"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Konfigurera hanterade identiteter för Azure-resurser på en virtuell Azure-dator med hjälp av mallar
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Konfigurera hanterade identiteter för Azure-resurser på en Virtuell Azure-dator med hjälp av en mall
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i din kod.
+Hanterade identiteter för Azure-resurser ger Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i koden.
 
-I den här artikeln, med hjälp av mallen för Azure Resource Manager distribution, lär du dig att utföra följande hanterade identiteter för Azure-resurser på en virtuell Azure-dator:
+I den här artikeln, med hjälp av distributionsmallen för Azure Resource Manager, lär du dig hur du utför följande hanterade identiteter för Azure-resurser på en Virtuell Azure:In this article, using the Azure Resource Manager deployment template, you learn how to perform the following managed identities for Azure resources operations on an Azure VM:
 
 ## <a name="prerequisites"></a>Krav
 
-- Om du inte känner till hur du använder mallen för Azure Resource Manager distribution kan du läsa [avsnittet Översikt](overview.md). **Se till att granska den [skillnaden mellan en hanterad identitet systemtilldelade och användartilldelade](overview.md#how-does-the-managed-identities-for-azure-resources-work)** .
+- Om du inte kan använda distributionsmallen för Azure Resource Manager kan du läsa [översiktsavsnittet](overview.md). **Var noga med att granska [skillnaden mellan en systemtilldelad och användartilldelad hanterad identitet](overview.md#how-does-the-managed-identities-for-azure-resources-work)**.
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
-Precis som med Azure Portal och skript ger [Azure Resource Manager](../../azure-resource-manager/management/overview.md) mallar möjlighet att distribuera nya eller ändrade resurser som definieras av en Azure-resurs grupp. Det finns flera alternativ för att redigera och distribuera mallar, både lokalt och Portal-baserat, inklusive:
+Precis som med Azure-portalen och skript, [Azure Resource Manager-mallar](../../azure-resource-manager/management/overview.md) ger möjlighet att distribuera nya eller ändrade resurser som definierats av en Azure-resursgrupp. Flera alternativ är tillgängliga för mallredigering och distribution, både lokala och portalbaserade, inklusive:
 
-   - Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), som gör att du kan skapa en mall från grunden eller basera den på en befintlig gemensam eller [snabb starts mall](https://azure.microsoft.com/documentation/templates/).
-   - Härleda från en befintlig resurs grupp genom att exportera en mall från antingen [den ursprungliga distributionen](../../azure-resource-manager/templates/export-template-portal.md)eller från det [aktuella läget för distributionen](../../azure-resource-manager/templates/export-template-portal.md).
-   - Använda en lokal [JSON-redigerare (till exempel vs-kod)](../../azure-resource-manager/resource-manager-create-first-template.md)och ladda upp och distribuera med hjälp av POWERSHELL eller cli.
-   - Använd Visual Studio [Azures resurs grupps projekt](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) för att både skapa och distribuera en mall.  
+   - Med hjälp av en [anpassad mall från Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template), där du kan skapa en mall från grunden, eller basera den på en befintlig gemensam mall eller [snabbstartsmall](https://azure.microsoft.com/documentation/templates/).
+   - Härleda från en befintlig resursgrupp genom att exportera en mall från antingen [den ursprungliga distributionen](../../azure-resource-manager/templates/export-template-portal.md)eller från [det aktuella tillståndet för distributionen](../../azure-resource-manager/templates/export-template-portal.md).
+   - Använda en lokal [JSON-redigerare (till exempel VS-kod)](../../azure-resource-manager/resource-manager-create-first-template.md)och sedan ladda upp och distribuera med powershell eller CLI.
+   - Använda Projektet Visual Studio [Azure Resource Group](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) för att både skapa och distribuera en mall.  
 
-Oavsett vilket alternativ du väljer, är mallens syntax detsamma vid den första distributionen och omdistributionen. Att aktivera en system-eller användardefinierad hanterad identitet på en ny eller befintlig virtuell dator görs på samma sätt. Som standard gör Azure Resource Manager också en [stegvis uppdatering](../../azure-resource-manager/templates/deployment-modes.md) av distributioner.
+Oavsett vilket alternativ du väljer är mallsyntaxen densamma under den första distributionen och omdistributionen. Aktivera en hanterad system eller användartilldelade hanterad identitet på en ny eller befintlig virtuell dator görs på samma sätt. Som standard gör Azure Resource Manager också en [inkrementell uppdatering](../../azure-resource-manager/templates/deployment-modes.md) av distributioner.
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
 
-I det här avsnittet ska du aktivera och inaktivera en systemtilldelad hanterad identitet med hjälp av en Azure Resource Manager mall.
+I det här avsnittet aktiverar och inaktiverar du en systemtilldelad hanterad identitet med hjälp av en Azure Resource Manager-mall.
 
-### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Aktivera systemtilldelad hanterad identitet när en virtuell Azure-dator skapas eller på en befintlig virtuell dator
+### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Aktivera systemtilldelade hanterade identiteter när en Virtuell Azure skapas eller på en befintlig virtuell dator
 
-Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+För att aktivera systemtilldelade hanterade identitet på en virtuell dator behöver ditt konto rolltilldelningen för deltagare för [virtuell dator.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Inga ytterligare Azure AD-katalogrolltilldelningar krävs.
 
-1. Oavsett om du loggar in på Azure lokalt eller via Azure Portal använder du ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorn.
+1. Oavsett om du loggar in på Azure lokalt eller via Azure-portalen använder du ett konto som är associerat med Azure-prenumerationen som innehåller den virtuella datorn.
 
-2. Om du vill aktivera systemtilldelad hanterad identitet läser du in mallen i en redigerare, letar reda på `Microsoft.Compute/virtualMachines` resurs av intresse i avsnittet `resources` och lägger till `"identity"`-egenskapen på samma nivå som `"type": "Microsoft.Compute/virtualMachines"`-egenskapen. Använd följande syntax:
+2. Om du vill aktivera systemtilldelade hanterade identitet läser `Microsoft.Compute/virtualMachines` du in mallen i en redigerare, letar reda på intresseresursen `resources` i avsnittet och lägger till egenskapen `"identity"` på samma nivå som egenskapen. `"type": "Microsoft.Compute/virtualMachines"` Använd följande syntax:
 
    ```JSON
    "identity": {
@@ -66,7 +66,7 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator må
 
 
 
-3. När du är klar ska följande avsnitt läggas till i avsnittet `resource` i mallen och det bör likna följande:
+3. När du är klar bör följande avsnitt `resource` läggas till i avsnittet i mallen och det bör likna följande:
 
    ```JSON
    "resources": [
@@ -103,17 +103,17 @@ Om du vill aktivera systemtilldelad hanterad identitet på en virtuell dator må
     ]
    ```
 
-### <a name="assign-a-role-the-vms-system-assigned-managed-identity"></a>Tilldela en roll den systemtilldelade hanterade identiteten för den virtuella datorn
+### <a name="assign-a-role-the-vms-system-assigned-managed-identity"></a>Tilldela en roll den virtuella datorns systemtilldelade hanterade identitet
 
-När du har aktiverat systemtilldelad hanterad identitet på den virtuella datorn kanske du vill ge den en roll som **läsar** åtkomst till resurs gruppen där den skapades.
+När du har aktiverat den systemtilldelade hanterade identiteten på den virtuella datorn kanske du vill ge den en roll som **läsaråtkomst** till resursgruppen där den skapades.
 
-För att tilldela en roll till den virtuella datorns systemtilldelade identitet behöver ditt konto rollen som [administratör för användar åtkomst](/azure/role-based-access-control/built-in-roles#user-access-administrator) .
+Om du vill tilldela en roll till den virtuella datorns systemtilldelade identitet behöver ditt konto rolltilldelningen [för administratör för användaråtkomst.](/azure/role-based-access-control/built-in-roles#user-access-administrator)
 
-1. Oavsett om du loggar in på Azure lokalt eller via Azure Portal använder du ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorn.
+1. Oavsett om du loggar in på Azure lokalt eller via Azure-portalen använder du ett konto som är associerat med Azure-prenumerationen som innehåller den virtuella datorn.
 
-2. Läs in mallen i ett [redigerings program](#azure-resource-manager-templates) och Lägg till följande information för att ge din VM- **läsare** åtkomst till den resurs grupp där den skapades.  Mallens struktur kan variera beroende på vilken redigerare och vilken distributions modell du väljer.
+2. Läs in mallen i en [redigerare](#azure-resource-manager-templates) och lägg till följande information för att ge **vm-läsaren** åtkomst till resursgruppen där den skapades.  Mallstrukturen kan variera beroende på vilken redigerare och distributionsmodell du väljer.
 
-   Lägg till följande under avsnittet `parameters`:
+   Under `parameters` avsnittet lägg till följande:
 
     ```JSON
     "builtInRoleType": {
@@ -125,13 +125,13 @@ För att tilldela en roll till den virtuella datorns systemtilldelade identitet 
     }
     ```
 
-    Lägg till följande under avsnittet `variables`:
+    Under `variables` avsnittet lägg till följande:
 
     ```JSON
     "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
     ```
 
-    Lägg till följande under avsnittet `resources`:
+    Under `resources` avsnittet lägg till följande:
 
     ```JSON
     {
@@ -151,21 +151,21 @@ För att tilldela en roll till den virtuella datorns systemtilldelade identitet 
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Inaktivera en systemtilldelad hanterad identitet från en virtuell Azure-dator
 
-För att ta bort systemtilldelad hanterad identitet från en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) .  Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+Om du vill ta bort den systemtilldelade hanterade identiteten från en virtuell dator behöver ditt konto rolltilldelningen för deltagare för [virtuell dator.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)  Inga ytterligare Azure AD-katalogrolltilldelningar krävs.
 
-1. Oavsett om du loggar in på Azure lokalt eller via Azure Portal använder du ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorn.
+1. Oavsett om du loggar in på Azure lokalt eller via Azure-portalen använder du ett konto som är associerat med Azure-prenumerationen som innehåller den virtuella datorn.
 
-2. Läs in mallen i ett [redigerings program](#azure-resource-manager-templates) och leta upp `Microsoft.Compute/virtualMachines` resurs av intresse i avsnittet `resources`. Om du har en virtuell dator som bara har systemtilldelad hanterad identitet kan du inaktivera den genom att ändra identitets typen till `None`.  
+2. Läs in mallen i `Microsoft.Compute/virtualMachines` en [redigerare](#azure-resource-manager-templates) och hitta den resurs som är av intresse i avsnittet. `resources` Om du har en virtuell dator som bara har systemtilldelad hanterad `None`identitet kan du inaktivera den genom att ändra identitetstypen till .  
 
-   **Microsoft. Compute/virtualMachines API version 2018-06-01**
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
 
-   Om den virtuella datorn har både system-och användarspecifika hanterade identiteter tar du bort `SystemAssigned` från identitets typen och behåller `UserAssigned` tillsammans med värdena för `userAssignedIdentities`s ord lista.
+   Om den virtuella datorn har både system- `SystemAssigned` och användartilldelade `UserAssigned` hanterade identiteter tar du bort från identitetstypen och håller jämna steg med `userAssignedIdentities` ordlistevärdena.
 
-   **Microsoft. Compute/virtualMachines API version 2018-06-01**
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
 
-   Om din `apiVersion` är `2017-12-01` och din virtuella dator har både system-och användarspecifika hanterade identiteter, tar du bort `SystemAssigned` från identitets typen och behåller `UserAssigned` tillsammans med `identityIds`-matrisen för de användare som tilldelats hanterade identiteter.  
+   Om `apiVersion` din `2017-12-01` är och din virtuella dator har både `SystemAssigned` system- och användartilldelade hanterade identiteter tar du bort från identitetstypen och håller `UserAssigned` sig tillsammans med matrisen `identityIds` för de användartilldelade hanterade identiteterna.  
 
-I följande exempel visas hur du tar bort en systemtilldelad hanterad identitet från en virtuell dator utan användare tilldelade hanterade identiteter:
+I följande exempel visas hur du tar bort en systemtilldelad hanterad identitet från en virtuell dator utan användartilldelade hanterade identiteter:
 
  ```JSON
  {
@@ -181,20 +181,20 @@ I följande exempel visas hur du tar bort en systemtilldelad hanterad identitet 
 
 ## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
-I det här avsnittet tilldelar du en användardefinierad hanterad identitet till en virtuell Azure-dator med hjälp av Azure Resource Manager mall.
+I det här avsnittet tilldelar du en användartilldelade hanterad identitet till en Azure VM med Azure Resource Manager-mallen.
 
 > [!Note]
-> Om du vill skapa en användardefinierad hanterad identitet med hjälp av en Azure Resource Manager mall, se [skapa en användardefinierad hanterad identitet](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
+> Information om hur du skapar en användartilldelad hanterad identitet med hjälp av en Azure Resource Manager-mall finns i [Skapa en användartilldelad hanterad identitet](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
-### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Tilldela en användardefinierad hanterad identitet till en virtuell Azure-dator
+### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Tilldela en användartilldelad hanterad identitet till en Virtuell Azure-dator
 
-För att tilldela en användardefinierad identitet till en virtuell dator måste ditt konto ha roll tilldelningarna [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) och [hanterad identitets operatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+Om du vill tilldela en användartilldelning till en virtuell dator behöver ditt konto [rolltilldelningarna för deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) och [hanterad identitetsoperatör.](/azure/role-based-access-control/built-in-roles#managed-identity-operator) Inga ytterligare Azure AD-katalogrolltilldelningar krävs.
 
-1. Under `resources`-elementet lägger du till följande post för att tilldela en användardefinierad hanterad identitet till den virtuella datorn.  Se till att ersätta `<USERASSIGNEDIDENTITY>` med namnet på den användare-tilldelade hanterade identitet som du har skapat.
+1. Lägg `resources` till följande post under elementet för att tilldela en användartilldelad hanterad identitet till den virtuella datorn.  Var noga `<USERASSIGNEDIDENTITY>` med att ersätta med namnet på den användartilldelade hanterade identitet som du skapade.
 
-   **Microsoft. Compute/virtualMachines API version 2018-06-01**
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
 
-   Om din `apiVersion` är `2018-06-01`lagras dina användares tilldelade hanterade identiteter i `userAssignedIdentities` ord listans format och `<USERASSIGNEDIDENTITYNAME>`-värdet måste lagras i en variabel som definierats i `variables`-avsnittet i mallen.
+   Om `apiVersion` det `2018-06-01`är lagras dina användartilldelade hanterade `userAssignedIdentities` identiteter `<USERASSIGNEDIDENTITYNAME>` i ordlisteformatet och `variables` värdet måste lagras i en variabel som definieras i avsnittet i mallen.
 
    ```JSON
     {
@@ -211,9 +211,9 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
     }
    ```
 
-   **Microsoft. Compute/virtualMachines API version 2017-12-01**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
-   Om din `apiVersion` är `2017-12-01`lagras dina användares tilldelade hanterade identiteter i `identityIds` matrisen och `<USERASSIGNEDIDENTITYNAME>`-värdet måste lagras i en variabel som definierats i `variables`-avsnittet i mallen.
+   Om `apiVersion` det `2017-12-01`är lagras dina användartilldelade hanterade `identityIds` identiteter `<USERASSIGNEDIDENTITYNAME>` i matrisen och värdet `variables` måste lagras i en variabel som definieras i avsnittet i mallen.
 
    ```JSON
    {
@@ -230,9 +230,9 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
    }
    ```
 
-3. När du är klar ska följande avsnitt läggas till i avsnittet `resource` i mallen och det bör likna följande:
+3. När du är klar bör följande avsnitt `resource` läggas till i avsnittet i mallen och det bör likna följande:
 
-   **Microsoft. Compute/virtualMachines API version 2018-06-01**    
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**    
 
    ```JSON
    "resources": [
@@ -270,7 +270,7 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
         }
     ]   
    ```
-   **Microsoft. Compute/virtualMachines API version 2017-12-01**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
    ```JSON
    "resources": [
@@ -310,15 +310,15 @@ För att tilldela en användardefinierad identitet till en virtuell dator måste
     ]
    ```
 
-### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Ta bort en användare som tilldelats en hanterad identitet från en virtuell Azure-dator
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Ta bort en användartilldelad hanterad identitet från en virtuell Azure-dator
 
-För att ta bort en tilldelad identitet från en virtuell dator måste ditt konto ha roll tilldelningen [virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) . Inga ytterligare roll tilldelningar för Azure AD-katalogen krävs.
+Om du vill ta bort en användartilldelningsidentitet från en virtuell dator behöver ditt konto rolltilldelningen för deltagare för [virtuell dator.](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) Inga ytterligare Azure AD-katalogrolltilldelningar krävs.
 
-1. Oavsett om du loggar in på Azure lokalt eller via Azure Portal använder du ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorn.
+1. Oavsett om du loggar in på Azure lokalt eller via Azure-portalen använder du ett konto som är associerat med Azure-prenumerationen som innehåller den virtuella datorn.
 
-2. Läs in mallen i ett [redigerings program](#azure-resource-manager-templates) och leta upp `Microsoft.Compute/virtualMachines` resurs av intresse i avsnittet `resources`. Om du har en virtuell dator som bara har användardefinierad hanterad identitet kan du inaktivera den genom att ändra identitets typen till `None`.
+2. Läs in mallen i `Microsoft.Compute/virtualMachines` en [redigerare](#azure-resource-manager-templates) och hitta den resurs som är av intresse i avsnittet. `resources` Om du har en virtuell dator som bara har användartilldelade hanterade identitet `None`kan du inaktivera den genom att ändra identitetstypen till .
 
-   I följande exempel visas hur du tar bort alla användare som tilldelats hanterade identiteter från en virtuell dator utan systemtilldelade hanterade identiteter:
+   I följande exempel visas hur du tar bort alla användartilldelade hanterade identiteter från en virtuell dator utan systemtilldelade hanterade identiteter:
 
    ```json
     {
@@ -332,18 +332,18 @@ För att ta bort en tilldelad identitet från en virtuell dator måste ditt kont
     }
    ```
 
-   **Microsoft. Compute/virtualMachines API version 2018-06-01**
+   **Microsoft.Compute/virtualMachines API version 2018-06-01**
 
-   Om du vill ta bort en enskild användare som tilldelats en hanterad identitet från en virtuell dator tar du bort den från ord listan `useraAssignedIdentities`.
+   Om du vill ta bort en enda användartilldelad `useraAssignedIdentities` hanterad identitet från en virtuell dator tar du bort den från ordlistan.
 
-   Om du har en systemtilldelad hanterad identitet behåller du den i `type` värdet under `identity` svärdet.
+   Om du har en systemtilldelad hanterad identitet `type` behåller `identity` du den i värdet under värdet.
 
-   **Microsoft. Compute/virtualMachines API version 2017-12-01**
+   **Microsoft.Compute/virtualMachines API version 2017-12-01**
 
-   Om du vill ta bort en enskild användare som tilldelats en hanterad identitet från en virtuell dator tar du bort den från `identityIds` matrisen.
+   Om du vill ta bort en enda användartilldelad `identityIds` hanterad identitet från en virtuell dator tar du bort den från matrisen.
 
-   Om du har en systemtilldelad hanterad identitet behåller du den i `type` värdet under `identity` svärdet.
+   Om du har en systemtilldelad hanterad identitet `type` behåller `identity` du den i värdet under värdet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över hanterade identiteter för Azure-resurser](overview.md).
+- [Hanterad identitet för Azure-resursöversikt](overview.md).

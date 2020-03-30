@@ -1,26 +1,26 @@
 ---
-title: Installera paket i Jupyter Notebooks – Azure Notebooks för hands version
-description: Lär dig hur du installerar python, R och F# paket i en Jupyter-anteckningsbok som körs på Azure.
+title: Installera paket i Jupyter-anteckningsböcker – förhandsversionen av Azure Notebooks
+description: Lär dig hur du installerar Python-, R- och F#-paket från en Jupyter-anteckningsbok som körs på Azure.
 ms.topic: how-to
 ms.date: 12/04/2018
 ms.openlocfilehash: f6359b4c010834ffaee00b6208d309997339f36e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646236"
 ---
-# <a name="install-packages-from-within-azure-notebooks-preview"></a>Installera paket inifrån Azure Notebooks för hands version
+# <a name="install-packages-from-within-azure-notebooks-preview"></a>Installera paket från förhandsversionen av Azure Notebooks
 
-Du kan konfigurera den [miljö för anteckningsboken vilken projektet](configure-manage-azure-notebooks-projects.md#configure-the-project-environment), kan du installera paket direkt i en enskild anteckningsbok.
+Även om du kan konfigurera [miljön för anteckningsboken på projektnivå](configure-manage-azure-notebooks-projects.md#configure-the-project-environment)kanske du vill installera paket direkt i en enskild anteckningsbok.
 
-Paket som installeras från anteckningsboken gäller endast för den aktuella serversessionen. Paketet är inte beständiga när servern stängs av.
+Paket som är installerade från anteckningsboken gäller endast för den aktuella serversessionen. Paketinstallationer sparas inte när servern har stängts av.
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
 ## <a name="python"></a>Python
 
-Paket i Python kan installeras med pip eller conda med hjälp av kommandon i kod celler:
+Paket i Python kan installeras med antingen pip eller conda med kommandon i kodceller:
 
 ```bash
 !pip install <package_name>
@@ -28,17 +28,17 @@ Paket i Python kan installeras med pip eller conda med hjälp av kommandon i kod
 !conda install <package_name> -y
 ```
 
-Om utdata från kommandot indikerar att kravet uppfylls redan och anteckningsböcker i Azure kan innehålla paketet som standard. Paketet kan också installeras via en [projekt miljö installationssteget](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
+Om kommandoutdata anger att kravet redan är uppfyllt kan Azure Notebooks inkludera paketet som standard. Paketet kan också installeras via ett [steg för projektmiljöinställningar](configure-manage-azure-notebooks-projects.md#configure-the-project-environment).
 
 ## <a name="r"></a>R
 
-Paket i R kan installeras från CRAN eller GitHub med hjälp av funktionen `install.packages` i en kod cell:
+Paket i R kan installeras från CRAN eller `install.packages` GitHub med hjälp av funktionen i en kodcell:
 
 ```r
 install.packages("package_name")
 ```
 
-Du kan också installera för hands versioner och andra utvecklings paket från GitHub med hjälp av devtools-biblioteket:
+Du kan också installera förhandsversioner och andra utvecklingspaket från GitHub med hjälp av devtools-biblioteket:
 
 ```r
 options(unzip = 'internal')
@@ -48,13 +48,13 @@ install_github('<user>/<repo>')
 
 ## <a name="f"></a>F#
 
--Paket i F# kan installeras från [nuget.org](https://www.nuget.org) genom att anropa Paket beroendet manager från inom kod celler. Läs först in hanteraren för Paket:
+Paket i F# kan installeras från [nuget.org](https://www.nuget.org) genom att anropa beroendehanteraren Paket inifrån kodceller. Läs först pakethanteraren:
 
 ```fsharp
 #load "Paket.fsx"
 ```
 
-Sedan installera paket:
+Installera sedan paket:
 
 ```fsharp
 Paket.Package
@@ -63,7 +63,7 @@ Paket.Package
   ]
 ```
 
-Läs sedan in paket Generator:
+Ladda sedan Paket-generatorn:
 ```fsharp
 #load "Paket.Generated.Refs.fsx"
 ```
@@ -75,5 +75,5 @@ open MathNet.Numerics
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här: konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Så här: presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
+- [Så här konfigurerar och hanterar du projekt](configure-manage-azure-notebooks-projects.md)
+- [Så här presenterar du ett bildspel](present-jupyter-notebooks-slideshow.md)

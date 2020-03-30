@@ -1,5 +1,5 @@
 ---
-title: Felsök problem med Azure VM RDP-anslutning efter händelse-ID | Microsoft Docs
+title: Felsöka anslutningsproblem för Azure VM-fjärrskrivbord efter händelse-ID | Microsoft-dokument
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,107 +15,107 @@ ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 166648402eec7f8033c090a3f7862a902bae4be6
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71154193"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Felsöka Azure VM RDP-anslutningsfel efter händelse-ID 
 
-Den här artikeln förklarar hur du använder händelse-ID: n för att felsöka problem som förhindrar en RDP-anslutning (Remote Desktop Protocol) till en virtuell Azure-dator (VM).
+I den här artikeln beskrivs hur du använder händelse-ID:n för att felsöka problem som förhindrar en RDP-anslutning (Remote Desktop Protocol) till en virtuell virtuell dator (Virtuell dator) för fjärrskrivbord.
 
 ## <a name="symptoms"></a>Symtom
 
-Du försöker använda en RDP-session (Remote Desktop Protocol) för att ansluta till en virtuell Azure-dator. När du har inmatat dina autentiseringsuppgifter, Miss lyckas anslutningen och du får följande fel meddelande:
+Du försöker använda en RDP-session (Remote Desktop Protocol) för att ansluta till en Virtuell Azure.You try to use a Remote Desktop Protocol (RDP) session to connect to an Azure VM. När du har angett dina autentiseringsuppgifter misslyckas anslutningen och följande felmeddelande visas:
 
-**Datorn kan inte ansluta till fjärrdatorn. Försök ansluta igen. om problemet kvarstår kan du kontakta ägaren till fjärrdatorn eller nätverks administratören.**
+**Den här datorn kan inte ansluta till fjärrdatorn. Försök ansluta igen, om problemet kvarstår, kontakta fjärrdatorns ägare eller nätverksadministratören.**
 
-Om du vill felsöka det här problemet granskar du händelse loggarna på den virtuella datorn och läser sedan följande scenarier.
+Om du vill felsöka problemet granskar du händelseloggarna på den virtuella datorn och refererar sedan till följande scenarier.
 
 ## <a name="before-you-troubleshoot"></a>Innan du felsöker
 
-### <a name="create-a-backup-snapshot"></a>Skapa en ögonblicks bild av säkerhets kopia
+### <a name="create-a-backup-snapshot"></a>Skapa en ögonblicksbild av säkerhetskopian
 
-Om du vill skapa en ögonblicks bild av säkerhets kopia följer du stegen i [ögonblicks bilder av en disk](../windows/snapshot-copy-managed-disk.md).
+Om du vill skapa en ögonblicksbild av säkerhetskopian följer du stegen i [Ögonblicksbild en disk](../windows/snapshot-copy-managed-disk.md).
 
-### <a name="connect-to-the-vm-remotely"></a>Fjärrans luta till den virtuella datorn
+### <a name="connect-to-the-vm-remotely"></a>Ansluta till den virtuella datorn på distans
 
-Om du vill ansluta till den virtuella datorn via fjärr anslutning använder du någon av metoderna i [hur du använder fjärrverktyg för att felsöka problem med virtuella Azure-datorer](remote-tools-troubleshoot-azure-vm-issues.md).
+Om du vill ansluta till den virtuella datorn på distans använder du någon av metoderna i [Hur du använder fjärrverktyg för att felsöka Azure VM-problem](remote-tools-troubleshoot-azure-vm-issues.md).
 
 ## <a name="scenario-1"></a>Scenario 1
 
 ### <a name="event-logs"></a>Händelseloggar
 
-I en CMD-instans kör du följande kommandon för att kontrol lera om händelse 1058 eller händelse 1057 loggas i system loggen under de senaste 24 timmarna:
+I en CMD-instans kör du följande kommandon för att kontrollera om händelse 1058 eller händelse 1057 är inloggad i systemloggen inom de senaste 24 timmarna:
 
 ```cmd
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1058 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Logg namn:**      System <br />
-**Källicensservern**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:** *tid* <br />
-**Händelse-ID:**      1058 <br />
-**Uppgifts kategori:** Inga <br />
-**Nivå**         Fel <br />
-**Reserverade**      Klassisk <br />
-**Användare:**          Gäller inte <br />
-**Dator:** *dator* <br />
-**Beskrivning:** Värd servern för FJÄRRSKRIVBORDSSESSION har inte kunnat ersätta det inaktuella självsignerade certifikatet som användes för värd serverns autentisering för FJÄRRSKRIVBORDSSESSION på SSL-anslutningar. Åtkomst till relevant status kod nekades.
+**Loggnamn:**      System <br />
+**Källa:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Datum:**          *tid* <br />
+**Händelse-ID:** 1058 <br />
+**Uppgiftskategori:** Ingen <br />
+**Nivå:**         Fel <br />
+**Nyckelord:**      Klassiska <br />
+**Användare:**          Ej mycket <br />
+**Dator:**      *dator* <br />
+**Beskrivning:** Värdservern för fjärrskrivbordssessionen kunde inte ersätta det självsignerade certifikat som har upphört att gälla för värdserver för fjärrskrivbordssession på SSL-anslutningar. Relevant statuskod nekades Access.
 
-**Logg namn:**      System <br />
-**Källicensservern**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:** *tid* <br />
-**Händelse-ID:**      1058 <br />
-**Uppgifts kategori:** Inga <br />
-**Nivå**         Fel <br />
-**Reserverade**      Klassisk <br />
-**Användare:**          Gäller inte <br />
-**Dator:** *dator* <br />
-**Beskrivning:** Det gick inte att skapa ett nytt självsignerat certifikat som ska användas för värd servern för fjärrskrivbordssession på SSL-anslutningar i värd servern för FJÄRRSKRIVBORDSSESSION. det finns redan ett objekt med relevant status kod.
+**Loggnamn:**      System <br />
+**Källa:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Datum:**          *tid* <br />
+**Händelse-ID:** 1058 <br />
+**Uppgiftskategori:** Ingen <br />
+**Nivå:**         Fel <br />
+**Nyckelord:**      Klassiska <br />
+**Användare:**          Ej mycket <br />
+**Dator:**      *dator* <br />
+**Beskrivning:** Värdservern för fjärrskrivbordssessionen har inte kunnat skapa ett nytt självsignerat certifikat som ska användas för värdserverautentisering för fjärrskrivbordssession på SSL-anslutningar, det finns redan relevant statuskod.
 
-**Logg namn:**      System <br />
-**Källicensservern**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
-**Datum:** *tid* <br />
-**Händelse-ID:**      1057 <br />
-**Uppgifts kategori:** Inga <br />
-**Nivå**         Fel <br />
-**Reserverade**      Klassisk <br />
-**Användare:**          Gäller inte <br />
-**Dator:** *dator* <br />
-**Beskrivning:** Värd servern för FJÄRRSKRIVBORDSSESSION kunde inte skapa ett nytt självsignerat certifikat som ska användas för autentisering av värd Server för fjärrskrivbordssession på SSL-anslutningar. Den relevanta status koden var nyckel uppsättning saknas
+**Loggnamn:**      System <br />
+**Källa:**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**Datum:**          *tid* <br />
+**Händelse-ID:** 1057 <br />
+**Uppgiftskategori:** Ingen <br />
+**Nivå:**         Fel <br />
+**Nyckelord:**      Klassiska <br />
+**Användare:**          Ej mycket <br />
+**Dator:**      *dator* <br />
+**Beskrivning:** Värdservern för fjärrskrivbordssessionen kunde inte skapa ett nytt självsignerat certifikat som ska användas för värdserverautentisering för fjärrskrivbordssession på SSL-anslutningar. Relevant statuskod var Keyset finns inte
 
-Du kan också söka efter SCHANNEL-felhändelser 36872 och 36870 genom att köra följande kommandon:
+Du kan också söka efter SCHANNEL-felhändelserna 36872 och 36870 genom att köra följande kommandon:
 
 ```cmd
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36870 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Logg namn:**      System <br />
-**Källicensservern**        Schannel <br />
-**Datum:** – <br />
-**Händelse-ID:**      36870 <br />
-**Uppgifts kategori:** Inga <br />
-**Nivå**         Fel <br />
-**Reserverade**       <br />
-**Användare:**          SYSTEM <br />
-**Dator:** *dator* <br />
-**Beskrivning:** Ett allvarligt fel uppstod vid försök att komma åt den privata nyckeln för SSL-serverns autentiseringsuppgifter. Den felkod som returnerades från den kryptografiska modulen är 0x8009030D.  <br />
-Det interna fel tillstånd är 10001.
+**Loggnamn:**      System <br />
+**Källa:**        Schannel <br />
+**Datum:** — <br />
+**Händelse-ID:** 36870 <br />
+**Uppgiftskategori:** Ingen <br />
+**Nivå:**         Fel <br />
+**Sökord:**       <br />
+**Användare:**          System <br />
+**Dator:**      *dator* <br />
+**Beskrivning:** Ett allvarligt fel uppstod när den privata nyckeln för SSL-serverautentiseringsautentisering skulle komma åt. Felkoden som returneras från den kryptografiska modulen är 0x8009030D.  <br />
+Det interna feltillståndet är 10001.
 
 ### <a name="cause"></a>Orsak
-Det här problemet beror på att lokala RSA-krypteringsnyckeln i mappen MachineKeys på den virtuella datorn inte kan nås. Det här problemet kan bero på någon av följande orsaker:
+Det hÃ¤r problemet uppstÃ¥r pÃ¥ grund av att de lokala RSA-krypteringsnycklarna i mappen MachineKeys pÃ¥ den virtuella datorn inte kan kommas åt. Det här problemet kan uppstå av något av följande skäl:
 
-1. Fel behörighets konfiguration för mappen MachineKeys eller RSA-filerna.
+1. Felaktig behörighetskonfiguration på mappen Machinekeys eller RSA-filerna.
 
-2. RSA-nyckeln är skadad eller saknas.
+2. Skadad eller saknad RSA-nyckel.
 
 ### <a name="resolution"></a>Lösning
 
-För att felsöka det här problemet måste du konfigurera rätt behörigheter på RDP-certifikatet med hjälp av dessa steg.
+Om du vill felsöka problemet måste du ställa in rätt behörigheter för RDP-certifikatet med hjälp av dessa steg.
 
 #### <a name="grant-permission-to-the-machinekeys-folder"></a>Bevilja behörighet till mappen MachineKeys
 
@@ -132,18 +132,18 @@ För att felsöka det här problemet måste du konfigurera rätt behörigheter p
    Restart-Service TermService -Force
    ```
 
-2.  Kör det här skriptet för att återställa behörigheterna för mappen MachineKey och återställa RSA-filerna till standardvärdena.
+2.  Kör skriptet om du vill återställa behörigheterna för MachineKey-mappen och återställa RSA-filerna till standardvärdena.
 
-3.  Försök att komma åt den virtuella datorn igen.
+3.  Försök komma åt den virtuella datorn igen.
 
-När du har kört skriptet kan du kontrol lera följande filer som har problem med behörigheten:
+När du har kört skriptet kan du kontrollera följande filer som har behörighetsproblem:
 
 * c:\temp\BeforeScript_permissions.txt
 * c:\temp\AfterScript_permissions.txt
 
-#### <a name="renew-rdp-self-signed-certificate"></a>Förnya självsignerat RDP-certifikat
+#### <a name="renew-rdp-self-signed-certificate"></a>Förnya RDP:s självsignerade certifikat
 
-Om problemet kvarstår kör du följande skript för att se till att det självsignerade RDP-certifikatet förnyas:
+Om problemet kvarstår kör du följande skript för att kontrollera att rdp-självsignerade certifikatet förnyas:
 
 ```powershell
 Import-Module PKI
@@ -154,17 +154,17 @@ Stop-Service -Name "SessionEnv"
 Start-Service -Name "SessionEnv"
 ```
 
-Om du inte kan förnya certifikatet följer du dessa steg för att försöka ta bort certifikatet:
+Om du inte kan förnya certifikatet gör du så här för att försöka ta bort certifikatet:
 
-1. Öppna rutan **Kör** på en annan virtuell dator i samma VNet, Skriv **MMC**och tryck sedan på **OK**. 
+1. Öppna rutan **Kör** på en annan virtuell dator i samma virtuella nätverk, skriv **mmc**och tryck sedan på **OK**. 
 
-2. På **Arkiv** -menyn väljer du **Lägg till/ta bort snapin-modul**.
+2. Välj **Lägg till/ta bort snapin-modulen på Arkiv-menyn**. **File**
 
-3. I listan **Tillgängliga snapin-moduler** väljer du **certifikat**och väljer sedan **Lägg till**.
+3. I listan **Tillgängliga snapin-moduler** väljer du **Certifikat**och väljer sedan **Lägg till**.
 
-4. Välj **dator konto**och välj sedan **Nästa**.
+4. Välj **Datorkonto**och välj sedan **Nästa**.
 
-5. Välj **en annan dator**och Lägg sedan till IP-adressen för den virtuella dator som har problem.
+5. Välj **En annan dator**och lägg sedan till IP-adressen för den virtuella datorn som har problem.
    >[!Note]
    >Försök att använda det interna nätverket för att undvika att använda en virtuell IP-adress.
 
@@ -172,9 +172,9 @@ Om du inte kan förnya certifikatet följer du dessa steg för att försöka ta 
 
    ![Välj dator](./media/event-id-troubleshoot-vm-rdp-connecton/select-computer.png)
 
-7. Expandera certifikaten, gå till mappen fjärr Desktop\Certificates, högerklicka på certifikatet och välj sedan **ta bort**.
+7. Expandera certifikaten, gå till mappen Fjärrskrivbord\Certifikat, högerklicka på certifikatet och välj sedan **Ta bort**.
 
-8. Starta om tjänsten konfiguration av fjärr skrivbord:
+8. Starta om konfigurationstjänsten för fjärrskrivbord:
 
    ```cmd
    net stop SessionEnv
@@ -182,19 +182,19 @@ Om du inte kan förnya certifikatet följer du dessa steg för att försöka ta 
    ```
 
    >[!Note]
-   >I det här läget visas certifikatet igen om du uppdaterar butiken från MMC. 
+   >Om du uppdaterar arkivet från MMC visas certifikatet igen. 
 
-Försök att komma åt den virtuella datorn med hjälp av RDP igen.
+Försök komma åt den virtuella datorn med hjälp av RDP igen.
 
-#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Uppdatera Secure Sockets Layer (SSL)-certifikat
+#### <a name="update-secure-sockets-layer-ssl-certificate"></a>Uppdatera SSL-certifikat (Secure Sockets Layer)
 
-Om du konfigurerar den virtuella datorn så att den använder ett SSL-certifikat kör du följande kommando för att hämta tumavtrycket. Kontrol lera sedan om det är detsamma som certifikatets tumavtryck:
+Om du konfigurerar den virtuella datorn så att det använder ett SSL-certifikat kör du följande kommando för att hämta tumavtrycket. Kontrollera sedan om det är samma som certifikatets tumavtryck:
 
 ```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash
 ```
 
-Om den inte är det ändrar du tumavtrycket:
+Om så inte är fallet ändrar du tumavtrycket:
 
 ```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp" /v SSLCertificateSHA1Hash /t REG_BINARY /d <CERTIFICATE THUMBPRINT>
@@ -208,95 +208,95 @@ reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RD
 
 ## <a name="scenario-2"></a>Scenario 2
 
-### <a name="event-log"></a>Händelse logg
+### <a name="event-log"></a>Händelseloggen
 
-I en CMD-instans kör du följande kommandon för att kontrol lera om SCHANNEL-felhändelse 36871 är inloggad i system loggen under de senaste 24 timmarna:
+I en CMD-instans kör du följande kommandon för att kontrollera om SCHANNEL-felhändelsen 36871 är inloggad i systemloggen inom de senaste 24 timmarna:
 
 ```cmd
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Logg namn:**      System <br />
-**Källicensservern**        Schannel <br />
-**Datum:** – <br />
-**Händelse-ID:**      36871 <br />
-**Uppgifts kategori:** Inga <br />
-**Nivå**         Fel <br />
-**Reserverade**       <br />
-**Användare:**          SYSTEM <br />
-**Dator:** *dator* <br />
-**Beskrivning:** Ett allvarligt fel inträffade när en TLS-serverns autentiseringsuppgifter skulle skapas. Det interna fel tillstånd är 10013.
+**Loggnamn:**      System <br />
+**Källa:**        Schannel <br />
+**Datum:** — <br />
+**Händelse-ID:** 36871 <br />
+**Uppgiftskategori:** Ingen <br />
+**Nivå:**         Fel <br />
+**Sökord:**       <br />
+**Användare:**          System <br />
+**Dator:**      *dator* <br />
+**Beskrivning:** Ett allvarligt fel uppstod när en TLS-serverautentiseringsautentisering skulle skapas. Det interna feltillståndet är 10013.
  
 ### <a name="cause"></a>Orsak
 
-Det här problemet orsakas av säkerhets principer. När äldre versioner av TLS (till exempel 1,0) är inaktiverade, Miss lyckas RDP-åtkomst.
+Det här problemet orsakas av säkerhetsprinciper. När äldre versioner av TLS (till exempel 1.0) är inaktiverade misslyckas RDP-åtkomsten.
 
 ### <a name="resolution"></a>Lösning
 
-RDP använder TLS 1,0 som standard protokoll. Protokollet kan dock ändras till TLS 1,1, som är den nya standarden.
+RDP använder TLS 1.0 som standardprotokoll. Protokollet kan dock ändras till TLS 1.1, vilket är den nya standarden.
 
-Information om hur du felsöker det här problemet finns i [Felsöka autentiseringsfel när du använder RDP för att ansluta till den virtuella Azure-datorn](troubleshoot-authentication-error-rdp-vm.md#tls-version).
+Information om felsökning av problemet finns [i Felsöka autentiseringsfel när du använder RDP för att ansluta till Azure VM](troubleshoot-authentication-error-rdp-vm.md#tls-version).
 
 ## <a name="scenario-3"></a>Scenario 3
 
-Om du har installerat **anslutning till fjärrskrivbord Broker** -rollen på den virtuella datorn kontrollerar du om det finns händelse 2056 eller event 1296 under de senaste 24 timmarna. Kör följande kommandon i en CMD-instans: 
+Om du har installerat rollen **Anslutningsutjämning för fjärrskrivbord** på den virtuella datorn kontrollerar du om det finns händelse 2056 eller händelse 1296 under de senaste 24 timmarna. I en CMD-instans kör du följande kommandon: 
 
 ```cmd
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker '] and EventID=2056 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**Logg namn:**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
-**Källicensservern**        Microsoft-Windows-TerminalServices-SessionBroker <br />
-**Datum:** *tid* <br />
-**Händelse-ID:**      2056 <br />
-**Uppgifts kategori:** (109) <br />
-**Nivå**         Fel <br />
-**Reserverade**       <br />
-**Användare:**          NÄTVERKS TJÄNST <br />
-**Dator:** *datorns FQDN* <br />
-**Beskrivning:** Det går inte att hitta beskrivningen för händelse-ID 2056 från källan Microsoft-Windows-TerminalServices-SessionBroker. Antingen är komponenten som aktiverar den här händelsen inte installerad på den lokala datorn eller så är installationen skadad. Du kan installera eller reparera komponenten på den lokala datorn. <br />
-Om händelsen kommer från en annan dator, var visnings informationen Sparad med händelsen. <br />
-Följande information inkluderades i händelsen: <br />
+**Loggnamn:**      Microsoft-Windows-TerminalServices-SessionBroker/Drift <br />
+**Källa:**        Microsoft-Windows-TerminalServices-SessionBroker <br />
+**Datum:**          *tid* <br />
+**Händelse-ID:** 2056 <br />
+**Uppgiftskategori:** (109) <br />
+**Nivå:**         Fel <br />
+**Sökord:**       <br />
+**Användare:**          NÄTTJÄNST <br />
+**Dator:**      *dator fqdn* <br />
+**Beskrivning:** Det går inte att hitta beskrivningen för händelse-ID 2056 från källan Microsoft-Windows-TerminalServices-SessionBroker. Antingen är komponenten som väcker den här händelsen inte installerad på den lokala datorn eller så är installationen skadad. Du kan installera eller reparera komponenten på den lokala datorn. <br />
+Om händelsen har sitt ursprung på en annan dator måste visningsinformationen sparas med händelsen. <br />
+Följande information ingick i händelsen: <br />
 NULL <br />
 NULL <br />
-Det gick inte att logga in på databasen.
+Inloggningen till databasen misslyckades.
 
-**Logg namn:**      Microsoft-Windows-TerminalServices-SessionBroker-client/Operational <br />
-**Källicensservern**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
-**Datum:** *tid* <br />
-**Händelse-ID:**      1296 <br />
-**Uppgifts kategori:** (104) <br />
-**Nivå**         Fel <br />
-**Reserverade**       <br />
-**Användare:**          NÄTVERKS TJÄNST <br />
-**Dator:** *datorns FQDN* <br />
-**Beskrivning:** Det går inte att hitta beskrivningen för händelse-ID 1296 från källan Microsoft-Windows-TerminalServices-SessionBroker-client. Antingen är komponenten som aktiverar den här händelsen inte installerad på den lokala datorn eller så är installationen skadad. Du kan installera eller reparera komponenten på den lokala datorn.
-Om händelsen kommer från en annan dator, var visnings informationen Sparad med händelsen.
-Följande information inkluderades i händelsen:  <br />
+**Loggnamn:**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
+**Källa:**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**Datum:**          *tid* <br />
+**Händelse-ID:** 1296 <br />
+**Uppgiftskategori:** (104) <br />
+**Nivå:**         Fel <br />
+**Sökord:**       <br />
+**Användare:**          NÄTTJÄNST <br />
+**Dator:**      *dator fqdn* <br />
+**Beskrivning:** Det går inte att hitta beskrivningen för händelse-ID 1296 från källan Microsoft-Windows-TerminalServices-SessionBroker-Client. Antingen är komponenten som väcker den här händelsen inte installerad på den lokala datorn eller så är installationen skadad. Du kan installera eller reparera komponenten på den lokala datorn.
+Om händelsen har sitt ursprung på en annan dator måste visningsinformationen sparas med händelsen.
+Följande information ingick i händelsen:  <br />
 *text* <br />
 *text* <br />
-Anslutning till fjärrskrivbord Broker är inte klar för RPC-kommunikation.
+Anslutningsutjämning för fjärrskrivbord är inte redo för RPC-kommunikation.
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet beror på att värd namnet för Anslutning till fjärrskrivbord Broker-servern ändras, vilket inte är en ändring som stöds. 
+Det här problemet beror på att värdnamnet för servern för anslutningsutjämning för fjärrskrivbord ändras, vilket inte är en ändring som stöds. 
 
-Värd namnet har poster och beroenden i den interna Windows-databasen, vilket krävs av Server grupp för fjärr skrivbord för att kunna fungera. Att ändra värdnamn efter att Server gruppen redan har skapats orsakar många fel och kan orsaka att Broker-servern slutar fungera.
+Värdnamnet har poster och beroenden i Windows interna databas, vilket krävs av Remote Desktop Service-servergruppen för att kunna fungera. Om du ändrar värdnamnet efter att servergruppen redan har skapats orsakas många fel och det kan leda till att mäklarservern slutar fungera.
 
 ### <a name="resolution"></a>Lösning 
 
-För att åtgärda det här problemet måste Anslutning till fjärrskrivbord Broker-rollen och den interna Windows-databasen installeras om.
+För att åtgärda problemet måste rollen Anslutningsutjämning för fjärrskrivbord och den interna windowsdatabasen installeras om.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-[Schannel-händelser](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
+[Schannel Händelser](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
 
-[Teknisk översikt över Schannel SSP](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx)
+[Teknisk översikt av SSP med säker kanal](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx)
 
-[RDP Miss lyckas med händelse-ID 1058 & händelse 36870 med värd certifikat för fjärrskrivbordssession & SSL-kommunikation](https://blogs.technet.microsoft.com/askperf/2014/10/22/rdp-fails-with-event-id-1058-event-36870-with-remote-desktop-session-host-certificate-ssl-communication/)
+[RDP misslyckas med händelse-ID 1058 & Händelse 36870 med värdcertifikat för fjärrskrivbordssession & SSL-kommunikation](https://blogs.technet.microsoft.com/askperf/2014/10/22/rdp-fails-with-event-id-1058-event-36870-with-remote-desktop-session-host-certificate-ssl-communication/)
 
 [Schannel 36872 eller Schannel 36870 på en domänkontrollant](https://blogs.technet.microsoft.com/instan/2009/01/05/schannel-36872-or-schannel-36870-on-a-domain-controller/)
 
-[Händelse-ID 1058 – Fjärrskrivbordstjänster autentisering och kryptering](https://technet.microsoft.com/library/ee890862(v=ws.10).aspx)
+[Händelse-ID 1058 – Autentisering och kryptering av fjärrskrivbordstjänster](https://technet.microsoft.com/library/ee890862(v=ws.10).aspx)
 

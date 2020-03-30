@@ -1,39 +1,39 @@
 ---
 title: Vad är Azure-tillgänglighetszoner?
-description: Om du vill skapa hög tillgängliga och elastiska program i Azure kan Tillgänglighetszoner tillhandahålla fysiskt åtskilda platser som du kan använda för att köra dina resurser.
+description: För att skapa högtillgängliga och elastiska program i Azure tillhandahåller tillgänglighetszoner fysiskt separata platser som du kan använda för att köra dina resurser.
 author: cynthn
 ms.service: azure
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: c9f4a418ac05b2618b4641c857e182e73c35d34c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.custom: fasttrack-edit, mvc
+ms.openlocfilehash: 9f1b0f1885019c75252a4c5b8333f342660fac0c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79253473"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80057270"
 ---
-# <a name="what-are-availability-zones-in-azure"></a>Vad är Tillgänglighetszoner i Azure?
-Tillgänglighetszoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zoner – redundanta tjänster replikerar dina program och data över Tillgänglighetszoner för att skydda från enskilda platser. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
+# <a name="what-are-availability-zones-in-azure"></a>Vad är tillgänglighetszoner i Azure?
+Tillgänglighetszoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från datacenterfel. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. För att säkerställa återhämtning finns det minst tre separata zoner i alla aktiverade regioner. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zonuppsagda tjänster replikerar dina program och data över tillgänglighetszoner för att skydda mot enstaka felpunkter. Med tillgänglighetszonerna kan Azure erbjuda branschens bästa serviceavtal med en drifttid på 99,99 % för virtuella datorer. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
 
 En tillgänglighetszon i en Azure-region är en kombination av en feldomän och en uppdateringsdomän. Om du skapar tre eller flera virtuella datorer över tre zoner i en Azure-region distribueras i praktiken dina virtuella datorer mellan tre feldomäner och tre uppdateringsdomäner. Azure-plattformen identifierar den här distributionen mellan uppdateringsdomänerna så att inte virtuella datorer i olika zoner uppdateras på samma gång.
 
-Bygg hög tillgänglighet i din program arkitektur genom att samplacera din beräkning, lagring, nätverk och data resurser inom en zon och replikera i andra zoner. Azure-tjänster som stöder Tillgänglighetszoner delas in i två kategorier:
+Skapa hög tillgänglighet i programarkitekturen genom att samlokalisera dina beräknings-, lagrings-, nätverks- och dataresurser inom en zon och replikera i andra zoner. Azure-tjänster som har stöd för tillgänglighetszoner är indelade i två kategorier:
 
-- **Zonindelade Services** – du fäster resursen till en speciell zon (till exempel virtuella datorer, hanterade diskar, standard-IP-adresser) eller
-- **Zoner – redundanta tjänster** – plattform replikeras automatiskt mellan zoner (till exempel zon redundant lagring, SQL Database).
+- **Zontjänster** – du fäster resursen på en viss zon (till exempel virtuella datorer, hanterade diskar, standard-IP-adresser) eller
+- **Zonredundanta tjänster** – plattformen replikeras automatiskt mellan zoner (till exempel zonredundant lagring, SQL-databas).
 
-För att uppnå omfattande affärs kontinuitet i Azure kan du bygga din program arkitektur genom att kombinera Tillgänglighetszoner med Azures region par. Du kan synkront replikera dina program och data med hjälp av Tillgänglighetszoner inom en Azure-region för hög tillgänglighet och asynkront replikera över Azure-regioner för haveri beredskaps skydd.
+Skapa programarkitekturen med hjälp av kombinationen tillgänglighetszoner med Azure-regionpar för att uppnå omfattande affärskontinuitet på Azure. Du kan synkronisera replikera dina program och data med hjälp av tillgänglighetszoner i en Azure-region för hög tillgänglighet och asynkront replikera över Azure-regioner för skydd av katastrofåterställning.
  
-![Konceptuell visning av en zon i en region](./media/az-overview/az-graphic-two.png)
+![konceptuell bild av en zon som går ner i en region](./media/az-overview/az-graphic-two.png)
 
 > [!IMPORTANT]
-> Tillgänglighets zon identifierarna (talen 1, 2 och 3 i bilden ovan) mappas logiskt till de faktiska fysiska zonerna för varje prenumeration oberoende av varandra. Det innebär att tillgänglighets Zon 1 i en specifik prenumeration kan referera till en annan fysisk zon än tillgänglighets Zon 1 i en annan prenumeration. Därför rekommenderar vi att du inte förlitar sig på tillgänglighets zon-ID: n mellan olika prenumerationer för virtuell dator placering.
+> Identifierare för tillgänglighetszon (siffrorna 1, 2 och 3 i bilden ovan) mappas logiskt till de faktiska fysiska zonerna för varje prenumeration oberoende av varandra. Det innebär att tillgänglighetszon 1 i en viss prenumeration kan referera till en annan fysisk zon än tillgänglighetszon 1 i en annan prenumeration. Därför rekommenderas att du inte förlitar sig på tillgänglighetszon-ID:er för olika prenumerationer för placering av virtuella datorer.
 
-## <a name="services-support-by-region"></a>Support tjänster per region
+## <a name="services-support-by-region"></a>Stöd till tjänster per region
 
-De kombinationer av Azure-tjänster och regioner som stöder Tillgänglighetszoner är:
+Kombinationerna av Azure-tjänster och regioner som stöder tillgänglighetszoner är:
 
 
 |                                 |Nord- och Sydamerika |              |           |           | Europa |              |          |              | Asien och stillahavsområdet |                 |
@@ -43,53 +43,53 @@ De kombinationer av Azure-tjänster och regioner som stöder Tillgänglighetszon
 | Virtuella Linux-datorer          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Virtuella Windows-datorer        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Skalningsuppsättningar för Virtual Machines      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
-| Azure App Service miljöer ILB | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Azure App Service-miljöer ILB | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Azure Kubernetes Service        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
-| **Storage**   |            |              |           |           |                |              |          |             |            |                |
+| **Lagring**   |            |              |           |           |                |              |          |             |            |                |
 | Managed Disks                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
-| Zon-redundant lagring          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Zonupptant lagring          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | **Nätverk**                     |            |              |           |           |                |              |          |             |            |                |
 | Standard-IP-adress        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
-| Standard Load Balancer     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
+| Standard belastningsutjämnare     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | VPN Gateway            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
-| ExpressRoute-Gateway   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
-| Application Gateway (v2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
+| ExpressRoute-gateway   | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
+| Programgateway(V2)    | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |
 | Azure Firewall           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
 | **Databaser**                     |            |              |           |           |                |              |          |             |            |                |
 | Azure-datautforskaren                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;        | &#10003;       |
-| SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;Förhandsgranskningsvyn      | &#10003;       |
+| SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003; (förhandsgranskning)      | &#10003;       |
 | Azure Cache for Redis           | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |  &#10003;       | &#10003;       |
 | Azure Cosmos DB                    | &#10003;   |  &#10003;  |  &#10003; | &#10003; |       |     | &#10003; |  &#10003;   |            | &#10003;       |
 | **Analys**                       |            |              |           |           |                |              |          |             |            |                |
-| Event Hubs                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |
-| **Samordning**                     |            |              |           |           |                |              |          |             |            |                |
-| Service Bus (endast Premium-nivå) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
+| Händelsehubbar                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |
+| **Integration**                     |            |              |           |           |                |              |          |             |            |                |
+| Servicebuss (endast Premium-nivå) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 | Event Grid | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 | **Identitet**                     |            |              |           |           |                |              |          |             |            |                |
 | Azure AD Domain Services | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |
 
-## <a name="services-resiliency"></a>Tjänste återhämtning
-Alla Azures hanterings tjänster är utformad för att vara elastiska från problem på regions nivå. I spektrumet av problem har en eller flera tillgänglighets zon problem inom en region en mindre felradie jämfört med ett hela regions haveri. Azure kan återställas från ett fel i hanterings tjänster på zon nivå i regionen eller från en annan Azure-region. Azure utför kritiska underhåll en zon i taget inom en region, för att förhindra att eventuella problem påverkar kund resurser som distribueras i Tillgänglighetszoner inom en region.
+## <a name="services-resiliency"></a>Tjänsternas återhämtningsförmåga
+Alla Azure-hanteringstjänster är skapade för att vara motståndskraftiga mot fel på regionnivå. I spektrumet av fel har ett eller flera tillgänglighetszonfel i en region en mindre felradie jämfört med ett helt regionfel. Azure kan återställas från ett fel på zonnivå för hanteringstjänster inom regionen eller från en annan Azure-region. Azure utför kritiskt underhåll en zon i taget inom en region, för att förhindra eventuella fel som påverkar kundresurser som distribueras över tillgänglighetszoner inom en region.
 
-## <a name="pricing"></a>Priser
-Det kostar ingen ytterligare kostnad för virtuella datorer som distribueras i en tillgänglighets zon. service nivå avtal för 99,99% VM-drift tid erbjuds när två eller flera virtuella datorer distribueras över två eller fler Tillgänglighetszoner inom en Azure-region. Det kommer att finnas ytterligare avgifter för VM-till-VM-dataöverföringar mellan olika tillgänglighets zoner. Mer information finns på [prissättnings](https://azure.microsoft.com/pricing/details/bandwidth/) sidan för bandbredd.
+## <a name="pricing"></a>Prissättning
+Det finns ingen extra kostnad för virtuella datorer som distribueras i en tillgänglighetszon. 99,99% VM uptime SLA erbjuds när två eller flera virtuella datorer distribueras över två eller flera tillgänglighetszoner inom en Azure-region. Det kommer att finnas ytterligare avgifter för vm-till-VM-dataöverföring mellan tillgänglighetszoner. Mer information finns på [prissidan för bandbredd.](https://azure.microsoft.com/pricing/details/bandwidth/)
 
 
-## <a name="get-started-with-availability-zones"></a>Kom igång med Tillgänglighetszoner
+## <a name="get-started-with-availability-zones"></a>Komma igång med tillgänglighetszoner
 - [Skapa en virtuell dator](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Lägga till en hanterad disk med PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
-- [Skapa en virtuell dators skalnings uppsättning för redundant virtuell dator](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Belastningsutjämna virtuella datorer över zoner med hjälp av en Standard Load Balancer med en zon redundant klient del](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Belastningsutjämna virtuella datorer inom en zon med hjälp av en Standard Load Balancer med en zonindelade-frontend](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [Skapa en zon redundant skalningsuppsättning för virtuella datorer](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
+- [Virtuella datorer för belastningsutjämning mellan zoner med hjälp av en standardbelastningsutjämnare med en zon redundant frontend](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [Virtuella datorer för belastningsutjämning inom en zon med hjälp av en standardbelastningsutdelningshanterare med en zonindel frontend](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zonredundant lagring](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Geohaveriberedskap för Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Geohaveriberedskap för Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Skapa en zonredundant virtuell nätverksgateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
-- [Lägg till redundant region i zonen för Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
-- [Komma igång Azure cache för Redis Tillgänglighetszoner](https://aka.ms/redis/az/getstarted)
+- [Lägga till zon redundant region för Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)
+- [Komma igång Azure Cache för Redis tillgänglighetszoner](https://aka.ms/redis/az/getstarted)
 - [Skapa en Azure Active Directory Domain Services-instans](../active-directory-domain-services/tutorial-create-instance.md)
-- [Skapa ett Azure Kubernetes service-kluster (AKS) som använder Tillgänglighetszoner](../aks/availability-zones.md)
+- [Skapa ett AKS-kluster (Azure Kubernetes Service) som använder tillgänglighetszoner](../aks/availability-zones.md)
 
 ## <a name="next-steps"></a>Nästa steg
 - [Snabbstartsmallar](https://aka.ms/azqs)

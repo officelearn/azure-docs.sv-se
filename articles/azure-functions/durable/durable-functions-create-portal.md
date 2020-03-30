@@ -1,46 +1,46 @@
 ---
-title: Skapa Durable Functions med hjälp av Azure Portal
-description: Lär dig hur du installerar Durable Functions-tillägget för Azure Functions för Portal utveckling.
+title: Skapa varaktiga funktioner med Azure-portalen
+description: Lär dig hur du installerar tillägget Varaktiga funktioner för Azure Functions för portalutveckling.
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: azfuncdf
 ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75769650"
 ---
-# <a name="create-durable-functions-using-the-azure-portal"></a>Skapa Durable Functions med hjälp av Azure Portal
+# <a name="create-durable-functions-using-the-azure-portal"></a>Skapa varaktiga funktioner med Azure-portalen
 
-[Durable Functions](durable-functions-overview.md) -tillägget för Azure Functions anges i NuGet-paketet [Microsoft. Azure. WebJobs. Extensions. DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Tillägget måste vara installerat i din Function-app. Den här artikeln visar hur du installerar det här paketet så att du kan utveckla varaktiga funktioner i Azure Portal.
+Tillägget [Varaktiga funktioner](durable-functions-overview.md) för Azure-funktioner finns i NuGet-paketet [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Det här tillägget måste vara installerat i funktionsappen. Den här artikeln visar hur du installerar det här paketet så att du kan utveckla varaktiga funktioner i Azure-portalen.
 
 > [!NOTE]
 > 
-> * Om du utvecklar varaktiga funktioner i C#bör du i stället överväga att [utveckla Visual Studio 2019](durable-functions-create-first-csharp.md).
-> * Om du utvecklar varaktiga funktioner i Java Script bör du i stället överväga [Visual Studio Code Development](./quickstart-js-vscode.md).
+> * Om du utvecklar hållbara funktioner i C#, bör du istället överväga [Visual Studio 2019 utveckling](durable-functions-create-first-csharp.md).
+> * Om du utvecklar hållbara funktioner i JavaScript bör du i stället överväga utveckling av [Visual Studio-kod](./quickstart-js-vscode.md).
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-Du måste ha en Function-app som är värd för körningen av en funktion. Med en Function-app kan du gruppera dina funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser. Du kan skapa en .NET-eller JavaScript-app.
+Du måste ha en funktionsapp för att vara värd för körningen av alla funktioner. Med en funktionsapp kan du gruppera dina funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser. Du kan skapa en .NET- eller JavaScript-app.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-Som standard använder Function-appen version 2. x av Azure Functions Runtime. Durable Functions-tillägget fungerar både i version 1. x och 2. x i Azure Functions runtime i C#, och version 2. x i Java Script. Men mallarna är bara tillgängliga när du riktar in dig på version 2. x av körnings miljön, oavsett vilket språk som valts.
+Som standard använder funktionsappen som skapats version 2.x av Azure Functions runtime. Tillägget Varaktiga funktioner fungerar på båda versionerna 1.x och 2.x av Azure Functions-körningen i C#och version 2.x i JavaScript. Mallar är dock bara tillgängliga när du inriktar dig på version 2.x av körningen oavsett vilket språk som valts.
 
-## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Installera NPM-paketet bestående av funktioner (endast java script)
+## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Installera npm-paketet med varaktiga funktioner (endast JavaScript)
 
-Om du skapar ett JavaScript-Durable Functions måste du installera [`durable-functions` NPM-paketet](https://www.npmjs.com/package/durable-functions).
+Om du skapar JavaScript Durable Functions måste du installera [ `durable-functions` npm-paketet](https://www.npmjs.com/package/durable-functions).
 
-1. Välj appens funktions namn, följt av **plattforms funktioner**, och sedan **Avancerade verktyg (kudu)** .
+1. Välj namnet på funktionsappen, följt av **plattformsfunktioner**och sedan **avancerade verktyg (Kudu).**
 
-   ![Funktions plattforms funktioner Välj kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+   ![Funktioner plattform funktioner välja Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
 
-2. I kudu-konsolen väljer du **Felsök konsol** och sedan **cmd**.
+2. Inuti Kudu-konsolen väljer du **Felsökningskonsol** och sedan **CMD**.
 
-   ![Kudu fel söknings konsol](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+   ![Kudu felsökningskonsol](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
 
-3. Din funktions programmets fil katalog struktur bör visas. Gå till mappen `site/wwwroot`. Därifrån kan du ladda upp en `package.json`-fil genom att dra och släppa den i fönstret fil katalog. Ett exempel `package.json` är nedan:
+3. Funktionsappens filkatalogstruktur ska visas. Gå till mappen `site/wwwroot`. Därifrån kan du `package.json` ladda upp en fil genom att dra och släppa den i filkatalogfönstret. Ett `package.json` prov finns nedan:
 
     ```json
     {
@@ -50,15 +50,15 @@ Om du skapar ett JavaScript-Durable Functions måste du installera [`durable-fun
     }
     ```
 
-   ![Kudu upload Package. JSON](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+   ![Kudu ladda upp package.json](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
 
-4. När `package.json` har överförts kör du kommandot `npm install` från konsolen för fjärrkörning av kudu.
+4. När `package.json` du har laddat `npm install` upp kör du kommandot från Kudu Remote Execution Console.
 
-   ![Kudu kör NPM-installation](./media/durable-functions-create-portal/kudu-npm-install.png)
+   ![Kudu kör npm installera](./media/durable-functions-create-portal/kudu-npm-install.png)
 
-## <a name="create-an-orchestrator-function"></a>Skapa en Orchestrator-funktion
+## <a name="create-an-orchestrator-function"></a>Skapa en orchestrator-funktion
 
-1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
+1. Expandera funktionsappen **+** och klicka på knappen bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
 
    ![Sidan snabbstart för funktioner i Azure Portal](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
@@ -66,29 +66,29 @@ Om du skapar ett JavaScript-Durable Functions måste du installera [`durable-fun
 
     ![Functions-snabbstart, välj fler mallar](./media/durable-functions-create-portal/add-first-function.png)
 
-1. Skriv `durable` i Sök fältet och välj sedan **Durable Functions http** startmall.
+1. Skriv och välj `durable` httpstartmallen för varaktiga funktioner i sökfältet och välj sedan **http-startmallen För varaktiga funktioner.**
 
-1. När du uppmanas väljer du **Installera** för att installera Azure DurableTask-tillägget och eventuella beroenden i Function-appen. Du behöver bara installera tillägget en gång för en given funktionsapp. När installationen är klar väljer du **Fortsätt**.
+1. När du uppmanas till det väljer du **Installera** för att installera Azure DurableTask-tillägget och eventuella beroenden i funktionsappen. Du behöver bara installera tillägget en gång för en given funktionsapp. När installationen är klar väljer du **Fortsätt**.
 
     ![Installera bindningstillägg](./media/durable-functions-create-portal/install-durabletask-extension.png)
 
-1. När installationen är klar namnger du den nya funktionen `HttpStart` och väljer **skapa**. Funktionen som skapas används för att starta dirigeringen.
+1. När installationen är klar namnger `HttpStart` du den nya funktionen och väljer **Skapa**. Funktionen som skapas används för att starta orkestreringen.
 
-1. Skapa en annan funktion i Function-appen, den här gången med hjälp av **Durable Functions Orchestrator** -mallen. Ge den nya Orchestration-funktionen `HelloSequence`.
+1. Skapa en annan funktion i funktionsappen, den här gången med hjälp av mallen **Varaktiga funktioner Orchestrator.** Ge den nya `HelloSequence`orkestreringsfunktionen ett namn .
 
-1. Skapa en tredje funktion med namnet `Hello` med hjälp av mallen **Durable Functions aktivitet** .
+1. Skapa en tredje `Hello` funktion med namnet med hjälp av mallen **Aktivitet för varaktiga funktioner.**
 
-## <a name="test-the-durable-function-orchestration"></a>Testa den varaktiga funktions dirigeringen
+## <a name="test-the-durable-function-orchestration"></a>Testa den hållbara funktionen orkestrering
 
-1. Gå tillbaka till funktionen **HttpStart** , Välj **</> Hämta funktions webb adress** och **Kopiera** URL: en. Du kan använda den här URL: en för att starta funktionen **HelloSequence** .
+1. Gå tillbaka till **httpstart-funktionen,** välj **</> Hämta funktions-URL:en** och **Kopiera** webbadressen. Du använder den här URL:en för att starta **HelloSequence-funktionen.**
 
-1. Använd ett HTTP-verktyg som Postman eller sväng för att skicka en POST-begäran till den URL som du kopierade. Följande exempel är ett spiral kommando som skickar en POST-begäran till den varaktiga funktionen:
+1. Använd ett HTTP-verktyg som Postman eller cURL för att skicka en POST-begäran till webbadressen som du kopierade. Följande exempel är ett cURL-kommando som skickar en POST-begäran till funktionen varaktiga funktioner:
 
     ```bash
     curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/HelloSequence
     ```
 
-    I det här exemplet är `{your-function-app-name}` den domän som är namnet på din Function-app. Svarsmeddelandet innehåller en uppsättning URI-slutpunkter som du kan använda för att övervaka och hantera körningen, som ser ut som följande exempel:
+    I det `{your-function-app-name}` här exemplet är den domän som är namnet på din funktionsapp. Svarsmeddelandet innehåller en uppsättning URI-slutpunkter som du kan använda för att övervaka och hantera körningen, som ser ut som följande exempel:
 
     ```json
     {  
@@ -100,7 +100,7 @@ Om du skapar ett JavaScript-Durable Functions måste du installera [`durable-fun
     }
     ```
 
-1. Anropa `statusQueryGetUri` slut punkts-URI: n och se aktuell status för den varaktiga funktionen, som kan se ut så här:
+1. Anropa `statusQueryGetUri` slutpunkts-URI:n och du ser den aktuella statusen för den varaktiga funktionen, som kan se ut så här:
 
     ```json
         {
@@ -112,7 +112,7 @@ Om du skapar ett JavaScript-Durable Functions måste du installera [`durable-fun
         }
     ```
 
-1. Fortsätt att anropa `statusQueryGetUri` slut punkten tills statusen ändras till **slutförd**, så ser du ett svar som i följande exempel:
+1. Fortsätt att `statusQueryGetUri` anropa slutpunkten tills statusen ändras till **Slutförd**och du ser ett svar som följande exempel:
 
     ```json
     {
@@ -128,7 +128,7 @@ Om du skapar ett JavaScript-Durable Functions måste du installera [`durable-fun
         }
     ```
 
-Din första tåliga funktion är nu igång i Azure.
+Din första hållbara funktion är nu igång i Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 

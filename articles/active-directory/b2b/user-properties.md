@@ -1,110 +1,113 @@
 ---
-title: Egenskaper för en B2B-gäst användare – Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B-gäst användarens egenskaper och tillstånd före och efter inlösningen för inbjudan
+title: Egenskaper för en B2B-gästanvändare – Azure Active Directory | Microsoft-dokument
+description: Azure Active Directory B2B gästanvändaregenskaper och -tillstånd före och efter inlösen av inbjudan
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 03/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70156335d0d5617b4c1ccb2d11ce8e9f8dc9d036
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 40f5002e361653614c966dc43301afa83eb7b200
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368115"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050799"
 ---
-# <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en Azure Active Directory B2B-samarbets användare
+# <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en Azure Active Directory B2B-samarbetsanvändare
 
-I den här artikeln beskrivs egenskaperna och tillstånden för gäst användar objektet B2B i Azure Active Directory (Azure AD) före och efter inlösningen för inbjudan. En Azure AD Business-to-Business (B2B)-samarbets användare är en användare med UserType = gäst. Den här gäst användaren är vanligt vis från en partner organisation och har begränsad behörighet i den bjudande katalogen som standard.
+I den här artikeln beskrivs egenskaperna och tillstånden för B2B-gästanvändarobjektet i Azure Active Directory (Azure AD) före och efter inlösen av inbjudan. En Azure AD business-to-business (B2B) samarbetsanvändare är en användare med UserType = Gäst. Den här gästanvändaren kommer vanligtvis från en partnerorganisation och har begränsade privilegier i den inbjudande katalogen som standard.
 
-Beroende på den bjudande organisationens behov kan en Azure AD B2B-samarbets användare ha ett av följande konto tillstånd:
+Beroende på den inbjudande organisationens behov kan en Azure AD B2B-samarbetsanvändare vara i något av följande kontotillstånd:
 
-- Tillstånd 1: i en extern instans av Azure AD som visas som gäst användare i den bjudande organisationen. I det här fallet loggar B2B-användaren in genom att använda ett Azure AD-konto som tillhör den inbjudna klienten. Om partner organisationen inte använder Azure AD skapas fortfarande gäst användaren i Azure AD. Kraven är att de löser in sin inbjudan och Azure AD verifierar sin e-postadress. Den här ordningen kallas även för ett just-in-Time-innehav (JIT) eller ett "viral"-innehav.
+- Tillstånd 1: Homed i en extern instans av Azure AD och representeras som gästanvändare i den inbjudande organisationen. I det här fallet loggar B2B-användaren in med hjälp av ett Azure AD-konto som tillhör den inbjudna klienten. Om partnerorganisationen inte använder Azure AD skapas fortfarande gästanvändaren i Azure AD. Kraven är att de löser in sin inbjudan och Azure AD verifierar sin e-postadress. Detta arrangemang kallas också en just-in-time (JIT) hyresrätt eller en "viral" hyresrätt.
 
-- Tillstånd 2: i ett Microsoft-konto eller ett annat konto som representeras som gäst användare i värd organisationen. I det här fallet loggar gäst användaren in med ett Microsoft-konto eller ett socialt konto (google.com eller liknande). Den inbjudna användarens identitet skapas som en Microsoft-konto i den bjudande organisationens katalog under erbjudandet inlösen.
+   > [!IMPORTANT]
+   > **Från och med den 31 mars 2021**stöder Microsoft inte längre inlösen av inbjudningar genom att skapa ohanterade Azure AD-konton och klienter för B2B-samarbetsscenarier. Som förberedelse uppmuntrar vi kunder att välja [e-post engångskodautentisering.](one-time-passcode.md) Vi välkomnar din feedback på den här offentliga förhandsversionen och är glada över att skapa ännu fler sätt att samarbeta.
 
-- Tillstånd 3: hemma i värd organisationens lokala Active Directory och synkroniseras med värd organisationens Azure AD. Du kan använda Azure AD Connect för att synkronisera partner kontona till molnet som Azure AD B2B-användare med UserType = gäst. Se [bevilja lokalt hanterad partner konton åtkomst till moln resurser](hybrid-on-premises-to-cloud.md).
+- Tillstånd 2: Hemtrevs i ett Microsoft-konto eller annat konto och representeras som gästanvändare i värdorganisationen. I det här fallet loggar gästanvändaren in med ett Microsoft-konto eller ett socialt konto (google.com eller liknande). Den inbjudna användarens identitet skapas som ett Microsoft-konto i den inbjudande organisationens katalog under inlösen av erbjudandet.
 
-- State 4: i värd organisationens Azure AD med UserType = gäst och autentiseringsuppgifter som värd organisationen hanterar.
+- Tillstånd 3: Homed i värdorganisationens lokala Active Directory och synkroniseras med värdorganisationens Azure AD. Du kan använda Azure AD Connect för att synkronisera partnerkontona till molnet som Azure AD B2B-användare med UserType = Gäst. Se [Bevilja lokalt hanterade partnerkonton åtkomst till molnresurser](hybrid-on-premises-to-cloud.md).
 
-  ![Diagram som illustrerar de fyra användar tillstånden](media/user-properties/redemption-diagram.png)
+- Tillstånd 4: Homed i värdorganisationens Azure AD med UserType = Gäst och autentiseringsuppgifter som värdorganisationen hanterar.
+
+  ![Diagram som visar de fyra användartillstånden](media/user-properties/redemption-diagram.png)
 
 
-Nu ska vi se vad en Azure AD B2B-samarbets användare ser ut i Azure AD.
+Nu ska vi se hur en Azure AD B2B-samarbetsanvändare ser ut i Azure AD.
 
 ### <a name="before-invitation-redemption"></a>Före inlösen av inbjudan
 
-Kontona State 1 och State 2 är resultatet av att bjuda in gäst användare att samar beta med gäst användarnas egna autentiseringsuppgifter. När inbjudan först skickas till gäst användaren skapas ett konto i din katalog. Det här kontot har inte några associerade autentiseringsuppgifter eftersom autentiseringen utförs av gäst användarens identitets leverantör. **Käll** egenskapen för gäst användar kontot i din katalog är inställd på **inbjuden användare**. 
+Tillstånd 1- och tillstånd 2-konton är resultatet av att bjuda in gästanvändare att samarbeta med hjälp av gästanvändarnas egna autentiseringsuppgifter. När inbjudan skickas till gästanvändaren skapas ett konto i katalogen. Det här kontot har inga associerade autentiseringsuppgifter eftersom autentisering utförs av gästanvändarens identitetsleverantör. Egenskapen **Source** för gästanvändarkontot i katalogen är inställd **på Inbjuden användare**. 
 
-![Skärm bild som visar användar egenskaper före erbjudandet om inlösen](media/user-properties/before-redemption.png)
+![Skärmbild som visar användaregenskaper före inlösen av erbjudandet](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Efter inlösen av inbjudan
 
-När gäst användaren har accepterat inbjudan uppdateras egenskapen **källa** baserat på gäst användarens identitets leverantör.
+När gästanvändaren har accepterat inbjudan uppdateras egenskapen **Source** baserat på gästanvändarens identitetsleverantör.
 
-För gäst användare i läge 1 är **källan** **extern Azure Active Directory**.
+För gästanvändare i tillstånd 1 är **källan** **extern Azure Active Directory**.
 
-![Tillstånd 1 gäst användare efter inlösen av erbjudandet](media/user-properties/after-redemption-state1.png)
+![Tillstånd 1 gästanvändare efter inlösen av erbjudandet](media/user-properties/after-redemption-state1.png)
 
-För gäst användare i läge 2 är **källan** Microsoft- **konto**.
+För gästanvändare i tillstånd 2 är **källan** **Microsoft-konto**.
 
-![Tillstånd 2 gäst användare efter inlösen av erbjudandet](media/user-properties/after-redemption-state2.png)
+![Tillstånd 2 gästanvändare efter inlösen av erbjudandet](media/user-properties/after-redemption-state2.png)
 
-För gäst användare i läge 3 och State 4 anges egenskapen **Source** till **Azure Active Directory** eller **Windows Server Active Directory**, enligt beskrivningen i nästa avsnitt.
+För gästanvändare i tillstånd 3 och tillstånd 4 är egenskapen **Source** inställd på **Azure Active Directory** eller Windows Server Active **Directory**enligt beskrivningen i nästa avsnitt.
 
-## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Nyckel egenskaper för Azure AD B2B Collaboration-användare
+## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Viktiga egenskaper för Azure AD B2B-samarbetsanvändaren
 ### <a name="usertype"></a>UserType
-Den här egenskapen anger användarens relation till värd innehavaren. Den här egenskapen kan ha två värden:
-- Medlem: det här värdet anger en anställd hos värd organisationen och en användare i organisationens lön. Den här användaren förväntar sig till exempel att ha åtkomst till interna webbplatser. Den här användaren betraktas inte som en extern medarbetare.
+Den här egenskapen anger användarens relation till värdrearen. Den här egenskapen kan ha två värden:
+- Medlem: Det här värdet anger en medarbetare i värdorganisationen och en användare i organisationens lönelista. Den här användaren förväntar sig till exempel att ha åtkomst till interna webbplatser. Den här användaren betraktas inte som en extern medarbetare.
 
-- Gäst: det här värdet anger en användare som inte anses vara intern för företaget, till exempel en extern medarbetare, partner eller kund. En sådan användare förväntas inte ta emot en DIREKTÖRs interna PM eller ta emot företags förmåner, till exempel.
+- Gäst: Det här värdet anger en användare som inte anses vara intern för företaget, till exempel en extern medarbetare, partner eller kund. En sådan användare förväntas inte få en VD:s interna pm eller få företagsförmåner, till exempel.
 
   > [!NOTE]
-  > UserType har ingen relation till hur användaren loggar in, katalog rollen för användaren och så vidare. Den här egenskapen anger bara användarens relation till värd organisationen och gör att organisationen kan genomdriva principer som är beroende av den här egenskapen.
+  > UserType har ingen relation till hur användaren loggar in, användarens katalogroll och så vidare. Den här egenskapen anger helt enkelt användarens relation till värdorganisationen och tillåter organisationen att tillämpa principer som är beroende av den här egenskapen.
 
 ### <a name="source"></a>Källa
 Den här egenskapen anger hur användaren loggar in.
 
-- Inbjuden användare: den här användaren har bjudits in men har ännu inte löst en inbjudan.
+- Inbjuden användare: Den här användaren har bjudits in men har ännu inte löst in en inbjudan.
 
-- Externa Azure Active Directory: den här användaren är i en extern organisation och autentiseras med hjälp av ett Azure AD-konto som tillhör den andra organisationen. Den här typen av inloggning motsvarar tillstånd 1.
+- Extern Azure Active Directory: Den här användaren är homed i en extern organisation och autentiserar med hjälp av ett Azure AD-konto som tillhör den andra organisationen. Denna typ av inloggning motsvarar stat 1.
 
-- Microsoft-konto: den här användaren är i ett Microsoft-konto och autentiseras med hjälp av en Microsoft-konto. Den här typen av inloggning motsvarar State 2.
+- Microsoft-konto: Den här användaren är homed i ett Microsoft-konto och autentiserar med hjälp av ett Microsoft-konto. Denna typ av inloggning motsvarar stat 2.
 
-- Windows Server-Active Directory: den här användaren är inloggad från den lokala Active Directory som tillhör den här organisationen. Den här typen av inloggning motsvarar State 3.
+- Active Directory för Windows Server: Den här användaren är inloggad från lokala Active Directory som tillhör den här organisationen. Denna typ av inloggning motsvarar stat 3.
 
-- Azure Active Directory: den här användaren autentiseras med hjälp av ett Azure AD-konto som tillhör den här organisationen. Den här typen av inloggning motsvarar State 4.
+- Azure Active Directory: Den här användaren autentiserar med hjälp av ett Azure AD-konto som tillhör den här organisationen. Denna typ av inloggning motsvarar stat 4.
   > [!NOTE]
-  > Käll-och UserType är oberoende egenskaper. Värdet källa innebär inte ett visst värde för UserType.
+  > Source och UserType är oberoende egenskaper. Ett värde för Källan innebär inte något visst värde för UserType.
 
 ## <a name="can-azure-ad-b2b-users-be-added-as-members-instead-of-guests"></a>Kan Azure AD B2B-användare läggas till som medlemmar i stället för gäster?
-Normalt är en Azure AD B2B-användare och gäst användare synonym. Därför läggs en Azure AD B2B-samarbets användare till som en användare med UserType = gäst som standard. Men i vissa fall är partner organisationen medlem i en större organisation som värd organisationen också tillhör. I så fall kanske värd organisationen vill behandla användare i partner organisationen som medlemmar i stället för gäster. Använd API: erna för Azure AD B2B-Inbjudnings hanteraren för att lägga till eller bjuda in en användare från partner organisationen till värd organisationen som medlem.
+Vanligtvis är en Azure AD B2B-användare och gästanvändare synonymt. Därför läggs en Azure AD B2B-samarbetsanvändare till som användare med UserType = Gäst som standard. I vissa fall är dock partnerorganisationen medlem i en större organisation som värdorganisationen också tillhör. I så fall kanske värdorganisationen vill behandla användare i partnerorganisationen som medlemmar i stället för gäster. Använd API:erna för Azure AD B2B Invitation Manager för att lägga till eller bjuda in en användare från partnerorganisationen till värdorganisationen som medlem.
 
-## <a name="filter-for-guest-users-in-the-directory"></a>Filter för gäst användare i katalogen
+## <a name="filter-for-guest-users-in-the-directory"></a>Filtrera för gästanvändare i katalogen
 
-![Skärm bild som visar filtret för gäst användare](media/user-properties/filter-guest-users.png)
+![Skärmbild som visar filtret för gästanvändare](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>Konvertera UserType
-Det går att konvertera UserType från medlem till gäst och vice versa med hjälp av PowerShell. Men egenskapen UserType representerar användarens relation till organisationen. Därför bör du bara ändra den här egenskapen om relationen för användaren till organisationen ändras. Om användarens relation ändras bör User Principal Name (UPN) ändras? Ska användaren fortsätta att ha åtkomst till samma resurser? Ska en post låda tilldelas? Vi rekommenderar inte att du ändrar UserType med hjälp av PowerShell som en atomisk aktivitet. Om den här egenskapen till exempel blir oföränderlig med hjälp av PowerShell rekommenderar vi inte att du tar ett beroende på det här värdet.
+Det är möjligt att konvertera UserType från medlem till gäst och vice versa med hjälp av PowerShell. Egenskapen UserType representerar dock användarens relation till organisationen. Därför bör du bara ändra den här egenskapen om användarens relation till organisationen ändras. Om relationen för användaren ändras, ska användarens huvudnamn (UPN) ändras? Ska användaren fortsätta att ha åtkomst till samma resurser? Ska en postlåda tilldelas? Vi rekommenderar inte att du ändrar UserType genom att använda PowerShell som en atomaktivitet. Om den här egenskapen blir oföränderlig med PowerShell rekommenderar vi inte heller att du tar ett beroende av det här värdet.
 
-## <a name="remove-guest-user-limitations"></a>Ta bort begränsningar för gäst användare
-Det kan finnas fall där du vill ge gäst användarna högre privilegier. Du kan lägga till en gäst användare till vilken roll som helst och till och med ta bort standard begränsningarna för gäst användare i katalogen för att ge en användare samma behörigheter som medlemmar.
+## <a name="remove-guest-user-limitations"></a>Ta bort begränsningar för gästanvändare
+Det kan finnas fall där du vill ge gästanvändarna högre behörighet. Du kan lägga till en gästanvändare i valfri roll och till och med ta bort standardanvändarbegränsningarna för gästanvändare i katalogen för att ge en användare samma behörighet som medlemmar.
 
-Det går att inaktivera standard begränsningarna så att en gäst användare i företags katalogen har samma behörigheter som en medlems användare.
+Det är möjligt att stänga av standardbegränsningarna så att en gästanvändare i företagskatalogen har samma behörigheter som medlemsanvändare.
 
-![Skärm bild som visar alternativet externa användare i användar inställningarna](media/user-properties/remove-guest-limitations.png)
+![Skärmbild som visar alternativet Externa användare i användarinställningarna](media/user-properties/remove-guest-limitations.png)
 
-## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Kan jag göra gäst användare synliga i den globala adress listan i Exchange?
-Ja. Gäst objekt visas som standard inte i din organisations globala adress lista, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Mer information finns i **kan jag göra gäst objekt synliga i den globala adress listan?** i [Hantera gäst åtkomst i Office 365-grupper](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list). 
+## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Kan jag göra gästanvändare synliga i Exchange Global Address List?
+Ja. Som standard visas inte gästobjekt i organisationens globala adresslista, men du kan använda Azure Active Directory PowerShell för att göra dem synliga. Mer information finns **i Kan jag göra gästobjekt synliga i den globala adresslistan?** [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list) 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-* [Användar-tokens för B2B-samarbete](user-token.md)
-* [Mappning av användar anspråk för B2B-samarbete](claims-mapping.md)
+* [Användartoken för B2B-samarbete](user-token.md)
+* [B2B-mappning av användaranspråk för samarbete](claims-mapping.md)

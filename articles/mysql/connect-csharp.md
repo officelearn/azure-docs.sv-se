@@ -1,5 +1,5 @@
 ---
-title: Anslut med C# -Azure Database for mysql
+title: Ansluta med C# - Azure Database för MySQL
 description: Den här snabbstarten innehåller ett kodexempel i C# (.NET) som du kan använda för att ansluta till och fråga efter data från Azure Database för MySQL.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.openlocfilehash: 2f740d21c7fb59a05fa1df4a0b3b1385cf2f0831
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 715be66e1b7d1c9270600dd3f11ee16d9aa1885d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770789"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80067993"
 ---
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database för MySQL: Använda .NET (C#) för att ansluta och fråga efter data
 Den här snabbstarten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett C#-program. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i C# och att du saknar erfarenhet av Azure Database for MySQL.

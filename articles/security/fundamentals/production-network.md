@@ -1,6 +1,6 @@
 ---
-title: Azures produktions nätverk
-description: Den här artikeln innehåller en allmän beskrivning av Azures produktions nätverk.
+title: Azure-produktionsnätverk
+description: Den här artikeln innehåller en allmän beskrivning av Azure-produktionsnätverket.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,77 +16,77 @@ ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
 ms.openlocfilehash: 7c0748e4ff1531649274834cb1e602c228f102e8
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68726697"
 ---
-# <a name="the-azure-production-network"></a>Azures produktions nätverk
-Användare av Azures produktions nätverk omfattar både externa kunder som har åtkomst till sina egna Azure-program och intern Azure support-personal som hanterar produktions nätverket. I den här artikeln beskrivs säkerhets åtkomst metoder och skydds metoder för att upprätta anslutningar till Azures produktions nätverk.
+# <a name="the-azure-production-network"></a>Azure-produktionsnätverket
+Användarna av Azure-produktionsnätverket inkluderar både externa kunder som har åtkomst till sina egna Azure-program och intern Azure-supportpersonal som hanterar produktionsnätverket. I den här artikeln beskrivs metoder för säkerhetsåtkomst och skyddsmekanismer för upprättande av anslutningar till Azure-produktionsnätverket.
 
-## <a name="internet-routing-and-fault-tolerance"></a>Internet-Routning och fel tolerans
-En globalt redundant intern och extern Azure Domain Name Service-infrastruktur (DNS), kombinerat med flera primära och sekundära DNS-serverkluster, ger fel tolerans. Samtidigt används ytterligare Azure Network Security-kontroller, till exempel NetScaler, för att förhindra DDoS-attacker (distributed denial of Service) och skydda Azure DNS tjänsternas integritet.
+## <a name="internet-routing-and-fault-tolerance"></a>Internetroutning och feltolerans
+En globalt redundant intern och extern DNS-infrastruktur (Azure Domain Name Service), kombinerat med flera primära och sekundära DNS-serverkluster, ger feltolerans. Samtidigt används ytterligare Azure-nätverkssäkerhetskontroller, till exempel NetScaler, för att förhindra ddos-attacker (Distributed Denial of Service) och skydda integriteten för Azure DNS-tjänster.
 
-Azure DNS-servrarna finns i flera data Center anläggningar. Azure DNS implementationen införlivar en hierarki med sekundära och primära DNS-servrar för att offentligt matcha Azures kund domän namn. Domän namn matchas vanligt vis till en CloudApp.net-adress, som omsluter den virtuella IP-adressen (VIP) för kundens tjänst. Unikt för Azure, den VIP som motsvarar den interna dedikerade IP-adressen (DIP) för klient översättningen görs av de Microsoft-belastningsutjämnare som är ansvariga för denna VIP.
+Azure DNS-servrarna finns vid flera datacenterresurser. Azure DNS-implementeringen innehåller en hierarki med sekundära och primära DNS-servrar för att offentligt matcha Azure-kunddomännamn. Domännamnen matchas vanligtvis till en CloudApp.net-adress, som radbryts den virtuella IP-adressen (VIP) för kundens tjänst. Unik för Azure, VIP som motsvarar interna dedikerade IP (DIP) adress för klientöversättningen görs av Microsoft belastningsutjämnare som ansvarar för att VIP.
 
-Azure är värd för geografiskt distribuerade Azure-datacenter i USA, och det bygger på de plattformar som används för den grafik som implementerar robusta, skalbara arkitektur standarder. Bland de viktiga funktionerna är:
+Azure finns i geografiskt distribuerade Azure-datacenter i USA och bygger på toppmoderna routningsplattformar som implementerar robusta, skalbara arkitektoniska standarder. Bland de anmärkningsvärda funktionerna är:
 
-- MPLS-baserad (Multiprotocol Label Switching) trafik teknik, som ger effektiv länk användning och bättre försämring av tjänsten om det uppstår ett avbrott.
-- Nätverk implementeras med "behöver plus ett" (N + 1) redundans arkitekturer eller bättre.
-- Externt betjänas Data Center av dedikerade nätverks kretsar med hög bandbredd som redundant ansluter egenskaper med över 1 200 Internet leverantörer globalt på flera peering-platser. Den här anslutningen ger större än 2 000 GB per sekund (Gbit/s) av Edge-kapacitet.
+- Multiprotocol Label Switching (MPLS)-baserad trafikteknik, som ger effektiv länkutnyttjande och graciös försämring av tjänsten om det finns ett avbrott.
+- Nätverk implementeras med "behov plus ett" (N+1) redundansarkitekturer eller bättre.
+- Externt betjänas datacenter av dedikerade nätverkskretsar med hög bandbredd som redundant kopplar samman egenskaper med över 1 200 internetleverantörer globalt vid flera peering-punkter. Den här anslutningen ger över 2 000 GB per sekund (GBps) kantkapacitet.
 
-Eftersom Microsoft äger sina egna nätverks kretsar mellan data Center kan de här attributen hjälpa Azure-erbjudandet att uppnå 99,9 + procent nätverks tillgänglighet utan att det behövs några traditionella Internet leverantörer från tredje part.
+Eftersom Microsoft äger sina egna nätverkskretsar mellan datacenter hjälper dessa attribut Azure-erbjudandet att uppnå 99,9+ procent nätverkstillgänglighet utan att behöva traditionella internetleverantörer från tredje part.
 
-## <a name="connection-to-production-network-and-associated-firewalls"></a>Anslutning till produktions nätverk och tillhör ande brand väggar
-Azure Network Internet Traffic Flow-principen dirigerar trafik till Azures produktions nätverk som finns i närmaste regionala Data Center i USA. Eftersom Azures produktions Data Center upprätthåller konsekvent nätverks arkitektur och maskin vara, så gäller trafik flödes beskrivningen som följer konsekvent till alla data Center.
+## <a name="connection-to-production-network-and-associated-firewalls"></a>Anslutning till produktionsnätverk och tillhörande brandväggar
+Azure-internettrafikflödesprincipen dirigerar trafik till Azure-produktionsnätverket som finns i närmaste regionala datacenter i USA. Eftersom Azure-produktionsdata datacenter upprätthåller konsekvent nätverksarkitektur och maskinvara gäller trafikflödesbeskrivningen som följer konsekvent för alla datacenter.
 
-När Internet trafik för Azure dirigeras till närmaste Data Center, upprättas en anslutning till åtkomst routrarna. Dessa routrar för åtkomst för att isolera trafik mellan Azure-noder och kundinstansierade virtuella datorer. Nätverks infrastruktur enheter på åtkomst-och gräns platserna är de gräns punkter där inkommande och utgående filter används. Dessa routrar konfigureras via en lista över åtkomst kontrol listor (ACL) för att filtrera oönskad nätverks trafik och tillämpa trafik hastighets begränsningar, om det behövs. Trafik som tillåts av ACL dirigeras till belastningsutjämnarens belastnings utjämning. Distributions routrar är utformade för att endast tillåta Microsoft-godkända IP-adresser, tillhandahålla skydd mot förfalskning och upprätta TCP-anslutningar som använder ACL: er.
+När internettrafik för Azure dirigeras till närmaste datacenter upprättas en anslutning till åtkomstroutrarna. Dessa åtkomstroutrar används för att isolera trafik mellan Azure-noder och kund-instansierade virtuella datorer. Nätverksinfrastrukturenheter på åtkomst- och kantplatserna är de gränspunkter där ingående och utgående filter tillämpas. Dessa routrar konfigureras via en nivåindelade åtkomstkontrolllista (ACL) för att filtrera oönskad nätverkstrafik och tillämpa trafikhastighetsgränser om det behövs. Trafik som tillåts av ACL dirigeras till belastningsutjämnare. Distributionsroutrar är utformade för att endast tillåta Microsoft-godkända IP-adresser, tillhandahålla förfalskning och upprätta TCP-anslutningar som använder ÅTKOMSTKONTROLL.Distributionsrouter are designed to allow only Microsoft-approved IP addresses, provide anti-spoofing, and establish TCP connections that use ACLs.
 
-Externa enheter för belastnings utjämning finns bakom åtkomst routrarna för att utföra Network Address Translation (NAT) från Internet-dirigerade IP-adresser till interna Azure-IP-adresser. Enheterna dirigerar också paket till giltiga produktioners interna IP-adresser och portar, och de fungerar som en skydds mekanism för att begränsa exponeringen av det interna adress utrymmet för produktions nätverket.
+Externa belastningsutjämningsenheter finns bakom åtkomstroutrarna för att utföra NAT (Network Address Translation) från internetdirigerbara IP-adresser till virtuella Azure-IP-adresser. Enheterna dirigerar också paket till giltiga interna installationer och portar för produktion, och de fungerar som en skyddsmekanism för att begränsa utsätta det interna produktionsnätverkets adressutrymme.
 
-Som standard tvingar Microsoft Hypertext Transfer Protocol Secure (HTTPS) för all trafik som överförs till kunders webbläsare, inklusive inloggning och all trafik därefter. Användningen av TLS v 1.2 gör det möjligt för en säker tunnel att passera. ACL: er för åtkomst-och kärn routrar ser till att trafik källan stämmer överens med vad som förväntas.
+Som standard tillämpar Microsoft HTTPS (Hypertext Transfer Protocol Secure) för all trafik som överförs till kundernas webbläsare, inklusive inloggning och all trafik därefter. Användningen av TLS v1.2 möjliggör en säker tunnel för trafik att flöda igenom. ACL:er på åtkomst- och kärnroutrar säkerställer att trafikkällan överensstämmer med vad som förväntas.
 
-En viktig skillnad i den här arkitekturen när den jämförs med traditionell säkerhets arkitektur är att det inte finns några särskilda maskin varu brand väggar, specialiserade intrångs identifierings-eller skydds enheter eller andra säkerhetsanordningar som normalt är förväntas innan anslutningar görs till Azures produktions miljö. Kunderna förväntar sig vanligt vis dessa maskinvarubaserade brand Väggs enheter i Azure-nätverket. ingen är dock anställd i Azure. Dessa säkerhetsfunktioner är nästan uteslutande inbyggda i program varan som kör Azure-miljön för att tillhandahålla robusta säkerhetsmekanismer för flera lager, inklusive brand Väggs funktioner. Dessutom är räckvidden för gränserna och tillhör ande tillväxten av kritiska säkerhetsenheter enklare att hantera och inventera, som visas i föregående bild, eftersom den hanteras av den program vara som kör Azure.
+En viktig skillnad i den här arkitekturen, när den jämförs med traditionell säkerhetsarkitektur, är att det inte finns några dedikerade maskinvarubrandvägger, specialiserade intrångsidentifierings- eller förhindrande enheter eller andra säkerhetsapparater som normalt innan anslutningar görs till Azure-produktionsmiljön. Kunderna förväntar sig vanligtvis dessa maskinvarubrandväggsenheter i Azure-nätverket. Ingen är dock anställd i Azure. Nästan uteslutande är dessa säkerhetsfunktioner inbyggda i programvaran som kör Azure-miljön för att tillhandahålla robusta säkerhetsmekanismer i flera lager, inklusive brandväggsfunktioner. Dessutom är omfattningen av gränsen och tillhörande utbredning av kritiska säkerhetsenheter lättare att hantera och inventera, som visas i föregående bild, eftersom det hanteras av programvaran som kör Azure.
 
-## <a name="core-security-and-firewall-features"></a>Funktioner för kärn säkerhet och brand vägg
-Azure implementerar robusta program varu säkerhets-och brand Väggs funktioner på olika nivåer för att genomdriva säkerhetsfunktioner som vanligt vis förväntas i en traditionell miljö för att skydda den grundläggande säkerhetsauktoriseringen.
+## <a name="core-security-and-firewall-features"></a>Grundläggande säkerhets- och brandväggsfunktioner
+Azure implementerar robusta programsäkerhets- och brandväggsfunktioner på olika nivåer för att framtvinga säkerhetsfunktioner som vanligtvis förväntas i en traditionell miljö för att skydda den grundläggande säkerhetsauktoriseringsgränsen.
 
-### <a name="azure-security-features"></a>Säkerhetsfunktioner i Azure
-Azure implementerar värdbaserade program varu brand väggar i produktions nätverket. Flera kärn funktioner för säkerhet och brand väggar finns i Azures kärn miljö. Dessa säkerhetsfunktioner visar en djupgående strategi i Azure-miljön. Kund information i Azure skyddas av följande brand väggar:
+### <a name="azure-security-features"></a>Azure-säkerhetsfunktioner
+Azure implementerar värdbaserade programvarubrandvägger i produktionsnätverket. Flera grundläggande säkerhets- och brandväggsfunktioner finns i azure-kärnmiljön. Dessa säkerhetsfunktioner återspeglar en djupgående strategi i Azure-miljön. Kunddata i Azure skyddas av följande brandväggar:
 
-**Hypervisor-brand vägg (paket filter)** : Den här brand väggen implementeras i hypervisorn och konfigureras av FC-agenten (Fabric Controller). Den här brand väggen skyddar den klient som körs inuti den virtuella datorn från obehörig åtkomst. När en virtuell dator skapas blockeras som standard all trafik och sedan lägger FC-agenten till regler och undantag i filtret för att tillåta auktoriserad trafik.
+**Hypervisor-brandvägg (paketfilter)**: Den här brandväggen implementeras i hypervisorn och konfigureras av agenten för fabric controller (FC). Den här brandväggen skyddar klienten som körs inuti den virtuella datorn från obehörig åtkomst. När en virtuell dator skapas blockeras all trafik som standard och sedan lägger FC-agenten till regler och undantag i filtret för att tillåta auktoriserad trafik.
 
 Två kategorier av regler är programmerade här:
 
-- **Dator konfiguration eller infrastruktur regler**: All kommunikation blockeras som standard. Det finns undantag som gör att en virtuell dator kan skicka och ta emot Dynamic Host Configuration Protocol (DHCP)-kommunikation och DNS-information och skicka trafik till "offentlig" Internet utgående till andra virtuella datorer i FC-klustret och OS-aktiverings servern. Eftersom de virtuella datorernas lista över tillåtna utgående destinationer inte omfattar Azure router-undernät och andra Microsoft-egenskaper fungerar reglerna som ett skydds lager för dem.
-- **Fil regler för roll konfiguration**: Definierar inkommande ACL: er baserat på klient organisationens tjänst modell. Om en klient till exempel har en front webb på port 80 på en viss virtuell dator, öppnas port 80 för alla IP-adresser. Om den virtuella datorn har en arbets roll som kör, öppnas arbets rollen bara för den virtuella datorn inom samma klient organisation.
+- **Maskinkonfiguration eller infrastrukturregler**: Som standard blockeras all kommunikation. Det finns undantag som gör det möjligt för en virtuell dator att skicka och ta emot DHCP-kommunikation och DNS-information (Dynamic Host Configuration Protocol) och skicka trafik till den "offentliga" internet som skickas ut till andra virtuella datorer i FC-klustret och operativsystemets aktiveringsserver. Eftersom de virtuella datorernas tillåtna lista över utgående destinationer inte innehåller Azure-routerns undernät och andra Microsoft-egenskaper fungerar reglerna som ett försvarslager för dem.
+- **Rollkonfigurationsfilregler**: Definierar de inkommande ACL:erna baserat på klienternas tjänstmodell. Om en klient har en webbklient på port 80 på en viss virtuell dator öppnas port 80 till alla IP-adresser. Om den virtuella datorn har en arbetarroll som körs öppnas arbetarrollen endast för den virtuella datorn i samma klient.
 
-**Inbyggd värd brand vägg**: Azure Service Fabric och Azure Storage köras på ett ursprungligt operativ system, som inte har någon hypervisor, och därför konfigureras Windows-brandväggen med föregående två uppsättningar med regler.
+**Inbyggd värdbrandvägg:** Azure Service Fabric och Azure Storage körs på ett inbyggt operativsystem, som inte har någon hypervisor och därför är Windows-brandväggen konfigurerad med föregående två uppsättningar regler.
 
-**Värd brand vägg**: Värd brand väggen skyddar diskpartitionen, som kör hypervisor-modulen. Reglerna är programmerade för att bara tillåta att FC-och hopp rutor kommunicerar med diskpartitionen på en speciell port. De andra undantagen är att tillåta DHCP-svar och DNS-svar. Azure använder en dator konfigurations fil som innehåller en mall med brand Väggs regler för diskpartitionen. Det finns också ett undantag för värd brand väggen som gör det möjligt för virtuella datorer att kommunicera med värd komponenter, tråd Server och metadatatjänst via vissa protokoll/portar.
+**Värdbrandvägg:** Värdbrandväggen skyddar värdpartitionen, som kör hypervisorn. Reglerna är programmerade så att endast FC och hopprutor att prata med värdpartitionen på en viss port. De andra undantagen är att tillåta DHCP-svar och DNS-svar. Azure använder en konfigurationsfil för datorer som innehåller en mall med brandväggsregler för värdpartitionen. Det finns också ett undantag från värdbrandväggen som gör att virtuella datorer kan kommunicera till värdkomponenter, trådserver och metadataserver via specifika protokoll/portar.
 
-**Gäst brand vägg**: Windows-brandväggens delar av gäst operativ systemet, som kan konfigureras av kunder på kundens virtuella datorer och lagring.
+**Gästbrandvägg:** Windows-brandväggen i gästoperativsystemet, som kan konfigureras av kunder på virtuella kunddatorer och lagring.
 
 Ytterligare säkerhetsfunktioner som är inbyggda i Azure-funktionerna är:
 
-- Infrastruktur komponenter som tilldelas IP-adresser från DIP. En angripare på Internet kan inte hantera trafik till dessa adresser, eftersom den inte når Microsoft. Routrar för Internet Gateway filtrerar paket som endast adresseras till interna adresser, så de kommer inte att ange produktions nätverket. De enda komponenter som accepterar trafik som dirigeras till VIP: er är belastningsutjämnare.
-- Brand väggar som implementeras på alla interna noder har tre primära säkerhets arkitekturs överväganden för alla tänkbara scenarier:
+- Infrastrukturkomponenter som tilldelas IP-adresser som kommer från DIPs. En angripare på internet kan inte adressera trafik till dessa adresser eftersom den inte skulle nå Microsoft. Internet gateway-routrar filtrerar paket som endast är adresserade till interna adresser, så att de inte kommer in i produktionsnätverket. De enda komponenter som accepterar trafik som dirigeras till VIP är belastningsutjämnare.
+- Brandväggar som implementeras på alla interna noder har tre primära säkerhetsarkitekturöverväganden för ett visst scenario:
 
-   - Brand väggarna placeras bakom belastningsutjämnaren och accepterar paket överallt. Dessa paket är avsedda att exponeras externt och motsvarar de öppna portarna i en traditionell gräns brand vägg.
-   - Brand väggar accepterar bara paket från en begränsad uppsättning adresser. Detta är en del av en djupgående strategi mot DDoS-attacker. Sådana anslutningar autentiseras kryptografiskt.
-   - Det går bara att komma åt brand väggar från Välj interna noder. De accepterar bara paket från en uppräknad lista med käll-IP-adresser, som alla är DIP i Azure-nätverket. En attack i företags nätverket kan till exempel dirigera begär anden till dessa adresser, men angreppen blockeras om inte paketets käll adress var ett i den uppräknade listan i Azure-nätverket.
-     - Fjärråtkomstroutern vid perimeter blockerar utgående paket som är adresserade till en adress som är i Azure-nätverket på grund av dess konfigurerade statiska vägar.
+   - Brandväggar placeras bakom belastningsutjämnaren och accepterar paket var som helst. Dessa paket är avsedda att exponeras externt och skulle motsvara de öppna portarna i en traditionell perimeterbrandvägg.
+   - Brandväggar accepterar paket endast från en begränsad uppsättning adresser. Detta övervägande är en del av den defensiva djupgående strategin mot DDoS-attacker. Sådana anslutningar autentiseras kryptografiskt.
+   - Brandväggar kan endast nås från utvalda interna noder. De accepterar paket endast från en uppräknad lista över käll-IP-adresser, som alla är DIPs i Azure-nätverket. En attack mot företagsnätverket kan till exempel rikta begäranden till dessa adresser, men attackerna skulle blockeras om inte paketets källadress var en i den uppräknade listan i Azure-nätverket.
+     - Åtkomstroutern vid perimetern blockerar utgående paket som är adresserade till en adress som finns i Azure-nätverket på grund av dess konfigurerade statiska vägar.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om vad Microsoft gör för att skydda Azure-infrastrukturen finns i:
 
-- [Azure-anläggningar, lokal och fysisk säkerhet](physical-security.md)
+- [Azure-anläggningar, lokaler och fysisk säkerhet](physical-security.md)
 - [Tillgänglighet för Azure-infrastruktur](infrastructure-availability.md)
-- [Komponenter och gränser för Azure information system](infrastructure-components.md)
-- [Azure nätverks arkitektur](infrastructure-network.md)
-- [Azure SQL Database säkerhetsfunktioner](infrastructure-sql.md)
-- [Åtgärder och hantering av Azure-produktion](infrastructure-operations.md)
+- [Komponenter och gränser för Azure-informationssystem](infrastructure-components.md)
+- [Azure-nätverksarkitektur](infrastructure-network.md)
+- [Säkerhetsfunktioner i Azure SQL Database](infrastructure-sql.md)
+- [Azure-produktionsåtgärder och -hantering](infrastructure-operations.md)
 - [Övervakning av Azure-infrastruktur](infrastructure-monitoring.md)
-- [Integritet för Azure-infrastruktur](infrastructure-integrity.md)
-- [Data skydd för Azure-kunder](protection-customer-data.md)
+- [Azure-infrastrukturintegritet](infrastructure-integrity.md)
+- [Azure-kunddataskydd](protection-customer-data.md)

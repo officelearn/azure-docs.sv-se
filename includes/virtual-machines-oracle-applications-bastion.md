@@ -5,22 +5,22 @@ ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
 ms.openlocfilehash: 35f506235f698fbcf42308e6f0b0f400e925df29
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68361549"
 ---
-### <a name="bastion-tier"></a>Skydds-nivå
+### <a name="bastion-tier"></a>Bastion nivå
 
-Skydds-värden är en valfri komponent som du kan använda som en hopp Server för att komma åt programmet och databas instanserna. Den virtuella skydds-värddatorn kan ha en offentlig IP-adress som tilldelats, även om rekommendationen är att konfigurera en ExpressRoute-anslutning eller VPN för plats till plats med ditt lokala nätverk för säker åtkomst. Dessutom bör endast SSH (port 22, Linux) eller RDP (port 3389, Windows Server) öppnas för inkommande trafik. För hög tillgänglighet kan du distribuera en skydds-värd i två tillgänglighets zoner eller i en enda tillgänglighets uppsättning.
+Skyddsvärden är en valfri komponent som du kan använda som hoppserver för att komma åt program- och databasinstanserna. Den virtuella skyddsvärd datorn kan ha en offentlig IP-adress tilldelad, även om rekommendationen är att konfigurera en ExpressRoute-anslutning eller plats-till-plats-VPN med ditt lokala nätverk för säker åtkomst. Dessutom bör endast SSH (port 22, Linux) eller RDP (port 3389, Windows Server) öppnas för inkommande trafik. För hög tillgänglighet distribuerar du en skyddsvärd i två tillgänglighetszoner eller i en enda tillgänglighetsuppsättning.
 
-Du kan också aktivera vidarebefordran av SSH-agenten på dina virtuella datorer, vilket gör att du kan komma åt andra virtuella datorer i det virtuella nätverket genom att vidarebefordra autentiseringsuppgifterna från din skydds-värd. Du kan också använda SSH-tunnlar för att få åtkomst till andra instanser.
+Du kan också aktivera SSH-agent vidarebefordran på dina virtuella datorer, vilket gör att du kan komma åt andra virtuella datorer i det virtuella nätverket genom att vidarebefordra autentiseringsuppgifterna från din bastionvärd. Du kan också använda SSH-tunnlar för att komma åt andra instanser.
 
-Här är ett exempel på agent vidarebefordring:
+Här är ett exempel på agent vidarebefordran:
 
 ```
 ssh -A -t user@BASTION_SERVER_IP ssh -A root@TARGET_SERVER_IP`
 ```
 
-Det här kommandot ansluter till skydds och körs `ssh` omedelbart igen, så du får en terminal på mål instansen. Du kan behöva ange en annan användare än roten på mål instansen om klustret har kon figurer ATS på ett annat sätt. `-A` Argumentet vidarebefordrar agent anslutningen så att din privata nyckel på den lokala datorn används automatiskt. Observera att agent vidarebefordring är en kedja, så det andra `ssh` kommandot inkluderar `-A` även så att alla efterföljande SSH-anslutningar som initieras från mål instansen också använder din lokala privata nyckel.
+Det här kommandot ansluter till bastionen och körs `ssh` sedan omedelbart igen, så att du får en terminal på målinstansen. Du kan behöva ange en annan användare än roten på målinstansen om klustret är konfigurerat på ett annat sätt. Argumentet `-A` vidarebefordrar agentanslutningen så att din privata nyckel på din lokala dator används automatiskt. Observera att agent vidarebefordran är en `ssh` kedja, `-A` så det andra kommandot innehåller också så att alla efterföljande SSH-anslutningar som initierats från målinstansen också använder din lokala privata nyckel.

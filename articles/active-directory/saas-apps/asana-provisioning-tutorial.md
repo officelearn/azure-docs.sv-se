@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: användar etablering för asana – Azure AD'
-description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till asana.
+title: 'Självstudiekurs: Användaretablering för Asana - Azure AD'
+description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetableringa användarkonton till Asana.
 services: active-directory
 documentationcenter: ''
 author: ArvindHarinder1
@@ -17,90 +17,90 @@ ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abeac030db419f7fb7d561df5dcd407684f20ca2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058939"
 ---
-# <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudie: Konfigurera asana för automatisk användar etablering
+# <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Asana för automatisk etablering av användare
 
-Syftet med den här självstudien är att visa de steg du behöver utföra i asana och Azure Active Directory (Azure AD) för att automatiskt etablera och avetablera användar konton från Azure AD till asana.
+Syftet med den här självstudien är att visa de steg du behöver för att utföra i Asana och Azure Active Directory (Azure AD) för att automatiskt etablera och avetableras användarkonton från Azure AD till Asana.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
 * En Azure AD-klient
-* En asana-klient med en [företags](https://www.asana.com/pricing) plan eller bättre aktive rad
-* Ett användar konto i asana med administratörs behörighet
+* En Asana-klient med en [Enterprise-plan](https://www.asana.com/pricing) eller bättre aktiverad
+* Ett användarkonto i Asana med administratörsbehörighet
 
 > [!NOTE]
-> Integreringen av Azure AD provisioning är beroende av [asana-API: et](https://asana.com/developers/api-reference/users), som är tillgängligt för asana.
+> Azure AD-etableringsintegrationen är beroende av [Asana-API:et](https://asana.com/developers/api-reference/users), som är tillgängligt för Asana.
 
-## <a name="assign-users-to-asana"></a>Tilldela användare till asana
+## <a name="assign-users-to-asana"></a>Tilldela användare till Asana
 
-Azure AD använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk etablering av användar konton synkroniseras endast de användare som är tilldelade till ett program i Azure AD.
+Azure AD använder ett koncept som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk etablering av användarkonto synkroniseras endast de användare som tilldelats ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare i Azure AD som behöver åtkomst till asana-appen. Sedan kan du tilldela dessa användare till asana-appen genom att följa anvisningarna här:
+Innan du konfigurerar och aktiverar etableringstjänsten måste du bestämma vilka användare i Azure AD som behöver åtkomst till Asana-appen. Sedan kan du tilldela dessa användare till din Asana-app genom att följa instruktionerna här:
 
-[Tilldela en användare till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
+[Tilldela en användare till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-asana"></a>Viktiga tips för att tilldela användare till asana
+### <a name="important-tips-for-assigning-users-to-asana"></a>Viktiga tips för att tilldela användare till Asana
 
-Vi rekommenderar att du tilldelar en enda Azure AD-användare till asana för att testa etablerings konfigurationen. Ytterligare användare kan tilldelas senare.
+Vi rekommenderar att du tilldelar en enda Azure AD-användare till Asana för att testa etableringskonfigurationen. Ytterligare användare kan tilldelas senare.
 
-## <a name="configure-user-provisioning-to-asana"></a>Konfigurera användar etablering till asana
+## <a name="configure-user-provisioning-to-asana"></a>Konfigurera användaretablering till Asana
 
-Det här avsnittet vägleder dig genom att ansluta din Azure AD till asana-API för användar konto. Du konfigurerar också etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i asana baserat på användar tilldelningar i Azure AD.
+Det här avsnittet vägleder dig genom att ansluta ditt Azure AD till Asana-api för etablering av användarkonton. Du kan också konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i Asana baserat på användartilldelningar i Azure AD.
 
 > [!TIP]
-> Om du vill aktivera SAML-baserad enkel inloggning för asana, följer du anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
+> Om du vill aktivera SAML-baserad enkel inloggning för Asana följer du instruktionerna i [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
 
-### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Konfigurera automatisk användar konto etablering till asana i Azure AD
+### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Så här konfigurerar du automatisk etablering av användarkonton till Asana i Azure AD
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory** > **Enterprise-appar** > **alla program** .
+1. I [Azure-portalen](https://portal.azure.com)bläddrar du till avsnittet **Alla Azure Active Directory** > **Enterprise Apps-** > **program.**
 
-1. Om du redan har konfigurerat asana för enkel inloggning söker du efter din instans av asana med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **asana** i program galleriet. Välj **asana** från Sök resultaten och Lägg till den i listan över program.
+1. Om du redan har konfigurerat Asana för enkel inloggning söker du efter din instans av Asana med hjälp av sökfältet. Annars väljer du **Lägg till** och sök efter **Asana** i programgalleriet. Välj **Asana** i sökresultaten och lägg till det i listan över program.
 
-1. Välj din instans av asana och välj sedan fliken **etablering** .
+1. Markera din förekomst av Asana och välj sedan fliken **Etablering.**
 
-1. Ange **etablerings läget** till **Automatisk**.
+1. Ange **etableringsläge** till **Automatiskt**.
 
-    ![Asana-etablering](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
+    ![Asana Etablering](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-1. Under avsnittet **admin credentials** , följer du dessa anvisningar för att generera token och ange den i **hemlig token**:
+1. Under avsnittet **Administratörsautentiseringar** följer du dessa instruktioner för att generera token och anger den i **hemlig token:**
 
-    a. Logga in på [asana](https://app.asana.com) med ditt administratörs konto.
+    a. Logga in på [Asana](https://app.asana.com) med ditt administratörskonto.
 
-    b. Välj profil fotot i det översta fältet och välj dina aktuella inställningar för organisations namn.
+    b. Välj profilfotot i det övre fältet och välj dina aktuella inställningar för organisationsnamn.
 
-    c. Gå till fliken **tjänst konton** .
+    c. Gå till fliken **Tjänstkonton.**
 
-    d. Välj **Lägg till tjänst konto**.
+    d. Välj **Lägg till tjänstkonto**.
 
-    e. Uppdatera **namnet** och **om** och profil fotot efter behov. Kopiera token i **token**och välj den i **Spara ändringar**.
+    e. Uppdatera **namn** och **om** och profilfotot efter behov. Kopiera token i **Token**och välj den i **Spara ändringar**.
 
-1. I Azure Portal väljer du **Testa anslutning** för att se till att Azure AD kan ansluta till din asana-app. Om anslutningen Miss lyckas kontrollerar du att ditt asana-konto har administratörs behörighet och provar steget **Testa anslutning** igen.
+1. I Azure-portalen väljer du **Testa anslutning** för att säkerställa att Azure AD kan ansluta till din Asana-app. Om anslutningen misslyckas kontrollerar du att Asana-kontot har administratörsbehörighet och försöker med steget **Testa anslutning** igen.
 
-1. Ange e-postadressen till en person eller grupp som du vill få etablerings fel meddelanden i **e-postaviseringar**. Markera kryss rutan under.
-
-1. Välj **Spara**.
-
-1. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till asana**.
-
-1. I avsnittet **mappningar för attribut** granskar du de användarattribut som ska synkroniseras från Azure AD till asana. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i asana för uppdaterings åtgärder. Välj **Spara** för att genomföra ändringarna. Mer information finns i [Anpassa mappningar av användar etablerings attribut](../app-provisioning/customize-application-attributes.md).
-
-1. Om du vill aktivera Azure AD Provisioning-tjänsten för asana går du till avsnittet **Inställningar** och ändrar **etablerings statusen** till **på**.
+1. Ange e-postadressen till en person eller grupp som du vill få etableringsfelmeddelanden i **e-postmeddelande .** Markera kryssrutan under.
 
 1. Välj **Spara**.
 
-Nu startar den första synkroniseringen för alla användare som tilldelats asana i avsnittet **användare** . Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Använd avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablering av aktivitets loggar. Gransknings loggarna beskriver alla åtgärder som utförs av etablerings tjänsten i asana-appen.
+1. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-användare till Asana**.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapporten om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+1. I avsnittet **Attributmappningar** granskar du de användarattribut som ska synkroniseras från Azure AD till Asana. De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Asana för uppdateringsåtgärder. Välj **Spara** om du vill genomföra eventuella ändringar. Mer information finns i [Anpassa attributmappningar för användaretableringar](../app-provisioning/customize-application-attributes.md).
+
+1. Om du vill aktivera Azure AD-etableringstjänsten för Asana ändrar **du etableringsstatus** till **Settings** **På**.
+
+1. Välj **Spara**.
+
+Nu startar den första synkroniseringen för alla användare som tilldelats Asana i avsnittet **Användare.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge tjänsten körs. Använd avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitetsloggar. Granskningsloggarna beskriver alla åtgärder som utförs av etableringstjänsten i Asana-appen.
+
+Mer information om hur du läser Azure AD-etableringsloggarna finns i Rapportera om automatisk etablering av [användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](asana-tutorial.md)

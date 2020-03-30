@@ -4,21 +4,21 @@ description: Beskriver hur du definierar parametrar i en Azure Resource Manager-
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.openlocfilehash: 89c6984c587e8dae59c1825a99d4f8da1c06dafb
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76122431"
 ---
-# <a name="parameters-in-azure-resource-manager-templates"></a>Parametrar i Azure Resource Manager mallar
+# <a name="parameters-in-azure-resource-manager-templates"></a>Parametrar i Azure Resource Manager-mallar
 
 I den här artikeln beskrivs hur du definierar och använder parametrar i din Azure Resource Manager-mall. Genom att ange olika värden för parametrar kan du återanvända en mall för olika miljöer.
 
-Resource Manager matchar parameter värden innan distributions åtgärderna startas. Oavsett var parametern används i mallen ersätter Resource Manager den med det matchade värdet.
+Resource Manager löser parametervärden innan distributionsåtgärderna startas. Var parametern än används i mallen ersätter Resource Manager den med det lösta värdet.
 
 ## <a name="define-parameter"></a>Definiera parameter
 
-I följande exempel visas en enkel parameter definition. Den definierar en parameter med namnet **storageSKU**. Parametern är ett sträng värde och accepterar bara värden som är giltiga för den avsedda användningen. Parametern använder ett standardvärde när inget värde anges under distributionen.
+I följande exempel visas en enkel parameterdefinition. Den definierar en parameter med namnet **storageSKU**. Parametern är ett strängvärde och accepterar endast värden som är giltiga för den avsedda användningen. Parametern använder ett standardvärde när inget värde anges under distributionen.
 
 ```json
 "parameters": {
@@ -41,7 +41,7 @@ I följande exempel visas en enkel parameter definition. Den definierar en param
 
 ## <a name="use-parameter"></a>Använd parameter
 
-I mallen refererar du till värdet för parametern med hjälp av funktionen [parametrar](template-functions-deployment.md#parameters) . I följande exempel används parametervärdet för att ange SKU för lagrings kontot.
+I mallen refererar du till parameterns värde med hjälp av [parameterfunktionen.](template-functions-deployment.md#parameters) I följande exempel används parametervärdet för att ange SKU för lagringskontot.
 
 ```json
 "resources": [
@@ -57,7 +57,7 @@ I mallen refererar du till värdet för parametern med hjälp av funktionen [par
 
 ## <a name="template-functions"></a>Mallfunktioner
 
-När du anger standardvärdet för en parameter kan du använda de flesta mall-funktionerna. Du kan använda ett annat parameter värde för att bygga ett standardvärde. Följande mall visar hur funktionen används i standardvärdet. När inget namn har angetts för platsen skapas ett unikt sträng värde och läggs till på **platsen**. När inget namn har angetts för värd planen tar det med värdet för platsen och lägger till **plan**.
+När du anger standardvärdet för en parameter kan du använda de flesta mallfunktioner. Du kan använda ett annat parametervärde för att skapa ett standardvärde. Följande mall visar hur funktioner används i standardvärdet. När inget namn anges för platsen skapas ett unikt strängvärde och läggs till den på **plats**. När inget namn anges för värdplanen tar den värdet för platsen och lägger till **-plan**.
 
 ```json
 "parameters": {
@@ -78,11 +78,11 @@ När du anger standardvärdet för en parameter kan du använda de flesta mall-f
 }
 ```
 
-Du kan inte använda [referens](template-functions-resource.md#reference) funktionen eller någon av [list](template-functions-resource.md#list) funktionerna i avsnittet parametrar. Dessa funktioner hämtar körnings status för en resurs och kan inte utföras före distributionen när parametrarna har matchats.
+Du kan inte använda [referensfunktionen](template-functions-resource.md#reference) eller någon av [listfunktionerna](template-functions-resource.md#list) i avsnittet parametrar. Dessa funktioner får körningstillståndet för en resurs och kan inte köras före distributionen när parametrarna har lösts.
 
 ## <a name="objects-as-parameters"></a>Objekt som parametrar
 
-Det kan vara lättare att organisera relaterade värden genom att skicka dem som ett objekt. Den här metoden minskar också antalet parametrar i mallen.
+Det kan vara enklare att ordna relaterade värden genom att skicka in dem som ett objekt. Den här metoden minskar också antalet parametrar i mallen.
 
 I följande exempel visas en parameter som är ett objekt. Standardvärdet visar de förväntade egenskaperna för objektet.
 
@@ -114,7 +114,7 @@ I följande exempel visas en parameter som är ett objekt. Standardvärdet visar
 },
 ```
 
-Du refererar till egenskaperna för objektet med hjälp av punkt operatorn.
+Du refererar till objektets egenskaper med hjälp av punktoperatorn.
 
 ```json
 "resources": [
@@ -150,16 +150,16 @@ Du refererar till egenskaperna för objektet med hjälp av punkt operatorn.
 
 ## <a name="example-templates"></a>Exempel på mallar
 
-I följande exempel demonstreras scenarier för att använda parametrar.
+Följande exempel visar scenarier för att använda parametrar.
 
 |Mall  |Beskrivning  |
 |---------|---------|
-|[parametrar med funktioner för standardvärden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Visar hur du använder mall funktioner när du definierar standardvärden för parametrar. Mallen distribuerar inga resurser. Den skapar parameter värden och returnerar dessa värden. |
-|[parameter objekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Visar hur man använder ett objekt för en parameter. Mallen distribuerar inga resurser. Den skapar parameter värden och returnerar dessa värden. |
+|[parametrar med funktioner för standardvärden](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Visar hur du använder mallfunktioner när du definierar standardvärden för parametrar. Mallen distribuerar inga resurser. Parametervärden och returnerar dessa värden. |
+|[parameterobjekt](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstrerar med hjälp av ett objekt för en parameter. Mallen distribuerar inga resurser. Parametervärden och returnerar dessa värden. |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om tillgängliga egenskaper för parametrar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](template-syntax.md).
-* Information om hur du skickar parameter värden som en fil finns i [create Resource Manager parameter File](parameter-files.md).
-* Rekommendationer för att skapa parametrar finns i [metod tips – parametrar](template-best-practices.md#parameters).
+* Mer information om tillgängliga egenskaper för parametrar finns i [Förstå strukturen och syntaxen för Azure Resource Manager-mallar](template-syntax.md).
+* Mer information om hur du skickar in parametervärden som en fil finns i [Skapa Resource Manager-parameterfil](parameter-files.md).
+* Rekommendationer om hur du skapar parametrar finns i [Metodtips - parametrar](template-best-practices.md#parameters).

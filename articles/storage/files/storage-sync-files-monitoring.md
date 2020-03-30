@@ -1,6 +1,6 @@
 ---
-title: Övervaka Azure File Sync | Microsoft Docs
-description: Så här övervakar du Azure File Sync.
+title: Övervaka Synkronisering av Azure-filer | Microsoft-dokument
+description: Så här övervakar du Synkronisering av Azure-filer.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,146 +8,146 @@ ms.date: 06/28/2019
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: ac09f9b59bc6f47adc9311cc910352c1a0d73b5d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68699293"
 ---
 # <a name="monitor-azure-file-sync"></a>Övervaka Azure File Sync
 
-Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Azure File Sync transformerar Windows Server till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
+Använd Azure File Sync för att centralisera organisationens filresurser i Azure Files, samtidigt som flexibiliteten, prestandan och kompatibiliteten hos en lokal filserver bevaras. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cachar som du behöver över hela världen.
 
-Den här artikeln beskriver hur du övervakar Azure File Sync-distributionen med hjälp av Azure Monitor, tjänsten Storage Sync och Windows Server.
+I den här artikeln beskrivs hur du övervakar distributionen av Azure File Sync med hjälp av Azure Monitor, Storage Sync Service och Windows Server.
 
-Följande övervaknings alternativ är tillgängliga för närvarande.
+Följande övervakningsalternativ är för närvarande tillgängliga.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
-Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) om du vill visa mått och konfigurera aviseringar för synkronisering, moln nivåer och server anslutning.  
+Använd [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för att visa mått och konfigurera aviseringar för synkronisering, molnnivåhantering och serveranslutning.  
 
 ### <a name="metrics"></a>Mått
 
-Mått för Azure File Sync är aktiverade som standard och skickas till Azure Monitor var 15: e minut.
+Mått för Azure File Sync är aktiverade som standard och skickas till Azure Monitor var 15:e minut.
 
-Om du vill visa Azure File Sync mått i Azure Monitor väljer du resurs typen **Storage Sync Services** .
+Om du vill visa Azure File Sync-mått i Azure Monitor väljer du resurstypen **Storage Sync Services.**
 
 Följande mått för Azure File Sync är tillgängliga i Azure Monitor:
 
 | Måttnamn | Beskrivning |
 |-|-|
-| Byte som har synkroniserats | Storlek på överförda data (uppladdning och nedladdning).<br><br>Processor Byte<br>Sammansättnings typ: Summa<br>Tillämpliga dimensioner: Server slut punkts namn, synkroniseringsanslutning, namn på Sync-grupp |
-| Återkalla moln nivå | Storlek på data som har återkallats.<br><br>**Obs!** Måttet tas bort i framtiden. Använd storleks måttet återkalla storlek på moln nivå för att övervaka storleken på data som återkallas.<br><br>Processor Byte<br>Sammansättnings typ: Summa<br>Tillämplig dimension: Servernamn |
-| Återställnings storlek för moln nivå | Storlek på data som har återkallats.<br><br>Processor Byte<br>Sammansättnings typ: Summa<br>Tillämplig dimension: Server namn, namn på Sync-grupp |
-| Återställnings storlek för moln skikt per program | Storlek på data som återkallas av program.<br><br>Processor Byte<br>Sammansättnings typ: Summa<br>Tillämplig dimension: Program namn, Server namn, namn på Sync-grupp |
-| Återkalla data flöde för moln nivå | Storlek på data återställnings data flöde.<br><br>Processor Byte<br>Sammansättnings typ: Summa<br>Tillämplig dimension: Server namn, namn på Sync-grupp |
-| Filer som inte synkroniseras | Antal filer som inte kan synkroniseras.<br><br>Processor Count<br>Sammansättnings typ: Summa<br>Tillämpliga dimensioner: Server slut punkts namn, synkroniseringsanslutning, namn på Sync-grupp |
-| Synkroniserade filer | Antal överförda filer (uppladdning och nedladdning).<br><br>Processor Count<br>Sammansättnings typ: Summa<br>Tillämpliga dimensioner: Server slut punkts namn, synkroniseringsanslutning, namn på Sync-grupp |
-| Status för server online | Antal pulsslag som tagits emot från servern.<br><br>Processor Count<br>Sammansättnings typ: Maximal<br>Tillämplig dimension: Servernamn |
-| Resultat av Sync-session | Resultat av synkroniseringsbegäran (1 = lyckad synkroniseringsanslutning, 0 = det gick inte att synkronisera sessionen)<br><br>Processor Count<br>Sammansättnings typer: Maximal<br>Tillämpliga dimensioner: Server slut punkts namn, synkroniseringsanslutning, namn på Sync-grupp |
+| Synkroniserade byte | Storleken på överförda data (ladda upp och ladda ner).<br><br>Enhet: Byte<br>Aggregeringstyp: Summa<br>Tillämpliga dimensioner: Serverslutpunktsnamn, synkroniseringsriktning, synkroniseringsgruppnamn |
+| Återkalla molnnivådelning | Storleken på data som återkallas.<br><br>**Det**här måttet tas bort i framtiden. Använd måttet för återkallad storlek för molnnivå för att övervaka storleken på data som återkallas.<br><br>Enhet: Byte<br>Aggregeringstyp: Summa<br>Tillämplig dimension: Servernamn |
+| Återkallad storlek för molnnivå | Storleken på data som återkallas.<br><br>Enhet: Byte<br>Aggregeringstyp: Summa<br>Tillämplig dimension: Servernamn, namn på synkroniseringsgrupp |
+| Återkallar storlek för molnnivå efter program | Storleken på data som återkallas av programmet.<br><br>Enhet: Byte<br>Aggregeringstyp: Summa<br>Tillämplig dimension: Programnamn, Servernamn, Synkroniseringsgruppnamn |
+| Dataflöde för återkallar molnnivåer | Storlek på dataåterkallningsdataflöde.<br><br>Enhet: Byte<br>Aggregeringstyp: Summa<br>Tillämplig dimension: Servernamn, namn på synkroniseringsgrupp |
+| Filer som inte synkroniseras | Antal filer som inte synkroniseras.<br><br>Enhet: Antal<br>Aggregeringstyp: Summa<br>Tillämpliga dimensioner: Serverslutpunktsnamn, synkroniseringsriktning, synkroniseringsgruppnamn |
+| Synkroniserade filer | Antal överförda filer (ladda upp och ladda ned).<br><br>Enhet: Antal<br>Aggregeringstyp: Summa<br>Tillämpliga dimensioner: Serverslutpunktsnamn, synkroniseringsriktning, synkroniseringsgruppnamn |
+| Onlinestatus för servern | Antal pulsslag som tagits emot från servern.<br><br>Enhet: Antal<br>Aggregeringstyp: Maximal<br>Tillämplig dimension: Servernamn |
+| Resultatet av synkroniseringssessionen | Synkroniseringssessionsresultat (1=lyckad synkroniseringssession; 0=misslyckad synkroniseringssession)<br><br>Enhet: Antal<br>Aggregeringstyper: Maximalt<br>Tillämpliga dimensioner: Serverslutpunktsnamn, synkroniseringsriktning, synkroniseringsgruppnamn |
 
 ### <a name="alerts"></a>Aviseringar
 
-Om du vill konfigurera aviseringar i Azure Monitor väljer du tjänsten Storage Sync och väljer sedan det [Azure File Sync mått](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) som ska användas för aviseringen.  
+Om du vill konfigurera aviseringar i Azure Monitor väljer du tjänsten Storage Sync och väljer sedan [azure file sync-måttet](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#metrics) som ska användas för aviseringen.  
 
-I följande tabell visas några exempel scenarier som du kan använda för att övervaka och rätt mått för aviseringen:
+I följande tabell visas några exempelscenarier som ska övervakas och rätt mått som ska användas för aviseringen:
 
 | Scenario | Mått som ska användas för avisering |
 |-|-|
-| Server slut punktens hälso tillstånd i portalen = fel | Resultat av Sync-session |
-| Det går inte att synkronisera filer till en server eller moln slut punkt | Filer som inte synkroniseras |
-| Den registrerade servern kan inte kommunicera med tjänsten för synkronisering av lagring | Status för server online |
-| Återställnings storleken för moln skiktet har överskridit 500GiB per dag  | Återställnings storlek för moln nivå |
+| Serverslutpunktshälsa i portalen = Fel | Resultatet av synkroniseringssessionen |
+| Filer synkroniseras inte med en server- eller molnslutpunkt | Filer som inte synkroniseras |
+| Registrerad server kan inte kommunicera med storage sync-tjänsten | Onlinestatus för servern |
+| Återkallar storlek på molnnivå har överskridit 500GiB på en dag  | Återkallad storlek för molnnivå |
 
-Mer information om hur du konfigurerar aviseringar i Azure Monitor finns i [Översikt över aviseringar i Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+Mer information om hur du konfigurerar aviseringar i Azure Monitor finns [i Översikt över aviseringar i Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## <a name="storage-sync-service"></a>Tjänst för synkronisering av lagring
 
-Om du vill visa registrerad Server hälsa, Server slut punkts hälsa och mått går du till tjänsten Storage Sync i Azure Portal. Du kan visa registrerad Server hälsa på bladet **registrerade servrar** och Server slut punktens hälsa på bladet **Synkronisera grupper** .
+Om du vill visa registrerad serverhälsa, serverslutpunktshälsa och mått går du till storage sync-tjänsten i Azure-portalen. Du kan visa registrerad serverhälsa i bladet **Registrerade servrar** och serverslutpunktshälsa i bladet **Synkroniseringsgrupper.**
 
-### <a name="registered-server-health"></a>Registrerad Server hälsa
+### <a name="registered-server-health"></a>Serverns hälsa har registrerats
 
-- Om det **registrerade Server** läget är **online**, kommunicerar servern med tjänsten.
-- Om det **registrerade Server** läget **visas som offline**kontrollerar du att processen för övervakning av lagrings plats (AzureStorageSyncMonitor. exe) på servern körs. Om servern finns bakom en brand vägg eller proxy kan du läsa [den här artikeln](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) för att konfigurera brand väggen och proxyn.
+- Om tillståndet **registrerad server** är **Online**kommunicerar servern med tjänsten.
+- Om tillståndet **Registrerad server** är **Visas offline**kontrollerar du att processen Storage Sync Monitor (AzureStorageSyncMonitor.exe) på servern körs. Om servern ligger bakom en brandvägg eller proxy läser du den [här artikeln](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) för att konfigurera brandväggen och proxyn.
 
-### <a name="server-endpoint-health"></a>Server slut punkts hälsa
+### <a name="server-endpoint-health"></a>Hälsa för serverslutpunkt
 
-- Server slut punktens hälso tillstånd i portalen baseras på de synkroniserade händelser som loggas i händelse loggen för telemetri på servern (ID 9102 och 9302). Om en Sync-session Miss lyckas på grund av ett tillfälligt fel, till exempel fel som avbrutits, kan synkronisering fortfarande visas felfritt i portalen så länge den aktuella synkroniseringen pågår. Händelse-ID 9302 används för att avgöra om filer tillämpas. Mer information finns i [synkronisering av hälso tillstånd](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [synkronisering](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
-- Om portalen visar ett synkroniseringsfel eftersom synkroniseringen inte gör något, se [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) för vägledning.
+- Serverslutpunktshälsan i portalen baseras på synkroniseringshändelser som loggas i telemetrihändelseloggen på servern (ID 9102 och 9302). Om en synkroniseringssession misslyckas på grund av ett tillfälligt fel, till exempel fel som har avbrutits, kan synkroniseringen fortfarande visas felfritt i portalen så länge den aktuella synkroniseringssessionen gör framsteg. Händelse-ID 9302 används för att avgöra om filer används. Mer information finns i [synkroniseringshälsa](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [synkroniseringsstatus](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Om portalen visar ett synkroniseringsfel eftersom synkronisering inte gör framsteg läser du [felsökningsdokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) för vägledning.
 
-### <a name="metric-charts"></a>Mått diagram
+### <a name="metric-charts"></a>Måttdiagram
 
-- Följande mått diagram visas i Storage Sync service portal:
+- Följande måttdiagram kan visas i Storage Sync Service-portalen:
 
-  | Måttnamn | Beskrivning | Blad namn |
+  | Måttnamn | Beskrivning | Bladnamn |
   |-|-|-|
-  | Byte som har synkroniserats | Storlek på överförda data (uppladdning och nedladdning) | Synkronisera grupp, Server slut punkt |
-  | Återkalla moln nivå | Storlek på data som återkallas | Registrerade servrar |
-  | Filer som inte synkroniseras | Antal filer som inte kan synkroniseras | Server slut punkt |
-  | Synkroniserade filer | Antal överförda filer (uppladdning och nedladdning) | Synkronisera grupp, Server slut punkt |
-  | Status för server online | Antal pulsslag som tagits emot från servern | Registrerade servrar |
+  | Synkroniserade byte | Storleken på överförda data (ladda upp och ladda ner) | Synkroniseringsgrupp, Serverslutpunkt |
+  | Återkalla molnnivådelning | Storleken på återkallade data | Registrerade servrar |
+  | Filer som inte synkroniseras | Antal filer som inte synkroniseras | Serverslutpunkt |
+  | Synkroniserade filer | Antal överförda filer (ladda upp och ladda ned) | Synkroniseringsgrupp, Serverslutpunkt |
+  | Onlinestatus för servern | Antal pulsslag som tagits emot från servern | Registrerade servrar |
 
-- Läs mer i [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor).
+- Mer information finns i [Azure Monitor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor).
 
   > [!Note]  
-  > Diagrammen i Storage Sync Service Portal har ett tidsintervall på 24 timmar. Använd Azure Monitor om du vill visa olika tidsintervall eller dimensioner.
+  > Diagrammen i Storage Sync Service-portalen har ett tidsintervall på 24 timmar. Om du vill visa olika tidsintervall eller dimensioner använder du Azure Monitor.
 
 ## <a name="windows-server"></a>Windows Server
 
-På Windows Server kan du Visa moln nivåer, registrerad Server och synkroniseringsstatus.
+På Windows Server kan du visa molnnivåindelning, registrerad server och synkroniseringshälsa.
 
 ### <a name="event-logs"></a>Händelseloggar
 
-Använd händelse loggen för telemetri på-servern för att övervaka registrerad Server, synkronisering och moln nivå hälsa. Händelse loggen för telemetri finns i Loggboken under *program-och Services\Microsoft\FileSync\Agent*.
+Använd telemetrihändelseloggen på servern för att övervaka registrerad server-, synkroniserings- och molnnivådelningshälsa. Händelseloggen för telemetri finns i Loggboken under *Applications and Services\Microsoft\FileSync\Agent*.
 
-Sync-hälsa:
+Synkronisera hälsa:
 
-- Händelse-ID 9102 loggas när en Sync-session har slutförts. Använd den här händelsen för att avgöra om Sync-sessioner lyckas (**HResult = 0**) och om det finns synkroniseringsfel per objekt. Mer information finns i dokumentationen om [synkronisering av hälso tillstånd](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [meddelanden per objekt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) .
+- Händelse-ID 9102 loggas när en synkroniseringssession har slutförts. Använd den här händelsen för att avgöra om synkroniseringssessioner lyckas (**HResult = 0**) och om det finns synkroniseringsfel per objekt. Mer information finns i dokumentationen [för synkroniseringshälsa](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) och [fel per artikel.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
 
   > [!Note]  
-  > Synkronisering av sessioner fungerar ibland inte generellt eller har en PerItemErrorCount som inte är noll. De kommer dock fortfarande att fortsätta och vissa filer synkroniseras. Du kan se detta i de använda fälten, till exempel AppliedFileCount, AppliedDirCount, AppliedTombstoneCount och AppliedSizeBytes. Dessa fält visar hur mycket av sessionen som har lyckats. Om flera Sync-sessioner visas på en rad och de har ett ökande antal tillämpade, kan du ange att synkroniseringen ska göras innan du öppnar ett support ärende.
+  > Ibland misslyckas synkroniseringssessioner totalt sett eller har en peritemErrrcount som inte är noll. De gör dock fortfarande framsteg framåt och vissa filer synkroniseras. Du kan se detta i fälten Tillämpad, till exempel AppliedFileCount, AppliedDirCount, AppliedTombstoneCount och AppliedSizeBytes. De här fälten visar hur mycket av sessionen som lyckades. Om flera synkroniseringssessioner misslyckas i en rad och de har ett ökat antal tillämpade, ger du synkroniseringstid för att försöka igen innan du öppnar en supportbiljett.
 
-- Händelse-ID 9302 loggas var 5 till 10 minuter om det finns en aktiv Sync-session. Använd den här händelsen för att ta reda på om den pågående synkroniseringen görs (**AppliedItemCount > 0**). Om synkronisering inte sker, bör Sync-sessionen sluta att fungera och händelse-ID 9102 kommer att loggas med felet. Mer information finns i dokumentationen för [Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)-förloppet.
+- Händelse-ID 9302 loggas var 5:e till 10:e minut om det finns en aktiv synkroniseringssession. Använd den här händelsen för att avgöra om den aktuella synkroniseringssessionen gör framsteg (**AppliedItemCount > 0**). Om synkronisering inte gör framsteg, bör synkroniseringssessionen så småningom misslyckas och ett händelse-ID 9102 loggas med felet. Mer information finns i [dokumentationen för synkroniseringsstatus](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Registrerad Server hälsa:
+Registrerad serverhälsa:
 
-- Händelse-ID 9301 loggas var 30: e sekund när en server frågar tjänsten efter jobb. Om GetNextJob slutförs med **status = 0**, kan servern kommunicera med tjänsten. Om GetNextJob har slutförts med ett fel kan du läsa mer i [fel söknings dokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) .
+- Händelse-ID 9301 loggas var 30:e sekund när en server frågar tjänsten efter jobb. Om GetNextJob slutar med **status = 0**kan servern kommunicera med tjänsten. Om GetNextJob avslutar med ett fel kan du läsa [felsökningsdokumentationen](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) för vägledning.
 
-Hälso tillstånd för moln nivåer:
+Hälsotillstånd för molnnivådelning:
 
-- Om du vill övervaka nivå aktivitet på en server använder du händelse-ID 9003, 9016 och 9029 i händelse loggen för telemetri, som finns i Loggboken under *program-och Services\Microsoft\FileSync\Agent*.
+- Om du vill övervaka nivåindelningsaktivitet på en server använder du Händelse-ID 9003, 9016 och 9029 i händelseloggen Telemetri, som finns i Loggboken under *Applications and Services\Microsoft\FileSync\Agent*.
 
-  - Händelse-ID 9003 ger fel distribution för en server slut punkt. Exempel: Totalt antal fel och felkod. En händelse loggas per felkod.
-  - Händelse-ID 9016 ger ghosting-resultat för en volym. Exempel: Procent ledigt utrymme är, antal filer som är avbildade i sessionen och antalet filer som misslyckades med Ghost.
-  - Händelse-ID 9029 tillhandahåller ghosting-sessionsinformation för en server slut punkt. Exempel: Antal filer som försökts i sessionen, antalet filer som skiktas i sessionen och antalet filer som redan har delats på nivå.
+  - Händelse-ID 9003 ger feldistribution för en serverslutpunkt. Till exempel: Totalt antal fel och ErrorCode. En händelse loggas per felkod.
+  - Händelse-ID 9016 ger spökresultat för en volym. Till exempel: Ledigt utrymme procent är, Antal filer spökat i session, och Antal filer misslyckades att spöke.
+  - Händelse-ID 9029 innehåller spöksessionsinformation för en serverslutpunkt. Till exempel: Antal filer som försöks i sessionen, Antal filer som nivåindelad i sessionen och Antal filer som redan har nivåindelats.
   
-- Om du vill övervaka återställnings aktivitet på en server använder du händelse-ID 9005, 9006, 9009 och 9059 i händelse loggen för telemetri, som finns i Loggboken under *program-och Services\Microsoft\FileSync\Agent*.
+- Om du vill övervaka återkallningsaktivitet på en server använder du Händelse-ID 9005, 9006, 9009 och 9059 i telemetrihändelseloggen, som finns i Loggboken under *Applications and Services\Microsoft\FileSync\Agent*.
 
-  - Händelse-ID 9005 ger åter kallelse tillförlitlighet för en server slut punkt. Exempel: Totalt antal unika filer som används och totalt antal unika filer med misslyckad åtkomst.
-  - Händelse-ID 9006 ger återställnings fel distribution för en server slut punkt. Exempel: Totalt antal misslyckade förfrågningar och felkod. En händelse loggas per felkod.
-  - Händelse-ID 9009 ger information om återkallande-sessionsinformation för en server slut punkt. Exempel: DurationSeconds, CountFilesRecallSucceeded och CountFilesRecallFailed.
-  - Händelse-ID 9059 tillhandahåller distribution av program åter användning för en server slut punkt. Exempel: ShareId, program namn och TotalEgressNetworkBytes.
+  - Händelse-ID 9005 ger återkallningstillförlitlighet för en serverslutpunkt. Till exempel: Totalt antal unika filer som används och Totalt unika filer med misslyckad åtkomst.
+  - Händelse-ID 9006 ger distribution av återkallningsfel för en serverslutpunkt. Till exempel: Totalt antal misslyckade begäranden och ErrorCode. En händelse loggas per felkod.
+  - Händelse-ID 9009 innehåller information om återkallningssession för en serverslutpunkt. Till exempel: DurationSeconds, CountFilesRecallSucceeded och CountFilesRecallFailed.
+  - Händelse-ID 9059 ger programåterkallningsdistribution för en serverslutpunkt. Till exempel: ShareId, Programnamn och TotalEgressNetworkBytes.
 
 ### <a name="performance-counters"></a>Prestandaräknare
 
-Använd Azure File Sync prestanda räknare på servern för att övervaka synkronisering av aktiviteter.
+Använd prestandaräknarna för Azure File Sync på servern för att övervaka synkroniseringsaktivitet.
 
-Öppna prestanda övervakaren (Perfmon. exe) om du vill visa Azure File Sync prestanda räknare på servern. Du hittar räknarna under objekten **AFS-överförda byte** och AFS- **synkronisering** .
+Om du vill visa prestandaräknare för Azure File Sync på servern öppnar du Prestandaövervakaren (Perfmon.exe). Du hittar räknarna under **afs-byte som överförts** och **AFS Sync** Operations-objekt.
 
-Följande prestanda räknare för Azure File Sync är tillgängliga i prestanda övervakaren:
+Följande prestandaräknare för Azure File Sync är tillgängliga i Prestandaövervakaren:
 
-| Object\Counter-namn för prestanda | Beskrivning |
+| Namn på prestandaobjekt\räknare | Beskrivning |
 |-|-|
-| AFS-byte Transferred\Downloaded byte/s | Antal hämtade byte per sekund. |
-| AFS-byte Transferred\Uploaded byte/s | Antal överförda byte per sekund. |
-| AFS-byte Transferred\Total byte/s | Totalt antal byte per sekund (uppladdning och nedladdning). |
-| AFS Sync-Operations\Downloaded Sync-filer/SEK | Antal hämtade filer per sekund. |
-| AFS Sync-Operations\Uploaded Sync-filer/SEK | Antal överförda filer per sekund. |
-| AFS Sync-Operations\Total Sync File-åtgärder/SEK | Totalt antal filer som har synkroniserats (uppladdning och nedladdning). |
+| AFS-överförda byte\Hämtade byte/sek | Antal nedladdade byte per sekund. |
+| ÖVERFÖRDA AFS-byte\Överförda byte/sek | Antal uppladdade byte per sekund. |
+| ÖVERFÖRDA AFS-byte\Totalt antal byte/sek | Totalt antal byte per sekund (ladda upp och ladda ned). |
+| AFS-synkroniseringsåtgärder\Hämtade synkroniseringsfiler/sek | Antal filer som hämtats per sekund. |
+| AFS-synkroniseringsåtgärder\Uppladdade synkroniseringsfiler/sek | Antal filer som laddats upp per sekund. |
+| AFS-synkroniseringsoperationer\Totalt antal synkroniseringsfiloperationer/sek | Totalt antal synkroniserade filer (ladda upp och ladda ner). |
 
 ## <a name="next-steps"></a>Nästa steg
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)
-- [Överväg inställningar för brand vägg och proxy](storage-sync-files-firewall-and-proxy.md)
+- [Överväg brandväggs- och proxyinställningar](storage-sync-files-firewall-and-proxy.md)
 - [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
 - [Felsöka Azure File Sync](storage-sync-files-troubleshoot.md)
-- [Vanliga frågor och svar om Azure Files](storage-files-faq.md)
+- [Vanliga frågor och svar i Azure-filer](storage-files-faq.md)

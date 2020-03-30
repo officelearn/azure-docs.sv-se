@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 7c097c2a7247c9cad6cdce8a89059ee8d90d159e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70899581"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-projects"></a>Skapa en CI/CD-pipeline för PHP med Azure DevOps Projects
@@ -80,7 +80,7 @@ Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual
 
 1. Välj **Redigera** och gör sedan en ändring i en del av texten.  Du kan till exempel ändra en del av texten för en av div-taggarna.
 
-1. Välj **Checka in** och spara sedan ändringarna.
+1. Välj **Incheckning** och spara sedan ändringarna.
 
 1. I webbläsaren går du till DevOps Projects-instrumentpanelen.  
 Du bör nu se att en version håller på att skapas. De ändringar som du just utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
@@ -89,7 +89,7 @@ Du bör nu se att en version håller på att skapas. De ändringar som du just u
 
  DevOps Projects konfigurerar automatiskt en fullständig CI/CD-pipeline i Azure Pipelines. Utforska och anpassa pipelinen efter behov. Utför följande för att bekanta dig med bygg- och versionspipelines:
 
-1. Välj **Bygg-pipelines** längst upp på DevOps Projects-instrumentpanelen.  
+1. Välj **Skapa pipelines** längst upp på DevOps Projects-instrumentpanelen.  
     Länken öppnar en webbläsarflik och bygg-pipelinen för det nya projektet.
 
 1. Peka på fältet **Status** och välj **ellipsen** (...).  
@@ -102,7 +102,7 @@ Du bör nu se att en version håller på att skapas. De ändringar som du just u
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande och välj **Spara och köa** och sedan **Spara**.
+1. Ändra namnet på byggpipelinen till något mer beskrivande, välj, **Spara & kö**och välj sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.   
     I fönsterrutan **Historik** visas en spårningslogg över de senaste ändringarna för versionen. Azure Pipelines spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
@@ -116,7 +116,7 @@ Du bör nu se att en version håller på att skapas. De ändringar som du just u
 1. Välj **Build and Release** (Byggen och versioner) och sedan **Versioner**.  
      DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
-1. Välj ellipsen (...) intill din versionspipeline och välj sedan **Redigera**.  
+1. Välj ellipsen (...) bredvid din releasepipeline och välj sedan **Redigera**.  
     Versionspipelinen innehåller en pipeline som definierar versionsprocessen. 
 
 12. Under **Artefakter** väljer du **Släpp**.  

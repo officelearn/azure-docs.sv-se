@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera DocuSign för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudiekurs: Konfigurera DocuSign för automatisk användaretablering med Azure Active Directory| Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och DocuSign.
 services: active-directory
 documentationCenter: na
@@ -16,88 +16,88 @@ ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 88b65c8e8962ad8420ded47da1a343672123c589
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77058186"
 ---
-# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudie: Konfigurera DocuSign för automatisk användar etablering
+# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera DocuSign för automatisk etablering av användare
 
-Syftet med den här självstudien är att visa de steg du behöver utföra i DocuSign och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till DocuSign.
+Syftet med den här självstudien är att visa de steg du behöver för att utföra i DocuSign och Azure AD för att automatiskt etablera och avetableras användarkonton från Azure AD till DocuSign.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
 
-*   En Azure Active Directory-klient.
-*   En aktive rad DocuSign-prenumeration med enkel inloggning.
-*   Ett användar konto i DocuSign med grupp administratörs behörighet.
+*   En Azure Active-katalogklient.
+*   En DocuSign-prenumeration med enkel inloggning.
+*   Ett användarkonto i DocuSign med behörigheter för teamadministratör.
 
 ## <a name="assigning-users-to-docusign"></a>Tilldela användare till DocuSign
 
-Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett koncept som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk etablering av användarkonto synkroniseras endast användare och grupper som har "tilldelats" till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till DocuSign-appen. När du har bestämt dig kan du tilldela dessa användare till DocuSign-appen genom att följa anvisningarna här:
+Innan du konfigurerar och aktiverar etableringstjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till din DocuSign-app. När du har bestämt dig kan du tilldela dessa användare till docusign-appen genom att följa instruktionerna här:
 
-[Tilldela en användare eller grupp till en företags app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+[Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-docusign"></a>Viktiga tips för att tilldela användare till DocuSign
 
-*   Vi rekommenderar att en enda Azure AD-användare tilldelas DocuSign för att testa etablerings konfigurationen. Ytterligare användare kan tilldelas senare.
+*   Vi rekommenderar att en enda Azure AD-användare tilldelas DocuSign för att testa etableringskonfigurationen. Ytterligare användare kan tilldelas senare.
 
-*   När du tilldelar en användare till DocuSign måste du välja en giltig användar roll. Rollen "standard åtkomst" fungerar inte för etablering.
+*   När du tilldelar en användare till DocuSign måste du välja en giltig användarroll. Rollen "Standardåtkomst" fungerar inte för etablering.
 
 > [!NOTE]
-> Azure AD har inte stöd för grupp etablering med DocuSign-programmet, endast användare kan tillhandahållas.
+> Azure AD stöder inte gruppetablering med Docusign-programmet, endast användare kan etableras.
 
-## <a name="enable-user-provisioning"></a>Aktivera användar etablering
+## <a name="enable-user-provisioning"></a>Aktivera etablering av användare
 
-Det här avsnittet vägleder dig genom att ansluta din Azure AD till DocuSign-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i DocuSign baserat på användar-och grupp tilldelning i Azure AD.
+Det här avsnittet hjälper dig att ansluta ditt Azure AD till DocuSigns API för etablering av användarkonton och konfigurera etableringstjänsten för att skapa, uppdatera och inaktivera tilldelade användarkonton i DocuSign baserat på användar- och grupptilldelning i Azure AD.
 
 > [!Tip]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för DocuSign enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
+> Du kan också välja att aktivera SAML-baserade Enkel inloggning för DocuSign, enligt instruktionerna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner kompletterar varandra.
 
-### <a name="to-configure-user-account-provisioning"></a>Konfigurera användar konto etablering:
+### <a name="to-configure-user-account-provisioning"></a>Så här konfigurerar du etablering av användarkonton:
 
-Syftet med det här avsnittet är att skapa en översikt över hur du aktiverar användar etablering av Active Directory användar konton till DocuSign.
+Syftet med det här avsnittet är att beskriva hur du aktiverar användaretablering av Active Directory-användarkonton till DocuSign.
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
+1. I [Azure-portalen](https://portal.azure.com)bläddrar du till **avsnittet Azure Active Directory > Enterprise Apps > Alla program.**
 
-1. Om du redan har konfigurerat DocuSign för enkel inloggning söker du efter din instans av DocuSign med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **DocuSign** i program galleriet. Välj DocuSign från Sök resultaten och Lägg till den i listan över program.
+1. Om du redan har konfigurerat DocuSign för enkel inloggning söker du efter din instans av DocuSign med hjälp av sökfältet. Annars väljer du **Lägg till** och söker efter **DocuSign** i programgalleriet. Välj DocuSign från sökresultaten och lägg till det i listan över program.
 
-1. Välj din instans av DocuSign och välj sedan fliken **etablering** .
+1. Välj din instans av DocuSign och välj sedan fliken **Etablering.**
 
-1. Ställ in **etablerings läget** på **automatiskt**. 
+1. Ställ in **etableringsläget** på **Automatiskt**. 
 
-    ![etablerings](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Etableringen](./media/docusign-provisioning-tutorial/provisioning.png)
 
-1. Ange följande konfigurations inställningar under avsnittet **admin credentials** :
+1. Ange följande konfigurationsinställningar under avsnittet **Administratörsautentiseringsuppgifter:**
    
-    a. I text rutan **Administratörs användar namn** anger du ett DocuSign-kontonamn som har **system administratörs** profilen i DocuSign.com tilldelad.
+    a. Skriv ett DocuSign-kontonamn som har **profilen Systemadministratör** i DocuSign.com tilldelat i textrutan **Administratörsanvändarnamn.**
    
-    b. I text rutan **Administratörs lösen ord** skriver du lösen ordet för det här kontot.
+    b. Skriv lösenordet för det här kontot i textrutan **Admin Password.**
 
-1. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din DocuSign-app.
+1. Klicka på Testa **anslutning** i Azure-portalen för att säkerställa att Azure AD kan ansluta till din DocuSign-app.
 
-1. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan.
+1. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få etableringsfelmeddelanden och markerar kryssrutan.
 
 1. Klicka på **Spara.**
 
-1. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till DocuSign.**
+1. Under avsnittet Mappningar väljer du **Synkronisera Azure Active Directory-användare till DocuSign.**
 
-1. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till DocuSign. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i DocuSign för uppdaterings åtgärder. Välj knappen Spara för att genomföra ändringarna.
+1. I avsnittet **Attributmappningar** granskar du de användarattribut som synkroniseras från Azure AD till DocuSign. De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i DocuSign för uppdateringsåtgärder. Välj knappen Spara om du vill utföra eventuella ändringar.
 
-1. Om du vill aktivera Azure AD Provisioning-tjänsten för DocuSign ändrar du **etablerings statusen** till **på** i avsnittet Inställningar
+1. Om du vill aktivera Azure AD-etableringstjänsten för DocuSign ändrar **du etableringsstatusen** till **På** i avsnittet Inställningar
 
 1. Klicka på **Spara.**
 
-Den första synkroniseringen av alla användare som tilldelats DocuSign i avsnittet användare och grupper startas. Den första synkroniseringen tar längre tid att genomföra än efterföljande synkroniseringar som sker ungefär var 40 minut så länge som tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten i DocuSign-appen.
+Den startar den första synkroniseringen av alla användare som tilldelats DocuSign i avsnittet Användare och grupper. Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge tjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etablering av aktivitetsloggar, som beskriver alla åtgärder som utförs av etableringstjänsten i DocuSign-appen.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](tutorial-list.md)
+* [Hantera etablering av användarkonton för Enterprise Apps](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 * [Konfigurera enkel inloggning](docusign-tutorial.md)

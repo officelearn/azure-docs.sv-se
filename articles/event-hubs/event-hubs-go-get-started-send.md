@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skicka och ta emot händelser med go-Azure Event Hubs'
-description: 'Snabb start: den här artikeln innehåller en genom gång av hur du skapar ett Go-program som skickar händelser från Azure Event Hubs.'
+title: 'Snabbstart: Skicka och ta emot händelser med Go - Azure Event Hubs'
+description: 'Snabbstart: Den här artikeln innehåller en genomgång för att skapa ett Go-program som skickar händelser från Azure Event Hubs.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
@@ -11,34 +11,34 @@ ms.custom: seodec18
 ms.date: 11/05/2019
 ms.author: shvija
 ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73720582"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Snabb start: skicka händelser till eller ta emot händelser från Event Hubs med go
-Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>Snabbstart: Skicka händelser till eller ta emot händelser från eventhubbar med Go
+Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
-I den här självstudien beskrivs hur du skriver Go-program för att skicka händelser till eller ta emot händelser från en händelsehubben. 
+I den här självstudien beskrivs hur du skriver Go-program för att skicka händelser till eller ta emot händelser från en händelsehubb. 
 
 > [!NOTE]
 > Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
-- Go installeras lokalt. Följ [dessa anvisningar](https://golang.org/doc/install) om det behövs.
-- Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
-- **Skapa ett Event Hubs-namnområde och en Event Hub**. Använd [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md).
+- Gå installerat lokalt. Följ [dessa instruktioner](https://golang.org/doc/install) om det behövs.
+- Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][] konto innan du börjar.
+- **Skapa ett namnområde för händelsehubbar och en händelsehubb**. Använd [Azure-portalen](https://portal.azure.com) för att skapa ett namnområde av typen Event Hubs och hämta de hanteringsautentiseringsuppgifter som ditt program behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md).
 
 ## <a name="send-events"></a>Skicka händelser
-Det här avsnittet visar hur du skapar ett Go-program för att skicka händelser till en händelsehubben. 
+I det här avsnittet visas hur du skapar ett Go-program för att skicka händelser till en händelsehubb. 
 
-### <a name="install-go-package"></a>Installera go-paket
+### <a name="install-go-package"></a>Install Go-paketet
 
-Hämta go-paketet för Event Hubs med `go get` eller `dep`. Till exempel:
+Hämta Go-paketet för eventhubbar med `go get` eller `dep`. Ett exempel:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go
@@ -50,9 +50,9 @@ dep ensure -add github.com/Azure/azure-event-hubs-go
 dep ensure -add github.com/Azure/azure-amqp-common-go
 ```
 
-### <a name="import-packages-in-your-code-file"></a>Importera paket i din kod fil
+### <a name="import-packages-in-your-code-file"></a>Importera paket i kodfilen
 
-Om du vill importera go-paketen använder du följande kod exempel:
+Om du vill importera Go-paketen använder du följande kodexempel:
 
 ```go
 import (
@@ -63,7 +63,7 @@ import (
 
 ### <a name="create-service-principal"></a>Skapa tjänstens huvudnamn
 
-Skapa ett nytt huvud namn för tjänsten genom att följa anvisningarna i [skapa ett huvud namn för Azure-tjänsten med Azure CLI 2,0](/cli/azure/create-an-azure-service-principal-azure-cli). Spara de angivna autentiseringsuppgifterna i din miljö med följande namn. Både Azure SDK för Go och Event Hubs paket är förkonfigurerade för att leta efter följande variabel namn:
+Skapa ett nytt tjänsthuvudnamn genom att följa instruktionerna i [Skapa ett Azure-tjänsthuvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Spara de angivna autentiseringsuppgifterna i din miljö med följande namn. Både Azure SDK för go och eventhubbar-paketen är förkonfigurerade för att leta efter dessa variabelnamn:
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -72,7 +72,7 @@ export AZURE_TENANT_ID=
 export AZURE_SUBSCRIPTION_ID= 
 ```
 
-Nu ska du skapa en autentiseringsprovider för din Event Hubs-klient som använder dessa autentiseringsuppgifter:
+Nu skapar du en auktoriseringsprovider för din Event Hubs-klient som använder dessa autentiseringsuppgifter:
 
 ```go
 tokenProvider, err := aad.NewJWTProvider(aad.JWTProviderWithEnvironmentVars())
@@ -81,7 +81,7 @@ if err != nil {
 }
 ```
 
-### <a name="create-event-hubs-client"></a>Skapa Event Hubs-klient
+### <a name="create-event-hubs-client"></a>Skapa klient för eventhubbar
 
 Följande kod skapar en Event Hubs-klient:
 
@@ -96,7 +96,7 @@ if err != nil {
 
 ### <a name="write-code-to-send-messages"></a>Skriv kod för att skicka meddelanden
 
-I följande kodfragment använder du (1) för att skicka meddelanden interaktivt från en terminal eller (2) för att skicka meddelanden i ditt program:
+I följande kodavsnitt använder du (1) för att skicka meddelanden interaktivt från en terminal, eller (2) för att skicka meddelanden inom programmet:
 
 ```go
 // 1. send messages at the terminal
@@ -113,9 +113,9 @@ ctx = context.Background()
 hub.Send(ctx, eventhubs.NewEventFromString("hello Azure!"))
 ```
 
-### <a name="extras"></a>Tilläggs
+### <a name="extras"></a>Tillägg
 
-Hämta ID: n för partitionerna i händelsehubben:
+Hämta ID:erna för partitionerna i händelsehubben:
 
 ```go
 info, err := hub.GetRuntimeInformation(ctx)
@@ -131,15 +131,15 @@ Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
 ## <a name="receive-events"></a>Ta emot händelser
 
-### <a name="create-a-storage-account-and-container"></a>Skapa ett lagrings konto och en behållare
+### <a name="create-a-storage-account-and-container"></a>Skapa ett lagringskonto och en behållare
 
-Tillstånd som lån på partitioner och kontroll punkter i händelse strömmen delas mellan mottagare som använder en Azure Storage-behållare. Du kan skapa ett lagrings konto och en behållare med go SDK, men du kan också skapa en genom att följa anvisningarna i [om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
+Tillstånd som lån på partitioner och kontrollpunkter i händelseströmmen delas mellan mottagare med hjälp av en Azure Storage-behållare. Du kan skapa ett lagringskonto och en behållare med Go SDK, men du kan också skapa ett genom att följa instruktionerna i [Om Azure-lagringskonton](../storage/common/storage-create-storage-account.md).
 
-Exempel på hur du skapar lagrings artefakter med go SDK finns i [exemplen lagrings platsen](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) och i exemplet som motsvarar den här självstudien.
+Exempel för att skapa lagringsartefakter med Go SDK finns i [repo-erpoerna Gå-exempel](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) och i exemplet som motsvarar den här självstudien.
 
-### <a name="go-packages"></a>Go-paket
+### <a name="go-packages"></a>Gå paket
 
-Om du vill ta emot meddelanden hämtar du Go-paketen för Event Hubs med `go get` eller `dep`:
+Om du vill ta emot meddelandena hämtar du `go get` `dep`Go-paketen för eventhubbar med eller:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go/...
@@ -153,9 +153,9 @@ dep ensure -add github.com/Azure/azure-amqp-common-go
 dep ensure -add github.com/Azure/go-autorest
 ```
 
-### <a name="import-packages-in-your-code-file"></a>Importera paket i din kod fil
+### <a name="import-packages-in-your-code-file"></a>Importera paket i kodfilen
 
-Om du vill importera go-paketen använder du följande kod exempel:
+Om du vill importera Go-paketen använder du följande kodexempel:
 
 ```go
 import (
@@ -169,7 +169,7 @@ import (
 
 ### <a name="create-service-principal"></a>Skapa tjänstens huvudnamn
 
-Skapa ett nytt huvud namn för tjänsten genom att följa anvisningarna i [skapa ett huvud namn för Azure-tjänsten med Azure CLI 2,0](/cli/azure/create-an-azure-service-principal-azure-cli). Spara de angivna autentiseringsuppgifterna i din miljö med följande namn: både Azure SDK för Go och Event Hubs paketet är förkonfigurerade för att söka efter dessa variabel namn.
+Skapa ett nytt tjänsthuvudnamn genom att följa instruktionerna i [Skapa ett Azure-tjänsthuvudnamn med Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli). Spara de angivna autentiseringsuppgifterna i din miljö med följande namn: Paketet Både Azure SDK för go och eventhubbar är förkonfigurerade för att leta efter dessa variabelnamn.
 
 ```bash
 export AZURE_CLIENT_ID=
@@ -178,7 +178,7 @@ export AZURE_TENANT_ID=
 export AZURE_SUBSCRIPTION_ID= 
 ```
 
-Skapa sedan en autentiseringsprovider för din Event Hubs-klient som använder dessa autentiseringsuppgifter:
+Skapa sedan en auktoriseringsprovider för din Event Hubs-klient som använder dessa autentiseringsuppgifter:
 
 ```go
 tokenProvider, err := aad.NewJWTProvider(aad.JWTProviderWithEnvironmentVars())
@@ -187,9 +187,9 @@ if err != nil {
 }
 ```
 
-### <a name="get-metadata-struct"></a>Hämta metadata struct
+### <a name="get-metadata-struct"></a>Hämta metadatastruktur
 
-Få en STRUCT med metadata om Azure-miljön med hjälp av Azure go SDK. Senare åtgärder använder den här strukturen för att hitta rätt slut punkter.
+Skaffa en struktur med metadata om din Azure-miljö med Azure Go SDK. Senare åtgärder använder den här strukturen för att hitta korrekta slutpunkter.
 
 ```go
 azureEnv, err := azure.EnvironmentFromName("AzurePublicCloud")
@@ -198,9 +198,9 @@ if err != nil {
 }
 ```
 
-### <a name="create-credential-helper"></a>Skapa Credential-hjälp 
+### <a name="create-credential-helper"></a>Skapa autentiseringsuppgifter 
 
-Skapa en Credential-hjälp som använder tidigare Azure Active Directory-autentiseringsuppgifter (AAD) för att skapa en SAS-autentiseringsuppgift (signatur för delad åtkomst) för lagring. Den sista parametern anger att konstruktorn använder samma miljövariabler som tidigare:
+Skapa en autentiseringsuppgifter som använder de tidigare Azure Active Directory-autentiseringsuppgifterna (AAD) för att skapa en SAS-autentiseringsuppgifter (Shared Access Signature) för lagring. Den sista parametern talar om för den här konstruktorn att använda samma miljövariabler som tidigare:
 
 ```go
 cred, err := storageLeaser.NewAADSASCredential(
@@ -214,11 +214,11 @@ if err != nil {
 }
 ```
 
-### <a name="create-a-check-pointer-and-a-leaser"></a>Skapa en check pekare och en låne 
+### <a name="create-a-check-pointer-and-a-leaser"></a>Skapa en kontrollpekare och en leaser 
 
-Skapa en **låne**ansvarig för att leasa en partition till en viss mottagare och en **kontroll pekare**som ansvarar för att skriva kontroll punkter för meddelande strömmen så att andra mottagare kan börja läsa från rätt förskjutning.
+Skapa en **leaser**, ansvarig för att leasa en partition till en viss mottagare, och en **kontrollpekare**, som ansvarar för att skriva kontrollpunkter för meddelandeströmmen så att andra mottagare kan börja läsa från rätt förskjutning.
 
-För närvarande finns det en enda **StorageLeaserCheckpointer** som använder samma lagrings behållare för att hantera både lån och kontroll punkter. Förutom lagrings kontot och behållar namn måste **StorageLeaserCheckpointer** ha de autentiseringsuppgifter som skapades i föregående steg och Azure-miljön för att få åtkomst till behållaren korrekt.
+För närvarande är en enda **StorageLeaserCheckpointer** tillgänglig som använder samma lagringsbehållare för att hantera både lån och kontrollpunkter. Förutom lagringskontot och behållarnamnen behöver **StorageLeaserCheckpointer** den autentiseringsuppgifter som skapats i föregående steg och Azure-miljöstrukturen för att komma åt behållaren på rätt sätt.
 
 ```go
 leaserCheckpointer, err := storageLeaser.NewStorageLeaserCheckpointer(
@@ -231,9 +231,9 @@ if err != nil {
 }
 ```
 
-### <a name="construct-event-processor-host"></a>Konstruera värd för händelse bearbetning
+### <a name="construct-event-processor-host"></a>Konstruera händelseprocessorvärd
 
-Nu har du de bitar som behövs för att skapa en EventProcessorHost, enligt följande. Samma **StorageLeaserCheckpointer** används både som en låne-och kontroll pekare, enligt beskrivningen ovan:
+Du har nu de bitar som behövs för att konstruera en EventProcessorHost, enligt följande. Samma **StorageLeaserCheckpointer** används både som leaseer och checkpekare, som beskrivits tidigare:
 
 ```go
 ctx := context.Background()
@@ -252,7 +252,7 @@ defer p.Close(context.Background())
 
 ### <a name="create-handler"></a>Skapa hanterare 
 
-Nu ska du skapa en hanterare och registrera den med händelse bearbetnings värden. När värden har startats tillämpas den här och andra angivna hanterare i inkommande meddelanden:
+Nu skapa en hanterare och registrera den med eventprocessor värd. När värden startas tillämpas detta och andra angivna hanterare på inkommande meddelanden:
 
 ```go
 handler := func(ctx context.Context, event *eventhubs.Event) error {
@@ -269,9 +269,9 @@ if err != nil {
 
 ### <a name="write-code-to-receive-messages"></a>Skriv kod för att ta emot meddelanden
 
-Med allt som har kon figurer ATS kan du starta värden för händelse bearbetning med `Start(context)` för att fortsätta att köra den permanent, eller med `StartNonBlocking(context)` att köras bara så länge meddelanden är tillgängliga.
+Med allt konfigurerat kan du starta `Start(context)` händelsebehandlarens värd för `StartNonBlocking(context)` att hålla den igång permanent eller med att köras endast så länge meddelanden är tillgängliga.
 
-Den här självstudien startar och körs enligt följande. Se exemplet på GitHub för ett exempel som använder `StartNonBlocking`:
+Den här självstudien startar och körs på följande sätt; se GitHub-exemplet för `StartNonBlocking`ett exempel med :
 
 ```go
 ctx := context.Background()
@@ -291,4 +291,4 @@ Läs följande artiklar:
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[gratis konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell
-description: Den här artikeln beskriver hur du använder Azure PowerShell för att hantera Data Lake Analytics-konton, datakällor, användare och jobb.
+description: I den här artikeln beskrivs hur du använder Azure PowerShell för att hantera DataSjöanalyskonton, datakällor, användare & jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
@@ -10,28 +10,28 @@ ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66156427"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Den här artikeln beskriver hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av Azure PowerShell.
+I den här artikeln beskrivs hur du hanterar Azure Data Lake Analytics-konton, datakällor, användare och jobb med hjälp av Azure PowerShell.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Samla in följande typer av information för att använda PowerShell med Data Lake Analytics: 
+Om du vill använda PowerShell med DataSjöanalys samlar du in följande information: 
 
-* **Prenumerations-ID**: ID för Azure-prenumerationen som innehåller ditt Data Lake Analytics-konto.
-* **Resursgrupp**: Namnet på Azure-resursgrupp som innehåller ditt Data Lake Analytics-konto.
-* **Data Lake Analytics-kontonamn**: Namnet på ditt Data Lake Analytics-konto.
-* **Standard Data Lake Store-kontonamn**: Varje Data Lake Analytics-konto har ett Data Lake Store-standardkonto.
-* **Plats**: Platsen för ditt Data Lake Analytics-konto, till exempel ”USA, östra 2” eller andra platser som stöds.
+* **Prenumerations-ID:** ID:t för Azure-prenumerationen som innehåller ditt DataSjöanalyskonto.
+* **Resursgrupp**: Namnet på azure-resursgruppen som innehåller ditt DataSjöanalyskonto.
+* **DataSjöanalyskontonamn**: Namnet på ditt Data Lake Analytics-konto.
+* **Standardkontonamn för DataSjölagring:** Varje DataSjöanalyskonto har ett standardkonto för DataSjölagring.
+* **Plats**: Platsen för ditt Data Lake Analytics-konto, till exempel "Östra USA 2" eller andra platser som stöds.
 
 PowerShell-kodfragmenten i den här självstudien använder dessa variabler för att lagra informationen
 
@@ -45,9 +45,9 @@ $location = "<Location>"
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
-### <a name="log-in-using-interactive-user-authentication"></a>Logga in med hjälp av interaktiv användarautentisering
+### <a name="log-in-using-interactive-user-authentication"></a>Logga in med interaktiv användarautentisering
 
-Logga in med ett prenumerations-ID eller efter prenumerationsnamn
+Logga in med ett prenumerations-ID eller med prenumerationsnamn
 
 ```powershell
 # Using subscription id
@@ -57,9 +57,9 @@ Connect-AzAccount -SubscriptionId $subId
 Connect-AzAccount -SubscriptionName $subname 
 ```
 
-## <a name="saving-authentication-context"></a>Sparar autentiseringskontext
+## <a name="saving-authentication-context"></a>Spara autentiseringskontext
 
-Den `Connect-AzAccount` cmdlet alltid frågar efter autentiseringsuppgifter. Du kan undvika kommer du att tillfrågas med hjälp av följande cmdlets:
+Cmdlet `Connect-AzAccount` frågar alltid efter autentiseringsuppgifter. Du kan undvika att bli tillfrågad genom att använda följande cmdlets:
 
 ```powershell
 # Save login session information
@@ -69,7 +69,7 @@ Save-AzAccounts -Path D:\profile.json
 Select-AzAccounts -Path D:\profile.json 
 ```
 
-### <a name="log-in-using-a-service-principal-identity-spi"></a>Logga in med ett tjänstens huvudnamn identitet SPI)
+### <a name="log-in-using-a-service-principal-identity-spi"></a>Logga in med hjälp av en huvudidentitet för tjänsten (SPI)
 
 ```powershell
 $tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
@@ -96,7 +96,7 @@ Get-AdlAnalyticsAccount -ResourceGroupName $rg
 
 ### <a name="create-an-account"></a>Skapa ett konto
 
-Alla Data Lake Analytics-konton kräver ett Data Lake Store-standardkonto som används för att lagra loggar. Du kan använda ett befintligt konto eller skapa ett konto. 
+Alla Data Lake Analytics-konton kräver ett Data Lake Store-standardkonto som används för att lagra loggar. Du kan återanvända ett befintligt konto eller skapa ett konto. 
 
 ```powershell
 # Create a data lake store if needed, or you can re-use an existing one
@@ -122,24 +122,24 @@ Test-AdlAnalyticsAccount -Name $adla
 Azure Data Lake Analytics stöder för närvarande följande datakällor:
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure Storage](../storage/common/storage-introduction.md)
+* [Azure-lagring](../storage/common/storage-introduction.md)
 
-Varje Data Lake Analytics-konto har ett Data Lake Store-standardkonto. Data Lake Store-kontot av standardtyp används för att lagra granskningsloggar för jobbet metadata och jobb. 
+Varje DataSjöanalyskonto har ett standardkonto för DataSjölager. Standardkontot för DataSjölagring används för att lagra jobbmetadata och jobbgranskningsloggar. 
 
-### <a name="find-the-default-data-lake-store-account"></a>Hitta Data Lake Store-kontot av standardtyp
+### <a name="find-the-default-data-lake-store-account"></a>Hitta standardkontot för DataSjölagring
 
 ```powershell
 $adla_acct = Get-AdlAnalyticsAccount -Name $adla
 $dataLakeStoreName = $adla_acct.DefaultDataLakeAccount
 ```
 
-Du kan hitta Data Lake Store-kontot av standardtyp genom att filtrera listan över datakällor genom den `IsDefault` egenskapen:
+Du kan hitta standardkontot för Datasjölagring genom att `IsDefault` filtrera listan över datakällor efter egenskapen:
 
 ```powershell
 Get-AdlAnalyticsDataSource -Account $adla  | ? { $_.IsDefault } 
 ```
 
-### <a name="add-a-data-source"></a>Lägg till en datakälla
+### <a name="add-a-data-source"></a>Lägga till en datakälla
 
 ```powershell
 
@@ -153,7 +153,7 @@ $AzureDataLakeStoreName = "<AzureDataLakeStoreAccountName"
 Add-AdlAnalyticsDataSource -Account $adla -DataLakeStore $AzureDataLakeStoreName 
 ```
 
-### <a name="list-data-sources"></a>Lista över datakällor
+### <a name="list-data-sources"></a>Lista datakällor
 
 ```powershell
 # List all the data sources
@@ -205,17 +205,17 @@ Resultatet innehåller de jobb som körs för närvarande och de jobb som nyss b
 Get-AdlJob -Account $adla
 ```
 
-### <a name="list-the-top-n-jobs"></a>Lista över de x främsta Felgrupperna jobb
+### <a name="list-the-top-n-jobs"></a>Lista de översta N-jobben
 
-Som standard för jobben i listan sorteras på Skicka tid. Så att de nyligen skickade jobb visas först. The ADLA-konto kommer ihåg jobb i 180 dagar som standard, men cmdleten Get-AdlJob som standard returnerar endast de första 500. Använd - övre parametern Visa en lista över ett visst antal jobb.
+Som standard sorteras listan över jobb på inlämningstiden. Så de senast inskickade jobben visas först. Som standard kommer ADLA-kontot ihåg jobb i 180 dagar, men Cmdlet Get-AdlJob som standard returnerar bara de första 500. Använd -Top-parametern för att lista ett visst antal jobb.
 
 ```powershell
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
 
-### <a name="list-jobs-by-job-state"></a>Lista över jobb efter jobbets status
+### <a name="list-jobs-by-job-state"></a>Lista jobb efter jobbtillstånd
 
-Med hjälp av den `-State` parametern. Du kan kombinera dessa värden:
+Använda `-State` parametern. Du kan kombinera något av följande värden:
 
 * `Accepted`
 * `Compiling`
@@ -238,13 +238,13 @@ Get-AdlJob -Account $adla -State Ended
 Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 ```
 
-### <a name="list-jobs-by-job-result"></a>Lista över jobb efter jobbet resultat
+### <a name="list-jobs-by-job-result"></a>Lista jobb efter jobbresultat
 
-Använd den `-Result` parametern för att identifiera om avslutade jobb har slutförts. Den har dessa värden:
+Använd `-Result` parametern för att identifiera om avslutade jobb har slutförts. Den har dessa värden:
 
-* Har avbrutits
-* Misslyckad
-* Ingen
+* Avbrutet
+* Misslyckades
+* Inget
 * Lyckades
 
 ``` powershell
@@ -255,17 +255,17 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
-### <a name="list-jobs-by-job-submitter"></a>Lista över jobb efter jobbet inlämnare
+### <a name="list-jobs-by-job-submitter"></a>Lista jobb efter jobblämnare
 
-Den `-Submitter` parametern hjälper dig att identifiera vem som har skickat ett jobb.
+Parametern `-Submitter` hjälper dig att identifiera vem som har skickat ett jobb.
 
 ```powershell
 Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
 ```
 
-### <a name="list-jobs-by-submission-time"></a>Lista över jobb efter sändningstid
+### <a name="list-jobs-by-submission-time"></a>Lista jobb efter inlämningstid
 
-Den `-SubmittedAfter` är användbart i filtrering för ett tidsintervall.
+Den `-SubmittedAfter` är användbar vid filtrering till ett tidsintervall.
 
 
 ```powershell
@@ -278,7 +278,7 @@ $d = [DateTime]::Now.AddDays(-7)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-### <a name="get-job-status"></a>Hämta jobbstatus för
+### <a name="get-job-status"></a>Hämta jobbstatus
 
 Hämta status för ett specifikt jobb.
 
@@ -293,9 +293,9 @@ Get-AdlJob -AccountName $adla -JobId $job.JobId
 Stop-AdlJob -Account $adla -JobID $jobID
 ```
 
-### <a name="wait-for-a-job-to-finish"></a>Vänta tills ett jobb ska slutföras
+### <a name="wait-for-a-job-to-finish"></a>Vänta tills ett jobb är klart
 
-I stället för att upprepa `Get-AdlAnalyticsJob` tills ett jobb har slutförts kan du använda den `Wait-AdlJob` cmdlet för att vänta tills jobbet är att avsluta.
+I stället `Get-AdlAnalyticsJob` för att upprepa tills ett `Wait-AdlJob` jobb är klart kan du använda cmdleten för att vänta tills jobbet ska avslutas.
 
 ```powershell
 Wait-AdlJob -Account $adla -JobId $job.JobId
@@ -303,18 +303,18 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 
 ## <a name="analyzing-job-history"></a>Analysera jobbhistorik
 
-Med Azure PowerShell för att analysera historiken för jobb som har kört i Data Lake analytics är en kraftfull teknik. Du kan använda den för att få insikter om användning och kostnader. Du kan lära dig mer genom att titta på den [jobbet historik Analysis-exempellager](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
+Att använda Azure PowerShell för att analysera historiken för jobb som har körts i DataSjöanalys är en kraftfull teknik. Du kan använda den för att få insikter om användning och kostnad. Du kan läsa mer genom att titta på [exempelrepoyrfördelningen för jobbhistorikanalys](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
-## <a name="list-job-pipelines-and-recurrences"></a>Lista jobb pipelines och upprepningar
+## <a name="list-job-pipelines-and-recurrences"></a>Lista jobbpipelor och upprepningar
 
-Använd den `Get-AdlJobPipeline` cmdlet för att se information om pipeline jobb som skickats tidigare.
+Använd `Get-AdlJobPipeline` cmdleten för att se pipeline-informationen som tidigare skickats jobb.
 
 ```powershell
 $pipelines = Get-AdlJobPipeline -Account $adla
 $pipeline = Get-AdlJobPipeline -Account $adla -PipelineId "<pipeline ID>"
 ```
 
-Använd den `Get-AdlJobRecurrence` cmdlet för att visa information om upprepningar för tidigare jobb som skickats.
+Använd `Get-AdlJobRecurrence` cmdleten för att se upprepningsinformationen för tidigare inskickade jobb.
 
 ```powershell
 $recurrences = Get-AdlJobRecurrence -Account $adla
@@ -323,19 +323,19 @@ $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>
 ```
 
 
-## <a name="manage-compute-policies"></a>Hantera principer för beräkning
+## <a name="manage-compute-policies"></a>Hantera beräkningsprinciper
 
-### <a name="list-existing-compute-policies"></a>Lista över befintliga principer för beräkning
+### <a name="list-existing-compute-policies"></a>Lista befintliga beräkningsprinciper
 
-Den `Get-AdlAnalyticsComputePolicy` cmdlet: en hämtar information om principer för beräkning för ett Data Lake Analytics-konto.
+Cmdlet `Get-AdlAnalyticsComputePolicy` hämtar information om beräkningsprinciper för ett Data Lake Analytics-konto.
 
 ```powershell
 $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 ```
 
-### <a name="create-a-compute-policy"></a>Skapa en princip för beräkning
+### <a name="create-a-compute-policy"></a>Skapa en beräkningsprincip
 
-Den `New-AdlAnalyticsComputePolicy` cmdlet skapar en ny princip för beräkning för ett Data Lake Analytics-konto. Det här exemplet anger de maximala AU: er tillgängliga för den angivna användaren till mellan 50 och minsta Jobbprioritet på högst 250.
+Cmdlet `New-AdlAnalyticsComputePolicy` skapar en ny beräkningsprincip för ett Data Lake Analytics-konto. I det här exemplet anges den maximala AUs som är tillgänglig för den angivna användaren till 50 och den lägsta jobbprioriteten till 250.
 
 ```powershell
 $userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
@@ -350,9 +350,9 @@ New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $obj
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
-### <a name="uploading-and-downloading"></a>Ladda upp och ned
+### <a name="uploading-and-downloading"></a>Ladda upp och ladda ner
 
-Överför en fil.
+Ladda upp en fil.
 
 ```powershell
 Import-AdlStoreItem -AccountName $adls -Path "c:\data.tsv" -Destination "/data_copy.csv" 
@@ -364,26 +364,26 @@ Ladda upp en hel mapp rekursivt.
 Import-AdlStoreItem -AccountName $adls -Path "c:\myData\" -Destination "/myData/" -Recurse
 ```
 
-Hämta en fil.
+Ladda ner en fil.
 
 ```powershell
 Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "c:\data.csv"
 ```
 
-Ladda ned en hel mapp rekursivt.
+Ladda ner en hel mapp rekursivt.
 
 ```powershell
 Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recurse
 ```
 
 > [!NOTE]
-> Om överföring och hämtning processen avbryts, kan du försöker återuppta processen genom att köra cmdleten igen med den ``-Resume`` flaggan.
+> Om uppladdnings- eller hämtningsprocessen avbryts kan du försöka återuppta processen ``-Resume`` genom att köra cmdleten igen med flaggan.
 
-## <a name="manage-the-u-sql-catalog"></a>Hantera U-SQL-katalog
+## <a name="manage-the-u-sql-catalog"></a>Hantera U-SQL-katalogen
 
-U-SQL-katalogen används för att strukturera data och kod så att de kan delas av U-SQL-skript. Katalogen kan göra med data i Azure Data Lake högsta prestanda. Mer information finns i [Använd U-SQL-katalogen](data-lake-analytics-use-u-sql-catalog.md).
+U-SQL-katalogen används för att strukturera data och kod så att de kan delas av U-SQL-skript. Katalogen möjliggör högsta möjliga prestanda med data i Azure Data Lake. Mer information finns i [Använd U-SQL-katalogen](data-lake-analytics-use-u-sql-catalog.md).
 
-### <a name="list-items-in-the-u-sql-catalog"></a>Listobjekt i U-SQL-katalogen
+### <a name="list-items-in-the-u-sql-catalog"></a>Lista objekt i U-SQL-katalogen
 
 ```powershell
 # List U-SQL databases
@@ -396,7 +396,7 @@ Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database"
 Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database.schema"
 ```
 
-### <a name="list-all-the-assemblies-the-u-sql-catalog"></a>Lista över sammansättningar i U-SQL-katalogen
+### <a name="list-all-the-assemblies-the-u-sql-catalog"></a>Lista alla sammansättningar i U-SQL-katalogen
 
 ```powershell
 $dbs = Get-AdlCatalogItem -Account $adla -ItemType Database
@@ -413,7 +413,7 @@ foreach ($db in $dbs)
 }
 ```
 
-### <a name="get-details-about-a-catalog-item"></a>Få information om ett katalogobjekt
+### <a name="get-details-about-a-catalog-item"></a>Få information om en katalogartikel
 
 ```powershell
 # Get details of a table
@@ -423,9 +423,9 @@ Get-AdlCatalogItem  -Account $adla -ItemType Table -Path "master.dbo.mytable"
 Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 ```
 
-### <a name="store-credentials-in-the-catalog"></a>Store-autentiseringsuppgifter i katalogen
+### <a name="store-credentials-in-the-catalog"></a>Lagra autentiseringsuppgifter i katalogen
 
-Skapa ett autentiseringsuppgiftsobjekt för en databas på Azure inom en U-SQL-databas. U-SQL-autentiseringsuppgifterna är för närvarande den enda typ av katalogobjekt som du kan skapa via PowerShell.
+Skapa ett autentiseringsuppgifter för en databas som finns i Azure i en U-SQL-databas. För närvarande är U-SQL-autentiseringsuppgifter den enda typen av katalogobjekt som du kan skapa via PowerShell.
 
 ```powershell
 $dbName = "master"
@@ -447,7 +447,7 @@ New-AdlCatalogCredential -AccountName $adla `
 Get-AdlAnalyticsFirewallRule -Account $adla
 ```
 
-### <a name="add-a-firewall-rule"></a>Lägg till en brandväggsregel
+### <a name="add-a-firewall-rule"></a>Lägga till en brandväggsregel
 
 ```powershell
 $ruleName = "Allow access from on-prem server"
@@ -469,7 +469,7 @@ Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $sta
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
 
-### <a name="allow-azure-ip-addresses"></a>Tillåt Azure-IP-adresser
+### <a name="allow-azure-ip-addresses"></a>Tillåt Azure IP-adresser
 
 ```powershell
 Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
@@ -483,7 +483,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 
 ## <a name="working-with-azure"></a>Arbeta med Azure
 
-### <a name="get-error-details"></a>Hämta felinformation
+### <a name="get-error-details"></a>Få felinformation
 
 ```powershell
 Resolve-AzError -Last
@@ -500,7 +500,7 @@ function Test-Administrator
 }
 ```
 
-### <a name="find-a-tenantid"></a>Hitta en TenantID
+### <a name="find-a-tenantid"></a>Hitta ett TenantID
 
 Från ett prenumerationsnamn:
 
@@ -527,7 +527,7 @@ $subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 Get-TenantIdFromSubscriptionId $subid
 ```
 
-Från en domänadress, till exempel ”contoso.com”
+Från en domänadress som "contoso.com"
 
 ```powershell
 function Get-TenantIdFromDomain( $domain )
@@ -540,7 +540,7 @@ $domain = "contoso.com"
 Get-TenantIdFromDomain $domain
 ```
 
-### <a name="list-all-your-subscriptions-and-tenant-ids"></a>Lista över alla prenumerationer och klient-ID: N
+### <a name="list-all-your-subscriptions-and-tenant-ids"></a>Lista alla dina prenumerationer och klient-ID:er
 
 ```powershell
 $subs = Get-AzSubscription
@@ -551,11 +551,11 @@ foreach ($sub in $subs)
 }
 ```
 
-## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Skapa ett Data Lake Analytics-konto med hjälp av en mall
+## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Skapa ett DataSjöanalyskonto med hjälp av en mall
 
-Du kan också använda en mall för Azure-resursgrupp med hjälp av följande exempel: [Skapa ett Data Lake Analytics-konto med hjälp av en mall](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
+Du kan också använda en Azure Resource Group-mall med följande exempel: [Skapa ett DataSjöanalyskonto med hjälp av en mall](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* Kom igång med Data Lake Analytics med hjälp av den [Azure-portalen](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure CLI](data-lake-analytics-get-started-cli.md)
-* Hantera Azure Data Lake Analytics med hjälp av [Azure-portalen](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) 
+* Komma igång med Data Lake Analytics med [Azure portalen](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Azure CLI](data-lake-analytics-get-started-cli.md)
+* Hantera Azure Data Lake Analytics med [Azure portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) 

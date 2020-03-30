@@ -1,6 +1,6 @@
 ---
-title: HC-serien VM-storlek prestanda - Azure-datorer | Microsoft Docs
-description: Läs mer om prestanda testresultaten för HC-seriens storlekar i Azure.
+title: Prestanda för virtuell datorstorlek i HC-serien – virtuella Azure-datorer | Microsoft-dokument
+description: Lär dig mer om resultat för VM-storlekar i HC-serien i Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -13,25 +13,25 @@ ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
 ms.openlocfilehash: cea772f03d5e2838b44d50f3cf5e926d740be5f0
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67707687"
 ---
-# <a name="hc-series-virtual-machine-sizes"></a>Storlekar för virtuella datorer för HC-serien
+# <a name="hc-series-virtual-machine-sizes"></a>Storlekar i virtuell dator i HC-serien
 
-Flera prestandatester har körts på HC-seriens storlekar. Följande är några av resultatet av den här prestandatester.
+Flera prestandatester har körts på HC-seriens storlekar. Följande är några av resultaten av den här prestandatestningen.
 
 | Arbetsbelastning                                        | HB                    |
 |-------------------------------------------------|-----------------------|
 | STREAM Triad                                    | ~190 GB/s (Intel MLC AVX-512)  |
-| Högpresterande Linpack (HPL)                  | ~ 3520 GigaFLOPS (Rpeak) ~ 2970 GigaFLOPS (Rmax) |
-| RDMA-svarstid och bandbredd                        | 1,80 m mikrosekunder, 96.3 Gb/s   |
-| FIO på den lokala NVMe SSD                           | ~1.3 GB/s läsningar, ~ 900 MB/s skriver |  
-| IOR på 4 Azure Premium SSD (P30-hanterade diskar, RAID0) **  | ~ 780 MB/s läser ~ 780 MB/skriver |
+| Högpresterande Linpack (HPL)                  | ~3520 GigaFLOPS (Rpeak), ~2970 GigaFLOPS (Rmax) |
+| RDMA-svarstid & bandbredd                        | 1,80 mikroseconds, 96.3 Gb/s   |
+| FIO på lokala NVMe SSD                           | ~ 1,3 GB / s läser, ~ 900 MB / s skriver |  
+| IOR på 4 Azure Premium SSD (P30 Hanterade diskar, RAID0)**  | ~ 780 MB / s läser, ~ 780 MB / skriver |
 
-## <a name="infiniband-send-latency"></a>InfiniBand send latency
+## <a name="infiniband-send-latency"></a>InfiniBand skicka svarstid
 
 Mellanox Perftest.
 
@@ -39,14 +39,14 @@ Mellanox Perftest.
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 
-|  #bytes         | #iterations     | t_min [databehandlingsnoder]     | t_max [databehandlingsnoder]     | t_typical [databehandlingsnoder] | t_avg [databehandlingsnoder]     | t_stdev[microsecond]   |
+|  #bytes         | #iterations     | t_min[mikrosekt]     | t_max[mikrosekt]     | t_typical[mikrosekt] | t_avg[mikrosekt]     | t_stdev[mikrosekt]   |
 |-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 | 2               | 1000            | 1.80            | 7.50            | 1.85            | 1.86            | 0.20            |
 | 4               | 1000            | 1.79            | 6.06            | 1.83            | 1.84            | 0.20            |
 | 8               | 1000            | 1.78            | 5.26            | 1.83            | 1.84            | 0.19            |
-| 16              | 1000            | 1.79            | 6.21            | 1.83            | 1.84            | 0.22            |
+| 16              | 1000            | 1.79            | 6.21            | 1.83            | 1.84            | 0,22            |
 | 32              | 1000            | 1.80            | 6.82            | 1.84            | 1.85            | 0.24            |
-| 64              | 1000            | 1.85            | 5.47            | 1.88            | 1.86            | 0.12            |
+| 64              | 1000            | 1.85            | 5.47            | 1.88            | 1.86            | 0,12            |
 | 128             | 1000            | 1.88            | 5.61            | 1.93            | 1.89            | 0.25            |
 | 256             | 1000            | 2.24            | 6.39            | 2.28            | 2.02            | 0.18            |
 | 512             | 1000            | 2.32            | 5.42            | 2.36            | 2.30            | 0.17            |
@@ -54,15 +54,15 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 | 2048            | 1000            | 2.68            | 6.14            | 2.75            | 2.52            | 0.20            |
 | 4096            | 1000            | 3.17            | 7.02            | 3.26            | 2.81            | 0.24            |
 
-## <a name="osu-mpi-latency-test"></a>Test för OSU MPI-svarstid
+## <a name="osu-mpi-latency-test"></a>OSU MPI Latency Test
 
-OSU MPI-latens testa v5.4.3.
+OSU MPI Latency Test v5.4.3.
 
 ```azure-cli
 ./bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./osu_latency 
 ```
 
-| #bytes  | Svarstid [databehandlingsnoder] (MPICH 3.3 + CH4) | Svarstid [databehandlingsnoder] (OpenMPI 4.0.0) | Svarstid [databehandlingsnoder] (MVAPICH2 2.3) |
+| #bytes  | Latens [mikrosekt] (MPICH 3,3 + CH4) | Latens [mikrosekt] (OpenMPI 4.0.0) | Latens [mikrosekt] (MVAPICH2 2,3) |
 |------|----------|----------|----------|
 | 2    | 1.84     | 1.78     | 2.08     |
 | 4    | 1.84     | 1.79     | 2.08     |
@@ -77,15 +77,15 @@ OSU MPI-latens testa v5.4.3.
 | 2048 | 3.09     | 3.11     | 3.34     |
 | 4096 | 3.72     | 3.91     | 4.44     |
 
-## <a name="mpi-bandwidth"></a>MPI bandbredd
+## <a name="mpi-bandwidth"></a>MPI-bandbredd
 
-OSU MPI bandbredd testa v5.4.3.
+OSU MPI bandbredd Test v5.4.3.
 
 ```azure-cli
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 
-| #Size   | Bandbredd (MBIT/s) | Bandbredd (Gb/s) |
+| #Size   | Bandbredd (MB/s) | Bandbredd (Gb/s) |
 |---------|------------------|------------------|
 | 2       | 6.18             | 0.04944          |
 | 4       | 13.27            | 0.10616          |

@@ -4,41 +4,41 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: victorh
-ms.openlocfilehash: 48f4c7497583e872c89e4d8cd92dab52ab4f9239
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
-ms.translationtype: HT
+ms.openlocfilehash: a3fb3dbf026a696b9d472efcba139c371ff1e587
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78304964"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334689"
 ---
-| Resurs | Standard/högsta gräns | Obs! |
+| Resurs | Gräns | Obs! |
 | --- | --- | --- |
-| Azure Application Gateway |1 000 per prenumeration | |
-| IP-konfigurationer på klient Sidan |2 |1 offentlig och 1 privat |
-| Klient dels portar |100<sup>1</sup> | |
+| Azure Application Gateway |1 000 per abonnemang | |
+| IP-konfigurationer för frontend |2 |1 offentlig och 1 privat |
+| Front-end-portar |100<sup>1</sup> | |
 | Backend-adresspooler |100<sup>1</sup> | |
-| Backend-servrar per pool |1,200 | |
-| HTTP-lyssnare |200<sup>1</sup> |Begränsad till 100 aktiva lyssnare som dirigerar trafik. Aktiva lyssnare = totalt antal lyssnare-lyssnare som inte är aktiva.<br>Om en standard konfiguration i en routningsprincip är inställd på att dirigera trafik (till exempel har den en lyssnare, en backend-pool och HTTP-inställningar) som också räknas som en lyssnare.|
-| Regler för belastnings utjämning i HTTP |100<sup>1</sup> | |
-| HTTP-inställningar på Server Sidan |100<sup>1</sup> | |
-| Instanser per gateway |V1 SKU – 32<br>V2 SKU – 125 | |
+| Backend-servrar per pool |1200 | |
+| HTTP-lyssnare |200<sup>1</sup> |Begränsad till 100 aktiva lyssnare som dirigerar trafik. Aktiva lyssnare = totalt antal lyssnare - lyssnare är inte aktiva.<br>Om en standardkonfiguration i en routningsregel är inställd på dirigera trafik (till exempel har en lyssnare, en serverdpool och HTTP-inställningar) räknas det även som lyssnare.|
+| HTTP-regler för belastningsutjämning |100<sup>1</sup> | |
+| Http-inställningar för backend |100<sup>1</sup> | |
+| Instanser per gateway |V1 SKU - 32<br>V2 SKU - 125 | |
 | SSL-certifikat |100<sup>1</sup> |1 per HTTP-lyssnare |
-| Maximal storlek för SSL-certifikat |V1 SKU – 10 KB<br>V2 SKU – 16 KB| |
+| Maximal SSL-certifikatstorlek |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | Autentiseringscertifikat |100 | |
-| Betrodda rot certifikat |100 | |
-| Lägsta timeout för begäran |1 sekund | |
-| Maximal timeout för begäran |24 timmar | |
+| Betrodda rotcertifikat |100 | |
+| Minsta timeout för begäran |1 sekund | |
+| Maximalt tidsgränsen för begäran |24 timmar | |
 | Antal platser |100<sup>1</sup> |1 per HTTP-lyssnare |
 | URL-kartor per lyssnare |1 | |
-| Maximalt antal Sök vägs baserade regler per URL-mappning|100||
-| Omdirigera konfigurationer |100<sup>1</sup>| |
-| Samtidiga WebSocket-anslutningar |20 000 för medium Gateway<br> Stora gatewayer 50 000| |
-| Maximal URL-längd|32 KB| |
-| Maximal sidhuvud storlek för HTTP/2 |4KB| |
-| Maximal fil överförings storlek, standard |2 GB | |
-| Maximal storlek för fil överföring WAF |V1 mellan WAF-gatewayer, 100 MB<br>V1 stora WAF-gatewayer, 500 MB<br>V2 WAF, 750 MB| |
-| Storleks gräns för WAF-Body, utan filer|128 KB||
-| Maximalt antal anpassade WAF-regler|100||
-| Maximalt antal WAF-undantag|100||
+| Maximala sökvägsbaserade regler per URL-mappning|100||
+| Omdirigeringskonfigurationer |100<sup>1</sup>| |
+| Samtidiga WebSocket-anslutningar |Medelstora gateways 20k<br> Stora gateways 50k| |
+| Maximal URL-längd|32KB (3200000000| |
+| Maximal rubrikstorlek för HTTP/2 |4KB (4KB)| |
+| Maximal filuppladdningsstorlek, Standard |2 GB | |
+| Maximal filuppladdningsstorlek WAF |V1 Medelstora WAF-gateways, 100 MB<br>V1 Stora WAF-gateways, 500 MB<br>V2 WAF, 750 MB| |
+| WAF kroppsstorleksgräns, utan filer|128 kB||
+| Högsta vanliga anpassade WAF-regler|100||
+| Maximala WAF-undantag|100||
 
-<sup>1</sup> i händelse av WAF-aktiverade SKU: er rekommenderar vi att du begränsar antalet resurser till 40 för optimala prestanda.
+<sup>1</sup> När det gäller WAF-aktiverade SKU:er rekommenderar vi att du begränsar antalet resurser till 40 för optimal prestanda.

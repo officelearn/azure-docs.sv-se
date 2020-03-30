@@ -1,6 +1,6 @@
 ---
 title: Strömma videofiler med Azure Media Services och Azure CLI
-description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services konto, koda en fil och strömma den till Azure Media Player.
+description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services-konto, koda en fil och strömma den till Azure Media Player.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,54 +13,54 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: a51b30ad2af29871ed6998e60bb64adf91dfdbbd
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 91259e10966173cb701b867f5b3ed362112beef3
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514382"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80382791"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>Självstudie: koda en fjärrfil baserat på URL och strömma video-CLI
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Självstudiekurs: Koda en fjärrfil baserat på URL och strömma videon - Azure CLI
 
-Den här självstudien visar hur du enkelt kodar och direktuppspelar videor på en rad olika webbläsare och enheter genom att använda Azure Media Services och Azure CLI. Du kan ange indata-innehåll med hjälp av HTTPS-eller SAS-URL: er eller sökvägar till filer i Azure Blob Storage.
+Den här självstudien visar hur du enkelt kodar och streamar videor på en mängd olika webbläsare och enheter med hjälp av Azure Media Services och Azure CLI. Du kan ange indatainnehåll med hjälp av HTTPS- eller SAS-URL:er eller sökvägar till filer i Azure Blob-lagring.
 
-Exemplet i den här artikeln kodar innehåll som du gör tillgängliga via en HTTPS-URL. Media Services v3 stöder för närvarande inte konvertering av segment överföring via HTTPS-URL: er.
+Exemplet i den här artikeln kodar innehåll som du gör tillgängligt via en HTTPS-URL. Media Services v3 stöder för närvarande inte segmenterad överföringskodning via HTTPS-url:er.
 
-I slutet av den här självstudien kommer du att kunna strömma en video.  
+I slutet av den här självstudien kan du strömma en video.  
 
 ![Spela upp videon](./media/stream-files-dotnet-quickstart/final-video.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-media-services-account"></a>Skapa ett medietjänstkonto
+## <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
 
-Innan du kan kryptera, koda, analysera, hantera och strömma medie innehåll i Azure måste du skapa ett Media Services-konto. Kontot måste vara kopplat till ett eller flera lagrings konton.
+Innan du kan kryptera, koda, analysera, hantera och strömma medieinnehåll i Azure måste du skapa ett Media Services-konto. Det kontot måste vara kopplat till ett eller flera lagringskonton.
 
-Ditt Media Services-konto och alla tillhör ande lagrings konton måste finnas i samma Azure-prenumeration. Vi rekommenderar att du använder lagrings konton som finns på samma plats som Media Services kontot för att begränsa svars tid och kostnader för utgående data.
+Ditt Media Services-konto och alla associerade lagringskonton måste finnas i samma Azure-prenumeration. Vi rekommenderar att du använder lagringskonton som finns på samma plats som Media Services-kontot för att begränsa kostnader för svarstid och datautgående.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-```azurecli
+```azurecli-interactive
 az group create -n amsResourceGroup -l westus2
 ```
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
 
-I det här exemplet skapar vi ett allmänt standard LRS-konto.
+I det här exemplet skapar vi ett Allmänt syfte v2 Standard LRS-konto.
 
-Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. När du väljer en SKU för produktion bör du överväga att använda `--sku Standard_RAGRS`, som tillhandahåller geografisk replikering för affärs kontinuitet. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
- 
-```azurecli
+Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. När du väljer en SKU för `--sku Standard_RAGRS`produktion bör du överväga att använda , vilket ger geografisk replikering för affärskontinuitet. Mer information finns i [lagringskonton](/cli/azure/storage/account).
+
+```azurecli-interactive
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
 ```
 
 ### <a name="create-an-azure-media-services-account"></a>Skapa ett Azure Media Services-konto
 
-```azurecli
+```azurecli-interactive
 az ams account create --n amsaccount -g amsResourceGroup --storage-account amsstorageaccount -l westus2
 ```
 
-Du får ett svar så här:
+Du får ett svar som detta:
 
 ```
 {
@@ -83,16 +83,15 @@ Du får ett svar så här:
 
 ## <a name="start-the-streaming-endpoint"></a>Starta slutpunkten för direktuppspelning
 
-Följande Azure CLI-kommando startar standard **slut punkten för direkt uppspelning**.
+Följande Azure CLI-kommando startar **standardslutpunkten för direktuppspelning**.
 
-```azurecli
+```azurecli-interactive
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 ```
 
-Du får ett svar så här:
+Du får ett svar som detta:
 
 ```
-az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 {
   "accessControl": null,
   "availabilitySetName": null,
@@ -119,21 +118,21 @@ az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
 }
 ```
 
-Om slut punkten för direkt uppspelning redan körs visas följande meddelande:
+Om slutpunkten för direktuppspelning redan körs visas det här meddelandet:
 
 ```
 (InvalidOperation) The server cannot execute the operation in its current state.
 ```
 
-## <a name="create-a-transform-for-adaptive-bitrate-encoding"></a>Skapa en transformering för kodning med anpassad bit hastighet
+## <a name="create-a-transform-for-adaptive-bitrate-encoding"></a>Skapa en transformering för adaptiv bithastighetskodning
 
-Skapa en **transformering** för att konfigurera vanliga uppgifter för kodning eller analysering av videor. I det här exemplet har vi anpassad bit hastighets kodning. Vi skickar sedan ett jobb under transformeringen som vi skapade. Jobbet är en begäran om att Media Services att tillämpa transformeringen på det angivna video-eller ljud innehållets indata.
+Skapa en **transformering** för att konfigurera vanliga uppgifter för kodning eller analysering av videor. I det här exemplet gör vi adaptiv bitrate kodning. Vi skickar sedan in ett jobb under den transformering som vi skapade. Jobbet är en begäran till Media Services om att tillämpa transformeringen på den angivna video- eller ljudinnehållsinmatningen.
 
-```azurecli
+```azurecli-interactive
 az ams transform create --name testEncodingTransform --preset AdaptiveStreaming --description 'a simple Transform for Adaptive Bitrate Encoding' -g amsResourceGroup -a amsaccount
 ```
 
-Du får ett svar så här:
+Du får ett svar som detta:
 
 ```
 {
@@ -159,13 +158,13 @@ Du får ett svar så här:
 
 ## <a name="create-an-output-asset"></a>Skapa en utdatatillgång
 
-Skapa en utmatnings **till gång** som ska användas som kodnings jobbets utdata.
+Skapa en **utdatatillgång** som ska användas som kodningsjobbets utdata.
 
-```azurecli
+```azurecli-interactive
 az ams asset create -n testOutputAssetName -a amsaccount -g amsResourceGroup
 ```
 
-Du får ett svar så här:
+Du får ett svar som detta:
 
 ```
 {
@@ -184,22 +183,22 @@ Du får ett svar så här:
 }
 ```
 
-## <a name="start-a-job-by-using-https-input"></a>Starta ett jobb genom att använda HTTPS-ingångar
+## <a name="start-a-job-by-using-https-input"></a>Starta ett jobb med https-indata
 
-När du skickar jobb för att bearbeta videor måste du tala om för Media Services var du hittar ingångs videon. Ett alternativ är att ange en HTTPS-URL som jobb inmatare, som du ser i det här exemplet.
+När du skickar jobb för att bearbeta videor måste du tala om för Media Services var indatavideon finns. Ett alternativ är att ange en HTTPS-URL som jobbinmatning, som visas i det här exemplet.
 
-När du kör `az ams job start` kan du applicera en etikett på jobbets utdata. Du kan sedan använda etiketten för att identifiera vad utmatnings till gången är för.
+När du kör `az ams job start` kan du applicera en etikett på jobbets utdata. Du kan sedan använda etiketten för att identifiera vad utdatatillgången är till för.
 
-- Om du tilldelar ett värde till etiketten anger du "-output-assets" till "assetname = Label".
-- Om du inte tilldelar ett värde till etiketten anger du "--output-assets" till "assetname =".
+- Om du tilldelar etiketten ett värde anger du "--output-assets" till "assetname=label".
+- Om du inte tilldelar etiketten ett värde anger du '--output-assets' till "assetname=".
 
-  Observera att vi lägger till "=" till `output-assets`.
+  Observera att vi lägger `output-assets`till "=" i .
 
-```azurecli
-az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
+```azurecli-interactive
+az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup
 ```
 
-Du får ett svar så här:
+Du får ett svar som detta:
 
 ```
 {
@@ -236,23 +235,23 @@ Du får ett svar så här:
 
 ### <a name="check-status"></a>Kontrollera status
 
-I fem minuter kontrollerar du jobbets status. Det bör vara "klart". Den är inte färdig, kontrol lera igen om några minuter. När den är färdig går du till nästa steg och skapar en **strömmande positionerare**.
+Om fem minuter kontrollerar du jobbets status. Det borde vara "Färdigt". Den är inte klar, kolla igen om några minuter. När den är klar går du till nästa steg och skapar en **streamingpositionerare**.
 
-```azurecli
+```azurecli-interactive
 az ams job show -a amsaccount -g amsResourceGroup -t testEncodingTransform -n testJob001
 ```
 
-## <a name="create-a-streaming-locator-and-get-a-path"></a>Skapa en strömmande lokaliserare och hämta en sökväg
+## <a name="create-a-streaming-locator-and-get-a-path"></a>Skapa en streaming locator och få en sökväg
 
-När kodningen är klar är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning till klienterna. Det gör du genom att först skapa en strömmande positionerare. Sedan skapar du direkt uppspelnings-URL: er som klienter kan använda.
+När kodningen är klar är nästa steg att göra videon i utdatatillgången tillgänglig för uppspelning till klienterna. För att göra detta, först skapa en Streaming Locator. Skapa sedan strömmande webbadresser som klienter kan använda.
 
 ### <a name="create-a-streaming-locator"></a>Skapa en positionerare för direktuppspelning
 
-```azurecli
+```azurecli-interactive
 az ams streaming-locator create -n testStreamingLocator --asset-name testOutputAssetName --streaming-policy-name Predefined_ClearStreamingOnly  -g amsResourceGroup -a amsaccount 
 ```
 
-Du får ett svar så här:
+Du får ett svar som detta:
 
 ```
 {
@@ -272,13 +271,13 @@ Du får ett svar så här:
 }
 ```
 
-### <a name="get-streaming-locator-paths"></a>Hämta sökvägar för strömmande positionerare
+### <a name="get-streaming-locator-paths"></a>Hämta sökvägar för direktuppspelning
 
-```azurecli
+```azurecli-interactive
 az ams streaming-locator get-paths -a amsaccount -g amsResourceGroup -n testStreamingLocator
 ```
 
-Du får ett svar så här:
+Du får ett svar som detta:
 
 ```
 {
@@ -309,18 +308,19 @@ Du får ett svar så här:
 }
 ```
 
-Kopiera HLS-sökvägen (HTTP Live streaming). I det här fallet är det `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`.
+Kopiera HLS-sökvägen (HTTP Live Streaming). I det här fallet `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`är det .
 
-## <a name="build-the-url"></a>Bygg URL: en 
+## <a name="build-the-url"></a>Skapa webbadressen
 
-### <a name="get-the-streaming-endpoint-host-name"></a>Hämta värd namnet för direkt uppspelnings slut punkten
+### <a name="get-the-streaming-endpoint-host-name"></a>Hämta slutpunktsvärden för direktuppspelning
 
-```azurecli
+```azurecli-interactive
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
-Kopiera värdet `hostName`. I det här fallet är det `amsaccount-usw22.streaming.media.azure.net`.
 
-### <a name="assemble-the-url"></a>Montera URL: en
+Kopiera värdet `hostName`. I det här fallet `amsaccount-usw22.streaming.media.azure.net`är det .
+
+### <a name="assemble-the-url"></a>Montera webbadressen
 
 ”https://” + &lt;värde för hostName&gt; + &lt;värde för Hls-sökväg&gt;
 
@@ -328,29 +328,28 @@ Här är ett exempel:
 
 `https://amsaccount-usw22.streaming.media.azure.net/7f19e783-927b-4e0a-a1c0-8a140c49856c/ignite.ism/manifest(format=m3u8-aapl)`
 
-## <a name="test-playback-by-using-azure-media-player"></a>Testa uppspelning med Azure Media Player
+## <a name="test-playback-by-using-azure-media-player"></a>Testa uppspelning med Hjälp av Azure Media Player
 
 > [!NOTE]
-> Om en spelare finns på en HTTPS-plats måste du starta URL: en med "https".
+> Om en spelare finns på en HTTPS-webbplats, se till att starta webbadressen med "https".
 
-1. Öppna en webbläsare och gå till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. I rutan **URL** klistrar du in webb adressen som du skapade i föregående avsnitt. Du kan klistra in URL: en i HLS, tank streck eller smidigt format. Azure Media Player använder automatiskt ett lämpligt strömnings protokoll för uppspelning på enheten.
-3. Välj **uppdaterings spelaren**.
+1. Öppna en webbläsare och [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/)gå till .
+2. Klistra in webbadressen som du har skapat i föregående avsnitt i rutan **URL.** Du kan klistra in WEBBADRESSEN i HLS-, Dash- eller Smooth-format. Azure Media Player använder automatiskt ett lämpligt direktuppspelningsprotokoll för uppspelning på din enhet.
+3. Välj **Uppdatera spelare**.
 
 >[!NOTE]
 >Azure Media Player kan användas vid testning, men bör inte användas i en produktionsmiljö.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver någon av resurserna i resurs gruppen, inklusive de Media Services och lagrings konton som du skapade för den här självstudien, tar du bort resurs gruppen.
+Om du inte längre behöver någon av resurserna i resursgruppen, inklusive mediatjänster och lagringskonton som du skapade för den här självstudien, tar du bort resursgruppen.
 
-Kör detta CLI-kommando:
+Kör det här Azure CLI-kommandot:
 
-```azurecli
+```azurecli-interactive
 az group delete --name amsResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Översikt över Media Services](media-services-overview.md)
-

@@ -1,6 +1,6 @@
 ---
-title: Referens för Azure Data Factory-JSON-skript
-description: Tillhandahåller JSON-scheman för Data Factory entiteter.
+title: Referens för Azure Data Factory – JSON-skriptreferens
+description: Tillhandahåller JSON-scheman för datafabrikentiteter.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,24 +11,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e85696afde5f0332ff6481bfadabbde5ac2d4800
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3492f917be8116d0eed0c7ec03ed8aa9ff506520
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894914"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80346587"
 ---
-# <a name="azure-data-factory---json-scripting-reference"></a>Referens för Azure Data Factory-JSON-skript
+# <a name="azure-data-factory---json-scripting-reference"></a>Referens för Azure Data Factory – JSON-skriptreferens
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory.
 
 
-Den här artikeln innehåller JSON-scheman och exempel för att definiera Azure Data Factory entiteter (pipeline, aktivitet, data uppsättning och länkad tjänst).
+Den här artikeln innehåller JSON-scheman och exempel för att definiera Azure Data Factory-entiteter (pipeline, aktivitet, datauppsättning och länkad tjänst).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="pipeline"></a>Pipeline
-Hög nivå strukturen för en pipeline-definition är följande:
+Högnivåstrukturen för en rörledningsdefinition är följande:
 
 ```json
 {
@@ -43,22 +43,22 @@ Hög nivå strukturen för en pipeline-definition är följande:
 }
 ```
 
-I följande tabell beskrivs egenskaperna inom pipelinens JSON-definition:
+I följande tabell beskrivs egenskaperna i JSON-pipeline-definitionen:
 
 | Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
-| namn | Namnet på pipeline. Ange ett namn som representerar åtgärden som aktiviteten eller pipelinen har kon figurer ATS att göra<br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Ja |
+| namn | Namnet på pipeline. Ange ett namn som representerar den åtgärd som aktiviteten eller pipelinen är konfigurerad att utföra<br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med ett bokstavsnummer\_eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<",">","*","%","&",":""\\"</li></ul> |Ja |
 | description |Text som beskriver vad aktiviteten eller pipelinen används för | Inga |
-| activities | Innehåller en lista med aktiviteter. | Ja |
-| start |Start datum/tid för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Exempel: 2014-10-14T16:32:41. <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, som är 6 AM EST.<br/><br/>Start-och slut egenskaperna anger den aktiva perioden för pipelinen. Utgående segment skapas endast med i den här aktiva perioden. |Inga<br/><br/>Om du anger ett värde för egenskapen end måste du ange ett värde för egenskapen start.<br/><br/>Start-och slut tiderna kan båda vara tomma för att skapa en pipeline. Du måste ange båda värdena om du vill ange en aktiv period som pipelinen ska köras i. Om du inte anger start-och slut tider när du skapar en pipeline kan du ange dem med cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
-| end |Slutdatum/tid för pipelinen. Om det anges måste det vara i ISO-format. Exempel: 2014-10-14T17:32:41 <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00**-05:00`, som är 6 AM EST.<br/><br/>Om du vill köra pipelinen på obestämd tid anger du 9999-09-09 som värde för end-egenskapen. |Inga <br/><br/>Om du anger ett värde för egenskapen start måste du ange ett värde för egenskapen End.<br/><br/>Se information om **Start** egenskapen. |
-| isPaused |Om värdet är true körs inte pipelinen. Standardvärde = falskt. Du kan använda den här egenskapen för att aktivera eller inaktivera. |Inga |
-| pipelineMode |Metoden för att schemalägga körningar för pipelinen. Tillåtna värden är: schemalagda (standard), Databasmigrering.<br/><br/>Schemalagd anger att pipelinen körs vid ett visst tidsintervall enligt dess aktiva period (start-och slut tid). ' Databasmigrering ' anger att pipelinen bara körs en gång. Databasmigrering pipelines när de har skapats kan inte ändras/uppdateras för närvarande. Se [Databasmigrering pipeline](data-factory-create-pipelines.md#onetime-pipeline) för information om inställningen Databasmigrering. |Inga |
-| expirationTime |Tid efter hur lång tid som pipelinen är giltig och som ska vara etablerad. Om det inte finns några aktiva, misslyckade eller väntande körningar, tas pipelinen bort automatiskt när den når förfallo tiden. |Inga |
+| activities | Innehåller en lista över aktiviteter. | Ja |
+| start |Startdatum för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Till exempel: 2014-10-14T16:32:41. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST-tid. Här är ett `2016-02-27T06:00:00**-05:00`exempel: , som är 06:00 EST.<br/><br/>Start- och slutegenskaperna anger tillsammans aktiv period för pipelinen. Utdatasegment produceras endast med under den här aktiva perioden. |Inga<br/><br/>Om du anger ett värde för slutegenskapen måste du ange värdet för startegenskapen.<br/><br/>Start- och sluttiderna kan båda vara tomma för att skapa en pipeline. Du måste ange båda värdena för att ange en aktiv period för att pipelinen ska köras. Om du inte anger start- och sluttider när du skapar en pipeline kan du ställa in dem med cmdlet Set-AzDataFactoryPipelineActivePeriod senare. |
+| slut |Slutdatumtid för pipelinen. Om det anges måste vara i ISO-format. Till exempel: 2014-10-14T17:32:41 <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST-tid. Här är ett `2016-02-27T06:00:00**-05:00`exempel: , som är 06:00 EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, anger du 9999-09-09 som värde för slutegenskapen. |Inga <br/><br/>Om du anger ett värde för startegenskapen måste du ange värdet för slutegenskapen.<br/><br/>Se anteckningar **start** för startegenskapen. |
+| isPaused |Om den är inställd på true körs inte pipelinen. Standardvärde = falskt. Du kan använda den här egenskapen för att aktivera eller inaktivera. |Inga |
+| pipelineMode |Metoden för schemaläggning körs för pipelinen. Tillåtna värden är: schemalagda (standard), en gång.<br/><br/>"Schemalagd" anger att rörledningen körs med ett angivet tidsintervall beroende på dess aktiva period (start- och sluttid). "Onetime" anger att pipelinen bara körs en gång. Engångspipelderna när de har skapats kan inte ändras/uppdateras för närvarande. Se [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) för information om engångsinställning. |Inga |
+| förfallodatumTime |Varaktigheten av tiden efter det att rörledningen har skapats och bör förbli etablerad. Om den inte har några aktiva, misslyckade eller väntande körningar tas pipelinen bort automatiskt när den når förfallotiden. |Inga |
 
 
 ## <a name="activity"></a>Aktivitet
-Hög nivå strukturen för en aktivitet i en pipeline-definition (aktivitets element) är följande:
+Högnivåstrukturen för en aktivitet inom en rörledningsdefinition (aktivitetselement) är följande:
 
 ```json
 {
@@ -81,40 +81,40 @@ Hög nivå strukturen för en aktivitet i en pipeline-definition (aktivitets ele
 }
 ```
 
-I följande tabell beskrivs egenskaperna i aktivitets-JSON-definitionen:
+I följande tabell beskrivs egenskaperna i aktiviteten JSON-definitionen:
 
-| Tagg | Beskrivning | Krävs |
+| Tagga | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn |Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten har kon figurer ATS att göra<br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Ja |
+| namn |Namnet på aktiviteten. Ange ett namn som representerar den åtgärd som aktiviteten är konfigurerad att utföra<br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med ett bokstavsnummer\_eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<",">","*","%","&",":""\\"</li></ul> |Ja |
 | description |Text som beskriver vad aktiviteten används för. |Inga |
-| typ |Anger typen av aktivitet. Se avsnittet [data lager](#data-stores) och [data omvandlings aktiviteter](#data-transformation-activities) för olika typer av aktiviteter. |Ja |
-| inputs |Ingångs tabeller som används av aktiviteten<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Nej för HDInsightStreaming-och SqlServerStoredProcedure-aktiviteter <br/> <br/> Ja för alla andra |
-| outputs |Utgående tabeller som används av aktiviteten.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Ja |
-| linkedServiceName |Namnet på den länkade tjänst som används av aktiviteten. <br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. |Ja för HDInsight-aktiviteter, Azure Machine Learning aktiviteter och lagrad procedur aktivitet. <br/><br/>Nej för alla andra |
-| typeProperties |Egenskaperna i typeProperties-avsnittet är beroende av typen av aktivitet. |Inga |
-| policy |Principer som påverkar körningsbeteende för aktiviteten. Om den inte anges används standard principerna. |Inga |
-| schemaläggare |Egenskapen Scheduler används för att definiera önskad schemaläggning för aktiviteten. Dess under egenskaper är desamma som i [egenskapen Availability i en data uppsättning](data-factory-create-datasets.md#dataset-availability). |Inga |
+| typ |Anger typen av aktivitet. Se avsnitten [DATALAGER](#data-stores) OCH [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) för olika typer av aktiviteter. |Ja |
+| Ingångar |Indatatabeller som används av aktiviteten<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Nej för HDInsightStreaming- och SqlServerStoredProcedure-aktiviteter <br/> <br/> Ja för alla andra |
+| Utgångar |Utdatatabeller som används av aktiviteten.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": “outputtable1” } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": “outputtable1” }, { "name": “outputtable2” }  ],` |Ja |
+| linkedServiceName |Namnet på den länkade tjänst som används av aktiviteten. <br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. |Ja för HDInsight-aktiviteter, Azure Machine Learning-aktiviteter och lagrad proceduraktivitet. <br/><br/>Nej för alla andra |
+| typeProperties |Egenskaperna i avsnittet typeProperties beror på aktivitetens typ. |Inga |
+| policy |Principer som påverkar körningsbeteende för aktiviteten. Om det inte anges används standardprinciper. |Inga |
+| scheduler |Egenskapen "scheduler" används för att definiera önskad schemaläggning för aktiviteten. Dess underegenskaper är desamma som de i [egenskapen availability i en datauppsättning](data-factory-create-datasets.md#dataset-availability). |Inga |
 
-### <a name="policies"></a>Policy
-Principer påverkar körnings beteendet för en aktivitet, särskilt när en tabell sektor bearbetas. I följande tabell finns information.
+### <a name="policies"></a>Principer
+Principer påverkar körningsbeteendet för en aktivitet, särskilt när segmentet i en tabell bearbetas. Följande tabell innehåller information.
 
-| Egenskap | Tillåtna värden | Default Value | Beskrivning |
+| Egenskap | Tillåtna värden | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
-| samtidighet |Integer <br/><br/>Max värde: 10 |1 |Antalet samtidiga körningar av aktiviteten.<br/><br/>Det avgör antalet parallella aktivitets körningar som kan ske på olika sektorer. Om en aktivitet till exempel behöver gå igenom en stor uppsättning tillgängliga data, desto högre samtidiga värde, desto snabbare data bearbetning. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Bestämmer ordningen på data sektorer som bearbetas.<br/><br/>Om du till exempel har 2 segment (en på 4pm och en annan på 17) och båda väntar på att köras. Om du ställer in executionPriorityOrder som NewestFirst bearbetas sektorn på 5 PM först. På samma sätt som om du anger att executionPriorityORder ska vara OldestFIrst bearbetas sektorn på 4 PM. |
-| retry |Integer<br/><br/>Max värdet kan vara 10 |0 |Antal försök innan data bearbetningen för sektorn markeras som ett haveri. Aktivitets körningen för en data sektor görs igen till det angivna antalet försök. Återförsöket görs så snart som möjligt efter fel. |
-| timeout |TimeSpan |00:00:00 |Tids gräns för aktiviteten. Exempel: 00:10:00 (betyder timeout 10 minuter)<br/><br/>Om ett värde inte anges eller är 0, är tids gränsen oändlig.<br/><br/>Om data bearbetnings tiden i en sektor överskrider tids gräns värdet avbryts det och systemet försöker försöka utföra bearbetningen igen. Antalet återförsök beror på egenskapen försök igen. När timeout inträffar anges statusen till stängningsåtgärd. |
-| delay |TimeSpan |00:00:00 |Ange fördröjningen innan data bearbetning av sektorn startar.<br/><br/>Körningen av en aktivitet för en data sektor startas efter fördröjningen efter den förväntade körnings tiden.<br/><br/>Exempel: 00:10:00 (betyder fördröjning på 10 minuter) |
-| longRetry |Integer<br/><br/>Max värde: 10 |1 |Antalet nya försök innan sektor körningen misslyckades.<br/><br/>longRetry-försök fördelas med longRetryInterval. Om du behöver ange en tid mellan återförsök ska du använda longRetry. Om både återförsök och longRetry har angetts innehåller varje longRetry-försök nya försök och det högsta antalet försök är att försöka igen * longRetry.<br/><br/>Om vi till exempel har följande inställningar i aktivitets principen:<br/>Nytt försök: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Anta att det bara finns en sektor att köra (status väntar) och aktivitets körningen Miss lyckas varje gång. Från början skulle det finnas tre körnings försök i följd. Efter varje försök skulle sektor statusen att försöka igen. Efter de första tre försöken är segmentets status LongRetry.<br/><br/>Efter en timme (det vill säga longRetryInteval värde), skulle det finnas en annan uppsättning av tre körnings försök i följd. Därefter skulle sektor statusen att Miss lyckas och inga fler återförsök skulle göras. Därför gjordes 6 försök.<br/><br/>Om körningen lyckas är segment statusen klar och inga fler återförsök görs.<br/><br/>longRetry kan användas i situationer där beroende data anländer till icke-deterministiska tider eller om den övergripande miljön är flaky under vilken data bearbetning sker. I sådana fall kan du göra nya försök en efter det att en annan kanske inte kan hjälpa dig och göra det när ett tidsintervall ger önskad utdata.<br/><br/>Varnings ord: Ange inte höga värden för longRetry eller longRetryInterval. Vanligt vis innebär högre värden andra problem med systemet. |
-| longRetryInterval |TimeSpan |00:00:00 |Fördröjningen mellan långsamma försök |
+| samtidighet |Integer <br/><br/>Maxvärde: 10 |1 |Antal samtidiga körningar av aktiviteten.<br/><br/>Det avgör antalet parallella aktivitetskörningar som kan hända på olika segment. Om en aktivitet till exempel behöver gå igenom en stor uppsättning tillgängliga data, snabbar databearbetningen upp databearbetningen om du har ett större samtidighetsvärde. |
+| körningPriorityOrder |NyasteFörsta<br/><br/>ÄldstaFörsta |ÄldstaFörsta |Bestämmer ordningen på datasegment som bearbetas.<br/><br/>Om du till exempel har 2 segment (en som händer klockan 16.00 och en annan klockan 17.00) och båda väntar på körning. Om du ställer in körningenPriorityOrder till nyast först bearbetas segmentet vid 17:00 först. På samma sätt om du anger att körningenPriorityORder ska vara OldestFIrst bearbetas segmentet vid 16:00. |
+| retry |Integer<br/><br/>Maxvärde kan vara 10 |0 |Antal återförsök före databearbetningen för segmentet markeras som Fel. Aktivitetskörning för ett datasegment görs om upp till det angivna antalet försök. Återförsöket görs så snart som möjligt efter felet. |
+| timeout |TimeSpan |00:00:00 |Timeout för aktiviteten. Exempel: 00:10:00 (innebär timeout 10 minuter)<br/><br/>Om ett värde inte anges eller är 0 är timeout oändlig.<br/><br/>Om databearbetningstiden för ett segment överskrider timeout-värdet avbryts det och systemet försöker försöka bearbeta igen. Antalet återförsök beror på egenskapen för återförsök. När timeout inträffar anges statusen till TimedOut. |
+| Försening |TimeSpan |00:00:00 |Ange fördröjningen innan databearbetningen av segmentet startar.<br/><br/>Körningen av aktivitet för ett datasegment startas när fördröjningen har passerat den förväntade körningstiden.<br/><br/>Exempel: 00:10:00 (innebär fördröjning på 10 minuter) |
+| longRetry |Integer<br/><br/>Maxvärde: 10 |1 |Antalet långa försök att försöka igen innan segmentkörningen misslyckas.<br/><br/>longRetry-försök är fördelade efter longRetryInterval. Så om du behöver ange en tid mellan försök att försöka igen använder du longRetry. If both Retry and longRetry are specified, each longRetry attempt includes Retry attempts and the max number of attempts is Retry * longRetry.<br/><br/>Om vi till exempel har följande inställningar i aktivitetspolicyn:<br/>Försök igen: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Anta att det bara finns ett segment att köra (status väntar) och aktivitetskörningen misslyckas varje gång. Inledningsvis skulle det finnas 3 på varandra följande avrättningsförsök. Efter varje försök skulle segmentstatusen vara Försök igen. Efter första 3 försök är över, skulle segmentet status LongRetry.<br/><br/>Efter en timme (det vill vara longRetryIntevals värde) skulle det finnas ytterligare en uppsättning med 3 på varandra följande körningsförsök. Därefter skulle segmentstatusen misslyckas och inga fler försök skulle göras. Därför gjordes totalt 6 försök.<br/><br/>Om någon körning lyckas, skulle segmentstatus vara Klar och inga fler försök görs.<br/><br/>longRetry kan användas i situationer där beroende data anländer till icke-deterministiska tider eller den övergripande miljön är flagnande under vilken databehandling sker. I sådana fall kan det hända att du inte hjälper till att göra försök igen efter varandra och att göra det efter ett tidsintervall resulterar i önskad utgång.<br/><br/>Varningens ord: ange inte höga värden för longRetry eller longRetryInterval. Vanligtvis innebär högre värden andra systemproblem. |
+| longRetryInterval |TimeSpan |00:00:00 |Fördröjningen mellan långa försök att försöka igen |
 
 ### <a name="typeproperties-section"></a>avsnittet typeProperties
-Avsnittet typeProperties är olika för varje aktivitet. Omvandlings aktiviteter har bara typ egenskaperna. Se avsnittet [data omvandlings aktiviteter](#data-transformation-activities) i den här artikeln för JSON-exempel som definierar omvandlings aktiviteter i en pipeline.
+Avsnittet typeProperties är olika för varje aktivitet. Omvandlingsaktiviteter har bara typegenskaperna. Se avsnittet [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) i den här artikeln för JSON-exempel som definierar omvandlingsaktiviteter i en pipeline.
 
-**Kopierings aktiviteten** har två underavsnitt i typeProperties-avsnittet: **källa** och **mottagare**. Se avsnittet [data lager](#data-stores) i den här artikeln för JSON-exempel som visar hur du använder ett data lager som källa och/eller mottagare.
+**Kopieringsaktivitet** har två underavsnitt i avsnittet typeProperties: **källa** och **diskho**. Se avsnittet [DATALAGER](#data-stores) I den här artikeln för JSON-exempel som visar hur du använder ett datalager som källa och/eller diskho.
 
 ### <a name="sample-copy-pipeline"></a>Exempel på kopieringspipeline
-I följande exempel på pipeline finns det en aktivitet av typen **Copy** (Kopiera) i avsnittet **activities**. I det här exemplet kopierar [kopierings aktiviteten](data-factory-data-movement-activities.md) data från en Azure Blob Storage till en Azure SQL-databas.
+I följande exempel på pipeline finns det en aktivitet av typen **Copy** (Kopiera) i avsnittet **activities**. I det här exemplet [kopierar aktiviteten Kopiera](data-factory-data-movement-activities.md) data från en Azure Blob-lagring till en Azure SQL-databas.
 
 ```json
 {
@@ -165,9 +165,9 @@ Observera följande punkter:
 * Indata för aktiviteten är inställd på **InputDataset** och utdata för aktiviteten är inställd på **OutputDataset**.
 * I avsnittet för **typeProperties** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp.
 
-Se avsnittet [data lager](#data-stores) i den här artikeln för JSON-exempel som visar hur du använder ett data lager som källa och/eller mottagare.
+Se avsnittet [DATALAGER](#data-stores) I den här artikeln för JSON-exempel som visar hur du använder ett datalager som källa och/eller diskho.
 
-En fullständig genom gång av hur du skapar denna pipeline finns i [Självstudier: kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+En fullständig genomgång av hur du skapar den här pipelinen finns i [Självstudiekurs: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ### <a name="sample-transformation-pipeline"></a>Exempel på transfomeringspipeline
 I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive** i avsnittet **activities**. I det här exemplet transformerar [HDInsight Hive-aktiviteten](data-factory-hive-activity.md) data från Azure Blob Storage genom att köra en Hive-skriptfil på ett Azure HDInsight Hadoop-kluster.
@@ -221,14 +221,14 @@ Observera följande punkter:
 
 * I activities-avsnittet finns det bara en aktivitet vars **typ** anges till **HDInsightHive**.
 * Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas **AzureStorageLinkedService**), och i mappen **skript** i containern **adfgetstarted**.
-* Avsnittet **definierar** används för att ange körnings inställningar som skickas till Hive-skriptet som Hive-konfigurations värden (t. ex. `${hiveconf:inputtable}``${hiveconf:partitionedtable}`).
+* Avsnittet definierar används för att ange de **körningsinställningar** som skickas till registreringsdatafilen `${hiveconf:inputtable}`som `${hiveconf:partitionedtable}`Hive-konfigurationsvärden (t.ex. .
 
-Se avsnittet [data omvandlings aktiviteter](#data-transformation-activities) i den här artikeln för JSON-exempel som definierar omvandlings aktiviteter i en pipeline.
+Se avsnittet [DATA TRANSFORMATION ACTIVITIES](#data-transformation-activities) i den här artikeln för JSON-exempel som definierar omvandlingsaktiviteter i en pipeline.
 
-En fullständig genom gång av hur du skapar denna pipeline finns i [Självstudier: skapa din första pipeline för att bearbeta data med Hadoop-kluster](data-factory-build-your-first-pipeline.md).
+En fullständig genomgång av hur du skapar den här pipelinen finns i [Självstudiekurs: Skapa din första pipeline för att bearbeta data med Hadoop-klustret](data-factory-build-your-first-pipeline.md).
 
 ## <a name="linked-service"></a>Länkad tjänst
-En hög nivå struktur för en länkad tjänst definition är följande:
+Högnivåstrukturen för en länkad tjänstedefinition är följande:
 
 ```json
 {
@@ -241,16 +241,16 @@ En hög nivå struktur för en länkad tjänst definition är följande:
 }
 ```
 
-I följande tabell beskrivs egenskaperna i aktivitets-JSON-definitionen:
+I följande tabell beskrivs egenskaperna i aktiviteten JSON-definitionen:
 
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | namn | Namnet på den länkade tjänsten. | Ja |
-| egenskaper-typ | Typ av länkad tjänst. Exempel: Azure Storage Azure SQL Database. |
-| typeProperties | Avsnittet typeProperties innehåller element som är olika för varje data lager eller beräknings miljö. Se avsnittet data lager för alla länkade tjänster och [beräknings miljöer](#compute-environments) för alla de data lager som är länkade till alla beräknade tjänster |
+| egenskaper - typ | Typ av den länkade tjänsten. Till exempel: Azure Storage, Azure SQL Database. |
+| typeProperties | Avsnittet typeProperties har element som är olika för varje datalager eller beräkningsmiljö. Se avsnittet datalager för alla datalagerlänkade tjänster och [beräkningsmiljöer](#compute-environments) för alla beräkningslänkade tjänster |
 
 ## <a name="dataset"></a>Datauppsättning
-En data uppsättning i Azure Data Factory definieras enligt följande:
+En datauppsättning i Azure Data Factory definieras på följande sätt:
 
 ```json
 {
@@ -280,28 +280,28 @@ En data uppsättning i Azure Data Factory definieras enligt följande:
 }
 ```
 
-I följande tabell beskrivs egenskaperna i ovanstående JSON:
+I följande tabell beskrivs egenskaper i ovanstående JSON:
 
 | Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
-| namn | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](data-factory-naming-rules.md) för namngivnings regler. |Ja |Ej tillämpligt |
-| typ | Typ av data uppsättning. Ange en av de typer som stöds av Azure Data Factory (till exempel: AzureBlob, AzureSqlTable). Se avsnittet [data lager](#data-stores) för alla data lager och data uppsättnings typer som stöds av Data Factory. |
-| structure | Schema för data uppsättningen. Den innehåller kolumner, deras typer osv. | Inga |Ej tillämpligt |
-| typeProperties | Egenskaper som motsvarar den valda typen. Se avsnittet [data lager](#data-stores) för typer som stöds och deras egenskaper. |Ja |Ej tillämpligt |
-| extern | Boolesk flagga för att ange om en data uppsättning uttryckligen skapas av en Data Factory-pipeline eller inte. |Inga |false |
-| availability | Definierar bearbetnings fönstret eller segmenterings modellen för data uppsättnings produktionen. Mer information om den sammanslagna segmenterings modellen finns i avsnittet om [schemaläggning och körning](data-factory-scheduling-and-execution.md) . |Ja |Ej tillämpligt |
-| policy |Definierar villkoret eller villkoret som data uppsättnings sektorerna måste uppfylla. <br/><br/>Mer information finns i avsnittet princip för data uppsättning. |Inga |Ej tillämpligt |
+| namn | Datauppsättningens namn. Se [Azure Data Factory - Namngivningsregler](data-factory-naming-rules.md) för namngivningsregler. |Ja |Ej tillämpligt |
+| typ | Typ av datauppsättning. Ange en av de typer som stöds av Azure Data Factory (till exempel AzureBlob, AzureSqlTable). Se avsnittet [DATALAGER](#data-stores) för alla datalager och datauppsättningstyper som stöds av Data Factory. |
+| Struktur | Schema för datauppsättningen. Den innehåller kolumner, deras typer, etc. | Inga |Ej tillämpligt |
+| typeProperties | Egenskaper som motsvarar den valda typen. Se avsnittet [DATALAGER](#data-stores) för typer som stöds och deras egenskaper. |Ja |Ej tillämpligt |
+| extern | Boolesk flagga för att ange om en datauppsättning uttryckligen produceras av en datafabrikspipeline eller inte. |Inga |false |
+| availability | Definierar bearbetningsfönstret eller skivningsmodellen för datauppsättningsproduktionen. Mer information om datauppsättningsuppsättningsmodellen finns i artikeln [Schemaläggning och körning.](data-factory-scheduling-and-execution.md) |Ja |Ej tillämpligt |
+| policy |Definierar villkoret eller villkoret som datauppsättningssegmenten måste uppfylla. <br/><br/>Mer information finns i avsnittet Datauppsättningsprincip. |Inga |Ej tillämpligt |
 
-Varje kolumn i avsnittet **struktur** innehåller följande egenskaper:
+Varje kolumn i **strukturavsnittet** innehåller följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | namn |Kolumnens namn. |Ja |
-| typ |Kolumnens datatyp.  |Inga |
-| culture |.NET-baserad kultur som ska användas när typ har angetts och är .NET-typ `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. |Inga |
-| format |Format strängen som ska användas när typen anges och är av typen .NET `Datetime` eller `Datetimeoffset`. |Inga |
+| typ |Datatyp för kolumnen.  |Inga |
+| Kultur |.NET-baserad odling som ska användas när typen `Datetime` `Datetimeoffset`anges och är .NET-typ eller . Standardvärdet är `en-us`. |Inga |
+| format |Formatera sträng som ska användas när typen anges `Datetime` `Datetimeoffset`och är .NET-typ eller . |Inga |
 
-I följande exempel har data uppsättningen tre kolumner `slicetimestamp`, `projectname`och `pageviews` och är av typen: sträng, sträng och decimal.
+I följande exempel har datauppsättningen `slicetimestamp`tre `projectname`kolumner `pageviews` , och och de är av typen: Sträng, Sträng respektive Decimal.
 
 ```json
 structure:
@@ -312,17 +312,17 @@ structure:
 ]
 ```
 
-I följande tabell beskrivs de egenskaper som du kan använda i avsnittet **tillgänglighet** :
+I följande tabell beskrivs egenskaper **availability** som du kan använda i tillgänglighetsavsnittet:
 
 | Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
-| frequency |Anger tidsenheten för data uppsättnings sektorns produktion.<br/><br/><b>Frekvens som stöds</b>: minut, timme, dag, vecka, månad |Ja |Ej tillämpligt |
-| interval |Anger en multiplikator för frekvens<br/><br/>"Frekvens x-intervall" anger hur ofta sektorn produceras.<br/><br/>Om du vill att data uppsättningen ska segmenteras per timme anger du <b>frekvens</b> till <b>timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs!</b>om du anger frekvensen som minut rekommenderar vi att du anger intervallet till högst 15 |Ja |Ej tillämpligt |
-| style |Anger om sektorn ska skapas i början/slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul><br/><br/>Om frekvensen är inställd på månad och format är inställt på EndOfInterval, produceras sektorn den sista dagen i månaden. Om formatet är inställt på StartOfInterval produceras sektorn den första dagen i månaden.<br/><br/>Om frekvens är inställt på dag och format är inställt på EndOfInterval skapas sektorn under den senaste timmen på dagen.<br/><br/>Om frekvensen är inställd på timme och formatet är inställt på EndOfInterval, skapas sektorn i slutet av timmen. För till exempel en sektor på en timme – 2-timmarsperiod skapas sektorn på 2 PM. |Inga |EndOfInterval |
-| anchorDateTime |Definierar den absoluta position i tid som används av Scheduler för att beräkna data uppsättningens sektor gränser. <br/><br/><b>Obs!</b>om AnchorDateTime har datum delar som är mer detaljerade än frekvensen ignoreras fler detaljerade delar. <br/><br/>Om <b>intervallet</b> till exempel är <b>per timme</b> (frekvens: timme och intervall: 1) och <b>AnchorDateTime</b> innehåller <b>minuter och sekunder</b> , ignoreras de <b>minuter och sekunderna</b> delar av AnchorDateTime. |Inga |01/01/0001 |
-| redovisningsmotkonto |TimeSpan som startar och slutar på alla mängd uppsättnings segment flyttas. <br/><br/><b>Obs</b>: om både anchorDateTime och offset anges, är resultatet det kombinerade skiftet. |Inga |Ej tillämpligt |
+| frequency |Anger tidsenheten för datauppsättningssegmentproduktion.<br/><br/><b>Frekvens som stöds</b>: Minut, Timme, Dag, Vecka, Månad |Ja |Ej tillämpligt |
+| interval |Anger en multiplikator för frekvens<br/><br/>"Frekvens x intervall" avgör hur ofta segmentet produceras.<br/><br/>Om du behöver datauppsättningen som ska segmenteras per timme anger du <b>Frekvens</b> till <b>Timme</b>och <b>intervall</b> till <b>1</b>.<br/><br/><b>Obs:</b>Om du anger Frekvens som minut rekommenderar vi att du ställer in intervallet till inte mindre än 15 |Ja |Ej tillämpligt |
+| stil |Anger om segmentet ska produceras i början/slutet av intervallet.<ul><li>StartofInterval</li><li>Slutavinföring</li></ul><br/><br/>Om Frekvens är inställt på Månad och format är inställt på EndOfInterval, produceras segmentet den sista dagen i månaden. Om formatet är inställt på StartOfInterval produceras segmentet den första dagen i månaden.<br/><br/>Om Frekvens är inställt på Dag och formatet är inställt på EndOfInterval, produceras segmentet under den sista timmen på dagen.<br/><br/>Om Frekvens är inställt på Timme och formatet är inställt på EndOfInterval, produceras segmentet i slutet av timmen. För ett segment för 13:00 till 14:00 period, är segmentet produceras vid 2 PM. |Inga |Slutavinföring |
+| anchorDateTime |Definierar den absoluta positionen i tid som används av schemaläggaren för att beräkna datauppsättningssegmentgränser. <br/><br/><b>Obs:</b>Om AnchorDateTime har datumdelar som är mer detaljerade än frekvensen ignoreras de mer detaljerade delarna. <br/><br/>Om <b>intervallet</b> till exempel är <b>varje timme</b> (frekvens: timme och intervall: 1) och <b>AnchorDateTime</b> innehåller <b>minuter och sekunder</b> ignoreras minuter <b>och sekunder</b> i AnchorDateTime. |Inga |01/01/0001 |
+| offset |Tidsintervall med vilket början och slutet av alla datauppsättningssegment flyttas. <br/><br/><b>Obs:</b>Om både anchorDateTime och offset anges, blir resultatet det kombinerade skiftet. |Inga |Ej tillämpligt |
 
-Följande tillgänglighets avsnitt anger att data uppsättningen för utdata antingen skapas per timme (eller) indata-datamängd är tillgängligt varje timme:
+I följande tillgänglighetsavsnitt anges att utdatauppsättningen antingen produceras per timme (eller) indatauppsättning är tillgänglig varje timme:
 
 ```json
 "availability":
@@ -332,12 +332,12 @@ Följande tillgänglighets avsnitt anger att data uppsättningen för utdata ant
 }
 ```
 
-I **princip** avsnittet i data uppsättnings definitionen definieras villkoren eller villkoret som data uppsättnings sektorerna måste uppfylla.
+**Principavsnittet** i datauppsättningsdefinitionen definierar villkoren eller villkoret som datauppsättningssegmenten måste uppfylla.
 
 | Principnamn | Beskrivning | Tillämpas på | Krävs | Default |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Kontrollerar att data i en Azure- **BLOB** uppfyller minimi kraven för storlek (i megabyte). |Azure-blobb |Inga |Ej tillämpligt |
-| minimumRows |Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det lägsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Inga |Ej tillämpligt |
+| minimumSizeMB |Verifierar att data i en **Azure-blob** uppfyller minimikraven för storlek (i megabyte). |Azure-blobb |Inga |Ej tillämpligt |
+| minimumRows |Verifierar att data i en **Azure SQL-databas** eller en **Azure-tabell** innehåller det minsta antalet rader. |<ul><li>Azure SQL Database</li><li>Azure-tabell</li></ul> |Inga |Ej tillämpligt |
 
 **Exempel:**
 
@@ -352,33 +352,33 @@ I **princip** avsnittet i data uppsättnings definitionen definieras villkoren e
 }
 ```
 
-Om inte en data uppsättning skapas av Azure Data Factory ska den markeras som **extern**. Den här inställningen gäller normalt indata för den första aktiviteten i en pipeline om inte aktivitet eller pipeline-kedja används.
+Om inte en datauppsättning produceras av Azure Data Factory bör den markeras som **extern**. Den här inställningen gäller vanligtvis för indata från första aktiviteten i en pipeline om inte aktivitet eller pipeline-kedja används.
 
-| Namn | Beskrivning | Krävs | Default Value |
+| Namn | Beskrivning | Krävs | Standardvärde |
 | --- | --- | --- | --- |
-| dataDelay |Tid för att försena kontrollen av tillgängligheten för externa data för den aktuella sektorn. Om data till exempel är tillgängliga varje timme, är kontrollen för att se de externa data tillgängliga och motsvarande sektor kan fördröjas med hjälp av dataDelay.<br/><br/>Gäller endast för aktuell tid.  Om det till exempel är 1:00 PM nu och det här värdet är 10 minuter, börjar verifieringen med 1:10 PM.<br/><br/>Den här inställningen påverkar inte segment tidigare (segment med sektor slut tid + dataDelay < nu) bearbetas utan fördröjning.<br/><br/>Tiden som är större än 23:59 timmar måste anges med `day.hours:minutes:seconds`-formatet. Om du till exempel vill ange 24 timmar ska du inte använda 24:00:00; Använd i stället 1,00:00:00. Om du använder 24:00:00 behandlas det som 24 dagar (24.00:00:00). I 1 dag och 4 timmar anger du 1:04:00:00. |Inga |0 |
-| retryInterval |Vänte tiden mellan ett fel och nästa försök att försöka igen. Om ett försök Miss lyckas är nästa försök efter retryInterval. <br/><br/>Om det är 1:00 PM börjar vi med det första försöket. Om varaktigheten för att slutföra den första verifierings kontrollen är 1 minut och åtgärden misslyckades, är nästa nytt försök på 1:00 + 1 min (varaktighet) + 1 min (återförsöksintervall) = 1:02 PM. <br/><br/>För sektorer i det förflutna sker ingen fördröjning. Återförsöket sker omedelbart. |Inga |00:01:00 (1 minut) |
-| retryTimeout |Tids gränsen för varje nytt försök.<br/><br/>Om den här egenskapen har angetts till 10 minuter måste verifieringen slutföras inom 10 minuter. Om det tar längre tid än 10 minuter att utföra verifieringen, tids gränsen för återförsök.<br/><br/>Om alla försök för verifierings tiden är slut, markeras sektorn som stängningsåtgärd. |Inga |00:10:00 (10 minuter) |
-| maximumRetry |Antal gånger för att kontrol lera tillgängligheten för externa data. Det högsta tillåtna värdet är 10. |Inga |3 |
+| dataDelay |Dags att fördröja kontrollen av tillgängligheten för externa data för det angivna segmentet. Om data till exempel är tillgängliga varje timme är kontrollen för att se att externa data är tillgängliga och motsvarande segment är Klar kan fördröjas med hjälp av dataDelay.<br/><br/>Gäller endast för närvarande.  Om det till exempel är 13:00 just nu och det här värdet är 10 minuter börjar valideringen 13:10.<br/><br/>Den här inställningen påverkar inte segment tidigare (segment med segmentsluttid + dataDelay < Now) bearbetas utan dröjsmål.<br/><br/>Tid som är större än 23:59 timmar måste anges med formatet. `day.hours:minutes:seconds` Om du till exempel vill ange 24 timmar ska du inte använda 24:00:00. Använd i stället 1.00:00:00. Om du använder 24:00:00 behandlas den som 24 dagar (24.00:00:00). För 1 dag och 4 timmar anger du 1:04:00:00. |Inga |0 |
+| retryInterval |Väntetiden mellan ett fel och nästa försök till nytt försök. Om ett försök misslyckas är nästa försök efter återförsökInterval. <br/><br/>Om det är 13:00 just nu, börjar vi första försöket. Om varaktigheten för att slutföra den första valideringskontrollen är 1 minut och åtgärden misslyckades, är nästa återförsök 1:00 + 1 min (varaktighet) + 1 min (återförsöksintervall) = 1:02 PM. <br/><br/>För segment i det förflutna finns det ingen fördröjning. Återförsöket sker omedelbart. |Inga |00:01:00 (1 minut) |
+| försöktimeout igen |Tidsgränsen för varje försök till nytt försök.<br/><br/>Om den här egenskapen är inställd på 10 minuter måste valideringen slutföras inom 10 minuter. Om det tar längre tid än 10 minuter att utföra valideringen, time out.If it takes longer than 10 minutes to perform the validation, the retry time out.<br/><br/>Om alla försök för valideringen timeout markeras segmentet som TimedOut. |Inga |00:10:00 (10 minuter) |
+| maximumRetry |Antal gånger för att kontrollera om de externa data finns tillgängliga. Det tillåtna maxvärdet är 10. |Inga |3 |
 
 
-## <a name="data-stores"></a>DATA LAGER
-I avsnittet för den [länkade tjänsten](#linked-service) finns beskrivningar för JSON-element som är gemensamma för alla typer av länkade tjänster. Det här avsnittet innehåller information om JSON-element som är speciella för varje data lager.
+## <a name="data-stores"></a>DATALAGER
+Avsnittet [Länkad tjänst](#linked-service) gav beskrivningar för JSON-element som är gemensamma för alla typer av länkade tjänster. Det här avsnittet innehåller information om JSON-element som är specifika för varje datalager.
 
-I [data uppsättnings](#dataset) avsnittet finns beskrivningar av JSON-element som är gemensamma för alla typer av data uppsättningar. Det här avsnittet innehåller information om JSON-element som är speciella för varje data lager.
+Avsnittet [Datauppsättning](#dataset) gav beskrivningar för JSON-element som är gemensamma för alla typer av datauppsättningar. Det här avsnittet innehåller information om JSON-element som är specifika för varje datalager.
 
-Avsnittet [aktivitet](#activity) tillhandahåller beskrivningar av JSON-element som är gemensamma för alla typer av aktiviteter. Det här avsnittet innehåller information om JSON-element som är speciella för varje data lager när det används som källa/mottagare i en kopierings aktivitet.
+Avsnittet [Aktivitet](#activity) innehåller beskrivningar för JSON-element som är gemensamma för alla typer av aktiviteter. Det här avsnittet innehåller information om JSON-element som är specifika för varje datalager när de används som källa/mottagare i en kopieringsaktivitet.
 
-Klicka på länken för butiken som du är intresse rad av för att se JSON-scheman för länkad tjänst, data uppsättning och källa/mottagare för kopierings aktiviteten.
+Klicka på länken för den butik som du är intresserad av för att se JSON-schemana för länkad tjänst, datauppsättning och käll-/diskho för kopieringsaktiviteten.
 
 | Kategori | Datalager
 |:--- |:--- |
-| **Azure** |[Azure Blob Storage](#azure-blob-storage) |
-| &nbsp; |Azure-datasjölagring |
+| **Azure** |[Azure Blob-lagring](#azure-blob-storage) |
+| &nbsp; |Azure Data Lake Store |
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
-| &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure-Kognitiv sökning](#azure-cognitive-search) |
+| &nbsp; |[Azure SQL-datalager](#azure-sql-data-warehouse) |
+| &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Azure Table Storage](#azure-table-storage) |
 | **Databaser** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -391,7 +391,7 @@ Klicka på länken för butiken som du är intresse rad av för att se JSON-sche
 | &nbsp; |[Sybase](#sybase) |
 | &nbsp; |[Teradata](#teradata) |
 | **NoSQL** |[Cassandra](#cassandra) |
-| &nbsp; |[MongoDB](#mongodb) |
+| &nbsp; |[Mongodb](#mongodb) |
 | **Fil** |[Amazon S3](#amazon-s3) |
 | &nbsp; |[Filsystem](#file-system) |
 | &nbsp; |[FTP](#ftp) |
@@ -406,14 +406,14 @@ Klicka på länken för butiken som du är intresse rad av för att se JSON-sche
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
 ### <a name="linked-service"></a>Länkad tjänst
-Det finns två typer av länkade tjänster: Azure Storage länkade tjänsten och Azure Storage länkad SAS-tjänst.
+Det finns två typer av länkade tjänster: Azure Storage-länkad tjänst och Azure Storage SAS-länkad tjänst.
 
 #### <a name="azure-storage-linked-service"></a>Länkad Azure Storage-tjänst
-Skapa en Azure Storage länkad tjänst för att länka ditt Azure Storage-konto till en data fabrik med hjälp av **konto nyckeln**. Ange **typen** av länkad tjänst till **AzureStorage**för att definiera en länkad tjänst för Azure Storage. Sedan kan du ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill länka ditt Azure-lagringskonto till en datafabrik med hjälp av **kontonyckeln**skapar du en Azure Storage-länkad tjänst. Om du vill definiera en Azure Storage-länkad tjänst anger du **typen** av länkad tjänst till **AzureStorage**. Sedan kan du ange följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| connectionString |Ange information som krävs för att ansluta till Azure Storage för egenskapen connectionString. |Ja |
+| Connectionstring |Ange information som behövs för att ansluta till Azure-lagring för egenskapen connectionString. |Ja |
 
 ##### <a name="example"></a>Exempel
 
@@ -430,11 +430,11 @@ Skapa en Azure Storage länkad tjänst för att länka ditt Azure Storage-konto 
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS-länkad tjänst
-Med den länkade tjänsten Azure Storage SAS kan du länka ett Azure Storage konto till en Azure-datafabrik med hjälp av en signatur för delad åtkomst (SAS). Den tillhandahåller data fabriken med begränsad/tidsbegränsad åtkomst till alla/angivna resurser (BLOB/container) i lagrings utrymmet. Om du vill länka ditt Azure Storage-konto till en data fabrik med hjälp av signaturen för delad åtkomst skapar du en länkad Azure Storage SAS-tjänst. Om du vill definiera en Azure Storage SAS-länkad tjänst anger du **typen** av länkad tjänst till **AzureStorageSas**. Sedan kan du ange följande egenskaper i avsnittet **typeProperties** :
+Med den länkade Azure Storage SAS-tjänsten kan du länka ett Azure Storage-konto till en Azure-datafabrik med hjälp av en SAS (Shared Access Signature). Det ger datafabriken begränsad/tidsbunden åtkomst till alla/specifika resurser (blob/container) i lagringen. Om du vill länka ditt Azure-lagringskonto till en datafabrik med hjälp av Signature för delad åtkomst skapar du en Azure Storage SAS-länkad tjänst. Om du vill definiera en Azure Storage SAS-länkad tjänst anger du **typen** av länkad tjänst till **AzureStorageSas**. Sedan kan du ange följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| sasUri |Ange signatur-URI för delad åtkomst till Azure Storage resurser som BLOB, container eller Table. |Ja |
+| sasuri (samma sak) |Ange URI för delad åtkomstsignatur till Azure Storage-resurser som blob, behållare eller tabell. |Ja |
 
 ##### <a name="example"></a>Exempel
 
@@ -450,18 +450,18 @@ Med den länkade tjänsten Azure Storage SAS kan du länka ett Azure Storage kon
 }
 ```
 
-Mer information om dessa länkade tjänster finns i artikeln [Azure Blob Storage Connector](data-factory-azure-blob-connector.md#linked-service-properties) .
+Mer information om dessa länkade tjänster finns i artikel [i Azure Blob Storage connector.](data-factory-azure-blob-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en Azure Blob-datauppsättning anger du **typen** av data uppsättning till **AzureBlob**. Ange sedan följande Azure Blob-speciella egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure Blob-datauppsättning anger du **typen** av datauppsättningen till **AzureBlob**. Ange sedan följande Azure Blob-specifika egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Sökvägen till behållaren och mappen i blob storage. Exempel: myblobcontainer\myblobfolder\ |Ja |
-| fileName |Namn på blobben. fileName är valfritt och Skift läges känsligt.<br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella blobben.<br/><br/>Om inget fil namn har angetts innehåller kopian alla blobbar i folderPath för indata-datauppsättning.<br/><br/>Om inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt |Inga |
-| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Inga |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| folderPath |Sökväg till behållaren och mappen i blob-lagringen. Exempel: myblobcontainer\myblobfolder\ |Ja |
+| fileName |Namnet på blobben. fileName är valfritt och skiftlägeskänsligt.<br/><br/>Om du anger ett filnamn fungerar aktiviteten (inklusive Kopiera) på den specifika Bloben.<br/><br/>När filnamn inte har angetts innehåller Copy alla Blobbar i folderPath för indatauppsättning.<br/><br/>När fileName inte anges för en utdatauppsättning, skulle namnet på den genererade `Data.<Guid>.txt` filen vara i följande format: (till exempel: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Inga |
+| partitioneradAv |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och filnamn för tidsseriedata. FolderPath kan till exempel parameteriseras för varje timme data. |Inga |
+| format | Följande formattyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange **type** typegenskapen under format till ett av dessa värden. Mer information finns i avsnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet Format.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Om du vill **kopiera filer som de är** mellan filbaserade butiker (binär kopia) hoppar du över formatavsnittet i definitionerna för både in- och utdatadata. |Inga |
+| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns [i Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -490,14 +490,14 @@ Om du vill definiera en Azure Blob-datauppsättning anger du **typen** av data u
  ```
 
 
-Mer information finns i artikeln [Azure Blob Connector](data-factory-azure-blob-connector.md#dataset-properties) .
+Mer information finns i artikel [i Azure Blob Connector.](data-factory-azure-blob-connector.md#dataset-properties)
 
-### <a name="blobsource-in-copy-activity"></a>BlobSource i kopierings aktivitet
-Om du kopierar data från en Azure-Blob Storage anger du **käll typen** för kopierings aktiviteten till **BlobSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="blobsource-in-copy-activity"></a>BlobSource i kopieringsaktivitet
+Om du kopierar data från en Azure Blob Storage anger du **källtypen** för kopieringsaktiviteten till **BlobSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| recursive |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |Sant (standardvärde), falskt |Inga |
+| Rekursiv |Anger om data läss rekursivt från undermapparna eller bara från den angivna mappen. |Sant (standardvärde), Falskt |Inga |
 
 #### <a name="example-blobsource"></a>Exempel: **BlobSource**
 ```json
@@ -535,12 +535,12 @@ Om du kopierar data från en Azure-Blob Storage anger du **käll typen** för ko
     }
 }
 ```
-### <a name="blobsink-in-copy-activity"></a>BlobSink i kopierings aktivitet
-Om du kopierar data till en Azure-Blob Storage anger du **typ av mottagare** för kopierings aktiviteten till **BlobSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="blobsink-in-copy-activity"></a>BlobSink i kopieringsaktivitet
+Om du kopierar data till en Azure Blob Storage anger du **sink-typen** för kopieringsaktiviteten till **BlobSink**och anger följande egenskaper i **handfatavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |<b>PreserveHierarchy</b>: filens hierarki bevaras i målmappen. Den relativa sökvägen för källfilen för källmappen är identisk med den relativa sökvägen för målfilen till målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen finns på den första nivån i målmappen. Målfiler har automatiskt genererad namn. <br/><br/><b>MergeFiles (standard):</b> sammanfogar alla filer från källmappen till en fil. Om namnet på filen/blobben har angetts, blir namnet på sammanfogade filen det angivna namnet; annars skulle vara automatiskt genererade filnamn. |Inga |
+| kopieraBehavior |Definierar kopieringsbeteendet när källan är BlobSource eller FileSystem. |<b>PreserveHierarchy</b>: bevarar filhierarkin i målmappen. Den relativa sökvägen för källfilen till källmappen är identisk med målfilens relativa sökväg till målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen är i den första nivån av målmappen. Målfilerna har automatiskt genererat namn. <br/><br/><b>MergeFiles (standard):</b> sammanfogar alla filer från källmappen till en fil. Om fil-/blobnamnet anges är det kopplade filnamnet det angivna namnet. annars skulle vara automatiskt genererat filnamn. |Inga |
 
 #### <a name="example-blobsink"></a>Exempel: BlobSink
 
@@ -581,26 +581,26 @@ Om du kopierar data till en Azure-Blob Storage anger du **typ av mottagare** fö
 }
 ```
 
-Mer information finns i artikeln [Azure Blob Connector](data-factory-azure-blob-connector.md#copy-activity-properties) .
+Mer information finns i artikel [i Azure Blob Connector.](data-factory-azure-blob-connector.md#copy-activity-properties)
 
-## <a name="azure-data-lake-store"></a>Azure-datasjölagring
+## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
 ### <a name="linked-service"></a>Länkad tjänst
-Om du vill definiera en Azure Data Lake Store länkad tjänst anger du typen av länkad tjänst till **AzureDataLakeStore**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure Data Lake Store-länkad tjänst anger du typen av länkad tjänst till **AzureDataLakeStore**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **AzureDataLakeStore** | Ja |
-| dataLakeStoreUri | Ange information om Azure Data Lake Store kontot. Formatet är i följande format: `https://[accountname].azuredatalakestore.net/webhdfs/v1` eller `adl://[accountname].azuredatalakestore.net/`. | Ja |
-| subscriptionId | Azure-prenumerations-ID som Data Lake Store tillhör. | Krävs för mottagare |
-| resourceGroupName | Namnet på Azure-resurs gruppen som Data Lake Store tillhör. | Krävs för mottagare |
-| servicePrincipalId | Ange programmets klient-ID. | Ja (för tjänstens huvud namns autentisering) |
-| servicePrincipalKey | Ange programmets nyckel. | Ja (för tjänstens huvud namns autentisering) |
-| tenant | Ange klientinformation (domain name eller klient-ID) under där programmet finns. Du kan hämta den håller musen i det övre högra hörnet i Azure Portal. | Ja (för tjänstens huvud namns autentisering) |
-| authorization | Klicka på knappen **auktorisera** i **Data Factory redigeraren** och ange autentiseringsuppgifterna som tilldelar den automatiskt GENERERADE behörighets webb adressen till den här egenskapen. | Ja (för autentisering av användar referenser)|
-| sessionId | OAuth-sessions-ID från OAuth-auktoriseringsbegäran. Varje sessions-ID är unikt och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory redigeraren. | Ja (för autentisering av användar referenser) |
+| typ | Typegenskapen måste ställas in på: **AzureDataLakeStore** | Ja |
+| dataLakeStoreUri | Ange information om Azure Data Lake Store-kontot. Det är i följande `https://[accountname].azuredatalakestore.net/webhdfs/v1` `adl://[accountname].azuredatalakestore.net/`format: eller . | Ja |
+| subscriptionId | Azure-prenumerations-ID som Data Lake Store tillhör. | Krävs för diskbänk |
+| resourceGroupName | Azure-resursgruppsnamn som Data Lake Store tillhör. | Krävs för diskbänk |
+| servicePrincipalId | Ange programmets klient-ID. | Ja (för autentisering av tjänstens huvudnamn) |
+| servicePrincipalKey | Ange programmets nyckel. | Ja (för autentisering av tjänstens huvudnamn) |
+| tenant | Ange klientinformation (domännamn eller klient-ID) som programmet finns under. Du kan hämta den genom att hålla musen i det övre högra hörnet av Azure-portalen. | Ja (för autentisering av tjänstens huvudnamn) |
+| auktorisering | Klicka på **Knappen Auktorisera** i **Data Factory Editor** och ange autentiseringsuppgifterna som tilldelar den automatiskt genererade auktoriseringsadressen till den här egenskapen. | Ja (för autentiseringsuppgifter för användare)|
+| Sessionid | OAuth-sessions-ID från OAuth-auktoriseringssessionen. Varje sessions-ID är unikt och får endast användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory Editor. | Ja (för autentiseringsuppgifter för användare) |
 
-#### <a name="example-using-service-principal-authentication"></a>Exempel: använda autentisering av tjänstens huvud namn
+#### <a name="example-using-service-principal-authentication"></a>Exempel: använda autentisering av tjänstens huvudnamn
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -616,7 +616,7 @@ Om du vill definiera en Azure Data Lake Store länkad tjänst anger du typen av 
 }
 ```
 
-#### <a name="example-using-user-credential-authentication"></a>Exempel: autentisering med användar referenser
+#### <a name="example-using-user-credential-authentication"></a>Exempel: använda autentiseringsuppgifter för användare
 ```json
 {
     "name": "AzureDataLakeStoreLinkedService",
@@ -633,18 +633,18 @@ Om du vill definiera en Azure Data Lake Store länkad tjänst anger du typen av 
 }
 ```
 
-Mer information finns i artikeln [Azure Data Lake Store Connector](data-factory-azure-datalake-connector.md#linked-service-properties) .
+Mer information finns i artikel [i Azure Data Lake Store-anslutningsartikeln.](data-factory-azure-datalake-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en Azure Data Lake Store data uppsättning anger du **typ** av data uppsättning till **AzureDataLakeStore**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure Data Lake Store-datauppsättning anger du **typen** av datauppsättningen till **AzureDataLakeStore**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | folderPath |Sökväg till behållaren och mappen i Azure Data Lake Store. |Ja |
-| fileName |Namnet på filen i Azure Data Lake arkivet. fileName är valfritt och Skift läges känsligt. <br/><br/>Om du anger ett fil namn fungerar aktiviteten (inklusive kopia) på den aktuella filen.<br/><br/>Om inget fil namn har angetts innehåller kopian alla filer i folderPath för indata-datauppsättningen.<br/><br/>Om inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: `Data.<Guid>.txt` (till exempel:: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt |Inga |
-| partitionedBy |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och ett fil namn för Time Series-data. FolderPath kan till exempel vara parameterstyrda för varje timme med data. |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Inga |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| fileName |Namn på filen i Azure Data Lake Store. fileName är valfritt och skiftlägeskänsligt. <br/><br/>Om du anger ett filnamn fungerar aktiviteten (inklusive Kopiera) på den specifika filen.<br/><br/>När filnamn inte har angetts innehåller Copy alla filer i folderPath för indatauppsättning.<br/><br/>När fileName inte anges för en utdatauppsättning, skulle namnet på den genererade `Data.<Guid>.txt` filen vara i följande format: (till exempel: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Inga |
+| partitioneradAv |partitionedBy är en valfri egenskap. Du kan använda den för att ange en dynamisk folderPath och filnamn för tidsseriedata. FolderPath kan till exempel parameteriseras för varje timme data. |Inga |
+| format | Följande formattyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange **type** typegenskapen under format till ett av dessa värden. Mer information finns i avsnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet Format.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Om du vill **kopiera filer som de är** mellan filbaserade butiker (binär kopia) hoppar du över formatavsnittet i definitionerna för både in- och utdatadata. |Inga |
+| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns [i Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -678,16 +678,16 @@ Om du vill definiera en Azure Data Lake Store data uppsättning anger du **typ**
 }
 ```
 
-Mer information finns i artikeln [Azure Data Lake Store Connector](data-factory-azure-datalake-connector.md#dataset-properties) .
+Mer information finns i artikel [i Azure Data Lake Store-anslutningsartikeln.](data-factory-azure-datalake-connector.md#dataset-properties)
 
-### <a name="azure-data-lake-store-source-in-copy-activity"></a>Azure Data Lake Store källa i kopierings aktivitet
-Om du kopierar data från en Azure Data Lake Store anger du **käll typen** för kopierings aktiviteten till **AzureDataLakeStoreSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="azure-data-lake-store-source-in-copy-activity"></a>Azure Data Lake Store-källa i kopieringsaktivitet
+Om du kopierar data från ett Azure Data Lake Store anger du **källtypen** för kopieringsaktiviteten till **AzureDataLakeStoreSource**och anger följande egenskaper i **källavsnittet:**
 
-**AzureDataLakeStoreSource** stöder följande egenskaper **typeProperties** avsnittet:
+**AzureDataLakeStoreSource** stöder följande **egenskapstypEgenskaper:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| recursive |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |Sant (standardvärde), falskt |Inga |
+| Rekursiv |Anger om data läss rekursivt från undermapparna eller bara från den angivna mappen. |Sant (standardvärde), Falskt |Inga |
 
 #### <a name="example-azuredatalakestoresource"></a>Exempel: AzureDataLakeStoreSource
 
@@ -727,14 +727,14 @@ Om du kopierar data från en Azure Data Lake Store anger du **käll typen** för
 }
 ```
 
-Mer information finns i artikeln [Azure Data Lake Store Connector](data-factory-azure-datalake-connector.md#copy-activity-properties) .
+Mer information finns i artikel [i Azure Data Lake Store-anslutningsartikeln.](data-factory-azure-datalake-connector.md#copy-activity-properties)
 
-### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Azure Data Lake Store mottagare i kopierings aktivitet
-Om du kopierar data till en Azure Data Lake Store anger du typ av **mottagare** för kopierings aktiviteten till **AzureDataLakeStoreSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="azure-data-lake-store-sink-in-copy-activity"></a>Azure Data Lake Store Sink i kopieringsaktivitet
+Om du kopierar data till ett Azure Data Lake Store anger du **sink-typen** för kopieringsaktiviteten till **AzureDataLakeStoreSink**och anger följande egenskaper i **handfinkavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| copyBehavior |Anger kopierings beteendet. |<b>PreserveHierarchy</b>: filens hierarki bevaras i målmappen. Den relativa sökvägen för källfilen för källmappen är identisk med den relativa sökvägen för målfilen till målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen skapas på den första nivån i målmappen. Målattribut skapas med automatiskt genererat namn.<br/><br/><b>MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om namnet på filen/blobben har angetts, blir namnet på sammanfogade filen det angivna namnet; annars skulle vara automatiskt genererade filnamn. |Inga |
+| kopieraBehavior |Anger kopieringsbeteendet. |<b>PreserveHierarchy</b>: bevarar filhierarkin i målmappen. Den relativa sökvägen för källfilen till källmappen är identisk med målfilens relativa sökväg till målmappen.<br/><br/><b>FlattenHierarchy</b>: alla filer från källmappen skapas i den första nivån av målmappen. Målfilerna skapas med automatiskt genererat namn.<br/><br/><b>MergeFiles</b>: sammanfogar alla filer från källmappen till en fil. Om fil-/blobnamnet anges är det kopplade filnamnet det angivna namnet. annars skulle vara automatiskt genererat filnamn. |Inga |
 
 #### <a name="example-azuredatalakestoresink"></a>Exempel: AzureDataLakeStoreSink
 ```json
@@ -777,16 +777,16 @@ Om du kopierar data till en Azure Data Lake Store anger du typ av **mottagare** 
 }
 ```
 
-Mer information finns i artikeln [Azure Data Lake Store Connector](data-factory-azure-datalake-connector.md#copy-activity-properties) .
+Mer information finns i artikel [i Azure Data Lake Store-anslutningsartikeln.](data-factory-azure-datalake-connector.md#copy-activity-properties)
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
 ### <a name="linked-service"></a>Länkad tjänst
-Om du vill definiera en Azure Cosmos DB länkad tjänst anger du **typen** av länkad tjänst till **DocumentDb**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure Cosmos DB-länkad tjänst anger du **typen** av länkad tjänst till **DocumentDb**och anger följande egenskaper i avsnittet **typeProperties:**
 
-| **Egenskap** | **Beskrivning** | **Krävs** |
+| **Egenskap** | **Beskrivning** | **Obligatoriskt** |
 | --- | --- | --- |
-| connectionString |Ange information som krävs för att ansluta till Azure Cosmos DB databasen. |Ja |
+| Connectionstring |Ange information som behövs för att ansluta till Azure Cosmos DB-databas. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -801,14 +801,14 @@ Om du vill definiera en Azure Cosmos DB länkad tjänst anger du **typen** av l�
     }
 }
 ```
-Mer information finns i artikeln [Azure Cosmos DB Connector](data-factory-azure-documentdb-connector.md#linked-service-properties) .
+Mer information finns i azure [cosmos DB](data-factory-azure-documentdb-connector.md#linked-service-properties) connector-artikel.
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en Azure Cosmos DB data uppsättning anger du **typ** av data uppsättning till **DocumentDbCollection**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure Cosmos DB-datauppsättning anger du **typen** av datauppsättningen till **DocumentDbCollection**och anger följande egenskaper i avsnittet **typeProperties:**
 
-| **Egenskap** | **Beskrivning** | **Krävs** |
+| **Egenskap** | **Beskrivning** | **Obligatoriskt** |
 | --- | --- | --- |
-| collectionName |Namnet på den Azure Cosmos DB samlingen. |Ja |
+| collectionName (samlingsnamn) |Namn på Azure Cosmos DB-samlingen. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -829,16 +829,16 @@ Om du vill definiera en Azure Cosmos DB data uppsättning anger du **typ** av da
     }
 }
 ```
-Mer information finns i artikeln [Azure Cosmos DB Connector](data-factory-azure-documentdb-connector.md#dataset-properties) .
+Mer information finns i azure [cosmos DB](data-factory-azure-documentdb-connector.md#dataset-properties) connector-artikel.
 
-### <a name="azure-cosmos-db-collection-source-in-copy-activity"></a>Azure Cosmos DB samlings källa i kopierings aktivitet
-Om du kopierar data från en Azure Cosmos DB anger du **käll typen** för kopierings aktiviteten till **DocumentDbCollectionSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="azure-cosmos-db-collection-source-in-copy-activity"></a>Azure Cosmos DB-samlingskälla i kopieringsaktivitet
+Om du kopierar data från en Azure Cosmos DB anger du **källtypen** för kopieringsaktiviteten till **DocumentDbCollectionSource**och anger följande egenskaper i **källavsnittet:**
 
 
-| **Egenskap** | **Beskrivning** | **Tillåtna värden** | **Krävs** |
+| **Egenskap** | **Beskrivning** | **Tillåtna värden** | **Obligatoriskt** |
 | --- | --- | --- | --- |
-| DocumentDB |Ange frågan för att läsa data. |Frågesträng som stöds av Azure Cosmos DB. <br/><br/>Exempel: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Inga <br/><br/>Om det inte anges används SQL-instruktionen som körs: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Specialtecken som visar att dokumentet är kapslat |Valfritt Character. <br/><br/>Azure Cosmos DB är ett NoSQL-arkiv för JSON-dokument, där kapslade strukturer tillåts. Azure Data Factory gör det möjligt för användaren att ange hierarki via nestingSeparator, vilket är "." i exemplen ovan. Med avgränsaren genererar kopierings aktiviteten "name"-objektet med tre underordnade element först, i mitten och sist, enligt namnet. First "," Name. mitten "och" Name. last "i tabell definitionen. |Inga |
+| DocumentDB |Ange frågan för att läsa data. |Frågesträng som stöds av Azure Cosmos DB. <br/><br/>Exempel: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Inga <br/><br/>Om inget anges körs SQL-uttrycket som körs:`select <columns defined in structure> from mycollection` |
+| nestingSeparator |Specialtecken som anger att dokumentet är kapslat |Vilket tecken som helst. <br/><br/>Azure Cosmos DB är ett NoSQL-arkiv för JSON-dokument, där kapslade strukturer tillåts. Azure Data Factory gör det möjligt för användare att beteckna hierarki via nestingSeparator, som är "." i ovanstående exempel. Med avgränsaren genererar kopieringsaktiviteten "Namn"-objektet med tre underordnade element Först, Mitten och Sist, enligt "Name.First", "Name.Middle" och "Name.Last" i tabelldefinitionen. |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -878,14 +878,14 @@ Om du kopierar data från en Azure Cosmos DB anger du **käll typen** för kopie
 }
 ```
 
-### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>Azure Cosmos DB samlings mottagare i kopierings aktiviteten
-Om du kopierar data till Azure Cosmos DB anger du typ av **mottagare** för kopierings aktiviteten till **DocumentDbCollectionSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="azure-cosmos-db-collection-sink-in-copy-activity"></a>Azure Cosmos DB Collection Sink i kopieringsaktivitet
+Om du kopierar data till Azure Cosmos DB anger du **sink-typen** för kopieringsaktiviteten till **DocumentDbCollectionSink**och anger följande egenskaper i **handfatavsnittet:**
 
-| **Egenskap** | **Beskrivning** | **Tillåtna värden** | **Krävs** |
+| **Egenskap** | **Beskrivning** | **Tillåtna värden** | **Obligatoriskt** |
 | --- | --- | --- | --- |
-| nestingSeparator |Ett specialtecken i käll kolumnens namn som anger att det kapslade dokumentet behövs. <br/><br/>Till exempel ovan: `Name.First` i tabellen utdata skapas följande JSON-struktur i Cosmos DB-dokumentet:<br/><br/>"Namn": {<br/>    "First": "John"<br/>}, |Tecken som används för att avgränsa kapslingsnivåer.<br/><br/>Standardvärdet är `.` (dot). |Tecken som används för att avgränsa kapslingsnivåer. <br/><br/>Standardvärdet är `.` (dot). |
-| writeBatchSize |Antal parallella förfrågningar till Azure Cosmos DB tjänst för att skapa dokument.<br/><br/>Du kan finjustera prestandan när du kopierar data till/från Azure Cosmos DB med hjälp av den här egenskapen. Du kan vänta en bättre prestanda när du ökar writeBatchSize eftersom fler parallella förfrågningar till Azure Cosmos DB skickas. Du måste dock undvika begränsning som kan resultera i fel meddelandet: "begär ande frekvens är stor".<br/><br/>Begränsningen bestäms av ett antal faktorer, inklusive dokument storlek, antal villkor i dokument, indexerings policy för mål samling osv. För kopierings åtgärder kan du använda en bättre samling (till exempel S3) för att få flest data flöde tillgängligt (2 500 enheter för programbegäran/sekund). |Integer |Nej (standard: 5) |
-| writeBatchTimeout |Vänte tid för att slutföra åtgärden innan tids gränsen uppnåddes. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Inga |
+| nestingSeparator |Ett specialtecken i källkolumnens namn för att ange att kapslat dokument behövs. <br/><br/>Till exempel `Name.First` ovan: i utdatatabellen skapas följande JSON-struktur i Cosmos DB-dokumentet:<br/><br/>"Namn": {<br/>    "Först": "John"<br/>}, |Tecken som används för att avgränsa kapslingsnivåer.<br/><br/>Standardvärdet `.` är (punkt). |Tecken som används för att avgränsa kapslingsnivåer. <br/><br/>Standardvärdet `.` är (punkt). |
+| skriverBatchSize |Antal parallella begäranden till Azure Cosmos DB-tjänst för att skapa dokument.<br/><br/>Du kan finjustera prestanda när du kopierar data till/från Azure Cosmos DB med hjälp av den här egenskapen. Du kan förvänta dig bättre prestanda när du ökar writeBatchSize eftersom fler parallella begäranden till Azure Cosmos DB skickas. Du måste dock undvika begränsning som kan kasta felmeddelandet: "Begäranden är stor".<br/><br/>Begränsning bestäms av ett antal faktorer, inklusive storlek på dokument, antal termer i dokument, indexering politik målinsamling, etc. För kopieringsåtgärder kan du använda en bättre samling (till exempel S3) för att ha mest tillgängliga dataflöde (2 500 begärandeenheter/sekund). |Integer |Nej (standard: 5) |
+| skriverBatchTimeout |Vänta på att åtgärden ska slutföras innan den har time out. |Gått<br/><br/> Exempel: "00:30:00" (30 minuter). |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -927,16 +927,16 @@ Om du kopierar data till Azure Cosmos DB anger du typ av **mottagare** för kopi
 }
 ```
 
-Mer information finns i artikeln [Azure Cosmos DB Connector](data-factory-azure-documentdb-connector.md#copy-activity-properties) .
+Mer information finns i azure [cosmos DB](data-factory-azure-documentdb-connector.md#copy-activity-properties) connector-artikel.
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
 ### <a name="linked-service"></a>Länkad tjänst
-Om du vill definiera en Azure SQL Database länkad tjänst anger du **typen** av länkad tjänst till **AzureSqlDatabase**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en azure SQL Database-länkad tjänst anger du **typen** av länkad tjänst till **AzureSqlDatabase**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| connectionString |Ange information som krävs för att ansluta till Azure SQL Database-instansen för egenskapen connectionString. |Ja |
+| Connectionstring |Ange information som behövs för att ansluta till Azure SQL Database-instansen för egenskapen connectionString. |Ja |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -951,14 +951,14 @@ Om du vill definiera en Azure SQL Database länkad tjänst anger du **typen** av
 }
 ```
 
-Mer information finns i artikeln om [Azure SQL Connector](data-factory-azure-sql-connector.md#linked-service-properties) .
+Mer information finns i [Azure SQL Connector-artikeln.](data-factory-azure-sql-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en Azure SQL Database data uppsättning anger du **typ** av data uppsättning till **AzureSqlTable**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure SQL Database-datauppsättning anger du **typen** av datauppsättningen till **AzureSqlTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen eller vyn i Azure SQL Database-instansen som den länkade tjänsten refererar till. |Ja |
+| tableName |Namnet på tabellen eller vyn i Azure SQL Database-instansen som länkade tjänsten refererar till. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -986,17 +986,17 @@ Om du vill definiera en Azure SQL Database data uppsättning anger du **typ** av
     }
 }
 ```
-Mer information finns i artikeln om [Azure SQL Connector](data-factory-azure-sql-connector.md#dataset-properties) .
+Mer information finns i [Azure SQL Connector-artikeln.](data-factory-azure-sql-connector.md#dataset-properties)
 
-### <a name="sql-source-in-copy-activity"></a>SQL-källa i kopierings aktivitet
-Om du kopierar data från en Azure SQL Database anger du **käll typen** för kopierings aktiviteten till **SqlSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="sql-source-in-copy-activity"></a>SQL-källa i kopieringsaktivitet
+Om du kopierar data från en Azure SQL-databas anger du **källtypen** för kopieringsaktiviteten till **SqlSource**och anger följande egenskaper i **källavsnittet:**
 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Inga |
-| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. |Inga |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Inga |
+| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. |Namnet på den lagrade proceduren. |Inga |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värdepar. Namn och hölje av parametrar måste stämma överens med namn och hölje för de lagrade procedureparametrarna. |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -1040,20 +1040,20 @@ Om du kopierar data från en Azure SQL Database anger du **käll typen** för ko
     }
 }
 ```
-Mer information finns i artikeln om [Azure SQL Connector](data-factory-azure-sql-connector.md#copy-activity-properties) .
+Mer information finns i [Azure SQL Connector-artikeln.](data-factory-azure-sql-connector.md#copy-activity-properties)
 
-### <a name="sql-sink-in-copy-activity"></a>SQL-mottagare i kopierings aktivitet
-Om du kopierar data till Azure SQL Database anger du typ av **mottagare** för kopierings aktiviteten till **SqlSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="sql-sink-in-copy-activity"></a>SQL-mottagare i kopieringsaktivitet
+Om du kopierar data till Azure SQL Database anger du **sink-typen** för kopieringsaktiviteten till **SqlSink**och anger följande egenskaper i **handfatavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Inga |
-| writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
-| sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. |Ett frågeuttryck. |Inga |
-| sliceIdentifierColumnName |Ange ett kolumn namn för kopierings aktiviteten som ska fyllas med automatiskt genererad sektor identifierare, som används för att rensa data i en speciell sektor när den körs igen. |Kolumn namnet för en kolumn med data typen Binary (32). |Inga |
-| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som upsertar (uppdaterar/infogar) data i mål tabellen. |Namnet på den lagrade proceduren. |Inga |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Inga |
-| sqlWriterTableType |Ange ett tabell typs namn som ska användas i den lagrade proceduren. Kopierings aktivitet gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga data som kopieras med befintliga data. |Ett namn på en tabell typ. |Inga |
+| skriverBatchTimeout |Vänta på att batchinsatsen ska slutföras innan den har klarats upp. |Gått<br/><br/> Exempel: "00:30:00" (30 minuter). |Inga |
+| skriverBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
+| sqlWriterCleanupScript |Ange en fråga för Kopieringsaktivitet som ska köras så att data för ett visst segment rensas. |En frågesats. |Inga |
+| sliceIdentifierColumnName |Ange ett kolumnnamn för Kopiera aktivitet som ska fyllas med automatisk genererad segmentidentifierare, som används för att rensa data från ett visst segment när du kör igen. |Kolumnnamnet på en kolumn med datatyp av binär(32). |Inga |
+| sqlWriterStoredProcedureName |Namn på den lagrade procedur som lägger till (uppdateringar/infogar) data i måltabellen. |Namnet på den lagrade proceduren. |Inga |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värdepar. Namn och hölje av parametrar måste stämma överens med namn och hölje för de lagrade procedureparametrarna. |Inga |
+| sqlWriterTableType |Ange ett tabelltypnamn som ska användas i den lagrade proceduren. Kopieringsaktivitet gör de data som flyttas tillgängliga i en temp-tabell med den här tabelltypen. Lagrad procedurkod kan sedan sammanfoga data som kopieras med befintliga data. |Ett tabelltypnamn. |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -1098,16 +1098,16 @@ Om du kopierar data till Azure SQL Database anger du typ av **mottagare** för k
 }
 ```
 
-Mer information finns i artikeln om [Azure SQL Connector](data-factory-azure-sql-connector.md#copy-activity-properties) .
+Mer information finns i [Azure SQL Connector-artikeln.](data-factory-azure-sql-connector.md#copy-activity-properties)
 
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
 ### <a name="linked-service"></a>Länkad tjänst
-Om du vill definiera en Azure SQL Data Warehouse länkad tjänst anger du **typen** av länkad tjänst till **AzureSqlDW**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure SQL Data Warehouse-länkad tjänst anger du **typen** av länkad tjänst till **AzureSqlDW**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| connectionString |Ange information som krävs för att ansluta till Azure SQL Data Warehouse-instansen för egenskapen connectionString. |Ja |
+| Connectionstring |Ange information som behövs för att ansluta till Azure SQL Data Warehouse-instansen för egenskapen connectionString. |Ja |
 
 
 
@@ -1125,14 +1125,14 @@ Om du vill definiera en Azure SQL Data Warehouse länkad tjänst anger du **type
 }
 ```
 
-Mer information finns i artikeln [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties) .
+Mer information finns i artikel [i Azure SQL Data Warehouse Connector.](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en Azure SQL Data Warehouse data uppsättning anger du **typ** av data uppsättning till **AzureSqlDWTable**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure SQL Data Warehouse-datauppsättning anger du **typen** av datauppsättningen till **AzureSqlDWTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på den tabell eller vy i Azure SQL Data Warehouse databasen som den länkade tjänsten refererar till. |Ja |
+| tableName |Namn på tabellen eller vyn i Azure SQL Data Warehouse-databasen som den länkade tjänsten refererar till. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -1161,17 +1161,17 @@ Om du vill definiera en Azure SQL Data Warehouse data uppsättning anger du **ty
 }
 ```
 
-Mer information finns i artikeln [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties) .
+Mer information finns i artikel [i Azure SQL Data Warehouse Connector.](data-factory-azure-sql-data-warehouse-connector.md#dataset-properties)
 
-### <a name="sql-dw-source-in-copy-activity"></a>SQL DW-källa i kopierings aktivitet
-Om du kopierar data från Azure SQL Data Warehouse anger du **käll typen** för kopierings aktiviteten till **SqlDWSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="sql-dw-source-in-copy-activity"></a>SQL DW-källa i kopieringsaktivitet
+Om du kopierar data från Azure SQL Data Warehouse anger du **källtypen** för kopieringsaktiviteten till **SqlDWSource**och anger följande egenskaper i **källavsnittet:**
 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Inga |
-| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. |Inga |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Inga |
+| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. |Namnet på den lagrade proceduren. |Inga |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värdepar. Namn och hölje av parametrar måste stämma överens med namn och hölje för de lagrade procedureparametrarna. |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -1216,22 +1216,22 @@ Om du kopierar data från Azure SQL Data Warehouse anger du **käll typen** för
 }
 ```
 
-Mer information finns i artikeln [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) .
+Mer information finns i artikel [i Azure SQL Data Warehouse Connector.](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
-### <a name="sql-dw-sink-in-copy-activity"></a>SQL DW-mottagare i kopierings aktivitet
-Om du kopierar data till Azure SQL Data Warehouse anger du typ av **mottagare** för kopierings aktiviteten till **SqlDWSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="sql-dw-sink-in-copy-activity"></a>SQL DW-mottagare i kopieringsaktivitet
+Om du kopierar data till Azure SQL Data Warehouse anger du **sink-typen** för kopieringsaktiviteten till **SqlDWSink**och anger följande egenskaper i **handfatavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. |Ett frågeuttryck. |Inga |
-| allowPolyBase |Anger om PolyBase ska användas (när det är tillämpligt) i stället för BULKINSERT-mekanismen. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** |Sant <br/>Falskt (standard) |Inga |
-| polyBaseSettings |En grupp egenskaper som kan anges när den **allowPolybase** är inställd på **SANT**. |&nbsp; |Inga |
-| rejectValue |Anger det tal eller procentandelen rader som kan avvisas innan frågan inte kunde köras. <br/><br/>Läs mer om polybases avvisnings alternativ i avsnittet **arguments** i avsnittet [skapa en extern tabell (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . |0 (standard), 1, 2,... |Inga |
-| rejectType |Anger om alternativet rejectValue anges som ett litteralt värde eller i procent. |Värde (standard), procent |Inga |
-| rejectSampleValue |Anger det antal rader som ska hämtas innan PolyBase beräknar om procent andelen avvisade rader. |1, 2, … |Ja, om **rejectType** är **procent** |
-| useTypeDefault |Anger hur du hanterar värden som saknas i avgränsade textfiler när PolyBase hämtar data från textfilen.<br/><br/>Mer information om den här egenskapen från avsnittet argument i [skapa externt FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Sant, falskt (standard) |Inga |
-| writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Inga |
+| sqlWriterCleanupScript |Ange en fråga för Kopieringsaktivitet som ska köras så att data för ett visst segment rensas. |En frågesats. |Inga |
+| allowPolyBase |Anger om PolyBase (i förekommande fall) ska användas i stället för BULKINSERT-mekanism. <br/><br/> **Att använda PolyBase är det rekommenderade sättet att läsa in data i SQL Data Warehouse.** |True <br/>False (standard) |Inga |
+| polyBaseSettings polyBaseSettings polyBaseSettings polyBase |En grupp egenskaper som kan anges när egenskapen **allowPolybase** är inställd på **true**. |&nbsp; |Inga |
+| avvisaVärde |Anger antalet eller procentandelen rader som kan avvisas innan frågan misslyckas. <br/><br/>Läs mer om PolyBases avvisningsalternativ i avsnittet **Argument** i avsnittet [SKAPA EXTERN TABELL (Transact-SQL).](https://msdn.microsoft.com/library/dn935021.aspx) |0 (standard), 1, 2, ... |Inga |
+| rejectType (avskände) |Anger om alternativet rejectValue anges som ett litteralt värde eller en procentsats. |Värde (standard), Procent |Inga |
+| avvisaPlevalue |Bestämmer antalet rader som ska hämtas innan PolyBase beräknar om procentandelen avvisade rader. |1, 2, ... |Ja, om **rejectType** är **procent** |
+| useTypeDefault |Anger hur värden som saknas i avgränsade textfiler ska hanteras när PolyBase hämtar data från textfilen.<br/><br/>Läs mer om den här egenskapen från avsnittet Argument i [SKAPA EXTERNT FILFORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx). |Sant, Falskt (standard) |Inga |
+| skriverBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
+| skriverBatchTimeout |Vänta på att batchinsatsen ska slutföras innan den har klarats upp. |Gått<br/><br/> Exempel: "00:30:00" (30 minuter). |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -1277,17 +1277,17 @@ Om du kopierar data till Azure SQL Data Warehouse anger du typ av **mottagare** 
 }
 ```
 
-Mer information finns i artikeln [Azure SQL Data Warehouse Connector](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) .
+Mer information finns i artikel [i Azure SQL Data Warehouse Connector.](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties)
 
-## <a name="azure-cognitive-search"></a>Kognitiv sökning i Azure
+## <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en länkad Azure Kognitiv sökning-tjänst genom att ange **typen** av länkad tjänst till **AzureSearch**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure Cognitive Search-länkad tjänst anger du **typen** av länkad tjänst till **AzureSearch**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| url | URL för Sök tjänsten. | Ja |
-| key | Administratörs nyckel för Sök tjänsten. | Ja |
+| url | URL för söktjänsten. | Ja |
+| key | Administratörsnyckel för söktjänsten. | Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -1304,15 +1304,15 @@ Definiera en länkad Azure Kognitiv sökning-tjänst genom att ange **typen** av
 }
 ```
 
-Mer information finns i artikeln [Azure kognitiv sökning Connector](data-factory-azure-search-connector.md#linked-service-properties) .
+Mer information finns i artikel [i Azure Cognitive Search connector.](data-factory-azure-search-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en data uppsättning för Azure Kognitiv sökning anger du **typ** av data uppsättning till **AzureSearchIndex**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure Cognitive Search-datauppsättning anger du **typen** av datauppsättningen till **AzureSearchIndex**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| typ | Egenskapen Type måste anges till **AzureSearchIndex**.| Ja |
-| indexName | Sök Indexets namn. Data Factory skapar inte indexet. Indexet måste finnas i Azure Kognitiv sökning. | Ja |
+| typ | Typegenskapen måste anges till **AzureSearchIndex**.| Ja |
+| indexNamn | Namn på sökindexet. Data Factory skapar inte indexet. Indexet måste finnas i Azure Cognitive Search. | Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -1333,15 +1333,15 @@ Om du vill definiera en data uppsättning för Azure Kognitiv sökning anger du 
 }
 ```
 
-Mer information finns i artikeln [Azure kognitiv sökning Connector](data-factory-azure-search-connector.md#dataset-properties) .
+Mer information finns i artikel [i Azure Cognitive Search connector.](data-factory-azure-search-connector.md#dataset-properties)
 
-### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>Azure Kognitiv sökning index-Sink i kopierings aktivitet
-Om du kopierar data till ett sökindex ställer du in **mottagar typen** för kopierings aktiviteten till **AzureSearchIndexSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>Azure Cognitive Search Index Sink i kopieringsaktivitet
+Om du kopierar data till ett sökindex anger du **sink-typen** för kopieringsaktiviteten till **AzureSearchIndexSink**och anger följande egenskaper i **handfatavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Anger om du vill sammanfoga eller ersätta när ett dokument redan finns i indexet. | Sammanfoga (standard)<br/>Ladda upp| Inga |
-| WriteBatchSize | Överför data till Sök indexet när buffertstorleken når writeBatchSize. | 1 till 1 000. Standardvärdet är 1000. | Inga |
+| SkrivBeteende | Anger om det ska slås samman eller ersätta när det redan finns ett dokument i indexet. | Sammanfoga (standard)<br/>Ladda upp| Inga |
+| SkrivBatchSize | Överför data till sökindexet när buffertstorleken når writeBatchSize. | 1 till 1000. Standardvärdet är 1000. | Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -1386,20 +1386,20 @@ Om du kopierar data till ett sökindex ställer du in **mottagar typen** för ko
 }
 ```
 
-Mer information finns i artikeln [Azure kognitiv sökning Connector](data-factory-azure-search-connector.md#copy-activity-properties) .
+Mer information finns i artikel [i Azure Cognitive Search connector.](data-factory-azure-search-connector.md#copy-activity-properties)
 
 ## <a name="azure-table-storage"></a>Azure Table Storage
 
 ### <a name="linked-service"></a>Länkad tjänst
-Det finns två typer av länkade tjänster: Azure Storage länkade tjänsten och Azure Storage länkad SAS-tjänst.
+Det finns två typer av länkade tjänster: Azure Storage-länkad tjänst och Azure Storage SAS-länkad tjänst.
 
 #### <a name="azure-storage-linked-service"></a>Länkad Azure Storage-tjänst
-Skapa en Azure Storage länkad tjänst för att länka ditt Azure Storage-konto till en data fabrik med hjälp av **konto nyckeln**. Ange **typen** av länkad tjänst till **AzureStorage**för att definiera en länkad tjänst för Azure Storage. Sedan kan du ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill länka ditt Azure-lagringskonto till en datafabrik med hjälp av **kontonyckeln**skapar du en Azure Storage-länkad tjänst. Om du vill definiera en Azure Storage-länkad tjänst anger du **typen** av länkad tjänst till **AzureStorage**. Sedan kan du ange följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Egenskapen Type måste anges till: **AzureStorage** |Ja |
-| connectionString |Ange information som krävs för att ansluta till Azure Storage för egenskapen connectionString. |Ja |
+| typ |Typegenskapen måste anges till: **AzureStorage** |Ja |
+| Connectionstring |Ange information som behövs för att ansluta till Azure-lagring för egenskapen connectionString. |Ja |
 
 **Exempel:**
 
@@ -1416,12 +1416,12 @@ Skapa en Azure Storage länkad tjänst för att länka ditt Azure Storage-konto 
 ```
 
 #### <a name="azure-storage-sas-linked-service"></a>Azure Storage SAS-länkad tjänst
-Med den länkade tjänsten Azure Storage SAS kan du länka ett Azure Storage konto till en Azure-datafabrik med hjälp av en signatur för delad åtkomst (SAS). Den tillhandahåller data fabriken med begränsad/tidsbegränsad åtkomst till alla/angivna resurser (BLOB/container) i lagrings utrymmet. Om du vill länka ditt Azure Storage-konto till en data fabrik med hjälp av signaturen för delad åtkomst skapar du en länkad Azure Storage SAS-tjänst. Om du vill definiera en Azure Storage SAS-länkad tjänst anger du **typen** av länkad tjänst till **AzureStorageSas**. Sedan kan du ange följande egenskaper i avsnittet **typeProperties** :
+Med den länkade Azure Storage SAS-tjänsten kan du länka ett Azure Storage-konto till en Azure-datafabrik med hjälp av en SAS (Shared Access Signature). Det ger datafabriken begränsad/tidsbunden åtkomst till alla/specifika resurser (blob/container) i lagringen. Om du vill länka ditt Azure-lagringskonto till en datafabrik med hjälp av Signature för delad åtkomst skapar du en Azure Storage SAS-länkad tjänst. Om du vill definiera en Azure Storage SAS-länkad tjänst anger du **typen** av länkad tjänst till **AzureStorageSas**. Sedan kan du ange följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Egenskapen Type måste anges till: **AzureStorageSas** |Ja |
-| sasUri |Ange signatur-URI för delad åtkomst till Azure Storage resurser som BLOB, container eller Table. |Ja |
+| typ |Typegenskapen måste anges till: **AzureStorageSas** |Ja |
+| sasuri (samma sak) |Ange URI för delad åtkomstsignatur till Azure Storage-resurser som blob, behållare eller tabell. |Ja |
 
 **Exempel:**
 
@@ -1437,14 +1437,14 @@ Med den länkade tjänsten Azure Storage SAS kan du länka ett Azure Storage kon
 }
 ```
 
-Mer information om dessa länkade tjänster finns i artikeln [Azure Table Storage Connector](data-factory-azure-table-connector.md#linked-service-properties) .
+Mer information om dessa länkade tjänster finns i artikel [i Azure Table Storage connector.](data-factory-azure-table-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en data uppsättning för Azure-tabellen genom att ange **typen** av data uppsättning till **AzureTable**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Azure Table-datauppsättning anger du **typen** av datauppsättningen till **AzureTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på den tabell i Azure Table Database-instansen som den länkade tjänsten refererar till. |Ja. När ett tableName anges utan azureTableSourceQuery, kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från den tabell som uppfyller frågan till målet. |
+| tableName |Namnet på tabellen i azure table database-instansen som länkade tjänsten refererar till. |Ja. När ett tabellnamn anges utan en azureTableSourceQuery kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från tabellen som uppfyller frågan till målet. |
 
 #### <a name="example"></a>Exempel
 
@@ -1473,15 +1473,15 @@ Definiera en data uppsättning för Azure-tabellen genom att ange **typen** av d
 }
 ```
 
-Mer information om dessa länkade tjänster finns i artikeln [Azure Table Storage Connector](data-factory-azure-table-connector.md#dataset-properties) .
+Mer information om dessa länkade tjänster finns i artikel [i Azure Table Storage connector.](data-factory-azure-table-connector.md#dataset-properties)
 
-### <a name="azure-table-source-in-copy-activity"></a>Azure-tabell källa i kopierings aktivitet
-Om du kopierar data från Azure Table Storage anger du **käll typen** för kopierings aktiviteten till **AzureTableSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="azure-table-source-in-copy-activity"></a>Azure-tabellkälla i kopieringsaktivitet
+Om du kopierar data från Azure Table Storage anger du **källtypen** för kopieringsaktiviteten till **AzureTableSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| azureTableSourceQuery |Använd den anpassade frågan för att läsa data. |Sträng för Azure Table-fråga. Se exemplen i nästa avsnitt. |Nej. När ett tableName anges utan azureTableSourceQuery, kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från den tabell som uppfyller frågan till målet. |
-| azureTableSourceIgnoreTableNotFound |Ange om förtäring av undantag för tabell saknas. |TRUE<br/>FALSE |Inga |
+| azureTableSourceQuery |Använd den anpassade frågan för att läsa data. |Azure-tabellfrågesträng. Se exempel i nästa avsnitt. |Nej. När ett tabellnamn anges utan en azureTableSourceQuery kopieras alla poster från tabellen till målet. Om en azureTableSourceQuery också anges kopieras poster från tabellen som uppfyller frågan till målet. |
+| azureTableSourceIgnoreTableNotFound |Ange om det inte finns något undantag för tabellen. |TRUE<br/>FALSE |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -1526,19 +1526,19 @@ Om du kopierar data från Azure Table Storage anger du **käll typen** för kopi
 }
 ```
 
-Mer information om dessa länkade tjänster finns i artikeln [Azure Table Storage Connector](data-factory-azure-table-connector.md#copy-activity-properties) .
+Mer information om dessa länkade tjänster finns i artikel [i Azure Table Storage connector.](data-factory-azure-table-connector.md#copy-activity-properties)
 
-### <a name="azure-table-sink-in-copy-activity"></a>Azure Table-mottagare i kopierings aktivitet
-Om du kopierar data till Azure Table Storage anger du typ av **mottagare** för kopierings aktiviteten till **AzureTableSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="azure-table-sink-in-copy-activity"></a>Azure tabellmottagare i kopieringsaktivitet
+Om du kopierar data till Azure Table Storage anger du **sink-typen** för kopieringsaktiviteten till **AzureTableSink**och anger följande egenskaper i **handfatavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |Standardvärdet för partitionerings nyckel som kan användas av mottagaren. |Ett sträng värde. |Inga |
-| azureTablePartitionKeyName |Ange namnet på den kolumn vars värden används som partitionsnyckel. Om inget anges används AzureTableDefaultPartitionKeyValue som partitionsnyckel. |Ett kolumn namn. |Inga |
-| azureTableRowKeyName |Ange namnet på den kolumn vars kolumn värden används som rad nyckel. Om inget anges ska du använda ett GUID för varje rad. |Ett kolumn namn. |Inga |
-| azureTableInsertType |Det läge där data ska infogas i Azure-tabellen.<br/><br/>Den här egenskapen anger om befintliga rader i utdatatabellen med matchande partition och rad nycklar har ersatts eller slås samman. <br/><br/>Information om hur de här inställningarna (sammanfoga och ersätt) fungerar finns i avsnittet [Infoga eller sammanfoga entiteter](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [Infoga eller ersätta entiteter](https://msdn.microsoft.com/library/azure/hh452242.aspx) . <br/><br> Den här inställningen gäller på radnivå, inte på tabell nivå, och inget av alternativen tar bort rader i den utgående tabellen som inte finns i indata. |Sammanfoga (standard)<br/>ersätta |Inga |
-| writeBatchSize |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout har nåtts. |Heltal (antal rader) |Nej (standard: 10000) |
-| writeBatchTimeout |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout har nåtts |TimeSpan<br/><br/>Exempel: "00:20:00" (20 minuter) |Nej (standard-timeout-värdet för Storage-klienten är 90 SEK) |
+| azureTableDefaultPartitionKeyValue |Standardpartitionsnyckelvärde som kan användas av diskhon. |Ett strängvärde. |Inga |
+| azureTablePartitionKeyName |Ange namnet på den kolumn vars värden används som partitionsnycklar. Om inget anges används AzureTableDefaultPartitionKeyValue som partitionsnyckel. |Ett kolumnnamn. |Inga |
+| azureTableRowKeyName |Ange namnet på den kolumn vars kolumnvärden används som radnyckel. Om inget anges använder du ett GUID för varje rad. |Ett kolumnnamn. |Inga |
+| azureTableInsertType |Läget för att infoga data i Azure-tabellen.<br/><br/>Den här egenskapen styr om befintliga rader i utdatatabellen med matchande partitions- och radnycklar har sina värden ersatta eller sammanfogade. <br/><br/>Mer information om hur dessa inställningar (sammanfoga och ersätta) fungerar finns i [Infoga eller sammanfoga entitetsavsnitt](https://msdn.microsoft.com/library/azure/hh452241.aspx) och [Infoga eller ersätta entitetsavsnitt.](https://msdn.microsoft.com/library/azure/hh452242.aspx) <br/><br> Den här inställningen gäller på radnivå, inte tabellnivån, och inget av alternativen tar bort rader i utdatatabellen som inte finns i indata. |sammanfoga (standard)<br/>Ersätta |Inga |
+| skriverBatchSize |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout träffas. |Heltal (antal rader) |Nej (standard: 10000) |
+| skriverBatchTimeout |Infogar data i Azure-tabellen när writeBatchSize eller writeBatchTimeout träffas |Gått<br/><br/>Exempel: "00:20:00" (20 minuter) |Nej (Standard för standardtidsgränsen för lagringsklient 90 sek) |
 
 #### <a name="example"></a>Exempel
 
@@ -1583,20 +1583,20 @@ Om du kopierar data till Azure Table Storage anger du typ av **mottagare** för 
     }
 }
 ```
-Mer information om dessa länkade tjänster finns i artikeln [Azure Table Storage Connector](data-factory-azure-table-connector.md#copy-activity-properties) .
+Mer information om dessa länkade tjänster finns i artikel [i Azure Table Storage connector.](data-factory-azure-table-connector.md#copy-activity-properties)
 
 ## <a name="amazon-redshift"></a>Amazon RedShift
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en länkad Amazon RedShift-tjänst genom att ange **typen** av länkad tjänst till **AmazonRedshift**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Länkad Amazon Redshift-tjänst anger du **typen** av länkad tjänst till **AmazonRedshift**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| server |IP-adressen eller värd namnet för Amazon RedShift-servern. |Ja |
-| port |Numret på den TCP-port som Amazon RedShift-servern använder för att lyssna efter klient anslutningar. |Nej, standardvärde: 5439 |
-| databas |Namnet på Amazon RedShift-databasen. |Ja |
-| användarnamn |Namnet på den användare som har åtkomst till databasen. |Ja |
-| password |Lösen ord för användar kontot. |Ja |
+| server |IP-adress eller värdnamn för Amazon Redshift-servern. |Ja |
+| port |Numret på TCP-porten som Amazon Redshift-servern använder för att lyssna efter klientanslutningar. |Nej, standardvärde: 5439 |
+| databas |Namnet på Amazon Redshift-databasen. |Ja |
+| användarnamn |Namn på den användare som har åtkomst till databasen. |Ja |
+| password |Lösenord för användarkontot. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -1616,14 +1616,14 @@ Definiera en länkad Amazon RedShift-tjänst genom att ange **typen** av länkad
 }
 ```
 
-Mer information finns i artikeln om Amazon RedShift Connector.
+Mer information finns i artikeln Amazon Redshift connector.
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en Amazon RedShift-datauppsättning genom att ange **typen** av data uppsättning till **RelationalTable**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Amazon Redshift-datauppsättning anger du **typen** av datauppsättningen på **RelationalTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen i Amazon RedShift-databasen som den länkade tjänsten refererar till. |Nej (om **fråga** för **RelationalSource** har angetts) |
+| tableName |Namnet på tabellen i Amazon Redshift-databasen som länkade tjänsten refererar till. |Nej (om **frågan om** **RelationalSource** har angetts) |
 
 
 #### <a name="example"></a>Exempel
@@ -1645,14 +1645,14 @@ Definiera en Amazon RedShift-datauppsättning genom att ange **typen** av data u
     }
 }
 ```
-Mer information finns i artikeln om Amazon RedShift Connector.
+Mer information finns i artikeln Amazon Redshift connector.
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från Amazon RedShift anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från Amazon Redshift anger du **källtypen** för kopieringsaktiviteten på **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **tabellNamn för** datauppsättning har **angetts)** |
 
 #### <a name="example"></a>Exempel
 
@@ -1695,22 +1695,22 @@ Om du kopierar data från Amazon RedShift anger du **käll typen** för kopierin
     }
 }
 ```
-Mer information finns i artikeln om Amazon RedShift Connector.
+Mer information finns i artikeln Amazon Redshift connector.
 
 ## <a name="ibm-db2"></a>IBM DB2
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en länkad IBM DB2-tjänst genom att ange **typen** av länkad tjänst till **OnPremisesDB2**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en IBM DB2-länkad tjänst anger du **typen** av länkad tjänst till **OnPremisesDB2**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| server |Namnet på DB2-servern. |Ja |
-| databas |Namnet på DB2-databasen. |Ja |
-| schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |Inga |
+| server |Namn på DB2-servern. |Ja |
+| databas |Namn på DB2-databasen. |Ja |
+| Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänsligt. |Inga |
 | authenticationType |Typ av autentisering som används för att ansluta till DB2-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Inga |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
+| användarnamn |Ange användarnamn om du använder Grundläggande autentisering eller Windows-autentisering. |Inga |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Inga |
+| gatewayName (gatewayName) |Namn på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala DB2-databasen. |Ja |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -1730,14 +1730,14 @@ Definiera en länkad IBM DB2-tjänst genom att ange **typen** av länkad tjänst
     }
 }
 ```
-Mer information finns i artikeln om IBM DB2 Connector.
+Mer information finns i IBM DB2-anslutningsartikel.
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en DB2-datauppsättning anger du **typ** av data uppsättning till **RelationalTable**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en DB2-datauppsättning anger du **typen** av datauppsättningen på **RelationalTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen i den DB2-databas instans som den länkade tjänsten refererar till. TableName är Skift läges känsligt. |Nej (om **fråga** för **RelationalSource** har angetts)
+| tableName |Namnet på tabellen i DB2 Database-instansen som länkade tjänsten refererar till. TableName är skiftlägeskänsligt. |Nej (om **frågan om** **RelationalSource** har angetts)
 
 #### <a name="example"></a>Exempel
 ```json
@@ -1763,15 +1763,15 @@ Om du vill definiera en DB2-datauppsättning anger du **typ** av data uppsättni
 }
 ```
 
-Mer information finns i artikeln om IBM DB2 Connector.
+Mer information finns i IBM DB2-anslutningsartikel.
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från IBM DB2 anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från IBM DB2 anger du **källtypen** för kopieringsaktiviteten till **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from "MySchema"."MyTable""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from "MySchema"."MyTable""`. |Nej (om **tabellNamn för** datauppsättning har **angetts)** |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -1811,22 +1811,22 @@ Om du kopierar data från IBM DB2 anger du **käll typen** för kopierings aktiv
     }
 }
 ```
-Mer information finns i artikeln om IBM DB2 Connector.
+Mer information finns i IBM DB2-anslutningsartikel.
 
 ## <a name="mysql"></a>MySQL
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en MySQL-länkad tjänst genom att ange **typen** för den länkade tjänsten till **OnPremisesMySql**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en MySQL-länkad tjänst anger du **typen** av länkad tjänst till **OnPremisesMySql**och anger följande egenskaper i avsnittet **typEgenskaper:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | server |Namnet på MySQL-servern. |Ja |
-| databas |Namnet på MySQL-databasen. |Ja |
-| schema |Namnet på schemat i databasen. |Inga |
-| authenticationType |Typ av autentisering som används för att ansluta till MySQL-databasen. Möjliga värden är: `Basic`. |Ja |
-| userName |Ange användar namnet för att ansluta till MySQL-databasen. |Ja |
-| password |Ange lösen ordet för det användar konto som du har angett. |Ja |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala MySQL-databasen. |Ja |
+| databas |Namn på MySQL-databasen. |Ja |
+| Schemat |Namnet på schemat i databasen. |Inga |
+| authenticationType |Typ av autentisering som används för att ansluta till MySQL-databasen. Möjliga värden `Basic`är: . |Ja |
+| userName |Ange användarnamn som ska anslutas till MySQL-databasen. |Ja |
+| password |Ange lösenord för det angivna användarkontot. |Ja |
+| gatewayName (gatewayName) |Namnet på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala MySQL-databasen. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -1848,14 +1848,14 @@ Definiera en MySQL-länkad tjänst genom att ange **typen** för den länkade tj
 }
 ```
 
-Mer information finns i artikeln om [MySQL Connector](data-factory-onprem-mysql-connector.md#linked-service-properties) .
+Mer information finns i [MySQL-anslutningsartikel.](data-factory-onprem-mysql-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en MySQL-datauppsättning genom att ange **typen** av data uppsättning till **RelationalTable**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en MySQL-datauppsättning anger du **typen** av datauppsättningen på **RelationalTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen i MySQL-databasen som den länkade tjänsten refererar till. |Nej (om **fråga** för **RelationalSource** har angetts) |
+| tableName |Namnet på tabellen i mysql-databasinstansen som länkade tjänsten refererar till. |Nej (om **frågan om** **RelationalSource** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -1881,15 +1881,15 @@ Definiera en MySQL-datauppsättning genom att ange **typen** av data uppsättnin
     }
 }
 ```
-Mer information finns i artikeln om [MySQL Connector](data-factory-onprem-mysql-connector.md#dataset-properties) .
+Mer information finns i [MySQL-anslutningsartikel.](data-factory-onprem-mysql-connector.md#dataset-properties)
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från en MySQL-databas anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från en MySQL-databas anger du **källtypen** för kopieringsaktiviteten till **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **tabellNamn för** datauppsättning har **angetts)** |
 
 
 #### <a name="example"></a>Exempel
@@ -1933,18 +1933,18 @@ Om du kopierar data från en MySQL-databas anger du **käll typen** för kopieri
 }
 ```
 
-Mer information finns i artikeln om [MySQL Connector](data-factory-onprem-mysql-connector.md#copy-activity-properties) .
+Mer information finns i [MySQL-anslutningsartikel.](data-factory-onprem-mysql-connector.md#copy-activity-properties)
 
 ## <a name="oracle"></a>Oracle
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en Oracle-länkad tjänst genom att ange **typen** för den länkade tjänsten till **OnPremisesOracle**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Oracle-länkad tjänst anger du **typen** av länkad tjänst till **OnPremisesOracle**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| driverType | Ange vilken driv rutin som ska användas för att kopiera data från/till Oracle Database. Tillåtna värden är **Microsoft** eller **ODP** (standard). Mer information om vilka versioner och installationer som stöds finns i avsnittet om driv rutiner. | Inga |
-| connectionString | Ange information som krävs för att ansluta till Oracle Database-instansen för egenskapen connectionString. | Ja |
-| gatewayName | Namnet på den gateway som används för att ansluta till den lokala Oracle-servern |Ja |
+| driverType | Ange vilken drivrutin som ska användas för att kopiera data från/till Oracle-databasen. Tillåtna värden är **Microsoft** eller **ODP** (standard). Se Version och installation som stöds om drivrutinsinformation. | Inga |
+| Connectionstring | Ange information som behövs för att ansluta till Oracle-databasinstansen för egenskapen connectionString. | Ja |
+| gatewayName (gatewayName) | Namnet på gatewayen som används för att ansluta till den lokala Oracle-servern |Ja |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -1961,14 +1961,14 @@ Definiera en Oracle-länkad tjänst genom att ange **typen** för den länkade t
 }
 ```
 
-Mer information finns i artikeln om [Oracle Connector](data-factory-onprem-oracle-connector.md#linked-service-properties) .
+Mer information finns i [oracle-anslutningsartikel.](data-factory-onprem-oracle-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en Oracle-datauppsättning genom att ange **typen** av data uppsättning till **OracleTable**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Oracle-datauppsättning anger du **typen** av datauppsättning till **OracleTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen i Oracle Database som den länkade tjänsten refererar till. |Nej (om **oracleReaderQuery** för **OracleSource** har angetts) |
+| tableName |Namnet på tabellen i Oracle-databasen som den länkade tjänsten refererar till. |Nej (om **oracleReaderQuery** of **OracleSource** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -1998,14 +1998,14 @@ Definiera en Oracle-datauppsättning genom att ange **typen** av data uppsättni
     }
 }
 ```
-Mer information finns i artikeln om [Oracle Connector](data-factory-onprem-oracle-connector.md#dataset-properties) .
+Mer information finns i [oracle-anslutningsartikel.](data-factory-onprem-oracle-connector.md#dataset-properties)
 
-### <a name="oracle-source-in-copy-activity"></a>Oracle-källa i kopierings aktivitet
-Om du kopierar data från en Oracle-databas anger du **käll typen** för kopierings aktiviteten till **OracleSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="oracle-source-in-copy-activity"></a>Oracle-källa i kopieringsaktivitet
+Om du kopierar data från en Oracle-databas anger du **källtypen** för kopieringsaktiviteten till **OracleSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable` <br/><br/>Om det inte anges används SQL-instruktionen som körs: `select * from MyTable` |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| orakelLäsareQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable` <br/><br/>Om inget anges körs SQL-uttrycket som körs:`select * from MyTable` |Nej (om **tabellNamn för** datauppsättning har **angetts)** |
 
 #### <a name="example"></a>Exempel
 
@@ -2050,17 +2050,17 @@ Om du kopierar data från en Oracle-databas anger du **käll typen** för kopier
 }
 ```
 
-Mer information finns i artikeln om [Oracle Connector](data-factory-onprem-oracle-connector.md#copy-activity-properties) .
+Mer information finns i [oracle-anslutningsartikel.](data-factory-onprem-oracle-connector.md#copy-activity-properties)
 
-### <a name="oracle-sink-in-copy-activity"></a>Oracle-Sink i kopierings aktivitet
-Om du kopierar data till Oracle Database anger du **mottagar typen** för kopierings aktiviteten till **OracleSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="oracle-sink-in-copy-activity"></a>Oracle Sink i kopiera aktivitet
+Om du kopierar data till Oracle-databasen anger du **diskhontypen** för kopieringsaktiviteten till **OracleSink**och anger följande egenskaper i **handfatavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |TimeSpan<br/><br/> Exempel: 00:30:00 (30 minuter). |Inga |
-| writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 100) |
-| sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. |Ett frågeuttryck. |Inga |
-| sliceIdentifierColumnName |Ange kolumn namn för kopierings aktivitet som ska fyllas med automatiskt genererad sektor identifierare, som används för att rensa data i en speciell sektor när den körs igen. |Kolumn namnet för en kolumn med data typen Binary (32). |Inga |
+| skriverBatchTimeout |Vänta på att batchinsatsen ska slutföras innan den har klarats upp. |Gått<br/><br/> Exempel: 00:30:00 (30 minuter). |Inga |
+| skriverBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 100) |
+| sqlWriterCleanupScript |Ange en fråga för Kopieringsaktivitet som ska köras så att data för ett visst segment rensas. |En frågesats. |Inga |
+| sliceIdentifierColumnName |Ange kolumnnamn för Kopiera aktivitet som ska fyllas med automatisk genererad segmentidentifierare, som används för att rensa data från ett visst segment när den körs igen. |Kolumnnamnet på en kolumn med datatyp av binär(32). |Inga |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -2102,22 +2102,22 @@ Om du kopierar data till Oracle Database anger du **mottagar typen** för kopier
     }
 }
 ```
-Mer information finns i artikeln om [Oracle Connector](data-factory-onprem-oracle-connector.md#copy-activity-properties) .
+Mer information finns i [oracle-anslutningsartikel.](data-factory-onprem-oracle-connector.md#copy-activity-properties)
 
 ## <a name="postgresql"></a>PostgreSQL
 
 ### <a name="linked-service"></a>Länkad tjänst
-För att definiera en länkad PostgreSQL-tjänst anger du **typen** av länkad tjänst till **OnPremisesPostgreSql**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en PostgreSQL-länkad tjänst anger du **typen** av länkad tjänst till **OnPremisesPostgreSql**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | server |Namnet på PostgreSQL-servern. |Ja |
-| databas |Namnet på PostgreSQL-databasen. |Ja |
-| schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |Inga |
+| databas |Namn på PostgreSQL-databasen. |Ja |
+| Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänsligt. |Inga |
 | authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Inga |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
+| användarnamn |Ange användarnamn om du använder Grundläggande autentisering eller Windows-autentisering. |Inga |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Inga |
+| gatewayName (gatewayName) |Namn på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -2138,14 +2138,14 @@ För att definiera en länkad PostgreSQL-tjänst anger du **typen** av länkad t
     }
 }
 ```
-Mer information finns i artikeln om [postgresql Connector](data-factory-onprem-postgresql-connector.md#linked-service-properties) .
+Mer information finns i [PostgreSQL-kopplingsartikel.](data-factory-onprem-postgresql-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en PostgreSQL-datauppsättning anger du **typen** av data uppsättning till **RelationalTable**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en PostgreSQL-datauppsättning anger du **typen** av datauppsättningen till **RelationalTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på den tabell i PostgreSQL-databas instansen som den länkade tjänsten refererar till. TableName är Skift läges känsligt. |Nej (om **fråga** för **RelationalSource** har angetts) |
+| tableName |Namnet på tabellen i postgreSQL-databasinstansen som länkad tjänst refererar till. TableName är skiftlägeskänsligt. |Nej (om **frågan om** **RelationalSource** har angetts) |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -2170,15 +2170,15 @@ Om du vill definiera en PostgreSQL-datauppsättning anger du **typen** av data u
     }
 }
 ```
-Mer information finns i artikeln om [postgresql Connector](data-factory-onprem-postgresql-connector.md#dataset-properties) .
+Mer information finns i [PostgreSQL-kopplingsartikel.](data-factory-onprem-postgresql-connector.md#dataset-properties)
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från en PostgreSQL-databas anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från en PostgreSQL-databas anger du **källtypen** för kopieringsaktiviteten till **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: "fråga": "Select * from \"preschema\".\"tabell\"". |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: "fråga": "välj * från \"MySchema\". \"MyTable\"". |Nej (om **tabellNamn för** datauppsättning har **angetts)** |
 
 #### <a name="example"></a>Exempel
 
@@ -2220,23 +2220,23 @@ Om du kopierar data från en PostgreSQL-databas anger du **käll typen** för ko
 }
 ```
 
-Mer information finns i artikeln om [postgresql Connector](data-factory-onprem-postgresql-connector.md#copy-activity-properties) .
+Mer information finns i [PostgreSQL-kopplingsartikel.](data-factory-onprem-postgresql-connector.md#copy-activity-properties)
 
 ## <a name="sap-business-warehouse"></a>SAP Business Warehouse
 
 
 ### <a name="linked-service"></a>Länkad tjänst
-För att definiera en länkad SAP Business Warehouse (BW)-tjänst anger du **typen** av länkad tjänst till **SapBw**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en SAP Business Warehouse (BW) länkad tjänst anger du **typen** av den länkade tjänsten till **SapBw**och anger följande egenskaper i avsnittet **typeProperties:**
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-server | Namnet på den server där SAP BW-instansen finns. | sträng | Ja
-systemNumber | System numret för det SAP BW systemet. | Tvåsiffrigt decimal tal representeras som en sträng. | Ja
-clientId | Klient-ID för klienten i SAP W-systemet. | Tresiffrigt decimal tal representeras som en sträng. | Ja
-användarnamn | Namnet på den användare som har åtkomst till SAP-servern | sträng | Ja
+server | Namn på den server där SAP BW-instansen finns. | sträng | Ja
+systemNummer | Systemnummer för SAP BW-systemet. | Tvåsiffrigt decimaltal representeras som en sträng. | Ja
+ClientID | Klient-ID för klienten i SAP W-systemet. | Tresiffrigt decimaltal representeras som en sträng. | Ja
+användarnamn | Namn på den användare som har åtkomst till SAP-servern | sträng | Ja
 password | Lösenordet för användaren. | sträng | Ja
-gatewayName | Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SAP BW-instansen. | sträng | Ja
-encryptedCredential | Krypterad Credential-sträng. | sträng | Inga
+gatewayName (gatewayName) | Namnet på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala SAP BW-instansen. | sträng | Ja
+krypteradKnuren | Den krypterade referenssträngen. | sträng | Inga
 
 #### <a name="example"></a>Exempel
 
@@ -2257,10 +2257,10 @@ encryptedCredential | Krypterad Credential-sträng. | sträng | Inga
 }
 ```
 
-Mer information finns i artikeln [SAP Business Warehouse Connector](data-factory-sap-business-warehouse-connector.md#linked-service-properties) .
+Mer information finns i artikel [om SAP Business Warehouse-anslutning.](data-factory-sap-business-warehouse-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Ange **typen** av data uppsättning till **RelationalTable**för att definiera en SAP BW data uppsättning. Det finns inga typ-/regionsspecifika egenskaper som stöds för SAP BW-datauppsättningen av typen **RelationalTable**.
+Om du vill definiera en SAP BW-datauppsättning anger du **typen** av datauppsättningen till **RelationalTable**. Det finns inga typspecifika egenskaper som stöds för SAP BW-datauppsättningen för typen **RelationalTable**.
 
 #### <a name="example"></a>Exempel
 
@@ -2279,15 +2279,15 @@ Ange **typen** av data uppsättning till **RelationalTable**för att definiera e
     }
 }
 ```
-Mer information finns i artikeln [SAP Business Warehouse Connector](data-factory-sap-business-warehouse-connector.md#dataset-properties) .
+Mer information finns i artikel [om SAP Business Warehouse-anslutning.](data-factory-sap-business-warehouse-connector.md#dataset-properties)
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från SAP Business Warehouse, anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från SAP Business Warehouse anger du **källtypen** för kopieringsaktiviteten till **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB | Anger MDX-frågan för att läsa data från SAP BW-instansen. | MDX-fråga. | Ja |
+| DocumentDB | Anger mdx-frågan för att läsa data från SAP BW-instansen. | MDX-fråga. | Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -2331,21 +2331,21 @@ Om du kopierar data från SAP Business Warehouse, anger du **käll typen** för 
 }
 ```
 
-Mer information finns i artikeln [SAP Business Warehouse Connector](data-factory-sap-business-warehouse-connector.md#copy-activity-properties) .
+Mer information finns i artikel [om SAP Business Warehouse-anslutning.](data-factory-sap-business-warehouse-connector.md#copy-activity-properties)
 
 ## <a name="sap-hana"></a>SAP HANA
 
 ### <a name="linked-service"></a>Länkad tjänst
-Om du vill definiera en SAP HANA länkad tjänst anger du **typen** av länkad tjänst till **SapHana**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en SAP HANA-länkad tjänst anger du **typen** av länkad tjänst till **SapHana**och anger följande egenskaper i avsnittet **typeProperties:**
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-server | Namnet på den server där SAP HANA-instansen finns. Om servern använder en anpassad port anger du `server:port`. | sträng | Ja
-authenticationType | Typ av autentisering. | nollängd. "Basic" eller "Windows" | Ja
-användarnamn | Namnet på den användare som har åtkomst till SAP-servern | sträng | Ja
+server | Namn på den server där SAP HANA-instansen finns. Om servern använder en anpassad `server:port`port anger du . | sträng | Ja
+authenticationType | Typ av autentisering. | Sträng. "Basic" eller "Windows" | Ja
+användarnamn | Namn på den användare som har åtkomst till SAP-servern | sträng | Ja
 password | Lösenordet för användaren. | sträng | Ja
-gatewayName | Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SAP HANA-instansen. | sträng | Ja
-encryptedCredential | Krypterad Credential-sträng. | sträng | Inga
+gatewayName (gatewayName) | Namnet på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala SAP HANA-instansen. | sträng | Ja
+krypteradKnuren | Den krypterade referenssträngen. | sträng | Inga
 
 #### <a name="example"></a>Exempel
 
@@ -2365,10 +2365,10 @@ encryptedCredential | Krypterad Credential-sträng. | sträng | Inga
 }
 
 ```
-Mer information finns i artikeln [SAP HANA Connector](data-factory-sap-hana-connector.md#linked-service-properties) .
+Mer information finns i [SAP HANA-anslutningsartikel.](data-factory-sap-hana-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Ange **typen** av data uppsättning till **RelationalTable**för att definiera en SAP HANA data uppsättning. Det finns inga typ-/regionsspecifika egenskaper som stöds för SAP HANA-datauppsättningen av typen **RelationalTable**.
+Om du vill definiera en SAP HANA-datauppsättning anger du **typen** av datauppsättningen till **RelationalTable**. Det finns inga typspecifika egenskaper som stöds för SAP HANA-datauppsättningen för typen **RelationalTable**.
 
 #### <a name="example"></a>Exempel
 
@@ -2387,14 +2387,14 @@ Ange **typen** av data uppsättning till **RelationalTable**för att definiera e
     }
 }
 ```
-Mer information finns i artikeln [SAP HANA Connector](data-factory-sap-hana-connector.md#dataset-properties) .
+Mer information finns i [SAP HANA-anslutningsartikel.](data-factory-sap-hana-connector.md#dataset-properties)
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från ett SAP HANA data lager, anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från ett SAP HANA-datalager anger du **källtypen** för kopieringsaktiviteten till **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | SQL-fråga. | Ja |
+| DocumentDB | Anger den SQL-fråga som ska läsas data från SAP HANA-instansen. | SQL-fråga. | Ja |
 
 
 #### <a name="example"></a>Exempel
@@ -2440,25 +2440,25 @@ Om du kopierar data från ett SAP HANA data lager, anger du **käll typen** för
 }
 ```
 
-Mer information finns i artikeln [SAP HANA Connector](data-factory-sap-hana-connector.md#copy-activity-properties) .
+Mer information finns i [SAP HANA-anslutningsartikel.](data-factory-sap-hana-connector.md#copy-activity-properties)
 
 
 ## <a name="sql-server"></a>SQL Server
 
 ### <a name="linked-service"></a>Länkad tjänst
-Du skapar en länkad tjänst av typen **OnPremisesSqlServer** för att länka en lokal SQL Server databas till en data fabrik. Följande tabell innehåller en beskrivning av JSON-element som är speciella för den lokala SQL Server länkade tjänsten.
+Du skapar en länkad tjänst av typen **OnPremisesSqlServer** för att länka en lokal SQL Server-databas till en datafabrik. I följande tabell beskrivs beskrivning av JSON-element som är specifika för den lokala SQL Server-länkade tjänsten.
 
-Följande tabell innehåller en beskrivning av JSON-element som är speciella för SQL Server länkade tjänsten.
+I följande tabell beskrivs beskrivning av JSON-element som är specifika för SQL Server-länkade tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type ska anges till: **OnPremisesSqlServer**. |Ja |
-| connectionString |Ange connectionString-information som krävs för att ansluta till den lokala SQL Server databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SQL Servers databasen. |Ja |
-| användarnamn |Ange användar namn om du använder Windows-autentisering. Exempel: **domainname\\username**. |Inga |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
+| Connectionstring |Ange anslutningStringsinformation som behövs för att ansluta till den lokala SQL Server-databasen med antingen SQL-autentisering eller Windows-autentisering. |Ja |
+| gatewayName (gatewayName) |Namnet på den gateway som tjänsten Data Factory ska använda för att ansluta till den lokala SQL Server-databasen. |Ja |
+| användarnamn |Ange användarnamn om du använder Windows-autentisering. Exempel: **användarnamn\\på domännamn**. |Inga |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Inga |
 
-Du kan kryptera autentiseringsuppgifter med cmdleten **New-AzDataFactoryEncryptValue** och använda dem i anslutnings strängen som visas i följande exempel (**EncryptedCredential** -egenskap):
+Du kan kryptera autentiseringsuppgifter med cmdleten **New-AzDataFactoryEncryptValue** och använda dem i anslutningssträngen enligt följande exempel (**Egenskapen EncryptedCredential):**
 
 ```json
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -2481,7 +2481,7 @@ Du kan kryptera autentiseringsuppgifter med cmdleten **New-AzDataFactoryEncryptV
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Exempel: JSON för att använda Windows-autentisering
 
-Om användar namn och lösen ord anges använder Gateway dem för att personifiera det angivna användar kontot för att ansluta till den lokala SQL Server databasen. Annars ansluter gatewayen till SQL Server direkt med säkerhets kontexten för gatewayen (dess start konto).
+Om användarnamn och lösenord anges använder gatewayen dem för att personifiera det angivna användarkontot för att ansluta till den lokala SQL Server-databasen. Annars ansluter gatewayen till SQL Server direkt med säkerhetskontexten för Gateway (dess startkonto).
 
 ```json
 {
@@ -2498,14 +2498,14 @@ Om användar namn och lösen ord anges använder Gateway dem för att personifie
 }
 ```
 
-Mer information finns i artikeln [SQL Server Connector](data-factory-sqlserver-connector.md#linked-service-properties) .
+Mer information finns i [sql server-anslutningsartikel.](data-factory-sqlserver-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en SQL Server data uppsättning anger du **typ** av data uppsättning till **SqlServerTable**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en SQL Server-datauppsättning anger du **typen** av datauppsättningen till **SqlServerTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen eller vyn i SQL Server databas instansen som den länkade tjänsten refererar till. |Ja |
+| tableName |Namnet på tabellen eller vyn i SQL Server Database-instansen som länkade tjänsten refererar till. |Ja |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -2533,26 +2533,26 @@ Om du vill definiera en SQL Server data uppsättning anger du **typ** av data up
 }
 ```
 
-Mer information finns i artikeln [SQL Server Connector](data-factory-sqlserver-connector.md#dataset-properties) .
+Mer information finns i [sql server-anslutningsartikel.](data-factory-sqlserver-connector.md#dataset-properties)
 
-### <a name="sql-source-in-copy-activity"></a>SQL-källa i kopierings aktivitet
-Om du kopierar data från en SQL Server databas anger du **käll typen** för kopierings aktiviteten till **SqlSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="sql-source-in-copy-activity"></a>Sql-källa i kopieringsaktivitet
+Om du kopierar data från en SQL Server-databas anger du **källtypen** för kopieringsaktiviteten till **SqlSource**och anger följande egenskaper i **källavsnittet:**
 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. Kan referera till flera tabeller från databasen som refereras av data uppsättningen. Om det inte anges används SQL-instruktionen som körs: Välj från tabellen. |Inga |
-| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. |Inga |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Inga |
+| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. Kan referera till flera tabeller från databasen som refereras av indatauppsättningen. Om inget anges väljer SQL-uttrycket som körs: välj från MyTable. |Inga |
+| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. |Namnet på den lagrade proceduren. |Inga |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värdepar. Namn och hölje av parametrar måste stämma överens med namn och hölje för de lagrade procedureparametrarna. |Inga |
 
-Om **sqlReaderQuery** har angetts för SqlSource kör kopierings aktiviteten den här frågan mot SQL Server databas källan för att hämta data.
+Om **sqlReaderQuery** har angetts för SqlSource körs den här frågan mot SQL Server-databaskällan för att hämta data.
 
-Alternativt kan du ange en lagrad procedur genom att ange parametrarna **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar).
+Du kan också ange en lagrad procedur genom att ange **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar).
 
-Om du inte anger någon av sqlReaderQuery eller sqlReaderStoredProcedureName, används kolumnerna som definieras i avsnittet struktur för att skapa en urvals fråga som ska köras mot SQL Server databasen. Om data uppsättnings definitionen inte har strukturen, väljs alla kolumner från tabellen.
+Om du inte anger sqlReaderQuery eller sqlReaderStoredProcedureName används kolumnerna som definieras i strukturavsnittet för att skapa en urvalsfråga som ska köras mot SQL Server-databasen. Om datauppsättningsdefinitionen inte har strukturen markeras alla kolumner i tabellen.
 
 > [!NOTE]
-> När du använder **sqlReaderStoredProcedureName**måste du fortfarande ange ett värde för egenskapen **TableName** i data uppsättnings-JSON. Det finns inga verifieringar som utförts i den här tabellen.
+> När du använder **sqlReaderStoredProcedureName**måste du fortfarande ange ett värde för **egenskapen tableName** i datauppsättningen JSON. Det finns inga valideringar som utförs mot den här tabellen dock.
 
 
 #### <a name="example"></a>Exempel
@@ -2597,27 +2597,27 @@ Om du inte anger någon av sqlReaderQuery eller sqlReaderStoredProcedureName, an
 }
 ```
 
-I det här exemplet har **sqlReaderQuery** angetts för SqlSource. Kopierings aktiviteten kör den här frågan mot SQL Server databas källan för att hämta data. Alternativt kan du ange en lagrad procedur genom att ange parametrarna **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar). SqlReaderQuery kan referera till flera tabeller i databasen som refereras av data uppsättningen. Den är inte begränsad till endast den tabell som angetts som data uppsättningens tableName-typeProperty.
+I det här exemplet anges **sqlReaderQuery** för SqlSource. Kopieringsaktiviteten kör den här frågan mot SQL Server-databaskällan för att hämta data. Du kan också ange en lagrad procedur genom att ange **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar). SqlReaderQuery kan referera till flera tabeller i databasen som refereras av indatauppsättningen. Den är inte begränsad till endast den tabell som har angetts som datauppsättningens tableName typeProperty.
 
-Om du inte anger sqlReaderQuery eller sqlReaderStoredProcedureName används kolumnerna som definieras i avsnittet struktur för att skapa en urvals fråga som ska köras mot SQL Server databasen. Om data uppsättnings definitionen inte har strukturen, väljs alla kolumner från tabellen.
+Om du inte anger sqlReaderQuery eller sqlReaderStoredProcedureName används kolumnerna som definieras i strukturavsnittet för att skapa en urvalsfråga som ska köras mot SQL Server-databasen. Om datauppsättningsdefinitionen inte har strukturen markeras alla kolumner i tabellen.
 
-Mer information finns i artikeln [SQL Server Connector](data-factory-sqlserver-connector.md#copy-activity-properties) .
+Mer information finns i [sql server-anslutningsartikel.](data-factory-sqlserver-connector.md#copy-activity-properties)
 
-### <a name="sql-sink-in-copy-activity"></a>SQL-mottagare i kopierings aktivitet
-Om du kopierar data till en SQL Server databas, anger du **mottagar typen** för kopierings aktiviteten till **SqlSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="sql-sink-in-copy-activity"></a>Sql Sink i kopieringsaktivitet
+Om du kopierar data till en SQL Server-databas anger du **sink-typen** för kopieringsaktiviteten till **SqlSink**och anger följande egenskaper i **handfatavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Inga |
-| writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
-| sqlWriterCleanupScript |Ange fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. Mer information finns i avsnittet repeterbarhet. |Ett frågeuttryck. |Inga |
-| sliceIdentifierColumnName |Ange kolumn namn för kopierings aktivitet som ska fyllas med automatiskt genererad sektor identifierare, som används för att rensa data i en speciell sektor när den körs igen. Mer information finns i avsnittet repeterbarhet. |Kolumn namnet för en kolumn med data typen Binary (32). |Inga |
-| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som upsertar (uppdaterar/infogar) data i mål tabellen. |Namnet på den lagrade proceduren. |Inga |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Inga |
-| sqlWriterTableType |Ange tabell typ namn som ska användas i den lagrade proceduren. Kopierings aktivitet gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga data som kopieras med befintliga data. |Ett namn på en tabell typ. |Inga |
+| skriverBatchTimeout |Vänta på att batchinsatsen ska slutföras innan den har klarats upp. |Gått<br/><br/> Exempel: "00:30:00" (30 minuter). |Inga |
+| skriverBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
+| sqlWriterCleanupScript |Ange fråga för Kopieringsaktivitet som ska köras så att data för ett visst segment rensas. Mer information finns i avsnittet repeterbarhet. |En frågesats. |Inga |
+| sliceIdentifierColumnName |Ange kolumnnamn för Kopiera aktivitet som ska fyllas med automatisk genererad segmentidentifierare, som används för att rensa data från ett visst segment när den körs igen. Mer information finns i avsnittet repeterbarhet. |Kolumnnamnet på en kolumn med datatyp av binär(32). |Inga |
+| sqlWriterStoredProcedureName |Namn på den lagrade procedur som lägger till (uppdateringar/infogar) data i måltabellen. |Namnet på den lagrade proceduren. |Inga |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värdepar. Namn och hölje av parametrar måste stämma överens med namn och hölje för de lagrade procedureparametrarna. |Inga |
+| sqlWriterTableType |Ange tabelltypsnamn som ska användas i den lagrade proceduren. Kopieringsaktivitet gör de data som flyttas tillgängliga i en temp-tabell med den här tabelltypen. Lagrad procedurkod kan sedan sammanfoga data som kopieras med befintliga data. |Ett tabelltypnamn. |Inga |
 
 #### <a name="example"></a>Exempel
-Pipelinen innehåller en kopierings aktivitet som är konfigurerad för att använda dessa data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **BlobSource** och **mottagar** typ är inställd på **SqlSink**.
+Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda dessa in- och utdatauppsättningar och som är schemalagd att köras varje timme. I pipeline-JSON-definitionen anges **källtypen** till **BlobSource** och **sink-typen** är inställd på **SqlSink**.
 
 ```json
 {
@@ -2660,22 +2660,22 @@ Pipelinen innehåller en kopierings aktivitet som är konfigurerad för att anv�
 }
 ```
 
-Mer information finns i artikeln [SQL Server Connector](data-factory-sqlserver-connector.md#copy-activity-properties) .
+Mer information finns i [sql server-anslutningsartikel.](data-factory-sqlserver-connector.md#copy-activity-properties)
 
 ## <a name="sybase"></a>Sybase
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en Sybase-länkad tjänst genom att ange **typen** för den länkade tjänsten till **OnPremisesSybase**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Sybase-länkad tjänst anger du **typen** av länkad tjänst till **OnPremisesSybase**och anger följande egenskaper i avsnittet **typEgenskaper:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| server |Sybase-serverns namn. |Ja |
-| databas |Sybase-databasens namn. |Ja |
-| schema |Namnet på schemat i databasen. |Inga |
+| server |Namn på Sybase-servern. |Ja |
+| databas |Namn på Sybase-databasen. |Ja |
+| Schemat |Namnet på schemat i databasen. |Inga |
 | authenticationType |Typ av autentisering som används för att ansluta till Sybase-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Inga |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala Sybase-databasen. |Ja |
+| användarnamn |Ange användarnamn om du använder Grundläggande autentisering eller Windows-autentisering. |Inga |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Inga |
+| gatewayName (gatewayName) |Namnet på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala Sybase-databasen. |Ja |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -2696,14 +2696,14 @@ Definiera en Sybase-länkad tjänst genom att ange **typen** för den länkade t
 }
 ```
 
-Mer information finns i artikeln om [Sybase Connector](data-factory-onprem-sybase-connector.md#linked-service-properties) .
+Mer information finns i [Sybase](data-factory-onprem-sybase-connector.md#linked-service-properties) connector-artikel.
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en Sybase-datauppsättning genom att ange **typen** av data uppsättning till **RelationalTable**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Sybase-datauppsättning anger du **typen** av datauppsättningen på **RelationalTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen i Sybase Database-instansen som den länkade tjänsten refererar till. |Nej (om **fråga** för **RelationalSource** har angetts) |
+| tableName |Namnet på tabellen i Sybase Database-instansen som länkade tjänsten refererar till. |Nej (om **frågan om** **RelationalSource** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -2730,15 +2730,15 @@ Definiera en Sybase-datauppsättning genom att ange **typen** av data uppsättni
 }
 ```
 
-Mer information finns i artikeln om [Sybase Connector](data-factory-onprem-sybase-connector.md#dataset-properties) .
+Mer information finns i [Sybase](data-factory-onprem-sybase-connector.md#dataset-properties) connector-artikel.
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från en Sybase-databas anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från en Sybase-databas anger du **källtypen** för kopieringsaktiviteten till **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **tabellNamn för** datauppsättning har **angetts)** |
 
 #### <a name="example"></a>Exempel
 
@@ -2780,20 +2780,20 @@ Om du kopierar data från en Sybase-databas anger du **käll typen** för kopier
 }
 ```
 
-Mer information finns i artikeln om [Sybase Connector](data-factory-onprem-sybase-connector.md#copy-activity-properties) .
+Mer information finns i [Sybase](data-factory-onprem-sybase-connector.md#copy-activity-properties) connector-artikel.
 
 ## <a name="teradata"></a>Teradata
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en Teradata-länkad tjänst genom att ange **typen** för den länkade tjänsten till **OnPremisesTeradata**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Teradata-länkad tjänst anger du **typen** av länkad tjänst till **OnPremisesTeradata**och anger följande egenskaper i avsnittet **typEgenskaper:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | server |Namnet på Teradata-servern. |Ja |
 | authenticationType |Typ av autentisering som används för att ansluta till Teradata-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Inga |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala Teradata-databasen. |Ja |
+| användarnamn |Ange användarnamn om du använder Grundläggande autentisering eller Windows-autentisering. |Inga |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Inga |
+| gatewayName (gatewayName) |Namnet på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala Teradata-databasen. |Ja |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -2812,10 +2812,10 @@ Definiera en Teradata-länkad tjänst genom att ange **typen** för den länkade
 }
 ```
 
-Mer information finns i artikeln om [Teradata Connector](data-factory-onprem-teradata-connector.md#linked-service-properties) .
+Mer information finns i [Teradata](data-factory-onprem-teradata-connector.md#linked-service-properties) connector-artikeln.
 
 ### <a name="dataset"></a>Datauppsättning
-Ange **typen** av data uppsättning till **RelationalTable**för att definiera en Teradata BLOB-datauppsättning. Det finns för närvarande inga typ egenskaper som stöds för Teradata-datauppsättningen.
+Om du vill definiera en Teradata Blob-datauppsättning anger du **typen** av datauppsättningen till **RelationalTable**. För närvarande finns det inga typegenskaper som stöds för Teradata-datauppsättningen.
 
 #### <a name="example"></a>Exempel
 ```json
@@ -2841,10 +2841,10 @@ Ange **typen** av data uppsättning till **RelationalTable**för att definiera e
 }
 ```
 
-Mer information finns i artikeln om [Teradata Connector](data-factory-onprem-teradata-connector.md#dataset-properties) .
+Mer information finns i [Teradata](data-factory-onprem-teradata-connector.md#dataset-properties) connector-artikeln.
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från en Teradata-databas anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från en Teradata-databas anger du **källtypen** för kopieringsaktiviteten till **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
@@ -2893,23 +2893,23 @@ Om du kopierar data från en Teradata-databas anger du **käll typen** för kopi
 }
 ```
 
-Mer information finns i artikeln om [Teradata Connector](data-factory-onprem-teradata-connector.md#copy-activity-properties) .
+Mer information finns i [Teradata](data-factory-onprem-teradata-connector.md#copy-activity-properties) connector-artikeln.
 
 ## <a name="cassandra"></a>Cassandra
 
 
 ### <a name="linked-service"></a>Länkad tjänst
-För att definiera en länkad Cassandra-tjänst anger du **typen** av länkad tjänst till **OnPremisesCassandra**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Cassandra-länkad tjänst anger du **typen** av länkad tjänst till **OnPremisesCassandra**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| värd |En eller flera IP-adresser eller värd namn för Cassandra-servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
-| port |TCP-porten som Cassandra-servern använder för att lyssna efter klient anslutningar. |Nej, standardvärde: 9042 |
-| authenticationType |Basic eller Anonymous |Ja |
-| användarnamn |Ange användar namn för användar kontot. |Ja, om authenticationType har angetts till Basic. |
-| password |Ange lösen ordet för användar kontot. |Ja, om authenticationType har angetts till Basic. |
-| gatewayName |Namnet på den gateway som används för att ansluta till den lokala Cassandra-databasen. |Ja |
-| encryptedCredential |Autentiseringsuppgifterna har krypterats av gatewayen. |Inga |
+| värd |En eller flera IP-adresser eller värdnamn för Cassandra-servrar.<br/><br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn som ska anslutas till alla servrar samtidigt. |Ja |
+| port |TCP-porten som Cassandra-servern använder för att lyssna efter klientanslutningar. |Nej, standardvärde: 9042 |
+| authenticationType |Grundläggande eller anonym |Ja |
+| användarnamn |Ange användarnamn för användarkontot. |Ja, om authenticationType är inställt på Basic. |
+| password |Ange lösenord för användarkontot. |Ja, om authenticationType är inställt på Basic. |
+| gatewayName (gatewayName) |Namnet på gatewayen som används för att ansluta till den lokala Cassandra-databasen. |Ja |
+| krypteradKnuren |Autentiseringsuppgifter krypteras av gatewayen. |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -2930,15 +2930,15 @@ För att definiera en länkad Cassandra-tjänst anger du **typen** av länkad tj
 }
 ```
 
-Mer information finns i artikeln om [Cassandra Connector](data-factory-onprem-cassandra-connector.md#linked-service-properties) .
+Mer information finns i [artikeln med Cassandra-anslutning.](data-factory-onprem-cassandra-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en Cassandra-datauppsättning anger du **typen** av data uppsättning till **CassandraTable**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Cassandra-datauppsättning anger du **typen** av datauppsättningen till **CassandraTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| keyspace |Namnet på det här utrymmet eller schemat i Cassandra-databasen. |Ja (om **fråga** för **CassandraSource** inte har definierats). |
-| tableName |Namnet på tabellen i Cassandra-databasen. |Ja (om **fråga** för **CassandraSource** inte har definierats). |
+| nyckelutrymme |Namn på nyckelutrymmet eller schemat i Cassandra-databasen. |Ja (Om **frågan** för **CassandraSource** inte har definierats). |
+| tableName |Namnet på tabellen i Cassandra-databasen. |Ja (Om **frågan** för **CassandraSource** inte har definierats). |
 
 #### <a name="example"></a>Exempel
 
@@ -2968,15 +2968,15 @@ Om du vill definiera en Cassandra-datauppsättning anger du **typen** av data up
 }
 ```
 
-Mer information finns i artikeln om [Cassandra Connector](data-factory-onprem-cassandra-connector.md#dataset-properties) .
+Mer information finns i [artikeln med Cassandra-anslutning.](data-factory-onprem-cassandra-connector.md#dataset-properties)
 
-### <a name="cassandra-source-in-copy-activity"></a>Cassandra-källa i kopierings aktivitet
-Om du kopierar data från Cassandra anger du **käll typen** för kopierings aktiviteten till **CassandraSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="cassandra-source-in-copy-activity"></a>Cassandra källa i kopieringsaktivitet
+Om du kopierar data från Cassandra anger du **källtypen** för kopieringsaktiviteten till **CassandraSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om tableName och disk utrymme på data mängden har definierats). |
-| consistencyLevel |Konsekvens nivån anger hur många repliker som måste svara på en Read-begäran innan data returneras till klient programmet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla Read-begäran. |ETT, TVÅ, TRE, KVORUM, ALLA, LOCAL_QUORUM, EACH_QUORUM LOCAL_ONE. Mer information finns i [Konfigurera data konsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) . |Nej. Standardvärdet är ett. |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-fråga eller CQL-fråga. Se [CQL-referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-frågan anger du **namnet keyspace name.table** som ska representera den tabell som du vill fråga. |Nej (om tableName och keyspace på datauppsättning definieras). |
+| konsekvensNivå |Konsekvensnivån anger hur många repliker som måste svara på en läsbegäran innan data returneras till klientprogrammet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla läsbegäran. |ETT, TVÅ, TRE, KVORUM, ALLA, LOCAL_QUORUM, EACH_QUORUM, LOCAL_ONE. Mer information [finns i Konfigurera datakonsekvens.](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) |Nej. Standardvärdet är ETT. |
 
 #### <a name="example"></a>Exempel
 
@@ -3021,24 +3021,24 @@ Om du kopierar data från Cassandra anger du **käll typen** för kopierings akt
 }
 ```
 
-Mer information finns i artikeln om [Cassandra Connector](data-factory-onprem-cassandra-connector.md#copy-activity-properties) .
+Mer information finns i [artikeln med Cassandra-anslutning.](data-factory-onprem-cassandra-connector.md#copy-activity-properties)
 
 ## <a name="mongodb"></a>MongoDB
 
 ### <a name="linked-service"></a>Länkad tjänst
-För att definiera en länkad MongoDB-tjänst anger du **typen** av länkad tjänst till **OnPremisesMongoDB**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en MongoDB-länkad tjänst anger du **typen** av länkad tjänst till **OnPremisesMongoDB**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| server |IP-adressen eller värd namnet för MongoDB-servern. |Ja |
-| port |TCP-port som MongoDB-servern använder för att lyssna efter klient anslutningar. |Valfritt värde: 27017 |
-| authenticationType |Basic eller Anonymous. |Ja |
-| användarnamn |Användar konto för åtkomst till MongoDB. |Ja (om grundläggande autentisering används). |
+| server |IP-adress eller värdnamn för MongoDB-servern. |Ja |
+| port |TCP-port som MongoDB-servern använder för att lyssna efter klientanslutningar. |Valfritt standardvärde: 27017 |
+| authenticationType |Grundläggande eller anonym. |Ja |
+| användarnamn |Användarkonto för att komma åt MongoDB. |Ja (om grundläggande autentisering används). |
 | password |Lösenordet för användaren. |Ja (om grundläggande autentisering används). |
-| authSource |Namnet på MongoDB-databasen som du vill använda för att kontrol lera autentiseringsuppgifterna för autentisering. |Valfritt (om grundläggande autentisering används). standard: använder administratörs kontot och den databas som anges med egenskapen databaseName. |
-| Databas |Namnet på MongoDB-databasen som du vill komma åt. |Ja |
-| gatewayName |Namnet på den gateway som har åtkomst till data lagret. |Ja |
-| encryptedCredential |Autentiseringsuppgifterna har krypterats av gateway. |Valfritt |
+| authSource |Namnet på den MongoDB-databas som du vill använda för att kontrollera dina autentiseringsuppgifter. |Valfritt (om grundläggande autentisering används). standard: använder administratörskontot och databasen som anges med hjälp av egenskapen databaseName. |
+| Databasename |Namn på den MongoDB-databas som du vill komma åt. |Ja |
+| gatewayName (gatewayName) |Namn på den gateway som kommer åt datalagret. |Ja |
+| krypteradKnuren |Autentiseringsuppgifter krypteras av gateway. |Valfri |
 
 #### <a name="example"></a>Exempel
 
@@ -3061,14 +3061,14 @@ För att definiera en länkad MongoDB-tjänst anger du **typen** av länkad tjä
 }
 ```
 
-Mer information finns i [artikeln om MongoDB Connector](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
+Mer information finns i [mongoDb-anslutningsartikel](data-factory-on-premises-mongodb-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en MongoDB-datauppsättning anger du **typen** av data uppsättning till **MongoDbCollection**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en MongoDB-datauppsättning anger du **typen** av datauppsättningen till **MongoDbCollection**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| collectionName |Namnet på samlingen i MongoDB-databasen. |Ja |
+| collectionName (samlingsnamn) |Namn på samlingen i MongoDB-databasen. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -3090,14 +3090,14 @@ Om du vill definiera en MongoDB-datauppsättning anger du **typen** av data upps
 }
 ```
 
-Mer information finns i [artikeln om MongoDB Connector](data-factory-on-premises-mongodb-connector.md#dataset-properties)
+Mer information finns i [mongoDb-anslutningsartikel](data-factory-on-premises-mongodb-connector.md#dataset-properties)
 
-#### <a name="mongodb-source-in-copy-activity"></a>MongoDB-källa i kopierings aktivitet
-Om du kopierar data från MongoDB anger du **käll typen** för kopierings aktiviteten till **MongoDbSource**och anger följande egenskaper i **käll** avsnittet:
+#### <a name="mongodb-source-in-copy-activity"></a>MongoDB Källa i kopiera aktivitet
+Om du kopierar data från MongoDB anger du **källtypen** för kopieringsaktiviteten till **MongoDbSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträng. Till exempel: `select * from MyTable`. |Nej (om **samlings** - **dataset** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-92-frågesträngen. Till exempel: `select * from MyTable`. |Nej (om **insamlingNamn** för datauppsättning har **angetts)** |
 
 #### <a name="example"></a>Exempel
 
@@ -3141,18 +3141,18 @@ Om du kopierar data från MongoDB anger du **käll typen** för kopierings aktiv
 }
 ```
 
-Mer information finns i [artikeln om MongoDB Connector](data-factory-on-premises-mongodb-connector.md#copy-activity-properties)
+Mer information finns i [mongoDb-anslutningsartikel](data-factory-on-premises-mongodb-connector.md#copy-activity-properties)
 
 ## <a name="amazon-s3"></a>Amazon S3
 
 
 ### <a name="linked-service"></a>Länkad tjänst
-För att definiera en Amazon S3-länkad tjänst anger du **typen** av länkad tjänst till **en awsaccesskey**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Amazon S3-länkad tjänst anger du **typen** av länkad tjänst till **AwsAccessKey**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
 | accessKeyID |ID för den hemliga åtkomstnyckeln. |sträng |Ja |
-| secretAccessKey |Den hemliga åtkomstnyckeln själva. |Krypterad hemlig sträng |Ja |
+| secretAccessKey |Den hemliga åtkomstnyckeln själv. |Krypterad hemlig sträng |Ja |
 
 #### <a name="example"></a>Exempel
 ```json
@@ -3168,25 +3168,25 @@ För att definiera en Amazon S3-länkad tjänst anger du **typen** av länkad tj
 }
 ```
 
-Mer information finns i [artikeln om Amazon S3 Connector](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
+Mer information finns i [Amazon S3-anslutningsartikel](data-factory-amazon-simple-storage-service-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en Amazon S3-data uppsättning genom att ange **typen** av data uppsättning till **AmazonS3**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Amazon S3-datauppsättning anger du **typen** av datauppsättningen till **AmazonS3**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| bucketName |S3-Bucketnamn. |String |Ja |
-| key |S3-objektets nyckel. |String |Inga |
-| prefix |Prefix för Objektnyckel S3. Objekt vars nycklar som börjar med prefixet är markerade. Gäller endast när nyckeln är tom. |String |Inga |
-| version |Versionen av S3-objektet om S3-versioner har Aktiver ATS. |String |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Inga | |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. De nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga | |
+| bucketName (bucketName) |S3-hinknamnet. |String |Ja |
+| key |S3-objektnyckeln. |String |Inga |
+| Prefix |Prefix för S3-objektnyckeln. Objekt vars nycklar börjar med det här prefixet är markerade. Gäller endast när nyckeln är tom. |String |Inga |
+| version |Versionen av S3-objektet om S3-versionshantering är aktiverad. |String |Inga |
+| format | Följande formattyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange **type** typegenskapen under format till ett av dessa värden. Mer information finns i avsnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet Format.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Om du vill **kopiera filer som de är** mellan filbaserade butiker (binär kopia) hoppar du över formatavsnittet i definitionerna för både in- och utdatadata. |Inga | |
+| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**. Nivåerna som stöds är: **Optimal** och **Snabbast**. Mer information finns [i Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga | |
 
 
 > [!NOTE]
-> bucketName + Key anger platsen för S3-objektet där Bucket är rot behållaren för S3-objekt och nyckeln är den fullständiga sökvägen till S3-objektet.
+> bucketName + nyckel anger platsen för S3-objektet där bucket är rotbehållaren för S3-objekt och nyckeln är den fullständiga sökvägen till S3-objektet.
 
-#### <a name="example-sample-dataset-with-prefix"></a>Exempel: exempel data uppsättning med prefix
+#### <a name="example-sample-dataset-with-prefix"></a>Exempel: Exempeldatauppsättning med prefix
 
 ```json
 {
@@ -3209,7 +3209,7 @@ Definiera en Amazon S3-data uppsättning genom att ange **typen** av data uppsä
     }
 }
 ```
-#### <a name="example-sample-data-set-with-version"></a>Exempel: exempel data uppsättning (med version)
+#### <a name="example-sample-data-set-with-version"></a>Exempel: Exempeldatauppsättning (med version)
 
 ```json
 {
@@ -3234,8 +3234,8 @@ Definiera en Amazon S3-data uppsättning genom att ange **typen** av data uppsä
 }
 ```
 
-#### <a name="example-dynamic-paths-for-s3"></a>Exempel: dynamiska sökvägar för S3
-I exemplet använder vi fasta värden för nyckel-och bucketName-egenskaper i Amazon S3-datauppsättningen.
+#### <a name="example-dynamic-paths-for-s3"></a>Exempel: Dynamiska banor för S3
+I exemplet använder vi fasta värden för nyckel- och bucketName-egenskaper i Amazon S3-datauppsättningen.
 
 ```json
 "key": "testFolder/test.orc",
@@ -3249,17 +3249,17 @@ Du kan låta Data Factory beräkna nyckeln och bucketName dynamiskt vid körning
 "bucketName": "$$Text.Format('{0:yyyy}', SliceStart)"
 ```
 
-Du kan göra samma sak för egenskapen prefix för en Amazon S3-data uppsättning. En lista över funktioner och variabler som stöds finns i [Data Factory funktioner och systemvariabler](data-factory-functions-variables.md) .
+Du kan göra samma sak för prefixet egenskapen för en Amazon S3-datauppsättning. Se [Data Factory-funktioner och systemvariabler](data-factory-functions-variables.md) för en lista över funktioner och variabler som stöds.
 
-Mer information finns i [artikeln om Amazon S3 Connector](data-factory-amazon-simple-storage-service-connector.md#dataset-properties).
+Mer information finns i [Amazon S3-anslutningsartikel](data-factory-amazon-simple-storage-service-connector.md#dataset-properties).
 
-### <a name="file-system-source-in-copy-activity"></a>Fil system källa i kopierings aktivitet
-Om du kopierar data från Amazon S3 anger du **käll typen** för kopierings aktiviteten till **FileSystemSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="file-system-source-in-copy-activity"></a>Filsystemkälla i kopieringsaktivitet
+Om du kopierar data från Amazon S3 anger du **källtypen** för kopieringsaktiviteten till **FileSystemSource**och anger följande egenskaper i **källavsnittet:**
 
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| recursive |Anger om S3-objekt ska listas rekursivt under katalogen. |True/false |Inga |
+| Rekursiv |Anger om S3-objekt ska anges rekursivt under katalogen. |sant/falskt |Inga |
 
 
 #### <a name="example"></a>Exempel
@@ -3305,32 +3305,32 @@ Om du kopierar data från Amazon S3 anger du **käll typen** för kopierings akt
 }
 ```
 
-Mer information finns i [artikeln om Amazon S3 Connector](data-factory-amazon-simple-storage-service-connector.md#copy-activity-properties).
+Mer information finns i [Amazon S3-anslutningsartikel](data-factory-amazon-simple-storage-service-connector.md#copy-activity-properties).
 
 ## <a name="file-system"></a>Filsystem
 
 
 ### <a name="linked-service"></a>Länkad tjänst
-Du kan länka ett lokalt fil system till en Azure-datafabrik med den **lokala fil serverns** länkade tjänst. Följande tabell innehåller beskrivningar av JSON-element som är speciella för den lokala fil Server länkade tjänsten.
+Du kan länka ett lokalt filsystem till en Azure-datafabrik med den **lokala filserverlänkade** tjänsten. I följande tabell finns beskrivningar av JSON-element som är specifika för den lokala filserverlänkade tjänsten.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Se till att egenskapen type har angetts till **OnPremisesFileServer**. |Ja |
-| värd |Anger rotsökvägen i den mapp som du vill kopiera. Använd escape-tecknet "\" för specialtecken i strängen. Se exempel på länkade tjänst-och data uppsättnings definitioner. |Ja |
+| typ |Kontrollera att typegenskapen är inställd **på OnPremisesFileServer**. |Ja |
+| värd |Anger rotsökvägen för den mapp som du vill kopiera. Använd escape-tecknet ' \ ' för specialtecken i strängen. Se Exempel på länkade tjänst- och datauppsättningsdefinitioner för exempel. |Ja |
 | userid |Ange ID för den användare som har åtkomst till servern. |Nej (om du väljer encryptedCredential) |
-| password |Ange lösenordet för användaren (användar-ID). |Nej (om du väljer encryptedCredential |
-| encryptedCredential |Ange de krypterade autentiseringsuppgifter som du kan få genom att köra cmdleten New-AzDataFactoryEncryptValue. |Nej (om du väljer att ange användar-ID och lösen ord som oformaterad text) |
-| gatewayName |Anger namnet på den gateway som Data Factory ska använda för att ansluta till den lokala fil servern. |Ja |
+| password |Ange lösenordet för användaren (userid). |Nej (om du väljer encryptedCredential |
+| krypteradKnuren |Ange de krypterade autentiseringsuppgifter som du kan få genom att köra cmdleten New-AzDataFactoryEncryptValue. |Nej (om du väljer att ange userid och lösenord i oformaterad text) |
+| gatewayName (gatewayName) |Anger namnet på den gateway som Data Factory ska använda för att ansluta till den lokala filservern. |Ja |
 
-#### <a name="sample-folder-path-definitions"></a>Exempel på mappsökväg definitioner
+#### <a name="sample-folder-path-definitions"></a>Exempel på mappsökvägsdefinitioner
 
-| Scenario | Värd i länkad tjänst definition | folderPath i data uppsättnings definition |
+| Scenario | Värd i länkad tjänstdefinition | folderPath i definition av datauppsättning |
 | --- | --- | --- |
-| Lokal mapp på Data Management Gateway dator: <br/><br/>Exempel: D:\\\* eller D:\folder\subfolder\\\* |D:\\\\ (för Data Management Gateway 2,0 och senare versioner) <br/><br/> localhost (för tidigare versioner än Data Management Gateway 2,0) |.\\\\ eller mapp\\\\undermapp (för Data Management Gateway 2,0 och senare versioner) <br/><br/>D:\\\\ eller D:\\\\mapp\\\\undermapp (för gateway-version under 2,0) |
-| Delad fjärrmapp: <br/><br/>Exempel: \\\\Server\\resurs\\\* eller \\\\Server\\dela\\mapp\\\\\* |\\\\\\\\Server\\\\dela |.\\\\ eller mapp\\\\undermappen |
+| Lokal mapp på datahanteringsgateway-dator: <br/><br/>Exempel: D:\\ \* eller D:\folder\subfolder\\* |D:\\ \\ (för Data Management Gateway 2.0 och senare versioner) <br/><br/> localhost (för tidigare versioner än Data Management Gateway 2.0) |. eller\\\\mappundermapp (för Data Management Gateway 2.0 och senare versioner) \\ \\ <br/><br/>D:\\ \\ eller\\\\D: mappundermapp\\\\(för gateway version nedan 2.0) |
+| Delad mapp för fjärr: <br/><br/>Exempel: \\ \\undermappen \\ \\dela\\\\\\\\ \* minserver\\eller minservermapp\\* |\\\\\\\\myserver\\\\dela |. eller mappundermapp\\\\ \\ \\ |
 
 
-#### <a name="example-using-username-and-password-in-plain-text"></a>Exempel: använda användar namn och lösen ord i oformaterad text
+#### <a name="example-using-username-and-password-in-plain-text"></a>Exempel: Använda användarnamn och lösenord i oformaterad text
 
 ```json
 {
@@ -3347,7 +3347,7 @@ Du kan länka ett lokalt fil system till en Azure-datafabrik med den **lokala fi
 }
 ```
 
-#### <a name="example-using-encryptedcredential"></a>Exempel: använda encryptedcredential
+#### <a name="example-using-encryptedcredential"></a>Exempel: Använda krypteradkredential
 
 ```json
 {
@@ -3363,19 +3363,19 @@ Du kan länka ett lokalt fil system till en Azure-datafabrik med den **lokala fi
 }
 ```
 
-Mer information finns i [artikeln om fil Systems koppling](data-factory-onprem-file-system-connector.md#linked-service-properties).
+Mer information finns i [artikeln Filsystemkoppling](data-factory-onprem-file-system-connector.md#linked-service-properties).
 
 ### <a name="dataset"></a>Datauppsättning
-För att definiera en fil system data uppsättning, ange **typ** av data uppsättning till **fileshare**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en filsystemdatauppsättning anger du **typen** av datauppsättningen till **FileShare**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Anger under Sök vägen till mappen. Använd escape-tecknet "\" för specialtecken i strängen. Se exempel på länkade tjänst-och data uppsättnings definitioner.<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
-| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata är namnet på den genererade filen i följande format: <br/><br/>`Data.<Guid>.txt` (exempel: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt) |Inga |
-| fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (enstaka tecken).<br/><br/>Exempel 1: "fileFilter": "*. log"<br/>Exempel 2: "fileFilter": 2016-1-?. format<br/><br/>Observera att fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. |Inga |
-| partitionedBy |Du kan använda partitionedBy för att ange ett dynamiskt folderPath/fileName för Time Series-data. Ett exempel är folderPath-parameter för varje timme med data. |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Inga |
-| compression | Ange typ och komprimeringsnivå för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**; och de nivåer som stöds är: **optimalt** och **snabbast**. Se [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| folderPath |Anger undersökvägen till mappen. Använd escape-tecknet '\' för specialtecken i strängen. Se Exempel på länkade tjänst- och datauppsättningsdefinitioner för exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** om du vill ha mappsökvägar baserat på start-/slutdatumtider för segment. |Ja |
+| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När filnamn inte har angetts för en utdatauppsättning är namnet på den genererade filen i följande format: <br/><br/>`Data.<Guid>.txt`(Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Inga |
+| filFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden `*` är: (flera tecken) och `?` (enstaka tecken).<br/><br/>Exempel 1: "fileFilter": "*.log"<br/>Exempel 2: "fileFilter": 2016-1-?. txt"<br/><br/>Observera att fileFilter är tillämpligt för en indatauppsättning fileshare.Note that fileFilter is applicable for an input FileShare dataset. |Inga |
+| partitioneradAv |Du kan använda partitionedBy för att ange en dynamisk folderPath/fileName för tidsseriedata. Ett exempel är folderPath-parameteriserad för varje timme data. |Inga |
+| format | Följande formattyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange **type** typegenskapen under format till ett av dessa värden. Mer information finns i avsnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet Format.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Om du vill **kopiera filer som de är** mellan filbaserade butiker (binär kopia) hoppar du över formatavsnittet i definitionerna för både in- och utdatadata. |Inga |
+| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbaste**. se [Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
 
 > [!NOTE]
 > Du kan inte använda fileName och fileFilter samtidigt.
@@ -3437,14 +3437,14 @@ För att definiera en fil system data uppsättning, ange **typ** av data uppsät
 }
 ```
 
-Mer information finns i [artikeln om fil Systems koppling](data-factory-onprem-file-system-connector.md#dataset-properties).
+Mer information finns i [artikeln Filsystemkoppling](data-factory-onprem-file-system-connector.md#dataset-properties).
 
-### <a name="file-system-source-in-copy-activity"></a>Fil system källa i kopierings aktivitet
-Om du kopierar data från fil systemet anger du **käll typen** för kopierings aktiviteten till **FileSystemSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="file-system-source-in-copy-activity"></a>Filsystemkälla i kopieringsaktivitet
+Om du kopierar data från Filsystemet anger du **källtypen** för kopieringsaktiviteten till **FileSystemSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| recursive |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
+| Rekursiv |Anger om data läss rekursivt från undermapparna eller bara från den angivna mappen. |Sant, Falskt (standard) |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -3487,16 +3487,16 @@ Om du kopierar data från fil systemet anger du **käll typen** för kopierings 
     }
 }
 ```
-Mer information finns i [artikeln om fil Systems koppling](data-factory-onprem-file-system-connector.md#copy-activity-properties).
+Mer information finns i [artikeln Filsystemkoppling](data-factory-onprem-file-system-connector.md#copy-activity-properties).
 
-### <a name="file-system-sink-in-copy-activity"></a>Fil Systems mottagare i kopierings aktivitet
-Om du kopierar data till fil system ställer du in **typ av mottagare** i **FileSystemSink**och anger följande egenskaper i avsnittet **mottagare** :
+### <a name="file-system-sink-in-copy-activity"></a>Filsystemmottagare i kopieringsaktivitet
+Om du kopierar data till Filsystem anger du **handfinktypen** för kopieringsaktiviteten till **FileSystemSink**och anger följande egenskaper i **handfatavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| copyBehavior |Definierar kopierings beteendet när källan är BlobSource eller FileSystem. |**PreserveHierarchy:** Bevarar filens hierarki i målmappen. Det vill säga att käll filens relativa sökväg är samma som den relativa sökvägen till mål filen i målmappen.<br/><br/>**FlattenHierarchy:** Alla filer från källmappen skapas på den första nivån i målmappen. Målattribut skapas med ett automatiskt genererat namn.<br/><br/>**MergeFiles:** Sammanfogar alla filer från källmappen till en fil. Om fil namnet/blobb namnet anges, är det sammanslagna fil namnet det angivna namnet. Annars är det ett automatiskt genererat fil namn. |Inga |
+| kopieraBehavior |Definierar kopieringsbeteendet när källan är BlobSource eller FileSystem. |**BevaraHierarchy:** Bevarar filhierarkin i målmappen. Det vill än, källfilens relativa sökväg till källmappen är samma som målfilens relativa sökväg till målmappen.<br/><br/>**FlattenHierarchy:** Alla filer från källmappen skapas i den första nivån i målmappen. Målfilerna skapas med ett autogenererat namn.<br/><br/>**MergeFiles:** Sammanfogar alla filer från källmappen till en fil. Om filnamnet/blobnamnet anges är det kopplade filnamnet det angivna namnet. Annars är det ett automatiskt genererat filnamn. |Inga |
 
-disk
+auto-
 
 #### <a name="example"></a>Exempel
 
@@ -3541,26 +3541,26 @@ disk
 }
 ```
 
-Mer information finns i [artikeln om fil Systems koppling](data-factory-onprem-file-system-connector.md#copy-activity-properties).
+Mer information finns i [artikeln Filsystemkoppling](data-factory-onprem-file-system-connector.md#copy-activity-properties).
 
 ## <a name="ftp"></a>FTP
 
 ### <a name="linked-service"></a>Länkad tjänst
-För att definiera en länkad FTP-tjänst anger du **typen** av länkad tjänst till **ftpserver**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en FTP-länkad tjänst anger du **typen** av länkad tjänst till **FtpServer**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs | Default |
 | --- | --- | --- | --- |
-| värd |Namn eller IP-adress för FTP-servern |Ja |&nbsp; |
-| authenticationType |Ange autentiseringstyp |Ja |Grundläggande, anonym |
+| värd |FTP-serverns namn eller IP-adress |Ja |&nbsp; |
+| authenticationType |Ange autentiseringstyp |Ja |Grundläggande, Anonym |
 | användarnamn |Användare som har åtkomst till FTP-servern |Inga |&nbsp; |
-| password |Användarens lösen ord (användar namn) |Inga |&nbsp; |
-| encryptedCredential |Krypterade autentiseringsuppgifter för åtkomst till FTP-servern |Inga |&nbsp; |
-| gatewayName |Namnet på Data Management Gateway att ansluta till en lokal FTP-Server |Inga |&nbsp; |
-| port |Porten som FTP-servern lyssnar på |Inga |21 |
-| enableSsl |Ange om FTP över SSL/TLS-kanal ska användas |Inga |sant |
-| enableServerCertificateValidation |Ange om du vill aktivera verifiering av Server-SSL-certifikat när du använder FTP över SSL/TLS-kanal |Inga |sant |
+| password |Lösenord för användaren (användarnamn) |Inga |&nbsp; |
+| krypteradKnuren |Krypterad autentiseringsuppgifter för åtkomst till FTP-servern |Inga |&nbsp; |
+| gatewayName (gatewayName) |Namnet på datahanteringsgatewayen för att ansluta till en lokal FTP-server |Inga |&nbsp; |
+| port |Port som FTP-servern lyssnar på |Inga |21 |
+| enableSsl enableSsl enableSsl enableS |Ange om FTP ska användas via SSL/TLS-kanal |Inga |true |
+| aktiveraServerCertificateValidation |Ange om server-TLS/SSL-certifikatvalidering ska aktiveras när FTP används via SSL/TLS-kanal |Inga |true |
 
-#### <a name="example-using-anonymous-authentication"></a>Exempel: använda anonym autentisering
+#### <a name="example-using-anonymous-authentication"></a>Exempel: Använda anonym autentisering
 
 ```json
 {
@@ -3575,7 +3575,7 @@ För att definiera en länkad FTP-tjänst anger du **typen** av länkad tjänst 
 }
 ```
 
-#### <a name="example-using-username-and-password-in-plain-text-for-basic-authentication"></a>Exempel: använda användar namn och lösen ord som oformaterad text för grundläggande autentisering
+#### <a name="example-using-username-and-password-in-plain-text-for-basic-authentication"></a>Exempel: Använda användarnamn och lösenord i oformaterad text för grundläggande autentisering
 
 ```json
 {
@@ -3592,7 +3592,7 @@ För att definiera en länkad FTP-tjänst anger du **typen** av länkad tjänst 
 }
 ```
 
-#### <a name="example-using-port-enablessl-enableservercertificatevalidation"></a>Exempel: använda port, enableSsl, enableServerCertificateValidation
+#### <a name="example-using-port-enablessl-enableservercertificatevalidation"></a>Exempel: Använda port, enableSsl, enableServerCertificateValidation
 
 ```json
 {
@@ -3612,7 +3612,7 @@ För att definiera en länkad FTP-tjänst anger du **typen** av länkad tjänst 
 }
 ```
 
-#### <a name="example-using-encryptedcredential-for-authentication-and-gateway"></a>Exempel: använda encryptedCredential för autentisering och gateway
+#### <a name="example-using-encryptedcredential-for-authentication-and-gateway"></a>Exempel: Använda krypteradked för autentisering och gateway
 
 ```json
 {
@@ -3629,23 +3629,23 @@ För att definiera en länkad FTP-tjänst anger du **typen** av länkad tjänst 
 }
 ```
 
-Mer information finns i artikeln om [FTP-anslutning](data-factory-ftp-connector.md#linked-service-properties) .
+Mer information finns i [FTP-anslutningsartikel.](data-factory-ftp-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en FTP-datauppsättning genom att ange **typen** av data uppsättning till **fileshare**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en FTP-datauppsättning anger du **typen** av datauppsättningen till **FileShare**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Under Sök väg till mappen. Använd escape-tecknet "\" för specialtecken i strängen. Se exempel på länkade tjänst-och data uppsättnings definitioner.<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja
-| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt` (exempel: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt) |Inga |
-| fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (enstaka tecken).<br/><br/>Exempel 1: `"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. Den här egenskapen stöds inte med HDFS. |Inga |
-| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Till exempel folderPath parameter för varje timme med data. |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Inga |
-| compression | Ange typ och komprimeringsnivå för data. De typer som stöds är: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**; och de nivåer som stöds är: **optimalt** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
-| useBinaryTransfer |Ange om du vill använda binärt överförings läge. Sant för binärt läge och falskt ASCII. Standardvärde: sant. Den här egenskapen kan endast användas när den associerade länkade tjänst typen är av typen: FtpServer. |Inga |
+| folderPath |Undersökväg till mappen. Använd escape-tecknet ' \ ' för specialtecken i strängen. Se Exempel på länkade tjänst- och datauppsättningsdefinitioner för exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** om du vill ha mappsökvägar baserat på start-/slutdatumtider för segment. |Ja
+| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När filnamn inte har angetts för en utdatauppsättning, skulle namnet på den genererade filen vara i följande format: <br/><br/>`Data.<Guid>.txt`(Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Inga |
+| filFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden `*` är: (flera tecken) och `?` (enstaka tecken).<br/><br/>Exempel 1:`"fileFilter": "*.log"`<br/>Exempel 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter gäller för en indatafildeldatauppsättning. Den här egenskapen stöds inte med HDFS. |Inga |
+| partitioneradAv |partitionedBy kan användas för att ange en dynamisk folderPath, filnamn för tidsseriedata. FolderPath har till exempel parameteriserats för varje timme data. |Inga |
+| format | Följande formattyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange **type** typegenskapen under format till ett av dessa värden. Mer information finns i avsnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet Format.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Om du vill **kopiera filer som de är** mellan filbaserade butiker (binär kopia) hoppar du över formatavsnittet i definitionerna för både in- och utdatadata. |Inga |
+| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**; och nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns [i Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| användaBinaryTransfer |Ange om binärt överföringsläge ska användas. Sant för binärt läge och falskt ASCII. Standardvärde: Sant. Den här egenskapen kan bara användas när associerad länkad tjänsttyp är av typen: FtpServer. |Inga |
 
 > [!NOTE]
-> Det går inte att använda filename och fileFilter samtidigt.
+> filnamn och filFilter kan inte användas samtidigt.
 
 #### <a name="example"></a>Exempel
 
@@ -3669,14 +3669,14 @@ Definiera en FTP-datauppsättning genom att ange **typen** av data uppsättning 
 }
 ```
 
-Mer information finns i artikeln om [FTP-anslutning](data-factory-ftp-connector.md#dataset-properties) .
+Mer information finns i [FTP-anslutningsartikel.](data-factory-ftp-connector.md#dataset-properties)
 
-### <a name="file-system-source-in-copy-activity"></a>Fil system källa i kopierings aktivitet
-Om du kopierar data från en FTP-server anger du **käll typen** för kopierings aktiviteten till **FileSystemSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="file-system-source-in-copy-activity"></a>Filsystemkälla i kopieringsaktivitet
+Om du kopierar data från en FTP-server anger du **källtypen** för kopieringsaktiviteten till **FileSystemSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| recursive |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
+| Rekursiv |Anger om data läss rekursivt från undermapparna eller bara från den angivna mappen. |Sant, Falskt (standard) |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -3718,25 +3718,25 @@ Om du kopierar data från en FTP-server anger du **käll typen** för kopierings
 }
 ```
 
-Mer information finns i artikeln om [FTP-anslutning](data-factory-ftp-connector.md#copy-activity-properties) .
+Mer information finns i [FTP-anslutningsartikel.](data-factory-ftp-connector.md#copy-activity-properties)
 
 
 ## <a name="hdfs"></a>HDFS
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en HDFS-länkad tjänst genom att ange **typen** för den länkade tjänsten till **HDFS**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en HDFS-länkad tjänst anger du **typen** av länkad tjänst till **Hdfs**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Egenskapen Type måste anges till: **HDFS** |Ja |
+| typ |Egenskapen Type måste ställas in på: **HDfs** |Ja |
 | URL |URL till HDFS |Ja |
-| authenticationType |Anonym eller Windows. <br><br> Om du vill använda **Kerberos-autentisering** för HDFS Connector läser du det här avsnittet för att konfigurera din lokala miljö. |Ja |
-| userName |Användar namn för Windows-autentisering. |Ja (för Windows-autentisering) |
-| password |Lösen ord för Windows-autentisering. |Ja (för Windows-autentisering) |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till HDFS. |Ja |
-| encryptedCredential |[New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) utdata från autentiseringsuppgifterna för åtkomst. |Inga |
+| authenticationType |Anonym, eller Windows. <br><br> Om du vill använda **Kerberos-autentisering** för HDFS-anslutning läser du det här avsnittet för att konfigurera den lokala miljön i enlighet med detta. |Ja |
+| userName |Användarnamn för Windows-autentisering. |Ja (för Windows-autentisering) |
+| password |Lösenord för Windows-autentisering. |Ja (för Windows-autentisering) |
+| gatewayName (gatewayName) |Namnet på den gateway som datafabrikstjänsten ska använda för att ansluta till HDFS. |Ja |
+| krypteradKnuren |[Ny-AzDataFactoryEncryptVärdevärdeutdata](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) för åtkomstautentiseringsuppgifterna. |Inga |
 
-#### <a name="example-using-anonymous-authentication"></a>Exempel: använda anonym autentisering
+#### <a name="example-using-anonymous-authentication"></a>Exempel: Använda anonym autentisering
 
 ```json
 {
@@ -3753,7 +3753,7 @@ Definiera en HDFS-länkad tjänst genom att ange **typen** för den länkade tj�
 }
 ```
 
-#### <a name="example-using-windows-authentication"></a>Exempel: använda Windows-autentisering
+#### <a name="example-using-windows-authentication"></a>Exempel: Använda Windows-autentisering
 
 ```json
 {
@@ -3771,21 +3771,21 @@ Definiera en HDFS-länkad tjänst genom att ange **typen** för den länkade tj�
 }
 ```
 
-Mer information finns i artikeln HDFS Connector.
+Mer information finns i HDFS-anslutningsartikel.
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en HDFS-datauppsättning genom att ange **typen** av data uppsättning till **fileshare**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en HDFS-datauppsättning anger du **typen** av datauppsättningen till **FileShare**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Sökvägen till mappen. Exempel: `myfolder`<br/><br/>Använd escape-tecknet "\" för specialtecken i strängen. Exempel: för folder\subfolder anger du mapp\\\\undermappen och för d:\samplefolder anger du d:\\\\samplefolder.<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
-| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt` (till exempel:: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt |Inga |
-| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Exempel: folderPath-parameter för varje timme med data. |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Inga |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| folderPath |Sökväg till mappen. Exempel: `myfolder`<br/><br/>Använd escape-tecknet ' \ ' för specialtecken i strängen. Till exempel: för mapp\undermapp\\\\anger du mappundermapp och för d:\samplefolder anger du d:\\\\samplefolder.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** om du vill ha mappsökvägar baserat på start-/slutdatumtider för segment. |Ja |
+| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När filnamn inte har angetts för en utdatauppsättning, skulle namnet på den genererade filen vara i följande format: <br/><br/>`Data.<Guid>.txt`(till exempel: : Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Inga |
+| partitioneradAv |partitionedBy kan användas för att ange en dynamisk folderPath, filnamn för tidsseriedata. Exempel: folderPath parameteriserad för varje timme data. |Inga |
+| format | Följande formattyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange **type** typegenskapen under format till ett av dessa värden. Mer information finns i avsnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet Format.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Om du vill **kopiera filer som de är** mellan filbaserade butiker (binär kopia) hoppar du över formatavsnittet i definitionerna för både in- och utdatadata. |Inga |
+| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns [i Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
 
 > [!NOTE]
-> Det går inte att använda filename och fileFilter samtidigt.
+> filnamn och filFilter kan inte användas samtidigt.
 
 #### <a name="example"></a>Exempel
 
@@ -3807,16 +3807,16 @@ Definiera en HDFS-datauppsättning genom att ange **typen** av data uppsättning
 }
 ```
 
-Mer information finns i artikeln HDFS Connector.
+Mer information finns i HDFS-anslutningsartikel.
 
-### <a name="file-system-source-in-copy-activity"></a>Fil system källa i kopierings aktivitet
-Om du kopierar data från HDFS anger du **käll typen** för kopierings aktiviteten till **FileSystemSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="file-system-source-in-copy-activity"></a>Filsystemkälla i kopieringsaktivitet
+Om du kopierar data från HDFS anger du **källtypen** för kopieringsaktiviteten till **FileSystemSource**och anger följande egenskaper i **källavsnittet:**
 
 **FileSystemSource** stöder följande egenskaper:
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| recursive |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
+| Rekursiv |Anger om data läss rekursivt från undermapparna eller bara från den angivna mappen. |Sant, Falskt (standard) |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -3854,32 +3854,32 @@ Om du kopierar data från HDFS anger du **käll typen** för kopierings aktivite
 }
 ```
 
-Mer information finns i artikeln HDFS Connector.
+Mer information finns i HDFS-anslutningsartikel.
 
 ## <a name="sftp"></a>SFTP
 
 
 ### <a name="linked-service"></a>Länkad tjänst
-För att definiera en länkad SFTP-tjänst anger du **typen** av länkad tjänst till **SFTP**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en SFTP-länkad tjänst anger du **typen** av länkad tjänst till **Sftp**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| värd | Namn eller IP-adress för SFTP-servern. |Ja |
-| port |Porten som SFTP-servern lyssnar på. Standardvärdet är: 21 |Inga |
-| authenticationType |Ange autentiseringstyp. Tillåtna värden: **Basic**, **SshPublicKey**. <br><br> Se använda grundläggande autentisering och [autentisering med offentliga SSH-nycklar](#using-ssh-public-key-authentication) på fler egenskaper respektive JSON-exempel. |Ja |
-| skipHostKeyValidation | Ange om du vill hoppa över validering av värd nycklar. | Nej. Standardvärdet: false |
-| hostKeyFingerprint | Ange finger utskriften för värd nyckeln. | Ja om `skipHostKeyValidation` har angetts till false.  |
-| gatewayName |Namnet på Data Management Gateway att ansluta till en lokal SFTP-server. | Ja om du kopierar data från en lokal SFTP-server. |
-| encryptedCredential | Krypterade autentiseringsuppgifter för åtkomst till SFTP-servern. Genereras automatiskt när du anger grundläggande autentisering (username + Password) eller SshPublicKey-autentisering (användar namn + privat nyckel Sök väg eller innehåll) i guiden Kopiera eller dialog rutan för ClickOnce. | Nej. Gäller endast när du kopierar data från en lokal SFTP-server. |
+| värd | Namn eller IP-adress på SFTP-servern. |Ja |
+| port |Port som SFTP-servern lyssnar på. Standardvärdet är: 21 |Inga |
+| authenticationType |Ange autentiseringstyp. Tillåtna värden: **Basic**, **SshPublicKey**. <br><br> Se Använda grundläggande autentisering och använda autentiseringsavsnitt för [SSH-offentliga nyckel](#using-ssh-public-key-authentication) på fler egenskaper respektive JSON-exempel. |Ja |
+| hoppa överHostKeyValidation | Ange om värdnyckelverifiering ska ska skipas. | Nej. Standardvärdet: falskt |
+| hostKeyFingerprint | Ange värdnyckelns fingeravtryck. | Ja om `skipHostKeyValidation` den är inställd på false.  |
+| gatewayName (gatewayName) |Namnet på datahanteringsgatewayen för att ansluta till en lokal SFTP-server. | Ja om du kopierar data från en lokal SFTP-server. |
+| krypteradKnuren | Krypterad autentiseringsuppgifter för åtkomst till SFTP-servern. Genereras automatiskt när du anger grundläggande autentisering (användarnamn + lösenord) eller SshPublicKey-autentisering (användarnamn + sökväg eller innehåll för privata nycklar) i kopieringsguiden eller popup-dialogrutan ClickOnce. | Nej. Använd endast när du kopierar data från en lokal SFTP-server. |
 
-#### <a name="example-using-basic-authentication"></a>Exempel: använda grundläggande autentisering
+#### <a name="example-using-basic-authentication"></a>Exempel: Använda grundläggande autentisering
 
-Om du vill använda grundläggande autentisering anger du `authenticationType` som `Basic`och anger följande egenskaper, förutom de allmänna SFTP-anslutningarna som introducerades i det sista avsnittet:
+Om du vill `authenticationType` använda `Basic`grundläggande autentisering anger du som och anger följande egenskaper förutom de generiska SFTP-anslutningsapparna som introducerades i det sista avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | användarnamn | Användare som har åtkomst till SFTP-servern. |Ja |
-| password | Användarens lösen ord (användar namn). | Ja |
+| password | Lösenord för användaren (användarnamn). | Ja |
 
 ```json
 {
@@ -3900,7 +3900,7 @@ Om du vill använda grundläggande autentisering anger du `authenticationType` s
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exempel: **grundläggande autentisering med krypterade autentiseringsuppgifter**
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Exempel: **Grundläggande autentisering med krypterad autentiseringsuppgifter**
 
 ```json
 {
@@ -3921,16 +3921,16 @@ Om du vill använda grundläggande autentisering anger du `authenticationType` s
 }
 ```
 
-#### <a name="using-ssh-public-key-authentication"></a>**Använda autentisering med offentlig SSH-nyckel:**
+#### <a name="using-ssh-public-key-authentication"></a>**Använda autentisering av SSH-offentliga nyckel:**
 
-Om du vill använda grundläggande autentisering anger du `authenticationType` som `SshPublicKey`och anger följande egenskaper, förutom de allmänna SFTP-anslutningarna som introducerades i det sista avsnittet:
+Om du vill `authenticationType` använda `SshPublicKey`grundläggande autentisering anger du som och anger följande egenskaper förutom de generiska SFTP-anslutningsapparna som introducerades i det sista avsnittet:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | användarnamn |Användare som har åtkomst till SFTP-servern |Ja |
-| privateKeyPath | Ange en absolut sökväg till den privata nyckel filen som gatewayen har åtkomst till. | Ange antingen `privateKeyPath` eller `privateKeyContent`. <br><br> Gäller endast när du kopierar data från en lokal SFTP-server. |
-| privateKeyContent | En serialiserad sträng för innehållet i den privata nyckeln. Kopierings guiden kan läsa den privata nyckel filen och extrahera innehållet i den privata nyckeln automatiskt. Om du använder andra verktyg/SDK använder du egenskapen privateKeyPath i stället. | Ange antingen `privateKeyPath` eller `privateKeyContent`. |
-| passPhrase | Ange pass frasen/lösen ordet för att dekryptera den privata nyckeln om nyckel filen skyddas av en pass fras. | Ja om den privata nyckel filen skyddas av en pass fras. |
+| privateKeyPath (privatKeyPath) | Ange absolut sökväg till den privata nyckelfilen som gatewayen kan komma åt. | Ange antingen `privateKeyPath` `privateKeyContent`eller . <br><br> Använd endast när du kopierar data från en lokal SFTP-server. |
+| privatKeyContent | En serialiserad sträng med det privata nyckelinnehållet. Kopieringsguiden kan läsa den privata nyckelfilen och extrahera innehållet i den privata nyckeln automatiskt. Om du använder något annat verktyg/SDK använder du egenskapen privateKeyPath i stället. | Ange antingen `privateKeyPath` `privateKeyContent`eller . |
+| Lösenfras | Ange lösenfrasen/lösenordet för att dekryptera den privata nyckeln om nyckelfilen skyddas av en lösenfras. | Ja om den privata nyckelfilen skyddas av en lösenfras. |
 
 ```json
 {
@@ -3951,7 +3951,7 @@ Om du vill använda grundläggande autentisering anger du `authenticationType` s
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exempel: **SshPublicKey-autentisering med privat nyckel innehåll**
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Exempel: **SshPublicKey-autentisering med privat nyckelinnehåll**
 
 ```json
 {
@@ -3971,23 +3971,23 @@ Om du vill använda grundläggande autentisering anger du `authenticationType` s
 }
 ```
 
-Mer information finns i artikeln om [SFTP-koppling](data-factory-sftp-connector.md#linked-service-properties) .
+Mer information finns i [SFTP-anslutningsartikel.](data-factory-sftp-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en SFTP-datauppsättning genom att ange **typen** av data uppsättning till **fileshare**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en SFTP-datauppsättning anger du **typen** av datauppsättningen till **FileShare**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| folderPath |Under Sök väg till mappen. Använd escape-tecknet "\" för specialtecken i strängen. Se exempel på länkade tjänst-och data uppsättnings definitioner.<br/><br/>Du kan kombinera den här egenskapen med **partitionby kolumndefinitionerna** för att ha mappsökvägar baserat på sektors start/slutdatum-gånger. |Ja |
-| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en speciell fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När inget fil namn har angetts för en data uppsättning för utdata skulle namnet på den genererade filen ha följande format: <br/><br/>`Data.<Guid>.txt` (exempel: data. 0a405f8a-93ff-4c6f-B3BE-f69616f1df7a. txt) |Inga |
-| fileFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (enstaka tecken).<br/><br/>Exempel 1: `"fileFilter": "*.log"`<br/>Exempel 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter är tillämpligt för en data uppsättning för en indata-FileShare. Den här egenskapen stöds inte med HDFS. |Inga |
-| partitionedBy |partitionedBy kan användas för att ange en dynamisk folderPath, fil namn för Time Series-data. Till exempel folderPath parameter för varje timme med data. |Inga |
-| format | Följande format typer **stöds: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Inga |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
-| useBinaryTransfer |Ange om du vill använda binärt överförings läge. Sant för binärt läge och falskt ASCII. Standardvärde: sant. Den här egenskapen kan endast användas när den associerade länkade tjänst typen är av typen: FtpServer. |Inga |
+| folderPath |Undersökväg till mappen. Använd escape-tecknet ' \ ' för specialtecken i strängen. Se Exempel på länkade tjänst- och datauppsättningsdefinitioner för exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** om du vill ha mappsökvägar baserat på start-/slutdatumtider för segment. |Ja |
+| fileName |Ange namnet på filen i **folderPath** om du vill att tabellen ska referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen pekar tabellen på alla filer i mappen.<br/><br/>När filnamn inte har angetts för en utdatauppsättning, skulle namnet på den genererade filen vara i följande format: <br/><br/>`Data.<Guid>.txt`(Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Inga |
+| filFilter |Ange ett filter som ska användas för att välja en delmängd av filer i folderPath i stället för alla filer.<br/><br/>Tillåtna värden `*` är: (flera tecken) och `?` (enstaka tecken).<br/><br/>Exempel 1:`"fileFilter": "*.log"`<br/>Exempel 2:`"fileFilter": 2016-1-?.txt"`<br/><br/> fileFilter gäller för en indatafildeldatauppsättning. Den här egenskapen stöds inte med HDFS. |Inga |
+| partitioneradAv |partitionedBy kan användas för att ange en dynamisk folderPath, filnamn för tidsseriedata. FolderPath har till exempel parameteriserats för varje timme data. |Inga |
+| format | Följande formattyper stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange **type** typegenskapen under format till ett av dessa värden. Mer information finns i avsnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet Format.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Om du vill **kopiera filer som de är** mellan filbaserade butiker (binär kopia) hoppar du över formatavsnittet i definitionerna för både in- och utdatadata. |Inga |
+| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns [i Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| användaBinaryTransfer |Ange om binärt överföringsläge ska användas. Sant för binärt läge och falskt ASCII. Standardvärde: Sant. Den här egenskapen kan bara användas när associerad länkad tjänsttyp är av typen: FtpServer. |Inga |
 
 > [!NOTE]
-> Det går inte att använda filename och fileFilter samtidigt.
+> filnamn och filFilter kan inte användas samtidigt.
 
 #### <a name="example"></a>Exempel
 
@@ -4010,14 +4010,14 @@ Definiera en SFTP-datauppsättning genom att ange **typen** av data uppsättning
 }
 ```
 
-Mer information finns i artikeln om [SFTP-koppling](data-factory-sftp-connector.md#dataset-properties) .
+Mer information finns i [SFTP-anslutningsartikel.](data-factory-sftp-connector.md#dataset-properties)
 
-### <a name="file-system-source-in-copy-activity"></a>Fil system källa i kopierings aktivitet
-Om du kopierar data från en SFTP-källa anger du **käll typen** för kopierings aktiviteten till **FileSystemSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="file-system-source-in-copy-activity"></a>Filsystemkälla i kopieringsaktivitet
+Om du kopierar data från en SFTP-källa anger du **källtypen** för kopieringsaktiviteten till **FileSystemSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| recursive |Anger om data läses rekursivt från undermappar eller endast från den angivna mappen. |Sant, falskt (standard) |Inga |
+| Rekursiv |Anger om data läss rekursivt från undermapparna eller bara från den angivna mappen. |Sant, Falskt (standard) |Inga |
 
 
 
@@ -4061,29 +4061,29 @@ Om du kopierar data från en SFTP-källa anger du **käll typen** för kopiering
 }
 ```
 
-Mer information finns i artikeln om [SFTP-koppling](data-factory-sftp-connector.md#copy-activity-properties) .
+Mer information finns i [SFTP-anslutningsartikel.](data-factory-sftp-connector.md#copy-activity-properties)
 
 
 ## <a name="http"></a>HTTP
 
 ### <a name="linked-service"></a>Länkad tjänst
-För att definiera en länkad HTTP-tjänst anger du **typen** av länkad tjänst till **http**och anger följande egenskaper i **typeProperties** -avsnittet:
+Om du vill definiera en HTTP-länkad tjänst anger du **typen** av länkad tjänst till **Http**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| url | Bas-URL till webb servern | Ja |
-| authenticationType | Anger autentiseringstypen. Tillåtna värden är: **Anonym**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Avse respektive avsnitt under den här tabellen på fler egenskaper och JSON-exempel för dessa typer av autentisering. | Ja |
-| enableServerCertificateValidation | Ange om du vill aktivera verifiering av Server-SSL-certifikat om källan är HTTPS-webbserver | Nej, standardvärdet är sant |
-| gatewayName | Namnet på Data Management Gateway att ansluta till en lokal HTTP-källa. | Ja om du kopierar data från en lokal HTTP-källa. |
-| encryptedCredential | Krypterade autentiseringsuppgifter för åtkomst till HTTP-slutpunkten. Genereras automatiskt när du konfigurerar autentiseringsinformationen i guiden Kopiera eller dialog rutan för ClickOnce. | Nej. Gäller endast när du kopierar data från en lokal HTTP-server. |
+| url | Grundläggande URL till webbservern | Ja |
+| authenticationType | Anger autentiseringstypen. Tillåtna värden är: **Anonym**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> Se avsnitt nedan för den här tabellen om fler egenskaper och JSON-exempel för dessa autentiseringstyper. | Ja |
+| aktiveraServerCertificateValidation | Ange om server-TLS/SSL-certifikatvalidering ska aktiveras om källan är HTTPS Web Server | Nej, standard är sant |
+| gatewayName (gatewayName) | Namnet på datahanteringsgatewayen för att ansluta till en lokal HTTP-källa. | Ja om du kopierar data från en lokal HTTP-källa. |
+| krypteradKnuren | Krypterad autentiseringsuppgifter för åtkomst till HTTP-slutpunkten. Genereras automatiskt när du konfigurerar autentiseringsinformationen i kopieringsguiden eller popup-dialogrutan ClickOnce. | Nej. Använd endast när du kopierar data från en lokal HTTP-server. |
 
-#### <a name="example-using-basic-digest-or-windows-authentication"></a>Exempel: använda Basic-, Digest-eller Windows-autentisering
-Ange `authenticationType` som `Basic`, `Digest`eller `Windows`och ange följande egenskaper utöver de allmänna HTTP-anslutnings funktionerna ovan:
+#### <a name="example-using-basic-digest-or-windows-authentication"></a>Exempel: Använda autentisering av grundläggande, sammanfattning eller Windows
+Ange `authenticationType` `Basic`som `Digest`, `Windows`eller , och ange följande egenskaper förutom de generiska HTTP-anslutningsapparna som introduceras ovan:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| användarnamn | Användar namn för att få åtkomst till HTTP-slutpunkten. | Ja |
-| password | Användarens lösen ord (användar namn). | Ja |
+| användarnamn | Användarnamn för att komma åt HTTP-slutpunkten. | Ja |
+| password | Lösenord för användaren (användarnamn). | Ja |
 
 ```json
 {
@@ -4100,24 +4100,24 @@ Ange `authenticationType` som `Basic`, `Digest`eller `Windows`och ange följande
 }
 ```
 
-#### <a name="example-using-clientcertificate-authentication"></a>Exempel: använda ClientCertificate-autentisering
+#### <a name="example-using-clientcertificate-authentication"></a>Exempel: Använda clientcertificate-autentisering
 
-Om du vill använda grundläggande autentisering anger du `authenticationType` som `ClientCertificate`och anger följande egenskaper utöver de allmänna HTTP-anslutningarna som introducerades ovan:
+Om du vill `authenticationType` använda `ClientCertificate`grundläggande autentisering anger du som och anger följande egenskaper förutom de allmänna HTTP-anslutningsapparna som introduceras ovan:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| embeddedCertData | Det Base64-kodade innehållet i binära data från PFX-filen (personal information Exchange). | Ange antingen `embeddedCertData` eller `certThumbprint`. |
-| CertThumbprint | Tumavtrycket för det certifikat som har installerats på din gateway-dators certifikat arkiv. Gäller endast när du kopierar data från en lokal HTTP-källa. | Ange antingen `embeddedCertData` eller `certThumbprint`. |
-| password | Lösen ordet som är associerat med certifikatet. | Inga |
+| inbäddadeCertData | Base64-kodade innehållet i binära data i PFX-filen (Personal Information Exchange). | Ange antingen `embeddedCertData` `certThumbprint`eller . |
+| certThumbprint | Tumavtrycket för certifikatet som installerades på gateway-datorns cert-arkiv. Använd endast när du kopierar data från en lokal HTTP-källa. | Ange antingen `embeddedCertData` `certThumbprint`eller . |
+| password | Lösenord som är associerat med certifikatet. | Inga |
 
-Om du använder `certThumbprint` för autentisering och certifikatet är installerat i det personliga arkivet på den lokala datorn måste du ge behörigheten läsa till Gateway-tjänsten:
+Om du `certThumbprint` använder för autentisering och certifikatet är installerat i den lokala datorns personliga arkiv måste du bevilja läsbehörighet till gateway-tjänsten:
 
-1. Starta Microsoft Management Console (MMC). Lägg till snapin-modulen **certifikat** som är riktad mot den **lokala datorn**.
-2. Expandera **certifikat**, **personligt**och klicka på **certifikat**.
-3. Högerklicka på certifikatet i det personliga arkivet och välj **alla aktiviteter**->**hantera privata nycklar...**
-3. På fliken **säkerhet** lägger du till det användar konto som data Management Gateway värd tjänsten körs under med Läs behörighet till certifikatet.
+1. Starta Microsoft Management Console (MMC). Lägg till snapin-modulen **Certifikat** som är inriktad på den **lokala datorn**.
+2. Expandera **certifikat**, **Personligt**och klicka på **Certifikat**.
+3. Högerklicka på certifikatet från det personliga arkivet och välj **Alla uppgifter**->**hantera privata nycklar...**
+3. Lägg till användarkontot som värdtjänsten för Data Management Gateway körs under på fliken **Säkerhet** med läsbehörighet till certifikatet.
 
-**Exempel: använda klient certifikat:** Den här länkade tjänsten länkar din data fabrik till en lokal HTTP-webbserver. Det använder ett klient certifikat som är installerat på datorn med Data Management Gateway installerat.
+**Exempel: använda klientcertifikat:** Den här länkade tjänsten länkar datafabriken till en lokal HTTP-webbserver. Den använder ett klientcertifikat som är installerat på datorn med Data Management Gateway installerat.
 
 ```json
 {
@@ -4134,8 +4134,8 @@ Om du använder `certThumbprint` för autentisering och certifikatet är install
 }
 ```
 
-#### <a name="example-using-client-certificate-in-a-file"></a>Exempel: använda klient certifikat i en fil
-Den här länkade tjänsten länkar din data fabrik till en lokal HTTP-webbserver. Den använder en klient certifikat fil på datorn med Data Management Gateway installerad.
+#### <a name="example-using-client-certificate-in-a-file"></a>Exempel: använda klientcertifikat i en fil
+Den här länkade tjänsten länkar datafabriken till en lokal HTTP-webbserver. Den använder en klientcertifikatfil på datorn med Data Management Gateway installerat.
 
 ```json
 {
@@ -4152,19 +4152,19 @@ Den här länkade tjänsten länkar din data fabrik till en lokal HTTP-webbserve
 }
 ```
 
-Mer information finns i artikeln om [http-anslutning](data-factory-http-connector.md#linked-service-properties) .
+Mer information finns i [HTTP-anslutningsartikel.](data-factory-http-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en HTTP-datauppsättning anger du **typen** av data uppsättning till **http**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en HTTP-datauppsättning anger du **typen** av datauppsättningen till **Http**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| relativeUrl | En relativ URL till den resurs som innehåller data. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. <br><br> Om du vill skapa en dynamisk URL kan du använda [Data Factory funktioner och systemvariabler](data-factory-functions-variables.md), till exempel: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Inga |
-| requestMethod | Http-metod. Tillåtna värden är **Get** eller **post**. | Nej. Standardvärdet är `GET`. |
-| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Inga |
-| RequestBody | Brödtext för HTTP-begäran. | Inga |
-| format | Om du bara vill **Hämta data från http-slutpunkten som de är** utan att parsa den, kan du hoppa över format inställningarna. <br><br> Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande format **typer: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. |Inga |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
+| släktingUrl | En relativ URL till resursen som innehåller data. När sökvägen inte anges används endast den URL som anges i den länkade tjänstdefinitionen. <br><br> Om du vill skapa dynamisk URL kan du använda `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"` [datafabriksfunktioner och systemvariabler](data-factory-functions-variables.md), Exempel: . | Inga |
+| begäranMethod | Http-metod. Tillåtna värden är **GET** eller **POST**. | Nej. Standardvärdet är `GET`. |
+| additionalHeaders | Ytterligare HTTP-begäranden. | Inga |
+| begäranKropp | Brödtext för HTTP-begäran. | Inga |
+| format | Om du bara vill **hämta data från HTTP-slutpunkten som de är** utan att tolka dem hoppar du över de här formatinställningarna. <br><br> Om du vill tolka HTTP-svarsinnehållet under kopiering stöds följande formattyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Mer information finns i avsnitten [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro Format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc Format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet Format.](data-factory-supported-file-and-compression-formats.md#parquet-format) |Inga |
+| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbaste**. Mer information finns [i Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
 
 #### <a name="example-using-the-get-default-method"></a>Exempel: använda metoden GET (standard)
 
@@ -4208,14 +4208,14 @@ Om du vill definiera en HTTP-datauppsättning anger du **typen** av data uppsät
     }
 }
 ```
-Mer information finns i artikeln om [http-anslutning](data-factory-http-connector.md#dataset-properties) .
+Mer information finns i [HTTP-anslutningsartikel.](data-factory-http-connector.md#dataset-properties)
 
-### <a name="http-source-in-copy-activity"></a>HTTP-källa i kopierings aktivitet
-Om du kopierar data från en HTTP-källa anger du **käll typen** för kopierings aktiviteten till **HttpSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="http-source-in-copy-activity"></a>HTTP-källa i kopieringsaktivitet
+Om du kopierar data från en HTTP-källa anger du **källtypen** för kopieringsaktiviteten till **HttpSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Tids gränsen (TimeSpan) för HTTP-begäran för att få ett svar. Det är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. | Nej. Standardvärde: 00:01:40 |
+| httpRequestTimeout (På) | Timeout (TimeSpan) för HTTP-begäran för att få ett svar. Det är timeouten för att få ett svar, inte timeout för att läsa svarsdata. | Nej. Standardvärde: 00:01:40 |
 
 
 #### <a name="example"></a>Exempel
@@ -4260,23 +4260,23 @@ Om du kopierar data från en HTTP-källa anger du **käll typen** för kopiering
 }
 ```
 
-Mer information finns i artikeln om [http-anslutning](data-factory-http-connector.md#copy-activity-properties) .
+Mer information finns i [HTTP-anslutningsartikel.](data-factory-http-connector.md#copy-activity-properties)
 
 ## <a name="odata"></a>OData
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en OData-länkad tjänst genom att ange **typen** för den länkade tjänsten till **OData**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en OData-länkad tjänst anger du **typen** av länkad tjänst till **OData**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| url |URL för OData-tjänsten. |Ja |
-| authenticationType |Typ av autentisering som används för att ansluta till OData-källan. <br/><br/> För Cloud OData är möjliga värden Anonym, Basic och OAuth (Obs Azure Data Factory stöder för närvarande endast Azure Active Directory baserade OAuth). <br/><br/> För lokala OData-enheter är möjliga värden Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användar namn om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Ja (endast om du använder grundläggande autentisering) |
-| authorizedCredential |Om du använder OAuth klickar du på knappen **auktorisera** i guiden Data Factory kopiering eller redigeraren och anger dina autentiseringsuppgifter. sedan genereras värdet för den här egenskapen automatiskt. |Ja (endast om du använder OAuth-autentisering) |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala OData-tjänsten. Ange endast om du kopierar data från den lokala OData-källan. |Inga |
+| url |Url till OData-tjänsten. |Ja |
+| authenticationType |Typ av autentisering som används för att ansluta till OData-källan. <br/><br/> För moln-OData är möjliga värden Anonym, Basic och OAuth (obs Azure Data Factory stöder för närvarande endast Azure Active Directory-baserad OAuth). <br/><br/> För lokala OData är möjliga värden Anonyma, Grundläggande och Windows. |Ja |
+| användarnamn |Ange användarnamn om du använder grundläggande autentisering. |Ja (endast om du använder grundläggande autentisering) |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Ja (endast om du använder grundläggande autentisering) |
+| auktoriseradRedential |Om du använder OAuth klickar du på **Knappen Auktorisera** i guiden Kopia av Data fabrik eller Redigerare och anger autentiseringsuppgifterna, så genereras värdet för den här egenskapen automatiskt. |Ja (endast om du använder OAuth-autentisering) |
+| gatewayName (gatewayName) |Namnet på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala OData-tjänsten. Ange bara om du kopierar data från den lokala OData-källan. |Inga |
 
-#### <a name="example---using-basic-authentication"></a>Exempel – med grundläggande autentisering
+#### <a name="example---using-basic-authentication"></a>Exempel - Använda grundläggande autentisering
 ```json
 {
     "name": "inputLinkedService",
@@ -4292,7 +4292,7 @@ Definiera en OData-länkad tjänst genom att ange **typen** för den länkade tj
 }
 ```
 
-#### <a name="example---using-anonymous-authentication"></a>Exempel – använda anonym autentisering
+#### <a name="example---using-anonymous-authentication"></a>Exempel - Använda anonym autentisering
 
 ```json
 {
@@ -4307,7 +4307,7 @@ Definiera en OData-länkad tjänst genom att ange **typen** för den länkade tj
 }
 ```
 
-#### <a name="example---using-windows-authentication-accessing-on-premises-odata-source"></a>Exempel – använda Windows-autentisering åtkomst till en lokal OData-källa
+#### <a name="example---using-windows-authentication-accessing-on-premises-odata-source"></a>Exempel - Använda Windows-autentisering som använder lokal OData-källa
 
 ```json
 {
@@ -4325,7 +4325,7 @@ Definiera en OData-länkad tjänst genom att ange **typen** för den länkade tj
 }
 ```
 
-#### <a name="example---using-oauth-authentication-accessing-cloud-odata-source"></a>Exempel – använda OAuth-autentisering åtkomst till molnbaserad OData-källa
+#### <a name="example---using-oauth-authentication-accessing-cloud-odata-source"></a>Exempel - Använda OAuth-autentisering som använder moln-OData-källa
 ```json
 {
     "name": "inputLinkedService",
@@ -4342,14 +4342,14 @@ Definiera en OData-länkad tjänst genom att ange **typen** för den länkade tj
 }
 ```
 
-Mer information finns i artikeln om [OData Connector](data-factory-odata-connector.md#linked-service-properties) .
+Mer information finns i [OData-anslutningsartikel.](data-factory-odata-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Om du vill definiera en OData-datauppsättning anger du **typ** av data uppsättning till **ODataResource**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en OData-datauppsättning anger du **typen** av datauppsättningen till **ODataResource**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| Sökväg |Sökväg till OData-resursen |Inga |
+| path |Sökväg till OData-resursen |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -4377,14 +4377,14 @@ Om du vill definiera en OData-datauppsättning anger du **typ** av data uppsätt
 }
 ```
 
-Mer information finns i artikeln om [OData Connector](data-factory-odata-connector.md#dataset-properties) .
+Mer information finns i [OData-anslutningsartikel.](data-factory-odata-connector.md#dataset-properties)
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från en OData-källa anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från en OData-källa anger du **källtypen** för kopieringsaktiviteten till **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Exempel | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |"? $select = namn, beskrivning & $top = 5" |Inga |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |"?$select=Namn, Beskrivning&$top=5" |Inga |
 
 #### <a name="example"></a>Exempel
 
@@ -4428,25 +4428,25 @@ Om du kopierar data från en OData-källa anger du **käll typen** för kopierin
 }
 ```
 
-Mer information finns i artikeln om [OData Connector](data-factory-odata-connector.md#copy-activity-properties) .
+Mer information finns i [OData-anslutningsartikel.](data-factory-odata-connector.md#copy-activity-properties)
 
 
 ## <a name="odbc"></a>ODBC
 
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en ODBC-länkad tjänst genom att ange **typen** för den länkade tjänsten till **OnPremisesOdbc**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en ODBC-länkad tjänst anger du **typen** av länkad tjänst till **OnPremisesOdbc**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| connectionString |Delen av autentiseringsuppgifter som inte är till gång till i anslutnings strängen och en valfri krypterad autentiseringsuppgift. Se exemplen i följande avsnitt. |Ja |
-| credential |Delen autentiseringsuppgifter för den anslutnings sträng som anges i drivrutinsspecifika egenskaps värde format. Exempel: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |Inga |
-| authenticationType |Typ av autentisering som används för att ansluta till ODBC-datalagret. Möjliga värden är: anonyma och grundläggande. |Ja |
-| användarnamn |Ange användar namn om du använder grundläggande autentisering. |Inga |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till ODBC-datalagret. |Ja |
+| Connectionstring |Den icke-åtkomst-referensdelen av anslutningssträngen och en valfri krypterad autentiseringsåtkomst. Se exempel i följande avsnitt. |Ja |
+| credential |Åtkomstautentiseringsdelen av anslutningssträngen som anges i drivrutinsspecifikt egenskapsvärdeformat. Exempel: `“Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;”.` |Inga |
+| authenticationType |Typ av autentisering som används för att ansluta till ODBC-datalagret. Möjliga värden är: Anonym och Basic. |Ja |
+| användarnamn |Ange användarnamn om du använder grundläggande autentisering. |Inga |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Inga |
+| gatewayName (gatewayName) |Namn på den gateway som datafabrikstjänsten ska använda för att ansluta till ODBC-datalagret. |Ja |
 
-#### <a name="example---using-basic-authentication"></a>Exempel – med grundläggande autentisering
+#### <a name="example---using-basic-authentication"></a>Exempel - Använda grundläggande autentisering
 
 ```json
 {
@@ -4463,8 +4463,8 @@ Definiera en ODBC-länkad tjänst genom att ange **typen** för den länkade tj�
     }
 }
 ```
-#### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Exempel – använda grundläggande autentisering med krypterade autentiseringsuppgifter
-Du kan kryptera autentiseringsuppgifterna med cmdleten [New-AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) .
+#### <a name="example---using-basic-authentication-with-encrypted-credentials"></a>Exempel - Använda grundläggande autentisering med krypterade autentiseringsuppgifter
+Du kan kryptera autentiseringsuppgifterna med cmdleten [New-AzDataFactoryEncryptValue.](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue)
 
 ```json
 {
@@ -4480,7 +4480,7 @@ Du kan kryptera autentiseringsuppgifterna med cmdleten [New-AzDataFactoryEncrypt
 }
 ```
 
-#### <a name="example-using-anonymous-authentication"></a>Exempel: använda anonym autentisering
+#### <a name="example-using-anonymous-authentication"></a>Exempel: Använda anonym autentisering
 
 ```json
 {
@@ -4497,10 +4497,10 @@ Du kan kryptera autentiseringsuppgifterna med cmdleten [New-AzDataFactoryEncrypt
 }
 ```
 
-Mer information finns i artikeln om [ODBC-koppling](data-factory-odbc-connector.md#linked-service-properties) .
+Mer information finns i [ODBC-kopplingsartikel.](data-factory-odbc-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en ODBC-datauppsättning genom att ange **typen** av data uppsättning till **RelationalTable**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en ODBC-datauppsättning anger du **typen** av datauppsättningen på **RelationalTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
@@ -4532,10 +4532,10 @@ Definiera en ODBC-datauppsättning genom att ange **typen** av data uppsättning
 }
 ```
 
-Mer information finns i artikeln om [ODBC-koppling](data-factory-odbc-connector.md#dataset-properties) .
+Mer information finns i [ODBC-kopplingsartikel.](data-factory-odbc-connector.md#dataset-properties)
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från ett ODBC-datalager anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från ett ODBC-datalager anger du **källtypen** för kopieringsaktiviteten på **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
@@ -4583,20 +4583,20 @@ Om du kopierar data från ett ODBC-datalager anger du **käll typen** för kopie
 }
 ```
 
-Mer information finns i artikeln om [ODBC-koppling](data-factory-odbc-connector.md#copy-activity-properties) .
+Mer information finns i [ODBC-kopplingsartikel.](data-factory-odbc-connector.md#copy-activity-properties)
 
 ## <a name="salesforce"></a>Salesforce
 
 
 ### <a name="linked-service"></a>Länkad tjänst
-Definiera en Salesforce-länkad tjänst genom att ange **typen** för den länkade tjänsten till **Salesforce**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Salesforce-länkad tjänst anger du **typen** av länkad tjänst till **Salesforce**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| environmentUrl | Ange URL: en för Salesforce-instansen. <br><br> -Standard är "https:\//login.salesforce.com". <br> – Om du vill kopiera data från sandbox anger du https://test.salesforce.com. <br> – Om du vill kopiera data från en anpassad domän anger du exempelvis "https://[domän]. My. Salesforce. com". |Inga |
-| användarnamn |Ange ett användar namn för användar kontot. |Ja |
-| password |Ange ett lösen ord för användar kontot. |Ja |
-| securityToken |Ange en säkerhetstoken för användar kontot. Se [Hämta säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställer/hämtar en säkerhetstoken. Mer information om säkerhetstoken i allmänhet finns i [säkerhet och API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
+| miljöUrl | Ange URL:en för Salesforce-instansen. <br><br> - Standard är\/"https: /login.salesforce.com". <br> - Om du vill kopierahttps://test.salesforce.comdata från sandlådan anger du " ". <br> - Om du vill kopiera data från en anpassad domän anger du till exempel "https://[domain].my.salesforce.com". |Inga |
+| användarnamn |Ange ett användarnamn för användarkontot. |Ja |
+| password |Ange ett lösenord för användarkontot. |Ja |
+| säkerhetToken |Ange en säkerhetstoken för användarkontot. Se [Hämta säkerhetstoken](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) för instruktioner om hur du återställer/hämtar en säkerhetstoken. Mer information om säkerhetstoken i allmänhet finns i [Säkerhet och API: et](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -4614,14 +4614,14 @@ Definiera en Salesforce-länkad tjänst genom att ange **typen** för den länka
 }
 ```
 
-Mer information finns i artikeln om [Salesforce-koppling](data-factory-salesforce-connector.md#linked-service-properties) .
+Mer information finns i [artikel om Salesforce-anslutning.](data-factory-salesforce-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en Salesforce-datauppsättning genom att ange **typen** av data uppsättning till **RelationalTable**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en Salesforce-datauppsättning anger du **typen** av datauppsättningen till **RelationalTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen i Salesforce. |Nej (om en **fråga** för **RelationalSource** har angetts) |
+| tableName |Namnet på tabellen i Salesforce. |Nej (om en **fråga om** **RelationalSource** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -4650,14 +4650,14 @@ Definiera en Salesforce-datauppsättning genom att ange **typen** av data uppsä
 }
 ```
 
-Mer information finns i artikeln om [Salesforce-koppling](data-factory-salesforce-connector.md#dataset-properties) .
+Mer information finns i [artikel om Salesforce-anslutning.](data-factory-salesforce-connector.md#dataset-properties)
 
-### <a name="relational-source-in-copy-activity"></a>Relations källa i kopierings aktivitet
-Om du kopierar data från Salesforce anger du **käll typen** för kopierings aktiviteten till **RelationalSource**och anger följande egenskaper i **käll** avsnittet:
+### <a name="relational-source-in-copy-activity"></a>Relationskälla i kopieringsaktivitet
+Om du kopierar data från Salesforce anger du **källtypen** för kopieringsaktiviteten till **RelationalSource**och anger följande egenskaper i **källavsnittet:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| DocumentDB |Använd den anpassade frågan för att läsa data. |En SQL-92-fråga eller en [SOQL-fråga (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Till exempel: `select * from MyTable__c`. |Nej (om **data uppsättningens** **TableName** anges) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |En SQL-92-fråga eller [SOQL-fråga (Salesforce Object Query Language).](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) Till exempel: `select * from MyTable__c`. |Nej (om **datauppsättningens** **tabellNamn** har angetts) |
 
 #### <a name="example"></a>Exempel
 
@@ -4705,19 +4705,19 @@ Om du kopierar data från Salesforce anger du **käll typen** för kopierings ak
 ```
 
 > [!IMPORTANT]
-> En "__c"-del av API-namnet krävs för alla anpassade objekt.
+> Den "__c" delen av API-namnet behövs för alla anpassade objekt.
 
-Mer information finns i artikeln om [Salesforce-koppling](data-factory-salesforce-connector.md#copy-activity-properties) .
+Mer information finns i [artikel om Salesforce-anslutning.](data-factory-salesforce-connector.md#copy-activity-properties)
 
-## <a name="web-data"></a>Webb data
+## <a name="web-data"></a>Webbdata
 
 ### <a name="linked-service"></a>Länkad tjänst
-För att definiera en länkad webb tjänst anger du **typen** av länkad tjänst till **webben**och anger följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en webblänkd tjänst anger du **typen** av länkad tjänst till **webben**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| URL |URL till webb adressen |Ja |
-| authenticationType |Antal. |Ja |
+| URL |URL till webbkällan |Ja |
+| authenticationType |Anonym. |Ja |
 
 
 #### <a name="example"></a>Exempel
@@ -4736,16 +4736,16 @@ För att definiera en länkad webb tjänst anger du **typen** av länkad tjänst
 }
 ```
 
-Mer information finns i artikeln om [webb tabell koppling](data-factory-web-table-connector.md#linked-service-properties) .
+Mer information finns i artikeln [Webbtabellkoppling.](data-factory-web-table-connector.md#linked-service-properties)
 
 ### <a name="dataset"></a>Datauppsättning
-Definiera en webb data uppsättning genom att ange **typen** av data uppsättning till webb **tabell**och ange följande egenskaper i avsnittet **typeProperties** :
+Om du vill definiera en webbdatauppsättning anger du **typen** av datauppsättningen till **WebTable**och anger följande egenskaper i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |typ av data uppsättning. måste vara inställd på **Webtable** |Ja |
-| Sökväg |En relativ URL till den resurs som innehåller tabellen. |Nej. Om ingen sökväg anges används endast den URL som angavs i den länkade tjänst definitionen. |
-| index |Indexet för tabellen i resursen. Se avsnittet Hämta index för en tabell i en HTML-sida för steg för att hämta index för en tabell på en HTML-sida. |Ja |
+| typ |typ av datauppsättning. måste vara inställt på **WebTable** |Ja |
+| path |En relativ URL till resursen som innehåller tabellen. |Nej. När sökvägen inte anges används endast den URL som anges i den länkade tjänstdefinitionen. |
+| Index |Indexet för tabellen i resursen. Se Hämta index över en tabell i ett HTML-sidavsnitt för steg för att hämta index över en tabell på en HTML-sida. |Ja |
 
 #### <a name="example"></a>Exempel
 
@@ -4768,10 +4768,10 @@ Definiera en webb data uppsättning genom att ange **typen** av data uppsättnin
 }
 ```
 
-Mer information finns i artikeln om [webb tabell koppling](data-factory-web-table-connector.md#dataset-properties) .
+Mer information finns i artikeln [Webbtabellkoppling.](data-factory-web-table-connector.md#dataset-properties)
 
-### <a name="web-source-in-copy-activity"></a>Webb källa i kopierings aktivitet
-Om du kopierar data från en webb tabell anger du **käll typen** för kopierings aktiviteten till webb **källan**. För närvarande stöds inte ytterligare egenskaper när källan i kopierings aktiviteten är av typen **Websource**.
+### <a name="web-source-in-copy-activity"></a>Webbkälla i kopieringsaktivitet
+Om du kopierar data från en webbtabell anger du **källtypen** för kopieringsaktiviteten till **WebSource**. När källan i kopieringsaktiviteten är av typen **WebSource**stöds inga ytterligare egenskaper.
 
 #### <a name="example"></a>Exempel
 
@@ -4815,38 +4815,38 @@ Om du kopierar data från en webb tabell anger du **käll typen** för kopiering
 }
 ```
 
-Mer information finns i artikeln om [webb tabell koppling](data-factory-web-table-connector.md#copy-activity-properties) .
+Mer information finns i artikeln [Webbtabellkoppling.](data-factory-web-table-connector.md#copy-activity-properties)
 
-## <a name="compute-environments"></a>BERÄKNINGS MILJÖER
-I följande tabell visas de beräknings miljöer som stöds av Data Factory och de omvandlings aktiviteter som kan köras på dem. Klicka på länken för den beräkning som du är intresse rad av för att se JSON-scheman för den länkade tjänsten för att länka den till en data fabrik.
+## <a name="compute-environments"></a>BERÄKNINGSMILJÖER
+I följande tabell visas beräkningsmiljöer som stöds av Data Factory och de omvandlingsaktiviteter som kan köras på dem. Klicka på länken för den beräkning du är intresserad av för att se JSON-schemana för länkad tjänst för att länka den till en datafabrik.
 
 | Compute-miljö | Aktiviteter |
 | --- | --- |
-| [HDInsight-kluster på begäran](#on-demand-azure-hdinsight-cluster) eller [ditt eget HDInsight-kluster](#existing-azure-hdinsight-cluster) |[.Net anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [gris-aktivitet](#hdinsight-pig-activity), MapReduce- [aktivitet](#hdinsight-mapreduce-activity), Hadoop streaming-aktivitet, Spark- [aktivitet](#hdinsight-spark-activity) |
+| [HDInsight-kluster](#on-demand-azure-hdinsight-cluster) på begäran eller [ditt eget HDInsight-kluster](#existing-azure-hdinsight-cluster) |[.NET anpassad aktivitet](#net-custom-activity), [Hive-aktivitet,](#hdinsight-hive-activity) [Grisaktivitet,](#hdinsight-pig-activity) [MapReduce-aktivitet,](#hdinsight-mapreduce-activity)Hadoop-strömningsaktivitet, [Spark-aktivitet](#hdinsight-spark-activity) |
 | [Azure Batch](#azure-batch) |[.NET-anpassad aktivitet](#net-custom-activity) |
-| [Azure Machine Learning](#azure-machine-learning) | [Machine Learning aktivitet för batch-körning](#machine-learning-batch-execution-activity) [Machine Learning uppdatera resurs aktivitet](#machine-learning-update-resource-activity) |
+| [Azure Machine Learning](#azure-machine-learning) | [Körningsaktivitet för maskininlärningsbatchen](#machine-learning-batch-execution-activity), [Resursaktivitet för maskininlärningsuppdatering](#machine-learning-update-resource-activity) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics) |[Data Lake Analytics U-SQL](#data-lake-analytics-u-sql-activity) |
-| [Azure SQL Database](#azure-sql-database) [Azure SQL Data Warehouse](#azure-sql-data-warehouse) [SQL Server](#sql-server-stored-procedure) |[Lagrad procedur](#stored-procedure-activity) |
+| [Azure SQL Database](#azure-sql-database), [Azure SQL Data Warehouse](#azure-sql-data-warehouse), SQL [Server](#sql-server-stored-procedure) |[Lagrad procedur](#stored-procedure-activity) |
 
 ## <a name="on-demand-azure-hdinsight-cluster"></a>Azure HDInsight-kluster på begäran
-Azure Data Factorys tjänsten kan automatiskt skapa ett Windows/Linux-baserat HDInsight-kluster på begäran för att bearbeta data. Klustret skapas i samma region som lagrings kontot (linkedServiceName-egenskapen i JSON) som är associerad med klustret. Du kan köra följande omvandlings aktiviteter på den här länkade tjänsten [: .net anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [gris](#hdinsight-pig-activity)-aktivitet, MapReduce- [aktivitet](#hdinsight-mapreduce-activity), Hadoop-direktuppspelning, Spark- [aktivitet](#hdinsight-spark-activity).
+Azure Data Factory-tjänsten kan automatiskt skapa ett Windows/Linux-baserat HDInsight-kluster på begäran för att bearbeta data. Klustret skapas i samma region som lagringskontot (egenskapen linkedServiceName i JSON) som är associerat med klustret. Du kan köra följande omvandlingsaktiviteter för den här länkade tjänsten: [.NET-anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [Grisaktivitet](#hdinsight-pig-activity), [MapReduce-aktivitet](#hdinsight-mapreduce-activity), Hadoop-direktuppspelningsaktivitet, [Spark-aktivitet](#hdinsight-spark-activity).
 
 ### <a name="linked-service"></a>Länkad tjänst
-Följande tabell innehåller beskrivningar av egenskaperna som används i Azure JSON-definitionen för en länkad HDInsight-tjänst på begäran.
+Följande tabell innehåller beskrivningar av de egenskaper som används i Azure JSON-definitionen av en HDInsight-länkad tjänst på begäran.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type ska anges till **HDInsightOnDemand**. |Ja |
-| clusterSize |Antalet arbets uppgifter/datanoder i klustret. HDInsight-klustret skapas med två head-noder och antalet arbetsnoder som du anger för den här egenskapen. Noderna har storlek Standard_D3 med 4 kärnor, så ett kluster med en arbets nod tar 24 kärnor (4\*4 = 16 kärnor för arbetsnoder, plus 2\*4 = 8 kärnor för Head-noder). Se [skapa Linux-baserade Hadoop-kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) för information om Standard_D3 nivån. |Ja |
-| TimeToLive |Den tillåtna inaktiva tiden för HDInsight-klustret på begäran. Anger hur länge HDInsight-klustret på begäran förblir aktivt efter att en aktivitets körning slutförts om det inte finns några andra aktiva jobb i klustret.<br/><br/>Om en aktivitets körning till exempel tar 6 minuter och TimeToLive har angetts till 5 minuter förblir klustret aktiv i 5 minuter efter 6 minuters bearbetning av aktivitets körningen. Om en annan aktivitet körs med fönstret 6 minuter bearbetas den av samma kluster.<br/><br/>Att skapa ett HDInsight-kluster på begäran är en dyr åtgärd (kan ta en stund), så Använd den här inställningen vid behov för att förbättra prestandan hos en data fabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger TimeToLive-värdet till 0, tas klustret bort så snart aktiviteten körs i bearbetat. Å andra sidan kan klustret vara inaktivt om du anger ett högt värde, vilket leder till höga kostnader. Därför är det viktigt att du anger rätt värde utifrån dina behov.<br/><br/>Flera pipelines kan dela samma instans av HDInsight-klustret på begäran om egenskap svärdet TimeToLive har angetts korrekt |Ja |
-| version |Version av HDInsight-klustret. Mer information finns [i stödda HDInsight-versioner i Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Inga |
-| linkedServiceName |Azure Storage länkad tjänst som ska användas av klustret på begäran för att lagra och bearbeta data. <p>För närvarande kan du inte skapa ett HDInsight-kluster på begäran som använder en Azure Data Lake Store som lagrings plats. Om du vill lagra resultat data från HDInsight-bearbetning i en Azure Data Lake Store använder du en kopierings aktivitet för att kopiera data från Azure-Blob Storage till Azure Data Lake Store.</p>  | Ja |
-| additionalLinkedServiceNames |Anger ytterligare lagrings konton för den länkade HDInsight-tjänsten så att tjänsten Data Factory kan registrera dem åt dig. |Inga |
-| osType |Typ av operativ system. Tillåtna värden är: Windows (standard) och Linux |Inga |
-| hcatalogLinkedServiceName |Namnet på den länkade Azure SQL-tjänsten som pekar på HCatalog-databasen. HDInsight-klustret på begäran skapas med hjälp av Azure SQL Database som metaarkiv. |Inga |
+| clusterSize |Antal arbets-/datanoder i klustret. HDInsight-klustret skapas med två huvudnoder tillsammans med antalet arbetsnoder som du anger för den här egenskapen. Noderna är av storlek Standard_D3 som har 4 kärnor, så ett 4-arbetsnodkluster tar 24 kärnor (4\*\*4 = 16 kärnor för arbetsnoder plus 2 4 = 8 kärnor för huvudnoder). Mer information om den Standard_D3 nivån finns [i Skapa Linux-baserade Hadoop-kluster i HDInsight.](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) |Ja |
+| tidtolering |Den tillåtna inaktiva tiden för HDInsight-klustret på begäran. Anger hur länge HDInsight-klustret på begäran förblir vid liv efter slutförandet av en aktivitetskörning om det inte finns några andra aktiva jobb i klustret.<br/><br/>Om en aktivitetskörning till exempel tar 6 minuter och tidstolk är inställd på 5 minuter, förblir klustret vid liv i 5 minuter efter 6 minuters bearbetning av aktivitetskörningen. Om en annan aktivitetskörning körs med 6-minutersfönstret bearbetas den av samma kluster.<br/><br/>Att skapa ett HDInsight-kluster på begäran är en dyr åtgärd (kan ta ett tag), så använd den här inställningen efter behov för att förbättra prestanda för en datafabrik genom att återanvända ett HDInsight-kluster på begäran.<br/><br/>Om du anger tidstolkivvärde till 0 tas klustret bort så fort aktiviteten körs i bearbetad. Å andra sidan, om du anger ett högt värde, kan klustret stanna inaktiv i onödan vilket resulterar i höga kostnader. Därför är det viktigt att du anger lämpligt värde baserat på dina behov.<br/><br/>Flera pipelines kan dela samma instans av HDInsight-klustret på begäran om egenskapsvärdet för tidstolk har angetts på lämpligt sätt |Ja |
+| version |Version av HDInsight-klustret. Mer information finns [i HDInsight-versioner som stöds i Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Inga |
+| linkedServiceName |Azure Storage-länkad tjänst som ska användas av klustret på begäran för lagring och bearbetning av data. <p>För närvarande kan du inte skapa ett HDInsight-kluster på begäran som använder ett Azure Data Lake Store som lagring. Om du vill lagra resultatdata från HDInsight-bearbetning i ett Azure Data Lake Store använder du en kopieringsaktivitet för att kopiera data från Azure Blob Storage till Azure Data Lake Store.</p>  | Ja |
+| ytterligareLänkade tjänstnamn |Anger ytterligare lagringskonton för den HDInsight-länkade tjänsten så att datafabrikstjänsten kan registrera dem för din räkning. |Inga |
+| osType (olika) |Typ av operativsystem. Tillåtna värden är: Windows (standard) och Linux |Inga |
+| hcatalogLinkedServiceName |Namnet på Azure SQL-länkade tjänst som pekar på HCatalog-databasen. HDInsight-klustret på begäran skapas med hjälp av Azure SQL-databasen som metabutik. |Inga |
 
-### <a name="json-example"></a>JSON-exempel
-Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begäran. Data Factory tjänsten skapar automatiskt ett **Linux-baserat HDInsight-** kluster när en data sektor bearbetas.
+### <a name="json-example"></a>JSON exempel
+Följande JSON definierar en Linux-baserad HDInsight-länkad tjänst på begäran. Tjänsten Data Factory skapar automatiskt ett **Linux-baserat HDInsight-kluster** när du bearbetar ett datasegment.
 
 ```json
 {
@@ -4864,25 +4864,25 @@ Följande JSON definierar en Linux-baserad länkad HDInsight-tjänst på begära
 }
 ```
 
-Mer information finns i artikeln om att [Beräkna länkade tjänster](data-factory-compute-linked-services.md) .
+Mer information finns i artikel [om beräkningslänkade tjänster.](data-factory-compute-linked-services.md)
 
 ## <a name="existing-azure-hdinsight-cluster"></a>Befintligt Azure HDInsight-kluster
-Du kan skapa en länkad Azure HDInsight-tjänst för att registrera ditt eget HDInsight-kluster med Data Factory. Du kan köra följande data omvandlings aktiviteter på den här länkade tjänsten [: .net anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [gris](#hdinsight-pig-activity)-aktivitet, MapReduce- [aktivitet](#hdinsight-mapreduce-activity), Hadoop-direktuppspelning, Spark- [aktivitet](#hdinsight-spark-activity).
+Du kan skapa en Azure HDInsight-länkad tjänst för att registrera ditt eget HDInsight-kluster med Data Factory. Du kan köra följande dataomvandlingsaktiviteter för den här länkade tjänsten: [.NET-anpassad aktivitet](#net-custom-activity), [Hive-aktivitet](#hdinsight-hive-activity), [Grisaktivitet](#hdinsight-pig-activity), [MapReduce-aktivitet](#hdinsight-mapreduce-activity), Hadoop-direktuppspelningsaktivitet, [Spark-aktivitet](#hdinsight-spark-activity).
 
 ### <a name="linked-service"></a>Länkad tjänst
-Följande tabell innehåller beskrivningar av egenskaperna som används i Azure JSON-definitionen för en länkad Azure HDInsight-tjänst.
+Följande tabell innehåller beskrivningar av de egenskaper som används i Azure JSON-definitionen av en Azure HDInsight-länkad tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Egenskapen Type ska anges till **HDInsight**. |Ja |
-| clusterUri |URI för HDInsight-klustret. |Ja |
+| typ |Egenskapen Type ska ställas in på **HDInsight**. |Ja |
+| clusterUri (klusterUri) |Uri i HDInsight-klustret. |Ja |
 | användarnamn |Ange namnet på den användare som ska användas för att ansluta till ett befintligt HDInsight-kluster. |Ja |
-| password |Ange lösen ordet för användar kontot. |Ja |
-| linkedServiceName | Namnet på den länkade tjänsten Azure Storage som refererar till Azure Blob Storage som används av HDInsight-klustret. <p>För närvarande kan du inte ange en Azure Data Lake Store länkad tjänst för den här egenskapen. Du kan komma åt data i Azure Data Lake Store från Hive/gris-skript om HDInsight-klustret har åtkomst till Data Lake Store. </p>  |Ja |
+| password |Ange lösenord för användarkontot. |Ja |
+| linkedServiceName | Namnet på den Azure Storage-länkade tjänst som refererar till Azure-bloblagringslagringen som används av HDInsight-klustret. <p>För närvarande kan du inte ange en Azure Data Lake Store-länkad tjänst för den här egenskapen. Du kan komma åt data i Azure Data Lake Store från Hive/Pig-skript om HDInsight-klustret har åtkomst till DataSjöarkivet. </p>  |Ja |
 
-För versioner av HDInsight-kluster som stöds, se [HDInsight-versioner som stöds](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory).
+Versioner av HDInsight-kluster som stöds finns i [HDInsight-versioner som stöds](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory).
 
-#### <a name="json-example"></a>JSON-exempel
+#### <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -4900,21 +4900,21 @@ För versioner av HDInsight-kluster som stöds, se [HDInsight-versioner som stö
 ```
 
 ## <a name="azure-batch"></a>Azure Batch
-Du kan skapa en Azure Batch länkad tjänst för att registrera en batch-pool med virtuella datorer (VM) med en data fabrik. Du kan köra anpassade .NET-aktiviteter med antingen Azure Batch eller Azure HDInsight. Du kan köra en [Anpassad .net-aktivitet](#net-custom-activity) på den här länkade tjänsten.
+Du kan skapa en Azure Batch-länkad tjänst för att registrera en batchpool med virtuella datorer (VMs) med en datafabrik. Du kan köra .NET-anpassade aktiviteter med antingen Azure Batch eller Azure HDInsight. Du kan köra en [.NET-anpassad aktivitet](#net-custom-activity) på den här länkade tjänsten.
 
 ### <a name="linked-service"></a>Länkad tjänst
-Följande tabell innehåller beskrivningar av egenskaperna som används i Azure JSON-definitionen för en Azure Batch länkad tjänst.
+Följande tabell innehåller beskrivningar för de egenskaper som används i Azure JSON-definitionen av en Azure Batch-länkad tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Egenskapen Type ska anges till **AzureBatch**. |Ja |
-| kontonamn |Namnet på Azure Batch kontot. |Ja |
-| AccessKey |Åtkomst nyckel för Azure Batch kontot. |Ja |
-| poolName |Namn på poolen med virtuella datorer. |Ja |
-| linkedServiceName |Namnet på den länkade tjänsten Azure Storage som är kopplad till den här Azure Batch länkade tjänsten. Den här länkade tjänsten används för uppsamlingsfiler som krävs för att köra aktiviteten och för att lagra aktivitets körnings loggarna. |Ja |
+| typ |Typegenskapen ska anges till **AzureBatch**. |Ja |
+| accountName |Namn på Azure Batch-kontot. |Ja |
+| Accesskey |Åtkomstnyckel för Azure Batch-kontot. |Ja |
+| poolNamn |Namn på poolen med virtuella datorer. |Ja |
+| linkedServiceName |Namnet på den Azure Storage-länkade tjänst som är associerad med den här Azure Batch-länkade tjänsten. Den här länkade tjänsten används för mellanlagringsfiler som krävs för att köra aktiviteten och lagra loggarna för aktivitetskörning. |Ja |
 
 
-#### <a name="json-example"></a>JSON-exempel
+#### <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -4932,18 +4932,18 @@ Följande tabell innehåller beskrivningar av egenskaperna som används i Azure 
 ```
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
-Du skapar en Azure Machine Learning länkad tjänst för att registrera en Machine Learning slut punkt för batch-poäng med en data fabrik. Två data omvandlings aktiviteter som kan köras på den här länkade tjänsten: [Machine Learning aktivitet för batch-körning](#machine-learning-batch-execution-activity) [Machine Learning uppdatera resurs aktivitet](#machine-learning-update-resource-activity).
+Du skapar en Azure Machine Learning-länkad tjänst för att registrera en slutpunkt för machine learning-batchbedömning med en datafabrik. Två dataomvandlingsaktiviteter som kan köras på den här länkade tjänsten: [Machine Learning Batch Execution Activity](#machine-learning-batch-execution-activity), Machine Learning Update Resource [Activity](#machine-learning-update-resource-activity).
 
 ### <a name="linked-service"></a>Länkad tjänst
-Följande tabell innehåller beskrivningar av egenskaperna som används i Azure JSON-definitionen för en Azure Machine Learning länkad tjänst.
+Följande tabell innehåller beskrivningar av de egenskaper som används i Azure JSON-definitionen av en Azure Machine Learning-länkad tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| Typ |Egenskapen Type ska anges till: **azureml**. |Ja |
-| mlEndpoint |URL för batch-poäng. |Ja |
-| apiKey |Den publicerade arbets ytans modells API. |Ja |
+| Typ |Typegenskapen ska anges till: **AzureML**. |Ja |
+| mlEndpoint (mlEndpoint) |Url:en för batchbedömning. |Ja |
+| apiKey (apiKey) |Den publicerade arbetsytemodellens API. |Ja |
 
-#### <a name="json-example"></a>JSON-exempel
+#### <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -4959,25 +4959,25 @@ Följande tabell innehåller beskrivningar av egenskaperna som används i Azure 
 ```
 
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
-Du skapar en **Azure Data Lake Analytics** länkad tjänst för att länka en Azure Data Lake Analytics Compute-tjänst till en Azure-datafabrik innan du använder den [data Lake Analytics U-SQL-aktiviteten](data-factory-usql-activity.md) i en pipeline.
+Du skapar en **Azure Data Lake Analytics-länkad** tjänst för att länka en Azure Data Lake Analytics-beräkningstjänst till en Azure-datafabrik innan du använder Data Lake Analytics [U-SQL-aktiviteten](data-factory-usql-activity.md) i en pipeline.
 
 ### <a name="linked-service"></a>Länkad tjänst
 
-Följande tabell innehåller beskrivningar av egenskaperna som används i JSON-definitionen för en Azure Data Lake Analytics länkad tjänst.
+I följande tabell finns beskrivningar av de egenskaper som används i JSON-definitionen av en Azure Data Lake Analytics-länkad tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| Typ |Egenskapen Type ska anges till: **AzureDataLakeAnalytics**. |Ja |
-| kontonamn |Azure Data Lake Analytics konto namn. |Ja |
-| dataLakeAnalyticsUri |Azure Data Lake Analytics-URI. |Inga |
-| authorization |Auktoriseringskod hämtas automatiskt när du klickar på knappen **auktorisera** i Data Factory redigeraren och slutför OAuth-inloggningen. |Ja |
-| subscriptionId |ID för Azure-prenumeration |Nej (om inget anges används prenumerationen på data fabriken). |
-| resourceGroupName |Azure-resursgruppsnamn |Nej (om inget värde anges används resurs gruppen för data fabriken). |
-| sessionId |sessions-ID från OAuth-auktoriseringsbegäran. Varje sessions-ID är unikt och kan bara användas en gång. När du använder Data Factory redigeraren genereras detta ID automatiskt. |Ja |
+| Typ |Typegenskapen ska anges till: **AzureDataLakeAnalytics**. |Ja |
+| accountName |Azure Data Lake Analytics-kontonamn. |Ja |
+| dataLakeAnalyticsUri |Azure Data Lake Analytics URI. |Inga |
+| auktorisering |Auktoriseringskoden hämtas automatiskt efter att ha klickat på **knappen Auktorisera** i Data Factory Editor och slutfört OAuth-inloggningen. |Ja |
+| subscriptionId |Azure-prenumerations-ID |Nej (Om inget anges används prenumerationen på datafabriken). |
+| resourceGroupName |Azure-resursgruppsnamn |Nej (Om det inte anges används datafabrikens resursgrupp). |
+| Sessionid |sessions-ID från OAuth-auktoriseringssessionen. Varje sessions-ID är unikt och får endast användas en gång. När du använder Data Factory Editor genereras det här ID:et automatiskt. |Ja |
 
 
-#### <a name="json-example"></a>JSON-exempel
-I följande exempel finns en JSON-definition för en Azure Data Lake Analytics länkad tjänst.
+#### <a name="json-example"></a>JSON exempel
+I följande exempel innehåller JSON-definitionen för en Azure Data Lake Analytics-länkad tjänst.
 
 ```json
 {
@@ -4996,24 +4996,24 @@ I följande exempel finns en JSON-definition för en Azure Data Lake Analytics l
 }
 ```
 
-## <a name="sql-server-stored-procedure"></a>SQL Server lagrad procedur
+## <a name="sql-server-stored-procedure"></a>Lagrad SQL-server-procedur
 
-Du skapar en SQL Server länkad tjänst och använder den med den [lagrade procedur aktiviteten](data-factory-stored-proc-activity.md) för att anropa en lagrad procedur från en Data Factory pipeline.
+Du skapar en SQL Server-länkad tjänst och använder den med [den lagrade proceduraktiviteten](data-factory-stored-proc-activity.md) för att anropa en lagrad procedur från en Data Factory-pipeline.
 
 ### <a name="linked-service"></a>Länkad tjänst
-Du skapar en länkad tjänst av typen **OnPremisesSqlServer** för att länka en lokal SQL Server databas till en data fabrik. Följande tabell innehåller en beskrivning av JSON-element som är speciella för den lokala SQL Server länkade tjänsten.
+Du skapar en länkad tjänst av typen **OnPremisesSqlServer** för att länka en lokal SQL Server-databas till en datafabrik. I följande tabell beskrivs beskrivning av JSON-element som är specifika för den lokala SQL Server-länkade tjänsten.
 
-Följande tabell innehåller en beskrivning av JSON-element som är speciella för SQL Server länkade tjänsten.
+I följande tabell beskrivs beskrivning av JSON-element som är specifika för SQL Server-länkade tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type ska anges till: **OnPremisesSqlServer**. |Ja |
-| connectionString |Ange connectionString-information som krävs för att ansluta till den lokala SQL Server databasen med hjälp av SQL-autentisering eller Windows-autentisering. |Ja |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala SQL Servers databasen. |Ja |
-| användarnamn |Ange användar namn om du använder Windows-autentisering. Exempel: **domainname\\username**. |Inga |
-| password |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Inga |
+| Connectionstring |Ange anslutningStringsinformation som behövs för att ansluta till den lokala SQL Server-databasen med antingen SQL-autentisering eller Windows-autentisering. |Ja |
+| gatewayName (gatewayName) |Namnet på den gateway som tjänsten Data Factory ska använda för att ansluta till den lokala SQL Server-databasen. |Ja |
+| användarnamn |Ange användarnamn om du använder Windows-autentisering. Exempel: **användarnamn\\på domännamn**. |Inga |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Inga |
 
-Du kan kryptera autentiseringsuppgifter med cmdleten **New-AzDataFactoryEncryptValue** och använda dem i anslutnings strängen som visas i följande exempel (**EncryptedCredential** -egenskap):
+Du kan kryptera autentiseringsuppgifter med cmdleten **New-AzDataFactoryEncryptValue** och använda dem i anslutningssträngen enligt följande exempel (**Egenskapen EncryptedCredential):**
 
 ```JSON
 "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=True;EncryptedCredential=<encrypted credential>",
@@ -5036,7 +5036,7 @@ Du kan kryptera autentiseringsuppgifter med cmdleten **New-AzDataFactoryEncryptV
 ```
 #### <a name="example-json-for-using-windows-authentication"></a>Exempel: JSON för att använda Windows-autentisering
 
-Om användar namn och lösen ord anges använder Gateway dem för att personifiera det angivna användar kontot för att ansluta till den lokala SQL Server databasen. Annars ansluter gatewayen till SQL Server direkt med säkerhets kontexten för gatewayen (dess start konto).
+Om användarnamn och lösenord anges använder gatewayen dem för att personifiera det angivna användarkontot för att ansluta till den lokala SQL Server-databasen. Annars ansluter gatewayen till SQL Server direkt med säkerhetskontexten för Gateway (dess startkonto).
 
 ```json
 {
@@ -5053,36 +5053,36 @@ Om användar namn och lösen ord anges använder Gateway dem för att personifie
 }
 ```
 
-Mer information finns i artikeln [SQL Server Connector](data-factory-sqlserver-connector.md#linked-service-properties) .
+Mer information finns i [sql server-anslutningsartikel.](data-factory-sqlserver-connector.md#linked-service-properties)
 
-## <a name="data-transformation-activities"></a>DATA OMVANDLINGS AKTIVITETER
+## <a name="data-transformation-activities"></a>AKTIVITETER FÖR DATAOMVANDLING
 
 Aktivitet | Beskrivning
 -------- | -----------
-[HDInsight Hive-aktivitet](#hdinsight-hive-activity) | HDInsight Hive-aktiviteten i en Data Factory pipelinen kör Hive-frågor på ditt eget eller Windows/Linux-baserade HDInsight-kluster på begäran.
-[HDInsight gris-aktivitet](#hdinsight-pig-activity) | HDInsight gris-aktiviteten i en Data Factory pipeline kör gris-frågor på ditt eget eller Windows/Linux-baserade HDInsight-kluster på begäran.
-[HDInsight MapReduce-aktivitet](#hdinsight-mapreduce-activity) | HDInsight MapReduce-aktiviteten i en Data Factory pipeline kör MapReduce-program på ditt eget eller Windows/Linux-baserade HDInsight-kluster på begäran.
-[HDInsight-strömningsaktivitet](#hdinsight-streaming-activity) | HDInsight streaming-aktiviteten i en Data Factory pipeline kör Hadoop streaming-program på ditt eget eller Windows/Linux-baserade HDInsight-kluster på begäran.
-[HDInsight Spark-aktivitet](#hdinsight-spark-activity) | HDInsight Spark-aktiviteten i en Data Factory pipeline kör Spark-program i ditt eget HDInsight-kluster.
-[Machine Learning Batch-körningsaktivitet](#machine-learning-batch-execution-activity) | Med Azure Data Factory kan du enkelt skapa pipelines som använder en publicerad Azure Machine Learning webb tjänst för förutsägelse analys. Med hjälp av aktiviteten kör batch-körning i en Azure Data Factory pipeline kan du anropa en Machine Learning webb tjänst för att göra förutsägelser av data i batch.
-[Machine Learning-uppdateringsresursaktivitet](#machine-learning-update-resource-activity) | Med tiden måste förutsägande modeller i de Machine Learning bedömnings experimenten omtränas med nya data uppsättningar för indata. När du är färdig med omträningen vill du uppdatera bedömnings-webbtjänsten med den omarbetade Machine Learning modellen. Du kan använda aktiviteten uppdatera resurs för att uppdatera webb tjänsten med den nyligen utbildade modellen.
-[Lagrad proceduraktivitet](#stored-procedure-activity) | Du kan använda den lagrade procedur aktiviteten i en Data Factory pipeline för att anropa en lagrad procedur i något av följande data lager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server databas i ditt företag eller en virtuell Azure-dator.
-[Data Lake Analytics U-SQL-aktivitet](#data-lake-analytics-u-sql-activity) | Data Lake Analytics U-SQL-aktivitet kör ett U-SQL-skript i ett Azure Data Lake Analytics-kluster.
-[.NET-anpassad aktivitet](#net-custom-activity) | Om du behöver transformera data på ett sätt som inte stöds av Data Factory, kan du skapa en anpassad aktivitet med din egen data bearbetnings logik och använda aktiviteten i pipelinen. Du kan konfigurera den anpassade .NET-aktiviteten att köras med hjälp av antingen en Azure Batch tjänst eller ett Azure HDInsight-kluster.
+[HDInsight Hive-aktivitet](#hdinsight-hive-activity) | HDInsight Hive-aktiviteten i en Data Factory-pipeline kör Hive-frågor på ditt eget eller on-demand Windows/Linux-baserade HDInsight-kluster.
+[HDInsight Pig aktivitet](#hdinsight-pig-activity) | HDInsight Pig-aktiviteten i en Pipeline för datafabrik kör Grisfrågor på egen hand eller på begäran Windows/Linux-baserade HDInsight-kluster.
+[HDInsight MapReduce-aktivitet](#hdinsight-mapreduce-activity) | HDInsight MapReduce-aktiviteten i en Pipeline för Data Factory kör MapReduce-program på ditt eget eller on-demand Windows/Linux-baserade HDInsight-kluster.
+[HDInsight streamingaktivitet](#hdinsight-streaming-activity) | HDInsight Streaming Activity i en Pipeline för datafabrik kör Hadoop Streaming-program på ditt eget eller on-demand Windows/Linux-baserade HDInsight-kluster.
+[HDInsight Spark-aktivitet](#hdinsight-spark-activity) | HDInsight Spark-aktiviteten i en Pipeline för Data Factory kör Spark-program på ditt eget HDInsight-kluster.
+[Machine Learning Batch-körningsaktivitet](#machine-learning-batch-execution-activity) | Med Azure Data Factory kan du enkelt skapa pipelines som använder en publicerad Azure Machine Learning-webbtjänst för prediktiv analys. Med hjälp av batchkörningsaktiviteten i en Azure Data Factory-pipeline kan du anropa en Machine Learning-webbtjänst för att göra förutsägelser om data i batch.
+[Machine Learning-uppdateringsresursaktivitet](#machine-learning-update-resource-activity) | Med tiden måste de prediktiva modellerna i machine learning-bedömningsexperimenten omskolas med hjälp av nya indatauppsättningar. När du är klar med omskolningen vill du uppdatera bedömningswebbtjänsten med den omskolade Machine Learning-modellen. Du kan använda uppdatera resursaktivitet för att uppdatera webbtjänsten med den nyligen utbildade modellen.
+[Lagrad proceduraktivitet](#stored-procedure-activity) | Du kan använda aktiviteten Lagrad procedur i en Data Factory-pipeline för att anropa en lagrad procedur i något av följande datalager: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database i ditt företag eller en Azure VM.
+[U-SQL-aktivitet för DataSjöanalys](#data-lake-analytics-u-sql-activity) | U-SQL-aktivitet för DataSjöanalys kör ett U-SQL-skript i ett Azure Data Lake Analytics-kluster.
+[.NET-anpassad aktivitet](#net-custom-activity) | Om du behöver omvandla data på ett sätt som inte stöds av Data Factory kan du skapa en anpassad aktivitet med din egen databehandlingslogik och använda aktiviteten i pipelinen. Du kan konfigurera den anpassade .NET-aktiviteten så att den körs med antingen en Azure Batch-tjänst eller ett Azure HDInsight-kluster.
 
 
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive-aktivitet
-Du kan ange följande egenskaper i en JSON-definition för Hive-aktivitet. Egenskapen Type för aktiviteten måste vara: **HDInsightHive**. Du måste först skapa en länkad HDInsight-tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName** . Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till HDInsightHive:
+Du kan ange följande egenskaper i en Hive-aktivitets-JSON-definition. Egenskapen Type för aktiviteten måste vara: **HDInsightHive**. Du måste först skapa en HDInsight-länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName.** Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till HDInsightHive:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| -skriptet |Ange Hive-skriptet infogat |Inga |
-| scriptPath |Lagra Hive-skriptet i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Inga |
-| defines |Ange parametrar som nyckel/värde-par för referenser i Hive-skriptet med hjälp av "hiveconf" |Inga |
+| -skriptet |Ange inline-skriptet för Hive-skript |Inga |
+| skriptsökväg |Lagra Hive-skriptet i en Azure blob-lagring och ange sökvägen till filen. Använd egenskapen script eller 'scriptPath'. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Inga |
+| Definierar |Ange parametrar som nyckel-/värdepar för refererande i Hive-skriptet med hjälp av hiveconf |Inga |
 
-De här typ egenskaperna är speciella för Hive-aktiviteten. Andra egenskaper (utanför avsnittet typeProperties) stöds för alla aktiviteter.
+Dessa typegenskaper är specifika för Hive-aktiviteten. Andra egenskaper (utanför avsnittet typEgenskaper) stöds för alla aktiviteter.
 
-### <a name="json-example"></a>JSON-exempel
+### <a name="json-example"></a>JSON exempel
 Följande JSON definierar en HDInsight Hive-aktivitet i en pipeline.
 
 ```json
@@ -5115,20 +5115,20 @@ Följande JSON definierar en HDInsight Hive-aktivitet i en pipeline.
 }
 ```
 
-Mer information finns i artikeln om [Hive-aktivitet](data-factory-hive-activity.md) .
+Mer information finns i artikeln [Hive-aktivitet.](data-factory-hive-activity.md)
 
 ## <a name="hdinsight-pig-activity"></a>HDInsight-piggningsåtgärd
-Du kan ange följande egenskaper i en JSON-definition av gris-aktivitet. Egenskapen Type för aktiviteten måste vara: **HDInsightPig**. Du måste först skapa en länkad HDInsight-tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName** . Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till HDInsightPig:
+Du kan ange följande egenskaper i en JSON-definition för grisaktivitet. Egenskapen Type för aktiviteten måste vara: **HDInsightPig**. Du måste först skapa en HDInsight-länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName.** Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till HDInsightPig:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| -skriptet |Ange det infogade gris-skriptet |Inga |
-| scriptPath |Lagra ditt gris-skript i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Inga |
-| defines |Ange parametrar som nyckel/värde-par för referenser i gris-skriptet |Inga |
+| -skriptet |Ange inline för Pig-skript |Inga |
+| skriptsökväg |Lagra Pig-skriptet i en Azure blob-lagring och ange sökvägen till filen. Använd egenskapen script eller 'scriptPath'. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Inga |
+| Definierar |Ange parametrar som nyckel-/värdepar för refererande i pigskriptet |Inga |
 
-De här typ egenskaperna är speciella för aktiviteten gris. Andra egenskaper (utanför avsnittet typeProperties) stöds för alla aktiviteter.
+Dessa typegenskaper är specifika för grisaktiviteten. Andra egenskaper (utanför avsnittet typEgenskaper) stöds för alla aktiviteter.
 
-### <a name="json-example"></a>JSON-exempel
+### <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -5167,19 +5167,19 @@ De här typ egenskaperna är speciella för aktiviteten gris. Andra egenskaper (
 }
 ```
 
-Mer information finns i artikeln om aktivitet i gris.
+Mer information finns i artikeln Grisaktivitet.
 
 ## <a name="hdinsight-mapreduce-activity"></a>HDInsight MapReduce-aktivitet
-Du kan ange följande egenskaper i en JSON-definition för MapReduce-aktivitet. Egenskapen Type för aktiviteten måste vara: **HDInsightMapReduce**. Du måste först skapa en länkad HDInsight-tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName** . Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till HDInsightMapReduce:
+Du kan ange följande egenskaper i en MapReduce Activity JSON-definition. Egenskapen Type för aktiviteten måste vara: **HDInsightMapReduce**. Du måste först skapa en HDInsight-länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName.** Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till HDInsightMapReduce:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | jarLinkedService | Namnet på den länkade tjänsten för Azure Storage som innehåller JAR-filen. | Ja |
 | jarFilePath | Sökväg till JAR-filen i Azure Storage. | Ja |
-| className | Namnet på huvud klassen i JAR-filen. | Ja |
-| ogiltiga | En lista med kommaavgränsade argument för MapReduce-programmet. Vid körning ser du några extra argument (till exempel: MapReduce. job. Tags) från MapReduce-ramverket. Om du vill särskilja argumenten med MapReduce-argumenten kan du använda båda alternativen och värdet som argument, som du ser i följande exempel (-s,--output,--output osv., är alternativ omedelbart följt av deras värden) | Inga |
+| Classname | Namn på huvudklassen i JAR-filen. | Ja |
+| Argument | En lista med kommaavgränsade argument för MapReduce-programmet. Vid körning visas några extra argument (till exempel mapreduce.job.tags) från MapReduce-ramverket. Om du vill skilja dina argument med argumenten MapReduce kan du använda både alternativ och värde som argument som visas i följande exempel (-s, --input, --output etc., är alternativ som omedelbart följs av deras värden) | Inga |
 
-### <a name="json-example"></a>JSON-exempel
+### <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -5225,26 +5225,26 @@ Du kan ange följande egenskaper i en JSON-definition för MapReduce-aktivitet. 
 }
 ```
 
-Mer information finns i artikeln om [MapReduce-aktiviteter](data-factory-map-reduce.md) .
+Mer information finns i artikel [MapReduce Activity.](data-factory-map-reduce.md)
 
 ## <a name="hdinsight-streaming-activity"></a>HDInsight-strömningsaktivitet
-Du kan ange följande egenskaper i en JSON-definition för Hadoop streaming-aktivitet. Egenskapen Type för aktiviteten måste vara: **HDInsightStreaming**. Du måste först skapa en länkad HDInsight-tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName** . Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till HDInsightStreaming:
+Du kan ange följande egenskaper i en Hadoop Streaming Activity JSON-definition. Egenskapen Type för aktiviteten måste vara: **HDInsightStreaming**. Du måste först skapa en HDInsight-länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName.** Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till HDInsightStreaming:
 
 | Egenskap | Beskrivning |
 | --- | --- |
-| mappning | Namnet på den körbara filen för mapper. I exemplet är Cat. exe den körbara filen för mappning.|
-| minskning | Namn på den programbegränsande körbara filen. I exemplet är WC. exe den körbara filen för minskning av program varan. |
-| indata | Indatafil (inklusive plats) för mapper. I exemplet: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"`: adfsample är BLOB-behållaren, exempel/data/Gutenberg är mappen och DaVinci. txt är bloben. |
-| utdata | Utdatafil (inklusive plats) för minskningen. Utdata från Hadoop streaming-jobbet skrivs till den plats som angetts för den här egenskapen. |
-| filePaths | Sökvägar för mapparna mapper och reduce. I exemplet: "adfsample/example/Apps/WC. exe", adfsample är BLOB-behållaren, exempel/Apps är mappen och WC. exe är den körbara filen. |
-| fileLinkedService | Azure Storage länkad tjänst som representerar Azure Storage som innehåller filerna som anges i avsnittet fil Sök vägar. |
-| ogiltiga | En lista med kommaavgränsade argument för MapReduce-programmet. Vid körning ser du några extra argument (till exempel: MapReduce. job. Tags) från MapReduce-ramverket. Om du vill särskilja argumenten med MapReduce-argumenten kan du använda båda alternativen och värdet som argument, som du ser i följande exempel (-s,--output,--output osv., är alternativ omedelbart följt av deras värden) |
-| getDebugInfo | Ett valfritt element. När det är inställt på att Miss lyckas, hämtas loggarna bara vid ett haveri. När det är inställt på alla hämtas alltid loggar oavsett körnings status. |
+| Mapper | Namn på den körbara mapparen. I exemplet är cat.exe den körbara mapparen.|
+| Reducering | Namnet på den körbara reduceren. I exemplet är wc.exe den körbara reduceren. |
+| indata | Indatafil (inklusive plats) för mappern. I exemplet: `"wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt"`: adfsample är blob-behållaren, exempel/data/Gutenberg är mappen och davinci.txt är bloben. |
+| utdata | Utdatafil (inklusive plats) för reduceraren. Utdata för jobbet Hadoop Streaming skrivs till den plats som angetts för den här egenskapen. |
+| filePaths | Sökvägar för mapper och reducer körbara filer. I exemplet "adfsample/example/apps/wc.exe" är adfsample blob-behållaren, exempel/appar mappen och wc.exe är den körbara filen. |
+| fileLinkedService | Azure Storage-länkad tjänst som representerar Azure-lagring som innehåller de filer som anges i avsnittet filePaths. |
+| Argument | En lista med kommaavgränsade argument för MapReduce-programmet. Vid körning visas några extra argument (till exempel mapreduce.job.tags) från MapReduce-ramverket. Om du vill skilja dina argument med argumenten MapReduce kan du använda både alternativ och värde som argument som visas i följande exempel (-s, --input, --output etc., är alternativ som omedelbart följs av deras värden) |
+| getDebugInfo | Ett valfritt element. När den är inställd på Fel hämtas loggarna endast vid fel. När den är inställd på Alla hämtas loggar alltid oavsett körningsstatus. |
 
 > [!NOTE]
-> Du måste ange en data uppsättning för en data uppsättning för Hadoop streaming-aktiviteten för egenskapen **utdata** . Den här data uppsättningen kan vara en dummy-datauppsättning som krävs för att driva pipeline-schemat (varje timme, varje dag osv.). Om aktiviteten inte tar indata kan du hoppa över att ange en indata-datauppsättning för aktiviteten för egenskapen **Inputs** .
+> Du måste ange en utdatauppsättning för hadoop-direktuppspelningsaktiviteten för egenskapen **outputs.** Denna datauppsättning kan vara bara en dummy datauppsättning som krävs för att köra rörledningen schema (timme, dagligen, etc.). Om aktiviteten inte tar en indata kan du hoppa över att ange en indatauppsättning för aktiviteten för egenskapen **indata.**
 
-## <a name="json-example"></a>JSON-exempel
+## <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -5289,23 +5289,23 @@ Du kan ange följande egenskaper i en JSON-definition för Hadoop streaming-akti
 }
 ```
 
-Mer information finns i artikeln om [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md) .
+Mer information finns i artikeln [För Hadoop-strömningsaktivitet.](data-factory-hadoop-streaming-activity.md)
 
 ## <a name="hdinsight-spark-activity"></a>HDInsight Apache Spark-aktivitet
-Du kan ange följande egenskaper i en JSON-definition för Spark-aktivitet. Egenskapen Type för aktiviteten måste vara: **HDInsightSpark**. Du måste först skapa en länkad HDInsight-tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName** . Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till HDInsightSpark:
+Du kan ange följande egenskaper i en Spark Activity JSON-definition. Egenskapen Type för aktiviteten måste vara: **HDInsightSpark**. Du måste först skapa en HDInsight-länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName.** Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till HDInsightSpark:
 
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| rootPath | Azure Blob-behållaren och-mappen som innehåller Spark-filen. Fil namnet är Skift läges känsligt. | Ja |
+| rootPath (rotPath) | Azure Blob-behållaren och mappen som innehåller Spark-filen. Filnamnet är skiftlägeskänsligt. | Ja |
 | entryFilePath | Relativ sökväg till rotmappen för Spark-koden/-paketet. | Ja |
-| className | Programmets Java/Spark-huvud klass | Inga |
-| ogiltiga | En lista med kommando rads argument för Spark-programmet. | Inga |
-| proxyUser | Användar kontot som ska personifieras för att köra Spark-programmet | Inga |
-| sparkConfig | Konfigurations egenskaper för Spark. | Inga |
-| getDebugInfo | Anger när Spark-loggfilerna ska kopieras till Azure-lagringen som används av HDInsight-kluster (eller) som anges av sparkJobLinkedService. Tillåtna värden: ingen, Always eller Failure. Standardvärde: ingen. | Inga |
-| sparkJobLinkedService | Den länkade tjänsten Azure Storage som innehåller Spark-jobbets fil, beroenden och loggar.  Om du inte anger något värde för den här egenskapen används det lagrings utrymme som är associerat med HDInsight-kluster. | Inga |
+| Classname | Programmets huvudklass Java/Spark | Inga |
+| Argument | En lista med kommandoradsargument till Spark-programmet. | Inga |
+| proxyAnvändare | Användarkontot som personifieras för att köra Spark-programmet | Inga |
+| sparkConfig (på andra sätt) | Egenskaper för sparkkonfiguration. | Inga |
+| getDebugInfo | Anger när Spark-loggfilerna kopieras till Azure-lagring som används av HDInsight-kluster (eller) som anges av sparkJobLinkedService. Tillåtna värden: Inga, Alltid eller Fel. Standardvärde: Ingen. | Inga |
+| sparkJobLinkedService | Azure Storage-länkade tjänsten som innehåller Spark-jobbfilen, beroenden och loggar.  Om du inte anger något värde för den här egenskapen används lagringen som är associerad med HDInsight-klustret. | Inga |
 
-### <a name="json-example"></a>JSON-exempel
+### <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -5335,29 +5335,29 @@ Du kan ange följande egenskaper i en JSON-definition för Spark-aktivitet. Egen
 ```
 Observera följande punkter:
 
-- Egenskapen **Type** har angetts till **HDInsightSpark**.
-- **RootPath** är inställt på **adfspark\\pyFiles** där adfspark är Azure Blob-behållaren och pyFiles är en bra mapp i den behållaren. I det här exemplet är Azure-Blob Storage den som är associerad med Spark-klustret. Du kan överföra filen till en annan Azure Storage. Om du gör det skapar du en Azure Storage länkad tjänst för att länka lagrings kontot till data fabriken. Ange sedan namnet på den länkade tjänsten som ett värde för egenskapen **sparkJobLinkedService** . Se Spark-aktivitets egenskaper för information om den här egenskapen och andra egenskaper som stöds av Spark-aktiviteten.
-- **EntryFilePath** har angetts till **test.py**, som är python-filen.
-- **GetDebugInfo** -egenskapen är inställd på **Always**, vilket innebär att loggfilerna alltid genereras (lyckade eller misslyckade).
+- Egenskapen **Type** är inställd på **HDInsightSpark**.
+- **RootPath** är inställd på **adfspark\\pyFiles** där adfspark är Azure Blob-behållaren och pyFiles är fin mapp i den behållaren. I det här exemplet är Azure Blob Storage det som är associerat med Spark-klustret. Du kan ladda upp filen till en annan Azure Storage. Om du gör det skapar du en Azure Storage-länkad tjänst för att länka lagringskontot till datafabriken. Ange sedan namnet på den länkade tjänsten som ett värde för egenskapen **sparkJobLinkedService.** Se Egenskaper för Spark-aktivitet för information om den här egenskapen och andra egenskaper som stöds av Spark-aktiviteten.
+- **PostenFilePath** är inställd på **test.py**, som är python-filen.
+- Egenskapen **getDebugInfo** är inställd **på Alltid**, vilket innebär att loggfilerna alltid genereras (framgång eller misslyckande).
 
     > [!IMPORTANT]
-    > Vi rekommenderar att du inte anger den här egenskapen till alltid i en produktions miljö om du inte felsöker ett problem.
-- Avsnittet **utdata** har en data uppsättning för utdata. Du måste ange en data uppsättning för utdata även om Spark-programmet inte producerar några utdata. Den utgående data uppsättningen driver schemat för pipelinen (varje timme, varje dag osv.).
+    > Vi rekommenderar att du inte ställer in den här egenskapen till Alltid i en produktionsmiljö om du inte felsöker ett problem.
+- **Utdataavsnittet** har en utdatauppsättning. Du måste ange en utdatauppsättning även om spark-programmet inte ger någon utdata. Utdatauppsättningen driver schemat för pipelinen (timme, dag, etc.).
 
-Mer information om aktiviteten finns i artikeln om [Spark-aktivitet](data-factory-spark.md) .
+Mer information om aktiviteten finns i artikel [Spark Activity.](data-factory-spark.md)
 
-## <a name="machine-learning-batch-execution-activity"></a>Machine Learning-batchkörningsaktivitet
-Du kan ange följande egenskaper i en JSON-definition för batch körnings aktivitet i Azure Machine Learning Studio. Egenskapen Type för aktiviteten måste vara: **AzureMLBatchExecution**. Du måste först skapa en Azure Machine Learning länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName** . Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till AzureMLBatchExecution:
+## <a name="machine-learning-batch-execution-activity"></a>Machine Learning Batch-körningsaktivitet
+Du kan ange följande egenskaper i en Azure Machine Learning studio Batch Execution Activity JSON definition. Egenskapen type för aktiviteten måste vara: **AzureMLBatchExecution**. Du måste först skapa en Azure Machine Learning-länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName.** Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till AzureMLBatchExecution:
 
 Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
-webServiceInput | Data uppsättningen som ska skickas som indata för webb tjänsten för Azure Machine Learning Studio. Den här data uppsättningen måste också ingå i indata för aktiviteten. |Använd antingen WebServiceInputActivity eller webServiceInputs. |
-webServiceInputs | Ange data uppsättningar som ska skickas som indata för webb tjänsten Azure Machine Learning Studio. Om webb tjänsten tar flera indata använder du egenskapen webServiceInputs i stället för att använda egenskapen WebServiceInputActivity. Data uppsättningar som **webServiceInputs** refererar till måste också tas med i aktivitetens **indata**. | Använd antingen WebServiceInputActivity eller webServiceInputs. |
-webServiceOutputs | De data uppsättningar som har tilldelats som utdata för webb tjänsten Azure Machine Learning Studio. Webb tjänsten returnerar utdata från den här data uppsättningen. | Ja |
-Dublettparameternamnet | Ange värden för webb tjänst parametrarna i det här avsnittet. | Inga |
+webServiceInput | Den datauppsättning som ska skickas som en indata för webbtjänsten Azure Machine Learning studio. Denna datauppsättning måste också inkluderas i indata för aktiviteten. |Använd antingen webServiceInput eller webServiceInputs. |
+webServiceInputs | Ange datauppsättningar som ska skickas som indata för webbtjänsten Azure Machine Learning studio. Om webbtjänsten tar flera indata använder du egenskapen webServiceInputs i stället för att använda egenskapen webServiceInput. Datauppsättningar som refereras av **webServiceInputs** måste också **inkluderas**i indata för aktivitet . | Använd antingen webServiceInput eller webServiceInputs. |
+webServiceOutputs | De datauppsättningar som tilldelas som utdata för webbtjänsten Azure Machine Learning studio. Webbtjänsten returnerar utdata i den här datauppsättningen. | Ja |
+globalaParametrar | Ange värden för webbtjänstparametrarna i det här avsnittet. | Inga |
 
-### <a name="json-example"></a>JSON-exempel
-I det här exemplet har aktiviteten data uppsättningen **MLSqlInput** som indata och **MLSqlOutput** som utdata. **MLSqlInput** skickas som en inmatare till webb tjänsten med hjälp av JSON-egenskapen **WebServiceInputActivity** . **MLSqlOutput** skickas som utdata till webb tjänsten med hjälp av JSON-egenskapen **webServiceOutputs** .
+### <a name="json-example"></a>JSON exempel
+I det här exemplet har aktiviteten datauppsättningen **MLSqlInput** som indata och **MLSqlOutput** som utdata. **MLSqlInput** skickas som en indata till webbtjänsten med hjälp av egenskapen **webServiceInput** JSON. **MLSqlOutput** skickas som en utdata till webbtjänsten med hjälp av egenskapen **webServiceOutputs** JSON.
 
 ```json
 {
@@ -5397,21 +5397,21 @@ I det här exemplet har aktiviteten data uppsättningen **MLSqlInput** som indat
 }
 ```
 
-I JSON-exemplet använder den distribuerade Azure Machine Learning-webbtjänsten en läsare och en Writer-modul för att läsa/skriva data från/till en Azure SQL Database. Den här webb tjänsten exponerar följande fyra parametrar: databas server namn, databas namn, konto namn för Server användare och lösen ord för användar konto för Server.
+I JSON-exemplet använder den distribuerade Azure Machine Learning-webbtjänsten en läsare och en skrivmodul för att läsa/skriva data från/till en Azure SQL-databas. Den här webbtjänsten visar följande fyra parametrar: Databasservernamn, Databasnamn, Server-användarkontonamn och Server-användarkontolösenord.
 
 > [!NOTE]
-> Endast indata och utdata för AzureMLBatchExecution-aktiviteten kan skickas som parametrar till webb tjänsten. I ovanstående JSON-kodfragment är MLSqlInput till exempel inpasset i AzureMLBatchExecution-aktiviteten, som skickas som en indatamängd till webb tjänsten via WebServiceInputActivity-parametern.
+> Endast indata och utdata för AzureMLBatchExecution-aktiviteten kan skickas som parametrar till webbtjänsten. I ovanstående JSON-kodavsnitt är MLSqlInput till exempel en indata till AzureMLBatchExecution-aktiviteten, som skickas som en indata till webbtjänsten via parametern webServiceInput.
 
 ## <a name="machine-learning-update-resource-activity"></a>Machine Learning-uppdateringsresursaktivitet
-Du kan ange följande egenskaper i en Azure Machine Learning Studio-JSON-definition för resurs aktivitet. Egenskapen Type för aktiviteten måste vara: **AzureMLUpdateResource**. Du måste först skapa en Azure Machine Learning länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName** . Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till AzureMLUpdateResource:
+Du kan ange följande egenskaper i en Azure Machine Learning studio Update Resource Activity JSON definition. Egenskapen type för aktiviteten måste vara: **AzureMLUpdateResource**. Du måste först skapa en Azure Machine Learning-länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName.** Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till AzureMLUpdateResource:
 
 Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
-trainedModelName | Namnet på den omtränade modellen. | Ja |
-trainedModelDatasetName | Data uppsättningen pekar på den iLearner-fil som returnerades av omträningen. | Ja |
+tränatModelName | Namnet på den omskolade modellen. | Ja |
+tränatModelDatasetName | Datauppsättning som pekar på iLearner-filen som returneras av omskolningsåtgärden. | Ja |
 
-### <a name="json-example"></a>JSON-exempel
-Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource**. Batch-körningen i Azure Machine Learning Studio använder tränings data som indata och skapar en iLearner-fil som utdata. Aktiviteten anropar webb tjänsten utbildning (inlärnings experiment som visas som en webb tjänst) med indata och tar emot ilearner-filen från webb tjänsten. PlaceholderBlob är bara en data uppsättning för en dummy-datauppsättning som krävs av Azure Data Factorys tjänsten för att köra pipelinen.
+### <a name="json-example"></a>JSON exempel
+Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource**. Azure Machine Learning studio Batch Execution-aktiviteten tar utbildningsdata som indata och producerar en iLearner-fil som en utdata. Aktiviteten anropar utbildningswebbtjänsten (utbildningsexperiment exponeras som en webbtjänst) med indatautbildningsdata och tar emot ilearnerfilen från webbtjänsten. PlatshållarenBlob är bara en dummy utdatauppsättning som krävs av Azure Data Factory-tjänsten för att köra pipelinen.
 
 
 ```json
@@ -5470,18 +5470,18 @@ Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateRes
 ```
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL-aktivitet
-Du kan ange följande egenskaper i en JSON-definition för U-SQL-aktivitet. Egenskapen Type för aktiviteten måste vara: **DataLakeAnalyticsU-SQL**. Du måste skapa en Azure Data Lake Analytics länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName** . Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till DATALAKEANALYTICSU-SQL:
+Du kan ange följande egenskaper i en U-SQL Activity JSON-definition. Egenskapen type för aktiviteten måste vara: **DataLakeAnalyticsU-SQL**. Du måste skapa en Azure Data Lake Analytics-länkad tjänst och ange namnet på den som ett värde för egenskapen **linkedServiceName.** Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till DataLakeAnalyticsU-SQL:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| scriptPath |Sökväg till mapp som innehåller U-SQL-skriptet. Filens namn är Skift läges känsligt. |Nej (om du använder skript) |
-| scriptLinkedService |Länkad tjänst som länkar det lagrings utrymme som innehåller skriptet till data fabriken |Nej (om du använder skript) |
-| -skriptet |Ange infogat skript i stället för att ange scriptPath och scriptLinkedService. Exempel: "skript": "skapa databas test". |Nej (om du använder scriptPath och scriptLinkedService) |
-| degreeOfParallelism |Det maximala antalet noder som används samtidigt för att köra jobbet. |Inga |
-| prioritet |Bestämmer vilka jobb som inte är i kö som ska väljas för att köras först. Ju lägre siffra, desto högre prioritet. |Inga |
+| scriptPath |Sökväg till mapp som innehåller U-SQL-skriptet. Filens namn är skiftlägeskänsligt. |Nej (om du använder skript) |
+| scriptLinkedService |Länkad tjänst som länkar lagringen som innehåller skriptet till datafabriken |Nej (om du använder skript) |
+| -skriptet |Ange infogade skript i stället för att ange scriptPath och scriptLinkedService. Till exempel: "script": "CREATE DATABASE test". |Nej (om du använder scriptPath och scriptLinkedService) |
+| gradAvParallelism |Det maximala antalet noder som används samtidigt för att köra jobbet. |Inga |
+| prioritet |Avgör vilka jobb av alla som står i kö för att köras först. Ju lägre siffra, desto högre prioritet. |Inga |
 | parameters |Parametrar för U-SQL-skriptet |Inga |
 
-### <a name="json-example"></a>JSON-exempel
+### <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -5534,27 +5534,27 @@ Du kan ange följande egenskaper i en JSON-definition för U-SQL-aktivitet. Egen
 }
 ```
 
-Mer information finns i [data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md).
+Mer information finns i [Data Lake Analytics U-SQL Activity](data-factory-usql-activity.md).
 
 ## <a name="stored-procedure-activity"></a>Lagrad proceduraktivitet
-Du kan ange följande egenskaper i en JSON-definition för en lagrad procedur aktivitet. Egenskapen Type för aktiviteten måste vara: **SqlServerStoredProcedure**. Du måste skapa en av följande länkade tjänster och ange namnet på den länkade tjänsten som ett värde för egenskapen **linkedServiceName** :
+Du kan ange följande egenskaper i en JSON-definition för lagrad proceduraktivitet. Egenskapen Type för aktiviteten måste vara: **SqlServerStoredProcedure**. Du måste skapa en av följande länkade tjänster och ange namnet på den länkade tjänsten som ett värde för egenskapen **linkedServiceName:**
 
 - SQL Server
 - Azure SQL Database
 - Azure SQL Data Warehouse
 
-Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till SqlServerStoredProcedure:
+Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till SqlServerStoredProcedure:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL-databasen eller Azure SQL Data Warehouse som representeras av den länkade tjänsten som används i utdatatabellen. |Ja |
-| storedProcedureParameters |Ange värden för parametrar för lagrad procedur. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). I följande exempel hittar du information om hur du använder den här egenskapen. |Inga |
+| storedProcedureName |Ange namnet på den lagrade proceduren i Azure SQL-databasen eller Azure SQL Data Warehouse som representeras av den länkade tjänst som utdatatabellen använder. |Ja |
+| storedProcedureParameters |Ange värden för parametrar för lagrade procedurer. Om du behöver skicka null för en parameter använder du syntaxen: "param1": null (alla gemener). Läs följande exempel om du vill veta mer om hur du använder den här egenskapen. |Inga |
 
-Om du anger en indata-datauppsättning måste den vara tillgänglig (i klar status) för att den lagrade procedur aktiviteten ska kunna köras. Det går inte att konsumera indata-dataset i den lagrade proceduren som en parameter. Den används endast för att kontrol lera beroendet innan den lagrade procedur aktiviteten startas. Du måste ange en data uppsättning för utdata för en lagrad procedur aktivitet.
+Om du anger en indatauppsättning måste den vara tillgänglig (i "Klar"-status) för att den lagrade proceduraktiviteten ska kunna köras. Indatauppsättningen kan inte förbrukas i den lagrade proceduren som en parameter. Det används bara för att kontrollera beroendet innan du startar den lagrade proceduraktiviteten. Du måste ange en utdatauppsättning för en lagrad proceduraktivitet.
 
-Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad procedur (varje timme, varje vecka, varje månad osv.). Data uppsättningen för utdata måste använda en **länkad tjänst** som refererar till en Azure SQL Database eller en Azure SQL Data Warehouse eller en SQL Server databas där du vill att den lagrade proceduren ska köras. Data uppsättningen för utdata kan fungera som ett sätt att skicka resultatet av den lagrade proceduren för efterföljande bearbetning av en annan aktivitet ([länkning av aktiviteter](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) i pipelinen. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här data uppsättningen. Det är den lagrade proceduren som skriver till en SQL-tabell som den resulterande data uppsättningen pekar på. I vissa fall kan data uppsättningen för utdata vara en **dummy-datauppsättning**, som endast används för att ange schemat för körning av den lagrade procedur aktiviteten.
+Utdatauppsättningen anger **schemat** för den lagrade proceduraktiviteten (timme, vecka, månad osv.). Utdatauppsättningen måste använda en **länkad tjänst** som refererar till en Azure SQL-databas eller en Azure SQL Data Warehouse eller en SQL Server-databas där du vill att den lagrade proceduren ska köras. Utdatauppsättningen kan fungera som ett sätt att överföra resultatet av det lagrade förfarandet för efterföljande bearbetning av en annan aktivitet[(kedjeaktiviteter)](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)på gång. Data Factory skriver dock inte automatiskt utdata från en lagrad procedur till den här datauppsättningen. Det är den lagrade proceduren som skrivs till en SQL-tabell som utdatauppsättningen pekar på. I vissa fall kan utdatauppsättningen vara en **dummy-datauppsättning**, som endast används för att ange schemat för att köra den lagrade proceduraktiviteten.
 
-### <a name="json-example"></a>JSON-exempel
+### <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -5580,20 +5580,20 @@ Data uppsättningen för utdata anger **schemat** för aktiviteten för lagrad p
 }
 ```
 
-Mer information finns i artikeln om [lagrade procedur aktiviteter](data-factory-stored-proc-activity.md) .
+Mer information finns i artikeln [Lagrad proceduraktivitet.](data-factory-stored-proc-activity.md)
 
 ## <a name="net-custom-activity"></a>.NET-anpassad aktivitet
-Du kan ange följande egenskaper i en JSON-definition för anpassade aktiviteter i .NET. Egenskapen Type för aktiviteten måste vara: **DotNetActivity**. Du måste skapa en länkad Azure HDInsight-tjänst eller en Azure Batch länkad tjänst och ange namnet på den länkade tjänsten som ett värde för egenskapen **linkedServiceName** . Följande egenskaper stöds i avsnittet **typeProperties** när du ställer in typen av aktivitet till DotNetActivity:
+Du kan ange följande egenskaper i en .NET-anpassad aktivitet JSON-definition. Egenskapen type för aktiviteten måste vara: **DotNetActivity**. Du måste skapa en Azure HDInsight-länkad tjänst eller en Azure Batch-länkad tjänst och ange namnet på den länkade tjänsten som ett värde för egenskapen **linkedServiceName.** Följande egenskaper stöds i avsnittet **typeProperties** när du anger typen av aktivitet till DotNetActivity:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| AssemblyName | Sammansättningens namn. I exemplet är det: **MyDotnetActivity. dll**. | Ja |
-| EntryPoint |Namnet på den klass som implementerar IDotNetActivity-gränssnittet. I exemplet är det: **MyDotNetActivityNS. MyDotNetActivity** där MyDotNetActivityNS är namn området och MyDotNetActivity är klassen.  | Ja |
-| PackageLinkedService | Namnet på den länkade tjänsten Azure Storage som pekar på blob-lagringen som innehåller zip-filen för den anpassade aktiviteten. I exemplet är det: **AzureStorageLinkedService**.| Ja |
-| PackageFile | Namnet på zip-filen. I exemplet är det: **customactivitycontainer/MyDotNetActivity. zip**. | Ja |
-| extendedProperties | Utökade egenskaper som du kan definiera och skicka till .NET-koden. I det här exemplet anges variabeln **SliceStart** till ett värde baserat på system variabeln SliceStart. | Inga |
+| AssemblyName (Monteringsnamn) | Namn på sammansättningen. I exemplet är det: **MyDotnetActivity.dll**. | Ja |
+| EntryPoint |Namn på den klass som implementerar gränssnittet IDotNetActivity. I exemplet är det: **MyDotNetActivityNS.MyDotNetActivity** där MyDotNetActivityNS är namnområdet och MyDotNetActivity är klassen.  | Ja |
+| PackageLinkedService | Namnet på den Azure Storage-länkade tjänst som pekar på blob-lagringen som innehåller den anpassade zip-filen för aktivitet. I exemplet är det: **AzureStorageLinkedService**.| Ja |
+| PackageFile | Namnet på zip-filen. I exemplet är det: **customactivitycontainer/MyDotNetActivity.zip**. | Ja |
+| extendedProperties | Utökade egenskaper som du kan definiera och vidarebefordra till .NET-koden. I det här exemplet är **segmentstartvariabeln** inställd på ett värde baserat på systemvariabeln SegmentStart. | Inga |
 
-### <a name="json-example"></a>JSON-exempel
+### <a name="json-example"></a>JSON exempel
 
 ```json
 {
@@ -5640,10 +5640,10 @@ Du kan ange följande egenskaper i en JSON-definition för anpassade aktiviteter
 }
 ```
 
-Detaljerad information finns [i använda anpassade aktiviteter i Data Factory](data-factory-use-custom-activities.md) artikel.
+Detaljerad information finns [i Använda anpassade aktiviteter i datafabrikens](data-factory-use-custom-activities.md) artikel.
 
 ## <a name="next-steps"></a>Efterföljande moment
 Se följande självstudiekurser:
 
-- [Självstudie: skapa en pipeline med en kopierings aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-- [Självstudie: skapa en pipeline med en Hive-aktivitet](data-factory-build-your-first-pipeline.md)
+- [Självstudiekurs: skapa en pipeline med en kopieringsaktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Självstudiekurs: skapa en pipeline med en hive-aktivitet](data-factory-build-your-first-pipeline.md)

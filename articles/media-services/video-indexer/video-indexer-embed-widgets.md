@@ -1,128 +1,131 @@
 ---
-title: Bädda in Video Indexer widgetar i dina program
+title: Bädda in videoindexeringswidgetar i dina appar
 titleSuffix: Azure Media Services
-description: Den här artikeln visar hur du bäddar in Azure Media Services Video Indexer widgetar i ditt program.
+description: Läs om hur du bäddar in videoindexeringswidgetar i dina appar.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: ed3e2cf9830e3776886e662fd27f43f76728d6b2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4d92bd3709c5f56db0095ca1be2caa0e9c78b42f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988727"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336823"
 ---
-# <a name="embed-video-indexer-widgets-in-your-applications"></a>Bädda in Video Indexer widgetar i dina program
+# <a name="embed-video-indexer-widgets-in-your-apps"></a>Bädda in videoindexeringswidgetar i dina appar
 
-Den här artikeln visar hur du kan bädda in Video Indexer widgetar i dina program. Video Indexer stöder inbäddning av tre typer av widgetar i ditt program: *kognitiva insikter*, *spelare*och *redigerare*. 
+Den här artikeln visar hur du kan bädda in videoindexeringswidgetar i dina appar. Video Indexer stöder inbäddning av tre typer av widgetar i dina appar: *Cognitive Insights*, *Player*och *Editor*.
 
-Från och med version 2 innehåller widgeten bas-URL den region där det angivna kontot finns. Ett konto i regionen Västra USA genererar till exempel: `https://wus2.videoindexer.ai/embed/insights/...`.
+Från och med version 2 innehåller widgetbasadressen regionen för det angivna kontot. Ett konto i regionen Västra USA genererar `https://wus2.videoindexer.ai/embed/insights/...`till exempel: .
 
 ## <a name="widget-types"></a>Widgettyper
 
 ### <a name="cognitive-insights-widget"></a>Insiktswidget
 
-En kognitiv Insights-widget innehåller alla visuella insikter som har extraherats från video indexerings processen. Widgeten kognitiv Insights stöder följande valfria URL-parametrar.
+En insiktswidget innehåller alla visuella insikter som extraherades från videoindexeringsprocessen. Widgeten Cognitive Insights stöder följande valfria URL-parametrar:
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|`widgets`|Strängar avgränsade med kommatecken|Gör att du kan styra de insikter som du vill återge. <br/> Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` återger endast personer och varumärke UI-insikter.<br/>Tillgängliga alternativ: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Observera att parametern `widgets` URL inte stöds i version 2.<br/>|
-|`locale`|En kort språkkod|Styr insikter-språket. Standardvärdet är `en`. <br/> Exempel: `locale=de`.|
-|`tab`|Den valda fliken standard|Styr fliken **insikter** som återges som standard. <br/> Exempel: `tab=timeline` återger insikterna med fliken **tids linje** vald.|
+|`widgets` | Strängar avgränsade med kommatecken | Gör att du kan styra de insikter som du vill återge.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` återger endast personer och nyckelord användargränssnittsstatistik.<br/>Tillgängliga alternativ: personer, animeradeegenskaper , nyckelord, etiketter, känslor, känslor, ämnen, nyckelrutor, avskrift, ocr, högtalare, scener och namngivna Entiteter.|
+|`controls`|Strängar avgränsade med kommatecken|Gör att du kan styra de kontroller som du vill återge.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` återger bara sökalternativet och nedladdningsknappen.<br/>Tillgängliga alternativ: sök, ladda ner, förinställningar, språk.|
+|`language`|En kort språkkod (språknamn)|Styr statistikspråket.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>Eller`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
+|`locale` | En kort språkkod | Styr språket i användargränssnittet. Standardvärdet är `en`. <br/>Exempel: `locale=de`.|
+|`tab` | Den markerade standardfliken | Styr fliken **Insikter** som återges som standard. <br/>Exempel: `tab=timeline` återger insikterna med fliken **Tidslinje** markerad.|
 
 ### <a name="player-widget"></a>Spelarwidget
 
-Du kan använda Player-widgeten för att strömma video med hjälp av anpassningsbar bit hastighet. Widgeten Player stöder följande valfria URL-parametrar.
+Du kan använda widgeten Player för att strömma video med hjälp av adaptiv bithastighet. Widgeten Player stöder följande valfria URL-parametrar.
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|`t`|Sekunder från start|Gör att spelaren startar uppspelningen från den angivna tids punkten.<br/> Exempel: `t=60`.|
-|`captions`|En språkkod|Hämtar texten på det angivna språket när widget inläsningen ska vara tillgänglig på menyn under **texter** .<br/> Exempel: `captions=en-US`.|
-|`showCaptions`|Ett booleskt värde|Gör att spelaren läses in med aktiverad textning.<br/> Exempel: `showCaptions=true`.|
-|`type`||Aktiverar ett ljuds pelar skal (video delen tas bort).<br/> Exempel: `type=audio`.|
-|`autoplay`|Ett booleskt värde|Anger om spelaren ska börja spela upp videon vid inläsning. Standardvärdet är `true`.<br/> Exempel: `autoplay=false`.|
-|`language`|En språkkod|Kontrollerar Player-språket. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`.|
+|`t` | Sekunder från början | Gör att spelaren börjar spela från den angivna tidpunkten.<br/> Exempel: `t=60`. |
+|`captions` | En språkkod | Hämtar bildtexten på det angivna språket under den inläsning av widgeten som ska vara tillgänglig på **menyn Bildtexter.**<br/> Exempel: `captions=en-US`. |
+|`showCaptions` | Ett booleskt värde | Gör att spelaren läses in med aktiverad textning.<br/> Exempel: `showCaptions=true`. |
+|`type`| | Aktiverar ett ljudspelarskal (videodelen tas bort).<br/> Exempel: `type=audio`. |
+|`autoplay` | Ett booleskt värde | Anger om spelaren ska börja spela upp videon när den läses in. Standardvärdet är `true`.<br/> Exempel: `autoplay=false`. |
+|`language` | En språkkod | Styr spelarens språk. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`.|
 
-### <a name="editor-widget"></a>Editor-widget
+### <a name="editor-widget"></a>Widgeten Redigerare
 
-Du kan använda Editor-widgeten för att skapa nya projekt och hantera video insikter. Editor-widgeten stöder följande valfria URL-parametrar.
+Du kan använda widgeten Redigerare för att skapa nya projekt och hantera en videos insikter. Widgeten Redigerare stöder följande valfria URL-parametrar.
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|`accessToken`<sup>*</sup>|String|Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Editor kräver parametern `accessToken`.|
-|`language`|En språkkod|Kontrollerar Player-språket. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`.|
-|`locale`|En kort språkkod|Styr insikter-språket. Standardvärdet är `en`.<br/>Exempel: `language=de`.|
+|`accessToken`<sup>*</sup> | String | Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Redigerare `accessToken` kräver parametern. |
+|`language` | En språkkod | Styr spelarens språk. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`. |
+|`locale` | En kort språkkod | Styr statistikspråket. Standardvärdet är `en`.<br/>Exempel: `language=de`. |
 
-<sup>*</sup> Ägaren bör ge `accessToken` med försiktighet.
+<sup>*</sup>Ägaren bör `accessToken` vara försiktig.
 
 ## <a name="embedding-public-content"></a>Bädda in offentligt innehåll
 
-1. Logga in på [video Indexer](https://www.videoindexer.ai/) webbplats.
+1. Logga in på [videoindexerarens](https://www.videoindexer.ai/) webbplats.
 2. Välj den video som du vill arbeta med.
-3. Välj knappen **bädda in** som visas under videon.
+3. Välj knappen **Bädda in** som visas under videon.
 
-    ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
+    ![Knappen Bädda in i Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
-    När du har valt knappen **bädda** in kan du välja den widget som du vill bädda in i programmet. 
-4. Välj vilken typ av widget du vill ha (**kognitiva insikter**, **spelare**eller **redigerare**).
+    När du har valt knappen **Bädda in** kan du välja den widget som du vill bädda in i appen.
+4. Välj den typ av widget som du vill använda (**Kognitiva insikter**, **Spelare**eller **Redigerare**).
  
-5. Kopiera inbäddnings koden och Lägg sedan till den i programmet. 
+5. Kopiera inbäddningskoden och lägg sedan till den i appen.
 
-    ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
+    ![Bädda in kod för appen – Video Indexer](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> Om du har problem med att dela dina video-URL: er lägger du till `location`-parametern till länken. Parametern ska vara inställd på de [Azure-regioner där video Indexer finns](regions.md). Till exempel: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> Om du har problem med att `location` dela dina videoadresser lägger du till parametern i länken. Parametern ska anges till [Azure-regioner där Video Indexer finns](regions.md). Till exempel: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 ## <a name="embedding-private-content"></a>Bädda in privat innehåll
 
-Om du vill bädda in en privat video måste du skicka en åtkomsttoken i attributet **src** i iframe:
+Om du vill bädda in en privat `src` video måste du skicka en åtkomsttoken i attributet för iframe:
 
 `https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>`
     
-Använd något av följande för att hämta innehåll för kognitiva Insights-widgeten:<br/>
-- API för [Get Insights-widgeten](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) .<br/>
-- [Hämta video åtkomst-token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Lägg till den som en frågeparameter till URL: en. Ange den här URL: en som **src** -värde för iframe, som visas ovan.
+Använd någon av följande metoder för att hämta widgeten Cognitive Insights:
 
-Om du vill ge redigerings funktioner för insikter i din inbäddade widget måste du skicka en åtkomsttoken som innehåller redigerings behörigheter. Använd [Get Insights-widgeten](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) eller [Hämta video åtkomst-token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) med `&allowEdit=true`. 
+- [Api:et för widgeten Hämta statistik.](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget)<br/>
+- [Token för hämta videoåtkomst](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Lägg till den som frågeparameter i URL:en. Ange den här `src` URL:en som värde för iframe, som tidigare visats.
+
+Om du vill tillhandahålla redigeringsstatistikfunktioner i den inbäddade widgeten måste du skicka en åtkomsttoken som innehåller redigeringsbehörigheter. Använd [Widgeten Hämta statistik](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) eller hämta [videoåtkomsttoken](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) med `&allowEdit=true`.
 
 ## <a name="widgets-interaction"></a>Interaktion med widgetar
 
-Widgeten kognitiv Insights kan interagera med en video i ditt program. Det här avsnittet visar hur du uppnår den här interaktionen.
+Widgeten Cognitive Insights kan interagera med en video i din app. Det här avsnittet visar hur du uppnår den här interaktionen.
 
-![Widget](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+![Widget videoindexeraren videoindexerare för kognitiva insikter](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
 
 ### <a name="cross-origin-communications"></a>Kommunikation mellan ursprung
 
-För att få Video Indexer widgetar för att kommunicera med andra komponenter, Video Indexer-tjänsten:
+Så här hämtar du videoindexeringswidgetar för att kommunicera med andra komponenter:
 
-- Använder metoden för kommunikation med cross-origin-metoden **postMessage**. 
-- Verifierar meddelandet utifrån VideoIndexer.ai-ursprung. 
+- Använder html5-metoden `postMessage`för kommunikation med flera ursprung .
+- Verifierar meddelandet utifrån VideoIndexer.ai-ursprung.
 
-Om du implementerar din egen Player-kod och integrerar med kognitiv Insights-widget är det ditt ansvar att verifiera ursprunget för meddelandet som kommer från VideoIndexer.ai.
+Om du implementerar din egen spelarkod och integrerar med widgetar för Cognitive Insights är det ditt ansvar att validera ursprunget för meddelandet som kommer från VideoIndexer.ai.
 
-### <a name="embed-widgets-in-your-application-or-blog-recommended"></a>Bädda in widgetar i programmet eller bloggen (rekommenderas) 
+### <a name="embed-widgets-in-your-app-or-blog-recommended"></a>Bädda in widgetar i appen eller bloggen (rekommenderas)
 
-I det här avsnittet visas hur du uppnår interaktionen mellan två Video Indexer-widgetar, så att spelaren hoppar till relevant tidpunkt när en användare väljer kontrollen Insight i programmet.
+Det här avsnittet visar hur du uppnår interaktion mellan två videoindexeringswidgetar så att när en användare väljer insiktskontrollen i din app hoppar spelaren till det relevanta ögonblicket.
 
-1. Kopiera inbäddnings koden för widgeten för Player.
-2. Kopiera inbäddnings koden för kognitiv Insights.
-3. Lägg till [Mediator-filen](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) för att hantera kommunikationen mellan de två widgetarna:<br/> 
+1. Kopiera inbäddningskoden för spelarwidgeten.
+2. Kopiera inbäddningskoden för insiktswidgeten.
+3. Lägg till [medlarfilen](https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js) för att hantera kommunikationen mellan de två widgetarna:<br/> 
 `<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
-Nu när en användare väljer kontrollen Insight i programmet, hoppar spelaren till relevant stund.
+Nu när en användare väljer insiktskontroll på din app hoppar spelaren till det relevanta ögonblicket.
 
-Mer information finns i [demonstrationen av video Indexer-bädda in båda widgetarna](https://codepen.io/videoindexer/pen/NzJeOb).
+Mer information finns i [demoen Video Indexer - Embed both Widgets](https://codepen.io/videoindexer/pen/NzJeOb).
 
 ### <a name="embed-the-cognitive-insights-widget-and-use-azure-media-player-to-play-the-content"></a>Bädda in insiktswidgeten och använda Azure Media Player för att spela upp innehållet
 
-I det här avsnittet visas hur du uppnår interaktionen mellan en kognitiv Insights-widget och en Azure Media Player-instans med hjälp av [amp-plugin-programmet](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
- 
-1. Lägg till ett Video Indexer-plugin-program för AMP Player:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
+Det här avsnittet visar hur du uppnår interaktion mellan widgeten Cognitive Insights och en Azure Media Player-instans med hjälp av [AMP-plugin-programmet](https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js).
+
+1. Lägg till ett plugin-program för videoindexering för AMP-spelaren:<br/> `<script src="https://breakdown.blob.core.windows.net/public/amp-vb.plugin.js"></script>`
 2. Instansiera Azure Media Player med plugin-programmet Video Indexer.
 
         // Init the source.
@@ -167,19 +170,19 @@ I det här avsnittet visas hur du uppnår interaktionen mellan en kognitiv Insig
             initSource.call(this);
         });
 
-3. Kopiera inbäddnings koden för kognitiv Insights.
+3. Kopiera inbäddningskoden för insiktswidgeten.
 
-Nu bör du kunna kommunicera med Azure Media Player.
+Du kan nu kommunicera med Azure Media Player.
 
-Mer information finns i [demonstrationen Azure Media Player + vi Insights](https://codepen.io/videoindexer/pen/rYONrO).
+Mer information finns i [demoen Azure Media Player + VI Insights](https://codepen.io/videoindexer/pen/rYONrO).
 
-### <a name="embed-the-video-indexer-cognitive-insights-widget-and-use-a-different-video-player"></a>Bädda in widgeten Video Indexer kognitiva insikter och Använd en annan Videos pelare
+### <a name="embed-the-video-indexer-cognitive-insights-widget-and-use-a-different-video-player"></a>Bädda in widgeten Video Indexer Cognitive Insights och använd en annan videospelare
 
-Om du använder en annan Videos pelare än Azure Media Player måste du manuellt ändra Videos pelaren för att uppnå kommunikationen. 
+Om du använder en annan videospelare än Azure Media Player måste du manuellt manipulera videospelaren för att uppnå kommunikationen.
 
 1. Infoga videospelaren.
 
-    Till exempel en standard HTML5-spelare:
+    Till exempel en vanlig HTML5-spelare:
 
         <video id="vid1" width="640" height="360" controls autoplay preload>
            <source src="//breakdown.blob.core.windows.net/public/Microsoft%20HoloLens-%20RoboRaid.mp4" type="video/mp4" /> 
@@ -218,27 +221,27 @@ Om du använder en annan Videos pelare än Azure Media Player måste du manuellt
         
         </script>
 
-Mer information finns i [demonstrationen Azure Media Player + vi Insights](https://codepen.io/videoindexer/pen/YEyPLd).
+Mer information finns i [demoen Azure Media Player + VI Insights](https://codepen.io/videoindexer/pen/YEyPLd).
 
 ## <a name="adding-subtitles"></a>Lägga till undertexter
 
-Om du bäddar in Video Indexer insikter med dina egna [Azure Media Player](https://aka.ms/azuremediaplayer)kan du använda **GetVttUrl** -metoden för att hämta textning (under texter). Du kan också anropa en JavaScript-metod från Video Indexer AMP plugin- **getSubtitlesUrl** (se tidigare). 
+Om du bäddar in videoindexeringsstatistik med din `GetVttUrl` egen Azure Media [Player](https://aka.ms/azuremediaplayer)kan du använda metoden för att få dold textning (undertexter). Du kan också anropa en JavaScript-metod från `getSubtitlesUrl` plugin-programmet Video Indexer AMP (som tidigare).
 
 ## <a name="customizing-embeddable-widgets"></a>Anpassa inbäddningsbara widgetar
 
 ### <a name="cognitive-insights-widget"></a>Insiktswidget
 
-Du kan välja vilka typer av insikter du vill. Det gör du genom att ange dem som ett värde för följande URL-parameter som läggs till i den inbäddnings kod som du hämtar (från API: et eller från webb programmet): `&widgets=<list of wanted widgets>`.
+Du kan välja vilka typer av insikter du vill ha. Det gör du genom att ange dem som ett värde i följande URL-parameter som läggs till i `&widgets=<list of wanted widgets>`inbäddningskoden som du får (från API:et eller från webbappen): .
 
-Möjliga värden är: **personer**, **nyckelord**, **sentiment**, **avskrift**och **sökning**.
+De möjliga värdena är: **personer,** **nyckelord,** **känslor,** **transkription**och **sökning**.
 
-Om du till exempel vill bädda in en widget som bara innehåller personer och Sök insikter så ser iframe-inbäddningen ut så här:
+Om du till exempel vill bädda in en widget som bara innehåller personer och sökinsikter ser url:en för inbäddning av iframe ut så här:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`
 
-Rubriken för iframe-fönstret kan också anpassas genom att tillhandahålla `&title=<YourTitle>` till iframe-URL: en. (Den anpassar HTML-\<rubrik > värde).
-    
-Om du till exempel vill ge iframe-fönstret rubriken "mina insikter" ser URL: en ut så här:
+Titeln på iframe-fönstret kan också `&title=<YourTitle>` anpassas genom att tillhandahålla iframe-URL:en. (HTML-titeln \<anpassas> värde).
+
+Om du till exempel vill ge iframe-fönstret titeln "MyInsights" kommer webbadressen att se ut så här:
 
 `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?title=MyInsights`
 
@@ -252,38 +255,38 @@ Ett exempel:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 
-Som standard innehåller Video Indexer Player automatiskt skapade stängda under texter som baseras på avskriften av videon. Avskriften extraheras från videon med det käll språk som valdes när videon laddades upp.
+Som standard har Video Indexer-spelaren automatiskt skapade dold textningar som baseras på utskriften av videon. Avskriften extraheras från videon med källspråket som valdes när videon laddades upp.
 
-Om du vill bädda in med ett annat språk kan du lägga till `&captions=< Language | "all" | "false" >` till URL: en för inbäddning av spelare. Om du vill ha beskrivningar i alla tillgängliga språk texter använder du värdet `all`. Om du vill att rubrikerna ska visas som standard kan du skicka `&showCaptions=true`.
+Om du vill bädda in med ett `&captions=< Language | "all" | "false" >` annat språk kan du lägga till webbadressen till inbäddningsspelaren. Om du vill ha bildtexter på `all`alla tillgängliga språk använder du värdet . Om du vill att bildtexterna ska visas som `&showCaptions=true`standard kan du skicka .
 
-Inbäddnings-URL: en kommer sedan att se ut så här: 
+Bädda in URL då kommer att se ut så här:
 
 `https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/?captions=italian`
 
-Om du vill inaktivera under texter kan du skicka värdet för `captions` parametern som `false`.
+Om du vill inaktivera bildtexter kan `captions` du `false`skicka parametervärdet som .
 
-#### <a name="autoplay"></a>Spela
-Som standard startar spelaren uppspelning av videon. Du kan välja att inte skicka `&autoplay=false` till den tidigare inbäddnings-URL: en.
+#### <a name="autoplay"></a>Autoplay
+Som standard börjar spelaren spela upp videon. du kan välja att `&autoplay=false` inte gå vidare till föregående inbäddningsadress.
 
 ## <a name="code-samples"></a>Kodexempel
 
-Se de [kod exempel](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) lagrings platsen som innehåller exempel för video INDEXER-API och widgetar:
+Se [kodexempel repo](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) som innehåller exempel för Video Indexer API och widgets:
 
 | Fil/mapp                       | Beskrivning                                |
 |-----------------------------------|--------------------------------------------|
-| `azure-media-player`              | Läsa in video Indexer-video i en anpassad Azure Media Player                        |
-| `azure-media-player-vi-insights`  | Bädda in VI insikter med en anpassad Azure Media Player                             |
-| `control-vi-embedded-player`      | Bädda in VI Player och kontrol lera den från utsidan                                    |
-| `custom-index-location`           | Bädda in VI insikter från en anpassad extern plats (kan vara kund a BLOB)     |
-| `embed-both-insights`             | Grundläggande användning av VI insikter både i spelare och insikter                            |
-| `embed-insights-with-AMP`         | Bädda in VI Insights-widget med en anpassad Azure Media Player                      |
-| `customize-the-widgets`           | Bädda in VI-widgetar med anpassade alternativ                                     |
-| `embed-both-widgets`              | Bädda in VI och insikter och kommunicera mellan dem                      |
-| `url-generator`                   | Genererar anpassad inbäddnings-URL för widget baserat på användarspecifika alternativ             |
-| `html5-player`                    | Bädda in VI insikter med en standard HTML5 Videos pelare                            |
+| `azure-media-player`              | Ladda videoindexeringsvideo i en anpassad Azure Media Player.                        |
+| `azure-media-player-vi-insights`  | Bädda in VI-insikter med en anpassad Azure Media Player.                             |
+| `control-vi-embedded-player`      | Bädda in VI Player och kontrollera den utifrån.                                    |
+| `custom-index-location`           | Bädda in VI-insikter från en anpassad extern plats (kan vara en blob för kunden).     |
+| `embed-both-insights`             | Grundläggande användning av VI Insights både spelare och insikter.                            |
+| `embed-insights-with-AMP`         | Bädda in VI Insights-widgeten med en anpassad Azure Media Player.                      |
+| `customize-the-widgets`           | Bädda in VI-widgetar med anpassade alternativ.                                     |
+| `embed-both-widgets`              | Bädda in VI Player och Insights och kommunicera mellan dem.                      |
+| `url-generator`                   | Genererar widgetar anpassad inbäddnings-URL baserat på användarspecificerade alternativ.             |
+| `html5-player`                    | Bädda in VI-insikter med en standardvideospelare för HTML5.                           |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du visar och redigerar Video Indexer insikter finns i [Visa och redigera video Indexer insikter](video-indexer-view-edit.md).
+Information om hur du visar och redigerar insikter för videoindexerare finns i Visa och redigera statistik för [videoindexerare](video-indexer-view-edit.md).
 
-Ta också en titt på [video Indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).
+Kolla också in [Video indexerare CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

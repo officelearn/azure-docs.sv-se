@@ -1,6 +1,6 @@
 ---
-title: Spara filer i Azure Cloud Shell | Microsoft Docs
-description: Genom gång av hur Azure Cloud Shell sparar filer.
+title: Beständiga filer i Azure Cloud Shell | Microsoft-dokument
+description: Genomgång av hur Azure Cloud Shell beständiga filer.
 services: azure
 documentationcenter: ''
 author: maertendMSFT
@@ -14,95 +14,96 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 15a5770eb2964f0f2039fe93de904af65d4c81ed
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d4d59642f638e7b1221c35a4bb281923571d5066
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79252108"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297590"
 ---
-# <a name="persist-files-in-azure-cloud-shell"></a>Bevara filer i Azure Cloud Shell
-Cloud Shell använder Azure File Storage för att spara filer mellan sessioner. Vid inledande start blir Cloud Shell att du kan associera en ny eller befintlig fil resurs för att spara filer mellan sessioner.
+# <a name="persist-files-in-azure-cloud-shell"></a>Beständiga filer i Azure Cloud Shell
+Cloud Shell använder Azure File Storage för att spara filer över sessioner. Vid den första starten uppmanar Cloud Shell dig att associera en ny eller befintlig filresurs för att spara filer över sessioner.
 
 > [!NOTE]
-> Bash och PowerShell delar samma fil resurs. Det går bara att koppla en fil resurs till automatisk montering i Cloud Shell.
+> Bash och PowerShell delar samma filresurs. Endast en filresurs kan associeras med automatisk montering i Cloud Shell.
 
 > [!NOTE]
-> Azure Storage-brandväggen stöds inte för moln gränssnitts lagrings konton.
+> Azure-lagringsbrandvägg stöds inte för molnskallagringskonton.
 
 ## <a name="create-new-storage"></a>Skapa ny lagring
 
-När du använder grundläggande inställningar och bara väljer en prenumeration skapar Cloud Shell tre resurser för din räkning i den region som stöds, som är närmast dig:
+När du använder grundläggande inställningar och bara väljer en prenumeration skapar Cloud Shell tre resurser för din räkning i den region som stöds som är närmast dig:
 * Resursgrupp: `cloud-shell-storage-<region>`
-* Lagrings konto: `cs<uniqueGuid>`
-* Fil resurs: `cs-<user>-<domain>-com-<uniqueGuid>`
+* Lagringskonto:`cs<uniqueGuid>`
+* Filresurs:`cs-<user>-<domain>-com-<uniqueGuid>`
 
-![Prenumerations inställningen](media/persisting-shell-storage/basic-storage.png)
+![Inställningen Prenumeration](media/persisting-shell-storage/basic-storage.png)
 
-Fil resursen monteras som `clouddrive` i `$Home`s katalogen. Detta är en engångs åtgärd och fil resursen monteras automatiskt i efterföljande sessioner. 
+Filresursen monteras `clouddrive` som `$Home` i katalogen. Detta är en engångsåtgärd och filresursen monteras automatiskt i efterföljande sessioner. 
 
-Fil resursen innehåller också en avbildning på 5 GB som skapas för dig och som automatiskt sparar data i `$Home`s katalogen. Detta gäller både bash och PowerShell.
+Filresursen innehåller också en 5 GB-avbildning som skapas för `$Home` dig som automatiskt sparar data i katalogen. Detta gäller både Bash och PowerShell.
 
-## <a name="use-existing-resources"></a>Använd befintliga resurser
+## <a name="use-existing-resources"></a>Använda befintliga resurser
 
-Med alternativet Avancerat kan du associera befintliga resurser. När du väljer en Cloud Shell region måste du välja ett lagrings konto som finns i samma region. Om din tilldelade region t. ex. är västra USA måste du associera en fil resurs som finns i västra USA.
+Med det avancerade alternativet kan du associera befintliga resurser. När du väljer en Cloud Shell-region måste du välja ett stödlagringskonto som finns i samma region. Om din tilldelade region till exempel är västra USA måste du associera en filresurs som finns även i västra USA.
 
-När installations programmet för lagring visas väljer du **Visa avancerade inställningar** för att visa fler alternativ. De ifyllda lagrings alternativ filtren för lokalt redundant lagring (LRS), Geo-redundant lagring (GRS) och ZRS-konton (Zone-redundant lagring). 
+När frågan om lagringsinställningar visas väljer du **Visa avancerade inställningar** för att visa ytterligare alternativ. Filtret ifyllt lagringsalternativ för lokalt redundant lagring (LRS), geo-redundant lagring (GRS) och zonundant lagringskonton (ZRS). 
 
 > [!NOTE]
-> Du rekommenderas att använda GRS-eller ZRS-lagrings konton för ytterligare återhämtning för din fil resurs. Vilken typ av redundans beror på dina mål och pris inställningar. [Läs mer om replikeringsalternativ för Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+> Användning av GRS- eller ZRS-lagringskonton rekommenderas för ytterligare återhämtning för din säkerhetskopieringsfilresurs. Vilken typ av redundans beror på dina mål och prisinställningar. [Läs mer om replikeringsalternativ för Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
 
-![Resurs grupps inställningen](media/persisting-shell-storage/advanced-storage.png)
+![Inställningen resursgrupp](media/persisting-shell-storage/advanced-storage.png)
 
-## <a name="securing-storage-access"></a>Skydda lagrings åtkomst
-För säkerhet bör varje användare etablera sitt eget lagrings konto.  För rollbaserad åtkomst kontroll (RBAC) måste användare ha deltagar åtkomst eller högre på lagrings konto nivå.
+## <a name="securing-storage-access"></a>Skydda åtkomst till lagring
+Av säkerhetsskäl bör varje användare etablera sitt eget lagringskonto.  För rollbaserad åtkomstkontroll (RBAC) måste användare ha deltagaråtkomst eller högre på lagringskontonivå.
 
-Cloud Shell använder en Azure-filresurs i ett lagrings konto i en angiven prenumeration. På grund av ärvda behörigheter kommer användare med tillräcklig åtkomst behörighet till prenumerationen att kunna komma åt alla lagrings konton och fil resurser som ingår i prenumerationen.
+Cloud Shell använder en Azure File Share i ett lagringskonto, inuti en angiven prenumeration. På grund av ärvda behörigheter kan användare med tillräcklig åtkomst till prenumerationen komma åt alla lagringskonton och filresurser som finns i prenumerationen.
 
-Användarna bör låsa åtkomsten till sina filer genom att ange behörigheterna på lagrings kontot eller på prenumerations nivån.
+Användare bör låsa åtkomsten till sina filer genom att ange behörigheterna på lagringskontot eller prenumerationsnivån.
 
-## <a name="supported-storage-regions"></a>Lagrings regioner som stöds
-Om du vill hitta din aktuella region kan du köra `env` i bash och leta upp variabeln `ACC_LOCATION`eller från PowerShell-körning `$env:ACC_LOCATION`. Fil resurser får en avbildning på 5 GB som skapats så att du kan spara din `$Home` katalog.
+## <a name="supported-storage-regions"></a>Lagringsområden som stöds
+För att hitta din `env` nuvarande region kan `ACC_LOCATION`du köra i `$env:ACC_LOCATION`Bash och leta reda på variabeln eller från PowerShell-körningen . Filresurser får en 5 GB-avbildning `$Home` som skapats för att du ska kunna spara din katalog.
 
-Det finns Cloud Shell datorer i följande regioner:
+Molnskalsdatorer finns i följande regioner:
 
 |Område|Region|
 |---|---|
-|Nord- och Sydamerika|Östra USA, södra centrala USA, västra USA|
+|Nord- och Sydamerika|Östra USA, Södra centrala USA, västra USA|
 |Europa|Europa, norra, Europa, västra|
-|Asien och stillahavsområdet|Indien, centrala, Sydostasien|
+|Asien och stillahavsområdet|Centrala Indien, Sydostasien|
 
-Kunderna bör välja en primär region, om de inte har ett krav på att deras data i vila ska lagras i en viss region. Om de har sådana krav bör en sekundär lagrings region användas.
+Kunder bör välja en primär region, såvida de inte har ett krav på att deras data i vila ska lagras i en viss region. Om de har ett sådant krav bör en sekundär lagringsregion användas.
 
-### <a name="secondary-storage-regions"></a>Sekundära lagrings regioner
-Om en sekundär lagrings region används, finns det associerade Azure Storage-kontot i en annan region som Cloud Shell datorn som du monterar dem på. Jane kan till exempel ställa in sitt lagrings konto så att det finns i Kanada, östra, en sekundär region, men datorn som hon är monterad på finns fortfarande i en primär region. Hennes data i vila finns i Kanada, men bearbetas i USA.
+### <a name="secondary-storage-regions"></a>Sekundära lagringsområden
+Om en sekundär lagringsregion används finns det associerade Azure-lagringskontot i en annan region som Cloud Shell-datorn som du monterar dem på. Jane kan till exempel ange att hennes lagringskonto ska placeras i Östra Kanada, en sekundär region, men den maskin hon är monterad på finns fortfarande i en primär region. Hennes data i vila ligger i Kanada, men det behandlas i USA.
 
 > [!NOTE]
-> Om en sekundär region används kan fil åtkomst och start tid för Cloud Shell vara långsammare.
+> Om en sekundär region används kan filåtkomst och starttid för Cloud Shell vara långsammare.
 
-En användare kan köra `(Get-CloudDrive | Get-AzStorageAccount).Location` i PowerShell för att se platsen för fil resursen.
+En användare `(Get-CloudDrive | Get-AzStorageAccount).Location` kan köras i PowerShell för att se var fildelningen finns.
 
-## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Begränsa resurs skapande med en Azure-resurs princip
-De lagrings konton som du skapar i Cloud Shell taggas med `ms-resource-usage:azure-cloud-shell`. Om du inte vill att användare ska kunna skapa lagrings konton i Cloud Shell skapar du en [princip för Azure-resurser för Taggar](../azure-policy/json-samples.md) som utlösts av den här taggen.
+## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Begränsa skapandet av resurser med en Azure-resursprincip
+Lagringskonton som du skapar i `ms-resource-usage:azure-cloud-shell`Cloud Shell taggas med . Om du inte vill tillåta användare från att skapa lagringskonton i Cloud Shell skapar du en [Azure-resursprincip för taggar](../azure-policy/json-samples.md) som utlöses av den här specifika taggen.
 
-## <a name="how-cloud-shell-storage-works"></a>Så här fungerar Cloud Shell Storage 
-Cloud Shell sparar filer genom båda följande metoder: 
-* Skapa en disk avbildning av din `$Home` katalog för att spara allt innehåll i katalogen. Disk avbildningen sparas i den angivna fil resursen som `acc_<User>.img` på `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`och synkroniserar automatiskt ändringar. 
-* Montera den angivna fil resursen som `clouddrive` i din `$Home` Directory för direkt interaktion av fil resurser. `/Home/<User>/clouddrive` mappas till `fileshare.storage.windows.net/fileshare`.
+## <a name="how-cloud-shell-storage-works"></a>Så här fungerar Cloud Shell-lagring 
+Cloud Shell beständiga filer via båda följande metoder: 
+* Skapa en diskavbildning av `$Home` katalogen för att spara allt innehåll i katalogen. Diskavbildningen sparas i den `acc_<User>.img` angivna `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`filresursen som på och synkroniseras automatiskt ändringar. 
+* Montera den angivna filresursen som `clouddrive` i `$Home` katalogen för direkt fildelningsinteraktion. `/Home/<User>/clouddrive`mappas `fileshare.storage.windows.net/fileshare`till .
  
 > [!NOTE]
-> Alla filer i `$Home`-katalogen, till exempel SSH-nycklar, finns kvar i din användar disk avbildning, som lagras i den monterade fil resursen. Använd metod tips när du bevarar information i `$Home`s katalogen och den monterade fil resursen.
+> Alla filer `$Home` i katalogen, till exempel SSH-nycklar, sparas i användardiskavbildningen, som lagras i den monterade filresursen. Använd metodtips när du `$Home` beständiga information i katalogen och den monterade filresursen.
 
 ## <a name="clouddrive-commands"></a>clouddrive-kommandon
 
-### <a name="use-the-clouddrive-command"></a>Använda kommandot `clouddrive`
-I Cloud Shell kan du köra ett kommando som heter `clouddrive`, vilket gör att du kan uppdatera fil resursen som är monterad till Cloud Shell manuellt.
-![att köra kommandot "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
+### <a name="use-the-clouddrive-command"></a>Använda `clouddrive` kommandot
+I Cloud Shell kan du `clouddrive`köra ett kommando som heter , som gör att du kan uppdatera filresursen manuellt som är monterad på Cloud Shell.
 
-### <a name="list-clouddrive"></a>Lista `clouddrive`
-Om du vill identifiera vilken fil resurs som är monterad som `clouddrive`kör du kommandot `df`. 
+![Köra kommandot "clouddrive"](media/persisting-shell-storage/clouddrive-h.png)
 
-Fil Sök vägen till clouddrive visar ditt lagrings konto namn och fil resurs i URL: en. Till exempel, `//storageaccountname.file.core.windows.net/filesharename`
+### <a name="list-clouddrive"></a>Lista`clouddrive`
+Om du vill ta reda `clouddrive`på `df` vilken filresurs som är monterad som kör du kommandot. 
+
+Filsökvägen till clouddrive visar ditt lagringskontonamn och filresurs i URL:en. Till exempel, `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -118,55 +119,55 @@ justin@Azure:~$
 
 ### <a name="mount-a-new-clouddrive"></a>Montera en ny clouddrive
 
-#### <a name="prerequisites-for-manual-mounting"></a>Krav för manuell montering
-Du kan uppdatera fil resursen som är kopplad till Cloud Shell med hjälp av `clouddrive mount` kommandot.
+#### <a name="prerequisites-for-manual-mounting"></a>Förutsättningar för manuell montering
+Du kan uppdatera filresursen som är associerad `clouddrive mount` med Cloud Shell med kommandot.
 
-Om du monterar en befintlig fil resurs måste lagrings kontona finnas i din SELECT Cloud Shell-region. Hämta platsen genom att köra `env` och kontrol lera `ACC_LOCATION`.
+Om du monterar en befintlig filresurs måste lagringskontona finnas i din valda Cloud Shell-region. Hämta platsen genom `env` att `ACC_LOCATION`köra och kontrollera .
 
 #### <a name="the-clouddrive-mount-command"></a>Kommandot `clouddrive mount`
 
 > [!NOTE]
-> Om du monterar en ny fil resurs skapas en ny användar avbildning för din `$Home` katalog. Din tidigare `$Home`-avbildning sparas i din tidigare fil resurs.
+> Om du monterar en ny filresurs skapas en `$Home` ny användaravbildning för katalogen. Den `$Home` tidigare bilden sparas i den tidigare filresursen.
 
-Kör kommandot `clouddrive mount` med följande parametrar:
+Kör `clouddrive mount` kommandot med följande parametrar:
 
 ```
 clouddrive mount -s mySubscription -g myRG -n storageAccountName -f fileShareName
 ```
 
-Om du vill visa mer information kör `clouddrive mount -h`, som du ser här:
+Om du vill `clouddrive mount -h`visa mer information kör du , som du ser här:
 
-![Kör clouddrive-mount'command](media/persisting-shell-storage/mount-h.png)
+![Köra kommandot clouddrive mount](media/persisting-shell-storage/mount-h.png)
 
-### <a name="unmount-clouddrive"></a>Demontera clouddrive
-Du kan demontera en fil resurs som är monterad till Cloud Shell när som helst. Eftersom Cloud Shell kräver att en monterad fil resurs används uppmanas du att skapa och montera en annan fil resurs i nästa session.
+### <a name="unmount-clouddrive"></a>Avmontera clouddrive
+Du kan när som helst avmontera en filresurs som är monterad på Cloud Shell. Eftersom Cloud Shell kräver att en monterad filresurs används uppmanas du att skapa och montera en annan filresurs på nästa session.
 
 1. Kör `clouddrive unmount`.
-2. Bekräfta och bekräfta prompter.
+2. Bekräfta och bekräfta uppmaningar.
 
-Fil resursen kommer att finnas kvar om du inte tar bort den manuellt. Cloud Shell kommer inte längre att söka efter den här fil resursen på efterföljande sessioner. Om du vill visa mer information kör `clouddrive unmount -h`, som du ser här:
+Filresursen fortsätter att finnas om du inte tar bort den manuellt. Cloud Shell söker inte längre efter den här filresursen på efterföljande sessioner. Om du vill `clouddrive unmount -h`visa mer information kör du , som du ser här:
 
-![Kör clouddrive-unmount'command](media/persisting-shell-storage/unmount-h.png)
+![Köra kommandot clouddrive avmontera](media/persisting-shell-storage/unmount-h.png)
 
 > [!WARNING]
-> Även om du kör det här kommandot tar du inte bort några resurser, manuellt tar bort en resurs grupp, ett lagrings konto eller en fil resurs som är mappad till Cloud Shell raderar `$Home` katalog disk avbildningen och eventuella filer i fil resursen. Det går inte att utföra den här åtgärden.
-## <a name="powershell-specific-commands"></a>PowerShell-/regionsspecifika kommandon
+> Även om du kör det här kommandot kommer inte att ta bort några resurser, raderar manuellt `$Home` en resursgrupp, ett lagringskonto eller en filresurs som är mappad till Cloud Shell, din katalogdiskavbildning och alla filer i filresursresursen. Det går inte att ångra den här åtgärden.
+## <a name="powershell-specific-commands"></a>PowerShell-specifika kommandon
 
 ### <a name="list-clouddrive-azure-file-shares"></a>Lista `clouddrive` Azure-filresurser
-Den `Get-CloudDrive` cmdlet: en hämtar information om Azure-filresurser som för närvarande monteras av `clouddrive` i Cloud Shell. <br>
-![som kör get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
+Cmdlet `Get-CloudDrive` hämtar Azure-filresursinformationen `clouddrive` som för närvarande är monterad av i Cloud Shell. <br>
+![Köra Get-CloudDrive](media/persisting-shell-storage-powershell/Get-Clouddrive.png)
 
-### <a name="unmount-clouddrive"></a>Demontera `clouddrive`
-Du kan demontera en Azure-filresurs som är monterad till Cloud Shell när som helst. Om Azure-filresursen har tagits bort uppmanas du att skapa och montera en ny Azure-fil resurs vid nästa session.
+### <a name="unmount-clouddrive"></a>Avmontera`clouddrive`
+Du kan när som helst avmontera en Azure-filresurs som är monterad på Cloud Shell. Om Azure-filresursen har tagits bort uppmanas du att skapa och montera en ny Azure-filresurs vid nästa session.
 
-`Dismount-CloudDrive`-cmdleten demonterar en Azure-filresurs från det aktuella lagrings kontot. Om du demonterar `clouddrive` avbryts den aktuella sessionen. Användaren uppmanas att skapa och montera en ny Azure-fil resurs under nästa session.
-![som kör dismount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
+Cmdleten `Dismount-CloudDrive` avmonterar en Azure-filresurs från det aktuella lagringskontot. Demontering av `clouddrive` avslutningar den aktuella sessionen. Användaren uppmanas att skapa och montera en ny Azure-filresurs under nästa session.
+![Köra Demount-CloudDrive](media/persisting-shell-storage-powershell/Dismount-Clouddrive.png)
 
 [!INCLUDE [PersistingStorage-endblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
-Obs: om du behöver definiera en funktion i en fil och anropa den från PowerShell-cmdletarna måste punkt operatorn inkluderas. Till exempel:. .\MyFunctions.ps1
+Om du behöver definiera en funktion i en fil och anropa den från PowerShell-cmdlets måste punktoperatorn inkluderas. Till exempel: . .\Mina funktioner.ps1
 
 ## <a name="next-steps"></a>Nästa steg
-[Cloud Shell snabb start](quickstart.md) <br>
-[Läs mer om lagring av Microsoft Azure filer](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
-[Läs mer om lagrings märken](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Snabbstart i Molnskal](quickstart.md) <br>
+[Lär dig mer om lagring av Microsoft Azure-filer](https://docs.microsoft.com/azure/storage/storage-introduction) <br>
+[Läs mer om lagringstaggar](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

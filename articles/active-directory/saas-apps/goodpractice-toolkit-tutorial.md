@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med GoodPractice Toolkit | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GoodPractice Toolkit.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Mind Tools Toolkit | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Mind Tools Toolkit.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,88 +11,78 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe89c067aed6a6934bfff37609516b6ef4d281c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b12bd8ba7998b924035a0946f9e32b88ce206e4
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101571"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "79476509"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Självstudier: Azure Active Directory-integrering med GoodPractice Toolkit
+# <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Självstudiekurs: Azure Active Directory-integrering med Mind Tools Toolkit
 
-I den här självstudien får du lära dig hur du integrerar GoodPractice Toolkit med Azure Active Directory (Azure AD).
-Integrera GoodPractice Toolkit med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig hur du integrerar Mind Tools Toolkit med Azure Active Directory (Azure AD).
+Genom att integrera Verktygslåda för mind tools med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till GoodPractice Toolkit.
-* Du kan göra så att dina användare automatiskt loggas in på GoodPractice Toolkit (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure portal.
+* Du kan styra i Azure AD som har åtkomst till Mind Tools Toolkit.
+* Du kan aktivera användarna automatiskt inloggad på Mind Tools Toolkit (Single Sign-On) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure AD-integrering med GoodPractice Toolkit behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med Mind Tools Toolkit behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* GoodPractice Toolkit-prenumeration med enkel inloggning aktiverat
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få ett [gratis konto](https://azure.microsoft.com/free/).
+* Mind Tools Toolkit enkel inloggning aktiverad prenumeration
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* GoodPractice Toolkit stöder **SP**-initierad enkel inloggning
-* GoodPractice Toolkit stöder **just-in-time**-användaretablering
+* Mind Tools Toolkit stöder **SP** initierade SSO
+* Mind Tools Toolkit stöder just in time-användaretablering **Just In Time**
+* När du har konfigurerat Mind Tools Toolkit kan du framtvinga sessionskontroll, som skyddar exfiltration och infiltration av organisationens känsliga data i realtid. Sessionskontrollen sträcker sig från villkorlig åtkomst. [Lär dig hur du framtvingar sessionskontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-goodpractice-toolkit-from-the-gallery"></a>Lägga till GoodPractice Toolkit från galleriet
+## <a name="adding-mind-tools-toolkit-from-the-gallery"></a>Lägga till Verktygslåda för Mind Tools från galleriet
 
-Om du vill konfigurera integrering av GoodPractice Toolkit i Azure AD måste du lägga till GoodPractice Toolkit från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Mind Tools Toolkit i Azure AD måste du lägga till Mind Tools Toolkit från galleriet i listan över hanterade SaaS-appar.
 
-**Om du vill lägga till GoodPractice Toolkit från galleriet måste du göra följande:**
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **Verktygslåda för Verktyg** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **Verktygslåda för Mind Tools** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
-1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-    ![Azure Active Directory-knappen](common/select-azuread.png)
+I det här avsnittet konfigurerar och testar du Azure AD enkel inloggning med Mind Tools Toolkit baserat på en testanvändare som heter **B.Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Mind Tools Toolkit upprättas.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+Om du vill konfigurera och testa Azure AD-enkel inloggning med Mind Tools Toolkit måste du slutföra följande byggstenar:
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    * **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
+    * **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
+1. **[Konfigurera Mind Tools Toolkit SSO](#configure-mind-tools-toolkit-sso)** - för att konfigurera de enskilda inloggningsinställningarna på programsidan.
+    * **[Skapa Mind Tools Toolkit testanvändare](#create-mind-tools-toolkit-test-user)** - att ha en motsvarighet till B.Simon i Mind Tools Toolkit som är kopplad till Azure AD-representationen av användaren.
+1. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
-
-    ![Knappen Nytt program](common/add-new-app.png)
-
-4. Skriv **GoodPractice Toolkit** i sökrutan, välj **GoodPractice Toolkit** på resultatpanelen och lägg sedan till programmet genom att klicka på knappen **Lägg till**.
-
-     ![GoodPractice Toolkit i resultatlistan](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
-
-I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med GoodPractice Toolkit baserat på en testanvändare med namnet **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i GoodPractice Toolkit upprättas.
-
-Om du vill konfigurera och testa enkel inloggning i Azure AD med GoodPractice Toolkit måste du slutföra följande byggblock:
-
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera enkel inloggning för GoodPractice Toolkit](#configure-goodpractice-toolkit-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa GoodPractice Toolkit testanvändare](#create-goodpractice-toolkit-test-user)**  – för att få en motsvarighet till Britta Simon i GoodPractice Toolkit som är länkad till användarens Azure AD-representation.
-6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
+### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Om du vill konfigurera enkel inloggning i Azure AD med GoodPractice Toolkit gör du följande:
+Så här konfigurerar du en enda Azure AD-inloggning med Mind Tools Toolkit:
 
-1. Välj **Enkel inloggning** på sidan för **GoodPractice Toolkit**-programintegrering [ i Azure Portal](https://portal.azure.com/).
+1. I [Azure-portalen](https://portal.azure.com/)väljer du Enkel inloggning på sidan **Mind Tools Toolkit-programprogram.** **Single sign-on**
 
-    ![Konfigurera enkel inloggning för länken](common/select-sso.png)
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -104,96 +94,79 @@ Om du vill konfigurera enkel inloggning i Azure AD med GoodPractice Toolkit gör
 
 4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Information om GoodPractice Toolkit-domänen och URL:er med enkel inloggning](common/sp-intiated.png)
-
     I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
     > [!Note]
-    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Hämta värdet genom att kontakta [supportteamet för GoodPractice Toolkit-klienten](mailto:support@goodpractice.com).
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Mind Tools Toolkit Client support team](mailto:support@goodpractice.com) för att få värdet.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. Kopiera lämpliga URL:er enligt dina behov i avsnittet **Konfigurera GoodPractice Toolkit**.
+6. Kopiera lämpliga webbadresser enligt dina krav i avsnittet **Konfigurera verktygsverktyg.**
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
-    b. Microsoft Azure Active Directory-identifierare
+    b. Azure AD-identifierare
 
     c. Utloggnings-URL
 
-### <a name="configure-goodpractice-toolkit-single-sign-on"></a>Konfigurera enkel inloggning för GoodPractice Toolkit
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Om du vill konfigurera enkel inloggning på **GoodPractice Toolkit**-sidan måste du skicka den hämtade **Federation Metadata-XML:en** och lämpliga kopierade URL:er från Azure Portal till [GoodPractice Toolkit-supportteamet](mailto:support@goodpractice.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Mind Tools Toolkit.
 
-    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. I programlistan väljer du **Verktygslåda för Mind Tools**.
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
-2. Välj **Ny användare** överst på skärmen.
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![Knappen Ny användare](common/new-user.png)
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
-3. Genomför följande steg i Användaregenskaper.
+    ![Länken Lägg till användare](common/add-assign-user.png)
 
-    ![Dialogrutan Användare](common/user-properties.png)
+1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
-  
-    b. I den **användarnamn** fälttyp `brittasimon\@yourcompanydomain.extension`. Till exempel BrittaSimon@contoso.com.
+## <a name="configure-mind-tools-toolkit-sso"></a>Konfigurera Verktygslåda för tankeverktyg SSO
 
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
+Om du vill konfigurera enkel inloggning på **Mind Tools Toolkit-sidan** måste du skicka den nedladdade **XML-koden för federationsmetadata** och lämpliga kopierade url:er från Azure-portalen till [Mind Tools Toolkit supportteam](mailto:support@goodpractice.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
-    d. Klicka på **Skapa**.
+### <a name="create-mind-tools-toolkit-test-user"></a>Skapa verktygsverktygstestanvändare
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet skapas en användare som heter B.Simon i Mind Tools Toolkit. Mind Tools Toolkit stöder **just-in-time-etablering**, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Mind Tools Toolkit skapas en ny när du försöker komma åt Mind Tools Toolkit.
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning i Azure genom att ge åtkomst till GoodPractice Toolkit.
+### <a name="test-sso"></a>Testa SSO
 
-1. Välj **Företagsprogram**, sedan **Alla program** och därefter **GoodPractice Toolkit** i Azure Portal.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
-
-2. Välj **GoodPractice Toolkit** i programlistan.
-
-    ![GoodPractice Toolkit-länken i programlistan](common/all-applications.png)
-
-3. På menyn till vänster väljer du **Användare och grupper**.
-
-    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
-
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
-
-    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
-
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
-
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
-
-### <a name="create-goodpractice-toolkit-test-user"></a>Skapa testanvändare för GoodPractice Toolkit
-
-I det här avsnittet skapas en användare som heter Britta Simon i GoodPractice Toolkit. GoodPractice Toolkit stöder **just-in-time-etablering**, vilken är aktiverad som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i GoodPractice Toolkit skapas en ny när du försöker få åtkomst till GoodPractice Toolkit.
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
-
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
-
-När du klickar på GoodPractice Toolkit i åtkomstpanelen bör du bli automatiskt inloggad på det GoodPractice Toolkit för vilket du konfigurerade enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Verktygslåda för mind tools på åtkomstpanelen bör du automatiskt loggas in i verktygslådan För tankeverktyg som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Prova Mind Tools Toolkit med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är sessionskontroll i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Så här skyddar du Mind Tools Toolkit med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

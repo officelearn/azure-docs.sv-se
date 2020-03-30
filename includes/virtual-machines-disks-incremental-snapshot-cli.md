@@ -8,17 +8,14 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 69be71a58c3aed4f52b77e63c9ddf12365301b08
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: cbd6f821326c86983ceb3ae5b90969e522c187fe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79299211"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80343035"
 ---
 [!INCLUDE [virtual-machines-disks-incremental-snapshots-description](virtual-machines-disks-incremental-snapshots-description.md)]
-
-### <a name="supported-regions"></a>Regioner som stöds
-[!INCLUDE [virtual-machines-disks-incremental-snapshots-regions](virtual-machines-disks-incremental-snapshots-regions.md)]
 
 ## <a name="restrictions"></a>Begränsningar
 
@@ -26,17 +23,17 @@ ms.locfileid: "79299211"
 
 ## <a name="cli"></a>CLI
 
-Du kan skapa en stegvis ögonblicks bild med Azure CLI, du behöver den senaste versionen av Azure CLI. 
+Du kan skapa en inkrementell ögonblicksbild med Azure CLI, behöver du den senaste versionen av Azure CLI. 
 
-I Windows installerar eller uppdaterar du den befintliga installationen till den senaste versionen med följande kommando:
+I Windows installeras eller uppdateras den befintliga installationen till den senaste versionen av följande kommando:
 ```PowerShell
 Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
 ```
-I Linux kan CLI-installationen variera beroende på operativ systemets version.  Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) för din specifika Linux-version.
+På Linux varierar CLI-installationen beroende på operativsystemversion.  Se [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) för just din Linux-version.
 
-Om du vill skapa en stegvis ögonblicks bild använder du [AZ Snapshot Create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) med parametern `--incremental`.
+Om du vill skapa en inkrementell ögonblicksbild använder du [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) med parametern. `--incremental`
 
-I följande exempel skapas en stegvis ögonblicks bild, ersätter `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`och `<exampleLocation>` med dina egna värden och kör sedan exemplet:
+I följande exempel skapas en `<yourDesiredSnapShotNameHere>`inkrementell ögonblicksbild, ersätter , `<yourResourceGroupNameHere>``<exampleDiskName>`och `<exampleLocation>` med dina egna värden och kör sedan exemplet:
 
 ```bash
 sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
@@ -48,13 +45,13 @@ az snapshot create -g <yourResourceGroupNameHere> \
 --incremental
 ```
 
-Du kan identifiera stegvisa ögonblicks bilder från samma disk med `SourceResourceId` och `SourceUniqueId` egenskaper för ögonblicks bilder. `SourceResourceId` är Azure Resource Manager resurs-ID för den överordnade disken. `SourceUniqueId` är värdet som ärvts från diskens egenskap `UniqueId`. Om du skulle ta bort en disk och sedan skapa en ny disk med samma namn ändras värdet för egenskapen `UniqueId`.
+Du kan identifiera inkrementella ögonblicksbilder `SourceResourceId` från `SourceUniqueId` samma disk med egenskaperna för ögonblicksbilder. `SourceResourceId`är Azure Resource Manager-resurs-ID för den överordnade disken. `SourceUniqueId`är värdet som `UniqueId` ärvts från diskens egenskap. Om du skulle ta bort en disk och sedan skapa en `UniqueId` ny disk med samma namn ändras egenskapens värde.
 
-Du kan använda `SourceResourceId` och `SourceUniqueId` för att skapa en lista över alla ögonblicks bilder som är associerade med en viss disk. I följande exempel visas en lista över alla stegvisa ögonblicks bilder som är associerade med en viss disk, men den kräver vissa inställningar.
+Du kan `SourceResourceId` `SourceUniqueId` använda och skapa en lista över alla ögonblicksbilder som är associerade med en viss disk. I följande exempel visas alla inkrementella ögonblicksbilder som är associerade med en viss disk, men det kräver vissa inställningar.
 
-I det här exemplet används JQ för att fråga efter data. Du måste [Installera JQ](https://stedolan.github.io/jq/download/)för att kunna köra exemplet.
+I det här exemplet används jq för att fråga efter data. Om du vill köra exemplet måste du [installera jq](https://stedolan.github.io/jq/download/).
 
-Ersätt `<yourResourceGroupNameHere>` och `<exampleDiskName>` med dina värden kan du använda följande exempel för att visa en lista över dina befintliga stegvisa ögonblicks bilder, förutsatt att du även har installerat JQ:
+Ersätt `<yourResourceGroupNameHere>` `<exampleDiskName>` och med dina värden, sedan kan du använda följande exempel för att lista dina befintliga inkrementella ögonblicksbilder, så länge du också har installerat jq:
 
 ```bash
 sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
@@ -68,7 +65,7 @@ az snapshot list -g <yourResourceGroupNameHere> -o json \
 
 ## <a name="resource-manager-template"></a>Resource Manager-mall
 
-Du kan också använda Azure Resource Manager mallar för att skapa en stegvis ögonblicks bild. Du måste kontrol lera att API version är inställt på **2019-03-01** och att den stegvisa egenskapen också har angetts till true. Följande fragment är ett exempel på hur du skapar en stegvis ögonblicks bild med Resource Manager-mallar:
+Du kan också använda Azure Resource Manager-mallar för att skapa en inkrementell ögonblicksbild. Du måste se till att apiVersion är inställt på **2019-03-01** och att den inkrementella egenskapen också är inställd på true. Följande kodavsnitt är ett exempel på hur du skapar en inkrementell ögonblicksbild med Resource Manager-mallar:
 
 ```json
 {
@@ -104,4 +101,4 @@ Du kan också använda Azure Resource Manager mallar för att skapa en stegvis �
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill se exempel kod som demonstrerar den differentiella kapaciteten för stegvisa ögonblicks bilder med hjälp av .NET, se [Kopiera Azure-Managed disks säkerhets kopior till en annan region med differentiella funktioner i stegvisa ögonblicks bilder](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).
+Om du vill se exempelkod som visar differentiella funktioner för inkrementella ögonblicksbilder, med hjälp av .NET, se [Kopiera Azure Managed Disks säkerhetskopior till en annan region med differentiell kapacitet för inkrementella ögonblicksbilder](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots).

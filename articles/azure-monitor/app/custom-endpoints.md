@@ -1,25 +1,25 @@
 ---
 title: Azure Application Insights åsidosätter standard-SDK-slutpunkter
-description: Ändra standard Azure Monitor Application Insights SDK-slutpunkter för regioner som Azure Government.
+description: Ändra standard-Azure Monitor Application Insights SDK-slutpunkter för regioner som Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 3aa18a6b96458533c3dc53f3f420ed264b298a3e
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b4ab05c7ee815b385ffb2d1ff9e621063d744dd7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77671995"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298326"
 ---
-# <a name="application-insights-overriding-default-endpoints"></a>Application Insights som åsidosätter standard slut punkter
+# <a name="application-insights-overriding-default-endpoints"></a>Programstatistik åsidosätter standardslutpunkter
 
-Om du vill skicka data från Application Insights till vissa regioner måste du åsidosätta standard slut punkts adresserna. Varje SDK kräver något annorlunda ändringar, som beskrivs i den här artikeln. Dessa ändringar kräver att du justerar exempel koden och ersätter plats hållar värden för `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`och `Profile_Query_Endpoint_address` med de faktiska slut punkts adresserna för din specifika region. Slutet av den här artikeln innehåller länkar till slut punkts adresser för regioner där denna konfiguration krävs.
+Om du vill skicka data från Application Insights till vissa regioner måste du åsidosätta standardslutpunktsadresserna. Varje SDK kräver lite olika ändringar, som alla beskrivs i den här artikeln. Dessa ändringar kräver att exempelkoden justeras och `QuickPulse_Endpoint_Address` `TelemetryChannel_Endpoint_Address`att `Profile_Query_Endpoint_address` platshållarvärdena för , och med de faktiska slutpunktsadresserna för din specifika region. Slutet av den här artikeln innehåller länkar till slutpunktsadresser för regioner där den här konfigurationen krävs.
 
-## <a name="sdk-code-changes"></a>Ändringar i SDK-kod
+## <a name="sdk-code-changes"></a>Ändringar av SDK-kod
 
-### <a name="net-with-applicationinsightsconfig"></a>.NET med applicationinsights. config
+### <a name="net-with-applicationinsightsconfig"></a>.NET med applicationinsights.config
 
 > [!NOTE]
-> Filen applicationinsights. config skrivs automatiskt över när en SDK-uppgradering utförs. När du har genomfört en SDK-uppgradering måste du ange regionens angivna slut punkts värden igen.
+> Filen applicationinsights.config skrivs automatiskt över när som helst en SDK-uppgradering utförs. När du har utfört en SDK-uppgradering ska du ange regionspecifika slutpunktsvärden igen.
 
 ```xml
 <ApplicationInsights>
@@ -43,7 +43,7 @@ Om du vill skicka data från Application Insights till vissa regioner måste du 
 
 ### <a name="aspnet-core"></a>ASP.NET Core
 
-Ändra filen appSettings. json i projektet enligt följande för att justera huvud slut punkten:
+Ändra filen appsettings.json i projektet på följande sätt för att justera huvudslutpunkten:
 
 ```json
 "ApplicationInsights": {
@@ -54,7 +54,7 @@ Om du vill skicka data från Application Insights till vissa regioner måste du 
   }
 ```
 
-Värdena för Live mått och profil frågans slut punkt kan bara anges via kod. Om du vill åsidosätta standardvärdena för alla slut punkts värden via kod gör du följande ändringar i `ConfigureServices`-metoden i `Startup.cs`-filen:
+Värdena för livemått och slutpunkten för profilfråga kan endast anges via kod. Om du vill åsidosätta standardvärdena för alla slutpunktsvärden `Startup.cs` via kod gör du följande ändringar i metoden för `ConfigureServices` filen:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -69,15 +69,15 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
     //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
 ```
 
-### <a name="azure-functions-v2x"></a>Azure Functions v2. x
+### <a name="azure-functions-v2x"></a>Azure-funktioner v2.x
 
-Installera följande paket i ditt funktions projekt:
+Installera följande paket i funktionsprojektet:
 
-- Microsoft. ApplicationInsights-version 2.10.0
-- Microsoft. ApplicationInsights. PerfCounterCollector-version 2.10.0
-- Microsoft. ApplicationInsights. Windows Server. TelemetryChannel version 2.10.0
+- Microsoft.ApplicationInsights version 2.10.0
+- Version 2.10.0 för Microsoft.ApplicationInsights.PerfCounterCollector
+- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
 
-Lägg sedan till (eller ändra) Start koden för funktions programmet:
+Lägg sedan till (eller ändra) startkoden för funktionsprogrammet:
 
 ```csharp
 [assembly: WebJobsStartup(typeof(Example.Startup))]
@@ -122,7 +122,7 @@ namespace Example
 
 ### <a name="java"></a>Java
 
-Ändra applicationinsights. XML-filen om du vill ändra standard slut punkts adressen.
+Ändra filen applicationinsights.xml om du vill ändra standardslutpunktsadressen.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -149,7 +149,7 @@ namespace Example
 
 ### <a name="spring-boot"></a>Spring Boot
 
-Ändra `application.properties`-filen och Lägg till:
+Ändra `application.properties` filen och lägg till:
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
@@ -166,7 +166,7 @@ appInsights.defaultClient.config.quickPulseHost = "QuickPulse_Endpoint_Address";
 appInsights.Configuration.start();
 ```
 
-Slut punkterna kan också konfigureras via miljövariabler:
+Slutpunkterna kan också konfigureras via miljövariabler:
 
 ```
 Instrumentation Key: "APPINSIGHTS_INSTRUMENTATIONKEY"
@@ -187,31 +187,35 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 </script>
 ```
 
-## <a name="regions-that-require-endpoint-modification"></a>Regioner som kräver slut punkts ändring
+### <a name="python"></a>Python
 
-För närvarande är de enda regionerna som kräver slut punkts ändringar [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) och [Azure Kina](https://docs.microsoft.com/azure/china/resources-developer-guide).
+För vägledning om hur du ändrar slutpunkten för intag för opencensus-python SDK finns i [opencensus-python repo.](https://github.com/census-instrumentation/opencensus-python/blob/af284a92b80bcbaf5db53e7e0813f96691b4c696/contrib/opencensus-ext-azure/opencensus/ext/azure/common/__init__.py)
 
-|Region |  Namnet på slutpunkten | Värde |
+## <a name="regions-that-require-endpoint-modification"></a>Regioner som kräver ändring av slutpunkt
+
+För närvarande är de enda regioner som kräver slutpunktsändringar [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) och [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+|Region |  Namn på slutpunkt | Värde |
 |-----------------|:------------|:-------------|
-| Azure Kina | Telemetri kanal | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure Kina | QuickPulse (Live metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
-| Azure Kina | Profil fråga |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
-| Azure Government | Telemetri kanal |`https://dc.applicationinsights.us/v2/track` |
-| Azure Government | QuickPulse (Live metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
-| Azure Government | Profil fråga |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+| Azure Kina | Telemetrikanal | `https://dc.applicationinsights.azure.cn/v2/track` |
+| Azure Kina | QuickPulse (Live Metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure Kina | Profilfråga |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
+| Azure Government | Telemetrikanal |`https://dc.applicationinsights.us/v2/track` |
+| Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
+| Azure Government | Profilfråga |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
-Om du för närvarande använder [Application Insights REST API](https://dev.applicationinsights.io/
-) som normalt används via "API.applicationinsights.io" måste du använda en slut punkt som är lokal i din region:
+Om du för närvarande använder [REST-API:et för Application Insights](https://dev.applicationinsights.io/
+) som normalt nås via "api.applicationinsights.io" måste du använda en slutpunkt som är lokal för din region:
 
-|Region |  Namnet på slutpunkten | Värde |
+|Region |  Namn på slutpunkt | Värde |
 |-----------------|:------------|:-------------|
-| Azure Kina | REST-API | `api.applicationinsights.azure.cn` |
-| Azure Government | REST-API | `api.applicationinsights.us`|
+| Azure Kina | REST API | `api.applicationinsights.azure.cn` |
+| Azure Government | REST API | `api.applicationinsights.us`|
 
 > [!NOTE]
-> Kod utan kod/tillägg baserad övervakning för Azure App-tjänster **stöds för närvarande inte** i dessa regioner. Så snart den här funktionen blir tillgänglig kommer den här artikeln att uppdateras.
+> Kodlös agent/tilläggsbaserad övervakning för Azure App Services **stöds för närvarande inte** i dessa regioner. Så snart den här funktionen blir tillgänglig kommer den här artikeln att uppdateras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om anpassade ändringar för Azure Government finns i den detaljerade vägledningen för [Azure-övervakning och-hantering](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
-- Mer information om Azure Kina finns i [Azure Kina-Spelbok](https://docs.microsoft.com/azure/china/).
+- Mer information om anpassade ändringar för Azure Government finns i detaljerad vägledning för [Azure-övervakning och hantering](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+- Mer information om Azure China finns i [Azure China Playbook](https://docs.microsoft.com/azure/china/).

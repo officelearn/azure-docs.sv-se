@@ -1,46 +1,45 @@
 ---
-Description: Den uppskattade tiden för att överföra betalningar, tillämpliga betalnings trösklar och Microsofts marknads platser från vilka du kan få betalningar kan variera beroende på land/region och konto typ för utbetalning.
-title: Betalnings trösklar, metoder och tids ramar i den kommersiella Marketplace | Azure Marketplace
+Description: Den beräknade tiden för överföring av betalningar, tillämpliga betalningsgränser och Microsoft-marknadsplatser som du kan ta emot betalningar från kan variera beroende på land/region och utbetalningskontotyp.
+title: Betalningströsklar, metoder och tidsramar på den kommersiella marknaden | Azure Marketplace
 ms.date: 12/10/2019
-ms.topic: article
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+ms.topic: conceptual
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 6bb05513d59870b7fa0d997eb31510494a9938e0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fe18fab4a2ea61f41e017704105e37f28c20e456
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279733"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Betalningströsklar, metoder och tidsramar
 
-Den uppskattade tiden för att överföra betalningar och Microsofts marknads platser där du kan få betalningar kan variera beroende på ditt land/din region och konto typen utbetalning. Det här avsnittet beskriver de betalnings metoder som stöds i varje land/region.
+Den beräknade tiden för överföring av betalningar och Microsoft-marknadsplatser som du kan ta emot betalningar från kan variera beroende på land/region och utbetalningskontotyp. I det här avsnittet beskrivs de betalningsmetoder som stöds i varje land/region.
 
-För alla länder/regioner använder vi antingen ACH/SEPA eller överförings överföring för att leverera våra betalningar. Dessutom stöder vissa länder/regioner PayPal som betalnings metod.
+För ett visst land/en viss region kommer vi antingen att använda ACH/SEPA eller banköverföring för att leverera våra betalningar. Dessutom stöder vissa länder/regioner PayPal som betalningsmetod.
 
-## <a name="number-of-days-for-payments-to-reach-payout-account"></a>Antal dagar för betalningar för att uppnå utbetalnings konto
+## <a name="number-of-days-for-payments-to-reach-payout-account"></a>Antal dagar för betalningar för att nå utbetalningskonto
 
-Vi skickar vanligt vis alla betalningar som förfaller under en månad med den 15: e dagen i den månaden, men det tar ytterligare tid för betalningen att komma åt ditt konto. Antalet dagar varierar beroende på den betalnings metod som vi använder för ditt konto, enligt beskrivningen nedan.
+Vi skickar vanligtvis alla betalningar som ska betalas under en viss månad senast den 15:e dagen i den månaden, men det tar ytterligare tid för betalningen att nå ditt konto. Antalet dagar varierar beroende på vilken betalningsmetod vi använder för ditt konto, enligt beskrivningen nedan.
 
 > [!NOTE]
-> De dagar som visas nedan är ungefärliga; eventuella utbetalningar kan ta en längre eller kortare tid.
+> Dagarna nedan är ungefärliga; en viss utbetalning kan ta längre eller kortare tid.
 
-| Betalningsmetod     | Antal dagar för att uppnå utbetalnings konto     |
+| Betalningsmetod     | Antal dagar för att nå utbetalningskonto     |
 |--------------------|--------------------------------------------|
-| PayPal             | 1 arbets dag                             |
-| ACH/SEPA           | 2-3 arbets dagar                          |
-| Överföring av överföring      | 7-10 arbets dagar                         |
+| PayPal             | 1 arbetsdag                             |
+| ACH/SEPA           | 2-3 arbetsdagar                          |
+| Trådöverföring      | 7-10 arbetsdagar                         |
 
-Granska tabellerna nedan om du vill se de länder/regioner där dessa betalnings metoder används för varje Marketplace.
+Om du vill se de länder/regioner där dessa betalningsmetoder används för varje marknadsplats läser du tabellerna nedan.
 
-## <a name="payment-methods-in-countriesregions"></a>Betalnings metoder i länder/regioner
+## <a name="payment-methods-in-countriesregions"></a>Betalningsmetoder i länder/regioner
 
 > [!NOTE]
-> Betalnings trösklar i alla regioner är $50 USD.
+> Betalningströsklar i alla regioner är 50 USD.
 
-| Land                          | Azure Marketplace | Butik, annonsering, mixer och Minecraft | Office | PayPal-betalningar |
+| Land/region                          | Azure Marketplace | Butik, annonsering, mixer och Minecraft | Office | PayPal-betalningar |
 |----------------------------------|-------------------|------------------------------------------|--------|-----------------|
 | Afghanistan                      | Ja               | Ja                                      | Inga     | Inga              |
 | Albanien                          | Ja               | Ja                                      | Ja    | Ja             |
@@ -75,9 +74,9 @@ Granska tabellerna nedan om du vill se de länder/regioner där dessa betalnings
 | Colombia                         | Ja               | Ja                                      | Ja    | Ja             |
 | Komorerna                          | Ja               | Ja                                      | Inga     | Inga              |
 | Kongo (DR)                      | Ja               | Ja                                      | Ja    | Inga              |
-| Republiken Kongo               | Ja               | Ja                                      | Ja    | Inga              |
+| Kongo, Republiken Kongo               | Ja               | Ja                                      | Ja    | Inga              |
 | Costa Rica                       | Ja               | Ja                                      | Ja    | Ja             |
-| Côte D' Ivoire                    | Ja               | Ja                                      | Ja    | Inga              |
+| Elfenbenskusten                    | Ja               | Ja                                      | Ja    | Inga              |
 | Kroatien                          | Ja               | Ja                                      | Ja    | Inga              |
 | Cypern                           | Ja               | Ja                                      | Ja    | Ja             |
 | Tjeckien                   | Ja               | Ja                                      | Ja    | Ja             |
@@ -90,7 +89,7 @@ Granska tabellerna nedan om du vill se de länder/regioner där dessa betalnings
 | Eritrea                          | Ja               | Ja                                      | Ja    | Inga              |
 | Estland                          | Ja               | Ja                                      | Ja    | Ja             |
 | Etiopien                         | Ja               | Ja                                      | Ja    | Inga              |
-| Fidji                     | Ja               | Ja                                      | Inga     | Inga              |
+| Fijiöarna                     | Ja               | Ja                                      | Inga     | Inga              |
 | Finland                          | Ja               | Ja                                      | Ja    | Ja             |
 | Frankrike                           | Ja               | Ja                                      | Ja    | Ja             |
 | Georgien                          | Ja               | Ja                                      | Ja    | Ja             |
@@ -101,7 +100,7 @@ Granska tabellerna nedan om du vill se de länder/regioner där dessa betalnings
 | Guinea                           | Ja               | Ja                                      | Ja    | Inga              |
 | Haiti                            | Ja               | Ja                                      | Ja    | Inga              |
 | Honduras                         | Ja               | Ja                                      | Ja    | Ja             |
-| Hongkong SAR                        | Ja               | Ja                                      | Ja    | Ja             |
+| Hongkong                        | Ja               | Ja                                      | Ja    | Ja             |
 | Ungern                          | Ja               | Ja                                      | Ja    | Ja             |
 | Island                          | Ja               | Ja                                      | Ja    | Inga              |
 | Indien                            | Ja               | Ja                                      | Ja    | Ja             |
@@ -113,9 +112,9 @@ Granska tabellerna nedan om du vill se de länder/regioner där dessa betalnings
 | Jamaica                          | Ja               | Ja                                      | Ja    | Ja             |
 | Japan                            | Ja               | Ja                                      | Ja    | Ja             |
 | Jordanien                           | Ja               | Ja                                      | Ja    | Ja             |
-| Kazakstan                       | Ja               | Ja                                      | Ja    | Ja             |
+| Kazakhstan                       | Ja               | Ja                                      | Ja    | Ja             |
 | Kenya                            | Ja               | Ja                                      | Ja    | Ja             |
-| Korea (södra)                    | Ja               | Ja                                      | Ja    | Inga              |
+| Korea (Söder)                    | Ja               | Ja                                      | Ja    | Inga              |
 | Kuwait                           | Ja               | Ja                                      | Ja    | Ja             |
 | Kirgizistan                       | Inga                | Inga                                       | Ja    | Inga              |
 | Laos                             | Ja               | Ja                                      | Ja    | Inga              |
@@ -139,7 +138,7 @@ Granska tabellerna nedan om du vill se de länder/regioner där dessa betalnings
 | Marocko                          | Ja               | Ja                                      | Ja    | Inga              |
 | Moçambique                       | Ja               | Ja                                      | Ja    | Ja             |
 | Nepal                            | Ja               | Ja                                      | Ja    | Inga              |
-| Nederländerna                 | Ja               | Ja                                      | Ja    | Ja             |
+| Nederländerna,                 | Ja               | Ja                                      | Ja    | Ja             |
 | Nya Zeeland                      | Ja               | Ja                                      | Ja    | Ja             |
 | Nicaragua                        | Ja               | Ja                                      | Ja    | Ja             |
 | Niger                            | Ja               | Ja                                      | Ja    | Inga              |

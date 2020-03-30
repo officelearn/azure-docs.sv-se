@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
-ms.openlocfilehash: f328de00d206b58037fda800354e9634b1c374d6
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 5e5ef3084fa4e13035fe562dd3c5ed2a37b76be2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67187734"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334877"
 ---
-Azure Data Lake Storage Gen1 är en företagsomfattande storskalig lagrings plats för stora data analys arbets belastningar. Du kan använda Data Lake Storage Gen1 för att samla in data om storlek, typ och inmatnings hastighet på en enda plats för operativa och undersökande analyser. Det finns ingen gräns för mängden data som du kan lagra i ett Data Lake Storage Gen1 konto.
+Azure Data Lake Storage Gen1 är en företagsomfattande hyperskalalagringsdatabas för stordata analytiska arbetsbelastningar. Du kan använda Data Lake Storage Gen1 för att samla in data av valfri storlek, typ och inmatningshastighet på en enda plats för drift- och undersökningsanalys. Det finns ingen gräns för hur mycket data du kan lagra i ett DataSjölagringsgenm1-konto.
 
-| **Resurs** | **Standardgräns** | **kommentarer** |
+| **Resurs** | **Gräns** | **Kommentar** |
 | --- | --- | --- |
-| Maximalt antal Data Lake Storage Gen1-konton, per prenumeration, per region |10 | Kontakta supporten om du vill begära en ökning av den här gränsen. |
-| Maximalt antal åtkomst-ACL: er, per fil eller mapp |32 | Detta är en hård gräns. Använd grupper för att hantera åtkomst med färre poster. |
-| Maximalt antal standard-ACL: er, per fil eller mapp |32 | Detta är en hård gräns. Använd grupper för att hantera åtkomst med färre poster. |
+| Maximalt antal DataSjölagringsgenm1-konton per prenumeration, per region |10 | Kontakta supporten om du vill begära en ökning för den här gränsen. |
+| Maximalt antal åtkomst-ACL:er per fil eller mapp |32 | Detta är en hård gräns. Använd grupper för att hantera åtkomst med färre poster. |
+| Maximalt antal standard-ACL:er per fil eller mapp |32 | Detta är en hård gräns. Använd grupper för att hantera åtkomst med färre poster. |

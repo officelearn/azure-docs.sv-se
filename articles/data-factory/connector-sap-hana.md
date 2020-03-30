@@ -1,6 +1,6 @@
 ---
 title: Kopiera data från SAP HANA
-description: Lär dig hur du kopierar data från SAP HANA till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
+description: Lär dig hur du kopierar data från SAP HANA till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/17/2020
 ms.openlocfilehash: fa165c21622110bb18476efdebf3264a11e26ad7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265888"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiera data från SAP HANA med Azure Data Factory
@@ -23,56 +23,56 @@ ms.locfileid: "79265888"
 > * [Version 1](v1/data-factory-sap-hana-connector.md)
 > * [Aktuell version](connector-sap-hana.md)
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en SAP HANA-databas. Den bygger på [översikts artikeln om kopierings aktiviteten](copy-activity-overview.md) som visar en översikt över kopierings aktiviteten.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en SAP HANA-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 >[!TIP]
->Om du vill lära dig mer om ADF: s övergripande support i SAP data integrations scenario, se [SAP data integration med Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) med detaljerad introduktion, comparsion och vägledning.
+>Mer information om ADF:s övergripande support i SCENARIOt för SAP-dataintegrering finns i [SAP-dataintegration med hjälp av Azure Data Factory-faktablad](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) med detaljerad introduktion, jämförelse och vägledning.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här SAP HANA anslutningen stöds för följande aktiviteter:
+Den här SAP HANA-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från SAP HANA-databasen till alla mottagar data lager som stöds. En lista över data lager som stöds som källor/mottagare av kopierings aktiviteten finns i tabellen med [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
+Du kan kopiera data från SAP HANA-databasen till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Mer specifikt stöder den här SAP HANA-anslutningen:
+Den här SAP HANA-anslutningen stöder:
 
-- Kopiera data från en version av SAP HANA Database.
-- Kopiera data från **Hana-informations modeller** (till exempel analys-och beräknings visningar) och **rad/kolumn-tabeller**.
-- Kopiera data med **Basic** -eller **Windows** -autentisering.
-- Parallell kopiering från en SAP HANA källa. Mer information finns i avsnittet [parallell kopiering från SAP HANA](#parallel-copy-from-sap-hana) .
+- Kopiera data från valfri version av SAP HANA-databasen.
+- Kopiera data från **hana-informationsmodeller** (t.ex. analytiska vyer och beräkningsvyer) och **rad-/kolumntabeller**.
+- Kopiera data med **grundläggande** autentisering eller Windows-autentisering. **Windows**
+- Parallellkopiering från en SAP HANA-källa. Mer information finns i avsnittet [Parallellkopia från SAP HANA.](#parallel-copy-from-sap-hana)
 
 > [!TIP]
-> Om du vill kopiera data **till** SAP HANA data lager använder du allmän ODBC-anslutning. Se [SAP HANA Sink](connector-odbc.md#sap-hana-sink) med information. Observera att de länkade tjänsterna för SAP HANA koppling och ODBC-koppling är av olika typ, så att de inte kan återanvändas.
+> Om du vill kopiera data **till** SAP HANA-datalager använder du den allmänna ODBC-anslutningen. Se [SAP HANA-diskbänk](connector-odbc.md#sap-hana-sink) med detaljer. Observera att de länkade tjänsterna för SAP HANA-anslutning och ODBC-anslutning är med olika typ och kan därför inte återanvändas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda den här SAP HANA-anslutningen måste du:
 
-- Konfigurera en egen värd Integration Runtime. Mer information finns i artikeln om [egen värd integration runtime](create-self-hosted-integration-runtime.md) .
-- Installera SAP HANA ODBC-drivrutinen på datorn Integration Runtime. Du kan hämta SAP HANA ODBC-drivrutinen från [SAP Software Download Center](https://support.sap.com/swdc). Sök med nyckelordet **SAP HANA-klienten för Windows**.
+- Konfigurera en självvärderad integrationskörning. Mer information finns i artikeln Integration Runtime för [självvärd.](create-self-hosted-integration-runtime.md)
+- Installera SAP HANA ODBC-drivrutinen på integrationskörningsdatorn. Du kan hämta SAP HANA ODBC-drivrutinen från [SAP Software Download Center](https://support.sap.com/swdc). Sök med nyckelordet **SAP HANA CLIENT for Windows**.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för SAP HANA koppling.
+I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för SAP HANA-anslutningsappen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för SAP HANA länkade tjänsten:
+Följande egenskaper stöds för SAP HANA-länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type måste anges till: **SapHana** | Ja |
-| connectionString | Ange information som behövs för att ansluta till SAP HANA med hjälp av **grundläggande autentisering** eller **Windows-autentisering**. Se följande exempel.<br>I anslutnings strängen är server/port obligatorisk (standard porten är 30015) och användar namn och lösen ord är obligatoriska när du använder grundläggande autentisering. Mer avancerade inställningar finns i [SAP HANA egenskaper för ODBC-anslutning](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>Du kan också ställa in lösen ord i Azure Key Vault och hämta lösen ords konfigurationen från anslutnings strängen. Se [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
-| userName | Ange användar namn när du använder Windows-autentisering. Exempel: `user@domain.com` | Nej |
-| lösenord | Ange lösen ordet för användar kontot. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Nej |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Det krävs en egen värd Integration Runtime som anges i [krav](#prerequisites). |Ja |
+| typ | Egenskapen Type måste ställas in på: **SapHana** | Ja |
+| Connectionstring | Ange information som behövs för att ansluta till SAP HANA med hjälp av **antingen grundläggande autentisering** eller **Windows-autentisering**. Se följande exempel.<br>I anslutningssträngen är server/port obligatorisk (standardporten är 30015) och användarnamn och lösenord är obligatoriska när du använder grundläggande autentisering. Ytterligare avancerade inställningar finns i [SAP HANA ODBC Connection Properties](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>Du kan också placera lösenord i Azure Key Vault och hämta lösenordskonfigurationen ur anslutningssträngen. Mer information finns [i Store-autentiseringsuppgifterna i](store-credentials-in-key-vault.md) azure key vault-artikeln. | Ja |
+| userName | Ange användarnamn när du använder Windows-autentisering. Exempel: `user@domain.com` | Inga |
+| password | Ange lösenord för användarkontot. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Inga |
+| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. En självvärdad integrationskörning krävs som nämns i [Förutsättningar](#prerequisites). |Ja |
 
-**Exempel: Använd grundläggande autentisering**
+**Exempel: använd grundläggande autentisering**
 
 ```json
 {
@@ -90,7 +90,7 @@ Följande egenskaper stöds för SAP HANA länkade tjänsten:
 }
 ```
 
-**Exempel: Använd Windows-autentisering**
+**Exempel: använda Windows-autentisering**
 
 ```json
 {
@@ -113,7 +113,7 @@ Följande egenskaper stöds för SAP HANA länkade tjänsten:
 }
 ```
 
-Om du använder SAP HANA länkade tjänsten med följande nytto Last, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen.
+Om du använde SAP HANA-länkad tjänst med följande nyttolast stöds den fortfarande som den är, medan du föreslås använda den nya framöver.
 
 **Exempel:**
 
@@ -141,15 +141,15 @@ Om du använder SAP HANA länkade tjänsten med följande nytto Last, stöds den
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av SAP HANA data uppsättning.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av SAP HANA-datauppsättningen.
 
-Följande egenskaper stöds för att kopiera data från SAP HANA:
+Så här kopierar du data från SAP HANA stöds följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **SapHanaTable** | Ja |
-| schema | Namnet på schemat i SAP HANA databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
-| table | Namnet på tabellen i SAP HANA databasen. | Nej (om ”query” i aktivitetskälla har angetts) |
+| typ | Datauppsättningens typegenskap måste ställas in på: **SapHanaTable** | Ja |
+| Schemat | Namnet på schemat i SAP HANA-databasen. | Nej (om "fråga" i aktivitetskällan har angetts) |
+| tabell | Namn på tabellen i SAP HANA-databasen. | Nej (om "fråga" i aktivitetskällan har angetts) |
 
 **Exempel:**
 
@@ -171,27 +171,27 @@ Följande egenskaper stöds för att kopiera data från SAP HANA:
 }
 ```
 
-Om du använder `RelationalTable` typ av data uppsättning, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya som skickas.
+Om du `RelationalTable` använde maskinskriven datauppsättning stöds den fortfarande som den är, medan du föreslås använda den nya framöver.
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av SAP HANA källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av SAP HANA-källa.
 
 ### <a name="sap-hana-as-source"></a>SAP HANA som källa
 
 >[!TIP]
->Om du vill mata in data från SAP HANA effektivt genom att använda data partitionering kan du läsa mer från [parallell kopiering från SAP HANA](#parallel-copy-from-sap-hana) -avsnittet.
+>Om du vill använda data från SAP HANA effektivt med hjälp av datapartitionering kan du läsa mer från [avsnittet Parallellkopia från SAP HANA.](#parallel-copy-from-sap-hana)
 
-För att kopiera data från SAP HANA, stöds följande egenskaper i avsnittet Kopiera aktivitets **källa** :
+Om du vill kopiera data från SAP HANA stöds följande egenskaper i avsnittet kopiera **aktivitetskälla:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **SapHanaSource** | Ja |
-| query | Anger SQL-frågan för att läsa data från SAP HANA-instansen. | Ja |
-| partitionOptions | Anger de data partitionerings alternativ som används för att mata in data från SAP HANA. Läs mer från [SAP HANA avsnittet om parallell kopiering](#parallel-copy-from-sap-hana) .<br>Tillåt värden är: **inga** (standard), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Läs mer från [SAP HANA avsnittet om parallell kopiering](#parallel-copy-from-sap-hana) . `PhysicalPartitionsOfTable` kan endast användas när du kopierar data från en tabell men inte frågar. <br>När ett partitions alternativ är aktiverat (det vill säga inte `None`), kontrol leras graden av parallellitet för data från SAP HANA av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen för kopierings aktiviteten. | False |
-| partitionSettings | Ange gruppen med inställningar för data partitionering.<br>Använd när alternativet partition är `SapHanaDynamicRange`. | False |
-| partitionColumnName | Ange namnet på den käll kolumn som ska användas av en partition för parallell kopiering. Om detta inte anges identifieras indexet eller primär nyckeln för tabellen automatiskt och används som partition-kolumn.<br>Använd när alternativet partition är `SapHanaDynamicRange`. Om du använder en fråga för att hämta källdata, Hook- `?AdfHanaDynamicRangePartitionCondition` i WHERE-satsen. Se exempel i [parallell kopiering från SAP HANA](#parallel-copy-from-sap-hana) -avsnittet. | Ja när du använder `SapHanaDynamicRange` partition. |
-| packetSize | Anger storleken på nätverks paketet (i kilobyte) för att dela data till flera block. Om du har stora mängder data som ska kopieras kan ökande paket storlek öka Läs hastigheten från SAP HANA i de flesta fall. Prestanda testning rekommenderas när du justerar paket storleken. | Nej.<br>Standardvärdet är 2048 (2 MB). |
+| typ | Egenskapen Type property för kopians aktivitetskälla måste anges till: **SapHanaSource** | Ja |
+| DocumentDB | Anger den SQL-fråga som ska läsas data från SAP HANA-instansen. | Ja |
+| partitionOptions | Anger de datapartitionsalternativ som används för att använda data från SAP HANA. Läs mer från [Parallellkopia från SAP HANA-avsnittet.](#parallel-copy-from-sap-hana)<br>Tillåt värden är: **Inga** (standard), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Läs mer från [Parallellkopia från SAP HANA-avsnittet.](#parallel-copy-from-sap-hana) `PhysicalPartitionsOfTable`kan bara användas när data kopieras från en tabell men inte fråga. <br>När ett partitionsalternativ är aktiverat (det vill ha), `None`styrs graden av parallellitet till samtidig inläsning av data från SAP HANA av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopieringsaktiviteten. | False |
+| partitionSätta | Ange gruppen för inställningarna för datapartitionering.<br>Använd när partitionsalternativet är `SapHanaDynamicRange`. | False |
+| partitionColumnName | Ange namnet på källkolumnen som ska användas av partitionen för parallellkopia. Om inget anges identifieras indexet eller primärnyckeln för tabellen automatiskt och används som partitionskolumn.<br>Använd när partitionsalternativet är `SapHanaDynamicRange`. Om du använder en fråga för `?AdfHanaDynamicRangePartitionCondition` att hämta källdata ansluter du WHERE-satsen. Se exempel i [Parallellkopia från AVSNITTET SAP HANA.](#parallel-copy-from-sap-hana) | Ja när `SapHanaDynamicRange` du använder partitionen. |
+| packetSize | Anger nätverkspaketstorleken (i Kilobytes) för att dela upp data till flera block. Om du har stora mängder data att kopiera kan öka paketstorleken öka läshastigheten från SAP HANA i de flesta fall. Prestandatestning rekommenderas när paketstorleken justeras. | Nej.<br>Standardvärdet är 2048 (2 MB). |
 
 **Exempel:**
 
@@ -225,22 +225,22 @@ För att kopiera data från SAP HANA, stöds följande egenskaper i avsnittet Ko
 ]
 ```
 
-Om du använder `RelationalSource` typ av kopierings källa, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya vägen.
+Om du `RelationalSource` använde den maskinskrivna kopieringskällan stöds den fortfarande som den är, medan du föreslås använda den nya framåt.
 
-## <a name="parallel-copy-from-sap-hana"></a>Parallell kopiering från SAP HANA
+## <a name="parallel-copy-from-sap-hana"></a>Parallell kopia från SAP HANA
 
-Data Factory SAP HANA-anslutningen innehåller inbyggda data partitioner för att kopiera data från SAP HANA parallellt. Du kan hitta data partitionerings alternativ i **käll** tabellen för kopierings aktiviteten.
+Data Factory SAP HANA-anslutningen tillhandahåller inbyggd datapartitionering för att kopiera data från SAP HANA parallellt. Du hittar alternativ för datapartitionering i **källtabellen** för kopieringsaktiviteten.
 
-![Skärm bild av partitionsalternativ](./media/connector-sap-hana/connector-sap-hana-partition-options.png)
+![Skärmbild av partitionsalternativ](./media/connector-sap-hana/connector-sap-hana-partition-options.png)
 
-När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din SAP HANA källa för att hämta data efter partitioner. Den parallella graden styrs av [`parallelCopies`s](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel ställer in `parallelCopies` till fyra, Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar, och varje fråga hämtar en del av data från din SAP HANA.
+När du aktiverar partitionerad kopia kör Data Factory parallella frågor mot DIN SAP HANA-källa för att hämta data efter partitioner. Den parallella graden [`parallelCopies`](copy-activity-performance.md#parallel-copy) styrs av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från DIN SAP HANA.
 
-Du rekommenderas att aktivera parallell kopiering med data partitionering, särskilt när du matar in stora mängder data från din SAP HANA. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat data lager rekommenderar vi att du skriver till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
+Du föreslås aktivera parallellkopiering med datapartitionering, särskilt när du intar stora mängder data från DIN SAP HANA. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat datalager rekommenderas att du skriver till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
-| Scenario                                           | Föreslagna inställningar                                           |
+| Scenario                                           | Inställningar för förslag                                           |
 | -------------------------------------------------- | ------------------------------------------------------------ |
-| Fullständig belastning från stor tabell.                        | **Partitions alternativ**: fysiska partitioner i tabell. <br><br/>Under körningen identifierar Data Factory automatiskt typen av fysisk partition för den angivna SAP HANA tabellen och väljer motsvarande partitionsnyckel:<br>**partitionering**för - intervall: hämta den partitionstabell och de partitions intervall som har definierats för tabellen och kopiera sedan data efter intervall. <br>- **hash-partitionering**: Använd nyckel för hash-partition som partition och sedan partitionera och kopiera data baserat på beräknade intervall i ADF. <br>- **partitionering med resursallokering** eller **ingen partition**: Använd primär nyckel som partitionstabell och sedan partitionera och kopiera data baserat på beräknade intervall i ADF. |
-| Läs in stora mängder data med hjälp av en anpassad fråga. | **Partitions alternativ**: partition med dynamiskt intervall.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partitionstabell**: Ange den kolumn som används för att använda partitionen för dynamiskt intervall. <br><br>Under körningen beräknar Data Factory först värde intervallen för den angivna partitionstabellen, genom att fördela raderna i ett antal buckets i enlighet med antalet distinkta värden för partitionstabell och inställningen för parallell kopiering, ersätter `?AdfHanaDynamicRangePartitionCondition` med att filtrera partitionens kolumn värde intervall för varje partition och skickar till SAP HANA.<br><br>Om du vill använda flera kolumner som partitionstabell kan du sammanfoga värdena i varje kolumn som en kolumn i frågan och ange den som partitions kolumn i ADF, t. ex. `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition`. |
+| Full belastning från stort bord.                        | **Partition alternativ**: Fysiska partitioner av tabellen. <br><br/>Under körningen identifierar Data Factory automatiskt den fysiska partitionstypen för den angivna SAP HANA-tabellen och väljer motsvarande partitionsstrategi:<br>- **Områdespartitioning:** Hämta partitionskolumnen och partitionsområdena som definierats för tabellen och kopiera sedan data efter område. <br>- **Hash-partitionering:** Använd hash-partitionsnyckel som partitionskolumn och partitionera och kopiera data baserat på beräknade ADF-intervall. <br>- **Partitionering av round-robin** eller **ingen partition**: Använd primärnyckeln som partitionskolumn och partitionera och kopiera data baserat på beräknade ADF-intervall. |
+| Läs in stora mängder data med hjälp av en anpassad fråga. | **Partition alternativ:** Dynamiskt omfång partition.<br>**Fråga** `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`: .<br>**Partitionskolumnen**: Ange den kolumn som används för att använda partition med dynamiskt omfång. <br><br>Under körningen beräknar Data Factory först värdeområdena för den angivna partitionskolumnen, genom att fördela raderna jämnt i ett antal buckets enligt antalet `?AdfHanaDynamicRangePartitionCondition` olika partitionskolumnvärden och ADF-inställningen för parallellkopiering, ersätter sedan med filtrering av partitionskolumnvärdet för varje partition och skickar till SAP HANA.<br><br>Om du vill använda flera kolumner som partitionskolumn kan du sammanfoga värdena för varje kolumn som en kolumn `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition`i frågan och ange den som partitionskolumn i ADF, till exempel . |
 
 **Exempel: fråga med fysiska partitioner i en tabell**
 
@@ -251,7 +251,7 @@ Du rekommenderas att aktivera parallell kopiering med data partitionering, särs
 }
 ```
 
-**Exempel: fråga med Dynamic Range-partition**
+**Exempel: fråga med partition för dynamiskt omfång**
 
 ```json
 "source": {
@@ -264,43 +264,43 @@ Du rekommenderas att aktivera parallell kopiering med data partitionering, särs
 }
 ```
 
-## <a name="data-type-mapping-for-sap-hana"></a>Data typs mappning för SAP HANA
+## <a name="data-type-mapping-for-sap-hana"></a>Mappning av datatyp för SAP HANA
 
-När du kopierar data från SAP HANA används följande mappningar från SAP HANA data typer för att Azure Data Factory interimistiska data typer. Se [mappningar av schema och data typer](copy-activity-schema-and-type-mapping.md) för att lära dig mer om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren.
+Vid kopiering av data från SAP HANA används följande mappningar från SAP HANA-datatyper till Azure Data Factory interimsdatatyper. Se [Schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md) om du vill veta mer om hur du kopierar aktivitetsschemat och datatypen till diskhon.
 
-| SAP HANA data typ | Data factory tillfälliga datatyp |
+| SAP HANA-datatyp | Data fabrik interim datatyp |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | String                         |
+| ALFA-NUMMER           | String                         |
 | BIGINT             | Int64                          |
 | BINARY             | Byte[]                         |
-| Bintext            | String                         |
-| BLOB               | Byte[]                         |
-| BOOL               | Byte                           |
-| CLOB               | String                         |
+| BINTEXT            | String                         |
+| Blob               | Byte[]                         |
+| Bool               | Byte                           |
+| Clob               | String                         |
 | DATE               | DateTime                       |
-| DECIMAL            | decimaltal                        |
-| DOUBLE             | Double-värde                         |
-| FLOAT              | Double-värde                         |
+| DECIMAL            | Decimal                        |
+| DOUBLE             | Double                         |
+| Flyta              | Double                         |
 | INTEGER            | Int32                          |
-| NCLOB              | String                         |
-| NVARCHAR           | String                         |
+| NCLOB (på andra sätt)              | String                         |
+| Nvarchar           | String                         |
 | REAL               | Enkel                         |
-| SECONDDATE         | DateTime                       |
-| SHORTTEXT          | String                         |
-| SMALLDECIMAL       | decimaltal                        |
-| SMALLINT           | Int16                          |
-| STGEOMETRYTYPE     | Byte[]                         |
-| STPOINTTYPE        | Byte[]                         |
-| INFORMATION               | String                         |
+| ANDRADATE         | DateTime                       |
+| KORTTEXT          | String                         |
+| SMALLDECIMAL       | Decimal                        |
+| SMALLINT           | Int16 (int16)                          |
+| STGEOMETRYTYP     | Byte[]                         |
+| STPOINTTYP        | Byte[]                         |
+| TEXT               | String                         |
 | TIME               | TimeSpan                       |
 | TINYINT            | Byte                           |
 | VARCHAR            | String                         |
 | TIMESTAMP          | DateTime                       |
 | VARBINARY          | Byte[]                         |
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Azure Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,31 +1,29 @@
 ---
-title: Lägg till bank-och skatte information | Azure Marketplace
-description: Lägg till bank-och skatte information till ditt dev Center-konto.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Lägg till bank- och skatteinformation | Azure Marketplace
+description: Lägg till bank- och skatteinformation på ditt Dev Center-konto.
 author: qianw211
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: blevens
-ms.openlocfilehash: e9ad4841d805b604d0f44a9e0dc08eed15aa9c1f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: dsindona
+ms.openlocfilehash: 40a73e386ce618d7254ec7cb1f95dcde6f82d65a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431995"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286667"
 ---
-# <a name="add-bank-and-tax-information"></a>Lägg till bank-och skatte information  
+# <a name="add-bank-and-tax-information"></a>Lägg till bank- och skatteinformation  
 
-Bank-och skatte information krävs för alla kommersiella erbjudanden med typen av Transact-listor.  
+Bank- och skatteinformation krävs för alla kommersiella erbjudanden med hjälp av listningstypen.  
 
 ## <a name="partner-center"></a>Partnercenter
 
-Bank-och skatte information hanteras nu i Partner Center. Anvisningar om hur du konfigurerar dessa inställningar finns på sidan "Översikt över marknads Marketplace" i [Hantera ditt partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#payout-account).
+Bank- och skatteinformation hanteras nu inom Partner Center. Instruktioner för att konfigurera dessa inställningar finns på sidan "Översikt över kommersiella marknadsplatser" på [Hantera ditt partnercenterkonto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#payout-account).
 
 
 ## <a name="next-steps"></a>Nästa steg
-*   Besök [Azure Marketplace-och AppSource Publisher-guide](./marketplace-publishers-guide.md) sidan.  
+*   Besök sidan [Azure Marketplace och AppSource Publisher Guide.](./marketplace-publishers-guide.md)  
  
 ---

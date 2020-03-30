@@ -1,44 +1,44 @@
 ---
-title: Komma igång med webb kart kontroll | Microsoft Azure Maps
-description: Lär dig hur du använder Microsoft Azure Maps kart kontrolls JavaScript-bibliotek på klient sidan för att återge kartor och inbäddade Azure Maps-funktioner i webb-eller mobil programmet.
-author: farah-alyasari
-ms.author: v-faalya
+title: Komma igång med webbkartkontroll | Microsoft Azure Maps
+description: Lär dig hur du använder Microsoft Azure Maps-mappningen styr JavaScript-bibliotek på klientsidan för att rendera kartor och inbäddade Azure Maps-funktioner i ditt webb- eller mobilappprogram.
+author: philmea
+ms.author: philmea
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 535707191557142054e493d0216b713312f53953
-ms.sourcegitcommit: 509b39e73b5cbf670c8d231b4af1e6cfafa82e5a
+ms.openlocfilehash: 6becb504671c1fa380207fda9d7d553fca8ceddf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78368659"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335238"
 ---
-# <a name="use-the-azure-maps-map-control"></a>Använda kart kontrollen Azure Maps
+# <a name="use-the-azure-maps-map-control"></a>Använda kartkontrollen Azure Maps
 
-Med Kartkontroll på klient sidans JavaScript-bibliotek kan du återge kartor och inbäddade Azure Maps funktioner i ditt webb-eller mobil program.
+Med JavaScript-biblioteket på Map Control-klientsidan kan du återge kartor och inbäddade Azure Maps-funktioner i ditt webb- eller mobilapplikation.
 
-## <a name="create-a-new-map-in-a-web-page"></a>Skapa en ny karta på en webb sida
+## <a name="create-a-new-map-in-a-web-page"></a>Skapa en ny karta på en webbsida
 
-Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript-bibliotek på klient sidan.
+Du kan bädda in en karta på en webbsida med hjälp av JavaScript-biblioteket på Map Control-klientsidan.
 
 1. Skapa en ny HTML-fil.
 
-2. Läs in Azure Maps Web SDK. Du kan välja ett av två alternativ.
+2. Läs in i Azure Maps Web SDK. Du kan välja ett av två alternativ.
 
-    * Använd den globalt värdbaserade CDN-versionen av Azure Maps Web SDK genom att lägga till referenser till Java Script och StyleSheet i HTML-filens `<head>`-element:
+    * Använd den globalt värdbaserade CDN-versionen av Azure Maps Web SDK genom att `<head>` lägga till referenser till JavaScript och formatmallen i elementet i HTML-filen:
 
         ```HTML
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
         ```
 
-    * Läs in Azure Maps Web SDK-källkod lokalt med [Azure-Maps-Control NPM-](https://www.npmjs.com/package/azure-maps-control) paketet och var värd för den med din app. Det här paketet innehåller även TypeScript-definitioner.
+    * Läs in Azure Maps Web SDK-källkoden lokalt med hjälp av [det Azure-maps-control NPM-paketet](https://www.npmjs.com/package/azure-maps-control) och är värd för den med din app. Det här paketet innehåller även TypeScript-definitioner.
 
-        > **NPM installera Azure-Maps-Control**
+        > **npm installera azure-maps-control**
 
-       Lägg sedan till referenser till Azure Maps formatmall-och skript käll referenser till `<head>`-elementet i filen:
+       Lägg sedan till referenser till formatmallen Azure Maps `<head>` och skriptkällans referenser till elementet i filen:
 
         ```HTML
         <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
@@ -52,7 +52,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     > import * as atlas from 'azure-maps-control';
     > ```
 
-3. Om du vill rendera kartan så att den fyller hela bröd texten på sidan lägger du till följande `<style>`-element i `<head>`-elementet.
+3. Om du vill återge kartan så att den fyller `<style>` hela sidan `<head>` lägger du till följande element i elementet.
 
    ```HTML
     <style>
@@ -67,7 +67,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     </style>
    ```
 
-4. Lägg till ett `<div>`-element i sidans huvuddel och ge det ett `id` **myMap**.
+4. I brödtexten på sidan, lägga till ett `<div>` element och ge det en `id` av **myMap**.
 
    ```HTML
     <body>
@@ -75,11 +75,11 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     </body>
    ```
 
-5. Om du vill initiera kart kontrollen definierar du en ny skript-tagg i HTML-texten. Skicka i `id` av kart `<div>` eller en `HTMLElement` (till exempel `document.getElementById('myMap')`) som den första parametern när du skapar en instans av `Map`-klassen. Använd dina egna Azure Maps konto nyckel-eller Azure Active Directory-autentiseringsuppgifter (AAD) för att autentisera kartan med hjälp av [autentiserings alternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
+5. Om du vill initiera kartkontrollen definierar du en ny skripttagg i html-brödtexten. Passera i `id` kartan `<div>` eller `HTMLElement` en (till `document.getElementById('myMap')`exempel ) som den första `Map` parametern när du skapar en förekomst av klassen. Använd dina egna Azure Maps-kontonyckel eller Azure Active Directory (AAD) autentiseringsuppgifter för att autentisera kartan med [autentiseringsalternativ](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). 
 
-   Om du behöver skapa ett konto eller hitta din nyckel följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) och [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
+   Om du behöver skapa ett konto eller hitta din nyckel följer du instruktionerna i [Skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) och får [primärnyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) . 
 
-   Alternativet **språk** anger vilket språk som ska användas för kart etiketter och kontroller. Mer information om språk som stöds finns i [språk som stöds](supported-languages.md). Om du använder en prenumerations nyckel för autentisering använder du följande:
+   **Språkalternativet** anger vilket språk som ska användas för kartetiketter och kontroller. Mer information om språk som stöds finns i [språk som stöds](supported-languages.md). Om du använder en prenumerationsnyckel för autentisering använder du följande:
 
    ```HTML
     <script type="text/javascript">
@@ -113,11 +113,11 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     </script>
    ```
 
-   En lista över exempel som visar hur du integrerar Azure Active Directory (AAD) med Azure Maps hittar du [här](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
+   En lista med exempel som visar hur du integrerar Azure Active Directory (AAD) med Azure Maps finns [här](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
     
-   Mer information finns i [autentisering med Azure Maps](azure-maps-authentication.md) -dokument och även [Azure Maps Azure AD-autentisering](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
+   Mer information finns i [dokumentet Autentisering med Azure Maps](azure-maps-authentication.md) och även azure maps Azure [AD-autentiseringsexempel](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples).
 
-6. Du kan också lägga till följande meta tag-element i sidhuvudet på din sida:
+6. Du kan också hitta lägga till följande metataggelement i sidhuvudet till hjälp:
 
    ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
@@ -127,7 +127,7 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    ```
 
-7. Att placera allt tillsammans i HTML-filen bör se ut ungefär så här:
+7. Att sätta ihop allt din HTML-fil ska se ut ungefär så här kod:
 
    ```HTML
     <!DOCTYPE html>
@@ -177,20 +177,20 @@ Du kan bädda in en karta på en webb sida med hjälp av Kartkontroll JavaScript
     </html>
     ```
 
-8. Öppna filen i webbläsaren och visa den återgivna kartan. Det bör se ut som på bilden nedan:
+8. Öppna filen i webbläsaren och visa den renderade kartan. Det bör se ut som bilden nedan:
 
-   ![Kart bild som visar åter givnings resultat](./media/how-to-use-map-control/map-of-seattle.png)
+   ![Kartbild som visar renderat resultat](./media/how-to-use-map-control/map-of-seattle.png)
 
 ## <a name="localizing-the-map"></a>Lokalisera kartan
 
-Azure Maps tillhandahåller två olika sätt att ställa in språk och regional vy för den renderade kartan. Det första alternativet är att lägga till den här informationen i den globala `atlas` namn rymden, vilket leder till att alla kart kontroll instanser i appen används som standard för de här inställningarna. Följande ställer in språket på franska ("fr-FR") och den regionala vyn till "Auto":
+Azure Maps innehåller två olika sätt att ange språk- och regionalvyn för den renderade kartan. Det första alternativet är att lägga `atlas` till den här informationen i det globala namnområdet, vilket resulterar i att alla kartkontrollinstanser i appen som standard används för att använda dessa inställningar. Följande ställer språket till franska ("fr-FR") och den regionala vyn till "Auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
 atlas.setView('Auto');
 ```
 
-Det andra alternativet är att skicka den här informationen till kart alternativen när du läser in kartan så här:
+Det andra alternativet är att skicka denna information till kartalternativen när du läser in kartan så här:
 
 ```javascript
 map = new atlas.Map('myMap', {
@@ -207,33 +207,33 @@ map = new atlas.Map('myMap', {
 ```
 
 > [!Note]
-> Med webb-SDK är det möjligt att läsa in flera kart instanser på samma sida med olika språk-och region inställningar. Dessutom kan de här inställningarna uppdateras när kartan har lästs in med hjälp av `setStyle`-funktionen på kartan. 
+> Med Web SDK är det möjligt att läsa in flera kartinstanser på samma sida med olika språk- och regioninställningar. Dessutom kan dessa inställningar uppdateras när kartan `setStyle` läses in med hjälp av kartans funktion. 
 
-Här är ett exempel på Azure Maps med språket "fr-FR" och den regionala vyn inställt på "Auto".
+Här är ett exempel på Azure Maps med språket inställt på "fr-FR" och den regionala vyn inställd på "Auto".
 
-![Kart bild som visar etiketter på franska](./media/how-to-use-map-control/websdk-localization.png)
+![Kartbild som visar etiketter på franska](./media/how-to-use-map-control/websdk-localization.png)
 
-En fullständig lista över språk som stöds och nationella vyer beskrivs [här](supported-languages.md).
+En fullständig lista över språk och regionala vyer som stöds dokumenteras [här](supported-languages.md).
 
-## <a name="azure-government-cloud-support"></a>Azure Government Cloud Support
+## <a name="azure-government-cloud-support"></a>Molnsupport för Azure Government
 
-Azure Maps Web SDK stöder Azure Government molnet. Alla JavaScript-och CSS-URL: er som används för att komma åt Azure Maps Web SDK förblir desamma. Följande uppgifter måste göras för att ansluta till Azure Government Cloud-versionen av Azure Mapss plattformen.
+Azure Maps Web SDK stöder Azure Government-molnet. Alla JavaScript- och CSS-url:er som används för att komma åt Azure Maps Web SDK förblir desamma. Följande uppgifter måste göras för att ansluta till Azure Government-molnversionen av Azure Maps-plattformen.
 
-När du använder den interaktiva kart kontrollen lägger du till följande kodrad innan du skapar en instans av klassen `Map`. 
+När du använder den interaktiva kartkontrollen lägger du till `Map` följande kodrad innan du skapar en förekomst av klassen. 
 
 ```javascript
 atlas.setDomain('atlas.azure.us');
 ```
 
-Se till att använda Azure Maps autentiseringsinformation från Azure Government moln plattform när du autentiserar kartan och tjänsterna.
+Var noga med att använda Azure Maps autentiseringsinformation från Azure Government molnplattform när du autentiserar kartan och tjänster.
 
-När du använder modulen tjänster måste domänen för tjänsterna anges när du skapar en instans av en API URL-slutpunkt. Följande kod skapar till exempel en instans av klassen `SearchURL` och pekar domänen i Azure Government molnet.
+När du använder tjänstemodulen måste domänen för tjänsterna anges när en instans av en API-URL-slutpunkt skapas. Följande kod skapar till exempel en `SearchURL` instans av klassen och pekar domänen till Azure Government-molnet.
 
 ```javascript
 var searchURL = new atlas.service.SearchURL(pipeline, 'atlas.azure.us');
 ```
 
-Om du har åtkomst till Azure Maps REST-tjänsterna, ändra URL-domänen till `atlas.azure.us`. Om du till exempel använder Search API-tjänsten, ändra URL-domänen från `https://atlas.microsoft.com/search/` till `https://atlas.azure.us/search/`.
+Om du direkt öppnar Azure Maps REST-tjänsterna `atlas.azure.us`ändrar du URL-domänen till . Om du till exempel använder sök-API-tjänsten `https://atlas.microsoft.com/search/` `https://atlas.azure.us/search/`ändrar du URL-domänen från till .
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -242,12 +242,12 @@ Lär dig hur du skapar och interagerar med en karta:
 > [!div class="nextstepaction"]
 > [Skapa en karta](map-create.md)
 
-Lär dig hur du formaterar en karta:
+Läs om hur du formaterar en karta:
 
 > [!div class="nextstepaction"]
-> [Välj en kart stil](choose-map-style.md)
+> [Välj ett kartformat](choose-map-style.md)
 
-Lägga till mer data i kartan:
+Så här lägger du till mer data på kartan:
 
 > [!div class="nextstepaction"]
 > [Skapa en karta](map-create.md)
@@ -255,7 +255,7 @@ Lägga till mer data i kartan:
 > [!div class="nextstepaction"]
 > [Kodexempel](https://docs.microsoft.com/samples/browse/?products=azure-maps)
 
-En lista över exempel som visar hur du integrerar Azure Active Directory (AAD) med Azure Maps finns i:
+En lista med exempel som visar hur du integrerar Azure Active Directory (AAD) med Azure Maps finns i:
 
 > [!div class="nextstepaction"]
 > [Exempel på Azure AD-autentisering](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

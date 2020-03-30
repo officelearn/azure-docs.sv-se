@@ -1,24 +1,23 @@
 ---
-title: Hämta API för åtgärder | Azure Marketplace
-description: Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd för angivet operationId.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Api för hämta åtgärder | Azure Marketplace
+description: Hämtar alla åtgärder som erbjuds eller för att få en viss åtgärd för den angivna operationId.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
-ms.author: pabutler
-ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 4fc77407ae1c5854d3fe977da5a81f4226bf5305
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819595"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280481"
 ---
 <a name="retrieve-operations"></a>Hämta åtgärder
 ===================
 
-Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd för angivet operationId. Klienten kan använda frågeparametrar för att filtrera vid pågående åtgärder.
+Hämtar alla åtgärder som erbjuds eller för att få en viss åtgärd för den angivna operationId. Klienten kan använda frågeparametrar för att filtrera på åtgärder som körs.
 
 ``` https
 
@@ -34,11 +33,11 @@ Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd fö
 
 |  **Namn**          |      **Beskrivning**                                                                                           | **Datatyp** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Utgivar-ID, till exempel `Contoso`                                                                   |  Sträng       |
-|  OfferId           |  Erbjudande-ID                                                                                              |  Sträng       |
-|  operationId       |  GUID som unikt identifierar åtgärden för erbjudandet. OperationId kan hämtas med hjälp av det här API: et och returneras också i HTTP-huvudet för svaret för en tids krävande åtgärd, t. ex. API för [publicerings erbjudande](./cloud-partner-portal-api-publish-offer.md) .  |   GUID   |
-|  filteredStatus    | Valfri frågeparameter som används för att filtrera efter status (till exempel `running`) i den samling som returneras av detta API.  |   Sträng |
-|  API-version       | Senaste versionen av API                                                                                           |    Date      |
+|  publisherId       |  Publisher-identifierare, till exempel`Contoso`                                                                   |  String       |
+|  offerId (erbjudandeId)           |  Identifierare för erbjudande                                                                                              |  String       |
+|  operationId       |  GUID som unikt identifierar åtgärden på erbjudandet. OperationId kan hämtas med hjälp av det här API:et och returneras även i HTTP-huvudet för svaret för alla tidskrävande åtgärder, till exempel [API:et för publiceringserbjudande.](./cloud-partner-portal-api-publish-offer.md)  |   GUID   |
+|  filtreradStatus    | Valfri frågeparameter som används för `running`att filtrera efter status (till exempel ) i samlingen som returneras av det här API:et.  |   String |
+|  api-version       | Senaste versionen av API                                                                                           |    Datum      |
 |  |  |  |
 
 
@@ -52,12 +51,12 @@ Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd fö
 |  |  |
 
 
-<a name="body-example"></a>Body-exempel
+<a name="body-example"></a>Exempel på brödtext
 ------------
 
 ### <a name="response"></a>Svar
 
-#### <a name="get-operations"></a>Hämta åtgärder
+#### <a name="get-operations"></a>GET-åtgärder
 
 ``` json
     [
@@ -82,7 +81,7 @@ Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd fö
     ]
 ```
 
-#### <a name="get-operation"></a>Hämta åtgärd
+#### <a name="get-operation"></a>GET-åtgärd
 
 ``` json
     [
@@ -175,25 +174,25 @@ Hämtar alla åtgärder för erbjudandet eller för att få en viss åtgärd fö
 ```
 
 
-### <a name="response-body-properties"></a>Egenskaper för svars text
+### <a name="response-body-properties"></a>Egenskaper för svarstext
 
 |  **Namn**                    |  **Beskrivning**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | GUID som unikt identifierar åtgärden                                                       |
-|  submissionType              | Identifierar den typ av åtgärd som rapporteras för erbjudandet, till exempel `Publish/GGoLive`      |
-|  createdDateTime             | UTC datetime när åtgärden skapades                                                       |
-|  lastActionDateTime          | UTC datetime när den senaste uppdateringen utfördes för åtgärden                                       |
-|  status                      | Status för åtgärden, antingen `not started` \| `running` \| `failed` \| `completed`. Endast en åtgärd kan ha status `running` i taget. |
-|  fel                       | Fel meddelande för misslyckade åtgärder                                                               |
+|  inlämningTyp              | Identifierar vilken typ av åtgärd som rapporteras för erbjudandet, till exempel`Publish/GGoLive`      |
+|  createdDateTime             | UTC-datumtid när åtgärden skapades                                                       |
+|  lastActionDateTime          | UTC-datumtid när den senaste uppdateringen gjordes på åtgärden                                       |
+|  status                      | Åtgärdens status, `not started` \| `running` \| `failed` \| `completed`antingen . Endast en åtgärd `running` kan ha status åt gången. |
+|  fel                       | Felmeddelande för misslyckade åtgärder                                                               |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Svars status koder
+### <a name="response-status-codes"></a>Statuskoder för svar
 
-| **Rikt**  |   **Beskrivning**                                                                                  |
+| **Kod**  |   **Beskrivning**                                                                                  |
 |  -------- |   -------------------------------------------------------------------------------------------------|
-|  200      | `OK`-begäran har bearbetats och de begärda Åtgärdarna returnerades.        |
-|  400      | `Bad/Malformed request` – fel svars texten kan innehålla mer information.                    |
-|  403      | `Forbidden`-klienten har inte åtkomst till den angivna namn rymden.                          |
-|  404      | `Not found`-den angivna entiteten finns inte.                                                 |
+|  200      | `OK`- Begäran har bearbetats och de begärda operationerna returnerades.        |
+|  400      | `Bad/Malformed request`- Felsvarstexten kan innehålla mer information.                    |
+|  403      | `Forbidden`- Klienten har inte åtkomst till det angivna namnområdet.                          |
+|  404      | `Not found`- Den angivna entiteten finns inte.                                                 |
 |  |  |

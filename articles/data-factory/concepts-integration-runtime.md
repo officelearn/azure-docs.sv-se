@@ -11,23 +11,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/28/2020
-ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/26/2020
+ms.openlocfilehash: 4077e1e00b606480ec93feacbad3c841c0de1ed9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246674"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336184"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory
 Integration Runtime (IR) är beräkningsinfrastrukturen som används av Azure Data Factory för att ge olika nätverksmiljöer integrationsfunktioner:
 
-- **Data flöde**: kör ett [data flöde](concepts-data-flow-overview.md) i en hanterad Azure Compute-miljö.  
-- **Data förflyttning**: kopiera data mellan data lager i offentliga nätverk och data lager i privata nätverk (lokalt eller virtuellt privat nätverk). Den ger stöd åt inbyggda anslutningsappar, konvertering av format, kolumnmappning och bättre och skalbar dataöverföring.
-- **Aktivitets sändning**: sändnings-och övervaknings omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server med mera.
+- **Dataflöde**: Kör ett [dataflöde](concepts-data-flow-overview.md) i hanterad Azure-beräkningsmiljö.  
+- **Dataförflyttning**: Kopiera data mellan datalager i offentliga nätverk och datalager i privat nätverk (lokalt eller virtuellt privat nätverk). Den ger stöd åt inbyggda anslutningsappar, konvertering av format, kolumnmappning och bättre och skalbar dataöverföring.
+- **Aktivitetssändning:** Skicka och övervaka omvandlingsaktiviteter som körs på en mängd olika beräkningstjänster, till exempel Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server med mera.
 - **SSIS paketkörning**: Internt köra SQL Server Integration Services-paket (SSIS) i en hanterad Azure-beräkningsmiljö.
 
-I Data Factory definierar en aktivitet åtgärden som ska utföras. En länkad tjänst definierar ett datalager som mål eller en beräkningstjänst. Integration Runtime utgör bryggan mellan aktiviteten och länkade tjänster.  Det refereras till av den länkade tjänsten eller aktiviteten och tillhandahåller beräknings miljön där aktiviteten antingen körs eller skickas från. På så sätt kan aktiviteten utföras i regionen som är den närmaste möjliga till måldatalagret eller beräkningstjänsten på det bästa sättet samtidigt som den uppfyller säkerhets- och efterlevnadsbehoven.
+I Data Factory definierar en aktivitet åtgärden som ska utföras. En länkad tjänst definierar ett datalager som mål eller en beräkningstjänst. Integration Runtime utgör bryggan mellan aktiviteten och länkade tjänster.  Den refereras av den länkade tjänsten eller aktiviteten och tillhandahåller beräkningsmiljön där aktiviteten antingen körs på eller skickas från. På så sätt kan aktiviteten utföras i regionen som är den närmaste möjliga till måldatalagret eller beräkningstjänsten på det bästa sättet samtidigt som den uppfyller säkerhets- och efterlevnadsbehoven.
 
 ## <a name="integration-runtime-types"></a>Integration Runtime
 Data Factory erbjuder tre typer av Integration Runtime och du bör välja den typ som fungerar bäst med dataintegreringstjänsterna och de nätverksmiljöbehov du har.  Dessa tre typer är:
@@ -48,39 +48,39 @@ Följande diagram visar hur olika IR-körningar kan användas i kombination för
 
 ![Olika typer av Integration Runtime](media/concepts-integration-runtime/different-integration-runtimes.png)
 
-## <a name="azure-integration-runtime"></a>Azure Integration Runtime
+## <a name="azure-integration-runtime"></a>Azure integration runtime
 En Azure Integration Runtime kan:
 
-- Köra data flöden i Azure 
+- Köra dataflöden i Azure 
 - Köra kopieringsaktivitet mellan molndatalager
-- Skickar följande Transform-aktiviteter i ett offentligt nätverk: Databricks Notebook/jar/python Activity, HDInsight Hive-aktivitet, HDInsight gris-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight streaming-aktivitet, Machine Learning batch-körning, Machine Learning uppdatera resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet, .NET anpassad aktivitet, webb aktivitet, söknings aktivitet och hämta metadata.
+- Skickar följande transformeringsaktiviteter i det offentliga nätverket: Databricks Notebook/ Jar/ Python-aktivitet, HDInsight Hive-aktivitet, HDInsight Pig-aktivitet, HDInsight MapReduce-aktivitet, HDInsight Spark-aktivitet, HDInsight Streaming-aktivitet, Machine Learning Batch Execution-aktivitet, Machine Learning Update Resource-aktiviteter, Aktiviteter för lagrad procedur, DataSjöanalys U-SQL-aktivitet, .NET anpassad aktivitet, webbaktivitet, uppslagsaktivitet och hämta metadataaktivitet.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR-nätverksmiljö
-Azure Integration Runtime stöder anslutning till data lager och beräknings tjänster med offentliga tillgängliga slut punkter. Använd Integration Runtime med egen värd för Azure Virtual Network-miljön.
+Azure Integration Runtime stöder anslutning till datalager och beräkningstjänster med offentliga slutpunkter. Använd Integration Runtime med egen värd för Azure Virtual Network-miljön.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Beräkningsresurs och skalning i Azure IR
-Med Azure Integration Runtime får du en helt hanterad, serverlös beräkning i Azure.  Du behöver inte bekymra dig om infrastrukturetablering, programvaruinstallation, uppdatering eller skalbarhet.  Dessutom betalar du bara för den faktiska användningen.
+Med Azure Integration Runtime får du en helt hanterad, serverlös beräkning i Azure.  Du behöver inte oroa dig för infrastrukturetablering, programvaruinstallation, korrigering eller kapacitetsskalning.  Dessutom betalar du bara för den faktiska användningen.
 
 Med Azure Integration Runtime får du interna beräkningsfunktioner för att flytta data mellan molndatalager på ett säkert, pålitligt sätt med höga prestanda.  Du kan ange hur många dataintegreringsenheter som ska användas för kopieringsaktiviteten, och beräkningsstorleken för Azure IR skalas elastiskt upp efter detta utan att du behöver justera storleken på Azure Integration Runtime. 
 
-Aktivitetssändning är en enkel åtgärd för att dirigera aktiviteten till målberäkningstjänsten, så du behöver inte skala upp beräkningsstorleken för det här scenariot.
+Aktivitetssändning är en lättåtgärd för att dirigera aktiviteten till målberäkningstjänsten, så det behövs inte skala upp beräkningsstorleken för det här scenariot.
 
 Information om hur du skapar och konfigurerar Azure IR finns i How to create and configure Azure IR (Så här skapar och konfigurerar du Azure IR) och under ”så här gör du”-guiderna. 
 
 > [!NOTE] 
-> Azure integration Runtime har egenskaper som är relaterade till data Flow runtime, som definierar den underliggande beräknings infrastrukturen som ska användas för att köra data flöden. 
+> Azure Integration runtime har egenskaper relaterade till Data Flow runtime, som definierar den underliggande beräkningsinfrastrukturen som skulle användas för att köra dataflödena på. 
 
 ## <a name="self-hosted-integration-runtime"></a>Integration Runtime med egen värd
 En IR med egen värd kan:
 
 - Köra kopieringsaktivitet mellan molndatalager och ett datalager i privat nätverk.
-- Skicka följande Transform-aktiviteter mot beräknings resurser i lokala eller Azure Virtual Network: HDInsight Hive-aktivitet (BYOC-ta med ditt eget kluster), HDInsight gris Activity (BYOC), HDInsight MapReduce Activity (BYOC), HDInsight Spark aktivitet (BYOC), HDInsight streaming Activity (BYOC), Machine Learning batch-körning, Machine Learning uppdatera resurs aktiviteter, lagrad procedur aktivitet, Data Lake Analytics U-SQL-aktivitet, anpassad aktivitet (körs på Azure Batch), sökning aktiviteten aktivitet och hämta metadata.
+- Skickar följande transformeringsaktiviteter mot beräkningsresurser i lokalt nätverk eller Azure Virtual Network: HDInsight Hive-aktivitet (BYOC-Bring Your Own Cluster), HDInsight Pig-aktivitet (BYOC), HDInsight MapReduce-aktivitet (BYOC), HDInsight Spark aktivitet (BYOC), HDInsight Streaming-aktivitet (BYOC), Machine Learning Batch Execution-aktivitet, Machine Learning Update Resource-aktiviteter, Aktivitet för lagrad procedur, U-SQL-aktivitet i Datasjöanalys, Anpassad aktivitet (körs på Azure Batch), Sökning aktivitet och Hämta metadataaktivitet.
 
 > [!NOTE] 
-> Använd integration runtime med egen värd för att få stöd för data lager som kräver en egen driv rutin som SAP HANA, MySQL osv.  Mer information finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+> Använd självvärd för integrationskörning för att stödja datalager som kräver bring-your-own-drivrutin som SAP Hana, MySQL, etc.  Mer information finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
 
 > [!NOTE] 
-> Java Runtime Environment (JRE) är ett beroende av egen värd-IR. Kontrol lera att du har JRE installerat på samma värd.
+> Java Runtime Environment (JRE) är ett beroende av Self Hosted IR. Kontrollera att du har JRE installerat på samma värd.
 
 ### <a name="self-hosted-ir-network-environment"></a>IR-nätverksmiljö med egen värd
 Om du vill utföra dataintegration säkert i en privat nätverk-miljö, som har skymd sikt från offentligt moln-miljön, kan du installera IR med egen värd i en lokal miljö bakom företagsbrandväggen, eller i ett virtuellt privat nätverk.  IR med egen värd utför bara utgående HTTP-baserade anslutningar till öppet internet.
@@ -88,7 +88,7 @@ Om du vill utföra dataintegration säkert i en privat nätverk-miljö, som har 
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>Beräkningsresurs och skalning i IR med egen värd
 IR med egen värd måste installeras på en lokal dator eller en virtuell dator i ett privat nätverk. För närvarande stöder vi bara att IR med egen värd körs på ett Windows-operativsystem.  
 
-För hög tillgänglighet och skalbarhet kan du skala ut IR med egen värd genom att associera den logiska instansen med flera lokala datorer i aktiv/aktiv-läge.  Mer information finns i så här [skapar och konfigurerar du en IR-artikel med egen värd](create-self-hosted-integration-runtime.md) under instruktioner för mer information.
+För hög tillgänglighet och skalbarhet kan du skala ut IR med egen värd genom att associera den logiska instansen med flera lokala datorer i aktiv/aktiv-läge.  Mer information finns i hur du [skapar och konfigurerar självvärd ir-artikel](create-self-hosted-integration-runtime.md) under hur du söker guider för mer information.
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime
 Om du vill lyfta och skifta befintlig SSIS-arbetsbelastning kan du skapa en Azure-SSIS IR för att köra SSIS-paket internt.
@@ -97,14 +97,14 @@ Om du vill lyfta och skifta befintlig SSIS-arbetsbelastning kan du skapa en Azur
 Azure-SSIS IR kan etableras i offentliga eller privata nätverk.  Åtkomst till lokala data stöds genom att koppla Azure-SSIS IR till ett virtuellt nätverk som är anslutet till det lokala nätverket.  
 
 ### <a name="azure-ssis-ir-compute-resource-and-scaling"></a>Beräkningsresurs och skalning i Azure-SSIS IR
-Azure-SSIS IR är ett helt hanterat kluster av virtuella Azure-datorer särskilt avsedda att köras SSIS-paketen. Du kan använda en egen Azure SQL Database eller en hanterad instans server som värd för katalogen med SSIS-projekt/-paket (SSISDB) som ska kopplas till den. Du kan skala upp kraften i beräkningen genom att ange nodstorlek och skala ut den genom att ange antalet noder i klustret. Du kan hantera kostnaden för att köra Azure-SSIS Integration Runtime genom att stoppa och starta den efter önskemål.
+Azure-SSIS IR är ett helt hanterat kluster av virtuella Azure-datorer särskilt avsedda att köras SSIS-paketen. Du kan ta med din egen Azure SQL Database- eller Managed Instance-server som värd för katalogen med SSIS-projekt/-paket (SSISDB) som ska kopplas till den. Du kan skala upp kraften i beräkningen genom att ange nodstorlek och skala ut den genom att ange antalet noder i klustret. Du kan hantera kostnaden för att köra Azure-SSIS Integration Runtime genom att stoppa och starta den efter önskemål.
 
 Om du vill ha mer information läser du artikeln om hur du skapar och konfigurerar Azure-SSIS IR under ”så här gör du”-guiderna.  När du har skapat den kan du distribuera och hantera dina befintliga SSIS-paket med få eller inga ändringar med välbekanta verktyg, som SQL Server Data Tools (SSDT) och SQL Server Management Studio (SSMS), precis som när du använder SSIS lokalt.
 
 Mer information om Azure-SSIS runtime finns i följande artiklar: 
 
-- [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller stegvisa instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
-- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln är utökad i självstudien och innehåller instruktioner om hur du använder Azure SQL Database hanterade instansen och ansluter till IR till ett virtuellt nätverk. 
+- [Självstudie: distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md). Den här artikeln innehåller steg-för-steg-instruktioner för att skapa en Azure-SSIS IR och använder en Azure SQL-databas som värd för SSIS-katalogen. 
+- [Så här skapar du en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln utökar självstudien och innehåller instruktioner om hur du använder Azure SQL Database Managed Instance och ansluter till IR till ett virtuellt nätverk. 
 - [Övervaka en Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). Den här artikeln visar hur du hämtar information om en Azure-SSIS IR och innehåller beskrivningar av statusar i den returnerade informationen. 
 - [Hantera en Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). Den här artikeln visar hur du stoppar, startar eller tar bort en Azure-SSIS IR. Den också visar hur du skalar ut Azure-SSIS IR genom att lägga till fler noder i IR. 
 - [Anslut Azure-SSIS IR till ett virtuellt nätverk](join-azure-ssis-integration-runtime-virtual-network.md). Den här artikeln innehåller begreppsrelaterad information om att ansluta Azure-SSIS IR till ett virtuellt Azure-nätverk. Den innehåller också steg för att använda Azure-portalen för att konfigurera ett virtuellt nätverk så att Azure-SSIS IR kan ansluta till ett virtuellt nätverk. 
@@ -117,21 +117,26 @@ IR-platsen definierar platsen för backend-beräkningen och i stort sett platsen
 ### <a name="azure-ir-location"></a>Azure IR-plats
 Du kan ställa in en vissa plats för en Azure IR varmed dataflytter eller aktivitetssändningar sker i den specifika regionen. 
 
-Om du väljer att använda **automatisk lösning Azure IR** som är standard, 
-
-- För kopieringsaktivitet kommer ADF att försöka identifiera ditt mål- och källdatalager för att välja den bästa platsen, antingen i samma region om den är tillgänglig eller den närmaste inom samma geografiska område. Om det inte går att avgöra används datafabriksregionen.
-
-- För sökning/GetMetadata/ta bort aktivitet (kallas även för pipeline-aktiviteter), sändning av omvandlings aktivitet (även kallat externa aktiviteter) och redigerings åtgärder (test anslutning, bläddra i Mapplista och tabell lista, för hands data) används IR i Data Factory-regionen.
-
-- För data flödet använder ADF IR i Data Factory-regionen. 
-
-  > [!TIP] 
-  > En bra idé är att se till att data flödet körs i samma region som dina motsvarande data lager (om möjligt). Du kan antingen åstadkomma detta genom att matcha Azure IR automatiskt (om data lager platsen är samma som Data Factory plats), eller genom att skapa en ny Azure IR instans i samma region som dina data lager och sedan köra data flödet på den. 
-
-Du kan övervaka vilken IR plats som börjar gälla under körning av aktiviteten i övervakningsvyn för pipeline-aktivitet i gränssnittet eller en aktivitetsövervakningsnyttolast.
-
 >[!TIP]
 >Om du måste efterleva strikta datakrav och måste säkerställa att data inte lämnar ett visst område kan du uttryckligen skapa en Azure IR i den regionen och hänvisa den länkade tjänsten till denna IR med egenskapen ConnectVia. Till exempel om du vill kopiera data från en blob i Storbritannien, Syd, till SQL DW i Storbritannien, Syd, och vill se till att data inte lämnar Storbritannien ska du skapa en Azure-IR i Storbritannien, Syd, och länka båda länkade tjänster till denna IR.
+
+Om du väljer att använda **Azure IR automatiskt**, som är standard, 
+
+- För kopieringsaktivitet gör ADF sitt bästa för att automatiskt identifiera sink-datalagrets plats och sedan använda IR i antingen samma region om den är tillgänglig eller den närmaste i samma geografi. Om sink-datalagrets region inte kan detekteras används IR i datafabriksregionen som alternativ.
+
+  Till exempel har du din fabrik skapad i östra USA, 
+  
+  - När du kopierar data till Azure Blob i västra USA, om ADF har upptäckt att Blob är i västra USA, kopierar aktiviteten körs på IR i västra USA. Om regionidentifieringen misslyckas utförs kopieringsaktiviteten på IR i östra USA.
+  - När du kopierar data till Salesforce som regionen inte kan identifieras för utförs kopieringsaktiviteten på IR i östra USA.
+
+- För körning av uppslag/GetMetadata/Delete -aktivitet (kallas även Pipeline-aktiviteter), omvandlingsaktivitetssändning (kallas även externa aktiviteter) och redigeringsåtgärder (testanslutning, bläddrar i mapplista och tabelllista, förhandsgranskar data) använder ADF IR i datafabriksområdet.
+
+- För dataflöde använder ADF IR i datafabriksregionen. 
+
+  > [!TIP] 
+  > En god praxis skulle vara att se till att dataflödet körs i samma region som motsvarande datalager (om möjligt). Du kan antingen uppnå detta genom att automatiskt lösa Azure IR (om datalagringsplatsen är samma som Data Factory-platsen) eller genom att skapa en ny Azure IR-instans i samma region som dina datalager och sedan köra dataflödet på den. 
+
+Du kan övervaka vilken IR plats som börjar gälla under körning av aktiviteten i övervakningsvyn för pipeline-aktivitet i gränssnittet eller en aktivitetsövervakningsnyttolast.
 
 ### <a name="self-hosted-ir-location"></a>Namn på IR med egen värd
 IR med egen värd registreras logiskt hos Data Factory och du får beräkningen som används för att stödja dess funktioner. Det finns därför ingen uttrycklig platsegenskapen för IR med egen värd. 
@@ -141,9 +146,9 @@ När IR med egen värd används för att utföra dataflyttning extraherar den da
 ### <a name="azure-ssis-ir-location"></a>Azure-SSIS IR-plats
 Att välja rätt plats för Azure-SSIS IR är viktigt för att uppnå höga prestanda i dina arbetsflöden för extrahering, transformering och laddning (ETL).
 
-- Platsen för din Azure-SSIS IR behöver inte vara samma som platsen för din data fabrik, men den bör vara samma som platsen för din egen Azure SQL Database eller hanterad instans server där SSISDB är värd. På så sätt kan din Azure-SSIS Integration Runtime enkelt få åtkomst till SSISDB utan att det medför överdriven trafik mellan olika platser.
-- Om du inte har en befintlig Azure SQL Database eller hanterad instans server som värd för SSISDB, men du har lokala data källor/destinationer, bör du skapa en ny Azure SQL Database eller hanterad instans server på samma plats som ett virtuellt nätverk som är anslutet till ditt lokala nätverk.  På så sätt kan du skapa Azure-SSIS IR med hjälp av den nya Azure SQL Database eller hanterade instans servern och ansluta till det virtuella nätverket, allt på samma plats, vilket effektivt minimerar data förflyttningar mellan olika platser.
-- Om platsen för din befintliga Azure SQL Database eller hanterade instans server där SSISDB finns inte är samma som platsen för ett virtuellt nätverk som är anslutet till ditt lokala nätverk, måste du först skapa Azure-SSIS IR med en befintlig Azure SQL Database eller Hanterad instans Server och ansluta till ett annat virtuellt nätverk på samma plats och konfigurera sedan ett virtuellt nätverk till en virtuell nätverks anslutning mellan olika platser.
+- Platsen för din Azure-SSIS IR behöver inte vara samma som platsen för din datafabrik, men den bör vara samma som platsen för din egen Azure SQL-databas eller hanterade instansserver där SSISDB ska vara värd. På så sätt kan din Azure-SSIS Integration Runtime enkelt få åtkomst till SSISDB utan att det medför överdriven trafik mellan olika platser.
+- Om du inte har en befintlig Azure SQL Database- eller Managed Instance-server som värd för SSISDB, men du har lokala datakällor/-mål, bör du skapa en ny Azure SQL Database- eller Managed Instance-server på samma plats som ett virtuellt nätverk som är anslutet till ditt lokala nätverk.  På så sätt kan du skapa din Azure-SSIS IR med den nya Azure SQL Database eller Managed Instance-servern och gå med i det virtuella nätverket, alla på samma plats, vilket effektivt minimerar dataförflyttningar på olika platser.
+- Om platsen för din befintliga Azure SQL Database- eller Managed Instance-server där SSISDB finns inte är densamma som platsen för ett virtuellt nätverk som är anslutet till ditt lokala nätverk, skapar du först din Azure-SSIS IR med en befintlig Azure SQL-databas eller Hanterad instansserver och ansluta till ett annat virtuellt nätverk på samma plats och konfigurera sedan ett virtuellt nätverk till virtuell nätverksanslutning mellan olika platser.
 
 I följande diagram visas platsinställningar för Data Factory och dess Integration Runtime-instanser:
 
@@ -157,23 +162,23 @@ För kopieringsaktiviteten kräver den länkade tjänster-källa och länkade tj
 
 - **Kopiera mellan två molndatakällor**: när både käll- och mottagarnoderna för länkade tjänster använder Azure IR, använder ADF en regional Azure IR om du har angett eller automatiskt bestämt en plats för Azure IR om du väljer lös IR automatiskt (standard), enligt beskrivningen i avsnittet [Plats för integreringskörning](#integration-runtime-location).
 - **Kopiera mellan molndatalager och datakälla i privat nätverk**: om den länkade källtjänsten eller den länkade mottagartjänsten pekar på en IR med egen värd körs kopieringsaktiviteten på den Integration Runtime med egen värd.
-- **Kopiera mellan två datakällor i privat nätverk**: Båda den länkade käll- och mottagartjänsten måste peka på samma instans av Integration Runtime, och den IR används för att köra kopieringsaktiviteten.
+- **Kopiering mellan två datakällor i privat nätverk**: både källan och diskbänkens länkade tjänst måste peka på samma instans av integrationskörning och att integrationskörning används för att köra kopieringen Aktivitet.
 
 ### <a name="lookup-and-getmetadata-activity"></a>Lookup och GetMetadata-aktivitet
 
 Aktiviteterna Lookup och GetMetadata har körts på integreringskörningsmiljön som är associerad med den länkade datalagringstjänsten.
 
-### <a name="external-transformation-activity"></a>Extern omvandlings aktivitet
+### <a name="external-transformation-activity"></a>Extern omvandlingsaktivitet
 
-Varje extern omvandlings aktivitet som använder en extern beräknings motor har en länkad mål beräknings tjänst, som pekar på en integration Runtime. Den här integration runtime-instansen avgör platsen där den externa handkodade omvandlings aktiviteten skickas från.
+Varje extern omvandlingsaktivitet som använder en extern beräkningsmotor har en målberäkning länkad tjänst, som pekar på en integrationskörning. Den här integrationskörningsinstansen bestämmer platsen där den externa handkodade omvandlingsaktiviteten skickas från.
 
-### <a name="data-flow-activity"></a>Data flödes aktivitet
+### <a name="data-flow-activity"></a>Aktivitet för dataflöde
 
-Data flödes aktiviteter körs på Azure integration runtime som är kopplad till den. Spark-beräkningen som används av data flöden bestäms av data flödes egenskaperna i dina Azure Integration Runtime och hanteras fullständigt av ADF.
+Dataflödesaktiviteter körs på Azure-integreringskörningen som är associerad med den. Spark-beräkningen som används av dataflöden bestäms av dataflödesegenskaperna i din Azure Integration Runtime och hanteras fullständigt av ADF.
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Skapa Azure integration runtime](create-azure-integration-runtime.md)
+- [Skapa Azure-integreringskörning](create-azure-integration-runtime.md)
 - [Skapa Integration Runtime med egen värd](create-self-hosted-integration-runtime.md)
-- [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln är utökad i självstudien och innehåller instruktioner om hur du använder Azure SQL Database hanterade instansen och ansluter till IR till ett virtuellt nätverk. 
+- [Skapa en Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Den här artikeln utökar självstudien och innehåller instruktioner om hur du använder Azure SQL Database Managed Instance och ansluter till IR till ett virtuellt nätverk. 

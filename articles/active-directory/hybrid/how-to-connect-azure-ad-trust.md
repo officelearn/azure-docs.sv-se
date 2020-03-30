@@ -1,7 +1,7 @@
 ---
-title: Azure AD Connect – hantera AD FS-förtroendet med Azure AD med Azure AD Connect | Microsoft Docs
-description: För ett Azure AD-förtroende som hantering av Azure AD connect.
-keywords: AD FS, ADFS, AD FS-hantering, AAD Connect, Anslut, Azure AD, förtroende, AAD, anspråk, anspråk, anspråksregler, utfärdande, transform, regler, säkerhetskopiering, återställning
+title: Azure AD Connect – hantera AD FS-förtroende med Azure AD med Azure AD Connect | Microsoft-dokument
+description: Operativ information om Azure AD-förtroendehantering av Azure AD connect.
+keywords: AD FS, ADFS, AD FS-hantering, AAD Connect, Connect, Azure AD, trust, AAD, anspråk, anspråk, anspråksregler, utfärdande, transformering, regler, säkerhetskopiering, återställning
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
@@ -18,106 +18,106 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0f3e521fb7668305ce511aaddd63ed2cce8dfed0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245722"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80331723"
 ---
-# <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Hantera AD FS-förtroende med Azure AD med Azure AD Connect
+# <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Hantera AD FS-förtroende med Azure AD med hjälp av Azure AD Connect
 
 ## <a name="overview"></a>Översikt
 
 Azure AD Connect kan hantera federation mellan lokala Active Directory Federation Service (AD FS) och Azure AD. Den här artikeln innehåller en översikt över:
 
-* Olika inställningar som konfigurerats på förtroendet av Azure AD Connect
-* Utfärdandetransformering (anspråksregler) som anges av Azure AD Connect
-* Säkerhetskopiera och återställa din anspråk regler mellan uppgraderingar och konfiguration uppdateringar. 
+* De olika inställningarna som konfigurerats för förtroendet från Azure AD Connect
+* Reglerna för utfärdandetransformering (anspråksregler) som fastställts av Azure AD Connect
+* Så här säkerhetskopierar och återställer du anspråksreglerna mellan uppgraderingar och konfigurationsuppdateringar. 
 
 ## <a name="settings-controlled-by-azure-ad-connect"></a>Inställningar som styrs av Azure AD Connect
 
-Azure AD Connect hanterar **endast** inställningar som är relaterade till Azure AD-förtroende. Azure AD Connect ändras inte alla inställningar på andra förtroenden för förlitande part i AD FS. I följande tabell anger inställningar som styrs av Azure AD Connect.
+Azure AD Connect hanterar **endast** inställningar relaterade till Azure AD-förtroende. Azure AD Connect ändrar inga inställningar för andra förlitande part förtroenden i AD FS. Följande tabell anger inställningar som styrs av Azure AD Connect.
 
 | Inställning | Beskrivning |
 | :--- | :--- |
-| Certifikat för tokensignering | Azure AD Connect kan användas för att återställa och återskapa förtroendet med Azure AD. Azure AD Connect har en enstaka omedelbar förnyelse av certifikat för tokensignering för AD FS och uppdaterar Azure AD-federationsinställningar för domän.|
-| Token Signeringsalgoritm | Microsoft rekommenderar att du använder SHA-256 som algoritmen för tokensignering. Azure AD Connect kan känna av om token Signeringsalgoritm anges till ett värde mindre säkert än SHA-256. Det kommer att uppdatera inställningen till SHA-256 nästa möjliga konfigurationen igen. Andra förlitande part måste uppdateras för att använda det nya certifikatet för tokensignering. |
-| Azure AD-förtroende identifierare | Azure AD Connect anger värdet för rätt identifierare för Azure AD-förtroende. AD FS identifierar Azure AD-förtroende med hjälp av ID-värde. |
-| Azure AD-slutpunkter | Azure AD Connect säkerställer att de slutpunkter som konfigurerats för Azure AD-förtroende är alltid enligt de senaste rekommenderade värdena för flexibilitet och prestanda. |
-| Regler för utfärdandetransformering | Det finns mängder av anspråksregler som är nödvändiga för optimala prestanda med funktioner i Azure AD i en federerad miljö. Azure AD Connect säkerställer att Azure AD-förtroende är alltid konfigurerad med rätt uppsättning rekommenderade anspråksregler. |
-| Alternate-id | Om synkronisering är konfigurerad för att använda alternativ-id, konfigurerar AD FS för att utföra autentisering med alternativ-id i Azure AD Connect. |
-| Automatisk metadata update | Förtroende med Azure AD har konfigurerats för automatisk metadata update. AD FS övervakar kontinuerligt metadata för Azure AD-förtroende och håller den uppdaterade om ändras på Azure AD-sida. |
-| Integrerad Windows-autentisering (IWA) | Under Hybrid Azure AD join-åtgärd, är IWA aktiverat för registrering av enheten att underlätta Hybrid Azure AD-anslutning för äldre enheter |
+| Certifikat för signering av token | Azure AD Connect kan användas för att återställa och återskapa förtroendet med Azure AD. Azure AD Connect gör en engångsföreteelse av tokensigneringscertifikat för AD FS och uppdaterar azure AD-domänfederationsinställningarna.|
+| Algoritm för tokensignering | Microsoft rekommenderar att du använder SHA-256 som tokensigneringsalgoritm. Azure AD Connect kan identifiera om tokensigneringsalgoritmen är inställd på ett värde som är mindre säkert än SHA-256. Den uppdateras till SHA-256 i nästa möjliga konfigurationsåtgärd. Andra förlitande part förtroende måste uppdateras för att använda den nya token signering certifikat. |
+| Azure AD-förtroendeidentifierare | Azure AD Connect anger rätt identifierare för Azure AD-förtroendet. AD FS identifierar azure AD-förtroendet unikt med hjälp av identifierarens värde. |
+| Slutpunkter för Azure AD | Azure AD Connect ser till att slutpunkterna som konfigurerats för Azure AD-förtroendet alltid är enligt de senaste rekommenderade värdena för återhämtning och prestanda. |
+| Regler för omvandling av utfärdande | Det finns antal anspråksregler som behövs för optimal prestanda för funktioner i Azure AD i en federerad inställning. Azure AD Connect ser till att Azure AD-förtroendet alltid är konfigurerat med rätt uppsättning rekommenderade anspråksregler. |
+| Alternativ-id | Om synkronisering är konfigurerad för att använda alternativ-id konfigurerar Azure AD Connect AD FS för att utföra autentisering med alternativa id. |
+| Uppdatering av automatiska metadata | Förtroende med Azure AD är konfigurerat för automatisk metadatauppdatering. AD FS kontrollerar regelbundet metadata för Azure AD-förtroende och håller det uppdaterat om det ändras på Azure AD-sidan. |
+| Integrerad Windows-autentisering (IWA) | Under Hybrid Azure AD-anslutningsåtgärd är IWA aktiverat för enhetsregistrering för att underlätta Hybrid Azure AD-anslutning för enheter på nednivå för enheter på nednivå |
 
-## <a name="execution-flows-and-federation-settings-configured-by-azure-ad-connect"></a>Köra flöden och federationsinställningar som konfigurerats av Azure AD Connect
+## <a name="execution-flows-and-federation-settings-configured-by-azure-ad-connect"></a>Körningsflöden och federationsinställningar som konfigurerats av Azure AD Connect
 
-Azure AD connect uppdaterar inte alla inställningar för Azure AD-förtroende under configuration flöden. Inställningarna ändras beror på vilken uppgift eller körning av flödet körs. I följande tabell visas de inställningar som påverkas i olika körning flöden.
+Azure AD connect uppdaterar inte alla inställningar för Azure AD-förtroende under konfigurationsflöden. Vilka inställningar som ändras beror på vilken aktivitet eller vilket körningsflöde som körs. I följande tabell visas de inställningar som påverkas i olika körningsflöden.
 
-| Körning av flöde | Inställningar som påverkas |
+| Körningsflöde | Inställningar påverkade |
 | :--- | :--- |
-| Först klara installation (snabb) | Ingen |
-| Först klara installation (ny AD FS-servergrupp) | En ny AD FS-servergrupp skapas och ett förtroende med Azure AD har skapats från grunden. |
-| Först klara installation (befintliga AD FS-servergrupp, befintlig Azure AD-förtroende) | Azure AD-förtroende identifierare, utfärdande av transformeringsregler, Azure AD-slutpunkter, alternativ-id (vid behov), automatisk metadata update |
-| Återställ Azure AD-förtroende | Token signeringscertifikatet, algoritmen, Azure AD-förtroende identifierare, utfärdande-transformering för tokensignering regler, Azure AD-slutpunkter, alternativ-id (vid behov), automatisk metadata update |
-| Lägg till federationsserver | Ingen |
-| Lägg till WAP-server | Ingen |
-| Enhetsalternativ | Utfärdande av transformeringsregler, IWA för registrering av enheten |
-| Lägg till federerad domän | Om domänen har lagts till för första gången, det vill säga installationen ändras från enkel domän federation till flera domäner federationen – Azure AD Connect kommer att återskapa förtroendet från början. Om förtroendet med Azure AD har redan konfigurerats för flera domäner, ändras endast regler för Utfärdandetransformering |
-| Uppdatera SSL | Ingen |
+| Installation av första pass (express) | Inget |
+| Installation av första pass (ny AD FS-gård) | En ny AD FS-servergrupp skapas och ett förtroende med Azure AD skapas från grunden. |
+| Installation av första pass (befintlig AD FS-servergrupp, befintlig Azure AD-förtroende) | Azure AD-förtroendeidentifierare, regler för utfärdandetransformering, Azure AD-slutpunkter, Alternativ-ID (om nödvändigt), automatisk metadatauppdatering |
+| Återställa Azure AD-förtroende | Tokensigneringscertifikat, tokensigneringsalgoritm, Azure AD-förtroendeidentifierare, regler för utfärdandetransformering, Azure AD-slutpunkter, Alternativ-ID (om nödvändigt), automatisk metadatauppdatering |
+| Lägg till federationsserver | Inget |
+| Lägga till WAP-server | Inget |
+| Enhetsalternativ | Regler för utfärdandetransformering, IWA för enhetsregistrering |
+| Lägga till federerad domän | Om domänen läggs till för första gången, det vill än, ändras installationen från endomänfederation till federation med flera domäner – Azure AD Connect återskapar förtroendet från grunden. Om förtroendet med Azure AD redan är konfigurerat för flera domäner ändras endast regler för utfärdandetransformering |
+| Uppdatera TLS | Inget |
 
-Under alla åtgärder, där inställningar är ändrade, Azure AD Connect-gör en säkerhetskopia av de aktuella förtroendeinställningarna för på **%ProgramData%\AADConnect\ADFS**
+Under alla åtgärder, där alla inställningar ändras, gör Azure AD Connect en säkerhetskopia av de aktuella förtroendeinställningarna på **%ProgramData%\AADConnect\ADFS**
 
-![Azure AD Connect sidan som visar meddelandet om säkerhetskopiering av befintliga Azure AD-förtroende](./media/how-to-connect-azure-ad-trust/backup2.png)
+![Azure AD Connect-sida som visar meddelande om befintlig azure AD-förtroendesäkerhetskopiering](./media/how-to-connect-azure-ad-trust/backup2.png)
 
 > [!NOTE]
-> Före version 1.1.873.0 säkerhetskopieringen bestod av endast regler för utfärdandetransformering och de säkerhetskopierades i guiden spårningsloggen.
+> Före version 1.1.873.0 bestod säkerhetskopian av endast regler för utfärdandetransformering och de säkerhetskopierades i guidens spårningsloggfil.
 
-## <a name="issuance-transform-rules-set-by-azure-ad-connect"></a>Utfärdande av transformeringsregler anges av Azure AD Connect
+## <a name="issuance-transform-rules-set-by-azure-ad-connect"></a>Regler för utfärdandetransformering som fastställts av Azure AD Connect
 
-Azure AD Connect säkerställer att Azure AD-förtroende är alltid konfigurerad med rätt uppsättning rekommenderade anspråksregler. Microsoft rekommenderar att använda Azure AD connect för att hantera din Azure AD-förtroende. Det här avsnittet innehåller regeluppsättning för utfärdande transformeringen och deras beskrivning.
+Azure AD Connect ser till att Azure AD-förtroendet alltid är konfigurerat med rätt uppsättning rekommenderade anspråksregler. Microsoft rekommenderar att du använder Azure AD connect för att hantera ditt Azure AD-förtroende. I det här avsnittet visas de regler för utfärdandetransformering som angetts och deras beskrivning.
 
 | Regelnamn | Beskrivning |
 | --- | --- |
-| Problemet UPN | Den här regeln frågar värdet för userprincipalname från attributet som konfigurerats i synkroniseringsinställningar för userprincipalname.|
-| Fråga objectguid och msdsconsistencyguid för anpassade ImmutableId-anspråket | Den här regeln lägger till ett tillfälligt värde i pipeline för objectguid och msdsconsistencyguid värdet om det finns |
-| Kontrollera om finns för msdsconsistencyguid | Baserat på om värdet för msdsconsistencyguid finns eller inte, ange vi en tillfällig flagga för att dirigera vad du ska använda som ImmutableId |
-| Utfärda msdsconsistencyguid som oföränderligt ID om den finns | Utfärda msdsconsistencyguid som ImmutableId om värdet finns |
-| Utfärda objectGuidRule om msdsConsistencyGuid regeln inte finns | Om värdet för msdsconsistencyguid inte finns, kommer värdet för objectguid att utfärdas som ImmutableId |
-| Utfärda nameidentifier | Den här regeln utfärdar värde för nameidentifier-anspråket.|
-| Utfärda accounttype för domänanslutna datorer | Om den entitet som autentiseras är en domänansluten enhet, utfärdar den här regeln kontotypen som DJ vilket tyder på en domänansluten enhet |
-| Utfärda AccountType med värdet för användaren när det inte ett datorkonto | Om en användare är den entitet som autentiseras utfärdar med den här regeln kontotypen som användare |
-| Utfärda issuerid när det inte ett datorkonto | Den här regeln utfärdar issuerId-värde när den autentiserande entiteten inte är en enhet. Värdet som skapas via ett regex som konfigureras av Azure AD Connect. Regex skapas när ta hänsyn till alla domäner federerad med Azure AD Connect. |
-| Utfärda issuerid för DJ datorn auth | Den här regeln utfärdar issuerId-värde när den autentiserande entiteten är en enhet |
-| Utfärda onpremobjectguid för domänanslutna datorer | Om den entitet som autentiseras är en domänansluten enhet, utfärdar den här regeln lokala objectguid för enheten |
-| Passera primärt SID | Den här regeln utfärdar primärt SID för den autentiserande entitet |
-| Passera anspråk - insideCorporateNetwork | Den här regeln problem med ett anspråk som hjälper till att Azure AD vet om autentiseringen kommer från i företagets nätverk eller externt |
-| Passera anspråk – Psso |   |
-| Utfärda anspråk för lösenord upphör att gälla | Den här regeln problem med tre anspråk för förfallotid för lösenord, antal dagar för att lösenordet ska upphöra att gälla för det entitet som autentiseras och URL: en var du vill dirigera för att ändra lösenordet.|
-| Passera anspråk – authnmethodsreferences | Värdet i anspråk som utfärdats under den här regeln anger vilken typ av autentisering har utförts för entiteten |
-| Passera anspråk - multifactorauthenticationinstant | Värdet för det här anspråket anger tiden i UTC, när användaren senast gjorde autentisering med flera faktorer. |
-| Passera anspråk - AlternateLoginID | Den här regeln utfärdar AlternateLoginID-anspråk om autentiseringen har utförts med hjälp av alternativa inloggnings-ID. |
+| Utfärda UPN | Den här regeln frågar värdet för userprincipalname från och med attributet som konfigurerats i synkroniseringsinställningar för userprincipalname.|
+| Fråga objectguid och msdsconsistencyguid för anpassade ImmutableId-anspråk | Den här regeln lägger till ett tillfälligt värde i pipelinen för objectguid- och msdsconsistencyguid-värde om det finns |
+| Kontrollera om det finns msdsconsistencyguid | Baserat på om värdet för msdsconsistencyguid existerar eller inte, anger vi en tillfällig flagga för att styra vad som ska användas som ImmutableId |
+| Utfärda msdsconsistencyguid som Immutable ID om det finns | Utfärda msdsconsistencyguid som ImmutableId om värdet finns |
+| Utfärda objectGuidRule om msdsConsistencyGuid-regeln inte finns | Om värdet för msdsconsistencyguid inte finns, kommer värdet på objectguid att utfärdas som ImmutableId |
+| Problemnamnidentifierare | Den här regeln utfärdar värde för namnidentifieraranspråket.|
+| Utfärda kontotyp för domänanslutna datorer | Om entiteten som autentiseras är en domänansluten enhet utfärdar den här regeln kontotypen som DJ som anger en domänansluten enhet |
+| Utfärda AccountType med värdet USER när det inte är ett datorkonto | Om den enhet som autentiseras är en användare utfärdar den här regeln kontotypen som |
+| Problemproblem när det inte är ett datorkonto | Den här regeln utfärdar numretrId-värdet när den autentisera entiteten inte är en enhet. Värdet skapas via en regex, som konfigureras av Azure AD Connect. Regex skapas efter att ha tagit hänsyn till alla domäner som federerats med Azure AD Connect. |
+| Issue issuerid för DJ-dator auth | Den här regeln utfärdar numretrId-värdet när den autentisera entiteten är en enhet |
+| Problem onpremobjectguid för domänanslutna datorer | Om entiteten som autentiseras är en domänansluten enhet utfärdar den här regeln den lokala objektguidningen för enheten |
+| Passera genom primära SID | Den här regeln utfärdar den primära SID-enheten för den autentiserade entiteten |
+| Passera genom anspråk - inutiKororateNetwork | Den här regeln utfärdar ett anspråk som hjälper Azure AD att veta om autentiseringen kommer inifrån företagsnätverket eller externt |
+| Passera genom anspråk - Psso |   |
+| Anspråk på förfallodatum för lösenord | Den här regeln utfärdar tre anspråk på förfallotid för lösenord, antal dagar för att lösenordet ska upphöra att gälla för den enhet som autentiseras och URL:en var du ska cirkulera för att ändra lösenordet.|
+| Passera genom anspråk – authnmethodsreferences | Värdet i det anspråk som utfärdats enligt den här regeln anger vilken typ av autentisering som utfördes för entiteten |
+| Passera genom anspråk - multifactorauthenticationinstant | Värdet för det här anspråket anger den tid i UTC när användaren senast utförde multifaktorautentisering. |
+| Skicka igenom anspråk - AlternateLoginID | Den här regeln utfärdar AlternateLoginID-anspråket om autentiseringen utfördes med hjälp av alternativt inloggnings-ID. |
 
 > [!NOTE]
-> Anspråksregler för problemet UPN och ImmutableId skiljer sig om du använder icke-standard under konfigurationen av Azure AD Connect
+> Anspråksreglerna för Issue UPN och ImmutableId skiljer sig åt om du använder icke-standardval under Azure AD Connect-konfiguration
 
-## <a name="restore-issuance-transform-rules"></a>Återställa regler för utfärdandetransformering
+## <a name="restore-issuance-transform-rules"></a>Återställa regler för omvandling av utfärdande
 
-Azure AD Connect-version 1.1.873.0 eller senare gör en säkerhetskopia av Azure AD litar inställningar när en uppdatering görs i inställningarna för Azure AD-förtroende. Inställningar för Azure AD-förtroende som säkerhetskopieras på **%ProgramData%\AADConnect\ADFS**. Filnamnet är i formatet AadTrust -&lt;datum&gt;-&lt;tid&gt;.txt, till exempel - AadTrust-20180710-150216.txt
+Azure AD Connect version 1.1.873.0 eller senare gör en säkerhetskopia av Azure AD-förtroendeinställningarna när en uppdatering görs till Azure AD-förtroendeinställningarna. Azure AD-förtroendeinställningarna säkerhetskopieras på **%ProgramData%\AADConnect\ADFS**. Filnamnet är i följande format&lt;AadTrust- datumtid&gt;-&lt;&gt;.txt, till exempel - AadTrust-20180710-150216.txt
 
-![En skärmbild av exempel som säkerhetskopiering av Azure AD-förtroende](./media/how-to-connect-azure-ad-trust/backup.png)
+![En skärmbild av exempel på säkerhetskopiering av Azure AD-förtroende](./media/how-to-connect-azure-ad-trust/backup.png)
 
-Du kan återställa de utfärdande av transformeringsregler med hjälp av de föreslagna åtgärderna nedan
+Du kan återställa reglerna för utfärdandetransformering med hjälp av de föreslagna stegen nedan
 
-1. Öppna AD FS-hantering Användargränssnittet i Serverhanteraren
-2. Öppna egenskaperna för Azure AD-förtroende genom att gå **AD FS &gt; förlitande Partsförtroenden &gt; Microsoft Office 365-Identitetsplattform &gt; redigera anspråk utgivningsprinciper**
+1. Öppna AD FS-hanteringsgränssnittet i Serverhanteraren
+2. Öppna Azure AD-förtroendeegenskaperna genom att gå ad **FS &gt; Relying Party Trusts &gt; Microsoft Office 365 Identity Platform &gt; Edit Claims Issuance Policy**
 3. Klicka på **Lägg till regel**
-4. Välj Skicka anspråk med hjälp av en anpassad regel i anspråksregelmall, och klicka på **nästa**
-5. Kopiera namnet på regel för anspråk från säkerhetskopian och klistra in den i fältet **Regelnamn för anspråk**
-6. Kopiera anspråksregeln från säkerhetskopian i textfältet för **anpassad regel** och klicka på **Slutför**
+4. I anspråksregelmallen väljer du Skicka anspråk med hjälp av en anpassad regel och klickar på **Nästa**
+5. Kopiera namnet på anspråksregeln från säkerhetskopian och klistra in den i fältet **Anspråksregelnamn**
+6. Kopiera anspråksregeln från säkerhetskopian till textfältet för **anpassad regel** och klicka på **Slutför**
 
 > [!NOTE]
-> Se till att dina ytterligare regler inte står i konflikt med reglerna som konfigurerats av Azure AD Connect.
+> Se till att dina ytterligare regler inte strider mot de regler som konfigurerats av Azure AD Connect.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera och anpassa Active Directory Federation Services med Azure AD Connect](how-to-connect-fed-management.md)

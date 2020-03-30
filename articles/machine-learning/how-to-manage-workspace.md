@@ -1,7 +1,7 @@
 ---
-title: Skapa Azure Machine Learning arbets ytor i portalen
+title: Skapa Azure Machine Learning-arbetsytor i portalen
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du skapar, visar och tar bort Azure Machine Learning arbets ytor i Azure Portal.
+description: Lär dig hur du skapar, visar och tar bort Azure Machine Learning-arbetsytor i Azure-portalen.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,98 +10,99 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f31c5583671ed3441e1a3f0f53c8518e550080a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f38b0895b0d6eddcf63c082d3df205f4d9de9d50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79283555"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297069"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Skapa och hantera Azure Machine Learning-arbetsytor i Azure-portalen
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln skapar du, visar och tar bort [**Azure Machine Learning arbets ytor**](concept-workspace.md) i Azure Portal för [Azure Machine Learning](overview-what-is-azure-ml.md).  Portalen är det enklaste sättet att komma igång med arbets ytor, men när du behöver ändra eller krav på Automation-höjning kan du också skapa och ta bort arbets ytor [med hjälp av CLI](reference-azure-machine-learning-cli.md), [med python-kod](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) eller [via vs Code-tillägget](tutorial-setup-vscode-extension.md).
+I den här artikeln ska du skapa, visa och ta bort [**Azure Machine Learning-arbetsytor**](concept-workspace.md) i Azure-portalen för [Azure Machine Learning](overview-what-is-azure-ml.md).  Portalen är det enklaste sättet att komma igång med arbetsytor, men när dina behov ändras eller kraven för automatisering ökar kan du också skapa och ta bort arbetsytor [med HJÄLP av CLI](reference-azure-machine-learning-cli.md), med [Python-kod](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) eller [via VS-kodtillägget](tutorial-setup-vscode-extension.md).
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
 
-Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du vill skapa en arbetsyta behöver du en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för din Azure-prenumeration. 
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med hjälp av autentiseringsuppgifterna för din Azure-prenumeration. 
 
-1. I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs**.
+1. I det övre vänstra hörnet av Azure-portalen väljer du **+ Skapa en resurs**.
 
       ![Skapa en ny resurs](./media/how-to-manage-workspace/create-workspace.gif)
 
-1. Använd Sök fältet för att hitta **Machine Learning**.
+1. Använd sökfältet för att hitta **Machine Learning**.
 
-1. Välj **Machine Learning**.
+1. Välj **Maskininlärning**.
 
-1. I fönstret **Machine Learning** väljer du **skapa** för att börja.
+1. Välj **Skapa** för att börja i fönstret **Maskininlärning.**
 
-1. Ange följande information för att konfigurera din nya arbets yta:
+1. Ange följande information för att konfigurera den nya arbetsytan:
 
    Field|Beskrivning 
    ---|---
-   Namn på arbets yta |Ange ett unikt namn som identifierar din arbets yta. I det här exemplet använder vi **dokument-WS**. Namn måste vara unika i resurs gruppen. Använd ett namn som är enkelt att återkalla och särskilja från arbets ytor som skapats av andra. Namnet på arbets ytan är Skift läges okänsligt.
+   Namn på arbetsyta |Ange ett unikt namn som identifierar arbetsytan. I det här exemplet använder vi **docs-ws**. Namnen måste vara unika i resursgruppen. Använd ett namn som är lätt att komma ihåg och att skilja från arbetsytor som skapats av andra. Arbetsytans namn är skiftlägesokänsligt.
    Prenumeration |Ange den prenumeration som du vill använda.
-   Resursgrupp | Använd en befintlig resurs grupp i din prenumeration eller ange ett namn för att skapa en ny resurs grupp. En resurs grupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **AML-dokument**. 
-   plats. | Välj den plats som är närmast dina användare och data resurserna för att skapa din arbets yta.
-   Arbetsyte version | Välj **Basic** eller **Enterprise**.  Den här arbets ytans utgåva avgör vilka funktioner du kommer att ha åtkomst till och prissättning på. Läs mer om [erbjudanden för Basic och Enterprise Edition](overview-what-is-azure-ml.md#sku). 
+   Resursgrupp | Använd en befintlig resursgrupp i din prenumeration eller ange ett namn för att skapa en ny resursgrupp. En resursgrupp innehåller relaterade resurser för en Azure-lösning. I det här exemplet använder vi **docs-aml**. 
+   Location | Välj den plats som är närmast användarna och de dataresurser som ska skapas på arbetsytan.
+   Arbetsyte utgåva | Välj **Basic** eller **Enterprise**.  Den här arbetsyteversionen avgör vilka funktioner du har åtkomst till och prissättning. Läs mer om [basic- och enterprise-erbjudanden](overview-what-is-azure-ml.md#sku). 
 
-    ![Konfigurera din arbets yta](./media/how-to-manage-workspace/select-edition.png)
+    ![Konfigurera arbetsytan](./media/how-to-manage-workspace/select-edition.png)
 
-1. När du är färdig med konfigurationen av arbets ytan väljer du **skapa**. 
+1. När du är klar med konfigurationen av arbetsytan väljer du **Granska + Skapa**.
+2. Granska inställningarna och gör eventuella ytterligare ändringar eller korrigeringar. När du är nöjd med inställningarna väljer du **Skapa**.
 
    > [!Warning] 
-   > Det kan ta flera minuter att skapa din arbets yta i molnet.
+   > Det kan ta flera minuter att skapa arbetsytan i molnet.
 
    När processen är klar visas ett meddelande om lyckad distribution. 
  
- 1. Om du vill visa den nya arbets ytan väljer du **gå till resurs**.
+ 1. Om du vill visa den nya arbetsytan väljer du **Gå till resurs**.
 
-### <a name="download-a-configuration-file"></a>Hämta en konfigurations fil
+### <a name="download-a-configuration-file"></a>Ladda ned en konfigurationsfil
 
-1. Om du kommer att skapa en [beräknings instans](tutorial-1st-experiment-sdk-setup.md#azure)hoppar du över det här steget.
+1. Om du ska skapa en [beräkningsinstans](tutorial-1st-experiment-sdk-setup.md#azure)hoppar du över det här steget.
 
-1. Om du planerar att använda kod i din lokala miljö som hänvisar till den här arbets ytan väljer du **Hämta config. JSON** från **översikts** avsnittet i arbets ytan.  
+1. Om du planerar att använda kod på den lokala miljön som refererar till den här arbetsytan väljer du **Hämta config.json** i avsnittet **Översikt** på arbetsytan.  
 
-   ![Ladda ned config. JSON](./media/how-to-manage-workspace/configure.png)
+   ![Ladda ner config.json](./media/how-to-manage-workspace/configure.png)
    
-   Placera filen i katalog strukturen med dina Python-skript eller Jupyter-anteckningsböcker. Det kan finnas i samma katalog, i en under katalog med namnet *. azureml*eller i en överordnad katalog. När du skapar en beräknings instans läggs den här filen till i rätt katalog på den virtuella datorn åt dig.
+   Placera filen i katalogstrukturen med dina Python-skript eller Jupyter-anteckningsböcker. Den kan finnas i samma katalog, en underkatalog med namnet *.azureml*eller i en överordnad katalog. När du skapar en beräkningsinstans läggs den här filen till i rätt katalog på den virtuella datorn åt dig.
 
-## <a name="upgrade"></a>Uppgradera till Enterprise Edition
+## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Uppgradera till Enterprise-utgåvan
 
-Du kan uppgradera din arbets yta från Basic Edition till Enterprise Edition för att dra nytta av de förbättrade funktionerna, till exempel låg kod upplevelser och förbättrade säkerhetsfunktioner.
+Du kan uppgradera arbetsytan från Basic edition till Enterprise Edition för att dra nytta av de förbättrade funktionerna, till exempel lågkodsupplevelser och förbättrade säkerhetsfunktioner.
 
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com).
+1. Logga in på [Azure Machine Learning studio](https://ml.azure.com).
 
-1. Välj den arbets yta som du vill uppgradera.
+1. Välj den arbetsyta som du vill uppgradera.
 
 1. Välj **Läs mer** längst upp till höger på sidan.
 
-   [![uppgradera en arbets yta](./media/how-to-manage-workspace/upgrade.png)](./media/how-to-manage-workspace/upgrade.png#lightbox)
+   [![Uppgradera en](./media/how-to-manage-workspace/upgrade.png) arbetsyta](./media/how-to-manage-workspace/upgrade.png#lightbox)
 
-1. Välj **uppgradering** i fönstret som visas.
+1. Välj **Uppgradera** i fönstret som visas.
 
 
 > [!IMPORTANT]
-> Du kan inte nedgradera en Enterprise Edition-arbetsyta till en Basic Edition-arbetsyta. 
+> Du kan inte nedgradera en enterprise edition-arbetsyta till en basic edition-arbetsyta. 
 
-## <a name="view"></a>Hitta en arbets yta
+## <a name="find-a-workspace"></a><a name="view"></a>Hitta en arbetsyta
 
-1. I det övre Sök fältet skriver du **Machine Learning**.  
+1. Skriv **Maskininlärning**i det övre sökfältet .  
 
-1. Välj **Machine Learning**.
+1. Välj **Maskininlärning**.
 
-   ![Sök efter Azure Machine Learning arbets yta](./media/how-to-manage-workspace/find-workspaces.png)
+   ![Sök efter Arbetsytan för Azure Machine Learning](./media/how-to-manage-workspace/find-workspaces.png)
 
-1. Titta igenom listan över arbetsytor hittades. Du kan filtrera baserat på prenumerationen, resursgrupper och platser.  
+1. Titta igenom listan över arbetsytor som hittats. Du kan filtrera baserat på prenumeration, resursgrupper och platser.  
 
-1. Välj en arbets yta för att visa dess egenskaper.
+1. Välj en arbetsyta om du vill visa dess egenskaper.
 
 ## <a name="delete-a-workspace"></a>Ta bort en arbetsyta
 
-Använd knappen Ta bort överst på arbetsytan som du vill ta bort.
+Använd knappen Ta bort högst upp på arbetsytan som du vill ta bort.
 
   ![Knappen Ta bort](./media/how-to-manage-workspace/delete-workspace.png)
 
@@ -111,24 +112,24 @@ Använd knappen Ta bort överst på arbetsytan som du vill ta bort.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="resource-provider-errors"></a>Resurs leverantörs fel
+### <a name="resource-provider-errors"></a>Resursproviderfel
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
 
-### <a name="moving-the-workspace"></a>Flytta arbets ytan
+### <a name="moving-the-workspace"></a>Flytta arbetsytan
 
 > [!WARNING]
-> Det finns inte stöd för att flytta Azure Machine Learning arbets ytan till en annan prenumeration eller flytta den ägande prenumerationen till en ny klient. Detta kan orsaka fel.
+> Det går inte att flytta din Azure Machine Learning-arbetsyta till en annan prenumeration, eller flytta den ägande prenumerationen till en ny klientorganisation. Om du gör det kan det orsaka fel.
 
-### <a name="deleting-the-azure-container-registry"></a>Tar bort Azure Container Registry
+### <a name="deleting-the-azure-container-registry"></a>Ta bort Azure-behållarregistret
 
-I arbets ytan Azure Machine Learning används Azure Container Registry (ACR) för vissa åtgärder. En ACR-instans skapas automatiskt när den först behöver en.
+Arbetsytan Azure Machine Learning använder Azure Container Registry (ACR) för vissa åtgärder. Det kommer automatiskt att skapa en ACR-instans när den först behöver en.
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den fullständiga självstudien får du lära dig hur du använder en arbets yta för att skapa, träna och distribuera modeller med Azure Machine Learning.
+Följ självstudien för fullängds för att lära dig hur du använder en arbetsyta för att skapa, träna och distribuera modeller med Azure Machine Learning.
 
 > [!div class="nextstepaction"]
-> [Självstudie: träna modeller](tutorial-train-models-with-aml.md)
+> [Handledning: Träna modeller](tutorial-train-models-with-aml.md)

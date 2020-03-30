@@ -1,104 +1,104 @@
 ---
-title: Lokaliserings stöd | Microsoft Azure Maps
-description: I den här artikeln får du lära dig om språk som stöds för tjänsterna i Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+title: Stöd för lokalisering | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om språk som stöds för tjänsterna i Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5de04b4e37e79a47f89bb235aad2b0f9cab69e6a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 3b3733dfc32dae21ddcf4c5f73cddf9ad6b7fc59
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208156"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334076"
 ---
-# <a name="localization-support-in-azure-maps"></a>Lokaliserings stöd i Azure Maps
+# <a name="localization-support-in-azure-maps"></a>Stöd för lokalisering i Azure Maps
 
-Azure Maps stöder olika språk och vyer baserat på land/region. Den här artikeln innehåller språk och vyer som stöds för att hjälpa dig att hjälpa dig med din Azure Maps implementering.
+Azure Maps stöder olika språk och vyer baserat på land/region. Den här artikeln innehåller språk och vyer som stöds för att vägleda implementeringen av Dina Azure Maps-kartor.
 
 
-## <a name="azure-maps-supported-languages"></a>Azure Maps språk som stöds
+## <a name="azure-maps-supported-languages"></a>Språk som stöds av Azure Maps
 
-Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. Följande tabell innehåller de språk koder som stöds för varje tjänst.  
+Azure Maps har lokaliserats på olika språk i sina tjänster. I följande tabell finns språkkoder som stöds för varje tjänst.  
   
 
-| ID         | Namn                   |  Maps | Söka | Routning | Väder | Trafik incidenter | JS-kart kontroll |
+| ID         | Namn                   |  Kartor | Search | Routning | Väder | Trafikincidenter | JS kartkontroll |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
-| BN – BD      | Bangla (Bangladesh)    |       |       |         |     ✓    |                   |                |
-| BN – IN      | Bangla (Indien)         |       |       |         |     ✓    |                   |                |
-| BS-BA      | Bosniska                 |       |       |         |     ✓    |                   |                |
+| bn-BD      | Bangla (Bangladesh)    |       |       |         |     ✓    |                   |                |
+| bn-IN      | Bangla (Indien)         |       |       |         |     ✓    |                   |                |
+| bs-Ba      | Bosniska                 |       |       |         |     ✓    |                   |                |
 | eu-ES      | Baskiska                 |       |    ✓   |         |         |                   |                |
-| BG-BG      | Bulgariska              |   ✓   |    ✓   |    ✓    |     ✓     |                   |        ✓       |
-| CA-ES      | Katalanska                |       |    ✓   |         |    ✓      |                   |                |
-| zh-HanS    | Förenklad kinesiska   |       |  zh-CN |         |     zh-CN   |                   |                |
+| bg-BG      | Bulgariska              |   ✓   |    ✓   |    ✓    |     ✓     |                   |        ✓       |
+| ca-ES      | Katalanska                |       |    ✓   |         |    ✓      |                   |                |
+| zh-Hans (olika)    | Kinesiska (förenklad)   |       |  zh-CN |         |     zh-CN   |                   |                |
 | zh-HanT    | Kinesiska (Hongkong SAR)  |  |   |    |    zh-HK   |                   |           |
 | zh-HanT    | Kinesiska (Taiwan)  | zh-TW |  zh-TW |  zh-TW  |    zh-TW   |                   |      zh-TW     |
-| HR-HR      | Kroatiska               |       |    ✓   |         |    ✓      |                   |                |
-| CS-CZ      | Tjeckiska                  |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
+| hr-HR      | Kroatiska               |       |    ✓   |         |    ✓      |                   |                |
+| cs-CZ      | Tjeckiska                  |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
 | da-DK      | Danska                 |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | nl-BE      | Nederländska (Belgien)        |       |    ✓   |         |      ✓    |                   |                |
-| NL-NL      | Nederländska (Nederländerna)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| SV-Australien      | Engelska (Australien)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| en NZ      | Engelska (Nya Zeeland)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| nl-NL      | Nederländska (Nederländerna)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| sv-AU      | Engelska (Australien)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| sv-NZ      | Engelska (Nya Zeeland)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-GB      | Engelska (Storbritannien) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | sv-SE      | Engelska (USA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estniska               |       |    ✓   |         |      ✓    |         ✓         |                |
-| fil-PH     | Filippinska               |       |       |         |     ✓    |                   |                |
+| fil-PH     | Filipino               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Finska                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr-FR      | Franska                 |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr-CA      | Franska (Kanada)      |       |    ✓   |         |     ✓     |                   |                |
 | gl-ES      | Galiciska               |       |    ✓   |         |         |                   |                |
 | de-DE      | Tyska                 |   ✓   |    ✓   |    ✓    |   ✓      |         ✓         |        ✓       |
-| el GR      | Grekiska                  |   ✓   |    ✓   |    ✓    |    ✓     |         ✓         |        ✓       |
-| Gu – IN      | Gujarati                |       |       |         |     ✓    |                   |                |
-| han IL      | Hebreiska                 |       |    ✓   |         |     ✓    |         ✓         |                |
-| Hej Indien      | Hindi                  |       |        |         |     ✓    |                   |                |
+| el-GR      | Grekiska                  |   ✓   |    ✓   |    ✓    |    ✓     |         ✓         |        ✓       |
+| gu-IN      | Gujarati                |       |       |         |     ✓    |                   |                |
+| he-IL      | Hebreiska                 |       |    ✓   |         |     ✓    |         ✓         |                |
+| hi-IN      | Hindi                  |       |        |         |     ✓    |                   |                |
 | hu-HU      | Ungerska              |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| är-är      | Isländska              |       |       |         |     ✓    |                   |                |
-| ID-ID      | Indonesiska             |   ✓   |    ✓    |    ✓    |     ✓    |         ✓         |        ✓       |
-| IT-IT      | Italienska                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| är-ÄR      | Isländska              |       |       |         |     ✓    |                   |                |
+| id-ID      | Indonesiska             |   ✓   |    ✓    |    ✓    |     ✓    |         ✓         |        ✓       |
+| it-IT      | Italienska                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | ja-JP      | Japanska               |       |        |         |     ✓    |                   |                |
-| KN-IN      | Kannada                |       |       |         |     ✓    |                   |                |
+| kn-IN      | Kannada                |       |       |         |     ✓    |                   |                |
 | kk-KZ      | Kazakiska                 |       |    ✓   |         |     ✓    |                   |                |
-| ko-KR      | Koreanska                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
-| es-419     | Latinska spanska |       |    ✓   |         |         |                   |                |
+| ko-KR      | Koreansk                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
+| es-419     | Latinamerikansk spanska |       |    ✓   |         |         |                   |                |
 | lv-LV      | Lettiska                |       |    ✓   |         |     ✓    |         ✓         |                |
 | lt-LT      | Litauiska             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| MK – MK      | Makedonska             |       |       |         |     ✓    |                   |                |
-| MS-Mina      | Malajiska (latinsk)          |   ✓   |    ✓   |    ✓    |    ✓   |                   |        ✓       |
-| Mr-IN      | Marathi                 |       |       |         |     ✓    |                   |                |
-| NB-NO      | Norska, bokmål       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
-| NGT        | Neutrala mark sanningen-officiella språk för alla regioner i lokala skript om det är tillgängligt |   ✓     |        |         |       |        |      ✓          |
-| NGT-Latn   | Neutral mark sanningen – Latin exonyms. Latinska skript kommer att användas om det är tillgängligt |   ✓     |        |         |         |                |        ✓         |
+| mk-MK      | Makedonska             |       |       |         |     ✓    |                   |                |
+| ms-MY      | Malajiska (latin)          |   ✓   |    ✓   |    ✓    |    ✓   |                   |        ✓       |
+| mr-in      | Marathi                 |       |       |         |     ✓    |                   |                |
+| nb-NO      | Norska (bokmål)       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| Ngt        | Neutral Ground Truth - Officiella språk för alla regioner i lokala skript om sådana finns |   ✓     |        |         |       |        |      ✓          |
+| NGT-Latn   | Neutral Ground Truth - Latin exonyms. Latinska skript kommer att användas om tillgängligt |   ✓     |        |         |         |                |        ✓         |
 | pl-PL      | Polska                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | pt-BR      | Portugisiska (Brasilien)    |   ✓   |    ✓   |    ✓    |      ✓   |                   |        ✓       |
-| PT-PT      | Portugisiska (Portugal)  |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
-| PA-IN      | Punjabi                 |       |       |         |     ✓    |                   |                |
-| RO-RO      | Rumänska               |       |    ✓    |         |     ✓    |         ✓         |                |
+| pt-PT      | Portugisiska (Portugal)  |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| pa-IN (på andra plats)      | Punjabi                 |       |       |         |     ✓    |                   |                |
+| ro-RO      | Rumänska               |       |    ✓    |         |     ✓    |         ✓         |                |
 | ru-RU      | Ryska                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
-| sr-Cyrl-RS | Serbiska (kyrillisk)     |       |   SR-RS  |         |    SR-RS     |                   |                |
-| SR-latn-RS | Serbiska (latinsk)        |       |       |         |     SR-latn    |                   |                |
+| sr-Cyrl-RS | Serbiska (kyrillisk)     |       |   sr-RS  |         |    sr-RS     |                   |                |
+| sr-Latn-RS | Serbiska (latinsk) (Serbien)        |       |       |         |     sr-latn (sr-latn)    |                   |                |
 | sk-SK      | Slovakiska             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | sl-SL      | Slovenska              |   ✓   |    ✓   |    ✓    |     ✓    |                   |        ✓       |
 | es-ES      | Spanska                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | es-MX      | Spanska (Mexiko)       |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
-| SV-SE      | Svenska                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| ta IN      | Tamil (Indien)                 |       |       |         |     ✓    |                   |                |
-| te Indien      | Telugu (Indien)                 |       |       |         |     ✓    |                   |                |
-| TH-TH      | Thai                   |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| TR-TR      | Turkiska                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| sv-SE      | Svenska                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| ta-in      | Tamil (Indien)                 |       |       |         |     ✓    |                   |                |
+| te-IN      | Telugu (Indien)                 |       |       |         |     ✓    |                   |                |
+| th-TH      | Thailändska                   |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| tr-TR      | Turkiska                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | uk-UA      | Ukrainska               |       |    ✓   |         |     ✓    |                   |                |
 | din-PK      | Urdu                 |       |       |         |     ✓    |                   |                |
 | uz-Latn-UZ | Uzbekiska                 |       |       |         |     ✓    |                   |                |
-| Vi VN      | Vietnamesiska             |       |    ✓   |         |      ✓    |                  |                |
+| vi-VN      | Vietnamesiska             |       |    ✓   |         |      ✓    |                  |                |
 
 
-## <a name="azure-maps-supported-views"></a>Azure Maps vyer som stöds
+## <a name="azure-maps-supported-views"></a>Azure Maps-vyer som stöds
 
 > [!Note]
 > Den 1 augusti 2019 släpptes Azure Maps i följande länder/regioner:
@@ -107,63 +107,63 @@ Azure Maps har lokaliserats på olika typer av tjänster för sina tjänster. F�
 >  * Marocko
 >  * Pakistan
 >
-> Efter den 1 augusti 2019 definierar **visnings** parametern det returnerade kart innehållet för de nya regionerna/länderna som anges ovan. Azure Maps **View** -parametern (kallas även för "användar region parameter") är en ISO-3166-landskod som visar rätt kartor för landet/regionen och som anger vilken uppsättning geografi innehåll som anges av polypolitiskt som returneras via Azure Maps Services, inklusive kant linjer och etiketter som visas på kartan. 
+> Efter den 1 augusti 2019 definierar **parametern Visa** det returnerade kartinnehållet för de nya regioner/länder som anges ovan. Azure **View** Maps View-parametern (kallas även "parameter för användarregion") är en landskod med två bokstäver ISO-3166 som visar rätt kartor för det landet/regionen som anger vilken uppsättning geopolitiskt omtvistat innehåll som returneras via Azure Maps-tjänster, inklusive kantlinjer och etiketter som visas på kartan. 
 
-Se till att ställa in parametern **Visa** som krävs för REST-API: er och SDK: er som dina tjänster använder.
+Se till att du ställer in parametern **Visa** som krävs för REST-API:erna och SDK:erna, som tjänsterna använder.
 >  
 >
->  **REST-API: er:**
+>  **Api:er för vila:**
 >  
->  Se till att du har ställt in parametern Visa efter behov. Visa parameter anger vilken uppsättning av ett interpolitiskt innehåll som ska returneras via Azure Maps Services. 
+>  Kontrollera att du har ställt in parametern Visa efter behov. Vyparametern anger vilken uppsättning geopolitiskt omtvistat innehåll som returneras via Azure Maps-tjänster. 
 >
->  Berörda Azure Maps REST-tjänster:
+>  Påverkas Azure Maps REST Services:
 >    
->    * Panelen Hämta karta
->    * Hämta kart bild 
->    * Hämta en sökning i fuzzy
->    * Hämta Sök-POI
->    * Hämta Sök POI kategori
->    * Hämta Sök i närheten
->    * Hämta Sök adress
->    * Hämta Sök adressen strukturerad
->    * Hämta omvänd söknings adress
->    * Hämta Sök adress omvänt kors gatan
->    * Publicera sökning i geometri
->    * Publicera söknings adress batch för hands version
->    * Publicera söknings adress, omvänd batch-förhandsgranskning
->    * Publicera sökning längs väg
->    * Publicera sökning i fuzzy-kommando för hands version
+>    * Hämta kartpanel
+>    * Hämta kartbild 
+>    * Få Sök Fuzzy
+>    * Hämta sök-SEI
+>    * Hämta sök-POI-kategori
+>    * Sök i närheten
+>    * Hämta sökadress
+>    * Få sökadressen strukturerad
+>    * Få sökadressen omvänd
+>    * Hämta sökadress omvänd Cross Street
+>    * Post Sök inuti geometri
+>    * Förhandsgranskning av postsökadress
+>    * Förhandsgranskning av omvänd batch för bakåtstringsbeställning av inläggsadress
+>    * Post Sök längs vägen
+>    * Förhandsgranskning av luddiga batchar för inlägg
 >
 >    
->  **Er**
+>  **SDK:**
 >
->  Kontrol lera att du har ställt in parametern **Visa** efter behov och att du har den senaste versionen av Web SDK och Android SDK. Berörda SDK: er:
+>  Kontrollera att du har ställt in parametern **Visa** efter behov och att du har den senaste versionen av Web SDK och Android SDK. Berörda SDK:er:
 >
->    * Azure Maps webb-SDK
+>    * Azure Maps Web SDK
 >    * Azure Maps Android SDK
 
-Som standard har parametern View angetts till **Unified**, även om du inte har definierat den i begäran. Bestäm platsen för dina användare. Ange sedan parametern **View** korrekt för den platsen. Du kan också ange "Visa = Auto", som returnerar kartdata baserat på IP-adressen för begäran.  Parametern **View** i Azure Maps måste användas i enlighet med gällande lagar, inklusive de lagar som gäller mappning av det land där kartor, bilder och andra data och innehåll från tredje part som du har behörighet att komma åt via Azure Maps görs tillgängligt.
+Som standard är vyparametern inställd **på Enhetlig**, även om du inte har definierat den i begäran. Bestäm användarnas plats. Ställ sedan in parametern **Visa** korrekt för den platsen. Alternativt kan du ställa in "Visa=Auto", som returnerar kartdata baserat på IP-adressen för begäran.  **Parametern Visa** i Azure Maps måste användas i enlighet med gällande lagar, inklusive de lagar om mappning av landet där kartor, avbildningar och annat data- och tredjepartsinnehåll som du har behörighet att komma åt via Azure Maps görs tillgängligt.
 
 
-Följande tabell innehåller vyer som stöds.
+I följande tabell visas vyer som stöds.
 
-| Visa         | Beskrivning                            |  Maps | Söka | JS-Kartkontroll |
+| Visa         | Beskrivning                            |  Kartor | Search | JS Kartkontroll |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
-| AE           | Förenade Arabemiraten (arabisk vy)    |   ✓   |        |     ✓          |
+| AE           | Förenade Arabemiraten (arabiska vyn)    |   ✓   |        |     ✓          |
 | AR           | Argentina (argentinsk vy)           |   ✓   |    ✓   |     ✓          |
-| BH           | Bahrain (arabisk vy)                 |   ✓   |        |     ✓          |
-| IN           | Indien (indiska vyn)                    |   ✓   |   ✓     |     ✓          |
-| IQ           | Irak (arabisk vy)                    |   ✓   |        |     ✓          |
+| BH           | Bahrain (arabiska View)                 |   ✓   |        |     ✓          |
+| IN           | Indien (indisk vy)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | Irak (arabiska Visa)                    |   ✓   |        |     ✓          |
 | JO           | Jordanien (arabisk vy)                  |   ✓   |        |     ✓          |
-| KW           | Kuwait (arabisk vy)                  |   ✓   |        |     ✓          |
+| KW           | Kuwait (arabiska vyn)                  |   ✓   |        |     ✓          |
 | LB           | Libanon (arabisk vy)                 |   ✓   |        |     ✓          |
-| MA           | Marocko (marockansk View)                |   ✓   |   ✓     |     ✓          |
-| OM           | Oman (arabisk vy)                    |   ✓   |        |     ✓          |
+| MA           | Marocko (marockansk vy)                |   ✓   |   ✓     |     ✓          |
+| OM           | Oman (arabiska vyn)                    |   ✓   |        |     ✓          |
 | PK           | Pakistan (pakistansk vy)              |   ✓   |    ✓    |     ✓          |
-| PS           | Palestinska myndigheten (arabisk vy)    |   ✓   |        |     ✓          |
-| QA           | Qatar (arabisk vy)                   |   ✓   |        |     ✓          |
-| SA           | Saudiarabien (arabisk vy)            |   ✓   |        |     ✓          |
-| SY           | Syrien (arabisk vy)                   |   ✓   |        |     ✓          |
-| CHANSEN           | Jemen (arabisk vy)                   |   ✓   |        |     ✓          |
-| Disk         | Returnera mappnings data baserat på IP-adressen för begäran.|   ✓   |    ✓   |     ✓          |
-| Gemensam      | Enhetlig vy (andra)                  |   ✓   |   ✓     |     ✓          |
+| PS           | Palestinska myndigheten (arabiska vyn)    |   ✓   |        |     ✓          |
+| QA           | Qatar (arabiska vyn)                   |   ✓   |        |     ✓          |
+| SA           | Saudiarabien (arabiska vyn)            |   ✓   |        |     ✓          |
+| SY           | Syrien (arabiska Visa)                   |   ✓   |        |     ✓          |
+| Ni           | Jemen (arabiska Visa)                   |   ✓   |        |     ✓          |
+| Automatisk         | Returnera kartdata baserat på IP-adressen för begäran.|   ✓   |    ✓   |     ✓          |
+| Enhetlig      | Enhetlig vy (övriga)                  |   ✓   |   ✓     |     ✓          |

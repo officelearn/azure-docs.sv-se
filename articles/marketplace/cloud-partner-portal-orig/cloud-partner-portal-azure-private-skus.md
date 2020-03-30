@@ -1,147 +1,146 @@
 ---
-title: 'Privata SKU: er och planer | Azure Marketplace'
-description: 'Så här använder du privata SKU: er för att hantera Erbjudandets tillgänglighet.'
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Privata SKU:er och planer | Azure Marketplace
+description: Så här använder du privata SKU:er för att hantera erbjudandets tillgänglighet.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/15/2019
-ms.author: pabutler
-ms.openlocfilehash: eb6eac5eafaeea239bfaf9cf2aface3db659dd57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: ee3ab7be4d15b13a3c0bb014a3ca4d4096299b4c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818838"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280396"
 ---
-<a name="private-skus-and-plans"></a>Privata SKU: er och planer
+<a name="private-skus-and-plans"></a>Privata SKU:er och planer
 ============
 
-Med privata SKU: er kan du begränsa tillgängligheten för SKU: er till vissa kunder. När en SKU har marker ATS som privat är den inte tillgänglig i någon offentlig katalog, inklusive på [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Azure Portal](https://portal.azure.com). På den Azure Portal kan endast kunder med åtkomst till SKU: n se det. Dessutom uppmanas de också att få åtkomst till privata erbjudanden.
+Med privata SKU:er kan du begränsa tillgängligheten för SKU:er till specifika kunder. När en SKU är markerad privat är den inte tillgänglig i någon offentlig katalog, inklusive på [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Azure-portalen](https://portal.azure.com). På Azure-portalen kan endast kunder med åtkomst till SKU se den. Dessutom skulle de också uppmanas att de har tillgång till privata erbjudanden.
 
 >[!NOTE]
->Privata SKU: er måste ha nya unika SKU/plan-ID: n för att undvika konflikter med dina offentliga SKU: er.
+>Privata SKU:er måste ha nya unika SKU/Plan-ID:n för att undvika konflikter med dina offentliga SKU:er.
 
-Du kan använda privata SKU: er för att hantera följande scenarier:
+Du kan använda privata SKU:er för att hantera följande scenarier:
 
-1.  Publicera program vara som du bara vill ska vara tillgänglig offentligt för vissa kunder och inte offentligt tillgänglig.
-2.  Publicera varianter av offentlig program vara till ett anpassat pris för vissa kunder.
-3.  Publicera varianter av offentlig program vara med en anpassad beskrivning och villkor (via nytt erbjudande).
+1.  Publicera programvara som du bara vill vara tillgänglig för allmänheten för specifika kunder och inte tillgänglig för allmänheten.
+2.  Publicera varianter av offentlig programvara till ett anpassat pris för specifika kunder.
+3.  Publicera varianter av offentlig programvara med en anpassad beskrivning och villkor (via nytt erbjudande).
 
-Om du bara vill ändra priset kan du återanvända diskarna från en annan SKU i samma erbjudande. Med privata SKU: er behöver du inte skicka om diskar över SKU: er.
+Om du bara vill ändra priset kan du återanvända diskarna från en annan SKU i samma erbjudande. Med privata SKU:er behöver du inte skicka in diskar på nytt över SKU:er.
 
-<a name="mark-a-sku-private"></a>Markera en SKU privat
+<a name="mark-a-sku-private"></a>Markera en privat SKU
 ---------------------
 
-Om du vill markera en SKU som privat, kan du växla alternativet som frågar om SKU: n är privat:
+Om du vill markera en SKU som privat växlar du alternativet och frågar om SKU:et är privat:
 
 ![Markera en SKU som privat](./media/cloud-partner-portal-publish-virtual-machine/markingskuprivate.png)
 
-Du kan återanvända diskarna i en annan SKU och ändra prissättningen eller beskrivningen. Om du vill återanvända diskarna väljer du **Ja** som svar på "gör denna SKU Återanvänd avbildningar från en offentlig SKU".
+Du kan återanvända diskarna i en annan SKU och ändra prissättningen eller beskrivningen. Om du vill återanvända diskarna väljer du **Ja** som svar på uppmaningen "Har den här SKU-återanvändningen av bilder från en offentlig SKU".
 
-Om SKU: n har marker ATS som privat och erbjudandet har andra SKU: er med återanvända diskar, måste du ange att SKU: er återanvänder diskar från en annan SKU. Du måste också ange mål gruppen för den privata SKU: n.
+Om SKU:n är markerad som privat och erbjudandet har andra SKU:er med återanvändbara diskar måste du ange att SKU återanvänder diskar från en annan SKU. Du måste också ange målgruppen för den privata SKU:n.
 
 >[!NOTE]
 >När den har publicerats kan en offentlig SKU inte göras privat.
 
-<a name="select-an-image"></a>Välj en bild
+<a name="select-an-image"></a>Markera en bild
 ------------------
 
-Du kan tillhandahålla nya diskar för den privata SKU: n eller återanvända samma diskar som redan finns i en annan SKU, bara ändra prissättningen eller beskrivningen. Om du vill återanvända diskarna väljer du **Ja** som svar på den här SKU: en åter användnings bild från en offentlig SKU-prompt.
+Du kan ange nya diskar för den privata SKU eller återanvända samma diskar som redan finns i en annan SKU, bara ändra prissättning eller beskrivning. Om du vill återanvända diskarna väljer du **Ja** som svar på uppmaningen "Har den här SKU-återanvändningen från en offentlig SKU"-prompt.
 
-![Visa åter användning av bild](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
+![Ange återanvändning av bilder](./media/cloud-partner-portal-publish-virtual-machine/selectimage1.png)
 
-När du har bekräftat att SKU: er återanvänder avbildningar väljer du källan eller *bas* -SKU: n för avbildningarna:
+När du har bekräftat att SKU återanvänder *base* bilder väljer du käll- eller bas-SKU för bilderna:
 
-![Välj en bild](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
+![Markera en bild](./media/cloud-partner-portal-publish-virtual-machine/selectimage2.png)
 
-När du publicerar erbjudandet görs avbildningarna från den valda SKU: n tillgängliga under det privata SKU-ID: t med anpassade priser/villkor. Det privata SKU: n skulle bara vara synligt för mål gruppen.
+När du publicerar erbjudandet görs bilderna från den valda SKU tillgängliga under det privata SKU-ID:t med anpassade priser/villkor. Den privata SKU skulle bara vara synlig för målgruppen.
 
-För avbildnings uppdateringar behöver du bara uppdatera den underliggande SKU-avbildningen. Bilden för den privata SKU: n kommer också att uppdateras automatiskt i bakgrunden. Om du tar bort avbildningen från den underliggande SKU: n, tas även avbildningen bort från det privata SKU: n.
+För avbildningsuppdateringar måste du bara uppdatera den underliggande SKU:s avbildning. Bakom kulisserna uppdateras även bilden för den privata SKU:n automatiskt. Om du tar bort bilden från den underliggande SKU:n tas bilden också bort från den privata SKU:n.
 
-<a name="restricting-the-audience"></a>Begränsa mål gruppen
+<a name="restricting-the-audience"></a>Begränsa målgruppen
 ------------------------
 
-Privata erbjudanden kan bara hittas och distribueras av riktade användare.
-För närvarande stöder vi mål användare som använder prenumerations-ID: n.
+Privata erbjudanden kan endast hittas och distribueras av riktade användare.
+För närvarande stöder vi inriktning på användare med hjälp av prenumerations-ID.
 
-Dessa prenumerationer kan anges via ett manuellt registrerings formulär **för upp till 10 prenumerationer**eller genom att ladda upp en CSV-fil som tillåter **upp till 20 000 prenumerationer**.
+Dessa prenumerationer kan anges via ett manuellt **anmälningsformulär för upp till 10 prenumerationer**, eller genom att ladda upp en CSV-fil, vilket möjliggör upp till **20.000 prenumerationer**.
 
-Manuell inmatning för begränsad mål grupp:
+Manuell post för begränsad publik:
 
-![Begränsa mål gruppen manuellt](./media/cloud-partner-portal-publish-virtual-machine/restrictaudience1.png)
+![Begränsa målgruppen manuellt](./media/cloud-partner-portal-publish-virtual-machine/restrictaudience1.png)
 
-KLUSTERDELAD överföring för begränsad mål grupp:
+CSV-uppladdning för begränsad målgrupp:
 
-![Använd CSV för att begränsa mål gruppen](./media/cloud-partner-portal-publish-virtual-machine/restrictaudience2.png)
+![Använda CSV för att begränsa målgruppen](./media/cloud-partner-portal-publish-virtual-machine/restrictaudience2.png)
 
-Exempel på CSV-fil innehåll:
+Exempel på CSV-filinnehåll:
 
             Type,Id,Description
             SubscriptionId,7738d703-3135-4e8d-8b81-1e70379abd9d,Private Customer
 
-När du växlar från manuell inmatning till vyn CSV-överföring eller från CSV till manuell inmatning, behålls inte den gamla listan över prenumerations-ID: n med åtkomst till SKU: n. En varning visas och listan skrivs bara över när du sparar erbjudandet.
+När du växlar från manuell inmatning till CSV-uppladdningsvy eller från CSV till manuell post behålls inte den gamla listan med prenumerations-ID med åtkomst till SKU. En varning visas och listan skrivs bara över när erbjudandet sparas.
 
-<a name="managing-private-audiences"></a>Hantera privata mål grupper
+<a name="managing-private-audiences"></a>Hantera privata målgrupper
 -------------------------
 
-**För att kunna uppdatera mål gruppen utan att publicera om hela erbjudandet gör du önskade ändringar i mål gruppen (antingen användar gränssnittet eller API: et) och startar sedan åtgärden synkronisera privata mål grupper.**
+**För att uppdatera målgruppen utan att publicera hela erbjudandet på nytt gör du de målgruppsändringar du vill ha (med antingen användargränssnittet eller API:et) och startar sedan åtgärden Synkronisera privata målgrupper.**
 
-Om din mål grupp är 10 eller färre prenumerationer kan du hantera den helt med hjälp av användar gränssnittet i CPP.
+Om din målgrupp är 10 eller färre prenumerationer kan du hantera den helt med hjälp av CPP-användargränssnittet.
 
-Om mål gruppen är fler än 10 prenumerationer kan du hantera den med hjälp av en CSV-fil som du antingen kan överföra till CPP-ANVÄNDARGRÄNSSNITTET eller använda API: et.
+Om din målgrupp är fler än 10 prenumerationer kan du hantera den med en CSV-fil som du antingen kan ladda upp till CPP-användargränssnittet eller använda API:et.
 
-Om du använder API: et och inte vill underhålla en CSV-fil kan du hantera mål gruppen direkt med API enligt anvisningarna nedan.
+Om du använder API:et och inte vill underhålla en CSV-fil kan du hantera målgruppen direkt med API enligt instruktionerna nedan.
 
 > [!NOTE]
-> Använd Azures prenumerations-ID (planer och SKU: er) eller klient-ID (endast planer) för att lägga till en mål grupp i ditt privata erbjudande.
+> Använd Azure-prenumerations-ID (Abonnemang och SKU: er) eller endast klient-ID (Endast abonnemang) för att lägga till en målgrupp i ditt privata erbjudande.
 
-###  <a name="managing-subscriptions-with-the-api"></a>Hantera prenumerationer med API: et
+###  <a name="managing-subscriptions-with-the-api"></a>Hantera prenumerationer med API:et
 
-Du kan använda API: t för att ladda upp en CSV-fil eller hantera din mål grupp direkt (utan att använda en CSV-fil). I allmänhet behöver du bara hämta ditt erbjudande, uppdatera `restrictedAudience`-objektet och sedan skicka tillbaka ändringarna till ditt erbjudande för att lägga till eller ta bort mål grupps medlemmar.
+Du kan använda API:et för att antingen ladda upp en CSV eller hantera din målgrupp direkt (utan att använda en CSV). I allmänhet behöver du bara hämta ditt `restrictedAudience` erbjudande, uppdatera objektet och sedan skicka tillbaka ändringarna till erbjudandet för att lägga till eller ta bort målgruppsmedlemmar.
 
-Så här uppdaterar du din mål grupps lista program mässigt:
+Så här uppdaterar du din målgruppslista på ett programmatiskt sätt:
 
-1. [Hämta dina erbjudande](cloud-partner-portal-api-retrieve-specific-offer.md) data:
+1. [Hämta dina erbjudandedata:](cloud-partner-portal-api-retrieve-specific-offer.md)
 
     ```
     GET https://cloudpartner.azure.com/api/publishers//offers/?api-version=2017-10-31&includeAllPricing=true
     ```
 
-2. Hitta begränsade mål grupps objekt i varje SKU för erbjudandet med denna JPath-fråga:
+2. Hitta begränsade målgruppsobjekt i varje SKU i erbjudandet med den här JPath-frågan:
 
     ```
     $.definition.plans[*].restrictedAudience
     ```
-3. Uppdatera de begränsade Audience-objekten för ditt erbjudande.
+3. Uppdatera de begränsade målgruppsobjekten för ditt erbjudande.
 
-    **Om du ursprungligen laddade upp prenumerations listan för ditt privata erbjudande från CSV-filen:**
+    **Om du ursprungligen laddade upp prenumerationslistan för ditt privata erbjudande från CSV-filen:**
 
-    Dina *restrictedAudience* -objekt kommer att se ut så här.
+    Dina *restrictedAudience-objekt* kommer att se ut så här.
     ```
     "restrictedAudience": {
                   "uploadedCsvUri": "{SasUrl}"
     }
     ```
 
-    För varje begränsat mål grupps objekt:
+    För varje begränsat målgruppsobjekt:
 
-    a. Ladda ned innehållet i `restrictedAudience.uploadedCsvUri`. Innehållet är bara en CSV-fil med huvuden. Till exempel:
+    a. Ladda ner `restrictedAudience.uploadedCsvUri`innehållet i . Innehållet är helt enkelt en CSV-fil med rubriker. Ett exempel:
 
         type,id,description
         subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
         subscriptionId,c0da499c-25ec-4e4b-a42a-6e75635253b9,sub2
 
-    b. Lägg till eller ta bort prenumerationer i den hämtade CSV-filen efter behov.
+    b. Lägg till eller ta bort prenumerationer i den nedladdade CSV-filen efter behov.
 
-    c. Ladda upp den uppdaterade CSV-filen till en plats, till exempel [Azure Blob Storage](../../storage/blobs/storage-blobs-overview.md) eller [OneDrive](https://onedrive.live.com), och skapa en skrivskyddad länk till filen. Det här är din nya *SasUrl*.
+    c. Ladda upp den uppdaterade CSV-filen till en plats, till exempel [Azure Blob](../../storage/blobs/storage-blobs-overview.md) storage eller [OneDrive](https://onedrive.live.com), och skapa en skrivskyddad länk till filen. Detta kommer att bli din nya *SasUrl*.
 
-    d. Uppdatera `restrictedAudience.uploadedCsvUri`-nyckeln med din nya *SasUrl*.
+    d. Uppdatera `restrictedAudience.uploadedCsvUri` nyckeln med din nya *SasUrl*.
 
-    **Om du har angett den ursprungliga listan med prenumerationer manuellt för ditt privata erbjudande från Cloud Partner Portal:**
+    **Om du manuellt angav den ursprungliga listan över prenumerationer för ditt privata erbjudande från Cloud Partner Portal:**
 
-    Dina *restrictedAudience* -objekt ser ut ungefär så här:
+    Ditt *restrictedAudience-objekt* kommer att se ut ungefär så här:
 
     ```
     "restrictedAudience": {
@@ -157,25 +156,25 @@ Så här uppdaterar du din mål grupps lista program mässigt:
         ]}
     ```
 
-    a. För varje begränsat mål grupps objekt lägger du till eller tar bort poster i listan `restrictedAudience.manualEntries` efter behov.
+    a. För varje begränsat målgruppsobjekt lägger `restrictedAudience.manualEntries` du till eller tar bort poster i listan efter behov.
 
-4. När du har uppdaterat alla *restrictedAudience* -objekt för varje SKU för ditt privata erbjudande [uppdaterar du erbjudandet](cloud-partner-portal-api-creating-offer.md):
+4. När du är klar med uppdateringen av alla *restrictedAudience-objekt* för varje SKU i ditt privata erbjudande [uppdaterar du erbjudandet:](cloud-partner-portal-api-creating-offer.md)
 
     ```
     PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31
     ```
-    Med detta gäller nu den uppdaterade mål grupps listan.
+    Med det är din uppdaterade målgruppslista nu i kraft.
 
-<a name="previewing-private-offers"></a>För hands Visa privata erbjudanden
+<a name="previewing-private-offers"></a>Förhandsgranska privata erbjudanden
 -------------------------
 
-Under för hands versionen/mellanlagringen kommer endast prenumerationerna för för hands versionen av erbjudande nivån att kunna komma åt SKU: n. I det här test skedet kan du förhandsgranska erbjudandet som det skulle visas för dina mål kunder.
+Under förhandsgransknings-/mellanlagringssteget kan endast förhandsprenumerationer på erbjudandenivå komma åt SKU.During the preview/staging step, only the offer level preview subscriptions will be able to access the SKU. I det här testskedet kan du förhandsgranska erbjudandet som det verkar för dina målkunder.
 
-Prenumerationer på erbjudande nivå för hands versioner för att komma åt mellanlagrade erbjudanden:
+Förhandsprenumerationer på erbjudandenivå för att komma åt stegvisa erbjudanden:
 
-![Förhandsgranska prenumerations-ID: n](./media/cloud-partner-portal-publish-virtual-machine/previewoffer1.png)
+![Förhandsgranska prenumerations-ID:er](./media/cloud-partner-portal-publish-virtual-machine/previewoffer1.png)
 
-När erbjudandet är aktivt kommer endast de begränsade mål grupps prenumerationerna (som anges via manuell inmatning eller CSV) att kunna visa och distribuera den privata SKU: n. Vi rekommenderar att du **alltid inkluderar dina egna prenumerationer i den begränsade mål gruppen** för den privata SKU: n i validerings syfte.
+När erbjudandet har live visas endast de begränsade målgruppsprenumerationerna (som anges via manuell post eller CSV) för att visa och distribuera den privata SKU:n. Vi rekommenderar att du **alltid inkluderar dina egna prenumerationer i den begränsade målgruppen** för den privata SKU för valideringsändamål.
 
 >[!NOTE]
->För fel söknings syfte kommer Microsofts support-och teknik team också att ha åtkomst till dessa privata erbjudanden.
+>I felsökningssyfte har Microsofts support- och teknikteam också tillgång till dessa privata erbjudanden.

@@ -1,6 +1,6 @@
 ---
-title: Import/export-tjänsten tar lång tid
-description: Azure SQL Database import/export-tjänsten tar lång tid att importera eller exportera en databas
+title: Tjänsten Importera/exportera tar lång tid
+description: Det tar lång tid att importera eller exportera en databas i Azure SQL Database
 ms.custom: seo-lt-2019
 services: sql-database
 ms.service: sql-database
@@ -10,48 +10,48 @@ ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
 manager: dcscontentpm
-ms.openlocfilehash: ed80482147d415ed890bb50ee70be9457c9c5211
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: cf2d9b218fe63414af2446b8562d3ba187b2d395
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562300"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79535773"
 ---
-# <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database import/export-tjänsten tar lång tid att importera eller exportera en databas
+# <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Det tar lång tid att importera eller exportera en databas i Azure SQL Database
 
-När du använder Azure SQL Database import/export-tjänsten kan processen ta längre tid än förväntat. I den här artikeln beskrivs möjliga orsaker till den här fördröjningen och alternativa lösnings metoder.
+När du använder azure SQL Database Import/Export-tjänsten kan processen ta längre tid än förväntat. I den här artikeln beskrivs de potentiella orsakerna till den här fördröjningen och alternativa lösningsmetoder.
 
-## <a name="azure-sql-database-importexport-service"></a>Azure SQL Database import/export-tjänsten
+## <a name="azure-sql-database-importexport-service"></a>Tjänsten Import/export av Azure SQL-databas
 
-Tjänsten Azure SQL Database import/export är en REST-baserad webb tjänst som körs i varje Azure-datacenter. Den här tjänsten anropas när du använder antingen [import databasen](sql-database-import.md#using-azure-portal) eller [export](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) alternativet för att flytta din SQL-databas i Azure Portal. Tjänsten tillhandahåller kostnads fria begär ande köer och beräknings tjänster för att utföra import och export mellan en Azure SQL-databas och Azure Blob Storage.
+Azure SQL Database Import/Export-tjänsten är en REST-baserad webbtjänst som körs i alla Azure-datacenter. Den här tjänsten anropas när du använder alternativet [Importera databas](sql-database-import.md#using-azure-portal) eller [Exportera](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) för att flytta din SQL-databas i Azure-portalen. Tjänsten tillhandahåller kostnadsfria kö- och beräkningstjänster för begäran för att utföra import och export mellan en Azure SQL-databas och Azure Blob-lagring.
 
-Import-och export åtgärderna representerar inte en traditionell fysisk databas säkerhets kopia utan i stället en logisk säkerhets kopia av databasen som använder ett särskilt BACPAC-format. I BACPAC-formatet kan du undvika att behöva använda ett fysiskt format som kan variera mellan versioner av Microsoft SQL Server och Azure SQL Database. Därför kan du använda det för att på ett säkert sätt återställa databasen till en SQL Server-databas och till en SQL-databas.
+Import- och exportåtgärder representerar inte en traditionell fysisk databassäkerhetskopiering utan en logisk säkerhetskopia av databasen som använder ett speciellt BACPAC-format. Bacpac-formatet gör att du kan undvika att behöva använda ett fysiskt format som kan variera mellan versioner av Microsoft SQL Server och Azure SQL Database. Därför kan du använda den för att återställa databasen till en SQL Server-databas på ett säkert sätt och till en SQL-databas.
 
-## <a name="what-causes-delays-in-the-process"></a>Vad orsakar fördröjningar i processen?
+## <a name="what-causes-delays-in-the-process"></a>Vad orsakar förseningar i processen?
 
-Tjänsten Azure SQL Database import/export innehåller ett begränsat antal virtuella datorer per region för att bearbeta import-och export åtgärder. De virtuella datorerna för beräkning av virtuella datorer är värdar för att se till att import eller export förhindrar fördröjningar och kostnader för bandbredd i flera regioner. Om för många begär Anden görs samtidigt i samma region kan det uppstå betydande fördröjningar vid bearbetning av åtgärderna. Tiden som krävs för att slutföra förfrågningar kan variera från några sekunder till flera timmar.
+Azure SQL Database Import/Export-tjänsten tillhandahåller ett begränsat antal virtuella beräkningsdatorer (VIRTUELLA datorer) per region för att bearbeta import- och exportåtgärder. De virtuella beräknings-datorerna är värd per region för att säkerställa att importen eller exporten undviker bandbreddsfördröjningar och avgifter mellan regioner. Om för många begäranden görs samtidigt i samma region kan betydande förseningar uppstå vid bearbetning av åtgärderna. Den tid som krävs för att slutföra begäranden kan variera från några sekunder till många timmar.
 
 > [!NOTE]
-> Om en begäran inte bearbetas inom fyra dagar avbryts begäran automatiskt av tjänsten.
+> Om en begäran inte behandlas inom fyra dagar avbryts tjänsten automatiskt begäran.
 
 ## <a name="recommended-solutions"></a>Rekommenderade lösningar
 
-Om databas exporten bara används för återställning från oavsiktlig data borttagning, tillhandahåller alla Azure SQL Database-versioner självbetjänings återställning från systemgenererade säkerhets kopior. Men om du behöver dessa exporter av andra orsaker, och om du behöver snabbare eller mer förutsägbara import/export-prestanda, bör du överväga följande alternativ:
+Om databasexporten endast används för återställning från oavsiktlig dataradering, tillhandahåller alla Azure SQL Database-versioner återställningsfunktioner för självbetjäning från systemgenererade säkerhetskopior. Men om du behöver dessa exporter av andra skäl, och om du behöver konsekvent snabbare eller mer förutsägbara import / export prestanda, överväga följande alternativ:
 
 * [Exportera till en BACPAC-fil med hjälp av SQLPackage-verktyget](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility).
 * [Exportera till en BACPAC-fil med hjälp av SQL Server Management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-sql-server-management-studio-ssms).
-* Kör BACPAC-import eller exportera direkt i din kod med hjälp av API: et Microsoft SQL Server Data-Tier Application Framework (DacFx). Mer information finns i:
-  * [Exportera ett data skikts program](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
-  * [Microsoft. SqlServer. DAC-namnrymd](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
-  * [Ladda ned DACFx](https://www.microsoft.com/download/details.aspx?id=55713)
+* Kör BACPAC-importen eller exportera direkt i koden med hjälp av DacFx-API:et (Microsoft SQL Server Data-Tier Application Framework). Mer information finns i:
+  * [Exportera ett datanivåprogram](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
+  * [Namnområde för Microsoft.SqlServer.Dac](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
+  * [Ladda ner DACFx](https://www.microsoft.com/download/details.aspx?id=55713)
 
 ## <a name="things-to-consider-when-you-export-or-import-an-azure-sql-database"></a>Saker att tänka på när du exporterar eller importerar en Azure SQL-databas
 
-* Alla metoder som beskrivs i den här artikeln använder sig av kvoten för databas transaktions enheten (DTU), vilket orsakar begränsning av Azure SQL Databases tjänsten. Du kan [Visa DTU-statistik för databasen på Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#monitor-database-performance). Om databasen har nått resurs gränserna [uppgraderar du tjänst nivån](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) för att lägga till fler resurser.
-* Vi rekommenderar att du kör klient program (t. ex. verktyget sqlpackage eller ditt anpassade DAC-program) från en virtuell dator i samma region som SQL-databasen. Annars kan det uppstå prestanda problem som rör nätverks fördröjningen.
-* Att exportera stora tabeller utan grupperade index kan vara mycket långsamt eller till och med orsaka fel. Det här problemet beror på att tabellen inte kan delas upp och exporteras parallellt. I stället måste det exporteras i en enda transaktion och det orsakar långsamma prestanda och potentiella fel under exporten, särskilt för stora tabeller.
+* Alla metoder som beskrivs i den här artikeln använder upp DTU-kvoten (Database Transaction Unit), vilket orsakar begränsning av Azure SQL Database-tjänsten. Du kan [visa DTU-statistiken för databasen på Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-monitor-tune-overview#sql-database-resource-monitoring). Om databasen har nått sina resursgränser [uppgraderar du tjänstnivån](https://docs.microsoft.com/azure/sql-database/sql-database-scale-resources) för att lägga till fler resurser.
+* Helst bör du köra klientprogram (som sqlpackage-verktyget eller ditt anpassade DAC-program) från en virtuell dator i samma region som SQL-databasen. Annars kan prestandaproblem relaterade till nätverksfördröjning.
+* Exportera stora tabeller utan klustrade index kan vara mycket långsam eller till och med orsaka fel. Detta beror på att tabellen inte kan delas upp och exporteras parallellt. I stället måste den exporteras i en enda transaktion och det orsakar långsamma prestanda och potentiella fel under export, särskilt för stora tabeller.
 
 
 ## <a name="related-documents"></a>Relaterade dokument
 
-[Att tänka på när du exporterar en Azure SQL-databas](https://docs.microsoft.com/azure/sql-database/sql-database-export#considerations-when-exporting-an-azure-sql-database)
+[Överväganden vid export av en Azure SQL-databas](https://docs.microsoft.com/azure/sql-database/sql-database-export#considerations-when-exporting-an-azure-sql-database)

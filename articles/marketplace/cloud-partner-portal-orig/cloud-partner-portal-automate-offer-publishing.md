@@ -1,34 +1,33 @@
 ---
-title: Automatisera erbjudande publicering | Azure Marketplace
-description: Förklarar hur du automatiserar publiceringen av arbets flödet för virtuella datorer program mässigt.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Automatisera erbjudandepublicering | Azure Marketplace
+description: Förklarar hur du programmässigt automatiserar arbetsflödet för publicering av virtuella datorer.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 6464c8354c9d56092380e4b76c1ea962f5102c72
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 25c7429dc369fb8fc70a135950b16c0a5997656b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824332"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280345"
 ---
-<a name="automate-offer-publishing"></a>Automatisera erbjudande publicering
+<a name="automate-offer-publishing"></a>Automatisera publicering av erbjudanden
 =========================
 
-Du kan också automatisera arbets flödet för VM-publicering program mässigt genom att använda API: erna i [referens avsnittet API](./cloud-partner-portal-api-overview.md) . Det finns två olika scenarier som du bör tänka på när du planerar automatisering: erbjuda inledande publicering och efterföljande publicering av erbjudanden.
+Du kan också programmässigt automatisera arbetsflödet för vm-publicering med hjälp av API:erna i avsnittet [API-referens.](./cloud-partner-portal-api-overview.md) Det finns två olika scenarier att tänka på när du planerar automatisering: erbjuda inledande publicering och efterföljande erbjudandepublicering.
 
 
 <a name="offer-initial-publishing"></a>Erbjud inledande publicering
 -------------------------
 
-När du publicerar ett erbjudande för första gången kräver det ytterligare några steg innan du laddar upp till Marketplace.  Du måste till exempel förbereda metadata och skapa ett erbjudande utkast. Det första publicerings arbets flödet visas i följande diagram.
+När du publicerar ett erbjudande för första gången krävs ytterligare några steg innan du laddar upp till marknadsplatsen.  Du måste till exempel förbereda metadata och skapa ett erbjudandeutkast. Det första publiceringsarbetsflödet visas i följande diagram.
 
-![Interaktioner för en inledande erbjudande publikation](media/cloud-partner-portal-automate-offer-publishing/first-time-offer-publishing.png)
+![Interaktioner med en första erbjudandepublikation](media/cloud-partner-portal-automate-offer-publishing/first-time-offer-publishing.png)
 
-Följande exempel kod visar de här stegen.
+Följande exempelkod visar dessa steg.
 
 ``` csharp
   CreateOfferAndPublish()
@@ -75,12 +74,12 @@ Följande exempel kod visar de här stegen.
 ```
 
 
-<a name="subsequent-offer-publishing"></a>Efterföljande publicering av erbjudande
+<a name="subsequent-offer-publishing"></a>Efterföljande erbjudande publicering
 ---------------------------
 
-När erbjudandet för den virtuella datorn (VM) är integrerat i en pipeline för kontinuerlig integrering kan du automatisera publicerings arbets flödet så att det körs varje gång en ny virtuell hård disk (VHD) skapas.  Det här arbets flödet illustreras med följande diagram och exempel kod.
+När erbjudandet om virtuell dator (VM) har integrerats i en pipeline för kontinuerlig integrering kan du automatisera publiceringsarbetsflödet så att det körs varje gång en ny virtuell hårddisk (VHD) skapas.  Det här arbetsflödet illustreras av följande diagram och exempelkod.
 
-![Interaktioner för efterföljande erbjudande-publikationer](media/cloud-partner-portal-automate-offer-publishing/update-offer-and-publish.png)
+![Interaktioner mellan efterföljande erbjudandepublikationer](media/cloud-partner-portal-automate-offer-publishing/update-offer-and-publish.png)
 
 ``` csharp
     UpdateOfferAndPublish()

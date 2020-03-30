@@ -4,14 +4,14 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 5aa658fd301bd53fa63df7d86445a4a07e50a7c5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 380842a1b5cdb1ce9dead8bb18f2a748b363289a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224365"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335123"
 ---
-| Resurs | Standardgräns | Övre gräns | Obs! |
+| Resurs | Gräns | Obs! |
 | --- | --- | --- | --- |
-| Azure Network Watcher | 1 per region | 1 per region | Network Watcher skapas för att ge åtkomst till tjänsten. Endast en instans av Network Watcher krävs per prenumeration per region. |
-| Paket avbildnings sessioner |10 000 per region | 10 000 |Antal sessioner, inte sparade insamlingar. |
+| Azure Network Watcher | 1 per region | Network Watcher skapas för att möjliggöra åtkomst till tjänsten. Du behöver bara en instans av Network Watcher per prenumeration och region. |
+| Paket fånga sessioner |10 000 per region |Antal sessioner, inte sparade fångar. |

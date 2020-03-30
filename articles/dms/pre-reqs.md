@@ -1,6 +1,6 @@
 ---
-title: Krav för Azure Database Migration Service
-description: Läs om en översikt över kraven för att använda Azure Database Migration Service för att utföra migrering av databasen.
+title: Förutsättningar för Azure Database Migration Service
+description: Lär dig mer om en översikt över förutsättningarna för att använda Azure Database Migration Service för att utföra databasmigreringar.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,30 +12,30 @@ ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/25/2020
 ms.openlocfilehash: 89cb63630e3dbe953ed3f4fd8796d01ba0d36067
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77651499"
 ---
-# <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Översikt över krav för att använda Azure Database Migration Service
+# <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Översikt över förutsättningar för att använda Azure Database Migration Service
 
-Det krävs flera krav för att säkerställa Azure Database Migration Service fungerar smidigt när du utför databas migreringar. Vissa krav gäller för alla scenarier (käll mål par) som stöds av tjänsten, medan andra krav är unika för ett visst scenario.
+Det finns flera förutsättningar som krävs för att säkerställa att Azure Database Migration Service fungerar smidigt när du utför databasmigreringar. Vissa av förutsättningarna gäller i alla scenarier (källmålpar) som stöds av tjänsten, medan andra förutsättningar är unika för ett visst scenario.
 
-Krav som är kopplade till med hjälp av Azure Database Migration Service visas i följande avsnitt.
+Förutsättningar som är associerade med att använda Migreringstjänsten för Azure Database visas i följande avsnitt.
 
-## <a name="prerequisites-common-across-migration-scenarios"></a>Krav som är vanliga i scenarier med migrering
+## <a name="prerequisites-common-across-migration-scenarios"></a>Förutsättningar som är vanliga i migreringsscenarier
 
-Azure Database Migration Service förutsättningar som är gemensamma för alla typer av migrering som stöds omfattar behovet av att:
+Azure Database Migration Service förutsättningar som är vanliga i alla scenarier för migrering som stöds inkluderar behovet av att:
 
-* Skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Se till att dina regler för nätverks säkerhets gruppen (NSG) för virtuella nätverk inte blockerar följande kommunikations portar 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-* När du använder en brand Väggs installation framför dina käll databaser, kan du behöva lägga till brand Väggs regler för att tillåta Azure Database Migration Service åtkomst till käll databaserna för migrering.
+* Skapa en Microsoft Azure Virtual Network for Azure Database Migration Service med hjälp av distributionsmodellen för Azure Resource Manager, som tillhandahåller anslutning från plats till plats till dina lokala källservrar med hjälp av [Antingen ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Kontrollera att NSG-reglerna (Virtual Network Network Security Group) inte blockerar följande kommunikationsportar 443, 53, 9354, 445, 12000. Mer information om filtrering av NSG-trafik i det virtuella nätverket finns i artikeln [Filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* När du använder en brandväggsinstallation framför källdatabasen eller källdatabaserna kan du behöva lägga till brandväggsregler så att Azure Database Migration Service kan komma åt källdatabaserna för migrering.
 * Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Aktivera TCP/IP-protokollet, som är inaktiverat som standard under SQL Server Express-installation, genom att följa instruktionerna i artikeln om att [aktivera eller inaktivera ett servernätverksprotokoll](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 
     > [!IMPORTANT]
-    > Att skapa en instans av Azure Database Migration Service kräver åtkomst till inställningarna för virtuella nätverk som normalt inte ingår i samma resurs grupp. Det innebär att användaren som skapar en instans av DMS kräver behörighet på prenumerations nivå. Om du vill skapa de nödvändiga rollerna, som du kan tilldela vid behov, kör du följande skript:
+    > Skapa en instans av Azure Database Migration Service kräver åtkomst till virtuella nätverksinställningar som normalt inte finns inom samma resursgrupp. Därför kräver användaren som skapar en instans av DMS behörighet på prenumerationsnivå. Om du vill skapa de roller som krävs, som du kan tilldela vid behov, kör du följande skript:
     >
     > ```
     >
@@ -109,37 +109,37 @@ Azure Database Migration Service förutsättningar som är gemensamma för alla 
 
 ## <a name="prerequisites-for-migrating-sql-server-to-azure-sql-database"></a>Förutsättningar för att migrera SQL Server till Azure SQL Database
 
-Förutom att Azure Database Migration Service krav som är gemensamma för alla migreringsåtgärder, finns det också krav som gäller specifikt för ett scenario eller ett annat.
+Förutom förutsättningar för Azure Database Migration Service som är gemensamma för alla migreringsscenarier finns det också förutsättningar som gäller specifikt för ett eller annat scenario.
 
-När du använder Azure Database Migration Service för att utföra SQL Server till Azure SQL Database migreringar, förutom de krav som är gemensamma för alla migreringsåtgärder, måste du ta itu med följande ytterligare krav:
+När du använder Azure Database Migration Service för att utföra SQL Server till Azure SQL Database migreringar, utöver de förutsättningar som är gemensamma för alla migreringsscenarier, se till att ta itu med följande ytterligare förutsättningar:
 
 * Skapa en Azure SQL Database-instans, vilket du kan göra genom att följa informationen i artikeln om att [skapa Azure SQL Database i Azure-portalen](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * Ladda ned och installera [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) version 3.3 eller senare.
 * Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
 * Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
-* Skapa en [brandväggsregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på servernivå för Azure SQL Database-servern för att tillåta åtkomst för Azure Database Migration Service till måldatabaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
+* Skapa en [brandväggsregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på servernivå för Azure SQL Database-servern för att tillåta åtkomst för Azure Database Migration Service till måldatabaserna. Ange undernätsområdet för det virtuella nätverk som används för Azure Database Migration Service.
 * Kontrollera att autentiseringsuppgifterna som används för att ansluta till SQL Server-källinstansen har [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql)-behörigheter.
 * Kontrollera att autentiseringsuppgifterna som används för att ansluta Azure SQL Database-målinstansen har CONTROL DATABASE-behörighet i Azure SQL-måldatabaserna.
 
    > [!NOTE]
-   > En fullständig lista över de krav som krävs för att använda Azure Database Migration Service för att utföra migreringar från SQL Server till Azure SQL Database finns i självstudien [migrera SQL Server till Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
+   > En fullständig lista över de förutsättningar som krävs för att använda Azure Database Migration Service för att utföra migreringar från SQL Server till Azure SQL Database finns i självstudien [Migrera SQL Server till Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
    >
 
-## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Krav för migrering av SQL Server till en Azure SQL Database Hanterad instans
+## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Förutsättningar för att migrera SQL Server till en hanterad Azure SQL-databas-hanterad instans
 
-* Skapa en Azure SQL Database Hanterad instans genom att följa informationen i artikeln [skapa en Azure SQL Database Hanterad instans i Azure Portal](https://aka.ms/sqldbmi).
-* Öppna brand väggarna för att tillåta SMB-trafik på port 445 för den Azure Database Migration Service IP-adressen eller under nätets intervall.
+* Skapa en Hanterad Azure SQL-databas-instans genom att följa detaljerna i artikeln [Skapa en Hanterad Azure SQL-databas-instans i Azure-portalen](https://aka.ms/sqldbmi).
+* Öppna brandväggarna så att SMB-trafik på port 445 tillåts för IP-adressen för Azure Database Migration Service eller undernätsintervallet.
 * Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt käll-SQL Server, som har standardinställningen TCP-port 1433.
 * Om du kör flera namngivna SQL Server-instanser med dynamiska portar kan du vilja aktivera SQL Browser Service och tillåta åtkomst till UDP-port 1434 via dina brandväggar så att Azure Database Migration Service kan ansluta till en namngiven instans på källservern.
 * Se till att inloggningarna som används för att ansluta SQL Server-källan och den hanterade målinstansen är medlemmar av sysadmin-serverrollen.
 * Skapa en nätverksresurs som Azure Database Migration Service kan använda till att säkerhetskopiera källdatabasen.
 * Se till att tjänstkontot som kör SQL Server-källinstansen har skrivbehörighet på nätverksresursen som du har skapat och att datorkontot för källservern har läs-/skrivåtkomst till samma resurs.
-* Anteckna en Windows-användare (och lösenordet) som har fullständig kontrollbehörighet på nätverksresursen som du tidigare har skapat. Azure Database Migration Service personifierar användarens autentiseringsuppgifter för att överföra säkerhetskopieringsfilerna till Azure Storage behållare för återställnings åtgärden.
-* Skapa en BLOB-behållare och hämta dess SAS-URI genom att följa stegen i artikeln [Hantera Azure Blob Storage-resurser med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Se till att välja alla behörigheter (läsa, skriva, ta bort, lista) i princip fönstret när du skapar SAS-URI: n.
+* Anteckna en Windows-användare (och lösenordet) som har fullständig kontrollbehörighet på nätverksresursen som du tidigare har skapat. Azure Database Migration Service personifierar användarens autentiseringsuppgifter för att ladda upp säkerhetskopior till Azure Storage-behållaren för återställning.
+* Skapa en blob-behållare och hämta dess SAS URI med hjälp av stegen i artikeln [Hantera Azure Blob Storage-resurser med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Var noga med att markera alla behörigheter (Läs, Skriv, Ta bort, Lista) i principfönstret när du skapar SAS URI.
 
    > [!NOTE]
-   > En fullständig lista över de krav som krävs för att använda Azure Database Migration Service för att utföra migreringar från SQL Server till Azure SQL Database Hanterad instans finns i självstudien [migrera SQL Server till Azure SQL Database Hanterad instans](https://aka.ms/migratetomiusingdms).
+   > En fullständig lista över de förutsättningar som krävs för att använda Azure Database Migration Service för att utföra migreringar från SQL Server till Azure SQL Database Managed Instance finns i självstudien [Migrera SQL Server till Azure SQL Database Managed Instance](https://aka.ms/migratetomiusingdms).
 
 ## <a name="next-steps"></a>Nästa steg
 
-En översikt över Azure Database Migration Service och regional tillgänglighet finns i artikeln [Vad är Azure Database migration service](dms-overview.md).
+En översikt över Azure Database Migration Service och regional tillgänglighet finns i artikeln [Vad är Migreringstjänsten för Azure Database](dms-overview.md).

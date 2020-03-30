@@ -1,16 +1,16 @@
 ---
 title: Lägg till push-meddelanden i Xamarin.Android-appen
-description: Lär dig hur du använder Azure App Service och Azure Notification Hubs för att skicka push-meddelanden till din Xamarin. Android-app.
+description: Lär dig hur du använder Azure App Service och Azure Notification Hubs för att skicka push-meddelanden till din Xamarin.Android-app.
 ms.assetid: 6f7e8517-e532-4559-9b07-874115f4c65b
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 5657be0dbaeb46f8f899a9b4a2f8ba9b4fe9ebaa
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249313"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Lägg till push-meddelanden i Xamarin.Android-appen
@@ -19,22 +19,22 @@ ms.locfileid: "79249313"
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudien lägger du till push-meddelanden i [snabb starts projektet Xamarin. Android](app-service-mobile-windows-store-dotnet-get-started.md) så att ett push-meddelande skickas till enheten varje gång en post infogas.
+I den här självstudien lägger du till push-meddelanden i [snabbstartsprojektet Xamarin.Android](app-service-mobile-windows-store-dotnet-get-started.md) så att ett push-meddelande skickas till enheten varje gång en post infogas.
 
-Om du inte använder det hämtade snabb starts Server projektet behöver du ett tilläggs paket för push-meddelanden. Mer information finns i avsnittet [arbeta med .NET-Server delen Server SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) guide.
+Om du inte använder det hämtade snabbstartsserverprojektet behöver du tilläggspaketet för push-meddelande. Mer information finns i guiden [Arbeta med .NET-server för server för server för Azure Mobile Apps.](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-I den här självstudien krävs installationen:
+Den här självstudien kräver installationen:
 
-* Ett aktivt Google-konto. Du kan registrera dig för ett Google-konto på [accounts.Google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
-* [Google Cloud messaging klient komponent](https://components.xamarin.com/view/GCMClient/).
+* Ett aktivt Google-konto. Du kan registrera dig för ett Google-konto på [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
+* [Google Cloud Messaging-klientkomponent](https://components.xamarin.com/view/GCMClient/).
 
-## <a name="configure-hub"></a>Konfigurera en Notification Hub
+## <a name="configure-a-notification-hub"></a><a name="configure-hub"></a>Konfigurera en meddelandehubb
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a id="register"></a>Aktivera Firebase Cloud Messaging
+## <a name="enable-firebase-cloud-messaging"></a><a id="register"></a>Aktivera Firebase Cloud Messaging
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
@@ -42,31 +42,31 @@ I den här självstudien krävs installationen:
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a id="update-server"></a>Uppdatera Server projektet för att skicka push-meddelanden
+## <a name="update-the-server-project-to-send-push-notifications"></a><a id="update-server"></a>Uppdatera serverprojektet för att skicka push-meddelanden
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a id="configure-app"></a>Konfigurera klient projektet för push-meddelanden
+## <a name="configure-the-client-project-for-push-notifications"></a><a id="configure-app"></a>Konfigurera klientprojektet för push-meddelanden
 
 [!INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-## <a id="add-push"></a>Lägg till kod för push-meddelanden i din app
+## <a name="add-push-notifications-code-to-your-app"></a><a id="add-push"></a>Lägga till push-meddelanden i appen
 
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
-## <a name="test"></a>Testa push-meddelanden i din app
+## <a name="test-push-notifications-in-your-app"></a><a name="test"></a>Testa push-meddelanden i appen
 
-Du kan testa appen genom att använda en virtuell enhet i emulatorn. Det krävs ytterligare konfigurations steg när du kör på en emulator.
+Du kan testa appen med hjälp av en virtuell enhet i emulatorn. Det finns ytterligare konfigurationssteg som krävs när du kör på en emulator.
 
-1. Den virtuella enheten måste ha Google-API: er angivna som mål i Android Virtual Device (AVD) Manager.
+1. Den virtuella enheten måste ha Google API:er inställda som mål i AVD-hanteraren (Android Virtual Device).
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
-2. Lägg till ett Google-konto till Android-enheten genom att klicka på **appar** > **Inställningar** > **Lägg till konto**och följ sedan anvisningarna.
+2. Lägg till ett Google-konto på Android-enheten genom att klicka på**Lägg till konto****för** >  **appar** > och följ sedan anvisningarna.
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
 
-3. Kör ToDoList-appen som tidigare och infoga ett nytt att göra-objekt. Den här gången visas en meddelande ikon i meddelande fältet. Du kan öppna meddelande lådan för att visa all meddelande text.
+3. Kör todolist-appen som tidigare och infoga ett nytt todo-objekt. Den här gången visas en meddelandeikon i meddelandefältet. Du kan öppna meddelandelådan för att visa hela texten i meddelandet.
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 

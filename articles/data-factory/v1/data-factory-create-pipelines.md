@@ -1,6 +1,6 @@
 ---
-title: Skapa/Schemalägg pipelines, kedje aktiviteter i Data Factory
-description: Lär dig att skapa en datapipeline i Azure Data Factory att flytta och transformera data. Skapa ett data drivet arbets flöde för att skapa redo att använda information.
+title: Skapa/schemalägga pipelines, kedjeaktiviteter i datafabriken
+description: Lär dig att skapa en datapipeline i Azure Data Factory för att flytta och omvandla data. Skapa ett datadrivet arbetsflöde för att producera redo att använda information.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: f93bea240ee3f139c9be84199d116f9f3f231261
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281527"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
@@ -24,12 +24,12 @@ ms.locfileid: "79281527"
 > * [Version 2 (aktuell version)](../concepts-pipelines-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [pipelines i v2](../concepts-pipelines-activities.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av datafabrikstjänsten läser du [Pipelines i V2](../concepts-pipelines-activities.md).
 
 I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för dina dataförflyttnings- och databearbetningsscenarier.
 
 > [!NOTE]
-> Den här artikeln förutsätter att du har gått igenom [introduktionen till Azure Data Factory](data-factory-introduction.md). Om du inte har praktisk erfarenhet av att skapa data fabriker kan du gå igenom [självstudierna för datatransformering](data-factory-build-your-first-pipeline.md) och/eller [data flytt](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för att förstå den här artikeln bättre.
+> Den här artikeln förutsätter att du har gått igenom [Introduktion till Azure Data Factory](data-factory-introduction.md). Om du inte har praktisk erfarenhet av att skapa datafabriker, gå igenom [dataomvandling handledning](data-factory-build-your-first-pipeline.md) och / eller [data rörelse handledning](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) skulle hjälpa dig att förstå den här artikeln bättre.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -38,11 +38,11 @@ En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk grupper
 
 En aktivitet kan ha noll eller flera [indatauppsättningar](data-factory-create-datasets.md) och kan producera en eller flera [utdatauppsättningar](data-factory-create-datasets.md). I följande diagram visas förhållandet mellan pipeline, aktivitet och datauppsättning i Data Factory:
 
-![Relation mellan pipeline, aktivitet och data uppsättning](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
+![Relation mellan pipeline, aktivitet och datauppsättning](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
 
-Med en pipeline kan du hantera aktiviteter som en uppsättning i stället för var och en. Du kan till exempel distribuera, schemalägga, pausa och återuppta en pipeline i stället för att hantera aktiviteter i pipelinen separat.
+Med en pipeline kan du hantera aktiviteter som en uppsättning i stället för var och en individuellt. Du kan till exempel distribuera, schemalägga, pausa och återuppta en pipeline i stället för att hantera aktiviteter i pipelinen oberoende av dem.
 
-Data Factory stöder två typer av aktiviteter: aktiviteter för dataförflyttning och datatransformering. Varje aktivitet kan ha noll eller fler data [uppsättningar](data-factory-create-datasets.md) för indata och skapa en eller flera data uppsättningar av utdata.
+Data Factory stöder två typer av aktiviteter: aktiviteter för dataförflyttning och datatransformering. Varje aktivitet kan ha noll eller fler [indatauppsättningar](data-factory-create-datasets.md) och producera en eller flera utdatauppsättningar.
 
 En indatauppsättning representerar indata för en aktivitet i pipeline och en utdatauppsättning representerar utdata för aktiviteten. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. När du har skapat en datauppsättning kan du använda den med aktiviteter i en pipeline. Till exempel kan en datauppsättning vara en in-/utdatauppsättning för en kopieringsaktivitet eller en HDInsightHive-aktivitet. Mer information om datauppsättning finns i artikeln [Datauppsättningar i Azure Data Factory](data-factory-create-datasets.md).
 
@@ -62,10 +62,10 @@ Mer information finns i artikeln [Dataförflyttningsaktiviteter](data-factory-da
 Mer information finns i artikeln [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md).
 
 ### <a name="custom-net-activities"></a>Anpassa .NET-aktiviteter
-Om du behöver flytta data till/från ett data lager som kopierings aktiviteten inte stöder, eller om du vill transformera data med din egen logik, skapar du en **Anpassad .net-aktivitet**. Mer information om att skapa och använda en anpassad aktivitet finns i [Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)](data-factory-use-custom-activities.md).
+Om du behöver flytta data till/från ett datalager som kopieringsaktiviteten inte stöder eller omvandla data med din egen logik skapar du en **anpassad .NET-aktivitet**. Mer information om att skapa och använda en anpassad aktivitet finns i [Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)](data-factory-use-custom-activities.md).
 
-## <a name="schedule-pipelines"></a>Schemalägga pipeliner
-En pipeline är endast aktiv mellan **Start** tid och **slut** tid. Den körs inte före start tiden eller efter slut tiden. Om pipelinen är pausad utförs den inte, oavsett start-och slut tid. För att en pipeline ska kunna köras bör den inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) för att förstå hur schemaläggning och körning fungerar i Azure Data Factory.
+## <a name="schedule-pipelines"></a>Schemalägga pipelines
+En pipeline är bara aktiv mellan **starttiden** och **sluttiden.** Den körs inte före starttiden eller efter sluttiden. Om pipelinen pausas körs den inte oavsett start- och sluttid. För att en pipeline ska köras bör den inte pausas. Se [Schemaläggning och körning](data-factory-scheduling-and-execution.md) för att förstå hur schemaläggning och körning fungerar i Azure Data Factory.
 
 ## <a name="pipeline-json"></a>Pipeline JSON
 Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den allmänna strukturen för en pipeline ser ut så här:
@@ -94,18 +94,18 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 
 | Tagga | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "\*", "%", "&", ":", "\\"</li></ul> |Ja |
-| beskrivning | Ange texten som beskriver vad pipeline används till. |Ja |
-| activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Se nästa avsnitt för information om JSON-elementet för aktiviteter. | Ja |
-| start | Start datum/tid för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Till exempel: `2016-10-14T16:32:41Z`. <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`", som är 6 – EST.<br/><br/>Start-och slut egenskaperna anger den aktiva perioden för pipelinen. Utgående segment skapas endast med i den här aktiva perioden. |Nej<br/><br/>Om du anger ett värde för egenskapen end måste du ange ett värde för egenskapen start.<br/><br/>Start-och slut tiderna kan båda vara tomma för att skapa en pipeline. Du måste ange båda värdena om du vill ange en aktiv period som pipelinen ska köras i. Om du inte anger start-och slut tider när du skapar en pipeline kan du ange dem med cmdleten Set-AzDataFactoryPipelineActivePeriod senare. |
-| slut | Slutdatum/tid för pipelinen. Om det anges måste det vara i ISO-format. Exempel: `2016-10-14T17:32:41Z` <br/><br/>Det går att ange en lokal tid, till exempel en EST-tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`, som är 6 AM EST.<br/><br/>Om du vill köra pipelinen på obestämd tid anger du 9999-09-09 som värde för end-egenskapen. <br/><br/> En pipeline är endast aktiv mellan start tid och slut tid. Den körs inte före start tiden eller efter slut tiden. Om pipelinen är pausad utförs den inte, oavsett start-och slut tid. För att en pipeline ska kunna köras bör den inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) för att förstå hur schemaläggning och körning fungerar i Azure Data Factory. |Nej <br/><br/>Om du anger ett värde för egenskapen start måste du ange ett värde för egenskapen End.<br/><br/>Se information om **Start** egenskapen. |
-| isPaused | Om värdet är true körs inte pipelinen. Det är i paus läge. Standardvärde = falskt. Du kan använda den här egenskapen för att aktivera eller inaktivera en pipeline. |Nej |
-| pipelineMode | Metoden för att schemalägga körningar för pipelinen. Tillåtna värden är: schemalagda (standard), Databasmigrering.<br/><br/>Schemalagd anger att pipelinen körs vid ett visst tidsintervall enligt dess aktiva period (start-och slut tid). ' Databasmigrering ' anger att pipelinen bara körs en gång. Databasmigrering pipelines när de har skapats kan inte ändras/uppdateras för närvarande. Se [Databasmigrering pipeline](#onetime-pipeline) för information om inställningen Databasmigrering. |Nej |
-| ExpirationTime | Tiden efter det att den har skapats för vilken [engångs pipelinen](#onetime-pipeline) är giltig och bör vara etablerad. Om det inte finns några aktiva, misslyckade eller väntande körningar tas pipelinen bort automatiskt när den når förfallo tiden. Standardvärdet: `"expirationTime": "3.00:00:00"`|Nej |
-| datasets |Lista över data uppsättningar som ska användas av aktiviteter som definierats i pipelinen. Den här egenskapen kan användas för att definiera data uppsättningar som är speciella för den här pipelinen och som inte har definierats i data fabriken. Data uppsättningar som definieras i den här pipelinen kan endast användas av den här pipelinen och kan inte delas. Mer information finns i [omfattnings data uppsättningar](data-factory-create-datasets.md#scoped-datasets) . |Nej |
+| namn |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med ett bokstavsnummer\_eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<",">","\*""%","&",":""\\"</li></ul> |Ja |
+| description | Ange texten som beskriver vad pipeline används till. |Ja |
+| activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Se nästa avsnitt för mer information om aktiviteterna JSON element. | Ja |
+| start | Startdatum för pipelinen. Måste vara i [ISO-format](https://en.wikipedia.org/wiki/ISO_8601). Till exempel: `2016-10-14T16:32:41Z`. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST-tid. Här är ett `2016-02-27T06:00:00-05:00`exempel: ", som är 06:00 EST.<br/><br/>Start- och slutegenskaperna anger tillsammans aktiv period för pipelinen. Utdatasegment produceras endast med under den här aktiva perioden. |Inga<br/><br/>Om du anger ett värde för slutegenskapen måste du ange värdet för startegenskapen.<br/><br/>Start- och sluttiderna kan båda vara tomma för att skapa en pipeline. Du måste ange båda värdena för att ange en aktiv period för att pipelinen ska köras. Om du inte anger start- och sluttider när du skapar en pipeline kan du ställa in dem med cmdlet Set-AzDataFactoryPipelineActivePeriod senare. |
+| slut | Slutdatumtid för pipelinen. Om det anges måste vara i ISO-format. Exempel: `2016-10-14T17:32:41Z` <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST-tid. Här är ett `2016-02-27T06:00:00-05:00`exempel: , som är 06:00 EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, anger du 9999-09-09 som värde för slutegenskapen. <br/><br/> En pipeline är bara aktiv mellan starttiden och sluttiden. Den körs inte före starttiden eller efter sluttiden. Om pipelinen pausas körs den inte oavsett start- och sluttid. För att en pipeline ska köras bör den inte pausas. Se [Schemaläggning och körning](data-factory-scheduling-and-execution.md) för att förstå hur schemaläggning och körning fungerar i Azure Data Factory. |Inga <br/><br/>Om du anger ett värde för startegenskapen måste du ange värdet för slutegenskapen.<br/><br/>Se anteckningar **start** för startegenskapen. |
+| isPaused | Om den är inställd på true körs inte pipelinen. Det är i pausat tillstånd. Standardvärde = falskt. Du kan använda den här egenskapen för att aktivera eller inaktivera en pipeline. |Inga |
+| pipelineMode | Metoden för schemaläggning körs för pipelinen. Tillåtna värden är: schemalagda (standard), en gång.<br/><br/>"Schemalagd" anger att rörledningen körs med ett angivet tidsintervall beroende på dess aktiva period (start- och sluttid). "Onetime" anger att pipelinen bara körs en gång. Engångspipelderna när de har skapats kan inte ändras/uppdateras för närvarande. Se [Onetime pipeline](#onetime-pipeline) för information om engångsinställning. |Inga |
+| förfallodatumTime | Varaktigheten av tiden efter skapandet för vilken [engångspipelinen](#onetime-pipeline) är giltig och bör förbli etablerad. Om den inte har några aktiva, misslyckade eller väntande körningar tas pipelinen automatiskt bort när den når förfallotiden. Standardvärdet:`"expirationTime": "3.00:00:00"`|Inga |
+| datauppsättningar |Förteckning över de datamängder som ska användas av aktiviteter som definierats på gång. Den här egenskapen kan användas för att definiera datauppsättningar som är specifika för den här pipelinen och som inte har definierats i datafabriken. Datauppsättningar som definierats i den här pipelinen kan endast användas av den här pipelinen och kan inte delas. Mer information finns i [Scoped-datauppsättningar.](data-factory-create-datasets.md#scoped-datasets) |Inga |
 
 ## <a name="activity-json"></a>Aktivitets-JSON
-Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Varje aktivitet har följande övergripande struktur:
+Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Varje aktivitet har följande struktur på den högsta nivån:
 
 ```json
 {
@@ -132,28 +132,28 @@ I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 
 | Tagga | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med en bokstavs siffra eller ett under streck (\_)</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Ja |
-| beskrivning | Text som beskriver vad aktiviteten används till |Ja |
-| typ | Typ av aktivitet. Se avsnittet [data förflyttnings aktiviteter](#data-movement-activities) och [data omvandlings aktiviteter](#data-transformation-activities) för olika typer av aktiviteter. |Ja |
-| inputs |Ingångs tabeller som används av aktiviteten<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Ja |
-| outputs |Utgående tabeller som används av aktiviteten.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Ja |
-| linkedServiceName |Namnet på den länkade tjänst som används av aktiviteten. <br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. |Ja för HDInsight-aktivitet och Azure Machine Learning batch-bedömnings aktivitet <br/><br/>Nej för alla andra |
-| typeProperties |Egenskaperna i **typeProperties** -avsnittet är beroende av typen av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej |
-| policy |Principer som påverkar körningsbeteende för aktiviteten. Om den inte anges används standard principerna. |Nej |
-| Scheduler | Egenskapen Scheduler används för att definiera önskad schemaläggning för aktiviteten. Dess under egenskaper är desamma som i [egenskapen Availability i en data uppsättning](data-factory-create-datasets.md#dataset-availability). |Nej |
+| namn | Namnet på aktiviteten. Ange ett namn som representerar åtgärden som aktiviteten utför. <br/><ul><li>Max. antal tecken: 260</li><li>Måste börja med ett bokstavsnummer\_eller ett understreck ( )</li><li>Följande tecken är inte tillåtna: ".", "+", "?", "/", "<",">","*","%","&",":""\\"</li></ul> |Ja |
+| description | Text som beskriver vad aktiviteten används till |Ja |
+| typ | Typ av aktivitet. Se avsnitten [Data movement Activities](#data-movement-activities) och Data Transformation [Activities](#data-transformation-activities) för olika typer av aktiviteter. |Ja |
+| Ingångar |Indatatabeller som används av aktiviteten<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Ja |
+| Utgångar |Utdatatabeller som används av aktiviteten.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Ja |
+| linkedServiceName |Namnet på den länkade tjänst som används av aktiviteten. <br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. |Ja för HDInsight-aktivitet och Azure Machine Learning Batch Scoring Activity <br/><br/>Nej för alla andra |
+| typeProperties |Egenskaperna i avsnittet **typeProperties** beror på aktivitetens typ. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Inga |
+| policy |Principer som påverkar körningsbeteende för aktiviteten. Om det inte anges används standardprinciper. |Inga |
+| scheduler | Egenskapen "scheduler" används för att definiera önskad schemaläggning för aktiviteten. Dess underegenskaper är desamma som de i [egenskapen availability i en datauppsättning](data-factory-create-datasets.md#dataset-availability). |Inga |
 
 ### <a name="policies"></a>Principer
-Principer påverkar körnings beteendet för en aktivitet, särskilt när en tabell sektor bearbetas. I följande tabell finns information.
+Principer påverkar körningsbeteendet för en aktivitet, särskilt när segmentet i en tabell bearbetas. Följande tabell innehåller information.
 
 | Egenskap | Tillåtna värden | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
-| samtidighet |Integer <br/><br/>Max värde: 10 |1 |Antalet samtidiga körningar av aktiviteten.<br/><br/>Det avgör antalet parallella aktivitets körningar som kan ske på olika sektorer. Om en aktivitet till exempel behöver gå igenom en stor uppsättning tillgängliga data, desto högre samtidiga värde, desto snabbare data bearbetning. |
-| executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Bestämmer ordningen på data sektorer som bearbetas.<br/><br/>Om du till exempel har 2 segment (en på 4pm och en annan på 17) och båda väntar på att köras. Om du ställer in executionPriorityOrder som NewestFirst bearbetas sektorn på 5 PM först. På samma sätt som om du anger att executionPriorityORder ska vara OldestFIrst bearbetas sektorn på 4 PM. |
-| retry |Integer<br/><br/>Max värdet kan vara 10 |0 |Antal försök innan data bearbetningen för sektorn markeras som ett haveri. Aktivitets körningen för en data sektor görs igen till det angivna antalet försök. Återförsöket görs så snart som möjligt efter fel. |
-| timeout |Tidsintervall |00:00:00 |Tids gräns för aktiviteten. Exempel: 00:10:00 (betyder timeout 10 minuter)<br/><br/>Om ett värde inte anges eller är 0, är tids gränsen oändlig.<br/><br/>Om data bearbetnings tiden i en sektor överskrider tids gräns värdet avbryts det och systemet försöker försöka utföra bearbetningen igen. Antalet återförsök beror på egenskapen försök igen. När timeout inträffar anges statusen till stängningsåtgärd. |
-| delay |Tidsintervall |00:00:00 |Ange fördröjningen innan data bearbetning av sektorn startar.<br/><br/>Körningen av en aktivitet för en data sektor startas efter fördröjningen efter den förväntade körnings tiden.<br/><br/>Exempel: 00:10:00 (betyder fördröjning på 10 minuter) |
-| longRetry |Integer<br/><br/>Max värde: 10 |1 |Antalet nya försök innan sektor körningen misslyckades.<br/><br/>longRetry-försök fördelas med longRetryInterval. Om du behöver ange en tid mellan återförsök ska du använda longRetry. Om både återförsök och longRetry har angetts innehåller varje longRetry-försök nya försök och det högsta antalet försök är att försöka igen * longRetry.<br/><br/>Om vi till exempel har följande inställningar i aktivitets principen:<br/>Nytt försök: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Anta att det bara finns en sektor att köra (status väntar) och aktivitets körningen Miss lyckas varje gång. Från början skulle det finnas tre körnings försök i följd. Efter varje försök skulle sektor statusen att försöka igen. Efter de första tre försöken är segmentets status LongRetry.<br/><br/>Efter en timme (det vill säga longRetryInteval värde), skulle det finnas en annan uppsättning av tre körnings försök i följd. Därefter skulle sektor statusen att Miss lyckas och inga fler återförsök skulle göras. Därför gjordes 6 försök.<br/><br/>Om körningen lyckas är segment statusen klar och inga fler återförsök görs.<br/><br/>longRetry kan användas i situationer där beroende data anländer till icke-deterministiska tider eller om den övergripande miljön är flaky under vilken data bearbetning sker. I sådana fall kan du göra nya försök en efter det att en annan kanske inte kan hjälpa dig och göra det när ett tidsintervall ger önskad utdata.<br/><br/>Varnings ord: Ange inte höga värden för longRetry eller longRetryInterval. Vanligt vis innebär högre värden andra problem med systemet. |
-| longRetryInterval |Tidsintervall |00:00:00 |Fördröjningen mellan långsamma försök |
+| samtidighet |Integer <br/><br/>Maxvärde: 10 |1 |Antal samtidiga körningar av aktiviteten.<br/><br/>Det avgör antalet parallella aktivitetskörningar som kan hända på olika segment. Om en aktivitet till exempel behöver gå igenom en stor uppsättning tillgängliga data, snabbar databearbetningen upp databearbetningen om du har ett större samtidighetsvärde. |
+| körningPriorityOrder |NyasteFörsta<br/><br/>ÄldstaFörsta |ÄldstaFörsta |Bestämmer ordningen på datasegment som bearbetas.<br/><br/>Om du till exempel har 2 segment (en som händer klockan 16.00 och en annan klockan 17.00) och båda väntar på körning. Om du ställer in körningenPriorityOrder till nyast först bearbetas segmentet vid 17:00 först. På samma sätt om du anger att körningenPriorityORder ska vara OldestFIrst bearbetas segmentet vid 16:00. |
+| retry |Integer<br/><br/>Maxvärde kan vara 10 |0 |Antal återförsök före databearbetningen för segmentet markeras som Fel. Aktivitetskörning för ett datasegment görs om upp till det angivna antalet försök. Återförsöket görs så snart som möjligt efter felet. |
+| timeout |TimeSpan |00:00:00 |Timeout för aktiviteten. Exempel: 00:10:00 (innebär timeout 10 minuter)<br/><br/>Om ett värde inte anges eller är 0 är timeout oändlig.<br/><br/>Om databearbetningstiden för ett segment överskrider timeout-värdet avbryts det och systemet försöker försöka bearbeta igen. Antalet återförsök beror på egenskapen för återförsök. När timeout inträffar anges statusen till TimedOut. |
+| Försening |TimeSpan |00:00:00 |Ange fördröjningen innan databearbetningen av segmentet startar.<br/><br/>Körningen av aktivitet för ett datasegment startas när fördröjningen har passerat den förväntade körningstiden.<br/><br/>Exempel: 00:10:00 (innebär fördröjning på 10 minuter) |
+| longRetry |Integer<br/><br/>Maxvärde: 10 |1 |Antalet långa försök att försöka igen innan segmentkörningen misslyckas.<br/><br/>longRetry-försök är fördelade efter longRetryInterval. Så om du behöver ange en tid mellan försök att försöka igen använder du longRetry. If both Retry and longRetry are specified, each longRetry attempt includes Retry attempts and the max number of attempts is Retry * longRetry.<br/><br/>Om vi till exempel har följande inställningar i aktivitetspolicyn:<br/>Försök igen: 3<br/>longRetry: 2<br/>longRetryInterval: 01:00:00<br/><br/>Anta att det bara finns ett segment att köra (status väntar) och aktivitetskörningen misslyckas varje gång. Inledningsvis skulle det finnas 3 på varandra följande avrättningsförsök. Efter varje försök skulle segmentstatusen vara Försök igen. Efter första 3 försök är över, skulle segmentet status LongRetry.<br/><br/>Efter en timme (det vill vara longRetryIntevals värde) skulle det finnas ytterligare en uppsättning med 3 på varandra följande körningsförsök. Därefter skulle segmentstatusen misslyckas och inga fler försök skulle göras. Därför gjordes totalt 6 försök.<br/><br/>Om någon körning lyckas, skulle segmentstatus vara Klar och inga fler försök görs.<br/><br/>longRetry kan användas i situationer där beroende data anländer till icke-deterministiska tider eller den övergripande miljön är flagnande under vilken databehandling sker. I sådana fall kan det hända att du inte hjälper till att göra försök igen efter varandra och att göra det efter ett tidsintervall resulterar i önskad utgång.<br/><br/>Varningens ord: ange inte höga värden för longRetry eller longRetryInterval. Vanligtvis innebär högre värden andra systemproblem. |
+| longRetryInterval |TimeSpan |00:00:00 |Fördröjningen mellan långa försök att försöka igen |
 
 ## <a name="sample-copy-pipeline"></a>Exempel på kopieringspipeline
 I följande exempel på pipeline finns det en aktivitet av typen **Copy** (Kopiera) i avsnittet **activities**. I det här exempel kopierar [kopieringsaktiviteten](data-factory-data-movement-activities.md) data från Azure Blob Storage till en Azure SQL-databas.
@@ -205,9 +205,9 @@ Observera följande punkter:
 
 * I avsnittet Aktiviteter finns det bara en aktivitet vars **typ** anges till **Kopia**.
 * Indata för aktiviteten är inställd på **InputDataset** och utdata för aktiviteten är inställd på **OutputDataset**. I artikeln [Datauppsättningar](data-factory-create-datasets.md) finns information om hur du definierar datauppsättningar i JSON.
-* I avsnittet för **typeProperties** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp. I avsnittet [data förflyttnings aktiviteter](#data-movement-activities) klickar du på det data lager som du vill använda som källa eller mottagare för att lära dig mer om att flytta data till/från det data lagret.
+* I avsnittet för **typeProperties** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp. I avsnittet [Dataflyttningsaktiviteter](#data-movement-activities) klickar du på det datalager som du vill använda som källa eller diskho för att lära dig mer om hur du flyttar data till/från det datalagret.
 
-En fullständig genom gång av hur du skapar denna pipeline finns i [Självstudier: kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+En fullständig genomgång av hur du skapar den här pipelinen finns i [Självstudiekurs: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="sample-transformation-pipeline"></a>Exempel på transfomeringspipeline
 I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive** i avsnittet **activities**. I det här exemplet transformerar [HDInsight Hive-aktiviteten](data-factory-hive-activity.md) data från Azure Blob Storage genom att köra en Hive-skriptfil på ett Azure HDInsight Hadoop-kluster.
@@ -261,52 +261,52 @@ Observera följande punkter:
 
 * I activities-avsnittet finns det bara en aktivitet vars **typ** anges till **HDInsightHive**.
 * Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas **AzureStorageLinkedService**), och i mappen **skript** i containern **adfgetstarted**.
-* Avsnittet `defines` används för att ange körnings inställningar som skickas till Hive-skriptet som Hive-konfigurations värden (t. ex. `${hiveconf:inputtable}``${hiveconf:partitionedtable}`).
+* Avsnittet `defines` används för att ange de körningsinställningar som skickas till registreringsdatafilen som `${hiveconf:inputtable}` `${hiveconf:partitionedtable}`Hive-konfigurationsvärden (t.ex. .
 
-Avsnittet **typeProperties** är olika för varje transformeringsaktivitet. Om du vill veta mer om typ egenskaper som stöds för en omvandlings aktivitet klickar du på omvandlings aktiviteten i tabellen [data omvandlings aktiviteter](#data-transformation-activities) .
+Avsnittet **typeProperties** är olika för varje transformeringsaktivitet. Om du vill veta mer om typegenskaper som stöds för en omvandlingsaktivitet klickar du på omvandlingsaktiviteten i tabellen [Dataomvandlingsaktiviteter.](#data-transformation-activities)
 
-En fullständig genom gång av hur du skapar denna pipeline finns i [Självstudier: skapa din första pipeline för att bearbeta data med Hadoop-kluster](data-factory-build-your-first-pipeline.md).
+En fullständig genomgång av hur du skapar den här pipelinen finns i [Självstudiekurs: Skapa din första pipeline för att bearbeta data med Hadoop-klustret](data-factory-build-your-first-pipeline.md).
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Flera aktiviteter i en pipeline
 De två föregående exemplen innehåller bara en aktivitet. Du kan fler än en aktivitet i en pipeline.
 
-Om du har flera aktiviteter i en pipeline och utdata för en aktivitet inte är indata för en annan aktivitet, kan aktiviteterna köras parallellt om indata-sektorerna för aktiviteterna är klara.
+Om du har flera aktiviteter i en pipeline och utdata från en aktivitet inte är en indata för en annan aktivitet, kan aktiviteterna köras parallellt om indatasegmenten för aktiviteterna är klara.
 
-Du kan länka två aktiviteter genom att ha data uppsättningen för utdata för en aktivitet som indata-datauppsättningen för den andra aktiviteten. Den andra aktiviteten körs bara när den första är slutförd.
+Du kan kedja två aktiviteter genom att ha utdatauppsättningen för en aktivitet som indatauppsättning för den andra aktiviteten. Den andra aktiviteten körs bara när den första slutförs.
 
-![Länkning av aktiviteter i samma pipeline](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
+![Kedja verksamhet i samma rörledning](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
-I det här exemplet har pipelinen två aktiviteter: Activity1 och Activity2. Activity1 tar Dataset1 som indata och genererar en utdata-Dataset2. Aktiviteten tar Dataset2 som indata och producerar utdata Dataset3. Eftersom utdata från Activity1 (Dataset2) är indata för Activity2 körs Activity2 bara när aktiviteten har slutförts och genererar Dataset2-sektorn. Om Activity1 Miss lyckas av någon anledning och inte skapar Dataset2-sektorn, körs inte aktivitet 2 för denna sektor (till exempel: 9 AM till 10 AM).
+I det här exemplet har pipelinen två aktiviteter: Activity1 och Activity2. Activity1 tar Dataset1 som indata och producerar en utdatadatauppsättning2. Aktiviteten tar Dataset2 som indata och producerar en utdatadatauppsättning3. Eftersom utdata för Activity1 (Dataset2) är indata för Activity2 körs Activity2 först när aktiviteten har slutförts och datauppsättning2-segmentet har skapats. Om aktiviteten1 misslyckas av någon anledning och inte producerar segmentet Dataset2 körs inte segmentet Aktivitet 2 för det segmentet (till exempel: 09:00 till 10:00).
 
-Du kan också kedja aktiviteter som finns i olika pipeliner.
+Du kan också kedja aktiviteter som finns i olika pipelines.
 
-![Länkning av aktiviteter i två pipeliner](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
+![Kedja verksamhet i två rörledningar](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
 
 I det här exemplet har Pipeline1 bara en aktivitet som tar Dataset1 som indata och producerar Dataset2 som utdata. Pipeline2 har också bara en aktivitet som tar Dataset2 som indata och Dataset3 som utdata.
 
 Mer information finns i [schemaläggning och körning](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
-## <a name="create-and-monitor-pipelines"></a>Skapa och övervaka pipeliner
-Du kan skapa pipelines med hjälp av något av dessa verktyg eller SDK: er.
+## <a name="create-and-monitor-pipelines"></a>Skapa och övervaka pipelines
+Du kan skapa pipelines med hjälp av något av dessa verktyg eller SDK:er.
 
 - Guiden Kopiera
 - Visual Studio
 - Azure PowerShell
 - Azure Resource Manager-mall
-- REST-API
+- REST API
 - .NET-API
 
-I följande själv studie kurser finns stegvisa anvisningar för hur du skapar pipelines med hjälp av något av dessa verktyg eller SDK: er.
+Se följande självstudier för steg-för-steg-instruktioner för att skapa pipelines med hjälp av något av dessa verktyg eller SDK:er.
 
 - [Skapa en pipeline med en datatransformeringsaktivitet](data-factory-build-your-first-pipeline.md)
-- [Bygg en pipeline med en data förflyttnings aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+- [Skapa en pipeline med en dataförflyttningsaktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-När en pipeline har skapats/distribuerats kan du hantera och övervaka dina pipelines med hjälp av Azure Portal blad eller övervaka och hantera appen. I följande avsnitt finns stegvisa anvisningar.
+När en pipeline har skapats/distribuerats kan du hantera och övervaka dina pipelines med hjälp av Azure-portalbladen eller Övervaka och hantera app. Se följande avsnitt för steg-för-steg-instruktioner.
 
-- [Övervaka och hantera pipelines med hjälp av Azure Portal blad](data-factory-monitor-manage-pipelines.md).
-- [Övervaka och hantera pipelines med hjälp av övervaka och hantera app](data-factory-monitor-manage-app.md)
+- [Övervaka och hantera pipelines med hjälp av Azure portalblad](data-factory-monitor-manage-pipelines.md).
+- [Övervaka och hantera pipelines med hjälp av Övervaka och hantera app](data-factory-monitor-manage-app.md)
 
-## <a name="onetime-pipeline"></a>Databasmigrering-pipeline
-Du kan skapa och schemalägga en pipeline så att den körs regelbundet (till exempel: varje timme eller varje dag) inom den Start-och slut tid som du anger i pipeline-definitionen. Mer information finns i schemalägga aktiviteter. Du kan också skapa en pipeline som bara körs en gång. Det gör du genom att ställa in egenskapen **pipelineMode** i pipeline-definitionen på **Databasmigrering** som visas i följande JSON-exempel. Standardvärdet för den här egenskapen har **schemalagts**.
+## <a name="onetime-pipeline"></a>Engångspipeline
+Du kan skapa och schemalägga en pipeline så att den körs med jämna mellanrum (till exempel varje timme eller dagligen) inom de start- och sluttider som du anger i pipelinedefinitionen. Mer information finns i Schemaläggningsaktiviteter. Du kan också skapa en pipeline som bara körs en gång. För att göra det anger du egenskapen **pipelineMode** i pipelinedefinitionen till **engångsdata** som visas i följande JSON-exempel. Standardvärdet för den här egenskapen är **schemalagt**.
 
 ```json
 {
@@ -344,13 +344,13 @@ Du kan skapa och schemalägga en pipeline så att den körs regelbundet (till ex
 }
 ```
 
-Tänk på följande:
+Observera följande:
 
-* **Start** -och **slut** tider för pipelinen har inte angetts.
-* **Tillgänglighet** för indata-och utdata-datauppsättningar anges (**frekvens** och **intervall**), även om Data Factory inte använder värdena.
-* Diagramvyn visar inte en pipeline i taget. Det här beteendet är avsiktligt.
-* Det går inte att uppdatera en pipeline med en tids period. Du kan klona en engångs pipeline, byta namn på den, uppdatera egenskaperna och distribuera den för att skapa en ny.
+* **Start-** och **sluttider** för pipelinen har inte angetts.
+* **Tillgänglighet för** in- och utdatauppsättningar anges **(frekvens** och **intervall),** även om Data Factory inte använder värdena.
+* Diagramvyn visar inte engångspipeld. Det här beteendet är avsiktligt.
+* Engångspipelderna kan inte uppdateras. Du kan klona en engångspipeline, byta namn på den, uppdatera egenskaper och distribuera den för att skapa en annan.
 
 ## <a name="next-steps"></a>Nästa steg
-- Mer information om data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) .
-- Mer information om hur pipelines schemaläggs och körs finns i [schemaläggning och körning i Azure Data Factory](data-factory-scheduling-and-execution.md) artikel.
+- Mer information om datauppsättningar finns i [Artikeln Skapa datauppsättningar.](data-factory-create-datasets.md)
+- Mer information om hur pipelines schemaläggs och körs finns [i artikeln Schemaläggning och körning i Azure Data Factory.](data-factory-scheduling-and-execution.md)

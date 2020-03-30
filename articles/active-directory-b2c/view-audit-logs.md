@@ -1,7 +1,7 @@
 ---
-title: Åtkomst och granska gransknings loggar
+title: Åtkomst- och granskningsloggar
 titleSuffix: Azure AD B2C
-description: Få åtkomst till Azure AD B2C gransknings loggar program mässigt och i Azure Portal.
+description: Så här kommer du åt Azure AD B2C-granskningsloggar programmässigt och i Azure-portalen.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -13,94 +13,94 @@ ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264224"
 ---
-# <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
+# <a name="accessing-azure-ad-b2c-audit-logs"></a>Komma åt Granskningsloggar för Azure AD B2C
 
-Azure Active Directory B2C (Azure AD B2C) genererar gransknings loggar som innehåller aktivitets information om B2C-resurser, token som utfärdats och administratörs åtkomst. Den här artikeln innehåller en kort översikt över den information som är tillgänglig i gransknings loggar och instruktioner om hur du kommer åt dessa data för din Azure AD B2C-klient.
+Azure Active Directory B2C (Azure AD B2C) avger granskningsloggar som innehåller aktivitetsinformation om B2C-resurser, utfärdade token och administratörsåtkomst. Den här artikeln innehåller en kort översikt över den information som finns i granskningsloggar och instruktioner om hur du kommer åt dessa data för din Azure AD B2C-klient.
 
-Gransknings logg händelser behålls endast i **sju dagar**. Planera att ladda ned och lagra dina loggar med någon av de metoder som visas nedan om du behöver en längre kvarhållningsperiod.
+Granskningslogghändelser behålls bara i **sju dagar**. Planera att ladda ner och lagra dina loggar med någon av de metoder som visas nedan om du behöver en längre kvarhållningsperiod.
 
 > [!NOTE]
-> Du kan inte se användar inloggningar för enskilda Azure AD B2C program under avsnittet **användare** i **Azure Active Directory** eller **Azure AD B2C** sidor i Azure Portal. Inloggnings händelserna visar användar aktivitet, men kan inte korreleras tillbaka till det B2C-program som användaren har loggat in på. Du måste använda gransknings loggarna för den, enligt beskrivningen i den här artikeln.
+> Du kan inte se användarloggningar för enskilda Azure AD B2C-program under avsnittet **Användare** på **Azure Active Directory-** eller Azure AD **B2C-sidorna** i Azure-portalen. Inloggningshändelserna där visar användaraktivitet, men kan inte korreleras tillbaka till det B2C-program som användaren loggade in på. Du måste använda granskningsloggarna för det, vilket förklaras ytterligare i den här artikeln.
 
-## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Översikt över tillgängliga aktiviteter i B2C-kategorin för gransknings loggar
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Översikt över aktiviteter som är tillgängliga i B2C-kategorin av revisionsloggar
 
-Kategorin **B2C** i gransknings loggar innehåller följande typer av aktiviteter:
+**B2C-kategorin** i revisionsloggar innehåller följande typer av aktiviteter:
 
 |Aktivitetstyp |Beskrivning  |
 |---------|---------|
-|Auktorisering |Aktiviteter som rör auktorisering av en användare för att få åtkomst till B2C-resurser (till exempel en administratör som har åtkomst till en lista över B2C-principer).         |
-|Katalog |Aktiviteter relaterade till katalogattribut som hämtats när en administratör loggar in med hjälp av Azure Portal. |
+|Auktorisering |Aktiviteter som rör auktorisering av en användare att komma åt B2C-resurser (till exempel en administratör som har åtkomst till en lista över B2C-principer).         |
+|Katalog |Aktiviteter relaterade till katalogattribut som hämtas när en administratör loggar in med Azure-portalen. |
 |Program | Skapa, läsa, uppdatera och ta bort (CRUD) åtgärder på B2C-program. |
-|Nyckel |CRUD åtgärder för nycklar som lagras i en B2C Key-behållare. |
-|Resurs |CRUD-åtgärder på B2C-resurser. Till exempel principer och identitets leverantörer.
-|Autentisering |Validering av användarautentiseringsuppgifter och utfärdande av token.|
+|Nyckel |CRUD-åtgärder på nycklar som lagras i en B2C-nyckelbehållare. |
+|Resurs |CRUD-operationer på B2C-resurser. Till exempel principer och identitetsleverantörer.
+|Autentisering |Validering av användarautentiseringsuppgifter och tokenutfärdande.|
 
-För CRUD-aktiviteter för användar objekt, se kategorin **kärn katalog** .
+För CRUD-aktiviteter för användarobjekt finns i kategorin **Kärnkatalog.**
 
-## <a name="example-activity"></a>Exempel aktivitet
+## <a name="example-activity"></a>Exempel på aktivitet
 
-I den här exempel bilden från Azure Portal visas de data som registrerats när en användare loggar in med en extern identitetsprovider, i det här fallet Facebook:
+Den här exempelavbildningen från Azure-portalen visar de data som fångas när en användare loggar in med en extern identitetsleverantör, i det här fallet Facebook:
 
-![Exempel på informations sidan om gransknings loggs aktiviteter i Azure Portal](./media/view-audit-logs/audit-logs-example.png)
+![Exempel på sidan Aktivitetsinformation för granskningslogg i Azure-portalen](./media/view-audit-logs/audit-logs-example.png)
 
-Panelen aktivitets information innehåller följande relevanta information:
+Panelen För aktivitetsinformation innehåller följande relevanta uppgifter:
 
 |Section|Field|Beskrivning|
 |-------|-----|-----------|
-| Aktivitet | Namn | Vilken aktivitet som ägde rum. Du kan till exempel *utfärda en id_token till programmet*, vilket avslutar den faktiska användar inloggningen. |
-| Initierad av (aktör) | ObjectId | **Objekt-ID** för det B2C-program som användaren loggar in på. Den här identifieraren visas inte i Azure Portal, men är tillgänglig via Microsoft Graph API. |
-| Initierad av (aktör) | Namn | **Program-ID** för det B2C-program som användaren loggar in på. |
-| Mål (ar) | ObjectId | **Objekt-ID** för den användare som loggar in. |
-| Ytterligare information | TenantId | **Klient-ID** för Azure AD B2C klient organisationen. |
-| Ytterligare information | `PolicyId` | **Princip-ID: t** för det användar flöde (princip) som används för att signera användaren i. |
-| Ytterligare information | ApplicationId | **Program-ID** för det B2C-program som användaren loggar in på. |
+| Aktivitet | Namn | Vilken aktivitet ägde rum. Utfärda till exempel *en id_token till programmet*, som avslutar den faktiska användarloggningen. |
+| Initierad av (skådespelare) | ObjectId | **Objekt-ID** för B2C-programmet som användaren loggar in på. Den här identifieraren visas inte i Azure-portalen, men är tillgänglig via Microsoft Graph API. |
+| Initierad av (skådespelare) | Spn | **Program-ID** för B2C-programmet som användaren loggar in på. |
+| Mål | ObjectId | **Objekt-ID** för den användare som loggar in. |
+| Ytterligare information | TenantId | **Klient-ID** för Azure AD B2C-klienten. |
+| Ytterligare information | PolicyId | **Princip-ID:t** för det användarflöde (principen) som används för att logga in användaren. |
+| Ytterligare information | ApplicationId | **Program-ID** för B2C-programmet som användaren loggar in på. |
 
-## <a name="view-audit-logs-in-the-azure-portal"></a>Visa gransknings loggar i Azure Portal
+## <a name="view-audit-logs-in-the-azure-portal"></a>Visa granskningsloggar i Azure-portalen
 
-Azure Portal ger till gång till Gransknings logg händelser i Azure AD B2C klienten.
+Azure-portalen ger åtkomst till granskningslogghändelserna i din Azure AD B2C-klientorganisation.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Växla till den katalog som innehåller Azure AD B2C klienten och bläddra sedan till **Azure AD B2C**.
-1. Under **aktiviteter** i den vänstra menyn väljer du **gransknings loggar**.
+1. Växla till katalogen som innehåller din Azure AD B2C-klient och bläddra sedan till **Azure AD B2C**.
+1. Under **Aktiviteter** i den vänstra menyn väljer du **Granskningsloggar**.
 
-En lista över aktivitets händelser som loggats under de senaste sju dagarna visas.
+En lista över aktivitetshändelser som loggats under de senaste sju dagarna visas.
 
-![Exempel filter med två aktivitets händelser i Azure Portal](./media/view-audit-logs/audit-logs-example-filter.png)
+![Exempelfilter med två aktivitetshändelser i Azure Portal](./media/view-audit-logs/audit-logs-example-filter.png)
 
-Det finns flera filtrerings alternativ, inklusive:
+Det finns flera filtreringsalternativ, bland annat:
 
-* **Resurs typ för aktivitet** – filtrera efter de aktivitets typer som visas i tabellen i avsnittet [Översikt över tillgängliga aktiviteter](#overview-of-activities-available-in-the-b2c-category-of-audit-logs) .
-* **Datum** – filtrera datum intervallet för de aktiviteter som visas.
+* **Aktivitetsresurstyp** - Filtrera efter de aktivitetstyper som visas i tabellen i avsnittet [Översikt över tillgängliga aktiviteter.](#overview-of-activities-available-in-the-b2c-category-of-audit-logs)
+* **Datum** - Filtrera datumintervallet för de aktiviteter som visas.
 
-Om du väljer en rad i listan visas aktivitets informationen för händelsen.
+Om du väljer en rad i listan visas aktivitetsinformationen för händelsen.
 
-Om du vill hämta listan över aktivitets händelser i en fil med kommaavgränsade värden (CSV) väljer du **Hämta**.
+Om du vill hämta listan över aktivitetshändelser i en CSV-fil (kommaavgränsade värden) väljer du **Hämta**.
 
-## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Hämta gransknings loggar med Azure AD repor ting API
+## <a name="get-audit-logs-with-the-azure-ad-reporting-api"></a>Hämta granskningsloggar med Azure AD-rapporterings-API:et
 
-Gransknings loggar publiceras i samma pipeline som andra aktiviteter för Azure Active Directory, så att de kan nås via [rapporterings-API: et för Azure Active Directory](https://docs.microsoft.com/graph/api/directoryaudit-list). Mer information finns i [Kom igång med API för Azure Active Directory rapportering](../active-directory/reports-monitoring/concept-reporting-api.md).
+Granskningsloggar publiceras i samma pipeline som andra aktiviteter för Azure Active Directory, så att de kan nås via [Azure Active Directory-rapporterings-API:et](https://docs.microsoft.com/graph/api/directoryaudit-list). Mer information finns i [Komma igång med Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
 
-### <a name="enable-reporting-api-access"></a>Aktivera rapporterings-API-åtkomst
+### <a name="enable-reporting-api-access"></a>Aktivera åtkomst till rapporterings-API
 
-Om du vill tillåta skript-eller programbaserad åtkomst till Azure AD repor ting API måste du ha ett program registrerat i Azure AD B2C-klienten med följande API-behörigheter. Du kan aktivera de här behörigheterna för en befintlig program registrering i B2C-klienten eller skapa en ny som är specifik för användning med gransknings logg automatisering.
+Om du vill tillåta skript- eller programbaserad åtkomst till Azure AD-rapporterings-API:et behöver du ett program som är registrerat i din Azure AD B2C-klient med följande API-behörigheter. Du kan aktivera dessa behörigheter för en befintlig programregistrering i din B2C-klientorganisation eller skapa en ny som är särskilt avsedd för granskningsloggautomatisering.
 
-* Microsoft Graph > program behörigheter > AuditLog > AuditLog. Read. all
+* Behörigheter för Microsoft Graph >-program > AuditLog > AuditLog.Read.All
 
 Följ stegen i följande artikel för att registrera ett program med de behörigheter som krävs:
 
 [Hantera Azure AD B2C med Microsoft Graph](microsoft-graph-get-started.md)
 
-När du har registrerat ett program med rätt behörigheter, se avsnittet PowerShell-skript senare i den här artikeln för ett exempel på hur du kan hämta aktivitets händelser med ett skript.
+När du har registrerat ett program med rätt behörighet läser du skriptavsnittet för PowerShell senare i den här artikeln i ett exempel på hur du kan hämta aktivitetshändelser med ett skript.
 
-### <a name="access-the-api"></a>Åtkomst till API: et
+### <a name="access-the-api"></a>Få tillgång till API:et
 
-Om du vill hämta Azure AD B2C Gransknings logg händelser via API: et, filtrerar du loggarna i `B2C` kategorin. Om du vill filtrera efter kategori använder du parametern `filter` frågesträng när du anropar slut punkten för Azure AD repor ting API.
+Om du vill hämta Azure AD B2C-granskningslogghändelser `B2C` via API:et filtrerar du loggarna i kategorin. Om du vill filtrera `filter` efter kategori använder du frågesträngparametern när du anropar slutpunkten för Azure AD-rapporterings-API.
 
 ```HTTP
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
@@ -108,9 +108,9 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 ### <a name="powershell-script"></a>PowerShell-skript
 
-Följande PowerShell-skript visar ett exempel på hur du frågar Azure AD repor ting-API: et. Efter att ha frågat API: et skrivs de loggade händelserna ut till standardutdata och skriver sedan JSON-utdata till en fil.
+Följande PowerShell-skript visar ett exempel på hur du frågar Azure AD-rapporterings-API:et. När API:et har frågats skrivs de loggade händelserna ut till standardutdata och skrivs sedan JSON-utdata till en fil.
 
-Du kan testa det här skriptet i [Azure Cloud Shell](overview.md). Se till att du uppdaterar den med ditt program-ID, klient hemlighet och namnet på din Azure AD B2C klient.
+Du kan prova det här skriptet i [Azure Cloud Shell](overview.md). Var noga med att uppdatera det med ditt program-ID, klienthemlighet och namnet på din Azure AD B2C-klient.
 
 ```powershell
 # This script requires an application registration that's granted Microsoft Graph API permission
@@ -156,7 +156,7 @@ if ($oauth.access_token -ne $null) {
 }
 ```
 
-Här är en JSON-representation av exempel aktivitets händelsen som visades tidigare i artikeln:
+Här är JSON-representationen av exempelaktivitetshändelsen som visas tidigare i artikeln:
 
 ```JSON
 {
@@ -223,4 +223,4 @@ Här är en JSON-representation av exempel aktivitets händelsen som visades tid
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan automatisera andra administrations uppgifter, till exempel [hantera Azure AD B2C användar konton med Microsoft Graph](manage-user-accounts-graph-api.md).
+Du kan automatisera andra administrativa uppgifter, till exempel [hantera Azure AD B2C-användarkonton med Microsoft Graph](manage-user-accounts-graph-api.md).

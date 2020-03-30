@@ -1,50 +1,50 @@
 ---
-title: Så här uppgraderar du den Azure Monitor for VMs beroende agenten | Microsoft Docs
-description: Den här artikeln beskriver hur du uppgraderar Azure Monitor for VMs beroende agent med hjälp av kommando raden, installations guiden och andra metoder.
+title: Uppgradera Azure Monitor för VMs Dependency Agent
+description: I den här artikeln beskrivs hur du uppgraderar Azure Monitor för VMs Dependency agent med kommandorad, installationsguide och andra metoder.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/30/2019
-ms.openlocfilehash: c98c48a4494ac37ef4868c44d4a7adacfd0d48da
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: c55bee9880c4134f2e304a7fc5176225477fe5f3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662441"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480767"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Så här uppgraderar du den Azure Monitor for VMs beroende agenten
+# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Uppgradera Azure Monitor för VMs Dependency Agent
 
-Efter den första distributionen av den Azure Monitor for VMs beroende agenten släpps uppdateringar som innehåller fel korrigeringar eller stöd för nya funktioner eller funktioner.  Den här artikeln hjälper dig att förstå vilka metoder som är tillgängliga och hur du utför uppgraderingen manuellt eller genom automatisering.
+Efter den första distributionen av Azure Monitor för VMs Dependency agent, uppdateringar släpps som inkluderar buggfixar eller stöd för nya funktioner eller funktioner.  Den här artikeln hjälper dig att förstå de metoder som finns och hur du utför uppgraderingen manuellt eller genom automatisering.
 
-## <a name="upgrade-options"></a>Uppgraderings alternativ 
+## <a name="upgrade-options"></a>Alternativ för uppgradering 
 
-Beroende agenten för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på distributions scenariot och miljön som datorn körs i. Följande metoder kan användas för att uppgradera agenten.
+Beroendeagenten för Windows och Linux kan uppgraderas till den senaste versionen manuellt eller automatiskt beroende på distributionsscenariot och miljön som datorn körs i. Följande metoder kan användas för att uppgradera agenten.
 
-|Miljö |Installations metod |Uppgraderingsmetod |
+|Miljö |Installationsmetod |Uppgraderingsmetod |
 |------------|--------------------|---------------|
-|Azure VM | Beroende agent VM-tillägg för [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) och [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | Agenten uppgraderas automatiskt som standard om du inte har konfigurerat din Azure Resource Manager-mall för att välja att ange egenskapen *aktiverat autoupgrademinorversion* till **false**. Uppgradera till en lägre version där automatisk uppgradering är inaktive rad och en större versions uppgradering följer samma metod-Uninstall och installera om tillägget. |
-| Anpassade Azure VM-avbildningar | Manuell installation av beroende agent för Windows/Linux | Uppdatering av virtuella datorer till den senaste versionen av agenten måste utföras från kommando raden som kör Windows Installer-paketet eller Linux-paketet för självextraherande och installerbara gränssnitt.|
-| Icke-virtuella datorer i Azure | Manuell installation av beroende agent för Windows/Linux | Uppdatering av virtuella datorer till den senaste versionen av agenten måste utföras från kommando raden som kör Windows Installer-paketet eller Linux-paketet för självextraherande och installerbara gränssnitt. |
+|Azure VM | VM-tillägg för [beroendeagent](../../virtual-machines/extensions/agent-dependency-windows.md) för Windows och [Linux](../../virtual-machines/extensions/agent-dependency-linux.md) | Agenten uppgraderas automatiskt som standard om du inte har konfigurerat mallen Azure Resource Manager för att välja bort det genom att ange egenskapen *autoUpgradeMinorVersion* till **false**. Uppgraderingen för mindre version där automatisk uppgradering är inaktiverad, och en större version uppgradering följa samma metod - avinstallera och installera om tillägget. |
+| Anpassade Azure VM-avbildningar | Manuell installation av beroendeagent för Windows/Linux | Uppdatering av virtuella datorer till den senaste versionen av agenten måste utföras från kommandoraden som kör Windows-installationspaketet eller Linux självextraherande och installerbara skalskriptpaket.|
+| Virtuella datorer som inte är azure | Manuell installation av beroendeagent för Windows/Linux | Uppdatering av virtuella datorer till den senaste versionen av agenten måste utföras från kommandoraden som kör Windows-installationspaketet eller Linux självextraherande och installerbara skalskriptpaket. |
 
 ## <a name="upgrade-windows-agent"></a>Uppgradera Windows-agent 
 
-Om du vill uppdatera agenten på en virtuell Windows-dator till den senaste versionen som inte är installerad med hjälp av tillägget för den virtuella datorns beroende agent, kan du antingen köra från kommando tolken, skriptet eller någon annan Automation-lösning eller genom att använda installations guiden för InstallDependencyAgent-Windows. exe.  
+Om du vill uppdatera agenten på en Virtuell Windows-dator till den senaste versionen som inte är installerad med vm-tillägget Beroendeagent kör du antingen från kommandotolken, skriptet eller någon annan automatiseringslösning eller med installationsguiden för InstallDependencyAgent-Windows.exe.  
 
-Du kan hämta den senaste versionen av Windows-agenten [här](https://aka.ms/dependencyagentwindows).
+Du kan ladda ner den senaste versionen av Windows-agenten [härifrån](https://aka.ms/dependencyagentwindows).
 
-### <a name="using-the-setup-wizard"></a>Använda installations guiden
+### <a name="using-the-setup-wizard"></a>Använda installationsguiden
 
-1. Logga in på datorn med ett konto som har administratörs behörighet.
+1. Logga in på datorn med ett konto som har administratörsrättigheter.
 
-2. Kör **InstallDependencyAgent-Windows. exe** för att starta installations guiden.
+2. Starta installationsguiden genom att köra **InstallDependencyAgent-Windows.exe.**
    
-3. Använd installations guiden för **Dependency agent** för att avinstallera den tidigare versionen av beroende agenten och installera sedan den senaste versionen.
+3. Följ **guiden Konfigurera beroendeagent** för att avinstallera den tidigare versionen av beroendeagenten och installera sedan den senaste versionen.
 
 
-### <a name="from-the-command-line"></a>Från kommando raden
+### <a name="from-the-command-line"></a>Från kommandoraden
 
-1. Logga in på datorn med ett konto som har administratörs behörighet.
+1. Logga in på datorn med ett konto som har administratörsrättigheter.
 
 2. Kör följande kommando.
 
@@ -52,22 +52,22 @@ Du kan hämta den senaste versionen av Windows-agenten [här](https://aka.ms/dep
     InstallDependencyAgent-Windows.exe /S /RebootMode=manual
     ```
 
-    Parametern `/RebootMode=manual` förhindrar att datorn startas om automatiskt om vissa processer använder filer från den tidigare versionen och låser sig dem. 
+    Parametern `/RebootMode=manual` förhindrar att uppgraderingen automatiskt startar om datorn om vissa processer använder filer från den tidigare versionen och har ett lås på dem. 
 
-3. För att bekräfta att uppgraderingen lyckades, kontrol lera `install.log` för detaljerad installations information. Logg katalogen är en *%program%\Microsoft-Agent\logs*.
+3. Kontrollera detaljerad inställningsinformation för `install.log` att bekräfta att uppgraderingen lyckades. Loggkatalogen är *%Programfiles%\Microsoft Dependency Agent\logs*.
 
-## <a name="upgrade-linux-agent"></a>Uppgradera Linux-agenten 
+## <a name="upgrade-linux-agent"></a>Uppgradera Linux-agent 
 
-Uppgradering från tidigare versioner av beroende agenten på Linux stöds och utförs efter samma kommando som en ny installation.
+Uppgradering från tidigare versioner av beroendeagenten på Linux stöds och utförs efter samma kommando som en ny installation.
 
-Du kan hämta den senaste versionen av Windows-agenten [här](https://aka.ms/dependencyagentlinux).
+Du kan ladda ner den senaste versionen av Windows-agenten [härifrån](https://aka.ms/dependencyagentlinux).
 
-1. Logga in på datorn med ett konto som har administratörs behörighet.
+1. Logga in på datorn med ett konto som har administratörsrättigheter.
 
-2. Kör följande kommando som rot`sh InstallDependencyAgent-Linux64.bin -s`. 
+2. Kör följande kommando`sh InstallDependencyAgent-Linux64.bin -s`som rot . 
 
-Om det inte går att starta beroendeagenten, kontrollera loggarna för Detaljerad felinformation. I Linux-agenter är logg katalogen */var/opt/Microsoft/Dependency-Agent/log*. 
+Om beroendeagenten inte startar kontrollerar du om det finns detaljerad felinformation i loggarna. På Linux-agenter är loggkatalogen */var/opt/microsoft/dependency-agent/log*. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill stoppa övervakningen av dina virtuella datorer under en viss tids period eller ta bort Azure Monitor for VMs helt, se [inaktivera övervakning av dina virtuella datorer i Azure Monitor for VMS](vminsights-optout.md).
+Om du vill sluta övervaka dina virtuella datorer under en viss tid eller helt ta bort Azure Monitor för virtuella datorer läser du [Inaktivera övervakning av dina virtuella datorer i Azure Monitor för virtuella datorer](vminsights-optout.md).

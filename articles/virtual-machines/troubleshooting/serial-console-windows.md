@@ -1,6 +1,6 @@
 ---
-title: Azures serie konsol för Windows | Microsoft Docs
-description: Dubbelriktad serie konsol för Azure Virtual Machines och Virtual Machine Scale Sets.
+title: Azure Serial Console för Windows | Microsoft-dokument
+description: Dubbelriktad seriell konsol för virtuella Azure-datorer och skaluppsättningar för virtuella datorer.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -14,210 +14,210 @@ ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
 ms.openlocfilehash: 87ccb1c4995337b385f685797980a9fc3962bc6f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267006"
 ---
-# <a name="azure-serial-console-for-windows"></a>Azures serie konsol för Windows
+# <a name="azure-serial-console-for-windows"></a>Azure Serial Console för Windows
 
-Serie konsolen i Azure Portal ger åtkomst till en textbaserad konsol för virtuella Windows-datorer och instanser av skalnings uppsättningar för virtuella datorer. Den här seriella anslutningen ansluter till den seriella portarna för den virtuella datorn eller den virtuella datorns skalnings uppsättning och ger åtkomst till den oberoende av nätverket eller operativ systemets tillstånd. Det går bara att komma åt serie konsolen med hjälp av Azure Portal och tillåts bara för de användare som har åtkomst rollen deltagare eller högre till den virtuella datorn eller skalnings uppsättningen för den virtuella datorn.
+Seriekonsolen i Azure-portalen ger åtkomst till en textbaserad konsol för Windows virtuella datorer (VIRTUELLA datorer) och skaluppsättningar för virtuella datorer. Den här seriella anslutningen ansluter till COM1-seriell port för den virtuella datorn eller den virtuella datorns skalningsuppsättningsinstans, vilket ger åtkomst till den oberoende av nätverks- eller operativsystemtillstånd. Seriell konsol kan endast nås med hjälp av Azure-portalen och är endast tillåten för de användare som har en åtkomstroll som Deltagare eller högre till den virtuella datorn eller skalan för virtuella datorer.
 
-Serie konsolen fungerar på samma sätt för virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer. I det här dokumentet kommer alla omnämnanden för virtuella datorer att implicit inkludera skalnings uppsättnings instanser för virtuella datorer om inget annat anges.
+Seriekonsolen fungerar på samma sätt för virtuella datorer och skalningsuppsättningsinstanser för virtuella datorer och virtuella datorer. I det här dokumentet innehåller alla omnämnanden till virtuella datorer implicit infallna instanser av skalningsuppsättningar för virtuella datorer om inte annat anges.
 
-Dokumentation om Azure-konsolen för Linux finns i [Azures serie konsol för Linux](serial-console-linux.md).
-
-> [!NOTE]
-> Serie konsolen är allmänt tillgänglig i globala Azure-regioner och i offentlig för hands version i Azure Government. Den är ännu inte tillgänglig i Azure Kina-molnet.
-
-
-## <a name="prerequisites"></a>Förutsättningar
-
-* Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste använda distributions modellen för resurs hantering. Klassiska distributioner stöds inte.
-
-- Ditt konto som använder en serie konsol måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och lagrings kontot för [startdiagnostik](boot-diagnostics.md)
-
-- Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste ha en lösenordsbaserad användare. Du kan skapa en med funktionen [Återställ lösen ord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) för VM Access-tillägget. Välj **Återställ lösen ord** i avsnittet **support och fel sökning** .
-
-* Startdiagnostik måste vara aktiverat för den virtuella datorns [](boot-diagnostics.md) skalnings uppsättning instans för virtuell dator.
-
-    ![Inställningarna för startdiagnostik](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-
-## <a name="enable-serial-console-functionality-for-windows-server"></a>Aktivera funktioner för seriell konsol för Windows Server
+Dokumentation för seriell konsol för Linux finns i [Azure Serial Console för Linux](serial-console-linux.md).
 
 > [!NOTE]
-> Om du inte ser något i serie konsolen ser du till att startdiagnostik är aktiverat på den virtuella datorn eller skalnings uppsättningen för den virtuella datorn.
+> Seriekonsolen är vanligtvis tillgänglig i globala Azure-regioner och i offentlig förhandsversion i Azure Government. Det är ännu inte tillgängligt i Azure China-molnet.
+
+
+## <a name="prerequisites"></a>Krav
+
+* Den virtuella datorn eller skalningsgruppsinstansen för virtuella datorer måste använda distributionsmodellen för resurshantering. Klassiska distributioner stöds inte.
+
+- Ditt konto som använder seriell konsol måste ha rollen Deltagare i [virtuell dator](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och [lagringskontot för startdiagnostik](boot-diagnostics.md)
+
+- Den virtuella datorn eller den virtuella datorns skalningsgruppsinstans måste ha en lösenordsbaserad användare. Du kan skapa en med [återställningslösenordsfunktionen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) för vm-åtkomsttillägget. Välj **Återställ lösenord** i avsnittet Support + **felsökning.**
+
+* Den virtuella datorn för skalningsuppsättningsinstans för virtuella datorer måste ha [startdiagnostik](boot-diagnostics.md) aktiverad.
+
+    ![Inställningar för startdiagnostik](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+
+## <a name="enable-serial-console-functionality-for-windows-server"></a>Aktivera serialkonsolfunktioner för Windows Server
+
+> [!NOTE]
+> Om du inte ser något i seriekonsolen kontrollerar du att startdiagnostik är aktiverat på den virtuella datorn eller skalningsuppsättningen för virtuella datorer.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Aktivera seriekonsolen i anpassade eller äldre bilder
-Nya Windows Server-avbildningar på Azure har SAC ( [Special administrations konsol](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) ) aktiverat som standard. SAC stöds på server-versioner av Windows men är inte tillgängligt i klientversioner (till exempel Windows 10, Windows 8 eller Windows 7).
+Nyare Windows Server-avbildningar på Azure har [SAC (Special Administration Console)](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) aktiverat som standard. SAC stöds i serverversioner av Windows men är inte tillgängligt i klientversioner (till exempel Windows 10, Windows 8 eller Windows 7).
 
-För äldre Windows Server-avbildningar (som skapats före februari 2018), kan du automatiskt aktivera seriekonsolen via Azure portal körningskommandot funktionen. I Azure Portal väljer du **Kör kommando**och väljer sedan kommandot med namnet **EnableEMS** i listan.
+För äldre Windows Server-avbildningar (som skapats före februari 2018) kan du automatiskt aktivera seriekonsolen via Azure-portalens kommandofunktion för körning. I Azure-portalen väljer du **Kommandot Kör**och väljer sedan kommandot **EnableEMS** i listan.
 
 ![Kör kommandolista](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
 
-Om du vill aktivera seriell konsol manuellt för virtuella Windows-datorer och skalnings uppsättningar för virtuella datorer som skapats före februari 2018, följer du dessa steg:
+Om du vill aktivera seriell konsol för Windows virtuella datorer/skalningsuppsättning för virtuella datorer som skapats före februari 2018 gör du så här:
 
-1. Ansluta till din Windows-dator med hjälp av fjärrskrivbord
-1. Kör följande kommandon från en administrativ kommandotolk:
+1. Ansluta till windows virtuella datorn med fjärrskrivbord
+1. Kör följande kommandon i en administrativ kommandotolk:
     - `bcdedit /ems {current} on`
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
-1. Starta om systemet för SAC-konsolen ska vara aktiverat.
+1. Starta om systemet för att SAC-konsolen ska aktiveras.
 
-    ![SAC-konsolen](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+    ![SAC-konsol](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-Om det behövs kan SAC aktiveras offline samt:
+Vid behov kan SAC aktiveras offline också:
 
-1. Ansluta windows-disken som du vill ha SAC som konfigurerats som en datadisk till den befintliga virtuella datorn.
+1. Bifoga windows-disken som du vill konfigurera SAC för som en datadisk till den befintliga virtuella datorn.
 
-1. Kör följande kommandon från en administrativ kommandotolk:
+1. Kör följande kommandon i en administrativ kommandotolk:
    - `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
    - `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-#### <a name="how-do-i-know-if-sac-is-enabled"></a>Hur vet jag om SAC är aktiverad?
+#### <a name="how-do-i-know-if-sac-is-enabled"></a>Hur vet jag om SAC är aktiverat?
 
-Om [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) inte är aktive rad visas inte SAC-prompten i serie konsolen. Hälsoinformation för virtuell dator visas i vissa fall och i andra fall är det tomt. Om du använder en Windows Server-avbildning som skapats före februari 2018 aktiveras SAC förmodligen inte.
+Om [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) inte är aktiverat visas inte SAC-prompten i seriekonsolen. I vissa fall visas hälsoinformation för virtuella datorer och i andra fall är den tom. Om du använder en Windows Server-avbildning som skapats före februari 2018 aktiveras förmodligen SAC inte.
 
-### <a name="enable-the-windows-boot-menu-in-the-serial-console"></a>Aktivera Windows-startmenyn i seriekonsolen
+### <a name="enable-the-windows-boot-menu-in-the-serial-console"></a>Aktivera Startmenyn för Windows i seriekonsolen
 
-Om du vill aktivera Windows boot loader anvisningarna för att visa i seriekonsolen kan du lägga till följande ytterligare alternativ boot configuration data. Mer information finns i [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
+Om du behöver aktivera uppmaningar om windows-starthanterare att visas i seriekonsolen kan du lägga till följande ytterligare alternativ i startkonfigurationsdata. Mer information finns [i bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
 
-1. Anslut till en virtuell Windows-dator eller en virtuell dators skalnings uppsättnings instans med hjälp av fjärr skrivbord.
+1. Anslut till windows VM- eller virtual machine-skalningsuppsättningsinstansen med fjärrskrivbord.
 
-1. Kör följande kommandon från en administrativ kommandotolk:
+1. Kör följande kommandon i en administrativ kommandotolk:
    - `bcdedit /set {bootmgr} displaybootmenu yes`
    - `bcdedit /set {bootmgr} timeout 10`
    - `bcdedit /set {bootmgr} bootems yes`
 
-1. Starta om datorn för Start-menyn är aktiverat
+1. Starta om systemet för att startmenyn ska aktiveras
 
 > [!NOTE]
-> Timeout-värdet som du anger för startmenyn manager att visa påverkar din OS-starttiden. Om du tror 10 sekunder timeout-värdet är för kort eller för lång kan du ange den till ett annat värde.
+> Den timeout som du anger för att starthanteraren-menyn ska visas påverkar starttiden för operativsystemet. Om du tror att timeout-värdet på 10 sekunder är för kort eller för långt anger du det till ett annat värde.
 
-## <a name="use-serial-console"></a>Använd serie konsol
+## <a name="use-serial-console"></a>Använda seriell konsol
 
-### <a name="use-cmd-or-powershell-in-serial-console"></a>Använda CMD eller PowerShell i serie konsolen
+### <a name="use-cmd-or-powershell-in-serial-console"></a>Använda CMD eller PowerShell i seriekonsol
 
-1. Anslut till seriekonsol. Om du har anslutit är meddelandet **SAC >** :
+1. Anslut till seriekonsolen. Om du lyckas ansluta är prompten **SAC>: **
 
     ![Ansluta till SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.  Ange `cmd` för att skapa en kanal som har en CMD-instans.
+1.  Ange `cmd` om du vill skapa en kanal med en CMD-förekomst.
 
-1.  Ange `ch -si 1` eller tryck på `<esc>+<tab>` gen vägs tangenter för att växla till den kanal som kör CMD-instansen.
+1.  Ange `ch -si 1` eller `<esc>+<tab>` tryck på kortkommandon för att växla till den kanal som kör CMD-instansen.
 
-1.  Tryck på **RETUR**och ange sedan inloggnings uppgifter med administratörs behörighet.
+1.  Tryck på **Retur**och ange sedan inloggningsuppgifter med administratörsbehörighet.
 
-1.  När du har angett giltiga autentiseringsuppgifter, öppnas CMD-instans.
+1.  När du har angett giltiga autentiseringsuppgifter öppnas CMD-instansen.
 
-1.  Starta en PowerShell-instans genom att ange `PowerShell` i CMD-instansen och tryck på **RETUR**.
+1.  Om du vill starta `PowerShell` en PowerShell-instans anger du i CMD-instansen och trycker sedan på **Retur**.
 
     ![Öppna PowerShell-instans](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
-### <a name="use-the-serial-console-for-nmi-calls"></a>Använd seriekonsolen för NMI-anrop
-Ett icke-maskable avbrott (NMI) är utformad för att skapa en signal som programvara på en virtuell dator inte ignorera. Historiskt sett använts NMIs för att övervaka maskinvarufel på system som krävs för specifika svarstider. Idag använder programmerare programmerare och system administratörer ofta NMI som en mekanism för att felsöka eller felsöka system som inte svarar.
+### <a name="use-the-serial-console-for-nmi-calls"></a>Använda seriekonsolen för NMI-samtal
+Ett icke-maskerbart avbrott (NMI) är utformat för att skapa en signal som programvara på en virtuell dator inte ignorerar. Historiskt sett har NMIs använts för att övervaka maskinvaruproblem på system som krävde specifika svarstider. Idag använder programmerare och systemadministratörer ofta NMI som en mekanism för att felsöka eller felsöka system som inte svarar.
 
-Seriell konsol kan användas för att skicka en NMI till en Azure virtuell dator med hjälp av tangentbordsikonen i kommandofältet. När NMI är på plats, ska konfigurationen av virtuella datorn styra hur systemet svarar. Windows kan konfigureras att krascher och skapa en minnesdump när du tar emot en NMI.
+Seriekonsolen kan användas för att skicka en NMI till en virtuell Azure-dator med hjälp av tangentbordsikonen i kommandofältet. När NMI har levererats styr konfigurationen för den virtuella datorn hur systemet svarar. Windows kan konfigureras för att krascha och skapa en minnesdumpfil när du tar emot en NMI.
 
 ![Skicka NMI](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
-Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när den får en NMI finns i [så här skapar du en kraschdumpfil med hjälp av en NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
+Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när den tar emot en NMI finns i [Så här genererar du en kraschdumpfil med hjälp av en NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
-### <a name="use-function-keys-in-serial-console"></a>Använda funktionstangenterna i seriekonsol
-Funktionstangenter är aktiverade för användning för seriekonsolen i virtuella Windows-datorer. F8 i listrutan seriekonsolen underlättar för att enkelt ange avancerade inställningar för Start-menyn, men Seriell konsol är kompatibel med alla andra funktionstangenter. Du kan behöva trycka på **Fn** + **F1** (eller F2, F3 osv.) på tangent bordet, beroende på vilken dator du använder för att använda en serie konsol från.
+### <a name="use-function-keys-in-serial-console"></a>Använda funktionstangenter i seriekonsolen
+Funktionstangenterna är aktiverade för användning för seriell konsol i virtuella datorer i Windows. F8 i seriekonsolen rullgardinsmenyn ger bekvämligheten med att enkelt komma in i menyn Avancerade startinställningar, men seriell konsol är kompatibel med alla andra funktionstangenter. Du kan behöva trycka på **Fn** + **F1** (eller F2, F3, etc.) på tangentbordet beroende på vilken dator du använder seriell konsol från.
 
-### <a name="use-wsl-in-serial-console"></a>Använd WSL i seriekonsol
-Windows-undersystem för Linux (WSL) har aktiverats för Windows Server 2019 eller senare, så det är också möjligt att aktivera WSL för användning i seriekonsolen om du kör Windows Server 2019 eller senare. Detta kan vara fördelaktigt för användare som även har tidigare erfarenhet av Linux-kommandon. Instruktioner för att aktivera WSL för Windows Server finns i [installations guiden](https://docs.microsoft.com/windows/wsl/install-on-server)för.
+### <a name="use-wsl-in-serial-console"></a>Använda WSL i seriekonsol
+Windows Subsystem för Linux (WSL) har aktiverats för Windows Server 2019 eller senare, så det är också möjligt att aktivera WSL för användning i seriekonsolen om du kör Windows Server 2019 eller senare. Detta kan vara fördelaktigt för användare som också har en förtrogenhet med Linux-kommandon. Instruktioner för hur du aktiverar WSL för Windows Server finns i [installationsguiden](https://docs.microsoft.com/windows/wsl/install-on-server).
 
-### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Starta om din instans av skalnings uppsättningen för virtuella Windows-datorer/virtuella datorer i serie konsolen
-Du kan starta en omstart i serie konsolen genom att gå till ström knappen och klicka på "starta om virtuell dator". Detta initierar en omstart av datorn och ett meddelande visas i Azure Portal om omstarten.
+### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Starta om skalningsuppsättningen för Windows VM/virtuell dator i Seriekonsolen
+Du kan starta om en omstart i seriekonsolen genom att navigera till strömbrytaren och klicka på "Starta om den virtuella datorn". Detta initierar en omstart av den virtuella datorn och du kommer att se ett meddelande i Azure-portalen om omstarten.
 
-Detta är användbart i situationer där du kanske vill komma åt Start menyn utan att lämna serie konsol upplevelsen.
+Detta är användbart i situationer där du kanske vill komma åt startmenyn utan att lämna seriekonsolen.
 
-![Starta om Windows seriell konsol](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
+![Omstart av Windows-seriekonsol](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
-## <a name="disable-the-serial-console"></a>Inaktivera serie konsolen
-Som standard har alla prenumerationer åtkomst till seriell konsol. Du kan inaktivera serie konsolen antingen på prenumerations nivå eller skal uppsättnings nivå för virtuell dator/virtuell dator. Detaljerade anvisningar finns [i Aktivera och inaktivera Azures serie konsol](./serial-console-enable-disable.md).
+## <a name="disable-the-serial-console"></a>Inaktivera seriekonsolen
+Som standard har alla prenumerationer seriell konsolåtkomst aktiverad. Du kan inaktivera seriekonsolen på antingen prenumerationsnivå eller vm/virtuell datorskala. Detaljerade instruktioner finns i [Aktivera och inaktivera Azure Serial Console](./serial-console-enable-disable.md).
 
-## <a name="serial-console-security"></a>Seriell konsol-säkerhet
+## <a name="serial-console-security"></a>Seriell konsolsäkerhet
 
 ### <a name="access-security"></a>Åtkomstsäkerhet
-Åtkomst till serie konsolen är begränsad till användare som har åtkomst rollen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) eller högre till den virtuella datorn. Om din Azure Active Directory klient kräver Multi-Factor Authentication (MFA) behöver åtkomst till serie konsolen även MFA eftersom den seriella konsolens åtkomst sker via [Azure Portal](https://portal.azure.com).
+Åtkomst till seriekonsolen är begränsad till användare som har en åtkomstroll [som deltagare i virtuell dator](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) eller högre till den virtuella datorn. Om din Azure Active Directory-klient kräver MFA (Multifaktorautentisering) behöver åtkomsten till seriekonsolen också MFA eftersom seriekonsolens åtkomst är via [Azure-portalen](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Kanalsäkerhet
-Alla data som skickas fram och tillbaka krypteras under överföringen.
+Alla data som skickas fram och tillbaka krypteras på tråden.
 
 ### <a name="audit-logs"></a>Granskningsloggar
-All åtkomst till serie konsolen är för närvarande inloggad i [Start](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) -diagnostikloggar för den virtuella datorn. Åtkomst till de här loggarna ägs och kontrolleras av administratören för Azure virtuella datorer.
+All åtkomst till seriekonsolen loggas för närvarande i [startdiagnostikloggarna](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) för den virtuella datorn. Åtkomst till dessa loggar ägs och kontrolleras av Azure-administratören för virtuella datorer.
 
 > [!CAUTION]
-> Inga lösenord för åtkomst för konsolen loggas. Men om kommandon körs i konsolen innehåller eller utgående lösenord, hemligheter, användarnamn eller någon annan form av personligt identifierbar information (PII), skrivs de till diagnostikloggar för VM-start. De skrivs tillsammans med alla andra synlig text, som en del av implementeringen av Seriell konsol rullar tillbaka funktion. Dessa loggar är cirkulär och endast personer med läsbehörighet till lagringskontot för diagnostik ha åtkomst till dem. Vi rekommenderar dock följa bästa praxis för att använda Remote Desktop för allt som kan omfatta hemligheter och/eller personligt identifierbar information.
+> Inga åtkomstlösenord för konsolen loggas. Men om kommandon som körs i konsolen innehåller eller utdatalösenord, hemligheter, användarnamn eller någon annan form av personligt identifierbar information (PII), kommer de att skrivas till VM-startdiagnostikloggarna. De kommer att skrivas tillsammans med all annan synlig text, som en del av genomförandet av den seriella konsolens scroll back-funktion. Dessa loggar är cirkulära och endast personer med läsbehörighet till diagnostiklagringskontot har åtkomst till dem. Vi rekommenderar dock att du följer den bästa metoden med att använda fjärrskrivbordet för allt som kan innebära hemligheter och/eller PII.
 
 ### <a name="concurrent-usage"></a>Samtidig användning
-Om en användare är ansluten till seriekonsol och en annan användare begär har åtkomst till den samma virtuella datorn, kommer att kopplas från den första användaren och den andra användaren som är anslutna till samma session.
+Om en användare är ansluten till seriekonsolen och en annan användare har begärt åtkomst till samma virtuella dator kopplas den första användaren från och den andra användaren ansluts till samma session.
 
 > [!CAUTION]
-> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk tidsgräns har aktiverats i SAC; Du kan konfigurera terminal timeout-inställningen för Linux.
+> Det innebär att en användare som är frånkopplad inte loggas ut. Möjligheten att genomdriva en utloggning vid frånkoppling (med hjälp av SIGHUP eller liknande mekanism) finns fortfarande i färdplanen. För Windows finns det en automatisk timeout aktiverad i SAC. för Linux kan du konfigurera terminaltidsgränsen.
 
 ## <a name="accessibility"></a>Hjälpmedel
-Hjälpmedel är viktiga fokus för Azure seriekonsol. Därför har vi sett att seriekonsolen är tillgänglig för det visuella objektet och ha tagit reda på försämrad, samt för personer som inte kanske kan använda en mus.
+Hjälpmedel är ett viktigt fokus för Azure-seriekonsolen. Därför har vi sett till att seriekonsolen är tillgänglig för syn- och hörselskadade samt personer som kanske inte kan använda en mus.
 
 ### <a name="keyboard-navigation"></a>Tangentbordsnavigering
-Använd **TABB** -tangenten på tangent bordet för att navigera i gränssnittet för den seriella konsolen från Azure Portal. Din plats kommer vara markerad på skärmen. Om du vill lämna fönstret för serie konsolen trycker du på **Ctrl**+**F6** på tangent bordet.
+Använd **tabbtangenten** på tangentbordet för att navigera i det seriella konsolgränssnittet från Azure-portalen. Din plats markeras på skärmen. Om du vill lämna fokus i seriekonsolfönstret trycker du på **Ctrl**+**F6** på tangentbordet.
 
 ### <a name="use-the-serial-console-with-a-screen-reader"></a>Använda seriekonsolen med en skärmläsare
-Seriekonsolen har inbyggt stöd för Skärmläsaren. Navigera med en skärmläsare aktiveras kan alternativ text för knappen är markerade som ska läsas upp av Skärmläsaren.
+Den seriella konsolen har skärmläsare stöd inbyggd. Om du navigerar med en skärmläsare påslagen kan alternativtexten för den markerade knappen läsas upp högt av skärmläsaren.
 
-## <a name="common-scenarios-for-accessing-the-serial-console"></a>Vanliga scenarier för att komma åt seriekonsolen
+## <a name="common-scenarios-for-accessing-the-serial-console"></a>Vanliga scenarier för åtkomst till seriekonsolen
 
 Scenario          | Åtgärder i seriekonsolen
 :------------------|:-----------------------------------------
-Felaktig brandväggsregler | Åtkomst till seriella konsolen och åtgärda Windows brandväggsregler.
-Filsystem skadade/kontroll | Komma åt seriekonsolen och Återställ filsystemet.
-Problem med RDP-konfigurationen | Komma åt seriekonsolen och ändra inställningarna. Mer information finns i RDP- [dokumentationen](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
-Nätverket låsa system | Komma åt seriekonsolen från Azure portal för att hantera systemet. Vissa nätverks kommandon visas i [Windows-kommandon: cmd och PowerShell](serial-console-cmd-ps-commands.md).
-Interagera med startprogrammet | Åtkomst BCD via seriekonsolen. Mer information finns i [Aktivera Start menyn i Windows i serie konsolen](#enable-the-windows-boot-menu-in-the-serial-console).
+Felaktiga brandväggsregler | Öppna seriella konsol och åtgärda Windows-brandväggsregler.
+Filsystemet skadas/kontrolleras | Öppna seriekonsolen och återställ filsystemet.
+Problem med rdp-konfiguration | Öppna seriekonsolen och ändra inställningarna. Mer information finns i [RDP-dokumentationen](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
+System för låsning av nätverk | Öppna seriekonsolen från Azure-portalen för att hantera systemet. Vissa nätverkskommandon visas i [Windows-kommandon: CMD och PowerShell](serial-console-cmd-ps-commands.md).
+Interagera med starthanterare | Få åtkomst till BCD via seriekonsolen. Mer information finns [i Aktivera Startmenyn för Windows i seriekonsolen](#enable-the-windows-boot-menu-in-the-serial-console).
 
 ## <a name="known-issues"></a>Kända problem
-Vi är medvetna om några problem med serie konsolen och den virtuella datorns operativ system. Här är en lista över de här problemen och stegen för att minska för virtuella Windows-datorer. Dessa problem och begränsningar gäller för både virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer. Om de inte matchar det fel du ser kan du läsa fel i vanliga fel med seriell konsol tjänsten i [vanliga](./serial-console-errors.md)fel i serie konsolen.
+Vi är medvetna om vissa problem med seriekonsolen och den virtuella datorns operativsystem. Här är en lista över dessa problem och steg för begränsning för virtuella datorer i Windows. Dessa problem och mildrande åtgärder gäller för både virtuella datorer och skalningsuppsättningsinstanser för virtuella datorer. Om dessa inte matchar felet du ser läser du de vanliga seriella konsolservicefelen vid [vanliga seriella konsolfel](./serial-console-errors.md).
 
 Problem                             |   Åtgärd
 :---------------------------------|:--------------------------------------------|
-Om du trycker på **RETUR** efter det att anslutningens banderoll inte leder till att en inloggnings tolk visas. | För mer information, se att [trycka på RETUR gör ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här felet kan inträffa om du kör en anpassad virtuell dator, förstärkt installation eller Start-config som medför att Windows inte kan ansluta ordentligt till den seriella porten. Det här felet uppstår också om du kör en virtuell Windows 10-dator, eftersom endast virtuella Windows Server-datorer har kon figurer ATS för att ha EMS aktiverat.
-Endast hälsoinformation visas när du ansluter till en virtuell Windows-dator| Det här felet uppstår om den särskilda administrations konsolen inte har Aktiver ATS för Windows-avbildningen. Se [Aktivera serie konsolen i anpassade eller äldre avbildningar](#enable-the-serial-console-in-custom-or-older-images) för instruktioner om hur du aktiverar SAC manuellt på din virtuella Windows-dator. Mer information finns i [Windows hälso signaler](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
-SAC tar inte upp hela det seriella konsol utrymmet i webbläsaren | Detta är ett känt problem med Windows och termin Ale mula torn. Vi spårar det här problemet med båda teamen men för närvarande finns det ingen minskning.
-Det går inte att skriva på SAC fråga om kernel-felsökning är aktiverad. | RDP till virtuell dator och köra `bcdedit /debug {current} off` från en upphöjd kommando tolk. Om du inte kan använda RDP kan du i stället koppla OS-disken till en annan virtuell Azure-dator och ändra den när den är ansluten som en datadisk genom att köra `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`och sedan växla tillbaka till disken.
-Klistra in i PowerShell i SAC resulterar i ett tredje tecken om det ursprungliga innehållet hade ett upprepade tecken. | För en lösning kan du köra `Remove-Module PSReadLine` för att ta bort modulen PSReadLine från den aktuella sessionen. Den här åtgärden kommer inte att ta bort eller avinstallera modulen.
-Vissa tangent bords inmatningar ger konstiga SAC-utdata (till exempel **[A**, **[3 ~** ). | [VT100](https://aka.ms/vtsequences) escape-sekvenser stöds inte av SAC-prompten.
-Klistra in lång sträng fungerar inte. | Seriekonsolen begränsar längden på strängar som klistras in i terminalen för att 2048 tecken för att förhindra överbelastning serieport bandbredd.
+Om du trycker på **Retur** efter att anslutningsbanderollen inte visas visas en inloggningsfråga. | Mer information finns i [Hitting enter gör ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här felet kan uppstå om du kör en anpassad virtuell dator, en härdad installation eller en startkonfiguration som gör att Windows inte kan anslutas till den seriella porten på rätt sätt. Det här felet uppstår också om du kör en virtuell Windows 10-dator, eftersom endast virtuella Windows Server-datorer är konfigurerade för att ha EMS aktiverat.
+Endast hälsoinformation visas vid anslutning till en Windows VM| Det här felet uppstår om konsolen Special Administration inte har aktiverats för Din Windows-avbildning. Se [Aktivera seriekonsolen i anpassade eller äldre avbildningar](#enable-the-serial-console-in-custom-or-older-images) för instruktioner om hur du aktiverar SAC manuellt på din virtuella Windows-dator. Mer information finns i [Hälsosignaler för Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
+SAC tar inte upp hela Serial Console-området i webbläsaren | Detta är ett känt problem med Windows och terminalemulatorn. Vi spårar det här problemet med båda teamen, men för tillfället finns det ingen begränsning.
+Det gick inte att skriva vid SAC-prompten om kernel-felsökning är aktiverat. | RDP till VM `bcdedit /debug {current} off` och köra från en upphöjd kommandotolk. Om du inte kan RDP kan du i stället ansluta OS-disken till en annan `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`Virtuell Azure-dator och ändra den när den är ansluten som en datadisk genom att köra och sedan byta tillbaka disken.
+Att klistra in i PowerShell i SAC resulterar i ett tredje tecken om det ursprungliga innehållet hade ett upprepande tecken. | För en lösning kör `Remove-Module PSReadLine` du för att ta bort PSReadLine-modulen från den aktuella sessionen. Den här åtgärden kommer inte att ta bort eller avinstallera modulen.
+Vissa tangentbordsinmatningar ger konstiga SAC-utgångar (till exempel **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences) escape-sekvenser stöds inte av SAC-prompten.
+Att klistra in långa strängar fungerar inte. | Seriekonsolen begränsar längden på strängar som klistras in i terminalen till 2048 tecken för att förhindra överbelastning av den seriella portens bandbredd.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-**F. Hur gör jag för att skicka feedback?**
+**F. Hur kan jag skicka feedback?**
 
-A. Ge feedback genom att skapa ett GitHub-problem på https://aka.ms/serialconsolefeedback. Alternativt (mindre önskad) kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com.
+A. Ge feedback genom att skapa https://aka.ms/serialconsolefeedbackett GitHub-problem på . Alternativt (mindre att föredra) kan azserialhelp@microsoft.com du skicka feedback https://feedback.azure.comvia eller i kategorin virtuell dator i .
 
-**F. har serie konsolen stöd för kopiera/klistra in?**
+**F. Stöder den seriella konsolen kopiering/inklistring?**
 
-A. Ja. Använd **Ctrl**+**Shift**+**C** och **CTRL**+**SKIFT**+**V** för att kopiera och klistra in i terminalen.
+A. Ja. Använd **Ctrl**+**Skift**+**C** och **Ctrl**+**Skift**+**V** för att kopiera och klistra in terminalen.
 
-**F. Vem kan aktivera eller inaktivera serie konsolen för min prenumeration?**
+**F. Vem kan aktivera eller inaktivera seriekonsolen för min prenumeration?**
 
-A. Om du vill aktivera eller inaktivera seriekonsolen på en prenumeration hela-nivå, måste du ha skrivbehörighet till prenumerationen. Roller som har behörighet att skriva vara administratörer eller ägare. Anpassade roller kan också ha skrivbehörighet.
+A. Om du vill aktivera eller inaktivera seriekonsolen på en prenumerationsnivå måste du ha skrivbehörighet till prenumerationen. Roller som har skrivbehörighet omfattar administratörs- eller ägarroller. Anpassade roller kan också ha skrivbehörighet.
 
-**F. Vem har åtkomst till serie konsolen för min virtuella dator?**
+**F. Vem kan komma åt seriekonsolen för min virtuella dator?**
 
-A. Du måste ha rollen virtuell Datordeltagare eller högre för en virtuell dator att få åtkomst till den Virtuella datorns Seriell konsol.
+A. Du måste ha rollen Deltagare i virtuell dator eller högre för att en virtuell dator ska komma åt den virtuella datorns seriella konsol.
 
-**F. min serie konsol visar inte något, vad gör jag?**
+**F. Min seriell konsol visar ingenting, vad gör jag?**
 
-A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Information om hur du konfigurerar din avbildning för att aktivera serie konsolen finns i [Aktivera serie konsolen i anpassade eller äldre avbildningar](#enable-the-serial-console-in-custom-or-older-images).
+A. Bilden är troligen felkonfigurerad för seriell konsolåtkomst. Information om hur du konfigurerar avbildningen så att den aktiverar seriekonsolen finns [i Aktivera seriekonsolen i anpassade eller äldre bilder](#enable-the-serial-console-in-custom-or-older-images).
 
-**F. är serie konsolen tillgänglig för skalnings uppsättningar för virtuella datorer?**
+**F. Är seriekonsolen tillgänglig för skaluppsättningar för virtuella datorer?**
 
-A. Ja det är det! Se [serie konsolen för Virtual Machine Scale Sets](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
+A. Ja det är det! Se [Seriekonsol för skalningsuppsättningar för virtuella datorer](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 ## <a name="next-steps"></a>Nästa steg
-* En djupgående guide till CMD-och PowerShell-kommandon som du kan använda i Windows SAC finns i [Windows-kommandon: cmd och PowerShell](serial-console-cmd-ps-commands.md).
-* Serie konsolen är också tillgänglig för virtuella [Linux](serial-console-linux.md) -datorer.
+* En djupgående guide till CMD- och PowerShell-kommandon som du kan använda i Windows SAC finns i [Windows-kommandon: CMD och PowerShell](serial-console-cmd-ps-commands.md).
+* Seriekonsolen är också tillgänglig för [virtuella Linux-datorer.](serial-console-linux.md)
 * Läs mer om [startdiagnostik](boot-diagnostics.md).

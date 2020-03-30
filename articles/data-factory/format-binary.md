@@ -10,34 +10,34 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
 ms.openlocfilehash: 8ebb4f0d1a06a7bf29dc46cd696b6acfd2527095
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260701"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Binärt format i Azure Data Factory
 
-Binärt format stöds för följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).
+Binärt format stöds för följande kopplingar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), File [System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)och [SFTP](connector-sftp.md).
 
-Du kan använda binär data uppsättning i [kopierings aktivitet](copy-activity-overview.md), [getMetaData aktivitet](control-flow-get-metadata-activity.md)eller [ta bort aktivitet](delete-activity.md). När du använder binär data uppsättning tolkar inte ADF fil innehållet, men behandlar det som det är. 
+Du kan använda binär datauppsättning i [kopiera aktivitet,](copy-activity-overview.md) [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)eller [Ta bort aktivitet](delete-activity.md). När du använder binär datauppsättning tolkar ADF inte filinnehåll men behandlar det som det är. 
 
 >[!NOTE]
->När du använder binär data mängd i kopierings aktivitet kan du bara kopiera från binär data uppsättning till binär data mängd.
+>När du använder binär datauppsättning i kopieringsaktivitet kan du bara kopiera från binär datauppsättning till binär datauppsättning.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av den binära data uppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Datauppsättningar.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av binär datauppsättning.
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **Binary**. | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har en egen plats typ och egenskaper som stöds under `location`. **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
-| compression | Grupp egenskaper för att konfigurera fil komprimering. Konfigurera det här avsnittet när du vill utföra komprimering/expandering under aktivitets körningen. | Nej |
-| typ | Komprimerings-codec som används för att läsa/skriva binära filer. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**. att använda när du sparar filen.<br>Obs! när du använder kopierings aktivitet för att expandera ZipDeflate-filer och skriva till filbaserat mottagar data lager extraheras filerna till mappen: `<path specified in dataset>/<folder named as source zip file>/`. | Nej       |
-| nivå | Komprimerings förhållandet. Använd när dataset används i kopierings aktiviteten Sink.<br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **snabbast:** komprimerings åtgärden bör utföras så snart som möjligt, även om den resulterande filen inte är optimalt komprimerad.<br>- **optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nej       |
+| typ             | Egenskapen Type property för datauppsättningen måste anges till **Binär**. | Ja      |
+| location         | Platsinställningar för filen/filerna. Varje filbaserad koppling har sin egen platstyp och egenskaper som stöds under `location`. **Se information i kopplingens artikel -> egenskaper för datauppsättning**. | Ja      |
+| komprimering | Grupp med egenskaper för att konfigurera filkomprimering. Konfigurera det här avsnittet när du vill göra komprimering/dekompression under aktivitetskörningen. | Inga |
+| typ | Komprimeringscodec som används för att läsa/skriva binära filer. <br>Tillåtna värden är **bzip2**, **gzip**, **deflate**, **ZipDeflate**. att använda när du sparar filen.<br>Observera att när du använder kopieringsaktivitet för att expandera ZipDeflate-filer och skriva till filbaserat `<path specified in dataset>/<folder named as source zip file>/`sink-datalager extraheras filerna till mappen: . | Inga       |
+| nivå | Kompressionsförhållandet. Använd när datauppsättning används i Kopiera aktivitetsmottagare.<br>Tillåtna värden är **Optimal** eller **Snabbaste**.<br>- **Snabbast:** Komprimeringsåtgärden bör slutföras så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad.<br>- **Optimal**: Komprimeringsoperationen ska komprimeras optimalt, även om operationen tar längre tid att slutföra. Mer information finns i avsnittet [Komprimeringsnivå.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Inga       |
 
-Nedan visas ett exempel på en binär data uppsättning på Azure Blob Storage:
+Nedan följer ett exempel på binär datauppsättning på Azure Blob Storage:
 
 ```json
 {
@@ -64,31 +64,31 @@ Nedan visas ett exempel på en binär data uppsättning på Azure Blob Storage:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av den binära källan och mottagaren.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av den binära källan och diskhon.
 
 >[!NOTE]
->När du använder binär data mängd i kopierings aktivitet kan du bara kopiera från binär data uppsättning till binär data mängd.
+>När du använder binär datauppsättning i kopieringsaktivitet kan du bara kopiera från binär datauppsättning till binär datauppsättning.
 
 ### <a name="binary-as-source"></a>Binär som källa
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitet ***\*käll\**** .
+Följande egenskaper stöds i källavsnittet för *** \*kopieringsaktivitet.\* ***
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **BinarySource**. | Ja      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
+| typ          | Egenskapen Type property för kopians aktivitetskälla måste anges till **BinarySource**. | Ja      |
+| storeInställningar | En grupp egenskaper för hur du läser data från ett datalager. Varje filbaserad anslutning har sina egna `storeSettings`läsinställningar som stöds under . **Se information i kopplingens artikel -> Kopiera aktivitetsegenskaper avsnitt**. | Inga       |
 
-### <a name="binary-as-sink"></a>Binär som mottagare
+### <a name="binary-as-sink"></a>Binär som diskbänk
 
-Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*mottagare\**** .
+Följande egenskaper stöds i avsnittet kopiera *** \*aktivitetsmottagare.\* ***
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **BinarySink**. | Ja      |
-| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
+| typ          | Egenskapen Type property för kopiaaktivitetskällan måste anges till **BinarySink**. | Ja      |
+| storeInställningar | En grupp egenskaper för hur du skriver data till ett datalager. Varje filbaserad anslutning har sina egna `storeSettings`skrivinställningar som stöds under . **Se information i kopplingens artikel -> Kopiera aktivitetsegenskaper avsnitt**. | Inga       |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Kopiera aktivitetsöversikt](copy-activity-overview.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
 - [Ta bort aktivitet](delete-activity.md)

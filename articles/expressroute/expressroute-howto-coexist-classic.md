@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera ExpressRoute och S2S VPN samtidiga anslutningar: klassisk'
+title: 'Konfigurera ExpressRoute- och S2S VPN-samtidiga anslutningar: klassiska'
 description: Den här artikeln vägleder dig genom att konfigurera ExpressRoute och en VPN-anslutning för plats till plats som kan samexistera för den klassiska distributionsmodellen.
 documentationcenter: na
 services: expressroute
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: charwen
 ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272934"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Konfigurera ExpressRoute-anslutningar och VPN-anslutningar för plats-till-plats som kan samexistera (klassisk)
@@ -26,7 +26,7 @@ Den här artikeln hjälper dig att konfigurera ExpressRoute och VPN-anslutningar
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Om distributionsmodeller för Azure**
+**Om Azures distributionsmodeller**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -81,7 +81,7 @@ Det finns två uppsättningar procedurer att välja mellan för att konfigurera 
 
 [!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
 
-## <a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
+## <a name="to-create-a-new-virtual-network-and-coexisting-connections"></a><a name="new"></a>Så här skapar du ett nytt virtuellt nätverk och samexisterande anslutningar
 Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats- och ExpressRoute-anslutningar som ska finnas samtidigt.
 
 1. Du måste installera den senaste versionen av Azure PowerShell-cmdletarna. Mer information om hur man installerar PowerShell-cmdletar finns i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview). Observera att de cmdletar som du använder för den här konfigurationen kan se annorlunda ut än de du tidigare använt. Var noga med att använda de cmdletar som anges i instruktionerna. 
@@ -125,7 +125,7 @@ Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats
 5. Länka ExpressRoute-gatewayen till ExpressRoute-kretsen. När det här steget har slutförts har anslutningen mellan ditt lokala nätverk och Azure, via ExpressRoute, upprättats.
    
         New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
-6. <a name="vpngw"></a>Därefter skapar du din plats-till-plats-VPN-gateway. GatewaySKU måste vara *Standard*, *HighPerformance*, eller *UltraPerformance* och GatewayType måste vara *DynamicRouting*.
+6. <a name="vpngw"></a>Skapa sedan din VPN-gateway för plats till plats. GatewaySKU måste vara *Standard*, *HighPerformance*, eller *UltraPerformance* och GatewayType måste vara *DynamicRouting*.
    
         New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
    
@@ -187,10 +187,10 @@ Den här proceduren vägleder dig genom att skapa ett VNet samt plats-till-plats
 
         New-AzureVirtualNetworkGatewayConnection -connectedEntityId <local-network-gateway-id> -gatewayConnectionName Azure2Local -gatewayConnectionType IPsec -sharedKey abc123 -virtualNetworkGatewayId <azure-s2s-vpn-gateway-id>
 
-## <a name="add"></a>Så här konfigurerar du samexisterande anslutningar för ett befintligt VNet
+## <a name="to-configure-coexisting-connections-for-an-already-existing-vnet"></a><a name="add"></a>Så här konfigurerar du samexisterande anslutningar för ett befintligt VNet
 Om du har ett befintligt virtuellt nätverk, kontrollerar du storleken på gateway-undernätet. Om gateway-undernätet är /28 eller /29, måste du först ta bort den virtuella nätverksgatewayen och öka storleken för gateway-undernätet. Stegen i det här avsnittet visar hur du gör.
 
-Om gateway-undernätet är /27 eller större och det virtuella nätverket är anslutet via ExpressRoute, kan du hoppa över stegen nedan och gå vidare till [”Steg 6 – Skapa en VPN-gateway för plats till plats”](#vpngw) i föregående avsnitt.
+Om gateway-undernätet är /27 eller större och det virtuella nätverket är anslutet via ExpressRoute, kan du hoppa över stegen nedan och gå vidare till [”Steg 6 – Skapa en VPN-gateway för plats till plats”](#vpngw) i föregående avsnitt. 
 
 > [!NOTE]
 > När du tar bort den befintliga gatewayen förlorar dina lokala platser anslutningen till ditt virtuella nätverk medan du arbetar med konfigurationen.

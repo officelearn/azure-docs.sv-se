@@ -1,6 +1,6 @@
 ---
-title: Godkänn eller neka åtkomst begär Anden – hantering av Azure AD-berättigande
-description: Lär dig hur du använder min åtkomst Portal för att godkänna eller Neka förfrågningar till ett Access-paket i Azure Active Directory rättighets hantering.
+title: Godkänna eller neka åtkomstbegäranden - Hantering av Azure AD-berättigande
+description: Lär dig hur du använder My Access-portalen för att godkänna eller neka begäranden till ett åtkomstpaket i Azure Active Directory-berättigandehantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,63 +17,63 @@ ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 20ec63efe16f1120ca6e7d07c8917d8ad2b3a0e0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261728"
 ---
-# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Godkänn eller neka åtkomst begär anden i hantering av Azure AD-rättigheter
+# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Godkänna eller neka åtkomstbegäranden i Azure AD-rättighetshantering
 
-Med hantering av Azure AD-rättighet kan du konfigurera principer för att kräva godkännande för åtkomst paket och välja en eller flera god kännare. I den här artikeln beskrivs hur utsedda god kännare kan godkänna eller Neka förfrågningar om åtkomst paket.
+Med Azure AD-berättigandehantering kan du konfigurera principer för godkännande för åtkomstpaket och välja en eller flera godkännare. I den här artikeln beskrivs hur utsedda godkännare kan godkänna eller neka begäranden om åtkomstpaket.
 
-## <a name="open-request"></a>Öppen förfrågan
+## <a name="open-request"></a>Öppna begäran
 
-Det första steget för att godkänna eller neka åtkomst begär Anden är att hitta och öppna åtkomstbegäran som väntar på godkännande. Det finns två sätt att öppna åtkomstbegäran.
+Det första steget för att godkänna eller neka åtkomstbegäranden är att hitta och öppna åtkomstbegäran som väntar på godkännande. Det finns två sätt att öppna åtkomstbegäran.
 
-**Nödvändig roll:** God kännare
+**Viktig roll:** Godkännare
 
-1. Sök efter ett e-postmeddelande från Microsoft Azure som ber dig godkänna eller neka en begäran. Här är ett exempel på ett e-postmeddelande:
+1. Leta efter ett e-postmeddelande från Microsoft Azure där du uppmanas att godkänna eller neka en begäran. Här är ett exempel e-post:
 
-    ![Godkänn begäran om åtkomst till paket e-post](./media/entitlement-management-shared/approver-request-email.png)
+    ![Godkänna begäran om åtkomst till paket-e-post](./media/entitlement-management-shared/approver-request-email.png)
 
-1. Klicka på länken **Godkänn eller neka begäran** för att öppna åtkomstbegäran.
+1. Klicka på länken **Godkänn eller neka begäran för** att öppna åtkomstbegäran.
 
-1. Logga in på portalen för åtkomst.
+1. Logga in på My Access-portalen.
 
-Om du inte har e-postmeddelandet kan du hitta åtkomst förfrågningar som väntar på ditt godkännande genom att följa dessa steg.
+Om du inte har e-postmeddelandet kan du hitta de åtkomstbegäranden som väntar på ditt godkännande genom att följa dessa steg.
 
-1. Logga in på min åtkomst Portal på [https://myaccess.microsoft.com](https://myaccess.microsoft.com).  (För amerikanska myndigheter är domänen i min åtkomst Portal-länken `myaccess.microsoft.us`.)
+1. Logga in på My [https://myaccess.microsoft.com](https://myaccess.microsoft.com)Access-portalen på .  (För den amerikanska regeringen kommer domänen i `myaccess.microsoft.us`länken Min Åtkomst-portal att vara .)
 
-1. På den vänstra menyn klickar du på **godkännanden** för att se en lista över åtkomst förfrågningar som väntar på godkännande.
+1. Klicka på **Godkännanden** på den vänstra menyn om du vill visa en lista över åtkomstbegäranden som väntar på godkännande.
 
-1. På fliken **väntande** söker du efter begäran.
+1. Leta reda på begäran på fliken **Väntande.**
 
-## <a name="approve-or-deny-request"></a>Godkänn eller neka begäran
+## <a name="approve-or-deny-request"></a>Godkänna eller neka begäran
 
-När du har öppnat en åtkomstbegäran som väntar på godkännande kan du se information som gör det lättare att godkänna eller avvisa beslutet.
+När du har öppnat en åtkomstbegäran som väntar på godkännande kan du se information som hjälper dig att godkänna eller neka beslut.
 
-**Nödvändig roll:** God kännare
+**Viktig roll:** Godkännare
 
-1. Klicka på länken **Visa** för att öppna fönstret åtkomstbegäran.
+1. Klicka på länken **Visa** för att öppna fönstret Begäran om Access.
 
-1. Klicka på **information** om du vill visa information om åtkomstbegäran.
+1. Klicka på **Information** om du vill se information om åtkomstbegäran.
 
-    Informationen omfattar användarens namn, organisation, start-och slutdatum för åtkomst om det tillhandahålls, affärs justering, när begäran skickades och när begäran upphör att gälla.
+    Informationen inkluderar användarens namn, organisation, start- och slutdatum om sådan anges, affärsmotivering, när begäran skickades och när begäran upphör att gälla.
 
-1. Klicka på **Godkänn** eller **neka**.
+1. Klicka på **Godkänn** eller **Neka**.
 
-1. Ange en orsak vid behov.
+1. Om det behövs anger du en orsak.
 
-    ![Min åtkomst Portal – åtkomstbegäran](./media/entitlement-management-request-approve/my-access-approve-request.png)
+    ![My Access-portal - Åtkomstbegäran](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. Klicka på **Skicka** för att skicka in ditt beslut.
 
-    Om en princip har kon figurer ATS med flera god kännare behöver endast en god kännare fatta ett beslut om det väntande godkännandet. När en god kännare har skickat sitt beslut till åtkomstbegäran slutförs begäran och är inte längre tillgänglig för de andra god kännarna att godkänna eller neka begäran. De andra god kännarna kan se förfrågnings beslutet och besluts fattaren i sin åtkomst Portal. För närvarande stöds endast enstegs-godkännande.
+    Om en princip har konfigurerats med flera godkännare behöver bara en godkännare fatta ett beslut om det väntande godkännandet. När en godkännare har skickat sitt beslut till åtkomstbegäran slutförs begäran och är inte längre tillgänglig för de andra godkännare att godkänna eller neka begäran. De andra godkännare kan se beslutet om begäran och beslutsfattaren i sin My Access-portal. För närvarande stöds endast godkännande i ett steg.
 
-    Om ingen av de konfigurerade god kännarna kan godkänna eller neka åtkomstbegäran förfaller begäran efter den konfigurerade begär ande tiden. Användaren får ett meddelande om att deras åtkomst förfrågan har upphört att gälla och att de behöver skicka åtkomstbegäran igen.
+    Om ingen av de konfigurerade godkännarna kan godkänna eller neka åtkomstbegäran upphör begäran att gälla efter den konfigurerade begäran. Användaren får ett meddelande om att deras åtkomstbegäran har upphört att gälla och att de måste skicka åtkomstbegäran igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Begär åtkomst till ett Access-paket](entitlement-management-request-access.md)
-- [Begär process och e-postmeddelanden](entitlement-management-process.md)
+- [Begär åtkomst till ett åtkomstpaket](entitlement-management-request-access.md)
+- [Begär process- och e-postaviseringar](entitlement-management-process.md)

@@ -1,7 +1,7 @@
 ---
-title: Lägg till en HTML-markör till kartan | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du lägger till en HTML-markör till en karta med hjälp av Microsoft Azure Maps-webbsdk.
-author: jingjing-z
+title: Lägg till en HTML-markör för att mappa | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om hur du lägger till en HTML-markör på en karta med Hjälp av Microsoft Azure Maps Web SDK.
+author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 07/29/2019
 ms.topic: conceptual
@@ -9,28 +9,28 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 4cc3b1789ef2f7ef44e5421cbacb5a93c2a0a1ff
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 2700d42c25d58911fb275ad9ce6c5610cd22624d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933614"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536776"
 ---
-# <a name="add-html-markers-to-the-map"></a>Lägg till HTML-markörer i kartan
+# <a name="add-html-markers-to-the-map"></a>Lägga till HTML-markörer på kartan
 
-Den här artikeln visar hur du lägger till en anpassad HTML-fil, till exempel en bildfil, till kartan som en HTML-markör.
+I den här artikeln visas hur du lägger till en anpassad HTML-kod, till exempel en bildfil på kartan som en HTML-markör.
 
 > [!NOTE]
-> HTML-markörer ansluter inte till data källor. I stället läggs information till direkt till markören och markören läggs till i Maps `markers`-egenskapen som är en [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
+> HTML-markörer ansluter inte till datakällor. I stället läggs positionsinformation direkt till markören och `markers` markören läggs till i egenskapen kartor som är en [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> Till skillnad från de flesta skikt i Azure Maps-webbkontroll som använder WebGL för rendering använder HTML-markeringar traditionella DOM-element för rendering. Det gör att fler HTML-markörer som läggs till på en sida, desto fler DOM-element finns. Prestanda kan försämras efter att några hundra HTML-markörer har lagts till. För större data uppsättningar kan du antingen klustra dina data eller använda ett symbol-eller bubbeldiagram.
+> Till skillnad från de flesta lager i Azure Maps Web control som använder WebGL för rendering använder HTML-markörer traditionella DOM-element för rendering. Ju fler HTML-markörer som läggs till på en sida, desto fler DOM-element finns det. Prestanda kan försämras efter att ha lagt till några hundra HTML-markörer. För större datauppsättningar bör du överväga att antingen gruppera dina data eller använda ett symbol- eller bubbellager.
 
-## <a name="add-an-html-marker"></a>Lägg till en HTML-markör
+## <a name="add-an-html-marker"></a>Lägga till en HTML-markör
 
-[HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) -klassen har ett standardformat. Du kan anpassa markören genom att ange färg-och text alternativen för markören. Standardformat för HTML-markören är en SVG-mall som har en `{color}` och `{text}` plats hållare. Ange färg och text egenskaper i alternativ för HTML-markören för en snabb anpassning. 
+Klassen [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest) har ett standardformat. Du kan anpassa markören genom att ange färg- och textalternativen för markören. Standardformatet för klassen HTML-markör är en `{color}` `{text}` SVG-mall som har en och platshållare. Ange färg- och textegenskaperna i HTML-marköralternativen för en snabb anpassning. 
 
-Följande kod skapar en HTML-markör och anger egenskapen Color till "DodgerBlue" och egenskapen text till "10". En popup-meny är kopplad till markören och `click` händelsen används för att visa popup-fönstrets synlighet.
+Följande kod skapar en HTML-markör och anger färgegenskapen till "DodgerBlue" och textegenskapen till "10". En popup är kopplad till `click` markören och händelsen används för att växla synligheten för popup.A popup isached to the marker and event is used to växla synligheten för popup.A popup isached to the marker and event is used to växla synligheten för popup.a popup isached to the marker and event is used
 
 ```javascript
 //Create an HTML marker and add it to the map.
@@ -52,50 +52,50 @@ map.events.add('click',marker, () => {
 });
 ```
 
-Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
+Nedan visas det fullständiga kodexemplet för ovanstående funktioner.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lägg till en HTML-markör till en karta' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Lägg till en HTML-markör till en karta</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lägga till en HTML-markör på en karta' src='//codepen.io/azuremaps/embed/MVoeVw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/MVoeVw/'>Lägg till en HTML-markör på en karta</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="create-svg-templated-html-marker"></a>Skapa SVG-mall för HTML-markör
+## <a name="create-svg-templated-html-marker"></a>Skapa SVG-mallad HTML-markör
 
-Standard `htmlContent`en för en HTML-markör är en SVG-mall med plats-mappar `{color}` och `{text}`. Du kan skapa anpassade SVG-strängar och lägga till samma plats hållare i din SVG, till exempel att ställa in alternativen `color` och `text` för markören uppdatera plats hållarna i din SVG.
+Standardvärdet `htmlContent` för en Html-markör är en `{color}` `{text}` SVG-mall med platsmappar och i den. Du kan skapa anpassade SVG-strängar och lägga till samma platshållare `color` `text` i svg så att du anger och alternativen för markören uppdaterar dessa platshållare i svg-enheten.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='HTML-markör med anpassad SVG-mall' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>HTML-markören för penna med anpassad SVG-mall</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='HTML-markör med anpassad SVG-mall' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>html-markör för penna med anpassad SVG-mall</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
-> Azure Maps Web SDK innehåller flera SVG-bildmallar som kan användas med HTML-markörer. Mer information finns i dokumentet om [att använda bildmallar](how-to-use-image-templates-web-sdk.md) .
+> Azure Maps web SDK innehåller flera SVG-avbildningsmallar som kan användas med HTML-markörer. Mer information finns i dokumentet [Så här använder du bildmallar.](how-to-use-image-templates-web-sdk.md)
 
-## <a name="add-a-css-styled-html-marker"></a>Lägg till en CSS-formaterad HTML-markör
+## <a name="add-a-css-styled-html-marker"></a>Lägga till en CSS-formaterad HTML-markör
 
-En av fördelarna med HTML-markeringar är att det finns många fantastiska anpassningar som kan uppnås med CSS. I det här exemplet består innehållet i HtmlMarker av HTML och CSS som skapar en animerad PIN-kod som hamnar på plats och pulsering.
+En av fördelarna med HTML-markörer är att det finns många bra anpassningar som kan uppnås med css. I det här exemplet består innehållet i HtmlMarker av HTML och CSS som skapar en animerad stift som faller på plats och pulserar.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='HTML-datakälla' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>-HTML-datakällan</a> genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='HTML-datakälla' src='//codepen.io/azuremaps/embed/qJVgMx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pen <a href='https://codepen.io/azuremaps/pen/qJVgMx/'>HTML DataSource</a> by<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="draggable-html-markers"></a>Drag bara HTML-markeringar
+## <a name="draggable-html-markers"></a>Läpbara HTML-markörer som kan dras
 
-Det här exemplet visar hur du gör en HTML-markör som kan dras. HTML-märken stöder `drag`, `dragstart`och `dragend` händelser.
+Det här exemplet visar hur du gör en HTML-markör dragen. HTML-markörer `drag` `dragstart`stöder `dragend` , och händelser.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Dragbar HTML-markör' src='//codepen.io/azuremaps/embed/wQZoEV/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se den pennan tecknings bara <a href='https://codepen.io/azuremaps/pen/wQZoEV/'>HTML-markören genom att</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Läpbar HTML-markör' src='//codepen.io/azuremaps/embed/wQZoEV/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se den <a href='https://codepen.io/azuremaps/pen/wQZoEV/'>penrerbara HTML-markören</a> från Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="add-mouse-events-to-html-markers"></a>Lägga till mus händelser till HTML-markörer
+## <a name="add-mouse-events-to-html-markers"></a>Lägga till mushändelser i HTML-markörer
 
-De här exemplen visar hur du lägger till musen och drar händelser till en HTML-markör.
+De här exemplen visar hur du lägger till mus- och drarhändelser till en HTML-markör.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lägga till mus händelser till HTML-markörer' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan genom <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>att lägga till mus händelser till HTML-markörer genom att</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lägga till mushändelser i HTML-markörer' src='//codepen.io/azuremaps/embed/RqOKRz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/RqOKRz/'>Lägga till mushändelser i HTML-markörer</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg
@@ -103,21 +103,21 @@ De här exemplen visar hur du lägger till musen och drar händelser till en HTM
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [HtmlMarker](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
+> [HtmlMarker (på samma sätt som)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [HtmlMarkerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
+> [Mer från HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
 
-Fler kod exempel som kan läggas till i dina kartor finns i följande artiklar:
-
-> [!div class="nextstepaction"]
-> [Använda bildmallar](how-to-use-image-templates-web-sdk.md)
+Fler kodexempel att lägga till i dina kartor finns i följande artiklar:
 
 > [!div class="nextstepaction"]
-> [Lägg till ett symbol lager](./map-add-pin.md)
+> [Så här använder du avbildningsmallar](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Lägg till ett bubbel-lager](./map-add-bubble-layer.md)
+> [Lägga till ett symbolskikt](./map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Lägga till ett bubbelskikt](./map-add-bubble-layer.md)

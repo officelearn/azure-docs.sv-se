@@ -1,5 +1,5 @@
 ---
-title: Distribuera din StorSimple 8000-serie enhet i Azure Portal
+title: Distribuera din StorSimple 8000-serieenhet i Azure Portal
 description: Beskriver stegen och bästa praxis för att distribuera en enhet i StorSimple 8000-serien som kör Update 3 och senare, och StorSimple Device Manager-tjänsten.
 author: alkohli
 ms.service: storsimple
@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: alkohli
 ms.openlocfilehash: a56610dd81d6e50da11bbd65bcf0682e399b1783
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267955"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Distribuera en lokal StorSimple-enhet (Update 3 och senare)
@@ -18,9 +18,9 @@ ms.locfileid: "79267955"
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
 ## <a name="overview"></a>Översikt
-Välkommen till distribution av Microsoft Azure StorSimple-enheten De här självstudiekurserna om distribution gäller StorSimple 8000 Series Update 3 och senare. Denna serie självstudier innehåller en checklista för konfiguration, konfigurationskrav och detaljerade konfigurationssteg för din StorSimple-enhet.
+Välkommen till distribution av Microsoft Azure StorSimple-enheten  De här självstudiekurserna om distribution gäller StorSimple 8000 Series Update 3 och senare. Denna serie självstudier innehåller en checklista för konfiguration, konfigurationskrav och detaljerade konfigurationssteg för din StorSimple-enhet.
 
-Informationen i dessa självstudiekurser förutsätter att du har granskat säkerhetsåtgärder, packat upp, rackmonterat och kabelanslutit din StorSimple-enhet. Om du fortfarande inte har utförd ovanstående bör du börja med att vidta [säkerhetsåtgärderna](storsimple-8000-safety.md). Packa upp, rackmontera och kabelanslut enheten genom att följa de specifika instruktionerna för enheten.
+Informationen i dessa självstudiekurser förutsätter att du har granskat säkerhetsåtgärder, packat upp, rackmonterat och kabelanslutit din StorSimple-enhet. Om du fortfarande behöver utföra dessa uppgifter ska du börja med att granska [säkerhetsåtgärderna](storsimple-8000-safety.md). Packa upp, rackmontera och kabelanslut enheten genom att följa de specifika instruktionerna för enheten.
 
 * [Packa upp, rackmontera och kabelanslut din 8100](storsimple-8100-hardware-installation.md)
 * [Packa upp, rackmontera och kabelanslut din 8600](storsimple-8600-hardware-installation.md)
@@ -28,7 +28,7 @@ Informationen i dessa självstudiekurser förutsätter att du har granskat säke
 Du måste ha administratörsbehörighet för att utföra installationen och konfigurationen. Vi rekommenderar att du läser checklistan för konfiguration innan du börjar. Processen för distribution och konfiguration kan ta lite tid att slutföra.
 
 > [!NOTE]
-> Distributionsinformationen för StorSimple som publiceras på webbplatsen Microsoft Azure gäller endast StorSimple-enheter i 8000-serien. Fullständig information om enheter i 7000-serien finns på: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Distributionsinformation för 7000-serien finns i [Snabbstartsguide för StorSimple-system](http://onlinehelp.storsimple.com/111_Appliance/). 
+> Distributionsinformationen för StorSimple som publiceras på webbplatsen Microsoft Azure gäller endast StorSimple-enheter i 8000-serien. Fullständig information om enheterna i 7000-serien finns i: [http://onlinehelp.storsimple.com/](http://onlinehelp.storsimple.com). Distributionsinformation för 7000-serien finns i [Snabbstartsguide för StorSimple-system](http://onlinehelp.storsimple.com/111_Appliance/). 
 
 
 ## <a name="deployment-steps"></a>Distributionssteg
@@ -38,14 +38,14 @@ Utför dessa obligatoriska steg för att konfigurera StorSimple-enheten och ansl
 | --- | --- |
 | **Förutsättningar** |De här instruktionerna måste utföras som en del av förberedelserna inför distributionen. |
 | [Checklista för distributionskonfiguration](#deployment-configuration-checklist) |Använd den här checklistan för att samla in och registrera information före och under distributionen. |
-| [Förhandskrav för distribution](#deployment-prerequisites) |När de här kraven är uppfyllda är miljön klar för distribution. |
+| [Förutsättningar för distribution](#deployment-prerequisites) |När de här kraven är uppfyllda är miljön klar för distribution. |
 |  | |
 | **Distribution steg för steg** |Dessa steg krävs för att distribuera StorSimple-enheten i produktionen. |
 | [Steg 1: Skapa en ny tjänst](#step-1-create-a-new-service) |Konfigurera hantering och lagring i molnet för StorSimple-enheten. *Hoppa över det här steget om du har en befintlig tjänst för andra StorSimple-enheter*. |
 | [Steg 2: Hämta tjänstregistreringsnyckeln](#step-2-get-the-service-registration-key) |Använd nyckeln för att registrera och ansluta din StorSimple-enhet till hanteringstjänsten. |
 | [Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple](#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |Anslut enheten till nätverket och registrera den med Azure för att slutföra installationen med hjälp av hanteringstjänsten. |
-| [Steg 4: Slutför de minsta enhetsinställningarna](#step-4-complete-minimum-device-setup)</br>[Bäst praxis: Uppdatera din StorSimple-enhet](#scan-for-and-apply-updates) |Använd hanteringstjänsten för att slutföra installationen av enheten och aktivera den för att tillhandahålla lagring. |
-| [Steg 5: Skapa en volymcontainer](#step-5-create-a-volume-container) |Skapa en container för att etablera volymer. En volymcontainer har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. |
+| [Steg 4: Slutför de inställningar som krävs som minimum](#step-4-complete-minimum-device-setup)</br>[Bäst praxis: Uppdatera din StorSimple-enhet](#scan-for-and-apply-updates) |Använd hanteringstjänsten för att slutföra installationen av enheten och aktivera den för att tillhandahålla lagring. |
+| [Steg 5: Skapa en volymbehållare](#step-5-create-a-volume-container) |Skapa en container för att etablera volymer. En volymcontainer har lagringskonto, bandbredd och krypteringsinställningar för de volymer som finns i den. |
 | [Steg 6: Skapa en volym](#step-6-create-a-volume) |Etablera lagringsvolymer på StorSimple-enheten för dina servrar. |
 | [Steg 7: Montera, initiera och formatera en volym](#step-7-mount-initialize-and-format-a-volume)</br>[Valfritt: Konfigurera MPIO](storsimple-8000-configure-mpio-windows-server.md) |Anslut dina servrar till den iSCSI-lagring som ingår i enheten. Du kan även välja att konfigurera MPIO för att säkerställa att dina servrar kan tolerera fel på länkar, nätverk och gränssnitt. |
 | [Steg 8: Ta en säkerhetskopia](#step-8-take-a-backup) |Konfigurera din säkerhetskopieringsprincip för att skydda dina data |
@@ -53,8 +53,8 @@ Utför dessa obligatoriska steg för att konfigurera StorSimple-enheten och ansl
 | **Andra procedurer** |Du kan behöva hänvisa till dessa procedurer när du distribuerar din lösning. |
 | [Konfigurera ett nytt lagringskonto för tjänsten](#configure-a-new-storage-account-for-the-service) | |
 | [Använd PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console) | |
-| [Hämt IQN:en för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host) | |
-| [Skapa en manuell säkerhetskopia](#create-a-manual-backup) | |
+| [Skaffa IQN för en Windows Server-värd](#get-the-iqn-of-a-windows-server-host) | |
+| [Skapa en manuell säkerhetskopiering](#create-a-manual-backup) | |
 
 
 ## <a name="deployment-configuration-checklist"></a>Checklista för distributionskonfiguration
@@ -66,7 +66,7 @@ Innan du distribuerar enheten måste du samla in information för att konfigurer
 I följande avsnitt beskrivs konfigurationskraven för StorSimple Device Manager-tjänsten och StorSimple-enheten.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
 * Du har ditt Microsoft-konto med autentiseringsuppgifter.
 * Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
@@ -80,9 +80,9 @@ Innan enheten konfigureras ska du säkerställa att den är helt uppackad, rackm
 * [Packa upp, rackmontera och kabelanslut din 8600-enhet](storsimple-8600-hardware-installation.md)
 
 ### <a name="for-the-network-in-the-datacenter"></a>För nätverket i datacentret
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
-* Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik enligt beskrivningen i [Nätverkskrav för din StorSimple-enhet](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
+* Portarna i ditt datacenters brandvägg är öppna för att möjliggöra iSCSI- och molntrafik som beskrivs i [Nätverkskrav för din StorSimple-enhet](storsimple-8000-system-requirements.md#networking-requirements-for-your-storsimple-device).
 
 ## <a name="step-by-step-deployment"></a>Steg för steg-distribution
 Utför nedanstående steg för steg-instruktioner för att distribuera StorSimple-enheten i datacentret.
@@ -107,7 +107,7 @@ Utför följande steg på Azure Portal.
 [!INCLUDE [storsimple-8000-get-service-registration-key](../../includes/storsimple-8000-get-service-registration-key.md)]
 
 ## <a name="step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple"></a>Steg 3: Konfigurera och registrera enheten via Windows PowerShell för StorSimple
-Använd Windows PowerShell för StorSimple för att slutföra den förberedande inställningen av StorSimple-enheten enligt nedanstående procedur. Du måste använda programvara för terminalemulering för att utföra det här steget. Mer information finns i [Använda PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console).
+Använd Windows PowerShell för StorSimple för att slutföra installationen av StorSimple-enheten som beskrivs i följande procedur. Du måste använda programvara för terminalemulering för att utföra det här steget. Mer information finns i [Använda PuTTY för att ansluta till enhetens seriekonsol](#use-putty-to-connect-to-the-device-serial-console).
 
 [!INCLUDE [storsimple-8000-configure-and-register-device-u2](../../includes/storsimple-8000-configure-and-register-device-u2.md)]
 
@@ -153,7 +153,7 @@ Utför nedanstående steg för att montera, initiera och formatera dina StorSimp
 [!INCLUDE [storsimple-8000-mount-initialize-format-volume](../../includes/storsimple-8000-mount-initialize-format-volume.md)]
 
 ## <a name="step-8-take-a-backup"></a>Steg 8: Gör en säkerhetskopia
-Säkerhetskopieringar ger tidpunktsskydd för volymer och förbättrar återställningsmöjligheterna samtidigt som återställningstiderna minimeras. Du kan utföra två typer av säkerhetskopiering på StorSimple-enheten: lokala ögonblicksbilder och molnögonblicksbilder. Båda av de här säkerhetskopieringstyperna kan vara antingen **schemalagda** eller **manuella**.
+Säkerhetskopieringar ger tidpunktsskydd för volymer och förbättrar återställningsmöjligheterna samtidigt som återställningstiderna minimeras. Du kan utföra två typer av säkerhetskopiering på StorSimple-enheten: lokala ögonblicksbilder och molnögonblicksbilder. Båda av dessa säkerhetskopieringstyper kan vara **schemalagda** eller **manuella**.
 
 Skapa en schemalagd säkerhetskopiering genom att utföra stegen nedan på Azure Portal.
 
@@ -166,7 +166,7 @@ Du har slutfört enhetskonfigurationen.
 ## <a name="configure-a-new-storage-account-for-the-service"></a>Konfigurera ett nytt lagringskonto för tjänsten
 Det här är ett valfritt steg som du endast måste utföra om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst. Ett Microsoft Azure-lagringskonto krävs för att skapa en container för StorSimple-volymer.
 
-Om du behöver skapa ett Azure-lagringskonto i en annan region finns stegvisa instruktioner i [Om Azure lagringskonton](../storage/common/storage-create-storage-account.md).
+Om du behöver skapa ett Azure lagringskonto i en annan region finns stegvisa instruktioner i [Om Azure lagringskonton](../storage/common/storage-create-storage-account.md).
 
 Utför följande steg på sidan för **StorSimple Device Manager-tjänsten** på Azure Portal.
 

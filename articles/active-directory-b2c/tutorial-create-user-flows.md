@@ -1,6 +1,6 @@
 ---
-title: Självstudie – Skapa användar flöden – Azure Active Directory B2C
-description: Lär dig hur du skapar användar flöden i Azure Portal för att aktivera registrering, inloggning och användar profil redigering för dina program i Azure Active Directory B2C.
+title: Självstudiekurs - Skapa användarflöden - Azure Active Directory B2C
+description: Lär dig hur du skapar användarflöden i Azure-portalen för att aktivera registrering, inloggning och redigering av användarprofiler för dina program i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,120 +11,120 @@ ms.date: 06/07/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264250"
 ---
-# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Självstudie: skapa användar flöden i Azure Active Directory B2C
+# <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Självstudiekurs: Skapa användarflöden i Azure Active Directory B2C
 
-I dina program kan du ha [användar flöden](user-flow-overview.md) som gör det möjligt för användare att registrera, logga in eller hantera sina profiler. Du kan skapa flera användar flöden av olika typer i din Azure Active Directory B2C-klient (Azure AD B2C) och använda dem i dina program efter behov. Användar flöden kan återanvändas i olika program.
+I dina program kan du ha [användarflöden](user-flow-overview.md) som gör det möjligt för användare att registrera sig, logga in eller hantera sin profil. Du kan skapa flera användarflöden av olika typer i din Azure Active Directory B2C-klientorganisation (Azure AD B2C) och använda dem i dina program efter behov. Användarflöden kan återanvändas över program.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa ett användar flöde för registrering och inloggning
+> * Skapa ett användarflöde för registrering och inloggning
 > * Skapa ett användarflöde för profilredigering
 > * Skapa ett användarflöde för återställning av lösenord
 
-Den här självstudien visar hur du skapar vissa rekommenderade användar flöden med hjälp av Azure Portal. Om du vill ha information om hur du konfigurerar ett ROPC-flöde (Resource Owner Password Credential) i programmet, se [Konfigurera flödet för autentiseringsuppgifter för resurs ägare i Azure AD B2C](configure-ropc.md).
+Den här självstudien visar hur du skapar några rekommenderade användarflöden med hjälp av Azure-portalen. Om du letar efter information om hur du konfigurerar ett ROPC-flöde (Resource Owner Password Credentials) i ditt program läser du [Konfigurera flödet för lösenord för resursägare i Azure AD B2C](configure-ropc.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-[Registrera dina program](tutorial-register-applications.md) som är en del av de användar flöden som du vill skapa.
+[Registrera dina program](tutorial-register-applications.md) som ingår i de användarflöden som du vill skapa.
 
-## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Skapa ett användar flöde för registrering och inloggning
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>Skapa ett användarflöde för registrering och inloggning
 
-Användar flödet för registrering och inloggning hanterar både registrering och inloggnings upplevelser med en enda konfiguration. Användare av ditt program är i rätt sökväg beroende på kontexten.
+Användarflödet för registrering och inloggning hanterar både registrerings- och inloggningsupplevelser med en enda konfiguration. Användare av ditt program leds på rätt väg beroende på sammanhanget.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Välj ikonen **Katalog + Prenumeration** i portalverktygsfältet och välj sedan den katalog som innehåller din Azure AD B2C-klient.
 
-    ![B2C-klient, katalog och prenumerations fönstret Azure Portal](./media/tutorial-create-user-flows/directory-subscription-pane.png)
+    ![B2C-klient-, katalog- och prenumerationsfönstret, Azure-portalen](./media/tutorial-create-user-flows/directory-subscription-pane.png)
 
-1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
-1. Under **principer**väljer du **användar flöden (principer)** och väljer sedan **nytt användar flöde**.
+1. Sök efter och välj **Azure AD B2C**i Azure-portalen .
+1. Under **Principer**väljer du **Användarflöden (principer)** och väljer sedan **Nytt användarflöde**.
 
-    ![Sidan användar flöden i portalen med knappen nytt användar flöde markerat](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
+    ![Sidan Användarflöden i portalen med knappen Nytt användarflöde markerad](./media/tutorial-create-user-flows/signup-signin-user-flow.png)
 
-1. På fliken **rekommenderas** väljer du användar flödet **Registrera dig och logga** in.
+1. På fliken **Rekommenderad** väljer du **användarflödet Registrera dig och logga in.**
 
-    ![Välj sidan för användar flöde med registrering och inloggnings flöde markerat](./media/tutorial-create-user-flows/signup-signin-type.png)
+    ![Välj en sida för användarflöde med Registrera dig och logga in flödet markerat](./media/tutorial-create-user-flows/signup-signin-type.png)
 
 1. Ange ett **Namn** för användarflödet. Till exempel *signupsignin1*.
-1. För **identitets leverantörer**väljer du **e-postregistrering**.
+1. För **identitetsleverantörer**väljer du **E-postsignup**.
 
-    ![Sidan skapa användar flöde i Azure Portal med egenskaper markerat](./media/tutorial-create-user-flows/signup-signin-properties.png)
+    ![Skapa användarflödessida i Azure-portalen med egenskaper markerade](./media/tutorial-create-user-flows/signup-signin-properties.png)
 
-1. För användarattribut **och anspråk**väljer du de anspråk och attribut som du vill samla in och skicka från användaren under registreringen. Välj till exempel **Visa mer**och välj sedan attribut och anspråk för **land/region**, **visnings namn**och **post nummer**. Klicka på **OK**
+1. För **användarattribut och anspråk**väljer du de anspråk och attribut som du vill samla in och skicka från användaren under registreringen. Välj till exempel **Visa mer**och välj sedan attribut och anspråk för **land/region,** **visningsnamn**och **postnummer**. Klicka på **OK**.
 
-    ![Sidan för attribut och val av anspråk med tre anspråk valda](./media/tutorial-create-user-flows/signup-signin-attributes.png)
+    ![Attribut och anspråk urvalssida med tre anspråk markerade](./media/tutorial-create-user-flows/signup-signin-attributes.png)
 
-1. Klicka på **skapa** för att lägga till användar flödet. Ett prefix för *B2C_1* läggs automatiskt till i namnet.
+1. Klicka på **Skapa** om du vill lägga till användarflödet. Ett prefix *med B2C_1* läggs automatiskt till namnet.
 
-### <a name="test-the-user-flow"></a>Testa användar flödet
+### <a name="test-the-user-flow"></a>Testa användarflödet
 
-1. Välj det användar flöde som du skapade för att öppna sidan Översikt och välj sedan **Kör användar flöde**.
-1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska Visa `https://jwt.ms`.
-1. Klicka på **Kör användar flöde**och välj sedan **Registrera dig nu**.
+1. Välj det användarflöde som du skapade för att öppna översiktssidan och välj sedan **Kör användarflöde**.
+1. För **Ansökan**väljer du webbprogrammet *webapp1* som du tidigare har registrerat. **Svars-URL:en** ska visa `https://jwt.ms`.
+1. Klicka på **Kör användarflöde**och välj sedan **Registrera dig nu**.
 
-    ![Sidan kör användar flöde i portalen med knappen Kör användar flöde markerat](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
+    ![Kör användarflödessida i portalen med knappen Kör användarflöde markerad](./media/tutorial-create-user-flows/signup-signin-run-now.PNG)
 
-1. Ange en giltig e-postadress, klicka på **Skicka verifierings kod**, ange den verifierings kod som du får och välj sedan **verifiera kod**.
-1. Ange ett nytt lösen ord och bekräfta lösen ordet.
-1. Välj land och region, ange det namn som du vill visa, ange ett post nummer och klicka sedan på **skapa**. Token returneras till `https://jwt.ms` och visas för dig.
-1. Nu kan du köra användar flödet igen och du bör kunna logga in med det konto som du skapade. Den returnerade token innehåller de anspråk som du har valt land/region, namn och post nummer.
+1. Ange en giltig e-postadress, klicka på **Skicka verifieringskod,** ange verifieringskoden som du får och välj sedan **Verifiera kod**.
+1. Ange ett nytt lösenord och bekräfta lösenordet.
+1. Välj land och region, ange det namn som du vill visa, ange ett postnummer och klicka sedan på **Skapa**. Token returneras och `https://jwt.ms` ska visas för dig.
+1. Du kan nu köra användarflödet igen och du bör kunna logga in med det konto som du skapade. Den returnerade token innehåller de anspråk som du har valt för land/region, namn och postnummer.
 
 ## <a name="create-a-profile-editing-user-flow"></a>Skapa ett användarflöde för profilredigering
 
-Om du vill att användarna ska kunna redigera sin profil i ditt program använder du en profil som redigerar användar flöde.
+Om du vill att användarna ska kunna redigera sin profil i programmet använder du ett användarflöde för profilredigering.
 
-1. På menyn på sidan för Azure AD B2C klient översikt väljer du **användar flöden (principer)** och väljer sedan **nytt användar flöde**.
-1. Välj användar flödet **profil redigering** på den **rekommenderade** fliken.
-1. Ange ett **Namn** för användarflödet. Till exempel *profileediting1*.
-1. För **identitets leverantörer**väljer du **lokal konto inloggning**.
-1. För **användarattribut**väljer du de attribut som du vill att kunden ska kunna redigera i profilen. Välj till exempel **Visa mer**och välj sedan både attribut och anspråk för **visnings namn** och **befattning**. Klicka på **OK**
-1. Klicka på **skapa** för att lägga till användar flödet. Ett prefix för *B2C_1* läggs automatiskt till i namnet.
+1. Välj **Användarflöden (principer)** på menyn på översiktssidan för Azure AD B2C-klienten och välj sedan **Nytt användarflöde**.
+1. Välj användarflödet **för profilredigering** på fliken **Rekommenderad.**
+1. Ange ett **Namn** för användarflödet. *Profileratit1*.
+1. För **identitetsleverantörer**väljer du **Lokalt kontotecken.**
+1. För **användarattribut**väljer du de attribut som du vill att kunden ska kunna redigera i sin profil. Välj till exempel **Visa mer**och välj sedan både attribut och anspråk för **Visningsnamn** och **Befattning .** Klicka på **OK**.
+1. Klicka på **Skapa** om du vill lägga till användarflödet. Ett prefix *med B2C_1* läggs automatiskt till namnet.
 
-### <a name="test-the-user-flow"></a>Testa användar flödet
+### <a name="test-the-user-flow"></a>Testa användarflödet
 
-1. Välj det användar flöde som du skapade för att öppna sidan Översikt och välj sedan **Kör användar flöde**.
-1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska Visa `https://jwt.ms`.
-1. Klicka på **Kör användar flöde**och logga sedan in med det konto som du skapade tidigare.
-1. Nu har du möjlighet att ändra visnings namn och befattning för användaren. Klicka på **Fortsätt**. Token returneras till `https://jwt.ms` och visas för dig.
+1. Välj det användarflöde som du skapade för att öppna översiktssidan och välj sedan **Kör användarflöde**.
+1. För **Ansökan**väljer du webbprogrammet *webapp1* som du tidigare har registrerat. **Svars-URL:en** ska visa `https://jwt.ms`.
+1. Klicka på **Kör användarflöde**och logga sedan in med det konto som du tidigare skapade.
+1. Nu har du möjlighet att ändra användarens visningsnamn och befattning. Klicka på **Fortsätt**. Token returneras och `https://jwt.ms` ska visas för dig.
 
 ## <a name="create-a-password-reset-user-flow"></a>Skapa ett användarflöde för återställning av lösenord
 
-Om du vill göra det möjligt för användare av ditt program att återställa sitt lösen ord använder du ett användar flöde för återställning av lösen ord.
+Om du vill att användarna av programmet ska kunna återställa sitt lösenord använder du ett användarflöde för återställning av lösenord.
 
-1. I menyn Azure AD B2C klient översikt väljer du **användar flöden (principer)** och väljer sedan **nytt användar flöde**.
-1. Välj användar flödet för **lösen ords återställning** på den **rekommenderade** fliken.
+1. På översiktsmenyn för Azure AD B2C-klienter väljer du **Användarflöden (principer)** och väljer sedan **Nytt användarflöde**.
+1. Välj användarflödet för återställning **av lösenord** på fliken **Rekommenderad.**
 1. Ange ett **Namn** för användarflödet. Till exempel *passwordreset1*.
-1. För **identitets leverantörer**aktiverar du **Återställ lösen ord med e-postadress**.
-1. Under program anspråk klickar du på **Visa fler** och väljer de anspråk som du vill ska returneras i de autentiseringstoken som skickas tillbaka till programmet. Välj till exempel **Användarobjekt-id**.
-1. Klicka på **OK**
-1. Klicka på **skapa** för att lägga till användar flödet. Ett prefix för *B2C_1* läggs automatiskt till i namnet.
+1. För **identitetsleverantörer**aktiverar du **Återställ lösenord med e-postadress**.
+1. Under Programanspråk klickar du på **Visa mer** och väljer de anspråk som du vill ska returneras i auktoriseringstoken som skickas tillbaka till ditt program. Välj till exempel **Användarobjekt-id**.
+1. Klicka på **OK**.
+1. Klicka på **Skapa** om du vill lägga till användarflödet. Ett prefix *med B2C_1* läggs automatiskt till namnet.
 
-### <a name="test-the-user-flow"></a>Testa användar flödet
+### <a name="test-the-user-flow"></a>Testa användarflödet
 
-1. Välj det användar flöde som du skapade för att öppna sidan Översikt och välj sedan **Kör användar flöde**.
-1. För **program**väljer du det webb program som heter *webapp1* som du tidigare har registrerat. **Svars-URL: en** ska Visa `https://jwt.ms`.
-1. Klicka på **Kör användar flöde**, verifiera e-postadressen för det konto som du skapade tidigare och välj **Fortsätt**.
-1. Nu har du möjlighet att ändra lösen ordet för användaren. Ändra lösen ordet och välj **Fortsätt**. Token returneras till `https://jwt.ms` och visas för dig.
+1. Välj det användarflöde som du skapade för att öppna översiktssidan och välj sedan **Kör användarflöde**.
+1. För **Ansökan**väljer du webbprogrammet *webapp1* som du tidigare har registrerat. **Svars-URL:en** ska visa `https://jwt.ms`.
+1. Klicka på **Kör användarflöde,** verifiera e-postadressen för det konto som du tidigare skapade och välj **Fortsätt**.
+1. Nu har du möjlighet att ändra lösenordet för användaren. Ändra lösenordet och välj **Fortsätt**. Token returneras och `https://jwt.ms` ska visas för dig.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa ett användar flöde för registrering och inloggning
+> * Skapa ett användarflöde för registrering och inloggning
 > * Skapa ett användarflöde för profilredigering
 > * Skapa ett användarflöde för återställning av lösenord
 
-Nu kan du läsa mer om att lägga till identitets leverantörer i dina program för att möjliggöra användar inloggning med leverantörer som Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft eller Twitter.
+Läs sedan om hur du lägger till identitetsleverantörer i dina program för att aktivera användarinloggning med leverantörer som Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft eller Twitter.
 
 > [!div class="nextstepaction"]
-> [Lägg till identitets leverantörer i dina program >](tutorial-add-identity-providers.md)
+> [Lägg till identitetsleverantörer i dina program >](tutorial-add-identity-providers.md)

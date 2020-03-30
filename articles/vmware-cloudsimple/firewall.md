@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösning av CloudSimple – konfigurera brand Väggs tabeller och regler
-description: Beskriver hur du konfigurerar privata moln brand Väggs tabeller och regler för att begränsa trafik på undernät och VLAN.
+title: Azure VMware Solution by CloudSimple – Konfigurera brandväggstabeller och regler
+description: Beskriver hur du ställer in private cloud-brandväggstabeller och regler för att begränsa trafiken på undernät och VLAN.Describes how to set up Private Cloud firewall tables and rules to restrict traffic on subnets and VLAN.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -9,71 +9,71 @@ ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ms.openlocfilehash: 986f4b0da7254ebac3725a704f32af785c72fbcc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244672"
 ---
-# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Konfigurera brand Väggs tabeller och regler för privata moln
+# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Konfigurera brandväggstabeller och regler för privata moln
 
-Med brand Väggs tabeller och associerade regler kan du ange begränsningar för trafik som ska gälla för särskilda undernät och virtuella lokala nätverk.
+Med brandväggstabeller och tillhörande regler kan du ange trafikbegränsningar som ska gälla för vissa undernät och VLAN.Vedsocieringstabeller och tillhörande regler kan du ange begränsningar för trafik som ska gälla för vissa undernät och VLAN.Vedsociã¤nde
 
-* Ett undernät kan associeras med en brand Väggs tabell.
-* En brand Väggs tabell kan associeras med flera undernät.
+* Ett undernät kan associeras med en brandväggstabell.
+* En brandväggstabell kan associeras med flera undernät.
 
-## <a name="add-a-new-firewall-table"></a>Lägg till en ny brand Väggs tabell
+## <a name="add-a-new-firewall-table"></a>Lägga till en ny brandväggstabell
 
-1. [Öppna CloudSimple-portalen](access-cloudsimple-portal.md) och välj **nätverk** på sido menyn.
-2. Välj **brand Väggs tabeller**.
-3. Välj **skapa brand Väggs tabell**.
+1. [Öppna CloudSimple-portalen](access-cloudsimple-portal.md) och välj **Nätverk** på sidomenyn.
+2. Välj **brandväggstabeller**.
+3. Välj **Skapa brandväggstabell**.
 
-    ![Sidan VLAN/undernät](media/firewall-tables-page.png)
+    ![VLAN/undernätssida](media/firewall-tables-page.png)
 
-4. Ange ett namn för tabellen.
-5. En standard regel för tabellen visas. Klicka på **Skapa ny regel** för att skapa en ytterligare regel. Se följande procedur för mer information.
-6. Klicka på **färdig** för att spara brand Väggs tabellen.
+4. Ange ett namn på tabellen.
+5. En standardregel för tabellen visas. Klicka på **Skapa ny regel** om du vill skapa ytterligare en regel. Mer information finns i följande procedur.
+6. Klicka på **Klar** om du vill spara brandväggstabellen.
 
 > [!IMPORTANT]
-> Du kan skapa upp till två brand Väggs tabeller per privat moln.
+> Du kan skapa upp till två brandväggstabeller per privat moln.
 
 ## <a name="firewall-rules"></a>Brandväggsregler
 
-Brand Väggs regler avgör hur brand väggen behandlar vissa typer av trafik. Fliken **regler** för en vald brand Väggs tabell visar alla associerade regler.
+Brandväggsregler avgör hur brandväggen behandlar specifika typer av trafik. På fliken **Regler** för en markerad brandväggstabell visas alla associerade regler.
 
-![Tabell över brand Väggs regler](media/firewall-rules-tab.png)
+![Tabell över brandväggsregler](media/firewall-rules-tab.png)
 
 ## <a name="create-a-firewall-rule"></a>Skapa en brandväggsregel
 
-1. Visa inställningarna för att skapa en brand Väggs regel på något av följande sätt:
-    * Klicka på **Lägg till regel** när du skapar en brand Väggs tabell.
-    * Välj en viss brand Väggs tabell på sidan **nätverks > brand Väggs tabeller** och klicka på **Skapa ny brand Väggs regel**.
-2. Konfigurera regeln enligt följande:
+1. Visa inställningarna för att skapa en brandväggsregel på något av följande sätt:
+    * Klicka på **Lägg till regel** när du skapar en brandväggstabell.
+    * Markera en viss brandväggstabell på sidan **Nätverks- > brandväggstabeller** och klicka på **Skapa ny brandväggsregel**.
+2. Ställ in regeln på följande sätt:
     * **Namn**. Ge regeln ett namn.
-    * **Prioritet**. Tilldela regeln en prioritet. Regler med lägre tal körs först.
-    * **Trafik typ**. Välj om regeln gäller för privata moln, Internet eller VPN-trafik (tillstånds lösa) eller för en offentlig IP-adress (tillstånds lös).
+    * **Prioritet**. Tilldela en prioritet till regeln. Regler med lägre tal körs först.
+    * **Trafiktyp**. Välj om regeln är för Privat moln-, Internet- eller VPN-trafik (tillståndslös) eller för en offentlig IP-adress (tillståndskänslig).
     * **Protokoll**. Välj det protokoll som omfattas av regeln (TCP, UDP eller något protokoll).
-    * **Riktning**. Välj om regeln gäller inkommande eller utgående trafik. Du måste definiera separata regler för inkommande och utgående trafik.
-    * **Åtgärd**. Välj den åtgärd som ska vidtas om regeln matchar (Tillåt eller neka).
-    * **Källa**. Ange de källor som omfattas av regeln (CIDR-block, intern eller valfri källa).
-    * **Käll port intervall**. Ange intervallet för portarna som omfattas av regeln.
+    * **Riktning**. Välj om regeln är för inkommande eller utgående trafik. Du måste definiera separata regler för inkommande och utgående trafik.
+    * **Åtgärd**. Välj den åtgärd som ska vidtas om regeln matchar (tillåt eller neka).
+    * **Källa**. Ange de källor som omfattas av regeln (CIDR-block, internt eller någon källa).
+    * **Källportintervall**. Ange det portintervall som omfattas av regeln.
     * **Riktning**. Välj inkommande eller utgående.
-    * **Mål**. Ange de mål som omfattas av regeln (CIDR-block, intern eller valfri källa).
-    * **Käll port intervall**. Ange intervallet för portarna som omfattas av regeln.
+    * **Destination**. Ange de destinationer som omfattas av regeln (CIDR-block, internt eller någon källa).
+    * **Källportintervall**. Ange det portintervall som omfattas av regeln.
 
-    ![Tilläggs regel för brand Väggs tabell](media/firewall-rule-create.png)
+    ![Tilläggsregel för brandväggstabell](media/firewall-rule-create.png)
 
-3. Klicka på **Slutför** för att spara regeln och lägga till den i listan över regler för brand Väggs tabellen.
+3. Klicka på **Klar** om du vill spara regeln och lägga till den i listan med regler för brandväggstabellen.
 
 > [!IMPORTANT]
-> Varje brand Väggs tabell kan ha upp till 10 regler för inkommande trafik och 20 utgående regler. Du kan öka gränserna genom att [kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+> Varje brandväggstabell kan ha upp till 10 inkommande regler och 20 utgående regler. Dessa gränser kan höjas genom [att kontakta supporten.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-## <a name="attach-vlans-subnet"></a>Bifoga VLAN/undernät
+## <a name="attach-vlanssubnets"></a><a name="attach-vlans-subnet"></a>Bifoga VLAN/undernät
 
-När du har definierat en brand Väggs tabell kan du ange de undernät som omfattas av reglerna i tabellen.
+När du har definierat en brandväggstabell kan du ange de undernät som omfattas av reglerna i tabellen.
 
-1. Välj en brand Väggs tabell på sidan **nätverks** > **brand Väggs tabeller** .
-2. Öppna fliken **anslutna VLAN/undernät** .
-3. Klicka på **Anslut till ett VLAN/undernät**.
-4. Välj det privata molnet och VLAN. Det associerade under näts namnet och CIDR-blocket visas.
+1. Välj en brandväggstabell på sidan > **Nätverksbrandväggstabeller.** **Network**
+2. Öppna fliken **Anslutna VLAN/Undernät.**
+3. Klicka **på Bifoga till ett VLAN/-undernät**.
+4. Välj det privata molnet och VLAN. Det associerade undernätsnamnet och CIDR-blocket visas.
 5. Klicka på **Skicka**.

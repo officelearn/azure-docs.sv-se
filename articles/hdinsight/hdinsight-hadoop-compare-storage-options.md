@@ -1,6 +1,6 @@
 ---
-title: Jämför lagrings alternativ för användning med Azure HDInsight-kluster
-description: Ger en översikt över lagrings typer och hur de fungerar med Azure HDInsight.
+title: Jämföra lagringsalternativ för användning med Azure HDInsight-kluster
+description: Ger en översikt över lagringstyper och hur de fungerar med Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,93 +8,93 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/10/2020
 ms.openlocfilehash: 98d71434ac9e3f712be0cbd8c505b7d5a537e7cc
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79095547"
 ---
-# <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämför lagrings alternativ för användning med Azure HDInsight-kluster
+# <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Jämföra lagringsalternativ för användning med Azure HDInsight-kluster
 
-Du kan välja mellan några olika Azure Storage-tjänster när du skapar HDInsight-kluster:
+Du kan välja mellan några olika Azure-lagringstjänster när du skapar HDInsight-kluster:
 
 * Azure Storage
 * Azure Data Lake Storage Gen2
 * Azure Data Lake Storage Gen1
 
-Den här artikeln innehåller en översikt över dessa lagrings typer och deras unika funktioner.
+Den här artikeln innehåller en översikt över dessa lagringstyper och deras unika funktioner.
 
-I följande tabell sammanfattas de Azure Storage tjänster som stöds med olika versioner av HDInsight:
+I följande tabell sammanfattas De Azure Storage-tjänster som stöds med olika versioner av HDInsight:
 
-| Lagrings tjänst | Kontotyp | Namn områdes typ | Tjänster som stöds | Prestanda nivåer som stöds | Åtkomst nivåer som stöds | HDInsight-version | Kluster typ |
+| Lagringstjänst | Kontotyp | Namnområdestyp | Tjänster som stöds | Prestandanivåer som stöds | Åtkomstnivåer som stöds | HDInsight-version | Klustertyp |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| Allmänt-syfte v2 | Hierarkisk (FileSystem) | Blob | Standard | Frekvent, låg frekvent, Arkiv | 3.6 + | Alla utom Spark 2,1 och 2,2|
-|Azure Storage| Allmänt-syfte v2 | Objekt | Blob | Standard | Frekvent, låg frekvent, Arkiv | 3.6 + | Alla |
-|Azure Storage| Generell användning v1 | Objekt | Blob | Standard | Ej tillämpligt | Alla | Alla |
-|Azure Storage| Blob Storage * * | Objekt | Blockera BLOB | Standard | Frekvent, låg frekvent, Arkiv | Alla | Alla |
-|Azure Data Lake Storage Gen1| Ej tillämpligt | Hierarkisk (FileSystem) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | 3,6 endast | Alla utom HBase |
+|Azure Data Lake Storage Gen2| Allmänt V2 | Hierarkisk (filsystem) | Blob | Standard | Hot, Cool, Arkiv | 3.6+ | Alla utom Spark 2.1 och 2.2|
+|Azure Storage| Allmänt V2 | Objekt | Blob | Standard | Hot, Cool, Arkiv | 3.6+ | Alla |
+|Azure Storage| Allmänt V1 | Objekt | Blob | Standard | Ej tillämpligt | Alla | Alla |
+|Azure Storage| Blob Lagring** | Objekt | Block Blob | Standard | Hot, Cool, Arkiv | Alla | Alla |
+|Azure Data Lake Storage Gen1| Ej tillämpligt | Hierarkisk (filsystem) | Ej tillämpligt | Ej tillämpligt | Ej tillämpligt | 3.6 Endast | Alla utom HBase |
 
-\* * För HDInsight-kluster kan endast sekundära lagrings konton vara av typen BlobStorage och Page BLOB är inte ett lagrings alternativ som stöds.
+**För HDInsight-kluster kan endast sekundära lagringskonton vara av typen BlobStorage och Page Blob är inte ett lagringsalternativ som stöds.
 
-Mer information om Azure Storage konto typer finns i [Översikt över Azure Storage-konto](../storage/common/storage-account-overview.md)
+Mer information om Azure Storage-kontotyper finns i [Översikt över Azure storage-konto](../storage/common/storage-account-overview.md)
 
-Mer information om Azure Storage åtkomst nivåer finns i [Azure Blob Storage: Premium (för hands version), frekvent, låg frekvent och Arkiv lag](../storage/blobs/storage-blob-storage-tiers.md) rings nivå
+Mer information om Azure Storage-åtkomstnivåer finns i [Azure Blob storage: Premium (förhandsversion), lagringsnivåer för Hot, Cool och Arkiv](../storage/blobs/storage-blob-storage-tiers.md)
 
-Du kan skapa ett kluster med olika kombinationer av tjänster för primär och valfri sekundär lagring. I följande tabell sammanfattas de kluster lagrings konfigurationer som för närvarande stöds i HDInsight:
+Du kan skapa ett kluster med olika kombinationer av tjänster för primär och valfri sekundär lagring. I följande tabell sammanfattas de klusterlagringskonfigurationer som för närvarande stöds i HDInsight:
 
 | HDInsight-version | Primär lagring | Sekundär lagring | Stöds |
 |---|---|---|---|
-| 3,6 & 4,0 | Generell användning v1, Generell användning v2 | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
-| 3,6 & 4,0 | Generell användning v1, Generell användning v2 | Data Lake Storage Gen2 | Nej |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | Ja |
-| 3,6 & 4,0 | Data Lake Storage Gen2 * | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
-| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Nej |
+| 3,6 & 4,0 | Allmänt ändamål V1 , Allmänt ändamål V2 | Allmänt ändamål V1 , Allmänt ändamål V2, BlobStorage(Block Blobbar) | Ja |
+| 3,6 & 4,0 | Allmänt ändamål V1 , Allmänt ändamål V2 | Data Lake Storage Gen2 | Inga |
+| 3,6 & 4,0 | Gen2 för lagring av datasjöar* | Data Lake Storage Gen2 | Ja |
+| 3,6 & 4,0 | Gen2 för lagring av datasjöar* | Allmänt ändamål V1 , Allmänt ändamål V2, BlobStorage(Block Blobbar) | Ja |
+| 3,6 & 4,0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | Inga |
 | 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | Ja |
-| 3.6 | Data Lake Storage Gen1 | Generell användning v1, Generell användning v2, BlobStorage (block blobbar) | Ja |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Nej |
-| 4,0 | Data Lake Storage Gen1 | Alla | Nej |
-| 4,0 | Generell användning v1, Generell användning v2 | Data Lake Storage Gen1 | Nej |
+| 3.6 | Data Lake Storage Gen1 | Allmänt ändamål V1 , Allmänt ändamål V2, BlobStorage(Block Blobbar) | Ja |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | Inga |
+| 4.0 | Data Lake Storage Gen1 | Alla | Inga |
+| 4.0 | Allmänt ändamål V1 , Allmänt ändamål V2 | Data Lake Storage Gen1 | Inga |
 
-\* = Detta kan vara ett eller flera Data Lake Storage Gen2-konton, så länge de är konfigurerat för att använda samma hanterade identitet för kluster åtkomst.
+*=Det kan vara ett eller flera DataSjölagringsgenm2-konton, så länge de alla är inställda på att använda samma hanterade identitet för klusteråtkomst.
 
 > [!Note] 
-> Data Lake Storage Gen2 primär lagring stöds inte för Spark 2,1-eller 2,2-kluster. 
+> Primär lagringsgendlagring i DataSjögend2 stöds inte för Spark 2.1- eller 2.2-kluster. 
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Använda Azure Data Lake Storage Gen2 med Apache Hadoop i Azure HDInsight
 
-Azure Data Lake Storage Gen2 använder kärn funktioner från Azure Data Lake Storage Gen1 och integrerar dem i Azure Blob Storage. Dessa funktioner innehåller ett fil system som är kompatibelt med Hadoop, Azure Active Directory (Azure AD) och POSIX-baserade åtkomst kontrol listor (ACL: er). Med den här kombinationen kan du dra nytta av prestanda för Azure Data Lake Storage Gen1 samtidigt som du använder hantering av nivåer och data livs cykel hantering av Blob Storage.
+Azure Data Lake Storage Gen2 tar kärnfunktioner från Azure Data Lake Storage Gen1 och integrerar dem i Azure Blob-lagring. Dessa funktioner inkluderar ett filsystem som är kompatibelt med Hadoop, Azure Active Directory (Azure AD) och POSIX-baserade åtkomstkontrollistor (ACL). Med den här kombinationen kan du dra nytta av prestandan hos Azure Data Lake Storage Gen1 samtidigt som du använder nivåindelning och datalivscykelhantering av Blob-lagring.
 
 Mer information om Azure Data Lake Storage Gen2 finns i [Introduktion till Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-### <a name="core-functionality-of-azure-data-lake-storage-gen2"></a>Core-funktioner i Azure Data Lake Storage Gen2
+### <a name="core-functionality-of-azure-data-lake-storage-gen2"></a>Grundläggande funktioner för Azure Data Lake Storage Gen2
 
-* **Åtkomst som är kompatibel med Hadoop:** I Azure Data Lake Storage Gen2 kan du hantera och komma åt data precis som med en Hadoop Distributed File System (HDFS). ABFS-drivrutinen (Azure Blob File System) är tillgänglig i alla Apache Hadoop miljöer, inklusive Azure HDInsight och Azure Databricks. Använd ABFS för att komma åt data som lagras i Data Lake Storage Gen2.
+* **Åtkomst som är kompatibel med Hadoop:** I Azure Data Lake Storage Gen2 kan du hantera och komma åt data på samma sätt som med ett HADoop Distributed File System (HDFS). Azure Blob File System (ABFS) är tillgänglig i alla Apache Hadoop-miljöer, inklusive Azure HDInsight och Azure Databricks. Använd ABFS för att komma åt data som lagras i Data Lake Storage Gen2.
 
-* **En supermängd av POSIX-behörigheter:** Säkerhets modellen för Data Lake Gen2 stöder ACL-och POSIX-behörigheter tillsammans med viss extra detaljerad information för att Data Lake Storage Gen2. Inställningar kan konfigureras via administrations verktyg eller ramverk som Apache Hive och Apache Spark.
+* **En superuppsättning av POSIX-behörigheter:** Säkerhetsmodellen för Data Lake Gen2 stöder behörigheter för ACL och POSIX tillsammans med några extra granularitet som är specifika för Data Lake Storage Gen2. Inställningar kan konfigureras via administrationsverktyg eller ramverk som Apache Hive och Apache Spark.
 
-* **Kostnads effektivitet:** Data Lake Storage Gen2 erbjuder lagrings kapacitet och transaktioner med låg kostnad. Funktioner som Azure Blob Storage livs cykel hjälper till att minska kostnaderna genom att justera fakturerings taxan när data flyttas genom livs cykeln.
+* **Kostnadseffektivitet:** Data Lake Storage Gen2 erbjuder billig lagringskapacitet och transaktioner. Funktioner som Azure Blob storage life cycle hjälper till att sänka kostnaderna genom att justera faktureringsfrekvensen när data rör sig genom dess livscykel.
 
-* **Kompatibilitet med Blob Storage-verktyg, ramverk och appar:** Data Lake Storage Gen2 fortsätter att arbeta med en bred uppsättning verktyg, ramverk och program för Blob Storage.
+* **Kompatibilitet med Blob-lagringsverktyg, ramverk och appar:** Data Lake Storage Gen2 fortsätter att arbeta med ett brett utbud av verktyg, ramverk och program för Blob-lagring.
 
-* **Optimerad driv rutin:** ABFS-drivrutinen optimeras specifikt för stor data analys. Motsvarande REST-API: er sker via DFS-slutpunkten (Distributed File System), dfs.core.windows.net.
+* **Optimerad drivrutin:** ABFS-drivrutinen är optimerad speciellt för stordataanalys. Motsvarande REST-API:er visas via dfs-slutpunkten (Distributed File System) dfs.core.windows.net.
 
-### <a name="whats-new-for-azure-data-lake-storage-gen-2"></a>Vad är nytt för Azure Data Lake Storage gen 2
+### <a name="whats-new-for-azure-data-lake-storage-gen-2"></a>Nyheter för Azure Data Lake Storage Gen 2
 
-#### <a name="managed-identities-for-secure-file-access"></a>Hanterade identiteter för säker fil åtkomst
+#### <a name="managed-identities-for-secure-file-access"></a>Hanterade identiteter för säker filåtkomst
 
-Azure HDInsight använder hanterade identiteter för att skydda kluster åtkomsten till filer i Azure Data Lake Storage Gen2. Hanterade identiteter är en funktion i Azure Active Directory som tillhandahåller Azure-tjänster med en uppsättning automatiskt hanterade autentiseringsuppgifter. De här autentiseringsuppgifterna kan användas för att autentisera till en tjänst som stöder Active Directory autentisering. Om du använder hanterade identiteter behöver du inte lagra autentiseringsuppgifter i kod-eller konfigurationsfiler.
+Azure HDInsight använder hanterade identiteter för att skydda klusteråtkomst till filer i Azure Data Lake Storage Gen2. Hanterade identiteter är en funktion i Azure Active Directory som tillhandahåller Azure-tjänster med en uppsättning automatiskt hanterade autentiseringsuppgifter. Dessa autentiseringsuppgifter kan användas för att autentisera till alla tjänster som stöder Active Directory-autentisering. Om du använder hanterade identiteter krävs inte att du lagrar autentiseringsuppgifter i kod- eller konfigurationsfiler.
 
-Mer information finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
+Mer information finns i [Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
-#### <a name="azure-blob-file-system-driver"></a>Azure Blob File System-drivrutin
+#### <a name="azure-blob-file-system-driver"></a>Azure Blob-filsystemdrivrutin
 
-Apache Hadoop program förväntar sig att läsa och skriva data från lokal disk lagring. En Hadoop-fil system driv rutin som ABFS gör att Hadoop-program fungerar med moln lagring genom att emulera vanliga Hadoop-filsystem-åtgärder. Driv rutinen konverterar de kommandon som tas emot från programmet till åtgärder som den faktiska moln lagrings plattformen förstår.
+Apache Hadoop-program förväntar sig inbyggt att läsa och skriva data från lokal disklagring. En Hadoop filsystem drivrutin som ABFS gör hadoop applikationer att arbeta med molnlagring genom att efterlikna regelbundna Hadoop filsystem verksamhet. Drivrutinen konverterar de kommandon som tas emot från programmet till åtgärder som den faktiska molnlagringsplattformen förstår.
 
-Tidigare har Hadoop-filsystemets driv rutin konverterat alla fil system åtgärder för att Azure Storage REST API anrop på klient sidan och sedan anropade REST API. Den här konverteringen på klient sidan ledde dock till flera REST API anrop för en enda fil system åtgärd som att byta namn på en fil. ABFS har flyttat en del av Hadoop-filsystemets logik från klient sidan till Server sidan. Azure Data Lake Storage Gen2 API körs nu parallellt med BLOB-API: et. Den här migreringen förbättrar prestandan eftersom du kan utföra vanliga Hadoop-filsystem åtgärder med ett REST API-anrop.
+Tidigare konverterade Hadoop-filsystemdrivrutinen alla filsystemåtgärder till AZURE Storage REST API-anrop på klientsidan och anropade sedan REST API.Previously, the Hadoop file system driver converted all file system operations to Azure Storage REST API calls on the client side and then invoked the REST API. Den här konverteringen på klientsidan resulterade dock i flera REST API-anrop för en enda filsystemåtgärd som att byta namn på en fil. ABFS har flyttat en del av Hadoop filsystem logik från klientsidan till serversidan. Azure Data Lake Storage Gen2 API körs nu parallellt med Blob API. Den här migreringen förbättrar prestanda eftersom vanliga Hadoop-filsystemåtgärder nu kan utföras med ett REST API-anrop.
 
-Mer information finns i [Azure Blob filesystem-driv rutinen (ABFS): en dedikerad Azure Storage driv rutin för Hadoop](../storage/blobs/data-lake-storage-abfs-driver.md).
+Mer information finns i [Azure Blob Filesystem driver (ABFS): En dedikerad Azure Storage-drivrutin för Hadoop](../storage/blobs/data-lake-storage-abfs-driver.md).
 
-#### <a name="uri-scheme-for-azure-data-lake-storage-gen-2"></a>URI-schema för Azure Data Lake Storage gen 2 
+#### <a name="uri-scheme-for-azure-data-lake-storage-gen-2"></a>URI-schema för Azure Data Lake Storage Gen 2 
 
 Azure Data Lake Storage Gen2 använder ett nytt URI-schema för att komma åt filer i Azure Storage från HDInsight:
 
@@ -102,13 +102,13 @@ Azure Data Lake Storage Gen2 använder ett nytt URI-schema för att komma åt fi
 
 URI-schemat ger SSL-krypterad åtkomst.
 
-`<FILE_SYSTEM_NAME>` identifierar sökvägen till fil systemet Data Lake Storage Gen2.
+`<FILE_SYSTEM_NAME>`identifierar sökvägen till filsystemet Data Lake Storage Gen2.
 
-`<ACCOUNT_NAME>` identifierar namnet på Azure Storages kontot. Ett fullständigt kvalificerat domännamn (FQDN) krävs.
+`<ACCOUNT_NAME>`identifierar Azure Storage-kontonamnet. Ett fullständigt kvalificerat domännamn (FQDN) krävs.
 
-`<PATH>` är Sök vägs namnet för filen eller katalogen HDFS.
+`<PATH>`är fil- eller katalogens HDFS-sökvägsnamn.
 
-Om värden för `<FILE_SYSTEM_NAME>` och `<ACCOUNT_NAME>` inte anges används standard fil systemet. För filerna i standard fil systemet använder du en relativ sökväg eller en absolut sökväg. Till exempel kan `hadoop-mapreduce-examples.jar`-filen som medföljer HDInsight-kluster refereras till genom att använda någon av följande sökvägar:
+Om värden `<FILE_SYSTEM_NAME>` `<ACCOUNT_NAME>` för och inte anges används standardfilsystemet. För filerna i standardfilsystemet använder du en relativ sökväg eller en absolut sökväg. `hadoop-mapreduce-examples.jar` Filen som medföljer HDInsight-kluster kan till exempel refereras till med hjälp av någon av följande sökvägar:
 
 ```
 abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
@@ -116,29 +116,29 @@ abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduc
 ```
 
 > [!Note]
-> Fil namnet är `hadoop-examples.jar` i HDInsight-versionerna 2,1 och 1,6-kluster. När du arbetar med filer utanför HDInsight kan du se att de flesta verktyg inte känner igen ABFS-formatet utan förväntar sig ett grundläggande Sök vägs format, till exempel `example/jars/hadoop-mapreduce-examples.jar`.
+> Filnamnet finns `hadoop-examples.jar` i HDInsight version 2.1- och 1.6-kluster. När du arbetar med filer utanför HDInsight, kommer du att upptäcka att de flesta verktyg inte känner igen `example/jars/hadoop-mapreduce-examples.jar`ABFS-format utan i stället förväntar sig en grundläggande väg format, till exempel .
 
-Mer information finns i [använd Azure Data Lake Storage Gen2-URI](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
+Mer information finns [i Använda Azure Data Lake Storage Gen2 URI](../storage/blobs/data-lake-storage-introduction-abfs-uri.md).
 
 ## <a name="azure-storage"></a>Azure Storage
 
-Azure Storage är en robust lagrings lösning för allmänna ändamål som integreras sömlöst med HDInsight. HDInsight kan använda en blobcontainer i Azure Storage som standardfilsystem för klustret. Med ett HDFS-gränssnitt kan den fullständiga uppsättningen komponenter i HDInsight köras direkt på strukturerade eller ostrukturerade data som lagras som blobbar.
+Azure Storage är en robust lagringslösning för allmänt syfte som integreras sömlöst med HDInsight. HDInsight kan använda en blobcontainer i Azure Storage som standardfilsystem för klustret. Genom ett HDFS-gränssnitt kan den fullständiga uppsättningen komponenter i HDInsight fungera direkt på strukturerade eller ostrukturerade data som lagras som blobbar.
 
-Vi rekommenderar att du använder separata lagrings behållare för standard kluster lagringen och dina affärs data för att isolera HDInsight-loggar och temporära filer från dina egna affärs data. Vi rekommenderar också att du tar bort standard-BLOB-behållaren, som innehåller program-och system loggar, efter varje användning för att minska lagrings kostnaderna. Se till att hämta loggarna innan du tar bort containern.
+Vi rekommenderar att du använder separata lagringsbehållare för standardklusterlagring och dina affärsdata för att isolera HDInsight-loggarna och temporära filer från dina egna affärsdata. Vi rekommenderar också att du tar bort standardblobbehållaren, som innehåller program- och systemloggar, efter varje användning för att minska lagringskostnaden. Se till att hämta loggarna innan du tar bort containern.
 
-Om du väljer att skydda ditt lagrings konto med **brand väggar och begränsningar för virtuella nätverk** på **valda nätverk**måste du aktivera undantaget **Tillåt betrodda Microsoft-tjänster...** så att HDInsight kan komma åt ditt lagrings konto.
+Om du väljer att skydda ditt **lagringskonto med begränsningarna brandväggar och virtuella nätverk** i valda **nätverk**måste du aktivera undantaget **Tillåt betrodda Microsoft-tjänster...** så att HDInsight kan komma åt ditt lagringskonto.
 
 ### <a name="hdinsight-storage-architecture"></a>Lagringsarkitekturen i HDInsight
 
-Följande diagram innehåller en översikt över HDInsight-arkitekturen för Azure Storage:
+Följande diagram ger en abstrakt vy över HDInsight-arkitekturen i Azure Storage:
 
-![HDInsight Storage arkitektur](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight Storage arkitektur")
+![HDInsight-lagringsarkitektur](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight-lagringsarkitektur")
 
 HDInsight ger tillgång till det distribuerade filsystemet som är lokalt anslutet till beräkningsnoderna. Detta filsystem kan nås med hjälp av den fullständigt kvalificerade URI-strängen, till exempel:
 
     hdfs://<namenodehost>/<path>
 
-Via HDInsight kan du också komma åt data i Azure Storage. Syntaxen är följande:
+Via HDInsight kan du även komma åt data i Azure Storage. Syntaxen ser ut så här:
 
     wasb://<containername>@<accountname>.blob.core.windows.net/<path>
 
@@ -146,101 +146,101 @@ Tänk på följande principer när du använder ett Azure Storage-konto med HDIn
 
 * **Containrar på de lagringskonton som är anslutna till ett kluster:** Eftersom kontonamnet och nyckeln associeras med klustret när det skapas har du full tillgång till blobarna i dessa containrar.
 
-* **Offentliga behållare eller offentliga blobbar i lagrings konton som *inte* är anslutna till ett kluster:** Du har skrivskyddad behörighet till Blobbarna i behållarna.
+* **Offentliga behållare eller offentliga blobbar i lagringskonton som *inte* är anslutna till ett kluster:** Du har skrivskyddad behörighet till blobbar i behållarna.
   
   > [!NOTE]  
-  > Med offentliga behållare kan du hämta en lista över alla blobar som är tillgängliga i behållaren och hämta metadata för behållare. Du kan endast komma åt offentliga blobar om du känner till den exakta webbadressen. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../storage/blobs/storage-manage-access-to-resources.md).
+  > Med offentliga behållare kan du hämta en lista över alla blobbar som är tillgängliga i behållaren och hämta behållarmetadata. Du kan endast komma åt offentliga blobar om du känner till den exakta webbadressen. Mer information finns i [Hantera anonym läsåtkomst till behållare och blobbar](../storage/blobs/storage-manage-access-to-resources.md).
 
-* **Privata behållare i lagrings konton som *inte* är anslutna till ett kluster:** Du har inte åtkomst till Blobbarna i behållarna om du inte definierar lagrings kontot när du skickar WebHCat-jobben. 
+* **Privata behållare i lagringskonton som *inte* är anslutna till ett kluster:** Du kan inte komma åt blobbar i behållarna om du inte definierar lagringskontot när du skickar WebHCat-jobben. 
 
-De lagringskonton som definieras under skapandeprocessen och deras nycklar lagras i %HADOOP_HOME%/conf/core-site.xml i klusternoderna. Som standard använder HDInsight de lagrings konton som definierats i filen site. xml. Du kan ändra den här inställningen med hjälp av [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
+De lagringskonton som definieras under skapandeprocessen och deras nycklar lagras i %HADOOP_HOME%/conf/core-site.xml i klusternoderna. Som standard använder HDInsight de lagringskonton som definierats i filen core-site.xml. Du kan ändra den här inställningen med apache [Ambari](./hdinsight-hadoop-manage-ambari.md).
 
-Flera WebHCat-jobb, inklusive Apache Hive, MapReduce, Apache Hadoop streaming och Apache gris, kan innehålla en beskrivning av lagrings konton och metadata för dem. (Det här gäller för närvarande för gris med lagrings konton, men inte för metadata.) Mer information finns i [använda ett HDInsight-kluster med alternativa lagrings konton och metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Flera WebHCat-jobb, inklusive Apache Hive, MapReduce, Apache Hadoop streaming och Apache Pig, kan bära en beskrivning av lagringskonton och metadata med dem. (Detta gäller för närvarande för Gris med lagringskonton men inte för metadata.) Mer information finns i [Använda ett HDInsight-kluster med alternativa lagringskonton och metabutiker](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
-Blobar kan användas för strukturerade och ostrukturerade data. BLOB-behållare lagrar data som nyckel/värde-par och har ingen katalogpartition. Nyckel namnet kan dock innehålla ett snedstreck (/) som gör att det visas som om en fil lagras i en katalog struktur. Till exempel kan en blobs nyckel `input/log1.txt`s. Det finns ingen faktisk `input` katalog, men på grund av snedstrecket i nyckel namnet ser nyckeln ut som en fil Sök väg.
+Blobar kan användas för strukturerade och ostrukturerade data. Blob-behållare lagrar data som nyckel-/värdepar och har ingen kataloghierarki. Men nyckelnamnet kan innehålla ett snedstrecktecken ( / ) för att få det att se ut som om en fil lagras i en katalogstruktur. En blob-tangent kan till `input/log1.txt`exempel vara . Det `input` finns ingen faktisk katalog, men på grund av snedstreckstecknet i nyckelnamnet ser nyckeln ut som en sökväg.
 
-### <a id="benefits"></a>Fördelar med Azure Storage
-Beräknings kluster och lagrings resurser som inte samplaceras har underförstådda prestanda kostnader. Dessa kostnader begränsas av hur beräknings klustren skapas nära lagrings konto resurserna i Azure-regionen. I den här regionen kan Compute-noderna effektivt komma åt data över det snabba nätverket i Azure Storage.
+### <a name="benefits-of-azure-storage"></a><a id="benefits"></a>Fördelar med Azure Storage
+Beräkningskluster och lagringsresurser som inte är samlokaliseras har implicita prestandakostnader. Dessa kostnader minskas med hur beräkningskluster skapas nära lagringskontoresurserna i Azure-regionen. I den här regionen kan beräkningsnoderna effektivt komma åt data via höghastighetsnätverket i Azure Storage.
 
 När du lagrar data i Azure Storage i stället för HDFS får du flera fördelar:
 
-* **Återanvändning och delning av data:** Data i HDFS lagras inuti beräkningsklustren. Endast de program som har åtkomst till beräkningsklustren kan använda dessa data med hjälp av HDFS-API:er. Data i Azure Storage, med kontrast, kan nås via antingen HDFS-API: erna eller REST-API: er för Blob Storage. På grund av den här ordningen kan en större uppsättning program (inklusive andra HDInsight-kluster) och verktyg användas för att skapa och använda data.
+* **Återanvändning och delning av data:** Data i HDFS lagras inuti beräkningsklustren. Endast de program som har åtkomst till beräkningsklustren kan använda dessa data med hjälp av HDFS-API:er. Data i Azure Storage, däremot, kan nås via antingen HDFS API:er eller Blob storage REST API:er. På grund av det här arrangemanget kan en större uppsättning program (inklusive andra HDInsight-kluster) och verktyg användas för att producera och använda data.
 
-* **Data arkivering:** När data lagras i Azure Storage kan HDInsight-kluster som används för beräkning vara säkert borttagna utan att förlora användar data.
+* **Data arkivering:** När data lagras i Azure Storage kan HDInsight-kluster som används för beräkning tas bort på ett säkert sätt utan att förlora användardata.
 
-* **Kostnad för data lagring:** Att lagra data i DFS för lång sikt är dyrare än att lagra data i Azure Storage eftersom kostnaden för ett beräknings kluster är högre än kostnaden för Azure Storage. Eftersom data inte behöver läsas in på nytt för varje beräknings kluster skapas även data inläsnings kostnader.
+* **Kostnad för datalagring:** Att lagra data i DFS på lång sikt är dyrare än att lagra data i Azure Storage eftersom kostnaden för ett beräkningskluster är högre än kostnaden för Azure Storage. Eftersom data inte behöver laddas om för varje generering av beräkningskluster sparar du också kostnader för datainläsning.
 
-* **Elastisk utskalning:** Även om HDFS ger dig ett utskalat filsystem bestäms skalan av antalet noder som du skapar för klustret. Det kan vara mer komplicerat att ändra skalan än att förlita dig på de elastiska skalnings funktionerna som du får automatiskt i Azure Storage.
+* **Elastisk utskalning:** Även om HDFS ger dig ett utskalat filsystem bestäms skalan av antalet noder som du skapar för klustret. Att ändra skalan kan vara mer komplicerat än att förlita sig på de elastiska skalningsfunktionerna som du får automatiskt i Azure Storage.
 
-* **Geo-replikering:** Din Azure Storage kan vara geo-replikerad. Även om geo-replikering ger dig geografisk återställning och dataredundans, påverkar en redundansväxling till den geo-replikerade platsen prestanda och ytterligare kostnader kan tillkomma. Välj därför försiktigt geo-replikering och endast om värdet för data motiverar den extra kostnaden.
+* **Geo-replikering:** Din Azure Storage kan geo-replikeras. Även om geo-replikering ger dig geografisk återställning och dataredundans, påverkar en redundans till den georepnadda platsen allvarligt din prestanda och det kan medföra extra kostnader. Så välj geo-replikering försiktigt och endast om värdet av data motiverar den extra kostnaden.
 
-Vissa MapReduce-jobb och-paket kan skapa mellanliggande resultat som du inte vill lagra i Azure Storage. I så fall kan du välja att lagra data i den lokala HDFS. HDInsight använder DFS för flera av dessa mellanliggande resultat i Hive-jobb och andra processer.
+Vissa MapReduce-jobb och paket kan skapa mellanliggande resultat som du inte vill lagra i Azure Storage. I så fall kan du välja att lagra data i den lokala HDFS. HDInsight använder DFS för flera av dessa mellanliggande resultat i Hive-jobb och andra processer.
 
 > [!NOTE]  
-> De flesta HDFS-kommandon (till exempel `ls`, `copyFromLocal`och `mkdir`) fungerar som förväntat i Azure Storage. Endast de kommandon som är specifika för den inbyggda HDFS-implementeringen (som kallas DFS), till exempel `fschk` och `dfsadmin`, visar olika beteenden i Azure Storage.
+> De flesta HDFS-kommandon `ls`(till exempel , `copyFromLocal`och `mkdir`) fungerar som förväntat i Azure Storage. Endast de kommandon som är specifika för den inbyggda HDFS-implementeringen `fschk` (som kallas DFS), till exempel och `dfsadmin`, visar olika beteenden i Azure Storage.
 
 ## <a name="overview-of-azure-data-lake-storage-gen1"></a>Översikt över Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 är en företagsomfattande storskalig lagrings plats för stor data analys arbets belastningar. Med hjälp av Azure Data Lake kan du samla in data om storlek, typ och inmatnings hastighet på en plats för operativa och undersökande analyser.
+Azure Data Lake Storage Gen1 är en företagsomfattande hyperskalalagringsdatabas för stordata analytiska arbetsbelastningar. Med Hjälp av Azure Data Lake kan du samla in data av valfri storlek, typ och inmatningshastighet på ett ställe för drift- och undersökningsanalys.
 
-Åtkomst Data Lake Storage Gen1 från Hadoop (tillgängligt med ett HDInsight-kluster) med hjälp av WebHDFS-kompatibla REST-API: er. Data Lake Storage Gen1 har utformats för att möjliggöra analyser av lagrade data och är anpassat för prestanda i scenarier med data analyser. I rutan finns de funktioner som är viktiga för verkliga företags användnings fall. Dessa funktioner omfattar säkerhet, hanterbarhet, skalbarhet, tillförlitlighet och tillgänglighet.
+Access Data Lake Storage Gen1 från Hadoop (tillgängligt med ett HDInsight-kluster) med hjälp av WebHDFS-kompatibla REST-API:er. Data Lake Storage Gen1 är utformad för att möjliggöra analys av lagrade data och är inställd för prestanda i dataanalysscenarier. Out of the box, den innehåller de funktioner som är viktiga för verkliga företag användningsfall. Dessa funktioner omfattar säkerhet, hanterbarhet, skalbarhet, tillförlitlighet och tillgänglighet.
 
-Mer information om Azure Data Lake Storage Gen1 finns i den detaljerade [översikten över Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-overview.md).
+Mer information om Azure Data Lake Storage Gen1 finns i den detaljerade [översikten över Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md).
 
-Viktiga funktioner i Data Lake Storage Gen1 inkluderar följande.
+De viktigaste funktionerna i Data Lake Storage Gen1 inkluderar följande.
 
 ### <a name="compatibility-with-hadoop"></a>Kompatibilitet med Hadoop
 
-Data Lake Storage Gen1 är ett Apache Hadoop fil system som är kompatibelt med HDFS och fungerar med Hadoop-eko systemet.  Dina befintliga HDInsight-program eller-tjänster som använder WebHDFS-API: n kan enkelt integreras med Data Lake Storage Gen1. Data Lake Storage Gen1 också att exponera ett WebHDFS REST-gränssnitt för program.
+Data Lake Storage Gen1 är ett Apache Hadoop-filsystem som är kompatibelt med HDFS och fungerar med Hadoop-ekosystemet.  Dina befintliga HDInsight-program eller -tjänster som använder WebHDFS API kan enkelt integreras med Data Lake Storage Gen1. Data Lake Storage Gen1 exponerar också ett WebHDFS-kompatibelt REST-gränssnitt för program.
 
-Data som lagras i Data Lake Storage Gen1 kan enkelt analyseras med hjälp av Hadoop-analytiska ramverk som MapReduce eller Hive. Azure HDInsight-kluster kan tillhandahållas och konfigureras för direkt åtkomst till data som lagras i Data Lake Storage Gen1.
+Data som lagras i Data Lake Storage Gen1 kan enkelt analyseras med Hadoop analytiska ramverk som MapReduce eller Hive. Azure HDInsight-kluster kan etableras och konfigureras för att direkt komma åt data som lagras i Data Lake Storage Gen1.
 
 ### <a name="unlimited-storage-petabyte-files"></a>Obegränsad lagring, petabytefiler
 
-Data Lake Storage Gen1 ger obegränsad lagring och är lämplig för att lagra en mängd data för analys. Det innebär inte några begränsningar för konto storlekar, fil storlekar eller mängden data som kan lagras i ett data Lake. Enskilda filer kan variera mellan kilobyte och petabyte, vilket gör Data Lake Storage Gen1 ett bra val för att lagra vilken typ av data som helst. Data lagras varaktigt genom att göra flera kopior, och det finns ingen gräns för hur länge data kan lagras i data Lake.
+Data Lake Storage Gen1 ger obegränsad lagring och är lämplig för lagring av en mängd olika data för analys. Det innebär inga begränsningar för kontostorlekar, filstorlekar eller mängden data som kan lagras i en datasjö. Enskilda filer kan variera i storlek från kilobyte till petabyte, vilket gör Data Lake Storage Gen1 ett utmärkt val att lagra alla typer av data. Data lagras varaktigt genom att göra flera kopior, och det finns inga gränser för hur länge data kan lagras i datasjön.
 
-### <a name="performance-tuning-for-big-data-analytics"></a>Prestanda justering för Big data Analytics
+### <a name="performance-tuning-for-big-data-analytics"></a>Prestandajustering för stordataanalys
 
-Data Lake Storage Gen1 är byggd för att köra storskaliga analys system som kräver enorma data flöden för att fråga och analysera stora mängder data. Data Lake sprider delar av en fil över flera enskilda lagrings servrar. När du analyserar data förbättrar den här installationen det lästa data flödet när filen läses parallellt.
+Data Lake Storage Gen1 är byggd för att köra storskaliga analytiska system som kräver massivt dataflöde för att fråga och analysera stora mängder data. Datasjön sprider delar av en fil över flera enskilda lagringsservrar. När du analyserar data förbättrar den här inställningen läsdataflödet när filen läss parallellt.
 
-### <a name="readiness-for-enterprise-highly-available-and-secure"></a>Beredskap för företag: hög tillgänglig och säker
+### <a name="readiness-for-enterprise-highly-available-and-secure"></a>Beredskap för företag: Mycket tillgänglig och säker
 
-Data Lake Storage Gen1 ger bransch standard tillgänglighet och tillförlitlighet. Data till gångar lagras varaktigt: redundanta kopior skyddar mot oväntade fel. Företag kan använda Data Lake Storage Gen1 i sina lösningar som en viktig del av sin befintliga data plattform.
+Data Lake Storage Gen1 ger branschstandard tillgänglighet och tillförlitlighet. Datatillgångar lagras på ett sätt: överflödiga kopior skyddar mot oväntade fel. Företag kan använda Data Lake Storage Gen1 i sina lösningar som en viktig del av sin befintliga dataplattform.
 
-Data Lake Storage Gen1 ger också säkerhet i företags klass för lagrade data. Mer information finns i [skydda data i Azure Data Lake Storage gen1](#DataLakeStoreSecurity).
+Data Lake Storage Gen1 ger också säkerhet i företagsklass för lagrade data. Mer information finns [i Skydda data i Azure Data Lake Storage Gen1](#DataLakeStoreSecurity).
 
-### <a name="flexible-data-structures"></a>Flexibla data strukturer
+### <a name="flexible-data-structures"></a>Flexibla datastrukturer
 
-Data Lake Storage Gen1 kan lagra data i sitt ursprungliga format, precis som det är, utan föregående omvandling. Data Lake Storage Gen1 kräver inte att ett schema definieras innan data läses in. Det enskilda analys ramverket tolkar data och definierar ett schema vid tidpunkten för analysen. Eftersom den kan lagra filer av godtycklig storlek och format kan Data Lake Storage Gen1 hantera strukturerade, semistrukturerade och ostrukturerade data.
+Data Lake Storage Gen1 kan lagra alla data i sitt ursprungliga format, som det är, utan att kräva tidigare omvandlingar. Data Lake Storage Gen1 kräver inte att ett schema definieras innan data läses in. Det enskilda analytiska ramverket tolkar data och definierar ett schema vid tidpunkten för analysen. Eftersom den kan lagra filer med godtyckliga storlekar och format kan Data Lake Storage Gen1 hantera strukturerade, halvstrukturerade och ostrukturerade data.
 
-Data Lake Storage Gen1 behållare för data är i stort sett mappar och filer. Du arbetar med lagrade data med hjälp av SDK: er, Azure Portal och Azure PowerShell. Så länge du lagrar dina data i butiken genom att använda dessa gränssnitt och lämpliga behållare, kan du lagra alla typer av data. Data Lake Storage Gen1 utför inte någon särskild hantering av data baserat på den typ av data som lagras.
+Data Lake Storage Gen1 behållare för data är i huvudsak mappar och filer. Du arbetar med lagrade data med hjälp av SDK:er, Azure-portalen och Azure PowerShell. Så länge du lägger dina data i butiken med hjälp av dessa gränssnitt och lämpliga behållare, kan du lagra alla typer av data. Data Lake Storage Gen1 utför ingen särskild hantering av data baserat på vilken typ av data som lagras.
 
-## <a name="DataLakeStoreSecurity"></a>Data säkerhet i Data Lake Storage Gen1
-Data Lake Storage Gen1 använder Azure Active Directory för autentisering och använder åtkomst kontrol listor (ACL: er) för att hantera åtkomst till dina data.
+## <a name="data-security-in-data-lake-storage-gen1"></a><a name="DataLakeStoreSecurity"></a>Datasäkerhet i Gen1 för lagring av datasjö
+Data Lake Storage Gen1 använder Azure Active Directory för autentisering och använder åtkomstkontrollistor (ACL: er) för att hantera åtkomst till dina data.
 
 | **Funktion** | **Beskrivning** |
 | --- | --- |
-| Autentisering |Data Lake Storage Gen1 integreras med Azure Active Directory (Azure AD) för identitets-och åtkomst hantering för alla data som lagras i Data Lake Storage Gen1. På grund av integreringen Data Lake Storage Gen1 fördelarna med alla Azure AD-funktioner. Dessa funktioner omfattar multifaktorautentisering, villkorlig åtkomst, rollbaserad åtkomst kontroll, övervakning av program användning, säkerhetsövervakning och avisering och så vidare. Data Lake Storage Gen1 stöder OAuth 2,0-protokollet för autentisering i REST-gränssnittet. Se [autentisering i Azure Data Lake Storage gen1 med Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
-| Åtkomstkontroll |Data Lake Storage Gen1 ger åtkomst kontroll genom att stödja POSIX-format-behörigheter som exponeras av WebHDFS-protokollet. Du kan aktivera ACL:er i rotmappen, i undermappar och i enskilda filer. Mer information om hur ACL: er fungerar i samband med Data Lake Storage Gen1 finns i [åtkomst kontroll i data Lake Storage gen1](../data-lake-store/data-lake-store-access-control.md). |
-| Kryptering |Data Lake Storage Gen1 innehåller även kryptering för data som lagras i kontot. Du anger krypterings inställningarna när du skapar ett Data Lake Storage Gen1-konto. Du kan välja att kryptera dina data eller välja ingen kryptering. Mer information finns i [kryptering i data Lake Storage gen1](../data-lake-store/data-lake-store-encryption.md). Instruktioner för hur du tillhandahåller en krypterings-relaterad konfiguration finns i [Kom igång med Azure Data Lake Storage gen1 med hjälp av Azure Portal](../data-lake-store/data-lake-store-get-started-portal.md). |
+| Autentisering |DataSjölagringsgenm1 integreras med Azure Active Directory (Azure AD) för identitets- och åtkomsthantering för alla data som lagras i Data Lake Storage Gen1. På grund av integrationen drar Data Lake Storage Gen1 nytta av alla Azure AD-funktioner. Dessa funktioner inkluderar multifaktorautentisering, villkorlig åtkomst, rollbaserad åtkomstkontroll, programanvändningsövervakning, säkerhetsövervakning och aviseringar och så vidare. Data Lake Storage Gen1 stöder OAuth 2.0-protokollet för autentisering inom REST-gränssnittet. Se [Autentisering i Azure Data Lake Storage Gen1 med Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)|
+| Åtkomstkontroll |DataSjölagringsgenm1 ger åtkomstkontroll genom att stödja behörigheter i POSIX-format som exponeras av WebHDFS-protokollet. Du kan aktivera ACL:er i rotmappen, i undermappar och i enskilda filer. Mer information om hur ACL fungerar i samband med Data Lake Storage Gen1 finns [i Åtkomstkontroll i Gen1](../data-lake-store/data-lake-store-access-control.md)för lagring av datasjö . |
+| Kryptering |Data Lake Storage Gen1 tillhandahåller också kryptering för data som lagras i kontot. Du anger krypteringsinställningarna när du skapar ett Data Lake Storage Gen1-konto. Du kan välja att få dina data krypterade eller välja ingen kryptering. Mer information finns [i Kryptering i DataSjölagring Gen1](../data-lake-store/data-lake-store-encryption.md). Instruktioner om hur du tillhandahåller en krypteringsrelaterad konfiguration finns i [Komma igång med Azure Data Lake Storage Gen1 med Azure-portalen](../data-lake-store/data-lake-store-get-started-portal.md). |
 
-Mer information om hur du skyddar data i Data Lake Storage Gen1 finns i [skydda data som lagras i Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-secure-data.md).
+Mer information om hur du skyddar data i Gen1 för lagring av datasjö, finns [i Skydda data som lagras i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-secure-data.md).
 
 ## <a name="applications-that-are-compatible-with-data-lake-storage-gen1"></a>Program som är kompatibla med Data Lake Storage Gen1
-Data Lake Storage Gen1 är kompatibelt med de flesta komponenter med öppen källkod i Hadoop-eko systemet. Det är även snyggt integrerat med andra Azure-tjänster.  Följ länkarna nedan om du vill veta mer om hur Data Lake Storage Gen1 kan användas både med komponenter med öppen källkod och andra Azure-tjänster.
+Data Lake Storage Gen1 är kompatibel med de flesta komponenter med öppen källkod i Hadoop-ekosystemet. Det är även snyggt integrerat med andra Azure-tjänster.  Följ länkarna nedan om du vill veta mer om hur Data Lake Storage Gen1 kan användas både med komponenter med öppen källkod och andra Azure-tjänster.
 
-* Se [Big data program med öppen källkod som fungerar med Azure Data Lake Storage gen1](../data-lake-store/data-lake-store-compatible-oss-other-applications.md) för en lista med program med öppen källkod som samverkar med data Lake Storage gen1.
-* Se [integrera Azure Data Lake Storage gen1 med andra Azure-tjänster](../data-lake-store/data-lake-store-integrate-with-other-services.md) för att förstå hur du använder data Lake Storage gen1 med andra Azure-tjänster för att möjliggöra ett bredare utbud av scenarier.
-* Se [använda Azure Data Lake Storage gen1 för Big data-krav](../data-lake-store/data-lake-store-data-scenarios.md) för att lära dig hur du använder data Lake Storage gen1 i scenarier som att mata in data, bearbeta data, hämta data och visualisera data.
+* Se [Stordataprogram med öppen källkod som fungerar med Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-compatible-oss-other-applications.md) för en lista över program med öppen källkod som samverkar med Data Lake Storage Gen1.
+* Se [Integrera Azure Data Lake Storage Gen1 med andra Azure-tjänster](../data-lake-store/data-lake-store-integrate-with-other-services.md) för att förstå hur du använder Data Lake Storage Gen1 med andra Azure-tjänster för att aktivera ett bredare spektrum av scenarier.
+* Se [Använda Azure Data Lake Storage Gen1 för stordatakrav för](../data-lake-store/data-lake-store-data-scenarios.md) att lära dig hur du använder Data Lake Storage Gen1 i scenarier som att använda data, bearbeta data, hämta data och visualisera data.
 
-## <a name="data-lake-storage-gen1-file-system-adl"></a>Data Lake Storage Gen1 fil system (adl://)
-I Hadoop-miljöer (tillgängliga med ett HDInsight-kluster) kan du komma åt Data Lake Storage Gen1 via det nya fil systemet, AzureDataLakeFilesystem (adl://). Prestanda för program och tjänster som använder adl://kan optimeras på sätt som inte är tillgängliga i WebHDFS. Det innebär att när du använder Data Lake Storage Gen1 får du flexibiliteten att antingen använda den bästa prestandan genom att använda den rekommenderade adl://eller underhålla befintlig kod genom att fortsätta att använda WebHDFS-API: et direkt. Azure HDInsight drar full nytta av AzureDataLakeFilesystem för att ge bästa möjliga prestanda på Data Lake Storage Gen1.
+## <a name="data-lake-storage-gen1-file-system-adl"></a>Data Lake Storage Gen1 filsystem (adl://)
+I Hadoop-miljöer (tillgängligt med ett HDInsight-kluster) kan du komma åt Data Lake Storage Gen1 via det nya filsystemet AzureDataLakeFilesystem (adl://). Prestanda för program och tjänster som använder adl:// kan optimeras på ett sätt som för närvarande inte är tillgängligt i WebHDFS. När du använder Data Lake Storage Gen1 får du därför flexibiliteten att antingen utnyttja bästa prestanda genom att använda den rekommenderade adl:// eller underhålla befintlig kod genom att fortsätta använda WebHDFS API direkt. Azure HDInsight drar full nytta av AzureDataLakeFilesystem för att ge bästa prestanda på Data Lake Storage Gen1.
 
-Få åtkomst till dina data i Data Lake Storage Gen1 med hjälp av följande:
+Få tillgång till dina data i DataSjölagring Gen1 med hjälp av följande:
 
 `adl://<data_lake_storage_gen1_name>.azuredatalakestore.net`
 
-Mer information om hur du kommer åt data i Data Lake Storage Gen1 finns i [åtgärder som är tillgängliga på lagrade data](../data-lake-store/data-lake-store-get-started-portal.md#properties).
+Mer information om hur du kommer åt data i DataSjölagring Gen1 finns i [Åtgärder som är tillgängliga för lagrade data](../data-lake-store/data-lake-store-get-started-portal.md#properties).
 
 
 

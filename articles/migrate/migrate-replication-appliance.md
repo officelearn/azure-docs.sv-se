@@ -1,126 +1,126 @@
 ---
 title: Azure Migrate-replikeringsinstallation
-description: Lär dig mer om Azure Migrate Replication-enhet för agent-baserad VMWare-migrering.
+description: Lär dig mer om Azure Migrate-replikeringsverktyget för agentbaserad VMWare-migrering.
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79245868"
 ---
-# <a name="replication-appliance"></a>Replikeringsfil
+# <a name="replication-appliance"></a>Replikeringsverktyget
 
-Den här artikeln beskriver den replikeringsprincip som används av [Azure Migrate:](migrate-services-overview.md#azure-migrate-server-migration-tool) Migreringsverktyg för server när du migrerar virtuella VMware-datorer, fysiska datorer och privata/offentliga virtuella moln till Azure med hjälp av en agent-baserad migrering. 
+I den här artikeln beskrivs replikeringsverktyget som används av [Azure Migrate: Servermigreringsverktyg](migrate-services-overview.md#azure-migrate-server-migration-tool) när VMware-virtuella datorer migreras, fysiska datorer och privata/offentliga virtuella moln-datorer till Azure, med hjälp av agentbaserad migrering. 
 
 
 ## <a name="overview"></a>Översikt
 
-Replikeringen distribueras när du konfigurerar en agent-baserad migrering av virtuella VMware-datorer eller fysiska servrar. Den distribueras som en enda lokal dator, antingen som en virtuell VMware-dator eller en fysisk server. Den körs:
+Replikeringsverktyget distribueras när du ställer in agentbaserad migrering av virtuella datorer eller fysiska servrar. Den distribueras som en enda lokal dator, antingen som en virtuell virtuell VMware-dator eller en fysisk server. Den körs:
 
-- **Replikeringsfil**: replikeringstjänsten samordnar kommunikationen och hanterar datareplikering för lokala virtuella VMware-datorer och fysiska servrar som replikeras till Azure.
-- **Processerver**: processervern som installeras som standard på serverdatorn och gör följande:
-    - **Gateway för replikering**: den fungerar som en gateway för replikering. Den tar emot replikeringsdata från datorer som har Aktiver ATS för replikering. Det optimerar replikeringsdata med cachelagring, komprimering och kryptering och skickar dem till Azure.
-    - **Agent installations program**: utför en push-installation av mobilitets tjänsten. Tjänsten måste installeras och köras på alla lokala datorer som du vill replikera för migrering.
+- **Replikeringsanordning:** Replikeringsverktyget samordnar kommunikation och hanterar datareplikering, för lokala virtuella datorer med VMware och fysiska servrar som replikeras till Azure.
+- **Processserver:** Processservern, som installeras som standard på replikeringsverktyget, och gör följande:
+    - **Replikeringsgateway:** Den fungerar som en replikeringsgateway. Den tar emot replikeringsdata från datorer som är aktiverade för replikering. Den optimerar replikeringsdata med cachelagring, komprimering och kryptering och skickar den till Azure.
+    - **Agentinstallationsprogrammet**: Utför en push-installation av mobilitetstjänsten. Den här tjänsten måste installeras och köras på varje lokal dator som du vill replikera för migrering.
 
-## <a name="appliance-deployment"></a>Distribution av utrustning
+## <a name="appliance-deployment"></a>Distribution av apparater
 
 **Används för** | **Detaljer**
 --- |  ---
-VM-baserad migrering i VMware | Du hämtar en embryo-mall från Azure Migrate hubben och importerar till vCenter Server för att skapa den virtuella datorn.
-VM-baserad migrering för fysisk dator | Om du inte har en VMware-infrastruktur, eller om du inte kan skapa en virtuell VMware-dator med en ägg-mall, laddar du ned ett installations program från Azure Migrate hubben och kör det för att konfigurera installations programmet för datorn.
+VMware VM-agentbaserad migrering | Du hämtar OVA-mallen från Azure Migrate-hubben och importerar till vCenter Server för att skapa den virtuella installationen.
+Fysisk maskinagentbaserad migrering | Om du inte har en VMware-infrastruktur, eller om du inte kan skapa en virtuell VMware-dator med en OVA-mall, hämtar du en programinstallationsprogram från Azure Migrate-hubben och kör den för att konfigurera installationsdatorn.
 
-## <a name="appliance-requirements"></a>Krav för utrustning
+## <a name="appliance-requirements"></a>Krav på apparater
 
-När du ställer in replikeringen med hjälp av den ägg-mall som finns i Azure Migrate Hub, kör enheten Windows Server 2016 och uppfyller support kraven. Om du konfigurerar replikeringen manuellt på en fysisk server kontrollerar du att den uppfyller kraven.
+När du konfigurerar replikeringsverktyget med hjälp av OVA-mallen som finns i Azure Migrate-hubben kör installationen Windows Server 2016 och uppfyller supportkraven. Om du ställer in replikeringsverktyget manuellt på en fysisk server kontrollerar du att den uppfyller kraven.
 
 **Komponent** | **Krav**
 --- | ---
- | **VMware VM-apparat**
-PowerCLI | [PowerCLI version 6,0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) bör installeras om Replikeringshanteraren körs på en virtuell VMware-dator.
-Typ av nätverkskort | VMXNET3 (om installationen är en virtuell VMware-dator)
- | **Maskin varu inställningar**
+ | **VM-apparat för VMware**
+PowerCLI (på nytt) | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) ska installeras om replikeringsverktyget körs på en virtuell virtuell VMware-dator.
+Typ av nätverkskort | VMXNET3 (om apparaten är en virtuell virtuell VMware-dator)
+ | **Maskinvaruinställningar**
 Processorkärnor | 8
 RAM | 16 GB
-Antal diskar | Tre: OS-disken, cache-disken för processervern och lagrings enheten.
-Ledigt disk utrymme (cache) | 600 GB
-Ledigt disk utrymme (kvarhållning av disk) | 600 GB
-**Program varu inställningar** |
+Antal diskar | Tre: OS-disken, processservercachedisken och kvarhållningsenheten.
+Ledigt diskutrymme (cache) | 600 GB
+Ledigt diskutrymme (kvarhållningsdisk) | 600 GB
+**Inställningar för programvara** |
 Operativsystem | Windows Server 2016 eller Windows Server 2012 R2
-Licens | Enheten levereras med en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar.<br/><br/> Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
+Licens | Installationen levereras med en utvärderingslicens för Windows Server 2016, som gäller i 180 dagar.<br/><br/> Om utvärderingsperioden är nära att löpa ut rekommenderar vi att du hämtar och distribuerar en ny installation, eller att du aktiverar operativsystemets licens för den virtuella datorn för den virtuella datorn för den virtuella datorn.
 Nationella inställningar för operativsystem | Engelska (en-us)
-TLS | TLS 1,2 ska vara aktiverat.
-.NET Framework | .NET Framework 4,6 eller senare bör installeras på datorn (med stark kryptering aktiverat.
-MySQL | MySQL bör installeras på enheten.<br/> MySQL ska installeras. Du kan installera manuellt, eller så kan Site Recovery installera det under installationen av produkten.
-Andra appar | Kör inte andra appar på replikerings enheten.
-Windows Server-roller | Aktivera inte följande roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
-Grup principer | Aktivera inte dessa grup principer: <br> -Förhindra åtkomst till kommando tolken. <br> -Förhindra åtkomst till verktyg för redigering av registret. <br> – Förtroende logik för bifogade filer. <br> – Aktivera skript körning. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Ingen befintlig standard webbplats <br> -Ingen befintlig webbplats/program som lyssnar på port 443 <br>-Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställning
-**Nätverks inställningar** |
+TLS | TLS 1.2 bör aktiveras.
+.NET Framework | .NET Framework 4.6 eller senare bör installeras på datorn (med stark kryptografi aktiverad.
+MySQL | MySQL ska installeras på apparaten.<br/> MySQL bör installeras. Du kan installera manuellt eller site recovery kan installera det under installationen.
+Andra appar | Kör inte andra appar på replikeringsverktyget.
+Windows Server-roller | Aktivera inte dessa roller: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
+Grupprinciper | Aktivera inte dessa grupprinciper: <br> - Förhindra åtkomst till kommandotolken. <br> - Förhindra åtkomst till registerredigeringsverktyg. <br> - Förtroendelogik för bifogade filer. <br> - Aktivera skriptkörning. <br> [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | - Ingen befintlig standardwebbplats <br> - Ingen befintlig webbplats /ansökan lyssna på port 443 <br>- Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Aktivera [FastCGI-inställning](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
+**Nätverksinställningar** |
 IP-adresstyp | Statisk
 Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring)
 Typ av nätverkskort | VMXNET3
 
 ## <a name="mysql-installation"></a>MySQL-installation 
 
-MySQL måste vara installerat på datorn för replikerings enheten. Den kan installeras med någon av dessa metoder.
+MySQL måste installeras på replikeringsapparatens dator. Det kan installeras med en av dessa metoder.
 
 **Metod** | **Detaljer**
 --- | ---
-Ladda ned och installera manuellt | Hämta MySQL-programmet & Placera det i mappen C:\Temp\ASRSetup och installera manuellt.<br/> När du konfigurerar installationen av MySQL visas som redan installerad.
-Utan nedladdning online | Placera programmet MySQL installations program i mappen C:\Temp\ASRSetup. När du installerar installationen och klickar för att ladda ned och installera MySQL använder installations programmet det installations program som du har lagt till.
-Hämta och installera i Azure Migrate | När du installerar installationen och tillfrågas om MySQL väljer du **Ladda ned och installera**.
+Ladda ned och installera manuellt | Ladda ner MySQL-programmet & placera det i mappen C:\Temp\ASRSetup och installera sedan manuellt.<br/> När du ställer in installationen visas MySQL som redan installerat.
+Utan online nedladdning | Placera Programmet MySQL-installationsprogram i mappen C:\Temp\ASRSetup. När du installerar apparaten och klickar för att hämta och installera MySQL används installationsprogrammet som du har lagt till.
+Hämta och installera i Azure Migrate | När du installerar apparaten och uppmanas att ange MySQL väljer du **Hämta och installera**.
 
 ## <a name="url-access"></a>URL-åtkomst
 
-Replication-enheten behöver åtkomst till dessa URL: er.
+Replikeringsverktyget behöver åtkomst till dessa webbadresser.
 
 **URL** | **Detaljer**
 --- | ---
-\*.backup.windowsazure.com | Används för replikerad data överföring och samordning
-\*.store.core.windows.net | Används för replikerad data överföring och samordning
-\*.blob.core.windows.net | Används för att komma åt lagrings kontot som lagrar replikerade data
-\*.hypervrecoverymanager.windowsazure.com | Används för hanterings åtgärder och samordning av replikering
-https:\//management.azure.com | Används för hanterings åtgärder och samordning av replikering
-*.services.visualstudio.com | Används för telemetri (är valfritt)
+\*.backup.windowsazure.com | Används för replikerad dataöverföring och samordning
+\*.store.core.windows.net | Används för replikerad dataöverföring och samordning
+\*.blob.core.windows.net | Används för att komma åt lagringskonto som lagrar replikerade data
+\*.hypervrecoverymanager.windowsazure.com | Används för replikeringshantering och samordning
+https:\//management.azure.com | Används för replikeringshantering och samordning
+*.services.visualstudio.com | Används för telemetri ändamål (Det är valfritt)
 time.nist.gov | Används för att kontrollera tidssynkronisering mellan system och global tid.
 time.windows.com | Används för att kontrollera tidssynkronisering mellan system och global tid.
-https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF-installationen behöver åtkomst till dessa URL: er. De används för åtkomst kontroll och identitets hantering genom Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Slutföra MySQL-nedladdning
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | OVF-installationen behöver åtkomst till dessa webbadresser. De används för åtkomstkontroll och identitetshantering av Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Så här slutför du MySQL-hämtning
 
-## <a name="port-access"></a>Port åtkomst
+## <a name="port-access"></a>Tillträde till port
 
-**Anordningar** | **Anslutning**
+**Enhet** | **Anslutning**
 --- | ---
-Virtuella datorer | Mobilitets tjänsten som körs på virtuella datorer kommunicerar med den lokala replikerings enheten (konfigurations servern) på port HTTPS 443 inkommande, för hantering av replikering.<br/><br/> Virtuella datorer skickar replikeringsdata till processervern (körs på konfigurations serverdatorn) på port HTTPS 9443 inkommande. Den här porten kan ändras.
-Replikeringsfil | Replikeringstjänsten dirigerar replikering med Azure över Port HTTPS 443 utgående.
-Processerver | Processervern tar emot replikeringsdata, optimerar och krypterar den och skickar den till Azure Storage via port 443 utgående.<br/> Som standard körs processervern på replikerings enheten.
+Virtuella datorer | Mobilitetstjänsten som körs på virtuella datorer kommunicerar med den lokala replikeringsverktyget (konfigurationsservern) på inkommande port HTTPS 443 för replikeringshantering.<br/><br/> Virtuella datorer skickar replikeringsdata till processservern (som körs på konfigurationsservermaskinen) på inkommande port HTTPS 9443. Den här porten kan ändras.
+Replikeringsverktyget | Replikeringsverktyget dirigerar replikering med Azure via port HTTPS 443 utgående.
+Bearbeta server | Processservern tar emot replikeringsdata, optimerar och krypterar dem och skickar den till Azure-lagring via utgående port 443.<br/> Som standard körs processservern på replikeringsverktyget.
 
 
 ## <a name="replication-process"></a>Replikeringsprocessen
 
-1. När du aktiverar replikering för en virtuell dator börjar den inledande replikeringen till Azure Storage med den angivna replikeringsprincipen. 
-2. Trafiken replikeras till offentliga slut punkter i Azure Storage via Internet. Det finns inte stöd för att replikera trafik över ett virtuellt privat nätverk (VPN) från plats till plats från en lokal plats till Azure.
-3. När den inledande replikeringen har slutförts börjar delta-replikeringen. Spårade ändringar för en dator loggas.
-4. Kommunikationen sker på följande sätt:
-    - Virtuella datorer kommunicerar med replikerings enheten på port HTTPS 443 inkommande, för hantering av replikering.
-    - Replikeringstjänsten dirigerar replikering med Azure över Port HTTPS 443 utgående.
-    - Virtuella datorer skickar replikeringsdata till processervern (körs på replikerings enheten) på port HTTPS 9443 inkommande. Den här porten kan ändras.
-    - Processervern tar emot replikeringsdata, optimerar och krypterar den och skickar den till Azure Storage via port 443 utgående.
-5. Replikeringsdata loggar första marken i ett cache Storage-konto i Azure. Dessa loggar bearbetas och data lagras på en Azure-hanterad disk.
+1. När du aktiverar replikering för en virtuell dator börjar den första replikeringen till Azure-lagring med den angivna replikeringsprincipen. 
+2. Trafik replikerar till offentliga slutpunkter för Azure-lagring via internet. Det går inte att replikera trafik över ett virtuellt privat nätverk (VPN) från en lokal plats till Azure.
+3. När den första replikeringen är klar börjar deltareplikeringen. Spårade ändringar för en dator loggas.
+4. Kommunikation sker på följande sätt:
+    - Virtuella datorer kommunicerar med replikeringsverktyget på inkommande port HTTPS 443 för replikeringshantering.
+    - Replikeringsverktyget dirigerar replikering med Azure via port HTTPS 443 utgående.
+    - Virtuella datorer skickar replikeringsdata till processservern (som körs på replikeringsverktyget) på inkommande port HTTPS 9443. Den här porten kan ändras.
+    - Processservern tar emot replikeringsdata, optimerar och krypterar dem och skickar den till Azure-lagring via port 443 utgående.
+5. Replikeringsdataloggarna landar först i ett cachelagringskonto i Azure. Dessa loggar bearbetas och data lagras i en Azure-hanterad disk.
 
 ![Arkitektur](./media/migrate-replication-appliance/architecture.png)
 
-## <a name="appliance-upgrades"></a>Installations program
+## <a name="appliance-upgrades"></a>Uppgraderingar av apparater
 
-Enheten uppgraderas manuellt från Azure Migrate Hub. Vi rekommenderar att du alltid kör den senaste versionen.
+Installationen uppgraderas manuellt från Azure Migrate-hubben. Vi rekommenderar att du alltid kör den senaste versionen.
 
-1. I Azure Migrate > servrar > Azure Migrate: Server utvärdering, infrastruktur servrar, klickar du på **konfigurations servrar**.
-2. I **konfigurations servrar**visas en länk i **agent version** när det finns en ny version av Replikerings enheten. 
-3. Ladda ned installations programmet till replikeringstjänsten och installera uppgraderingen. Installations programmet identifierar den version som är aktuell som körs på enheten.
+1. Klicka på **Konfigurationsservrar**i Azure Migrate >-servrar > Azure Migrate: Serverutvärdering, Infrastrukturservrar.
+2. I **Konfigurationsservrar**visas en länk i **Agentversion** när en ny version av replikeringsverktyget är tillgänglig. 
+3. Hämta installationsprogrammet till replikeringsapparatens dator och installera uppgraderingen. Installationsprogrammet känner av den version som körs på apparaten.
  
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig hur](tutorial-migrate-vmware-agent.md#set-up-the-replication-appliance) du konfigurerar replikeringstjänsten för VM-baserad migrering av virtuella VMware-datorer.
-- [Lär dig hur](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) du konfigurerar replikeringstjänsten för fysiska servrar.
+- [Lär dig hur du](tutorial-migrate-vmware-agent.md#set-up-the-replication-appliance) konfigurerar replikeringsverktyget för agentbaserad VMware VM-migrering.
+- [Lär dig hur du](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) konfigurerar replikeringsverktyget för fysiska servrar.

@@ -1,6 +1,6 @@
 ---
-title: Samordna virtuella Windows Azure-datorer
-description: Lär dig mer om hur samplaceringen av Azure VM-resurser kan förbättra svars tiden.
+title: Samlokalisera virtuella windows azure-datorer
+description: Lär dig mer om hur samlokalisering av Azure VM-resurser kan förbättra svarstiden.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2019
 ms.author: zivr
 ms.openlocfilehash: b61a84f2b284177b7443be00efeea65e7eb8aaef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266798"
 ---
-# <a name="co-locate-resource-for-improved-latency"></a>Samplacera resursen för förbättrad svars tid
+# <a name="co-locate-resource-for-improved-latency"></a>Samlokalisera resurs för förbättrad svarstid
 
-När du distribuerar ditt program i Azure skapar spridnings instanser över regioner eller tillgänglighets zoner nätverks fördröjning, vilket kan påverka programmets övergripande prestanda. 
+När du distribuerar ditt program i Azure skapas nätverksfördröjning som påverkar programmets övergripande prestanda när du distribuerar ditt program i Azure. 
 
 
 ## <a name="proximity-placement-groups"></a>Närhetsplaceringsgrupper 
@@ -29,10 +29,10 @@ När du distribuerar ditt program i Azure skapar spridnings instanser över regi
 
 ## <a name="next-steps"></a>Nästa steg
 
-Distribuera en virtuell dator till en [närhets placerings grupp](proximity-placement-groups.md) med hjälp av Azure PowerShell.
+Distribuera en virtuell dator till en [närhetsplaceringsgrupp](proximity-placement-groups.md) med Azure PowerShell.
 
-Lär dig hur du [testar nätverks fördröjningen](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Lär dig hur du [testar nätverksfördröjning](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Lär dig hur du [optimerar nätverks data flödet](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
+Lär dig hur du [optimerar nätverksdataflödet](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 
-Lär dig hur du [använder närhets placerings grupper med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Lär dig hur du [använder närhetsplaceringsgrupper med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

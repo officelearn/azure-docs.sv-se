@@ -1,5 +1,5 @@
 ---
-title: Hantera schema i en app för flera klienter
+title: Hantera schema i en app med flera innehavare
 description: Hantera scheman för flera klienter i ett program för flera klienter som använder Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -12,148 +12,148 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
 ms.openlocfilehash: 6f660426c41b37dd27438c28cbf603bdbf1e58b3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79269203"
 ---
-# <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Hantera schema i ett SaaS-program som använder shardade för flera innehavare av SQL-databaser
+# <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Hantera schema i ett SaaS-program som använder fragmenterade SQL-databaser med flera innehavare
 
-Den här självstudien undersöker utmaningarna med att underhålla en flotta av databaser i ett SaaS-program (program vara som en tjänst). Lösningar visas för Fanning av schema ändringar över flottan av databaser.
+Den här självstudien undersöker utmaningarna med att underhålla en flotta av databaser i ett SaaS-program (Software as a Service). Lösningar demonstreras för att fläkta ut schemaändringar i databasens flotta.
 
-Precis som med alla program utvecklas Wingtip ticks SaaS-appen över tid och kräver ändringar i databasen. Ändringar kan påverka schema-eller referens data eller använda databas underhålls aktiviteter. Med ett SaaS-program som använder en databas per klient mönster måste ändringarna koordineras över en potentiellt enorm flotta av klient databaserna. Dessutom måste du inkludera dessa ändringar i databas etablerings processen för att se till att de ingår i nya databaser när de skapas.
+Precis som alla program kommer Wingtip Tickets SaaS-appen att utvecklas med tiden och kräver ändringar i databasen. Ändringar kan påverka schema- eller referensdata eller använda databasunderhållsuppgifter. Med ett SaaS-program som använder en databas per klientmönster måste ändringar samordnas över en potentiellt massiv flotta av klientdatabaser. Dessutom måste du infoga dessa ändringar i databasetableringsprocessen för att säkerställa att de inkluderas i nya databaser när de skapas.
 
 #### <a name="two-scenarios"></a>Två scenarier
 
-I den här självstudien utforskas följande två scenarier:
-- Distribuera referens data uppdateringar för alla klienter.
-- Återskapa ett index för den tabell som innehåller referens data.
+I den här självstudien beskrivs följande två scenarier:
+- Distribuera referensdatauppdateringar för alla klienter.
+- Återskapa ett index i tabellen som innehåller referensdata.
 
-Funktionen [elastiska jobb](elastic-jobs-overview.md) i Azure SQL Database används för att utföra dessa åtgärder över klient databaser. Jobben körs också på klient databasen ' Template '. I exempel appen Wingtip biljetter kopieras den här mallfilen för att etablera en ny klient databas.
+Funktionen [Elastiska jobb i](elastic-jobs-overview.md) Azure SQL Database används för att köra dessa åtgärder över klientdatabaser. Jobben fungerar också på klientdatabasen "mall". I exempelappen Wingtip Tickets kopieras den här malldatabasen för att etablera en ny klientdatabas.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
-> * Skapa en jobb agent.
-> * Kör en T-SQL-fråga på flera klient databaser.
-> * Uppdatera referens data i alla klient databaser.
-> * Skapa ett index i en tabell i alla klient databaser.
+> * Skapa en jobbagent.
+> * Kör en T-SQL-fråga på flera klientdatabaser.
+> * Uppdatera referensdata i alla klientdatabaser.
+> * Skapa ett index i en tabell i alla klientdatabaser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Wingtip Ticket-appen för flera klient organisationer måste redan vara distribuerad:
-    - Mer information finns i den första självstudien som presenterar Wingtip-biljetterna SaaS för flera klient organisationer:<br />[Distribuera och utforska ett shardade-program för flera innehavare som använder Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
-        - Distributions processen körs i mindre än fem minuter.
-    - Du måste ha *shardade multi-Tenant-* versionen av Wingtip installerat. Versionerna för *fristående* och *databas per klient* har inte stöd för den här självstudien.
+- Databasappen Wingtip Tickets med flera innehavare måste redan distribueras:
+    - Instruktioner finns i den första självstudien, som introducerar Wingtip Tickets SaaS databasapp för flera innehavare:<br />[Distribuera och utforska ett fragmenterat program för flera innehavare som använder Azure SQL Database](saas-multitenantdb-get-started-deploy.md).
+        - Distributionsprocessen körs i mindre än fem minuter.
+    - Du måste ha den *fragmenterade multi-tenant-versionen* av Wingtip installerad. Versionerna för *fristående* och *databas per klient stöder* inte den här självstudien.
 
-- Den senaste versionen av SQL Server Management Studio (SSMS) måste vara installerad. [Hämta och installera SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+- Den senaste versionen av SQL Server Management Studio (SSMS) måste installeras. [Ladda ner och installera SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-- Azure PowerShell måste vara installerat. Mer information finns i [komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+- Azure PowerShell måste installeras. Mer information finns i [Komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> I den här självstudien används funktioner i Azure SQL Databases tjänsten som är i en begränsad förhands granskning ([Elastic Database-jobb](sql-database-elastic-database-client-library.md)). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till *SaaSFeedback\@Microsoft.com* med subject = för hands version av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad, så kontakta *SaaSFeedback\@Microsoft.com* för relaterade frågor eller support.
+> Den här självstudien använder funktioner i Azure SQL Database-tjänsten som finns i en begränsad förhandsversion ([Elastiska databasjobb](sql-database-elastic-database-client-library.md)). Om du vill göra den här självstudien anger du ditt prenumerations-ID till *\@SaaSFeedback microsoft.com* med subject=Elastic Jobs Preview. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här förhandsversionen är begränsad, så kontakta *\@SaaSFeedback microsoft.com* för relaterade frågor eller support.
 
-## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till SaaS schema hanterings mönster
+## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till Mönster för hantering av SaaS-schema
 
-Shardade-modellen för flera klient organisationer som används i det här exemplet gör det möjligt för en klient databas att innehålla en eller flera klienter. Det här exemplet utforskar potentialen att använda en blandning av en många-klient och en-klient databas, vilket möjliggör en hanterings modell för *hybrid* klienter. Det kan vara svårt att hantera ändringar i dessa databaser. [Elastiska jobb](elastic-jobs-overview.md) underlättar administration och hantering av stora mängder databaser. Med jobb kan du på ett säkert och tillförlitligt sätt köra Transact-SQL-skript som uppgifter, mot en grupp klient databaser. Aktiviteterna är oberoende av användar interaktion eller indata. Den här metoden kan användas för att distribuera ändringar i schemat eller vanliga referens data för alla klienter i ett program. Elastiska jobb kan också användas för att underhålla en mal kopia av databasen. Mallen används för att skapa nya klienter, och säkerställer alltid att det senaste schemat och referens data används.
+Den fragmenterade databasmodellen för flera innehavare som används i det här exemplet gör att en klientdatabas kan innehålla en eller flera klienter. Det här exemplet utforskar möjligheten att använda en blandning av en databas *hybrid* med många innehavare och en klient, vilket möjliggör en hybridklienthanteringsmodell. Det kan vara komplicerat att hantera ändringar i dessa databaser. [Elastiska jobb](elastic-jobs-overview.md) underlättar administration och hantering av ett stort antal databaser. Med jobb kan du säkert och tillförlitligt köra Transact-SQL-skript som uppgifter, mot en grupp klientdatabaser. Uppgifterna är oberoende av användarinteraktion eller indata. Den här metoden kan användas för att distribuera ändringar i schemat eller till vanliga referensdata, för alla klienter i ett program. Elastiska jobb kan också användas för att underhålla en gyllene mallkopia av databasen. Mallen används för att skapa nya klienter, alltid se till att det senaste schemat och referensdata används.
 
 ![skärmen](media/saas-multitenantdb-schema-management/schema-management.png)
 
 ## <a name="elastic-jobs-limited-preview"></a>Elastiska jobb begränsad förhandsvisning
 
-Det finns en ny version av elastiska jobb som nu är en integrerad funktion i Azure SQL Database. Den här nya versionen av elastiska jobb är för närvarande i begränsad förhandsvisning. Den begränsade för hands versionen stöder för närvarande användning av PowerShell för att skapa en jobb agent och T-SQL för att skapa och hantera jobb.
+Det finns en ny version av elastiska jobb som nu är en integrerad funktion i Azure SQL Database. Den här nya versionen av elastiska jobb är för närvarande i begränsad förhandsvisning. Den begränsade förhandsversionen stöder för närvarande att använda PowerShell för att skapa en jobbagent och T-SQL för att skapa och hantera jobb.
 > [!NOTE]
-> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID för att SaaSFeedback@microsoft.com med ämnet = för hands version av elastiska jobb När du har fått en bekräftelse på att din prenumeration har Aktiver ATS laddar du ned och installerar de senaste cmdletarna för för hands versions jobb. Den här för hands versionen är begränsad, så kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.
+> Den här guiden använder funktioner för SQL Database-tjänsten som är i en begränsad förhandsgranskning (Elastic Database-jobb). Om du vill göra den här självstudien, ge ditt prenumerations-ID till SaaSFeedback@microsoft.com subject=Elastic Jobs Preview. När du fått en bekräftelse att din prenumeration har aktiverats kan du, ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna. Den här förhandsversionen SaaSFeedback@microsoft.com är begränsad, så kontakta för relaterade frågor eller support.
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta Wingtip-biljetterna SaaS källkod och skript för databas program för flera innehavare
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Hämta källkoden och skripten för Wingtip-biljetterna SaaS Multi-tenant Database
 
-Wingtip-biljetterna SaaS databas skript för flera innehavare och program käll kod är tillgängliga i [WingtipTicketsSaaS-MultitenantDB-](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) lagringsplatsen på GitHub. Se den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ned och avblockera Wingtip Ticket SaaS-skript.
+Wingtip-biljetterna SaaS Databasskript för flera innehavare och programkällkod finns i [WingtipTicketsSSaaS-MultitenantDB-databasen](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) på GitHub. Se den [allmänna vägledningen](saas-tenancy-wingtip-app-guidance-tips.md) för steg för att ladda ner och låsa upp Wingtip Tickets SaaS-skript.
 
-## <a name="create-a-job-agent-database-and-new-job-agent"></a>Skapa en jobb agent databas och en ny jobb agent
+## <a name="create-a-job-agent-database-and-new-job-agent"></a>Skapa en jobbagentdatabas och ny jobbagent
 
-I den här självstudien krävs att du använder PowerShell för att skapa jobb Agent databasen och jobb agenten. Precis som MSDB-databasen som används av SQL Agent använder en jobb agent en Azure SQL-databas för att lagra jobb definitioner, jobb status och historik. När jobb agenten har skapats kan du skapa och övervaka jobb direkt.
+Den här självstudien kräver att du använder PowerShell för att skapa jobbagentdatabasen och jobbagenten. Precis som MSDB-databasen som används av SQL Agent använder en jobbagent en Azure SQL-databas för att lagra jobbdefinitioner, jobbstatus och historik. När jobbagenten har skapats kan du skapa och övervaka jobb direkt.
 
-1. I **POWERSHELL ISE**öppnar du *...\\Learning-moduler\\schema hantering\\schemamanagement. ps1*.
+1. I **PowerShell ISE**, öppna *... Utbildningsmoduler\\\\Schemahantering Demo-SchemaManagement.ps1 . \\*
 2. Tryck **F5** för att köra skriptet.
 
-Skriptet *schemamanagement. ps1* anropar skriptet *Deploy-SchemaManagement. ps1* för att skapa en databas med namnet _JobAgent_ på katalog servern. Skriptet skapar sedan jobb agenten och skickar _JobAgent_ -databasen som en parameter.
+*Skriptet Demo-SchemaManagement.ps1* anropar skriptet *Deploy-SchemaManagement.ps1* för att skapa en databas med namnet _jobagent_ på katalogservern. Skriptet skapar sedan jobbagenten och skickar _jobagentdatabasen_ som en parameter.
 
 ## <a name="create-a-job-to-deploy-new-reference-data-to-all-tenants"></a>Skapa ett jobb för att distribuera nya referensdata till alla klienter
 
 #### <a name="prepare"></a>Förbereda
 
-Varje innehavares databas innehåller en uppsättning plats typer i **VenueTypes** -tabellen. Varje platstyp definierar typ av händelser som kan finnas på en plats. Dessa typer av platser motsvarar de bakgrunds bilder som visas i appen klient organisations händelser.  I den här övningen distribuerar du en uppdatering till alla databaser för att lägga till två ytterligare plats typer: *motorcykel tävling* och *SIM-klubb*.
+Varje klientdatabas innehåller en uppsättning platstyper i tabellen **VenueTypes.** Varje platstyp definierar vilken typ av händelser som kan vara värd på en plats. Dessa platstyper motsvarar bakgrundsbilderna som visas i appen för klienthändelser.  I den här övningen distribuerar du en uppdatering till alla databaser för att lägga till ytterligare två platstyper: *Motorcycle Racing* och *Swimming Club*.
 
-Börja med att granska de plats typer som ingår i varje klient databas. Anslut till en av klient databaserna i SQL Server Management Studio (SSMS) och granska VenueTypes-tabellen.  Du kan också fråga den här tabellen i Frågeredigeraren i Azure Portal, som öppnas från databas sidan.
+Granska först de platstyper som ingår i varje klientdatabas. Anslut till en av klientdatabaserna i SQL Server Management Studio (SSMS) och kontrollera tabellen VenueTypes.  Du kan också fråga den här tabellen i Frågeredigeraren i Azure-portalen, som nås från databassidan.
 
-1. Öppna SSMS och Anslut till klient servern: *tenants1-DPT-&lt;user&gt;. Database.Windows.net*
-1. För att bekräfta att *motorcykelns racing* -och *SIM-klubb* **inte** ingår för närvarande, bläddrar du till *contosoconcerthall* -databasen på *tenants1-DPT-&lt;User&gt;-* servern och frågar *VenueTypes* -tabellen.
+1. Öppna SSMS och anslut till klientservern: *tenants1-dpt-&lt;&gt;användare .database.windows.net*
+1. För att bekräfta att *Motorcycle Racing* och *Swimming Club* för närvarande inte **ingår** bläddrar du till *contosoconcerthall-databasen* på *klienterna1-dpt-användarservern&lt;&gt; * och frågar tabellen *VenueTypes.*
 
 
 
 #### <a name="steps"></a>Steg
 
-Nu skapar du ett jobb för att uppdatera **VenueTypes** -tabellen i varje klient databas genom att lägga till de två nya plats typerna.
+Nu kan du skapa ett jobb för att uppdatera **tabellen VenueTypes** i varje klientdatabas genom att lägga till de två nya platstyperna.
 
-Om du vill skapa ett nytt jobb använder du uppsättningen med jobb system lagrade procedurer som skapades i _JobAgent_ -databasen. De lagrade procedurerna skapades när jobb agenten skapades.
+Om du vill skapa ett nytt jobb använder du den uppsättning jobbsystem som lagrats i _jobbagentdatabasen._ De lagrade procedurerna skapades när jobbagenten skapades.
 
-1. I SSMS ansluter du till klient servern: tenants1-MT-&lt;User&gt;. database.windows.net
+1. I SSMS ansluter du till klientservern:&lt;tenants1-mt- användare&gt;.database.windows.net
 
-2. Bläddra till *tenants1* -databasen.
+2. Bläddra till *databasen tenants1.*
 
-3. Fråga *VenueTypes* -tabellen för att bekräfta att *motorcykelns racing* -och *SIM-klubb* ännu inte finns i resultat listan.
+3. Fråga tabellen *VenueTypes* för att bekräfta att *Motorcycle Racing* och *Swimming Club* ännu inte finns med i resultatlistan.
 
-4. Anslut till katalog servern, som är *katalog-MT-&lt;user&gt;. Database.Windows.net*.
+4. Anslut till katalogservern, som är *katalog-mt-&lt;&gt;användare .database.windows.net*.
 
-5. Anslut till _JobAgent_ -databasen på katalog servern.
+5. Anslut till _jobagentdatabasen_ i katalogservern.
 
-6. I SSMS öppnar du filen *...\\Learning-moduler\\schema hantering\\DeployReferenceData. SQL*.
+6. I SSMS, öppna filen *... Utbildningsmoduler\\\\Schemahantering DeployReferenceData.sql . \\*
 
-7. Ändra instruktionen: Ange @User = &lt;användar&gt; och Ersätt det användar värde som användes när du distribuerade Wingtip-biljetterna SaaS-databasen för flera klient organisationer.
+7. Ändra uttrycket: @User &lt;ange&gt; = användare och ersätt det användarvärde som användes när du distribuerade Wingtip Tickets SaaS Multi-tenant Database-programmet.
 
 8. Tryck **F5** för att köra skriptet.
 
-#### <a name="observe"></a>Närmare
+#### <a name="observe"></a>Observera
 
-Observera följande objekt i *DeployReferenceData. SQL* -skriptet:
+Observera följande objekt i *skriptet DeployReferenceData.sql:*
 
-- **sp\_Lägg till\_mål\_grupp** skapar mål grupp namnet *DemoServerGroup*och lägger till mål medlemmar i gruppen.
+- **sp\_\_lägga\_till målgrupp** skapar målgruppsnamnet *DemoServerGroup*och lägger till målmedlemmar i gruppen.
 
-- **sp\_Lägg till\_mål\_grupp\_medlem** lägger till följande objekt:
-    - En medlems typ för *Server* mål.
-        - Det här är den *tenants1-MT-&lt;användar&gt;-* server som innehåller klient databaserna.
-        - Inklusive-servern omfattar de klient databaser som finns när jobbet körs.
-    - En medlems typ av *databas* mål för den mall databas (*basetenantdb*) som finns i *katalogen – MT-&lt;användar&gt;* Server,
-    - En medlems typ av *databas* mål som innehåller *AdHocReporting* -databasen som används i en senare själv studie kurs.
+- **sp\_\_lägga\_\_till målgruppsmedlem** lägger till följande objekt:
+    - En medlemstyp för *servermål.*
+        - Det här är *&lt;&gt; klienten1-mt-användarservern* som innehåller klientdatabaserna.
+        - Inklusive servern innehåller klientdatabaser som finns vid den tidpunkt då jobbet körs.
+    - En *database* databasmålmedlemstyp för malldatabasen (*basetenantdb*) som finns på *katalog-mt-&lt;&gt; användarserver,*
+    - En *database* databasmålmedlemstyp som ska inkludera databasen *adhocreporting* som används i en senare självstudiekurs.
 
-- **sp\_Lägg till\_jobb** skapar ett jobb med namnet *referens data distribution*.
+- **sp\_\_lägga till jobb** skapar ett jobb som kallas *Reference Data Deployment*.
 
-- **sp\_Lägg till\_Jobstep** skapar jobb steget som innehåller t-SQL-kommando texten för att uppdatera referens tabellen, VenueTypes.
+- **sp\_\_lägga jobstep** skapar jobbsteget som innehåller T-SQL kommandotext för att uppdatera referenstabellen VenueTypes.
 
-- De återstående vyerna i skriptet visar att jobbet finns och övervakar jobbkörningen. Använd de här frågorna för att granska status värdet i kolumnen **livs cykel** för att fastställa när jobbet har avslut ATS. Jobbet uppdaterar klient databasen och uppdaterar de två ytterligare databaser som innehåller referens tabellen.
+- De återstående vyerna i skriptet visar att jobbet finns och övervakar jobbkörningen. Använd dessa frågor för att granska statusvärdet i **livscykelkolumnen** för att avgöra när jobbet är klart. Jobbet uppdaterar klientdatabasen och uppdaterar de två ytterligare databaser som innehåller referenstabellen.
 
-I SSMS bläddrar du till klient databasen på *tenants1-MT-&lt;user&gt;-* servern. Fråga *VenueTypes* -tabellen för att bekräfta att *motorcykelns racing* och *SIM-klubb* nu läggs till i tabellen. Det totala antalet typer av platser bör ha ökat med två.
+I SSMS bläddrar du till klientdatabasen på *&lt;&gt; klienten1-mt-användarservern.* Fråga tabellen *VenueTypes* för att bekräfta att *Motorcycle Racing* och *Swimming Club* nu läggs till i tabellen. Det totala antalet platstyper borde ha ökat med två.
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Skapa ett jobb för att hantera referenstabellindexet
 
-Den här övningen skapar ett jobb för att återskapa indexet för primär nyckeln för referens tabellen på alla klient databaser. En index återskapning är en typisk databas hanterings åtgärd som en administratör kan köra efter att ha läst in en stor mängd data belastning för att förbättra prestandan.
+Den här övningen skapar ett jobb för att återskapa indexet på referenstabellens primärnyckel på alla klientdatabaser. En indexrekläggning är en typisk databashanteringsåtgärd som en administratör kan köra efter att ha läst in en stor mängd datainläsning för att förbättra prestanda.
 
-1. I SSMS ansluter du till _JobAgent_ Database i *katalogen – MT-&lt;User&gt;. Database.Windows.net* Server.
+1. I SSMS ansluter du till _jobagentdatabasen_ i *katalog-mt-&lt;Användare&gt;.database.windows.net-server.*
 
-2. I SSMS öppnar du *...\\Learning-moduler\\schema hantering\\OnlineReindex. SQL*.
+2. I SSMS, öppna *... Utbildningsmoduler\\\\Schemahantering OnlineReindex.sql . \\*
 
 3. Tryck **F5** för att köra skriptet.
 
-#### <a name="observe"></a>Närmare
+#### <a name="observe"></a>Observera
 
-Observera följande objekt i *OnlineReindex. SQL* -skriptet:
+Observera följande objekt i *onlinereindex.sql-skriptet:*
 
-* **sp\_Lägg till\_jobb** skapar ett nytt jobb med namnet *online reindexe PK\_\_VENUETYP\_\_265E44FD7FD4C885*.
+* **sp\_\_lägga jobb** skapar ett nytt jobb som heter *Online Reindex PK\_\_\_\_VenueTyp 265E44FD7FD4C885*.
 
-* **sp\_Lägg till\_Jobstep** skapar det jobb steg som innehåller t-SQL-kommando texten för att uppdatera indexet.
+* **sp\_\_lägga jobstep** skapar jobbsteget som innehåller T-SQL kommandotext för att uppdatera indexet.
 
-* Återstående vyer i skript övervaknings jobb körningen. Använd de här frågorna för att granska status värdet i kolumnen **livs cykel** för att fastställa när jobbet har slutförts på alla mål grupps medlemmar.
+* De återstående vyerna i skriptövervakar jobbkörningen. Använd dessa frågor för att granska statusvärdet i **livscykelkolumnen** för att avgöra när jobbet har slutförts på alla målgruppsmedlemmar.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
@@ -164,12 +164,12 @@ Observera följande objekt i *OnlineReindex. SQL* -skriptet:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden lärde du dig hur man:
+I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Skapa en jobb agent för att köra T-SQL-jobb över flera databaser
-> * Uppdatera referens data i alla klient databaser
+> * Skapa en jobbagent för att köra T-SQL-jobb i flera databaser
+> * Uppdatera referensdata i alla klientdatabaser
 > * Skapar ett index i en tabell i alla klientdatabaser
 
-Prova sedan [själv studie kursen om ad hoc-rapportering](saas-multitenantdb-adhoc-reporting.md) för att utforska köra distribuerade frågor över klient databaser.
+Försök sedan med [ad hoc-rapporteringsstudien](saas-multitenantdb-adhoc-reporting.md) för att utforska löpande distribuerade frågor över klientdatabaser.
 

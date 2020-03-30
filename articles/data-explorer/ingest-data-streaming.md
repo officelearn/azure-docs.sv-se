@@ -1,6 +1,6 @@
 ---
-title: Använd strömning för strömning för att mata in data i Azure Datautforskaren
-description: Läs om hur du matar in data i Azure Datautforskaren att använda strömning.
+title: Använda direktuppspelning för att använda data i Azure Data Explorer
+description: Lär dig mer om hur du intänder (läser in) data i Azure Data Explorer med hjälp av direktuppspelning.
 author: orspod
 ms.author: orspodek
 ms.reviewer: tzgitlin
@@ -8,77 +8,77 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.openlocfilehash: d7d2bcf487c37fbb523b648d5aa4c572add5dfa9
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79297092"
 ---
-# <a name="streaming-ingestion-preview"></a>Strömnings inmatning (för hands version)
+# <a name="streaming-ingestion-preview"></a>Inmatning av direktuppspelning (förhandsgranskning)
 
-Använd strömnings inmatning när du behöver låg latens med en inmatnings tid på mindre än 10 sekunder för varierande volym data. Den används för att optimera drift bearbetningen av många tabeller, i en eller flera databaser, där data strömmen i varje tabell är relativt liten (några poster per sekund), men den totala data inmatnings volymen är hög (tusentals poster per sekund). 
+Använd direktuppspelningsinmatning när du behöver låg latens med en inmatningstid på mindre än 10 sekunder för olika volymdata. Den används för att optimera den operativa bearbetningen av många tabeller, i en eller flera databaser, där dataflödet i varje tabell är relativt liten (få poster per sekund) men den totala datainmatningsvolymen är hög (tusentals poster per sekund). 
 
-Använd Mass inmatning i stället för strömnings inmatning när mängden data växer till mer än 1 MB per sekund per tabell. Läs [Översikt över data inmatning](/azure/data-explorer/ingest-data-overview) för att lära dig mer om de olika metoderna för inmatning.
+Använd massinmatning i stället för direktuppspelning när mängden data växer till mer än 1 MB per sekund per tabell. Läs [översikt över datainmatning](/azure/data-explorer/ingest-data-overview) om du vill veta mer om de olika metoderna för intag.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
-* Logga in på [webb gränssnittet](https://dataexplorer.azure.com/).
-* Skapa [ett Azure datautforskaren-kluster och-databas](create-cluster-database-portal.md)
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Logga in på [webbgränssnittet](https://dataexplorer.azure.com/).
+* Skapa [ett Azure Data Explorer-kluster och -databas](create-cluster-database-portal.md)
 
-## <a name="enable-streaming-ingestion-on-your-cluster"></a>Aktivera strömnings inmatning i klustret
+## <a name="enable-streaming-ingestion-on-your-cluster"></a>Aktivera direktuppspelning i klustret
 
 > [!WARNING]
-> Granska [begränsningarna](#limitations) innan du aktiverar inmatningen av ånga.
+> Läs igenom [begränsningarna](#limitations) innan du aktiverar ångintag.
 
-1. I Azure Portal går du till ditt Azure Datautforskaren-kluster. I **Inställningar**väljer du **konfigurationer**. 
-1. I fönstret **konfigurationer** väljer du **på** för att aktivera **strömnings**inmatning.
+1. Gå till Azure Data Explorer-klustret i Azure-portalen. Välj **Konfigurationer**i **Inställningar**. 
+1. Välj **På** i fönstret **Konfigurationer** om du vill aktivera **inmatning av direktuppspelning**.
 1. Välj **Spara**.
  
-    ![strömnings inmatning på](media/ingest-data-streaming/streaming-ingestion-on.png)
+    ![intag av strömning på](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. I [webb gränssnittet](https://dataexplorer.azure.com/)definierar du en [princip för strömnings](/azure/kusto/management/streamingingestionpolicy) inmatning för tabeller eller databaser som tar emot strömmande data. 
+1. I [webbgränssnittet](https://dataexplorer.azure.com/)definierar du [principen för direktinmatning i](/azure/kusto/management/streamingingestionpolicy) tabeller eller databaser som tar emot strömmande data. 
 
     > [!NOTE]
-    > * Om principen definieras på databas nivå aktive ras alla tabeller i databasen för strömnings inmatning.
-    > * Den tillämpade principen kan endast referera till nyligen inmatade data och inte andra tabeller i databasen.
+    > * Om principen har definierats på databasnivå aktiveras alla tabeller i databasen för direktuppspelning.
+    > * Den tillämpade principen kan endast referera till nyligen intjesterade data och inte andra tabeller i databasen.
 
-## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Använd strömning för strömning för att mata in data till klustret
+## <a name="use-streaming-ingestion-to-ingest-data-to-your-cluster"></a>Använda direktuppspelning för att få tillgång till data i klustret
 
-Det finns två typer av streaming-inmatningar som stöds:
+Det finns två typer av direktuppspelningsintag:
 
 
-* [**Händelsehubben**](/azure/data-explorer/ingest-data-event-hub), som används som en data Källa
-* För **anpassad** inmatning måste du skriva ett program som använder en av Azure datautforskaren-klient biblioteken. Se [exempel på strömnings insamling](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) för ett exempel program.
+* [**Event Hub**](/azure/data-explorer/ingest-data-event-hub), som används som datakälla
+* **Med anpassat inmatningsär** duskriva ett program som använder ett av Azure Data Explorer-klientbiblioteken. Se [exempel på direktströmsintag](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) för ett exempelprogram.
 
-### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Välj lämplig typ av strömnings inmatning
+### <a name="choose-the-appropriate-streaming-ingestion-type"></a>Välj lämplig direktuppspelningsmatningstyp
 
-|   |Händelsehubb  |Anpassad inmatning  |
+|   |Händelsehubb  |Anpassat inmatningsintag  |
 |---------|---------|---------|
-|Data fördröjning mellan inmatnings initiering och data som är tillgängliga för fråga   |    längre fördröjning     |   kortare fördröjning      |
-|Utvecklings kostnader    |   snabb och enkel installation, inga utvecklings kostnader    |   hög utvecklings kostnader för program för att hantera fel och säkerställa data konsekvens     |
+|Datafördröjning mellan inmatningsinitiering och tillgängliga data för fråga   |    Längre fördröjning     |   Kortare fördröjning      |
+|Utveckling omkostnader    |   Snabb och enkel installation, ingen utveckling overhead    |   Höga utvecklingskostnader för program för att hantera fel och säkerställa datakonsekvens     |
 
-## <a name="disable-streaming-ingestion-on-your-cluster"></a>Inaktivera strömnings inmatning i klustret
+## <a name="disable-streaming-ingestion-on-your-cluster"></a>Inaktivera direktuppspelning i klustret
 
 > [!WARNING]
-> Det kan ta några timmar att inaktivera strömnings inmatning.
+> Det kan ta några timmar att inaktivera intag av direktuppspelning.
 
-1. Ta bort [princip för strömnings](/azure/kusto/management/streamingingestionpolicy) inmatning från alla relevanta tabeller och databaser. Borttagnings principen för strömning utlöser strömmande inmatnings data från den första lagringen till den permanenta lagringen i kolumn lagringen (omfattningar eller Shards). Data flytten kan gå mellan några sekunder till några timmar, beroende på mängden data i den första lagringen och hur CPU och minne används av klustret.
-1. I Azure Portal går du till ditt Azure Datautforskaren-kluster. I **Inställningar**väljer du **konfigurationer**. 
-1. I fönstret **konfigurationer** väljer du **av** för att inaktivera **strömnings**inmatning.
+1. Släpp [direktuppspelningsbematningsprincipen](/azure/kusto/management/streamingingestionpolicy) från alla relevanta tabeller och databaser. Borttagning av borttagning av borttagning av borttagning av direktuppspelning utlöser dataförflyttning av strömmande inmatning från den ursprungliga lagringen till permanent lagring i kolumnarkivet (omfattningar eller shards). Dataförflyttningen kan pågå mellan några sekunder till några timmar, beroende på mängden data i den ursprungliga lagringen och hur processorn och minnet används av klustret.
+1. Gå till Azure Data Explorer-klustret i Azure-portalen. Välj **Konfigurationer**i **Inställningar**. 
+1. I fönstret **Konfigurationer** väljer du **Av** för att inaktivera **inmatning av direktuppspelning**.
 1. Välj **Spara**.
 
-    ![Strömnings inmatning av](media/ingest-data-streaming/streaming-ingestion-off.png)
+    ![Inmatning av strömning](media/ingest-data-streaming/streaming-ingestion-off.png)
 
 ## <a name="limitations"></a>Begränsningar
 
-* Strömnings inmatning stöder inte [databas markörer](/azure/kusto/management/databasecursor) eller [data mappning](/azure/kusto/management/mappings). Det finns endast stöd för data mappning som [skapats i förväg](/azure/kusto/management/create-ingestion-mapping-command) . 
-* Strömnings kapacitet och kapacitets skalning med ökad storlek på virtuella datorer och kluster. Samtidiga inmatningar är begränsade till sex inmatningar per kärna. För till exempel 16 core-SKU: er, till exempel D14 och L16, är den maximala belastningen som stöds 96 samtidiga inmatningar. För två kärn SKU: er, till exempel D11, är den maximala belastningen 12 samtidiga inmatningar.
-* Data storleks begränsningen per inmatnings förfrågan är 4 MB.
-* Schema uppdateringar, till exempel skapande och ändring av tabeller och inmatnings mappningar, kan ta upp till fem minuter för strömnings tjänsten.
-* Att aktivera strömnings inmatning i ett kluster, även när data inte matas in via direkt uppspelning, använder en del av den lokala SSD-disken på kluster datorerna för strömnings inmatnings data och minskar lagrings utrymmet som är tillgängliga för varmt cacheminne.
-* Det går inte att ange [omfattnings etiketter](/azure/kusto/management/extents-overview#extent-tagging) för strömnings inmatnings data.
+* Inmatning av direktuppspelning stöder inte [databasmarkörer](/azure/kusto/management/databasecursor) eller [datamappning](/azure/kusto/management/mappings). Endast [förskapad](/azure/kusto/management/create-ingestion-mapping-command) datamappning stöds. 
+* Strömningsinmatningsprestanda och kapacitetsskalor med ökad virtuell dator och klusterstorlekar. Samtidiga intag är begränsade till sex intag per kärna. För 16 kärnsenheter, till exempel D14 och L16, är den maximala belastningen som stöds 96 samtidiga intag. För två kärnsenheter, till exempel D11, är den maximala belastningen som stöds 12 samtidiga intag.
+* Datastorleksbegränsningen per inmatningsbegäran är 4 MB.
+* Schemauppdateringar, till exempel skapande och ändring av tabeller och inmatningsmappningar, kan ta upp till fem minuter för tjänsten för direktuppspelningsintag.
+* Aktivera direktuppspelningsinmatning i ett kluster, även när data inte används via direktuppspelning, använder en del av den lokala SSD-disken på klusterdatorerna för strömmande inmatningsdata och minskar den tillgängliga lagringen för frekvent cachelagring.
+* [Utsträckningtaggar](/azure/kusto/management/extents-overview#extent-tagging) kan inte ställas in på data för direktuppspelningsinmatning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Fråga efter data i Azure Datautforskaren](web-query-data.md)
+* [Fråga efter data i Azure Data Explorer](web-query-data.md)

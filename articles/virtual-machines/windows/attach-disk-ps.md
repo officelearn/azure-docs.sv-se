@@ -1,6 +1,6 @@
 ---
-title: Koppla en datadisk till en virtuell Windows-dator i Azure med hjälp av PowerShell
-description: Så här ansluter du en ny eller befintlig datadisk till en virtuell Windows-dator med hjälp av PowerShell med distributions modellen för Resource Manager.
+title: Koppla en datadisk till en Windows VM i Azure med powershell
+description: Bifoga en ny eller befintlig datadisk till en Windows VM med PowerShell med Resurshanterarens distributionsmodell.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
@@ -8,26 +8,26 @@ ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: ce995a84d2290845e83416caf9c8b0004242eed4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267760"
 ---
-# <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Koppla en datadisk till en virtuell Windows-dator med PowerShell
+# <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Koppla en datadisk till en Windows VM med PowerShell
 
 Den här artikeln visar hur du ansluter både nya och befintliga diskar till en virtuell Windows-dator med hjälp av PowerShell. 
 
-Börja med att gå igenom följande tips:
+Först, granska dessa tips:
 
-* Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Om du vill använda Premium-SSD behöver du en [Premium Storage-aktiverad VM-typ](sizes-memory.md), t. ex. den virtuella datorn DS-serien eller GS-serien.
+* Storleken på den virtuella datorn styr hur många datadiskar du kan koppla. Mer information finns i [Storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Om du vill använda premium-SSD-enheter behöver du en [premiumlagringsaktiverad vm-typ,](sizes-memory.md)till exempel den virtuella datorn i DS-serien eller GS-serien.
 
-Den här artikeln använder PowerShell i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
+Den här artikeln använder PowerShell i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som ständigt uppdateras till den senaste versionen. Om du vill öppna Cloud Shell väljer du **Prova det** överst i alla kodblock.
 
-## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Lägg till en tom datadisk till en virtuell dator
+## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Lägga till en tom datadisk på en virtuell dator
 
-Det här exemplet visar hur du lägger till en tom datadisk till en befintlig virtuell dator.
+I det här exemplet visas hur du lägger till en tom datadisk på en befintlig virtuell dator.
 
 ### <a name="using-managed-disks"></a>Använda hanterade diskar
 
@@ -47,9 +47,9 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $dataDiskName -CreateOption Attach -Managed
 Update-AzVM -VM $vm -ResourceGroupName $rgName
 ```
 
-### <a name="using-managed-disks-in-an-availability-zone"></a>Använda hanterade diskar i en tillgänglighets zon
+### <a name="using-managed-disks-in-an-availability-zone"></a>Använda hanterade diskar i en tillgänglighetszon
 
-Om du vill skapa en disk i en tillgänglighets zon använder du [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) med parametern `-Zone`. I följande exempel skapas en disk i zon *1*.
+Om du vill skapa en disk i en tillgänglighetszon `-Zone` använder du [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) med parametern. I följande exempel skapas en disk i zon *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'
@@ -69,7 +69,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="initialize-the-disk"></a>Initiera disken
 
-När du har lagt till en tom disk måste du initiera den. För att initiera disken kan du logga in på en virtuell dator och använda disk hantering. Om du har aktiverat [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) och ett certifikat på den virtuella datorn när du skapade det kan du använda fjärr-PowerShell för att initiera disken. Du kan också använda ett anpassat skript tillägg:
+När du har lagt till en tom disk måste du initiera den. Om du vill initiera disken kan du logga in på en virtuell dator och använda diskhantering. Om du har aktiverat [WinRM](https://docs.microsoft.com/windows/desktop/WinRM/portal) och ett certifikat på den virtuella datorn när du skapade den kan du använda fjärr-PowerShell för att initiera disken. Du kan också använda ett anpassat skripttillägg:
 
 ```azurepowershell-interactive
     $location = "location-name"
@@ -78,7 +78,7 @@ När du har lagt till en tom disk måste du initiera den. För att initiera disk
     Set-AzVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
 
-Skript filen kan innehålla kod för att initiera diskarna, till exempel:
+Skriptfilen kan innehålla kod för att initiera diskarna, till exempel:
 
 ```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
@@ -99,7 +99,7 @@ Skript filen kan innehålla kod för att initiera diskarna, till exempel:
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Koppla en befintlig datadisk till en virtuell dator
 
-Du kan koppla en befintlig hanterad disk till en virtuell dator som en data disk.
+Du kan koppla en befintlig hanterad disk till en virtuell dator som en datadisk.
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
@@ -117,4 +117,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också distribuera hanterade diskar med hjälp av mallar. Mer information finns i [använda Managed disks i Azure Resource Manager mallar](using-managed-disks-template-deployments.md) eller [snabb starts mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) för att distribuera flera data diskar.
+Du kan också distribuera hanterade diskar med hjälp av mallar. Mer information finns [i Använda hanterade diskar i Azure Resource Manager-mallar](using-managed-disks-template-deployments.md) eller [snabbstartsmallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) för distribution av flera datadiskar.

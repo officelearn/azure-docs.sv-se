@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa en virtuell Windows-dator i Azure Portal
+title: Snabbstart – Skapa en virtuell Windows-dator i Azure-portalen
 description: I den här snabbstarten lär du dig hur du skapar en virtuell Windows-dator med hjälp av Azure Portal
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,17 +15,17 @@ ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 002d374f5be606688121ef4a3952383567c43e85
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240046"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator i Azure Portal
 
-Det går att skapa virtuella datorer (VM) via Azure Portal. Den här metoden ger dig ett webbläsarbaserat användargränssnitt för att skapa virtuella datorer och alla relaterade resurser. Den här snabb starten visar hur du använder Azure Portal för att distribuera en virtuell dator (VM) i Azure som kör Windows Server 2019. För att sedan se hur den fungerar i praktiken ansluter du till den virtuella datorn med RDP och installerar IIS-webbservern.
+Det går att skapa virtuella Azure-datorer via Azure Portal. Med den här metoden får du ett webbläsarbaserat användargränssnitt för att skapa virtuella datorer och alla relaterade resurser. Den här snabbstarten visar hur du använder Azure-portalen för att distribuera en virtuell dator (VM) i Azure som kör Windows Server 2019. För att se hur den virtuella datorn fungerar i praktiken ansluter du till den med RDP och installerar IIS-webbservern.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -34,13 +34,13 @@ Logga in på Azure Portal på https://portal.azure.com.
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
 1. Skriv **virtuella datorer** i sökningen.
-1. Under **tjänster**väljer du **virtuella datorer**.
-1. På sidan **virtuella datorer** väljer du **Lägg till**. 
+1. Under **Tjänster**väljer du **Virtuella datorer**.
+1. På sidan **Virtuella datorer** väljer du **Lägg till**. 
 1. På fliken **Grundläggande inställningar** går du till **Projektinformation**, kontrollerar att korrekt prenumeration har valts och väljer sedan **Skapa ny** för resursgruppen. Skriv *myResourceGroup* som namn. 
 
     ![Skapa en ny resursgrupp för din virtuella dator](./media/quick-create-portal/project-details.png)
 
-1. Under **instans information**skriver du *myVM* för namnet på den **virtuella datorn** och väljer *östra USA* för din **region**och väljer sedan *Windows Server 2019 Data Center* för **avbildningen**. Låt de övriga standardvärdena vara som de är.
+1. Under **Instansinformation**skriver du *myVM* för namnet på den **virtuella datorn** och väljer Östra *USA* för **din region**och väljer sedan Windows Server *2019 Datacenter* för **avbildningen**. Låt de övriga standardvärdena vara som de är.
 
     ![Avsnittet Instansinformation](./media/quick-create-portal/instance-details.png)
 
@@ -48,7 +48,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
     ![Ange ditt användarnamn och lösenord](./media/quick-create-portal/administrator-account.png)
 
-1. Under **regler för inkommande port**väljer du **Tillåt valda portar** och väljer sedan **RDP (3389)** och **http (80)** i list rutan.
+1. Under **Regler för inkommande port**väljer du Tillåt valda **portar** och väljer sedan **RDP (3389)** och **HTTP (80)** i listrutan.
 
     ![Öppna portar för RDP och HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -61,15 +61,15 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 Skapa en fjärrskrivbordsanslutning till den virtuella datorn. Dessa instruktioner förklarar hur du ansluter till den virtuella datorn från en Windows-dator. På en Mac-dator behöver du en RDP-klient som denna [Fjärrskrivbordsklient](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) från Mac App Store.
 
-1. Klicka på knappen **Anslut** på översikts sidan för den virtuella datorn. 
+1. Klicka på knappen **Anslut** på översiktssidan för den virtuella datorn. 
 
     ![Ansluta till en virtuell Azure-dator från portalen](./media/quick-create-portal/portal-quick-start-9.png)
     
-2. På sidan **Anslut till virtuell dator** ska du behålla standard alternativen för att ansluta via IP-adress, via port 3389 och klicka på **Hämta RDP-fil**.
+2. På sidan **Anslut till virtuell dator** behåller du standardalternativen för att ansluta via IP-adress, över port 3389 och klickar på Hämta **RDP-fil**.
 
 2. Öppna den hämtade RDP-filen och klicka på **Anslut** när du tillfrågas. 
 
-3. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Ange användarnamnet som **localhost**\\*användarnamn* och ange det lösenord som du skapade för den virtuella datorn. Klicka sedan på **OK**.
+3. I fönstret **Windows-säkerhet** väljer du **fler alternativ** och sedan **använd ett annat konto**. Skriv användarnamnet som **localhost**\\*användarnamn,* ange lösenord som du skapade för den virtuella datorn och klicka sedan på **OK**.
 
 4. Du kan få en certifikatvarning under inloggningen. Klicka på **Ja** eller **Fortsätt** för att skapa anslutningen.
 
@@ -86,7 +86,7 @@ När kommandot har körts stänger du RDP-anslutningen till den virtuella datorn
 
 ## <a name="view-the-iis-welcome-page"></a>Visa välkomstsidan för IIS
 
-I portalen väljer du den virtuella datorn och i översikten för den virtuella datorn använder du knappen **Klicka för att kopiera** till höger om IP-adressen för att kopiera den och klistra in den i en webbläsare-flik. Standard Välkomst sidan för IIS öppnas och bör se ut så här:
+I portalen väljer du den virtuella datorn och i översikten över den virtuella datorn använder du knappen **Klicka för att kopiera till** höger om IP-adressen för att kopiera den och klistra in den i en webbläsarflik. Standard-IIS-välkomstsidan öppnas och bör se ut så här:
 
 ![Standardwebbplatsen i IIS](./media/quick-create-powershell/default-iis-website.png)
 
@@ -94,7 +94,7 @@ I portalen väljer du den virtuella datorn och i översikten för den virtuella 
 
 Du kan ta bort resursgruppen, den virtuella datorn och alla relaterade resurser när de inte längre behövs. 
 
-Välj resurs gruppen för den virtuella datorn och välj sedan **ta bort**. Bekräfta resurs gruppens namn för att slutföra borttagningen av resurserna.
+Välj resursgruppen för den virtuella datorn och välj sedan **Ta bort**. Bekräfta namnet på resursgruppen för att slutföra borttagningen av resurserna.
 
 ## <a name="next-steps"></a>Nästa steg
 

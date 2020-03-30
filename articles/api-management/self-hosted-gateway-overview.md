@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure API Management Gateway med egen värd | Microsoft Docs
-description: 'Lär dig hur Azure API Management Gateway med egen värd hjälper organisationer att hantera API: er i hybrid miljöer och moln miljöer.'
+title: Översikt över Azure API Management-gateway med själv värd | Microsoft-dokument
+description: Lär dig hur självvärd Azure API Management gateway hjälper organisationer att hantera API:er i hybrid- och multicloud-miljöer.
 services: api-management
 documentationcenter: ''
 author: vlvinogr
@@ -13,73 +13,73 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
 ms.openlocfilehash: 415f0e209e607a863d715b1a66a2435603a662f0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73513723"
 ---
-# <a name="self-hosted-api-management-gateway-overview"></a>Översikt över API Management Gateway med egen värd
+# <a name="self-hosted-api-management-gateway-overview"></a>Översikt över självvärderade API Management-gateway
 
-I den här artikeln förklaras hur en lokal gateway-funktion möjliggör hybrid-och API-hantering i flera moln, presenterar den övergripande arkitekturen och markerar de grundläggande funktionerna.
+I den här artikeln beskrivs hur självvärdbaserad gateway-funktion möjliggör hybrid- och API-hantering med flera moln, presenterar dess arkitektur på hög nivå och belyser dess grundläggande funktioner.
 
 > [!NOTE]
-> Funktionen för lokal gateway är i för hands version. Under för hands versionen är den egna värdbaserade gatewayen bara tillgänglig på utvecklings-och Premium-nivåerna utan extra kostnad. Developer-nivån är begränsad till en enda lokal gateway-distribution.
+> Den självvärdbaserade gatewayfunktionen är i förhandsversion. Under förhandsversionen är den självvärdbaserade gatewayen endast tillgänglig på utvecklar- och premiumnivåerna utan extra kostnad. Utvecklarnivån är begränsad till en enda självvärd gateway-distribution.
 
-## <a name="hybrid-and-multi-cloud-api-management"></a>API Management för Hybrid och flera moln
+## <a name="hybrid-and-multi-cloud-api-management"></a>Hybrid- och API-hantering med flera moln
 
-Den lokala gateway-funktionen utökar API Management stöd för miljöer med hybrid miljöer och flera moln och gör det möjligt för organisationer att effektivt och säkert hantera API: er som finns lokalt och över moln från en enda API Management tjänst i Azure.
+Den självvärderade gateway-funktionen utökar API Management-stöd för hybrid- och flermolnsmiljöer och gör det möjligt för organisationer att effektivt och säkert hantera API:er som finns lokalt och över moln från en enda API Management-tjänst i Azure.
 
-Med den egen värdbaserade gatewayen har kunderna möjlighet att distribuera en behållar version av API Management Gateway-komponenten till samma miljöer där de är värdar för API: erna. Alla egna gatewayer hanteras från den API Management tjänsten de är federerade med, och ger kunderna insyn och enhetlig hanterings upplevelse i alla interna och externa API: er. Att placera gatewayerna nära API: erna gör det möjligt för kunder att optimera API-trafikflöden och kraven på säkerhets-och efterlevnad.
+Med den självvärdbaserade gatewayen har kunderna flexibiliteten att distribuera en behållarversion av API Management gateway-komponenten till samma miljöer där de är värdar för sina API:er. Alla självvärderade gateways hanteras från API Management-tjänsten som de är federerade med, vilket ger kunderna synlighet och enhetlig hanteringsupplevelse för alla interna och externa API:er. Om du placerar gateways nära API:erna kan kunderna optimera API-trafikflöden och åtgärda säkerhets- och efterlevnadskrav.
 
-Varje API Management tjänst består av följande viktiga komponenter:
+Varje API Management-tjänst består av följande nyckelkomponenter:
 
--   Hanterings plan, som visas som ett API, som används för att konfigurera tjänsten via Azure Portal, PowerShell och andra mekanismer som stöds.
--   Gateway (eller data plan) är ansvarig för proxy-API-begäranden, tillämpa principer och samla in telemetri
--   Developer-portalen som används av utvecklare för att identifiera, lära sig och publicera för att använda API: erna
+-   Hanteringsplan, exponerat som ett API, som används för att konfigurera tjänsten via Azure-portalen, PowerShell och andra mekanismer som stöds.
+-   Gateway (eller dataplan) ansvarar för att proxyera API-begäranden, tillämpa principer och samla in telemetri
+-   Utvecklarportal som används av utvecklare för att upptäcka, lära sig och ombord för att använda API:erna
 
-Som standard distribueras alla dessa komponenter i Azure, vilket ger all API-trafik (visas som heldragna svarta pilar på bilden nedan) för att flöda genom Azure, oavsett var Server delar som implementerar API: erna finns. Den drift enkelhet som används för den här modellen kommer till kostnaden för ökad latens, problem med efterlevnad och i vissa fall ytterligare avgifter för data överföring.
+Som standard distribueras alla dessa komponenter i Azure, vilket gör att all API-trafik (visas som helsvarta pilar på bilden nedan) flödar genom Azure oavsett var serverdelar implementera API:erna finns. Den här modellens operativa enkelhet beror på bekostnad av ökad latens, efterlevnadsproblem och i vissa fall ytterligare dataöverföringsavgifter.
 
-![API-trafikflöde utan egen värd-Gateway](media/self-hosted-gateway-overview/without-gateways.png)
+![API-trafikflöde utan självvärderade gateways](media/self-hosted-gateway-overview/without-gateways.png)
 
-Att distribuera lokala gateways i samma miljöer som server dels API-implementeringar och lägga till dem i API Management tjänsten tillåter att API-trafik flödar direkt till Server dels-API: er, vilket förbättrar svars tiden, optimerar kostnaderna för data överföring och aktiverar efterlevnad samtidigt som du behåller fördelarna med att ha en enda hanterings plats och identifiering av alla API: er i organisationen oavsett var deras implementeringar finns.
+Om du distribuerar självvärderade gateways i samma miljöer som serverdels-API-implementeringar och lägga till dem i API Management-tjänsten kan API-trafik flöda direkt till serverdels-API:erna, vilket förbättrar svarstiden, optimerar dataöverföringskostnaderna och aktiverar samtidigt som fördelarna med att ha en enda hanteringspunkt och identifiering av alla API:er inom organisationen oavsett var deras implementeringar finns.
 
-![API-trafikflöde med egen värd-Gateway](media/self-hosted-gateway-overview/with-gateways.png)
+![API-trafikflöde med självvärderade gateways](media/self-hosted-gateway-overview/with-gateways.png)
 
-## <a name="packaging-and-features"></a>Paketering och funktioner
+## <a name="packaging-and-features"></a>Förpackning och funktioner
 
-Den egen värdbaserade gatewayen är en behållare med en funktions motsvarighet som är en del av den hanterade gateway som distribueras till Azure som en del av varje API Management tjänst. Den egna värdbaserade gatewayen är tillgänglig som en Linux-baserad Docker-behållare från Microsoft Container Registry. Den kan distribueras till Docker, Kubernetes eller någon annan lösning för behållar dirigering som körs på ett skriv bord, ett Server kluster eller en moln infrastruktur.
+Den självvärderade gatewayen är en behållare, funktionellt likvärdig version av den hanterade gatewayen som distribueras till Azure som en del av varje API Management-tjänst. Den självvärdbaserade gatewayen är tillgänglig som en Linux-baserad Docker-behållare från Microsoft Container Registry. Den kan distribueras till Docker, Kubernetes eller någon annan behållare orchestration lösning som körs på en stationär, server kluster eller moln infrastruktur.
 
 > [!IMPORTANT]
-> Vissa funktioner som är tillgängliga i den hanterade gatewayen är ännu inte tillgängliga i för hands versionen. Främst: logga till Event Hub-principen, Service Fabric integration, underordnad HTTP/2. Det finns ingen plan för att göra ett inbyggt cacheminne tillgängligt i den egna gatewayen.
+> Vissa funktioner som är tillgängliga i den hanterade gatewayen är ännu inte tillgängliga i förhandsversionen. Noterbart: Logga till Event Hub-principen, Integrering av serviceinfrastruktur, nedströms HTTP/2. Det finns ingen plan för att göra en inbyggd cache tillgänglig i den självvärderade gatewayen.
 
 ## <a name="connectivity-to-azure"></a>Anslutning till Azure
 
-Den lokala gatewayen kräver utgående TCP/IP-anslutning till Azure på port 443. Varje lokal gateway måste associeras med en enda API Management tjänst och konfigureras via dess hanterings plan. Den egna värdbaserade gatewayen använder anslutning till Azure för:
+Den självvärderade gatewayen kräver utgående TCP/IP-anslutning till Azure i port 443. Varje självvärd gateway måste associeras med en enda API Management-tjänst och konfigureras via dess hanteringsplan. Självvärdbaserad gateway använder anslutning till Azure för:
 
--   Rapportera status genom att skicka pulsslags meddelanden varje minut
--   Söker regelbundet efter (var tionde sekund) och tillämpar konfigurations uppdateringar när de är tillgängliga
--   Skicka begär ande loggar och mått till Azure Monitor, om det är konfigurerat att göra det
--   Skicka händelser till Application Insights, om det är inställt på detta
+-   Rapportera dess status genom att skicka pulsslagsmeddelanden varje minut
+-   Regelbundet söka efter (var 10:e sekund) och tillämpa konfigurationsuppdateringar när de är tillgängliga
+-   Skicka begärandeloggar och mått till Azure Monitor, om de är konfigurerade för att göra det
+-   Skicka händelser till Application Insights, om det är inställt på att göra det
 
-När anslutningen till Azure förloras kan inte gatewayen för egen värd ta emot konfigurations uppdateringar, rapportera statusen eller överföra telemetri.
+När anslutningen till Azure går förlorad kan självvärderade gateway inte ta emot konfigurationsuppdateringar, rapportera dess status eller ladda upp telemetri.
 
-Den egen värdbaserade gatewayen är utformad för att "misslyckad statisk" och kan överleva tillfälligt förlorad anslutning till Azure. Den kan distribueras med eller utan säkerhets kopiering med lokal konfiguration aktive rad. I det förra fallet sparar lokala gatewayer regelbundet en säkerhets kopia av konfigurationen på en beständig volym som är ansluten till behållaren eller pod.
+Den självvärderade gatewayen är utformad för att "misslyckas statisk" och kan överleva den tillfälliga förlusten av anslutning till Azure. Den kan distribueras med eller utan lokal konfigurationssäkerhetskopiering aktiverad. I det tidigare fallet sparar självvärderade gateways regelbundet en säkerhetskopia av konfigurationen på en beständig volym som är kopplad till behållaren eller podden.
 
-När säkerhets kopiering av konfigurationen är avstängd och anslutningen till Azure avbryts:
+När säkerhetskopiering av konfigurationen är inaktiverad och anslutningen till Azure avbryts:
 
--   Lokal gatewayer som kör fortsätter att fungera med en minnes kopia av konfigurationen
--   Stoppade egna gatewayer kommer inte att kunna starta
+-   Självvärdbaserade gateways som körs fortsätter att fungera med hjälp av en minneskopia av konfigurationen
+-   Stoppade självvärdbaserade gateways kan inte starta
 
-När säkerhets kopiering av konfigurationen är aktive rad och anslutningen till Azure avbryts:
+När säkerhetskopiering av konfiguration är aktiverat och anslutningen till Azure avbryts:
 
--   Lokal gatewayer som kör fortsätter att fungera med en minnes kopia av konfigurationen
--   Stoppade egna gateways kommer att börja använda en säkerhets kopia av konfigurationen
+-   Självvärdbaserade gateways som körs fortsätter att fungera med hjälp av en minneskopia av konfigurationen
+-   Stoppade självvärdbaserade gateways börjar använda en säkerhetskopia av konfigurationen
 
-När anslutningen återställs återansluter varje lokal gateway som påverkas av avbrottet automatiskt till den associerade API Management tjänsten och hämtar alla konfigurations uppdateringar som uppstod när gatewayen var offline.
+När anslutningen återställs återansluts varje självvärd gateway som påverkas av avbrottet automatiskt till den associerade API Management-tjänsten och hämtar alla konfigurationsuppdateringar som inträffade medan gatewayen var "offline".
 
 ## <a name="next-steps"></a>Nästa steg
 
--   [Läs ett whitepaper om du vill ha mer bakgrund i det här avsnittet](https://aka.ms/hybrid-and-multi-cloud-api-management)
--   [Distribuera egen värd-Gateway till Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
--   [Distribuera egen värd-Gateway till Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)
+-   [Läs ett faktablad för ytterligare bakgrund om detta ämne](https://aka.ms/hybrid-and-multi-cloud-api-management)
+-   [Distribuera självvärd gateway till Docker](api-management-howto-deploy-self-hosted-gateway-to-docker.md)
+-   [Distribuera självvärd gateway till Kubernetes](api-management-howto-deploy-self-hosted-gateway-to-k8s.md)

@@ -1,7 +1,7 @@
 ---
-title: Analysera kund omsättning
+title: Analysera kundomsättning
 titleSuffix: ML Studio (classic) - Azure
-description: Fallstudie om att utveckla en integrerad modell för att analysera och värdera kund omsättningen med hjälp av Azure Machine Learning Studio (klassisk).
+description: Fallstudie av att utveckla en integrerad modell för att analysera och göra bedömning av kundomsättning med Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,221 +11,221 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/18/2017
 ms.openlocfilehash: 4cf918abae51ca330054ef86e57095d29a21a37a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79204536"
 ---
-# <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analysera kund omsättning med Azure Machine Learning Studio (klassisk)
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analysera kundomsättning med Azure Machine Learning Studio (klassisk)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln visar en referens implementering av ett analys projekt för kund omsättning som har skapats med hjälp av Azure Machine Learning Studio (klassisk). I den här artikeln diskuterar vi associerade allmän modeller för att lösa problemen med industriell kundomsättning holistiskt. Vi också mäta riktighet modeller som skapas med hjälp av Machine Learning och utvärdera anvisningarna för ytterligare utveckling.  
+Den här artikeln innehåller en referensimplementering av ett analysprojekt för kundomsättning som skapas med hjälp av Azure Machine Learning Studio (klassisk). I den här artikeln diskuterar vi associerade generiska modeller för att holistiskt lösa problemet med industriell kundomsättning. Vi mäter också noggrannheten hos modeller som är byggda med hjälp av Machine Learning och utvärderar anvisningar för vidareutveckling.  
 
-### <a name="acknowledgements"></a>Erkännanden
-Det här experimentet utvecklades och testades av Serge Berger, huvudsakliga data expert hos Microsoft och Roger Bargas, tidigare produkt chef för Microsoft Azure Machine Learning Studio (klassisk). Azure-Dokumentationsteamet mycket bekräftar sin expertis och tack dem för att dela det här dokumentet.
+### <a name="acknowledgements"></a>Bekräftelser
+Det här experimentet har utvecklats och testats av Serge Berger, Principal Data Scientist på Microsoft, och Roger Barga, tidigare Product Manager för Microsoft Azure Machine Learning Studio (klassisk). Azure-dokumentationsteamet bekräftar tacksamt sin expertis och tackar dem för att de delar det här faktabladet.
 
 > [!NOTE]
-> Data som används för det här experimentet är inte allmänt tillgängliga. Ett exempel på hur du skapar en Machine Learning-modell för omsättnings analys finns i: [mallen Retail omsättnings modell](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) i [Azure AI Gallery](https://gallery.azure.ai/)
+> De data som används för det här experimentet är inte allmänt tillgängliga. Ett exempel på hur du skapar en maskininlärningsmodell för omsättningsanalys finns i: [Modellmall för butiksomsättning](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1) i [Azure AI Gallery](https://gallery.azure.ai/)
 > 
 > 
 
 
 
 ## <a name="the-problem-of-customer-churn"></a>Problemet med kundomsättning
-Företag i konsumentmarknaden och i alla enterprise sektorer måste hantera omsättning. Ibland omsättning är för lång tid och påverkar policybeslut. Traditionell lösning är att förutsäga hög benägenhet churners och deras behov via en concierge-tjänst, marknadsföring, eller genom att tillämpa särskilda dispens. Dessa metoder kan variera från bransch till bransch. De kan även variera från ett visst konsument-kluster till ett annat inom en bransch (till exempel telekommunikation).
+Företag på konsumentmarknaden och inom alla företagssektorer måste hantera omsättning. Ibland churn är överdriven och påverkar politiska beslut. Den traditionella lösningen är att förutsäga hög benägenhet churners och tillgodose deras behov via en concierge-tjänst, marknadsföringskampanjer, eller genom att tillämpa särskilda dispenser. Dessa metoder kan variera från industri till industri. De kan till och med variera från ett visst konsumentkluster till en annan inom en bransch (t.ex. telekommunikation).
 
-Vanliga faktor är att företag behöver för att minimera dessa särskilda kunden besökslängd. Därför är en naturlig metod att bedöma alla kunder med sannolikheten för omsättning och åtgärda de översta N ettor. Främsta kunder kan vara de mest lönsamma. En vinst-funktion är exempelvis anställd under valet av kandidater för särskilda dispens i mer avancerade scenarier. Detta är dock endast en del av komplett strategi för att hantera omsättning. Företag måste också beakta konto risk (och associerade risktolerans) och i kostnaden för åtgärder och rimligt kundsegmentering.  
+Den gemensamma faktorn är att företagen måste minimera dessa särskilda kundlojalitet insatser. Således skulle en naturlig metod vara att göra mål varje kund med sannolikheten för churn och ta itu med de bästa N dem. De bästa kunderna kan vara de mest lönsamma. I mer sofistikerade scenarier används till exempel en vinstfunktion vid urvalet av kandidater för särskild dispens. Dessa överväganden är dock bara en del av den fullständiga strategin för att hantera omsättning. Företagen måste också ta hänsyn till risk (och tillhörande risktolerans), nivån och kostnaden för interventionen och rimlig kundsegmentering.  
 
-## <a name="industry-outlook-and-approaches"></a>Branschens outlook och metoder
-Avancerad hantering av omsättning är ett tecken på en mogen bransch. Det klassiska exemplet är telekommunikation branschen där prenumeranter är kända för att växla ofta från en leverantör till en annan. Frivillig dataomsättningen är särskilda viktig. Dessutom har leverantörer samlat in betydande kunskaper om *omsättnings driv rutiner*, vilka är de faktorer som gör att kunderna kan byta.
+## <a name="industry-outlook-and-approaches"></a>Industrins utsikter och tillvägagångssätt
+Sofistikerad hantering av churn är ett tecken på en mogen industri. Det klassiska exemplet är telekommunikationsindustrin där abonnenterna ofta är kända för att byta från en leverantör till en annan. Denna frivilliga omsättning är en viktig fråga. Dessutom har leverantörerna samlat på sig betydande kunskap om *churn-drivrutiner*, vilket är de faktorer som driver kunderna att byta.
 
-Exempelvis är luren eller enhet valet en välkänd kärnan i verksamheten mobiltelefon-drivrutin. Därför är en populär princip att subventionera priset för en luren för nya prenumeranter och debiterar en fullt pris för befintliga kunder för en uppgradering. Historiskt sett har har den här principen lett till kunder som hoppar från en leverantör till en annan för att få en ny rabatt. Detta har i sin tur uppmanas att förfina sina strategier.
+Till exempel, handenhet eller enhet val är en välkänd drivrutin för churn i mobiltelefonen verksamheten. Som ett resultat är en populär politik att subventionera priset på en telefon för nya abonnenter och ta ut ett fullt pris till befintliga kunder för en uppgradering. Historiskt sett har denna policy lett till att kunder hoppar från en leverantör till en annan för att få en ny rabatt. Detta har i sin tur föranlett leverantörerna att förfina sina strategier.
 
-Hög volatil luren erbjudanden är en faktor som snabbt upphäver modeller av omsättning som baseras på den aktuella luren modeller. Dessutom mobiltelefoner är inte endast telekommunikation enheter, de är också sätt-uttryck (Överväg iPhone). Dessa sociala förutsägelserna ligger utanför omfånget för regelbundna telekommunikation datauppsättningar.
+Hög volatilitet i luren erbjudanden är en faktor som snabbt ogiltigförklarar modeller av churn som är baserade på nuvarande handenhet modeller. Dessutom mobiltelefoner är inte bara telekommunikation enheter, de är också mode uttalanden (anser iPhone). Dessa sociala prediktorer omfattas inte av vanliga telekommunikationsdatamängder.
 
-Resultatet för modellering är att du inte kan utforma en bra princip genom att eliminera kända orsaker till omsättning. I själva verket är en strategi för kontinuerlig modellering, inklusive klassiska modeller som kvantifierar kategoriska-variabler (till exempel besluts träd) **obligatoriska**.
+Nettoresultatet för modellering är att du inte kan utforma en sund politik helt enkelt genom att eliminera kända skäl för churn. I själva verket är en kontinuerlig modellering strategi, inklusive klassiska modeller som kvantifierar kategoriska variabler (t.ex. beslut träd), **obligatoriskt**.
 
-Använder stordata-uppsättningar på sina kunder kan utför organisationer analyser av stordata (särskilt omsättning identifiering utifrån stordata) som en effektiv strategi på problemet. Du kan hitta mer information om stordata-metod för att problemet med kärnan i rekommendationer om ETL-avsnittet.  
+Med hjälp av stordatauppsättningar på sina kunder utför organisationer stordataanalys (i synnerhet omsättningsidentifiering baserat på stordata) som en effektiv metod för problemet. Du kan hitta mer om big data-metoden för problemet med omsättning i avsnittet Rekommendationer på ETL.  
 
-## <a name="methodology-to-model-customer-churn"></a>Metoder för att modellen kundomsättning
-En gemensam problemlösning process för att lösa kundomsättning illustreras i bild 1 – 3:  
+## <a name="methodology-to-model-customer-churn"></a>Metod för att modellera kundomsättning
+En vanlig problemlösningsprocess för att lösa kundomsättning skildras i figurerna 1-3:  
 
-1. En modell för risk kan du överväga hur åtgärder som påverkar sannolikheten och risk.
-2. En åtgärd från modell kan du överväga hur andelen åtgärder kan påverka sannolikheten för omsättning och mängden kunden livstidsvärde (CLV).
-3. Den här analysen lämpar sig för en kvalitativ analys som har skickats vidare till en proaktiv marknadsföringskampanj som riktar sig mot kundsegment för att ge optimala erbjudandet.  
+1. Med en riskmodell kan du överväga hur åtgärder påverkar sannolikhet och risk.
+2. Med en interventionsmodell kan du överväga hur interventionsnivån kan påverka sannolikheten för omsättning och mängden kundlivslängdsvärde (CLV).
+3. Denna analys lämpar sig för en kvalitativ analys som eskaleras till en proaktiv marknadsföringskampanj som riktar sig till kundsegment för att leverera det optimala erbjudandet.  
 
-![Diagram över hur risk tolerans plus besluts modeller ger till åtgärds bara insikter](./media/azure-ml-customer-churn-scenario/churn-1.png)
+![Diagram som visar hur risktolerans plus beslutsmodeller ger användbara insikter](./media/azure-ml-customer-churn-scenario/churn-1.png)
 
-Den här framåt söker metoden är det bästa sättet att behandla omsättning, men medföljer komplexiteten: Vi har att utveckla en flermodells archetype och spåra beroenden mellan modellerna. Vara kan inkapslade samspelet mellan modeller som du ser i följande diagram:  
+Denna framåtblickande strategi är det bästa sättet att behandla omsättning, men det kommer med komplexitet: vi måste utveckla en flermodell arketyp och spår beroenden mellan modellerna. Interaktionen mellan modeller kan kapslas in enligt följande diagram:  
 
-![Interaktions diagram över omsättnings modell](./media/azure-ml-customer-churn-scenario/churn-2.png)
+![Interaktionsdiagram för omsättningsmodell](./media/azure-ml-customer-churn-scenario/churn-2.png)
 
-*Figur 4: enhetlig archetype för flera modeller*  
+*Figur 4: Enhetlig arketyp med flera modeller*  
 
-Interaktion mellan modellerna är nyckeln om vi att leverera holistiska approachen till kunder. Varje modell behöver försämras med tiden. arkitekturen är därför en implicit slinga (liknar den archetype som anges av den skarpa DM-standarden, [***3***]).  
+Interaktion mellan modellerna är nyckeln om vi ska kunna leverera en helhetssyn på kundlojalitet. Varje modell försämras nödvändigtvis med tiden; Därför är arkitekturen en implicit loop (liknande den arketyp som anges av CRISP-DM-data mining standard, [***3***]).  
 
-Den övergripande cykeln av risk-beslut-marketing segmentering/uppdelning är fortfarande en generaliserad struktur som gäller för många affärsproblem. Analys av omsättning är helt enkelt en stark företrädare för den här gruppen av problem eftersom den ger egenskaperna som ett komplexa verksamhetsproblem som inte tillåter att en förenklad förutsägelselösning. Sociala aspekter av den moderna metoden att omsättning speciellt markeras inte metoden med, men de sociala aspekterna som är inkapslade i modellering-archetype som de skulle göra i alla modeller.  
+Den övergripande cykeln av risk-beslut-marknadsföring segmentering / nedbrytning är fortfarande en generaliserad struktur, som är tillämplig på många affärsproblem. Churn analys är helt enkelt en stark representant för denna grupp av problem eftersom det uppvisar alla egenskaper hos ett komplext affärsproblem som inte tillåter en förenklad prediktiv lösning. De sociala aspekterna av det moderna tillvägagångssättet för churn lyfts inte bestämt i att närma sig, men de sociala aspekterna inkapslas in i modellerar arketypen, som de skulle är i någon modellerar.  
 
-Ett intressant tillägg är analys av stordata. Samla in fullständig information om sina kunder dagens telekommunikation och detaljhandel företag och vi kan enkelt förutser behovet av flera modeller anslutningen blir en gemensam trend angivna kommande trender, som Sakernas Internet och allt vanligare enheter som gör att företag att använda smarta lösningar på flera nivåer.  
+Ett intressant tillägg här är big data analytics. Dagens telekommunikations- och detaljhandelsföretag samlar in uttömmande data om sina kunder, och vi kan lätt förutse att behovet av multi-model-konnektivitet kommer att bli en gemensam trend, med tanke på nya trender som Sakernas Internet och allestädes närvarande enheter, vilket gör det möjligt för företag att använda smarta lösningar vid flera lager.  
 
  
 
-## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Implementera modellerings archetype i Machine Learning Studio (klassisk)
-På det sätt som beskrivs är det bästa sättet att implementera en integrerad modell och en bedömnings metod? I det här avsnittet visar vi hur vi har utfört detta genom att använda Azure Machine Learning Studio (klassisk).  
+## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Implementera modellarketypen i Machine Learning Studio (klassisk)
+Med tanke på det beskrivna problemet, vilket är det bästa sättet att genomföra en integrerad modellering och scoring strategi? I det här avsnittet visar vi hur vi åstadkom detta genom att använda Azure Machine Learning Studio (klassisk).  
 
-Flera datamodeller metoden är ett måste när du utformar en global archetype för omsättning. Även den bedömnings (förutsägande) delen av metoden som ska vara flera modeller.  
+Multimodellmetoden är ett måste när du utformar en global arketyp för omsättning. Även poängsättning (prediktiv) del av metoden bör vara multi-modell.  
 
-Följande diagram visar den prototyp som vi har skapat, som använder fyra bedömnings algoritmer i Machine Learning Studio (klassisk) för att förutse omsättningen. Orsak till att använda en metod för flera modeller är inte bara för att skapa en ensemble klassificerare att öka tillförlitligheten, men också att skydda mot över montering och förbättra val av förebyggande funktioner.  
+Följande diagram visar prototypen vi skapade, som använder fyra bedömningsalgoritmer i Machine Learning Studio (klassisk) för att förutsäga omsättning. Anledningen till att använda en multi-modell strategi är inte bara att skapa en ensemble klassificerare för att öka noggrannheten, men också för att skydda mot över-montering och för att förbättra föreskrivande funktionen urval.  
 
-![Skärm bild som illustrerar en komplex Studio (klassisk) arbets yta med många sammankopplade moduler](./media/azure-ml-customer-churn-scenario/churn-3.png)
+![Skärmbild som visar en komplex Studio-arbetsyta (klassisk) med många sammankopplade moduler](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
-*Figur 5: prototyp för en metod för omsättnings modellering*  
+*Figur 5: Prototyp av en omsättning modellering strategi*  
 
-I följande avsnitt finns mer information om prototyp bedömnings modellen som vi implementerade med hjälp av Machine Learning Studio (klassisk).  
+Följande avsnitt innehåller mer information om den modell för prototypbedömning som vi implementerade med Machine Learning Studio (klassisk).  
 
-### <a name="data-selection-and-preparation"></a>Dataurval och förberedelse
-Data som används för att skapa modeller och poängsätta kunder har hämtats från en lodrät CRM-lösning med de data som har dolts för att skydda kundernas integritet. Data innehåller information om 8 000 prenumerationer i USA och den kombinerar tre källor: etablering data (prenumeration metadata), aktivitetsdata (användning av systemet) och stöd för kunddata. Data innehåller ingen affärsrelaterad information om kunderna. Det omfattar till exempel inte förmåns-metadata eller kredit poäng.  
+### <a name="data-selection-and-preparation"></a>Val och förberedelse av uppgifter
+De data som används för att bygga modeller och poäng kunder erhölls från en CRM vertikal lösning, med data fördunklad för att skydda kundernas integritet. Data innehåller information om 8 000 prenumerationer i USA och kombinerar tre källor: etableringsdata (prenumerationsmetadata), aktivitetsdata (användning av systemet) och kundsupportdata. Uppgifterna innehåller inte någon affärsrelaterad information om kunderna. Den innehåller till exempel inte lojalitetsmetadata eller kreditpoäng.  
 
-För enkelhetens skull är ETL och processer för Datarensning utanför omfånget eftersom vi antar att förberedelse av data har redan gjorts någon annanstans.
+För enkelhetens skull är ETL- och datarensningsprocesser utanför tillämpningsområdet eftersom vi antar att dataförberedelse redan har gjorts någon annanstans.
 
-Val av funktioner för modellering baseras på preliminära multipel bedömning av uppsättning förutsägelserna som ingår i den process som använder slumpmässig skog-modulen. För implementeringen i Machine Learning Studio (klassisk) beräknade vi medelvärde, median och intervall för representativa funktioner. Exempelvis kan vi lagt till mängder för kvalitativ data, till exempel lägsta och högsta värden för användaraktivitet.
+Funktionsval för modellering baseras på preliminär signifikansbedömning av uppsättningen prediktorer, som ingår i processen som använder den slumpmässiga skogsmodulen. För implementeringen i Machine Learning Studio (klassisk) beräknade vi medelvärdet, medianen och intervallen för representativa funktioner. Vi har till exempel lagt till aggregat för kvalitativa data, till exempel lägsta och högsta värden för användaraktivitet.
 
-Vi har också avbildas temporala information för de senaste sex månaderna. Vi analyserade data i ett år och vi upprättat att även om det fanns statistiskt signifikanta trender, minskat effekten på omsättning avsevärt efter sex månader.  
+Vi fångade också tidsinformation för de senaste sex månaderna. Vi analyserade data för ett år och vi konstaterade att även om det fanns statistiskt signifikanta trender, är effekten på churn kraftigt minskat efter sex månader.  
 
-Den viktigaste punkten är att hela processen, inklusive ETL, funktions val och modellering implementerades i Machine Learning Studio (klassisk) med hjälp av data källor i Microsoft Azure.   
+Den viktigaste punkten är att hela processen, inklusive ETL, funktionsval och modellering implementerades i Machine Learning Studio (klassisk), med hjälp av datakällor i Microsoft Azure.   
 
-Följande diagram visar de data som har använts.  
+Följande diagram illustrerar de data som användes.  
 
-![Skärm bild som visar ett exempel på data som används med RAW-värden](./media/azure-ml-customer-churn-scenario/churn-4.png)
+![Skärmbild som visar ett exempel på de data som används med råvärden](./media/azure-ml-customer-churn-scenario/churn-4.png)
 
-*Bild 6: utdrag från data källa (fördunklade)*  
+*Figur 6: Utdrag ur datakällan (fördunklad)*  
 
-![Skärm bild som visar statistiska funktioner som har extraherats från data källan](./media/azure-ml-customer-churn-scenario/churn-5.png)
+![Skärmbild som visar statistiska funktioner som extraherats från datakällan](./media/azure-ml-customer-churn-scenario/churn-5.png)
 
-*Bild 7: funktioner som extraherats från data källan*
+*Figur 7: Funktioner som extraherats från datakällan*
  
 
-> Observera att dessa data är privat och därför modell och data kan inte delas.
-> Men för en liknande modell som använder offentligt tillgängliga data, se det här exempel experimentet i [Azure AI Gallery](https://gallery.azure.ai/): [Telco kund omsättning](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
+> Observera att dessa data är privata och därför kan modellen och data inte delas.
+> För en liknande modell som använder offentligt tillgängliga data finns dock i det här exempelexperimentet i [Azure AI Gallery:](https://gallery.azure.ai/) [Telco Customer Churn](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383).
 > 
-> Om du vill veta mer om hur du kan implementera en omsättnings analys modell med Cortana Intelligence Suite rekommenderar vi även [den här videon](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) av Wee Hyong tok. 
+> Om du vill veta mer om hur du kan implementera en omsättningsanalysmodell med Cortana Intelligence Suite rekommenderar vi även [den här videon](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) av Senior Program Manager Wee Hyong Tok. 
 > 
 > 
 
 ### <a name="algorithms-used-in-the-prototype"></a>Algoritmer som används i prototypen
-Vi använde följande fyra maskininlärningsalgoritmer för att skapa prototyper (Ingen anpassning):  
+Vi använde följande fyra maskininlärningsalgoritmer för att bygga prototypen (ingen anpassning):  
 
-1. Logistic regression (LR)
-2. Beslutsträd (BT)
+1. Logistisk regression (LR)
+2. Förstärkt beslutsträd (BT)
 3. Genomsnittlig perceptron (AP)
-4. Dator för vektorstöd (SVM)  
+4. Stöd vektor maskin (SVM)  
 
-Följande diagram illustrerar en del av designyta experiment som anger vilken ordning som modeller har skapats:  
+Följande diagram illustrerar en del av experimentdesignytan, vilket anger i vilken ordning modellerna skapades:  
 
-![Skärm bild av en liten del av experiment arbets ytan i Studio](./media/azure-ml-customer-churn-scenario/churn-6.png)  
+![Skärmbild av en liten del av studioexperimentduken](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
-*Figur 8: skapa modeller i Machine Learning Studio (klassisk)*  
+*Bild 8: Skapa modeller i Machine Learning Studio (klassisk)*  
 
-### <a name="scoring-methods"></a>Bedömning metoder
-Vi poängsätts fyra modeller med hjälp av en datauppsättning med märkta utbildning.  
+### <a name="scoring-methods"></a>Bedömningsmetoder
+Vi gjorde de fyra modellerna med hjälp av en märkt utbildningsdatauppsättning.  
 
-Vi har också har skickats bedömnings datauppsättningen till en jämförbar modellen som skapats med hjälp av fjärrskrivbord utgåva av SAS Enterprise Miner 12. Vi mätte precisionen för SAS-modellen och alla fyra Machine Learning Studios modeller (klassiska).  
+Vi skickade också poängdatauppsättningen till en jämförbar modell som byggts med hjälp av skrivbordsutgåvan av SAS Enterprise Miner 12. Vi mätte noggrannheten i SAS-modellen och alla fyra Machine Learning Studio (klassiska) modeller.  
 
 ## <a name="results"></a>Resultat
-I det här avsnittet presentera vi våra resultat om det arbete du utfört modeller, baserat på bedömnings datauppsättningen.  
+I det här avsnittet presenterar vi våra resultat om modellernas riktighet, baserat på bedömningsdatauppsättningen.  
 
-### <a name="accuracy-and-precision-of-scoring"></a>Precision och precisionen för bedömning
-I allmänhet är implementeringen i Azure Machine Learning Studio (klassisk) bakom SAS med noggrannhet med cirka 10-15% (area under kurva eller AUC).  
+### <a name="accuracy-and-precision-of-scoring"></a>Precision och precision i poängsättning
+I allmänhet ligger implementeringen i Azure Machine Learning Studio (klassisk) bakom SAS i noggrannhet med ca 10-15% (Area Under Curve eller AUC).  
 
-Det viktigaste måttet i omsättningen är dock den fel klassificerings takt: det vill säga av de x främsta omsättningarna som förutsägs av klassificeraren, vilket av dem som faktiskt **inte** hade omsättningen, och som ännu fått särskild behandling? Diagrammet nedan jämförs felklassificering priset för varje modell:  
+Men det viktigaste måttet i churn är felklassificeringshastigheten: det vill säga av de bästa N-churners som förutspåddes av klassificeraren, vilken av dem faktiskt **inte** churn, och ändå fått särskild behandling? I följande diagram jämförs den här felklassificeringsfrekvensen för alla modeller:  
 
-![Område under kurv diagrammet som jämför prestandan för 4 algoritmer](./media/azure-ml-customer-churn-scenario/churn-7.png)
+![Område under kurvdiagrammet som jämför prestanda för 4 algoritmer](./media/azure-ml-customer-churn-scenario/churn-7.png)
 
-*Bild 9: Passau prototyp area under kurva*
+*Figur 9: Prototypområde passau under kurvan*
 
-### <a name="using-auc-to-compare-results"></a>Med hjälp av AUC för att jämföra resultaten
-Area under kurva (AUC) är ett mått som representerar ett globalt mått på *separability* mellan fördelningarna av Poäng för positiva och negativa populationer. Den liknar traditionella mottagare operatorn egenskap (ROC) diagrammet, men en viktig skillnad är att AUC mått inte måste du välja ett tröskelvärde. I stället sammanfattas resultaten över **alla** möjliga val. Däremot i traditionella ROC-diagrammet visas positiva identifieringar på den lodräta axeln och andel falska positiva identifieringar på den horisontala axeln och klassificering tröskelvärde varierar.   
+### <a name="using-auc-to-compare-results"></a>Använda AUC för att jämföra resultat
+Area Under Curve (AUC) är ett mått som representerar ett globalt mått på *separabilitet* mellan fördelningen av poäng för positiva och negativa populationer. Det liknar den traditionella ROC-grafen (Receiver Operator Characteristic), men en viktig skillnad är att AUC-måttet inte kräver att du väljer ett tröskelvärde. I stället sammanfattas resultaten över **alla** möjliga val. Däremot visar det traditionella ROC-diagrammet den positiva hastigheten på den vertikala axeln och den falska positiva frekvensen på den horisontella axeln, och klassificeringströskeln varierar.   
 
-AUC används som ett mått på värt för olika algoritmer (eller olika system) eftersom det gör att modeller kan jämföras med hjälp av sina AUC-värden. Det här är en populär metod i olika branscher, till exempel väderförhållanden samt biosciences. Därför representerar AUC ett populärt verktyg för utvärdering av klassificerare prestanda.  
+AUC används som ett mått på värde för olika algoritmer (eller olika system) eftersom det gör att modeller kan jämföras med hjälp av deras AUC-värden. Detta är ett populärt tillvägagångssätt inom branscher som meteorologi och biovetenskap. AUC representerar således ett populärt verktyg för att bedöma klassificerarnas prestanda.  
 
-### <a name="comparing-misclassification-rates"></a>Jämföra felklassificering priser
-Vi jämfört med priserna för felklassificering på datauppsättningen i fråga med hjälp av CRM-data av cirka 8 000 prenumerationer.  
+### <a name="comparing-misclassification-rates"></a>Jämföra felklassificeringskurser
+Vi jämförde felklassificeringsfrekvensen på datauppsättningen i fråga med hjälp av CRM-data för cirka 8 000 prenumerationer.  
 
-* SAS felklassificering frekvensen var 10 – 15%.
-* Den felklassificerings takten för Machine Learning Studio (klassisk) var 15-20% för de översta 200-300-datakärlen.  
+* SAS felklassificeringsgrad var 10-15%.
+* Machine Learning Studio (klassisk) felklassificering var 15-20% för de 200-300 churners.  
 
-Det är viktigt att åtgärda de kunder som har högsta risk att omsättningen genom att erbjuda dem en concierge-tjänst eller andra särskild behandling för företagsförsäljning telekommunikation. I detta hänseende uppnår Machine Learning Studio (klassisk) implementeringen resultat på parivärde med SAS-modellen.  
+Inom telekommunikationsindustrin är det viktigt att endast vända sig till de kunder som har störst risk att spotta genom att erbjuda dem en concierge-tjänst eller annan särbehandling. I det avseendet uppnår Machine Learning Studio -implementeringen (klassisk) resultat i nivå med SAS-modellen.  
 
-På samma sätt, är viktigare än precisionen eftersom det är mest intresserad av att klassificera potentiella churners korrekt.  
+På samma sätt är noggrannhet viktigare än precision eftersom vi mest är intresserade av att korrekt klassificera potentiella churners.  
 
-Följande diagram från Wikipedia visar relationen i en livlig, enkelt att förstå bild:  
+Följande diagram från Wikipedia visar förhållandet i en livlig, lättförståelig grafik:  
 
-![Två mål. Ett mål visar att markeringen är löst grupperad men nära tjurarna-ögonen markerat med låg exakthet: bra värde, låg precision. Ett annat mål som är nära grupperat, men långt från tjurar – ögon markerat med låg exakthet: låg exakthet, bra precision](./media/azure-ml-customer-churn-scenario/churn-8.png)
+![Två mål. Ett mål visar träff märken löst grupperade men nära bulls-eye märkt "Låg noggrannhet: god verklighet, dålig precision. Ett annat mål tätt grupperade men långt från bulls-eye märkt "Låg noggrannhet: dålig verklighet, bra precision"](./media/azure-ml-customer-churn-scenario/churn-8.png)
 
-*Bild 10: kompromisser mellan precision och precision*
+*Figur 10: Avvägning mellan noggrannhet och precision*
 
-### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Noggrannhet och precision resultat för beslutsträd trädet modell
-Följande diagram visar rådata resultaten från bedömning med Machine Learning-prototyp för beslutsträd trädet modellen råkar vara det mest korrekta bland fyra modeller:  
+### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>Noggrannhet och precisionsresultat för förstärkt beslutsträdmodell
+Följande diagram visar råresultaten från bedömning med hjälp av Machine Learning-prototypen för den förstärkta beslutsträdmodellen, som råkar vara den mest exakta bland de fyra modellerna:  
 
-![Tabell kodfragment som visar precision, precision, återkallande, F-score, AUC, genomsnittlig logg förlust och inlärnings logg förlust för fyra algoritmer](./media/azure-ml-customer-churn-scenario/churn-9.png)
+![Tabellutdrag som visar noggrannhet, precision, återkallande, F-poäng, AUC, genomsnittlig loggförlust och träningsloggförlust för fyra algoritmer](./media/azure-ml-customer-churn-scenario/churn-9.png)
 
-*Bild 11: modell egenskaper för utökat besluts träd*
+*Figur 11: Förstärkta egenskaper för beslutsträdsmodell*
 
-## <a name="performance-comparison"></a>Jämförelse av prestanda
-Vi jämförde den hastighet med vilken data beskrevs med hjälp av Machine Learning Studio (klassiska) modeller och en jämförbar modell som skapats med hjälp av Desktop-versionen av SAS Enterprise Miner 12,1.  
+## <a name="performance-comparison"></a>Prestandajämn
+Vi jämförde hastigheten med vilken data gjordes med machine learning studio -modellerna (klassiska) och en jämförbar modell som skapats med hjälp av skrivbordsutgåvan av SAS Enterprise Miner 12.1.  
 
-I följande tabell sammanfattas algoritmerna prestanda:  
+I följande tabell sammanfattas algoritmernas prestanda:  
 
-*Tabell 1. Allmänna prestanda (noggrannhet) för algoritmerna*
+*Tabell 1. Algoritmernas allmänna prestanda (noggrannhet)*
 
-| LR | BT | AP | SVM |
+| LR | BT | AP | Svm |
 | --- | --- | --- | --- |
-| Genomsnittlig modell |Den bästa modellen |Presterar som förväntat |Genomsnittlig modell |
+| Genomsnittlig modell |Den bästa modellen |Underpresterande |Genomsnittlig modell |
 
-De modeller som finns i Machine Learning Studio (klassisk) utgjorde SAS med 15-25% för körnings hastighet, men noggrannheten var stor på parivärde.  
+Modellerna värd i Machine Learning Studio (klassisk) överträffade SAS med 15-25% för hastighet utförande, men noggrannhet var till stor del i paritet.  
 
-## <a name="discussion-and-recommendations"></a>Diskussioner och rekommendationer
-I branschen telekommunikation, flera metoder har vuxit fram för att analysera omsättningen, inklusive:  
+## <a name="discussion-and-recommendations"></a>Diskussion och rekommendationer
+Inom telekommunikationsindustrin har flera metoder dykt upp för att analysera omsättning, bland annat:  
 
-* Härled mätvärden för fyra grundläggande kategorier:
-  * **Entitet (till exempel en prenumeration)** . Etablera grundläggande information om den prenumeration och/eller kund som omfattas av omsättning.
-  * **Aktivitet**. Hämta alla möjliga användningsinformation som är relaterade till entiteten, till exempel antalet inloggningar.
-  * **Kund support**. Samla information från customer support loggar att indikera om prenumerationen har problem eller interaktioner med kundsupport.
-  * **Konkurrens kraft och affärs data**. Få all information som möjligt om kunden (till exempel kan vara otillgänglig eller svårt att spåra).
-* Använd betydelse för val av funktioner för enheten. Detta innebär att modellen beslutsträd trädet är alltid en lovande metod.  
+* Härleda mått för fyra grundläggande kategorier:
+  * **Entitet (till exempel en prenumeration)**. Etablera grundläggande information om prenumerationen och/eller kunden som är föremål för omsättning.
+  * **Aktivitet**. Hämta all möjlig användningsinformation som är relaterad till entiteten, till exempel antalet inloggningar.
+  * **Kundsupport**. Skördsinformation från kundsupportloggar för att ange om prenumerationen hade problem eller interaktioner med kundsupport.
+  * **Konkurrenskraftiga data och affärsdata**. Få all information om kunden (kan till exempel vara otillgänglig eller svår att spåra).
+* Använd betydelse för att driva funktionsval. Detta innebär att den förstärkta beslut trädmodellen är alltid en lovande strategi.  
 
-Användningen av dessa fyra kategorier skapar en illusion av att en enkel *deterministisk* Metod, baserat på index som bildas på rimliga faktorer per kategori, räcker för att identifiera kunder som riskerar att ta omsättning. Tyvärr även om detta begrepp verkar rimligt, är det en falsk förståelse. Det beror på att omsättning är en temporal effekt och faktorer som påverkar återställningstiden omsättningen är vanligtvis i ett tillfälligt tillstånd. Vad leder en kund att lämna idag kan skilja sig morgon och det däremot påverkas sex månader från nu. Därför är en *Probabilistic* modell en nödvändighet.  
+Användningen av dessa fyra kategorier skapar en illusion av att en enkel *deterministisk* metod, baserad på index som bildas på rimliga faktorer per kategori, bör räcka för att identifiera kunder i riskzonen för omsättning. Tyvärr, även om detta begrepp verkar rimligt, är det en falsk förståelse. Anledningen är att churn är en tidsmässig effekt och de faktorer som bidrar till churn är oftast i övergående tillstånd. Vad som får en kund att överväga att lämna idag kan vara annorlunda i morgon, och det kommer säkert att vara annorlunda sex månader från nu. Därför är en *probabilistisk* modell en nödvändighet.  
 
-Den här viktiga observationer förbises ofta i företag, vilket vanligtvis föredrar en business intelligence-orienterade metod till analytics, främst eftersom det är en enklare sälja och ger enkel automation.  
+Denna viktiga iakttagelse förbises ofta i näringslivet, som i allmänhet föredrar en business intelligence-inriktad inställning till analys, mest för att det är en enklare sälja och medger enkel automatisering.  
 
-Löftet om självbetjänings analys med hjälp av Machine Learning Studio (klassisk) är dock att de fyra informations kategorierna, klassificeras efter avdelning eller avdelning, blir en värdefull källa för maskin inlärning om omsättning.  
+Löftet om självbetjäningsanalys genom att använda Machine Learning Studio (klassisk) är dock att de fyra kategorierna av information, graderade efter avdelning eller avdelning, blir en värdefull källa för maskininlärning om omsättning.  
 
-En annan spännande funktion i Azure Machine Learning Studio (klassisk) är möjligheten att lägga till en anpassad modul i lagrings platsen för fördefinierade moduler som redan är tillgängliga. Den här funktionen skapar i princip en möjlighet att ange bibliotek och mallar för vertikala marknader. Det är en viktig differentiering av Azure Machine Learning Studio (klassisk) på marknads platsen.  
+En annan spännande funktion som kommer i Azure Machine Learning Studio (klassisk) är möjligheten att lägga till en anpassad modul i databasen med fördefinierade moduler som redan är tillgängliga. Den här funktionen skapar i huvudsak en möjlighet att välja bibliotek och skapa mallar för vertikala marknader. Det är en viktig differentiator av Azure Machine Learning Studio (klassisk) på marknaden.  
 
-Vi hoppas att fortsätta det här avsnittet i framtiden, särskilt rör analyser av stordata.
+Vi hoppas kunna fortsätta detta ämne i framtiden, särskilt relaterade till stordataanalys.
   
 
-## <a name="conclusion"></a>Sammanfattning
-Det här dokumentet beskriver en metod som är känsliga för att lösa vanliga problem med kundomsättning med hjälp av ett allmänt ramverk. Vi ansåg en prototyp för bedömnings modeller och implementerar den med hjälp av Azure Machine Learning Studio (klassisk). Slutligen kan utvärderat vi prestanda av lösningen prototyp avseende jämförbara algoritmer i SAS.  
+## <a name="conclusion"></a>Slutsats
+I detta dokument beskrivs ett förnuftigt tillvägagångssätt för att ta itu med det gemensamma problemet med kundomsättning med hjälp av ett generiskt ramverk. Vi övervägde en prototyp för bedömningsmodeller och implementerade den med hjälp av Azure Machine Learning Studio (klassisk). Slutligen bedömde vi prototyplösningens noggrannhet och prestanda med avseende på jämförbara algoritmer i SAS.  
 
  
 
 ## <a name="references"></a>Referenser
-[1] förutsägelse analys: utöver förutsägelserna W. McKnight, informations hantering, juli/augusti 2011, s. 18-20.  
+[1] Predictive Analytics: Beyond the Predictions, W. McKnight, Information Management, juli/augusti 2011, s.18-20.  
 
-[2] Wikipedia-artikel: [precision och precision](https://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] Wikipedia artikel: [Noggrannhet och precision](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [skarp-DM 1,0: steg-för-steg-guide för Data utvinning](https://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0: Steg-för-steg data mining guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [stor data marknadsföring: engagera dina kunder på ett mer effektivt sätt och enhets värde](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4] [Big Data Marketing: Engagera dina kunder mer effektivt och drive värde](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Telco omsättnings modell mall](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) i [Azure AI Gallery](https://gallery.azure.ai/) 
+[5] [Telco-mall för omsättningsmodell](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) i [Azure AI Gallery](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>Bilaga
-![Ögonblicks bild av en presentation på omsättnings prototyp](./media/azure-ml-customer-churn-scenario/churn-10.png)
+![Ögonblicksbild av en presentation på churn prototyp](./media/azure-ml-customer-churn-scenario/churn-10.png)
 
-*Bild 12: ögonblicks bild av en presentation på omsättnings prototyp*
+*Bild 12: Ögonblicksbild av en presentation om churn prototyp*

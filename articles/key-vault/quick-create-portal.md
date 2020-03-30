@@ -12,17 +12,17 @@ ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241124"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av Azure-portalen
 
 Azure Key Vault är en molntjänst som tillhandahåller ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabbstarten skapar du ett nyckelvalv och använder sedan det för att lagra en hemlighet. Mer information om nyckelvalv finns i [översikten](key-vault-overview.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -30,14 +30,14 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
-1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. På Azure-portalmenyn eller på **startsidan** väljer du **Skapa en resurs**.
 2. Skriv **Key Vault** i sökrutan.
 3. Välj **Key Vault** i listan med resultat.
 4. Välj **Skapa** i avsnittet Key Vault.
 5. Ange följande information i avsnittet **Skapa nyckelvalv** avsnittet Ange följande information:
-    - **Namn**: Ett unikt namn krävs. I den här snabb starten använder vi **contoso-vault2**. 
+    - **Namn**: Ett unikt namn krävs. För denna snabbstart använder vi **Contoso-vault2**. 
     - **Prenumeration**: Välj en prenumeration.
-    - Under **resurs grupp**väljer du **Skapa ny** och anger ett resurs grupp namn.
+    - Under **Resursgrupp**väljer du **Skapa nytt** och anger ett resursgruppnamn.
     - Välj en plats i listrutan **Plats**.
     - Lämna standardvärdena för de andra alternativen.
 6. När du har angett den här informationen väljer du **Skapa**.
@@ -55,7 +55,7 @@ Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i
 
 När du ska lägga till en hemlighet i valvet behöver du bara utföra några ytterligare steg. I det här fallet lägger vi till ett lösenord som kan användas av ett program. Lösenordet kallas **ExamplePassword** och vi lagrar värdet **hVFkk965BuUv** i det.
 
-1. På sidan Key Vault egenskaper väljer du **hemligheter**.
+1. På egenskapssidorna För Nyckelvalv väljer du **Hemligheter**.
 2. Klicka på **Generera/importera**.
 3. Välj följande värden på skärmen **Skapa en hemlighet**:
     - **Uppladdningsalternativ**: Manuell.
@@ -67,9 +67,9 @@ När du får ett meddelande om att hemligheten har skapats kan du klicka på den
 
 ![Egenskaper för hemlighet](./media/quick-create-portal/current-version-hidden.png)
 
-Genom att klicka på knappen "Visa hemligt värde" i den högra rutan kan du se det dolda värdet. 
+Genom att klicka på knappen Visa hemligt värde i den högra rutan kan du se det dolda värdet. 
 
-![Hemligt värde visades](./media/quick-create-portal/current-version-shown.png)
+![Hemligt värde dök upp](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -83,9 +83,9 @@ När du inte behöver resursgruppen längre så tar du bort den. Då tas även n
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en Key Vault och lagrat en hemlighet i den. Om du vill veta mer om Key Vault och hur du integrerar den med dina program, Fortsätt till artiklarna nedan.
+I den här snabbstarten skapade du ett Nyckelvalv och lagrade en hemlighet i det. Om du vill veta mer om Key Vault och hur du integrerar det med dina program fortsätter du med artiklarna nedan.
 
-- Läs en [Översikt över Azure Key Vault](key-vault-overview.md)
-- Se [Azure Key Vault Developer ' s guide](key-vault-developers-guide.md)
-- Lär dig mer om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
-- Granska [Azure Key Vault bästa praxis](key-vault-best-practices.md)
+- Läs en [översikt över Azure Key Vault](key-vault-overview.md)
+- Se [utvecklarguiden för Azure Key Vault](key-vault-developers-guide.md)
+- Läs mer om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
+- Granska [metodtips för Azure Key Vault](key-vault-best-practices.md)

@@ -1,47 +1,47 @@
 ---
-title: Anpassa användar gränssnittet för din app med en anpassad princip
+title: Anpassa appens användargränssnitt med en anpassad princip
 titleSuffix: Azure AD B2C
-description: Läs mer om hur du anpassar ett användar gränssnitt med en anpassad princip i Azure Active Directory B2C.
+description: Lär dig mer om hur du anpassar ett användargränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e07d3e1815c1b47b9d37c08e8fac5359b71fe7c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
-ms.translationtype: HT
+ms.openlocfilehash: 87c3a3a904705b9fcb702c4745c4c80a4b447e69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79245998"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79476730"
 ---
-# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa användargränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Genom att slutföra stegen i den här artikeln skapar du en anpassad princip för registrering och inloggning med ditt varumärke och utseende. Med Azure Active Directory B2C (Azure AD B2C) får du nästan fullständig kontroll över HTML-och CSS-innehållet som presenteras för användarna. När du använder en anpassad princip kan du konfigurera UI-anpassning i XML i stället för att använda kontroller i Azure Portal.
+Genom att slutföra stegen i den här artikeln skapar du en anpassad princip för registrering och inloggning med ditt varumärke och utseende. Med Azure Active Directory B2C (Azure AD B2C) får du nästan full kontroll över HTML- och CSS-innehållet som presenteras för användare. När du använder en anpassad princip konfigurerar du anpassning av användargränssnittet i XML i stället för att använda kontroller i Azure-portalen.
 
 ## <a name="prerequisites"></a>Krav
 
-Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
+Slutför stegen i [Komma igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
 
 [!INCLUDE [active-directory-b2c-html-how-to](../../includes/active-directory-b2c-html-how-to.md)]
 
-## <a name="4-modify-the-extensions-file"></a>4. Ändra tilläggs filen
+## <a name="4-modify-the-extensions-file"></a>4. Ändra tilläggsfilen
 
-Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess underordnade element från bas filen till tilläggs filen.
+Om du vill konfigurera anpassning av användargränssnittet **kopierar du ContentDefinition** och dess underordnade element från basfilen till tilläggsfilen.
 
-1. Öppna bas filen för din princip. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>  . Den här bas filen är en av de principfiler som ingår i den anpassade principens start paket, som du borde ha skaffat i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
-1. Sök efter och kopiera hela innehållet i **ContentDefinitions** -elementet.
-1. Öppna tilläggs filen. Till exempel *TrustFrameworkExtensions. XML*. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
-1. Klistra in hela innehållet i **ContentDefinitions** -elementet som du kopierade som ett underordnat objekt till **BuildingBlocks** -elementet.
-1. Sök efter det **ContentDefinition** -element som innehåller `Id="api.signuporsignin"` i XML-filen som du kopierade.
-1. Ändra värdet för **LoadUri** till URL: en för HTML-filen som du laddade upp till lagringen. Till exempel `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+1. Öppna principfilens basfil. Till exempel <em> `SocialAndLocalAccounts/` </em>. Den här basfilen är en av de principfiler som ingår i det anpassade startpaketet för principen, som du borde ha fått i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Sök efter och kopiera hela innehållet i **ContentDefinitions-elementet.**
+1. Öppna tilläggsfilen. Till exempel *TrustFrameworkExtensions.xml*. Sök efter elementet **BuildingBlocks.** Om elementet inte finns lägger du till det.
+1. Klistra in hela innehållet i **contentdefinitions-elementet** som du kopierade som underordnad i elementet **BuildingBlocks.**
+1. Sök efter **ContentDefinition-elementet** som finns `Id="api.signuporsignin"` i den XML som du kopierade.
+1. Ändra värdet **för LoadUri** till URL:en för HTML-filen som du laddade upp till lagring. Till exempel `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
-    Den anpassade principen bör se ut som följande kodfragment:
+    Din anpassade princip ska se ut som följande kodavsnitt:
 
     ```xml
     <BuildingBlocks>
@@ -58,32 +58,32 @@ Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess 
     </BuildingBlocks>
     ```
 
-1. Spara tilläggs filen.
+1. Spara tilläggsfilen.
 
-## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Ladda upp och testa din uppdaterade anpassade princip
+## <a name="5-upload-and-test-your-updated-custom-policy"></a>5. Ladda upp och testa din uppdaterade anpassade policy
 
-### <a name="51-upload-the-custom-policy"></a>5,1 Ladda upp den anpassade principen
+### <a name="51-upload-the-custom-policy"></a>5.1 Ladda upp den anpassade principen
 
-1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
+1. Kontrollera att du använder katalogen som innehåller din Azure AD B2C-klient genom att välja **katalog + prenumerationsfilter** i den övre menyn och välja den katalog som innehåller din klient.
 1. Sök efter och välj **Azure AD B2C**.
-1. Under **principer**väljer du **Identity Experience Framework**.
-1. Välj **överför anpassad princip**.
-1. Ladda upp tilläggs filen som du har ändrat tidigare.
+1. Under **Principer**väljer du **Identity Experience Framework**.
+1. Välj **Ladda upp anpassad princip**.
+1. Ladda upp tilläggsfilen som du tidigare har ändrat.
 
-### <a name="52-test-the-custom-policy-by-using-run-now"></a>5,2 testa den anpassade principen med hjälp av **Kör nu**
+### <a name="52-test-the-custom-policy-by-using-run-now"></a>5.2 Testa den anpassade principen med hjälp av **Kör nu**
 
-1. Välj den princip som du överförde och välj sedan **Kör nu**.
+1. Välj den princip som du har laddat upp och välj sedan **Kör nu**.
 1. Du bör kunna registrera dig med hjälp av en e-postadress.
 
 [!INCLUDE [active-directory-b2c-html-templates](../../includes/active-directory-b2c-html-templates.md)]
 
-## <a name="configure-dynamic-custom-page-content-uri"></a>Konfigurera innehålls-URI för dynamiskt anpassad sida
+## <a name="configure-dynamic-custom-page-content-uri"></a>Konfigurera dynamiskt anpassat sidinnehåll URI
 
-Genom att använda Azure AD B2C anpassade principer kan du skicka en parameter i URL-sökvägen eller en frågesträng. Genom att skicka parametern till HTML-slutpunkten kan du dynamiskt ändra sidinnehållet. Du kan till exempel ändra bakgrundsbilden på registrerings- eller inloggningssidan för Azure AD B2C baserat på en parameter som du skickar från ditt webb- eller mobilprogram. Parametern kan vara alla [anspråks lösare](claim-resolver-overview.md), till exempel program-ID, språk-ID eller anpassad frågesträng, till exempel `campaignId`.
+Genom att använda anpassade Azure AD B2C-principer kan du skicka en parameter i URL-sökvägen eller en frågesträng. Genom att skicka parametern till HTML-slutpunkten kan du dynamiskt ändra sidinnehållet. Du kan till exempel ändra bakgrundsbilden på registrerings- eller inloggningssidan för Azure AD B2C baserat på en parameter som du skickar från ditt webb- eller mobilprogram. Parametern kan vara valfri [anspråksmatchningsmatchning](claim-resolver-overview.md), till exempel program-ID, `campaignId`språk-ID eller anpassad frågesträngparameter, till exempel .
 
-### <a name="sending-query-string-parameters"></a>Parametrar för frågesträng skickas
+### <a name="sending-query-string-parameters"></a>Skicka frågesträngparametrar
 
-Om du vill skicka frågesträngs parametrar i [principen för förlitande part](relyingparty.md)lägger du till ett `ContentDefinitionParameters`-element som visas nedan.
+Om du vill skicka frågesträngparametrar `ContentDefinitionParameters` lägger du till ett element som visas nedan i [principen för förlitande part.](relyingparty.md)
 
 ```XML
 <RelyingParty>
@@ -99,7 +99,7 @@ Om du vill skicka frågesträngs parametrar i [principen för förlitande part](
 </RelyingParty>
 ```
 
-I din innehålls definition ändrar du värdet för `LoadUri` till `https://<app_name>.azurewebsites.net/home/unified`. Din anpassade princip `ContentDefinition` bör se ut som i följande kodfragment:
+Ändra värdet på `LoadUri` till `https://<app_name>.azurewebsites.net/home/unified`. Din anpassade `ContentDefinition` princip ska se ut som följande kodavsnitt:
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -108,15 +108,15 @@ I din innehålls definition ändrar du värdet för `LoadUri` till `https://<app
 </ContentDefinition>
 ```
 
-När Azure AD B2C läser in sidan, gör den ett anrop till din webb server slut punkt:
+När Azure AD B2C läser in sidan anropas webbserverns slutpunkt:
 
 ```http
 https://<app_name>.azurewebsites.net/home/unified?campaignId=123&lang=fr&appId=f893d6d3-3b6d-480d-a330-1707bf80ebea
 ```
 
-### <a name="dynamic-page-content-uri"></a>URI för dynamiskt sid innehåll
+### <a name="dynamic-page-content-uri"></a>Dynamiskt sidinnehåll URI
 
-Innehållet kan hämtas från olika platser baserat på de parametrar som används. I den CORS-aktiverade slut punkten ställer du in en mappstruktur som värd för innehåll. Du kan till exempel organisera innehållet i följande struktur. Rotmapp */mapp per språk/dina HTML-filer*. Din anpassade sid-URI kan till exempel se ut så här:
+Innehåll kan hämtas från olika platser baserat på de parametrar som används. I den CORS-aktiverade slutpunkten ställer du in en mappstruktur som värd för innehåll. Du kan till exempel ordna innehållet i följande struktur. *Rotmapp/mapp per språk/html-filer*. Din anpassade sid-URI kan till exempel se ut så här:
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -125,7 +125,7 @@ Innehållet kan hämtas från olika platser baserat på de parametrar som använ
 </ContentDefinition>
 ```
 
-Azure AD B2C skickar ISO-koden med två bokstäver för språket `fr` för franska:
+Azure AD B2C skickar två bokstaven `fr` ISO-kod för språket, för franska:
 
 ```http
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
@@ -133,4 +133,4 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om GRÄNSSNITTs element som kan anpassas finns i [referens guide för anpassning av användar flöden för användar flöden](customize-ui-overview.md).
+Mer information om gränssnittselement som kan anpassas finns i [referenshandboken för anpassning av användargränssnittet för användarflöden](customize-ui-overview.md).

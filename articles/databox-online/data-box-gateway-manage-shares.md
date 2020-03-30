@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: e5463a32e299d9d4d151049ab5afffd4975d5182
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265446"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Använda Azur-portalen för att hantera resurser i Azure Data Box Gateway 
@@ -50,7 +50,7 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 5. Välj **lagringstjänst** – blockblob, sidblob eller filer. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I det här fallet vill vi till exempel att data ska lagras som blob-block i Azure, därför väljer vi **Blockblob**. Om du väljer **Sidblob** måste du kontrollera att dina data är justerade för 512 byte. Till exempel är en VHDX alltid justerad för 512 byte.
 
    > [!IMPORTANT]
-   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Kontrollera att Azure Storage-kontot som du använder inte har principer för oföränderlighet som angetts för det om du använder det med en Azure Stack Edge- eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera principer för oföränderlighet för bloblagring](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Det här steget beror på om du skapar en SMB- eller en NFS-resurs.
     - **Om du skapar en SMB-resurs** – I fältet för **lokal användare med fullständig behörighet** väljer du mellan **Skapa ny** eller **Använd befintlig**. Om du skapar en ny lokal användare anger du **användarnamn**, **lösenord** och sedan bekräfta lösenord. Detta tilldelar behörigheter till den lokala användaren. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
@@ -88,7 +88,7 @@ Listan över resurser uppdateras för att återspegla borttagningen.
 Med uppdateringsfunktionen kan du uppdatera innehållet i en lokal resurs. När du uppdaterar en resurs initieras en sökning för att hitta alla Azure-objekt, inklusive blobar och filer som har lagts till i molnet sedan den senaste uppdateringen. De nya filerna används sedan för att uppdatera innehållet i den lokala resursen på enheten. 
 
 > [!NOTE]
-> Behörigheter och åtkomst kontrol listor (ACL: er) bevaras inte i en uppdaterings åtgärd. 
+> Behörigheter och åtkomstkontrollistor (ACL: er) bevaras inte över en uppdateringsåtgärd. 
 
 Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 
@@ -122,7 +122,7 @@ Om dina lagringskontonycklar har roterats måste du synkronisera åtkomstnycklar
 Utför följande steg i Azure-portalen för att synkronisera din lagringsåtkomstnyckel.
 
 1. Gå till **Översikt** i din resurs. 
-2. I listan över resurser väljer du och klickar på en resurs som är kopplad till det lagrings konto som du behöver synkronisera. Klicka på **Synkronisera lagrings nyckel**. 
+2. Välj och klicka på en resurs som är kopplad till det lagringskonto som du behöver synkronisera i listan över resurser. Klicka på **Synkronisera lagringsnyckel**. 
 
      ![Synkronisera lagringsnyckel 1](media/data-box-gateway-manage-shares/sync-storage-key-1.png)
 

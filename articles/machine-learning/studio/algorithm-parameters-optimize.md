@@ -1,7 +1,7 @@
 ---
 title: Optimera algoritmer
 titleSuffix: ML Studio (classic) - Azure
-description: Förklarar hur du väljer den optimala parameter uppsättningen för en algoritm i Azure Machine Learning Studio (klassisk).
+description: I artikeln beskrivs hur du väljer den optimala parameteruppsättningen för en algoritm i Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,67 +11,67 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
 ms.openlocfilehash: 04148b482cb07665f43df5bd86a77175cbbaf08b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218275"
 ---
-# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Välj parametrar för att optimera algoritmerna i Azure Machine Learning Studio (klassisk)
+# <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Välj parametrar för att optimera dina algoritmer i Azure Machine Learning Studio (klassisk)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-I det här avsnittet beskrivs hur du väljer rätt aktiv parameter för en algoritm i Azure Machine Learning Studio (klassisk). De flesta maskininlärningsalgoritmer har parametrar för att konfigurera. När du tränar en modell, måste du ange värden för dessa parametrar. Effekt av den tränade modellen beror på Modellparametrar som du väljer. Processen för att hitta den optimala uppsättningen parametrar kallas *modell val*.
+I det här avsnittet beskrivs hur du väljer rätt hyperparameteruppsättning för en algoritm i Azure Machine Learning Studio (klassisk). De flesta maskininlärningsalgoritmer har parametrar att ställa in. När du tränar en modell måste du ange värden för dessa parametrar. Effekten av den tränade modellen beror på de modellparametrar som du väljer. Processen att hitta den optimala uppsättningen parametrar kallas *modellval*.
 
 
 
-Det finns olika sätt att modellera val. I Machine Learning är kors validering en av de mest använda metoderna för modell val och det är standard mekanismen för modell val i Azure Machine Learning Studio (klassisk). Eftersom Azure Machine Learning Studio (klassisk) stöder både R och python kan du alltid implementera egna metoder för modell val genom att använda R eller python.
+Det finns olika sätt att göra modellval. I maskininlärning är korsvalning en av de mest använda metoderna för modellval, och det är standardmodellens urvalsmekanism i Azure Machine Learning Studio (klassisk). Eftersom Azure Machine Learning Studio (klassisk) stöder både R och Python kan du alltid implementera deras egna modellvalsmekanismer med hjälp av antingen R eller Python.
 
-Det finns fyra steg håller på att hitta den bästa parameteruppsättningen:
+Det finns fyra steg i processen för att hitta den bästa parameteruppsättningen:
 
-1. **Definiera parameter utrymmet**: för algoritmen ska du först bestämma de exakta parameter värden som du vill ta hänsyn till.
-2. **Definiera kors validerings inställningarna**: Bestäm hur du vill välja kors validerings vikning för data uppsättningen.
-3. **Definiera måttet**: Bestäm vilka mått som ska användas för att fastställa den bästa uppsättningen parametrar, till exempel precision, Rotors medelvärde, precision, återkallande eller f-poäng.
-4. **Träna, utvärdera och jämför**: för varje unik kombination av parameter värden utförs kors validering av och baserat på det fel mått som du definierar. Du kan välja modellen med bäst prestanda efter utvärderingen och jämförelse.
+1. **Definiera parameterutrymmet:** För algoritmen bestämmer du först de exakta parametervärden som du vill ta hänsyn till.
+2. **Definiera inställningarna för korsverifiering:** Bestäm hur du väljer korsvalideringsveckor för datauppsättningen.
+3. **Definiera måttet:** Bestäm vilket mått som ska användas för att bestämma den bästa uppsättningen parametrar, till exempel noggrannhet, rotmedelsrutade fel, precision, återkallande eller f-poäng.
+4. **Träna, utvärdera och jämföra**: För varje unik kombination av parametervärdena utförs korsvalidering av och baseras på det felmått som du definierar. Efter utvärdering och jämförelse kan du välja den modell som har bäst resultat.
 
 Följande bild illustrerar hur detta kan uppnås i Azure Machine Learning Studio (klassisk).
 
 ![Hitta den bästa parameteruppsättningen](./media/algorithm-parameters-optimize/fig1.png)
 
-## <a name="define-the-parameter-space"></a>Definiera parametern-utrymme
-Du kan definiera parameteruppsättning modellen initieringen steget. Parameter fönstret för alla Machine Learning-algoritmer har två utbildare lägen: *enskild parameter* och *parameter intervall*. Välj parametern intervallet läge. Du kan ange flera värden för varje parameter i intervallet för parametern-läge. Du kan ange kommaseparerade värden i textrutan.
+## <a name="define-the-parameter-space"></a>Definiera parameterutrymmet
+Du kan definiera parameteruppsättningen vid modellinitualiseringssteget. Parameterfönstret för alla maskininlärningsalgoritmer har två träningslägen: *Single Parameter* och *Parameter Range*. Välj parameterområdesläge. I parameterområdesläge kan du ange flera värden för varje parameter. Du kan ange kommaavgränsade värden i textrutan.
 
-![Tvåklassförhöjt beslutsträd, enskild parameter](./media/algorithm-parameters-optimize/fig2.png)
+![Tvåklassigt förstärkt beslutsträd, en parameter](./media/algorithm-parameters-optimize/fig2.png)
 
- Alternativt kan du definiera de maximala och minsta punkterna i rutnätet och det totala antalet punkter som ska genereras med **use Range Builder**. Som standard skapas parametrarnas värden på en linjär skala. Men om **logg skalan** är markerad genereras värdena i logg skalan (det vill säga förhållandet mellan intilliggande punkter är konstant i stället för deras skillnader). Du kan definiera ett intervall för heltalsparametrar, med hjälp av ett bindestreck. Till exempel innebär "1-10" att alla heltal mellan 1 och 10 (båda) utgör parameter uppsättningen. Blandat läge stöds också. Parametern "1-10, 20, 50" skulle till exempel omfatta heltal som är 1-10, 20 och 50.
+ Alternativt kan du definiera det högsta och lägsta antalet punkter i rutnätet och det totala antalet punkter som ska genereras med **Använd Range Builder**. Som standard genereras parametervärdena på en linjär skala. Men om **loggskala** är markerad genereras värdena i loggskalan (det vill säga förhållandet mellan de intilliggande punkterna är konstant i stället för deras skillnad). För heltalsparametrar kan du definiera ett intervall med hjälp av ett bindestreck. Till exempel betyder "1-10" att alla heltal mellan 1 och 10 (båda inklusive) utgör parameteruppsättningen. Ett blandat läge stöds också. Parameteruppsättningen "1-10, 20, 50" skulle till exempel innehålla heltal 1-10, 20 och 50.
 
-![Tvåklassförhöjt beslutsträd, intervallet för parametern](./media/algorithm-parameters-optimize/fig3.png)
+![Tvåklassade förstärkta beslutsträd, parameterintervall](./media/algorithm-parameters-optimize/fig3.png)
 
-## <a name="define-cross-validation-folds"></a>Definiera korsvalidering vikningar
-Modulen [partition och exempel][partition-and-sample] kan användas för att slumpmässigt tilldela vik data. I följande exempelkonfiguration för modulen, vi definiera fem gånger och tilldela slumpmässigt flera vikning till exempel-instanser.
+## <a name="define-cross-validation-folds"></a>Definiera korsvalningsveck
+[Partitions- och exempelmodulen][partition-and-sample] kan användas för att slumpmässigt tilldela vikter till data. I följande exempelkonfiguration för modulen definierar vi fem veck och tilldelar slumpmässigt ett viknummer till exempelinstanserna.
 
-![Partitionera och ta prover](./media/algorithm-parameters-optimize/fig4.png)
+![Partition och exempel](./media/algorithm-parameters-optimize/fig4.png)
 
 ## <a name="define-the-metric"></a>Definiera måttet
-Modulen för att [finjustera modellens standardparametrar][tune-model-hyperparameters] ger stöd för att välja den bästa uppsättningen parametrar för en specifik algoritm och data uppsättning. Förutom annan information om inlärning av modellen, innehåller **egenskaps** rutan för den här modulen måttet för att fastställa den bästa parameter uppsättningen. Den har två olika nedrullningsbara listrutor för klassificering och regression algoritmer, respektive. Om algoritmen berörda är en klassificeringsalgoritm för, regression måttet ignoreras och vice versa. I det här exemplet är måttet **noggrannhet**.   
+[Modulen Tune Model Hyperparameters][tune-model-hyperparameters] ger stöd för att empiriskt välja den bästa uppsättningen parametrar för en viss algoritm och datauppsättning. Förutom annan information om utbildning av modellen innehåller **egenskapsfönstret** för den här modulen måttet för att bestämma den bästa parameteruppsättningen. Den har två olika listrutor för klassificerings- respektive regressionsalgoritmer. Om algoritmen som övervägs är en klassificeringsalgoritm ignoreras regressionsmåttet och vice versa. I det här specifika exemplet är måttet **Noggrannhet**.   
 
-![Parametrar för svepvinkeln](./media/algorithm-parameters-optimize/fig5.png)
+![Rensa parametrar](./media/algorithm-parameters-optimize/fig5.png)
 
 ## <a name="train-evaluate-and-compare"></a>Träna, utvärdera och jämföra
-Samma parameter för att [finjustera modellets][tune-model-hyperparameters] standardvärden är tågen alla modeller som motsvarar parameter uppsättningen, utvärderar olika mått och skapar sedan den bästa tränade modellen baserat på det mått som du väljer. Den här modulen har två obligatorisk indata:
+Samma [Tune Model Hyperparameters][tune-model-hyperparameters] modul tränar alla modeller som motsvarar parameteruppsättningen, utvärderar olika mått och skapar sedan den bäst tränade modellen baserat på det mått du väljer. Denna modul har två obligatoriska ingångar:
 
-* Omdöme eleven
+* Den outbildade eleven
 * Datauppsättningen
 
-Modulen har även en valfri datamängd som indata. Träffa vikning information till den obligatoriska datauppsättning indataporten datauppsättningen. Om datauppsättningen inte är tilldelad någon vikning information, körs automatiskt 10-fold korsvalidering som standard. Om vikning tilldelningen inte är klar och en datauppsättning för verifiering ges valfritt datauppsättning-port, ett valt träna och testning och den första datauppsättningen som används för att träna modellen för varje kombination av parametern.
+Modulen har också en valfri datauppsättningsinmatning. Anslut datauppsättningen med vikinformation till den obligatoriska datauppsättningsinmatningen. Om datauppsättningen inte tilldelas någon vikinformation körs en 10-faldig korsvalidering automatiskt som standard. Om viktilldelningen inte görs och en valideringsdatauppsättning tillhandahålls vid den valfria datamängdsporten väljs ett tågtestläge och den första datauppsättningen används för att träna modellen för varje parameterkombination.
 
-![Klassificerare för beslutsträd trädet](./media/algorithm-parameters-optimize/fig6a.png)
+![Förstärkt beslutsträd klassificerare](./media/algorithm-parameters-optimize/fig6a.png)
 
-Modellen utvärderas sedan för datauppsättningen för verifiering. Den vänstra utdataporten för modulen visar olika mått som funktioner för parametervärden. Den högra utdataporten ger den tränade modellen som motsvarar bästa möjliga modell enligt valt mått (**noggrannhet** i det här fallet).  
+Modellen utvärderas sedan på valideringsdatauppsättningen. Modulens vänstra utdataport visar olika mått som funktioner för parametervärden. Rätt utdataport ger den tränade modellen som motsvarar den bäst presterande modellen enligt det valda måttet (**Noggrannhet** i det här fallet).  
 
-![Verifiering datauppsättning](./media/algorithm-parameters-optimize/fig6b.png)
+![Valideringsdatauppsättning](./media/algorithm-parameters-optimize/fig6b.png)
 
-Du kan se exakt parametrarna valt genom att visualisera på rätt utdataporten. Den här modellen kan användas i bedömning ingen testmängd eller i en driftsatt webbtjänst när du har sparat som en tränad modell.
+Du kan se de exakta parametrar som valts genom att visualisera rätt utdataport. Den här modellen kan användas för att göra en testuppsättning eller i en operationaliserad webbtjänst efter att ha sparat som en utbildad modell.
 
 <!-- Module References -->
 [partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/

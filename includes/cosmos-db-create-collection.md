@@ -9,29 +9,29 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 9bc5be37f3892186233fac197c08066dbfacb43f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77780730"
 ---
-Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en databas och behållare. 
+Du kan nu använda datautforskaren verktyget i Azure-portalen för att skapa en databas och behållare. 
 
-1. Välj **Datautforskaren** > **ny behållare**. 
+1. Välj**ny behållare för** **datautforskaren** > . 
     
-    Avsnittet **Lägg till behållare** visas längst till höger. du kan behöva rulla åt höger för att se det.
+    Området **Lägg till behållare** visas längst till höger, du kan behöva rulla åt höger för att se det.
 
-    ![Fönstret Azure Portal Datautforskaren, Lägg till behållare](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
+    ![Datautforskaren på Azure-portalen, fönstret Lägg till container](./media/cosmos-db-create-collection/azure-cosmosdb-data-explorer.png)
 
-2. På sidan **Lägg till behållare** anger du inställningarna för den nya behållaren.
+2. På sidan **Lägg till behållar** anger du inställningarna för den nya behållaren.
 
     |Inställning|Föreslaget värde|Beskrivning
     |---|---|---|
-    |**Databas-ID**|Uppgifter|Ange *Uppgifter* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
-    |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
-    |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. Container-ID: n har samma teckenuppsättnings krav som databas namn.|
-    |**Partitionsnyckel**| /category| Exemplet som beskrivs i den här artikeln använder */Category* som partitionsnyckel.|
+    |**Databas-ID**|Aktiviteter|Ange *Uppgifter* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrollera **alternativet Etablera databasdataflöde,** det låter dig dela dataflödet som etablerats i databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnadsbesparingar. |
+    |**Dataflöde**|400|Lämna dataflödet på 400 begäranheter per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
+    |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. För container-ID:n gäller samma teckenkrav som för databasnamn.|
+    |**Partitionsnyckeln**| /category| I exemplet som beskrivs i den här artikeln används */category* som partitionsnyckel.|
     
-    Förutom de föregående inställningarna kan du också lägga till **unika nycklar** för behållaren. Vi lämnar fältet tomt i det här exemplet. Unika nycklar ger utvecklarna möjlighet att lägga till ett lager med dataintegritet till databasen. Genom att skapa en unik nyckel princip när du skapar en behållare, säkerställer du att ett eller flera värden är unika per partitionsnyckel. Läs mer i artikeln om [unika nycklar i Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
+    Förutom föregående inställningar kan du också lägga till **unika nycklar** för behållaren. Vi lämnar fältet tomt i det här exemplet. Unika nycklar ger utvecklarna möjlighet att lägga till ett lager med dataintegritet till databasen. Genom att skapa en unik nyckelprincip när du skapar en behållare säkerställer du att ett eller flera värden per partitionsnyckel är unika. Läs mer i artikeln om [unika nycklar i Azure Cosmos DB](../articles/cosmos-db/unique-keys.md).
     
-    Välj **OK**. Datautforskaren visar den nya databasen och behållaren.
+    Välj **OK**. Datautforskaren visar den nya databasen och containern.

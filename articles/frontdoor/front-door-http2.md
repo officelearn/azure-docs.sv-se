@@ -1,6 +1,6 @@
 ---
-title: Azure frontend-tjänst – HTTP2-stöd | Microsoft Docs
-description: Den här artikeln hjälper dig att lära dig mer om HTTP/2-stöd i Azure-tjänsten för front dörr
+title: Azure Ytterdörr - HTTP2-stöd | Microsoft-dokument
+description: Den här artikeln hjälper dig att lära dig mer om HTTP/2-stöd i Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,41 +11,41 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: c3c1721454c0b3c96071c685a764f34d4fa540b9
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 415a89cbccd6b43d64ba1a553d44ac003df5806a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68775259"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471633"
 ---
-# <a name="http2-support-in-azure-front-door-service"></a>HTTP/2-stöd i Azure-tjänsten för front dörr
+# <a name="http2-support-in-azure-front-door"></a>HTTP/2-stöd i Azure Front Door
 
-HTTP/2-stöd är för närvarande aktivt för alla konfigurationer för front dörren. Ingen ytterligare åtgärd krävs från kunderna.
+För närvarande är HTTP/2-stöd aktivt för alla frontdörrkonfigurationer. Inga ytterligare åtgärder krävs från kunder.
 
-HTTP/2 är en större revidering av HTTP/1.1. Det ger snabbare webb prestanda, minskad svars tid och bättre användar upplevelse, samtidigt som de välkända HTTP-metoderna, status koderna och semantiken bibehålls. Även om HTTP/2 är utformad för att fungera med HTTP och HTTPS, stöder många klient webbläsare bara HTTP/2 över Transport Layer Security (TLS).
+HTTP/2 är en större revidering av HTTP/1.1. Det ger snabbare webbprestanda, minskad svarstid och förbättrad användarupplevelse, samtidigt som de välbekanta HTTP-metoderna, statuskoderna och semantiken bibehålls. Även om HTTP/2 är utformat för att fungera med HTTP och HTTPS stöder många klientwebbläsare endast HTTP/2 över TLS (Transport Layer Security).
 
 ### <a name="http2-benefits"></a>HTTP/2-fördelar
 
-Fördelarna med HTTP/2 är:
+Fördelarna med HTTP/2 inkluderar:
 
 *   **Multiplexering och samtidighet**
 
-    Med hjälp av HTTP 1,1 krävs flera TCP-anslutningar för att göra flera resurs begär Anden, och varje anslutning har en associerad prestanda. HTTP/2 gör att flera resurser kan begäras på en enda TCP-anslutning.
+    Om du använder HTTP 1.1 krävs flera TCP-anslutningar för att göra flera resursbegäranden, och varje anslutning har prestandaomkostnader som är associerade med den. HTTP/2 gör att flera resurser kan begäras på en enda TCP-anslutning.
 
-*   **Sidhuvud komprimering**
+*   **Sidkomprimering**
 
-    Genom att komprimera HTTP-huvudena för att hantera resurser, minskas tiden på kabeln avsevärt.
+    Genom att komprimera HTTP-huvuden för serverade resurser minskas tiden på tråden avsevärt.
 
-*   **Strömma beroenden**
+*   **Flödesberoenden**
 
-    Stream-beroenden gör att klienten kan ange för servern vilka resurser har prioritet.
+    Stream-beroenden gör det möjligt för klienten att ange för servern vilka resurser som har prioritet.
 
 
-## <a name="http2-browser-support"></a>Stöd för HTTP/2-webbläsare
+## <a name="http2-browser-support"></a>Support för HTTP/2 webbläsare
 
-Alla större webbläsare har implementerat HTTP/2-stöd i sina aktuella versioner. Webbläsare som inte stöds återgår automatiskt till HTTP/1.1.
+Alla de stora webbläsarna har implementerat HTTP/2-stöd i sina nuvarande versioner. Webbläsare som inte stöds går automatiskt tillbaka till HTTP/1.1.
 
-|Browser|Lägsta version|
+|Webbläsare|Lägsta version|
 |-------------|------------|
 |Microsoft Edge| 12|
 |Google Chrome| 43|
@@ -53,11 +53,11 @@ Alla större webbläsare har implementerat HTTP/2-stöd i sina aktuella versione
 |Opera| 32|
 |Safari| 9|
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-Om du vill veta mer om HTTP/2 kan du besöka följande resurser:
+Mer information om HTTP/2 finns på följande resurser:
 
-- [Start sida för HTTP/2-specifikation](https://http2.github.io/)
-- [Vanliga frågor och svar om HTTP/2](https://http2.github.io/faq/)
+- [HTTP/2 specifikation hemsida](https://http2.github.io/)
+- [Officiella vanliga frågor om HTTP/2](https://http2.github.io/faq/)
 - Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus brand Väggs regler | Microsoft Docs
-description: Hur du använder brand Väggs regler för att tillåta anslutningar från vissa IP-adresser till Azure Service Bus.
+title: Konfigurera IP-brandväggsregler för Azure Service Bus
+description: Så här använder du brandväggsregler för att tillåta anslutningar från specifika IP-adresser till Azure Service Bus.
 services: service-bus
 documentationcenter: ''
 author: axisc
@@ -11,66 +11,53 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 9887d5448eabd272ab2528e4fc758265f2ada977
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a20882de34cb306b767959e21327180ff284e658
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980344"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475951"
 ---
-# <a name="azure-service-bus---use-firewall-rules"></a>Azure Service Bus-Använd brand Väggs regler
+# <a name="configure-ip-firewall-rules-for-azure-service-bus"></a>Konfigurera IP-brandväggsregler för Azure Service Bus
+Som standard är Service Bus-namnområden tillgängliga från internet så länge begäran levereras med giltig autentisering och auktorisering. Med IP-brandväggen kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adressintervall i [CIDR-notation (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 
-För scenarier där Azure Service Bus endast kan nås från vissa välkända platser, kan du konfigurera regler för att acceptera trafik från specifika IPv4-adresser i brand Väggs regler. Dessa adresser kan exempelvis vara de för en företagets NAT-gateway.
+Den här funktionen är användbar i scenarier där Azure Service Bus endast ska vara tillgänglig från vissa välkända platser. Med brandväggsregler kan du konfigurera regler för att acceptera trafik som kommer från specifika IPv4-adresser. Om du till exempel använder Service Bus med [Azure Express Route][express-route]kan du skapa en **brandväggsregel** för att tillåta trafik från endast dina lokala IP-adresser eller adresser till en FÖRETAGS NAT-gateway. 
 
-## <a name="when-to-use"></a>Används till att
+## <a name="ip-firewall-rules"></a>REGLER för IP-brandväggen
+IP-brandväggsreglerna tillämpas på servicebussnamnområdesnivå. Därför gäller reglerna för alla anslutningar från klienter som använder protokoll som stöds. Alla anslutningsförsök från en IP-adress som inte matchar en tillåten IP-regel på tjänstbussens namnområde avvisas som obehöriga. Svaret nämner inte IP-regeln. IP-filterregler tillämpas i ordning och den första regeln som matchar IP-adressen bestämmer åtgärden acceptera eller avvisa.
 
-Om du vill konfigurera Service Bus så att den endast ska ta emot trafik från ett visst intervall med IP-adresser och neka allt annat, kan du använda en *brand vägg* för att blockera Service Bus slut punkter från andra IP-adresser. Du använder till exempel Service Bus med [Azure Express Route][express-route] för att skapa privata anslutningar till din lokala infrastruktur. 
+## <a name="use-azure-portal"></a>Använda Azure-portalen
+I det här avsnittet visas hur du använder Azure-portalen för att skapa IP-brandväggsregler för ett servicebussnamnområde. 
 
-## <a name="how-filter-rules-are-applied"></a>Hur filterregler tillämpas
+1. Navigera till **tjänstbussens namnområde** i [Azure-portalen](https://portal.azure.com).
+2. Välj **Nätverksalternativ** på den vänstra menyn. Som standard är alternativet **Alla nätverk** markerat. Din Service Bus-namnområde accepterar anslutningar från valfri IP-adress. Den här standardinställningen motsvarar en regel som accepterar IP-adressintervallet 0.0.0/0. 
 
-IP-filter regler tillämpas på Service Bus namn områdes nivå. Därför gäller reglerna för alla anslutningar från klienter som använder alla protokoll som stöds.
+    ![Brandvägg - Alla nätverk alternativet valt](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+1. Välj alternativet **Markerade nätverk** högst upp på sidan. Gör så här i avsnittet **Brandvägg:**
+    1. Välj **Lägg till alternativet För klient-IP-adress** för att ge din nuvarande klient-IP åtkomst till namnområdet. 
+    2. För **adressintervall**anger du en specifik IPv4-adress eller ett intervall med IPv4-adress i CIDR-notation. 
+    3. Ange om du vill tillåta **betrodda Microsoft-tjänster att kringgå den här brandväggen**. 
 
-Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Service Bus namn området nekas som obehörig. Svaret nämner inte IP-regeln.
+        ![Brandvägg - Alla nätverk alternativet valt](./media/service-bus-ip-filtering/firewall-selected-networks-trusted-access-disabled.png)
+3. Välj **Spara** i verktygsfältet för att spara inställningarna. Vänta några minuter innan bekräftelsen visas på portalmeddelandena.
 
-## <a name="default-setting"></a>Standardinställningen
-
-Som standard är rutnätet för **IP-filter** i portalen för Service Bus tomt. Den här standardinställningen innebär att namn området accepterar anslutningar från alla IP-adresser. Den här standardinställningen motsvarar en regel som accepterar 0.0.0.0/0 IP-adressintervall.
-
-## <a name="ip-filter-rule-evaluation"></a>IP-filter rule utvärdering
-
-IP-filter regler tillämpas i ordning och den första regeln som matchar IP-adressen bestämmer åtgärden acceptera eller avvisa.
-
->[!WARNING]
-> Implementering av brand Väggs regler kan förhindra att andra Azure-tjänster interagerar med Service Bus.
->
-> Betrodda Microsoft-tjänster stöds inte när IP-filtrering (brand Väggs regler) implementeras och kommer snart att göras tillgänglig.
->
-> Vanliga Azure-scenarier som inte fungerar med IP-filtrering (Observera att listan **inte** är fullständig) –
-> - Azure Stream Analytics
-> - Integrering med Azure Event Grid
-> - Azure IoT Hub vägar
-> - Azure IoT-Device Explorer
->
-> De Microsoft-tjänster som behövs nedan måste finnas i ett virtuellt nätverk
-> - Azure Apptjänst
-> - Azure Functions
-
-### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Skapa ett virtuellt nätverk och en brand Väggs regel med Azure Resource Manager mallar
+## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
+Det här avsnittet innehåller ett exempel på En Azure Resource Manager-mall som skapar ett virtuellt nätverk och en brandväggsregel.
 
 > [!IMPORTANT]
-> Brand väggar och virtuella nätverk stöds endast på **Premium** -nivån för Service Bus.
+> Brandväggar och virtuella nätverk stöds endast i **premiumnivån** för Service Bus.
 
-Följande Resource Manager-mall gör det möjligt att lägga till en virtuell nätverks regel i ett befintligt Service Bus-namnområde.
+Med följande Resource Manager-mall kan du lägga till en virtuell nätverksregel i ett befintligt Service Bus-namnområde.
 
 Mallparametrar:
 
-- **ipMask** är en enskild IPv4-adress eller ett block med IP-adresser i CIDR-notation. Till exempel i CIDR representerar notation 70.37.104.0/24 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255 med 24 som anger antalet bitar betydande prefixet för intervallet.
+- **ipMask** är en enda IPv4-adress eller ett block med IP-adresser i CIDR-notation. I CIDR-notation 70.37.104.0/24 representerar till exempel 256 IPv4-adresser från 70.37.104.0 till 70.37.104.255, med 24 som anger antalet signifikanta prefixbitar för intervallet.
 
 > [!NOTE]
-> Även om det inte finns några tillåtna nekade regler, har Azure Resource Manager mal len standard åtgärden inställd på **Tillåt** , vilket inte begränsar anslutningar.
-> När du skapar Virtual Network-eller brand Väggs regler måste vi ändra ***"defaultAction"***
+> Även om det inte finns några möjliga neka regler, har Azure Resource Manager-mallen standardåtgärden inställd på **"Tillåt"** som inte begränsar anslutningar.
+> När du gör regler för virtuella nätverk eller brandväggar måste vi ändra ***"defaultAction"***
 > 
-> från
+> Från
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -133,6 +120,7 @@ Mallparametrar:
                 "action":"Allow"
             }
           ],
+          "trustedServiceAccessEnabled": false,          
           "defaultAction": "Deny"
         }
       }
@@ -141,13 +129,13 @@ Mallparametrar:
   }
 ```
 
-Följ anvisningarna för [Azure Resource Manager][lnk-deploy]om du vill distribuera mallen.
+Om du vill distribuera mallen följer du instruktionerna för [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Nästa steg
 
 Information om hur du begränsar åtkomsten till Service Bus till virtuella Azure-nätverk finns i följande länk:
 
-- [Virtual Network tjänst slut punkter för Service Bus][lnk-vnet]
+- [Slutpunkter för virtual network service-tjänsten för servicebuss][lnk-vnet]
 
 <!-- Links -->
 

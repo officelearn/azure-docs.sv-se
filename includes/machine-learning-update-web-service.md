@@ -2,25 +2,25 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 01/10/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 469d87a828df19ca30260cada9dcea43859be9e0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d36bf2db05113656a77e76ff900d95910f313c73
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75901952"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477263"
 ---
-Använd metoden `update` om du vill uppdatera en webb tjänst. Du kan uppdatera webb tjänsten så att den använder en ny modell, ett nytt registrerings skript eller nya beroenden som kan anges i en konfiguration för en konfiguration. Mer information finns i dokumentationen för [WebService. Update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
+Om du vill uppdatera `update` en webbtjänst använder du metoden. Du kan uppdatera webbtjänsten så att den använder en ny modell, ett nytt postskript eller nya beroenden som kan anges i en slutledningskonfiguration. Mer information finns i dokumentationen för [Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 
 > [!IMPORTANT]
-> När du skapar en ny version av en modell måste du manuellt uppdatera varje tjänst som du vill använda.
+> När du skapar en ny version av en modell måste du uppdatera varje tjänst manuellt som du vill använda den.
 >
-> Du kan inte använda SDK för att uppdatera en webb tjänst som publicerats från Azure Machine Learning designer.
+> Du kan inte använda SDK för att uppdatera en webbtjänst som publicerats från Azure Machine Learning-designern.
 
-**Använda SDK: n**
+**Med SDK**
 
-Följande kod visar hur du använder SDK för att uppdatera modell-, miljö-och registrerings skriptet för en webb tjänst:
+Följande kod visar hur du använder SDK för att uppdatera modell-, miljö- och inmatningsskriptet för en webbtjänst:
 
 ```python
 from azureml.core import Environment
@@ -53,7 +53,7 @@ print(service.get_logs())
 
 **Använda CLI**
 
-Du kan också uppdatera en webb tjänst med hjälp av ML CLI. I följande exempel visas hur du registrerar en ny modell och sedan uppdaterar en webb tjänst så att den använder den nya modellen:
+Du kan också uppdatera en webbtjänst med hjälp av ML CLI. I följande exempel visas hur du registrerar en ny modell och sedan uppdaterar en webbtjänst för att använda den nya modellen:
 
 ```azurecli
 az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --output-metadata-file modelinfo.json
@@ -61,8 +61,8 @@ az ml service update -n myservice --model-metadata-file modelinfo.json
 ```
 
 > [!TIP]
-> I det här exemplet används ett JSON-dokument för att skicka modell informationen från registrerings kommandot till kommandot Update.
+> I det här exemplet används ett JSON-dokument för att skicka modellinformationen från registreringskommandot till uppdateringskommandot.
 >
-> Om du vill uppdatera tjänsten för att använda ett nytt start skript eller en ny miljö skapar du en [konfigurations fil för en konfigurations fil](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) och anger den med parametern `ic`.
+> Om du vill uppdatera tjänsten för att använda ett nytt postskript eller `ic` en ny postmiljö skapar du en [inferenskonfigurationsfil](/azure/machine-learning/service/reference-azure-machine-learning-cli#inference-configuration-schema) och anger den med parametern.
 
-Mer information finns i dokumentationen om [AZ ml-tjänst uppdatering](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update) .
+Mer information finns i dokumentationen för [uppdatering av az ml-tjänsten.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-update)

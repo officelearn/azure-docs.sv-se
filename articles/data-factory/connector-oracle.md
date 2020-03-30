@@ -1,6 +1,6 @@
 ---
 title: Kopiera data till och från Oracle med hjälp av Azure Data Factory
-description: Lär dig hur du kopierar data från käll arkiv som stöds till en Oracle-databas, eller från Oracle till Sink-lager som stöds, genom att använda Data Factory.
+description: Lär dig hur du kopierar data från källarkiv som stöds till en Oracle-databas eller från Oracle till sink-butiker som stöds med hjälp av Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: jingwang
 ms.openlocfilehash: 874c685491774e2a318ae0a8b7394945a51b2f7f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79244516"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Kopiera data från och till Oracle med hjälp av Azure Data Factory
@@ -23,76 +23,76 @@ ms.locfileid: "79244516"
 > * [Version 1](v1/data-factory-onprem-oracle-connector.md)
 > * [Aktuell version](connector-oracle.md)
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från och till en Oracle-databas. Den bygger på [Översikt över kopierings aktiviteten](copy-activity-overview.md).
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från och till en Oracle-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
 Den här Oracle-anslutningen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från en Oracle-databas till alla mottagar data lager som stöds. Du kan också kopiera data från alla käll data lager som stöds till en Oracle-databas. En lista över data lager som stöds som källor eller mottagare av kopierings aktiviteten finns i tabellen med [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) .
+Du kan kopiera data från en Oracle-databas till alla sink-datalager som stöds. Du kan också kopiera data från alla källdatalager som stöds till en Oracle-databas. En lista över datalager som stöds som källor eller sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Mer specifikt stöder den här Oracle-anslutningen:
+Specifikt stöder den här Oracle-anslutningen:
 
 - Följande versioner av en Oracle-databas:
-    - Oracle 18c R1 (18,1) och högre
-    - Oracle 12C R1 (12,1) och högre
+    - Oracle 18c R1 (18.1) och högre
+    - Oracle 12c R1 (12.1) och högre
     - Oracle 11g R1 (11,1) och högre
     - Oracle 10g R1 (10,1) och högre
     - Oracle 9i R2 (9,2) och högre
     - Oracle 8i R3 (8.1.7) och högre
-    - Oracle Database Cloud Exadata service
-- Parallell kopiering från en Oracle-källa. Mer information finns i avsnittet [parallell kopiering från Oracle](#parallel-copy-from-oracle) .
+    - Oracle-databas moln Exadata-tjänst
+- Parallellkopiering från en Oracle-källa. Mer information finns i avsnittet [Parallellkopia från Oracle.](#parallel-copy-from-oracle)
 
 > [!Note]
-> Oracle-proxyservern stöds inte.
+> Oracle-proxyserver stöds inte.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
 
-Integrerings körningen innehåller en inbyggd Oracle-drivrutin. Därför behöver du inte installera en driv rutin manuellt när du kopierar data från och till Oracle.
+Integrationskörningen ger en inbyggd Oracle-drivrutin. Därför behöver du inte installera en drivrutin manuellt när du kopierar data från och till Oracle.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Oracle-anslutaren.
+I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för Oracle-anslutningen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Den länkade Oracle-tjänsten stöder följande egenskaper:
+Den Oracle-länkade tjänsten stöder följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till **Oracle**. | Ja |
-| connectionString | Anger den information som krävs för att ansluta till Oracle Database-instansen. <br/>Du kan också ange ett lösen ord i Azure Key Vault och hämta `password`-konfigurationen från anslutnings strängen. Läs följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) med mer information. <br><br>**Anslutnings typ som stöds**: du kan använda **Oracle sid** eller **Oracle-tjänstens namn** för att identifiera databasen:<br>-Om du använder SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Om du använder tjänst namn: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>För avancerade Oracle-anslutnings alternativ kan du välja att lägga till en post i [Tnsnames. ORA](http://www.orafaq.com/wiki/Tnsnames.ora) -fil på Oracle-servern och i ADF Oracle-länkad tjänst väljer du att använda anslutnings typen Oracle service Name och konfigurerar motsvarande tjänst namn. | Ja |
-| connectVia | [Integrerings körningen](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Nej |
+| Connectionstring | Anger den information som behövs för att ansluta till Oracle Database-instansen. <br/>Du kan också placera ett lösenord i `password` Azure Key Vault och hämta konfigurationen ur anslutningssträngen. Se följande exempel och [Store-autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) med mer information. <br><br>**Anslutningstyp som stöds**: Du kan använda **Oracle SID** eller **Oracles tjänstnamn** för att identifiera databasen:<br>- Om du använder SID:`Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Om du använder Tjänstnamn:`Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>För avancerade Oracle-inbyggda anslutningsalternativ kan du välja att lägga till en post i [TNSNAMES. ORA-filen](http://www.orafaq.com/wiki/Tnsnames.ora) på Oracle-servern och i ADF Oracles länkade tjänst väljer du att använda anslutningstypen Oracle-tjänstnamn och konfigurera motsvarande tjänstnamn. | Ja |
+| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om inget anges används standardkörningen för Azure Integration Runtime. |Inga |
 
 >[!TIP]
->Om du får ett fel meddelande om att "ORA-01025: UPI-parametern är utanför intervallet", och din Oracle-version är 8i, lägger du till `WireProtocolMode=1` i anslutnings strängen. Försök sedan igen.
+>Om du får ett felmeddelande, "ORA-01025: UPI parameter out of range" `WireProtocolMode=1` och din Oracle-version är 8i, lägger du till din anslutningssträng. Försök sedan igen.
 
-Fler anslutnings egenskaper som du kan ange i anslutnings strängen per ärende:
+Fler anslutningsegenskaper som du kan ange i anslutningssträngen per ärende:
 
 | Egenskap | Beskrivning | Tillåtna värden |
 |:--- |:--- |:--- |
-| ArraySize |Antalet byte som anslutningen kan hämta i en enda nätverks tur. T. ex. `ArraySize=‭10485760‬`.<br/><br/>Större värden ökar data flödet genom att minska antalet gånger för att hämta data över nätverket. Mindre värden ökar svars tiden eftersom det finns mindre fördröjning i väntan på att servern ska överföra data. | Ett heltal mellan 1 och 4294967296 (4 GB). Standardvärdet är `60000`. Värdet 1 definierar inte antalet byte, men indikerar att allokera utrymme för exakt en rad med data. |
+| Matrisstorlek |Antalet byte som anslutningen kan hämta i en enda nätverksresa. T.ex. `ArraySize=‭10485760‬`<br/><br/>Större värden ökar dataflödet genom att minska antalet gånger för att hämta data över nätverket. Mindre värden ökar svarstiden, eftersom det är mindre fördröjning som väntar på att servern ska överföra data. | Ett heltal från 1 till 4294967296 (4 GB). Standardvärdet `60000`är . Värdet 1 definierar inte antalet byte, men anger allokeringsutrymme för exakt en rad data. |
 
 Om du vill aktivera kryptering på Oracle-anslutning har du två alternativ:
 
--   Om du vill använda **3DES (triple-des Encryption) och Advanced Encryption Standard (AES)** på Oracle-server sidan går du till Oracle Advanced Security (oas) och konfigurerar krypterings inställningarna. Mer information finns i den här [Oracle-dokumentationen](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Program varan för Oracle Application Development Framework (ADF) förhandlar automatiskt om krypterings metoden för att använda den som du konfigurerar i OAS när du upprättar en anslutning till Oracle.
+-   Om du vill använda **Triple-DES Encryption (3DES) och Advanced Encryption Standard (AES)** går du till Oracle Advanced Security (OAS) på Oracle-serversidan och konfigurerar krypteringsinställningarna. Mer information finns i den här [Oracle-dokumentationen](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). Oracle Application Development Framework (ADF) -anslutningen förhandlar automatiskt om krypteringsmetoden för att använda den du konfigurerar i OAS när du upprättar en anslutning till Oracle.
 
--   Så här använder du **SSL**:
+-   Så här använder du **SSL:**
 
-    1.  Hämta information om SSL-certifikatet. Hämta den Distinguished Encoding Rules (DER)-kodade certifikat informationen för ditt SSL-certifikat och spara utdata (-----starta certifikat... Avsluta certifikat-----) som en textfil.
+    1.  Hämta SSL-certifikatinformationen. Hämta der-kodade certifikatinformation (Distinguished Encoding Rules) för ditt SSL-certifikat och spara utdata (----- Begin-certifikat ... Avsluta certifikat -----) som en textfil.
 
         ```
         openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
         ```
 
-        **Exempel:** Extrahera certifikat information från DERcert. cer och spara sedan utdata till cert. txt.
+        **Exempel:** Extrahera cert info från DERcert.cer och spara sedan utdata till cert.txt.
 
         ```
         openssl x509 -inform DER -in DERcert.cer -text
@@ -106,20 +106,20 @@ Om du vill aktivera kryptering på Oracle-anslutning har du två alternativ:
         -----END CERTIFICATE-----
         ```
     
-    2.  Bygg `keystore` eller `truststore`. Följande kommando skapar `truststore`-filen, med eller utan lösen ord, i PKCS-12-format.
+    2.  Bygg `keystore` eller `truststore`. Följande kommando skapar `truststore` filen, med eller utan lösenord, i PKCS-12-format.
 
         ```
         openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
         ```
 
-        **Exempel:** Skapa en PKCS12 `truststore`-fil med namnet MyTrustStoreFile med ett lösen ord.
+        **Exempel:** Skapa en PKCS12-fil `truststore` med namnet MyTrustStoreFile med ett lösenord.
 
         ```
         openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
         ```
 
-    3.  Placera `truststore`-filen på IR-datorn med egen värd. Placera till exempel filen på C:\MyTrustStoreFile.
-    4.  I Azure Data Factory konfigurerar du Oracle-anslutningssträngen med `EncryptionMethod=1` och motsvarande `TrustStore`/`TrustStorePassword`-värde. Till exempel `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
+    3.  Placera `truststore` filen på den självvärderade IR-datorn. Placera till exempel filen på C:\MyTrustStoreFile.
+    4.  Konfigurera Oracle-anslutningssträngen med `EncryptionMethod=1` och motsvarande `TrustStore` / `TrustStorePassword`värde i Azure Data Factory. Till exempel `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`.
 
 **Exempel:**
 
@@ -139,7 +139,7 @@ Om du vill aktivera kryptering på Oracle-anslutning har du två alternativ:
 }
 ```
 
-**Exempel: lagra lösen ord i Azure Key Vault**
+**Exempel: lagra lösenord i Azure Key Vault**
 
 ```json
 {
@@ -166,16 +166,16 @@ Om du vill aktivera kryptering på Oracle-anslutning har du två alternativ:
 ```
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-datauppsättningen. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [data uppsättningar](concepts-datasets-linked-services.md). 
+Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-datauppsättningen. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [Datauppsättningar](concepts-datasets-linked-services.md). 
 
-Om du vill kopiera data från och till Oracle anger du egenskapen type för data uppsättningen till `OracleTable`. Följande egenskaper stöds.
+Om du vill kopiera data från och till Oracle `OracleTable`anger du egenskapen typ för datauppsättningen till . Följande egenskaper stöds.
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till `OracleTable`. | Ja |
-| schema | Schemats namn. |Nej för källa, Ja för mottagare  |
-| table | Namnet på tabellen/vyn. |Nej för källa, Ja för mottagare  |
-| tableName | Namnet på tabellen/vyn med schemat. Den här egenskapen stöds för bakåtkompatibilitet. Använd `schema` och `table`för nya arbets belastningar. | Nej för källa, Ja för mottagare |
+| typ | Datauppsättningens typegenskap måste `OracleTable`anges till . | Ja |
+| Schemat | Namnet på schemat. |Nej för källa, Ja för diskho  |
+| tabell | Namn på tabellen/vyn. |Nej för källa, Ja för diskho  |
+| tableName | Namn på tabellen/vyn med schema. Den här egenskapen stöds för bakåtkompatibilitet. För ny arbetsbelastning använder du `schema` och `table`. | Nej för källa, Ja för diskho |
 
 **Exempel:**
 
@@ -200,27 +200,27 @@ Om du vill kopiera data från och till Oracle anger du egenskapen type för data
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-källan och mottagare. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [pipelines](concepts-pipelines-activities.md). 
+Det här avsnittet innehåller en lista över egenskaper som stöds av Oracle-källan och diskhon. En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Pipelines](concepts-pipelines-activities.md). 
 
 ### <a name="oracle-as-source"></a>Oracle som källa
 
 >[!TIP]
->Om du vill läsa in data från Oracle effektivt genom att använda data partitionering kan du läsa mer från [parallell kopiering från Oracle](#parallel-copy-from-oracle).
+>Om du vill läsa in data från Oracle effektivt med hjälp av datapartitionering kan du läsa mer från [Parallellkopia från Oracle](#parallel-copy-from-oracle).
 
-Om du vill kopiera data från Oracle anger du käll typen i kopierings aktiviteten till `OracleSource`. Följande egenskaper stöds i avsnittet Kopiera aktivitets **källa** .
+Om du vill kopiera data från Oracle anger `OracleSource`du källtypen i kopieringsaktiviteten till . Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet.**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till `OracleSource`. | Ja |
-| oracleReaderQuery | Använda anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla alla motsvarande inbyggda partitionsalternativ i frågan. Exempel finns i avsnittet [parallell kopiering från Oracle](#parallel-copy-from-oracle) . | Nej |
-| partitionOptions | Anger de data partitionerings alternativ som används för att läsa in data från Oracle. <br>Tillåtna värden är: **ingen** (standard), **PhysicalPartitionsOfTable** och **DynamicRange**.<br>När ett partitions alternativ är aktiverat (dvs. inte `None`), kontrol leras graden av parallellitet för data från en Oracle-databas av inställningen [`parallelCopies`](copy-activity-performance.md#parallel-copy) på kopierings aktiviteten. | Nej |
-| partitionSettings | Ange gruppen med inställningar för data partitionering. <br>Använd när alternativet partition inte `None`. | Nej |
-| partitionNames | Listan över fysiska partitioner som behöver kopieras. <br>Använd när alternativet partition är `PhysicalPartitionsOfTable`. Om du använder en fråga för att hämta källdata, Hook-`?AdfTabularPartitionName` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Oracle](#parallel-copy-from-oracle) . | Nej |
-| partitionColumnName | Ange namnet på den käll kolumn **i Integer-typ** som ska användas av intervall partitionering för parallell kopiering. Om detta inte anges identifieras primär nyckeln för tabellen automatiskt och används som partition-kolumn. <br>Använd när alternativet partition är `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook-`?AdfRangePartitionColumnName` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Oracle](#parallel-copy-from-oracle) . | Nej |
-| partitionUpperBound | Det maximala värdet för partition-kolumnen för att kopiera data. <br>Använd när alternativet partition är `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook-`?AdfRangePartitionUpbound` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Oracle](#parallel-copy-from-oracle) . | Nej |
-| partitionLowerBound | Det minimala värdet för kolumnen partition som ut data ska kopieras. <br>Använd när alternativet partition är `DynamicRange`. Om du använder en fråga för att hämta källdata, Hook-`?AdfRangePartitionLowbound` i WHERE-satsen. Ett exempel finns i avsnittet [parallell kopiering från Oracle](#parallel-copy-from-oracle) . | Nej |
+| typ | Egenskapen type property för kopians `OracleSource`aktivitet måste anges till . | Ja |
+| orakelLäsareQuery | Använd den anpassade SQL-frågan för att läsa data. Ett exempel är `"SELECT * FROM MyTable"`.<br>När du aktiverar partitionerad belastning måste du koppla motsvarande inbyggda partitionsparametrar i frågan. Exempel på exempel finns i avsnittet [Parallellkopia från Oracle.](#parallel-copy-from-oracle) | Inga |
+| partitionOptions | Anger de datapartitionsalternativ som används för att läsa in data från Oracle. <br>Tillåtna värden är: **Inga** (standard), **PhysicalPartitionsOfTable** och **DynamicRange**.<br>När ett partitionsalternativ är aktiverat (det vill ha), `None`styrs graden av parallellitet till samtidig inläsning av data från en Oracle-databas av [`parallelCopies`](copy-activity-performance.md#parallel-copy) inställningen på kopieringsaktiviteten. | Inga |
+| partitionSätta | Ange gruppen för inställningarna för datapartitionering. <br>Använd när partitionsalternativet `None`inte är . | Inga |
+| partitionNames (partitionNames) | Listan över fysiska partitioner som måste kopieras. <br>Använd när partitionsalternativet är `PhysicalPartitionsOfTable`. Om du använder en fråga för `?AdfTabularPartitionName` att hämta källdata ansluter du WHERE-satsen. Ett exempel finns i avsnittet [Parallellkopia från Oracle.](#parallel-copy-from-oracle) | Inga |
+| partitionColumnName | Ange namnet på källkolumnen **i heltalstyp** som ska användas av områdespartitionering för parallellkopia. Om inget anges identifieras den primära nyckeln i tabellen automatiskt och används som partitionskolumn. <br>Använd när partitionsalternativet är `DynamicRange`. Om du använder en fråga för `?AdfRangePartitionColumnName` att hämta källdata ansluter du WHERE-satsen. Ett exempel finns i avsnittet [Parallellkopia från Oracle.](#parallel-copy-from-oracle) | Inga |
+| partitionUpperBound | Det maximala värdet för partitionskolumnen för att kopiera data ut. <br>Använd när partitionsalternativet är `DynamicRange`. Om du använder en fråga för `?AdfRangePartitionUpbound` att hämta källdata ansluter du WHERE-satsen. Ett exempel finns i avsnittet [Parallellkopia från Oracle.](#parallel-copy-from-oracle) | Inga |
+| partitionLowerBound | Det minsta värdet för partitionskolumnen för att kopiera data ut. <br>Använd när partitionsalternativet är `DynamicRange`. Om du använder en fråga för `?AdfRangePartitionLowbound` att hämta källdata ansluter du WHERE-satsen. Ett exempel finns i avsnittet [Parallellkopia från Oracle.](#parallel-copy-from-oracle) | Inga |
 
-**Exempel: kopiera data med en grundläggande fråga utan partition**
+**Exempel: kopiera data med hjälp av en grundläggande fråga utan partition**
 
 ```json
 "activities":[
@@ -252,16 +252,16 @@ Om du vill kopiera data från Oracle anger du käll typen i kopierings aktivitet
 ]
 ```
 
-### <a name="oracle-as-sink"></a>Oracle som mottagare
+### <a name="oracle-as-sink"></a>Oracle som diskbänk
 
-Om du vill kopiera data till Oracle ställer du in mottagar typen i kopierings aktiviteten till `OracleSink`. Följande egenskaper stöds i avsnittet Kopiera aktivitets **mottagare** .
+Om du vill kopiera data till Oracle anger `OracleSink`du handfänktypen i kopieringsaktiviteten till . Följande egenskaper stöds i avsnittet kopiera **aktivitetsmottagare.**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till `OracleSink`. | Ja |
-| writeBatchSize | Infogar data i SQL-tabellen när buffertstorleken når `writeBatchSize`.<br/>Tillåtna värden är heltal (antal rader). |Nej (standard är 10 000) |
-| writeBatchTimeout | Vänte tiden för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes.<br/>Tillåtna värden är TimeSpan. Ett exempel är 00:30:00 (30 minuter). | Nej |
-| preCopyScript | Ange en SQL-fråga för kopierings aktiviteten som ska köras innan data skrivs till Oracle i varje körning. Du kan använda den här egenskapen för att rensa de förinstallerade data. | Nej |
+| typ | Typegenskapen för kopiaaktivitetsmottagaren måste anges till `OracleSink`. | Ja |
+| skriverBatchSize | Infogar data i SQL-tabellen när `writeBatchSize`buffertstorleken når .<br/>Tillåtna värden är Heltal (antal rader). |Nej (standard är 10 000) |
+| skriverBatchTimeout | Väntetiden för batchinsatsen att slutföras innan den time out.<br/>Tillåtna värden är Timespan. Ett exempel är 00:30:00 (30 minuter). | Inga |
+| preCopyScript | Ange en SQL-fråga för kopieringsaktiviteten som ska köras innan du skriver data till Oracle i varje körning. Du kan använda den här egenskapen för att rensa förinstallerade data. | Inga |
 
 **Exempel:**
 
@@ -294,22 +294,22 @@ Om du vill kopiera data till Oracle ställer du in mottagar typen i kopierings a
 ]
 ```
 
-## <a name="parallel-copy-from-oracle"></a>Parallell kopiering från Oracle
+## <a name="parallel-copy-from-oracle"></a>Parallell kopia från Oracle
 
-Data Factory Oracle-anslutaren tillhandahåller inbyggd data partitionering för att kopiera data från Oracle parallellt. Du kan hitta alternativ för data partitionering på fliken **källa** i kopierings aktiviteten.
+Data Factory Oracle-anslutningen tillhandahåller inbyggd datapartitionering för att kopiera data från Oracle parallellt. Du hittar alternativ för datapartitionering på fliken **Källa** för kopieringsaktiviteten.
 
-![Skärm bild av partitionsalternativ](./media/connector-oracle/connector-oracle-partition-options.png)
+![Skärmbild av partitionsalternativ](./media/connector-oracle/connector-oracle-partition-options.png)
 
-När du aktiverar partitionerad kopiering körs Data Factory parallella frågor mot din Oracle-källa för att läsa in data efter partitioner. Den parallella graden styrs av [`parallelCopies`s](copy-activity-performance.md#parallel-copy) inställningen på kopierings aktiviteten. Om du till exempel ställer in `parallelCopies` till fyra, Data Factory samtidigt genererar och kör fyra frågor baserat på ditt angivna partitionsalternativ och inställningar, och varje fråga hämtar en del av data från Oracle-databasen.
+När du aktiverar partitionerad kopia kör Data Factory parallella frågor mot Oracle-källan för att läsa in data efter partitioner. Den parallella graden [`parallelCopies`](copy-activity-performance.md#parallel-copy) styrs av inställningen på kopieringsaktiviteten. Om du till `parallelCopies` exempel anger fyra genererar och kör Data Factory samtidigt fyra frågor baserat på det angivna partitionsalternativet och inställningarna, och varje fråga hämtar en del data från Oracle-databasen.
 
-Du rekommenderas att aktivera parallell kopiering med data partitionering, särskilt när du läser in stora mängder data från Oracle-databasen. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat data lager, skrivs de om för att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
+Du föreslås aktivera parallellkopiering med datapartitionering, särskilt när du läser in stora mängder data från Oracle-databasen. Följande är föreslagna konfigurationer för olika scenarier. När du kopierar data till filbaserat datalager rekommenderas att skriva till en mapp som flera filer (ange bara mappnamn), i vilket fall prestandan är bättre än att skriva till en enda fil.
 
-| Scenario                                                     | Föreslagna inställningar                                           |
+| Scenario                                                     | Inställningar för förslag                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Fullständig belastning från stor tabell med fysiska partitioner.          | **Partitions alternativ**: fysiska partitioner i tabell. <br><br/>Under körningen identifierar Data Factory automatiskt de fysiska partitionerna och kopierar data efter partitioner. |
-| Fullständig belastning från stor tabell, utan fysiska partitioner, med en heltals kolumn för data partitionering. | **Partitions alternativ**: partition med dynamiskt intervall.<br>**Partitionstabell**: Ange den kolumn som används för att partitionera data. Om inget anges används primär nyckel kolumn. |
-| Läs in en stor mängd data med hjälp av en anpassad fråga med fysiska partitioner. | **Partitions alternativ**: fysiska partitioner i tabell.<br>**Fråga**: `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`.<br>**Partitionsnamn**: Ange namnen på de partitioner som data ska kopieras från. Om detta inte anges identifierar Data Factory automatiskt de fysiska partitionerna i tabellen som du angav i Oracle-datauppsättningen.<br><br>Under körningen ersätter Data Factory `?AdfTabularPartitionName` med det faktiska partitionsnamnet och skickar till Oracle. |
-| Läs in en stor mängd data med hjälp av en anpassad fråga, utan fysiska partitioner, med en heltals kolumn för data partitionering. | **Partitions alternativ**: partition med dynamiskt intervall.<br>**Fråga**: `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`.<br>**Partitionstabell**: Ange den kolumn som används för att partitionera data. Du kan partitionera mot kolumnen med data typen Integer.<br>**Partitionens övre gränser** och **partition nedre gränser**: Ange om du vill filtrera mot partition-kolumnen för att bara hämta data mellan det nedre och övre intervallet.<br><br>Under körningen ersätter Data Factory `?AdfRangePartitionColumnName`, `?AdfRangePartitionUpbound`och `?AdfRangePartitionLowbound` med det faktiska kolumn namnet och värde intervallet för varje partition och skickar till Oracle. <br>Om till exempel din partitionstabell "ID" är inställt på den nedre gränser som 1 och den övre gränser som 80, med parallell kopierings uppsättning som 4, Data Factory hämtar data med fyra partitioner. Deras ID: n är mellan [1, 20], [21, 40], [41, 60] och [61, 80]. |
+| Full belastning från stor tabell, med fysiska partitioner.          | **Partition alternativ**: Fysiska partitioner av tabellen. <br><br/>Under körningen identifierar Data Factory automatiskt de fysiska partitionerna och kopierar data efter partitioner. |
+| Fullständig belastning från stor tabell, utan fysiska partitioner, medan med en heltalskolumn för datapartitionering. | **Partitionsalternativ**: Partitionering med dynamiskt omfång.<br>**Partitionskolumnen**: Ange den kolumn som används för att partitionera data. Om inget anges används kolumnen primärnyckel. |
+| Läs in en stor mängd data med hjälp av en anpassad fråga med fysiska partitioner. | **Partition alternativ**: Fysiska partitioner av tabellen.<br>**Fråga** `SELECT * FROM <TABLENAME> PARTITION("?AdfTabularPartitionName") WHERE <your_additional_where_clause>`: .<br>**Partitionsnamn**: Ange de partitionsnamn som data ska kopieras från. Om inget anges identifierar Data Factory automatiskt de fysiska partitionerna i tabellen som du angav i Oracle-datauppsättningen.<br><br>Under körningen ersätter `?AdfTabularPartitionName` Data Factory med det faktiska partitionsnamnet och skickar till Oracle. |
+| Läs in en stor mängd data med hjälp av en anpassad fråga, utan fysiska partitioner, medan du har en heltalskolumn för datapartitionering. | **Partitionsalternativ**: Partitionering med dynamiskt omfång.<br>**Fråga** `SELECT * FROM <TABLENAME> WHERE ?AdfRangePartitionColumnName <= ?AdfRangePartitionUpbound AND ?AdfRangePartitionColumnName >= ?AdfRangePartitionLowbound AND <your_additional_where_clause>`: .<br>**Partitionskolumnen**: Ange den kolumn som används för att partitionera data. Du kan partitionera mot kolumnen med heltalsdatatyp.<br>**Partitionens övre gräns** och **partitionens nedre gräns:** Ange om du vill filtrera mot partitionskolumnen för att hämta data endast mellan det nedre och det övre intervallet.<br><br>Under körningen ersätter `?AdfRangePartitionColumnName` `?AdfRangePartitionUpbound`Data `?AdfRangePartitionLowbound` Factory , och med det faktiska kolumnnamn och värdeintervall för varje partition och skickas till Oracle. <br>Om partitionskolumnen "ID" till exempel är inställd med den nedre gränsen som 1 och den övre gränsen som 80, med parallellkopieringsuppsättning som 4, hämtar Data Factory data med 4 partitioner. Deras ID är mellan [1,20], [21, 40], [41, 60] respektive [61, 80]. |
 
 **Exempel: fråga med fysisk partition**
 
@@ -327,7 +327,7 @@ Du rekommenderas att aktivera parallell kopiering med data partitionering, särs
 }
 ```
 
-**Exempel: fråga med Dynamic Range-partition**
+**Exempel: fråga med partition för dynamiskt omfång**
 
 ```json
 "source": {
@@ -342,40 +342,40 @@ Du rekommenderas att aktivera parallell kopiering med data partitionering, särs
 }
 ```
 
-## <a name="data-type-mapping-for-oracle"></a>Data typs mappning för Oracle
+## <a name="data-type-mapping-for-oracle"></a>Mappning av datatyp för Oracle
 
-När du kopierar data från och till Oracle gäller följande mappningar. Information om hur kopierings aktiviteten mappar käll schema och datatyp till mottagaren finns i [schema-och data typs mappningar](copy-activity-schema-and-type-mapping.md).
+När du kopierar data från och till Oracle gäller följande mappningar. Mer information om hur kopieringsaktiviteten mappar källschemat och datatypen till diskhon finns i [Schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md).
 
-| Oracle-datatyp | Data Factory tillfälliga datatyp |
+| Oracle-datatyp | Data Factory interimdatatyp |
 |:--- |:--- |
-| BFILE |Byte[] |
-| BLOB |Byte[]<br/>(stöds endast på Oracle 10g och högre) |
+| BFILE (BFILE) |Byte[] |
+| Blob |Byte[]<br/>(endast stöds på Oracle 10g och högre) |
 | CHAR |String |
-| CLOB |String |
+| Clob |String |
 | DATE |DateTime |
-| FLOAT |Decimal, String (om precision > 28) |
-| INTEGER |Decimal, String (om precision > 28) |
-| SOM |String |
-| LONG RAW |Byte[] |
-| NCHAR |String |
-| NCLOB |String |
-| MÅNGA |Decimal, String (om precision > 28) |
-| NVARCHAR2 |String |
-| RAW |Byte[] |
-| ROWID |String |
+| Flyta |Decimal, Sträng (om precision > 28) |
+| INTEGER |Decimal, Sträng (om precision > 28) |
+| Lång |String |
+| LÅNG RÅ |Byte[] |
+| Nchar |String |
+| NCLOB (på andra sätt) |String |
+| Nummer |Decimal, Sträng (om precision > 28) |
+| NVARCHAR2 (olika) |String |
+| Raw |Byte[] |
+| ROWID (RADID) |String |
 | TIMESTAMP |DateTime |
-| TIMESTAMP WITH LOCAL TIME ZONE |String |
-| TIMESTAMP WITH TIME ZONE |String |
-| UNSIGNED INTEGER |Tal |
-| VARCHAR2 |String |
-| FIL |String |
+| TIDSSTÄMPEL MED LOKAL TIDSZON |String |
+| TIDSSTÄMPEL MED TIDSZON |String |
+| OSIGNERAT HELTAL |Tal |
+| VARCHAR2 (OLIKA) |String |
+| XML |String |
 
 > [!NOTE]
-> Data typerna INTERVAL år till månad och intervall dag till sekund stöds inte.
+> Datatyperna INTERVALL ÅR TILL MÅNAD OCH INTERVALL DAG TILL SEKUND stöds inte.
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över data lager som stöds som källor och mottagare av kopierings aktiviteten i Data Factory finns i [data lager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Data Factory finns i [Datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

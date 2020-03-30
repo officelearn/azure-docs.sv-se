@@ -1,6 +1,6 @@
 ---
-title: Guiden Kopiera aktivitets prestanda och skalbarhet
-description: Lär dig mer om viktiga faktorer som påverkar prestanda för data förflyttning i Azure Data Factory när du använder kopierings aktiviteten.
+title: Kopiera aktivitetsprestanda och skalbarhetsguide
+description: Lär dig mer om viktiga faktorer som påverkar prestanda för data förflyttning i Azure Data Factory när du använder kopieringsaktiviteten.
 services: data-factory
 documentationcenter: ''
 ms.author: jingwang
@@ -13,113 +13,113 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
 ms.openlocfilehash: 231b0d77dc441e70dc0ec8de313291bb6b4f9292
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261403"
 ---
-# <a name="copy-activity-performance-and-scalability-guide"></a>Guiden Kopiera aktivitets prestanda och skalbarhet
+# <a name="copy-activity-performance-and-scalability-guide"></a>Kopiera aktivitetsprestanda och skalbarhetsguide
 
 > [!div class="op_single_selector" title1="Välj den version av Azure Data Factory som du använder:"]
 > * [Version 1](v1/data-factory-copy-activity-performance.md)
 > * [Aktuell version](copy-activity-performance.md)
 
-Om du vill utföra en storskalig datamigrering från data Lake eller Enterprise Data Warehouse (ANALYSLÖSNINGAR) till Azure, eller om du vill mata in data i stor skala från olika källor i Azure för stor data analys, är det viktigt att uppnå optimala prestanda och bättre.  Azure Data Factory ger en utförd, elastisk och kostnads effektiv mekanism för att mata in data i stor skala, vilket gör det lättare för data tekniker att skapa högpresterande och skalbara data inmatnings pipeliner.
+Oavsett om du vill utföra en storskalig datamigrering från datasjö eller företagsdatalager (EDW) till Azure, eller om du vill använda data i stor skala från olika källor till Azure för stordataanalys, är det viktigt att uppnå optimal prestanda och Skalbarhet.  Azure Data Factory tillhandahåller en högpresterande, flexibel och kostnadseffektiv mekanism för att få tillgång till data i stor skala, vilket gör det till en utmärkt passform för datatekniker som vill skapa högpresterande och skalbara datainmatningspipelpipels.
 
-När du har läst den här artikeln kommer du att kunna besvara följande frågor:
+Efter att ha läst den här artikeln kommer du att kunna svara på följande frågor:
 
-- Vilken nivå av prestanda och skalbarhet kan jag använda för att använda ADF Copy-aktivitet för data migration och scenarier för data inmatning?
+- Vilken nivå av prestanda och skalbarhet kan jag uppnå med hjälp av ADF-kopieringsaktivitet för datamigrering och scenarier för datainmatning?
 
-- Vilka steg ska jag utföra för att justera prestandan för en ADF Copy-aktivitet?
-- Vilka videokanaligt prestanda optimerings rattar kan jag använda för att optimera prestanda för en enskild kopierings aktivitet?
-- Vad är andra faktorer utanför ADF att överväga när du optimerar kopierings prestanda?
+- Vilka åtgärder bör jag vidta för att justera prestanda för ADF-kopieringsaktivitet?
+- Vilka ADF perf-optimeringsrattar kan jag använda för att optimera prestanda för en enda kopieringsaktivitetskörning?
+- Vilka andra faktorer utanför ADF att tänka på när du optimerar kopieringsprestanda?
 
 > [!NOTE]
-> Om du inte är bekant med kopierings aktiviteten i allmänhet kan du läsa [översikten kopiera aktivitet](copy-activity-overview.md) innan du läser den här artikeln.
+> Om du inte känner till kopieringsaktiviteten i allmänhet läser du [kopians aktivitetsöversikt](copy-activity-overview.md) innan du läser den här artikeln.
 
-## <a name="copy-performance-and-scalability-achievable-using-adf"></a>Kopiera prestanda och skalbarhet som går att nå med ADF
+## <a name="copy-performance-and-scalability-achievable-using-adf"></a>Kopiera prestanda och skalbarhet som kan uppnås med hjälp av ADF
 
-ADF erbjuder en server lös arkitektur som gör det möjligt att använda parallellitet på olika nivåer, vilket gör att utvecklare kan bygga pipeliner för att fullt ut utnyttja din nätverks bandbredd samt lagrings-IOPS och bandbredd för att maximera data flödet för data flödet i din miljö.  Det innebär att du kan beräkna det data flöde som du kan uppnå genom att mäta det minsta data flöde som erbjuds av käll data lagret, mål data lagret och nätverks bandbredden mellan källan och målet.  I tabellen nedan beräknas kopieringens varaktighet baserat på data storleken och bandbredds gränsen för din miljö. 
+ADF erbjuder en serverlös arkitektur som tillåter parallellism på olika nivåer, vilket gör det möjligt för utvecklare att bygga pipelines för att fullt ut utnyttja din nätverksbandbredd samt lagring IOPS och bandbredd för att maximera datarördataflödet för din miljö.  Det innebär att dataflödet du kan uppnå kan uppskattas genom att mäta det minsta dataflöde som erbjuds av källdatalagret, måldatalagret och nätverksbandbredden mellan källan och målet.  Tabellen nedan beräknar kopieringstiden baserat på datastorlek och bandbreddsgränsen för din miljö. 
 
-| Data storlek/ <br/> bredd | 50 Mbit/s    | 100 Mbps  | 500 Mbps  | 1 Gbit/s   | 5 Gbit/s   | 10 Gbit/s  | 50 Gbit/s   |
+| Datastorlek / <br/> Bandbredd | 50 Mbit/s    | 100 Mbps  | 500 Mbps  | 1 Gbit/s   | 5 Gbit/s   | 10 Gbit/s  | 50 Gbit/s   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1 GB**                    | 2,7 min    | 1,4 min   | 0,3 min   | 0,1 min  | 0,03 min | 0,01 min | 0,0 min   |
 | **10 GB**                   | 27,3 min   | 13,7 min  | 2,7 min   | 1,3 min  | 0,3 min  | 0,1 min  | 0,03 min  |
-| **100 GB**                  | 4,6 timmar    | 2,3 timmar   | 0,5 timmar   | 0,2 timmar  | 0,05 timmar | 0,02 timmar | 0,0 timmar   |
+| **100 GB**                  | 4,6 timmar    | 2,3 timmar   | 0,5 timmar   | 0,2 timmar  | 0,05 timmar | 0,02 timmar | 0,0 timmar   |
 | **1 TB**                    | 46,6 timmar   | 23,3 timmar  | 4,7 timmar   | 2,3 timmar  | 0,5 timmar  | 0,2 timmar  | 0,05 timmar  |
-| **10 TB**                   | 19,4 dagar  | 9,7 dagar  | 1,9 dagar  | 0,9 dagar | 0,2 dagar | 0,1 dagar | 0,02 dagar |
+| **10 TB**                   | 19,4 dagar  | 9,7 dagar  | 1,9 dagar  | 0,9 dagar | 0,2 dagar | 0,1 dagar | 0,02 dagar |
 | **100 TB**                  | 194,2 dagar | 97,1 dagar | 19,4 dagar | 9,7 dagar | 1,9 dagar | 1 dag    | 0,2 dagar  |
-| **1 PB**                    | 64,7 mo    | 32,4 Mo   | 6,5 Mo    | 3,2 Mo   | 0,6 Mo   | 0,3 Mo   | 0,06 Mo   |
-| **10 PB**                   | 647,3 Mo   | 323,6 Mo  | 64,7 mo   | 31,6 Mo  | 6,5 Mo   | 3,2 Mo   | 0,6 Mo    |
+| **1 PB (pb)**                    | 64,7 mån    | 32,4 mån   | 6,5 mån    | 3,2 mån   | 0,6 månad   | 0,3 månad   | 0,06 mån   |
+| **10 PB (PB)**                   | 647,3 mån   | 323,6 mån  | 64,7 mån   | 31,6 mån  | 6,5 mån   | 3,2 mån   | 0,6 månad    |
 
 ADF-kopian är skalbar på olika nivåer:
 
-![så här skalar ADF-kopiering](media/copy-activity-performance/adf-copy-scalability.png)
+![hur ADF-kopiering skalar](media/copy-activity-performance/adf-copy-scalability.png)
 
-- ADF-kontroll flödet kan starta flera kopierings aktiviteter parallellt, till exempel använda [för varje slinga](control-flow-for-each-activity.md).
-- En enda kopierings aktivitet kan dra nytta av skalbara beräknings resurser: när du använder Azure Integration Runtime kan du ange [upp till 256 DIUs](#data-integration-units) för varje kopierings aktivitet på ett Server lös sätt. När du använder Integration Runtime med egen värd kan du skala upp datorn manuellt eller skala ut till flera datorer ([upp till 4 noder](create-self-hosted-integration-runtime.md#high-availability-and-scalability)) och en enda kopierings aktivitet partitionerar dess fil uppsättning på alla noder.
-- En enskild kopierings aktivitet läser från och skriver till data lagret med hjälp av flera trådar [parallellt](#parallel-copy).
+- ADF-kontrollflöde kan starta flera kopieringsaktiviteter parallellt, till exempel med hjälp av [För varje slinga](control-flow-for-each-activity.md).
+- En enda kopieringsaktivitet kan dra nytta av skalbara beräkningsresurser: när du använder Azure Integration Runtime kan du ange [upp till 256 DIUs](#data-integration-units) för varje kopieringsaktivitet på ett serverlöst sätt. När du använder självvärderad integrationskörning kan du manuellt skala upp datorn eller skala ut till flera datorer[(upp till 4 noder)](create-self-hosted-integration-runtime.md#high-availability-and-scalability)och en enda kopieringsaktivitet partitionerar filuppsättningen över alla noder.
+- En enda kopieringsaktivitet läser från och skriver till datalagret med hjälp av flera trådar [parallellt](#parallel-copy).
 
-## <a name="performance-tuning-steps"></a>Prestanda justering steg
+## <a name="performance-tuning-steps"></a>Steg för prestandajustering
 
-Följ dessa steg för att justera prestandan för din Azure Data Factory-tjänst med kopierings aktiviteten.
+Vidta de här stegen för att justera prestanda för din Azure Data Factory-tjänst med kopieringsaktiviteten.
 
-1. **Hämta en test data uppsättning och upprätta en bas linje.** Under utvecklings fasen testar du din pipeline med hjälp av kopierings aktiviteten mot ett representativt data exempel. Den data uppsättning du väljer ska representera dina typiska data mönster (mappstruktur, fil mönster, data schema och så vidare) och är tillräckligt stor för att utvärdera kopierings prestanda, till exempel det tar 10 minuter eller mer för kopierings aktiviteten att slutföras. Samla in körnings information och prestanda egenskaper efter [Kopiera aktivitets övervakning](copy-activity-monitoring.md).
+1. **Plocka upp en testdatauppsättning och upprätta en baslinje.** Testa pipelinen under utvecklingsfasen med hjälp av kopieringsaktiviteten mot ett representativt dataexempel. Den datauppsättning du väljer ska representera dina typiska datamönster (mappstruktur, filmönster, dataschema och så vidare) och är tillräckligt stor för att utvärdera kopieringsprestanda, till exempel tar det 10 minuter eller längre tid för kopieringsaktivitet att slutföras. Samla in körningsinformation och prestandaegenskaper efter [övervakning av kopieringsaktivitet](copy-activity-monitoring.md).
 
-2. **Maximera prestanda för en enskild kopierings aktivitet**:
+2. **Hur man maximerar prestanda för en enda kopieringsaktivitet:**
 
-   För att börja med rekommenderar vi att du först maximerar prestandan med en enda kopierings aktivitet.
+   Till att börja med rekommenderar vi att du först maximerar prestanda med hjälp av en enda kopieringsaktivitet.
 
-   - **Om kopierings aktiviteten körs på en Azure integration Runtime:** börja med standardvärden för [data integrerings enheter (DIU)](#data-integration-units) och inställningar för [parallell kopiering](#parallel-copy) . 
+   - **Om kopieringsaktiviteten körs på en Azure Integration Runtime:** börja med standardvärden för [DATA Integration Units (DIU)](#data-integration-units) och [parallella](#parallel-copy) kopieringsinställningar. 
 
-   - **Om kopierings aktiviteten körs på en egen värd integration Runtime:** vi rekommenderar att du använder en dedikerad dator separat från den server som är värd för integration Runtime. Börja med standardvärden för inställningen för [parallell kopiering](#parallel-copy) och Använd en enda nod för IR med egen värd.  
+   - **Om kopieringsaktiviteten körs på en självvärderad Integration Runtime:** Vi rekommenderar att du använder en dedikerad dator separat från servern som är värd för datalagret för att vara värd för integrationskörning. Börja med standardvärden för [parallellkopieringsinställning](#parallel-copy) och använda en enda nod för den självvärderade IR:t.  
 
-   Kör en prestandatest och anteckna de prestanda som uppnås samt de faktiska värdena som används som DIUs och parallella kopior. Mer information finns i avsnittet om att [Kopiera aktiviteter](copy-activity-monitoring.md) för att samla in prestanda inställningar och använda prestanda och lär dig hur du [felsöker kopierings aktivitetens prestanda](copy-activity-performance-troubleshooting.md) för att identifiera och lösa Flask halsen. 
+   Utför en prestandatestkörning och ta del av prestanda som uppnåtts samt de faktiska värden som används som DIUs och parallella kopior. Se [kopieringsaktivitetsövervakning](copy-activity-monitoring.md) om hur du samlar in körresultat och prestandainställningar som används och lär dig hur du [felsöker prestanda för kopieringsaktivitet](copy-activity-performance-troubleshooting.md) för att identifiera och lösa flaskhalsen. 
 
-   Iterera för att utföra ytterligare prestandatest körningar efter fel söknings-och justerings vägledningen. Det går inte att få bättre data flöde i en enskild kopierings aktivitet, Överväg att maximera mängd data flöde genom att köra flera kopior samtidigt som du refererar till steg 3.
+   Iterera för att utföra ytterligare prestandatestkörningar enligt felsöknings- och justeringsvägledningen. När enstaka kopieringsaktivitetskörning inte kan uppnå bättre dataflöde bör du tänka på att maximera det samlade dataflödet genom att köra flera kopior samtidigt som du refererar till steg 3.
 
 
-3. **Maximera sammanställd genom strömning genom att köra flera kopior samtidigt:**
+3. **Så här maximerar du det sammanlagda dataflödet genom att köra flera kopior samtidigt:**
 
-   Nu när du har maximerat prestandan för en enskild kopierings aktivitet, om du inte har uppnått de övre gränserna för din miljö – nätverk, käll data lager och mål data lager, kan du köra flera kopierings aktiviteter parallellt med hjälp av ett ADF-styrnings flöde, till exempel [för varje slinga](control-flow-for-each-activity.md). Läs mer om att [Kopiera filer från flera behållare](solution-template-copy-files-multiple-containers.md), [migrera data från Amazon S3 till ADLS Gen2](solution-template-migration-s3-azure.md)eller [Mass kopiering med en mall för kontroll tabells](solution-template-bulk-copy-with-control-table.md) lösningar som ett allmänt exempel.
+   Nu när du har maximerat prestanda för en enda kopieringsaktivitet, om du ännu inte har uppnått dataflödets övre gränser för din miljö – nätverk, källdatalager och måldatalager – kan du köra flera kopieringsaktiviteter parallellt med hjälp av ADF-kontrollflödeskonstruktioner som [För varje slinga](control-flow-for-each-activity.md). Se [Kopiera filer från flera behållare](solution-template-copy-files-multiple-containers.md), Migrera data från Amazon [S3 till ADLS Gen2](solution-template-migration-s3-azure.md)eller [Masskopiering med en](solution-template-bulk-copy-with-control-table.md) kontrolltabelllösningsmallar som allmänt exempel.
 
-5. **Expandera konfigurationen till hela data uppsättningen.** När du är nöjd med körnings resultatet och prestandan kan du expandera definitionen och pipelinen för att hantera hela data uppsättningen.
+5. **Expandera konfigurationen till hela datauppsättningen.** När du är nöjd med körningsresultaten och prestandan kan du expandera definitionen och pipelinen så att den täcker hela datauppsättningen.
 
-## <a name="troubleshoot-copy-activity-performance"></a>Felsöka prestanda för kopierings aktivitet
+## <a name="troubleshoot-copy-activity-performance"></a>Felsöka prestanda för kopieringsaktivitet
 
-Följ [prestanda justerings stegen](#performance-tuning-steps) för att planera och genomföra prestandatest för ditt scenario. Och lär dig hur du felsöker varje kopierings aktivitets körnings prestanda problem i Azure Data Factory från [fel sökning av prestanda för kopierings aktivitet](copy-activity-performance-troubleshooting.md).
+Följ [stegen För prestandajustering](#performance-tuning-steps) för att planera och genomföra prestandatest för ditt scenario. Och lär dig hur du felsöker prestandaproblem för varje kopieringsaktivitet i Azure Data Factory från [Felsöka prestanda för kopieringsaktivitet](copy-activity-performance-troubleshooting.md).
 
-## <a name="copy-performance-optimization-features"></a>Kopiera funktioner för prestanda optimering
+## <a name="copy-performance-optimization-features"></a>Kopiera prestandaoptimeringsfunktioner
 
-Azure Data Factory innehåller följande funktioner för prestanda optimering:
+Azure Data Factory innehåller följande prestandaoptimeringsfunktioner:
 
 - [Dataintegrationsenheter](#data-integration-units)
-- [Skalbarhet för integration runtime med egen värd](#self-hosted-integration-runtime-scalability)
+- [Självvärd för integreringskörningsskalbarhet](#self-hosted-integration-runtime-scalability)
 - [Parallell kopia](#parallel-copy)
-- [Mellanlagrad kopia](#staged-copy)
+- [Stegvis kopia](#staged-copy)
 
-### <a name="data-integration-units"></a>Data integrerings enheter
+### <a name="data-integration-units"></a>Dataintegrationsenheter
 
-En data integrerings enhet är ett mått som representerar styrkan (en kombination av processor, minne och tilldelning av nätverks resurser) för en enskild enhet i Azure Data Factory. Data integrerings enheten gäller endast för [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), men inte för [integration runtime med egen värd](concepts-integration-runtime.md#self-hosted-integration-runtime). [Läs mer](copy-activity-performance-features.md#data-integration-units).
+En dataintegrationsenhet är ett mått som representerar kraften (en kombination av CPU, minne och nätverksresursallokering) för en enskild enhet i Azure Data Factory. Dataintegrationsenhet gäller endast för [Azure-integreringskörning](concepts-integration-runtime.md#azure-integration-runtime), men inte [självvärd för integrationskörning](concepts-integration-runtime.md#self-hosted-integration-runtime). [Läs mer](copy-activity-performance-features.md#data-integration-units).
 
-### <a name="self-hosted-integration-runtime-scalability"></a>Skalbarhet för integration runtime med egen värd
+### <a name="self-hosted-integration-runtime-scalability"></a>Självvärd för integreringskörningsskalbarhet
 
-För att vara värd för att öka arbets belastningen eller uppnå högre prestanda kan du antingen skala upp eller skala ut den egna värdbaserade Integration Runtime. [Läs mer](copy-activity-performance-features.md#self-hosted-integration-runtime-scalability).
+Om du vill öka samtidig arbetsbelastning eller uppnå högre prestanda kan du antingen skala upp eller skala ut den självvärderade integrationskörningen. [Läs mer](copy-activity-performance-features.md#self-hosted-integration-runtime-scalability).
 
 ### <a name="parallel-copy"></a>Parallell kopia
 
-Du kan ställa in parallell kopiering för att ange vilken parallellitet som ska användas för kopierings aktiviteten. Du kan tänka på den här egenskapen som det maximala antalet trådar i kopierings aktiviteten som läser från din källa eller skriver till dina mottagar data lager parallellt. [Läs mer](copy-activity-performance-features.md#parallel-copy).
+Du kan ställa in parallellkopia för att ange den parallellitet som du vill att kopieringsaktiviteten ska använda. Du kan se den här egenskapen som det maximala antalet trådar i kopieringsaktiviteten som läs av källan eller skriver till dina sink-datalager parallellt. [Läs mer](copy-activity-performance-features.md#parallel-copy).
 
-### <a name="staged-copy"></a>Mellanlagrad kopiering
+### <a name="staged-copy"></a>Stegvis kopia
 
-När du kopierar data från källans datalager till mottagarens datalager kan du välja att använda Blob storage som en mellanliggande mellanlagringsarkivet. [Läs mer](copy-activity-performance-features.md#staged-copy).
+När du kopierar data från ett källdatalager till ett sink-datalager kan du välja att använda Blob-lagring som ett interimistiskt mellanlagringsarkiv. [Läs mer](copy-activity-performance-features.md#staged-copy).
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra artiklar om kopierings aktiviteter:
+Se de andra artiklarna för kopieringsaktivitet:
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
-- [Felsöka prestanda för kopierings aktivitet](copy-activity-performance-troubleshooting.md)
-- [Kopiera aktivitets prestanda optimerings funktioner](copy-activity-performance-features.md)
-- [Använd Azure Data Factory för att migrera data från data Lake eller data lager till Azure](data-migration-guidance-overview.md)
+- [Kopiera aktivitetsöversikt](copy-activity-overview.md)
+- [Felsöka prestanda för kopieringsaktivitet](copy-activity-performance-troubleshooting.md)
+- [Kopiera prestandaoptimeringsfunktioner för aktivitet](copy-activity-performance-features.md)
+- [Använda Azure Data Factory för att migrera data från datasjön eller datalagret till Azure](data-migration-guidance-overview.md)
 - [Migrera data från Amazon S3 till Azure Storage](data-migration-guidance-s3-azure-storage.md)

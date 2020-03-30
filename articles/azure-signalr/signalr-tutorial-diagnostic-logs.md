@@ -1,97 +1,97 @@
 ---
-title: Diagnostikloggar för Azure SignalR service
-description: Lär dig hur du konfigurerar diagnostikloggar för Azure SignalR service och hur du använder den för att felsöka.
-author: wanl
+title: Diagnostikloggar för Azure SignalR-tjänsten
+description: Lär dig hur du konfigurerar diagnostikloggar för Azure SignalR-tjänsten och hur du använder den för att felsöka själv.
+author: wanlwanl
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 33d9a338e12fa4b3d2449f0c5b0576895364c3cf
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 72f57ba4bbbbde07f6d26edc88c158f301ebe2f2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750262"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79536742"
 ---
-# <a name="diagnostic-logs-for-azure-signalr-service"></a>Diagnostikloggar för Azure SignalR service
+# <a name="diagnostic-logs-for-azure-signalr-service"></a>Diagnostikloggar för Azure SignalR-tjänsten
 
-I den här självstudien beskrivs vad är diagnostikloggar för Azure SignalR-tjänsten och hur du konfigurerar diagnostikloggar och hur du felsöker med diagnostikloggar.
+Den här självstudien beskriver vad som är diagnostikloggar för Azure SignalR-tjänsten och hur du konfigurerar diagnostikloggar och hur du felsöker med diagnostikloggar.
 
 ## <a name="prerequisites"></a>Krav
-Om du vill aktivera diagnostikloggar måste du lagra dina loggdata någonstans. I den här självstudien används Azure Storage och Log Analytics.
+Om du vill aktivera diagnostikloggar måste du lagra loggdata någonstans. Den här självstudien använder Azure Storage och Log Analytics.
 
-* [Azure Storage](../azure-monitor/platform/resource-logs-collect-storage.md) – behåller diagnostikloggar för princip granskning, statisk analys eller säkerhets kopiering.
-* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) – ett flexibelt loggs öknings-och analys verktyg som möjliggör analys av obehandlade loggar som genereras av en Azure-resurs.
+* [Azure storage](../azure-monitor/platform/resource-logs-collect-storage.md) - Behåller diagnostikloggar för principgranskning, statisk analys eller säkerhetskopiering.
+* [Log Analytics](../azure-monitor/platform/resource-logs-collect-workspace.md) - Ett flexibelt loggsöknings- och analysverktyg som möjliggör analys av råloggar som genereras av en Azure-resurs.
 
 ## <a name="set-up-diagnostic-logs-for-an-azure-signalr-service"></a>Konfigurera diagnostikloggar för en Azure SignalR-tjänst
 
-Du kan visa diagnostikloggar för Azure SignalR-tjänsten. Dessa loggar ger en mer omfattande vy över anslutningen till din Azure SignalR-tjänstinstans. Diagnostikloggar innehåller detaljerad information om varje anslutning. Till exempel grundläggande information (användar-ID, anslutnings-ID och transport typ och så vidare) och händelse information (Anslut, koppla från och Avbryt händelse och så vidare) för anslutningen. Diagnostikloggar kan användas för problem identifiering, anslutnings spårning och analys.
+Du kan visa diagnostikloggar för Azure SignalR-tjänst. Dessa loggar ger en rikare vy över anslutningen till din Azure SignalR-tjänstinstans. Diagnostikloggarna ger detaljerad information om varje anslutning. Till exempel grundläggande information (användar-ID, anslutnings-ID och transporttyp och så vidare) och händelseinformation (anslut, koppla från och avbryta händelse och så vidare) av anslutningen. Diagnostikloggar kan användas för ärendeidentifiering, anslutningsspårning och analys.
 
 ### <a name="enable-diagnostic-logs"></a>Aktivera diagnostikloggar
 
-Diagnostikloggar är inaktiverade som standard. Följ dessa steg om du vill aktivera diagnostikloggar:
+Diagnostikloggar är inaktiverade som standard. Så här aktiverar du diagnostikloggar:
 
-1.  Klicka på **diagnostikinställningar**under **övervakning**i [Azure Portal](https://portal.azure.com).
+1. Klicka på **Diagnostikinställningar**under **Övervakning**i [Azure-portalen](https://portal.azure.com).
 
-    ![Fönster navigering till diagnostikinställningar](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
+    ![Navigering i fönster till diagnostikinställningar](./media/signalr-tutorial-diagnostic-logs/diagnostic-settings-menu-item.png)
 
-1.  Klicka sedan på **Lägg till diagnostisk inställning**.
+1. Klicka sedan på **Lägg till diagnostikinställning**.
 
     ![Lägg till diagnostikloggar](./media/signalr-tutorial-diagnostic-logs/add-diagnostic-setting.png)
 
-1.  Ange det mål för arkiv som du vill använda. För närvarande stöder vi **arkivering till ett lagrings konto** och **skickar till Log Analytics**.
+1. Ange önskat arkivmål. För närvarande stöder vi **Arkiv till ett lagringskonto** och **Skicka till Log Analytics**.
 
-1. Välj de loggar som du vill arkivera.
+1. Markera de loggar som du vill arkivera.
 
     ![Fönstret Diagnostikinställningar](./media/signalr-tutorial-diagnostic-logs/diagnostics-settings-pane.png)
 
 
-1.  Spara de nya diagnostikinställningarna för.
+1. Spara de nya diagnostikinställningarna.
 
-Nya inställningarna träder i kraft i cirka 10 minuter. Efter det loggar visas i den konfigurerade mål för arkivering, i den **diagnostikloggar** fönstret.
+Nya inställningar träder i kraft om cirka 10 minuter. Därefter visas loggar i det konfigurerade arkiveringsmålet i fönstret **Diagnostikloggar.**
 
-Mer information om hur du konfigurerar diagnostik finns i den [översikt över Azure diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
+Mer information om hur du konfigurerar diagnostik finns i [översikten över Diagnostikloggar i Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-### <a name="diagnostic-logs-categories"></a>Diagnostikloggar kategorier
+### <a name="diagnostic-logs-categories"></a>Kategorier för diagnostikloggar
 
-Azure SignalR service fångar in diagnostikloggar i en kategori:
+Azure SignalR Service samlar in diagnostikloggar i en kategori:
 
-* **Alla loggar**: spåra anslutningar som ansluter till Azure SignalR-tjänsten. Loggarna ger information om anslutning/från koppling, autentisering och begränsning. Mer information finns i nästa avsnitt.
+* **Alla loggar:** Spåra anslutningar som ansluter till Azure SignalR-tjänsten. Loggarna innehåller information om anslutning/frånkoppling, autentisering och begränsning. Mer information finns i nästa avsnitt.
 
 ### <a name="archive-to-a-storage-account"></a>Arkivera till ett lagringskonto
 
-Loggar lagras i det lagrings konto som har kon figurer ATS i fönstret **diagnostikloggar** . En behållare med namnet `insights-logs-alllogs` skapas automatiskt för att lagra diagnostikloggar. I behållaren lagras loggar i filen `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`. I princip kombineras sökvägen med `resource ID` och `Date Time`. Loggfilerna delas av `hour`. Därför är minuterna alltid `m=00`.
+Loggar lagras i lagringskontot som konfigurerats i fönstret **Diagnostikloggar.** En behållare `insights-logs-alllogs` med namnet skapas automatiskt för att lagra diagnostikloggar. Inuti behållaren lagras loggar i `resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/XXXX/PROVIDERS/MICROSOFT.SIGNALRSERVICE/SIGNALR/XXX/y=YYYY/m=MM/d=DD/h=HH/m=00/PT1H.json`filen . I grund och botten `resource ID` är `Date Time`vägen kombineras med och . Loggfilerna delas `hour`av . Därför är `m=00`protokollet alltid .
 
-Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post innehåller strängfält som använder formatet som beskrivs i följande avsnitt.
+Alla loggar lagras i JSON-format (JavaScript Object Notation). Varje post har strängfält som använder det format som beskrivs i följande avsnitt.
 
-Arkiv loggens JSON-strängar innehåller element som anges i följande tabeller:
+JSON-strängar med arkivlogger innehåller element som anges i följande tabeller:
 
-**Formatering**
-
-Namn | Beskrivning
-------- | -------
-time | Händelse tid för logg
-level | Logga händelse nivå
-resourceId | Resurs-ID för Azure SignalR-tjänsten
-location | Plats för Azure SignalR-tjänsten
-category | Kategori för logg händelsen
-operationName | Åtgärds namn för händelsen
-callerIpAddress | IP-adress för servern/klienten
-properties | Detaljerade egenskaper relaterade till den här logg händelsen. Mer information finns i tabellen egenskaper nedan
-
-**Egenskaps tabell**
+**Format**
 
 Namn | Beskrivning
 ------- | -------
-typ | Typ av logg händelse. För närvarande ger vi information om anslutningen till Azure SignalR-tjänsten. Endast `ConnectivityLogs` typ är tillgänglig
-samling | Samling av logg händelsen. Tillåtna värden är: `Connection`, `Authorization` och `Throttling`
+time | Logga händelsetid
+nivå | Logga händelsenivå
+resourceId | Resurs-ID för din Azure SignalR-tjänst
+location | Plats för din Azure SignalR-tjänst
+category | Kategori för logghändelsen
+operationName | Åtgärdens namn på händelsen
+callerIpAddress | IP-adressen till servern/klienten
+properties | Detaljerade egenskaper relaterade till den här logghändelsen. Mer information finns i egenskapstabellen nedan
+
+**Egenskapstabell**
+
+Namn | Beskrivning
+------- | -------
+typ | Typ av logghändelse. För närvarande tillhandahåller vi information om anslutning till Azure SignalR-tjänsten. Endast `ConnectivityLogs` typ är tillgänglig
+samling | Insamling av logghändelsen. Tillåtna värden `Connection` `Authorization` är: och`Throttling`
 connectionId | Anslutningens identitet
-transportType | Anslutningens transport typ. Tillåtna värden är: `Websockets` \| `ServerSentEvents` \| `LongPolling`
-connectionType | Typ av anslutning. Tillåtna värden är: `Server` \| `Client`. `Server`: anslutning från Server Sidan; `Client`: anslutning från klient Sidan
+transportTyp | Transporttyp för anslutningen. Tillåtna värden `Websockets` \| `ServerSentEvents` \| är:`LongPolling`
+connectionType (anslutningstyp) | Typ av anslutning. Tillåtna värden `Server` \| `Client`är: . `Server`: Anslutning från serversidan; `Client`: anslutning från klientsidan
 userId | Användarens identitet
-meddelande | Detaljerat meddelande om logg händelse
+meddelande | Detaljerat meddelande om logghändelse
 
-Följande kod är ett exempel på en arkivera loggen JSON-sträng:
+Följande kod är ett exempel på en JSON-sträng för arkivloggen:
 
 ```json
 {
@@ -114,85 +114,86 @@ Följande kod är ett exempel på en arkivera loggen JSON-sträng:
 }
 ```
 
-### <a name="archive-logs-schema-for-log-analytics"></a>Schema för Arkiv logg för Log Analytics
+### <a name="archive-logs-schema-for-log-analytics"></a>Arkivloggschema för Log Analytics
 
-Följ dessa steg om du vill visa diagnostikloggar:
+Så här visar du diagnostikloggar:
 
-1. Klicka på `Logs` i mål Log Analytics.
+1. Klicka `Logs` i din mållogganalys.
 
-    ![Meny alternativ för Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
+    ![Menyalternativ för Logganalys](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Ange `SignalRServiceDiagnosticLogs` och välj tidsintervall för att köra diagnostiska loggar. För avancerade frågor, se [Kom igång med Log Analytics i Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
+2. Ange `SignalRServiceDiagnosticLogs` och välj tidsintervall för att fråga efter diagnostikloggar. Avancerad fråga finns [i Komma igång med Logganalys i Azure Monitor](../azure-monitor/log-query/get-started-portal.md)
 
-    ![Fråga logg i Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
+    ![Frågelogg i Logganalys](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
-Arkivera logg kolumner innehåller element som anges i följande tabell:
+Arkivloggkolumner innehåller element som visas i följande tabell:
 
 Namn | Beskrivning
 ------- | ------- 
-TimeGenerated | Händelse tid för logg
-Samling | Samling av logg händelsen. Tillåtna värden är: `Connection`, `Authorization` och `Throttling`
-OperationName | Åtgärds namn för händelsen
-Location | Plats för Azure SignalR-tjänsten
-Nivå | Logga händelse nivå
-CallerIpAddress | IP-adress för servern/klienten
-Meddelande | Detaljerat meddelande om logg händelse
-UserID | Användarens identitet
-ConnectionId | Anslutningens identitet
-ConnectionType | Typ av anslutning. Tillåtna värden är: `Server` \| `Client`. `Server`: anslutning från Server Sidan; `Client`: anslutning från klient Sidan
-TransportType | Anslutningens transport typ. Tillåtna värden är: `Websockets` \| `ServerSentEvents` \| `LongPolling`
+TimeGenerated | Logga händelsetid
+Samling | Insamling av logghändelsen. Tillåtna värden `Connection` `Authorization` är: och`Throttling`
+OperationName | Åtgärdens namn på händelsen
+Location | Plats för din Azure SignalR-tjänst
+Nivå | Logga händelsenivå
+UppringarenSadress | IP-adressen till servern/klienten
+Meddelande | Detaljerat meddelande om logghändelse
+UserId | Användarens identitet
+ConnectionId (på)-anslutning) | Anslutningens identitet
+ConnectionType (Anslutningstyp) | Typ av anslutning. Tillåtna värden `Server` \| `Client`är: . `Server`: Anslutning från serversidan; `Client`: anslutning från klientsidan
+TransportTyp | Transporttyp för anslutningen. Tillåtna värden `Websockets` \| `ServerSentEvents` \| är:`LongPolling`
 
-### <a name="troubleshooting-with-diagnostic-logs"></a>Fel sökning med diagnostikloggar
+### <a name="troubleshooting-with-diagnostic-logs"></a>Felsökning med diagnostikloggar
 
-Om du vill felsöka för Azure SignalR-tjänsten kan du aktivera Server-/klient Side loggar för att fånga fel. Azure SignalR-tjänsten exponerar diagnostikloggar, men du kan också aktivera loggar för tjänst sidan.
+Om du vill felsöka för Azure SignalR-tjänsten kan du aktivera server-/klientloggar för att fånga fel. För närvarande exponerar Azure SignalR-tjänsten diagnostikloggar, du kan också aktivera loggar för tjänstsidan.
 
-När du stöter på en oväntad växande eller tappad situation kan du använda diagnostikloggar för fel sökning.
+När du stöter på en oväntad tillväxt- eller fallande situation för anslutning kan du dra nytta av diagnostikloggar för felsökning.
 
-Vanliga problem är ofta om anslutningarnas oväntade antal ändringar, anslutningarna når anslutnings gränser och ett auktoriseringsfel. Se nästa avsnitt om hur du felsöker.
+Typiska problem handlar ofta om anslutningars oväntade kvantitetsändringar, anslutningar når anslutningsgränser och auktoriseringsfel. Se nästa avsnitt om felsökning.
 
-#### <a name="unexpected-connection-number-changes"></a>Oväntade anslutnings nummer ändringar
+#### <a name="unexpected-connection-number-changes"></a>Oväntade ändringar av anslutningsnummer
 
-##### <a name="unexpected-connection-dropping"></a>Oväntad anslutning tappas
+##### <a name="unexpected-connection-dropping"></a>Oväntad anslutning sjunker
 
-Om du stöter på oväntade anslutningar ska du först aktivera loggar i tjänst-, server-och klient sidor.
+Om du stöter på oväntade anslutningar släppa, först aktivera loggar in service, server och klient sidor.
 
-Om anslutningen kopplas från, kommer diagnostikloggar att registrera den här från kopplings händelsen, du ser `ConnectionAborted` eller `ConnectionEnded` i `operationName`.
+Om en anslutning kopplas från registrerar diagnostikloggarna den här `ConnectionAborted` `ConnectionEnded` frånkopplingshändelsen, visas eller i `operationName`.
 
-Skillnaden mellan `ConnectionAborted` och `ConnectionEnded` är att `ConnectionEnded` är en förväntad från koppling som utlöses av klienten eller Server sidan. `ConnectionAborted` är vanligt vis en oväntad händelse för att släppa anslutningen, och avbrotts orsak ges i `message`.
+Skillnaden mellan `ConnectionAborted` `ConnectionEnded` och `ConnectionEnded` är det en förväntad frånkoppling som utlöses av klient- eller serversidan. Medan `ConnectionAborted` det vanligtvis är en oväntad anslutningsavstringshändelse, och avbruten orsak kommer att anges i `message`.
 
-Avbrotts orsakerna visas i följande tabell:
+Avbrutna orsaker visas i följande tabell:
 
 Orsak | Beskrivning
 ------- | ------- 
-Antalet anslutningar når gränsen | Antalet anslutningar når gränsen för den aktuella pris nivån. Överväg att skala upp tjänst enhet
-Program servern stängde anslutningen | App Server utlöser avbrottet. Det kan betraktas som ett förväntat avbrott
-Timeout för anslutnings-ping | Det beror vanligt vis på nätverks problem. Överväg att kontrol lera appens Server tillgänglighet från Internet
-Laddar om tjänsten, återanslut | Azure SignalR-tjänsten läses in på nytt. Azure-Signaleraren stöder automatisk åter anslutning, du kan vänta tills du har anslutit om eller manuellt återansluta till Azure Signaling-tjänsten
-Tillfälligt fel i intern server | Ett tillfälligt fel uppstår i Azure SignalR-tjänsten, ska återställas automatiskt
-Server anslutningen har släppts | Server anslutning uppkommer med ett okänt fel, Överväg att själv felsöka med tjänst/Server/klient Side loggar först. Försök att utesluta grundläggande problem (t. ex. nätverks problem, problem med App Server-sidan och så vidare). Om problemet inte är löst kan du kontakta oss för ytterligare hjälp. Mer information finns i avsnittet [få hjälp](#get-help) . 
+Antalet anslutningar når gränsen | Antalet anslutningar når gränsen för din nuvarande prisnivå. Överväg att skala upp serviceenheten
+Programservern stängde anslutningen | Appserver utlöser aborten. Det kan betraktas som en förväntad abort
+Timeout för anslutnings ping | Vanligtvis orsakas det av nätverksproblem. Överväg att kontrollera appserverns tillgänglighet från internet
+Omlastning av tjänsten, återanslut | Azure SignalR-tjänsten laddar om. Azure SignalR stöder automatisk återanslutning, du kan vänta tills återansluten eller manuellt återansluta till Azure SignalR Service
+Internt fel på servertransgående | Tillfälliga fel uppstår i Azure SignalR Service, bör återställas automatiskt
+Serveranslutningen har tagits bort | Serveranslutningen sjunker med okänt fel, överväg självfelsökning med service/server/klientsidan först. Försök att utesluta grundläggande problem (t.ex. nätverksproblem, problem på appserversidan och så vidare). Om problemet inte är löst kontaktar du oss för ytterligare hjälp. Mer information finns i Avsnittet [Hämta hjälp.](#get-help) 
 
-##### <a name="unexpected-connection-growing"></a>Oväntad växande anslutning
+##### <a name="unexpected-connection-growing"></a>Oväntad anslutning växer
 
-Det första du behöver göra är att filtrera bort extra anslutningar för att felsöka om oväntad anslutnings tillväxt. Du kan lägga till ett unikt test användar-ID till din test klient anslutning. Kontrol lera den i med diagnostikloggar, om du ser fler än en klient anslutning har samma test användar-ID eller IP-adress, är det sannolikt att klient sidan skapar och upprättar fler anslutningar än förväntat. Kontrol lera din klient sida.
+För att felsöka om oväntad anslutning växer, det första du behöver göra är att filtrera bort de extra anslutningarna. Du kan lägga till unikt testanvändar-ID i testklientanslutningen. Kontrollera sedan in den med diagnostikloggar, om du ser mer än en klientanslutningar har samma testanvändar-ID eller IP, är det troligt att klientsidan skapar och upprättar fler anslutningar än förväntan. Kolla din klientsida.
 
 #### <a name="authorization-failure"></a>Auktoriseringen misslyckades
 
-Om du får 401 obehörigt returnerat för klient begär Anden, kontrol lera dina diagnostikloggar. Om du stöter på `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`innebär det att alla mål grupper i din åtkomsttoken är ogiltiga. Försök att använda de giltiga mål grupperna som föreslås i loggen.
+Om du får 401 Obehöriga returnerade för klientbegäranden kontrollerar du dina diagnostikloggar. Om du `Failed to validate audience. Expected Audiences: <valid audience>. Actual Audiences: <actual audience>`stöter på betyder det att alla målgrupper i din åtkomsttoken är ogiltiga. Försök att använda de giltiga målgrupper som föreslås i loggen.
 
 
 #### <a name="throttling"></a>Begränsning
 
-Om du upptäcker att du inte kan upprätta signal klient anslutningar till Azure SignalR-tjänsten, kontrollerar du diagnostikloggar. Om du stöter på `Connection count reaches limit` i Diagnostic-loggen upprättar du för många anslutningar till signal tjänsten, som når gränsen för antal anslutningar. Överväg att skala upp signal tjänsten. Om du stöter på `Message count reaches limit` i diagnostikloggar innebär det att du använder den kostnads fria nivån och använder upp meddelande kvoten. Om du vill skicka fler meddelanden bör du överväga att ändra signal tjänsten till standard nivån för att skicka ytterligare meddelanden. Mer information finns i [priser för Azure SignalR service](https://azure.microsoft.com/pricing/details/signalr-service/).
+Om du upptäcker att du inte kan upprätta SignalR-klientanslutningar till Azure SignalR-tjänsten kontrollerar du dina diagnostikloggar. Om du `Connection count reaches limit` stöter på i diagnostikloggen upprättar du för många anslutningar till SignalR-tjänsten, som når gränsen för anslutningsantal. Överväg att skala upp din SignalR-tjänst. Om du `Message count reaches limit` stöter på i diagnostikloggen betyder det att du använder den kostnadsfria nivån och att du använder kvoten för meddelanden. Om du vill skicka fler meddelanden kan du överväga att ändra SignalR-tjänsten till standardnivå för att skicka ytterligare meddelanden. Mer information finns i [Azure SignalR Service Pricing](https://azure.microsoft.com/pricing/details/signalr-service/).
 
 ### <a name="get-help"></a>Få hjälp
 
-Vi rekommenderar att du först felsöker dig själv. De flesta problem orsakas av problem med app server eller nätverket. Följ [fel söknings guiden med diagnostisk logg](#troubleshooting-with-diagnostic-logs) och [grundläggande fel](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) söknings guide för att hitta rotor saken.
-Om problemet fortfarande inte kan lösas kan du öppna ett ärende i GitHub eller skapa en biljett i Azure Portal.
-Använda
-1. Tidsintervall cirka 30 minuter när problemet uppstår
-2. Resurs-ID för Azure SignalR-tjänsten
-3. Problem information, så som det är möjligt: till exempel appserver inte att skicka meddelanden, klient anslutningarna och så vidare
-4. Loggar som samlats in från Server/klient sida och annat material som kan vara användbart
-5. Valfritt Återskapnings-kod
+Vi rekommenderar att du felsöker själv först. De flesta problem orsakas av appserver eller nätverksproblem. Följ [felsökningsguiden med diagnostiklogg](#troubleshooting-with-diagnostic-logs) och [grundläggande felsökningsguide](https://github.com/Azure/azure-signalr/blob/dev/docs/tsg.md) för att hitta orsaken.
+Om problemet fortfarande inte kan lösas bör du överväga att öppna ett problem i GitHub eller skapa biljett i Azure Portal.
+Ge:
+1. Tidsintervall ca 30 minuter när problemet uppstår
+2. Azure SignalR-tjänstens resurs-ID
+3. Probleminformation, så specifik som möjligt: Appserver skickar till exempel inte meddelanden, klientanslutningen sjunker och så vidare
+4. Loggar som samlas in från server-/klientsidan och annat material som kan vara användbart
+5. [Valfritt] Repro-kod
 
-> Obs! Om du öppnar problem i GitHub bör du behålla känslig information (t. ex. resurs-ID, Server/klient loggar) privat, bara skicka till medlemmar i Microsoft-organisation privat.  
+> [!NOTE]
+> Om du öppnar problemet i GitHub ska du hålla känslig information (till exempel resurs-ID, server-/klientloggar) privat, skicka endast till medlemmar i Microsoft-organisationen privat.

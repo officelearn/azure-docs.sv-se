@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 02/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0e3f996ab2a42057198368759c75f10e911d5f54
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 608b148dc3929065df44530da65e695df19be03e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68936908"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79486092"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>Stöds BGP på alla Azure VPN Gateway-SKU:er?
-Nej, BGP stöds på Azure VPN-gatewayerna **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** och **HighPerformance**. **Basic** SKU stöds inte.
+BGP stöds på alla Azure VPN Gateawy SKU utom Basic SKU.
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>Kan jag använda BGP med Azure principbaserade VPN-gatewayer?
 Nej, BGP stöds bara på route-baserade VPN-gatewayer.
@@ -24,14 +24,14 @@ Nej, BGP stöds bara på route-baserade VPN-gatewayer.
 ### <a name="can-i-use-private-asns-autonomous-system-numbers"></a>Kan jag använda privata ASN:er (Autonomous System Numbers)?
 Ja, du kan använda dina egna offentliga ASN:er eller privata ASN:er för både dina lokala nätverk och virtuella Azure-nätverk.
 
-### <a name="can-i-use-32-bit-asns-autonomous-system-numbers"></a>Kan jag använda 32-bitars ASN:er (autonoma systemnummer)?
-Nej, i dagens läge har Azure VPN Gateway stöd för 16-bitars ASN:er.
+### <a name="can-i-use-32-bit-4-byte-asns-autonomous-system-numbers"></a>Kan jag använda 32-bitars (4-byte) ASN (Autonoma systemnummer)?
+Ja, Azure VPN Gateways stöder nu 32-bitars (4-byte) ASN. Använd PowerShell/CLI/SDK för att konfigurera med ASN i decimalformat.
 
 ### <a name="are-there-asns-reserved-by-azure"></a>Finns det ASN:er reserverade av Azure?
 Ja, följande ASN:er är reserverade av Azure för både interna och externa peerings:
 
-* Offentlig ASN: er: 8074, 8075, 12076
-* Privat ASN: er: 65515, 65517, 65518, 65519, 65520
+* Offentliga ASN:er: 8074, 8075, 12076
+* Privata ASN:er: 65515, 65517, 65518, 65519, 65520
 
 Du kan inte ange dessa ASN:er för dina lokala VPN-enheter när du ansluter till Azure VPN-gatewayer.
 
@@ -40,12 +40,12 @@ Ja, följande ASN-nummer är [reserverade av IANA](http://www.iana.org/assignmen
 
 23456, 64496-64511, 65535-65551 och 429496729
 
-### <a name="what-private-asns-can-i-use"></a>Vilken privat ASN: er kan jag använda?
-Det användbara intervallet av privata ASN: er som kan användas är:
+### <a name="what-private-asns-can-i-use"></a>Vilka privata ASN kan jag använda?
+Det användbara utbudet av privata ASN:er som kan användas är:
 
 * 64512-65514, 65521-65534
 
-Dessa ASN: er är inte reserverade för IANA eller Azure för användning och kan därför användas för att tilldela Azure-VPN Gateway.
+Dessa ASN är inte reserverade av IANA eller Azure för användning och kan därför användas för att tilldela till din Azure VPN Gateway.
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>Kan jag använda samma ASN för både lokala VPN-nätverk och virtuella Azure-nätverk?
 Nej, måste du tilldela olika ASN:er mellan dina lokala nätverk och dina virtuella Azure-nätverk om du ska ansluta dem till varandra med BGP. Azure VPN Gateway är tilldelad en standard-ASN som är 65515, oavsett om BGP är aktiverat eller inte för dina korsanslutningar. Du kan åsidosätta det här standardvärdet genom att tilldela en annan ASN när du skapar din VPN-gateway eller genom att ändra ASN efter att din gateway har skapats. Du måste tilldela dina lokala ASN:er till motsvarande Azure-lokala nätverksgatewayer.
@@ -57,8 +57,8 @@ Azure VPN-gateway kommer att meddela följande rutter till dina lokala BGP-enhet
 * Adressprefixer för varje lokal nätverksgateway som är ansluten till Azure VPN-gateway
 * Rutter som den lärt sig från andra BGP-peeringsessioner anslutna till Azure VPN-gatewayen, **förutom standardrutten eller -rutterna eller rutter som överlappar med ett VNet-prefix**.
 
-### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Hur många prefix kan jag annonsera till Azure VPN-gatewayen?
-Vi har stöd för upp till 4000 prefix. BGP-sessionen kommer att tas bort om antalet prefix överskrider gränsen.
+### <a name="how-many-prefixes-can-i-advertise-to-azure-vpn-gateway"></a>Hur många prefix kan jag annonsera till Azure VPN-gateway?
+Vi stöder upp till 4000 prefix. BGP-sessionen kommer att tas bort om antalet prefix överskrider gränsen.
 
 ### <a name="can-i-advertise-default-route-00000-to-azure-vpn-gateways"></a>Kan jag annonsera standardväg (0.0.0.0/0) till Azure VPN-gatewayer?
 Ja.
@@ -78,7 +78,7 @@ Ja, du kan använda BGP för både anslutningar mellan platser och VNet-till-VNe
 Ja, du kan blanda både BGP- och icke-BGP-anslutningar för samma Azure VPN-gateway.
 
 ### <a name="does-azure-vpn-gateway-support-bgp-transit-routing"></a>Stöder Azure VPN-gateway BGP-överföringsrutter?
-Ja, BGP-överföringsrutter stöds, med undantaget att Azure VPN-gatewayer **INTE** annonserar ut standardrutter till andra BGP-peers. För att aktivera överföringsrutter över flera Azure VPN-gatewayer, behöver du aktivera BGP på alla mellanliggande VNet-till-VNet-anslutningar. Mer information finns i [om BGP](../articles/vpn-gateway/vpn-gateway-bgp-overview.md).
+Ja, BGP-överföringsrutter stöds, med undantaget att Azure VPN-gatewayer **INTE** annonserar ut standardrutter till andra BGP-peers. För att aktivera överföringsrutter över flera Azure VPN-gatewayer, behöver du aktivera BGP på alla mellanliggande VNet-till-VNet-anslutningar. Mer information finns i [Om BGP](../articles/vpn-gateway/vpn-gateway-bgp-overview.md).
 
 ### <a name="can-i-have-more-than-one-tunnel-between-azure-vpn-gateway-and-my-on-premises-network"></a>Kan jag har fler än en tunnel mellan en Azure VPN-gateway och mitt lokala nätverk?
 Ja, du kan skapa fler än en S2S-VPN-tunnel mellan en Azure VPN-gateway och ditt lokala nätverk. Observera att alla dessa tunnlar räknas mot det totala antalet tunnlar för dina Azure VPN-gateways och att du måste aktivera BGP för båda tunnlarna.
@@ -92,10 +92,10 @@ Ja, men minst en av dina virtuella nätverksgateways måste ha en aktiv-aktiv-ko
 Ja. 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Vilken adress använder Azure VPN-gateway för BGP-peer-IP?
-Azure VPN-gatewayen allokerar en enskild IP-adress från GatewaySubnet-intervallet för VPN-gatewayer med aktiva vänte läge eller två IP-adresser för aktiva, aktiva VPN-gatewayer. Du kan få de faktiska BGP-IP-adresserna som allokeras genom att använda PowerShell (Get-AzVirtualNetworkGateway, leta efter egenskapen "bgpPeeringAddress") eller i Azure Portal (under egenskapen "Konfigurera BGP ASN" på sidan gateway-konfiguration).
+Azure VPN-gatewayen allokerar en enda IP-adress från GatewaySubnet-intervallet för VPN-gatewayer med aktiv standby eller två IP-adresser för aktiva VPN-gateways. Du kan få den faktiska BGP IP-adressen (es) som tilldelats med hjälp av PowerShell (Get-AzVirtualNetworkGateway, leta efter egenskapen "bgpPeeringAddress" eller i Azure-portalen (under egenskapen "Konfigurera BGP ASN" på sidan Gateway-konfiguration).
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>Vad ställer BGP-peer-IP-adresserna för krav på min VPN-enhet?
-Din lokala BGP-peer-adress **får inte** vara samma som den offentliga IP-adressen för VPN-enheten eller det virtuella nätverkets adress utrymme för VPN gateway. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP-adress. Det kan vara en adress som har tilldelats till loopback-gränssnittet på enheten, men observera att det inte kan vara en APIPA-adress (169.254.x.x). Ange den adressen i den motsvarande lokala nätverksgateway som representerar platsen.
+Din lokala BGP-peer-adress **får INTE** vara samma som den offentliga IP-adressen för din VPN-enhet eller VPN-gatewayens Vnet-adressutrymme. Använd en annan IP-adress på VPN-enheten för din BGP-peer-IP-adress. Det kan vara en adress som har tilldelats till loopback-gränssnittet på enheten, men observera att det inte kan vara en APIPA-adress (169.254.x.x). Ange den adressen i den motsvarande lokala nätverksgateway som representerar platsen.
 
 ### <a name="what-should-i-specify-as-my-address-prefixes-for-the-local-network-gateway-when-i-use-bgp"></a>Vad ska jag ange som mina adressprefix för den lokala nätverksgatewayen när jag använder BGP?
 Azure-lokal nätverksgateway anger de första adressprefixen för det lokala nätverket. Med BGP, måste du allokera värdprefixet (/ 32 prefix) från din BGP-peer-IP-adress som adressutrymmet för det lokala nätverket. Om din BGP-peer-IP är 10.52.255.254, ska du ange "10.52.255.254/32" som localNetworkAddressSpace för den lokala nätverksgateway som representerar det här lokala nätverket. Det är för att se till att Azure VPN-gatewayen upprättar BGP-sessionen via S2S VPN-tunneln.

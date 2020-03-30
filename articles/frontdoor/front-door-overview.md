@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service | Microsoft Docs
-description: Den här artikeln innehåller en översikt för Azure Front Door. Se om det är rätt belastningsutjämningslösning för dig.
+title: Azurblå ytterdörr | Microsoft-dokument
+description: Den här artikeln innehåller en översikt för Azure Front Door. Ta reda på om det är rätt val för belastningsbalanserad användartrafik för ditt program.
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: e92e51e8aabf24f1c5c4db31e2e203f391620ecc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 0ee35f4f0b4bd8c46a0445e2905ae3b50d11f721
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423486"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79471663"
 ---
-# <a name="what-is-azure-front-door-service"></a>Vad är Azure Front Door Service?
-Med Azure Front Door Service kan du definiera, hantera och övervaka global routning av din webbtrafik, genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet. Med Front Door kan du transformera dina globala (för flera regioner) konsument- och företagsprogram till robusta, högpresterande och anpassade moderna program, API:er och innehåll som når en global publik med Azure.
+# <a name="what-is-azure-front-door"></a>Vad är Azure Front Door?
+Med Azure Front Door kan du definiera, hantera och övervaka den globala routningen för din webbtrafik genom att optimera för bästa prestanda och omedelbar global redundans för hög tillgänglighet. Med Ytterdörren kan du omvandla dina globala konsument- och företagsprogram (flera regioner) till robusta, högpresterande anpassade moderna program, API:er och innehåll som når en global publik med Azure.
 
 Front Door fungerar i Layer 7- eller HTTP/HTTPS-lagret och använder anycast-protokoll med delad TCP och Microsofts globala nätverk för att förbättra globala anslutningar. Så om du väljer routningsmetod i konfigurationen kan du vara säker på att Front Door dirigerar dina klientbegäranden till den snabbaste och mest tillgängliga programserverdelen. En programserverdel är en Internetansluten tjänst i eller utanför Azure. Front Door innehåller en uppsättning [trafikroutningsmetoder](front-door-routing-methods.md) och [alternativ för hälsoövervakning av serverdelen](front-door-health-probes.md) som passar olika programbehov och modeller för automatisk redundans. Precis som [Traffic Manager](../traffic-manager/traffic-manager-overview.md) är Front Door motståndskraftigt mot fel, inklusive fel som påverkar en hel Azure-region.
 
 >[!NOTE]
 > Med Azure har du tillgång till en uppsättning fullständigt hanterade belastningsutjämningslösningar för dina scenarier. Om du är intresserad av en DNS-baserad global routning och **inte** har några krav på avslutning av TLS-protokoll (Transport Layer Security) (”SSL-avlastning”) eller bearbetning på programnivå för enskilda HTTP/HTTPS-begäranden, kan [Traffic Manager](../traffic-manager/traffic-manager-overview.md) kanske passa dig. Om du vill ha belastningsutjämning mellan dina servrar i en region för programnivån kan du använda [Application Gateway,](../application-gateway/application-gateway-introduction.md) och vid belastningsutjämning av nätverkslagret kan [Azure Load Balancer](../load-balancer/load-balancer-overview.md) vara användbart. Du kan med fördel kombinera dessa lösningar efter behov för dina slutpunkts-till-slutpunkts-scenarier.
 >
-> En alternativ jämförelse för Azure-belastnings utjämning finns i [Översikt över belastnings Utjämnings alternativ i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> En jämförelse med azure-belastningsutjämningsalternativ finns i [Översikt över belastningsutjämningsalternativ i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 Följande funktioner ingår i Front Door:
 
@@ -44,7 +44,7 @@ Med URL-sökvägsbaserad routning kan du dirigera trafik till serverdelspooler s
 Till exempel dirigeras begäranden för `http://www.contoso.com/users/*` till UserProfilePool och `http://www.contoso.com/products/*` dirigeras till ProductInventoryPool.  Med Front Door får du ännu mer komplexa vägmatchningsscenarier där den bästa matchningsalgoritmen används. Om inget sökvägsmönster matchar kommer standardhanteringsregeln för `http://www.contoso.com/*` att väljas och trafiken dirigeras till en standardhanteringsregel som fångar in alla. Läs mer i [Vägmatchning](front-door-route-matching.md).
 
 ## <a name="multiple-site-hosting"></a>Värd för flera platser
-Om du har flera webbplatser kan du konfigurera fler än en webbplats inom samma Front Door-konfiguration. Med den här funktionen kan du konfigurera en mer effektiv topologi för dina distributioner genom att lägga till olika webbplatser i en enda Front Door-konfiguration. Baserat på ditt programs arkitektur kan du konfigurera Azure Front Door Service till att antingen dirigera varje webbplats till sin egen serverdelspool, eller ha olika webbplatser som dirigeras till samma serverdelspool. Front Door kan exempelvis hantera trafik för `images.contoso.com` och `videos.contoso.com` från två serverdelspooler som heter ImagePool och VideoPool. Du kan också konfigurera att båda klientdelsvärdarna dirigerar trafik till en enda serverdelspool med namnet MediaPool.
+Om du har flera webbplatser kan du konfigurera fler än en webbplats inom samma Front Door-konfiguration. Med den här funktionen kan du konfigurera en mer effektiv topologi för dina distributioner genom att lägga till olika webbplatser i en enda Front Door-konfiguration. Baserat på programmets arkitektur kan du konfigurera Azure Front Door så att du antingen dirigerar varje webbplats till sin egen serverdelspool eller har olika webbplatser riktade till samma serverdelspool. Front Door kan exempelvis hantera trafik för `images.contoso.com` och `videos.contoso.com` från två serverdelspooler som heter ImagePool och VideoPool. Du kan också konfigurera att båda klientdelsvärdarna dirigerar trafik till en enda serverdelspool med namnet MediaPool.
 
 På liknande sätt kan du ha två olika domäner, `www.contoso.com` och `www.fabrikam.com`, som har konfigurerats för samma Front Door.
 
@@ -59,16 +59,16 @@ När du använder Front Door för att leverera innehåll behövs en anpassad dom
 Front Door har också stöd för HTTPS för anpassade domännamn. Använd denna funktion genom att antingen välja hanterade Front Door-certifikat för din trafik, eller ladda upp ditt egna anpassade SSL-certifikat.
 
 ## <a name="application-layer-security"></a>Säkerhet för programskikt
-Med Azures front dörr kan du skapa anpassade regler för brand vägg för webbaserade program (WAF) för åtkomst kontroll för att skydda din HTTP/HTTPS-arbetsbelastning utifrån klientens IP-adresser, landskod och http-parametrar. Dessutom kan du med Front Door också skapa begränsningsregler för att bekämpa skadlig robottrafik. Mer information om brand vägg för webbaserade program finns i [Vad är Azure Web Application-brandvägg?](../web-application-firewall/overview.md)
+Med Azure Front Door kan du skapa WAF-regler (Custom Web Application Firewall) för åtkomstkontroll för att skydda din HTTP/HTTPS-arbetsbelastning från utnyttjande baserat på klient-IP-adresser, landskod och http-parametrar. Dessutom kan du med Front Door också skapa begränsningsregler för att bekämpa skadlig robottrafik. Mer information om brandvägg för webbprogram finns i [Brandvägg för Azure-webbprogram?](../web-application-firewall/overview.md)
 
 Själva Front Door-plattformen är skyddad av [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) Basic. Om du behöver mer skydd kan Azure DDoS Protection Standard aktiveras på dina virtuella nätverk och skydda resurser från nätverkslagerattacker (TCP/UDP) med hjälp av automatiska justeringar och åtgärder. Front Door är en omvänd proxy för Layer 7 där webbtrafik kan passera serverdelarna och andra typer av trafik blockeras som standard.
 
 ## <a name="url-redirection"></a>URL-omdirigering
-Med den kraftfulla branschens push-teknik som endast stöder säker kommunikation förväntas webb program automatiskt omdirigera all HTTP-trafik till HTTPS. Detta säkerställer att all kommunikation mellan användare och program sker över en krypterad sökväg. 
+Med den starka bransch push på att stödja endast säker kommunikation, webbprogram förväntas automatiskt omdirigera all HTTP-trafik till HTTPS. Detta säkerställer att all kommunikation mellan användarna och programmet sker över en krypterad sökväg. 
 
-Program ägare har traditionellt sett detta krav genom att skapa en dedikerad tjänst, vars enda syfte var att omdirigera begär Anden som tas emot på HTTP till HTTPS. Azure-tjänsten för front dörr stöder möjligheten att omdirigera trafik från HTTP till HTTPS. Detta förenklar programkonfigurationen, optimerar resursanvändningen och stöder nya omdirigeringsscenarier, inklusive global och sökvägsbaserade omdirigering. URL-omdirigering från Azures frontend-tjänst är inte begränsad till enbart HTTP till HTTPS-omdirigering, utan även för att omdirigera till ett annat värdnamn, omdirigera till en annan sökväg eller till och med omdirigera till en ny frågesträng i URL: en.
+Traditionellt har programägare hanterat detta krav genom att skapa en dedikerad tjänst, vars enda syfte var att omdirigera begäranden som den tar emot på HTTP till HTTPS. Azure Front Door stöder möjligheten att omdirigera trafik från HTTP till HTTPS. Detta förenklar programkonfigurationen, optimerar resursanvändningen och stöder nya omdirigeringsscenarier, inklusive global och sökvägsbaserade omdirigering. URL-omdirigering från Azure Front Door är inte begränsad till HTTP till HTTPS-omdirigering ensam, utan också för att omdirigera till ett annat värdnamn, omdirigera till en annan sökväg eller till och med omdirigera till en ny frågesträng i URL:en.
 
-Mer information finns i [omdirigera trafik](front-door-url-redirect.md) med Azure-tjänsten för front dörr.
+Mer information finns i [omdirigera trafik](front-door-url-redirect.md) med Azure Front Door.
 
 ## <a name="url-rewrite"></a>URL-omskrivning
 Front Door har stöd för [URL-omskrivning](front-door-url-rewrite.md), vilket innebär att du kan konfigurera en valfri anpassad sökväg för vidarebefordran. Den används när en begäran skapas som ska vidarebefordras till serverdelen. Med Front Door kan du dessutom konfigurera det värdhuvud som ska skickas när du vidarebefordrar begärandet till din serverdel.
@@ -76,9 +76,9 @@ Front Door har stöd för [URL-omskrivning](front-door-url-rewrite.md), vilket i
 ## <a name="protocol-support---ipv6-and-http2-traffic"></a>Protokollstöd – IPv6- och HTTP/2-trafik
 Azure Front Door har inbyggt stöd för IPv6-anslutningar för slutpunkt till slutpunkt och även för HTTP/2-protokoll. 
 
-HTTP/2-protokollet ger full duplex-kommunikation mellan programserverdelar och en klient över en långvarig TCP-anslutning. HTTP/2 ger en mer interaktiv kommunikation mellan serverdelen och klienten, som kan vara dubbelriktad utan att behöva den avsökning som krävs i HTTP-baserade implementeringar. HTTP/2-protokoll har låga omkostnader, till skillnad från HTTP, och kan återanvända samma TCP-anslutning för flera begäranden eller svar, vilket resulterar i ett mer effektivt utnyttjande av resurser. Läs mer om [HTTP/2-stöd i Azure Front Door Service](front-door-http2.md).
+HTTP/2-protokollet ger full duplex-kommunikation mellan programserverdelar och en klient över en långvarig TCP-anslutning. HTTP/2 ger en mer interaktiv kommunikation mellan serverdelen och klienten, som kan vara dubbelriktad utan att behöva den avsökning som krävs i HTTP-baserade implementeringar. HTTP/2-protokoll har låga omkostnader, till skillnad från HTTP, och kan återanvända samma TCP-anslutning för flera begäranden eller svar, vilket resulterar i ett mer effektivt utnyttjande av resurser. Läs mer om [HTTP/2-stöd i Azure Front Door](front-door-http2.md).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Information om priser finns i [Prissättning för Front Door](https://azure.microsoft.com/pricing/details/frontdoor/).
 

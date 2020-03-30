@@ -1,7 +1,7 @@
 ---
-title: Enkel inloggning (MSAL. js) | Azure
+title: Enkel inloggning (MSAL.js) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om att skapa enkla inloggnings upplevelser med Microsoft Authentication Library för Java Script (MSAL. js).
+description: Lär dig mer om hur du skapar enstaka inloggningsupplevelser med hjälp av Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
 author: navyasric
 manager: CelesteDG
@@ -14,23 +14,23 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 8080d4cf4c3f0091f7837b3fccead5474c42db55
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262859"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Enkel inloggning med MSAL.js
 
-Enkel inloggning (SSO) gör att användarna kan ange sina autentiseringsuppgifter en gång för att logga in och upprätta en session som kan återanvändas över flera program utan att du behöver autentisera igen. Detta ger en sömlös upplevelse för användaren och minskar de upprepade frågorna om autentiseringsuppgifter.
+Enkel inloggning (SSO) gör det möjligt för användare att ange sina autentiseringsuppgifter en gång för att logga in och upprätta en session som kan återanvändas över flera program utan att behöva autentisera igen. Detta ger en sömlös upplevelse för användaren och minskar upprepade uppmaningar om autentiseringsuppgifter.
 
-Azure AD tillhandahåller SSO-funktioner till program genom att ställa in en sessions-cookie när användaren autentiseras första gången. MSAL. js-biblioteket gör det möjligt för program att utnyttja detta på några få sätt.
+Azure AD tillhandahåller SSO-funktioner för program genom att ange en sessionscookie när användaren autentiserar första gången. MSAL.js-biblioteket gör det möjligt för program att utnyttja detta på några sätt.
 
-## <a name="sso-between-browser-tabs"></a>Enkel inloggning mellan flikar i webbläsare
+## <a name="sso-between-browser-tabs"></a>SSO mellan webbläsarflikar
 
-När programmet är öppet på flera flikar och du först loggar in användaren på en flik, är användaren också inloggad på de andra flikarna utan att bli uppmanad. MSAL. js cachelagrar ID-token för användaren i webbläsarens `localStorage` och kommer att signera användaren i programmet på de andra öppna flikarna.
+När programmet är öppet på flera flikar och du först loggar in användaren på en flik loggas användaren också in på de andra flikarna utan att bli tillfrågad. MSAL.js cachelagrar ID-token för `localStorage` användaren i webbläsaren och loggar in användaren på programmet på de andra öppna flikarna.
 
-Som standard använder MSAL. js `sessionStorage` som inte tillåter att sessionen delas mellan flikarna. För att få en enkel inloggning mellan flikarna, se till att ange `cacheLocation` i MSAL. js för att `localStorage` som visas nedan.
+Som standard använder `sessionStorage` MSAL.js som inte tillåter att sessionen delas mellan flikar. För att få SSO mellan flikar, `cacheLocation` se till att `localStorage` ställa in i MSAL.js till som visas nedan.
 
 ```javascript
 const config = {
@@ -45,27 +45,27 @@ const config = {
 const myMSALObj = new UserAgentApplication(config);
 ```
 
-## <a name="sso-between-apps"></a>Enkel inloggning mellan appar
+## <a name="sso-between-apps"></a>SSO mellan appar
 
-När en användare autentiseras anges en sessions-cookie i Azure AD-domänen i webbläsaren. MSAL. js använder denna sessions-cookie för att tillhandahålla enkel inloggning för användaren mellan olika program. MSAL. js cachelagrar också ID-tokens och åtkomsttoken för användaren i webbläsarens lagrings plats per program domän. Det innebär att SSO-beteendet varierar i olika fall:  
+När en användare autentiserar ställs en sessionscookie in på Azure AD-domänen i webbläsaren. MSAL.js förlitar sig på den här sessionscookien för att tillhandahålla SSO för användaren mellan olika program. MSAL.js cachelagrar även ID-token och åtkomsttoken för användaren i webbläsarlagringen per programdomän. Därför varierar SSO-beteendet för olika fall:  
 
-### <a name="applications-on-the-same-domain"></a>Program i samma domän
+### <a name="applications-on-the-same-domain"></a>Program på samma domän
 
-När program finns på samma domän kan användaren logga in i en app en gång och sedan autentisera till de andra apparna utan att du behöver göra något. MSAL. js utnyttjar de token som cachelagras för användaren på domänen för att tillhandahålla SSO.
+När program finns på samma domän kan användaren logga in på en app en gång och sedan autentiseras till de andra apparna utan en uppmaning. MSAL.js utnyttjar token som cachelagrats för användaren på domänen för att tillhandahålla SSO.
 
-### <a name="applications-on-different-domain"></a>Program i en annan domän
+### <a name="applications-on-different-domain"></a>Program på olika domäner
 
-När program finns på olika domäner kan inte de token som cachelagras i domän A nås av MSAL. js i domän B.
+När program finns på olika domäner kan token som cachelagras på domän A inte nås av MSAL.js i domän B.
 
-Det innebär att när användare som är inloggade på domän A navigerar till ett program i domän B, kommer de att omdirigeras eller uppmanas med Azure AD-sidan. Eftersom Azure AD fortfarande har cookien för användarsessionen, kommer den att logga in användaren och de behöver inte ange autentiseringsuppgifterna på nytt. Om användaren har flera användar konton i sessionen med Azure AD uppmanas användaren att välja det relevanta kontot för att logga in med.
+Det innebär att när användare som är inloggade på domän A navigerar till ett program på domän B omdirigeras eller uppmanas de att göra azure AD-sidan. Eftersom Azure AD fortfarande har användarsessionscookien loggar den in användaren och de behöver inte ange autentiseringsuppgifterna igen. Om användaren har flera användarkonton i session med Azure AD uppmanas användaren att välja det relevanta kontot att logga in med.
 
-### <a name="automatically-select-account-on-azure-ad"></a>Välj automatiskt konto i Azure AD
+### <a name="automatically-select-account-on-azure-ad"></a>Välj konto automatiskt på Azure AD
 
-I vissa fall har programmet åtkomst till användarens autentiserings kontext och vill undvika att fråga om val av Azure AD-konto när flera konton är inloggade.  Detta kan göras på olika sätt:
+I vissa fall har programmet åtkomst till användarens autentiseringskontext och vill undvika azure AD-kontovalsprompten när flera konton är inloggade.  Detta kan göras på några olika sätt:
 
-**Använd sessions-ID (SID)**
+**Använda sessions-ID (SID)**
 
-Sessions-ID är ett [valfritt anspråk](active-directory-optional-claims.md) som kan konfigureras i ID-token. Detta påstående gör att programmet kan identifiera användarens Azure AD-session oberoende av användarens konto namn eller användar namn. Du kan skicka SID i parametrarna för begäran till `acquireTokenSilent`-anropet. Detta gör att Azure AD kan kringgå val av konto. SID är kopplat till sessionens cookie och kommer inte att korsa webbläsarens kontexter.
+Sessions-ID är ett [valfritt anspråk](active-directory-optional-claims.md) som kan konfigureras i ID-token. Med det här anspråket kan programmet identifiera användarens Azure AD-session oberoende av användarens kontonamn eller användarnamn. Du kan skicka SID i parametrarna för begäran till samtalet. `acquireTokenSilent` Detta gör det möjligt för Azure AD att kringgå kontovalet. SID är bundet till sessionscookien och kommer inte att korsa webbläsarkontexter.
 
 ```javascript
 var request = {
@@ -82,12 +82,12 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 ```
 
 > [!Note]
-> SID kan endast användas med obevakade autentiseringsbegäranden som görs av `acquireTokenSilent` anrop i MSAL. js.
-Du kan hitta stegen för att konfigurera valfria anspråk i program manifestet [här](active-directory-optional-claims.md).
+> SID kan endast användas med tysta `acquireTokenSilent` autentiseringsbegäranden som görs av anrop i MSAL.js.
+Du hittar stegen för att konfigurera valfria anspråk i programmanifestet [här](active-directory-optional-claims.md).
 
-**Använda inloggnings tips**
+**Använda inloggningstips**
 
-Om du inte har konfigurerat SID-anspråk eller om du behöver kringgå konto urvals frågan i interaktiva autentiseringsbegäranden, kan du göra det genom att tillhandahålla en `login_hint` i parametrarna för begäran och eventuellt en `domain_hint` som `extraQueryParameters` i MSAL. js interaktiva metoder (`loginPopup`, `loginRedirect`, `acquireTokenPopup` och `acquireTokenRedirect`). Exempel:
+Om du inte har sid-anspråk konfigurerat eller behöver kringgå kontovalsprompten `login_hint` i interaktiva autentiseringsanrop, kan du göra det genom att ange en i parametrarna för begäran `domain_hint` och eventuellt en som `extraQueryParameters` i de interaktiva metoderna FÖR MSAL.js (`loginPopup`, `loginRedirect` `acquireTokenPopup` och `acquireTokenRedirect`). Ett exempel:
 
 ```javascript
 var request = {
@@ -99,28 +99,28 @@ var request = {
 userAgentApplication.loginRedirect(request);
 ```
 
-Du kan hämta värdena för login_hint och domain_hint genom att läsa de anspråk som returneras i ID-token för användaren.
+Du kan hämta värdena för login_hint och domain_hint genom att läsa anspråken som returneras i ID-token för användaren.
 
-* **loginHint** ska anges till `preferred_username`-anspråk i ID-token.
+* **loginHint** ska ställas `preferred_username` in på anspråket i ID-token.
 
-* **domain_hint** behöver bara skickas när du använder/vanliga-utfärdaren. Domän tipset bestäms av klient-ID (tid).  Om `tid`-anspråk i ID-token är `9188040d-6c67-4c5b-b112-36a304b66dad` det vara konsumenter. Annars är det organisationer.
+* **domain_hint** behöver endast skickas när den /common-myndigheten används. Domäntipset bestäms av klient-ID(tid).  Om `tid` anspråket i ID-token är `9188040d-6c67-4c5b-b112-36a304b66dad` det konsumenter. Annars är det organisationer.
 
-Läs [här](v2-oauth2-implicit-grant-flow.md) om du vill ha mer information om värdena för inloggnings tips och domän tips.
+Läs [här](v2-oauth2-implicit-grant-flow.md) för mer information om värden för inloggningstips och domäntips.
 
 > [!Note]
-> Du kan inte skicka SID och login_hint på samma gång. Detta leder till ett felsvar.
+> Du kan inte passera SID och login_hint samtidigt. Detta kommer att resultera i felsvar.
 
-## <a name="sso-without-msaljs-login"></a>SSO utan MSAL. js-inloggning
+## <a name="sso-without-msaljs-login"></a>SSO utan MSAL.js-inloggning
 
-Enligt design kräver MSAL. js att en inloggnings metod anropas för att upprätta en användar kontext innan tokens hämtas för API: er. Eftersom inloggnings metoder är interaktiva ser användaren en fråga.
+Msal.js kräver avsiktligt att en inloggningsmetod anropas för att upprätta en användarkontext innan token hämtas för API:er. Eftersom inloggningsmetoder är interaktiva ser användaren en uppmaning.
 
-Det finns vissa fall där program har åtkomst till den autentiserade användarens kontext-eller ID-token genom autentisering som initierats i ett annat program och vill använda enkel inloggning för att hämta tokens utan att först logga in via MSAL. js.
+Det finns vissa fall där program har åtkomst till den autentiserade användarens kontext eller ID-token genom autentisering som initierats i ett annat program och vill utnyttja SSO för att hämta token utan att först logga in via MSAL.js.
 
-Ett exempel på detta är: en användare är inloggad i ett överordnat webb program som är värd för ett annat JavaScript-program som körs som tillägg eller plugin-program.
+Ett exempel på detta är: En användare är inloggad i ett överordnat webbprogram som är värd för ett annat JavaScript-program som körs som ett tillägg eller plugin.
 
-SSO-upplevelsen i det här scenariot kan uppnås på följande sätt:
+SSO-erfarenheten i det här scenariot kan uppnås på följande sätt:
 
-Skicka `sid` om det är tillgängligt (eller `login_hint` och eventuellt `domain_hint`) som parametrar för begäran till MSAL. js-`acquireTokenSilent` anrop enligt följande:
+Skicka `sid` om tillgängligt `login_hint` (eller `domain_hint`eventuellt) som parametrar för begäran `acquireTokenSilent` till MSAL.js-anropet enligt följande:
 
 ```javascript
 var request = {
@@ -137,11 +137,11 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 });
 ```
 
-## <a name="sso-in-adaljs-to-msaljs-update"></a>Uppdatera SSO i ADAL. js till MSAL. js-uppdateringen
+## <a name="sso-in-adaljs-to-msaljs-update"></a>SSO i ADAL.js till MSAL.js uppdatering
 
-MSAL. js ger funktioner paritet med ADAL. js för Azure AD-autentisering. För att göra migreringen från ADAL. js till MSAL. js lätt och för att undvika att användarna måste logga in igen, läser biblioteket ID-token som representerar användarens session i ADAL. js-cache och använder sömlöst tecken i användaren i MSAL. js.  
+MSAL.js ger funktionsparitet med ADAL.js för Azure AD-autentiseringsscenarier. Om du vill göra migreringen från ADAL.js till MSAL.js enkel och för att undvika att uppmana användarna att logga in igen läser biblioteket ID-token som representerar användarens session i ADAL.js-cachen och signerar sömlöst i användaren i MSAL.js.  
 
-Om du vill dra nytta av beteendet för enkel inloggning (SSO) när du uppdaterar från ADAL. js måste du se till att biblioteken använder `localStorage` för cachelagring av tokens. Ange `cacheLocation` för att `localStorage` i både MSAL. js-och ADAL. js-konfigurationen vid initieringen enligt följande:
+Om du vill dra nytta av beteendet för enkel inloggning (SSO) när du uppdaterar från `localStorage` ADAL.js måste du se till att biblioteken använder för cachelagring av token. Ställ `cacheLocation` in `localStorage` konfigurationen i både MSAL.js och ADAL.js vid initieringen enligt följande:
 
 
 ```javascript
@@ -167,8 +167,8 @@ const config = {
 const myMSALObj = new UserAgentApplication(config);
 ```
 
-När detta har kon figurer ATS kommer MSAL. js att kunna läsa cachelagrat tillstånd för den autentiserade användaren i ADAL. js och använda det för att tillhandahålla SSO i MSAL. js.
+När detta har konfigurerats kommer MSAL.js att kunna läsa det cachelagrade tillståndet för den autentiserade användaren i ADAL.js och använda det för att tillhandahålla SSO i MSAL.js.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om de [enkla inloggnings-och token-](active-directory-configurable-token-lifetimes.md) värdena i Azure AD.
+Läs mer om värden för [enstaka inloggningssessioner och tokenlivstid](active-directory-configurable-token-lifetimes.md) i Azure AD.

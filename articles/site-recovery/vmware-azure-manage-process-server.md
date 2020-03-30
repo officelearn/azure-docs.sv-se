@@ -1,6 +1,6 @@
 ---
-title: Hantera en processerver för haveri beredskap för virtuella VMware-datorer/fysiska servrar i Azure Site Recovery
-description: I den här artikeln beskrivs hantera en processerver för haveri beredskap för virtuella VMware-datorer/fysiska servrar med hjälp av Azure Site Recovery.
+title: Hantera en processserver för virtuella datorer med VMware/fysisk serverkatastrofåterställning i Azure Site Recovery
+description: I den här artikeln beskrivs hantera en processserver för haveriberedskap för virtuella datorer/fysiska servrar med hjälp av Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -8,68 +8,68 @@ ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: ramamill
 ms.openlocfilehash: ef16e3b75ca8e051b1b7abb1a92843279884c697
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257256"
 ---
 # <a name="manage-process-servers"></a>Hantera processervrar
 
-I den här artikeln beskrivs vanliga åtgärder för att hantera Site Recovery processervern.
+I den här artikeln beskrivs vanliga uppgifter för att hantera processservern för webbplatsåterställning.
 
-Processervern används för att ta emot, optimera och skicka replikeringsdata till Azure. Den utför också en push-installation av mobilitets tjänsten på virtuella VMware-datorer och fysiska servrar som du vill replikera och utför automatisk identifiering av lokala datorer. För replikering av lokala virtuella VMware-datorer eller fysiska servrar till Azure installeras processervern som standard på konfigurations servern. 
+Processservern används för att ta emot, optimera och skicka replikeringsdata till Azure. Den utför också en push-installation av mobilitetstjänsten på virtuella datorer och fysiska servrar som du vill replikera och utför automatisk identifiering av lokala datorer. För att replikera lokala virtuella datorer med VMware eller fysiska servrar till Azure installeras processservern som standard på konfigurationsserverdatorn. 
 
-- För stora distributioner kan du behöva ytterligare lokala processervern för att skala kapaciteten.
-- För återställning efter fel från Azure till lokalt måste du konfigurera en tillfällig processerver i Azure. Du kan ta bort den här virtuella datorn när återställning efter fel är slutförd. 
+- För stora distributioner kan du behöva ytterligare lokala processservrar för att skala kapacitet.
+- För återställning efter fel från Azure till lokalt måste du konfigurera en tillfällig processserver i Azure. Du kan ta bort den här virtuella datorn när återställning efter fel är klart. 
 
-Läs mer om processervern.
+Läs mer om processservern.
 
 
-## <a name="upgrade-a-process-server"></a>Uppgradera en processerver
+## <a name="upgrade-a-process-server"></a>Uppgradera en processserver
 
-När du distribuerar en processerver lokalt, eller som en virtuell Azure-dator för återställning efter fel, installeras den senaste versionen av processervern. Site Recovery Teams versions korrigeringar och förbättringar regelbundet, och vi rekommenderar att du håller process servrarna uppdaterade. Du kan uppgradera en processerver på följande sätt:
+När du distribuerar en processserver lokalt, eller som en Azure VM för återställning efter fel, installeras den senaste versionen av processservern. Site Recovery-teamen släpper korrigeringar och förbättringar regelbundet, och vi rekommenderar att du håller processservrar uppdaterade. Du kan uppgradera en processserver på följande sätt:
 
 [!INCLUDE [site-recovery-vmware-upgrade -process-server](../../includes/site-recovery-vmware-upgrade-process-server-internal.md)]
 
 
-## <a name="move-vms-to-balance-the-process-server-load"></a>Flytta virtuella datorer för att utjämna belastningen på processervern
+## <a name="move-vms-to-balance-the-process-server-load"></a>Flytta virtuella datorer för att balansera processserverbelastningen
 
-Utjämna belastningen genom att flytta virtuella datorer mellan två process servrar enligt följande:
+Balansera belastningen genom att flytta virtuella datorer mellan två processservrar enligt följande:
 
-1. I valvet under **Hantera** klickar du på **Site Recovery infrastruktur**. Under **för fysiska VMware & fysiska datorer**klickar du på **konfigurations servrar**.
-2. Klicka på den konfigurations server som process servrarna är registrerade på.
-3. Klicka på den processerver som du vill belastningsutjämna trafik för.
+1. Klicka **på** Infrastruktur för **webbplatsåterställning**i valvet. Klicka på **Konfigurationsservrar** **under För & fysiska datorer.**
+2. Klicka på den konfigurationsserver som processservrarna är registrerade med.
+3. Klicka på den processserver som du vill läsa in balanstrafik för.
 
-    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+    ![LoadBalance (loadbalance)](media/vmware-azure-manage-process-server/LoadBalance.png)
 
-4. Klicka på **belastnings utjämning**och välj den mål process server som du vill flytta datorer till. Klicka sedan på **OK**
+4. Klicka på **Belastningssaldo**, välj den målprocessserver som du vill flytta datorer till. Klicka sedan på **OK**
 
-    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+    ![LoadPS (LoadPS)](media/vmware-azure-manage-process-server/LoadPS.PNG)
 
-2. Klicka på **Välj datorer**och välj de datorer som du vill flytta från den aktuella till mål process servern. Information om genomsnittlig data ändring visas för varje virtuell dator. Klicka sedan på **OK**. 
-3. I valvet övervakar du förloppet för jobbet under **övervaknings** > **Site Recovery jobb**.
+2. Klicka på **Välj datorer**och välj de datorer som du vill flytta från den aktuella till målprocessservern. Information om genomsnittlig dataändring visas mot varje virtuell dator. Klicka sedan på **OK**. 
+3. I valvet övervakar du förloppet för jobbet under **Jobb för återställning** > av**webbplats**.
 
-Det tar ungefär 15 minuter innan ändringarna visas i portalen. [Uppdatera konfigurations servern](vmware-azure-manage-configuration-server.md#refresh-configuration-server)för en snabbare inverkan.
+Det tar cirka 15 minuter innan ändringar återspeglas i portalen. Om du vill ha en snabbare effekt [uppdaterar du konfigurationsservern](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-## <a name="switch-an-entire-workload-to-another-process-server"></a>Växla en hel arbets belastning till en annan processerver
+## <a name="switch-an-entire-workload-to-another-process-server"></a>Växla en hel arbetsbelastning till en annan processserver
 
-Flytta hela arbets belastningen som hanteras av en processerver till en annan processerver enligt följande:
+Flytta hela arbetsbelastningen som hanteras av en processserver till en annan processserver enligt följande:
 
-1. I valvet under **Hantera** klickar du på **Site Recovery infrastruktur**. Under **för fysiska VMware & fysiska datorer**klickar du på **konfigurations servrar**.
-2. Klicka på den konfigurations server som process servrarna är registrerade på.
-3. Klicka på den processerver som du vill byta arbets belastningen från.
-4. Klicka på **växel**och välj den mål process server som du vill flytta arbets belastningen till. Klicka sedan på **OK**
+1. Klicka **på** Infrastruktur för **webbplatsåterställning**i valvet. Klicka på **Konfigurationsservrar** **under För & fysiska datorer.**
+2. Klicka på den konfigurationsserver som processservrarna är registrerade med.
+3. Klicka på den processserver som du vill byta arbetsbelastning från.
+4. Klicka på **Växla**, välj den målprocessserver som du vill flytta arbetsbelastningen till. Klicka sedan på **OK**
 
     ![Växel](media/vmware-azure-manage-process-server/Switch.PNG)
 
-5. I valvet övervakar du förloppet för jobbet under **övervaknings** > **Site Recovery jobb**.
+5. I valvet övervakar du förloppet för jobbet under **Jobb för återställning** > av**webbplats**.
 
-Det tar ungefär 15 minuter innan ändringarna visas i portalen. [Uppdatera konfigurations servern](vmware-azure-manage-configuration-server.md#refresh-configuration-server)för en snabbare inverkan.
+Det tar cirka 15 minuter innan ändringar återspeglas i portalen. Om du vill ha en snabbare effekt [uppdaterar du konfigurationsservern](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
 
-## <a name="register-a-master-target-server"></a>Registrera en huvud mål Server
+## <a name="register-a-master-target-server"></a>Registrera en huvudmålserver
 
-Huvud mål servern finns på konfigurations servern och de skalbara process servrarna. Det måste registreras med konfigurations servern. Om registreringen Miss lyckas kan det påverka hälsan hos skyddade objekt. Om du vill registrera huvud mål servern med konfigurations servern loggar du in på den specifika konfigurations servern/den skalbara processervern där registreringen krävs. Gå till mappen **%programdata%\ASR\Agent**och kör följande på administratörs kommando tolken.
+Huvudmålserver finns på konfigurationsserver- och skalningsprocessservrar. Den måste vara registrerad hos konfigurationsservern. Om det finns ett fel i den här registreringen kan det påverka hälsan för skyddade objekt. Om du vill registrera huvudmålservern med konfigurationsservern loggar du in på den specifika konfigurationsserver/utskalningsprocessserver där registreringen krävs. Navigera till mappen **%PROGRAMDATA%\ASR\Agent**och kör följande på kommando prompten för administratörer.
 
    ```
    cmd
@@ -82,16 +82,16 @@ Huvud mål servern finns på konfigurations servern och de skalbara process serv
    exit
    ```
 
-## <a name="reregister-a-process-server"></a>Registrera om en processerver
+## <a name="reregister-a-process-server"></a>Registrera om en processserver
 
-Registrera om en processerver som körs lokalt eller på en virtuell Azure-dator med konfigurations servern enligt följande:
+Registrera om en processserver som körs lokalt eller på en virtuell Azure-dator med konfigurationsservern enligt följande:
 
 [!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
 
 När du har sparat inställningarna gör du följande:
 
-1. Öppna en administratörs kommando tolk på processervern.
-2. Bläddra till mappen **%programdata%\ASR\Agent**och kör kommandot:
+1. Öppna en kommandotolk för administratörer på processservern.
+2. Bläddra till mappen **%PROGRAMDATA%\ASR\Agent**och kör kommandot:
 
     ```
     cdpcli.exe --registermt
@@ -99,19 +99,19 @@ När du har sparat inställningarna gör du följande:
     net start obengine
     ```
 
-## <a name="modify-proxy-settings-for-an-on-premises-process-server"></a>Ändra proxyinställningar för en lokal processerver
+## <a name="modify-proxy-settings-for-an-on-premises-process-server"></a>Ändra proxyinställningar för en lokal processserver
 
-Om en lokal processerver använder en proxyserver för att ansluta till Azure, kan du ändra inställningarna för proxy enligt följande:
+Om en lokal processserver använder en proxy för att ansluta till Azure kan du ändra proxyinställningarna på följande sätt:
 
-1. Logga in på processervern. 
-2. Öppna kommando fönstret admin PowerShell och kör följande kommando:
+1. Logga in på processservermaskinen. 
+2. Öppna ett kommandofönster för Admin PowerShell och kör följande kommando:
    ```powershell
    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $pwd
    net stop obengine
    net start obengine
    ```
-2. Bläddra till mappen **%programdata%\ASR\Agent**och kör följande kommando:
+2. Bläddra till mappen **%PROGRAMDATA%\ASR\Agent**och kör det här kommandot:
    ```
    cmd
    cdpcli.exe --registermt
@@ -123,19 +123,19 @@ Om en lokal processerver använder en proxyserver för att ansluta till Azure, k
    exit
    ```
 
-## <a name="remove-a-process-server"></a>Ta bort en processerver
+## <a name="remove-a-process-server"></a>Ta bort en processserver
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
-## <a name="exclude-folders-from-anti-virus-software"></a>Undanta mappar från antivirus program
+## <a name="exclude-folders-from-anti-virus-software"></a>Exkludera mappar från antivirusprogram
 
-Om antivirus program körs på en skalbar processerver (eller en huvud mål server) utesluter du följande mappar från Antivirus åtgärder:
+Om antivirusprogram körs på en skalningsprocessserver (eller huvudmålserver) utesluter du följande mappar från antivirusåtgärder:
 
 
-- C:\Program\Microsoft Azure Recovery Services agent
+- C:\Program\Microsoft Azure Recovery Services Agent
 - C:\ProgramData\ASR
 - C:\ProgramData\ASRLogs
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
-- C:\ProgramData\Microsoft Azure Site Recovery
-- Installations katalog för processerver. Exempel: C:\Program Files (x86) \Microsoft Azure Site Recovery
+- C:\ProgramData\Återställning av Microsoft Azure-webbplatser
+- Installationskatalog för processserver. Till exempel: C:\Program-filer (x86)\Microsoft Azure Site Recovery

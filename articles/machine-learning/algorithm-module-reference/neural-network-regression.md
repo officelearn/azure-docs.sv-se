@@ -1,7 +1,7 @@
 ---
-title: 'Neurala nätverks regression: modulreferens'
+title: 'Neural Network Regression: Modul Referens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder neurala Network regression-modulen i Azure Machine Learning för att skapa en Regressions modell med en anpassningsbar neurala-nätverks algoritm.
+description: Lär dig hur du använder modulen Neural Network Regression i Azure Machine Learning för att skapa en regressionsmodell med hjälp av en anpassningsbar algoritm för neurala nätverk..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,91 +9,91 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: d1e93c18b13e7171274eda2a7e8d07eefbefb592
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 3a591badab29a1669d109f01f8a93732704d2fd4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920390"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79456106"
 ---
-# <a name="neural-network-regression-module"></a>Neurala Network regression-modul
+# <a name="neural-network-regression-module"></a>Neural Network Regression modul
 
-*Skapar en Regressions modell med en neurala*  
+*Skapar en regressionsmodell med hjälp av en algoritm för neuralt nätverk*  
   
- Kategori: Machine Learning/initiera modell/regression
+ Kategori: Maskininlärning / Initiera modell / Regression
   
-## <a name="module-overview"></a>Översikt över modul  
+## <a name="module-overview"></a>Modul översikt  
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
 
-Använd den här modulen för att skapa en Regressions modell med en anpassningsbar neurala-nätverks algoritm.
+Använd den här modulen för att skapa en regressionsmodell med hjälp av en anpassningsbar algoritm för neurala nätverk.
   
- Även om neurala-nätverk är allmänt kända för användning i djup inlärning och modellering av komplexa problem, till exempel bild igenkänning, är de lätt att anpassa till Regressions problem. En klass med statistiska modeller kan kallas ett neurala nätverk om de använder anpassningsbara vikter och kan uppskatta icke-linjära funktioner i sina indata. Därför är neurala Network regression lämplig för problem där en mer traditionell Regressions modell inte kan passa en lösning.
+ Även neurala nätverk är allmänt kända för användning i djupinlärning och modellering komplexa problem såsom bildigenkänning, de är lätt anpassade till regression problem. Varje klass av statistiska modeller kan kallas ett neuralt nätverk om de använder adaptiva vikter och kan approximera icke-linjära funktioner av sina ingångar. Således neurala nätverk regression är lämplig för problem där en mer traditionell regressionsmodell inte kan passa en lösning.
   
- Neurala Network regression är en övervakad inlärnings metod och kräver därför en *Taggad data uppsättning*som innehåller en etikett kolumn. Eftersom en Regressions modell förutsäger ett numeriskt värde måste etikett kolumnen vara en numerisk datatyp.  
+ Neural nätverksregression är en övervakad inlärningsmetod och kräver därför en *taggad datauppsättning*, som innehåller en etikettkolumn. Eftersom en regressionsmodell förutsäger ett numeriskt värde måste etikettkolumnen vara en numerisk datatyp.  
   
- Du kan träna modellen genom att tillhandahålla modellen och den taggade data uppsättningen som indata för att [träna modellen](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya ingångs exemplen.  
+ Du kan träna modellen genom att tillhandahålla modellen och den taggade datauppsättningen som en indata till [Train Model](./train-model.md). Den tränade modellen kan sedan användas för att förutsäga värden för de nya indataexemplen.  
   
-## <a name="configure-neural-network-regression"></a>Konfigurera neurala Network regression 
+## <a name="configure-neural-network-regression"></a>Konfigurera regression av neurala nätverk 
 
-Neurala-nätverk kan anpassas i stor utsträckning. I det här avsnittet beskrivs hur du skapar en modell med hjälp av två metoder:
+Neurala nätverk kan anpassas i stor utsträckning. I det här avsnittet beskrivs hur du skapar en modell med två metoder:
   
-+ [Skapa en neurala-nätverks modell med standard arkitekturen](#bkmk_DefaultArchitecture)  
++ [Skapa en neural nätverksmodell med standardarkitekturen](#bkmk_DefaultArchitecture)  
   
-    Om du godkänner standard nätverks arkitekturen för neurala kan du använda fönstret **Egenskaper** för att ange parametrar som styr beteendet för neurala-nätverket, till exempel antalet noder i det dolda lagret, inlärnings takt och normalisering.
+    Om du accepterar standardarkitekturen för neurala nätverk använder du fönstret **Egenskaper** för att ange parametrar som styr beteendet för det neurala nätverket, till exempel antalet noder i det dolda lagret, inlärningshastigheten och normaliseringen.
 
-    Börja här om du är nybörjare på neurala-nätverk. Modulen stöder många anpassningar, samt modell justering, utan djupgående kunskaper om neurala-nätverk. 
+    Börja här om du är ny på neurala nätverk. Modulen stöder många anpassningar, samt modelljustering, utan djup kunskap om neurala nätverk. 
 
-+ Definiera en anpassad arkitektur för ett neurala-nätverk 
++ Definiera en anpassad arkitektur för ett neuralt nätverk 
 
-    Använd det här alternativet om du vill lägga till extra dolda lager eller helt anpassa nätverks arkitekturen, dess anslutningar och aktiverings funktioner.
+    Använd det här alternativet om du vill lägga till extra dolda lager eller helt anpassa nätverksarkitekturen, dess anslutningar och aktiveringsfunktioner.
     
-    Det här alternativet är bäst om du redan är bekant med neurala-nätverk. Du använder språket net # för att definiera nätverks arkitekturen.  
+    Detta alternativ är bäst om du redan är något bekant med neurala nätverk. Du använder språket Net# för att definiera nätverksarkitekturen.  
 
-##  <a name="bkmk_DefaultArchitecture"></a>Skapa en neurala-nätverks modell med standard arkitekturen
+##  <a name="create-a-neural-network-model-using-the-default-architecture"></a><a name="bkmk_DefaultArchitecture"></a>Skapa en neural nätverksmodell med standardarkitekturen
 
-1.  Lägg till **neurala Network regression** -modulen i din pipeline i designern. Du kan hitta den här modulen under **Machine Learning**, **initiera**i **Regressions** kategorin. 
+1.  Lägg till modulen **Neural Network Regression** i pipelinen i designern. Du hittar den här modulen under **Machine Learning**, **Initialize**, i kategorin **Regression.** 
   
-2. Ange hur du vill att modellen ska tränas genom att ställa in alternativet **skapa utbildare läge** .  
+2. Ange hur du vill att modellen ska tränas genom att ange alternativet **Skapa träningsläge.**  
   
-    -   **Enda parameter**: Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
+    -   **Enkel parameter:** Välj det här alternativet om du redan vet hur du vill konfigurera modellen.
 
-    -   **Parameter intervall**: Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra en parameter rensning. Välj ett värde intervall som du vill iterera över, och de [finjusterande modellens egenskaper](tune-model-hyperparameters.md) upprepas över alla möjliga kombinationer av de inställningar som du angav för att fastställa de egenskaper som ger optimala resultat.   
+    -   **Parameterintervall:** Välj det här alternativet om du inte är säker på de bästa parametrarna och vill köra ett parametervep. Välj ett intervall med värden som du vill iterera över, och [Tune Model Hyperparameters itererar](tune-model-hyperparameters.md) över alla möjliga kombinationer av de inställningar du angav för att bestämma de hyperparametrar som ger optimalt resultat.   
 
-3.  I **specifikationen för dolt lager**väljer du **fullständigt anslutet ärende**. Med det här alternativet skapas en modell som använder standard nätverks arkitekturen neurala, som för en neurala-nätverks Regressions modell, som har följande attribut:  
+3.  I **Dold lagerspecifikation**väljer du **Fullständigt anslutet fodral**. Det här alternativet skapar en modell med hjälp av standardkaritala nätverksarkitektur, som för en neural nätverksregressionsmodell har dessa attribut:  
   
     + Nätverket har exakt ett dolt lager.
-    + Utmatnings lagret är fullständigt anslutet till det dolda lagret och det dolda lagret är fullständigt anslutet till inmatnings lagret.
-    + Antalet noder i det dolda lagret kan ställas in av användaren (Standardvärdet är 100).  
+    + Utdatalagret är helt anslutet till det dolda lagret och det dolda lagret är helt anslutet till inmatningslagret.
+    + Antalet noder i det dolda lagret kan anges av användaren (standardvärdet är 100).  
   
-    Eftersom antalet noder i inmatnings lagret bestäms av antalet funktioner i tränings data, kan det i en Regressions modell bara finnas en nod i output-lagret.  
+    Eftersom antalet noder i indatalagret bestäms av antalet funktioner i träningsdata, kan det i en regressionsmodell bara finnas en nod i utdatalagret.  
   
-4. Ange antalet dolda noder för **antalet dolda noder**. Standardvärdet är ett dolt lager med 100 noder. (Det här alternativet är inte tillgängligt om du definierar en anpassad arkitektur med net #.)
+4. För **Antal dolda noder**anger du antalet dolda noder. Standardär ett dolt lager med 100 noder. (Det här alternativet är inte tillgängligt om du definierar en anpassad arkitektur med Net#.)
   
-5.  För **inlärnings hastighet**anger du ett värde som definierar det steg som tas vid varje iteration, före korrigeringen. Ett större värde för inlärnings frekvensen kan göra att modellen konvergerar snabbare, men den kan överskotta lokala minimi.
+5.  För **utbildningsfrekvens**skriver du ett värde som definierar det steg som tas vid varje iteration före korrigering. Ett större värde för inlärningshastighet kan orsaka att modellen konvergerar snabbare, men den kan överskrida lokala minima.
 
-6.  I **antal inlärnings iterationer**anger du det maximala antalet gånger som algoritmen bearbetar inlärnings fallen.
+6.  För **Antal inlärningsiterationer**anger du det maximala antalet gånger algoritmen bearbetar utbildningsärenden.
 
 
-8.  Ange ett **värde som ska**användas under inlärningen som en vikt på noder från föregående iterationer.
+8.  För **Momentum**skriver du ett värde som ska tillämpas under inlärning som vikt på noder från tidigare iterationer.
 
-10. Välj alternativet, **blanda exempel**för att ändra ordningen på fall mellan iterationer. Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör pipelinen.
+10. Välj alternativet **Blanda exempel**om du vill ändra ordningen på ärenden mellan iterationer. Om du avmarkerar det här alternativet bearbetas ärenden i exakt samma ordning varje gång du kör pipelinen.
   
-11. Du kan ange ett värde som ska användas som startvärdet för det **slumpmässiga antalet frön**. Att ange ett Seed-värde är användbart när du vill säkerställa repeterbarhet i flera körningar av samma pipeline.
+11. För **slumptalsfrö**kan du eventuellt skriva ett värde som ska användas som frö. Det är användbart att ange ett frövärde när du vill säkerställa repeterbarhet över körningar av samma pipeline.
   
-13. Anslut en data uppsättning för utbildning och en av [inlärnings modulerna](module-reference.md): 
+13. Anslut en träningsdatauppsättning och en av [utbildningsmodulerna:](module-reference.md) 
   
-    -   Om du ställer in **skapa utbildare** till **en parameter**använder du [träna modell](./train-model.md).  
+    -   Om du ställer in **Skapa trainer-läge** till **En parameter**använder du Train [Model](./train-model.md).  
   
    
-14. Köra en pipeline.  
+14. Skicka pipelinen.  
 
 ## <a name="results"></a>Resultat
 
-När utbildningen är klar:
+Efter träningen är klar:
 
-- Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
+- Om du vill spara en ögonblicksbild av den tränade modellen väljer du fliken **Utdata** på den högra panelen i **tågmodellmodulen.** Välj ikonen **Registrera datauppsättning** om du vill spara modellen som en återanvändbar modul.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

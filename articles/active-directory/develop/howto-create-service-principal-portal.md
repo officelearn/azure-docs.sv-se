@@ -1,7 +1,7 @@
 ---
-title: Skapa en Azure AD-App & tjänstens huvud namn i portalen
+title: Skapa ett Azure AD-app & tjänsthuvudnamn i portalen
 titleSuffix: Microsoft identity platform
-description: Skapa en ny Azure Active Directory app & tjänstens huvud namn för att hantera åtkomst till resurser med rollbaserad åtkomst kontroll i Azure Resource Manager.
+description: Skapa ett nytt Azure Active Directory-app & tjänsthuvudnamn för att hantera åtkomst till resurser med rollbaserad åtkomstkontroll i Azure Resource Manager.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,168 +13,168 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264120"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Så här: Använd portalen för att skapa ett Azure AD-program och tjänsthuvudnamn som kan komma åt resurser
 
-Den här artikeln visar hur du skapar ett nytt Azure Active Directory (Azure AD)-program och tjänstens huvud namn som kan användas med rollbaserad åtkomst kontroll. När du har kod som behöver åtkomst till eller ändra resurser kan du skapa en identitet för appen. Den här identiteten kallas tjänstens huvudnamn. Du kan sedan tilldela de behörigheter som krävs för tjänstens huvud namn. Den här artikeln visar hur du använder portalen för att skapa tjänstens huvud namn. Den fokuserar på ett program med en enda klient där programmet är avsett att köras endast inom en organisation. Du använder vanligt vis program med en enda klient för branschspecifika program som körs i din organisation.
+Den här artikeln visar hur du skapar ett nytt Azure Active Directory -program och tjänsthuvudnamn som kan användas med den rollbaserade åtkomstkontrollen. När du har kod som behöver komma åt eller ändra resurser kan du skapa en identitet för appen. Den här identiteten kallas tjänstens huvudnamn. Du kan sedan tilldela de behörigheter som krävs till tjänstens huvudnamn. I den här artikeln visas hur du använder portalen för att skapa tjänstens huvudnamn. Den fokuserar på ett program med en klient där programmet är avsett att köras inom endast en organisation. Du använder vanligtvis program med en klient för affärsprogram som körs inom organisationen.
 
 > [!IMPORTANT]
-> I stället för att skapa ett huvud namn för tjänsten bör du överväga att använda hanterade identiteter för Azure-resurser för din program identitet. Om din kod körs på en tjänst som har stöd för hanterade identiteter och åtkomst till resurser som stöder Azure AD-autentisering, är hanterade identiteter ett bättre alternativ. Mer information om hanterade identiteter för Azure-resurser, inklusive vilka tjänster som för närvarande stöder det, finns i [Vad är Managed identiteter för Azure-resurser?](../managed-identities-azure-resources/overview.md).
+> I stället för att skapa ett tjänsthuvudnamn bör du överväga att använda hanterade identiteter för Azure-resurser för din programidentitet. Om din kod körs på en tjänst som stöder hanterade identiteter och har åtkomst till resurser som stöder Azure AD-autentisering, är hanterade identiteter ett bättre alternativ för dig. Mer information om hanterade identiteter för Azure-resurser, inklusive vilka tjänster som för närvarande stöder det, finns i [Vad är hanterade identiteter för Azure-resurser?](../managed-identities-azure-resources/overview.md).
 
-## <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory program
+## <a name="create-an-azure-active-directory-application"></a>Skapa ett Azure Active Directory-program
 
-Nu ska vi gå direkt till att skapa identiteten. Om du stöter på ett problem kontrollerar du de [behörigheter som krävs](#required-permissions) för att se till att ditt konto kan skapa identiteten.
+Låt oss hoppa rakt in i att skapa identiteten. Om du stöter på ett problem kontrollerar du [vilka behörigheter som krävs](#required-permissions) för att ditt konto ska kunna skapa identiteten.
 
-1. Logga in på ditt Azure-konto via [Azure Portal](https://portal.azure.com).
+1. Logga in på ditt Azure-konto via [Azure-portalen](https://portal.azure.com).
 1. Välj **Azure Active Directory**.
 1. Välj **Appregistreringar**.
-1. Välj **ny registrering**.
-1. Ge programmet ett namn. Välj en kontotyp som stöds, vilket avgör vem som kan använda programmet. Under **omdirigerings-URI**väljer du **webb** för den typ av program som du vill skapa. Ange URI: n där åtkomsttoken skickas till. Du kan inte skapa autentiseringsuppgifter för ett [internt program](../manage-apps/application-proxy-configure-native-client-application.md). Du kan inte använda den typen för ett automatiskt program. När du har angett värdena väljer du **Registrera**.
+1. Välj **Ny registrering**.
+1. Ge programmet ett namn. Välj en kontotyp som stöds, som avgör vem som kan använda programmet. Under **Omdirigera URI**väljer du **Webb** för den typ av program som du vill skapa. Ange den URI där åtkomsttoken skickas till. Du kan inte skapa autentiseringsuppgifter för ett [inbyggt program](../manage-apps/application-proxy-configure-native-client-application.md). Du kan inte använda den typen för ett automatiserat program. När du har ställt in värdena väljer du **Registrera**.
 
-   ![Ange ett namn för ditt program](./media/howto-create-service-principal-portal/create-app.png)
+   ![Ange ett namn på ditt program](./media/howto-create-service-principal-portal/create-app.png)
 
-Du har skapat ditt Azure AD-program och tjänstens huvud namn.
+Du har skapat ditt Azure AD-program och tjänsthuvudnamn.
 
-## <a name="assign-a-role-to-the-application"></a>Tilldela en roll till programmet
+## <a name="assign-a-role-to-the-application"></a>Tilldela programmet en roll
 
-Du måste tilldela en roll till programmet för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
+Om du vill komma åt resurser i prenumerationen måste du tilldela programmet en roll. Bestäm vilken roll som ger rätt behörighet för programmet. Mer information om tillgängliga roller finns [i RBAC: Inbyggd roller](../../role-based-access-control/built-in-roles.md).
 
-Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Om du till exempel lägger till ett program till rollen läsare för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller.
+Du kan ange omfånget på nivån för prenumerationen, resursgruppen eller resursen. Behörigheter ärvs till lägre omfattningsnivåer. Om du till exempel lägger till ett program i rollen Läsare för en resursgrupp kan den läsa resursgruppen och alla resurser som den innehåller.
 
-1. I Azure Portal väljer du den omfattnings nivå som du vill tilldela programmet till. Om du till exempel vill tilldela en roll i prenumerations omfånget söker du efter och väljer **prenumerationer**eller väljer **prenumerationer** på **Start** sidan.
+1. I Azure-portalen väljer du den omfattningsnivå som du vill tilldela programmet till. Om du till exempel vill tilldela en roll i prenumerationsomfånget söker du efter och väljer **Prenumerationer**eller väljer **Prenumerationer** på **startsidan.**
 
-   ![Tilldela till exempel en roll i prenumerations omfånget](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Tilldela till exempel en roll i prenumerationsomfånget](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. Välj den specifika prenumeration som programmet ska tilldelas.
+1. Välj den prenumeration som programmet ska tilldelas.
 
    ![Välj prenumeration för tilldelning](./media/howto-create-service-principal-portal/select-one-subscription.png)
 
-   Om du inte ser den prenumeration du letar efter väljer du **globala prenumerations filter**. Kontrol lera att den prenumeration du vill använda är vald för portalen.
+   Om du inte ser den prenumeration du letar efter väljer du **filter för globala prenumerationer**. Kontrollera att den prenumeration du vill ha är markerad för portalen.
 
-1. Välj **Åtkomstkontroll (IAM)** .
-1. Välj **Lägg till roll tilldelning**.
-1. Välj den roll som du vill tilldela till programmet. Om du till exempel vill tillåta att programmet kör åtgärder som **starta om**, **Starta** och **stoppa** instanser väljer du rollen **deltagare** .  Läs mer om [tillgängliga roller](../../role-based-access-control/built-in-roles.md) som standard visas inte Azure AD-program i de tillgängliga alternativen. Du hittar ditt program genom att söka efter namnet och välja det.
+1. Välj **Åtkomstkontroll (IAM)**.
+1. Välj **Lägg till rolltilldelning**.
+1. Välj den roll som du vill tilldela till programmet. Om du till exempel vill att programmet ska kunna utföra åtgärder som **omstart**, **starta** och **stoppa** instanser väljer du rollen **Deltagare.**  Läs mer om de [tillgängliga rollerna](../../role-based-access-control/built-in-roles.md) Som standard visas inte Azure AD-program i de tillgängliga alternativen. Om du vill hitta programmet söker du efter namnet och väljer det.
 
-   ![Välj den roll som ska tilldelas programmet](./media/howto-create-service-principal-portal/select-role.png)
+   ![Välj den roll som programmet ska tilldelas](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Välj **Spara** för att slutföra tilldelningen av rollen. Du ser ditt program i listan med användare med en roll för det omfånget.
+1. Välj **Spara** om du vill slutföra tilldelningen av rollen. Du ser ditt program i listan över användare med en roll för det omfånget.
 
-Tjänstens huvud namn har kon figurer ATS. Du kan börja använda den för att köra skript eller appar. Nästa avsnitt visar hur du hämtar värden som behövs när du loggar in program mässigt.
+Ditt huvudnamn är inställt. Du kan börja använda den för att köra skript eller appar. I nästa avsnitt visas hur du hämtar värden som behövs när du loggar in programmässigt.
 
 ## <a name="get-values-for-signing-in"></a>Hämta värden för inloggning
 
-När du har loggat in via programmering måste du skicka klient-ID: t med din autentiseringsbegäran. Du behöver också ID: t för ditt program och en autentiseringsnyckel. Hämta dessa värden med följande steg:
+När du loggar in programmässigt måste du skicka klient-ID:n med din autentiseringsbegäran. Du behöver också ID för ditt program och en autentiseringsnyckel. Hämta dessa värden med följande steg:
 
 1. Välj **Azure Active Directory**.
 1. Välj ditt program från **Appregistreringar** i Azure AD.
-1. Kopiera katalog-ID och lagra det i program koden.
+1. Kopiera katalog-ID:t (klienten) och lagra det i programkoden.
 
-    ![Kopiera katalogen (klient-ID) och lagra den i din app Code](./media/howto-create-service-principal-portal/copy-tenant-id.png)
+    ![Kopiera katalogen (klient-ID) och lagra den i appkoden](./media/howto-create-service-principal-portal/copy-tenant-id.png)
 
 1. Kopiera **Program-ID:t** och lagra det i din programkod.
 
-   ![Kopiera program-ID: t (klient)](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![Kopiera programmets (klient)-ID](./media/howto-create-service-principal-portal/copy-app-id.png)
 
 ## <a name="certificates-and-secrets"></a>Certifikat och hemligheter
-Daemon-program kan använda två typer av autentiseringsuppgifter för att autentisera med Azure AD: certifikat och program hemligheter.  Vi rekommenderar att du använder ett certifikat, men du kan också skapa en ny program hemlighet.
+Daemon-program kan använda två former av autentiseringsuppgifter för att autentisera med Azure AD: certifikat och programhemligheter.  Vi rekommenderar att du använder ett certifikat, men du kan också skapa en ny programhemlighet.
 
 ### <a name="upload-a-certificate"></a>Ladda upp ett certifikat
 
-Du kan använda ett befintligt certifikat om du har ett.  Alternativt kan du bara skapa ett självsignerat certifikat för *testning*. Öppna PowerShell och kör [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) med följande parametrar för att skapa ett självsignerat certifikat i användar certifikat arkivet på datorn: 
+Du kan använda ett befintligt certifikat om du har ett.  Du kan också skapa ett självsignerat certifikat endast för *testning*. Öppna PowerShell och kör [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) med följande parametrar för att skapa ett självsignerat certifikat i användarcertifikatarkivet på datorn: 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
 ```
 
-Exportera det här certifikatet till en fil med hjälp av MMC-snapin-modulen [hantera användar certifikat](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) som är tillgänglig från kontroll panelen i Windows.
+Exportera det här certifikatet till en fil med mmc-snapin-modulen [Hantera användarcertifikat](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) som är tillgängligt från Kontrollpanelen i Windows.
 
-1. Välj **Kör** på **Start** -menyn och ange sedan **certmgr. msc**.
+1. Välj **Kör** på **Start-menyn** och ange sedan **certmgr.msc**.
 
-   Verktyget Certificate Manager för den aktuella användaren visas.
+   Verktyget Certifikathanteraren för den aktuella användaren visas.
 
-1. Om du vill visa dina certifikat, under **certifikat – aktuell användare** i det vänstra fönstret, expanderar du den **personliga** katalogen.
-1. Högerklicka på det certifikat som du har skapat, Välj **alla aktiviteter-> exportera**.
-1. Följ guiden Exportera certifikat.  Exportera den privata nyckeln, ange ett lösen ord för certifikat filen och exportera till en fil.
+1. Om du vill visa dina certifikat expanderar du den **personliga** katalogen under **Certifikat - Aktuell användare** i den vänstra rutan.
+1. Högerklicka på det certifikat du skapade, välj **Alla uppgifter >Exportera**.
+1. Följ guiden Exportera certifikat.  Exportera den privata nyckeln, ange ett lösenord för cert-filen och exportera till en fil.
 
-För att ladda upp certifikatet:
+Så här laddar du upp certifikatet:
 
 1. Välj **Azure Active Directory**.
 1. Välj ditt program från **Appregistreringar** i Azure AD.
-1. Välj **certifikat & hemligheter**.
-1. Välj **överför certifikat** och välj certifikatet (ett befintligt certifikat eller det självsignerade certifikat som du exporterade).
+1. Välj **Certifikat & hemligheter**.
+1. Välj **Ladda upp certifikat** och välj certifikatet (ett befintligt certifikat eller det självsignerade certifikat som du exporterade).
 
-    ![Välj överför certifikat och välj det som du vill lägga till](./media/howto-create-service-principal-portal/upload-cert.png)
+    ![Välj Ladda upp certifikat och välj det du vill lägga till](./media/howto-create-service-principal-portal/upload-cert.png)
 
 1. Välj **Lägg till**.
 
-När du har registrerat certifikatet med ditt program i program registrerings portalen måste du aktivera klient program koden för att använda certifikatet.
+När du har registrerat certifikatet med ditt program i programregistreringsportalen måste du aktivera klientprogramkoden för att använda certifikatet.
 
-### <a name="create-a-new-application-secret"></a>Skapa en ny program hemlighet
+### <a name="create-a-new-application-secret"></a>Skapa en ny programhemlighet
 
-Om du väljer att inte använda ett certifikat kan du skapa en ny program hemlighet.
+Om du väljer att inte använda ett certifikat kan du skapa en ny programhemlighet.
 
-1. Välj **certifikat & hemligheter**.
-1. Välj **klient hemligheter – > ny klient hemlighet**.
-1. Ange en beskrivning av hemligheten och en varaktighet. När du är färdig väljer du **Lägg till**.
+1. Välj **Certifikat & hemligheter**.
+1. Välj **Klienthemligheter -> Ny klienthemlighet**.
+1. Ange en beskrivning av hemligheten och en varaktighet. När du är klar väljer du **Lägg till**.
 
-   När klient hemligheten har sparats visas värdet för klient hemligheten. Kopiera det här värdet eftersom du inte kommer att kunna hämta nyckeln senare. Du får nyckel värdet med program-ID för att logga in som programmet. Lagra nyckelvärdet där programmet kan hämta det.
+   När du har sparat klienthemligheten visas värdet för klienthemligheten. Kopiera det här värdet eftersom du inte kan hämta nyckeln senare. Du anger nyckelvärdet med program-ID:et för att logga in som program. Lagra nyckelvärdet där programmet kan hämta det.
 
    ![Kopiera det hemliga värdet eftersom du inte kan hämta det senare](./media/howto-create-service-principal-portal/copy-secret.png)
 
-## <a name="configure-access-policies-on-resources"></a>Konfigurera åtkomst principer för resurser
-Kom ihåg att du kan behöva konfigurera tilläggs behörigheter för resurser som ditt program behöver ha åtkomst till. Till exempel måste du också [Uppdatera ett nyckel valvs åtkomst principer](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) för att ge programmet åtkomst till nycklar, hemligheter eller certifikat.  
+## <a name="configure-access-policies-on-resources"></a>Konfigurera åtkomstprinciper för resurser
+Tänk på att du kan behöva konfigurera tilläggsbehörigheter för resurser som programmet behöver komma åt. Du måste till exempel också [uppdatera en nyckelvalvs åtkomstprinciper](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) för att ge ditt program åtkomst till nycklar, hemligheter eller certifikat.  
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt nyckel valv och väljer **åtkomst principer**.  
-1. Välj **Lägg till åtkomst princip**och välj sedan de nyckel-, hemlighet-och certifikat behörigheter som du vill ge ditt program.  Välj tjänstens huvud namn som du skapade tidigare.
-1. Välj **Lägg** till för att lägga till åtkomst principen och spara för att **Spara** ändringarna.
-    ![lägga till åtkomst princip](./media/howto-create-service-principal-portal/add-access-policy.png)
+1. I [Azure-portalen](https://portal.azure.com)navigerar du till nyckelvalvet och väljer **Åtkomstprinciper**.  
+1. Välj **Lägg till åtkomstprincip**och välj sedan de nyckel-, hemlighets- och certifikatbehörigheter som du vill bevilja ditt program.  Välj det tjänsthuvudnamn som du skapade tidigare.
+1. Välj **Lägg till** om du vill lägga till åtkomstprincipen och sedan **Spara** för att genomföra ändringarna.
+    ![Lägg till åtkomstprincip](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
-Du måste ha behörighet att registrera ett program med din Azure AD-klient och tilldela till programmet en roll i din Azure-prenumeration.
+Du måste ha tillräcklig behörighet för att registrera ett program med din Azure AD-klient och tilldela programmet en roll i din Azure-prenumeration till programmet.
 
-### <a name="check-azure-ad-permissions"></a>Kontrol lera Azure AD-behörigheter
+### <a name="check-azure-ad-permissions"></a>Kontrollera Azure AD-behörigheter
 
 1. Välj **Azure Active Directory**.
-1. Anteckna din roll. Om du har **användar** rollen måste du se till att icke-administratörer kan registrera program.
+1. Notera din roll. Om du har rollen **Användare** måste du se till att icke-administratörer kan registrera program.
 
-   ![Hitta din roll. Om du är en användare ser du till att icke-administratörer kan registrera appar](./media/howto-create-service-principal-portal/view-user-info.png)
+   ![Hitta din roll. Om du är användare, se till att icke-administratörer kan registrera appar](./media/howto-create-service-principal-portal/view-user-info.png)
 
-1. Välj **användar inställningar**i det vänstra fönstret.
-1. Kontrol lera inställningen för **Appregistreringar** . Det här värdet kan bara anges av en administratör. Om det är inställt på **Ja**kan alla användare i Azure AD-klienten registrera en app.
+1. Välj **Användarinställningar**i den vänstra rutan .
+1. Kontrollera inställningen **för appregistreringar.** Det här värdet kan bara anges av en administratör. Om den är inställd på **Ja**kan alla användare i Azure AD-klienten registrera en app.
 
-Om inställningen för appens registrering är inställd på **Nej**kan endast användare med en administratörs roll registrera dessa typer av program. Se [tillgängliga roller](../users-groups-roles/directory-assign-admin-roles.md#available-roles) och [roll behörigheter](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) för att lära dig om tillgängliga administratörs roller och de särskilda behörigheter i Azure AD som ges till varje roll. Om ditt konto har tilldelats användar rollen, men appens registrerings inställning är begränsad till administratörs användare kan du be administratören att antingen tilldela dig en av administratörs rollerna som kan skapa och hantera alla aspekter av app-registreringar, eller för att tillåta användare att registrera sig antispionappar.
+Om inställningen för appregistreringar är inställd på **Nej**kan endast användare med administratörsroll registrera dessa typer av program. Se [tillgängliga roller](../users-groups-roles/directory-assign-admin-roles.md#available-roles) och [rollbehörigheter](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) för att lära dig mer om tillgängliga administratörsroller och de specifika behörigheter i Azure AD som ges till varje roll. Om ditt konto har tilldelats användarrollen, men appregistreringsinställningen är begränsad till administratörsanvändare, ber du administratören att antingen tilldela dig en av administratörsrollerna som kan skapa och hantera alla aspekter av appregistreringar, eller för att göra det möjligt för användare att registrera Apps.
 
-### <a name="check-azure-subscription-permissions"></a>Kontrol lera behörigheter för Azure-prenumeration
+### <a name="check-azure-subscription-permissions"></a>Kontrollera Azure-prenumerationsbehörigheter
 
-I din Azure-prenumeration måste ditt konto ha `Microsoft.Authorization/*/Write` åtkomst för att tilldela en roll till en AD-App. Den här åtgärden beviljas genom rollen [Ägare](../../role-based-access-control/built-in-roles.md#owner) eller [Administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator). Om ditt konto har tilldelats **deltagar** rollen, har du inte tillräcklig behörighet. Ett fel meddelande visas när du försöker tilldela tjänstens huvud namn en roll.
+I din Azure-prenumeration måste `Microsoft.Authorization/*/Write` ditt konto ha åtkomst för att tilldela en roll till en AD-app. Den här åtgärden beviljas genom rollen [Ägare](../../role-based-access-control/built-in-roles.md#owner) eller [Administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator). Om ditt konto tilldelas rollen **Deltagare** har du inte tillräcklig behörighet. Du får ett felmeddelande när du försöker tilldela tjänstens huvudnamn en roll.
 
-Så här kontrollerar du dina prenumerations behörigheter:
+Så här kontrollerar du dina prenumerationsbehörigheter:
 
-1. Sök efter och välj **prenumerationer**eller Välj **prenumerationer** på **Start** sidan.
+1. Sök efter och välj **Prenumerationer**eller välj **Prenumerationer** på **startsidan.**
 
-   ![Söka](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. Välj den prenumeration som du vill skapa tjänstens huvud namn i.
+1. Välj den prenumeration som du vill skapa tjänstens huvudnamn i.
 
    ![Välj prenumeration för tilldelning](./media/howto-create-service-principal-portal/select-one-subscription.png)
 
-   Om du inte ser den prenumeration du letar efter väljer du **globala prenumerations filter**. Kontrol lera att den prenumeration du vill använda är vald för portalen.
+   Om du inte ser den prenumeration du letar efter väljer du **filter för globala prenumerationer**. Kontrollera att den prenumeration du vill ha är markerad för portalen.
 
-1. Välj **mina behörigheter**. Välj sedan **Klicka här om du vill visa fullständig åtkomst information för den här prenumerationen**.
+1. Välj **Mina behörigheter**. Välj sedan **Klicka här om du vill visa fullständig åtkomstinformation för den här prenumerationen**.
 
-   ![Välj den prenumeration som du vill skapa tjänstens huvud namn i](./media/howto-create-service-principal-portal/view-details.png)
+   ![Välj den prenumeration som du vill skapa tjänstens huvudnamn i](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Välj **Visa** i **roll tilldelningar** för att visa dina tilldelade roller och kontrol lera om du har tillräcklig behörighet för att tilldela en roll till en AD-App. Annars ber du prenumerations administratören att lägga till dig i rollen som administratör för användar åtkomst. I följande bild tilldelas användaren rollen ägare, vilket innebär att användaren har tillräcklig behörighet.
+1. Välj **Visa** i **rolltilldelningar** om du vill visa dina tilldelade roller och ta reda på om du har tillräcklig behörighet för att tilldela en roll till en AD-app. Om inte, ber prenumerationsadministratören att lägga till dig i rollen Administratör för användaråtkomst. I följande bild tilldelas användaren rollen Ägare, vilket innebär att användaren har tillräcklig behörighet.
 
-   ![Det här exemplet visar att användaren har tilldelats ägar rollen](./media/howto-create-service-principal-portal/view-user-role.png)
+   ![I det här exemplet visas att användaren har tilldelats rollen Ägare](./media/howto-create-service-principal-portal/view-user-role.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du anger säkerhets principer finns i [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).  
-* En lista över tillgängliga åtgärder som kan beviljas eller nekas till användare finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md).
+* Mer information om hur du anger säkerhetsprinciper finns i [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).  
+* En lista över tillgängliga åtgärder som kan beviljas eller nekas användare finns i [Azure Resource Manager Resource Provider- åtgärder](../../role-based-access-control/resource-provider-operations.md).

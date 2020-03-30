@@ -1,38 +1,38 @@
 ---
-title: Privat länk – Azure Portal-Azure Database for MySQL
-description: Lär dig hur du konfigurerar en privat länk för Azure Database for MySQL från Azure Portal
+title: Privat länk - Azure-portal - Azure-databas för MySQL
+description: Lär dig hur du konfigurerar privat länk för Azure Database för MySQL från Azure Portal
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.openlocfilehash: 4a4824a9f8340b12bca7e18562d723eb24e58b71
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371927"
 ---
-# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Skapa och hantera en privat länk för Azure Database for MySQL med hjälp av portalen
+# <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Skapa och hantera privat länk för Azure Database för MySQL med Portal
 
-En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. I den här artikeln får du lära dig hur du använder Azure Portal för att skapa en virtuell dator i en Azure-Virtual Network och en Azure Database for MySQL-server med en privat Azure-slutpunkt.
+En privat slutpunkt är den grundläggande byggstenen för privat länk i Azure. Det gör det möjligt för Azure-resurser, till exempel virtuella datorer (VMs), att kommunicera privat med privata länkresurser. I den här artikeln får du lära dig hur du använder Azure-portalen för att skapa en virtuell dator i ett Virtuellt Azure-nätverk och en Azure-databas för MySQL-server med en privat Azure-slutpunkt.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 > [!NOTE]
-> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MySQL stöder Generell användning och minnesoptimerade pris nivåer.
+> Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MySQL stöder prisnivåer för allmänt ändamål och minne.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Skapa en virtuell Azure-dator
 
-I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som är värd för den virtuella datorn som används för att komma åt din privata länk resurs (en MySQL-server i Azure).
+I det här avsnittet skapar du virtuellt nätverk och undernätet som värd för den virtuella datorn som används för att komma åt din Private Link-resurs (en MySQL-server i Azure).
 
 ### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
-I det här avsnittet ska du skapa en Virtual Network och under nätet som är värd för den virtuella datorn som används för åtkomst till din privata länk resurs.
+I det här avsnittet skapar du ett virtuellt nätverk och undernätet som värd för den virtuella datorn som används för att komma åt din private link-resurs.
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Virtuellt nätverk**.
+1. Välj **Skapa ett** > **virtuellt** > **nätverk**längst upp till vänster på skärmen .
 2. I **Skapa virtuellt nätverk** anger eller väljer du följande information:
 
     | Inställning | Värde |
@@ -41,15 +41,15 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Adressutrymme | Ange *10.1.0.0/16*. |
     | Prenumeration | Välj din prenumeration.|
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | plats. | Välj **Europa, västra**.|
-    | Undernät – Namn | Ange *undernät*. |
+    | Location | Välj **Europa, västra**.|
+    | Undernät – Namn | Ange *mySubnet*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
     |||
-3. Lämna resten som standard och välj **skapa**.
+3. Lämna resten som standard och välj **Skapa**.
 
 ### <a name="create-virtual-machine"></a>Skapa virtuell dator
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **Compute** > **virtuell dator**.
+1. På den övre vänstra sidan av skärmen i Azure-portalen väljer du Skapa en virtuell dator > **för resursberäknning** > **Virtual Machine**. **Create a resource**
 
 2. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
@@ -57,15 +57,15 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
     | Prenumeration | Välj din prenumeration. |
-    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
+    | Resursgrupp | Välj **myResourceGroup**. Du skapade detta i föregående avsnitt.  |
     | **INSTANSINFORMATION** |  |
     | Namn på virtuell dator | Ange *myVm*. |
     | Region | Välj **Europa, västra**. |
     | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
-    | Bild | Välj **Windows Server 2019 Data Center**. |
+    | Bild | Välj **Windows Server 2019 Datacenter**. |
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
-    | Användarnamn | Ange ett användar namn som du väljer. |
+    | Användarnamn | Ange ett användarnamn som du väljer. |
     | lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
@@ -74,127 +74,127 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Har du redan en Windows-licens? | Lämna kvar standardinställningen **Nej**. |
     |||
 
-1. Välj **Nästa: diskar**.
+1. Välj **Nästa: Diskar**.
 
-1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
+1. I **Skapa en virtuell dator - Diskar**, lämnar du standardvärdena och väljer **Nästa: Nätverk .**
 
-1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
+1. I **Skapa en virtuell dator – Nätverk** väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
-    | Adressutrymme | Lämna standard **10.1.0.0/24**.|
-    | Undernät | Lämna standard **under nätet (10.1.0.0/24)** .|
+    | Virtuellt nätverk | Lämna **standardvärdet MyVirtualNetwork**.  |
+    | Adressutrymme | Lämna **standardvärdet 10.1.0.0/24**.|
+    | Undernät | Lämna standard **mySubnet (10.1.0.0/24)**.|
     | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
     |||
 
 
-1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen.
+1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure validerar din konfiguration.
 
-1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**.
+1. När meddelandet **Validering har skickats** väljer du **Skapa**.
 
 ## <a name="create-an-azure-database-for-mysql"></a>Skapa en Azure Database för MySQL-server
 
-I det här avsnittet ska du skapa en Azure Database for MySQL-server i Azure. 
+I det här avsnittet skapar du en Azure-databas för MySQL-server i Azure. 
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **databaser** > **Azure Database for MySQL**.
+1. På den övre vänstra sidan av skärmen i Azure-portalen väljer du **Skapa en resursdatabas** > **Azure** > **Database för MySQL**.
 
-1. I **Azure Database for MySQL** anger du följande information:
+1. I **Azure Database for MySQL** finns följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **Projekt information** | |
+    | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
-    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    | **Server information** |  |
-    |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
-    | Administratörens användar namn| Ange ett administratörs namn som du väljer. |
-    | lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
-    | plats. | Välj en Azure-region där du vill att MySQL-servern ska finnas. |
-    |Version  | Välj den databas version av MySQL-servern som krävs.|
-    | Compute + Storage| Välj den pris nivå som krävs för servern baserat på arbets belastningen. |
+    | Resursgrupp | Välj **myResourceGroup**. Du skapade detta i föregående avsnitt.|
+    | **Serverinformation** |  |
+    |servernamn  | Ange *myServer*. Om det här namnet tas skapar du ett unikt namn.|
+    | Administratörsanvändarnamn| Ange ett administratörsnamn som du väljer. |
+    | lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
+    | Location | Välj en Azure-region där du vill att MySQL-servern ska finnas. |
+    |Version  | Välj databasversionen av MySQL-servern som krävs.|
+    | Beräkna + lagring| Välj den prisnivå som behövs för servern baserat på arbetsbelastningen. |
     |||
  
 7. Välj **OK**. 
-8. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
-9. När du ser meddelandet valideringen har skickats väljer du **skapa**. 
-10. När du ser meddelandet valideringen har skickats väljer du skapa. 
+8. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure validerar din konfiguration. 
+9. När meddelandet Validering har skickats väljer du **Skapa**. 
+10. När meddelandet Validering har skickats väljer du Skapa. 
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
-I det här avsnittet ska du skapa en MySQL-server och lägga till en privat slut punkt till den. 
+I det här avsnittet ska du skapa en MySQL-server och lägga till en privat slutpunkt i den. 
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **nätverk** > **privat länk**.
+1. På den övre vänstra sidan av skärmen i Azure-portalen väljer du **Skapa en privat** > **resursnätverkslänk****Networking** > .
 
-2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
+2. I **Private Link Center -** Översikt **Build a private connection to a service**väljer du **Start**.
 
     ![Översikt över privat länk](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
-1. I **skapa en privat slut punkt – grunderna**anger eller väljer du den här informationen:
+1. Ange eller välj den här informationen i **Skapa en privat slutpunkt - Grunderna:**
 
     | Inställning | Värde |
     | ------- | ----- |
-    | **Projekt information** | |
+    | **Projektinformation** | |
     | Prenumeration | Välj din prenumeration. |
-    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    | **Instans information** |  |
+    | Resursgrupp | Välj **myResourceGroup**. Du skapade detta i föregående avsnitt.|
+    | **Information om instans** |  |
     | Namn | Ange *myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
     |Region|Välj **Europa, västra**.|
     |||
 
-5. Välj **Nästa: resurs**.
-6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
+5. Välj **Nästa: Resurs**.
+6. Ange eller välj den här informationen i **Skapa en privat slutpunkt - Resurs:**
 
     | Inställning | Värde |
     | ------- | ----- |
-    |Anslutningsmetod  | Välj Anslut till en Azure-resurs i min katalog.|
+    |Anslutningsmetod  | Välj ansluta till en Azure-resurs i min katalog.|
     | Prenumeration| Välj din prenumeration. |
-    | Resurstyp | Välj **Microsoft. DBforMySQL/servers**. |
-    | Resurs |Välj *Server*|
-    |Mål under resurs |Välj *SQLServer*|
+    | Resurstyp | Välj **Microsoft.DBforMySQL/servers**. |
+    | Resurs |Välj *myServer*|
+    |Målunderresurs |Välj *mysqlServer*|
     |||
-7. Välj **Nästa: konfiguration**.
-8. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
+7. Välj **Nästa: Konfiguration**.
+8. Ange eller välj den här informationen i **Skapa en privat slutpunkt - Konfiguration:**
 
     | Inställning | Värde |
     | ------- | ----- |
-    |**NÄTVERK**| |
+    |**Nätverk**| |
     | Virtuellt nätverk| Välj *MyVirtualNetwork*. |
-    | Undernät | Välj *undernät*. |
+    | Undernät | Välj *mySubnet*. |
     |**PRIVAT DNS-INTEGRERING**||
     |Integrera med privat DNS-zon |Välj **Ja**. |
-    |Privat DNS zon |Välj *(ny) privatelink. mysql. Database. Azure. com* |
+    |Privat DNS-zon |Välj *(Ny)privatelink.mysql.database.azure.com* |
     |||
 
-1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
-2. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
+1. Välj **Granska + skapa**. Du tas till sidan **Granska + skapa** där Azure validerar din konfiguration. 
+2. När meddelandet **Validering har skickats** väljer du **Skapa**. 
 
-    ![Privat länk har skapats](media/concepts-data-access-and-security-private-link/show-mysql-private-link.png)
+    ![Privat länk skapad](media/concepts-data-access-and-security-private-link/show-mysql-private-link.png)
 
     > [!NOTE] 
-    > FQDN i DNS-inställningen för kunden matchar inte den privata IP-adressen som kon figurer ATS. Du måste konfigurera en DNS-zon för den konfigurerade FQDN: en som visas [här](../dns/dns-operations-recordsets-portal.md).
+    > FQDN i kundens DNS-inställning matchas inte till den privata IP-konfigurerade. Du måste ställa in en DNS-zon för den konfigurerade FQDN som visas [här](../dns/dns-operations-recordsets-portal.md).
 
-## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av fjärr skrivbord (RDP)
+## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med fjärrskrivbord (RDP)
 
 
-När du har skapat **myVm**ansluter du till den från Internet på följande sätt: 
+När du har skapat **myVm**ansluter du till den från internet enligt följande: 
 
-1. Skriv *myVm*i portalens Sök fält.
+1. I portalens sökfält anger du *myVm*.
 
 1. Välj knappen **Anslut**. När du har valt knappen **Anslut** öppnas **Anslut till den virtuella datorn**.
 
 1. Välj **Ladda ned RDP-fil**. Azure skapar en *.rdp*-fil (Remote Desktop Protocol) och laddar ned den till datorn.
 
-1. Öppna den *nedladdade RDP* -filen.
+1. Öppna *filen downloaded.rdp.*
 
     1. Välj **Anslut** om du uppmanas att göra det.
 
-    1. Ange det användar namn och lösen ord som du angav när du skapade den virtuella datorn.
+    1. Ange det användarnamn och lösenord som du angav när du skapade den virtuella datorn.
 
         > [!NOTE]
-        > Du kan behöva välja **Fler alternativ** > **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+        > Du kan behöva välja **Fler alternativ** > **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 
@@ -204,9 +204,9 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
 
 ## <a name="access-the-mysql-server-privately-from-the-vm"></a>Få åtkomst till MySQL-servern privat från den virtuella datorn
 
-1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
+1. Öppna PowerShell i fjärrskrivbordet *för myVM.*
 
-2. Ange `nslookup  myServer.privatelink.mysql.database.azure.com`. 
+2. Skriv `nslookup  myServer.privatelink.mysql.database.azure.com`in . 
 
     Du får ett meddelande som liknar detta:
     ```azurepowershell
@@ -217,34 +217,34 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     Address:  10.1.3.4
     ```
 
-3. Testa anslutningen till den privata länken för MySQL-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) för att utföra åtgärden.
+3. Testa den privata länkanslutningen för MySQL-servern med valfri tillgänglig klient. I exemplet nedan har jag använt [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) för att utföra operationen.
 
-4. I **ny anslutning**anger eller väljer du den här informationen:
+4. Ange eller välj den här informationen i **Ny anslutning:**
 
     | Inställning | Värde |
     | ------- | ----- |
     | Servertyp| Välj **MySQL**.|
-    | servernamn| Välj *myserver.privatelink.mysql.Database.Azure.com* |
-    | Användarnamn | Ange användar namn som username@servername som anges när MySQL-servern skapas. |
-    |lösenord |Ange ett lösen ord som anges när MySQL-servern skapas. |
-    |SSL|Välj **obligatoriskt**.|
+    | servernamn| Välj *myServer.privatelink.mysql.database.azure.com* |
+    | Användarnamn | Ange användarnamn username@servername som anges under skapandet av MySQL-servern. |
+    |lösenord |Ange ett lösenord som anges när MySQL-servern skapades. |
+    |SSL|Välj **Obligatoriskt**.|
     ||
 
 5. Välj Anslut.
 
-6. Bläddra bland databaser från menyn till vänster.
+6. Bläddra i databaser från vänstermeny.
 
-7. Du kan också Skapa eller fråga efter information från MySQL-servern.
+7. (Valfritt) Skapa eller fråga information från MySQL-servern.
 
-8. Stäng fjärr skrivbords anslutningen till myVm.
+8. Stäng fjärrskrivbordsanslutningen till myVm.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-När du är klar med den privata slut punkten, MySQL-servern och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller:
+När du är klar med den privata slutpunkten, MySQL-servern och den virtuella datorn tar du bort resursgruppen och alla resurser som den innehåller:
 
-1. Ange *myResourceGroup* i rutan **Sök** högst upp i portalen och välj *myResourceGroup* från Sök resultaten.
+1. Skriv *in myResourceGroup* i **sökrutan** högst upp på portalen och välj *myResourceGroup* från sökresultaten.
 2. Välj **Ta bort resursgrupp**.
-3. Ange myResourceGroup för **Skriv resurs gruppens namn** och välj **ta bort**.
+3. Ange myResourceGroup för **TYP RESURSGRUPPNAMN** och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktionen har du skapat en virtuell dator i ett virtuellt nätverk, en Azure Database for MySQL och en privat slut punkt för privat åtkomst. Du har anslutit till en virtuell dator från Internet och kommunicerat på ett säkert sätt till MySQL-servern med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är en privat Azure-slutpunkt](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+I det här beslutet skapade du en virtuell dator i ett virtuellt nätverk, en Azure-databas för MySQL och en privat slutpunkt för privat åtkomst. Du är ansluten till en virtuell dator från internet och kommunicerade säkert till MySQL-servern med private link. Mer information om privata slutpunkter finns i [Vad är Azure-privat slutpunkt](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).

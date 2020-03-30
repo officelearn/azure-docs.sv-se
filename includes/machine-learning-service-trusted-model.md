@@ -2,14 +2,14 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 4fb30abc2b8be6b81414631addce41c819eb8df6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 202b3dc5df75af4c9075b3962fcf6e86833ecdfa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927020"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477297"
 ---
 > [!IMPORTANT]
-> Du bör endast använda modeller som du skapar eller hämtar från en betrodd källa. Du bör behandla serialiserade modeller som kod eftersom säkerhets problem har identifierats i ett antal populära format. Dessutom kan modeller ha avsiktligt tränas med skadlig avsikt att ge en prioriterad eller felaktig utmatning.
+> Du bör bara använda modeller som du skapar eller hämtar från en betrodd källa. Du bör behandla serialiserade modeller som kod, eftersom säkerhetsproblem har upptäckts i ett antal populära format. Dessutom kan modeller avsiktligt tränas med uppsåt att tillhandahålla partisk eller felaktig utdata.

@@ -1,6 +1,6 @@
 ---
-title: Omvandling av mottagare i data flöde för mappning
-description: Lär dig hur du konfigurerar en Sink-omvandling i mappnings data flödet.
+title: Sink-omvandling vid mappning av dataflöde
+description: Lär dig hur du konfigurerar en sink-omformning vid mappning av dataflöde.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
@@ -9,59 +9,59 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a0b9d424c1995fba075c05ffe5058e297d764775
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020054"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531268"
 ---
-# <a name="sink-transformation-in-mapping-data-flow"></a>Omvandling av mottagare i data flöde för mappning
+# <a name="sink-transformation-in-mapping-data-flow"></a>Sink-omvandling vid mappning av dataflöde
 
-När du har transformerat dina data kan du sinka data till en mål data uppsättning. Varje data flöde kräver minst en Sink-omvandling, men du kan skriva till så många handfat som behövs för att slutföra ditt omvandlings flöde. Om du vill skriva till ytterligare mottagare skapar du nya strömmar via nya grenar och villkorliga delningar.
+När du har omvandlat dina data kan du sänka data till en måldatauppsättning. Varje dataflöde kräver minst en sink-omformning, men du kan skriva till så många sänkor som behövs för att slutföra omvandlingsflödet. Om du vill skriva till ytterligare sänkor skapar du nya strömmar via nya grenar och villkorsstyrda delningar.
 
-Varje Sink-omvandling är associerad med exakt en Data Factory data uppsättning. Data uppsättningen definierar formen och platsen för de data som du vill skriva till.
+Varje sinkomvandling är associerad med exakt en Data Factory-datauppsättning. Datauppsättningen definierar formen och platsen för de data som du vill skriva till.
 
-## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Mottagar kopplingar som stöds i mappnings data flödet
+## <a name="supported-sink-connectors-in-mapping-data-flow"></a>Sink-kopplingar som stöds vid mappning av dataflöde som stöds
 
-För närvarande kan följande data uppsättningar användas i en Sink-omvandling:
+För närvarande kan följande datauppsättningar användas i en sink transformation:
     
-* [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, text, Parquet)
-* [Azure Data Lake Storage gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, text, Parquet)
-* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, text, Parquet)
-* [Azure Synapse-analys](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
+* [Azure Blob Storage](connector-azure-blob-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parkett)
+* [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties) (JSON, Avro, Text, Parkett)
+* [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) (JSON, Avro, Text, Parkett)
+* [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties)
 * [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties)
-* [Azure-CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
+* [Azure CosmosDB](connector-azure-cosmos-db.md#mapping-data-flow-properties)
 
-Inställningar som är aktuella för dessa anslutningar finns på fliken **Inställningar** . information om de här inställningarna finns i anslutnings dokumentationen. 
+Inställningar som är specifika för dessa kopplingar finns på fliken **Inställningar.** Information om dessa inställningar finns i anslutningsdokumentationen. 
 
-Azure Data Factory har åtkomst till över [90 inbyggda anslutningar](connector-overview.md). Om du vill skriva data till de andra källorna från ditt data flöde kan du använda kopierings aktiviteten för att läsa in data från ett av de mellanliggande mellanliggande områdena när ditt data flöde har slutförts.
+Azure Data Factory har åtkomst till över [90 inbyggda kopplingar](connector-overview.md). Om du vill skriva data till de andra källorna från dataflödet använder du kopieringsaktiviteten för att läsa in dessa data från ett av de mellanlagringsområden som stöds efter att dataflödet har slutförts.
 
-## <a name="sink-settings"></a>Mottagar inställningar
+## <a name="sink-settings"></a>Sink-inställningar
 
-När du har lagt till en mottagare konfigurerar du via fliken **mottagare** . Här kan du välja eller skapa data uppsättningen som din Sink skriver till 
+När du har lagt till en diskbänk konfigurerar du via fliken **Sink.** Här kan du välja eller skapa datauppsättningen som diskbänken skriver till 
 
-![Mottagar inställningar](media/data-flow/sink-settings.png "Mottagar inställningar")
+![Sink-inställningar](media/data-flow/sink-settings.png "Inställningar för diskbänk")
 
-**Schema avvikelse:** [schema avvikelse](concepts-data-flow-schema-drift.md) är data fabriks möjlighet att hantera flexibla scheman i dina data flöden utan att uttryckligen definiera kolumn ändringar. Aktivera **Tillåt schema avvikelse** för att skriva ytterligare kolumner ovanpå vad som definieras i Datasink-dataschemat.
+**Schemadrift:** [Schema Drift](concepts-data-flow-schema-drift.md) är datafabrikens möjlighet att internt hantera flexibla scheman i dina dataflöden utan att uttryckligen behöva definiera kolumnändringar. Aktivera **Tillåt schemaavdrift** för att skriva ytterligare kolumner ovanpå vad som definieras i sink-dataschemat.
 
-**Verifiera schema:** Om verifiera schema väljs, Miss kommer data flödet om någon kolumn i det definierade schemat för data uppsättningen inte hittas.
+**Validera schema:** Om validera schema är markerat misslyckas dataflödet om någon kolumn i det inkommande källschemat inte hittas i källprojektionen, eller om datatyperna inte matchar. Använd den här inställningen om du vill framtvinga att källdata uppfyller kontraktet för den definierade projektionen. Det är mycket användbart i databaskälla scenarier för att signalera att kolumnnamn eller typer har ändrats.
 
-## <a name="field-mapping"></a>Fält mappning
+## <a name="field-mapping"></a>Fältmappning
 
-På samma sätt som i en SELECT-omvandling, på fliken **mappning** för mottagaren, kan du bestämma vilka inkommande kolumner som ska skrivas. Som standard mappas alla inmatade kolumner, inklusive ingångna kolumner. Detta kallas för **automatisk mappning**.
+I likhet med en Select-omformning kan du bestämma vilka inkommande kolumner som ska skrivas på fliken **Mappning** i diskhon. Som standard mappas alla indatakolumner, inklusive borttrollade kolumner. Detta kallas **Automatisk mappning**.
 
-När du inaktiverar automatisk mappning har du möjlighet att lägga till antingen fasta kolumnbaserade mappningar eller regelbaserade mappningar. Med hjälp av regelbaserade mappningar kan du skriva uttryck med mönster matchning medan en fast mappning mappar logiska och fysiska kolumn namn. Mer information om regelbaserade mappning finns [i kolumn mönster i mappa data flöde](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
+När du inaktiverar automatisk mappning kan du välja att lägga till antingen fasta kolumnbaserade mappningar eller regelbaserade mappningar. Med regelbaserade mappningar kan du skriva uttryck med mönstermatchning medan den fasta mappningen kartlägger logiska och fysiska kolumnnamn. Mer information om regelbaserad mappning finns [i kolumnmönster i mappning av dataflöde](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
-## <a name="custom-sink-ordering"></a>Beställning av anpassad mottagare
+## <a name="custom-sink-ordering"></a>Anpassad sinkordning
 
-Som standard skrivs data till flera handfat i en icke deterministisk ordning. Körnings motorn skriver data parallellt eftersom omvandlings logiken har slutförts och mottagar ordningen kan variera varje gång. Om du vill ange och exakt den exakta Sink-ordningen aktiverar du **anpassad sortering av mottagare** på fliken Allmänt i data flödet. När den är aktive rad skrivs Sinks sekventiellt i stigande ordning.
+Som standard skrivs data till flera sänkor i en icke-deterministisk ordning. Körningsmotorn skriver data parallellt när omvandlingslogiken har slutförts och sinkordningen kan variera varje körning. Om du vill ange och exakt sinkordning aktiverar du **Anpassad sinkordning** på fliken Allmänt i dataflödet. När det är aktiverat skrivs sänkor sekventiellt i ökande ordning.
 
-![Beställning av anpassad mottagare](media/data-flow/custom-sink-ordering.png "Beställning av anpassad mottagare")
+![Anpassad sinkordning](media/data-flow/custom-sink-ordering.png "Anpassad sinkordning")
 
-## <a name="data-preview-in-sink"></a>Förhands granskning av data i mottagare
+## <a name="data-preview-in-sink"></a>Förhandsgranskning av data i diskbänk
 
-När du hämtar en data förhands granskning i ett fel söknings kluster kommer inga data att skrivas till din mottagare. En ögonblicks bild av hur data ser ut kommer att returneras, men inget skrivs till ditt mål. Om du vill testa att skriva data i din mottagare kan du köra en pipeline-felsökning från pipeline-arbetsytan.
+När du hämtar en dataförhandsvisning i ett felsökningskluster skrivs inga data till diskhon. En ögonblicksbild av hur data ser ut kommer att returneras, men ingenting kommer att skrivas till din destination. Om du vill testa att skriva data i diskhon kör du en pipeline-felsökning från pipeline-arbetsytan.
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat ditt data flöde lägger du till en [data flödes aktivitet i din pipeline](concepts-data-flow-overview.md).
+Nu när du har skapat dataflödet lägger du till en [dataflödesaktivitet i pipelinen](concepts-data-flow-overview.md).

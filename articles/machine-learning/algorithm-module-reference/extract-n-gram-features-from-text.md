@@ -1,7 +1,7 @@
 ---
-title: Extrahera N-gram-funktioner från text module-referens
+title: Extrahera N-Gram-funktioner från textmodulreferens
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen extrahera N-g i Azure Machine Learning för att funktionalisera text data.
+description: Lär dig hur du använder modulen Extrahera N-Gram i Azure Machine Learning för att visa textdata.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,132 +9,132 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: cae128505c61e7c640819041c6ffdae10a4947e7
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152286"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477620"
 ---
-# <a name="extract-n-gram-features-from-text-module-reference"></a>Extrahera N-gram-funktioner från text module-referens
+# <a name="extract-n-gram-features-from-text-module-reference"></a>Extrahera N-Gram-funktioner från textmodulreferens
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version). Använd extrahera N-g-funktioner från text-modulen för att *funktionalisera* ostrukturerade text data. 
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion). Använd modulen Extrahera N-Gram-funktioner från text för att *visa* ostrukturerade textdata. 
 
-## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Konfiguration av extrahera N-gram-funktioner från textmodul
+## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Konfiguration av extrahera N-Gram-funktioner från textmodulen
 
-Modulen stöder följande scenarier för användning av en n-gram-ordlista:
+Modulen stöder följande scenarier för att använda en n-gram ordlista:
 
 * [Skapa en ny n-gram-ordlista](#create-a-new-n-gram-dictionary) från en kolumn med fritext.
 
-* [Använd en befintlig uppsättning text funktioner](#use-an-existing-n-gram-dictionary) för att funktionalisera en kostnads fri text kolumn.
+* [Använd en befintlig uppsättning textfunktioner](#use-an-existing-n-gram-dictionary) för att visa en fritextkolumn.
 
-* [Poäng eller publicera en modell](#score-or-publish-a-model-that-uses-n-grams) som använder n-gram.
+* [Betygsätta eller publicera en modell](#score-or-publish-a-model-that-uses-n-grams) som använder n-gram.
 
-### <a name="create-a-new-n-gram-dictionary"></a>Skapa en ny ord lista för n-gram
+### <a name="create-a-new-n-gram-dictionary"></a>Skapa en ny n-gramordlista
 
-1.  Lägg till funktionerna extrahera N-g från text-modulen i din pipeline och Anslut den data uppsättning som innehåller den text som du vill bearbeta.
+1.  Lägg till modulen Extrahera N-Gram-funktioner från text till pipelinen och anslut den datauppsättning som har den text du vill bearbeta.
 
-1.  Använd **text kolumn** för att välja en kolumn med sträng typ som innehåller den text som du vill extrahera. Eftersom resultaten är utförliga kan du bara bearbeta en kolumn i taget.
+1.  Använd **kolumnen Text** för att välja en kolumn med strängtyp som innehåller den text som du vill extrahera. Eftersom resultaten är utförliga kan du bara bearbeta en enskild kolumn åt gången.
 
-1. Ange det **vokabulär läge** som ska **skapas** för att visa att du skapar en ny lista över n-gram-funktioner. 
+1. Ange **ordförrådsläge** **för** att skapa för att ange att du skapar en ny lista med n-gram-funktioner. 
 
-1. Ange **n-gram-storlek** för att ange den *maximala* storleken på N-g som ska extraheras och lagras. 
+1. Ställ **N-Gram storlek** för att ange den *maximala* storleken på n-gram att extrahera och lagra. 
 
-    Om du till exempel anger 3, unigrams, 2 g och trigrams kommer att skapas.
+    Om du till exempel anger 3 skapas unigram, bigrams och trigrams.
 
-1. **Viktnings funktionen** anger hur du skapar dokument funktions vektorn och hur du extraherar vokabulär från dokument.
+1. **Viktningsfunktionen** anger hur du skapar dokumentfunktionens vektor och hur du extraherar ordförråd från dokument.
 
-    * **Binär vikt**: tilldelar ett binärt närvaro värde till den extraherade n-gram. Värdet för varje n-gram är 1 när det finns i dokumentet och 0 annars.
+    * **Binärvikt**: Tilldelar det extraherade n-gramvärdet ett binärt närvarovärde. Värdet för varje n-gram är 1 när det finns i dokumentet och 0 annars.
 
-    * **TF vikt**: tilldelar en term frekvens (tf) poäng till den extraherade n-gram. Värdet för varje n-gram är dess förekomst frekvens i dokumentet.
+    * **TF Vikt:** Tilldelar en term frekvens (TF) poäng till extraherade n-gram. Värdet för varje n-gram är dess förekomstfrekvens i dokumentet.
 
-    * **IDF-vikt**: tilldelar ett IDF-värde (inverterad dokument frekvens) till den extraherade n-gram. Värdet för varje n-gram är loggen för sökkorpus storlek dividerat med dess förekomst frekvens i hela sökkorpus.
+    * **IDF-vikt:** Tilldelar en omvänd dokumentfrekvens (IDF) poäng till de extraherade n-gram. Värdet för varje n-gram är stocken av korpusstorlek dividerat med dess förekomstfrekvens i hela corpus.
     
       `IDF = log of corpus_size / document_frequency`
  
-    *  **TF – IDF-vikt**: tilldelar en term frekvens/Inverse Document frekvens (tf/IDF) poäng till den extraherade n-gram. Värdet för varje n-gram är dess TF-poäng multiplicerat med dess IDF-poäng.
+    *  **TF-IDF-vikt**: Tilldelar en termfrekvens/omvänd dokumentfrekvens (TF/IDF) till de extraherade n-gram. Värdet för varje n-gram är dess TF-poäng multiplicerat med dess IDF-poäng.
 
-1. Ange **minsta längd på ord** till det minsta antal bokstäver som kan användas i ett *enskilt ord* i en n-gram.
+1. Ange **Minsta ordlängd** till det minsta antalet bokstäver som kan användas i ett *enda ord* i ett n-gram.
 
-1. Använd **maximal ord längd** för att ange det maximala antalet bokstäver som kan användas i ett *enskilt ord* i en n-gram.
+1. Använd **Maximal ordlängd** för att ange det maximala antalet bokstäver som kan användas i ett *enda ord* i ett n-gram.
 
-    Som standard är upp till 25 tecken per ord eller token tillåtna.
+    Som standard tillåts upp till 25 tecken per ord eller token.
 
-1. Använd **minsta frekvens för n-gram-dokument** för att ange de minsta förekomster som krävs för att n-g ska ingå i ord listan för n-gram. 
+1. Använd **Absolut lägsta n-gramdokumentfrekvens** för att ange de minsta förekomster som krävs för att n-gram ska ingå i ordlistan för n-gram. 
 
-    Om du till exempel använder standardvärdet 5 måste alla n-gram visas minst fem gånger i sökkorpus för att inkluderas i n-gram-ordlistan. 
+    Om du till exempel använder standardvärdet 5 måste alla n-gram visas minst fem gånger i corpus som ska ingå i n-gram-ordlistan. 
 
-1.  Ange **högsta dokument kvot för n-gram** till det maximala förhållandet för antalet rader som innehåller en viss n-gram, över antalet rader i den övergripande sökkorpus.
+1.  Ange **Maximalt n-gramdokumentförhållande** till det maximala förhållandet för antalet rader som innehåller ett visst n-gram över antalet rader i den totala corpus.
 
-    Till exempel betyder förhållandet 1 att även om det finns ett särskilt n-gram på varje rad, kan du lägga till n-gram i ord listan n-gram. Vanligt vis anses ett ord som förekommer i varje rad vara ett brus ord och tas bort. Om du vill filtrera bort domän beroende skräpord kan du försöka minska förhållandet.
+    Ett förhållande på 1 anger till exempel att även om det finns ett visst n-gram på varje rad kan n-gram läggas till i ordlistan n-gram. Mer typiskt, ett ord som förekommer i varje rad skulle betraktas som ett brus ord och skulle tas bort. Om du vill filtrera bort domänberoende brusord kan du försöka minska det här förhållandet.
 
     > [!IMPORTANT]
-    > Antalet förekomster av vissa ord är inte enhetligt. Det varierar från dokument till dokument. Om du till exempel analyserar kund kommentarer om en specifik produkt kan produkt namnet vara mycket högt och nära ett brus ord, men det är en viktig term i andra sammanhang.
+    > Förekomsten av vissa ord är inte enhetlig. Det varierar från dokument till dokument. Om du till exempel analyserar kundkommentarer om en viss produkt kan produktnamnet vara mycket högfrekvent och nära ett brusord, men vara en viktig term i andra sammanhang.
 
-1. Välj alternativet **normalisera n-gram-funktions vektorer** för att normalisera funktions vektorerna. Om det här alternativet är aktiverat divideras varje n-gram-funktions vektor med dess L2-norm.
+1. Välj alternativet **Normalisera n-gram-funktionsvektorer** för att normalisera funktionens vektorer. Om det här alternativet är aktiverat divideras varje n-gram-funktionsvektor med l2-normen.
 
-1. Köra en pipeline.
+1. Skicka pipelinen.
 
-### <a name="use-an-existing-n-gram-dictionary"></a>Använd en befintlig n-gram-ordlista
+### <a name="use-an-existing-n-gram-dictionary"></a>Använda en befintlig n-gram-ordlista
 
-1.  Lägg till funktionerna extrahera N-g från text-modulen i din pipeline och Anslut den data uppsättning som innehåller den text som du vill bearbeta till **data uppsättnings** porten.
+1.  Lägg till modulen Extrahera N-Gram-funktioner från text till pipelinen och anslut den datauppsättning som har den text som du vill bearbeta till **Dataset-porten.**
 
-1.  Använd **text kolumnen** för att välja den text kolumn som innehåller den text som du vill funktionalisera. Som standard markeras alla kolumner av typen **sträng**i modulen. För bästa resultat ska du bearbeta en enskild kolumn i taget.
+1.  Använd **kolumnen Text** för att markera den textkolumn som innehåller den text som du vill visa. Som standard väljer modulen alla kolumner av typen **sträng**. För bästa resultat, bearbeta en enskild kolumn i taget.
 
-1. Lägg till den sparade data uppsättningen som innehåller en tidigare skapad n-gram-ordlista och Anslut den till porten för **indata-ordlista** . Du kan också ansluta **resultatet** av en överordnad instans av en överordnad instans av funktionerna extrahera N-g från text-modulen.
+1. Lägg till den sparade datauppsättningen som innehåller en tidigare genererad n-gram-ordlista och anslut den till **indataordlistan.** Du kan också ansluta **resultatet ordförråd** utdata från en uppströmsinstans av extrahera N-Gram funktioner från text modulen.
 
-1. För **ord listans läge**väljer du alternativet **skrivskyddad** uppdatering i list rutan.
+1. För **ordförrådsläge**väljer du alternativet **Uppdatera ReadOnly** i listrutan.
 
-   Alternativet **ReadOnly** representerar sökkorpus för indatamängden. I stället för att använda term frekvenser från den nya text data uppsättningen (till vänster), tillämpas vikterna i n-gram från indata-vokabuläret som de är.
+   Alternativet **ReadOnly** representerar indatakorsen för indataordlistan. I stället för att beräkna termfrekvenser från den nya textdatauppsättningen (till vänster indata) tillämpas n-gramvikterna från indataordlistan som de är.
 
    > [!TIP]
-   > Använd det här alternativet när du vill värdera en text klassificerare.
+   > Använd det här alternativet när du gör ett textklassificeringsdokumentant.
 
-1.  För alla andra alternativ, se egenskaps beskrivningarna i [föregående avsnitt](#create-a-new-n-gram-dictionary).
+1.  Alla andra alternativ finns i egenskapsbeskrivningarna i [föregående avsnitt](#create-a-new-n-gram-dictionary).
 
-1.  Köra en pipeline.
+1.  Skicka pipelinen.
 
-### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Poäng eller publicera en modell som använder n-gram
+### <a name="score-or-publish-a-model-that-uses-n-grams"></a>Betygsätta eller publicera en modell som använder n-gram
 
-1.  Kopiera **funktionerna extrahera N-g från text** -modulen från Training-dataflödet till Poäng data flödet.
+1.  Kopiera **extrahera N-Gram-funktioner från textmodulen** från träningsdataflödet till bedömningsdataflödet.
 
-1.  Anslut **resultatet av resultat** listan från tränings data flödet till **indatamängden** i poängsättnings data flöde.
+1.  Anslut **resultatet Ordförråd** utdata från utbildningsdataflödet till **Indataordlista** på bedömningsdataflödet.
 
-1.  I bedömnings arbets flödet ändrar du funktionerna extrahera N-g från modulen text och ställer in parametern för **ord lista** i **ReadOnly**. Lämna alla andra på samma sätt.
+1.  I bedömningsarbetsflödet ändrar du modulen Extrahera N-Gram-funktioner från text och ställer in parametern **Ordförrådsläge** till **ReadOnly**. Lämna allt annat.
 
-1.  Om du vill publicera pipelinen sparar du **resultat ord listan** som en data uppsättning.
+1.  Om du vill publicera pipelinen sparar **du Resultatordlista** som en datauppsättning.
 
-1.  Anslut den sparade data uppsättningen till funktionen extrahera N-g från text-modulen i poängsättnings diagrammet.
+1.  Anslut den sparade datauppsättningen till extrahera N-Gram-funktioner från textmodulen i bedömningsdiagrammet.
 
 ## <a name="results"></a>Resultat
 
-Utdraget av N-gram-funktioner från en text-modul skapar två typer av utdata: 
+Modulen Extrahera N-Gram-funktioner från text skapar två typer av utdata: 
 
-* **Resultat data uppsättning**: det här resultatet är en sammanfattning av den analyserade texten kombinerat med det n-gram som extraherades. Kolumner som du inte har valt i **text kolumns** alternativet skickas till utdata. För varje kolumn med text som du analyserar genererar modulen dessa kolumner:
+* **Resultatdatauppsättning:** Den här utdata är en sammanfattning av den analyserade texten i kombination med n-gram som extraherades. Kolumner som du inte har markerat i alternativet **Textkolumn** skickas vidare till utdata. För varje kolumn med text som du analyserar genererar modulen följande kolumner:
 
-  * **Matris med n-gram-förekomster**: modulen genererar en kolumn för varje n-gram som påträffas i den totala sökkorpus och lägger till en poäng i varje kolumn för att ange vikten för n-gram för raden. 
+  * **Matris av n-gram förekomster**: Modulen genererar en kolumn för varje n-gram som finns i den totala corpus och lägger till en poäng i varje kolumn för att ange vikten av n-gram för den raden. 
 
-* **Resultat vokabulär**: ord listan innehåller den faktiska n-gram-ordlistan, tillsammans med villkors poängen som genereras som en del av analysen. Du kan spara data uppsättningen för åter användning med en annan uppsättning indata eller för en senare uppdatering. Du kan också återanvända ord listan för modellering och bedömning.
+* **Resultatordlista**: Ordförrådet innehåller den faktiska n-gramordlistan, tillsammans med termen frekvenspoäng som genereras som en del av analysen. Du kan spara datauppsättningen för återanvändning med en annan uppsättning indata eller för en senare uppdatering. Du kan också återanvända ordförrådet för modellering och bedömning.
 
-### <a name="result-vocabulary"></a>Resultat vokabulär
+### <a name="result-vocabulary"></a>Ordförråd för resultat
 
-Ord listan innehåller en n-gram-ordlista med termen frekvens Poäng som genereras som en del av analysen. DF-och IDF-poängen genereras oavsett andra alternativ.
+Ordförrådet innehåller n-gram ordlistan med termen frekvenspoäng som genereras som en del av analysen. DF- och IDF-poängen genereras oavsett andra alternativ.
 
-+ **ID**: en identifierare som genereras för varje unik n-gram.
-+ **NGram**: n-gram. Blank steg eller andra ord separatorer ersätts av under streck.
-+ **DF**: term frekvens poängen för n-gram i den ursprungliga sökkorpus.
-+ **IDF**: resultatet av den inverterade dokument frekvensen för n-gram i den ursprungliga sökkorpus.
++ **ID:** En identifierare som genereras för varje unik n-gram.
++ **NGram**: N-gram. Blanksteg eller andra ordavgränsare ersätts med understrecket.
++ **DF**: Benämnafrekvenspoängen för n-gramn i den original- corpusen.
++ **IDF**: Den omvända dokumentfrekvenspoängen för n-gram i den ursprungliga corpus.
 
-Du kan uppdatera den här data uppsättningen manuellt, men du kan införa fel. Några exempel:
+Du kan uppdatera den här datauppsättningen manuellt, men du kan införa fel. Ett exempel:
 
-* Ett fel uppstår om modulen hittar dubblettrader med samma nyckel i den angivna ord listan. Se till att inga två rader i ord listan har samma ord.
-* Schemat för vokabulärens data uppsättningar måste matcha exakt, inklusive kolumn namn och kolumn typer. 
-* Kolumnen **ID** och **DF** måste vara av heltals typ. 
-* **IDF** -kolumnen måste vara av typen float.
+* Ett fel utlöses om modulen hittar dubblettrader med samma nyckel i indataordlistan. Se till att inga två rader i ordförrådet har samma ord.
+* Indataschemat för ordförrådets datauppsättningar måste matcha exakt, inklusive kolumnnamn och kolumntyper. 
+* **Kolumnen ID** och **DF** måste vara av heltalstypen. 
+* **IDF-kolumnen** måste vara av flottörtyp.
 
 > [!Note]
-> Anslut inte data utdata till modulen träna modell direkt. Du bör ta bort tomma text kolumner innan de matas in i träna-modellen. Annars behandlas fritext kolumnerna som kategoriska-funktioner.
+> Anslut inte datautdata till modulen Tågmodell direkt. Du bör ta bort fritextkolumner innan de matas in i tågmodellen. Annars behandlas fritextkolumnerna som kategoriska funktioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning.

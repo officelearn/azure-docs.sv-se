@@ -1,45 +1,46 @@
 ---
-title: Övervakare av nätverksprestanda lösning i Azure | Microsoft Docs
-description: Övervakare av nätverksprestanda i Azure hjälper dig att övervaka nätverkets prestanda, i nära real tid, för att identifiera och hitta Flask halsar i nätverks prestanda.
+title: Lösning för nätverksprestandaövervakare i Azure | Microsoft-dokument
+description: Network Performance Monitor i Azure hjälper dig att övervaka nätverkets prestanda, i nära realtid, för att identifiera och hitta flaskhalsar i nätverksprestanda.
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: cb906f6b3cf333e3fb3a24a934e5d9f11fc10cda
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9660e87f3ee4e1c1c6a270f14928fdd111664e66
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77654485"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480886"
 ---
-# <a name="network-performance-monitor-solution-in-azure"></a>Övervakare av nätverksprestanda lösning i Azure
+# <a name="network-performance-monitor-solution-in-azure"></a>Lösning för Nätverksprestandaövervakare i Azure
 
-![Övervakare av nätverksprestanda symbol](./media/network-performance-monitor/npm-symbol.png)
+![Symbol för Övervakare för nätverksprestanda](./media/network-performance-monitor/npm-symbol.png)
 
 
-Övervakare av nätverksprestanda är en molnbaserad hybrid nätverks övervaknings lösning som hjälper dig att övervaka nätverks prestanda mellan olika platser i din nätverks infrastruktur. Du kan också övervaka nätverksanslutningar till tjänsten och programslutpunkterna samt övervaka prestanda för Azure ExpressRoute. 
+Network Performance Monitor är en molnbaserad lösning för övervakning av hybridnätverk som hjälper dig att övervaka nätverksprestanda mellan olika punkter i nätverksinfrastrukturen. Du kan också övervaka nätverksanslutningar till tjänsten och programslutpunkterna samt övervaka prestanda för Azure ExpressRoute. 
 
-Övervakare av nätverksprestanda identifierar nätverks problem som trafik blackholing, synkroniseringsfel och problem som konventionella nätverks övervaknings metoder inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. 
+Network Performance Monitor identifierar nätverksproblem som trafiksvartning, routningsfel och problem som konventionella nätverksövervakningsmetoder inte kan identifiera. Lösningen genererar aviseringar och meddelar dig när ett tröskelvärde överskrids för en nätverkslänk. Detta säkerställer att problem med nätverksprestanda upptäcks i god tid och att källan till problemet kan ringas in till ett visst nätverkssegment eller enhet. 
 
-Övervakare av nätverksprestanda erbjuder tre breda funktioner: 
+Network Performance Monitor erbjuder tre breda funktioner: 
 
-* [Prestanda övervakare](network-performance-monitor-performance-monitor.md): du kan övervaka nätverks anslutningar över moln distributioner och lokala platser, flera data Center och avdelnings kontor och verksamhets kritiska program på flera nivåer eller mikrotjänster. Med prestanda övervakaren kan du identifiera nätverks problem innan användarna klagar.
+* [Prestandaövervakare:](network-performance-monitor-performance-monitor.md)Du kan övervaka nätverksanslutningen mellan molndistributioner och lokala platser, flera datacenter och filialkontor och verksamhetskritiska flerkanalsprogram eller mikrotjänster. Med Performance Monitor kan du identifiera nätverksproblem innan användarna klagar.
 
-* [Övervakare för tjänst anslutning](network-performance-monitor-service-connectivity.md): du kan övervaka anslutningen från dina användare till de tjänster du bryr dig om, avgöra vilken infrastruktur som finns i sökvägen och identifiera var nätverks Flask halsar sker. Du kan veta mer om avbrott innan användarna och se exakt var problemen finns på din nätverks Sök väg. 
+* [Service Connectivity Monitor:](network-performance-monitor-service-connectivity.md)Du kan övervaka anslutningen från användarna till de tjänster du bryr dig om, avgöra vilken infrastruktur som finns i sökvägen och identifiera var flaskhalsar i nätverket uppstår. Du kan känna till avbrott före användarna och se den exakta platsen för problemen längs nätverkssökvägen. 
 
-    Den här funktionen hjälper dig att utföra tester baserade på HTTP, HTTPS, TCP och ICMP för att övervaka i nära real tid eller historiskt tillgänglighet och svars tid för din tjänst. Du kan också övervaka nätverkets bidrag i paket förlust och svars tid. Du kan isolera nätverks fördröjningar med en karta över nätverks sto pol Ogin. Du kan identifiera problem fläckar som inträffar längs nätverks Sök vägen från noden till tjänsten, med latens data på varje hopp. Med inbyggda tester kan du övervaka nätverks anslutningen till Office 365 och Dynamics CRM utan förkonfiguration. Med den här funktionen kan du övervaka nätverks anslutningen till alla TCP-kompatibla slut punkter, till exempel webbplatser, SaaS-program, PaaS-program och SQL-databaser.
+    Den här funktionen hjälper dig att utföra tester baserat på HTTP, HTTPS, TCP och ICMP för att övervaka i nära realtid eller historiskt tillgänglighet och svarstid för din tjänst. Du kan också övervaka nätverkets bidrag i paketförlust och svarstid. Med en nätverkstopologikarta kan du isolera nätverksavmattningen. Du kan identifiera problemfläckar som uppstår längs nätverkssökvägen från noden till tjänsten, med svarstidsdata för varje hopp. Med inbyggda tester kan du övervaka nätverksanslutningen till Office 365 och Dynamics CRM utan förkonfiguration. Med den här funktionen kan du övervaka nätverksanslutningen till alla TCP-kompatibla slutpunkter, till exempel webbplatser, SaaS-program, PaaS-program och SQL-databaser.
 
-* [ExpressRoute-övervakare](network-performance-monitor-expressroute.md): övervaka anslutnings möjligheter från slut punkt till slut punkt och prestanda mellan dina avdelnings kontor och Azure, via Azure ExpressRoute.  
+* [ExpressRoute Monitor](network-performance-monitor-expressroute.md): Övervaka heltäckande anslutning och prestanda mellan dina filialkontor och Azure, via Azure ExpressRoute.  
 
-Mer information om de olika funktionerna som stöds av [övervakare av nätverksprestanda](https://docs.microsoft.com/azure/networking/network-monitoring-overview) finns online.
+Mer information om de olika funktioner som stöds av [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) finns tillgänglig online.
  
 ## <a name="supported-regions"></a>Regioner som stöds
-NPM kan övervaka anslutningar mellan nätverk och program i valfri del av världen, från en arbets yta som finns i någon av följande regioner:
+NPM kan övervaka anslutningen mellan nätverk och program i alla delar av världen, från en arbetsyta som finns i någon av följande regioner:
 * Europa, norra
 * Europa, västra
 * Frankrike, centrala
-
+* Kanada, centrala
+* USA, västra
 * USA, västra centrala
 * USA, norra centrala
 * USA, södra centrala
@@ -56,46 +57,46 @@ NPM kan övervaka anslutningar mellan nätverk och program i valfri del av värl
 * Asien, östra
 * Sydkorea, centrala
 * Indien, centrala
-* AMERIKANSKA myndigheter i Virginia
-* Kina, östra 2
+* Amerikanska regeringen Virginia
+* Kina Öst 2
 
 
-Listan över regioner som stöds för ExpressRoute-övervakaren finns i [dokumentationen](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
+Listan över regioner som stöds för ExpressRoute Monitor finns i [dokumentationen](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117).
 
 
 ## <a name="set-up-and-configure"></a>Konfigurera och konfigurera
 
 ### <a name="install-and-configure-agents"></a>Installera och konfigurera agenter 
 
-Använd de grundläggande processerna för att installera agenter på [Anslut Windows-datorer för att Azure Monitor](../platform/agent-windows.md) och [ansluta Operations Manager till Azure Monitor](../platform/om-agents.md).
+Använd de grundläggande processerna för att installera agenter på [Connect Windows-datorer till Azure Monitor](../platform/agent-windows.md) och Connect Operations Manager till Azure [Monitor](../platform/om-agents.md).
 
-### <a name="where-to-install-the-agents"></a>Var agenter ska installeras 
+### <a name="where-to-install-the-agents"></a>Var kan man installera agenterna 
 
-* **Prestanda övervakare**: installera Log Analytics agenter på minst en nod som är ansluten till varje under nätverk från vilken du vill övervaka nätverks anslutningen till andra under nätverk.
+* **Prestandaövervakare:** Installera Logganalysagenter på minst en nod som är ansluten till varje undernätverk från vilket du vill övervaka nätverksanslutningen till andra undernätverk.
 
-    Om du vill övervaka en nätverks länk installerar du agenter på båda slut punkterna för länken. Om du är osäker på nätverkets topologi installerar du agenterna på servrar med kritiska arbets belastningar mellan vilka du vill övervaka nätverks prestanda. Om du till exempel vill övervaka nätverks anslutningen mellan en webb server och en server som kör SQL, installerar du en agent på båda servrarna. Agenter övervakar nätverks anslutningar (länkar) mellan värdar, inte själva värdarna. 
+    Om du vill övervaka en nätverkslänk installerar du agenter på båda slutpunkterna för den länken. Om du är osäker på nätverkets topologi installerar du agenterna på servrar med kritiska arbetsbelastningar som du vill övervaka nätverksprestandan mellan. Om du till exempel vill övervaka nätverksanslutningen mellan en webbserver och en server som kör SQL installerar du en agent på båda servrarna. Agenter övervakar nätverksanslutning (länkar) mellan värdar, inte värdarna själva. 
 
-* **Övervakare för tjänst anslutning**: installera en Log Analytics-agent på varje nod som du vill övervaka nätverks anslutningen till tjänstens slut punkt. Ett exempel är om du vill övervaka nätverks anslutningen till Office 365 från dina Office-platser med etiketten O1, O2 och O3. Installera Log Analytics agent på minst en nod varje i O1, O2 och O3. 
+* **Service Connectivity Monitor**: Installera en Log Analytics-agent på varje nod som du vill övervaka nätverksanslutningen till tjänstens slutpunkt. Ett exempel är om du vill övervaka nätverksanslutningen till Office 365 från kontorsplatserna O1, O2 och O3. Installera Log Analytics-agenten på minst en nod vardera i O1, O2 och O3. 
 
-* **ExpressRoute-övervakare**: installera minst en Log Analytics agent i ditt virtuella Azure-nätverk. Installera även minst en agent i det lokala under nätverket, som är anslutet via ExpressRoute privata peering.  
+* **ExpressRoute Monitor**: Installera minst en Log Analytics-agent i ditt virtuella Azure-nätverk. Installera också minst en agent i ditt lokala undernätverk, som är anslutet via ExpressRoute privat peering.  
 
-### <a name="configure-log-analytics-agents-for-monitoring"></a>Konfigurera Log Analytics agenter för övervakning 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>Konfigurera Log Analytics-agenter för övervakning 
 
-Övervakare av nätverksprestanda använder syntetiska transaktioner för att övervaka nätverks prestanda mellan käll-och mål agenter. Du kan välja mellan TCP och ICMP som protokoll för övervakning i prestanda övervakaren och tjänst anslutningens övervaknings funktioner. Endast TCP är tillgängligt som övervaknings protokoll för ExpressRoute-övervakaren. Kontrol lera att brand väggen tillåter kommunikation mellan Log Analyticss agenter som används för övervakning av det protokoll du väljer. 
+Network Performance Monitor använder syntetiska transaktioner för att övervaka nätverksprestanda mellan käll- och målagenter. Du kan välja mellan TCP och ICMP som protokoll för övervakning i prestandaövervakaren och tjänstanslutningsövervakaren. Endast TCP är tillgängligt som övervakningsprotokoll för ExpressRoute Monitor. Se till att brandväggen tillåter kommunikation mellan Log Analytics-agenter som används för övervakning på det protokoll du väljer. 
 
-* **TCP-protokoll**: om du väljer TCP som protokoll för övervakning öppnar du brand Väggs porten på de agenter som används för övervakare av nätverksprestanda-och ExpressRoute-övervakaren för att kontrol lera att agenterna kan ansluta till varandra. Öppna porten genom att köra PowerShell-skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript) utan parametrar i ett PowerShell-fönster med administratörs behörighet.
+* **TCP-protokoll**: Om du väljer TCP som protokoll för övervakning öppnar du brandväggsporten på de agenter som används för Network Performance Monitor och ExpressRoute Monitor för att se till att agenterna kan ansluta till varandra. Om du vill öppna porten kör du [PowerShell-skriptet EnableRules.ps1](https://aka.ms/npmpowershellscript) utan några parametrar i ett PowerShell-fönster med administratörsbehörighet.
 
-    Skriptet skapar register nycklar som krävs av lösningen. Det skapar också regler för Windows-brandväggen för att tillåta agenter att skapa TCP-anslutningar med varandra. Register nycklarna som skapas av skriptet anger om fel söknings loggarna och sökvägen till logg filen ska loggas. Skriptet definierar också den agent-TCP-port som används för kommunikation. Värdena för dessa nycklar anges automatiskt av skriptet. Ändra inte nycklarna manuellt. Porten som öppnas som standard är 8084. Du kan använda en anpassad port genom att ange parametern port nummer i skriptet. Använd samma port på alla datorer där skriptet körs. 
-
-    >[!NOTE]
-    > Skriptet konfigurerar endast Windows-brandväggen lokalt. Om du har en nätverks brand vägg kontrollerar du att den tillåter trafik som är avsedd för TCP-porten som används av Övervakare av nätverksprestanda.
+    Skriptet skapar registernycklar som krävs av lösningen. Det skapar också Windows-brandväggsregler så att agenter kan skapa TCP-anslutningar med varandra. Registernycklarna som skapas av skriptet anger om felsökningsloggarna och sökvägen för loggfilen ska loggas. Skriptet definierar också agenten TCP-port som används för kommunikation. Värdena för dessa nycklar ställs automatiskt in av skriptet. Ändra inte dessa tangenter manuellt. Porten som öppnas som standard är 8084. Du kan använda en anpassad port genom att ange parameterportNumber till skriptet. Använd samma port på alla datorer där skriptet körs. 
 
     >[!NOTE]
-    > Du behöver inte köra PowerShell-skriptet [EnableRules. ps1](https://aka.ms/npmpowershellscript ) för tjänst anslutnings övervakaren.
+    > Skriptet konfigurerar endast Windows-brandväggen lokalt. Om du har en nätverksbrandvägg kontrollerar du att den tillåter trafik som är avsedd för TCP-porten som används av Network Performance Monitor.
+
+    >[!NOTE]
+    > Du behöver inte köra [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell-skriptet för serviceanslutningsövervakare.
 
     
 
-* **ICMP-protokoll**: om du väljer ICMP som protokoll för övervakning aktiverar du följande brand Väggs regler för att på ett tillförlitligt sätt använda ICMP:
+* **ICMP-protokoll:** Om du väljer ICMP som protokoll för övervakning aktiverar du följande brandväggsregler för att på ett tillförlitligt sätt använda ICMP:
     
    ```
    netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -109,181 +110,181 @@ Använd de grundläggande processerna för att installera agenter på [Anslut Wi
 
 ### <a name="configure-the-solution"></a>Konfigurera lösningen 
 
-1. Lägg till Övervakare av nätverksprestanda-lösningen till din arbets yta från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md). 
-2. Öppna din Log Analytics arbets yta och välj panelen **Översikt** . 
-3. Välj panelen **övervakare av nätverksprestanda** med meddelande *lösningen kräver ytterligare konfiguration*.
+1. Lägg till lösningen för Nätverksprestandaövervakaren på arbetsytan från [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Du kan också använda processen som beskrivs i [Lägg till Azure Monitor-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md). 
+2. Öppna arbetsytan Log Analytics och välj panelen **Översikt.** 
+3. Välj panelen **Nätverksprestandaövervakare** med meddelandet *Lösning kräver ytterligare konfiguration*.
 
-   ![Övervakare av nätverksprestanda panel](media/network-performance-monitor/npm-config.png)
+   ![Panel för övervakare av nätverksprestanda](media/network-performance-monitor/npm-config.png)
 
-4. På sidan **installation** visas alternativet för att installera Log Analytics agenter och konfigurera agenterna för övervakning i vyn **vanliga inställningar** . Som tidigare förklaras, om du har installerat och konfigurerat Log Analytics agenter, väljer du vyn **konfiguration** för att konfigurera den funktion som du vill använda. 
+4. På **inställningssidan** visas alternativet att installera Log Analytics-agenter och konfigurera agenter för övervakning i vyn **Gemensamma inställningar.** Som tidigare förklarats, om du har installerat och konfigurerat Log Analytics-agenter, väljer du **installationsvyn** för att konfigurera den kapacitet du vill använda. 
 
-   **Prestanda övervakare**: Välj det protokoll som ska användas för syntetiska transaktioner i **standard** regeln för prestanda övervakning och välj **Spara & Fortsätt**. Det här protokoll valet innehåller bara för den systemgenererade standard regeln. Du måste välja protokollet varje gången du skapar en prestanda övervaknings regel explicit. Du kan alltid gå till **standard** regel inställningarna på fliken **prestanda övervakning** (den visas när du har slutfört din dags 0-konfiguration) och ändra protokollet senare. Om du inte vill ha prestanda övervakaren kan du inaktivera standard regeln från **standard** regel inställningarna på fliken **prestanda övervakning** .
+   **Prestandaövervakare:** Välj det protokoll **Default** som ska användas för syntetiska transaktioner i standardprestandaövervakaren och välj **Spara & Fortsätt**. Det här protokollvalet innehåller endast för den systemgenererade standardregeln. Du måste välja protokollet varje gång du skapar en prestandaövervakareregel uttryckligen. Du kan alltid **Default** gå över till standardregelinställningarna på fliken **Prestandaövervakare** (den visas när du har slutfört konfigurationen dag-0) och ändra protokollet senare. Om du inte vill ha prestandaövervakaren kan du **Default** inaktivera standardregeln från standardregelinställningarna på fliken **Prestandaövervakare.**
 
-   ![Vy över prestanda övervakaren](media/network-performance-monitor/npm-synthetic-transactions.png)
+   ![Vyn Prestandaövervakare](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Övervakare för tjänst anslutning**: funktionen innehåller inbyggda förkonfigurerade tester för att övervaka nätverks anslutningen till Office 365 och Dynamics 365 från dina agenter. Välj de Office 365-och Dynamics 365-tjänster som du vill övervaka genom att markera kryss rutorna bredvid dem. Välj de agenter som du vill övervaka från genom att välja **Lägg till agenter**. Om du inte vill använda den här funktionen eller vill ställa in den senare, väljer du inte något och väljer **spara & Fortsätt**.
+   **Service Connectivity Monitor**: Funktionen ger inbyggda förkonfigurerade tester för att övervaka nätverksanslutningen till Office 365 och Dynamics 365 från dina agenter. Välj de Office 365- och Dynamics 365-tjänster som du vill övervaka genom att markera kryssrutorna bredvid dem. Om du vill välja de agenter som du vill övervaka väljer du **Lägg till agenter**. Om du inte vill använda den här funktionen eller vill konfigurera den senare väljer du ingenting och väljer **Spara & Fortsätt**.
 
-   ![Vy över tjänst anslutnings övervakare](media/network-performance-monitor/npm-service-endpoint-monitor.png)
+   ![Vyn Övervakare för tjänstanslutning](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **ExpressRoute övervakare**: Välj **identifiera nu** för att identifiera alla ExpressRoute-privata peer-datorer som är anslutna till de virtuella nätverken i Azure-prenumerationen som är länkad till den här Log Analytics arbets ytan. 
+   **ExpressRoute Monitor:** Välj **Upptäck nu** för att identifiera alla ExpressRoute-privata peerings som är anslutna till de virtuella nätverken i Azure-prenumerationen som är länkad till den här Log Analytics-arbetsytan. 
 
-   ![ExpressRoute Monitor-vy](media/network-performance-monitor/npm-express-route.png)
+   ![Vy över ExpressRoute-övervakare](media/network-performance-monitor/npm-express-route.png)
 
-   När identifieringen är färdig visas de identifierade kretsarna och peer kopplingarna i en tabell. 
+   När identifieringen är klar visas de identifierade kretsarna och peeringsna i en tabell. 
 
-   ![Övervakare av nätverksprestanda konfigurations sida](media/network-performance-monitor/npm-private-peerings.png)
+   ![Konfigurationssida för nätverksprestandaövervakare](media/network-performance-monitor/npm-private-peerings.png)
     
-Övervakningen av dessa kretsar och peering är inlednings vis i ett inaktiverat tillstånd. Markera varje resurs som du vill övervaka och konfigurera övervakning för dem från vyn information till höger. Välj **Spara** för att spara konfigurationen. Mer information finns i artikeln "Konfigurera övervakning av ExpressRoute". 
+Övervakningen för dessa kretsar och peerings är ursprungligen i ett inaktiverat tillstånd. Välj varje resurs som du vill övervaka och konfigurera övervakning för dem från informationsvyn till höger. Välj **Spara** om du vill spara konfigurationen. Mer information finns i artikeln "Konfigurera ExpressRoute monitoring". 
 
-När installationen är slutförd tar det 30 minuter till en timme innan data fylls. När lösningen sammanställer data från ditt nätverk kan du se att meddelande *lösningen kräver ytterligare konfiguration* på panelen övervakare av nätverksprestanda **Översikt** . När data har samlats in och indexerats ändras **översikts** panelen och informerar dig om din nätverks hälsa i en sammanfattning. Sedan kan du redigera övervakningen av noder där Log Analyticss agenter är installerade, samt de undernät som identifierats från din miljö.
+När installationen är klar tar det 30 minuter till en timme innan data fylls i. Medan lösningen sammanställer data från nätverket visas *meddelandelösningen kräver ytterligare konfiguration* på panelen Översikt **över** nätverksprestanda. När data har samlats in och **Overview** indexerats ändras översiktspanelen och informerar dig om nätverkets hälsa i en sammanfattning. Du kan sedan redigera övervakningen av de noder som Log Analytics-agenter är installerade på, samt de undernät som har identifierats från din miljö.
 
-#### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Redigera övervaknings inställningar för undernät och noder 
+#### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Redigera övervakningsinställningar för undernät och noder 
 
-Alla undernät med minst en agent installerad visas på fliken under **nätverk** på sidan konfiguration. 
+Alla undernät med minst en agent installerad visas på fliken **Undernät** på konfigurationssidan. 
 
 
-Aktivera eller inaktivera övervakning av vissa under nätverk:
+Så här aktiverar eller inaktiverar du övervakning av vissa undernät:
 
-1. Markera eller avmarkera kryss rutan bredvid under **nätverkets ID**. Kontrol lera att **Använd för övervakning** är markerat eller avmarkerat, efter vad som är tillämpligt. Du kan markera eller avmarkera flera undernät. När det här alternativet är inaktiverat övervakas inte under nätverk och agenterna uppdateras för att stoppa pinga andra agenter. 
-2. Välj de noder som du vill övervaka i ett visst under nätverk. Välj under nätverket i listan och flytta de nödvändiga noderna mellan listorna som innehåller oövervakade och övervakade noder. Du kan lägga till en anpassad beskrivning i under nätverket.
-3. Välj **Spara** för att spara konfigurationen. 
+1. Markera eller avmarkera kryssrutan bredvid **undernätverks-ID.** Kontrollera sedan att **Användning för övervakning** är markerat eller avmarkerat, beroende på vad som är lämpligt. Du kan markera eller rensa flera undernät. När det inaktiveras övervakas inte undernätverk och agenterna uppdateras för att sluta pinga andra agenter. 
+2. Välj de noder som du vill övervaka i ett visst undernätverk. Markera undernätet i listan och flytta de nödvändiga noderna mellan listorna som innehåller oövervakade och övervakade noder. Du kan lägga till en anpassad beskrivning i undernätet.
+3. Välj **Spara** om du vill spara konfigurationen. 
 
-#### <a name="choose-nodes-to-monitor"></a>Välj noder som ska övervakas
+#### <a name="choose-nodes-to-monitor"></a>Välj noder att övervaka
 
-Alla noder som har en agent installerad på dem visas på fliken **noder** . 
+Alla noder som har en agent installerad på dem visas på fliken **Noder.** 
 
 1. Markera eller avmarkera de noder som du vill övervaka eller stoppa övervakningen. 
-2. Välj **Använd för övervakning**eller avmarkera det efter behov. 
+2. Välj **Använd för övervakning**eller avmarkera det, beroende på vad som är lämpligt. 
 3. Välj **Spara**. 
 
 
-Konfigurera de funktioner som du vill använda:
+Konfigurera de funktioner du vill ha:
 
-- [Prestanda övervakare](network-performance-monitor-performance-monitor.md#configuration)
-- [Övervakare för tjänst anslutning](network-performance-monitor-performance-monitor.md#configuration)
-- [Övervakaren ExpressRoute](network-performance-monitor-expressroute.md#configuration)
+- [Prestandaövervakaren](network-performance-monitor-performance-monitor.md#configuration)
+- [Övervakare av tjänstanslutning](network-performance-monitor-performance-monitor.md#configuration)
+- [ExpressRoute-övervakare](network-performance-monitor-expressroute.md#configuration)
 
  
 
-## <a name="data-collection-details"></a>Information om insamling av data
-Om du vill samla in information om förlust och latens använder Övervakare av nätverksprestanda TCP SYN-SYNACK – handskaknings paket när du väljer TCP som protokoll. Övervakare av nätverksprestanda använder ICMP ECHO ICMP ECHO svara när du väljer ICMP som protokoll. Spårnings väg används också för att hämta Topology-information.
+## <a name="data-collection-details"></a>Information om datainsamling
+För att samla in information om förlust och svarstid använder Network Performance Monitor TCP SYN-SYNACK-ACK-handskakningspaket när du väljer TCP som protokoll. Network Performance Monitor använder ICMP ECHO ICMP ECHO REPLY när du väljer ICMP som protokoll. Spårningsväg används också för att få topologiinformation.
 
-I följande tabell visas metoder för data insamling och annan information om hur data samlas in för Övervakare av nätverksprestanda.
+I följande tabell visas metoder för datainsamling och annan information om hur data samlas in för Network Performance Monitor.
 
-| Plattform | Direkt agent | System Center Operations Manager agent | Azure Storage | Operations Manager krävs. | Operations Manager agent data som skickas via hanterings gruppen | Insamlingsfrekvens |
+| Plattform | Direkt agent | Agent för System Center Operations Manager | Azure Storage | Krävs Operations Manager? | Operations Manager-agentdata som skickas via hanteringsgrupp | Insamlingsfrekvens |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows | &#8226; | &#8226; |  |  |  |TCP-handskakning/ICMP ECHO-meddelanden var 5: e sekund, data som skickas var 3: e minut |
+| Windows | &#8226; | &#8226; |  |  |  |TCP-handslag/ICMP ECHO-meddelanden var 5:e sekund, data som skickas var tredje minut |
  
 
  
-Lösningen använder syntetiska transaktioner för att utvärdera nätverkets hälso tillstånd. Log Analytics agenter som installerats på olika platser i nätverket Exchange TCP-paket eller ICMP-eko med varandra. Huruvida agenterna använder TCP-paket eller ICMP-eko beror på vilket protokoll som du har valt för övervakning. I processen lär sig agenterna tiden för fördröjning och paket förlust, om det finns några. Med jämna mellanrum utför varje agent även en spårnings väg till andra agenter för att hitta alla de olika vägarna i nätverket som måste testas. Med hjälp av dessa data kan agenter härleda nätverks fördröjning och paket förlust siffror. Testerna upprepas var femte sekund. Data sammanställs i cirka tre minuter av agenterna innan de överförs till Log Analytics arbets ytan i Azure Monitor.
+Lösningen använder syntetiska transaktioner för att bedöma nätverkets hälsa. Log Analytics-agenter installerade vid olika ställen i TCP-paket för nätverksutbyte eller ICMP Echo med varandra. Om agenterna använder TCP-paket eller ICMP Echo beror på vilket protokoll du har valt för övervakning. I processen lär agenter sig om tur-och-retur-tiden och paketförlust, om någon. Med jämna mellanrum utför varje agent också en spårningsväg till andra agenter för att hitta alla olika vägar i nätverket som måste testas. Med hjälp av dessa data kan agenterna härleda nätverksfördröjning och paketförlustsiffror. Testerna upprepas var femte sekund. Data sammanställs i ungefär tre minuter av agenterna innan de överförs till Log Analytics-arbetsytan i Azure Monitor.
 
 
 
 >[!NOTE]
-> Även om agenter kommunicerar med varandra, genererar de inte betydande nätverks trafik samtidigt som de utför testerna. Agenter är endast beroende av TCP-SYNACK – ACK-handskaknings paket för att fastställa förlust och latens. Inga data paket utbyts. Under den här processen kommunicerar agenter med varandra endast när det behövs. Agent kommunikations sto pol Ogin är optimerad för att minska nätverks trafiken.
+> Även om agenter kommunicerar med varandra ofta, genererar de inte betydande nätverkstrafik när de utför testerna. Agenter förlitar sig endast på TCP SYN-SYNACK-ACK-handskakningspaket för att fastställa förlust och svarstid. Inga datapaket utbyts. Under den här processen kommunicerar agenter med varandra endast när det behövs. Agentkommunikationstopologin är optimerad för att minska nätverkstrafiken.
 
 ## <a name="use-the-solution"></a>Använd lösningen 
 
-### <a name="network-performance-monitor-overview-tile"></a>Panelen Övervakare av nätverksprestanda översikt 
+### <a name="network-performance-monitor-overview-tile"></a>Översiktspanel för nätverksprestandaövervakare 
 
-När du har aktiverat Övervakare av nätverksprestanda lösning ger lösnings panelen på sidan **Översikt** en snabb översikt över nätverks hälsan. 
+När du har aktiverat lösningen För nätverksprestandaövervakare ger lösningspanelen på sidan **Översikt** en snabb översikt över nätverkets hälsa. 
 
- ![Panelen Övervakare av nätverksprestanda översikt](media/network-performance-monitor/npm-overview-tile.png)
+ ![Översiktspanel för nätverksprestandaövervakare](media/network-performance-monitor/npm-overview-tile.png)
 
-### <a name="network-performance-monitor-dashboard"></a>Övervakare av nätverksprestanda instrument panel 
+### <a name="network-performance-monitor-dashboard"></a>Instrumentpanelen Nätverksprestandaövervakare 
 
-* **Främsta nätverks hälso händelser**: den här sidan innehåller en lista över de senaste hälso händelserna och aviseringarna i systemet och tiden sedan händelserna har varit aktiva. En hälso händelse eller en avisering genereras när värdet för det valda måttet (förlust, svars tid, svars tid eller bandbredds användning) för övervaknings regeln överskrider tröskelvärdet. 
+* **Top Network Health Events**: Den här sidan innehåller en lista över de senaste hälsohändelserna och aviseringarna i systemet och tiden sedan händelserna har varit aktiva. En hälsohändelse eller avisering genereras när värdet för det valda måttet (förlust, svarstid, svarstid eller bandbreddsanvändning) för övervakningsregeln överskrider tröskelvärdet. 
 
-* **ExpressRoute-övervakare**: den här sidan innehåller hälso översikter för de olika ExpressRoute-peering-anslutningarna. Panelen **topologi** visar antalet nätverks Sök vägar genom de ExpressRoute-kretsar som övervakas i nätverket. Välj den här panelen för att gå till vyn **topologi** .
+* **ExpressRoute Monitor**: Den här sidan innehåller hälsosammanfattningar för de olika ExpressRoute-peering-anslutningarna som lösningen övervakar. Panelen **Topologi** visar antalet nätverkssökvägar via ExpressRoute-kretsarna som övervakas i nätverket. Välj den här panelen om du vill gå till **topologivyn.**
 
-* **Övervakare för tjänst anslutning**: den här sidan innehåller hälso översikter för de olika test som du har skapat. Panelen **topologi** visar antalet slut punkter som övervakas. Välj den här panelen för att gå till vyn **topologi** .
+* **Service Connectivity Monitor**: Den här sidan innehåller hälsosammanfattningar för de olika tester som du har skapat. Panelen **Topologi** visar antalet slutpunkter som övervakas. Välj den här panelen om du vill gå till **topologivyn.**
 
-* **Prestanda övervakare**: den här sidan innehåller hälso översikter för **nätverks** länkar och under **nätverks** länkar som lösningen övervakar. Panelen **topologi** visar antalet nätverks Sök vägar som övervakas i nätverket. Välj den här panelen för att gå till vyn **topologi** . 
+* **Prestandaövervakare:** Den här **Network** sidan innehåller hälsosammanfattningar för nätverkslänkar och **undernätslänkar** som lösningen övervakar. Panelen **Topologi** visar antalet nätverkssökvägar som övervakas i nätverket. Välj den här panelen om du vill gå till **topologivyn.** 
 
-* **Vanliga frågor**: den här sidan innehåller en uppsättning Sök frågor som hämtar rå data för nätverks övervakning direkt. Du kan använda dessa frågor som utgångs punkt för att skapa egna frågor för anpassad rapportering. 
+* **Vanliga frågor:** Den här sidan innehåller en uppsättning sökfrågor som hämtar data för övervakning av rådsnätverk direkt. Du kan använda dessa frågor som utgångspunkt för att skapa egna frågor för anpassad rapportering. 
 
-   ![Övervakare av nätverksprestanda instrument panel](media/network-performance-monitor/npm-dashboard.png)
-
- 
-
-### <a name="drill-down-for-depth"></a>Öka detalj nivån för djupet 
-
-Du kan välja olika länkar på instrument panelen för lösningen för att öka detalj nivån i alla intresse områden. Om du till exempel ser en avisering eller en nätverks länk som inte är felfri visas på instrument panelen, väljer du den för att undersöka ytterligare. En sida visar alla under nätverks Länkar för den specifika nätverks länken. Du kan se förlust, svars tid och hälso status för varje under nätverks länk. Du kan snabbt ta reda på vilken under nätverks länk som orsakar problem. Välj **Visa noden länkar** om du vill se alla länkar för länken för den felaktiga under nätet. Sedan kan du se enskilda Länkar för nod-till-nod och hitta länkar för felaktiga noder. 
-
-Välj **Visa topologi** för att Visa hopp-för-hop-topologin för vägarna mellan käll-och mål-noderna. De felaktiga vägarna visas i rött. Du kan visa svars tiden som har bidragit till varje hopp så att du snabbt kan identifiera problemet i en viss del av nätverket.
+   ![Instrumentpanelen Nätverksprestandaövervakare](media/network-performance-monitor/npm-dashboard.png)
 
  
 
-### <a name="network-state-recorder-control"></a>Kontroll av nätverks tillstånds inspelning
+### <a name="drill-down-for-depth"></a>Öka detaljnivån för djup 
 
-Varje vy visar en ögonblicks bild av din nätverks hälsa vid en viss tidpunkt. Som standard visas det senaste läget. Fältet längst upp på sidan visar den tidpunkt då statusen visas. Om du vill visa en ögonblicks bild av din nätverks hälsa vid en tidigare tidpunkt väljer du **åtgärder**. Du kan också aktivera eller inaktivera automatisk uppdatering för alla sidor medan du visar det senaste läget. 
+Du kan välja olika länkar på lösningsinstrumentpanelen för att öka detaljnivån i alla intresseområden. När du till exempel ser en avisering eller en felaktig nätverkslänk visas på instrumentpanelen väljer du den för att undersöka vidare. På en sida visas alla undernätverkslänkar för den aktuella nätverkslänken. Du kan se förlust-, svarstids- och hälsostatus för varje undernätverkslänk. Du kan snabbt ta reda på vilken nätlänk som orsakar problem. Välj **Visa nodlänkar** om du vill visa alla nodlänkar för den felaktiga undernätslänken. Sedan kan du se enskilda nod-till-nod länkar och hitta den felaktiga nod länkar. 
 
- ![Registrering av nätverks tillstånd](media/network-performance-monitor/network-state-recorder.png)
+Välj **Visa topologi** om du vill visa hopp-för-hopp-topologin för rutterna mellan käll- och målnoderna. De ohälsosamma rutterna visas i rött. Du kan visa svarstiden som varje hopp har bidragit med så att du snabbt kan identifiera problemet för en viss del av nätverket.
+
+ 
+
+### <a name="network-state-recorder-control"></a>Kontroll av nättillståndsinspelare
+
+Varje vy visar en ögonblicksbild av nätverkets hälsa vid en viss tidpunkt. Som standard visas det senaste tillståndet. Fältet högst upp på sidan visar den tidpunkt som tillståndet visas för. Om du vill visa en ögonblicksbild av nätverkets hälsa vid ett tidigare tillfälle väljer du **Åtgärder**. Du kan också aktivera eller inaktivera automatisk uppdatering för alla sidor medan du visar det senaste tillståndet. 
+
+ ![Registrering av nätverkstillstånd](media/network-performance-monitor/network-state-recorder.png)
 
  
 
-### <a name="trend-charts"></a>Trend diagram 
+### <a name="trend-charts"></a>Trenddiagram 
 
-På varje nivå som du ökar detalj nivån kan du se trenden för det aktuella måttet. Det kan vara förlust, svars tid, svars tid eller bandbredds användning. Om du vill ändra tids perioden för trenden använder du tids kontrollen överst i diagrammet. 
+På varje nivå som du detaljgransar nedåt kan du se trenden för det aktuella måttet. Det kan vara förlust, svarstid, svarstid eller bandbreddsanvändning. Om du vill ändra tidsintervallet för trenden använder du tidskontrollen högst upp i diagrammet. 
 
-Trend diagram visar ett historik perspektiv för prestanda måttets prestanda. Vissa nätverks problem är tillfälliga och är svåra att fånga genom att bara titta på nätverkets aktuella tillstånd. Problem kan snabbt och försvinna innan alla meddelanden visas vid en senare tidpunkt. Sådana tillfälliga problem kan också vara svåra för program administratörer. Problemen visas ofta som en klar ökning av programmets svars tid, även när alla program komponenter verkar köras smidigt. 
+Trenddiagram visar ett historiskt perspektiv på resultatet för ett prestandamått. Vissa nätverksproblem är tillfälliga till sin natur och är svåra att fånga genom att bara titta på nätverkets aktuella tillstånd. Problem kan dyka upp snabbt och försvinna innan någon märker det, bara för att dyka upp igen vid en senare tidpunkt. Sådana tillfälliga problem kan också vara svåra för programadministratörer. Problemen visas ofta som oförklarliga ökningar i programmets svarstid, även när alla programkomponenter verkar fungera smidigt. 
 
-Du kan enkelt identifiera dessa typer av problem genom att titta på ett trend diagram. Problemet visas som en plötslig topp i nätverks fördröjningen eller paket förlusten. Du kan undersöka problemet genom att använda kontrollen nätverks tillstånds kontroll för att Visa nätverks ögonblicks bilden och topologin för den tidpunkten när problemet uppstod.
-
- 
-![Trend diagram](media/network-performance-monitor/trend-charts.png)
- 
-
-### <a name="topology-map"></a>Topology-karta 
-
-Övervakare av nätverksprestanda visar en hopp-till-hopp-topologi mellan käll-och mål slut punkten i en interaktiv Topology-karta. Om du vill visa topologins karta väljer du panelen **topologi** på lösningens instrument panel. Du kan också välja länken **Visa topologi** på sidan öka detalj nivån. 
-
-Topology-kartan visar hur många vägar som är mellan källan och målet och vilka sökvägar som data paketen tar. Den svars tid som varje nätverks hopp bidragit med visas också. Alla sökvägar för vilka svars tiden för den totala sökvägen är över tröskelvärdet (anges i motsvarande övervaknings regel) visas i rött. 
-
-När du väljer en nod eller hovrar över den i Topology-kartan visas nodens egenskaper, till exempel FQDN och IP-adress. Välj ett hopp för att se dess IP-adress. Du kan identifiera problematiska nätverks hopp genom att märker den fördröjning det bidrar till. Om du vill filtrera särskilda vägar använder du filtren i fönstret komprimerbar åtgärd. Om du vill förenkla nätverkets topologier döljer du mellanliggande hopp med hjälp av skjutreglaget i åtgärds fönstret. Du kan zooma in eller ut ur topologins karta med hjälp av mus hjulet. 
-
-Topologin som visas i kartan är Layer 3-topologi och innehåller inte Layer 2-enheter och-anslutningar. 
+Du kan enkelt upptäcka den här typen av problem genom att titta på ett trenddiagram. Problemet visas som en plötslig ökning av nätverksfördröjning eller paketförlust. Om du vill undersöka problemet använder du kontrollen Registrerare för nätverkstillstånd för att visa ögonblicksbilden av nätverket och topologin för den tidpunkten då problemet uppstod.
 
  
-![Topology-karta](media/network-performance-monitor/topology-map.png)
+![Trenddiagram](media/network-performance-monitor/trend-charts.png)
  
 
-## <a name="log-queries-in-azure-monitor"></a>Logg frågor i Azure Monitor
+### <a name="topology-map"></a>Topologi karta 
 
-Alla data som visas grafiskt via Övervakare av nätverksprestanda instrument panelen och detalj nivå sidorna är också tillgängliga i [logg frågor](../log-query/log-query-overview.md). Du kan utföra interaktiv analys av data i lagrings platsen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delnings bar länk. Områdena **vanliga frågor** på instrument panelen har några användbara frågor som du kan använda som start punkt för att skapa egna frågor och rapporter. 
+Network Performance Monitor visar hopp-för-hopp-topologin för rutter mellan källan och målslutpunkten på en interaktiv topologikarta. Om du vill visa topologikartan väljer du panelen **Topologi** på lösningsinstrumentpanelen. Du kan också välja länken **Visa topologi** på de nedrullningsbara sidorna. 
+
+Topologikartan visar hur många vägar som finns mellan källan och målet och vilka sökvägar datapaketen tar. Svarstiden som varje nätverkshopp bidrar med är också synlig. Alla sökvägar för vilka den totala sökvägen ligger över tröskelvärdet (som anges i motsvarande övervakningsregel) visas i rött. 
+
+När du väljer en nod eller hovrar över den på topologikartan visas nodegenskaperna, till exempel FQDN och IP-adress. Välj ett hopp för att se dess IP-adress. Du kan identifiera det besvärliga nätverkshoppet genom att märka den svarstid som den bidrar med. Om du vill filtrera vissa vägar använder du filtren i det hopfällbara åtgärdsfönstret. Om du vill förenkla nätverkstopologierna döljer du mellanliggande hopp med hjälp av skjutreglaget i åtgärdsfönstret. Du kan zooma in eller zooma ut från topologikartan med hjälp av mushjulet. 
+
+Topologin som visas på kartan är toologin för lager 3 och innehåller inte enheter och anslutningar i lager 2. 
+
+ 
+![Topologi karta](media/network-performance-monitor/topology-map.png)
+ 
+
+## <a name="log-queries-in-azure-monitor"></a>Logga frågor i Azure Monitor
+
+Alla data som visas grafiskt via instrumentpanelen För nätverksprestandaövervakare och detaljgranskningssidor är också tillgängliga internt i [loggfrågor](../log-query/log-query-overview.md). Du kan utföra interaktiv analys av data i databasen och korrelera data från olika källor. Du kan också skapa anpassade aviseringar och vyer och exportera data till Excel, Power BI eller en delningsbar länk. Området **Vanliga frågor** på instrumentpanelen har några användbara frågor som du kan använda som utgångspunkt för att skapa egna frågor och rapporter. 
 
 ## <a name="alerts"></a>Aviseringar
 
-Övervakare av nätverksprestanda använder aviserings funktionerna i [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
+Network Performance Monitor använder aviseringsfunktionerna i [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Det innebär att alla meddelanden hanteras med hjälp av [Åtgärds grupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
+Det innebär att alla meddelanden hanteras med hjälp av [åtgärdsgrupper](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups).  
 
 Om du är en NPM-användare som skapar en avisering via Log Analytics: 
-1. Du ser en länk som kommer att omdirigera dig till Azure Portal. Klicka på den för att få åtkomst till portalen.
-2. Klicka på panelen Övervakare av nätverksprestanda lösning. 
-3. Navigera till konfigurera.  
-4. Välj det test som du vill skapa en avisering på och följ anvisningarna nedan.
+1. Du kommer att se en länk som omdirigerar dig till Azure-portalen. Klicka på den för att komma åt portalen.
+2. Klicka på lösningspanelen För nätverksprestandaövervakaren. 
+3. Navigera till Konfigurera.  
+4. Välj det test som du vill skapa en avisering på och följ nedanstående steg.
 
 Om du är en NPM-användare som skapar en avisering via Azure Portal:  
-1. Du kan välja att ange din e-postadress direkt eller så kan du välja att skapa aviseringar via åtgärds grupper.
-2. Om du väljer att ange din e-postadress direkt skapas en åtgärds grupp med namnet **NPM e-ActionGroup** och e-post-ID: t läggs till i den åtgärds gruppen.
-3. Om du väljer att använda åtgärds grupper måste du välja en tidigare skapad åtgärds grupp. Du kan lära dig hur du skapar en åtgärds grupp [här.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
+1. Du kan välja att ange din e-post direkt eller så kan du välja att skapa aviseringar via åtgärdsgrupper.
+2. Om du väljer att ange din e-post direkt skapas en åtgärdsgrupp med namnet **NPM Email ActionGroup** och e-post-ID:n läggs till i den åtgärdsgruppen.
+3. Om du väljer att använda åtgärdsgrupper måste du välja en tidigare skapad åtgärdsgrupp. Du kan lära dig hur du skapar en åtgärdsgrupp [här.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. När aviseringen har skapats kan du använda länken Hantera aviseringar för att hantera dina aviseringar. 
 
-Varje gång du skapar en avisering skapar NPM en fråga baserad logg aviserings regel i Azure Monitor. Den här frågan utlöses var 5: e minut som standard. Azure Monitor debiterar inte för de första 250 logg aviserings reglerna som skapats, och eventuella varnings regler ovanför gränsen på 250 logg aviserings regler debiteras enligt [priserna för varningar på sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
-Meddelanden debiteras separat enligt [priset per meddelande på sidan Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/).
+Varje gång du skapar en avisering skapar NPM en frågebaserad loggaviseringsregel i Azure Monitor. Den här frågan utlöses var 5:e minut som standard. Azure-övervakaren debiteras inte för de första 250 loggvarningsreglerna som skapats, och alla varningsregler ovanför gränsen för 250 loggvarningsregler debiteras enligt [priser för aviseringar i Azure Monitor-pristabellen](https://azure.microsoft.com/pricing/details/monitor/).
+Meddelanden debiteras separat enligt [priser för meddelanden på azure monitor-prissidan](https://azure.microsoft.com/pricing/details/monitor/).
 
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
-Information om priser är tillgänglig [online](network-performance-monitor-pricing-faq.md).
+Information om prissättning finns [tillgänglig online](network-performance-monitor-pricing-faq.md).
 
 ## <a name="provide-feedback"></a>Ge feedback 
 
-* **UserVoice:** Du kan publicera dina idéer för Övervakare av nätverksprestanda funktioner som vi vill att vi ska arbeta med. Besök [sidan UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
+* **UserVoice:** Du kan publicera dina idéer för nätverksprestandaövervakarfunktioner som du vill att vi ska arbeta med. Besök [sidan UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
-* **Delta i vår kohort:** Vi är alltid intresserade av att låta nya kunder delta i vår kohort. Som en del av det får du tidig till gång till nya funktioner och en möjlighet att hjälpa oss att förbättra Övervakare av nätverksprestanda. Om du är intresse rad av att ansluta kan du fylla i den här [snabb undersökningen](https://aka.ms/npmcohort). 
+* **Gå med i vår kohort:** Vi är alltid intresserade av att få nya kunder att gå med i vår kohort. Som en del av det får du tidig tillgång till nya funktioner och en möjlighet att hjälpa oss att förbättra Network Performance Monitor. Om du är intresserad av att gå med, fyll i denna [snabba undersökning](https://aka.ms/npmcohort). 
 
 ## <a name="next-steps"></a>Nästa steg 
-Läs mer om [prestanda övervakaren](network-performance-monitor-performance-monitor.md), [tjänst anslutnings övervakaren](network-performance-monitor-performance-monitor.md)och [ExpressRoute-övervakaren](network-performance-monitor-expressroute.md). 
+Läs mer om [Prestandaövervakare,](network-performance-monitor-performance-monitor.md) [Service Connectivity Monitor](network-performance-monitor-performance-monitor.md)och [ExpressRoute Monitor](network-performance-monitor-expressroute.md). 

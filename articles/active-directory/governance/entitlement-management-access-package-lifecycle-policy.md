@@ -1,6 +1,6 @@
 ---
-title: Ändra livs cykel inställningar för ett Access-paket i Azure AD-hantering av rättigheter – Azure Active Directory
-description: Lär dig hur du ändrar livs cykel inställningar för ett Access-paket i Azure Active Directory rättighets hantering.
+title: Ändra livscykelinställningar för ett åtkomstpaket i Azure AD-berättigandehantering - Azure Active Directory
+description: Lär dig hur du ändrar livscykelinställningar för ett åtkomstpaket i Azure Active Directory-berättigandehantering.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -17,42 +17,42 @@ ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 959d85f496a4a573a969bf736aba137d5b86154a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79261988"
 ---
-# <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Ändra livs cykel inställningar för ett Access-paket i hantering av Azure AD-rättigheter
+# <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Ändra livscykelinställningar för ett åtkomstpaket i Azure AD-berättigandehantering
 
-Som en Access Package Manager kan du när som helst ändra livs cykel inställningarna för ett Access-paket genom att redigera en befintlig princip. Om du ändrar utgångs datumet för en princip ändras inte förfallo datumet för begär Anden som redan har statusen väntar på godkännande eller godkänt.
+Som åtkomstpakethanterare kan du ändra livscykelinställningarna för ett åtkomstpaket när som helst genom att redigera en befintlig princip. Om du ändrar utgångsdatumet för en princip ändras inte utgångsdatumet för begäranden som redan är i ett väntande godkännande eller godkänt tillstånd.
 
-I den här artikeln beskrivs hur du ändrar livs cykel inställningarna för ett befintligt Access-paket.
+I den här artikeln beskrivs hur du ändrar livscykelinställningarna för ett befintligt åtkomstpaket.
 
-## <a name="open-lifecycle-settings"></a>Öppna livs cykel inställningar
+## <a name="open-lifecycle-settings"></a>Öppna livscykelinställningar
 
-Om du vill ändra livs cykel inställningarna för ett Access-paket måste du öppna motsvarande princip. Följ de här stegen för att öppna livs cykel inställningarna för ett Access-paket.
+Om du vill ändra livscykelinställningarna för ett åtkomstpaket måste du öppna motsvarande princip. Följ dessa steg för att öppna livscykelinställningarna för ett åtkomstpaket.
 
-**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Viktig roll:** Global administratör, användaradministratör, katalogägare eller åtkomstpakethanterare
 
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
 
-1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
+1. Klicka på **Access-paket** på menyn till vänster och öppna sedan åtkomstpaketet.
 
-1. Klicka på **principer** och sedan på den princip som har de livs cykel inställningar som du vill redigera.
+1. Klicka på **Principer** och sedan på den princip som har de livscykelinställningar som du vill redigera.
 
-    Fönstret princip information visas längst ned på sidan.
+    Fönstret Policyinformation öppnas längst ned på sidan.
 
-    ![Åtkomst paket – princip informations fönstret](./media/entitlement-management-shared/policy-details.png)
+    ![Fönstret Åtkomstpaket - informationsfönstret Principinformation](./media/entitlement-management-shared/policy-details.png)
 
-1. Redigera principen genom att klicka på **Redigera** .
+1. Klicka på **Redigera** om du vill redigera principen.
 
-    ![Åtkomst paket – redigera princip](./media/entitlement-management-shared/policy-edit.png)
+    ![Åtkomstpaket - Redigera princip](./media/entitlement-management-shared/policy-edit.png)
 
-1. Klicka på fliken **livs cykel** för att öppna inställningarna för livs cykeln.
+1. Klicka på fliken **Livscykel** för att öppna livscykelinställningarna.
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md)
+- [Ändra inställningar för begäran och godkännande för ett åtkomstpaket](entitlement-management-access-package-request-policy.md)

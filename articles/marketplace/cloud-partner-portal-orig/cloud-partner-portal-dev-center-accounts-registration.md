@@ -1,220 +1,219 @@
 ---
 title: Skapa ett Microsoft Developer-konto | Azure Marketplace
-description: Krav och anvisningar för att skapa ett Microsoft Developer-konto.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+description: Krav och steg för att skapa ett Microsoft Developer-konto.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 522caa53123ad5ccb8076839d2dfa7dc1236b022
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 161abde1ef0dfd86842fb56afe699fa632e0d9ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818432"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280379"
 ---
 <a name="create-a-microsoft-developer-account"></a>Skapa ett Microsoft Developer-konto
 ====================================
 
-Den här artikeln beskriver hur du blir en godkänd Microsoft-utvecklare för Azure Marketplace-publicering.
+I den här artikeln beskrivs hur du blir en godkänd Microsoft-utvecklare för Azure Marketplace-publicering.
 
 ## <a name="create-a-microsoft-account"></a>Skapa ett Microsoft-konto
 
-För att starta publicerings processen måste du slutföra registreringen av **Microsoft Developer Center** . Du använder samma registrerade konto på **[Cloud Partner Portal](https://cloudpartner.azure.com/)** för att starta publicerings processen.
+Om du vill starta publiceringsprocessen måste du slutföra registreringen av **Microsoft Developer Center.** Du använder samma registrerade konto på **[Cloud Partner Portal](https://cloudpartner.azure.com/)** för att starta publiceringsprocessen.
 
-### <a name="general-account-guidelines"></a>Allmänna rikt linjer för konto
+### <a name="general-account-guidelines"></a>Riktlinjer för allmänna konton
 
-Vi rekommenderar att du bara har en Microsoft-konto för dina Azure Marketplace-erbjudanden. Detta konto bör inte vara speciellt för tjänster eller erbjudanden.
+Vi rekommenderar att du bara har ett Microsoft-konto för dina Azure Marketplace-erbjudanden. Det här kontot ska inte vara specifikt för tjänster eller erbjudanden.
 
-Adressen som utgör användar namnet bör finnas i din domän och kontrol leras av ditt IT-team. Alla publicerings relaterade aktiviteter bör göras via det här kontot.
+Adressen som utgör användarnamnet ska finnas på din domän och styras av IT-teamet. Alla publiceringsrelaterade aktiviteter bör göras via det här kontot.
 
 >[!WARNING]
->Ord som "Azure" och "Microsoft" stöds inte för Microsoft-konto registrering. Undvik att använda dessa ord för att slutföra skapandet och registreringen av kontot.
+>Ord som "Azure" och "Microsoft" stöds inte för registrering av Microsoft-konton. Undvik att använda dessa ord för att slutföra processen för att skapa och registrera kontot.
 
-### <a name="company-account-guidelines"></a>Rikt linjer för företags konto
+### <a name="company-account-guidelines"></a>Riktlinjer för företagskonto
 
-Följ dessa rikt linjer om mer än en person behöver åtkomst till kontot genom att logga in med Microsoft-konto som öppnade kontot.
-
->[!IMPORTANT]
->Om du vill ge flera användare åtkomst till ditt dev Center-konto rekommenderar vi att du använder Azure Active Directory för att tilldela roller till enskilda användare. De kan komma åt kontot genom att logga in med sina individuella autentiseringsuppgifter för Azure AD. Mer information finns i [Hantera konto användare](https://docs.microsoft.com/windows/uwp/publish/manage-account-users).
-
--   Skapa din Microsoft-konto med hjälp av en e-postadress som tillhör företagets\'s domän, men inte till en enskild person. Till exempel WindowsApps\@fabrikam.com.
--   Begränsa åtkomsten till den här Microsoft-konto till det minsta möjliga antalet utvecklare.
--   Konfigurera en distributions lista för företagets e-post som innehåller alla som behöver åtkomst till Developer-kontot och Lägg till den här e-postadressen i din säkerhets information. Detta gör att alla anställda i listan kan ta emot säkerhets koder vid behov och hantera din Microsoft-kontos säkerhets information. Om det inte är möjligt att konfigurera en distributions lista måste ägaren till det enskilda e-postkontot vara tillgänglig för åtkomst till och dela säkerhets koden när du uppmanas att göra det (till exempel när ny säkerhets information läggs till i kontot eller när den måste nås från en ny enhet.)
--   Lägg till ett företags telefonnummer som inte kräver ett tillägg och som är tillgängligt för viktiga grupp medlemmar.
--   I allmänhet ska utvecklare använda betrodda enheter för att logga in på ditt företags konto för utvecklare. Alla viktiga grupp medlemmar bör ha åtkomst till dessa betrodda enheter. Detta minskar behovet av att säkerhets koder skickas vid åtkomst till kontot.
--   Om du behöver tillåta åtkomst till kontot från en icke-betrodd dator begränsar du åtkomsten till högst fem utvecklare. Dessa utvecklare bör helst komma åt kontot från datorer som delar samma geografiska plats och nätverks plats.
--   Granska ofta ditt [företags säkerhets information](https://account.live.com/proofs/Manage) och se till att det är aktuellt.
+Följ dessa riktlinjer om fler än en person behöver komma åt kontot genom att logga in med det Microsoft-konto som öppnade kontot.
 
 >[!IMPORTANT]
->Ditt utvecklares konto bör främst nås från betrodda datorer. Detta är viktigt eftersom det finns en gräns för antalet koder som genereras per konto, per vecka. Den ger också den mest sömlösa inloggnings upplevelsen.
+>Om du vill tillåta flera användare att komma åt ditt Dev Center-konto rekommenderar vi att du använder Azure Active Directory för att tilldela roller till enskilda användare. De kan komma åt kontot genom att logga in med sina individuella Azure AD-autentiseringsuppgifter. Mer information finns i [Hantera kontoanvändare](https://docs.microsoft.com/windows/uwp/publish/manage-account-users).
+
+-   Skapa ditt Microsoft-konto med en e-postadress som tillhör företagets\'domän, men inte till en enskild person. Till exempel windowsapps\@fabrikam.com.
+-   Begränsa åtkomsten till det här Microsoft-kontot till minsta möjliga antal utvecklare.
+-   Skapa en företagsdistributionslista för e-post som innehåller alla som behöver komma åt utvecklarkontot och lägg till den här e-postadressen i din säkerhetsinformation. På så sätt kan alla anställda i listan ta emot säkerhetskoder när det behövs och hantera ditt Microsoft-kontos säkerhetsinformation. Om det inte är möjligt att konfigurera en distributionslista måste ägaren till det enskilda e-postkontot vara tillgänglig för åtkomst och delning av säkerhetskoden när du uppmanas att göra det (till exempel när ny säkerhetsinformation läggs till i kontot eller när den måste nås från en ny enhet.)
+-   Lägg till ett företagstelefonnummer som inte kräver ett tillägg och som är tillgängligt för viktiga gruppmedlemmar.
+-   I allmänhet har utvecklare använder betrodda enheter för att logga in på företagets utvecklarkonto. Alla viktiga gruppmedlemmar bör ha åtkomst till dessa betrodda enheter. Detta minskar behovet av att säkerhetskoder skickas när du öppnar kontot.
+-   Om du behöver tillåta åtkomst till kontot från en icke-betrodd dator begränsar du åtkomsten till högst fem utvecklare. Helst bör dessa utvecklare komma åt kontot från datorer som delar samma geografiska plats och nätverksplats.
+-   Granska ofta [företagets säkerhetsinformation](https://account.live.com/proofs/Manage) för att se till att den är aktuell.
+
+>[!IMPORTANT]
+>Ditt utvecklarkonto bör i första hand nås från betrodda datorer. Detta är viktigt eftersom det finns en gräns för antalet koder som genereras per konto, per vecka. Det möjliggör också den mest sömlösa inloggningsupplevelsen.
 >
->Mer information finns i [rikt linjer och säkerhet för Developer-konto](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+>Mer information finns i [ytterligare riktlinjer för utvecklarkonto och säkerhet](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
-### <a name="to-create-a-microsoft-account"></a>Skapa en Microsoft-konto
+### <a name="to-create-a-microsoft-account"></a>Så här skapar du ett Microsoft-konto
 
-1.  Öppna en ny Chrome Incognito-eller Internet Explorer-webbläsarsession för att se till att du inte är inloggad på ett befintligt konto.
-2.  Registrera e-postmeddelandet (med föregående rikt linjer) som en Microsoft-konto med hjälp av den här [länken](https://signup.live.com/signup.aspx). Slutför följande registrerings anvisningar:
+1.  Öppna en ny webbläsarsession för Chrome Incognito eller Internet Explorer för att säkerställa att du inte är inloggad på ett befintligt konto.
+2.  Registrera e-postmeddelandet (med de tidigare riktlinjerna) som ett Microsoft-konto med hjälp av den här [länken](https://signup.live.com/signup.aspx). Fyll i följande registreringsinstruktioner:
 
-    - När du registrerar ditt konto som en Microsoft-konto måste du ange ett giltigt telefonnummer för systemet för att skicka en konto verifierings kod som ett textmeddelande eller ett automatiserat anrop.
-    - När du registrerar ditt konto som en Microsoft-konto måste du ange ett giltigt e-post-ID för att få ett automatiskt e-postmeddelande för konto verifiering.
+    - När du registrerar ditt konto som ett Microsoft-konto måste du ange ett giltigt telefonnummer för att systemet ska kunna skicka en kontoverifieringskod som ett sms eller ett automatiserat samtal.
+    - När du registrerar ditt konto som ett Microsoft-konto måste du ange ett giltigt e-post-ID för att få ett automatiskt e-postmeddelande för kontoverifiering.
     - Verifiera e-postadressen som skickas till DL.
 
-    Nu är du redo att använda den nya Microsoft-konto i Microsoft Developer Center.
+    Nu är du redo att använda det nya Microsoft-kontot i Microsoft Developer Center.
 
 ## <a name="register-your-account-in-microsoft-developer-center"></a>Registrera ditt konto i Microsoft Developer Center
 
-Microsoft Developer Center används för att registrera företags informationen en gång. Av måste vara en giltig representant för företaget och måste ange sin personliga information som ett sätt att verifiera sin identitet. Personen som registrerar måste använda ett Microsoft-konto som delas för företaget **och samma konto måste användas i Cloud Partner Portal.** Du bör kontrol lera att företaget inte redan har ett Microsoft Developer Center-konto innan du försöker skapa ett. Under processen samlar vi in företags adress information, bank konto information och skatte information. Denna information kan du vanligtvis få från finans- eller affärsavdelningen.
+Microsoft Developer Center används för att registrera företagsinformationen en gång. Registranten måste vara en giltig representant för företaget, och måste lämna sina personuppgifter som ett sätt att validera sin identitet. Den person som registrerar sig måste använda ett Microsoft-konto som delas för företaget **och samma konto måste användas i Cloud Partner Portal.** Du bör kontrollera att ditt företag inte redan har ett Microsoft Developer Center-konto innan du försöker skapa ett. Under processen samlar vi in företagets adressinformation, bankkontoinformation och skatteinformation. Dessa kan vanligtvis erhållas från ekonomi eller affärskontakter.
 
 >[!IMPORTANT]
->Du måste slutföra följande komponenter för utvecklare av utvecklare för att gå igenom de olika stegen för att skapa och distribuera erbjudanden.
+>Du måste slutföra följande utvecklarprofilkomponenter för att kunna gå igenom de olika faserna för att skapa och distribuera erbjudanden.
 
-| Utvecklings profil     | För att starta utkast    | Mellanlagring       | Publicera en mall för kostnads fria och lösningar   | Publicera kommersiell   |
+| Profil för utvecklare     | Så här startar du utkast    | Mellanlagring       | Publicera kostnadsfri och lösningsmall   | Publicera kommersiella   |
 |---------------------- |----------------   |-----------    |-------------------------------------  |---------------------  |
-| Företags registrering  | Måste ha         | Måste ha     | Måste ha                             | Måste ha             |
-| ID för skatte profil        | Valfri          | Valfri      | Valfri                              | Måste ha             |
-| Bank konto          | Valfri          | Valfri      | Valfri                              | Måste ha             |
+| Företagsregistrering  | Måste ha         | Måste ha     | Måste ha                             | Måste ha             |
+| Id för skatteprofil        | Valfri          | Valfri      | Valfri                              | Måste ha             |
+| Bankkonto          | Valfri          | Valfri      | Valfri                              | Måste ha             |
 
 >[!NOTE]
->Det finns bara stöd för att ta med din egen licens (BYOL) för virtuella datorer och det anses vara ett kostnads fritt erbjudande.
+>Bring Your Own License (BYOL) stöds endast för virtuella datorer och anses vara ett gratis erbjudande.
 
-### <a name="register-your-company-account"></a>Registrera ditt företags konto
+### <a name="register-your-company-account"></a>Registrera ditt företagskonto
 
-1. Öppna en ny Internet Explorer InPrivate-eller Chrome Incognito-webbläsarsession för att se till att du inte är inloggad på ett personligt konto.
+1. Öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession för att säkerställa att du inte är inloggad på ett personligt konto.
 
-2. Gå till [Windows Dev Center](https://dev.windows.com/registration?accountprogram=azure) för att registrera dig som säljare. Läs följande viktiga kommentar innan du fortsätter.
+2. Gå till [Windows Dev Center](https://dev.windows.com/registration?accountprogram=azure) för att registrera dig som säljare. Läs följande viktiga anmärkning innan du fortsätter.
 
-   ![Microsoft-konto verifiering](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
+   ![Verifiering av Microsoft-konto](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
     >[!IMPORTANT]
-    >Se till att e-post-ID: t eller distributions listan (en distributions lista rekommenderas för att ta bort beroendet från individer) som du kommer att använda för registrering i dev Center är den första registrerade som en Microsoft-konto. Annars kan du registrera dig med hjälp av den här länken. Dessutom går det inte att använda alla e-post-ID: n under Microsofts företags domän för dev Center-registrering.
+    >Kontrollera att e-post-ID eller distributionslista (en distributionslista rekommenderas för att ta bort beroende från enskilda personer) som du kommer att använda för att registrera dig i Dev Center registreras först som ett Microsoft-konto. Om inte, vänligen registrera dig via denna länk. Dessutom kan inget e-post-ID under Microsoft-företagsdomänen inte användas för Dev Center-registrering.
 
-   ![Dev Center-inloggning](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-login.jpg)
+   ![Logga in i Dev center](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-login.jpg)
 
-3. Kör guiden "hjälpa oss skydda ditt konto" för att verifiera din identitet med hjälp av ett telefonnummer eller en e-postadress.
+3. Kör guiden "Hjälp oss att skydda ditt konto" för att verifiera din identitet med hjälp av ett telefonnummer eller en e-postadress.
 
-4. I registrerings konto information väljer du ditt **konto land/region** i list rutan och väljer sedan **Nästa**.
+4. I Registreringskontoinformation väljer du ditt **kontoland/din region** i listrutan och väljer sedan **Nästa**.
 
    ![Välj land/region](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >"Sälja från" länder/regioner: för att sälja dina tjänster på Azure Marketplace måste din registrerade enhet vara från ett av de godkända "sälja-från"-länderna/-regionerna som visas i list rutan. Den här begränsningen gäller för utbetalnings-och beskattnings skäl. Mer information finns i deltagar principerna för Marketplace.
+    >"Sälj från"-länder/-regioner: För att kunna sälja dina tjänster på Azure Marketplace måste din registrerade enhet komma från ett av de godkända "sell-from"-länder/-regionerna som visas i listrutan. Denna begränsning är av utbetalnings- och skatteskäl. Mer information finns i Marketplaces policyer för deltagande på Marknaden.
 
-5. Välj **företag** som "konto typ" och välj sedan **Nästa**.
+5. Välj **Företag** som "Kontotyp" och välj sedan **Nästa**.
 
     >[!IMPORTANT]
-    >För att bättre förstå konto typer och bestämma vilken typ som passar dig bäst, kan du Visa sid konto typer, platser och avgifter som visas i nästa skärm bild.
+    >Om du vill bättre förstå kontotyper och bestämma vilken typ som är bäst för dig kan du visa sidkontotyper, platser och avgifter som visas i nästa skärminspelning.
 
-    ![Konto typer för säljare](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_05.png)
+    ![Kontotyper för säljare](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_05.png)
 
-6. Ange **visnings namnet för utgivaren**. Detta är vanligt vis namnet på ditt företag.
+6. Ange **visningsnamnet för Publisher**. Detta är vanligtvis namnet på ditt företag.
 
     >[!NOTE]
-    >Utgivarens visnings namn som anges i dev Center visas inte i Azure Marketplace när ditt erbjudande visas. Men den här informationen behövs för att slutföra registrerings processen.
+    >Utgivarens visningsnamn som anges i Dev Center visas inte på Azure Marketplace när erbjudandet har listats. Men denna information behövs för att slutföra registreringsprocessen.
 
-7. Ange **kontakt information** för konto verifieringen.
+7. Ange **kontaktinformationen** för kontoverifieringen.
 
     >[!IMPORTANT]
-    >Du måste ange korrekt kontakt information eftersom den kommer att användas i vår verifierings process för att ditt företag ska godkännas i Developer Center.
+    >Du måste ange korrekt kontaktinformation eftersom den kommer att användas i vår verifieringsprocess för att ditt företag ska godkännas i Developer Center."
 
-8. Ange kontakt information för **företagets god kännare**. Företagets god kännare är den person som kan verifiera att du har behörighet att skapa ett konto i dev Center för din organisations räkning. När du har angett den här informationen väljer du **Nästa** för att gå till **avsnittet betalning**.
+8. Ange kontaktinformationen för **företagsgodkännaren**. Företagsgodkänningspersonen är den person som kan verifiera att du har behörighet att skapa ett konto i Dev Center för din organisations räkning. När du har lämnat den här informationen väljer du **Nästa** om du vill gå till **avsnittet Betalning**.
 
-    ![Identifiera företags god kännare](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_08.png)
+    ![Identifiera företagets godkännare](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_08.png)
 
-9. Ange betalnings information för ditt konto. Om du har en kampanj kod som täcker kostnaden för registrering kan du ange den här. Annars anger du kreditkorts information (eller PayPal på marknader som stöds). Välj **Nästa** för att gå vidare till den slutliga **granskningen**.
+9. Ange betalningsinformation för ditt konto. Om du har en kampanjkod som täcker registreringskostnaden kan du ange det här. I annat fall kan du ange din kreditkortsinformation (eller PayPal på marknader som stöds). Välj **Nästa** om du vill gå vidare till den slutliga **granskningen**.
 
-   ![Betalnings registrering](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
+   ![Registrering av betalning](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_09.png)
 
-10. Granska konto informationen och kontrol lera att allt är korrekt. Läs och godkänn villkoren i [Microsoft Azure Marketplace utgivar avtalet](https://go.microsoft.com/fwlink/?LinkID=699560). Markera kryss rutan om du vill visa att du har läst och accepterat dessa villkor.
+10. Granska dina kontouppgifter och bekräfta att allt är korrekt. Läs och acceptera villkoren i [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560). Markera rutan för att ange att du har läst och accepterat dessa villkor.
 
-11. Bekräfta registreringen genom att klicka på **Slutför** . Ett bekräftelse meddelande skickas till din e-postadress.
+11. Välj **Slutför** för att bekräfta din registrering. Ett bekräftelsemeddelande skickas till din e-postadress.
 
-12. Om du planerar att bara publicera kostnads fria erbjudanden väljer du [gå till Cloud Partner Portal](https://cloudpartner.azure.com/) och hoppar till "Registrera ditt konto i Cloud Partner Portal" i den här artikeln.
+12. Om du planerar att bara publicera kostnadsfria erbjudanden väljer du [Gå till Cloud Partner Portal](https://cloudpartner.azure.com/) och hoppa till "Registrera ditt konto i molnpartnerportalen" i den här artikeln.
 
 ### <a name="commercial-offers"></a>Kommersiella erbjudanden
 
-Om du planerar att publicera kommersiella erbjudanden, till exempel ett erbjudande om virtuell dator med en fakturerings modell per timme, måste du ange information om skatt och bank. Logga in på ditt Developer Center-konto och välj **Uppdatera din konto information**. Följ anvisningarna i nästa avsnitt, "Lägg till bank och skatte information".
+Om du planerar att publicera kommersiella erbjudanden, till exempel ett erbjudande om virtuell dator med hjälp av en faktureringsmodell per timme, måste du ange skatte- och bankinformation. Logga in på utvecklarcentrets konto och välja **Uppdatera kontoinformationen**. Följ instruktionerna i nästa avsnitt, "Lägg till bank- och skatteinformation".
 
 >[!IMPORTANT]
->Du kan inte skicka ett kommersiellt erbjudande till produktion utan att tillhandahålla bank konto och skatte information.
+>Du kommer inte att kunna driva ett kommersiellt erbjudande till produktion utan att tillhandahålla bankkonto och skatteinformation.
 
-Om du vill uppdatera bank-och skatte informationen senare kan du gå vidare till "Registrera ditt konto i Cloud Partner Portal" i den här artikeln.
+Om du föredrar att uppdatera din bank- och skatteinformation senare kan du hoppa till "Registrera ditt konto i molnpartnerportalen" i den här artikeln.
 
 >[!NOTE]
->Vi rekommenderar att du ger bank konto-och skatte information så snart som möjligt eftersom det tar tid att validera skatte information.
+>Vi rekommenderar att du tillhandahåller bankkonto- och skatteinformation så snart som möjligt eftersom det tar tid att validera skatteinformation.
 
-### <a name="add-banking-and-tax-information"></a>Lägg till bank och skatte information
+### <a name="add-banking-and-tax-information"></a>Lägga till bank- och skatteinformation
 
-Om du vill publicera kommersiella erbjudanden för köp måste du lägga till utbetalnings-och skatte information och skicka den för verifiering i Developer Center.
+Om du vill publicera kommersiella erbjudanden för köp måste du lägga till utbetalnings- och skatteinformation och skicka in den för validering i Developer Center.
 
-**Ange bank information**
+**Så här tillhandahåller du bankinformation**
 
-1.  Logga in på [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) med din Microsoft-konto.
-2.  Välj **utbetalnings konto** i den vänstra menyn, under **Välj betalnings sätt**, Välj **bank konto** eller **PayPal**.
+1.  Logga in på [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) med ditt Microsoft-konto.
+2.  Välj **Utbetalningskonto** i den vänstra menyn under **Välj betalningsmetod**väljer du **Bankkonto** eller **PayPal**.
 
     >[!NOTE]
-    >Om du har kommersiella erbjudanden som kunderna köper i Marketplace, är det här det konto där du får utbetalningar för dessa inköp.
-3.  Ange betalnings information och välj sedan **Spara**.
+    >Om du har kommersiella erbjudanden som kunder köper på Marketplace är det här kontot där du får utbetalning för dessa köp.
+3.  Ange betalningsinformationen och välj sedan **Spara**.
 
     >[!IMPORTANT]
-    >Om du behöver uppdatera eller ändra ditt utbetalnings konto följer du stegen ovan för att ersätta den aktuella informationen med den nya informationen.
+    >Om du behöver uppdatera eller ändra ditt utbetalningskonto följer du föregående steg för att ersätta den aktuella informationen med den nya informationen.
     >
-    >Att ändra ditt utbetalnings konto kan försena dina betalningar med upp till en betalnings cykel. Den här fördröjningen inträffar eftersom vi behöver verifiera konto ändringen, precis som vi gjorde när du först konfigurerade kontot för utbetalning. Du betalar fortfarande för hela beloppet när ditt konto har verifierats. alla betalningar som förfaller för den aktuella betalnings cykeln läggs till nästa.
+    >Om du ändrar ditt utbetalningskonto kan du fördröja dina betalningar med upp till en betalningscykel. Den här förseningen beror på att vi måste verifiera kontoändringen, precis som vi gjorde när du först konfigurerade utbetalningskontot. Du får fortfarande betalt för hela beloppet efter att ditt konto har verifierats. Eventuella betalningar som förfaller till betalning för den aktuella betalningscykeln kommer att läggas till nästa.
 
 4.  Välj **Nästa**.
 
-**Ange skatte information**
+**Så här tillhandahåller du skatteinformation**
 
-1.  Logga in på [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) med din Microsoft-konto (om det behövs).
-2.  Välj **skatte profil**på den vänstra menyn.
-3.  På sidan **Konfigurera ditt skatte formulär** :
-    - Välj land eller region där du har permanent placering.
-    - Välj land eller region där du innehar ett primärt medborgarskap.
+1.  Logga in på [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) med ditt Microsoft-konto (om det behövs).
+2.  Välj **Skatteprofil**på menyn till vänster .
+3.  På sidan **Konfigurera skatteformulär:**
+    - Välj det land eller den region där du har permanent uppehållstillstånd.
+    - Välj det land eller den region där du har primärt medborgarskap.
     - Välj **Nästa**.
-4.  Ange din skatte information och välj sedan **Nästa**.
+4.  Ange dina skatteuppgifter och välj sedan **Nästa**.
 
 >[!WARNING]
->Du kan inte skicka till dina kommersiella erbjudanden till produktion utan att tillhandahålla bank konto och skatte information i ditt Microsoft Developer Center-konto.
+>Du kan inte skicka till dina kommersiella erbjudanden till produktion utan att tillhandahålla bankkonto- och skatteinformation i ditt Microsoft Developer Center-konto.
 
-### <a name="developer-center-registration-issues"></a>Registrerings problem för Developer Center
+### <a name="developer-center-registration-issues"></a>Registreringsproblem för Developer Center
 
-Om du har problem med registreringen av utvecklar Center kan du använda följande steg för att öppna ett support ärende.
+Om du har problem med Developer Center-registreringen följer du följande steg för att öppna en supportbiljett.
 
-1.  Gå till [support länken](https://developer.microsoft.com/windows/support).
-2.  Under **kontakta oss**väljer du **skicka en incident**.
-    ![öppna en biljett](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_02.png)
-3.  För **problem typ**väljer du "hjälp med dev Center" och för **kategorin**väljer du publicera och hantera appar. Välj **Start-e-post**.
+1.  Gå till [supportlänken](https://developer.microsoft.com/windows/support).
+2.  Under **Kontakta oss**väljer du Skicka en **incident**.
+    ![Öppna en biljett](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_02.png)
+3.  För **problemtyp**väljer du "Hjälp med Dev Center" och för **Kategori**väljer du "Publicera och hantera appar". Välj **Starta e-post**.
 
     ![identifiera typ av problem](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_03.png)
 
-4.  Du kommer att få en inloggnings sida. Använd alla Microsoft-konto för att logga in. Om du inte har någon Microsoft-konto [skapar du en](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1). \
+4.  Du får en inloggningssida. Använd valfritt Microsoft-konto för att logga in. Om du inte har ett Microsoft-konto skapar du [ett](https://signup.live.com/signup?uaid=0089f09ccae94043a0f07c2aaf928831&lic=1).\
 
-5.  Ange detaljerad information om problemet och välj **Skicka** för att skicka biljetten.
+5.  Ge detaljerad information om problemet och välj **Skicka** för att skicka biljetten.
 
-    ![Skicka in en biljett](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_05.png)
+    ![skicka in en biljett](./media/cloud-partner-portal-create-dev-center-registration/imgAddTax_05.png)
 
-## <a name="register-your-account-in-the-cloud-partner-portal"></a>Registrera ditt konto i Cloud Partner Portal
+## <a name="register-your-account-in-the-cloud-partner-portal"></a>Registrera ditt konto i molnpartnerportalen
 
-Du kan använda [Cloud Partner Portal](https://cloudpartner.azure.com/) för att publicera och hantera dina erbjudanden.
+Du använder [Cloud Partner Portal](https://cloudpartner.azure.com/) för att publicera och hantera dina erbjudanden.
 
-1.  Öppna en ny Chrome Incognito-eller Internet Explorer-webbläsarsession för att se till att du inte är inloggad på ett personligt konto.
+1.  Öppna en ny webbläsarsession för Chrome Incognito eller Internet Explorer för att säkerställa att du inte är inloggad på ett personligt konto.
 2.  Gå till [Cloud Partner Portal](https://cloudpartner.azure.com/).
-3.  Om du är en ny användare och loggar in på [Cloud Partner Portal](https://cloudpartner.azure.com/) för första gången måste du logga in med samma e-post-ID som är registrerat hos ditt dev Center-konto. Detta säkerställer att ditt dev Center-konto och moln Partner Portal kontot är kopplade till varandra.
+3.  Om du är en ny användare och loggar in på [Cloud Partner Portal](https://cloudpartner.azure.com/) för första gången måste du logga in med samma e-post-ID som är registrerat med ditt Dev Center-konto. Detta säkerställer att ditt Dev Center-konto och molnpartnerportalkontot är länkade till varandra.
 
-Senare kan du lägga till andra medlemmar i företaget som arbetar med programmet. Du kan välja mellan deltagare eller ägare i Cloud Partner Portal genom att följa stegen i nästa avsnitt.
+Senare kan du lägga till de andra medlemmarna i företaget som arbetar med programmet. Du kan dem som deltagare eller ägare i molnpartnerportalen genom att följa stegen i nästa avsnitt.
 
-Om du har lagts till som deltagare/ägare i moln Partner Portal portalen kan du logga in med ditt eget konto.
+Om du läggs till som deltagare/ägare i molnpartnerportalportalen kan du logga in med ditt eget konto.
 
 >[!TIP]
->Deltagar principerna beskrivs på Azure-webbplatsen.
+>Principer för deltagande beskrivs på Azure-webbplatsen.
 
-## <a name="manage-users-as-owners-or-contributors-in-the-cloud-partner-portal"></a>Hantera användare som ägare eller deltagare i Cloud Partner Portal
+## <a name="manage-users-as-owners-or-contributors-in-the-cloud-partner-portal"></a>Hantera användare som ägare eller deltagare i molnpartnerportalen
 
-[Steg för att hantera användare på Cloud Partner Portal](./cloud-partner-portal-manage-users.md)
+[Steg för att hantera användare på molnpartnerportalen](./cloud-partner-portal-manage-users.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när ditt konto har skapats och registrerats kan du starta publicerings processen för Azure Marketplace.
+Nu när ditt konto har skapats och registrerats kan du starta publiceringsprocessen för Azure Marketplace.

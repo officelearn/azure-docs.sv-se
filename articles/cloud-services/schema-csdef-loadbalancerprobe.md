@@ -1,5 +1,6 @@
 ---
-title: Azure Cloud Services Def. LoadBalancerProbe-schema | Microsoft Docs
+title: Azure Cloud Services Def. LoadBalancerProbe-schema | Microsoft-dokument
+description: Kunden definierade LoadBalancerProbe är en hälsoavsökning av slutpunkter i rollinstanser. Den kombineras med webb- eller arbetarroller i en tjänstdefinitionsfil.
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -8,29 +9,29 @@ ms.topic: reference
 caps.latest.revision: 14
 author: georgewallace
 ms.author: tagore
-ms.openlocfilehash: bc2c0f5137ce78392a8df7c6c2fdd402ded5355a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6d0e84b6724d9df4162d4be3e06a9952087a53a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449062"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537354"
 ---
-# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services Definition LoadBalancerProbe Schema
-Belastnings Utjämnings avsökningen är en kunddefinierad hälso avsökning av UDP-slutpunkter och slut punkter i roll instanser. `LoadBalancerProbe` är inte ett fristående element. den kombineras med webb rollen eller arbets rollen i en tjänst definitions fil. En `LoadBalancerProbe` kan användas av mer än en roll.
+# <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Azure Cloud Services Definition LoadBalancerProbe-schema
+Belastningsutjämnaravsökningen är en kunddefinierad hälsoavsökning av UDP-slutpunkter och slutpunkter i rollinstanser. Det `LoadBalancerProbe` är inte ett fristående element; Det kombineras med webbrollen eller arbetarrollen i en tjänstdefinitionsfil. A `LoadBalancerProbe` kan användas av mer än en roll.
 
-Standard tillägget för tjänst definitions filen är. csdef.
+Standardtillägget för tjänstdefinitionsfilen är .csdef.
 
-## <a name="the-function-of-a-load-balancer-probe"></a>Funktionen för en belastnings Utjämnings avsökning
-Azure Load Balancer ansvarar för att dirigera inkommande trafik till roll instanserna. Belastningsutjämnaren avgör vilka instanser som kan ta emot trafik genom att regelbundet räkna igenom varje instans för att fastställa hälso tillståndet för den instansen. Belastnings Utjämnings avsökningar varje instans flera gånger per minut. Det finns två olika alternativ för att tillhandahålla instans hälsa för belastningsutjämnaren – standard avsöknings avsökningen eller en anpassad belastnings Utjämnings avsökning, som implementeras genom att definiera LoadBalancerProbe i. csdef-filen.
+## <a name="the-function-of-a-load-balancer-probe"></a>Funktionen hos en belastningsutjämnad sond
+Azure Load Balancer ansvarar för att dirigera inkommande trafik till dina rollinstanser. Belastningsutjämnaren avgör vilka instanser som kan ta emot trafik genom att regelbundet sondera varje instans för att fastställa hälsotillståndet för den instansen. Belastningsutjämnaren avsöker varje instans flera gånger per minut. Det finns två olika alternativ för att ge instanshälsa till belastningsutjämnaren – standardbelastningsutjämnaden eller en anpassad belastningsutjämnadavsökning, som implementeras genom att definiera LoadBalancerProbe i CSDEF-filen.
 
-Standard belastnings Utjämnings avsökningen använder gäst agenten i den virtuella datorn, som avlyssnar och svarar med ett HTTP 200-svar på OK när instansen är i tillståndet Ready (t. ex. om instansen inte är upptagen, återvinning, stoppas osv.). Om gäst agenten inte svarar med HTTP 200 OK markerar Azure Load Balancer instansen som svarar inte och slutar att skicka trafik till den instansen. Azure Load Balancer fortsätter att pinga instansen och om gäst agenten svarar med en HTTP 200 skickar Azure Load Balancer trafik till den instansen igen. När du använder en webb roll körs din webbplats kod vanligt vis i W3wp. exe, som inte övervakas av Azure Fabric eller gäst agenten, vilket innebär att det uppstår problem i W3wp. exe (t. ex. HTTP 500-svar) rapporteras inte till gäst agenten och belastningsutjämnaren vet inte att den instansen kan ta slut.
+Standardbelastningsutjämnaravsökningen använder gästagenten inuti den virtuella datorn, som lyssnar och svarar med ett HTTP 200 OK-svar endast när instansen är i redoläge (som när instansen inte är upptagen, återvinning, stopp osv. Om gästagenten inte svarar med HTTP 200 OK markerar Azure Load Balancer instansen som svarar inte och slutar skicka trafik till den instansen. Azure Load Balancer fortsätter att pinga instansen, och om gästagenten svarar med en HTTP 200 skickar Azure Load Balancer trafik till den instansen igen. När du använder en webbroll körs din webbplatskod vanligtvis i w3wp.exe som inte övervakas av Azure-infrastrukturen eller gästagenten, vilket innebär fel i w3wp.exe (t.ex. HTTP 500-svar) rapporteras inte till gästagenten och belastningsutjämnaren vet inte att instansen ska vara ur rotation.
 
-Avsökningen av den anpassade belastningsutjämnaren åsidosätter standard agent avsökningen och gör att du kan skapa en egen anpassad logik för att fastställa hälso tillståndet för roll instansen. Belastningsutjämnaren avsöker regelbundet din slut punkt (var 15: e sekund som standard) och instansen betraktas som en rotation om den svarar med en TCP-ACK eller HTTP 200 inom tids gränsen (standard 31 sekunder). Det kan vara användbart att implementera din egen logik för att ta bort instanser från belastnings Utjämnings rotation, till exempel returnera en status som inte är 200 om instansen är över 90% CPU. För webb roller som använder W3wp. exe innebär detta också att du får automatisk övervakning av din webbplats, eftersom felen i din webbplats kod returnerar en status som inte är 200 för belastningsutjämnaren. Om du inte definierar en LoadBalancerProbe i. csdef-filen används standard beteendet för belastningsutjämnaren (som tidigare beskrivits).
+Den anpassade belastningsutjämnaravsökningen åsidosätter standardprogramagentavsökningen och låter dig skapa din egen anpassade logik för att avgöra hälsotillståndet för rollinstansen. Belastningsutjämnaren avsöker regelbundet din slutpunkt (var 15:e sekund, som standard) och instansen beaktas i rotation om den svarar med en TCP ACK eller HTTP 200 inom tidsgränsen (som standard 31 sekunder). Detta kan vara användbart för att implementera din egen logik för att ta bort instanser från belastningsutjämnad rotation, till exempel returnera en icke-200 status om instansen är över 90% CPU. För webbroller som använder w3wp.exe innebär det också att du får automatisk övervakning av din webbplats, eftersom fel i webbplatskoden returnerar en icke-200-status till belastningsutjämnaravsökningen. Om du inte definierar en LoadBalancerProbe i CSDEF-filen används standardfunktion för belastningsutjämnare (som tidigare beskrivits).
 
-Om du använder en anpassad avsökning för belastningsutjämnare måste du se till att din logik tar hänsyn till metoden RoleEnvironment. OnStop. När du använder standard belastnings Utjämnings avsökningen tas instansen bort från rotationen innan OnStop anropas, men en anpassad belastnings Utjämnings avsökning kan fortsätta att returnera en 200 OK under händelsen OnStop. Om du använder OnStop-händelsen för att rensa cacheminnet, stoppa tjänsten eller på annat sätt göra ändringar som kan påverka programmets körnings funktion måste du kontrol lera att den anpassade belastnings Utjämnings logiken tar bort instansen från rotationen.
+Om du använder en anpassad belastningsutjämnareavsökning måste du se till att logiken tar hänsyn till metoden RoleEnvironment.OnStop. När du använder standardavsökningen för belastningsutjämnaren tas instansen ur rotation innan OnStop anropas, men en anpassad belastningsutjämnadavsökning kan fortsätta att returnera en 200 OK under OnStop-händelsen. Om du använder OnStop-händelsen för att rensa cacheminnet, stoppa tjänsten eller på annat sätt göra ändringar som kan påverka tjänstens körningsbeteende måste du se till att din anpassade belastningsjämningsavsökningslogik tar bort instansen från rotationen.
 
-## <a name="basic-service-definition-schema-for-a-load-balancer-probe"></a>Grundläggande tjänst definitions schema för en belastnings Utjämnings avsökning
- Det grundläggande formatet för en tjänst definitions fil som innehåller en belastnings Utjämnings avsökning är följande.
+## <a name="basic-service-definition-schema-for-a-load-balancer-probe"></a>Grundläggande tjänstdefinitionsschema för en belastningsutjämnad avsökning
+ Det grundläggande formatet för en tjänstdefinitionsfil som innehåller en belastningsutjämnad avsökning är följande.
 
 ```xml
 <ServiceDefinition …>
@@ -40,28 +41,28 @@ Om du använder en anpassad avsökning för belastningsutjämnare måste du se t
 </ServiceDefinition>
 ```
 
-## <a name="schema-elements"></a>Schema element
-Det `LoadBalancerProbes` elementet i tjänst definitions filen innehåller följande element:
+## <a name="schema-elements"></a>Schemaelement
+Elementet `LoadBalancerProbes` i tjänstdefinitionsfilen innehåller följande element:
 
 - [LoadBalancerProbes Element](#LoadBalancerProbes)
-- [LoadBalancerProbe Element](#LoadBalancerProbe)
+- [LoadBalancerProbe-element](#LoadBalancerProbe)
 
-##  <a name="LoadBalancerProbes"></a>LoadBalancerProbes-element
-I `LoadBalancerProbes`-elementet beskrivs insamlingen av belastnings Utjämnings avsökningar. Det här elementet är det överordnade elementet i [LoadBalancerProbe-elementet](#LoadBalancerProbe). 
+##  <a name="loadbalancerprobes-element"></a><a name="LoadBalancerProbes"></a>LoadBalancerProbes Element
+Elementet `LoadBalancerProbes` beskriver insamlingen av belastningsutjämnareavsökningar. Det här elementet är det överordnade elementet i [LoadBalancerProbe Element](#LoadBalancerProbe). 
 
-##  <a name="LoadBalancerProbe"></a>LoadBalancerProbe-element
-`LoadBalancerProbe`-elementet definierar hälso avsökningen för en modell. Du kan definiera flera belastnings Utjämnings avsökningar. 
+##  <a name="loadbalancerprobe-element"></a><a name="LoadBalancerProbe"></a>LoadBalancerProbe-element
+Elementet `LoadBalancerProbe` definierar hälsoavsökningen för en modell. Du kan definiera flera belastningsutjämnareavsökningar. 
 
-I följande tabell beskrivs attributen för `LoadBalancerProbe`-elementet:
+I följande tabell beskrivs elementets `LoadBalancerProbe` attribut:
 
 |Attribut|Typ|Beskrivning|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Krävs. Namnet på belastnings Utjämnings avsökningen. Namnet måste vara unikt.|
-| `protocol`          | `string` | Krävs. Anger protokollet för slut punkten. Möjliga värden är `http` eller `tcp`. Om `tcp` anges krävs en bekräftelse för att avsökningen ska lyckas. Om `http` anges krävs ett 200 OK-svar från den angivna URI: n för att avsökningen ska lyckas.|
-| `path`              | `string` | Den URI som används för att begära hälso status från den virtuella datorn. `path` krävs om `protocol` är inställt på `http`. Annars är det inte tillåtet.<br /><br /> Det finns inget standardvärde.|
-| `port`              | `integer` | Valfri. Porten för att kommunicera avsökningen. Detta är valfritt för alla slut punkter, eftersom samma port kommer att användas för avsökningen. Du kan också konfigurera en annan port för deras avsökning. Möjliga värden är mellan 1 och 65535.<br /><br /> Standardvärdet anges av slut punkten.|
-| `intervalInSeconds` | `integer` | Valfri. Intervallet, i sekunder, för hur ofta slut punkten för hälso status ska avsökas. Normalt är intervallet mindre än hälften av den tilldelade tids gränsen (i sekunder) som tillåter två fullständiga avsökningar innan instansen tas ur bruk.<br /><br /> Standardvärdet är 15, minimivärdet är 5.|
-| `timeoutInSeconds`  | `integer` | Valfri. Tids gränsen, i sekunder, som tillämpas på avsökningen där inget svar leder till att ytterligare trafik inte levereras till slut punkten. Med det här värdet kan slut punkter tas bort från rotationen snabbare eller långsammare än de vanligaste tiderna som används i Azure (som är standardvärdena).<br /><br /> Standardvärdet är 31, minimivärdet är 11.|
+| `name`              | `string` | Krävs. Namnet på belastningsutjämnaren. Namnet måste vara unikt.|
+| `protocol`          | `string` | Krävs. Anger slutpunktens protokoll. Möjliga värden är `http` eller `tcp`. Om `tcp` anges krävs en mottagen ACK för att avsökningen ska lyckas. Om `http` anges krävs ett 200 OK-svar från den angivna URI:n för att avsökningen ska lyckas.|
+| `path`              | `string` | Uri som används för att begära hälsostatus från den virtuella datorn. `path`krävs om `protocol` den `http`är inställd på . Annars är det inte tillåtet.<br /><br /> Det finns inget standardvärde.|
+| `port`              | `integer` | Valfri. Porten för att kommunicera sonden. Detta är valfritt för alla slutpunkter, eftersom samma port sedan kommer att användas för avsökningen. Du kan också konfigurera en annan port för deras sondering. Möjliga värden varierar från 1 till 65535, inklusive.<br /><br /> Standardvärdet anges av slutpunkten.|
+| `intervalInSeconds` | `integer` | Valfri. Intervallet, i sekunder, för hur ofta slutpunkten ska avsökas för hälsostatus. Vanligtvis är intervallet något mindre än hälften av den tilldelade timeout-perioden (i sekunder) vilket tillåter två fullständiga avsökningar innan instansen tas ur rotation.<br /><br /> Standardvärdet är 15, minimivärdet är 5.|
+| `timeoutInSeconds`  | `integer` | Valfri. Tidsgränsen, i sekunder, tillämpas på avsökningen där inget svar kommer att resultera i att stoppa ytterligare trafik från att levereras till slutpunkten. Med det här värdet kan slutpunkter tas ur rotation snabbare eller långsammare än de typiska tider som används i Azure (som är standardvärden).<br /><br /> Standardvärdet är 31, minimivärdet är 11.|
 
 ## <a name="see-also"></a>Se även
-[Definitions schema för moln tjänst (klassisk)](schema-csdef-file.md)
+[Molntjänst (klassiskt) definitionsschema](schema-csdef-file.md)

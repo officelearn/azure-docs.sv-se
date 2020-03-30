@@ -1,51 +1,51 @@
 ---
-title: Samla in Azure aktivitets logg med diagnostikinställningar – Azure Monitor | Microsoft Docs
-description: Använd diagnostikinställningar för att vidarebefordra Azure-aktivitets loggar till Azure Monitor loggar, Azure Storage eller Azure Event Hubs.
+title: Samla in Azure Activity-logg med diagnostikinställningar – Azure Monitor | Microsoft-dokument
+description: Använd diagnostikinställningar för att vidarebefordra Azure Activity-loggar till Azure Monitor Logs, Azure Storage eller Azure Event Hubs.
 author: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 02/04/2020
 ms.openlocfilehash: 6d4c724c7cfb4c1779f0fc6592a7e61e060755b9
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79096907"
 ---
-# <a name="update-to-azure-activity-log-collection-and-export"></a>Uppdatera till Azure aktivitets logg samling och exportera
-[Azure aktivitets loggen](platform-logs-overview.md) är en [plattforms logg](platform-logs-overview.md) som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Metoden att skicka aktivitets logg poster till [ett händelsehubben eller ett lagrings konto](activity-log-export.md) eller till en [Log Analytics arbets yta](activity-log-collect.md) har ändrats för att använda [diagnostikinställningar](diagnostic-settings.md). I den här artikeln beskrivs skillnaden mellan metoderna och hur du rensar äldre inställningar i förberedelser för att ändra inställningarna för diagnostik.
+# <a name="update-to-azure-activity-log-collection-and-export"></a>Uppdatera till Azure Activity log insamling och export
+[Azure Activity-loggen](platform-logs-overview.md) är en [plattformslogg](platform-logs-overview.md) som ger insikt i händelser på prenumerationsnivå som har inträffat i Azure. Metoden för att skicka aktivitetsloggposter till [ett händelsenav eller lagringskonto](activity-log-export.md) eller till en [Log Analytics-arbetsyta](activity-log-collect.md) har ändrats för att använda [diagnostikinställningar](diagnostic-settings.md). I den här artikeln beskrivs skillnaden mellan metoderna och hur du rensar äldre inställningar som förberedelse för att ändra till diagnostikinställningar.
 
 
 ## <a name="differences-between-methods"></a>Skillnader mellan metoder
 
 ### <a name="advantages"></a>Fördelar
-Att använda diagnostikinställningar har följande fördelar jämfört med nuvarande metoder:
+Att använda diagnostikinställningar har följande fördelar jämfört med de aktuella metoderna:
 
-- Konsekvent metod för att samla in alla plattforms loggar.
-- Samla in aktivitets logg över flera prenumerationer och klienter.
-- Filtrera samling för att endast samla in loggar för särskilda kategorier.
-- Samla in alla aktivitets logg kategorier. Vissa kategorier samlas inte in med hjälp av en äldre metod.
-- Snabbare svars tid för logg inmatning. Den föregående metoden har ungefär 15 minuters fördröjning medan diagnostikinställningar bara lägger till ungefär 1 minut.
+- Konsekvent metod för att samla in alla plattformsloggar.
+- Samla in aktivitetslogg över flera prenumerationer och klienter.
+- Filtrera insamling för att endast samla in loggar för vissa kategorier.
+- Samla in alla aktivitetsloggkategorier. Vissa kategorier samlas inte in med äldre metod.
+- Snabbare svarstid för logga inmatning. Den tidigare metoden har ca 15 minuters latens medan diagnostikinställningarna lägger till endast ca 1 minut.
 
 ### <a name="considerations"></a>Överväganden
-Överväg följande information om aktivitets loggs insamling med hjälp av diagnostikinställningar innan du aktiverar den här funktionen.
+Överväg följande information om aktivitetsloggsamling med hjälp av diagnostikinställningar innan du aktiverar den här funktionen.
 
-- Inställningen kvarhållning för insamling av aktivitets loggen till Azure Storage har tagits bort, vilket innebär att data lagras oändligt tills du tar bort den.
-- För närvarande kan du bara skapa en diagnostisk inställning på prenumerations nivå med hjälp av Azure Portal. Om du vill använda andra metoder, till exempel PowerShell eller CLI, kan du skapa en Resource Manager-mall.
+- Bevarandeinställningen för att samla in aktivitetsloggen till Azure-lagring har tagits bort, vilket innebär att data lagras på obestämd tid tills du tar bort den.
+- För närvarande kan du bara skapa en diagnostikinställning för prenumerationsnivå med Azure-portalen. Om du vill använda andra metoder som PowerShell eller CLI kan du skapa en Resource Manager-mall.
 
 
 ### <a name="differences-in-data"></a>Skillnader i data
-Diagnostikinställningar samlar in samma data som föregående metoder som används för att samla in aktivitets loggen med följande aktuella skillnader:
+Diagnostikinställningar samlar in samma data som de tidigare metoderna som användes för att samla in aktivitetsloggen med följande aktuella skillnader:
 
-Följande kolumner har tagits bort. Ersättningen för de här kolumnerna är i ett annat format, så du kan behöva ändra logg frågor som använder dem. Du kanske fortfarande ser borttagna kolumner i schemat, men de kommer inte att fyllas i med data.
+Följande kolumner har tagits bort. Ersättningen för dessa kolumner är i ett annat format, så du kan behöva ändra loggfrågor som använder dem. Du kan fortfarande se borttagna kolumner i schemat, men de fylls inte med data.
 
-| Borttagen kolumn | Ersättnings kolumn |
+| Borttagen kolumn | Ersättningskolumn |
 |:---|:---|
-| ActivityStatus    | ActivityStatusValue    |
-| ActivitySubstatus | ActivitySubstatusValue |
-| OperationName     | OperationNameValue     |
-| ResourceProvider  | ResourceProviderValue  |
+| Aktivitetsstatus    | ActivityStatusValue    |
+| AktivitetSubstatus | ActivitySubstatusVärdera |
+| OperationName     | OperationNameVärde     |
+| ResourceProvider  | ResursProviderVärde  |
 
 Följande kolumn har lagts till:
 
@@ -54,48 +54,48 @@ Följande kolumn har lagts till:
 - Properties_d
 
 > [!IMPORTANT]
-> I vissa fall kan värdena i dessa kolumner vara i alla versaler. Om du har en fråga som innehåller dessa kolumner bör du använda [operatorn = ~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) för att göra en Skift läges okänslig jämförelse.
+> I vissa fall kan värdena i dessa kolumner vara i versaler. Om du har en fråga som innehåller dessa kolumner bör du använda [operatorn =~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) för att göra en okänslig jämförelse.
 
 ## <a name="work-with-legacy-settings"></a>Arbeta med äldre inställningar
-Äldre inställningar för att samla in aktivitets loggen fortsätter att fungera om du inte väljer att ersätta med en diagnostisk inställning. Använd följande metod för att hantera logg profilen för en prenumeration.
+Äldre inställningar för att samla in aktivitetsloggen fortsätter att fungera om du inte väljer att ersätta med en diagnostikinställning. Använd följande metod för att hantera loggprofilen för en prenumeration.
 
-1. Välj **aktivitets logg**på **Azure Monitor** -menyn i Azure Portal.
+1. Välj **Aktivitetslogg**på **Azure Monitor-menyn** i Azure-portalen .
 3. Klicka på **Diagnostikinställningar**.
 
    ![Diagnostikinställningar](media/diagnostic-settings-subscription/diagnostic-settings.png)
 
-4. Klicka på den lila banderollen för den äldre upplevelsen.
+4. Klicka på den lila banderollen för äldreupplevelsen.
 
-    ![Äldre miljö](media/diagnostic-settings-subscription/legacy-experience.png)
+    ![Äldre erfarenhet](media/diagnostic-settings-subscription/legacy-experience.png)
 
 
-I följande artiklar finns information om hur du använder äldre samlings metoder.
+Mer information om hur du använder äldre insamlingsmetoder finns i följande artiklar.
 
-- [Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](activity-log-collect.md)
-- [Samla in Azure-aktivitets loggar i Azure Monitor över Azure Active Directory klienter](activity-log-collect-tenants.md)
-- [Exportera Azure aktivitets logg till lagring eller Azure Event Hubs](activity-log-export.md)
+- [Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsytan i Azure Monitor](activity-log-collect.md)
+- [Samla in Azure Activity-loggar i Azure Monitor för Azure Active Directory-klienter](activity-log-collect-tenants.md)
+- [Exportera Azure Activity-logg till lagrings- eller Azure-händelsehubbar](activity-log-export.md)
 
 ## <a name="disable-existing-settings"></a>Inaktivera befintliga inställningar
-Du bör inaktivera en befintlig samling av aktiviteten innan du aktiverar den med hjälp av diagnostikinställningar. Om båda är aktiverade kan duplicerade data uppstå.
+Du bör inaktivera befintlig samling av aktiviteten innan du aktiverar den med hjälp av diagnostikinställningar. Om båda har aktiverat kan det resultera i dubblettdata.
 
 ### <a name="disable-collection-into-log-analytics-workspace"></a>Inaktivera insamling i Log Analytics-arbetsyta
 
-1. Öppna menyn **Log Analytics arbets ytor** i Azure Portal och välj arbets ytan för att samla in aktivitets loggen.
-2. I avsnittet **data källor för arbets yta** på menyn för arbets ytan väljer du **Azure aktivitets logg**.
+1. Öppna menyn **Logganalysarbetsytor** i Azure-portalen och välj arbetsytan för att samla in aktivitetsloggen.
+2. I avsnittet **Datakällor på arbetsytan** på arbetsytans meny väljer du **Azure Activity log**.
 3. Klicka på den prenumeration som du vill koppla från.
-4. Klicka på **Koppla från** och sedan **Ja** när du uppmanas att bekräfta ditt val.
+4. Klicka på **Koppla från** och sedan **Ja** när du blir ombedd att bekräfta ditt val.
 
-### <a name="disable-log-profile"></a>Inaktivera logg profil
+### <a name="disable-log-profile"></a>Inaktivera loggprofil
 
-1. Använd proceduren som beskrivs i [arbeta med äldre inställningar](#work-with-legacy-settings) för att öppna äldre inställningar.
-2. Inaktivera alla aktuella samlingar till lagrings-eller händelse nav.
+1. Använd proceduren som beskrivs i [Arbeta med äldre inställningar](#work-with-legacy-settings) för att öppna äldre inställningar.
+2. Inaktivera en aktuell samling till lagrings- eller händelsehubbar.
 
 
 
-## <a name="activity-log-monitoring-solution"></a>Lösning för övervakning av aktivitets logg
-Azure Log Analytics Monitoring-lösningen innehåller flera logg frågor och vyer för att analysera aktivitets logg poster i Log Analytics-arbetsytan. Den här lösningen använder loggdata som samlas in på en Log Analytics arbets yta och fortsätter att fungera utan några ändringar om du samlar in aktivitets loggen med hjälp av diagnostikinställningar. Mer information om den här lösningen finns i avsnittet [aktivitets loggar analys övervakning](activity-log-collect.md#activity-logs-analytics-monitoring-solution) .
+## <a name="activity-log-monitoring-solution"></a>Övervakningslösning för aktivitetslogg
+Övervakningslösningen för Azure Log Analytics innehåller flera loggfrågor och vyer för att analysera aktivitetsloggposterna på din Log Analytics-arbetsyta. Den här lösningen använder loggdata som samlats in på en Log Analytics-arbetsyta och fortsätter att fungera utan några ändringar om du samlar in aktivitetsloggen med hjälp av diagnostikinställningar. Mer information om den här lösningen finns i [övervakningslösningen för Aktivitetsloggar](activity-log-collect.md#activity-logs-analytics-monitoring-solution) Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om aktivitets loggen](../../azure-resource-manager/management/view-activity-logs.md)
+* [Läs mer om aktivitetsloggen](../../azure-resource-manager/management/view-activity-logs.md)
 * [Läs mer om diagnostikinställningar](diagnostic-settings.md)

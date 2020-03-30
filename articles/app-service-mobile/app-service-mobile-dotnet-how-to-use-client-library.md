@@ -1,43 +1,43 @@
 ---
-title: Arbeta med det hanterade klient biblioteket
-description: Lär dig hur du använder .NET-klient biblioteket för Azure App Service Mobile Apps med Windows-och Xamarin-appar.
+title: Arbeta med det hanterade klientbiblioteket
+description: Lär dig hur du använder .NET-klientbiblioteket för Azure App Service Mobile Apps med Windows- och Xamarin-appar.
 ms.assetid: 0280785c-e027-4e0d-aaf2-6f155e5a6197
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 1c9fba3c13cc6e5476377d59130a95a2edaa324d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249378"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Så här använder du den hanterade klienten för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden visar hur du utför vanliga scenarier med hjälp av det hanterade klient biblioteket för Azure App Service Mobile Apps för Windows-och Xamarin-appar. Om du är nybörjare på Mobile Apps bör du först följa självstudien för [Azure Mobile Apps snabb start][1] . I den här hand boken fokuserar vi på klient sidans hanterade SDK. Mer information om SDK: er för Server sidan för Mobile Apps finns i dokumentationen för [.NET Server SDK][2] eller [Node. js Server SDK][3].
+Den här guiden visar hur du utför vanliga scenarier med hjälp av det hanterade klientbiblioteket för Azure App Service Mobile Apps för Windows och Xamarin-appar. Om du inte har gjort det tidigare i mobilappar bör du först slutföra snabbstartshandledningen för [Azure Mobile Apps.][1] I den här guiden fokuserar vi på kundsidan hanterade SDK. Mer information om SDK:er på serversidan för mobilappar finns i dokumentationen för [.NET Server SDK][2] eller [Node.js Server SDK][3].
 
-## <a name="reference-documentation"></a>Referens dokumentation
-Referens dokumentationen för klient-SDK: n finns här: [Azure Mobile Apps .net-klient referens][4].
-Du kan också hitta flera klient exempel i [Azure-samples GitHub-lagringsplatsen][5].
+## <a name="reference-documentation"></a>Referensdokumentation
+Referensdokumentationen för klienten SDK finns här: [Azure Mobile Apps .NET-klientreferens][4].
+Du kan också hitta flera klientexempel i [Azure-Samples GitHub-databasen][5].
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
 .NET-plattformen stöder följande plattformar:
 
-* Xamarin Android-versioner för API 19 – 24 (KitKat via nougat)
-* Xamarin iOS-versioner för iOS version 8,0 och senare
+* Xamarin Android utgåvor för API 19 till 24 (KitKat genom Nougat)
+* Xamarin iOS-versioner för iOS-versioner 8.0 och senare
 * Universell Windows-plattform
 * Windows Phone 8.1
-* Windows Phone 8,0 utom Silverlight-program
+* Windows Phone 8.0 med undantag för Silverlight-program
 
-Autentiseringen "Server-Flow" använder en webbvy för det visade användar gränssnittet.  Om enheten inte kan visa användar gränssnittet för WebView krävs andra metoder för autentisering.  Detta SDK är därför inte lämpligt för bevakade eller liknande enheter.
+Autentiseringen "serverflöde" använder en WebView för det presenterade användargränssnittet.  Om enheten inte kan presentera ett WebView-användargränssnitt behövs andra autentiseringsmetoder.  Denna SDK är därför inte lämplig för Watch-type eller liknande begränsade enheter.
 
-## <a name="setup"></a>Konfiguration och krav
-Vi förutsätter att du redan har skapat och publicerat ditt mobil programs Server dels projekt, som innehåller minst en tabell.  I koden som används i det här avsnittet heter tabellen `TodoItem` och innehåller följande kolumner: `Id`, `Text`och `Complete`. Den här tabellen är samma tabell som skapas när du slutför [snabb starten för Azure Mobile Apps][1].
+## <a name="setup-and-prerequisites"></a><a name="setup"></a>Inställningar och förutsättningar
+Vi förutsätter att du redan har skapat och publicerat ditt backend-projekt för mobilapp, som innehåller minst en tabell.  I koden som används i det `TodoItem` här avsnittet namnges `Id`tabellen `Text`och `Complete`följande kolumner: , och . Den här tabellen är samma tabell som skapas när du slutför [snabbstarten för Azure Mobile Apps][1].
 
-Motsvarande typ av klient sidan i C# är följande klass:
+Motsvarande typ av klientsida i C# är följande klass:
 
 ```csharp
 public class TodoItem
@@ -52,85 +52,85 @@ public class TodoItem
 }
 ```
 
-[JsonPropertyAttribute][6] används för att definiera *PropertyName* -mappning mellan fältet klient och fältet tabell.
+[JsonPropertyAttribute][6] används för att definiera *mappningen PropertyName* mellan klientfältet och tabellfältet.
 
-Information om hur du skapar tabeller i din Mobile Apps Server del finns i [avsnittet .NET Server SDK][7] eller i [avsnittet Node. js-Server-SDK][8]. Om du har skapat en server del för mobilappen i Azure Portal med snabb starten kan du också använda inställningen **enkla tabeller** i [Azure Portal].
+Mer information om hur du skapar tabeller i serverdelen Mobile Apps finns i [avsnittet .NET Server SDK][7] eller [avsnittet Node.js Server SDK][8]. Om du har skapat din mobile app-backend i Azure-portalen med hjälp av Snabbstart kan du också använda inställningen **Enkla tabeller** i [Azure-portalen].
 
-### <a name="how-to-install-the-managed-client-sdk-package"></a>Gör så här: installera det hanterade klient-SDK-paketet
-Använd någon av följande metoder för att installera SDK-paketet för den hanterade klienten för Mobile Apps från [NuGet][9]:
+### <a name="how-to-install-the-managed-client-sdk-package"></a>Så här installerar du det hanterade klient-SDK-paketet
+Använd någon av följande metoder för att installera det hanterade klient-SDK-paketet för mobilappar från [NuGet:][9]
 
-* **Visual Studio** Högerklicka på projektet, klicka på **Hantera NuGet-paket**, sök efter `Microsoft.Azure.Mobile.Client` paketet och klicka sedan på **Installera**.
-* **Xamarin Studio** Högerklicka på projektet, klicka på **Lägg till** > **Lägg till NuGet-paket**, Sök efter `Microsoft.Azure.Mobile.Client`-paketet och klicka sedan på **Lägg till paket**.
+* **Visuell studio** Högerklicka på projektet, klicka på **Hantera NuGet-paket,** sök efter `Microsoft.Azure.Mobile.Client` paketet och klicka sedan på **Installera**.
+* **Xamarin Studio** Högerklicka på projektet, klicka på **Lägg till** > Lägg `Microsoft.Azure.Mobile.Client` till **NuGet-paket,** sök efter paketet och klicka sedan på Lägg till **paket**.
 
-Kom ihåg att lägga till följande **using** -instruktion i huvud aktivitets filen:
+Kom ihåg att lägga till följande **med hjälp av** uttryck i huvudaktivitetsfilen:
 
 ```csharp
 using Microsoft.WindowsAzure.MobileServices;
 ```
 
 > [!NOTE]
-> Observera att alla supportpaket som det refereras till i ditt Android-projekt måste ha samma version. SDK har `Xamarin.Android.Support.CustomTabs` beroende för Android-plattform, så om ditt projekt använder nyare support paket måste du installera det här paketet med den version som krävs direkt för att undvika konflikter.
+> Observera att alla supportpaket som det refereras till i ditt Android-projekt måste ha samma version. SDK har `Xamarin.Android.Support.CustomTabs` beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket måste du installera det här paketet med nödvändig version direkt för att undvika konflikter.
 
-### <a name="symbolsource"></a>Gör så här: arbeta med fel söknings symboler i Visual Studio
-Symbolerna för namn området Microsoft. Azure. Mobile finns på [SymbolSource][10].  Se SymbolSource- [instruktionerna][11] för att integrera SymbolSource med Visual Studio.
+### <a name="how-to-work-with-debug-symbols-in-visual-studio"></a><a name="symbolsource"></a>Så här: Arbeta med felsökningssymboler i Visual Studio
+Symbolerna för namnområdet Microsoft.Azure.Mobile är tillgängliga på [SymbolSource][10].  Se [symbolkällans instruktioner][11] för att integrera SymbolSource med Visual Studio.
 
-## <a name="create-client"></a>Skapa Mobile Apps-klienten
-Följande kod skapar [MobileServiceClient][12] -objektet som används för att komma åt Server delen för mobilappar.
+## <a name="create-the-mobile-apps-client"></a><a name="create-client"></a>Skapa mobile apps-klienten
+Följande kod skapar [MobileServiceClient-objektet][12] som används för att komma åt din Mobile App-backend.
 
 ```csharp
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-I föregående kod ersätter du `MOBILE_APP_URL` med URL: en för Server delen för mobilappar, som finns på bladet för Server delen för mobilappar i [Azure Portal]. MobileServiceClient-objektet ska vara en singleton.
+Ersätt `MOBILE_APP_URL` med url:en för den mobila app-backend som finns i bladet för din Mobile App-backend i [Azure-portalen]. MobileServiceClient-objektet ska vara en singleton.
 
 ## <a name="work-with-tables"></a>Arbeta med tabeller
-I följande avsnitt beskrivs hur du söker efter och hämtar poster och ändrar data i tabellen.  Följande ämnen tas upp:
+I följande avsnitt beskrivs hur du söker efter och hämtar poster och ändrar data i tabellen.  Följande ämnen behandlas:
 
-* [Skapa en tabell referens](#instantiating)
-* [Fråga efter data](#querying)
+* [Skapa en tabellreferens](#instantiating)
+* [Söka i data](#querying)
 * [Filtrera returnerade data](#filtering)
 * [Sortera returnerade data](#sorting)
 * [Returnera data på sidor](#paging)
-* [Välj vissa kolumner](#selecting)
-* [Leta upp en post efter ID](#lookingup)
-* [Hantera frågor utan typ](#untypedqueries)
+* [Markera specifika kolumner](#selecting)
+* [Slå upp en post med ID](#lookingup)
+* [Hantera otypade frågor](#untypedqueries)
 * [Infoga data](#inserting)
-* Uppdaterar data
+* Uppdatera data
 * [Ta bort data](#deleting)
-* [Konflikt lösning och optimistisk samtidighet](#optimisticconcurrency)
+* [Konfliktlösning och optimistisk samtidighet](#optimisticconcurrency)
 * [Bindning till ett Windows-användargränssnitt](#binding)
-* [Ändra sid storlek](#pagesize)
+* [Ändra sidstorlek](#pagesize)
 
-### <a name="instantiating"></a>Gör så här: skapa en tabell referens
-All kod som används för att komma åt eller ändra data i en server dels tabell anropar funktioner i `MobileServiceTable`-objektet. Hämta en referens till tabellen genom att anropa metoden [GetTable] enligt följande:
+### <a name="how-to-create-a-table-reference"></a><a name="instantiating"></a>Så här skapar du en tabellreferens
+All kod som kommer åt eller ändrar data i en `MobileServiceTable` backend-tabell anropar funktioner på objektet. Hämta en referens till tabellen genom att anropa [GetTable-metoden] enligt följande:
 
 ```csharp
 IMobileServiceTable<TodoItem> todoTable = client.GetTable<TodoItem>();
 ```
 
-Det returnerade objektet använder den skrivna serialiserade modellen. En modell med en typ som inte är typ stöds också. I följande exempel [skapas en referens till en tabell som inte är av typen]:
+Det returnerade objektet använder den maskinskrivna serialiseringsmodellen. En otypad serialiseringsmodell stöds också. I följande exempel [skapas en referens till en otypad tabell:]
 
 ```csharp
 // Get an untyped table reference
 IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 ```
 
-I frågor som inte har angets måste du ange den underliggande OData-frågesträngen.
+I otypade frågor måste du ange den underliggande OData-frågesträngen.
 
-### <a name="querying"></a>Så här gör du: fråga efter data från mobilappen
-I det här avsnittet beskrivs hur du skickar frågor till Server delen för mobilappar, som innehåller följande funktioner:
+### <a name="how-to-query-data-from-your-mobile-app"></a><a name="querying"></a>Så här: Fråga data från mobilappen
+I det här avsnittet beskrivs hur du utfärdar frågor till backend för mobilappen, som innehåller följande funktioner:
 
 * [Filtrera returnerade data](#filtering)
 * [Sortera returnerade data](#sorting)
 * [Returnera data på sidor](#paging)
-* [Välj vissa kolumner](#selecting)
-* [Leta upp data efter ID](#lookingup)
+* [Markera specifika kolumner](#selecting)
+* [Slå upp data efter ID](#lookingup)
 
 > [!NOTE]
-> En server driven sid storlek tillämpas för att förhindra att alla rader returneras.  Sid indelning behåller standard begär Anden för stora data mängder från att påverka tjänsten negativt.  Om du vill returnera fler än 50 rader använder du metoden `Skip` och `Take`, enligt beskrivningen i [returnera data på sidor](#paging).
+> En serverdriven sidstorlek tillämpas för att förhindra att alla rader returneras.  Växlingen förhindrar att standardbegäranden för stora datauppsättningar påverkar tjänsten negativt.  Om du vill returnera mer än `Skip` 50 rader använder du metoden och `Take` som beskrivs i [Returdata på sidor](#paging).
 
-### <a name="filtering"></a>Gör så här: filtrera returnerade data
-Följande kod visar hur du filtrerar data genom att inkludera en `Where`-sats i en fråga. Den returnerar alla objekt från `todoTable` vars `Complete`-egenskap är lika med `false`. Funktionen [Vilken] använder ett rad filtrerings-predikat för frågan mot tabellen.
+### <a name="how-to-filter-returned-data"></a><a name="filtering"></a>Så här filtrerar du returnerade data
+Följande kod visar hur du filtrerar `Where` data genom att inkludera en sats i en fråga. Den returnerar `todoTable` alla `Complete` artiklar från `false`vars egenskap är lika med . Funktionen [Var] används ett radfiltreringspredikat för frågan mot tabellen.
 
 ```csharp
 // This query filters out completed TodoItems and items without a timestamp.
@@ -139,13 +139,13 @@ List<TodoItem> items = await todoTable
     .ToListAsync();
 ```
 
-Du kan visa URI: n för begäran som skickats till Server delen med hjälp av meddelande gransknings program vara, t. ex. webbläsarbaserade utvecklingsverktyg eller [Fiddler]. Lägg märke till att frågesträngen ändras om du tittar på URI: n för begäran:
+Du kan visa URI för begäran som skickas till serverda med hjälp av meddelandeinspektionsprogram, till exempel webbläsarutvecklare verktyg eller [Fiddler]. Om du tittar på uri-begäran lägger du märke till att frågesträngen har ändrats:
 
 ```csharp
 GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1
 ```
 
-Denna OData-begäran översätts till en SQL-fråga av Server-SDK: n:
+Den här OData-begäran översätts till en SQL-fråga av Server SDK:
 
 ```csharp
 SELECT *
@@ -153,7 +153,7 @@ SELECT *
     WHERE ISNULL(complete, 0) = 0
 ```
 
-Funktionen som skickas till `Where`-metoden kan ha ett godtyckligt antal villkor.
+Funktionen som skickas till `Where` metoden kan ha ett godtyckligt antal villkor.
 
 ```csharp
 // This query filters out completed TodoItems where Text isn't null
@@ -162,7 +162,7 @@ List<TodoItem> items = await todoTable
     .ToListAsync();
 ```
 
-Det här exemplet skulle översättas till en SQL-fråga av Server-SDK: n:
+Det här exemplet skulle översättas till en SQL-fråga av Server SDK:
 
 ```csharp
 SELECT *
@@ -180,22 +180,22 @@ List<TodoItem> items = await todoTable
     .ToListAsync();
 ```
 
-De två metoderna är likvärdiga och kan användas utbytbart.  Det tidigare alternativet&mdash;att sammanfoga flera predikat i en fråga&mdash;är mer kompakt och rekommenderat.
+De två metoderna är likvärdiga och kan användas omväxlande.  Det tidigare&mdash;alternativet att sammanfoga flera predikat i&mdash;en fråga är mer kompakt och rekommenderas.
 
-`Where`-satsen stöder åtgärder som översätts till OData-delmängden. Åtgärderna omfattar:
+Satsen `Where` stöder åtgärder som ska översättas till delmängden OData. Verksamheten omfattar:
 
-* Relations operatorer (= =,! =, <, < =, >, > =),
-* Aritmetiska operatorer (+,-,/, *,%),
-* Tal precision (matematik. golv, matematik. tak)
-* Sträng funktioner (längd, del sträng, ersätta, IndexOf, StartsWith, EndsWith),
-* Datum egenskaper (år, månad, dag, timme, minut, sekund),
-* Åtkomst egenskaper för ett objekt och
+* Relationsoperatorer (==, !=, <, <=, >, >=),
+* Aritmetiska operatorer (+, -, /, *, %),
+* Talprecision (matematik.golv, matematik.tak),
+* Strängfunktioner (längd, delsträng, ersätt, IndexOf, StartsWith, EndsWith),
+* Datumegenskaper (år, månad, dag, timme, minut, sekund),
+* Åtkomstegenskaper för ett objekt och
 * Uttryck som kombinerar någon av dessa åtgärder.
 
-När du överväger att Server-SDK: n stöder kan du överväga [OData v3-dokumentation].
+När du överväger vad Server SDK stöder kan du ta hänsyn till [OData v3-dokumentationen].
 
-### <a name="sorting"></a>Så här: sortera returnerade data
-Följande kod visar hur du sorterar data genom att inkludera en [OrderBy] -eller [OrderByDescending] -funktion i frågan. Den returnerar objekt från `todoTable` sorteras stigande efter fältet `Text`.
+### <a name="how-to-sort-returned-data"></a><a name="sorting"></a>Så här sorterar du returnerade data
+Följande kod visar hur du sorterar data genom att inkludera en [OrderBy-] eller [OrderByDescending-funktion] i frågan. Objekt returneras `todoTable` från sorterad `Text` stigande efter fältet.
 
 ```csharp
 // Sort items in ascending order by Text field
@@ -209,8 +209,8 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-### <a name="paging"></a>Så här gör du: returnera data på sidor
-Server delen returnerar som standard bara de första 50 raderna. Du kan öka antalet returnerade rader genom att anropa metoden [Gå] . Använd `Take` tillsammans med metoden [Ignorera] för att begära en speciell "sida" av den totala data mängden som returneras av frågan. Följande fråga, när den körs, returnerar de tre översta objekten i tabellen.
+### <a name="how-to-return-data-in-pages"></a><a name="paging"></a>Så här returnerar du data på sidor
+Som standard returnerar backend endast de första 50 raderna. Du kan öka antalet returnerade rader genom att anropa [metoden Take.] Använd `Take` tillsammans med [skip-metoden] för att begära en viss "sida" av den totala datauppsättningen som returneras av frågan. Följande fråga returnerar de tre översta objekten i tabellen när den körs.
 
 ```csharp
 // Define a filtered query that returns the top 3 items.
@@ -218,7 +218,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable.Take(3);
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-Följande ändrade fråga hoppar över de första tre resultaten och returnerar följande tre resultat. Den här frågan genererar den andra "sidan" av data där sid storleken är tre objekt.
+Följande reviderade fråga hoppar över de tre första resultaten och returnerar de följande tre resultaten. Den här frågan ger den andra "sidan" av data, där sidstorleken är tre objekt.
 
 ```csharp
 // Define a filtered query that skips the top 3 items and returns the next 3 items.
@@ -226,22 +226,22 @@ MobileServiceTableQuery<TodoItem> query = todoTable.Skip(3).Take(3);
 List<TodoItem> items = await query.ToListAsync();
 ```
 
-Metoden [IncludeTotalCount] begär det totala antalet för *alla* poster som skulle ha returnerats, vilket ignorerar växling/gräns-satsen som har angetts:
+Metoden [IncludeTotalCount] begär det totala antalet för *alla* poster som skulle ha returnerats, ignorera alla växlings-/limit-satser som angetts:
 
 ```csharp
 query = query.IncludeTotalCount();
 ```
 
-I en verklig världs-app kan du använda frågor som liknar föregående exempel med en pager-kontroll eller ett jämförbart gränssnitt för att navigera mellan sidor.
+I en verklig app kan du använda frågor som liknar föregående exempel med en personsökarekontroll eller jämförbart användargränssnitt för att navigera mellan sidor.
 
 > [!NOTE]
-> Om du vill åsidosätta gränsen på 50-rader i en server del för mobilappar, måste du även använda [EnableQueryAttribute] till den offentliga Get-metoden och ange växlings beteendet. När det tillämpas på-metoden ställer följande in maximalt antal returnerade rader till 1000:
+> Om du vill åsidosätta 50-radsgränsen i en serverdel i mobilappen måste du också använda [Metoden EnableQueryAttribute] på den offentliga GET-metoden och ange växlingsbeteendet. När den används på metoden anger följande maximala returnerade rader till 1000:
 >
 > `[EnableQuery(MaxTop=1000)]`
 
 
-### <a name="selecting"></a>Gör så här: Välj vissa kolumner
-Du kan ange vilken uppsättning egenskaper som ska ingå i resultatet genom att lägga till en [Välj] -sats i frågan. Följande kod visar till exempel hur du väljer bara ett fält och hur du väljer och formaterar flera fält:
+### <a name="how-to-select-specific-columns"></a><a name="selecting"></a>Så här väljer du specifika kolumner
+Du kan ange vilka egenskaper som ska inkluderas i resultaten genom att lägga till en [Select-sats] i frågan. Följande kod visar till exempel hur du bara väljer ett fält och även hur du markerar och formaterar flera fält:
 
 ```csharp
 // Select one field -- just the Text
@@ -257,7 +257,7 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<string> items = await query.ToListAsync();
 ```
 
-Alla funktioner som beskrivs hittills är additiva så att vi kan fortsätta att länka dem. Varje länkat anrop påverkar mer av frågan. Ett annat exempel:
+Alla funktioner som beskrivits hittills är additiva, så vi kan fortsätta kedja dem. Varje kedjat anrop påverkar mer av frågan. Ytterligare ett exempel:
 
 ```csharp
 MobileServiceTableQuery<TodoItem> query = todoTable
@@ -268,35 +268,35 @@ MobileServiceTableQuery<TodoItem> query = todoTable
 List<string> items = await query.ToListAsync();
 ```
 
-### <a name="lookingup"></a>Gör så här: Leta upp data efter ID
-Funktionen [LookupAsync] kan användas för att söka efter objekt från databasen med ett visst ID.
+### <a name="how-to-look-up-data-by-id"></a><a name="lookingup"></a>Så här slår du upp data efter ID
+[Funktionen LookupAsync] kan användas för att slå upp objekt från databasen med ett visst ID.
 
 ```csharp
 // This query filters out the item with the ID of 37BBF396-11F0-4B39-85C8-B319C729AF6D
 TodoItem item = await todoTable.LookupAsync("37BBF396-11F0-4B39-85C8-B319C729AF6D");
 ```
 
-### <a name="untypedqueries"></a>Gör så här: köra frågor som inte har påskrivits
-När du kör en fråga med ett objekt som inte är av typen% måste du uttryckligen ange OData-frågesträngen genom att anropa [ReadAsync], som i följande exempel:
+### <a name="how-to-execute-untyped-queries"></a><a name="untypedqueries"></a>Så här kör du otypade frågor
+När du kör en fråga med ett otypat tabellobjekt måste du uttryckligen ange OData-frågesträngen genom att anropa [ReadAsync], som i följande exempel:
 
 ```csharp
 // Lookup untyped data using OData
 JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 ```
 
-Du får tillbaka JSON-värden som du kan använda som egenskaps uppsättning. Mer information om JToken och Newtonsoft Json.NET finns på [JSON.net] -webbplatsen.
+Du får tillbaka JSON värden som du kan använda som en egenskap väska. För mer information om JToken och Newtonsoft Json.NET, se [Json.NET] webbplats.
 
-### <a name="inserting"></a>Så här: infoga data i en server del för mobila appar
-Alla klient typer måste innehålla en medlem med namnet **ID**, som är som standard en sträng. Detta **ID** krävs för att utföra CRUD-åtgärder och för synkronisering offline. Följande kod visar hur du använder [InsertAsync] -metoden för att infoga nya rader i en tabell. Parametern innehåller de data som ska infogas som ett .NET-objekt.
+### <a name="how-to-insert-data-into-a-mobile-app-backend"></a><a name="inserting"></a>Så här infogar du data i en backend för mobilappen
+Alla klienttyper måste innehålla en medlem med namnet **ID**, som som standard är en sträng. Detta **ID** krävs för att utföra CRUD-åtgärder och för offlinesynkronisering. Följande kod visar hur du använder [metoden InsertAsync] för att infoga nya rader i en tabell. Parametern innehåller de data som ska infogas som ett .NET-objekt.
 
 ```csharp
 await todoTable.InsertAsync(todoItem);
 ```
 
-Om ett unikt anpassat ID-värde inte ingår i `todoItem` under en infogning, genereras ett GUID av servern.
-Du kan hämta det genererade ID: t genom att inspektera objektet när anropet har returnerats.
+Om ett unikt anpassat ID-värde `todoItem` inte ingår i under en infogning genereras ett GUID av servern.
+Du kan hämta det genererade ID:t genom att inspektera objektet när samtalet har returnerats.
 
-För att infoga data som inte har matats in kan du dra nytta av Json.NET:
+Om du vill infoga otypade data kan du dra nytta av Json.NET:
 
 ```csharp
 JObject jo = new JObject();
@@ -305,7 +305,7 @@ jo.Add("Complete", false);
 var inserted = await table.InsertAsync(jo);
 ```
 
-Här är ett exempel som använder en e-postadress som ett unikt sträng-ID:
+Här är ett exempel med en e-postadress som ett unikt sträng-ID:
 
 ```csharp
 JObject jo = new JObject();
@@ -316,27 +316,27 @@ var inserted = await table.InsertAsync(jo);
 ```
 
 ### <a name="working-with-id-values"></a>Arbeta med ID-värden
-Mobile Apps stöder unika anpassade sträng värden för tabellens **ID-** kolumn. Med ett sträng värde kan program använda anpassade värden, till exempel e-postadresser eller användar namn för ID: t.  Sträng-ID: n ger dig följande fördelar:
+Mobilappar stöder unika anpassade strängvärden för tabellens **id-kolumn.** Med ett strängvärde kan program använda anpassade värden som e-postadresser eller användarnamn för ID:t.  Sträng-ID:er ger dig följande fördelar:
 
-* ID: n genereras utan att göra en tur och retur i databasen.
-* Poster är enklare att sammanfoga från olika tabeller och databaser.
+* ID genereras utan att göra en rundresa till databasen.
+* Poster är enklare att sammanfoga från olika tabeller eller databaser.
 * ID-värden kan integreras bättre med ett programs logik.
 
-När ett sträng-ID-värde inte är inställt på en infogad post genererar mobilappen för mobilappen ett unikt värde för ID: t. Du kan använda metoden [GUID. NewGuid] för att generera egna ID-värden, antingen på klienten eller i Server delen.
+När ett sträng-ID-värde inte anges på en infogad post genererar mobile app-backend ett unikt värde för ID:n. Du kan använda metoden [Guid.NewGuid] för att generera dina egna ID-värden, antingen på klienten eller i backend.
 
 ```csharp
 JObject jo = new JObject();
 jo.Add("id", Guid.NewGuid().ToString("N"));
 ```
 
-### <a name="modifying"></a>Gör så här: ändra data i en server del för mobila appar
-Följande kod visar hur du använder [UpdateAsync] -metoden för att uppdatera en befintlig post med samma ID med ny information. Parametern innehåller de data som ska uppdateras som ett .NET-objekt.
+### <a name="how-to-modify-data-in-a-mobile-app-backend"></a><a name="modifying"></a>Så här ändrar du data i en backend för mobilapp
+Följande kod visar hur du använder [metoden UpdateAsync] för att uppdatera en befintlig post med samma ID med ny information. Parametern innehåller de data som ska uppdateras som ett .NET-objekt.
 
 ```csharp
 await todoTable.UpdateAsync(todoItem);
 ```
 
-Om du vill uppdatera data som inte har skrivits kan du dra nytta av [JSON.net] på följande sätt:
+Om du vill uppdatera otypade data kan du dra nytta av [Json.NET] enligt följande:
 
 ```csharp
 JObject jo = new JObject();
@@ -346,16 +346,16 @@ jo.Add("Complete", false);
 var inserted = await table.UpdateAsync(jo);
 ```
 
-Du måste ange ett `id` fält när du gör en uppdatering. Server delen använder `id` fältet för att identifiera vilken rad som ska uppdateras. `id` fältet kan hämtas från resultatet av `InsertAsync`-anropet. En `ArgumentException` aktive ras om du försöker uppdatera ett objekt utan att ange värdet för `id`.
+Ett `id` fält måste anges när en uppdatering. I backend `id` används fältet för att identifiera vilken rad som ska uppdateras. Fältet `id` kan erhållas från resultatet `InsertAsync` av samtalet. En `ArgumentException` höjs om du försöker uppdatera `id` ett objekt utan att ange värdet.
 
-### <a name="deleting"></a>Så här gör du: ta bort data i en server del för mobila appar
-Följande kod visar hur du använder [DeleteAsync] -metoden för att ta bort en befintlig instans. Instansen identifieras av `id` fältet som anges i `todoItem`.
+### <a name="how-to-delete-data-in-a-mobile-app-backend"></a><a name="deleting"></a>Så här tar du bort data i en backend för mobilapp
+Följande kod illustrerar hur du använder [metoden DeleteAsync] för att ta bort en befintlig instans. Instansen identifieras av `id` fältet som `todoItem`anges i .
 
 ```csharp
 await todoTable.DeleteAsync(todoItem);
 ```
 
-För att ta bort data som inte har påskrivits kan du dra nytta av Json.NET på följande sätt:
+Om du vill ta bort otypade data kan du dra nytta av Json.NET enligt följande:
 
 ```csharp
 JObject jo = new JObject();
@@ -363,14 +363,14 @@ jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 await table.DeleteAsync(jo);
 ```
 
-När du gör en borttagnings förfrågan måste du ange ett ID. Andra egenskaper skickas inte till tjänsten eller ignoreras vid tjänsten. Resultatet av ett `DeleteAsync`-anrop är vanligt vis `null`. Det ID som ska skickas kan hämtas från resultatet av `InsertAsync`-anropet. En `MobileServiceInvalidOperationException` genereras när du försöker ta bort ett objekt utan att ange fältet `id`.
+När du gör en borttagningsbegäran måste ett ID anges. Andra egenskaper skickas inte till tjänsten eller ignoreras vid tjänsten. Resultatet av `DeleteAsync` ett samtal `null`är vanligtvis . ID:t som ska skickas in kan `InsertAsync` erhållas från resultatet av samtalet. A `MobileServiceInvalidOperationException` genereras när du försöker ta bort `id` ett objekt utan att ange fältet.
 
-### <a name="optimisticconcurrency"></a>Gör så här: Använd optimistisk samtidighet för konflikt lösning
-Två eller flera klienter kan skriva ändringar till samma objekt på samma tidpunkt. Utan konflikt identifiering skulle den senaste skrivningen skriva över alla tidigare uppdateringar. **Optimistisk concurrency-kontroll** förutsätter att varje transaktion kan genomföra och därför inte använder någon resurs låsning.  Innan du genomför en transaktion verifierar optimistisk concurrency-kontrollen att ingen annan transaktion har ändrat data. Om data har ändrats återställs commit-transaktionen.
+### <a name="how-to-use-optimistic-concurrency-for-conflict-resolution"></a><a name="optimisticconcurrency"></a>Så här: Använd optimistisk samtidighet för konfliktlösning
+Två eller flera klienter kan skriva ändringar i samma objekt samtidigt. Utan konfliktidentifiering skulle den senaste skrivningen skriva över alla tidigare uppdateringar. **Optimistisk samtidighetskontroll** förutsätter att varje transaktion kan genomföra och därför inte använder någon resurslåsning.  Innan du genomför en transaktion verifierar optimistisk samtidighetskontroll att ingen annan transaktion har ändrat data. Om data har ändrats återställs den genomförda transaktionen.
 
-Mobile Apps stöder optimistisk concurrency-kontroll genom att spåra ändringar av varje objekt med hjälp av egenskaps kolumnen `version` system som definieras för varje tabell i din server del för mobila appar. Varje gång en post uppdateras anger Mobile Apps egenskapen `version` för posten till ett nytt värde. Under varje uppdaterings förfrågan jämförs egenskapen `version` för posten som ingår i begäran med samma egenskap för posten på servern. Om versionen som skickades med begäran inte matchar Server delen genererar klient biblioteket ett `MobileServicePreconditionFailedException<T>` undantag. Den typ som ingår i undantaget är posten från Server delen som innehåller servrarnas version av posten. Programmet kan sedan använda den här informationen för att avgöra om du vill köra uppdateringsbegäran igen med rätt `version` värde från Server delen för att genomföra ändringar.
+Mobilappar stöder optimistisk samtidighetskontroll genom att spåra `version` ändringar av varje objekt med hjälp av systemegenskapskolumnen som har definierats för varje tabell i din mobile app-backend. Varje gång en post uppdateras `version` anger Mobilappar egenskapen för posten till ett nytt värde. Under varje uppdateringsbegäran jämförs egenskapen `version` för posten som ingår i begäran med samma egenskap för posten på servern. Om den version som skickades med begäran inte matchar serveringen, väcker klientbiblioteket ett `MobileServicePreconditionFailedException<T>` undantag. Den typ som ingår i undantaget är posten från serveringen som innehåller serverhanteringsversionen av posten. Programmet kan sedan använda den här informationen för att avgöra `version` om uppdateringsbegäran ska köras igen med rätt värde från backend för att genomföra ändringar.
 
-Definiera en kolumn i tabell klassen för egenskapen `version` system för att aktivera optimistisk samtidighet. Exempel:
+Definiera en kolumn i tabellklassen för systemegenskapen `version` för att aktivera optimistisk samtidighet. Ett exempel:
 
 ```csharp
 public class TodoItem
@@ -389,14 +389,14 @@ public class TodoItem
 }
 ```
 
-Program som använder tabeller utan typ möjliggör optimistisk samtidighet genom att ställa in flaggan `Version` i tabellen `SystemProperties` på följande sätt.
+Program som använder oskrivna tabeller möjliggör optimistisk `Version` samtidighet `SystemProperties` genom att ställa in flaggan på tabellens i tabellen enligt följande.
 
 ```csharp
 //Enable optimistic concurrency by retrieving version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 ```
 
-Förutom att aktivera optimistisk samtidighet måste du också fånga `MobileServicePreconditionFailedException<T>` undantag i koden när du anropar [UpdateAsync].  Lös konflikten genom att använda rätt `version` till den uppdaterade posten och anropa [UpdateAsync] med den lösta posten. Följande kod visar hur du löser en Skriv konflikt när den har identifierats:
+Förutom att aktivera optimistisk samtidighet måste du också `MobileServicePreconditionFailedException<T>` fånga upp undantaget i koden när du [anropar UpdateAsync].  Lös konflikten genom att `version` tillämpa rätt på den uppdaterade posten och anropa [UpdateAsync] med den lösta posten. Följande kod visar hur du löser en skrivkonflikt när den har upptäckts:
 
 ```csharp
 private async void UpdateToDoItem(TodoItem item)
@@ -454,10 +454,10 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Mer information finns i avsnittet [Datasynkronisering offline i Azure Mobile Apps] .
+Mer information finns i avsnittet [Offlinedatasynkronisering i Azure Mobile Apps.]
 
-### <a name="binding"></a>Gör så här: bind Mobile Apps data till ett Windows-användargränssnitt
-I det här avsnittet visas hur du visar returnerade data objekt med hjälp av GRÄNSSNITTs element i en Windows-app.  Följande exempel kod binder till källan för listan med en fråga för oavslutade objekt. [MobileServiceCollection] skapar en Mobile Apps medveten bindnings samling.
+### <a name="how-to-bind-mobile-apps-data-to-a-windows-user-interface"></a><a name="binding"></a>Så här binder du mobile apps-data till ett Windows-användargränssnitt
+I det här avsnittet visas hur du visar returnerade dataobjekt med gränssnittselement i en Windows-app.  Följande exempelkod binder till listans källa med en fråga om ofullständiga objekt. [MobileServiceCollection] skapar en bindningssamling för mobilappar.
 
 ```csharp
 // This query filters out completed TodoItems.
@@ -473,7 +473,7 @@ ListBox lb = new ListBox();
 lb.ItemsSource = items;
 ```
 
-Vissa kontroller i den hanterade körnings miljön stöder ett gränssnitt som kallas [ISupportIncrementalLoading]. Det här gränssnittet gör det möjligt för kontroller att begära extra data när användaren rullar. Det finns inbyggt stöd för det här gränssnittet för universella Windows-appar via [MobileServiceIncrementalLoadingCollection], som automatiskt hanterar anropen från kontrollerna. Använd `MobileServiceIncrementalLoadingCollection` i Windows-appar på följande sätt:
+Vissa kontroller i den hanterade körningen stöder ett gränssnitt som kallas [ISupportIncrementalLoading]. Det här gränssnittet gör det möjligt att begära extra data när användaren rullar. Det finns inbyggt stöd för det här gränssnittet för universella Windows-appar via [MobileServiceIncrementalLoadingCollection], som automatiskt hanterar anrop från kontrollerna. Använd `MobileServiceIncrementalLoadingCollection` i Windows-appar på följande sätt:
 
 ```csharp
 MobileServiceIncrementalLoadingCollection<TodoItem,TodoItem> items;
@@ -483,19 +483,19 @@ ListBox lb = new ListBox();
 lb.ItemsSource = items;
 ```
 
-Om du vill använda den nya samlingen på Windows Phone 8-och "Silverlight"-appar använder du `ToCollection` tilläggs metoder på `IMobileServiceTableQuery<T>` och `IMobileServiceTable<T>`. Anropa `LoadMoreItemsAsync()`för att läsa in data.
+Om du vill använda den nya samlingen i Windows Phone `ToCollection` 8- och "Silverlight"-appar använder du tilläggsmetoderna på `IMobileServiceTableQuery<T>` och `IMobileServiceTable<T>`. Om du vill `LoadMoreItemsAsync()`läsa in data ringer du .
 
 ```csharp
 MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 await items.LoadMoreItemsAsync();
 ```
 
-När du använder samlingen som skapats genom att anropa `ToCollectionAsync` eller `ToCollection`får du en samling som kan bindas till UI-kontroller.  Den här samlingen är växlings medveten.  Eftersom samlingen läser in data från nätverket går det ibland inte att läsa in. Om du vill hantera sådana fel kan du åsidosätta metoden `OnException` på `MobileServiceIncrementalLoadingCollection` för att hantera undantag som orsakas av anrop till `LoadMoreItemsAsync`.
+När du använder samlingen `ToCollectionAsync` som `ToCollection`skapas genom att anropa eller får du en samling som kan bindas till gränssnittskontroller.  Den här samlingen är växlingsmedveten.  Eftersom samlingen läser in data från nätverket misslyckas inläsningen ibland. Om du vill hantera `OnException` sådana `MobileServiceIncrementalLoadingCollection` fel åsidosätter du `LoadMoreItemsAsync`metoden för att hantera undantag som följer av anrop till .
 
-Överväg om din tabell har många fält men du bara vill visa några av dem i kontrollen. Du kan använda vägledningen i föregående avsnitt "[Välj vissa kolumner](#selecting)" om du vill välja vissa kolumner som ska visas i användar gränssnittet.
+Fundera över om tabellen har många fält men du bara vill visa några av dem i kontrollen. Du kan använda vägledningen i föregående avsnitt "[Välj specifika kolumner](#selecting)" för att välja specifika kolumner som ska visas i användargränssnittet.
 
-### <a name="pagesize"></a>Ändra sid storlek
-Azure Mobile Apps returnerar högst 50 objekt per begäran som standard.  Du kan ändra växlings storleken genom att öka den maximala sid storleken på både klienten och servern.  Om du vill öka den begärda sid storleken anger du `PullOptions` när du använder `PullAsync()`:
+### <a name="change-the-page-size"></a><a name="pagesize"></a>Ändra sidstorlek
+Azure Mobile Apps returnerar högst 50 objekt per begäran som standard.  Du kan ändra växlingsstorleken genom att öka den maximala sidstorleken på både klienten och servern.  Om du vill öka `PullOptions` den `PullAsync()`begärda sidstorleken anger du när du använder:
 
 ```csharp
 PullOptions pullOptions = new PullOptions
@@ -504,21 +504,21 @@ PullOptions pullOptions = new PullOptions
     };
 ```
 
-Förutsatt att du har gjort `PageSize` lika med eller större än 100 på servern, returnerar en begäran upp till 100 objekt.
+Förutsatt att du `PageSize` har gjort lika med eller större än 100 inom servern returnerar en begäran upp till 100 objekt.
 
-## <a name="#offlinesync"></a>Arbeta med offline-tabeller
-Offline-tabeller använder en lokal SQLite-lagring för att lagra data som ska användas när de är offline.  Alla tabell åtgärder görs mot den lokala SQLite-butiken i stället för fjärrserverns lagrings plats.  Om du vill skapa en offline-tabell förbereder du först ditt projekt:
+## <a name="work-with-offline-tables"></a><a name="#offlinesync"></a>Arbeta med offlinetabeller
+Offlinetabeller använder ett lokalt SQLite-arkiv för att lagra data för användning när de är offline.  Alla tabellåtgärder utförs mot det lokala SQLite-arkivet i stället för fjärrserverarkivet.  Om du vill skapa en offlinetabell förbereder du först projektet:
 
-1. I Visual Studio högerklickar du på lösningen > **Hantera NuGet-paket för lösningen...** och söker efter och installerar paketet **Microsoft. Azure. Mobile. client. SQLiteStore** NuGet för alla projekt i lösningen.
-2. Valfritt Om du vill ha stöd för Windows-enheter installerar du ett av följande SQLite runtime-paket:
+1. Högerklicka på lösningen > **Hantera NuGet-paket för lösning i**Visual Studio och sök sedan efter och installera **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet-paketet för alla projekt i lösningen.
+2. (Valfritt) Installera något av följande SQLite-runtime-paket för att stödja Windows-enheter:
 
-   * **Windows 8,1-körning:** Installera [sqlite för Windows 8,1][3].
-   * **Windows Phone 8,1:** Installera [sqlite för Windows Phone 8,1][4].
-   * **Universell Windows-plattform** Installera [sqlite för universella Windows][5].
-3. (Valfritt). För Windows-enheter klickar du på **referenser** > **Lägg till referens...** , expandera **Windows** -mappen > **tillägg**och aktivera sedan lämplig **sqlite för Windows** SDK tillsammans **med C++ Visual 2013 runtime för Windows** SDK.
-    SQLite SDK-namnen skiljer sig något med varje Windows-plattform.
+   * **Windows 8.1 Runtime:** Installera [SQLite för Windows 8.1][3].
+   * **Windows Phone 8.1:** Installera [SQLite för Windows Phone 8.1][4].
+   * **Universell Windows-plattform** Installera [SQLite för Universal Windows][5].
+3. (Valfritt). För Windows-enheter klickar du på **Referenser** > **Lägg till referens...**, expanderar **Windows-mappen** > **tillägg**och aktiverar sedan lämplig **SQLite för Windows** SDK tillsammans med Visual **C++ 2013 Runtime for Windows** SDK.
+    SQLite SDK-namnen varierar något med varje Windows-plattform.
 
-Innan en tabell referens kan skapas måste det lokala lagret förberedas:
+Innan en tabellreferens kan skapas måste det lokala arkivet förberedas:
 
 ```csharp
 var store = new MobileServiceSQLiteStore(Constants.OfflineDbPath);
@@ -528,21 +528,21 @@ store.DefineTable<TodoItem>();
 await this.client.SyncContext.InitializeAsync(store);
 ```
 
-Lagrings initiering görs normalt omedelbart efter att klienten har skapats.  **OfflineDbPath** bör vara ett fil namn som lämpar sig för användning på alla plattformar som du stöder.  Om sökvägen är en fullständigt kvalificerad sökväg (dvs. den börjar med ett snedstreck) används den sökvägen.  Om sökvägen inte är fullständigt kvalificerad placeras filen på en plattformsspecifik plats.
+Initiering av store görs normalt omedelbart efter att klienten har skapats.  **OfflineDbPath** ska vara ett filnamn som är lämpligt för användning på alla plattformar som du stöder.  Om sökvägen är en helt kvalificerad sökväg (det vill ha en startstart med ett snedstreck) används den sökvägen.  Om sökvägen inte är helt kvalificerad placeras filen på en plattformsspecifik plats.
 
-* För iOS-och Android-enheter är standard Sök vägen mappen "personliga filer".
-* För Windows-enheter är standard Sök vägen den programspecifika "AppData"-mappen.
+* För iOS- och Android-enheter är standardsökvägen mappen "Personliga filer".
+* För Windows-enheter är standardsökvägen den programspecifika mappen "AppData".
 
-En tabell referens kan hämtas med hjälp av metoden `GetSyncTable<>`:
+En tabellreferens kan erhållas med hjälp av `GetSyncTable<>` metoden:
 
 ```csharp
 var table = client.GetSyncTable<TodoItem>();
 ```
 
-Du behöver inte autentisera för att använda en offline-tabell.  Du behöver bara autentisera när du kommunicerar med backend-tjänsten.
+Du behöver inte autentisera för att använda en offlinetabell.  Du behöver bara autentisera när du kommunicerar med backend-tjänsten.
 
-### <a name="syncoffline"></a>Synkronisera en offline-tabell
-Offline-tabeller synkroniseras inte med Server delen som standard.  Synkroniseringen delas upp i två delar.  Du kan skicka ändringar separat från att hämta nya objekt.  Här är en typisk synkroniseringsmetod:
+### <a name="syncing-an-offline-table"></a><a name="syncoffline"></a>Synkronisera en offlinetabell
+Offlinetabeller synkroniseras inte med serverdelen som standard.  Synkroniseringen är uppdelad i två delar.  Du kan skicka ändringar separat från hämtning av nya objekt.  Här är en typisk synkroniseringsmetod:
 
 ```csharp
 public async Task SyncAsync()
@@ -590,68 +590,68 @@ public async Task SyncAsync()
 }
 ```
 
-Om det första argumentet till `PullAsync` är null används inte stegvis synkronisering.  Varje Sync-åtgärd hämtar alla poster.
+Om det första `PullAsync` argumentet som ska vara null används inte inkrementell synkronisering.  Varje synkroniseringsåtgärd hämtar alla poster.
 
-SDK utför en implicit `PushAsync()` innan du hämtar poster.
+SDK utför en `PushAsync()` implicit innan du drar poster.
 
-Konflikt hantering sker i en `PullAsync()` metod.  Du kan hantera konflikter på samma sätt som online-tabeller.  Konflikten skapas när `PullAsync()` anropas i stället för under INSERT, Update eller Delete. Om flera konflikter sker paketeras de i en enda MobileServicePushFailedException.  Hantera varje enskilt haveri separat.
+Konflikthantering sker `PullAsync()` på en metod.  Du kan hantera konflikter på samma sätt som onlinetabeller.  Konflikten skapas när `PullAsync()` anropas i stället för under infogningen, uppdateringen eller borttagningen. Om flera konflikter inträffar paketeras de till en enda MobileServicePushFailedException.  Hantera varje fel separat.
 
-## <a name="#customapi"></a>Arbeta med ett anpassat API
-Med ett anpassat API kan du definiera anpassade slut punkter som visar Server funktioner som inte mappas till en INSERT-, Update-, DELETE-eller Read-åtgärd. Genom att använda ett anpassat API kan du ha mer kontroll över meddelanden, inklusive läsa och ställa in HTTP-meddelandehuvuden och definiera ett annat text format än JSON.
+## <a name="work-with-a-custom-api"></a><a name="#customapi"></a>Arbeta med ett anpassat API
+Med ett anpassat API kan du definiera anpassade slutpunkter som visar serverfunktioner som inte mappas till en infogning, uppdatering, borttagning eller läsåtgärd. Genom att använda ett anpassat API kan du ha större kontroll över meddelanden, inklusive att läsa och ange HTTP-meddelanderubriker och definiera ett annat meddelandetextformat än JSON.
 
-Du anropar ett anpassat API genom att anropa en av [InvokeApiAsync] -metoderna på klienten. Följande kodrad skickar till exempel en POST-begäran till **completeAll** -API: et på Server delen:
+Du anropar ett anpassat API genom att anropa en av [Metoderna InvokeApiAsync] på klienten. Följande kodrad skickar till exempel en POST-begäran till **completeAll** API på serverda:
 
 ```javascript
 var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Net.Http.HttpMethod.Post, null);
 ```
 
-Det här formuläret är ett inskrivet metod anrop och kräver att RETUR typen **MarkAllResult** har definierats. Både skrivna och avskrivna metoder stöds.
+Det här formuläret är ett typat metodanrop och kräver att **MarkAllResult-returtypen** har definierats. Både maskinskrivna och otypade metoder stöds.
 
-Metoden InvokeApiAsync () prepends "/API/" till det API som du vill anropa om inte API: et börjar med "/".
-Exempel:
+Metoden InvokeApiAsync() prepends '/api/' till API:et som du vill anropa om inte API:et börjar med ett '/'.
+Ett exempel:
 
-* `InvokeApiAsync("completeAll",...)` anropar/api/completeAll på Server delen
-* `InvokeApiAsync("/.auth/me",...)` anropar/.auth/me på Server delen
+* `InvokeApiAsync("completeAll",...)`anropar /api/completeAll på serverda
+* `InvokeApiAsync("/.auth/me",...)`samtal /.auth/me på backend
 
-Du kan använda InvokeApiAsync för att anropa eventuella WebAPI, inklusive de WebAPI: er som inte har definierats med Azure Mobile Apps.  När du använder InvokeApiAsync () skickas lämpliga huvuden, inklusive autentiseringsscheman, med begäran.
+Du kan använda InvokeApiAsync för att anropa alla WebAPI, inklusive de WebAPIs som inte har definierats med Azure Mobile Apps.  När du använder InvokeApiAsync() skickas lämpliga rubriker, inklusive autentiseringshuvuden, med begäran.
 
-## <a name="authentication"></a>Autentisera användare
-Mobile Apps stöder autentisering och auktorisering av App-användare med olika externa identitets leverantörer: Facebook, Google, Microsoft-konto, Twitter och Azure Active Directory. Du kan ange behörigheter för tabeller för att begränsa åtkomsten för vissa åtgärder till endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i Server skript. Mer information finns i självstudierna [Lägg till autentisering i appen].
+## <a name="authenticate-users"></a><a name="authentication"></a>Autentisera användare
+Mobilappar stöder autentisering och auktorisera appanvändare med hjälp av olika externa identitetsleverantörer: Facebook, Google, Microsoft-konto, Twitter och Azure Active Directory. Du kan ange behörigheter för tabeller för att begränsa åtkomsten för specifika åtgärder till endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i serverskript. Mer information finns i självstudierna [Lägg till autentisering till din app].
 
-Två autentiserings flöden stöds: *klient-hanterat* och *Server-hanterat* flöde. Det Server-hanterade flödet ger den enklaste autentiseringen, eftersom det förlitar sig på providerns webbautentiserings-gränssnitt. Det klient-hanterade flödet möjliggör djupare integrering med enhetsspecifika funktioner eftersom det förlitar sig på providerspecifika, enhetsspecifika SDK: er.
+Två autentiseringsflöden stöds: *klienthanterade* och *serverhanterade* flöde. Det serverhanterade flödet ger den enklaste autentiseringsupplevelsen, eftersom det är beroende av leverantörens webbautentiseringsgränssnitt. Det klienthanterade flödet möjliggör djupare integrering med enhetsspecifika funktioner eftersom det är beroende av leverantörsspecifika enhetsspecifika SDK:er.
 
 > [!NOTE]
-> Vi rekommenderar att du använder ett klient hanterat flöde i dina produktions program.
+> Vi rekommenderar att du använder ett klienthanteradt flöde i dina produktionsappar.
 
-Om du vill konfigurera autentisering måste du registrera din app med en eller flera identitets leverantörer.  Identitets leverantören genererar ett klient-ID och en klient hemlighet för din app.  Dessa värden ställs sedan in i Server delen för att aktivera Azure App Service autentisering/auktorisering.  Mer information finns i de detaljerade anvisningarna i självstudien [Lägg till autentisering i appen].
+Om du vill konfigurera autentisering måste du registrera appen hos en eller flera identitetsleverantörer.  Identitetsleverantören genererar ett klient-ID och en klienthemlighet för din app.  Dessa värden anges sedan i serverda för att aktivera Azure App Service-autentisering/auktorisering.  Om du vill ha mer information följer du de detaljerade instruktionerna i självstudien [Lägg till autentisering i appen].
 
 Följande avsnitt beskrivs i det här avsnittet:
 
-* [Klient-hanterad autentisering](#clientflow)
-* [Server-hanterad autentisering](#serverflow)
+* [Klienthanterad autentisering](#clientflow)
+* [Serverhanterad autentisering](#serverflow)
 * [Cachelagring av autentiseringstoken](#caching)
 
-### <a name="clientflow"></a>Klient-hanterad autentisering
-Din app kan kontakta identitets leverantören oberoende och sedan ange den returnerade token under inloggningen med din server del. Med det här klient flödet kan du tillhandahålla enkel inloggning för användare eller hämta ytterligare användar data från identitets leverantören. Autentisering med klient flöde föredras för att använda ett Server flöde eftersom Identity Provider SDK ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
+### <a name="client-managed-authentication"></a><a name="clientflow"></a>Klienthanterad autentisering
+Din app kan självständigt kontakta identitetsleverantören och sedan tillhandahålla den returnerade token under inloggning med din backend. Med det här klientflödet kan du tillhandahålla en enda inloggningsupplevelse för användare eller hämta ytterligare användardata från identitetsprovidern. Klientflödesautentisering är att föredra framför att använda ett serverflöde eftersom identitetsprovidern SDK ger en mer inbyggd UX-känsla och möjliggör ytterligare anpassning.
 
-Exempel finns för följande mönster för autentisering av klient flöde:
+Exempel finns för följande autentiseringsmönster för klientflöde:
 
 * [Active Directory-autentiseringsbibliotek](#adal)
 * [Facebook eller Google](#client-facebook)
 
-#### <a name="adal"></a>Autentisera användare med Active Directory-autentiseringsbibliotek
-Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att starta användarautentisering från klienten med Azure Active Directory autentisering.
+#### <a name="authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Autentisera användare med Active Directory-autentiseringsbiblioteket
+Du kan använda Active Directory Authentication Library (ADAL) för att initiera användarautentisering från klienten med Azure Active Directory-autentisering.
 
-1. Konfigurera din server del för mobilappen för AAD-inloggning genom att följa själv studie kursen [Så här konfigurerar du App Service för Active Directory inloggning] . Se till att slutföra det valfria steget när du registrerar ett internt klient program.
-2. Öppna projektet i Visual Studio eller Xamarin Studio och Lägg till en referens till `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet-paketet. Inkludera för hands versioner vid sökning.
-3. Lägg till följande kod i programmet, enligt den plattform som du använder. I vart och ett ska du göra följande ersättningar:
+1. Konfigurera din backend för din mobilapp för AAD-inloggning genom att följa så [här konfigurerar du App Service för Active Directory-inloggningsdoktor.] Se till att slutföra det valfria steget för att registrera ett inbyggt klientprogram.
+2. Öppna projektet i Visual Studio eller Xamarin Studio `Microsoft.IdentityModel.Clients.ActiveDirectory` och lägg till en referens till NuGet-paketet. När du söker, inkludera förhandsversioner.
+3. Lägg till följande kod i ditt program, enligt den plattform du använder. I varje, gör följande ersättare:
 
-   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure Portal].
-   * Ersätt **insert-Resource-ID – här** med klient-ID: t för Server delen för mobilappen. Du kan hämta klient-ID: t från fliken **Avancerat** under **Azure Active Directory inställningar** i portalen.
-   * Ersätt **insert-Client-ID – här** med det klient-ID som du kopierade från det interna klient programmet.
-   * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Det här värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
+   * Ersätt **INSERT-AUTHORITY-HERE** med namnet på klienten där du har etablerat ditt program. Formatet ska https://login.microsoftonline.com/contoso.onmicrosoft.comvara . Det här värdet kan kopieras från fliken Domän i Din Azure Active Directory i [Azure-portalen].
+   * Ersätt **INSERT-RESOURCE-ID-HERE** med klient-ID för din mobilapps backend. Du kan hämta klient-ID:t från fliken **Avancerat** under **Azure Active Directory-inställningar** i portalen.
+   * Ersätt **INSERT-CLIENT-ID-HERE** med klient-ID som du kopierade från det inbyggda klientprogrammet.
+   * Ersätt **INSERT-REDIRECT-URI-HERE** med webbplatsens *slutpunkt /.auth/login/done* med hjälp av HTTPS-schemat. Det här värdet *https://contoso.azurewebsites.net/.auth/login/done*bör liknas vid .
 
-     Den kod som krävs för varje plattform följer:
+     Koden som behövs för varje plattform följer:
 
      **Windows:**
 
@@ -754,8 +754,8 @@ Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att starta 
      }
      ```
 
-#### <a name="client-facebook"></a>Enkel inloggning med en token från Facebook eller Google
-Du kan använda klient flödet som det visas i det här kodfragmentet för Facebook eller Google.
+#### <a name="single-sign-on-using-a-token-from-facebook-or-google"></a><a name="client-facebook"></a>Enkel inloggning med hjälp av en token från Facebook eller Google
+Du kan använda klientflödet enligt det här kodavsnittet för Facebook eller Google.
 
 ```csharp
 var token = new JObject();
@@ -788,8 +788,8 @@ private async Task AuthenticateAsync()
 }
 ```
 
-### <a name="serverflow"></a>Server-hanterad autentisering
-När du har registrerat din identitetsprovider anropar du [LoginAsync] -metoden på [MobileServiceClient] med [MobileServiceAuthenticationProvider] -värdet för providern. Följande kod initierar till exempel en server flödes inloggning genom att använda Facebook.
+### <a name="server-managed-authentication"></a><a name="serverflow"></a>Serverhanterad autentisering
+När du har registrerat din identitetsleverantör ringer du [metoden LoginAsync] på [MobileServiceClient] med [mobileserviceAuthenticationProvider-värdet] för din leverantör. Följande kod initierar till exempel en inloggning i serverflödet med hjälp av Facebook.
 
 ```csharp
 private MobileServiceUser user;
@@ -817,12 +817,12 @@ private async System.Threading.Tasks.Task Authenticate()
 }
 ```
 
-Om du använder en annan identitets leverantör än Facebook ändrar du värdet för [MobileServiceAuthenticationProvider] till värdet för din Provider.
+Om du använder en annan identitetsleverantör än Facebook ändrar du värdet för [MobileServiceAuthenticationProvider] till värdet för din leverantör.
 
-Azure App Service hanterar flödet OAuth-autentisering i ett Server flöde genom att Visa inloggnings sidan för den valda providern.  När identitets leverantören returnerar Azure App Service genererar en token för App Service autentisering. Metoden [LoginAsync] returnerar en [MobileServiceUser], som tillhandahåller både [UserID] för den autentiserade användaren och [MobileServiceAuthenticationToken], som en JSON Web token (JWT). Den här token kan cachelagras och återanvändas tills den upphör att gälla. Mer information finns i [caching Authentication token](#caching).
+I ett serverflöde hanterar Azure App Service OAuth-autentiseringsflödet genom att visa inloggningssidan för den valda providern.  När identitetsleverantören returnerar genererar Azure App Service en apptjänstautentiseringstoken. Metoden [LoginAsync] returnerar en [MobileServiceUser], som ger både [UserId] för den autentiserade användaren och [MobileServiceAuthenticationToken], som en JSON-webbtoken (JWT). Den här token kan cachelagras och återanvändas tills den upphör att gälla. Mer information finns i [Cachelagring av autentiseringstoken](#caching).
 
-### <a name="caching"></a>Cachelagring av autentiseringstoken
-I vissa fall kan anropet till inloggnings metoden undvikas efter den första lyckade autentiseringen genom att lagra autentiseringstoken från providern.  Microsoft Store-och UWP-appar kan använda [PasswordVault] för att cachelagra aktuell autentiseringstoken efter en lyckad inloggning, enligt följande:
+### <a name="caching-the-authentication-token"></a><a name="caching"></a>Cachelagring av autentiseringstoken
+I vissa fall kan anropet till inloggningsmetoden undvikas efter den första lyckade autentiseringen genom att lagra autentiseringstoken från providern.  Microsoft Store- och UWP-appar kan använda [PasswordVault] för att cachelagra den aktuella autentiseringstoken efter en lyckad inloggning enligt följande:
 
 ```csharp
 await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
@@ -832,7 +832,7 @@ vault.Add(new PasswordCredential("Facebook", client.currentUser.UserId,
     client.currentUser.MobileServiceAuthenticationToken));
 ```
 
-UserId-värdet lagras som användar namn för autentiseringsuppgiften och token är lagrat som lösen ord. I efterföljande start fönster kan du kontrol lera **PasswordVault** för cachelagrade autentiseringsuppgifter. I följande exempel används cachelagrade autentiseringsuppgifter när de hittas och försöker på annat sätt autentisera igen med Server delen:
+UserId-värdet lagras som användarnamn för autentiseringsuppgifterna och token lagras som lösenord. Vid efterföljande startningar kan du kontrollera **PasswordVault** för cachelagrade autentiseringsuppgifter. I följande exempel används cachelagrade autentiseringsuppgifter när de hittas och försöker på annat sätt autentisera igen med backend:
 
 ```csharp
 // Try to retrieve stored credentials.
@@ -850,16 +850,16 @@ else
 }
 ```
 
-När du loggar ut en användare måste du också ta bort den lagrade autentiseringsuppgiften enligt följande:
+När du loggar ut en användare måste du också ta bort den lagrade autentiseringsuppgifterna enligt följande:
 
 ```csharp
 client.Logout();
 vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 ```
 
-Xamarin-appar använder API: erna [Xamarin. auth] för att lagra autentiseringsuppgifter på ett säkert sätt i ett **konto** objekt. Ett exempel på hur du använder dessa API: er finns i [AuthStore.cs] -kod filen i [exempel på ContosoMoments-bilddelning](https://github.com/azure-appservice-samples/ContosoMoments).
+Xamarin-appar använder [Xamarin.Auth-API:erna] för att lagra autentiseringsuppgifter på ett säkert sätt i ett **kontoobjekt.** Ett exempel på hur du använder dessa API:er finns i [AuthStore.cs] kodfilen i exemplet med fotodelning i [ContosoMoments](https://github.com/azure-appservice-samples/ContosoMoments).
 
-När du använder klient-hanterad autentisering kan du också cachelagra den åtkomsttoken som hämtats från leverantören, till exempel Facebook eller Twitter. Denna token kan anges för att begära en ny autentiseringstoken från Server delen, enligt följande:
+När du använder klienthanterad autentisering kan du också cachelagra åtkomsttoken som erhållits från din leverantör, till exempel Facebook eller Twitter. Den här token kan levereras för att begära en ny autentiseringstoken från serveringsfel, enligt följande:
 
 ```csharp
 var token = new JObject();
@@ -870,15 +870,15 @@ token.Add("access_token", "<your_access_token_value>");
 await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 ```
 
-## <a name="pushnotifications"></a>Push-meddelanden
-Följande avsnitt beskriver push-meddelanden:
+## <a name="push-notifications"></a><a name="pushnotifications"></a>Push-meddelanden
+Följande avsnitt omfattar push-meddelanden:
 
 * [Registrera dig för push-meddelanden](#register-for-push)
-* [Hämta ett Microsoft Store-paket-SID](#package-sid)
-* [Registrera med mallar för fler plattformar](#register-xplat)
+* [Skaffa ett SID-paket för Microsoft Store](#package-sid)
+* [Registrera dig med plattformsoberoende mallar](#register-xplat)
 
-### <a name="register-for-push"></a>Gör så här: registrera dig för push-meddelanden
-Med Mobile Apps-klienten kan du registrera dig för push-meddelanden med Azure Notification Hubs. När du registrerar dig får du en referens som du får från den plattformsspecifika PNS (Push Notification Service). Du anger detta värde tillsammans med alla Taggar när du skapar registreringen. Följande kod registrerar Windows-appen för push-meddelanden med Windows Notification Service (WNS):
+### <a name="how-to-register-for-push-notifications"></a><a name="register-for-push"></a>Så här registrerar du dig för push-meddelanden
+Med Mobile Apps-klienten kan du registrera dig för push-meddelanden med Azure Notification Hubs. När du registrerar dig får du ett handtag som du får från den plattformsspecifika Push Notification Service (PNS). Du anger sedan det här värdet tillsammans med eventuella taggar när du skapar registreringen. Följande kod registrerar din Windows-app för push-meddelanden med Windows Notification Service (WNS):
 
 ```csharp
 private async void InitNotificationsAsync()
@@ -891,38 +891,38 @@ private async void InitNotificationsAsync()
 }
 ```
 
-Om du skickar till WNS måste du [Skaffa ett Microsoft Store-paket-sid](#package-sid).  Mer information om Windows-appar, inklusive hur du registrerar för mall registreringar finns i [Lägg till push-meddelanden i appen].
+Om du skickar till WNS måste du [skaffa ett SID-paket för Microsoft Store.](#package-sid)  Mer information om Windows-appar, inklusive hur du registrerar dig för mallregistreringar, finns i [Lägga till push-meddelanden i appen].
 
-Det finns inte stöd för att begära taggar från klienten.  Tagg begär Anden tas bort tyst från registreringen.
-Om du vill registrera din enhet med Taggar skapar du en anpassad API som använder Notification Hubs API för att utföra registreringen för din räkning.  Anropa det anpassade API: et i stället för metoden `RegisterNativeAsync()`.
+Det går inte att begära taggar från klienten.  Taggbegäranden tas bort tyst från registreringen.
+Om du vill registrera enheten med taggar skapar du ett anpassat API som använder API:et för meddelandehubbar för att utföra registreringen för din räkning.  Anropa det anpassade API:et `RegisterNativeAsync()` i stället för metoden.
 
-### <a name="package-sid"></a>Gör så här: Hämta ett Microsoft Store-paket-SID
-Ett paket-SID krävs för att aktivera push-meddelanden i Microsoft Store appar.  Registrera ditt program med Microsoft Store för att ta emot ett paket-SID.
+### <a name="how-to-obtain-a-microsoft-store-package-sid"></a><a name="package-sid"></a>Så här skaffar du ett SID-paket för Microsoft Store
+Ett paket SID behövs för att aktivera push-meddelanden i Microsoft Store-appar.  Om du vill ta emot ett paket-SID registrerar du programmet hos Microsoft Store.
 
 Så här hämtar du det här värdet:
 
-1. I Visual Studio Solution Explorer högerklickar du på projektet Microsoft Store app, klickar på **spara** > **associera appen med butiken...** .
-2. I guiden klickar du på **Nästa**, loggar in med ditt Microsoft-konto, skriver ett namn för din app i **reservera ett nytt**namn på appen och klickar sedan på **reservera**.
-3. När appens registrering har skapats väljer du appens namn, klickar på **Nästa**och klickar sedan på **associera**.
-4. Logga in på [Windows Dev Center] med ditt Microsoft-konto. Under **Mina appar**klickar du på den app-registrering som du skapade.
-5. Klicka på **app management** > **app Identity**och bläddra sedan ned för att hitta **paket-sid**.
+1. Högerklicka på Microsoft Store-appprojektet i Visual Studio Solution Explorer, klicka på **Store** > **Associera-app med Store...**.
+2. Klicka på **Nästa**i guiden, logga in med ditt Microsoft-konto, skriv ett namn på appen i **Reservera ett nytt appnamn**och klicka sedan på **Reservera**.
+3. När appregistreringen har skapats markerar du appnamnet, klickar på **Nästa**och klickar sedan på **Associera**.
+4. Logga in på [Windows Dev Center] med ditt Microsoft-konto. Klicka på den appregistrering du skapade under **Mina appar.**
+5. Klicka på **App management** > **App-identitet**och bläddra sedan nedåt för att hitta ditt **package SID**.
 
-Många användnings områden i paket-SID: et behandlar det som en URI, i så fall måste du använda *MS-app://* som schema. Anteckna vilken version av paket-SID som är utformad genom att sammanfoga det här värdet som ett prefix.
+Många användningsområden för paketet SID behandla det som en URI, i vilket fall du behöver använda *ms-app://* som schema. Anteckna den version av ditt paket SID som bildas genom att sammanfoga det här värdet som ett prefix.
 
-Xamarin-appar kräver ytterligare kod för att kunna registrera en app som körs på iOS-eller Android-plattformarna. Mer information finns i avsnittet för din plattform:
+Xamarin-appar kräver ytterligare kod för att kunna registrera en app som körs på iOS- eller Android-plattformarna. Mer information finns i avsnittet för din plattform:
 
 * [Xamarin.Android](app-service-mobile-xamarin-android-get-started-push.md#add-push)
 * [Xamarin.iOS](app-service-mobile-xamarin-ios-get-started-push.md#add-push-notifications-to-your-app)
 
-### <a name="register-xplat"></a>Gör så här: registrera push-mallar för att skicka meddelanden mellan plattformar
-Registrera mallar med hjälp av metoden `RegisterAsync()` med mallarna enligt följande:
+### <a name="how-to-register-push-templates-to-send-cross-platform-notifications"></a><a name="register-xplat"></a>Så här registrerar du push-mallar för att skicka meddelanden över flera plattformar
+Om du vill registrera `RegisterAsync()` mallar använder du metoden med mallarna enligt följande:
 
 ```csharp
 JObject templates = myTemplates();
 MobileService.GetPush().RegisterAsync(channel.Uri, templates);
 ```
 
-Mallarna bör vara `JObject` typer och kan innehålla flera mallar i följande JSON-format:
+Mallarna ska `JObject` vara typer och innehålla flera mallar i följande JSON-format:
 
 ```csharp
 public JObject myTemplates()
@@ -947,19 +947,19 @@ public JObject myTemplates()
 }
 ```
 
-Metoden **RegisterAsync ()** accepterar också sekundära paneler:
+Metoden **RegisterAsync()** accepterar även sekundära paneler:
 
 ```csharp
 MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);
 ```
 
-Alla Taggar rensas bort under registreringen för säkerhet. Om du vill lägga till taggar till installationer eller mallar i installationer, se [arbeta med .NET-Server del Server SDK för Azure Mobile Apps].
+Alla taggar tas bort under registreringen för säkerhet. Information om hur du lägger till taggar i installationer eller mallar i installationer finns i [Arbeta med .NET-server för server för server för servernamn för Azure Mobile Apps].
 
-Information om hur du skickar meddelanden med hjälp av de här registrerade mallarna finns i [Notification Hubs-API: er].
+Om du vill skicka meddelanden som använder dessa registrerade mallar läser du [API:erna för Notification Hubs].
 
-## <a name="misc"></a>Diverse ämnen
-### <a name="errors"></a>Så här gör du: hantera fel
-När ett fel uppstår i Server delen genererar klient-SDK en `MobileServiceInvalidOperationException`.  I följande exempel visas hur du hanterar ett undantag som returneras av Server delen:
+## <a name="miscellaneous-topics"></a><a name="misc"></a>Diverse ämnen
+### <a name="how-to-handle-errors"></a><a name="errors"></a>Så här: Hantera fel
+När ett fel inträffar i backend, klienten `MobileServiceInvalidOperationException`SDK höjer en .  I följande exempel visas hur du hanterar ett undantag som returneras av backend:
 
 ```csharp
 private async void InsertTodoItem(TodoItem todoItem)
@@ -978,10 +978,10 @@ private async void InsertTodoItem(TodoItem todoItem)
 }
 ```
 
-Ett annat exempel på hur du hanterar fel villkor finns i exemplet på [Exempel på Mobile Apps-filer]. [LoggingHandler] -exemplet innehåller en hanterare för loggning av ombud för att logga de begär Anden som görs till Server delen.
+Ett annat exempel på hur du hanterar felvillkor finns i [exemplet med filer i mobilappar]. [Exemplet LoggingHandler] innehåller en loggningsombudshanterare för att logga de begäranden som görs till backend.
 
-### <a name="headers"></a>Gör så här: anpassa begärandehuvuden
-För att stödja ditt speciella program scenario kan du behöva anpassa kommunikationen med Server delen för mobilappar. Du kanske exempelvis vill lägga till en anpassad rubrik till varje utgående begäran eller till och med ändra svars status koder. Du kan använda en anpassad [DelegatingHandler], som i följande exempel:
+### <a name="how-to-customize-request-headers"></a><a name="headers"></a>Så här anpassar du begäranden
+För att stödja ditt specifika appscenario kan du behöva anpassa kommunikationen med mobile app-backend. Du kanske till exempel vill lägga till ett anpassat huvud i varje utgående begäran eller till och med ändra svarsstatuskoder. Du kan använda en anpassad [DelegatingHandler], som i följande exempel:
 
 ```csharp
 public async Task CallClientWithHandler()
@@ -1035,47 +1035,47 @@ public class MyHandler : DelegatingHandler
 [Datasynkronisering offline i Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Lägg till push-meddelanden i appen]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md
-[Så här konfigurerar du App Service för Active Directory inloggning]: ../app-service/configure-authentication-provider-aad.md
+[Konfigurera App Service för Active Directory-inloggning]: ../app-service/configure-authentication-provider-aad.md
 
 <!-- Microsoft URLs. -->
-[MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
+[MobileServiceKollektion]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/library/azure/dn268408(v=azure.10).aspx
 [MobileServiceAuthenticationProvider]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
 [MobileServiceUser]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
-[GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
-[skapas en referens till en tabell som inte är av typen]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
+[GetTable (GetTable)]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
+[skapar en referens till en otypad tabell]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/library/azure/dn296407(v=azure.10).aspx
-[IncludeTotalCount]: https://msdn.microsoft.com/library/azure/dn250560(v=azure.10).aspx
+[InkluderaTotalCount]: https://msdn.microsoft.com/library/azure/dn250560(v=azure.10).aspx
 [InsertAsync]: https://msdn.microsoft.com/library/azure/dn296400(v=azure.10).aspx
-[InvokeApiAsync]: https://msdn.microsoft.com/library/azure/dn268343(v=azure.10).aspx
+[Anropa ApiAsync]: https://msdn.microsoft.com/library/azure/dn268343(v=azure.10).aspx
 [LoginAsync]: https://msdn.microsoft.com/library/azure/dn296411(v=azure.10).aspx
 [LookupAsync]: https://msdn.microsoft.com/library/azure/jj871654(v=azure.10).aspx
-[OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
+[Orderby]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
-[ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
-[Gå]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
+[LäsAsynkra]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
+[Ta]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
 [Välj]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
-[Ignorera]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
-[UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
-[UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Vilken]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure Portal]: https://portal.azure.com/
-[EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
-[GUID. NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
+[Hoppa över]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
+[UpdateAsync (UppdateringAsync)]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
+[Userid]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[Där]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
+[Azure-portal]: https://portal.azure.com/
+[AktiveraQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
+[Guid.NewGuid (guid.newguid)]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Windows Dev Center]: https://dev.windows.com/overview
-[DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
-[PasswordVault]: https://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
+[DelegeraHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
+[LösenordVault]: https://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: https://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[Notification Hubs-API: er]: https://msdn.microsoft.com/library/azure/dn495101.aspx
-[Exempel på Mobile Apps-filer]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
-[LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
+[API:er för meddelandehubbar]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[Exempel på filer i mobilappar]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[LoggningHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 
 <!-- External URLs -->
-[OData v3-dokumentation]: https://www.odata.org/documentation/odata-version-3-0/
+[OData v3 Dokumentation]: https://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: https://www.telerik.com/fiddler
 [Json.NET]: https://www.newtonsoft.com/json
-[Xamarin. auth]: https://components.xamarin.com/view/xamarin.auth/
+[Xamarin.Auth (på andra sätt)]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments

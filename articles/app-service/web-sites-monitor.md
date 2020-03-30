@@ -1,161 +1,165 @@
 ---
 title: Övervaka appar
-description: Lär dig hur du övervakar appar i Azure App Service med hjälp av Azure Portal. Förstå de kvoter och mått som rapporteras.
+description: Lär dig hur du övervakar appar i Azure App Service med hjälp av Azure-portalen. Förstå de kvoter och mått som rapporteras.
 author: btardif
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 2bca4521184fa42002e6649a90bb9101fded595c
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d84340730391abd7dba4d13202503d37941c09b5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658448"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500430"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervaknings funktioner för webbappar, mobil-och API-appar i [Azure Portal](https://portal.azure.com).
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) tillhandahåller inbyggda övervakningsfunktioner för webbappar, mobilappar och API-appar i [Azure-portalen](https://portal.azure.com).
 
-I Azure Portal kan du granska *kvoter* och *mått* för en app och App Service plan och konfigurera *aviseringar* och automatisk *skalning* som baseras på mått.
+I Azure-portalen kan du granska *kvoter* och *mått* för en app- och App Service-plan och ställa in *aviseringar* och *automatisk skalning av* regelbaserade mått.
 
 ## <a name="understand-quotas"></a>Förstå kvoter
 
-Appar som finns i App Service omfattas av vissa begränsningar för de resurser som de kan använda. Gränserna definieras av den App Service plan som är associerad med appen.
+Appar som finns i App Service omfattas av vissa begränsningar för de resurser de kan använda. Gränserna definieras av apptjänstplanen som är associerad med appen.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Om appen finns i en *kostnads fri* eller *delad* plan definieras gränserna för de resurser som appen kan använda definieras av kvoter.
+Om appen finns i en *kostnadsfri* eller *delad* plan definieras gränserna för de resurser som appen kan använda av kvoter.
 
-Om appen finns i en *Basic*-, *standard*-eller *Premium* -plan anges gränserna för de resurser som de kan använda av *storlek* (liten, medel, stor) och *instans antal* (1, 2, 3 och så vidare) för App Service plan.
+Om appen finns i en *Basic-,* *Standard-* eller *Premium-plan* anges gränserna för de resurser som de kan använda efter *storleken* (Small, Medium, Large) och *instansantalet* (1, 2, 3 och så vidare) i App Service-planen.
 
-Kvoter för kostnads fria eller delade appar är:
+Kvoter för kostnadsfria eller delade appar är:
 
 | Kvot | Beskrivning |
 | --- | --- |
-| **PROCESSOR (kort)** | Mängden CPU som tillåts för den här appen i ett intervall om 5 minuter. Den här kvoten återställs var femte minut. |
-| **PROCESSOR (dag)** | Den totala mängden processor som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
+| **CPU (kort)** | Mängden CPU som tillåts för den här appen i ett 5-minutersintervall. Den här kvoten återställs var femte minut. |
+| **CPU (Dag)** | Den totala mängden CPU som tillåts för den här appen på en dag. Den här kvoten återställs var 24:e timme vid midnatt UTC. |
 | **Minne** | Den totala mängden minne som tillåts för den här appen. |
-| **Bandwidth** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
-| **Fil Systems** | Den totala mängden lagrings utrymme som tillåts. |
+| **Bandbredd** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24:e timme vid midnatt UTC. |
+| **Filsystem** | Den totala mängden lagringsutrymme som tillåts. |
 
-Den enda kvot som gäller för appar som finns i fil systemet *Basic*, *standard*och *Premium* är filesystem.
+Den enda kvot som gäller för appar som finns i *Basic,* *Standard*och *Premium* är Filsystem.
 
-Mer information om vilka kvoter, gränser och funktioner som är tillgängliga för de olika App Service SKU: er finns i [begränsningar för Azure-prenumerations tjänsten](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
+Mer information om specifika kvoter, begränsningar och funktioner som är tillgängliga för de olika SKU:erna för App-tjänst finns i [Azure Subscription-tjänstgränser](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
-### <a name="quota-enforcement"></a>Kvot tillämpning
+### <a name="quota-enforcement"></a>Tillämpning av kvoter
 
-Om en app överskrider *processorns (kort)* , *CPU (dag)* eller *bandbredds* kvot stoppas appen tills kvoten återställs. Under den här tiden resulterar alla inkommande förfrågningar i ett HTTP 403-fel.
+Om en app överskrider *CPU(kort)*, *CPU (Dag)* eller *bandbreddskvot* stoppas appen tills kvoten återställs. Under den här tiden resulterar alla inkommande begäranden i ett HTTP 403-fel.
 
-![403-fel meddelande][http403]
+![403 felmeddelande][http403]
 
-Om minnes kvoten för appen överskrids startas appen om.
+Om appen Minneskvot överskrids startas appen om.
 
-Om kvoten för fil systemet överskrids Miss lyckas eventuella Skriv åtgärder. Skriv åtgärds felen innehåller alla skrivningar till loggarna.
+Om filsystemkvoten överskrids misslyckas alla skrivåtgärder. Skrivåtgärdsfel inkluderar alla skrivningar till loggar.
 
-Du kan öka eller ta bort kvoter från din app genom att uppgradera din App Service plan.
+Du kan öka eller ta bort kvoter från appen genom att uppgradera apptjänstplanen.
 
 ## <a name="understand-metrics"></a>Förstå mått
 
 > [!NOTE]
-> **Användning av fil system** är ett nytt mått som distribueras globalt, inga data förväntas om du inte har varit vit listas för privat för hands version.
+> **Filsystemanvändning** är ett nytt mått som distribueras globalt, inga data förväntas om du inte har vitlistats för privat förhandsgranskning.
 > 
 
-Mått ger information om appen eller App Service plan beteendet.
+> [!IMPORTANT]
+> **Genomsnittlig svarstid** kommer att inaktuell för att undvika förväxling med måttaggregeringar. Använd **svarstid** som ersättning.
 
-För en app är tillgängliga mått:
+Mått ger information om appen eller apptjänstplanens beteende.
+
+För en app är de tillgängliga måtten:
 
 | Mått | Beskrivning |
 | --- | --- |
-| **Genomsnittlig svars tid** | Genomsnittlig tid det tar för appen att betjäna begär Anden, i sekunder. |
-| **Genomsnittlig arbets mängd för minne** | Den genomsnittliga mängden minne som används av appen, i megabyte (MiB). |
-| **Anslutningar** | Antalet kopplade socketar som är befintliga i sandbox (W3wp. exe och dess underordnade processer).  En bunden socket skapas genom att anropa BIND ()/Connect ()-API: er och förblir kvar tills socketen stängs med CloseHandle ()/Closesocket (). |
-| **CPU-tid** | Mängden CPU som används av appen, i sekunder. Mer information om det här måttet finns i [CPU-tid jämfört med processor procent](#cpu-time-vs-cpu-percentage). |
-| **Aktuella sammansättningar** | Det aktuella antalet sammansättningar som har lästs in i alla AppDomains i det här programmet. |
-| **Data i** | Mängden inkommande bandbredd som används av appen, i MiB. |
-| **Data ut** | Mängden utgående bandbredd som används av appen, i MiB. |
-| **Fil system användning** | Procent andel av fil Systems kvoten som används av appen. |
-| **Skräp insamling för gen 0** | Antalet gånger som generation 0-objekt är skräp insamlat sedan program processen startades. Högre generations GC generationer omfattar all lägre generations-GC generationer.|
-| **Skräp insamling för gen 1** | Antalet gånger som generation 1-objekten är skräp insamlat sedan program processen startades. Högre generations GC generationer omfattar all lägre generations-GC generationer.|
-| **Gen 2 skräp insamling** | Antalet gånger som generation 2-objekt är skräp insamlat sedan program processen startades.|
-| **Antal referenser** | Det totala antalet handles som för närvarande är öppna av app-processen.|
-| **Http-2xx** | Antalet förfrågningar som resulterar i en HTTP-statuskod ≥ 200 men < 300. |
-| **Http-3xx** | Antalet förfrågningar som resulterar i en HTTP-statuskod ≥ 300 men < 400. |
-| **Http 401** | Antal begär Anden som resulterar i status kod för HTTP 401. |
-| **Http 403** | Antal begär Anden som resulterar i status kod för HTTP 403. |
-| **Http 404** | Antal begär Anden som resulterar i status kod för HTTP 404. |
-| **Http 406** | Antal begär Anden som resulterar i status kod för HTTP 406. |
-| **Http-4xx** | Antalet förfrågningar som resulterar i en HTTP-statuskod ≥ 400 men < 500. |
-| **Http-serverfel** | Antalet förfrågningar som resulterar i en HTTP-statuskod ≥ 500 men < 600. |
-| **I/o andra byte per sekund** | Den hastighet med vilken app-processen utfärdar byte till I/O-åtgärder som inte omfattar data, till exempel kontroll åtgärder.|
-| **Andra i/o-åtgärder per sekund** | Den hastighet med vilken app-processen utfärdar I/O-åtgärder som inte är Läs-eller Skriv åtgärder.|
-| **IO-lästa byte per sekund** | Den hastighet med vilken appens process läser in byte från I/O-åtgärder.|
-| **IO-Läs åtgärder per sekund** | Den hastighet med vilken app-processen utfärdar Läs-I/O-åtgärder.|
-| **Skrivna byte i i/o per sekund** | Den hastighet med vilken appens process skriver byte till I/O-åtgärder.|
-| **I/o-Skriv åtgärder per sekund** | Den hastighet med vilken program processen utfärdar Skriv-I/O-åtgärder.|
-| **Minnes arbets mängd** | Den aktuella mängden minne som används av appen, i MiB. |
-| **Privata byte** | Privata byte är den aktuella storleken i byte på minne som program processen har allokerat och som inte kan delas med andra processer.|
-| **Autentiseringsbegäran** | Det totala antalet begär Anden oavsett den resulterande HTTP-statuskoden. |
-| **Begär anden i program kön** | Antalet begär anden i program begär ande kön.|
-| **Antal trådar** | Antalet trådar som för närvarande är aktiva i program processen.|
-| **Totalt antal app-domäner** | Det aktuella antalet AppDomains som har lästs in i det här programmet.|
-| **Totalt antal app-domäner som har inaktiverats** | Det totala antalet inaktiverade tillämpnings domäner sedan programmet startades.|
+| **Svarstid** | Den tid det tar för appen att betjäna förfrågningar, på några sekunder. |
+| **Genomsnittlig svarstid (föråldrad)** | Den genomsnittliga tid det tar för appen att visa begäranden, på några sekunder. |
+| **Genomsnittligt arbetsminne** | Den genomsnittliga mängden minne som används av appen, i megabyte (MiB). |
+| **Anslutningar** | Antalet bundna sockets som finns i sandlådan (w3wp.exe och dess underordnade processer).  En bunden socket skapas genom att anropa bind()/connect() API:er och förblir tills nämnda socket är stängd med CloseHandle()/closesocket(). |
+| **CPU-tid** | Mängden cpu som förbrukas av appen, på några sekunder. Mer information om det här måttet finns i [CPU-tid jämfört med CPU-procent](#cpu-time-vs-cpu-percentage). |
+| **Aktuella sammansättningar** | Det aktuella antalet sammansättningar som har lästs in i alla AppDomäner i det här programmet. |
+| **Data i** | Mängden inkommande bandbredd som förbrukas av appen i MiB. |
+| **Data ut** | Mängden utgående bandbredd som förbrukas av appen i MiB. |
+| **Användning av filsystem** | Procentandel av filsystemkvoten som förbrukas av appen. |
+| **Gen 0 Sophämtningar** | Antalet gånger generation 0-objekten är skräp som samlats in sedan appprocessen startade. Högre generationens GCs inkluderar alla lägre generationens GCs.|
+| **Gen 1 Sophämtningar** | Antalet gånger generation 1-objekten är skräp som samlats in sedan appprocessen startade. Högre generationens GCs inkluderar alla lägre generationens GCs.|
+| **Gen 2 Sophämtningar** | Antalet gånger generation 2 objekt är skräp samlas in sedan början av appprocessen.|
+| **Antal referenser** | Det totala antalet handtag som för närvarande är öppna av appprocessen.|
+| **Http 2xx (på andra sätt)** | Antalet begäranden som resulterar i en HTTP-statuskod ≥ 200 men < 300. |
+| **Http 3xx (på)** | Antalet begäranden som resulterar i en HTTP-statuskod ≥ 300 men < 400. |
+| **Http 401** | Antalet begäranden som resulterar i HTTP 401-statuskod. |
+| **Http 403** | Antalet begäranden som resulterar i HTTP 403-statuskod. |
+| **Http 404** | Antalet begäranden som resulterar i HTTP 404-statuskod. |
+| **Http 406** | Antalet begäranden som resulterar i HTTP 406-statuskod. |
+| **Http 4xx (på)** | Antalet begäranden som resulterar i en HTTP-statuskod ≥ 400 men < 500. |
+| **Http-serverfel** | Antalet begäranden som resulterar i en HTTP-statuskod ≥ 500 men < 600. |
+| **IO Andra byte per sekund** | Den hastighet med vilken appprocessen utfärdar byte till I/O-åtgärder som inte omfattar data, till exempel kontrollåtgärder.|
+| **IO Övriga transaktioner per sekund** | Den hastighet med vilken appprocessen utfärdar I/O-åtgärder som inte läses eller skrivåtgärder.|
+| **IO läs byte per sekund** | Den hastighet med vilken appprocessen läser byte från I/O-åtgärder.|
+| **IO läsa operationer per sekund** | Den hastighet med vilken appprocessen utfärdar läs-I/O-åtgärder.|
+| **IO skriv byte per sekund** | Den hastighet med vilken appprocessen skriver byte till I/O-åtgärder.|
+| **IO-skrivåtgärder per sekund** | Den hastighet med vilken appprocessen utfärdar skriv-I/O-åtgärder.|
+| **Arbetsminne** | Den aktuella mängden minne som används av appen i MiB. |
+| **Privata byte** | Privata byte är den aktuella storleken, i byte, av minne som appprocessen har allokerat som inte kan delas med andra processer.|
+| **Begäranden** | Det totala antalet begäranden oavsett deras resulterande HTTP-statuskod. |
+| **Begäranden i programkö** | Antalet begäranden i kön för programbegäran.|
+| **Antal trådar** | Antalet trådar som för närvarande är aktiva i appprocessen.|
+| **Totalt antal appdomäner** | Det aktuella antalet AppDomains som läses in i det här programmet.|
+| **Totalt antal appdomäner har tagits bort** | Det totala antalet AppDomains lossas sedan starten av programmet.|
 
 
-För en App Service plan är tillgängliga mått:
+För en App Service-plan är de tillgängliga måtten:
 
 > [!NOTE]
-> App Service plan mått är bara tillgängliga för planer på nivåerna *Basic*, *standard*och *Premium* .
+> Mätvärden för App Service-abonnemang är endast tillgängliga för abonnemang på nivåerna *Basic,* *Standard*och *Premium.*
 > 
 
 | Mått | Beskrivning |
 | --- | --- |
-| **CPU-procent** | Den genomsnittliga CPU som används för alla instanser av planen. |
-| **Minnes procent** | Genomsnittligt minne som används för alla instanser av planen. |
-| **Data i** | Den genomsnittliga inkommande bandbredd som används för alla instanser av planen. |
-| **Data ut** | Den genomsnittliga utgående bandbredd som används för alla instanser av planen. |
-| **Diskkölängd** | Genomsnittligt antal begär Anden om läsning och skrivning som ställts i kö för lagring. En hög diskkölängd är en indikation på en app som kan vara långsam på grund av överdriven disk-I/O. |
-| **Längd på http-kö** | Genomsnittligt antal HTTP-begäranden som måste sitta i kön innan de kunde uppfyllas. En hög eller ökande HTTP-Kölängd är ett symtom på en plan som är tungt belastad. |
+| **CPU-procent** | Den genomsnittliga processorn som används i alla instanser av planen. |
+| **Minnesprocent** | Det genomsnittliga minne som används i alla instanser av planen. |
+| **Data i** | Den genomsnittliga inkommande bandbredd som används i alla instanser av planen. |
+| **Data ut** | Den genomsnittliga utgående bandbredd som används i alla instanser av planen. |
+| **Längd på diskkö** | Genomsnittligt antal både läs- och skrivbegäranden som köades vid lagring. En hög diskkölängd är en indikation på en app som kan vara långsammare på grund av överdriven disk-I/O. |
+| **Http kö längd** | Genomsnittligt antal HTTP-begäranden som måste sitta i kön innan de uppfylldes. En hög eller ökande HTTP-kölängd är ett symptom på en plan under tung belastning. |
 
-### <a name="cpu-time-vs-cpu-percentage"></a>CPU-tid jämfört med processor procent
+### <a name="cpu-time-vs-cpu-percentage"></a>CPU-tid vs CPU-procent
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
 
 Det finns två mått som återspeglar CPU-användning:
 
-**CPU-tid**: användbart för appar som finns i kostnads fria eller delade planer, eftersom en av deras kvoter definieras i CPU-minuter som används av appen.
+**CPU-tid:** Användbart för appar som finns i kostnadsfria eller delade abonnemang, eftersom en av deras kvoter definieras i CPU-minuter som används av appen.
 
-**Processor procent**: användbart för appar som finns i Basic-, standard-och Premium-planer, eftersom de kan skalas ut. CPU-procent är en korrekt indikation på den övergripande användningen för alla instanser.
+**CPU-procent:** Användbart för appar som finns i Basic-, Standard- och Premium-abonnemang, eftersom de kan skalas ut. CPU-procent är en bra indikation på den totala användningen i alla instanser.
 
-## <a name="metrics-granularity-and-retention-policy"></a>Mät precisions precision och bevarande princip
-Mått för en app-och App Service-plan loggas och sammanställs av tjänsten med följande granularitet-och bevarande principer:
+## <a name="metrics-granularity-and-retention-policy"></a>Måttgranularitet och bevarandeprincip
+Mått för en app- och apptjänstplan loggas och aggregeras av tjänsten, med följande granulariteter och bevarandeprinciper:
 
-* **Minuters** precisions mått behålls i 30 timmar.
-* Statistik för **timkostnader** behålls i 30 dagar.
-* **Dags** precisions mått behålls i 30 dagar.
+* **Minute** Minutgranularitetsmått sparas i 30 timmar.
+* **Hour** Timgranularitetsmått sparas i 30 dagar.
+* **Dag** granularitet mått hålls i 30 dagar.
 
-## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Övervaknings kvoter och mät värden i Azure Portal
-Om du vill granska statusen för de olika kvoter och mått som påverkar en app går du till [Azure Portal](https://portal.azure.com).
+## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Övervaka kvoter och mått i Azure-portalen
+Om du vill granska statusen för de olika kvoter och mått som påverkar en app går du till [Azure-portalen](https://portal.azure.com).
 
-![Kvot diagram i Azure Portal][quotas]
+![Kvotdiagram i Azure-portalen][quotas]
 
-Om du vill hitta kvoter väljer du **inställningar** > **kvoter**. I diagrammet kan du granska: 
-1. Kvotens namn.
-1. Dess återställnings intervall.
-1. Den aktuella gränsen.
-1. Det aktuella värdet.
+Om du vill söka efter kvoter väljer du **Inställningar** > **kvoter**. I diagrammet kan du granska: 
+1. Kvotnamnet.
+1. Dess återställningsintervall.
+1. Dess nuvarande gräns.
+1. Dess aktuella värde.
 
-![Metric-diagrammet i Azure Portal][metrics] kan du komma åt mått direkt från resurs **översikts** sidan. Här ser du diagram som visar några av måtten för appar.
+![Måttdiagram i Azure-portalen][metrics] Du kan komma åt mått direkt från sidan **resursöversikt.** Här ser du diagram som representerar några av appmåtten.
 
-Om du klickar på någon av dessa diagram tas du till vyn mått där du kan skapa anpassade diagram, fråga olika mått och mycket mer. 
+Genom att klicka på något av dessa diagram kommer du till måttvyn där du kan skapa anpassade diagram, fråga olika mått och mycket mer. 
 
-Mer information om mått finns i [övervaka tjänst mått](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Mer information om mått finns i [Övervaka servicemått](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
 
-## <a name="alerts-and-autoscale"></a>Aviseringar och autoskalning
-Mått för en app eller en App Service plan kan anslutas till aviseringar. Mer information om varningsaviseringar finns [här](../monitoring-and-diagnostics/insights-alerts-portal.md).
+## <a name="alerts-and-autoscale"></a>Varningar och automatisk skalning
+Mått för en app eller en App Service-plan kan anslutas till aviseringar. Mer information om varningsaviseringar finns [här](../monitoring-and-diagnostics/insights-alerts-portal.md).
 
-App Service appar som finns i Basic eller högre App Service planer stöder autoskalning. Med autoskalning kan du konfigurera regler som övervakar App Service plans måtten. Regler kan öka eller minska antalet instanser, vilket kan ge ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när appen är överetablerad.
+App Service-appar som finns i Grundläggande eller högre App Service-abonnemang stöder automatisk skalning. Med automatisk skalning kan du konfigurera regler som övervakar måtten för App Service-planen. Regler kan öka eller minska antalet instanser, vilket kan ge ytterligare resurser efter behov. Regler kan också hjälpa dig att spara pengar när appen är överetablering.
 
-Mer information om autoskalning finns i [skala](../monitoring-and-diagnostics/insights-how-to-scale.md) och [metod tips för Azure Monitor autoskalning](../azure-monitor/platform/autoscale-best-practices.md).
+Mer information om automatisk skalning finns i [Så här skalar](../monitoring-and-diagnostics/insights-how-to-scale.md) och [metodtips för automatisk skalning av Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

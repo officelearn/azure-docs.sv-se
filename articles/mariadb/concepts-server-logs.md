@@ -1,90 +1,90 @@
 ---
-title: Långsamma Query-loggar – Azure Database for MariaDB
-description: Beskriver de loggar som är tillgängliga i Azure Database for MariaDB och de tillgängliga parametrarna för att aktivera olika loggnings nivåer.
+title: Långsamma frågeloggar - Azure Database för MariaDB
+description: Beskriver loggarna som är tillgängliga i Azure Database för MariaDB och de tillgängliga parametrarna för att aktivera olika loggningsnivåer.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: 3f82a061f276aaf786bc0a9bae15b60e8bdda009
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 3/18/2020
+ms.openlocfilehash: 2c07e5eeedd2e4f42ec7b165bf161e142421df58
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846334"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527902"
 ---
-# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Långsamma Query-loggar i Azure Database for MariaDB
-I Azure Database for MariaDB är den långsamma fråge loggen tillgänglig för användare. Åtkomst till transaktions loggen stöds inte. Den långsamma frågans logg kan användas för att identifiera Flask halsar i prestanda för fel sökning.
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Långsamma frågeloggar i Azure Database för MariaDB
+I Azure Database för MariaDB är den långsamma frågeloggen tillgänglig för användare. Åtkomst till transaktionsloggen stöds inte. Den långsamma frågeloggen kan användas för att identifiera flaskhalsar för prestanda för felsökning.
 
-Mer information om den långsamma frågans logg finns i MariaDB-dokumentationen för [långsam frågekörning](https://mariadb.com/kb/en/library/slow-query-log-overview/).
+Mer information om den långsamma frågeloggen finns i MariaDB-dokumentationen för [långsam frågelogg](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-## <a name="access-slow-query-logs"></a>Komma åt långsamma Query-loggar
-Du kan visa och hämta Azure Database for MariaDB långsamma fråge loggar med hjälp av Azure Portal och Azure CLI.
+## <a name="access-slow-query-logs"></a>Komma åt långsamma frågeloggar
+Du kan lista och hämta Azure Database för MariaDB långsamma frågeloggar med Azure-portalen och Azure CLI.
 
-I Azure Portal väljer du Azure Database for MariaDB-servern. Under **övervaknings** rubriken väljer du sidan **Server loggar** .
+Välj din Azure-databas för MariaDB-server i Azure-portalen. Välj sidan **Serverloggar under** rubriken **Övervakning.**
 
-Mer information om Azure CLI finns i [Konfigurera och komma åt Server loggar med Azure CLI](howto-configure-server-logs-cli.md).
+Mer information om Azure CLI finns i [Konfigurera och komma åt serverloggar med Azure CLI](howto-configure-server-logs-cli.md).
 
-På samma sätt kan du skicka loggfiler till Azure Monitor med hjälp av diagnostikloggar. Se [nedan](concepts-server-logs.md#diagnostic-logs) för mer information.
+På samma sätt kan du leda loggarna till Azure Monitor med hjälp av diagnostikloggar. Se [nedan](concepts-server-logs.md#diagnostic-logs) för mer information.
 
-## <a name="log-retention"></a>Logg kvarhållning
-Loggar är tillgängliga i upp till sju dagar från deras skapande. Om den totala storleken på de tillgängliga loggarna överstiger 7 GB, tas de äldsta filerna bort tills utrymmet är tillgängligt.
+## <a name="log-retention"></a>Loggkvarhållning
+Loggar är tillgängliga i upp till sju dagar från deras skapelse. Om den totala storleken på de tillgängliga loggarna överstiger 7 GB tas de äldsta filerna bort tills det finns ledigt.
 
-Loggarna roteras var 24: e timme eller 7 GB, beroende på vilket som kommer först.
+Loggarna roteras var 24:e timme eller 7 GB, beroende på vilket som inträffar först.
 
-## <a name="configure-slow-query-logging"></a>Konfigurera loggning av långsam fråga
-Som standard är den långsamma frågans logg inaktive rad. Ange slow_query_log till på för att aktivera det.
+## <a name="configure-slow-query-logging"></a>Konfigurera långsam frågeloggning
+Som standard är den långsamma frågeloggen inaktiverad. Om du vill aktivera den ställer du in slow_query_log på PÅ.
 
 Andra parametrar som du kan justera är:
 
-- **long_query_time**: om en fråga tar längre tid än long_query_time (i sekunder) som frågan loggas. Standardvärdet är 10 sekunder.
-- **log_slow_admin_statements**: om on innehåller administrativa uttryck som ALTER_TABLE och ANALYZE_TABLE i de instruktioner som skrivs till slow_query_log.
-- **log_queries_not_using_indexes**: bestämmer om frågor som inte använder index ska loggas i slow_query_log
-- **log_throttle_queries_not_using_indexes**: den här parametern begränsar antalet icke-indexfrågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på på.
-- **log_output**: om "File", tillåter att den långsamma fråge loggen skrivs till både den lokala serverns lagrings plats och för att Azure Monitor diagnostikloggar. Om du använder "ingen" skrivs den långsamma fråge loggen bara till Azure Monitor-diagnostikloggar. 
+- **long_query_time:** om en fråga tar längre tid än long_query_time (i sekunder) loggas frågan. Standardvärdet är 10 sekunder.
+- **log_slow_admin_statements**: om ON innehåller administrativa uttalanden som ALTER_TABLE och ANALYZE_TABLE i de uttalanden som skrivits till slow_query_log.
+- **log_queries_not_using_indexes**: avgör om frågor som inte använder index loggas till slow_query_log
+- **log_throttle_queries_not_using_indexes**: Den här parametern begränsar antalet icke-indexfrågor som kan skrivas till den långsamma frågeloggen. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på PÅ.
+- **log_output:** om "Arkiv", gör att den långsamma frågeloggen kan skrivas till både den lokala serverlagringen och till Azure Monitor Diagnostic Logs. Om "Ingen" skrivs den långsamma frågeloggen endast till Azure Monitor Diagnostics Logs. 
 
 > [!IMPORTANT]
-> Om dina tabeller inte är indexerade kan inställning av `log_queries_not_using_indexes` och `log_throttle_queries_not_using_indexes` parametrar till på påverka MariaDB prestanda eftersom alla frågor som körs mot dessa icke-indexerade tabeller skrivs till den långsamma frågans logg.<br><br>
-> Om du planerar att logga långsamma förfrågningar under en längre tid rekommenderar vi att du anger `log_output` till "ingen". Om detta är inställt på "File" skrivs dessa loggar till den lokala serverns lagring och kan påverka MariaDB-prestanda. 
+> Om tabellerna inte är indexerade `log_throttle_queries_not_using_indexes` kan inställningen och parametrarna `log_queries_not_using_indexes` till PÅ påverka MariaDB-prestanda eftersom alla frågor som körs mot dessa icke-indexerade tabeller skrivs till den långsamma frågeloggen.<br><br>
+> Om du planerar att logga långsamma frågor under en längre tid `log_output` rekommenderar vi att du ställer in "Ingen". Om den är inställd på "Arkiv" skrivs dessa loggar till den lokala serverlagringen och kan påverka MariaDB-prestanda. 
 
-En fullständig beskrivning av logg parametrarna för långsamma frågor finns i dokumentationen om MariaDB [långsam logg dokumentation](https://mariadb.com/kb/en/library/slow-query-log-overview/) .
+Se dokumentationen för den [långsamma frågeloggen](https://mariadb.com/kb/en/library/slow-query-log-overview/) för MariaDB för fullständiga beskrivningar av parametrarna för långsam frågelogg.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
-Azure Database for MariaDB är integrerat med Azure Monitor diagnostikloggar. När du har aktiverat långsamma Query-loggar på MariaDB-servern kan du välja att de ska skickas till Azure Monitor loggar, Event Hubs eller Azure Storage. Om du vill veta mer om hur du aktiverar diagnostikloggar kan du läsa avsnittet så här i [dokumentationen för diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
+Azure Database för MariaDB är integrerad med Azure Monitor Diagnostic Logs. När du har aktiverat långsamma frågeloggar på din MariaDB-server kan du välja att låta dem släppas ut till Azure Monitor-loggar, eventhubbar eller Azure Storage. Mer information om hur du aktiverar diagnostikloggar finns i avsnittet om [diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
 
-I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings metoden kan de fält som ingår och i vilken ordning de visas variera.
+I följande tabell beskrivs vad som finns i varje logg. Beroende på utdatametoden kan de inkluderade fälten och i vilken ordning de visas variera.
 
 | **Egenskap** | **Beskrivning** |
 |---|---|
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated` [UTC] | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
+| `TimeGenerated`- Jag vet inte vad du är på. | Tidsstämpel när loggen spelades in i UTC |
+| `Type` | Typ av logg. Alltid`AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
-| `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMARIADB` |
+| `ResourceGroup` | Namnet på den resursgrupp som servern tillhör |
+| `ResourceProvider` | Resursleverantörens namn. Alltid`MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
-| `ResourceId` | Resurs-URI |
-| `Resource` | Namnet på servern |
+| `ResourceId` | Resurs URI |
+| `Resource` | Serverns namn |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
-| `Logical_server_name_s` | Namnet på servern |
-| `start_time_t` [UTC] | Tiden då frågan började |
-| `query_time_s` | Total tid som frågan tog att köra |
-| `lock_time_s` | Total tid då frågan låstes |
+| `Logical_server_name_s` | Serverns namn |
+| `start_time_t`- Jag vet inte vad du är på. | När frågan började |
+| `query_time_s` | Total tid för frågan tog att köra |
+| `lock_time_s` | Total tid för frågan var låst |
 | `user_host_s` | Användarnamn |
-| `rows_sent_s` | Antal rader som skickats |
-| `rows_examined_s` | Antal rader som granskas |
+| `rows_sent_s` | Antal skickade rader |
+| `rows_examined_s` | Antal undersökta rader |
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
 | `insert_id_s` | Infoga ID |
 | `sql_text_s` | Fullständig fråga |
 | `server_id_s` | Server-ID |
 | `thread_id_s` | Tråd-ID |
-| `\_ResourceId` | Resurs-URI |
+| `\_ResourceId` | Resurs URI |
 
-## <a name="analyze-logs-in-azure-monitor-logs"></a>Analysera loggar i Azure Monitor loggar
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Analysera loggar i Azure Monitor Logs
 
-När dina långsamma fråge loggar är skickas för att Azure Monitor loggar via diagnostikloggar kan du utföra ytterligare analyser av dina långsamma frågor. Nedan visas några exempel frågor som hjälper dig att komma igång. Se till att uppdatera följande med Server namnet.
+När dina långsamma frågeloggar har skickas till Azure Monitor Logs via diagnostikloggar kan du utföra ytterligare analyser av dina långsamma frågor. Nedan följer några exempelfrågor som hjälper dig att komma igång. Se till att uppdatera nedanstående med ditt servernamn.
 
 - Frågor som är längre än 10 sekunder på en viss server
 
@@ -96,7 +96,7 @@ När dina långsamma fråge loggar är skickas för att Azure Monitor loggar via
     | where query_time_d > 10
     ```
 
-- Lista de 5 vanligaste frågorna på en viss server
+- Lista de 5 längsta frågorna på en viss server
 
     ```Kusto
     AzureDiagnostics
@@ -107,7 +107,7 @@ När dina långsamma fråge loggar är skickas för att Azure Monitor loggar via
     | take 5
     ```
 
-- Sammanfatta långsamma frågor efter minsta, högsta, genomsnittliga och standard avvikelse på en viss server
+- Summera långsamma frågor efter minsta, högsta, genomsnittliga och standardavvikelsefrågetid på en viss server
 
     ```Kusto
     AzureDiagnostics
@@ -117,7 +117,7 @@ När dina långsamma fråge loggar är skickas för att Azure Monitor loggar via
     | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
     ```
 
-- Grafa den långsamma frågans distribution på en viss server
+- Diagram över den långsamma frågedistributionen på en viss server
 
     ```Kusto
     AzureDiagnostics
@@ -128,7 +128,7 @@ När dina långsamma fråge loggar är skickas för att Azure Monitor loggar via
     | render timechart
     ```
 
-- Visa frågor som är längre än 10 sekunder på alla MariaDB-servrar med diagnostiska loggar aktiverade
+- Visa frågor som är längre än 10 sekunder på alla MariaDB-servrar med diagnostikloggar aktiverade
 
     ```Kusto
     AzureDiagnostics
@@ -138,5 +138,5 @@ När dina långsamma fråge loggar är skickas för att Azure Monitor loggar via
     ```    
     
 ## <a name="next-steps"></a>Efterföljande moment
-- [Så här konfigurerar du långsamma Query-loggar från Azure Portal](howto-configure-server-logs-portal.md)
-- [Så här konfigurerar du långsamma Query-loggar från Azure CLI](howto-configure-server-logs-cli.md)
+- [Konfigurera långsamma frågeloggar från Azure-portalen](howto-configure-server-logs-portal.md)
+- [Konfigurera långsamma frågeloggar från Azure CLI](howto-configure-server-logs-cli.md)

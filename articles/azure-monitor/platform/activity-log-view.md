@@ -1,6 +1,6 @@
 ---
-title: Visa Azure aktivitets logg händelser i Azure Monitor
-description: Visa Azures aktivitets logg i Azure Monitor och hämta med PowerShell, CLI och REST API.
+title: Visa Azure Activity-logghändelser i Azure Monitor
+description: Visa Azure Activity-loggen i Azure Monitor och hämta med PowerShell, CLI och REST API.
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
@@ -8,59 +8,59 @@ ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275053"
 ---
-# <a name="view-and-retrieve-azure-activity-log-events"></a>Visa och hämta Azure aktivitets logg händelser
+# <a name="view-and-retrieve-azure-activity-log-events"></a>Visa och hämta Azure Activity-logghändelser
 
-[Azure aktivitets loggen](platform-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Den här artikeln innehåller information om olika metoder för att visa och hämta aktivitets logg händelser.
+[Azure-aktivitetsloggen](platform-logs-overview.md) ger insikt i händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln innehåller information om olika metoder för att visa och hämta aktivitetslogghändelser.
 
 ## <a name="azure-portal"></a>Azure Portal
-Visa aktivitets loggen för alla resurser på **Monitor** -menyn i Azure Portal. Visa aktivitets loggen för en viss resurs från alternativet **aktivitets logg** på den resurs menyn.
+Visa aktivitetsloggen för alla resurser från **Monitor-menyn** i Azure-portalen. Visa aktivitetsloggen för en viss resurs från alternativet **Aktivitetslogg** på resursens meny.
 
-![Visa aktivitets logg](./media/activity-logs-overview/view-activity-log.png)
+![Visa aktivitetslogg](./media/activity-logs-overview/view-activity-log.png)
 
-Du kan filtrera aktivitets logg händelser efter följande fält:
+Du kan filtrera aktivitetslogghändelser efter följande fält:
 
-* **TimeSpan**: Start-och slut tid för händelser.
-* **Kategori**: händelse kategorin enligt beskrivningen i [Kategorier i aktivitets loggen](activity-log-view.md#categories-in-the-activity-log).
-* **Prenumeration**: ett eller flera namn på en Azure-prenumeration.
-* **Resurs grupp**: en eller flera resurs grupper inom de valda prenumerationerna.
-* **Resurs (namn)** :-namnet på en enskild resurs.
-* **Resurs typ**: resurs typ, till exempel _Microsoft. Compute/virtualmachines_.
-* **Åtgärds namn** – namnet på en Azure Resource Manager-åtgärd, till exempel _Microsoft. SQL/Server/Write_.
-* **Allvarlighets**grad: händelsens allvarlighets grad. Tillgängliga värden är _information_, _Varning_, _fel_, _kritisk_.
-* **Händelse som initieras av**: den användare som utförde åtgärden.
-* **Öppna sökning**: öppna text söknings rutan som söker efter strängen i alla fält i alla händelser.
+* **Tidsintervall:** Start- och sluttid för händelser.
+* **Kategori**: Händelsekategorin som beskrivs i [Kategorier i aktivitetsloggen](activity-log-view.md#categories-in-the-activity-log).
+* **Prenumeration**: Ett eller flera Azure-prenumerationsnamn.
+* **Resursgrupp**: En eller flera resursgrupper inom de valda prenumerationerna.
+* **Resurs (namn)**: - Namnet på en viss resurs.
+* **Resurstyp**: Resurstyp, till exempel _Microsoft.Compute/virtualmachines_.
+* **Åtgärdsnamn** - Namnet på en Azure Resource Manager-åtgärd, till exempel _Microsoft.SQL/servers/Write_.
+* **Allvarlighetsgrad**: Allvarlighetsgraden för händelsen. Tillgängliga värden är _Informativa_, _Varning_, _Fel_, _Kritisk_.
+* **Händelse initierad av**: Användaren som utförde åtgärden.
+* **Öppna sökning:** Öppna textsökrutan som söker efter strängen i alla fält i alla händelser.
 
-## <a name="categories-in-the-activity-log"></a>Kategorier i aktivitets loggen
-Varje händelse i aktivitets loggen har en viss kategori som beskrivs i följande tabell. Fullständig information om scheman för dessa kategorier finns i [händelse schema för Azure aktivitets logg](activity-log-schema.md). 
+## <a name="categories-in-the-activity-log"></a>Kategorier i aktivitetsloggen
+Varje händelse i aktivitetsloggen har en viss kategori som beskrivs i följande tabell. Fullständig information om schemat för dessa kategorier finns i [Azure Activity Log händelseschema](activity-log-schema.md). 
 
 | Kategori | Beskrivning |
 |:---|:---|
-| Administrativ | Innehåller posten över alla åtgärder för att skapa, uppdatera, ta bort och åtgärd som utförs via Resource Manager. Exempel på administrativa händelser är att _skapa en virtuell dator_ och _ta bort nätverks säkerhets grupp_.<br><br>Varje åtgärd som utförs av en användare eller ett program som använder Resource Manager är modellerad som en åtgärd på en viss resurs typ. Om åtgärds typen är _Skriv_, _ta bort_eller _åtgärd_registreras posterna för både start och lyckad eller misslyckad åtgärd i den administrativa kategorin. Administrativa händelser inkluderar även eventuella ändringar av rollbaserad åtkomst kontroll i en prenumeration. |
-| Service Health | Innehåller posten för eventuella service Health-incidenter som har inträffat i Azure. Ett exempel på en Service Health händelse _SQL Azure i östra USA drabbas av drift stopp_. <br><br>Service Health-händelser finns på sex sorter: _åtgärd krävs_, _stöd för återställning_, _incident_, _Underhåll_, _information_eller _säkerhet_. Dessa händelser skapas endast om du har en resurs i prenumerationen som skulle påverkas av händelsen.
-| Resource Health | Innehåller posten för eventuella resurs hälso händelser som har inträffat på dina Azure-resurser. Ett exempel på en Resource Health-händelse är _hälso statusen för den virtuella datorn har ändrats till otillgänglig_.<br><br>Resource Health händelser kan representera en av fyra hälso status: _tillgänglig_, otillgänglig _,_ _degraderad_och _okänd_. Dessutom kan Resource Health händelser kategoriseras som plattform som _initieras_ eller _användaren initieras_. |
-| Varning | Innehåller posten för aktiveringar för Azure-aviseringar. Ett exempel på en varnings händelse är _CPU% på myVM har varit över 80 under de senaste 5 minuterna_.|
-| Automatisk skalning | Innehåller posten för alla händelser som rör driften av autoskalning-motorn baserat på de inställningar för autoskalning som du har definierat i din prenumeration. Ett exempel på en autoskalning-händelse är autoskalning- _åtgärden misslyckades_. |
-| Rekommendation | Innehåller rekommendations händelser från Azure Advisor. |
-| Säkerhet | Innehåller posten för eventuella aviseringar som genererats av Azure Security Center. Ett exempel på en säkerhets händelse är _misstänkt dubbel tilläggs fil som körs_. |
-| Princip | Innehåller poster med åtgärder som utförs av alla åtgärder som utförs av Azure Policy. Exempel på princip händelser är _granskning_ och _neka_. Varje åtgärd som utförs av principen är modellerad som en åtgärd på en resurs. |
+| Administrativ | Innehåller posten för alla åtgärder för att skapa, uppdatera, ta bort och vidta åtgärder som utförs via Resource Manager. Exempel på administrativa händelser är _att skapa virtuell dator_ och ta bort _nätverkssäkerhetsgrupp_.<br><br>Varje åtgärd som vidtas av en användare eller ett program med Resurshanteraren modelleras som en åtgärd på en viss resurstyp. Om operationstypen är _Skriv,_ _Ta bort_eller _Åtgärd_registreras posterna för både start och lyckad eller misslyckad åtgärd i kategorin Administration. Administrativa händelser innehåller även eventuella ändringar av rollbaserad åtkomstkontroll i en prenumeration. |
+| Service Health | Innehåller posten över alla tjänsthälsoincidenter som har inträffat i Azure. Ett exempel på en Service _Health-händelse SQL Azure i östra USA upplever driftstopp_. <br><br>Service Health händelser finns i sex sorter: _Åtgärd krävs,_ _Assisterad återhämtning,_ _Incident,_ _Underhåll,_ _Information_eller _Säkerhet_. Dessa händelser skapas bara om du har en resurs i prenumerationen som skulle påverkas av händelsen.
+| Resource Health | Innehåller posten för alla resurshälsohändelser som har inträffat till dina Azure-resurser. Ett exempel på en resurshälsahändelse är _hälsostatus för virtuell dator som har ändrats till otillgänglig_.<br><br>Resurshälsohändelser kan representera en av fyra hälsotillstånd: _Tillgänglig_, _Ej tillgänglig,_ _Försämrad_och _Okänd_. Dessutom kan Resource Health-händelser kategoriseras som _plattformsinitierade_ eller _användarinitierade_. |
+| Varning | Innehåller posten aktiveringar för Azure-aviseringar. Ett exempel på en varningshändelse är _CPU% på myVM har varit över 80 under de senaste 5 minuterna._|
+| Automatisk skalning | Innehåller en post för alla händelser som är relaterade till hur motorn för automatisk skalning fungerar baserat på alla inställningar för automatisk skalning som du har definierat i din prenumeration. Ett exempel på en händelse för automatisk skalning är _automatisk skalning upp åtgärden misslyckades_. |
+| Rekommendation | Innehåller rekommendationshändelser från Azure Advisor. |
+| Säkerhet | Innehåller posten för alla aviseringar som genereras av Azure Security Center. Ett exempel på en säkerhetshändelse är _Misstänkt dubbelnamn som körs_. |
+| Princip | Innehåller poster för alla effektåtgärdsåtgärder som utförs av Azure Policy. Exempel på policyhändelser är _Granskning_ och _Neka_. Varje åtgärd som vidtas av principen modelleras som en åtgärd på en resurs. |
 
-## <a name="view-change-history"></a>Visa ändrings historik
+## <a name="view-change-history"></a>Visa ändringshistorik
 
-När du läser aktivitets loggen kan det hjälpa dig att se vilka ändringar som skett under den tidpunkten. Du kan visa den här informationen med **ändrings historik**. Välj en händelse från aktivitets loggen som du vill se djupare i. Välj fliken **ändrings historik (förhands granskning)** om du vill visa alla associerade ändringar med händelsen.
+När du granskar aktivitetsloggen kan det hjälpa dig att se vilka ändringar som hände under den händelsetiden. Du kan visa den här informationen med **ändringshistorik**. Välj en händelse i den aktivitetslogg som du vill titta djupare på. Välj fliken **Ändringshistorik (Förhandsgranska)** om du vill visa eventuella associerade ändringar med den händelsen.
 
-![Lista över ändrings historik för en händelse](media/activity-logs-overview/change-history-event.png)
+![Ändra historiklista för en händelse](media/activity-logs-overview/change-history-event.png)
 
-Om det finns några associerade ändringar i händelsen visas en lista över ändringar som du kan välja. Då öppnas sidan **ändrings historik (förhands granskning)** . På den här sidan visas ändringarna i resursen. Som du kan se i följande exempel kan vi inte bara se att den virtuella datorn har ändrat storlek, men att den tidigare storleken på den virtuella datorn var före ändringen och vad den ändrades till.
+Om det finns några associerade ändringar med händelsen visas en lista över ändringar som du kan välja. Då öppnas sidan **Ändra historik (Förhandsgranska).** På den här sidan ser du ändringarna i resursen. Som du kan se av följande exempel kan vi inte bara se att den virtuella datorn ändrade storlekar, men vad den tidigare vm-storleken var före ändringen och vad den ändrades till.
 
-![Sidan ändrings historik visar skillnader](media/activity-logs-overview/change-history-event-details.png)
+![Sidan Ändra historik som visar skillnader](media/activity-logs-overview/change-history-event-details.png)
 
-Läs mer om ändrings historik i [Hämta resurs ändringar](../../governance/resource-graph/how-to/get-resource-changes.md).
+Mer information om ändringshistorik finns i [Hämta resursändringar](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 
 
@@ -68,43 +68,43 @@ Läs mer om ändrings historik i [Hämta resurs ändringar](../../governance/res
 
 
 ## <a name="powershell"></a>PowerShell
-Använd cmdleten [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) för att hämta aktivitets loggen från PowerShell. Här följer några vanliga exempel.
+Använd [cmdleten Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) för att hämta aktivitetsloggen från PowerShell. Följande är några vanliga exempel.
 
 > [!NOTE]
-> `Get-AzLog` innehåller endast 15 dagars historik. Använd parametern **-MaxEvents** för att fråga de senaste N händelserna efter 15 dagar. Använd REST API eller SDK för att få åtkomst till händelser som är äldre än 15 dagar. Om du inte inkluderar **StartTime**, är standardvärdet slut **tid** minus en timme. Om du **inte inkluderar slut tid är**standardvärdet aktuell tid. Alla tider är i UTC-tid.
+> `Get-AzLog`ger bara 15 dagars historia. Använd parametern **-MaxEvents** för att fråga de senaste N-händelserna efter 15 dagar. Om du vill komma åt händelser som är äldre än 15 dagar använder du REST API eller SDK. Om du inte inkluderar **StartTime**är standardvärdet **EndTime** minus en timme. Om du inte inkluderar **EndTime**är standardvärdet aktuell tid. Alla tider är i UTC.
 
 
-Hämta logg poster som skapats efter en viss datum tid:
+Hämta loggposter som skapats efter en viss datumtid:
 
 ```powershell
 Get-AzLog -StartTime 2016-03-01T10:30
 ```
 
-Hämta logg poster mellan ett datum tidsintervall:
+Hämta loggposter mellan ett datumtidsintervall:
 
 ```powershell
 Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
-Hämta logg poster från en angiven resurs grupp:
+Hämta loggposter från en viss resursgrupp:
 
 ```powershell
 Get-AzLog -ResourceGroup 'myrg1'
 ```
 
-Hämta logg poster från en speciell resurs leverantör mellan ett datum tidsintervall:
+Hämta loggposter från en viss resursprovider mellan ett datumtidsintervall:
 
 ```powershell
 Get-AzLog -ResourceProvider 'Microsoft.Web' -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
-Hämta logg poster med en angiven anropare:
+Hämta loggposter med en specifik uppringare:
 
 ```powershell
 Get-AzLog -Caller 'myname@company.com'
 ```
 
-Hämta de senaste 1000 händelserna:
+Få de senaste 1000 händelserna:
 
 ```powershell
 Get-AzLog -MaxEvents 1000
@@ -112,7 +112,7 @@ Get-AzLog -MaxEvents 1000
 
 
 ## <a name="cli"></a>CLI
-Använd [AZ övervaka aktivitet – logg](cli-samples.md#view-activity-log-for-a-subscription) för att hämta aktivitets loggen från cli. Här följer några vanliga exempel.
+Använd [az övervaka aktivitetslogg](cli-samples.md#view-activity-log-for-a-subscription) för att hämta aktivitetsloggen från CLI. Följande är några vanliga exempel.
 
 
 Visa alla tillgängliga alternativ.
@@ -121,19 +121,19 @@ Visa alla tillgängliga alternativ.
 az monitor activity-log list -h
 ```
 
-Hämta logg poster från en angiven resurs grupp:
+Hämta loggposter från en viss resursgrupp:
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Hämta logg poster med en angiven anropare:
+Hämta loggposter med en specifik uppringare:
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Hämta loggar efter anropare på en resurs typ inom ett datum intervall:
+Hämta loggar efter uppringare på en resurstyp, inom ett datumintervall:
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \
@@ -142,64 +142,64 @@ az monitor activity-log list --resource-provider Microsoft.Web \
     --end-time 2016-03-16T00:00:00Z
 ```
 
-## <a name="rest-api"></a>REST-API
-Använd [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) för att hämta aktivitets loggen från en rest-klient. Här följer några vanliga exempel.
+## <a name="rest-api"></a>REST API
+Använd [AZURE Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) för att hämta aktivitetsloggen från en REST-klient. Följande är några vanliga exempel.
 
-Hämta aktivitets loggar med filter:
+Hämta aktivitetsloggar med filter:
 
 ``` HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2018-01-21T20:00:00Z' and eventTimestamp le '2018-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'
 ```
 
-Hämta aktivitets loggar med filter och välj:
+Hämta aktivitetsloggar med filtret och välj:
 
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '2015-01-21T20:00:00Z' and eventTimestamp le '2015-01-23T20:00:00Z' and resourceGroupName eq 'MSSupportGroup'&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
 ```
 
-Hämta aktivitets loggar med Select:
+Hämta aktivitetsloggar med välj:
 
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&$select=eventName,id,resourceGroupName,resourceProviderName,operationName,status,eventTimestamp,correlationId,submissionTimestamp,level
 ```
 
-Hämta aktivitets loggar utan filter eller välj:
+Hämta aktivitetsloggar utan filter eller välj:
 
 ```HTTP
 GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5b33/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01
 ```
 
 
-## <a name="activity-logs-analytics-monitoring-solution"></a>Aktivitets loggarna analys övervaknings lösning
-Azure Log Analytics Monitoring-lösningen innehåller flera logg frågor och vyer för att analysera aktivitets logg poster i Log Analytics-arbetsytan.
+## <a name="activity-logs-analytics-monitoring-solution"></a>Övervakningslösning för Aktivitetsloggar Analytics
+Övervakningslösningen för Azure Log Analytics innehåller flera loggfrågor och vyer för att analysera aktivitetsloggposterna på din Log Analytics-arbetsyta.
 
-### <a name="prerequisites"></a>Förutsättningar
-Du måste skapa en diagnostisk inställning för att skicka aktivitets loggen för din prenumeration till en Log Analytics-arbetsyta. Se [samla in Azure-plattforms loggar i Log Analytics arbets yta i Azure Monitor](resource-logs-collect-workspace.md).
+### <a name="prerequisites"></a>Krav
+Du måste skapa en diagnostikinställning för att kunna skicka aktivitetsloggen för din prenumeration till en Log Analytics-arbetsyta. Se [Samla in Azure-plattformsloggar i Log Analytics-arbetsytan i Azure Monitor](resource-logs-collect-workspace.md).
 
 ### <a name="install-the-solution"></a>Installera lösningen
-Använd proceduren i [installera en övervaknings lösning](../insights/solutions.md#install-a-monitoring-solution) för att installera **Aktivitetslogganalys** lösning. Ingen ytterligare konfiguration krävs.
+Använd proceduren i [Installera en övervakningslösning](../insights/solutions.md#install-a-monitoring-solution) för att installera **lösningen för Aktivitetslogganalys.** Det krävs ingen ytterligare konfiguration.
 
 ### <a name="use-the-solution"></a>Använd lösningen
-Klicka på **loggar** överst på **aktivitets logg** sidan för att öppna [Aktivitetslogganalys övervaknings lösning](activity-log-collect.md) för prenumerationen. Du får också åtkomst till alla övervaknings lösningar på menyn för prenumerations **övervakaren** i Azure Portal. Välj **mer** i avsnittet om **insikter** för att öppna **översikts** sidan med lösnings panelerna. I panelen **Azure aktivitets loggar** visas antalet **AzureActivity** -poster i din arbets yta.
+Klicka på Loggar högst upp på **sidan Aktivitetslogg** för att öppna [övervakningslösningen aktivitetslogganalys](activity-log-collect.md) för prenumerationen. **Logs** Eller få tillgång till alla övervakningslösningar på din **prenumerationsövervakare-meny** i Azure-portalen. Välj **Mer** i avsnittet **Insikter** om du vill öppna sidan **Översikt** med lösningspanelerna. Panelen **Azure Activity Logs** visar antalet **AzureActivity-poster** på arbetsytan.
 
-![Azure-aktivitetsloggar panel](media/collect-activity-logs/azure-activity-logs-tile.png)
+![Panel för Azure-aktivitetsloggar](media/collect-activity-logs/azure-activity-logs-tile.png)
 
 
-Klicka på panelen **Azure aktivitets loggar** för att öppna vyn **Azure aktivitets loggar** . Vyn innehåller visualiserings delarna i följande tabell. Varje del visar upp till 10 objekt som matchar delarnas kriterier för det angivna tidsintervallet. Du kan köra en logg fråga som returnerar alla matchande poster genom att klicka på **Visa alla** längst ned i delen.
+Klicka på panelen **Azure-aktivitetsloggar** för att öppna vyn **Azure-aktivitetsloggar.** Vyn innehåller visualiseringsdelarna i följande tabell. Varje del listar upp till 10 objekt som matchar de delarnas villkor för det angivna tidsintervallet. Du kan köra en loggfråga som returnerar alla matchande poster genom att klicka på **Visa alla** längst ned i delen.
 
-![Instrumentpanelen för Azure-aktivitetsloggar](media/collect-activity-logs/activity-log-dash.png)
+![Instrumentpanelen Azure Activity Logs](media/collect-activity-logs/activity-log-dash.png)
 
-| Visualiserings del | Beskrivning |
+| Visualiseringsdel | Beskrivning |
 | --- | --- |
-| Azure-Aktivitetsloggposter | Visar ett stapeldiagram för de översta posterna i Azures aktivitets logg post för det datum intervall som du har valt och visar en lista över de 10 främsta aktivitetens anropare. Klicka på stapeldiagrammet för att köra en loggs ökning för `AzureActivity`. Klicka på ett anroparens objekt för att köra en loggs ökning som returnerar alla aktivitets logg poster för objektet. |
-| Aktivitetsloggar efter Status | Visar ett ring diagram för Azures aktivitets logg status för det valda datum intervallet och en lista över de tio främsta status posterna. Klicka på diagrammet för att köra en logg fråga för `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Klicka på ett status objekt om du vill köra en loggs ökning som returnerar alla aktivitets logg poster för den status posten. |
-| Aktivitetsloggar efter resurs | Visar det totala antalet resurser med aktivitets loggar och listar de tio främsta resurserna med antal poster för varje resurs. Klicka på det totala utrymmet för att köra en loggs ökning för `AzureActivity | summarize AggregatedValue = count() by Resource`, som visar alla Azure-resurser som är tillgängliga för lösningen. Klicka på en resurs för att köra en logg fråga som returnerar alla aktivitets poster för resursen. |
-| Aktivitetsloggar av Resursprovidern | Visar det totala antalet resurs leverantörer som skapar aktivitets loggar och listar de tio främsta. Klicka på det totala utrymmet för att köra en logg fråga för `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, som visar alla Azure Resource providers. Klicka på en resurs leverantör för att köra en logg fråga som returnerar alla aktivitets poster för providern. |
+| Azure-aktivitetsloggposter | Visar ett stapeldiagram över de översta summorna för Azure Activity Log-postsumman för det datumintervall som du har valt och visar en lista över de 10 främsta aktivitetssamtalen. Klicka på stapeldiagrammet om `AzureActivity`du vill köra en loggsökning efter . Klicka på ett uppringarobjekt om du vill köra en loggsökning som returnerar alla aktivitetsloggtransaktioner för objektet. |
+| Aktivitetsloggar efter status | Visar ett ringdiagram för Azure Activity Log-status för det valda datumintervallet och en lista över de tio bästa statusposterna. Klicka på diagrammet om du `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`vill köra en loggfråga för . Klicka på ett statusobjekt om du vill köra en loggsökning som returnerar alla aktivitetsloggtransaktioner för den statusposten. |
+| Aktivitetsloggar efter resurs | Visar det totala antalet resurser med aktivitetsloggar och listar de tio största resurserna med postantal för varje resurs. Klicka på det totala området `AzureActivity | summarize AggregatedValue = count() by Resource`för att köra en loggsökning för , som visar alla Azure-resurser som är tillgängliga för lösningen. Klicka på en resurs om du vill köra en loggfråga som returnerar alla aktivitetsposter för den resursen. |
+| Aktivitetsloggar efter resursprovider | Visar det totala antalet resursleverantörer som producerar aktivitetsloggar och listar de tio bästa. Klicka på det totala området `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`för att köra en loggfråga för , som visar alla Azure-resursleverantörer. Klicka på en resursprovider om du vill köra en loggfråga som returnerar alla aktivitetsposter för providern. |
 
 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs en översikt över plattforms loggar](platform-logs-overview.md)
-* [Skapa diagnostisk inställning för att skicka aktivitets loggar till andra destinationer](diagnostic-settings.md)
+* [Läs en översikt över plattformsloggar](platform-logs-overview.md)
+* [Skapa diagnostikinställning för att skicka aktivitetsloggar till andra destinationer](diagnostic-settings.md)

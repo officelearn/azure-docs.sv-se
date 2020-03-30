@@ -1,67 +1,67 @@
 ---
-title: Använda Azure Portal för att distribuera Service Catalog-appen
-description: Visar konsumenter av hanterade program hur du distribuerar en tjänst katalog app via Azure Portal.
+title: Använda Azure-portalen för att distribuera tjänstkatalogapp
+description: Visar konsumenter av hanterade program hur du distribuerar en tjänstkatalogapp via Azure-portalen.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3fa9709e096e908907772c940fc5e2f2895b7eb3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9a69296ddfc93fd7e8a6650df91876829631f5d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650791"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79473072"
 ---
-# <a name="deploy-service-catalog-app-through-azure-portal"></a>Distribuera tjänst katalog program via Azure Portal
+# <a name="quickstart-deploy-service-catalog-app-through-azure-portal"></a>Snabbstart: Distribuera tjänstkatalogapp via Azure Portal
 
-I [föregående snabb start](publish-managed-app-definition-quickstart.md)publicerade du en definition för hanterade program. I den här snabb starten skapar du en tjänst katalog app från den definitionen.
+I [föregående snabbstart](publish-managed-app-definition-quickstart.md)publicerade du en hanterad programdefinition. I den här snabbstarten skapar du en tjänstkatalogapp från den definitionen.
 
-## <a name="create-service-catalog-app"></a>Skapa tjänst katalog program
+## <a name="create-service-catalog-app"></a>Skapa tjänstkatalogapp
 
-Använd följande steg i Azure Portal:
+Gör så här i Azure-portalen:
 
 1. Välj **Skapa en resurs**.
 
    ![Skapa en resurs](./media/deploy-service-catalog-quickstart/create-new.png)
 
-1. Sök efter **hanterat program för tjänst katalog** och välj det bland de tillgängliga alternativen.
+1. Sök efter **Service Catalog Managed Application** och välj det bland de tillgängliga alternativen.
 
-   ![Sök efter tjänst katalog program](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
+   ![Sök efter tjänstkatalogprogram](./media/deploy-service-catalog-quickstart/select-service-catalog.png)
 
-1. Du ser en beskrivning av tjänsten för hanterade program. Välj **Skapa**.
+1. Du ser en beskrivning av tjänsten Hanterat program. Välj **Skapa**.
 
    ![Välj Skapa](./media/deploy-service-catalog-quickstart/create-service-catalog.png)
 
-1. Portalen visar de definitioner av hanterade program som du har åtkomst till. Välj den som du vill distribuera från tillgängliga definitioner. I den här snabb starten använder du den **hanterade lagrings konto** definition som du skapade i föregående snabb start. Välj **Skapa**.
+1. Portalen visar de hanterade programdefinitioner som du har åtkomst till. Välj den som du vill distribuera från de tillgängliga definitionerna. I den här snabbstarten använder du definitionen **Hanterat lagringskonto** som du skapade i föregående snabbstart. Välj **Skapa**.
 
-   ![Välj den definition som ska distribueras](./media/deploy-service-catalog-quickstart/select-definition.png)
+   ![Välj definition att distribuera](./media/deploy-service-catalog-quickstart/select-definition.png)
 
-1. Ange värden för fliken **grundläggande** . Välj den Azure-prenumeration som du vill distribuera Service Catalog-appen till. Skapa en ny resurs grupp med namnet **variabeln applicationgroup**. Välj en plats för din app. När du är klar väljer du **OK**.
+1. Ange värden för fliken **Grunderna.** Välj Azure-prenumerationen för att distribuera din tjänstkatalogapp till. Skapa en ny resursgrupp med namnet **applicationGroup**. Välj en plats för din app. När du är klar väljer du **OK**.
 
-   ![Ange värden för Basic](./media/deploy-service-catalog-quickstart/provide-basics.png)
+   ![Ange värden för grundläggande](./media/deploy-service-catalog-quickstart/provide-basics.png)
 
-1. Ange ett prefix för lagrings konto namnet. Välj den typ av lagrings konto som ska skapas. När du är klar väljer du **OK**.
+1. Ange ett prefix för lagringskontonamnet. Välj vilken typ av lagringskonto som ska skapas. När du är klar väljer du **OK**.
 
    ![Ange värden för lagring](./media/deploy-service-catalog-quickstart/provide-storage.png)
 
-1. Granska sammanfattningen. När verifieringen har slutförts väljer du **OK** för att starta distributionen.
+1. Granska sammanfattningen. När valideringen har slutförts väljer du **OK** för att starta distributionen.
 
-   ![Visa Sammanfattning](./media/deploy-service-catalog-quickstart/view-summary.png)
+   ![Visa sammanfattning](./media/deploy-service-catalog-quickstart/view-summary.png)
 
 ## <a name="view-results"></a>Visa resultat
 
-När du har distribuerat tjänst katalogs appen har du två nya resurs grupper. En resurs grupp innehåller tjänst katalogens app. Den andra resurs gruppen innehåller resurserna för tjänst katalog appen.
+När tjänstkatalogappen har distribuerats har du två nya resursgrupper. En resursgrupp innehåller tjänstkatalogappen. Den andra resursgruppen innehåller resurserna för tjänstkatalogappen.
 
-1. Visa resurs gruppen med namnet **variabeln applicationgroup** för att se appen för tjänst katalogen.
+1. Visa resursgruppen **applicationGroup** för att se tjänstkatalogappen.
 
-   ![Visa appen](./media/deploy-service-catalog-quickstart/view-managed-application.png)
+   ![Visa program](./media/deploy-service-catalog-quickstart/view-managed-application.png)
 
-1. Visa resurs gruppen med namnet **variabeln applicationgroup {hash-characters}** om du vill se resurserna för tjänst katalog programmet.
+1. Visa resursgruppen **ApplicationGroup{hash-characters}** om du vill visa resurserna för tjänstkatalogappen.
 
    ![Visa resurser](./media/deploy-service-catalog-quickstart/view-resources.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du skapar definitionsfiler för ett hanterat program finns i [skapa och publicera en definition för hanterade program](publish-service-catalog-app.md).
-* Information om Azure CLI finns i [distribuera tjänst katalog program med Azure CLI](./scripts/managed-application-cli-sample-create-application.md).
-* För PowerShell, se [distribuera tjänst katalog program med PowerShell](./scripts/managed-application-poweshell-sample-create-application.md).
+* Mer information om hur du skapar definitionsfilerna för ett hanterat program finns i [Skapa och publicera en hanterad programdefinition](publish-service-catalog-app.md).
+* För Azure CLI finns i [Distribuera tjänstkatalogapp med Azure CLI](./scripts/managed-application-cli-sample-create-application.md).
+* För PowerShell finns i [Distribuera tjänstkatalogapp med PowerShell](./scripts/managed-application-poweshell-sample-create-application.md).

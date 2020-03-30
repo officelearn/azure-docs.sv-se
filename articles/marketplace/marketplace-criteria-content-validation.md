@@ -1,100 +1,98 @@
 ---
-title: Kontroll av marknads villkors innehåll | Azure Marketplace
-description: Den här artikeln beskriver hur du blir utgivare på Marketplace.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Validering av innehållsvalidering för Marketplace-kriterier | Azure Marketplace
+description: I den här artikeln beskrivs hur du blir utgivare på marknadsplatsen.
 author: qianw211
-manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/31/2019
-ms.author: evansma
-ms.openlocfilehash: 8c0af3f059d1beb0e1d07d3494b31c674f15438d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: dsindona
+ms.openlocfilehash: 83dfa4f713068475faaab36c77b0df8f27e718c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980863"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277213"
 ---
-# <a name="azure-marketplace-listing-guidelines"></a>Rikt linjer för Azure Marketplace-lista
+# <a name="azure-marketplace-listing-guidelines"></a>Riktlinjer för listning av Azure Marketplace
 
-Det här dokumentet innehåller rikt linjer för krav samt en check lista för granskare för nya erbjudanden och tjänster som finns i Azure Marketplace.
+Det här dokumentet innehåller kravriktlinjer samt en checklista för granskare för nya erbjudanden och tjänster som anges på Azure Marketplace.
 
-Alla erbjudanden måste uppfylla [alla registrerings krav](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) som anges nedan. Ytterligare krav och check listor tillhandahålls för särskilda typer av listor, inklusive: erbjudanden med kopplade [utvärderings versioner](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [SaaS-appar](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-app-requirements), [behållare](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements)och [konsult erbjudanden](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
+Alla erbjudanden måste uppfylla [alla noteringskrav](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) som anges nedan. Ytterligare krav och checklistor finns för specifika listtyper, inklusive: erbjudanden med bifogade [utvärderingsversioner,](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements) [SaaS-appar,](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-app-requirements) [behållare](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements)och [konsulterbjudanden](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
 
 
-## <a name="all-listing-requirements"></a>Alla registrerings krav
+## <a name="all-listing-requirements"></a>Alla noteringskrav
 
-|  | List element | Bas krav | Optimala krav |
+|  | Lista element | Grundläggande krav | Optimala krav |
 |:--- |:--- |:--- |:--- |
-| 1 | Lead-mål | Ha ett konfigurerat ledar mål| OCP-katalogen har även information om lead-destinationen som finns på fliken partner lösning | 
-| 2 | Erbjudande rubrik | Beskrivning av lösnings erbjudande. Matchar online-befordran av lösningen på partnerns webbplats | Innehåller ord för nyckels ökning |
-| 3 | Logotyp | Logo typen visas korrekt | Logo typen visas korrekt och innehåller [hjälte bild som är bilden av stor format i Azure Portal |
-| 4 |  Beskrivning av erbjudande | <br>• 2-3 stycken <br>• Lösnings erbjudandet kan enkelt förstås snabbt <br>• Beskrivning av erbjudandet är utan stavfel <br>• Beskrivning av erbjudandet är omfattande och fångar: mål grupp, typ av användare, varför det är värdefullt (värde prop) <br>• Beskrivning av erbjudandet är i stycke form med korta meningar som är lätta att förstå | <br>• Mål branschen har kon turs (om det är relevant) <br>• Formatering med en mening med varje stycke rubrik med en mening eller fras som sammanfattar innehåll som följer och innehåller punkter (när det är lämpligt) för att betona viktiga fördelar. Målet är att läsaren ska kunna förstå erbjudandet i ett överskådligt visnings format och inte behöver läsa stycken. <br>• Det finns avstånd mellan varje stycke och läsningar som en bil broschyr. Innebär inte tekniska funktioner eller kod Lingo utan beskrivande av erbjudandet i enkla villkor och är omfattande. | 
-| 5 | Kategorier & branscher | <br>• Funktioner för lösnings erbjudande för kategorier <br>• Utöka inte till kategorier som lösningen inte passar <br>• Optimal bransch eller alla branscher som valts (om inte optimala branscher) | <br>Bekräftat. 3 kategorier <br>Bekräftat. 3 branscher |
-| 6 | Avbildningar | <br>• Ingen bild krävs, men om den anges måste den visas och en hög upplöst bild. <br>• Avbildnings kraven visas i CPP och även här <br>• Text som ingår i skärm bilden är läslig med en klar bild | Lösnings erbjudandet kan enkelt förstås snabbt |
-| 7 | Videor | <br>• Inga videor krävs, men om det tillhandahålls måste det spelas upp utan fel. <br>• Om det tillhandahålls får den inte referera till konkurrent-företag om inte en migrations lösning demonstreras |<br>• Helst 3 minuter eller mer <br>• Lösnings erbjudande som enkelt kan förstås med video innehåll <br>• Demonstration av lösnings funktioner |
-| 8 | Lista status (anrop till åtgärd) | <br>Måste ha etiketten en av följande typer: <ul>o kontakta mig</ul><ul>o utvärderings version/Hämta utvärderings version nu/starta test/test-enhet</ul><ul>o Köp nu/hämta det nu</ul> | Kunden kan enkelt förstå vad nästa steg som är tillgängliga: <ul>1. testa utvärderings versionen</ul> <ul>2. Köp nu</ul><ul>3. kontakta via e-post eller telefonnummer för att ordna för PoC, utvärdering eller korthet.</ul> | 
-| 9 | Prissättning för lösning | Måste ha fliken prissättning för lösning/information och i den lokala valutan för partner lösnings erbjudandet | Du kan välja mellan flera fakturerings alternativ med pris nivå för kunden |    
-| 10 | Läs mer | Länkar längst ned (under beskrivningen, inte länkar till marknads platsen till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt |    Länkar till särskilda objekt (till exempel Specifikations sidor på partner platsen) och inte bara partner sidans start sida | 
-| 11 | Hjälp för lösnings support & | Länka till minst ett av följande: <br>o-telefonnummer <br>o-stöd för e-post <br>o chatt-agenter <br>o-forum |<br>• Alla support metoder som anges: telefon & e-postsupport. <br>• Betald support erbjuds kostnads fritt under utvärderings perioden eller test enhets perioden | 
-| 12 | Juridisk information | Principer eller villkor som är tillgängliga via en offentlig URL |  | 
-
----
-## <a name="trial-offer-requirements"></a>Krav för utvärderings version
-
-|  | List element | Bas krav | Optimala krav | 
-|:--- |:--- |:--- |:--- |
-|  | Lista status | Länken måste leda till en utvärderings version av kund LED | Andra CTAs (till exempel köp nu) är också tillgängliga | 
+| 1 | Huvudmål | Ha ett leadmål konfigurerat| OCP-katalogen har lead destination CRM-information som också anges på fliken partnerlösning | 
+| 2 | Titel för erbjudande | Beskrivande lösningserbjudande. Matchar online-marknadsföring av lösning på partnerns webbplats | Innehåller nyckelord |
+| 3 | Logotyp | Logotypen visas korrekt | Logotypen visas korrekt och innehåller [hjältebild som är den stora bilden i Azure-portalen |
+| 4 |  Beskrivning av erbjudandet | <br>• 2-3 stycken <br>• Lösningserbjudande är lätt att förstå med ett ögonkast <br>• Erbjudandebeskrivning är fri från stav- och grammatikmisstag <br>• Erbjudandebeskrivning är omfattande och fångar: målgrupp, typ av användare, varför det är värdefullt (värde prop) <br>• Erbjudandebeskrivning är i styckeberättelseform med korta meningar som är lätta att förstå | <br>• Målindustrin beskrivs (om relevant) <br>• Bra stil formatering med varje styckerubrik som har en en mening eller fras som sammanfattar innehåll som följer och inklusive punkter (när så är lämpligt) för att betona viktiga fördelar. Målet här är att läsaren ska förstå erbjudandet med ett ögonkast i ett lättskådligt format och inte behöva läsa stycken. <br>• Det finns avstånd mellan varje stycke och läser som en bilbroschyr. Vilket innebär inte tekniska funktioner eller kod lingo men beskrivande av erbjudandet i enkla ordalag och är omfattande. | 
+| 5 | Kategorier & Branscher | <br>• Kategorier matchar lösningserbjudanden <br>• Utsträcka inte till kategorier som lösningen inte passar <br>• Optimal industri, eller alla branscher som valts ut (om inte optimala branscher) | <br>• Max. 3 kategorier <br>• Max. 3 branscher |
+| 6 | Avbildningar | <br>• Ingen bild krävs, men om sådan finns måste displayen och en högupplöst bild. <br>• Bildkraven listas i CPP och även här <br>• Text som ingår i skärmdumpen är läsbar med tydlig bild | Lösningserbjudande är lätt att förstå med ett ögonkast |
+| 7 | Videoklipp | <br>• Inga videor krävs, men om sådana anges måste spela upp utan fel. <br>• Om sådana finns, får inte hänvisa till konkurrerande företag om inte visar en migrationslösning |<br>• Helst 3 minuter eller mer <br>• Lösningserbjudande lätt att förstå genom videoinnehåll <br>• Demo av lösningsfunktioner |
+| 8 | Liststatus (uppmaning) | <br>Måste märkas av någon av följande typer: <ul>o Kontakta mig</ul><ul>o Test/Få testversion nu/starta testversion/provkörning</ul><ul>o Köp nu/Hämta den nu</ul> | Kunden kan lätt förstå vilka nästa steg som är tillgängliga: <ul>1. Prova rättegången</ul> <ul>2. Köp nu</ul><ul>3. Kontakta via e-post eller telefonnummer för att ordna med PoC, Assessment eller Briefing.</ul> | 
+| 9 | Lösningsprissättning | Måste ha lösningsprisfliken/information och i den lokala valutan för partnerlösningserbjudandet | Flera faktureringsalternativ tillgängliga med nivåprissättning för kunden att ha alternativ |    
+| 10 | Läs mer | Länkar längst ner (under beskrivningen, inte marknadsplatsen länkar till vänster) leda till mer information om lösningen och är allmänt tillgängliga och visas korrekt |    Länkar till specifika objekt (till exempel spec sidor på partnerwebbplats) och inte bara partner hemsida webbplats | 
+| 11 | Hjälp om lösningsstöd & | Länk till minst ett av följande: <br>o Telefonnummer <br>o Support för e-post <br>o Chattagenter <br>o Forum för gemenskapen |<br>• Alla supportmetoder som anges: telefon & e-postsupport. <br>• Betald support erbjuds gratis under prov- eller provkörningsperioden | 
+| 12 | Juridisk information | Policyer eller villkor som är tillgängliga via en offentlig webbadress |  | 
 
 ---
-## <a name="saas-app-requirements"></a>Krav för SaaS-appar
+## <a name="trial-offer-requirements"></a>Krav på proverbjudanden
 
-|  | List element | Bas krav | Optimala krav | 
+|  | Lista element | Grundläggande krav | Optimala krav | 
 |:--- |:--- |:--- |:--- |
-| 1 | Erbjudande rubrik |<br>• Får endast bestå av gemener, alfanumeriska tecken, bindestreck eller under streck. Kan inte ändras när den har publicerats. <br>• En beskrivning av lösnings erbjudandet.<br>• Matchar online-befordran av lösningen på partnerns webbplats. | Innehåller ord för nyckels ökning |
-| 2 | Teknisk information: konfiguration |<br>• För SaaS-appen väljer du om du bara vill lista din app eller om du vill att kunderna ska kunna köpa din app via Azure.<br>• Välj lämplig text som du vill ha på erbjudande knappen för erbjudandet: kostnads fri, kostnads fri utvärderings version eller kontakta mig<br>• Endast Select (popup-ruta) – en av dessa tillämpliga produkter om din app använder tekniken: Cortana Intelligence, Power BI Solution-mallar, Power Apps |  |
-| 3 | Test Drive | Välj: Ja eller Nej | Kunden kan enkelt förstå vad nästa steg som är tillgängliga: <br>1. testa utvärderings versionen <br>2. Köp nu <br>3. kontakta via e-post eller telefonnummer för att ordna för PoC, utvärdering eller korthet. |
-| 4 | Butik-information: erbjudande Sammanfattning | Detta visas på appens Sök sida med högst 100 tecken | |
-| 5 | Butik information: branscher | Branscher (max 2): Välj de branscher som din app är bäst justerad och tillämplig för. | |
-| 6 | Beskrivning av erbjudande | <br>• Enkel HTML tillåts, inklusive p-, EM-, UL-, Li-, OL-och Head-taggar. Högst 3000 tecken. <br>• 2-3 stycken <br>• Lösnings erbjudandet kan enkelt förstås snabbt <br>• Beskrivningen är omfattande och fångar: mål grupp *, typ av användare, varför det är värdefullt (värde prop) <br>• Beskrivning av erbjudandet är i stycke form med korta meningar som är lätta att förstå. | <br>• Mål branschen har kon turs (om det är relevant) <br>• Formatering med en mening med varje stycke rubrik med en mening eller fras som sammanfattar innehåll som följer och innehåller punkter (när det är lämpligt) för att betona viktiga fördelar. Målet är att läsaren ska kunna förstå erbjudandet i ett överskådligt visnings format och inte behöver läsa stycken. <br>• Det finns avstånd mellan varje stycke och läsningar som en bil broschyr. Innebär inte tekniska funktioner eller kod Lingo utan beskrivande av erbjudandet i enkla villkor och är omfattande. | 
-| 7 | Marknadsförings artefakter | Logo typer visas korrekt | <br>•-Logo typen innehåller "hjälte bild", vilket är bilden med stor formatering i Azure Portal <br>• Logo typer: liten (48x48) & Large (216x216) är krav <br>• Bild krav för hjälte: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish <br>• Skärm bild (max 5): CPP kräver en. png-bild med lösning 1280 x 720. |
-| 8 | Kategorier & branscher | <br>• Funktioner för lösnings erbjudande för kategorier <br>• Minst 1 objekt ska väljas från popup-rutan <br>• Utöka inte till kategorier som lösningen inte passar <br>• Optimal bransch eller alla branscher som valts (om inte optimala branscher <br>• Utöka inte till kategorier som lösningen inte passar <br>• Optimal bransch eller alla branscher som valts (om inte optimala branscher) | Max. 3 kategorier har valts om tillämpligt. |
-| 9 | Hantering av lead | Välj det system där dina leads ska lagras. Lär dig hur du ansluter ditt CRM-system [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) |  |
-| 10 | Kontakter: lösnings support & hjälp | <br>• Tekniker kontakt namn: Ange namnet på den tekniska kontakten för din app. Den här kontakten får teknisk kommunikation från Microsoft.<br>• Teknisk kontakt e-postadress: Ange e-postadressen till den tekniska kontakten för din app.<br>• Teknisk kontakt telefonnummer: Ange telefonnumret till den tekniska kontakten. Nummer noteringar för ISO-telefonnummer stöds; Mer information finns i https://en.wikipedia.org/wiki/E.123.<br>• Support kontaktens namn: Ange namnet på support kontakten för appen. Den här kontakten får support-relaterad kommunikation från Microsoft.<br>• Support Kontakta e-post: Ange e-postadressen till support kontakten för din app. <br>• Support kontakt telefonnummer: Ange telefonnumret till support kontakten. Nummer noteringar för ISO-telefonnummer stöds; Mer information finns i https://en.wikipedia.org/wiki/E.123. <br>• Support-URL: Ange webb adressen till support sidan. | <br>• Alla support metoder som anges: telefon & e-postsupport. <br>• Betald support erbjuds kostnads fritt under utvärderings perioden eller test enhets perioden |
-| 11 | Juridisk information |<br>• URL för sekretess policy: Ange webb adressen till appens sekretess policy i URL-fältet för sekretess policy i CPP. <br>• Användningsvillkor: Ange användnings villkoren för din app. Kunder måste acceptera dessa villkor innan de kan testa din app. |  Principer eller villkor som är tillgängliga via en offentlig URL-plats |
+|  | Lista status | Link måste leda till kundledd provupplevelse | Andra ctas (till exempel köpa nu) finns också | 
 
 ---
+## <a name="saas-app-requirements"></a>Krav på SaaS-appar
 
-## <a name="container-offer-requirements"></a>Krav för container-erbjudande
-
-|  | List element | Bas krav | Optimala krav | 
+|  | Lista element | Grundläggande krav | Optimala krav | 
 |:--- |:--- |:--- |:--- |
-|1 |Erbjudande inställningar | <br>• Erbjudande-ID: högst 50-tecknen <br>• Utgivar-ID: Välj från listruta <br>• Namn: högst 50 tecken | Speglar rubrik formatet som redan är tillgängligt i beskrivningen – vill inte ha långa rubriker. | 
-| 2 | Enheter | Partner klickar på nya SKU: er| Speglar rubrik formatet som redan är tillgängligt i beskrivningen – vill inte ha långa rubriker.  |
-| 3 | Marketplace-artefakter | Logo typer visas korrekt |<br>•-Logo typen innehåller "hjälte bild", vilket är bilden med stor formatering i Azure Portal <br>• Logo typer: liten (48x48) & Large (216x216) är krav <br>• Bild krav för hjälte: https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Skärm bild (max 5): CPP kräver en. png-bild med lösning 1280 x 720.|
-| 4 | Hantering av lead |<br>• Lead-hantering: Välj det system där dina leads ska lagras. <br>• Lär dig hur du ansluter ditt CRM-system [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
+| 1 | Titel för erbjudande |<br>• Får endast bestå av gemener, alfanumeriska tecken, streck eller understreck. Det går inte att ändra när det har publicerats. <br>• Beskrivande lösningserbjudande.<br>• Matchar online marknadsföring av lösning på partnerns hemsida. | Innehåller nyckelord |
+| 2 | Teknisk information: Konfiguration |<br>• För SaaS-appen väljer du om du bara vill lista din app eller om du vill att kunderna ska kunna köpa din app via Azure.<br>• Välj lämplig text som du vill ha på ditt erbjudande förvärv knapp: Gratis, Gratis provperiod, eller Kontakta mig<br>• Välj endast (popup-ruta)- en av dessa tillämpliga produkter om din app använder tekniken: Cortana Intelligence, Power BI-lösningsmallar, Power Apps |  |
+| 3 | Test Drive | Välj: Ja eller Nej | Kunden kan lätt förstå vilka nästa steg som är tillgängliga: <br>1. Prova rättegången <br>2. Köp nu <br>3. Kontakta via e-post eller telefonnummer för att ordna med PoC, Assessment eller Briefing. |
+| 4 | Skyltfönster detaljer: Erbjudande Sammanfattning | Detta visas på appens söksida med högst 100 tecken | |
+| 5 | Skyltfönster detaljer: Industries | Branscher (Max 2): Välj de branscher som appen är bäst justerad och tillämplig på. | |
+| 6 | Beskrivning av erbjudandet | <br>• Enkel HTML är tillåten, inklusive p, em, ul, li, ol och header taggar. Högst 3 000 tecken. <br>• 2-3 stycken <br>• Lösningserbjudande är lätt att förstå med ett ögonkast <br>• Beskrivningen är omfattande och fångar: målgrupp*, typ av användare, varför det är värdefullt (värderep) <br>• Erbjudandebeskrivning är i styckeberättelseform med korta meningar som är lätta att förstå. | <br>• Målindustrin beskrivs (om relevant) <br>• Bra stil formatering med varje styckerubrik som har en en mening eller fras som sammanfattar innehåll som följer och inklusive punkter (när så är lämpligt) för att betona viktiga fördelar. Målet här är att läsaren ska förstå erbjudandet med ett ögonkast i ett lättskådligt format och inte behöva läsa stycken. <br>• Det finns avstånd mellan varje stycke och läser som en bilbroschyr. Vilket innebär inte tekniska funktioner eller kod lingo men beskrivande av erbjudandet i enkla ordalag och är omfattande. | 
+| 7 | Marknadsföring Artefakter | Logotyper visas korrekt | <br>• Logotypen innehåller "hjältebild", som är den stora bilden i Azure-portalen <br>• Logotyper: Små (48x48) & Large (216x216) är krav <br>• Krav på hjältebild:https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish <br>• Skärmdump (Max 5): CPP kräver en PNG-bild med upplösning 1280 x 720. |
+| 8 | Kategorier & Branscher | <br>• Kategorier matchar lösningserbjudanden <br>• Minst 1 eller flera artiklar ska väljas från popup-rutan <br>• Utsträcka inte till kategorier som lösningen inte passar <br>• Optimal industri, eller alla branscher som valts ut (om inte optimala branscher <br>• Utsträcka inte till kategorier som lösningen inte passar <br>• Optimal industri, eller alla branscher som valts ut (om inte optimala branscher) | Max. 3 kategorier som valts ut i förekommande fall. |
+| 9 | Lead Management | Välj det system där dina leads ska lagras. Läs om hur du ansluter ditt CRM-system [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) |  |
+| 10 | Kontakter: Lösningssupport & Hjälp | <br>• Teknisk kontaktnamn: Ange namnet på den tekniska kontakten för din app. Den här kontakten tar emot teknisk kommunikation från Microsoft.<br>• Teknisk kontakt e-post: Ange e-postadressen till den tekniska kontakten för din app.<br>• Tekniska kontakter Telefon: Ange telefonnumret till den tekniska kontakten. ISO-telefonnummer anteckningar stöds; Mer information https://en.wikipedia.org/wiki/E.123finns i .<br>• Supportkontakt Namn: Ange namnet på supportkontakten för din app. Den här kontakten tar emot supportrelaterad kommunikation från Microsoft.<br>• E-post för supportkontakt: Ange e-postadressen till supportkontakten för din app. <br>• Telefonsupport: Ange telefonnumret till supportkontakten. ISO-telefonnummer anteckningar stöds; Mer information https://en.wikipedia.org/wiki/E.123finns i . <br>• Support-URL: Ange webbadressen till supportsidan. | <br>• Alla supportmetoder som anges: telefon & e-postsupport. <br>• Betald support erbjuds gratis under prov- eller provkörningsperioden |
+| 11 | Juridisk information |<br>• Webbadressen till sekretesspolicyn: Ange webbadressen till appens sekretesspolicy i url-fältet för sekretesspolicy i CPP. <br>• Användningsvillkor: Ange användarvillkoren för din app. Kunderna måste acceptera dessa villkor innan de kan prova din app. |  Policyer eller villkor som är tillgängliga via en offentlig webbadress |
 
 ---
 
-## <a name="consulting-offer-requirements"></a>Krav för konsult erbjudanden
+## <a name="container-offer-requirements"></a>Krav på behållarebjudande
 
-|  | List element | Bas krav | Optimala krav |
+|  | Lista element | Grundläggande krav | Optimala krav | 
 |:--- |:--- |:--- |:--- |
-| 1 | Erbjudande rubrik  |  <br>• Måste vara en tydlig lista med tjänst typ och varaktighet i följande format: namn: VARAKTIGHETs typ. (det vill säga "erbjudande: 1 – vecka – proof-of-Concept")  | <br>• Upprepa inte utgivar namnet <br>• Speglar rubrik formatet som redan är tillgängligt i beskrivningen – vill inte ha långa rubriker. | 
-| 2 | Beskrivning av erbjudande  |<br>• Se till att [Microsofts produkt namn](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx) används korrekt <br>• Har marker ATS som pris: uppskattat måste ha en anteckning, antingen längst upp eller längst ned i erbjudandet för att förklara variationen (resa till klienten, antalet servrar som migreras osv.) <br>• Varje erbjudande typ har beskrivnings krav enligt följande: <ul><br>o-kort måste innehålla minst 4 till 5 punkter med information om ämnen som omfattas av kort </ul> <ul><br>o alla workshops behöver Agenda </ul><ul><br>o alla dag ordningar måste delas upp per dag eller vecka, beroende på workshopens varaktighet </ul><ul><br>o-utvärdering, POC, ideella workshops, implementerings erbjudanden behöver slut produkter </ul><ul><br>o-utbildnings workshops behöver inte slut produkter, men de behöver en mer detaljerad agenda med ämnen som kommer att omfattas. | <br>• Alla erbjudanden har dag ordning och slut produkter <br>• Erbjudandet innehåller ett stycke med kontext i företaget som tillhandahåller tjänsten i det övre avsnittet <br>• Erbjudandet innehåller ett stycke på tjänstens värde som ett övre avsnitt |
-| 3 | Markdown-formatering  | Alla erbjudanden måste använda markdown-formatering så att erbjudandet återges korrekt när det konverteras till HTML  |  |
-| 4 | Kategorier & branscher | Kategorier är inte relevanta |  | 
-| 5 | List status (centrum) | Visas automatiskt som kontakta mig |  | 
-| 6 | Hjälp för lösnings support &  | Support & hjälp krävs inte  | | 
-| 7 | Sekretess policy & användnings villkor som är tillgängliga  |  Principer eller villkor krävs inte  | | 
-| 8 | Tjänst typer | Se till att tjänst typen matchar rubrik | |
-| 9 | Kompetenser |<br>• Måste vara minst ett av följande:<br>• Program utveckling <br>• Program integrering <br>• Hantering av program livs cykel <br>• Moln plattform <br>• Data analys <br>• Data Center <br>• Data plattform <br>• DevOps |
+|1 |Inställningar för erbjudande | <br>• Erbjudande-ID: Max 50 Tecken <br>• Publisher-ID: Välj från listrutan <br>• Namn: Max 50 tecken | Speglar den titelstil som redan finns i beskrivningen- vill inte ha långa titlar. | 
+| 2 | SKU: er | Partnerklick på nya SKU:er| Speglar den titelstil som redan finns i beskrivningen- vill inte ha långa titlar.  |
+| 3 | Marknadsplatsartefakter | Logotyper visas korrekt |<br>• Logotypen innehåller "hjältebild", som är den stora bilden i Azure-portalen <br>• Logotyper: Små (48x48) & Large (216x216) är krav <br>• Krav på hjältebild:https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• Skärmdump (Max 5): CPP kräver en PNG-bild med upplösning 1280 x 720.|
+| 4 | Lead Management |<br>• Lead Management: Välj det system där dina ledningar ska lagras. <br>• Lär dig hur du ansluter ditt CRM-system [här](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) | |
+
+---
+
+## <a name="consulting-offer-requirements"></a>Krav på konsulterbjudande
+
+|  | Lista element | Grundläggande krav | Optimala krav |
+|:--- |:--- |:--- |:--- |
+| 1 | Erbjudande titel  |  <br>• Måste tydligt ange tjänsttyp och varaktighet i följande format: NAMN: DURATION TYPE. (det vill än "Erbjudande engagemang: 1-veckors Proof-of-Concept")  | <br>• Upprepar inte utgivarens namn <br>• Speglar den titelstil som redan finns i beskrivningen- vill inte ha långa titlar. | 
+| 2 | Beskrivning av erbjudandet  |<br>• Se till att [Microsofts produktnamn används](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx) på rätt sätt <br>• Erbjudanden markerade som pris: Uppskattade måste ha en anteckning antingen längst upp eller längst ner i erbjudandet för att förklara variationen (resa till klienten, antalet servrar som migreras, etc.) <br>• Varje erbjudandetyp har beskrivningskrav enligt följande: <ul><br>o Genomgångar behöver minst 4 till 5 kulor med information om ämnen som omfattas av briefing </ul> <ul><br>o Alla workshops behöver dagordning </ul><ul><br>o Alla dagordningar måste delas upp efter dag eller vecka, beroende på verkstadens längd </ul><ul><br>o Bedömning, POC, icke-utbildning workshops, genomförande erbjuder behov resultat </ul><ul><br>o Utbildningsworkshops behöver inte slutprodukter, men de behöver en mer detaljerad dagordning med ämnen som kommer att behandlas. | <br>• Alla erbjudanden har agenda och resultat <br>• Erbjudandet innehåller ett stycke med sammanhang på företaget som tillhandahåller tjänsten i den övre delen <br>• Erbjudandet innehåller ett stycke om värdet av själva tjänsten som en övre delen |
+| 3 | Markeringsformatering  | Alla erbjudanden måste använda Markdown-formatering så att erbjudandet återges korrekt när det konverteras till HTML  |  |
+| 4 | Kategorier & Branscher | Kategorier som inte är relevanta |  | 
+| 5 | Liststatus (CTA) | Visas automatiskt som Kontakta mig |  | 
+| 6 | Hjälp om lösningsstöd &  | Support & Hjälp krävs inte  | | 
+| 7 | Sekretesspolicy & användarvillkor tillgänglig  |  Policyer eller villkor som inte krävs  | | 
+| 8 | Tjänsttyper | Se till att servicetyp matchar titel | |
+| 9 | Kompetenser |<br>• Måste vara minst ett av följande:<br>• Applikationsutveckling <br>• Integrering av program <br>• Livscykelhantering för program <br>• Molnplattform <br>• Dataanalys <br>• Datacenter <br>• Dataplattform <br>• DevOps |
 | 10 | Produkter | Måste vara Azure | |
 | 11 | Land/region | Se till att land och region matchar vald valuta | |
-| 12 | Läs mer  | <br>• Länkar längst ned (under beskrivningen, inte länkar till marknads platsen till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt. <br>• Länkar måste ha ett eget namn och visas inte som fil namn för några hämtningar | |
+| 12 | Läs mer  | <br>• Länkar längst ner (under beskrivningen, inte marknadsplatslänkarna till vänster) leder till mer information om lösningen och är allmänt tillgängliga och visas korrekt. <br>• Länkar måste ha ett "eget namn" och inte visas som filnamnet på några nedladdningar | |
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om olika typer av erbjudanden i Marketplace. <br>[SaaS-appar](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Containrar](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Konsulttjänster](https://docs.microsoft.com/azure/marketplace/consulting-services)
-*   [Fastställ List typen för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
+* Läs mer om olika erbjudandetyper på marknadsplatsen. <br>[SaaS-appar](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) <br>[Behållare](https://docs.microsoft.com/azure/marketplace/marketplace-containers) <br>[Konsulttjänster](https://docs.microsoft.com/azure/marketplace/consulting-services)
+*   [Bestäm listtypen för din lösning](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).

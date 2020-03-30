@@ -1,7 +1,7 @@
 ---
-title: Felsöka Azure Virtual Network NAT-anslutning
+title: Felsöka AZURE Virtual Network NAT-anslutning
 titleSuffix: Azure Virtual Network
-description: Felsök problem med Virtual Network NAT.
+description: Felsöka problem med NAT för virtuellt nätverk.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -12,161 +12,170 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2020
+ms.date: 03/14/2020
 ms.author: allensu
-ms.openlocfilehash: 43e6853fd5e7583883f79e70c8dbcd558f137834
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 4a273801290a0a5833ebd83983a8b6b0ad856b45
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79202169"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79408492"
 ---
-# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Felsöka Azure Virtual Network NAT-anslutning
+# <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Felsöka AZURE Virtual Network NAT-anslutning
 
-Den här artikeln hjälper administratörer att diagnostisera och lösa anslutnings problem när de använder Virtual Network NAT.
+Den här artikeln hjälper administratörer att diagnostisera och lösa anslutningsproblem när de använder NAT för virtuellt nätverk.
 
 ## <a name="problems"></a>Problem
 
-* [SNAT-belastning](#snat-exhaustion)
-* [ICMP-Ping fungerar inte](#icmp-ping-is-failing)
-* [Anslutnings problem](#connectivity-failures)
-* [IPv6-samexistens](#ipv6-coexistence)
+* [SNAT utmattning](#snat-exhaustion)
+* [ICMP ping misslyckas](#icmp-ping-is-failing)
+* [Anslutningsfel](#connectivity-failures)
+* [IPv6 samexistens](#ipv6-coexistence)
 
-Följ stegen i följande avsnitt för att lösa problemen.
+LÃ¶s dessa problem genom att sÃ¥ lÃ¤5 nde i följande avsnitt.
 
 ## <a name="resolution"></a>Lösning
 
-### <a name="snat-exhaustion"></a>SNAT-belastning
+### <a name="snat-exhaustion"></a>SNAT utmattning
 
-En enda [NAT-gateway-resurs](nat-gateway-resource.md) stöder från 64 000 upp till 1 000 000 samtidiga flöden.  Varje IP-adress ger 64 000 SNAT-portar till tillgängligt lager. Du kan använda upp till 16 IP-adresser per NAT-gateway-resurs.  SNAT-mekanismen beskrivs [här](nat-gateway-resource.md#source-network-address-translation) i detalj.
+En enda [NAT-gatewayresurs](nat-gateway-resource.md) stöder från 64 000 upp till 1 miljon samtidiga flöden.  Varje IP-adress tillhandahåller 64 000 SNAT-portar till det tillgängliga lagret. Du kan använda upp till 16 IP-adresser per NAT-gatewayresurs.  SNAT-mekanismen beskrivs [här](nat-gateway-resource.md#source-network-address-translation) mer i detalj.
 
-Ofta är rotor saken av SNAT-belastning ett antimönster för hur utgående anslutning upprättas och hanteras.  Granska det här avsnittet noggrant.
+Ofta är grundorsaken till SNAT-utmattning ett anti-mönster för hur utgående anslutning upprättas och hanteras.  Granska det här avsnittet noggrant.
 
 #### <a name="steps"></a>Steg
 
-1. Undersök hur programmet skapar utgående anslutning (till exempel kod granskning eller paket fångst). 
-2. Avgöra om den här aktiviteten är förväntad eller om programmet är felgenererat.  Använd [mått](nat-metrics.md) i Azure Monitor för att styrka dina resultat. Använd kategorin "misslyckades" för måttet för SNAT-anslutningar.
+1. Undersök hur ditt program skapar utgående anslutning (till exempel kodgranskning eller paketinsamling). 
+2. Ta reda på om den här aktiviteten är förväntat eller om programmet missköter sig.  Använd [mått](nat-metrics.md) i Azure Monitor för att underbygga dina resultat. Använd kategorin "Misslyckades" för SNAT-anslutningar.
 3. Utvärdera om lämpliga mönster följs.
-4. Utvärdera om SNAT-portens överbelastning ska begränsas med ytterligare IP-adresser tilldelade till NAT-gateway-resursen.
+4. Utvärdera om SNAT-portutmattning bör minskas med ytterligare IP-adresser som tilldelats NAT gateway-resurs.
 
 #### <a name="design-patterns"></a>Designmönster
 
-Dra alltid nytta av anslutnings åter användning och anslutningspoolen närhelst det är möjligt.  De här mönstren kommer att undvika problem med resurs överbelastning och resultera i förutsägbara beteenden. Primitiver för dessa mönster finns i många utvecklings bibliotek och ramverk.
+Dra alltid nytta av återanvändning och anslutningspoolning när det är möjligt.  Dessa mönster kommer att undvika resursutmattningsproblem och resultera i förutsägbart beteende. Primitiver för dessa mönster finns i många utvecklingsbibliotek och ramverk.
 
-_**Lösning:**_ Använd lämpliga mönster
+_**Lösning:**_ Använd lämpliga mönster och metodtips
 
-- Överväg att använda [asynkrona avsöknings mönster](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) för långvariga åtgärder för att frigöra anslutnings resurser för andra åtgärder.
-- Långvariga flöden (till exempel återanvända TCP-anslutningar) bör använda TCP keepalive-eller Application Layer-keepalive för att undvika tids gränser för mellanliggande system.
-- Återställnings [mönster](https://docs.microsoft.com/azure/architecture/patterns/retry) bör användas för att undvika aggressiva återförsök/burst vid tillfälliga fel eller återställning av fel.
-Att skapa en ny TCP-anslutning för varje HTTP-åtgärd (kallas även "atomiska anslutningar") är en anti-mönster.  Atomiska anslutningar förhindrar att ditt program skalar bra och slöseri med resurser.  Pipelinerar alltid flera åtgärder i samma anslutning.  Ditt program kommer att ha nytta av transaktions hastighet och resurs kostnader.  När ditt program använder kryptering av transport skikt (t. ex. TLS), är det en betydande kostnad för bearbetningen av nya anslutningar.  Granska [moln design mönster i Azure](https://docs.microsoft.com/azure/architecture/patterns/) om du vill ha ytterligare tips.
+- Atomic förfrågningar (en begäran per anslutning) är ett dåligt designval. Sådana anti-mönster begränsar skala, minskar prestanda och minskar tillförlitligheten. Återanvänd i stället HTTP/S-anslutningar för att minska antalet anslutningar och associerade SNAT-portar. Programskalan ökar och prestanda förbättras på grund av minskade handslag, omkostnader och kryptografiska driftkostnader när du använder TLS.
+- DNS kan introducera många enskilda flöden på volym när klienten inte cachelagrar DNS-resolvers-resultatet. Använd cachelagring.
+- UDP-flöden (till exempel DNS-sökning) allokerar SNAT-portar under den inaktiva tidsgränsen. Ju längre inaktiv timeout, desto högre tryck på SNAT-portar. Använd kort tidsgränsen för inaktiv utskrift (till exempel 4 minuter).
+- Använd anslutningspooler för att forma anslutningsvolymen.
+- Överge aldrig tyst ett TCP-flöde och förlita dig på TCP-timers för att rensa upp flödet. Detta lämnar tillstånd som allokerats vid mellanliggande system och slutpunkter och gör portar otillgängliga för andra anslutningar. Detta kan utlösa programfel och SNAT-utmattning. 
+- TCP nära relaterade timervärden bör inte ändras utan expertkunskap om påverkan. TCP återställs, men programmets prestanda kan påverkas negativt när slutpunkterna för en anslutning har inte motsvarat förväntningarna. Viljan att byta timers är oftast ett tecken på ett underliggande designproblem. Granska följande rekommendationer.
 
-#### <a name="possible-mitigations"></a>Möjliga åtgärder
+Ofta kan SNAT-utmattning också förstärkas med andra anti-mönster i den underliggande applikationen. Granska dessa ytterligare mönster och metodtips för att förbättra tjänstens omfattning och tillförlitlighet.
 
-_**Lösning:**_ Skala utgående anslutningar på följande sätt:
+- Överväg [asynkrona avsökningsmönster](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) för tidskrävande åtgärder för att frigöra anslutningsresurser för andra åtgärder.
+- Långlivade flöden (till exempel återanvända TCP-anslutningar) bör använda TCP keepalives eller applikationsskikt keepalives för att undvika mellanliggande system timing out. Att öka tidsgränsen för inaktiv tid är en sista utväg och kanske inte löser grundorsaken. En lång timeout kan orsaka låg hastighet fel när timeout löper ut och införa fördröjning och onödiga fel.
+- Graciösa [återförsöksmönster](https://docs.microsoft.com/azure/architecture/patterns/retry) bör användas för att undvika aggressiva återförsök/bursts vid övergående fel eller felåterställning.
+Att skapa en ny TCP-anslutning för varje HTTP-åtgärd (kallas även "atomanslutningar") är ett anti-mönster.  Atomanslutningar förhindrar att ditt program skalar bra och slösar resurser.  Rör alltid flera åtgärder till samma anslutning.  Ditt program kommer att gynnas i transaktionshastighet och resurskostnader.  När ditt program använder kryptering av transportlager (till exempel TLS) finns det en betydande kostnad i samband med bearbetning av nya anslutningar.  Granska [Azure Cloud Design Patterns](https://docs.microsoft.com/azure/architecture/patterns/) för ytterligare mönster för bästa praxis.
 
-| Scenario | Grund |Åtgärd |
+#### <a name="additional-possible-mitigations"></a>Ytterligare möjliga mildrande åtgärder
+
+_**Lösning:**_ Skala utgående anslutning enligt följande:
+
+| Scenario | Bevis |Åtgärd |
 |---|---|---|
-| Du har konkurrens för SNAT-portar och antalet SNAT-portar under perioder med hög användning. | Kategorin "misslyckades" för [mått](nat-metrics.md) i SNAT-anslutningar i Azure Monitor visar tillfälliga eller permanenta fel över tid och hög anslutnings volym.  | Avgör om du kan lägga till ytterligare offentliga IP-adressresurser eller resurser för offentliga IP-prefix. Detta tillägg tillåter att upp till 16 IP-adresser sammanlagt till din NAT-gateway. Det här tillägget ger mer lager för tillgängliga SNAT-portar (64 000 per IP-adress) och gör att du kan skala ditt scenario ytterligare.|
-| Du har redan fått 16 IP-adresser och har fortfarande överbelastning av SNAT-portar. | Försök att lägga till ytterligare IP-adress misslyckades. Det totala antalet IP-adresser från offentliga IP-adressresurser eller resurser för offentliga IP-prefix överskrider totalt 16. | Distribuera din program miljö över flera undernät och ange en NAT-gateway-resurs för varje undernät.  Utvärdera dina design mönster på ett optimerat sätt baserat på föregående [vägledning](#design-patterns). |
+| Du upplever konkurrens om SNAT-portar och SNAT-portutmattning under perioder med hög användning. | Kategorin "Misslyckades" för SNAT-anslutningar [metric](nat-metrics.md) i Azure Monitor visar tillfälliga eller beständiga fel över tid och hög anslutningsvolym.  | Ta reda på om du kan lägga till ytterligare offentliga IP-adressresurser eller offentliga IP-prefixresurser. Det här tillägget tillåter upp till 16 IP-adresser totalt till din NAT-gateway. Det här tillägget ger mer lager för tillgängliga SNAT-portar (64 000 per IP-adress) och gör att du kan skala ditt scenario ytterligare.|
+| Du har redan gett 16 IP-adresser och fortfarande upplever SNAT port utmattning. | Det gick inte att lägga till ytterligare IP-adress. Totalt antal IP-adresser från offentliga IP-adressresurser eller offentliga IP-prefixresurser överstiger totalt 16. | Distribuera programmiljön över flera undernät och tillhandahålla en NAT-gatewayresurs för varje undernät.  Omvärdera designmönstret för att optimera baserat på föregående [vägledning](#design-patterns). |
 
 >[!NOTE]
->Det är viktigt att förstå varför SNAT-belastning sker. Se till att du använder rätt mönster för skalbara och tillförlitliga scenarier.  Att lägga till fler SNAT-portar i ett scenario utan att förstå orsaken till behovet bör vara en sista utväg. Om du inte förstår varför ditt scenario använder trycket på SNAT-port inventeringen och lägger till fler SNAT-portar i inventeringen genom att lägga till fler IP-adresser, fördröjs bara samma överbelastnings problem när ditt program skalas.  Du kan maskera andra ineffektiva och anti-mönster.
+>Det är viktigt att förstå varför SNAT utmattning uppstår. Se till att du använder rätt mönster för skalbara och tillförlitliga scenarier.  Lägga till fler SNAT-portar till ett scenario utan att förstå orsaken till efterfrågan bör vara en sista utväg. Om du inte förstår varför ditt scenario lägger till tryck på SNAT-portlager, kommer det bara att fördröja samma utmattningsfel om du lägger till fler SNAT-portar i lagret genom att lägga till fler IP-adresser.  Du kan maskera andra ineffektivitet och anti-mönster.
 
-### <a name="icmp-ping-is-failing"></a>ICMP-Ping fungerar inte
+### <a name="icmp-ping-is-failing"></a>ICMP ping misslyckas
 
-[Virtual Network NAT](nat-overview.md) stöder IPv4 UDP-och TCP-protokoll. ICMP stöds inte och förväntas inte fungera.  
+[Virtual Network NAT](nat-overview.md) stöder IPv4 UDP- och TCP-protokoll. ICMP stöds inte och förväntas misslyckas.  
 
-_**Lösning:**_ Använd i stället TCP-anslutnings test (till exempel "TCP-ping") och UDP-specifika program lager för att validera slut punkt till slut punkt anslutning.
+_**Lösning:**_ Använd i stället TCP-anslutningstester (till exempel "TCP ping") och UDP-specifika programlagertester för att validera anslutning från slutpunkt till slutpunkt.
 
-Följande tabell kan användas som start punkt för vilka verktyg som ska användas för att starta tester.
+Följande tabell kan användas som utgångspunkt för vilka verktyg som ska användas för att starta tester.
 
-| Operativsystem | Allmän test av TCP-anslutning | Test av TCP-program | UDP |
+| Operativsystem | Generiskt TCP-anslutningstest | Test av TCP-programlager | UDP |
 |---|---|---|---|
-| Linux | NC (allmän anslutnings test) | Sväng (TCP-programnivå test) | programspecifik |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-webbegäran](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | programspecifik |
+| Linux | nc (generiskt anslutningstest) | curl (TCP-test av programlager) | tillämpningsspecifika |
+| Windows | [PsPing (psping)](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Anropa-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | tillämpningsspecifika |
 
-### <a name="connectivity-failures"></a>Anslutnings problem
+### <a name="connectivity-failures"></a>Anslutningsfel
 
-Anslutnings problem med [Virtual Network NAT](nat-overview.md) kan bero på flera olika problem:
+Anslutningsproblem med [NAT för virtuellt nätverk](nat-overview.md) kan orsakas av flera olika problem:
 
-* tillfällig eller beständig [SNAT-belastning](#snat-exhaustion) på NAT-gatewayen
-* tillfälliga haverier i Azure-infrastrukturen, 
-* tillfälliga haverier i sökvägen mellan Azure och det offentliga Internet målet 
-* tillfälliga eller permanenta haverier på det offentliga Internet målet.
+* övergående eller ihållande [SNAT-utmattning](#snat-exhaustion) av NAT-gatewayen,
+* tillfälliga fel i Azure-infrastrukturen, 
+* tillfälliga fel i sökvägen mellan Azure och det offentliga Internet-målet, 
+* tillfälliga eller beständiga fel på den offentliga Internet-destinationen.
 
-Använd verktyg som följande för att verifiera anslutningen. [ICMP-Ping stöds inte](#icmp-ping-is-failing).
+Använd verktyg som följande för valideringsanslutning. [ICMP-ping stöds inte](#icmp-ping-is-failing).
 
-| Operativsystem | Allmän test av TCP-anslutning | Test av TCP-program | UDP |
+| Operativsystem | Generiskt TCP-anslutningstest | Test av TCP-programlager | UDP |
 |---|---|---|---|
-| Linux | NC (allmän anslutnings test) | Sväng (TCP-programnivå test) | programspecifik |
-| Windows | [PsPing](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Invoke-webbegäran](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | programspecifik |
+| Linux | nc (generiskt anslutningstest) | curl (TCP-test av programlager) | tillämpningsspecifika |
+| Windows | [PsPing (psping)](https://docs.microsoft.com/sysinternals/downloads/psping) | PowerShell [Anropa-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) | tillämpningsspecifika |
 
-#### <a name="snat-exhaustion"></a>SNAT-belastning
+#### <a name="snat-exhaustion"></a>SNAT utmattning
 
-Granska avsnittet om [SNAT-inblåsning](#snat-exhaustion) i den här artikeln.
+Granska avsnittet om [SNAT-utmattning](#snat-exhaustion) i den här artikeln.
 
 #### <a name="azure-infrastructure"></a>Azure-infrastruktur
 
-Azure övervakar och arbetar med sin infrastruktur med gott om service. Tillfälliga fel kan uppstå, det finns ingen garanti för att överföringen är förlustfri.  Använd design mönster som tillåter SYN återöverföringar för TCP-program. Använd anslutnings-timeout tillräckligt stor för att tillåta TCP-dataöverföring för att minska den tillfälliga påverkan som orsakas av ett förlorat SYN-paket.
+Azure övervakar och driver sin infrastruktur med stor omsorg. Övergående fel kan uppstå, det finns ingen garanti för att sändningar är förlustfria.  Använd designmönster som möjliggör SYN-återsändningar för TCP-program. Använd tidsutgångar för anslutning som är tillräckligt stora för att TCP SYN ska kunna överföras för att minska tillfälliga effekter som orsakas av ett förlorat SYN-paket.
 
-_**Lösa**_
+_**Lösning:**_
 
-* Sök efter [SNAT-belastning](#snat-exhaustion).
-* Konfigurations parametern i en TCP-stack som styr SYN återöverförings beteendet kallas RTO ([timeout för återöverföring](https://tools.ietf.org/html/rfc793)). RTO-värdet är justerbart, men vanligt vis 1 sekund eller högre som standard med exponentiella säkerhets kopieringar.  Om programmets anslutnings-timeout är för kort (till exempel 1 sekund) kan du se sporadisk tids gräns för anslutning.  Öka tids gränsen för program anslutningen.
-* Om du anser att längre, oväntade tids gränser med standard program beteenden, öppnar du ett support ärende för ytterligare fel sökning.
+* Kontrollera om [det finns SNAT-utmattning.](#snat-exhaustion)
+* Konfigurationsparametern i en TCP-stack som styr syn-återsändningsbeteendet kallas RTO ([Återsändande time-out](https://tools.ietf.org/html/rfc793)). RTO-värdet är justerbart men vanligtvis 1 sekund eller högre som standard med exponentiell back-off.  Om timeout för anslutning till programmet är för kort (till exempel 1 sekund) kan du se sporadiska anslutningstidsutgångar.  Öka time-time time-out för programanslutningen.
+* Om du observerar längre, oväntade tidsutskrifter med standardprogramfunktioner öppnar du ett supportärende för ytterligare felsökning.
 
-Vi rekommenderar inte artificiellt minska TCP-anslutningens tids gräns eller justera RTO-parametern.
+Vi rekommenderar inte att du på ett konstlat sätt minskar timeouten för TCP-anslutningen eller justerar RTO-parametern.
 
-#### <a name="public-internet-transit"></a>offentlig Internet överföring
+#### <a name="public-internet-transit"></a>Kollektivtrafik på Internet
 
-Risken för tillfälliga haverier ökar med en längre sökväg till målet och fler mellanliggande system. Det förväntas att tillfälliga haverier kan öka i frekvens över [Azure-infrastrukturen](#azure-infrastructure). 
+Risken för tillfälliga fel ökar med en längre väg till destinationen och fler mellanliggande system. Det förväntas att tillfälliga fel kan öka i frekvens över [Azure-infrastruktur](#azure-infrastructure). 
 
-Följ samma rikt linjer som i avsnittet föregående [Azure-infrastruktur](#azure-infrastructure) .
+Följ samma vägledning som föregående [Azure-infrastrukturavsnitt.](#azure-infrastructure)
 
-#### <a name="internet-endpoint"></a>Internet slut punkt
+#### <a name="internet-endpoint"></a>Internet-slutpunkt
 
-Föregående avsnitt gäller, tillsammans med Internet slut punkten som kommunikationen upprättas med. Andra faktorer som kan påverka anslutningen lyckas är:
+Föregående avsnitt gäller, tillsammans med internetslutpunkten som kommunikationen upprättas med. Andra faktorer som kan påverka anslutningen framgång är:
 
-* trafik hantering på mål sidan, inklusive
-- API-hastighet som begränsas av mål Sidan
-- DDoS-åtgärder för volym begränsning eller transport skikt
-* brand vägg eller andra komponenter på målet 
+* trafikledning på destinationssidan, inklusive
+- API-hastighetsbegränsning som införts av målsidan
+- Volymetriska DDoS-mildrande åtgärder eller transportskiktstrafikformning
+* brandvägg eller andra komponenter på destinationen 
 
-Paket som samlas in på källan och målet (om det är tillgängligt) måste vanligt vis ta reda på vad som sker.
+Vanligtvis paket fångar vid källan och målet (om tillgängligt) krävs för att avgöra vad som händer.
 
-_**Lösa**_
+_**Lösning:**_
 
-* Sök efter [SNAT-belastning](#snat-exhaustion). 
-* Verifiera anslutningen till en slut punkt i samma region eller någon annan stans för jämförelse.  
-* Om du skapar hög volym-eller transaktions frekvens test bör du undersöka om du minskar hastigheten för felaktiga händelser.
-* Om ändrings takten påverkar antalet fel, kontrollerar du om begränsningar för API-hastighet eller andra begränsningar på mål sidan kan ha nåtts.
-* Om din undersökning är tveksam kan du öppna ett support ärende för ytterligare fel sökning.
+* Kontrollera om [det finns SNAT-utmattning.](#snat-exhaustion) 
+* Verifiera anslutningen till en slutpunkt i samma region eller någon annanstans för jämförelse.  
+* Om du skapar testning av hög volym eller transaktionshastighet kan du undersöka om en minskning av hastigheten minskar förekomsten av fel.
+* Om ändrande hastighet påverkar felfrekvensen kontrollerar du om API-hastighetsbegränsningar eller andra begränsningar på målsidan kan ha uppnåtts.
+* Om din undersökning är ofullständig öppnar du ett supportärende för ytterligare felsökning.
 
-#### <a name="tcp-resets-received"></a>Mottagna TCP-reuppsättningar
+#### <a name="tcp-resets-received"></a>TCP Återställer mottaget
 
-NAT-gatewayen genererar TCP-återställning på den virtuella käll datorn för trafik som inte är identifierad som pågående.
+NAT-gatewayen genererar TCP-återställningar på källdatorn för trafik som inte känns igen som pågående.
 
-En möjlig orsak är att TCP-anslutningen har nått tids gränsen för inaktivitet.  Du kan justera tids gränsen för inaktivitet från 4 minuter till upp till 120 minuter.
+En möjlig orsak är att TCP-anslutningen har tidssändelser som är inaktiv.  Du kan justera tidsgränsen för inaktiv tid från 4 minuter till upp till 120 minuter.
 
-TCP-återställning genereras inte på den offentliga sidan av NAT-gatewayens resurser. TCP-återställning på mål sidan genereras av den virtuella käll datorn, inte NAT-gateway-resursen.
+TCP-återställningar genereras inte på den offentliga sidan av NAT-gatewayresurser. TCP-återställningar på målsidan genereras av källdatorn, inte NAT-gatewayresursen.
 
-_**Lösa**_
+_**Lösning:**_
 
-* Granska [design mönster](#design-patterns) rekommendationer.  
-* Öppna ett support ärende om du behöver ytterligare fel sökning.
+* Granska rekommendationer för [designmönster.](#design-patterns)  
+* Öppna ett supportärende för ytterligare felsökning om det behövs.
 
-### <a name="ipv6-coexistence"></a>IPv6-samexistens
+### <a name="ipv6-coexistence"></a>IPv6 samexistens
 
-[Virtual Network NAT](nat-overview.md) stöder IPv4 UDP-och TCP-protokoll och distribution på ett [undernät med ett IPv6-prefix stöds inte](nat-overview.md#limitations).
+[Virtual Network NAT](nat-overview.md) stöder IPv4 UDP- och TCP-protokoll och distribution på ett [undernät med ett IPv6-prefix stöds inte](nat-overview.md#limitations).
 
-_**Lösning:**_ Distribuera NAT-gateway i ett undernät utan IPv6-prefix.
+_**Lösning:**_ Distribuera NAT-gateway på ett undernät utan IPv6-prefix.
 
-Du kan ange intresse för ytterligare funktioner via [Virtual Network NAT UserVoice](https://aka.ms/natuservoice).
+Du kan ange intresse för ytterligare funktioner via [NAT UserVoice för virtuellt nätverk](https://aka.ms/natuservoice).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Virtual Network NAT](nat-overview.md)
-* Lär dig om [NAT gateway-resurs](nat-gateway-resource.md)
-* Lär dig mer om [mått och aviseringar för NAT gateway-resurser](nat-metrics.md).
-* [Berätta för oss vad du ska bygga härnäst för Virtual Network NAT i UserVoice](https://aka.ms/natuservoice).
+* Lär dig mer om [NAT för virtuellt nätverk](nat-overview.md)
+* Lär dig ab Stek ut [NAT gateway resurs](nat-gateway-resource.md)
+* Lär dig mer om [mått och aviseringar för NAT-gatewayresurser](nat-metrics.md).
+* [Berätta vad du ska bygga härnäst för VIRTUELLT NÄTVERK NAT i UserVoice](https://aka.ms/natuservoice).
 

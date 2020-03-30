@@ -1,39 +1,38 @@
 ---
-title: Azure-behållare erbjuder krav | Azure Marketplace
-description: Krav för att publicera en Azure-behållare.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Azure Containers erbjuder förutsättningar | Azure Marketplace
+description: Förutsättningar för att publicera en Azure-behållare.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 2c4e5520a2055fafee586fc369c21acfa36037c6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: db2300ae827677f8902e420b136acec3da694c8d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823139"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280022"
 ---
-# <a name="container-publishing-prerequisites"></a>Krav för container publicering
+# <a name="container-publishing-prerequisites"></a>Krav för containerpublicering
 
-I den här artikeln beskrivs kraven för att publicera ett behållar erbjudande på Azure Marketplace.  Om du inte redan har gjort det bör du läsa [publicerings guiden för behållare](../../marketplace-containers.md).
+I den här artikeln beskrivs förutsättningarna för att publicera ett behållarerbjudande på Azure Marketplace.  Om du inte redan har gjort det bör du granska [behållare erbjudande publiceringsguide](../../marketplace-containers.md).
 
-## <a name="publishing-prerequisites"></a>Publicerings krav
+## <a name="publishing-prerequisites"></a>Publiceringsförutsättning
 
-Om du vill publicera en ny behållar avbildning måste du uppfylla följande krav:
+Om du vill publicera en ny behållaravbildning måste du uppfylla följande förutsättningar:
 
-- Åtkomst till Cloud Partner Portal. Mer information finns i publicerings guiden för Azure Marketplace och AppSource.
-- Avtal till Azure Marketplace-villkoren
-- Vara värd för din behållares tekniska till gång i en Azure Container Registry.
-- Ha dina behållar metadata redo att användas. Till exempel följande icke-uttömmande lista:
-  - En rubrik
+- Tillgång till molnpartnerportalen. Mer information finns i Publiceringsguiden för Azure Marketplace och AppSource.
+- Avtal till Villkoren för Azure Marketplace
+- Vara värd för din behållarteknisk tillgång i ett Azure-behållarregister.
+- Ha behållarmetadata redo att användas. Följande icke uttömmande lista:
+  - En titel
   - En beskrivning (i HTML-format)
-  - En logo typ bild (i PNG-format) och i dessa fasta bild storlekar: 40x40 BPT, 90x90 px, 115x 115 BPT och 255x115 BPT.
-- *Användnings villkor* och en *sekretess policy*
-- Dokumentation om container Solution
-- Support kontakter
+  - En logotypbild (i PNG-format) och i dessa fasta bildstorlekar: 40x40 px, 90x90 px, 115x 115 px och 255x115 px.
+- Ett *användarvillkor* och en *sekretesspolicy* uttalanden
+- Dokumentation av behållarlösning
+- Supportkontakter
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan har gjort det måste du [förbereda din behållares tekniska till gångar](./cpp-create-technical-assets.md) innan du [skapar ditt container erbjudande](./cpp-create-offer.md).  
+Om du inte redan har gjort det måste du förbereda dina tekniska resurser för [behållaren](./cpp-create-technical-assets.md) innan du [skapar behållarerbjudandet.](./cpp-create-offer.md)  

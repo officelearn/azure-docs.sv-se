@@ -1,150 +1,149 @@
 ---
-title: Kontrol lera publicerings statusen för ditt kommersiella Marketplace-erbjudande
-description: Kontrol lera status för de verifierings-, certifierings-och förhands gransknings steg som krävs för att publicera ett erbjudande via den kommersiella Marketplace i Microsoft Partner Center.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Kontrollera publiceringsstatusen för ditt Commercial Marketplace-erbjudande
+description: Kontrollera statusen för de steg för validering, certifiering och förhandsversionen som krävs för att publicera ett erbjudande via den kommersiella marknadsplatsen i Microsoft Partner Center.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 14290e000d5c6251216a6b0a0fc68c8a0897210a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 012a574887d9980e0c71c3af84ff70ca8d31312c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824040"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80275687"
 ---
-# <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Kontrol lera publicerings statusen för ditt kommersiella Marketplace-erbjudande
+# <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Kontrollera publiceringsstatusen för ditt Commercial Marketplace-erbjudande
 
-Du kan visa din aktuella **publicerings status** på fliken **erbjudande översikt** i den [kommersiella Marketplace-portalen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) i Partner Center.
+Du kan visa din aktuella **publiceringsstatus** på fliken **Erbjudandeöversikt** på [portalen Commercial Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) i Partnercenter.
 
-En av följande status indikatorer ska visas för varje erbjudande.
+En av följande statusindikatorer bör visas för varje erbjudande.
 
 | **Status**    | **Beskrivning**  |
 | :---------- | :-------------------|
-| **Föreslagna** | Erbjudandet har skapats men det har inte publicerats. |
-| **Publicering pågår** | Erbjudandet/planen fungerar på ett sätt genom stegen i publicerings processen. |
-| **Åtgärd krävs** | Ett kritiskt problem upptäcktes under certifieringen av Microsoft eller något av publicerings stegen. |
-| **Förhandsversion** | Erbjudandet certifierades av Microsoft och väntar nu på en slutgiltig verifiering av utgivaren. Välj Go Live för att göra erbjudandet Live. |
-| **Realtidsinformation** | Erbjudandet är Live på Marketplace och kan ses och förvärvas av kunder. |
-| **Väntande stoppa försäljning** | Utgivare valde "stoppa försäljning" på erbjudandet eller planen, men åtgärden har ännu inte slutförts. |
-| **Inte tillgängligt i Marketplace** | Ett tidigare publicerat erbjudande/plan i Marketplace har tagits bort. |
+| **Utkast** | Erbjudandet har skapats men det publiceras inte. |
+| **Publicera pågår** | Erbjudandet/planen arbetar sig igenom stegen i publiceringsprocessen. |
+| **Uppmärksamhet behövs** | Ett kritiskt problem upptäcktes under certifieringen av Microsoft eller något av publiceringsstegen. |
+| **Förhandsgranska** | Erbjudandet har certifierats av Microsoft och väntar nu på en slutlig verifiering av utgivaren. Välj gå live för att göra erbjudandet live. |
+| **Live** | Erbjudandet är live på marknaden och kan ses och förvärvas av kunder. |
+| **Väntande sluta sälja** | Publisher valde "stop sell" som erbjuds eller planerar, men åtgärden har ännu inte slutförts. |
+| **Inte tillgängligt på marknaden** | Ett tidigare publicerat erbjudande/plan på marknadsplatsen har tagits bort. |
 
-## <a name="automated-validation"></a>Automatiserad verifiering
+## <a name="automated-validation"></a>Automatiserad validering
 
-Det första steget i publicerings processen är en uppsättning automatiserade verifieringar. Varje validerings steg motsvarar en funktion som du valde att aktivera när du skapar erbjudandet. Om funktionen inte har Aktiver ATS hoppar valideringen framåt till nästa publicerings steg. Varje verifierings kontroll måste slutföras innan publicerings statusen godkänns.
+Det första steget i publiceringsprocessen är en uppsättning automatiska valideringar. Varje valideringssteg motsvarar en funktion som du har valt att aktivera när du skapar erbjudandet. Om den funktionen inte var aktiverad hoppar valideringen vidare till nästa publiceringssteg. Varje valideringskontroll måste slutföras innan publiceringsstatusen godkänns.
 
-- **Konfigurera konfiguration av inköps flöde (< 10 min)**
+- **Erbjudandet inköp flöde setup (<10 min)**
 
-I det här steget ser vi till att ditt erbjudande kan uppfyllas när kunderna köpts via Azure Portal. Det här steget gäller bara för erbjudanden som säljs via Microsoft.
+I det här steget säkerställer vi att ditt erbjudande kan uppfyllas när det köps av kunder via Azure-portalen. Det här steget gäller endast för erbjudanden som säljs via Microsoft.
 
-- **Test enhet för data verifiering (~ 5 min)**
+- **Validering av testkörningsdata (~5 min)**
 
-I det här steget validerar vi de data du angav i avsnittet teknisk konfiguration för test enhet i erbjudandet. Testen hets funktioner testas och godkänns. Det här steget gäller bara för erbjudanden med en aktive rad test enhet.
+I det här steget validerar vi de data som du angav i avsnittet teknisk konfiguration av testlusten i erbjudandet. Testkörningsfunktionen är testad och godkänd. Det här steget gäller endast för erbjudanden med en provkörning aktiverad.
 
-- **Test av enhets etablering (~ 30 min)**
+- **Provkörning etablering (~ 30 min)**
 
-I det här steget kan vi när du har verifierat data och funktioner på test enheten i föregående steg distribuera och replikera instanser av test enheten så att de är redo för kund användning.  Det här steget gäller bara för erbjudanden med en aktive rad test enhet.
+I det här steget, efter att ha validerat data och funktioner för din provkörning i föregående steg, distribuerar och replikerar vi instanser av din provkörning så att de är redo för kundanvändning.  Det här steget gäller endast för erbjudanden med en provkörning aktiverad.
 
-- **Verifiering och registrering av lead-hantering (< 15 min)**
+- **Validering och registrering av leadhantering (<15 min)**
 
-I det här steget bekräftar vi att ditt lead-hanterings system kan ta emot kund leads baserat på den information som finns i installations programmet för erbjudandet. Det här steget gäller bara för erbjudanden där lead management har Aktiver ATS.
+I det här steget bekräftar vi att ditt leadhanteringssystem kan ta emot kundleads baserat på de uppgifter som anges i inställningarna för Erbjudandet. Det här steget gäller endast för erbjudanden med leadhantering aktiverad.
 
 ## <a name="certification"></a>Certifiering
 
-Innan erbjudanden skickas till den kommersiella Marketplace i Partner Center måste vara certifierade. Skickade erbjudanden genomgår rigorös testning, vissa automatiserade och andra manuella, inklusive en kontroll av [certifierings principerna för Azure Marketplace](https://docs.microsoft.com/legal/marketplace/general-policies). Erbjudanden för erbjudanden måste markeras som kvalificerade för certifiering innan de fortsätter till nästa steg i publicerings flödet.
+Innan de publiceras måste erbjudanden som skickas till Commercial Marketplace i Partner Center certifieras. Inlämnade erbjudanden genomgår rigorösa tester, vissa automatiserade och andras manuella, inklusive en kontroll mot [Azure Marketplace-certifieringsprinciperna](https://docs.microsoft.com/legal/marketplace/general-policies). Erbjudandeinlämningar måste markeras som berättigade till certifiering innan de går vidare till nästa steg i publiceringsflödet.
 
-### <a name="types-of-validation-that-take-place-during-certification"></a>Typer av verifieringar som sker under certifieringen
+### <a name="types-of-validation-that-take-place-during-certification"></a>Typer av validering som sker under certifieringen
 
-Det finns tre nivåer av verifiering som ingår i certifierings processen för varje erbjudande som skickas.
+Det finns tre valideringsnivåer som ingår i certifieringsprocessen för varje erbjudande som skickas in.
 
-- Affärs berättigande för utgivare
-- Innehålls validering
+- Berättigande till Publisher-företag
+- Validering av innehåll
 - Teknisk validering
 
-#### <a name="publisher-business-eligibility"></a>Affärs berättigande för utgivare
+#### <a name="publisher-business-eligibility"></a>Berättigande till Publisher-företag
 
-Varje erbjudande typ kontrollerar en uppsättning grundläggande berättiganderegler som utgivaren måste uppfylla. Kriterier för berättigande kan omfatta utgivarens MPN status, kompetenser, kompetens nivåer osv.
+Varje erbjudandetyp kontrollerar en uppsättning grundläggande berättigandekriterier som utgivaren måste uppfylla. Behörighetskriterier kan omfatta utgivarens MPN-status, kompetenser som innehas, kompetensnivåer etc.
 
-#### <a name="content-validation"></a>Innehålls validering
+#### <a name="content-validation"></a>Validering av innehåll
 
-Under innehålls valideringen kontrol leras informationen som angavs när du skapade erbjudandet för kvalitet och relevans. Dessa kontroller granskar dina poster för information om Marketplace-listor, prissättning, tillgänglighet, associerade planer osv. För att uppfylla villkoren för Azure Marketplace och/eller AppSource, kommer vi att validera att erbjudandet innehåller:
+Under innehållsvalideringen kontrolleras informationen när du skapade erbjudandet efter kvalitet och relevans. Dessa kontroller kommer att granska dina poster för marknadsplatsen notering detaljer, prissättning, tillgänglighet, tillhörande planer, etc. För att uppfylla kriterierna för Azure Marketplace- och/eller AppSource-listning validerar vi att ditt erbjudande innehåller:
 
-- en rubrik som korrekt beskriver erbjudandet.
-- välskrivna beskrivningar som ger en grundlig översikt och ett värde förslag.
-- kvalitets skärm bilder och medföljande videor särskilt
-- en förklaring av hur erbjudandet använder Microsoft-plattformar och-verktyg.
+- En titel som korrekt beskriver erbjudandet.
+- välskrivna beskrivningar som ger en grundlig översikt och värdeerbjudande;
+- kvalitet skärmdumpar och medföljande videor; Och
+- en förklaring av hur erbjudandet använder Microsofts plattformar och verktyg.
 
-Läs mer om kriterierna för innehålls validering genom att läsa [allmänna registrerings principer](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general).
+Läs mer om kriterierna för innehållsverifiering genom att läsa de [allmänna listningsprinciperna](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general).
 
 #### <a name="technical-validation"></a>Teknisk validering
 
-Under teknisk validering genomgår erbjudandet (paketet eller den binära) följande kontroller.
-- Genomsökt efter skadlig kod
-- Övervakade nätverks anrop
-- Paketet har analyser ATS
-- Grundlig genomsökning av erbjudandets faktiska funktion
+Under teknisk validering genomgår erbjudandet (paket eller binär) följande kontroller.
+- Skannad efter skadlig kod
+- Nätverkssamtal övervakas
+- Paketet analyseras
+- Grundlig skanning av erbjudandets faktiska funktionalitet
 
 Erbjudandet testas på olika plattformar och versioner för att säkerställa att det är robust.
 
-Granska den konfigurations information som krävs för ditt erbjudande i avsnittet teknisk konfiguration i det här dokumentet.
+Granska de specifika konfigurationsinformation som krävs för ditt erbjudande i avsnittet Teknisk konfiguration i det här dokumentet.
 
-### <a name="certification-failure-report"></a>Rapport över certifierings problem
+### <a name="certification-failure-report"></a>Rapport om certifieringsfel
 
-När granskningen är klar flyttas den till nästa steg i publicerings processen, om ditt erbjudande har klarat certifieringen. Om ditt erbjudande har misslyckats med att utföra någon av listorna för registrering, teknik eller princip, eller om du inte är berättigad till att skicka ett erbjudande av den typen, genereras en rapport över fel rapporter och skickas till dig via e-post.
+Efter avslutad granskning, om ditt erbjudande har godkänts certifiering då det går vidare till nästa steg i publiceringsprocessen. Om ditt erbjudande har misslyckats med någon av list-, teknik- eller policykontrollerna, eller om du inte är berättigad att skicka ett erbjudande av den typen, genereras en rapport om certifieringsfel och skickas till dig via e-post.
 
-Den här rapporten innehåller beskrivningar av eventuella principer som misslyckats, tillsammans med gransknings anteckningar. Läs den här e-postrapporten, åtgärda eventuella problem, gör uppdateringar till ditt erbjudande vid behov och skicka erbjudandet på nytt med hjälp av den [kommersiella Marketplace-portalen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) i Partner Center. (Du kan skicka in erbjudandet igen så många gånger som behövs tills du skickar certifieringen).
+Den här rapporten innehåller beskrivningar av alla principer som misslyckades, tillsammans med granskningsanteckningar. Granska den här e-postrapporten, åtgärda eventuella problem, gör uppdateringar av ditt erbjudande där det behövs och skicka erbjudandet igen med hjälp av [portalen Commercial Marketplace](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) i Partner Center. (Du kan skicka in erbjudandet igen så många gånger som behövs tills certifieringen har godkänts).
 
-## <a name="preview-creation"></a>Skapa för hands version
+## <a name="preview-creation"></a>Skapa förhandsgranskning
 
-Under steget för att skapa för **hands** versioner skapar vi en version av ditt erbjudande som är tillgängligt för den mål grupp som du angav i förhands gransknings avsnittet i ditt erbjudande.
+Under steget **Förhandsgranskning skapar** vi en version av ditt erbjudande som endast är tillgänglig för den målgrupp som du angav i förhandsgranskningsavsnittet i erbjudandet.
 
 >[!Note]
-> Använd inte det här steget för att ge personer utanför organisationen insyn i ett erbjudande. Använd alternativet för **privat erbjudande** i stället. I det här läget har ditt erbjudande inte testats fullständigt och godkänts och är inte redo för distribution utanför företaget.
+> Använd inte det här steget för att ge personer utanför organisationen insyn i ett erbjudande. Använd alternativet **Privat erbjudande** i stället. Vid denna punkt, ditt erbjudande har inte testats fullt ut och valideras, och är inte redo för extern distribution.
 
-## <a name="publisher-approval"></a>Utgivarens godkännande
+## <a name="publisher-approval"></a>Godkännande av utgivare
 
-I det här steget får du ett e-postmeddelande med en förfrågan om att granska och godkänna din för hands version av erbjudandet innan det sista publicerings steget.
+I det här steget kommer du att skickas med en begäran om att du ska granska och godkänna din förhandsgranskning av erbjudandet innan det slutliga publiceringssteget.
 
-Om du har valt att sälja ditt erbjudande via Microsoft, kan du testa förvärvet och distributionen av ditt erbjudande för att säkerställa att det uppfyller dina krav under för hands godkännande steget. Ditt erbjudande är ännu inte tillgängligt i den offentliga marknads platsen. När du har testat och godkänt den här för hands versionen måste du välja **Go-Live** på instrument panelen för [**erbjudande översikt**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) .
+Om du har valt att sälja ditt erbjudande via Microsoft kan du testa anskaffningen och distributionen av erbjudandet för att säkerställa att det uppfyller dina krav under den här fasen av förhandsgodkännandet. Ditt erbjudande kommer ännu inte att vara tillgängligt på den offentliga marknaden. När du har testat och godkänt den här förhandsversionen måste du välja **Go-Live** på [**instrumentpanelen Erbjudandeöversikt.**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
 
-Om du vill göra ändringar i erbjudandet under förhands gransknings fasen kan du redigera och skicka om för att publicera en ny för hands version. Se artikeln [Uppdatera befintliga Marketplace-erbjudanden](#update-existing-marketplace-offers) för mer information om fler ändringar.
+Om du vill göra ändringar i erbjudandet under den här förhandsgranskningsfasen kan du redigera och skicka om för att publicera en ny förhandsgranskning. Mer information om fler ändringar finns i artikeln [Uppdatera befintliga marknadsplatserbjudanden.](#update-existing-marketplace-offers)
 
-Om ditt erbjudande redan är aktivt och tillgängligt för allmänheten i Marketplace, kommer alla uppdateringar du gör inte att vara aktiva förrän du väljer **Go-Live** på instrument panelen för [**erbjudande översikt**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) .
+Om ditt erbjudande redan är live och tillgängligt för allmänheten på marknadsplatsen visas inte alla uppdateringar som du gör live förrän du väljer **Go-live** på instrumentpanelen [**erbjudandeöversikt.**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview)
 
 ### <a name="publish-offer-to-the-public"></a>Publicera erbjudande till allmänheten
 
-Logga in på Partner Center och få åtkomst till erbjudandet. Du kommer att omdirigeras till sidan **erbjudande översikt** . Överst på sidan visas ett alternativ för **Go Live**. Välj **Go Live** och efter att du har bekräftat börjar Erbjudandet bli publicerat till allmänheten. Du får ett e-postmeddelande när erbjudandet är Live.
+Logga in på Partner Center och få tillgång till erbjudandet. Du omdirigeras till översiktssidan **för Erbjudandet.** Högst upp på den här sidan ser du ett alternativ för **Go live**. Välj **Gå live,** och efter bekräftelsen börjar erbjudandet publiceras för allmänheten. Du kommer att få ett e-postmeddelande när erbjudandet är live.
 
 ## <a name="publish"></a>Publicera
 
-Nu när du har valt att **sätta igång** med ditt erbjudande, vilket gör det tillgängligt i Marketplace, finns det en serie slutliga verifierings kontroller som kommer att stegas igenom för att säkerställa att Live-erbjudandet är konfigurerat precis som för hands versionen av erbjudandet.
+Nu när du har valt att **gå live** med ditt erbjudande, vilket gör det tillgängligt på marknaden, finns det en rad slutliga valideringskontroller som kommer att träda igenom för att säkerställa att liveerbjudandet är konfigurerat precis som förhandsversionen av erbjudandet.
 
-- **Konfigurera konfiguration av inköps flöde (> 10 min)**
+- **Erbjudandet inköp flöde setup (>10 min)**
 
-I det här steget ser vi till att ditt erbjudande kan uppfyllas när kunderna köpts via Azure Portal. Det här steget gäller bara för erbjudanden som säljs via Microsoft.
+I det här steget säkerställer vi att ditt erbjudande kan uppfyllas när det köps av kunder via Azure-portalen. Det här steget gäller endast för erbjudanden som säljs via Microsoft.
 
-- **Test enhet för data verifiering (~ 5 min)**
+- **Validering av testkörningsdata (~5 min)**
 
-I det här steget validerar vi de data du angav i avsnittet teknisk konfiguration för test enhet i erbjudandet. Testen hets funktioner testas och godkänns. Det här steget gäller bara för erbjudanden med en aktive rad test enhet.
+I det här steget validerar vi de data som du angav i avsnittet teknisk konfiguration av testlusten i erbjudandet. Testkörningsfunktionen är testad och godkänd. Det här steget gäller endast för erbjudanden med en provkörning aktiverad.
 
-- **Test av enhets etablering (~ 30 min)**
+- **Provkörning etablering (~ 30 min)**
 
-I det här steget distribuerar och replikerar vi instanser av test enheten så att de är redo för kund användning.  Det här steget gäller bara för erbjudanden med en aktive rad test enhet.
+I det här steget distribuerar och replikerar vi instanser av din provkörning så att de är redo för kundanvändning.  Det här steget gäller endast för erbjudanden med en provkörning aktiverad.
 
-- **Verifiering och registrering av lead-hantering (> 15 min)**
+- **Validering och registrering av leadhantering (>15 min)**
 
-I det här steget bekräftar vi att ditt lead-hanterings system kan ta emot kund leads baserat på den information som finns i installations programmet för erbjudandet. Det här steget gäller bara för erbjudanden där lead management har Aktiver ATS.
+I det här steget bekräftar vi att ditt leadhanteringssystem kan ta emot kundleads baserat på de uppgifter som anges i inställningarna för Erbjudandet. Det här steget gäller endast för erbjudanden med leadhantering aktiverad.
 
-- **Slutgiltig publicering (> 30 minuter)**
+- **Slutlig publicering (>30 minuter)**
 
-I det här steget ser vi till att erbjudandet blir offentligt tillgängligt på Marketplace.
+I det här steget ser vi till att ditt erbjudande blir offentligt tillgängligt på marknaden.
 
-## <a name="update-existing-marketplace-offers"></a>Uppdatera befintliga Marketplace-erbjudanden
+## <a name="update-existing-marketplace-offers"></a>Uppdatera befintliga marketplace-erbjudanden
 
 Om du vill göra ändringar i ett erbjudande som du redan har publicerat måste du först uppdatera det befintliga erbjudandet och sedan publicera det igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](./update-existing-offer.md)
+- [Uppdatera ett befintligt erbjudande i Commercial Marketplace](./update-existing-offer.md)

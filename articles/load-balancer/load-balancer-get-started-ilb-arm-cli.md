@@ -1,7 +1,7 @@
 ---
-title: Skapa en intern belastningsutjämnare – Azure CLI
+title: Skapa en intern grundläggande belastningsutjämnare - Azure CLI
 titleSuffix: Azure Load Balancer
-description: I den här artikeln får du lära dig hur du skapar en intern belastningsutjämnare med hjälp av Azure CLI
+description: I den här artikeln kan du lära dig hur du skapar en intern belastningsutjämnare med Azure CLI
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: allensu
-ms.openlocfilehash: 8726991682ca8c2eabd628f1539ff940bf94e03d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 51df1936e5d8725b2243e7c0084973370139c540
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79284114"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79457019"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>Skapa en intern lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
@@ -39,9 +39,10 @@ Följande exempel skapar en resursgrupp med namnet *myResourceGroupILB* på plat
     --name myResourceGroupILB \
     --location eastus
 ```
+
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med namnet *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
+Skapa det virtuella nätverket *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -50,17 +51,18 @@ Skapa ett virtuellt nätverk med namnet *myVnet* med undernätet *mySubnet* i *m
     --location eastus \
     --subnet-name mySubnet
 ```
+
 ## <a name="create-basic-load-balancer"></a>Skapa en lastbalanserare
 
 I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följande komponenter i lastbalanseraren:
   - en klientdels-IP-konfiguration som tar emot inkommande nätverkstrafik i lastbalanseraren.
-  - en serverdels-IP-pool om klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
+  - en serverdels-IP-pool dit klientdelspoolen skickar den belastningsutjämnade nätverkstrafiken.
   - en hälsoavsökning som fastställer hälsan för serverdelens virtuella datorinstanser.
   - en lastbalanseringsregel som definierar hur trafiken ska distribueras till de virtuella datorerna.
 
 ### <a name="create-the-load-balancer"></a>Skapa lastbalanseraren
 
-Skapa en intern Load Balancer med [AZ Network lb Create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **myLoadBalancer** som innehåller en IP-konfiguration för klient delen med namnet **frontend**, en backend-pool med namnet **MYBACKENDPOOL** som är associerad med en privat IP-adress * * 10.0.0.7.
+Skapa en intern belastningsutjämnare med [az-nätverk lb skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) heter **myLoadBalancer** som innehåller en frontend IP-konfiguration med namnet **myFrontEnd**, en backend pool som heter **myBackEndPool** som är associerad med en privat IP-adress ** 10.0.0.7.
 
 ```azurecli-interactive
   az network lb create \
@@ -71,7 +73,8 @@ Skapa en intern Load Balancer med [AZ Network lb Create](https://docs.microsoft.
     --backend-pool-name myBackEndPool \
     --vnet-name myVnet \
     --subnet mySubnet      
-  ```
+```
+
 ### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
 
 En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan ta emot nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
@@ -130,7 +133,7 @@ I det här exemplet skapar du två virtuella datorer som ska användas som serve
 
 Skapa en tillgänglighetsuppsättning med [az vm availabilityset create](/cli/azure/network/nic)
 
- ```azurecli-interactive
+```azurecli-interactive
   az vm availability-set create \
     --resource-group myResourceGroupILB \
     --name myAvailabilitySet
@@ -180,11 +183,11 @@ runcmd:
   - npm init
   - npm install express -y
   - nodejs index.js
-``` 
- 
+```
+
 Skapa de virtuella datorerna med [az vm create](/cli/azure/vm#az-vm-create).
 
- ```azurecli-interactive
+```azurecli-interactive
 for i in `seq 1 2`; do
   az vm create \
     --resource-group myResourceGroupILB \
@@ -196,6 +199,7 @@ for i in `seq 1 2`; do
     --custom-data cloud-init.txt
     done
 ```
+
 Det kan ta några minuter för de virtuella datorerna att distribueras.
 
 ### <a name="create-a-vm-for-testing-the-load-balancer"></a>Skapa en virtuell dator för att testa lastbalanseraren
@@ -221,14 +225,15 @@ Hämta den privata IP-adressen för lastbalanseraren med [az network lb show](/c
   az network lb show \
     --name myLoadBalancer \
     --resource-group myResourceGroupILB
-``` 
+```
+
 ![Testa lastbalanseraren](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När de inte längre behövs kan du ta bort resursgruppen, lastbalanseraren och alla relaterade resurser med kommandot [az group delete](/cli/azure/group#az-group-delete).
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete --name myResourceGroupILB
 ```
 

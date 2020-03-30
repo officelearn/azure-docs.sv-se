@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ffd47d886a9d74c637f4f7ff634b3fd4c4a77574
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 1d2140ca0064e2eb6b12726bcee7bf5362de8fbe
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79240872"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79408291"
 ---
-# <a name="quickstart-set-up-a-tenant"></a>Snabb start: Konfigurera en klient
+# <a name="quickstart-set-up-a-tenant"></a>Snabbstart: Konfigurera en klient
 
 Med Microsoft Identity-plattformen kan utvecklare skapa appar som riktar sig till flera olika anpassade Microsoft 365-miljöer och -identiteter. För att komma igång med att använda Microsoft Identity-plattform så behöver du åtkomst till en miljö, även kallad en Azure AD-klientorganisation, som kan registrera och hantera appar, ha åtkomst till Microsoft 365-data och distribuera villkorsstyrd åtkomst och klientorganisationsbegränsningar.
 
@@ -57,7 +57,7 @@ Om du inte har en befintlig klient som är kopplad till ditt konto kan du ser et
 
 ### <a name="create-a-new-azure-ad-tenant"></a>Skapa en ny Azure AD-klient
 
-Om du inte redan har en Azure AD-klient eller vill skapa en ny för utveckling, kan du läsa [snabb](../fundamentals/active-directory-access-create-new-tenant.md) starten eller följa [skapandet av katalogen](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Du måste ange följande information för att skapa den nya klientorganisationen:
+Om du inte redan har en Azure AD-klient eller vill skapa en ny för utveckling läser du [snabbstarten](../fundamentals/active-directory-access-create-new-tenant.md) eller följer helt enkelt [upplevelsen för att skapa katalogen](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Du måste ange följande information för att skapa den nya klientorganisationen:
 
 - **Organisationens namn**
 - **Initial domän** – kommer att vara en del av *.onmicrosoft.com. Du kan anpassa domänen mer senare.
@@ -72,6 +72,6 @@ Om du vill börja skapa appar som loggar in sociala och lokala konton måste du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Prova en kodningssnabbstart och börja autentisera användare. 
-* Mer djupgående kodexempel finns i avsnittet **Självstudier** i dokumentationen.
-* Vill du distribuera appen i molnet? Ta en titt på avsnittet om att [distribuera containrar till Azure](https://docs.microsoft.com/azure/index?pivot=products&panel=containers).
+* [Registrera en app](quickstart-register-app.md) och integrera med Microsofts identitetsplattform. 
+* Lär dig grunderna i [autentisering](authentication-scenarios.md).
+* Se [Hur Azure-prenumerationer associeras med Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) för information om relationen mellan prenumerationer och en Azure AD-klientorganisation.

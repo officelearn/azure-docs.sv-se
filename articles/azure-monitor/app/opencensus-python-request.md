@@ -1,28 +1,28 @@
 ---
-title: Spårning av inkommande begär anden i Azure Application insikter med python-räkning python | Microsoft Docs
-description: Övervaka begär ande anrop för dina python-appar via python-räkningar.
+title: Spårning av inkommande begäran i Azure Application Insights med OpenCensus Python | Microsoft-dokument
+description: Övervaka begärandenrop för dina Python-appar via OpenCensus Python.
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.openlocfilehash: 0396bd8d150c6145a39f36e7be9e6e2dcacef2c4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669955"
 ---
-# <a name="track-incoming-requests-with-opencensus-python"></a>Spåra inkommande begär Anden med openräkningar python
+# <a name="track-incoming-requests-with-opencensus-python"></a>Spåra inkommande begäranden med OpenCensus Python
 
-Inkommande begär ande data samlas in med hjälp av openräkningar python och dess olika integreringar. Spåra inkommande begär ande data som skickas till dina webb program som bygger på populära webb ramverk `django``flask` och `pyramid`. Data skickas sedan till Application Insights under Azure Monitor som `requests` telemetri.
+Inkommande begäran data samlas in med OpenCensus Python och dess olika integrationer. Spåra inkommande begäran data som skickas till dina webbprogram `django` `flask` bygger `pyramid`på de populära webbramverk , och . Data skickas sedan till Application Insights `requests` under Azure Monitor som telemetri.
 
-Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](../../azure-monitor/app/opencensus-python.md).
+Först instrumentera ditt Python-program med senaste [OpenCensus Python SDK](../../azure-monitor/app/opencensus-python.md).
 
-## <a name="tracking-django-applications"></a>Spåra django-program
+## <a name="tracking-django-applications"></a>Spåra Django applikationer
 
-1. Hämta och installera `opencensus-ext-django` från [pypi](https://pypi.org/project/opencensus-ext-django/) och instrumentera ditt program med `django` mellanprogram. Inkommande begär Anden som skickas till ditt `django` program kommer att spåras.
+1. Ladda ner `opencensus-ext-django` och installera från [PyPI](https://pypi.org/project/opencensus-ext-django/) och instrument ditt program med `django` middleware. Inkommande förfrågningar som `django` skickas till din ansökan kommer att spåras.
 
-2. Inkludera `opencensus.ext.django.middleware.OpencensusMiddleware` i `settings.py`-filen under `MIDDLEWARE`.
+2. Inkludera `opencensus.ext.django.middleware.OpencensusMiddleware` i `settings.py` filen `MIDDLEWARE`under .
 
     ```python
     MIDDLEWARE = (
@@ -32,7 +32,7 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
     )
     ```
 
-3. Kontrol lera att AzureExporter har kon figurer ATS korrekt i `settings.py` under `OPENCENSUS`.
+3. Kontrollera att AzureExporter är korrekt `settings.py` `OPENCENSUS`konfigurerat i under .
 
     ```python
     OPENCENSUS = {
@@ -45,7 +45,7 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
     }
     ```
 
-4. Du kan också lägga till URL: er till `settings.py` under `BLACKLIST_PATHS` för begär Anden som du inte vill spåra.
+4. Du kan också lägga `settings.py` `BLACKLIST_PATHS` till webbadresser till under för förfrågningar som du inte vill spåra.
 
     ```python
     OPENCENSUS = {
@@ -59,9 +59,9 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
     }
     ```
 
-## <a name="tracking-flask-applications"></a>Spåra program i kolven
+## <a name="tracking-flask-applications"></a>Spåra flaskapplikationer
 
-1. Hämta och installera `opencensus-ext-flask` från [pypi](https://pypi.org/project/opencensus-ext-flask/) och instrumentera ditt program med `flask` mellanprogram. Inkommande begär Anden som skickas till ditt `flask` program kommer att spåras.
+1. Ladda ner `opencensus-ext-flask` och installera från [PyPI](https://pypi.org/project/opencensus-ext-flask/) och instrument ditt program med `flask` middleware. Inkommande förfrågningar som `flask` skickas till din ansökan kommer att spåras.
 
     ```python
     
@@ -86,7 +86,7 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
     
     ```
 
-2. Du kan konfigurera `flask` mellanprogram direkt i koden. För förfrågningar från URL: er som du inte vill spåra lägger du till dem i `BLACKLIST_PATHS`.
+2. Du kan `flask` konfigurera din middleware direkt i koden. För förfrågningar från webbadresser som du inte vill `BLACKLIST_PATHS`spåra, lägg till dem i .
 
     ```python
     app.config['OPENCENSUS'] = {
@@ -100,9 +100,9 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
     }
     ```
 
-## <a name="tracking-pyramid-applications"></a>Spåra program i pyramiden
+## <a name="tracking-pyramid-applications"></a>Spåra pyramidprogram
 
-1. Hämta och installera `opencensus-ext-django` från [pypi](https://pypi.org/project/opencensus-ext-pyramid/) och instrumentera ditt program med `pyramid`-interpoleringen. Inkommande begär Anden som skickas till ditt `pyramid` program kommer att spåras.
+1. Ladda ner `opencensus-ext-django` och installera från [PyPI](https://pypi.org/project/opencensus-ext-pyramid/) och instrument ditt program med `pyramid` interpolering. Inkommande förfrågningar som `pyramid` skickas till din ansökan kommer att spåras.
 
     ```python
     def main(global_config, **settings):
@@ -112,7 +112,7 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
                          '.pyramid_middleware.OpenCensusTweenFactory')
     ```
 
-2. Du kan konfigurera din `pyramid`-Tween direkt i koden. För förfrågningar från URL: er som du inte vill spåra lägger du till dem i `BLACKLIST_PATHS`.
+2. Du kan `pyramid` konfigurera interpolering direkt i koden. För förfrågningar från webbadresser som du inte vill `BLACKLIST_PATHS`spåra, lägg till dem i .
 
     ```python
     settings = {
@@ -134,5 +134,5 @@ Börja med att Instrumenta din python-app med senaste [Openräkning python SDK](
 * [Programkarta](../../azure-monitor/app/app-map.md)
 * [Tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)
 * [Sök](../../azure-monitor/app/diagnostic-search.md)
-* [Logg (analys) fråga](../../azure-monitor/log-query/log-query-overview.md)
-* [Transaktions diagnostik](../../azure-monitor/app/transaction-diagnostics.md)
+* [Loggfråga (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
+* [Transaktionsdiagnostik](../../azure-monitor/app/transaction-diagnostics.md)

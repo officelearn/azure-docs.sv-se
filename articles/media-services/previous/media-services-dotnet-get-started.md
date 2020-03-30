@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 7dd49df782115c8c328eed819395209ee7217fd3
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/23/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77566071"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Kom igång med att leverera innehåll på begäran med hjälp av .NET SDK  
@@ -27,12 +27,12 @@ ms.locfileid: "77566071"
 
 Den här självstudiekursen beskriver steg för steg hur du implementerar en enkel VoD-innehållsleveranstjänst (Video-on-Demand) med Azure Media Services-programmet (AMS) med hjälp av Azure Media Services .NET SDK.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att kunna genomföra vägledningen:
 
-* Ett Azure-konto. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Ett Media Services-konto. Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
+* Ett Azure-konto. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Ett Media Services-konto. Om du vill skapa ett Media Services-konto läser du [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
 * .NET Framework 4.0 eller senare.
 * Visual Studio.
 
@@ -42,7 +42,7 @@ Vägledningen innehåller följande uppgifter:
 2. Skapar och konfigurerar ett Visual Studio-projekt.
 3. Ansluter till Media Services-kontot.
 2. Överföra en videofil.
-3. Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet.
+3. Kodar källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet.
 4. Publicera tillgången och få URL:er för strömning och progressiv överföring.  
 5. Spela upp ditt innehåll.
 
@@ -70,7 +70,7 @@ När du arbetar med Azure Media Services är ett av de vanligaste scenarierna at
 
 Starta slutpunkten för direktuppspelning genom att göra följande:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. I fönstret Inställningar klickar du på Slutpunkter för direktuppspelning.
 3. Klicka på den slutpunkt för direktuppspelning som är standard.
 
@@ -81,7 +81,7 @@ Starta slutpunkten för direktuppspelning genom att göra följande:
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 
-1. Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
+1. Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation enligt beskrivningen i [Media Services-utvecklingen med .NET](media-services-dotnet-how-to-use.md). 
 2. Skapa en ny mapp (mappen kan vara på valfri plats på den lokala enheten) och kopiera en MP4-fil som du vill koda och strömma eller ladda ner progressivt. I det här exemplet används sökvägen ”C:\VideoFiles”.
 
 ## <a name="connect-to-the-media-services-account"></a>Anslut till Media Services-kontot
@@ -152,7 +152,7 @@ Funktionen **Main** anropar metoder som definieras ytterligare i det här avsnit
 
 ## <a name="create-a-new-asset-and-upload-a-video-file"></a>Skapa en ny tillgång och ladda upp en videofil
 
-I Media Services överför du (eller för in) dina digitala filer till en tillgång. **Till gångs** enheten kan innehålla video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning (samt metadata om dessa filer.)  När filerna har laddats upp lagras innehållet på ett säkert sätt i molnet för vidare bearbetning och strömning. Filerna i tillgången kallas **Tillgångsfiler**.
+I Media Services överför du (eller för in) dina digitala filer till en tillgång. **Asset-entiteten** kan innehålla video-, ljud-, bild-, miniatyrsamlingar, textspår och filer med dold textning (och metadata om dessa filer.)  När filerna har laddats upp lagras ditt innehåll säkert i molnet för vidare bearbetning och streaming. Filerna i tillgången kallas **Tillgångsfiler**.
 
 Den **UploadFile**-metod som definieras nedan kallas **CreateFromFile** (definieras i .NET SDK-tillägg). **CreateFromFile** skapar en ny tillgång som den angivna källfilen överförs till.
 
@@ -187,10 +187,10 @@ Lägg till följande metod i programklassen.
     }
 ```
 
-## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet
+## <a name="encode-the-source-file-into-a-set-of-adaptive-bitrate-mp4-files"></a>Koda källfilen till en uppsättning MP4-filer med anpassningsbar bithastighet 
 När du har fört in tillgångar i Media Services kan media kodas, användas med transmux, förses med vattenstämpel och så vidare innan de skickas till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. De här aktiviteterna kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i tillgångsfilen.
 
-Som tidigare nämnts är ett mycket vanligt scenario när du arbetar med Azure Media Services att du levererar direktuppspelning med anpassningsbar bithastighet till klienterna. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming(HLS), Smooth Streaming och MPEG DASH.
+Som tidigare nämnts är ett mycket vanligt scenario när du arbetar med Azure Media Services att du levererar strömning med anpassningsbar bithastighet till klienterna. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming(HLS), Smooth Streaming och MPEG DASH.
 
 Om du vill dra nytta av dynamisk paketering måste du koda eller omkoda din mezzaninfil (källa) till en uppsättning MP4- eller Smooth Streaming-filer med anpassningsbar bithastighet.  
 
@@ -238,7 +238,7 @@ Lägg till följande metod i programklassen.
 
 ## <a name="publish-the-asset-and-get-urls-for-streaming-and-progressive-download"></a>Publicera tillgången och få URL:er för strömning och progressiv nedladdning
 
-Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Positionerare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: OnDemandOrigin-lokaliserare som används för strömning av media (till exempel MPEG DASH, HLS eller Smooth Streaming) och lokaliserare för åtkomstsignatur (SAS) som används för att hämta filer.
+Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Lokaliserare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler.
 
 ### <a name="some-details-about-url-formats"></a>Information om URL-format
 
@@ -380,10 +380,10 @@ Mer information finns i följande avsnitt:
 - [Spela upp ditt innehåll med befintliga spelare](media-services-playback-content-with-existing-players.md)
 - [Bädda in MPEG-DASH-anpassad direktuppspelad video i ett HTML5-program med DASH.js](media-services-embed-mpeg-dash-in-html5.md)
 
-## <a name="download-sample"></a>Ladda ned exempel
+## <a name="download-sample"></a>Hämta exempel
 Följande kodexempel innehåller koden som du skapade i den här kursen: [exempel](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: SSO mellan ADAL & MSAL-appar (iOS/macOS) – Microsoft Identity Platform | Azure
+title: SSO mellan ADAL & MSAL-appar (iOS/macOS) – Microsofts identitetsplattform | Azure
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,43 +17,43 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 2fbb6e837ae898daf4bc78d5cccc75660463e8a7
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085413"
 ---
-# <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Så här: SSO mellan ADAL-och MSAL-appar på macOS och iOS
+# <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>Så här: SSO mellan ADAL- och MSAL-appar på macOS och iOS
 
-Microsoft Authentication Library (MSAL) för iOS kan dela SSO-tillstånd med [ADAL mål-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc) mellan program. Du kan migrera dina appar till MSAL i din egen takt, och se till att användarna fortfarande kommer att ha nytta av Cross-app SSO – även med en blandning av ADAL-och MSAL-baserade appar.
+Microsoft Authentication Library (MSAL) för iOS kan dela SSO-tillstånd med [ADAL Objective-C](https://github.com/AzureAD/azure-activedirectory-library-for-objc) mellan program. Du kan migrera dina appar till MSAL i din egen takt, så att användarna fortfarande kan dra nytta av SSO över flera appar – även med en blandning av ADAL- och MSAL-baserade appar.
 
-Om du behöver hjälp med att konfigurera SSO mellan appar med MSAL SDK, se [tyst SSO mellan flera appar](single-sign-on-macos-ios.md#silent-sso-between-apps). Den här artikeln fokuserar på SSO mellan ADAL och MSAL.
+Om du letar efter vägledning för att konfigurera SSO mellan appar som använder MSAL SDK läser du [Tyst SSO mellan flera appar](single-sign-on-macos-ios.md#silent-sso-between-apps). Den här artikeln fokuserar på SSO mellan ADAL och MSAL.
 
-Vilka som implementerar SSO är beroende av ADAL-versionen som du använder.
+Vilka detaljer som implementerar SSO beror på ADAL-version som du använder.
 
-## <a name="adal-27x"></a>ADAL 2.7. x
+## <a name="adal-27x"></a>ADAL 2.7.x
 
-I det här avsnittet beskrivs SSO-skillnader mellan MSAL och ADAL 2.7. x
+Det här avsnittet behandlar SSO-skillnader mellan MSAL och ADAL 2.7.x
 
-### <a name="cache-format"></a>Cache-format
+### <a name="cache-format"></a>Cacheformat
 
-ADAL 2.7. x kan läsa MSAL cache-format. Du behöver inte göra något särskilt för enkel inloggning mellan appar med version ADAL 2.7. x. Du måste dock vara medveten om skillnaderna i konto identifierare som de två biblioteken stöder.
+ADAL 2.7.x kan läsa MSAL-cacheformatet. Du behöver inte göra något speciellt för cross-app SSO med version ADAL 2.7.x. Du måste dock vara medveten om skillnader i kontoidentifierare som dessa två bibliotek stöder.
 
-### <a name="account-identifier-differences"></a>Skillnader i konto identifierare
+### <a name="account-identifier-differences"></a>Skillnader i kontoidentifierare
 
-MSAL och ADAL använder olika konto identifierare. ADAL använder UPN som primär konto identifierare. MSAL använder en icke-uppspelad konto identifierare som baseras på ett objekt-ID och ett klient-ID för AAD-konton och ett `sub`-anspråk för andra typer av konton.
+MSAL och ADAL använder olika kontoidentifierare. ADAL använder UPN som primär kontoidentifierare. MSAL använder en kontoidentifierare som inte kan visas som baseras på ett objekt-ID och ett klient-ID för AAD-konton och ett `sub` anspråk för andra typer av konton.
 
-När du tar emot ett `MSALAccount`-objekt i MSAL-resultatet innehåller det en konto identifierare i `identifier`-egenskapen. Programmet bör använda denna identifierare för efterföljande tysta begär Anden.
+När du `MSALAccount` får ett objekt i MSAL-resultatet innehåller det `identifier` en kontoidentifierare i egenskapen. Programmet bör använda den här identifieraren för efterföljande tysta begäranden.
 
-Förutom `identifier`innehåller `MSALAccount`-objektet en visnings bara identifierare som kallas `username`. Detta översätter till `userId` i ADAL. `username` anses inte vara en unik identifierare och kan ändras när som helst, så den bör endast användas för scenarier med bakåtkompatibilitet med ADAL. MSAL har stöd för cache-frågor med hjälp av antingen `username` eller `identifier`, där fråga av `identifier` rekommenderas.
+Förutom `identifier`innehåller `MSALAccount` objektet en visningsbar identifierare som heter `username`. Det kan `userId` översättas till i ADAL. `username`anses inte vara en unik identifierare och kan ändras när som helst, så den bör endast användas för bakåtkompatibilitetsscenarier med ADAL. MSAL stöder cachefrågor `username` med `identifier`antingen eller `identifier` , där frågor rekommenderas.
 
-I följande tabell sammanfattas skillnader i konto identifierare mellan ADAL och MSAL:
+I följande tabell sammanfattas skillnader i kontoidentifierare mellan ADAL och MSAL:
 
-| Konto identifierare                | MSAL                                                         | ADAL 2.7. x      | Äldre ADAL (före ADAL 2.7. x) |
+| Kontoidentifierare                | MSAL                                                         | ADAL 2.7.x      | Äldre ADAL (före ADAL 2.7.x) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
-| visnings bara identifierare            | `username`                                                   | `userId`        | `userId`                       |
-| unikt ID som inte går att lyssna | `identifier`                                                 | `homeAccountId` | SAKNAS                            |
-| Inget konto-ID är känt               | Fråga alla konton via `allAccounts:`-API i `MSALPublicClientApplication` | SAKNAS             | SAKNAS                            |
+| displayerbar identifierare            | `username`                                                   | `userId`        | `userId`                       |
+| unik identifierare som inte kan visas | `identifier`                                                 | `homeAccountId` | Ej tillämpligt                            |
+| Inget konto-ID känt               | Fråga alla `allAccounts:` konton via API i`MSALPublicClientApplication` | Ej tillämpligt             | Ej tillämpligt                            |
 
 Detta är `MSALAccount` gränssnittet som tillhandahåller dessa identifierare:
 
@@ -88,30 +88,30 @@ Detta är `MSALAccount` gränssnittet som tillhandahåller dessa identifierare:
 
 ### <a name="sso-from-msal-to-adal"></a>SSO från MSAL till ADAL
 
-Om du har en MSAL-app och en ADAL-app, och användaren först loggar in i den MSAL-baserade appen, kan du hämta SSO i ADAL-appen genom att spara `username` från `MSALAccount`-objektet och skicka den till din ADAL-baserade app som `userId`. ADAL kan sedan hitta konto informationen tyst med `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:`-API: et.
+Om du har en MSAL-app och en ADAL-app och användaren först loggar in på den MSAL-baserade `MSALAccount` appen kan du få SSO i `userId`ADAL-appen genom att spara `username` från objektet och skicka den till din ADAL-baserade app som . ADAL kan sedan hitta kontoinformationen `acquireTokenSilentWithResource:clientId:redirectUri:userId:completionBlock:` tyst med API:et.
 
 ### <a name="sso-from-adal-to-msal"></a>SSO från ADAL till MSAL
 
-Om du har en MSAL-app och en ADAL-app, och användaren först loggar in i den ADAL-baserade appen, kan du använda ADAL användar identifierare för konto uppslag i MSAL. Detta gäller även när du migrerar från ADAL till MSAL.
+Om du har en MSAL-app och en ADAL-app och användaren först loggar in på den ADAL-baserade appen kan du använda ADAL-användaridentifierare för kontosökningar i MSAL. Detta gäller även vid migrering från ADAL till MSAL.
 
-#### <a name="adals-homeaccountid"></a>ADAL-homeAccountId
+#### <a name="adals-homeaccountid"></a>ADAL hemAccountId
 
-ADAL 2.7. x returnerar `homeAccountId` i `ADUserInformation`-objektet i resultatet via den här egenskapen:
+ADAL 2.7.x `homeAccountId` returnerar `ADUserInformation` objektet i objektet via den här egenskapen:
 
 ```objc
 /*! Unique AAD account identifier across tenants based on user's home OID/home tenantId. */
 @property (readonly) NSString *homeAccountId;
 ```
 
-`homeAccountId` i ADAL är motsvarigheten till `identifier` i MSAL. Du kan spara den här identifieraren som ska användas i MSAL för konto uppslag med `accountForIdentifier:error:`-API: et.
+`homeAccountId`adals motsvarar `identifier` i MSAL. Du kan spara den här identifieraren som ska användas `accountForIdentifier:error:` i MSAL för kontosökningar med API:et.
 
-#### <a name="adals-userid"></a>ADAL `userId`
+#### <a name="adals-userid"></a>ADAL:s`userId`
 
-Om `homeAccountId` inte är tillgängligt eller om du bara har den displayable identifieraren kan du söka efter kontot i MSAL med hjälp av ADAL `userId`.
+Om `homeAccountId` det inte är tillgängligt, eller om du bara har den `userId` visningsbara identifieraren, kan du använda ADAL:s för att söka upp kontot i MSAL.
 
-I MSAL börjar du med att slå upp ett konto genom att `username` eller `identifier`. Använd alltid `identifier` för frågor om du har det, och Använd bara `username` som reserv. Om kontot hittas använder du kontot i `acquireTokenSilent`-anropen.
+I MSAL slår du först `username` `identifier`upp ett konto med eller . Använd `identifier` alltid för att fråga om du `username` har det och använd den bara som reserv. Om kontot hittas använder du `acquireTokenSilent` kontot i samtalen.
 
-Mål-C:
+Mål C:
 
 ```objc
 NSString *msalIdentifier = @"previously.saved.msal.account.id";
@@ -138,7 +138,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
-Införliva
+Swift:
 
 ```swift
         
@@ -165,7 +165,7 @@ do {
 
 
 
-MSAL-API: er som stöds för konto sökning:
+MSAL-api:er som stöds för kontosökning:
 
 ```objc
 /*!
@@ -188,13 +188,13 @@ Returns account for for the given username (received from an account object retu
                               error:(NSError * __autoreleasing *)error;
 ```
 
-## <a name="adal-2x-266"></a>ADAL 2. x-2.6.6
+## <a name="adal-2x-266"></a>ADAL 2.x-2.6.6
 
-I det här avsnittet beskrivs SSO-skillnader mellan MSAL och ADAL 2. x-2.6.6.
+Det här avsnittet beskriver SSO-skillnader mellan MSAL och ADAL 2.x-2.6.6.
 
-Äldre versioner av ADAL stöder inte MSAL cache-formatet. Men för att säkerställa en smidig migrering från ADAL till MSAL kan MSAL läsa det äldre ADAL cache-formatet utan att fråga användaren om autentiseringsuppgifter igen.
+Äldre ADAL-versioner stöder inte MSAL-cacheformatet internt. För att säkerställa en smidig migrering från ADAL till MSAL kan MSAL dock läsa det äldre ADAL-cacheformatet utan att fråga efter användarautentiseringsuppgifter igen.
 
-Eftersom `homeAccountId` inte är tillgänglig i äldre ADAL-versioner måste du leta upp konton med hjälp av `username`:
+Eftersom `homeAccountId` det inte finns i äldre ADAL-versioner måste du `username`slå upp konton med hjälp av:
 
 ```objc
 /*!
@@ -207,9 +207,9 @@ Eftersom `homeAccountId` inte är tillgänglig i äldre ADAL-versioner måste du
                               error:(NSError * __autoreleasing *)error;
 ```
 
-Exempel:
+Ett exempel:
 
-Mål-C:
+Mål C:
 
 
 ```objc
@@ -218,7 +218,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
-Införliva
+Swift:
 
 ```swift
 do {
@@ -235,9 +235,9 @@ do {
 
 
 
-Alternativt kan du läsa alla konton, som även kommer att läsa konto information från ADAL:
+Alternativt kan du läsa alla konton, som också kommer att läsa kontoinformation från ADAL:
 
-Mål-C:
+Mål C:
 
 ```objc
 NSArray *accounts = [application allAccounts:nil];
@@ -258,7 +258,7 @@ MSALSilentTokenParameters *silentParameters = [[MSALSilentTokenParameters alloc]
 [application acquireTokenSilentWithParameters:silentParameters completionBlock:completionBlock];
 ```
 
-Införliva
+Swift:
 
 ```swift
       
@@ -288,4 +288,4 @@ do {
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md)
+Läs mer om [autentiseringsflöden och programscenarier](authentication-flows-app-scenarios.md)

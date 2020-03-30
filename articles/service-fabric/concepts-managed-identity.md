@@ -1,75 +1,75 @@
 ---
 title: Hanterade identiteter för Azure
-description: Lär dig mer om att använda hanterade identiteter för Azure med Service Fabric.
+description: Läs mer om hur du använder hanterade identiteter för Azure med Service Fabric.
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
 ms.openlocfilehash: 06ebcfdf3d6a3815908752153acb09437d745d15
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76986758"
 ---
-# <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Använda hanterade identiteter för Azure med Service Fabric (för hands version)
+# <a name="using-managed-identities-for-azure-with-service-fabric-preview"></a>Använda hanterade identiteter för Azure med Service Fabric (förhandsversion)
 
-En vanlig utmaning när du bygger moln program är att på ett säkert sätt hantera autentiseringsuppgifterna i din kod för att autentisera till olika tjänster utan att spara dem lokalt på en arbets station för utvecklare eller i käll kontroll. *Hanterade identiteter för Azure* löser det här problemet för alla resurser i Azure Active Directory (Azure AD) genom att tillhandahålla dem automatiskt hanterade identiteter i Azure AD. Du kan använda en tjänst identitet för att autentisera till en tjänst som stöder Azure AD-autentisering, inklusive Key Vault, utan att några autentiseringsuppgifter lagras i din kod.
+En vanlig utmaning när du skapar molnprogram är hur du på ett säkert sätt hanterar autentiseringsuppgifterna i koden för att autentisera till olika tjänster utan att spara dem lokalt på en utvecklararbetsstation eller i källkontroll. *Hanterade identiteter för Azure* löser det här problemet för alla dina resurser i Azure Active Directory (Azure AD) genom att förse dem med automatiskt hanterade identiteter i Azure AD. Du kan använda en tjänsts identitet för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan några autentiseringsuppgifter som lagras i din kod.
 
-*Hanterade identiteter för Azure-resurser* är kostnads fria med Azure AD för Azure-prenumerationer. Ingen extra kostnad utgår.
+*Hanterade identiteter för Azure-resurser* är kostnadsfria med Azure AD för Azure-prenumerationer. Ingen extra kostnad utgår.
 
 > [!NOTE]
-> *Hanterade identiteter för Azure* är det nya namnet på tjänsten som tidigare kallades HANTERAD TJÄNSTIDENTITET (MSI).
+> *Hanterade identiteter för Azure* är det nya namnet för tjänsten som tidigare kallades MSI (Managed Service Identity).
 
 ## <a name="concepts"></a>Begrepp
 
-Hanterade identiteter för Azure baseras på flera viktiga begrepp:
+Hanterade identiteter för Azure baseras på flera nyckelbegrepp:
 
-- **Klient-ID** – en unik identifierare som genererats av Azure AD och som är kopplad till ett program och tjänstens huvud namn under dess första etablering (se även [program-ID](/azure/active-directory/develop/developer-glossary#application-id-client-id).)
+- **Klient-ID** - en unik identifierare som genereras av Azure AD och som är knuten till ett program och tjänsthuvudnamn under dess första etablering (se även [program-ID](/azure/active-directory/develop/developer-glossary#application-id-client-id).)
 
-- **Huvud-ID** – objekt-ID för tjänstens huvud namn för din hanterade identitet som används för att bevilja rollbaserad åtkomst till en Azure-resurs.
+- **Huvud-ID** - objekt-ID för tjänstens huvudobjekt för din hanterade identitet som används för att bevilja rollbaserad åtkomst till en Azure-resurs.
 
-- **Tjänstens huvud namn** – ett Azure Active Directory objekt som representerar projektionen av ett AAD-program i en specifik klient organisation (se [tjänstens huvud namn](../active-directory/develop/developer-glossary.md#service-principal-object)).
+- **Tjänsthuvudnamn** - ett Azure Active Directory-objekt, som representerar projektionen av ett AAD-program i en viss klient (se även [tjänstens huvudnamn](../active-directory/develop/developer-glossary.md#service-principal-object).)
 
 Det finns två typer av hanterade identiteter:
 
-- En **systemtilldelad hanterad identitet** aktive ras direkt på en Azure-tjänstinstans.  Livs cykeln för en tilldelad identitet är unik för den Azure-tjänstinstans som den är aktive rad på.
-- En **användartilldelad hanterad identitet** skapas som en fristående Azure-resurs. Identiteten kan tilldelas till en eller flera Azure Service-instanser och hanteras separat från instansernas livscykler.
+- En **systemtilldelad hanterad identitet** aktiveras direkt på en Azure-tjänstinstans.  Livscykeln för en systemtilldelad identitet är unik för Azure-tjänstinstansen som den är aktiverad på.
+- En **användartilldelad hanterad identitet** skapas som en fristående Azure-resurs. Identiteten kan tilldelas en eller flera Azure-tjänstinstanser och hanteras separat från livscykeln för dessa instanser.
 
-Om du vill veta mer om skillnaden mellan hanterade identitets typer kan du läsa [Hur fungerar hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
+Mer information om skillnaden mellan hanterade identitetstyper finns i [Hur fungerar hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)
 
-## <a name="supported-scenarios-for-service-fabric-applications"></a>Scenarier som stöds för Service Fabric program
+## <a name="supported-scenarios-for-service-fabric-applications"></a>Scenarier som stöds för Service Fabric-program
 
-Hanterade identiteter för Service Fabric stöds bara i Azure-distribuerade Service Fabric-kluster och endast för program som distribueras som Azure-resurser. ett program som inte har distribuerats som en Azure-resurs kan inte tilldelas en identitet. Konceptuellt att tala, stöd för hanterade identiteter i ett Azure Service Fabric-kluster består av två faser:
+Hanterade identiteter för Service Fabric stöds endast i Azure-distribuerade Service Fabric-kluster och endast för program som distribueras som Azure-resurser. ett program som inte distribueras som en Azure-resurs kan inte tilldelas en identitet. Begreppsmässigt består stödet för hanterade identiteter i ett Azure Service Fabric-kluster av två faser:
 
-1. Tilldela program resursen en eller flera hanterade identiteter. ett program kan tilldelas en enda tilldelad system identitet och/eller upp till 32 användarspecifika identiteter.
+1. Tilldela en eller flera hanterade identiteter till programresursen. Ett program kan tilldelas en enda systemtilldelad identitet och/eller upp till 32 användartilldelade identiteter.
 
-2. I programmets definition mappar du en av identiteterna som tilldelats programmet till en enskild tjänst som omfattar programmet.
+2. Inom programmets definition mappar du en av de identiteter som tilldelats programmet till en enskild tjänst som ingår i programmet.
 
-Den systemtilldelade identiteten för ett program är unik för det programmet. en användardefinierad identitet är en fristående resurs som kan tilldelas till flera program. I ett program kan en enda identitet (om systemtilldelade eller tilldelade användare) tilldelas till flera tjänster i programmet, men varje enskild tjänst kan bara tilldelas en identitet. Slutligen måste en tjänst tilldelas en identitet som uttryckligen har åtkomst till den här funktionen. Mappningen av ett programs identiteter till komponenternas tjänster gör det möjligt för isolering i program – en tjänst kan bara använda den identitet som är mappad till den.  
+Den systemtilldelade identiteten för ett program är unikt för det programmet. en användartilldelad identitet är en fristående resurs som kan tilldelas flera program. I ett program kan en enda identitet (oavsett om den är systemtilldelad eller användartilldelad) tilldelas flera tjänster i programmet, men varje enskild tjänst kan bara tilldelas en identitet. Slutligen måste en tjänst tilldelas en identitet som uttryckligen ska ha åtkomst till den här funktionen. I själva verket möjliggör mappningen av ett programs identiteter till dess ingående tjänster isolering i programet – en tjänst får endast använda den identitet som mappats till den.  
 
-För närvarande stöds följande scenarier för den här förhands gransknings funktionen:
+För närvarande stöds följande scenarier för den här förhandsgranskningsfunktionen:
 
 - Distribuera ett nytt program med en eller flera tjänster och en eller flera tilldelade identiteter
 
-- Tilldela en eller flera hanterade identiteter till ett befintligt (Azure-distribuerat) program för att få åtkomst till Azure-resurser
+- Tilldela en eller flera hanterade identiteter till ett befintligt (Azure-distribuerat) program för att komma åt Azure-resurser
 
-Följande scenarier stöds inte eller rekommenderas inte. Observera att de här åtgärderna inte blockeras, men kan leda till avbrott i dina program:
+Följande scenarier stöds inte eller rekommenderas inte. Observera att dessa åtgärder kanske inte blockeras, men kan leda till avbrott i dina program:
 
-- Ta bort eller ändra identiteter som har tilldelats till ett program. Om du måste göra ändringar måste du skicka in separata distributioner för att först lägga till en ny identitets tilldelning och sedan ta bort en tidigare tilldelad. Borttagning av en identitet från ett befintligt program kan ha oönskade effekter, inklusive att lämna programmet i ett tillstånd som inte kan uppgraderas. Det är säkert att ta bort programmet helt om det är nödvändigt att ta bort en identitet. OBS! detta tar bort den systemtilldelade identiteten (om den har definierats) som är associerad med programmet och tar bort alla associationer med de användardefinierade identiteter som tilldelats programmet.
+- Ta bort eller ändra identiteterna som tilldelats ett program. Om du måste göra ändringar skickar du separata distributioner för att först lägga till en ny identitetstilldelning och tar sedan bort en tidigare tilldelad. Borttagning av en identitet från ett befintligt program kan ha oönskade effekter, inklusive att lämna ditt program i ett tillstånd som inte kan uppgraderas. Det är säkert att stryka ansökan helt och hållet om det är nödvändigt att ta bort en identitet. Observera att detta tar bort den systemtilldelade identitet (om så definieras) som är associerad med programmet och tar bort alla associationer med de användartilldelade identiteter som tilldelats programmet.
 
-- Service Fabric stöd för hanterade identiteter är inte integrerat för närvarande i [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); integrationen görs i slutet av för hands versions perioden för funktionen hanterad identitet.
+- Service Fabric-stöd för hanterade identiteter är för närvarande inte integrerat i [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md). Integreringen kommer att uppnås i slutet av förhandsgranskningsperioden för funktionen för hanterad identitet.
 
 >
 > [!NOTE]
 >
-> Den här funktionen finns i förhandsversion. Det kan vara föremål för frekventa ändringar och inte lämpligt för produktions distributioner.
+> Den här funktionen är en förhandsversion. Det kan vara föremål för frekventa ändringar och inte lämpliga för produktionsdistributioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Distribuera ett nytt Azure Service Fabric-kluster med stöd för hanterad identitet](./configure-new-azure-service-fabric-enable-managed-identity.md)
 - [Aktivera stöd för hanterad identitet i ett befintligt Azure Service Fabric-kluster](./configure-existing-cluster-enable-managed-identity-token-service.md)
 - [Distribuera ett Azure Service Fabric-program med en systemtilldelad hanterad identitet](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
-- [Distribuera ett Azure Service Fabric-program med en användardefinierad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-- [Utnyttja den hanterade identiteten för ett Service Fabric program från service code](./how-to-managed-identity-service-fabric-app-code.md)
-- [Bevilja ett Azure Service Fabric program åtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)
-- [Deklarera och använda program hemligheter som KeyVaultReferences](./service-fabric-keyvault-references.md)
+- [Distribuera ett Azure Service Fabric-program med en användartilldelad hanterad identitet](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+- [Utnyttja den hanterade identiteten för ett Service Fabric-program från servicekod](./how-to-managed-identity-service-fabric-app-code.md)
+- [Bevilja en Azure Service Fabric-programåtkomst till andra Azure-resurser](./how-to-grant-access-other-resources.md)
+- [Deklarera och använda programhemligheter som KeyVaultReferences](./service-fabric-keyvault-references.md)

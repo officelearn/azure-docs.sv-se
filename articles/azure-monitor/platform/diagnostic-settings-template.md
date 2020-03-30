@@ -1,6 +1,6 @@
 ---
-title: Skapa diagnostisk inställning i Azure med Resource Manager-mall
-description: Skapa diagnostiska inställningar med en Resource Manager-mall för att vidarebefordra Azure-plattforms loggar till Azure Monitor loggar, Azure Storage eller Azure Event Hubs.
+title: Skapa diagnostikinställning i Azure med hjälp av Resource Manager-mallen
+description: Skapa diagnostikinställningar med hjälp av en Resource Manager-mall för att vidarebefordra Azure-plattformsloggar till Azure Monitor-loggar, Azure-lagring eller Azure Event Hubs.
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
@@ -8,31 +8,31 @@ ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672437"
 ---
-# <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall
-[Diagnostikinställningar](diagnostic-settings.md) i Azure Monitor anger var du vill skicka [plattforms loggar](platform-logs-overview.md) som samlas in av Azure-resurser och den Azure-plattform som de är beroende av. Den här artikeln innehåller information och exempel på hur du använder en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att skapa och konfigurera diagnostikinställningar för att samla in plattforms loggar till olika mål.
+# <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Skapa diagnostikinställning i Azure med hjälp av en Resource Manager-mall
+[Diagnostikinställningar](diagnostic-settings.md) i Azure Monitor anger var [plattformsloggar](platform-logs-overview.md) som samlas in av Azure-resurser och Azure-plattformen som de är beroende av ska skickas. Den här artikeln innehåller information och exempel för hur du använder en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att skapa och konfigurera diagnostikinställningar för att samla in plattformsloggar till olika destinationer.
 
 > [!NOTE]
-> Eftersom du inte kan [skapa en diagnostisk inställning](diagnostic-settings.md) för Azure aktivitets loggen med hjälp av POWERSHELL eller CLI som diagnostikinställningar för andra Azure-resurser, skapar du en Resource Manager-mall för aktivitets loggen med hjälp av informationen i den här artikeln och distribuerar mallen med POWERSHELL eller cli.
+> Eftersom du inte kan [skapa en diagnostikinställning](diagnostic-settings.md) för Azure Activity-loggen med PowerShell eller CLI som diagnostikinställningar för andra Azure-resurser skapar du en Resource Manager-mall för aktivitetsloggen med hjälp av informationen i den här artikeln och distribuerar mallen med PowerShell eller CLI.
 
-## <a name="deployment-methods"></a>Distributions metoder
-Du kan distribuera Resource Manager-mallar med valfri giltig metod, inklusive PowerShell och CLI. Diagnostikinställningar för aktivitets loggen måste distribueras till en prenumeration med hjälp av `az deployment create` för CLI eller `New-AzDeployment` för PowerShell. Diagnostikinställningar för resurs loggar måste distribueras till en resurs grupp med hjälp av `az group deployment create` för CLI eller `New-AzResourceGroupDeployment` för PowerShell.
+## <a name="deployment-methods"></a>Distributionsmetoder
+Du kan distribuera Resource Manager-mallar med valfri giltig metod, inklusive PowerShell och CLI. Diagnostikinställningar för aktivitetsloggen måste `az deployment create` distribueras `New-AzDeployment` till en prenumeration som använder för CLI eller PowerShell. Diagnostikinställningar för resursloggar måste distribueras `az group deployment create` till `New-AzResourceGroupDeployment` en resursgrupp som använder för CLI eller PowerShell.
 
-Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) och [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md) . 
+Mer information finns [i Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) och distribuera resurser med Resource [Manager-mallar och Azure CLI.](../../azure-resource-manager/templates/deploy-cli.md) 
 
 
 
 
 
 ## <a name="resource-logs"></a>Resursloggar
-För resurs loggar lägger du till en resurs av typen `<resource namespace>/providers/diagnosticSettings` i mallen. Avsnittet egenskaper följer formatet som beskrivs i [diagnostikinställningar-Create eller Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ange ett `category` i avsnittet `logs` för var och en av de kategorier som är giltiga för den resurs som du vill samla in. Lägg till egenskapen `metrics` för att samla in resurs mått till samma mål om [resursen stöder mått](metrics-supported.md).
+Lägg till en typresurs `<resource namespace>/providers/diagnosticSettings` i mallen för resursloggar. Egenskapsavsnittet följer formatet som beskrivs i [Diagnostikinställningar - Skapa eller uppdatera](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ange `category` en `logs` i avsnittet för var och en av de kategorier som gäller för den resurs som du vill samla in. Lägg `metrics` till egenskapen för att samla in resursmått på samma mål om [resursen stöder mått](metrics-supported.md).
 
-Följande är en mall som samlar in en resurs logg kategori för en viss resurs till en Log Analytics arbets yta, lagrings konto och händelsehubben.
+Följande är en mall som samlar in en resursloggkategori för en viss resurs till en Log Analytics-arbetsyta, ett lagringskonto och en händelsehubb.
 
 ```json
 "resources": [
@@ -69,7 +69,7 @@ Följande är en mall som samlar in en resurs logg kategori för en viss resurs 
 
 
 ### <a name="example"></a>Exempel
-Följande är ett exempel som skapar en diagnostisk inställning för en autoskalningsinställning som möjliggör strömning av resurs loggar till en händelsehubben, ett lagrings konto och en Log Analytics arbets yta.
+Följande är ett exempel som skapar en diagnostikinställning för en automatisk skalningsinställning som möjliggör direktuppspelning av resursloggar till en händelsehubb, ett lagringskonto och en Log Analytics-arbetsyta.
 
 ```json
 {
@@ -144,7 +144,7 @@ Följande är ett exempel som skapar en diagnostisk inställning för en autoska
 ```
 
 ## <a name="activity-log"></a>Aktivitetslogg
-För Azure aktivitets logg lägger du till en resurs av typen `Microsoft.Insights/diagnosticSettings`. De tillgängliga kategorierna visas i [Kategorier i aktivitets loggen](activity-log-view.md#categories-in-the-activity-log). Följande är en mall som samlar in alla aktivitets logg kategorier till en Log Analytics arbets yta, lagrings konto och händelsehubben.
+Lägg till en resurs av typen `Microsoft.Insights/diagnosticSettings`. De tillgängliga kategorierna visas i [Kategorier i aktivitetsloggen](activity-log-view.md#categories-in-the-activity-log). Följande är en mall som samlar in alla aktivitetsloggkategorier till en Log Analytics-arbetsyta, ett lagringskonto och händelsenav.
 
 
 ```json
@@ -237,5 +237,5 @@ För Azure aktivitets logg lägger du till en resurs av typen `Microsoft.Insight
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [plattforms loggar i Azure](platform-logs-overview.md).
-* Lär dig mer om [diagnostikinställningar](diagnostic-settings.md).
+* Läs mer om [plattformsloggar i Azure](platform-logs-overview.md).
+* Läs mer om [diagnostikinställningar](diagnostic-settings.md).

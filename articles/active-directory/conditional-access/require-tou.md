@@ -1,6 +1,6 @@
 ---
-title: Villkorlig åtkomst kräver användnings villkor – Azure Active Directory
-description: I den här snabb starten får du lära dig hur du kan kräva att användnings villkoren godkänns innan åtkomst till valda molnappar beviljas av Azure Active Directory villkorlig åtkomst.
+title: Villkorlig åtkomst kräver användningsvillkor - Azure Active Directory
+description: I den här snabbstarten får du lära dig hur du kan kräva att dina användarvillkor accepteras innan åtkomst till valda molnappar beviljas av Azure Active Directory Villkorlig åtkomst.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,137 +12,137 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74380106"
 ---
-# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabb start: Kräv användnings villkor för att godkännas innan du får åtkomst till molnappar
+# <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Snabbstart: Kräv att användningsvillkor accepteras innan du öppnar molnappar
 
-Innan du får åtkomst till vissa molnappar i din miljö kan du vilja få tillåtelse från användare i form av att godkänna dina användnings villkor (ToU). Azure Active Directory (Azure AD) villkorlig åtkomst ger dig följande:
+Innan du öppnar vissa molnappar i din miljö kanske du vill få samtycke från användare i form av att acceptera dina användarvillkor (ToU). Azure Active Directory (Azure AD) Villkorlig åtkomst ger dig:
 
 - En enkel metod för att konfigurera ToU
-- Alternativet för att kräva att du accepterar användnings villkoren via en princip för villkorlig åtkomst  
+- Alternativet att kräva att du godkänner dina användarvillkor via en policy för villkorlig åtkomst  
 
-Den här snabb starten visar hur du konfigurerar en [princip för villkorlig åtkomst i Azure AD](../active-directory-conditional-access-azure-portal.md) som kräver att en ToU godkänns för en vald molnbaserad app i din miljö.
+Den här snabbstarten visar hur du konfigurerar en [Azure AD-princip](../active-directory-conditional-access-azure-portal.md) för villkorlig åtkomst som kräver att en åtkomstanteckning accepteras för en vald molnapp i din miljö.
 
 ![Skapa princip](./media/require-tou/5555.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra scenariot i den här snabb starten behöver du:
+För att slutföra scenariot i den här snabbstarten måste du:
 
-- **Åtkomst till en Azure AD Premium-utgåva** – villkorlig åtkomst i Azure AD är en Azure AD Premium funktion.
-- **Ett test konto med namnet Isabella Simonsen** – om du inte vet hur du skapar ett test konto läser du [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+- **Åtkomst till en Azure AD Premium-utgåva** – Azure AD Conditional Access är en Azure AD Premium-funktion.
+- **Ett testkonto som heter Isabella Simonsen** - Om du inte vet hur du skapar ett testkonto läser [du Lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 ## <a name="test-your-sign-in"></a>Testa din inloggning
 
-Målet med det här steget är att få en överblick över inloggnings upplevelsen utan en princip för villkorlig åtkomst.
+Målet med det här steget är att få ett intryck av inloggningsupplevelsen utan en princip för villkorlig åtkomst.
 
 **Så här testar du inloggningen:**
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) som Isabella Simonsen.
+1. Logga in på din [Azure-portal](https://portal.azure.com/) som Isabella Simonsen.
 1. Logga ut.
 
-## <a name="create-your-terms-of-use"></a>Skapa dina användnings villkor
+## <a name="create-your-terms-of-use"></a>Skapa dina användarvillkor
 
-Det här avsnittet innehåller stegen för att skapa en exempel-ToU. När du skapar en ToU väljer du ett värde för **tvinga med mallar för villkorsstyrd åtkomst**. Om du väljer **anpassad princip** öppnas dialog rutan för att skapa en ny princip för villkorlig åtkomst så snart din ToU har skapats.
+I det här avsnittet får du möjlighet att skapa ett exempel på tou. När du skapar en åtkomstmedu väljer du ett värde för **Framtvinga med principmallar**för villkorlig åtkomst . Om du väljer **Anpassad princip** öppnas dialogrutan för att skapa en ny princip för villkorlig åtkomst så snart din åtkomstanpassning har skapats.
 
-**Så här skapar du användnings villkoren:**
+**Så här skapar du användningsvillkor:**
 
 1. Skapa ett nytt dokument i Microsoft Word.
-1. Skriv **Mina användnings villkor**och spara sedan dokumentet på datorn som **mytou. pdf**.
-1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör, säkerhets administratör eller en administratör för villkorlig åtkomst.
-1. Klicka på **Azure Active Directory**i Azure Portal i det vänstra navigerings fältet.
+1. Skriv **Mina användarvillkor**och spara sedan dokumentet på datorn som **mytou.pdf**.
+1. Logga in på din [Azure-portal](https://portal.azure.com) som global administratör, säkerhetsadministratör eller administratör för villkorlig åtkomst.
+1. Klicka på **Azure Active Directory**i Azure-portalen i det vänstra navigeringsfältet .
 
    ![Azure Active Directory](./media/require-tou/02.png)
 
-1. Klicka på **villkorlig åtkomst**i avsnittet **säkerhet** på sidan **Azure Active Directory** .
+1. Klicka på **Villkorlig åtkomst**i avsnittet **Säkerhet** på sidan Azure **Active Directory** .
 
    ![Villkorlig åtkomst](./media/require-tou/03.png)
 
-1. I avsnittet **Hantera** klickar du på **användningsvillkor**.
+1. Klicka på **Användningsvillkor**i avsnittet **Hantera.**
 
    ![Användningsvillkor](./media/require-tou/04.png)
 
-1. Klicka på **nya villkor**i menyn högst upp.
+1. Klicka på **Nya termer**i menyn högst upp .
 
    ![Användningsvillkor](./media/require-tou/05.png)
 
-1. På sidan **nya** användnings villkor:
+1. På sidan **Nya användarvillkor:**
 
    ![Användningsvillkor](./media/require-tou/112.png)
 
-   1. Skriv **min tou**i text rutan **namn** .
-   1. Skriv **min tou**i text rutan **visnings namn** .
-   1. Överför dina användnings villkor för PDF-filen.
+   1. Skriv **Min tou**i textrutan **Namn** .
+   1. Skriv **Min tou**i textrutan **Visningsnamn** .
+   1. Ladda upp dina användarvillkor PDF-fil.
    1. Som **språk**väljer du **engelska**.
-   1. Välj **på**som **Kräv att användarna expanderar användnings villkoren**.
-   1. Som **tvingande med principmallar för villkorlig åtkomst**väljer du **anpassad princip**.
+   1. När **kräv att användare ska expandera användningsvillkoren**väljer du **På**.
+   1. Välj **Anpassad princip**som **framtvinga med principmallar för villkorlig åtkomst**.
    1. Klicka på **Skapa**.
 
-## <a name="create-your-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
+## <a name="create-your-conditional-access-policy"></a>Skapa principen villkorlig åtkomst
 
-I det här avsnittet visas hur du skapar den nödvändiga principen för villkorlig åtkomst. Scenariot i den här snabb starten använder:
+Det här avsnittet visar hur du skapar den obligatoriska principen för villkorlig åtkomst. Scenariot i den här snabbstarten använder:
 
-- Azure Portal som plats hållare för en molnbaserad app som kräver att dina ToU godkänns. 
-- Exempel användaren för att testa principen för villkorlig åtkomst.  
+- Azure-portalen som platshållare för en molnapp som kräver att din ToU accepteras. 
+- Provanvändaren för att testa principen villkorlig åtkomst.  
 
-Ange följande i principen:
+I din policy anger du:
 
 | Inställning | Värde |
 | --- | --- |
 | Användare och grupper | Isabella Simonsen |
-| Molnappar | Microsoft Azure Management |
-| Bevilja åtkomst | Mina TOU |
+| Molnappar | Microsoft Azure-hantering |
+| Bevilja åtkomst | Min TOU |
 
 ![Skapa princip](./media/require-tou/1234.png)
 
-**Så här konfigurerar du en princip för villkorlig åtkomst:**
+**Så här konfigurerar du principen för villkorlig åtkomst:**
 
-1. På sidan **nytt** i text rutan **namn** skriver du **Kräv tou för Isabella**.
+1. Skriv **Kräv tou för Isabella**i textrutan **Namn** på den **nya** sidan .
 
    ![Namn](./media/require-tou/71.png)
 
-1. I avsnittet **tilldelning** klickar du på **användare och grupper**.
+1. Klicka på Användare **och grupper**i avsnittet **Tilldelning** .
 
    ![Användare och grupper](./media/require-tou/06.png)
 
-1. På sidan **användare och grupper** :
+1. På sidan **Användare och grupper:**
 
    ![Användare och grupper](./media/require-tou/24.png)
 
-   1. Klicka på **Välj användare och grupper**och välj sedan **användare och grupper**.
-   1. Klicka på **Välj**.
+   1. Klicka på **Markera användare och grupper**och välj sedan Användare och **grupper**.
+   1. Klicka på **Markera**.
    1. På sidan **Välj** väljer du **Isabella Simonsen**och klickar sedan på **Välj**.
-   1. På sidan **användare och grupper** klickar du på **Slutför**.
-1. Klicka på **molnappar**.
+   1. Klicka på **Klar**på sidan **Användare och grupper** .
+1. Klicka på **Molnappar**.
 
    ![Molnappar](./media/require-tou/08.png)
 
-1. På sidan **Cloud Apps** :
+1. På sidan **Molnappar:**
 
    ![Välj molnappar](./media/require-tou/26.png)
 
    1. Klicka på **Välj appar**.
-   1. Klicka på **Välj**.
-   1. På sidan **Välj** väljer du **Microsoft Azure hantering**och klickar sedan på **Välj**.
-   1. På sidan **molnappar** klickar du på **Slutför**.
-1. I avsnittet **åtkomst kontroller** klickar du på **bevilja**.
+   1. Klicka på **Markera**.
+   1. Välj Microsoft Azure **Management**på sidan **Välj** och klicka sedan på **Välj**.
+   1. Klicka på **Klar**på sidan **Molnappar** .
+1. Klicka på **Bevilja**i avsnittet **Access-kontroller** .
 
-   ![Åtkomst kontroller](./media/require-tou/10.png)
+   ![Åtkomstkontroller](./media/require-tou/10.png)
 
-1. På sidan **beviljande** :
+1. På **grant-sidan:**
 
-   ![Ömsesidigt](./media/require-tou/111.png)
+   ![Bevilja](./media/require-tou/111.png)
 
-   1. Välj **bevilja åtkomst**.
-   1. Välj **min tou**.
-   1. Klicka på **Välj**.
-1. I avsnittet **Aktivera princip** klickar du **på på**.
+   1. Välj **Bevilja åtkomst**.
+   1. Välj **Min TOU**.
+   1. Klicka på **Markera**.
+1. Klicka på **På**i avsnittet **Aktivera princip** .
 
    ![Aktivera princip](./media/require-tou/18.png)
 
@@ -150,64 +150,64 @@ Ange följande i principen:
 
 ## <a name="evaluate-a-simulated-sign-in"></a>Utvärdera en simulerad inloggning
 
-Nu när du har konfigurerat din princip för villkorlig åtkomst vill du förmodligen veta om den fungerar som förväntat. Som ett första steg använder du den villkorliga åtkomsten vad gör om-princip verktyget för att simulera en inloggning av test användaren. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
+Nu när du har konfigurerat principen villkorlig åtkomst vill du förmodligen veta om den fungerar som förväntat. Som ett första steg använder du verktyget Villkorlig åtkomst vad händer om-principverktyget för att simulera en inloggning av testanvändaren. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport.  
 
-För att initiera utvärderings verktyget för **What If** policy, ange:
+Om du vill initiera verktyget **Vad händer om-principens** utvärdering anger du:
 
 - **Isabella Simonsen** som användare
-- **Microsoft Azure hantering** som molnbaserad app
+- **Microsoft Azure Management** som molnapp
 
-Om du klickar på **What If** skapas en simulerings rapport som visar:
+Om du klickar på **Vad händer** skapas en simuleringsrapport som visar:
 
-- **KRÄV tou för Isabella** under **principer som ska gälla**
-- **Mina tou** som **beviljade kontroller**.
+- **Kräv TOU för Isabella** enligt **policyer som gäller**
+- **Min tou** som **Grant Controls**.
 
-![Verktyget om princip](./media/require-tou/79.png)
+![Vad händer om principverktyg](./media/require-tou/79.png)
 
 **Så här utvärderar du principen för villkorlig åtkomst:**
 
-1. På sidan [villkorlig åtkomst – principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) går du till menyn högst upp och klickar på **What If**.  
+1. På sidan [Villkorlig åtkomst - Principer](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) klickar du på Vad händer **om**på menyn högst upp .  
 
    ![What If](./media/require-tou/14.png)
 
-1. Klicka på **användare**, Välj **Isabella Simonsen**och klicka sedan på **Välj**.
+1. Klicka på **Användare**, välj **Isabella Simonsen**och klicka sedan på **Välj**.
 
    ![Användare](./media/require-tou/15.png)
 
-1. Så här väljer du en molnbaserad app:
+1. Så här väljer du en molnapp:
 
    ![Molnappar](./media/require-tou/16.png)
 
-   1. Klicka på **molnappar**.
-   1. På **sidan molnappar**klickar du på **Välj appar**.
-   1. Klicka på **Välj**.
-   1. På sidan **Välj** väljer du **Microsoft Azure hantering**och klickar sedan på **Välj**.
-   1. På sidan molnappar klickar du på **Slutför**.
-1. Klicka på **What If**.
+   1. Klicka på **Molnappar**.
+   1. Klicka på **Välj appar**på **sidan Molnappar**.
+   1. Klicka på **Markera**.
+   1. Välj Microsoft Azure **Management**på sidan **Välj** och klicka sedan på **Välj**.
+   1. Klicka på **Klar**på sidan molnappar .
+1. Klicka på **Vad händer om**.
 
-## <a name="test-your-conditional-access-policy"></a>Testa din princip för villkorlig åtkomst
+## <a name="test-your-conditional-access-policy"></a>Testa principen för villkorlig åtkomst
 
 I föregående avsnitt har du lärt dig hur du utvärderar en simulerad inloggning. Förutom en simulering bör du också testa principen för villkorlig åtkomst för att säkerställa att den fungerar som förväntat.
 
-Testa principen genom att försöka logga in på din [Azure Portal](https://portal.azure.com) med ditt **Isabella Simonsen** test konto. Du bör se en dialog ruta som kräver att du godkänner användnings villkoren.
+Testa din princip genom att försöka logga in på din [Azure-portal](https://portal.azure.com) med ditt **Isabella Simonsen-testkonto.** Du bör se en dialogruta som kräver att du accepterar dina användarvillkor.
 
 ![Användningsvillkor](./media/require-tou/57.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort test användaren och principen för villkorlig åtkomst när de inte längre behövs:
+När det inte längre behövs tar du bort testanvändaren och principen villkorlig åtkomst:
 
-- Om du inte vet hur du tar bort en Azure AD-användare kan du läsa [ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
-- Om du vill ta bort principen väljer du principen och klickar sedan på **ta bort** i verktygsfältet snabb åtkomst.
+- Om du inte vet hur du tar bort en Azure AD-användare läser du [Ta bort användare från Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
+- Om du vill ta bort principen markerar du principen och klickar sedan på **Ta bort** i verktygsfältet snabbåtkomst.
 
     ![Multi-Factor Authentication](./media/require-tou/33.png)
 
-- Om du vill ta bort användnings villkoren markerar du det och klickar sedan på **ta bort termer** i verktygsfältet överst.
+- Om du vill ta bort användningsvillkoren markerar du det och klickar sedan på **Ta bort termer** i verktygsfältet överst.
 
     ![Multi-Factor Authentication](./media/require-tou/29.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [KRÄV MFA för vissa appar](app-based-mfa.md)
-> [blockera åtkomst när en sessions risk identifieras](app-sign-in-risk.md)
+> [Kräv MFA för specifika appar](app-based-mfa.md)
+> [Blockera åtkomst när en sessionsrisk upptäcks](app-sign-in-risk.md)

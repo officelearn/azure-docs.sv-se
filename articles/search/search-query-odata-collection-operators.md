@@ -1,7 +1,7 @@
 ---
-title: Referens för OData Collection-operator
+title: OData-samlingsoperatörsreferens
 titleSuffix: Azure Cognitive Search
-description: När du skapar filter uttryck i Azure Kognitiv sökning-frågor använder du operatorerna "any" och "alla" i lambda-uttryck när filtret är i en samling eller ett komplext samlings fält.
+description: När du skapar filteruttryck i Azure Cognitive Search-frågor använder du operatorer "any" och "alla" i lambda-uttryck när filtret finns i ett samlingsfält eller komplext samlingsfält.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -20,19 +20,19 @@ translation.priority.mt:
 - zh-cn
 - zh-tw
 ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113229"
 ---
-# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>OData Collection-operatörer i Azure Kognitiv sökning-`any` och `all`
+# <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>OData-samlingsoperatörer i Azure `any` Cognitive Search – och`all`
 
-När du skriver ett [OData filter-uttryck](query-odata-filter-orderby-syntax.md) som ska användas med Azure kognitiv sökning är det ofta användbart att filtrera på samlings fält. Du kan åstadkomma detta med hjälp av `any` och `all` operatörer.
+När du skriver ett [OData-filteruttryck](query-odata-filter-orderby-syntax.md) som ska användas med Azure Cognitive Search är det ofta användbart att filtrera i samlingsfält. Du kan uppnå `any` detta `all` med hjälp av och operatörer.
 
 ## <a name="syntax"></a>Syntax
 
-Följande EBNF ([Extended backal-Naur form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken i ett OData-uttryck som använder `any` eller `all`.
+Följande EBNF ([Extended Backus-Naur Form](https://en.wikipedia.org/wiki/Extended_Backus–Naur_form)) definierar grammatiken `any` `all`för ett OData-uttryck som använder eller .
 
 <!-- Upload this EBNF using https://bottlecaps.de/rr/ui to create a downloadable railroad diagram. -->
 
@@ -45,56 +45,56 @@ collection_filter_expression ::=
 lambda_expression ::= identifier ':' boolean_expression
 ```
 
-Ett interaktivt syntax diagram är också tillgängligt:
+Det finns också ett interaktivt syntaxdiagram:
 
 > [!div class="nextstepaction"]
-> [OData-syntax diagram för Azure Kognitiv sökning](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
+> [OData-syntaxdiagram för Azure Cognitive Search](https://azuresearch.github.io/odata-syntax-diagram/#collection_filter_expression)
 
 > [!NOTE]
-> Se [referens för OData-uttryck för Azure kognitiv sökning](search-query-odata-syntax-reference.md) för den fullständiga ebnf.
+> Se [OData-uttryckssyntaxreferens för Azure Cognitive Search](search-query-odata-syntax-reference.md) för hela EBNF.
 
-Det finns tre typer av uttryck som filtrerar samlingar.
+Det finns tre uttrycksformer som filtrerar samlingar.
 
-- De två första itern över ett samlings fält och använder ett predikat som anges i form av ett lambda-uttryck för varje element i mängden.
-  - Ett uttryck som använder `all` returnerar `true` om predikatet är sant för varje element i mängden.
-  - Ett uttryck som använder `any` returnerar `true` om predikatet är sant för minst ett element i mängden.
-- Den tredje formen av samlings filtret använder `any` utan lambda-uttryck för att testa om ett samlings fält är tomt. Om samlingen innehåller element returneras `true`. Om samlingen är tom returneras `false`.
+- De två första iterera över ett samlingsfält, tillämpa ett predikat som ges i form av en lambda uttryck till varje del av samlingen.
+  - Ett uttryck `all` `true` som använder returnerar om predikatet är sant för varje element i samlingen.
+  - Ett uttryck `any` `true` som använder returnerar om predikatet är sant för minst ett element i samlingen.
+- Den tredje formen av `any` samlingsfilter använder utan lambda-uttryck för att testa om ett samlingsfält är tomt. Om samlingen har några element `true`returneras den . Om samlingen är tom `false`returneras den .
 
-Ett **lambda-uttryck** i ett samlings filter är som bröd texten i en slinga i ett programmeringsspråk. Den definierar en variabel, som kallas **variabeln Range**, som innehåller det aktuella elementet i samlingen under iteration. Den definierar också ett annat booleskt uttryck som är de filter villkor som ska tillämpas på variabeln Range för varje element i samlingen.
+Ett **lambda-uttryck** i ett samlingsfilter är som kroppen av en slinga i ett programmeringsspråk. Den definierar en variabel, som kallas **intervallvariabeln**, som innehåller det aktuella elementet i samlingen under iteration. Det definierar också ett annat booleskt uttryck som är de filtervillkor som ska tillämpas på intervallvariabeln för varje element i samlingen.
 
 ## <a name="examples"></a>Exempel
 
-Matcha dokument vars `tags` fält innehåller exakt strängen "WiFi":
+Matcha dokument `tags` vars fält innehåller exakt strängen "wifi":
 
     tags/any(t: t eq 'wifi')
 
-Matcha dokument där varje element i `ratings`s fältet är mellan 3 och 5, inklusive:
+Matcha dokument där varje `ratings` del av fältet ligger mellan 3 och 5, inklusive:
 
     ratings/all(r: r ge 3 and r le 5)
 
-Matcha dokument där någon av de geo-koordinaterna i `locations`s fältet finns inom den aktuella polygonen:
+Matcha dokument där någon av geokoordinaterna `locations` i fältet ligger inom den angivna polygonen:
 
     locations/any(loc: geo.intersects(loc, geography'POLYGON((-122.031577 47.578581, -122.031577 47.678581, -122.131577 47.678581, -122.031577 47.578581))'))
 
-Matcha dokument där `rooms` fältet är tomt:
+Matcha dokument `rooms` där fältet är tomt:
 
     not rooms/any()
 
-Matcha dokument där för alla rum, fältet `rooms/amenities` innehåller "TV" och `rooms/baseRate` är mindre än 100:
+Matcha dokument där för `rooms/amenities` alla rum, fältet `rooms/baseRate` innehåller "TV" och är mindre än 100:
 
     rooms/all(room: room/amenities/any(a: a eq 'tv') and room/baseRate lt 100.0)
 
 ## <a name="limitations"></a>Begränsningar
 
-Alla funktioner i filter uttryck är inte tillgängliga i bröd texten i ett lambda-uttryck. Begränsningarna varierar beroende på data typen för det samlings fält som du vill filtrera. I följande tabell sammanfattas begränsningarna.
+Inte alla funktioner i filteruttryck är tillgängliga inuti kroppen av en lambda uttryck. Begränsningarna varierar beroende på datatypen för det insamlingsfält som du vill filtrera. I följande tabell sammanfattas begränsningarna.
 
 [!INCLUDE [Limitations on OData lambda expressions in Azure Cognitive Search](../../includes/search-query-odata-lambda-limitations.md)]
 
-Mer information om dessa begränsningar och exempel finns i [Felsöka samlings filter i Azure kognitiv sökning](search-query-troubleshoot-collection-filters.md). Mer detaljerad information om varför dessa begränsningar finns finns [i förstå samlings filter i Azure kognitiv sökning](search-query-understand-collection-filters.md).
+Mer information om dessa begränsningar samt exempel finns [i Felsöka samlingsfilter i Azure Cognitive Search](search-query-troubleshoot-collection-filters.md). Mer detaljerad information om varför dessa begränsningar finns finns i [Förstå samlingsfilter i Azure Cognitive Search](search-query-understand-collection-filters.md).
 
 ## <a name="next-steps"></a>Nästa steg  
 
-- [Filter i Azure Kognitiv sökning](search-filters.md)
-- [OData uttrycks språk översikt för Azure Kognitiv sökning](query-odata-filter-orderby-syntax.md)
-- [Syntax-referens för OData-uttryck för Azure Kognitiv sökning](search-query-odata-syntax-reference.md)
-- [Sök efter &#40;dokument Azure-kognitiv sökning REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Filter i Azure Cognitive Search](search-filters.md)
+- [Språköversikt för OData-uttryck för Azure Cognitive Search](query-odata-filter-orderby-syntax.md)
+- [Syntaxreferens för OData-uttryck för Azure Cognitive Search](search-query-odata-syntax-reference.md)
+- [Sökdokument &#40;Azure Cognitive Search REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

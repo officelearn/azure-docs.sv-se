@@ -4,17 +4,17 @@ ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: 33c8e7938e3b142e1af932e550c16770355babb8
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594190"
 ---
 ```powershell
 kubectl describe pod -l "app=voting-analytics, version=1.0" -n voting | Select-String -Pattern "istio-proxy:|voting-analytics:" -Context 0,2
 ```
 
-`istio-proxy` containern har automatiskt matats in av Istio för att hantera nätverks trafiken till och från dina komponenter, som du ser i följande exempel utdata:
+Behållaren `istio-proxy` har automatiskt injicerats av Istio för att hantera nätverkstrafiken till och från dina komponenter, vilket visas i följande exempelutdata:
 
 ```console
 >   voting-analytics:

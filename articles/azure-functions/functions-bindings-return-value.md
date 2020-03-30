@@ -1,34 +1,34 @@
 ---
-title: Använda retur värde från en Azure-funktion
-description: Lär dig hantera retur värden för Azure Functions
+title: Använda returvärde från en Azure-funktion
+description: Lär dig att hantera returvärden för Azure Functions
 author: craigshoemaker
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
 ms.openlocfilehash: 7ba104e288204dfbf3d24f5783bf69682a286553
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74480571"
 ---
-# <a name="using-the-azure-function-return-value"></a>Använda Azures funktions retur värde
+# <a name="using-the-azure-function-return-value"></a>Med returvärdet för Azure-funktionen
 
-Den här artikeln förklarar hur retur värden fungerar i en funktion.
+I den här artikeln beskrivs hur returvärden fungerar i en funktion.
 
-På språk som har ett retur värde kan du binda en funktions [utgående bindning](./functions-triggers-bindings.md#binding-direction) till returvärdet:
+På språk som har ett returvärde kan du binda en [funktionsutdatabindning](./functions-triggers-bindings.md#binding-direction) till returvärdet:
 
-* I ett C# klass bibliotek använder du attributet utgående bindning till metodens retur värde.
-* I Java använder du kommentaren utgående bindning till funktions metoden.
-* På andra språk ställer du in egenskapen `name` i *Function. JSON* för att `$return`.
+* I ett C#-klassbibliotek använder du attributet utdatabindning på metodens returvärde.
+* I Java använder du utdatabindningskompeten för funktionsmetoden.
+* På andra språk `name` ställer du in egenskapen i *function.json* till `$return`.
 
-Om det finns flera utgående bindningar använder du returvärdet för bara en av dem.
+Om det finns flera utdatabindningar använder du returvärdet för endast en av dem.
 
-I C# och C# skript är alternativa sätt att skicka data till en utgående bindning `out` parametrar och [insamlade objekt](functions-reference-csharp.md#writing-multiple-output-values).
+I C# och C#-skript är alternativa sätt `out` att skicka data till en utdatabindning parametrar och [insamlare.](functions-reference-csharp.md#writing-multiple-output-values)
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
-Här är C# koden som använder returvärdet för en utgående bindning, följt av ett asynkront exempel:
+Här är C#-kod som använder returvärdet för en utdatabindning, följt av ett asynkrome exempel:
 
 ```cs
 [FunctionName("QueueTrigger")]
@@ -52,9 +52,9 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Här är utdata-bindningen i *Function. JSON* -filen:
+Här är utdatabindningen i *filen function.json:*
 
 ```json
 {
@@ -65,7 +65,7 @@ Här är utdata-bindningen i *Function. JSON* -filen:
 }
 ```
 
-Här är C# skript koden, följt av ett asynkront exempel:
+Här är C# skriptkoden, följt av ett asynkronexempel:
 
 ```cs
 public static string Run(WorkItem input, ILogger log)
@@ -85,9 +85,9 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-# <a name="ftabfsharp"></a>[F#](#tab/fsharp)
+# <a name="f"></a>[F #](#tab/fsharp)
 
-Här är utdata-bindningen i *Function. JSON* -filen:
+Här är utdatabindningen i *filen function.json:*
 
 ```json
 {
@@ -98,7 +98,7 @@ Här är utdata-bindningen i *Function. JSON* -filen:
 }
 ```
 
-Här är den F# kod:
+Här är F# koden:
 
 ```fsharp
 let Run(input: WorkItem, log: ILogger) =
@@ -107,9 +107,9 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Här är utdata-bindningen i *Function. JSON* -filen:
+Här är utdatabindningen i *filen function.json:*
 
 ```json
 {
@@ -120,7 +120,7 @@ Här är utdata-bindningen i *Function. JSON* -filen:
 }
 ```
 
-I Java Script går returvärdet i den andra parametern för `context.done`:
+I JavaScript går returvärdet i den `context.done`andra parametern för:
 
 ```javascript
 module.exports = function (context, input) {
@@ -130,9 +130,9 @@ module.exports = function (context, input) {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
-Här är utdata-bindningen i *Function. JSON* -filen:
+Här är utdatabindningen i *filen function.json:*
 
 ```json
 {
@@ -142,7 +142,7 @@ Här är utdata-bindningen i *Function. JSON* -filen:
     "path": "output-container/{id}"
 }
 ```
-Här är python-koden:
+Här är Python-koden:
 
 ```python
 def main(input: azure.functions.InputStream) -> str:
@@ -153,9 +153,9 @@ def main(input: azure.functions.InputStream) -> str:
     })
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-Här är Java-koden som använder returvärdet för en utgående bindning:
+Här är Java-kod som använder returvärdet för en utdatabindning:
 
 ```java
 @FunctionName("QueueTrigger")
@@ -176,4 +176,4 @@ public static String run(
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hantera Azure Functions bindnings fel](./functions-bindings-errors.md)
+> [Hantera bindningsfel för Azure Functions](./functions-bindings-errors.md)

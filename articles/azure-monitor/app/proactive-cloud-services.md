@@ -1,29 +1,29 @@
 ---
-title: Avisera om problem i Azure Cloud Services att använda Azure-diagnostik-integrering med Azure Application insikter | Microsoft Docs
-description: Övervaka för problem som startfel, krascher och åter användning av roll i Azure Cloud Services med Azure Application insikter
+title: Avisering om problem i Azure Cloud Services med Azure Diagnostics-integrering med Azure Application Insights | Microsoft-dokument
+description: Övervaka för problem som startfel, krascher och rollåtervinningsloopar i Azure Cloud Services med Azure Application Insights
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
 ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669751"
 ---
-# <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Avisera om problem i Azure Cloud Services med Azure Diagnostics-integrering med Azure Application Insights
+# <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Avisering om problem i Azure Cloud Services med hjälp av Azure-diagnostikintegrering med Azure Application Insights
 
-I den här artikeln beskriver vi hur du ställer in aviserings regler som övervakar för problem som startfel, krascher och återkallning av roller i Azure Cloud Services (webb-och arbets roller).
+I den här artikeln beskriver vi hur du ställer in varningsregler som övervakar för problem som startfel, krascher och rollåtervinningsloopar i Azure Cloud Services (webb- och arbetsroller).
 
-Metoden som beskrivs i den här artikeln är baserad på [Azure-diagnostik-integrering med Application Insights](https://azure.microsoft.com/blog/azure-diagnostics-integration-with-application-insights/)och de nyligen utgivna [logg aviseringarna för Application Insights](https://azure.microsoft.com/blog/log-alerts-for-application-insights-preview/) funktioner.
+Metoden som beskrivs i den här artikeln baseras på [Azure Diagnostics-integreringen med Application Insights](https://azure.microsoft.com/blog/azure-diagnostics-integration-with-application-insights/)och den nyligen utgivna [loggaviseringar för Application Insights-funktionen.](https://azure.microsoft.com/blog/log-alerts-for-application-insights-preview/)
 
-## <a name="define-a-base-query"></a>Definiera en bas fråga
+## <a name="define-a-base-query"></a>Definiera en basfråga
 
-För att komma igång definierar vi en bas fråga som hämtar Windows händelse logg händelser från Windows Azure-kanalen, som samlas in i Application Insights som spårnings poster.
-Dessa poster kan användas för att identifiera olika problem i Azure Cloud Services, t. ex. startfel, körnings fel och åter användnings slingor.
+För att komma igång definierar vi en basfråga som hämtar Windows-händelselogghändelserna från Windows Azure-kanalen, som fångas in i Application Insights som spårningsposter.
+Dessa poster kan användas för att identifiera en mängd olika problem i Azure Cloud Services, till exempel startfel, körningsfel och återvinningsloopar.
 
 > [!NOTE]
-> Bas frågan nedan kontrollerar om det finns problem i ett tids fönster på 30 minuter och en svars tid på 10 minuter för att mata in telemetri-poster. Dessa standardinställningar kan konfigureras när du ser anpassa.
+> Basfrågan nedan söker efter problem i ett tidsfönster på 30 minuter och förutsätter en svarstid på 10 minuter när du intar telemetriposterna. Dessa standardvärden kan konfigureras efter lämpligt.
 
 ```
 let window = 30m;
@@ -36,13 +36,13 @@ let EventLogs = traces
 | project timestamp, channel, eventId, message, cloud_RoleInstance, cloud_RoleName, itemCount;
 ```
 
-## <a name="check-for-specific-event-ids"></a>Sök efter angivna händelse-ID: n
+## <a name="check-for-specific-event-ids"></a>Sök efter specifika händelse-ID:er
 
-När du har hämtat Windows händelse logg händelser kan du identifiera specifika problem genom att kontrol lera deras respektive händelse-ID och meddelande egenskaper (se exemplen nedan).
-Kombinera bara bas frågan ovan med en av frågorna nedan och Använd den kombinerade frågan när du definierar logg varnings regeln.
+När du har hämtat händelserna i Windows-händelseloggen kan specifika problem identifieras genom att söka efter respektive händelse-ID och meddelandeegenskaper (se exempel nedan).
+Kombinera helt enkelt basfrågan ovan med en av frågorna nedan och använd den kombinerade frågan när loggvarningsregeln definierades.
 
 > [!NOTE]
-> I exemplen nedan identifieras ett problem om fler än tre händelser påträffas under den analyserade tids perioden. Standardvärdet kan konfigureras för att ändra känslighet för varnings regeln.
+> I exemplen nedan identifieras ett problem om fler än tre händelser hittas under det analyserade tidsfönstret. Den här standardinställningen kan konfigureras för att ändra känsligheten för varningsregeln.
 
 ```
 // Detect failures in the OnStart method
@@ -80,38 +80,38 @@ EventLogs
 
 ## <a name="create-an-alert"></a>Skapa en avisering
 
-I navigerings menyn i Application Insights resursen går du till **aviseringar**och väljer sedan **ny aviserings regel**.
+Gå till Aviseringar på navigeringsmenyn i sidan Application Insights och välj sedan **Ny varningsregel**. **Alerts**
 
-![Skärm bild av Skapa regel](./media/proactive-cloud-services/001.png)
+![Skärmbild av skapa regel](./media/proactive-cloud-services/001.png)
 
-I fönstret **Skapa regel** , under avsnittet **definiera aviserings villkor** , klickar du på **Lägg till kriterier**och väljer sedan **anpassad loggs ökning**.
+Klicka på **Lägg till villkor**under avsnittet Definiera **varningsvillkor** i fönstret **Skapa regel** och välj sedan **Anpassad loggsökning**.
 
-![Skärm bild av definiera villkors villkor för avisering](./media/proactive-cloud-services/002.png)
+![Skärmbild av definiera villkorsvillkor för avisering](./media/proactive-cloud-services/002.png)
 
-I rutan **Sök fråga** klistrar du in den kombinerade fråga som du för beredde i föregående steg.
+Klistra in den kombinerade fråga som du förberett i föregående steg i rutan **Sökfråga.**
 
-Fortsätt sedan till rutan **tröskelvärde** och ange värdet till 0. Du kan eventuellt justera **fälten** **period** och frekvens.
+Fortsätt sedan till rutan **Tröskelvärde** och ange värdet till 0. Du kan eventuellt justera **fälten** **Period** och Frekvens .
 Klicka på **Klar**.
 
-![Skärm bild av fråga om att konfigurera signal logik](./media/proactive-cloud-services/003.png)
+![Skärmbild av konfigurera signallogikfråga](./media/proactive-cloud-services/003.png)
 
-Under avsnittet **definiera aviserings information** anger du ett **namn** och en **Beskrivning** för varnings regeln och anger dess **allvarlighets grad**.
-Kontrol lera också att knappen **Aktivera regel vid skapande** har angetts till **Ja**.
+Under avsnittet **Definiera aviseringsinformation** anger du ett **namn** och **en beskrivning** till varningsregeln och anger dess **allvarlighetsgrad**.
+Kontrollera också att **knappen Aktivera när** du skapar är inställd på **Ja**.
 
-![Aviserings information om skärm bild](./media/proactive-cloud-services/004.png)
+![Information om skärmbildsavisering](./media/proactive-cloud-services/004.png)
 
-Under avsnittet **definiera åtgärds grupp** kan du välja en befintlig **Åtgärds grupp** eller skapa en ny.
-Du kan välja att låta åtgärds gruppen innehålla flera olika typer av åtgärder.
+Under avsnittet **Definiera åtgärdsgrupp** kan du välja en befintlig **åtgärdsgrupp** eller skapa en ny.
+Du kan välja att låta åtgärdsgruppen innehålla flera åtgärder av olika typer.
 
-![Åtgärds grupp för skärm bild](./media/proactive-cloud-services/005.png)
+![Åtgärdsgrupp för skärmbild](./media/proactive-cloud-services/005.png)
 
-När du har definierat åtgärds gruppen bekräftar du ändringarna och klickar på **skapa aviserings regel**.
+När du har definierat åtgärdsgruppen bekräftar du ändringarna och klickar på **Skapa varningsregel**.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-Läs mer om att identifiera automatiskt:
+Läs mer om att automatiskt identifiera:
 
-[Fel avvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md)
-[minnes läckor](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[prestanda avvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Felavvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md)
+[Minnesläckning](../../azure-monitor/app/proactive-potential-memory-leak.md)
+[Prestandaavvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md)
 

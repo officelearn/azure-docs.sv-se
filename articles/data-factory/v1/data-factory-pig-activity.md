@@ -1,6 +1,6 @@
 ---
-title: Transformera data med hjälp av gris-aktivitet i Azure Data Factory
-description: Lär dig hur du kan använda gris-aktiviteten i en Azure Data Factory för att köra gris-skript på ett eget HDInsight-kluster på begäran.
+title: Omvandla data med grisaktivitet i Azure Data Factory
+description: Lär dig hur du kan använda Grisaktiviteten i en Azure-datafabrik för att köra Pig-skript på ett on-demand/ditt eget HDInsight-kluster.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -13,33 +13,33 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 5b8e7201a6239ef1fe83fb89d4b361995e305bbf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74703200"
 ---
-# <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med hjälp av gris-aktivitet i Azure Data Factory
-> [!div class="op_single_selector" title1="Omvandlings aktiviteter"]
+# <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Omvandla data med grisaktivitet i Azure Data Factory
+> [!div class="op_single_selector" title1="Omvandlingsaktiviteter"]
 > * [Hive-aktivitet](data-factory-hive-activity.md) 
-> * [Aktivitet i gris](data-factory-pig-activity.md)
+> * [Grisaktivitet](data-factory-pig-activity.md)
 > * [MapReduce-aktivitet](data-factory-map-reduce.md)
-> * [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
+> * [Hadoop streaming aktivitet](data-factory-hadoop-streaming-activity.md)
 > * [Spark-aktivitet](data-factory-spark.md)
 > * [Machine Learning Batch-körningsaktivitet](data-factory-azure-ml-batch-execution-activity.md)
 > * [Machine Learning-uppdateringsresursaktivitet](data-factory-azure-ml-update-resource-activity.md)
 > * [Lagrad proceduraktivitet](data-factory-stored-proc-activity.md)
 > * [Data Lake Analytics U-SQL-aktivitet](data-factory-usql-activity.md)
-> * [Anpassad .NET-aktivitet](data-factory-use-custom-activities.md)
+> * [.NET anpassad aktivitet](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [transformera data med aktiviteten fax i Data Factory](../transform-data-using-hadoop-pig.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av datafabrikstjänsten läser du [transformera data med Grisaktivitet i Data Factory](../transform-data-using-hadoop-pig.md).
 
 
-HDInsight gris-aktiviteten i en Data Factory [pipeline](data-factory-create-pipelines.md) kör gris-frågor på [ditt eget](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller Windows/Linux-baserade HDInsight-kluster [på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) . Den här artikeln bygger på artikeln [data omvandlings aktiviteter](data-factory-data-transformation-activities.md) , som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds.
+HDInsight [Pig-aktiviteten](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) i en Pipeline för [datafabrik](data-factory-create-pipelines.md) kör Grisfrågor på [egen hand](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller på begäran Windows/Linux-baserade HDInsight-kluster. Den här artikeln bygger på artikeln [om dataomvandlingsaktiviteter,](data-factory-data-transformation-activities.md) som ger en allmän översikt över dataomvandling och de omvandlingsaktiviteter som stöds.
 
 > [!NOTE] 
-> Om du inte har använt Azure Data Factory läser du igenom [introduktionen till Azure Data Factory](data-factory-introduction.md) och gör självstudien: [skapa din första data pipeline innan du](data-factory-build-your-first-pipeline.md) läser den här artikeln. 
+> Om du inte har gjort det tidigare i Azure Data Factory läser du [in introduktion till Azure Data Factory](data-factory-introduction.md) och gör självstudien: Skapa din första [datapipeline](data-factory-build-your-first-pipeline.md) innan du läser den här artikeln. 
 
 ## <a name="syntax"></a>Syntax
 
@@ -80,24 +80,24 @@ HDInsight gris-aktiviteten i en Data Factory [pipeline](data-factory-create-pipe
 }
 ```
 
-## <a name="syntax-details"></a>Information om syntax
+## <a name="syntax-details"></a>Syntaxinformation
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| namn |Namn på aktiviteten |Ja |
-| beskrivning |Text som beskriver vad aktiviteten används för |Nej |
+| namn |Aktivitetens namn |Ja |
+| description |Text som beskriver vad aktiviteten används för |Inga |
 | typ |HDinsightPig |Ja |
-| tillför |En eller flera indata som används av aktiviteten gris |Nej |
-| utdata |En eller flera utdata som produceras av gris-aktiviteten |Ja |
+| Ingångar |En eller flera ingångar som förbrukas av grisaktiviteten |Inga |
+| Utgångar |En eller flera resultat som produceras av grisverksamheten |Ja |
 | linkedServiceName |Referens till HDInsight-klustret som registrerats som en länkad tjänst i Data Factory |Ja |
-| -skriptet |Ange det infogade gris-skriptet |Nej |
-| scriptPath |Lagra ditt gris-skript i en Azure Blob-lagring och ange sökvägen till filen. Använd script-eller scriptPath-egenskapen. Båda kan inte användas tillsammans. Fil namnet är Skift läges känsligt. |Nej |
-| definierar |Ange parametrar som nyckel/värde-par för referenser i gris-skriptet |Nej |
+| -skriptet |Ange inline för Pig-skript |Inga |
+| scriptPath |Lagra Pig-skriptet i en Azure blob-lagring och ange sökvägen till filen. Använd egenskapen script eller 'scriptPath'. Båda kan inte användas tillsammans. Filnamnet är skiftlägeskänsligt. |Inga |
+| Definierar |Ange parametrar som nyckel-/värdepar för refererande i pigskriptet |Inga |
 
 ## <a name="example"></a>Exempel
-Nu ska vi titta på ett exempel på Game logs Analytics där du vill identifiera den tid som spelare kan spela för spel som lanseras av ditt företag.
+Låt oss överväga ett exempel på spelloggar analys där du vill identifiera den tid som spelare spelar spel som lanserades av ditt företag.
 
-Följande exempel på spel logg är en kommaavgränsad fil (,). Det innehåller följande fält – profil, SessionStart, duration, SrcIPAddress och GameType.
+Följande exempel spellogg är en komma (,) separerad fil. Den innehåller följande fält – ProfileID, SessionStart, Duration, SrcIPAddress och GameType.
 
 ```
 1809,2014-05-04 12:04:25.3470000,14,221.117.223.75,CaptureFlag
@@ -107,7 +107,7 @@ Följande exempel på spel logg är en kommaavgränsad fil (,). Det innehåller 
 .....
 ```
 
-**Gris-skriptet** för att bearbeta dessa data:
+**Pig-skriptet** för att bearbeta dessa data:
 
 ```
 PigSampleIn = LOAD 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/samplein/' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
@@ -119,18 +119,18 @@ PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampl
 Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/sampleoutpig/' USING PigStorage (',');
 ```
 
-Utför följande steg för att köra det här gris-skriptet i en Data Factory pipeline:
+Så här kör du pig-skriptet i en Data Factory-pipeline:
 
-1. Skapa en länkad tjänst för att registrera [ditt eget HDInsight Compute-kluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller konfigurera [kluster för HDInsight-beräkning på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Vi kallar den här länkade tjänsten **HDInsightLinkedService**.
-2. Skapa en [länkad tjänst](data-factory-azure-blob-connector.md) för att konfigurera anslutningen till Azure Blob Storage som är värd för data. Vi kallar den här länkade tjänsten **StorageLinkedService**.
-3. Skapa [data uppsättningar](data-factory-create-datasets.md) som pekar på indata och utdata. Låt oss anropa indata-datauppsättningen **PigSampleIn** och **PigSampleOut**för utgående data uppsättning.
-4. Kopiera gris-frågan i en fil Azure-Blob Storage som kon figurer ATS i steg #2. Om Azure-lagringen som är värd för data skiljer sig från den som är värd för Frågeredigeraren skapar du en separat Azure Storage länkad tjänst. Referera till den länkade tjänsten i aktivitets konfigurationen. Använd **scriptPath** för att ange sökvägen till skript filen för gris och **scriptLinkedService**. 
+1. Skapa en länkad tjänst för att registrera [ditt eget HDInsight-beräkningskluster](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) eller konfigurera [HDInsight-beräkningskluster på begäran](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). Låt oss anropa den länkade tjänsten **HDInsightLinkedService**.
+2. Skapa en [länkad tjänst](data-factory-azure-blob-connector.md) för att konfigurera anslutningen till Azure Blob-lagring som är värd för data. Låt oss anropa den länkade tjänsten **StorageLinkedService**.
+3. Skapa [datauppsättningar](data-factory-create-datasets.md) som pekar på indata och utdata. Låt oss anropa indatauppsättningen **PigSampleIn** och utdatadatauppsättningen **PigSampleOut**.
+4. Kopiera grisfrågan i en fil som Azure Blob Storage konfigurerat i steg #2. Om Azure-lagring som är värd för data skiljer sig från den som är värd för frågefilen, skapa en separat Azure Storage-länkad tjänst. Se den länkade tjänsten i aktivitetskonfigurationen. Använd **scriptPath** för att ange sökvägen till grisskriptfil och **scriptLinkedService**. 
    
    > [!NOTE]
-   > Du kan också ange Fax skriptets infogade definition med hjälp av **skript** egenskapen. Vi rekommenderar dock inte den här metoden eftersom alla specialtecken i skriptet måste vara undantagna och kan orsaka fel söknings problem. Den bästa metoden är att följa steg #4.
+   > Du kan också ange inline-skriptet Pig **script** i aktivitetsdefinitionen med hjälp av skriptegenskapen. Vi rekommenderar dock inte den här metoden eftersom alla specialtecken i skriptet måste fly och kan orsaka felsökningsproblem. Den bästa metoden är att följa steg #4.
    >
    >
-5. Skapa pipelinen med HDInsightPig-aktiviteten. Den här aktiviteten bearbetar indata genom att köra gris-skript på HDInsight-kluster.
+5. Skapa pipelinen med HDInsightPig-aktiviteten. Den här aktiviteten bearbetar indata genom att köra Pig-skriptet i HDInsight-klustret.
 
     ```JSON
     {
@@ -164,13 +164,13 @@ Utför följande steg för att köra det här gris-skriptet i en Data Factory pi
       }
     }
     ```
-6. Distribuera pipelinen. Mer information finns i artikeln om att [skapa pipeliner](data-factory-create-pipelines.md) . 
-7. Övervaka pipelinen med hjälp av vyerna för övervakning och hantering av data fabrik. Mer information finns i artikeln [övervaka och hantera data Factory pipelines](data-factory-monitor-manage-pipelines.md) .
+6. Distribuera pipelinen. Mer information finns i artikeln Skapa [pipelines.](data-factory-create-pipelines.md) 
+7. Övervaka pipelinen med hjälp av datafabrikens övervaknings- och hanteringsvyer. Mer information finns i artikeln [Övervakning och hantering av datafabrikspipelor.](data-factory-monitor-manage-pipelines.md)
 
-## <a name="specifying-parameters-for-a-pig-script"></a>Ange parametrar för ett gris-skript
-Tänk på följande exempel: spel loggar matas in dagligen i Azure Blob Storage och lagras i en mapp som partitionerats baserat på datum och tid. Du vill Parameterisera i gris-skriptet och skicka platsen för indata-mappen dynamiskt under körningen och även skapa utdata som partitionerats med datum och tid.
+## <a name="specifying-parameters-for-a-pig-script"></a>Ange parametrar för ett Pig-skript
+Tänk på följande exempel: spelloggar förtärs dagligen i Azure Blob Storage och lagras i en mapp som partitioneras baserat på datum och tid. Du vill parameterisera Pig-skriptet och skicka indatamappens plats dynamiskt under körning och även producera utdata som partitioneras med datum och tid.
 
-Gör följande om du vill använda ett parameter Scripting gris-skript:
+Så här använder du parameteriserat Pig-skript:
 
 * Definiera parametrarna i **definierar**.
 
@@ -210,7 +210,7 @@ Gör följande om du vill använda ett parameter Scripting gris-skript:
       }
     }
     ```
-* I gris-skriptet, referera till parametrarna med hjälp av **$parameterName**som visas i följande exempel:
+* I Pig Script, se parametrarna med "**$parameterName**' som visas i följande exempel:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
@@ -222,6 +222,6 @@ Gör följande om du vill använda ett parameter Scripting gris-skript:
 ## <a name="see-also"></a>Se även
 * [Hive-aktivitet](data-factory-hive-activity.md)
 * [MapReduce-aktivitet](data-factory-map-reduce.md)
-* [Hadoop streaming-aktivitet](data-factory-hadoop-streaming-activity.md)
+* [Hadoop streaming aktivitet](data-factory-hadoop-streaming-activity.md)
 * [Anropa Spark-program](data-factory-spark.md)
 * [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample)

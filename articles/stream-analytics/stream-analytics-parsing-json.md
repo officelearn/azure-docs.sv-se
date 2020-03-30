@@ -1,29 +1,29 @@
 ---
-title: Parsar JSON och AVRO i Azure Stream Analytics
-description: Den här artikeln beskriver hur du arbetar med komplexa data typer som matriser, JSON, CSV-formaterade data.
+title: Tolka JSON och AVRO i Azure Stream Analytics
+description: I den här artikeln beskrivs hur du arbetar med komplexa datatyper som matriser, JSON, CSV-formaterade data.
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77484595"
 ---
-# <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parsa JSON-och Avro-data i Azure Stream Analytics
+# <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Tolka JSON- och Avro-data i Azure Stream Analytics
 
-Azure Stream Analytics att bearbeta händelser i CSV-, JSON-och Avro data format. Både JSON-och Avro-data kan struktureras och innehålla några komplexa typer, till exempel kapslade objekt (poster) och matriser. 
+Azure Stream Analytics stöder bearbetning av händelser i CSV-, JSON- och Avro-dataformat. Både JSON- och Avro-data kan struktureras och innehålla vissa komplexa typer, till exempel kapslade objekt (poster) och matriser. 
 
 >[!NOTE]
->AVRO-filer som skapats av Event Hub-insamling använder ett speciellt format som kräver att du använder funktionen *anpassad deserialisering* . Mer information finns i [läsa in indata i alla format med anpassade .net-deserialiserare](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
+>AVRO-filer som skapas av Event Hub Capture använder ett visst format som kräver att du använder funktionen *anpassad deserializer.* Mer information finns [i Läs indata i valfritt format med .NET-anpassade deserializers](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
 
 
 
-## <a name="record-data-types"></a>Registrera data typer
-Post data typer används för att representera JSON-och Avro-matriser när motsvarande format används i indata strömmar. Dessa exempel demonstrerar en exempel sensor som läser ingångs händelser i JSON-format. Här är ett exempel på en enskild händelse:
+## <a name="record-data-types"></a>Registrera datatyper
+Postdatatyper används för att representera JSON- och Avro-matriser när motsvarande format används i indataströmmarna. Dessa exempel visar en provsensor som läser indatahändelser i JSON-format. Här är ett exempel på en enda händelse:
 
 ```json
 {
@@ -49,7 +49,7 @@ Post data typer används för att representera JSON-och Avro-matriser när motsv
 ```
 
 ### <a name="access-nested-fields-in-known-schema"></a>Komma åt kapslade fält i känt schema
-Använd punkt notation (.) för att enkelt komma åt kapslade fält direkt från frågan. Den här frågan väljer till exempel de koordinater för latitud och longitud under egenskapen location i föregående JSON-data. Punkt notationen kan användas för att navigera flera nivåer som visas nedan.
+Använd punktatering (.) för att enkelt komma åt kapslade fält direkt från frågan. Den här frågan väljer till exempel Latitude- och Longitudkoordinaterna under egenskapen Plats i föregående JSON-data. Punkt notationen kan användas för att navigera flera nivåer som visas nedan.
 
 ```SQL
 SELECT
@@ -63,13 +63,13 @@ FROM input
 
 Resultatet är:
 
-|DeviceID|koder|Lång|Temperatur|Version|
+|Deviceid|Lat|Lång|Temperatur|Version|
 |-|-|-|-|-|
 |12345|47|122|80|1.2.45|
 
 
-### <a name="select-all-properties"></a>Välj alla egenskaper
-Du kan välja alla egenskaper för en kapslad post med jokertecknet *. Ta följande som exempel:
+### <a name="select-all-properties"></a>Markera alla egenskaper
+Du kan markera alla egenskaper för en kapslad post med jokertecknet "*". Ta följande som exempel:
 
 ```SQL
 SELECT
@@ -80,16 +80,16 @@ FROM input
 
 Resultatet är:
 
-|DeviceID|koder|Lång|
+|Deviceid|Lat|Lång|
 |-|-|-|
 |12345|47|122|
 
 
-### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Komma åt kapslade fält när egenskaps namnet är en variabel
+### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Ansluta kapslade fält när egenskapsnamn är en variabel
 
-Använd funktionen [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) om egenskaps namnet är en variabel. Detta gör det möjligt att skapa dynamiska frågor utan hårdkoda egenskaps namn.
+Använd funktionen [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) om egenskapsnamnet är en variabel. Detta gör det möjligt att skapa dynamiska frågor utan hårdkodningsegenskapsnamn.
 
-Anta till exempel att data strömmen i exempel måste **kopplas till referens data** som innehåller tröskelvärden för varje enhets sensor. Ett kodfragment av dessa referens data visas nedan.
+Tänk dig till exempel att exempeldataströmmen **måste sammanfogas med referensdata** som innehåller tröskelvärden för varje enhetssensor. Nedan visas ett utdrag av sådana referensdata.
 
 ```json
 {
@@ -104,7 +104,7 @@ Anta till exempel att data strömmen i exempel måste **kopplas till referens da
 }
 ```
 
-Målet här är att koppla exempel data uppsättningen från överkanten av artikeln till dessa referens data och mata ut en händelse för varje sensor mått över tröskelvärdet. Det innebär att vår enskilda händelse ovan kan generera flera utgående händelser om flera sensorer är över respektive tröskelvärde, tack vare kopplingen. Om du vill uppnå liknande resultat utan någon koppling, se avsnittet nedan.
+Målet här är att ansluta till vårt exempel datauppsättning från toppen av artikeln till att referensdata, och mata ut en händelse för varje sensor åtgärd över sin tröskel. Det innebär att vår enda händelse ovan kan generera flera utdatahändelser om flera sensorer är över sina respektive tröskelvärden, tack vare kopplingen. För att uppnå liknande resultat utan en koppling, se avsnittet nedan.
 
 ```SQL
 SELECT
@@ -119,19 +119,19 @@ WHERE
     GetRecordPropertyValue(input.SensorReadings, thresholds.SensorName) > thresholds.Value
 ```
 
-**GetRecordPropertyValue** väljer egenskapen i *SensorReadings*, vars namn matchar det egenskaps namn som kommer från referens data. Sedan extraheras det associerade värdet från *SensorReadings* .
+**GetRecordPropertyValue** väljer egenskapen i *SensorReadings*, vilket namn matchar egenskapsnamnet som kommer från referensdata. Därefter extraheras det associerade värdet från *SensorReadings.*
 
 Resultatet är:
 
-|DeviceID|SensorName|Alertmessage som|
+|Deviceid|SensorName (SensorName)|AlertMessage|
 |-|-|-|
-|12345|Fuktighet|Varning: sensor över tröskelvärdet|
+|12345|Fuktighet|Varning : Sensor över tröskelvärdet|
 
-### <a name="convert-record-fields-into-separate-events"></a>Konvertera post fält till separata händelser
+### <a name="convert-record-fields-into-separate-events"></a>Konvertera postfält till separata händelser
 
-Om du vill konvertera postfält till separata händelser använder [du operatorn](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) use tillsammans med funktionen [GetRecordProperties](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics) .
+Om du vill konvertera postfält till separata händelser använder du operatorn [APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) tillsammans med funktionen [GetRecordProperties.](https://docs.microsoft.com/stream-analytics-query/getrecordproperties-azure-stream-analytics)
 
-Med de ursprungliga exempel data kan följande fråga användas för att extrahera egenskaper till olika händelser.
+Med de ursprungliga exempeldata kan följande fråga användas för att extrahera egenskaper till olika händelser.
 
 ```SQL
 SELECT
@@ -144,15 +144,15 @@ CROSS APPLY GetRecordProperties(event.SensorReadings) AS sensorReading
 
 Resultatet är:
 
-|DeviceID|SensorName|Alertmessage som|
+|Deviceid|SensorName (SensorName)|AlertMessage|
 |-|-|-|
 |12345|Temperatur|80|
 |12345|Fuktighet|70|
 |12345|CustomSensor01|5|
 |12345|CustomSensor02|99|
-|12345|SensorMetadata|[objekt objekt]|
+|12345|SensorMetadata|[objektobjekt]|
 
-Med [hjälp av](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics), kan du sedan dirigera dessa händelser till olika mål:
+Med [WITH](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics)är det då möjligt att dirigera dessa händelser till olika destinationer:
 
 ```SQL
 WITH Stage0 AS
@@ -169,15 +169,15 @@ SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0
 SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
 ```
 
-### <a name="parse-json-record-in-sql-reference-data"></a>Parsa JSON-post i SQL-referens data
-När du använder Azure SQL Database som referens data i jobbet, är det möjligt att ha en kolumn som har data i JSON-format. Ett exempel visas nedan.
+### <a name="parse-json-record-in-sql-reference-data"></a>Tolka JSON-post i SQL-referensdata
+När du använder Azure SQL Database som referensdata i jobbet är det möjligt att ha en kolumn som har data i JSON-format. Ett exempel på detta visas nedan.
 
-|DeviceID|Data|
+|Deviceid|Data|
 |-|-|
-|12345|{"nyckel": "värde1"}|
-|54321|{"nyckel": "värde2"}|
+|12345|{"nyckel" : "värde1"}|
+|54321|{"nyckel" : "value2"}|
 
-Du kan parsa JSON-posten i *data* kolumnen genom att skriva en enkel användardefinierad JavaScript-funktion.
+Du kan tolka JSON-posten i kolumnen *Data* genom att skriva en enkel JavaScript-användardefinierad funktion.
 
 ```javascript
 function parseJson(string) {
@@ -185,7 +185,7 @@ return JSON.parse(string);
 }
 ```
 
-Du kan sedan skapa ett steg i din Stream Analytics-fråga så som visas nedan för att få åtkomst till fälten i dina JSON-poster.
+Du kan sedan skapa ett steg i din Stream Analytics-fråga enligt nedan för att komma åt fälten i dina JSON-poster.
 
  ```SQL
  WITH parseJson as
@@ -201,11 +201,11 @@ Du kan sedan skapa ett steg i din Stream Analytics-fråga så som visas nedan f�
  ON streamInput.DeviceID = parseJson.DeviceID
 ```
 
-## <a name="array-data-types"></a>Mat ris data typer
+## <a name="array-data-types"></a>Matrisdatatyper
 
-Mat ris data typer är en ordnad samling av värden. Några vanliga åtgärder för mat ris värden beskrivs nedan. I de här exemplen används Functions- [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)och operatorn [Apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) .
+Matrisdatatyper är en ordnad samling värden. Vissa typiska åtgärder på matrisvärden beskrivs nedan. I de här exemplen används funktionerna [GetArrayElement](https://docs.microsoft.com/stream-analytics-query/getarrayelement-azure-stream-analytics), [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics), [GetArrayLength](https://docs.microsoft.com/stream-analytics-query/getarraylength-azure-stream-analytics)och [OPERATOR APPLY.](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics)
 
-Här är ett exempel på en enskild händelse. Både `CustomSensor03` och `SensorMetadata` är av typen **matris**:
+Här är ett exempel på en enda händelse. Båda `CustomSensor03` `SensorMetadata` och är av typen **array:**
 
 ```json
 {
@@ -231,9 +231,9 @@ Här är ett exempel på en enskild händelse. Både `CustomSensor03` och `Senso
 }
 ```
 
-### <a name="working-with-a-specific-array-element"></a>Arbeta med ett enskilt mat ris element
+### <a name="working-with-a-specific-array-element"></a>Arbeta med ett visst matriselement
 
-Välj mat ris element i ett angivet index (Välj det första mat ris elementet):
+Välj matriselement vid ett angivet index (välja det första matriselementet):
 
 ```SQL
 SELECT
@@ -243,11 +243,11 @@ FROM input
 
 Resultatet är:
 
-|firstElement|
+|firstElement förstaElement|
 |-|
 |12|
 
-### <a name="select-array-length"></a>Välj mat ris längd
+### <a name="select-array-length"></a>Välj matrislängd
 
 ```SQL
 SELECT
@@ -257,13 +257,13 @@ FROM input
 
 Resultatet är:
 
-|arrayLength|
+|arrayLängd|
 |-|
 |3|
 
-### <a name="convert-array-elements-into-separate-events"></a>Omvandla mat ris element till separata händelser
+### <a name="convert-array-elements-into-separate-events"></a>Konvertera matriselement till separata händelser
 
-Markera alla mat ris element som enskilda händelser. Operatorn [Apply](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) tillsammans med den inbyggda funktionen [GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) extraherar alla mat ris element som enskilda händelser:
+Markera alla matriselement som enskilda händelser. [Operatorn APPLY](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) tillsammans med den inbyggda [funktionen GetArrayElements](https://docs.microsoft.com/stream-analytics-query/getarrayelements-azure-stream-analytics) extraherar alla matriselement som enskilda händelser:
 
 ```SQL
 SELECT
@@ -277,7 +277,7 @@ CROSS APPLY GetArrayElements(SensorReadings.CustomSensor03) AS CustomSensor03Rec
 
 Resultatet är:
 
-|DeviceId|ArrayIndex|ArrayValue|
+|DeviceId|ArrayIndex (olika betydelser)|Matrisvärde|
 |-|-|-|
 |12345|0|12|
 |12345|1|-5|
@@ -294,12 +294,12 @@ CROSS APPLY GetArrayElements(SensorMetadata) AS SensorMetadataRecords
  
 Resultatet är:
 
-|DeviceId|smKey|smValue|
+|DeviceId|smKey (snAng)|smVärde|
 |-|-|-|
-|12345|Tillverkare|Pia|
+|12345|Tillverkare|ABC|
 |12345|Version|1.2.45|
 
-Om de extraherade fälten måste visas i kolumner, är det möjligt att pivotera data uppsättningen med syntaxen [with](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics) , förutom [kopplings](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) åtgärden. Den här kopplingen kräver ett [tids gräns](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) villkor som förhindrar duplicering:
+Om de extraherade fälten måste visas i kolumner är det möjligt att pivotera datauppsättningen med hjälp av syntaxen [MED](https://docs.microsoft.com/stream-analytics-query/with-azure-stream-analytics) förutom [JOIN-åtgärden.](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) Kopplingen kräver ett [tidsgränstillstånd](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics#BKMK_DateDiff) som förhindrar dubblering:
 
 ```SQL
 WITH DynamicCTE AS (
@@ -323,9 +323,9 @@ LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId A
 
 Resultatet är:
 
-|DeviceId|koder|Lång|smVersion|smManufacturer|
+|DeviceId|Lat|Lång|smVersion (sn)|smTillverkare|
 |-|-|-|-|-|
-|12345|47|122|1.2.45|Pia|
+|12345|47|122|1.2.45|ABC|
 
 ## <a name="see-also"></a>Se även
-[Data typer i Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)
+[Datatyper i Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)

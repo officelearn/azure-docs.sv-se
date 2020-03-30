@@ -1,6 +1,6 @@
 ---
-title: Meddelanden från moln till enhet med Azure IoT Hub (.NET) | Microsoft Docs
-description: 'Skicka meddelanden från moln till enhet till en enhet från en Azure IoT Hub med Azure IoT-SDK: er för .NET. Du ändrar en enhets app för att ta emot meddelanden från molnet till enheten och ändra en backend-app för att skicka meddelanden från molnet till enheten.'
+title: Moln-till-enhet-meddelanden med Azure IoT Hub (.NET) | Microsoft-dokument
+description: Skicka meddelanden från molnet till enheten till en enhet från en Azure IoT-hubb med Azure IoT-SDK:er för .NET. Du ändrar en enhetsapp för att ta emot meddelanden från molnet till enheten och ändrar en backend-app för att skicka meddelanden från molnet till enheten.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -10,53 +10,53 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: robinsh
 ms.openlocfilehash: 7805b9b3f000b2bc2e45272ab9ff469d5711e581
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77110210"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Skicka meddelanden från molnet till din enhet med IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub är en fullständigt hanterad tjänst som hjälper till att möjliggöra tillförlitlig och säker dubbelriktad kommunikation mellan miljon tals enheter och Server delen av lösningen. Snabb starten [Skicka telemetri från en enhet till en IoT Hub](quickstart-send-telemetry-dotnet.md) visar hur du skapar en IoT-hubb, etablerar en enhets identitet i den och kodar en enhets app som skickar enhet till molnet-meddelanden.
+Azure IoT Hub är en fullständigt hanterad tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan miljontals enheter och en lösningsbakdel. Snabbstarten [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md) visar hur du skapar en IoT-hubb, etablerar en enhetsidentitet i den och kodar en enhetsapp som skickar meddelanden från enhet till moln.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Den här självstudien bygger på [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md). Det visar hur du utför följande uppgifter:
+Den här självstudien bygger på [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md). Den visar hur du utför följande uppgifter:
 
-* Skicka meddelanden från moln till enhet från Server delen av lösningen till en enda enhet via IoT Hub.
+* Från din lösningsbaksida skickar du meddelanden från molnet till enheten till en enda enhet via IoT Hub.
 
 * Ta emot meddelanden från molnet till enheten på en enhet.
 
-* Från Server delen av lösningen kan du begära leverans bekräftelse (*feedback*) för meddelanden som skickas till en enhet från IoT Hub.
+* Från din lösningsbaksida, begär leveransbekräftelse *(feedback)* för meddelanden som skickas till en enhet från IoT Hub.
 
-Du hittar mer information om moln-till-enhet-meddelanden i [D2C-och C2D-meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
+Du hittar mer information om meddelanden från molnet till enheten i [D2C- och C2D-meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
-I slutet av den här självstudien kör du två .NET-konsol program.
+I slutet av den här självstudien kör du två .NET-konsolappar.
 
-* **SimulatedDevice**. Den här appen ansluter till din IoT-hubb och tar emot meddelanden från molnet till enheten. Den här appen är en modifierad version av appen som skapats i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md).
+* **Simuleradenhet**. Den här appen ansluter till din IoT-hubb och tar emot meddelanden från molnet till enheten. Den här appen är en modifierad version av appen som skapats i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md).
 
-* **SendCloudToDevice**. Den här appen skickar ett meddelande från moln till enhet till enhetens app via IoT Hub och får sedan leverans bekräftelse.
+* **SendCloudToDevice**. Den här appen skickar ett meddelande från molnet till enheten till enhetsappen via IoT Hub och tar sedan emot leveransbekräftelse.
 
 > [!NOTE]
-> IoT Hub har SDK-stöd för många enhets plattformar och språk, inklusive C, Java, python och Java Script, via SDK: er för [Azure IoT-enheter](iot-hub-devguide-sdks.md). Stegvisa instruktioner för hur du ansluter din enhet till den här själv studie kursen och i allmänhet till Azure IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).
+> IoT Hub har SDK-stöd för många enhetsplattformar och -språk, inklusive C, Java, Python och Javascript, via [Azure IoT-enhetSDK: er](iot-hub-devguide-sdks.md). Stegvisa instruktioner om hur du ansluter enheten till den här självstudiens kod och i allmänhet till Azure IoT Hub finns i [utvecklarhandboken för IoT Hub](iot-hub-devguide.md).
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Visual Studio
 
-* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Kontrollera att port 8883 är öppen i brandväggen. Enhetsexemplet i den här artikeln använder MQTT-protokollet, som kommunicerar över port 8883. Den här porten kan vara blockerad i vissa företags- och utbildningsnätverksmiljöer. Mer information och sätt att lösa problemet finns i [Ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="receive-messages-in-the-device-app"></a>Ta emot meddelanden i enhets appen
+## <a name="receive-messages-in-the-device-app"></a>Ta emot meddelanden i enhetsappen
 
-I det här avsnittet ändrar du enhets appen som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md) för att ta emot meddelanden från molnet till enheten från IoT Hub.
+I det här avsnittet ändrar du enhetsappen som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md) för att ta emot meddelanden från molnet till enheten från IoT-hubben.
 
-1. I Visual Studio, i **SimulatedDevice** -projektet, lägger du till följande metod i **program** klassen.
+1. Lägg till följande **SimulatedDevice** metod i klassen **Program** i Visual Studio i Visual Studio.
 
    ```csharp
     private static async void ReceiveC2dAsync()
@@ -77,58 +77,58 @@ I det här avsnittet ändrar du enhets appen som du skapade i [Skicka telemetri 
     }
    ```
 
-1. Lägg till följande metod i **main** -metoden, precis före `Console.ReadLine()` raden:
+1. Lägg till följande metod i **huvudmetoden,** precis före raden: `Console.ReadLine()`
 
    ```csharp
    ReceiveC2dAsync();
    ```
 
-Metoden `ReceiveAsync` returnerar asynkront meddelande när det tas emot av enheten. Den returnerar *Null* efter en specificerad timeout-period. I det här exemplet används standardvärdet på en minut. När appen får ett *Null*-värde ska den fortsätta att vänta på nya meddelanden. Detta krav är orsaken till `if (receivedMessage == null) continue` linjen.
+Metoden `ReceiveAsync` returnerar asynkront det mottagna meddelandet när det tas emot av enheten. Den returnerar *null* efter en specifierbar timeout-period. I det här exemplet används standardvärdet på en minut. När appen får ett *null*bör den fortsätta att vänta på nya meddelanden. Detta krav är orsaken `if (receivedMessage == null) continue` till raden.
 
-Anropet till `CompleteAsync()` meddelar IoT Hub att meddelandet har bearbetats. Meddelandet kan tas bort på ett säkert sätt från enhets kön. Om något hände som hindrade appen från att slutföra bearbetningen av meddelandet, IoT Hub leverera det igen. Bearbetnings logiken för meddelanden i enhets appen måste vara *idempotenta*, så att samma meddelande tas emot flera gånger, vilket ger samma resultat.
+Anropet `CompleteAsync()` för att meddela IoT Hub att meddelandet har bearbetats. Meddelandet kan tas bort från enhetskön på ett säkert sätt. Om något hände som hindrade enhetsappen från att slutföra bearbetningen av meddelandet levererar IoT Hub det igen. Meddelandebearbetningslogiken i enhetsappen måste vara *idempotent*, så att samma resultat ger samma resultat om du tar emot samma meddelande flera gånger.
 
-Ett program kan också tillfälligt överge ett meddelande, vilket resulterar i IoT Hub som bevarar meddelandet i kön för framtida konsumtion. Eller också kan programmet avvisa ett meddelande som permanent tar bort meddelandet från kön. Mer information om livs cykeln för moln-till-enhet-meddelanden finns i [D2C-och C2D-meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
+Ett program kan också tillfälligt överge ett meddelande, vilket resulterar i att IoT-hubben behåller meddelandet i kön för framtida förbrukning. Eller så kan programmet avvisa ett meddelande som permanent tar bort meddelandet från kön. Mer information om livscykeln för meddelanden mellan molnet och enheten finns i [D2C- och C2D-meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
    > [!NOTE]
-   > När du använder HTTPS i stället för MQTT eller AMQP som transport returneras metoden `ReceiveAsync` omedelbart. Det mönster som stöds för meddelanden från moln till enhet med HTTPS är tillfälligt anslutna enheter som söker efter meddelanden som inte förekommer ofta (mindre än var 25: e minut). Om du skickar mer HTTPS får du resultat i IoT Hub begränsning av begär Anden. Mer information om skillnaderna mellan MQTT, AMQP och HTTPS-stöd och IoT Hub begränsning finns i [D2C och C2D Messaging med IoT Hub](iot-hub-devguide-messaging.md).
+   > När du använder HTTPS i stället för MQTT `ReceiveAsync` eller AMQP som transport returneras metoden omedelbart. Mönstret som stöds för meddelanden från molnet till enheten med HTTPS är periodvis anslutna enheter som söker efter meddelanden sällan (mindre än var 25:e minut). Att utfärda mer HTTPS tar emot resultat i IoT Hub begränsning av begäranden. Mer information om skillnaderna mellan stöd för MQTT, AMQP och HTTPS och Begränsning av IoT Hub finns i [D2C- och C2D-meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
    >
 
-## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutningssträngen för IoT-hubb
 
-I den här artikeln skapar du en server dels tjänst för att skicka meddelanden från molnet till enheten via IoT-hubben som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md). För att skicka meddelanden från molnet till enheten måste tjänsten ha behörighet för **tjänst anslutning** . Som standard skapas varje IoT Hub med en delad åtkomst princip med namnet **tjänst** som ger den här behörigheten.
+I den här artikeln skapar du en backend-tjänst för att skicka meddelanden från molnet till enheten via IoT-hubben som du skapade i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md). Om du vill skicka meddelanden från molnet till enheten behöver tjänsten behörigheten **för tjänsten ansluta.** Som standard skapas varje IoT-hubb med en princip med namnet delad åtkomst med namnet **tjänst** som ger den här behörigheten.
 
 [!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
-## <a name="send-a-cloud-to-device-message"></a>Skicka ett meddelande från moln till enhet
+## <a name="send-a-cloud-to-device-message"></a>Skicka ett meddelande från molnet till enheten
 
-Nu skriver du en .NET-konsol app som skickar meddelanden från molnet till enheten till Device-appen.
+Nu skriver du en .NET-konsolapp som skickar meddelanden från molnet till enheten till enhetsappen.
 
-1. I den aktuella Visual Studio-lösningen väljer du **fil** > **nytt** > **projekt**. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** och väljer sedan **Nästa**.
+1. Välj **Arkiv** > **nytt** > **projekt**i den aktuella Visual Studio-lösningen . I **Skapa ett nytt projekt**väljer du Console App **(.NET Framework)** och väljer sedan **Nästa**.
 
-1. Ge projektet namnet *SendCloudToDevice*. Under **lösning**väljer **du Lägg till i lösning** och godkänner den senaste versionen av .NET Framework. Välj **Skapa** för att skapa projektet.
+1. Namnge projektet *SendCloudToDevice*. Under **Lösning**väljer du **Lägg till i lösning** och accepterar den senaste versionen av .NET Framework. Välj **Skapa** för att skapa projektet.
 
    ![Konfigurera ett nytt projekt i Visual Studio](./media/iot-hub-csharp-csharp-c2d/sendcloudtodevice-project-configure.png)
 
-1. I Solution Explorer högerklickar du på den nya lösningen och väljer sedan **Hantera NuGet-paket**.
+1. Högerklicka på den nya lösningen i Solution Explorer och välj sedan **Hantera NuGet-paket**.
 
-1. I **Hantera NuGet-paket**väljer du **Bläddra**och söker efter och väljer **Microsoft. Azure. Devices**. Välj **Installera**.
+1. I **Hantera NuGet-paket**väljer du **Bläddra**och söker sedan efter och väljer **Microsoft.Azure.Devices**. Välj **Installera**.
 
-   I det här steget hämtas, installeras och läggs en referens till i [Azure IoT service SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
+   Det här steget hämtar, installerar och lägger till en referens till [Azure IoT-tjänsten SDK NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Devices/).
 
-1. Lägg till följande `using`-instruktion överst i **program.cs** -filen.
+1. Lägg till `using` följande sats högst upp i **Program.cs-filen.**
 
    ``` csharp
    using Microsoft.Azure.Devices;
    ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub-anslutningssträngen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
+1. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med anslutningssträngen för IoT-hubb som du kopierade tidigare i [Hämta anslutningssträngen för IoT-hubben](#get-the-iot-hub-connection-string).
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
    ```
 
-1. Lägg till följande metod i klassen **Program**. Ange enhets namnet på det du använde när du definierade enheten i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md).
+1. Lägg till följande metod i klassen **Program**. Ange enhetsnamnet till det du använde när du definierade enheten i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md).
 
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
@@ -139,9 +139,9 @@ Nu skriver du en .NET-konsol app som skickar meddelanden från molnet till enhet
    }
    ```
 
-   Den här metoden skickar ett nytt meddelande från molnet till enheten till enheten med ID: t `myFirstDevice`. Ändra bara den här parametern om du har ändrat den från den som används i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md).
+   Den här metoden skickar ett nytt meddelande från molnet till `myFirstDevice`enheten med ID:et . Ändra den här parametern endast om du har ändrat den från den som används i [Skicka telemetri från en enhet till en IoT-hubb](quickstart-send-telemetry-dotnet.md).
 
-1. Lägg slutligen till följande rader i **main** -metoden.
+1. Lägg slutligen till följande **Main** rader i huvudmetoden.
 
    ``` csharp
    Console.WriteLine("Send Cloud-to-Device message\n");
@@ -153,21 +153,21 @@ Nu skriver du en .NET-konsol app som skickar meddelanden från molnet till enhet
    Console.ReadLine();
    ```
 
-1. Högerklicka på din lösning i Solution Explorer och välj **Ange start projekt**.
+1. Högerklicka på lösningen i Solutions Explorer och välj **Ange startprojekt**.
 
-1. I **vanliga egenskaper** > **Start projekt**, Välj **flera start projekt**och välj sedan **Start** åtgärden för **ReadDeviceToCloudMessages**, **SimulatedDevice**och **SendCloudToDevice**. Spara ändringarna genom att välja **OK**.
+1. I **Common Properties** > **Startup Project**väljer du Flera **startprojekt**och väljer sedan **åtgärden Start** för **ReadDeviceToCloudMessages**, **SimulatedDevice**och **SendCloudToDevice**. Spara ändringarna genom att välja **OK**.
 
-1. Tryck på **F5**. Alla tre programmen bör starta. Välj **SendCloudToDevice** -fönster och tryck på **RETUR**. Du bör se meddelandet som tas emot av Device-appen.
+1. Tryck på **F5**. Alla tre ansökningarna ska starta. Markera fönstren **SendCloudToDevice** och tryck på **Retur**. Du bör se meddelandet som tas emot av enhetsappen.
 
-   ![Appen tar emot meddelande](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![Meddelande om appmottagning](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
-## <a name="receive-delivery-feedback"></a>Få feedback om leverans
+## <a name="receive-delivery-feedback"></a>Få feedback på leverans
 
-Det går att begära leverans (eller förfallo datum) bekräftelser från IoT Hub för varje moln-till-enhet-meddelande. Med det här alternativet kan lösningens Server del enkelt informera om återförsök eller kompensations logik. Mer information om feedback från moln till enhet finns i [D2C och C2D Messaging med IoT Hub](iot-hub-devguide-messaging.md).
+Det är möjligt att begära leverans-(eller utgångsdatum) bekräftelser från IoT Hub för varje moln-till-enhet-meddelande. Med det här alternativet kan lösningens baksida enkelt informera om återförsök eller kompensationslogik. Mer information om feedback från molnet till enheten finns i [D2C- och C2D-meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
 
-I det här avsnittet ändrar du **SendCloudToDevice** -appen för att begära feedback och tar emot den från IoT-hubben.
+I det här avsnittet ändrar du **SendCloudToDevice-appen** för att begära feedback och ta emot den från IoT-hubben.
 
-1. I Visual Studio, i **SendCloudToDevice** -projektet, lägger du till följande metod i **program** klassen.
+1. Lägg till följande metod i klassen **Program** i Visual Studio i **Visual** Studio.
 
    ```csharp
    private async static void ReceiveFeedbackAsync()
@@ -190,32 +190,32 @@ I det här avsnittet ändrar du **SendCloudToDevice** -appen för att begära fe
     }
     ```
 
-    Observera att det här mottagnings mönstret är samma som används för att ta emot meddelanden från molnet till enheten från Device-appen.
+    Observera att det här mottagningsmönstret är detsamma som används för att ta emot meddelanden från enheten från enhetsappen.
 
-1. Lägg till följande rad i **main** -metoden, direkt efter `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`.
+1. Lägg till följande rad i **huvudmetoden** direkt efter `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`.
 
    ``` csharp
    ReceiveFeedbackAsync();
    ```
 
-1. Om du vill begära feedback för leverans av ditt meddelande från molnet till enheten måste du ange en egenskap i **SendCloudToDeviceMessageAsync** -metoden. Lägg till följande rad, direkt efter `var commandMessage = new Message(...);` raden.
+1. Om du vill begära feedback för leverans av ditt meddelande från molnet till enheten måste du ange en egenskap i metoden **SendCloudToDeviceMessageAsync.** Lägg till följande rad, `var commandMessage = new Message(...);` direkt efter raden.
 
    ``` csharp
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
-1. Kör apparna genom att trycka på **F5**. Du bör se alla tre programmens start. Välj **SendCloudToDevice** -fönster och tryck på **RETUR**. Du bör se meddelandet som tas emot av Device-appen och efter några sekunder får du ett feedback-meddelande som tas emot av ditt **SendCloudToDevice** -program.
+1. Kör apparna genom att trycka på **F5**. Du bör se alla tre program start. Markera fönstren **SendCloudToDevice** och tryck på **Retur**. Du bör se meddelandet som tas emot av enhetsappen och efter några sekunder det feedbackmeddelande som tas emot av ditt **SendCloudToDevice-program.**
 
-   ![Appen tar emot meddelande](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![Meddelande om appmottagning](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
-> För enkelhetens skull implementerar den här självstudien inte någon princip för återförsök. I produktions koden bör du implementera principer för återförsök, till exempel exponentiell backoff, som föreslagen vid [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
+> För enkelhetens skull implementerar den här självstudien inte någon princip för återförsök. I produktionskoden bör du implementera principer för återförsök, till exempel exponentiell backoff, som föreslås i [Transient felhantering](/azure/architecture/best-practices/transient-faults).
 >
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här instruktionen har du lärt dig hur du skickar och tar emot meddelanden från molnet till enheten.
+I det här meddelandet fick du lära dig hur du skickar och ta emot meddelanden från molnet till enheten.
 
-Exempel på kompletta lösningar från slut punkt till slut punkt som använder IoT Hub finns i [Azure IoT Remote Monitoring Solution Accelerator](https://docs.microsoft.com/azure/iot-suite/).
+Information om hur du ser exempel på kompletta heltäckande lösningar som använder IoT Hub finns i [Azure IoT Remote Monitoring solution accelerator](https://docs.microsoft.com/azure/iot-suite/).
 
-Mer information om hur du utvecklar lösningar med IoT Hub finns i [IoT Hub Developer Guide](iot-hub-devguide.md).
+Mer information om hur du utvecklar lösningar med IoT Hub finns i [utvecklarhandboken för IoT Hub](iot-hub-devguide.md).

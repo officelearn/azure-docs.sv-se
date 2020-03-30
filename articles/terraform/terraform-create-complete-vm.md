@@ -1,41 +1,41 @@
 ---
-title: Snabb start – Använd terraform för att skapa en komplett virtuell Linux-dator i Azure
-description: I den här snabb starten använder du terraform för att skapa och hantera en komplett Linux-miljö för virtuella Linux-datorer i Azure
-keywords: virtuell Azure DevOps terraform Linux VM-dator
+title: Snabbstart - Använd Terraform för att skapa en komplett Linux-virtuell dator i Azure
+description: I den här snabbstarten använder du Terraform för att skapa och hantera en komplett Linux-miljö för virtuella datorer i Azure
+keywords: azure devops terraform linux vm virtuell maskin
 ms.topic: quickstart
-ms.date: 03/09/2020
-ms.openlocfilehash: 03974d68477855d4ff55b7179312c91ba7d0d055
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.date: 03/15/2020
+ms.openlocfilehash: f262734cc16d97e4d73af371410403a4cbb8815e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78943526"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79415469"
 ---
-# <a name="quickstart-create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Snabb start: skapa en komplett Linux-infrastruktur för virtuella datorer i Azure med terraform
+# <a name="quickstart-create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Snabbstart: Skapa en komplett Linux-infrastruktur för virtuella datorer i Azure med Terraform
 
-Med terraform kan du definiera och skapa fullständiga infrastruktur distributioner i Azure. Du skapar terraform-mallar i ett läsbart format som skapar och konfigurerar Azure-resurser på ett konsekvent och reproducerbart sätt. Den här artikeln visar hur du skapar en komplett Linux-miljö och stöd för resurser med terraform. Du kan också lära dig hur du [installerar och konfigurerar terraform](terraform-install-configure.md).
+Med Terraform kan du definiera och skapa fullständiga infrastrukturdistributioner i Azure. Du skapar Terraform-mallar i ett läsbart format som skapar och konfigurerar Azure-resurser på ett konsekvent, reproducerbart sätt. Den här artikeln visar hur du skapar en komplett Linux-miljö och stöder resurser med Terraform. Du kan också lära dig hur du [installerar och konfigurerar Terraform](terraform-install-configure.md).
 
 > [!NOTE]
-> Om du har terraform-stöd kan du kontakta terraform direkt med någon av deras community-kanaler:
+> För Terraform specifik support, vänligen kontakta Terraform direkt med hjälp av en av deras community kanaler:
 >
->    * [Avsnittet terraform](https://discuss.hashicorp.com/c/terraform-core) i Community-portalen innehåller frågor, användnings fall och användbara mönster.
+>    * [Terraform-delen](https://discuss.hashicorp.com/c/terraform-core) av community-portalen innehåller frågor, användningsfall och användbara mönster.
 >
->    * Om du har frågor om providrar går du till avsnittet [terraform-providers](https://discuss.hashicorp.com/c/terraform-providers) i Community-portalen.
+>    * För leverantörsrelaterade frågor, besök [terraformsleverantörerna](https://discuss.hashicorp.com/c/terraform-providers) på communityportalen.
 
 
-## <a name="create-azure-connection-and-resource-group"></a>Skapa Azure-anslutning och resurs grupp
+## <a name="create-azure-connection-and-resource-group"></a>Skapa Azure-anslutning och resursgrupp
 
-Vi går igenom varje avsnitt i en terraform-mall. Du kan också se den fullständiga versionen av [terraform-mallen](#complete-terraform-script) som du kan kopiera och klistra in.
+Låt oss gå igenom varje avsnitt i en Terraform-mall. Du kan också se den fullständiga versionen av [Terraform-mallen](#complete-terraform-script) som du kan kopiera och klistra in.
 
-I avsnittet `provider` instrueras terraform att använda en Azure-Provider. För att hämta värden för *subscription_id*, *client_id*, *Client_secret*och *tenant_id*, se [Installera och konfigurera terraform](terraform-install-configure.md). 
+Avsnittet `provider` talar om för Terraform att använda en Azure-provider. Hämta värden `subscription_id`för `client_id` `client_secret`, `tenant_id`, och se [Installera och konfigurera Terraform](terraform-install-configure.md). 
 
 > [!TIP]
-> Om du skapar miljövariabler för värdena eller använder [Azure Cloud Shell bash-upplevelsen](/azure/cloud-shell/overview) , behöver du inte inkludera variabel deklarationerna i det här avsnittet.
+> Om du skapar miljövariabler för värdena eller använder [Azure Cloud Shell Bash-upplevelsen](/azure/cloud-shell/overview) behöver du inte inkludera variabeldeklarationerna i det här avsnittet.
 
 ```hcl
 provider "azurerm" {
     # The "feature" block is required for AzureRM provider 2.x. 
-    # If you are using version 1.x, the "features" block is not allowed.
+    # If you're using version 1.x, the "features" block is not allowed.
     version = "~>2.0"
     features {}
     
@@ -46,7 +46,7 @@ provider "azurerm" {
 }
 ```
 
-I följande avsnitt skapas en resurs grupp med namnet `myResourceGroup` på `eastus` plats:
+I följande avsnitt skapas `myResourceGroup` en `eastus` resursgrupp med namnet på platsen:
 
 ```hcl
 resource "azurerm_resource_group" "myterraformgroup" {
@@ -59,10 +59,10 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-I ytterligare avsnitt hänvisar du till resurs gruppen med *$ {azurerm_resource_group. myterraformgroup. name}* .
+I ytterligare avsnitt refererar du `${azurerm_resource_group.myterraformgroup.name}`till resursgruppen med .
 
 ## <a name="create-virtual-network"></a>Skapa det virtuella nätverket
-I följande avsnitt skapas ett virtuellt nätverk med namnet *myVnet* i adress utrymmet *10.0.0.0/16* :
+I följande avsnitt skapas `myVnet` ett `10.0.0.0/16` virtuellt nätverk med namnet i adressutrymmet:
 
 ```hcl
 resource "azurerm_virtual_network" "myterraformnetwork" {
@@ -77,7 +77,7 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
 }
 ```
 
-I följande avsnitt skapas ett undernät med namnet *mitt undernät* i det virtuella *myVnet* -nätverket:
+I följande avsnitt skapas `mySubnet` ett `myVnet` undernät med namnet i det virtuella nätverket:
 
 ```hcl
 resource "azurerm_subnet" "myterraformsubnet" {
@@ -90,7 +90,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 
 
 ## <a name="create-public-ip-address"></a>Skapa offentlig IP-adress
-Skapa och tilldela en offentlig IP-adress till den virtuella datorn för att få åtkomst till resurser via Internet. I följande avsnitt skapas en offentlig IP-adress med namnet *myPublicIP*:
+Om du vill komma åt resurser över Internet skapar och tilldelar du en offentlig IP-adress till den virtuella datorn. I följande avsnitt skapas en `myPublicIP`offentlig IP-adress med namnet :
 
 ```hcl
 resource "azurerm_public_ip" "myterraformpublicip" {
@@ -106,8 +106,8 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 ```
 
 
-## <a name="create-network-security-group"></a>Skapa nätverks säkerhets grupp
-Nätverks säkerhets grupper styr flödet av nätverks trafik till och från den virtuella datorn. Följande avsnitt skapar en nätverks säkerhets grupp med namnet *myNetworkSecurityGroup* och definierar en regel för att tillåta SSH-trafik på TCP-port 22:
+## <a name="create-network-security-group"></a>Skapa nätverkssäkerhetsgrupp
+Nätverkssäkerhetsgrupper styr flödet av nätverkstrafik in och ut ur den virtuella datorn. I följande avsnitt skapas en `myNetworkSecurityGroup` nätverkssäkerhetsgrupp med namnet och en regel som tillåter SSH-trafik på TCP-port 22:
 
 ```hcl
 resource "azurerm_network_security_group" "myterraformnsg" {
@@ -134,8 +134,8 @@ resource "azurerm_network_security_group" "myterraformnsg" {
 ```
 
 
-## <a name="create-virtual-network-interface-card"></a>Skapa ett nätverkskort för virtuella nätverkskort
-Ett virtuellt nätverks gränssnitts kort (NIC) ansluter den virtuella datorn till ett angivet virtuellt nätverk, en offentlig IP-adress och en nätverks säkerhets grupp. I följande avsnitt i en terraform-mall skapas ett virtuellt nätverkskort med namnet *myNIC* som är anslutet till de virtuella nätverks resurser som du har skapat:
+## <a name="create-virtual-network-interface-card"></a>Skapa gränssnittskort för virtuella nätverk
+Ett virtuellt nätverkskort (NIC) ansluter den virtuella datorn till ett visst virtuellt nätverk, offentlig IP-adress och nätverkssäkerhetsgrupp. I följande avsnitt i en Terraform-mall `myNIC` skapas ett virtuellt nätverkskort med namnet som är anslutet till de virtuella nätverksresurser som du har skapat:
 
 ```hcl
 resource "azurerm_network_interface" "myterraformnic" {
@@ -163,8 +163,8 @@ resource "azurerm_network_interface_security_group_association" "example" {
 ```
 
 
-## <a name="create-storage-account-for-diagnostics"></a>Skapa lagrings konto för diagnostik
-Du behöver ett lagrings konto för att kunna lagra startdiagnostik för en virtuell dator. Den här startdiagnostiken kan hjälpa dig att felsöka problem och övervaka statusen för den virtuella datorn. Det lagrings konto som du skapar är bara att lagra startdiagnostikens data. Eftersom varje lagrings konto måste ha ett unikt namn genererar följande avsnitt slumpmässig text:
+## <a name="create-storage-account-for-diagnostics"></a>Skapa lagringskonto för diagnostik
+Om du vill lagra startdiagnostik för en virtuell dator behöver du ett lagringskonto. Dessa startdiagnostik kan hjälpa dig att felsöka problem och övervaka status för din virtuella dator. Lagringskontot som du skapar är bara att lagra startdiagnostikdata. Eftersom varje lagringskonto måste ha ett unikt namn genereras en del slumpmässig text i följande avsnitt:
 
 ```hcl
 resource "random_id" "randomId" {
@@ -177,7 +177,7 @@ resource "random_id" "randomId" {
 }
 ```
 
-Nu kan du skapa ett lagrings konto. I följande avsnitt skapas ett lagrings konto med namnet baserat på den slumpmässiga text som genererades i föregående steg:
+Nu kan du skapa ett lagringskonto. I följande avsnitt skapas ett lagringskonto med namnet baserat på den slumpmässiga text som genereras i föregående steg:
 
 ```hcl
 resource "azurerm_storage_account" "mystorageaccount" {
@@ -196,9 +196,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-Det sista steget är att skapa en virtuell dator och använda alla resurser som skapats. I följande avsnitt skapas en virtuell dator med namnet *myVM* och bifogas det virtuella nätverkskortet med namnet *myNIC*. Den senaste *Ubuntu 16,04-LTS-* avbildningen används och en användare med namnet *azureuser* skapas med lösenordsautentisering inaktive rad.
+Det sista steget är att skapa en virtuell dator och använda alla resurser som skapats. I följande avsnitt skapas `myVM` en virtuell dator med `myNIC`namnet och det virtuella nätverkskortet med namnet . Den `Ubuntu 16.04-LTS` senaste bilden används och `azureuser` en användare som heter skapas med lösenordsautentisering inaktiverad.
 
- Information om SSH-nycklar finns i avsnittet *ssh_keys* . Ange en giltig Offentlig SSH-nyckel i fältet *key_data* .
+ SSH-nyckeldata finns `ssh_keys` i avsnittet. Ange en offentlig SSH-nyckel i `key_data` fältet .
 
 ```hcl
 resource "azurerm_linux_virtual_machine" "myterraformvm" {
@@ -214,7 +214,7 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
         storage_account_type = "Premium_LRS"
     }
 
-    storage_image_reference {
+    source_image_reference {
         publisher = "Canonical"
         offer     = "UbuntuServer"
         sku       = "16.04.0-LTS"
@@ -240,15 +240,15 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 }
 ```
 
-## <a name="complete-terraform-script"></a>Slutför terraform-skript
+## <a name="complete-terraform-script"></a>Komplett Terraform-skript
 
-Om du vill samla alla dessa avsnitt och se terraform i praktiken skapar du en fil med namnet *terraform_azure. tf* och klistrar in följande innehåll:
+Om du vill samla alla dessa avsnitt och se `terraform_azure.tf` Terraform i aktion skapar du en fil som heter och klistrar in följande innehåll:
 
 ```hcl
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
     # The "feature" block is required for AzureRM provider 2.x. 
-    # If you are using version 1.x, the "features" block is not allowed.
+    # If you're using version 1.x, the "features" block is not allowed.
     version = "~>2.0"
     features {}
 
@@ -411,20 +411,20 @@ resource "azurerm_linux_virtual_machine" "myterraformvm" {
 ```
 
 
-## <a name="build-and-deploy-the-infrastructure"></a>Bygg och distribuera infrastrukturen
-När din terraform-mall har skapats är det första steget att initiera terraform. Det här steget säkerställer att terraform har alla krav för att bygga din mall i Azure.
+## <a name="build-and-deploy-the-infrastructure"></a>Bygga och distribuera infrastrukturen
+Med din Terraform-mall skapad är det första steget att initiera Terraform. Det här steget säkerställer att Terraform har alla förutsättningar för att skapa din mall i Azure.
 
 ```bash
 terraform init
 ```
 
-Nästa steg är att låta terraform granska och validera mallen. I det här steget jämförs de begärda resurserna med den statusinformation som sparats av terraform och sedan genereras den planerade körningen. Resurser skapas *inte* i Azure.
+Nästa steg är att låta Terraform granska och validera mallen. I det här steget jämförs de begärda resurserna med tillståndsinformationen som sparats av Terraform och sedan utdata den planerade körningen. Azure-resurserna skapas inte just nu.
 
 ```bash
 terraform plan
 ```
 
-När du har kört föregående kommando bör du se något som liknar följande skärm:
+När du har körat föregående kommando bör du se något i stil med följande skärm:
 
 ```console
 Refreshing Terraform state in-memory prior to plan...
@@ -453,19 +453,19 @@ Note: You didn't specify an "-out" parameter to save this plan, so when
 Plan: 7 to add, 0 to change, 0 to destroy.
 ```
 
-Om allting ser korrekt ut och du är redo att bygga infrastrukturen i Azure, använder du mallen i terraform:
+Om allt ser korrekt ut och du är redo att bygga infrastrukturen i Azure använder du mallen i Terraform:
 
 ```bash
 terraform apply
 ```
 
-När terraform är klar är din infrastruktur för virtuell dator klar. Hämta den offentliga IP-adressen för den virtuella datorn med [AZ VM show](/cli/azure/vm):
+När Terraform är klar är din VM-infrastruktur klar. Hämta den offentliga IP-adressen för din virtuella dator med [az vm show:](/cli/azure/vm)
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
 ```
 
-Du kan sedan använda SSH till den virtuella datorn:
+Du kan sedan SSH till din virtuella dator:
 
 ```bash
 ssh azureuser@<publicIps>
@@ -473,4 +473,4 @@ ssh azureuser@<publicIps>
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Lär dig mer om hur du använder terraform i Azure](/azure/terraform)
+> [Läs mer om hur du använder Terraform i Azure](/azure/terraform)

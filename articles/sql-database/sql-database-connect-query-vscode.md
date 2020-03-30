@@ -1,5 +1,5 @@
 ---
-title: Använda VS Code för att ansluta och fråga
+title: Använd VS-kod för att ansluta och fråga
 description: Lär dig hur du ansluter till SQL Database på Azure med hjälp av Visual Studio Code. Kör sedan Transact-SQL-uttryck (T-SQL) för att skicka frågor och redigera data.
 keywords: ansluta till sql database
 services: sql-database
@@ -13,17 +13,17 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: 28b35f273783b2e4d0b8f59c5bc5be384b933ba2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73826896"
 ---
-# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Snabb start: Använd Visual Studio Code för att ansluta och skicka frågor till en Azure SQL Database
+# <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använda Visual Studio-kod för att ansluta och fråga en Azure SQL-databas
 
 [Visual Studio Code](https://code.visualstudio.com/docs) är en grafisk kodredigerare för Linux, macOS och Windows. Den stöder tillägg, inklusive [mssql-tillägget](https://aka.ms/mssql-marketplace) för frågor till Microsoft SQL Server, Azure SQL Database och SQL Data Warehouse. I den här snabbstarten får du använda Visual Studio Code för att ansluta till en Azure SQL-databas och därefter köra Transact-SQL-uttryck för att fråga, infoga, uppdatera och ta bort data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
@@ -31,11 +31,11 @@ ms.locfileid: "73826896"
   |:--- |:--- |:---|
   | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  || [Powershell](scripts/sql-database-create-and-configure-database-powershell.md) | [Powershell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från [BACPAC-filen](sql-database-import.md) från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -49,7 +49,7 @@ Kontrollera att du har installerat den senaste versionen av [Visual Studio Code]
 
 ### <a name="mac-os"></a>**Mac OS**
 
-För macOS måste du installera OpenSSL, som är en förutsättning för .NET Core som MSSQL-tillägget använder. Ange följande kommandon för att installera **brew** och **OpenSSL**.
+För macOS måste du installera OpenSSL, vilket är en förutsättning för .NET Core som mssql-tillägget använder. Ange följande kommandon för att installera **brew** och **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -72,11 +72,11 @@ Ingen särskild konfiguration behövs.
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Navigera till sidan **SQL-databaser** eller **SQL-hanterade instanser**.
 
-3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**.
+3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
 
 ## <a name="set-language-mode-to-sql"></a>Ange språkläge till SQL
 
@@ -111,13 +111,13 @@ Använd Visual Studio Code för att upprätta en anslutning till Azure SQL Datab
    | **Databasnamn** | mySampleDatabase | Databasen du ska ansluta till. |
    | **Autentisering** | SQL-inloggning| Den här självstudien använder SQL-autentisering. |
    | **Användarnamn** | Användarnamn | Användarnamnet från det serveradministratörskonto som användes när servern skapades. |
-   | **Lösenord (SQL-inloggning)** | Lösenord | Lösenordet från det serveradministratörskonto som användes när servern skapades. |
+   | **Lösenord (SQL-inloggning)** | lösenord | Lösenordet från det serveradministratörskonto som användes när servern skapades. |
    | **Spara lösenordet?** | Ja eller nej | Välj **Ja** om du inte vill ange lösenordet varje gång. |
    | **Ange ett namn för den här profilen** | Ett profilnamn, t.ex. **mySampleProfile** | En sparad profil förbättrar anslutningen på efterföljande inloggningar. |
 
    Om det lyckas visas ett meddelande om att din profil har skapats och anslutits.
 
-## <a name="query-data"></a>Frågedata
+## <a name="query-data"></a>Söka i data
 
 Kör följande [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL-instruktion för att fråga efter de 20 främsta produkterna per kategori.
 
@@ -130,7 +130,7 @@ Kör följande [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transa
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-2. Tryck på **Ctrl**+**Skift**+**E** för att köra frågan och visa resultat från tabellerna `Product` och `ProductCategory`.
+2. Tryck på **Ctrl**+**Skift**+**E** för att `Product` `ProductCategory` köra frågan och visa resultat från tabellerna och tabeller.
 
     ![Fråga för att hämta data från 2 tabeller](./media/sql-database-connect-query-vscode/query.png)
 
@@ -160,7 +160,7 @@ Kör följande [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transa
          ,GETDATE() );
    ```
 
-2. Tryck på **Ctrl**+**Shift**+**E** för att infoga en ny rad i tabell `Product`.
+2. Tryck på **Ctrl**+**Skift**+**E** om `Product` du vill infoga en ny rad i tabellen.
 
 ## <a name="update-data"></a>Uppdatera data
 
@@ -174,7 +174,7 @@ Kör följande [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transa
    WHERE Name = 'myNewProduct';
    ```
 
-2. Tryck på **Ctrl**+**Shift**+**E** för att uppdatera den angivna raden i tabellen `Product`.
+2. Tryck på **Ctrl**+**Skift**+**E** för `Product` att uppdatera den angivna raden i tabellen.
 
 ## <a name="delete-data"></a>Ta bort data
 
@@ -187,10 +187,10 @@ Kör följande [DELETE](https://docs.microsoft.com/sql/t-sql/statements/delete-t
    WHERE Name = 'myNewProduct';
    ```
 
-2. Tryck på **Ctrl**+**Shift**+**E** för att ta bort den angivna raden i tabellen `Product`.
+2. Tryck på **Ctrl**+**Skift**+**E** om `Product` du vill ta bort den angivna raden i tabellen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du ansluter och frågar med hjälp av SQL Server Management Studio finns i [snabb start: använd SQL Server Management Studio för att ansluta till en Azure SQL Database och fråga efter data](sql-database-connect-query-ssms.md).
-- Information om hur du ansluter och frågar med hjälp av Azure Portal finns i [snabb start: Använd SQL-Frågeredigeraren i Azure Portal för att ansluta och fråga efter data](sql-database-connect-query-portal.md).
+- Information om hur du ansluter och frågar med SQL Server Management Studio finns i [Snabbstart: Använd SQL Server Management Studio för att ansluta till en Azure SQL-databas och frågedata](sql-database-connect-query-ssms.md).
+- Information om hur du ansluter och frågar med Azure-portalen finns i [Snabbstart: Använd SQL Query-redigeraren i Azure-portalen för att ansluta och fråga data](sql-database-connect-query-portal.md).
 - En artikel från MSDN-magazine om hur du använder Visual Studio Code finns i [Skapa en IDE-databas med MSSQL-tillägget blogginlägg](https://msdn.microsoft.com/magazine/mt809115).

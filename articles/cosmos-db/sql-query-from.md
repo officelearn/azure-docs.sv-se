@@ -1,29 +1,29 @@
 ---
-title: FROM-sats i Azure Cosmos DB
-description: Läs om SQL-syntaxen och exempel för FROM-satsen för Azure Cosmos DB. Den här artikeln innehåller också exempel på omfattnings resultat och hämta under objekt med hjälp av from-satsen.
+title: FRÅN-satsen i Azure Cosmos DB
+description: Lär dig mer om SQL-syntaxen och till exempel för FROM-satsen för Azure Cosmos DB. Den här artikeln visar också exempel på scoperesultat och hämta underobjekt med hjälp av FROM-satsen.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587693"
 ---
-# <a name="from-clause-in-azure-cosmos-db"></a>FROM-sats i Azure Cosmos DB
+# <a name="from-clause-in-azure-cosmos-db"></a>FRÅN-satsen i Azure Cosmos DB
 
-From (`FROM <from_specification>`)-satsen är valfri, om inte källan filtreras eller projiceras senare i frågan. En fråga som `SELECT * FROM Families` räknar upp över hela `Families` containern. Du kan också använda den särskilda identifierande roten för behållaren i stället för att använda behållar namnet.
+FROM ()`FROM <from_specification>`är valfri, såvida inte källan filtreras eller projiceras senare i frågan. En fråga `SELECT * FROM Families` som räknas upp `Families` över hela behållaren. Du kan också använda den särskilda identifieraren ROOT för behållaren i stället för att använda behållarnamnet.
 
-FROM-satsen framtvingar följande regler per fråga:
+FROM-satsen tillämpar följande regler per fråga:
 
-* Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här `f` är aliaset för `Families`. SOM är ett valfritt nyckelord för att [aliasa](sql-query-aliasing.md) identifieraren.  
+* Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här `f` är alias `Families`för . AS är ett valfritt nyckelord för att [alias](sql-query-aliasing.md) identifieraren.  
 
-* Det går inte att binda det ursprungliga käll namnet när det har alias. Till exempel är `SELECT Families.id FROM Families f` syntaktiskt ogiltigt eftersom identifieraren `Families` har fått ett alias och inte längre kan lösas.  
+* När det ursprungliga källnamnet har aliasats kan det inte bindas. Till exempel `SELECT Families.id FROM Families f` är syntaktiskt ogiltig eftersom `Families` identifieraren har aliasats och inte kan lösas längre.  
 
-* Alla refererade egenskaper måste vara fullständigt kvalificerade för att undvika tvetydiga bindningar i frånvaro av strikt schema. Till exempel är `SELECT id FROM Families f` syntaktiskt ogiltigt eftersom egenskapen `id` inte är kopplad.
+* Alla refererade egenskaper måste vara fullt kvalificerade för att undvika tvetydiga bindningar i avsaknad av strikt schemaefterlevnad. Till exempel `SELECT id FROM Families f` är syntaktiskt ogiltig `id` eftersom egenskapen inte är bunden.
 
 ## <a name="syntax"></a>Syntax
   
@@ -49,72 +49,72 @@ FROM <from_specification>
   
 - `<from_source>`  
   
-  Anger en datakälla, med eller utan ett alias. Om alias inte anges kommer det att härledas från `<container_expression>` med hjälp av följande regler:  
+  Anger en datakälla, med eller utan ett alias. Om alias inte anges härleds det `<container_expression>` från följande regler:  
   
-  -  Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
+  -  Om uttrycket är en container_name används container_name som ett alias.  
   
-  -  Om uttrycket är `<container_expression>`, sedan property_name, kommer property_name att användas som ett alias. Om uttrycket är en container_name, kommer container_name att användas som ett alias.  
+  -  Om uttrycket `<container_expression>`är , property_name, kommer property_name att användas som ett alias. Om uttrycket är en container_name används container_name som ett alias.  
   
-- SOM `input_alias`  
+- Som`input_alias`  
   
-  Anger att `input_alias` är en uppsättning värden som returneras av det underliggande behållar uttrycket.  
+  Anger att `input_alias` är en uppsättning värden som returneras av det underliggande behållaruttrycket.  
  
-- `input_alias` i  
+- `input_alias`I  
   
-  Anger att `input_alias` ska representera den uppsättning värden som erhålls genom att iterera över alla mat ris element i varje matris som returneras av det underliggande behållar uttrycket. Ett värde som returneras av underliggande container-uttryck som inte är en matris ignoreras.  
+  Anger att `input_alias` värdet ska representera den uppsättning värden som erhålls genom att iterera över alla matriselement i varje matris som returneras av det underliggande behållaruttrycket. Alla värden som returneras av underliggande behållaruttryck som inte är en matris ignoreras.  
   
 - `<container_expression>`  
   
-  Anger container-uttrycket som används för att hämta dokument.  
+  Anger det behållaruttryck som ska användas för att hämta dokumenten.  
   
 - `ROOT`  
   
-  Anger det dokumentet ska hämtas från standardbehållaren, just nu anslutna.  
+  Anger att dokumentet ska hämtas från standardbehållaren för närvarande ansluten.  
   
 - `container_name`  
   
-  Anger det dokumentet ska hämtas från den angivna behållaren. Namnet på behållaren måste matcha namnet på den behållare som är anslutna till.  
+  Anger att dokumentet ska hämtas från den angivna behållaren. Namnet på behållaren måste matcha namnet på den behållare som för närvarande är ansluten till.  
   
 - `input_alias`  
   
-  Anger det dokumentet ska hämtas från den källa som definieras av det angivna aliaset.  
+  Anger att dokumentet ska hämtas från den andra källan som definieras av det angivna aliaset.  
   
 - `<container_expression> '.' property_name`  
   
-  Anger att dokumentet ska hämtas genom att komma åt `property_name`-egenskapen.  
+  Anger att dokumentet ska hämtas genom `property_name` åtkomst till egenskapen.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Anger att dokumentet ska hämtas genom att komma åt `property_name` egenskap eller array_index mat ris element för alla dokument som hämtats av angivet container uttryck.  
+  Anger att dokumentet ska hämtas genom `property_name` att använda egenskapen eller array_index matriselementet för alla dokument som hämtas av angivet behållaruttryck.  
   
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
   
-Alla alias som anges eller är härledda i `<from_source>(`s) måste vara unika. Syntaxen `<container_expression>.`property_name är samma som `<container_expression>' ['"property_name"']'`. Denna syntax kan dock användas om ett egenskapsnamn innehåller ett icke-ID-tecken.  
+Alla alias som tillhandahålls eller `<from_source>(`härledas i s) måste vara unika. Syntaxen `<container_expression>.`property_name är samma `<container_expression>' ['"property_name"']'`som . Den senare syntaxen kan dock användas om ett egenskapsnamn innehåller ett tecken som inte är identifierare.  
   
-### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>hantera saknade egenskaper, matriselement och odefinierad värden som saknas
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>Hantera saknade egenskaper, saknade matriselement och odefinierade värden
   
-Om ett uttryck för behållaren har åtkomst till egenskaper eller matriselement och att värdet inte finns, ignoreras värdet och inte fortsätta bearbetningen.  
+Om ett behållaruttryck kommer åt egenskaper eller matriselement och det värdet inte finns ignoreras det värdet och bearbetas inte ytterligare.  
   
-### <a name="container-expression-context-scoping"></a>Behållaren uttryck kontext omfång  
+### <a name="container-expression-context-scoping"></a>Omfång för kontext för behållaruttryck  
   
-Ett uttryck för behållare kan vara behållare omfattar eller dokumentet omfattar:  
+Ett behållaruttryck kan vara behållarscoped eller dokumentomfattat:  
   
--   Ett uttryck är container-scopet, om den underliggande källan för behållar uttrycket är antingen ROOT eller `container_name`. Sådana ett uttryck representerar en uppsättning dokument som hämtas från behållaren direkt och är inte beroende av bearbetning av andra behållare-uttryck.  
+-   Ett uttryck är behållarbestä ingett, om den underliggande källan till behållaruttrycket antingen är ROOT eller `container_name`. Ett sådant uttryck representerar en uppsättning dokument som hämtas direkt från behållaren och är inte beroende av bearbetningen av andra behållaruttryck.  
   
--   Ett uttryck är dokument-omfattning, om den underliggande källan för behållar uttrycket är `input_alias` introducerades tidigare i frågan. Sådana ett uttryck representerar en uppsättning dokument som hämtas av utvärderingen av behållaren uttryck i omfånget för varje dokument som hör till den uppsättning som är associerade med ett alias-behållaren.  Den resulterande uppsättningen blir en union av uppsättningar som erhålls av utvärderingen av container-uttryck för varje dokument i den underliggande uppsättningen. 
+-   Ett uttryck är dokumentomfattat om den underliggande `input_alias` källan till behållaruttrycket introduceras tidigare i frågan. Ett sådant uttryck representerar en uppsättning dokument som erhålls genom att utvärdera behållaruttrycket i omfattningen för varje dokument som tillhör den uppsättning som är associerad med behållaren med alias.  Den resulterande uppsättningen blir en union av uppsättningar som erhålls genom att utvärdera behållaruttrycket för vart och ett av dokumenten i den underliggande uppsättningen. 
 
 ## <a name="examples"></a>Exempel
 
-### <a name="get-subitems-by-using-the-from-clause"></a>Hämta under objekt med hjälp av from-satsen
+### <a name="get-subitems-by-using-the-from-clause"></a>Hämta underobjekt med hjälp av FROM-satsen
 
-FROM-satsen kan minska källan till en mindre delmängd. Om du bara vill räkna upp ett under träd i varje objekt kan underroten bli källan, vilket visas i följande exempel:
+FRÅN-satsen kan minska källan till en mindre delmängd. Om du bara vill räkna upp ett underträd i varje objekt kan underroten bli källan, vilket visas i följande exempel:
 
 ```sql
     SELECT *
     FROM Families.children
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -147,14 +147,14 @@ Resultaten är:
     ]
 ```
 
-Föregående fråga använde en matris som källa, men du kan också använda ett objekt som källa. Frågan tar alla giltiga, definierade JSON-värden i källan som ska ingå i resultatet. Följande exempel skulle utesluta `Families` som inte har något `address.state`-värde.
+Föregående fråga använde en matris som källa, men du kan också använda ett objekt som källa. Frågan tar hänsyn till alla giltiga, definierade JSON-värden i källan för att inkluderas i resultatet. I följande exempel `Families` skulle utesluta att `address.state` inte ha ett värde.
 
 ```sql
     SELECT *
     FROM Families.address.state
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -167,4 +167,4 @@ Resultaten är:
 
 - [Komma igång](sql-query-getting-started.md)
 - [SELECT-sats](sql-query-select.md)
-- [WHERE-sats](sql-query-where.md)
+- [WHERE-klausul](sql-query-where.md)

@@ -1,6 +1,6 @@
 ---
-title: Planera rapporter & övervakning av distribution – Azure AD
-description: Beskriver hur du planerar och kör implmentation för rapportering och övervakning.
+title: Planera rapporter & övervakningsdistribution - Azure AD
+description: Beskriver hur du planerar och utför implmentation av rapportering och övervakning.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,133 +13,133 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ad84b8910e8d4f8af9845c33c22d128e317dedc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232109"
 ---
-# <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planera en Azure Active Directory rapportering och övervakning av distribution
+# <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planera en Azure Active Directory-rapportering och övervakningsdistribution
 
-Din Azure Active Directory (Azure AD)-rapportering och övervaknings lösning är beroende av dina juridiska, säkerhets-och drifts krav och din befintliga miljö och befintliga processer. Den här artikeln visar de olika design alternativen och vägleder dig till rätt distributions strategi.
+Rapporterings- och övervakningslösningen för Azure Active Directory (Azure AD) beror på dina juridiska, säkerhets- och driftskrav och din befintliga miljö och processer. I den här artikeln visas de olika designalternativen och du får rätt distributionsstrategi.
 
-### <a name="benefits-of-azure-ad-reporting-and-monitoring"></a>Fördelar med Azure AD-rapportering och-övervakning
+### <a name="benefits-of-azure-ad-reporting-and-monitoring"></a>Fördelar med Azure AD-rapportering och övervakning
 
-Azure AD repor ting innehåller en omfattande vy och loggar av Azure AD-aktivitet i din miljö, inklusive inloggnings händelser, gransknings händelser och ändringar i din katalog.
+Azure AD-rapportering ger en omfattande vy och loggar över Azure AD-aktivitet i din miljö, inklusive inloggningshändelser, granskningshändelser och ändringar i katalogen.
 
 Med dessa data kan du:
 
-* Bestäm hur dina appar och tjänster används.
+* avgöra hur dina appar och tjänster används.
 
-* identifiera potentiella risker som påverkar hälso tillståndet för din miljö.
+* upptäcka potentiella risker som påverkar hälsan i din miljö.
 
-* Felsök problem som hindrar användarna från att få jobbet gjort.
+* felsöka problem som hindrar användarna från att få jobbet gjort.
 
-* få insikter genom att se gransknings händelser av ändringar i Azure AD-katalogen.
+* få insikter genom att se granskningshändelser för ändringar i din Azure AD-katalog.
 
 > [!IMPORTANT]
-> Med Azure AD-övervakning kan du dirigera loggar som genereras av Azure AD repor ting till olika mål system. Du kan antingen behålla dem för långvarig användning eller integrera dem med SIEM-verktyg (säkerhetsinformation och händelsehantering) för att få insikter om din miljö.
+> Azure AD-övervakning gör att du kan dirigera dina loggar som genereras av Azure AD-rapportering till olika målsystem. Du kan antingen behålla dem för långvarig användning eller integrera dem med SIEM-verktyg (säkerhetsinformation och händelsehantering) för att få insikter om din miljö.
 
 Med Azure AD-övervakning kan du dirigera loggar till:
 
-* ett Azure Storage-konto för arkivering.
-* Azure Monitor loggar, som tidigare kallades Azure Log Analytics-arbetsytan, där du kan analysera data, skapa instrument paneler och avisering om vissa händelser.
-* en Azure-händelsehubben där du kan integrera med dina befintliga SIEM-verktyg som Splunk, SumoLogic eller QRadar.
+* ett Azure-lagringskonto för arkivering.
+* Azure Monitor-loggar, tidigare känd som Azure Log Analytics-arbetsyta, där du kan analysera data, skapa instrumentpaneler och avisera om specifika händelser.
+* en Azure-händelsehubb där du kan integrera med dina befintliga SIEM-verktyg som Splunk, Sumologic eller QRadar.
 
 > [!NOTE]
-Vi började nyligen använda term Azure Monitors loggar i stället för Log Analytics. Loggdata lagras fortfarande i en Log Analytics arbets yta och samlas in och analyseras fortfarande av samma Log Analytics-tjänst. Vi uppdaterar terminologin för att bättre avspegla rollen för [loggar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection). Se [Azure Monitor terminologis ändringar](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand) för mer information.
+Vi har nyligen börjat använda termen Azure Monitor-loggar i stället för Logganalys. Loggdata lagras fortfarande i en Log Analytics-arbetsyta och samlas fortfarande in och analyseras av samma Log Analytics-tjänst. Vi uppdaterar terminologin för att bättre återspegla rollen för [loggar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection). Mer information finns i [Azure Monitor-terminologiändringar.](https://docs.microsoft.com/azure/azure-monitor/azure-monitor-rebrand)
 
-[Läs mer om rapport bevarande principer](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention).
+[Läs mer om principer för rapportlagring](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention).
 
-### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licensiering och krav för Azure AD-rapportering och-övervakning
+### <a name="licensing-and-prerequisites-for-azure-ad-reporting-and-monitoring"></a>Licensiering och förutsättningar för Azure AD-rapportering och övervakning
 
-Du behöver en Azure AD Premium-licens för att få åtkomst till Azure AD-inloggnings loggarna.
+Du behöver en Azure AD-premiumlicens för att komma åt Azure AD-inloggningsloggarna.
 
-Detaljerad information om funktioner och licensiering i [Azure Active Directory prissättnings guide](https://azure.microsoft.com/pricing/details/active-directory/).
+Detaljerad information om funktioner och licensiering i [Azure Active Directory-prisguiden](https://azure.microsoft.com/pricing/details/active-directory/).
 
-För att distribuera Azure AD-övervakning och-rapportering behöver du en användare som är global administratör eller säkerhets administratör för Azure AD-klienten.
+För att distribuera Azure AD-övervakning och rapportering behöver du en användare som är global administratör eller säkerhetsadministratör för Azure AD-klienten.
 
-Beroende på den slutliga destinationen för dina loggdata behöver du något av följande:
+Beroende på loggdatas slutdestination behöver du något av följande:
 
-* Ett Azure Storage-konto som du har Listnycklar-behörigheter för. Vi rekommenderar att du använder ett allmänt lagringskonto och inte ett blob-lagringskonto. Prisinformation för lagring finns i [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage).
+* Ett Azure-lagringskonto som du har ListKeys-behörigheter för. Vi rekommenderar att du använder ett allmänt lagringskonto och inte ett blob-lagringskonto. Prisinformation för lagring finns i [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/calculator/?service=storage).
 
-* Ett Azure Event Hubs-namnområde som kan integreras med SIEM-lösningar från tredje part.
+* Ett Azure Event Hubs-namnområde som ska integreras med SIEM-lösningar från tredje part.
 
-* En Azure Log Analytics-arbetsyta för att skicka loggar till Azure Monitor loggar.
+* En Azure Log Analytics-arbetsyta för att skicka loggar till Azure Monitor-loggar.
 
-## <a name="plan-an-azure-reporting-and-monitoring-deployment-project"></a>Planera ett distributions projekt för Azure repor ting och övervakning
+## <a name="plan-an-azure-reporting-and-monitoring-deployment-project"></a>Planera ett Azure-rapporterings- och övervakningsdistributionsprojekt
 
-I det här projektet definierar du de mål grupper som ska förbruka och övervaka rapporter och definiera din Azure AD-övervaknings arkitektur.
+I det här projektet definierar du de målgrupper som ska använda och övervakar rapporter och definierar din Azure AD-övervakningsarkitektur.
 
 ### <a name="engage-the-right-stakeholders"></a>Engagera rätt intressenter
 
-När teknik projekt inte fungerar, gör de vanligt vis på grund av felaktiga förväntningar på påverkan, resultat och ansvars områden. För att undvika dessa fall GRO par bör [du se till att du är engagerande rätt intressenter](https://aka.ms/deploymentplans). Se också till att från intressenter roller i projektet är väl förstå genom att dokumentera intressenterna och deras ingångs-och Accountabilities.
+När teknikprojekt misslyckas gör de det vanligtvis på grund av felaktiga förväntningar på påverkan, resultat och ansvar. För att undvika dessa fallgropar, [se till att du engagerar rätt intressenter.](https://aka.ms/deploymentplans) Se också till att intressentrollerna i projektet förstås väl genom att dokumentera intressenterna och deras projektinmatning och kontobesiktning.
 
 ### <a name="plan-communications"></a>Planera kommunikation
 
-Kommunikationen är nödvändig för att en ny tjänst ska lyckas. Kommunicera proaktivt med dina användare hur deras upplevelse kommer att ändras, när den kommer att ändras och hur du får support om de drabbas av problem.
+Kommunikation är avgörande för att en ny tjänst ska lyckas. Kommunicera proaktivt med användarna hur deras upplevelse kommer att förändras, när den ändras och hur de får support om de får problem.
 
-### <a name="document-your-current-infrastructure-and-policies"></a>Dokumentera din aktuella infrastruktur och dina principer
+### <a name="document-your-current-infrastructure-and-policies"></a>Dokumentera din nuvarande infrastruktur och dina aktuella principer
 
-Din aktuella infrastruktur och dina befintliga principer kommer att driva din design för rapportering och övervakning. Se till att du vet
+Din nuvarande infrastruktur och dina nuvarande principer kommer att driva din rapporterings- och övervakningsdesign. Se till att du vet
 
-* Vad, om några, SIEM verktyg du använder.
+* Vad, om någon, SIEM verktyg du använder.
 
-* Din Azure-infrastruktur, inklusive befintliga lagrings konton och övervakning som används.
+* Din Azure-infrastruktur, inklusive befintliga lagringskonton och övervakning som används.
 
-* Organisationens bevarande principer för loggar, inklusive eventuella tillämpliga ramverk för efterlevnad som krävs. 
+* Dina organisationslagringsprinciper för loggar, inklusive tillämpliga efterlevnadsramverk som krävs. 
 
-## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Planera en distribution av Azure AD-rapportering och övervakning
+## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Planera en Azure AD-rapportering och övervakningsdistribution
 
-Rapportering och övervakning används för att uppfylla dina affärs behov, få insikter om användnings mönster och t öka dina organisationers säkerhets position.
+Rapportering och övervakning används för att uppfylla dina affärskrav, få insikter om användningsmönster och öka organisationens säkerhetsposition.
 
-### <a name="business-use-cases"></a>Användnings fall för företag
+### <a name="business-use-cases"></a>Ärenden om användning i företag
 
-* Krävs för att lösningen ska uppfylla affärs behoven
-* Bra att uppfylla affärs behoven
+* Krävs för lösning för att möta affärsbehov
+* Skönt att behöva möta affärsbehov
 * Inte tillämpligt
 
 |Område |Beskrivning |
 |-|-|
-|Kvarhållning| **Logg kvarhållning på mer än 30 dagar**. På grund av juridiska krav eller affärs krav krävs det att lagra gransknings loggar och logga in loggar för Azure AD längre än 30 dagar. |
-|Analytics| **Loggarna måste vara**sökbara. De lagrade loggarna måste vara sökbara med analys verktyg. |
-| Operational Insights| **Insikter för olika team**. Behovet av att ge åtkomst till olika användare för att få Operational Insights, till exempel program användning, inloggnings fel, självbetjänings användning, trender osv. |
-| Säkerhets insikter| **Insikter för olika team**. Behovet av att ge åtkomst till olika användare för att få Operational Insights, till exempel program användning, inloggnings fel, självbetjänings användning, trender osv. |
-| Integrering i SIEM-system      | **Siem-integrering**. Behovet av att integrera och strömma Azure AD-inloggnings loggar och gransknings loggar till befintliga SIEM-system. |
+|Kvarhållning| **Logga kvarhållning på mer än 30 dagar**. På grund av juridiska krav eller affärskrav krävs för att lagra granskningsloggar och logga in loggar för Azure AD längre än 30 dagar. |
+|Analys| **Loggarna måste vara sökbara**. De lagrade loggarna måste vara sökbara med analytiska verktyg. |
+| Operational Insights| **Insikter för olika team**. Behovet av att ge tillgång för olika användare att få operativa insikter såsom programanvändning, inloggningsfel, självbetjäningsanvändning, trender, etc. |
+| Säkerhetsinsikter| **Insikter för olika team**. Behovet av att ge tillgång för olika användare att få operativa insikter såsom programanvändning, inloggningsfel, självbetjäningsanvändning, trender, etc. |
+| Integration i SIEM-system      | **SIEM integration**. Behovet av att integrera och strömma Azure AD-inloggningsloggar och granskningsloggar till befintliga SIEM-system. |
 
-### <a name="choose-a-monitoring-solution-architecture"></a>Välj en arkitektur för övervaknings lösning
+### <a name="choose-a-monitoring-solution-architecture"></a>Välj en övervakningslösningsarkitektur
 
-Med Azure AD-övervakning kan du dirigera dina Azure AD-aktivitets loggar till ett system som bäst uppfyller dina affärs behov. Du kan sedan spara dem för långsiktig rapportering och analys för att få insikter om din miljö och integrera den med SIEM-verktyg.
+Med Azure AD-övervakning kan du dirigera dina Azure AD-aktivitetsloggar till ett system som bäst uppfyller dina affärsbehov. Du kan sedan behålla dem för långsiktig rapportering och analys för att få insikter i din miljö och integrera den med SIEM-verktyg.
 
-#### <a name="decision-flow-chartan-image-showing-what-is-described-in-subsequent-sectionsmediareporting-deployment-plandeploy-reporting-flow-diagrampng"></a>Diagram över besluts flöde![En bild som visar vad som beskrivs i följande avsnitt](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
+#### <a name="decision-flow-chartan-image-showing-what-is-described-in-subsequent-sections"></a>Beslutsflödesdiagram![En bild som visar vad som beskrivs i efterföljande avsnitt](media/reporting-deployment-plan/deploy-reporting-flow-diagram.png)
 
-#### <a name="archive-logs-in-a-storage-account"></a>Arkivera loggar i ett lagrings konto
+#### <a name="archive-logs-in-a-storage-account"></a>Arkivera loggar in i ett lagringskonto
 
-Genom att routa loggar till ett Azure Storage-konto kan du behålla dem längre än den standard kvarhållningsperiod som beskrivs i våra [bevarande principer](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention). Använd den här metoden om du behöver arkivera loggarna, men inte behöver integrera dem med ett SIEM-system och inte behöver pågående frågor och analyser. Du kan fortfarande göra sökningar på begäran.
+Genom att dirigera loggar till ett Azure-lagringskonto kan du behålla dem längre än den standardlagringsperiod som beskrivs i våra [bevarandeprinciper](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-reports-data-retention). Använd den här metoden om du behöver arkivera dina loggar, men inte behöver integrera dem med ett SIEM-system och inte behöver pågående frågor och analyser. Du kan fortfarande göra sökningar på begäran.
 
 Lär dig hur du [dirigerar data till ditt lagringskonto](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account).
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Skicka loggar till Azure Monitor-loggar
 
-[Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) konsoliderar övervaknings data från olika källor. Det innehåller också ett frågespråk och analys motor som ger dig insikter om hur dina program och resurser används. Genom att skicka Azure AD-aktivitets loggar till Azure Monitor loggar kan du snabbt hämta, övervaka och varna på insamlade data. Använd den här metoden om du inte har en befintlig SIEM-lösning som du vill skicka dina data till direkt, men vill ha frågor och analyser. När dina data finns i Azure Monitor loggar kan du skicka dem till händelsehubben och därifrån till en SIEM om du vill.
+[Azure Monitor-loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) konsoliderar övervakningsdata från olika källor. Det ger också en frågespråk och analysmotor som ger dig insikter om hur dina program fungerar och använder resurser. Genom att skicka Azure AD-aktivitetsloggar till Azure Monitor-loggar kan du snabbt hämta, övervaka och avisera dig om insamlade data. Använd den här metoden när du inte har en befintlig SIEM-lösning som du vill skicka dina data till direkt men vill ha frågor och analyser. När dina data finns i Azure Monitor-loggar kan du sedan skicka dem till händelsehubben och därifrån till ett SIEM om du vill.
 
 Lär dig att [skicka data till Azure Monitor-loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
-Du kan också installera förinställda vyer för Azure AD-aktivitets loggar för att övervaka vanliga scenarier som innefattar inloggnings-och gransknings händelser.
+Du kan också installera de färdiga vyerna för Azure AD-aktivitetsloggar för att övervaka vanliga scenarier som involverar inloggnings- och granskningshändelser.
 
 Lär dig att [installera och använda logganalysvyer för Azure AD-aktivitetsloggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views).
 
-#### <a name="stream-logs-to-your-azure-event-hub"></a>Strömma loggar till din Azure Event Hub
+#### <a name="stream-logs-to-your-azure-event-hub"></a>Strömma loggar till din Azure-händelsehubb
 
-Routning loggar till en Azure Event Hub möjliggör integrering med SIEM-verktyg från tredje part. Den här integrationen gör att du kan kombinera Azure AD-aktivitetsloggdata med andra data som hanteras av ditt SIEM, för att ge bättre inblick i din miljö. 
+Routningsloggar till en Azure-händelsehubb möjliggör integrering med SIEM-verktyg från tredje part. Den här integrationen gör att du kan kombinera Azure AD-aktivitetsloggdata med andra data som hanteras av ditt SIEM, för att ge bättre inblick i din miljö. 
 
 Lär dig hur du [skickar händelser till en händelsehubb](https://docs.microsoft.com//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
-## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planera åtgärder och säkerhet för Azure AD-rapportering och-övervakning
+## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Planera åtgärder och säkerhet för Azure AD-rapportering och övervakning
 
-Intressenter behöver åtkomst till Azure AD-loggar för att få Operational Insights. Troliga användare inkluderar säkerhets grupps medlemmar, interna eller externa revisorer och teamet för hantering av identitets-och åtkomst hantering.
+Intressenter måste komma åt Azure AD-loggar för att få operativa insikter. Troliga användare inkluderar medlemmar i säkerhetsgruppen, interna eller externa revisorer och identitets- och åtkomsthanteringsgruppen.
 
-Med Azure AD-roller kan du delegera möjligheten att konfigurera och Visa Azure AD-rapporter baserat på din roll. Identifiera vem i din organisation som behöver behörighet att läsa Azure AD-rapporter och vilken roll som skulle vara lämplig för dem. 
+Med Azure AD-roller kan du delegera möjligheten att konfigurera och visa Azure AD-rapporter baserat på din roll. Identifiera vem i organisationen som behöver behörighet att läsa Azure AD-rapporter och vilken roll som skulle vara lämplig för dem. 
 
 Följande roller kan läsa Azure AD-rapporter:
 
@@ -147,39 +147,39 @@ Följande roller kan läsa Azure AD-rapporter:
 
 * Säkerhetsadministratör
 
-* Säkerhets läsare
+* Säkerhetsläsare
 
-* Rapport läsare
+* Rapportläsare
 
-Lär dig mer om [administrativa roller i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
+Läs mer om [administrativa Azure AD-roller](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
-*Använd alltid begreppet minsta behörighet för att minska risken för att ett konto komprometteras*. Överväg att implementera [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) för att skydda din organisation ytterligare.
+*Tillämpa alltid begreppet lägsta behörighet för att minska risken för en kontokompromiss*. Överväg att implementera [privilegierad identitetshantering](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) för att ytterligare skydda din organisation.
 
 ##  
 
-## <a name="deploy-azure-ad-reporting-and-monitoring"></a>Distribuera Azure AD-rapportering och-övervakning
+## <a name="deploy-azure-ad-reporting-and-monitoring"></a>Distribuera Azure AD-rapportering och övervakning
 
-Beroende på de beslut som du har gjort tidigare med hjälp av design anvisningarna ovan kommer det här avsnittet att vägleda dig till dokumentationen om de olika distributions alternativen.
+Beroende på vilka beslut du har fattat tidigare med hjälp av designvägledningen ovan kommer det här avsnittet att guida dig till dokumentationen om de olika distributionsalternativen.
 
 ### <a name="consume-and-archive-azure-ad-logs"></a>Använda och arkivera Azure AD-loggar
 
 [Hitta aktivitetsrapporter på Azure-portalen](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
 
-[Arkivera Azure AD-loggar till ett Azure Storage konto](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
+[Arkivera Azure AD-loggar till ett Azure Storage-konto](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
 
 ### <a name="implement-monitoring-and-analytics"></a>Implementera övervakning och analys
 
 [Skicka loggar till Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
-[Installera och Använd Log Analytics-vyerna för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
+[Installera och använda logganalysvyerna för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views)
 
-[Analysera Azure AD-aktivitets loggar med Azure Monitor loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
+[Analysera Azure AD-aktivitetsloggar med Azure Monitor-loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)
 
-* [Tolka schema för spårningsloggar i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
+* [Tolka granskningsloggschema i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema)
 
-* [Tolka schema för inloggnings loggar i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema)
+* [Tolka inloggningsloggschema i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema)
 
- * [Strömma Azure AD-loggar till en Azure Event Hub](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
+ * [Strömma Azure AD-loggar till en Azure-händelsehubb](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub)
 
 * [Integrera Azure AD-loggar med Splunk med hjälp av Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-integrate-activity-logs-with-splunk)
 
@@ -191,8 +191,8 @@ Beroende på de beslut som du har gjort tidigare med hjälp av design anvisninga
 
 ## <a name="next-steps"></a>Nästa steg
 
-Överväg att implementera [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
+Överväg att implementera [privilegierad identitetshantering](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) 
 
-Överväg att implementera [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Överväg att implementera [rollbaserad åtkomstkontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
  

@@ -1,29 +1,29 @@
 ---
-title: Data inmatning för Azure HPC-cache – manuell kopiering
-description: Använda CP-kommandon för att flytta data till ett Blob Storage-mål i Azure HPC-cache
+title: Azure HPC-cachedata intas - manuell kopia
+description: Så här använder du cp-kommandon för att flytta data till ett Blob-lagringsmål i Azure HPC-cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: fc397088e46f0d2b623080f3deed24c386e7d8b4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74168477"
 ---
-# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Data inmatning för Azure HPC-cache – manuell kopierings metod
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC-cachedata intas - manuell kopieringsmetod
 
-Den här artikeln innehåller detaljerade anvisningar för att manuellt kopiera data till en Blob Storage-behållare för användning med Azure HPC-cache. Den använder flera trådar parallella åtgärder för att optimera kopierings hastigheten.
+Den här artikeln innehåller detaljerade instruktioner för manuell kopiering av data till en Blob-lagringsbehållare för användning med Azure HPC-cache. Den använder parallella åtgärder med flera trådar för att optimera kopieringshastigheten.
 
-Läs mer om hur du flyttar data till Blob Storage för Azure HPC cache genom [att läsa flytta data till Azure Blob Storage](hpc-cache-ingest.md).
+Mer information om hur du flyttar data till Blob-lagring för Din Azure HPC-cache läser du [Flytta data till Azure Blob storage](hpc-cache-ingest.md).
 
-## <a name="simple-copy-example"></a>Enkelt kopierings exempel
+## <a name="simple-copy-example"></a>Exempel på enkel kopia
 
-Du kan manuellt skapa en flertrådad kopia på en klient genom att köra fler än ett kopierings kommando på en gång i bakgrunden mot fördefinierade uppsättningar av filer eller sökvägar.
+Du kan manuellt skapa en kopia med flera trådar på en klient genom att köra mer än ett kopieringskommando samtidigt i bakgrunden mot fördefinierade uppsättningar med filer eller sökvägar.
 
-Kommandot Linux/UNIX ``cp`` innehåller argumentet ``-p`` för att bevara ägarskap och mtime metadata. Att lägga till det här argumentet i kommandona nedan är valfritt. (Om du lägger till argumentet ökar antalet fil system anrop som skickas från klienten till mål fil systemet för ändring av metadata.)
+Kommandot Linux/UNIX ``cp`` innehåller ``-p`` argumentet att bevara ägarskap och mtime-metadata. Det är valfritt att lägga till det här argumentet i kommandona nedan. (Om du lägger till argumentet ökar antalet filsystemanrop som skickas från klienten till målfilsystemet för metadataändring.)
 
 I det här enkla exemplet kopieras två filer parallellt:
 
@@ -31,13 +31,13 @@ I det här enkla exemplet kopieras två filer parallellt:
 cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1/ &
 ```
 
-När det här kommandot har utfärdats visar kommandot `jobs` att två trådar körs.
+När du har utfärdat `jobs` det här kommandot visar kommandot att två trådar körs.
 
-## <a name="copy-data-with-predictable-file-names"></a>Kopiera data med förutsägbara fil namn
+## <a name="copy-data-with-predictable-file-names"></a>Kopiera data med förutsägbara filnamn
 
-Om dina fil namn är förutsägbara kan du använda uttryck för att skapa parallella kopierings trådar. 
+Om filnamnen är förutsägbara kan du använda uttryck för att skapa parallella kopieringstrådar. 
 
-Om din katalog till exempel innehåller 1000 filer som numreras sekventiellt från `0001` till `1000`, kan du använda följande uttryck för att skapa tio parallella trådar som varje kopia 100-filer:
+Om katalogen till exempel innehåller 1 000 filer som numreras sekventiellt från `0001` till `1000`kan du använda följande uttryck för att skapa tio parallella trådar som varje kopia av 100 filer:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -52,11 +52,11 @@ cp /mnt/source/file8* /mnt/destination1/ & \
 cp /mnt/source/file9* /mnt/destination1/
 ```
 
-## <a name="copy-data-with-unstructured-file-names"></a>Kopiera data med ostrukturerade fil namn
+## <a name="copy-data-with-unstructured-file-names"></a>Kopiera data med ostrukturerade filnamn
 
-Om fil namns strukturen inte är förutsägbar, kan du gruppera filer efter katalog namn. 
+Om filnamnsstrukturen inte är förutsägbar kan du gruppera filer efter katalognamn. 
 
-Det här exemplet samlar in hela kataloger som ska skickas till ``cp`` kommandon körs som bakgrunds aktiviteter:
+I det här exemplet samlas ``cp`` hela kataloger för att skicka till kommandon som körs som bakgrundsuppgifter:
 
 ```bash
 /root
@@ -68,7 +68,7 @@ Det här exemplet samlar in hela kataloger som ska skickas till ``cp`` kommandon
 |-/dir1d
 ```
 
-När filerna har samlats in kan du köra kommandon för parallell kopiering för att rekursivt kopiera under katalogerna och allt dess innehåll:
+När filerna har samlats in kan du köra parallella kopieringskommandon för att rekursivt kopiera underkatalogerna och allt innehåll:
 
 ```bash
 cp /mnt/source/* /mnt/destination/
@@ -79,11 +79,11 @@ cp -R /mnt/source/dir1/dir1c /mnt/destination/dir1/ & # this command copies dir1
 cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 ```
 
-## <a name="when-to-add-mount-points"></a>När du ska lägga till monterings punkter
+## <a name="when-to-add-mount-points"></a>När ska monteringspunkter läggas till
 
-När du har tillräckligt parallella trådar för en enda mål fil system monterings punkt kommer det att finnas en punkt där det inte finns mer data flöde att lägga till fler trådar. (Data flödet mäts i filer/sekund eller byte per sekund, beroende på vilken typ av data du använder.) Eller sämre, kan övertråds teknik ibland orsaka en data flödes försämring.  
+När du har tillräckligt med parallella trådar som går mot en enda målfilsystemmonteringspunkt, kommer det att finnas en punkt där lägga till fler trådar inte ger mer dataflöde. (Dataflödet mäts i filer/sekund eller byte/sekund, beroende på vilken typ av data du har.) Eller ännu värre, över-threading kan ibland orsaka en genomströmning nedbrytning.  
 
-När detta inträffar kan du lägga till monterings punkter på klient sidan till andra Azure HPC cache-Mount-adresser med samma fil system monterings Sök väg:
+När detta inträffar kan du lägga till fästpunkter på klientsidan på andra Azure HPC-cachemonterade adresser med samma sökväg för fjärrfilsystem:
 
 ```bash
 10.1.0.100:/nfs on /mnt/sourcetype nfs (rw,vers=3,proto=tcp,addr=10.1.0.100)
@@ -92,9 +92,9 @@ När detta inträffar kan du lägga till monterings punkter på klient sidan til
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-Genom att lägga till monterings punkter på klient sidan kan du förgrena ut ytterligare kopierings kommandon till ytterligare `/mnt/destination[1-3]` monterings punkter, vilket ger ytterligare parallellitet.  
+Genom att lägga till monteringspunkter på klientsidan kan `/mnt/destination[1-3]` du punga bort ytterligare kopieringskommandon till de extra monteringspunkterna, vilket ger ytterligare parallellitet.  
 
-Om filerna t. ex. är mycket stora kan du definiera kopierings kommandona för att använda olika mål Sök vägar, vilket skickar ut fler kommandon parallellt från den klient som utför kopian.
+Om filerna till exempel är mycket stora kan du definiera kopieringskommandona för att använda olika målsökvägar och skicka ut fler kommandon parallellt från klienten som utför kopian.
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -108,11 +108,11 @@ cp /mnt/source/file7* /mnt/destination2/ & \
 cp /mnt/source/file8* /mnt/destination3/ & \
 ```
 
-I exemplet ovan är alla tre mål monterings punkter riktade till klient fil kopierings processerna.
+I exemplet ovan är alla tre målmonteringspunkterna inriktade på klientfilskopieringsprocesserna.
 
 ## <a name="when-to-add-clients"></a>När du ska lägga till klienter
 
-Slutligen, när du har nått klientens funktioner, ger ytterligare kopierings trådar eller ytterligare monterings punkter inga ytterligare filer/SEK eller byte/s ökar. I så fall kan du distribuera en annan klient med samma uppsättning monterings punkter som kommer att köra egna uppsättningar fil kopierings processer. 
+Slutligen, när du har nått klientens funktioner, lägga till fler kopiera trådar eller ytterligare monteringspunkter kommer inte att ge några ytterligare filer / sek eller byte / sek ökar. I det fallet kan du distribuera en annan klient med samma uppsättning monteringspunkter som kör sina egna uppsättningar av filkopieringsprocesser. 
 
 Exempel:
 
@@ -134,11 +134,11 @@ Client4: cp -R /mnt/source/dir2/dir2d /mnt/destination/dir2/ &
 Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 ```
 
-## <a name="create-file-manifests"></a>Skapa fil manifest
+## <a name="create-file-manifests"></a>Skapa filmanifest
 
-När du har lärt dig mer om metoderna ovan (flera Copy-threads per mål, flera mål per klient, flera klienter per nätverks åtkomligt käll fil system), bör du tänka på följande rekommendation: Bygg fil manifest och Använd dem sedan med kopiera kommandon över flera klienter.
+När du har förstått metoderna ovan (flera kopieringstrådar per mål, flera mål per klient, flera klienter per nätverkstillgängligt källfilsystem), bör du tänka på den här rekommendationen: Skapa filmanifest och använd dem sedan med kopia kommandon över flera klienter.
 
-I det här scenariot används UNIX ``find``-kommandot för att skapa manifest med filer eller kataloger:
+I det här ``find`` scenariot används KOMMANDOT UNIX för att skapa manifest av filer eller kataloger:
 
 ```bash
 user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
@@ -153,9 +153,9 @@ user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
 ./atj5b55c53be6-02/support/trace/rolling
 ```
 
-Omdirigera det här resultatet till en fil: `find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
+Omdirigera det här resultatet till en fil:`find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
 
-Sedan kan du iterera genom manifestet med hjälp av BASH-kommandon för att räkna filer och fastställa storlekarna för under katalogerna:
+Sedan kan du iterera genom manifestet, använda BASH-kommandon för att räkna filer och bestämma storleken på underkatalogerna:
 
 ```bash
 ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `find ${i} |wc -l`    `du -sh ${i}`"; done
@@ -194,34 +194,34 @@ ben@xlcycl1:/sps/internal/atj5b5ab44b7f > for i in $(cat /tmp/foo); do echo " `f
 33     2.8G    ./atj5b5ab44b7f-03/support/trace/rolling
 ```
 
-Slutligen måste du hantverka de faktiska fil kopierings kommandona till klienterna.  
+Slutligen måste du skapa de faktiska filkopieringskommandona till klienterna.  
 
-Om du har fyra klienter använder du följande kommando:
+Om du har fyra klienter använder du det här kommandot:
 
 ```bash
 for i in 1 2 3 4 ; do sed -n ${i}~4p /tmp/foo > /tmp/client${i}; done
 ```
 
-Om du har fem klienter använder du något som liknar följande:
+Om du har fem klienter, använd ungefär så här:
 
 ```bash
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-Och för sex.... Extrapolera vid behov.
+Och för sex...så är det bara att ta sig till Extrapolera efter behov.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-Du får *N* resulterande filer, en för var och en av dina *N* -klienter som har Sök vägs namnen på nivå fyra kataloger som erhålls som en del av utdata från kommandot `find`. 
+Du kommer att få *N* resulterande filer, en för var och en av dina *N-klienter* `find` som har sökvägen namn till nivå fyra kataloger som erhållits som en del av utdata från kommandot. 
 
-Använd varje fil för att bygga kopierings kommandot:
+Använd varje fil för att skapa kopieringskommandot:
 
 ```bash
 for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt/source/${j} /mnt/destination/${j}" >> /tmp/client${i}_copy_commands ; done; done
 ```
 
-Ovan får du *N* filer, var och en med ett kopierings kommando per rad, som kan köras som ett bash-skript på klienten. 
+Ovanstående ger dig *N* N-filer, var och en med en kopia kommando per rad, som kan köras som en BASH skript på klienten. 
 
 Målet är att köra flera trådar av dessa skript samtidigt per klient parallellt på flera klienter.

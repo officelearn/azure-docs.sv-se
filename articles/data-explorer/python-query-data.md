@@ -1,6 +1,6 @@
 ---
 title: Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer
-description: I den här artikeln får du lära dig hur du frågar efter data från Azure Datautforskaren med hjälp av python.
+description: I den här artikeln får du lära dig hur du frågar data från Azure Data Explorer med Python.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
@@ -8,23 +8,23 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.openlocfilehash: ebd65f2dcbb0040b764290627bbfd2901aa9a7d3
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/18/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77443983"
 ---
 # <a name="query-data-using-the-azure-data-explorer-python-library"></a>Fråga mot data med hjälp av Python-biblioteket i Azure Data Explorer
 
-I den här artikeln frågar du efter data med hjälp av Azure-Datautforskaren. Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata.
+I den här artikeln frågar du data med Hjälp av Azure Data Explorer. Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata.
 
-Azure Data Explorer tillhandahåller ett [dataklientbibliotek för Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Med det här biblioteket kan du fråga efter data från din kod. Anslut till en tabell i *Hjälp klustret* som vi har konfigurerat för att hjälpa till med inlärning. Du kan fråga en tabell i klustret och returnera resultatet.
+Azure Data Explorer tillhandahåller ett [dataklientbibliotek för Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Med det här biblioteket kan du fråga efter data från din kod. Anslut till en tabell i *hjälpklustret* som vi har ställt in för att underlätta inlärningen. Du kan fråga en tabell i klustret och returnera resultaten.
 
-Den här artikeln är även tillgänglig som en [Azure-anteckningsbok](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
+Den här artikeln är också tillgänglig som en [Azure Notebook](https://notebooks.azure.com/ManojRaheja/libraries/KustoPythonSamples/html/QueryKusto.ipynb).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* [Python 3.4 +](https://www.python.org/downloads/)
+* [Python 3.4+](https://www.python.org/downloads/)
 
 * En e-postadress för ett organisationskonto som är medlem i Azure Active Directory (AAD)
 
@@ -67,7 +67,7 @@ KUSTO_CLUSTER = "https://help.kusto.windows.net/"
 KUSTO_DATABASE = "Samples"
 ```
 
-Skapa nu anslutningssträngen. I det här exemplet används enhetsautentisering för åtkomst till klustret. Du kan också använda ett [AAD-programcertifikat](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [en AAD-programnyckel](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) och [användare och lösenord för AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
+Nu kan du skapa anslutningssträngen. I det här exemplet används enhetsautentisering för åtkomst till klustret. Du kan också använda ett [AAD-programcertifikat](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24), [en AAD-programnyckel](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20) och [användare och lösenord för AAD](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34).
 
 ```python
 KCSB = KustoConnectionStringBuilder.with_aad_device_authentication(
@@ -100,4 +100,4 @@ Du bör se de tio främsta resultaten från tabellen StormEvents.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Mata in data med Azure Datautforskaren python-biblioteket](python-ingest-data.md)
+> [Mata in data med hjälp av Python-biblioteket i Azure Data Explorer](python-ingest-data.md)

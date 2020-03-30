@@ -1,6 +1,6 @@
 ---
 title: Roller, behörigheter och säkerhet i Azure Monitor
-description: Lär dig hur du använder Azure Monitor inbyggda roller och behörigheter för att begränsa åtkomsten till övervakning av resurser.
+description: Lär dig hur du använder Azure Monitors inbyggda roller och behörigheter för att begränsa åtkomsten till övervakningsresurser.
 author: johnkemnetz
 services: azure-monitor
 ms.topic: conceptual
@@ -8,96 +8,96 @@ ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658990"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roller, behörigheter och säkerhet i Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Många team behöver strikt reglera åtkomsten till övervaknings data och inställningar. Om du till exempel har grupp medlemmar som arbetar exklusivt för övervakning (support tekniker, DevOps-tekniker) eller om du använder en hanterad tjänst leverantör kanske du vill ge dem åtkomst till endast övervaknings data samtidigt som de begränsar deras möjlighet att skapa, ändra eller ta bort resurser. Den här artikeln visar hur du snabbt kan använda en inbyggd övervakning av RBAC-rollen för en användare i Azure eller skapa en egen anpassad roll för en användare som behöver begränsad övervaknings behörighet. Den diskuterar sedan säkerhets överväganden för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till de data de innehåller.
+Många team måste strikt reglera åtkomsten till övervakningsdata och inställningar. Om du till exempel har gruppmedlemmar som arbetar uteslutande med övervakning (supporttekniker, DevOps-tekniker) eller om du använder en hanterad tjänsteleverantör, kanske du vill ge dem åtkomst till endast övervakningsdata samtidigt som de begränsar deras möjligheter att skapa, ändra eller ta bort resurser. Den här artikeln visar hur du snabbt använder en inbyggd övervaknings-RBAC-roll på en användare i Azure eller skapar din egen anpassade roll för en användare som behöver begränsade övervakningsbehörigheter. Den diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till de data de innehåller.
 
-## <a name="built-in-monitoring-roles"></a>Inbyggda övervaknings roller
-Azure Monitor inbyggda roller är utformade för att hjälpa till att begränsa åtkomsten till resurser i en prenumeration samtidigt som den ansvariga för övervakning av infrastruktur för att hämta och konfigurera de data de behöver. Azure Monitor ger två färdiga roller: en övervaknings läsare och en övervaknings deltagare.
+## <a name="built-in-monitoring-roles"></a>Inbyggda övervakningsroller
+Azure Monitors inbyggda roller är utformade för att begränsa åtkomsten till resurser i en prenumeration samtidigt som de som ansvarar för övervakning av infrastrukturen kan hämta och konfigurera de data de behöver. Azure Monitor innehåller två färdiga roller: En övervakningsläsare och en övervakningsdeltagare.
 
-### <a name="monitoring-reader"></a>Övervaknings läsare
-Personer som har tilldelats rollen övervaknings läsare kan visa alla övervaknings data i en prenumeration, men kan inte ändra någon resurs eller redigera inställningar som rör övervakning av resurser. Den här rollen lämpar sig för användare i en organisation, till exempel support-eller drift tekniker, som behöver kunna:
+### <a name="monitoring-reader"></a>Övervakningsläsare
+Personer som tilldelats rollen Övervakningsläsare kan visa alla övervakningsdata i en prenumeration men kan inte ändra någon resurs eller redigera inställningar som är relaterade till övervakningsresurser. Den här rollen är lämplig för användare i en organisation, till exempel support- eller drifttekniker, som behöver kunna:
 
-* Visa övervaknings instrument paneler i portalen och skapa egna instrument paneler för privat övervakning.
-* Visa aviserings regler som definierats i [Azure-aviseringar](alerts-overview.md)
-* Fråga efter mått med hjälp av [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdletar](powershell-quickstart-samples.md)eller [plattforms oberoende CLI](cli-samples.md).
-* Fråga aktivitets loggen med hjälp av portalen, Azure Monitor REST API, PowerShell-cmdletar eller plattforms oberoende CLI.
-* Visa [diagnostikinställningar](diagnostic-settings.md) för en resurs.
-* Visa [logg profilen](activity-log-export.md) för en prenumeration.
-* Visa inställningar för autoskalning.
-* Visa aviserings aktivitet och inställningar.
-* Åtkomst Application Insights data och visa data i AI-analys.
-* Sök Log Analytics arbets ytans data inklusive användnings data för arbets ytan.
-* Visa Log Analytics hanterings grupper.
-* Hämta sökschemat i Log Analytics-arbetsytan.
-* Visa övervaknings paket i Log Analytics arbets ytan.
-* Hämta och köra sparade sökningar i Log Analytics-arbetsytan.
-* Hämta lagrings konfigurationen för Log Analytics-arbetsytan.
-
-> [!NOTE]
-> Den här rollen ger inte Läs behörighet för att logga data som har strömmats till en händelsehubben eller lagras i ett lagrings konto. [Nedan finns](#security-considerations-for-monitoring-data) information om hur du konfigurerar åtkomst till dessa resurser.
-> 
-> 
-
-### <a name="monitoring-contributor"></a>Övervaknings deltagare
-Personer som har tilldelats rollen övervaknings deltagare kan visa alla övervaknings data i en prenumeration och skapa eller ändra övervaknings inställningar, men kan inte ändra andra resurser. Den här rollen är en supermängd av övervaknings läsar rollen och är lämplig för medlemmar i en organisations övervaknings team eller hanterade tjänst leverantörer som, utöver de behörigheter som anges ovan, också måste kunna:
-
-* Publicera övervaknings instrument paneler som en delad instrument panel.
-* Ange [diagnostiska inställningar](diagnostic-settings.md) för en resurs.\*
-* Ange [logg profilen](activity-log-export.md) för en prenumeration.\*
-* Ange aviserings regel aktivitet och inställningar via [Azure-aviseringar](alerts-overview.md).
-* Skapa Application Insights webbtest och-komponenter.
-* Visar Log Analytics delade nycklar för arbets ytan.
-* Aktivera eller inaktivera övervaknings paket i Log Analytics arbets ytan.
-* Skapa och ta bort och kör sparade sökningar i Log Analytics arbets ytan.
-* Skapa och ta bort lagrings konfigurationen för Log Analytics arbets ytan.
-
-\*användare måste också separat beviljas Listnycklar-behörighet för mål resursen (lagrings kontot eller namn området för händelsehubben) för att ange en logg profil eller diagnostisk inställning.
+* Visa övervakningsinstrumentpaneler i portalen och skapa egna privata övervakningsinstrumentpaneler.
+* Visa varningsregler som definierats i [Azure-aviseringar](alerts-overview.md)
+* Fråga efter mått med hjälp av [AZURE Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdlets](powershell-quickstart-samples.md)eller [CLI över flera plattformar](cli-samples.md).
+* Fråga aktivitetsloggen med hjälp av portalen, AZURE Monitor REST API, PowerShell-cmdlets eller CLI över flera plattformar.
+* Visa [diagnostikinställningarna](diagnostic-settings.md) för en resurs.
+* Visa [loggprofilen](activity-log-export.md) för en prenumeration.
+* Visa inställningar för automatisk skalning.
+* Visa varningsaktivitet och inställningar.
+* Få tillgång till programstatistikdata och visa data i AI Analytics.
+* Sök logganalysarbetsytadata inklusive användningsdata för arbetsytan.
+* Visa hanteringsgrupper för logganalys.
+* Hämta sökschemat på Logganalysarbetsytan.
+* Lista övervakningspaket i Log Analytics-arbetsytan.
+* Hämta och kör sparade sökningar på Log Analytics-arbetsytan.
+* Hämta lagringskonfigurationen för Logganalysarbetsyta.
 
 > [!NOTE]
-> Den här rollen ger inte Läs behörighet för att logga data som har strömmats till en händelsehubben eller lagras i ett lagrings konto. [Nedan finns](#security-considerations-for-monitoring-data) information om hur du konfigurerar åtkomst till dessa resurser.
+> Den här rollen ger inte läsbehörighet till loggdata som har strömmats till en händelsenav eller lagrats i ett lagringskonto. [Se nedan](#security-considerations-for-monitoring-data) för information om hur du konfigurerar åtkomst till dessa resurser.
 > 
 > 
 
-## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Övervaknings behörigheter och anpassade RBAC-roller
-Om de inbyggda rollerna ovan inte uppfyller de exakta behoven för ditt team, kan du [skapa en anpassad RBAC-roll](../../role-based-access-control/custom-roles.md) med mer detaljerade behörigheter. Nedan visas de vanliga Azure Monitor RBAC-åtgärder med beskrivningar.
+### <a name="monitoring-contributor"></a>Övervakningsbidragsgivare
+Personer som tilldelats rollen Övervakningsdeltagare kan visa alla övervakningsdata i en prenumeration och skapa eller ändra övervakningsinställningar, men kan inte ändra några andra resurser. Den här rollen är en superuppsättning av rollen Övervakningsläsare och är lämplig för medlemmar i en organisations övervakningsteam eller hanterade tjänsteleverantörer som, utöver behörigheterna ovan, också måste kunna:
+
+* Publicera övervakningsinstrumentpaneler som en delad instrumentpanel.
+* Ange [diagnostikinställningar](diagnostic-settings.md) för en resurs.\*
+* Ange [loggprofilen](activity-log-export.md) för en prenumeration.\*
+* Ange aktivitet och inställningar för varningsregler via [Azure-aviseringar](alerts-overview.md).
+* Skapa programinsikter webbtester och komponenter.
+* Delade nycklar för listlogganalys.
+* Aktivera eller inaktivera övervakningspaket på Log Analytics-arbetsytan.
+* Skapa och ta bort sparade sökningar på Log Analytics-arbetsytan.
+* Skapa och ta bort lagringskonfigurationen för Logganalysarbetsyta.
+
+\*användaren måste också beviljas listnycklar behörighet för separat för målresursen (lagringskonto eller händelsehubbnamnområde) för att ange en loggprofil eller diagnostikinställning.
+
+> [!NOTE]
+> Den här rollen ger inte läsbehörighet till loggdata som har strömmats till en händelsenav eller lagrats i ett lagringskonto. [Se nedan](#security-considerations-for-monitoring-data) för information om hur du konfigurerar åtkomst till dessa resurser.
+> 
+> 
+
+## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Övervakningsbehörigheter och anpassade RBAC-roller
+Om ovanstående inbyggda roller inte uppfyller teamets exakta behov kan du [skapa en anpassad RBAC-roll](../../role-based-access-control/custom-roles.md) med mer detaljerade behörigheter. Nedan följer de vanliga RBAC-åtgärderna för Azure Monitor med sina beskrivningar.
 
 | Åtgärd | Beskrivning |
 | --- | --- |
-| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |Läs-/skriv-/ta bort åtgärds grupper. |
-| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |Läs/skriv/ta bort aktivitets logg aviseringar. |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Läsa/skriva/ta bort aviserings regler (från varningar Classic). |
-| Microsoft.Insights/AlertRules/Incidents/Read |Visa incidenter (historik för den varnings regel som utlöses) för varnings regler. Detta gäller endast för portalen. |
-| Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Läsa/skriva/ta bort inställningar för autoskalning. |
-| Microsoft. Insights/DiagnosticSettings/[läsa, skriva, ta bort] |Läsa/skriva/ta bort diagnostikinställningar. |
-| Microsoft.Insights/EventCategories/Read |Räkna upp alla kategorier som är möjliga i aktivitets loggen. Används av Azure Portal. |
-| Microsoft. Insights/eventtypes/digestevents/Read |Den här behörigheten krävs för användare som behöver åtkomst till aktivitets loggar via portalen. |
-| Microsoft. Insights/eventtypes/värden/Read |Visa lista över aktivitets logg händelser (hanterings händelser) i en prenumeration. Den här behörigheten gäller för både program mässig och Portal åtkomst till aktivitets loggen. |
-| Microsoft. Insights/ExtendedDiagnosticSettings/[läsa, skriva, ta bort] | Läsa/skriva/ta bort diagnostikinställningar för nätverks flödes loggar. |
-| Microsoft. Insights/LogDefinitions/Read |Den här behörigheten krävs för användare som behöver åtkomst till aktivitets loggar via portalen. |
-| Microsoft. Insights/LogProfiles/[läsa, skriva, ta bort] |Läsa/skriva/ta bort logg profiler (logg profiler för strömmande aktivitet till händelsehubben eller lagrings konto). |
-| Microsoft. Insights/MetricAlerts/[läsa, skriva, ta bort] |Läsa/skriva/ta bort nära real tids aviseringar |
-| Microsoft.Insights/MetricDefinitions/Read |Läs mått definitioner (lista över tillgängliga mått typer för en resurs). |
+| Microsoft.Insights/ActionGroups/[Läs, skriv, ta bort] |Läs/skriv/ta bort åtgärdsgrupper. |
+| Microsoft.Insights/ActivityLogAlerts/[Läs, Skriv, Ta bort] |Läs/skriv/ta bort aktivitetsloggvarningar. |
+| Microsoft.Insights/AlertRules/[Läs, skriv, ta bort] |Läs/skriv/ta bort varningsregler (från aviseringar klassiska). |
+| Microsoft.Insights/AlertRules/Incidents/Read |Lista incidenter (historik över varningsregeln som utlöses) för varningsregler. Detta gäller endast portalen. |
+| Microsoft.Insights/AutoscaleSettings/[Läs, Skriv, Ta bort] |Läs/skriv/ta bort inställningar för automatisk skalning. |
+| Microsoft.Insights/DiagnosticSettings/[Läs, Skriv, Ta bort] |Läs/skriv/ta bort diagnostikinställningar. |
+| Microsoft.Insights/EventCategories/Läs |Räkna upp alla kategorier som är möjliga i aktivitetsloggen. Används av Azure-portalen. |
+| Microsoft.Insights/eventtypes/digestevents/Read |Den här behörigheten är nödvändig för användare som behöver åtkomst till aktivitetsloggar via portalen. |
+| Microsoft.Insights/eventtypes/values/Read |Lista aktivitetslogghändelser (hanteringshändelser) i en prenumeration. Den här behörigheten gäller både programmatisk och portalåtkomst till aktivitetsloggen. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Läs, Skriv, Ta bort] | Läs/skriv/ta bort diagnostikinställningar för nätverksflödesloggar. |
+| Microsoft.Insights/LogDefinitions/Läs |Den här behörigheten är nödvändig för användare som behöver åtkomst till aktivitetsloggar via portalen. |
+| Microsoft.Insights/LogProfiles/[Läs, Skriv, Ta bort] |Läs/skriv/ta bort loggprofiler (strömmande aktivitetslogg till händelsenav eller lagringskonto). |
+| Microsoft.Insights/MetricAlerts/[Läs, Skriv, Ta bort] |Läs/skriva/ta bort måttaviseringar i nära realtid |
+| Microsoft.Insights/MetricDefinitions/Read |Läs måttdefinitioner (lista över tillgängliga måtttyper för en resurs). |
 | Microsoft.Insights/Metrics/Read |Läs mått för en resurs. |
-| Microsoft.Insights/Register/Action |Registrera Azure Monitor Resource Provider. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Läs/skriv/ta bort logg aviseringar i Azure Monitor. |
+| Microsoft.Insights/Register/Åtgärd |Registrera Azure Monitor-resursleverantören. |
+| Microsoft.Insights/ScheduledQueryRules/[Läs, skriv, ta bort] |Läs/skriv/ta bort loggaviseringar i Azure Monitor. |
 
 
 
 > [!NOTE]
-> Åtkomst till aviseringar, diagnostikinställningar och mått för en resurs kräver att användaren har Läs behörighet till resurs typen och resursens omfattning. Genom att skapa ("skriva") en diagnostisk inställning eller logg profil som arkiverar till ett lagrings konto eller strömmar till Event Hub måste användaren också ha Listnycklar-behörighet på mål resursen.
+> Åtkomst till aviseringar, diagnostikinställningar och mått för en resurs kräver att användaren har läsbehörighet till resurstypen och resursens omfattning. Skapa ("skriv") en diagnostisk inställning eller loggprofil som arkiv till ett lagringskonto eller strömmar till händelsehubbar kräver att användaren också har ListKeys-behörighet på målresursen.
 > 
 > 
 
-Med tabellen ovan kan du till exempel skapa en anpassad RBAC-roll för en "aktivitets logg läsare" som detta:
+Med hjälp av tabellen ovan kan du till exempel skapa en anpassad RBAC-roll för en "Aktivitetsloggläsare" så här:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -111,31 +111,31 @@ $role.AssignableScopes.Add("/subscriptions/mySubscription")
 New-AzRoleDefinition -Role $role 
 ```
 
-## <a name="security-considerations-for-monitoring-data"></a>Säkerhets aspekter för övervakning av data
-Övervaknings data – särskilt loggfiler – kan innehålla känslig information, till exempel IP-adresser eller användar namn. Övervakning av data från Azure levereras i tre grundläggande former:
+## <a name="security-considerations-for-monitoring-data"></a>Säkerhetsöverväganden vid övervakning av data
+Övervakningsdata – särskilt loggfiler – kan innehålla känslig information, till exempel IP-adresser eller användarnamn. Övervakning av data från Azure finns i tre grundläggande formulär:
 
-1. Aktivitets loggen som beskriver alla kontroll Plans åtgärder i din Azure-prenumeration.
-2. resurs loggar, vilka loggar som genereras av en resurs.
-3. Mått, som genereras av resurser.
+1. Aktivitetsloggen, som beskriver alla kontrollplansåtgärder på din Azure-prenumeration.
+2. resursloggar, som är loggar som avges av en resurs.
+3. Mått, som släpps ut av resurser.
 
-Alla tre dessa data typer kan lagras i ett lagrings konto eller strömmas till Händelsehubben, som båda är allmänna Azure-resurser. Eftersom dessa är generella resurser, skapa, ta bort och komma åt dem är en privilegie rad åtgärd som är reserverad för en administratör. Vi rekommenderar att du använder följande metoder för att övervaka relaterade resurser för att förhindra missbruk:
+Alla tre av dessa datatyper kan lagras i ett lagringskonto eller strömmas till Event Hub, som båda är Azure-resurser för allmänt syfte. Eftersom det här är allmänna resurser är det en privilegierad åtgärd som är reserverad för en administratör att skapa, ta bort och komma åt dem. Vi föreslår att du använder följande metoder för övervakningsrelaterade resurser för att förhindra missbruk:
 
-* Använd ett enda dedikerat lagrings konto för att övervaka data. Om du behöver separera övervaknings data till flera lagrings konton kan du aldrig dela användning av ett lagrings konto mellan övervaknings-och icke-övervaknings data, eftersom detta kan oavsiktligt ge dem som bara behöver åtkomst till övervaknings data (t. ex. en SIEM (tredje part) åtkomst till data som inte övervakas.
-* Använd en enda, dedikerad Service Bus eller Event Hub-namnrymd i alla diagnostikinställningar av samma skäl som ovan.
-* Begränsa åtkomsten till övervaknings-relaterade lagrings konton eller händelse nav genom att hålla dem i en separat resurs grupp och [Använd omfång](../../role-based-access-control/overview.md#scope) i övervaknings rollerna för att begränsa åtkomsten till endast den resurs gruppen.
-* Bevilja aldrig Listnycklar-behörighet för antingen lagrings konton eller händelse nav i prenumerations omfattning när en användare bara behöver åtkomst till övervaknings data. Ge i stället dessa behörigheter till användaren vid en resurs eller resurs grupp (om du har en dedikerad övervaknings resurs grupp) omfattning.
+* Använd ett enda dedikerat lagringskonto för övervakning av data. Om du behöver separera övervakningsdata i flera lagringskonton, dela aldrig användningen av ett lagringskonto mellan övervaknings- och icke-övervakningsdata, eftersom detta av misstag kan ge dem som bara behöver åtkomst till övervakningsdata (till exempel en tredje parts SIEM) tillgång till icke-övervakningsdata.
+* Använd ett enda, dedikerat servicebuss- eller eventhubbnamnområde över alla diagnostikinställningar av samma anledning som ovan.
+* Begränsa åtkomsten till övervakningsrelaterade lagringskonton eller händelsehubbar genom att behålla dem i en separat resursgrupp och [använd scope](../../role-based-access-control/overview.md#scope) på dina övervakningsroller för att begränsa åtkomsten till endast den resursgruppen.
+* Bevilja aldrig ListKeys-behörigheten för antingen lagringskonton eller händelsehubbar i prenumerationsomfattning när en användare bara behöver åtkomst till övervakningsdata. Ge i stället dessa behörigheter till användaren på en resurs eller resursgrupp (om du har ett dedikerat övervakningsresursgrupp) omfång.
 
-### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Begränsa åtkomsten till övervaknings-relaterade lagrings konton
-När en användare eller ett program behöver åtkomst till övervaknings data i ett lagrings konto bör du [skapa en konto säkerhets Association](https://msdn.microsoft.com/library/azure/mt584140.aspx) på det lagrings konto som innehåller övervaknings data med skrivskyddad åtkomst på tjänst nivå till Blob Storage. I PowerShell kan detta se ut så här:
+### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Begränsa åtkomsten till övervakningsrelaterade lagringskonton
+När en användare eller ett program behöver åtkomst till övervakning av data i ett lagringskonto bör du [generera ett konto-SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx) på lagringskontot som innehåller övervakningsdata med skrivskyddad åtkomst på tjänstnivå till blob-lagring. I PowerShell kan det se ut som:
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
 $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
-Du kan sedan ge token till den entitet som behöver läsa från det lagrings kontot, och den kan visa och läsa från alla blobbar i det lagrings kontot.
+Du kan sedan ge token till entiteten som behöver läsa från det lagringskontot, och den kan lista och läsa från alla blobbar i det lagringskontot.
 
-Alternativt, om du behöver kontrol lera den här behörigheten med RBAC, kan du bevilja den entiteten Microsoft. Storage/storageAccounts/listnycklar/åtgärd-behörighet för just det lagrings kontot. Detta är nödvändigt för användare som behöver kunna ange en diagnostisk inställning eller logg profil för att arkivera till ett lagrings konto. Du kan till exempel skapa följande anpassade RBAC-roll för en användare eller ett program som bara behöver läsa från ett lagrings konto:
+Om du behöver styra den här behörigheten med RBAC kan du också bevilja den entiteten microsoft.storageAccounts/listkeys/action-behörigheten för just det lagringskontot. Detta är nödvändigt för användare som behöver kunna ställa in en diagnostikinställning eller loggprofil för att arkivera ett lagringskonto. Du kan till exempel skapa följande anpassade RBAC-roll för en användare eller ett program som bara behöver läsa från ett lagringskonto:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -151,15 +151,15 @@ New-AzRoleDefinition -Role $role
 ```
 
 > [!WARNING]
-> Listnycklar-behörighet gör det möjligt för användaren att lista de primära och sekundära lagrings konto nycklarna. Dessa nycklar ger användaren alla signerade behörigheter (läsa, skriva, skapa blobbar, ta bort blobar osv.) över alla signerade tjänster (BLOB, kö, tabell, fil) i det lagrings kontot. Vi rekommenderar att du använder ett konto SAS som beskrivs ovan när det är möjligt.
+> Med behörigheten ListKeys kan användaren visa de primära och sekundära lagringskontonycklarna. Dessa nycklar ger användaren alla signerade behörigheter (läsa, skriva, skapa blobbar, ta bort blobbar, etc.) över alla signerade tjänster (blob, kö, tabell, fil) i det lagringskontot. Vi rekommenderar att du använder ett konto SAS som beskrivs ovan när det är möjligt.
 > 
 > 
 
-### <a name="limiting-access-to-monitoring-related-event-hubs"></a>Begränsa åtkomsten till övervaknings-relaterade händelse hubbar
-Ett liknande mönster kan följas av Event Hub, men först måste du skapa en dedikerad regel för lyssning. Om du vill bevilja åtkomst till ett program som bara behöver lyssna på övervaknings-relaterade Event Hub, gör du följande:
+### <a name="limiting-access-to-monitoring-related-event-hubs"></a>Begränsa åtkomsten till övervakningsrelaterade händelsehubbar
+Ett liknande mönster kan följas med händelsehubbar, men först måste du skapa en dedikerad lyssna auktoriseringsregel. Om du vill bevilja, tillgång till ett program som bara behöver lyssna på övervakningsrelaterade händelsehubbar gör du följande:
 
-1. Skapa en princip för delad åtkomst för de händelse hubbar som har skapats för strömmande övervaknings data med endast lyssnande anspråk. Detta kan göras i portalen. Du kan till exempel kalla det "monitoringReadOnly". Om möjligt ska du ge den nyckeln direkt till konsumenten och hoppa över nästa steg.
-2. Om konsumenten behöver kunna hämta nyckeln ad hoc ger du användaren Listnycklar-åtgärden för den händelsehubben. Detta är också nödvändigt för användare som behöver kunna ange en diagnostisk inställning eller logg profil för att strömma till händelse nav. Du kan till exempel skapa en RBAC-regel:
+1. Skapa en princip för delad åtkomst på de händelsehubbar som skapades för strömmande övervakningsdata med endast Lyssna anspråk. Detta kan göras i portalen. Du kan till exempel kalla det "monitoringReadOnly". Om möjligt kommer du vill ge den nyckeln direkt till konsumenten och hoppa över nästa steg.
+2. Om konsumenten behöver kunna hämta nyckeln ad hoc ger du användaren åtgärden ListKeys för händelsehubben. Detta är också nödvändigt för användare som behöver kunna ställa in en diagnostikinställning eller loggprofil för att strömma till händelsehubbar. Du kan till exempel skapa en RBAC-regel:
    
    ```powershell
    $role = Get-AzRoleDefinition "Reader"
@@ -174,17 +174,17 @@ Ett liknande mönster kan följas av Event Hub, men först måste du skapa en de
    New-AzRoleDefinition -Role $role 
    ```
 
-## <a name="monitoring-within-a-secured-virtual-network"></a>Övervakning inom en skyddad Virtual Network
+## <a name="monitoring-within-a-secured-virtual-network"></a>Övervakning inom ett skyddat virtuellt nätverk
 
-Azure Monitor behöver åtkomst till dina Azure-resurser för att tillhandahålla de tjänster som du aktiverar. Om du vill övervaka dina Azure-resurser samtidigt som du fortfarande skyddar dem från åtkomst till det offentliga Internet, kan du aktivera följande inställningar.
+Azure Monitor behöver åtkomst till dina Azure-resurser för att tillhandahålla de tjänster du aktiverar. Om du vill övervaka dina Azure-resurser samtidigt som du skyddar dem från åtkomst till det offentliga Internet kan du aktivera följande inställningar.
 
-### <a name="secured-storage-accounts"></a>Skyddade lagrings konton 
+### <a name="secured-storage-accounts"></a>Konton för skyddad lagring 
 
-Övervaknings data skrivs ofta till ett lagrings konto. Du kanske vill se till att data som kopieras till ett lagrings konto inte kan nås av obehöriga användare. För ytterligare säkerhet kan du låsa nätverks åtkomsten för att bara tillåta att dina auktoriserade resurser och betrodda Microsoft-tjänster har åtkomst till ett lagrings konto genom att begränsa ett lagrings konto så att det använder valda nätverk.
-![Azure Storage inställningar dialog](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor betraktas som en av dessa "betrodda Microsoft-tjänster" om du tillåter att betrodda Microsoft-tjänster får åtkomst till din skyddade lagring, kommer Azure monitor att ha åtkomst till ditt skyddade lagrings konto. Om du aktiverar skrivning Azure Monitor resurs loggar, aktivitets logg och mått till ditt lagrings konto under dessa skyddade villkor. Detta aktiverar även Log Analytics att läsa loggar från säker lagring.   
+Övervakningsdata skrivs ofta till ett lagringskonto. Du kanske vill vara säker på att data som kopieras till ett lagringskonto inte kan nås av obehöriga användare. För ytterligare säkerhet kan du låsa nätverksåtkomsten så att endast dina auktoriserade resurser och betrodda Microsoft-tjänster får åtkomst till ett lagringskonto genom att begränsa ett lagringskonto så att det använder "valda nätverk".
+![Azure Storage](./media/roles-permissions-security/secured-storage-example.png) Settings Dialog Azure Monitor anses vara en av dessa "betrodda Microsoft-tjänster" Om du tillåter betrodda Microsoft-tjänster att komma åt din säkra lagringsskärm har Azure-övervakaren åtkomst till ditt säkra lagringskonto. aktivera skrivning av Azure Monitor-resursloggar, aktivitetslogg och mått till ditt lagringskonto under dessa skyddade villkor. Detta gör det också möjligt för Log Analytics att läsa loggar från säker lagring.   
 
 
-Mer information finns i [nätverks säkerhet och Azure Storage](../../storage/common/storage-network-security.md)
+Mer information finns i [Nätverkssäkerhet och Azure Storage](../../storage/common/storage-network-security.md)
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs om RBAC och behörigheter i Resource Manager](../../role-based-access-control/overview.md)

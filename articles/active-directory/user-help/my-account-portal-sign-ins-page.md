@@ -1,6 +1,6 @@
 ---
-title: Visa och Sök efter din senaste inloggnings aktivitet från sidan min inloggning (för hands version) – Azure Active Directory | Microsoft Docs
-description: Information om hur du visar och söker efter din senaste inloggnings aktivitet från sidan mina inloggningar i mitt konto-portalen.
+title: Visa och sök i din senaste inloggningsaktivitet från sidan Min inloggning (förhandsversion) - Azure Active Directory | Microsoft-dokument
+description: Information om hur du visar och söker efter din senaste inloggningsaktivitet från sidan Mina inloggningar på portalen Mitt konto.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,64 +12,64 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
 ms.openlocfilehash: b68e7b517ddaa9b2aaef00cf87d5b6e63871654b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064027"
 ---
-# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visa och Sök efter din senaste inloggnings aktivitet från sidan mina inloggningar (för hands version)
+# <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visa och sök i din senaste inloggningsaktivitet från sidan Mina inloggningar (förhandsgranska)
 
-Du kan visa all din senaste inloggnings aktivitet för arbets-eller skol konton från sidan **Mina inloggningar** i **mitt konto** Portal. Genom att granska inloggnings historiken kan du söka efter ovanlig aktivitet genom att hjälpa dig att se:
+Du kan visa alla dina senaste **inloggningsaktiviteter** för arbets- eller skolkonto, från sidan Mina inloggningar på portalen **Mitt konto.** Genom att granska din inloggningshistorik kan du söka efter ovanlig aktivitet genom att hjälpa dig att se:
 
-- Om någon försöker gissa ditt lösen ord.
+- Om någon försöker gissa ditt lösenord.
 
 - Om en angripare har loggat in på ditt konto och från vilken plats.
 
-- Vilka appar angriparen försökte få åtkomst till.
+- Vilka appar angriparen försökte komma åt.
 
 ## <a name="view-your-recent-sign-in-activity"></a>Visa din senaste inloggningsaktivitet
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
+1. Logga in på ditt arbets- eller https://myprofile.microsoft.com/ skolkonto och gå sedan till din sida.
 
-2. Välj **Mina inloggningar (förhands granskning)** i det vänstra navigerings fönstret eller Välj länken **Granska senaste aktivitet** från blockeringen **mitt inloggnings program (för hands version)** .
+2. Välj **Mina inloggningar (förhandsgranskning) i** det vänstra navigeringsfönstret eller välj länken Granska **senaste aktivitet** i blocket Mina **inloggningar (förhandsgranskning).**
 
-    ![Sidan mitt konto, som visar markerade senaste aktivitets länkar](media/my-account-portal/my-account-portal-sign-ins.png)
+    ![Sidan Mitt konto, som visar markerade Senaste aktivitetslänkar](media/my-account-portal/my-account-portal-sign-ins.png)
 
-3. Expandera och granska vart och ett av inloggnings objekten och se till att du känner igen dem. Om du hittar ett inloggnings objekt som inte ser bekant ut rekommenderar vi starkt att du ändrar ditt lösen ord för att skydda ditt konto om det skulle ha komprometterats.
+3. Expandera och granska var och en av inloggningsobjekten och se till att du känner igen var och en. Om du hittar ett inloggningsobjekt som inte ser bekant ut rekommenderar vi starkt att du ändrar ditt lösenord för att skydda ditt konto om det komprometterades.
 
-    ![Sidan senaste aktivitet med utökad inloggnings information](media/my-account-portal/my-account-portal-sign-ins-page.png)
+    ![Senaste aktivitetssida med utökad inloggningsinformation](media/my-account-portal/my-account-portal-sign-ins-page.png)
 
 ### <a name="if-you-see-a-successful-sign-in"></a>Om du ser en lyckad inloggning
 
-Du bör känna igen din egen aktivitet som normal. Men om du antecknar en lyckad inloggning från en konstig plats, webbläsare eller operativ system kan det betyda att en angripare har fått åtkomst till ditt konto. I den här situationen rekommenderar vi att du omedelbart ändrar ditt lösen ord och sedan går till sidan [säkerhets information](https://mysignins.microsoft.com/security-info) för att uppdatera säkerhets inställningarna.
+Du bör känna igen din egen aktivitet som normal. Men om du upptäcker en lyckad inloggning från konstig plats, webbläsare eller operativsystem kan det innebära att en angripare har fått åtkomst till ditt konto. I det här fallet rekommenderar vi att du omedelbart ändrar ditt lösenord och sedan går till sidan [Säkerhetsinformation](https://mysignins.microsoft.com/security-info) för att uppdatera dina säkerhetsinställningar.
 
-Innan du fastställer något är felaktigt kontrollerar du att du inte ser ett falskt positivt objekt (där objektet ser tveksamt ut, men är OK). Vi fastställer till exempel din ungefärliga plats och mappar baserat på din IP-adress. Mobila nätverk är särskilt svåra att hitta eftersom de ibland dirigerar trafik genom avlägsna platser. Så om du har loggat in med din mobila enhet i Washington-tillstånd kan platsen visa att inloggningen kommer från Kalifornien. Därför rekommenderar vi starkt att du markerar mer information, utöver bara platsen. Du bör också se till att operativ systemet, webbläsaren och appen är så bra.
+Innan du bestämmer dig för att något är felaktigt, se till att du inte ser ett falskt positivt (där objektet ser tveksamt ut, men är okej). Vi bestämmer till exempel din ungefärliga plats och karta baserat på din IP-adress. Mobilnät är särskilt svåra att sätta fingret på eftersom de ibland dirigerar trafik genom avlägsna platser. Så om du har loggat in med din mobila enhet i delstaten Washington kan platsen visa inloggningen från Kalifornien. På grund av detta rekommenderar vi starkt att du kontrollerar mer information, utöver bara platsen. Du bör också se till att operativsystemet, webbläsaren och appen alla vettigt också.
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>Om du ser en misslyckad inloggning
 
-En misslyckad inloggning, med ingen session-aktivitet, innebär att den primära verifierings metoden (username/Password) misslyckades. Detta kan betyda att du felaktigt skrev ditt användar namn eller lösen ord, men det kan också betyda att en angripare försökte gissa ditt lösen ord. Om du tror att en angripare försöker att gissa ditt lösen ord behöver du inte ändra ditt lösen ord, men vi rekommenderar starkt att du registrerar dig för Azure Multi-Factor Authentication (MFA). Med MFA, även om hackaren till sist gissar ditt lösen ord, räcker det inte att komma åt ditt konto.
+En misslyckad inloggning, utan sessionsaktivitet, innebär att din primära verifieringsmetod (användarnamn/lösenord) misslyckades. Detta kan innebära att du skrivit fel användarnamn eller lösenord, men det kan också innebära att en angripare försökte gissa ditt lösenord. Om du tror att det var angriparen som försökte gissa ditt lösenord utan framgång behöver du inte ändra ditt lösenord, men vi rekommenderar starkt att du registrerar dig för Azure Multi-Factor Authentication (MFA). Med MFA, även om hackaren så småningom gissar ditt lösenord, kommer det inte att räcka för att komma åt ditt konto.
 
-Om du ser en misslyckad inloggning, med en anteckning under session-aktivitet som säger att **Ytterligare verifiering misslyckades, ogiltig kod**, innebär det att din primära autentisering (username/Password) lyckades, men MFA misslyckades. Om detta var en angripare gissade de sig korrekt till ditt lösen ord, men kunde fortfarande inte skicka MFA-utmaningen. I det här fallet rekommenderar vi att du fortfarande ändrar ditt lösen ord, eftersom angriparen får den delen till höger och sedan går till sidan [säkerhets information](https://mysignins.microsoft.com/security-info) för att uppdatera dina säkerhets inställningar.
+Om du ser en misslyckad inloggning, med en anteckning under Sessionsaktivitet som säger, **Ytterligare verifiering misslyckades, ogiltig kod**, betyder det att din primära autentisering (användarnamn / lösenord) lyckades, men MFA misslyckades. Om detta var en angripare, gissade de korrekt ditt lösenord men kunde fortfarande inte passera MFA utmaning. I det här fallet rekommenderar vi att du fortfarande ändrar ditt lösenord, eftersom angriparen fick den delen rätt, och sedan gå till sidan [Säkerhetsinformation](https://mysignins.microsoft.com/security-info) för att uppdatera dina säkerhetsinställningar.
 
-## <a name="search-for-specific-sign-in-activity"></a>Sök efter en speciell inloggnings aktivitet
+## <a name="search-for-specific-sign-in-activity"></a>Sök efter specifik inloggningsaktivitet
 
-Du kan söka efter din senaste inloggnings aktivitet med någon av de tillgängliga uppgifterna. Du kan till exempel söka efter din senaste inloggnings aktivitet efter operativ system, plats, app och så vidare.
+Du kan söka i din senaste inloggningsaktivitet med någon av de tillgängliga uppgifterna. Du kan till exempel söka efter din senaste inloggningsaktivitet efter operativsystem, plats, app och så vidare.
 
-1. På sidan **Granska senaste aktivitet** anger du den information som du vill söka efter i **Sök** fältet. Skriv till exempel `My Account` för att söka efter all aktivitet som samlas in av appen mitt konto.
+1. På sidan **Granska senaste aktivitet** skriver du den information du vill söka efter i **sökfältet.** Skriv `My Account` till exempel om du vill söka efter all aktivitet som samlas in av appen Mitt konto.
 
-2. Välj **Sök** knappen för att börja söka.
+2. Välj knappen **Sök** för att börja söka.
 
-    ![Sidan senaste aktivitet, visar markerat Sök fält, Sök knapp och resultat](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
+    ![Sidan Senaste aktivitet, som visar markerat sökfält, sökknapp och resultat](media/my-account-portal/my-account-portal-sign-ins-page-search.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har visat din senaste inloggnings aktivitet kan du:
+När du har tittat på din senaste inloggningsaktivitet kan du:
 
-- Visa eller hantera din [säkerhets information](user-help-security-info-overview.md).
+- Visa eller hantera [din säkerhetsinformation](user-help-security-info-overview.md).
 
 - Visa eller hantera dina anslutna [enheter](my-account-portal-devices-page.md).
 
 - Visa eller hantera dina [organisationer](my-account-portal-organizations-page.md).
 
-- Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md).
+- Visa hur din organisation [använder dina sekretessrelaterade data](my-account-portal-privacy-page.md).

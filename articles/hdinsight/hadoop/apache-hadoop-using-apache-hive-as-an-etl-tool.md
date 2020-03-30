@@ -1,6 +1,6 @@
 ---
 title: Använda Apache Hive som ETL-verktyg – Azure HDInsight
-description: Använd Apache Hive för att extrahera, transformera och läsa in data (ETL) i Azure HDInsight.
+description: Använd Apache Hive för att extrahera, transformera och läsa in (ETL) data i Azure HDInsight.
 ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -9,30 +9,30 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.openlocfilehash: be331f36a6305b05ce83a2b2d5fdfb73a154ce3d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77623121"
 ---
-# <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Använd Apache Hive som ett ETL-verktyg (Extract, Transform och Load)
+# <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Använda Apache Hive som etl-verktyg (Extract, Transform, and Load)
 
-Du måste vanligt vis rensa och transformera inkommande data innan du läser in dem i ett mål som passar för analys. Åtgärder för att extrahera, transformera och läsa in (ETL) används för att förbereda data och läsa in dem i ett data mål.  Apache Hive på HDInsight kan läsa ostrukturerade data, bearbeta data efter behov och sedan läsa in data i ett relationellt informations lager för system för besluts support. I den här metoden extraheras data från källan och lagras i skalbar lagring, till exempel Azure Storage blobbar eller Azure Data Lake Storage. Data omvandlas sedan med en sekvens av Hive-frågor och mellanlagras sedan i Hive som förberedelse för Mass inläsning i mål data lagret.
+Du behöver vanligtvis rensa och omvandla inkommande data innan du läser in dem till en destination som lämpar sig för analys. Extrahera, transformera och läsa in (ETL) används för att förbereda data och läsa in dem till ett datamål.  Apache Hive på HDInsight kan läsa i ostrukturerade data, bearbeta data efter behov och sedan läsa in data i ett relationsdatalager för beslutsstödsystem. I den här metoden extraheras data från källan och lagras i skalbar lagring, till exempel Azure Storage-blobbar eller Azure Data Lake Storage. Data omvandlas sedan med hjälp av en sekvens av Hive-frågor och är slutligen iscensatta i Hive som förberedelse för massinläsning i måldatalagret.
 
-## <a name="use-case-and-model-overview"></a>Översikt över användnings fall och modell
+## <a name="use-case-and-model-overview"></a>Översikt över användningsfall och modell
 
-Följande bild visar en översikt över användnings fallet och modellen för ETL-Automation. Indata omvandlas för att generera lämpliga utdata.  Under omvandlingen kan data ändra form, datatyp och till och med språk.  ETL-processer kan konvertera Imperial till mått, ändra tids zoner och förbättra precisionen för att korrekt justera med befintliga data i målet.  ETL-processer kan också kombinera nya data med befintliga data för att hålla rapporter aktuella, eller för att ge mer insikt i befintliga data.  Program som rapporterings verktyg och tjänster kan sedan använda dessa data i det önskade formatet.
+Följande bild visar en översikt över användningsfall och modell för ETL automation. Indata omvandlas för att generera rätt utdata.  Under den omvandlingen kan data ändra form, datatyp och till och med språk.  ETL-processer kan konvertera Imperial till mått, ändra tidszoner och förbättra precisionen så att den stämmer överens med befintliga data i målet.  ETL-processer kan också kombinera nya data med befintliga data för att hålla rapporteringen uppdaterad eller för att ge ytterligare insikt i befintliga data.  Program som rapporteringsverktyg och -tjänster kan sedan använda dessa data i önskat format.
 
 ![Apache Hive som ETL-arkitektur](./media/apache-hadoop-using-apache-hive-as-an-etl-tool/hdinsight-etl-architecture.png)
 
-Hadoop används vanligt vis i ETL-processer som importerar antingen ett massivt antal textfiler (t. ex. csv: er) eller en mindre men ofta ändrade antal textfiler, eller både och.  Hive är ett utmärkt verktyg som används för att förbereda data innan de läses in i data målet.  Med Hive kan du skapa ett schema över CSV och använda ett SQL-liknande språk för att generera MapReduce-program som interagerar med data.
+Hadoop används vanligtvis i ETL-processer som importerar antingen ett stort antal textfiler (som CSV: er) eller en mindre men ofta ändra antal textfiler, eller båda.  Hive är ett bra verktyg att använda för att förbereda data innan du läser in dem i datamålet.  Hive kan du skapa ett schema över CSV och använda ett SQL-liknande språk för att generera MapReduce program som interagerar med data.
 
-De vanligaste stegen för att använda Hive för att utföra ETL är följande:
+De typiska stegen för att använda Hive för att utföra ETL är följande:
 
 1. Läs in data i Azure Data Lake Storage eller Azure Blob Storage.
-2. Skapa en databas för metadatalagret (med Azure SQL Database) som ska användas av Hive för att lagra dina scheman.
-3. Skapa ett HDInsight-kluster och Anslut data lagret.
-4. Definiera schemat som ska användas vid Läs tid över data i data lagret:
+2. Skapa en metadatalagringsdatabas (med Azure SQL Database) för användning av Hive när du lagrar dina scheman.
+3. Skapa ett HDInsight-kluster och anslut datalagret.
+4. Definiera schemat som ska tillämpas vid lästid över data i datalagret:
 
     ```
     DROP TABLE IF EXISTS hvac;
@@ -48,48 +48,48 @@ De vanligaste stegen för att använda Hive för att utföra ETL är följande:
     STORED AS TEXTFILE LOCATION 'wasbs://{container}@{storageaccount}.blob.core.windows.net/HdiSamples/SensorSampleData/hvac/';
     ```
 
-5. Transformera data och Läs in dem i målet.  Det finns flera sätt att använda Hive under omvandlingen och inläsning:
+5. Omvandla data och ladda in dem till målet.  Det finns flera sätt att använda Hive under omvandlingen och inläsningen:
 
-    * Fråga och Förbered data med Hive och spara den som en CSV i Azure Data Lake Storage eller Azure Blob Storage.  Använd sedan ett verktyg som SQL Server Integration Services (SSIS) för att hämta dessa CSV: er och läsa in data i en mål Relations databas, till exempel SQL Server.
-    * Fråga data direkt från Excel eller C# med hjälp av HIVE ODBC-drivrutinen.
-    * Använd [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) för att läsa de för beredda enkla CSV-filerna och läsa in dem i mål Relations databasen.
+    * Fråga och förbereda data med Hive och spara dem som en CSV i Azure Data Lake Storage eller Azure blob storage.  Använd sedan ett verktyg som SQL Server Integration Services (SSIS) för att hämta dessa CSV:er och läsa in data i en målrelationsdatabas som SQL Server.
+    * Fråga data direkt från Excel eller C# med hive ODBC-drivrutinen.
+    * Använd [Apache Sqoop](apache-hadoop-use-sqoop-mac-linux.md) för att läsa de förberedda platta CSV-filerna och läsa in dem i målrelationsdatabasen.
 
 ## <a name="data-sources"></a>Datakällor
 
-Data källor är vanligt vis externa data som kan matchas med befintliga data i data lagret, till exempel:
+Datakällor är vanligtvis externa data som kan matchas med befintliga data i ditt datalager, till exempel:
 
-* Data för sociala medier, loggfiler, sensorer och program som genererar datafiler.
-* Data uppsättningar som hämtats från dataproviders, till exempel väder statistik eller säljar nummer.
-* Strömmande data som har registrerats, filtrerats och bearbetats via ett lämpligt verktyg eller ramverk.
+* Sociala medier data, loggfiler, sensorer och program som genererar datafiler.
+* Datauppsättningar som erhållits från dataleverantörer, till exempel väderstatistik eller leverantörsförsäljningsnummer.
+* Strömmande data som samlas in, filtreras och bearbetas via ett lämpligt verktyg eller ramverk.
 
 <!-- TODO: (see Collecting and loading data into HDInsight). -->
 
-## <a name="output-targets"></a>Mål för utdata
+## <a name="output-targets"></a>Utgående mål
 
 Du kan använda Hive för att mata ut data till en mängd olika mål, inklusive:
 
-* En Relations databas, till exempel SQL Server eller Azure SQL Database.
-* Ett informations lager, t. ex. Azure SQL Data Warehouse.
+* En relationsdatabas, till exempel SQL Server eller Azure SQL Database.
+* Ett informationslager, till exempel Azure SQL Data Warehouse.
 * Excel.
-* Azure Table och Blob Storage.
-* Program eller tjänster som kräver att data bearbetas i vissa format eller som filer som innehåller vissa typer av informations strukturer.
-* Ett JSON-dokument lagrar som [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+* Azure-tabell- och blob-lagring.
+* Program eller tjänster som kräver att data bearbetas i specifika format, eller som filer som innehåller specifika typer av informationsstruktur.
+* En JSON Document Store som [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 ## <a name="considerations"></a>Överväganden
 
-ETL-modellen används vanligt vis när du vill:
+ETL-modellen används vanligtvis när du vill:
 
-* Läs in strömmande data eller stora volymer av halv strukturerade eller ostrukturerade data från externa källor till ett befintligt databas-eller informations system.
-* Rensa, transformera och verifiera data innan du läser in dem, kanske genom att använda mer än ett omvandlings pass genom klustret.
-* Generera rapporter och visualiseringar som uppdateras regelbundet. Om rapporten till exempel tar för lång tid att generera under dagen kan du schemalägga rapporten så att den körs på natten. Om du vill köra en Hive-fråga automatiskt kan du använda [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) och PowerShell.
+* Läs in data eller stora volymer halvstrukturerade eller ostrukturerade data från externa källor i en befintlig databas eller ett befintligt informationssystem.
+* Rensa, transformera och validera data innan du läser in dem, kanske genom att använda mer än en omvandling som passerar genom klustret.
+* Generera rapporter och visualiseringar som uppdateras regelbundet. Om rapporten till exempel tar för lång tid att generera under dagen kan du schemalägga rapporten så att den körs nattetid. Om du vill köra en Hive-fråga automatiskt kan du använda [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) och PowerShell.
 
-Om målet för data inte är en databas kan du skapa en fil i rätt format i frågan, till exempel en CSV. Den här filen kan sedan importeras till Excel eller Power BI.
+Om målet för data inte är en databas kan du generera en fil i rätt format i frågan, till exempel en CSV. Den här filen kan sedan importeras till Excel eller Power BI.
 
-Om du behöver köra flera åtgärder på data som en del av ETL-processen bör du fundera på hur du hanterar dem. Om åtgärderna styrs av ett externt program, i stället för ett arbets flöde i lösningen, måste du bestämma om vissa åtgärder kan utföras parallellt och för att identifiera när varje jobb slutförs. Användning av en arbets flödes mekanism som Oozie i Hadoop kan vara enklare än att försöka dirigera en sekvens med åtgärder med hjälp av externa skript eller anpassade program. Mer information om Oozie finns i [arbets flödes-och jobb dirigering](https://msdn.microsoft.com/library/dn749829.aspx).
+Om du behöver utföra flera åtgärder på data som en del av ETL-processen bör du överväga hur du hanterar dem. Om åtgärderna styrs av ett externt program, i stället för som ett arbetsflöde i lösningen, måste du bestämma om vissa åtgärder kan utföras parallellt och identifiera när varje jobb slutförs. Det kan vara enklare att använda en arbetsflödesmekanism som Oozie i Hadoop än att försöka dirigera en sekvens av åtgärder med externa skript eller anpassade program. Mer information om Oozie finns i [Arbetsflöde och jobborkestrering](https://msdn.microsoft.com/library/dn749829.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [ETL i skala](apache-hadoop-etl-at-scale.md)
+* [ETL i stor skala](apache-hadoop-etl-at-scale.md)
 * [Operationalisera en datapipeline](../hdinsight-operationalize-data-pipeline.md)
 
 <!-- * [ETL Deep Dive](../hdinsight-etl-deep-dive.md) -->

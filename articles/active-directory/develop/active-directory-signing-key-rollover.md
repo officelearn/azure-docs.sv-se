@@ -1,6 +1,6 @@
 ---
-title: Förnyelse av signerings nyckel i Azure AD
-description: Den här artikeln beskriver metod tips för förnyelse av signerings nyckel för Azure Active Directory
+title: Signering av nyckelöverrullning i Azure AD
+description: I den här artikeln beskrivs metodtips för signeringsnyckelvält för Azure Active Directory
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,60 +13,60 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: f3585cfa7ea6f0d8afc61e899f9641d415a2e354
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77161196"
 ---
-# <a name="signing-key-rollover-in-azure-active-directory"></a>Förnyelse av signerings nyckel i Azure Active Directory
-Den här artikeln beskriver vad du behöver veta om de offentliga nycklar som används i Azure Active Directory (Azure AD) för att signera säkerhetstoken. Det är viktigt att notera att dessa nycklar är i regelbunden följd och att de i nödfall kan överföras direkt. Alla program som använder Azure AD bör kunna hantera nyckel förnyelse processen program mässigt eller upprätta en periodisk manuell förnyelse process. Fortsätt att läsa för att förstå hur nycklarna fungerar, hur du bedömer effekten av överrullningen till ditt program och hur du uppdaterar programmet eller upprättar en periodisk manuell förnyelse process för att hantera nyckel förnyelse vid behov.
+# <a name="signing-key-rollover-in-azure-active-directory"></a>Signering av nyckelöverrullning i Azure Active Directory
+I den här artikeln beskrivs vad du behöver veta om de offentliga nycklar som används i Azure Active Directory (Azure AD) för att signera säkerhetstoken. Det är viktigt att notera att dessa nycklar rulla över regelbundet och, i en nödsituation, kan rullas över omedelbart. Alla program som använder Azure AD ska kunna hantera nyckelförtrollningsprocessen programmatiskt eller upprätta en periodisk manuell överrullningsprocess. Fortsätt läsa för att förstå hur nycklarna fungerar, hur du bedömer effekten av överrullningen till ditt program och hur du uppdaterar ditt program eller upprättar en periodisk manuell överrullningsprocess för att hantera nyckelvälpning om det behövs.
 
-## <a name="overview-of-signing-keys-in-azure-ad"></a>Översikt över signerings nycklar i Azure AD
-Azure AD använder kryptering med offentliga nycklar som bygger på bransch standarder för att upprätta förtroende mellan sig och de program som använder den. I praktiska termer fungerar detta på följande sätt: Azure AD använder en signerings nyckel som består av ett offentligt och privat nyckel par. När en användare loggar in till ett program som använder Azure AD för autentisering, skapar Azure AD en säkerhetstoken som innehåller information om användaren. Den här token signeras av Azure AD med hjälp av den privata nyckeln innan den skickas tillbaka till programmet. För att verifiera att token är giltig och kommer från Azure AD, måste programmet verifiera tokens signatur med den offentliga nyckel som exponeras av Azure AD och som finns i klient organisationens [OpenID Connect Discovery-dokument](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML/WS-utfodras [federationsmetadata](../azuread-dev/azure-ad-federation-metadata.md).
+## <a name="overview-of-signing-keys-in-azure-ad"></a>Översikt över signeringsnycklar i Azure AD
+Azure AD använder kryptering med offentliga nycklar som bygger på branschstandarder för att skapa förtroende mellan sig själv och de program som använder den. I praktiska termer fungerar detta på följande sätt: Azure AD använder en signeringsnyckel som består av ett offentligt och privat nyckelpar. När en användare loggar in på ett program som använder Azure AD för autentisering skapar Azure AD en säkerhetstoken som innehåller information om användaren. Den här token signeras av Azure AD med hjälp av sin privata nyckel innan den skickas tillbaka till programmet. För att verifiera att token är giltig och kommer från Azure AD måste programmet validera tokens signatur med hjälp av den offentliga nyckeln som exponeras av Azure AD och som finns i klientens [OpenID Connect-identifieringsdokument](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML/WS-Fed-federationmetadatadokument . [federation metadata document](../azuread-dev/azure-ad-federation-metadata.md)
 
-Av säkerhets synpunkt kan Azure ADs signerings nyckel sammanfattas regelbundet och, i händelse av en nöd situation, kunna överföras omedelbart. Alla program som integreras med Azure AD bör förberedas för att hantera en nyckel förnyelse händelse oavsett hur ofta den kan inträffa. Om det inte är det och ditt program försöker använda en nyckel som har gått ut för att verifiera signaturen på en token, kommer inloggnings förfrågan att Miss lyckas.
+Av säkerhetsskäl rullar Azure AD:s signeringsnyckel regelbundet och, i händelse av en nödsituation, kan rullas över omedelbart. Alla program som integreras med Azure AD bör vara beredda att hantera en nyckelförstrollningshändelse oavsett hur ofta det kan inträffa. Om den inte gör det och ditt program försöker använda en utgången nyckel för att verifiera signaturen på en token, misslyckas inloggningsbegäran.
 
-Det finns alltid fler än en giltig nyckel som är tillgänglig i OpenID Connect Discovery-dokumentet och federationsmetadata. Ditt program bör vara förberett för att använda någon av de nycklar som anges i dokumentet, eftersom en nyckel kan ställas in snart, en annan kan ersätta och så vidare.
+Det finns alltid mer än en giltig nyckel tillgänglig i OpenID Connect-identifieringsdokumentet och federationsmetadatadokumentet. Din ansökan bör vara beredd att använda någon av de nycklar som anges i dokumentet, eftersom en nyckel kan rullas snart, kan en annan vara dess ersättning, och så vidare.
 
-## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Så här bedömer du om ditt program kommer att påverkas och vad du ska göra
-Hur ditt program hanterar nyckel förnyelse beror på variabler som typ av program eller vilka identitets protokoll och bibliotek som användes. I avsnitten nedan bedöms om de vanligaste typerna av program påverkas av nyckel förnyelsen och ger vägledning om hur du uppdaterar programmet så att det stöder automatisk förnyelse eller manuellt uppdaterar nyckeln.
+## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Hur du bedömer om din ansökan kommer att påverkas och vad du ska göra åt det
+Hur programmet hanterar nyckelöverrullning beror på variabler som typen av program eller vilket identitetsprotokoll och bibliotek som användes. I avsnitten nedan utvärderas om de vanligaste typerna av program påverkas av nyckelförtrollningen och ger vägledning om hur du uppdaterar programmet för att stödja automatisk överrullning eller manuellt uppdatera nyckeln.
 
-* [Interna klient program som har åtkomst till resurser](#nativeclient)
-* [Webb program/API: er som har åtkomst till resurser](#webclient)
-* [Webb program/API: er som skyddar resurser och bygger på Azure App Services](#appservices)
-* [Webb program/API: er som skyddar resurser med .NET OWIN OpenID Connect, WS-utfodras eller WindowsAzureActiveDirectoryBearerAuthentication mellan program](#owin)
-* [Webb program/API: er som skyddar resurser med .NET Core OpenID Connect eller JwtBearerAuthentication mellan program](#owincore)
-* [Webb program/API: er som skyddar resurser med Node. js Passport-Azure-AD-modul](#passport)
-* [Webb program/API: er som skyddar resurser och som skapats med Visual Studio 2015 eller senare](#vs2015)
-* [Webb program som skyddar resurser och som skapats med Visual Studio 2013](#vs2013)
-* Webb-API: er som skyddar resurser och som skapats med Visual Studio 2013
-* [Webb program som skyddar resurser och som skapats med Visual Studio 2012](#vs2012)
-* [Webb program som skyddar resurser och som skapats med Visual Studio 2010, 2008 o med hjälp av Windows Identity Foundation](#vs2010)
-* [Webb program/API: er som skyddar resurser med andra bibliotek eller manuellt implementerar något av de protokoll som stöds](#other)
+* [Inbyggda klientprogram som använder resurser](#nativeclient)
+* [Webbprogram /API:er som använder resurser](#webclient)
+* [Webbprogram/API:er som skyddar resurser och skapas med Azure App Services](#appservices)
+* [Webbprogram/API:er som skyddar resurser med hjälp av .NET OWIN OpenID Connect, WS-Fed eller WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
+* [Webbprogram / API:er som skyddar resurser med hjälp av .NET Core OpenID Connect eller JwtBearerAuthentication middleware](#owincore)
+* [Webbprogram / API:er som skyddar resurser med node.js passport-azure-ad-modul](#passport)
+* [Webbprogram/API:er som skyddar resurser och skapas med Visual Studio 2015 eller senare](#vs2015)
+* [Webbprogram som skyddar resurser och skapas med Visual Studio 2013](#vs2013)
+* Webb-API:er som skyddar resurser och skapas med Visual Studio 2013
+* [Webbprogram som skyddar resurser och skapas med Visual Studio 2012](#vs2012)
+* [Webbprogram som skyddar resurser och skapas med Visual Studio 2010, 2008 o med Windows Identity Foundation](#vs2010)
+* [Webbprogram/API:er som skyddar resurser med andra bibliotek eller implementerar något av de protokoll som stöds](#other)
 
-Den här vägledningen gäller **inte** för:
+Denna vägledning är **inte** tillämplig för:
 
-* Program som har lagts till från Azure AD-programgalleriet (inklusive anpassade) har separat vägledning för signering av nycklar. [Mer information.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
-* Lokala program som publiceras via programproxy behöver inte oroa dig för signerings nycklar.
+* Program som läggs till från Azure AD Application Gallery (inklusive Anpassad) har separat vägledning när det gäller signeringsnycklar. [Mer information.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
+* Lokala program som publiceras via programproxy behöver inte oroa sig för signeringsnycklar.
 
-### <a name="nativeclient"></a>Interna klient program som har åtkomst till resurser
-Program som bara kommer åt resurser (dvs. Microsoft Graph, nyckel valv, Outlook-API och andra Microsoft API: er (Microsoft API: er) kan vanligt vis bara hämta en token och skicka den till resurs ägaren. Med tanke på att de inte skyddar några resurser, kontrollerar de inte token och behöver därför inte kontrol lera att de är korrekt signerade.
+### <a name="native-client-applications-accessing-resources"></a><a name="nativeclient"></a>Inbyggda klientprogram som använder resurser
+Program som bara har åtkomst till resurser (dvs. Microsoft Graph, KeyVault, Outlook API och andra Microsoft API:er) hämtar i allmänhet bara en token och skickar den vidare till resursägaren. Med tanke på att de inte skyddar några resurser inspekterar de inte token och behöver därför inte se till att den är korrekt signerad.
 
-Interna klient program, oavsett om de är Station ära eller mobila, omfattas av den här kategorin och påverkas därför inte av förnyelsen.
+Inbyggda klientprogram, oavsett om de är stationära eller mobila, hör till denna kategori och påverkas därför inte av överrullningen.
 
-### <a name="webclient"></a>Webb program/API: er som har åtkomst till resurser
-Program som bara kommer åt resurser (dvs. Microsoft Graph, nyckel valv, Outlook-API och andra Microsoft API: er (Microsoft API: er) kan vanligt vis bara hämta en token och skicka den till resurs ägaren. Med tanke på att de inte skyddar några resurser, kontrollerar de inte token och behöver därför inte kontrol lera att de är korrekt signerade.
+### <a name="web-applications--apis-accessing-resources"></a><a name="webclient"></a>Webbprogram /API:er som använder resurser
+Program som bara har åtkomst till resurser (dvs. Microsoft Graph, KeyVault, Outlook API och andra Microsoft API:er) hämtar i allmänhet bara en token och skickar den vidare till resursägaren. Med tanke på att de inte skyddar några resurser inspekterar de inte token och behöver därför inte se till att den är korrekt signerad.
 
-Webb program och webb-API: er som använder app-only-flödet (klient-autentiseringsuppgifter/klient certifikat) ingår i den här kategorin och påverkas därför inte av förnyelsen.
+Webbprogram och webb-API:er som använder flödet endast för appar (klientautentiseringsuppgifter/klientcertifikat), hör till den här kategorin och påverkas därför inte av överrullningen.
 
-### <a name="appservices"></a>Webb program/API: er som skyddar resurser och bygger på Azure App Services
-Azure App Services-funktionen för autentisering/auktorisering (EasyAuth) har redan den logik som krävs för att hantera förnyelse av nycklar automatiskt.
+### <a name="web-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>Webbprogram/API:er som skyddar resurser och skapas med Azure App Services
+Azure App Services autentisering / auktorisering (EasyAuth) funktionalitet har redan den nödvändiga logiken för att hantera nyckelöverrullning automatiskt.
 
-### <a name="owin"></a>Webb program/API: er som skyddar resurser med .NET OWIN OpenID Connect, WS-utfodras eller WindowsAzureActiveDirectoryBearerAuthentication mellan program
-Om ditt program använder .NET OWIN OpenID Connect, WS-utfodras eller WindowsAzureActiveDirectoryBearerAuthentication mellan program, har den redan den logik som krävs för att hantera nyckel förnyelse automatiskt.
+### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Webbprogram/API:er som skyddar resurser med hjälp av .NET OWIN OpenID Connect, WS-Fed eller WindowsAzureActiveDirectoryBearerAuthentication middleware
+Om ditt program använder .NET OWIN OpenID Connect, WS-Fed eller WindowsAzureActiveDirectoryBearerAuthentication middleware, har det redan den logik som krävs för att hantera nyckelöverrullning automatiskt.
 
-Du kan bekräfta att ditt program använder något av dessa genom att söka efter något av följande kodfragment i programmets Startup.cs eller Startup.Auth.cs
+Du kan bekräfta att ditt program använder något av detta genom att leta efter något av följande utdrag i programmets Startup.cs eller Startup.Auth.cs
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -90,10 +90,10 @@ app.UseWsFederationAuthentication(
      });
 ```
 
-### <a name="owincore"></a>Webb program/API: er som skyddar resurser med .NET Core OpenID Connect eller JwtBearerAuthentication mellan program
-Om ditt program använder .NET Core OWIN OpenID Connect eller JwtBearerAuthentication mellan program, har den redan den logik som krävs för att hantera nyckel förnyelse automatiskt.
+### <a name="web-applications--apis-protecting-resources-using-net-core-openid-connect-or--jwtbearerauthentication-middleware"></a><a name="owincore"></a>Webbprogram / API:er som skyddar resurser med hjälp av .NET Core OpenID Connect eller JwtBearerAuthentication middleware
+Om ditt program använder .NET Core OWIN OpenID Connect eller JwtBearerAuthentication middleware, har det redan den logik som krävs för att hantera nyckelöverrullning automatiskt.
 
-Du kan bekräfta att ditt program använder något av dessa genom att söka efter något av följande kodfragment i programmets Startup.cs eller Startup.Auth.cs
+Du kan bekräfta att ditt program använder något av detta genom att leta efter något av följande utdrag i programmets Startup.cs eller Startup.Auth.cs
 
 ```
 app.UseOpenIdConnectAuthentication(
@@ -110,10 +110,10 @@ app.UseJwtBearerAuthentication(
      });
 ```
 
-### <a name="passport"></a>Webb program/API: er som skyddar resurser med Node. js Passport-Azure-AD-modul
-Om programmet använder Node. js Passport-AD-modulen finns redan den logik som krävs för att hantera förnyelse av nycklar automatiskt.
+### <a name="web-applications--apis-protecting-resources-using-nodejs-passport-azure-ad-module"></a><a name="passport"></a>Webbprogram / API:er som skyddar resurser med node.js passport-azure-ad-modul
+Om ditt program använder nod.js pass-ad-modulen har den redan den logik som krävs för att hantera nyckelöverrullning automatiskt.
 
-Du kan bekräfta att ditt program Passport-AD genom att söka efter följande kodfragment i ditt programs app. js
+Du kan bekräfta att din ansökan passport-ad genom att söka efter följande utdrag i programmets app.js
 
 ```
 var OIDCStrategy = require('passport-azure-ad').OIDCStrategy;
@@ -123,32 +123,32 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Webb program/API: er som skyddar resurser och som skapats med Visual Studio 2015 eller senare
-Om ditt program har skapats med hjälp av en mall för webb program i Visual Studio 2015 eller senare och du har valt **arbets-eller skol konton** från menyn **ändra autentisering** , har det redan den logik som krävs för att hantera förnyelse av nycklar automatiskt. Den här logiken är inbäddad i OWIN OpenID Connect-mellanprogram, hämtar och cachelagrar nycklarna från OpenID Connect Discovery-dokumentet och uppdaterar dem regelbundet.
+### <a name="web-applications--apis-protecting-resources-and-created-with-visual-studio-2015-or-later"></a><a name="vs2015"></a>Webbprogram/API:er som skyddar resurser och skapas med Visual Studio 2015 eller senare
+Om ditt program har skapats med hjälp av en webbprogrammall i Visual Studio 2015 eller senare och du valde **Arbets- eller skolkonton** på menyn **Ändra autentisering** har det redan den logik som krävs för att hantera nyckelöverrullning automatiskt. Den här logiken, inbäddad i OWIN OpenID Connect mellanprogram, hämtar och cachelagrar nycklarna från OpenID Connect-identifieringsdokumentet och uppdaterar dem regelbundet.
 
-Om du har lagt till autentisering till din lösning manuellt kanske programmet saknar nödvändig logik för nyckel förnyelse. Du måste skriva den själv eller följa stegen i [webb program/API: er med hjälp av andra bibliotek eller manuellt implementera något av de protokoll som stöds](#other).
+Om du har lagt till autentisering i lösningen manuellt kanske programmet inte har den nödvändiga logiken för nyckelfördämning. Du måste skriva det själv, eller följa stegen i [webbprogram / API: er med hjälp av andra bibliotek eller manuellt genomföra någon av de protokoll som stöds](#other).
 
-### <a name="vs2013"></a>Webb program som skyddar resurser och som skapats med Visual Studio 2013
-Om ditt program har skapats med hjälp av en mall för webb program i Visual Studio 2013 och du har valt **organisations konton** från menyn **ändra autentisering** , har det redan den logik som krävs för att hantera förnyelse av nycklar automatiskt. Den här logiken lagrar organisationens unika identifierare och information om signerings nyckeln i två databas tabeller som är kopplade till projektet. Du kan hitta anslutnings strängen för databasen i projektets Web. config-fil.
+### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>Webbprogram som skyddar resurser och skapas med Visual Studio 2013
+Om ditt program skapades med hjälp av en webbprogrammall i Visual Studio 2013 och du valde **organisationskonton** på menyn **Ändra autentisering** har det redan den logik som krävs för att hantera nyckelöverrullning automatiskt. Den här logiken lagrar organisationens unika identifierare och signeringsnyckelinformationen i två databastabeller som är associerade med projektet. Du hittar anslutningssträngen för databasen i projektets web.config-fil.
 
-Om du har lagt till autentisering till din lösning manuellt kanske programmet saknar nödvändig logik för nyckel förnyelse. Du måste skriva den själv eller följa stegen i [webb program/API: er med hjälp av andra bibliotek eller manuellt implementera något av de protokoll som stöds.](#other).
+Om du har lagt till autentisering i lösningen manuellt kanske programmet inte har den nödvändiga logiken för nyckelfördämning. Du måste skriva det själv, eller följa stegen i [webbprogram / API: er med hjälp av andra bibliotek eller manuellt genomföra någon av de protokoll som stöds.](#other).
 
-Med följande steg kan du kontrol lera att logiken fungerar korrekt i ditt program.
+Följande steg hjälper dig att kontrollera att logiken fungerar som den ska i programmet.
 
-1. Öppna lösningen i Visual Studio 2013 och klicka sedan på fliken **Server Explorer** i det högra fönstret.
-2. Expandera **data anslutningar**, **DefaultConnection**och sedan **tabeller**. Leta upp tabellen **IssuingAuthorityKeys** , högerklicka på den och klicka sedan på **Visa tabell data**.
-3. Det finns minst en rad i tabellen **IssuingAuthorityKeys** som motsvarar värdet för tumavtrycket för nyckeln. Ta bort alla rader i tabellen.
-4. Högerklicka på tabellen **klienter** och klicka sedan på **Visa tabell data**.
-5. Det finns minst en rad i tabellen **klienter** som motsvarar en unik identifierare för katalog klient organisationen. Ta bort alla rader i tabellen. Om du inte tar bort raderna i både tabellen **Tenants** och **IssuingAuthorityKeys** , får du ett fel vid körning.
+1. Öppna lösningen i Visual Studio 2013 och klicka sedan på fliken **Serverutforskaren** i det högra fönstret.
+2. Expandera **dataanslutningar,** **DefaultConnection**och sedan **tabeller**. Leta upp tabellen **IssuAuthorityKeys,** högerklicka på den och klicka sedan på **Visa tabelldata**.
+3. I tabellen **IssuauthorityKeys** finns det minst en rad, vilket motsvarar tumavtrycket för nyckeln. Ta bort alla rader i tabellen.
+4. Högerklicka på tabellen **Klienter** och klicka sedan på **Visa tabelldata**.
+5. I tabellen **Klienter** finns det minst en rad, vilket motsvarar en unik katalogklientidentifierare. Ta bort alla rader i tabellen. Om du inte tar bort raderna i tabellen **Klienter** och tabellen **IssuauthorityKeys** får du ett felmeddelande vid körning.
 6. Skapa och kör programmet. När du har loggat in på ditt konto kan du stoppa programmet.
-7. Gå tillbaka till **Server Explorer** och titta på värdena i tabellen **IssuingAuthorityKeys** och **klient organisationer** . Du märker att de fyllts i automatiskt med lämplig information från federationsmetadata.
+7. Gå tillbaka till **Server Explorer** och titta på värdena i tabellen **IssuingAuthorityKeys** och **Tenants.** Du kommer att märka att de automatiskt har återbefolkats med lämplig information från federationens metadatadokument.
 
-### <a name="vs2013"></a>Webb-API: er som skyddar resurser och som skapats med Visual Studio 2013
-Om du har skapat ett webb-API-program i Visual Studio 2013 med hjälp av webb-API-mallen och sedan valt **organisations konton** från menyn **ändra autentisering** , har du redan den nödvändiga logiken i programmet.
+### <a name="web-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>Webb-API:er som skyddar resurser och skapas med Visual Studio 2013
+Om du har skapat ett webb-API-program i Visual Studio 2013 med webb-API-mallen och sedan valde **organisationskonton** på menyn **Ändra autentisering** har du redan den nödvändiga logiken i programmet.
 
-Om du har konfigurerat autentisering manuellt följer du anvisningarna nedan och lär dig hur du konfigurerar ditt webb-API för att automatiskt uppdatera dess nyckelinformation.
+Om du konfigurerat autentisering manuellt följer du instruktionerna nedan för att lära dig hur du konfigurerar webb-API:et för att automatiskt uppdatera dess nyckelinformation.
 
-Följande kodfragment visar hur du hämtar de senaste nycklarna från federationsmetadata och använder sedan [JWT token-hanteraren](https://msdn.microsoft.com/library/dn205065.aspx) för att validera token. Kodfragmentet förutsätter att du använder din egen caching-mekanism för att spara nyckeln för att validera framtida token från Azure AD, oavsett om det är en databas, en konfigurations fil eller någon annan stans.
+Följande kodavsnitt visar hur du hämtar de senaste nycklarna från federationsmetadatadokumentet och använder sedan [JWT Token Handler](https://msdn.microsoft.com/library/dn205065.aspx) för att validera token. Kodavsnittet förutsätter att du använder din egen cachelagringsmekanism för att spara nyckeln för att validera framtida token från Azure AD, oavsett om det är i en databas, konfigurationsfil eller någon annanstans.
 
 ```
 using System;
@@ -238,18 +238,18 @@ namespace JWTValidation
 }
 ```
 
-### <a name="vs2012"></a>Webb program som skyddar resurser och som skapats med Visual Studio 2012
-Om ditt program har skapats i Visual Studio 2012 använde du förmodligen verktyget identitets-och åtkomst verktyg för att konfigurera ditt program. Det är också troligt att du använder [VINR (verifiera utfärdarens namn register)](https://msdn.microsoft.com/library/dn205067.aspx). VINR ansvarar för att underhålla information om betrodda identitets leverantörer (Azure AD) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera nyckelinformation som lagras i en Web. config-fil genom att hämta det senaste dokumentet för federationsmetadata som är associerat med din katalog, kontrol lera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet så att det använder den nya nyckeln vid behov.
+### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Webbprogram som skyddar resurser och skapas med Visual Studio 2012
+Om ditt program byggdes i Visual Studio 2012 använde du förmodligen identity and access-verktyget för att konfigurera ditt program. Det är också troligt att du använder [det validerande utfärdarens namnregister (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR ansvarar för att underhålla information om betrodda identitetsleverantörer (Azure AD) och de nycklar som används för att validera token som utfärdats av dem. VINR gör det också enkelt att automatiskt uppdatera den nyckelinformation som lagras i en Web.config-fil genom att hämta det senaste federationsmetadatadokumentet som är associerat med katalogen, kontrollera om konfigurationen är inaktuell med det senaste dokumentet och uppdatera programmet för att använda den nya nyckeln om det behövs.
 
-Om du har skapat programmet med något av kod exemplen eller genom gångs dokumentationen från Microsoft ingår nyckel förnyelse logiken redan i projektet. Du ser att koden nedan redan finns i ditt projekt. Om programmet inte redan har den här logiken följer du stegen nedan för att lägga till den och kontrol lera att den fungerar som den ska.
+Om du har skapat programmet med något av kodexemplen eller genomgången dokumentation som tillhandahålls av Microsoft, finns redan nyckelöverrullningslogiken i projektet. Du kommer att märka att koden nedan redan finns i ditt projekt. Om ditt program inte redan har den här logiken följer du stegen nedan för att lägga till det och för att kontrollera att det fungerar korrekt.
 
-1. I **Solution Explorer**lägger du till en referens till sammansättningen **system. IdentityModel** för lämpligt projekt.
-2. Öppna filen **Global.asax.cs** och Lägg till följande med hjälp av direktiv:
+1. Lägg till en referens till **System.IdentityModel-sammansättningen** för rätt projekt i **Solution Explorer.**
+2. Öppna **Global.asax.cs** filen och lägg till följande med hjälp av direktiv:
    ```
    using System.Configuration;
    using System.IdentityModel.Tokens;
    ```
-3. Lägg till följande metod i **Global.asax.cs** -filen:
+3. Lägg till följande **Global.asax.cs** metod i Global.asax.cs-filen:
    ```
    protected void RefreshValidationSettings()
    {
@@ -259,7 +259,7 @@ Om du har skapat programmet med något av kod exemplen eller genom gångs dokume
     ValidatingIssuerNameRegistry.WriteToConfig(metadataAddress, configPath);
    }
    ```
-4. Anropa metoden **RefreshValidationSettings ()** i metoden **Application_Start ()** i **Global.asax.cs** som visas:
+4. Anropa metoden **RefreshValidationSettings()** i metoden **Application_Start()** i **Global.asax.cs** som visas:
    ```
    protected void Application_Start()
    {
@@ -269,11 +269,11 @@ Om du har skapat programmet med något av kod exemplen eller genom gångs dokume
    }
    ```
 
-När du har följt de här stegen kommer ditt programs Web. config att uppdateras med den senaste informationen från dokumentet för federationsmetadata, inklusive de senaste nycklarna. Den här uppdateringen sker varje gång din programpool återanvänds i IIS. som standard är IIS inställd på att återvinna program var 29: e timme.
+När du har följt dessa steg uppdateras programmets Web.config med den senaste informationen från federationsmetadatadokumentet, inklusive de senaste nycklarna. Den här uppdateringen sker varje gång programpoolen återvinns i IIS. som standard är IIS inställt på att återvinna program var 29:e timme.
 
-Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fungerar.
+Följ stegen nedan för att kontrollera att logiken för nyckelfördrollning fungerar.
 
-1. När du har kontrollerat att programmet använder koden ovan öppnar du filen **Web. config** och navigerar till **\<issuerNameRegistry >** -blocket och letar efter följande rader:
+1. När du har kontrollerat att programmet använder koden ovan öppnar du filen **Web.config** och navigerar till ** \<numretrNameRegistry>** block, särskilt efter följande rader:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -281,31 +281,31 @@ Följ stegen nedan för att kontrol lera att logiken för nyckel förnyelse fung
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. I **\<Lägg till tumavtryck = "" >** inställningen ändrar du tumavtrycket genom att ersätta alla bokstäver med ett annat. Spara filen **Web. config** .
-3. Skapa programmet och kör det. Om du kan slutföra inloggnings processen uppdaterar programmet nyckeln genom att ladda ned den information som krävs från katalogens dokument för federationsmetadata. Om du har problem med att logga in bör du kontrol lera att ändringarna i programmet är korrekta genom att läsa den [lägga till inloggning i ditt webb program med hjälp av Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) -artikeln eller genom att hämta och inspektera följande kod exempel: [flera innehavares moln program för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+2. Ändra tumavtrycksvärdet ** \<i inställningen Lägg till tumavtryck="">** genom att ersätta ett tecken med ett annat tecken. Spara filen **Web.config**.
+3. Skapa programmet och kör det sedan. Om du kan slutföra inloggningsprocessen uppdaterar programmet nyckeln genom att hämta den information som krävs från katalogens federationsmetadatadokument. Om du har problem med att logga in, se till att ändringarna i ditt program är korrekta genom att läsa [Lägga till inloggning i webbprogrammet Med hjälp av Azure AD-artikel,](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) eller hämta och inspektera följande kodexempel: Cloud Application för flera [innehavare för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
-### <a name="vs2010"></a>Webb program skyddar resurser och har skapats med Visual Studio 2008 eller 2010 och Windows Identity Foundation (WIF) v 1.0 för .NET 3,5
-Om du har byggt ett program på WIF v 1.0 finns det ingen funktion för att automatiskt uppdatera programmets konfiguration för att använda en ny nyckel.
+### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2008-or-2010-and-windows-identity-foundation-wif-v10-for-net-35"></a><a name="vs2010"></a>Webbprogram som skyddar resurser och skapas med Visual Studio 2008 eller 2010 och WiF (Windows Identity Foundation) v1.0 för .NET 3.5
+Om du har skapat ett program på WIF v1.0 finns det ingen mekanism för att automatiskt uppdatera programmets konfiguration för att använda en ny nyckel.
 
-* *Enklaste sättet* Använd FedUtil-verktyget som ingår i WIF SDK, som kan hämta det senaste Metadatadokumentet och uppdatera konfigurationen.
-* Uppdatera ditt program till .NET 4,5, som innehåller den senaste versionen av WIF som finns i systemets namnrymd. Du kan sedan använda [verifiering av utfärdarens namn register (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) för att utföra automatiska uppdateringar av programmets konfiguration.
-* Utför en manuell förnyelse enligt anvisningarna i slutet av det här vägledning dokumentet.
+* *Enklaste sättet* Använd FedUtil-verktygen som ingår i WIF SDK, som kan hämta det senaste metadatadokumentet och uppdatera konfigurationen.
+* Uppdatera programmet till .NET 4.5, som innehåller den senaste versionen av WIF som finns i systemnamnområdet. Du kan sedan använda [VINR (Validating Issuer Name Registry)](https://msdn.microsoft.com/library/dn205067.aspx) för att utföra automatiska uppdateringar av programmets konfiguration.
+* Utför en manuell överrullning enligt instruktionerna i slutet av det här vägledningsdokumentet.
 
-Instruktioner för att använda FedUtil för att uppdatera konfigurationen:
+Instruktioner för att använda FedUtil för att uppdatera din konfiguration:
 
-1. Kontrol lera att WIF v 1.0 SDK är installerat på utvecklings datorn för Visual Studio 2008 eller 2010. Du kan [Ladda ned det här](https://www.microsoft.com/en-us/download/details.aspx?id=4451) om du inte har installerat det än.
-2. Öppna lösningen i Visual Studio och högerklicka sedan på tillämpligt projekt och välj **Uppdatera federationsmetadata**. Om det här alternativet inte är tillgängligt är FedUtil och/eller WIF v 1.0 SDK inte installerat.
-3. I prompten väljer du **Uppdatera** för att börja uppdatera federationsmetadata. Om du har åtkomst till den server miljö där programmet finns kan du välja att använda FedUtil för [Automatisk uppdatering av metadata](https://msdn.microsoft.com/library/ee517272.aspx).
-4. Slutför uppdaterings processen genom att klicka på **Slutför** .
+1. Kontrollera att WIF v1.0 SDK är installerat på din utvecklingsmaskin för Visual Studio 2008 eller 2010. Du kan [ladda ner den härifrån](https://www.microsoft.com/en-us/download/details.aspx?id=4451) om du ännu inte har installerat den.
+2. Öppna lösningen i Visual Studio och högerklicka sedan på gällande projekt och välj **Uppdatera federationsmetadata**. Om det här alternativet inte är tillgängligt har FedUtil och/eller WIF v1.0 SDK inte installerats.
+3. Välj **Uppdatera** för att börja uppdatera federationsmetadata i prompten. Om du har tillgång till servermiljön där programmet finns kan du eventuellt använda FedUtils [automatiska schema för metadatauppdatering](https://msdn.microsoft.com/library/ee517272.aspx).
+4. Klicka på **Slutför** om du vill slutföra uppdateringsprocessen.
 
-### <a name="other"></a>Webb program/API: er som skyddar resurser med andra bibliotek eller manuellt implementerar något av de protokoll som stöds
-Om du använder ett annat bibliotek eller manuellt implementerat något av de protokoll som stöds måste du granska biblioteket eller implementeringen för att säkerställa att nyckeln hämtas från antingen OpenID Connect Discovery-dokumentet eller federationsmetadata handling. Ett sätt att söka efter detta är att göra en sökning i din kod eller bibliotekets kod för anrop till antingen OpenID identifierings dokument eller federationsmetadata.
+### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>Webbprogram/API:er som skyddar resurser med andra bibliotek eller implementerar något av de protokoll som stöds
+Om du använder något annat bibliotek eller har implementerat något av de protokoll som stöds manuellt måste du granska biblioteket eller implementeringen för att säkerställa att nyckeln hämtas från antingen OpenID Connect-identifieringsdokumentet eller federationsmetadata Dokument. Ett sätt att söka efter detta är att göra en sökning i koden eller bibliotekets kod för alla anrop till antingen OpenID-identifieringsdokumentet eller federationsmetadatadokumentet.
 
-Om nyckeln lagras någonstans eller hårdkodad i ditt program kan du hämta nyckeln manuellt och uppdatera den genom att utföra en manuell förnyelse enligt anvisningarna i slutet av det här väglednings dokumentet. **Vi rekommenderar starkt att du förbättrar ditt program så att det stöder automatisk överrullning** med någon av de metoder som beskrivs i den här artikeln för att undvika framtida avbrott och omkostnader om Azure AD ökar sin rollover-takt eller har en nöd utöknings enhet.
+Om nyckeln lagras någonstans eller hårdkodas i ditt program kan du hämta nyckeln manuellt och uppdatera den därefter genom att utföra en manuell överrullning enligt instruktionerna i slutet av det här vägledningsdokumentet. **Det rekommenderas starkt att du förbättrar ditt program för att stödja automatisk överrullning** med någon av de metoder som beskrivs i den här artikeln för att undvika framtida störningar och omkostnader om Azure AD ökar dess överrullningskadens eller har en nödutrullning utanför bandet.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>Så här testar du programmet för att avgöra om det kommer att påverkas
-Du kan kontrol lera om ditt program stöder automatisk nyckel förnyelse genom att ladda ned skripten och följa instruktionerna i [den här GitHub-lagringsplatsen.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
+Du kan verifiera om programmet stöder automatisk nyckelöverrullning genom att hämta skripten och följa instruktionerna i [den här GitHub-databasen.](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
-## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Utföra en manuell förnyelse om programmet inte stöder automatisk förnyelse
-Om programmet **inte** stöder automatisk förnyelse måste du upprätta en process som regelbundet övervakar Azure Ads signerings nycklar och utför en manuell förnyelse. [Den här GitHub-lagringsplatsen](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) innehåller skript och instruktioner för hur du gör detta.
+## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>Så här utför du en manuell överrullning om programmet inte stöder automatisk överrullning
+Om ditt program **inte** stöder automatisk överrullning måste du upprätta en process som regelbundet övervakar Azure AD:s signeringsnycklar och utför en manuell överrullning i enlighet med detta. [Den här GitHub-databasen](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) innehåller skript och instruktioner om hur du gör detta.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: läsa fångade data från python app – Azure Event Hubs'
-description: 'Snabb start: skript som använder Azure python SDK för att demonstrera Event Hubs Capture-funktionen.'
+title: 'Snabbstart: Läsa infångade data från Python-appen - Azure Event Hubs'
+description: 'Snabbstart: Skript som använder Azure Python SDK för att demonstrera funktionen Händelsehubbar.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -15,72 +15,72 @@ ms.custom: seodec18
 ms.date: 01/15/2020
 ms.author: shvija
 ms.openlocfilehash: 6c830cf871c2ae650bb61e8b3712a664e9e405d4
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77187295"
 ---
-# <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Snabb start: Event Hubs Infångnings genom gång: python (Azure-eventhub version 1)
+# <a name="quickstart-event-hubs-capture-walkthrough-python-azure-eventhub-version-1"></a>Snabbstart: Händelsehubbar Fånga genomgång: Python (azure-eventhub version 1)
 
-Avbildning är en funktion i Azure Event Hubs. Du kan använda Capture för att automatiskt leverera strömmande data i händelsehubben till ett Azure Blob Storage-konto som du väljer. Den här funktionen gör det enkelt att utföra batchbearbetning vid strömnings data i real tid. Den här artikeln beskriver hur du använder Event Hubs Capture med Python. Mer information om Event Hubs avbildning finns i [avbilda händelser via Azure Event Hubs][Overview of Event Hubs Capture].
+Capture är en funktion i Azure Event Hubs. Du kan använda Capture för att automatiskt leverera strömmande data i din händelsehubb till ett Azure Blob-lagringskonto som du väljer. Den här funktionen gör det enkelt att göra batchbearbetning på strömmande data i realtid. I den här artikeln beskrivs hur du använder Händelsehubbar capture med Python. Mer information om Insamling av eventhubbar finns [i Samla in händelser via Azure Event Hubs][Overview of Event Hubs Capture].
 
-I den här genom gången används [Azure python SDK](https://azure.microsoft.com/develop/python/) för att demonstrera insamlings funktionen. *Sender.py* -programmet skickar simulerad miljö telemetri till Event HUBS i JSON-format. Händelsehubben använder insamlings funktionen för att skriva dessa data till blob-lagring i batchar. *Capturereader.py* -appen läser dessa blobbar, skapar en tilläggs fil för var och en av dina enheter och skriver data till *CSV* -filer på varje enhet.
+Den här genomgången använder [Azure Python SDK](https://azure.microsoft.com/develop/python/) för att demonstrera capture-funktionen. Det *sender.py* programmet skickar simulerad miljötelemetri till Event Hubs i JSON-format. Händelsehubben använder hämtningsfunktionen för att skriva dessa data till Blob-lagring i batchar. Den *capturereader.py* app läser dessa blobbar, skapar en tilläggsfil för var och en av dina enheter och skriver data till *CSV-filer* på varje enhet.
 
 > [!WARNING]
-> Den här snabb starten är för version 1 av Azure Event Hubs python SDK. Vi rekommenderar att du [migrerar](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md) koden till [version 5 av python SDK](get-started-capture-python-v2.md).
+> Den här snabbstarten är för version 1 av Azure Event Hubs Python SDK. Vi rekommenderar att du [migrerar](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md) koden till [version 5 av Python SDK](get-started-capture-python-v2.md).
 
-I den här genom gången ska du: 
+I den här genomgången, du: 
 
 > [!div class="checklist"]
-> * Skapa ett Azure Blob Storage-konto och-behållare i Azure Portal.
-> * Aktivera Event Hubs avbilda och dirigera den till ditt lagrings konto.
-> * Skicka data till händelsehubben med hjälp av ett Python-skript.
-> * Läsa och bearbeta filer från Event Hubs avbildning med hjälp av ett annat Python-skript.
+> * Skapa ett Azure Blob-lagringskonto och behållare i Azure-portalen.
+> * Aktivera Event Hubs Capture och hänvisa den till ditt lagringskonto.
+> * Skicka data till din händelsehubb med hjälp av ett Python-skript.
+> * Läs och bearbeta filer från Event Hubs Capture med hjälp av ett annat Python-skript.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Python 3,4 eller senare, med `pip` installerat och uppdaterat.
+- Python 3.4 eller `pip` senare, med installerat och uppdaterat.
   
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
   
-- Ett aktivt Event Hubs-namnområde och händelsehubben som skapats genom att följa anvisningarna i [snabb start: skapa en händelsehubben med Azure Portal](event-hubs-create.md). Anteckna namn området och händelsehubben för att använda dem senare i den här genom gången. 
+- En aktiv händelsehubbar namnområde och händelsehubb, skapad genom att följa instruktionerna i [Snabbstart: Skapa en händelsehubb med Azure-portalen](event-hubs-create.md). Anteckna namnområdet och händelsehubbens namn som ska användas senare i den här genomgången. 
   
   > [!NOTE]
-  > Om du redan har en lagrings behållare som ska användas kan du aktivera avbildning och välja lagrings behållaren när du skapar Händelsehubben. 
+  > Om du redan har en lagringsbehållare att använda kan du aktivera Capture och välja lagringsbehållaren när du skapar händelsehubben. 
   > 
   
-- Ditt Event Hubs nyckel namn och primär nyckel värde för delad åtkomst. Hitta eller skapa dessa värden under **principer för delad åtkomst** på din Event Hubs sida. Standard namnet för åtkomst nyckeln är **RootManageSharedAccessKey**. Kopiera åtkomst nyckelns namn och värdet för primär nyckel som ska användas senare i den här genom gången. 
+- Namnet på händelsehubbar delade åtkomstnyckeln och primärnyckelvärdet. Sök efter eller skapa dessa värden under **Principer för delad åtkomst** på sidan Event hubbar. Standardnamn för åtkomstnyckel är **RootManageSharedAccessKey**. Kopiera åtkomstnyckelns namn och primärnyckelvärdet som ska användas senare i den här genomgången. 
 
-## <a name="create-an-azure-blob-storage-account-and-container"></a>Skapa ett Azure Blob Storage-konto och-behållare
+## <a name="create-an-azure-blob-storage-account-and-container"></a>Skapa ett Azure Blob-lagringskonto och -behållare
 
-Skapa ett lagrings konto och en behållare som ska användas för avbildningen. 
+Skapa ett lagringskonto och en behållare som ska användas för insamlingen. 
 
 1. Logga in på [Azure-portalen][Azure portal].
-2. I det vänstra navigerings fältet väljer du **lagrings konton**och på skärmen **lagrings konton** väljer du **Lägg till**.
-3. På skärmen skapa lagrings konto väljer du en prenumeration och en resurs grupp och ger lagrings kontot ett namn. Du kan lämna övriga val som standard. Välj **Granska + skapa**, granska inställningarna och välj sedan **skapa**. 
+2. I den vänstra navigeringen väljer du **Lagringskonton**och väljer **Lägg till**på skärmen **Lagringskonton** .
+3. På skärmen för att skapa lagringskonto väljer du en prenumerations- och resursgrupp och ger lagringskontot ett namn. Du kan lämna de andra valen som standard. Välj **Granska + skapa**, granska inställningarna och välj sedan **Skapa**. 
    
    ![Skapa lagringskonto][1]
    
-4. När distributionen är klar väljer **du gå till resurs**, och på skärmen lagrings konto **Översikt** väljer du **behållare**.
-5. På **behållare** -skärmen väljer du **+ behållare**. 
-6. På sidan **ny behållare** ger du behållaren ett namn och väljer sedan **OK**. Anteckna behållar namnet som ska användas senare i genom gången. 
-7. I det vänstra navigerings fönstret på **behållare** -skärmen väljer du **åtkomst nycklar**. Kopiera **lagrings kontots namn**och **nyckel** värdet under **KEY1**för att använda senare i genom gången.
+4. När distributionen är klar väljer du **Gå till resurs**och på skärmen Översikt **över** lagringskonto väljer du **Behållare**.
+5. På skärmen **Behållare** väljer du **+ Behållare**. 
+6. Ge behållaren ett namn på skärmen **Ny behållare** och välj sedan **OK**. Anteckna behållarnamnet som ska användas senare i genomgången. 
+7. I den vänstra navigeringen på **skärmen Behållare** väljer du **Åtkomsttangenter**. Kopiera **lagringskontonamnet**och **nyckelvärdet** under **key1**för att använda senare i genomgången.
  
-## <a name="enable-event-hubs-capture"></a>Aktivera Event Hubs avbildning
+## <a name="enable-event-hubs-capture"></a>Aktivera hämtning av händelsehubbar
 
-1. I Azure Portal navigerar du till händelsehubben genom att välja dess Event Hubs namn område från **alla resurser**, välja **händelse hubbar** i det vänstra navigerings fältet och sedan välja händelsehubben. 
-2. På **översikts** skärmen för Event Hub väljer du **avbilda händelser**.
-3. På **avbildnings** skärmen väljer du **på**. Välj sedan **Välj behållare**under **Azure Storage behållare**. 
-4. På **behållare** -skärmen väljer du den lagrings behållare som du vill använda och väljer sedan **Välj**. 
-5. På **avbildnings** skärmen väljer du **Spara ändringar**. 
+1. I Azure-portalen navigerar du till händelsehubben genom att välja dess namnområde för eventhubbar från **alla resurser,** välja **händelsehubbar** i den vänstra navigeringen och sedan välja händelsehubben. 
+2. På skärmen **Översikt för** händelsehubben väljer du **Ta in händelser**.
+3. På **inspelningsskärmen** väljer du **På**. Välj sedan **Välj Behållare**under Azure **Storage Container**. 
+4. På skärmen **Behållare** väljer du den behållare som du vill använda och väljer sedan **Välj**. 
+5. På **inspelningsskärmen** väljer du **Spara ändringar**. 
 
 ## <a name="create-a-python-script-to-send-events-to-event-hub"></a>Skapa ett Python-skript för att skicka händelser till Event Hub
-Det här skriptet skickar 200 händelser till din event hub. Händelserna är enkla miljö läsningar som skickas i JSON.
+Det här skriptet skickar 200 händelser till din händelsehubb. Händelserna är enkla miljöavläsningar som skickas i JSON.
 
-1. Öppna din favorit-eller python-redigerare, t. ex. [Visual Studio Code][Visual Studio Code].
-2. Skapa en ny fil med namnet *Sender.py*. 
-3. Klistra in följande kod i *Sender.py*. Ersätt dina egna värden för Event Hubs \<namn område >, \<AccessKeyName >, \<primär nyckel värde > och \<eventhub >.
+1. Öppna din favorith python-redigerare, till exempel [Visual Studio Code][Visual Studio Code].
+2. Skapa en ny fil med *namnet sender.py*. 
+3. Klistra in följande kod i *sender.py*. Ersätt dina egna värden för \<namnområdet Event Hubs>, \<AccessKeyName \<>, primärnyckelvärde \<> och eventhub->.
    
    ```python
    import uuid
@@ -103,12 +103,12 @@ Det här skriptet skickar 200 händelser till din event hub. Händelserna är en
    ```
 4. Spara filen.
 
-## <a name="create-a-python-script-to-read-capture-files"></a>Skapa ett Python-skript för att läsa insamlingsfiler
+## <a name="create-a-python-script-to-read-capture-files"></a>Skapa ett Python-skript för att läsa Capture-filer
 
-Det här skriptet läser de fångade filerna och skapar en fil för var och en av dina enheter för att skriva data enbart för den enheten.
+Det här skriptet läser de infångade filerna och skapar en fil för var och en av dina enheter för att skriva data endast för den enheten.
 
-1. Skapa en ny fil med namnet *capturereader.py*i python-redigeraren. 
-2. Klistra in följande kod i *capturereader.py*. Ersätt dina sparade värden för din \<storageaccount->, \<lagrings kontots åtkomst nyckel > och \<storagecontainer >.
+1. Skapa en ny fil som heter *capturereader.py*i Python-redigeraren . 
+2. Klistra in följande kod i *capturereader.py*. Ersätt dina sparade \<värden med ditt lagringskonto>, \<åtkomstnyckel \<för lagringskonto> och lagringsbehållare>.
    
    ```python
    import os
@@ -154,9 +154,9 @@ Det här skriptet läser de fångade filerna och skapar en fil för var och en a
    startProcessing('<storageaccount>', '<storage account access key>', '<storagecontainer>')
    ```
 
-## <a name="run-the-python-scripts"></a>Köra Python-skript
+## <a name="run-the-python-scripts"></a>Kör Python-skripten
 
-1. Öppna en kommando tolk med python i sökvägen och kör de här kommandona för att installera de python-nödvändiga paketen:
+1. Öppna en kommandotolk som har Python i sökvägen och kör dessa kommandon för att installera Pythons nödvändiga paket:
    
    ```cmd
    pip install azure-storage
@@ -164,37 +164,37 @@ Det här skriptet läser de fångade filerna och skapar en fil för var och en a
    pip install avro-python3
    ```
    
-   Om du har en tidigare version av `azure-storage` eller `azure`kan du behöva använda alternativet `--upgrade`.
+   Om du har en `azure-storage` `azure`tidigare version av eller `--upgrade` kan du behöva använda alternativet.
    
-   Du kan också behöva köra följande kommando. Du behöver inte köra det här kommandot på de flesta system. 
+   Du kan också behöva köra följande kommando. Köra det här kommandot är inte nödvändigt på de flesta system. 
    
    ```cmd
    pip install cryptography
    ```
    
-2. Kör följande kommando från katalogen där du sparade *Sender.py* och *capturereader.py*:
+2. Kör det här kommandot i katalogen där du sparade *sender.py* och *capturereader.py:*
    
    ```cmd
    start python sender.py
    ```
    
-   Kommandot startar en ny python-process för att köra avsändaren.
+   Kommandot startar en ny Python-process för att köra avsändaren.
    
-3. När inspelningen har slutförts kör du följande kommando:
+3. När hämtningen är klar kör du det här kommandot:
    
    ```cmd
    python capturereader.py
    ```
 
-   Avbildnings processorn laddar ned alla icke-tomma blobbar från lagrings konto behållaren och skriver resultatet som *CSV* -filer i den lokala katalogen. 
+   Insamlingsprocessorn hämtar alla icke-tomma blobbar från lagringskontobehållaren och skriver resultaten som *CSV-filer* i den lokala katalogen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Event Hubs finns i: 
+Mer information om eventhubbar finns i: 
 
-* [Översikt över Event Hubs avbildning][Overview of Event Hubs Capture]
+* [Översikt över fånga händelsehubbar][Overview of Event Hubs Capture]
 * [Exempelprogram som använder Event Hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples)
-* [Event Hubs-översikt][Event Hubs overview]
+* [Översikt över Event Hubs][Event Hubs overview]
 
 [Azure portal]: https://portal.azure.com/
 [Overview of Event Hubs Capture]: event-hubs-capture-overview.md

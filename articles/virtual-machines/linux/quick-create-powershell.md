@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa en virtuell Linux-dator med Azure PowerShell
+title: Snabbstart – Skapa en virtuell Linux-dator med Azure PowerShell
 description: I den här snabbstarten lär du dig hur du använder Azure PowerShell för att skapa en virtuell Linux-dator
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -16,17 +16,17 @@ ms.date: 10/17/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: 1e336ad05d70341365b63d806b249740113724d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74035195"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Snabbstart: Skapa en virtuell Linux-dator i Azure med PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten beskriver hur du använder Azure PowerShell-modulen för att distribuera en virtuell Linux-dator (VM) i Azure. Den här snabbstarten använder Ubuntu 16.04 LTS Marketplace-avbildningen från Canonical. För att se hur den virtuella datorn fungerar i praktiken använder du sedan SSH för att ansluta till den virtuella datorn och installerar NGINX-webbservern.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -210,7 +210,7 @@ När du är klar avslutar du SSH-sessionen genom att skriva `exit`.
 
 Använd valfri webbläsare för att visa välkomstsidan för NGINX. Ange den virtuella datorns offentliga IP-adress som webbadress. Den offentliga IP-adressen kan hittas på översiktssidan för den virtuella datorn eller som en del av SSH-anslutningssträngen du använde tidigare.
 
-![NGINX standard sida för Välkommen](./media/quick-create-cli/nginix-welcome-page.png)
+![Välkommen-sidan för NGINX](./media/quick-create-cli/nginix-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -10,26 +10,26 @@ ms.date: 08/02/2019
 ms.author: cshoe
 ms.custom: include file
 ms.openlocfilehash: fa3888d28c52625684676036def7e2920b77b5ca
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77202117"
 ---
-Du kan använda följande parameter typer för den Utlös ande blobben:
+Du kan använda följande parametertyper för den utlösande blobben:
 
 * `Stream`
 * `TextReader`
 * `string`
 * `Byte[]`
-* En POCO som är serialiserbar som JSON
+* En POCO serializable som JSON
 * `ICloudBlob`<sup>1</sup>
 * `CloudBlockBlob`<sup>1</sup>
 * `CloudPageBlob`<sup>1</sup>
 * `CloudAppendBlob`<sup>1</sup>
 
-<sup>1</sup> kräver "Inout"-bindningen `direction` i *Function. JSON* eller `FileAccess.ReadWrite` C# i ett klass bibliotek.
+<sup>1</sup> Kräver "inout" bindning `direction` i *function.json* eller `FileAccess.ReadWrite` i ett C#-klassbibliotek.
 
-Om du försöker binda till en av lagrings-SDK-typerna och få ett fel meddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](../articles/azure-functions/functions-bindings-storage-blob.md#azure-storage-sdk-version-in-functions-1x).
+Om du försöker binda till någon av Storage SDK-typerna och får ett felmeddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](../articles/azure-functions/functions-bindings-storage-blob.md#azure-storage-sdk-version-in-functions-1x).
 
-Bindning till `string`, `Byte[]`eller POCO rekommenderas endast om BLOB-storleken är liten, eftersom hela BLOB-innehållet läses in i minnet. I allmänhet är det bättre att använda en `Stream` eller `CloudBlockBlob` typ. Mer information finns i [samtidighets-och minnes användning](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage) längre fram i den här artikeln.
+Bindning `string` `Byte[]`till , eller POCO rekommenderas endast om blob-storleken är liten, eftersom hela blob-innehållet läses in i minnet. Generellt är det att föredra `Stream` `CloudBlockBlob` att använda en eller typ. Mer information finns i [Samtidighet och minnesanvändning](../articles/azure-functions/functions-bindings-storage-blob-trigger.md#concurrency-and-memory-usage) senare i den här artikeln.

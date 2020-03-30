@@ -1,6 +1,6 @@
 ---
-title: Skydda Azure AD Domain Services | Microsoft Docs
-description: Lär dig hur du inaktiverar svaga chiffer, gamla protokoll och NTLM Password hash-synkronisering för en Azure Active Directory Domain Services hanterad domän.
+title: Säkra Azure AD-domäntjänster | Microsoft-dokument
+description: Lär dig hur du inaktiverar svaga chiffer, gamla protokoll och NTLM-lösenordshã¤för en hanterad Azure Active Directory Domain Services-hanterad domän.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -12,41 +12,41 @@ ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
 ms.openlocfilehash: 8eee516beaaf26ed25bd20f9689d26fdb1eb9b40
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74546226"
 ---
-# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Inaktivera svaga chiffer och Lösenordssynkronisering för att skydda en Azure AD Domain Services hanterad domän
+# <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Inaktivera svag chiffer- och lösenordshh-synkronisering för att skydda en hanterad Azure AD Domain Services-domän
 
-Azure Active Directory Domain Services (Azure AD DS) möjliggör som standard användningen av chiffer som NTLM v1 och TLS v1. Dessa chiffer kan krävas för vissa äldre program, men betraktas som svaga och kan inaktive ras om du inte behöver dem. Om du har en lokal hybrid anslutning som använder Azure AD Connect kan du också inaktivera synkroniseringen av NTLM-lösenords-hashvärden.
+Som standard möjliggör Azure Active Directory Domain Services (Azure AD DS) användning av chiffer som NTLM v1 och TLS v1. Dessa chiffer kan krävas för vissa äldre program, men anses svaga och kan inaktiveras om du inte behöver dem. Om du har lokal hybridanslutning med Azure AD Connect kan du också inaktivera synkroniseringen av NTLM-lösenordsh hashar.
 
-Den här artikeln visar hur du inaktiverar NTLM v1-och TLS v1-chiffer och inaktiverar hash-synkronisering av NTLM-lösenord.
+Den här artikeln visar hur du inaktiverar NTLM v1 och TLS v1 chiffer och inaktivera NTLM lösenord hash synkronisering.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här artikeln behöver du följande resurser:
+För att kunna slutföra den här artikeln behöver du följande resurser:
 
 * En aktiv Azure-prenumeration.
-    * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
-* En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
-    * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
-* En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
+    * Om du inte har en Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* En Azure Active Directory-klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog med endast molnet.
+    * Om det behövs [skapar du en Azure Active Directory-klientorganisation][create-azure-ad-tenant] eller [associerar en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
+* En hanterad Azure Active Directory Domain Services-domän aktiverad och konfigurerad i din Azure AD-klientorganisation.
+    * Om det behövs [kan du skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
 * Installera och konfigurera Azure PowerShell.
-    * Om det behövs följer du anvisningarna för att [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](/powershell/azure/install-az-ps).
-    * Kontrol lera att du loggar in på Azure-prenumerationen med hjälp av cmdleten [Connect-AzAccount][Connect-AzAccount] .
+    * Om det behövs följer du instruktionerna för att [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](/powershell/azure/install-az-ps).
+    * Se till att du loggar in på din Azure-prenumeration med cmdlet [connect-AzAccount.][Connect-AzAccount]
 * Installera och konfigurera Azure AD PowerShell.
-    * Om det behövs följer du anvisningarna för att [Installera Azure AD PowerShell-modulen och ansluta till Azure AD](/powershell/azure/active-directory/install-adv2).
-    * Kontrol lera att du loggar in på Azure AD-klienten med hjälp av cmdleten [Connect-AzureAD][Connect-AzureAD] .
+    * Om det behövs följer du instruktionerna för att [installera Azure AD PowerShell-modulen och ansluter till Azure AD](/powershell/azure/active-directory/install-adv2).
+    * Se till att du loggar in på din Azure AD-klient med hjälp av [Cmdlet Connect-AzureAD.][Connect-AzureAD]
 
-## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Inaktivera svaga chiffer och NTLM-lösenord för hash-synkronisering
+## <a name="disable-weak-ciphers-and-ntlm-password-hash-sync"></a>Inaktivera svaga chiffer och NTLM-lösenordsh hash-synkronisering
 
-Om du vill inaktivera svaga chiffersviter och hash-autentisering för NTLM-autentiseringsuppgifter loggar du in på ditt Azure-konto och hämtar sedan Azure AD DS-resursen med hjälp av cmdleten [Get-AzResource][Get-AzResource] :
+Om du vill inaktivera svaga chiffersviter och NTLM-autentiseringsuppgifter hash-synkronisering loggar du in på ditt Azure-konto och hämtar sedan Azure AD DS-resursen med cmdleten [Get-AzResource:][Get-AzResource]
 
 > [!TIP]
-> Om du får ett fel meddelande med kommandot [Get-AzResource][Get-AzResource] att resursen *Microsoft. AAD/DomainServices* inte finns kan du [öka din åtkomst för att hantera alla Azure-prenumerationer och hanterings grupper][global-admin].
+> Om du får ett felmeddelande med kommandot [Get-AzResource][Get-AzResource] som *Microsoft.AAD/DomainServices-resursen* inte finns, [höjer du din åtkomst till att hantera alla Azure-prenumerationer och hanteringsgrupper][global-admin].
 
 ```powershell
 Login-AzAccount
@@ -54,30 +54,30 @@ Login-AzAccount
 $DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 ```
 
-Definiera sedan *DomainSecuritySettings* för att konfigurera följande säkerhets alternativ:
+Definiera sedan *DomainSecuritySettings* för att konfigurera följande säkerhetsalternativ:
 
-1. Inaktivera stöd för NTLM v1.
-2. Inaktivera synkroniseringen av NTLM-lösenords-hashvärden från din lokala AD.
+1. Inaktivera NTLM v1-stöd.
+2. Inaktivera synkroniseringen av NTLM-lösenordshiseringar från din lokala AD.
 3. Inaktivera TLS v1.
 
 > [!IMPORTANT]
-> Användare och tjänst konton kan inte utföra enkla LDAP-bindningar om du inaktiverar hash-synkronisering av NTLM-lösenord i den hanterade domänen i Azure AD DS. Om du behöver utföra enkla LDAP-bindningar ska du inte ange alternativet *"SyncNtlmPasswords" = "inaktiverat".* säkerhets konfiguration i följande kommando.
+> Användare och tjänstkonton kan inte utföra LDAP-enkla bindningar om du inaktiverar NTLM-lösenordsh hash-synkronisering i azure AD DS-hanterade domänen. Om du behöver utföra enkla LDAP-bindningar ska du inte ange *alternativet "SyncNtlmPasswords"="Disabled";* säkerhetskonfigurationsalternativet i följande kommando.
 
 ```powershell
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
 ```
 
-Använd slutligen de definierade säkerhets inställningarna för den hanterade Azure AD DS-domänen med cmdleten [set-AzResource][Set-AzResource] . Ange Azure AD DS-resursen från det första steget och säkerhets inställningarna från föregående steg.
+Slutligen tillämpa de definierade säkerhetsinställningarna på Azure AD DS-hanterad domän med hjälp av [cmdlet Set-AzResource.][Set-AzResource] Ange Azure AD DS-resursen från det första steget och säkerhetsinställningarna från föregående steg.
 
 ```powershell
 Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
-Det tar en stund innan säkerhets inställningarna tillämpas på den hanterade domänen i Azure AD DS.
+Det tar en stund innan säkerhetsinställningarna tillämpas på azure AD DS-hanterade domänen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om synkroniseringsprocessen i [så här synkroniseras objekt och autentiseringsuppgifter i en hanterad Azure AD DS-domän][synchronization].
+Mer information om synkroniseringsprocessen finns [i Hur objekt och autentiseringsuppgifter synkroniseras i en Azure AD DS-hanterad domän][synchronization].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

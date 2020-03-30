@@ -8,10 +8,10 @@ ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 40d4dc898efe6b719ec5e1f1ec0471a9677d3c95
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79371128"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(INAKTUELL) Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
@@ -61,7 +61,7 @@ De utdata som returneras ser ut ungefär så här (redigerat i bilden):
 
 ![Skapa ett huvudnamn för tjänsten](./media/container-service-kubernetes-service-principal/service-principal-creds.png)
 
-De **klient-ID** (`appId`) och **klienthemligheten** (`password`) som du använder som parametrar för tjänstens huvudnamn för klusterdistribution är markerade.
+Markerat är **klient-ID** (`appId`) och **klienthemligheten** (`password`) som du använder som huvudparametrar för tjänsten för klusterdistribution.
 
 
 ### <a name="specify-service-principal-when-creating-the-kubernetes-cluster"></a>Ange tjänstobjektet när du skapar Kubernetes-klustret
@@ -78,7 +78,7 @@ Följande exempel beskriver ett sätt att överföra parametrarna med Azure CLI.
 
 1. [Hämta](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) filen med mallparametrar `azuredeploy.parameters.json` från GitHub.
 
-2. För att ange tjänstens huvudnamn, anger du värden för `servicePrincipalClientId` och `servicePrincipalClientSecret` i filen. (Du måste också ange dina egna värden för `dnsNamePrefix` och `sshRSAPublicKey`. Det sistnämnda är den offentliga SSH-nyckeln för att komma åt klustret.) Spara filen.
+2. För att ange tjänstens huvudnamn, anger du värden för `servicePrincipalClientId` och `servicePrincipalClientSecret` i filen. (Du måste också ange dina egna värden för `dnsNamePrefix` och `sshRSAPublicKey`. Den senare är den offentliga SSH-nyckeln för att komma åt klustret.) Spara filen.
 
     ![Skicka parametrar för tjänstens huvudnamn](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -97,7 +97,7 @@ Följande exempel beskriver ett sätt att överföra parametrarna med Azure CLI.
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Alternativ 2: Generera ett tjänstobjekt när du skapar klustret med `az acs create`
 
-Om du kör kommandot [`az acs create`](/cli/azure/acs#az-acs-create) för att skapa Kubernetes-klustret kan du välja att generera ett tjänstobjekt automatiskt.
+Om du [`az acs create`](/cli/azure/acs#az-acs-create) kör kommandot för att skapa Kubernetes-klustret har du möjlighet att generera ett tjänsthuvudnamn automatiskt.
 
 Som med andra alternativ för att skapa Kubernetes-kluster, kan du ange parametrar för en befintlig tjänsts huvudnamn när du kör `az acs create`. Om du utelämnar dessa parametrar skapar Azure CLI ett automatiskt för användning med Container Service. Detta sker transparent under distributionen.
 

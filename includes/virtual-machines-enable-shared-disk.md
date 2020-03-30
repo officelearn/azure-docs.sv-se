@@ -9,28 +9,28 @@ ms.date: 02/18/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 26e76731f663ac9038bc87182d52c4bd245f1b6e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77471722"
 ---
 ## <a name="limitations"></a>Begränsningar
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
 
-## <a name="disk-sizes"></a>Disk storlekar
+## <a name="disk-sizes"></a>Diskstorlekar
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
 
-## <a name="deploy-an-azure-shared-disk"></a>Distribuera en Azure-delad disk
+## <a name="deploy-an-azure-shared-disk"></a>Distribuera en delad Azure-disk
 
-Om du vill distribuera en hanterad disk med funktionen delad disk aktive rad använder du den nya egenskapen `maxShares` och definierar ett värde `>1`. Detta gör disk delningen över flera virtuella datorer.
+Om du vill distribuera en hanterad disk med `maxShares` funktionen delad `>1`disk aktiverad använder du den nya egenskapen och definierar ett värde . Detta gör disken delbar över flera virtuella datorer.
 
 > [!IMPORTANT]
-> Värdet för `maxShares` kan bara ställas in eller ändras när en disk demonteras från alla virtuella datorer. Se [disk storlekarna](#disk-sizes) för de tillåtna värdena för `maxShares`.
+> Värdet `maxShares` på kan bara ställas in eller ändras när en disk har avmonterats från alla virtuella datorer. Se [Diskstorlekarna](#disk-sizes) för de `maxShares`tillåtna värdena för .
 
-Innan du använder följande mall ersätter du `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]`och `[parameters('maxShares')]` med dina egna värden.
+Innan du använder följande `[parameters('dataDiskName')]` `[resourceGroup().location]`mall `[parameters('dataDiskSizeGB')]`ersätter du , och `[parameters('maxShares')]` med dina egna värden.
 
 ```json
 { 
@@ -71,12 +71,12 @@ Innan du använder följande mall ersätter du `[parameters('dataDiskName')]`, `
 }
 ```
 
-### <a name="using-azure-shared-disks-with-your-vms"></a>Använda Azure delade diskar med dina virtuella datorer
+### <a name="using-azure-shared-disks-with-your-vms"></a>Använda delade Azure-diskar med dina virtuella datorer
 
-När du har distribuerat en delad disk med `maxShares>1`kan du montera disken till en eller flera av dina virtuella datorer.
+När du har distribuerat `maxShares>1`en delad disk med kan du montera disken på en eller flera av dina virtuella datorer.
 
 > [!IMPORTANT]
-> Alla virtuella datorer som delar en disk måste distribueras i samma [närhets placerings grupp](../articles/virtual-machines/windows/proximity-placement-groups.md).
+> Alla virtuella datorer som delar en disk måste distribueras i samma [närhetsplaceringsgrupp](../articles/virtual-machines/windows/proximity-placement-groups.md).
 
 ```azurepowershell-interactive
 
@@ -100,9 +100,9 @@ update-AzVm -VM $vm -ResourceGroupName $resourceGroup
 
 ## <a name="supported-scsi-pr-commands"></a>SCSI PR-kommandon som stöds
 
-När du har monterat den delade disken till dina virtuella datorer i klustret kan du upprätta kvorum och läsa/skriva till disken med SCSI PR. Följande PR-kommandon är tillgängliga när du använder Azure delade diskar:
+När du har monterat den delade disken på dina virtuella datorer i klustret kan du upprätta kvorum och läsa/skriva till disken med SCSI PR. Följande PR-kommandon är tillgängliga när du använder delade Azure-diskar:
 
-Om du vill interagera med disken börjar du med listan persistent-reservation-åtgärd:
+Om du vill interagera med disken börjar du med listan för beständiga reservationsåtgärder:
 
 ```
 PR_REGISTER_KEY 
@@ -120,7 +120,7 @@ PR_CLEAR_RESERVATION
 PR_RELEASE_RESERVATION 
 ```
 
-När du använder PR_RESERVE, PR_PREEMPT_RESERVATION eller PR_RELEASE_RESERVATION anger du någon av följande beständiga reservations typer:
+När du använder PR_RESERVE, PR_PREEMPT_RESERVATION eller PR_RELEASE_RESERVATION anger du någon av följande beständiga reservationstyp:
 
 ```
 PR_NONE 
@@ -138,9 +138,9 @@ PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
 PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS 
 ```
 
-Du måste också ange en permanent reservations nyckel när du använder PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION eller PR_RELEASE-RESERVATION.
+Du måste också ange en beständig reservationsnyckel när du använder PR_RESERVE, PR_REGISTER_AND_IGNORE, PR_REGISTER_KEY, PR_PREEMPT_RESERVATION, PR_CLEAR_RESERVATION eller PR_RELEASE-RESERVATION.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du är intresse rad av att prova delade diskar kan du [Registrera dig för vår för hands version](https://aka.ms/AzureSharedDiskPreviewSignUp).
+Om du är intresserad av att prova delade diskar registrerar [du dig för vår förhandsgranskning.](https://aka.ms/AzureSharedDiskPreviewSignUp)

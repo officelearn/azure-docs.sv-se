@@ -1,46 +1,46 @@
 ---
-title: Konfigurera blockchain Data Manager med Azure CLI – Azure blockchain-tjänsten
-description: Skapa och hantera en blockchain-Data Manager för Azure blockchain-tjänsten med hjälp av Azure CLI
+title: Konfigurera Blockchain Data Manager med Azure CLI - Azure Blockchain Service
+description: Skapa och hantera en Blockchain Data Manager för Azure Blockchain-tjänst med Azure CLI
 ms.date: 11/04/2019
 ms.topic: article
 ms.reviewer: chroyal
 ms.openlocfilehash: a8061aad6d6a1513de70e7c2bc57aa109c666611
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74455935"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Konfigurera Blockchain Data Manager med Azure-portalen
 
-Konfigurera blockchain Data Manager för Azure blockchain-tjänsten för att avbilda blockchain-data till ett Azure Event Grid-ämne.
+Konfigurera Blockchain Data Manager för Azure Blockchain Service för att samla in blockchain-data skicka dem till ett Azure Event Grid-ämne.
 
-Om du vill konfigurera en blockchain Data Manager instans:
+Om du vill konfigurera en Blockchain Data Manager-instans:
 
-* Skapa en blockchain Manager-instans
-* Skapa en inmatare för en Azure blockchain service Transaction-nod
-* Skapa ett utdata till ett Azure Event Grid ämne
-* Lägg till ett blockchain-program
+* Skapa en Blockchain Manager-instans
+* Skapa en indata till en azure blockchain-tjänsttransaktionsnod
+* Skapa en utdata till ett Azure-händelserutnätsämne
+* Lägga till ett blockchain-program
 * Starta en instans
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) och logga in med `az login`.
-* Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md)
-* Skapa ett [Event Grid ämne](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
-* Lär dig mer om [händelse hanterare i Azure Event Grid](../../event-grid/event-handlers.md)
+* Installera den senaste [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) `az login`CLI och logga in med .
+* Fullständig [snabbstart: Använd Visual Studio-kod för att ansluta till ett Azure Blockchain Service-konsortiumnätverk](connect-vscode.md)
+* Skapa ett [ämne för händelserutnät](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
+* Lär dig mer om [händelsehanterare i Azure Event Grid](../../event-grid/event-handlers.md)
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto.
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i [https://shell.azure.com/bash](https://shell.azure.com/bash)en separat webbläsarflik genom att gå till . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
-Om du föredrar att installera och använda CLI lokalt kräver den här snabb starten Azure CLI version 2.0.51 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Om du föredrar att installera och använda CLI lokalt kräver den här snabbstarten Azure CLI version 2.0.51 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera läser du [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
 
 ```azurecli-interactive
 az group create --name myRG --location eastus
@@ -48,7 +48,7 @@ az group create --name myRG --location eastus
 
 ## <a name="create-instance"></a>Skapa instans
 
-En blockchain Data Manager-instans övervakar en Azure blockchain service Transaction-nod. En instans fångar alla RAW-block och rå transaktions data från Transaction-noden.
+En Blockchain Data Manager-instans övervakar en Azure Blockchain Service-transaktionsnod. En instans samlar in alla råblock- och råtransaktionsdata från transaktionsnoden.
 
 ``` azurecli
 az resource create \
@@ -61,15 +61,15 @@ az resource create \
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| resource-group | Resurs grupp namn där du vill skapa blockchain Data Manager-instansen. |
-| name | Namnet på blockchain Data Manager-instansen. |
-| resurs typ | Resurs typen för en blockchain Data Manager-instans är **Microsoft. blockchain/Watcher**. |
-| is-full-object | Anger att egenskaper innehåller alternativ för övervaknings resursen. |
-| Egenskaper | JSON-formaterad sträng som innehåller egenskaper för övervaknings resursen. Kan skickas som en sträng eller en fil.  |
+| resource-group | Resursgruppsnamn där blockchain Data Manager-instansen ska skapas. |
+| namn | Namnet på Blockchain Data Manager-instansen. |
+| resurstyp | Resurstypen för en Blockchain Data Manager-instans är **Microsoft.blockchain/watchers**. |
+| är-full-objekt | Anger egenskaper som innehåller alternativ för watcher-resursen. |
+| properties | JSON-formaterad sträng som innehåller egenskaper för watcher-resursen. Kan skickas som en sträng eller en fil.  |
 
-### <a name="create-instance-examples"></a>Skapa instans exempel
+### <a name="create-instance-examples"></a>Skapa exempel på förekomst
 
-Exempel på JSON-konfiguration för att skapa en blockchain Manager-instans i regionen **USA, östra** .
+JSON-konfigurationsexempel för att skapa en Blockchain Manager-instans i regionen **östra USA.**
 
 ``` json
 {
@@ -81,10 +81,10 @@ Exempel på JSON-konfiguration för att skapa en blockchain Manager-instans i re
 
 | Element | Beskrivning |
 |---------|-------------|
-| location | Region där du skapar övervaknings resursen |
-| Egenskaper | Egenskaper som ska anges när övervaknings resursen skapas |
+| location | Region där du kan skapa watcher-resursen |
+| properties | Egenskaper som ska ställas in när du skapar watcher-resursen |
 
-Skapa en blockchain Data Manager-instans med namnet *prewatcher* med en JSON-sträng för konfiguration.
+Skapa en Blockchain Data Manager-instans med namnet *mywatcher* med en JSON-sträng för konfiguration.
 
 ``` azurecli-interactive
 az resource create \
@@ -95,7 +95,7 @@ az resource create \
                      --properties '{"location":"eastus"}'
 ```
 
-Skapa en blockchain Data Manager-instans med namnet *prewatcher* med en JSON-konfigurationsfil.
+Skapa en Blockchain Data Manager-instans med namnet *mywatcher* med hjälp av en JSON-konfigurationsfil.
 
 ``` azurecli
 az resource create \
@@ -108,7 +108,7 @@ az resource create \
 
 ## <a name="create-input"></a>Skapa indata
 
-En indatamängd ansluter blockchain Data Manager till en Azure blockchain service Transaction-nod. Endast användare med åtkomst till Transaction-noden kan skapa en anslutning.
+En indata ansluter Blockchain Data Manager till en Azure Blockchain Service-transaktionsnod. Endast användare med åtkomst till transaktionsnoden kan skapa en anslutning.
 
 ``` azurecli
 az resource create \
@@ -123,17 +123,17 @@ az resource create \
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| resource-group | Resurs grupp namn där du vill skapa en inmatad resurs. |
-| name | Inmatade namn. |
-| namnområde | Använd **Microsoft. blockchain** -Providerns namn område. |
-| resurs typ | Resurs typen för en blockchain Data Manager **indata är indata.** |
-| klassificering | Sökvägen till den Övervakare som indatamängden är kopplad till. Till exempel **bevakare/** Watcher. |
-| is-full-object | Anger att egenskaper innehåller alternativ för inmatad resurs. |
-| Egenskaper | JSON-formaterad sträng som innehåller egenskaper för inmatad resurs. Kan skickas som en sträng eller en fil. |
+| resource-group | Resursgruppsnamn där indataresursen ska skapas. |
+| namn | Namnet på indata. |
+| namnområde | Använd namnområdet för **Microsoft.Blockchain-providern.** |
+| resurstyp | Resurstypen för en Blockchain Data Manager-indata är **indata**. |
+| parent | Sökvägen till den bevakare som indata är kopplad till. Till exempel **watchers /mywatcher**. |
+| är-full-objekt | Anger egenskaper som innehåller alternativ för indataresursen. |
+| properties | JSON-formaterad sträng som innehåller egenskaper för indataresursen. Kan skickas som en sträng eller en fil. |
 
-### <a name="input-examples"></a>Inmatade exempel
+### <a name="input-examples"></a>Exempel på inmatning
 
-Konfigurations-JSON-exempel för att skapa en inmatad resurs i regionen *USA, östra* som är ansluten till \<Blockchain medlems\>.
+Konfiguration JSON exempel för att skapa en indataresurs \<i\>regionen *östra USA* som är ansluten till Blockchain-medlem .
 
 ``` json
 {
@@ -149,11 +149,11 @@ Konfigurations-JSON-exempel för att skapa en inmatad resurs i regionen *USA, ö
 
 | Element | Beskrivning |
 |---------|-------------|
-| location | Region där du vill skapa den angivna resursen. |
-| inputType | Ledger-typ för Azure blockchain-tjänstemedlem. **Ethereum** stöds för närvarande. |
-| resourceId | Transaction-nod som indatamängden är ansluten till. Ersätt \<prenumerations-ID\>, \<resurs grupp\>och \<blockchain-medlem\> med värdena för Transaction Node-resursen. Indatamängden ansluter till noden standard transaktion för Azure blockchain-tjänstemedlemen. |
+| location | Region där indataresursen ska skapas. |
+| inputType (inputType) | Redovisningstyp för Azure Blockchain-tjänstmedlemmen. För närvarande stöds **Ethereum.** |
+| resourceId | Transaktionsnod som indata är ansluten till. Ersätt \<prenumerations-ID,\> \< \<resursgrupp\> \>och Blockchain-medlem med värdena för transaktionsnodresursen. Indata ansluter till standardtransaktionsnoden för Azure Blockchain Service-medlemmen. |
 
-Skapa ett *inmatat värde med namnet mina* invärden för *prewatcher* med en JSON-sträng för konfiguration.
+Skapa en indata med namnet *myInput* för *mywatcher* med en JSON-sträng för konfiguration.
 
 ``` azurecli-interactive
 az resource create \
@@ -166,7 +166,7 @@ az resource create \
                    --properties '{"location":"eastus", "properties":{"inputType":"Ethereum","dataSource":{"resourceId":"/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/BlockchainMembers/<Blockchain member>/transactionNodes/transaction-node"}}}'
 ```
 
-Skapa ett indata med namnet mina *indata* för en *Watcher* -fil med hjälp av en JSON-konfigurationsfil.
+Skapa en indata med namnet *myInput* för *mywatcher* med hjälp av en JSON-konfigurationsfil.
 
 ``` azurecli
 az resource create \
@@ -180,7 +180,7 @@ az resource create \
 
 ## <a name="create-output"></a>Skapa utdata
 
-En utgående anslutning skickar blockchain-data till Azure Event Grid. Du kan skicka blockchain-data till ett enda mål eller skicka blockchain-data till flera mål. Blockchain Data Manager har stöd för flera Event Grid ämnen utgående anslutningar för en specifik blockchain Data Manager-instans.
+En utgående anslutning skickar blockchain-data till Azure Event Grid. Du kan skicka blockchain-data till en enda destination eller skicka blockchain-data till flera destinationer. Blockchain Data Manager stöder utgående anslutningar för flera utgående eventrutnät för en viss Blockchain Data Manager-instans.
 
 ``` azurecli
 az resource create \
@@ -195,17 +195,17 @@ az resource create \
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| resource-group | Resurs grupp namn där du vill skapa en utgående resurs. |
-| name | Namn på utdata. |
-| namnområde | Använd **Microsoft. blockchain** -Providerns namn område. |
-| resurs typ | Resurs typen för en blockchain Data Manager utdata är **utdata**. |
-| klassificering | Sökvägen till den Övervakare som utdata är kopplad till. Till exempel **bevakare/** Watcher. |
-| is-full-object | Anger att egenskaper innehåller alternativ för utgående resurs. |
-| Egenskaper | JSON-formaterad sträng som innehåller egenskaper för utgående resurs. Kan skickas som en sträng eller en fil. |
+| resource-group | Resursgruppsnamn där utdataresursen ska skapas. |
+| namn | Namnet på utdata. |
+| namnområde | Använd namnområdet för **Microsoft.Blockchain-providern.** |
+| resurstyp | Resurstypen för en Blockchain Data Manager-utdata är **utdata**. |
+| parent | Sökvägen till den bevakare som utdata är kopplad till. Till exempel **watchers /mywatcher**. |
+| är-full-objekt | Anger egenskaper som innehåller alternativ för utdataresursen. |
+| properties | JSON-formaterad sträng som innehåller egenskaper för utdataresursen. Kan skickas som en sträng eller en fil. |
 
 ### <a name="output-examples"></a>Exempel på utdata
 
-Konfigurations-JSON-exempel för att skapa en utgående resurs i regionen *USA, östra* som är ansluten till ett event Grid-ämne med namnet \<Event Grid-avsnittet\>.
+Konfiguration JSON exempel för att skapa en utdataresurs i regionen *östra USA* som är ansluten till ett händelserutnätsämne med namnet \<händelserutnätsämne\>.
 
 ``` json
 {
@@ -221,11 +221,11 @@ Konfigurations-JSON-exempel för att skapa en utgående resurs i regionen *USA, 
 
 | Element | Beskrivning |
 |---------|-------------|
-| location | Region där du vill skapa utdata-resursen. |
-| outputType | Typ av utdata. **EventGrid** stöds för närvarande. |
-| resourceId | Resurs som resultatet är anslutet till. Ersätt \<prenumerations-ID\>, \<resurs grupp\>och \<blockchain-medlem\> med värdena för Event Grid-resursen. |
+| location | Region där utdataresursen ska skapas. |
+| outputType | Typ av utdata. För närvarande stöds **EventGrid.** |
+| resourceId | Resurs som utdata är ansluten till. Ersätt \<prenumerations-ID,\> \< \<resursgrupp\> \>och Blockchain-medlem med värdena för händelserutnätsresursen. |
 
-Skapa utdata med namnet mina *utdata* för *prewatcher* som ansluter till ett event Grid-ämne med hjälp av en JSON-konfigurationsfil.
+Skapa en utdata med namnet *myoutput* för *mywatcher* som ansluter till ett händelserutnätsämne med hjälp av en JSON-konfigurationssträng.
 
 ``` azurecli-interactive
 az resource create \
@@ -238,7 +238,7 @@ az resource create \
                    --properties '{"location":"eastus","properties":{"outputType":"EventGrid","dataSource":{"resourceId":"/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"}}}'
 ```
 
-Skapa utdata med namnet mina *utdata* för *prewatcher* som ansluter till ett event Grid-ämne med hjälp av en JSON-konfigurationsfil.
+Skapa en utdata med namnet *myoutput* för *mywatcher* som ansluter till ett händelserutnätsämne med hjälp av en JSON-konfigurationsfil.
 
 ``` azurecli
 az resource create \
@@ -253,11 +253,11 @@ az resource create \
 
 ## <a name="add-blockchain-application"></a>Lägg till blockchain-program
 
-Om du lägger till ett blockchain-program avkodar Data Manager blockchain händelse-och egenskaps tillstånd för programmet. Annars skickas endast rå block och rå transaktions information. Blockchain Data Manager identifierar också kontrakts adresser när kontraktet distribueras. Du kan lägga till flera blockchain-program till en blockchain Data Manager-instans.
+Om du lägger till ett blockchain-program avkodar Blockchain Data Manager händelse- och egenskapstillstånd för programmet. Annars skickas endast råblock- och råtransaktionsdata. Blockchain Data Manager identifierar också kontraktsadresser när kontraktet distribueras. Du kan lägga till flera blockchain-program i en Blockchain Data Manager-instans.
 
 
 > [!IMPORTANT]
-> Blockchain-program som deklarerar [mat ris typer](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) eller [mappnings typer](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) stöds för närvarande inte fullt ut. Egenskaper som är deklarerade som matris-eller mappnings typer avkodas inte i *ContractPropertiesMsg* -eller *DecodedContractEventsMsg* -meddelanden.
+> För närvarande stöds inte blockchain-program som deklarerar [soliditetsmatristyper](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) eller [mappningstyper.](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) Egenskaper som deklarerats som matris- eller mappningstyper kommer inte att avkodas i *ContractPropertiesMsg-* eller *DecodedContractEventsMsg-meddelanden.*
 
 ``` azurecli
 az resource create \
@@ -272,17 +272,17 @@ az resource create \
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| resource-group | Resurs grupp namn där du vill skapa program resursen. |
-| name | Namnet på programmet. |
-| namnområde | Använd **Microsoft. blockchain** -Providerns namn område. |
-| resurs typ | Resurs typen för ett blockchain Data Manager-program är **artefakter**. |
-| klassificering | Sökvägen till den Övervakare som programmet är associerat med. Till exempel **bevakare/** Watcher. |
-| is-full-object | Anger att egenskaper innehåller alternativ för program resursen. |
-| Egenskaper | JSON-formaterad sträng som innehåller egenskaper för program resursen. Kan skickas som en sträng eller en fil. |
+| resource-group | Resursgruppsnamn där programresursen ska skapas. |
+| namn | Programmets namn. |
+| namnområde | Använd namnområdet för **Microsoft.Blockchain-providern.** |
+| resurstyp | Resurstypen för ett Blockchain Data Manager-program är **artefakter**. |
+| parent | Sökvägen till den bevakare som programmet är associerat till. Till exempel **watchers /mywatcher**. |
+| är-full-objekt | Anger att egenskaper innehåller alternativ för programresursen. |
+| properties | JSON-formaterad sträng som innehåller egenskaper för programresursen. Kan skickas som en sträng eller en fil. |
 
-### <a name="blockchain-application-examples"></a>Blockchain program exempel
+### <a name="blockchain-application-examples"></a>Exempel på blockchain-program
 
-Konfigurations-JSON-exempel för att skapa en program resurs i regionen *USA, östra* som övervakar ett smart kontrakt som definieras av kontrakt ABI och bytekod.
+Configuration JSON exempel för att skapa en programresurs i regionen *östra USA* som övervakar ett smart kontrakt som definieras av kontraktet ABI och bytecode.
 
 ``` json
 {
@@ -303,13 +303,13 @@ Konfigurations-JSON-exempel för att skapa en program resurs i regionen *USA, ö
 
 | Element | Beskrivning |
 |---------|-------------|
-| location | Region där program resursen ska skapas. |
-| artifactType | Typ av program. **EthereumSmartContract** stöds för närvarande. |
-| abiFileUrl | URL för ABI JSON-fil för smart kontrakt. Mer information om hur du skaffar kontrakts ABI och skapar en URL finns i [Hämta kontrakt ABI och bytekod](data-manager-portal.md#get-contract-abi-and-bytecode) och [skapa kontrakt ABI och bytekod URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
-| bytecodeFileUrl | URL för smart kontrakts distribuerad bytekod-JSON-fil. Mer information om hur du hämtar det smarta kontraktets distribuerade bytekod och skapar en URL finns i [Hämta kontrakt ABI och bytekod](data-manager-portal.md#get-contract-abi-and-bytecode) och [skapa kontrakt ABI och bytekod URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). Obs: blockchain Data Manager kräver den **distribuerade bytekod**. |
-| queryTargetTypes | Publicerade meddelande typer. Ange **ContractProperties** publicerar *ContractPropertiesMsg* meddelande typ. Ange **ContractEvents** publicerar *DecodedContractEventsMsg* meddelande typ. Obs: *RawBlockAndTransactionMsg* -och *RawTransactionContractCreationMsg* -meddelande typer publiceras alltid. |
+| location | Region där programresursen ska skapas. |
+| artifactType (artefakttyp) | Typ av program. För närvarande stöds **EthereumSmartContract.** |
+| abiFileUrl | URL för smart kontrakt ABI JSON fil. Mer information om hur du skaffar kontrakt ABI och skapar en URL finns i [Hämta ABI-kontrakt och bytekod](data-manager-portal.md#get-contract-abi-and-bytecode) och [Skapa url för kontrakt ABI och bytecode](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
+| bytecodeFileUrl | URL för smart kontrakt distribueras bytecode JSON fil. Mer information om hur du skaffar smart kontraktsbe distribuerad bytekod och skapar en URL finns i [Hämta ABI-kontrakt och bytekod](data-manager-portal.md#get-contract-abi-and-bytecode) och [Skapa url för kontrakt ABI och bytecode](data-manager-portal.md#create-contract-abi-and-bytecode-url). Blockchain Data Manager kräver den **distribuerade bytekoden**. |
+| frågaTargetTyper | Publicerade meddelandetyper. Om du anger **ContractProperties** publiceras *Messagemg-meddelandetypen ContractPropertiesMsg.* Ange **ContractEvents** publicerar *AvkodadeContractEventsMsg* meddelandetyp. *Meddelandetyperna RawBlockAndTransactionMsg* och *RawTransactionContractCreationMsg* publiceras alltid. |
 
-Skapa ett program med namnet ' Mina *program* för *bevakare* som övervakar ett smart kontrakt som definieras av en JSON-sträng.
+Skapa ett program med namnet *myApplication* for *mywatcher* som övervakar ett smart kontrakt som definieras av en JSON-sträng.
 
 ``` azurecli-interactive
 az resource create \
@@ -322,7 +322,7 @@ az resource create \
                    --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","queryTargetTypes":["ContractProperties","ContractEvents"]}}}'
 ```
 
-Skapa ett program med namnet mina *program* för *tittare* som bevakar ett smart kontrakt som DEFINIERAts med en JSON-konfigurationsfil.
+Skapa ett program med namnet *myApplication* for *mywatcher* som bevakar ett smart kontrakt som definierats med hjälp av en JSON-konfigurationsfil.
 
 ``` azurecli
 az resource create \
@@ -337,7 +337,7 @@ az resource create \
 
 ## <a name="start-instance"></a>Starta instans
 
-När den körs övervakar en blockchain Manager-instans blockchain-händelser från de definierade indata och skickar data till de definierade utdatana.
+När du kör övervakar en Blockchain Manager-instans blockchain-händelser från de definierade indata och skickar data till de definierade utgångarna.
 
 ``` azurecli
 az resource invoke-action \
@@ -347,12 +347,12 @@ az resource invoke-action \
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| Åtgärd | Använd **Start** för att köra bevakaren. |
-| kompatibilitet | Resurs-ID för övervakare. Ersätt \<prenumerations-ID\>, \<resurs grupp\>och \<övervaknings namn\> med värdena för övervaknings resursen.|
+| åtgärd | Använd **start** för att köra klockan. |
+| Id | Watcher-resurs-ID. Ersätt \<\>prenumerations-ID, \<resursgrupp\>och \<Watcher-namn\> med värdena för watcher-resursen.|
 
-### <a name="start-instance-example"></a>Exempel på Start instans
+### <a name="start-instance-example"></a>Exempel på startinstans
 
-Starta en blockchain Data Manager-instans med namnet *Watcher*.
+Starta en Blockchain Data Manager-instans med namnet *mywatcher*.
 
 ``` azurecli-interactive
 az resource invoke-action \
@@ -362,7 +362,7 @@ az resource invoke-action \
 
 ## <a name="stop-instance"></a>Stoppa instans
 
-Stoppa en blockchain Data Manager-instans.
+Stoppa en Blockchain Data Manager-instans.
 
 ``` azurecli
 az resource invoke-action \
@@ -372,12 +372,12 @@ az resource invoke-action \
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| Åtgärd | Använd **stopp** för att stoppa bevakaren. |
-| kompatibilitet | Namn på övervakare. Ersätt \<prenumerations-ID\>, \<resurs grupp\>och \<övervaknings namn\> med värdena för övervaknings resursen. |
+| åtgärd | Använd **stoppet** för att stoppa klockan. |
+| Id | Namnet på väktaren. Ersätt \<\>prenumerations-ID, \<resursgrupp\>och \<Watcher-namn\> med värdena för watcher-resursen. |
 
-### <a name="stop-watcher-example"></a>Exempel på STOP Watcher
+### <a name="stop-watcher-example"></a>Exempel på stoppa watcher
 
-Stoppa en instans med namnet *Watcher*.
+Stoppa en instans med namnet *mywatcher*.
 
 ``` azurecli-interactive
 az resource invoke-action \
@@ -387,7 +387,7 @@ az resource invoke-action \
 
 ## <a name="delete-instance"></a>Ta bort instans
 
-Ta bort en blockchain Data Manager instans.
+Ta bort en Blockchain Data Manager-instans.
 
 ``` azurecli
 az resource delete \
@@ -398,13 +398,13 @@ az resource delete \
 
 | Parameter | Beskrivning |
 |-----------|-------------|
-| resource-group | Resurs grupp namn för den Övervakare som ska tas bort. |
-| name | Namnet på den Övervakare som ska tas bort. |
-| resurs typ | Resurs typen för en blockchain Data Manager övervakare är **Microsoft. blockchain/Watcher**. |
+| resource-group | Resursgruppsnamnet på den bevakare som ska tas bort. |
+| namn | Namnet på den bevakare som ska tas bort. |
+| resurstyp | Resurstypen för en Blockchain Data Manager-watcher är **Microsoft.blockchain/watchers**. |
 
-### <a name="delete-instance-example"></a>Ta bort instans exempel
+### <a name="delete-instance-example"></a>Exempel på ta bort instans
 
-Ta bort en instans med namnet *prewatcher* i resurs gruppen *myRG* .
+Ta bort en instans med namnet *mywatcher* i *resursgruppen myRG.*
 
 ``` azurecli-interactive
 az resource delete \
@@ -415,7 +415,7 @@ az resource delete \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa nästa självstudie och skapa en blockchain transaktions meddelande Utforskare med blockchain Data Manager och Azure Cosmos DB.
+Prova nästa självstudiekurs när du skapar en transaktionsutforskare med Blockchain Data Manager och Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [Använd blockchain-Data Manager för att skicka data till Azure Cosmos DB](data-manager-cosmosdb.md)
+> [Använda Blockchain Data Manager för att skicka data till Azure Cosmos DB](data-manager-cosmosdb.md)

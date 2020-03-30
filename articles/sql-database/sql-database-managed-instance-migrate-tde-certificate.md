@@ -1,6 +1,6 @@
 ---
 title: Migrera TDE-certifikat – hanterad instans
-description: Migrera certifikat skydda databas krypterings nyckeln för en databas med transparent data kryptering till Azure SQL Database Hanterad instans
+description: Migrera certifikat som skyddar databaskrypteringsnyckeln för en databas med transparent datakryptering till Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,15 +12,15 @@ ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
 ms.openlocfilehash: 0f6e379287323d9353acd887cf30d5c9c0065959
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74555387"
 ---
-# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrera certifikat för TDE-skyddad databas till Azure SQL Database Hanterad instans
+# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrera certifikat för TDE-skyddade databaser till Azure SQL Database Hanterad instans
 
-När du migrerar en databas som skyddas av [Transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till Azure SQL Database Hanterad instans med hjälp av intern återställnings alternativ måste motsvarande certifikat från den lokala eller IaaS SQL Server migreras innan databasen återställs. Den här artikeln vägleder dig genom processen för manuell migrering av certifikatet till Azure SQL Database-hanterad instans:
+När du migrerar en databas som skyddas av [transparent datakryptering](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) till Azure SQL Database Managed Instance med hjälp av inbyggt återställningsalternativ, måste motsvarande certifikat från den lokala eller IaaS SQL Server migreras innan databasåterställning återställs. Den här artikeln vägleder dig genom processen för manuell migrering av certifikatet till Azure SQL Database-hanterad instans:
 
 > [!div class="checklist"]
 > * Exportera certifikatet till en Personal Information Exchange-fil (.pfx)
@@ -30,7 +30,7 @@ När du migrerar en databas som skyddas av [Transparent datakryptering](https://
 Ett annat alternativ som använder en helt hanterad tjänst för smidig migrering av både TDE-skyddad databas och motsvarande certifikat finns på sidan om [hur du migrerar din lokala databas till hanterad instans med hjälp av Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Migrerade certifikat används endast för återställning av den TDE-skyddade databasen. Snart när återställningen är färdig ersätts det migrerade certifikatet med ett annat skydd, antingen tjänst-hanterat certifikat eller asymmetrisk nyckel från nyckel valvet, beroende på vilken typ av transparent data kryptering som du har angett på instansen.
+> Migrerade certifikat används endast för återställning av den TDE-skyddade databasen. Strax efter återställningen ersätts det migrerade certifikatet av ett annat skydd, antingen tjänsthanterat certifikat eller asymmetrisk nyckel från nyckelvalvet, beroende på vilken typ av transparent datakryptering du anger på instansen.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -39,17 +39,17 @@ Du behöver följande för att slutföra stegen i den här artikeln:
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx)-kommandoradsverktyget installerat på den lokala servern eller en annan dator med åtkomst till det certifikat som exporterats som en fil. Pvk2Pfx-verktyget är en del av [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), en fristående, självständig kommandoradsmiljö.
 - [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell) version 5.0 eller senare installerat.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 Se till att du har följande:
 
-- Azure PowerShell-modulen [installeras och uppdateras](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- [AZ. SQL-modul](https://www.powershellgallery.com/packages/Az.Sql).
+- Azure PowerShell-modul [installerad och uppdaterad](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- [Az.Sql-modul](https://www.powershellgallery.com/packages/Az.Sql).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i stort sett identiska.
+> PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling är för Az.Sql-modulen. För dessa cmdlets finns i [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i Az-modulen och i AzureRm-modulerna är i stort sett identiska.
 
 Kör följande kommandon i PowerShell för att installera/uppdatera modulen:
 
@@ -58,7 +58,7 @@ Install-Module -Name Az.Sql
 Update-Module -Name Az.Sql
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
@@ -127,9 +127,9 @@ Om certifikatet finns i SQL-serverns certifikatarkiv i lokal dator kan det expor
 
 4. Följ guiden för att exportera certifikatet och den privata nyckeln till ett Personal Information Exchange-format
 
-## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Ladda upp certifikat till Azure SQL Database Hanterad instans med Azure PowerShell cmdlet
+## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Ladda upp certifikat till Azure SQL Database Managed Instance med Azure PowerShell cmdlet
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 1. Börja med förberedelsestegen i PowerShell:
 
@@ -156,9 +156,9 @@ Om certifikatet finns i SQL-serverns certifikatarkiv i lokal dator kan det expor
        -ManagedInstanceName "<managedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Du måste först [Konfigurera en Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) med *. pfx* -filen.
+Du måste först [konfigurera ett Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) med din *PFX-fil.*
 
 1. Börja med förberedelsestegen i PowerShell:
 
@@ -186,6 +186,6 @@ Certifikatet är nu tillgängligt för den angivna hanterade instansen, och en s
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig hur du migrerar ett certifikat som skyddar krypterings nyckeln för databasen med transparent datakryptering, från den lokala eller IaaS SQL Server till Azure SQL Database Hanterad instans.
+I den här artikeln lärde du dig hur du migrerar certifikatskyddande krypteringsnyckel för databasen med transparent datakryptering, från lokal eller IaaS SQL Server till Azure SQL Database Managed Instance.
 
 Se [Återställa en databassäkerhetskopia till en hanterad Azure SQL Database-instans](sql-database-managed-instance-get-started-restore.md) för att lära dig hur du återställer en databassäkerhetskopia till en hanterad Azure SQL Database-instans.

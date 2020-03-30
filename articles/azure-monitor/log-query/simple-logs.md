@@ -1,50 +1,50 @@
 ---
-title: Enkla loggar i Azure Monitor (för hands version) | Microsoft Docs
-description: Med enkel inloggnings upplevelsen kan du skapa grundläggande frågor i Azure Monitor utan att direkt interagera med KQL.
+title: Enkel loggupplevelse i Azure Monitor (förhandsversion) | Microsoft-dokument
+description: Med upplevelsen enkla loggar kan du skapa grundläggande frågor i Azure Monitor utan att interagera direkt med KQL.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
 ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77660265"
 ---
-# <a name="simple-logs-experience-in-azure-monitor-preview"></a>Enkla loggar i Azure Monitor (för hands version)
-Azure Monitor ger en [rikare upplevelse](get-started-portal.md) för att skapa [logg frågor](log-query-overview.md) med KQL-språket. Du behöver inte ha full effekt på KQL, men du föredrar en förenklad upplevelse för grundläggande krav på frågor. Med enkel inloggnings upplevelsen kan du skapa grundläggande frågor utan att direkt interagera med KQL. Du kan också använda enkla loggar som ett utbildnings verktyg för KQL eftersom du behöver mer avancerade frågor.
+# <a name="simple-logs-experience-in-azure-monitor-preview"></a>Enkel loggningsupplevelse i Azure Monitor (förhandsversion)
+Azure Monitor ger en [omfattande upplevelse](get-started-portal.md) för att skapa [loggfrågor](log-query-overview.md) med KQL-språket. Du kanske inte kräver den fulla kraften i KQL dock och föredrar en förenklad upplevelse för grundläggande frågekrav. Med upplevelsen enkla loggar kan du skapa grundläggande frågor utan att interagera direkt med KQL. Du kan också använda enkla loggar som ett inlärningsverktyg för KQL eftersom du behöver mer sofistikerade frågor.
 
 > [!NOTE]
-> Enkla loggar är för närvarande implementerade som ett test för endast Cosmos DB och nyckel valv. Dela din upplevelse med Microsoft via [användar rösten](https://feedback.azure.com/forums/913690-azure-monitor) för att hjälpa oss att avgöra om vi ska expandera och lansera den här funktionen.
+> Enkla loggar implementeras för närvarande som ett test för endast Cosmos DB och Key Vaults. Vänligen dela dina erfarenheter med Microsoft via [User Voice](https://feedback.azure.com/forums/913690-azure-monitor) för att hjälpa oss att avgöra om vi kommer att expandera och släppa den här funktionen.
 
 
 ## <a name="scope"></a>Omfång
-De enkla loggarna hämtar data från *AzureDiagnostics*-, *AzureMetrics*-och *AzureActivity* -tabellen för den valda resursen. 
+Med hjälp av enkla loggar hämtas data från tabellen *AzureDiagnostics,* *AzureMetrics*och *AzureActivity* för den valda resursen. 
 
 ## <a name="using-simple-logs"></a>Använda enkla loggar
-Navigera till en Cosmos DB eller Key Vault i din Azure-prenumeration med [diagnostikinställningar som kon figurer ATS för att samla in loggar i en Log Analytics arbets yta](../platform/resource-logs-collect-storage.md). Klicka på **loggar** på menyn **övervakning** för att öppna de enkla loggarna.
+Navigera till alla Cosmos DB eller Key Vault i din Azure-prenumeration med [diagnostikinställningar konfigurerade för att samla in loggar i en Log Analytics-arbetsyta](../platform/resource-logs-collect-storage.md). Klicka på Loggar på **övervakningsmenyn** för att öppna upplevelsen enkla loggar. **Monitoring**
 
 ![Meny](media/simple-logs/menu.png)
 
-Välj ett **fält** och en **operator** och ange ett **värde** för jämförelse. Klicka på **+** och ange **och/eller** för att lägga till ytterligare kriterier.
+Välj ett **fält** och en **operator** och ange ett **värde** för jämförelse. Klicka **+** på och ange **Och/Eller** om du vill lägga till ytterligare villkor.
 
 ![Kriterie](media/simple-logs/criteria.png)
 
-Klicka på **Kör** för att visa resultatet av frågan.
+Klicka på **Kör** om du vill visa frågeresultaten.
 
 ## <a name="view-and-edit-kql"></a>Visa och redigera KQL
-Välj **Frågeredigeraren** för att öppna KQL som genererats av frågan enkla loggar i den fullständiga log Analyticss upplevelsen. 
+Välj **Frågeredigeraren** om du vill öppna KQL som genereras av frågan Enkla loggar i hela Log Analytics-upplevelsen. 
 
 ![Frågeredigeraren](media/simple-logs/query-editor.png)
 
-Du kan redigera KQL direkt och använda andra funktioner i Log Analytics, till exempel filter för att ytterligare förfina resultaten.
+Du kan redigera KQL direkt och använda andra funktioner i Logganalys, till exempel filter för att ytterligare förfina dina resultat.
 
 ![Redigera KQL](media/simple-logs/edit-kql.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Slutför en själv studie kurs om hur [du använder Log Analytics i Azure Portal](get-started-portal.md).
-- Slutför en själv studie kurs om hur du [skriver logg frågor](get-started-portal.md).
+- Slutför en självstudiekurs om [hur du använder Logganalys i Azure-portalen](get-started-portal.md).
+- Fyll i en handledning om [hur du skriver loggfrågor](get-started-portal.md).

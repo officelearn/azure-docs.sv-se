@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Konfigurera en livsmedelsingrediens för automatisk användar etablering genom att använda Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till en livsmedelsingrediens.
+title: 'Självstudiekurs: Konfigurera Foodee för automatisk användaretablering med hjälp av Azure Active Directory | Microsoft-dokument'
+description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Foodee.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,64 +16,64 @@ ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
 ms.openlocfilehash: 2195056ec66550063aba5ce5e2b977b51a6dc5e3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057836"
 ---
-# <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en livsmedelsingrediens för automatisk användar etablering
+# <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Foodee för automatisk etablering av användare
 
-Den här artikeln visar hur du konfigurerar Azure Active Directory (Azure AD) i en livsmedelsingrediens och Azure AD för att automatiskt etablera eller avetablera användare eller grupper till en livsmedelsingrediens.
+Den här artikeln visar hur du konfigurerar Azure Active Directory (Azure AD) i Foodee och Azure AD för att automatiskt etablera eller avetablera användare eller grupper till Foodee.
 
 > [!NOTE]
-> I artikeln beskrivs en anslutning som är byggd ovanpå Azure AD-tjänsten för användar etablering. För att lära dig vad den här tjänsten gör och hur den fungerar och för att få svar på vanliga frågor, se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+> I artikeln beskrivs en anslutningsapp som är byggd ovanpå azure AD-tjänsten för användaretablering. Mer information om vad den här tjänsten gör och hur den fungerar och för att få svar på vanliga frågor finns i [Automatisera användaretablering och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här anslutningsappen är för närvarande i förhandsversion. Mer information om användnings funktionen för Azure i för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
+> Den här kopplingen är för närvarande i förhandsgranskning. Mer information om Azure-funktionen för användning för förhandsversionsfunktioner finns i [kompletterande användningsvillkor för Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Den här självstudien förutsätter att du uppfyller följande krav:
+Den här självstudien förutsätter att du har uppfyllt följande förutsättningar:
 
 * En Azure AD-klient
-* [En klient organisation](https://www.food.ee/about/)
-* Ett användar konto i en livsmedelsingrediens med administratörs behörighet
+* [En Foodee hyresgäst](https://www.food.ee/about/)
+* Ett användarkonto i Foodee med administratörsbehörighet
 
-## <a name="assign-users-to-foodee"></a>Tilldela användare till en livsmedelsingrediens 
+## <a name="assign-users-to-foodee"></a>Tilldela användare till Foodee 
 
-Azure AD använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare eller grupper som har tilldelats till ett program i Azure AD.
+Azure AD använder ett koncept som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare eller grupper som har tilldelats ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare eller grupper i Azure AD som behöver åtkomst till en livsmedelsingrediens. När du har bestämt dig kan du tilldela dessa användare eller grupper till en livsmedelsingrediens genom att följa instruktionerna i [tilldela en användare eller grupp till en Enterprise-App](../manage-apps/assign-user-or-group-access-portal.md).
+Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare eller grupper i Azure AD som behöver åtkomst till Foodee. När du har gjort den här bestämningen kan du tilldela dessa användare eller grupper till Foodee genom att följa instruktionerna i [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md).
 
-## <a name="important-tips-for-assigning-users-to-foodee"></a>Viktiga tips för att tilldela användare till en livsmedelsingrediens 
+## <a name="important-tips-for-assigning-users-to-foodee"></a>Viktiga tips för att tilldela användare till Foodee 
 
-Tänk på följande när du tilldelar användare:
+När du tilldelar användare bör du tänka på följande:
 
-* Vi rekommenderar att du bara tilldelar en enda Azure AD-användare till en livsmedelsingrediens för att testa konfigurationen av automatisk användar etablering. Du kan tilldela ytterligare användare eller grupper senare.
+* Vi rekommenderar att du bara tilldelar en enda Azure AD-användare till Foodee för att testa konfigurationen av automatisk användaretablering. Du kan tilldela ytterligare användare eller grupper senare.
 
-* När du tilldelar en användare till en livsmedelsingrediens väljer du en giltig programspecifik roll, om den är tillgänglig, i fönstret **tilldelning** . Användare som har *standard åtkomst* rollen undantas från etablering.
+* När du tilldelar en användare till Foodee väljer du en giltig programspecifik roll, om den är tillgänglig, i **fönstret Tilldelning.** Användare som har rollen *Standardåtkomst* är undantagna från etablering.
 
-## <a name="set-up-foodee-for-provisioning"></a>Konfigurera en livsmedelsingrediens för etablering
+## <a name="set-up-foodee-for-provisioning"></a>Ställ in Foodee för etablering
 
-Innan du konfigurerar livsmedelsingrediensen för automatisk användar etablering med hjälp av Azure AD måste du aktivera system för etablering av SCIM (Cross-Domain Identity Management) i en livsmedelsingrediens.
+Innan du konfigurerar Foodee för automatisk användaretablering med hjälp av Azure AD måste du aktivera SCIM-etablering (System for Cross-Domain Identity Management) i Foodee.
 
-1. Logga in på [livsmedelsingrediensen](https://www.food.ee/login/)och välj sedan ditt klient-ID.
+1. Logga in på [Foodee](https://www.food.ee/login/)och välj sedan ditt klient-ID.
 
     ![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
 
-1. Under **Enterprise Portal**väljer du **enkel inloggning**.
+1. Under **Enterprise portal**väljer du Enkel **inloggning**.
 
-    ![Livsmedelsingrediensen Enterprise Portal menyn i den vänstra rutan](media/Foodee-provisioning-tutorial/scim.png)
+    ![Menyn Foodee Enterprise Portal till vänsterruta](media/Foodee-provisioning-tutorial/scim.png)
 
-1. Kopiera värdet i rutan **API-token** för senare användning. Du kommer att skriva in den i rutan **hemlig token** på fliken **etablering** i programmet för din näring i Azure Portal.
+1. Kopiera värdet i rutan **API Token** för senare användning. Du anger den i rutan **Hemlig token** på fliken **Etablering** i ditt Foodee-program i Azure-portalen.
 
     ![Foodee](media/Foodee-provisioning-tutorial/token.png)
 
-## <a name="add-foodee-from-the-gallery"></a>Lägg till en livsmedelsingrediens från galleriet
+## <a name="add-foodee-from-the-gallery"></a>Lägg till Foodee från galleriet
 
-Om du vill konfigurera en livsmedelsingrediens för automatisk användar etablering med hjälp av Azure AD måste du lägga till en livsmedelsingrediens från Azure AD-programgalleriet till listan över hanterade SaaS-program.
+Om du vill konfigurera Foodee för automatisk användaretablering med Hjälp av Azure AD måste du lägga till Foodee från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-Gör så här om du vill lägga till en livsmedelsingrediens från Azure AD-programgalleriet:
+Så här lägger du till Foodee från Azure AD-programgalleriet:
 
 1. I den vänstra rutan i [Azure-portalen](https://portal.azure.com) väljer du **Azure Active Directory**.
 
@@ -83,96 +83,96 @@ Gör så här om du vill lägga till en livsmedelsingrediens från Azure AD-prog
 
     ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
-1. Om du vill lägga till ett nytt program väljer du **nytt program** längst upp i fönstret.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program** högst upp i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-1. I sökrutan anger du **livsmedelsingrediens**, väljer en **livsmedelsingrediens** i resultat fönstret och väljer sedan **Lägg** till för att lägga till programmet.
+1. I sökrutan anger du **Foodee**, väljer **Foodee** i resultatfönstret och väljer sedan **Lägg** till för att lägga till programmet.
 
-    ![Livsmedelsingrediensen i resultat listan](common/search-new-app.png)
+    ![Foodee i resultatlistan](common/search-new-app.png)
 
-## <a name="configure-automatic-user-provisioning-to-foodee"></a>Konfigurera automatisk användar etablering för en livsmedelsingrediens 
+## <a name="configure-automatic-user-provisioning-to-foodee"></a>Konfigurera automatisk användaretablering till Foodee 
 
-I det här avsnittet konfigurerar du Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare eller grupper i en livsmedelsingrediens baserat på användar-eller grupp tilldelningar i Azure AD.
+I det här avsnittet konfigurerar du Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare eller grupper i Foodee baserat på användar- eller grupptilldelningar i Azure AD.
 
 > [!TIP]
-> Du kan också aktivera SAML-baserad enkel inloggning för livsmedelsingrediensen genom att följa anvisningarna i [självstudien om enkel inloggning i livsmedelsingredienser](Foodee-tutorial.md). Du kan konfigurera enkel inloggning oberoende av automatisk användar etablering, även om dessa två funktioner kompletterar varandra.
+> Du kan också aktivera SAML-baserad enkel inloggning för Foodee genom att följa instruktionerna i [den ensidiga självstudien för enkel inloggning i Foodee](Foodee-tutorial.md). Du kan konfigurera enkel inloggning oberoende av automatisk användaretablering, även om dessa två funktioner kompletterar varandra.
 
-Konfigurera automatisk användar etablering för näring i Azure AD genom att göra följande:
+Konfigurera automatisk användaretablering för Foodee i Azure AD genom att göra följande:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **företags program** > **alla program**.
+1. Välj **Enterprise Applications** > **Alla program**i [Azure-portalen](https://portal.azure.com).
 
-    ![Fönstret företags program](common/enterprise-applications.png)
+    ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
-1. I listan **program** väljer du **mat**man.
+1. Välj **Foodee**i listan **Program** .
 
-    ![Länken livsmedelsingredienser i program listan](common/all-applications.png)
+    ![Länken Foodee i listan Applikationer](common/all-applications.png)
 
-1. Välj fliken **etablering** .
+1. Välj fliken **Etablering.**
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Fliken Etablering](common/provisioning.png)
 
-1. I list rutan **etablerings läge** väljer du **Automatisk**.
+1. Välj **Automatisk**i listrutan **Etableringsläge** .
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Fliken Etablering](common/provisioning-automatic.png)
 
-1. Under **admin-autentiseringsuppgifter**gör du följande:
+1. Gör följande under **Administratörsautentiseringsuppgifter:**
 
-   a. I rutan **klient webb adress** anger du värdet **https:\//concierge.Food.ee/scim/v2** som du hämtade tidigare.
+   a. I rutan **Klient-URL** anger du värdet **\/https: /concierge.food.ee/scim/v2** som du hämtade tidigare.
 
-   b. I rutan **hemlig token** anger du det **API-token** -värde som du hämtade tidigare.
+   b. I rutan **Hemlig token** anger du **api-tokenvärdet** som du hämtade tidigare.
    
-   c. För att säkerställa att Azure AD kan ansluta till en livsmedelsingrediens väljer du **Testa anslutning**. Om anslutningen Miss lyckas kontrollerar du att ditt konto för din näring har administratörs behörighet och försöker sedan igen.
+   c. Om du vill vara säkra på att Azure AD kan ansluta till Foodee väljer du **Testa anslutning**. Om anslutningen misslyckas kontrollerar du att Foodee-kontot har administratörsbehörighet och försöker sedan igen.
 
-    ![Länken testa anslutning](common/provisioning-testconnection-tenanturltoken.png)
+    ![Länken Testanslutning](common/provisioning-testconnection-tenanturltoken.png)
 
-1. I rutan **aviserings-e** -postadress anger du e-postadressen till den person eller grupp som ska ta emot meddelanden om etablerings fel och markerar sedan kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
+1. I rutan **E-post för avisering** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar sedan kryssrutan **Skicka ett e-postmeddelande när ett fel inträffar.**
 
-    ![Text rutan e-postavisering](common/provisioning-notification-email.png)
+    ![Textrutan E-post för meddelanden](common/provisioning-notification-email.png)
 
 1. Välj **Spara**.
 
-1. Under **mappningar**väljer du **Synkronisera Azure Active Directory användare till en livsmedelsingrediens**.
+1. Under **Mappningar**väljer du **Synkronisera Azure Active Directory-användare till Foodee**.
 
-    ![Användar mappningar för livsmedelsingredienser](media/Foodee-provisioning-tutorial/usermapping.png)
+    ![Foodee användarkartor](media/Foodee-provisioning-tutorial/usermapping.png)
 
-1. Under **attribut mappningar**granskar du de användarattribut som synkroniseras från Azure AD till en livsmedelsingrediens. De attribut som väljs som **matchande** egenskaper används för att matcha *användar kontona* i livsmedelsingrediensen för uppdaterings åtgärder. 
+1. Granska användarattribut som synkroniseras från Azure AD till Foodee under **Attributmappningar.** De attribut som väljs som **matchande** egenskaper används för att matcha *användarkontona* i Foodee för uppdateringsåtgärder. 
 
-    ![Användar mappningar för livsmedelsingredienser](media/Foodee-provisioning-tutorial/userattribute.png)
+    ![Foodee användarkartor](media/Foodee-provisioning-tutorial/userattribute.png)
 
-1. Om du vill spara ändringarna väljer du **Spara**.
-1. Under **mappningar**väljer **du synkronisera Azure Active Directory grupper till en livsmedelsingrediens**.
+1. Om du vill genomföra ändringarna väljer du **Spara**.
+1. Under **Mappningar**väljer du **Synkronisera Azure Active Directory-grupper mot Foodee**.
 
-    ![Användar mappningar för livsmedelsingredienser](media/Foodee-provisioning-tutorial/groupmapping.png)
+    ![Foodee användarkartor](media/Foodee-provisioning-tutorial/groupmapping.png)
 
-1. Under **attribut mappningar**granskar du de användarattribut som synkroniseras från Azure AD till en livsmedelsingrediens. De attribut som väljs som **matchande** egenskaper används för att matcha *grupp kontona* i livsmedelsingrediensen för uppdaterings åtgärder.
+1. Granska användarattribut som synkroniseras från Azure AD till Foodee under **Attributmappningar.** Attributen som väljs som **matchande** egenskaper används för att matcha *gruppkontona* i Foodee för uppdateringsåtgärder.
 
-    ![Användar mappningar för livsmedelsingredienser](media/Foodee-provisioning-tutorial/groupattribute.png)
+    ![Foodee användarkartor](media/Foodee-provisioning-tutorial/groupattribute.png)
 
-1. Om du vill spara ändringarna väljer du **Spara**.
-1. Konfigurera omfångs filter. Mer information finns i anvisningarna i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Om du vill genomföra ändringarna väljer du **Spara**.
+1. Konfigurera omfångsfiltren. Mer information om hur du gör i instruktionerna i [självstudiefilatkursen För att visa omfiltning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. Om du vill aktivera Azure AD Provisioning-tjänsten för mat i avsnittet **Inställningar** ändrar du **etablerings statusen** till **på**.
+1. Om du vill aktivera Azure AD-etableringstjänsten för Foodee ändrar du **etableringsstatusen** till **På**. **Settings**
 
-    ![Etablerings status växeln](common/provisioning-toggle-on.png)
+    ![Växeln etableringsstatus](common/provisioning-toggle-on.png)
 
-1. Under **Inställningar**i list rutan **omfattning** definierar du de användare eller grupper som du vill etablera till en livsmedelsingrediens.
+1. Under **Inställningar**i listrutan **Scope** definierar du de användare eller grupper som du vill etablera till Foodee.
 
-    ![List rutan etablerings omfång](common/provisioning-scope.png)
+    ![Listrutan Etableringsscope](common/provisioning-scope.png)
 
 1. När du är redo att etablera väljer du **Spara**.
 
-    ![Knappen för att spara etablerings konfiguration](common/provisioning-configuration-save.png)
+    ![Knappen Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Föregående åtgärd startar den inledande synkroniseringen av de användare eller grupper som du har definierat i list rutan **omfång** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information finns i [hur lång tid tar det att etablera användare?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
+Föregående åtgärd startar den första synkroniseringen av de användare eller grupper som du har definierat i listrutan **Scope.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar. Mer information finns i [Hur lång tid tar det att etablera användare?](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-Du kan använda avsnittet **aktuell status** för att övervaka förloppet och följa länkar till etablerings aktivitets rapporten. Rapporten beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten för en livsmedelsingrediens. Mer information finns i [kontrol lera status för användar etablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). För att läsa Azure AD-etablerings loggarna, se [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+Du kan använda avsnittet **Aktuell status** för att övervaka förloppet och följa länkar till din etableringsaktivitetsrapport. Rapporten beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på Foodee. Mer information finns [i Kontrollera status för användaretablering](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md). Information om hur du läser Azure AD-etableringsloggarna finns i Rapportera om automatisk etablering av [användarkonton](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Hantera etablering av användarkonton för företagsappar](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

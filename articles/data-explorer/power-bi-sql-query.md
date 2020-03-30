@@ -1,6 +1,6 @@
 ---
-title: Visualisera data från Azure Datautforskaren med en Power BI SQL-fråga
-description: 'I den här artikeln får du lära dig hur du använder ett av de tre alternativen för visualisering av data i Power BI: en SQL-fråga mot ett Azure Datautforskaren-kluster.'
+title: Visualisera data från Azure Data Explorer med en Power BI SQL-fråga
+description: 'I den här artikeln får du lära dig hur du använder ett av de tre alternativen för att visualisera data i Power BI: en SQL-fråga mot ett Azure Data Explorer-kluster.'
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
@@ -8,27 +8,27 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.openlocfilehash: d402d4c1ee77d0f97d2a5c3bdf43d0cc62aac096
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77560481"
 ---
-# <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualisera data från Azure Datautforskaren med hjälp av en SQL-fråga i Power BI
+# <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Visualisera data från Azure Data Explorer med hjälp av en SQL-fråga i Power BI
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Power BI är en lösning för företagsanalys där du kan visualisera dina data och dela resultaten i hela organisationen.
 
-Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: använda den inbyggda anslutningsappen, importera en fråga från Azure Data Explorer eller använda en SQL-fråga. Den här artikeln visar hur du använder en SQL-fråga för att hämta data och visualisera dem i en Power BI rapport.
+Azure Data Explorer ger tre alternativ för att ansluta till data i Power BI: använda den inbyggda anslutningsappen, importera en fråga från Azure Data Explorer eller använda en SQL-fråga. Den här artikeln visar hur du använder en SQL-fråga för att hämta data och visualisera den i en Power BI-rapport.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för att slutföra den här artikeln:
 
 * En organisations e-postkonto som är medlem i Azure Active directory, så att du kan ansluta till [Azure Data Explorer-hjälpklustret](https://dataexplorer.azure.com/clusters/help/databases/samples).
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (klicka på **DOWNLOAD FREE**) (LADDA NED KOSTNADSFRITT)
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (välj **DOWNLOAD FREE**) (Ladda ned kostnadsfritt)
 
 ## <a name="get-data-from-azure-data-explorer"></a>Hämta data från Azure Data Explorer
 
@@ -36,7 +36,7 @@ Först ansluter du till Azure Data Explorer-hjälpklustret, och sedan hämtar du
 
 Du använder vanligtvis det interna frågespråket med Azure Data Explorer, men det stöder även SQL-frågor, vilket du använder här. Azure Data Explorer översätter SQL-frågan till en intern fråga.
 
-1. I Power BI Desktop går du till fliken **Start**, väljer **Hämta data** och sedan **Mer**.
+1. Välj **Hämta data** sedan **mer**på fliken **Start** i Power BI Desktop .
 
     ![Hämta data](media/power-bi-sql-query/get-data-more.png)
 
@@ -50,8 +50,8 @@ Du använder vanligtvis det interna frågespråket med Azure Data Explorer, men 
 
     **Inställning** | **Värde** | **Fältbeskrivning**
     |---|---|---|
-    | Server | *help.kusto.windows.net* | URL för hjälpklustret (utan *https://* ). För andra kluster är URL:en i formatet *\<Klusternamn\>.\<Region\>.kusto.windows.net*. |
-    | Databas | *Exempel* | Den exempeldatabas som finns på det kluster som du ansluter till. |
+    | Server | *help.kusto.windows.net* | URL för hjälpklustret (utan *https://*). För andra kluster finns URL:en i formuläret * \<ClusterName\>.\< Region\>.kusto.windows.net*. |
+    | Databas | *Prover* | Den exempeldatabas som finns på det kluster som du ansluter till. |
     | Dataanslutningsläge | *Importera* | Anger huruvida Power BI importerar data eller ansluter direkt till datakällan. Du kan använda endera alternativ med den här anslutningsappen. |
     | Tidsgräns för kommando | Lämna tomt | Hur länge frågan körs innan den genererar ett tidsgränsfel. |
     | SQL-instruktion | Kopiera frågan under den här tabellen | Den SQL-instruktion som Azure Data Explorer översätter till en intern fråga. |
@@ -80,8 +80,8 @@ Du använder vanligtvis det interna frågespråket med Azure Data Explorer, men 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte längre behöver rapporten som du skapade för den här artikeln tar du bort Power BI Desktop-filen (. pbix).
+Om du inte längre behöver rapporten som du skapade för den här artikeln tar du bort Power BI Desktop -filen (.pbix).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Visualisera data med Azure Datautforskaren Connector för Power BI](power-bi-connector.md)
+[Visualisera data med Azure Data Explorer-anslutningen för Power BI](power-bi-connector.md)

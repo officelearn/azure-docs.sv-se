@@ -1,49 +1,49 @@
 ---
 title: Visa tjänstleverantörsaktivitet
-description: Kunder kan visa loggad aktivitet för att se åtgärder som utförs av tjänst leverantörer via Azure-delegerad resurs hantering.
+description: Kunder kan visa loggad aktivitet för att se åtgärder som utförs av tjänsteleverantörer via Azure-delegerad resurshantering.
 ms.date: 01/15/2020
 ms.topic: conceptual
 ms.openlocfilehash: a923a57ecc94ac15af207c2b8dc8998708b708d4
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77649644"
 ---
 # <a name="view-service-provider-activity"></a>Visa tjänstleverantörsaktivitet
 
-Kunder som har delegerade prenumerationer för Azure-delegerad resurs hantering kan [Visa Azures aktivitets logg](../../azure-monitor/platform/platform-logs-overview.md) data för att se alla åtgärder som vidtagits. Detta ger kunderna full insyn i åtgärder som tjänst leverantörer utför via Azures delegerade resurs hantering, tillsammans med åtgärder som utförs av användare i kundens egna Azure Active Directory (Azure AD)-klient.
+Kunder som har delegerade prenumerationer för Azure-delegerad resurshantering kan [visa Azure Activity-loggdata](../../azure-monitor/platform/platform-logs-overview.md) för att se alla åtgärder som vidtas. Detta ger kunderna full insyn i åtgärder som tjänstleverantörer utför via Azure-delegerad resurshantering, tillsammans med åtgärder som utförs av användare inom kundens egen Azure Active Directory (Azure AD) -klientorganisation.
 
 > [!TIP]
-> Vi tillhandahåller också en Azure Policy inbyggd princip definition för att granska delegering av omfattningar till en hanterings klient. Mer information finns i [Granska delegeringar i din miljö](view-manage-service-providers.md#audit-delegations-in-your-environment).
+> Vi tillhandahåller också en inbyggd azure-principdefinition för granskning av delegering av scope till en hanterande klientorganisation. Mer information finns i [Granskningsdelegationer i din miljö](view-manage-service-providers.md#audit-delegations-in-your-environment).
 
-## <a name="view-activity-log-data"></a>Visa aktivitets logg data
+## <a name="view-activity-log-data"></a>Visa aktivitetsloggdata
 
-Du kan [Visa aktivitets loggen](../../azure-monitor/platform/activity-log-view.md) från **Monitor** -menyn i Azure Portal. Om du vill begränsa resultaten till en speciell prenumeration använder du filtren för att välja en speciell prenumeration. Du kan också [Visa och hämta aktivitets logg händelser](../../azure-monitor/platform/activity-log-view.md) program mässigt.
-
-> [!NOTE]
-> Användare i en tjänst leverantörs klient organisation kan visa aktivitets logg resultat för en delegerad prenumeration i en kund klient organisation om de har beviljats rollen [läsare](../../role-based-access-control/built-in-roles.md#reader) (eller en annan inbyggd roll som inkluderar läsar åtkomst) när prenumerationen har registrerats för Azure-delegerad resurs hantering.
-
-I aktivitets loggen visas namnet på åtgärden och dess status, tillsammans med datum och tid då den utfördes. **Händelsen som initieras av** kolumnen visar vilken användare som utförde åtgärden, om det var en användare i en tjänst leverantörs klient som agerar via Azure delegerad resurs hantering eller en användare i kundens egen klient. Observera att namnet på användaren visas, i stället för klient organisationen eller rollen som användaren har tilldelats för den prenumerationen.
-
-Loggad aktivitet är tillgänglig i Azure Portal under de senaste 90 dagarna. Information om hur du lagrar data i mer än 90 dagar finns i [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta](../../azure-monitor/platform/activity-log-collect.md).
+Du kan [visa aktivitetsloggen](../../azure-monitor/platform/activity-log-view.md) från **Monitor-menyn** i Azure-portalen. Om du vill begränsa resultaten till en viss prenumeration använder du filtren för att välja en viss prenumeration. Du kan också [visa och hämta aktivitetslogghändelser](../../azure-monitor/platform/activity-log-view.md) programmässigt.
 
 > [!NOTE]
-> Användare från tjänst leverantören visas i aktivitets loggen, men de här användarna och deras roll tilldelningar visas inte i **Access Control (IAM)** eller när roll tilldelnings information hämtas via API: er.
+> Användare i en tjänsteleverantörs klient kan visa aktivitetsloggresultat för en delegerad prenumeration i en kundklient om de har tilldelats [rollen Reader](../../role-based-access-control/built-in-roles.md#reader) (eller en annan inbyggd roll som inkluderar läsaråtkomst) när prenumerationen var inbyggd för Azure-delegerad resurshantering.
 
-## <a name="set-alerts-for-critical-operations"></a>Ange aviseringar för kritiska åtgärder
+I aktivitetsloggen ser du namnet på åtgärden och dess status, tillsammans med datum och tid då den utfördes. **Händelsen som initierats av** kolumnen visar vilken användare som utförde åtgärden, oavsett om det var en användare i en tjänsteleverantörs klient som agerade via Azure-delegerad resurshantering eller en användare i kundens egen klientorganisation. Observera att namnet på användaren visas i stället för klienten eller den roll som användaren har tilldelats för den prenumerationen.
 
-För att vara medveten om kritiska åtgärder som tjänst leverantörer (eller användare i din egen klient) utför, rekommenderar vi att du skapar [aktivitets logg aviseringar](../../azure-monitor/platform/activity-log-alerts.md). Du kanske till exempel vill spåra alla administrativa åtgärder för en prenumeration eller bli informerad när en virtuell dator i en viss resurs grupp tas bort. När du skapar aviseringar, kommer de att omfatta åtgärder som utförs av användare i kundens egen klient organisation samt i alla hanterings klienter.
+Loggad aktivitet är tillgänglig i Azure-portalen under de senaste 90 dagarna. Mer information om hur du lagrar dessa data i mer än 90 dagar finns [i Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsytan](../../azure-monitor/platform/activity-log-collect.md).
 
-Mer information finns i [skapa och hantera aktivitets logg aviseringar](../../azure-monitor/platform/alerts-activity-log.md).
+> [!NOTE]
+> Användare från tjänsteleverantören visas i aktivitetsloggen, men dessa användare och deras rolltilldelningar visas inte i **Åtkomstkontroll (IAM)** eller när rolltilldelningsinformation hämtas via API:er.
 
-## <a name="create-log-queries"></a>Skapa logg frågor
+## <a name="set-alerts-for-critical-operations"></a>Ställ in aviseringar för kritiska åtgärder
 
-Du kan skapa frågor för att analysera din loggade aktivitet eller fokusera på vissa objekt. T. ex. kanske en granskning kräver att du rapporterar om alla åtgärder på administrativ nivå som utförs på en prenumeration. Du kan skapa en fråga för att filtrera på de här åtgärderna och sortera resultaten efter användare, datum eller annat värde.
+Om du vill hålla dig medveten om kritiska åtgärder som tjänstleverantörer (eller användare i din egen klientorganisation) utför rekommenderar vi att du skapar [aktivitetsloggaviseringar](../../azure-monitor/platform/activity-log-alerts.md). Du kanske till exempel vill spåra alla administrativa åtgärder för en prenumeration eller meddelas när en virtuell dator i en viss resursgrupp tas bort. När du skapar aviseringar innehåller de åtgärder som utförs av användare i kundens egen klientorganisation samt i alla hanteringsklienter.
 
-Mer information finns i [Översikt över logg frågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Mer information finns i [Skapa och hantera aktivitetsloggaviseringar](../../azure-monitor/platform/alerts-activity-log.md).
+
+## <a name="create-log-queries"></a>Skapa loggfrågor
+
+Du kan skapa frågor för att analysera din loggade aktivitet eller fokusera på specifika objekt. En granskning kanske till exempel kräver att du rapporterar om alla åtgärder på administrativ nivå som utförs på en prenumeration. Du kan skapa en fråga som bara ska filtreras efter dessa åtgärder och sortera resultaten efter användare, datum eller ett annat värde.
+
+Mer information finns [i Översikt över loggfrågor i Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [Azure Monitor](../../azure-monitor/index.yml).
-- Lär dig att [Visa och hantera Service Provider-erbjudanden](view-manage-service-providers.md) i Azure Portal.
+- Lär dig hur du [visar och hanterar tjänstprovidererbjudanden](view-manage-service-providers.md) i Azure-portalen.

@@ -1,6 +1,6 @@
 ---
-title: Övervaka Azure Site Recovery med Azure Monitor loggar
-description: Lär dig hur du övervakar Azure Site Recovery med Azure Monitors loggar (Log Analytics)
+title: Övervaka Azure-webbplatsåterställning med Azure-övervakarloggar
+description: Lär dig hur du övervakar Azure Site Recovery med Azure Monitor Logs (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -8,83 +8,83 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
 ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74133410"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor-loggar
 
-Den här artikeln beskriver hur du övervakar datorer som replikeras av Azure [Site Recovery](site-recovery-overview.md), med hjälp av [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md)och [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+I den här artikeln beskrivs hur du övervakar datorer som replikeras av Azure [Site Recovery,](site-recovery-overview.md)använder [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md)och [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
-Azure Monitor loggar tillhandahåller en logg data plattform som samlar in aktiviteter och diagnostikloggar, tillsammans med andra övervaknings data. I Azure Monitor loggar använder du Log Analytics för att skriva och testa logg frågor och för att interaktivt analysera loggdata. Du kan visualisera och fråga logg resultat och konfigurera aviseringar för att vidta åtgärder baserat på övervakade data.
+Azure Monitor Logs tillhandahåller en loggdataplattform som samlar in aktivitets- och diagnostikloggar, tillsammans med andra övervakningsdata. I Azure Monitor Logs använder du Log Analytics för att skriva och testa loggfrågor och för att interaktivt analysera loggdata. Du kan visualisera och fråga loggresultat och konfigurera aviseringar för att vidta åtgärder baserat på övervakade data.
 
-För Site Recovery kan du Azure Monitor loggar som hjälper dig att göra följande:
+För Site Recovery kan du Azure Monitor Loggar som hjälper dig att göra följande:
 
-- **Övervaka Site Recovery hälsa och status**. Du kan till exempel övervaka replikeringsstatus, redundanstest, Site Recovery händelser, återställnings punkt mål (återställnings punkter) för skyddade datorer och ändrings takt för disk/data.
-- **Konfigurera aviseringar för Site Recovery**. Du kan till exempel konfigurera aviseringar för maskin hälso status, redundanstest eller Site Recovery jobb status.
+- **Övervaka hälsa och status för webbplatsåterställning**. Du kan till exempel övervaka replikeringshälsa, test redundansstatus, platsåterställningshändelser, återställningspunktmål (RPO: er) för skyddade datorer och disk-/dataändringshastigheter.
+- **Ställ in aviseringar för webbplatsåterställning**. Du kan till exempel konfigurera aviseringar för datorns hälsotillstånd, status för testundanpassning eller platsåterställningsstatus.
 
-Användning av Azure Monitor-loggar med Site Recovery stöds för **Azure till Azure** -replikering och **VMware VM/fysisk server till Azure** -replikering.
+Att använda Azure Monitor-loggar med platsåterställning stöds för Azure till Azure-replikering och **Azure to Azure** **VMware VM/fysisk server till Azure-replikering.**
 
 > [!NOTE]
-> För att hämta omsättnings data loggar och överförings takt loggar för VMware och fysiska datorer måste du installera en Microsoft Monitoring Agent på processervern. Den här agenten skickar loggarna för de replikerande datorerna till arbets ytan. Den här funktionen är endast tillgänglig för 9,30-versionen av mobilitets agenten.
+> Om du vill hämta informationsloggarna för omsättnings- och uppladdningshastigheten för VMware och fysiska datorer måste du installera en Microsoft-övervakningsagent på Process Server. Den här agenten skickar loggarna för replikeringsdatorerna till arbetsytan. Den här funktionen är endast tillgänglig för 9.30 mobility agent version och framåt.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 Du behöver det här:
 
-- Minst en dator som skyddas i ett Recovery Services-valv.
-- En Log Analytics arbets yta för att lagra Site Recovery loggar. [Lär dig mer om](../azure-monitor/learn/quick-create-workspace.md) att konfigurera en arbets yta.
-- En grundläggande förståelse för hur du skriver, kör och analyserar logg frågor i Log Analytics. [Läs mer](../azure-monitor/log-query/get-started-portal.md).
+- Minst en maskin skyddad i ett Recovery Services-valv.
+- En Log Analytics-arbetsyta för att lagra loggar för webbplatsåterställning. [Läs mer om](../azure-monitor/learn/quick-create-workspace.md) hur du konfigurerar en arbetsyta.
+- En grundläggande förståelse för hur du skriver, kör och analyserar loggfrågor i Log Analytics. [Läs mer](../azure-monitor/log-query/get-started-portal.md).
 
-Vi rekommenderar att du läser igenom [vanliga övervaknings frågor](monitoring-common-questions.md) innan du börjar.
+Vi rekommenderar att du granskar [vanliga övervakningsfrågor](monitoring-common-questions.md) innan du börjar.
 
-## <a name="configure-site-recovery-to-send-logs"></a>Konfigurera Site Recovery för att skicka loggar
+## <a name="configure-site-recovery-to-send-logs"></a>Konfigurera platsåterställning för att skicka loggar
 
-1. I valvet klickar du på **diagnostikinställningar** > **Lägg till diagnostisk inställning**.
+1. Klicka på **Diagnostikinställningar** > **Lägg till diagnostikinställning**i valvet .
 
-    ![Välj diagnostisk loggning](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Välj diagnostikloggning](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. I **diagnostikinställningar**anger du ett namn och markerar kryss rutan **Skicka till Log Analytics**.
-3. Välj prenumerationen Azure Monitor loggar och Log Analytics arbets ytan.
-4. Välj **Azure-diagnostik** i växla.
-5. I listan logg väljer du alla loggar med prefixet **AzureSiteRecovery**. Klicka på **OK**.
+2. Ange ett namn i **Diagnostikinställningar**och markera kryssrutan **Skicka till Logganalys**.
+3. Välj prenumerationen för Azure Monitor Logs och arbetsytan Logganalys.
+4. Välj **Azure Diagnostics** i växlingsknappen.
+5. Välj alla loggar med prefixet **AzureSiteRecovery**i logglistan . Klicka sedan på **OK**.
 
     ![Välj arbetsyta](./media/monitoring-log-analytics/select-workspace.png)
 
-Site Recovery loggar börjar mata in i en tabell (**AzureDiagnostics**) i den valda arbets ytan.
+Platsåterställningsloggarna börjar matas in i en tabell (**AzureDiagnostics**) på den valda arbetsytan.
 
-## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>Konfigurera Microsoft Monitoring Agent på processervern för sändning av omsättnings-och överförings takt loggar
+## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>Konfigurera Microsofts övervakningsagent på Process Server för att skicka logger för omsättnings- och överföringshastighet
 
-Du kan samla in information om data omsättnings taxa och information om överförings hastighet för dina VMware/fysiska datorer lokalt. För att aktivera detta måste en Microsoft Monitoring Agent installeras på processervern.
+Du kan samla in information om dataomsättningshastighet och information om uppladdningshastighet för dina VMware/fysiska datorer lokalt. För att aktivera detta måste en Microsoft-övervakningsagent installeras på Process Server.
 
-1. Gå till arbets ytan Log Analytics och klicka på **Avancerade inställningar**.
-2. Klicka på sidan **anslutna källor** och välj ytterligare **Windows-servrar**.
-3. Hämta Windows-agenten (64-bitars) på processervern. 
+1. Gå till log analytics-arbetsytan och klicka på **Avancerade inställningar**.
+2. Klicka på sidan **Anslutna källor** och välj **windowsservrar**ytterligare .
+3. Hämta Windows Agent (64 bitar) på Process Server. 
 4. [Hämta arbetsyte-ID och nyckel](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
-5. [Konfigurera agenten att använda TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Slutför Agent installationen](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) genom att ange ID och nyckel för den hämtade arbets ytan.
-7. När installationen är klar går du till Log Analytics arbets yta och klickar på **Avancerade inställningar**. Gå till sidan **data** och klicka på Windows- **prestandaräknare**. 
-8. Klicka på **+** om du vill lägga till följande två räknare med exempel intervallet 300 sekunder:
+5. [Konfigurera agent för att använda TLS 1.2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Slutför agentinstallationen](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) genom att ange det erhållna arbetsyte-ID:t och nyckeln.
+7. När installationen är klar går du till Log Analytics arbetsyta och klickar på **Avancerade inställningar**. Gå till **sidan Data** och klicka vidare på Windows **Prestandaräknare**. 
+8. Klicka på **'+'** för att lägga till följande två räknare med samplingsintervall på 300 sekunder:
 
         ASRAnalytics(*)\SourceVmChurnRate 
         ASRAnalytics(*)\SourceVmThrpRate 
 
-Data omsättningen och överföringshastigheten börjar mata in på arbets ytan.
+Data för omsättning och uppladdningshastighet börjar matas in på arbetsytan.
 
 
-## <a name="query-the-logs---examples"></a>Skicka frågor till loggarna – exempel
+## <a name="query-the-logs---examples"></a>Fråga loggarna - exempel
 
-Du hämtar data från loggar med hjälp av logg frågor som skrivits med [Kusto-frågespråket](../azure-monitor/log-query/get-started-queries.md). Det här avsnittet innehåller några exempel på vanliga frågor som du kan använda för att Site Recovery övervakning.
+Du hämtar data från loggar med hjälp av loggfrågor skrivna med [Kusto-frågespråket](../azure-monitor/log-query/get-started-queries.md). Det här avsnittet innehåller några exempel på vanliga frågor som du kan använda för övervakning av webbplatsåterställning.
 
 > [!NOTE]
-> Några av exemplen använder **replicationProviderName_s** inställt på **A2A**. Detta hämtar virtuella Azure-datorer som replikeras till en sekundär Azure-region med hjälp av Site Recovery. I de här exemplen kan du ersätta **A2A** med **InMageAzureV2**, om du vill hämta lokala virtuella VMware-datorer eller fysiska servrar som replikeras till Azure med hjälp av Site Recovery.
+> Några av exemplen använder **replicationProviderName_s** inställd på **A2A**. Detta hämtar virtuella Azure-datorer som replikeras till en sekundär Azure-region med hjälp av Site Recovery. I de här exemplen kan du ersätta **A2A** med **InMageAzureV2**om du vill hämta lokala virtuella datorer för VMware eller fysiska servrar som replikeras till Azure med hjälp av Site Recovery.
 
 
-### <a name="query-replication-health"></a>Hälso tillstånd för fråga
+### <a name="query-replication-health"></a>Hälsotillstånd för frågereplikering
 
-Den här frågan ritar ett cirkel diagram för den aktuella replikeringsstatus för alla skyddade virtuella Azure-datorer, uppdelat i tre tillstånd: normal, varning eller kritisk.
+Den här frågan ritar ett cirkeldiagram för den aktuella replikeringshälsan för alla skyddade virtuella Azure-datorer, uppdelade i tre tillstånd: Normal, Varning eller Kritisk.
 
 ```
 AzureDiagnostics  
@@ -95,9 +95,9 @@ AzureDiagnostics 
 | summarize count() by replicationHealth_s  
 | render piechart   
 ```
-### <a name="query-mobility-service-version"></a>Fråga mobilitets tjänst version
+### <a name="query-mobility-service-version"></a>Version av tjänsten Query Mobility
 
-Den här frågan ritar ett cirkel diagram för virtuella Azure-datorer som replikeras med Site Recovery, uppdelade efter den version av mobilitets agenten som de kör.
+Den här frågan ritar ett cirkeldiagram för virtuella Azure-datorer som replikeras med Site Recovery, uppdelad efter den version av Mobilitetsagenten som de kör.
 
 ```
 AzureDiagnostics  
@@ -109,9 +109,9 @@ AzureDiagnostics 
 | render piechart 
 ```
 
-### <a name="query-rpo-time"></a>Återställnings tid för fråga
+### <a name="query-rpo-time"></a>Fråge-RPO-tid
 
-Den här frågan ritar ett stapeldiagram med virtuella Azure-datorer som replikeras med Site Recovery, uppdelade efter återställnings punkt mål (återställnings punkt mål): mindre än 15 minuter, mellan 15-30 minuter, mer än 30 minuter.
+Den här frågan ritar ett stapeldiagram över virtuella Azure-datorer som replikeras med Site Recovery, uppdelade efter återställningspunktmål (RPO): Mindre än 15 minuter, mellan 15-30 minuter, mer än 30 minuter.
 
 ```
 AzureDiagnostics 
@@ -125,11 +125,11 @@ rpoInSeconds_d <= 1800, "15-30Min", ">30Min") 
 | render barchart 
 ```
 
-![Skicka fråga](./media/monitoring-log-analytics/example1.png)
+![Fråga RPO](./media/monitoring-log-analytics/example1.png)
 
-### <a name="query-site-recovery-jobs"></a>Fråga Site Recovery jobb
+### <a name="query-site-recovery-jobs"></a>Jobb för återställning av frågewebbplatser
 
-Den här frågan hämtar alla Site Recovery jobb (för alla katastrof återställnings scenarier) som utlöses under de senaste 72 timmarna och deras slut för ande tillstånd.
+Den här frågan hämtar alla jobb för återställning av webbplats (för alla scenarier för haveriberedskap), som utlösts under de senaste 72 timmarna och deras slutförandetillstånd.
 
 ```
 AzureDiagnostics  
@@ -138,9 +138,9 @@ AzureDiagnostics 
 | project JobName = OperationName , VaultName = Resource , TargetName = affectedResourceName_s, State = ResultType  
 ```
 
-### <a name="query-site-recovery-events"></a>Fråga Site Recovery händelser
+### <a name="query-site-recovery-events"></a>Frågeplatsåterställningshändelser
 
-Den här frågan hämtar alla Site Recovery händelser (för alla katastrof återställnings scenarier) som skapats under de senaste 72 timmarna, tillsammans med deras allvarlighets grad. 
+Den här frågan hämtar alla site recovery-händelser (för alla katastrofåterställningsscenarier) som tagits upp under de senaste 72 timmarna, tillsammans med deras allvarlighetsgrad. 
 
 ```
 AzureDiagnostics   
@@ -149,9 +149,9 @@ AzureDiagnostics  
 | project AffectedObject=affectedResourceName_s , VaultName = Resource, Description_s = healthErrors_s , Severity = Level  
 ```
 
-### <a name="query-test-failover-state-pie-chart"></a>Tillstånd för redundanstest (cirkel diagram)
+### <a name="query-test-failover-state-pie-chart"></a>Felläge för frågetest (cirkeldiagram)
 
-Den här frågan ritar ett cirkel diagram för redundanstest för virtuella Azure-datorer som replikeras med Site Recovery.
+Den här frågan ritar ett cirkeldiagram för test redundansstatus för virtuella Azure-datorer som replikeras med Site Recovery.
 
 ```
 AzureDiagnostics  
@@ -164,9 +164,9 @@ AzureDiagnostics 
 | render piechart 
 ```
 
-### <a name="query-test-failover-state-table"></a>Tillstånd för redundanstest (tabell)
+### <a name="query-test-failover-state-table"></a>Felläge för frågetest (tabell)
 
-Den här frågan ritar en tabell för redundanstest för virtuella Azure-datorer som replikeras med Site Recovery.
+Den här frågan ritar en tabell för test redundansstatus för virtuella Azure-datorer som replikeras med Site Recovery.
 
 ```
 AzureDiagnostics   
@@ -177,9 +177,9 @@ AzureDiagnostics  
 | project VirtualMachine = name_s , VaultName = Resource , TestFailoverStatus = failoverHealth_s 
 ```
 
-### <a name="query-machine-rpo"></a>Fråga datorns återställnings punkt
+### <a name="query-machine-rpo"></a>RPO för frågemaskin
 
-Den här frågan ritar ett trend diagram som spårar återställningen av en enskild virtuell Azure-dator (ContosoVM123) under de senaste 72 timmarna.
+Den här frågan ritar ett trenddiagram som spårar RPO för en viss Azure VM (ContosoVM123) under de senaste 72 timmarna.
 
 ```
 AzureDiagnostics   
@@ -190,11 +190,11 @@ AzureDiagnostics  
 | project TimeGenerated, name_s , RPO_in_seconds = rpoInSeconds_d   
 | render timechart 
 ```
-![Fråga datorns återställnings punkt](./media/monitoring-log-analytics/example2.png)
+![RPO för frågemaskin](./media/monitoring-log-analytics/example2.png)
 
-### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Fråga om data ändrings takt (omsättning) och uppladdnings takt för en virtuell Azure-dator
+### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Frågedataändringshastighet (omsättning) och uppladdningshastighet för en Virtuell Azure-dator
 
-Den här frågan ritar ett trend diagram för en viss virtuell Azure-dator (ContosoVM123) som representerar data ändrings takten (skrivna byte per sekund) och data överförings takten. 
+Den här frågan ritar ett trenddiagram för en specifik Azure VM (ContosoVM123), som representerar dataändringshastigheten (skrivbyte per sekund) och dataöverföringshastighet. 
 
 ```
 AzureDiagnostics   
@@ -207,14 +207,14 @@ Category contains "Upload", "UploadRate", "none") 
 | project TimeGenerated , InstanceWithType , Churn_MBps = todouble(Value_s)/1048576   
 | render timechart  
 ```
-![Fråga efter data ändring](./media/monitoring-log-analytics/example3.png)
+![Ändring av frågedata](./media/monitoring-log-analytics/example3.png)
 
-### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Fråga om data ändrings frekvens (omsättning) och uppladdnings takt för en VMware-eller fysisk dator
+### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Frågedataändringshastighet (omsättning) och uppladdningshastighet för en VMware eller fysisk dator
 
 > [!Note]
-> Se till att konfigurera övervaknings agenten på processervern för att hämta dessa loggar. Se [steg för att konfigurera övervaknings agenten](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
+> Se till att du ställer in övervakningsagenten på Process Server för att hämta dessa loggar. Se [steg för att konfigurera övervakningsagenten](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs).
 
-Den här frågan ritar ett trend diagram för en viss disk **disk0** av ett replikerat objekt **Win-9r7sfh9qlru**, som representerar data ändrings takten (skrivna byte per sekund) och data överförings takt. Du kan hitta disk namnet på **disk** bladet för det replikerade objektet i Recovery Services-valvet. Instans namnet som ska användas i frågan är DNS-namnet på datorn följt av _ och disk namnet som i det här exemplet.
+Den här frågan ritar ett trenddiagram för en specifik **diskdisk0** för ett replikerat objekt **win-9r7sfh9qlru**, som representerar dataändringshastigheten (skrivbyte per sekund) och dataöverföringshastighet. Du hittar disknamnet på **diskbladet** för det replikerade objektet i återställningstjänstvalvet. Förekomstnamn som ska användas i frågan är DNS-namnet på datorn följt av _ och disknamn som i det här exemplet.
 
 ```
 Perf
@@ -224,11 +224,11 @@ Perf
 | project TimeGenerated ,CounterName, Churn_MBps = todouble(CounterValue)/5242880 
 | render timechart
 ```
-Processervern pushrar dessa data var 5: e minut till arbets ytan Log Analytics. Dessa data punkter representerar det genomsnitt som beräknas i 5 minuter.
+Process Server skickar dessa data var femte minut till log analytics-arbetsytan. Dessa datapunkter representerar det genomsnittliga beräknat i 5 minuter.
 
-### <a name="query-disaster-recovery-summary-azure-to-azure"></a>Sammanfattning av förfrågningar om haveri beredskap (Azure till Azure)
+### <a name="query-disaster-recovery-summary-azure-to-azure"></a>Sammanfattning av frågekatastrofåterställning (Azure till Azure)
 
-Den här frågan ritar en sammanfattnings tabell för virtuella Azure-datorer som replikeras till en sekundär Azure-region.  Den visar VM-namn, replikering och skydds status, återställnings status för redundanstest, Mobility agent-version, eventuella aktiva replikeringsfel och käll platsen.
+Den här frågan ritar en sammanfattningstabell för virtuella Azure-datorer som replikeras till en sekundär Azure-region.  Den visar VM-namn, replikerings- och skyddsstatus, RPO, test redundansstatus, mobilitetsagentversion, eventuella aktiva replikeringsfel och källplatsen.
 
 ```
 AzureDiagnostics 
@@ -238,9 +238,9 @@ AzureDiagnostics 
 | project VirtualMachine = name_s , Vault = Resource , ReplicationHealth = replicationHealth_s, Status = protectionState_s, RPO_in_seconds = rpoInSeconds_d, TestFailoverStatus = failoverHealth_s, AgentVersion = agentVersion_s, ReplicationError = replicationHealthErrors_s, SourceLocation = primaryFabricName_s 
 ```
 
-### <a name="query-disaster-recovery-summary-vmwarephysical-servers"></a>Översikt över förfrågningar om haveri beredskap (VMware/fysiska servrar)
+### <a name="query-disaster-recovery-summary-vmwarephysical-servers"></a>Sammanfattning av frågekatastrofåterställning (VMware/fysiska servrar)
 
-Den här frågan ritar en sammanfattnings tabell för virtuella VMware-datorer och fysiska servrar som replikeras till Azure.  Det visar dator namn, replikering och skydds status, återställnings status för redundanstest, Mobility agent-version, eventuella aktiva replikeringsfel och relevant processerver.
+Den här frågan ritar en sammanfattningstabell för virtuella datorer med VMware och fysiska servrar som replikeras till Azure.  Den visar datorns namn, replikerings- och skyddsstatus, RPO, test redundansstatus, mobilitetsagentversion, eventuella aktiva replikeringsfel och relevant processserver.
 
 ```
 AzureDiagnostics  
@@ -250,16 +250,16 @@ AzureDiagnostics 
 | project VirtualMachine = name_s , Vault = Resource , ReplicationHealth = replicationHealth_s, Status = protectionState_s, RPO_in_seconds = rpoInSeconds_d, TestFailoverStatus = failoverHealth_s, AgentVersion = agentVersion_s, ReplicationError = replicationHealthErrors_s, ProcessServer = processServerName_g  
 ```
 
-## <a name="set-up-alerts---examples"></a>Konfigurera aviseringar – exempel
+## <a name="set-up-alerts---examples"></a>Ställ in aviseringar - exempel
 
-Du kan ställa in Site Recovery aviseringar baserat på Azure Monitor data. [Läs mer](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) om hur du konfigurerar logg aviseringar. 
+Du kan ställa in site recovery-aviseringar baserat på Azure Monitor-data. [Läs mer](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) om hur du konfigurerar loggaviseringar. 
 
 > [!NOTE]
-> Några av exemplen använder **replicationProviderName_s** inställt på **A2A**. Detta ställer in aviseringar för virtuella Azure-datorer som replikeras till en sekundär Azure-region. I de här exemplen kan du ersätta **A2A** med **InMageAzureV2** om du vill ställa in aviseringar för lokala virtuella VMware-datorer eller fysiska servrar som replikeras till Azure.
+> Några av exemplen använder **replicationProviderName_s** inställd på **A2A**. Detta anger aviseringar för virtuella Azure-datorer som replikeras till en sekundär Azure-region. I de här exemplen kan du ersätta **A2A** med **InMageAzureV2** om du vill ställa in aviseringar för lokala virtuella datorer med VMware eller fysiska servrar som replikeras till Azure.
 
-### <a name="multiple-machines-in-a-critical-state"></a>Flera datorer i ett kritiskt tillstånd
+### <a name="multiple-machines-in-a-critical-state"></a>Flera datorer i kritiskt tillstånd
 
-Konfigurera en avisering om fler än 20 replikerade virtuella Azure-datorer hamnar i ett kritiskt tillstånd.
+Ställ in en avisering om mer än 20 replikerade Virtuella Azure-datorer hamnar i ett kritiskt tillstånd.
 
 ```
 AzureDiagnostics   
@@ -269,11 +269,11 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count() 
 ```
-Ange **tröskelvärdet** till 20 för aviseringen.
+För aviseringen anger du **Tröskelvärdet** till 20.
 
-### <a name="single-machine-in-a-critical-state"></a>En enskild dator med kritiskt tillstånd
+### <a name="single-machine-in-a-critical-state"></a>En maskin i kritiskt tillstånd
 
-Konfigurera en avisering om en enskild replikerad virtuell Azure-dator hamnar i ett kritiskt tillstånd.
+Ställ in en avisering om en specifik replikerad Azure VM går in i ett kritiskt tillstånd.
 
 ```
 AzureDiagnostics   
@@ -284,11 +284,11 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-Ange **tröskelvärdet** till 1 för aviseringen.
+För aviseringen anger du **Tröskelvärdet** till 1.
 
-### <a name="multiple-machines-exceed-rpo"></a>Flera datorer överskrider återställnings punkt
+### <a name="multiple-machines-exceed-rpo"></a>Flera maskiner överskrider RPO
 
-Konfigurera en avisering om återställningen för fler än 20 virtuella Azure-datorer överstiger 30 minuter.
+Ställ in en avisering om RPO för mer än 20 Virtuella Azure-datorer överstiger 30 minuter.
 ```
 AzureDiagnostics   
 | where replicationProviderName_s == "A2A"   
@@ -298,11 +298,11 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-Ange **tröskelvärdet** till 20 för aviseringen.
+För aviseringen anger du **Tröskelvärdet** till 20.
 
-### <a name="single-machine-exceeds-rpo"></a>En enskild dator överskrider återställnings punkt
+### <a name="single-machine-exceeds-rpo"></a>En maskin överskrider RPO
 
-Konfigurera en avisering om återställningen för en enskild virtuell Azure-dator överskrider 30 minuter.
+Ställ in en avisering om RPO för en enda Azure VM överstiger 30 minuter.
 
 ```
 AzureDiagnostics   
@@ -314,11 +314,11 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-Ange **tröskelvärdet** till 1 för aviseringen.
+För aviseringen anger du **Tröskelvärdet** till 1.
 
-### <a name="test-failover-for-multiple-machines-exceeds-90-days"></a>Redundanstest för flera datorer överskrider 90 dagar
+### <a name="test-failover-for-multiple-machines-exceeds-90-days"></a>Test redundans för flera datorer överstiger 90 dagar
 
-Ställ in en avisering om det senaste lyckade redundanstestning var mer än 90 dagar, för fler än 20 virtuella datorer. 
+Ställ in en avisering om den senaste lyckade testundansen var mer än 90 dagar, för mer än 20 virtuella datorer. 
 
 ```
 AzureDiagnostics  
@@ -329,11 +329,11 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-Ange **tröskelvärdet** till 20 för aviseringen.
+För aviseringen anger du **Tröskelvärdet** till 20.
 
-### <a name="test-failover-for-single-machine-exceeds-90-days"></a>Redundanstest för en enskild dator överskrider 90 dagar
+### <a name="test-failover-for-single-machine-exceeds-90-days"></a>Test redundans för en maskin överstiger 90 dagar
 
-Ställ in en avisering om det senaste lyckade redundanstest för en angiven virtuell dator var mer än 90 dagar sedan.
+Ställ in en avisering om den senaste lyckade testundansen för en viss virtuell dator var mer än 90 dagar sedan.
 ```
 AzureDiagnostics  
 | where replicationProviderName_s == "A2A"   
@@ -344,11 +344,11 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-Ange **tröskelvärdet** till 1 för aviseringen.
+För aviseringen anger du **Tröskelvärdet** till 1.
 
-### <a name="site-recovery-job-fails"></a>Site Recovery jobbet Miss lyckas
+### <a name="site-recovery-job-fails"></a>Jobbet för återställning av webbplats misslyckas
 
-Konfigurera en avisering om ett Site Recovery jobb (i det här fallet återskydds jobb) Miss lyckas för ett Site Recovery scenario under den senaste dagen. 
+Ställ in en avisering om ett site recovery-jobb (i det här fallet jobbet För reprotect) misslyckas för alla scenarion för återställning av webbplatser under den sista dagen. 
 ```
 AzureDiagnostics   
 | where Category == "AzureSiteRecoveryJobs"   
@@ -357,8 +357,8 @@ AzureDiagnostics  
 | summarize count()  
 ```
 
-För aviseringen anger du **tröskelvärdet** till 1 och **period** till 1440 minuter för att kontrol lera felen under den senaste dagen.
+För aviseringen anger du **Tröskelvärdet** till 1 och **Period** till 1440 minuter för att kontrollera fel under den sista dagen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om](site-recovery-monitor-and-troubleshoot.md) inbyggd Site Recovery övervakning.
+[Läs mer om](site-recovery-monitor-and-troubleshoot.md) inbyggd övervakning av webbplatsåterställning.

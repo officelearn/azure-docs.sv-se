@@ -1,6 +1,6 @@
 ---
-title: Problem med att logga in till en lokal app med Azure AD App proxy | Microsoft Docs
-description: Felsöka vanliga problem som är riktade mot att du inte kan logga in på ett lokalt program som är integrerat med Azure AD med hjälp av Azure-AD-programproxy
+title: Problem med att logga in på lokal app med Azure AD-appproxy | Microsoft-dokument
+description: Felsöka vanliga problem när du inte kan logga in på ett lokalt program integrerat med Azure AD med hjälp av Azure AD-programproxy
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,13 +16,13 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 91a00e243032fd9702e8b549c75363f1a3e1c87f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74232331"
 ---
-# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problem med att logga in till ett lokalt program med Azure AD-programproxyn
+# <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problem med att logga in på ett lokalt program med Azure AD-programproxyn
 
 Om du har problem med att logga in i ett lokalt program kan du prova att följa stegen nedan för att lösa problemet.
 
@@ -56,7 +56,7 @@ Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste prob
 
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>Det har uppstått ett problem med att anslutningsprogrammet för programproxyagenten
   Följande dokument kan kanske hjälpa dig att lösa några av de vanligaste problemen i den här kategorin.
-  * [Jag har problem med att installera anslutningsprogrammet för programproxyagenten](application-proxy-connector-installation-problem.md)
+  * [Jag har problem med att installera Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
 
 ## <a name="next-steps"></a>Nästa steg
 [Ge säker fjärråtkomst till lokala program](application-proxy.md)

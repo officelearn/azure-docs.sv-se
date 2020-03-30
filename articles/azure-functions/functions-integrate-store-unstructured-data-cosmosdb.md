@@ -1,14 +1,14 @@
 ---
-title: Lagra ostrukturerade data med hjälp av Azure Cosmos DB och funktioner
+title: Lagra ostrukturerade data med Azure Cosmos DB och funktioner
 description: Lagra ostrukturerade data i Azure Cosmos-databasen med hjälp av funktioner
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc
 ms.openlocfilehash: bae5e82bfe9091c2b2003b4f1735f51e3d37222d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "74230552"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Lagra ostrukturerade data i Azure Functions och Azure Cosmos DB
@@ -65,7 +65,7 @@ Du måste ha ett Azure Cosmos DB-konto som använder SQL API innan du skapar utd
 
 Ersätt den befintliga funktionskoden med följande kod, på ditt valda språk:
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Ersätt den befintliga C#-funktionen med följande kod:
 
@@ -102,7 +102,7 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 Ersätt den befintliga JavaScript-funktionen med följande kod:
 

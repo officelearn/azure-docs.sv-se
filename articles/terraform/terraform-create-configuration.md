@@ -1,39 +1,39 @@
 ---
-title: Snabb start – skapa en terraform-konfiguration för Azure
+title: Snabbstart - Skapa en Terraform-konfiguration för Azure
 description: Kom igång med Terraform på Azure genom att distribuera en Azure Cosmos DB och Azure Container Instances.
 ms.topic: quickstart
 ms.date: 10/26/2019
 ms.openlocfilehash: 92f66fcfeac69b66eb8cdb0dc58b7a3171d45e10
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77470029"
 ---
-# <a name="quickstart-create-a-terraform-configuration-for-azure"></a>Snabb start: skapa en terraform-konfiguration för Azure
+# <a name="quickstart-create-a-terraform-configuration-for-azure"></a>Snabbstart: Skapa en Terraform-konfiguration för Azure
 
-I den här snabb starten skapar du Azure-resurser med hjälp av terraform. Stegen i den här artikeln beskriver hur du skapar följande resurser:
+I den här snabbstarten skapar du Azure-resurser med Terraform. Stegen i den här artikeln går igenom att skapa följande resurser:
 
 > [!div class="checklist"]
-> * Azure Cosmos DB instans
+> * Azure Cosmos DB-instans
 > * Azure Container-instans
-> * App som fungerar över de här två resurserna
+> * App som fungerar över dessa två resurser
 
 ## <a name="create-first-configuration"></a>Skapa den första konfigurationen
 
 I det här avsnittet skapar du konfigurationen för en Azure Cosmos DB-instans.
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Öppna Azure Cloud Shell.
 
-1. Starta Cloud Shell redigeraren:
+1. Starta Cloud Shell-redigeraren:
 
     ```bash
     code main.tf
     ```
 
-1. Konfigurationen i det här steget modellerar ett par Azure-resurser. Dessa resurser innehåller en Azure-resurs grupp och en Azure Cosmos DB instans. Ett slumpmässigt heltal används för att skapa ett unikt Cosmos DB instans namn. Dessutom konfigureras flera Cosmos DB-inställningar. Mer information finns i referens för [Cosmos DB terraform](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html). Kopiera och klistra in följande terraform-konfiguration i redigeraren:
+1. Konfigurationen i det här steget modellerar ett par Azure-resurser. Dessa resurser inkluderar en Azure-resursgrupp och en Azure Cosmos DB-instans. Ett slumpmässigt heltal används för att skapa ett unikt Cosmos DB-förekomstnamn. Dessutom konfigureras flera Cosmos DB-inställningar. Mer information finns i [cosmos DB Terraform-referensen](https://www.terraform.io/docs/providers/azurerm/r/cosmosdb_account.html). Kopiera och klistra in följande Terraform-konfiguration i redigeraren:
 
     ```hcl
     resource "azurerm_resource_group" "vote-resource-group" {
@@ -66,11 +66,11 @@ I det här avsnittet skapar du konfigurationen för en Azure Cosmos DB-instans.
     }
     ```
 
-1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
+1. Spara filen (**&lt;Ctrl>S**) och avsluta redigeraren (**&lt;Ctrl>Q**).
 
 ## <a name="run-the-configuration"></a>Kör konfigurationen
 
-I det här avsnittet använder du flera terraform-kommandon för att köra konfigurationen.
+I det här avsnittet använder du flera Terraform-kommandon för att köra konfigurationen.
 
 1. Kommandot [terraform init](https://www.terraform.io/docs/commands/init.html) initierar arbetskatalogen. Kör följande kommando i Cloud Shell:
 
@@ -78,31 +78,31 @@ I det här avsnittet använder du flera terraform-kommandon för att köra konfi
     terraform init
     ```
 
-1. [Terraform plan](https://www.terraform.io/docs/commands/plan.html) -kommandot kan användas för att validera konfigurationens syntax. Parametern `-out` dirigerar resultaten till en fil. Utdatafilen kan användas senare för att tillämpa konfigurationen. Kör följande kommando i Cloud Shell:
+1. Kommandot [terraform plan](https://www.terraform.io/docs/commands/plan.html) kan användas för att validera konfigurationssyntaxen. Parametern `-out` dirigerar resultaten till en fil. Utdatafilen kan användas senare för att tillämpa konfigurationen. Kör följande kommando i Cloud Shell:
 
     ```bash
     terraform plan --out plan.out
     ```
 
-1. Kommandot [terraform Apply](https://www.terraform.io/docs/commands/apply.html) används för att tillämpa konfigurationen. Utdatafilen från föregående steg har angetts. Det här kommandot gör att Azure-resurserna skapas. Kör följande kommando i Cloud Shell:
+1. Kommandot [terraform apply](https://www.terraform.io/docs/commands/apply.html) används för att tillämpa konfigurationen. Utdatafilen från föregående steg har angetts. Det här kommandot gör att Azure-resurserna skapas. Kör följande kommando i Cloud Shell:
 
     ```bash
     terraform apply plan.out
     ```
 
-1. Om du vill verifiera resultatet i Azure Portal bläddrar du till den nya resurs gruppen. Den nya Azure Cosmos DB-instansen finns i den nya resurs gruppen.
+1. Om du vill verifiera resultaten i Azure-portalen bläddrar du till den nya resursgruppen. Den nya Azure Cosmos DB-instansen finns i den nya resursgruppen.
 
 ## <a name="update-configuration"></a>Uppdatera konfiguration
 
-I det här avsnittet visas hur du uppdaterar konfigurationen för att inkludera en Azure Container instance. Containern kör ett program som läser och skriver data till Cosmos DB.
+Det här avsnittet visar hur du uppdaterar konfigurationen så att den innehåller en Azure Container Instance. Containern kör ett program som läser och skriver data till Cosmos DB.
 
-1. Starta Cloud Shell redigeraren:
+1. Starta Cloud Shell-redigeraren:
 
     ```bash
     code main.tf
     ```
 
-1. Konfigurationen i det här steget anger två miljövariabler: `COSMOS_DB_ENDPOINT` och `COSMOS_DB_MASTERKEY`. Dessa variabler innehåller platsen och nyckeln för åtkomst till databasen. Värdena för dessa variabler hämtas från databas instansen som skapades i föregående steg. Den här processen kallas interpolering. Läs mer om Terraform-interpolering i [interpoleringssyntax](https://www.terraform.io/docs/configuration/interpolation.html). Konfigurationen innehåller även ett utdatablock som returnerar det fullständiga domännamnet (FQDN) för containerinstansen. Kopiera och klistra in följande kod i redigeraren:
+1. Konfigurationen i det här steget `COSMOS_DB_ENDPOINT` anger `COSMOS_DB_MASTERKEY`två miljövariabler: och . Dessa variabler innehåller platsen och nyckeln för åtkomst till databasen. Värdena för dessa variabler hämtas från databasinstansen som skapades i föregående steg. Den här processen kallas interpolering. Läs mer om Terraform-interpolering i [interpoleringssyntax](https://www.terraform.io/docs/configuration/interpolation.html). Konfigurationen innehåller även ett utdatablock som returnerar det fullständiga domännamnet (FQDN) för containerinstansen. Kopiera och klistra in följande kod i redigeraren:
 
     ```hcl
     resource "azurerm_container_group" "vote-aci" {
@@ -138,33 +138,33 @@ I det här avsnittet visas hur du uppdaterar konfigurationen för att inkludera 
     }
     ```
 
-1. Spara filen ( **&lt;Ctrl > S**) och avsluta redigeraren ( **&lt;Ctrl > Q**).
+1. Spara filen (**&lt;Ctrl>S**) och avsluta redigeraren (**&lt;Ctrl>Q**).
 
-1. Som du gjorde i föregående avsnitt kör du följande kommando för att visualisera de ändringar som ska göras:
+1. Som du gjorde i föregående avsnitt kör du följande kommando för att visuella de ändringar som ska göras:
 
     ```bash
     terraform plan --out plan.out
     ```
 
-1. Kör kommandot `terraform apply` för att tillämpa konfigurationen.
+1. Kör `terraform apply` kommandot för att tillämpa konfigurationen.
 
     ```bash
     terraform apply plan.out
     ```
 
-1. Anteckna behållar instansens FQDN.
+1. Anteckna behållarinstansen FQDN.
 
 ## <a name="test-application"></a>Testa programmet
 
-Om du vill testa programmet går du till FQDN för behållar instansen. Du bör se resultat som liknar följande utdata:
+Testa programmet genom att navigera till FQDN för behållarinstansen. Du bör se resultat som liknar följande utdata:
 
 ![Azure Vote-program](media/terraform-quickstart/azure-vote.jpg)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort de resurser som skapats i den här artikeln när de inte längre behövs.
+När det inte längre behövs tar du bort de resurser som skapas i den här artikeln.
 
-Kör kommandot [terraform förstör](https://www.terraform.io/docs/commands/destroy.html) för att ta bort de Azure-resurser som skapats i den här självstudien:
+Kör kommandot [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) för att ta bort De Azure-resurser som skapas i den här självstudien:
 
 ```bash
 terraform destroy -auto-approve
@@ -173,4 +173,4 @@ terraform destroy -auto-approve
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Installera och konfigurera terraform för att etablera Azure-resurser](terraform-install-configure.md).
+> [Installera och konfigurera Terraform för att etablera Azure-resurser](terraform-install-configure.md).

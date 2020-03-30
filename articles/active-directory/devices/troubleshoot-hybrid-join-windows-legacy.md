@@ -1,6 +1,6 @@
 ---
-title: Felsöka äldre hybrid Azure Active Directory anslutna enheter
-description: Felsöka hybrid Azure Active Directory anslutna enheter på äldre nivå.
+title: Felsöka äldre Azure Active Directory-anslutna hybridenheter
+description: Felsöka hybrid-Azure Active Directory-anslutna enheter på lägre nivå.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -12,15 +12,15 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e168deea1ba442d48f483264c1e97ce618040f18
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74379106"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid-Azure Active Directory-anslutna enheter på lägre nivå 
 
-Den här artikeln gäller endast för följande enheter: 
+Den här artikeln gäller endast följande enheter: 
 
 - Windows 7 
 - Windows 8.1 
@@ -28,81 +28,81 @@ Den här artikeln gäller endast för följande enheter:
 - Windows Server 2012 
 - Windows Server 2012 R2 
 
-För Windows 10 eller Windows Server 2016, se [Felsöka hybrid Azure Active Directory anslutna Windows 10-och Windows server 2016-enheter](troubleshoot-hybrid-join-windows-current.md).
+För Windows 10 eller Windows Server 2016 finns i [Felsöka hybrid-Azure Active Directory-anslutna enheter till Windows 10 och Windows Server 2016](troubleshoot-hybrid-join-windows-current.md).
 
-I den här artikeln förutsätter vi att du har [konfigurerat hybrid Azure Active Directory anslutna enheter](hybrid-azuread-join-plan.md) som stöd för följande scenarier:
+Den här artikeln förutsätter att du har [konfigurerat hybrid Azure Active Directory-anslutna enheter](hybrid-azuread-join-plan.md) för att stödja följande scenarier:
 
-- Enhets-baserad villkorlig åtkomst
+- Enhetsbaserad villkorlig åtkomst
 
-Den här artikeln innehåller fel söknings vägledning för hur du löser eventuella problem.  
+Den här artikeln innehåller felsökningsvägledning om hur du löser potentiella problem.  
 
-**Vad du bör känna till:** 
+**Vad du bör veta:** 
 
-- Hybrid Azure AD-anslutning för tidigare Windows-enheter fungerar något annorlunda än i Windows 10. Många kunder inser inte att de behöver AD FS (för federerade domäner) eller sömlös SSO-konfiguration (för hanterade domäner).
-- För kunder med federerade domäner, om tjänst anslutnings punkten (SCP) har kon figurer ATS så att den pekar på det hanterade domän namnet (till exempel contoso.onmicrosoft.com, i stället för contoso.com), kommer hybrid Azure AD Join för tidigare Windows-enheter att fungerar inte.
-- Det maximala antalet enheter per användare gäller för närvarande även för tidigare hybrid Azure AD-anslutna enheter. 
-- Samma fysiska enhet visas flera gånger i Azure AD när flera domän användare loggar in i tidigare hybrid Azure AD-anslutna enheter.  Om t. ex. *jdoe* och *jharnett* loggar in på en enhet, skapas en separat registrering (DeviceID) för var och en av dem på fliken **användar** information. 
-- Du kan också hämta flera poster för en enhet på fliken Användar information på grund av en ominstallation av operativ systemet eller manuell omregistrering.
-- Inledande registrering/anslutning av enheter är konfigurerad för att utföra ett försök antingen på inloggning eller lås/Lås upp. Det kan finnas 5 minuters fördröjning som utlöses av en aktivitet i Schemaläggaren. 
-- Kontrol lera att [KB4284842](https://support.microsoft.com/help/4284842) har installerats, om det är Windows 7 SP1 eller windows Server 2008 R2 SP1. Den här uppdateringen förhindrar framtida autentiseringsfel på grund av kundens åtkomst förlust till skyddade nycklar när lösen ordet har ändrats.
+- Hybrid Azure AD-koppling för Windows-enheter på lägre nivå fungerar något annorlunda än i Windows 10. Många kunder inser inte att de behöver AD FS (för federerade domäner) eller Seamless SSO konfigurerad (för hanterade domäner).
+- För kunder med federerade domäner, om SERVICE Connection Point (SCP) har konfigurerats så att den pekar på det hanterade domännamnet (till exempel contoso.onmicrosoft.com, i stället för contoso.com), kommer Hybrid Azure AD Join för Windows-enheter på nednivå att inte fungerar.
+- Det maximala antalet enheter per användare gäller för närvarande även för azure AD-anslutna enheter på nednivånivå. 
+- Samma fysiska enhet visas flera gånger i Azure AD när flera domänanvändare loggar in på lågnivåhybriden Azure AD-anslutna enheter.  Om till exempel *jdoe* och *jharnett* loggar in på en enhet skapas en separat registrering (DeviceID) för var och en av dem på fliken **ANVÄNDARinformation.** 
+- Du kan också hämta flera poster för en enhet på fliken Användarinformation på grund av en ominstallation av operativsystemet eller en manuell omregistrering.
+- Den första registreringen / kopplingen av enheter är konfigurerad för att utföra ett försök till antingen inloggning eller lås / låsa upp. Det kan vara 5 minuters fördröjning som utlöses av en aktivitetsschemaläggare-aktivitet. 
+- Kontrollera att [KB4284842](https://support.microsoft.com/help/4284842) är installerat, när det gäller Windows 7 SP1 eller Windows Server 2008 R2 SP1. Den här uppdateringen förhindrar framtida autentiseringsfel på grund av kundens åtkomstförlust till skyddade nycklar efter att lösenord har ändrats.
 
-## <a name="step-1-retrieve-the-registration-status"></a>Steg 1: Hämta registrerings status 
+## <a name="step-1-retrieve-the-registration-status"></a>Steg 1: Hämta registreringsstatus 
 
-**Så här kontrollerar du registrerings statusen:**  
+**Så här verifierar du registreringsstatusen:**  
 
-1. Logga in med det användar konto som har genomfört en hybrid Azure AD-anslutning.
-1. Öppna kommando tolken 
+1. Logga in med användarkontot som har utfört en hybrid Azure AD-koppling.
+1. Öppna kommandotolken 
 1. Skriv `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`
 
-Det här kommandot visar en dialog ruta som innehåller information om anslutnings status.
+Det här kommandot visar en dialogruta som ger dig information om kopplingsstatusen.
 
-![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
+![Arbetsplatsanslutning för Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
-## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Steg 2: utvärdera status för Hybrid Azure AD-anslutning 
+## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Steg 2: Utvärdera hybridstatusen för Azure AD-anslutning 
 
-Om enheten inte var hybrid Azure AD-ansluten kan du försöka göra en hybrid Azure AD-anslutning genom att klicka på knappen Anslut. Om försöket att göra en hybrid Azure AD-anslutning Miss lyckas visas information om fel meddelandet.
+Om enheten inte var hybrid Azure AD gick, kan du försöka göra hybrid Azure AD-koppling genom att klicka på "Gå med"-knappen. Om försöket att göra hybrid Azure AD-koppling misslyckas visas information om felet.
 
 **De vanligaste problemen är:**
 
-- Ett felkonfigurerat AD FS-eller Azure AD-eller nätverks problem
+- Ett felkonfigurerat AD FS- eller Azure AD- eller nätverksproblem
 
-    ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    ![Arbetsplatsanslutning för Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
-   - Det går inte att tyst autentisera den med automatisk arbets plats. exe med Azure AD eller AD FS. Detta kan orsakas av saknade eller felkonfigurerade AD FS (för federerade domäner) eller saknad eller felkonfigurerad Azure AD sömlös enkel inloggning (för hanterade domäner) eller nätverks problem. 
-   - Det kan bero på att Multi-Factor Authentication (MFA) är aktiverat/konfigurerat för användaren och WIAORMULTIAUTHN inte har kon figurer ATS på den AD FS servern. 
-   - En annan möjlighet är att sidan för identifiering av start sfär (HRD) väntar på användar interaktion, vilket förhindrar att automatisk installation av **arbets plats. exe** blockerar en token.
-   - Det kan bero på att AD FS och Azure AD-URL: er saknas i Internet Explorers intranäts zon på klienten.
-   - Problem med nätverks anslutningen kan förhindra att **autoarbetsplats. exe** når AD FS eller Azure AD-URL: er. 
-   - För automatisk **arbets plats. exe** krävs att klienten har direkt insikter från klienten till organisationens lokala AD-domänkontrollant, vilket innebär att hybrid Azure AD Join bara lyckas när klienten är ansluten till organisationens intranät.
-   - Din organisation använder Azure AD sömlös enkel inloggning, `https://autologon.microsoftazuread-sso.com` eller `https://aadg.windows.net.nsatc.net` finns inte på enhetens intranäts inställningar i Internet Explorer och tillåter att **uppdateringar av statusfältet via skript** inte har Aktiver ATS för zonen Intranät.
-- Du är inte inloggad som domän användare
+   - Autoworkplace.exe kan inte tyst autentisera med Azure AD eller AD FS. Detta kan bero på att ad FS (för federerade domäner saknas) eller saknas eller konfigureras felaktigt azure AD Seamless Single Sign-On (för hanterade domäner) eller nätverksproblem. 
+   - Det kan vara så att MFA (Multi Factor Authentication) är aktiverat/konfigurerat för användaren och WIAORMULTIAUTHN inte har konfigurerats på AD FS-servern. 
+   - En annan möjlighet är att HRD-sidan (Home Realm Discovery) väntar på användarinteraktion, vilket förhindrar **att autoworkplace.exe** tyst begär en token.
+   - Det kan vara så att AD FS- och Azure AD-url:er saknas i IE:s intranätzon på klienten.
+   - Problem med nätverksanslutningen kan hindra **autoworkplace.exe** från att nå AD FS- eller Azure AD-url:er. 
+   - **Autoworkplace.exe** kräver att klienten har direkt siktlinje från klienten till organisationens lokala AD-domänkontrollant, vilket innebär att hybrid Azure AD-koppling endast lyckas när klienten är ansluten till organisationens intranät.
+   - Din organisation använder Azure AD Seamless `https://autologon.microsoftazuread-sso.com` `https://aadg.windows.net.nsatc.net` Single Sign-On, eller finns inte på enhetens IE intranätinställningar, och **Tillåt uppdateringar av statusfältet via skript** är inte aktiverat för zonen Intranät.
+- Du är inte inloggad som domänanvändare
 
-   ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
+   ![Arbetsplatsanslutning för Windows](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
 
    Det finns några olika orsaker till varför detta kan inträffa:
 
-   - Den inloggade användaren är inte en domän användare (till exempel en lokal användare). Hybrid Azure AD-anslutning på lågnivå enheter stöds bara för domän användare.
+   - Den inloggade användaren är inte en domänanvändare (till exempel en lokal användare). Hybrid Azure AD-koppling på enheter på nednivå stöds endast för domänanvändare.
    - Klienten kan inte ansluta till en domänkontrollant.    
-- En kvot har nåtts
+- En kvot har uppnåtts
 
-    ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
+    ![Arbetsplatsanslutning för Windows](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
 
 - Tjänsten svarar inte 
 
-    ![Workplace Join för Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
+    ![Arbetsplatsanslutning för Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-Du kan också hitta statusinformation i händelse loggen under: **program och tjänster Log\Microsoft-Workplace Join**
+Du hittar också statusinformationen i händelseloggen under: **Program- och tjänstlogg\Microsoft-Arbetsplatsanslutning**
   
-**De vanligaste orsakerna till en misslyckad hybrid Azure AD-anslutning är:** 
+**De vanligaste orsakerna till en misslyckad Azure AD-hybridkoppling är:** 
 
-- Datorn är inte ansluten till din organisations interna nätverk eller till ett VPN med en anslutning till din lokala AD-domänkontrollant.
-- Du är inloggad på datorn med ett lokalt dator konto. 
-- Tjänst konfigurations problem: 
-   - AD FS-servern har inte kon figurer ATS för att stödja **WIAORMULTIAUTHN**. 
-   - Datorns skog har inget objekt för tjänst anslutnings punkt som pekar på ditt verifierade domän namn i Azure AD 
-   - Eller om din domän hanteras, har sömlöst SSO inte kon figurer ATS eller fungerar.
+- Datorn är inte ansluten till organisationens interna nätverk eller till ett VPN med en anslutning till din lokala AD-domänkontrollant.
+- Du är inloggad på datorn med ett lokalt datorkonto. 
+- Problem med tjänstens konfiguration: 
+   - AD FS-servern har inte konfigurerats för att stödja **WIAORMULTIAUTHN**. 
+   - Datorns skog har inget Service Connection Point-objekt som pekar på ditt verifierade domännamn i Azure AD 
+   - Eller om din domän hanteras, då Seamless SSO inte konfigurerades eller fungerar.
    - En användare har nått gränsen för enheter. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Frågor finns i [vanliga frågor och svar om enhets hantering](faq.md)  
+Frågor om enhetshantering finns i vanliga frågor om [enhetshantering](faq.md)  

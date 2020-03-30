@@ -1,72 +1,72 @@
 ---
-title: Distribution utan drift avbrott för Durable Functions
-description: Lär dig hur du aktiverar Durable Functions-dirigering för distributioner utan drift avbrott.
+title: Zero-stilltime-distribution för varaktiga funktioner
+description: Lär dig hur du aktiverar orchestrationen varaktiga funktioner för zero-downtime-distributioner.
 author: tsushi
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74231260"
 ---
-# <a name="zero-downtime-deployment-for-durable-functions"></a>Distribution utan drift avbrott för Durable Functions
+# <a name="zero-downtime-deployment-for-durable-functions"></a>Zero-stilltime-distribution för varaktiga funktioner
 
-Den [tillförlitliga körnings modellen](durable-functions-checkpointing-and-replay.md) för Durable Functions kräver att dirigeringar är deterministiska, vilket skapar en ytterligare utmaning att tänka på när du distribuerar uppdateringar. När en distribution innehåller ändringar i aktivitets funktionens signaturer eller Orchestrator-logik, går det inte att utföra Dirigerings instanser i flygning. Den här situationen är särskilt ett problem för instanser av långvariga dirigeringar som kan representera timmar eller arbets dagar.
+Den [tillförlitliga körningsmodellen](durable-functions-checkpointing-and-replay.md) för varaktiga funktioner kräver att orkestreringar är deterministiska, vilket skapar ytterligare en utmaning att tänka på när du distribuerar uppdateringar. När en distribution innehåller ändringar i aktivitetsfunktionssignaturer eller orchestratorlogik misslyckas orchestration-instanser under flygning. Denna situation är särskilt ett problem för fall av långvariga orkestreringar, som kan representera timmar eller dagar av arbete.
 
-För att förhindra att de här felen inträffar har du två alternativ: 
-- Fördröj distributionen tills alla pågående Dirigerings instanser har slutförts.
-- Se till att alla pågående Orchestration-instanser använder befintliga versioner av dina funktioner. 
+För att förhindra att dessa fel inträffar har du två alternativ: 
+- Fördröja distributionen tills alla gående orchestration-instanser har slutförts.
+- Kontrollera att alla orchestration-instanser som körs använder befintliga versioner av dina funktioner. 
 
 > [!NOTE]
-> Den här artikeln innehåller rikt linjer för functions-appar som är riktade till Durable Functions 1. x. Den har inte uppdaterats till att redovisa ändringar som gjorts i Durable Functions 2. x. Mer information om skillnaderna mellan tilläggs versioner finns i [Durable Functions versioner](durable-functions-versions.md).
+> Den här artikeln innehåller vägledning för funktionsappar som är inriktade på varaktiga funktioner 1.x. Det har inte uppdaterats för att ta hänsyn till ändringar som införts i Varaktiga funktioner 2.x. Mer information om skillnaderna mellan tilläggsversioner finns i [versioner av varaktiga funktioner](durable-functions-versions.md).
 
-Följande diagram jämför de tre huvud strategierna för att uppnå en distribution utan avbrott för Durable Functions: 
+I följande diagram jämförs de tre huvudstrategierna för att uppnå noll driftstopp för varaktiga funktioner: 
 
-| Strategi |  När du ska använda detta | Experter | Nackdelar |
+| Strategi |  När du ska använda detta | Fördelar | Nackdelar |
 | -------- | ------------ | ---- | ---- |
-| [Versions hantering](#versioning) |  Program som inte upplever frekventa [ändringar.](durable-functions-versioning.md) | Enkelt att implementera. |  Ökad funktions program storlek i minnet och antalet funktioner.<br/>Kod duplicering. |
-| [Status kontroll med plats](#status-check-with-slot) | Ett system som inte har långvariga dirigeringar som varar mer än 24 timmar eller ofta överlappande dirigeringar. | Enkel kodbas.<br/>Kräver inte ytterligare hantering av funktions program. | Kräver ytterligare lagrings konto eller aktivitets NAVs hantering.<br/>Kräver tids perioder då inga dirigeringar körs. |
-| [Program dirigering](#application-routing) | Ett system som inte har några tids perioder när Orchestration inte körs, till exempel de tids perioder med samordningar som senast 24 timmar eller med ofta överlappande samordning. | Hanterar nya versioner av system med kontinuerlig körning av dirigeringar som har avbrutit ändringar. | Kräver en intelligent programrouter.<br/>Det gick inte att maximera antalet funktions program som tillåts av din prenumeration. Standardvärdet är 100. |
+| [Versionshantering](#versioning) |  Program som inte ofta [bryter ändringar.](durable-functions-versioning.md) | Enkelt att implementera. |  Ökad funktion app storlek i minne och antal funktioner.<br/>Koddubblering. |
+| [Statuskontroll med kortplats](#status-check-with-slot) | Ett system som inte har långvariga orkestreringar som varar mer än 24 timmar eller ofta överlappande orkestreringar. | Enkel kodbas.<br/>Kräver inte ytterligare funktionsapphantering. | Kräver ytterligare lagringskonto eller uppgiftsnavhantering.<br/>Kräver tidsperioder när inga orkestreringar körs. |
+| [Programdirigering](#application-routing) | Ett system som inte har tidsperioder när orkestreringar inte körs, till exempel de tidsperioder med orkestreringar som varar mer än 24 timmar eller med ofta överlappande orkestreringar. | Hanterar nya versioner av system med kontinuerligt löpande orkestreringar som har brytande ändringar. | Kräver en intelligent programrouter.<br/>Kan maxa antalet funktionsappar som tillåts av din prenumeration. Standardvärdet är 100. |
 
 ## <a name="versioning"></a>Versionshantering
 
-Definiera nya versioner av funktionerna och lämna de gamla versionerna i din Function-app. Som du kan se i diagrammet blir en funktions version en del av dess namn. Eftersom tidigare versioner av Functions bevaras, kan Dirigerings instanser i flyg plan fortsätta att referera till dem. Efter frågas begär Anden om nya Orchestration-instanser att anropa den senaste versionen, vilken Orchestration-klienten kan referera till från en app-inställning.
+Definiera nya versioner av dina funktioner och lämna de gamla versionerna i funktionsappen. Som du kan se i diagrammet blir en funktions version en del av namnet. Eftersom tidigare versioner av funktioner bevaras kan orchestrationinstanser under flygning fortsätta att referera till dem. Under tiden kräver begäranden om nya orchestration-instanser den senaste versionen, som din orkestreringsklientfunktion kan referera till från en appinställning.
 
-![Strategi för versions hantering](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
+![Strategi för versionshantering](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
 
-I den här strategin måste alla funktioner kopieras och dess referenser till andra funktioner måste uppdateras. Du kan göra det enklare genom att skriva ett skript. Här är ett [exempel projekt](https://github.com/TsuyoshiUshio/DurableVersioning) med ett migreringsarkiv.
+I den här strategin måste varje funktion kopieras och dess referenser till andra funktioner måste uppdateras. Du kan göra det enklare genom att skriva ett skript. Här är ett [exempelprojekt](https://github.com/TsuyoshiUshio/DurableVersioning) med ett migreringsskript.
 
 >[!NOTE]
->Den här strategin använder distributions platser för att undvika drift stopp under distributionen. Mer detaljerad information om hur du skapar och använder nya distributions platser finns i [Azure Functions distributions fack](../functions-deployment-slots.md).
+>Den här strategin använder distributionsplatser för att undvika driftstopp under distributionen. Mer detaljerad information om hur du skapar och använder nya distributionsplatser finns i [Azure Functions distributionsplatser](../functions-deployment-slots.md).
 
-## <a name="status-check-with-slot"></a>Status kontroll med plats
+## <a name="status-check-with-slot"></a>Statuskontroll med kortplats
 
-När den aktuella versionen av din Function-App körs på produktions platsen, kan du distribuera den nya versionen av din Function-app till mellanlagringsplatsen. Innan du byter ut produktions-och mellanlagringsplatserna kontrollerar du om det finns några pågående Dirigerings instanser. När alla Dirigerings instanser har slutförts kan du göra växlingen. Den här strategin fungerar när du har förutsägbara perioder när inga Dirigerings instanser är i flygning. Detta är den bästa metoden när dina dirigeringar inte är långvariga och när dina Dirigerings körningar inte ofta överlappar varandra.
+Medan den aktuella versionen av funktionsappen körs i produktionsplatsen distribuerar du den nya versionen av funktionsappen till mellanlagringsplatsen. Innan du byter produktions- och mellanlagringsplatser kontrollerar du om det finns några förekomster av orkestrering. När alla orkestreringsinstanser är slutförd kan du göra bytet. Den här strategin fungerar när du har förutsägbara perioder när inga orchestration-instanser är under flygning. Detta är den bästa metoden när dina orkestreringar inte är långvariga och när dina orkestreringskörningar inte ofta överlappar varandra.
 
-### <a name="function-app-configuration"></a>Function-app-konfiguration
+### <a name="function-app-configuration"></a>Konfiguration av funktionsapp
 
-Använd följande procedur för att konfigurera det här scenariot.
+Använd följande procedur för att ställa in det här scenariot.
 
-1. [Lägg till distributions platser](../functions-deployment-slots.md#add-a-slot) i din Function-app för mellanlagring och produktion.
+1. [Lägg till distributionsplatser](../functions-deployment-slots.md#add-a-slot) i funktionsappen för mellanlagring och produktion.
 
-1. För varje plats ställer du in [program inställningen AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) på anslutnings strängen för ett delat lagrings konto. Den här anslutnings strängen för lagrings kontot används av Azure Functions Runtime. Det här kontot används av Azure Functions Runtime och hanterar funktionens nycklar.
+1. För varje plats anger du [programinställningen AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) på anslutningssträngen för ett delat lagringskonto. Den här anslutningssträngen för lagringskonto används av Azure Functions-körningen. Det här kontot används av Azure Functions-körningen och hanterar funktionens nycklar.
 
-1. Skapa en ny app-inställning för varje plats, till exempel `DurableManagementStorage`. Ange värdet för anslutnings strängen för olika lagrings konton. Dessa lagrings konton används av Durable Functions-tillägget för [tillförlitlig körning](durable-functions-checkpointing-and-replay.md). Använd ett separat lagrings konto för varje plats. Markera inte den här inställningen som en distributions plats inställning.
+1. Skapa en ny appinställning för varje `DurableManagementStorage`plats, till exempel . Ange dess värde till anslutningssträngen för olika lagringskonton. Dessa lagringskonton används av tillägget Varaktiga funktioner för [tillförlitlig körning](durable-functions-checkpointing-and-replay.md). Använd ett separat lagringskonto för varje plats. Markera inte den här inställningen som en distributionsplatsinställning.
 
-1. Ange `azureStorageConnectionStringName` som namn på den app-inställning som du skapade i steg 3 i durableTask-avsnittet för Function-appens [Host. JSON-fil](durable-functions-bindings.md#hostjson-settings).
+1. I funktionsappens [host.json-fils durableTask-avsnitt](durable-functions-bindings.md#hostjson-settings)anger du `azureStorageConnectionStringName` som namnet på appinställningen som du skapade i steg 3.
 
-Följande diagram visar den beskrivna konfigurationen av distributions platser och lagrings konton. I det här scenariot för för distribution körs version 2 av en Function-app på produktions platsen, medan version 1 är kvar på mellanlagringsplatsen.
+Följande diagram visar den beskrivna konfigurationen av distributionsplatser och lagringskonton. I det här potentiella scenariot för fördistribution körs version 2 av en funktionsapp i produktionsplatsen, medan version 1 finns kvar i mellanlagringsplatsen.
 
-![Distributions platser och lagrings konton](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
+![Distributionsplatser och lagringskonton](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>Host. JSON-exempel
+### <a name="hostjson-examples"></a>host.json exempel
 
-Följande JSON-fragment är exempel på inställningen för anslutnings strängen i *Host. JSON* -filen.
+Följande JSON-fragment är exempel på anslutningsstränginställningen i *filen host.json.*
 
-#### <a name="functions-20"></a>Functions 2,0
+#### <a name="functions-20"></a>Funktioner 2.0
 
 ```json
 {
@@ -89,9 +89,9 @@ Följande JSON-fragment är exempel på inställningen för anslutnings stränge
 }
 ```
 
-### <a name="cicd-pipeline-configuration"></a>Konfiguration av konfiguration av CI/CD-pipeline
+### <a name="cicd-pipeline-configuration"></a>Konfiguration av CI/CD-pipeline
 
-Konfigurera din CI/CD-pipeline så att den bara distribueras när Function-appen inte har några väntande eller pågående Dirigerings instanser. När du använder Azure-pipeliner kan du skapa en funktion som söker efter dessa villkor, som i följande exempel:
+Konfigurera CI/CD-pipelinen så att den bara distribueras när funktionsappen inte har några väntande eller körande orkestreringsinstanser. När du använder Azure Pipelines kan du skapa en funktion som söker efter dessa villkor, som i följande exempel:
 
 ```csharp
 [FunctionName("StatusCheck")]
@@ -110,68 +110,68 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-Konfigurera sedan mellanlagrings porten så att den väntar tills inga dirigeringar körs. Mer information finns i avsnittet om [distribution av distributions kontroll med hjälp av portar](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
+Konfigurera sedan mellanlagringsporten så att den väntar tills inga orkestreringar körs. Mer information finns i [Frigöra distributionskontroll med grindar](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
 
-![Distributions grind](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
+![Distributionsport](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 
-Azure-pipeline kontrollerar din app för att köra Orchestration-instanser innan distributionen startar.
+Azure Pipelines kontrollerar din funktionsapp för att köra orchestration-instanser innan distributionen startar.
 
-![Distributions grind (körs)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
+![Utplaceringsgrind (löpning)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
 
-Nu bör den nya versionen av din Function-app distribueras till mellanlagringsplatsen.
+Nu ska den nya versionen av funktionsappen distribueras till mellanlagringsplatsen.
 
 ![Mellanlagringsplats](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
 
-Slutligen kan du växla fack. 
+Slutligen, swap slots. 
 
-Program inställningar som inte har marker ATS som distributions plats inställningar växlas också, så version 2-appen behåller sin referens till lagrings konto A. Eftersom Dirigerings status spåras i lagrings kontot fortsätter alla dirigeringar som körs på version 2-appen att köras på den nya platsen utan avbrott.
+Programinställningar som inte är markerade som inställningar för distributionsplats byts också, så version 2-appen behåller sin referens till lagringskonto A. Eftersom orkestreringstillstånd spåras i lagringskontot fortsätter alla orkestreringar som körs i version 2-appen att köras i den nya platsen utan avbrott.
 
 ![Distributionsplats](media/durable-functions-zero-downtime-deployment/deployment-slot-3.png)
 
-Om du vill använda samma lagrings konto för båda platserna kan du ändra namnen på dina aktivitets nav. I så fall måste du hantera statusen för dina platser och appens HubName-inställningar. Mer information finns [i aktivitets nav i Durable Functions](durable-functions-task-hubs.md).
+Om du vill använda samma lagringskonto för båda facken kan du ändra namnen på aktivitetshubbar. I det här fallet måste du hantera läget för dina kortplatser och appens HubName-inställningar. Mer information finns [i Aktivitetshubbar i varaktiga funktioner](durable-functions-task-hubs.md).
 
-## <a name="application-routing"></a>Program dirigering
+## <a name="application-routing"></a>Programdirigering
 
-Den här strategin är den mest komplexa. Det kan dock användas för Function-appar som inte har tid mellan att köra dirigeringar.
+Denna strategi är den mest komplexa. Den kan dock användas för funktionsappar som inte har tid mellan att köra orkestreringar.
 
-För den här strategin måste du skapa en *programrouter* framför din Durable functions. Den här routern kan implementeras med Durable Functions. Routern har ansvaret för att:
+För den här strategin måste du skapa en *programrouter* framför dina varaktiga funktioner. Denna router kan implementeras med varaktiga funktioner. Routern har ansvaret för att:
 
-* Distribuera Function-appen.
-* Hantera versionen av Durable Functions. 
-* Dirigera Dirigerings begär anden till Function-appar.
+* Distribuera funktionsappen.
+* Hantera versionen av varaktiga funktioner. 
+* Dirigera orkestreringsbegäranden till funktionsappar.
 
-Första gången en Dirigerings förfrågan tas emot gör routern följande uppgifter:
+Första gången en orkestreringsbegäran tas emot utför routern följande uppgifter:
 
-1. Skapar en ny function-app i Azure.
-2. Distribuerar din Function app-kod till den nya Function-appen i Azure.
-3. Vidarebefordrar Orchestration-begäran till den nya appen.
+1. Skapar en ny funktionsapp i Azure.
+2. Distribuerar funktionsappens kod till den nya funktionsappen i Azure.
+3. Vidarebefordrar orkestreringsbegäran till den nya appen.
 
-Routern hanterar det tillstånd för vilken version av appens kod distribueras till vilken Function-app i Azure.
+Routern hanterar tillståndet för vilken version av appens kod som distribueras till vilken funktionsapp i Azure.
 
-![Programroutning (första gången)](media/durable-functions-zero-downtime-deployment/application-routing.png)
+![Programdirigering (första gången)](media/durable-functions-zero-downtime-deployment/application-routing.png)
 
-Routern dirigerar distributions-och Dirigerings förfrågningar till lämplig Function-app baserat på den version som skickas med begäran. Korrigerings versionen ignoreras.
+Routern dirigerar distributions- och orkestreringsbegäranden till lämplig funktionsapp baserat på den version som skickas med begäran. Den ignorerar patchversionen.
 
-När du distribuerar en ny version av din app utan en avbrytande ändring kan du öka korrigerings versionen. Routern distribuerar till din befintliga Function-app och skickar begär Anden för de gamla och nya versionerna av koden, som dirigeras till samma Function-app.
+När du distribuerar en ny version av appen utan att brytas kan du öka korrigeringsversionen. Routern distribueras till din befintliga funktionsapp och skickar begäranden om gamla och nya versioner av koden, som dirigeras till samma funktionsapp.
 
-![Programroutning (ingen brytande ändring)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
+![Programdirigering (ingen brytningsändring)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
 
-När du distribuerar en ny version av din app med en avbrytande ändring kan du öka den övre eller lägre versionen. Programroutern skapar sedan en ny function-app i Azure, distribuerar till den och dirigerar begär Anden för den nya versionen av din app till den. I följande diagram ska körningen av dirigering i 1.0.1-versionen av appen fortsätta att köras, men förfrågningar för 1.1.0-versionen dirigeras till den nya Function-appen.
+När du distribuerar en ny version av appen med en brytningsändring kan du öka huvud- eller delversionen. Sedan skapar programroutern en ny funktionsapp i Azure, distribuerar till den och dirigerar begäranden för den nya versionen av din app till den. I följande diagram fortsätter 1.0.1-versionen av appen att köras när orchestrations körs i 1.0.1-versionen, men begäranden om 1.1.0-versionen dirigeras till den nya funktionsappen.
 
-![Programroutning (bryta ändring)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
+![Programdirigering (brytningsändring)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
 
-Routern övervakar status för dirigeringar i 1.0.1-versionen och tar bort appar när alla dirigeringar har avslut ATS. 
+Routern övervakar status för orkestreringar på 1.0.1-versionen och tar bort appar när alla orkestreringar är klara. 
 
-### <a name="tracking-store-settings"></a>Spårar butiks inställningar
+### <a name="tracking-store-settings"></a>Spåra butiksinställningar
 
-Varje Function-app bör använda separata schemaläggnings köer, eventuellt i separata lagrings konton. Om du vill fråga alla Dirigerings instanser i alla versioner av programmet kan du dela instans-och historik tabeller i dina funktions appar. Du kan dela tabeller genom att konfigurera `trackingStoreConnectionStringName` och `trackingStoreNamePrefix` inställningarna i filen [Host. JSON-inställningar](durable-functions-bindings.md#host-json) så att alla använder samma värden.
+Varje funktionsapp bör använda separata schemaläggningsköer, eventuellt i separata lagringskonton. Om du vill fråga alla orchestrations-instanser i alla versioner av ditt program kan du dela instans- och historiktabeller över dina funktionsappar. Du kan dela tabeller genom `trackingStoreConnectionStringName` `trackingStoreNamePrefix` att konfigurera och inställningarna i filen [host.json-inställningar](durable-functions-bindings.md#host-json) så att alla använder samma värden.
 
-Mer information finns i [Hantera instanser i Durable Functions i Azure](durable-functions-instance-management.md).
+Mer information finns [i Hantera instanser i varaktiga funktioner i Azure](durable-functions-instance-management.md).
 
-![Spårar butiks inställningar](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
+![Spåra butiksinställningar](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Versions Durable Functions](durable-functions-versioning.md)
+> [Varaktiga funktioner för versionshantering](durable-functions-versioning.md)
 

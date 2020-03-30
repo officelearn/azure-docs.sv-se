@@ -9,88 +9,88 @@ ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
 ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73935891"
 ---
-**Senaste dokument uppdatering**: 12 November 2019 10:00 PST.
+**Senaste dokumentuppdatering:** 12 november 2019 10:00 PST.
 
-Utlämnande av en [ny klass av processor sårbarheter](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) som kallas spekulativ körning på sidan kanal angrepp har gjort frågor från kunder som vill ha mer klarhet.  
+Avslöjandet av en [ny klass av CPU-sårbarheter](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) som kallas spekulativa körning sidokanal attacker har resulterat i frågor från kunder som söker mer klarhet.  
 
-Microsoft har distribuerat åtgärder i alla våra moln tjänster. Den infrastruktur som kör Azure och isolerar kund arbets belastningar från varandra är skyddade. Det innebär att en potentiell angripare som använder samma infrastruktur inte kan attackera ditt program med hjälp av dessa sårbarheter.
+Microsoft har distribuerat åtgärder för alla våra molntjänster. Infrastrukturen som kör Azure och isolerar kundarbetsbelastningar från varandra är skyddad. Det innebär att en potentiell angripare som använder samma infrastruktur inte kan angripa ditt program med hjälp av dessa säkerhetsproblem.
 
-Azure använder [underhåll av minnes](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) bevaran när det är möjligt, för att minimera kund påverkan och eliminera behovet av omstarter. Azure fortsätter att använda dessa metoder när du gör systemomfattande uppdateringar av värden och skyddar våra kunder.
+Azure använder [minnesbevarande underhåll](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) när det är möjligt, för att minimera kundernas påverkan och eliminera behovet av omstarter. Azure fortsätter att använda dessa metoder när du gör systemomfattande uppdateringar till värden och skyddar våra kunder.
 
-Mer information om hur säkerheten integreras i varje aspekt av Azure finns på webbplatsen för [Azure Security Documentation](https://docs.microsoft.com/azure/security/) . 
+Mer information om hur säkerhet är integrerat i alla aspekter av Azure finns på webbplatsen [för Azure Security Documentation.](https://docs.microsoft.com/azure/security/) 
 
 > [!NOTE] 
-> Eftersom det här dokumentet först publicerades har flera varianter av denna sårbarhets klass lämnats. Microsoft fortsätter att vara mycket investering i att skydda våra kunder och tillhandahålla vägledning. Den här sidan kommer att uppdateras när vi fortsätter att publicera ytterligare korrigeringar. 
+> Sedan det här dokumentet först publicerades har flera varianter av den här sårbarhetsklassen avslöjats. Microsoft fortsätter att vara starkt investerade i att skydda våra kunder och ge vägledning. Den här sidan kommer att uppdateras när vi fortsätter att släppa ytterligare korrigeringar. 
 > 
-> Den 12 november 2019 [publicerade Intel](https://software.intel.com/security-software-guidance/insights/deep-dive-intel-transactional-synchronization-extensions-intel-tsx-asynchronous-abort) en teknisk rekommendation runt Intel® transaktionell TSX (Intel®) transaktion asynkront avbrott (TAA) som tilldelas [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135). Detta säkerhets problem påverkar Intel® Core®-processorer och Intel® Xeon®-processorer.  Microsoft Azure har släppt uppdateringar av operativ systemet och distribuerar ny mikrokod, eftersom det görs tillgängligt av Intel, genom hela vår flotta för att skydda våra kunder mot dessa nya sårbarheter.   Azure är nära att arbeta med Intel för att testa och validera den nya mikrokoden före den officiella versionen på plattformen. 
+> Den 12 november 2019 [publicerade Intel](https://software.intel.com/security-software-guidance/insights/deep-dive-intel-transactional-synchronization-extensions-intel-tsx-asynchronous-abort) en teknisk rådgivning kring Intel® Transactional Synchronization Extensions (Intel® TSX) Transaction Asynchronous Abort (TAA) sårbarhet som tilldelas [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135). Det här säkerhetsproblemet påverkar Intel® Core®-processorer och Intel® Xeon®-processorer.  Microsoft Azure har släppt uppdateringar av operativsystemet och distribuerar ny mikrokod, eftersom den görs tillgänglig av Intel, i hela vår flotta för att skydda våra kunder mot dessa nya sårbarheter.   Azure arbetar nära med Intel för att testa och validera den nya mikrokoden innan den officiella versionen på plattformen. 
 >
-> **Kunder som kör icke-betrodd kod inom den virtuella datorn** måste vidta åtgärder för att skydda mot dessa säkerhets risker genom att läsa nedan för ytterligare vägledning om alla säkerhets risker för spekulativ körning på sidan (Microsoft Advisors ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018)och [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+> **Kunder som kör otrodd kod i sin virtuella dator** måste vidta åtgärder för att skydda mot dessa sårbarheter genom att läsa nedan för ytterligare vägledning om alla spekulativa körning sidokanal sårbarheter (Microsoft Advisories ADV [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018)och [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
 >
-> Andra kunder bör utvärdera dessa sårbarheter från ett djupgående perspektiv och fundera över säkerheten och prestanda konsekvenserna av den valda konfigurationen.
+> Andra kunder bör utvärdera dessa sårbarheter ur ett försvarsingående perspektiv och överväga säkerhets- och prestandakonsekvenserna av deras valda konfiguration.
 > 
 
 
 
-## <a name="keeping-your-operating-systems-up-to-date"></a>Hålla operativ systemen aktuella
+## <a name="keeping-your-operating-systems-up-to-date"></a>Hålla operativsystemen uppdaterade
 
-Även om en OS-uppdatering inte krävs för att isolera dina program som körs på Azure från andra Azure-kunder, är det alltid en bra idé att hålla din program vara uppdaterad. De senaste säkerhets sammanslagningarna för Windows innehåller lösningar på flera säkerhets risker för spekulativ körning på sidan. På samma sätt har Linux-distributioner släppt flera uppdateringar för att åtgärda dessa sårbarheter. Här är våra rekommenderade åtgärder för att uppdatera operativ systemet:
+Även om en OS-uppdatering inte krävs för att isolera dina program som körs på Azure från andra Azure-kunder, är det alltid en bra idé att hålla din programvara uppdaterad. De senaste säkerhetssammanslagningar för Windows innehåller mildrande åtgärder för flera spekulativa körningskanals sårbarheter. På samma sätt har Linux-distributioner släppt flera uppdateringar för att åtgärda dessa sårbarheter. Här är våra rekommenderade åtgärder för att uppdatera ditt operativsystem:
 
-| Erbjudanden | Rekommenderad åtgärd  |
+| Erbjudande | Rekommenderad åtgärd  |
 |----------|---------------------|
-| Azure Cloud Services  | Aktivera [Automatisk uppdatering](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) eller se till att du kör det senaste gäst operativ systemet. |
-| Azure-Virtuella Linux-datorer | Installera uppdateringar från operativ system leverantören. Mer information finns i [Linux](#linux) senare i det här dokumentet. |
-| Azure-Virtuella Windows-datorer  | Installera den senaste säkerhets uppdateringen.
-| Andra Azure PaaS-tjänster | Det krävs ingen åtgärd för kunder som använder dessa tjänster. Azure håller automatiskt dina OS-versioner uppdaterade. |
+| Azure Cloud Services  | Aktivera [automatisk uppdatering](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) eller se till att du kör det senaste gästoperativsystemet. |
+| Virtuella Azure Linux-datorer | Installera uppdateringar från operativsystemets leverantör. Mer information finns i [Linux](#linux) senare i det här dokumentet. |
+| Virtuella Azure Windows-datorer  | Installera den senaste samlade säkerhetskontrollen.
+| Andra Azure PaaS-tjänster | Det behövs ingen åtgärd för kunder som använder dessa tjänster. Azure håller automatiskt dina OS-versioner uppdaterade. |
 
-## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Ytterligare vägledning om du kör obetrodd kod 
+## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Ytterligare vägledning om du kör kod som inte är betrodd 
 
-Kunder som tillåter ej betrodda användare att köra godtycklig kod kanske vill implementera vissa ytterligare säkerhetsfunktioner i Azure Virtual Machines eller Cloud Services. Dessa funktioner skyddar mot insamlings vektorer för inlämning som har flera sårbarheter för spekulativ körning.
+Kunder som tillåter betrodda användare att köra godtycklig kod kanske vill implementera vissa ytterligare säkerhetsfunktioner i sina Virtuella Azure-datorer eller molntjänster. Dessa funktioner skyddar mot de informationsvektorer inom processen som flera spekulativa körningssårbarheter beskriver.
 
-Exempel scenarier där ytterligare säkerhetsfunktioner rekommenderas:
+Exempel på scenarier där ytterligare säkerhetsfunktioner rekommenderas:
 
-- Du tillåter kod som du inte litar på att köras i den virtuella datorn.  
-    - Till *exempel kan en av dina kunder Ladda upp en binärfil eller ett skript som du sedan kör i ditt program*. 
-- Du låter användare som du inte litar på Logga in på den virtuella datorn med konton med låg behörighet.   
-    - *Du tillåter till exempel att en användare med låg privilegier loggar in på en av dina virtuella datorer med hjälp av fjärr skrivbord eller SSH*.  
-- Du tillåter ej betrodda användare åtkomst till virtuella datorer som implementerats via kapslad virtualisering.  
-    - *Du kan till exempel kontrol lera Hyper-V-värden, men allokera de virtuella datorerna till obetrodda användare*. 
+- Du tillåter kod som du inte litar på för att köra inuti den virtuella datorn.  
+    - *Du kan till exempel tillåta att en av dina kunder laddar upp en binär eller ett skript som du sedan kör i ditt program*. 
+- Du tillåter användare som du inte litar på att logga in på den virtuella datorn med lågbehörighetskonton.   
+    - *Du kan till exempel tillåta en användare med låg behörighet att logga in på en av dina virtuella datorer med fjärrskrivbord eller SSH*.  
+- Du tillåter ej betrodda användare åtkomst till virtuella datorer som implementeras via kapslad virtualisering.  
+    - *Du kan till exempel styra Hyper-V-värden, men allokera de virtuella datorerna till användare som inte är betrodda*. 
 
-Kunder som inte implementerar ett scenario som involverar icke-betrodd kod behöver inte aktivera dessa ytterligare säkerhetsfunktioner. 
+Kunder som inte implementerar ett scenario som involverar kod som inte är betrodd behöver inte aktivera dessa ytterligare säkerhetsfunktioner. 
 
 ## <a name="enabling-additional-security"></a>Aktivera ytterligare säkerhet 
 
-Du kan aktivera ytterligare säkerhetsfunktioner i den virtuella datorn eller moln tjänsten om du kör obetrodd kod. Kontrol lera parallellt att operativ systemet är uppdaterat för att aktivera säkerhetsfunktionerna i den virtuella datorn eller moln tjänsten
+Du kan aktivera ytterligare säkerhetsfunktioner i din virtuella dator eller molntjänst om du kör kod som inte är betrodd. Samtidigt bör du se till att operativsystemet är uppdaterat för att aktivera säkerhetsfunktioner i din virtuella dator eller molntjänst
 
 ### <a name="windows"></a>Windows 
 
-Ditt mål operativ system måste vara uppdaterat för att aktivera dessa ytterligare säkerhetsfunktioner. Även om många åtgärder för spekulativ körnings sidans kanal är aktiverade som standard, måste de ytterligare funktioner som beskrivs här vara aktiverade manuellt och kan orsaka en prestanda påverkan. 
+Ditt måloperativsystem måste vara uppdaterat för att dessa ytterligare säkerhetsfunktioner ska kunna aktiveras. Många spekulativa körningskanalbegränsningar är aktiverade som standard, men de ytterligare funktioner som beskrivs här måste aktiveras manuellt och kan orsaka prestandapåverkan. 
 
 
-**Steg 1: Inaktivera Hyper-Threading på den virtuella datorn** – kunder som kör ej betrodd kod på en virtuell dator med Hyper-Threading måste inaktivera Hyper-Threading eller flytta till en virtuell dator som inte är en Hyper-Thread. Referera till [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/windows/acu) om du vill ha en lista över virtuella datorer i Hyper-Threading (där förhållandet mellan VCPU och Core är 2:1). Om du vill kontrol lera om den virtuella datorn har aktiverat Hyper-Threading kan du läsa skriptet nedan med hjälp av kommando raden i Windows från den virtuella datorn.
+**Steg 1: Inaktivera hypertrådning på den virtuella datorn** - Kunder som kör ej betrodd kod på en virtuell dator med hypertrådar måste inaktivera hypertrådning eller flytta till en vm-storlek som inte är hypertrådad. Referera [till det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/windows/acu) för en lista över storlekar med flera trådar för virtuella datorer (där förhållandet mellan vCPU och Core är 2:1). Om du vill kontrollera om den virtuella datorn har aktiverat hypertrådning läser du skriptet nedan med kommandoraden Windows inifrån den virtuella datorn.
 
-Skriv `wmic` för att ange det interaktiva gränssnittet. Skriv sedan nedan för att visa mängden fysiska och logiska processorer på den virtuella datorn.
+Skriv `wmic` för att komma in i det interaktiva gränssnittet. Skriv sedan nedan för att visa mängden fysiska och logiska processorer på den virtuella datorn.
 
 ```console
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-Om antalet logiska processorer är större än fysiska processorer (kärnor) är Hyper-Threading aktiverat.  Om du kör en virtuell dator med Hyper-threader kan du [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) för att få Hyper-Threading inaktiverat.  När Hyper-Threading har inaktiverats **kräver support en fullständig omstart av datorn**. Se [antalet kärnor](#core-count) för att ta reda på varför ditt virtuella dator kärnor minskar.
+Om antalet logiska processorer är större än fysiska processorer (kärnor) aktiveras hypertrådning.  Om du kör en virtuell dator med flera trådar kontaktar du [Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) för att inaktivera hypertrådning.  När hyper-threading är inaktiverad, **stöd kräver en fullständig VM omstart**. Se [Core antal](#core-count) för att förstå varför din VM core antal minskade.
 
 
-**Steg 2**: parallellt med steg 1, följ instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) för att kontrol lera att skydd Aktiver ATS med [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell-modulen.
+**Steg 2:** Parallellt med steg 1 följer du instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) för att kontrollera att skydd är aktiverade med modulen [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell.
 
 > [!NOTE]
 > Om du tidigare har hämtat den här modulen måste du installera den senaste versionen.
 >
 
 
-Utdata från PowerShell-skriptet ska ha nedanstående värden för att validera aktiverade skydd mot följande sårbarheter:
+Utdata från PowerShell-skriptet bör ha nedanstående värden för att validera aktiverat skydd mot dessa säkerhetsproblem:
 
 ```
 Windows OS support for branch target injection mitigation is enabled: True
@@ -101,32 +101,32 @@ Windows OS support for MDS mitigation is enabled: True
 Windows OS support for TAA mitigation is enabled: True
 ```
 
-Om resultatet visar `MDS mitigation is enabled: False`kan du [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) för tillgängliga alternativ för minskning.
+Om utdata `MDS mitigation is enabled: False`visar kontaktar du [Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) för tillgängliga begränsningsalternativ.
 
 
 
-**Steg 3**: Aktivera stöd för virtuella KVAS-och bti-operativsystem genom att följa anvisningarna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) för att aktivera skydd med hjälp av `Session Manager` register nycklar. En omstart krävs.
+**Steg 3:** Så här aktiverar du stöd för kernel virtual address shadowing (KVAS) och BTI-stöd (Branch Target Injection) och bti-stöd (Branch Target Injection) och följer instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) för att aktivera skydd med `Session Manager` registernycklarna. En omstart krävs.
 
 
-**Steg 4**: för distributioner som använder [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 och E3): de här instruktionerna gäller i den virtuella datorn som du använder som Hyper-V-värd.
+**Steg 4:** För distributioner som endast använder [kapslad virtualisering](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (endast D3 och E3): Dessa instruktioner gäller inuti den virtuella datorn som du använder som Hyper-V-värd.
 
-1.  Följ anvisningarna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) för att aktivera skydd med hjälp av `MinVmVersionForCpuBasedMitigations` register nycklar.
-2.  Ange den hypervisor-typ som ska `Core` genom att följa instruktionerna [här](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
+1.  Följ instruktionerna i [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) för att `MinVmVersionForCpuBasedMitigations` aktivera skydd med registernycklarna.
+2.  Ställ in hypervisor scheduler-typen på genom att `Core` följa instruktionerna [här](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).
 
 
 ### <a name="linux"></a>Linux
 
-<a name="linux"></a>Att aktivera en uppsättning ytterligare säkerhetsfunktioner i kräver att mål operativ systemet är helt uppdaterat. Vissa åtgärder kommer att aktive ras som standard. I följande avsnitt beskrivs de funktioner som är av som standard och/eller som kan vara beroende av maskin varu support (mikrokod). Att aktivera dessa funktioner kan orsaka en prestanda påverkan. Mer information finns i dokumentationen för operativ system leverantören
+<a name="linux"></a>För att aktivera uppsättningen ytterligare säkerhetsfunktioner inuti kräver att måloperativsystemet är helt uppdaterat. Vissa åtgärder aktiveras som standard. I följande avsnitt beskrivs de funktioner som är inaktiverade som standard och/eller beroende av maskinvarustöd (mikrokod). Om du aktiverar dessa funktioner kan prestanda påverkas. Referera till operativsystemleverantörens dokumentation för ytterligare instruktioner
 
 
-**Steg 1: Inaktivera Hyper-Threading på den virtuella datorn** – kunder som kör obetrodd kod på en virtuell dator med Hyper-Threading måste inaktivera Hyper-Threading eller flytta till en icke-Hyper-THREADAD virtuell dator.  Referera till [det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/linux/acu) om du vill ha en lista över virtuella datorer i Hyper-Threading (där förhållandet mellan VCPU och Core är 2:1). Du kan kontrol lera om du kör en virtuell dator med Hyper-Threading genom att köra kommandot `lscpu` på den virtuella Linux-datorn. 
+**Steg 1: Inaktivera hypertrådning på den virtuella datorn** - Kunder som kör ej betrodd kod på en virtuell dator med hypertrådar måste inaktivera hypertrådning eller flytta till en vm som inte är hypertrådad.  Referera [till det här dokumentet](https://docs.microsoft.com/azure/virtual-machines/linux/acu) för en lista över storlekar med flera trådar för virtuella datorer (där förhållandet mellan vCPU och Core är 2:1). Om du vill kontrollera om du kör en `lscpu` virtuell dator med hypertråd kör du kommandot i Linux-virtuella datorn. 
 
-Om `Thread(s) per core = 2`har Hyper-Threading Aktiver ATS. 
+Om `Thread(s) per core = 2`har hypertrådning aktiverats. 
 
-Om `Thread(s) per core = 1`har Hyper-Threading inaktiverats. 
+Om `Thread(s) per core = 1`, då hyper-threading har inaktiverats. 
 
  
-Exempel på utdata för en virtuell dator med Hyper-Threading aktiverat: 
+Exempelutdata för en virtuell dator med hypertrådning aktiverat: 
 
 ```console
 CPU Architecture:      x86_64
@@ -141,44 +141,44 @@ NUMA node(s):          1
 
 ```
 
-Om du kör en virtuell dator med Hyper-threader kan du [kontakta Azure-supporten](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) för att få Hyper-Threading inaktiverat.  När Hyper-Threading har inaktiverats **kräver support en fullständig omstart av datorn**. Se [antalet kärnor](#core-count) för att ta reda på varför ditt virtuella dator kärnor minskar.
+Om du kör en virtuell dator med flera trådar kontaktar du [Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) för att inaktivera hypertrådning.  När hyper-threading är inaktiverad, **stöd kräver en fullständig VM omstart**. Se [Core antal](#core-count) för att förstå varför din VM core antal minskade.
 
 
 
-**Steg 2**: om du vill åtgärda något av de lägre säkerhets riskerna för spekulativ körning på sidan kan du läsa dokumentationen för operativ system leverantören:   
+**Steg 2**: Information om hur du kan minska mot någon av de underdragande sårbarheterna i den spekulativa körningssidan och kanal:   
  
-- [RedHat och CentOS](https://access.redhat.com/security/vulnerabilities) 
+- [Redhat och CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
 - [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/) 
 
 
 ### <a name="core-count"></a>Antal kärnor
 
-När en virtuell dator med Hyper-Threading skapas, allokerar Azure 2 trådar per kärna – dessa kallas virtuella processorer. När Hyper-Threading är inaktiverat tar Azure bort en tråd och hämtar enkla trådade kärnor (fysiska kärnor). Förhållandet mellan vCPU och CPU är 2:1, så när Hyper-Threading är inaktiverat verkar antalet processorer i den virtuella datorn ha minskat med hälften. En D8_v3 VM är till exempel en virtuell Hyper-Thread som körs på 8 virtuella processorer (2 trådar per Core x 4 kärnor).  När Hyper-Threading är inaktiverat släpper CPU: er till 4 fysiska kärnor med 1 tråd per kärna. 
+När en virtuell dator med hypertråd skapas allokerar Azure två trådar per kärna – dessa kallas vCPUs. När hypertrådning är inaktiverat tar Azure bort en tråd och ytor upp enstaka trådar (fysiska kärnor). Förhållandet mellan vCPU och CPU är 2:1, så när hyper-threading är inaktiverad, cpu-antalet i den virtuella datorn verkar ha minskat med hälften. En D8_v3-vm är till exempel en virtuell dator med hypertråd som körs på 8 virtuella processorer (2 trådar per kärnkärnor x 4 kärnor).  När hypertrådning är inaktiverad kommer processorer att sjunka till 4 fysiska kärnor med 1 tråd per kärna. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln ger vägledning för följande spekulativa körnings kanals attacker som påverkar många moderna processorer:
+Den här artikeln ger vägledning till nedanstående spekulativa körningsattacker i sidokanal som påverkar många moderna processorer:
 
-[SPECTRE Meltdown](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002):
-- CVE-2017-5715 – BTI (Branch Target insprutning)  
-- CVE-2017-5754 – kernel Page Table-isolering (KPTI)
-- CVE-2018-3639 – spekulativt lagrings Bypass (KPTI) 
-- [CVE-2019-1125](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1125) – Windows kernel-information – variant av SPECTRE-variant 1
+[Spectre Härdsmälta:](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180002)
+- CVE-2017-5715 - Injektion av branchmål (BTI)  
+- CVE-2017-5754 - Isolering av tabelltabeller för kärnsida (KPTI)
+- CVE-2018-3639 – Spekulativ butik bypass (KPTI) 
+- [CVE-2019-1125](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1125) – Windows Kernel Information – variant av Spectre Variant 1
  
-[L1-Terminal-fel (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
-- CVE-2018-3615 – Intel Software Guard-tillägg (Intel SGX)
-- CVE-2018-3620 – operativ system (OS) och system hanterings läge (SMM)
-- CVE-2018-3646 – påverkan Virtual Machine Manager (VMM)
+[L1 Terminal Fel (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
+- CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)
+- CVE-2018-3620 - Operativsystem (OS) och systemhanteringsläge (SMM)
+- CVE-2018-3646 – påverkar Virtual Machine Manager (VMM)
 
-[Sampling av mikroarkitektur data](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013): 
-- CVE-2019-11091 – mikroarkitektur data sampling, MDSUM (Uncached Memory)
-- CVE-2018-12126 – mikroarkitektur för data insamling av mikroarkitektur (MSBDS)
-- CVE-2018-12127-mikroarkitektur data sampling (MLPDS)
-- CVE-2018-12130-mikroarkitektur data sampling (MFBDS)
+[Mikroarkektiv datasampling:](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190013) 
+- CVE-2019-11091 - Mikroarkektiv dataprovtagning uncacheable minne (MDSUM)
+- CVE-2018-12126 - Mikroarkektiv lagringsbuffertdatasprovtagning (MSBDS)
+- CVE-2018-12127 - Mikroarkektiv belastningsport Dataprovtagning (MLPDS)
+- CVE-2018-12130 - Mikroarkektiv fyllningsbuffertdatas provtagning (MFBDS)
 
-Överföring av transaktions tillägg (Intel® TSX) asynkront avbrott:  
-- [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX transaktion asynkront avbrott (TAA)
+Transaktionssynkronakro®n abort:  
+- [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX Transaktion Asynkron Abort (TAA)
 
 
 

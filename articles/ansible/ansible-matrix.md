@@ -1,30 +1,30 @@
 ---
-title: Ansible-modul och versions mat ris för Azure | Microsoft Docs
+title: Enbar modul- och versionsmatris för Azure | Microsoft-dokument
 description: Ansible-moduler och versioner för Azure
-keywords: Ansible, roller, matris, version, Azure, DevOps
+keywords: ansible, roller, matris, version, azurblå, devops
 ms.topic: reference
 ms.date: 10/14/2019
 ms.openlocfilehash: 54e27c7570ba1cdbce7355740181d68a2f3efbac
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74155982"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible-moduler och versionsmatriser
 
-Ansible innehåller en uppsättning moduler som används vid etablering och konfiguration av Azure-resurser. Bland dessa resurser ingår virtuella datorer, skalnings uppsättningar, nätverks tjänster och behållar tjänster. Den här artikeln innehåller de olika Ansible-modulerna för Azure och de Ansible-versioner där de levereras.
+Ansible innehåller en uppsättning moduler som kan användas vid etablering och konfiguration av Azure-resurser. Dessa resurser omfattar virtuella datorer, skalningsuppsättningar, nätverkstjänster och behållartjänster. Den här artikeln innehåller en lista över de olika Ansible-modulerna för Azure och de Ansible-versioner som de levereras i.
 
-## <a name="ansible-modules-for-azure"></a>Ansible-moduler för Azure
+## <a name="ansible-modules-for-azure"></a>Ätbara moduler för Azure
 
-Följande moduler kan köras direkt på fjärranslutna värdar eller via spel böcker.  
+Följande moduler kan utföras direkt på fjärrvärdar eller via spelböcker.  
 
-Dessa moduler är tillgängliga från den officiella versionen av Ansible och från följande Microsoft Spelbok-roller.
+Dessa moduler är tillgängliga från Ansible officiella versionen och från följande Microsoft playbook roller.
 
 > [!NOTE]
-> Från Ansible 2,9 och senare har vi bytt namn till alla * _facts-moduler till * _info att följa namngivnings konventionen för Ansible. De gamla och omdöpta modulerna är länkade så att du inte ser en förvarnings varning. alla moduler fungerar som tidigare.
+> Från Ansible 2.9 och framåt döpte vi om alla *_facts moduler till * _info för att följa Ansibles namngivningskonvention. De gamla och omdöpta modulerna är länkade så förutom att se en varning om deprecation fungerar alla moduler som tidigare.
 
-| Ansible-modul för Azure                   |  Ansible 2,4 |  Ansible 2,5 |  Ansible 2,6 | Ansible 2,7 | Ansible 2,8 | Ansible 2,9 | Ansible-roll | 
+| Enbar modul för Azure                   |  Ansible 2,4 |  Ansible 2,5 |  Ansible 2,6 | Ansible 2,7 | Ansible 2,8 | Ansible 2,9 | Ansible Roll | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------|--------------|  
 | **Compute**                    |           |                          |                          |                            |           |           |           |
 | azure_rm_availabilityset                   | Ja          | Ja                         | Ja          | Ja          | Ja          | Ja          | Ja          |
@@ -106,7 +106,7 @@ Dessa moduler är tillgängliga från den officiella versionen av Ansible och fr
 | azure_rm_webapp                             | -            | -                         | -          | Ja          | Ja          | Ja          | Ja          |
 | azure_rm_webapp_info                       | -            | -                         | -          | Ja          | Ja          | Ja          | Ja          |
 | azure_rm_webappslot                         | -            | -                         | -          | -            | Ja          | Ja          | Ja          |
-| **Containrar**                    |           |                          |                          |                            |           |           |          |
+| **Behållare**                    |           |                          |                          |                            |           |           |          |
 | azure_rm_acs                                | Ja          | Ja                         | Ja          | Ja          | Ja          | Ja          | Ja          |
 | azure_rm_aks                                | -            | -                           | Ja          | Ja          | Ja          | Ja          | Ja          |
 | azure_rm_aks_info                          | -            | -                           | Ja          | Ja          | Ja          | Ja          | Ja          |
@@ -157,10 +157,10 @@ Dessa moduler är tillgängliga från den officiella versionen av Ansible och fr
 | azure_rm_sqlfirewallrule_info              | -            | -                           | -            | -            | Ja          | Ja          | Ja          |
 | azure_rm_sqlserver                          | -            | Ja                         | Ja          | Ja          | Ja          | Ja          | Ja          |
 | azure_rm_sqlserver_info                    | -            | Ja                         | Ja          | Ja          | Ja          | Ja          | Ja          |
-| **Analyser**                    |           |                          |                          |                             |           |           |          |
+| **Analys**                    |           |                          |                          |                             |           |           |          |
 | azure_rm_hdinsightcluster                   | -            | -                           | -            | -            | Ja          | Ja          | Ja          |
 | azure_rm_hdinsightcluster_info              | -            | -                           | -            | -            | -            | Ja          | Ja          |
-| **Samordning**                    |           |                          |                          |                             |           |           |          |
+| **Integration**                    |           |                          |                          |                             |           |           |          |
 | azure_rm_servicebus                         | -            | -                           | -            | -            | Ja          | Ja          | Ja          |
 | azure_rm_servicebus_info                   | -            | -                           | -            | -            | Ja          | Ja          | Ja          |
 | azure_rm_servicebusqueue                    | -            | -                           | -            | -            | Ja          | Ja          | Ja          |
@@ -215,12 +215,12 @@ Dessa moduler är tillgängliga från den officiella versionen av Ansible och fr
 | azure_rm_iothub_info              | -            | -                         | -          | -          | -          | Ja        | Ja          |
 | azure_rm_iothubconsumergroup      | -            | -                         | -          | -          | -          | Ja        | Ja          |
 
-## <a name="introduction-to-playbook-role-for-azure"></a>Introduktion till Spelbok-rollen för Azure
+## <a name="introduction-to-playbook-role-for-azure"></a>Introduktion till spelboksrollen för Azure
 
-[Rollen azure_preview_module Spelbok](https://galaxy.ansible.com/Azure/azure_preview_modules/) innehåller alla de senaste Azure-modulerna. Uppdateringarna och fel korrigeringarna görs i mer tid än den officiella Ansible-versionen. Om du använder Ansible för Azure-resurs etablerings syfte uppmanas du att installera rollen för `azure_preview_module` Spelbok.
+Rollen [azure_preview_module playbook](https://galaxy.ansible.com/Azure/azure_preview_modules/) innehåller alla de senaste Azure-modulerna. Uppdateringarna och buggfixarna görs i tid än den officiella Ansible-utgåvan. Om du använder Ansible för Azure-resursetableringsändamål, `azure_preview_module` uppmanas du att installera spelboksrollen.
 
-Den `azure_preview_module` Spelbok-rollen släpps var tredje vecka.
+Spelboksrollen `azure_preview_module` släpps var tredje vecka.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Spelbok-roller finns i [skapa återanvändbara spel böcker](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+Mer information om spelboksroller finns i [Skapa återanvändbara spelböcker](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 

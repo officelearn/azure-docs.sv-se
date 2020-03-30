@@ -1,54 +1,54 @@
 ---
-title: Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb för att Power BI utdata
-description: I den här artikeln beskrivs hur du använder hanterade identiteter för att autentisera ditt Azure Stream Analytics jobb för att Power BI utdata.
+title: Använda hanterad identitet för att autentisera ditt Azure Stream Analytics-jobb till Power BI-utdata
+description: I den här artikeln beskrivs hur du använder hanterade identiteter för att autentisera ditt Azure Stream Analytics-jobb till Power BI-utdata.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/10/2020
 ms.openlocfilehash: 8a7dfd7c690d79d8430f7c33a25b38949dbd06c4
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79086322"
 ---
-# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Använd hanterad identitet för att autentisera ditt Azure Stream Analytics jobb till Power BI
+# <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Använda hanterad identitet för att autentisera ditt Azure Stream Analytics-jobb till Power BI
 
-[Hanterad identitets autentisering](../active-directory/managed-identities-azure-resources/overview.md) för utdata till Power BI ger Stream Analytics-jobb direkt åtkomst till en arbets yta i ditt Power BI-konto. Den här funktionen gör det möjligt att distribuera Stream Analytics jobb helt automatiserade, eftersom det inte längre krävs för att en användare ska kunna logga in interaktivt på Power BI via Azure Portal. Dessutom stöds långa jobb som skrivs till Power BI bättre, eftersom du inte behöver godkänna jobbet med jämna mellanrum.
+[Hanterad identitetsautentisering](../active-directory/managed-identities-azure-resources/overview.md) för utdata till Power BI ger Stream Analytics-jobb direkt åtkomst till en arbetsyta i ditt Power BI-konto. Den här funktionen gör att distributioner av Stream Analytics-jobb kan automatiseras helt, eftersom det inte längre krävs för en användare att interaktivt logga in på Power BI via Azure-portalen. Dessutom stöds tidskrävande jobb som skriver till Power BI nu bättre, eftersom du inte behöver godkänna jobbet regelbundet.
 
-Den här artikeln visar hur du aktiverar hanterad identitet för Power BI utdata för ett Stream Analytics jobb via Azure Portal och genom en Azure Resource Manager distribution.
+Den här artikeln visar hur du aktiverar hanterad identitet för Power BI-utdata för ett Stream Analytics-jobb via Azure-portalen och via en Azure Resource Manager-distribution.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att använda den här funktionen:
 
-- Ett Power BI konto med en [Pro-licens](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+- Ett Power BI-konto med en [Pro-licens](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
 
-- En uppgraderad arbets yta i ditt Power BI-konto. Mer information finns i [Power BIs meddelande](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) om den här funktionen.
+- En uppgraderad arbetsyta i ditt Power BI-konto. Mer information finns i [Power BI:s tillkännagivande](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) av den här funktionen.
 
-## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Skapa ett Stream Analytics jobb med hjälp av Azure Portal
+## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Skapa ett Stream Analytics-jobb med Azure-portalen
 
-1. Skapa ett nytt Stream Analytics jobb eller öppna ett befintligt jobb i Azure Portal. Välj **hanterad identitet** som finns under **Konfigurera**på Meny raden på vänster sida av skärmen. Se till att "Använd systemtilldelad hanterad identitet" är markerat och välj sedan knappen **Spara** längst ned på skärmen.
+1. Skapa ett nytt Stream Analytics-jobb eller öppna ett befintligt jobb i Azure-portalen. Välj **Hanterad identitet** som finns under **Konfigurera**på menyraden som finns till vänster på skärmen. Kontrollera att "Använd systemtilldelad hanterad identitet" är markerat och välj sedan knappen **Spara** längst ned på skärmen.
 
-   ![Konfigurera Stream Analytics hanterad identitet](./media/common/stream-analytics-enable-managed-identity.png)
+   ![Konfigurera Hanterad identitet för Stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
 
-2. Innan du konfigurerar utdata ger du Stream Analytics jobb åtkomst till din Power BI arbets yta genom att följa anvisningarna i avsnittet [ge Stream Analytics jobb åtkomst till din Power BI arbets yta](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) i den här artikeln.
+2. Innan du konfigurerar utdata ger du Stream Analytics-jobbet åtkomst till din Power BI-arbetsyta genom att följa anvisningarna i [avsnittet Ge Stream Analytics-jobbet åtkomst till din Power BI-arbetsyta](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) i den här artikeln.
 
-3. Gå till avsnittet **utdata** i Stream-analysens jobb, Välj **+ Lägg till**och välj sedan **Power BI**. Välj sedan knappen **auktorisera** och logga in med ditt Power BI-konto.
+3. Navigera till avsnittet **Utdata** i streamalytens jobb, välj **+ Lägg till**och välj sedan Power **BI**. Välj sedan knappen **Auktorisera** och logga in med ditt Power BI-konto.
 
-   ![Auktorisera med Power BI konto](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
+   ![Auktorisera med Power BI-konto](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
-4. När det är auktoriserat fylls en listruta i med alla de arbets ytor som du har åtkomst till. Välj den arbets yta som du auktoriserade i föregående steg. Välj sedan **hanterad identitet** som "autentiseringsläge". Välj slutligen knappen **Spara** .
+4. När du har auktoriserats fylls en listruta med alla arbetsytor som du har åtkomst till. Välj den arbetsyta som du godkände i föregående steg. Välj sedan **Hanterad identitet** som "Autentiseringsläge". Slutligen väljer du knappen **Spara.**
 
-   ![Konfigurera Power BI utdata med hanterad identitet](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-configure-powerbi-with-managed-id.png)
+   ![Konfigurera Power BI-utdata med hanterad identitet](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-configure-powerbi-with-managed-id.png)
 
 ## <a name="azure-resource-manager-deployment"></a>Azure Resource Manager-distribution
 
-Med Azure Resource Manager kan du helt automatisera distributionen av ditt Stream Analytics-jobb. Du kan distribuera Resource Manager-mallar med antingen Azure PowerShell eller [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). I exemplen nedan används Azure CLI.
+Med Azure Resource Manager kan du helt automatisera distributionen av ditt Stream Analytics-jobb. Du kan distribuera Resource Manager-mallar med antingen Azure PowerShell eller [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Nedanstående exempel använder Azure CLI.
 
 
-1. Du kan skapa en **Microsoft. StreamAnalytics/streamingjobs-** resurs med en hanterad identitet genom att inkludera följande egenskap i resurs avsnittet i Resource Manager-mallen:
+1. Du kan skapa en **Microsoft.StreamAnalytics/streamingjobs-resurs** med en hanterad identitet genom att inkludera följande egenskap i resursavsnittet i Resource Manager-mallen:
 
     ```json
     "identity": {
@@ -56,7 +56,7 @@ Med Azure Resource Manager kan du helt automatisera distributionen av ditt Strea
     }
     ```
 
-   Den här egenskapen anger Azure Resource Manager för att skapa och hantera identiteten för ditt Stream Analytics-jobb. Nedan visas en exempel på en Resource Manager-mall som distribuerar ett Stream Analytics jobb med hanterad identitet aktive rad och en Power BI utgående mottagare som använder hanterad identitet:
+   Den här egenskapen talar om för Azure Resource Manager att skapa och hantera identiteten för ditt Stream Analytics-jobb. Nedan finns en exempelmall för Resource Manager som distribuerar ett Stream Analytics-jobb med aktiverad hanterad identitet och en Power BI-utflödesmottagare som använder hanterad identitet:
 
     ```json
     {
@@ -97,7 +97,7 @@ Med Azure Resource Manager kan du helt automatisera distributionen av ditt Strea
     }
     ```
 
-    Distribuera jobbet ovan till resurs gruppens **ExampleGroup** med hjälp av följande Azure CLI-kommando:
+    Distribuera jobbet ovan till **exempelgruppen Resursgrupp** med kommandot nedan Azure CLI:
 
     ```azurecli
     az group deployment create --resource-group ExampleGroup -template-file StreamingJob.json
@@ -109,7 +109,7 @@ Med Azure Resource Manager kan du helt automatisera distributionen av ditt Strea
     az resource show --ids /subscriptions/<subsription-id>/resourceGroups/<resource-group>/providers/Microsoft.StreamAnalytics/StreamingJobs/<resource-name>
     ```
 
-    Kommandot ovan kommer att returnera ett svar som nedan:
+    Ovanstående kommando kommer att returnera ett svar som nedan:
 
     ```json
     {
@@ -148,34 +148,34 @@ Med Azure Resource Manager kan du helt automatisera distributionen av ditt Strea
     }
     ```
 
-    Om du planerar att använda Power BI REST API för att lägga till Stream Analytics-jobbet i Power BI arbets ytan noterar du den returnerade "principalId".
+    Om du planerar att använda Power BI:s REST API för att lägga till Stream Analytics-jobbet på din Power BI-arbetsyta bör du anteckna den returnerade "principalId".
 
-3. Nu när jobbet har skapats fortsätter du till avsnittet [ge Stream Analytics jobb åtkomst till din Power BI arbets yta](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) i den här artikeln.
+3. Nu när jobbet har skapats fortsätter du till [avsnittet Ge Stream Analytics-jobbet åtkomst till din Power BI-arbetsyta i den](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) här artikeln.
 
 
-## <a name="give-the-stream-analytics-job-access-to-your-power-bi-workspace"></a>Ge Stream Analytics jobb åtkomst till din Power BI arbets yta
+## <a name="give-the-stream-analytics-job-access-to-your-power-bi-workspace"></a>Ge Stream Analytics-jobbet åtkomst till din Power BI-arbetsyta
 
-Nu när Stream Analytics jobbet har skapats kan det ges åtkomst till en Power BI-arbetsyta.
+Nu när Stream Analytics-jobbet har skapats kan det få åtkomst till en Power BI-arbetsyta.
 
-### <a name="use-the-power-bi-ui"></a>Använd Power BI användar gränssnitt
+### <a name="use-the-power-bi-ui"></a>Använda Power BI-användargränssnittet
 
    > [!Note]
-   > För att kunna lägga till Stream Analytics jobb till din Power BI-arbetsyta med hjälp av användar gränssnittet måste du också aktivera tjänstens huvud namn i **inställningarna för utvecklare** i Power BI administrations portalen. Se [Kom igång med ett huvud namn för tjänsten](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal) för mer information.
+   > För att lägga till Stream Analytics-jobbet på din Power BI-arbetsyta med hjälp av användargränssnittet måste du också aktivera tjänstens huvudåtkomst i **utvecklarinställningarna** i Power BI-administratörsportalen. Se [Kom igång med ett tjänsthuvudnamn](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal) för mer information.
 
-1. Navigera till arbets ytans åtkomst inställningar. Mer information finns i den här artikeln: [ge åtkomst till din arbets yta](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
+1. Navigera till arbetsytans åtkomstinställningar. Se den här artikeln för mer information: [Ge tillgång till din arbetsyta](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
-2. Skriv namnet på ditt Stream Analytics jobb i text rutan och välj **Contributor** som åtkomst nivå.
+2. Skriv namnet på stream analytics-jobbet i textrutan och välj **Deltagare** som åtkomstnivå.
 
-3. Välj **Lägg till** och Stäng fönstret.
+3. Välj **Lägg till** och stäng fönstret.
 
-   ![Lägg till Stream Analytics jobb till Power BI arbets yta](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
+   ![Lägga till Stream Analytics-jobb i Power BI-arbetsytan](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
 
-### <a name="use-the-power-bi-powershell-cmdlets"></a>Använd Power BI PowerShell-cmdletar
+### <a name="use-the-power-bi-powershell-cmdlets"></a>Använda Power BI PowerShell-cmdlets
 
-1. Installera Power BI `MicrosoftPowerBIMgmt` PowerShell-cmdletar.
+1. Installera Power `MicrosoftPowerBIMgmt` BI PowerShell-cmdlets.
 
    > [!Important]
-   > Kontrol lera att du använder version 1.0.821 eller senare av cmdletarna.
+   > Se till att du använder version 1.0.821 eller senare av cmdlets.
 
 ```powershell
 Install-Module -Name MicrosoftPowerBIMgmt
@@ -187,17 +187,17 @@ Install-Module -Name MicrosoftPowerBIMgmt
 Login-PowerBI
 ```
 
-3. Lägg till ditt Stream Analytics-jobb som deltagare i arbets ytan.
+3. Lägg till ditt Stream Analytics-jobb som deltagare på arbetsytan.
 
 ```powershell
 Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
 ```
 
-### <a name="use-the-power-bi-rest-api"></a>Använd Power BI REST API
+### <a name="use-the-power-bi-rest-api"></a>Använda Power BI REST API
 
-Stream Analyticss jobbet kan också läggas till som deltagare till arbets ytan med hjälp av REST API "Lägg till grupp användare" direkt. Fullständig dokumentation för detta API finns här: [grupper – Lägg till grupp användare](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
+Stream Analytics-jobbet kan också läggas till som deltagare på arbetsytan med hjälp av REST-API:et "Lägg till gruppanvändare" direkt. Fullständig dokumentation för det här API:et finns här: [Grupper - Lägg till gruppanvändare](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
 
-**Exempel förfrågan**
+**Exempelförfrågan**
 ```http
 POST https://api.powerbi.com/v1.0/myorg/groups/{groupId}/users
 ```
@@ -211,17 +211,17 @@ Begärandetext
 ```
 
 ## <a name="limitations"></a>Begränsningar
-Nedan visas begränsningarna för den här funktionen:
+Nedan finns begränsningarna i den här funktionen:
 
 - Klassiska Power BI-arbetsytor stöds inte.
 
 - Azure-konton utan Azure Active Directory.
 
-- Åtkomst till flera innehavare stöds inte. Tjänstens huvud namn som skapats för ett angivet Stream Analytics jobb måste finnas i samma Azure Active Directory klient som jobbet skapades i och kan inte användas med en resurs som finns i en annan Azure Active Directory klient.
+- Åtkomst för flera innehavare stöds inte. Tjänsthuvudhuvudet som skapats för ett givet Stream Analytics-jobb måste finnas i samma Azure Active Directory-klientorganisation där jobbet skapades och kan inte användas med en resurs som finns i en annan Azure Active Directory-klientorganisation.
 
-- [Användarens tilldelade identitet](../active-directory/managed-identities-azure-resources/overview.md) stöds inte. Det innebär att du inte kan ange ditt eget tjänst huvud namn som ska användas av sina Stream Analytics-jobb. Tjänstens huvud namn måste genereras av Azure Stream Analytics.
+- [Användartilldelad identitet](../active-directory/managed-identities-azure-resources/overview.md) stöds inte. Det innebär att du inte kan ange ditt eget tjänsthuvudnamn som ska användas av deras Stream Analytics-jobb. Tjänstens huvudnamn måste genereras av Azure Stream Analytics.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Power BI instrument panels integrering med Azure Stream Analytics](./stream-analytics-power-bi-dashboard.md)
+* [Power BI-instrumentpanelsintegrering med Azure Stream Analytics](./stream-analytics-power-bi-dashboard.md)
 * [Förstå utdata från Azure Stream Analytics](./stream-analytics-define-outputs.md)

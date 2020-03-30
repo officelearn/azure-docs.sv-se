@@ -1,35 +1,35 @@
 ---
-title: Azure Service Fabric med VS Code Komma igång
-description: Den här artikeln är en översikt över hur du skapar Service Fabric program med hjälp av Visual Studio Code.
+title: Azure-tjänst fabric med VS-kod komma igång
+description: Den här artikeln är en översikt över hur du skapar Service Fabric-program med Visual Studio Code.
 author: peterpogorski
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: pepogors
 ms.openlocfilehash: 17bff459a0399d39c6bfdd772ad16d0b5b2f6771
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258491"
 ---
-# <a name="service-fabric-for-visual-studio-code"></a>Service Fabric för Visual Studio Code
+# <a name="service-fabric-for-visual-studio-code"></a>Service fabric för Visual Studio-kod
 
-[Service Fabric Reliable Services tillägget för vs Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) innehåller de verktyg som behövs för att skapa, bygga och felsöka Service Fabric program på Windows-, Linux-och MacOS-operativsystem.
+[Tillägget Service Fabric Reliable Services för VS-kod](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-service-fabric-reliable-services) innehåller de verktyg som krävs för att skapa, skapa och felsöka Service Fabric-program på Windows-, Linux- och macOS-operativsystem.
 
-Den här artikeln innehåller en översikt över kraven och installationen av tillägget samt användningen av de olika kommandon som tillhandahålls av tillägget. 
+Den här artikeln innehåller en översikt över kraven och inställningarna för tillägget samt användningen av de olika kommandon som tillhandahålls av tillägget. 
 
 > [!IMPORTANT]
-> Service Fabric Java-program kan utvecklas på Windows-datorer, men kan bara distribueras till Azure Linux-kluster. Fel sökning av Java-program stöds inte i Windows.
+> Java-program för service fabric kan utvecklas på Windows-datorer, men kan endast distribueras till Azure Linux-kluster. Felsökning av Java-program stöds inte i Windows.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Följande krav måste vara installerade på alla miljöer.
+Följande förutsättningar måste installeras på alla miljöer.
 
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio-kod](https://code.visualstudio.com/)
 * [Node.js](https://nodejs.org/)
 * [Git](https://git-scm.com/)
-* [Service Fabric SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
-* Yeoman-generatorer – installera lämpliga generatorer för ditt program
+* [Service Tyg SDK](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)
+* Yeoman Generatorer - installera lämpliga generatorer för din ansökan
 
    ```sh
    npm install -g yo
@@ -39,92 +39,92 @@ Följande krav måste vara installerade på alla miljöer.
    npm install -g generator-azuresfguest
    ```
 
-Följande krav måste vara installerade för Java-utveckling:
+Följande förutsättningar måste installeras för Java-utveckling:
 
-* [Java SDK](https://aka.ms/azure-jdks) (version 1,8)
+* [Java SDK](https://aka.ms/azure-jdks) (version 1.8)
 * [Gradle](https://gradle.org/install/)
-* [Fel sökning för Java vs Code-tillägg](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Krävs för att felsöka Java-tjänster. Fel sökning av Java-tjänster stöds endast på Linux. Du kan installera genom att klicka på ikonen tillägg i **aktivitets fältet** i vs Code och söka efter tillägget eller från vs Code Marketplace.
+* [Felsökare för Java VS-kodtillägg](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Behövs för att felsöka Java-tjänster. Felsökning av Java-tjänster stöds endast på Linux. Du kan installera antingen genom att klicka på ikonen Tillägg i **aktivitetsfältet** i VS-kod och söka efter tillägget eller från VS-kod marketplace.
 
-Följande krav måste vara installerade för .NET Core/C# utveckling:
+Följande förutsättningar måste installeras för utveckling av .NET Core/C#:
 
-* [.Net Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 eller senare)
-* [för Visual Studio Code (drivs av OmniSharp) vs Code Extension C# ](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Krävs för att C# felsöka tjänster. Du kan installera genom att klicka på ikonen tillägg i **aktivitets fältet** i vs Code och söka efter tillägget eller från vs Code Marketplace.
+* [.NET Core](https://www.microsoft.com/net/learn/get-started) (version 2.0.0 eller senare)
+* [C# för Visual Studio-kod (som drivs av OmniSharp) VS-kodtillägg](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) Behövs för att felsöka C# tjänster. Du kan installera antingen genom att klicka på ikonen Tillägg i **aktivitetsfältet** i VS-kod och söka efter tillägget eller från VS-kod marketplace.
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Installation
 
-1. Öppen VS Code.
-2. Klicka på ikonen tillägg i **aktivitets fältet** på vänster sida om vs Code. Sök efter "Service Fabric". Klicka på **Installera** för Service Fabric Reliable Services-tillägget.
+1. Öppna VS-kod.
+2. Klicka på ikonen Tillägg i **aktivitetsfältet** till vänster i VS-koden. Sök efter "Service Fabric". Klicka på **Installera** för tillägget Service Fabric Reliable Services.
 
 ## <a name="commands"></a>Kommandon
-Service Fabric Reliable Services tillägget för VS Code innehåller många kommandon som hjälper utvecklare att skapa och distribuera Service Fabric-projekt. Du kan anropa kommandon från **paletten kommando** genom att trycka på `(Ctrl + Shift + p)`, skriva kommando namnet i indataströmmen och välja önskat kommando från listan med meddelanden. 
+Tillägget Service Fabric Reliable Services för VS-kod innehåller många kommandon som hjälper utvecklare att skapa och distribuera Service Fabric-projekt. Du kan anropa kommandon från **kommandopaletten** genom att trycka på `(Ctrl + Shift + p)`, skriva in kommandonamnet i indatafältet och välja önskat kommando i snabblistan. 
 
-* Service Fabric: skapa program 
-* Service Fabric: publicera program 
-* Service Fabric: distribuera program 
-* Service Fabric: ta bort program  
-* Service Fabric: Bygg program 
-* Service Fabric: rent program 
+* Service Fabric: Skapa program 
+* Service Fabric: Publicera program 
+* Tjänst fabric: distribuera program 
+* Service Fabric: Ta bort program  
+* Service Fabric: Bygg ansökan 
+* Service Tyg: Ren ansökan 
 
-### <a name="service-fabric-create-application"></a>Service Fabric: skapa program
+### <a name="service-fabric-create-application"></a>Service Fabric: Skapa program
 
-Kommandot **Service Fabric: skapa program** skapar ett nytt Service Fabric program i den aktuella arbets ytan. Beroende på vilka Yeoman-generatorer som installeras på din utvecklings dator kan du skapa flera olika typer av Service Fabric program, inklusive Java- C#,, container-och gäst projekt. 
+Kommandot **Service Fabric: Skapa program** skapar ett nytt Service Fabric-program på den aktuella arbetsytan. Beroende på vilka yeoman-generatorer som är installerade på din utvecklingsmaskin kan du skapa flera typer av Service Fabric-program, inklusive Java-, C#, Container- och Gästprojekt. 
 
-1.  Välj kommandot **Service Fabric: skapa program**
-2.  Välj typ för ditt nya Service Fabric-program. 
+1.  Välj kommandot **Tjänstinfrastruktur: Skapa program**
+2.  Välj typ för det nya Service Fabric-programmet. 
 3.  Ange namnet på det program som du vill skapa
-3.  Välj den typ av tjänst som du vill lägga till i Service Fabric programmet. 
+3.  Välj den typ av tjänst som du vill lägga till i programmet Service Fabric. 
 4.  Följ anvisningarna för att namnge tjänsten. 
-5.  Det nya Service Fabric programmet visas i arbets ytan.
-6.  Öppna den nya programmappen så att den blir rotmappen i arbets ytan. Du kan fortsätta att köra kommandon härifrån.
+5.  Det nya Programmet Service Fabric visas på arbetsytan.
+6.  Öppna den nya programmappen så att den blir rotmappen på arbetsytan. Du kan fortsätta köra kommandon härifrån.
 
-### <a name="service-fabric-add-service"></a>Service Fabric: Lägg till tjänst
-Kommandot **Service Fabric: Lägg till tjänst** lägger till en ny tjänst i ett befintligt Service Fabric-program. Programmet som tjänsten ska läggas till i måste vara rot katalogen för arbets ytan. 
+### <a name="service-fabric-add-service"></a>Service Fabric: Lägg till service
+Kommandot **Tjänst fabric: Lägg till tjänst** lägger till en ny tjänst i ett befintligt Service Fabric-program. Programmet som tjänsten ska läggas till måste vara arbetsytans rotkatalog. 
 
-1.  Välj kommandot **Service Fabric: Lägg till tjänst** .
-2.  Välj typ av aktuellt Service Fabric program. 
-3.  Välj den typ av tjänst som du vill lägga till i Service Fabric programmet. 
+1.  Välj kommandot **Tjänst fabric: Lägg till tjänst.**
+2.  Välj typ av ditt aktuella Service Fabric-program. 
+3.  Välj den typ av tjänst som du vill lägga till i programmet Service Fabric. 
 4.  Följ anvisningarna för att namnge tjänsten. 
-5.  Den nya tjänsten visas i projekt katalogen. 
+5.  Den nya tjänsten visas i projektkatalogen. 
 
-### <a name="service-fabric-publish-application"></a>Service Fabric: publicera program
-Kommandot **Service Fabric: publicera program** distribuerar ditt Service Fabric-program på ett fjärran slutet kluster. Mål klustret kan vara antingen ett säkert eller oskyddat kluster. Om parametrarna inte anges i Cloud. JSON, distribueras programmet till det lokala klustret.
+### <a name="service-fabric-publish-application"></a>Service Fabric: Publicera program
+**Kommandot Service Fabric: Publicera program** distribuerar ditt Service Fabric-program i ett fjärrkluster. Målklustret kan vara antingen ett säkert eller ett osäkert kluster. Om parametrar inte anges i Cloud.json distribueras programmet till det lokala klustret.
 
-1.  Första gången som programmet har skapats genereras en Cloud. JSON-fil i projekt katalogen.
-2.  Mata in värdena för det kluster som du vill ansluta till i filen Cloud. JSON.
-3.  Välj kommandot **Service Fabric: publicera program** .
-4.  Visa mål klustret med Service Fabric Explorer för att bekräfta att programmet har installerats. 
+1.  Första gången programmet skapas genereras en Cloud.json-fil i projektkatalogen.
+2.  Mata in värdena för det kluster som du vill ansluta till i filen Cloud.json.
+3.  Välj kommandot **Tjänstinfrastruktur: Publicera program.**
+4.  Visa målklustret med Service Fabric Explorer för att bekräfta att programmet har installerats. 
 
-### <a name="service-fabric-deploy-application-localhost"></a>Service Fabric: distribuera program (localhost)
-Kommandot **Service Fabric: distribuera program** distribuerar ditt Service Fabric-program till det lokala klustret. Kontrol lera att ditt lokala kluster körs innan du använder kommandot. 
+### <a name="service-fabric-deploy-application-localhost"></a>Tjänst fabric: Distribuera program (Localhost)
+**Kommandot Service Fabric: Deploy Application** distribuerar ditt Service Fabric-program till ditt lokala kluster. Kontrollera att det lokala klustret körs innan du använder kommandot. 
 
-1. Välj kommandot **Service Fabric: distribuera program**
-2. Visa det lokala klustret med Service Fabric Explorer (http:\//localhost: 19080/Explorer) för att bekräfta att programmet har installerats. Det kan ta lite tid, så därför måste du vara patient.
-3. Du kan också använda **Service Fabric: kommandot Publicera program** utan parametrar som angetts i Cloud. JSON-filen för distribution till ett lokalt kluster.
+1. Välj kommandot **Service Fabric: Deploy Application**
+2. Visa det lokala klustret med\/Service Fabric Explorer (http: /localhost:19080/Explorer) för att bekräfta att programmet har installerats. Detta kan ta lite tid, så ha tålamod.
+3. Du kan också använda **kommandot Service Fabric: Publicera program** utan parametrar i filen Cloud.json för att distribuera till ett lokalt kluster.
 
 > [!NOTE]
-> Distribution av Java-program till det lokala klustret stöds inte på Windows-datorer.
+> Det går inte att distribuera Java-program till det lokala klustret på Windows-datorer.
 
-### <a name="service-fabric-remove-application"></a>Service Fabric: ta bort program
-Kommandot **Service Fabric: ta bort program** tar bort ett Service Fabric-program från det kluster som det tidigare har distribuerats till med hjälp av vs Code-tillägget. 
+### <a name="service-fabric-remove-application"></a>Service Fabric: Ta bort program
+**Kommandot Tjänst fabric: Ta bort program** tar bort ett Service Fabric-program från klustret som det tidigare har distribuerats till med vs-kodtillägget. 
 
-1.  Välj kommandot **Service Fabric: ta bort program** .
-2.  Visa klustret med Service Fabric Explorer för att bekräfta att programmet har tagits bort. Det kan ta lite tid, så därför måste du vara patient.
+1.  Välj kommandot **Tjänstinfrastruktur: Ta bort program.**
+2.  Visa klustret med Service Fabric Explorer för att bekräfta att programmet har tagits bort. Detta kan ta lite tid, så ha tålamod.
 
-### <a name="service-fabric-build-application"></a>Service Fabric: Bygg program
-Med kommandot **Service Fabric: build Application** kan du antingen bygga Java C# -eller Service Fabric-program. 
+### <a name="service-fabric-build-application"></a>Service Fabric: Bygg ansökan
+**Kommandot Service Fabric: Build Application** kan skapa antingen Java- eller C#Service Fabric-program. 
 
-1.  Se till att du är i programmets rotmapp innan du kör det här kommandot. Kommandot identifierar typen av program (C# eller Java) och bygger ditt program enligt detta.
-2.  Välj kommandot **Service Fabric: build-program** .
-3.  Utdatan från bygg processen skrivs till den integrerade terminalen.
+1.  Kontrollera att du befinner dig i programmets rotmapp innan du kör det här kommandot. Kommandot identifierar typen av program (C# eller Java) och skapar ditt program därefter.
+2.  Välj kommandot **Service Fabric: Build Application.**
+3.  Utdata från byggprocessen skrivs till den integrerade terminalen.
 
-### <a name="service-fabric-clean-application"></a>Service Fabric: rent program
-Kommandot **Service Fabric: Rensa program** tar bort alla jar-filer och interna bibliotek som genererades av bygget. Endast giltigt för Java-program. 
+### <a name="service-fabric-clean-application"></a>Service Tyg: Ren ansökan
+**Kommandot Service Fabric: Clean Application** tar bort alla jar-filer och inbyggda bibliotek som genererades av build. Gäller endast för Java-program. 
 
-1.  Se till att du är i programmets rotmapp innan du kör det här kommandot. 
-2.  Välj kommandot **Service Fabric: Rensa program** .
-3.  Resultatet av den rena processen skrivs till den integrerade terminalen.
+1.  Kontrollera att du befinner dig i programmets rotmapp innan du kör det här kommandot. 
+2.  Välj kommandot **Service Fabric: Clean Application.**
+3.  Utgången av den rena processen skrivs till den integrerade terminalen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig att [utveckla och felsöka C# Service Fabric program med vs Code](./service-fabric-develop-csharp-applications-with-vs-code.md).
-* Lär dig att [utveckla och felsöka Java Service Fabric program med vs Code](./service-fabric-develop-java-applications-with-vs-code.md).
+* Lär dig hur du [utvecklar och felsöker C# Service Fabric-program med VS-kod](./service-fabric-develop-csharp-applications-with-vs-code.md).
+* Lär dig hur du [utvecklar och felsöker Java Service Fabric-program med VS-kod](./service-fabric-develop-java-applications-with-vs-code.md).

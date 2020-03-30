@@ -1,5 +1,5 @@
 ---
-title: Grupp utveckling med .NET Core och Visual Studio
+title: Teamutveckling med .NET Core och Visual Studio
 services: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
@@ -7,16 +7,16 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/09/2018
 ms.topic: tutorial
-description: I den här kursen får du lära dig hur du använder Azure dev Spaces och Visual Studio för att göra team utveckling på ett .NET Core-program i Azure Kubernetes service
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
+description: Den här självstudien visar hur du använder Azure Dev Spaces och Visual Studio för att göra grupputveckling på ett .NET Core-program i Azure Kubernetes Service
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, behållare, Helm, servicenät, routning av tjänstnät, kubectl, k8s '
 ms.openlocfilehash: b4520ce35807fb022fa39ae9b00347a27e192380
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "78245057"
 ---
-# <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Grupp utveckling med .NET Core och Visual Studio med Azure dev Spaces
+# <a name="team-development-using-net-core-and-visual-studio-with-azure-dev-spaces"></a>Teamutveckling med .NET Core och Visual Studio med Azure Dev Spaces
 
 I den här självstudien lär du dig hur ett team med utvecklare kan samarbeta samtidigt i samma Kubernetes-kluster med hjälp av Dev Spaces.
 
@@ -45,7 +45,7 @@ Med Azure Dev Spaces kan du konfigurera en *delad* utvecklarmiljö i Azure. Varj
 När du utvecklar kod för en tjänst är koden sällan perfekt förrän du väljer att checka in den. Du arbetar ju fortfarande med den, testar den och experimenterar med lösningar. Azure Dev Spaces införlivar begreppet **utrymme**, som innebär att du kan arbeta isolerat, utan att oroa dig för att skada andra teammedlemmars kod.
 
 ## <a name="use-dev-spaces-for-team-development"></a>Använda Dev Spaces för teamutveckling
-Nu demonstrerar vi de här idéerna via ett konkret exempel med hjälp av vårt exempelprogram *webfrontend* -> *mywebapi*. Vi tänker oss ett scenario där utvecklaren Scott behöver göra en ändring i tjänsten *mywebapi*, och *enbart* den tjänsten. *webfrontend* behöver inte ändras i Scotts uppdatering.
+Låt oss visa dessa idéer med ett konkret exempel med hjälp av vår *webfrontend* -> *mywebapi* prov ansökan. Vi tänker oss ett scenario där utvecklaren Scott behöver göra en ändring i tjänsten *mywebapi*, och *enbart* den tjänsten. *webfrontend* behöver inte ändras i Scotts uppdatering.
 
 _Utan_ användning av Dev Spaces skulle Scott vara begränsad till vissa sätt att utveckla och testa sina uppdatering. Inget av dessa lämpar sig särskilt väl:
 * Köra ALLA komponenter lokalt, vilket kräver en kraftfullare utvecklingsdator med Docker samt potentiellt MiniKube installerat.
@@ -56,15 +56,15 @@ _Utan_ användning av Dev Spaces skulle Scott vara begränsad till vissa sätt a
 ### <a name="set-up-your-baseline"></a>Konfigurera din baslinje
 Först behöver vi distribuera en baslinje för våra tjänster. Den här distributionen representerar den ”senaste kända välfungerande” så att du enkelt kan jämföra beteendet för din lokala kod jämfört med den incheckade versionen. Sedan skapar vi ett underordnat utrymme baserat på den här baslinjen så att vi kan testa ändringarna i *mywebapi* inom ramen för det större programmet.
 
-1. Klona [Dev Spaces-exempelprogrammet](https://github.com/Azure/dev-spaces): `git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
-1. Checka ut fjärrgrenen *azds_updates*: `git checkout -b azds_updates origin/azds_updates`
+1. Klona [exempelprogrammet Dev Spaces:](https://github.com/Azure/dev-spaces)`git clone https://github.com/Azure/dev-spaces && cd dev-spaces`
+1. Kolla in fjärrgrenen *azds_updates:*`git checkout -b azds_updates origin/azds_updates`
 1. Stäng alla F5-/felsökningssessioner för båda tjänsterna, men lämna projekten öppna i Visual Studio-fönstren.
 1. Växla till Visual Studio-fönstret med projektet _mywebapi_.
 1. Högerklicka på projektet i **Solution Explorer** och välj **Egenskaper**.
 1. Visa Azure Dev Spaces-inställningarna genom att välja fliken **Felsök** till vänster.
 1. Välj **Ändra** för att skapa det utrymme som ska användas när du trycker på F5 eller Ctrl+F5 för tjänsten.
-1. I listrutan Utrymme väljer du **\<Create New Space…\>** (Skapa nytt utrymme…).
-1. Kontrollera att det överordnade utrymmet anges till **\<none\>** (inget), och ange utrymmesnamnet **dev**. Klicka på OK.
+1. I listrutan Utrymme väljer du ** \<Skapa nytt utrymme... \>**.
+1. Kontrollera att det överordnade utrymmet inte är inställt på ** \<något\>** och ange ut dev för **utrymmesnamn**. Klicka på OK.
 1. Tryck på Ctrl+F5 för att köra _mywebapi_ utan felsökaren inkopplad.
 1. Växla till Visual Studio-fönstret med projektet _webfrontend_ och tryck på Ctrl+F5 för att köra även det.
 
@@ -88,11 +88,11 @@ Så här skapar du ett nytt utrymme:
 2. Högerklicka på projektet i **Solution Explorer** och välj **Egenskaper**.
 3. Visa Azure Dev Spaces-inställningarna genom att välja fliken **Felsök** till vänster.
 4. Härifrån kan du ändra eller skapa klustret och/eller utrymmet som ska användas när du kör F5 eller Ctrl+F5. *Kontrollera att det Azure Dev Spaces-utrymme som du skapade tidigare är valt*.
-5. I listrutan Utrymme väljer du **\<Create New Space…\>** (Skapa nytt utrymme…).
+5. I listrutan Utrymme väljer du ** \<Skapa nytt utrymme... \>**.
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. I dialogrutan **Lägg till utrymme** anger du det överordnade utrymmet till **dev** och anger ett namn för ditt nya utrymme. Du kan använda ditt namn (till exempel ”scott”) för det nya utrymmet så att dina kolleger ser vilket utrymme du arbetar i. Klicka på **OK**
+6. I dialogrutan **Lägg till utrymme** anger du det överordnade utrymmet till **dev** och anger ett namn för ditt nya utrymme. Du kan använda ditt namn (till exempel ”scott”) för det nya utrymmet så att dina kolleger ser vilket utrymme du arbetar i. Klicka på **OK**.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 
@@ -124,15 +124,15 @@ Med den här inbyggda funktionen i Azure Dev Spaces kan du testa kod från slutp
 ### <a name="test-code-running-in-the-_devscott_-space"></a>Testa den kod som körs i utrymmet _dev/scott_
 Du testar den nya versionen av *mywebapi* tillsammans med *webfrontend* genom att öppna webbläsaren på URL:en för offentlig åtkomst för *webfrontend* (till exempel http://dev.webfrontend.123456abcdef.eus.azds.io)) och gå till sidan Om. Du bör se det ursprungliga meddelandet ”Hello from webfrontend and Hello from mywebapi”.
 
-Lägg till delen ”scott.s.” en del till URL: en så att den ser ut ungefär som http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io och uppdatera webbläsaren. Den brytpunkt som du angett i projektet *mywebapi* bör nås. Fortsätt genom att trycka på F5. Nu bör du se det nya meddelandet ”Hello from webfrontend and mywebapi now says something new”. Det beror på att sökvägen till den uppdaterade koden i *mywebapi* körs i utrymmet _dev/scott_.
+Lägg till delen ”scott.s.” del till webbadressen så det\:står något i stil med http / / scott.s.dev.webfrontend.123456abcdef.eus.azds.io och uppdatera webbläsaren. Den brytpunkt som du angett i projektet *mywebapi* bör nås. Fortsätt genom att trycka på F5. Nu bör du se det nya meddelandet ”Hello from webfrontend and mywebapi now says something new”. Det beror på att sökvägen till den uppdaterade koden i *mywebapi* körs i utrymmet _dev/scott_.
 
-När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, och under förutsättning att ditt program är utformat för att dra nytta av DevSpace utrymmesbaserade routning enligt beskrivningen i den här delen av självstudien, blir det förhoppningsvis enkelt att se hur Dev Spaces avsevärt kan underlätta testning av nya funktioner inom ramen för det större programmet. I stället för att behöva distribuera _alla_ tjänster till ditt privata utrymme kan du skapa ett privat utrymme som härleds från _dev_ och endast ”införa” de tjänster som du faktiskt arbetar med. Dev Spaces-routningsinfrastrukturen hanterar resten genom att utnyttja så många tjänster utanför ditt privata adressutrymme som går att hitta, samtidigt som det återgår till den senaste versionen som körs i utrymmet _dev_. Ännu bättre är att _flera_ utvecklare aktivt kan utveckla olika tjänster samtidigt i sina egna utrymmen utan att störa varandra.
+När du har ett _dev_-utrymme som alltid innehåller dina senaste ändringar, och under förutsättning att ditt program är utformat för att dra nytta av DevSpace utrymmesbaserade routning enligt beskrivningen i den här delen av självstudien, blir det förhoppningsvis enkelt att se hur Dev Spaces avsevärt kan underlätta testning av nya funktioner inom ramen för det större programmet. I stället för att behöva distribuera _alla_ tjänster till ditt privata utrymme kan du skapa ett privat utrymme som härleds från _dev_ och endast ”införa” de tjänster du faktiskt arbetar med. Dev Spaces-routningsinfrastrukturen hanterar resten genom att utnyttja så många tjänster utanför ditt privata adressutrymme som går att hitta, samtidigt som det återgår till den senaste versionen som körs i utrymmet _dev_. Ännu bättre är att _flera_ utvecklare aktivt kan utveckla olika tjänster samtidigt i sina egna utrymmen utan att störa varandra.
 
 ### <a name="well-done"></a>Bra gjort!
 Du har slutfört guiden för att komma igång! Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Ställer in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
+> * Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 > * Iterativt utveckla kod i containrar.
 > * Oberoende utvecklar två separata tjänster och använder Kubernetes DNS-tjänstidentifiering för att anropa en annan tjänst.
 > * Effektivt utvecklar och testar din kod i en teammiljö.

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Kiteworks | Microsoft Docs'
+title: 'Självstudiekurs: Azure Active Directory-integrering med Kiteworks | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kiteworks.
 services: active-directory
 documentationCenter: na
@@ -16,162 +16,162 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.openlocfilehash: 52b113d92fa83795e94d5179ea47ed5d9d9e9a26
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68248905"
 ---
-# <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Självstudier: Integrera Kiteworks med Azure Active Directory
+# <a name="tutorial-integrate-kiteworks-with-azure-active-directory"></a>Självstudiekurs: Integrera Kiteworks med Azure Active Directory
 
-I de här självstudierna lär du dig att integrera Kiteworks med Azure Active Directory (AD Azure). När du integrerar Kiteworks med Azure AD, kan du:
+I den här självstudien får du lära dig hur du integrerar Kiteworks med Azure Active Directory (Azure AD). När du integrerar Kiteworks med Azure AD kan du:
 
-* Styr i Azure AD som har åtkomst till Kiteworks.
-* Ge dina användare att automatiskt inloggad till Kiteworks med sina Azure AD-konton.
-* Hantera konton på en central plats – Azure portal.
+* Kontroll i Azure AD som har åtkomst till Kiteworks.
+* Gör att användarna automatiskt loggas in i Kiteworks med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Läs mer om integrering av SaaS-app med Azure AD i [vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/).
-* Aktiverat prenumeration Kiteworks enkel inloggning (SSO).
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri provperiod [här.](https://azure.microsoft.com/pricing/free-trial/)
+* Kiteworks enkel inloggning (SSO) aktiverad prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien, konfigurera och testa Azure AD enkel inloggning i en testmiljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
 
-* Har stöd för Kiteworks **SP** -initierad SSO
-* Har stöd för Kiteworks **Just In Time** etableringen av användare
+* Kiteworks stöder **SP** initierade SSO
+* Kiteworks stöder just in time-användaretablering **Just In Time**
 
-## <a name="adding-kiteworks-from-the-gallery"></a>Att lägga till Kiteworks från galleriet
+## <a name="adding-kiteworks-from-the-gallery"></a>Lägga till Kiteworks från galleriet
 
-För att konfigurera integrering av Kiteworks i Azure AD, som du behöver lägga till Kiteworks från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av Kiteworks i Azure AD måste du lägga till Kiteworks från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigeringsfönstret, väljer den **Azure Active Directory** service.
-1. Gå till **företagsprogram** och välj sedan **alla program**.
-1. Om du vill lägga till nytt program, Välj **nytt program**.
-1. I den **Lägg till från galleriet** Skriv **Kiteworks** i sökrutan.
-1. Välj **Kiteworks** från resultaten panelen och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **Kiteworks** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **Kiteworks** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-Konfigurera och testa Azure AD enkel inloggning med Kiteworks med en testanvändare kallas **B.Simon**. Du måste upprätta en länk förhållandet mellan en Azure AD-användare och den relaterade användaren i Kiteworks för SSO ska fungera.
+Konfigurera och testa Azure AD SSO med Kiteworks med hjälp av en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Kiteworks.
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med Kiteworks, utför du följande byggblock:
+Om du vill konfigurera och testa Azure AD SSO med Kiteworks slutför du följande byggblock:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera Kiteworks SSO](#configure-kiteworks-sso)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa testanvändare Kiteworks](#create-kiteworks-test-user)**  – du har en motsvarighet för Britta Simon i Kiteworks som är länkad till en Azure AD-representation av användaren.
-6. **[Testa SSO](#test-sso)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera Kiteworks SSO](#configure-kiteworks-sso)** - för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Kiteworks-testanvändare](#create-kiteworks-test-user)** – om du vill ha en motsvarighet till Britta Simon i Kiteworks som är länkad till Azure AD-representationen av användaren.
+6. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ dessa steg om du vill aktivera enkel inloggning för Azure AD i Azure-portalen.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **Kiteworks** programsidan integration, hitta den **hantera** och väljer **enkel inloggning**.
-1. På den **väljer du en metod för enkel inloggning** väljer **SAML**.
-1. På den **ange in enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **SAML grundkonfiguration** att redigera inställningarna.
+1. Leta reda på avsnittet **Hantera** på sidan **Hantera** i [Azure-portalen](https://portal.azure.com/)och välj **Enkel inloggning**.
+1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. På den **SAML grundkonfiguration** anger värdena för följande fält:
+1. Ange värdena för följande fält i avsnittet **Grundläggande SAML-konfiguration:**
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<kiteworksURL>.kiteworks.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<kiteworksURL>/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Kiteworks klienten supportteamet](https://accellion.com/support) att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Kiteworks Client supportteam](https://accellion.com/support) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På den **ange in enkel inloggning med SAML** sidan den **SAML-signeringscertifikat** avsnittet, hitta **certifikat (Base64)** och välj **hämta** att hämta certifikatet och spara den på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML,** i avsnittet **SAML-signeringscertifikat,** hittar **du certifikat (Base64)** och väljer **Hämta** för att hämta certifikatet och spara det på datorn.
 
-    ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
-1. På den **konfigurera Kiteworks** avsnittet, kopiera den lämpliga URL: er efter behov.
+1. Kopiera lämpliga webbadresser i avsnittet **Konfigurera Kiteworks** baserat på dina krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
 ### <a name="configure-kiteworks-sso"></a>Konfigurera Kiteworks SSO
 
-1. Logga in på webbplatsen Kiteworks företag som administratör.
+1. Logga in på din Kiteworks företagswebbplats som administratör.
 
 1. I verktygsfältet längst upp klickar du på **Inställningar**.
 
     ![Konfigurera enkel inloggning](./media/kiteworks-tutorial/tutorial_kiteworks_06.png)
 
-1. I den **autentisering och auktorisering** klickar du på **SSO installationsprogrammet**.
+1. Klicka på **SSO-installation i**avsnittet **Autentisering och auktorisering** .
 
     ![Konfigurera enkel inloggning](./media/kiteworks-tutorial/tutorial_kiteworks_07.png)
 
-1. På konfigurationssidan för enkel inloggning utför du följande steg:
+1. Gör följande på sidan SSO-installationsprogrammet:
 
     ![Konfigurera enkel inloggning](./media/kiteworks-tutorial/tutorial_kiteworks_09.png)
 
-    a. Välj **autentisera via enkel inloggning**.
+    a. Välj **Autentisera via SSO**.
 
-    b. Välj **initiera AuthnRequest**.
+    b. Välj **Initiera AuthnRequest**.
 
-    c. I den **IDP entitets-ID** textrutan klistra in värdet för **Azure AD-identifierare**, som du har kopierat från Azure-portalen.
+    c. Klistra in värdet för **Azure AD-identifierare**i **textrutan IDP-entitets-ID** , som du har kopierat från Azure-portalen.
 
-    d. I den **enkel inloggnings-URL för** textrutan klistra in värdet för **inloggnings-URL**, som du har kopierat från Azure-portalen.
+    d. Klistra in värdet för **inloggnings-URL**i **textrutan För enkel inloggningstjänst** som du har kopierat från Azure-portalen.
 
-    e. I den **enkel Utloggning** textrutan klistra in värdet för **URL för utloggning**, som du har kopierat från Azure-portalen.
+    e. Klistra in värdet **för url för utloggning**i textrutan Url för **enkel utloggningstjänst** som du har kopierat från Azure-portalen.
 
-    f. Öppna din nedladdade certifikatet i anteckningar, kopiera innehållet och klistra in den i den **RSA offentligt nyckelcertifikat** textrutan.
+    f. Öppna det nedladdade certifikatet i Anteckningar, kopiera innehållet och klistra sedan in det i textrutan **RSA Public Key Certificate.**
 
     g. Klicka på **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet skapar du en användare i Azure-portalen kallas B.Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
 
-1. På menyn till vänster i Azure-portalen väljer du **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I den **användaren** egenskaper, Följ dessa steg:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B.Simon`.
-   1. I den **användarnamn** fältet, anger du den username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Kiteworks.
+I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Kiteworks.
 
-1. I Azure-portalen väljer du **företagsprogram**, och välj sedan **alla program**.
-1. I listan med program väljer **Kiteworks**.
-1. Appens översiktssidan, hitta den **hantera** och väljer **användare och grupper**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. Välj **Kiteworks**i programlistan .
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I den **användare och grupper** dialogrutan **B.Simon** från listan över användare klickar på **Välj** längst ned på skärmen.
-1. Om du förväntar dig något rollvärde i SAML-försäkran i den **Välj roll** dialogrutan Välj rätt roll för användaren i listan och klicka sedan på den **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
-### <a name="create-kiteworks-test-user"></a>Skapa Kiteworks testanvändare
+### <a name="create-kiteworks-test-user"></a>Skapa Kiteworks-testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Kiteworks.
+Syftet med detta avsnitt är att skapa en användare som heter Britta Simon i Kiteworks.
 
-Kiteworks stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Kiteworks om det inte finns ännu.
+Kiteworks stöder just-in-time-etablering, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas under ett försök att komma åt Kiteworks om det inte finns ännu.
 
 > [!NOTE]
-> Om du vill skapa en användare manuellt kan du behöva kontakta den [Kiteworks supportteam](https://accellion.com/support).
+> Om du behöver skapa en användare manuellt måste du kontakta [Kiteworks supportteam](https://accellion.com/support).
 
-### <a name="test-sso"></a>Testa enkel inloggning
+### <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Kiteworks i åtkomstpanelen, bör det vara loggas in automatiskt till Kiteworks som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på kiteworks-panelen på åtkomstpanelen ska du automatiskt loggas in på de Kiteworks som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

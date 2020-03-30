@@ -7,40 +7,40 @@ ms.topic: article
 ms.date: 08/26/2019
 ms.author: allensu
 ms.openlocfilehash: dc316e5bbb88359ff8b1e8a4fc35a56541a577f6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75646718"
 ---
 # <a name="move-an-azure-virtual-network-to-another-region-by-using-azure-powershell"></a>Flytta ett virtuellt Azure-nätverk till en annan region med hjälp av Azure PowerShell
 
-Det finns olika scenarier för att flytta ett befintligt virtuellt Azure-nätverk från en region till en annan. Du kanske till exempel vill skapa ett virtuellt nätverk med samma konfiguration för testning och tillgänglighet som ditt befintliga virtuella nätverk. Eller så kanske du vill flytta ett virtuellt produktions nätverk till en annan region som en del av Disaster Recovery-planeringen.
+Det finns olika scenarier för att flytta ett befintligt Virtuellt Azure-nätverk från en region till en annan. Du kanske till exempel vill skapa ett virtuellt nätverk med samma konfiguration för testning och tillgänglighet som det befintliga virtuella nätverket. Du kanske vill flytta ett virtuellt produktionsnätverk till en annan region som en del av planeringen för haveriberedskap.
 
-Du kan använda en Azure Resource Manager-mall för att slutföra flyttningen av det virtuella nätverket till en annan region. Du gör detta genom att exportera det virtuella nätverket till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen. Mer information om Resource Manager-mallar finns i [Exportera resurs grupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
+Du kan använda en Azure Resource Manager-mall för att slutföra flytten av det virtuella nätverket till en annan region. Du gör detta genom att exportera det virtuella nätverket till en mall, ändra parametrarna för att matcha målregionen och sedan distribuera mallen till den nya regionen. Mer information om Resource Manager-mallar finns i [Exportera resursgrupper till mallar](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
 ## <a name="prerequisites"></a>Krav
 
-- Se till att ditt virtuella nätverk finns i den Azure-region som du vill flytta från.
+- Kontrollera att ditt virtuella nätverk finns i Azure-regionen som du vill flytta från.
 
-- Om du vill exportera ett virtuellt nätverk och distribuera en mall för att skapa ett virtuellt nätverk i en annan region måste du ha rollen som nätverks deltagare eller högre.
+- Om du vill exportera ett virtuellt nätverk och distribuera en mall för att skapa ett virtuellt nätverk i en annan region måste du ha rollen Nätverksbidragsgivare eller högre.
 
-- Peering för virtuella nätverk återskapas inte, och de kommer inte att fungera om de fortfarande finns i mallen. Innan du exporterar mallen måste du ta bort alla virtuella nätverks-peer-datorer. Du kan sedan återupprätta dem efter det att det virtuella nätverket har flyttats.
+- Virtuella nätverks peerings skapas inte igen och de misslyckas om de fortfarande finns i mallen. Innan du exporterar mallen måste du ta bort alla virtuella nätverks peers. Du kan sedan återupprätta dem igen efter det virtuella nätverket flytta.
     
-- Identifiera käll nätverks layouten och alla resurser som du använder just nu. Den här layouten omfattar men är inte begränsad till belastningsutjämnare, nätverks säkerhets grupper (NSG: er) och offentliga IP-adresser.
+- Identifiera källnätverkslayouten och alla resurser som du använder för tillfället. Den här layouten innehåller men är inte begränsad till belastningsutjämnare, nätverkssäkerhetsgrupper (NSG) och offentliga IPs.
 
-- Kontrol lera att din Azure-prenumeration låter dig skapa virtuella nätverk i mål regionen. Kontakta supporten om du vill aktivera den begärda kvoten.
+- Kontrollera att din Azure-prenumeration gör att du kan skapa virtuella nätverk i målregionen. Kontakta supporten för att aktivera den kvot som krävs.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till virtuella nätverk för den här processen. Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Kontrollera att prenumerationen har tillräckligt med resurser för att stödja tillägg av virtuella nätverk för den här processen. Läs mer i dokumentationen om [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
-## <a name="prepare-for-the-move"></a>Förbered för flytt
-I det här avsnittet förbereder du det virtuella nätverket för flytten med hjälp av en Resource Manager-mall. Sedan flyttar du det virtuella nätverket till mål regionen genom att använda Azure PowerShell kommandon.
+## <a name="prepare-for-the-move"></a>Förbered för flytten
+I det här avsnittet förbereder du det virtuella nätverket för flytten med hjälp av en Resource Manager-mall. Du flyttar sedan det virtuella nätverket till målregionen med hjälp av Azure PowerShell-kommandon.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Så här exporterar du det virtuella nätverket och distribuerar det virtuella mål nätverket med hjälp av PowerShell:
+Så här exporterar du det virtuella nätverket och distribuerar det virtuella målnätverket med PowerShell:
 
 1. Logga in på din Azure-prenumeration med kommandot [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) och följ sedan anvisningarna på skärmen:
     
@@ -48,25 +48,25 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
     Connect-AzAccount
     ```
 
-1. Hämta resurs-ID för det virtuella nätverk som du vill flytta till mål regionen och placera det sedan i en variabel med hjälp av [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+1. Hämta resurs-ID:t för det virtuella nätverk som du vill flytta till målområdet och placera det sedan i en variabel med [get-azvirtualnetwork:](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)
 
     ```azurepowershell-interactive
     $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
     ```
 
-1. Exportera det virtuella käll nätverket till en. JSON-fil i den katalog där du kör kommandot [export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+1. Exportera det virtuella källnätverket till en .json-fil i katalogen där du kör kommandot [Export-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0)
    
    ```azurepowershell-interactive
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. Den hämtade filen har samma namn som resurs gruppen som resursen exporterades från. Leta upp *\<resurs-grupp-namn >. JSON* -filen som du exporterade med kommandot och öppna den i redigerings programmet:
+1. Den hämtade filen har samma namn som resursgruppen som resursen exporterades från. Leta reda på * \<filen>.json,* som du exporterade med kommandot och öppna den sedan i redigeraren:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
    ```
 
-1. Om du vill redigera parametern för det virtuella nätverks namnet ändrar du egenskapen **DefaultValue** för det virtuella käll nätverks namnet till namnet på det virtuella mål nätverket. Var noga med att skriva namnet inom citat tecken.
+1. Om du vill redigera parametern för **defaultValue** det virtuella nätverksnamnet ändrar du standardvärdegenskapen för källresursnätverkets namn till namnet på ditt virtuella målnätverk. Var noga med att bifoga namnet inom citationstecken.
     
     ```json
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentmyResourceGroupVNET.json#",
@@ -78,7 +78,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
         }
     ```
 
-1. Om du vill redigera mål regionen där det virtuella nätverket ska flyttas ändrar du egenskapen **location** under resurser:
+1. Om du vill redigera målområdet där det **location** virtuella nätverket ska flyttas ändrar du platsegenskapen under resurser:
 
     ```json
     "resources": [
@@ -98,16 +98,16 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
 
     ```
   
-1. Om du vill hämta regions koderna för regionen kan du använda Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) genom att köra följande kommando:
+1. Om du vill hämta regionplatskoder kan du använda Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) genom att köra följande kommando:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     ```
 
-1. Valfritt Du kan också ändra andra parametrar i *\<resurs-grupp-namn >. JSON* -fil, beroende på dina krav:
+1. (Valfritt) Du kan också ändra andra parametrar i * \<filen resursgruppnamn>.json,* beroende på dina behov:
 
-    * **Adress utrymme**: innan du sparar filen kan du ändra adress utrymmet för det virtuella nätverket genom att ändra avsnittet **resurser** > **addressSpace** och ändra egenskapen **addressPrefixes** :
+    * **Adressutrymme:** Innan du sparar filen kan du ändra adressutrymmet för det virtuella nätverket genom att ändra avsnittet **resurser** > **addressSpace** och ändra egenskapen **addressPrefixes:**
 
         ```json
                 "resources": [
@@ -126,7 +126,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
                     },
         ```
 
-    * **Undernät**: du kan ändra eller lägga till i under nätets namn och under nätets adress utrymme genom att ändra filens **undernät** . Du kan ändra namnet på under nätet genom att ändra egenskapen **namn** . Och du kan ändra adress utrymmet för under nätet genom att ändra egenskapen **addressPrefix** :
+    * **Undernät**: Du kan ändra eller lägga till undernätsnamnet och undernätsadressutrymmet genom att ändra avsnittet **undernät.** Du kan ändra namnet på undernätet **name** genom att ändra namnegenskapen. Och du kan ändra undernätsadressutrymmet genom att ändra **egenskapen addressPrefix:**
 
         ```json
                 "subnets": [
@@ -157,7 +157,7 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
                 ]
         ```
 
-        Om du vill ändra adressprefixet redigerar du filen på två platser: i koden i föregående avsnitt och i avsnittet **typ** i följande kod. Ändra egenskapen **addressPrefix** i följande kod så att den matchar egenskapen **addressPrefix** i koden i föregående avsnitt.
+        Om du vill ändra adressprefixet redigerar du filen på två ställen: i koden i föregående avsnitt och i **avsnittet typ** i följande kod. Ändra **egenskapen addressPrefix** i följande kod för att matcha **egenskapen addressPrefix** i koden i föregående avsnitt.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -193,22 +193,22 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
          ]
         ```
 
-1. Spara *\<resurs-grupp-namn >. JSON-* fil.
+1. Spara * \<filen resursgrupp-namn>.json.*
 
-1. Skapa en resurs grupp i mål regionen för det virtuella mål nätverket som ska distribueras med hjälp av [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0):
+1. Skapa en resursgrupp i målregionen för det virtuella målnätverket som ska distribueras med hjälp av [New-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
     
     ```azurepowershell-interactive
     New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
     
-1. Distribuera den redigerade *\<resurs gruppens namn >. JSON-* fil till den resurs grupp som du skapade i föregående steg genom att använda [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
+1. Distribuera den redigerade * \<resursgruppnamnet>.json-filen* till resursgruppen som du skapade i föregående steg med hjälp av [New-AzResourceGroupDeployment:](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0)
 
     ```azurepowershell-interactive
 
     New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     ```
 
-1. För att verifiera att resurserna har skapats i mål regionen använder du [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) och [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+1. Om du vill kontrollera att resurserna har skapats i målregionen använder du [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) och [Get-AzVirtualNetwork:](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0)
     
     ```azurepowershell-interactive
 
@@ -220,11 +220,11 @@ Så här exporterar du det virtuella nätverket och distribuerar det virtuella m
     Get-AzVirtualNetwork -Name <target-virtual-network-name> -ResourceGroupName <target-resource-group-name>
     ```
 
-## <a name="delete-the-virtual-network-or-resource-group"></a>Ta bort det virtuella nätverket eller resurs gruppen 
+## <a name="delete-the-virtual-network-or-resource-group"></a>Ta bort det virtuella nätverket eller resursgruppen 
 
-När du har distribuerat det virtuella nätverket, för att starta eller ta bort det virtuella nätverket i mål regionen, tar du bort resurs gruppen som du skapade i mål regionen och det flyttade virtuella nätverket tas bort. 
+När du har distribuerat det virtuella nätverket tar du bort eller tar bort resursgruppen som du skapade i målregionen om du vill starta eller ignorera det virtuella nätverket i målområdet och det flyttade virtuella nätverket tas bort. 
 
-Om du vill ta bort resurs gruppen använder du [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+Om du vill ta bort resursgruppen använder du [Remove-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)
 
 ```azurepowershell-interactive
 
@@ -233,16 +233,16 @@ Remove-AzResourceGroup -Name <target-resource-group-name>
 
 ## <a name="clean-up"></a>Rensa
 
-Gör något av följande om du vill spara ändringarna och slutföra den virtuella nätverks flyttningen:
+Gör något av följande om du vill genomföra ändringarna och slutföra flytten av det virtuella nätverket:
 
-* Ta bort resurs gruppen med hjälp av [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0):
+* Ta bort resursgruppen med hjälp av [Remove-AzResourceGroup:](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.6.0)
 
     ```azurepowershell-interactive
 
     Remove-AzResourceGroup -Name <source-resource-group-name>
     ```
 
-* Ta bort det virtuella käll nätverket med hjälp av [Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0):  
+* Ta bort det virtuella källnätverket med hjälp av [Remove-AzVirtualNetwork:](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork?view=azps-2.6.0)  
     ``` azurepowershell-interactive
 
     Remove-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>
@@ -250,7 +250,7 @@ Gör något av följande om du vill spara ändringarna och slutföra den virtuel
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien flyttade du ett virtuellt nätverk från en region till en annan med hjälp av PowerShell och rensade de onödiga käll resurserna. Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i:
+I den här självstudien flyttade du ett virtuellt nätverk från en region till en annan med hjälp av PowerShell och rensade sedan upp de onödiga källresurserna. Mer information om hur du flyttar resurser mellan regioner och haveriberedskap i Azure finns i:
 
 - [Flytta resurser till en ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - [Flytta virtuella Azure-datorer till en annan region](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-migrate)

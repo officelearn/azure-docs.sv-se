@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Civic-plattformen | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory-och Civic-plattformen.
+title: 'Självstudiekurs: Azure Active Directory-integrering med Civic Platform | Microsoft-dokument'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Civic Platform.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,181 +17,181 @@ ms.date: 07/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4ccf124c5a4160715df4e685e405dcd591c49ae7
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "68496828"
 ---
-# <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Självstudier: Integrera Civic-plattformen med Azure Active Directory
+# <a name="tutorial-integrate-civic-platform-with-azure-active-directory"></a>Självstudiekurs: Integrera Civic Platform med Azure Active Directory
 
-I den här självstudien får du lära dig hur du integrerar Civic-plattformen med Azure Active Directory (Azure AD). När du integrerar Civic-plattformen med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar Civic Platform med Azure Active Directory (Azure AD). När du integrerar Civic Platform med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till Civic-plattformen.
-* Gör det möjligt för användarna att logga in automatiskt till Civic-plattformen med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Kontroll i Azure AD som har åtkomst till Civic Platform.
+* Gör det möjligt för användarna att automatiskt loggas in på Civic Platform med sina Azure AD-konton.
+* Hantera dina konton på en central plats - Azure-portalen.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Mer information om Integrering av SaaS-appar med Azure AD finns i [Vad är programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att komma igång behöver du följande objekt:
+För att komma igång behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få en månads kostnads fri utvärderings version [här](https://azure.microsoft.com/pricing/free-trial/).
-* Civic plattform enkel inloggning (SSO) aktive rad prenumeration.
+* En Azure AD-prenumeration. Om du inte har en prenumeration kan du få en månads kostnadsfri provperiod [här.](https://azure.microsoft.com/pricing/free-trial/)
+* En enda inloggning (SSO) aktiverat prenumeration.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en testmiljö.
 
-* Civic-plattformen stöder **SP** -INITIERAd SSO
-
-
+* Civic Platform stöder **SP** initierade SSO
 
 
 
-## <a name="adding-civic-platform-from-the-gallery"></a>Lägga till Civic-plattform från galleriet
-
-Om du vill konfigurera integreringen av Civic-plattformen i Azure AD måste du lägga till Civic-plattformen från galleriet till listan över hanterade SaaS-appar.
-
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
-1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **Civic-plattformen** i sökrutan.
-1. Välj **Civic-plattform** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="adding-civic-platform-from-the-gallery"></a>Lägga civic plattform från galleriet
 
-Konfigurera och testa Azure AD SSO med Civic-plattformen med en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren på Civic-plattformen.
+Om du vill konfigurera integreringen av Civic Platform i Azure AD måste du lägga till Civic Platform från galleriet i listan över hanterade SaaS-appar.
 
-Om du vill konfigurera och testa Azure AD SSO med Civic-plattformen slutför du följande Bygg stenar:
+1. Logga in på [Azure-portalen](https://portal.azure.com) med antingen ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Välj **Azure Active Directory-tjänsten** i det vänstra navigeringsfönstret.
+1. Navigera till **företagsprogram** och välj sedan **Alla program**.
+1. Om du vill lägga till ett nytt program väljer du **Nytt program**.
+1. Skriv **Civic Platform** i sökrutan i avsnittet **Lägg till från galleriet.**
+1. Välj **Civic Platform** från resultatpanelen och lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klientorganisation.
+
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
+
+Konfigurera och testa Azure AD SSO med Civic Platform med en testanvändare som heter **B.Simon**. För att SSO ska fungera måste du upprätta en länkrelation mellan en Azure AD-användare och den relaterade användaren i Civic Platform.
+
+Så här konfigurerar och testar du Azure AD SSO med Civic Platform:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera Civic-plattformen SSO](#configure-civic-platform-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-3. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-5. **[Skapa Civic Platform test User](#create-civic-platform-test-user)** – för att få en motsvarighet till B. Simon på Civic-plattformen som är länkad till Azure AD-representation av användare.
-6. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+2. **[Konfigurera SSO för civic platform](#configure-civic-platform-sso)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa azure AD-enkel inloggning med B.Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** - så att B.Simon kan använda azure AD-enkel inloggning.
+5. Skapa användare av **[Civic Platform-test](#create-civic-platform-test-user)** - om du vill ha en motsvarighet till B.Simon i Civic Platform som är länkad till Azure AD-representationen av användaren.
+6. **[Testa SSO](#test-sso)** - för att kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+Följ dessa steg för att aktivera Azure AD SSO i Azure-portalen.
 
-1. I [Azure Portal](https://portal.azure.com/)på sidan **Civic Platform** Application Integration letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. Leta reda på avsnittet **Civic Platform** Hantera på sidan **Hantera** i [Azure-portalen](https://portal.azure.com/)och välj **Enkel inloggning**.
+1. På sidan **Välj en enskild inloggningsmetod** väljer du **SAML**.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på redigerings-/pennikonen för Grundläggande **SAML-konfiguration** för att redigera inställningarna.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
+1. Ange värdena för följande fält i avsnittet **Grundläggande SAML-konfiguration:**
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<SUBDOMAIN>.accela.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `civicplatform.accela.com`
+    b. Skriv en URL i textrutan **Identifierare (enhets-ID):**`civicplatform.accela.com`
 
     > [!NOTE]
-    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Civic Platform client support team](mailto:skale@accela.com) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Värdet för inloggnings-URL är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [Civic Platform Client supportteam](mailto:skale@accela.com) för att få detta värde. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
-1. Gå till **Azure Active Directory** > **Appregistreringar** i Azure AD och välj ditt program.
+1. Navigera till **Azure Active Directory** > **App-registreringar** i Azure AD, välj ditt program.
 
-1. Kopiera **katalog-ID: t** och lagra det i anteckningar.
+1. Kopiera **katalog-ID:t (klienten)** och lagra det i Anteckningar.
 
-    ![Kopiera katalogen (klient-ID) och lagra den i din app Code](media/civic-platform-tutorial/directoryid.png)
+    ![Kopiera katalogen (klient-ID) och lagra den i appkoden](media/civic-platform-tutorial/directoryid.png)
 
-1. Kopiera **program-ID: t** och spara det i anteckningar.
+1. Kopiera **program-ID:t** och lagra det i Anteckningar.
 
-   ![Kopiera program-ID: t (klient)](media/civic-platform-tutorial/applicationid.png)
+   ![Kopiera programmets (klient)-ID](media/civic-platform-tutorial/applicationid.png)
 
-1. Gå till **Azure Active Directory** > **Appregistreringar** i Azure AD och välj ditt program. Välj **certifikat & hemligheter**.
+1. Navigera till **Azure Active Directory** > **App-registreringar** i Azure AD, välj ditt program. Välj **Certifikat & hemligheter**.
 
-1. Välj **klient hemligheter – > ny klient hemlighet**.
+1. Välj **Klienthemligheter -> Ny klienthemlighet**.
 
-1. Ange en beskrivning av hemligheten och en varaktighet. När du är färdig väljer du **Lägg till**.
+1. Ange en beskrivning av hemligheten och en varaktighet. När du är klar väljer du **Lägg till**.
 
    > [!NOTE]
-   > När klient hemligheten har sparats visas värdet för klient hemligheten. Kopiera det här värdet eftersom du inte kan hämta nyckeln senare.
+   > När du har sparat klienthemligheten visas värdet för klienthemligheten. Kopiera det här värdet eftersom du inte kan hämta nyckeln senare.
 
    ![Kopiera det hemliga värdet eftersom du inte kan hämta det senare](media/civic-platform-tutorial/secretkey.png)
 
-### <a name="configure-civic-platform-sso"></a>Konfigurera Civic-plattform SSO
+### <a name="configure-civic-platform-sso"></a>Konfigurera Medborgerlig plattform SSO
 
-1. Öppna ett nytt webbläsarfönster och logga in på Atlassian-molnets företags webbplats som administratör.
+1. Öppna ett nytt webbläsarfönster och logga in på webbplatsen atlassianska molnföretag som administratör.
 
-1. Klicka på **standard alternativ**.
+1. Klicka på **Standardval**.
 
-    ![Länk för hämtning av certifikat](media/civic-platform-tutorial/standard-choices.png)
+    ![Länk för nedladdning av certifikatet](media/civic-platform-tutorial/standard-choices.png)
 
-1. Skapa ett standard alternativ **ssoconfig**.
+1. Skapa ett standardval **ssoconfig**.
 
 1. Sök efter **ssoconfig** och skicka.
 
-    ![Länk för hämtning av certifikat](media/civic-platform-tutorial/sso-config.png)
+    ![Länk för nedladdning av certifikatet](media/civic-platform-tutorial/sso-config.png)
 
-1. Expandera SSOCONFIG genom att klicka på röd prick.
+1. Expandera SSOCONFIG genom att klicka på röd punkt.
 
-    ![Länk för hämtning av certifikat](media/civic-platform-tutorial/sso-config01.png)
+    ![Länk för nedladdning av certifikatet](media/civic-platform-tutorial/sso-config01.png)
 
-1. Ange SSO-relaterad konfigurations information i följande steg:
+1. Ange SSO-relaterad konfigurationsinformation i följande steg:
 
-    ![Länk för hämtning av certifikat](media/civic-platform-tutorial/sso-config02.png)
+    ![Länk för nedladdning av certifikatet](media/civic-platform-tutorial/sso-config02.png)
 
-    1. I fältet **ApplicationId** anger du **programmets ID-** värde, som du har kopierat från Azure Portal.
+    1. I **fältet applicationid** anger du **värdet Program-ID,** som du har kopierat från Azure-portalen.
 
-    1. I fältet **clientSecret** anger du det **hemliga** värdet, som du har kopierat från Azure Portal.
+    1. I fältet **clientSecret** anger du det **hemliga** värdet, som du har kopierat från Azure-portalen.
 
-    1. I fältet **directoryId** anger du KATALOGENS **ID-** värde, som du har kopierat från Azure Portal.
+    1. I **fältet directoryId** anger du värdet **Katalog (klient) som** du har kopierat från Azure-portalen.
 
     1. Ange idpName. Ex:- `Azure`.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+I det här avsnittet ska du skapa en testanvändare i Azure-portalen som heter B.Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
+1. Välj Azure Active Directory i den vänstra rutan i **Azure-portalen,** välj **Användare**och välj sedan **Alla användare**.
+1. Välj **Ny användare** högst upp på skärmen.
+1. Gör så här i egenskaperna **Användare:**
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Ange **.** username@companydomain.extension Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Civic-plattformen.
+I det här avsnittet aktiverar du B.Simon att använda Azure enkel inloggning genom att bevilja åtkomst till Civic Platform.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Civic-plattform**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. I Azure-portalen väljer du **Enterprise Applications**och väljer sedan **Alla program**.
+1. Välj **Civic Platform**i programlistan .
+1. På appens översiktssida letar du reda på avsnittet **Hantera** och väljer **Användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare**och välj sedan Användare och **grupper** i dialogrutan Lägg **till tilldelning.**
 
     ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+1. I dialogrutan **Användare och grupper** väljer du **B.Simon** i listan Användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-påståendet väljer du lämplig roll för användaren i listan i dialogrutan **Välj roll** och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Klicka på knappen **Tilldela** i dialogrutan **Lägg till tilldelning.**
 
-### <a name="create-civic-platform-test-user"></a>Skapa Civic Platform test User
+### <a name="create-civic-platform-test-user"></a>Skapa användare av testanvändare för Civic Platform
 
-I det här avsnittet skapar du en användare som heter B. Simon i Civic-plattformen. Arbeta med Civic Platform support team för att lägga till användare i [support teamet för Civic Platform-klienten](mailto:skale@accela.com). Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B.Simon i Civic Platform. Arbeta med Supportteamet för Civic Platform för att lägga till användarna i supportteamet för [Civic Platform Client.](mailto:skale@accela.com) Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Civic plattform på åtkomst panelen, bör du loggas in automatiskt på den Civic-plattform som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Civic Platform i åtkomstpanelen ska du automatiskt loggas in på den medborgarplattform som du konfigurerar SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

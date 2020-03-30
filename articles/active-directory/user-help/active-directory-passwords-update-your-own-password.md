@@ -1,6 +1,6 @@
 ---
-title: Återställ ditt lösen ord med hjälp av säkerhets information – Azure Active Directory | Microsoft Docs
-description: Återställa ditt eget lösen ord om du glömmer det, med hjälp av din säkerhets information och tvåstegsverifiering.
+title: Återställ ditt lösenord med hjälp av säkerhetsinformation - Azure Active Directory | Microsoft-dokument
+description: Så här återställer du ditt eget lösenord om du glömmer det, med hjälp av din säkerhetsinformation och tvåstegsverifiering.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,158 +12,158 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: curtand
 ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77062667"
 ---
-# <a name="reset-your-work-or-school-password-using-security-info"></a>Återställa ditt arbets-eller skol lösen ord med hjälp av säkerhets information
+# <a name="reset-your-work-or-school-password-using-security-info"></a>Återställa ditt arbets- eller skollösenord med hjälp av säkerhetsinformation
 
-Om du har glömt lösen ordet till ditt arbets-eller skol konto, fick du aldrig ett lösen ord från din organisation eller har låsts av ditt konto, kan du använda din säkerhets information och din mobila enhet för att återställa lösen ordet till ditt arbets-eller skol konto. Administratören måste aktivera den här funktionen så att du kan ställa in din information och återställa ditt eget lösen ord.
+Om du har glömt ditt arbets- eller skollösenord, aldrig fått något lösenord från din organisation eller har låsts ute från ditt konto kan du använda din säkerhetsinformation och din mobila enhet för att återställa ditt arbets- eller skollösenord. Administratören måste aktivera den här funktionen för att du ska kunna konfigurera informationen och återställa ditt eget lösenord.
 
-Om du känner till ditt lösen ord, men vill ändra det, kan du läsa avsnittet [ändra lösen ords steg](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) i den här artikeln.
+Om du känner till ditt lösenord, men vill ändra det, läser du avsnitten [Ändra lösenordssteg](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) i den här artikeln.
 
 >[!Important]
->Den här artikeln är avsedd för användare som försöker använda återställning av lösen ord för ett bortglömt eller okänt arbets-eller skol konto. Om du är administratör för att få information om hur du aktiverar lösen ords återställning via självbetjäning för dina anställda eller andra användare kan du läsa mer i [Distribuera Azure AD självbetjäning återställning av lösen ord och andra artiklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Den här artikeln är avsedd för användare som försöker använda återställa ett glömt eller okänt lösenord för arbets- eller skolkonto. Om du är administratör och letar efter information om hur du aktiverar återställning av lösenord för självbetjäning för anställda eller andra användare läser [du återställningen av självbetjäningslösenordet i Azure AD och andra artiklar](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
-## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Återställa eller låsa upp lösen ordet för ett arbets-eller skol konto
+## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Så här återställer eller låser du upp ditt lösenord för ett arbets- eller skolkonto
 
-Om du inte kan komma åt ditt Azure Active Directory-konto (Azure AD) kan det bero på något av följande:
+Om du inte kan komma åt ditt Azure Active Directory-konto (Azure AD) kan det bero på att antingen:
 
-- Ditt lösen ord fungerar inte och du vill återställa det, eller
+- Ditt lösenord fungerar inte och du vill återställa det, eller
 
-- Du känner till ditt lösen ord, men ditt konto är utelåst och du måste låsa upp det.
+- Du vet ditt lösenord, men ditt konto är utelåst och du måste låsa upp det.
 
-### <a name="to-reset-your-password-and-get-back-into-your-account"></a>Så här återställer du ditt lösen ord och återgår till ditt konto
+### <a name="to-reset-your-password-and-get-back-into-your-account"></a>Så här återställer du lösenordet och går in på ditt konto igen
 
-1. Välj **glömt mitt lösen ord**på skärmen **Ange lösen ord** .
+1. På skärmen **Ange lösenord** väljer du Glömt **mitt lösenord**.
 
-2. I fönstret **kom tillbaka till ditt konto** skriver du **användar-ID:** t för arbets-eller skol användaren (till exempel din e-postadress), visar att du inte är en robot genom att ange de tecken som visas på skärmen och sedan välja **Nästa**.
+2. På skärmen **Gå in på kontot igen** skriver du ditt **användar-ID** för arbete eller skola (till exempel din e-postadress), bevisar att du inte är en robot genom att ange de tecken du ser på skärmen och välj sedan **Nästa**.
 
-   ![Gå tillbaka till konto skärmen](media/security-info/security-info-back-into-acct.png)
+   ![Gå tillbaka till din kontoskärm](media/security-info/security-info-back-into-acct.png)
 
    >[!NOTE]
-   >Om administratören inte har aktiverat möjligheten att återställa ditt eget lösen ord, ser du en **Kontakta din administratörs** länk i stället för att **gå tillbaka till konto** skärmen. Med den här länken kan du kontakta administratören om du vill återställa lösen ordet via e-post eller en webb Portal.
+   >Om administratören inte har aktiverat möjligheten för dig att återställa ditt eget lösenord visas länken **Kontakta administratören** i stället för skärmen **Hämta tillbaka till ditt konto.** Med den här länken kan du kontakta administratören om hur du återställer lösenordet, antingen via e-post eller en webbportal.
 
-3. Välj en av följande metoder för att verifiera din identitet och ändra lösen ordet. Beroende på hur din administratör har konfigurerat din organisation kan du behöva gå igenom den här processen en andra gång och lägga till information för ett andra verifierings steg.
+3. Välj en av följande metoder för att verifiera din identitet och ändra ditt lösenord. Beroende på hur administratören har konfigurerat din organisation kan du behöva gå igenom den här processen en andra gång och lägga till information för ett andra verifieringssteg.
 
-    ![Kom tillbaka till ditt konto, verifierings steg #1](media/security-info/security-info-back-into-acct2.png)
+    ![Kom tillbaka till ditt konto, verifieringssteg #1](media/security-info/security-info-back-into-acct2.png)
 
     >[!NOTE]
-    >Beroende på hur din administratör har konfigurerat din organisation kanske vissa av dessa verifierings alternativ inte är tillgängliga. Du måste ha konfigurerat din mobila enhet tidigare för verifiering med minst en av dessa metoder.<br><br>Dessutom kan det nya lösen ordet behöva uppfylla vissa styrke krav. Starka lösen ord har vanligt vis 8 till 16 tecken, inklusive versaler och gemener, minst en siffra och minst ett specialtecken.
+    >Beroende på hur administratören har konfigurerat din organisation kanske vissa av dessa verifieringsalternativ inte är tillgängliga. Du måste tidigare ha konfigurerat din mobila enhet för verifiering med minst en av dessa metoder.<br><br>Dessutom kan ditt nya lösenord behöva uppfylla vissa styrkaskrav. Starka lösenord har vanligtvis 8 till 16 tecken, inklusive versaler och gemener, minst ett nummer och minst ett specialtecken.
 
-- **Återställ ditt lösen ord med hjälp av en e-postadress.** Skickar ett e-postmeddelande till den e-postadress som du tidigare har konfigurerat i tvåstegsverifiering eller säkerhets information. Om din administratör har aktiverat säkerhets informationen kan du hitta mer information om hur du konfigurerar en e-postadress i artikeln [Konfigurera säkerhets information för att använda e-post (för hands version)](security-info-setup-email.md) . Om du ännu inte använder säkerhets information kan du hitta mer information om hur du konfigurerar en e-postadress i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering. 
+- **Återställ ditt lösenord med hjälp av en e-postadress.** Skickar ett e-postmeddelande till den e-postadress som du tidigare har angett i tvåstegsverifiering eller säkerhetsinformation. Om administratören har aktiverat säkerhetsinformationsupplevelsen kan du hitta mer information om hur du konfigurerar en e-postadress i artikeln [Konfigurera säkerhetsinformation för att använda e-post (förhandsversion).](security-info-setup-email.md) Om du ännu inte använder säkerhetsinformation kan du hitta mer information om hur du konfigurerar en e-postadress i artikeln [Konfigurera mitt konto för tvåstegsverifiering.](multi-factor-authentication-end-user-first-time.md) 
 
-    1. Välj **e-posta min alternativa e-postadress**och välj sedan **e-post**.
+    1. Välj **E-post min alternativa e-post**och välj sedan **E-post**.
 
-    2. Skriv verifierings koden från e-postmeddelandet i rutan och välj sedan **Nästa**.
+    2. Skriv verifieringskoden från e-postmeddelandet i rutan och välj sedan **Nästa**.
 
-    3. Skriv och bekräfta ditt nya lösen ord och välj sedan **Slutför**.
+    3. Skriv och bekräfta ditt nya lösenord och välj sedan **Slutför**.
 
-- **Återställ ditt lösen ord med ett textmeddelande.** Skickar ett SMS till det telefonnummer som du tidigare angav i säkerhets information. Om din administratör har aktiverat säkerhets informationen kan du hitta mer information om hur du konfigurerar textmeddelanden i artikeln [Konfigurera säkerhets information för att använda text meddelanden (för hands version)](security-info-setup-text-msg.md) . Om du ännu inte använder säkerhets information kan du hitta mer information om hur du konfigurerar textmeddelanden i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
+- **Återställ lösenordet med hjälp av ett textmeddelande.** Skickar ett sms till det telefonnummer som du tidigare har angett i säkerhetsinformation. Om administratören har aktiverat säkerhetsinformationsupplevelsen kan du hitta mer information om hur du konfigurerar textmeddelanden i artikeln [Konfigurera säkerhetsinformation för att använda sms(förhandsversion).](security-info-setup-text-msg.md) Om du ännu inte använder säkerhetsinformation kan du hitta mer information om hur du konfigurerar textmeddelanden i artikeln [Konfigurera mitt konto för tvåstegsverifiering.](multi-factor-authentication-end-user-first-time.md)
 
-    1. Välj **text min mobil telefon**, skriv ditt telefonnummer och välj sedan **text**.
+    1. Välj **Text min mobiltelefon,** skriv ditt telefonnummer och välj sedan **Text**.
 
-    2. Skriv verifierings koden från textmeddelandet i rutan och välj sedan **Nästa**.
+    2. Skriv verifieringskoden från sms:et i rutan och välj sedan **Nästa**.
 
-    3. Skriv och bekräfta ditt nya lösen ord och välj sedan **Slutför**.
+    3. Skriv och bekräfta ditt nya lösenord och välj sedan **Slutför**.
 
-- **Återställ ditt lösen ord med hjälp av ett telefonnummer.** Skickar ett SMS till det telefonnummer som du tidigare angav i säkerhets information. Om din administratör har aktiverat säkerhets informationen kan du hitta mer information om hur du konfigurerar ett telefonnummer i artikeln [Konfigurera säkerhets information för att använda ett telefonsamtal (för hands version)](security-info-setup-phone-number.md) . Om du ännu inte använder säkerhets information kan du hitta mer information om hur du konfigurerar ett telefonnummer i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
+- **Återställ lösenordet med ett telefonnummer.** Skickar ett sms till det telefonnummer som du tidigare har angett i säkerhetsinformation. Om administratören har aktiverat säkerhetsinformationen kan du hitta mer information om hur du konfigurerar ett telefonnummer i artikeln [Konfigurera säkerhetsinformation för att använda ett telefonsamtal (förhandsversion).](security-info-setup-phone-number.md) Om du ännu inte använder säkerhetsinformation kan du hitta mer information om hur du konfigurerar ett telefonnummer i artikeln [Konfigurera mitt konto för tvåstegsverifiering.](multi-factor-authentication-end-user-first-time.md)
 
-    1. Välj **Ring min mobil telefon**, ange ditt telefonnummer och välj sedan **anropa**.
+    1. Välj **Ring min mobiltelefon,** skriv ditt telefonnummer och välj sedan **Ring**.
 
-    2. Besvara telefonsamtalet och följ anvisningarna för att verifiera din identitet och välj sedan **Nästa**.
+    2. Besvara telefonsamtalet och följ instruktionerna för att verifiera din identitet och välj sedan **Nästa**.
 
-    3. Skriv och bekräfta ditt nya lösen ord och välj sedan **Slutför**.
+    3. Skriv och bekräfta ditt nya lösenord och välj sedan **Slutför**.
 
-- **Återställ ditt lösen ord med hjälp av säkerhets frågor.** Visar en lista med säkerhets frågor som du ställer in i säkerhets information. Om din administratör har aktiverat säkerhets informationen kan du hitta mer information om hur du konfigurerar dina säkerhets frågor i artikeln [Konfigurera säkerhets information för att använda fördefinierade säkerhets frågor (för hands version)](security-info-setup-questions.md) . Om du ännu inte använder säkerhets information kan du hitta mer information om att ställa in säkerhets frågor i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
+- **Återställ ditt lösenord med hjälp av säkerhetsfrågor.** Visar listan över säkerhetsfrågor som du har ställt in i säkerhetsinformation. Om administratören har aktiverat säkerhetsinformationsupplevelsen kan du hitta mer information om hur du konfigurerar dina säkerhetsfrågor i artikeln [Konfigurera säkerhetsinformation för att använda fördefinierade säkerhetsfrågor (förhandsversion).](security-info-setup-questions.md) Om du ännu inte använder säkerhetsinformation kan du hitta mer information om hur du ställer in säkerhetsfrågor i artikeln [Konfigurera mitt konto för tvåstegsverifiering.](multi-factor-authentication-end-user-first-time.md)
 
-    1. Välj **svara på mina säkerhets frågor**, svara på frågorna och välj sedan **Nästa**.
+    1. Välj **Svara på mina säkerhetsfrågor,** svara på frågorna och välj sedan **Nästa**.
 
-    2. Skriv och bekräfta ditt nya lösen ord och välj sedan **Slutför**.
+    2. Skriv och bekräfta ditt nya lösenord och välj sedan **Slutför**.
 
-- **Återställ ditt lösen ord med hjälp av ett meddelande från din Authenticator-app.** Skickar ett meddelande om godkännande till Authenticator-appen. Om din administratör har aktiverat säkerhets informationen kan du hitta mer information om hur du konfigurerar en Authenticator-app för att skicka ett meddelande i artikeln [Konfigurera säkerhets information för att använda en autentiseringstjänst (förhands granskning)](security-info-setup-auth-app.md) . Om du ännu inte använder säkerhets information kan du hitta mer information om hur du konfigurerar en Authenticator-app för att skicka ett meddelande i artikeln [Konfigurera mitt konto för](multi-factor-authentication-end-user-first-time.md) tvåstegsverifiering.
+- **Återställ ditt lösenord med hjälp av ett meddelande från din autentiseringsapp.** Skickar ett godkännandemeddelande till autentiseringsappen. Om administratören har aktiverat säkerhetsinformationsupplevelsen kan du hitta mer information om hur du konfigurerar en autentiseringsapp för att skicka ett meddelande i artikeln [Konfigurera säkerhetsinformation för att använda en förhandsgranskningsartikel (förhandsversion).](security-info-setup-auth-app.md) Om du ännu inte använder säkerhetsinformation kan du hitta mer information om hur du konfigurerar en autentiseringsapp för att skicka ett meddelande i artikeln [Konfigurera mitt konto för tvåstegsverifiering.](multi-factor-authentication-end-user-first-time.md)
 
-    1. Välj **Godkänn ett meddelande i min Authenticator-app**och välj sedan **Skicka meddelande**.
+    1. Välj **Godkänn ett meddelande i min autentiseringsapp**och välj sedan Skicka **meddelande**.
 
-    2. Godkänn inloggningen från din Authenticator-app.
+    2. Godkänn inloggningen från din autentiseringsapp.
 
-    3. Skriv och bekräfta ditt nya lösen ord och välj sedan **Slutför**.
+    3. Skriv och bekräfta ditt nya lösenord och välj sedan **Slutför**.
 
-- **Återställ ditt lösen ord med hjälp av en kod från din Authenticator-app.** Accepterar en slumpmässig kod från din webbapp. Om din administratör har aktiverat säkerhets informationen kan du hitta mer information om hur du konfigurerar en Authenticator-app för att tillhandahålla en kod i artikeln [Konfigurera säkerhets information för att använda en autentiseringstjänst (förhands granskning)](security-info-setup-auth-app.md) . Om du ännu inte använder säkerhets information kan du hitta mer information om hur du konfigurerar en Authenticator-app för att tillhandahålla en kod i artikeln [Konfigurera mitt konto för tvåstegsverifiering](multi-factor-authentication-end-user-first-time.md) .
+- **Återställ ditt lösenord med hjälp av en kod från din autentiseringsapp.** Accepterar en slumpmässig kod som tillhandahålls av din autentiseringsapp. Om administratören har aktiverat säkerhetsinformationsupplevelsen kan du hitta mer information om hur du konfigurerar en autentiseringsapp för att tillhandahålla en kod i artikeln [Konfigurera säkerhetsinformation för att använda en förhandsgranskningsartikel för autentiseringsappar.](security-info-setup-auth-app.md) Om du ännu inte använder säkerhetsinformation kan du hitta mer information om hur du konfigurerar en autentiseringsapp för att tillhandahålla en kod i artikeln [Konfigurera mitt konto för tvåstegsverifiering.](multi-factor-authentication-end-user-first-time.md)
 
-  1. Välj **Ange en kod från min Authenticator-app**och välj sedan **Skicka meddelande**.
+  1. Välj **Ange en kod från min autentiseringsapp**och välj sedan Skicka **meddelande**.
 
-  2. Öppna din Authenticator-app, skriv verifierings koden för ditt konto i rutan och välj sedan **Nästa**.
+  2. Öppna autentiseringsappen, skriv verifieringskoden för ditt konto i rutan och välj sedan **Nästa**.
 
-  3. Skriv och bekräfta ditt nya lösen ord och välj sedan **Slutför**.
+  3. Skriv och bekräfta ditt nya lösenord och välj sedan **Slutför**.
 
-  4. När du får meddelandet att ditt lösen ord har återställts kan du logga in på ditt konto med ditt nya lösen ord.
+  4. När du har fått meddelandet om att lösenordet har återställts kan du logga in på ditt konto med ditt nya lösenord.
 
-     Om du fortfarande inte kan komma åt ditt konto bör du kontakta din organisations administratör för mer hjälp.
+     Om du fortfarande inte kan komma åt ditt konto bör du kontakta organisationens administratör för mer hjälp.
 
-När du har återställt lösen ordet kan du få en bekräftelse via e-post som kommer från ett konto, till exempel "Microsoft på uppdrag av \<*your_organization*>." Om du får ett liknande e-postmeddelande, men du inte nyligen återställt ditt lösen ord, måste du kontakta din organisations administratör omedelbart.
+När du har återställt lösenordet kan du få ett bekräftelsemeddelande som \<kommer från ett konto som "Microsoft för *your_organization*>". Om du får ett liknande e-postmeddelande, men du inte nyligen har återställt lösenordet, måste du kontakta organisationens administratör omedelbart.
 
-## <a name="how-to-change-your-password"></a>Ändra lösen ordet
+## <a name="how-to-change-your-password"></a>Så ändrar du ditt lösenord
 
-Om du bara vill ändra ditt lösen ord kan du göra det via Office 365-portalen, Azure-åtkomst panelen eller inloggnings sidan för Windows 10.
+Om du bara vill ändra ditt lösenord kan du göra det via Office 365-portalen, Azure Access Panel eller inloggningssidan för Windows 10.
 
-### <a name="to-change-your-password-using-the-office-365-portal"></a>Ändra lösen ordet med hjälp av Office 365-portalen
+### <a name="to-change-your-password-using-the-office-365-portal"></a>Så här ändrar du ditt lösenord med Office 365-portalen
 
-Använd den här metoden om du normalt kommer åt dina appar via Office-portalen:
+Använd den här metoden om du vanligtvis kommer åt dina appar via Office-portalen:
 
-1. Logga in på ditt [Office 365-konto](https://portal.office.com)med ditt befintliga lösen ord.
+1. Logga in på ditt [Office 365-konto](https://portal.office.com)med ditt befintliga lösenord.
 
 2. Välj din profil längst upp till höger och välj sedan **Visa konto**.
 
-3. Välj **säkerhets & sekretess** > **lösen ord**.
+3. Välj **sekretesslösenord** > **Password**för & .
 
-4. Skriv ditt gamla lösen ord, skapa och bekräfta ditt nya lösen ord och välj sedan **Skicka**.
+4. Skriv ditt gamla lösenord, skapa och bekräfta ditt nya lösenord och välj sedan **Skicka**.
 
-### <a name="to-change-your-password-from-the-azure-access-panel"></a>Ändra ditt lösen ord från Azures åtkomst panel
+### <a name="to-change-your-password-from-the-azure-access-panel"></a>Så här ändrar du ditt lösenord från Azure Access Panel
 
-Använd den här metoden om du normalt kommer åt dina appar från Azures åtkomst panel (Mina appar):
+Använd den här metoden om du vanligtvis kommer åt dina appar från Azure Access Panel (MyApps):
 
-1. Logga in på [Azures åtkomst panel](https://myapps.microsoft.com/)med ditt befintliga lösen ord.
+1. Logga in på [Azure Access Panel](https://myapps.microsoft.com/)med ditt befintliga lösenord.
 
-2. Välj din profil längst upp till höger och välj sedan **profil**.
+2. Välj din profil längst upp till höger och välj sedan **Profil**.
 
-3. Välj **ändra lösen ord**.
+3. Välj **Ändra lösenord**.
 
-4. Skriv ditt gamla lösen ord, skapa och bekräfta ditt nya lösen ord och välj sedan **Skicka**.
+4. Skriv ditt gamla lösenord, skapa och bekräfta ditt nya lösenord och välj sedan **Skicka**.
 
-### <a name="to-change-your-password-at-windows-sign-in"></a>Ändra lösen ordet på Windows-inloggning
+### <a name="to-change-your-password-at-windows-sign-in"></a>Så här ändrar du ditt lösenord vid Windows-inloggning
 
-Om din administratör har aktiverat funktionen kan du se en länk för att **återställa lösen ordet** på inloggnings skärmen för Windows 7, Windows 8, Windows 8,1 eller Windows 10.
+Om administratören har aktiverat funktionen kan du se en länk för att **återställa lösenord** på inloggningsskärmen för Windows 7, Windows 8, Windows 8.1 eller Windows 10.
 
-1. Välj länken **Återställ lösen ord** för att starta processen för lösen ords återställning utan att behöva använda den normala webbaserade upplevelsen.
+1. Välj länken **Återställ lösenord** för att starta återställningsprocessen för lösenord utan att behöva använda den normala webbaserade upplevelsen.
 
 2. Bekräfta ditt användar-ID och välj **Nästa**.
 
-3. Välj och bekräfta en kontakt metod för verifiering. Om det behövs väljer du ett andra verifierings alternativ som skiljer sig från ditt föregående och fyller i nödvändig information.
+3. Välj och bekräfta en kontaktmetod för verifiering. Om det behövs väljer du ett andra verifieringsalternativ som skiljer sig från det tidigare, och fyller i nödvändig information.
 
-4. Skriv och bekräfta ditt nya lösen ord på sidan **skapa ett nytt lösen ord** och välj sedan **Nästa**.
+4. På sidan **Skapa ett nytt lösenord** skriver och bekräftar du ditt nya lösenord och väljer sedan **Nästa**.
 
-    Starka lösen ord har vanligt vis 8 till 16 tecken, inklusive versaler och gemener, minst en siffra och minst ett specialtecken.
+    Starka lösenord har vanligtvis 8 till 16 tecken, inklusive versaler och gemener, minst ett nummer och minst ett specialtecken.
 
-5. När du får meddelandet att ditt lösen ord har återställts kan du välja **Slutför**.
+5. När du har fått meddelandet om att lösenordet har återställts kan du välja **Slutför**.
 
-    Om du fortfarande inte kan komma åt ditt konto bör du kontakta din organisations administratör för mer hjälp.
+    Om du fortfarande inte kan komma åt ditt konto bör du kontakta organisationens administratör för mer hjälp.
 
 ## <a name="common-problems-and-their-solutions"></a>Vanliga problem och lösningar
 
-Här följer några vanliga fel och deras lösningar:
+Här är några vanliga felfall och deras lösningar:
 
 |Problem|Beskrivning|Lösning|
 | --- | --- | --- |
-|Jag får ett fel när jag försöker ändra mitt lösen ord. |Ditt lösen ord har ett ord, en fras eller ett mönster som gör ditt lösen ord lätt att gissa.| Försök igen med ett starkare lösen ord.|
-|När jag har angett mitt användar-ID går jag till en sida med texten "kontakta administratören".|Microsoft har fastställt att lösen ordet för ditt användar konto hanteras av administratören i en lokal miljö. Det innebär att du inte kan återställa ditt lösen ord från länken "det går inte att komma åt ditt konto". |Kontakta administratören om du vill ha mer hjälp.|
-|När jag har angett mitt användar-ID visas ett fel meddelande om att ditt konto inte har Aktiver ATS för lösen ords återställning.|Administratören har inte konfigurerat ditt konto så att du kan återställa ditt eget lösen ord.|Administratören har inte aktiverat lösen ords återställning för din organisation från länken "det går inte att komma åt ditt konto" eller har inte licensierat dig till att använda funktionen.<br><br> Om du vill återställa lösen ordet måste du välja länken "kontakta en administratör" för att skicka ett e-postmeddelande till företagets administratör och meddela dem att du vill återställa lösen ordet.|
-|När jag har angett mitt användar-ID visas ett fel meddelande om att vi inte kunde verifiera ditt konto.|Det gick inte att verifiera din konto information i inloggnings processen.|Det finns två orsaker till att du kan se det här meddelandet.<br><br>1. din administratör har aktiverat lösen ords återställning för din organisation, men du har inte registrerat dig för att använda tjänsten. Registrera dig för lösen ords återställning se en av följande artiklar, baserat på din verifieringsmetod: [Konfigurera säkerhets information för att använda en Authenticator-app (för hands version)](security-info-setup-auth-app.md), [Konfigurera säkerhets information för att använda ett telefonsamtal (](security-info-setup-phone-number.md)förhands granskning), konfigurera säkerhets information för att använda [textmeddelanden](security-info-setup-text-msg.md)(förhands granskning), konfigurera säkerhets information för att [använda](security-info-setup-questions.md) [e-post (för](security-info-setup-email.md)hands version)<br><br>2. administratören har inte aktiverat lösen ords återställning för din organisation. I så fall måste du välja länken "kontakta en administratör" för att skicka ett e-postmeddelande till administratören och be att återställa lösen ordet.|
+|När jag försöker ändra mitt lösenord får jag ett felmeddelande. |Ditt lösenord har ett ord, en fras eller ett mönster som gör att ditt lösenord inte kan gissas.| Försök igen med ett starkare lösenord.|
+|När jag har angett mitt användar-ID går jag till en sida där det står :"Kontakta administratören.",|Microsoft har fastställt att lösenordet för ditt användarkonto hanteras av administratören i en lokal miljö. Därför kan du inte återställa lösenordet från länken "Kan inte komma åt ditt konto". |Kontakta administratören för mer hjälp.|
+|När jag har angett mitt användar-ID får jag ett felmeddelande med det står: "Ditt konto är inte aktiverat för återställning av lösenord."|Administratören har inte konfigurerat ditt konto så att du kan återställa ditt eget lösenord.|Administratören har inte aktiverat återställning av lösenord för din organisation från länken "Kan inte komma åt ditt konto" eller har inte licensierat dig att använda funktionen.<br><br> Om du vill återställa lösenordet måste du välja "kontakta en administratörslänk" för att skicka ett e-postmeddelande till företagets administratör och meddela dem att du vill återställa lösenordet.|
+|När jag har angett mitt användar-ID får jag ett felmeddelande med det står: "Vi kunde inte verifiera ditt konto."|Inloggningsprocessen kunde inte verifiera din kontoinformation.|Det finns två anledningar till att du kan se det här meddelandet.<br><br>1. Administratören har aktiverat återställning av lösenord för din organisation, men du har inte registrerat dig för att använda tjänsten. Om du vill registrera dig för återställning av lösenord läser du någon av följande artiklar, baserat på din verifieringsmetod: [Konfigurera säkerhetsinformation för att använda en autentiseringsapp (förhandsgranskning)](security-info-setup-auth-app.md), [Konfigurera säkerhetsinformation för att använda ett telefonsamtal (förhandsgranskning)](security-info-setup-phone-number.md), [Konfigurera säkerhetsinformation för att använda textmeddelanden (förhandsgranskning)](security-info-setup-text-msg.md), [Konfigurera säkerhetsinformation för att använda e-post (förhandsgranskning)](security-info-setup-email.md)eller [Konfigurera säkerhetsinformation för att använda säkerhetsfrågor (förhandsgranskning)](security-info-setup-questions.md).<br><br>2. Administratören har inte aktiverat återställning av lösenord för din organisation. I det här fallet måste du välja "kontakta en administratörslänk" för att skicka ett e-postmeddelande till administratören och be att du återställer lösenordet.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om säkerhets information i [översikts artikeln om säkerhets information (för hands version)](user-help-security-info-overview.md) .
+- Läs mer om säkerhetsinformation i översiktsartikeln [säkerhetsinformation (förhandsversion).](user-help-security-info-overview.md)
 
-- Om du försöker komma tillbaka till ett personligt konto, till exempel Xbox, hotmail.com eller outlook.com, kan du prova förslagen i [när du inte kan logga in på din Microsoft-konto-artikel](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+- Om du försöker komma tillbaka till ett personligt konto som Xbox, hotmail.com eller outlook.com kan du prova förslagen i [artikeln När du inte kan logga in på ditt Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

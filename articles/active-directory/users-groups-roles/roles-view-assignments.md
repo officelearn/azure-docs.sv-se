@@ -1,6 +1,6 @@
 ---
-title: Visa anpassade roll tilldelningar i Azure AD-portalen | Microsoft Docs
-description: Nu kan du se och hantera medlemmar i en administratörs roll för Azure AD i administrations centret för Azure AD.
+title: Visa anpassade rolltilldelningar i Azure AD-portalen | Microsoft-dokument
+description: Du kan nu se och hantera medlemmar i en Azure AD-administratörsroll i Azure AD-administrationscentret.
 services: active-directory
 author: curtand
 manager: daveba
@@ -14,45 +14,45 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f04bd7788a9cc9657e14aedfb153182d6e53eb95
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259713"
 ---
-# <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visa anpassade roll tilldelningar i Azure Active Directory
+# <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visa anpassade rolltilldelningar i Azure Active Directory
 
-Den här artikeln beskriver hur du visar anpassade roller som du har tilldelat i Azure Active Directory (Azure AD). I Azure Active Directory (Azure AD) kan roller tilldelas till en omfattning i hela organisationen eller med en omfattning för ett enda program.
+I den här artikeln beskrivs hur du visar anpassade roller som du har tilldelat i Azure Active Directory (Azure AD). I Azure Active Directory (Azure AD) kan roller tilldelas i ett organisationsomfattande scope eller med ett programomfång.
 
-- Roll tilldelningar i området för hela organisationen läggs till i och visas i listan över tilldelningar för enskilda program roller.
-- Roll tilldelningar i det enskilda programområdeet läggs inte till och visas inte i listan över områdes tilldelningar i organisationen.
+- Rolltilldelningar i organisationsomfattande omfång läggs till och kan ses i listan över enskilda programrolltilldelningar.
+- Rolltilldelningar i det enskilda programomfånget läggs inte till och kan inte ses i listan över organisationsomfattande begränsade tilldelningar.
 
-## <a name="view-role-assignments-in-the-azure-portal"></a>Visa roll tilldelningar i Azure Portal
+## <a name="view-role-assignments-in-the-azure-portal"></a>Visa rolltilldelningar i Azure-portalen
 
-Den här proceduren beskriver hur du visar tilldelningar för en roll med omfattning i hela organisationen.
+Den här proceduren beskriver visning av tilldelningar av en roll med organisationsomfattande omfång.
 
-1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) med privilegierad roll administratör eller global administratörs behörighet i Azure AD-organisationen.
-1. Välj **Azure Active Directory**, Välj **roller och administratörer**och välj sedan en roll för att öppna den och visa dess egenskaper.
-1. Välj **tilldelningar** för att Visa rollernas tilldelningar.
+1. Logga in på [Azure AD-administrationscentret](https://aad.portal.azure.com) med privilegierad rolladministratör eller globala administratörsbehörigheter i Azure AD-organisationen.
+1. Välj **Azure Active Directory**, välj Roller och **administratörer**och välj sedan en roll för att öppna den och visa dess egenskaper.
+1. Välj **Tilldelningar** om du vill visa tilldelningarna för rollen.
 
-    ![Visa roll tilldelningar och behörigheter när du öppnar en roll i listan](./media/roles-view-assignments/role-assignments.png)
+    ![Visa rolltilldelningar och behörigheter när du öppnar en roll från listan](./media/roles-view-assignments/role-assignments.png)
 
-## <a name="view-role-assignments-using-azure-ad-powershell"></a>Visa roll tilldelningar med hjälp av Azure AD PowerShell
+## <a name="view-role-assignments-using-azure-ad-powershell"></a>Visa rolltilldelningar med Azure AD PowerShell
 
-I det här avsnittet beskrivs hur du visar tilldelningar för en roll med omfattning i hela organisationen. Den här artikeln använder modulen [Azure Active Directory PowerShell version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) . Om du vill visa omfattnings tilldelningar för enskilda program med hjälp av PowerShell kan du använda cmdletarna i [tilldela anpassade roller med PowerShell](roles-assign-powershell.md).
+I det här avsnittet beskrivs hur du visar tilldelningar av en roll med organisationsomfattande omfång. Den här artikeln använder [Azure Active Directory PowerShell Version 2-modulen.](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) Om du vill visa scopetilldelningar med ett program med PowerShell kan du använda cmdlets i [Tilldela anpassade roller med PowerShell](roles-assign-powershell.md).
 
 ### <a name="prepare-powershell"></a>Förbered PowerShell
 
-Först måste du [Ladda ned Azure AD Preview PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/).
+Först måste du [hämta Azure AD preview PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/).
 
-Använd följande kommandon för att installera Azure AD PowerShell-modulen:
+Så här installerar du Azure AD PowerShell-modulen med följande kommandon:
 
 ``` PowerShell
 install-module azureadpreview
 import-module azureadpreview
 ```
 
-Kontrol lera att modulen är redo att användas genom att använda följande kommando:
+Om du vill kontrollera att modulen är klar att användas använder du följande kommando:
 
 ``` PowerShell
 get-module azuread
@@ -61,9 +61,9 @@ get-module azuread
   Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 ```
 
-### <a name="view-the-assignments-of-a-role"></a>Visa tilldelningarna för en roll
+### <a name="view-the-assignments-of-a-role"></a>Visa tilldelningar för en roll
 
-Exempel på hur du visar tilldelningarna för en roll.
+Exempel på hur du visar tilldelningar av en roll.
 
 ``` PowerShell
 # Fetch list of all directory roles with object ID
@@ -76,11 +76,11 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## <a name="view-role-assignments-using-microsoft-graph-api"></a>Visa roll tilldelningar med Microsoft Graph API
+## <a name="view-role-assignments-using-microsoft-graph-api"></a>Visa rolltilldelningar med Microsoft Graph API
 
-I det här avsnittet beskrivs hur du visar tilldelningar för en roll med omfattning i hela organisationen.  Om du vill visa omfattnings tilldelningar för enskilda program med hjälp av Graph API kan du använda åtgärderna i [tilldela anpassade roller med Graph API](roles-assign-graph.md).
+I det här avsnittet beskrivs hur du visar tilldelningar av en roll med organisationsomfattande omfång.  Om du vill visa scopetilldelningar med ett program med Graph API kan du använda åtgärderna i [Tilldela anpassade roller med Graph API](roles-assign-graph.md).
 
-HTTP-begäran om att få en roll tilldelning för en specifik roll definition.
+HTTP-begäran om att få en rolltilldelning för en viss rolldefinition.
 
 HÄMTA
 
@@ -100,25 +100,25 @@ HTTP/1.1 200 OK
 }
 ```
 
-## <a name="view-assignments-of-single-application-scope"></a>Visa tilldelningar för en program omfattning
+## <a name="view-assignments-of-single-application-scope"></a>Visa tilldelningar av scope för ett enda program
 
-I det här avsnittet beskrivs hur du visar tilldelningar för en roll med en omfattning i ett program. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
+I det här avsnittet beskrivs hur du visar tilldelningar av en roll med ett programomfång. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
 
-1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) med privilegierad roll administratör eller global administratörs behörighet i Azure AD-organisationen.
-1. Välj **Appregistreringar**och välj sedan appens registrering för att visa dess egenskaper. Du kanske måste välja **alla program** om du vill se en fullständig lista över app-registreringar i din Azure AD-organisation.
+1. Logga in på [Azure AD-administrationscentret](https://aad.portal.azure.com) med privilegierad rolladministratör eller globala administratörsbehörigheter i Azure AD-organisationen.
+1. Välj **Appregistreringar**och välj sedan appregistreringen för att visa dess egenskaper. Du kanske måste välja **Alla program** för att se den fullständiga listan över appregistreringar i din Azure AD-organisation.
 
-    ![Skapa eller redigera registrerings program från sidan Appregistreringar](./media/roles-create-custom/appreg-all-apps.png)
+    ![Skapa eller redigera appregistreringar från sidan Appregistreringar](./media/roles-create-custom/appreg-all-apps.png)
 
-1. I appens registrering väljer du **roller och administratörer**och väljer sedan en roll för att visa dess egenskaper.
+1. I appregistreringen väljer du **Roller och administratörer**och väljer sedan en roll för att visa dess egenskaper.
 
-    ![Visa roll tilldelningar för program registrering från sidan Appregistreringar](./media/roles-view-assignments/appreg-assignments.png)
+    ![Visa rolltilldelningar för appregistreringar från sidan Appregistreringar](./media/roles-view-assignments/appreg-assignments.png)
 
-1. Välj **tilldelningar** för att Visa rollernas tilldelningar. Om du öppnar vyn tilldelningar från App-registreringen visas de tilldelningar som är begränsade till den här Azure AD-resursen.
+1. Välj **Tilldelningar** om du vill visa tilldelningarna för rollen. När du öppnar tilldelningsvyn inifrån appregistreringen visas de tilldelningar som är begränsade till den här Azure AD-resursen.
 
-    ![Visa roll tilldelningar för program registrering från egenskaperna för en app-registrering](./media/roles-view-assignments/appreg-assignments-2.png)
+    ![Visa rolltilldelningar för appregistrering från egenskaperna för en appregistrering](./media/roles-view-assignments/appreg-assignments-2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Du kan gärna dela med oss i [Azure AD-forumet för administrativa roller](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-* Mer information om roller och tilldelning av administratörs roller finns i [tilldela administratörs roller](directory-assign-admin-roles.md).
-* För standard användar behörigheter, se en [jämförelse av standard behörigheter för gäst-och medlems användare](../fundamentals/users-default-permissions.md).
+* Känn dig välkommen att dela med oss på [Azure AD administrativa roller forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+* Mer information om roller och administratörsrolltilldelning finns i [Tilldela administratörsroller](directory-assign-admin-roles.md).
+* Standardanvändarbehörigheter finns i en [jämförelse av standardbehörighet för gäst- och medlemsanvändare](../fundamentals/users-default-permissions.md).

@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/24/2020
 ms.locfileid: "73176834"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Publicera flera versioner av ditt API 
 
 Ibland måste man kunna låta anropare använda olika versioner av ditt API. Om anropare vill uppgradera till en senare version ska de kunna göra det på ett enkelt sätt. Detta går att göra genom att använda **versioner** i Azure API Management. Mer information finns i avsnittet om [versioner & revisioner](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/).
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Lägga till en ny version till ett befintligt API
@@ -45,7 +45,7 @@ I den här guiden får du lära dig att:
 ![Snabbmenyn för API – lägg till version](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
 1. Välj **Demo Conference API** från listan över API.
-2. Välj snabbmenyn ( **...** ) bredvid.
+2. Välj snabbmenyn (**... **) bredvid.
 3. Välj **+ Lägg till version**.
 
 > [!TIP]
@@ -89,19 +89,19 @@ För att en anropare ska kunna se den nya versionen, måste den läggas till en 
 3. Välj **API:er**.
 4. Välj **Lägg till**.
 5. Välj **Demo Conference API, Version v1** (Demokonferens-API, version v1).
-6. Klicka på **Välj**.
+6. Klicka på **Markera**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Gå till utvecklarportalen för att se versionen
 
 1. Välj **Utvecklarportal** i den översta menyn.
-2. Välj **API: er** och klicka på **demo konferens-API: et**.
+2. Välj **API:er** och klicka på **Api:et för demokonferens**.
 3. Du bör se en listruta med flera versioner bredvid API-namnet.
 4. Välj **v1**.
 5. Observera **Fråge-URL** för den första åtgärden i listan. Det visar att URL-sökvägen för API:et innehåller **v1**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Lägga till en ny version till ett befintligt API

@@ -1,7 +1,7 @@
 ---
-title: Hämta en token från cachen (MSAL.NET)
+title: Hämta en token från cacheminnet (MSAL.NET)
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du hämtar en åtkomsttoken tyst (från token cache) med hjälp av Microsoft Authentication Library för .NET (MSAL.NET).
+description: Lär dig hur du hämtar en åtkomsttoken tyst (från tokencachen) med hjälp av Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,19 +14,19 @@ ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.openlocfilehash: 90189a1d7fd6421b7a24940e8c6ed615fa0df6d6
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77084830"
 ---
-# <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Hämta en token från token-cachen med MSAL.NET
+# <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Hämta en token från tokencachen med MSAL.NET
 
-När du hämtar en åtkomsttoken med Microsoft Authentication Library för .NET (MSAL.NET) cachelagras token. När programmet behöver en token ska det först anropa `AcquireTokenSilent`-metoden för att kontrol lera om en acceptabel token finns i cacheminnet. I många fall är det möjligt att förvärva en annan token med fler omfång baserade på en token i cachen. Det är också möjligt att uppdatera en token när den snart upphör att gälla (eftersom token cache också innehåller en uppdateringstoken).
+När du hämtar en åtkomsttoken med Microsoft Authentication Library for .NET (MSAL.NET) cachelagras token. När programmet behöver en token bör `AcquireTokenSilent` den först anropa metoden för att verifiera om en godtagbar token finns i cacheminnet. I många fall är det möjligt att skaffa en annan token med fler scope baserat på en token i cacheminnet. Det är också möjligt att uppdatera en token när den närmar sig förfallodatum (eftersom tokencachen också innehåller en uppdateringstoken).
 
-Det rekommenderade mönstret är att anropa metoden `AcquireTokenSilent` först.  Om `AcquireTokenSilent` Miss lyckas kan du hämta en token med andra metoder.
+Det rekommenderade mönstret `AcquireTokenSilent` är att anropa metoden först.  Om `AcquireTokenSilent` misslyckas, sedan skaffa en token med andra metoder.
 
-I följande exempel försöker programmet först hämta en token från token-cachen.  Om ett `MsalUiRequiredException` undantag genereras, kommer programmet att förvärva en token interaktivt. 
+I följande exempel försöker programmet först hämta en token från tokencachen.  Om `MsalUiRequiredException` ett undantag genereras hämtar programmet en token interaktivt. 
 
 ```csharp
 AuthenticationResult result = null;

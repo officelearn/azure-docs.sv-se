@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösningar (AVS) – Konfigurera arbets belastning DNS och DHCP för molnets privata moln
-description: Beskriver hur du konfigurerar DNS och DHCP för program och arbets belastningar som körs i din AVS-miljö för privata moln
+title: Azure VMware Solution by CloudSimple – Konfigurera arbetsbelastning DNS och DHCP för privat moln
+description: Beskriver hur du konfigurerar DNS och DHCP för program och arbetsbelastningar som körs i din CloudSimple Private Cloud-miljö
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,30 +8,30 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f2a5cae868f2d8f3689f05dd9d466715ab2008a3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ef1266b783034cf18dc2b3ea4be5ebc01bc12c70
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024695"
 ---
-# <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-avs-private-cloud"></a>Konfigurera DNS-och DHCP-program och arbets belastningar i ditt moln privata moln
+# <a name="set-up-dns-and-dhcp-applications-and-workloads-in-your-cloudsimple-private-cloud"></a>Konfigurera DNS- och DHCP-program och arbetsbelastningar i ditt CloudSimple Private Cloud
 
-Program och arbets belastningar som körs i en moln miljö för privata moln kräver namn matchning och DHCP-tjänster för sökning och tilldelning av IP-adresser. En korrekt DHCP-och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster. Du kan konfigurera en virtuell dator för att tillhandahålla dessa tjänster i din moln miljö för molnet. 
+Program och arbetsbelastningar som körs i en privat molnmiljö kräver namnmatchning och DHCP-tjänster för uppslag och IP-adresstilldelning.  En korrekt DHCP- och DNS-infrastruktur krävs för att tillhandahålla dessa tjänster.  Du kan konfigurera en virtuell dator för att tillhandahålla dessa tjänster i din privata molnmiljö.  
 
 ## <a name="prerequisites"></a>Krav
 
-* En distribuerad port grupp med VLAN konfigurerat
-* Dirigera installationen till lokala eller Internetbaserade DNS-servrar
-* Mall för virtuella datorer eller ISO för att skapa en virtuell dator
+* En distribuerad portgrupp med VLAN konfigurerad
+* Dirigera installation till lokala eller Internetbaserade DNS-servrar
+* Mall för virtuell dator eller ISO för att skapa en virtuell dator
 
-## <a name="linux-based-dns-server-setup"></a>Installation av Linux-baserad DNS-Server
+## <a name="linux-based-dns-server-setup"></a>Linux-baserad DNS-serverinstallation
 
-Linux erbjuder olika paket för att konfigurera DNS-servrar. Här är en [exempel konfiguration från DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) med instruktioner för att skapa en Bind DNS-server med öppen källkod.
+Linux erbjuder olika paket för att konfigurera DNS-servrar.  Här är ett [exempel setup från DigitalOcean](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-ubuntu-18-04) med instruktioner för att ställa in en öppen källkod BIND DNS-server.
 
-## <a name="windows-based-setup"></a>Windows-baserad installation
+## <a name="windows-based-setup"></a>Installation av Windows-baserad
 
-Dessa Microsoft-avsnitt beskriver hur du konfigurerar en Windows-Server som en DNS-server och som en DHCP-server.
+I de här avsnitten i Microsoft beskrivs hur du konfigurerar en Windows-server som DNS-server och som DHCP-server.
 
-* [Windows Server som DNS-Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
+* [Windows Server som DNS-server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 * [Windows Server som DHCP-server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)

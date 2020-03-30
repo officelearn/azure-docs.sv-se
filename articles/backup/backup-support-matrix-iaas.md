@@ -1,212 +1,212 @@
 ---
 title: Supportmatris för säkerhetskopiering av virtuella Azure-datorer
-description: Innehåller en översikt över support inställningar och begränsningar vid säkerhets kopiering av virtuella Azure-datorer med tjänsten Azure Backup.
+description: Ger en sammanfattning av supportinställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.openlocfilehash: c30a1d1b30fcc7a12449b44d35704b3b43daa385
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79247909"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
-Du kan använda [tjänsten Azure Backup](backup-overview.md) för att säkerhetskopiera lokala datorer och arbets belastningar och virtuella datorer i Azure. Den här artikeln sammanfattar support inställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
+Du kan använda [Azure Backup-tjänsten](backup-overview.md) för att säkerhetskopiera lokala datorer och arbetsbelastningar och virtuella Azure-datorer (VIRTUELLA datorer). Den här artikeln sammanfattar supportinställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup.
 
-Andra support-matriser:
+Andra supportmatriser:
 
-- [Allmän support mat ris](backup-support-matrix.md) för Azure Backup
-- [Support mat ris](backup-support-matrix-mabs-dpm.md) för säkerhets kopiering med Azure Backup Server/System Center Data Protection Manager (DPM)
-- [Support mat ris](backup-support-matrix-mars-agent.md) för säkerhets kopiering med Microsoft Azure Recovery Services mars-agenten
+- [Allmän supportmatris](backup-support-matrix.md) för Azure Backup
+- [Stödmatris](backup-support-matrix-mabs-dpm.md) för säkerhetskopiering av Azure Backup server/System Center Data Protection Manager (DPM)
+- [Stödmatris](backup-support-matrix-mars-agent.md) för säkerhetskopiering med MARS-agenten (Microsoft Azure Recovery Services)
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-Så här kan du säkerhetskopiera och återställa virtuella Azure-datorer med tjänsten Azure Backup.
+Så här säkerhetskopierar och återställer du virtuella Azure-datorer med Azure Backup-tjänsten.
 
-**Scenario** | **Säkerhetskopiering** | **Agent** |**Återställ**
+**Scenario** | **Säkerhetskopiering** | **Agent** |**Återställa**
 --- | --- | --- | ---
-Direkt säkerhets kopiering av virtuella Azure-datorer  | Säkerhetskopiera hela den virtuella datorn.  | Ingen ytterligare agent krävs på den virtuella Azure-datorn. Azure Backup installerar och använder ett tillägg till den virtuella [Azure-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) som körs på den virtuella datorn. | Återställ enligt följande:<br/><br/> - **skapa en grundläggande virtuell dator**. Detta är användbart om den virtuella datorn inte har någon särskild konfiguration, till exempel flera IP-adresser.<br/><br/> - **återställa den virtuella dator disken**. Återställa disken. Koppla den sedan till en befintlig virtuell dator eller skapa en ny virtuell dator från disken med hjälp av PowerShell.<br/><br/> - **ersätta VM-disken**. Om en virtuell dator finns och den använder hanterade diskar (okrypterade), kan du återställa en disk och använda den för att ersätta en befintlig disk på den virtuella datorn.<br/><br/> - **återställa vissa filer/mappar**. Du kan återställa filer/mappar från en virtuell dator i stället för från hela den virtuella datorn.
-Direkt säkerhets kopiering av virtuella Azure-datorer (endast Windows)  | Säkerhetskopiera vissa filer/mappar/volym. | Installera [Azure Recovery Services-agenten](backup-azure-file-folder-backup-faq.md).<br/><br/> Du kan köra MARS-agenten tillsammans med säkerhets kopierings tillägget för den virtuella Azure-agenten för att säkerhetskopiera den virtuella datorn på fil/mapp-nivå. | Återställa vissa mappar/filer.
-Säkerhetskopiera virtuell Azure-dator till säkerhets kopierings Server  | Säkerhetskopiera filer/mappar/volymer. system tillstånd/Bare Metal-filer; AppData till System Center DPM eller till Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS säkerhetskopierar sedan till säkerhets kopierings valvet. | Installera DPM/MABS-skyddsagenten på den virtuella datorn. MARS-agenten installeras på DPM/MABS.| Återställ filer/mappar/volymer; system tillstånd/Bare Metal-filer; AppData.
+Direkt säkerhetskopiering av virtuella Azure-datorer  | Säkerhetskopiera hela den virtuella datorn.  | Ingen ytterligare agent behövs på Den virtuella Azure-datorn. Azure Backup installerar och använder ett tillägg till [Azure VM-agenten](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) som körs på den virtuella datorn. | Återställ enligt följande:<br/><br/> - **Skapa en grundläggande virtuell dator**. Detta är användbart om den virtuella datorn inte har någon särskild konfiguration, till exempel flera IP-adresser.<br/><br/> - **Återställ vm-disken**. Återställ disken. Anslut den sedan till en befintlig virtuell dator eller skapa en ny virtuell dator från disken med hjälp av PowerShell.<br/><br/> - **Byt ut VM-disk**. Om det finns en virtuell dator och den använder hanterade diskar (okrypterade) kan du återställa en disk och använda den för att ersätta en befintlig disk på den virtuella datorn.<br/><br/> - **Återställ specifika filer/mappar**. Du kan återställa filer/mappar från en virtuell dator i stället för från hela den virtuella datorn.
+Direkt säkerhetskopiering av virtuella Azure-datorer (endast Windows)  | Säkerhetskopiera specifika filer/mappar/volym. | Installera [Azure Recovery Services-agenten](backup-azure-file-folder-backup-faq.md).<br/><br/> Du kan köra MARS-agenten tillsammans med säkerhetskopian för Azure VM-agenten för att säkerhetskopiera den virtuella datorn på fil-/mappnivå. | Återställ specifika mappar/filer.
+Säkerhetskopiera Azure VM till säkerhetskopieringsserver  | Säkerhetskopiera filer/mappar/volymer. Systemtillstånd/bare metal-filer. programdata till System Center DPM eller Till Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS backar sedan upp till säkerhetskopieringsvalvet. | Installera DPM/MABS-skyddsagenten på den virtuella datorn. MARS-agenten är installerad på DPM/MABS.| Återställa filer/mappar/volymer. Systemtillstånd/bare metal-filer. appdata.
 
-Läs mer om säkerhets kopiering [med en säkerhets kopierings Server](backup-architecture.md#architecture-back-up-to-dpmmabs) och om [support krav](backup-support-matrix-mabs-dpm.md).
+Läs mer om säkerhetskopiering [med hjälp av en säkerhetskopieringsserver](backup-architecture.md#architecture-back-up-to-dpmmabs) och om [supportkrav](backup-support-matrix-mabs-dpm.md).
 
 >[!NOTE]
-> **Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.**
+> **Azure Backup stöder nu selektiv säkerhetskopiering och återställning av disk med hjälp av azure virtual machine-säkerhetskopieringslösningen.**
 >
->Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
+>Idag stöder Azure Backup säkerhetskopiering av alla diskar (operativsystem och data) i en virtuell dator tillsammans med hjälp av lösningen för säkerhetskopiering av virtuella datorer. Med exkluderingsdiskfunktioner får du möjlighet att säkerhetskopiera en eller några från de många datadiskarna i en virtuell dator. Detta ger en effektiv och kostnadseffektiv lösning för dina säkerhetskopierings- och återställningsbehov. Varje återställningspunkt innehåller data för diskarna som ingår i säkerhetskopieringen, vilket gör att du ytterligare kan få en delmängd diskar återställda från den angivna återställningspunkten under återställningen. Detta gäller för att återställa både från ögonblicksbilden och valvet.
 >
->**Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com**
+>**För att registrera dig för förhandsgranskningen, skriv till oss påAskAzureBackupTeam@microsoft.com**
 
-## <a name="supported-backup-actions"></a>Säkerhets kopierings åtgärder som stöds
+## <a name="supported-backup-actions"></a>Säkerhetskopieringsåtgärder som stöds
 
 **Åtgärd** | **Support**
 --- | ---
-Säkerhetskopiera en virtuell dator som är avstängd/offline-VM | Stöds.<br/><br/> Ögonblicks bilden är krasch-konsekvent, inte en app-konsekvent.
-Säkerhetskopiera diskar efter migrering till Managed disks | Stöds.<br/><br/> Säkerhets kopieringen fortsätter att fungera. Ingen åtgärd krävs.
-Säkerhetskopiera hanterade diskar efter aktivering av resurs grupps lås | Stöds inte.<br/><br/> Azure Backup kan inte ta bort de äldre återställnings punkterna och säkerhets kopieringarna kommer att Miss lyckas när den maximala gränsen för återställnings punkter har nåtts.
-Ändra säkerhets kopierings princip för en virtuell dator | Stöds.<br/><br/> Den virtuella datorn kommer att säkerhets kopie ras med hjälp av inställningarna för schema och kvarhållning i ny princip. Om inställningarna för kvarhållning utökas, markeras befintliga återställnings punkter. Om de är reducerade rensas befintliga återställnings punkter i nästa rensnings jobb och slutligen tas bort.
-Avbryta ett säkerhets kopierings jobb| Stöds under ögonblicks bild processen.<br/><br/> Stöds inte när ögonblicks bilden överförs till valvet.
+Säkerhetskopiera en virtuell dator som är avstängd/offline-VM | Stöds.<br/><br/> Ögonblicksbild är endast kraschkonsekvent, inte appkonsekvent.
+Säkerhetskopiera diskar efter migrering till hanterade diskar | Stöds.<br/><br/> Säkerhetskopieringen fortsätter att fungera. Ingen åtgärd krävs.
+Säkerhetskopiera hanterade diskar efter att resursgruppslåset har aktiverats | Stöds inte.<br/><br/> Azure Backup kan inte ta bort de äldre återställningspunkterna och säkerhetskopior kommer att börja misslyckas när den maximala gränsen för återställningspunkter har uppnåtts.
+Ändra principer för säkerhetskopiering för en virtuell dator | Stöds.<br/><br/> Den virtuella datorn kommer att backas upp med hjälp av schema- och kvarhållningsinställningarna i den nya principen. Om kvarhållningsinställningarna utökas markeras befintliga återställningspunkter och behålls. Om de minskas kommer befintliga återställningspunkter att beskäras i nästa rensningsjobb och så småningom tas bort.
+Avbryta ett säkerhetskopieringsjobb| Stöds under ögonblicksbildprocessen.<br/><br/> Stöds inte när ögonblicksbilden överförs till valvet.
 Säkerhetskopiera den virtuella datorn till en annan region eller prenumeration |Stöds inte.
-Säkerhets kopior per dag (via Azure VM-tillägget) | En schemalagd säkerhets kopiering per dag.<br/><br/>Azure Backups tjänsten har stöd för upp till nio säkerhets kopieringar på begäran per dag, men Microsoft rekommenderar högst fyra dagliga säkerhets kopieringar på begäran för att säkerställa bästa prestanda.
-Säkerhets kopior per dag (via MARS-agenten) | Tre schemalagda säkerhets kopieringar per dag.
-Säkerhets kopior per dag (via DPM/MABS) | Två schemalagda säkerhets kopieringar per dag.
-Månatlig/årlig säkerhets kopiering| Stöds inte vid säkerhets kopiering med Azure VM-tillägg. Endast daglig och veckovis stöds.<br/><br/> Du kan ställa in principen för att behålla dagliga/veckovis säkerhets kopieringar för månatlig/årlig kvarhållningsperiod.
-Automatisk klock justering | Stöds inte.<br/><br/> Azure Backup justeras inte automatiskt för sommar tids ändringar vid säkerhets kopiering av en virtuell dator.<br/><br/>  Ändra principen manuellt efter behov.
-[Säkerhetsfunktioner för Hybrid säkerhets kopiering](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |Det finns inte stöd för att inaktivera säkerhetsfunktioner.
-Säkerhetskopiera den virtuella datorn vars dator tid ändras | Stöds inte.<br/><br/> Om dator tiden ändras till en framtida datum tid efter att du aktiverat säkerhets kopiering för den virtuella datorn. Men även om tids ändringen återställs, garanteras inte en lyckad säkerhets kopiering.  
+Säkerhetskopior per dag (via Azure VM-tillägget) | En schemalagd säkerhetskopiering per dag.<br/><br/>Azure Backup-tjänsten stöder upp till nio säkerhetskopieringar på begäran per dag, men Microsoft rekommenderar inte mer än fyra dagliga säkerhetskopieringar på begäran för att säkerställa bästa prestanda.
+Säkerhetskopior per dag (via MARS-agenten) | Tre schemalagda säkerhetskopior per dag.
+Säkerhetskopior per dag (via DPM/MABS) | Två schemalagda säkerhetskopior per dag.
+Månatlig/årlig säkerhetskopiering| Stöds inte när du säkerhetskopierar med Azure VM-tillägg. Endast dagligen och veckovis stöds.<br/><br/> Du kan ställa in principen för att behålla dagliga/veckovisa säkerhetskopior för månatlig/års kvarhållningsperiod.
+Automatisk klockjustering | Stöds inte.<br/><br/> Azure Backup justeras inte automatiskt för sommartidsändringar när du säkerhetskopierar en virtuell dator.<br/><br/>  Ändra principen manuellt efter behov.
+[Säkerhetsfunktioner för hybridsäkerhetskopiering](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |Det går inte att inaktivera säkerhetsfunktioner.
+Säkerhetskopiera den virtuella datorn vars maskintid ändras | Stöds inte.<br/><br/> Om datortiden ändras till en framtida datumtid efter att säkerhetskopiering för den virtuella datorn har aktiverats. Men även om tidsändringen återställs garanteras inte en lyckad säkerhetskopiering.  
 
-## <a name="operating-system-support-windows"></a>Stöd för operativ system (Windows)
+## <a name="operating-system-support-windows"></a>Stöd för operativsystem (Windows)
 
-I följande tabell sammanfattas de operativ system som stöds när du säkerhetskopierar virtuella Windows Azure-datorer.
+I följande tabell sammanfattas de operativsystem som stöds när du säkerhetskopierar virtuella datorer med Windows Azure.
 
-**Scenario** | **OS-stöd**
+**Scenario** | **Stöd för operativsystemet**
 --- | ---
-Säkerhetskopiera med tillägget Azure VM agent | – Windows 10-klient (endast 64-bitars) <br/><br/>– Windows Server 2019 (Data Center/Data Center Core/standard) <br/><br/> – Windows Server 2016 (Data Center/Data Center Core/standard) <br/><br/> – Windows Server 2012 R2 (Data Center/standard) <br/><br/> – Windows Server 2008 R2 (RTM och SP1 standard)  <br/><br/> – Windows Server 2008 (endast 64 bitars)
-Säkerhetskopiera med MARS-agenten | Operativ system som [stöds](backup-support-matrix-mars-agent.md#supported-operating-systems) .
-Säkerhetskopiera med DPM/MABS | Operativ system som stöds för säkerhets kopiering med [Mabs](backup-mabs-protection-matrix.md) och [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
+Säkerhetskopiera med Azure VM-agenttillägg | - Windows 10 Client (endast 64 bitar) <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2 (RTM och SP1 Standard)  <br/><br/> - Windows Server 2008 (endast 64 bitar)
+Säkerhetskopiera med MARS-agent | [Operativsystem som stöds.](backup-support-matrix-mars-agent.md#supported-operating-systems)
+Säkerhetskopiera med DPM/MABS | Operativsystem som stöds för säkerhetskopiering med [MABS](backup-mabs-protection-matrix.md) och [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807).
 
 Azure Backup stöder inte 32-bitars operativsystem.
 
-## <a name="support-for-linux-backup"></a>Stöd för Linux-säkerhetskopiering
+## <a name="support-for-linux-backup"></a>Stöd för Säkerhetskopiering av Linux
 
 Det här är vad som stöds om du vill säkerhetskopiera Linux-datorer.
 
 **Åtgärd** | **Support**
 --- | ---
-Säkerhetskopiera virtuella Linux Azure-datorer med Linux Azure VM-agenten | Fil konsekvent säkerhets kopiering.<br/><br/> Appkonsekvent säkerhetskopiering med hjälp av [anpassade skript](backup-azure-linux-app-consistent.md).<br/><br/> Under återställningen kan du skapa en ny virtuell dator, återställa en disk och använda den för att skapa en virtuell dator, eller återställa en disk och använda den för att ersätta en disk på en befintlig virtuell dator. Du kan också återställa enskilda filer och mappar.
-Säkerhetskopiera virtuella Linux Azure-datorer med MARS-agent | Stöds inte.<br/><br/> MARS-agenten kan endast installeras på Windows-datorer.
+Säkerhetskopiera virtuella Linux Azure-datorer med Linux Azure VM-agenten | Fil konsekvent säkerhetskopiering.<br/><br/> Appkonsekvent säkerhetskopiering med hjälp av [anpassade skript](backup-azure-linux-app-consistent.md).<br/><br/> Under återställningen kan du skapa en ny virtuell dator, återställa en disk och använda den för att skapa en virtuell dator eller återställa en disk och använda den för att ersätta en disk på en befintlig virtuell dator. Du kan också återställa enskilda filer och mappar.
+Säkerhetskopiera virtuella linux Azure-datorer med MARS-agent | Stöds inte.<br/><br/> MARS-agenten kan endast installeras på Windows-datorer.
 Säkerhetskopiera virtuella Linux Azure-datorer med DPM/MABS | Stöds inte.
 
-## <a name="operating-system-support-linux"></a>Stöd för operativ system (Linux)
+## <a name="operating-system-support-linux"></a>Stöd för operativsystem (Linux)
 
-För Azure VM Linux-säkerhetskopieringar stöder Azure Backup listan över Linux- [distributioner som har godkänts av Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). Tänk på följande:
+För Azure VM Linux-säkerhetskopior stöder Azure Backup listan över [Linux-distributioner som stöds av Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros). Observera följande:
 
 - Azure Backup stöder inte Core OS Linux.
 - Azure Backup stöder inte 32-bitars operativsystem.
-- Andra distributioner av en egen Linux-distribution kan fungera så länge [Azure VM-agenten för Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) är tillgänglig på den virtuella datorn och så länge python stöds.
-- Azure Backup stöder inte en proxy-konfigurerad Linux-baserad virtuell dator om den inte har python version 2,7 installerad.
+- Andra bring-your-own Linux-distributioner kan fungera så länge [Azure VM-agenten för Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) är tillgänglig på den virtuella datorn och så länge Python stöds.
+- Azure Backup stöder inte en proxykonfigurerad Linux-virtuell dator om den inte har Python version 2.7 installerad.
 
-## <a name="backup-frequency-and-retention"></a>Säkerhets kopierings frekvens och kvarhållning
+## <a name="backup-frequency-and-retention"></a>Frekvensen och kvarhållningen för säkerhetskopiering
 
-**Inställning** | **Begränsningar**
+**Inställning** | **Gränser**
 --- | ---
-Högsta antal återställnings punkter per skyddad instans (dator/arbets belastning) | 9999.
-Maximal förfallo tid för en återställnings punkt | Ingen gräns.
-Maximal säkerhets kopierings frekvens till valv (Azure VM-tillägg) | En gång om dagen.
-Maximal säkerhets kopierings frekvens till valv (MARS-agent) | Tre säkerhets kopieringar per dag.
-Högsta säkerhetskopieringsfrekvens till DPM/MABS | Var 15: e minut för SQL Server.<br/><br/> En gång i timmen för andra arbets belastningar.
-Kvarhållning av återställningspunkt | Varje dag, varje vecka, varje månad och varje år.
+Maximala återställningspunkter per skyddad instans (maskin/arbetsbelastning) | 9999.
+Maximal utfallstid för en återställningspunkt | Ingen gräns.
+Maximal säkerhetskopieringsfrekvens till valvet (Azure VM-tillägg) | En gång om dagen.
+Maximal säkerhetskopieringsfrekvens till valv (MARS-agent) | Tre säkerhetskopior per dag.
+Högsta säkerhetskopieringsfrekvens till DPM/MABS | Var 15:e minut för SQL Server.<br/><br/> En gång i timmen för andra arbetsbelastningar.
+Kvarhållning av återställningspunkt | Dagligen, veckovis, månadsvis och årligen.
 Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
-Återställningspunkter på DPM-/MABS-disk | 64 för fil servrar och 448 för App-servrar.<br/><br/> Bandåterställningspunkter är obegränsade för lokal DPM.
+Återställningspunkter på DPM-/MABS-disk | 64 för filservrar och 448 för appservrar.<br/><br/> Bandåterställningspunkter är obegränsade för lokal DPM.
 
-## <a name="supported-restore-methods"></a>Återställnings metoder som stöds
+## <a name="supported-restore-methods"></a>Återställningsmetoder som stöds
 
-**Återställnings alternativ** | **Detaljer**
+**Alternativet Återställ** | **Detaljer**
 --- | ---
-**Skapa en ny virtuell dator** | Skapar och hämtar snabbt en grundläggande virtuell dator som körs från en återställnings punkt.<br/><br/> Du kan ange ett namn på den virtuella datorn, välja resurs gruppen och det virtuella nätverk (VNet) där det ska placeras och ange ett lagrings konto för den återställda virtuella datorn. Den nya virtuella datorn måste skapas i samma region som den virtuella käll datorn.
-**Återställ disk** | Återställer en virtuell dator disk, som sedan kan användas för att skapa en ny virtuell dator.<br/><br/> Azure Backup innehåller en mall som hjälper dig att anpassa och skapa en virtuell dator. <br/><br> Återställnings jobbet genererar en mall som du kan hämta och använda för att ange anpassade VM-inställningar och skapa en virtuell dator.<br/><br/> Diskarna kopieras till den resurs grupp som du anger.<br/><br/> Alternativt kan du koppla disken till en befintlig virtuell dator eller skapa en ny virtuell dator med hjälp av PowerShell.<br/><br/> Det här alternativet är användbart om du vill anpassa den virtuella datorn, lägga till konfigurations inställningar som inte fanns vid tidpunkten för säkerhets kopieringen eller lägga till inställningar som måste konfigureras med mallen eller PowerShell.
-**Ersätt befintlig** | Du kan återställa en disk och använda den för att ersätta en disk på den befintliga virtuella datorn.<br/><br/> Den aktuella virtuella datorn måste finnas. Det här alternativet kan inte användas om det har tagits bort.<br/><br/> Azure Backup tar en ögonblicks bild av den befintliga virtuella datorn innan disken ersätts och lagrar den på den mellanlagringsplats som du anger. Befintliga diskar som är anslutna till den virtuella datorn ersätts med den valda återställnings punkten.<br/><br/> Ögonblicks bilden kopieras till valvet och bevaras i enlighet med bevarande principen. <br/><br/> Efter åtgärden Ersätt disk behålls den ursprungliga disken i resurs gruppen. Du kan välja att manuellt ta bort de ursprungliga diskarna om de inte behövs. <br/><br/>Ersätt befintlig stöds för okrypterade hanterade virtuella datorer. Den stöds inte för ohanterade diskar, [generaliserade virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)eller för virtuella datorer som [skapats med anpassade avbildningar](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Om återställnings punkten har fler eller färre diskar än den aktuella virtuella datorn kommer antalet diskar i återställnings punkten bara att avspegla konfigurationen för den virtuella datorn.<br><br> Ersätt befintlig stöds inte för virtuella datorer med länkade resurser (t. ex. [användardefinierad hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) eller [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)) eftersom den säkerhetskopierade klient-appen inte har behörighet till resurserna samtidigt som du utför återställningen.
-**Mellan region (sekundär region)** | Återställning mellan regioner kan användas för att återställa virtuella Azure-datorer i den sekundära regionen, som är en [Azure-kopplad region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).<br><br> Du kan återställa alla virtuella Azure-datorer för den valda återställnings punkten om säkerhets kopian görs i den sekundära regionen.<br><br> Den här funktionen är tillgänglig för alternativen nedan:<br> * [skapa en virtuell dator](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [återställa diskar](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> Vi stöder för närvarande inte alternativet [Ersätt befintliga diskar](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks) .<br><br> Behörigheter<br> Återställnings åtgärden i den sekundära regionen kan utföras av säkerhets kopierings administratörer och app-administratörer.
+**Skapa en ny virtuell dator** | Skapar och får snabbt igång en grundläggande virtuell dator från en återställningspunkt.<br/><br/> Du kan ange ett namn för den virtuella datorn, välja resursgruppen och det virtuella nätverket (VNet) där den ska placeras och ange ett lagringskonto för den återställda virtuella datorn. Den nya virtuella datorn måste skapas i samma region som källdatorn.
+**Återställ disk** | Återställer en VM-disk som sedan kan användas för att skapa en ny virtuell dator.<br/><br/> Azure Backup innehåller en mall som hjälper dig att anpassa och skapa en virtuell dator. <br/><br> Återställningsjobbet genererar en mall som du kan hämta och använda för att ange anpassade vm-inställningar och skapa en virtuell dator.<br/><br/> Diskarna kopieras till den resursgrupp som du anger.<br/><br/> Du kan också koppla disken till en befintlig virtuell dator eller skapa en ny virtuell dator med PowerShell.<br/><br/> Det här alternativet är användbart om du vill anpassa den virtuella datorn, lägga till konfigurationsinställningar som inte fanns där vid säkerhetskopieringen eller lägga till inställningar som måste konfigureras med mallen eller PowerShell.
+**Ersätt befintlig** | Du kan återställa en disk och använda den för att ersätta en disk på den befintliga virtuella datorn.<br/><br/> Den aktuella virtuella datorn måste finnas. Om det har tagits bort kan det här alternativet inte användas.<br/><br/> Azure Backup tar en ögonblicksbild av den befintliga virtuella datorn innan disken ersätts och lagrar den på den mellanlagringsplats du anger. Befintliga diskar som är anslutna till den virtuella datorn ersätts med den valda återställningspunkten.<br/><br/> Ögonblicksbilden kopieras till valvet och behålls i enlighet med bevarandeprincipen. <br/><br/> Efter åtgärden ersätt disk behålls den ursprungliga disken i resursgruppen. Du kan välja att manuellt ta bort de ursprungliga diskarna om de inte behövs. <br/><br/>Ersätt befintliga stöds för okrypterade hanterade virtuella datorer. Det stöds inte för ohanterade diskar, [generaliserade virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource)eller för virtuella datorer [som skapats med anpassade avbildningar](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Om återställningspunkten har mer eller mindre diskar än den aktuella virtuella datorn, kommer antalet diskar i återställningspunkten bara att återspegla vm-konfigurationen.<br><br> Ersätta befintliga stöds inte för virtuella datorer med länkade resurser (till [exempel användartilldelade hanterade identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) eller Key [Vault)](https://docs.microsoft.com/azure/key-vault/key-vault-overview)eftersom klientappen för säkerhetskopiering inte har behörighet för dessa resurser när återställningen utförs.
+**Korsregion (sekundär region)** | Återställning mellan regioner kan användas för att återställa virtuella Azure-datorer i den sekundära regionen, som är en [Azure-kopplad region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).<br><br> Du kan återställa alla virtuella Azure-datorer för den valda återställningspunkten om säkerhetskopieringen görs i den sekundära regionen.<br><br> Den här funktionen är tillgänglig för alternativen nedan:<br> * [Skapa en virtuell dator](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [Återställa diskar](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> Vi stöder för närvarande inte alternativet [Ersätt befintliga diskar.](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks)<br><br> Behörigheter<br> Återställningsåtgärden på sekundär region kan utföras av administratörer för säkerhetskopiering och appadministratörer.
 
 ## <a name="support-for-file-level-restore"></a>Stöd för återställning på filnivå
 
-**Återställ** | **Stöds**
+**Återställa** | **Stöds**
 --- | ---
-Återställa filer över operativ system | Du kan återställa filer på alla datorer som har samma (eller kompatibla) OS som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS-tabellen](backup-azure-restore-files-from-vm.md#system-requirements).
+Återställa filer över operativsystem | Du kan återställa filer på alla datorer som har samma (eller kompatibla) operativsystem som den säkerhetskopierade virtuella datorn. Se [tabellen Kompatibelt operativsystem](backup-azure-restore-files-from-vm.md#system-requirements).
 Återställa filer på klassiska virtuella datorer | Stöds inte.
 Återställa filer från krypterade virtuella datorer | Stöds inte.
-Återställa filer från nätverk-begränsade lagrings konton | Stöds inte.
-Återställa filer på virtuella datorer med Windows lagrings utrymmen | Återställning stöds inte på samma virtuella dator.<br/><br/> Återställ i stället filerna på en kompatibel virtuell dator.
-Återställa filer på den virtuella Linux-datorn med LVM/RAID-matriser | Återställning stöds inte på samma virtuella dator.<br/><br/> Återställa på en kompatibel virtuell dator.
-Återställa filer med särskilda nätverks inställningar | Återställning stöds inte på samma virtuella dator. <br/><br/> Återställa på en kompatibel virtuell dator.
+Återställa filer från nätverksbegränsade lagringskonton | Stöds inte.
+Återställa filer på virtuella datorer med Windows Lagringsutrymmen | Återställning stöds inte på samma virtuella dator.<br/><br/> Återställ i stället filerna på en kompatibel virtuell dator.
+Återställa filer på Linux VM med LVM/raid-matriser | Återställning stöds inte på samma virtuella dator.<br/><br/> Återställ på en kompatibel virtuell dator.
+Återställa filer med särskilda nätverksinställningar | Återställning stöds inte på samma virtuella dator. <br/><br/> Återställ på en kompatibel virtuell dator.
 
 ## <a name="support-for-vm-management"></a>Stöd för hantering av virtuella datorer
 
-I följande tabell sammanfattas stödet för säkerhets kopiering under aktiviteter för hantering av virtuella datorer, till exempel att lägga till eller ersätta VM-diskar.
+I följande tabell sammanfattas stöd för säkerhetskopiering under vm-hanteringsuppgifter, till exempel lägga till eller ersätta VM-diskar.
 
-**Återställ** | **Stöds**
+**Återställa** | **Stöds**
 --- | ---
 Återställ över prenumeration/region/zon. | Stöds inte.
 Återställa till en befintlig virtuell dator | Använd alternativet Ersätt disk.
-Återställa disk med lagrings konto aktiverat för Azure Storage Service Encryption (SSE) | Stöds inte.<br/><br/> Återställ till ett konto som inte har SSE aktiverat.
-Återställ till blandade lagrings konton |Stöds inte.<br/><br/> Alla återställda diskar är antingen Premium eller standard och inte blandade, baserat på lagrings konto typen.
-Återställa den virtuella datorn direkt till en tillgänglighets uppsättning | För hanterade diskar kan du återställa disken och använda alternativet tillgänglighets uppsättning i mallen.<br/><br/> Stöds inte för ohanterade diskar. För ohanterade diskar återställer du disken och skapar sedan en virtuell dator i tillgänglighets uppsättningen.
-Återställa säkerhets kopia av ohanterade virtuella datorer efter uppgradering till hanterad virtuell dator| Stöds.<br/><br/> Du kan återställa diskar och sedan skapa en hanterad virtuell dator.
-Återställ den virtuella datorn till återställnings punkten innan den virtuella datorn migrerades till Managed disks | Stöds.<br/><br/> Du återställer till ohanterade diskar (standard), konverterar de återställda diskarna till den hanterade disken och skapar en virtuell dator med de hanterade diskarna.
-Återställa en virtuell dator som har tagits bort. | Stöds.<br/><br/> Du kan återställa den virtuella datorn från en återställnings punkt.
-Återställa en domänkontrollant (DC) virtuell dator som ingår i en konfiguration med flera domänkontrollanter via portalen | Stöds om du återställer disken och skapar en virtuell dator med hjälp av PowerShell.
-Återställ virtuell dator i ett annat virtuellt nätverk |Stöds.<br/><br/> Det virtuella nätverket måste finnas i samma prenumeration och region.
+Återställa disk med lagringskonto aktiverat för Azure Storage Service Encryption (SSE) | Stöds inte.<br/><br/> Återställ till ett konto som inte har SSE aktiverat.
+Återställa till konton för blandad lagring |Stöds inte.<br/><br/> Baserat på lagringskontotypen kommer alla återställda diskar att vara antingen premium eller standard och inte blandade.
+Återställa virtuell dator direkt till en tillgänglighetsuppsättning | För hanterade diskar kan du återställa disken och använda alternativet tillgänglighetsuppsättning i mallen.<br/><br/> Stöds inte för ohanterat diskar. För ohanterade diskar återställer du disken och skapar sedan en virtuell dator i tillgänglighetsuppsättningen.
+Återställa säkerhetskopiering av ohanterade virtuella datorer efter uppgradering till hanterad virtuell dator| Stöds.<br/><br/> Du kan återställa diskar och sedan skapa en hanterad virtuell dator.
+Återställa den virtuella datorn till återställningspunkten innan den virtuella datorn migrerades till hanterade diskar | Stöds.<br/><br/> Du återställer till ohanterade diskar (standard), konverterar de återställda diskarna till hanterad disk och skapar en virtuell dator med hanterade diskar.
+Återställa en virtuell dator som har tagits bort. | Stöds.<br/><br/> Du kan återställa den virtuella datorn från en återställningspunkt.
+Återställa en domänkontrollant (DC) vm som ingår i en konfiguration med flera DOMÄNER via portalen | Stöds om du återställer disken och skapar en virtuell dator med PowerShell.
+Återställa virtuell dator i olika virtuella nätverk |Stöds.<br/><br/> Det virtuella nätverket måste finnas i samma prenumeration och region.
 
-## <a name="vm-compute-support"></a>Stöd för VM Compute
+## <a name="vm-compute-support"></a>Stöd för vm-beräkning
 
 **Compute** | **Support**
 --- | ---
-Storlek på virtuell dator |Valfri storlek på virtuella Azure-datorer med minst 2 processor kärnor och 1 GB RAM.<br/><br/> [Läs mer.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
-Säkerhetskopiera virtuella datorer i [tillgänglighets uppsättningar](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Stöds.<br/><br/> Du kan inte återställa en virtuell dator i en tillgänglig uppsättning genom att använda alternativet för att snabbt skapa en virtuell dator. När du i stället återställer den virtuella datorn återställer du disken och använder den för att distribuera en virtuell dator, eller återställer en disk och använder den för att ersätta en befintlig disk.
-Säkerhetskopiera virtuella datorer som har distribuerats med [Hybrid Use Benefit (hubb)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Stöds.
-Säkerhetskopiera virtuella datorer som distribueras i en [skalnings uppsättning](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |Stöds inte.
-Säkerhetskopiera virtuella datorer som distribueras från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicerat av Microsoft, tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativ system som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativ system (inte ett tidigare eller senare operativ system). Vi återställer inte virtuella Azure Marketplace-datorer som har säkerhetskopierats som virtuella datorer eftersom de behöver köpa information men bara som diskar.
-Säkerhetskopiera virtuella datorer som distribueras från en anpassad avbildning (tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativ system som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativ system (inte ett tidigare eller senare operativ system).
-Säkerhetskopiera virtuella datorer som migreras till Azure| Stöds.<br/><br/> För att säkerhetskopiera den virtuella datorn måste den virtuella dator agenten vara installerad på den migrerade datorn.
-Säkerhetskopiera konsekvens för flera virtuella datorer | Azure Backup tillhandahåller inte data-och program konsekvens över flera virtuella datorer.
-Säkerhetskopiera med [diagnostikinställningar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Stöds inte. <br/><br/> Om återställningen av den virtuella Azure-datorn med diagnostiska inställningar utlöses med alternativet [Skapa nytt](backup-azure-arm-restore-vms.md#create-a-vm) , Miss lyckas återställningen.
-Återställa zoner-fästa virtuella datorer | Stöds (för VM som säkerhets kopie ras efter 2019 och där [tillgänglighets zon](https://azure.microsoft.com/global-infrastructure/availability-zones/) är tillgängliga).<br/><br/>Vi stöder för närvarande återställning till samma zon som är fäst i virtuella datorer. Men om zonen inte är tillgänglig, Miss lyckas återställningen.
-Virtuella Gen2-datorer | Stöds <br> Azure Backup stöder säkerhets kopiering och återställning av [virtuella Gen2-datorer](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). När de här virtuella datorerna återställs från återställnings punkten återställs de som [virtuella Gen2-datorer](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
+Storlek på virtuell dator |Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM.<br/><br/> [Läs mer.](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
+Säkerhetskopiera virtuella datorer i [tillgänglighetsuppsättningar](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets) | Stöds.<br/><br/> Du kan inte återställa en virtuell dator i en tillgänglig uppsättning med alternativet att snabbt skapa en virtuell dator. När du återställer den virtuella datorn återställer du i stället disken och använder den för att distribuera en virtuell dator, eller återställer en disk och använder den för att ersätta en befintlig disk.
+Säkerhetskopiera virtuella datorer som distribueras med [hybridanvändningsförmån (HUB)](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Stöds.
+Säkerhetskopiera virtuella datorer som distribueras i en [skalningsuppsättning](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview) |Stöds inte.
+Säkerhetskopiera virtuella datorer som distribueras från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicerad av Microsoft, tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativsystem som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativsystem (inte ett tidigare eller senare operativsystem). Vi återställer inte virtuella Azure Marketplace-datorer som backas upp som virtuella datorer, eftersom dessa behöver inköpsinformation utan endast som diskar.
+Säkerhetskopiera virtuella datorer som distribueras från en anpassad avbildning (tredje part) |Stöds.<br/><br/> Den virtuella datorn måste köra ett operativsystem som stöds.<br/><br/> När du återställer filer på den virtuella datorn kan du bara återställa till ett kompatibelt operativsystem (inte ett tidigare eller senare operativsystem).
+Säkerhetskopiera virtuella datorer som migreras till Azure| Stöds.<br/><br/> För att säkerhetskopiera den virtuella datorn måste VM-agenten installeras på den migrerade datorn.
+Säkerhetskopiera konsekvens för flera virtuella datorer | Azure Backup ger inte data och programkonsekvens mellan flera virtuella datorer.
+Säkerhetskopiering med [diagnostikinställningar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Unsupported. <br/><br/> Om återställningen av den virtuella Azure-datorn med diagnostikinställningar utlöses med alternativet [Skapa ny,](backup-azure-arm-restore-vms.md#create-a-vm) misslyckas återställningen.
+Återställa zone-fästa virtuella datorer | Stöds (för virtuell dator som säkerhetskopieras efter januari 2019 och där [tillgänglighetszon](https://azure.microsoft.com/global-infrastructure/availability-zones/) är tillgängliga).<br/><br/>Vi stöder för närvarande återställning till samma zon som är fäst i virtuella datorer. Men om zonen inte är tillgänglig misslyckas återställningen.
+Gen2 virtuella datorer | Stöds <br> Azure Backup stöder säkerhetskopiering och återställning av [Gen2 virtuella datorer](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). När dessa virtuella datorer återställs från återställningspunkten återställs de som [Gen2-virtuella datorer](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 
 ## <a name="vm-storage-support"></a>Stöd för VM-lagring
 
 **Komponent** | **Support**
 --- | ---
-Datadiskar för virtuella Azure-datorer | Säkerhetskopiera en virtuell dator med 16 eller färre data diskar.<BR> För att registrera dig för den privata förhandsversionen av virtuella datorer med 16+ diskar (upp till 32 diskar) skriver du till oss på AskAzureBackupTeam@microsoft.com
-Data disk storlek | Enskild disk storlek kan vara upp till 32 TB och högst 256 TB kombinerat för alla diskar i en virtuell dator.
-Lagringstyp | Standard HDD Standard SSD Premium SSD.
+Datadiskar för virtuella Azure-datorer | Säkerhetskopiera en virtuell dator med 16 eller färre datadiskar.<BR> För att registrera dig för den privata förhandsversionen av virtuella datorer med 16+ diskar (upp till 32 diskar) skriver du till oss på AskAzureBackupTeam@microsoft.com
+Storlek på datadisk | Individuell diskstorlek kan vara upp till 32 TB och högst 256 TB kombinerat för alla diskar i en virtuell dator.
+Lagringstyp | Standard HDD, Standard SSD, Premium SSD.
 Hanterade diskar | Stöds.
-Krypterade diskar | Stöds.<br/><br/> Virtuella Azure-datorer med Azure Disk Encryption kan säkerhets kopie ras (med eller utan Azure AD-appen).<br/><br/> Det går inte att återställa krypterade virtuella datorer på nivån fil/mapp. Du måste återställa hela den virtuella datorn.<br/><br/> Du kan aktivera kryptering på virtuella datorer som redan skyddas av Azure Backup.
-Diskar med Skrivningsaccelerator aktiverat | Stöds inte.<br/><br/> Azure Backup undantar automatiskt diskarna med Skrivningsaccelerator aktiverat under säkerhets kopieringen. Eftersom de inte har säkerhetskopierats kommer du inte att kunna återställa diskarna från återställnings punkter för den virtuella datorn.
-Säkerhetskopiera & återställa deduplicerade virtuella datorer/diskar | Azure Backup stöder inte deduplicering. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  -Azure Backup deduplicerar inte mellan virtuella datorer i Recovery Servicess valvet <br/> <br/>  – Om det finns virtuella datorer i Deduplicerings tillstånd under återställningen kan filerna inte återställas eftersom valvet inte förstår formatet. Du kommer dock att kunna utföra fullständig återställning av den virtuella datorn.
-Lägg till disk i skyddad virtuell dator | Stöds.
+Krypterade diskar | Stöds.<br/><br/> Virtuella Azure-datorer som är aktiverade med Azure Disk Encryption kan säkerhetskopieras (med eller utan Azure AD-appen).<br/><br/> Krypterade virtuella datorer kan inte återställas på fil-/mappnivå. Du måste återställa hela den virtuella datorn.<br/><br/> Du kan aktivera kryptering på virtuella datorer som redan är skyddade av Azure Backup.
+Diskar med skrivaccelerator aktiverade | Stöds inte.<br/><br/> Azure-säkerhetskopiering utesluter automatiskt diskarna med Skriv accelerator aktiverat under säkerhetskopiering. Eftersom de inte säkerhetskopieras kan du inte återställa dessa diskar från återställningspunkter för den virtuella datorn.
+Säkerhetskopiera & återställ deduplicerade virtuella datorer/diskar | Azure Backup stöder inte deduplicering. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - Azure Backup deduplicerar inte över virtuella datorer i Recovery Services-valvet <br/> <br/>  - Om det finns virtuella datorer i dedupliceringstillstånd under återställningen kan filerna inte återställas eftersom valvet inte förstår formatet. Du kan dock utföra den fullständiga vm-återställningen.
+Lägga till disk i skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
-Delad lagring| Säkerhets kopiering av virtuella datorer med klusterdelad volym (CSV) eller Skalbar filserver stöds inte. CSV-skrivare fungerar sannolikt inte under säkerhets kopieringen. Vid återställning kanske diskar som innehåller CSV-volymer inte kommer att visas.
+Delad lagring| Det går inte att säkerhetskopiera virtuella datorer med klusterdelad volym (CSV) eller utskalningsfilserver. CSV-skribenter kommer sannolikt att misslyckas under säkerhetskopieringen. Vid återställning kan det hända att diskar som innehåller CSV-volymer inte kommer upp.
 [Delade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Stöds inte.
 
-## <a name="vm-network-support"></a>Stöd för virtuella dator nätverk
+## <a name="vm-network-support"></a>Stöd för VM-nätverk
 
 **Komponent** | **Support**
 --- | ---
-Antal nätverks gränssnitt (NIC) | Upp till det maximala antalet nätverkskort som stöds för en angiven virtuell Azure-dator storlek.<br/><br/> Nätverkskort skapas när den virtuella datorn skapas under återställnings processen.<br/><br/> Antalet nätverkskort på den återställda virtuella datorn speglar antalet nätverkskort på den virtuella datorn när du aktiverade skyddet. Att ta bort nätverkskort när du har aktiverat skyddet påverkar inte antalet.
-Extern/intern belastningsutjämnare |Stöds. <br/><br/> [Lär dig mer](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) om att återställa virtuella datorer med särskilda nätverks inställningar.
-Flera reserverade IP-adresser |Stöds. <br/><br/> [Lär dig mer](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) om att återställa virtuella datorer med särskilda nätverks inställningar.
-Virtuella datorer med flera nätverkskort| Stöds. <br/><br/> [Lär dig mer](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) om att återställa virtuella datorer med särskilda nätverks inställningar.
-Virtuella datorer med offentliga IP-adresser| Stöds.<br/><br/> Koppla en befintlig offentlig IP-adress till NÄTVERKSKORTet eller skapa en adress och koppla den till NÄTVERKSKORTet när återställningen är färdig.
-Nätverks säkerhets grupp (NSG) på NIC/undernät. |Stöds.
-Statisk IP-adress | Stöds inte.<br/><br/> En ny virtuell dator som skapas från en återställnings punkt tilldelas en dynamisk IP-adress.<br/><br/> För klassiska virtuella datorer kan du inte säkerhetskopiera en virtuell dator med en reserverad IP-adress och ingen definierad slut punkt.
-Dynamisk IP-adress |Stöds.<br/><br/> Om NÄTVERKSKORTet på den virtuella käll datorn använder dynamisk IP-adressering, kommer NÄTVERKSKORTet på den återställda virtuella datorn också att använda den.
-Azure Traffic Manager| Stöds.<br/><br/>Om den säkerhetskopierade virtuella datorn finns i Traffic Manager lägger du manuellt till den återställda virtuella datorn i samma Traffic Manager instans.
+Antal nätverksgränssnitt | Upp till maximalt antal nätverkskort som stöds för en viss Azure VM-storlek.<br/><br/> Nätverkskort skapas när den virtuella datorn skapas under återställningsprocessen.<br/><br/> Antalet nätverkskort på den återställda virtuella datorn speglar antalet nätverkskort på den virtuella datorn när du har aktiverat skydd. Om du tar bort nätverkskort när du har aktiverat skydd påverkas inte antalet.
+Extern/intern belastningsutjämnare |Stöds. <br/><br/> [Läs mer](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) om hur du återställer virtuella datorer med särskilda nätverksinställningar.
+Flera reserverade IP-adresser |Stöds. <br/><br/> [Läs mer](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) om hur du återställer virtuella datorer med särskilda nätverksinställningar.
+Virtuella datorer med flera nätverkskort| Stöds. <br/><br/> [Läs mer](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) om hur du återställer virtuella datorer med särskilda nätverksinställningar.
+Virtuella datorer med offentliga IP-adresser| Stöds.<br/><br/> Associera en befintlig offentlig IP-adress med nätverkskortet, eller skapa en adress och associera den med nätverkskortet när återställningen är klar.
+Nätverkssäkerhetsgrupp (NSG) på nätverkskort/undernät. |Stöds.
+Statisk IP-adress | Stöds inte.<br/><br/> En ny virtuell dator som har skapats från en återställningspunkt tilldelas en dynamisk IP-adress.<br/><br/> För klassiska virtuella datorer kan du inte säkerhetskopiera en virtuell dator med en reserverad IP-adress och ingen definierad slutpunkt.
+Dynamisk IP-adress |Stöds.<br/><br/> Om nätverkskortet på källdatorn använder dynamisk IP-adressering använder nätverkskortet på den återställda virtuella datorn det också.
+Azure Traffic Manager| Stöds.<br/><br/>Om den säkerhetskopierade virtuella datorn finns i Traffic Manager lägger du manuellt till den återställda virtuella datorn i samma Traffic Manager-instans.
 Azure DNS |Stöds.
 Anpassad DNS |Stöds.
-Utgående anslutning via HTTP-proxy | Stöds.<br/><br/> En autentiserad proxy stöds inte.
-Tjänstslutpunkter för virtuellt nätverk| Stöds.<br/><br/> Inställningar för lagrings konto för brand vägg och virtuellt nätverk ska tillåta åtkomst från alla nätverk.
+Utgående anslutning via HTTP-proxy | Stöds.<br/><br/> En autentrad proxy stöds inte.
+Tjänstslutpunkter för virtuellt nätverk| Stöds.<br/><br/> Inställningar för brandvägg och virtuellt nätverkslagringskonto bör tillåta åtkomst från alla nätverk.
 
-## <a name="vm-security-and-encryption-support"></a>VM-säkerhet och krypterings stöd
+## <a name="vm-security-and-encryption-support"></a>Stöd för VM-säkerhet och kryptering
 
 Azure Backup stöder kryptering för data under överföring och i vila:
 
 Nätverkstrafik till Azure:
 
-- Säkerhets kopierings trafik från servrar till Recovery Services-valvet krypteras med hjälp av Advanced Encryption Standard 256.
+- Säkerhetskopieringstrafik från servrar till Recovery Services-valvet krypteras med hjälp av Advanced Encryption Standard 256.
 - Säkerhetskopierade data skickas via en säker HTTPS-anslutning.
 - Säkerhetskopierade data lagras i Recovery Services-valvet i krypterad form.
 - Endast du har tillgång till den lösenfras som krävs för att låsa upp dessa data. Microsoft kan aldrig dekryptera säkerhetskopierade data.
 
   > [!WARNING]
-  > När du har konfigurerat valvet har du bara åtkomst till krypterings nyckeln. Microsoft sparar aldrig någon kopia och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan Microsoft inte återställa dina säkerhetskopierade data.
+  > När du har konfigurerat valvet är det bara du som har åtkomst till krypteringsnyckeln. Microsoft sparar aldrig någon kopia och har inte åtkomst till nyckeln. Om du tappar bort nyckeln kan Microsoft inte återställa dina säkerhetskopierade data.
 
 Datasäkerhet:
 
-- När du säkerhetskopierar virtuella Azure-datorer måste du konfigurera kryptering *i* den virtuella datorn.
-- Azure Backup stöder Azure Disk Encryption som använder BitLocker på virtuella Windows-datorer och US **dm-crypt** på virtuella Linux-datorer.
+- När du säkerhetskopierar virtuella Azure-datorer måste du konfigurera kryptering *inom* den virtuella datorn.
+- Azure Backup stöder Azure Disk Encryption, som använder BitLocker på virtuella Windows-datorer och oss **dm-crypt** på virtuella Linux-datorer.
 - På serverdelen använder Azure Backup [Azure Storage Service-kryptering](../storage/common/storage-service-encryption.md), som skyddar vilande data.
 
 **Dator** | **Under överföring** | **I vila**
@@ -218,10 +218,10 @@ Lokala/virtuella Azure-datorer med MABS | ![Ja][green] | ![Ja][green]
 
 ## <a name="vm-compression-support"></a>Stöd för VM-komprimering
 
-Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som sammanfattas i följande tabell. Tänk på följande:
+Säkerhetskopiering stöder komprimering av säkerhetskopieringstrafik, som sammanfattas i följande tabell. Observera följande:
 
-- För virtuella Azure-datorer läser VM-tillägget data direkt från Azure Storage-kontot över lagrings nätverket. Det är inte nödvändigt att komprimera den här trafiken.
-- Om du använder DPM eller MABS kan du spara bandbredd genom att komprimera data innan de säkerhets kopie ras till DPM/MABS.
+- För virtuella Azure-datorer läser VM-tillägget data direkt från Azure-lagringskontot över lagringsnätverket. Det är inte nödvändigt att komprimera denna trafik.
+- Om du använder DPM eller MABS kan du spara bandbredd genom att komprimera data innan de säkerhetskopieras till DPM/MABS.
 
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---

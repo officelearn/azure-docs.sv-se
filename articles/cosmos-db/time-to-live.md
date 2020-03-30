@@ -1,6 +1,6 @@
 ---
-title: Förfaller data i Azure Cosmos DB med Time to Live
-description: Med TTL ger Microsoft Azure Cosmos DB möjlighet att automatiskt rensa dokument från systemet efter en viss tids period.
+title: Förfalla data i Azure Cosmos DB med tid att leva
+description: Med TTL ger Microsoft Azure Cosmos DB möjlighet att få dokument som automatiskt rensas från systemet efter en viss tid.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,82 +8,82 @@ ms.topic: conceptual
 ms.date: 07/26/2019
 ms.reviewer: sngun
 ms.openlocfilehash: 5407c38f33d167ff5114cd55878e3470e7248d71
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77188724"
 ---
-# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live (TTL) i Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live i Azure Cosmos DB 
 
-Med **Time to Live** eller TTL ger Azure Cosmos DB möjlighet att ta bort objekt automatiskt från en behållare efter en viss tids period. Som standard kan du ange Time to Live på behållar nivån och åsidosätta värdet per objekt-basis. När du har ställt in TTL på en behållare eller på en objekt nivå, tar Azure Cosmos DB automatiskt bort objekten efter tids perioden, sedan den tid de senast ändrades. Time to Live-värdet är konfigurerat på några sekunder. När du konfigurerar TTL tar systemet automatiskt bort de utgångna objekten baserat på TTL-värdet, utan att det krävs någon borttagnings åtgärd som uttryckligen utfärdas av klient programmet.
+Med **Time to Live** eller TTL ger Azure Cosmos DB möjligheten att ta bort objekt automatiskt från en behållare efter en viss tidsperiod. Som standard kan du ange tid för att leva på behållarnivå och åsidosätta värdet per artikel. När du har angett TTL på en behållare eller på en artikelnivå tar Azure Cosmos DB automatiskt bort dessa objekt efter tidsperioden, eftersom den tidpunkt då de senast ändrades. Tid att leva-värdet konfigureras på några sekunder. När du konfigurerar TTL tar systemet automatiskt bort de utgångna objekten baserat på TTL-värdet, utan att behöva en borttagningsåtgärd som uttryckligen utfärdas av klientprogrammet.
 
-Borttagning av utgångna objekt är en bakgrunds aktivitet som förbrukar [enheter](request-units.md)med överdrivet utrymme, det vill säga enheter som inte har använts av användar förfrågningar. Även om TTL-värdet har upphört att gälla, om behållaren överbelastas med begär Anden och om det inte finns tillräckligt många RU-objekt, så fördröjs data borttagningen. Data tas bort när det finns tillräckligt med ru: er tillgängliga för att utföra borttagnings åtgärden. Även om data borttagningen fördröjs, returneras inte data av några frågor (med valfritt API) När TTL har upphört att gälla.
+Borttagning av utgångna objekt är en bakgrundsaktivitet som förbrukar överblivna [begärandeenheter,](request-units.md)det vill ha begärandeenheter som inte har förbrukats av användarbegäranden. Även efter att TTL har gått ut, om behållaren är överbelastad med begäranden och om det inte finns tillräckligt med RU:er tillgängliga, försenas dataradering. Data tas bort när det finns tillräckligt många ru:er tillgängliga för att utföra borttagningsåtgärden. Även om dataradering försenas returneras inte data av några frågor (av något API) efter att TTL har upphört att gälla.
 
-## <a name="time-to-live-for-containers-and-items"></a>Tid till Live för behållare och objekt
+## <a name="time-to-live-for-containers-and-items"></a>Dags att leva för containrar och föremål
 
-TTL-värdet är inställt på några sekunder och tolkas som en delta från den tidpunkt då ett objekt senast ändrades. Du kan ställa in Time to Live på en behållare eller ett objekt i behållaren:
+Tiden till live-värdet anges i sekunder och tolkas som ett delta från det att ett objekt senast ändrades. Du kan ange tid för att leva på en behållare eller ett objekt i behållaren:
 
-1. **Time to Live på en behållare** (anges med `DefaultTimeToLive`):
+1. **Tid att leva på** en `DefaultTimeToLive`behållare (ställ in med):
 
-   - Om det saknas (eller är inställt på null), kommer objekten inte att förfalla automatiskt.
+   - Om objekt saknas (eller är inställda på null) upphör de inte att gälla automatiskt.
 
-   - Om det är tillgängligt och värdet har angetts till "-1", är det lika med oändlighet och objekt förfaller inte som standard.
+   - Om det finns och värdet är inställt på "-1" är det lika med oändlighet och objekt upphör inte att gälla som standard.
 
-   - Om det är tillgängligt och värdet är inställt på en siffra *"n"* , kommer objekten att förfalla *"n"* sekunder efter deras senaste ändrings tid.
+   - Om det finns och värdet är inställt på ett visst tal *"n"* – förfaller *objekten "n"* sekunder efter den senaste ändrade tiden.
 
-2. **Time to Live på ett objekt** (anges med `ttl`):
+2. **Tid att leva på** ett `ttl`objekt (ställ in med):
 
-   - Den här egenskapen gäller endast om `DefaultTimeToLive` finns och inte har angetts till null för den överordnade behållaren.
+   - Den här egenskapen `DefaultTimeToLive` är endast tillämplig om den finns och den inte är inställd på null för den överordnade behållaren.
 
-   - Om det här alternativet anges åsidosätts `DefaultTimeToLive`-värdet för den överordnade behållaren.
+   - Om det finns, `DefaultTimeToLive` åsidosätter det värdet för den överordnade behållaren.
 
-## <a name="time-to-live-configurations"></a>Time to Live konfigurationer
+## <a name="time-to-live-configurations"></a>Tid till Live-konfigurationer
 
-* Om TTL är inställt på *"n"* i en behållare går objekten i den behållaren ut efter *n* sekunder.  Om det finns objekt i samma behållare som har sin egen tid att leva, anger du till-1 (indikerar att de inte går ut) eller om vissa objekt har åsidosatt tiden till Live-inställningen med ett annat antal, förfaller dessa objekt baserat på sitt eget konfigurerade TTL-värde. 
+* Om TTL är inställt på *"n"* på en behållare upphör artiklarna i behållaren att gälla efter *n* sekunder.  Om det finns objekt i samma behållare som har sin egen tid att leva, ställ in på -1 (vilket indikerar att de inte upphör att gälla) eller om vissa objekt har åsidosatt tiden för att leva inställningen med ett annat nummer, dessa objekt upphör att gälla baserat på deras egna konfigurerade TTL-värde. 
 
-* Om TTL inte är inställt på en behållare, har tiden till Live på ett objekt i den här behållaren ingen påverkan. 
+* Om TTL inte är inställt på en behållare har tiden att leva på ett objekt i den här behållaren ingen effekt. 
 
-* Om TTL på en behållare är inställt på-1, kommer ett objekt i den här behållaren som har TTL-värdet n att förfalla efter n sekunder, och återstående objekt upphör inte att gälla.
+* Om TTL på en behållare är inställt på -1 upphör ett objekt i den här behållaren som har tid att leva inställt på n att gälla efter n sekunder och återstående objekt upphör inte att gälla.
 
 ## <a name="examples"></a>Exempel
 
-I det här avsnittet visas några exempel på olika tidpunkter för Live-värden som tilldelas behållare och objekt:
+I det här avsnittet visas några exempel med olika tid till livevärden som tilldelats behållare och objekt:
 
 ### <a name="example-1"></a>Exempel 1
 
-TTL för container är inställt på null (DefaultTimeToLive = null)
+TTL på behållaren är inställd på null (DefaultTimeToLive = null)
 
-|TTL för objekt| Resultat|
+|TTL på objekt| Resultat|
 |---|---|
-|TTL = null|    TTL har inaktiverats. Objektet upphör aldrig att gälla (standard).|
-|ttl = -1   |TTL har inaktiverats. Objektet upphör aldrig att gälla.|
-|TTL = 2000 |TTL har inaktiverats. Objektet upphör aldrig att gälla.|
+|ttl = null|    TTL är inaktiverat. Objektet upphör aldrig att gälla (standard).|
+|ttl = -1   |TTL är inaktiverat. Objektet upphör aldrig att gälla.|
+|ttl = 2000 |TTL är inaktiverat. Objektet upphör aldrig att gälla.|
 
 
 ### <a name="example-2"></a>Exempel 2
 
-TTL för container är inställt på-1 (DefaultTimeToLive =-1)
+TTL på behållaren är inställd på -1 (DefaultTimeToLive = -1)
 
-|TTL för objekt| Resultat|
+|TTL på objekt| Resultat|
 |---|---|
-|TTL = null |TTL har Aktiver ATS. Objektet upphör aldrig att gälla (standard).|
-|ttl = -1   |TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
-|TTL = 2000 |TTL har Aktiver ATS. Objektet upphör att gälla efter 2000 sekunder.|
+|ttl = null |TTL är aktiverat. Objektet upphör aldrig att gälla (standard).|
+|ttl = -1   |TTL är aktiverat. Objektet upphör aldrig att gälla.|
+|ttl = 2000 |TTL är aktiverat. Objektet upphör att gälla efter 2000 sekunder.|
 
 
 ### <a name="example-3"></a>Exempel 3
 
-TTL på container är inställt på 1000 (DefaultTimeToLive = 1000)
+TTL på behållaren är inställd på 1000 (DefaultTimeToLive = 1000)
 
-|TTL för objekt| Resultat|
+|TTL på objekt| Resultat|
 |---|---|
-|TTL = null|    TTL har Aktiver ATS. Objektet upphör att gälla efter 1000 sekunder (standard).|
-|ttl = -1   |TTL har Aktiver ATS. Objektet upphör aldrig att gälla.|
-|TTL = 2000 |TTL har Aktiver ATS. Objektet upphör att gälla efter 2000 sekunder.|
+|ttl = null|    TTL är aktiverat. Objektet upphör att gälla efter 1000 sekunder (standard).|
+|ttl = -1   |TTL är aktiverat. Objektet upphör aldrig att gälla.|
+|ttl = 2000 |TTL är aktiverat. Objektet upphör att gälla efter 2000 sekunder.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du konfigurerar Time to Live i följande artiklar:
+Lär dig hur du konfigurerar Tid att leva i följande artiklar:
 
-* [Så här konfigurerar du Time to Live](how-to-time-to-live.md)
+* [Så här konfigurerar du Tid att leva](how-to-time-to-live.md)

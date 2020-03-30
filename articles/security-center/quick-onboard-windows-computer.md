@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
 ms.openlocfilehash: 417d8379d019a9ef0da41638cba4a1f9cb7b8bc2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73686498"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Snabbstart: Publicera Windows-datorer till Azure Security Center
@@ -26,22 +26,22 @@ När du har publicerat dina Azure-prenumerationer kan du aktivera Security Cente
 
 Den här snabbstarten visar hur du installerar Microsoft Monitoring Agent på en Windows-dator.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Innan du startar den här snabbstarten måste du ha standardnivån i Security Center. Läs [Publicera din Azure-prenumeration till Security Center Standard](security-center-get-started.md) för instruktioner om uppgradering. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="add-new-windows-computer"></a>Lägg till ny Windows-dator
 
-1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
+1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+2. Välj **Security Center**på **Microsoft Azure-menyn** . **Security Center – Översikt** öppnas.
 
    ![Översikt över Security Center][2]
 
 3. På huvudmenyn i Security Center väljer du **Komma igång**.
 4. Välj fliken **Kom igång**.
 
-   ![Kom igång][3]
+   ![Komma igång][3]
 
 5. Klicka på **Konfigurera** under **Lägg till datorer som inte är Azure-datorer**. En lista över dina Log Analytics-arbetsytor visas. Om det är tillämpligt innehåller listan standardarbetsytan som har skapats för dig av Security Center när automatisk etablering aktiverades. Välj den här arbetsytan eller någon annan arbetsyta som du vill använda.
 
@@ -82,7 +82,7 @@ Nu kan du övervaka dina virtuella Azure-datorer och datorer som inte är Azure-
 
 Det finns två typer av ikoner på **Compute**-bladet:
 
-![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Icke-Azure-dator
+![icon1](./media/quick-onboard-windows-computer/security-center-monitoring-icon1.png) Datorer som inte är Azure-datorer
 
 ![icon2](./media/quick-onboard-windows-computer/security-center-monitoring-icon2.png) Azure VM
 

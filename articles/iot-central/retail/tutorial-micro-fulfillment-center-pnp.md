@@ -1,6 +1,6 @@
 ---
-title: Själv studie kurs för Micro-uppfyllelse Center-Mall | Microsoft Docs
-description: En själv studie kurs om programmallen för Micro-uppfyllelse Center för Azure IoT Central
+title: Självstudiekurs för appmallen För mikrouppfyllelsecenter | Microsoft-dokument
+description: En självstudiekurs om programmallen för mikrouppfyllelsecenter för Azure IoT Central
 author: avneet723
 ms.author: avneets
 ms.service: iot-central
@@ -8,89 +8,89 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 01/09/2020
 ms.openlocfilehash: 93906f582f1edc351088f8b4c453bf9ebda54f83
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/16/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77369796"
 ---
-# <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Självstudie: Distribuera och gå igenom en Programmall för Micro-uppfyllelse Center
+# <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Självstudiekurs: Distribuera och gå igenom en programmall för mikrouppfyllelsecenter
 
-I den här självstudien använder du programmallen Azure IoT Central Micro-uppfyllelse Center för att bygga en detalj handels lösning. Du får lära dig mer om hur du distribuerar mallen, vad som ingår i den och vad du kanske vill göra härnäst.
+I den här självstudien använder du programmallen Azure IoT Central micro-fulfillment Center för att skapa en återförsäljarlösning. Du lär dig mer om hur du distribuerar mallen, vad som ingår i den och vad du kanske vill göra härnäst.
 
-## <a name="prerequisites"></a>Förutsättningar
-Du behöver en Azure-prenumeration för att kunna slutföra den här själv studie serien. Du kan välja att använda en kostnads fri 7-dagars utvärderings version. Om du inte har någon Azure-prenumeration kan du skapa en på [sidan för Azure-registrering](https://aka.ms/createazuresubscription).
+## <a name="prerequisites"></a>Krav
+För att slutföra den här självstudieserien behöver du en Azure-prenumeration. Du kan eventuellt använda en kostnadsfri 7-dagars testperiod. Om du inte har en Azure-prenumeration kan du skapa en på [sidan För Azure-registrering](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application"></a>Skapa ett program 
-I det här avsnittet skapar du ett nytt Azure IoT Central-program från en mall. Du använder det här programmet i själv studie serien för att bygga en komplett lösning.
+I det här avsnittet skapar du ett nytt Azure IoT Central-program från en mall. Du kommer att använda det här programmet i hela självstudieserien för att skapa en komplett lösning.
 
 Så här skapar du ett nytt Azure IoT Central-program:
 
-1. Gå till webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) .
-1. Om du har en Azure-prenumeration loggar du in med de autentiseringsuppgifter som du använder för att komma åt den. Logga annars in med en Microsoft-konto:
+1. Gå till [azure IoT Central application manager](https://aka.ms/iotcentral) webbplats.
+1. Om du har en Azure-prenumeration loggar du in med de autentiseringsuppgifter du använder för att komma åt den. Annars loggar du in med ett Microsoft-konto:
 
-   ![Skärm bild av dialog rutan Microsoft-konto inloggning](./media/tutorial-in-store-analytics-create-app-pnp/sign-in.png)
+   ![Skärmbild av dialogrutan Inloggning för Microsoft-konto](./media/tutorial-in-store-analytics-create-app-pnp/sign-in.png)
 
 1. Börja skapa ett nytt Azure IoT Central-program genom att välja **Nytt program**.
 
-1. Välj **åter försäljning**.  På sidan detalj handel visas flera mallar för åter försäljning.
+1. Välj **Butik**.  På återförsäljarsidan visas flera butiksprogrammallar.
 
-Skapa ett nytt program för Micro-uppfyllelse Center som använder för hands versions funktioner:  
-1. Välj program mal len för **Micro-uppfyllelse Center** . Den här mallen innehåller enhets mallar för alla enheter som används i självstudien. Mallen tillhandahåller också en instrument panel för instrument panelen för att övervaka villkor inom ditt uppfyllande Center, samt villkoren för dina robot operatörer. 
+Så här skapar du ett nytt program för mikrouppfyllelsecenter som använder förhandsgranskningsfunktioner:  
+1. Välj programmallen **för programmallen För mikrouppfyllelsecenter.** Den här mallen innehåller enhetsmallar för alla enheter som används i självstudien. Mallen innehåller också en operatörsinstrumentpanel för övervakningsvillkor inom ditt uppfyllelsecenter, samt villkoren för dina robotoperatörer. 
 
-    ![Skärm bild av Azure IoT Central Bygg din IoT-programsida](./media/tutorial-micro-fulfillment-center-app-pnp/iotc-retail-homepage-mfc.png)
+    ![Skärmbild av Azure IoT Central Bygg din IoT-programsida](./media/tutorial-micro-fulfillment-center-app-pnp/iotc-retail-homepage-mfc.png)
     
-1. Du kan också välja ett eget **program namn**. Program mal len baseras på det fiktiva företaget Northwind Traders. 
+1. Du kan också välja ett eget **programnamn**. Programmallen är baserad på det fiktiva företaget Northwind Traders. 
 
     >[!NOTE]
-    >Om du använder ett eget program namn måste du fortfarande använda ett unikt värde för programmets URL.
+    >Om du använder ett eget programnamn måste du fortfarande använda ett unikt värde för programmets URL.
 
-1. Om du har en Azure-prenumeration anger du din katalog, din Azure-prenumeration och region. Om du inte har en prenumeration kan du aktivera den kostnads fria utvärderings versionen på 7 dagar och slutföra den nödvändiga kontakt informationen.  
+1. Om du har en Azure-prenumeration anger du din katalog, Azure-prenumeration och region. Om du inte har en prenumeration kan du aktivera 7 dagars kostnadsfri utvärderingsversion och slutföra den erforderliga kontaktinformationen.  
 
-    Mer information om kataloger och prenumerationer finns i snabb start för att [skapa ett program](../preview/quick-deploy-iot-central.md) .
+    Mer information om kataloger och prenumerationer finns i snabbstarten [Skapa ett program.](../preview/quick-deploy-iot-central.md)
 
 1. Välj **Skapa**.
 
-    ![Skärm bild av sidan Azure IoT Central New Application](./media/tutorial-micro-fulfillment-center-app-pnp/iotc-retail-create-app-mfc.png)
+    ![Skärmbild av sidan Azure IoT Central New-program](./media/tutorial-micro-fulfillment-center-app-pnp/iotc-retail-create-app-mfc.png)
 
-## <a name="walk-through-the-application"></a>gå igenom programmet 
+## <a name="walk-through-the-application"></a>Gå igenom programmet 
 
-När du har distribuerat app-mallen ser du **instrument panelen för Northwind Traders-Micro-Support Center**. Northwind Traders är en fiktiv åter försäljare som har ett mikroutförande Center som hanteras i det här Azure IoT Central-programmet. På instrument panelen för operatören ser du information och telemetri om enheterna i den här mallen, tillsammans med en uppsättning kommandon, jobb och åtgärder som du kan vidta. Instrument panelen delas logiskt i två avsnitt. Till vänster kan du övervaka miljö villkoren i den uppfyllande strukturen och till höger kan du övervaka hälso tillståndet för en robot transport i anläggningen.  
+När du har distribuerat appmallen visas **instrumentpanelen för Mikrouppfyllelsecenter för Northwind Traders**. Northwind Traders är en fiktiv återförsäljare som har ett mikro-uppfyllelsecenter som hanteras i det här Azure IoT Central-programmet. På den här operatörsinstrumentpanelen ser du information och telemetri om enheterna i den här mallen, tillsammans med en uppsättning kommandon, jobb och åtgärder som du kan vidta. Instrumentpanelen är logiskt uppdelad i två avsnitt. Till vänster kan du övervaka miljöförhållandena inom uppfyllelsestrukturen, och till höger kan du övervaka hälsan hos en robotbärare i anläggningen.  
 
-Från instrument panelen kan du:
-   * Se telemetri för enheter, till exempel antalet plockningar, antalet bearbetade beställningar och egenskaper, till exempel struktur systemets status.  
-   * Visa våningsplanet och platsen för de automatiska transport företagen i den uppfyllande strukturen.
-   * Utlös kommandon, till exempel återställning av kontroll systemet, uppdatering av den inbyggda program varan och omkonfiguration av nätverket.
+Från instrumentpanelen kan du:
+   * Se enhetstelemetri, till exempel antalet plockningar, antalet bearbetade order och egenskaper, till exempel struktursystemets status.  
+   * Visa planlösningen och placeringen av robotbärarna inom uppfyllelsestrukturen.
+   * Utlösarkommandon, till exempel återställa kontrollsystemet, uppdatera operatörens inbyggda programvara och konfigurera om nätverket.
 
-     ![Skärm bild av instrument panelen för Northwind Traders-centrum för Micro-utförande](./media/tutorial-micro-fulfillment-center-app-pnp/mfc-dashboard1.png)
-   * Se ett exempel på instrument panelen som en operatör kan använda för att övervaka villkor inom uppfyllande Center. 
-   * Övervaka hälso tillståndet för de nytto laster som körs på gateway-enheten inom uppfyllande Center.    
+     ![Skärmbild av instrumentpanelen i Northwind Traders mikrouppfyllelsecenter](./media/tutorial-micro-fulfillment-center-app-pnp/mfc-dashboard1.png)
+   * Se ett exempel på instrumentpanelen som en operatör kan använda för att övervaka villkor inom uppfyllelsecentret. 
+   * Övervaka hälsotillståndet för de nyttolaster som körs på gateway-enheten i uppfyllelsecentret.    
 
-     ![Skärm bild av instrument panelen för Northwind Traders-centrum för Micro-utförande](./media/tutorial-micro-fulfillment-center-app-pnp/mfc-dashboard2.png)
+     ![Skärmbild av instrumentpanelen i Northwind Traders mikrouppfyllelsecenter](./media/tutorial-micro-fulfillment-center-app-pnp/mfc-dashboard2.png)
 
-## <a name="device-template"></a>Enhets mall
-Om du väljer fliken enhets mallar ser du att det finns två olika enhets typer som är en del av mallen: 
-   * **Robot frakt firma**: den här enhets mal len representerar definitionen för ett fungerande robot transport företag som har distribuerats i uppfyllande struktur och som utför lämpliga lagrings-och hämtnings åtgärder. Om du väljer mallen ser du att roboten skickar enhets data, till exempel temperatur-och axel position och egenskaper som status för robot transport. 
-   * **Övervakning av struktur villkor**: den här enhets mal len representerar en enhets samling som gör att du kan övervaka miljö villkor, samt vilken gateway-enhet som är värd för olika Edge-arbetsbelastningar för att sätta ditt uppfyllande Center. Enheten skickar telemetridata, till exempel temperatur, antalet plockningar och antalet beställningar. Den skickar också information om tillståndet och hälsan för beräknings arbets belastningar som körs i din miljö. 
+## <a name="device-template"></a>Enhetsmall
+Om du väljer fliken enhetsmallar ser du att det finns två olika enhetstyper som ingår i mallen: 
+   * **Robotic Carrier**: Den här enhetsmallen representerar definitionen för en fungerande robotbärare som har distribuerats i uppfyllelsestrukturen och utför lämpliga lagrings- och hämtningsåtgärder. Om du väljer mallen ser du att roboten skickar enhetsdata, till exempel temperatur- och axelposition, och egenskaper som robotbärarstatus. 
+   * **Övervakning av strukturtillstånd:** Den här enhetsmallen representerar en enhetssamling som gör att du kan övervaka miljötillståndet, liksom gateway-enheten som är värd för olika kantarbetsbelastningar för att driva ditt uppfyllelsecenter. Enheten skickar telemetridata, till exempel temperaturen, antalet plockningar och antalet order. Den skickar också information om tillståndet och hälsotillståndet för beräkningsarbetsbelastningar som körs i din miljö. 
 
-     ![Enhets mallar för Micro-uppfyllelse Center](./media/tutorial-micro-fulfillment-center-app-pnp/device-templates.png)
+     ![Enhetsmallar för mikrouppfyllelsecenter](./media/tutorial-micro-fulfillment-center-app-pnp/device-templates.png)
 
-Om du väljer fliken enhets grupper ser du också att dessa enhets mallar automatiskt har enhets grupper som skapats för dem.
+Om du väljer fliken enhetsgrupper ser du också att dessa enhetsmallar automatiskt har enhetsgrupper skapade för dem.
 
 ## <a name="rules"></a>Regler
-På fliken **regler** visas en exempel regel som finns i program mal len för att övervaka temperatur villkoren för den automatiska transporten. Du kan använda den här regeln för att varna operatören om en speciell robot i anläggningen är överhettad och måste kopplas från för underhåll. 
+På fliken **Regler** visas en exempelregel som finns i programmallen för att övervaka temperaturförhållandena för robotoperatören. Du kan använda den här regeln för att varna operatören om en viss robot i anläggningen är överhettning och måste tas offline för service. 
 
-Använd exempel regeln som inspiration för att definiera regler som passar dina affärs funktioner bättre.
+Använd exempelregeln som inspiration för att definiera regler som är lämpligare för dina affärsfunktioner.
 
-![Skärm bild av fliken regler](./media/tutorial-micro-fulfillment-center-app-pnp/rules.png)
+![Skärmbild av fliken Regler](./media/tutorial-micro-fulfillment-center-app-pnp/rules.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta att använda det här programmet tar du bort program mal len. Gå till **Administration** > **program inställningar**och välj **ta bort**.
+Om du inte ska fortsätta att använda det här programmet tar du bort programmallen. Gå till Inställningar för **Delete** **Administrationsprogram** > **Application settings**och välj Ta bort .
 
-![Skärm bild av sidan program inställningar för Micro-uppfyllelse Center](./media/tutorial-micro-fulfillment-center-app-pnp/delete.png)
+![Skärmbild av sidan Programinställningar för Mikrouppfyllelsecenter](./media/tutorial-micro-fulfillment-center-app-pnp/delete.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [lösnings arkitekturen för Micro-uppfyllelse Center](./architecture-micro-fulfillment-center-pnp.md).
-* Lär dig mer om andra [mallar för Azure IoT Central återförsäljarversion](./overview-iot-central-retail-pnp.md).
-* Läs [översikten över Azure-IoT Central](../preview/overview-iot-central.md).
+* Läs mer om [lösningens arkitektur för mikrouppfyllelsecenter](./architecture-micro-fulfillment-center-pnp.md).
+* Läs mer om andra [Azure IoT Central-återförsäljarmallar](./overview-iot-central-retail-pnp.md).
+* Läs [översikten över Azure IoT Central](../preview/overview-iot-central.md).

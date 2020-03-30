@@ -1,6 +1,6 @@
 ---
-title: Buffert kod för XEvent-ring
-description: Innehåller ett kod exempel för Transact-SQL som är enkelt och snabbt med hjälp av målet för ringbufferten, i Azure SQL Database.
+title: XEvent ring buffertkod
+description: Innehåller ett exempel på Transact-SQL-kod som görs enkelt och snabbt med hjälp av ringbuffertmålet i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,51 +12,51 @@ ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
 ms.openlocfilehash: ad98b61d6339388551af93671b3d4d892942f4e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79213972"
 ---
-# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ring buffertens mål kod för utökade händelser i SQL Database
+# <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Ring buffertmålskod för utökade händelser i SQL Database
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-Du vill ha ett fullständigt kod exempel för det enklaste sättet att samla in och rapportera information om en utökad händelse under ett test. Det enklaste målet för utökade händelse data är [målet för ringbufferten](https://msdn.microsoft.com/library/ff878182.aspx).
+Du vill ha ett fullständigt kodexempel för det enklaste snabba sättet att samla in och rapportera information för en utökad händelse under ett test. Det enklaste målet för utökade händelsedata är [ringbuffertmålet](https://msdn.microsoft.com/library/ff878182.aspx).
 
-I det här avsnittet presenteras ett Transact-SQL-kod exempel som:
+Det här avsnittet innehåller ett exempel på Transact-SQL-kod som:
 
 1. Skapar en tabell med data att demonstrera med.
-2. Skapar en session för en befintlig utökad händelse, nämligen **SQLServer. sql_statement_starting**.
+2. Skapar en session för en befintlig utökad händelse, nämligen **sqlserver.sql_statement_starting**.
    
-   * Händelsen är begränsad till SQL-uttryck som innehåller en viss uppdaterings sträng: **instruktion som% Update tabEmployee%** .
-   * Väljer att skicka utdata för händelsen till ett mål av typen ring-buffert, nämligen **package0. ring_buffer**.
+   * Händelsen är begränsad till SQL-satser som innehåller en viss uppdateringssträng: **statement LIKE '%UPDATE tabEmployee%'**.
+   * Väljer att skicka utdata för händelsen till ett mål för typen Ring buffert, nämligen **package0.ring_buffer**.
 3. Startar händelsesessionen.
-4. Utfärdar ett par enkla SQL UPDATE-instruktioner.
-5. Utfärdar ett SQL SELECT-uttryck för att hämta händelse utdata från ringbufferten.
+4. Utfärdar ett par enkla SQL UPDATE-satser.
+5. Utfärdar ett SQL SELECT-uttryck för att hämta händelseutdata från ringbufferten.
    
-   * **sys. dm_xe_database_session_targets** och andra vyer för dynamisk hantering (DMV: er) är anslutna.
+   * **sys.dm_xe_database_session_targets** och andra dynamiska hanteringsvyer (DMVs) är anslutna.
 6. Stoppar händelsesessionen.
-7. Släpper målet för ringbufferten för att frigöra resurser.
-8. Släpper händelsesessionen och demonstrations tabellen.
+7. Släpper ringbuffertmålet för att frigöra dess resurser.
+8. Släpper händelsesessionen och demotabellen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Azure-konto och prenumeration. Registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/).
-* Alla databaser du kan skapa en tabell i.
+* Alla databaser som du kan skapa en tabell i.
   
-  * Du kan också [skapa en **AdventureWorksLT** demonstrations databas](sql-database-get-started.md) på bara några minuter.
-* SQL Server Management Studio (SSMS. exe), helst den senaste månatliga uppdaterings versionen. 
-  Du kan hämta den senaste SSMS. exe från:
+  * Du kan också [skapa en **AdventureWorksLT-demonstrationsdatabas** ](sql-database-get-started.md) på några minuter.
+* SQL Server Management Studio (ssms.exe), helst sin senaste månatliga uppdateringsversion. 
+  Du kan hämta den senaste ssms.exe från:
   
-  * Avsnitt med rubriken [hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * Ämne med titeln [Hämta SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
   * [En direkt länk till nedladdningen.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>Kodexempel
 
-Med mycket mindre modifiering kan följande kod exempel för ringbufferten köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden _database i namnet på vissa vyer för dynamisk hantering (DMV: er), som används i from-satsen i steg 5. Exempel:
+Med mycket mindre ändringar kan följande ringbuffertkodexempel köras på antingen Azure SQL Database eller Microsoft SQL Server. Skillnaden är förekomsten av noden "_database" i namnet på vissa dynamiska hanteringsvyer (DMVs), som används i FROM-satsen i steg 5. Ett exempel:
 
-* sys. dm_xe<strong>_database</strong>_session_targets
+* sys.dm_xe<strong>_database</strong>_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;
@@ -214,15 +214,15 @@ GO
 
 &nbsp;
 
-## <a name="ring-buffer-contents"></a>Ring buffertens innehåll
+## <a name="ring-buffer-contents"></a>Ring buffertinnehåll
 
-Vi använde SSMS. exe för att köra kod exemplet.
+Vi använde ssms.exe för att köra kodexemplet.
 
-För att visa resultaten klickade vi på cellen under kolumn rubriken **target_data_XML**.
+För att visa resultaten klickade vi på cellen under kolumnrubriken **target_data_XML**.
 
-Sedan klickade du på cellen under kolumn rubriken **target_data_XML**i resultat fönstret. Då klickar du på fliken skapad en annan fil i SSMS. exe där innehållet i resultat cellen visades, som XML.
+Sedan i resultatfönstret klickade vi cellen under kolumnrubriken **target_data_XML**. Det här klicket skapade en annan filflik i ssms.exe där innehållet i resultatcellen visades som XML.
 
-Utdata visas i följande block. Det ser långt ut, men det är bara två **\<händelse >** element.
+Utdata visas i följande block. Det ser lång, men ** \<** det är bara två händelse>element.
 
 &nbsp;
 
@@ -314,9 +314,9 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM tabEmployee;
 ```
 
 
-#### <a name="release-resources-held-by-your-ring-buffer"></a>Frigör resurser som innehas av din ringbufferten
+#### <a name="release-resources-held-by-your-ring-buffer"></a>Frigör resurser som innehas av ringbufferten
 
-När du är färdig med din ringbufferten kan du ta bort den och släppa dess resurser som har utfärdat en **ändring** som följande:
+När du är klar med ringbufferten kan du ta bort den och frigöra dess resurser som utfärdar ett **ALTER** på följande sätt:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -326,7 +326,7 @@ GO
 ```
 
 
-Definitionen av händelsesessionen uppdateras, men tas inte bort. Senare kan du lägga till en annan instans av ringbufferten till händelsesessionen:
+Definitionen av din händelsesession uppdateras, men inte bort. Senare kan du lägga till ytterligare en instans av ringbufferten i händelsesessionen:
 
 ```sql
 ALTER EVENT SESSION eventsession_gm_azuresqldb51
@@ -341,13 +341,13 @@ ALTER EVENT SESSION eventsession_gm_azuresqldb51
 
 ## <a name="more-information"></a>Mer information
 
-Det primära avsnittet för utökade händelser på Azure SQL Database är:
+Det primära ämnet för utökade händelser i Azure SQL Database är:
 
-* [Utökade händelser i SQL Database](sql-database-xevent-db-diff-from-svr.md), vilket skiljer sig från några aspekter av utökade händelser som skiljer sig mellan Azure SQL Database jämfört med Microsoft SQL Server.
+* [Utökade händelseöverväganden i SQL Database](sql-database-xevent-db-diff-from-svr.md), som kontrasterar vissa aspekter av utökade händelser som skiljer sig mellan Azure SQL Database kontra Microsoft SQL Server.
 
-Andra kod exempel ämnen för utökade händelser finns i följande länkar. Du måste dock regelbundet kontrol lera ett exempel för att se om exempel målen Microsoft SQL Server respektive Azure SQL Database. Sedan kan du bestämma om mindre ändringar krävs för att köra exemplet.
+Andra kodexempelavsnitt för utökade händelser finns på följande länkar. Du måste dock kontrollera ett exempel rutinmässigt för att se om exemplet är inriktat på Microsoft SQL Server jämfört med Azure SQL Database. Sedan kan du bestämma om mindre ändringar behövs för att köra exemplet.
 
-* Kod exempel för Azure SQL Database: [händelse filens mål kod för utökade händelser i SQL Database](sql-database-xevent-code-event-file.md)
+* Kodexempel för Azure SQL Database: [Målkod för händelsefil för utökade händelser i SQL Database](sql-database-xevent-code-event-file.md)
 
 <!--
 ('lock_acquired' event.)

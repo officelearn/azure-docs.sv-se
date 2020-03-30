@@ -1,6 +1,6 @@
 ---
-title: Exponera en AKS-tjänst via HTTP eller HTTPS med hjälp av Application Gateway
-description: Den här artikeln innehåller information om hur du exponerar en AKS-tjänst via HTTP eller HTTPS med hjälp av Application Gateway.
+title: Exponera en AKS-tjänst via HTTP eller HTTPS med Application Gateway
+description: Den här artikeln innehåller information om hur du exponerar en AKS-tjänst via HTTP eller HTTPS med Application Gateway.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,31 +8,31 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: c664141a8c89ccbdf37bd3f9a19cfa659982a47d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73795575"
 ---
-# <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Exponera en AKS-tjänst via HTTP eller HTTPS med hjälp av Application Gateway 
+# <a name="expose-an-aks-service-over-http-or-https-using-application-gateway"></a>Exponera en AKS-tjänst via HTTP eller HTTPS med Application Gateway 
 
-De här självstudierna illustrerar användningen av [Kubernetes ingress-resurser](https://kubernetes.io/docs/concepts/services-networking/ingress/) för att exponera en exempel Kubernetes-tjänst via [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) över http eller https.
+Dessa självstudier hjälper till att illustrera användningen av [Kubernetes ingress-resurser](https://kubernetes.io/docs/concepts/services-networking/ingress/) för att exponera en exempelkubernetes-tjänst via [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) via HTTP eller HTTPS.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-- Installerat `ingress-azure` Helm-diagram.
-  - [**Bygg-distribution**](ingress-controller-install-new.md): om du börjar från grunden läser du de här installations anvisningarna, som beskriver steg för att distribuera ett AKS-kluster med Application Gateway och installerar Application Gateway-ingångs styrenheten på AKS-klustret.
-  - [**Brownfield-distribution**](ingress-controller-install-existing.md): om du har ett befintligt AKS-kluster och Application Gateway kan du läsa dessa instruktioner för att installera Application Gateway-ingångs styrenheten på AKS-klustret.
+- Installerat `ingress-azure` rorstand.
+  - [**Greenfield Deployment**](ingress-controller-install-new.md): Om du börjar från början läser du de här installationsanvisningarna, som beskriver steg för att distribuera ett AKS-kluster med Application Gateway och installera ingress-styrenheten för programgateway i AKS-klustret.
+  - [**Brownfield Deployment**](ingress-controller-install-existing.md): Om du har ett befintligt AKS-kluster och Application Gateway läser du dessa instruktioner för att installera ingress-styrenheten för programgateway i AKS-klustret.
 - Om du vill använda HTTPS i det här programmet behöver du ett x509-certifikat och dess privata nyckel.
 
 ## <a name="deploy-guestbook-application"></a>Distribuera `guestbook` program
 
-Gäst programmet är ett kanoniskt Kubernetes-program som består av en webb GRÄNSSNITTs-frontend, en server del och en Redis-databas. Som standard visar `guestbook` sitt program via en tjänst med namnet `frontend` på port `80`. Utan en Kubernetes ingress-resurs kan tjänsten inte nås utanför AKS-klustret. Vi använder programmet och installationen inleder resurser för att komma åt programmet via HTTP och HTTPS.
+Gästboksprogrammet är ett kanoniskt Kubernetes-program som består av en webbgränssnittsfrontend, en backend och en Redis-databas. Som standard `guestbook` exponeras programmet via en `frontend` tjänst `80`med namn på porten . Utan en Kubernetes Ingress-resurs är tjänsten inte tillgänglig utanför AKS-klustret. Vi kommer att använda programmet och ställa in Ingress-resurser för att komma åt programmet via HTTP och HTTPS.
 
-Följ anvisningarna nedan för att distribuera gäst programmet.
+Följ instruktionerna nedan för att distribuera gästboksprogrammet.
 
-1. Hämta [`guestbook-all-in-one.yaml` härifrån](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml)
-1. Distribuera `guestbook-all-in-one.yaml` till ditt AKS-kluster genom att köra
+1. Ladda `guestbook-all-in-one.yaml` ner [härifrån](https://raw.githubusercontent.com/kubernetes/examples/master/guestbook/all-in-one/guestbook-all-in-one.yaml)
+1. Distribuera `guestbook-all-in-one.yaml` till AKS-klustret genom att köra
 
   ```bash
   kubectl apply -f guestbook-all-in-one.yaml
@@ -40,9 +40,9 @@ Följ anvisningarna nedan för att distribuera gäst programmet.
 
 Nu har `guestbook` programmet distribuerats.
 
-## <a name="expose-services-over-http"></a>Exponera tjänster över HTTP
+## <a name="expose-services-over-http"></a>Exponera tjänster via HTTP
 
-För att kunna exponera gäst programmet, kommer vi att använda följande ingående resurs:
+För att exponera gästboksprogrammet använder vi följande ingressresurs:
 
 ```yaml
 apiVersion: extensions/v1beta1
@@ -60,9 +60,9 @@ spec:
           servicePort: 80
 ```
 
-Den här ingången kommer att exponera `frontend`-tjänsten för `guestbook-all-in-one`-distributionen som en standard Server del av Application Gateway.
+Den här ingressen `frontend` exponerar tjänsten för distributionen `guestbook-all-in-one` som en standardservering för Programgatewayen.
 
-Spara ovanstående ingress-resurs som `ing-guestbook.yaml`.
+Spara ovanstående ingående `ing-guestbook.yaml`resurs som .
 
 1. Distribuera `ing-guestbook.yaml` genom att köra:
 
@@ -70,23 +70,23 @@ Spara ovanstående ingress-resurs som `ing-guestbook.yaml`.
     kubectl apply -f ing-guestbook.yaml
     ```
 
-1. Kontrol lera loggen för ingångs styrenheten för distributions status.
+1. Kontrollera loggen för ingående styrenheten för distributionsstatus.
 
-Nu bör `guestbook` programmet vara tillgängligt. Du kan kontrol lera detta genom att besöka Application Gatewayens offentliga adress.
+Nu `guestbook` ska programmet vara tillgängligt. Du kan kontrollera detta genom att besöka den offentliga adressen till Application Gateway.
 
-## <a name="expose-services-over-https"></a>Exponera tjänster över HTTPS
+## <a name="expose-services-over-https"></a>Exponera tjänster via HTTPS
 
 ### <a name="without-specified-hostname"></a>Utan angivet värdnamn
 
-Om du inte anger värd namnet är gäst tjänsten tillgänglig på alla värd namn som pekar på programgatewayen.
+Utan att ange värdnamn är gästbokstjänsten tillgänglig på alla värdnamn som pekar på programgatewayen.
 
-1. Innan du distribuerar ingress måste du skapa en Kubernetes-hemlighet som värd för certifikatet och den privata nyckeln. Du kan skapa en Kubernetes-hemlighet genom att köra
+1. Innan du distribuerar ingående måste du skapa en kubernetes-hemlighet som värd för certifikatet och den privata nyckeln. Du kan skapa en kubernetes hemlighet genom att köra
 
     ```bash
     kubectl create secret tls <guestbook-secret-name> --key <path-to-key> --cert <path-to-cert>
     ```
 
-1. Definiera följande ingress. I ingressen anger du namnet på hemligheten i avsnittet `secretName`.
+1. Definiera följande inträngning. Ange namnet på hemligheten i avsnittet `secretName` i inträngningen.
 
     ```yaml
     apiVersion: extensions/v1beta1
@@ -107,25 +107,25 @@ Om du inte anger värd namnet är gäst tjänsten tillgänglig på alla värd na
     ```
 
     > [!NOTE] 
-    > Ersätt `<guestbook-secret-name>` i denna ingress-resurs med namnet på din hemlighet. Lagra ovanstående ingress-resurs i ett fil namn `ing-guestbook-tls.yaml`.
+    > Ersätt `<guestbook-secret-name>` i ovanstående Ingress Resource med namnet på din hemlighet. Lagra ovanstående ingående resurs i `ing-guestbook-tls.yaml`ett filnamn .
 
-1. Distribuera ing-gäst-TLS. yaml genom att köra
+1. Distribuera ing-guestbook-tls.yaml genom att köra
 
     ```bash
     kubectl apply -f ing-guestbook-tls.yaml
     ```
 
-1. Kontrol lera loggen för ingångs styrenheten för distributions status.
+1. Kontrollera loggen för ingående styrenheten för distributionsstatus.
 
-Nu är det `guestbook` programmet tillgängligt på både HTTP och HTTPS.
+Nu `guestbook` kommer programmet att vara tillgängligt på både HTTP och HTTPS.
 
 ### <a name="with-specified-hostname"></a>Med angivet värdnamn
 
-Du kan också ange värd namnet för ingången för att kunna multiplex TLS-konfigurationer och-tjänster.
-Genom att ange hostname, är gäst tjänsten bara tillgänglig på den angivna värden.
+Du kan också ange värdnamnet på ingående för att multiplex TLS-konfigurationer och tjänster.
+Genom att ange värdnamn är gästbokstjänsten endast tillgänglig på den angivna värden.
 
-1. Definiera följande ingress.
-    I ingressen anger du namnet på hemligheten i avsnittet `secretName` och ersätter värd namnet i avsnittet `hosts`.
+1. Definiera följande inträngning.
+    I inträngningen anger du namnet på `secretName` hemligheten i avsnittet `hosts` och ersätter värdnamnet i avsnittet därefter.
 
     ```yaml
     apiVersion: extensions/v1beta1
@@ -154,13 +154,13 @@ Genom att ange hostname, är gäst tjänsten bara tillgänglig på den angivna v
     kubectl apply -f ing-guestbook-tls-sni.yaml
     ```
 
-1. Kontrol lera loggen för ingångs styrenheten för distributions status.
+1. Kontrollera loggen för ingående styrenheten för distributionsstatus.
 
-Nu är `guestbook` programmet endast tillgängligt på både HTTP och HTTPS på den angivna värden (`<guestbook.contoso.com>` i det här exemplet).
+`guestbook` Nu programmet kommer att vara tillgänglig på både HTTP`<guestbook.contoso.com>` och HTTPS endast på den angivna värden (i det här exemplet).
 
 ## <a name="integrate-with-other-services"></a>Integrera med andra tjänster
 
-Följande ingångar gör att du kan lägga till ytterligare sökvägar i den här ingången och omdirigera Sök vägarna till andra tjänster:
+Med följande inträngning kan du lägga till ytterligare sökvägar i den här inträngningen och omdirigera dessa sökvägar till andra tjänster:
 
     ```yaml
     apiVersion: extensions/v1beta1

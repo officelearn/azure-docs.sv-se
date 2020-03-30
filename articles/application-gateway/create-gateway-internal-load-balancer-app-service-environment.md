@@ -1,6 +1,6 @@
 ---
-title: Felsöka ett Application Gateway i Azure – ILB ASE | Microsoft Docs
-description: Lär dig hur du felsöker en Programgateway med hjälp av ett internt Load Balancer med ett App Service-miljön i Azure
+title: Felsöka en programgateway i Azure – ILB ASE | Microsoft-dokument
+description: Lär dig hur du felsöker en programgateway med hjälp av en intern belastningsutjämnare med en App Service-miljö i Azure
 services: vpn-gateway
 documentationCenter: na
 author: genlin
@@ -15,60 +15,60 @@ ms.workload: infrastructure-services
 ms.date: 11/06/2018
 ms.author: genli
 ms.openlocfilehash: 9c3216af283ebd9d84a5469d4d50d18c19f67534
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71121958"
 ---
-# <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Backend-servercertifikat är inte vit listas för en Programgateway med en intern Load Balancer med ett App Service-miljön
+# <a name="back-end-server-certificate-is-not-whitelisted-for-an-application-gateway-using-an-internal-load-balancer-with-an-app-service-environment"></a>Backend-servercertifikat är inte vitlistat för en programgateway med hjälp av en intern belastningsutjämnare med en apptjänstmiljö
 
-I den här artikeln felsöker du följande problem: Ett certifikat är inte vit listas när du skapar en Programgateway med hjälp av en intern Load Balancer (ILB) tillsammans med en App Service-miljön (ASE) på Server sidan när du använder SSL i slut punkt till slut punkt i Azure.
+Felsöker följande problem: Ett certifikat är inte vitlistat när du skapar en programgateway med hjälp av en intern belastningsutjämnare (ILB) tillsammans med en App Service Environment (ASE) i serverdelen när du använder ssl från slutpunkt till slutpunkt i Azure.
 
 ## <a name="symptoms"></a>Symtom
 
-När du skapar en Programgateway med hjälp av en ILB med en ASE på Server sidan kan backend-servern bli ohälsosam. Det här problemet uppstår om Authentication-certifikatet för programgatewayen inte matchar det konfigurerade certifikatet på backend-servern. Se följande scenario som exempel:
+När du skapar en programgateway med hjälp av en ILB med en ASE i serverdelen kan backend-servern bli felaktig. Det här problemet uppstår om autentiseringscertifikatet för programgatewayen inte matchar det konfigurerade certifikatet på backend-servern. Se följande scenario som ett exempel:
 
-**Application Gateway konfiguration:**
+**Konfiguration av programgateway:**
 
-- **Lyssnare:** Flera platser
-- **Port:** 443
+- **Lyssnare:** Flera webbplatser
+- **Hamn:** 443
 - **Värdnamn:** test.appgwtestase.com
 - **SSL-certifikat:** CN=test.appgwtestase.com
-- **Backend-pool:** IP-adress eller FQDN
-- **IP-adress:** : 10.1.5.11
+- **Backend Pool:** IP-adress eller FQDN
+- **IP-adress:**: 10.1.5.11
 - **HTTP-inställningar:** HTTPS
-- **Port:** : 443
-- **Anpassad avsökning:** Hostname – test.appgwtestase.com
-- **Autentiseringscertifikat:** . cer av test.appgwtestase.com
-- **Server dels hälsa:** Ej felfri – backend-servercertifikatet är inte vit listas med Application Gateway.
+- **Hamn:**: 443
+- **Anpassad avsökning:** Värdnamn – test.appgwtestase.com
+- **Autentiseringscertifikat:** .cer för test.appgwtestase.com
+- **Backend Hälsa:** Felfritt – Servercertifikatet för server med server som inte är vitlistad med Application Gateway.
 
 **ASE-konfiguration:**
 
 - **ILB IP:** 10.1.5.11
-- **Domän namn:** appgwtestase.com
-- **App Service:** test.appgwtestase.com
-- **SSL-bindning:** SNI SSL – CN = test. appgwtestase. com
+- **Domännamn:** appgwtestase.com
+- **App-tjänst:** test.appgwtestase.com
+- **SSL-bindning:** SNI SSL – CN=test.appgwtestase.com
 
-När du ansluter till programgatewayen visas följande fel meddelande, eftersom backend-servern inte är felfri:
+NÃ¤s nÃ¤nde nÃ¤s fiã¤ nÃ¤nde nÃ¤s gateway visas fÃ¶ndesÃ¶re nÃ¤1s fÃ¶1 visas fÃ¶ã¶¶ar av att serverdelsservern är felaktig
 
-**502 – webb servern tog emot ett ogiltigt svar när den fungerade som en gateway eller proxyserver.**
+**502 – Webbservern fick ett ogiltigt svar när den agerade som en gateway- eller proxyserver.**
 
 ## <a name="solution"></a>Lösning
 
-När du inte använder ett värdnamn för att komma åt en HTTPS-webbplats, returnerar backend-servern det konfigurerade certifikatet på standard webbplatsen, om SNI är inaktiverat. För en ILB-ASE kommer standard certifikatet från ILB-certifikatet. Om det inte finns några konfigurerade certifikat för ILB kommer certifikatet från ASE app-certifikatet.
+När du inte använder ett värdnamn för att komma åt en HTTPS-webbplats returnerar backend-servern det konfigurerade certifikatet på standardwebbplatsen om SNI är inaktiverat. För en ILB ASE kommer standardcertifikatet från ILB-certifikatet. Om det inte finns några konfigurerade certifikat för ILB kommer certifikatet från ASE-appcertifikatet.
 
-När du använder ett fullständigt kvalificerat domän namn (FQDN) för att komma åt ILB, returnerar backend-servern rätt certifikat som laddas upp i HTTP-inställningarna. Om så inte är fallet, bör du överväga följande alternativ:
+När du använder ett fullständigt kvalificerat domännamn (FQDN) för att komma åt ILB returnerar backend-servern rätt certifikat som överförs i HTTP-inställningarna. Om så inte är fallet bör du överväga följande alternativ:
 
-- Använd FQDN i backend-poolen för programgatewayen för att peka på IP-adressen för ILB. Det här alternativet fungerar bara om du har en privat DNS-zon eller en anpassad DNS-konfigurerad. Annars måste du skapa en "A"-post för en offentlig DNS.
+- Använd FQDN i backend-poolen i programgatewayen för att peka på IP-adressen för ILB. Det här alternativet fungerar bara om du har en privat DNS-zon eller en anpassad DNS konfigurerad. Annars måste du skapa en A-post för en offentlig DNS.
 
-- Använd det överförda certifikatet på ILB eller standard certifikatet (ILB-certifikat) i HTTP-inställningarna. Programgatewayen hämtar certifikatet när den får åtkomst till ILB IP för avsökningen.
+- Använd det överförda certifikatet på ILB eller standardcertifikatet (ILB-certifikatet) i HTTP-inställningarna. Programgatewayen hämtar certifikatet när den kommer åt ILB:s IP för avsökningen.
 
-- Använd ett certifikat med jokertecken på ILB och backend-servern, så att certifikatet är gemensamt för alla webbplatser. Den här lösningen är dock bara möjlig i händelse av under domäner och inte om var och en av dessa webbplatser kräver olika värdnamn.
+- Använd ett jokerteckencertifikat på ILB och backend-servern, så att certifikatet är vanligt för alla webbplatser. Denna lösning är dock endast möjlig när det gäller underdomäner och inte om var och en av webbplatserna kräver olika värdnamn.
 
-- Avmarkera alternativet **Använd för App Service** för Application Gateway om du använder IP-adressen för ILB.
+- Avmarkera alternativet **Använd för app-tjänsten** för programgatewayen om du använder IP-adressen för ILB.
 
-För att minska omkostnaderna kan du ladda upp ILB-certifikatet i HTTP-inställningarna för att göra avsöknings Sök vägen fungera. (Det här steget är bara för vit listning. Den används inte för SSL-kommunikation.) Du kan hämta ILB-certifikatet genom att komma åt ILB med dess IP-adress från din webbläsare på HTTPS och sedan exportera SSL-certifikatet i ett Base-64-kodat CER-format och ladda upp certifikatet på respektive HTTP-inställningar.
+Om du vill minska omkostnaderna kan du ladda upp ILB-certifikatet i HTTP-inställningarna så att avsökningssökvägen fungerar. (Det här steget är bara för vitlistning. Den kommer inte att användas för SSL-kommunikation.) Du kan hämta ILB-certifikatet genom att komma åt ILB med dess IP-adress från din webbläsare på HTTPS och sedan exportera SSL-certifikatet i ett Base-64-kodat CER-format och ladda upp certifikatet på respektive HTTP-inställningar.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

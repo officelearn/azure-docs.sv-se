@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösningar (AVS) – migrera VM-arbetsbelastningar till molnets privata moln
-description: Beskriver hur du migrerar virtuella datorer från lokala vCenter till AVS-molnets privata moln vCenter
+title: Azure VMware-lösning från CloudSimple – Migrera virtuella virtuella arbetsbelastningar till privat moln
+description: Beskriver hur du migrerar virtuella datorer från lokalt vCenter till CloudSimple Private Cloud vCenter
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,41 +8,41 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: af02bd947c73b670306704a10a09ca981b34c9a9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 87b8a112a319519dbde977ee30136a884137212d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77020003"
 ---
-# <a name="migrate-workload-vms-from-on-premises-vcenter-to-avs-private-cloud-vcenter-environment"></a>Migrera virtuella arbets belastnings datorer från lokal vCenter till AVS-miljö för privat moln vCenter
+# <a name="migrate-workload-vms-from-on-premises-vcenter-to-private-cloud-vcenter-environment"></a>Migrera virtuella virtuella arbetsbelastningar från lokalt vCenter till private cloud vCenter-miljö
 
-Det finns flera tillgängliga alternativ för att migrera virtuella datorer från ett lokalt Data Center till ditt moln privata moln. Det privata moln molnet tillhandahåller inbyggd åtkomst till VMware vCenter och verktyg som stöds av VMware kan användas för migrering av arbets belastning. I den här artikeln beskrivs några av alternativen för vCenter-migrering.
+Om du vill migrera virtuella datorer från ett lokalt datacenter till ditt CloudSimple Private Cloud finns flera alternativ tillgängliga.  Det privata molnet ger inbyggd åtkomst till VMware vCenter och verktyg som stöds av VMware kan användas för arbetsbelastningsmigrering. I den här artikeln beskrivs några av alternativen för vCenter-migrering.
 
 ## <a name="prerequisites"></a>Krav
 
-Migrering av virtuella datorer och data från ditt lokala data Center kräver nätverks anslutning från data centret till din moln miljö för privata moln. Använd någon av följande metoder för att upprätta en nätverks anslutning:
+Migrering av virtuella datorer och data från ditt lokala datacenter kräver nätverksanslutning från datacentret till din privata molnmiljö.  Använd någon av följande metoder för att upprätta nätverksanslutning:
 
-* [Plats-till-plats-VPN-anslutning](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) mellan din lokala miljö och ditt moln privata moln.
-* ExpressRoute Global Reach anslutning mellan din lokala ExpressRoute-krets och en AVS ExpressRoute-krets.
+* [Plats-till-plats VPN-anslutning](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) mellan din lokala miljö och ditt privata moln.
+* ExpressRoute Global Reach-anslutning mellan din lokala ExpressRoute-krets och en CloudSimple ExpressRoute-krets.
 
-Nätverks Sök vägen från din lokala vCenter-miljö till ditt moln privata moln måste vara tillgänglig för migrering av virtuella datorer med vMotion. VMotion-nätverket på din lokala vCenter måste ha routningsfunktioner. Kontrol lera att brand väggen tillåter all vMotion trafik mellan din lokala vCenter och det privata molnet vCenter. (I molnets privata moln är routning på vMotion-nätverket konfigurerat som standard.)
+Nätverkssökvägen från din lokala vCenter-miljö till ditt privata moln måste vara tillgänglig för migrering av virtuella datorer med vMotion.  VMotion-nätverket i ditt lokala vCenter måste ha routningsfunktioner.  Kontrollera att brandväggen tillåter all vMotion-trafik mellan ditt lokala vCenter och Private Cloud vCenter. (I det privata molnet konfigureras routning i vMotion-nätverket som standard.)
 
-## <a name="migrate-isos-and-templates"></a>Migrera ISO och mallar
+## <a name="migrate-isos-and-templates"></a>Migrera ISO-system och mallar
 
-Om du vill skapa nya virtuella datorer i ditt moln privata moln använder du ISO och mallar för virtuella datorer. Använd följande metod för att ladda upp ISO och mallar till din lokala Cloud Cloud-moln vCenter och göra dem tillgängliga.
+Om du vill skapa nya virtuella datorer i det privata molnet använder du ISO-mallar och VM-mallar.  Om du vill överföra Internetos och mallar till ditt privata moln vCenter och göra dem tillgängliga använder du följande metod.
 
-1. Överför ISO till molnets privata moln vCenter från vCenter-ANVÄNDARGRÄNSSNITTET.
-2. [Publicera ett innehålls bibliotek](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A0F1C13-7336-45CE-B211-610D39A6E1F4.html) i ditt molns privata moln vCenter:
+1. Ladda upp ISO till Private Cloud vCenter från vCenter UI.
+2. [Publicera ett innehållsbibliotek](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A0F1C13-7336-45CE-B211-610D39A6E1F4.html) på ditt privata moln vCenter:
 
-    1. Publicera ditt lokala innehålls bibliotek.
-    2. Skapa ett nytt innehålls bibliotek i molnets privata moln vCenter.
-    3. Prenumerera på det publicerade lokala innehålls biblioteket.
-    4. Synkronisera innehålls biblioteket för åtkomst till det innehåll som du prenumererar på.
+    1. Publicera ditt lokala innehållsbibliotek.
+    2. Skapa ett nytt innehållsbibliotek på Private Cloud vCenter.
+    3. Prenumerera på det publicerade lokala innehållsbiblioteket.
+    4. Synkronisera innehållsbiblioteket så att du får åtkomst till innehåll som prenumererar.
 
 ## <a name="migrate-vms-using-powercli"></a>Migrera virtuella datorer med PowerCLI
 
-Om du vill migrera virtuella datorer från den lokala vCenter till molnets privata moln vCenter, använder du VMware PowerCLI eller Cross vCenter-arbetsbelastnings verktyget för migrering från VMware Labs. Följande exempel skript visar migrerings kommandona för PowerCLI.
+Om du vill migrera virtuella datorer från det lokala vCenter till Private Cloud vCenter använder du VMware PowerCLI eller Cross vCenter Workload Migration Utility som är tillgängligt från VMware Labs.  Följande exempelskript visar PowerCLI-migreringskommandon.
 
 ```
 $sourceVC = Connect-VIServer -Server <source-vCenter name> -User <source-vCenter user name> -Password <source-vCenter user password>
@@ -53,19 +53,19 @@ Move-VM -VM $vm -VMotionPriority High -Destination (Get-VMhost -Server $targetVC
 ```
 
 > [!NOTE]
-> Om du vill använda namnen på mål vCenter-servern och ESXi-värdar konfigurerar du DNS-vidarebefordran från lokal plats till ditt moln privata moln.
+> Om du vill använda namnen på målbaserade vCenter-servern och ESXi-värdar konfigurerar du DNS-vidarebefordran från lokalt till ditt privata moln.
 
-## <a name="migrate-vms-using-nsx-layer-2-vpn"></a>Migrera virtuella datorer med NSX Layer 2 VPN
+## <a name="migrate-vms-using-nsx-layer-2-vpn"></a>Migrera virtuella datorer med VPN ISX Layer 2
 
-Med det här alternativet aktive ras direktmigrering av arbets belastningar från din lokala VMware-miljö till molnets privata moln i Azure. Med detta utsträckta Layer 2-nätverk kommer under nätet från lokalt att vara tillgängligt i det molnbaserade privata molnet. Efter migreringen krävs ingen ny tilldelning av IP-adresser för de virtuella datorerna.
+Det här alternativet möjliggör livemigrering av arbetsbelastningar från din lokala VMware-miljö till det privata molnet i Azure.  Med det här utsträckta Layer 2-nätverket är undernätet lokalt tillgängligt i det privata molnet.  Efter migreringen krävs inte ny IP-adresstilldelning för de virtuella datorerna.
 
-[Migrera arbets belastningar med Layer 2 utsträckta nätverk](migration-layer-2-vpn.md) beskriver hur du använder ett Layer 2 VPN för att sträcka ut ett nätverk i Layer 2 från din lokala miljö till ditt moln privata moln.
+[Migrera arbetsbelastningar med Layer 2-utsträckta nätverk](migration-layer-2-vpn.md) beskriver hur du använder en Layer 2 VPN för att sträcka ut ett Layer 2-nätverk från din lokala miljö till ditt privata moln.
 
-## <a name="migrate-vms-using-backup-and-disaster-recovery-tools"></a>Migrera virtuella datorer med säkerhets kopierings-och katastrof återställnings verktyg
+## <a name="migrate-vms-using-backup-and-disaster-recovery-tools"></a>Migrera virtuella datorer med hjälp av verktyg för säkerhetskopiering och katastrofåterställning
 
-Migrering av virtuella datorer till ett privat moln moln kan göras med verktyg för säkerhets kopiering/återställning och haveri beredskap. Använd det molnbaserade privata molnet som mål för återställning från säkerhets kopior som skapas med hjälp av ett verktyg från tredje part. Det privata moln molnet kan också användas som mål för haveri beredskap med VMware SRM eller ett verktyg från tredje part.
+Migrering av virtuella datorer till private cloud kan göras med hjälp av verktyg för säkerhetskopiering/återställning och verktyg för katastrofåterställning.  Använd det privata molnet som ett mål för återställning från säkerhetskopior som skapas med hjälp av ett verktyg från tredje part.  Det privata molnet kan också användas som ett mål för haveriberedskap med hjälp av VMware SRM eller ett tredjepartsverktyg.
 
-Mer information med dessa verktyg finns i följande avsnitt:
+Mer information om hur du använder de här verktygen finns i följande avsnitt:
 
-* [Säkerhetskopiera virtuella arbets belastnings datorer i ett privat AVS-moln med Veeam B & R](backup-workloads-veeam.md)
-* [Konfigurera ett privat AVS-moln som en katastrof återställnings plats för lokala VMware-arbetsbelastningar](disaster-recovery-zerto.md)
+* [Säkerhetskopiera virtuella datorer för arbetsbelastning på CloudSimple Private Cloud med Veeam B&R](backup-workloads-veeam.md)
+* [Konfigurera CloudSimple Private Cloud som en plats för haveriberedskap för lokala VMware-arbetsbelastningar](disaster-recovery-zerto.md)

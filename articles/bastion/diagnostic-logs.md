@@ -1,6 +1,6 @@
 ---
-title: Aktivera och arbeta med Azure skydds-diagnostikloggar
-description: I den här artikeln får du lära dig hur du aktiverar och arbetar med Azure skydds diagnostikloggar.
+title: Aktivera och arbeta med Diagnostikloggar för Azure Bastion
+description: I den här artikeln kan du lära dig hur du aktiverar och arbetar med Diagnostikloggar för Azure Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,47 +8,47 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: cherylmc
 ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76989458"
 ---
-# <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Aktivera och arbeta med skydds diagnostiska loggar
+# <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Aktivera och arbeta med Bastion-diagnostikloggar
 
-När användarna ansluter till arbets belastningar med hjälp av Azure-skydds kan skydds logga diagnostik för fjärrsessionerna. Du kan sedan använda diagnostiken för att visa vilka användare som är anslutna till vilka arbets belastningar, vid vilken tidpunkt, och annan relevant loggnings information. Du måste aktivera diagnostikloggar i Azure skydds för att kunna använda diagnostiken. Den här artikeln hjälper dig att aktivera diagnostikloggar och sedan visa loggarna.
+När användare ansluter till arbetsbelastningar med Azure Bastion kan Bastion logga diagnostik av fjärrsessioner. Du kan sedan använda diagnostiken för att visa vilka användare som är anslutna till vilka arbetsbelastningar, vid vilken tidpunkt, varifrån och annan sådan relevant loggningsinformation. För att kunna använda diagnostiken måste du aktivera diagnostikloggar på Azure Bastion. Den här artikeln hjälper dig att aktivera diagnostikloggar och sedan visa loggarna.
 
-## <a name="enable"></a>Aktivera Diagnostic-loggen
+## <a name="enable-the-diagnostics-log"></a><a name="enable"></a>Aktivera diagnostikloggen
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till din Azure skydds-resurs och väljer **diagnostikinställningar** på sidan Azure skydds.
+1. I [Azure-portalen](https://portal.azure.com)navigerar du till din Azure Bastion-resurs och väljer **diagnostikinställningar** från sidan Azure Bastion.
 
-   ![diagnostikinställningar](./media/diagnostic-logs/1diagnostics-settings.png)
-2. Välj **diagnostikinställningar**och välj sedan **+ Lägg till diagnostisk inställning** för att lägga till ett mål för loggarna.
+   ![inställningar för diagnostik](./media/diagnostic-logs/1diagnostics-settings.png)
+2. Välj **Diagnostikinställningar**och välj sedan **+Lägg till diagnostikinställning** för att lägga till ett mål för loggarna.
 
-   ![Lägg till diagnostisk inställning](./media/diagnostic-logs/2add-diagnostic-setting.png)
-3. På sidan **diagnostikinställningar** väljer du den typ av lagrings konto som ska användas för att lagra diagnostikloggar.
+   ![lägga till diagnostikinställning](./media/diagnostic-logs/2add-diagnostic-setting.png)
+3. På sidan Inställningar för diagnostik väljer du vilken typ av **lagringskonto** som ska användas för lagring av diagnostikloggar.
 
-   ![Välj lagrings plats](./media/diagnostic-logs/3add-storage-account.png)
-4. När du har slutfört inställningarna ser det ut ungefär som i det här exemplet:
+   ![välj lagringsplats](./media/diagnostic-logs/3add-storage-account.png)
+4. När du har slutfört inställningarna ser det ut ungefär som det här exemplet:
 
-   ![exempel inställningar](./media/diagnostic-logs/4example-settings.png)
+   ![exempelinställningar](./media/diagnostic-logs/4example-settings.png)
 
-## <a name="view"></a>Visa diagnostisk logg
+## <a name="view-diagnostics-log"></a><a name="view"></a>Visa diagnostiklogg
 
-För att få åtkomst till dina diagnostikloggar kan du direkt använda det lagrings konto som du angav när du aktiverade diagnostikinställningar.
+För att komma åt diagnostikloggarna kan du direkt använda det lagringskonto som du angav när diagnostikinställningarna aktiverades.
 
-1. Navigera till lagrings konto resursen och sedan till **behållare**. Du ser den **Insights-logs-bastionauditlogs-** blob som skapats i BLOB-behållaren för lagrings kontot.
+1. Navigera till lagringskontoresursen och sedan till **Behållare**. Du ser blob-bloben **insights-logs-bastionauditlogs** som skapats i blob-behållaren för lagringskonto.
 
-   ![diagnostikinställningar](./media/diagnostic-logs/1-navigate-to-logs.png)
-2. När du navigerar till i behållaren visas olika mappar i din blogg. Dessa mappar anger resurs-hierarkin för din Azure skydds-resurs.
+   ![inställningar för diagnostik](./media/diagnostic-logs/1-navigate-to-logs.png)
+2. När du navigerar till i behållaren visas olika mappar i bloggen. Dessa mappar anger resurshierarkin för din Azure Bastion-resurs.
 
-   ![Lägg till diagnostisk inställning](./media/diagnostic-logs/2-resource-h.png)
-3. Navigera till den fullständiga hierarkin för din Azure skydds-resurs vars diagnostikloggar du vill få åtkomst till/Visa. Y =, ', = ', ' h = ' och ' = ' anger året, månaden, dagen, timmen respektive minut för diagnostikloggar.
+   ![lägga till diagnostikinställning](./media/diagnostic-logs/2-resource-h.png)
+3. Navigera till hela hierarkin för din Azure Bastion-resurs vars diagnostikloggar du vill komma åt/visa. "y=", "m=", "d=", 'h=' och 'm=' anger år, månad, dag, timme respektive minut för diagnostikloggarna.
 
-   ![Välj lagrings plats](./media/diagnostic-logs/3-resource-location.png)
-4. Leta upp den JSON-fil som skapats av Azure-skydds som innehåller diagnostikdata för den tids period som du har navigerat till.
+   ![välj lagringsplats](./media/diagnostic-logs/3-resource-location.png)
+4. Leta reda på den json-fil som skapats av Azure Bastion och som innehåller diagnostikloggdata för den tidsperiod som navigeras till.
 
-5. Ladda ned JSON-filen från lagrings-BLOB-behållaren. En exempel post från JSON-filen visas nedan som referens:
+5. Hämta json-filen från lagringsblobbbehållaren. En exempelpost från json-filen visas nedan som referens:
 
    ```json
    { 
@@ -79,4 +79,4 @@ För att få åtkomst till dina diagnostikloggar kan du direkt använda det lagr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [vanliga frågor och svar om skydds](bastion-faq.md).
+Läs [Vanliga frågor om Bastion](bastion-faq.md).

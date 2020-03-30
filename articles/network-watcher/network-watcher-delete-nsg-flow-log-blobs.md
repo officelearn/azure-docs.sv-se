@@ -1,6 +1,6 @@
 ---
-title: Ta bort lagrings blobbar för flödes loggar för nätverks säkerhets grupper i Azure Network Watcher | Microsoft Docs
-description: Den här artikeln förklarar hur du tar bort den nätverks säkerhets grupp flödes logg lagrings blobbar som ligger utanför deras bevarande princip period i Azure Network Watcher.
+title: Ta bort lagringsblobar för nätverkssäkerhetsgruppflödesloggar i Azure Network Watcher | Microsoft-dokument
+description: I den här artikeln beskrivs hur du tar bort nätverkssäkerhetsgruppens flödeslogglagringsblobar som ligger utanför deras bevarandeprincipperiod i Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -14,19 +14,19 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
 ms.openlocfilehash: 6d535bcc2e0831baae658796f76c8087d74c6a85
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77587217"
 ---
-# <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Ta bort nätverks säkerhets grupp flöde logg Storage blobbar i Network Watcher
+# <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Ta bort nätverkssäkerhetsgruppsflödeslogglagringsblobar i Network Watcher
 
-För närvarande finns det ett problem där [nätverks säkerhets grupps flödes loggar (NSG)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte automatiskt tas bort från Blob Storage utifrån inställningar för bevarande principer. Nu måste du köra ett PowerShell-skript för att manuellt ta bort flödes loggarna från ditt lagrings konto enligt beskrivningen i den här artikeln.
+För närvarande finns det ett problem där [NSG-flödesloggar (Network Security Group)](network-watcher-nsg-flow-logging-overview.md) för Network Watcher inte tas bort automatiskt från Blob-lagring baserat på bevarandeprincipinställningar. Du måste nu köra ett PowerShell-skript för att manuellt ta bort flödesloggarna från ditt lagringskonto enligt beskrivningen i den här artikeln.
 
-## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Kör PowerShell-skript för att ta bort NSG Flow-loggar
+## <a name="run-powershell-script-to-delete-nsg-flow-logs"></a>Kör PowerShell-skript för att ta bort NSG-flödesloggar
  
-Kopiera och spara följande skript till en plats, till exempel din aktuella arbets katalog. 
+Kopiera och spara följande skript på en plats, till exempel den aktuella arbetskatalogen. 
 
 ```powershell
 # This powershell script deletes all NSG flow log blobs that should not be retained anymore as per configured retention policy.
@@ -125,16 +125,16 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
 ```
 
 1. Ange följande parametrar i skriptet efter behov:
-   - **SubscriptionId** [obligatoriskt]: det prenumerations-ID som du vill ta bort NSG Flow-logaritmen från.
-   - **Plats** [obligatoriskt]: _plats strängen_ för den region i NSG: er som du vill ta bort NSG flödes logg blobbar för. Du kan visa den här informationen på Azure Portal eller på [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
-   - **Bekräfta** [valfritt]: skicka bekräftelse flaggan om du vill bekräfta borttagningen av varje lagrings-BLOB manuellt.
+   - **SubscriptionId** [Obligatoriskt]: Prenumerations-ID där du vill ta bort NSG Flow Log-blobbar.
+   - **Plats** [Obligatoriskt]: _Platssträngen_ för regionen nsg:er som du vill ta bort NSG-flödesloggblobar för. Du kan visa den här informationen på Azure-portalen eller [på GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23).
+   - **Bekräfta** [Valfritt]: Skicka bekräfta flaggan om du vill bekräfta borttagningen av varje lagringsblob manuellt.
 
-1. Kör det sparade skriptet som visas i följande exempel, där skript filen sparades som **Delete-NsgFlowLogsBlobs. ps1**:
+1. Kör det sparade skriptet som visas i följande exempel, där skriptfilen sparades som **Delete-NsgFlowLogsBlobs.ps1**:
    ```
    .\Delete-NsgFlowLogsBlobs.ps1 -SubscriptionId <subscriptionId> -Location  <location> -Confirm
    ```
     
 ## <a name="next-steps"></a>Nästa steg
-- Kunder kan automatisera körningen av skriptet genom att använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md) eller [Azure Automation](https://azure.microsoft.com/services/automation/)
-- Läs mer om NSG-loggning i [Azure Monitor loggar för nätverks säkerhets grupper (NSG: er)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- Kunder kan automatisera körningen av skriptet med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md) eller Azure [Automation](https://azure.microsoft.com/services/automation/)
+- Mer information om NSG-loggning finns i [Azure Monitor-loggar för nätverkssäkerhetsgrupper (NSG)](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 

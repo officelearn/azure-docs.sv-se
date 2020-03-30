@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Azure Data Factory till Azure Datautforskaren
-description: I den här artikeln får du lära dig hur du matar in data i Azure Datautforskaren med hjälp av verktyget Azure Data Factory kopiering.
+title: Kopiera data från Azure Data Factory till Azure Data Explorer
+description: I den här artikeln får du lära dig hur du inbelastar (läser in) data i Azure Data Explorer med hjälp av kopieringsverktyget för Azure Data Factory.
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -9,237 +9,237 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 860b1a579d9c8cee6c6e80ae4c4e7fdd7949d5c7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71300589"
 ---
-# <a name="copy-data-to-azure-data-explorer-by-using-azure-data-factory"></a>Kopiera data till Azure Datautforskaren med Azure Data Factory 
+# <a name="copy-data-to-azure-data-explorer-by-using-azure-data-factory"></a>Kopiera data till Azure Data Explorer med hjälp av Azure Data Factory 
 
-Azure Datautforskaren är en snabb, fullständigt hanterad tjänst för data analys. Det erbjuder real tids analys av stora mängder data som strömmas från många källor, till exempel program, webbplatser och IoT-enheter. Med Azure Datautforskaren kan du iterativt utforska data och identifiera mönster och avvikelser för att förbättra produkter, förbättra kund upplevelser, övervaka enheter och öka driften. Det hjälper dig att utforska nya frågor och få svar på några minuter. 
+Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst. Det erbjuder realtidsanalys på stora mängder data som strömmas från många källor, till exempel program, webbplatser och IoT-enheter. Med Azure Data Explorer kan du iterativt utforska data och identifiera mönster och avvikelser för att förbättra produkter, förbättra kundupplevelser, övervaka enheter och öka verksamheten. Det hjälper dig att utforska nya frågor och få svar på några minuter. 
 
-Azure Data Factory är en fullständigt hanterad, molnbaserad tjänst för data integrering. Du kan använda den för att fylla i Azure Datautforskaren-databasen med data från ditt befintliga system. Det kan hjälpa dig att spara tid när du skapar analys lösningar.
+Azure Data Factory är en fullständigt hanterad, molnbaserad dataintegrationstjänst. Du kan använda den för att fylla i din Azure Data Explorer-databas med data från ditt befintliga system. Det kan hjälpa dig att spara tid när du bygger analyslösningar.
 
-När du läser in data i Azure Datautforskaren ger Data Factory följande fördelar:
+När du läser in data i Azure Data Explorer ger Data Factory följande fördelar:
 
-* **Enkel installation**: Få en intuitiv, fem-stegs guide utan skript krävs.
-* **Stöd för omfattande data lager**: Få inbyggt stöd för en omfattande uppsättning lokala och molnbaserade data lager. En detaljerad lista finns i tabellen över [data lager som stöds](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats).
-* **Säkert och kompatibelt**: Data överförs via HTTPS eller Azure ExpressRoute. Med den globala tjänstens närvaro ser du till att dina data aldrig lämnar den geografiska gräns.
-* **Hög prestanda**: Data inläsnings hastigheten är upp till 1 GB per sekund (GBps) i Azure Datautforskaren. Mer information finns i [Kopiera aktivitets prestanda](/azure/data-factory/copy-activity-performance).
+* **Enkel installation:** Få en intuitiv, femstegsguide utan skript som krävs.
+* **Omfattande stöd för datalager**: Få inbyggt stöd för en omfattande uppsättning lokala och molnbaserade datalager. En detaljerad lista finns i tabellen [över datalager som stöds](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats).
+* **Säker och kompatibel**: Data överförs via HTTPS eller Azure ExpressRoute. Den globala tjänstnärvaron säkerställer att dina data aldrig lämnar den geografiska gränsen.
+* **Hög prestanda**: Datainläsningshastigheten är upp till 1 gigabyte per sekund (GBps) i Azure Data Explorer. Mer information finns i [Kopiera aktivitetsprestanda](/azure/data-factory/copy-activity-performance).
 
-I den här artikeln använder du verktyget Data Factory Kopiera data för att läsa in data från Amazon Simple Storage Service (S3) i Azure Datautforskaren. Du kan följa samma process för att kopiera data från andra data lager, till exempel:
-* [Azure Blob Storage](/azure/data-factory/connector-azure-blob-storage)
+I den här artikeln använder du datafabrikskopieringsdataverktyget för att läsa in data från Amazon Simple Storage Service (S3) i Azure Data Explorer. Du kan följa en liknande process för att kopiera data från andra datalager, till exempel:
+* [Azure Blob-lagring](/azure/data-factory/connector-azure-blob-storage)
 * [Azure SQL Database](/azure/data-factory/connector-azure-sql-database)
-* [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse)
+* [Azure SQL-datalager](/azure/data-factory/connector-azure-sql-data-warehouse)
 * [Google BigQuery](/azure/data-factory/connector-google-bigquery)
 * [Oracle](/azure/data-factory/connector-oracle)
 * [Filsystem](/azure/data-factory/connector-file-system)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Ett Azure Data Explorer-kluster och en databas](create-cluster-database-portal.md).
-* En data källa.
+* En datakälla.
 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-1. Logga in på [Azure Portal](https://ms.portal.azure.com).
+1. Logga in på [Azure-portalen](https://ms.portal.azure.com).
 
-1. I det vänstra fönstret väljer du **skapa en resurs** > **analys** > **Data Factory**.
+1. Välj Skapa en **resurs** > **Analytics** > **Data Factory**i den vänstra rutan .
 
-   ![Skapa en data fabrik i Azure Portal](media/data-factory-load-data/create-adf.png)
+   ![Skapa en datafabrik i Azure-portalen](media/data-factory-load-data/create-adf.png)
 
-1. I fönstret **ny data fabrik** anger du värden för fälten i följande tabell:
+1. Ange värden för fälten i följande tabell i fönstret **Nytt datafabrik:**
 
-   ![Fönstret ny data fabrik](media/data-factory-load-data/my-new-data-factory.png)  
+   ![Fönstret "Ny datafabrik"](media/data-factory-load-data/my-new-data-factory.png)  
 
    | Inställning  | Värde att ange  |
    |---|---|
-   | **Namn** | I rutan anger du ett globalt unikt namn för din data fabrik. Om du får ett fel meddelande om att *data \"fabriks namnet LoadADXDemo\" inte är tillgängligt*anger du ett annat namn för data fabriken. Regler om namngivning av Data Factory artefakter finns i [Data Factory namngivnings regler](/azure/data-factory/naming-rules).|
-   | **Prenumeration** | Välj den Azure-prenumeration i list rutan som du vill skapa data fabriken i. |
-   | **Resursgrupp** | Välj **Skapa ny**och ange sedan namnet på en ny resurs grupp. Om du redan har en resurs grupp väljer du **Använd befintlig**. |
-   | **Version** | Välj **v2**i list rutan. |  
-   | **Location** | Välj plats för data fabriken i list rutan. Endast platser som stöds visas i listan. De data lager som används av data fabriken kan finnas på andra platser eller regioner. |
+   | **Namn** | Ange ett globalt unikt namn för datafabriken i rutan. Om du får ett felmeddelande *anger Datafabriksnamn \"\" LoadADXDemo inte*ett annat namn för datafabriken. Regler om namngivning av datafabriksartefakter finns i [Namngivningsregler för Data Factory](/azure/data-factory/naming-rules).|
+   | **Prenumeration** | I listrutan väljer du den Azure-prenumeration som du vill skapa datafabriken i. |
+   | **Resursgrupp** | Välj **Skapa ny**och ange sedan namnet på en ny resursgrupp. Om du redan har en resursgrupp väljer du **Använd befintlig**. |
+   | **Version** | Välj **V2**i listrutan . |  
+   | **Location** | Välj plats för datafabriken i listrutan. Endast platser som stöds visas i listan. De datalager som används av datafabriken kan finnas på andra platser eller regioner. |
 
 1. Välj **Skapa**.
 
-1. Välj **meddelanden** i verktygsfältet för att övervaka skapande processen. När du har skapat data fabriken väljer du den.
+1. Om du vill övervaka skapandeprocessen väljer du **Meddelanden** i verktygsfältet. När du har skapat datafabriken väljer du den.
    
-   Fönstret **Data Factory** öppnas.
+   Fönstret **Datafabrik** öppnas.
 
-   ![Fönstret Data Factory](media/data-factory-load-data/data-factory-home-page.png)
+   ![Fönstret Datafabrik](media/data-factory-load-data/data-factory-home-page.png)
 
-1. Öppna programmet i ett separat fönster genom att välja panelen **författare & Monitor** .
+1. Om du vill öppna programmet i ett separat fönster markerar du panelen **Författare & Bildskärm.**
 
-## <a name="load-data-into-azure-data-explorer"></a>Läs in data i Azure Datautforskaren
+## <a name="load-data-into-azure-data-explorer"></a>Läsa in data i Azure Data Explorer
 
-Du kan läsa in data från många typer av [data lager](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) till Azure datautforskaren. Den här artikeln beskriver hur du läser in data från Amazon S3.
+Du kan läsa in data från många typer av [datalager](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) i Azure Data Explorer. I den här artikeln beskrivs hur du läser in data från Amazon S3.
 
 Du kan läsa in dina data på något av följande sätt:
 
-* I det Azure Data Factory användar gränssnittet i det vänstra fönstret väljer du ikonen **författare** , som du ser i avsnittet "skapa en data fabrik" i [skapa en data fabrik med hjälp av Azure Data Factory gränssnittet](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
-* I Azure Data Factory Kopiera data-verktyget, som du ser i [använd kopiera data-verktyget för att kopiera data](/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
+* I användargränssnittet i Azure Data Factory i den vänstra rutan väljer du **ikonen Författare,** som visas i avsnittet "Skapa en datafabrik" i [Skapa en datafabrik med hjälp av Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
+* I azure data fabrikskopieringsdata, som visas i [Använd verktyget Kopiera data för att kopiera data](/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ### <a name="copy-data-from-amazon-s3-source"></a>Kopiera data från Amazon S3 (källa)
 
-1. I fönstret **Låt oss komma igång** öppnar du kopiera data-verktyget genom att välja **Kopiera data**.
+1. Öppna verktyget Kopiera data i fönstret **Kom igång** genom att välja **Kopiera data**.
 
-   ![Knappen Kopiera data-verktyget](media/data-factory-load-data/copy-data-tool-tile.png)
+   ![Knappen Kopiera data](media/data-factory-load-data/copy-data-tool-tile.png)
 
-1. I fönstret **Egenskaper** , i rutan **uppgifts namn** , anger du ett namn och väljer sedan **Nästa**.
+1. Ange ett namn i rutan **Aktivitetsnamn** i fönstret **Egenskaper** och välj sedan **Nästa**.
 
-    ![Fönstret Kopiera data egenskaper](media/data-factory-load-data/copy-from-source.png)
+    ![Egenskapsfönstret Kopiera data](media/data-factory-load-data/copy-from-source.png)
 
-1. I fönstret **käll data lager** väljer du **Skapa ny anslutning**.
+1. Välj **Skapa ny anslutning**i fönstret **Källdatalager** .
 
-    ![Rutan Kopiera data käll data lager](media/data-factory-load-data/source-create-connection.png)
+    ![Fönstret Kopiera data "Källdatalager"](media/data-factory-load-data/source-create-connection.png)
 
 1. Välj **Amazon S3**och välj sedan **Fortsätt**.
 
-    ![Fönstret ny länkad tjänst](media/data-factory-load-data/amazons3-select-new-linked-service.png)
+    ![Fönstret Ny länkad tjänst](media/data-factory-load-data/amazons3-select-new-linked-service.png)
 
-1. I fönstret **ny länkad tjänst (Amazon S3)** gör du följande:
+1. Gör följande i fönstret **Ny länkad tjänst (Amazon S3):**
 
-    ![Ange länkad Amazon S3-tjänst](media/data-factory-load-data/amazons3-new-linked-service-properties.png)
+    ![Ange Amazon S3-länkad tjänst](media/data-factory-load-data/amazons3-new-linked-service-properties.png)
 
-    a. I rutan **namn** anger du namnet på den nya länkade tjänsten.
+    a. Ange namnet på den nya länkade tjänsten i rutan **Namn.**
 
-    b. Välj värdet i list rutan **Anslut via integration runtime** .
+    b. Välj värdet i listrutan **Anslut via integreringskörning.**
 
-    c. I rutan **åtkomst nyckel-ID** anger du värdet.
+    c. Ange värdet i rutan **Åtkomstnyckel-ID.**
     
     > [!NOTE]
-    > I Amazon S3 kan du leta upp din åtkomst nyckel genom att välja ditt Amazon-användarnamn i navigerings fältet och sedan välja **Mina säkerhets uppgifter**.
+    > I Amazon S3, för att hitta din åtkomstnyckel, välj din Amazon användarnamn på navigeringsfältet, och välj sedan **Mina säkerhetsreferenser**.
     
-    d. I rutan **hemlig åtkomst nyckel** anger du ett värde.
+    d. Ange ett värde i rutan **Hemlig åtkomstnyckel.**
 
-    e. Om du vill testa den länkade tjänst anslutningen som du skapade väljer du **Testa anslutning**.
+    e. Om du vill testa den länkade tjänstanslutning som du skapade väljer du **Testa anslutning**.
 
     f. Välj **Slutför**.
     
-      I fönstret **källdata** visas den nya AmazonS31-anslutningen. 
+      Fönstret **Källdatalager** visar din nya AmazonS31-anslutning. 
 
 1. Välj **Nästa**.
 
-   ![Käll data lager skapad anslutning](media/data-factory-load-data/source-data-store-created-connection.png)
+   ![Källa datalager skapade anslutning](media/data-factory-load-data/source-data-store-created-connection.png)
 
-1. I fönstret **Välj indatafil eller mapp** gör du följande:
+1. Gör följande i fönstret **Välj indatafil eller mapp:**
 
-    a. Bläddra till den fil eller mapp som du vill kopiera och markera den.
+    a. Bläddra till den fil eller mapp som du vill kopiera och markera den sedan.
 
-    b. Välj det kopierings beteende som du vill använda. Kontrol lera att kryss rutan **binär kopia** är avmarkerad.
+    b. Markera önskat kopieringsbeteende. Kontrollera att kryssrutan **Binär kopia** är avmarkerad.
 
     c. Välj **Nästa**.
 
     ![Välj indatafil eller mapp](media/data-factory-load-data/source-choose-input-file.png)
 
-1. I fönstret **fil formats inställningar** väljer du relevanta inställningar för filen. och välj sedan **Nästa**.
+1. Välj relevanta inställningar för filen i fönstret Inställningar för **filformat.** och välj sedan **Nästa**.
 
-   ![Fönstret fil formats inställningar](media/data-factory-load-data/source-file-format-settings.png)
+   ![Fönstret "Inställningar för filformat"](media/data-factory-load-data/source-file-format-settings.png)
 
-### <a name="copy-data-into-azure-data-explorer-destination"></a>Kopiera data till Azure Datautforskaren (mål)
+### <a name="copy-data-into-azure-data-explorer-destination"></a>Kopiera data till Azure Data Explorer (mål)
 
-Den nya Azure Datautforskaren länkade tjänsten skapas för att kopiera data till Azure Datautforskaren mål tabellen (handfat) som anges i det här avsnittet.
+Den nya Azure Data Explorer-länkade tjänsten skapas för att kopiera data till måltabellen för Azure Data Explorer (sink) som anges i det här avsnittet.
 
-#### <a name="create-the-azure-data-explorer-linked-service"></a>Skapa den länkade tjänsten Azure Datautforskaren
+#### <a name="create-the-azure-data-explorer-linked-service"></a>Skapa den länkade azure data explorer-tjänsten
 
-Så här skapar du en länkad Azure Datautforskaren-tjänst:
+Så här skapar du den länkade Azure Data Explorer-tjänsten:
 
-1. Om du vill använda en befintlig data lager anslutning eller ange ett nytt data lager går du till fönstret **mål data lager** och väljer **Skapa ny anslutning**.
+1. Om du vill använda en befintlig datalageranslutning eller ange ett nytt datalager väljer du **Skapa ny anslutning**i fönstret **Måldatalager** .
 
-    ![Fönstret mål data lager](media/data-factory-load-data/destination-create-connection.png)
+    ![Fönstret Måldatalager](media/data-factory-load-data/destination-create-connection.png)
 
-1. I fönstret **ny länkad tjänst** väljer du **Azure datautforskaren**och väljer sedan **Fortsätt**.
+1. I fönstret **Ny länkad tjänst** väljer du **Azure Data Explorer**och väljer sedan **Fortsätt**.
 
-    ![Fönstret ny länkad tjänst](media/data-factory-load-data/adx-select-new-linked-service.png)
+    ![Fönstret Nytt länkat tjänst](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. I fönstret **ny länkad tjänst (Azure datautforskaren)** gör du följande:
+1. Gör följande i fönstret **Ny länkad tjänst (Azure Data Explorer):**
 
-    ![Fönstret Azure Datautforskaren ny länkad tjänst](media/data-factory-load-data/adx-new-linked-service.png)
+    ![Fönstret Ny länkad tjänst i Azure Data Explorer](media/data-factory-load-data/adx-new-linked-service.png)
 
-   a. I rutan **namn** anger du ett namn för den länkade Azure datautforskaren-tjänsten.
+   a. Ange ett namn för den länkade Azure Data Explorer-tjänsten i rutan **Namn.**
 
-   b. Gör något av följande under **Val av konto**: 
+   b. Gör något av följande under **Kontovalsmetod:** 
 
-    * Välj **från Azure-prenumeration** och välj sedan din **Azure-prenumeration** och ditt **kluster**i list rutorna. 
+    * Välj **Från Azure-prenumeration** och välj sedan din **Azure-prenumeration** och ditt **kluster**i listrutorna. 
 
         > [!NOTE]
-        > List rutan **kluster** visar bara kluster som är associerade med din prenumeration.
+        > Listkontrollen **Kluster** list list listar bara kluster som är associerade med din prenumeration.
 
-    * Välj **ange manuellt**och ange sedan **slut punkten**.
+    * Välj **Ange manuellt**och ange sedan **slutpunkten**.
 
-   c. I rutan **innehavare** anger du klient namnet.
+   c. Ange klientnamnet i rutan **Klient.**
 
-   d. I rutan **tjänstens huvud namn-ID** anger du tjänstens huvud namn-ID.
+   d. Ange tjänstens huvud-ID i rutan **Tjänstens huvud-ID.**
 
-   e. Välj **tjänstens huvud nyckel** och i rutan **tjänstens huvud nyckel** anger du värdet för nyckeln.
+   e. Välj **Huvudnyckel** för Tjänsten och ange sedan värdet för nyckeln i **nyckelrutan Tjänstens huvudnamn.**
 
-   f. I list rutan **databas** väljer du ditt databas namn. Du kan också markera kryss rutan **Redigera** och ange namnet på databasen.
+   f. Välj databasnamnet i listrutan **Databas.** Du kan också markera kryssrutan **Redigera** och sedan ange databasnamnet.
 
-   g. Om du vill testa den länkade tjänst anslutningen som du skapade väljer du **Testa anslutning**. Om du kan ansluta till den länkade tjänsten visas en grön bock markering i fönstret och ett meddelande om att **anslutningen är klar** .
+   g. Om du vill testa den länkade tjänstanslutning som du skapade väljer du **Testa anslutning**. Om du kan ansluta till den länkade tjänsten visas en grön bock och ett meddelande **om anslutning.**
 
-   h. Klicka på **Slutför** om du vill slutföra skapandet av den länkade tjänsten.
+   h. Välj **Slutför** om du vill slutföra skapandet av den länkade tjänsten.
 
     > [!NOTE]
-    > Tjänstens huvud namn används av Azure Data Factory för att få åtkomst till Azure Datautforskaren-tjänsten. Om du vill skapa ett huvud namn för tjänsten går du till [skapa en Azure Active Directory (Azure AD) tjänstens huvud namn](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Använd inte metoden Azure Key Vault.
+    > Tjänstens huvudnamn används av Azure Data Factory för att komma åt Azure Data Explorer-tjänsten. Om du vill skapa ett huvudnamn för tjänsten går du till skapa [ett huvudnamn för Azure Active Directory (Azure AD).](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal) Använd inte azure key vault-metoden.
 
-#### <a name="configure-the-azure-data-explorer-data-connection"></a>Konfigurera Azure Datautforskaren data anslutning
+#### <a name="configure-the-azure-data-explorer-data-connection"></a>Konfigurera dataanslutningen för Azure Data Explorer
 
-När du har skapat den länkade tjänst anslutningen öppnas fönstret **mål data lager** och den anslutning som du har skapat är tillgänglig för användning. Gör så här för att konfigurera anslutningen:
+När du har skapat den länkade tjänstanslutningen öppnas fönstret **Måldatalager** och anslutningen som du skapade är tillgänglig för användning. Gör följande om du vill konfigurera anslutningen:
 
 1. Välj **Nästa**.
 
-    ![Fönstret mål data lager för Azure Datautforskaren](media/data-factory-load-data/destination-data-store.png)
+    ![Fönstret "Måldatalager" i Azure Data Explorer](media/data-factory-load-data/destination-data-store.png)
 
-1. I fönstret **tabell mappning** anger du namnet på mål tabellen och väljer sedan **Nästa**.
+1. I fönstret **Tabellmappning** anger du måltabellens namn och väljer sedan **Nästa**.
 
-    ![Rutan tabell mappning för mål data uppsättning](media/data-factory-load-data/destination-dataset-table-mapping.png)
+    ![Fönstret Måldatauppsättning "Tabellmappning"](media/data-factory-load-data/destination-dataset-table-mapping.png)
 
-1. I fönstret **kolumn mappning** sker följande mappningar:
+1. I **fönstret Kolumnmappning** sker följande mappningar:
 
-    a. Den första mappningen utförs av Azure Data Factory enligt [schema mappningen för Azure Data Factory](/azure/data-factory/copy-activity-schema-and-type-mapping). Gör följande:
+    a. Den första mappningen utförs av Azure Data Factory enligt [azure data factory-schemamappningen](/azure/data-factory/copy-activity-schema-and-type-mapping). Gör följande:
 
-    * Ange **kolumn mappningar** för Azure Data Factory mål tabellen. Standard mappningen visas från källan till Azure Data Factory mål tabellen.
+    * Ange **kolumnmappningar** för måltabellen för Azure Data Factory. Standardmappningen visas från källa till måltabellen för Azure Data Factory.
 
-    * Avbryt valet av kolumner som du inte behöver definiera kolumn mappningen för.
+    * Avbryt markeringen av de kolumner som du inte behöver definiera kolumnmappningen.
 
-    b. Den andra mappningen sker när dessa tabell data matas in i Azure Datautforskaren. Mappning utförs enligt CSV- [mappnings regler](/azure/kusto/management/mappings#csv-mapping). Även om käll informationen inte är i CSV-format, Azure Data Factory konvertera data till tabell format. Därför är CSV-mappning den enda relevanta mappningen i det här skedet. Gör följande:
+    b. Den andra mappningen sker när dessa tabelldata förtärs i Azure Data Explorer. Mappning utförs enligt [CSV-mappningsregler](/azure/kusto/management/mappings#csv-mapping). Även om källdata inte är i CSV-format konverterar Azure Data Factory data till ett tabellformat. Därför är CSV-mappning den enda relevanta mappningen i det här skedet. Gör följande:
 
-    * Valfritt Under **Egenskaper för mottagare av Azure datautforskaren (Kusto)** lägger du till relevant inmatnings **mappnings namn** så att du kan använda kolumn mappning.
+    * (Valfritt) Lägg till relevant **inmatningsmappningsnamn** under **Azure Data Explorer (Kusto) sink-egenskaper**så att kolumnmappning kan användas.
 
-    * Om du inte anger namnet på inmatnings **mappningen** används mappnings ordningen *per namn* som definieras i avsnittet **kolumn mappningar** . Om mappningen Miss lyckas försöker Azure datautforskaren mata in data i en *kolumn positions* ordning (dvs. den mappas efter position som standard).
+    * Om **mappningsnamnet** för inmatning inte anges används den mappningsordning *för namn* som definieras i avsnittet **Kolumnmappningar.** Om *mappningen av by-name* misslyckas försöker Azure Data Explorer att inta data i en *positionsordning efter kolumn* (det vill ha mappning efter position som standard).
 
     * Välj **Nästa**.
 
-    ![Kolumn mappnings fönstret för mål data uppsättningen](media/data-factory-load-data/destination-dataset-column-mapping.png)
+    ![Fönstret Måldatauppsättning "Kolumnmappning"](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
-1. I fönstret **Inställningar** gör du följande:
+1. Gör följande i fönstret **Inställningar:**
 
-    a. Under **fel tolerans inställningar**anger du relevanta inställningar.
+    a. Ange relevanta inställningar under **Inställningar för feltolerans.**
 
-    b. **Aktivera mellanlagring** gäller inte under **prestanda inställningar**och **Avancerade inställningar** innehåller kostnads överväganden. Lämna inställningarna som de är om du inte har några särskilda krav.
+    b. Under **Prestandainställningar**gäller inte **Aktivera mellanlagring** och **Avancerade inställningar** innehåller kostnadsöverväganden. Om du inte har några specifika krav lämnar du dessa inställningar som de är.
 
     c. Välj **Nästa**.
 
-    ![Fönstret Kopiera data inställningar](media/data-factory-load-data/copy-data-settings.png)
+    ![Fönstret "Inställningar" för kopieringsdata](media/data-factory-load-data/copy-data-settings.png)
 
-1. I fönstret **Sammanfattning** granskar du inställningarna och väljer sedan **Nästa**.
+1. Granska inställningarna i **fönstret Sammanfattning** och välj sedan **Nästa**.
 
-    ![Fönstret Kopiera data Sammanfattning](media/data-factory-load-data/copy-data-summary.png)
+    ![Fönstret "Sammanfattning" i kopieringsdata](media/data-factory-load-data/copy-data-summary.png)
 
-1. I fönstret **distribution slutfört** gör du följande:
+1. Gör följande i fönstret **Distributionen:**
 
-    a. Om du vill växla till fliken **övervakare** och Visa status för pipelinen (det vill säga, förlopp, fel och data flöde) väljer du **övervaka**.
+    a. Om du vill växla till fliken **Övervakare** och visa pipelinens status (d.v.s. förlopp, fel och dataflöde) väljer du **Övervaka**.
 
-    b. Om du vill redigera länkade tjänster, data uppsättningar och pipeliner väljer du **Redigera pipeline**.
+    b. Om du vill redigera länkade tjänster, datauppsättningar och pipelines väljer du **Redigera pipeline**.
 
-    c. Slutför uppgiften kopiera data genom att klicka på **Slutför** .
+    c. Välj **Slutför** om du vill slutföra kopieringsdatauppgiften.
 
-    ![Fönstret "distributionen har slutförts"](media/data-factory-load-data/deployment.png)
+    ![Fönstret "Distributionen klar"](media/data-factory-load-data/deployment.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [Azure datautforskaren-anslutningen](/azure/data-factory/connector-azure-data-explorer) i Azure Data Factory.
-* Läs mer om hur du redigerar länkade tjänster, data uppsättningar och pipeliner i [Data Factory användar gränssnitt](/azure/data-factory/quickstart-create-data-factory-portal).
-* Lär dig mer om [Azure datautforskaren frågor](/azure/data-explorer/web-query-data) för data frågor.
+* Lär dig mer om [Azure Data Explorer-anslutningen](/azure/data-factory/connector-azure-data-explorer) i Azure Data Factory.
+* Läs mer om hur du redigerar länkade tjänster, datauppsättningar och pipelines i [datafabrikens användargränssnitt](/azure/data-factory/quickstart-create-data-factory-portal).
+* Lär dig mer om [Azure Data Explorer-frågor](/azure/data-explorer/web-query-data) för datafrågor.

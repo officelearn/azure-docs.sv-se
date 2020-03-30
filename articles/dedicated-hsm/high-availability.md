@@ -1,6 +1,6 @@
 ---
-title: Hög tillgänglighet – Azure dedikerad HSM | Microsoft Docs
-description: Exempel på Azure dedikerad HSM hög tillgänglighet och grundläggande överväganden
+title: Hög tillgänglighet – Azure Dedikerad HSM | Microsoft-dokument
+description: Azure Dedikerad HSM hög tillgänglighet exempel och grundläggande överväganden
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,33 +13,33 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 536ef62acad900090924598edfa45450b2a8c951
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70882249"
 ---
-# <a name="azure-dedicated-hsm-high-availability"></a>Azure dedikerad HSM hög tillgänglighet
+# <a name="azure-dedicated-hsm-high-availability"></a>Azure Dedikerad HSM hög tillgänglighet
 
-Azure dedikerad HSM underbyggd av Microsofts med hög tillgänglighet datacenter. Men är alla datacenter med hög tillgänglighet sårbara för lokaliserat fel och i extrema fall regionala på fel. Microsoft distribuerar HSM-enheter i olika datacenter inom en region för att se till att etablera flera enheter inte leder till dessa enheter som delar ett enda rack. Ytterligare en hög tillgänglighets nivå kan uppnås genom att para ihop dessa HSM: er över data Center i en region med hjälp av grupp funktionen Gemalto HA. Det är också möjligt att par enheter över regioner för att åtgärda regional redundans i en disaster recovery-situation. Med den här konfigurationen med flera lager hög tillgänglighet åtgärdas eventuella fel automatiskt för att hålla program fungerar. Alla Datacenter har också ledig enheter och komponenter på plats så att alla misslyckade enheter kan ersättas i tid.
+Azure Dedicated HSM stöds av Microsofts datacenter med högtillgänge. Alla datacenter som är tillgängliga och är sårbara för lokaliserade fel och under extrema omständigheter, regionala fel. Microsoft distribuerar HSM-enheter i olika datacenter inom en region för att säkerställa att etablering av flera enheter inte leder till att dessa enheter delar ett enda rack. En ytterligare nivå av hög tillgänglighet kan uppnås genom att para ihop dessa HSM-datorer över datacenter i en region med hjälp av Funktionen Gemalto HA-grupp. Det är också möjligt att para ihop enheter mellan regioner för att hantera regionala redundans i en katastrofåterställningssituation. Med den här konfigurationen med hög tillgänglighet i flera lager åtgärdas alla enhetsfel automatiskt för att programmen ska fungera. Alla datacenter har också extra enheter och komponenter på plats så att alla misslyckade enheter kan ersättas i tid.
 
 ## <a name="high-availability-example"></a>Exempel på hög tillgänglighet
 
-Information om hur du konfigurerar HSM-enheter för hög tillgänglighet på programnivå finns i ”Gemalto Luna nätverk HSM administrationsguiden'. Det här dokumentet är tillgängligt på [HSM-sidan för Gemalto](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
+Information om hur du konfigurerar HSM-enheter för hög tillgänglighet på programvarunivå finns i "Gemalto Luna Network HSM Administration Guide". Det här dokumentet finns på [Gemalto HSM-sidan](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).
 
-Följande diagram visar en arkitektur med hög tillgänglighet. Den använder flera enheter i regionen och flera enheter tillsammans i en separat region. Den här arkitekturen använder minst fyra HSM-enheter och virtuella nätverkskomponenter.
+Följande diagram visar en arkitektur med hög tillgänglig tillgång. Den använder flera enheter i regionen och flera enheter som är kopplade i en separat region. Den här arkitekturen använder minst fyra HSM-enheter och virtuella nätverkskomponenter.
 
-![Diagram för hög tillgänglighet](media/high-availability/high-availability.png)
+![Diagram med hög tillgänglighet](media/high-availability/high-availability.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi rekommenderar att alla nyckelbegreppen för tjänst, till exempel hög tillgänglighet och säkerhet, är väl förstådda innan enhetsetablering och programmets design eller distribution.
-Ytterligare konceptet på ämnen:
+Vi rekommenderar att alla viktiga begrepp för tjänsten, till exempel hög tillgänglighet och säkerhet, är väl förstådda innan enhetsetablering och programdesign eller distribution.
+Ytterligare begreppsnivå ämnen:
 
-* [Distributionsarkitektur för](deployment-architecture.md)
+* [Distributionsarkitektur](deployment-architecture.md)
 * [Fysisk säkerhet](physical-security.md)
 * [Nätverk](networking.md)
 * [Support](supportability.md)
 * [Övervakning](monitoring.md)
 
-Mer specifik information om hur du konfigurerar HSM-enheter för hög tillgänglighet finns stöd för Gemalto kundportalen riktlinjerna för administratör och se avsnitt 6.
+Mer information om hur du konfigurerar HSM-enheter för hög tillgänglighet finns i Gemaltos kundsupportportal för administratörsguiderna och se avsnitt 6.

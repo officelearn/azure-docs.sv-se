@@ -1,7 +1,7 @@
 ---
-title: Hantering av enkel inloggning med anpassade principer
+title: Hantering av enstaka inloggningssessioner med hjälp av anpassade principer
 titleSuffix: Azure AD B2C
-description: Lär dig hur du hanterar SSO-sessioner med anpassade principer i Azure AD B2C.
+description: Lär dig hur du hanterar SSO-sessioner med hjälp av anpassade principer i Azure AD B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,48 +12,48 @@ ms.date: 03/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 80cf0d101a29de7fca9d4dd36e188a500d35e290
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79246037"
 ---
-# <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Hantering av enkel inloggning i Azure Active Directory B2C
+# <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Hantering av ensession i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Hantering av enkel inloggning (SSO) i Azure Active Directory B2C (Azure AD B2C) gör det möjligt för en administratör att styra interaktionen med en användare när användaren redan har autentiserats. Administratören kan till exempel kontrol lera om valet av identitets leverantörer visas eller om information om lokalt konto måste anges igen. I den här artikeln beskrivs hur du konfigurerar SSO-inställningarna för Azure AD B2C.
+SSO-sessionshantering (Single sign-on) i Azure Active Directory B2C (Azure AD B2C) gör det möjligt för en administratör att kontrollera interaktionen med en användare när användaren redan har autentiserats. Administratören kan till exempel styra om valet av identitetsleverantörer visas eller om lokal kontoinformation måste anges igen. I den här artikeln beskrivs hur du konfigurerar SSO-inställningarna för Azure AD B2C.
 
-Hantering av SSO-sessioner har två delar. Det första handlar med användarens interaktioner direkt med Azure AD B2C och den andra hanterar användarens interaktioner med externa parter som Facebook. Azure AD B2C åsidosätter eller kringgår inte SSO-sessioner som kan innehas av externa parter. I stället för väg genom Azure AD B2C för att komma till den externa parten är "Sparad", så undviker du att be användaren att ange sin sociala eller företags identitets leverantör. Det ultimata SSO-beslutet är kvar med den externa parten.
+SSO-sessionshanteringen har två delar. Den första handlar om användarens interaktioner direkt med Azure AD B2C och den andra handlar om användarens interaktioner med externa parter som Facebook. Azure AD B2C åsidosätter eller kringgår inte SSO-sessioner som kan innehas av externa parter. Snarare vägen genom Azure AD B2C för att komma till den externa parten är "ihågkommen", undvika behovet av att återbefordran användaren att välja sin sociala eller företagsidentitet leverantör. Det slutliga SSO-beslutet ligger kvar hos den externa parten.
 
-Hantering av SSO-sessioner använder samma semantik som andra tekniska profiler i anpassade principer. När ett Orchestration-steg körs, frågas den tekniska profilen som är associerad med steget för en `UseTechnicalProfileForSessionManagement` referens. Om det finns en sådan, kontrol leras den refererade SSO-replikeringsprovidern sedan för att se om användaren är en session-deltagare. I så fall, används SSO-replikeringsprovidern för att fylla i sessionen igen. När körningen av ett Dirigerings steg har slutförts används providern för att lagra information i sessionen om en SSO-replikeringsprovider har angetts.
+SSO-sessionshantering använder samma semantik som alla andra tekniska profiler i anpassade principer. När ett orkestreringssteg körs efterfrågas den tekniska profilen `UseTechnicalProfileForSessionManagement` som är associerad med steget efter en referens. Om det finns en sådan kontrolleras den refererade SSO-sessionsprovidern för att se om användaren är en sessionsdeltagare. I så fall används SSO-sessionsprovidern för att återbefolka sessionen. På samma sätt, när körningen av ett orchestration-steg är slutfört, används providern för att lagra information i sessionen om en SSO-sessionsprovider har angetts.
 
-Azure AD B2C har definierat ett antal SSO-användarsessioner som kan användas:
+Azure AD B2C har definierat ett antal SSO-sessionsleverantörer som kan användas:
 
 * NoopSSOSessionProvider
-* DefaultSSOSessionProvider
-* ExternalLoginSSOSessionProvider
+* StandardSSOSessionProvider
+* ExternLoginSSOSessionProvider
 * SamlSSOSessionProvider
 
-SSO-hanterings klasser anges med `<UseTechnicalProfileForSessionManagement ReferenceId="{ID}" />`-elementet i en teknisk profil.
+SSO-hanteringsklasser anges `<UseTechnicalProfileForSessionManagement ReferenceId="{ID}" />` med hjälp av elementet i en teknisk profil.
 
-## <a name="input-claims"></a>Inmatade anspråk
+## <a name="input-claims"></a>Ingående anspråk
 
-`InputClaims`-elementet är tomt eller saknas.
+Elementet `InputClaims` är tomt eller frånvarande.
 
-## <a name="persisted-claims"></a>Beständiga anspråk
+## <a name="persisted-claims"></a>Kvarstående fordringar
 
-Anspråk som måste returneras till programmet eller används av villkor i efterföljande steg, ska lagras i sessionen eller utökas av en läsning från användarens profil i katalogen. Om du använder beständiga anspråk ser du till att det inte går att köra autentiseringen på saknade anspråk. Om du vill lägga till anspråk i sessionen använder du `<PersistedClaims>` elementet i den tekniska profilen. När providern används för att fylla i sessionen läggs de beständiga anspråken till i anspråks säcken.
+Anspråk som måste returneras till programmet eller användas av förutsättningar i efterföljande steg, bör lagras i sessionen eller utökas med en läsning från användarens profil i katalogen. Genom att använda beständiga anspråk säkerställs att dina autentiseringsresor inte misslyckas med saknade anspråk. Om du vill lägga till `<PersistedClaims>` anspråk i sessionen använder du elementet i den tekniska profilen. När leverantören används för att återbefolka sessionen läggs de kvarstående anspråken till i anspråkspåsen.
 
-## <a name="output-claims"></a>Utgående anspråk
+## <a name="output-claims"></a>Utgående fordringar
 
-`<OutputClaims>` används för att hämta anspråk från sessionen.
+Används `<OutputClaims>` för att hämta anspråk från sessionen.
 
-## <a name="session-providers"></a>Sessions-providers
+## <a name="session-providers"></a>Sessionsleverantörer
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-Den här providern gör inget under namnet. Den här providern kan användas för att förhindra SSO-beteende för en speciell teknisk profil. Följande `SM-Noop` teknisk profil ingår i [Start paketet för den anpassade principen](custom-policy-get-started.md#custom-policy-starter-pack).
+Som namnet säger, gör denna leverantör ingenting. Den här providern kan användas för att undertrycka SSO-beteende för en viss teknisk profil. Följande `SM-Noop` tekniska profil ingår i [startpaketet](custom-policy-get-started.md#custom-policy-starter-pack)för anpassad princip .
 
 ```XML
 <TechnicalProfile Id="SM-Noop">
@@ -62,9 +62,9 @@ Den här providern gör inget under namnet. Den här providern kan användas fö
 </TechnicalProfile>
 ```
 
-### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
+### <a name="defaultssosessionprovider"></a>StandardSSOSessionProvider
 
-Den här providern kan användas för att lagra anspråk i en session. Den här providern refereras vanligt vis till i en teknisk profil som används för att hantera lokala konton. Följande `SM-AAD` teknisk profil ingår i [Start paketet för den anpassade principen](custom-policy-get-started.md#custom-policy-starter-pack).
+Den här providern kan användas för att lagra anspråk i en session. Den här providern refereras vanligtvis i en teknisk profil som används för att hantera lokala konton. Följande `SM-AAD` tekniska profil ingår i [startpaketet](custom-policy-get-started.md#custom-policy-starter-pack)för anpassad princip .
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -84,7 +84,7 @@ Den här providern kan användas för att lagra anspråk i en session. Den här 
 </TechnicalProfile>
 ```
 
-Följande `SM-MFA` teknisk profil ingår i `SocialAndLocalAccountsWithMfa`för [anpassad princip start paket](custom-policy-get-started.md#custom-policy-starter-pack) . Den här tekniska profilen hanterar Multi-Factor Authentication-sessionen.
+Följande `SM-MFA` tekniska profil ingår i [startpaketet](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`för anpassad princip . Den här tekniska profilen hanterar multifaktorautentiseringssessionen.
 
 ```XML
 <TechnicalProfile Id="SM-MFA">
@@ -99,9 +99,9 @@ Följande `SM-MFA` teknisk profil ingår i `SocialAndLocalAccountsWithMfa`för [
 </TechnicalProfile>
 ```
 
-### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
+### <a name="externalloginssosessionprovider"></a>ExternLoginSSOSessionProvider
 
-Den här providern används för att utelämna skärmen "Välj identitetsprovider". Det hänvisas vanligt vis till en teknisk profil som kon figurer ATS för en extern identitetsprovider, till exempel Facebook. Följande `SM-SocialLogin` teknisk profil ingår i [Start paketet för den anpassade principen](custom-policy-get-started.md#custom-policy-starter-pack).
+Den här providern används för att undertrycka skärmen "välj identitetsprovider". Det refereras vanligtvis i en teknisk profil som konfigurerats för en extern identitetsleverantör, till exempel Facebook. Följande `SM-SocialLogin` tekniska profil ingår i [startpaketet](custom-policy-get-started.md#custom-policy-starter-pack)för anpassad princip .
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
@@ -120,11 +120,11 @@ Den här providern används för att utelämna skärmen "Välj identitetsprovide
 
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | Nej | Används inte för närvarande, kan ignoreras. |
+| AlwaysFetchClaimsFromProvider | Inga | Används för närvarande, kan ignoreras. |
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-Den här providern används för att hantera Azure AD B2C SAML-sessioner mellan ett förlitande parts program eller en federerad SAML-identitetsprovider. När du använder SSO-providern för att lagra en SAML-identitetsprovider måste `RegisterServiceProviders` anges till `false`. Följande `SM-Saml-idp` teknisk profil används av den [tekniska SAML-profilen](saml-technical-profile.md).
+Den här providern används för att hantera Azure AD B2C SAML-sessioner mellan ett förlitande partsprogram eller en federerad SAML-identitetsprovider. När SSO-providern använder för att lagra en `RegisterServiceProviders` SAML-identitetsprovider session, måste vara inställd på `false`. Följande `SM-Saml-idp` tekniska profil används av [DEN TEKNISKA PROFILEN FÖR SAML](saml-technical-profile.md).
 
 ```XML
 <TechnicalProfile Id="SM-Saml-idp">
@@ -136,9 +136,9 @@ Den här providern används för att hantera Azure AD B2C SAML-sessioner mellan 
 </TechnicalProfile>
 ```
 
-När du använder providern för att lagra B2C SAML-sessionen måste `RegisterServiceProviders` anges till `true`. Utloggningen av SAML-sessionen kräver att `SessionIndex` och `NameID` har slutförts.
+När du använder providern för att lagra B2C SAML-sessionen `RegisterServiceProviders` måste måste den inställda på `true`. SAML session utloggning kräver `SessionIndex` och `NameID` att slutföra.
 
-Följande `SM-Saml-idp` teknisk profil används av den [tekniska profilen för SAML-utfärdaren](saml-issuer-technical-profile.md)
+Följande `SM-Saml-idp` tekniska profil används av [SAML-utfärdarens tekniska profil](saml-issuer-technical-profile.md)
 
 ```XML
 <TechnicalProfile Id="SM-Saml-sp">
@@ -150,8 +150,8 @@ Följande `SM-Saml-idp` teknisk profil används av den [tekniska profilen för S
 
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
-| IncludeSessionIndex | Nej | Används inte för närvarande, kan ignoreras.|
-| RegisterServiceProviders | Nej | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. Möjliga värden: `true` (standard) eller `false`.|
+| InkluderaSessionIndex | Inga | Används för närvarande, kan ignoreras.|
+| RegisterServiceProviders | Inga | Anger att leverantören ska registrera alla SAML-tjänsteleverantörer som har utfärdats ett påstående. Möjliga värden: `true` (standard) eller `false`.|
 
 
 

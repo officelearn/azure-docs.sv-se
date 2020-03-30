@@ -1,6 +1,6 @@
 ---
 title: Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
-description: Lär dig hur du hämtar lagrade autentiseringsuppgifter från Azure Key Vault och använder dem under Data Factory-pipeline-körningar.
+description: Lär dig hur du hämtar lagrade autentiseringsuppgifter från Azure-nyckelvalvet och använder dem under datafabrikspipelinekörningar.
 services: data-factory
 author: ChrisLound
 manager: anandsub
@@ -11,62 +11,62 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
 ms.openlocfilehash: 09051ad3633ddc720cb34d3d145ccf649fa9cb08
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77200120"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>Använda Azure Key Vault-hemligheter i pipeline-aktiviteter
 
-Du kan lagra autentiseringsuppgifter eller hemliga värden i en Azure Key Vault och använda dem under pipeline-körningen för att skicka till dina aktiviteter.
+Du kan lagra autentiseringsuppgifter eller hemliga värden i ett Azure Key Vault och använda dem under pipelinekörning för att gå vidare till dina aktiviteter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Den här funktionen använder den hanterade identiteten för Data Factory.  Lär dig hur det fungerar från [hanterad identitet för Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) och se till att data fabriken har en associerad.
+Den här funktionen är beroende av datafabrikens hanterade identitet.  Lär dig hur det fungerar från [Managed identity for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) och se till att din datafabrik har en associerad.
 
 ## <a name="steps"></a>Steg
 
-1. Öppna egenskaperna för din data fabrik och kopiera ID-värdet för den hanterade identiteten.
+1. Öppna egenskaperna för datafabriken och kopiera värdet för managed identity application ID.
 
-    ![Hanterat identitets värde](media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png)
+    ![Värdet för hanterad identitet](media/how-to-use-azure-key-vault-secrets-pipeline-activities/managedidentity.png)
 
-2. Öppna åtkomst principer för nyckel valv och Lägg till hanterade identitets behörigheter för att hämta och lista hemligheter.
+2. Öppna nyckelvalvets åtkomstprinciper och lägg till hanterade identitetsbehörigheter i Hämta och lista hemligheter.
 
-    ![Key Vault åtkomst principer](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
+    ![Principer för nyckelvalvsåtkomst](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies.png)
 
-    ![Key Vault åtkomst principer](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
+    ![Principer för nyckelvalvsåtkomst](media/how-to-use-azure-key-vault-secrets-pipeline-activities/akvaccesspolicies-2.png)
 
     Klicka på **Lägg till**och sedan på **Spara**.
 
-3. Navigera till Key Vault hemlighet och kopiera den hemliga identifieraren.
+3. Navigera till din Key Vault hemlighet och kopiera den hemliga identifieraren.
 
     ![Hemlig identifierare](media/how-to-use-azure-key-vault-secrets-pipeline-activities/secretidentifier.png)
 
-    Anteckna din hemliga URI som du vill få under körningen av Data Factory-pipeline.
+    Anteckna din hemliga URI som du vill få under pipelinekörningen för datafabriken.
 
-4. I Data Factory pipeline lägger du till en ny webb aktivitet och konfigurerar den enligt följande.  
+4. Lägg till en ny webbaktivitet i pipelinen för Data Factory och konfigurera den på följande sätt.  
 
     |Egenskap  |Värde  |
     |---------|---------|
-    |Säkra utdata     |True         |
-    |URL     |[Ditt hemliga URI-värde]? API-version = 7.0         |
+    |Säker utmatning     |True         |
+    |URL     |[Ditt hemliga URI-värde]?api-version=7.0         |
     |Metod     |HÄMTA         |
     |Autentisering     |MSI         |
     |Resurs        |https://vault.azure.net       |
 
-    ![Webb aktivitet](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
+    ![Webbaktivitet](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
 
     > [!IMPORTANT]
-    > Du måste lägga till **? API-version = 7.0** i slutet av din hemliga URI.  
+    > Du måste lägga till **?api-version=7.0** i slutet av din hemliga URI.  
 
     > [!CAUTION]
-    > Ange alternativet för säkra utdata till sant för att förhindra att det hemliga värdet loggas som oformaterad text.  Alla ytterligare aktiviteter som använder det här värdet ska ha sina säkra indatatyps-alternativ inställt på sant.
+    > Ange alternativet Säker utdata till true för att förhindra att det hemliga värdet loggas i oformaterad text.  Alla ytterligare aktiviteter som förbrukar det här värdet bör ha alternativet Säker inmatning inställd på true.
 
-5. Använd följande kod uttryck om du vill använda värdet i en annan aktivitet **@activity(' Web1 '). output. Value**.
+5. Om du vill använda värdet i en annan aktivitet använder du följande koduttryck ** @activity('Web1").ex.value**.
 
-    ![Kod uttryck](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
+    ![Koduttryck](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du använder Azure Key Vault för att lagra autentiseringsuppgifter för data lager och beräkningar finns [i lagra autentiseringsuppgifter i Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+Mer information om hur du använder Azure Key Vault för att lagra autentiseringsuppgifter för datalager och beräkningar finns [i Lagra autentiseringsuppgifter i Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)

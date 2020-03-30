@@ -1,6 +1,6 @@
 ---
 title: Förbättra säkerheten vid fjärrhantering i Azure | Microsoft Docs
-description: Den här artikeln beskriver steg för att förbättra säkerheten för fjärrhantering när du administrerar Microsoft Azure miljöer, inklusive moln tjänster, virtuella datorer och anpassade program.
+description: I den här artikeln beskrivs steg för att förbättra fjärrhanteringssäkerheten samtidigt som Microsoft Azure-miljöer administreras, inklusive molntjänster, virtuella datorer och anpassade program.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
 ms.openlocfilehash: 45efaadf7d15fff290165fe831c45c0bc063db53
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73643800"
 ---
 # <a name="security-management-in-azure"></a>Säkerhetshantering i Azure

@@ -1,6 +1,6 @@
 ---
-title: Kör distributions planeraren för VMware haveri beredskap med Azure Site Recovery
-description: Den här artikeln beskriver hur du kör Distributionshanteraren för Azure Site Recovery för haveri beredskap i VMware till Azure.
+title: Kör distributionsplaneraren för VMware-haveriberedskap med Azure Site Recovery
+description: I den här artikeln beskrivs hur du kör Azure Site Recovery Deployment Planner för VMware-haveriberedskap till Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: mayg
 ms.openlocfilehash: 044e5c5df8e0af67e4717b864de1e31fc2520408
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73953287"
 ---
-# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Kör distributions planeraren för VMware haveri beredskap
+# <a name="run-the-deployment-planner-for-vmware-disaster-recovery"></a>Kör distributionsplaneraren för VMware-haveriberedskap
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
 
 
@@ -42,7 +42,7 @@ Du behöver först en lista över de virtuella datorer som ska profileras. Du ka
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Du kan också behöva köra följande kommando om Connect-VIServer inte känns igen som namnet på cmdleten.
+4. Du kan eventuellt behöva köra följande kommando om Connect-VIServer inte känns igen som namnet på cmdlet.
 
             Add-PSSnapin VMware.VimAutomation.Core
 
@@ -74,14 +74,14 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-NoOfMinutesToProfile|Antal minuter som profileringen ska köras. Minimum är 30 minuter.|
 |-NoOfHoursToProfile|Antal timmar som profileringen ska köras.|
 | -NoOfDaysToProfile | Antal dagar som profileringen ska köras. Du bör köra profileringen i minst 7 dagar så att du fångar upp mönster för arbetsbelastningen i din miljö under den angivna perioden och kan generera en korrekt rekommendation. |
-|-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
+|-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
 | -Directory | (Valfritt) UNC (Universal Naming Convention) eller lokal katalogsökväg för lagring av de profildata som genereras under profileringen. Om inget katalognamn anges används katalogen ”ProfiledData” under den aktuella sökvägen som standardkatalog. |
 | -Password | (Valfritt) Lösenord för att ansluta till vCenter-servern/vSphere ESXi-värden. Om du inte anger något värde nu uppmanas du att ange det när kommandot körs.|
 |-Port|(Valfritt) Portnummer för anslutning till vCenter/ESXi-värden. Standardporten är 443.|
 |-Protocol| (Valfritt) Ange protokollet, antingen http eller https, för anslutning till vCenter. Standardprotokollet är https.|
 | -StorageAccountName | (Valfritt) Namnet på det lagringskonto som används för beräkning av dataflödet som kan uppnås för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när dataflödet ska beräknas. Lagringskontot måste vara av typen generell användning v1 (GPv1). |
-| -StorageAccountKey | (Valfritt) Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*lagringskontots namn*> > Inställningar > Åtkomstnycklar > Key1. |
-| -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-region är antingen Azure amerikanska myndigheter eller Azure Kina 21Vianet. |
+| -StorageAccountKey | (Valfritt) Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> > Inställningar > Åtkomstnycklar > Key1. |
+| -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din mål Azure-region är antingen Azure US Government eller Azure China 21Vianet. |
 
 
 Vi rekommenderar att du profilerar dina virtuella datorer under minst 7 dagar. Om omsättningsmönstret varierar under en månad rekommenderar vi att du profilerar under veckan när omsättningen är som störst. Det bästa är att profilera i 31 dagar för att få en bättre rekommendation. ASRDeploymentPlanner.exe körs under hela profileringsperioden. Profileringstiden anges i dagar i verktyget. För ett snabbtest av verktyget eller ett konceptbevis kan du profilera i några timmar eller minuter. Minsta tillåtna profileringstid är 30 minuter.
@@ -90,12 +90,12 @@ Under profileringen kan du välja att skicka namn och nyckel för ett lagringsko
 
 Du kan köra flera instanser av verktyget för olika uppsättningar av virtuella datorer. Se till att det inte finns dubbletter av namn på virtuella datorer i profileringsuppsättningarna. Till exempel kanske du har profilerat tio virtuella datorer (VM1–VM10). Efter några dagar vill du profilera ytterligare fem virtuella datorer (VM11–VM15), och då kan du köra verktyget från en annan kommandotolk för den andra uppsättningen av virtuella datorer (VM11–VM15). Se till att den andra uppsättningen av virtuella datorer inte innehåller något av namnen på de virtuella datorerna från den första profileringsinstansen, eller använd en annan utdatakatalog för den andra körningen. Om två instanser av verktyget används för profilering av samma virtuella datorer och samma utdatakatalog används kommer den genererade rapporten att vara felaktig.
 
-Som standard är verktyget konfigurerat för att profilera och generera rapporter upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
+Som standard är verktyget konfigurerat för att profilera och generera rapport upp till 1 000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
 ```
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-Om du vill skapa till exempel 1500 virtuella datorer med standardinställningarna ska du skapa två VMList.txt-filer. En med 1000 virtuella datorer och en med 500. Kör de två instanserna av Distributionshanteraren för Azure Site Recovery, en med VMList1. txt och andra med VMList2. txt. Du kan använda samma katalogsökväg för att lagra profilerade data för de båda virtuella VMList-datorerna.
+Om du vill skapa till exempel 1500 virtuella datorer med standardinställningarna ska du skapa två VMList.txt-filer. En med 1000 virtuella datorer och en med 500. Kör de två instanserna av Azure Site Recovery Deployment Planner, en med VMList1.txt och andra med VMList2.txt. Du kan använda samma katalogsökväg för att lagra profilerade data för de båda virtuella VMList-datorerna.
 
 Vi har märkt att åtgärden kan misslyckas med otillräckligt minne baserat på maskinvarukonfigurationen. Det gäller i synnerhet RAM-storleken på servern varifrån verktyget körs för att generera rapporten. Om du har bra maskinvara kan du ändra MaxVMsSupported till ett högre värde.  
 
@@ -119,7 +119,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -NoOfDaysToProfile  15  -User vCenterUser1
 ```
 
-#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exempel 3: Profilera virtuella datorer i 60 minuter för ett snabbtest av verktyget
+#### <a name="example-3-profile-vms-for-60-minutes-for-a-quick-test-of-the-tool"></a>Exempel 3: Profilera virtuella datorer under 60 minuter för ett snabbtest av verktyget
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Directory “E:\vCenter1_ProfiledData” -Server vCenter1.contoso.com -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -NoOfMinutesToProfile 60  -User vCenterUser1
 ```
@@ -136,10 +136,10 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>Generera en rapport
-Verktyget genererar en makroaktiverad Microsoft Excel-fil (XLSM) som rapportutdata med en sammanfattning av alla distributionsrekommendationer. Rapporten heter `DeploymentPlannerReport_<unique numeric identifier>.xlsm` och placeras i den angivna katalogen.
+Verktyget genererar en makroaktiverad Microsoft Excel-fil (XLSM) som rapportutdata med en sammanfattning av alla distributionsrekommendationer. Rapporten namnges `DeploymentPlannerReport_<unique numeric identifier>.xlsm` och placeras i den angivna katalogen.
 
 >[!NOTE]
->För rapportgenerering krävs en Windows-dator eller Windows Server med Excel 2013 eller senare. Decimal tecknet på den här datorn ska konfigureras som "." för att skapa kostnads beräkningar. Om du har installations programmet "," som decimal symbol går du till "ändra datum, tid eller tal format" på kontroll panelen och går till "ytterligare inställningar" för att ändra decimal tecknet till ".".
+>Genereringen av rapporter kräver en Windows-dator eller Windows Server med Excel 2013 eller senare. Decimalsymbolen på den här datorn ska konfigureras som "." för att producera kostnadsuppskattningarna. Om du har ställt in "" som decimalsymbol, gå till "Ändra datum, tid eller talformat" på Kontrollpanelen och gå till "Ytterligare inställningar" för att ändra decimalsymbolen till ".".
 
 När profileringen är färdig kan köra du verktyget i läget för rapportgenerering. Följande tabell innehåller en lista med obligatoriska och valfria verktygsparametrar som ska köras i läget för rapportgenerering.
 
@@ -150,7 +150,7 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 | -Operation | GenerateReport |
 | -Server |  Fullständigt domännamn eller IP-adress för vCenter-/vSphere-servern (använd samma namn eller IP-adress som du använde vid profileringen) där de profilerade virtuella datorer som rapporten ska gälla finns. Tänk på att om du har använt en vCenter-server vid profileringen kan du inte använda en vSphere-server till rapportgenerering och tvärtom.|
 | -VMListFile | Den fil som innehåller listan över profilerade virtuella datorer som rapporten ska genereras för. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn eller en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara identiska med namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden, och vara desamma som vid profileringen.|
-|-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
+|-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
 | -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om du inte anger något namn används katalogen ProfiledData. |
 | -GoalToCompleteIR | (Valfritt) Antalet timmar som den inledande replikeringen av de profilerade virtuella datorerna måste slutföras på. I den genererade rapporten anges det hur många virtuella datorer som den inledande replikeringen kan slutföras på inom den angivna tiden. Standardvärdet är 72 timmar. |
 | -User | (Valfritt) Användarnamn som ska användas för anslutning till vCenter-/vSphere-servern. Namnet används för att hämta den senaste konfigurationsinformationen för de virtuella datorerna, exempelvis antal diskar, antal kärnor och antal nätverkskort som ska användas i rapporten. Om du inte anger något namn används den konfigurationsinformation som samlades in i början av profileringen. |
@@ -163,12 +163,12 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 | -EndDate | (Valfritt) Slutdatum och tidpunkt i formatet MM-DD-ÅÅÅÅ:HH:MM (24-timmarsformat). *EndDate* måste anges tillsammans med *StartDate*. När du anger EndDate genereras rapporten för profileringsdata som samlats in mellan StartDate och EndDate. |
 | -GrowthFactor | (Valfritt) Tillväxtfaktor, uttryckt i procent. Standardvärdet är 30 procent. |
 | -UseManagedDisks | (Valfritt) UseManagedDisks - Ja/Nej. Standardvärdet är Ja. Antalet virtuella datorer som kan placeras i ett enda lagringskonto beräknas utifrån om redundans/redundanstest för virtuella datorer görs på en hanterad disk istället för en ohanterad disk. |
-|-SubscriptionId |(Valfritt) GUID för prenumerationen. Observera att den här parametern krävs när du behöver generera rapporten kostnads uppskattning med det senaste priset baserat på din prenumeration, erbjudandet som är associerat med din prenumeration och för din specifika Azure-region i den **angivna valutan** .|
+|-SubscriptionId |(Valfritt) GUID för prenumerationen. Observera att den här parametern krävs när du behöver generera kostnadsuppskattningsrapporten med det **senaste**priset baserat på din prenumeration, erbjudandet som är associerat med din prenumeration och för din specifika Azure-region i den angivna valutan .|
 |-TargetRegion|(Valfritt) Azure-regionen som är mål för replikeringen. Eftersom Azure har olika kostnader för olika regioner ska du använda den här parametern till att generera en rapport för en specifik Azure-region.<br>Standard är usavästra2 eller den senast använda målregionen.<br>Läs mer i listan med [målregioner som stöds](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Valfritt) Erbjudandet som är associerat med den angivna prenumerationen. Standard är MS-AZR-0003P (Betala per användning).|
 |-Currency|(Valfritt) Valutan i vilken kostnaden visas i den genererade rapporten. Standard är amerikanska dollar ($) eller den senast använda valutan.<br>Läs mer i listan med [valutor som stöds](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
-Som standard är verktyget konfigurerat för att profilera och generera rapporter upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
+Som standard är verktyget konfigurerat för att profilera och generera rapport upp till 1 000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
 ```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
@@ -206,9 +206,9 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -DesiredRPO 5
 ```
 
-#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exempel 7: Generera en rapport för Azure-regionen indiensödra med indiska rupier och ett specifikt erbjudande-ID
+#### <a name="example-7-generate-a-report-for-south-india-azure-region-with-indian-rupee-and-specific-offer-id"></a>Exempel 7: Generera en rapport för Azure-regionen Indien, södra med indiska rupier och specifikt erbjudande-ID
 
-Observera att prenumerations-ID krävs för att generera kostnads rapport i en speciell valuta.
+Observera att prenumerations-ID krävs för att generera kostnadsrapport i en viss valuta.
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
@@ -242,9 +242,9 @@ Den genererade rapporten i Microsoft Excel innehåller följande information:
 
 * [Lokal sammanfattning](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Rekommendationer](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM<->Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement) (VM<->lagringsplacering)
-* [Compatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms) (Kompatibla virtuella datorer)
-* [Incompatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms) (Inkompatibla virtuella datorer)
+* [Vm-<->lagringsplacering](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [Compatible VMs (Kompatibla virtuella datorer)](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
+* [Incompatible VMs (Inkompatibla virtuella datorer)](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
 * [Kostnadsuppskattning](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Kapacitetsplaneraren](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
@@ -260,12 +260,12 @@ Om du vill få en uppskattning av vilket dataflöde som Site Recovery kan uppnå
 |Parameternamn | Beskrivning |
 |-|-|
 | -Operation | GetThroughput |
-|-Virtualization|Ange visualiseringstypen (VMware eller Hyper-V).|
+|-Virtualization|Ange visualiseringstyp (VMware eller Hyper-V).|
 | -Directory | (Valfritt) UNC eller lokal katalogsökväg där profileringsdata (filer som genererats under profileringen) lagras. Dessa data krävs när rapporten ska genereras. Om namnet på en katalog inte anges används katalogen ProfiledData. |
 | -StorageAccountName | Namnet på det lagringskonto som används för beräkning av den bandbredd som används för datareplikering lokalt till Azure. Verktyget överför testdata till det här lagringskontot när bandbredden ska beräknas. Lagringskontot måste vara antingen av typen generell användning v1 (GPv1).|
-| -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > < *[lagringskontots namn]* > Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |
+| -StorageAccountKey | Den lagringskontonyckel som används för åtkomst till lagringskontot. Gå till Azure Portal > Lagringskonton > <*[lagringskontots namn]*> Inställningar > Åtkomstnycklar > Key1 (eller en primär åtkomstnyckel för ett klassiskt lagringskonto). |
 | -VMListFile | En fil som innehåller listan med virtuella datorer som ska profileras när den förbrukade bandbredden ska beräknas. Filsökvägen kan vara absolut eller relativ. Den här filen ska innehålla ett virtuellt datornamn/en IP-adress per rad. Namnen på de virtuella datorerna i filen ska vara samma som namnen på de virtuella datorerna på vCenter-servern/vSphere ESXi-värden.<br>Filen VMList.txt innehåller exempelvis följande virtuella datorer:<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din Azure-region är antingen Azure amerikanska myndigheter eller Azure Kina 21Vianet. |
+| -Environment | (Valfritt) Det här är din målmiljö för Azure Storage-kontot. Detta kan vara ett av tre värden – AzureCloud, AzureUSGovernment eller AzureChinaCloud. Standardvärdet är AzureCloud. Använd parametern när din mål Azure-region är antingen Azure US Government eller Azure China 21Vianet. |
 
 Verktyget skapar flera 64 MB stora filer med namnet asrvhdfile<#>.vhd (där # är antalet filer) i den angivna katalogen. Verktyget överför filerna till lagringskontot när dataflödet ska beräknas. När dataflödet har beräknats tar verktyget bort alla filer både från lagringskontot och från den lokala servern. Om verktyget avslutas av någon anledning medan det beräknar dataflödet tar det inte bort filerna från lagringsutrymmet eller från den lokala servern. Du måste ta bort dem manuellt.
 

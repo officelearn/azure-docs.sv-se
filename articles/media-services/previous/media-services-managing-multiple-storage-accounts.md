@@ -1,6 +1,6 @@
 ---
-title: Hantera Media Services till gångar över flera lagrings konton | Microsoft Docs
-description: De här artiklarna ger vägledning om hur du hanterar Media Services till gångar över flera lagrings konton.
+title: Hantera Media Services-tillgångar över flera lagringskonton | Microsoft-dokument
+description: I de här artiklarna får du vägledning om hur du hanterar Media Services-tillgångar på flera lagringskonton.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,39 +14,39 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69901784"
 ---
-# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Hantera Media Services till gångar över flera lagrings konton  
+# <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Hantera Media Services-tillgångar över flera lagringskonton  
 
-Du kan bifoga flera lagrings konton till ett enda Media Services-konto. Möjligheten att ansluta flera lagrings konton till ett Media Services-konto ger följande fördelar:
+Du kan koppla flera lagringskonton till ett enda Media Services-konto. Möjligheten att koppla flera lagringskonton till ett Media Services-konto ger följande fördelar:
 
-* Belastnings utjämning av till gångar över flera lagrings konton.
-* Skalnings Media Services för stora mängder innehålls bearbetning (som för närvarande ett enda lagrings konto har en Max gräns på 500 TB). 
+* Belastningsutjämning av dina tillgångar över flera lagringskonton.
+* Skala Media Services för stora mängder innehållsbearbetning (som för närvarande har ett enda lagringskonto en maxgräns på 500 TB). 
 
-Den här artikeln visar hur du kopplar flera lagrings konton till ett Media Services-konto med hjälp av [Azure Resource Manager-API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [PowerShell](/powershell/module/az.media). Det visar också hur du anger olika lagrings konton när du skapar till gångar med hjälp av Media Services SDK. 
+Den här artikeln visar hur du kopplar flera lagringskonton till ett Media Services-konto med [Azure Resource Manager API:er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [Powershell](/powershell/module/az.media). Den visar också hur du anger olika lagringskonton när du skapar tillgångar med hjälp av Media Services SDK. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="considerations"></a>Överväganden
 
-När du kopplar flera lagrings konton till ditt Media Services-konto gäller följande saker:
+När du bifogar flera lagringskonton till ditt Media Services-konto gäller följande överväganden:
 
 * Media Services-kontot och alla associerade lagringskonton måste finnas i samma Azure-prenumeration. Vi rekommenderar att du använder lagringskonton på samma plats som Media Services-kontot.
-* När ett lagrings konto är kopplat till det angivna Media Services kontot går det inte att koppla från.
-* Primärt lagrings konto är det som angavs när Media Servicess konto skapas. För närvarande kan du inte ändra standard lagrings kontot. 
-* Om du vill lägga till ett cool Storage-konto till AMS-kontot måste lagrings kontot vara av typen blob och vara inställt på icke-primär.
+* När ett lagringskonto har kopplats till det angivna Media Services-kontot kan det inte kopplas bort.
+* Primärt lagringskonto är det som anges under tiden för att skapa mediatjänster.Primary storage account is the one indicated during Media Services account creation time. För närvarande kan du inte ändra standardlagringskontot. 
+* Om du vill lägga till ett konto för cool lagring i AMS-kontot måste lagringskontot vara en Blob-typ och vara inställt på icke-primärt.
 
 Andra överväganden:
 
-Media Services använder värdet för egenskapen **IAssetFile.name** när du skapar URL: er för strömmande innehåll (till exempel http://{WAMSAccount}. ORIGIN. Media Services. Windows. net/{GUID}/{IAssetFile. name}/streamingParameters.) Därför är procent kodning inte tillåtet. Värdet för namn egenskapen får inte ha något av följande [%-encoding-reserverade tecken](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! * ' ();: @ & = + $,/?% # [] ". Det kan också finnas en "." för fil namns tillägget.
+Media Services använder värdet **för egenskapen IAssetFile.Name** när du skapar URL:er för direktuppspelningsinnehållet (till exempel http://{WAMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Därför är procentkodning inte tillåtet. Värdet för egenskapen Name kan inte ha något av följande [procent-kodningsreservat tecken:](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)!*'();:@&=+$,/?%#[]". Dessutom kan det bara finnas en "." för filnamnstillägget.
 
-## <a name="to-attach-storage-accounts"></a>För att ansluta lagrings konton  
+## <a name="to-attach-storage-accounts"></a>Så här bifogar du lagringskonton  
 
-Om du vill koppla lagrings konton till ditt AMS-konto använder du [Azure Resource Manager API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [PowerShell](/powershell/module/az.media), som du ser i följande exempel:
+Om du vill koppla lagringskonton till ditt AMS-konto använder du [Azure Resource Manager API:er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [Powershell](/powershell/module/az.media), som visas i följande exempel:
 
     $regionName = "West US"
     $subscriptionId = " xxxxxxxx-xxxx-xxxx-xxxx- xxxxxxxxxxxx "
@@ -62,17 +62,17 @@ Om du vill koppla lagrings konton till ditt AMS-konto använder du [Azure Resour
     
     Set-AzMediaService -ResourceGroupName $resourceGroupName -AccountName $mediaAccountName -StorageAccounts $storageAccounts
 
-### <a name="support-for-cool-storage"></a>Stöd för cool Storage
+### <a name="support-for-cool-storage"></a>Stöd för cool lagring
 
-För närvarande måste lagrings kontot vara en Blob-typ och vara inställt på icke-primär om du vill lägga till ett cool Storage-konto till AMS-kontot.
+Om du vill lägga till ett coolt lagringskonto i AMS-kontot måste lagringskontot vara en Blob-typ och vara inställt på icke-primärt.
 
-## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Hantera Media Services till gångar över flera lagrings konton
-I följande kod används den senaste Media Services SDK: n för att utföra följande uppgifter:
+## <a name="to-manage-media-services-assets-across-multiple-storage-accounts"></a>Så här hanterar du Media Services-resurser i flera lagringskonton
+Följande kod använder den senaste Media Services SDK för att utföra följande uppgifter:
 
-1. Visa alla lagrings konton som är associerade med det angivna Media Services kontot.
-2. Hämta namnet på standard lagrings kontot.
-3. Skapa en ny till gång på standard lagrings kontot.
-4. Skapa en utmatnings till gång för kodnings jobbet i det angivna lagrings kontot.
+1. Visa alla lagringskonton som är kopplade till det angivna Media Services-kontot.
+2. Hämta namnet på standardlagringskontot.
+3. Skapa en ny tillgång i standardlagringskontot.
+4. Skapa en utdatatillgång för kodningsjobbet i det angivna lagringskontot.
    
 ```cs
 using Microsoft.WindowsAzure.MediaServices.Client;

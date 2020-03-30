@@ -1,6 +1,6 @@
 ---
-title: Skapa applösenord från sidan säkerhets information (för hands version) – Azure AD
-description: Skapa automatiskt genererade lösen ord (applösenord) som ska användas med appar som inte är webbläsarbaserade eller appar som inte stöder tvåstegsverifiering, i din organisation. Det här applösenord är skilt från ett vanligt lösen ord och kan konfigureras från sidan säkerhets information.
+title: Skapa applösenord från sidan Säkerhetsinformation (förhandsversion) - Azure AD
+description: Skapa automatiskt genererade lösenord (applösenord) som du kan använda med en app som inte är webbläsarappar eller appar som inte stöder tvåfaktorsverifiering i organisationen. Detta applösenord är skilt från ett vanligt lösenord och kan ställas in från sidan Säkerhetsinformation.
 services: active-directory
 author: curtand
 manager: daveba
@@ -12,76 +12,76 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: curtand
 ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77064078"
 ---
-# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Skapa applösenord från sidan säkerhets information (förhands granskning)
+# <a name="create-app-passwords-from-the-security-info-preview-page"></a>Skapa applösenord från sidan Säkerhetsinformation (förhandsgranskning)
 
-Vissa appar, till exempel Outlook 2010, stöder inte tvåstegsverifiering. Detta saknar stöd innebär att om du använder tvåstegsverifiering i din organisation fungerar inte appen. För att komma runt det här problemet kan du skapa ett automatiskt genererat lösen ord som ska användas med varje annan app än en webbläsare, separat från ditt normala lösen ord.
+Vissa appar, till exempel Outlook 2010, stöder inte tvåstegsverifiering. Den här bristen på stöd innebär att om du använder tvåstegsverifiering i din organisation fungerar inte appen. För att komma runt det här problemet kan du skapa ett automatiskt genererat lösenord som ska användas med varje app som inte är en webbläsare, separat från ditt vanliga lösenord.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
->Din administratör kanske inte tillåter att du använder applösenord. Om du inte ser **applösenord** som ett alternativ är de inte tillgängliga i din organisation.
+>Administratören kanske inte tillåter att du använder applösenord. Om du inte ser **Applösenord** som ett alternativ är de inte tillgängliga i organisationen.
 
 När du använder applösenord är det viktigt att komma ihåg:
 
-- Applösenord genereras automatiskt och bör skapas och anges en gång per app.
+- Applösenord genereras automatiskt och ska skapas och anges en gång per app.
 
-- Det finns en gräns på 40 lösen ord per användare. Om du försöker skapa en efter den gränsen uppmanas du att ta bort ett befintligt lösen ord innan du får skapa det nya.
+- Det finns en gräns på 40 lösenord per användare. Om du försöker skapa ett efter den gränsen uppmanas du att ta bort ett befintligt lösenord innan du får skapa det nya.
 
     >[!Note]
-    >Office 2013-klienter (inklusive Outlook) har stöd för nya autentiseringsprotokoll och kan användas med tvåstegsverifiering. Det här stödet innebär att när tvåstegsverifiering har Aktiver ATS behöver du inte längre applösenord för Office 2013-klienter. Mer information finns i artikeln [så här fungerar modern autentisering för office 2013 och office 2016-klient program](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) .
+    >Office 2013-klienter (inklusive Outlook) stöder nya autentiseringsprotokoll och kan användas med tvåstegsverifiering. Det här stödet innebär att när tvåstegsverifiering har aktiverats behöver du inte längre applösenord för Office 2013-klienter. Mer information finns i artikeln [Hur modern autentisering fungerar för Office 2013 och Office 2016-klientappar.](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517)
 
 ## <a name="create-new-app-passwords"></a>Skapa nya applösenord
 
-Om du använder tvåstegsverifiering med ditt arbets-eller skol konto och din administratör har aktiverat säkerhets informations upplevelsen, kan du skapa och ta bort dina applösenord på sidan **säkerhets information** .
+Om du använder tvåstegsverifiering med ditt arbets- eller skolkonto och administratören har aktiverat säkerhetsinformationsupplevelsen kan du skapa och ta bort applösenorden med sidan **Säkerhetsinformation.**
 
 >[!Note]
->Om din administratör inte har aktiverat säkerhets informations upplevelsen måste du följa anvisningarna och informationen i avsnittet [Hantera applösenord för att kontrol lera appar i två steg](multi-factor-authentication-end-user-app-passwords.md) .
+>Om administratören inte har aktiverat säkerhetsinformationsupplevelsen måste du följa instruktionerna och informationen i avsnittet [Hantera applösenord för tvåstegsverifiering.](multi-factor-authentication-end-user-app-passwords.md)
 
-### <a name="to-create-a-new-app-password"></a>Skapa ett nytt applösenord
+### <a name="to-create-a-new-app-password"></a>Så här skapar du ett nytt applösenord
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
+1. Logga in på ditt arbets- eller https://myprofile.microsoft.com/ skolkonto och gå sedan till din sida.
 
-    ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
+    ![Sidan Min profil, med markerade länkar för säkerhetsinformation](media/security-info/securityinfo-myprofile-page.png)
 
-2. Välj **säkerhets information** i det vänstra navigerings fönstret eller från länken i **säkerhets informations** blocket och välj sedan **Lägg till metod** på sidan **säkerhets information** .
+2. Välj **Säkerhetsinformation** i det vänstra navigeringsfönstret eller från länken i blocket **Säkerhetsinformation** och välj sedan **Lägg till metod** på sidan **Säkerhetsinformation.**
 
-    ![Sidan säkerhets information med markerat Lägg till metod-alternativ](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Sidan Säkerhetsinformation med markerat alternativ för Lägg till metod](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
-3. På sidan **Lägg till en metod** väljer du **applösenord** i list rutan och väljer sedan **Lägg till**.
+3. På sidan **Lägg till en metod** väljer du **Applösenord** i listrutan och väljer sedan **Lägg till**.
 
-    ![Rutan Lägg till metod med applösenord valt](media/security-info/securityinfo-myprofile-addpassword.png)
+    ![Rutan Lägg till metod med applösenordet markerat](media/security-info/securityinfo-myprofile-addpassword.png)
 
-4. Skriv namnet på den app som kräver applösenord och välj sedan **Nästa**.
+4. Skriv namnet på appen som kräver applösenordet och välj sedan **Nästa**.
 
-    ![Sidan applösenord med namnet på appen](media/security-info/securityinfo-myprofile-password-appname.png)
+    ![Sidan Applösenord, med namnet på appen](media/security-info/securityinfo-myprofile-password-appname.png)
 
-5. Kopiera texten från rutan **lösen ord** , klistra in lösen ordet i appens lösen ord (i det här exemplet Outlook 2010) och välj sedan **färdig**.
+5. Kopiera texten från rutan **Lösenord,** klistra in lösenordet i lösenordsområdet i appen (i det här exemplet Outlook 2010) och välj sedan **Klar**.
 
-    ![Sidan applösenord med namnet på appen](media/security-info/securityinfo-myprofile-password-copytext.png)
+    ![Sidan Applösenord, med namnet på appen](media/security-info/securityinfo-myprofile-password-copytext.png)
 
-    Lösen ordet läggs till och du kan logga in på din app framåt.
+    Lösenordet läggs till och du kan logga in på din app framöver.
 
 ## <a name="delete-your-app-passwords"></a>Ta bort dina applösenord
 
-Om du inte längre behöver använda en app som kräver ett applösenord kan du ta bort det associerade applösenord. Om du tar bort app-lösenordet frigörs ett av de tillgängliga applösenord för appar för användning i framtiden.
+Om du inte längre behöver använda en app som kräver ett applösenord kan du ta bort det associerade applösenordet. Om du tar bort applösenordet frigörs en av de tillgängliga applösenordsplatserna för användning i framtiden.
 
 >[!Important]
->Om du tar bort ett applösenord av misstag finns det inget sätt att ångra det. Du måste skapa ett nytt applösenord och ange det på nytt i appen genom att följa stegen i avsnittet [skapa nya applösenord](#create-new-app-passwords) i den här artikeln.
+>Om du tar bort ett applösenord av misstag kan du inte ångra det. Du måste skapa ett nytt applösenord och skriva in det i appen igen, i följande steg i avsnittet [Skapa nya applösenord](#create-new-app-passwords) i den här artikeln.
 
-### <a name="to-delete-an-app-password"></a>Ta bort ett applösenord
+### <a name="to-delete-an-app-password"></a>Så här tar du bort ett applösenord
 
-1. På sidan **säkerhets information** väljer du länken **ta bort** bredvid **appens lösen ords** alternativ för den aktuella appen.
+1. På sidan **Säkerhetsinformation** väljer du länken **Ta bort bredvid** alternativet **Applösenord** för den specifika appen.
 
-    ![Länk för att ta bort appens lösen ords metod från säkerhets information](media/security-info/securityinfo-myprofile-password-appdelete.png)
+    ![Länk för att ta bort metoden med applösenord från säkerhetsinformation](media/security-info/securityinfo-myprofile-password-appdelete.png)
 
-2. Välj **Ja** i bekräftelse rutan om du vill ta bort **appens lösen ord**. När applösenord har tagits bort tas den bort från din säkerhets information och försvinner från sidan **säkerhets information** .
+2. Välj **Ja** i bekräftelserutan om du vill ta bort **applösenordet**. När applösenordet har tagits bort tas det bort från din säkerhetsinformation och försvinner från sidan **Säkerhetsinformation.**
 
 ## <a name="for-more-information"></a>Mer information
 
-- Mer information om sidan **säkerhets information** och hur du konfigurerar den finns i [Översikt över säkerhets information](user-help-security-info-overview.md)
+- Mer information om sidan **Säkerhetsinformation** och hur du konfigurerar den finns i [Översikt över säkerhetsinformation](user-help-security-info-overview.md)

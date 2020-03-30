@@ -1,6 +1,6 @@
 ---
-title: Azure-filresurs för Azure Batch pooler | Microsoft Docs
-description: Montera en Azure Files resurs från datornoder i en Linux-eller Windows-pool i Azure Batch.
+title: Azure-filresurs för Azure Batch-pooler | Microsoft-dokument
+description: Så här monterar du en Azure Files-resurs från beräkningsnoder i en Linux- eller Windows-pool i Azure Batch.
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -15,69 +15,69 @@ ms.date: 05/24/2018
 ms.author: labrenne
 ms.custom: ''
 ms.openlocfilehash: 156dad25af5abd1b4d5db32569faf09a23fadfb1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77022519"
 ---
-# <a name="use-an-azure-file-share-with-a-batch-pool"></a>Använda en Azure-filresurs med en batch-pool
+# <a name="use-an-azure-file-share-with-a-batch-pool"></a>Använda en Azure-filresurs med en batchpool
 
-[Azure Files](../storage/files/storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet (Server Message Block). Den här artikeln innehåller information och kod exempel för montering och användning av en Azure-filresurs på poolens datornoder. I kod exemplen används batch .NET och python SDK: er, men du kan utföra liknande åtgärder med andra batch-SDK: er och verktyg.
+[Azure Files](../storage/files/storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet (Server Message Block). Den här artikeln innehåller information och kodexempel för montering och användning av en Azure-filresurs på poolberäkningsnoder. Kodexemplen använder batch -NET- och Python-SDK:er, men du kan utföra liknande åtgärder med andra batch-SDK:er och verktyg.
 
-Batch har inbyggt API-stöd för att använda Azure Storage blobbar för att läsa och skriva data. Men i vissa fall kanske du vill ha åtkomst till en Azure-filresurs från dina datornoder. Du kan till exempel ha en äldre arbets belastning som är beroende av en SMB-filresurs, eller så måste aktiviteterna komma åt delade data eller generera delade utdata. 
+Batch ger inbyggt API-stöd för att använda Azure Storage-blobbar för att läsa och skriva data. I vissa fall kanske du vill komma åt en Azure-filresurs från dina poolberäkningsnoder. Du har till exempel en äldre arbetsbelastning som är beroende av en SMB-filresurs, eller dina uppgifter måste komma åt delade data eller producera delad utdata. 
 
-## <a name="considerations-for-use-with-batch"></a>Att tänka på när du använder batch
+## <a name="considerations-for-use-with-batch"></a>Överväganden för användning med Batch
 
-* Överväg att använda en Azure-filresurs när du har pooler som kör ett relativt lågt antal parallella aktiviteter. Granska [prestanda-och skalnings målen](../storage/files/storage-files-scale-targets.md) för att avgöra om Azure Files (som använder ett Azure Storage konto) ska användas, baserat på den förväntade storleken på poolen och antalet till gångs filer. 
+* Överväg att använda en Azure-filresurs när du har pooler som kör ett relativt lågt antal parallella uppgifter. Granska [prestanda- och skalningsmålen](../storage/files/storage-files-scale-targets.md) för att avgöra om Azure-filer (som använder ett Azure Storage-konto) ska användas, med tanke på din förväntade poolstorlek och antalet tillgångsfiler. 
 
-* Azure-filresurser är [kostnads effektiva](https://azure.microsoft.com/pricing/details/storage/files/) och kan konfigureras med datareplikering till en annan region så att de är globalt redundanta. 
+* Azure-filresurser är [kostnadseffektiva](https://azure.microsoft.com/pricing/details/storage/files/) och kan konfigureras med datareplikering till en annan region så är globalt redundanta. 
 
 * Du kan montera en Azure-filresurs samtidigt från en lokal dator.
 
-* Se även de allmänna [planerings övervägandena](../storage/files/storage-files-planning.md) för Azure-filresurser.
+* Se även de allmänna [planeringsövervägandena](../storage/files/storage-files-planning.md) för Azure-filresurser.
 
 
 ## <a name="create-a-file-share"></a>Skapa en filresurs
 
-[Skapa en fil resurs](../storage/files/storage-how-to-create-file-share.md) i ett lagrings konto som är länkat till ditt batch-konto eller ett separat lagrings konto.
+[Skapa en filresurs](../storage/files/storage-how-to-create-file-share.md) i ett lagringskonto som är länkat till ditt Batch-konto eller i ett separat lagringskonto.
 
-## <a name="mount-a-share-on-a-windows-pool"></a>Montera en resurs på en Windows-pool
+## <a name="mount-a-share-on-a-windows-pool"></a>Montera en resurs i en Windows-pool
 
-Det här avsnittet innehåller steg och kod exempel för att montera och använda en Azure-filresurs på en pool med Windows-noder. Mer bakgrunds information finns i [dokumentationen](../storage/files/storage-how-to-use-files-windows.md) för att montera en Azure-filresurs i Windows. 
+Det här avsnittet innehåller steg och kodexempel för att montera och använda en Azure-filresurs på en pool med Windows-noder. Mer bakgrund finns i [dokumentationen](../storage/files/storage-how-to-use-files-windows.md) för montering av en Azure-filresurs i Windows. 
 
-I batch måste du montera resursen varje gång en aktivitet körs på en Windows-nod. För närvarande går det inte att spara nätverks anslutningen mellan aktiviteter på Windows-noder.
+I Batch måste du montera resursen varje gång en aktivitet körs på en Windows-nod. För närvarande går det inte att bevara nätverksanslutningen mellan aktiviteter på Windows-noder.
 
-Du kan till exempel lägga till ett `net use`-kommando för att montera fil resursen som en del av varje aktivitets kommando rad. Följande autentiseringsuppgifter krävs för att montera fil resursen:
+Inkludera till exempel `net use` ett kommando för att montera filresursen som en del av varje aktivitetskommandorad. För att montera filresursen behövs följande autentiseringsuppgifter:
 
-* **Användar namn**: azure\\\<storageaccountname\>, till exempel Azure\\*mystorageaccountname*
-* **Lösen ord**: \<StorageAccountKeyWhichEnds i = = >, till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Användarnamn**:\\\<AZURE storageaccountname\>,\\till exempel AZURE*mystorageaccountname*
+* **Lösenord** \<: StorageAccountKeyWhichEnds in==>, till exempel *XXXXXXXXXXXXXXXXX==*
 
-Följande kommando monterar en fil resurs *myfileshare* i lagrings kontot *mystorageaccountname* som *S:* enhet:
+Följande kommando monterar en filresurs *myfileshare* i lagringskontot *mystorageaccountname* som *S:* enhet:
 
 ```
 net use S: \\mystorageaccountname.file.core.windows.net\myfileshare /user:AZURE\mystorageaccountname XXXXXXXXXXXXXXXXXXXXX==
 ```
 
-För enkelhetens skull skickar exemplen dessa autentiseringsuppgifter direkt i texten. I praktiken rekommenderar vi starkt att du hanterar autentiseringsuppgifterna med miljövariabler, certifikat eller en lösning som Azure Key Vault.
+För enkelhetens skull skickar exemplen här autentiseringsuppgifterna direkt i text. I praktiken rekommenderar vi starkt att du hanterar autentiseringsuppgifterna med hjälp av miljövariabler, certifikat eller en lösning som Azure Key Vault.
 
-För att förenkla monterings åtgärden, kan du, om du vill, bevara autentiseringsuppgifterna för noderna. Sedan kan du montera resursen utan autentiseringsuppgifter. Utför följande två steg:
+För att förenkla monteringsåtgärden, kan du behålla autentiseringsuppgifterna på noderna. Sedan kan du montera resursen utan autentiseringsuppgifter. Utför följande två steg:
 
-1. Kör kommando rads verktyget `cmdkey` med en start uppgift i konfigurationen för poolen. Detta behåller autentiseringsuppgifterna på varje Windows-nod. Kommando raden start uppgift liknar:
+1. Kör `cmdkey` kommandoradsverktyget med en startuppgift i poolkonfigurationen. Detta kvarstår autentiseringsuppgifterna på varje Windows-nod. Kommandoraden Startaktivitet liknar:
 
    ```
    cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
    ```
 
-2. Montera resursen på varje nod som en del av varje aktivitet med hjälp av `net use`. Följande kommando rad för aktivitet monterar till exempel fil resursen som enheten *S:* . Detta kan följas av ett kommando eller skript som refererar till resursen. Cachelagrade autentiseringsuppgifter används i anropet till `net use`. Det här steget förutsätter att du använder samma användar identitet för de uppgifter som du använde i Start aktiviteten på poolen, vilket inte är lämpligt för alla scenarier.
+2. Montera resursen på varje nod som `net use`en del av varje uppgift med . Följande aktivitetskommandorad monterar till exempel filresursen som *S:-enheten.* Detta skulle följas av ett kommando eller skript som refererar till resursen. Cachelagrade autentiseringsuppgifter används `net use`i anropet till . Det här steget förutsätter att du använder samma användaridentitet för de uppgifter som du använde i startaktiviteten i poolen, vilket inte är lämpligt för alla scenarier.
 
    ```
    cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
    ```
 
-### <a name="c-example"></a>C#exempel
-I följande C# exempel visas hur du behåller autentiseringsuppgifterna för en Windows-pool med en start uppgift. Lagrings fil tjänstens namn och autentiseringsuppgifter för lagring skickas som definierade konstanter. Här körs start aktiviteten under en standard-(icke-administratör) automatiskt användar konto med pool-scope.
+### <a name="c-example"></a>C# exempel
+I följande C#-exempel visas hur du behåller autentiseringsuppgifterna i en Windows-pool med hjälp av en startuppgift. Lagringsfiltjänstnamnet och lagringsautentiseringsuppgifterna skickas som definierade konstanter. Här körs startaktiviteten under ett standardkonto (icke-administratör) med poolomfattning.
 
 ```csharp
 ...
@@ -101,7 +101,7 @@ pool.StartTask = new StartTask
 pool.Commit();
 ```
 
-När du har lagrat autentiseringsuppgifterna använder du åtgärds kommando raderna för att montera resursen och referera till resursen i Läs-eller Skriv åtgärder. Som ett grundläggande exempel använder aktivitets kommando raden i följande kodfragment kommandot `dir` för att visa filer i fil resursen. Se till att köra varje jobb aktivitet med samma [användar identitet](batch-user-accounts.md) som du använde för att köra start uppgiften i poolen. 
+När du har lagrat autentiseringsuppgifterna använder du aktivitetskommandoraderna för att montera resursen och referera till resursen i läs- eller skrivåtgärder. Som ett grundläggande exempel använder aktivitetskommandoraden i `dir` följande kodavsnitt kommandot för att lista filer i filresursen. Se till att köra varje jobbuppgift med samma [användaridentitet](batch-user-accounts.md) som du använde för att köra startaktiviteten i poolen. 
 
 ```csharp
 ...
@@ -117,32 +117,32 @@ tasks.Add(task);
 
 ## <a name="mount-a-share-on-a-linux-pool"></a>Montera en resurs på en Linux-pool
 
-Azure-filresurser kan monteras i Linux-distributioner med hjälp av [CIFS kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). I följande exempel visas hur du monterar en fil resurs i en pool med Ubuntu 16,04 LTS-datornoder. Om du använder en annan Linux-distribution är de allmänna stegen liknande, men Använd paket hanteraren som passar för distributionen. Mer information och ytterligare exempel finns i [använda Azure Files med Linux](../storage/files/storage-how-to-use-files-linux.md).
+Azure-filresurser kan monteras i Linux-distributioner med [cifs-kärnklienten](https://wiki.samba.org/index.php/LinuxCIFS). I följande exempel visas hur du monterar en filresurs på en pool med Ubuntu 16.04 LTS-beräkningsnoder. Om du använder en annan Linux-distribution är de allmänna stegen likartade, men använder pakethanteraren som är lämplig för distributionen. Mer information och ytterligare exempel finns i [Använda Azure-filer med Linux](../storage/files/storage-how-to-use-files-linux.md).
 
-Först, under en administratörs användar identitet, installerar du `cifs-utils`-paketet och skapar monterings punkten (till exempel */mnt/MyAzureFileShare*) i det lokala fil systemet. En mapp för en monterings punkt kan skapas var som helst i fil systemet, men det är en vanlig konvention för att skapa den under mappen `/mnt`. Se till att du inte skapar någon monterings punkt direkt på `/mnt` (på Ubuntu) eller `/mnt/resource` (på andra distributioner).
+Installera `cifs-utils` paketet under en administratörsanvändaridentitet och skapa monteringspunkten (till exempel */mnt/MyAzureFileShare)* i det lokala filsystemet. En mapp för en monteringspunkt kan skapas var som helst i filsystemet, men det är vanligt att skapa detta under `/mnt` mappen. Var noga med att inte `/mnt` skapa en monteringspunkt `/mnt/resource` direkt vid (på Ubuntu) eller (på andra distributioner).
 
 ```
 apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
 ```
 
-Kör sedan kommandot `mount` för att montera fil resursen och ange följande autentiseringsuppgifter:
+Kör sedan `mount` kommandot för att montera filresursen och ange följande autentiseringsuppgifter:
 
-* **Användar namn**: \<storageaccountname\>, till exempel *mystorageaccountname*
-* **Lösen ord**: \<StorageAccountKeyWhichEnds i = = >, till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Användarnamn:** \<storageaccountname\>, till exempel *mystorageaccountname*
+* **Lösenord** \<: StorageAccountKeyWhichEnds in==>, till exempel *XXXXXXXXXXXXXXXXX==*
 
-Följande kommando monterar en fil resurs *myfileshare* i lagrings kontot *mystorageaccountname* på */mnt/MyAzureFileShare*: 
+Följande kommando monterar en filresurs *myfileshare* i lagringskonto *mystorageaccountname* på */ mnt / MyAzureFileShare:* 
 
 ```
 mount -t cifs //mystorageaccountname.file.core.windows.net/myfileshare /mnt/MyAzureFileShare -o vers=3.0,username=mystorageaccountname,password=XXXXXXXXXXXXXXXXXXXXX==,dir_mode=0777,file_mode=0777,serverino && ls /mnt/MyAzureFileShare
 ```
 
-För enkelhetens skull skickar exemplen dessa autentiseringsuppgifter direkt i texten. I praktiken rekommenderar vi starkt att du hanterar autentiseringsuppgifterna med miljövariabler, certifikat eller en lösning som Azure Key Vault.
+För enkelhetens skull skickar exemplen här autentiseringsuppgifterna direkt i text. I praktiken rekommenderar vi starkt att du hanterar autentiseringsuppgifterna med hjälp av miljövariabler, certifikat eller en lösning som Azure Key Vault.
 
-I en Linux-pool kan du kombinera alla dessa steg i en enda start uppgift eller köra dem i ett skript. Kör aktiviteten starta som administratörs användare för poolen. Ange att start aktiviteten ska vänta tills den har slutförts innan du kör ytterligare aktiviteter på poolen som hänvisar till resursen.
+På en Linux-pool kan du kombinera alla dessa steg i en enda startuppgift eller köra dem i ett skript. Kör startuppgiften som administratörsanvändare i poolen. Ange att startuppgiften ska vänta på att slutföras innan du kör ytterligare aktiviteter i poolen som refererar till resursen.
 
-### <a name="python-example"></a>Python-exempel
+### <a name="python-example"></a>Python exempel
 
-Följande python-exempel visar hur du konfigurerar en Ubuntu-pool för att montera resursen i en start aktivitet. Monterings punkten, fil resursens slut punkt och autentiseringsuppgifterna för lagring skickas som definierade konstanter. Start aktiviteten körs under ett konto för automatiskt användar konto med pool-scope.
+Följande Python-exempel visar hur du konfigurerar en Ubuntu-pool för att montera resursen i en startaktivitet. Monteringspunkten, filresursslutpunkten och lagringsautentiseringsuppgifterna skickas som definierade konstanter. Startuppgiften körs under ett automatiskt användarkonto för administratörer med poolomfattning.
 
 ```python
 pool = batch.models.PoolAddParameter(
@@ -169,7 +169,7 @@ pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(pool)
 ```
 
-När du har monterat resursen och definierat ett jobb använder du resursen i aktivitets kommando raderna. Till exempel använder följande grundläggande kommando `ls` för att visa filer i fil resursen.
+När du har monterat resursen och definierat ett jobb använder du resursen i aktivitetskommandoraderna. Följande grundläggande kommando används `ls` till exempel för att lista filer i filresursen.
 
 ```python
 ...
@@ -183,6 +183,6 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Andra alternativ för att läsa och skriva data i batch finns i [Översikt över batch-funktionen](batch-api-basics.md) och [Spara jobb-och Uppgiftsutdata](batch-task-output.md).
+* Andra alternativ för att läsa och skriva data i Batch finns i [översikten för funktionen Batch](batch-api-basics.md) och [Beständiga jobb- och aktivitetsutdata](batch-task-output.md).
 
-* Se även [batch Shipyard](https://github.com/Azure/batch-shipyard) Toolkit, som innehåller [Shipyard-recept](https://github.com/Azure/batch-shipyard/tree/master/recipes) för att distribuera fil system för arbets belastningar för batch-behållare.
+* Se även [batchvarvsverktygslådan,](https://github.com/Azure/batch-shipyard) som innehåller [Varvsrecept](https://github.com/Azure/batch-shipyard/tree/master/recipes) för att distribuera filsystem för batchcontainerarbetsbelastningar.

@@ -1,6 +1,6 @@
 ---
-title: Identifiera inbyggd brand vägg för hanterad instans
-description: Lär dig hur du verifierar det inbyggda brand Väggs skyddet i Azure SQL Database Hanterad instans.
+title: Upptäck inbyggd brandvägg för hanterade instanser
+description: Lär dig hur du verifierar inbyggt brandväggsskydd i Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,22 +12,22 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
 ms.openlocfilehash: 555ef56aafa37a1e1d384f945b04f9237adc5f7d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73821806"
 ---
-# <a name="verifying-the-managed-instance-built-in-firewall"></a>Verifiera den inbyggda brand väggen för den hanterade instansen
+# <a name="verifying-the-managed-instance-built-in-firewall"></a>Kontrollera den inbyggda brandväggen i Managed Instance
 
-De [obligatoriska inkommande säkerhets reglerna](sql-database-managed-instance-connectivity-architecture.md#mandatory-inbound-security-rules) för den hanterade instansen kräver att hanterings portarna 9000, 9003, 1438, 1440, 1452 kan öppnas från **vilken källa som helst** i nätverks säkerhets gruppen (NSG) som skyddar den hanterade instansen. Även om dessa portar är öppna på NSG-nivån, skyddas de på nätverks nivå av den inbyggda brand väggen.
+De obligatoriska reglerna för [den hanterade](sql-database-managed-instance-connectivity-architecture.md#mandatory-inbound-security-rules) instansen kräver att hanteringsportar 9000, 9003, 1438, 1440, 1452 är öppna från valfri **källa** i NSG (Network Security Group) som skyddar den hanterade instansen. Även om dessa portar är öppna på NSG-nivå skyddas de på nätverksnivå av den inbyggda brandväggen.
 
-## <a name="verify-firewall"></a>Verifiera brand väggen
+## <a name="verify-firewall"></a>Verifiera brandvägg
 
-Verifiera portarna genom att använda ett säkerhets skanner verktyg för att testa portarna. Följande skärm bild visar hur du använder något av dessa verktyg.
+Om du vill verifiera dessa portar använder du alla säkerhetsskannerverktyg för att testa dessa portar. Följande skärmbild visar hur du använder något av dessa verktyg.
 
-![Verifiera inbyggd brand vägg](./media/sql-database-managed-instance-management-endpoint/03_verify_firewall.png)
+![Verifiera inbyggd brandvägg](./media/sql-database-managed-instance-management-endpoint/03_verify_firewall.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hanterade instanser och anslutningar finns [Azure SQL Database arkitektur för hanterad instans anslutning](sql-database-managed-instance-connectivity-architecture.md).
+Mer information om hanterade instanser och anslutning finns i [Azure SQL Database Managed Instance Connectivity Architecture](sql-database-managed-instance-connectivity-architecture.md).

@@ -1,7 +1,7 @@
 ---
-title: Anpassa webbläsare & webviews (MSAL iOS/macOS) | Azure
+title: Anpassa webbläsare & WebViews (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du anpassar MSAL iOS/macOS Browser-upplevelse för att logga in användare.
+description: Läs om hur du anpassar webbläsarupplevelsen MSAL iOS/macOS för att logga in användare.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,17 +14,17 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: 759f61860c62bcb668db6844df28c52fa28eac80
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085901"
 ---
-# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Gör så här: anpassa webbläsare och webbvy för iOS/macOS
+# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Så här anpassar du webbläsare och WebViews för iOS/macOS
 
-En webbläsare krävs för interaktiv autentisering. I iOS använder Microsoft Authentication Library (MSAL) systemets webbläsare som standard (som kan visas ovanpå appen) för att göra interaktiva autentisering att logga in användare. Med hjälp av system webbläsaren kan du dela läget för enkel inloggning (SSO) med andra program och med webb program.
+En webbläsare krävs för interaktiv autentisering. På iOS använder Microsoft Authentication Library (MSAL) systemwebbläsaren som standard (som kan visas ovanpå appen) för att göra interaktiv autentisering för att logga in användare. Använda systemet webbläsaren har fördelen av att dela single sign on (SSO) tillstånd med andra program och med webbapplikationer.
 
-Du kan ändra upplevelsen genom att anpassa konfigurationen till andra alternativ för att Visa webb innehåll, till exempel:
+Du kan ändra upplevelsen genom att anpassa konfigurationen till andra alternativ för att visa webbinnehåll, till exempel:
 
 Endast för iOS:
 
@@ -36,46 +36,46 @@ För iOS och macOS:
 
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-MSAL för macOS stöder bara `WKWebView`.
+MSAL för macOS `WKWebView`stöder bara .
 
-## <a name="system-browsers"></a>System webbläsare
+## <a name="system-browsers"></a>Systemwebbläsare
 
-För iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession`och `SFSafariViewController` betraktas som system webbläsare. I allmänhet delar system webbläsare cookies och andra webbplats data med webb programmet Safari.
+För `ASWebAuthenticationSession`iOS, `SFAuthenticationSession`, `SFSafariViewController` och betraktas som systemwebbläsare. I allmänhet delar systemwebbläsare cookies och andra webbplatsdata med webbläsaren Safari.
 
-Som standard kommer MSAL att identifiera iOS-versionen dynamiskt och välja den rekommenderade system webbläsaren som är tillgänglig i den versionen. På iOS 12 + kommer det att `ASWebAuthenticationSession`. 
+Som standard identifierar MSAL iOS-versionen dynamiskt och väljer den rekommenderade systembläddraren som är tillgänglig på den versionen. På iOS 12+ `ASWebAuthenticationSession`blir det . 
 
 | Version | Webbläsare |
 |:-------------:|:-------------:|
-| iOS 12 + | ASWebAuthenticationSession |
+| iOS 12+ | ASWebAuthenticationSession |
 | iOS 11 | SFAuthenticationSession |
 | iOS 10 | SFSafariViewController |
 
-Utvecklare kan också välja en annan system webbläsare för MSAL-appar:
+Utvecklare kan också välja en annan systemwebbläsare för MSAL-appar:
 
-- `SFAuthenticationSession` är iOS 11-versionen av `ASWebAuthenticationSession`.
-- `SFSafariViewController` är mer generella och innehåller ett gränssnitt för att surfa på webben och kan även användas för inloggnings ändamål. I iOS 9 och 10 delas cookies och andra webbplats data med Safari – men inte i iOS 11 och senare.
+- `SFAuthenticationSession`är iOS 11-versionen av `ASWebAuthenticationSession`.
+- `SFSafariViewController`är mer allmänt ändamål och ger ett gränssnitt för att surfa på webben och kan användas för inloggningsändamål också. I iOS 9 och 10 delas cookies och andra webbplatsdata med Safari – men inte i iOS 11 och senare.
 
-## <a name="in-app-browser"></a>Webbläsare i app
+## <a name="in-app-browser"></a>Webbläsare i appen
 
-[WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) är en webbläsare i appen som visar webb innehåll. Den delar inte ut cookies eller webbplats data med andra **WKWebView** -instanser eller med Safari-webbläsaren. WKWebView är en plattforms oberoende webbläsare som är tillgänglig för både iOS och macOS.
+[WKWebView](https://developer.apple.com/documentation/webkit/wkwebview) är en webbläsare i appen som visar webbinnehåll. Den delar inte cookies eller webbplatsdata med andra **WKWebView-instanser** eller med webbläsaren Safari. WKWebView är en plattformsoberoende webbläsare som är tillgänglig för både iOS och macOS.
 
-## <a name="cookie-sharing-and-single-sign-on-sso-implications"></a>Effekter för cookie-delning och enkel inloggning (SSO)
+## <a name="cookie-sharing-and-single-sign-on-sso-implications"></a>Konsekvenser för cookie-delning och enkel inloggning
 
-Den webbläsare du använder påverkar SSO-upplevelsen på grund av hur de delar cookies. I följande tabeller sammanfattas SSO-upplevelser per webbläsare.
+Webbläsaren du använder påverkar SSO-upplevelsen på grund av hur de delar cookies. Följande tabeller sammanfattar SSO-upplevelserna per webbläsare.
 
-| Teknik    | Typ av webbläsare  | tillgänglighet för iOS | macOS-tillgänglighet | Delar cookies och andra data  | MSAL tillgänglighet | SSO |
+| Teknologi    | Typ av webbläsare  | iOS-tillgänglighet | macOS-tillgänglighet | Delar cookies och andra data  | MSAL-tillgänglighet | Enkel inloggning |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 och upp | macOS 10,15 och uppåt | Ja | endast iOS | b/Safari-instanser
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 och upp | SAKNAS | Ja | endast iOS |  b/Safari-instanser
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och upp | SAKNAS | Nej | endast iOS | Nej * *
-| **SFSafariViewController** | System | iOS10 | SAKNAS | Ja | endast iOS |  b/Safari-instanser
-| **WKWebView**  | In-app | iOS8 och upp | macOS 10,10 och uppåt | Nej | iOS och macOS | Nej * *
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 och uppåt | macOS 10,15 och uppåt | Ja | enbart iOS | w/ Safari-instanser
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 och uppåt | Ej tillämpligt | Ja | enbart iOS |  w/ Safari-instanser
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | System | iOS11 och uppåt | Ej tillämpligt | Inga | enbart iOS | Nej**
+| **SFSafariViewController** | System | iOS10 | Ej tillämpligt | Ja | enbart iOS |  w/ Safari-instanser
+| **WKWebView (WKWebView)**  | I appen | iOS8 och uppåt | macOS 10,10 och uppåt | Inga | iOS och macOS | Nej**
 
-\* * För att SSO ska fungera måste tokens delas mellan appar. Detta kräver ett token-cache-eller Broker-program, till exempel Microsoft Authenticator för iOS.
+** För att SSO ska fungera måste token delas mellan appar. Detta kräver en tokencache eller ett mäklarprogram, till exempel Microsoft Authenticator för iOS.
 
-## <a name="change-the-default-browser-for-the-request"></a>Ändra standard webbläsare för begäran
+## <a name="change-the-default-browser-for-the-request"></a>Ändra standardwebbläsaren för begäran
 
-Du kan använda en webbläsare i appen eller en speciell system webbläsare, beroende på dina UX-krav, genom att ändra följande egenskap i `MSALWebviewParameters`:
+Du kan använda en webbläsare i appen, eller en specifik systemwebbläsare beroende `MSALWebviewParameters`på dina ux-krav, genom att ändra följande egenskap i:
 
 ```objc
 @property (nonatomic) MSALWebviewType webviewType;
@@ -83,11 +83,11 @@ Du kan använda en webbläsare i appen eller en speciell system webbläsare, ber
 
 ## <a name="change-per-interactive-request"></a>Ändra per interaktiv begäran
 
-Varje begäran kan konfigureras för att åsidosätta standard webbläsaren genom att ändra `MSALInteractiveTokenParameters.webviewParameters.webviewType` egenskap innan du skickar den till `acquireTokenWithParameters:completionBlock:`-API: et.
+Varje begäran kan konfigureras för att åsidosätta standardwebbläsaren genom att ändra egenskapen innan den `MSALInteractiveTokenParameters.webviewParameters.webviewType` skickas till API:et. `acquireTokenWithParameters:completionBlock:`
 
-Dessutom stöder MSAL överföring i en anpassad `WKWebView` genom att ange egenskapen `MSALInteractiveTokenParameters.webviewParameters.customWebView`.
+Dessutom stöder MSAL att skicka `WKWebView` in `MSALInteractiveTokenParameters.webviewParameters.customWebView` en anpassad genom att ange egenskapen.
 
-Exempel:
+Ett exempel:
 
 Objective-C
 ```objc
@@ -112,7 +112,7 @@ let interactiveParameters = MSALInteractiveTokenParameters(scopes: ["myscope"], 
 app.acquireToken(with: interactiveParameters, completionBlock: completionBlock)
 ```
 
-Om du använder en anpassad webbvy används meddelanden för att ange status för det webb innehåll som visas, till exempel:
+Om du använder en anpassad webbvy används meddelanden för att ange status för webbinnehållet som visas, till exempel:
 
 ```objc
 /*! Fired at the start of a resource load in the webview. The URL of the load, if available, will be in the @"url" key in the userInfo dictionary */
@@ -133,7 +133,7 @@ extern NSString *MSALWebAuthWillSwitchToBrokerApp;
 
 ### <a name="options"></a>Alternativ
 
-Alla webb läsar typer som stöds av MSAL deklareras i [MSALWebviewType-uppräkningen](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALDefinitions.h#L47)
+Alla webbläsartyper som stöds av MSAL deklareras i [MSALWebviewType-uppräkningen](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALDefinitions.h#L47)
 
 ```objc
 typedef NS_ENUM(NSInteger, MSALWebviewType)
@@ -159,4 +159,4 @@ typedef NS_ENUM(NSInteger, MSALWebviewType)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md)
+Läs mer om [autentiseringsflöden och programscenarier](authentication-flows-app-scenarios.md)

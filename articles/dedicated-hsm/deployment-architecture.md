@@ -1,6 +1,6 @@
 ---
-title: Distributionsarkitektur – Azure dedikerad HSM | Microsoft Docs
-description: Grundläggande designaspekter när du använder Azure dedikerad HSM som en del av en programarkitektur
+title: Distributionsarkitektur – Azure Dedikerad HSM | Microsoft-dokument
+description: Grundläggande designöverväganden när du använder Azure Dedicated HSM som en del av en programarkitektur
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
 ms.openlocfilehash: 89e3bf95a6b048e5e97cfb151ef9302b70eac1c9
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77048552"
 ---
 # <a name="azure-dedicated-hsm-deployment-architecture"></a>Distributionsarkitektur för Azure Dedicated HSM
 
-Azure dedikerad HSM tillhandahåller lagring av kryptografiska nycklar i Azure. Den uppfyller stränga säkerhetskrav. Kunderna kommer ha nytta av Azure dedikerad HSM om de:
+Azure Dedicated HSM tillhandahåller kryptografisk nyckellagring i Azure. Den uppfyller stränga säkerhetskrav. Kunderna kommer att dra nytta av att använda Azure Dedicated HSM om de:
 
-* Måste uppfylla FIPS 140-2 Level 3-certifiering
-* Kräv att de har exklusiv åtkomst till HSM
-* ha fullständig kontroll över sina enheter
+* Måste uppfylla FIPS 140-2 Nivå 3-certifiering
+* Kräv att de har exklusiv tillgång till HSM
+* bör ha fullständig kontroll över sina enheter
 
-HSM: erna är fördelade på Microsofts datacenter och enkelt kan etableras som par av enheter som bas för en lösning med hög tillgänglighet. De kan också distribueras i flera regioner för en flexibel lösning för haveriberedskap. Det finns för närvarande regioner med dedikerad HSM som är tillgängliga:
+HSM:erna distribueras över Microsofts datacenter och kan enkelt etableras som ett par enheter som grund för en lösning med hög tillgänglighet. De kan också distribueras över regioner för en katastroftålig lösning. De regioner med dedikerad HSM som är tillgängliga för närvarande är:
 
 * USA, östra
 * USA, östra 2
@@ -48,26 +48,26 @@ HSM: erna är fördelade på Microsofts datacenter och enkelt kan etableras som 
 * Australien, östra
 * Australien, sydöstra
 
-Var och en av dessa regioner har HSM rack som distribueras i två oberoende Datacenter eller minst två oberoende tillgänglighetszoner. Sydostasien har tre tillgänglighetszoner och östra USA 2 har två. Det finns totalt åtta regioner i Europa, östra och USA som erbjuder dedikerad HSM-tjänst. Mer information om Azure-regioner finns i informationen om officiella [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
-Vissa design faktorer för alla dedikerad HSM-baserade lösningar är plats/fördröjning och hög tillgänglighet och stöd för andra distribuerade program.
+Var och en av dessa regioner har HSM-rack distribuerade i antingen två oberoende datacenter eller minst två oberoende tillgänglighetszoner. Sydostasien har tre tillgänglighetszoner och Östra USA 2 har två. Det finns totalt åtta regioner i Europa, Asien och USA som erbjuder dedikerad HSM-tjänsten. Mer information om Azure-regioner finns i den officiella [Azure-regionsinformationen](https://azure.microsoft.com/global-infrastructure/regions/).
+Vissa designfaktorer för alla dedikerade HSM-baserade lösningar är plats/svarstid, hög tillgänglighet och stöd för andra distribuerade program.
 
 ## <a name="device-location"></a>Enhetsplats
 
-Optimal HSM enhetsplats är närmast till de program som utför kryptografiska åtgärder. Regional svarstid förväntas vara ensiffriga millisekunder. Interregionala svarstid kan vara 5 till 10 gånger högre än så.
+Optimal HSM-enhetsplats är i närheten av de program som utför kryptografiska åtgärder. Svarstiden i regionen förväntas vara ensiffriga millisekunder. Svarstiden mellan regioner kan vara 5 till 10 gånger högre än så.
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 
-För att uppnå hög tillgänglighet, måste en kund använder två HSM-enheter i en region som är konfigurerade med Gemalto programvara som par med hög tillgänglighet. Den här typen av distribution säkerställer tillgängligheten för nycklar om ett problem som hindrar den från att bearbeta viktiga aktiviteter inträffar i en enskild enhet. Det minskar också avsevärt risken när Underhåll webbsupport, till exempel power strömförsörjning ersättning. Det är viktigt för en design att kompensera för alla typer av regionala på fel. Regionala på fel kan inträffa om det finns naturkatastrofer som orkaner, översvämningar eller jordbävningar. Dessa typer av händelser bör undvikas genom att etablera HSM-enheter i en annan region. Enheter som distribueras i en annan region kan kopplas ihop via Gemalto programvarukonfiguration. Detta innebär att minsta distribution för hög tillgänglighet och katastrofåterställning flexibel lösning är fyra HSM-enheter mellan två regioner. Lokal redundans och redundans i flera regioner kan användas som utgångspunkt för att lägga till ytterligare HSM enheten distributioner för svarstid, kapacitet och uppfyller andra programspecifika krav.
+För att uppnå hög tillgänglighet måste en kund använda två HSM-enheter i en region som är konfigurerade med Gemalto-programvaran som ett par med hög tillgänglighet. Den här typen av distribution säkerställer tillgängligheten för nycklar om en enda enhet uppstår ett problem som hindrar den från att bearbeta nyckelåtgärder. Det minskar också avsevärt risken vid avbrott/fix underhåll såsom byte av strömförsörjning. Det är viktigt att en design står för alla former av regionala nivå misslyckande. Regionala nivå misslyckanden kan hända när det finns naturkatastrofer som orkaner, översvämningar eller jordbävningar. Dessa typer av händelser bör minskas genom att etablera HSM-enheter i en annan region. Enheter som distribueras i en annan region kan paras ihop via Gemaltos programvarukonfiguration. Det innebär att minsta möjliga distribution för en högtillgänglig och katastroftålig lösning är fyra HSM-enheter i två regioner. Lokal redundans och redundans mellan regioner kan användas som en baslinje för att lägga till ytterligare HSM-enhetsdistributioner för att stödja svarstid, kapacitet eller för att uppfylla andra programspecifika krav.
 
-## <a name="distributed-application-support"></a>Distribuerade programstöd
+## <a name="distributed-application-support"></a>Stöd för distribuerade program
 
-Dedikerad HSM enheter distribueras vanligen till stöd för program som behöver utföra lagring och hämtning av viktiga åtgärder. Dedikerad HSM-enheter har 10 partitioner för oberoende. Enhetsplats ska baseras på en praktisk vy över alla program som behöver använda tjänsten.
+Dedikerade HSM-enheter distribueras vanligtvis till stöd för program som behöver utföra nyckellagring och nyckelhämtningsåtgärder. Dedikerade HSM-enheter har 10 partitioner för oberoende programstöd. Enhetens plats bör baseras på en helhetssyn på alla program som behöver använda tjänsten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-De flesta konfigurationsaktiviteter att implementera den arkitekturen kommer att tillhandahållas av Gemalto när distributionsarkitektur bestäms. Detta inkluderar enhetskonfiguration samt program integrationsscenarier. Om du vill ha mer information kan du använda [Gemalto kund support](https://supportportal.gemalto.com/csm/) Portal och hämta administrations-och konfigurations guider. Microsoft partner-webbplats har en mängd olika integreringsguiderna.
-Vi rekommenderar att alla nyckelbegreppen för tjänst, till exempel hög tillgänglighet och säkerhet till exempel är väl förstådda innan enhetsetablering eller programmets design och distribution.
-Ytterligare konceptet på ämnen:
+När distributionsarkitekturen har bestämts kommer de flesta konfigurationsaktiviteter för att implementera den arkitekturen att tillhandahållas av Gemalto. Detta inkluderar enhetskonfiguration samt scenarier för programintegrering. Mer information finns i [Gemaltos kundsupportportal](https://supportportal.gemalto.com/csm/) och hämta administrations- och konfigurationsguider. Microsofts partnerwebbplats har en mängd olika integrationsguider.
+Vi rekommenderar att alla viktiga begrepp för tjänsten, till exempel hög tillgänglighet och säkerhet, är väl förstådda innan enhetsetablering eller programdesign och distribution.
+Ytterligare begreppsnivå ämnen:
 
 * [Hög tillgänglighet](high-availability.md)
 * [Fysisk säkerhet](physical-security.md)

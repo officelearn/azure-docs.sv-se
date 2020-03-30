@@ -1,7 +1,7 @@
 ---
 title: Hantera webbtjänster
 titleSuffix: ML Studio (classic) - Azure
-description: Hantera dina Machine Learning nya och klassiska webb tjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom de klassiska webb tjänsterna och de nya webb tjänsterna baseras på olika underliggande tekniker, har du något annat hanterings möjligheter för var och en av dem.
+description: Hantera dina machine learning nya och klassiska webbtjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya webbtjänster baseras på olika underliggande tekniker har du lite olika hanteringsfunktioner för var och en av dem.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,149 +11,149 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
 ms.openlocfilehash: 2277aa3de5955efe5a3e4cb938fa557352f89006
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217962"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Hantera en webb tjänst med hjälp av webb tjänst portalen Azure Machine Learning Studio (klassisk)
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Hantera en webbtjänst med azure machine learning studio-portalen (klassisk) Web Services
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Du kan hantera dina Machine Learning nya och klassiska webb tjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom de klassiska webb tjänsterna och de nya webb tjänsterna baseras på olika underliggande tekniker, har du något annat hanterings möjligheter för var och en av dem.
+Du kan hantera dina machine learning nya och klassiska webbtjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya webbtjänster baseras på olika underliggande tekniker har du lite olika hanteringsfunktioner för var och en av dem.
 
-I Machine Learning Web Services-portalen kan du:
+I portalen Machine Learning Web Services kan du:
 
-* Övervaka hur webb tjänsten används.
-* Konfigurera beskrivningen, uppdatera nycklarna för webb tjänsten (endast ny), uppdatera din lagrings konto nyckel (endast ny), aktivera loggning och aktivera eller inaktivera exempel data.
-* Ta bort webb tjänsten.
-* Skapa, ta bort eller uppdatera fakturerings planer (endast nya).
-* Lägga till och ta bort slut punkter (endast klassiskt)
+* Övervaka hur webbtjänsten används.
+* Konfigurera beskrivningen, uppdatera nycklarna för webbtjänsten (endast ny), uppdatera din lagringskontonyckel (endast ny), aktivera loggning och aktivera eller inaktivera exempeldata.
+* Ta bort webbtjänsten.
+* Skapa, ta bort eller uppdatera faktureringsplaner (endast nytt).
+* Lägga till och ta bort slutpunkter (endast klassiskt)
 
 >[!NOTE]
->Du kan också hantera klassiska webb tjänster i [Machine Learning Studio (klassisk)](https://studio.azureml.net) på fliken **webb tjänster** .
+>Du kan också hantera klassiska webbtjänster i [Machine Learning Studio (klassiskt)](https://studio.azureml.net) på fliken **Webbtjänster.**
 
-## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Behörigheter för att hantera nya resurs hanterarens baserade webb tjänster
+## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>Behörigheter för att hantera Nya Resurser Manager-baserade webbtjänster
 
-Nya webb tjänster distribueras som Azure-resurser. Därför måste du ha rätt behörighet för att distribuera och hantera nya webb tjänster.  Om du vill distribuera eller hantera nya webb tjänster måste du tilldelas rollen deltagare eller administratör för den prenumeration som webb tjänsten har distribuerats till. Om du bjuder in en annan användare till en Machine Learning-arbetsyta måste du tilldela dem till en deltagare eller administratörs roll i prenumerationen innan de kan distribuera eller hantera webb tjänster. 
+Nya webbtjänster distribueras som Azure-resurser. Därför måste du ha rätt behörighet för att distribuera och hantera nya webbtjänster.  Om du vill distribuera eller hantera nya webbtjänster måste du tilldelas en deltagar- eller administratörsroll på den prenumeration som webbtjänsten distribueras till. Om du bjuder in en annan användare till en maskininlärningsarbetsyta måste du tilldela dem till en deltagarroll eller administratörsroll i prenumerationen innan de kan distribuera eller hantera webbtjänster. 
 
-Om användaren inte har rätt behörighet för att komma åt resurser i Azure Machine Learning Web Services-portalen, får de följande fel meddelande när du försöker distribuera en webb tjänst:
+Om användaren inte har rätt behörighet att komma åt resurser i Azure Machine Learning Web Services-portalen visas följande fel när de försöker distribuera en webbtjänst:
 
-*Webb tjänst distributionen misslyckades. Det här kontot har inte tillräcklig åtkomst till den Azure-prenumeration som innehåller arbets ytan. För att kunna distribuera en webb tjänst till Azure måste samma konto bjudas in till arbets ytan och ges åtkomst till den Azure-prenumeration som innehåller arbets ytan.*
+*Webbtjänstdistributionen misslyckades. Det här kontot har inte tillräcklig åtkomst till Azure-prenumerationen som innehåller arbetsytan. För att distribuera en webbtjänst till Azure måste samma konto bjudas in till arbetsytan och få åtkomst till Azure-prenumerationen som innehåller arbetsytan.*
 
-Mer information om hur du skapar en arbets yta finns i [skapa och dela en Azure Machine Learning Studio (klassisk)-arbets yta](create-workspace.md).
+Mer information om hur du skapar en arbetsyta finns i [Skapa och dela en arbetsyta för Azure Machine Learning Studio (klassiskt).](create-workspace.md)
 
-Mer information om hur du ställer in åtkomst behörighet finns i [Hantera åtkomst med RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Mer information om hur du anger åtkomstbehörigheter finns i [Hantera åtkomst med RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 
-## <a name="manage-new-web-services"></a>Hantera nya webb tjänster
-Så här hanterar du dina nya webb tjänster:
+## <a name="manage-new-web-services"></a>Hantera nya webbtjänster
+Så här hanterar du dina nya webbtjänster:
 
-1. Logga in på [Microsoft Azure Machine Learning Web Services-](https://services.azureml.net/quickstart) portalen med ditt Microsoft Azure-konto – Använd det konto som är associerat med Azure-prenumerationen.
-2. På menyn klickar du på **webb tjänster**.
+1. Logga in på [Microsoft Azure Machine Learning Web Services-portalen](https://services.azureml.net/quickstart) med ditt Microsoft Azure-konto – använd kontot som är kopplat till Azure-prenumerationen.
+2. Klicka på **Webbtjänster**på menyn .
 
-Visar en lista över distribuerade webb tjänster för din prenumeration. 
+Då visas en lista över distribuerade webbtjänster för din prenumeration. 
 
-Klicka på webb tjänster för att hantera en webb tjänst. På sidan webb tjänster kan du:
+Om du vill hantera en webbtjänst klickar du på Webbtjänster. På sidan Webbtjänster kan du:
 
-* Klicka på webb tjänsten för att hantera den.
-* Klicka på fakturerings planen för webb tjänsten för att uppdatera den.
-* Ta bort en webb tjänst.
-* Kopiera en webb tjänst och distribuera den till en annan region.
+* Klicka på webbtjänsten för att hantera den.
+* Klicka på webbtjänstens faktureringsplan för att uppdatera den.
+* Ta bort en webbtjänst.
+* Kopiera en webbtjänst och distribuera den till en annan region.
 
-När du klickar på en webb tjänst öppnas sidan snabb start för webb tjänst. Webb tjänstens snabb starts sida har två meny alternativ som gör att du kan hantera din webb tjänst:
+När du klickar på en webbtjänst öppnas snabbstartssidan för webbtjänsten. Snabbstartssidan för webbtjänsten har två menyalternativ som gör att du kan hantera webbtjänsten:
 
-* **Instrument panel** – gör att du kan visa webb tjänst användning.
-* **Konfigurera** – tillåter att du lägger till beskrivande text, uppdaterar nyckeln för lagrings kontot som är kopplat till webb tjänsten och aktiverar eller inaktiverar exempel data.
+* **DASHBOARD** - Gör att du kan visa användning av webbtjänster.
+* **CONFIGURE** - Gör att du kan lägga till beskrivande text, uppdatera nyckeln för lagringskontot som är associerat med webbtjänsten och aktivera eller inaktivera exempeldata.
 
-### <a name="monitoring-how-the-web-service-is-being-used"></a>Övervaka hur webb tjänsten används
-Klicka på fliken **instrument panel** .
+### <a name="monitoring-how-the-web-service-is-being-used"></a>Övervaka hur webbtjänsten används
+Klicka på fliken **DASHBOARD.**
 
-På instrument panelen kan du Visa den övergripande användningen av din webb tjänst under en viss tids period. Du kan välja den period som du vill visa i list rutan period längst upp till höger i användnings diagrammen. Instrument panelen visar följande information:
+Från instrumentpanelen kan du visa den övergripande användningen av webbtjänsten under en viss tidsperiod. Du kan välja den period som du vill visa från listrutan Period längst upp till höger i användningsdiagrammen. Instrumentpanelen visar följande information:
 
-* **Begär anden över tid** visar ett steg diagram över antalet begär Anden under den valda tids perioden. Det kan hjälpa dig att identifiera om du får toppar i användning.
-* **Begäran-svars förfrågningar** visar det totala antalet anrop för begäran som tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
-* **Genomsnittlig beräknings tid för begäran-svar** visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
-* **Batch-begäranden** visar det totala antalet batch-begäranden som tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
-* **Genomsnittlig jobb svars** tid visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
-* **Fel** visar det sammanlagda antalet fel som har inträffat på anrop till webb tjänsten.
-* **Tjänste kostnader** visar avgifterna för den fakturerings plan som är associerad med tjänsten.
+* **Begäranden över tid** visar ett stegdiagram över antalet begäranden under den valda tidsperioden. Det kan hjälpa till att identifiera om du upplever toppar i användning.
+* **Begärandens begäranden** visar det totala antalet begäranden-svar-samtal som tjänsten har tagit emot under den valda tidsperioden och hur många av dem som misslyckades.
+* **Genomsnittlig beräkningstid för begäran-svar** visar ett genomsnitt av den tid som krävs för att köra de mottagna begärandena.
+* **Batchbegäranden** visar det totala antalet batchbegäranden som tjänsten har tagit emot under den valda tidsperioden och hur många av dem som misslyckades.
+* **Genomsnittlig jobbfördröjning** visar ett genomsnitt av den tid som krävs för att köra de mottagna begärandena.
+* **Fel** visar det sammanlagda antalet fel som har uppstått vid anrop till webbtjänsten.
+* **Servicekostnader** visar avgifterna för faktureringsplanen som är kopplad till tjänsten.
 
-### <a name="configuring-the-web-service"></a>Konfigurera webb tjänsten
-Klicka på meny alternativet **Konfigurera** .
+### <a name="configuring-the-web-service"></a>Konfigurera webbtjänsten
+Klicka **CONFIGURE** på alternativet KONFIGURERA-menyn.
 
 Du kan uppdatera följande egenskaper:
 
-* Med **Beskrivning** kan du ange en beskrivning av webb tjänsten.
-* Med **rubrik** kan du ange en titel för webb tjänsten
-* Med **nycklar** kan du rotera dina primära och sekundära API-nycklar.
-* Med **lagrings konto nyckeln** kan du uppdatera nyckeln för lagrings kontot som är kopplat till webb tjänstens ändringar. 
-* Med **exempel data** kan du tillhandahålla exempel data som du kan använda för att testa tjänsten Request-Response. Om du har skapat webb tjänsten i Machine Learning Studio (klassisk) hämtas exempel data från de data som används för att träna din modell. Om du skapade tjänsten program mässigt hämtas data från de exempel data som du angav som en del av JSON-paketet.
+* **Med beskrivningen** kan du ange en beskrivning av webbtjänsten.
+* **Med titeln** kan du ange en rubrik för webbtjänsten
+* **Med tangenter** kan du rotera primära och sekundära API-nycklar.
+* Med **lagringskontonyckeln** kan du uppdatera nyckeln för lagringskontot som är kopplat till webbtjänständringarna. 
+* **Med Aktivera exempeldata** kan du tillhandahålla exempeldata som du kan använda för att testa tjänsten Begäran-svar. Om du har skapat webbtjänsten i Machine Learning Studio (klassisk) hämtas exempeldata från de data som du använde för att träna din modell. Om du skapade tjänsten programmässigt hämtas data från exempeldata som du angav som en del av JSON-paketet.
 
-### <a name="managing-billing-plans"></a>Hantera fakturerings planer
-Klicka på meny alternativet **planer** på snabb starts sidan för webb tjänster. Du kan också klicka på den plan som är kopplad till en speciell webb tjänst för att hantera planen.
+### <a name="managing-billing-plans"></a>Hantera faktureringsplaner
+Klicka på menyalternativet **Planer** på snabbstartssidan för webbtjänster. Du kan också klicka på planen som är associerad med en viss webbtjänst för att hantera den planen.
 
-* Med **nytt** kan du skapa en ny plan.
-* Med **Lägg till/ta bort plan-instans** kan du skala ut en befintlig plan för att lägga till kapacitet.
-* Med **uppgradering/nedgradering** kan du skala upp en befintlig plan för att lägga till kapacitet.
-* Med **ta bort** kan du ta bort en plan.
+* **Med** nya nyheter kan du skapa en ny plan.
+* **Lägg till/ta bort plan-instansen** kan du "skala ut" en befintlig plan för att lägga till kapacitet.
+* **Uppgradera/nedgradera** kan du "skala upp" en befintlig plan för att lägga till kapacitet.
+* **Ta bort** kan du ta bort en plan.
 
-Klicka på en plan om du vill visa dess instrument panel. Instrument panelen ger dig ögonblicks bilder eller planerar användning under en vald tids period. Välj den tids period som du vill visa genom att klicka på list rutan **period** längst upp till höger i instrument panelen. 
+Klicka på en plan för att visa instrumentpanelen. Instrumentpanelen ger dig ögonblicksbild eller planera användning under en vald tidsperiod. Om du vill välja den tidsperiod som ska visas klickar du på listrutan **Period** längst upp till höger på instrumentpanelen. 
 
-Plan-instrumentpanelen innehåller följande information:
+Instrumentpanelen för planen innehåller följande information:
 
-* I **plan beskrivningen** visas information om kostnaderna och kapaciteten som är kopplade till planen.
-* **Plan användning** visar antalet transaktioner och beräknings timmar som har debiterats för planen.
-* **Webb tjänster** visar antalet webb tjänster som använder den här planen.
-* **Främsta webb tjänster per anrop** visar de fyra viktigaste webb tjänsterna som gör samtal som debiteras mot planen.
-* De **främsta webb tjänsterna per beräkning i timmar** visar de fyra viktigaste webb tjänsterna som använder beräknings resurser som debiteras enligt planen.
+* **Planbeskrivning** visar information om kostnader och kapacitet som är associerade med planen.
+* **Plananvändning** visar antalet transaktioner och beräkningstimmar som har debiterats mot planen.
+* **Webbtjänster** visar antalet webbtjänster som använder det här abonnemanget.
+* **Top Web Service By Calls** visar de fyra bästa webbtjänster som ringer samtal som debiteras mot planen.
+* **Top Web Services by Compute Hrs** visar de fyra bästa webbtjänsterna som använder beräkningsresurser som debiteras mot planen.
 
-## <a name="manage-classic-web-services"></a>Hantera klassiska webb tjänster
+## <a name="manage-classic-web-services"></a>Hantera klassiska webbtjänster
 > [!NOTE]
-> Procedurerna i det här avsnittet är relevanta för att hantera klassiska webb tjänster via Azure Machine Learning Web Services-portalen. Information om hur du hanterar klassiska webb tjänster via Machine Learning Studio (klassisk) och Azure Portal finns i [hantera en Azure Machine Learning Studio (klassisk)-arbets yta](manage-workspace.md).
+> Procedurerna i det här avsnittet är relevanta för hantering av klassiska webbtjänster via Azure Machine Learning Web Services-portalen. Information om hur du hanterar klassiska webbtjänster via Machine Learning Studio (klassisk) och Azure-portalen finns i [Hantera en arbetsyta i Azure Machine Learning Studio (klassisk).](manage-workspace.md)
 > 
 > 
 
-Så här hanterar du dina klassiska webb tjänster:
+Så här hanterar du dina klassiska webbtjänster:
 
-1. Logga in på [Microsoft Azure Machine Learning Web Services-](https://services.azureml.net/quickstart) portalen med ditt Microsoft Azure-konto – Använd det konto som är associerat med Azure-prenumerationen.
-2. På menyn klickar du på **klassiska webb tjänster**.
+1. Logga in på [Microsoft Azure Machine Learning Web Services-portalen](https://services.azureml.net/quickstart) med ditt Microsoft Azure-konto – använd kontot som är kopplat till Azure-prenumerationen.
+2. Klicka på **Klassiska webbtjänster**på menyn .
 
-Klicka på **klassiska webb tjänster**om du vill hantera en klassisk webb tjänst. På sidan klassiska webb tjänster kan du:
+Om du vill hantera en klassisk webbtjänst klickar du på **Klassiska webbtjänster**. På sidan Klassiska webbtjänster kan du:
 
-* Klicka på webb tjänsten för att visa de associerade slut punkterna.
-* Ta bort en webb tjänst.
+* Klicka på webbtjänsten om du vill visa de associerade slutpunkterna.
+* Ta bort en webbtjänst.
 
-När du hanterar en klassisk webb tjänst hanterar du varje slut punkt separat. När du klickar på en webb tjänst på sidan webb tjänster öppnas listan över slut punkter som är kopplade till tjänsten. 
+När du hanterar en klassisk webbtjänst hanterar du var och en av slutpunkterna separat. När du klickar på en webbtjänst på sidan Webbtjänster öppnas listan över slutpunkter som är associerade med tjänsten. 
 
-På den klassiska webb tjänstens slut punkts sida kan du lägga till och ta bort slut punkter för tjänsten. Mer information om hur du lägger till slut punkter finns i [skapa slut punkter](create-endpoint.md).
+På slutpunktssidan för Klassiska webbtjänsten kan du lägga till och ta bort slutpunkter på tjänsten. Mer information om hur du lägger till slutpunkter finns i [Skapa slutpunkter](create-endpoint.md).
 
-Klicka på en av slut punkterna för att öppna snabb starts sidan för webb tjänsten. På snabb starts sidan finns det två meny alternativ som gör att du kan hantera din webb tjänst:
+Klicka på en av slutpunkterna för att öppna snabbstartssidan för webbtjänsten. På snabbstartssidan finns det två menyalternativ som gör att du kan hantera webbtjänsten:
 
-* **Instrument panel** – gör att du kan visa webb tjänst användning.
-* **Konfigurera** – tillåter att du lägger till beskrivande text, aktiverar och inaktiverar fel loggning, uppdaterar nyckeln för det lagrings konto som är associerat med webb tjänsten och aktiverar och inaktiverar exempel data.
+* **DASHBOARD** - Gör att du kan visa användning av webbtjänster.
+* **CONFIGURE** - Gör att du kan lägga till beskrivande text, aktivera och inaktivera felloggning, uppdatera nyckeln för lagringskontot som är associerat med webbtjänsten och aktivera och inaktivera exempeldata.
 
-### <a name="monitoring-how-the-web-service-is-being-used"></a>Övervaka hur webb tjänsten används
-Klicka på fliken **instrument panel** .
+### <a name="monitoring-how-the-web-service-is-being-used"></a>Övervaka hur webbtjänsten används
+Klicka på fliken **DASHBOARD.**
 
-På instrument panelen kan du Visa den övergripande användningen av din webb tjänst under en viss tids period. Du kan välja den period som du vill visa i list rutan period längst upp till höger i användnings diagrammen. Instrument panelen visar följande information:
+Från instrumentpanelen kan du visa den övergripande användningen av webbtjänsten under en viss tidsperiod. Du kan välja den period som du vill visa från listrutan Period längst upp till höger i användningsdiagrammen. Instrumentpanelen visar följande information:
 
-* **Begär anden över tid** visar ett steg diagram över antalet begär Anden under den valda tids perioden. Det kan hjälpa dig att identifiera om du får toppar i användning.
-* **Begäran-svars förfrågningar** visar det totala antalet anrop för begäran som tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
-* **Genomsnittlig beräknings tid för begäran-svar** visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
-* **Batch-begäranden** visar det totala antalet batch-begäranden som tjänsten har tagit emot under den valda tids perioden och hur många av dem som misslyckades.
-* **Genomsnittlig jobb svars** tid visar ett genomsnitt av tiden som krävs för att köra mottagna begär Anden.
-* **Fel** visar det sammanlagda antalet fel som har inträffat på anrop till webb tjänsten.
-* **Tjänste kostnader** visar avgifterna för den fakturerings plan som är associerad med tjänsten.
+* **Begäranden över tid** visar ett stegdiagram över antalet begäranden under den valda tidsperioden. Det kan hjälpa till att identifiera om du upplever toppar i användning.
+* **Begärandens begäranden** visar det totala antalet begäranden-svar-samtal som tjänsten har tagit emot under den valda tidsperioden och hur många av dem som misslyckades.
+* **Genomsnittlig beräkningstid för begäran-svar** visar ett genomsnitt av den tid som krävs för att köra de mottagna begärandena.
+* **Batchbegäranden** visar det totala antalet batchbegäranden som tjänsten har tagit emot under den valda tidsperioden och hur många av dem som misslyckades.
+* **Genomsnittlig jobbfördröjning** visar ett genomsnitt av den tid som krävs för att köra de mottagna begärandena.
+* **Fel** visar det sammanlagda antalet fel som har uppstått vid anrop till webbtjänsten.
+* **Servicekostnader** visar avgifterna för faktureringsplanen som är kopplad till tjänsten.
 
-### <a name="configuring-the-web-service"></a>Konfigurera webb tjänsten
-Klicka på meny alternativet **Konfigurera** .
+### <a name="configuring-the-web-service"></a>Konfigurera webbtjänsten
+Klicka **CONFIGURE** på alternativet KONFIGURERA-menyn.
 
 Du kan uppdatera följande egenskaper:
 
-* Med **Beskrivning** kan du ange en beskrivning av webb tjänsten. Beskrivning är ett obligatoriskt fält.
-* Med **loggning** kan du aktivera eller inaktivera fel loggning på slut punkten. Mer information om loggning finns i Aktivera [loggning för Machine Learning-webbtjänster](web-services-logging.md).
-* Med **exempel data** kan du tillhandahålla exempel data som du kan använda för att testa tjänsten Request-Response. Om du har skapat webb tjänsten i Machine Learning Studio (klassisk) hämtas exempel data från de data som används för att träna din modell. Om du skapade tjänsten program mässigt hämtas data från de exempel data som du angav som en del av JSON-paketet.
+* **Med beskrivningen** kan du ange en beskrivning av webbtjänsten. Beskrivning är ett obligatoriskt fält.
+* **Genom** att logga kan du aktivera eller inaktivera felloggning på slutpunkten. Mer information om loggning finns i Aktivera [loggning för machine learning-webbtjänster](web-services-logging.md).
+* **Med Aktivera exempeldata** kan du tillhandahålla exempeldata som du kan använda för att testa tjänsten Begäran-svar. Om du har skapat webbtjänsten i Machine Learning Studio (klassisk) hämtas exempeldata från de data som du använde för att träna din modell. Om du skapade tjänsten programmässigt hämtas data från exempeldata som du angav som en del av JSON-paketet.
 
 

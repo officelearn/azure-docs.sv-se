@@ -5,18 +5,18 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 3c6147cc24f285fc32dce145e594f743c9633c20
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68857511"
 ---
-Använd den procedur som matchar ditt backend-projekts typ&mdash;, antingen [.NET-Server](#dotnet) del eller [Node. js-Server delen](#nodejs).
+Använd proceduren som matchar backend-projekttypen&mdash;antingen [.NET-backend](#dotnet) eller [Node.js-backend](#nodejs).
 
-### <a name="dotnet"></a>.NET-Server dels projekt
+### <a name="net-back-end-project"></a><a name="dotnet"></a>.NET-backend-projekt
 
-1. I Visual Studio högerklickar du på Server projektet och klickar på **Hantera NuGet-paket**. Sök efter `Microsoft.Azure.NotificationHubs`och klicka sedan på **Installera**. Detta installerar klient biblioteket för Notification Hubs.
-2. Öppna TodoItemController.cs i mappen kontrollanter och Lägg till följande `using` -uttryck:
+1. Högerklicka på serverprojektet i Visual Studio och klicka på **Hantera NuGet-paket**. Sök `Microsoft.Azure.NotificationHubs`efter och klicka sedan på **Installera**. Detta installerar meddelandehubbarklientbiblioteket.
+2. Öppna TodoItemController.cs i mappen Controllers och lägg `using` till följande satser:
 
     ```csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -65,12 +65,12 @@ Använd den procedur som matchar ditt backend-projekts typ&mdash;, antingen [.NE
     }
     ```
 
-4. Publicera om Server projektet.
+4. Publicera om serverprojektet.
 
-### <a name="nodejs"></a>Node. js-backend-projekt
+### <a name="nodejs-back-end-project"></a><a name="nodejs"></a>Nod.js backend-projekt
 
-1. Konfigurera ditt Server dels projekt.
-2. Ersätt den befintliga koden i filen todoitem. js med följande:
+1. Ställ in ditt backend-projekt.
+2. Ersätt den befintliga koden i filen todoitem.js med följande:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -117,6 +117,6 @@ Använd den procedur som matchar ditt backend-projekts typ&mdash;, antingen [.NE
     module.exports = table;
     ```
 
-    Detta skickar ett GCM-meddelande som innehåller objektet. text när ett nytt att göra-objekt infogas.
+    Detta skickar ett GCM-meddelande som innehåller item.text när ett nytt todo-objekt infogas.
 
-3. Publicera om Server projektet när du redigerar filen på den lokala datorn.
+3. När du redigerar filen på den lokala datorn publicerar du om serverprojektet.

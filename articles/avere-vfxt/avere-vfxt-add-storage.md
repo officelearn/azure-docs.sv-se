@@ -1,190 +1,190 @@
 ---
-title: Konfigurera aver vFXT Storage – Azure
-description: Så här lägger du till ett Server dels lagrings system i ditt AVERT vFXT för Azure
+title: Konfigurera Avere vFXT-lagring - Azure
+description: Så här lägger du till ett backend-lagringssystem i din Avere vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252615"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
-Det här steget konfigurerar ett Server dels lagrings system för ditt vFXT-kluster.
+Det här steget konfigurerar ett backend-lagringssystem för ditt vFXT-kluster.
 
 > [!TIP]
-> Om du har skapat en ny Azure Blob-behållare tillsammans med det Avera vFXT-klustret har den här behållaren redan kon figurer ATS och är redo att användas.
+> Om du har skapat en ny Azure Blob-behållare tillsammans med Avere vFXT-klustret är den behållaren redan konfigurerad och klar att användas.
 
-Följ dessa anvisningar om du inte skapade en ny BLOB-behållare med klustret, eller om du vill lägga till ytterligare ett maskin varu-eller molnbaserad lagrings system.
+Följ dessa instruktioner om du inte har skapat en ny Blob-behållare med klustret, eller om du vill lägga till ytterligare ett maskinvaru- eller molnbaserat lagringssystem.
 
-Det finns två huvudsakliga uppgifter:
+Det finns två huvuduppgifter:
 
-1. [Skapa en kärn](#create-a-core-filer)-filer som ansluter ditt vFXT-kluster till ett befintligt lagrings system eller en Azure Storage konto behållare.
+1. [Skapa en kärnfiler](#create-a-core-filer), som ansluter ditt vFXT-kluster till ett befintligt lagringssystem eller en Azure Storage-kontobehållare.
 
-1. [Skapa en Knut punkt för namn område](#create-a-junction), som definierar den sökväg som klienterna ska montera.
+1. [Skapa en namnområdeskorsning](#create-a-junction)som definierar sökvägen som klienterna ska montera.
 
-I de här stegen används kontroll panelen aver. Läs [åtkomst till vFXT-klustret](avere-vfxt-cluster-gui.md) för att lära dig hur du använder det.
+I de här stegen används Kontrollpanelen av Avere. Läs [åtkomst till vFXT-klustret](avere-vfxt-cluster-gui.md) för att lära dig hur du använder det.
 
-## <a name="create-a-core-filer"></a>Skapa en kärn-filer
+## <a name="create-a-core-filer"></a>Skapa en kärna filer
 
-"Kärn filer" är en vFXT term för ett Server dels lagrings system. Lagringen kan vara en maskinvaru-NAS-apparat som NetApp eller Isilon, eller så kan det vara ett moln objekts lager. Mer information om core-filer finns i [Guide för kluster inställningar i aver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+"Core filer" är en vFXT term för ett backend-lagringssystem. Lagringen kan vara en nas-maskinvaruapparat som NetApp eller Isilon, eller så kan det vara ett molnobjektbutik. Mer information om kärnfilers finns i [Avere-klusterinställningsguiden](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
-Om du vill lägga till en Core-filer väljer du någon av de två huvud typerna av Core-:
+Om du vill lägga till en kärnfiler väljer du en av de två huvudtyperna av kärnfilers:
 
-* [NAS Core](#nas-core-filer) -filer – beskriver hur du lägger till en NAS core-filer
-* [Azure Storage Cloud Core](#azure-blob-storage-cloud-core-filer) -filer – beskriver hur du lägger till en Azure Blob Storage-behållare som en Cloud core-filer
+* [NAS core filer](#nas-core-filer) - beskriver hur du lägger till en NAS core filer
+* [Azure Storage cloud core filer](#azure-blob-storage-cloud-core-filer) - beskriver hur du lägger till en Azure Blob-lagringsbehållare som en cloud core filer
 
-### <a name="nas-core-filer"></a>NAS-kärnor
+### <a name="nas-core-filer"></a>NAS kärna filer
 
-En NAS core-filer kan vara en lokal NetApp eller Isilon-apparat eller en NAS-slutpunkt i molnet. Lagrings systemet måste ha en tillförlitlig höghastighets anslutning till AVERT vFXT-kluster, till exempel en 1GBps ExpressRoute-anslutning (inte en VPN) – och den måste ge kluster rot åtkomst till de NAS-exporter som används.
+En NAS-kärnfiler kan vara en lokal NetApp- eller Isilon-apparat, eller en NAS-slutpunkt i molnet. Lagringssystemet måste ha en tillförlitlig höghastighetsanslutning till Avere vFXT-klustret - till exempel en 1GBps ExpressRoute-anslutning (inte en VPN) - och det måste ge klusterrotåtkomsten till NAS-exporten som används.
 
-Följ dessa steg om du vill lägga till en NAS core-filer:
+Följ dessa steg för att lägga till en NAS-kärnfiler:
 
-1. Klicka på fliken **Inställningar** längst upp i kontroll panelen aver.
+1. Klicka på fliken **Inställningar** högst upp på Kontrollpanelen i Avere.
 
-1. Klicka på **Core** - **filer > hantera Core** -till vänster.
+1. Klicka på **Core Filer** > **Hantera Core Filers** till vänster.
 
 1. Klicka på **Skapa**.
 
-   ![Skärm bild av sidan Lägg till ny core-filer med en markör över knappen Skapa](media/avere-vfxt-add-core-filer-start.png)
+   ![Skärmbild av sidan Lägg till nya filer med en markör över knappen Skapa](media/avere-vfxt-add-core-filer-start.png)
 
 1. Fyll i den information som krävs i guiden:
 
-   * Namnge dina kärnor.
-   * Ange ett fullständigt kvalificerat domän namn (FQDN) om det är tillgängligt. Annars anger du en IP-adress eller ett värdnamn som matchar dina kärnor.
-   * Välj din filer-klass från listan. Om du är osäker väljer du **annat**.
+   * Nämn din kärna filer.
+   * Ange ett fullständigt kvalificerat domännamn (FQDN) om tillgängligt. Annars anger du en IP-adress eller ett värdnamn som löser till dina kärnfiler.
+   * Välj din filer klass i listan. Om du är osäker väljer du **Annat**.
 
-     ![Skärm bild av sidan Lägg till ny core-filer med namnet på kärn filen och det fullständigt kvalificerade domän namnet](media/avere-vfxt-add-core-filer.png)
+     ![Skärmbild av sidan Lägg till nya kärnfiler med filnamn för kärnfiler och dess fullständiga domännamn](media/avere-vfxt-add-core-filer.png)
   
-   * Klicka på **Nästa** och välj en princip för cache.
-   * Klicka på **Lägg till**filer.
-   * Mer detaljerad information finns i lägga till [en ny NAS Core](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) -filer i guiden för kluster inställningar i AVERT.
+   * Klicka på **Nästa** och välj en cacheprincip.
+   * Klicka på **Lägg till filer**.
+   * Mer detaljerad information finns i Lägga till [en ny NAS-kärnfiler](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html) i Avere-klusterinställningsguiden.
 
-Fortsätt sedan att [skapa en Knut](#create-a-junction)punkt.  
+Fortsätt sedan till [Skapa en korsning](#create-a-junction).  
 
-### <a name="azure-blob-storage-cloud-core-filer"></a>Azure Blob Storage Cloud core-filer
+### <a name="azure-blob-storage-cloud-core-filer"></a>Azure Blob Storage moln kärna filer
 
-Om du vill använda Azure Blob Storage som vFXT-klusters backend-lagring behöver du en tom behållare för att lägga till som en kärn post.
+Om du vill använda Azure Blob-lagring som din vFXT-klusters backend-lagring behöver du en tom behållare för att lägga till som en kärnfiler.
 
-Följande uppgifter krävs för att lägga till Blob Storage i klustret:
+Genom att lägga till Blob-lagring i klustret krävs följande uppgifter:
 
-* Skapa ett lagrings konto (steg 1 nedan)
-* Skapa en tom BLOB-behållare (steg 2-3)
-* Lägg till lagrings åtkomst nyckeln som en moln autentiseringsuppgift för vFXT-klustret (steg 4-6)
-* Lägg till BLOB-behållaren som en kärn-filer för vFXT-klustret (steg 7-9)
-* Skapa en namn områdes Knut som klienter använder för att montera kärn filer ([skapa en Knut](#create-a-junction)punkt, samma för både maskin vara och moln lagring)
+* Skapa ett lagringskonto (steg 1 nedan)
+* Skapa en tom Blob-behållare (steg 2-3)
+* Lägg till lagringsåtkomstnyckeln som en molnautentiseringsuppgifter för vFXT-klustret (steg 4-6)
+* Lägg till Blob-behållaren som en kärnfiler för vFXT-klustret (steg 7-9)
+* Skapa en namnområdeskorsning som klienter använder för att montera kärnfilerna ([Skapa en korsning](#create-a-junction), samma för både maskinvara och molnlagring)
 
 > [!TIP]
-> Om du skapar en ny BLOB-behållare när du skapar ett AVERT-vFXT för Azure-kluster, konfigurerar distributions mal len automatiskt behållaren som en kärn-filer. (Detta gäller även om du använder skriptet för att skapa, som är tillgängligt på begäran.) Du behöver inte konfigurera kärn filerna efteråt.
+> Om du skapar en ny Blob-behållare när du skapar ett Avere vFXT för Azure-kluster konfigurerar distributionsmallen automatiskt behållaren som en kärnfiler. (Detta gäller även om du använder skriptet för att skapa, som är tillgängligt på begäran.) Du behöver inte konfigurera kärnfilerna efteråt.
 >
-> Verktyget för att skapa kluster gör dessa konfigurations åtgärder åt dig:
+> Verktyget för att skapa kluster utför dessa konfigurationsuppgifter åt dig:
 >
-> * Skapar en ny BLOB-behållare på det angivna lagrings kontot
-> * Definierar containern som en kärn-filer
-> * Skapar en namn områdes Knut punkt till behållaren
-> * Skapar en lagrings tjänst slut punkt i klustrets virtuella nätverk
+> * Skapar en ny Blob-behållare i det angivna lagringskontot
+> * Definierar behållaren som en kärnfiler
+> * Skapar en namnområdeskorsning till behållaren
+> * Skapar en slutpunkt för lagringstjänster i klustrets virtuella nätverk
 
-Följ dessa steg om du vill lägga till Blob Storage när klustret har skapats.
+Så här lägger du till Blob-lagring när du har skapat klustret.
 
-1. Skapa ett allmänt-syfte v2-lagrings konto med följande inställningar:
+1. Skapa ett V2-lagringskonto för allmänt ändamål med följande inställningar:
 
-   * **Prenumerationen** – samma som vFXT-klustret
-   * **Resurs grupp** – samma som kluster gruppen vFXT (valfritt)
-   * **Plats** -samma som vFXT-klustret
-   * **Prestanda** – standard (Premium Storage stöds inte)
-   * **Konto typ** – allmänt-syfte v2 (StorageV2)
-   * **Replikering** – lokalt redundant lagring (LRS)
-   * **Åtkomst nivå** – frekvent
-   * **Säker överföring krävs** -inaktivera det här alternativet (inte standardvärdet)
-   * **Virtuella nätverk** – inte obligatoriskt
+   * **Prenumeration** - samma som vFXT-klustret
+   * **Resursgrupp** - samma som vFXT-klustergruppen (valfritt)
+   * **Plats** - samma som vFXT-klustret
+   * **Prestanda** - Standard (Premium-lagring stöds inte)
+   * **Kontosort** - Allmänt V2 (StorageV2)
+   * **Replikering** - Lokalt redundant lagring (LRS)
+   * **Åtkomstnivå** – het
+   * **Säker överföring krävs** - inaktivera det här alternativet (icke-standardvärde)
+   * **Virtuella nätverk** - krävs inte
 
-   Du kan använda Azure Portal eller klicka på knappen "distribuera till Azure" nedan.
+   Du kan använda Azure-portalen eller klicka på knappen "Distribuera till Azure" nedan.
 
-   [![knappen för att skapa lagrings kontot](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
+   [![för att skapa lagringskonto](media/deploytoazure.png)](https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAvere%2Fmaster%2Fsrc%2Fvfxt%2Fstorageaccount%2Fazuredeploy.json)
 
-1. När kontot har skapats bläddrar du till sidan lagrings konto.
+1. När kontot har skapats bläddrar du till lagringskontosidan.
 
-   ![Nytt lagrings konto i Azure Portal](media/avere-vfxt-new-storage-acct.png)
+   ![Nytt lagringskonto i Azure-portalen](media/avere-vfxt-new-storage-acct.png)
 
-1. Skapa en ny BLOB-behållare: Klicka på **behållare** på sidan Översikt och klicka sedan på **+ container**. Använd alla behållar namn och se till att åtkomst är inställt på **privat**.
+1. Skapa en ny Blob-behållare: Klicka på **Behållare** på översiktssidan och klicka sedan på **+Behållare**. Använd valfritt behållarnamn och se till att åtkomsten är inställd på **Privat**.
 
-   ![Sidan Storage blobbar med knappen + container inringad och en ny behållare skapas på en popup-sida](media/avere-vfxt-new-blob.png)
+   ![Sidan Lagringsblobbar med knappen +behållar inringad och en ny behållare som skapas på en popup-sida](media/avere-vfxt-new-blob.png)
 
-1. Hämta Azure Storage konto nyckeln genom att klicka på **åtkomst nycklar** under **Inställningar**. Kopiera en av de angivna nycklarna.
+1. Hämta azure storage-kontonyckeln genom att klicka på **Åtkomstnycklar** under **Inställningar**. Kopiera en av nycklarna.
 
-   ![Azure Portal GUI för att kopiera nyckeln](media/avere-vfxt-copy-storage-key.png)
+   ![Azure Portal GUI för kopiering av nyckeln](media/avere-vfxt-copy-storage-key.png)
 
-1. Öppna kontroll panelen aver för klustret. Klicka på **Inställningar**och öppna **kluster** > **autentiseringsuppgifter för molnet** i det vänstra navigerings fönstret. På sidan autentiseringsuppgifter för moln klickar du på **Lägg till autentiseringsuppgift**.
+1. Öppna Avere Kontrollpanelen för ditt kluster. Klicka på **Inställningar**och öppna**Autentiseringsuppgifter** för **Klustermoln** > i det vänstra navigeringsfönstret. Klicka på **Lägg till autentiseringsuppgifter**på sidan Molnreferenser .
 
-   ![Klicka på knappen Lägg till autentiseringsuppgift på sidan konfiguration av moln autentiseringsuppgifter](media/avere-vfxt-new-credential-button.png)
+   ![Klicka på knappen Lägg till autentiseringsuppgifter på konfigurationssidan för molnautentiseringsuppgifter](media/avere-vfxt-new-credential-button.png)
 
-1. Fyll i följande information för att skapa en autentiseringsuppgift för Cloud core-filer:
+1. Fyll i följande information för att skapa en autentiseringsuppgifter för molnkärnfilerna:
 
    | Field | Värde |
    | --- | --- |
-   | Namn på autentiseringsuppgifter | ett beskrivande namn |
-   | Typ av tjänst | (Välj Azure Storage åtkomst nyckel) |
+   | Namn på autentiseringsuppgifter | alla beskrivande namn |
+   | Typ av tjänst | (välj Azure Storage-åtkomstnyckel) |
    | Klientorganisation | lagringskontots namn |
    | Prenumeration | subscription ID |
-   | Lagrings åtkomst nyckel | Nyckel för Azure Storage-konto (kopieras i föregående steg) |
+   | Åtkomstnyckel för lagring | Azure-lagringskontonyckel (kopierad i föregående steg) |
 
    Klicka på **Skicka**.
 
-   ![Formulär för slutförd moln behörighet i AVERT-Kontrollpanelen](media/avere-vfxt-new-credential-submit.png)
+   ![Ifylld formulär för molnautentiseringsuppgifter på Kontrollpanelen i Avere](media/avere-vfxt-new-credential-submit.png)
 
-1. Skapa sedan core-filer. Klicka på **Core** - **filer >  hantera Core**-på vänster sida av kontroll panelen aver.
+1. Skapa sedan kärnfilerna. Klicka på **Core Filer** >  **Manage Core Filers**till vänster på Kontrollpanelen i Avere.
 
-1. Klicka på knappen **skapa** på sidan **Hantera inställningar för Core-Filskydd** .
+1. Klicka på knappen **Skapa** på sidan **Hantera filers för kärnfilers.**
 
 1. Fyll i guiden:
 
-   * Välj typ av filtyp- **moln**.
-   * Namnge den nya Core-filen och klicka på **Nästa**.
-   * Godkänn standard principen för cache och fortsätt till den tredje sidan.
-   * I **tjänst typ**väljer du **Azure Storage**.
-   * Välj de autentiseringsuppgifter som skapades tidigare.
-   * Ange **Bucket-innehåll** som **tomt**
-   * Ändra **certifikat verifiering** till **inaktive rad**
-   * Ändra **komprimerings läge** till **ingen**
-   * Klicka på **Next**.
-   * På den fjärde sidan anger du namnet på behållaren i **Bucket-namn** som *storage_account_name*/*container_name*.
-   * Du kan också ange **krypterings typ** till **ingen**.  Azure Storage krypteras som standard.
-   * Klicka på **Lägg till**filer.
+   * Välj filer typ **Cloud**.
+   * Namnge den nya kärnfilerna och klicka på **Nästa**.
+   * Acceptera standardcacheprincipen och fortsätt till den tredje sidan.
+   * I **Tjänsttyp**väljer du **Azure storage**.
+   * Välj den autentiseringsdag som skapats tidigare.
+   * Ange **att bucket-innehåll** ska **vara tomt**
+   * Ändra **certifikatverifiering** till **Inaktiverad**
+   * Ändra **komprimeringsläge** till **Ingen**
+   * Klicka på **Nästa**.
+   * På den fjärde sidan anger du namnet på behållaren i **Bucket-namnet** *som storage_account_name*/*container_name*.
+   * Du kan också ange **krypteringstyp** till **Ingen**.  Azure Storage krypteras som standard.
+   * Klicka på **Lägg till filer**.
 
-   Mer detaljerad information finns i [lägga till en ny Cloud Core](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) -filer i konfigurations guiden för AVERT kluster.
+   Mer detaljerad information finns i [Lägga till en ny cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) i Avere-klusterkonfigurationsguiden.
 
-Sidan uppdateras eller så kan du uppdatera sidan för att visa dina nya kärnor.
+Sidan uppdateras eller så kan du uppdatera sidan för att visa dina nya kärnfiler.
 
-Därefter måste du [skapa en Knut](#create-a-junction)punkt.
+Därefter måste du [skapa en korsning](#create-a-junction).
 
-## <a name="create-a-junction"></a>Skapa en Knut punkt
+## <a name="create-a-junction"></a>Skapa en korsning
 
-En Knut punkt är en sökväg som du skapar för-klienter. Klienter monterar sökvägen och kommer till den plats du väljer.
+En korsning är en bana som du skapar för klienter. Kunderna monterar banan och anländer till den destination du väljer.
 
-Du kan till exempel skapa `/vfxt/files` som ska mappas till din NetApp core-filer `/vol0/data` export och under katalogen `/project/resources`.
+Du kan till `/vfxt/files` exempel skapa för att `/vol0/data` mappa `/project/resources` till din NetApp core filer export och underkatalogen.
 
-Mer information om Knut punkter finns i [avsnittet namnrymd i konfigurations guiden för AVERT kluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
+Mer information om korsningar finns i [namnområdesavsnittet i Avere-klusterkonfigurationsguiden](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html).
 
-Följ de här stegen i gränssnittet AVERT på kontroll panelen:
+Följ dessa steg i Avere Kontrollpanelens gränssnitt:
 
-* Klicka på **VServer** > **namnrymd** i det övre vänstra hörnet.
-* Ange en namn områdes Sök väg som börjar med/(snedstreck), t. ex. ``/vfxt/data``.
-* Välj dina kärnor.
-* Välj kärn-filer exporteras.
-* Klicka på **Next**.
+* Klicka på > **VServer-namnområdet** längst upp till vänster. **VServer**
+* Ange en namnområdessökväg som börjar ``/vfxt/data``med / (snedstreck), till exempel .
+* Välj din kärna filer.
+* Välj kärnfiler export.
+* Klicka på **Nästa**.
 
-  ![Skärm bild av sidan "Lägg till ny koppling" med fälten slutförda för koppling, kärn filer och export](media/avere-vfxt-add-junction.png)
+  ![Skärmbild av sidan "Lägg till ny korsning" med fälten slutförda för korsning, kärnfiler och export](media/avere-vfxt-add-junction.png)
 
-Knut punkten kommer att visas efter några sekunder. Skapa ytterligare Knut punkter efter behov.
+Korsningen visas efter några sekunder. Skapa ytterligare korsningar efter behov.
 
-När Knut punkten har skapats använder klienterna namn områdes Sök vägen för att komma åt filerna från lagrings systemet.
+När korsningen har skapats använder klienter namnområdessökvägen för att komma åt filerna från lagringssystemet.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Montera Avere vFXT-klustret](avere-vfxt-mount-clients.md)
-* Lär dig effektiva sätt att [Flytta data till en ny BLOB-behållare](avere-vfxt-data-ingest.md)
+* Lär dig effektiva sätt att [flytta data till en ny Blob-behållare](avere-vfxt-data-ingest.md)

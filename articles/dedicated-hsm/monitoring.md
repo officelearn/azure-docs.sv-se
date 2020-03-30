@@ -1,6 +1,6 @@
 ---
-title: Övervakningsalternativ – Azure dedikerad HSM | Microsoft Docs
-description: Översikt över Azure dedikerad HSM alternativ för övervakning och övervakning ansvarsområden
+title: Övervakningsalternativ - Azure Dedikerad HSM | Microsoft-dokument
+description: Översikt över Azure Dedikerad HSM-övervakningsalternativ och övervakningsansvar
 services: dedicated-hsm
 author: msmbaldwin
 manager: rkarlin
@@ -13,32 +13,32 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: mbaldwin
 ms.openlocfilehash: 3fde577a6b0efb7584e1c9efd57c95583ebe4ec9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70881415"
 ---
-# <a name="azure-dedicated-hsm-monitoring"></a>Azure dedikerad HSM-övervakning
+# <a name="azure-dedicated-hsm-monitoring"></a>Azure Dedikerad HSM-övervakning
 
-Tjänsten Azure dedikerad HSM ger en fysisk enhet för användning efter kund fullständig administrativ kontroll och hantering av ansvar. Enheten som gjorts tillgängliga är en [Gemalto SafeNet Luna 7 HSM modellen A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).  Microsoft kommer inte ha administrativ åtkomst när etablerats av en kund, utöver fysiska serieport bifogad fil som en övervakning roll. Därför kan kunder ansvarar för vanliga driftaktiviteter inklusive omfattande övervakning och logga analys.
-Kunderna ansvarar helt för program som använder HSM: erna och ska fungera med Gemalto för support eller konsult hjälp. På grund av omfattningen av kunden ägarskapet för operativa hygien är det inte möjligt för Microsoft att erbjuda alla slags garanti för hög tillgänglighet för den här tjänsten. Det är kundens ansvar att se till att programmen är korrekt konfigurerade för att uppnå hög tillgänglighet. Microsoft kommer att övervaka och underhålla enhetens hälsotillstånd och nätverksanslutningen.
+Azure Dedicated HSM-tjänsten tillhandahåller en fysisk enhet för ensam kundanvändning med fullständigt administrativt kontroll- och hanteringsansvar. Enheten som görs tillgänglig är en [Gemalto SafeNet Luna 7 HSM modell A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).  Microsoft har ingen administrativ åtkomst när den har etablerats av en kund, utöver den fysiska bifogade seriella portar som en övervakningsroll. Som ett resultat av detta ansvarar kunderna för typiska operativa aktiviteter, inklusive omfattande övervakning och logganalys.
+Kunderna är fullt ansvariga för applikationer som använder HSM och bör arbeta med Gemalto för support eller konsulthjälp. På grund av omfattningen av kundägandet av drifthygien är det inte möjligt för Microsoft att erbjuda någon form av hög tillgänglighetsgaranti för den här tjänsten. Det är kundens ansvar att se till att deras program är korrekt konfigurerade för att uppnå hög tillgänglighet. Microsoft övervakar och underhåller enhetens hälsa och nätverksanslutning.
 
-## <a name="microsoft-monitoring"></a>Övervakning av Microsoft
+## <a name="microsoft-monitoring"></a>Microsoft-övervakning
 
-Gemalto SafeNet enheten används har som standard SNMP och seriell port som alternativ för övervakning av enheten. Microsoft har använt serieport anslutningen som en fysisk innebär att ansluta till enheten för att hämta grundläggande telemetri på enhetens hälsotillstånd. Detta inkluderar objekt, till exempel temperatur och komponenten status, till exempel strömförsörjning och fläktar.
-Microsoft använder en icke-administrativa ”övervaka” roll på Gemalto enheten för att uppnå detta. Den här rollen ger möjlighet att hämta telemetri, men ger inte någon åtkomst till enheten när det gäller administrativ åtgärd eller på något sätt visa kryptografiska information. Kunderna kan lita på enheten är helt egna för att hantera, administrera och använda för känsliga kryptografiska nyckellagring. Om vilken kund som inte är nöjd med den minimala åtkomsten för grundläggande hälsoövervakning har de alternativet att inaktivera kontot för övervakning. En självklar följd av detta är att Microsoft har ingen information och kan därför ingen möjlighet att tillhandahålla några Proaktiva meddelanden om enhetens hälsotillstånd utfärdar. I så fall kan ansvarar kunden för hälsotillståndet för enheten.
-Funktionen övervakaren har ställts in att avsöka enheten var tionde minut för att hämta hälsotillståndsdata. På grund av fel felbenägna beskaffenhet seriell kommunikation, bara när du har flera negativt hälsoindikatorer över en timme skulle en varning att utfärdas. Den här aviseringen skulle slutligen leda till en proaktiv kundkommunikationen meddela problemet.
-Beroende på hur allvarligt problemet, skulle vilka lämpliga åtgärder vidtas för att minska inverkan och se till att lågrisk reparation. En STRÖMFÖRSÖRJNINGSFEL är till exempel en byte-procedur med inga gällande Förvanska händelse så kan utföras med låg inverkan och minimal risk för åtgärden. Andra procedurer kan kräva en enhet ska vara zeroized och tagit bort etableringen för att minimera eventuella säkerhetsrisk för kunden. I så fall skulle en kund etablera en annan enhet, återansluta till en hög tillgänglighet parkoppling därför utlösa synkronisering av enheter. Normal drift skulle återupptas på minimal tid med minimalt avbrott och lägsta säkerhetsrisk.  
+Gemalto SafeNet-enheten som används har som standard SNMP och seriell port som alternativ för övervakning av enheten. Microsoft har använt den seriella portanslutningen som ett fysiskt sätt att ansluta till enheten för att hämta grundläggande telemetri på enhetens hälsa. Detta inkluderar objekt som temperatur och komponentstatus som nätaggregat och fläktar.
+För att uppnå detta använder Microsoft en icke-administrativ "övervakare"-roll som konfigurerats på Gemalto-enheten. Den här rollen ger möjlighet att hämta telemetrin men ger inte någon åtkomst till enheten när det gäller administrativ uppgift eller på något sätt visa kryptografisk information. Våra kunder kan vara säkra på att deras enhet verkligen är deras egen att hantera, administrera och använda för känslig kryptografisk nyckellagring. Om någon kund inte är nöjd med denna minimala åtkomst för grundläggande hälsoövervakning, har de möjlighet att inaktivera övervakningskontot. Den uppenbara konsekvensen av detta är att Microsoft inte kommer att ha någon information och därmed ingen möjlighet att ge någon proaktiv anmälan av enhetens hälsoproblem. I det här fallet är kunden ansvarig för enhetens hälsa.
+Själva monitorfunktionen är inställd på att avsöka enheten var 10:e minut för att hämta hälsodata. På grund av felbenägna karaktär seriell kommunikation, först efter flera negativa hälsoindikatorer under en timme skulle en varning höjas. Den här aviseringen skulle i slutändan leda till en proaktiv kundkommunikation som meddelar problemet.
+Beroende på frågans art skulle lämpliga åtgärder vidtas för att minska effekterna och säkerställa en låg risksanering. Ett strömförsörjningsfel är till exempel en hot-swap-procedur utan resulterande manipuleringshändelse så kan utföras med låg påverkan och minimal risk för drift. Andra procedurer kan kräva att en enhet nollställs och avetableras för att minimera eventuella säkerhetsrisker för kunden. I det här fallet en kund skulle etablera en alternativ enhet, återansluta en hög tillgänglighet ihopkoppling vilket utlöser enhetssynkronisering. Normal drift skulle återupptas på minimal tid, med minimala störningar och lägsta säkerhetsrisk.  
 
-## <a name="customer-monitoring"></a>Kunden övervakning
+## <a name="customer-monitoring"></a>Kundövervakning
 
-En förslagsvärde dedikerad HSM-tjänst är kontrollen kunden hämtar av enheten, särskilt funderar på att det är ett moln som levereras av enheten. En följd av den här kontrollen är ansvar för att övervaka och hantera hälsotillståndet för enheten. Gemalto SafeNet enheten levereras med vägledning för implementering av SNMP- och Syslog. Dedikerad HSM-tjänst-kunder rekommenderas att använda detta även om Microsoft-övervakningskontot förblir aktiv och bör det obligatoriska om de inaktiverar övervaka Microsoft-kontot.
-Antingen tekniken skulle kan en kund att identifiera problem och kontakta Microsoft-supporten om du vill initiera lämpliga avhjälpande arbete.
+Ett värdeerbjudande för den dedikerade HSM-tjänsten är den kontroll som kunden får av enheten, särskilt med tanke på att det är en molnlevererad enhet. En konsekvens av denna kontroll är ansvaret att övervaka och hantera enhetens hälsa. Gemalto SafeNet-enheten levereras med vägledning för SNMP- och Syslog-implementering. Kunder i den dedikerade HSM-tjänsten rekommenderas att använda detta även när Microsofts övervakarkonto förblir aktivt och bör anse det obligatoriskt om de inaktiverar Microsofts övervakarkonto.
+Antingen tillgänglig teknik gör det möjligt för en kund att identifiera problem och ringa Microsoft-support för att initiera lämpligt reparationsarbete.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Vi rekommenderar att alla nyckelbegreppen för tjänst, till exempel hög tillgänglighet och säkerhet till exempel är väl förstådda innan några enhetsetablering och programmets design eller distribution. Ytterligare konceptet på ämnen:
+Vi rekommenderar att alla viktiga begrepp för tjänsten, till exempel hög tillgänglighet och säkerhet, är väl förstådda innan någon enhetsetablering och programdesign eller distribution. Ytterligare begreppsnivå ämnen:
 
 * [Hög tillgänglighet](high-availability.md)
 * [Fysisk säkerhet](physical-security.md)

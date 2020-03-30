@@ -13,10 +13,10 @@ ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: d376672336845958fb6434a78177f42aca938229
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70081957"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Översikt över SQL Server i Azure Virtual Machines (Linux)
@@ -29,7 +29,7 @@ Med SQL Server på Azure Virtual Machines kan du använda fullständiga versione
 
 Virtuella Azure-datorer körs i många olika [geografiska regioner](https://azure.microsoft.com/regions/) runtom i världen. De också erbjuder även en mängd olika [datorstorlekar](../sizes.md). I bildgalleriet för virtuella datorer kan du skapa en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Det här innebär att virtuella datorer är ett bra alternativ för många olika SQL Server-arbetsbelastningar.
 
-## <a id="create"></a> Komma igång med virtuella SQL-datorer
+## <a name="get-started-with-sql-vms"></a><a id="create"></a>Komma igång med virtuella SQL-datorer
 
 För att komma igång väljer du en avbildning av en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Följande avsnitt innehåller direktlänkar till Azure Portal för galleriavbildningarna för virtuella datorer med SQL Server.
 
@@ -45,7 +45,7 @@ För att komma igång väljer du en avbildning av en virtuell dator med SQL Serv
 > [!NOTE]
 > Tillgängliga Windows SQL Server-VM-avbildningar finns i [Översikt över SQL Server i Azure Virtual Machines (Windows)](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
 
-## <a id="packages"></a> Installerade paket
+## <a name="installed-packages"></a><a id="packages"></a> Installerade paket
 
 När du konfigurerar SQL Server på Linux installerar du databasmotorns paket och sedan flera tillvalspaket beroende på kraven. Avbildningar av den virtuella Linux-datorn för SQL Server installerar de flesta paket automatiskt åt dig. Följande tabell visar vilka paket som installeras för varje distribution.
 
@@ -61,19 +61,19 @@ När du konfigurerar SQL Server på Linux installerar du databasmotorns paket oc
 
 * [Översikt över virtuella datorer](../overview.md)
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>Nätverk
 
-* [Översikt över virtuella nätverk](../../../virtual-network/virtual-networks-overview.md)
+* [Översikt över virtuellt nätverk](../../../virtual-network/virtual-networks-overview.md)
 * [IP-adresser i Azure](../../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
 * [Skapa ett fullständigt domännamn i Azure-portalen](../portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
 
-* [Dokumentation om SQL Server på Linux](https://docs.microsoft.com/sql/linux)
+* [SQL Server på Linux-dokumentation](https://docs.microsoft.com/sql/linux)
 * [Jämförelse med Azure SQL Database](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)
 
 ## <a name="next-steps"></a>Nästa steg

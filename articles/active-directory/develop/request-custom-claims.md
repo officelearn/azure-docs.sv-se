@@ -1,7 +1,7 @@
 ---
 title: Begär anpassade anspråk (MSAL iOS/macOS) | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du begär anpassade anspråk.
+description: Läs om hur du begär anpassade anspråk.
 services: active-directory
 documentationcenter: ''
 author: mmacy
@@ -18,27 +18,27 @@ ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
 ms.openlocfilehash: 44158296faaf238fd72f2360149d3d93f68c5ba0
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085602"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Gör så här: begär anpassade anspråk med MSAL för iOS och macOS
+# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Så här begär du anpassade anspråk med MSAL för iOS och macOS
 
-OpenID Connect gör att du kan begära att returnera enskilda anspråk från UserInfo-slutpunkten och/eller i ID-token. En begäran om anspråk visas som ett JSON-objekt som innehåller en lista över begärda anspråk. Se [OpenID Connect Core 1,0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) för mer information.
+OpenID Connect kan du eventuellt begära retur av enskilda anspråk från UserInfo-slutpunkten och/eller i ID-token. En begäran om anspråk representeras som ett JSON-objekt som innehåller en lista över begärda anspråk. Mer information finns i [OpenID Connect Core 1.0.](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter)
 
-Microsoft Authentication Library (MSAL) för iOS och macOS gör det möjligt att begära vissa anspråk i både interaktiva och tysta token för hämtning. Detta görs via `claimsRequest`-parametern.
+Microsoft Authentication Library (MSAL) för iOS och macOS gör det möjligt att begära specifika anspråk i både interaktiva och tysta tokeninhämtningsscenarier. Det gör det `claimsRequest` genom parametern.
 
-Det finns flera scenarier där det behövs. Exempel:
+Det finns flera scenarier där detta behövs. Ett exempel:
 
-- Begära anspråk utanför standard uppsättningen för ditt program.
-- Begär specifika kombinationer av de standard anspråk som inte kan anges med hjälp av omfattningar för ditt program. Om till exempel en åtkomsttoken avvisas på grund av saknade anspråk, kan programmet begära anspråk som saknas med MSAL.
+- Begära anspråk utanför standarduppsättningen för ditt program.
+- Begär specifika kombinationer av standardanspråk som inte kan anges med hjälp av scope för ditt program. Om till exempel en åtkomsttoken avvisas på grund av saknade anspråk kan programmet begära saknade anspråk med MSAL.
 
 > [!NOTE]
-> MSAL kringgår cachen för åtkomsttoken när en anspråks förfrågan anges. Det är viktigt att endast tillhandahålla `claimsRequest` parameter när ytterligare anspråk behövs (i stället för att alltid ha samma `claimsRequest`-parameter i varje MSAL-API-anrop).
+> MSAL kringgår åtkomsttokens cache när en anspråksbegäran anges. Det är viktigt att `claimsRequest` bara ange parameter när ytterligare anspråk behövs `claimsRequest` (i motsats till att alltid tillhandahålla samma parameter i varje MSAL API-anrop).
 
-`claimsRequest` kan anges i `MSALSilentTokenParameters` och `MSALInteractiveTokenParameters`:
+`claimsRequest`kan anges i `MSALSilentTokenParameters` `MSALInteractiveTokenParameters`och:
 
 ```objc
 /*!
@@ -54,16 +54,16 @@ Det finns flera scenarier där det behövs. Exempel:
 
 @end
 ```
-`MSALClaimsRequest` kan skapas från en NSString-representation av begäran om JSON-anspråk. 
+`MSALClaimsRequest`kan konstrueras från en NSString-representation av JSON Claims request. 
 
-Mål-C:
+Mål C:
 
 ```objc
 NSError *claimsError = nil;
 MSALClaimsRequest *request = [[MSALClaimsRequest alloc] initWithJsonString:@"{\"id_token\":{\"auth_time\":{\"essential\":true},\"acr\":{\"values\":[\"urn:mace:incommon:iap:silver\"]}}}" error:&claimsError];
 ```
 
-Införliva
+Swift:
 
 ```swift
 var requestError: NSError? = nil
@@ -73,9 +73,9 @@ let request = MSALClaimsRequest(jsonString: "{\"id_token\":{\"auth_time\":{\"ess
 
 
 
-Den kan också ändras genom att begära ytterligare angivna anspråk:
+Det kan också ändras genom att begära ytterligare specifika påståenden:
 
-Mål-C:
+Mål C:
 
 ```objc
 MSALIndividualClaimRequest *individualClaimRequest = [[MSALIndividualClaimRequest alloc] initWithName:@"custom_claim"];
@@ -85,7 +85,7 @@ individualClaimRequest.additionalInfo.value = @"myvalue";
 [request requestClaim:individualClaimRequest forTarget:MSALClaimsRequestTargetIdToken error:&claimsError];
 ```
 
-Införliva
+Swift:
 
 ```swift
 let individualClaimRequest = MSALIndividualClaimRequest(name: "custom-claim")
@@ -103,9 +103,9 @@ do {
 
 
 
-`MSALClaimsRequest` ska sedan anges i token-parametrarna och anges till en av MSAL-API: er för hämtning av token:
+`MSALClaimsRequest`bör sedan anges i tokenparametrarna och tillhandahållas till en av MSAL token acquisitions API:er:
 
-Mål-C:
+Mål C:
 
 ```objc
 MSALPublicClientApplication *application = ...;
@@ -118,7 +118,7 @@ parameters.claimsRequest = request;
 [application acquireTokenWithParameters:parameters completionBlock:completionBlock];
 ```
 
-Införliva
+Swift:
 
 ```swift
 let application: MSALPublicClientApplication!
@@ -135,4 +135,4 @@ application.acquireToken(with: parameters) { (result: MSALResult?, error: Error?
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md)
+Läs mer om [autentiseringsflöden och programscenarier](authentication-flows-app-scenarios.md)

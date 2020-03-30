@@ -1,5 +1,5 @@
 ---
-title: Introduktion till Data Factory, en data integrerings tjänst
+title: Introduktion till Data Factory, en dataintegrationstjänst
 description: 'Detta är vad Azure Data Factory är: en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data.'
 services: data-factory
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.workload: data-services
 ms.topic: overview
 ms.date: 01/22/2018
 ms.openlocfilehash: 30578f204ff05443de82015627d67d3d4d357dce
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73666804"
 ---
 # <a name="introduction-to-azure-data-factory"></a>introduktion till Azure Data Factory 
@@ -125,7 +125,7 @@ För närvarande kan du skapa datafabriker i regionerna USA, västra; USA, östr
 
 Azure Data Factory lagrar inte själv några data. Du kan skapa datadrivna arbetsflöden som dirigerar förflyttning av data mellan [de datalager som stöds](#data-movement-activities). Du kan också bearbeta data med hjälp av [beräkningstjänster](#data-transformation-activities) i andra regioner eller i en lokal miljö. Du kan också [övervaka och hantera arbetsflöden](data-factory-monitor-manage-pipelines.md) med både program- och användargränssnittsmetoder.
 
-Data Factory är endast tillgänglig i regionerna USA, västra, USA, östra och Europa, norra. Den tjänst som används av dataflytten i Data Factory är dock tillgänglig [globalt](data-factory-data-movement-activities.md#global) i flera regioner. Om ett datalager finns bakom en brandvägg kan en [gateway för datahantering](data-factory-move-data-between-onprem-and-cloud.md) som installerats i din lokala miljö flytta data i stället.
+Data Factory är endast tillgänglig i regionerna USA, västra, USA, östra och Europa, norra. Den tjänst som används av dataflytten i Data Factory är dock tillgänglig [globalt](data-factory-data-movement-activities.md#global) i flera regioner. Om ett datalager finns bakom en brandvägg flyttas informationen i stället i en [datahanteringsgateway](data-factory-move-data-between-onprem-and-cloud.md) som är installerad i den lokala miljön.
 
 Exempelvis kan vi anta att dina beräkningsmiljöer, som till exempel Azure HDInsight-kluster och Azure Machine Learning körs i regionen Europa, västra. Du kan skapa och använda en Azure Data Factory-instans i Europa, norra. Du kan sedan använda den för att schemalägga jobb i dina beräkningsmiljöer i regionen Europa, västra. Det tar några millisekunder för Data Factory att utlösa jobbet i din beräkningsmiljö, men den tid det tar för att köra jobbet ändras inte.
 
@@ -135,7 +135,7 @@ Du kan använda något av dessa verktyg eller API:er för att skapa datapipeline
 - Visual Studio
 - PowerShell
 - .NET-API
-- REST-API
+- REST API
 - Azure Resource Manager-mall
 
 Följ de stegvisa anvisningarna i följande självstudier om du vill lära dig hur du skapar datafabriker med datapipeliner:

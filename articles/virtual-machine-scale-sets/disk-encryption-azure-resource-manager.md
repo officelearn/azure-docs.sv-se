@@ -1,39 +1,39 @@
 ---
-title: Skapa och kryptera en skalnings uppsättning för virtuella datorer med Azure Resource Manager mallar
-description: I den här snabb starten får du lära dig hur du använder Azure Resource Manager mallar för att skapa och kryptera en skalnings uppsättning för virtuella datorer
+title: Skapa och kryptera en skalningsuppsättning för virtuella datorer med Azure Resource Manager-mallar
+description: I den här snabbstarten får du lära dig hur du använder Azure Resource Manager-mallar för att skapa och kryptera en skalauppsättning för virtuell dator
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: virtual-machine-scale-sets
 ms.topic: quickstart
 ms.date: 10/10/2019
 ms.openlocfilehash: aeba9aee8dd10b1245fb0a1e1cc98a1951382c72
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "72530002"
 ---
-# <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Kryptera skalnings uppsättningar för virtuella datorer med Azure Resource Manager
+# <a name="encrypt-virtual-machine-scale-sets-with-azure-resource-manager"></a>Kryptera skalningsuppsättningar för virtuella datorer med Azure Resource Manager
 
-Du kan kryptera eller dekryptera skalnings uppsättningar för virtuella Linux-datorer med hjälp av Azure Resource Manager mallar.
+Du kan kryptera eller dekryptera Linux-skalningsuppsättningar för virtuella datorer med Hjälp av Azure Resource Manager-mallar.
 
 ## <a name="deploying-templates"></a>Distribuera mallar
 
-Först väljer du den mall som passar ditt scenario.
+Välj först den mall som passar ditt scenario.
 
-- [Aktivera disk kryptering på en virtuell dators skalnings uppsättning med virtuella Linux-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+- [Aktivera diskkryptering på en virtuell uppsättning virtuell dator som körs på linuxnivå](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
-- [Aktivera disk kryptering på en virtuell Windows-dator med skal uppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+- [Aktivera diskkryptering på en windows-skalauppsättning för virtuell dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Distribuera en virtuell dators skalnings uppsättning med virtuella Linux-datorer med en hopp och möjliggör kryptering på virtuella Linux-datorers skalnings uppsättningar](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Distribuera en uppsättning virtuella linux-datorer med en jumpbox och aktivera kryptering på Linux-skalningsuppsättningar för virtuella datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Distribuera en virtuell dators skalnings uppsättning med virtuella Windows-datorer med en hopp och möjliggör kryptering på Windows Virtual Machine Scale Sets](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Distribuera en skalningsuppsättning för virtuella datorer med en virtuell dator med en jumpbox och aktivera kryptering på Windows-skalningsuppsättningar för virtuella datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
-- [Inaktivera disk kryptering på en virtuell dators skalnings uppsättning med virtuella Linux-datorer](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Inaktivera diskkryptering på en virtuell uppsättning virtuell dator som körs på linuxnivå](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
-- [Inaktivera disk kryptering på en virtuell Windows-dator med skal uppsättning](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Inaktivera diskkryptering på en windows-skalauppsättning för virtuell dator](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
-Följ sedan dessa steg:
+Följ sedan de här stegen:
 
      1. Click **Deploy to Azure**.
      2. Fill in the required fields then agree to the terms and conditions.
@@ -41,8 +41,8 @@ Följ sedan dessa steg:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Disk Encryption för skalnings uppsättningar för virtuella datorer](disk-encryption-overview.md)
-- [Kryptera en skalnings uppsättning för virtuella datorer med hjälp av Azure CLI](disk-encryption-cli.md)
-- [Kryptera en skalnings uppsättning för virtuella datorer med hjälp av Azure PowerShell](disk-encryption-powershell.md)
-- [Skapa och konfigurera ett nyckel valv för Azure Disk Encryption](disk-encryption-key-vault.md)
-- [Använd Azure Disk Encryption med sekvensering av tillägg för skalnings uppsättning för virtuell dator](disk-encryption-extension-sequencing.md)
+- [Azure Disk Encryption för skalningsuppsättningar för virtuella datorer](disk-encryption-overview.md)
+- [Kryptera en skala för virtuella datorer med Azure CLI](disk-encryption-cli.md)
+- [Kryptera en skala för virtuella datorer med Azure PowerShell](disk-encryption-powershell.md)
+- [Skapa och konfigurera ett nyckelvalv för Azure DiskKryptering](disk-encryption-key-vault.md)
+- [Använda Azure Disk Encryption med sekvensering av tillägg för virtuell datoruppsättning](disk-encryption-extension-sequencing.md)

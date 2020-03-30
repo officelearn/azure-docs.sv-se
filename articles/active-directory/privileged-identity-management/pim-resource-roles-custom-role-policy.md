@@ -1,5 +1,5 @@
 ---
-title: Använd anpassade roller för Azure-resurser i PIM – Azure AD | Microsoft Docs
+title: Använda anpassade roller för Azure-resurser i PIM - Azure AD | Microsoft-dokument
 description: Lär dig hur du använder anpassade roller för Azure-resurser i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,40 +15,40 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fbe08cff2b57155f8f3315f5d3454abfbdad47a0
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73847054"
 ---
-# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Använd anpassade roller för Azure-resurser i Privileged Identity Management
+# <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Använda anpassade roller för Azure-resurser i privilegierad identitetshantering
 
-Du kan behöva använda inställningar för strikt Privileged Identity Management (PIM) för vissa användare i en privilegie rad roll i din Azure Active Directory (Azure AD)-organisation, samtidigt som de ger större självständighet för andra. Överväg till exempel ett scenario där din organisation anlitar flera kontrakt för att hjälpa till med utvecklingen av ett program som kommer att köras i en Azure-prenumeration.
+Du kan behöva tillämpa strikta PIM-inställningar (Privileged Identity Management) på vissa användare i en privilegierad roll i din Azure Active Directory-organisation (Azure AD), samtidigt som du ger andra större självständighet. Tänk till exempel på ett scenario där din organisation anställer flera kontraktsmedarbetare för att hjälpa till med utvecklingen av ett program som körs i en Azure-prenumeration.
 
-Som resurs administratör vill du att personalen ska vara berättigad till åtkomst utan att kräva godkännande. Dock måste alla kontrakts partner godkännas när de begär åtkomst till organisationens resurser.
+Som resursadministratör vill du att medarbetare ska vara berättigade till åtkomst utan att behöva godkännas. Alla kontraktsmedarbetare måste dock godkännas när de begär åtkomst till organisationens resurser.
 
-Följ stegen som beskrivs i nästa avsnitt för att konfigurera riktade Privileged Identity Management inställningar för Azure-resurs roller.
+Följ stegen i nästa avsnitt för att konfigurera riktade inställningar för privilegierad identitetshantering för Azure-resursroller.
 
 ## <a name="create-the-custom-role"></a>Skapa den anpassade rollen
 
-Om du vill skapa en anpassad roll för en resurs följer du stegen som beskrivs i [skapa anpassade roller för Azure Role-baserade Access Control](../role-based-access-control-custom-roles.md).
+Om du vill skapa en anpassad roll för en resurs följer du stegen som beskrivs i [Skapa anpassade roller för Azure-rollbaserad åtkomstkontroll](../role-based-access-control-custom-roles.md).
 
-När du skapar en anpassad roll ska du inkludera ett beskrivande namn så att du enkelt kan komma ihåg vilken inbyggd roll du avsåg att duplicera.
+När du skapar anpassad roll ska du inkludera ett beskrivande namn så att du enkelt kan komma ihåg vilken inbyggd roll du avsåg att duplicera.
 
 > [!NOTE]
-> Se till att den anpassade rollen är en dubblett av den inbyggda rollen som du vill duplicera och att dess omfattning matchar den inbyggda rollen.
+> Kontrollera att den anpassade rollen är en dubblett av den inbyggda roll som du vill duplicera och att dess omfattning matchar den inbyggda rollen.
 
-## <a name="apply-pim-settings"></a>Använd PIM-inställningar
+## <a name="apply-pim-settings"></a>Använda PIM-inställningar
 
-När rollen har skapats i din Azure AD-organisation går du till sidan **Privileged Identity Management-Azure-resurser** i Azure Portal. Välj den resurs som rollen gäller för.
+När rollen har skapats i din Azure AD-organisation går du till sidan **Privilegierad identitetshantering - Azure-resurser** i Azure-portalen. Välj den resurs som rollen gäller för.
 
-![Fönstret Privileged Identity Management-Azure-resurser](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
+![Fönstret Privilegierad identitetshantering - Azure-resurser](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
-[Konfigurera Privileged Identity Management roll inställningar](pim-resource-roles-configure-role-settings.md) som ska gälla för dessa medlemmar i rollen.
+[Konfigurera rollinställningar för privilegierad identitetshantering](pim-resource-roles-configure-role-settings.md) som ska gälla för dessa medlemmar i rollen.
 
-Ange slutligen [roller](pim-resource-roles-assign-roles.md) för den distinkta gruppen med medlemmar som du vill ska vara mål för de här inställningarna.
+Slutligen [tilldelar du roller](pim-resource-roles-assign-roles.md) till den olika grupp medlemmar som du vill inrikta dig på med dessa inställningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera inställningar för Azure-resurs roll i Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Konfigurera Azure-resursrollinställningar i Privilegierad identitetshantering](pim-resource-roles-configure-role-settings.md)
 - [Anpassade roller i Azure](../../role-based-access-control/custom-roles.md)

@@ -8,17 +8,17 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.openlocfilehash: f4016349e354c84e9e096ac6d5072a4870e9ef29
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68726464"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Go
 
 I den här snabbstarten får du lära dig att använda Go-programmeringsspråket för att ladda upp, hämta och lista blockblobar i en container i Azure Blob-lagring. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -50,14 +50,14 @@ Det här kommandot klonar lagret till den lokala git-mappen. När du vill öppna
 ## <a name="configure-your-storage-connection-string"></a>Konfigurera anslutningssträngen för lagring
 Den här lösningen kräver att ditt lagringskontonamn och nyckel är säkert lagrade i miljövariabler som ligger lokalt på datorn som kör exemplet. Följ något av exemplen nedan beroende på operativsystemet för att skapa miljövariabeln.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# <a name="linux"></a>[Linux](#tab/linux)
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# <a name="windows"></a>[Windows](#tab/windows)
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -88,7 +88,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 När du trycker på valfri tangent för att fortsätta tar exempelprogrammet bort containern och filerna. 
 
 > [!TIP]
-> Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com) för att visa filerna i Blob Storage. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot. 
+> Du kan också använda ett verktyg som [Azure Storage Explorer](https://storageexplorer.com) för att visa filerna i blobblagringen. Azure Storage Explorer är ett kostnadsfritt verktyg för flera plattformar som gör det möjligt att komma åt information på lagringskontot. 
 >
 
 ## <a name="understand-the-sample-code"></a>Förstå exempelkoden
@@ -110,7 +110,7 @@ När du har ContainerURL kan du instansiera **BlobURL**-objektet som pekar på e
 > [!IMPORTANT]
 > Containernamn måste använda gemener. Mer information om containrar och blobnamn finns i [Namngivning och referens av containrar, blobar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-I det här avsnittet skapar du en ny container. Containern heter **quickstartblobs-[random string]** . 
+I det här avsnittet skapar du en ny container. Containern heter **quickstartblobs-[random string]**. 
 
 ```go 
 // From the Azure portal, get your storage account name and key and set environment variables.
@@ -147,11 +147,11 @@ handleErrors(err)
 
 Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar är vanligast och används i denna snabbstart.  
 
-Om du vill ladda upp en fil till en blob öppnar du filen med **os.Open**. Du kan sedan ladda upp filen till angiven sökväg med hjälp av ett av REST API:erna: Ladda upp (PutBlob) StageBlock/CommitBlockList (PutBlock/PutBlockList). 
+Om du vill ladda upp en fil till en blob öppnar du filen med **os.Open**. Du kan därefter ladda upp filen till den angivna sökvägen med någon av REST API:erna: Upload (PutBlob), StageBlock/CommitBlockList (PutBlock/PutBlockList). 
 
 SDK:erna erbjuder även [högnivå-API:er](https://github.com/Azure/azure-storage-blob-go/blob/master/azblob/highlevel.go) som är skapade ovanpå lågnivå-REST API:erna. Som ett exempel på detta använder funktionen ***UploadFileToBlockBlob*** StageBlock (PutBlock)-åtgärder för att ladda upp en fil i segment för att optimera dataflödet samtidigt. Om filen är mindre än 256 MB använder den Upload (PutBlob) i stället för att slutföra överföringen i en enda transaktion.
 
-I följande exempel överförs filen till containern med namnet **quickstartblobs-[randomstring]** .
+I följande exempel överförs filen till containern med namnet **quickstartblobs-[randomstring]**.
 
 ```go
 // Create a file to test the upload and download.
@@ -207,7 +207,7 @@ for marker := (azblob.Marker{}); marker.NotDone(); {
 
 ### <a name="download-the-blob"></a>Ladda ned bloben
 
-Ladda ned blobar med hjälp av **Download**-lågnivåfunktionen på en BlobURL. Detta returnerar struct-datatypen **DownloadResponse**. Kör funktionen **Body** på struct-datatypen för att få en **RetryReader**-ström för läsning av data. Om anslutningen Miss lyckas under läsningen, kommer den att göra ytterligare förfrågningar för att återupprätta anslutningen och fortsätta att läsa. Om du anger en RetryReaderOption med MaxRetryRequests inställt på 0 (standardvärdet) returneras den ursprungliga svarstexten, och det utförs inga nya försök. Alternativt kan du använda de högnivå-API:erna **DownloadBlobToBuffer** eller **DownloadBlobToFile** för att förenkla koden.
+Ladda ned blobar med hjälp av **Download**-lågnivåfunktionen på en BlobURL. Detta returnerar struct-datatypen **DownloadResponse**. Kör funktionen **Body** på struct-datatypen för att få en **RetryReader**-ström för läsning av data. Om en anslutning misslyckas när du läser, kommer det att göra ytterligare begäranden för att återupprätta en anslutning och fortsätta behandlingen. Om du anger en RetryReaderOption med MaxRetryRequests inställt på 0 (standardvärdet) returneras den ursprungliga svarstexten, och det utförs inga nya försök. Alternativt kan du använda de högnivå-API:erna **DownloadBlobToBuffer** eller **DownloadBlobToFile** för att förenkla koden.
 
 Följande kod laddar ned bloben med hjälp av funktionen **Download**. Blobens innehåll skrivs till en buffert och visas på konsolen.
 

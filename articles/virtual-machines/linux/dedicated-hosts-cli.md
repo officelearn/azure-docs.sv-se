@@ -1,34 +1,34 @@
 ---
 title: Distribuera virtuella Linux-datorer till dedikerade värdar med CLI
-description: Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure CLI.
+description: Distribuera virtuella datorer till dedikerade värdar med Hjälp av Azure CLI.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
 ms.openlocfilehash: ba40e610e31a1215ac90baf63a04b435b636d68a
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127689"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Distribuera virtuella datorer till dedikerade värdar med hjälp av Azure CLI
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Distribuera virtuella datorer till dedikerade värdar med Azure CLI
  
 
-Den här artikeln vägleder dig genom hur du skapar en dedikerad Azure- [värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
+Den här artikeln guidar dig genom hur du skapar en [Azure-dedikerad värd](dedicated-hosts.md) som värd för dina virtuella datorer. 
 
-Kontrol lera att du har installerat Azure CLI version 2.0.70 eller senare och loggat in på ett Azure-konto med hjälp av `az login`. 
+Kontrollera att du har installerat Azure CLI version 2.0.70 eller senare `az login`och loggat in på ett Azure-konto med . 
 
 
 ## <a name="limitations"></a>Begränsningar
 
-- Skalnings uppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
-- De storlekar och maskin varu typer som är tillgängliga för dedikerade värdar varierar beroende på region. Mer information hittar du på [prissättnings sidan](https://aka.ms/ADHPricing) för värden.
+- Skalningsuppsättningar för virtuella datorer stöds för närvarande inte på dedikerade värdar.
+- Storleken och maskinvarutyperna som är tillgängliga för dedikerade värdar varierar mellan olika regioner. Läs [värdprissidan](https://aka.ms/ADHPricing) om du vill veta mer.
  
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp 
-En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa resurs gruppen med AZ Group Create. I följande exempel skapas en resurs grupp med namnet *myDHResourceGroup* på platsen *USA, östra* .
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa resursgruppen med az-gruppskapa. I följande exempel skapas en resursgrupp med namnet *myDHResourceGroup* på platsen för *östra USA.*
 
 ```bash
 az group create --name myDHResourceGroup --location eastus 
@@ -36,15 +36,15 @@ az group create --name myDHResourceGroup --location eastus
  
 ## <a name="create-a-host-group"></a>Skapa en värdgrupp 
 
-En **värd grupp** är en resurs som representerar en samling dedikerade värdar. Du skapar en värd grupp i en region och en tillgänglighets zon och lägger till värdar i den. När du planerar för hög tillgänglighet finns det ytterligare alternativ. Du kan använda ett eller båda av följande alternativ med dina dedikerade värdar: 
-- Sträck över flera tillgänglighets zoner. I så fall måste du ha en värd grupp i var och en av de zoner som du vill använda.
-- Sträck över flera fel domäner som är mappade till fysiska rack. 
+En **värdgrupp** är en resurs som representerar en samling dedikerade värdar. Du skapar en värdgrupp i en region och en tillgänglighetszon och lägger till värdar i den. När du planerar för hög tillgänglighet finns det ytterligare alternativ. Du kan använda ett eller båda av följande alternativ med dina dedikerade värdar: 
+- Sträcker sig över flera tillgänglighetszoner. I det här fallet måste du ha en värdgrupp i var och en av de zoner som du vill använda.
+- Span över flera feldomäner som mappas till fysiska rack. 
  
-I båda fallen måste du ange antalet fel domäner för värd gruppen. Om du inte vill spänna över fel domäner i gruppen använder du antalet fel domäner 1. 
+I båda fallen måste du ange antalet feldomäner för värdgruppen. Om du inte vill spänna över feldomäner i gruppen använder du ett antal feldomäner på 1. 
 
-Du kan också välja att använda både tillgänglighets zoner och fel domäner. 
+Du kan också välja att använda både tillgänglighetszoner och feldomäner. 
 
-I det här exemplet ska vi använda [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värd grupp med hjälp av både tillgänglighets zoner och fel domäner. 
+I det här exemplet använder vi [az vm-värdgrupp skapa](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värdgrupp med både tillgänglighetszoner och feldomäner. 
 
 ```bash
 az vm host group create \
@@ -56,7 +56,7 @@ az vm host group create \
 
 ### <a name="other-examples"></a>Övriga exempel
 
-Du kan också använda [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värd grupp i tillgänglighets zon 1 (och inga fel domäner).
+Du kan också använda [az vm-värdgrupp skapa](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värdgrupp i tillgänglighet zon 1 (och inga feldomäner).
 
 ```bash
 az vm host group create \
@@ -66,7 +66,7 @@ az vm host group create \
    --platform-fault-domain-count 1 
 ```
  
-Följande använder [AZ VM Host Group Create](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värd grupp genom att endast använda fel domäner (som ska användas i regioner där tillgänglighets zoner inte stöds). 
+Följande använder [az vm-värdgrupp skapa](/cli/azure/vm/host/group#az-vm-host-group-create) för att skapa en värdgrupp med hjälp av feldomäner (som ska användas i regioner där tillgänglighetszoner inte stöds). 
 
 ```bash
 az vm host group create \
@@ -77,11 +77,11 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Skapa en värd 
 
-Nu ska vi skapa en dedikerad värd i värd gruppen. Förutom ett namn för värden måste du ange SKU för värden. Värd-SKU: n samlar in de VM-serier som stöds samt maskin varu generering för den dedikerade värden.  
+Nu ska vi skapa en dedikerad värd i värdgruppen. Förutom ett namn för värden måste du ange SKU för värden. Host SKU fångar den VM-serien som stöds samt maskinvarugenereringen för din dedikerade värd.  
 
-Mer information om värd-SKU: er och priser finns i [prissättning för Azure-dedikerad värd](https://aka.ms/ADHPricing).
+Mer information om värdsskrona och priser finns i [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
-Använd [AZ VM Host Create](/cli/azure/vm/host#az-vm-host-create) för att skapa en värd. Om du anger ett fel domän antal för värd gruppen uppmanas du att ange fel domänen för värden.  
+Använd [az vm-värdskapet](/cli/azure/vm/host#az-vm-host-create) för att skapa en värd. Om du anger ett antal feldomäner för värdgruppen blir du ombedd att ange feldomänen för värden.  
 
 ```bash
 az vm host create \
@@ -95,7 +95,7 @@ az vm host create \
 
  
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator 
-Skapa en virtuell dator på en dedikerad värd med [AZ VM Create](/cli/azure/vm#az-vm-create). Om du har angett en tillgänglighets zon när du skapar värd gruppen måste du använda samma zon när du skapar den virtuella datorn.
+Skapa en virtuell dator i en dedikerad värd med [az vm create](/cli/azure/vm#az-vm-create). Om du angav en tillgänglighetszon när du skapar värdgruppen måste du använda samma zon när du skapar den virtuella datorn.
 
 ```bash
 az vm create \
@@ -111,12 +111,12 @@ az vm create \
 ```
  
 > [!WARNING]
-> Om du skapar en virtuell dator på en värd som inte har tillräckligt med resurser, kommer den virtuella datorn att skapas i ett felaktigt tillstånd. 
+> Om du skapar en virtuell dator på en värd som inte har tillräckligt med resurser skapas den virtuella datorn i ett misslyckat tillstånd. 
 
 
-## <a name="check-the-status-of-the-host"></a>Kontrol lera status för värden
+## <a name="check-the-status-of-the-host"></a>Kontrollera värdens status
 
-Du kan kontrol lera värdets hälso status och hur många virtuella datorer du kan distribuera till värden med [AZ VM Host get-instance-View](/cli/azure/vm/host#az-vm-host-get-instance-view).
+Du kan kontrollera värdens hälsostatus och hur många virtuella datorer du fortfarande kan distribuera till värden med [az vm-värd get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
 ```bash
 az vm host get-instance-view \
@@ -124,7 +124,7 @@ az vm host get-instance-view \
    --host-group myHostGroup \
    --name myHost
 ```
- Resultatet kommer att se ut ungefär så här:
+ Utdata kommer att se ut ungefär så här:
  
 ```json
 {
@@ -222,16 +222,16 @@ az vm host get-instance-view \
 
 ```
  
-## <a name="export-as-a-template"></a>Exportera som en mall 
-Du kan exportera en mall om du nu vill skapa en ytterligare utvecklings miljö med samma parametrar, eller en produktions miljö som matchar den. Resource Manager använder JSON-mallar som definierar alla parametrar för din miljö. Du skapar hela miljöer genom att referera till den här JSON-mallen. Du kan skapa JSON-mallar manuellt eller exportera en befintlig miljö för att skapa en JSON-mall åt dig. Använd [AZ Group export](/cli/azure/group#az-group-export) för att exportera din resurs grupp.
+## <a name="export-as-a-template"></a>Exportera som mall 
+Du kan exportera en mall om du nu vill skapa en ytterligare utvecklingsmiljö med samma parametrar eller en produktionsmiljö som matchar den. Resource Manager använder JSON-mallar som definierar alla parametrar för din miljö. Du skapar hela miljöer genom att referera till den här JSON-mallen. Du kan skapa JSON-mallar manuellt eller exportera en befintlig miljö för att skapa JSON-mallen åt dig. Använd [az-gruppexport](/cli/azure/group#az-group-export) för att exportera resursgruppen.
 
 ```bash
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-Det här kommandot skapar `myDHResourceGroup.json`-filen i din aktuella arbets katalog. När du skapar en miljö från den här mallen uppmanas du att ange alla resurs namn. Du kan fylla i namnen i mallfilen genom att lägga till parametern `--include-parameter-default-value` i `az group export` kommandot. Redigera din JSON-mall för att ange resurs namnen eller skapa en Parameters. JSON-fil som anger resurs namnen.
+Med det här `myDHResourceGroup.json` kommandot skapas filen i den aktuella arbetskatalogen. När du skapar en miljö från den här mallen uppmanas du att ange alla resursnamn. Du kan fylla i dessa namn i `--include-parameter-default-value` mallfilen `az group export` genom att lägga till parametern i kommandot. Redigera JSON-mallen för att ange resursnamnen eller skapa en parameters.json-fil som anger resursnamnen.
  
-Om du vill skapa en miljö från mallen använder du [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create).
+Om du vill skapa en miljö från mallen använder du [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create).
 
 ```bash
 az group deployment create \ 
@@ -242,27 +242,27 @@ az group deployment create \
 
 ## <a name="clean-up"></a>Rensa 
 
-Du debiteras för dina dedikerade värdar även om inga virtuella datorer distribueras. Du bör ta bort alla värdar som du för närvarande inte använder för att spara kostnader.  
+Du debiteras för dina dedikerade värdar även när inga virtuella datorer distribueras. Du bör ta bort alla värdar som du för närvarande inte använder för att spara kostnader.  
 
-Du kan bara ta bort en värd när det inte finns några längre virtuella datorer som använder den. Ta bort de virtuella [datorerna med AZ VM Delete](/cli/azure/vm#az-vm-delete).
+Du kan bara ta bort en värd när det inte längre finns virtuella datorer som använder den. Ta bort de virtuella datorerna med [az vm-borttagning](/cli/azure/vm#az-vm-delete).
 
 ```bash
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-När du har tagit bort de virtuella datorerna kan du ta bort värden med [AZ VM Host Delete](/cli/azure/vm/host#az-vm-host-delete).
+När du har tagit bort de virtuella datorerna kan du ta bort värden med [az vm-värdborttagning](/cli/azure/vm/host#az-vm-host-delete).
 
 ```bash
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
-När du har tagit bort alla värdar kan du ta bort värd gruppen med [AZ VM Host Group Delete](/cli/azure/vm/host/group#az-vm-host-group-delete).  
+När du har tagit bort alla dina värdar kan du ta bort värdgruppen med [az vm-värdgruppborttagning](/cli/azure/vm/host/group#az-vm-host-group-delete).  
  
 ```bash
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  
 ```
  
-Du kan också ta bort hela resurs gruppen i ett enda kommando. Detta tar bort alla resurser som skapats i gruppen, inklusive alla virtuella datorer, värdar och värd grupper.
+Du kan också ta bort hela resursgruppen i ett enda kommando. Detta tar bort alla resurser som skapats i gruppen, inklusive alla virtuella datorer, värdar och värdgrupper.
  
 ```bash
 az group delete -n myDHResourceGroup 
@@ -270,8 +270,8 @@ az group delete -n myDHResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information finns i Översikt över [dedikerade värdar](dedicated-hosts.md) .
+- Mer information finns i översikten [Dedikerade värdar.](dedicated-hosts.md)
 
-- Du kan också skapa dedikerade värdar med hjälp av [Azure Portal](dedicated-hosts-portal.md).
+- Du kan också skapa dedikerade värdar med [Azure-portalen](dedicated-hosts-portal.md).
 
-- Det finns en exempel mall som du hittar [här](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), som använder både zoner och fel domäner för maximal återhämtning i en region.
+- Det finns exempelmall, som finns [här](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), som använder både zoner och feldomäner för maximal återhämtning i en region.

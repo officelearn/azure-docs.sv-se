@@ -1,6 +1,6 @@
 ---
-title: Support – Azure dedikerad HSM | Microsoft Docs
-description: Supportalternativ och ansvarsområden för Azure dedikerad HSM i olika scenarier
+title: Support - Azure Dedikerad HSM | Microsoft-dokument
+description: Supportalternativ och ansvarsområden för Azure Dedicated HSM i olika scenarier
 services: dedicated-hsm
 author: johndaw
 manager: rkarlin
@@ -13,87 +13,87 @@ ms.custom: seodec18
 ms.date: 03/27/2019
 ms.author: mbaldwin
 ms.openlocfilehash: d83d688707baf6098d63dfde9b4181eb04fb9729
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70881015"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure dedikerad HSM-support
 
-Tjänsten Azure dedikerad HSM ger en fysisk enhet för användning efter kund fullständig administrativ kontroll och hantering av ansvar. Enheten som gjorts tillgängliga är en [Gemalto SafeNet Luna 7 HSM modellen A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Microsoft kommer inte ha administrativ åtkomst när etablerats av en kund, utöver fysiska serieport bifogad fil som en övervakning roll.  Utan åtkomst till, kan Microsoft har inga pågående programvara på underhåll eller system administration ansvarsområden. Därför kan ansvarar kunder för vanliga driftaktiviteter.
-Kunderna ansvarar helt för program som använder HSM: erna och ska fungera med Gemalto för support eller consulting-baserade hjälp. På grund av omfattningen av kunden ägarskapet för operativa hygien är det inte möjligt för Microsoft att erbjuda alla slags garanti för hög tillgänglighet för den här tjänsten. Det är kundens ansvar att se till att programmen är korrekt konfigurerade för att uppnå hög tillgänglighet. Microsoft kommer att övervaka och underhålla enhetens hälsotillstånd och nätverksanslutningen.
+Azure Dedicated HSM-tjänsten tillhandahåller en fysisk enhet för ensam kundanvändning med fullständigt administrativt kontroll- och hanteringsansvar. Enheten som görs tillgänglig är en [Gemalto SafeNet Luna 7 HSM modell A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Microsoft har ingen administrativ åtkomst när den har etablerats av en kund, utöver den fysiska bifogade seriella portar som en övervakningsroll.  Utan åtkomst kan Microsoft inte ha något pågående underhåll på programvarunivå eller systemadministrationsansvar. Som ett resultat av detta är kunderna ansvariga för typiska operativa aktiviteter.
+Kunderna är fullt ansvariga för program som använder HSM och bör arbeta med Gemalto för support eller konsultbaserad hjälp. På grund av omfattningen av kundägandet av drifthygien är det inte möjligt för Microsoft att erbjuda någon form av hög tillgänglighetsgaranti för den här tjänsten. Det är kundens ansvar att se till att deras program är korrekt konfigurerade för att uppnå hög tillgänglighet. Microsoft övervakar och underhåller enhetens hälsa och nätverksanslutning.
 
 ## <a name="getting-support"></a>Få support
 
-Kund support för dedikerad HSM är en gemensam insats mellan Microsoft och Gemalto. Eventuella maskin varu problem eller problem med nätverks Sök vägar kommer att åtgärdas av Microsoft, och allt som du kan göra med den verkliga HSM, till exempel konfiguration, program vara, inbyggd program vara och program utveckling, kommer att åtgärdas av Gemalto. Den här support modellen säkerställer den snabbaste vägen till den mest effektiva supporten. Om du är tveksam med ett visst problem kan du generera en supportbegäran med Microsoft så att vi kan se till att du dirigeras på lämpligt sätt. Microsoft fortsätter att använda alla support scenarier och sträva efter att få bästa möjliga support för våra kunder.
+Kundsupport för Dedicated HSM är en gemensam insats mellan Microsoft och Gemalto. Alla maskinvaruproblem eller problem med nätverkssökvägen kommer att åtgärdas av Microsoft, och allt som har att göra med den faktiska HSM, såsom konfiguration, programvara, firmware och programutveckling, kommer att åtgärdas av Gemalto. Den här supportmodellen säkerställer den snabbaste vägen till det mest effektiva stödet. Om du är osäker på ett visst problem, ta upp en supportbegäran med Microsoft så ser vi till att du dirigeras på rätt sätt. Microsoft kommer att fortsätta engagera sig i alla supportscenarier och sträva efter den bästa supportupplevelsen för våra kunder.
 
-## <a name="gemalto-support"></a>Gemalto support
+## <a name="gemalto-support"></a>Support för Gemalto
 
-Kunder som använder sig av dedikerad HSM-tjänst är berättigade till support från Gemalto enligt support avtalet. Detta kräver bara en registrerings process med Gemalto-support portalen. Ett kund-ID och instruktioner kommer att tillhandahållas för detta som en del av det första ärendet med Microsoft för att få åtkomst till den dedikerade HSM-tjänsten. Mekanism för att få support från Gemalto är via sina [support-kundportalen](https://supportportal.gemalto.com/csm/).
-En viktig anmärkning är att Gemalto tillhandahåller all program vara och dokumentation som krävs för att använda HSM (till exempel klient åtkomst program och SDK: er) via hämtning på kund support portalen.
+Kunder som använder den dedikerade HSM-tjänsten kvalificerar sig för support från Gemalto enligt deras Plus-supportplan. Detta kräver bara en registreringsprocess med hjälp av Gemalto-supportportalen. Ett kund-ID och instruktioner kommer att tillhandahållas för detta som en del av det första engagemanget med Microsoft för att få tillgång till den dedikerade HSM-tjänsten. Mekanismen för att få support från Gemalto är via deras [kundsupportportal.](https://supportportal.gemalto.com/csm/)
+En viktig punkt att notera är att Gemalto kommer att tillhandahålla all programvara och dokumentation som krävs för att använda HSM (till exempel klientåtkomst programvara och SDKs) via nedladdning på kundsupportportalen.
 
-### <a name="software-components"></a>Programkomponenter
+### <a name="software-components"></a>Programvarukomponenter
 
-Olika programvarukomponenter som används i konfigurationen av HSM-enheter:
+Olika programvarukomponenter används i konfigurationen av HSM-enheter:
 
-* -Klientprogramvaran
+* Klientprogramvara
 * SDK
 * Verktyg
 
 ### <a name="guidance"></a>Riktlinjer
 
-Gemalto gör tillgänglig vägledning för administration och konfiguration via den [support-kundportalen](https://supportportal.gemalto.com/csm/). När du har loggat in med ett giltigt kund-ID, är dokumenten tillgängliga för hämtning. Gemalto innehåller också ett antal integreringsguiderna för att hjälpa kunder med olika scenarier och programvara integreringar. Mer information finns i den [Gemalto partner-webbplats för Microsoft](https://safenet.gemalto.com/partners/microsoft/).
+Gemalto ställer till förfogande för administrations- och konfigurationsvägledning via [kundsupportportalen.](https://supportportal.gemalto.com/csm/) När dessa dokument har loggat in med ett giltigt kund-ID finns de tillgängliga för hämtning. Gemalto tillhandahåller också en rad integrationsguider för att hjälpa kunder med olika scenarier och programvaruintegrationer. Mer information finns på [Gemalto-partnerwebbplatsen för Microsoft](https://safenet.gemalto.com/partners/microsoft/).
 
 ### <a name="support"></a>Support
 
-Alla programproblem nivån eller en fråga i förhållande till med hjälp av HSM: erna som en del av dedikerad HSM-tjänst bör åtgärdas till Gemalto stöd direkt. Alla programkomponenter som anges ovan och eventuella anpassade HSM-konfiguration som är efter etablering, kommer att lösas med Gemalto. Mer information finns i den [Gemalto kundportalen support](https://supportportal.gemalto.com/csm/).
+Alla problem på programvarunivå eller frågor i samband med användning av HSM som en del av den särskilda HSM-tjänsten, bör riktas direkt till Gemalto-supporten. Alla programvarukomponenter som anges ovan, och alla anpassade HSM-konfigurationer som är efter etablering, kommer att åtgärdas av Gemalto. Mer information finns i [Gemaltos kundsupportportal](https://supportportal.gemalto.com/csm/).
 
 ### <a name="consulting-services"></a>Konsulttjänster
 
-Kontakta representanten för ditt konto Gemalto för alla hjälp i design, utveckling och distribution av anpassade program som använder HSM.
+Om du vill ha hjälp med design, utveckling och distribution av anpassade program som använder HSM kontaktar du din Gemalto-kontorepresentant.
 
 ## <a name="microsoft-support"></a>Microsoft Support
 
-Microsoft ser till att fysiska HSM-enheter är tillgängliga för nätverk och i användnings tillstånd för exklusiv användning av en enskild kund. Kunderna ansvarar för konfiguration, administration och hantering av enheten. Microsofts ansvar omfattar:
+Microsoft kommer att se till att fysiska HSM-enheter är nätverksanslutna och i drift för exklusiv användning av en enskild kund. Kunderna ansvarar för konfiguration, administration och hantering av enheten. Microsofts ansvarsområden omfattar:
 
 * Se till att enheten har ström och kylning
-* Underhålla en driftstatus för HSM (till exempel webbsupport scenario)
-* Enheten är tillgänglig över nätverket.
+* Upprätthålla ett drifttillstånd för HSM (till exempel break/fix-scenarier)
+* Enheten är tillgänglig via nätverket.
 
-Problem som till exempel följande ska rapporteras till Microsoft:
+Problem som följande ska rapporteras till Microsoft:
 
 * Komponentfel
-* Fullständig enhetsfel
+* Fullständigt enhetsfel
 * Problem med nätverksåtkomst
-* Problem med etablering och borttagning.
+* Problem med etablering och avetablering.
 
-Microsoft har fysiska serieport åtkomst till enheten via en övervakning roll (det vill säga inte administrativa roll) som ger grundläggande hälsotillstånds telemetri.  Detta gör att Microsoft ska kunna ge Proaktiva meddelanden om problem till kunden, såvida inte kunden väljer att begränsa den här behörigheten. 
+Microsoft har fysisk seriell portåtkomst till enheten via en övervakningsroll (det vill än administrativ roll) som möjliggör grundläggande hälsotelemetri.  Detta gör det möjligt för Microsoft att tillhandahålla proaktiva meddelanden om problem till kunden om inte kunden väljer att begränsa den här behörigheten. 
 
-### <a name="provisioning-and-decommissioning"></a>Etablering och inaktivering av
+### <a name="provisioning-and-decommissioning"></a>Etablering och avveckling
 
-När en kund har en godkänd registrering för dedikerad HSM-tjänst, kommer de att kunna skapa HSM-resurser (för närvarande via PowerShell eller kommandoradsgränssnittet och inte Azure-portalen). Resursen genomgår en allokeringsprocessen som mappar en fysisk enhet i en specifik region till en kunds fördefinierade virtuellt nätverk (VNet). När det är synliga på ett virtuellt nätverk, kan kunden få åtkomst till enheten och konfigurera den ytterligare enligt kraven. Kunder komma åt dedikerade HSM: er med Gemalto klientprogrammet och verktyg. Process för att skapa resursen stöds av Microsoft. Anpassad konfiguration bearbeta och även efteråt stöds av Gemalto. (se Gemalto stöder ovan). När en kund har slutförts med hjälp av en HSM, den måste återställas (eller zeroized) att se till att inget persistence av data. Processen med att återställa enheten tar bort alla anpassad konfiguration och data. Microsoft tar bort enheten och returnerar den till poolen i tillståndet enkla. Det innebär att när enheten returneras till poolen finns det några tecken på tidigare kundaktivitet. 
+När en kund har en godkänd registrering för dedikerad HSM-tjänst kan de skapa HSM-resurser (för närvarande via PowerShell eller kommandoradsgränssnitt och inte Azure-portalen). Resursen går igenom en allokeringsprocess som mappar en fysisk enhet i en angiven region till en kunds fördefinierade virtuella nätverk (VNet). När den är synlig på ett virtuella nätverk kan kunden komma åt enheten och konfigurera den ytterligare enligt kraven. Kunderna får tillgång till sina dedikerade HSM:er med Hjälp av Gemaltos klientprogram och verktyg. Processen för att skapa resurser stöds av Microsoft. Anpassad konfigurationsprocess och därefter stöds av Gemalto. (se Gemalto-stöd ovan). När en kund har avslutat med en HSM måste den återställas (eller nollställas) för att säkerställa att data inte finns kvar. Processen för att återställa enheten tar bort all anpassad konfiguration och data. Microsoft frigör enheten och returnerar den till poolen i ett orört tillstånd. Det innebär att när enheten returneras till poolen finns det inga tecken på tidigare kundaktivitet. 
 
 ### <a name="hardware-issues"></a>Maskinvaruproblem
 
-HSM-enheten har redundant och replaceable strömförsörjning och fläkt enheter.  Borttagning av fläkt enheter kommer dock fortfarande att orsaka en Manipulerings händelse. När ett fel uppstår kan använder Microsoft den lämpligaste processen för att åtgärda komponent på problemet på ett sätt som gör att minimal avbrottstid och lägsta risken för angrepp på våra kunder tjänstens tillgänglighet.
-Alla allvarligare fel på enheten resulterar i enheten håller på att ersättas av ett nytt från poolen. Kunden innehåller bara den nya enheten i befintliga HA-par för det att synkronisera och återgå till fullständig Användningsstatus. Misslyckade enheten har sina data med enheter tas bort och förstörs på platsen på datacentret. Endast chassi återgår till Gemalto för återvinning.
+HSM-enheten har redundanta och utbytbara nätaggregat och fläktenheter.  Borttagning av fläktenheter kommer dock fortfarande att orsaka en manipuleringshändelse. När ett komponentfel inträffar använder Microsoft den lämpligaste processen för att åtgärda problemet på komponentnivå på ett sätt som orsakar minimala avbrott och lägsta risk för våra kunders tjänsttillgänglighet.
+Eventuella allvarligare fel på enheten kommer att resultera i att enheten ersätts av en ny från den fria poolen. Kunden inkluderar helt enkelt den nya enheten i det befintliga HA-paret för att den ska synkronisera och återgå till fullt drifttillstånd. Den misslyckade enheten kommer att få sina datalagerenheter borttagna och strimlade på plats i datacentret. Endast chassit kommer att returneras till Gemalto för återvinning.
 
 
 ### <a name="networking-issues"></a>Problem med nätverk
 
-Om kunderna får nätverksproblem åtkomst till HSM-enhet, bör de kontakta Microsoft support. Ett enkelt test för nätverk åtkomst är att använda SSH för att ansluta till HSM-enheten. Om detta misslyckas kan du kontakta Microsoft support.
+Om kunderna får problem med nätverksåtkomst till HSM-enheten bör de kontakta Microsoft-supporten. Ett enkelt test för nätverksåtkomst är att använda SSH för att ansluta till HSM-enheten. Om detta misslyckas kontaktar du Microsoft-supporten.
 
-## <a name="service-level-expectations-for-support"></a>Service på förväntningar för support
+## <a name="service-level-expectations-for-support"></a>Servicenivå förväntningar på support
 
-Servicenivåer för Microsoft-supporten finns i den [Azure-supportplan](https://azure.microsoft.com/support/plans/).
-Gemalto för tjänsten supportnivåer finns i den [Gemalto stöder Essentials](https://azure.microsoft.com/support/plans/).
+Microsoft-supporttjänstnivåer finns i [Azure-supportplanen](https://azure.microsoft.com/support/plans/).
+För Gemalto support servicenivåer, se [Gemalto Support Essentials](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du rekommenderas att nyckelbegrepp som hög tillgänglighet och säkerhet är väl förstådda innan enhetsetablering och programmets design eller distribution.
+Vi rekommenderar att viktiga begrepp som hög tillgänglighet och säkerhet är väl förstådda innan enhetsetablering och programdesign eller distribution.
 
-* [Distributionsarkitektur för](deployment-architecture.md)
+* [Distributionsarkitektur](deployment-architecture.md)
 * [Hög tillgänglighet](high-availability.md)
 * [Fysisk säkerhet](physical-security.md)
 * [Nätverk](networking.md)

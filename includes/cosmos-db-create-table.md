@@ -9,19 +9,19 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 5743d785afb87aef6b3a89af6dc8eb18f66b164d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68854659"
 ---
 Nu kan du använda Datautforskaren i Azure Portal för att skapa en databas och en tabell. 
 
-1. Välj **datautforskaren** > **ny tabell**. 
+1. Välj**ny tabell** **för Data Explorer** > . 
     
     Området **Lägg till tabell** visas längst till höger, du kan behöva bläddra åt höger för att se det.
 
-    ![Datautforskaren i Azure-portalen](./media/cosmos-db-create-table/azure-cosmosdb-data-explorer.png)
+    ![Datautforskaren i Azure Portal](./media/cosmos-db-create-table/azure-cosmosdb-data-explorer.png)
 
 2. På sidan **Lägg till tabell** anger du inställningarna för den nya tabellen.
 

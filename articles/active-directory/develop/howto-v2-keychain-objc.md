@@ -1,7 +1,7 @@
 ---
 title: Konfigurera nyckelring
 titleSuffix: Microsoft identity platform
-description: Lär dig hur du konfigurerar nyckel ringen så att din app kan cachelagra tokens i nyckel ringen.
+description: Lär dig hur du konfigurerar nyckelring så att appen kan cachelagra token i nyckelringen.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -14,39 +14,39 @@ ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77085864"
 ---
 # <a name="configure-keychain"></a>Konfigurera nyckelring
 
-När [Microsoft Authentication Library för iOS och MacOS](msal-overview.md) (MSAL) loggar in en användare eller uppdaterar en token försöker det att cachelagra tokens i nyckel ringen. Med cachelagring av tokens i nyckel ringen kan MSAL tillhandahålla tyst enkel inloggning (SSO) mellan flera appar som distribueras av samma Apple-utvecklare. SSO uppnås via funktionen åtkomst grupper för nyckel ringar. Mer information finns i dokumentationen till Apples [nyckel rings objekt](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc).
+När [Microsoft Authentication Library for iOS och macOS](msal-overview.md) (MSAL) loggar in en användare eller uppdaterar en token försöker den cachelagra token i nyckelringen. Cachelagringstoken i nyckelringen gör att MSAL kan tillhandahålla tyst enkel inloggning (SSO) mellan flera appar som distribueras av samma Apple-utvecklare. SSO uppnås via nyckelringsåtkomstgruppernas funktionalitet. Mer information finns i [Dokumentationen för Apples nyckelringsobjekt](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc).
 
-Den här artikeln beskriver hur du konfigurerar app-rättigheter så att MSAL kan skriva cachelagrade tokens till iOS-och macOS-nyckel.
+Den här artikeln beskriver hur du konfigurerar apprättigheter så att MSAL kan skriva cachelagrade token till iOS- och macOS-nyckelring.
 
-## <a name="default-keychain-access-group"></a>Standard åtkomst grupp för nyckel ringar
+## <a name="default-keychain-access-group"></a>Standardgrupp för nyckelringsåtkomst
 
 ### <a name="ios"></a>iOS
 
-MSAL på iOS använder `com.microsoft.adalcache` åtkomst grupp som standard. Det här är den delade åtkomst gruppen som används av både MSAL-och ADAL-SDK: er (Azure AD Authentication Library) och säkerställer den bästa funktionen för enkel inloggning mellan flera appar från samma utgivare.
+MSAL på iOS `com.microsoft.adalcache` använder åtkomstgruppen som standard. Det här är den delade åtkomstgruppen som används av ADAL-SDK:er (Både MSAL och Azure AD Authentication Library) och säkerställer den bästa enskilda inloggningsupplevelsen (SSO) mellan flera appar från samma utgivare.
 
-På iOS lägger du till `com.microsoft.adalcache` nyckel rings gruppen till appens rättighet i XCode under **projekt inställningar** > **funktioner** > **nyckel rings delning**
+På iOS `com.microsoft.adalcache` lägger du till nyckelringsgruppen i appens berättigande i XCode under**Nyckelringsdelning** **Capabilities** > av **projektinställningar** > 
 
 ### <a name="macos"></a>macOS
 
-MSAL på macOS använder `com.microsoft.identity.universalstorage` åtkomst grupp som standard.
+MSAL på macOS använder `com.microsoft.identity.universalstorage` åtkomstgrupp som standard.
 
-På grund av begränsningar för nyckel ringar av macOS, översätts MSAL-`access group` inte direkt till åtkomst gruppens attribut för nyckel ringar (se [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) på MacOS 10,14 och tidigare. Det fungerar dock på samma sätt från ett SSO-perspektiv genom att se till att flera program som distribueras av samma Apple-utvecklare kan ha tyst SSO.
+På grund av macOS-nyckelringsbegränsningar `access group` översätter MSAL:s inte direkt till attributet keychain access group (se [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) på macOS 10.14 och tidigare. Det beter sig dock på samma sätt ur ett SSO-perspektiv genom att se till att flera program som distribueras av samma Apple-utvecklare kan ha tyst SSO.
 
-På macOS 10,15 och senare (macOS Catalina) använder MSAL-attributet för nyckel ringar för att uppnå tyst SSO, på samma sätt som för iOS.
+På macOS 10.15 och framåt (macOS Catalina) använder MSAL nyckelringsåtkomstgruppattribut för att uppnå tyst SSO, på samma sätt som iOS.
 
-## <a name="custom-keychain-access-group"></a>Anpassad nyckel rings åtkomst grupp
+## <a name="custom-keychain-access-group"></a>Anpassad nyckelringsåtkomstgrupp
 
-Om du vill använda en annan åtkomst grupp för nyckel ringar kan du skicka en anpassad grupp när du skapar `MSALPublicClientApplicationConfig` innan du skapar `MSALPublicClientApplication`, så här:
+Om du vill använda en annan nyckelringsåtkomstgrupp kan du skicka `MSALPublicClientApplicationConfig` din `MSALPublicClientApplication`anpassade grupp när du skapar innan du skapar , så här:
 
-# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+# <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
@@ -62,7 +62,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -80,17 +80,17 @@ do {
 
 ---
 
-## <a name="disable-keychain-sharing"></a>Inaktivera delning av nyckel ringar
+## <a name="disable-keychain-sharing"></a>Inaktivera nyckelringsdelning
 
-Om du inte vill dela SSO-tillstånd mellan flera appar eller använda någon åtkomst grupp för nyckel ringar, inaktiverar du delning av nyckel ringar genom att skicka programpaket-ID: t som din keychainGroup:
+Om du inte vill dela SSO-tillstånd mellan flera appar eller använda någon nyckelringsåtkomstgrupp inaktiverar du nyckelringsdelning genom att skicka programpaket-ID:t som nyckelringGrupp:
 
-# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
+# <a name="objective-c"></a>[Objective-C](#tab/objc)
 
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-# <a name="swifttabswift"></a>[Swift](#tab/swift)
+# <a name="swift"></a>[Swift](#tab/swift)
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {
@@ -100,14 +100,14 @@ if let bundleIdentifier = Bundle.main.bundleIdentifier {
 
 ---
 
-## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>Referens-34018-fel (det gick inte att ange objekt i nyckel ringen)
+## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>Hantera -34018-fel (det gick inte att ange objektet i nyckelring)
 
-Fel – 34018 innebär vanligt vis att nyckel ringen inte har kon figurer ATS korrekt. Se till att åtkomst gruppen för nyckel ringar som har kon figurer ATS i MSAL matchar den som kon figurer ATS i rättigheter.
+Fel -34018 innebär normalt att nyckelringen inte har konfigurerats korrekt. Kontrollera att nyckelringsåtkomstgruppen som har konfigurerats i MSAL matchar den som konfigurerats i berättiganden.
 
-## <a name="ensure-your-application-is-properly-signed"></a>Se till att ditt program är korrekt signerat
+## <a name="ensure-your-application-is-properly-signed"></a>Se till att din ansökan är korrekt signerad
 
-I macOS kan program köras utan att vara signerade av utvecklaren. Även om de flesta av MSAL-funktionerna fortsätter att fungera måste programmet vara signerat via SSO via nyckel åtkomst. Om du har flera prompter för nyckel ringar kontrollerar du att programmets signatur är giltig.
+På macOS kan program köras utan att signeras av utvecklaren. Medan de flesta av MSAL: s funktioner kommer att fortsätta att fungera, SSO via nyckelring tillgång kräver ansökan undertecknas. Om du upplever flera nyckelringsuppmaningar kontrollerar du att programmets signatur är giltig.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om nyckel rings åtkomst grupper i Apples [delnings åtkomst till nyckel ringar i en samling av apps-artiklar](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) .
+Läs mer om nyckelringsåtkomstgrupper i Apples [delningsåtkomst till nyckelringsobjekt bland](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc) en artikel med appar.

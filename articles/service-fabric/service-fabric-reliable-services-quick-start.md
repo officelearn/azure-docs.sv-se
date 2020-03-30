@@ -1,55 +1,55 @@
 ---
-title: Skapa ditt första Service Fabric-program iC#
-description: Introduktion till att skapa ett Microsoft Azure Service Fabric-program med tillstånds lösa och tillstånds känsliga tjänster.
+title: 'Skapa ditt första Service Fabric-program i C #'
+description: Introduktion till att skapa ett Microsoft Azure Service Fabric-program med tillståndslösa och tillståndskänsliga tjänster.
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: sfrev
 ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77083761"
 ---
 # <a name="get-started-with-reliable-services"></a>Kom igång med Reliable Services
 
 > [!div class="op_single_selector"]
-> * [C# i Windows](service-fabric-reliable-services-quick-start.md)
+> * [C# på Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java i Linux](service-fabric-reliable-services-quick-start-java.md)
 
-Ett Azure Service Fabric-program innehåller en eller flera tjänster som kör din kod. Den här guiden visar hur du skapar både tillstånds lösa och tillstånds känsliga Service Fabric program med [Reliable Services](service-fabric-reliable-services-introduction.md).  
+Ett Azure Service Fabric-program innehåller en eller flera tjänster som kör din kod. Den här guiden visar hur du skapar både tillståndslösa och tillståndskänsliga Service Fabric-program med [Reliable Services](service-fabric-reliable-services-introduction.md).  
 
 ## <a name="basic-concepts"></a>Grundläggande begrepp
 
 För att komma igång med Reliable Services behöver du bara förstå några grundläggande begrepp:
 
-* **Tjänst typ**: det här är tjänst implementeringen. Den definieras av klassen som du skriver som utökar `StatelessService` och annan kod eller beroenden som används däri, tillsammans med ett namn och ett versions nummer.
-* **Namngiven tjänst instans**: om du vill köra tjänsten skapar du namngivna instanser av tjänst typen, ungefär som du skapar objekt instanser av en klass typ. En tjänst instans har ett namn i form av en URI med hjälp av "Fabric:/" schema, till exempel "Fabric:/MyApp/unservice".
-* **Tjänst värd**: de namngivna tjänst instanser som du skapar måste köras i en värd process. Tjänste värden är bara en process där instanser av tjänsten kan köras.
-* **Tjänst registrering**: registreringen samlar ihop allt. Tjänst typen måste vara registrerad med Service Fabric runtime i en tjänst värd för att Service Fabric ska kunna skapa instanser av den som ska köras.  
+* **Tjänsttyp**: Det här är din tjänstimplementering. Den definieras av den klass du `StatelessService` skriver som utökar och alla andra kod eller beroenden som används där, tillsammans med ett namn och ett versionsnummer.
+* **Namngiven tjänstinstans:** Om du vill köra tjänsten skapar du namngivna instanser av tjänsttypen, ungefär som du skapar objektinstanser av en klasstyp. En tjänstinstans har ett namn i form av en URI med hjälp av "tyg:/" "fabric:/MyApp/MyService".
+* **Tjänstvärd**: De namngivna tjänstinstanser som du skapar måste köras i en värdprocess. Tjänstvärden är bara en process där instanser av tjänsten kan köras.
+* **Serviceregistrering**: Registrering samlar allt. Tjänsttypen måste vara registrerad med Service Fabric-körningen i en tjänstvärd för att Service Fabric ska kunna skapa instanser av den för att köras.  
 
-## <a name="create-a-stateless-service"></a>Skapa en tillstånds lös tjänst
+## <a name="create-a-stateless-service"></a>Skapa en tillståndslös tjänst
 
-En tillstånds lös tjänst är en typ av tjänst som för närvarande är normen i moln program. Den betraktas som tillstånds lös eftersom själva tjänsten inte innehåller data som behöver lagras på ett tillförlitligt sätt eller göras med hög tillgänglighet. Om en instans av en tillstånds lös tjänst stängs av försvinner allt internt tillstånd. I den här typen av tjänst måste tillstånd vara beständigt till en extern lagrings plats, t. ex. Azure-tabeller eller en SQL-databas, för att den ska bli hög tillgänglig och tillförlitlig.
+En tillståndslös tjänst är en typ av tjänst som för närvarande är normen i molnprogram. Det anses tillståndslöst eftersom själva tjänsten inte innehåller data som behöver lagras på ett tillförlitligt sätt eller göras mycket tillgängliga. Om en instans av en tillståndslös tjänst stängs av går alla dess interna tillstånd förlorade. I den här typen av tjänst måste tillståndet sparas i ett externt arkiv, till exempel Azure-tabeller eller en SQL-databas, för att den ska göras tillgänglig och tillförlitlig.
 
-Starta Visual Studio 2017 eller Visual Studio 2019 som administratör och skapa ett nytt Service Fabric program projekt med namnet *HelloWorld*:
+Starta Visual Studio 2017 eller Visual Studio 2019 som administratör och skapa ett nytt programprojekt för Service Fabric med namnet *HelloWorld:*
 
-![Använd dialog rutan nytt projekt för att skapa ett nytt Service Fabric program](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
+![Använda dialogrutan Nytt projekt för att skapa ett nytt Service Fabric-program](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Skapa sedan ett tillstånds lösa tjänst projekt med **.net Core 2,0** med namnet *HelloWorldStateless*:
+Skapa sedan ett tillståndslöst serviceprojekt med **.NET Core 2.0** med namnet *HelloWorldStateless:*
 
-![I den andra dialog rutan skapar du ett tillstånds löst tjänst projekt](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
+![Skapa ett tillståndslöst serviceprojekt i den andra dialogrutan](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
 Din lösning innehåller nu två projekt:
 
-* *HelloWorld*. Detta är det *program* projekt som innehåller dina *tjänster*. Den innehåller också applikations manifestet som beskriver programmet, samt ett antal PowerShell-skript som hjälper dig att distribuera ditt program.
-* *HelloWorldStateless*. Det här är tjänst projektet. Den innehåller den tillstånds lösa tjänst implementeringen.
+* *HejWorld*. Det här är *programprojektet* som innehåller dina *tjänster*. Den innehåller också programmanifestet som beskriver programmet, samt ett antal PowerShell-skript som hjälper dig att distribuera ditt program.
+* *HelloWorldStateless*. Det här är serviceprojektet. Den innehåller den tillståndslösa tjänsteimplementeringen.
 
 ## <a name="implement-the-service"></a>Implementera tjänsten
 
-Öppna **HelloWorldStateless.cs** -filen i tjänste projektet. I Service Fabric kan en tjänst köra vilken affärs logik som helst. Tjänst-API: et tillhandahåller två start punkter för din kod:
+Öppna **HelloWorldStateless.cs** filen i serviceprojektet. I Service Fabric kan en tjänst köra vilken affärslogik som helst. Tjänst-API:et innehåller två startpunkter för koden:
 
-* En öppen start punkt metod som kallas *RunAsync*, där du kan börja köra alla arbets belastningar, inklusive tids krävande beräknings arbets belastningar.
+* En öppen startpunktsmetod, kallad *RunAsync*, där du kan börja köra alla arbetsbelastningar, inklusive tidskrävande beräkningsarbetsbelastningar.
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -58,7 +58,7 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-* En kommunikations start punkt där du kan ansluta till kommunikations stacken, t. ex. ASP.NET Core. Det är här du kan börja ta emot förfrågningar från användare och andra tjänster.
+* En kommunikationsinträde där du kan koppla in din kommunikationsstack, till exempel ASP.NET Core. Här kan du börja ta emot förfrågningar från användare och andra tjänster.
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -67,13 +67,13 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 }
 ```
 
-I den här självstudien kommer vi att fokusera på metoden för `RunAsync()` start punkt. Det är här du kan börja köra koden direkt.
-Projekt mal len innehåller en exempel implementering av `RunAsync()` som ökar antalet rullandeor.
+I den här självstudien `RunAsync()` kommer vi att fokusera på ingångsmetoden. Här kan du omedelbart börja köra koden.
+Projektmallen innehåller ett `RunAsync()` exempel på implementering av den ökar antalet rullande.
 
 > [!NOTE]
-> Information om hur du arbetar med en kommunikations stack finns i [tjänst kommunikation med ASP.net Core](service-fabric-reliable-services-communication-aspnetcore.md)
+> Mer information om hur du arbetar med en kommunikationsstack finns i [Servicekommunikation med ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
-### <a name="runasync"></a>RunAsync
+### <a name="runasync"></a>RunAsync (KörAsync)
 
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
@@ -94,38 +94,38 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 }
 ```
 
-Plattformen anropar den här metoden när en instans av en tjänst placeras och är klar att köras. För en tillstånds lös tjänst innebär det bara när tjänst instansen öppnas. En avbrotts-token anges för att koordineras när tjänst instansen måste stängas. I Service Fabric kan den här öppna/stäng-cykeln för en tjänst instans ske många gånger över hela livs längden för tjänsten. Detta kan inträffa av olika orsaker, inklusive:
+Plattformen anropar den här metoden när en instans av en tjänst är placerad och redo att köras. För en tillståndslös tjänst betyder det helt enkelt när tjänstinstansen öppnas. En avbokningstoken tillhandahålls för att samordna när din tjänstinstans måste stängas. I Service Fabric kan den här öppna/nära cykeln för en tjänstinstans inträffa många gånger under tjänstens livstid som helhet. Detta kan hända av olika skäl, inklusive:
 
-* Systemet flyttar tjänst instanserna för resurs balansering.
+* Systemet flyttar dina tjänstinstanser för resursbalansering.
 * Fel uppstår i koden.
-* Programmet eller systemet har uppgraderats.
-* Den underliggande maskin varan upplever ett avbrott.
+* Programmet eller systemet uppgraderas.
+* Den underliggande maskinvaran upplever ett avbrott.
 
-Den här dirigeringen hanteras av systemet för att hålla tjänsten hög tillgänglig och korrekt bal anse rad.
+Denna orkestrering hanteras av systemet för att hålla din tjänst mycket tillgänglig och korrekt balanserad.
 
-`RunAsync()` bör inte blockera synkront. Din implementering av RunAsync ska returnera en uppgift eller vänta på eventuella tids krävande eller blockerade åtgärder så att körningen kan fortsätta. Obs! i den `while(true)`-slingan i föregående exempel används en uppgift som returnerar `await Task.Delay()`. Om din arbets belastning måste blockera synkront bör du schemalägga en ny aktivitet med `Task.Run()` i `RunAsync`-implementeringen.
+`RunAsync()`bör inte blockera synkront. Implementeringen av RunAsync bör returnera en aktivitet eller vänta på långvariga eller blockerande åtgärder så att körningen kan fortsätta. Observera i `while(true)` loopen i föregående exempel används `await Task.Delay()` en aktivitetsretur. Om din arbetsbelastning måste blockeras synkront bör `Task.Run()` du `RunAsync` schemalägga en ny aktivitet med i implementeringen.
 
-Annullering av din arbets belastning är en samarbets insats som dirigeras av den angivna avbrotts-token. Systemet väntar på att aktiviteten ska avslutas (genom slutförd, annullering eller fel) innan den går vidare. Det är viktigt att du följer uppsägnings-token, slutför allt arbete och avslutar `RunAsync()` så snabbt som möjligt när systemet begär uppsägning.
+Annullering av din arbetsbelastning är ett samarbete som iscensatts av den angivna annulleringstoken. Systemet väntar på att aktiviteten ska avslutas (genom att slutföra, avbryta eller fel) innan den går vidare. Det är viktigt att du respekterar annulleringstoken, slutför allt arbete och avslutar `RunAsync()` så snabbt som möjligt när systemet begär annullering.
 
-I det här tillstånds lösa tjänst exemplet lagras antalet i en lokal variabel. Men eftersom det här är en tillstånds lös tjänst finns bara det värde som lagras för den aktuella livs cykeln för tjänst instansen. När tjänsten flyttas eller startas om går värdet förlorat.
+I det här tillståndslösa serviceexemplet lagras antalet i en lokal variabel. Men eftersom detta är en tillståndslös tjänst finns det värde som lagras endast för den aktuella livscykeln för tjänstinstansen. När tjänsten flyttas eller startas om går värdet förlorat.
 
-## <a name="create-a-stateful-service"></a>Skapa en tillstånds känslig tjänst
+## <a name="create-a-stateful-service"></a>Skapa en tillståndskänslig tjänst
 
-Service Fabric introducerar en ny typ av tjänst som är tillstånds känslig. En tillstånds känslig tjänst kan upprätthålla tillstånd på ett tillförlitligt sätt i själva tjänsten, tillsammans med den kod som används. Tillstånd har gjorts med hög tillgänglighet genom Service Fabric utan att behöva beständigt tillstånd till en extern lagrings plats.
+Service Fabric introducerar en ny typ av tjänst som är tillståndskänslig. En tillståndskänslig tjänst kan underhålla tillståndet på ett tillförlitligt sätt inom själva tjänsten, samlokaliserade med koden som använder den. Tillståndet görs mycket tillgängligt av Service Fabric utan att behöva spara tillstånd till ett externt arkiv.
 
-Om du vill konvertera ett räknar värde från tillstånds lös till hög tillgänglighet och beständigt, även när tjänsten flyttas eller startas om, behöver du en tillstånds känslig tjänst.
+Om du vill konvertera ett räknarvärde från tillståndsfritt till högtillgängligt och beständigt, även när tjänsten flyttas eller startas om, behöver du en tillståndskänslig tjänst.
 
-I samma *HelloWorld* -program kan du lägga till en ny tjänst genom att högerklicka på tjänst referenserna i programprojektet och välja **Add-> New Service Fabric service**.
+I samma *HelloWorld-program* kan du lägga till en ny tjänst genom att högerklicka på tjänsternas referenser i programprojektet och välja **Lägg till -> New Service Fabric Service**.
 
-![Lägga till en tjänst i Service Fabric programmet](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
+![Lägga till en tjänst i ditt Service Fabric-program](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Välj **.net Core 2,0-> tillstånds känslig tjänst** och ge den namnet *HelloWorldStateful*. Klicka på **OK**
+Välj **.NET Core 2.0 -> Stateful Service** och namnge den *HelloWorldStateful*. Klicka på **OK**.
 
-![Använd dialog rutan nytt projekt för att skapa en ny Service Fabric tillstånds känslig tjänst](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
+![Använd dialogrutan Nytt projekt för att skapa en ny tjänst för serviceinfrastruktur](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 
-Ditt program bör nu ha två tjänster: den tillstånds lösa tjänsten *HelloWorldStateless* och den tillstånds känsliga tjänsten *HelloWorldStateful*.
+Din ansökan bör nu ha två tjänster: den statslösa tjänsten *HelloWorldStateless* och den tillståndskänsliga tjänsten *HelloWorldStateful*.
 
-En tillstånds känslig tjänst har samma start punkter som en tillstånds lös tjänst. Den största skillnaden är tillgängligheten för en *tillstånds leverantör* som kan lagra tillstånd på ett tillförlitligt sätt. Service Fabric levereras med en tillstånds leverantörs implementering som kallas [Reliable Collections](service-fabric-reliable-services-reliable-collections.md), vilket gör att du kan skapa replikerade data strukturer via den pålitliga tillstånds hanteraren. En tillstånds känslig tillförlitlig tjänst använder denna tillstånds leverantör som standard.
+En tillståndskänslig tjänst har samma startpunkter som en tillståndslös tjänst. Den största skillnaden är tillgängligheten för en *tillståndsprovider* som kan lagra tillstånd på ett tillförlitligt sätt. Service Fabric levereras med en tillståndsprovider implementering som kallas [Tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md), som låter dig skapa replikerade datastrukturer via Reliable State Manager. En tillståndskänslig tillförlitlig tjänst använder den här tillståndsprovidern som standard.
 
 Öppna **HelloWorldStateful.cs** i *HelloWorldStateful*, som innehåller följande RunAsync-metod:
 
@@ -159,26 +159,26 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
     }
 ```
 
-### <a name="runasync"></a>RunAsync
+### <a name="runasync"></a>RunAsync (KörAsync)
 
-`RunAsync()` fungerar på samma sätt i tillstånds känsliga och tillstånds lösa tjänster. Men i en tillstånds känslig tjänst utför plattformen ytterligare arbete för din räkning innan den körs `RunAsync()`. Detta arbete kan omfatta att se till att de pålitliga tillstånds hanteraren och pålitliga samlingar är klara att använda.
+`RunAsync()`fungerar på samma sätt i statskänsliga och statslösa tjänster. Men i en tillståndskänslig tjänst utför plattformen ytterligare arbete för `RunAsync()`din räkning innan den körs. Det här arbetet kan omfatta att se till att Reliable State Manager och tillförlitliga samlingar är redo att användas.
 
-### <a name="reliable-collections-and-the-reliable-state-manager"></a>Tillförlitliga samlingar och tillförlitliga tillstånds hanterare
+### <a name="reliable-collections-and-the-reliable-state-manager"></a>Tillförlitliga samlingar och den pålitliga statschefen
 
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
 
-[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) är en ordboks implementering som du kan använda för att lagra tillstånd i tjänsten på ett tillförlitligt sätt. Med Service Fabric och pålitliga samlingar kan du lagra data direkt i tjänsten utan att ha behov av ett externt beständigt arkiv. Tillförlitliga samlingar gör dina data hög tillgängliga. Service Fabric uppnår detta genom att skapa och hantera flera *repliker* av tjänsten åt dig. Det innehåller också ett API som sammanfattar komplexiteten vid hantering av dessa repliker och deras tillstånds över gångar.
+[IReliableDictionary](https://msdn.microsoft.com/library/dn971511.aspx) är en ordlisteimplementering som du kan använda för att lagra tillståndet i tjänsten på ett tillförlitligt sätt. Med Service Fabric och Reliable Collections kan du lagra data direkt i din tjänst utan att behöva ett externt beständigt arkiv. Tillförlitliga samlingar gör dina data mycket tillgängliga. Service Fabric åstadkommer detta genom att skapa och hantera flera *repliker* av din tjänst åt dig. Det ger också ett API som abstraherar bort komplexiteten i att hantera dessa repliker och deras tillståndsövergångar.
 
-Tillförlitliga samlingar kan lagra alla .NET-typer, inklusive anpassade typer, med ett par varningar:
+Tillförlitliga samlingar kan lagra alla .NET-typer, inklusive dina anpassade typer, med ett par varningar:
 
-* Service Fabric gör ditt tillstånd hög tillgängligt genom att *Replikera* tillstånd mellan noder, och tillförlitliga samlingar lagrar dina data till en lokal disk på varje replik. Det innebär att allt som lagras i pålitliga samlingar måste kunna *serialiseras*. Som standard använder pålitliga samlingar [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) för serialisering, så det är viktigt att se till att dina typer [stöds av data kontrakts serialiseringen](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) när du använder standard-serialiseraren.
-* Objekt replikeras för hög tillgänglighet när du genomför transaktioner på pålitliga samlingar. Objekt som lagras i Reliable Collections lagras i lokalt minne i tjänsten. Det innebär att du har en lokal referens till objektet.
+* Service Fabric gör ditt tillstånd mycket tillgängligt genom *att replikera* tillstånd över noder och tillförlitliga samlingar lagrar dina data till lokal disk på varje replik. Detta innebär att allt som lagras i tillförlitliga samlingar måste vara *serialisable*. Som standard använder tillförlitliga samlingar [DataContract](https://msdn.microsoft.com/library/system.runtime.serialization.datacontractattribute%28v=vs.110%29.aspx) för serialisering, så det är viktigt att se till att dina typer [stöds av DataKontrakt Serializer](https://msdn.microsoft.com/library/ms731923%28v=vs.110%29.aspx) när du använder standardserieizern.
+* Objekt replikeras för hög tillgänglighet när du genomför transaktioner på tillförlitliga samlingar. Objekt som lagras i tillförlitliga samlingar lagras i det lokala minnet i din tjänst. Det innebär att du har en lokal referens till objektet.
   
-   Det är viktigt att du inte följer lokala instanser av dessa objekt utan att utföra en uppdaterings åtgärd för den tillförlitliga samlingen i en transaktion. Detta beror på att ändringar av lokala instanser av objekt inte replikeras automatiskt. Du måste infoga objektet i ord listan igen eller använda en av *uppdaterings* metoderna i ord listan.
+   Det är viktigt att du inte muterar lokala instanser av dessa objekt utan att utföra en uppdateringsåtgärd på den tillförlitliga samlingen i en transaktion. Detta beror på att ändringar i lokala instanser av objekt inte replikeras automatiskt. Du måste återinsätta objektet i ordlistan igen eller använda någon av *uppdateringsmetoderna* i ordlistan.
 
-Den pålitliga tillstånds hanteraren hanterar pålitliga samlingar åt dig. Du kan helt enkelt fråga den pålitliga tillstånds hanteraren för en tillförlitlig samling efter namn och var som helst i din tjänst. Den tillförlitliga tillstånds hanteraren garanterar att du får tillbaka en referens. Vi rekommenderar inte att du sparar referenser till tillförlitliga samlings instanser i klass medlems variabler eller egenskaper. Särskild försiktighet måste vidtas för att säkerställa att referensen anges till en instans hela tiden i tjänste livs cykeln. Den Reliable State Manager hanterar det här arbetet åt dig, och den är optimerad för upprepade besök.
+Reliable State Manager hanterar tillförlitliga samlingar åt dig. Du kan helt enkelt be Reliable State Manager om en tillförlitlig samling vid namn när som helst och var som helst i din tjänst. Reliable State Manager ser till att du får en referens tillbaka. Vi rekommenderar inte att du sparar referenser till tillförlitliga samlingsinstanser i klassmedlemsvariabler eller egenskaper. Särskild försiktighet måste iakttas för att säkerställa att referensen alltid är inställd på en instans under tjänstens livscykel. Reliable State Manager hanterar det här arbetet åt dig och är optimerad för upprepade besök.
 
 ### <a name="transactional-and-asynchronous-operations"></a>Transaktionella och asynkrona åtgärder
 
@@ -193,32 +193,32 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-Tillförlitliga samlingar har många av de åtgärder som `System.Collections.Generic` och `System.Collections.Concurrent` motsvarigheter, förutom för språkintegrerad fråga (LINQ). Åtgärder på Reliable Collections är asynkrona. Detta beror på att Skriv åtgärder med tillförlitliga samlingar utför I/O-åtgärder för att replikera och bevara data till disk.
+Tillförlitliga samlingar har många av `System.Collections.Generic` samma `System.Collections.Concurrent` åtgärder som deras och motsvarigheter gör, med undantag för Language Integrated Query (LINQ). Åtgärder på tillförlitliga samlingar är asynkrona. Detta beror på att skrivåtgärder med tillförlitliga samlingar utför I/O-åtgärder för att replikera och bevara data till disken.
 
-Tillförlitliga samlings åtgärder är *transaktionella*, så att du kan hålla tillstånd konsekvent över flera pålitliga samlingar och åtgärder. Du kan till exempel ta bort en arbets uppgift från en tillförlitlig kö, utföra en åtgärd och spara resultatet i en tillförlitlig ord lista i en enda transaktion. Detta behandlas som en atomisk åtgärd och garanterar att hela åtgärden kommer att lyckas eller att hela åtgärden kommer att återställas. Om ett fel inträffar när du har avplacerat objektet, men innan du sparar resultatet, återställs hela transaktionen och objektet behålls i kön för bearbetning.
+Tillförlitliga inkassoåtgärder är *transaktionella*, så att du kan hålla tillståndet konsekvent över flera tillförlitliga samlingar och åtgärder. Du kan till exempel dequeue ett arbetsobjekt från en tillförlitlig kö, utföra en åtgärd på den och spara resultatet i en tillförlitlig ordlista, allt inom en enda transaktion. Detta behandlas som en atomoperation och garanterar att antingen hela operationen lyckas eller att hela operationen återställs. Om ett fel uppstår efter att du har dequeue objektet men innan du sparar resultatet, hela transaktionen återställs och objektet finns kvar i kön för bearbetning.
 
-## <a name="run-the-application"></a>Köra programmet
-Nu återgår vi till programmet *HelloWorld* . Nu kan du bygga och distribuera dina tjänster. När du trycker på **F5**skapas och distribueras ditt program till det lokala klustret.
+## <a name="run-the-application"></a>Köra appen
+Vi återvänder nu till *HelloWorld* ansökan. Du kan nu skapa och distribuera dina tjänster. När du trycker på **F5**skapas programmet och distribueras till det lokala klustret.
 
-När tjänsterna har startats kan du Visa de genererade ETW (Event Tracing for Windows)-händelserna (ETW) i ett fönster med **diagnostiska händelser** . Observera att de händelser som visas kommer från både den tillstånds lösa tjänsten och den tillstånds känsliga tjänsten i programmet. Du kan pausa strömmen genom att klicka på **paus** knappen. Du kan sedan granska informationen i ett meddelande genom att expandera meddelandet.
+När tjänsterna har börjat köras kan du visa de genererade ETW-händelserna (Event Tracing for Windows) i ett **fönster för diagnostikhändelser.** Observera att de händelser som visas kommer från både den tillståndslösa tjänsten och den tillståndskänsliga tjänsten i programmet. Du kan pausa strömmen genom att klicka på **pausknappen.** Du kan sedan granska information om ett meddelande genom att expandera det meddelandet.
 
 > [!NOTE]
-> Innan du kör programmet måste du kontrol lera att du har ett lokalt utvecklings kluster som kör. Se [komma igång-guiden](service-fabric-get-started.md) för information om hur du konfigurerar din lokala miljö.
+> Innan du kör programmet kontrollerar du att du har ett lokalt utvecklingskluster som körs. I komma [igång-guiden](service-fabric-get-started.md) finns information om hur du konfigurerar din lokala miljö.
 > 
 > 
 
-![Visa diagnostiska händelser i Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
+![Visa diagnostikhändelser i Visual Studio](media/service-fabric-reliable-services-quick-start/hello-stateful-Output.png)
 
 ## <a name="next-steps"></a>Nästa steg
-[Felsöka ditt Service Fabric program i Visual Studio](service-fabric-debugging-your-application.md)
+[Felsöka ditt Service Fabric-program i Visual Studio](service-fabric-debugging-your-application.md)
 
-[Kom igång: Service Fabric webb-API-tjänster med OWIN själv värdskap](service-fabric-reliable-services-communication-webapi.md)
+[Kom igång: Api-tjänster för Service Fabric Web API med OWIN-självhosting](service-fabric-reliable-services-communication-webapi.md)
 
-[Läs mer om pålitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
+[Läs mer om tillförlitliga samlingar](service-fabric-reliable-services-reliable-collections.md)
 
 [Distribuera ett program](service-fabric-deploy-remove-applications.md)
 
-[Programuppgradering](service-fabric-application-upgrade.md)
+[Uppgradering av programmet](service-fabric-application-upgrade.md)
 
-[Referens för utvecklare för Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
+[Utvecklarreferens för reliable services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

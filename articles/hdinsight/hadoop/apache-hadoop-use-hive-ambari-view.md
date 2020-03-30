@@ -1,6 +1,6 @@
 ---
-title: Använda Apache Ambari Hive-vy med Apache Hadoop i Azure HDInsight
-description: Lär dig hur du använder Hive-vyn från webbläsaren för att skicka Hive-frågor. Hive-vyn är en del av Ambari-webbgränssnittet som medföljer ditt Linux-baserade HDInsight-kluster.
+title: Använd Apache Ambari Hive View med Apache Hadoop i Azure HDInsight
+description: Läs om hur du använder Hive-vyn från din webbläsare för att skicka Hive-frågor. Hive View är en del av Ambari Web UI som medföljer ditt Linux-baserade HDInsight-kluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,38 +9,38 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73097104"
 ---
-# <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använda Apache Ambari Hive-vy med Apache Hadoop i HDInsight
+# <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Använd Apache Ambari Hive-vyn med Apache Hadoop i HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-vyn kan du redigera, optimera och köra Hive-frågor från webbläsaren.
+Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive View. Med Hive-vyn kan du skapa, optimera och köra Hive-frågor från din webbläsare.
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett Hadoop-kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
+* Ett Hadoop-kluster på HDInsight. Se [Komma igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * En webbläsare
 
 ## <a name="run-a-hive-query"></a>Köra en Hive-fråga
 
-1. Välj ditt kluster från [Azure Portal](https://portal.azure.com/).  Instruktioner finns i [lista och Visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters) . Klustret öppnas på ett nytt Portal blad.
+1. Välj ditt kluster i [Azure-portalen.](https://portal.azure.com/)  Se [Lista och visa kluster](../hdinsight-administer-use-portal-linux.md#showClusters) för instruktioner. Klustret öppnas i ett nytt portalblad.
 
-1. Välj **Ambari vyer**från **kluster instrument paneler**. När du uppmanas att autentisera ska du använda det konto namn och lösen ord för kluster inloggning (standard `admin`) som du angav när du skapade klustret. Du kan också navigera till `https://CLUSTERNAME.azurehdinsight.net/#/main/views` i webbläsaren där `CLUSTERNAME` är namnet på klustret.
+1. Välj **Ambari-vyer** **i klusterinstrumentpaneler**. När du uppmanas att autentisera `admin`använder du kontonamnet och lösenordet för klusterinloggning (standard) som du angav när du skapade klustret. Du kan också `https://CLUSTERNAME.azurehdinsight.net/#/main/views` navigera till `CLUSTERNAME` i webbläsaren där är namnet på klustret.
 
-1. I listan med vyer väljer du __Hive-vy__.
+1. Välj __Hive View__i listan med vyer .
 
-    ![Apache Ambari Välj Apache Hive vy](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    ![Apache Ambari välj Apache Hive-vy](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
-    Sidan Hive-vy liknar följande bild:
+    Visa-sidan för Hive liknar följande bild:
 
-    ![Bild av fråge kalkyl bladet för Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
+    ![Bild av frågeförslaget för Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-1. Från fliken __fråga__ klistrar du in följande HiveQL-instruktioner i kalkyl bladet:
+1. Klistra in följande HiveQL-satser i kalkylbladet på fliken __Fråga:__
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -59,115 +59,115 @@ Lär dig hur du kör Hive-frågor med hjälp av Apache Ambari Hive-vyn. I Hive-v
         GROUP BY t4;
     ```
 
-    Dessa instruktioner utför följande åtgärder:
+    Dessa satser utför följande åtgärder:
 
-   * `DROP TABLE`: tar bort tabellen och data filen, om tabellen redan finns.
+   * `DROP TABLE`: Tar bort tabellen och datafilen om tabellen redan finns.
 
-   * `CREATE EXTERNAL TABLE`: skapar en ny "extern" tabell i Hive.
-     Externa tabeller lagrar bara tabell definitionen i Hive. Data finns kvar på den ursprungliga platsen.
+   * `CREATE EXTERNAL TABLE`: Skapar en ny "extern" tabell i Hive.
+     Externa tabeller lagrar endast tabelldefinitionen i Hive. Data finns kvar på den ursprungliga platsen.
 
-   * `ROW FORMAT`: visar hur data formateras. I det här fallet separeras fälten i varje logg med ett blank steg.
+   * `ROW FORMAT`: Visar hur data formateras. I det här fallet avgränsas fälten i varje logg med ett blanksteg.
 
-   * `STORED AS TEXTFILE LOCATION`: visar var data lagras och är lagrade som text.
+   * `STORED AS TEXTFILE LOCATION`: Visar var data lagras och att de lagras som text.
 
-   * `SELECT`: väljer antalet rader där kolumnen T4 innehåller värdet [ERROR].
+   * `SELECT`: Markerar ett antal rader där kolumn t4 innehåller värdet [FEL].
 
    > [!IMPORTANT]  
-   > Låt __databasen__ vara markerad som __standard__. I exemplen i det här dokumentet används standard databasen som ingår i HDInsight.
+   > Lämna __databasvalet__ som __standard__. Exemplen i det här dokumentet använder standarddatabasen som ingår i HDInsight.
 
-1. Om du vill starta frågan väljer du **Kör** nedanför kalkyl bladet. Knappen aktiverar orange och texten ändras till **stoppa**.
+1. Om du vill starta frågan väljer du **Kör** under kalkylbladet. Knappen blir orange och texten ändras till **Stopp**.
 
-1. När frågan har slutförts visas resultatet av åtgärden i fliken **resultat** . Följande text är resultatet av frågan:
+1. När frågan är klar visar fliken **Resultat** resultatet av åtgärden. Följande text är resultatet av frågan:
 
         loglevel       count
         [ERROR]        3
 
-    Du kan använda fliken **logg** om du vill visa den loggnings information som jobbet har skapat.
+    Du kan använda fliken **LOGG** för att visa loggningsinformationen som jobbet har skapat.
 
    > [!TIP]  
-   > Hämta eller Spara resultat från den nedrullningsbara dialog rutan **åtgärder** under fliken **resultat** .
+   > Hämta eller spara resultat från listrutan **Åtgärder** under fliken **Resultat.**
 
 ### <a name="visual-explain"></a>Visuell förklaring
 
-Om du vill visa en visualisering av frågeplan väljer du fliken **visuell förklaring** under kalkyl bladet.
+Om du vill visa en visualisering av frågeplanen väljer du fliken **Visuell förklaring** under kalkylbladet.
 
-Den **visuella förklaringen** av frågan kan vara till hjälp när du ska förstå flödet av komplexa frågor.
+Visuell **förklaringsvyn** för frågan kan vara till hjälp för att förstå flödet av komplexa frågor.
 
-### <a name="tez-ui"></a>Tez-gränssnitt
+### <a name="tez-ui"></a>Tez användargränssnitt
 
-Om du vill visa Tez-gränssnittet för frågan väljer du fliken **Tez-gränssnitt** under kalkyl bladet.
+Om du vill visa Tez-användargränssnittet för frågan markerar du fliken **Tez-gränssnitt** under kalkylbladet.
 
 > [!IMPORTANT]  
 > Tez används inte för att lösa alla frågor. Du kan lösa många frågor utan att använda Tez.
 
 ## <a name="view-job-history"></a>Visa jobbhistorik
 
-På fliken __jobb__ visas en historik över Hive-frågor.
+På fliken __Jobb__ visas en historik över Hive-frågor.
 
-![Apache Hive historik på fliken jobb](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+![Apache Hive visa jobb flikhistorik](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
-## <a name="database-tables"></a>Databas tabeller
+## <a name="database-tables"></a>Databastabeller
 
-Du kan använda fliken __tabeller__ för att arbeta med tabeller i en Hive-databas.
+Du kan använda fliken __Tabeller__ för att arbeta med tabeller i en Hive-databas.
 
-![Bild av fliken Apache Hive tabeller](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+![Bild av fliken Apache Hive-tabeller](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## <a name="saved-queries"></a>Sparade frågor
 
-På fliken **fråga** kan du välja att spara frågor. När du har sparat en fråga kan du återanvända den från fliken __sparade frågor__ .
+På fliken **Fråga** kan du också spara frågor. När du har sparat en fråga kan du återanvända den från fliken __Sparade frågor.__
 
-![Apache Hive Visa sparade frågor-fliken](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Fliken Sparade frågor i Apache Hive-vyn](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
-> Sparade frågor lagras i standard kluster lagringen. Du kan hitta de sparade frågorna under sökvägen `/user/<username>/hive/scripts`. Dessa lagras som oformaterad text `.hql` filer.
+> Sparade frågor lagras i standardklusterlagringen. Du hittar de sparade frågorna `/user/<username>/hive/scripts`under sökvägen . Dessa lagras som oformaterade textfiler. `.hql`
 >
-> Om du tar bort klustret, men behåller lagringen, kan du använda ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) eller data Lake Storage Explorer (från [Azure Portal](https://portal.azure.com)) för att hämta frågorna.
+> Om du tar bort klustret, men behåller lagringen, kan du använda ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) eller Data Lake Storage Explorer (från Azure [Portal)](https://portal.azure.com)för att hämta frågorna.
 
 ## <a name="user-defined-functions"></a>Användardefinierade funktioner
 
-Du kan utöka Hive genom användardefinierade funktioner (UDF). Använd en UDF för att implementera funktioner eller logik som inte är lätt att modellera i HiveQL.
+Du kan utöka Hive genom användardefinierade funktioner (UDF). Använd en UDF för att implementera funktioner eller logik som inte är lätt modelleras i HiveQL.
 
-Deklarera och spara en uppsättning UDF: er med hjälp av **UDF** -fliken överst i Hive-vyn. Dessa UDF: er kan användas med **Frågeredigeraren**.
+Deklarera och spara en uppsättning UDF-filer med hjälp av fliken **UDF** högst upp i Hive-vyn. Dessa UDF:er kan användas med **Frågeredigeraren**.
 
-![Apache Hive visning av fliken UDF: er](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Apache Hive-vy UDFs flikvisning](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-När du har lagt till en UDF-fil i Hive-vyn visas knappen **Infoga UDF: er** längst ned i **Frågeredigeraren**. Om du väljer den här posten visas en nedrullningsbar lista med de UDF: er som definierats i Hive-vyn. Om du väljer en UDF läggs HiveQL-instruktioner till i din fråga för att aktivera UDF.
+När du har lagt till en UDF i Hive-vyn visas knappen **Infoga udfs** längst ned i **Frågeredigeraren**. Om du väljer den här posten visas en listruta över de UDF:er som definierats i Hive-vyn. Om du väljer en UDF läggs HiveQL-satser till i frågan för att aktivera UDF.
 
 Om du till exempel har definierat en UDF med följande egenskaper:
 
-* Resurs namn: myudfs
+* Resursnamn: myudfs
 
-* Resurs Sök väg:/myudfs.jar
+* Resurssökväg: /myudfs.jar
 
-* UDF-namn: myawesomeudf
+* UDF namn: myawesomeudf
 
-* UDF-klass namn: com. myudfs. toppen
+* UDF klass namn: com.myudfs.Awesome
 
-Om du använder knappen **Infoga UDF: er** visas en post med namnet **myudfs**med en annan listruta för varje UDF som definierats för resursen. I det här fallet är det **myawesomeudf**. Om du väljer den här posten läggs följande till i början av frågan:
+Med knappen **Infoga udfs** visas en post med namnet **myudfs**, med en annan listruta för varje UDF som definierats för den resursen. I det här fallet är det **myawesomeudf.** Om du väljer den här posten läggs följande till i början av frågan:
 
 ```hiveql
 add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-Du kan sedan använda UDF-filen i din fråga. Till exempel `SELECT myawesomeudf(name) FROM people;`.
+Du kan sedan använda UDF i frågan. Till exempel `SELECT myawesomeudf(name) FROM people;`.
 
-Mer information om hur du använder UDF: er med Hive i HDInsight finns i följande artiklar:
+Mer information om hur du använder UDF med Hive på HDInsight finns i följande artiklar:
 
-* [Använda python med Apache Hive och Apache gris i HDInsight](python-udf-hdinsight.md)
+* [Använda Python med Apache Hive och Apache Pig i HDInsight](python-udf-hdinsight.md)
 * [Så här lägger du till en anpassad Apache Hive UDF i HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
-## <a name="hive-settings"></a>Hive-inställningar
+## <a name="hive-settings"></a>Inställningar för Hive
 
-Du kan ändra olika Hive-inställningar, till exempel ändra körnings motorn för Hive från Tez (standard) till MapReduce.
+Du kan ändra olika Hive-inställningar, till exempel ändra körningsmotorn för Hive från Tez (standard) till MapReduce.
 
-## <a id="nextsteps"></a>Nästa steg
+## <a name="next-steps"></a><a id="nextsteps"></a>Nästa steg
 
-Allmän information om Hive i HDInsight:
+För allmän information om Hive på HDInsight:
 
-* [Använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
+* [Använd Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
 
-Information om andra sätt att arbeta med Hadoop i HDInsight:
+För information om andra sätt du kan arbeta med Hadoop på HDInsight:
 
-* [Använda Apache gris med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
-* [Använda MapReduce med Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)
+* [Använd Apache Pig med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
+* [Använd MapReduce med Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)

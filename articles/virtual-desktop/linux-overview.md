@@ -1,6 +1,6 @@
 ---
-title: Windows Virtual Desktop Linux Support – Azure
-description: En kort översikt av Linux-stöd för virtuella Windows-datorer.
+title: Linuxsupport för Windows Virtual Desktop – Azure
+description: En kort översikt Linux-stöd för Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,60 +9,60 @@ ms.date: 01/23/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 967fd1fa182b7c8e581fd74cc287c5a6ba0e4038
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127826"
 ---
 # <a name="linux-support"></a>Linux-support
 
-Du kan använda Linux SDK för Windows Virtual Desktop för att bygga en fristående Windows-klient för virtuella skriv bord. Du kan också använda den för att aktivera stöd för virtuella Windows-datorer i klient programmet. Den här snabb guiden förklarar vad Linux SDK är och hur du börjar använda det.
+Du kan använda Linux SDK för Windows Virtual Desktop för att skapa en fristående Windows Virtual Desktop-klient. Du kan också använda den för att aktivera Windows Virtual Desktop-stöd för klientprogrammet. Denna snabbguide kommer att förklara vad Linux SDK är och hur man börjar använda den.
 
 ## <a name="what-is-the-linux-sdk"></a>Vad är Linux SDK?
 
-Du kan använda SDK-API: er för att hämta resurs flöden, ansluta till Skriv bords-eller fjärranslutna programsessioner och använda många av de omdirigeringar som våra klienter från den första parten har stöd för.
+Du kan använda SDK-API:erna för att hämta resursflöden, ansluta till skrivbords- eller fjärrprogramsessioner och använda många av de omdirigeringar som våra förstapartsklienter stöder.
 
 > [!NOTE]
-> SDK är för närvarande under utveckling. Vi kommer att uppdatera det här dokumentet med instruktioner för att få åtkomst till SDK när det är tillgängligt.
+> SDK är för närvarande under utveckling. Vi uppdaterar det här dokumentet med instruktioner för att komma åt SDK när det är tillgängligt.
 
-### <a name="supported-linux-distributions"></a>Linux-distributioner som stöds
+### <a name="supported-linux-distributions"></a>Linuxdistributioner som stöds
 
-SDK är kompatibelt med de flesta operativ system baserade på Ubuntu 18,04 eller senare. Om du har en annan Linux-distribution kan vi samar beta med dig för att ta reda på hur du bäst stöder dina behov.
+SDK är kompatibel med de flesta operativsystem baserade på Ubuntu 18.04 eller senare. Om du har en annan Linux-distribution kan vi arbeta med dig för att ta reda på hur du bäst kan stödja dina behov.
 
-### <a name="feature-support"></a>Funktioner som stöds
+### <a name="feature-support"></a>Stöd för funktioner
 
-SDK stöder flera anslutningar till Skriv bords-och fjärranslutna programsessioner. Följande omdirigeringar stöds:
+SDK stöder flera anslutningar till skrivbords- och fjärrprogramsessioner. Följande omdirigeringar stöds:
 
 | Omdirigering       | Stöds |
 | :---------------- | :-------: |
-| PS/2-tangentbordet          | &#10004;  |
-| Klickning             | &#10004;  |
+| Tangentbord          | &#10004;  |
+| Mus             | &#10004;  |
 | Ljud i          | &#10004;  |
 | Ljud ut         | &#10004;  |
 | Urklipp (text)  | &#10004;  |
 | Urklipp (bild) | &#10004;  |
 | Urklipp (fil)  | &#10004;  |
-| Smartkortsinloggning         | &#10004;  |
+| Smartcard         | &#10004;  |
 | Enhet/mapp      | &#10004;  |
 
-SDK har även stöd för flera bildskärms konfigurationer, så länge de övervakare du väljer för din session är sammanhängande.
+SDK stöder också flera bildskärmskonfigurationer, så länge de bildskärmar du väljer för sessionen är sammanhängande.
 
-Vi kommer att uppdatera det här dokumentet när vi lägger till stöd för nya funktioner och omdirigeringar. Om du vill föreslå nya funktioner och andra förbättringar kan du besöka vår [UserVoice-sida](https://go.microsoft.com/fwlink/?linkid=2116523).
+Vi uppdaterar det här dokumentet när vi lägger till stöd för nya funktioner och omdirigeringar. Om du vill föreslå nya funktioner och andra förbättringar, besök vår [UserVoice sida](https://go.microsoft.com/fwlink/?linkid=2116523).
 
-## <a name="get-started-with-the-linux-sdk"></a>Kom igång med Linux SDK
+## <a name="get-started-with-the-linux-sdk"></a>Komma igång med Linux SDK
 
 Innan du kan utveckla en Linux-klient för Windows Virtual Desktop måste du göra följande:
 
-1. Bygg och distribuera en Windows Virtual Desktop-miljö för testning eller användning av produktion.
-2. Testa de tillgängliga första parts-klienterna för att bekanta dig med användar upplevelsen av Windows virtuella skriv bord.
+1. Skapa och distribuera en Windows Virtual Desktop-miljö för testning eller produktionsanvändning.
+2. Testa de tillgängliga klienterna från första part för att bekanta dig med användarupplevelsen för Virtuellt skrivbord i Windows.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kolla in vår dokumentation för följande klienter:
+Kolla in vår dokumentation för följande kunder:
 
 - [Windows Desktop-klient](connect-windows-7-and-10.md)
-- [Webb klient](connect-web.md)
+- [Webbklient](connect-web.md)
 - [Android-klient](connect-android.md)
 - [macOS-klient](connect-macos.md)
 - [iOS-klient](connect-ios.md)

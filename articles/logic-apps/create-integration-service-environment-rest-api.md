@@ -1,62 +1,62 @@
 ---
-title: Skapa integrerings tjänst miljöer (ISEs) med Logic Apps REST API
-description: Skapa en integrerings tjänst miljö (ISE) med hjälp av Logic Apps REST API så att du kan komma åt Azure Virtual Networks (virtuella nätverk) från Azure Logic Apps
+title: Skapa ISE-miljöer (Integration Service Environments) med LOGIC Apps REST API
+description: Skapa en integrationstjänstmiljö (ISE) med hjälp av REST-API:et för Logic Apps så att du kan komma åt virtuella Azure-nätverk (VNETs) från Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.openlocfilehash: 2c6e35b1e7d160064998004f87c5b14d0eaeac5e
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127651"
 ---
-# <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Skapa en integrerings tjänst miljö (ISE) med hjälp av Logic Apps REST API
+# <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Skapa en integrationstjänstmiljö (ISE) med hjälp av REST-API:et för Logic Apps
 
-Den här artikeln visar hur du skapar en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) via Logic Apps REST API för scenarier där dina Logic Apps och integrations konton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). En ISE är en isolerad miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den "globala" Logic Apps tjänsten för flera innehavare. Den här separationen minskar också eventuell påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE tillhandahåller också dina egna statiska IP-adresser. De här IP-adresserna skiljer sig från de statiska IP-adresser som delas av logi Kap par i den offentliga tjänsten för flera innehavare.
+Den här artikeln visar hur du skapar en [ *integrationstjänstmiljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) via LOGIC Apps REST API för scenarier där dina logikappar och integrationskonton behöver åtkomst till ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). En ISE är en isolerad miljö som använder dedikerad lagring och andra resurser som hålls åtskilda från den "globala" Logic Apps-tjänsten för flera innehavare. Den här separationen minskar också all påverkan som andra Azure-klienter kan ha på dina appars prestanda. En ISE ger dig också dina egna statiska IP-adresser. Dessa IP-adresser är åtskilda från de statiska IP-adresser som delas av logikapparna i den offentliga tjänsten med flera innehavare.
 
-Om du vill skapa en ISE med hjälp av Azure Portal i stället, se [ansluta till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
+Information om hur du skapar en ISE med hjälp av Azure-portalen i stället finns i [Anslut till virtuella Azure-nätverk från Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 > [!IMPORTANT]
-> Logi Kap par, inbyggda utlösare, inbyggda åtgärder och anslutningar som körs i din ISE använder en pris plan som skiljer sig från den förbruknings bara pris planen. Information om hur priser och fakturering fungerar för ISEs finns i [pris modellen Logic Apps](../logic-apps/logic-apps-pricing.md#fixed-pricing). Pris nivåer finns i [Logic Apps prissättning](../logic-apps/logic-apps-pricing.md).
+> Logikappar, inbyggda utlösare, inbyggda åtgärder och kopplingar som körs i ISE använder en prisplan som skiljer sig från den förbrukningsbaserade prisplanen. Mer information om hur prissättning och fakturering fungerar för ISE finns i [logic apps-prismodellen](../logic-apps/logic-apps-pricing.md#fixed-pricing). Prispriser finns i [Logic Apps prissättning](../logic-apps/logic-apps-pricing.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Samma krav [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) och [krav för att ge åtkomst till din ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) som när du skapar en ISE i Azure Portal
+* Samma [förutsättningar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) och [krav för att aktivera åtkomst för din ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) som när du skapar en ISE i Azure-portalen
 
-* Ett verktyg som du kan använda för att skapa din ISE genom att anropa Logic Apps REST API med en begäran om HTTPS-begäran. Du kan till exempel använda [Postman](https://www.getpostman.com/downloads/), eller så kan du bygga en logisk app som utför den här uppgiften.
+* Ett verktyg som du kan använda för att skapa din ISE genom att anropa Logic Apps REST API med en HTTPS PUT-begäran. Du kan till exempel använda [Postman](https://www.getpostman.com/downloads/)eller skapa en logikapp som utför den här uppgiften.
 
 ## <a name="send-the-request"></a>Skicka begäran
 
-Om du vill skapa din ISE genom att anropa Logic Apps REST API, gör du denna HTTPS-begäran:
+Om du vill skapa din ISE genom att anropa LOGIC Apps REST API gör du den här HTTPS PUT-begäran:
 
 `PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
 
 > [!IMPORTANT]
-> Logic Apps REST API 2019-05-01-versionen kräver att du gör en egen HTTP-begäran för ISE-anslutningar.
+> Logic Apps REST API 2019-05-01-versionen kräver att du gör din egen HTTP PUT-begäran om ISE-kopplingar.
 
-Distributionen tar vanligt vis inom två timmar att slutföra. Ibland kan distributionen ta upp till fyra timmar. Om du vill kontrol lera distributions statusen i [Azure Portal](https://portal.azure.com)går du till Azure-verktygsfältet och väljer aviserings ikonen, som öppnar fönstret meddelanden.
+Distributionen tar vanligtvis inom två timmar att slutföra. Ibland kan distributionen ta upp till fyra timmar. Om du vill kontrollera distributionsstatus väljer du ikonen meddelanden i [Azure-portalen](https://portal.azure.com)i azure-verktygsfältet som öppnar meddelandefönstret.
 
 > [!NOTE]
-> Om distributionen Miss lyckas eller om du tar bort din ISE kan Azure ta upp till en timme innan du släpper upp dina undernät. Den här fördröjningen innebär att du kan behöva vänta innan du återanvänder dessa undernät i en annan ISE.
+> Om distributionen misslyckas eller om du tar bort din ISE kan Det ta upp till en timme innan du släpper dina undernät. Den här fördröjningen innebär att du kanske måste vänta innan du återanvänder dessa undernät i en annan ISE.
 >
-> Om du tar bort det virtuella nätverket tar Azure vanligt vis upp till två timmar innan du frigör dina undernät, men den här åtgärden kan ta längre tid. 
-> Se till att inga resurser fortfarande är anslutna när du tar bort virtuella nätverk. 
-> Se [ta bort virtuellt nätverk](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
+> Om du tar bort det virtuella nätverket tar Azure vanligtvis upp till två timmar innan du släpper upp dina undernät, men den här åtgärden kan ta längre tid. 
+> När du tar bort virtuella nätverk kontrollerar du att inga resurser fortfarande är anslutna. 
+> Se [Ta bort virtuellt nätverk](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 ## <a name="request-header"></a>Begärandehuvud
 
-I begär ande huvudet inkluderar du följande egenskaper:
+I begäran huvudet, inkludera dessa egenskaper:
 
-* `Content-type`: Ange det här egenskap svärdet som `application/json`.
+* `Content-type`: Ange egenskapsvärdet till `application/json`.
 
-* `Authorization`: Ange det här egenskap svärdet till Bearer-token för den kund som har åtkomst till den Azure-prenumeration eller resurs grupp som du vill använda.
+* `Authorization`: Ange det här egenskapsvärdet till innehavartoken för kunden som har åtkomst till Azure-prenumerationen eller resursgruppen som du vill använda.
 
-### <a name="request-body-syntax"></a>Syntax för begär ande text
+### <a name="request-body-syntax"></a>Syntax för begäran om brödtext
 
-Här är syntaxen för begär ande texten, som beskriver de egenskaper som ska användas när du skapar din ISE:
+Här är syntaxen för begärantexten, som beskriver de egenskaper som ska användas när du skapar ISE:
 
 ```json
 {
@@ -93,9 +93,9 @@ Här är syntaxen för begär ande texten, som beskriver de egenskaper som ska a
 }
 ```
 
-### <a name="request-body-example"></a>Exempel på begär ande text
+### <a name="request-body-example"></a>Exempel på begärantext
 
-Den här exempel texten visar exempel värden:
+I det här exemplet visar begäranden exempelvärdena:
 
 ```json
 {
@@ -134,6 +134,6 @@ Den här exempel texten visar exempel värden:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lägga till resurser i integrerings tjänst miljöer](../logic-apps/add-artifacts-integration-service-environment-ise.md)
-* [Hantera integrerings tjänst miljöer](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
+* [Lägga till resurser i integrationstjänstmiljöer](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+* [Hantera integreringstjänstmiljöer](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)
 

@@ -1,6 +1,6 @@
 ---
-title: Lokalisering-Azure Active Directory B2C
-description: Ange lokaliserings element för en anpassad princip i Azure Active Directory B2C.
+title: Lokalisering - Azure Active Directory B2C
+description: Ange lokaliseringselementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -11,19 +11,19 @@ ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: e73eae4d66f4ff94a48dfa27e258f8ba8ef87633
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79126754"
 ---
 # <a name="localization"></a>Lokalisering
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**Lokaliserings** elementet gör att du kan stödja flera språk eller språk i principen för användar resan. Lokaliserings stödet i principer gör att du kan:
+Med **lokaliseringselementet** kan du stödja flera språk eller språk i principen för användarens färder. Med lokaliseringsstödet i principer kan du:
 
-- Konfigurera den explicita listan över de språk som stöds i en princip och välj ett standard språk.
+- Ställ in den explicita listan över språk som stöds i en princip och välj ett standardspråk.
 - Ange språkspecifika strängar och samlingar.
 
 ```XML
@@ -37,84 +37,84 @@ ms.locfileid: "79126754"
   ...
 ```
 
-**Lokaliserings** elementet innehåller följande attribut:
+Lokaliseringselementet innehåller följande attribut: **Localization**
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Enabled | Nej | Möjliga värden: `true` eller `false`. |
+| Enabled | Inga | Möjliga `true` värden: `false`eller . |
 
-**Lokaliserings** elementet innehåller följande XML-element
+**Lokaliseringselementet** innehåller följande XML-element
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| SupportedLanguages | 1: n | Lista över språk som stöds. |
-| LocalizedResources | 0: n | Lista över lokaliserade resurser. |
+| Språk som stöds | 1:n | Lista över språk som stöds. |
+| Lokaliserade Resurser | 0:n | Lista över lokaliserade resurser. |
 
-## <a name="supportedlanguages"></a>SupportedLanguages
+## <a name="supportedlanguages"></a>Språk som stöds
 
-**SupportedLanguages** -elementet innehåller följande attribut:
+Elementet **Språk som stöds** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Ja | Det språk som ska användas som standard för lokaliserade resurser. |
-| MergeBehavior | Nej | Ett uppräknings värde för värden som slås samman med en ClaimType som finns i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append`, `Prepend`eller `ReplaceAll`. Värdet `Append` anger att data uppsättningen som finns ska läggas till i slutet av den samling som anges i den överordnade principen. Värdet `Prepend` anger att data mängden som finns ska läggas till innan den samling som anges i den överordnade principen. Värdet `ReplaceAll` anger att data uppsättningen som definieras i den överordnade principen ska ignoreras, med hjälp av i stället de data som definierats i den aktuella principen. |
+| MergeBehavior | Inga | Ett uppräkningsvärden för värden som slås samman tillsammans med alla ClaimType som finns i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i basprincipen. Möjliga `Append`värden: `Prepend`, `ReplaceAll`, eller . Värdet `Append` anger att insamlingen av data som finns ska läggas till i slutet av den samling som anges i den överordnade principen. Värdet `Prepend` anger att insamlingen av data ska läggas till före den samling som anges i den överordnade principen. Värdet `ReplaceAll` anger att insamlingen av data som definierats i den överordnade principen ska ignoreras, med hjälp av i stället de data som definierats i den aktuella principen. |
 
-### <a name="supportedlanguages"></a>SupportedLanguages
+### <a name="supportedlanguages"></a>Språk som stöds
 
-**SupportedLanguages** -elementet innehåller följande element:
+Elementet **Språk som stöds** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| SupportedLanguage | 1: n | Visar innehåll som följer en språktagg enligt RFC 5646-taggar för att identifiera språk. |
+| Språk som stöds | 1:n | Visar innehåll som överensstämmer med en språktagg per RFC 5646 - Taggar för identifierande språk. |
 
-## <a name="localizedresources"></a>LocalizedResources
+## <a name="localizedresources"></a>Lokaliserade Resurser
 
-**LocalizedResources** -elementet innehåller följande attribut:
+Elementet **LocalizedResources** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Id | Ja | En identifierare som används för att identifiera lokaliserade resurser unikt. |
+| Id | Ja | En identifierare som används för att unikt identifiera lokaliserade resurser. |
 
-**LocalizedResources** -elementet innehåller följande element:
+Elementet **LocalizedResources** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| LocalizedCollections | 0: n | Definierar hela samlingar i olika kulturer. En samling kan ha olika antal objekt och olika strängar för olika kulturer. Exempel på samlingar är uppräkningar som visas i anspråks typer. Till exempel visas en lista över länder/regioner för användaren i en listruta. |
-| LocalizedStrings | 0: n | Definierar alla strängar, förutom de strängar som visas i samlingar, i olika kulturer. |
+| Lokaliserade sorteringar | 0:n | Definierar hela samlingar i olika kulturer. En samling kan ha olika antal objekt och olika strängar för olika kulturer. Exempel på samlingar är uppräkningar som visas i anspråkstyper. En lands-/regionlista visas till exempel för användaren i en listruta. |
+| Lokaliseradestrång | 0:n | Definierar alla strängar, utom de strängar som visas i samlingar, i olika kulturer. |
 
-### <a name="localizedcollections"></a>LocalizedCollections
+### <a name="localizedcollections"></a>Lokaliserade sorteringar
 
-**LocalizedCollections** -elementet innehåller följande element:
+Elementet **LocalizedCollections** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| LocalizedCollection | 1: n | Lista över språk som stöds. |
+| Lokaliseradkollage | 1:n | Lista över språk som stöds. |
 
-#### <a name="localizedcollection"></a>LocalizedCollection
+#### <a name="localizedcollection"></a>Lokaliseradkollage
 
-**LocalizedCollection** -elementet innehåller följande attribut:
+Elementet **LocalizedCollection** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ElementType | Ja | Refererar till ett ClaimType-element eller ett användar gränssnitts element i princip filen. |
-| ElementId | Ja | En sträng som innehåller en referens till en anspråks typ som redan har definierats i ClaimsSchema-avsnittet som används om **ElementType** har angetts till en claimType. |
-| TargetCollection | Ja | Mål samlingen. |
+| Elementtyp | Ja | Refererar till ett ClaimType-element eller ett användargränssnittselement i principfilen. |
+| ElementId (elementId) | Ja | En sträng som innehåller en referens till en anspråkstyp som redan definierats i avsnittet ClaimsSchema och som används om **ElementType** är inställt på en ClaimType. |
+| MålInsamling | Ja | Målsamlingen. |
 
-**LocalizedCollection** -elementet innehåller följande element:
+Elementet **LocalizedCollection** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| Objekt | 0: n | Definierar ett tillgängligt alternativ som användaren kan välja för ett anspråk i användar gränssnittet, t. ex. ett värde i en listruta. |
+| Objekt | 0:n | Definierar ett tillgängligt alternativ som användaren kan välja för ett anspråk i användargränssnittet, till exempel ett värde i en listruta. |
 
-Elementet **item** innehåller följande attribut:
+Elementet **Objekt** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Text | Ja | Den användarvänliga visnings strängen som ska visas för användaren i användar gränssnittet för det här alternativet. |
-| Värde | Ja | Det sträng anspråks värde som är associerat med att välja det här alternativet. |
-| SelectByDefault | Nej | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
+| Text | Ja | Den användarvänliga visningssträngen som ska visas för användaren i användargränssnittet för det här alternativet. |
+| Värde | Ja | Strängen anspråksvärde som är associerad med att välja det här alternativet. |
+| VäljByDefault | Inga | Anger om det här alternativet ska väljas som standard i användargränssnittet. Möjliga värden: Sant eller Falskt. |
 
-I följande exempel visas användningen av **LocalizedCollections** -elementet. Den innehåller två **LocalizedCollection** -element, ett för engelska och ett för spanska. Båda ställer in **begränsnings** insamlingen för anspråks `Gender` med en lista över objekt för engelska och spanska.
+I följande exempel visas användningen av elementet **LocalizedCollections.** Den innehåller två **LocalizedCollection** element, en för engelska och en annan för spanska. Båda ställer in **begränsningssamlingen** av fordran `Gender` med en lista över objekt för engelska och spanska.
 
 ```XML
 <LocalizedResources Id="api.selfasserted.en">
@@ -134,24 +134,24 @@ I följande exempel visas användningen av **LocalizedCollections** -elementet. 
 </LocalizedCollections>
 ```
 
-### <a name="localizedstrings"></a>LocalizedStrings
+### <a name="localizedstrings"></a>Lokaliseradestrång
 
-**LocalizedStrings** -elementet innehåller följande element:
+Elementet **LocalizedStrings** innehåller följande element:
 
-| Element | Förekomster | Beskrivning |
+| Element | Händelser | Beskrivning |
 | ------- | ----------- | ----------- |
-| LocalizedString | 1: n | En lokaliserad sträng. |
+| LokaliseradString | 1:n | En lokaliserad sträng. |
 
-**LocalizedString** -elementet innehåller följande attribut:
+Elementet **LocalizedString** innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ElementType | Ja | En referens till ett anspråks typ element eller ett användar gränssnitts element i principen. Möjliga värden: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`eller `GetLocalizedStringsTransformationClaimType`. `ClaimType`-värdet används för att lokalisera ett av attributen för anspråk enligt vad som anges i StringId. `UxElement`-värdet används för att lokalisera ett av användar gränssnitts elementen som anges i StringId. `ErrorMessage`-värdet används för att lokalisera ett av system fel meddelandena som anges i StringId. `Predicate`-värdet används för att lokalisera ett av de [predikat](predicates.md) fel meddelanden som anges i StringId. `InputValidation`-värdet används för att lokalisera en av [PredicateValidation](predicates.md) Groups fel meddelanden som anges i StringId. `GetLocalizedStringsTransformationClaimType`-värdet används för att kopiera lokaliserade strängar till anspråk. Mer information finns i [GetLocalizedStringsTransformation Claims-transformering](string-transformations.md#getlocalizedstringstransformation)  | 
-| ElementId | Ja | Om **ElementType** är inställt på `ClaimType`, `Predicate`eller `InputValidation`innehåller det här elementet en referens till en anspråks typ som redan har definierats i avsnittet ClaimsSchema. |
-| StringId | Ja | Om **ElementType** är inställt på `ClaimType`, innehåller det här elementet en referens till ett attribut av en anspråks typ. Möjliga värden: `DisplayName`, `AdminHelpText`eller `PatternHelpText`. Värdet `DisplayName` används för att ange visnings namn för anspråket. `AdminHelpText`-värdet används för att ange hjälp text namnet för anspråks användaren. `PatternHelpText`-värdet används för att ange hjälp texten för anspråks mönstret. Om **ElementType** är inställt på `UxElement`, innehåller det här elementet en referens till ett attribut i ett användar gränssnitts element. Om **ElementType** är inställt på `ErrorMessage`, anger det här elementet identifieraren för ett fel meddelande. Se [lokaliserings Strängs-ID: n](localization-string-ids.md) för en fullständig lista över `UxElement` identifierare.|
+| Elementtyp | Ja | En referens till ett anspråkstypelement eller ett användargränssnittselement i principen. `ClaimType`Möjliga värden: `UxElement` `ErrorMessage`, `Predicate`, `GetLocalizedStringsTransformationClaimType`, , eller . Värdet `ClaimType` används för att lokalisera ett av anspråksattributen, enligt vad som anges i StringId. Värdet `UxElement` används för att lokalisera ett av de användargränssnittselement som anges i StringId. Värdet `ErrorMessage` används för att lokalisera ett av systemfelmeddelandena som anges i StringId. Värdet `Predicate` används för att lokalisera ett av [predikatfelmeddelandena,](predicates.md) enligt vad som anges i StringId. Värdet `InputValidation` används för att lokalisera ett av felmeddelandena [för gruppen PredicateValidation](predicates.md) enligt vad som anges i StringId. Värdet `GetLocalizedStringsTransformationClaimType` används för att kopiera lokaliserade strängar till anspråk. Mer information finns i [GetLocalizedStringsTransformation claims transformation](string-transformations.md#getlocalizedstringstransformation)  | 
+| ElementId (elementId) | Ja | Om **ElementType** är `ClaimType` `Predicate`inställt `InputValidation`på , eller innehåller det här elementet en referens till en anspråkstyp som redan har definierats i avsnittet ClaimsSchema. |
+| StringId (på) | Ja | Om **ElementType** är `ClaimType`inställt på innehåller det här elementet en referens till ett attribut av en anspråkstyp. Möjliga `DisplayName`värden: `AdminHelpText`, `PatternHelpText`, eller . Värdet `DisplayName` används för att ange anspråksvisningsnamnet. Värdet `AdminHelpText` används för att ange anspråksanvändarens hjälptextnamn. Värdet `PatternHelpText` används för att ange hjälptexten för anspråksmönster. Om **ElementType** är `UxElement`inställt på innehåller det här elementet en referens till ett attribut för ett användargränssnittselement. Om **ElementType** är `ErrorMessage`inställt på anger det här elementet identifieraren för ett felmeddelande. Se [Lokaliseringssträng-ID:er](localization-string-ids.md) `UxElement` för en fullständig lista över identifierarna.|
 
 
-I följande exempel visas en lokaliserad registrerings sida. De första tre **LocalizedString** -värdena anger attributet Claim. Den tredje ändrar värdet för knappen Fortsätt. Den senaste ändringen av fel meddelandet.
+I följande exempel visas en lokaliserad registreringssida. De tre första **värdena LocalizedString** anger anspråksattributet. Den tredje ändrar värdet på continue-knappen. Den sista ändrar felmeddelandet.
 
 ```XML
 <LocalizedResources Id="api.selfasserted.en">
@@ -165,7 +165,7 @@ I följande exempel visas en lokaliserad registrerings sida. De första tre **Lo
 </LocalizedResources>
 ```
 
-I följande exempel visas en lokaliserad **UserHelpText** av **predikat** med ID `IsLengthBetween8And64`. Och en lokaliserad **UserHelpText** av **PredicateGroup** med ID `CharacterClasses` av **PredicateValidation** med ID `StrongPassword`.
+I följande exempel visas en lokaliserad **UserHelpText** av `IsLengthBetween8And64` **Predikat** med ID . Och en lokaliserad **UserHelpText** av **PredicateGroup** med ID `CharacterClasses` för `StrongPassword` **predikatvalidation** med ID .
 
 ```XML
 <PredicateValidation Id="StrongPassword">
@@ -192,11 +192,11 @@ I följande exempel visas en lokaliserad **UserHelpText** av **predikat** med ID
 
 ## <a name="set-up-localization"></a>Konfigurera lokalisering
 
-Den här artikeln visar hur du stöder flera språk i principen för användar resor. Lokalisering kräver tre steg: Konfigurera den explicita listan över de språk som stöds, ange språkspecifika strängar och samlingar och redigera ContentDefinition för sidan.
+I den här artikeln visas hur du stöder flera språk eller språk i principen för användarresor. Lokalisering kräver tre steg: konfigurera den explicita listan över språk som stöds, tillhandahålla språkspecifika strängar och samlingar och redigera ContentDefinition för sidan.
 
-### <a name="set-up-the-explicit-list-of-supported-languages"></a>Konfigurera den explicita listan över språk som stöds
+### <a name="set-up-the-explicit-list-of-supported-languages"></a>Ställ in den explicita listan över språk som stöds
 
-Under **BuildingBlocks** -elementet lägger du till **lokaliserings** elementet med listan över språk som stöds. I följande exempel visas hur du definierar lokaliserings stödet för både engelska (standard) och spanska:
+Lägg till **lokaliseringselementet** i elementet BuildingBlocks under elementet **BuildingBlocks** med listan över språk som stöds. I följande exempel visas hur du definierar lokaliseringsstödet för både engelska (standard) och spanska:
 
 ```XML
 <Localization Enabled="true">
@@ -209,7 +209,7 @@ Under **BuildingBlocks** -elementet lägger du till **lokaliserings** elementet 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artiklar om lokaliserings exempel:
+Se följande artiklar för lokaliseringsexempel:
 
-- [Språk anpassning med anpassad princip i Azure Active Directory B2C](custom-policy-localization.md)
-- [Språk anpassning med användar flöden i Azure Active Directory B2C](user-flow-language-customization.md)
+- [Språkanpassning med anpassad princip i Azure Active Directory B2C](custom-policy-localization.md)
+- [Språkanpassning med användarflöden i Azure Active Directory B2C](user-flow-language-customization.md)

@@ -1,6 +1,6 @@
 ---
-title: Loggning av webb tjänst – Azure Machine Learning Studio (klassisk) | Microsoft Docs
-description: 'Lär dig hur du aktiverar loggning för Machine Learning Studio (klassiska) webb tjänster. Loggning ger ytterligare information för felsökning av API: erna.'
+title: Webbtjänstloggning – Azure Machine Learning Studio (klassisk) | Microsoft-dokument
+description: Läs om hur du aktiverar loggning för Machine Learning Studio (klassiska) webbtjänster. Loggning innehåller ytterligare information som hjälper dig att felsöka API:erna.
 services: machine-learning
 author: xiaoharper
 ms.custom: seodec18
@@ -12,76 +12,76 @@ ms.subservice: studio
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.openlocfilehash: 90e7692fe0e254074d8176d719d0ca9abad54a9b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79217851"
 ---
-# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Aktivera loggning för webb tjänster för Azure Machine Learning Studio (klassisk)
+# <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Aktivera loggning för Azure Machine Learning Studio (klassiska) webbtjänster
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
-Det här dokumentet innehåller information om loggnings funktionerna i Machine Learning Studio (klassiska) webb tjänster. Loggning ger ytterligare information, utöver bara ett fel nummer och ett meddelande, som kan hjälpa dig att felsöka anrop till API: erna Machine Learning Studio (klassisk).  
+Det här dokumentet innehåller information om loggningsfunktionen i Machine Learning Studio (klassiska) webbtjänster. Loggning ger ytterligare information, utöver bara ett felnummer och ett meddelande, som kan hjälpa dig att felsöka dina samtal till Machine Learning Studio (klassiska) API:er.  
 
-## <a name="how-to-enable-logging-for-a-web-service"></a>Så här aktiverar du loggning för en webbtjänst
+## <a name="how-to-enable-logging-for-a-web-service"></a>Aktivera loggning för en webbtjänst
 
-Du aktiverar loggning från den [Azure Machine Learning Studio (klassiska) webb tjänst](https://services.azureml.net) portalen. 
+Du aktiverar loggning från [Azure Machine Learning Studio -portalen (klassiskt) webbtjänster.](https://services.azureml.net) 
 
-1. Logga in på den Azure Machine Learning Studio (klassiska) webb tjänst portalen på [https://services.azureml.net](https://services.azureml.net). För en klassisk webb tjänst kan du också gå till portalen genom att klicka på **ny webb tjänst upplevelse** på sidan Machine Learning Studio (klassisk) webb tjänster i Studio (klassisk).
+1. Logga in på Azure Machine Learning Studio -portalen (klassiskt) på [https://services.azureml.net](https://services.azureml.net). För en klassisk webbtjänst kan du också komma till portalen genom att klicka på **New Web Services Experience** på machine learning studio (klassisk) web services-sidan i Studio (klassisk).
 
-   ![Nya tjänster webbupplevelse länk](./media/web-services-logging/new-web-services-experience-link.png)
+   ![Länken Ny webbtjänstupplevelse](./media/web-services-logging/new-web-services-experience-link.png)
 
-2. På den översta meny raden klickar du på **webb tjänster** för en ny webb tjänst eller på **klassiska webb tjänster** för en klassisk webb tjänst.
+2. Klicka på **Webbtjänster** för en ny webbtjänst på den övre menyraden eller klicka på **Klassiska webbtjänster** för en klassisk webbtjänst.
 
-   ![Välj ny eller klassiska webbtjänster](./media/web-services-logging/select-web-service.png)
+   ![Välj Nya eller klassiska webbtjänster](./media/web-services-logging/select-web-service.png)
 
-3. Klicka på webbtjänstnamn för en ny webbtjänst. För en klassisk webbtjänst klickar du på webbtjänstnamn och sedan på nästa sida klickar du på lämplig slutpunkt.
+3. Klicka på webbtjänstnamnet för en ny webbtjänst. För en klassisk webbtjänst klickar du på webbtjänstnamnet och klickar sedan på rätt slutpunkt på nästa sida.
 
-4. Klicka på **Konfigurera**på den översta meny raden.
+4. Klicka på **Konfigurera**på den övre menyraden .
 
-5. Ange alternativet **Aktivera loggning** till *fel* (Logga endast fel) eller *alla* (för fullständig loggning).
+5. Ange alternativet **Aktivera loggning** till *Fel* (för att bara logga fel) eller *Alla* (för fullständig loggning).
 
-   ![Välj loggningsnivån](./media/web-services-logging/enable-logging.png)
+   ![Välj loggningsnivå](./media/web-services-logging/enable-logging.png)
 
-6. Klicka på **Save** (Spara).
+6. Klicka på **Spara**.
 
-7. För klassiska webb tjänster skapar du behållaren för **ml-diagnostik** .
+7. Skapa **behållaren ml-diagnostik** för klassiska webbtjänster.
 
-   Alla webb tjänst loggar sparas i en BLOB-behållare med namnet **ml-Diagnostics** i det lagrings konto som är associerat med webb tjänsten. För nya webbtjänster skapas den här behållaren första gången du få åtkomst till webbtjänsten. För klassiska webbtjänster måste du skapa behållaren om den inte redan finns. 
+   Alla webbtjänstloggar lagras i en blob-behållare med namnet **ml-diagnostik** i lagringskontot som är associerat med webbtjänsten. För Nya webbtjänster skapas den här behållaren första gången du öppnar webbtjänsten. För klassiska webbtjänster måste du skapa behållaren om den inte redan finns. 
 
-   1. I [Azure Portal](https://portal.azure.com)går du till det lagrings konto som är associerat med webb tjänsten.
+   1. Gå till det lagringskonto som är associerat med webbtjänsten i [Azure-portalen.](https://portal.azure.com)
 
    2. Under **Blob Service** klickar du på **Containers**.
 
-   3. Om behållarens **ml-diagnostik** inte finns klickar du på **+ container**, ger behållaren namnet "ml-diagnostik" och väljer **åtkomst typen** som "BLOB". Klicka på **OK**
+   3. Om behållaren **ml-diagnostik** inte finns klickar du på **+Behållare**, ger behållaren namnet "ml-diagnostik" och väljer **åtkomsttypen** som "Blob". Klicka på **OK**.
 
-      ![Skapa en ny behållare för att lagra dina diagnostikloggar](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Skapa en ny behållare för att lagra diagnostikloggarna](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >
-> För en klassisk webb tjänst har instrument panelen för webb tjänster i Machine Learning Studio (klassisk) också en växel för att aktivera loggning. Men eftersom loggning hanteras nu via Web Services-portalen, måste du aktivera loggning via portalen, enligt beskrivningen i den här artikeln. Om du redan har aktiverat loggning i Studio (klassisk) inaktiverar du loggning på webb tjänst portalen och aktiverar det igen.
+> För en klassisk webbtjänst har Web Services Dashboard in Machine Learning Studio (klassisk) också en växel för loggning. Men eftersom loggning nu hanteras via Web Services-portalen måste du aktivera loggning via portalen enligt beskrivningen i den här artikeln. Om du redan har aktiverat loggning i Studio (klassisk) inaktiverar du loggning och aktiverar det igen i Web Services Portal.
 
 
-## <a name="the-effects-of-enabling-logging"></a>Effekterna av att aktivera loggning
-När loggning är aktiverat loggas diagnostiken och felen från webb tjänst slut punkten i BLOB-behållaren för **ml-diagnostik** i det Azure Storage konto som är kopplat till användarens arbets yta. Den här behållaren innehåller alla diagnostikinformation för alla slutpunkterna för webbtjänster för alla arbetsytor som är associerade med det här lagringskontot.
+## <a name="the-effects-of-enabling-logging"></a>Effekterna av att möjliggöra loggning
+När loggning är aktiverat loggas diagnostiken och felen från slutpunkten för webbtjänsten i **ml-diagnostik blob-behållaren** i Azure Storage-kontot som är länkat till användarens arbetsyta. Den här behållaren innehåller all diagnostikinformation för alla webbtjänstslutpunkter för alla arbetsytor som är associerade med det här lagringskontot.
 
-Loggarna kan granskas med någon av flera verktyg som finns tillgängliga att utforska Azure Storage-kontot. Det enklaste sättet kan vara att navigera till lagrings kontot i Azure Portal, klicka på **behållare**och sedan klicka på container **ml-diagnostik**.  
+Loggarna kan visas med något av de flera verktyg som finns tillgängliga för att utforska ett Azure Storage-konto. Det enklaste kan vara att navigera till lagringskontot i Azure-portalen, klicka på **Behållare**och sedan klicka på behållaren **ml-diagnostik**.  
 
-## <a name="log-blob-detail-information"></a>Detaljerad information från blob
-Varje blobb i behållaren innehåller diagnostikinformationen för exakt ett av följande åtgärder:
+## <a name="log-blob-detail-information"></a>Information om loggblobbinformation
+Varje blob i behållaren innehåller diagnostikinformationen för exakt en av följande åtgärder:
 
-* Körningen av Batch-Execution-metod  
-* Körningen av metoden begäranden och svar  
-* Initieringen av en behållare för begäranden och svar
+* En körning av metoden Batch-Execution  
+* En körning av metoden Request-Response  
+* Initiering av en behållare för begäran-svar
 
-Namnet på varje blob har ett prefix följande format: 
+Namnet på varje blob har ett prefix i följande formulär: 
 
 
 `{Workspace Id}-{Web service Id}-{Endpoint Id}/{Log type}`
 
 
-Var _logg typ_ är ett av följande värden:  
+Om _loggtyp_ är ett av följande värden:  
 
 * batch  
 * poäng/begäranden  

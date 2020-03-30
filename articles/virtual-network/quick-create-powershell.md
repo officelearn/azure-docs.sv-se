@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: kumud
 ms.openlocfilehash: 1d30b35264707c59c899cc3a224e4affa2a4696e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241446"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>Snabbstart: Skapa ett virtuellt nätverk med hjälp av PowerShell
@@ -121,7 +121,7 @@ Du måste skapa en annan användare och lösenord. Det tar några minuter för A
 > [!IMPORTANT]
 > Fortsätt inte med nästa steg förrän Azure har avslutat uppgiften.  Det hela är klart när Azure returnerar utdata till PowerShell.
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från internet
+## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
 
 Använd [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) för att returnera den offentliga IP-adressen för en virtuell dator. I det här exemplet returneras den offentliga IP-adressen för den virtuella datorn *myVm1*:
 
@@ -145,7 +145,7 @@ mstsc /v:<publicIpAddress>
 1. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn.
 
     > [!NOTE]
-    > Du kan behöva välja **Fler alternativ** > **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
+    > Du kan behöva välja **Fler alternativ** > **Använd ett annat konto**för att ange de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 
 1. Välj **OK**.
 

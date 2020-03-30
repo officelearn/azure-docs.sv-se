@@ -1,6 +1,6 @@
 ---
-title: Belastnings utjämning för Windows-adresspoolen för virtuella skriv bord – Azure
-description: Belastnings Utjämnings metoder för värdbaserade pooler för en Windows-miljö med virtuella skriv bord.
+title: Belastningsutjämning för Windows Virtual Desktop-värdpool – Azure
+description: Belastningsutjämningsmetoder för pool för en Windows Virtual Desktop-miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -9,34 +9,34 @@ ms.date: 03/21/2019
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 193821ed0df09b87f19e45a82ca42026405a0dc4
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79127871"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Belastningsutjämningsmetoder för värdpool
 
-Windows Virtual Desktop stöder två metoder för belastnings utjämning. Varje metod bestämmer vilken värddator som ska vara värd för en användares session när de ansluter till en resurs i en adresspool.
+Windows Virtual Desktop stöder två belastningsutjämningsmetoder. Varje metod avgör vilken sessionsvärd som ska vara värd för en användares session när de ansluter till en resurs i en värdpool.
 
-Följande belastnings Utjämnings metoder är tillgängliga i Windows Virtual Desktop:
+Följande belastningsutjämningsmetoder är tillgängliga i Windows Virtual Desktop:
 
-- Med bredd-första belastnings utjämning kan du jämnt distribuera användarsessioner över sessionens värdar i en adresspool.
-- Djup – med belastnings utjämning kan du fylla en session-värd med användarsessioner i en adresspool. När den första sessionen når gränsen för antalet sessioner dirigerar belastningsutjämnaren alla nya användar anslutningar till nästa session-värd i adresspoolen tills den når sin gräns, och så vidare.
+- Med bredd-första belastningsutjämning kan du fördela användarsessioner jämnt över sessionsvärdarna i en värdpool.
+- Djup-första belastningsutjämning kan du mätta en sessionsvärd med användarsessioner i en värdpool. När den första sessionen når sitt tröskelvärde för sessionsgräns dirigerar belastningsutjämnaren alla nya användaranslutningar till nästa sessionsvärd i värdpoolen tills den når sin gräns och så vidare.
 
-Varje adresspool kan bara konfigurera en typ av belastnings utjämning som är speciell för den. Både belastnings Utjämnings metoder delar däremot följande beteenden oavsett vilken pool de befinner sig i:
+Varje värdpool kan bara konfigurera en typ av belastningsutjämning som är specifik för den. Båda belastningsutjämningsmetoderna delar dock följande beteenden oavsett vilken värdpool de befinner sig i:
 
-- Om en användare redan har en session i värddatorn och återansluter till den sessionen, kommer belastningsutjämnaren att omdirigera dem till sessionens värd med sin befintliga session. Detta gäller även om den aktuella AllowNewConnections-egenskapen har angetts till false.
-- Om en användare inte redan har en session i poolen, kommer belastningsutjämnaren inte att anse ras-värdar vars AllowNewConnections-egenskap är inställd på falskt under belastnings utjämning.
+- Om en användare redan har en session i värdpoolen och återansluter till den sessionen omdirigerar belastningsutjämnren dem till sessionsvärden med sin befintliga session. Det här problemet gäller även om sessionsvärdens egenskap AllowNewConnections är inställd på False.
+- Om en användare inte redan har en session i värdpoolen kommer belastningsutjämnaren inte att ta hänsyn till sessionsvärdar vars egenskap AllowNewConnections är inställd på False under belastningsutjämning.
 
-## <a name="breadth-first-load-balancing-method"></a>Bredd – första belastnings Utjämnings metod
+## <a name="breadth-first-load-balancing-method"></a>Bred-första belastningsutjämningsmetod
 
-Med den bredd-första belastnings Utjämnings metoden kan du distribuera användar anslutningar så att de optimeras för det här scenariot. Den här metoden är idealisk för organisationer som vill ge den bästa upplevelsen av användare som ansluter till sin poolbaserade virtuella Skriv bords miljö.
+Med den breda-första belastningsutjämningsmetoden kan du distribuera användaranslutningar för att optimera för det här scenariot. Den här metoden är idealisk för organisationer som vill ge den bästa upplevelsen för användare som ansluter till sin poolade virtuella skrivbordsmiljö.
 
-Metoden vidd-First frågar först efter de sessioner som tillåter nya anslutningar. Metoden väljer sedan värd för sessionen med minst antal sessioner. Om det finns en förbindelse väljer metoden den första sessionens värd i frågan.
+Den breda första metoden frågar först sessionsvärdar som tillåter nya anslutningar. Metoden väljer sedan sessionsvärden med minst antal sessioner. Om det finns en slips väljer metoden den första sessionsvärden i frågan.
 
-## <a name="depth-first-load-balancing-method"></a>Djup-första belastnings Utjämnings metod
+## <a name="depth-first-load-balancing-method"></a>Djup-första belastningsutjämningsmetod
 
-Med den första belastnings Utjämnings metoden kan du fylla en session-värd i taget för att optimera för det här scenariot. Den här metoden är idealisk för kostnadsmedvetna organisationer som vill ha mer detaljerad kontroll över antalet virtuella datorer som de har allokerat för en värd pool.
+Med metoden djup-först load-balancing kan du mätta en sessionsvärd i taget för att optimera för det här scenariot. Den här metoden är idealisk för kostnadsmedvetna organisationer som vill ha mer detaljerad kontroll över antalet virtuella datorer som de har allokerat för en värdpool.
 
-Den första metoden frågar efter de sessioner som är värdar som tillåter nya anslutningar och som inte har varit över gränsen för den högsta tillåtna sessionen. Metoden väljer sedan Session Host med det högsta antalet sessioner. Om det finns en förbindelse väljer metoden den första sessionens värd i frågan.
+Metoden depth-first frågar först sessionsvärdar som tillåter nya anslutningar och inte har överskridit sin maximala sessionsgräns. Metoden väljer sedan den sessionsvärd som har det högsta antalet sessioner. Om det finns en slips väljer metoden den första sessionsvärden i frågan.

@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: apimpm
 ms.openlocfilehash: 2e8863eed774884a99de8643c9e497378368d166
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70072493"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>Använda en extern Azure Cache for Redis i Azure API Management
@@ -40,27 +40,27 @@ Detta får du får lära dig:
 > [!div class="checklist"]
 > * Lägga till en extern cache i API Management
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
 + [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
 + Förstå [cachelagring i Azure API Management](api-management-howto-cache.md)
 
-## <a name="create-cache"> </a> Skapa Azure Cache for Redis
+## <a name="create-azure-cache-for-redis"></a><a name="create-cache"> </a> Skapa Azure Cache for Redis
 
 Det här avsnittet beskriver hur du skapar en Azure Cache for Redis i Azure. Om du redan har en Azure Cache for Redis i eller utanför Azure kan du <a href="#add-external-cache">hoppa över</a> detta till nästa avsnitt.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-## <a name="add-external-cache"> </a>Lägga till en extern cache
+## <a name="add-an-external-cache"></a><a name="add-external-cache"> </a>Lägga till en extern cache
 
 Följ stegen nedan om du vill lägga till en extern Azure Cache for Redis i Azure API Management.
 
 ![Ta din egen cache till APIM](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> Inställningen **Använd från** anger vilken API Management regional-distributionen kommer att kommunicera med den konfigurerade cachen i händelse av en multi-regional konfiguration av API Management. Den cache som anges som **standard** åsidosätts av cacher med ett regionalt värde.
+> Inställningen **Använd från** anger vilken regional distribution för API Management som ska kommunicera med den konfigurerade cachen vid en multiregional konfiguration av API Management. Den cache som anges som **standard** åsidosätts av cacher med ett regionalt värde.
 >
 > Om till exempel API Management hanteras i regionerna USA, östra, Asien, sydöstra och Europa, västra och det finns två cacher konfigurerade, en för **Standard** och en för **Asien, sydöstra**, använder API Management i **Asien, sydöstra** sin egen cache, medan de andra två regionerna använder cacheposten **Standard**.
 
@@ -70,7 +70,7 @@ Följ stegen nedan om du vill lägga till en extern Azure Cache for Redis i Azur
 2. Välj fliken **Extern cache** på menyn till vänster.
 3. Klicka på knappen **+ Lägg till**.
 4. Välj din cache i det nedrullningsbara fältet **Cacheinstans**.
-5. Välj **standard** eller ange önskad region i list rutan **Använd från** .
+5. Välj **Standard** eller ange önskat område i listrutan **Använd från.**
 6. Klicka på **Spara**.
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Lägga till en Azure Cache for Redis som hanteras utanför den aktuella Azure-prenumerationen eller Azure i allmänhet
@@ -79,7 +79,7 @@ Följ stegen nedan om du vill lägga till en extern Azure Cache for Redis i Azur
 2. Välj fliken **Extern cache** på menyn till vänster.
 3. Klicka på knappen **+ Lägg till**.
 4. Välj **Anpassad** i det nedrullningsbara fältet **Cacheinstans**.
-5. Välj **standard** eller ange önskad region i list rutan **Använd från** .
+5. Välj **Standard** eller ange önskat område i listrutan **Använd från.**
 6. Ange din anslutningssträng för Azure Cache for Redis i fältet **Anslutningssträng**.
 7. Klicka på **Spara**.
 
@@ -87,7 +87,7 @@ Följ stegen nedan om du vill lägga till en extern Azure Cache for Redis i Azur
 
 När den externa cachen har konfigurerats i Azure API Management kan den användas via cachelagringsprinciper. Detaljerade steg finns i avsnittet om att [lägga till cachelagring för att förbättra prestanda i Azure API Management](api-management-howto-cache.md).
 
-## <a name="next-steps"> </a>Nästa steg
+## <a name="next-steps"></a><a name="next-steps"> </a>Nästa steg
 
 * Mer information om cachelagringsprinciper finns i [Cachelagringsprinciper][Caching policies] i [Principreferens för API Management][API Management policy reference].
 * Mer information om hur du cachelagrar objekt med nycklar med hjälp av principuttryck finns i [Anpassad cachelagring i Azure API Management](api-management-sample-cache-by-key.md).

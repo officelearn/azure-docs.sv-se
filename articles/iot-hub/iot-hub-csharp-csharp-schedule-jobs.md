@@ -1,6 +1,6 @@
 ---
-title: Schemalägg jobb med Azure IoT Hub (.NET/.NET) | Microsoft Docs
-description: Schemalägga ett Azure IoT Hub-jobb för att anropa en direkt metod på flera enheter. Du använder Azure IoT-enhetens SDK för .NET för att implementera de simulerade enhetens appar och en tjänst-app för att köra jobbet.
+title: Schemalägga jobb med Azure IoT Hub (.NET/.NET) | Microsoft-dokument
+description: Så här schemalägger du ett Azure IoT Hub-jobb för att anropa en direkt metod på flera enheter. Du använder Azure IoT-enheten SDK för .NET för att implementera de simulerade enhetsapparna och en tjänstapp för att köra jobbet.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,81 +9,81 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
 ms.openlocfilehash: 7925ca5c69d01b098764ff744fb832eaa43118d6
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77108967"
 ---
-# <a name="schedule-and-broadcast-jobs-net"></a>Schema-och sändnings jobb (.NET)
+# <a name="schedule-and-broadcast-jobs-net"></a>Schemalägga och sända jobb (.NET)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
-Använd Azure IoT Hub för att schemalägga och spåra jobb som uppdaterar miljon tals enheter. Använd jobb för att:
+Använd Azure IoT Hub för att schemalägga och spåra jobb som uppdaterar miljontals enheter. Använd jobb för att:
 
 * Uppdatera önskade egenskaper
 
-* Uppdatera Taggar
+* Uppdatera taggar
 
-* Anropa direkt metoder
+* Anropa direkta metoder
 
-Ett jobb radbryter en av dessa åtgärder och spårar körningen mot en uppsättning enheter som definieras av en enhets dubbla frågor. En backend-app kan till exempel använda ett jobb för att anropa en direkt metod på 10 000 enheter som startar om enheterna. Du kan ange en uppsättning enheter med en enhet med dubbla frågor och schemalägga jobbet så att det körs vid ett senare tillfälle. Jobbet spårar förloppet när var och en av enheterna tar emot och kör metoden starta om Direct.
+Ett jobb radbryts en av dessa åtgärder och spårar körningen mot en uppsättning enheter som definieras av en enhetstvillingfråga. En backend-app kan till exempel använda ett jobb för att anropa en direkt metod på 10 000 enheter som startar om enheterna. Du anger uppsättningen enheter med en enhetstvillingfråga och schemalägger jobbet så att det körs vid en framtida tidpunkt. Jobbet spårar förloppet när var och en av enheterna får och kör metoden för omstart direkt.
 
 Mer information om var och en av dessa funktioner finns i:
 
-* Enhetens dubbla och egenskaper: [Kom igång med enhets dubbla](iot-hub-csharp-csharp-twin-getstarted.md) och [Självstudier: hur du använder enhetens dubbla egenskaper](tutorial-device-twins.md)
+* Enhetstvilling och egenskaper: [Kom igång med enhetstvillingar](iot-hub-csharp-csharp-twin-getstarted.md) och [självstudiekurs: Så här använder du enhetstvillingegenskaper](tutorial-device-twins.md)
 
-* Direkta metoder: [IoT Hub Developer Guide – direkta metoder](iot-hub-devguide-direct-methods.md) och [Självstudier: Använd direkta metoder](quickstart-control-device-dotnet.md)
+* Direkta metoder: [IoT Hub developer guide - direkta metoder](iot-hub-devguide-direct-methods.md) och [handledning: Använd direkta metoder](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 I den här självstudiekursen lär du dig att:
 
-* Skapa en app för enheten som implementerar en direkt metod som kallas **LockDoor**, som kan anropas av backend-appen.
+* Skapa en enhetsapp som implementerar en direkt metod som kallas **LockDoor**, som kan anropas av backend-appen.
 
-* Skapa en backend-app som skapar ett jobb för att anropa metoden **LockDoor** Direct på flera enheter. Ett annat jobb skickar önskade egenskaps uppdateringar till flera enheter.
+* Skapa en backend-app som skapar ett jobb för att anropa **LockDoor** direct-metoden på flera enheter. Ett annat jobb skickar önskade egenskapsuppdateringar till flera enheter.
 
-I slutet av den här självstudien har du två .NETC#()-konsol program:
+I slutet av den här självstudien har du två .NET-konsolappar (C#):
 
-* **SimulateDeviceMethods**. Den här appen ansluter till din IoT-hubb och implementerar **LockDoor** Direct-metoden.
+* **SimuleraDeviceMethods**. Den här appen ansluter till din IoT-hubb och implementerar **LockDoor** direct-metoden.
 
-* **ScheduleJob**. Den här appen använder jobb för att anropa metoden **LockDoor** Direct och uppdatera enhetens dubbla önskade egenskaper på flera enheter.
+* **SchemaJob**. Den här appen använder jobb för att anropa **LockDoor** direct-metoden och uppdatera enhetstvillingens önskade egenskaper på flera enheter.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Visual Studio.
 
-* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
+* Ett aktivt Azure-konto. Om du inte har något konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-* Kontrol lera att port 8883 är öppen i brand väggen. Enhets exemplet i den här artikeln använder MQTT-protokoll, som kommunicerar via port 8883. Den här porten kan blockeras i vissa företags-och miljö nätverks miljöer. Mer information och sätt att kringgå det här problemet finns i [ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Kontrollera att port 8883 är öppen i brandväggen. Enhetsexemplet i den här artikeln använder MQTT-protokollet, som kommunicerar över port 8883. Den här porten kan vara blockerad i vissa företags- och utbildningsnätverksmiljöer. Mer information och sätt att lösa problemet finns i [Ansluta till IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Skapa en IoT-hubb
+## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT Hub
+## <a name="register-a-new-device-in-the-iot-hub"></a>Registrera en ny enhet i IoT-hubben
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Skapa en simulerad enhetsapp
 
-I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod som anropas av lösningens Server del.
+I det här avsnittet skapar du en .NET-konsolapp som svarar på en direkt metod som anropas av lösningens serverdel.
 
-1. I Visual Studio väljer du **skapa ett nytt projekt**och klickar sedan på projekt mal len **konsol program (.NET Framework)** . Välj **Nästa** för att fortsätta.
+1. I Visual Studio väljer du **Skapa ett nytt projekt**och väljer sedan projektmallen Console App **(.NET Framework).** Välj **Nästa** för att fortsätta.
 
-1. I **Konfigurera ditt nya projekt**namnger du projektet *SimulateDeviceMethods*och väljer sedan **skapa**.
+1. I **Konfigurera det nya projektet**namnger du projektet *SimulateDeviceMethods*och väljer sedan **Skapa**.
 
-    ![Konfigurera ditt SimulateDeviceMethods-projekt](./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png)
+    ![Konfigurera projektet SimulateDeviceMethods](./media/iot-hub-csharp-csharp-schedule-jobs/configure-device-app.png)
 
-1. I Solution Explorer högerklickar du på projektet **SimulateDeviceMethods** och väljer sedan **Hantera NuGet-paket**.
+1. Högerklicka på projektet **SimuleraDeviceMethods** i Solution Explorer och välj sedan **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**väljer du **Bläddra** och söker efter och väljer **Microsoft. Azure. devices. client**. Välj **Installera**.
+1. I **NuGet Package Manager**väljer du **Bläddra** och sök efter och välj **Microsoft.Azure.Devices.Client**. Välj **Installera**.
 
-    ![NuGet paket hanterarens fönster klient program](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
+    ![NuGet Package Manager-fönster Klientapp](./media/iot-hub-csharp-csharp-schedule-jobs/device-app-nuget.png)
 
-    I det här steget hämtas, installeras och läggs en referens till i [Azure IoT Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet-paketet och dess beroenden.
+    Det här steget hämtar, installerar och lägger till en referens till [Azure IoT-enheten SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet-paketet och dess beroenden.
 
-1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
+1. Lägg till `using` följande satser högst upp i **Program.cs-filen:**
 
     ```csharp
     using Microsoft.Azure.Devices.Client;
@@ -91,7 +91,7 @@ I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod
     using Newtonsoft.Json;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med enhets anslutnings strängen som du antecknade i föregående avsnitt:
+1. Lägg till följande fält i klassen **Program**. Ersätt platshållarvärdet med den enhetsanslutningssträng som du noterade i föregående avsnitt:
 
     ```csharp
     static string DeviceConnectionString = "<yourDeviceConnectionString>";
@@ -112,7 +112,7 @@ I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod
     }
     ```
 
-1. Lägg till följande metod för att implementera enhetens dubbla lyssnare på enheten:
+1. Lägg till följande metod för att implementera enhetstvillinglyssnaren på enheten:
 
     ```csharp
     private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, 
@@ -123,7 +123,7 @@ I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod
     }
     ```
 
-1. Slutligen lägger du till följande kod i **main** -metoden för att öppna anslutningen till IoT-hubben och initiera metoden Listener:
+1. Lägg slutligen till följande kod i **huvudmetoden** för att öppna anslutningen till IoT-hubben och initiera metodavlysssnaren:
 
     ```csharp
     try
@@ -153,46 +153,46 @@ I det här avsnittet skapar du en .NET-konsol app som svarar på en direkt metod
 1. Spara ditt arbete och bygg din lösning.
 
 > [!NOTE]
-> För att det ska vara enkelt implementerar den här självstudien inte några principer för återförsök. I produktions koden bör du implementera principer för omförsök (till exempel anslutnings försök), enligt rekommendationer för [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).
+> För att hålla det enkelt implementerar den här självstudien inte några principer för återförsök. I produktionskoden bör du implementera principer för återförsök (t.ex. återförsök för anslutning), som föreslås i [tillfällig felhantering](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutnings strängen för IoT Hub
+## <a name="get-the-iot-hub-connection-string"></a>Hämta anslutningssträngen för IoT-hubb
 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
-## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Schemalägg jobb för att anropa en direkt metod och skicka enhets dubbla uppdateringar
+## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>Schemalägga jobb för att anropa en direkt metod och skicka enhetstvillinguppdateringar
 
-I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb för att anropa metoden **LockDoor** Direct och skicka önskade egenskaps uppdateringar till flera enheter.
+I det här avsnittet skapar du en .NET-konsolapp (med C#) som använder jobb för att anropa **LockDoor** direct-metoden och skicka önskade egenskapsuppdateringar till flera enheter.
 
-1. Välj **Arkiv** > **Nytt** > **Projekt** i Visual Studio. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** och väljer sedan **Nästa**.
+1. Välj **Arkiv** > **nytt** > **projekt**i Visual Studio. I **Skapa ett nytt projekt**väljer du Console App **(.NET Framework)** och väljer sedan **Nästa**.
 
-1. I **Konfigurera ditt nya projekt**namnger du projektet *ScheduleJob*. För **lösning**väljer **du Lägg till i lösning**och väljer sedan **skapa**.
+1. I **Konfigurera det nya projektet**namnger du projektet *ScheduleJob*. För **Lösning**väljer du **Lägg till i lösning**och väljer sedan **Skapa**.
 
-    ![Namnge och konfigurera ScheduleJob-projekt](./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png)
+    ![Namnge och konfigurera projektet ScheduleJob](./media/iot-hub-csharp-csharp-schedule-jobs/config-schedule-job-app.png)
 
-1. I Solution Explorer högerklickar du på projektet **ScheduleJob** och väljer sedan **Hantera NuGet-paket**.
+1. Högerklicka på **Projektet ScheduleJob** i Solution Explorer och välj sedan **Hantera NuGet-paket**.
 
-1. I **NuGet Package Manager**väljer du **Bläddra**, söker efter och väljer **Microsoft. Azure. Devices**och väljer sedan **Installera**.
+1. I **NuGet Package Manager**väljer du **Bläddra,** sök efter och väljer **Microsoft.Azure.Devices**och väljer sedan **Installera**.
 
-   I det här steget hämtas, installeras och läggs en referens till i [Azure IoT service SDK NuGet-](https://www.nuget.org/packages/Microsoft.Azure.Devices/) paketet och dess beroenden.
+   Det här steget hämtar, installerar och lägger till en referens till [Azure IoT-tjänsten SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices/) NuGet-paketet och dess beroenden.
 
-1. Lägg till följande `using`-uttryck överst i **Program.cs**-filen:
+1. Lägg till `using` följande satser högst upp i **Program.cs-filen:**
 
     ```csharp
     using Microsoft.Azure.Devices;
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Lägg till följande `using`-instruktion om den inte redan finns i standard instruktionerna.
+1. Lägg till `using` följande sats om det inte redan finns i standardsatserna.
 
     ```csharp
     using System.Threading;
     using System.Threading.Tasks;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt plats hållarna med IoT Hub anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string) och namnet på enheten.
+1. Lägg till följande fält i klassen **Program**. Ersätt platshållarna med anslutningssträngen för IoT Hub som du kopierade tidigare i [Hämta anslutningssträngen för IoT-hubben](#get-the-iot-hub-connection-string) och namnet på enheten.
 
     ```csharp
     static JobClient jobClient;
@@ -200,7 +200,7 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb f�
     static string deviceId = "<yourDeviceId>";
     ```
 
-1. Lägg till följande metod till **Program**-klassen:
+1. Lägg till följande metod i klassen **Program:**
 
     ```csharp
     public static async Task MonitorJob(string jobId)
@@ -216,7 +216,7 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb f�
     }
     ```
 
-1. Lägg till följande metod till **Program**-klassen:
+1. Lägg till följande metod i klassen **Program:**
 
     ```csharp
     public static async Task StartMethodJob(string jobId)
@@ -235,7 +235,7 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb f�
     }
     ```
 
-1. Lägg till en annan metod i **program** klassen:
+1. Lägg till en annan metod i **klassen Program:**
 
     ```csharp
     public static async Task StartTwinUpdateJob(string jobId)
@@ -260,7 +260,7 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb f�
     ```
 
     > [!NOTE]
-    > Mer information om frågesyntax finns i [IoT Hub frågespråk](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
+    > Mer information om frågesyntax finns i [IoT Hub-frågespråk](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language).
     >
 
 1. Slutligen lägger du till följande rader till **Main**-metoden:
@@ -288,26 +288,26 @@ I det här avsnittet skapar du en .NET-konsol app ( C#med) som använder jobb f�
 
 1. Spara ditt arbete och bygg din lösning.
 
-## <a name="run-the-apps"></a>Köra apparna
+## <a name="run-the-apps"></a>Kör apparna
 
 Nu är det dags att köra apparna.
 
-1. Högerklicka på din lösning i Visual Studio-Solution Explorer och välj **Ange start projekt**.
+1. Högerklicka på lösningen i Utforskaren för Visual Studio-lösning och välj sedan **Ange StartUp-projekt**.
 
-1. Välj **vanliga egenskaper** > **Start projekt**och välj sedan **flera start projekt**.
+1. Välj **Common Properties** > **Startup Project**och välj sedan **Flera startprojekt**.
 
-1. Kontrol lera att `SimulateDeviceMethods` är överst i listan följt av `ScheduleJob`. Ange båda åtgärderna för att **Starta** och välj **OK**.
+1. Kontrollera `SimulateDeviceMethods` att den är överst `ScheduleJob`i listan följt av . Ställ in båda deras åtgärder på **Start** och välj **OK**.
 
-1. Kör projekten genom att klicka på **Start** eller gå till **Felsök** -menyn och klicka på **Starta fel sökning**.
+1. Kör projekten genom att klicka på **Start** eller gå till **Felsökningsmenyn** och klicka på **Starta felsökning**.
 
-   Du ser utdata från både enhets-och backend-appar.
+   Du ser utdata från både enhets- och backend-appar.
 
     ![Kör apparna för att schemalägga jobb](./media/iot-hub-csharp-csharp-schedule-jobs/schedule-jobs-console-results.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien använde du ett jobb för att schemalägga en direkt metod till en enhet och uppdateringen av enhetens egenskaper.
+I den här självstudien använde du ett jobb för att schemalägga en direkt metod till en enhet och uppdateringen av enhetstvillingens egenskaper.
 
-* Om du vill fortsätta att komma igång med IoT Hub-och enhets hanterings mönster, t. ex. fjärran sluten av den inbyggda Air-uppdateringen, kan du läsa mer [i självstudier](tutorial-firmware-update.md)
+* Om du vill fortsätta komma igång med IoT Hub och enhetshanteringsmönster som fjärröver uppdateringen av den inbyggda programvaran läser du [Självstudiekurs: Hur du gör en uppdatering av den inbyggda programvaran](tutorial-firmware-update.md).
 
-* Information om hur du distribuerar AI till Edge-enheter med Azure IoT Edge finns i [komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
+* Mer information om hur du distribuerar AI till kantenheter med Azure IoT Edge finns i [Komma igång med IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).

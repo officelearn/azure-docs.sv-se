@@ -1,6 +1,6 @@
 ---
-title: Arkitektur IoT-ansluten logistik | Microsoft Docs
-description: En arkitektur för IoT Connected logistik-Programmall för IoT Central
+title: Arkitektur IoT Ansluten logistik | Microsoft-dokument
+description: En arkitektur för IoT Connected Logistics-programmall för IoT Central
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
@@ -8,43 +8,43 @@ ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
 ms.openlocfilehash: bde703310bb04cacbda0b90aec337cbbf1768d76
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77021142"
 ---
-# <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Arkitektur för IoT Central ansluten logistik-Programmall
+# <a name="architecture-of-iot-central-connected-logistics-application-template"></a>Arkitektur för IoT Central ansluten logistikapplikationsmall
 
 
 
-Partner & kunden kan använda appens mall & följande rikt linjer för att utveckla **anslutna logistik lösningar**från slut punkt till slut punkt.
+Partner & kund kan använda appmallen & följande vägledning för att utveckla **slut på anslutna logistiklösningar**.
 
 > [!div class="mx-imgBorder"]
-> ![ansluten logistik instrument panel](./media/concept-connected-logistics-architecture/connected-logistics-architecture.png)
+> ![instrumentpanel för ansluten logistik](./media/concept-connected-logistics-architecture/connected-logistics-architecture.png)
 
 1. Uppsättning IoT-taggar som skickar telemetridata till en gateway-enhet
-2. Gateway-enheter skickar telemetri och sammanställda insikter till IoT Central
+2. Gateway-enheter som skickar telemetri och aggregerade insikter till IoT Central
 3. Data dirigeras till önskad Azure-tjänst för manipulering
-4. Azure-tjänster som ASA eller Azure Functions kan användas för att formatera om data strömmar och skicka till önskade lagrings konton 
-5. Olika affärs arbets flöden kan användas av affärs program för slutanvändare
+4. Azure-tjänster som ASA eller Azure Functions kan användas för att formatera om dataströmmar och skicka till önskade lagringskonton 
+5. Olika affärsarbetsflöden kan drivas av slutanvändarens affärsprogram
 
 ## <a name="details"></a>Information
-I följande avsnitt beskrivs varje del av den konceptuella arkitekturen för telemetri från IoT-Taggar & gateways
+I följande avsnitt beskrivs varje del av den konceptuella arkitekturen Telemetriinmatning från IoT-taggar & gateways
 
-## <a name="iot-tags"></a>IoT-Taggar
-IoT-Taggar tillhandahåller funktioner för fysisk, omgivande och miljö sensor, till exempel temperatur, fuktighet, stöt, lutning & ljus. IoT-Taggar ansluter vanligt vis till en gateway-enhet via ZigBee (802.15.4). Taggar är billigare sensorer; de kan därför tas bort i slutet av en typisk logistik resa för att undvika utmaningar med omvänd logistik.
+## <a name="iot-tags"></a>IoT-taggar
+IoT-taggar ger fysiska, omgivande och miljömässiga sensorfunktioner som temperatur, luftfuktighet, stötar, lutning &ljus. IoT-taggar ansluter vanligtvis till gateway-enheten via Zigbee (802.15.4). Taggar är billigare sensorer; Så kan de kasseras i slutet av en typisk logistikresa för att undvika utmaningar med omvänd logistik.
 
 ## <a name="gateway"></a>Gateway
-Gatewayer kan också fungera som IoT-Taggar med deras funktioner för att kunna hantera omgivningen. Gatewayen möjliggör överordnad Azure IoT Cloud-anslutning (MQTT) med hjälp av mobil nät, Wi-Fi-kanaler.  Lägena Bluetooth, NFC och 802.15.4 för trådlösa sensor nätverk (WSN) används för underordnad kommunikation med IoT-taggar. Gatewayer ger slut punkt till slut punkt för säker moln anslutning, IoT-taggning, sammanslagning av sensor data, datakvarhållning och möjlighet att konfigurera larm tröskelvärden.
+Gateways kan också fungera som IoT-taggar med sina omgivande avkänningsfunktioner. Gatewayen möjliggör uppströms Azure IoT-molnanslutning (MQTT) med hjälp av mobila Wi-Fi-kanaler.  WSN-lägena (Wireless Sensor Network) (Wireless Sensor Network) används för nedströmskommunikation med IoT-taggar. Gateways ger på säker molnanslutning, IoT-taggparning, sammanläggning av sensordata, datalagring och möjlighet att konfigurera tröskelvärden för larm.
 
-## <a name="device-management-with-iot-central"></a>Enhets hantering med IoT Central 
-Azure IoT Central är en plattform för lösnings utveckling som gör det enklare att ansluta, konfigurera och hantera IoT-enheter. Plattformen minskar avsevärt belastningen och kostnaderna för IoT-enhetens hantering, åtgärder och relaterad utveckling. Kunder & partner kan skapa ett heltäckande företags lösningar för att få en digital feedback-slinga i logistik.
+## <a name="device-management-with-iot-central"></a>Enhetshantering med IoT Central 
+Azure IoT Central är en lösningsutvecklingsplattform som förenklar IoT-enhetsanslutning, konfiguration och hantering. Plattformen minskar avsevärt bördan och kostnaderna för IoT-enhetshantering, drift och relaterad utveckling. Kunder & partner kan bygga en end to end-lösningar för att uppnå en digital återkoppling inom logistik.
 
-## <a name="business-insights-and-actions-using-data-egress"></a>Affärs insikter och åtgärder som använder utgående data 
-IoT Central Platform tillhandahåller omfattande utöknings alternativ via Center (kontinuerlig data export) och API: er. Affärs insikter baserade på telemetri data behandling eller rå telemetri exporteras vanligt vis till ett prioriterat branschspecifika program. Det kan åstadkommas med hjälp av webhook, Service Bus, Event Hub eller Blob Storage för att skapa, träna och distribuera maskin inlärnings modeller & ytterligare förbättra insikter.
+## <a name="business-insights-and-actions-using-data-egress"></a>Affärsinsikter och åtgärder med hjälp av datarånge 
+IoT Central-plattformen ger omfattande utökningsmöjligheter via CDE (Continuous Data Export) och API:er. Affärsinsikter baserade på telemetridatabearbetning eller råtelemetri exporteras vanligtvis till ett önskat affärsprogram. Det kan uppnås med hjälp av webhook, servicebuss, händelsenav eller bloblagring för att skapa, träna och distribuera maskininlärningsmodeller & ytterligare berika insikter.
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig att distribuera en [mall för kopplad logistik lösning](./tutorial-iot-central-connected-logistics-pnp.md)
-* Läs mer om [IoT Central mallar för butik](./overview-iot-central-retail-pnp.md)
-* Läs mer om IoT Central referera till [IoT Central översikt](../core/overview-iot-central.md)
+* Lär dig hur du [distribuerar mall för anslutna lösningar för logistik](./tutorial-iot-central-connected-logistics-pnp.md)
+* Läs mer om [IoT Central-butiksmallar](./overview-iot-central-retail-pnp.md)
+* Läs mer om IoT Central se [IoT Central översikt](../core/overview-iot-central.md)

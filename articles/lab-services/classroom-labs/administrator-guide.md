@@ -1,6 +1,6 @@
 ---
-title: Azure Lab Services-administratörs guide | Microsoft Docs
-description: Den här guiden hjälper administratörer som skapar och hanterar labb konton med Azure Lab Services.
+title: Azure Lab Services – administratörsguide | Microsoft-dokument
+description: Den här guiden hjälper administratörer som skapar och hanterar labbkonton med Hjälp av Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,235 +13,251 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 318f16df6ac10be5909b255f2f1988be028d0eef
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 8608aaab7bb8b6d10e67f27678c17f20a6c243da
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78162440"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80370861"
 ---
-# <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services-administratörs guide
-IT-administratörer som hanterar ett universitets moln resurser är vanligt vis ansvariga för att ställa in labb kontot för sin skola. När ett labb konto har kon figurer ATS kan administratörer eller lärare skapa klass rums labb som finns i labb kontot. Den här artikeln innehåller en översikt över de Azure-resurser som ingår och vägledningen för att skapa dem.
+# <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – administratörsguide
+IT-administratörer (Information Technology) som hanterar ett universitets molnresurser är vanligtvis ansvariga för att konfigurera labbkontot för sin skola. När ett labbkonto har konfigurerats skapar administratörer eller lärare klassrumslabb som finns i labbkontot. Den här artikeln innehåller en översikt på hög nivå över de azure-resurser som ingår och vägledningen för att skapa dem.
 
-![Övergripande visning av Azure-resurser i ett labb konto](../media/administrator-guide/high-level-view.png)
+![Vy på hög nivå av Azure-resurser i ett labbkonto](../media/administrator-guide/high-level-view.png)
 
-- Klass rums labb finns i en Azure-prenumeration som ägs av Azure Lab Services.
-- Labb konton, delade avbildnings gallerier och avbildnings versioner finns i din prenumeration.
-- Du kan ha ditt labb konto och det delade avbildnings galleriet i samma resurs grupp. I det här diagrammet finns de i olika resurs grupper. 
+- Klassrumslabb finns i en Azure-prenumeration som ägs av Azure Lab Services.
+- Labbkonton, delat bildgalleri och bildversioner finns i din prenumeration.
+- Du kan ha ditt labbkonto och det delade bildgalleriet i samma resursgrupp. I det här diagrammet finns de i olika resursgrupper. 
 
 ## <a name="subscription"></a>Prenumeration
-Ditt universitet har en eller flera Azure-prenumerationer. En prenumeration används för att hantera fakturering och säkerhet för alla Azure-resources\services som används i den, inklusive Lab-konton.
+Ditt universitet har en eller flera Azure-prenumerationer. En prenumeration används för att hantera fakturering och säkerhet för alla Azure-resurser\tjänster som används i den, inklusive labbkonton.
 
-Relationen mellan ett labb konto och dess prenumeration är viktig eftersom:
+Relationen mellan ett labbkonto och dess prenumeration är viktig eftersom:
 
-- Faktureringen rapporteras via prenumerationen som innehåller labb kontot.
-- Du kan ge användare i prenumerationens Azure Active Directory (AD) klient åtkomst till Azure Lab Services. Du kan lägga till en användare som ett labb konto owner\contributor, klass rummets labb skapare eller klass rums labb ägare.
+- Fakturering rapporteras via prenumerationen som innehåller labbkontot.
+- Du kan ge användare i prenumerationens Azure Active Directory (AD) klientåtkomst till Azure Lab Services. Du kan lägga till en användare som ett labbkonto ägare\contributor, klassrum lab skapare, eller klassrummet lab ägare.
 
-Klass rum labb och deras virtuella datorer hanteras och hanteras i en prenumeration som ägs av Azure Lab Services.
+Klassrumslabb och deras virtuella datorer hanteras och finns för dig inom en prenumeration som ägs av Azure Lab Services.
 
 ## <a name="resource-group"></a>Resursgrupp
-En prenumeration innehåller en eller flera resurs grupper. Resurs grupper används för att skapa logiska grupperingar av Azure-resurser som används tillsammans inom samma lösning.  
+En prenumeration innehåller en eller flera resursgrupper. Resursgrupper används för att skapa logiska grupperingar av Azure-resurser som används tillsammans i samma lösning.  
 
-När du skapar ett labb konto måste du konfigurera resurs gruppen som innehåller labb kontot. 
+När du skapar ett labbkonto måste du konfigurera resursgruppen som innehåller labbkontot. 
 
-Du måste också ha en resurs grupp när du skapar ett [delat avbildnings Galleri](#shared-image-gallery). Du kan välja att ange ditt labb konto och ditt delade avbildnings galleri i två separata resurs grupper, vilket är vanligt om du planerar att dela avbildnings galleriet över olika lösningar. Eller så kan du välja att använda dem i samma resurs grupp.
+En resursgrupp krävs också när du skapar ett [delat bildgalleri](#shared-image-gallery). Du kan välja att placera ditt labbkonto och delat bildgalleri i två separata resursgrupper, vilket är typiskt om du planerar att dela bildgalleriet över olika lösningar. Du kan också välja att placera dem i samma resursgrupp.
 
-När du skapar ett labb konto kan du automatiskt skapa och koppla ett delat avbildnings galleri på samma gång.  Det här alternativet resulterar i labb kontot och det delade avbildnings galleriet skapas i separata resurs grupper. Du ser det här beteendet när du använder stegen som beskrivs i den här självstudien: [Konfigurera delade avbildnings galleriet när labb kontot skapas](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation). Bilden överst i den här artikeln använder också den här konfigurationen. 
+När du skapar ett labbkonto kan du automatiskt skapa och bifoga ett delat bildgalleri samtidigt.  Det här alternativet resulterar i att labbkontot och det delade bildgalleriet skapas i separata resursgrupper. Det här problemet visas när du använder stegen som beskrivs i den här självstudien: [Konfigurera det delade bildgalleriet när labbkontot skapas](how-to-attach-detach-shared-image-gallery.md#configure-at-the-time-of-lab-account-creation). Avbildningen högst upp i den här artikeln använder också den här konfigurationen. 
 
-Vi rekommenderar att du planerar fram till att planera strukturen för dina resurs grupper eftersom det *inte* går att ändra en labb kontos resurs grupp eller delade avbildnings galleriets resurs grupp när den har skapats. Om du behöver ändra resurs gruppen för de här resurserna måste du ta bort och återskapa ditt labb konto och/eller-Galleri för delade avbildningar.
+Vi rekommenderar att du investerar tid på framsidan för att planera strukturen för dina resursgrupper eftersom det *inte* går att ändra ett labbkontos eller delade bildgalleris resursgrupp när det har skapats. Om du behöver ändra resursgruppen för dessa resurser måste du ta bort och återskapa labbkontot och\eller det delade bildgalleriet.
 
-## <a name="lab-account"></a>Labb konto
-Ett labb konto fungerar som en behållare för en eller flera klass rums labb. När du kommer igång med Azure Lab Services är det vanligt att bara ha ett enda labb konto. När din labb användning skalas kan du senare välja att skapa fler labb konton.
+## <a name="lab-account"></a>Labbkonto
+Ett labbkonto fungerar som en behållare för ett eller flera klassrumslabb. När du kommer igång med Azure Lab Services är det vanligt att bara ha ett enda labbkonto. När labbanvändningen skalas kan du senare välja att skapa fler labbkonton.
 
-I följande lista beskrivs scenarier där mer än ett labb konto kan vara fördelaktigt:
+I följande lista framhävers scenarier där mer än ett labbkonto kan vara fördelaktigt:
 
-- **Hantera olika princip krav i klass rums labb** 
+- **Hantera olika principkrav i klassrumslabb** 
     
-    När du konfigurerar ett labb konto ställer du in principer som gäller för *alla* klass rums labb under labb kontot, till exempel:
-    - Det virtuella Azure-nätverket med delade resurser som klass rummets labb har åtkomst till. Du kan till exempel ha en uppsättning klass rums labb som behöver åtkomst till en delad data uppsättning i ett virtuellt nätverk.
-    - De virtuella dator avbildningarna som klass labb labbet kan använda för att skapa virtuella datorer. Du kan till exempel ha en uppsättning klass rums labb som behöver åtkomst till [data science VM för Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) Marketplace-avbildningen. 
+    När du konfigurerar ett labbkonto anger du principer som gäller för *alla* klassrumslabb under labbkontot, till exempel:
+    - Det virtuella Azure-nätverket med delade resurser som klassrumslabbet kan komma åt. Du kan till exempel ha en uppsättning klassrumslabb som behöver åtkomst till en delad datauppsättning i ett virtuellt nätverk.
+    - Avbildningar för den virtuella datorn (VM) som klassrumslabben kan använda för att skapa virtuella datorer. Du kan till exempel ha en uppsättning klassrumslabb som behöver åtkomst till [data science-datorn för Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.linux-data-science-vm-ubuntu) Marketplace-avbildningen. 
     
-    Om du har klass rums labb som har unika princip krav från varandra kan det vara bra att skapa separata labb konton för att hantera dessa klass rums labb separat.
+    Om du har klassrumslabb som har unika principkrav från varandra kan det vara fördelaktigt att skapa separata labbkonton för att hantera dessa klassrumslabb separat.
 
-- **Separat budget efter labb konto**
+- **Separat budget per labbkonto**
   
-    I stället för att rapportera alla klass rums labbs kostnader genom ett enda labb konto kan du behöva en tydligare budget. Du kan till exempel skapa labb konton för ditt universitets matematik avdelning, dator vetenskaps avdelning och så vidare, för att avgränsa budgeten mellan olika avdelningar.  Du kan sedan Visa kostnaden för varje enskilt labb konto med [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
+    I stället för att rapportera alla labbkostnader i klassrummet via ett enda labbkonto kan du behöva en tydligare separerad budget. Du kan till exempel skapa labbkonton för universitetets matematiska avdelning, datavetenskapsavdelningen och så vidare, för att separera budgeten mellan avdelningar.  Du kan sedan visa kostnaden för varje enskilt labbkonto med [Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview).
     
-- **Isolera pilot labb från active\production Labs**
+- **Isolera pilotlaboratoring från aktiva produktionslaboratoring**
   
-    Det kan finnas fall där du vill pilot policy ändringar för ett labb konto utan att potentiellt påverka active\production Labs. I den här typen av scenario kan du skapa ett separat labb konto för pilotering i syfte att isolera ändringar. 
+    Du kan ha fall där du vill testa principändringar för ett labbkonto utan att påverka active\production labs. I den här typen av scenario kan du isolera ändringar genom att skapa ett separat labbkonto för pilotändamål. 
 
-## <a name="classroom-lab"></a>Klass rums labb
-Ett klass rums labb innehåller virtuella datorer (VM) som är tilldelade till en enda student. I allmänhet kan du förväntar dig att:
+## <a name="classroom-lab"></a>Labb i klassrummet
+Ett klassrumslabb innehåller virtuella datorer som var och en tilldelas en enskild elev. I allmänhet kan du förvänta dig att:
 
-- Ha ett klass rums labb för varje klass.
-- Skapa en ny uppsättning klass rums labb varje termin (eller för varje tidsram som din klass erbjuds). För klasser som har samma bild måste du använda ett [delat avbildnings Galleri](#shared-image-gallery) för att återanvända bilder i labb och termin.
+- Ha ett klassrumslabb för varje klass.
+- Skapa en ny uppsättning klassrumslabb varje termin (eller för varje tidsram som din klass erbjuds). Vanligtvis för klasser som har samma bildbehov bör du använda ett [delat bildgalleri](#shared-image-gallery) för att återanvända bilder över labb och terminer.
 
-Tänk på följande när du bestämmer hur du ska strukturera klass rum labb:
+Tänk på följande punkter när du bestämmer hur du ska strukturera dina klassrumslabb:
 
-- **Alla virtuella datorer i ett klass rum labb distribueras med samma avbildning som publiceras**. 
+- **Alla virtuella datorer i ett klassrumslabb distribueras med samma bild som publiceras**
 
-    Det innebär att om du har en klass som kräver att olika labb avbildningar publiceras samtidigt, måste separata klass rums labb skapas för var och en.
+    Om du har en klass som kräver olika labbavbildningar samtidigt måste därför separata klassrumslabb skapas för var och en.
   
-- **Användnings kvoten anges på labb nivån och gäller alla användare i labbet**. 
+- **Användningskvoten är inställd på labbnivå och gäller för alla användare i labbet**
     
-    Om du vill ange olika kvoter för användare måste du skapa separata klass rums labb. Det går dock att lägga till fler timmar till en speciell användare efter att du har angett kvoten.
+    Om du vill ange olika kvoter för användare måste du skapa separata klassrumslabb. Det är dock möjligt att lägga till fler timmar till en viss användare när du har angett kvoten.
   
-- **Schemat för start eller avstängning anges på labb nivån och gäller för alla virtuella datorer i labbet**. 
+- **Start- eller avstängningsschemat är inställt på labbnivå och gäller alla virtuella datorer i labbet**
 
-    I likhet med föregående punkt, om du behöver ange olika scheman för användare måste du skapa separata klass rums labb. 
+    I likhet med föregående punkt, om du behöver ange olika scheman för användare, måste du skapa separata klassrumslabb. 
 
-## <a name="shared-image-gallery"></a>Galleri för delad avbildning
-Ett delat avbildnings galleri är kopplat till ett labb konto och fungerar som en central lagrings plats för att lagra avbildningar. En bild sparas i galleriet när en lärare väljer att exportera från ett klass rums labbs mall för virtuella datorer (VM). Varje gången en lärare gör ändringar i mallen VM och export, sparas nya versioner av avbildningen samtidigt som tidigare versioner bibehålls.
+## <a name="shared-image-gallery"></a>Galleri för delad bild
+Ett delat bildgalleri är kopplat till ett labbkonto och fungerar som en central lagringsplats för lagring av bilder. En bild sparas i galleriet när en lärare väljer att exportera från ett klassrumslabbs virtuella dator (VM). Varje gång en lärare gör ändringar i mallen VM och exporterar, nya versioner av avbildningen sparas samtidigt som tidigare versioner.
 
-Lärare kan publicera en avbildnings version från galleriet för delad avbildning när de skapar ett nytt klass rums labb. Även om galleriet kan lagra flera versioner av en avbildning, kan lärare bara välja den senaste versionen under labb skapandet.
+Lärare kan publicera en bildversion från det delade bildgalleriet när de skapar ett nytt klassrumslabb. Även om galleriet kan lagra flera versioner av en avbildning, kan lärare bara välja den senaste versionen när labbet skapas.
 
-Delade avbildnings galleri är en valfri resurs som du kanske inte behöver omedelbart när du startar med bara några klass rums labb. Att använda Shared Image Gallery har dock många fördelar som är användbara när du skalar för att ha fler klass rums labb:
+Delat bildgalleri är en valfri resurs som du kanske inte behöver direkt när du börjar med endast ett fåtal klassrumslabb. Att använda det delade bildgalleriet har dock många fördelar som är till hjälp när du skalar till att ha fler klassrumslabb:
 
-- **Gör att du kan spara och hantera versioner av en mall för virtuella dator avbildningar**.
+- **Gör att du kan spara och hantera versioner av en vm-avbildning i mall**
 
-    Det är praktiskt att skapa en anpassad avbildning eller göra ändringar (program vara, konfiguration och så vidare) till en avbildning från det offentliga Marketplace-galleriet.  Det är till exempel vanligt för lärare att kräva att olika software\tooling ska installeras. I stället för att kräva att studenter installerar dessa krav manuellt på egen hand, kan olika versioner av mallens VM-avbildning exporteras till ett delat avbildnings Galleri. Dessa avbildnings versioner kan sedan användas när du skapar nya klass rums labb.
-- **Aktiverar sharing\reuse av mallens VM-avbildningar i klass rum labb labb**.
+    Det är användbart att skapa en anpassad avbildning eller göra ändringar (programvara, konfiguration och så vidare) i en avbildning från det offentliga Marketplace-galleriet.  Det är till exempel vanligt att lärare kräver att olika program\verktyg installeras. I stället för att kräva att deltagarna manuellt installerar dessa förutsättningar på egen hand kan olika versioner av mallen VM-avbildning exporteras till ett delat bildgalleri. Dessa bildversioner kan sedan användas när du skapar nya klassrumslabb.
+- **Aktiverar delning\återanvändning av vm-bilder i mallen i klassrumslabb**
 
-    Du kan spara och återanvända en bild så att du inte behöver konfigurera avbildningen från grunden varje gången du skapar ett nytt klass rums labb. Om till exempel flera klasser erbjuds som behöver samma avbildning, behöver avbildningen bara skapas en gång och exporteras till det delade avbildnings galleriet så att den kan delas mellan klass rums labb.
-- **Garanterar avbildnings tillgänglighet via replikering**.
+    Du kan spara och återanvända en avbildning så att du inte behöver konfigurera avbildningen från grunden varje gång du skapar ett nytt klassrumslabb. Om till exempel flera klasser erbjuds som behöver samma bild behöver den här bilden bara skapas en gång och exporteras till det delade bildgalleriet så att den kan delas över klassrumslabb.
+- **Säkerställer bildtillgänglighet genom replikering**
 
-    När du sparar i galleriet för delade avbildningar från ett klass rums labb, replikeras din avbildning automatiskt till andra [regioner i samma geografi](https://azure.microsoft.com/global-infrastructure/regions/). Om det finns ett avbrott för en region påverkas inte publiceringen av avbildningen till ditt klass rums labb eftersom en avbildnings replik från en annan region kan användas.  Det kan också vara bättre att publicera virtuella datorer från flera repliker.
+    När du sparar i det delade bildgalleriet från ett klassrumslabb replikeras avbildningen automatiskt till andra [regioner inom samma geografi](https://azure.microsoft.com/global-infrastructure/regions/). Om det finns ett avbrott för en region påverkas inte publiceringen av avbildningen i klassrumslabbet eftersom en bildreplik från en annan region kan användas.  Publicera virtuella datorer från flera repliker kan också hjälpa till med prestanda.
 
-För att gruppera delade avbildningar logiskt, har du ett par alternativ:
+Om du logiskt vill gruppera delade bilder har du ett par alternativ:
 
-- Skapa flera Galleri för delade avbildningar. Varje labb konto kan bara ansluta till ett delat avbildnings Galleri, så det här alternativet kräver också att du skapar flera labb konton.
-- Du kan också använda ett enda delat avbildnings galleri som delas av flera labb konton. I det här fallet kan varje labb konto bara aktivera de avbildningar som är tillämpliga för de klass rums labb som det innehåller.
+- Skapa flera delade bildgallerier. Varje labbkonto kan bara ansluta till ett delat bildgalleri, så det här alternativet kräver också att du skapar flera labbkonton.
+- Du kan också använda ett enda delat bildgalleri som delas av flera labbkonton. I det här fallet kan varje labbkonto endast aktivera de bilder som är tillämpliga på klassrumslabben som det innehåller.
 
 ## <a name="naming"></a>Namngivning
-När du kommer igång med Azure Lab Services rekommenderar vi att du skapar namn konventioner för resurs grupper, labb konton, klass rums labb och delade avbildnings Galleri. De namngivnings konventioner som du fastställer är unika för organisationens behov, och följande tabell beskriver allmänna rikt linjer.
+När du kommer igång med Azure Lab Services rekommenderar vi att du upprättar namngivningskonventioner för resursgrupper, labbkonton, klassrumslabb och det delade bildgalleriet. De namngivningskonventioner som du upprättar är unika för organisationens behov, men i följande tabell beskrivs allmänna riktlinjer.
 
 | Resurstyp | Roll | Föreslaget mönster | Exempel |
 | ------------- | ---- | ----------------- | -------- | 
-| Resursgrupp | Innehåller ett eller flera labb konton och ett eller flera gallerier för delade avbildningar | \<organisationens korta namn\>-\<miljö\>-rg<ul><li>**Organisationens kort namn** identifierar namnet på den organisation som resurs gruppen stöder</li><li>**Miljö** identifierar resursens miljö, till exempel pilot eller produktion</li><li>**RG** står för resurs typen: resurs grupp.</li></ul> | contosouniversitylabs – rg<br/>contosouniversitylabs – pilot – rg<br/>contosouniversitylabs-Prod-rg |
-| Labb konto | Innehåller en eller flera labb | \<organisationens korta namn\>-\<miljö\>-La<ul><li>**Organisationens kort namn** identifierar namnet på den organisation som resurs gruppen stöder</li><li>**Miljö** identifierar resursens miljö, till exempel pilot eller produktion</li><li>**La** står för resurs typen: labb konto.</li></ul> | contosouniversitylabs-La<br/>mathdeptlabs-La<br/>sciencedeptlabs-pilot-La<br/>sciencedeptlabs-Prod-La |
-| Klass rums labb | Innehåller en eller flera virtuella datorer |\<klass namn\>-\<tidsram\>-\<lärare-ID\><ul><li>**Klass namn** identifierar namnet på klassen som labbet stöder.</li><li>**Tidsram** identifierar den tidsram i vilken klassen erbjuds.</li>**Utbildnings identifierare** identifierar den lärare som äger labbet.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe | 
-| Galleri för delad avbildning | Innehåller en eller flera versioner av virtuella dator avbildningar | \>Galleri för \<organisationens kort namn | contosouniversitylabsgallery |
+| Resursgrupp | Innehåller ett eller flera labbkonton och ett eller flera delade bildgallerier | \<organisation\>-\<kortnamn\>miljö -rg<ul><li>**Organisationens kortnamn** identifierar namnet på den organisation som resursgruppen stöder</li><li>**Miljö** identifierar miljön för resursen, till exempel Pilot eller Produktion</li><li>**Rg** står för resurstypen: resursgrupp.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
+| Labbkonto | Innehåller ett eller flera labb | \<organisation\>-\<kortnamn\>miljö -la<ul><li>**Organisationens kortnamn** identifierar namnet på den organisation som resursgruppen stöder</li><li>**Miljö** identifierar miljön för resursen, till exempel Pilot eller Produktion</li><li>**La** står för resurstypen: labbkonto.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
+| Labb i klassrummet | Innehåller en eller flera virtuella datorer |\<\>-\<klassnamn tidsram\>-utbildaren identifierare\<\><ul><li>**Klassnamnet** identifierar namnet på den klass som labbet stöder.</li><li>**Tidsramen** identifierar den tidsram inom vilken klassen erbjuds.</li>**Utbildningsidentifierare** identifierar den lärare som äger labbet.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe | 
+| Galleri för delad bild | Innehåller en eller flera VM-avbildningsversioner | \<galleri för\>organisationskortnamn | contosouniversitylabsgallery |
 
-Mer information om hur du namnger andra Azure-resurser finns i [namngivnings konventioner för Azure-resurser](/azure/architecture/best-practices/naming-conventions).
+Mer information om hur du namnger andra Azure-resurser finns i [Namngivningskonventioner för Azure-resurser](/azure/architecture/best-practices/naming-conventions).
 
-## <a name="regions-or-locations"></a>Regioner eller platser
-När du konfigurerar Azure Lab Services resurser måste du ange en region (eller en plats) för det data Center som ska vara värd för resursen. Här är mer information om hur regioner påverkar var och en av följande resurser som används i din labb distribution:
+## <a name="regionslocations"></a>Regioner\platser
 
-- **Resursgrupp**
+När du konfigurerar dina Azure Lab Services resurser måste du tillhandahålla en region (eller plats) för det datacenter som ska vara värd för resursen. Här är mer information om hur regionen påverkar var och en av de resurser som är involverade i att inrätta ett labb.
 
-    Regionen anger data centret där information om resurs gruppen lagras. Azure-resurser som ingår i resurs gruppen kan finnas i olika regioner från deras överordnade platser.
-- **Labb konto eller klass rums labb**
+### <a name="resource-group"></a>Resursgrupp
 
-    Labb kontots plats anger regionen för den här resursen.  
+Regionen anger det datacenter där information om resursgruppen lagras. Azure-resurser som finns i resursgruppen kan finnas i olika regioner än de överordnade.
+
+### <a name="lab-account"></a>Labbkonto
+
+En labbkontos plats anger den region som resursen finns i.  
+
+### <a name="classroom-lab"></a>Labb i klassrummet
     
-    Med klass rums labbet väljer Azure Lab Services automatiskt den region som varje labb distribueras till baserat på tillgänglig kapacitet.  Mer specifikt Azure Lab Services letar efter tillgänglighet i [regioner som ligger inom samma geografi som labb kontot](https://azure.microsoft.com/global-infrastructure/regions). 
+Platsen som ett klassrumslabb finns i varierar beroende på följande faktorer:
+
+  - **Labbkontot är peered till ett virtuellt nätverk (VNet)**
+  
+    Ett labbkonto kan [peered med ett virtuella nätverk](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-connect-peer-virtual-network) när de är i samma region.  När ett labbkonto är peered med ett VNet skapas klassrumslabb automatiskt i samma region som både labbkontot och virtuella nätverk.
+
+    > [!NOTE]
+    > När ett labbkonto är peered med ett VNet inaktiveras inställningen **tillåt labbskapare att välja labbplats.** Ytterligare information finns om den här inställningen i artikeln: [Tillåt labbskaparen att välja plats för labbet](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location).
     
-    Om en administratör gör det möjligt för labb skapare att välja deras plats för klass rums labb, baseras de platser som är tillgängliga för val av tillgänglig regional kapacitet när du skapar labbet.
+  - **Inget VNet är peered ***och*** lab skapare får inte välja labbplats**
+  
+    När det inte finns **något** virtuellt nätverk som är peered med labbkontot *och* [labbskapare **inte** tillåts välja labbplatsen](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)skapas klassrumslabb automatiskt i en region som har tillgänglig vm-kapacitet.  Azure Lab Services söker efter tillgänglighet i [regioner som ligger inom samma geografi som labbkontot](https://azure.microsoft.com/global-infrastructure/regions).
 
-    Platsen för klass rums labbet avgör också vilka beräknings storlekar för virtuella datorer som kan väljas. Vissa beräknings storlekar är bara tillgängliga på specifika platser.
-- **Galleri för delad avbildning**
+  - **Inget virtuella nätverk är peered ***och*** lab skapare får välja labbplats**
+       
+    När det inte finns **några** VNet-peered och [lab skapare tillåts att välja labbplats,](https://docs.microsoft.com/azure/lab-services/classroom-labs/allow-lab-creator-pick-lab-location)de platser som kan väljas av labbet skapare är baserade på tillgänglig kapacitet.
 
-    Regionen anger käll regionen där den första avbildnings versionen lagras innan den replikeras automatiskt till mål regionerna.
-    
-En allmän regel är att ange en resurs region till en som är närmast dess användare. För klass rums labb innebär det att skapa klass rums labbet närmast dina studenter. För onlinekurser där studenterna är placerade över hela världen, måste du använda det bästa omdömet för att skapa ett klass rums labb som finns centralt. Eller dela upp en klass i flera klass rums labb som baseras på din studenters region.
+En allmän regel är att ange en resurs region till en som är närmast sina användare. För klassrumslabb innebär det att skapa klassrumslabbet närmast dina elever. För onlinekurser där studenter finns över hela världen måste du använda ditt bästa omdöme för att skapa ett klassrumslabb som är centralt beläget. Du kan också dela upp en klass i flera klassrumslabb baserat på elevernas region.
 
-## <a name="vm-sizing"></a>Storlek på virtuell dator
-När administratörer eller labb skapare skapar ett klass rums labb, kan de välja mellan följande VM-storlekar baserat på behoven i deras klass rum. Kom ihåg att de tillgängliga beräknings storlekarna är beroende av den region där ditt labb konto finns:
+### <a name="shared-image-gallery"></a>Galleri för delad bild
 
-| Storlek | 2970 | Föreslagen användning |
-| ---- | ----- | ------------- |
-| Liten| <ul><li>2 kärnor</li><li>3,5 GB RAM</li></ul> | Den här storleken passar bäst för kommando rad, öppna webbläsare, webb servrar med låg trafik, små till medel stora databaser. |
-| Medel | <ul><li>4 kärnor</li><li>7 GB RAM</li></ul> | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys. |
-| Medium (kapslad virtualisering) | <ul><li>4 kärnor</li><li>16 GB RAM</li></ul> | Den här storleken passar bäst för Relations databaser, minnes intern cachelagring och analys.  Den här storleken stöder även kapslad virtualisering. |
-| Stor | <ul><li>8 kärnor</li><li>32 GB RAM</li></ul> | Den här storleken lämpar sig bäst för program som behöver snabbare processorer, bättre prestanda för lokala diskar, stora databaser, stora cacheminnen.  Den här storleken stöder även kapslad virtualisering. |
-| Liten GPU (visualisering) | <ul><li>6 kärnor</li><li>56 GB RAM</li> | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. |
-| Liten GPU (Compute) | <ul><li>6 kärnor</li><li>56 GB RAM</li></ul> |Den här storleken passar bäst för dator intensiva program som artificiell intelligens och djup inlärning. |
-| Medelhög GPU (visualisering) | <ul><li>12 kärnor</li><li>112 GB RAM</li></ul> | Den här storleken passar bäst för fjärrvisualisering, strömning, spel, kodning med hjälp av ramverk som OpenGL och DirectX. |
+Regionen anger källområdet där den första avbildningsversionen lagras innan den replikeras automatiskt till målområden.
+
+## <a name="vm-sizing"></a>Storlek på virtuella datorer
+När administratörer eller labbskapare skapar ett klassrumslabb kan de välja mellan följande vm-storlekar baserat på behoven i klassrummet. Kom ihåg att de beräkningsstorlekar som är tillgängliga beror på vilken region ditt labbkonto finns i:
+
+| Storlek | Specifikationer | Serie | Föreslagen användning |
+| ---- | ----- | ------ | ------------- |
+| Liten| <ul><li>2 kärnor</li><li>3,5 GB RAM</li> | [Standard_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för kommandoraden, öppna webbläsare, låg trafik webbservrar, små till medelstora databaser. |
+| Medel | <ul><li>4 Kärnor</li><li>7 GB RAM</li> | [Standard_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för relationsdatabaser, cachelagring i minnet och analyser. |
+| Medium (kapslad virtualisering) | <ul><li>4 Kärnor</li><li>16 GB RAM</li></ul> | [Standard_DC4s_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för relationsdatabaser, cachelagring i minnet och analyser.  Den här storleken stöder också kapslad virtualisering. |
+| Stor | <ul><li>8 kärnor</li><li>32 GB RAM</li></ul>  | [Standard_DC8_v2](https://docs.microsoft.com/azure/virtual-machines/dcv2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Den här storleken passar bäst för program som behöver snabbare processorer, bättre lokal diskprestanda, stora databaser, stora minnescacheminnen.  Den här storleken stöder också kapslad virtualisering. |
+| Liten GPU (visualisering) | <ul><li>6 Kärnor</li><li>56 GB RAM</li>  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Den här storleken passar bäst för fjärrvisualisering, streaming, spel, kodning med ramverk som OpenGL och DirectX. |
+| Liten GPU (beräkning) | <ul><li>6 Kärnor</li><li>56 GB RAM</li></ul>  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Den här storleken passar bäst för datorintensiva program som artificiell intelligens och djupinlärning. |
+| Medium GPU (visualisering) | <ul><li>12 kärnor</li><li>112 GB RAM</li></ul>  | [Standard_NC12](https://docs.microsoft.com/azure/virtual-machines/nc-series) | Den här storleken passar bäst för fjärrvisualisering, streaming, spel, kodning med ramverk som OpenGL och DirectX. |
 
 ## <a name="manage-identity"></a>Hantera identitet
-Med hjälp av [Azures rollbaserade åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)kan följande roller tilldelas för att ge åtkomst till labb konton och klass rum labb:
+Med hjälp av [Azures rollbaserade åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)kan följande roller tilldelas för att ge åtkomst till labbkonton och klassrumslabb:
 
-- **Labb konto ägare**
+- **Labbkontoägare**
 
-    Administratören som skapar labb kontot läggs automatiskt till i labb kontots **ägar** roll.  En administratör som har tilldelats **ägar** rollen kan:
-     - Ändra Lab-kontots inställningar.
-     - Ge andra administratörer åtkomst till labb kontot som ägare eller deltagare. 
-     - Ge lärare åtkomst till klass rums labb som skapare, ägare eller deltagare.
-     - Skapa och hantera alla klass rums labb i i labb kontot.
+    Administratören som skapar labbkontot läggs automatiskt till i labbkontots **ägarroll.**  En administratör som har tilldelat **rollen Ägare** kan:
+     - Ändra labbkontots inställningar.
+     - Ge andra administratörer åtkomst till labbkontot som ägare eller bidragsgivare. 
+     - Ge lärare åtkomst till klassrumslabb som innehållsskapare, ägare eller bidragsgivare.
+     - Skapa och hantera alla klassrumslabb i labbkontot.
 
-- **Labb konto deltagare**
+- **Medarbetare på labbkonto**
 
-    En administratör som har tilldelats **deltagar** rollen kan:
-    - Ändra Lab-kontots inställningar.
-    - Skapa och hantera alla klass rums labb i labb kontot.
+    En administratör som har tilldelat rollen **Deltagare** kan:
+    - Ändra labbkontots inställningar.
+    - Skapa och hantera alla klassrumslabb i labbkontot.
     
-    De kan dock *inte* ge andra användare åtkomst till antingen Lab-konton eller klass rums labb.
+    De kan dock *inte* ge andra användare åtkomst till vare sig labbkonton eller klassrumslabb.
 
-- **Klass rummets skapare skapare**
+- **Skapare av labb i Classroom**
 
-    För att skapa klass rums labb i ett labb konto måste en lärare vara medlem i rollen **labb skapare** .  När en lärare skapar ett klass rums labb, läggs de automatiskt till som en ägare till labbet.  Läs självstudien om hur du [lägger till en användare i rollen **labb skapare** ](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
+    Om du vill skapa klassrumslabb i ett labbkonto måste en lärare vara medlem i rollen **Labbskapare.**  När en lärare skapar ett klassrumslabb läggs de automatiskt till som ägare av labbet.  Se självstudien om hur du lägger till [en användare i rollen Lab **Creator** ](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#add-a-user-to-the-lab-creator-role). 
 
-- **Klass rums labb owner\contributor**
+- **Ägare av klassrumslabb\deltagare**
   
-    En lärare kan visa och ändra ett klass rums labb inställningar när de är medlemmar i antingen en labb **ägare** eller **deltagar** roll; de måste också vara medlemmar i labb kontots **läsar** roll.
+    En lärare kan visa och ändra ett klassrumslabbs inställningar när de är medlemmar i antingen ett labbs **ägar-** eller **deltagarroll.** De måste också vara medlem i labbkontots **Reader-roll.**
 
-    En viktig skillnad mellan Labbets **ägare** och **deltagar** roller är att en deltagare *inte kan* ge andra användare åtkomst till att hantera labb ägare kan ge andra användare åtkomst till att hantera labbet.
+    En viktig skillnad mellan ett labbs **ägar-** och **deltagarroller** är att en medarbetare *inte kan* ge andra användare åtkomst till att hantera labbet – endast ägare kan ge andra användare åtkomst till att hantera labbet.
     
-    Dessutom kan en lärare *inte* skapa nya klass rums labb, om de inte också är medlem i rollen som **labb skapare** .
+    Dessutom kan en lärare *inte* skapa nya klassrumslabb om de inte också är medlemmar i rollen **Lab Creator.**
 
-- **Galleri för delad avbildning**
+- **Galleri för delad bild**
     
-    När du ansluter ett delat avbildnings galleri till ett labb konto får Lab-kontot owners\contributors och Lab creators\owners\contributors automatiskt åtkomst till att visa och spara bilder i galleriet. 
+    När du bifogar ett delat bildgalleri till ett labbkonto får labbkontoägare\deltagare och labbskapare\ägare\deltagare automatiskt åtkomst till att visa och spara bilder i galleriet. 
 
-Här följer några tips på hur du tilldelar roller:
-   - Normalt bör endast administratörer vara medlemmar i ett labb kontos **ägare** eller **deltagar** roller. Du kan ha mer än en owner\contributor.
+Här är några tips som hjälper dig att tilldela roller:
+   - Vanligtvis bör endast administratörer vara medlemmar i ett labbkontos **ägar-** eller **deltagarroller.** du kan ha mer än en ägare\deltagare.
 
-   - För att ge en lärare möjlighet att skapa nya klass rums labb och hantera de labb som de skapar. du behöver bara tilldela åtkomst till rollen **labb skapare** .
+   - Att ge en pedagog möjligheten att skapa nya klassrumslabb och hantera de labb som de skapar; Du behöver bara tilldela åtkomst till rollen **Lab Creator.**
    
-   - För att ge en lärare möjlighet att hantera vissa klass rums labb, men *inte* möjligheten att skapa nya labb. Du bör tilldela åtkomst till antingen rollen **ägare** eller **deltagare** för var och en av de klass rums labb som de ska hantera.  Du kanske till exempel vill tillåta både en lärare och en undervisnings assistent att samordna ett klass rums labb.  Läs guiden om hur du [lägger till en användare som ägare till ett klass rums labb](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
+   - Att ge en lärare möjlighet att hantera specifika klassrumslabb, men *inte* möjligheten att skapa nya labb; Du bör tilldela åtkomst till rollen **Ägare** eller **Deltagare** för vart och ett av klassrumslabrens som de ska hantera.  Du kanske till exempel vill tillåta både en professor och en lärarassistent att samsjungera ett klassrumslabb.  Se guiden om hur du lägger till [en användare som ägare i ett klassrumslabb](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
-Prissättningen för Azure Lab Services beskrivs i följande artikel: [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
+Priserna för Azure Lab Services beskrivs i följande artikel: [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
 
-Du måste också beakta priserna för galleriet för delad avbildning om du planerar att använda det för att lagra och hantera avbildnings versioner. 
+Du måste också överväga prissättningen för det delade bildgalleriet om du planerar att använda det för att lagra och hantera bildversioner. 
 
-### <a name="shared-image-gallery"></a>Galleri för delad avbildning
-Det kostar inget att skapa ett delat avbildnings galleri och koppla det till ditt labb konto. Kostnaderna uppstår tills du sparar en avbildnings version i galleriet. Normalt är prissättningen för att använda ett delat avbildnings Galleri ganska försumbar, men det är viktigt att förstå hur det beräknas eftersom det inte ingår i prissättningen för Azure Lab Services.  
+### <a name="shared-image-gallery"></a>Galleri för delad bild
+Det är gratis att skapa ett delat bildgalleri och koppla det till ditt labbkonto. Kostnader uppstår inte förrän du sparar en bildversion i galleriet. Vanligtvis är prissättningen för att använda ett delat bildgalleri ganska försumbar, men det är viktigt att förstå hur det beräknas eftersom det inte ingår i prissättningen för Azure Lab Services.  
 
-### <a name="storage-charges"></a>Lagrings kostnader
-Om du vill lagra avbildnings versioner använder ett delat avbildnings Galleri standard diskar som hanteras av hård diskar. Storleken på den HDD-hanterade disk som används beror på storleken på avbildnings versionen som lagras. Se följande artikel för att se prissättningen priser: [Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+#### <a name="storage-charges"></a>Lagringsavgifter
+Om du vill lagra bildversioner använder ett delat bildgalleri vanliga hårddiskhanterade diskar. Storleken på den hårddiskhanterade disken som används beror på storleken på den bildversion som lagras. Se följande artikel om du vill visa priser: [Priser för hanterade diskar](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 
-### <a name="replication-and-network-egress-charges"></a>Utgående kostnader för replikering och nätverk
-När du sparar en avbildnings version med hjälp av en virtuell dator i klass rummet för klass rummet (VM), Azure Lab Services först den i en käll region och replikerar sedan automatiskt käll avbildnings versionen till en eller flera mål regioner. Det är viktigt att Observera att Azure Lab Services automatiskt replikerar käll avbildnings versionen till alla mål [regioner inom det geografiska område](https://azure.microsoft.com/global-infrastructure/regions/) där klass rums labbet finns. Exempel: om ditt klass rums labb är i geografi för USA, replikeras en avbildnings version till var och en av de åtta regioner som finns i USA
+#### <a name="replication-and-network-egress-charges"></a>Avgifter för replikering och utgående nätverk
+När du sparar en avbildningsversion med hjälp av ett klassrumslabbs virtuella malldator (VM) lagrar Azure Lab Services den först i en källregion och replikerar sedan källavbildningsversionen automatiskt till ett eller flera målområden. Det är viktigt att notera att Azure Lab Services automatiskt replikerar källavbildningsversionen till alla [målområden inom geografin](https://azure.microsoft.com/global-infrastructure/regions/) där klassrumslabbet finns. Om ditt klassrumslabb till exempel finns i usa:s geografi replikeras en bildversion till var och en av de åtta regioner som finns i USA.
 
-Nätverks utgående belastning sker när en avbildnings version replikeras från käll regionen till ytterligare mål regioner. Det debiterade beloppet baseras på avbildnings versionens storlek när avbildningens data först överförs utgående från käll regionen.  Pris information finns i följande artikel: [pris information för bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/).
+En nätverksutgående avgift inträffar när en avbildningsversion replikeras från källregionen till ytterligare målområden. Det belopp som debiteras baseras på storleken på bildversionen när bildens data ursprungligen överförs utgående från källområdet.  Information om priser finns i följande artikel: [Bandbreddsprisinformation](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Kunder med [utbildnings lösningar](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) kan avstå från att betala utgående kostnader. Prata med din konto ansvarige om du vill veta mer.  Mer information finns i avsnittet **vanliga frågor och svar** i det länkade dokumentet, särskilt frågan "vilka data överförings program finns för akademiska kunder och hur kan jag kvalificera mig?".
+[Utbildningslösningar](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) kunder kan avstå från att betala utgående avgifter. Tala med din kontohanterare om du vill veta mer.  Mer information finns i avsnittet **Vanliga frågor** och svar i det länkade dokumentet, särskilt frågan "Vilka dataöverföringsprogram finns för akademiska kunder och hur kvalificerar jag mig?".
 
-### <a name="pricing-example"></a>Prissättnings exempel
-För att Sammanfattning de priser som beskrivs ovan ska vi titta på ett exempel på hur du sparar vår VM-avbildning för mallen i det delade avbildnings galleriet. Antag följande scenarier:
+#### <a name="pricing-example"></a>Exempel på prissättning
+Om du vill sammanfatta den prissättning som beskrivs ovan ska vi titta på ett exempel på hur vi sparar den virtuella mallens avbildning i det delade bildgalleriet. Anta följande scenarier:
 
 - Du har en anpassad VM-avbildning.
-- Du håller på att spara två versioner av avbildningen.
+- Du sparar två versioner av bilden.
 - Ditt labb är i USA, som har totalt åtta regioner.
-- Varje avbildnings version är 32 GB i storlek. Därför är hård disk-Managed disk pris $1,54 per månad.
+- Varje bildversion är 32 GB i storlek. Som ett resultat är hdd-hanterade diskpriset $ 1,54 per månad.
 
 Den totala kostnaden beräknas som:
 
-Antal avbildningar × antal versioner × antalet repliker × Managed disk pris
+Antal bilder × antal versioner × antal repliker × hanterat diskpris
 
 I det här exemplet är kostnaden:
 
-1 anpassad bild (32 GB) x 2 versioner x 8 amerikanska regioner x $1,54 = $24,64 per månad
+1 anpassad bild (32 GB) x 2 versioner x 8 regioner i USA x $1,54 = $24.64 per månad
 
-### <a name="cost-management"></a>Kostnadshantering
-Det är viktigt för labb konto administratören att hantera kostnader genom att rutinmässigt ta bort onödiga bild versioner från galleriet. 
+#### <a name="cost-management"></a>Kostnadshantering
+Det är viktigt för labbkontoadministratören att hantera kostnader genom att rutinmässigt ta bort onödiga bildversioner från galleriet. 
 
-Du bör inte ta bort replikeringen till vissa regioner som ett sätt att minska kostnaderna (det här alternativet finns i delade avbildnings galleriet). Ändringar i replikeringen kan ha skadliga effekter på Azure Lab Services möjlighet att publicera virtuella datorer från avbildningar som sparats i ett delat avbildnings Galleri.
+Du bör inte ta bort replikering till specifika regioner som ett sätt att minska kostnaderna (det här alternativet finns i det delade bildgalleriet). Replikeringsändringar kan ha negativa effekter på Azure Lab-tjänstens möjlighet att publicera virtuella datorer från bilder som sparats i ett delat bildgalleri.
 
 ## <a name="next-steps"></a>Nästa steg
-I självstudien finns stegvisa anvisningar för att skapa ett labb konto och ett labb: [Självstudier: Konfigurera ett labb konto](tutorial-setup-lab-account.md)
+Se självstudien för steg-för-steg-instruktioner för att skapa ett labbkonto och ett labb: [Konfigurera guide](tutorial-setup-lab-account.md)

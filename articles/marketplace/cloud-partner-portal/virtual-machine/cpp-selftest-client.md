@@ -1,48 +1,47 @@
 ---
-title: Självtest-klienten för att förverifiera en virtuell dator | Azure Marketplace
-description: Så här skapar du en självtest-klient för för validering av en avbildning av en virtuell dator för Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
-author: dan-wesley
+title: Självtestklient för att för validera en virtuell dator | Azure Marketplace
+description: Så här skapar du en självtestklient för att förvalta en avbildning av virtuella datorer för Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: pabutler
-ms.openlocfilehash: fc62875873f38630e592c79aebd6a138665ed6e4
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: fb568400cb60f108303909353bfa703e98ab6157
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809211"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286429"
 ---
-# <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Skapa en självtest-klient för att förverifiera en avbildning av en virtuell Azure-dator
+# <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Skapa en självtestklient för att för validera en virtuell Azure-avbildning
 
-Använd den här artikeln som en guide för att skapa en klient tjänst som använder sig av API: t för självtest. Du kan använda API: et för självtest för att förverifiera en virtuell dator (VM) för att säkerställa att den uppfyller de senaste publicerings kraven för Azure Marketplace. Med den här klient tjänsten kan du testa en virtuell dator innan du skickar in ditt erbjudande för Microsoft-certifiering.
+Använd den här artikeln som en guide för att skapa en klienttjänst som använder självtest-API:et. Du kan använda självtest-API:et för att för validera en virtuell dator (VM) för att säkerställa att den uppfyller de senaste publiceringskraven för Azure Marketplace. Med den här klienttjänsten kan du testa en virtuell dator innan du skickar in erbjudandet för Microsoft-certifiering.
 
 ## <a name="development-and-testing-overview"></a>Översikt över utveckling och testning
 
-Som en del av självtests processen skapar du en lokal klient som ansluter till Azure Marketplace för att validera en virtuell dator som körs i din Azure-prenumeration. Den virtuella datorn kan köra operativ systemet Windows eller Linux.
+Som en del av självtestprocessen skapar du en lokal klient som ansluter till Azure Marketplace för att validera en virtuell dator som körs i din Azure-prenumeration. Den virtuella datorn kan köra Operativsystemet Windows eller Linux.
 
-Den lokala klienten kör ett skript som autentiserar med API för självtest, skickar anslutnings information och tar emot test resultat.
+Den lokala klienten kör ett skript som autentiserar med självtest-API:et, skickar anslutningsinformation och tar emot testresultat.
 
-De övergripande stegen för att skapa en självtests klient är:
+Stegen på hög nivå för att skapa en självtestklient är:
 
-1. Välj den Azure Active Directory-klient (AD) för ditt program.
-2. Registrera klient programmet.
-3. Skapa en token för klientens Azure AD-App.
-4. Skicka token till test-API: et.
+1. Välj Azure Active Directory (AD) klient för ditt program.
+2. Registrera klientappen.
+3. Skapa en token för klientens Azure AD-app.
+4. Skicka token till självtest-API:et.
 
 När du har skapat klienten kan du testa den mot den virtuella datorn.
 
-### <a name="self-test-client-authorization"></a>Klient auktorisering för självtest
+### <a name="self-test-client-authorization"></a>Självtestklientauktorisering
 
-Följande diagram visar hur auktorisering fungerar för tjänst-till-tjänst-anrop med klientautentiseringsuppgifterna (delad hemlighet eller certifikat.)
+Följande diagram visar hur auktorisering fungerar för service till tjänstanrop med hjälp av klientautentiseringsuppgifter (delad hemlighet eller certifikat.)
 
-![Process för klient godkännande](./media/stclient-dev-process.png)
+![Klientauktoriseringsprocessen](./media/stclient-dev-process.png)
 
-## <a name="the-self-test-client-api"></a>API för självtests klienten
+## <a name="the-self-test-client-api"></a>Självtestklient-API:et
 
-API för självtest innehåller en enda slut punkt som endast stöder POST-metoden.  Den har följande struktur.
+Självtest-API:et innehåller en enda slutpunkt som endast stöder POST-metoden.  Den har följande struktur.
 
 ```
 Uri:             https://isvapp.azurewebsites.net/selftest-vm
@@ -63,29 +62,29 @@ Request body:    The Request body parameters should use the following JSON forma
 I följande tabell beskrivs API-fälten.
 
 
-|      Fält         |    Beskrivning    |
+|      Field         |    Beskrivning    |
 |  ---------------   |  ---------------  |
-|  Auktorisering     |  Strängen "Bearer xxxx-xxxx-xxxx-xxxxx" innehåller den Azure Active Directory (AD)-klient-token som kan skapas med hjälp av PowerShell.          |
-|  DNSName           |  DNS-namnet på den virtuella dator som ska testas    |
-|  Användare              |  Användar namn för att logga in på den virtuella datorn         |
-|  Lösenord          |  Lösen ord för att logga in på den virtuella datorn          |
-|  Operativsystem                |  Den virtuella datorns operativ system: antingen `Linux` eller `Windows`          |
-|  PortNo            |  Öppna port nummer för att ansluta till den virtuella datorn. Port numret är vanligt vis `22` för Linux och `5986` för Windows.          |
+|  Auktorisering     |  Strängen "Bearer xxxx-xxxx-xxxx-xxxxx" innehåller Azure Active Directory (AD) klienttoken, som kan skapas med PowerShell.          |
+|  DNS-namn           |  DNS-namn på den virtuella datorn som ska testas    |
+|  Användare              |  Användarnamn för att logga in på den virtuella datorn         |
+|  lösenord          |  Lösenord för signering i den virtuella datorn          |
+|  Operativsystem                |  Operativsystemet för den `Linux` virtuella datorn: antingen eller`Windows`          |
+|  PortNo (På)            |  Öppna portnummer för anslutning till den virtuella datorn. Portnumret är `22` vanligtvis för `5986` Linux och för Windows.          |
 |  |  |
 
-## <a name="consuming-the-api"></a>Använda API: et
+## <a name="consuming-the-api"></a>Använda API:et
 
-Du kan använda test-API: et med PowerShell eller sväng.
+Du kan använda självtest-API:et med PowerShell eller cURL.
 
-### <a name="use-powershell-to-consume-the-api-on-the-linux-os"></a>Använd PowerShell för att använda API: et på Linux OS
+### <a name="use-powershell-to-consume-the-api-on-the-linux-os"></a>Använda PowerShell för att använda API:et på Linux OS
 
-Följ dessa steg om du vill anropa API: t i PowerShell:
+Så här anropar du API:et i PowerShell:
 
-1. Använd kommandot `Invoke-WebRequest` för att anropa API: et.
-2. Metoden är post och Content-Type är JSON, som du ser i följande kod exempel och skärmdump.
-3. Ange Body-parametrarna i JSON-format.
+1. Använd `Invoke-WebRequest` kommandot för att anropa API:et.
+2. Metoden är Post och innehållstyp är JSON, som visas i följande kodexempel och skärmdump.
+3. Ange brödtextparametrar i JSON-format.
 
-I följande kod exempel visas ett PowerShell-anrop till API: et.
+I följande kodexempel visas ett PowerShell-anrop till API:et.
 
 ```powershell
 $accesstoken = "Get token for your Client AAD App"
@@ -103,11 +102,11 @@ $Body = @{
 $res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
-Följande skärm bild visar ett exempel på hur du anropar API: et i PowerShell.
+Följande skärminspelning visar ett exempel för att anropa API:et i PowerShell.
 
 ![Anropa API med PowerShell för Linux OS](./media/stclient-call-api-ps-linuxvm.png)
 
-I föregående exempel kan du hämta JSON och parsa den för att få följande information:
+Med hjälp av föregående exempel kan du hämta JSON och tolka den för att få följande information:
 
 ```powershell
 $testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
@@ -126,23 +125,23 @@ For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 }
 ```
 
-Följande skärm bild som visar `$res.Content`ger dig information om dina test resultat i JSON-format.
+Följande skärmdump, som `$res.Content`visar , ger dig information om dina testresultat i JSON-format.
 
-![JSON-resultat från PowerShell-anrop till Linux](./media/stclient-pslinux-rescontent-json.png)
+![JSON resultat från PowerShell samtal till Linux](./media/stclient-pslinux-rescontent-json.png)
 
-Följande skärm bild visar ett exempel på JSON-testresultat som visas i en online-JSON-visningsprogrammet (till exempel [kod beautify](https://codebeautify.org/jsonviewer) eller [JSON Viewer](https://jsonformatter.org/json-viewer)).
+Följande skärmdump visar ett exempel på JSON testresultat ses i en online JSON viewer (till exempel [Kod försköna](https://codebeautify.org/jsonviewer) eller [JSON Viewer](https://jsonformatter.org/json-viewer)).
 
-![JSON-resultat från PowerShell-anrop till virtuell Linux-dator](./media/stclient-consume-api-pslinux-json.png)
+![JSON resultat från PowerShell-anrop till Linux VM](./media/stclient-consume-api-pslinux-json.png)
 
-### <a name="use-powershell-to-consume-the-api-on-the-windows-os"></a>Använd PowerShell för att använda API: et på Windows OS
+### <a name="use-powershell-to-consume-the-api-on-the-windows-os"></a>Använda PowerShell för att använda API:et i Windows OS
 
-Följ dessa steg om du vill anropa API: t i PowerShell:
+Så här anropar du API:et i PowerShell:
 
-1. Använd kommandot `Invoke-WebRequest` för att anropa API: et.
-2. Metoden är post och Content-Type är JSON, som du ser i följande kod exempel och skärmdump.
-3. Skapa Body-parametrarna i JSON-format.
+1. Använd `Invoke-WebRequest` kommandot för att anropa API:et.
+2. Metoden är Post och innehållstyp är JSON, som visas i följande kodexempel och skärmdump.
+3. Skapa body-parametrarna i JSON-format.
 
-I följande kod exempel visas ett PowerShell-anrop till API: et.
+I följande kodexempel visas ett PowerShell-anrop till API:et.
 
 ```powershell
 $accesstoken = "Get token for your Client AAD App"
@@ -161,11 +160,11 @@ $res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "appl
 $Content = $res | ConvertFrom-Json
 ```
 
-Följande skärm bild visar ett exempel på hur du anropar API: et i PowerShell.
+Följande skärminspelning visar ett exempel för att anropa API:et i PowerShell.
 
-![Anropa API med PowerShell för virtuell Windows-dator](./media/stclient-call-api-ps-windowsvm.png)
+![Anropa API med PowerShell för Windows VM](./media/stclient-call-api-ps-windowsvm.png)
 
-I föregående exempel kan du hämta JSON och parsa den för att få följande information:
+Med hjälp av föregående exempel kan du hämta JSON och tolka den för att få följande information:
 
 ```powershell
 $testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
@@ -184,21 +183,21 @@ For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 }
 ```
 
-Följande skärm bild som visar `$res.Content`ger dig information om dina test resultat i JSON-format.
+Följande skärmdump, som `$res.Content`visar , ger dig information om dina testresultat i JSON-format.
 
-![JSON-resultat från PowerShell-anrop till Windows](./media/stclient-pswindows-rescontent-json.png)
+![JSON:s resultat från PowerShell-anrop till Windows](./media/stclient-pswindows-rescontent-json.png)
 
-Följande skärm bild visar de test resultat som visas i en online-JSON-visningsprogrammet.
-(till exempel [kod beautify](https://codebeautify.org/jsonviewer), [JSON Viewer](https://jsonformatter.org/json-viewer))
+Följande skärmdump visar testresultat som visas i en online-JSON-visning.
+(till exempel [Kod försköna](https://codebeautify.org/jsonviewer), [JSON Viewer](https://jsonformatter.org/json-viewer))
 
-![JSON-resultat från PowerShell-anrop till virtuell Windows-dator](./media/stclient-consume-api-pswindows-json.png)
+![JSON:s resultat från PowerShell-anrop till Windows VM](./media/stclient-consume-api-pswindows-json.png)
 
-### <a name="use-curl-to-consume-the-api-on-the-linux-os"></a>Använd en sväng för att använda API: et på Linux OS
+### <a name="use-curl-to-consume-the-api-on-the-linux-os"></a>Använd cURL för att använda API:et på Linux OS
 
-Följ dessa steg om du vill anropa API: t med hjälp av sväng:
+Så här anropar du API:et med cURL:
 
-1. Använd kommandot vänd för att anropa API: et.
-2. Metoden är post och Content-Type är JSON, vilket visas i följande kodfragment.
+1. Använd kommandot curl för att anropa API:et.
+2. Metoden är Post och innehållstyp är JSON, som visas i följande kodavsnitt.
 
 ```
 CURL POST -H "Content-Type:application/json"
@@ -207,108 +206,108 @@ https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 ```
 
-Följande skärm bild visar ett exempel på hur du använder en sväng för att anropa API: et.
+Följande skärm visar ett exempel på hur du använder curl för att anropa API:et.
 
-![Anropa API med kommandot spiral](./media/stclient-consume-api-curl.png)
+![Anropa API med kommandot Curl](./media/stclient-consume-api-curl.png)
 
-Följande skärm bild visar JSON-resultatet från ett spiral samtal.
+Följande skärmdump visar JSON resultaten från curl samtalet.
 
-![JSON-resultat från sväng samtal](./media/stclient-consume-api-curl-json.png)
+![JSON resultat från curl samtal](./media/stclient-consume-api-curl-json.png)
 
 
 ## <a name="choose-the-azure-ad-tenant-for-the-app"></a>Välj Azure AD-klient för appen
 
-Använd följande steg för att välja den Azure AD-klient där du vill skapa ditt program.
+Följ följande steg för att välja Azure AD-klienten där du vill skapa ditt program.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. På den översta meny raden väljer du ditt konto och under listan katalog väljer du den Active Directory klient organisation där du vill registrera programmet. Alternativt kan du välja ikonen **katalog + prenumeration** för att se det globala prenumerations filtret. Följande skärm bild visar ett exempel på det här filtret.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. På den övre menyraden väljer du ditt konto och väljer den Active Directory-klientorganisation där du vill registrera programmet under kataloglistan. Du kan också välja ikonen **Katalog + Prenumeration** för att se filtret Global prenumeration. Följande skärmdump visar ett exempel på det här filtret.
 
-   ![Välj prenumerations filtret](./media/stclient-subscription-filter.png)
+   ![Välj prenumerationsfilter](./media/stclient-subscription-filter.png)
 
-3. Välj **alla tjänster** i det vänstra navigerings fältet och välj sedan **Azure Active Directory**.
+3. I det vänstra navigeringsfältet väljer du **Alla tjänster** och väljer sedan Azure **Active Directory**.
 
-   I följande steg kan du behöva klient namnet (eller katalog namnet) eller klient-ID: t (eller katalog-ID).
+   I följande steg kan du behöva klientnamnet (eller katalognamnet) eller klient-ID (eller katalog-ID).
 
-   **Så här hämtar du klient information:**
+   **Så här hämtar du klientinformation:**
 
-   I **Azure Active Directory översikt**, Sök efter "egenskaper" och välj sedan **Egenskaper**. Använd följande skärm bild som exempel:
+   Sök efter "Egenskaper" i **Azure Active Directory Översikt**och välj sedan **Egenskaper**. Använda följande skärminspelning som exempel:
 
-   - **Namn** – namnet på klient organisationen eller katalogen
-   - **Katalog-ID** – klient-ID eller katalog-ID eller Använd rullnings listen för att hitta egenskaper.
+   - **Namn** - Klientnamnet eller katalognamnet
+   - **Katalog-ID** - Klient-ID eller katalog-ID eller använd rullningslisten för att hitta egenskaper.
 
-   ![Sidan Azure Active Directory egenskaper](./media/stclient-aad-properties.png)
+   ![Egenskapssida för Azure Active Directory](./media/stclient-aad-properties.png)
 
-## <a name="register-the-client-app"></a>Registrera klient programmet
+## <a name="register-the-client-app"></a>Registrera klientappen
 
-Använd följande steg för att registrera klient programmet.
+Använd följande steg för att registrera klientappen.
 
-1. Välj **alla tjänster** i det vänstra navigerings fältet och välj sedan **Appregistreringar**.
-2. Under **Appregistreringar**väljer du **+ ny program registrering**.
-3. Under **skapa**anger du den information som krävs för följande fält:
+1. I det vänstra navigeringsfältet väljer du **Alla tjänster** och väljer sedan **Appregistreringar**.
+2. Under **Appregistreringar**väljer du **+ Ny programregistrering**.
+3. Under **Skapa**anger du den information som krävs för följande fält:
 
-   - **Namn** – ange ett eget namn för appen. Till exempel "SelfTestClient".
-   - **Program typ** – Välj **webbapp/API**
-   - **Inloggnings-URL** – typ "https:\//isvapp.azurewebsites.net/SelfTest-VM"
+   - **Namn** - Ange ett eget namn för appen. Till exempel "SelfTestClient".
+   - **Programtyp** - Välj **webbapp/API**
+   - **Inloggnings-URL** - Skriv\/"https: /isvapp.azurewebsites.net/selftest-vm"
 
 4. Välj **Skapa**.
-5. Kopiera **program-ID: t**under **Appregistreringar** eller **registrerad app**.
+5. Under **Appregistreringar** eller **Registrerad app**kopierar du **program-ID: t**.
 
-   ![Hämta program-ID: t](./media/stclient-app-id.png)
+   ![Hämta program-ID:et](./media/stclient-app-id.png)
 
-6. I verktygsfältet registrerad app väljer du **Inställningar**.
-7. Välj **nödvändiga behörigheter** för att konfigurera behörigheter för ditt program.
-8. Under **nödvändiga behörigheter**väljer du **+ Lägg till**.
+6. Välj **Inställningar**i det registrerade appverktygsfältet .
+7. Välj **Behörigheter som krävs** för att konfigurera behörigheter för ditt program.
+8. Under **Obligatoriska behörigheter**väljer du **+ Lägg till**.
 9. Under **Lägg till API-åtkomst**väljer du **Välj ett API**.
-10. Under **Välj ett API**skriver du "Windows Azure klassisk distributions modell" för att söka efter API: et.
-11. I Sök resultaten väljer du den **klassiska distributions modellen för Windows Azure** och klickar sedan på **Välj**.
+10. Under **Välj ett API**skriver du "Windows Azure classic deployment model" för att söka efter API:et.
+11. I sökresultaten väljer du **Windows Azure classic deployment model** och klickar sedan på **Välj**.
 
-    ![Konfigurera flera innehavare för appen](./media/stclient-select-api.png)
+    ![Konfigurera flera innehavare för app](./media/stclient-select-api.png)
 
-12. Under **Lägg till API-åtkomst**väljer du **Välj behörigheter**.
-13. Välj **åtkomst till Windows Azure-Service Management-API**.
+12. Under **Lägg till API-åtkomst**väljer **du Välj behörigheter**.
+13. Välj **Åtkomst till "Windows Azure Service Management API"**.
 
-    ![Aktivera API-åtkomst för appen](./media/stclient-enable-api-access.png)
+    ![Aktivera API-åtkomst för app](./media/stclient-enable-api-access.png)
 
-14. Klicka på **Välj**.
+14. Klicka på **Markera**.
 15. Välj **Done** (Klar).
 16. Under **Inställningar** väljer du **Egenskaper**.
-17. Rulla ned till **flera klienter**under **Egenskaper**. Välj **Ja**.
+17. Under **Egenskaper**bläddrar du ned till **Flera innehavare**. Välj **Ja**.
 
-    ![Konfigurera flera innehavare för appen](./media/stclient-yes-multitenant.png)
+    ![Konfigurera flera innehavare för app](./media/stclient-yes-multitenant.png)
 
 18. Välj **Spara**.
-19. Under **Inställningar**väljer du **nycklar**.
-20. Skapa en hemlig nyckel genom att välja text rutan nyckel **Beskrivning** . Konfigurera följande fält:
+19. Under **Inställningar**väljer du **Nycklar**.
+20. Skapa en hemlig nyckel genom att välja textrutan **Nyckelbeskrivning.** Konfigurera följande fält:
 
-    - Ange ett nyckel namn. Till exempel "selftestclient"
-    - Välj "i 1 år" i list rutan **upphör att gälla** .
-    - Klicka på **Spara** för att generera nyckeln.
-    - Under **värde**, kopierar du nyckeln.
+    - Skriv in ett nyckelnamn. Till exempel "självtestklient"
+    - I **listrutan FÖR UTGÅNGAR** väljer du "I 1 år".
+    - Välj **Spara** om du vill generera nyckeln.
+    - Kopiera nyckeln under **VÄRDE.**
 
       >[!Important]
-      >Du kommer inte att kunna se nyckel värdet när du har avslutat formuläret **nycklar** .
+      >Du kan inte se nyckelvärdet när du har avslutat formuläret **Nycklar.**
 
-    ![Nyckel värdes formulär](./media/stclient-create-key.png)
+    ![Formulär för nyckelvärde](./media/stclient-create-key.png)
 
-## <a name="create-the-token-for-the-client-app"></a>Skapa token för klient programmet
+## <a name="create-the-token-for-the-client-app"></a>Skapa token för klientappen
 
-Du kan använda något av följande program för att skapa och hämta en token med hjälp av OAuth-REST API:
+Du kan använda något av följande program för att skapa och hämta en token med OAuth REST API:
 
 - Postman
-- Sväng i Linux
+- cURL i Linux
 - C&#35;
 - PowerShell
 
-### <a name="to-create-and-get-a-token-using-postman"></a>Skapa och hämta en token med Postman
+### <a name="to-create-and-get-a-token-using-postman"></a>Så här skapar och hämtar du en token med Postman
 
- Om du vill ställa en Auth0 för token för alla auktoriserade program utför du en POST-åtgärd i [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) slut punkten med en nytto Last i följande format:
+ Om du vill be Auth0 om token för någon av [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) dina auktoriserade program utför du en POST-åtgärd till slutpunkten med en nyttolast i följande format:
 
 ```
 Method Type : POST
 Base Url: https://login.microsoftonline.com/common/oauth2/token
 ```
 
-Överför följande parametrar i begär ande texten:
+Skicka följande parametrar i brödtexten Begär:
 
 ```
 Body Content-Type: x-www-form-urlencoded
@@ -318,19 +317,19 @@ client_secret: XXX (Paste your Secret Key of Web App/API Type client AD App)
 resource: https://management.core.windows.net
 ```
 
-Överför följande parametrar i begär ande huvudet:
+Skicka följande parametrar i begäranden:
 
 ```
 Content-Type: application/x-www-form-urlencoded
 ```
 
-Följande skärm bild visar ett exempel på hur Postman används för att hämta en token.
+Följande skärmdump visar ett exempel på hur du använder Postman för att hämta en token.
 
 ![Hämta token med Postman](./media/stclient-postman-get-token.png)
 
-### <a name="to-create-and-get-a-token-using-curl-in-linux"></a>Skapa och hämta en token med hjälp av sväng i Linux
+### <a name="to-create-and-get-a-token-using-curl-in-linux"></a>Så här skapar och hämtar du en token med cURL i Linux
 
-Om du vill ställa en Auth0 för token för alla auktoriserade program utför du en POST-åtgärd i [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) slut punkten med en nytto Last i följande format:
+Om du vill be Auth0 om token för någon av [https://login.microsoftonline.com/common/oauth2/token](https://login.microsoftonline.com/common/oauth2/token) dina auktoriserade program utför du en POST-åtgärd till slutpunkten med en nyttolast i följande format:
 
 ```
 Request:
@@ -345,13 +344,13 @@ Response:
 {"token":"UClCUUKxUlkdbhE1cHLz3kyjbIZYVh9eB34A5Q21Y3FPqKGSJs","expires":"2014-02-17 18:46:08"}
 ```
 
-Följande skärm bild visar ett exempel på hur du använder kommandot vänd för att hämta en token.
+Följande skärmdump visar ett exempel på hur du använder kommandot curl för att få en token.
 
-![Hämta token med kommandot spiral](./media/stclient-curl-get-token.png)
+![Hämta token med curl-kommando](./media/stclient-curl-get-token.png)
 
-### <a name="to-create-and-get-a-token-using-c35"></a>Skapa och hämta en token med hjälp av C&#35;
+### <a name="to-create-and-get-a-token-using-c35"></a>Så här skapar och hämtar du en token med C&#35;
 
-Om du vill ställa en Auth0 för token för alla auktoriserade program utför du en POST-åtgärd till https:\//soamtenant.auth0.com/oauth/token-slutpunkt med en nytto Last i följande format:
+Om du vill be Auth0 om token för någon av dina\/auktoriserade program utför du en POST-åtgärd till https: /soamtenant.auth0.com/oauth/token slutpunkt med en nyttolast i följande format:
 
 ```csharp
 string clientId = "Your Application Id";
@@ -372,9 +371,9 @@ var content = response.Content;
 var token = JObject.Parse(content)["access_token"];
 ```
 
-### <a name="to-create-and-get-a-token-using-powershell"></a>Skapa och hämta en token med PowerShell
+### <a name="to-create-and-get-a-token-using-powershell"></a>Så här skapar och hämtar du en token med PowerShell
 
-Om du vill ställa en Auth0 för token för alla auktoriserade program utför du en POST-åtgärd till https:\//soamtenant.auth0.com/oauth/token-slutpunkt med en nytto Last i följande format:
+Om du vill be Auth0 om token för någon av dina\/auktoriserade program utför du en POST-åtgärd till https: /soamtenant.auth0.com/oauth/token slutpunkt med en nyttolast i följande format:
 
 ```powershell
 $clientId = "Application Id of AD Client APP";
@@ -393,9 +392,9 @@ $token = $resp.Content | ConvertFrom-Json
 $token.AccessToken
 ```
 
-## <a name="pass-the-client-app-token-to-the-api"></a>Skicka klientens app-token till API: et
+## <a name="pass-the-client-app-token-to-the-api"></a>Skicka klientapptoken till API:et
 
-Skicka token till test-API: et med följande kod i Authorization-huvudet:
+Skicka token till självtest-API:et med hjälp av följande kod i auktoriseringshuvudet:
 
 ```powershell
 $redirectUri = 'https://isvapp.azurewebsites.net/selftest-vm'
@@ -418,19 +417,19 @@ Write-Output 'Test Results:'
 $result.Content
 ```
 
-## <a name="test-your-self-test-client"></a>Testa din självtests klient
+## <a name="test-your-self-test-client"></a>Testa din självtestklient
 
-Följ dessa steg om du vill testa klienten:
+Så här testar du klienten:
 
-1. Distribuera den virtuella dator som du vill testa.
-2. Anropa API: et för självtest med din klient app-token för auktorisering.
-3. Hämta test resultatet i JSON-format.
+1. Distribuera den virtuella datorn som du vill testa.
+2. Anropa självtest-API:et med hjälp av klientapptoken för auktorisering.
+3. Få testresultaten i JSON-format.
 
-### <a name="test-result-examples"></a>Exempel på test resultat
+### <a name="test-result-examples"></a>Exempel på testresultat
 
-Följande kodfragment visar test resultat i JSON-format.
+Följande utdrag visar testresultat i JSON-format.
 
-**Test resultat för en virtuell Windows-dator:**
+**Testresultat för en virtuell dator med Windows:**
 
 ```json
 {
@@ -469,7 +468,7 @@ Följande kodfragment visar test resultat i JSON-format.
     },
 ```
 
-**Test resultat för en virtuell Linux-dator:**
+**Testresultat för en virtuell Linux-dator:**
 
 ```json
 {

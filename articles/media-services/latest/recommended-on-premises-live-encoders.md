@@ -1,108 +1,115 @@
 ---
-title: Direkt uppspelnings kodare rekommenderas av Media Services – Azure | Microsoft Docs
-description: Lär dig mer om direkt uppspelning av lokala kodare som rekommenderas av Media Services
+title: Livestreaming-kodare som rekommenderas av Media Services – Azure | Microsoft-dokument
+description: Läs mer om direktuppspelning lokalt som rekommenderas av Media Services
 services: media-services
-keywords: Encoding; encoders; Media
+keywords: kodning;kodare;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
 ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 3b7a75ac1c0876d562dc49e9253fe734475a551a
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 5e16f1fb948ddb435c5002c16125b36fa61d50a7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79298962"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80336247"
 ---
-# <a name="tested-on-premises-live-streaming-encoders"></a>Testade lokala direkt uppspelnings kodare
+# <a name="tested-on-premises-live-streaming-encoders"></a>Testade lokala direktuppspelningsgivare
 
-I Azure Media Services representerar en [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (kanal) en pipeline för bearbetning av direktuppspelat innehåll. Live-händelsen tar emot direktsända indata strömmar på ett av två sätt.
+I Azure Media Services representerar en [Live Event](https://docs.microsoft.com/rest/api/media/liveevents) (kanal) en pipeline för bearbetning av live-strömmande innehåll. Live-händelsen tar emot live-indataströmmar på ett av två sätt.
 
-* En lokal Live-kodare skickar en RTMP-eller Smooth Streaming-ström (fragmenterad MP4) med flera bit hastigheter till den direktsända händelse som inte är aktive rad för att utföra direktsänd kodning med Media Services. De inmatade strömmarna passerar Live-händelser utan ytterligare bearbetning. Den här metoden kallas **genom strömning**. Vi rekommenderar att Live Encoder skickar strömmar med flera bit hastigheter i stället för en data ström med en bit hastighet till en direkt sändnings händelse för att möjliggöra direkt uppspelning av bit hastighet till klienten. 
+* En lokal live-kodare skickar en RTMP- eller Smooth Streaming -ström (fragmenterad MP4) till livehändelsen som inte är aktiverad för att utföra livekodning med Media Services. De intövda strömmarna passerar genom livehändelser utan ytterligare bearbetning. Den här metoden kallas **genomströmning**. Vi rekommenderar att live-kodaren skickar flerbitrateströmmar i stället för en dataström med en bithastighet till en direktuppspelningshändelse för att möjliggöra adaptiv bithastighetsströmning till klienten. 
 
-    Om du använder data strömmar med flera bit hastigheter för direkt sändnings händelse måste videons GOP storlek och videofragmenten på olika bit hastigheter synkroniseras för att undvika oväntad beteende på uppspelnings sidan.
+    Om du använder strömmar med flera bithastigheter för direktuppspelningshändelsen måste video-GOP-storleken och videofragmenten på olika bithastigheter synkroniseras för att undvika oväntat beteende på uppspelningssidan.
 
   > [!TIP]
-  > Att använda en direkt metod är det mest ekonomiska sättet att göra Direktsänd strömning.
+  > Att använda en genomströmningsmetod är det mest ekonomiska sättet att göra livestreaming.
  
-* En lokal Live-kodare skickar en data ström med en bit hastighet till den direktsända händelse som är aktive rad för att utföra direktsänd kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Live-händelsen utför sedan direktsänd kodning av den inkommande data strömmen med en bit hastighet till en anpassningsbar video ström med flera bit hastigheter.
+* En lokal live-kodare skickar en enbitrate-ström till Live Event som är aktiverad för live-kodning med Media Services i något av följande format: RTMP eller Smooth Streaming (fragmenterad MP4). Live Event utför sedan live-kodning av den inkommande enbitrate-strömmen till en videoström med flera bithastigheter (adaptiv).
 
-I den här artikeln beskrivs testade lokala direkt uppspelnings kodare. Instruktioner för hur du verifierar din lokala Live-kodare finns i [Verifiera din lokala kodare](become-on-premises-encoder-partner.md)
+I den här artikeln beskrivs testade lokala direktuppspelningskodare. Instruktioner om hur du verifierar din lokala live-kodare finns i [verifiera din lokala kodare](become-on-premises-encoder-partner.md)
 
-Detaljerad information om Live encoding med Media Services finns i [direkt uppspelning med Media Services v3](live-streaming-overview.md).
+Detaljerad information om livekodning med Media Services finns i [Direktuppspelning med Media Services v3](live-streaming-overview.md).
 
-## <a name="encoder-requirements"></a>Kodarens krav
+## <a name="encoder-requirements"></a>Krav på kodare
 
-Kodare måste ha stöd för TLS 1,2 när du använder HTTPS-eller RTMP-protokoll.
+Kodare måste ha stöd för TLS 1.2 när https- eller RTMPS-protokoll används.
 
-## <a name="live-encoders-that-output-rtmp"></a>Live-kodare som utdata av RTMP
+## <a name="live-encoders-that-output-rtmp"></a>Live-kodare som matar ut RTMP
 
-Media Services rekommenderar att du använder någon av följande livekodare som har RTMP som utdata. URL-scheman som stöds är `rtmp://` eller `rtmps://`.
+Media Services rekommenderar att du använder någon av följande livekodare som har RTMP som utdata. Url-schemana `rtmp://` som `rtmps://`stöds är eller .
 
 Vid direktuppspelning via RTMP ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 1935 och 1936 är öppna.<br/><br/>
 Vid direktuppspelning via RTMPS ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 2935 och 2936 är öppna.
 
 > [!NOTE]
-> Kodare måste ha stöd för TLS 1,2 när du använder RTMP-protokoll.
+> Kodare måste ha stöd för TLS 1.2 när RTMPS-protokoll används.
 
 - Adobe Flash Media Live Encoder 3.2
 - [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
-- Grundämne Live (version 2.14.15 och senare)
+- Elemental Live (version 2.14.15 och högre)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
 - Switcher Studio (iOS)
-- Wirecast för multistream (version 13.0.2 eller högre på grund av TLS 1,2-krav)
-- Multistream Wirecast S (endast RTMP stöds)
+- Telestream Wirecast (version 13.0.2 eller senare på grund av TLS 1.2-kravet)
+- Telestream Wirecast S (endast RTMP stöds)
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
 - VMIX
 - xStream
 - [Ffmpeg](https://www.ffmpeg.org)
-- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hjälte 7 och hjälte 8
+- [GoPro (på ett år)](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 och Hero 8
 - [Restream.io](https://restream.io/)
 
-## <a name="live-encoders-that-output-fragmented-mp4"></a>Live-kodare som utdata fragmenterade MP4
+## <a name="live-encoders-that-output-fragmented-mp4"></a>Live-kodare som matar ut fragmenterad MP4
 
-Media Services rekommenderar att du använder någon av följande Live-kodare med multi-bit-Smooth Streaming (fragmenterad MP4) som utdata. URL-scheman som stöds är `http://` eller `https://`.
+Media Services rekommenderar att du använder någon av följande live-kodare som har multibitrate Smooth Streaming (fragmenterad MP4) som utdata. Url-schemana `http://` som `https://`stöds är eller .
 
 > [!NOTE]
-> Kodare måste ha stöd för TLS 1,2 när de använder HTTPS-protokoll.
+> Kodare måste ha stöd för TLS 1.2 när HTTPS-protokoll används.
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
-- Grundämne Live (version 2.14.15 och högre på grund av kraven för TLS 1,2)
+- Elemental Live (version 2.14.15 och högre på grund av TLS 1.2-kravet)
 - Envivio 4Caster C4 Gen III 
-- Föreställ dig Selenio-MCP3
+- Föreställ kommunikation Selenio MCP3
 - Media Excel Hero Live och Hero 4K (UHD/HEVC)
 - [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
->  Om du strömmar Live-händelser på flera språk (till exempel ett engelskt ljud spår och ett spanskt ljud spår) kan du göra detta med mediet för Live-kodare i media som kon figurer ATS för att skicka Live-flödet till en direkt sändnings händelse.
+>  Om du streamar livehändelser på flera språk (till exempel ett engelskt ljudspår och ett spanskt ljudspår) kan du åstadkomma detta med Media Excel live-kodaren konfigurerad för att skicka liveflödet till en livehändelse.
 
-## <a name="configuring-on-premises-live-encoder-settings"></a>Konfigurera lokala inställningar för Live-kodare
+## <a name="configuring-on-premises-live-encoder-settings"></a>Konfigurera inställningar för lokala live-kodare
 
-Information om vilka inställningar som är giltiga för din live event-typ finns i [jämförelse av aktiva händelse typer](live-event-types-comparison.md).
+Information om vilka inställningar som gäller för din livehändelsetyp finns i [Jämförelse med livehändelsetyper](live-event-types-comparison.md).
 
-### <a name="playback-requirements"></a>Uppspelnings krav
+### <a name="playback-requirements"></a>Uppspelningskrav
 
-Om du vill spela upp innehåll måste både ljud-och video strömmar finnas. Det finns inte stöd för uppspelning av data strömmen med video.
+Om du vill spela upp innehåll måste både en ljud- och videoström finnas. Uppspelning av endast videoströmmen stöds inte.
 
-### <a name="configuration-tips"></a>Konfigurations tips
+### <a name="configuration-tips"></a>Konfigurationstips
 
-- När det är möjligt använda ett inbyggt internet-anslutning.
-- När du bestämmer bandbredds kraven kan du dubblera bit hastigheterna för strömmande data. Även om detta inte är obligatoriskt bidrar den här enkla regeln till att minimera påverkan av nätverks belastning.
-- När du använder programvarubaserad kodare kan du stänga alla onödiga program.
-- Om du ändrar konfigurationen för konfigurationen efter det att sändningen har startat, har det negativa effekter på evenemanget. Konfigurations ändringar kan orsaka att händelsen blir instabil. 
-- Se till att du ger dig tid att konfigurera evenemanget. För storskaliga händelser rekommenderar vi att du startar installationen en timme före evenemanget.
+- Använd en direktkopplad internetanslutning när det är möjligt.
+- När du bestämmer bandbreddskraven dubblar du strömmande bithastigheter. Även om den inte är obligatorisk, bidrar den här enkla regeln till att minska effekten av överbelastning i nätverket.
+- När du använder programvarubaserade kodare stänger du alla onödiga program.
+- Ändra din kodare konfiguration efter det har börjat trycka har negativa effekter på händelsen. Konfigurationsändringar kan leda till att händelsen blir instabil. 
+- Se till att du ger dig själv gott om tid att ställa in ditt evenemang. För händelser i hög skala rekommenderar vi att du startar installationen en timme före händelsen.
+- Använd H.264-video- och AAC-ljudcodec-utgången.
+- Se till att det finns nyckelbildruta eller GOP-tidsmässig justering över videokvaliteter.
+- Kontrollera att det finns ett unikt strömnamn för varje videokvalitet.
+- Använd strikt CBR-kodning rekommenderas för optimal adaptiv bithastighet prestanda.
+
+> [!IMPORTANT]
+> Titta på den fysiska konditionen på maskinen (CPU / Minne / etc) som laddar upp fragment till molnet innebär CPU och IO-operationer. Om du ändrar några inställningar i kodaren, vara säker återställa kanaler / live händelse för att ändringen ska träda i kraft.
 
 ## <a name="see-also"></a>Se även
 
-[Direktsänd strömning med Media Services v3](live-streaming-overview.md)
+[Livestreaming med Media Services v3](live-streaming-overview.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Så här verifierar du din kodare](become-on-premises-encoder-partner.md)
+[Så här verifierar du kodaren](become-on-premises-encoder-partner.md)

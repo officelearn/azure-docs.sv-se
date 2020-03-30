@@ -1,82 +1,81 @@
 ---
-title: Konto migrering från Cloud Partner Portal till Partner Center – kommersiell marknads plats för Azure
-description: Så här migrerar du ditt konto från CPP till Partner Center. – Kommersiell marknads plats för Azure
-author: MaggiePucciEvans
-manager: evansma
-ms.author: evansma
+title: Kontomigrering från Cloud Partner Portal till Partner Center – Kommersiell marknadsplats för Azure
+description: Så här migrerar du ditt konto från CPP till Partner Center. - Kommersiell marknadsplats för Azure
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: 076250444989d4edb3ec86039ab25887ff1e206b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 4aa336183d25a524246a2036fb95e0a7657b84f4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931323"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279818"
 ---
-# <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Konto migrering från Cloud Partner Portal till Partner Center
+# <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Kontomigrering från Cloud Partner Portal till Partnercenter
 
-Om du har ett befintligt Cloud Partner Portal-konto (CPP) måste dina konto inställningar migreras till Partner Center.
+Om du har ett befintligt CPP-konto (Cloud Partner Portal) måste dina kontoinställningar migreras till Partner Center.
 
-## <a name="account-migration-process"></a>Process för konto migrering
+## <a name="account-migration-process"></a>Processen för kontomigrering
 
-Om du är en användare med ägar rollen i CPP för ett specifikt konto visas en gul banderoll på utgivarens profil sida. Du kan höra till något av följande två fall:
+Om du är en användare med rollen Ägare i CPP för ett visst konto visas en gul banderoll på sidan Publisher-profil. Du kan tillhöra ett av följande två fall:
 
-- Ditt konto har redan migrerats och du är redo att hantera dina konto inställningar i Partner Center.
+- Ditt konto har redan migrerats och du är redo att hantera dina kontoinställningar i Partnercenter.
 - Ditt konto har inte migrerats till Partner Center och du måste vidta ytterligare åtgärder.
 
-### <a name="your-account-has-been-migrated-to-partner-center"></a>Ditt konto har migrerats till Partner Center
+### <a name="your-account-has-been-migrated-to-partner-center"></a>Ditt konto har migrerats till Partner center
 
-För alla konton som har slutfört migreringen från CPP till Partner Center, sker konto hantering i Partner Center. Ändringar som användar tillägg/borttagning kommer att synkroniseras tillbaka till CPP.
+För alla konton som har slutfört migreringen från CPP till Partner Center sker kontohantering i Partner Center. Ändringar som tillägg/borttagning av användare synkroniseras tillbaka till CPP.
 
 ### <a name="you-have-not-yet-migrated-your-account-to-partner-center"></a>Du har ännu inte migrerat ditt konto till Partner Center
 
-Klicka på banderollen för att starta processen för migrering av konto. Du förväntas ange följande objekt:
+Klicka på bannern för att starta din kontomigreringsprocess. Du förväntas ange följande:
 
-1. E-postadress till arbetet: <br> <br> I de flesta fall loggar du in med den e-postadress som du använder för att logga in på CPP. I vissa fall måste en annan e-postadress användas:
+1. E-postadress för arbete: <br> <br> I de flesta fall loggar du in med den e-postadress som du använder för att logga in på CPP. I vissa fall måste en annan e-postadress användas:
 
-    * Microsoft-konto: om kontot CPP är ett Microsoft-konto anger du ett giltigt arbets-e-postmeddelande som är associerat med den klient som Microsoft Partner Network (MPN) ID är registrerat för. Mer information finns i [Registrera dig för Microsoft Partner Network-programmet](#sign-up-for-microsoft-partner-network-program).
+    * Microsoft-konto: Om CPP-kontot är ett Microsoft-konto anger du ett giltigt arbetsmeddelande som är kopplat till den klient som Microsoft Partner Network-ID:t (MICROSOFT Partner Network) är registrerat för. Mer information finns i [Registrera dig för Microsoft Partner Network Program](#sign-up-for-microsoft-partner-network-program).
 
-    * Klient matchnings fel: om din e-postadress inte tillhör den klient som är associerad med Microsoft Partner Network-ID som finns på ditt CPP-konto visas ett fel meddelande. Om du vill flytta förbi det här felet anger du en e-postadress som är kopplad till klienten. Ett fel meddelande anger namnet på klienten.
+    * Klienten matchar inte: Om din e-postadress för arbete inte tillhör klienten som är associerad med Microsoft Partner Network ID som finns på ditt CPP-konto visas ett fel. Om du vill gå förbi det här felet anger du en e-postadress som är associerad med klienten. Ett felmeddelande ger namnet på klienten.
 
-2. Registrera dig för Microsoft Partner Network program
+2. Registrera dig för Microsoft Partner Network-programmet
 
-    Om ditt CPP-konto inte har ett Microsoft Partner Network-ID eller har ett ogiltigt ID, måste du registrera dig för det Microsoft Partner Network programmet som en del av aktiverings processen.
+    Om ditt CPP-konto inte har ett Microsoft Partner Network-ID eller har ett som är ogiltigt måste du registrera dig för Microsoft Partner Network-programmet som en del av aktiveringsprocessen.
 
-## <a name="sign-up-for-microsoft-partner-network-program"></a>Registrera dig för Microsoft Partner Network program
+## <a name="sign-up-for-microsoft-partner-network-program"></a>Registrera dig för Microsoft Partner Network-programmet
 
-Företag som vill partner med Microsoft måste gå med i Microsoft Partner Network (MPN) och hämta ett MPN-ID. Om du redan är medlem i Microsoft Partner Network och har ett MPN-ID bör du hålla informationen praktisk när du behöver den under konto aktiverings processen.  
+Företag som vill samarbeta med Microsoft måste gå med i Microsoft Partner Network (MPN) och få ett MPN-ID. Om du redan är medlem i Microsoft Partner Network och har ett MPN-ID behåller du informationen till hands eftersom du behöver den under kontoaktiveringsprocessen.  
 
-Om du inte är medlem i Microsoft Partner Network kan du [ansluta hit](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) för att få ett MPN-ID. Anteckna ditt MPN-ID eftersom du måste ange det under konto aktiverings processen.
+Om du inte är medlem i Microsoft Partner Network kan du [gå med här](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) för att få ett MPN-ID. Anteckna ditt MPN-ID eftersom du måste ange det under kontoaktiveringsprocessen.
 
-Mer information om Microsoft Partner Network finns i [delta i Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) på partner webbplatsen. Mer information om ISV-förmåner i Microsoft Partner Network finns i ISV- [instansresursen](https://partner.microsoft.com/isv-resource-hub).  
+Mer information om Microsoft Partner Network finns [i Gå med i Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) på partnerwebbplatsen. Mer information om ISV-fördelar i Microsoft Partner Network finns i [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
 
-## <a name="move-dynamics-365-and-powerapps-offers-to-partner-center"></a>Flytta Dynamics 365-och PowerApps-erbjudanden till Partner Center
+## <a name="move-dynamics-365-and-powerapps-offers-to-partner-center"></a>Flytta Dynamics 365- och PowerApps-erbjudanden till Partner Center
 
-För att effektivisera konto-och erbjudande hantering för Dynamics 365-kund engagemang, PowerApps och Dynamics 365-åtgärder har erbjudanden flyttats till [partner Center](https://partner.microsoft.com/). Flytten säkerställer att samma innehåll är tillgängligt för både offentliga och säljande kataloger.
+För att effektivisera konto- och erbjudandehantering för Dynamics 365 Customer Engagement, PowerApps och Dynamics 365 Operations har erbjudanden flyttats till [Partner Center](https://partner.microsoft.com/). Flytten säkerställer att samma innehåll är tillgängligt för både offentliga kataloger och säljarkataloger.
 
-Om 365 du vill ha specifik information om vad som måste göras den **15 oktober 2019** för kund engagemang, PowerApps och Dynamics 365-åtgärder, följer du anvisningarna nedan.
+För specifik information om vad som behöver göras senast **den 15 oktober 2019** för dina Dynamics 365 Customer Engagement-, PowerApps- och Dynamics 365 Operations-erbjudanden, följ instruktionerna nedan.
 
 > [!NOTE]
 > Detta gäller inte för Dynamics 365 Business Central-erbjudanden.  
 
-1. Om ditt MPN-medlemskaps konto ursprungligen skapades i partner Membership Center (PMC) loggar du in på [partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) för att bekräfta att ditt konto har migrerats. Om du ser en profil skärm med ditt MPN-ID är du redo att fortsätta. Annars måste du starta migreringen av kontot genom att följa instruktionerna i [partner medlemskaps centret](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Om du behöver hjälp kan du besöka [supporten](https://partner.microsoft.com/support?issueid=100-0077).
-2. Gå till [sidan för extern Marketplace-översikt i Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Om du ser "kommersiell marknads plats" i det vänstra navigerings fönstret är du registrerad och bör fortsätta till nästa steg. Om inte, [Registrera dig på den kommersiella marknads platsen](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) nu.
-3. Bekräfta att dina erbjudanden är i AppSource genom att [söka efter dina erbjudanden](https://appsource.microsoft.com/). Om dina erbjudanden redan finns i AppSource kan du fortsätta till nästa steg. För ett erbjudande som inte finns i AppSource skapar du ett nytt erbjudande för [dynamics 365 kund engagemang](create-new-customer-engagement-offer.md) eller ett [nytt erbjudande för Dynamics 365-åtgärder](create-new-operations-offer.md).
-4. På [sidan avtal](https://partner.microsoft.com/dashboard/account/agreements)i partner centret ser du till att du har granskat och accepterat **Business Applications ISV-tillägget**.
-5. Se till att fakturerings informationen är klar i [konto inställningarna](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile)för partner Center.
-6. Skicka in varje nytt och befintligt erbjudande för certifiering och publicering, även om dina erbjudanden tidigare har certifierats.
-    * Slutför informations skärmarna, inklusive att tillhandahålla appen för certifiering, samt marknadsförings information. Välj **Skicka** (övre högra hörnet på skärmen) senast den **15 oktober 2019**. De här stegen måste utföras för att undvika att erbjudandet påverkas.
-    * Om det är berättigat kan du begära att delta på Premium nivån under den här processen.
-    * Certifiering eller omcertifiering kräver att appen har stöd för den senaste versionen av vår Business Applications-plattform.
-    * När din app har godkänts får du ett e-postmeddelande som du kan gå tillbaka till erbjudandet och välja "Go Live" för att aktivera erbjudandet i drift på Microsoft AppSource.
+1. Om ditt MPN-medlemskapskonto ursprungligen skapades i Partner Membership Center (PMC) loggar du in på [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) för att bekräfta att ditt konto har migrerats. Om du ser en profilskärm med mpn-ID:t är du redo att fortsätta. Om inte, måste du starta din kontomigrering genom att följa anvisningarna i [partnermedlemskapscentret](https://partners.microsoft.com/partnerprogram/Welcome.aspx). Om du behöver hjälp, besök [support](https://partner.microsoft.com/support?issueid=100-0077).
+2. Gå till [översiktssidan för Kommersiella marknadsplatser i Partnercenter](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). Om du ser "Kommersiell marknadsplats" i det vänstra navigeringsfönstret registreras du och bör fortsätta till nästa steg. Om inte, [registrera dig på den kommersiella marknaden](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) nu.
+3. Bekräfta att dina erbjudanden finns i AppSource genom [att söka efter dina erbjudanden](https://appsource.microsoft.com/). Om dina erbjudanden redan finns i AppSource fortsätter du till nästa steg. Skapa ett [nytt Dynamics 365 Customer Engagement-erbjudande](create-new-customer-engagement-offer.md) eller ett [nytt Dynamics 365 Operations-erbjudande](create-new-operations-offer.md)för alla erbjudanden som inte ingår i AppSource.
+4. På [sidan Avtal i](https://partner.microsoft.com/dashboard/account/agreements)Partnercenter kontrollerar du att du har granskat och godkänt **ISV-tillägget för företagsprogram**.
+5. Kontrollera att faktureringsinformationen är klar i Partnercentrets [kontoinställningar.](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile)
+6. Skicka in varje nytt och befintligt erbjudande för certifiering och publicering, även om dina erbjudanden tidigare var certifierade.
+    * Fyll i informationsskärmarna, inklusive att tillhandahålla din app för certifiering, samt marknadsföringsinformation. Välj **Skicka** (längst upp till höger på skärmen) senast den **15 oktober 2019**. Dessa steg måste slutföras för att undvika att det påverkar erbjudandets tillgänglighet.
+    * Om du är berättigad kan du begära att få delta i premiumnivån under den här processen.
+    * Certifiering eller omcertifiering kräver att din app stöder den senaste versionen av vår plattform för affärsprogram.
+    * När din app har godkänts får du ett e-postmeddelande för att återgå till erbjudandet och välja "gå live" för att erbjudandet ska kunna visas på Microsoft AppSource.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-Delta i det veckovis [Dynamics ISV community-anropet](https://aka.ms/DynamicsISV-CommunityCall) för support och uppdateringar.
+Gå med i det veckovisa [Dynamics ISV-communitysamtalet](https://aka.ms/DynamicsISV-CommunityCall) för support och uppdateringar.
 
-Om du behöver hjälp med att publicera, certifiera eller hantera dina Marketplace-erbjudanden kan du [skicka in ett support ärende](https://aka.ms/MarketplacePublisherSupport).
+Om du behöver hjälp med att publicera, certifiera eller hantera marknadsplatserbjudanden [skickar du en supportbiljett.](https://aka.ms/MarketplacePublisherSupport)
 
 ## <a name="next-steps"></a>Nästa steg
 

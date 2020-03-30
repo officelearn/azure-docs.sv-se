@@ -1,6 +1,6 @@
 ---
-title: Hantera StorSimple för lagrings konton för virtuella matris | Microsoft Docs
-description: Förklarar hur du kan använda StorSimple-Enhetshanteraren Konfigurera sidan för att lägga till, redigera, ta bort eller rotera säkerhets nycklar för lagrings konto uppgifter som är associerade med den virtuella StorSimple-matrisen.
+title: Hantera lagringskontouppgifter för StorSimple Virtual Array | Microsoft-dokument
+description: I artikeln beskrivs hur du kan använda sidan Konfigurera StorSimple-enhetshanteraren för att lägga till, redigera, ta bort eller rotera säkerhetsnycklarna för autentiseringsuppgifter för lagringskonto som är associerade med StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,142 +14,142 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: ac539b44f09663e6eac5651646d3c9cd02e45b3c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5cedde1e7daa49aaa7a2786c9ad8a65fb8e452f7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75360012"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297582"
 ---
-# <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Använd StorSimple Enhetshanteraren för att hantera autentiseringsuppgifter för lagrings kontot för StorSimple virtuella matrisen
+# <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Använda StorSimple Enhetshanteraren för att hantera lagringskontoautentiseringsuppgifter för StorSimple Virtual Array
 
 ## <a name="overview"></a>Översikt
-I **konfigurations** avsnittet på bladet StorSimple Enhetshanteraren tjänst för din StorSimple-virtuella matris visas de globala tjänst parametrarna som kan skapas i StorSimple Manager-tjänsten. Dessa parametrar kan tillämpas på alla enheter som är anslutna till tjänsten och inkluderar:
+Avsnittet **Konfiguration i** tjänstbladet StorSimple Device Manager i din StorSimple Virtual Array presenterar de globala tjänstparametrar som kan skapas i Tjänsten StorSimple Manager. Dessa parametrar kan tillämpas på alla enheter som är anslutna till tjänsten och inkluderar:
 
 * Autentiseringsuppgifter för lagringskonto
-* Åtkomst kontroll poster
+* Åtkomstkontrollposter
   
-  ![Instrument panel för Enhetshanterarens tjänsten](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
+  ![Instrumentpanelen för Enhetshanterarens tjänst](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccts-dashboard.png)  
 
-I den här självstudien beskrivs hur du kan lägga till, redigera eller ta bort autentiseringsuppgifter för lagrings kontot för din virtuella StorSimple-matris. Informationen i den här själv studie kursen gäller endast för den virtuella StorSimple-matrisen. Information om hur du hanterar lagrings konton i 8000-serien finns i [använda tjänsten StorSimple Manager för att hantera ditt lagrings konto](storsimple-manage-storage-accounts.md).
+I den här självstudien beskrivs hur du kan lägga till, redigera eller ta bort autentiseringsuppgifter för lagringskonto för den virtuella storsimple-matrisen. Informationen i den här självstudien gäller endast för StorSimple Virtual Array. Information om hur du hanterar lagringskonton i 8000-serien finns i [Använda Tjänsten StorSimple Manager för att hantera ditt lagringskonto](storsimple-manage-storage-accounts.md).
 
-Autentiseringsuppgifterna för lagrings kontot innehåller de autentiseringsuppgifter som enheten använder för att komma åt ditt lagrings konto hos din moln tjänst leverantör. För Microsoft Azure lagrings konton är dessa autentiseringsuppgifter, till exempel konto namnet och den primära åtkomst nyckeln.
+Lagringskontouppgifter innehåller de autentiseringsuppgifter som enheten använder för att komma åt ditt lagringskonto med din molntjänstleverantör. För Microsoft Azure-lagringskonton är dessa autentiseringsuppgifter som kontonamnet och den primära åtkomstnyckeln.
 
-På bladet med **autentiseringsuppgifter för lagrings kontot** visas alla lagrings konto uppgifter som skapas för fakturerings prenumerationen i ett tabell format med följande information:
+På **autentiseringsbladet för lagringskonto** visas alla autentiseringsuppgifter för lagringskonto som har skapats för faktureringsprenumerationen i tabellformat som innehåller följande information:
 
-* **Namn** – det unika namn som tilldelats kontot när det skapades.
-* **SSL aktiverat** – oavsett om SSL är aktiverat och kommunikation från enhet till molnet är över en säker kanal.
+* **Namn** – Det unika namn som tilldelats kontot när det skapades.
+* **SSL aktiverat** – Om TLS är aktiverat och kommunikation mellan enheter och moln är över den säkra kanalen.
   
-  ![Konfigurations avsnitt](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccountcredentials-blade.png)
+  ![Avsnittet Konfiguration](./media/storsimple-virtual-array-manage-storage-accounts/ova-storageaccountcredentials-blade.png)
 
-De vanligaste uppgifterna som rör autentiseringsuppgifter för lagrings kontot som kan utföras på bladet med **autentiseringsuppgifter för lagrings kontot** är:
+De vanligaste uppgifterna som är relaterade till autentiseringsuppgifter för lagringskonto som kan utföras på **autentiseringsbladet för lagringskonto** är:
 
 * Lägg till autentiseringsuppgift för lagringskonto
-* Redigera autentiseringsuppgifter för ett lagrings konto
-* Ta bort autentiseringsuppgifter för lagrings konto
+* Redigera en lagringskontoautentisering
+* Ta bort en lagringskontoautentisering
 
-## <a name="types-of-storage-account-credentials"></a>Typer av autentiseringsuppgifter för lagrings konto
-Det finns tre typer av lagrings konto uppgifter som kan användas med din StorSimple-enhet.
+## <a name="types-of-storage-account-credentials"></a>Typer av autentiseringsuppgifter för lagringskonto
+Det finns tre typer av lagringskontouppgifter som kan användas med din StorSimple-enhet.
 
-* **Automatiskt genererade autentiseringsuppgifter för lagrings konto** – som namn antyder skapas den här typen av autentiseringsuppgifter för lagrings kontot automatiskt när tjänsten skapas. Mer information om hur det här lagrings kontots autentiseringsuppgift skapas finns i [skapa en ny tjänst](storsimple-virtual-array-manage-service.md#create-a-service).
-* **autentiseringsuppgifter för lagrings konto i tjänst prenumerationen** – det här är de autentiseringsuppgifter för Azure Storage-kontot som är associerat med samma prenumeration som tjänsten. Mer information om hur dessa lagrings konto uppgifter skapas finns i [om Azure Storage-konton](../storage/common/storage-create-storage-account.md).
-* **autentiseringsuppgifterna för lagrings kontot utanför tjänst prenumerationen** – det här är de autentiseringsuppgifter för Azure Storage-kontot som inte är associerade med din tjänst och troligen fanns innan tjänsten skapades.
+* **Autentiseringsuppgifter för automatiskt genererade lagringskonto** – Som namnet antyder genereras den här typen av lagringskontoautentisering automatiskt när tjänsten först skapas. Mer information om hur den här lagringskontoautentiseringen skapas finns i [Skapa en ny tjänst](storsimple-virtual-array-manage-service.md#create-a-service).
+* **lagringskontoautentiseringsuppgifter i tjänstprenumerationen** – Det här är Azure-lagringskontoautentiseringsuppgifterna som är associerade med samma prenumeration som tjänstens. Mer information om hur dessa lagringskontouppgifter skapas finns i [Om Azure Storage Accounts](../storage/common/storage-create-storage-account.md).
+* **lagringskontoautentiseringsuppgifter utanför tjänstprenumerationen** – Det här är Azure-lagringskontouppgifterna som inte är associerade med din tjänst och som troligen fanns innan tjänsten skapades.
 
 ## <a name="add-a-storage-account-credential"></a>Lägg till autentiseringsuppgift för lagringskonto
-Du kan lägga till en autentiseringsuppgift för lagrings kontot i StorSimple Enhetshanteraren tjänst konfigurationen genom att ange ett unikt namn och autentiseringsuppgifter för åtkomst som är länkade till lagrings kontot. Du kan också välja att aktivera SSL-läget (Secure Sockets Layer) för att skapa en säker kanal för nätverkskommunikation mellan enheten och molnet.
+Du kan lägga till en lagringskontoautentiseringsautentisering i tjänstkonfigurationen för StorSimple Enhetshanteraren genom att ange ett unikt eget namn och åtkomstautentiseringsuppgifter som är länkade till lagringskontot. Du kan också aktivera TLS-läget (Transport Layer Security), som tidigare kallades SSL-läge (Secure Sockets Layer), för att skapa en säker kanal för nätverkskommunikation mellan enheten och molnet.
 
-Du kan skapa flera konton för en specifik moln tjänst leverantör. När autentiseringsuppgiften för lagrings kontot sparas försöker tjänsten kommunicera med moln tjänst leverantören. De autentiseringsuppgifter och det åtkomst material som du har angett autentiseras just nu. Autentiseringsuppgifter för ett lagrings konto skapas endast om autentiseringen lyckas. Om autentiseringen Miss lyckas visas ett lämpligt fel meddelande.
+Du kan skapa flera konton för en viss molntjänstleverantör. Medan lagringskontoautentiseringsuppgifterna sparas försöker tjänsten kommunicera med molntjänstleverantören. Autentiseringsuppgifterna och åtkomstmaterialet som du har angett autentiseras just nu. En lagringskontoautentisering skapas endast om autentiseringen lyckas. Om autentiseringen misslyckas visas ett lämpligt felmeddelande.
 
-Använd följande procedurer för att lägga till autentiseringsuppgifter för Azure Storage-kontot:
+Använd följande procedurer för att lägga till autentiseringsuppgifter för Azure-lagringskonto:
 
-* Så här lägger du till autentiseringsuppgifter för ett lagrings konto som har samma Azure-prenumeration som den Enhetshanteraren tjänsten
-* Så här lägger du till autentiseringsuppgifter för Azure Storage-kontot som ligger utanför Enhetshanteraren tjänst prenumerationen
+* Så här lägger du till en lagringskontoautentiseringsinformation som har samma Azure-prenumeration som Tjänsten Enhetshanteraren
+* Så här lägger du till en Azure-lagringskontoautentisering som ligger utanför Tjänsten Enhetshanterarens tjänstprenumeration
 
-#### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>Så här lägger du till autentiseringsuppgifter för ett lagrings konto som har samma Azure-prenumeration som den Enhetshanteraren tjänsten
+#### <a name="to-add-a-storage-account-credential-that-has-the-same-azure-subscription-as-the-device-manager-service"></a>Så här lägger du till en lagringskontoautentiseringsinformation som har samma Azure-prenumeration som Tjänsten Enhetshanteraren
 
-1. Navigera till Enhetshanteraren tjänsten, markera och dubbelklicka på den. **Översikts** bladet öppnas.
-2. Välj **autentiseringsuppgifter för lagrings konto** i **konfigurations** avsnittet.
+1. Navigera till tjänsten Enhetshanteraren, välj och dubbelklicka på den. Då öppnas **bladet Översikt.**
+2. Välj **Autentiseringsuppgifter för lagringskonto** i avsnittet **Konfiguration.**
 3. Klicka på **Lägg till**.
-4. På bladet **Lägg till ett lagrings konto** gör du följande:
+4. Gör följande i bladet **Lägg till ett lagringskonto:**
    
-    1. För **prenumeration**väljer du **aktuell**.
-    2. Ange namnet på ditt Azure Storage-konto.
-    3. Välj **Aktivera** för att skapa en säker kanal för nätverkskommunikation mellan din StorSimple-enhet och molnet. Välj **inaktivera** endast om du arbetar i ett privat moln.
-    4. Klicka på **Lägg till**. Du får ett meddelande när lagrings kontot har skapats.<br></br>
+    1. För **Prenumeration**väljer du **Aktuell**.
+    2. Ange namnet på ditt Azure-lagringskonto.
+    3. Välj **Aktivera** om du vill skapa en säker kanal för nätverkskommunikation mellan StorSimple-enheten och molnet. Välj **Inaktivera** endast om du arbetar i ett privat moln.
+    4. Klicka på **Lägg till**. Du meddelas när lagringskontot har skapats.<br></br>
    
-        ![Lägg till en befintlig autentiseringsuppgift för lagrings konto](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+        ![Lägga till en befintlig lagringskontoautentisering](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
-#### <a name="to-add-an-azure-storage-account-credential-that-is-outside-of-the-device-manager-service-subscription"></a>Så här lägger du till autentiseringsuppgifter för Azure Storage-kontot som ligger utanför Enhetshanteraren tjänst prenumerationen
+#### <a name="to-add-an-azure-storage-account-credential-that-is-outside-of-the-device-manager-service-subscription"></a>Så här lägger du till en Azure-lagringskontoautentisering som ligger utanför Tjänsten Enhetshanterarens tjänstprenumeration
 
-1. Navigera till Enhetshanteraren tjänsten, markera och dubbelklicka på den. **Översikts** bladet öppnas.
-2. Välj **autentiseringsuppgifter för lagrings konto** i **konfigurations** avsnittet. Här visas alla befintliga autentiseringsuppgifter för lagrings kontot som är associerade med tjänsten StorSimple Enhetshanteraren.
+1. Navigera till tjänsten Enhetshanteraren, välj och dubbelklicka på den. Då öppnas **bladet Översikt.**
+2. Välj **Autentiseringsuppgifter för lagringskonto** i avsnittet **Konfiguration.** Här visas alla befintliga autentiseringsuppgifter för lagringskonto som är associerade med Tjänsten StorSimple Device Manager.
 3. Klicka på **Lägg till**.
-4. På bladet **Lägg till ett lagrings konto** gör du följande:
+4. Gör följande i bladet **Lägg till ett lagringskonto:**
    
-    1. För **prenumeration**väljer du **annat**.
+    1. För **Prenumeration**väljer du **Annat**.
    
-    2. Ange namnet på ditt Azure Storage-kontos autentiseringsuppgifter.
+    2. Ange namnet på din Azure-lagringskontoautentiseringsuppgifter.
    
-    3. I text rutan **lagrings kontots åtkomst nyckel** anger du den primära åtkomst nyckeln för ditt Azure Storage-kontos autentiseringsuppgifter. Om du vill hämta den här nyckeln går du till Azure Storage tjänsten, väljer ditt lagrings kontos autentiseringsuppgifter och klickar på **Hantera konto nycklar**. Nu kan du kopiera den primära åtkomst nyckeln.
+    3. I textrutan **Åtkomst till lagringskonto** anger du den primära åtkomstnyckeln för din Azure-lagringskontoautentiseringsuppgifter. Om du vill hämta den här nyckeln går du till Azure Storage-tjänsten, väljer autentiseringsuppgifter för lagringskonto och klickar på **Hantera kontonycklar**. Nu kan du kopiera den primära åtkomstnyckeln.
    
-    4. Aktivera SSL genom att klicka på knappen **Aktivera** för att skapa en säker kanal för nätverkskommunikation mellan StorSimple-Enhetshanteraren tjänsten och molnet. Klicka bara på knappen **inaktivera** om du arbetar i ett privat moln.
+    4. Om du vill aktivera TLS klickar du på knappen **Aktivera** för att skapa en säker kanal för nätverkskommunikation mellan Tjänsten StorSimple Device Manager och molnet. Klicka bara på knappen **Inaktivera** om du arbetar i ett privat moln.
    
-    5. Klicka på **Lägg till**. Du får ett meddelande när autentiseringsuppgifterna för lagrings kontot har skapats.
+    5. Klicka på **Lägg till**. Du meddelas när lagringskontoautentiseringsuppgifterna har skapats.
 
-5. Den nyligen skapade autentiseringsuppgiften för lagrings kontot visas på bladet StorSimple konfigurera Enhetshanteraren tjänst under **autentiseringsuppgifter för lagrings kontot**.
+5. Den nyligen skapade lagringskontoautentiseringen visas på tjänstbladet Konfigurera Enhetshanteraren i StorSimple under **Lagringskontoautentiseringsuppgifter**.
    
-    ![Lägg till en autentiseringsuppgift för lagrings konto utanför Enhetshanteraren tjänst prenumerationen](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
+    ![Lägga till en lagringskontoautentiseringsinformation utanför tjänstprenumerationen för Enhetshanteraren](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
 
-## <a name="edit-a-storage-account-credential"></a>Redigera autentiseringsuppgifter för ett lagrings konto
-Du kan redigera autentiseringsuppgifter för ett lagrings konto som används av din enhet. Om du redigerar autentiseringsuppgifter för ett lagrings konto som används för närvarande, är fälten som är tillgängliga för att ändra åtkomst nyckeln och SSL-läget för lagrings kontots autentiseringsuppgift. Du kan ange den nya lagrings åtkomst nyckeln eller ändra inställningen **Aktivera SSL-läge** och spara de uppdaterade inställningarna.
+## <a name="edit-a-storage-account-credential"></a>Redigera en lagringskontoautentisering
+Du kan redigera en lagringskontoautentisering som används av enheten. Om du redigerar en lagringskontoautentisering som används för närvarande är de fält som är tillgängliga för att ändra åtkomstnyckeln och TLS-läget för lagringskontoautentiseringsuppgifterna. Du kan ange den nya åtkomstnyckeln för lagring eller ändra valen **av SSL-läge** och spara de uppdaterade inställningarna.
 
-#### <a name="to-edit-a-storage-account-credential"></a>Redigera autentiseringsuppgifter för ett lagrings konto
-1. Navigera till Enhetshanteraren tjänsten, markera och dubbelklicka på den. **Översikts** bladet öppnas.
-2. Välj **autentiseringsuppgifter för lagrings konto** i **konfigurations** avsnittet. Här visas alla befintliga autentiseringsuppgifter för lagrings kontot som är associerade med tjänsten StorSimple Enhetshanteraren.
-3. I Tabellista i tabell listan över autentiseringsuppgifter för lagrings konto väljer du och dubbelklickar på det konto som du vill ändra.
-4. Gör följande i bladet **Egenskaper** för autentiseringsuppgifter för lagrings konto:
+#### <a name="to-edit-a-storage-account-credential"></a>Så här redigerar du en lagringskontoautentisering
+1. Navigera till tjänsten Enhetshanteraren, välj och dubbelklicka på den. Då öppnas **bladet Översikt.**
+2. Välj **Autentiseringsuppgifter för lagringskonto** i avsnittet **Konfiguration.** Här visas alla befintliga autentiseringsuppgifter för lagringskonto som är associerade med Tjänsten StorSimple Device Manager.
+3. Markera och dubbelklicka på det konto som du vill ändra i tabelllistan över autentiseringsuppgifter för lagringskonto.
+4. Gör följande i bladet **Egenskaper** för lagringskontoautentiseringsuppgifter:
    
-   1. Om det behövs kan du ändra valet **Aktivera SSL** -läge.
-   2. Du kan välja att återskapa dina åtkomst nycklar för lagrings kontots autentiseringsuppgifter. Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../storage/common/storage-account-keys-manage.md). Ange den nya nyckeln för lagrings kontots autentiseringsuppgift. Detta är den primära åtkomst nyckeln för ett Azure Storage-konto.
-   3. Spara inställningarna genom att klicka på **Spara** överst på **egenskaps** bladet. Inställningarna uppdateras på bladet med **autentiseringsuppgifter för lagrings kontot** .
+   1. Om det behövs kan du ändra valen **Aktivera SSL-läge.**
+   2. Du kan välja att återskapa åtkomstnycklarna för lagringskontots autentiseringsuppgifter. Mer information finns i [Hantera åtkomstnycklar för lagringskonto](../storage/common/storage-account-keys-manage.md). Ange den nya nyckeln för lagringskontoautentiseringsuppgifter. För ett Azure-lagringskonto är detta den primära åtkomstnyckeln.
+   3. Klicka på **Spara** högst upp på egenskapsbladet **Egenskaper** för att spara inställningarna. Inställningarna uppdateras på **autentiseringsbladet för lagringskontouppgifter.**
       
-      ![Redigera autentiseringsuppgifter för ett lagrings konto](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)
+      ![Redigera en lagringskontoautentisering](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)
 
-## <a name="delete-a-storage-account-credential"></a>Ta bort autentiseringsuppgifter för lagrings konto
+## <a name="delete-a-storage-account-credential"></a>Ta bort en lagringskontoautentisering
 > [!IMPORTANT]
-> Du kan bara ta bort autentiseringsuppgifter för lagrings kontot om den inte används. Om autentiseringsuppgifter för ett lagrings konto används meddelas du.
+> Du kan bara ta bort en lagringskontoautentisering om den inte används. Om en lagringskontoautentiseringsautentisering används meddelas du.
 > 
 > 
 
-#### <a name="to-delete-a-storage-account-credential"></a>Ta bort autentiseringsuppgifter för ett lagrings konto
-1. Navigera till Enhetshanteraren tjänsten, markera och dubbelklicka på den. **Översikts** bladet öppnas.
-2. Välj **autentiseringsuppgifter för lagrings konto** i **konfigurations** avsnittet. Här visas alla befintliga autentiseringsuppgifter för lagrings kontot som är associerade med tjänsten StorSimple Enhetshanteraren.
-3. I tabellistan i Tabellista väljer du och dubbelklickar på det konto som du vill ta bort.
-4. Gör följande i bladet **Egenskaper** för autentiseringsuppgifter för lagrings konto:
+#### <a name="to-delete-a-storage-account-credential"></a>Så här tar du bort en lagringskontoautentisering
+1. Navigera till tjänsten Enhetshanteraren, välj och dubbelklicka på den. Då öppnas **bladet Översikt.**
+2. Välj **Autentiseringsuppgifter för lagringskonto** i avsnittet **Konfiguration.** Här visas alla befintliga autentiseringsuppgifter för lagringskonto som är associerade med Tjänsten StorSimple Device Manager.
+3. Markera och dubbelklicka på det konto som du vill ta bort i tabelllistan över autentiseringsuppgifter för lagringskonto.
+4. Gör följande i bladet **Egenskaper** för lagringskontoautentiseringsuppgifter:
    
-   1. Klicka på **ta bort** för att ta bort autentiseringsuppgifterna.
-   2. När du uppmanas att bekräfta klickar du på **Ja** för att fortsätta med borttagningen. Tabell listan uppdateras för att återspegla ändringarna.
+   1. Klicka på **Ta bort** om du vill ta bort autentiseringsuppgifterna.
+   2. När du uppmanas att bekräfta klickar du på **Ja** för att fortsätta med borttagningen. Tabelllistan uppdateras för att återspegla ändringarna.
       
-      ![Ta bort autentiseringsuppgifter för lagrings konto](./media/storsimple-virtual-array-manage-storage-accounts/ova-del-storageacct.png)
+      ![Ta bort en lagringskontoautentisering](./media/storsimple-virtual-array-manage-storage-accounts/ova-del-storageacct.png)
 
-## <a name="synchronizing-storage-account-credential-keys"></a>Synkroniserar autentiseringsuppgifter för lagrings konto
-Av säkerhets skäl är nyckel rotation ofta ett krav i Data Center. En Microsoft Azure administratör kan återskapa eller ändra den primära eller sekundära nyckeln genom att direkt komma åt autentiseringsuppgifterna för lagrings kontot (via tjänsten Microsoft Azure Storage). StorSimple-Enhetshanteraren tjänsten ser inte den här ändringen automatiskt.
+## <a name="synchronizing-storage-account-credential-keys"></a>Synkronisera autentiseringsuppgifter för lagringskonto
+Av säkerhetsskäl är nyckelrotation ofta ett krav i datacenter. En Microsoft Azure-administratör kan återskapa eller ändra den primära eller sekundära nyckeln genom att direkt komma åt lagringskontoautentiseringsuppgifterna (via Microsoft Azure Storage-tjänsten). Tjänsten StorSimple Device Manager ser inte den här ändringen automatiskt.
 
-Om du vill informera StorSimple Enhetshanteraren tjänsten om ändringen måste du komma åt StorSimple Enhetshanteraren-tjänsten, komma åt autentiseringsuppgifterna för lagrings kontot och sedan synkronisera den primära eller sekundära nyckeln (beroende på vilken som har ändrats). Tjänsten hämtar sedan den senaste nyckeln, krypterar nycklarna och skickar den krypterade nyckeln till enheten.
+Om du vill informera StorSimple Device Manager-tjänsten om ändringen måste du komma åt Tjänsten StorSimple Device Manager, komma åt autentiseringsuppgifterna för lagringskontot och sedan synkronisera den primära eller sekundära nyckeln (beroende på vilken som har ändrats). Tjänsten får sedan den senaste nyckeln, krypterar nycklarna och skickar den krypterade nyckeln till enheten.
 
-#### <a name="to-synchronize-keys-for-storage-account-credentials-in-the-same-subscription-as-the-service-azure-only"></a>Synkronisera nycklar för lagrings kontots autentiseringsuppgifter i samma prenumeration som tjänsten (endast Azure)
-1. På bladet tjänst landning väljer du din tjänst, dubbelklickar på tjänstens namn och klickar sedan på **autentiseringsuppgifter för lagrings konto**i avsnittet **konfiguration** .
-2. På bladet **autentiseringsuppgifter för lagrings konto** , i listan över autentiseringsuppgifter för lagrings konto, väljer du den autentiseringsuppgifter för lagrings konto vars nycklar du vill synkronisera.
-3. Gör följande på bladet **Egenskaper** för den valda autentiseringsuppgiften för lagrings kontot:
+#### <a name="to-synchronize-keys-for-storage-account-credentials-in-the-same-subscription-as-the-service-azure-only"></a>Så här synkroniserar du nycklar för lagringskontoautentiseringsuppgifter i samma prenumeration som tjänsten (endast Azure)
+1. På tjänstens landningsblad väljer du din tjänst, dubbelklickar på tjänstnamnet och klickar sedan på **Autentiseringsuppgifter för lagringskonto**i avsnittet **Konfiguration** .
+2. I **Storage account credentials** listan över lagringskontoautentiseringsuppgifter i listan över lagringskontoautentiseringsuppgifter väljer du den lagringskontoautentiseringsautentisering vars nycklar som du vill synkronisera.
+3. Gör följande i **egenskapsbladet** för den valda lagringskontoautentiseringen:
    
-    1. Klicka på **mer**och klicka sedan på **Synkronisera åtkomst nyckel**.
+    1. Klicka på **Mer**och sedan på **Synkronisera åtkomstnyckel**.
    
-    2. När du uppmanas att bekräfta klickar du på **Sync-nyckel** för att slutföra synkroniseringen.
+    2. När du uppmanas att bekräfta klickar du på **Synkroniseringsnyckel** för att slutföra synkroniseringen.
     
-4. I StorSimple-Enhetshanteraren tjänsten måste du uppdatera den nyckel som tidigare har ändrats i Microsoft Azure Storage-tjänsten. I bladet **Synkronisera lagrings konto nyckel** , om den primära åtkomst nyckeln ändrades (regenererad), klickar du på primär och sedan på **Synkronisera nyckel**. Om den sekundära nyckeln har ändrats klickar du på **sekundär**och sedan på **Synkronisera nyckel**.
+4. I Tjänsten StorSimple Device Manager måste du uppdatera nyckeln som tidigare ändrats i Microsoft Azure Storage-tjänsten. Om nyckelbladet för det primära åtkomstkommandot har ändrats (återskapats) i **nyckelbladet Synkronisera lagringskonto,** klickar du på Primär och sedan på **Synkroniseringsnyckel**. Om den sekundära nyckeln har ändrats klickar du på **Sekundär**och sedan på **Synkronisera nyckel**.
    
-    ![Synkronisera åtkomst nyckel](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
+    ![Åtkomstnyckel för synkronisering](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [administrerar din virtuella StorSimple-matris](storsimple-ova-web-ui-admin.md).
+* Lär dig hur du [administrerar din Virtuella StorSimple-matris](storsimple-ova-web-ui-admin.md).
 

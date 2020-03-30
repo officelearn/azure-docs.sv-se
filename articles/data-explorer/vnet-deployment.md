@@ -1,118 +1,118 @@
 ---
-title: Distribuera Azure Datautforskaren till din Virtual Network
-description: Lär dig hur du distribuerar Azure Datautforskaren till din Virtual Network
+title: Distribuera Azure Data Explorer till ditt virtuella nätverk
+description: Lär dig hur du distribuerar Azure Data Explorer till ditt virtuella nätverk
 author: basaba
 ms.author: basaba
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 5a2731e26ba4f371177cf2ae649f0695f27e6304
-ms.sourcegitcommit: be53e74cd24bbabfd34597d0dcb5b31d5e7659de
+ms.openlocfilehash: dbc17620cda836ec0ac5c4ebc5a709fb0605c958
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79096764"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240047"
 ---
-# <a name="deploy-azure-data-explorer-into-your-virtual-network"></a>Distribuera Azure Datautforskaren till din Virtual Network
+# <a name="deploy-azure-data-explorer-cluster-into-your-virtual-network"></a>Distribuera Azure Data Explorer-kluster till ditt virtuella nätverk
 
-I den här artikeln förklaras de resurser som finns när du distribuerar ett Azure Datautforskaren-kluster till en anpassad Azure-Virtual Network. Den här informationen hjälper dig att distribuera ett kluster till ett undernät i din Virtual Network (VNet). Mer information om virtuella Azure-nätverk finns i [Vad är azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+I den här artikeln beskrivs de resurser som finns när du distribuerar ett Azure Data Explorer-kluster till ett anpassat Azure Virtual Network. Den här informationen hjälper dig att distribuera ett kluster till ett undernät i det virtuella nätverket (VNet). Mer information om Virtuella Azure-nätverk finns i [Vad är Virtuellt Azure-nätverk?](/azure/virtual-network/virtual-networks-overview)
 
-   ![VNet-diagram](media/vnet-deployment/vnet-diagram.png)
+   ![vnet-diagram](media/vnet-deployment/vnet-diagram.png)
 
-Azure Datautforskaren stöder distribution av ett kluster till ett undernät i Virtual Network (VNet). Med den här funktionen kan du:
+Azure Data Explorer stöder distribution av ett kluster till ett undernät i ditt virtuella nätverk (VNet). Med den här funktionen kan du:
 
-* Tillämpa regler för [nätverks säkerhets grupper](/azure/virtual-network/security-overview) (NSG) på Azure datautforskaren Cluster-trafiken.
-* Anslut ditt lokala nätverk till Azure Datautforskaren klustrets undernät.
-* Skydda dina data anslutnings källor ([händelsehubben](/azure/event-hubs/event-hubs-about) och [Event Grid](/azure/event-grid/overview)) med [tjänst slut punkter](/azure/virtual-network/virtual-network-service-endpoints-overview).
+* Framtvinga NSG-regler [(Network Security Group)](/azure/virtual-network/security-overview) för klustertrafiken i Azure Data Explorer.
+* Anslut det lokala nätverket till Azure Data Explorer-klustrets undernät.
+* Skydda dina dataanslutningskällor ([Event Hub](/azure/event-hubs/event-hubs-about) och [Event Grid](/azure/event-grid/overview)) med [tjänstslutpunkter](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-## <a name="access-your-azure-data-explorer-cluster-in-your-vnet"></a>Få åtkomst till ditt Azure Datautforskaren-kluster i ditt VNet
+## <a name="access-your-azure-data-explorer-cluster-in-your-vnet"></a>Få tillgång till ditt Azure Data Explorer-kluster i ditt virtuella nätverk
 
-Du kan komma åt ditt Azure Datautforskaren-kluster med följande IP-adresser för varje tjänst (motor-och data hanterings tjänster):
+Du kan komma åt ditt Azure Data Explorer-kluster med hjälp av följande IP-adresser för varje tjänst (motor- och datahanteringstjänster):
 
-* **Privat IP**: används för att komma åt klustret i VNet.
-* **Offentlig IP**: används för åtkomst till klustret utanför det virtuella nätverket för hantering och övervakning, och som käll adress för utgående anslutningar som startas från klustret.
+* **Privat IP:** Används för åtkomst till klustret i det virtuella nätverket.
+* **Offentlig IP:** Används för åtkomst till klustret utanför det virtuella nätverket för hantering och övervakning och som en källadress för utgående anslutningar startade från klustret.
 
-Följande DNS-poster skapas för att få åtkomst till tjänsten: 
+Följande DNS-poster skapas för att komma åt tjänsten: 
 
-* `[clustername].[geo-region].kusto.windows.net` (motor) `ingest-[clustername].[geo-region].kusto.windows.net` (data hantering) mappas till den offentliga IP-adressen för varje tjänst. 
+* `[clustername].[geo-region].kusto.windows.net`(motor) `ingest-[clustername].[geo-region].kusto.windows.net` (datahantering) mappas till den offentliga ip-adressen för varje tjänst. 
 
-* `private-[clustername].[geo-region].kusto.windows.net` (motor) `private-ingest-[clustername].[geo-region].kusto.windows.net` (data hantering) mappas till den privata IP-adressen för varje tjänst.
+* `private-[clustername].[geo-region].kusto.windows.net`(motor) `private-ingest-[clustername].[geo-region].kusto.windows.net` (datahantering) mappas till den privata IP-adressen för varje tjänst.
 
-## <a name="plan-subnet-size-in-your-vnet"></a>Planera under näts storlek i ditt VNet
+## <a name="plan-subnet-size-in-your-vnet"></a>Planera undernätsstorlek i ditt virtuella nätverk
 
-Storleken på det undernät som används som värd för ett Azure Datautforskaren-kluster kan inte ändras efter att under nätet har distribuerats. I ditt VNet använder Azure Datautforskaren en privat IP-adress för varje virtuell dator och två privata IP-adresser för de interna belastningsutjämnare (motor-och data hantering). Azure-nätverk använder också fem IP-adresser för varje undernät. Azure Datautforskaren etablerar två virtuella datorer för data hanterings tjänsten. Virtuella datorer i motor tjänsten har allokerats per skalnings kapacitet för användar konfiguration.
+Storleken på undernätet som används för att vara värd för ett Azure Data Explorer-kluster kan inte ändras när undernätet har distribuerats. I ditt virtuella nätverk använder Azure Data Explorer en privat IP-adress för varje virtuell dator och två privata IP-adresser för interna belastningsutjämnare (motor- och datahantering). Azure-nätverk använder också fem IP-adresser för varje undernät. Azure Data Explorer avserar två virtuella datorer för datahanteringstjänsten. Virtuella datorer för motortjänst etableras per användarkonfigurationsskalakapacitet.
 
-Totalt antal IP-adresser:
+Det totala antalet IP-adresser:
 
 | Användning | Antal adresser |
 | --- | --- |
-| Motor tjänst | 1 per instans |
-| Data hanterings tjänst | 2 |
-| Interna belastningsutjämnare | 2 |
+| Motorservice | 1 per instans |
+| Tjänsten för datahantering | 2 |
+| Interna lastbalanserare | 2 |
 | Reserverade Azure-adresser | 5 |
 | **Totalt** | **#engine_instances + 9** |
 
 > [!IMPORTANT]
-> Under näts storleken måste planeras i förväg eftersom den inte kan ändras efter att Azure Datautforskaren distribuerats. Därför är det lämpligt att reservera en under näts storlek.
+> Undernätsstorlek måste planeras i förväg eftersom den inte kan ändras när Azure Data Explorer har distribuerats. Därför reserv behövs undernät storlek därefter.
 
-## <a name="service-endpoints-for-connecting-to-azure-data-explorer"></a>Tjänst slut punkter för att ansluta till Azure Datautforskaren
+## <a name="service-endpoints-for-connecting-to-azure-data-explorer"></a>Tjänstslutpunkter för anslutning till Azure Data Explorer
 
-Med [tjänst slut punkter i Azure](/azure/virtual-network/virtual-network-service-endpoints-overview) kan du skydda dina Azure-resurser för flera klienter i ditt virtuella nätverk.
-Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfigurera data anslutningar med [händelsehubben](/azure/event-hubs/event-hubs-about) eller [Event Grid](/azure/event-grid/overview) samtidigt som du begränsar de underliggande resurserna för Azure datautforskaren-undernätet.
+[Azure Service Slutpunkter](/azure/virtual-network/virtual-network-service-endpoints-overview) kan du skydda dina Azure-resurser för flera innehavare till ditt virtuella nätverk.
+Om du distribuerar Azure Data Explorer-kluster i undernätet kan du ställa in dataanslutningar med [Event Hub](/azure/event-hubs/event-hubs-about) eller [Event Grid](/azure/event-grid/overview) samtidigt som du begränsar de underliggande resurserna för Azure Data Explorer-undernätet.
 
 > [!NOTE]
-> När du använder EventGrid-installation med [Storage](/azure/storage/common/storage-introduction) och [Event Hub], kan det lagrings konto som används i prenumerationen låsas med tjänstens slut punkter till azures datautforskaren under nätet samtidigt som Trusted Azure Platform Services tillåts i [brand Väggs konfigurationen](/azure/storage/common/storage-network-security), men Händelsehubben inte kan aktivera tjänst slut punkten eftersom den inte har stöd för betrodda [Azure Platform Services](/azure/event-hubs/event-hubs-service-endpoints).
+> När du använder EventGrid-konfiguration med [Storage](/azure/storage/common/storage-introduction) och [Event Hub] kan lagringskontot som används i prenumerationen låsas med tjänstslutpunkter till Azure Data Explorers undernät samtidigt som betrodda Azure-plattformstjänster tillåts i [brandväggskonfigurationen](/azure/storage/common/storage-network-security), men händelsehubben kan inte aktivera Service Endpoint eftersom den inte stöder betrodda [Azure-plattformstjänster](/azure/event-hubs/event-hubs-service-endpoints).
 
 ## <a name="dependencies-for-vnet-deployment"></a>Beroenden för VNet-distribution
 
-### <a name="network-security-groups-configuration"></a>Konfiguration av nätverks säkerhets grupper
+### <a name="network-security-groups-configuration"></a>Konfiguration av nätverkssäkerhetsgrupper
 
-[Nätverks säkerhets grupper (NSG)](/azure/virtual-network/security-overview) ger möjlighet att kontrol lera nätverks åtkomst i ett VNet. Azure Datautforskaren kan nås med två slut punkter: HTTPs (443) och TDS (1433). Följande NSG-regler måste konfigureras för att tillåta åtkomst till dessa slut punkter för hantering, övervakning och lämplig drift av klustret.
+[NSG (Network Security Groups)](/azure/virtual-network/security-overview) ger möjlighet att styra nätverksåtkomsten inom ett virtuella nätverk. Azure Data Explorer kan nås med två slutpunkter: HTTPs (443) och TDS (1433). Följande NSG-regler måste konfigureras för att tillåta åtkomst till dessa slutpunkter för hantering, övervakning och korrekt drift av klustret.
 
 #### <a name="inbound-nsg-configuration"></a>Inkommande NSG-konfiguration
 
-| **Använd**   | **Som**   | **Till**   | **Protokoll**   |
+| **Användning**   | **Från**   | **Att**   | **Protokollet**   |
 | --- | --- | --- | --- |
-| Hantering  |[ADX-hantering adresser](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (ServiceTag) | ADX-undernät: 443  | TCP  |
-| Hälsoövervakning  | [ADX för hälso övervakning](#health-monitoring-addresses)  | ADX-undernät: 443  | TCP  |
-| Intern kommunikation med ADX  | ADX-undernät: alla portar  | ADX-undernät: alla portar  | Alla  |
-| Tillåt inkommande Azure Load Balancer (hälso avsökning)  | AzureLoadBalancer  | ADX-undernät: 80443  | TCP  |
+| Hantering  |[ADX-hanteringsadresser](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement(ServiceTag) | ADX-undernät:443  | TCP  |
+| Hälsoövervakning  | [ADX-adresser för hälsoövervakning](#health-monitoring-addresses)  | ADX-undernät:443  | TCP  |
+| ADX intern kommunikation  | ADX-undernät: Alla portar  | ADX-undernät:Alla portar  | Alla  |
+| Tillåt ingående Azure-belastningsutjämnare (hälsoavsökning)  | AzureLoadBalancer  | ADX-undernät:80 443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>Utgående NSG-konfiguration
 
-| **Använd**   | **Som**   | **Till**   | **Protokoll**   |
+| **Användning**   | **Från**   | **Att**   | **Protokollet**   |
 | --- | --- | --- | --- |
-| Beroende av Azure Storage  | ADX-undernät  | Lagring: 443  | TCP  |
-| Beroende av Azure Data Lake  | ADX-undernät  | AzureDataLake: 443  | TCP  |
-| EventHub-inmatning och tjänst övervakning  | ADX-undernät  | EventHub: 443, 5671  | TCP  |
-| Publicera mått  | ADX-undernät  | AzureMonitor: 443 | TCP  |
-| Hämtning av Azure Monitor konfiguration  | ADX-undernät  | [Azure Monitor slut punkts adresser för konfiguration](#azure-monitor-configuration-endpoint-addresses): 443 | TCP  |
-| Active Directory (om tillämpligt) | ADX-undernät | AzureActiveDirectory: 443 | TCP |
-| Certifikatutfärdare | ADX-undernät | Internet: 80 | TCP |
-| Intern kommunikation  | ADX-undernät  | ADX-undernät: alla portar  | Alla  |
-| Portar som används för `sql\_request`-och `http\_request`-plugin-program  | ADX-undernät  | Internet: anpassad  | TCP  |
+| Beroende av Azure Storage  | ADX-undernät  | Lagring:443  | TCP  |
+| Beroende av Azure Data Lake  | ADX-undernät  | AzureDataLake:443  | TCP  |
+| EventHub-inmatning och serviceövervakning  | ADX-undernät  | EventHub:443 5671  | TCP  |
+| Publicera mått  | ADX-undernät  | AzureMonitor:443 | TCP  |
+| Hämtning av Azure Monitor-konfiguration  | ADX-undernät  | [Slutpunktadresser för Azure Monitor-konfiguration](#azure-monitor-configuration-endpoint-addresses):443 | TCP  |
+| Active Directory (om tillämpligt) | ADX-undernät | AzureActiveDirectory:443 | TCP |
+| Certifikatutfärdare | ADX-undernät | Internet:80 | TCP |
+| Intern kommunikation  | ADX-undernät  | ADX-undernät:Alla portar  | Alla  |
+| Portar som `sql\_request` används `http\_request` för och plugin-program  | ADX-undernät  | Internet:Anpassad  | TCP  |
 
 ### <a name="relevant-ip-addresses"></a>Relevanta IP-adresser
 
-#### <a name="azure-data-explorer-management-ip-addresses"></a>IP-adresser för Azure Datautforskaren Management
+#### <a name="azure-data-explorer-management-ip-addresses"></a>Azure Data Explorer management IP-adresser
 
 | Region | Adresser |
 | --- | --- |
 | Australien, centrala | 20.37.26.134 |
-| Australien, Central2 | 20.39.99.177 |
+| Australien Central2 | 20.39.99.177 |
 | Australien, östra | 40.82.217.84 |
 | Australien, sydöstra | 20.40.161.39 |
-| Centrala | 191.233.25.183 |
+| BrasilienSouth | 191.233.25.183 |
 | Kanada, centrala | 40.82.188.208 |
 | Kanada, östra | 40.80.255.12 |
 | Indien, centrala | 40.81.249.251 |
 | USA, centrala | 40.67.188.68 |
-| Centrala USA-EUAP | 40.89.56.69 |
+| Centrala USA EUAP | 40.89.56.69 |
 | Asien, östra | 20.189.74.103 |
 | USA, östra | 52.224.146.56 |
 | USA, östra 2 | 52.232.230.201 |
-| Östra 2; USA-EUAP | 52.253.226.110 |
+| Östra USA2 EUAP | 52.253.226.110 |
 | Frankrike, centrala | 40.66.57.91 |
 | Frankrike, södra | 40.82.236.24 |
 | Japan, östra | 20.43.89.90 |
@@ -121,8 +121,8 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | Sydkorea, södra | 40.80.234.9 |
 | USA, norra centrala | 40.81.45.254 |
 | Europa, norra | 52.142.91.221 |
-| Sydafrika, norra | 102.133.129.138 |
-| Sydafrika, västra | 102.133.0.97 |
+| Sydafrika North | 102.133.129.138 |
+| Sydafrika Väst | 102.133.0.97 |
 | USA, södra centrala | 20.45.3.60 |
 | Sydostasien | 40.119.203.252 |
 | Indien, södra | 40.81.72.110 |
@@ -134,7 +134,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | USA, västra | 13.64.38.225 |
 | USA, västra 2 | 40.90.219.23 |
 
-#### <a name="health-monitoring-addresses"></a>Hälso övervaknings adresser
+#### <a name="health-monitoring-addresses"></a>Hälsoövervakningsadresser
 
 | Region | Adresser |
 | --- | --- |
@@ -147,11 +147,11 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | Kanada, östra | 168.61.212.201 |
 | Indien, centrala | 23.99.5.162 |
 | USA, centrala | 168.61.212.201 |
-| Centrala USA-EUAP | 168.61.212.201 |
+| Centrala USA EUAP | 168.61.212.201 |
 | Asien, östra | 168.63.212.33 |
 | USA, östra | 137.116.81.189 |
 | USA, östra 2 | 137.116.81.189 |
-| USA, östra 2 EUAP | 137.116.81.189 |
+| Östra USA 2 EUAP | 137.116.81.189 |
 | Frankrike, centrala | 23.97.212.5 |
 | Frankrike, södra | 23.97.212.5 |
 | Japan, östra | 138.91.19.129 |
@@ -160,8 +160,8 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | Sydkorea, södra | 138.91.19.129 |
 | USA, norra centrala | 23.96.212.108 |
 | Europa, norra | 191.235.212.69 
-| Sydafrika, norra | 104.211.224.189 |
-| Sydafrika, västra | 104.211.224.189 |
+| Sydafrika North | 104.211.224.189 |
+| Sydafrika Väst | 104.211.224.189 |
 | USA, södra centrala | 23.98.145.105 |
 | Indien, södra | 23.99.5.162 |
 | Sydostasien | 168.63.173.234 |
@@ -173,52 +173,52 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | USA, västra | 23.99.5.162 |
 | USA, västra 2 | 23.99.5.162 |    
 
-#### <a name="azure-monitor-configuration-endpoint-addresses"></a>Azure Monitor slut punkts adresser för konfiguration
+#### <a name="azure-monitor-configuration-endpoint-addresses"></a>Slutpunktsadresser för Azure Monitor-konfiguration
 
 | Region | Adresser |
 | --- | --- |
 | Australien, centrala | 52.148.86.165 |
 | Australien, centrala 2 | 52.148.86.165 |
-| Östra Australien | 52.148.86.165 |
-| Australien, sydöstra | 52.148.86.165 |
-| Södra Brasilien | 13.68.89.19 |
-| Centrala Kanada | 13.90.43.231 |
-| Kanada, öst | 13.90.43.231 |
-| Centrala Indien | 13.71.25.187 |
+| Australien, östra | 52.148.86.165 |
+| Australien Sydost | 52.148.86.165 |
+| Brasilien, södra | 13.68.89.19 |
+| Kanada, centrala | 13.90.43.231 |
+| Kanada, östra | 13.90.43.231 |
+| Indien, centrala | 13.71.25.187 |
 | USA, centrala | 52.173.95.68 |
-| Centrala USA-EUAP | 13.90.43.231 |
+| Centrala USA EUAP | 13.90.43.231 |
 | Asien, östra | 13.75.117.221 |
 | USA, östra | 13.90.43.231 |
 | USA, östra 2 | 13.68.89.19 |    
-| USA, östra 2 EUAP | 13.68.89.19 |
-| Centrala Frankrike | 52.174.4.112 |
+| Östra USA 2 EUAP | 13.68.89.19 |
+| Frankrike, centrala | 52.174.4.112 |
 | Frankrike, södra | 52.174.4.112 |
-| Östra Japan | 13.75.117.221 |
-| Västra Japan | 13.75.117.221 |
-| Korea, centrala | 13.75.117.221 |
-| Republiken Korea | 13.75.117.221 |
-| Norra centrala USA | 52.162.240.236 |
-| Nord Europa | 52.169.237.246 |
-| Sydafrika, norra | 13.71.25.187 |
-| Sydafrika, västra | 13.71.25.187 |
-| Södra centrala USA | 13.84.173.99 |
-| Södra Indien | 13.71.25.187 |
+| Japan, östra | 13.75.117.221 |
+| Japan, västra | 13.75.117.221 |
+| Sydkorea, centrala | 13.75.117.221 |
+| Sydkorea, södra | 13.75.117.221 |
+| USA, norra centrala | 52.162.240.236 |
+| Europa, norra | 52.169.237.246 |
+| Sydafrika North | 13.71.25.187 |
+| Sydafrika Väst | 13.71.25.187 |
+| USA, södra centrala | 13.84.173.99 |
+| Indien, södra | 13.71.25.187 |
 | Sydostasien | 52.148.86.165 |
 | Storbritannien, södra | 52.174.4.112 |
 | Storbritannien, västra | 52.169.237.246 |
 | USA, västra centrala | 52.161.31.69 |
-| Västeuropa | 52.174.4.112 |
+| Europa, västra | 52.174.4.112 |
 | Indien, västra | 13.71.25.187 |
 | Västra USA | 40.78.70.148 |
 | USA, västra 2 | 52.151.20.103 |
 
-## <a name="expressroute-setup"></a>ExpressRoute-installation
+## <a name="expressroute-setup"></a>Inställningar för ExpressRoute
 
-Använd ExpressRoute för att ansluta till ett lokalt nätverk till Azure-Virtual Network. En vanlig installation är att annonsera standard vägen (0.0.0.0/0) via Border Gateway Protocol-sessionen (BGP). Detta tvingar trafik som kommer från Virtual Network att vidarebefordras till kundens lokala nätverk som kan släppa trafiken, vilket leder till att utgående flöden bryts. För att lösa det här standardvärdet kan en [användardefinierad väg (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) (0.0.0.0/0) konfigureras och nästa hopp är *Internet*. Eftersom UDR har företräde framför BGP kommer trafiken att vara avsedd för Internet.
+Använd ExpressRoute för att ansluta lokalt nätverk till Azure Virtual Network. En vanlig inställning är att annonsera standardvägen (0.0.0.0/0) via BGP-sessionen (Border Gateway Protocol). Detta tvingar trafik som kommer ut från det virtuella nätverket att vidarebefordras till kundens premissnätverk som kan släppa trafiken, vilket gör att utgående flöden bryts. För att övervinna denna standard kan UDR (0.0.0.0/0) konfigureras och nästa hopp blir *Internet*. [User Defined Route (UDR)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) Eftersom UDR har företräde framför BGP kommer trafiken att vara avsedd för Internet.
 
-## <a name="securing-outbound-traffic-with-firewall"></a>Skydda utgående trafik med brand vägg
+## <a name="securing-outbound-traffic-with-firewall"></a>Skydda utgående trafik med brandvägg
 
-Om du vill skydda utgående trafik med hjälp av [Azure-brandväggen](/azure/firewall/overview) eller en virtuell installation för att begränsa domän namn, måste följande fullständigt kvalificerade domän namn (FQDN) tillåtas i brand väggen.
+Om du vill skydda utgående trafik med [Azure-brandväggen](/azure/firewall/overview) eller någon virtuell installation för att begränsa domännamn, måste följande fullständigt kvalificerade domännamn (FQDN) tillåtas i brandväggen.
 
 ```
 prod.warmpath.msftcloudes.com:443
@@ -246,163 +246,17 @@ adl.windows.com:80
 crl3.digicert.com:80
 ```
 
-Du måste också definiera [routningstabellen](/azure/virtual-network/virtual-networks-udr-overview) i under nätet med [hanterings adresser](#azure-data-explorer-management-ip-addresses) och [hälso övervaknings adresser](#health-monitoring-addresses) med nästa hopp- *Internet* för att förhindra problem med asymmetriska vägar.
+Du måste också definiera [flödestabellen](/azure/virtual-network/virtual-networks-udr-overview) i undernätet med [hanteringsadresser](#azure-data-explorer-management-ip-addresses) och [hälsoövervakningsadresser](#health-monitoring-addresses) med nästa hop *Internet* för att förhindra asymmetriska vägproblem.
 
-Till exempel måste följande UDR definieras för regionen **västra USA** :
+För region **västra USA** måste till exempel följande UDR:er definieras:
 
 | Namn | Adressprefix | Nästa hopp |
 | --- | --- | --- |
 | ADX_Management | 13.64.38.225/32 | Internet |
 | ADX_Monitoring | 23.99.5.162/32 | Internet |
 
-## <a name="deploy-azure-data-explorer-cluster-into-your-vnet-using-an-azure-resource-manager-template"></a>Distribuera Azure Datautforskaren-kluster i VNet med en Azure Resource Manager-mall
+## <a name="deploy-azure-data-explorer-cluster-into-your-vnet-using-an-azure-resource-manager-template"></a>Distribuera Azure Data Explorer-kluster till ditt virtuella nätverk med hjälp av en Azure Resource Manager-mall
 
-Om du vill distribuera Azure Datautforskaren-kluster i det virtuella nätverket använder du [azure datautforskaren-klustret i din VNet](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) -Azure Resource Manager mall.
+Om du vill distribuera Azure Data Explorer-kluster till ditt virtuella nätverk använder du [azure data explorer-klustret distribueras till din VNet](https://azure.microsoft.com/resources/templates/101-kusto-vnet/) Azure Resource Manager-mall.
 
-Den här mallen skapar klustret, det virtuella nätverket, under nätet, nätverks säkerhets gruppen och de offentliga IP-adresserna.
-
-## <a name="troubleshooting"></a>Felsökning
-
-I det här avsnittet får du lära dig hur du felsöker problem med anslutnings-, drift-och kluster skapande för ett kluster som distribueras i [Virtual Network](/azure/virtual-network/virtual-networks-overview).
-
-### <a name="access-issues"></a>Åtkomst problem
-
-Om du har problem med att komma åt klustret med hjälp av den offentliga (cluster.region.kusto.windows.net) eller privata (private-cluster.region.kusto.windows.net) slut punkten och du misstänker att den är relaterad till konfiguration av virtuellt nätverk, utför följande steg för att Felsök problemet.
-
-#### <a name="check-tcp-connectivity"></a>Kontrol lera TCP-anslutning
-
-Det första steget är att kontrol lera TCP-anslutning med Windows eller Linux OS.
-
-# <a name="windows"></a>[Windows](#tab/windows)
-
-   1. Ladda ned [TCping](https://www.elifulkerson.com/projects/tcping.php) till datorn som ansluter till klustret.
-   2. Pinga målet från käll datorn med hjälp av följande kommando:
-
-    ```cmd
-     C:\> tcping -t yourcluster.kusto.windows.net 443 
-    
-     ** Pinging continuously.  Press control-c to stop **
-    
-     Probing 1.2.3.4:443/tcp - Port is open - time=100.00ms
-     ```
-
-# <a name="linux"></a>[Linux](#tab/linux)
-
-   1. Installera *netcat* i datorn som ansluter till klustret
-
-    ```bash
-    $ apt-get install netcat
-     ```
-
-   2. Pinga målet från käll datorn med hjälp av följande kommando:
-
-     ```bash
-     $ netcat -z -v yourcluster.kusto.windows.net 443
-    
-     Connection to yourcluster.kusto.windows.net 443 port [tcp/https] succeeded!
-     ```
----
-
-Om testet inte lyckas fortsätter du med följande steg. Om testet lyckas beror problemet inte på ett problem med TCP-anslutningen. Gå till [drifts problem](#cluster-creation-and-operations-issues) för att felsöka ytterligare.
-
-#### <a name="check-the-network-security-group-nsg"></a>Kontrol lera nätverks säkerhets gruppen (NSG)
-
-   Kontrol lera att [nätverks säkerhets gruppen](/azure/virtual-network/security-overview) (NSG) som är ansluten till klustrets undernät har en regel för inkommande trafik som tillåter åtkomst från klient datorns IP för port 443.
-
-#### <a name="check-route-table"></a>Kontrol lera routningstabell
-
-   Om klustrets undernät har Tvingad tunnel trafik till brand väggen (undernät med en [routningstabell](/azure/virtual-network/virtual-networks-udr-overview) som innehåller standard vägen 0.0.0.0/0) kontrollerar du att DATORns IP-adress har en väg med [nästa hopp-typ](/azure/virtual-network/virtual-networks-udr-overview) till VirtualNetwork/Internet. Detta krävs för att förhindra problem med asymmetriska vägar.
-
-### <a name="ingestion-issues"></a>Inmatnings problem
-
-Om du har problem med att skriva in och du misstänker att den är relaterad till konfiguration av virtuellt nätverk, utför följande steg.
-
-#### <a name="check-ingestion-health"></a>Kontrol lera inmatnings hälsa
-
-    Check that the [cluster ingestion metrics](/azure/data-explorer/using-metrics#ingestion-health-and-performance-metrics) indicate a healthy state.
-
-#### <a name="check-security-rules-on-data-source-resources"></a>Kontrol lera säkerhets regler för resurser för data källor
-
-Om måtten anger att inga händelser har bearbetats från data källan (*händelser som bearbetas* (för Event/IoT Hub) mått) kontrollerar du att data käll resurserna (Händelsehubben eller lagring) tillåter åtkomst från klustrets undernät i brand Väggs reglerna eller tjänst slut punkter.
-
-#### <a name="check-security-rules-configured-on-clusters-subnet"></a>Kontrol lera säkerhets regler som kon figurer ATS i klustrets undernät
-
-Kontrol lera att klustrets undernät har NSG, UDR och brand Väggs regler har kon figurer ATS korrekt. Testa nätverks anslutningen för alla beroende slut punkter. 
-
-### <a name="cluster-creation-and-operations-issues"></a>Problem med att skapa kluster och åtgärder
-
-Om du har problem med att skapa kluster eller åtgärd och du misstänker att den är relaterad till konfiguration av virtuellt nätverk, följer du dessa steg för att felsöka problemet.
-
-#### <a name="diagnose-the-virtual-network-with-the-rest-api"></a>Diagnostisera det virtuella nätverket med REST API
-
-[ARMClient](https://chocolatey.org/packages/ARMClient) används för att anropa REST API med hjälp av PowerShell. 
-
-1. Logga in med ARMClient
-
-   ```powerShell
-   armclient login
-   ```
-
-1. Anropa diagnos åtgärd
-
-    ```powershell
-    $subscriptionId = '<subscription id>'
-    $clusterName = '<name of cluster>'
-    $resourceGroupName = '<resource group name>'
-    $apiversion = '2019-11-09'
-    
-    armclient post "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Kusto/clusters/$clusterName/diagnoseVirtualNetwork?api-version=$apiversion" -verbose
-    ```
-
-1. Kontrol lera svaret
-
-    ```powershell
-    HTTP/1.1 202 Accepted
-    ...
-    Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
-    ...
-    ```
-
-1. Vänta på att åtgärden slutförs
-
-    ```powershell
-    armclient get https://management.azure.com/subscriptions/$subscriptionId/providers/Microsoft.Kusto/locations/{location}/operationResults/{operation-id}?api-version=2019-11-09
-    
-    {
-      "id": "/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationresults/{operation-id}",
-      "name": "{operation-name}",
-      "status": "[Running/Failed/Completed]",
-      "startTime": "{start-time}",
-      "endTime": "{end-time}",
-      "properties": {...}
-    }
-    ```
-    
-   Vänta tills *status* egenskapen visas som *slutförd*, så ska fältet *Egenskaper* Visa:
-
-    ```powershell
-    {
-      "id": "/subscriptions/{subscription-id}/providers/Microsoft.Kusto/locations/{location}/operationresults/{operation-id}",
-      "name": "{operation-name}",
-      "status": "Completed",
-      "startTime": "{start-time}",
-      "endTime": "{end-time}",
-      "properties": {
-        "Findings": [...]
-      }
-    }
-    ```
-
-Om egenskapen *rön* visar ett tomt resultat innebär det att alla nätverks test som skickats och inga anslutningar bryts. Om det visar ett fel på följande sätt: *utgående beroende {dependencyName}: {port} kanske inte är uppfyllt (utgående)* , klustret kan inte uppnå de beroende tjänstens slut punkter. Fortsätt med följande steg för att felsöka.
-
-#### <a name="check-network-security-group-nsg"></a>Kontrol lera nätverks säkerhets gruppen (NSG)
-
-Kontrol lera att [nätverks säkerhets gruppen](/azure/virtual-network/security-overview) är korrekt konfigurerad enligt instruktionerna i [beroenden för VNet-distribution](/azure/data-explorer/vnet-deployment#dependencies-for-vnet-deployment)
-
-#### <a name="check-route-table"></a>Kontrol lera routningstabell
-
-Om klustrets undernät har Tvingad tunnel trafik konfigurerad till brand vägg (undernät med en [routningstabell](/azure/virtual-network/virtual-networks-udr-overview) som innehåller standard vägen 0.0.0.0/0) ser du till att [hanterings-IP-adresserna](#azure-data-explorer-management-ip-addresses) och [hälso övervakningens IP-adresser](#health-monitoring-addresses) har en väg med [nästa hopp typ](/azure/virtual-network/virtual-networks-udr-overview##next-hop-types-across-azure-tools) *Internet*och [käll adress prefix](/azure/virtual-network/virtual-networks-udr-overview#how-azure-selects-a-route) till *"Management-IP/32"* och *"Health-Monitoring-IP/32"* . Detta krävs för att förhindra problem med asymmetriska vägar.
-
-#### <a name="check-firewall-rules"></a>Kontrol lera brand Väggs regler
-
-Om du tvingar utgående tunnel under nät trafik till en brand vägg måste du kontrol lera att alla beroende FQDN (till exempel *. blob.Core.Windows.net*) tillåts i brand Väggs konfigurationen enligt beskrivningen i [skydda utgående trafik med brand vägg](/azure/data-explorer/vnet-deployment#securing-outbound-traffic-with-firewall).
+Den här mallen skapar kluster-, virtuella nätverk, undernät, nätverkssäkerhetsgrupp och offentliga IP-adresser.

@@ -1,78 +1,77 @@
 ---
-title: Skapa en Azure-kompatibel virtuell hård disk för Azure Marketplace
-description: Förklarar hur du skapar en virtuell hård disk för ett erbjudande för virtuella datorer på Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+title: Skapa en Azure-kompatibel hårddisk för Azure Marketplace
+description: Förklarar hur du skapar en virtuell hårddisk för ett erbjudande om virtuella datorer på Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: pabutler
-ms.openlocfilehash: 37fecb8100ec40ace02960a4f3390420a8bfc735
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2014a775edd4e24f5d302d863d0b69d83009b8a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816810"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277998"
 ---
-# <a name="create-an-azure-compatible-vhd"></a>Skapa en Azure-kompatibel virtuell hård disk
+# <a name="create-an-azure-compatible-vhd"></a>Skapa en Azure-kompatibel virtuell hårddisk
 
-Den här artikeln beskriver de steg som krävs för att skapa en virtuell hård disk (VHD) för en virtuell dator (VM)-erbjudande på Azure Marketplace.  Den innehåller också bästa praxis för olika aspekter, till exempel att använda Remote Desktop Protocol (RDP), välja en storlek för den virtuella datorn, installera de senaste Windows-uppdateringarna och generalisera VHD-avbildningen.  Följande avsnitt fokuserar främst på Windows-baserade virtuella hård diskar. Mer information om hur du skapar Linux-baserade virtuella hård diskar finns i [Linux on distributioner som har godkänts av Azure](../../../virtual-machines/linux/endorsed-distros.md). 
+I den här artikeln beskrivs de steg som krävs för att skapa en virtuell hårddisk (VHD) för ett virtuellt datorerbjudande (VM) på Azure Marketplace.  Den innehåller också metodtips för olika aspekter, till exempel att använda RDP (Remote Desktop Protocol), välja en storlek för den virtuella datorn, installera de senaste Windows-uppdateringarna och generalisera VHD-avbildningen.  Följande avsnitt fokuserar huvudsakligen på windowsbaserade virtuella hårddiskar; Mer information om hur du skapar Linux-baserade virtuella hårddiskar finns i [Linux på distributioner som stöds av Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> Vi rekommenderar starkt att du följer anvisningarna i det här avsnittet för att använda Azure för att skapa en virtuell dator som innehåller ett förkonfigurerat, godkänt operativ system.  Om detta inte är kompatibelt med din lösning är det möjligt att skapa och konfigurera en lokal virtuell dator med ett godkänt operativ system.  Du kan sedan konfigurera och förbereda den för uppladdning enligt beskrivningen i [förbereda en virtuell Windows-VHD eller VHDX för att ladda upp till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> Vi rekommenderar starkt att du följer vägledningen i det här avsnittet för att använda Azure för att skapa en virtuell dator som innehåller ett förkonfigurerat, godkänt operativsystem.  Om detta inte är kompatibelt med din lösning är det möjligt att skapa och konfigurera en lokal virtuell dator med hjälp av ett godkänt operativsystem.  Du kan sedan konfigurera och förbereda den för överföring enligt beskrivningen i [Förbered en Windows VHD eller VHDX för att ladda upp till Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## <a name="select-an-approved-base"></a>Välj en godkänd bas
-Operativ systemets virtuella hård disk för din VM-avbildning måste baseras på en Azure-godkänd bas avbildning som innehåller Windows Server eller SQL Server.
-Börja med att skapa en virtuell dator från någon av följande avbildningar som finns på Microsoft Azure-portalen:
+Operativsystemet VHD för vm-avbildningen måste baseras på en Azure-godkänd basavbildning som innehåller Windows Server eller SQL Server.
+Börja med att skapa en virtuell dator från en av följande avbildningar, som finns på Microsoft Azure-portalen:
 
--   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 data Center](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Data Center](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
--   [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
--   [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Enterprise, standard, Web)
+-   Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
+-   [SQL Server 2014](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Företag, Standard, Webb)
+-   [SQL Server 2012 SP2](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) (Företag, Standard, Webb)
 
 > [!TIP]
-> Om du använder den aktuella Azure Portal eller PowerShell, har Windows Server-avbildningar som publicerats den 8 september 2014 och senare godkänts.
+> Om du använder den aktuella Azure-portalen eller PowerShell godkänns Windows Server-avbildningar som publicerades den 8 september 2014 och senare.
 
-Alternativt erbjuder Azure ett antal godkända Linux-distributioner.  En aktuell lista finns i [Linux on distributioner som har godkänts av Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+Alternativt erbjuder Azure en rad godkända Linux-distributioner.  En aktuell lista finns i [Linux på distributioner som stöds av Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
 
-## <a name="create-vm-in-the-azure-portal"></a>Skapa en virtuell dator i Azure Portal 
+## <a name="create-vm-in-the-azure-portal"></a>Skapa virtuell dator i Azure-portalen 
 
-I Microsoft [Azure Portal](https://ms.portal.azure.com/)skapar du bas avbildningen med hjälp av följande steg.
+Skapa basavbildningen i Microsoft [Azure-portalen](https://ms.portal.azure.com/)med hjälp av följande steg.
 
-1. Logga in på portalen med Microsoft-konto för den Azure-prenumeration som du vill publicera ditt virtuella dator erbjudande.
-2. Skapa en ny resurs grupp och ange **resurs gruppens namn**, **prenumeration**och **plats för resurs gruppen**.  Mer information finns i [Hantera resurs grupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
-3. Klicka på **virtuella datorer** på den vänstra meny raden för att visa sidan med information om virtuella datorer. 
-4. På den nya sidan klickar du på **+ Lägg** till för att visa **Compute** -bladet.  Om du inte ser VM-typen på den första skärmen kan du söka efter namnet på den virtuella bas datorn, till exempel:
+1. Logga in på portalen med Microsoft-kontot för den Azure-prenumeration som du vill publicera ditt VM-erbjudande.
+2. Skapa en ny resursgrupp och ange **resursgruppsnamn,** **prenumeration**och **resursgruppsplats**.  Mer vägledning finns i [Hantera resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal).
+3. Klicka på **virtuella datorer** i det vänstra menyfältet för att visa informationssidan för virtuella datorer. 
+4. På den här nya sidan klickar du på **+Lägg** till för att visa **beräkningsbladet.**  Om du inte ser typen virtuell dator på den första skärmen kan du söka efter namnet på den virtuella basdatorn, till exempel:
 
-    ![Compute-bladet för den nya virtuella datorn](./media/publishvm_014.png)
+    ![Beräkningsblad för ny virtuell dator](./media/publishvm_014.png)
 
-5. När du har valt en lämplig virtuell avbildning anger du följande värden:
-   * På bladet **grundläggande** inställningar anger du ett **namn** för den virtuella datorn, mellan 1-15 alfanumeriska tecken. (Det här exemplet använder `DemoVm009`.)
-   * Ange ett **användar namn** och ett starkt **lösen ord**som används för att skapa ett lokalt konto på den virtuella datorn.  (Här `adminUser` används.)  Lösen ordet måste vara 8-123 tecken långt och uppfylla tre av följande fyra komplexitets krav: en gemen bokstav, en versal, en siffra och ett specialtecken. Mer information finns i [krav på användar namn och lösen ord](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
-   * Välj den resurs grupp som du skapade (här `DemoResourceGroup`).
-   * Välj en **plats** för Azure-datacenter (här `West US`).
-   * Spara värdena genom att klicka på **OK** . 
+5. När du har valt rätt virtuell avbildning anger du följande värden:
+   * På bladet **Grunderna** anger du ett **namn** för den virtuella datorn, mellan 1-15 alfanumeriska tecken. (I det `DemoVm009`här exemplet används .)
+   * Ange ett **användarnamn** och ett starkt **lösenord**som används för att skapa ett lokalt konto på den virtuella datorn.  (Här `adminUser` används.)  Lösenordet måste vara 8-123 tecken långt och uppfylla tre av följande fyra komplexitetskrav: ett gemener, ett versalstecken, ett tal och ett specialtecken. Mer information finns i [Krav på användarnamn och lösenord](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm).
+   * Välj den resursgrupp som `DemoResourceGroup`du skapade (här).
+   * Välj en Azure **Datacenter-plats** (här). `West US`
+   * Spara dessa värden genom att klicka på **OK.** 
 
-6. Välj storleken på den virtuella dator som ska distribueras med följande rekommendationer:
-   * Om du planerar att utveckla den virtuella hård disken lokalt spelar det ingen roll. Överväg att använda en av de mindre virtuella datorerna.
-   * Om du planerar att utveckla avbildningen i Azure bör du överväga att använda en av de storlekar som rekommenderas för den valda avbildningen.
-   * Information om priser finns i den **rekommenderade pris nivå** väljaren som visas på portalen. Den visar de tre rekommenderade storlekarna som tillhandahålls av utgivaren. (Här är utgivaren Microsoft.)
+6. Välj storleken på den virtuella datorn som ska distribueras med hjälp av följande rekommendationer:
+   * Om du planerar att utveckla den virtuella hårddisken lokalt spelar storleken ingen roll. Överväg att använda en av de mindre virtuella datorerna.
+   * Om du planerar att utveckla avbildningen i Azure kan du överväga att använda en av de rekommenderade vm-storlekarna för den valda avbildningen.
+   * Information om priser finns i väljaren **Rekommenderade prisnivåer** som visas på portalen. Den visar de tre rekommenderade storlekarna som tillhandahålls av utgivaren. (Här är utgivaren Microsoft.)
 
-   ![Storleks blad för ny virtuell dator](./media/publishvm_015.png)
+   ![Storlek blad av nya VM](./media/publishvm_015.png)
 
-7. I bladet **Inställningar** anger du alternativet **Använd hanterad disk** till **Nej**.  På så sätt kan du hantera den nya virtuella hård disken manuellt. ( **Inställnings** bladet gör det också möjligt att ändra andra ändringar av lagrings-och nätverks alternativ, till exempel genom att välja **Premium (SSD)** i **disk typ**.)  Fortsätt genom att klicka på **OK** .
+7. I bladet **Inställningar** ställer du in alternativet **Använd hanterad disk** på **Nej**.  På så sätt kan du manuellt hantera den nya virtuella hårddisken. (Med bladet **Inställningar** kan du också ändra andra ändring av lagrings- och nätverksalternativen, till exempel välja **Premium (SSD)** i **disktyp**.)  Klicka på **OK** för att fortsätta.
 
-    ![Bladet inställningar för ny virtuell dator](./media/publishvm_016.png)
+    ![Inställningsblad för ny virtuell dator](./media/publishvm_016.png)
 
 8. Klicka på **Sammanfattning** och granska dina val. När du ser ett meddelande som anger att **valideringen har slutförts** klickar du på **OK**.
 
-    ![Sammanfattnings bladet för den nya virtuella datorn](./media/publishvm_017.png)
+    ![Sammanfattning blad av ny virtuell dator](./media/publishvm_017.png)
 
-Azure påbörjar etableringen av den virtuella dator som du har angett.  Du kan följa förloppet genom att klicka på fliken **Virtual Machines** till vänster.  När den har skapats ändras statusen till **körs**.  Nu kan du [ansluta till den virtuella datorn](./cpp-connect-vm.md).
+Azure börjar etablera den virtuella datorn som du har angett.  Du kan spåra dess framsteg genom att klicka på fliken **Virtuella datorer** till vänster.  När den har skapats ändras statusen till **Kör**.  Då kan du [ansluta till den virtuella datorn](./cpp-connect-vm.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har problem med att skapa din nya Azure-baserade virtuella hård disk kan du läsa [vanliga problem när du skapar en virtuell hård disk](./cpp-common-vhd-creation-issues.md).  Annars måste du [ansluta till de virtuella datorer](./cpp-connect-vm.md) som du skapade i Azure. 
+Om du har haft problem med att skapa din nya Azure-baserade virtuella hårddisk läser du [Vanliga problem när den virtuella hårddisken skapas](./cpp-common-vhd-creation-issues.md).  Annars måste du [sedan ansluta till de virtuella datorer som](./cpp-connect-vm.md) du skapade på Azure. 

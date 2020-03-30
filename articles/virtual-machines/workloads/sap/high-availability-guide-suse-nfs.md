@@ -1,5 +1,5 @@
 ---
-title: Hög tillgänglighet för NFS på virtuella Azure-datorer på SLES | Microsoft Docs
+title: Hög tillgänglighet för NFS på virtuella Azure-datorer på SLES | Microsoft-dokument
 description: Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/06/2020
+ms.date: 03/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 58e7eea487c5d00a33338a592dd064072bef3c64
-ms.sourcegitcommit: 9cbd5b790299f080a64bab332bb031543c2de160
+ms.openlocfilehash: 4dce0a675f5841591da00a322b72718964d382ac
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/08/2020
-ms.locfileid: "78926696"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348879"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för NFS på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -27,15 +27,15 @@ ms.locfileid: "78926696"
 [deployment-guide]:deployment-guide.md
 [planning-guide]:planning-guide.md
 
-[2205917]: https://launchpad.support.sap.com/#/notes/2205917
-[1944799]: https://launchpad.support.sap.com/#/notes/1944799
-[1928533]: https://launchpad.support.sap.com/#/notes/1928533
-[2015553]: https://launchpad.support.sap.com/#/notes/2015553
-[2178632]: https://launchpad.support.sap.com/#/notes/2178632
-[2191498]: https://launchpad.support.sap.com/#/notes/2191498
-[2243692]: https://launchpad.support.sap.com/#/notes/2243692
-[1984787]: https://launchpad.support.sap.com/#/notes/1984787
-[1999351]: https://launchpad.support.sap.com/#/notes/1999351
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [1410736]:https://launchpad.support.sap.com/#/notes/1410736
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
@@ -50,163 +50,159 @@ ms.locfileid: "78926696"
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
-Den här artikeln beskriver hur du distribuerar virtuella datorer, konfigurerar de virtuella datorerna, installerar kluster ramverket och installerar en NFS-server med hög tillgänglighet som kan användas för att lagra delade data i ett SAP-system med hög tillgänglighet.
-I den här guiden beskrivs hur du konfigurerar en NFS-server med hög tillgänglighet som används av två SAP-system, NW1 och NW2. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt [mallen SAP File Server][template-file-server] med Resource prefixet **Prod**.
+I den här artikeln beskrivs hur du distribuerar de virtuella datorerna, konfigurerar virtuella datorer, installerar klusterramverket och installerar en NFS-server med hög tillgänglighet som kan användas för att lagra delade data från ett SAP-system med hög tillgänglighet.
+I den här guiden beskrivs hur du konfigurerar en NFS-server med högtillgänge som används av två SAP-system, NW1 och NW2. Namnen på resurserna (till exempel virtuella datorer, virtuella nätverk) i exemplet förutsätter att du har använt [SAP-filservermallen][template-file-server] med resursprefix **prod**.
 
-Läs följande SAP-anteckningar och dokument först
+Läs följande SAP-anteckningar och -dokument först
 
-* SAP anmärkning [1928533], som har:
-  * Lista över storlekar på virtuella Azure-datorer som stöds för distribution av SAP-program
-  * Viktig kapacitets information för Azure VM-storlekar
-  * Stöd för SAP-program och operativ system (OS) och databas kombinationer
-  * Nödvändig SAP kernel-version för Windows och Linux på Microsoft Azure
+* SAP Note [1928533], som har:
+  * Lista över Azure VM-storlekar som stöds för distribution av SAP-programvara
+  * Viktig kapacitetsinformation för Azure VM-storlekar
+  * Sap-programvara och kombinationer av operativsystem (operativsystem) och databas
+  * Nödvändig SAP-kärnversion för Windows och Linux på Microsoft Azure
 
-* SAP NOTE [2015553] visar krav för SAP-program distributioner som stöds i Azure.
-* SAP NOTE [2205917] har rekommenderade OS-inställningar för SUSE Linux Enterprise Server för SAP-program
-* SAP NOTE [1944799] har SAP HANA rikt linjer för SUSE Linux Enterprise Server för SAP-program
-* SAP NOTE [2178632] innehåller detaljerad information om alla övervaknings mått som rapporter ATS för SAP i Azure.
-* SAP NOTE [2191498] har den version av SAP host agent som krävs för Linux i Azure.
-* SAP NOTE [2243692] innehåller information om SAP-licensiering på Linux i Azure.
-* SAP NOTE [1984787] innehåller allmän information om SUSE Linux Enterprise Server 12.
-* SAP anmärkning [1999351] innehåller ytterligare felsöknings information för Azure Enhanced Monitoring-tillägget för SAP.
-* [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP-anteckningar för Linux.
-* [Azure Virtual Machines planera och implementera SAP på Linux][planning-guide]
+* SAP Note [2015553] listar förutsättningar för SAP-programdistributioner som stöds av SAP i Azure.
+* SAP Note [2205917] har rekommenderat OS-inställningar för SUSE Linux Enterprise Server för SAP-program
+* SAP Note [1944799] har SAP HANA Riktlinjer för SUSE Linux Enterprise Server för SAP-program
+* SAP Note [2178632] har detaljerad information om alla övervakningsmått som rapporterats för SAP i Azure.
+* SAP Note [2191498] har den nödvändiga SAP Host Agent-versionen för Linux i Azure.
+* SAP Note [2243692] har information om SAP-licensiering på Linux i Azure.
+* SAP Note [1984787] har allmän information om SUSE Linux Enterprise Server 12.
+* SAP Note [1999351] har ytterligare felsökningsinformation för Azure Enhanced Monitoring Extension för SAP.
+* [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) har alla nödvändiga SAP Notes för Linux.
+* [Planering och implementering av Virtuella Azure-datorer för SAP på Linux][planning-guide]
 * [Azure Virtual Machines-distribution för SAP på Linux (den här artikeln)][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP på Linux][dbms-guide]
-* [SUSE Linux Enterprise hög tillgänglighet tillägg 12 SP3 Best Practices-guider][sles-hae-guides]
-  * NFS-lagring med hög tillgänglighet med DRBD och pacemaker
-* [SUSE Linux Enterprise Server för SAP-program 12 SP3 guider för bästa praxis][sles-for-sap-bp]
-* [Viktig information om SUSEt hög tillgänglighets tillägg 12 SP3][suse-ha-12sp3-relnotes]
+* [SUSE Linux Enterprise Hög tillgänglighet Extension 12 SP3 bästa praxis guider][sles-hae-guides]
+  * NFS-lagring med högtillgänge med DRBD och Pacemaker
+* [SUSE Linux Enterprise Server för SAP-program 12 SP3 bästa praxis guider][sles-for-sap-bp]
+* [SUSE hög tillgänglighet Tillägg 12 SP3 viktig information][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Översikt
 
 För att uppnå hög tillgänglighet kräver SAP NetWeaver en NFS-server. NFS-servern är konfigurerad i ett separat kluster och kan användas av flera SAP-system.
 
-![Översikt över SAP NetWeaver-hög tillgänglighet](./media/high-availability-guide-nfs/ha-suse-nfs.png)
+![ÖVERSIKT ÖVER HÖG TILLGÄNGLIGHET I SAP NetWeaver](./media/high-availability-guide-nfs/ha-suse-nfs.png)
 
-NFS-servern använder ett dedikerat virtuellt värdnamn och virtuella IP-adresser för varje SAP-system som använder den här NFS-servern. I Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. I följande lista visas belastnings utjämningens konfiguration.        
+NFS-servern använder ett dedikerat virtuellt värdnamn och virtuella IP-adresser för varje SAP-system som använder den här NFS-servern. På Azure krävs en belastningsutjämnare för att använda en virtuell IP-adress. Följande lista visar konfigurationen av belastningsutjämnaren.        
 
-* Konfiguration av klient del
-  * IP-10.0.0.4 för NW1
-  * IP-10.0.0.5 för NW2
-* Server dels konfiguration
-  * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret
-* Avsöknings port
+* Frontend-konfiguration
+  * IP-adress 10.0.0.4 för NW1
+  * IP-adress 10.0.0.5 för NW2
+* Serverningskonfiguration
+  * Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska ingå i NFS-klustret
+* Avsökningsport
   * Port 61000 för NW1
   * Port 61001 för NW2
-* Belastnings Utjämnings regler (om du använder Basic Load Balancer)
+* Regler för belastningsutjämning (om du använder grundläggande belastningsutjämnare)
   * 2049 TCP för NW1
   * 2049 UDP för NW1
   * 2049 TCP för NW2
   * 2049 UDP för NW2
 
-## <a name="set-up-a-highly-available-nfs-server"></a>Konfigurera en NFS-server med hög tillgänglighet
+## <a name="set-up-a-highly-available-nfs-server"></a>Konfigurera en NFS-server med högtillgänge
 
-Du kan antingen använda en Azure-mall från GitHub för att distribuera alla nödvändiga Azure-resurser, inklusive virtuella datorer, tillgänglighets uppsättning och belastningsutjämnare, eller så kan du distribuera resurserna manuellt.
+Du kan antingen använda en Azure-mall från GitHub för att distribuera alla nödvändiga Azure-resurser, inklusive virtuella datorer, tillgänglighetsuppsättning och belastningsutjämnare eller så kan du distribuera resurserna manuellt.
 
 ### <a name="deploy-linux-via-azure-template"></a>Distribuera Linux via Azure-mall
 
-Azure Marketplace innehåller en avbildning för SUSE Linux Enterprise Server för SAP-program 12 som du kan använda för att distribuera nya virtuella datorer.
-Du kan använda en av snabb starts mallarna på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar de virtuella datorerna, belastningsutjämnaren, tillgänglighets uppsättningen osv. Följ de här stegen för att distribuera mallen:
+Azure Marketplace innehåller en avbildning för SUSE Linux Enterprise Server för SAP Applications 12 som du kan använda för att distribuera nya virtuella datorer.
+Du kan använda en av snabbstartsmallarna på GitHub för att distribuera alla nödvändiga resurser. Mallen distribuerar de virtuella datorerna, belastningsutjämnaren, tillgänglighetsuppsättningen etc. Så här distribuerar du mallen:
 
-1. Öppna [fil Server mal len SAP][template-file-server] i Azure Portal   
+1. Öppna [SAP-filservermallen][template-file-server] i Azure-portalen   
 1. Ange följande parametrar
-   1. Resource prefix  
-      Ange prefixet som du vill använda. Värdet används som prefix för de resurser som distribueras.
+   1. Resursprefix  
+      Ange det prefix som du vill använda. Värdet används som prefix för de resurser som distribueras.
    2. Antal SAP-system  
-      Ange det antal SAP-system som ska använda den här fil servern. Detta distribuerar den nödvändiga mängden klient konfigurations inställningar, belastnings Utjämnings regler, avsöknings portar, diskar osv.
-   3. OS-typ  
+      Ange antalet SAP-system som ska använda den här filservern. Detta kommer att distribuera den erforderliga mängden frontend konfigurationer, belastningsutjämning regler, avsökningsportar, diskar etc.
+   3. Typ av os  
       Välj en av Linux-distributionerna. I det här exemplet väljer du SLES 12
-   4. Administratörens användar namn och administratörs lösen ord  
+   4. Administratörsanvändarnamn och administratörslösenord  
       En ny användare skapas som kan användas för att logga in på datorn.
-   5. Undernät-ID  
-      Om du vill distribuera den virtuella datorn till ett befintligt VNet där du har angett ett undernät som har definierats för den virtuella datorn ska du namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som/Subscriptions/ **&lt;prenumerations-id&gt;** /resourceGroups/ **&lt;resurs grupp namn&gt;** /providers/Microsoft.Network/virtualNetworks/ **&lt;virtuellt nätverks namn&gt;** /subnets/ **&lt;under näts namn&gt;**
+   5. Nät-ID  
+      Om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät som definierats ska den virtuella datorn tilldelas, namnge ID:t för det specifika undernätet. ID:t ser vanligtvis ut som /subscriptions/subscription**&lt;ID&gt;**/resourceGroups/**&lt;resource group name&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;virtual network name&gt;**/subnets/**&lt;undernätsnamn&gt; **
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Distribuera Linux manuellt via Azure Portal
 
-Du måste först skapa de virtuella datorerna för det här NFS-klustret. Därefter skapar du en belastningsutjämnare och använder de virtuella datorerna i backend-poolerna.
+Du måste först skapa de virtuella datorerna för det här NFS-klustret. Därefter skapar du en belastningsutjämnare och använder de virtuella datorerna i serverdapoolerna.
 
 1. Skapa en resursgrupp
-1. Skapa en Virtual Network
-1. Skapa en tillgänglighets uppsättning  
-   Ange Max uppdaterings domän
-1. Skapa den virtuella datorn 1 Använd minst SLES4SAP 12 SP3, i det här exemplet används SLES4SAP 12 SP3 BYOS image SLES for SAP Applications 12 SP3 (BYOS)  
-   Välj den tillgänglighets uppsättning som skapades tidigare  
-1. Skapa virtuell dator 2 Använd minst SLES4SAP 12 SP3, i det här exemplet SLES4SAP 12 SP3 BYOS image  
-   SLES för SAP-program 12 SP3 (BYOS) används  
-   Välj den tillgänglighets uppsättning som skapades tidigare  
-1. Lägg till en datadisk för varje SAP-system till båda virtuella datorerna.
-1. Skapa en Load Balancer (intern). Vi rekommenderar [standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
-   1. Följ de här anvisningarna för att skapa en standard Load Balancer:
-      1. Skapa IP-adresser för klient delen
-         1. IP-10.0.0.4 för NW1
-            1. Öppna belastningsutjämnaren, Välj klient delens IP-pool och klicka på Lägg till
-            1. Ange namnet på den nya IP-poolen för klient delen (till exempel **NW1-frontend**)
-            1. Ange tilldelningen till statisk och ange IP-adressen (till exempel **10.0.0.4**)
+1. Skapa ett virtuellt nätverk
+1. Skapa en tillgänglighetsuppsättning  
+   Ange maxuppdateringsdomän
+1. Skapa virtuell dator 1 Använd minst SLES4SAP 12 SP3, i det här exemplet används SLES4SAP 12 SP3 BYOS-avbildningen SLES For SAP Applications 12 SP3 (BYOS)  
+   Välj Tillgänglighetsuppsättning som skapats tidigare  
+1. Skapa virtuell dator 2 Använd minst SLES4SAP 12 SP3, i det här exemplet SLES4SAP 12 SP3 BYOS-avbildningen  
+   SLES För SAP Applications 12 SP3 (BYOS) används  
+   Välj Tillgänglighetsuppsättning som skapats tidigare  
+1. Lägg till en datadisk för varje SAP-system till båda virtuella datorer.
+1. Skapa en belastningsutjämnare (intern). Vi rekommenderar [standardbelastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).  
+   1. Följ dessa instruktioner för att skapa standard belastningsutjämnare:
+      1. Skapa IP-adresser för klientdel
+         1. IP-adress 10.0.0.4 för NW1
+            1. Öppna belastningsutjämnaren, välj IP-pool med klientdel och klicka på Lägg till
+            1. Ange namnet på den nya ip-poolen för frontend (till exempel **nw1-frontend**)
+            1. Ange tilldelningen till Statisk och ange IP-adressen (till exempel **10.0.0.4**)
             1. Klicka på OK
-         1. IP-10.0.0.5 för NW2
+         1. IP-adress 10.0.0.5 för NW2
             * Upprepa stegen ovan för NW2
-      1. Skapa backend-pooler
-         1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW1
-            1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
-            1. Ange namnet på den nya backend-poolen (till exempel **NW1-backend**)
-            1. Välj Virtual Network
+      1. Skapa backend-poolerna
+         1. Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska ingå i NFS-klustret
+            1. Öppna belastningsutjämnaren, välj backend-pooler och klicka på Lägg till
+            1. Ange namnet på den nya backend-poolen (till exempel **nw-backend**)
+            1. Välj virtuellt nätverk
             1. Klicka på Lägg till en virtuell dator
             1. Välj de virtuella datorerna i NFS-klustret och deras IP-adresser.
             1. Klicka på Add (Lägg till).
-         1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW2
-            * Upprepa stegen ovan för att skapa en backend-pool för NW2
-      1. Skapa hälso avsökningar
+      1. Skapa hälsoavsökningar
          1. Port 61000 för NW1
-            1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
-            1. Ange namnet på den nya hälso avsökningen (till exempel **NW1 – HP**)
-            1. Välj TCP som protokoll, Port 610**00**, Behåll intervallet 5 och tröskelvärde 2
+            1. Öppna belastningsutjämnaren, välj hälsoavsökningar och klicka på Lägg till
+            1. Ange namnet på den nya hälsoavsökningen (till exempel **nw1-hp**)
+            1. Välj TCP som protokoll, port 610**00**, behåll intervall 5 och felfritt tröskelvärde 2
             1. Klicka på OK
          1. Port 61001 för NW2
-            * Upprepa stegen ovan för att skapa en hälso avsökning för NW2
-      1. Belastnings Utjämnings regler
-         1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
-         1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **NW1 – lb**)
-         1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **NW1-frontend**. **NW1-backend** och **NW1 – HP**)
-         1. Välj **ha-portar**.
-         1. Öka tids gränsen för inaktivitet till 30 minuter
+            * Upprepa stegen ovan för att skapa en hälsoavsökning för NW2
+      1. Regler för belastningsutjämning
+         1. Öppna belastningsutjämnaren, välj belastningsutjämningsregler och klicka på Lägg till
+         1. Ange namnet på den nya belastningsutjämnarens regel (till exempel **nw1-lb**)
+         1. Välj den klient-IP-adress, serverdelspool och hälsoavsökning som du skapade tidigare (till exempel **nw1-frontend**. **nw-backend** och **nw1-hp**)
+         1. Välj **HA-portar**.
+         1. Öka tidsgränsen för inaktiv tid till 30 minuter
          1. **Se till att aktivera flytande IP**
          1. Klicka på OK
-         * Upprepa stegen ovan för att skapa belastnings Utjämnings regeln för NW2
-   1. Om scenariot kräver en grundläggande belastningsutjämnare följer du dessa anvisningar:
-      1. Skapa IP-adresser för klient delen
-         1. IP-10.0.0.4 för NW1
-            1. Öppna belastningsutjämnaren, Välj klient delens IP-pool och klicka på Lägg till
-            1. Ange namnet på den nya IP-poolen för klient delen (till exempel **NW1-frontend**)
-            1. Ange tilldelningen till statisk och ange IP-adressen (till exempel **10.0.0.4**)
+         * Upprepa stegen ovan för att skapa belastningsutjämningsregel för NW2
+   1. Om ditt scenario kräver grundläggande belastningsutjämnare följer du följande anvisningar:
+      1. Skapa IP-adresser för klientdel
+         1. IP-adress 10.0.0.4 för NW1
+            1. Öppna belastningsutjämnaren, välj IP-pool med klientdel och klicka på Lägg till
+            1. Ange namnet på den nya ip-poolen för frontend (till exempel **nw1-frontend**)
+            1. Ange tilldelningen till Statisk och ange IP-adressen (till exempel **10.0.0.4**)
             1. Klicka på OK
-         1. IP-10.0.0.5 för NW2
+         1. IP-adress 10.0.0.5 för NW2
             * Upprepa stegen ovan för NW2
-      1. Skapa backend-pooler
-         1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW1
-            1. Öppna belastningsutjämnaren, Välj backend-pooler och klicka på Lägg till
-            1. Ange namnet på den nya backend-poolen (till exempel **NW1-backend**)
+      1. Skapa backend-poolerna
+         1. Ansluten till primära nätverksgränssnitt för alla virtuella datorer som ska ingå i NFS-klustret
+            1. Öppna belastningsutjämnaren, välj backend-pooler och klicka på Lägg till
+            1. Ange namnet på den nya backend-poolen (till exempel **nw-backend**)
             1. Klicka på Lägg till en virtuell dator
-            1. Välj den tillgänglighets uppsättning som du skapade tidigare
-            1. Välj virtuella datorer för NFS-klustret
+            1. Välj den tillgänglighetsuppsättning som du skapade tidigare
+            1. Välj virtuella datorer i NFS-klustret
             1. Klicka på OK
-         1. Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i NFS-klustret för NW2
-            * Upprepa stegen ovan för att skapa en backend-pool för NW2
-      1. Skapa hälso avsökningar
+      1. Skapa hälsoavsökningar
          1. Port 61000 för NW1
-            1. Öppna belastningsutjämnaren, Välj hälso avsökningar och klicka på Lägg till
-            1. Ange namnet på den nya hälso avsökningen (till exempel **NW1 – HP**)
-            1. Välj TCP som protokoll, Port 610**00**, Behåll intervallet 5 och tröskelvärde 2
+            1. Öppna belastningsutjämnaren, välj hälsoavsökningar och klicka på Lägg till
+            1. Ange namnet på den nya hälsoavsökningen (till exempel **nw1-hp**)
+            1. Välj TCP som protokoll, port 610**00**, behåll intervall 5 och felfritt tröskelvärde 2
             1. Klicka på OK
          1. Port 61001 för NW2
-            * Upprepa stegen ovan för att skapa en hälso avsökning för NW2
-      1. Belastnings Utjämnings regler
+            * Upprepa stegen ovan för att skapa en hälsoavsökning för NW2
+      1. Regler för belastningsutjämning
          1. 2049 TCP för NW1
-            1. Öppna belastningsutjämnaren, Välj belastnings Utjämnings regler och klicka på Lägg till
-            1. Ange namnet på den nya belastnings Utjämnings regeln (till exempel **NW1 – lb-2049**)
-            1. Välj IP-adressen för klient delen, backend-poolen och hälso avsökningen som du skapade tidigare (till exempel **NW1-frontend**)
-            1. Behåll protokollets **TCP**, ange port **2049**
-            1. Öka tids gränsen för inaktivitet till 30 minuter
+            1. Öppna belastningsutjämnaren, välj belastningsutjämningsregler och klicka på Lägg till
+            1. Ange namnet på den nya belastningsutjämnarens regel (till exempel **nw1-lb-2049**)
+            1. Välj den klient-IP-adress, serverdelspool och hälsoavsökning som du skapade tidigare (till exempel **nw1-frontend**)
+            1. Behåll protokoll **TCP**, ange port **2049**
+            1. Öka tidsgränsen för inaktiv tid till 30 minuter
             1. **Se till att aktivera flytande IP**
             1. Klicka på OK
          1. 2049 UDP för NW1
@@ -217,51 +213,51 @@ Du måste först skapa de virtuella datorerna för det här NFS-klustret. Däref
             * Upprepa stegen ovan för port 2049 och UDP för NW2
 
 > [!Note]
-> När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för intern (ingen offentlig IP-adress) standard Azure-belastningsutjämnare, kommer det inte att finnas någon utgående Internet anslutning, om inte ytterligare konfiguration utförs för att tillåta routning till offentliga slut punkter. Mer information om hur du uppnår utgående anslutningar finns i Översikt över [offentliga slut punkter för Virtual Machines med Azure standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+> När virtuella datorer utan offentliga IP-adresser placeras i serverdelspoolen för intern (ingen offentlig IP-adress) Standard Azure load balancer, kommer det inte att finnas någon utgående internetanslutning, såvida inte ytterligare konfiguration utförs för att tillåta routning till offentliga slutpunkter. Mer information om hur du uppnår utgående anslutning finns [i Offentlig slutpunktsanslutning för virtuella datorer med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 > [!IMPORTANT]
-> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placerats bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar kommer hälso avsökningarna att Miss skadas. Ange parametern **net. IPv4. tcp_timestamps** till **0**. Mer information finns i [Load Balancer hälso avsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> Aktivera inte TCP-tidsstämplar på virtuella Azure-datorer som placeras bakom Azure Load Balancer. Om du aktiverar TCP-tidsstämplar misslyckas hälsoavsökningarna. Ange parameter **net.ipv4.tcp_timestamps** till **0**. Mer information finns i [belastningsutjämnares hälsoavsökningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
 
-### <a name="create-pacemaker-cluster"></a>Skapa pacemaker-kluster
+### <a name="create-pacemaker-cluster"></a>Skapa pacemakerkluster
 
-Följ stegen i [Konfigurera pacemaker på SUSE Linux Enterprise Server i Azure](high-availability-guide-suse-pacemaker.md) för att skapa ett grundläggande pacemaker-kluster för den här NFS-servern.
+Följ stegen i [Konfigurera Pacemaker på SUSE Linux Enterprise Server i Azure](high-availability-guide-suse-pacemaker.md) för att skapa ett grundläggande Pacemaker-kluster för den här NFS-servern.
 
 ### <a name="configure-nfs-server"></a>Konfigurera NFS-server
 
-Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , som endast gäller nod 1 eller **[2]** -gäller endast nod 2.
+Följande objekt föregås av antingen **[A]** - som gäller för alla noder, **[1]** - endast gäller för nod 1 eller **[2]** - endast gäller för nod 2.
 
-1. **[A]** namn matchning för värdnamn
+1. **[A]** Namnmatchning för installationsprogrammet
 
-   Du kan använda en DNS-server, eller så kan du ändra i/etc/hosts på alla noder. Det här exemplet visar hur du använder/etc/hosts-filen.
-   Ersätt IP-adress och värdnamn i följande kommandon
+   Du kan antingen använda en DNS-server eller ändra /etc/hosts på alla noder. Det här exemplet visar hur du använder filen /etc/hosts.
+   Ersätt IP-adressen och värdnamnet i följande kommandon
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
    
-   Infoga följande rader till/etc/hosts. Ändra IP-adressen och värdnamnet till matchar din miljö
+   Infoga följande rader till /etc/hosts. Ändra IP-adressen och värdnamnet så att de matchar din miljö
    
    <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    <b>10.0.0.5 nw2-nfs</b>
    </code></pre>
 
-1. **[A]** aktivera NFS-server
+1. **[A]** Aktivera NFS-server
 
-   Skapa rot-NFS-export posten
+   Skapa rot NFS-exportposten
 
    <pre><code>sudo sh -c 'echo /srv/nfs/ *\(rw,no_root_squash,fsid=0\)>/etc/exports'
    
    sudo mkdir /srv/nfs/
    </code></pre>
 
-1. **[A]** installera drbd-komponenter
+1. **[A]** Installera drbd-komponenter
 
    <pre><code>sudo zypper install drbd drbd-kmp-default drbd-utils
    </code></pre>
 
-1. **[A]** skapa en partition för drbd-enheterna
+1. **[A]** Skapa en partition för drbd-enheterna
 
-   Lista alla tillgängliga data diskar
+   Lista alla tillgängliga datadiskar
 
    <pre><code>sudo ls /dev/disk/azure/scsi1/
    </code></pre>
@@ -272,13 +268,13 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    lun0  lun1
    ```
 
-   Skapa partitioner för varje data disk
+   Skapa partitioner för varje datadisk
 
    <pre><code>sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun0'
    sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/disk/azure/scsi1/lun1'
    </code></pre>
 
-1. **[A]** skapa LVM-konfigurationer
+1. **[A]** Skapa LVM-konfigurationer
 
    Lista alla tillgängliga partitioner
 
@@ -302,12 +298,12 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo lvcreate -l 100%FREE -n <b>NW2</b> vg-<b>NW2</b>-NFS
    </code></pre>
 
-1. **[A]** konfigurera drbd
+1. **[A]** Konfigurera drbd
 
    <pre><code>sudo vi /etc/drbd.conf
    </code></pre>
 
-   Kontrol lera att filen drbd. conf innehåller följande två rader
+   Kontrollera att filen drbd.conf innehåller följande två rader
 
    <pre><code>include "drbd.d/global_common.conf";
    include "drbd.d/*.res";
@@ -318,7 +314,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>sudo vi /etc/drbd.d/global_common.conf
    </code></pre>
 
-   Lägg till följande poster i avsnittet hanterare och net.
+   Lägg till följande poster i hanteraren och nettoavsnittet.
 
    <pre><code>global {
         usage-count no;
@@ -357,12 +353,12 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    }
    </code></pre>
 
-1. **[A]** skapa NFS-drbd enheter
+1. **[A]** Skapa NFS-drbd-enheter
 
    <pre><code>sudo vi /etc/drbd.d/<b>NW1</b>-nfs.res
    </code></pre>
 
-   Infoga konfigurationen för den nya drbd-enheten och avsluta
+   Sätt i konfigurationen för den nya drbd-enheten och avsluta
 
    <pre><code>resource <b>NW1</b>-nfs {
         protocol     C;
@@ -387,7 +383,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    <pre><code>sudo vi /etc/drbd.d/<b>NW2</b>-nfs.res
    </code></pre>
 
-   Infoga konfigurationen för den nya drbd-enheten och avsluta
+   Sätt i konfigurationen för den nya drbd-enheten och avsluta
 
    <pre><code>resource <b>NW2</b>-nfs {
         protocol     C;
@@ -417,25 +413,25 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo drbdadm up <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** hoppa över första synkronisering
+1. **[1]** Hoppa över den första synkroniseringen
 
    <pre><code>sudo drbdadm new-current-uuid --clear-bitmap <b>NW1</b>-nfs
    sudo drbdadm new-current-uuid --clear-bitmap <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** ange den primära noden
+1. **[1]** Ange den primära noden
 
    <pre><code>sudo drbdadm primary --force <b>NW1</b>-nfs
    sudo drbdadm primary --force <b>NW2</b>-nfs
    </code></pre>
 
-1. **[1]** vänta tills de nya drbd-enheterna har synkroniserats
+1. **[1]** Vänta tills de nya drbd-enheterna synkroniseras
 
    <pre><code>sudo drbdsetup wait-sync-resource NW1-nfs
    sudo drbdsetup wait-sync-resource NW2-nfs
    </code></pre>
 
-1. **[1]** skapa fil system på drbd-enheterna
+1. **[1]** Skapa filsystem på drbd-enheterna
 
    <pre><code>sudo mkfs.xfs /dev/drbd0
    sudo mkdir /srv/nfs/NW1
@@ -464,26 +460,26 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
    sudo umount /srv/nfs/NW2
    </code></pre>
 
-1. **[A]** installations drbd Split-hjärna-identifiering
+1. **[A]** Installation drbd split-brain detection
 
-   När du använder drbd för att synkronisera data från en värd till en annan så kallas det delade hjärna. En delad hjärna är ett scenario där båda klusternoderna befordrade att drbd-enheten är primär och slutade synkronisera. Det kan vara en sällsynt situation, men du vill ändå hantera och lösa en delad hjärna så snabbt som möjligt. Det är därför viktigt att bli informerad när en delad hjärna har inträffat.
+   När du använder drbd för att synkronisera data från en värd till en annan, kan en så kallad delad hjärna uppstå. En delad hjärna är ett scenario där båda klusternoderna befordrade drbd-enheten till den primära och gick ur synk. Det kan vara en sällsynt situation men du vill fortfarande hantera och lösa en delad hjärna så fort som möjligt. Det är därför viktigt att bli meddelad när en delad hjärna hände.
 
-   Läs [den officiella drbd-dokumentationen](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) om hur du konfigurerar en delad hjärna-avisering.
+   Läs [den officiella drbd dokumentation](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) om hur man ställer in en delad hjärna anmälan.
 
-   Det är också möjligt att automatiskt återställa från ett delat hjärna-scenario. Om du vill ha mer information läser du [Automatisk delning av hjärna återställnings principer](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration)
+   Det är också möjligt att automatiskt återhämta sig från en delad hjärna scenario. Mer information finns i [Automatisk policy för återställning av hjärnan](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
    
-### <a name="configure-cluster-framework"></a>Konfigurera kluster ramverk
+### <a name="configure-cluster-framework"></a>Konfigurera klusterramverk
 
-1. **[1]** Lägg till NFS-drbd enheter för SAP system NW1 i kluster konfigurationen
+1. **[1]** Lägg till NFS-drbd-enheterna för SAP-system NW1 i klusterkonfigurationen
 
    > [!IMPORTANT]
-   > De senaste testerna visade situationer, där netcat slutar svara på begär Anden på grund av en efter släpning och dess begränsning av hantering av endast en anslutning. Netcat-resursen slutar lyssna på Azure Load Balancer-begäranden och den flytande IP-adressen blir otillgänglig.  
-   > För befintliga pacemaker-kluster rekommenderar vi att du tidigare ersätter netcat med socat. För närvarande rekommenderar vi att du använder Azure-lb Resource agent, som är en del av paketets resurs agenter, med följande paket versions krav:
-   > - För SLES 12 SP4/SP5 måste versionen vara minst resurs agenter-4.3.018. a7fb5035-3.30.1.  
-   > - För SLES 15/15 SP1 måste versionen vara minst resurs agenter-4.3.0184.6 ee15eb2-4.13.1.  
+   > Nyligen genomförda tester visade situationer, där netcat slutar svara på förfrågningar på grund av eftersläpning och dess begränsning av hantering endast en anslutning. Netcat-resursen slutar lyssna på Azure Load Balancer-begäranden och den flytande IP-adressen blir otillgänglig.  
+   > För befintliga Pacemaker-kluster rekommenderade vi tidigare att ersätta netcat med socat. För närvarande rekommenderar vi att du använder azure-lb-resursagent, som är en del av paketets resursagenter, med följande paketversionskrav:
+   > - För SLES 12 SP4/SP5 måste versionen vara minst resursagenter-4.3.018.a7fb5035-3.30.1.  
+   > - För SLES 15/15 SP1 måste versionen vara minst resursagenter-4.3.0184.6ee15eb2-4.13.1.  
    >
-   > Observera att ändringen kräver kortare stillestånds tid.  
-   > För befintliga pacemaker-kluster, om konfigurationen redan har ändrats för att använda socat, enligt beskrivningen i [Azure Load-Balancer Detection härdning](https://www.suse.com/support/kb/doc/?id=7024128), finns det inget krav på att växla direkt till Azure-lb Resource agent.
+   > Observera att ändringen kräver korta driftstopp.  
+   > För befintliga Pacemaker-kluster, om konfigurationen redan har ändrats för att använda socat enligt beskrivningen i [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), finns det inget krav på att växla omedelbart till azure-lb-resursagenten.
 
    <pre><code>sudo crm configure rsc_defaults resource-stickiness="200"
 
@@ -532,7 +528,7 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
      g-<b>NW1</b>_nfs ms-drbd_<b>NW1</b>_nfs:Master
    </code></pre>
 
-1. **[1]** Lägg till NFS-drbd enheter för SAP system NW2 i kluster konfigurationen
+1. **[1]** Lägg till NFS-drbd-enheterna för SAP-systemet NW2 i klusterkonfigurationen
 
    <pre><code># Enable maintenance mode
    sudo crm configure property maintenance-mode=true
@@ -575,15 +571,17 @@ Följande objekt har prefixet **[A]** -tillämpligt för alla noder, **[1]** , s
      g-<b>NW2</b>_nfs ms-drbd_<b>NW2</b>_nfs:Master
    </code></pre>
 
-1. **[1]** inaktivera underhålls läge
+   Alternativet `crossmnt` i `exportfs` klusterresurserna finns i vår dokumentation för bakåtkompatibilitet med äldre SLES-versioner.  
+
+1. **[1]** Inaktivera underhållsläge
    
    <pre><code>sudo crm configure property maintenance-mode=false
    </code></pre>
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Installera SAP-ASCS och-databasen](high-availability-guide-suse.md)
-* [Azure Virtual Machines planera och implementera SAP][planning-guide]
-* [Azure Virtual Machines distribution för SAP][deployment-guide]
+* [Installera SAP ASCS och databasen](high-availability-guide-suse.md)
+* [Planering och implementering av virtuella Azure-datorer för SAP][planning-guide]
+* [Azure Virtual Machines-distribution för SAP][deployment-guide]
 * [Azure Virtual Machines DBMS-distribution för SAP][dbms-guide]
-* Information om hur du upprättar hög tillgänglighet och planerar för haveri beredskap för SAP HANA på virtuella Azure-datorer finns i [hög tillgänglighet för SAP HANA på Azure-Virtual Machines (VM)][sap-hana-ha]
+* Mer information om hur du upprättar hög tillgänglighet och planerar för haveriberedskap av SAP HANA på virtuella Azure-datorer finns i [Hög tillgänglighet för SAP HANA på virtuella Azure-datorer (virtuella datorer)][sap-hana-ha]

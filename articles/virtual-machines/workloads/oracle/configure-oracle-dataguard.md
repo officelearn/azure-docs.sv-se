@@ -1,6 +1,6 @@
 ---
-title: Implementera Oracle data Guard på en virtuell Azure Linux-dator | Microsoft Docs
-description: Få snabbt till gång till Oracle data Guard i Azure-miljön.
+title: Implementera Oracle Data Guard på en virtuell Azure Linux-dator | Microsoft-dokument
+description: Snabbt få Oracle Data Guard igång i din Azure-miljö.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
@@ -14,32 +14,32 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 52723ca53b9156dd8e8183d92d8d4a350750c936
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7a165935e2c232167a0752272d244ce98bf6aff2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100098"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79534413"
 ---
-# <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementera Oracle data Guard på en virtuell Azure Linux-dator 
+# <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementera Oracle Data Guard på en virtuell Azure Linux-dator 
 
-Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här artikeln beskriver hur du använder Azure CLI för att distribuera en Oracle Database 12C-databas från Azure Marketplace-avbildningen. Den här artikeln visar sedan steg för steg hur du installerar och konfigurerar data Guard på en virtuell Azure-dator (VM).
+Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. I den här artikeln beskrivs hur du använder Azure CLI för att distribuera en Oracle Database 12c-databas från Azure Marketplace-avbildningen. I den här artikeln visas sedan steg för steg hur du installerar och konfigurerar Data Guard på en virtuell Azure-dator (VM).
 
-Innan du börjar ska du kontrol lera att Azure CLI är installerat. Mer information finns i [installations guiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Innan du börjar kontrollerar du att Azure CLI är installerat. Mer information finns i [installationsguiden för Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Förbereda miljön
 ### <a name="assumptions"></a>Antaganden
 
-Om du vill installera Oracle data Guard måste du skapa två virtuella Azure-datorer i samma tillgänglighets uppsättning:
+Om du vill installera Oracle Data Guard måste du skapa två virtuella Azure-datorer på samma tillgänglighetsuppsättning:
 
 - Den primära virtuella datorn (myVM1) har en Oracle-instans som körs.
-- MyVM2 (standby VM) har endast installerad Oracle-programvaran.
+- Standby-VM (myVM2) har endast Oracle-programvaran installerad.
 
-Marketplace-avbildningen som du använder för att skapa de virtuella datorerna är Oracle: Oracle-Database-EE: 12.1.0.2: senaste.
+Marketplace-avbildningen som du använder för att skapa de virtuella datorerna är Oracle:Oracle-Database-Ee:12.1.0.2:latest.
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure 
 
-Logga in på din Azure-prenumeration med hjälp av kommandot [AZ login](/cli/azure/reference-index) och följ anvisningarna på skärmen.
+Logga in på din Azure-prenumeration med kommandot [az login](/cli/azure/reference-index) och följ anvisningarna på skärmen.
 
 ```azurecli
 az login
@@ -47,7 +47,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resurs grupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`:
 
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Skapa en tillgänglighetsuppsättning
 
-Att skapa en tillgänglighets uppsättning är valfritt, men vi rekommenderar den. Mer information finns i [rikt linjer för Azures tillgänglighets uppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+Det är valfritt att skapa en tillgänglighetsuppsättning, men vi rekommenderar det. Mer information finns i [Riktlinjer för Azure-tillgänglighetsuppsättningar](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 
 ```azurecli
 az vm availability-set create \
@@ -71,7 +71,7 @@ az vm availability-set create \
 
 Skapa en virtuell dator med kommandot [az vm create](/cli/azure/vm). 
 
-I följande exempel skapas två virtuella datorer `myVM1` med `myVM2`namnet och. Det skapar också SSH-nycklar, om de inte redan finns på en standard nyckel plats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+I följande exempel skapas `myVM1` två `myVM2`virtuella datorer med namnet och . Det skapar också SSH nycklar, om de inte redan finns i en standardnyckel plats. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 Skapa myVM1 (primär):
 ```azurecli
@@ -85,9 +85,9 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-När du har skapat den virtuella datorn visar Azure CLI information som liknar följande exempel. Observera värdet för `publicIpAddress`. Du använder den här adressen för att få åtkomst till den virtuella datorn.
+När du har skapat den virtuella datorn visar Azure CLI information som liknar följande exempel. Notera värdet `publicIpAddress`på . Du använder den här adressen för att komma åt den virtuella datorn.
 
-```azurecli
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -100,7 +100,8 @@ När du har skapat den virtuella datorn visar Azure CLI information som liknar f
 }
 ```
 
-Skapa myVM2 (vänte läge):
+Skapa myVM2 (vänteläge):
+
 ```azurecli
 az vm create \
      --resource-group myResourceGroup \
@@ -112,11 +113,11 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Observera värdet `publicIpAddress` när du har skapat myVM2.
+Observera värdet `publicIpAddress` för när du har skapat myVM2.
 
 ### <a name="open-the-tcp-port-for-connectivity"></a>Öppna TCP-porten för anslutning
 
-I det här steget konfigureras externa slut punkter som tillåter fjärråtkomst till Oracle-databasen.
+Det här steget konfigurerar externa slutpunkter, vilket möjliggör fjärråtkomst till Oracle-databasen.
 
 Öppna porten för myVM1:
 
@@ -128,9 +129,9 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-Resultatet bör likna följande svar:
+Resultatet bör se ut ungefär som följande svar:
 
-```bash
+```output
 {
   "access": "Allow",
   "description": null,
@@ -161,7 +162,7 @@ az network nsg rule create --resource-group myResourceGroup\
 
 ### <a name="connect-to-the-virtual-machine"></a>Ansluta till den virtuella datorn
 
-Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt IP-adressen med `publicIpAddress` värdet för den virtuella datorn.
+Använd följande kommando för att skapa en SSH-session med den virtuella datorn. Ersätt IP-adressen `publicIpAddress` med värdet för den virtuella datorn.
 
 ```bash 
 $ ssh azureuser@<publicIpAddress>
@@ -171,7 +172,7 @@ $ ssh azureuser@<publicIpAddress>
 
 Oracle-programvaran är redan installerad på Marketplace-avbildningen, så nästa steg är att installera databasen. 
 
-Växla till Oracle superanvändare:
+Byt till Oracle-superanvändaren:
 
 ```bash
 $ sudo su - oracle
@@ -198,9 +199,10 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
+
 Utdata bör se ut ungefär som följande svar:
 
-```bash
+```output
 Copying database files
 1% complete
 2% complete
@@ -237,7 +239,7 @@ $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 $ ORACLE_SID=cdb1; export ORACLE_SID
 ```
 
-Alternativt kan du lägga till ORACLE_HOME och ORACLE_SID i/Home/Oracle/.bashrc-filen, så att dessa inställningar sparas för framtida inloggningar:
+Du kan också lägga till ORACLE_HOME och ORACLE_SID i filen /home/oracle/.bashrc, så att dessa inställningar sparas för framtida inloggningar:
 
 ```bash
 # add oracle home
@@ -246,9 +248,9 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1
 ```
 
-## <a name="configure-data-guard"></a>Konfigurera data Guard
+## <a name="configure-data-guard"></a>Konfigurera dataskydd
 
-### <a name="enable-archive-log-mode-on-myvm1-primary"></a>Aktivera Arkiv logg läge på myVM1 (primär)
+### <a name="enable-archive-log-mode-on-myvm1-primary"></a>Aktivera arkivloggläge på myVM1 (primärt)
 
 ```bash
 $ sqlplus / as sysdba
@@ -263,14 +265,15 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
-Aktivera tvingande loggning och se till att det finns minst en loggfil:
+
+Aktivera kraftloggning och kontrollera att det finns minst en loggfil:
 
 ```bash
 SQL> ALTER DATABASE FORCE LOGGING;
 SQL> ALTER SYSTEM SWITCH LOGFILE;
 ```
 
-Skapa återvänte loggar:
+Skapa loggar för återställning i vänteläge:
 
 ```bash
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo01.log') SIZE 50M;
@@ -279,7 +282,7 @@ SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_r
 SQL> ALTER DATABASE ADD STANDBY LOGFILE ('/u01/app/oracle/oradata/cdb1/standby_redo04.log') SIZE 50M;
 ```
 
-Aktivera Flashback (som gör det mycket enklare att återställa) och Ställ in\_standby\_-filhantering på Auto. Avsluta SQL * plus.
+Aktivera Flashback (vilket gör återställningen mycket\_enklare) och ställ in STANDBY FILE\_MANAGEMENT på auto. Avsluta SQL*Plus efter det.
 
 ```bash
 SQL> ALTER DATABASE FLASHBACK ON;
@@ -287,9 +290,9 @@ SQL> ALTER SYSTEM SET STANDBY_FILE_MANAGEMENT=AUTO;
 SQL> EXIT;
 ```
 
-### <a name="set-up-service-on-myvm1-primary"></a>Konfigurera tjänsten på myVM1 (primär)
+### <a name="set-up-service-on-myvm1-primary"></a>Konfigurera tjänst på myVM1 (primär)
 
-Redigera eller skapa filen Tnsnames. ora, som finns i mappen $ORACLE _HOME \ nätverk \ admin.
+Redigera eller skapa filen tnsnames.ora, som finns i mappen $ORACLE_HOME\network\admin.
 
 Lägg till följande poster:
 
@@ -315,7 +318,7 @@ cdb1_stby =
   )
 ```
 
-Redigera eller skapa filen Listener. ora, som finns i mappen $ORACLE _HOME \ nätverk \ admin.
+Redigera eller skapa filen listener.ora, som finns i mappen $ORACLE_HOME\network\admin.
 
 Lägg till följande poster:
 
@@ -340,12 +343,14 @@ SID_LIST_LISTENER =
 ADR_BASE_LISTENER = /u01/app/oracle
 ```
 
-Aktivera data Guard Broker:
+Aktivera Data Guard Broker:
+
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
+
 Starta lyssnaren:
 
 ```bash
@@ -353,7 +358,7 @@ $ lsnrctl stop
 $ lsnrctl start
 ```
 
-### <a name="set-up-service-on-myvm2-standby"></a>Konfigurera tjänsten på myVM2 (vänte läge)
+### <a name="set-up-service-on-myvm2-standby"></a>Konfigurera tjänst på myVM2 (vänteläge)
 
 SSH till myVM2:
 
@@ -367,7 +372,7 @@ Logga in som Oracle:
 $ sudo su - oracle
 ```
 
-Redigera eller skapa filen Tnsnames. ora, som finns i mappen $ORACLE _HOME \ nätverk \ admin.
+Redigera eller skapa filen tnsnames.ora, som finns i mappen $ORACLE_HOME\network\admin.
 
 Lägg till följande poster:
 
@@ -393,7 +398,7 @@ cdb1_stby =
   )
 ```
 
-Redigera eller skapa filen Listener. ora, som finns i mappen $ORACLE _HOME \ nätverk \ admin.
+Redigera eller skapa filen listener.ora, som finns i mappen $ORACLE_HOME\network\admin.
 
 Lägg till följande poster:
 
@@ -426,9 +431,10 @@ $ lsnrctl start
 ```
 
 
-### <a name="restore-the-database-to-myvm2-standby"></a>Återställa databasen till myVM2 (vänte läge)
+### <a name="restore-the-database-to-myvm2-standby"></a>Återställa databasen till myVM2 (vänteläge)
 
-Skapa parameter filen/tmp/initcdb1_stby.ora med följande innehåll:
+Skapa parameterfilen /tmp/initcdb1_stby.ora med följande innehåll:
+
 ```bash
 *.db_name='cdb1'
 ```
@@ -442,11 +448,12 @@ mkdir -p /u01/app/oracle/fast_recovery_area/cdb1
 mkdir -p /u01/app/oracle/admin/cdb1/adump
 ```
 
-Skapa en lösen ords fil:
+Skapa en lösenordsfil:
 
 ```bash
 $ orapwd file=/u01/app/oracle/product/12.1.0/dbhome_1/dbs/orapwcdb1 password=OraPasswd1 entries=10
 ```
+
 Starta databasen på myVM2:
 
 ```bash
@@ -457,13 +464,14 @@ SQL> STARTUP NOMOUNT PFILE='/tmp/initcdb1_stby.ora';
 SQL> EXIT;
 ```
 
-Återställ databasen med hjälp av RMAN-verktyget:
+Återställa databasen med hjälp av RMAN-verktyget:
 
 ```bash
 $ rman TARGET sys/OraPasswd1@cdb1 AUXILIARY sys/OraPasswd1@cdb1_stby
 ```
 
 Kör följande kommandon i RMAN:
+
 ```bash
 DUPLICATE TARGET DATABASE
   FOR STANDBY
@@ -474,16 +482,19 @@ DUPLICATE TARGET DATABASE
   NOFILENAMECHECK;
 ```
 
-Du bör se meddelanden som liknar följande när kommandot har slutförts. Avsluta RMAN.
-```bash
+Du bör se meddelanden som liknar följande när kommandot är klart. Avsluta RMAN.
+
+```output
 media recovery complete, elapsed time: 00:00:00
 Finished recover at 29-JUN-17
 Finished Duplicate Db at 29-JUN-17
+```
 
+```bash
 RMAN> EXIT;
 ```
 
-Alternativt kan du lägga till ORACLE_HOME och ORACLE_SID i/Home/Oracle/.bashrc-filen, så att dessa inställningar sparas för framtida inloggningar:
+Du kan också lägga till ORACLE_HOME och ORACLE_SID i filen /home/oracle/.bashrc, så att dessa inställningar sparas för framtida inloggningar:
 
 ```bash
 # add oracle home
@@ -492,16 +503,16 @@ export ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1
 export ORACLE_SID=cdb1
 ```
 
-Aktivera data Guard Broker:
+Aktivera Data Guard Broker:
 ```bash
 $ sqlplus / as sysdba
 SQL> ALTER SYSTEM SET dg_broker_start=true;
 SQL> EXIT;
 ```
 
-### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Konfigurera data Guard Broker på myVM1 (primär)
+### <a name="configure-data-guard-broker-on-myvm1-primary"></a>Konfigurera Data Guard Broker på myVM1 (primär)
 
-Starta data Guard Manager och logga in med hjälp av SYS och ett lösen ord. (Använd inte OS-autentisering.) Utför följande:
+Starta Data Guard Manager och logga in med hjälp av SYS och ett lösenord. (Använd inte os-autentisering.) Utför följande:
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -520,6 +531,7 @@ Enabled.
 ```
 
 Granska konfigurationen:
+
 ```bash
 DGMGRL> SHOW CONFIGURATION;
 
@@ -536,13 +548,13 @@ Configuration Status:
 SUCCESS   (status updated 26 seconds ago)
 ```
 
-Du har slutfört installationen av Oracle data Guard. I nästa avsnitt visas hur du testar anslutningen och växlar över.
+Du har slutfört installationen av Oracle Data Guard. I nästa avsnitt visas hur du testar anslutningen och växlar över.
 
-### <a name="connect-the-database-from-the-client-machine"></a>Anslut databasen från klient datorn
+### <a name="connect-the-database-from-the-client-machine"></a>Ansluta databasen från klientmaskinen
 
-Uppdatera eller skapa Tnsnames. ora-filen på klient datorn. Den här filen finns vanligt vis i $ORACLE _HOME \ Network \ admin.
+Uppdatera eller skapa filen tnsnames.ora på klientdatorn. Den här filen finns vanligtvis i $ORACLE_HOME\network\admin.
 
-Ersätt IP-adresserna med `publicIpAddress` värdena för myVM1 och myVM2:
+Ersätt IP-adresserna `publicIpAddress` med dina värden för myVM1 och myVM2:
 
 ```bash
 cdb1=
@@ -572,7 +584,7 @@ cdb1_stby=
   )
 ```
 
-Starta SQL * plus:
+Starta SQL*Plus:
 
 ```bash
 $ sqlplus sys/OraPasswd1@cdb1
@@ -586,11 +598,12 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 
 SQL>
 ```
-## <a name="test-the-data-guard-configuration"></a>Testa data Guard-konfigurationen
+
+## <a name="test-the-data-guard-configuration"></a>Testa databevakningskonfigurationen
 
 ### <a name="switch-over-the-database-on-myvm1-primary"></a>Växla över databasen på myVM1 (primär)
 
-Växla från primär till standby (cdb1 till cdb1_stby):
+Så här växlar du från primärt till vänteläge (cdb1 till cdb1_stby):
 
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1
@@ -614,9 +627,9 @@ Switchover succeeded, new primary is "cdb1_stby"
 DGMGRL>
 ```
 
-Nu kan du ansluta till standby-databasen.
+Du kan nu ansluta till väntedatabasen.
 
-Starta SQL * plus:
+Starta SQL*Plus:
 
 ```bash
 
@@ -632,9 +645,10 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 SQL>
 ```
 
-### <a name="switch-over-the-database-on-myvm2-standby"></a>Växla över databasen på myVM2 (vänte läge)
+### <a name="switch-over-the-database-on-myvm2-standby"></a>Växla över databasen på myVM2 (vänteläge)
 
 Om du vill växla över kör du följande på myVM2:
+
 ```bash
 $ dgmgrl sys/OraPasswd1@cdb1_stby
 DGMGRL for Linux: Version 12.1.0.2.0 - 64bit Production
@@ -656,9 +670,9 @@ Database mounted.
 Switchover succeeded, new primary is "cdb1"
 ```
 
-Nu bör du nu kunna ansluta till den primära databasen.
+Återigen bör du nu kunna ansluta till den primära databasen.
 
-Starta SQL * plus:
+Starta SQL*Plus:
 
 ```bash
 
@@ -674,12 +688,12 @@ With the Partitioning, OLAP, Advanced Analytics and Real Application Testing opt
 SQL>
 ```
 
-Du har slutfört installationen och konfigurationen av data Guard på Oracle Linux.
+Du har slutfört installationen och konfigurationen av Data Guard på Oracle Linux.
 
 
 ## <a name="delete-the-virtual-machine"></a>Ta bort den virtuella datorn
 
-När du inte längre behöver den virtuella datorn kan du använda följande kommando för att ta bort resurs gruppen, den virtuella datorn och alla relaterade resurser:
+När du inte längre behöver den virtuella datorn kan du använda följande kommando för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
 
 ```azurecli
 az group delete --name myResourceGroup
@@ -687,6 +701,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudier: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
+[Självstudiekurs: Skapa virtuella datorer med hög tillgång](../../linux/create-cli-complete.md)
 
 [Utforska Azure CLI-exempel för VM-distribution](../../linux/cli-samples.md)

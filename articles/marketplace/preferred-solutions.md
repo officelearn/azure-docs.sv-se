@@ -1,20 +1,19 @@
 ---
-title: Azure Marketplace-och AppSource-rekommenderade lösningar
-description: Översikt över önskade lösningar i Marketplace och hur de är markerade
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
+title: Azure Marketplace och AppSource-önskade lösningar
+description: Översikt över önskade lösningar på Marketplace och hur de väljs
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: ellacroi
-ms.openlocfilehash: 9c481d7781ff35623655b472dbcfae6d50ada40a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 83ac4a3e69cac8a83e41ad52c9b93a1b61de7ed6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827826"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285086"
 ---
-# <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Önskade lösningar i Azure Marketplace och AppSource
+# <a name="preferred-solutions-in-azure-marketplace-and-appsource"></a>Önskade lösningar på Azure Marketplace och AppSource
 
-En Microsoft-prioriterad lösning är ett moln program som valts för kvalitet, prestanda och möjlighet att adressera kund behov i ett visst bransch lodrätt eller lösnings utrymme. Ett team med Microsoft-experter verifierar lösningar från partner med vissa beprövade kompetenser och funktioner. Dessa lösningar finns i vår Cloud Marketplace-butiker, Azure Marketplace och AppSource, samt i Azure Portal. Rekommenderade lösningar på AppSource kan identifieras av bransch lodräta. Önskade lösningar på Azure Marketplace och Azure Portal kan upptäckas över horisontella lösnings kategorier.
+En Microsoft-prioriterad lösning är ett molnprogram som valts för dess kvalitet, prestanda och förmåga att tillgodose kundernas behov i ett visst branschverti eller lösningsområde. Ett team av Microsoft-experter validerar lösningar från partner med specifika beprövade kompetenser och funktioner. Dessa lösningar finns i våra molnmarknadsfönster, Azure Marketplace och AppSource, samt i Azure-portalen. Önskade lösningar på AppSource kan upptäckas av branschvertika. Önskade lösningar på Azure Marketplace och Azure-portalen kan identifieras i kategorier för horisontella lösningar.

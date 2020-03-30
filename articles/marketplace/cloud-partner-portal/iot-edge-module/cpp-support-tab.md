@@ -1,45 +1,44 @@
 ---
 title: Stöd för en Azure IoT Edge-modul | Azure Marketplace
-description: Support alternativ för en IoT Edge-modul.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+description: Supportalternativ för en IoT Edge-modul.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: fe8ff895990471107cfaa229f7b4ced28b477afa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 439de17ef9eb9c0c2c264884652236d47600b8ea
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813526"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286514"
 ---
-# <a name="iot-edge-module-support-tab"></a>Fliken stöd för IoT Edge modul
+# <a name="iot-edge-module-support-tab"></a>Fliken Stöd för IoT-kantmodul
 
-Använd fliken **support** på sidan **ny erbjudande** för att tillhandahålla teknisk support och support resurser för ditt erbjudande.  Följande indata finns i support formuläret: **tekniker kontakt**, **kund support**och support-URL: **er**. En asterisk (*) som läggs till i fält namnet visar att det är obligatoriskt.
+Använd fliken **Support** på sidan **Nytt erbjudande för** att tillhandahålla tekniska resurser och användarsupport för ditt erbjudande.  Följande inmatningsområden finns i supportformuläret: **Teknisk kontakt,** **kundsupport**och **supportadresser**. En asterisk (*) som läggs till i fältnamnet anger att det krävs.
 
-![Fliken stöd i det nya erbjudande formuläret för IoT Edge moduler](./media/iot-edge-module-support-tab.png)
+![Fliken Support i formuläret Nytt erbjudande för IoT Edge-moduler](./media/iot-edge-module-support-tab.png)
 
-## <a name="support-form-fields"></a>Formulär fält för support
+## <a name="support-form-fields"></a>Formulärfält för stöd
 
-I följande tabell beskrivs formulär fälten och vilka indatatyper som krävs för varje fält. Obligatoriska fält förutsägs av en asterisk (*).
+I följande tabell beskrivs formulärfälten och indata som krävs för varje fält. Obligatoriska fält åtalas av en asterisk (*).
 
-|  **Fält**                |     **Beskrivning**                                                          |
+|  **Field**                |     **Beskrivning**                                                          |
 |  ---------                |     ---------------                                                          |
 | ***Teknisk kontakt***  |  *Fungerar som en teknisk kontakt mellan Microsoft och din organisation* | 
-| **Namn\***                  | Namnet på den person eller grupp som fungerar som teknisk/teknisk support     |
-| **E-\***                 | E-postadress till den här tekniska kontakten                                      |
+| **Namn\***                  | Namn på den person eller grupp som fungerar som teknisk/teknisk support     |
+| **Email\***                 | E-postadress till denna tekniska kontakt                                      |
 | **Telefon\***                 | Telefonnummer för teknisk support                                           |
-| ***Kund support***  | *Tar emot support biljetter som har öppnats av kunder i Azure* |
-| **Namn\***                  | Namnet på den person eller grupp som fungerar som kund support                  |
-| **E-\***                 | E-postadress till kund support                                            |
-| **Telefon\***                 | Telefonnummer för kund support                                            |
-| ***Support-URL: er***  | *Support webbplatser som Microsoft kommer att använda när dina kunder öppnar support biljetter* |
-| **Offentlig Azure**          | URL för offentlig Internet support webbplats                                         |
-| **Azure Government molnet**| URL för myndighets moln support webbplats                                        |
+| ***Kundsupport***  | *Tar emot supportärenden som öppnats av kunder i Azure* |
+| **Namn\***                  | Namn på den person eller grupp som fungerar som kundsupport                  |
+| **Email\***                 | E-postadress till kundsupport                                            |
+| **Telefon\***                 | Telefonnummer för kundsupport                                            |
+| ***Stöd-url:er***  | *Supportwebbplatser som Microsoft kommer att använda när dina kunder öppnar supportbiljetter* |
+| **Offentlig Azure**          | URL för offentlig webbplats för internetsupport                                         |
+| **Azure Government Cloud**| URL för supportwebbplats för myndighetsmoln                                        |
 |   |   |
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har slutfört support informationen är du redo att [publicera ditt erbjudande](./cpp-publish-offer.md).
+När du har gett supportinformation är du redo att [publicera erbjudandet.](./cpp-publish-offer.md)

@@ -1,18 +1,18 @@
 ---
-title: Anslut med MySQL Workbench – Azure Database for MariaDB
+title: Anslut med MySQL Workbench - Azure Database för MariaDB
 description: Den här snabbstarten förklarar hur du använder MySQL Workbench för att ansluta till och fråga efter data från Azure Database for MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/02/2018
-ms.openlocfilehash: 85a38fe3e2d17eb53d1ed5f8f231898849bd01db
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 4bb1a71c5d8a58e6d94007554c72019001d395db
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772069"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79529008"
 ---
 # <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MariaDB: Använda MySQL Workbench för att ansluta och fråga efter data
 
@@ -22,7 +22,7 @@ Den här snabbstarten visar hur du ansluter till en Azure Database for MariaDB-i
 
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
 
-- [Skapa en Azure Database for MariaDB-server med hjälp av Azure-portalen](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- [Skapa en Azure Database for MariaDB-server med Azure-portalen](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 - [Skapa en Azure Database for MariaDB-server med Azure CLI](./quickstart-create-mariadb-server-database-using-azure-cli.md)
 
 ## <a name="install-mysql-workbench"></a>Installera MySQL Workbench
@@ -55,10 +55,10 @@ För att ansluta till en Azure Database for MariaDB-server med MySQL Workbench g
    |---|---|---|
    |   Anslutningsnamn | **Demoanslutning** | Ange ett namn på anslutningen. |
    | Anslutningsmetod | **Standard (TCP/IP)** | Standard (TCP/IP) är tillräckligt. |
-   | Värdnamn | *servernamn* | Ange det servernamnsvärde som du använde när du skapade Azure Database for MariaDB-instansen. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständiga domännamnet (\*.mariadb.database.azure.com) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.  |
+   | Värdnamn | *serverns namn* | Ange det servernamnsvärde som du använde när du skapade Azure Database for MariaDB-instansen. Exempelservern är **mydemoserver.mariadb.database.azure.com**. Använd det fullständiga domännamnet (\*.mariadb.database.azure.com) som i det här exemplet. Om du inte kommer ihåg namnet på servern följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformation.  |
    | Port | **3306** | Använd alltid port 3306 när du ansluter till Azure Database för MariaDB. |
-   | Användarnamn |  *inloggning för serveradministratör* | Ange inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-instans. Vårt exempel användar namn är min **admin\@mydemoserver**. Om du inte kommer ihåg inloggningsnamnet som serveradministratör följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformationen. Formatet är *användar namn\@servername*.
-   | Lösenord | *ditt lösenord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
+   | Användarnamn |  *inloggningsnamn för serveradministratör* | Ange inloggningen för serveradministratör som du har använt för att skapa Azure Database for MariaDB-instans. Vårt exempel användarnamn är **myadmin\@mydemoserver**. Om du inte kommer ihåg inloggningsnamnet som serveradministratör följer du anvisningarna i föregående avsnitt för att hitta anslutningsinformationen. Formatet är *\@användarnamn servernamn*.
+   | lösenord | *ditt lösenord* | Klicka på knappen **Spara i valvet** för att spara lösenordet. |
 
    ![Skapa en ny anslutning](./media/connect-workbench/2-setup-new-connection.png)
 

@@ -1,36 +1,36 @@
 ---
-title: Väder täckning | Microsoft Azure Maps
-description: I den här artikeln får du lära dig om väder täckning i Microsoft Azure Maps.
-author: farah-alyasari
-ms.author: v-faalya
+title: Vädertäckning | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om vädertäckning i Microsoft Azure Maps.
+author: philmea
+ms.author: philmea
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fdae00a07b364252ae6d297a6df5eb242beac262
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 60761f7641d8cf87121992fce9050aea0f0b434b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207952"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80333574"
 ---
-# <a name="azure-maps-weather-coverage"></a>Azure Maps väder täckning
+# <a name="azure-maps-weather-coverage"></a>Vädertäckning för Azure Maps
 
-Den här artikeln innehåller information om disponering för Azure Maps [väder tjänster](https://aka.ms/AzureMapsWeatherService). Azure Maps väder data tjänster returnerar information som radar paneler, aktuella väder förhållanden, väder prognoser och väder längs en väg.
+Den här artikeln innehåller täckningsinformation för Azure Maps [Weather services](https://aka.ms/AzureMapsWeatherService). Azure Maps Väderdatatjänster returnerar information som radarpaneler, aktuella väderförhållanden, väderprognoser och vädret längs en rutt.
 
-Azure Maps har inte samma nivå av information och exakthet för alla länder och regioner.
+Azure Maps har inte samma nivå av information och noggrannhet för alla länder och regioner.
 
-Följande tabell innehåller information om vilken typ av väder information som du kan begära från varje land/region.
+I följande tabell finns information om vilken typ av väderinformation du kan begära från varje land/region.
 
 | Symbol | Betydelse |
 |--------|---------|
-|*       |Täcker väder utmed väg, aktuella villkor, Tim prognos, kvartals dags prognos och dagliga prognos-API: er |
+|*       |Täcker väder längs rutt, aktuella förhållanden, timprognos, kvartalsprognos och dagliga prognos-API:er |
 
 
 ## <a name="americas"></a>Nord- och Sydamerika
 
-| Land/region              |  Satellit paneler | Minut prognos, radar paneler | Andra | 
+| Land/region              |  Satellitplattor | Minut prognos, radar plattor | Övrigt* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Anguilla                                 | ✓ |   |  ✓| 
 | Antarktis                               | ✓ |   |  ✓|
@@ -40,11 +40,11 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Bahamas                                  | ✓ |   |  ✓| 
 | Barbados                                 | ✓ |   |  ✓| 
 | Belize                                   | ✓ |   |  ✓| 
-| Snygg                                  | ✓ |   |  ✓| 
+| Bermuda                                  | ✓ |   |  ✓| 
 | Bolivia                                  | ✓ |   |  ✓| 
 | Bonaire                                  | ✓ |   |  ✓| 
 | Brasilien                                   | ✓ |   |  ✓| 
-| Brittiska Jungfru öarna                   | ✓ |   |  ✓| 
+| Brittiska Jungfruöarna                   | ✓ |   |  ✓| 
 | Kanada                                   | ✓ | ✓ |  ✓| 
 | Caymanöarna                           | ✓ |   |  ✓| 
 | Chile                                    | ✓ |   |  ✓| 
@@ -56,9 +56,9 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Dominikanska republiken                       | ✓ |   |  ✓| 
 | Ecuador                                  | ✓ |   |  ✓| 
 | El Salvador                              | ✓ |   |  ✓| 
-| Falk lands öarna                         | ✓ |   |  ✓| 
+| Falklandsöarna                         | ✓ |   |  ✓| 
 | Franska Guyana                            | ✓ |   |  ✓| 
-| Grönland (Danmark)                                | ✓ |   |  ✓| 
+| Grönland                                | ✓ |   |  ✓| 
 | Grenada                                  | ✓ |   |  ✓| 
 | Guadeloupe                               | ✓ |   |  ✓| 
 | Guatemala                                | ✓ |   |  ✓| 
@@ -82,12 +82,12 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Saint Vincent och Grenadinerna         | ✓ |   |  ✓| 
 | Sint Eustatius                           | ✓ |   |  ✓|  
 | Sint Maarten                             | ✓ |   |  ✓| 
-| Södra Georgien och Sydsandwichöarna | ✓ |   |  ✓| 
+| Sydgeorgien och Sydsandwichöarna | ✓ |   |  ✓| 
 | Surinam                                 | ✓ |   |  ✓| 
 | Trinidad och Tobago                      | ✓ |   |  ✓| 
 | Turks- och Caicosöarna                 | ✓ |   |  ✓| 
-| Amerikanska öar                    | ✓ |   |  ✓| 
-| Amerikanska jungfru öarna                      | ✓ |   |  ✓| 
+| Amerikanska outlyingöarna                    | ✓ |   |  ✓| 
+| Amerikanska Jungfruöarna                      | ✓ |   |  ✓| 
 | USA                            | ✓ | ✓ |  ✓| 
 | Uruguay                                  | ✓ |   |  ✓| 
 | Venezuela                                | ✓ |   |  ✓| 
@@ -95,30 +95,30 @@ Följande tabell innehåller information om vilken typ av väder information som
 
 ## <a name="middle-east-and-africa"></a>Mellanöstern och Afrika
 
-| Land/region              |  Satellit paneler | Minut prognos, radar paneler | Andra | 
+| Land/region              |  Satellitplattor | Minut prognos, radar plattor | Övrigt* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Algeriet                     | ✓               |                              |        ✓| 
 | Angola                      | ✓               |                              |        ✓| 
 | Bahrain                     | ✓               |                              |        ✓| 
 | Benin                       | ✓               |                              |        ✓| 
 | Botswana                    | ✓               |                              |        ✓| 
-| Bouvet-ön               | ✓               |                              |        ✓| 
+| Bouvetön               | ✓               |                              |        ✓| 
 | Burkina Faso                | ✓               |                              |        ✓| 
 | Burundi                     | ✓               |                              |        ✓| 
 | Kamerun                    | ✓               |                              |        ✓| 
-| Kap Verde                  | ✓               |                              |        ✓| 
+| Cabo Verde                  | ✓               |                              |        ✓| 
 | Centralafrikanska republiken    | ✓               |                              |        ✓| 
 | Tchad                        | ✓               |                              |        ✓| 
 | Komorerna                     | ✓               |                              |        ✓| 
-| Kongo (Dr)                 | ✓               |                              |        ✓|
-| Côte D' Ivoire               | ✓               |                              |        ✓| 
+| Kongo (DR)                 | ✓               |                              |        ✓|
+| Elfenbenskusten               | ✓               |                              |        ✓| 
 | Djibouti                    | ✓               |                              |        ✓| 
 | Egypten                       | ✓               |                              |        ✓| 
 | Ekvatorialguinea           | ✓               |                              |        ✓| 
 | Eritrea                     | ✓               |                              |        ✓| 
-| eSwatini                    | ✓               |                              |        ✓| 
+| eSwatini (på)                    | ✓               |                              |        ✓| 
 | Etiopien                    | ✓               |                              |        ✓| 
-| Franska södra territorier | ✓               |                              |        ✓| 
+| Franska sydterritorierna | ✓               |                              |        ✓| 
 | Gabon                       | ✓               |                              |        ✓| 
 | Gambia                      | ✓               |                              |        ✓| 
 | Ghana                       | ✓               |                              |        ✓| 
@@ -150,7 +150,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Qatar                       | ✓               |                              |        ✓| 
 | Réunion                     | ✓               |                              |        ✓| 
 | Rwanda                      | ✓               |                              |        ✓| 
-| Saint Helena, Ascension, Tristan da Cunha        | ✓               |                              |        ✓| 
+| S:t Helena, Uppstigning, Tristan da Cunha        | ✓               |                              |        ✓| 
 | São Tomé och Príncipe       | ✓               |                              |        ✓| 
 | Saudiarabien                | ✓               |                              |        ✓| 
 | Senegal                     | ✓               |                              |        ✓| 
@@ -174,25 +174,25 @@ Följande tabell innehåller information om vilken typ av väder information som
 
 ## <a name="asia-pacific"></a>Asien och stillahavsområdet
 
-| Land/region              |  Satellit paneler | Minut prognos, radar paneler | Andra | 
+| Land/region              |  Satellitplattor | Minut prognos, radar plattor | Övrigt* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|  
 | Afghanistan                       | ✓ |   |  ✓| 
 | Amerikanska Samoa                    | ✓ |   |  ✓| 
 | Australien                         | ✓ | ✓ |  ✓| 
 | Bangladesh                        | ✓ |   |  ✓| 
 | Bhutan                            | ✓ |   |  ✓| 
-| Brittiska territoriet i Indiska oceanen    | ✓ |   |  ✓| 
+| Brittiska territoriet i Indiska Oceanen    | ✓ |   |  ✓| 
 | Brunei                            | ✓ |   |  ✓| 
 | Kambodja                          | ✓ |   |  ✓| 
 | Kina                             | ✓ | ✓ |  ✓| 
 | Julön                  | ✓ |   |  ✓| 
-| Kokos öarna           | ✓ |   |  ✓| 
+| Kokosöarna           | ✓ |   |  ✓| 
 | Cooköarna                      | ✓ |   |  ✓| 
 | Fiji                              | ✓ |   |  ✓| 
 | Franska Polynesien                  | ✓ |   |  ✓| 
 | Guam                              | ✓ |   |  ✓| 
-| Heard-och McDonaldöarna | ✓ |   |  ✓| 
-| Hongkong SAR                     | ✓ |   |  ✓| 
+| Heardön och McDonaldöarna | ✓ |   |  ✓| 
+| Hongkong                     | ✓ |   |  ✓| 
 | Indien                             | ✓ |   |  ✓| 
 | Indonesien                         | ✓ |   |  ✓| 
 | Japan                             | ✓ | ✓ |  ✓| 
@@ -201,10 +201,10 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Korea                             | ✓ | ✓ |  ✓| 
 | Kirgizistan                        | ✓ |   |  ✓| 
 | Laos                              | ✓ |   |  ✓| 
-| Macao SAR                         | ✓ |   |  ✓| 
+| Folkrepubliken Kinas särskilda administrativa region Macao                         | ✓ |   |  ✓| 
 | Malaysia                          | ✓ |   |  ✓| 
 | Maldiverna                          | ✓ |   |  ✓| 
-| Marshall öarna                  | ✓ |   |  ✓| 
+| Marshallöarna                  | ✓ |   |  ✓| 
 | Mikronesien                        | ✓ |   |  ✓| 
 | Mongoliet                          | ✓ |   |  ✓| 
 | Myanmar                           | ✓ |   |  ✓| 
@@ -214,16 +214,16 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Nya Zeeland                       | ✓ |   |  ✓| 
 | Niue                              | ✓ |   |  ✓| 
 | Norfolkön                    | ✓ |   |  ✓| 
-| Nord Korea                       | ✓ |   |  ✓| 
+| Nordkorea                       | ✓ |   |  ✓| 
 | Nordmarianerna          | ✓ |   |  ✓| 
 | Pakistan                          | ✓ |   |  ✓| 
 | Palau                             | ✓ |   |  ✓| 
 | Papua Nya Guinea                  | ✓ |   |  ✓| 
 | Filippinerna                       | ✓ |   |  ✓| 
-| Pitcairn                  | ✓ |   |  ✓| 
-| Samoaöarna                             | ✓ |   |  ✓| 
+| Pitcairnöarna                  | ✓ |   |  ✓| 
+| Samoa                             | ✓ |   |  ✓| 
 | Singapore                         | ✓ |   |  ✓| 
-| Salomonöarna                   | ✓ |   |  ✓| 
+| Solomonöarna                   | ✓ |   |  ✓| 
 | Sri Lanka                         | ✓ |   |  ✓| 
 | Taiwan                            | ✓ |   |  ✓| 
 | Tadzjikistan                        | ✓ |   |  ✓| 
@@ -241,7 +241,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 
 ## <a name="europe"></a>Europa
 
-| Land/region              |  Satellit paneler | Minut prognos, radar paneler | Andra | 
+| Land/region              |  Satellitplattor | Minut prognos, radar plattor | Övrigt* | 
 |-----------------------------|:----------------:|:-----------------:|:--------:|
 | Albanien                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
@@ -254,7 +254,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Bulgarien               | ✓ |   |  ✓| 
 | Kroatien                | ✓ | ✓ |  ✓| 
 | Cypern                 | ✓ |   |  ✓| 
-| Czechia                | ✓ | ✓ |  ✓| 
+| Tjeckien                | ✓ | ✓ |  ✓| 
 | Danmark                | ✓ | ✓ |  ✓| 
 | Estland                | ✓ | ✓ |  ✓| 
 | Färöarna          | ✓ |   |  ✓| 
@@ -264,12 +264,12 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Tyskland                | ✓ | ✓ |  ✓| 
 | Gibraltar              | ✓ | ✓ |  ✓| 
 | Grekland                 | ✓ |   |  ✓| 
-| Guernseypund               | ✓ |   |  ✓| 
+| Guernsey               | ✓ |   |  ✓| 
 | Ungern                | ✓ | ✓ |  ✓| 
 | Island                | ✓ |   |  ✓| 
 | Irland                | ✓ | ✓ |  ✓| 
 | Italien                  | ✓ |   |  ✓|
-| Isle of man            | ✓ |   |  ✓| 
+| Isle of Man            | ✓ |   |  ✓| 
 | Jersey                 | ✓ |   |  ✓| 
 | Kosovo                 | ✓ |   |  ✓| 
 | Lettland                 | ✓ |   |  ✓| 

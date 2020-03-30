@@ -1,94 +1,94 @@
 ---
-title: Kubernetes-övervakning med Azure Monitor för behållare | Microsoft Docs
-description: Den här artikeln beskriver hur du kan visa och analysera prestanda för ett Kubernetes-kluster med Azure Monitor för behållare.
+title: Kubernetes övervakning med Azure Monitor för behållare | Microsoft-dokument
+description: I den här artikeln beskrivs hur du kan visa och analysera prestanda för ett Kubernetes-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.date: 03/26/2020
+ms.openlocfilehash: 227fe70512536790d179797394b6fba22e7eb50e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79275482"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298379"
 ---
-# <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Övervaka prestanda för Kubernetes-kluster med Azure Monitor för behållare
+# <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Övervaka kubernetes-klusterprestanda med Azure Monitor för behållare
 
-Med Azure Monitor för behållare kan du använda prestanda diagram och hälso status för att övervaka arbets belastningen för Kubernetes-kluster som finns i Azure Kubernetes service (AKS), Azure Stack eller någon annan miljö från två perspektiv. Du kan övervaka direkt från klustret, eller så kan du Visa alla kluster i en prenumeration från Azure Monitor. Det går också att Visa Azure Container Instances när du övervakar ett enskilt AKS-kluster.
+Med Azure Monitor för behållare kan du använda prestandadiagram och hälsostatus för att övervaka arbetsbelastningen för Kubernetes-kluster som finns på Azure Kubernetes Service (AKS), Azure Stack eller annan miljö från två perspektiv. Du kan övervaka direkt från klustret eller visa alla kluster i en prenumeration från Azure Monitor. Det är också möjligt att visa Azure Container Instances när du övervakar ett specifikt AKS-kluster.
 
-Den här artikeln hjälper dig att förstå de två perspektiven och hur Azure Monitor hjälper dig att snabbt utvärdera, undersöka och lösa identifierade problem.
+Den här artikeln hjälper dig att förstå de två perspektiven och hur Azure Monitor hjälper dig att snabbt bedöma, undersöka och lösa identifierade problem.
 
-Information om hur du aktiverar Azure Monitor för behållare finns i [Onboard Azure Monitor for containers](container-insights-onboard.md).
+Information om hur du aktiverar Azure Monitor för behållare finns [i Onboard Azure Monitor för behållare](container-insights-onboard.md).
 
-Azure Monitor ger en vy med flera kluster som visar hälso status för alla övervakade Kubernetes-kluster som kör Linux och Windows Server 2019 som har distribuerats över resurs grupper i dina prenumerationer. Den visar kluster som identifierats i alla miljöer som inte övervakas av lösningen. Du kan omedelbart förstå kluster hälsa och härifrån kan du gå nedåt till sidan prestanda för nod och kontrollant eller gå till Visa prestanda diagram för klustret. För AKS-kluster som har identifierats och identifierats som oövervakade kan du aktivera övervakning när som helst. 
+Azure Monitor innehåller en vy med flera kluster som visar hälsostatusen för alla övervakade Kubernetes-kluster som kör Linux och Windows Server 2019 som distribueras över resursgrupper i dina prenumerationer. Den visar kluster som identifierats i alla miljöer som inte övervakas av lösningen. Du kan omedelbart förstå klusterhälsan, och härifrån kan du öka detaljnivån till prestandasidan för noden och styrenheten eller navigera för att se prestandadiagram för klustret. För AKS-kluster som upptäcktes och identifierades som oövervakade kan du aktivera övervakning för dem när som helst. 
 
-De huvudsakliga skillnaderna vid övervakning av ett Windows Server-kluster med Azure Monitor för behållare jämfört med ett Linux-kluster beskrivs [här](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) i översikts artikeln.
+De största skillnaderna i övervakningen av ett Windows Server-kluster med Azure Monitor för behållare jämfört med ett Linux-kluster beskrivs [här](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) i översiktsartikeln.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com). 
+Logga in på [Azure-portalen](https://portal.azure.com). 
 
-## <a name="multi-cluster-view-from-azure-monitor"></a>Visa flera kluster från Azure Monitor
+## <a name="multi-cluster-view-from-azure-monitor"></a>Flerklustervy från Azure Monitor
 
-Om du vill visa hälso status för alla Kubernetes-kluster som distribueras väljer du **övervaka** i det vänstra fönstret i Azure Portal. Under avsnittet **insikter** väljer du **behållare**. 
+Om du vill visa hälsotillståndet för alla Kubernetes-kluster som distribueras väljer du **Övervaka** från den vänstra rutan i Azure-portalen. Under avsnittet **Insikter** väljer du **Behållare**. 
 
-![Exempel på Azure Monitor flera klusterinstrumentpanel](./media/container-insights-analyze/azmon-containers-multiview.png)
+![Azure Monitor exempel på instrumentpanel med flera kluster](./media/container-insights-analyze/azmon-containers-multiview.png)
 
-Du kan begränsa resultaten som visas i rutnätet för att Visa kluster som är:
+Du kan begränsa resultaten som presenteras i rutnätet för att visa kluster som är:
 
-* **Azure** -AKS och AKS-Engine-kluster som finns i Azure Kubernetes-tjänsten
-* **Azure Stack (för hands version)** – AKS-kluster som finns på Azure Stack
-* **Icke-Azure (för hands version)** – Kubernetes-kluster som finns lokalt
-* **Alla** – Visa alla Kubernetes-kluster som finns i Azure, Azure Stack och lokala miljöer som har publicerats på Azure Monitor för behållare
+* **Azure** - AKS- och AKS-Engine-kluster som finns i Azure Kubernetes Service
+* **Azure Stack (förhandsversion)** – AKS-Engine-kluster som finns på Azure Stack
+* **Icke-Azure (förhandsversion)** - Kubernetes kluster som finns lokalt
+* **Alla** – Visa alla Kubernetes-kluster som finns i Azure-, Azure Stack- och lokala miljöer som finns med i Azure Monitor för behållare
 
-Om du vill visa kluster från en speciell miljö väljer du den från **miljön** Pill i det övre vänstra hörnet på sidan.
+Om du vill visa kluster från en viss miljö väljer du **det** från miljöpiller i det övre vänstra hörnet på sidan.
 
-![Exempel på miljö Pill Selector](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
+![Exempel på miljöpiller](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
 
-På fliken **övervakade kluster** kan du lära dig följande:
+På fliken **Övervakade kluster** får du lära dig följande:
 
-- Hur många kluster som är i ett kritiskt eller ohälsosamt tillstånd, jämfört med hur många som är felfria eller inte rapporterar (kallas okänt tillstånd).
-- Om alla [Azure Kubernetes Engine-distributioner (AKS-Engine)](https://github.com/Azure/aks-engine) är felfria.
-- Hur många noder och användar-och system-poddar som distribueras per kluster.
-- Hur mycket disk utrymme som är tillgängligt och om det finns ett kapacitets problem.
+- Hur många kluster som är i ett kritiskt eller felfritt tillstånd, jämfört med hur många som är felfria eller inte rapporterar (kallas ett okänt tillstånd).
+- Om alla [AKS-motordistributioner (Azure Kubernetes Engine)](https://github.com/Azure/aks-engine) är felfria.
+- Hur många noder och användar- och systemkapslar distribueras per kluster.
+- Hur mycket diskutrymme som är tillgängligt och om det finns ett kapacitetsproblem.
 
-Den hälsotillstånd statusen som ingår är: 
+De hälsotillstånd som ingår är: 
 
-* **Felfri**: inga problem har identifierats för den virtuella datorn och fungerar som obligatoriskt. 
-* **Kritiskt**: ett eller flera kritiska problem har identifierats som måste åtgärdas för att återställa det normala operativa läget som förväntat.
-* **Varning**! ett eller flera problem har identifierats som måste åtgärdas eller så kan hälso tillståndet bli kritiskt.
-* **Okänd**: om tjänsten inte kunde upprätta en anslutning till noden eller Pod ändras statusen till ett okänt tillstånd.
-* **Hittades inte**: arbets ytan, resurs gruppen eller prenumerationen som innehåller arbets ytan för den här lösningen har tagits bort.
-* **Tillåts**inte: användaren har inte behörighet att läsa data i arbets ytan.
-* **Fel**: ett fel uppstod vid försök att läsa data från arbets ytan.
-* **Felkonfigurerad**: Azure Monitor för behållare har inte kon figurer ATS korrekt på den angivna arbets ytan.
-* **Inga data**: data har inte rapporter ATS till arbets ytan under de senaste 30 minuterna.
+* **Felfritt:** Inga problem identifieras för den virtuella datorn och den fungerar efter behov. 
+* **Kritisk**: Ett eller flera kritiska problem identifieras som måste åtgärdas för att återställa normalt drifttillstånd som förväntat.
+* **Varning**: Ett eller flera problem upptäcks som måste åtgärdas eller hälsotillståndet kan bli kritiskt.
+* **Okänd**: Om tjänsten inte kunde upprätta en anslutning till noden eller podden ändras statusen till ett okänt tillstånd.
+* **Hittades inte**: Antingen togs arbetsytan, resursgruppen eller prenumerationen som innehåller arbetsytan för den här lösningen bort.
+* **Obehörig:** Användaren har inte behörighet att läsa data på arbetsytan.
+* **Fel:** Ett fel uppstod när data skulle läsas från arbetsytan.
+* **Felkonfigurerad**: Azure Monitor för behållare har inte konfigurerats korrekt på den angivna arbetsytan.
+* **Inga data**: Data har inte rapporterats till arbetsytan under de senaste 30 minuterna.
 
-Hälso tillstånd beräknar övergripande kluster status som *sämsta av* de tre tillstånden med ett undantag. Om något av de tre tillstånden är okänt, visar det övergripande kluster tillståndet **Okänt**. 
+Hälsotillstånd beräknar övergripande klusterstatus som det *värsta av* de tre tillstånden med ett undantag. Om något av de tre tillstånden är Okänt visas **Okänd**i det övergripande klustertillståndet . 
 
-Följande tabell innehåller en analys av beräkningen som styr hälso tillståndet för ett övervakat kluster i vyn över flera kluster.
+Följande tabell innehåller en uppdelning av beräkningen som styr hälsotillstånden för ett övervakat kluster i flerklustervyn.
 
 | |Status |Tillgänglighet |  
 |-------|-------|-----------------|  
-|**Användarens Pod**| | |  
-| |Felfri |100% |  
+|**Användarpodden**| | |  
+| |Felfri |100 % |  
 | |Varning |90 - 99% |  
-| |Kritisk |< 90% |  
-| |Okänt |Om du inte har rapporterat under senaste 30 minuterna |  
-|**Systemets Pod**| | |  
-| |Felfri |100% |
+| |Kritisk |<90% |  
+| |Okänt |Om inte rapporterats under de senaste 30 minuterna |  
+|**Systemkapsel**| | |  
+| |Felfri |100 % |
 | |Varning |Ej tillämpligt |
-| |Kritisk |< 100% |
-| |Okänt |Om du inte har rapporterat under senaste 30 minuterna |
+| |Kritisk |<100% |
+| |Okänt |Om inte rapporterats under de senaste 30 minuterna |
 |**Node** | | |
-| |Felfri |> 85% |
+| |Felfri |>85% |
 | |Varning |60 - 84% |
-| |Kritisk |< 60% |
-| |Okänt |Om du inte har rapporterat under senaste 30 minuterna |
+| |Kritisk |<60% |
+| |Okänt |Om inte rapporterats under de senaste 30 minuterna |
 
-I listan över kluster kan du öka detalj nivån till **kluster** sidan genom att välja namnet på klustret. Gå sedan till prestanda sidan **noder** genom att välja sammanslagning av noder i kolumnen **noder** för det aktuella klustret. Du kan också öka detalj nivån till sidan **kontrollanter** genom att välja sammanslagning av **användaren poddar** eller **system poddar** kolumnen.
+I listan över kluster kan du öka detaljnivån till **klustersidan** genom att välja namnet på klustret. Gå sedan till resultatsidan **för noder** genom att välja sammanslagningen av noder i kolumnen **Noder** för det specifika klustret. Du kan också öka detaljnivån till resultatsidan **för Controllers** genom att välja sammanslagningen av kolumnen **Användarpoddar** eller **Systempoddar.**
 
 ## <a name="view-performance-directly-from-a-cluster"></a>Visa prestanda direkt från ett kluster
 
-Åtkomst till Azure Monitor för behållare är tillgänglig direkt från ett AKS-kluster genom att välja **insikter** > **kluster** i den vänstra rutan eller när du har valt ett kluster från vyn flera kluster. Information om klustret är indelat i fyra perspektiv:
+Åtkomst till Azure Monitor för behållare är tillgänglig direkt från ett AKS-kluster genom att välja **Insights** > **Cluster** från den vänstra rutan eller när du har valt ett kluster från flerklustervyn. Information om klustret är ordnad i fyra perspektiv:
 
 - Kluster
 - Noder 
@@ -96,219 +96,233 @@ I listan över kluster kan du öka detalj nivån till **kluster** sidan genom at
 - Containrar
 
 >[!NOTE]
->Den erfarenhet som beskrivs i resten av den här artikeln gäller också för att visa prestanda-och hälso status för Kubernetes-kluster som finns på Azure Stack eller annan miljö när de valts från vyn över flera kluster. 
+>Den upplevelse som beskrivs i resten av den här artikeln gäller även för att visa prestanda och hälsostatus för kubernetes-kluster som finns på Azure Stack eller annan miljö när de väljs från multi-cluster-vyn. 
 
-Standard sidan öppnas och visar fyra linje prestanda diagram som visar viktiga prestanda värden i klustret. 
+Standardsidan öppnas och visar fyra linjeprestandadiagram som visar viktiga prestandamått för klustret. 
 
-![Prestandadiagram för exempel på fliken kluster](./media/container-insights-analyze/containers-cluster-perfview.png)
+![Exempel på prestandadiagram på fliken Kluster](./media/container-insights-analyze/containers-cluster-perfview.png)
 
-Prestanda diagrammen visar fyra prestanda mått:
+Prestandadiagrammen visar fyra prestandamått:
 
-- **Nodens CPU-användning&nbsp;%** : ett sammanställt perspektiv av processor belastning för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **AVG**, **min**, **50**, **nittionde**, **95**eller **Max** i percentils väljaren ovanför diagrammet. Filtren kan antingen användas individuellt eller tillsammans. 
-- **Nod-minnes användning&nbsp;%** : ett sammanlagt perspektiv minnes användning för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **AVG**, **min**, **50**, **nittionde**, **95**eller **Max** i percentils väljaren ovanför diagrammet. Filtren kan antingen användas individuellt eller tillsammans. 
-- **Antal noder**: antal noder och status från Kubernetes. Status för de klusternoder som visas är total, klar och inte redo. De kan filtreras separat eller kombineras i väljaren ovanför diagrammet. 
-- **Antal aktiva Pod**: ett Pod-antal och status från Kubernetes. Status för poddar som visas är total, väntar, körs, okänd, lyckades eller misslyckades. De kan filtreras separat eller kombineras i väljaren ovanför diagrammet. 
+- **Nod CPU-användning:&nbsp;** Ett aggregerat perspektiv på CPU-användning för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **Medel**, **Min**, **50,** **90,** **95:e**eller **Max** i percentilväljaren ovanför diagrammet. Filtren kan användas antingen individuellt eller i kombination. 
+- **Nodminnesanvändning&nbsp;**: Ett aggregerat perspektiv på minnesanvändning för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **Medel**, **Min**, **50,** **90,** **95:e**eller **Max** i percentilväljaren ovanför diagrammet. Filtren kan användas antingen individuellt eller i kombination. 
+- **Antal nod:** Antal noder och status från Kubernetes. Status för klusternoderna som representeras är Summa, Klar och Inte redo. De kan filtreras individuellt eller kombineras i väljaren ovanför diagrammet. 
+- **Antal aktiva pod:** Antal pod och status från Kubernetes. Status för de poddar som representeras är Summa, Väntande, Kör, Okänd, Lyckades eller Misslyckades. De kan filtreras individuellt eller kombineras i väljaren ovanför diagrammet. 
 
-Använd vänster och höger pilknappar för att bläddra igenom varje data punkt i diagrammet. Använd upp-och nedpilen för att gå igenom percentils linjerna. Välj PIN-ikonen i det övre högra hörnet i något av diagrammen för att fästa det valda diagrammet på den sista Azure-instrumentpanelen som du visade. På instrument panelen kan du ändra storlek på och flytta diagrammet. Genom att välja diagrammet på instrument panelen omdirigeras du till Azure Monitor för behållare och läsa in rätt omfång och vy.
+Använd vänster- och högerpiltangenterna för att växla mellan varje datapunkt i diagrammet. Använd upp- och nedpiltangenterna för att växla mellan percentillinjerna. Markera pin-ikonen i det övre högra hörnet i något av diagrammen för att fästa det markerade diagrammet på den senaste Azure-instrumentpanelen som du visade. Från instrumentpanelen kan du ändra storlek på och flytta diagrammet. Om du väljer diagrammet från instrumentpanelen omdirigeras du till Azure Monitor för behållare och läser in rätt omfattning och vy.
 
-Azure Monitor för behållare stöder också Azure Monitor [Metrics Explorer](../platform/metrics-getting-started.md), där du kan skapa egna rit diagram, korrelera och undersöka trender och fästa på instrument paneler. Från metrics Explorer kan du också använda de kriterier som du anger för att visualisera måtten som grund för en [Metric-baserad aviserings regel](../platform/alerts-metric.md). 
+Azure Monitor for containers stöder också Azure [Monitor-statistikutforskaren](../platform/metrics-getting-started.md), där du kan skapa egna ritdiagram, korrelera och undersöka trender och fästa på instrumentpaneler. Från statistikutforskaren kan du också använda de kriterier som du anger för att visualisera dina mått som grund för en [måttbaserad varningsregel](../platform/alerts-metric.md). 
 
-## <a name="view-container-metrics-in-metrics-explorer"></a>Visa behållar mått i Metrics Explorer
+## <a name="view-container-metrics-in-metrics-explorer"></a>Visa behållarmått i statistikutforskaren
 
-I Metrics Explorer kan du visa aggregerade noder och Pod användnings mått från Azure Monitor för behållare. I följande tabell sammanfattas information som hjälper dig att förstå hur du använder mått diagram för att visualisera container mått.
+I statistikutforskaren kan du visa aggregerade nod- och poddanvändningsmått från Azure Monitor för behållare. I följande tabell sammanfattas informationen för att hjälpa dig att förstå hur du använder måttdiagrammen för att visualisera behållarmått.
 
 |Namnområde | Mått | Beskrivning | 
 |----------|--------|-------------|
-| Insights. container/Nodes | |
-| | cpuUsageMillicores | Aggregerad mätning av CPU-belastning i klustret. Det är en processor kärna som delas upp i 1000 enheter (Milli = 1000). Används för att fastställa användningen av kärnor i en behållare där många program kan använda en kärna.| 
-| | cpuUsagePercentage | Aggregerad genomsnittlig processor användning mätt i procent över klustret.|
-| | memoryRssBytes | RSS-minne för behållare som används i byte.| 
-| | memoryRssPercentage | RSS-minne för behållare som används i procent.|
-| | memoryWorkingSetBytes | Minne för arbets minne för behållare som används.| 
-| | memoryWorkingSetPercentage | Arbets minne för behållare som används i procent. | 
-| | nodesCount | Antalet noder från Kubernetes.|
-| Insights. container/poddar | |
-| | PodCount | Ett Pod-antal från Kubernetes.|
+| insights.container/noder | |
+| | cpuUsageMillicores | Aggregerad mätning av CPU-användning i klustret. Det är en CPU-kärna uppdelad i 1000 enheter (milli = 1000). Används för att bestämma användningen av kärnor i en behållare där många program kan använda en kärna.| 
+| | cpuUsagePercentage | Aggregerat genomsnittligt CPU-utnyttjande mätt i procent i klustret.|
+| | memoryRssBytes | Behållare RSS-minne som används i byte.| 
+| | minneRssPercentage | Behållare RSS-minne som används i procent.|
+| | memoryWorkingSetBytes | Behållarens arbetsminne används.| 
+| | minneArbetsningSetPercentage | Behållarens arbetsminne används i procent. | 
+| | nodesCount | En nodräkning från Kubernetes.|
+| insights.container/pods | |
+| | PodCount (Olikartade) | En pod räknas från Kubernetes.|
 
-Du kan [dela upp](../platform/metrics-charts.md#apply-splitting-to-a-chart) ett mått för att visa det efter dimension och visualisera hur olika segment jämförs med varandra. För en nod kan du segmentera diagrammet efter *värd* dimension. Från en POD kan du segmentera den med följande dimensioner:
+Du kan [dela ett](../platform/metrics-charts.md#apply-splitting-to-a-chart) mått för att visa det efter dimension och visualisera hur olika segment i det står sig i jämförelse med varandra. För en nod kan du segmentera diagrammet efter *värddimensionen.* Från en pod kan du segmentera den efter följande dimensioner:
 
-* Domänkontrollant
-* Kubernetes-namnrymd
+* Controller
+* Namnområde Kubernetes
 * Node
 * Fas
 
-## <a name="analyze-nodes-controllers-and-container-health"></a>Analysera noder, styrenheter och hälso tillstånd för behållare
+## <a name="analyze-nodes-controllers-and-container-health"></a>Analysera noder, styrenheter och behållarens hälsotillstånd
 
-När du växlar till flikarna **noder**, **kontrollanter**och **behållare** visas ett egenskaps fönster automatiskt till höger på sidan. Den visar egenskaperna för det valda objektet, som innehåller de etiketter som du har definierat för att organisera Kubernetes-objekt. När en Linux-nod väljs visas även det tillgängliga disk utrymmet i avsnittet **lokal disk kapacitet** och den procent andel som används för varje disk som visas för noden. Välj länken **>>** i fönstret om du vill visa eller dölja fönstret.
+När du växlar till flikarna **Noder**, **Controllers**och **Behållare** visas automatiskt ett egenskapsfönster till höger på sidan. Den visar egenskaperna för det markerade objektet, som innehåller de etiketter som du har definierat för att ordna Kubernetes-objekt. När en Linux-nod har valts visar avsnittet **Lokal diskkapacitet** också tillgängligt diskutrymme och procentandel som används för varje disk som presenteras för noden. Markera **>>** länken i fönstret om du vill visa eller dölja fönstret.
 
-När du expanderar objekt inom hierarkin egenskaper fönstret uppdateringar baserat på de objekt som valts. I fönstret kan du också Visa Kubernetes-behållar loggar (STDOUT/stderror), händelser och Pod mått genom att välja länken **Visa live-data (för hands version)** överst i fönstret. Mer information om den konfiguration som krävs för att bevilja och kontrol lera åtkomst för att visa dessa data finns i [Konfigurera real tids data (för hands version)](container-insights-livedata-setup.md). När du granskar kluster resurser kan du se dessa data från behållaren i real tid. Mer information om den här funktionen finns i [så här visar du Kubernetes-loggar, händelser och Pod mått i real tid](container-insights-livedata-overview.md). Om du vill visa Kubernetes-loggdata som lagras i din arbets yta baserat på fördefinierade loggs ökningar väljer du **Visa behållar loggar** i list rutan **Visa i Analytics** . Mer information om det här ämnet finns i [Sök efter loggar för att analysera data](container-insights-log-search.md#search-logs-to-analyze-data).
+När du expanderar objekten i hierarkin uppdateras egenskapsfönstret baserat på det markerade objektet. I fönstret kan du också visa Kubernetes-behållarloggar (stdout/stderror), händelser och pod-mått genom att välja länken **Visa livedata (förhandsversion)** högst upp i fönstret. Mer information om den konfiguration som krävs för att bevilja och kontrollera åtkomst för att visa dessa data finns [i Konfigurera livedata (förhandsgranskning)](container-insights-livedata-setup.md). När du granskar klusterresurser kan du se dessa data från behållaren i realtid. Mer information om den här funktionen finns [i Så här visar du Kubernetes loggar, händelser och pod-mått i realtid](container-insights-livedata-overview.md). Om du vill visa Kubernetes loggdata som lagras på arbetsytan baserat på fördefinierade loggsökningar väljer du **Visa behållarloggar** i listrutan **Visa i analys.** Mer information om det här avsnittet finns i [Sökloggar för att analysera data](container-insights-log-search.md#search-logs-to-analyze-data).
 
-Använd alternativet **+ Lägg till filter** överst på sidan för att filtrera resultaten för vyn efter **tjänst**, **nod**, **namnrymd**eller **Node-pool**. När du har valt filter omfånget väljer du ett av värdena som visas i fältet **Välj värde (n)** . När filtret har kon figurer ATS tillämpas det globalt samtidigt som du tittar på AKS-klustrets perspektiv. Formeln har endast stöd för likhetstecknet. Du kan lägga till ytterligare filter på den första mallen för att ytterligare begränsa dina resultat. Om du till exempel anger ett filter per **nod**kan du bara välja **tjänst** eller **namnrymd** för det andra filtret.
+Använd alternativet **+ Lägg till filter** högst upp på sidan om du vill filtrera resultaten för vyn efter **tjänst,** **nod**, **namnområde**eller **nodpool**. När du har valt filteromfattningen markerar du ett av de värden som visas i fältet Välj värde.After you select the filter scope, select one of the values shown in the **Select value(s)** field. När filtret har konfigurerats tillämpas det globalt när du visar alla perspektiv i AKS-klustret. Formeln stöder bara likhetstecknet. Du kan lägga till ytterligare filter ovanpå den första för att ytterligare begränsa dina resultat. Om du till exempel anger ett filter efter **nod**kan du bara välja **Tjänst** eller **Namnområde** för det andra filtret.
 
-Att ange ett filter på en flik fortsätter att gälla när du väljer en annan. Den tas bort när du har markerat **x** -symbolen bredvid det angivna filtret. 
+Ange ett filter på en flik fortsätter att tillämpas när du väljer en annan. Den tas bort när **x** du har valt x-symbolen bredvid det angivna filtret. 
 
-Växla till fliken **noder** och-hierarkin följer Kubernetes objekt modell, som börjar med en nod i klustret. Expandera noden om du vill visa en eller flera poddar som körs på noden. Om fler än en behållare är grupperade till en POD visas de som den sista raden i hierarkin. Du kan också se hur många icke-Pod arbets belastningar som körs på värden om värden har processor-eller minnes belastning.
+Växla till fliken **Noder** och radhierarkin följer kubernetes-objektmodellen, som börjar med en nod i klustret. Expandera noden om du vill visa en eller flera poddar som körs på noden. Om mer än en behållare är grupperad i en pod visas de som den sista raden i hierarkin. Du kan också visa hur många icke-pod-relaterade arbetsbelastningar som körs på värden om värden har processor- eller minnestryck.
 
-![Exempel på Kubernetes-hierarkin i vyn prestanda](./media/container-insights-analyze/containers-nodes-view.png)
+![Exempel på kubernetesnodhierarkin i prestandavyn](./media/container-insights-analyze/containers-nodes-view.png)
 
-Windows Server-behållare som kör Windows Server 2019 OS visas efter alla Linux-baserade noder i listan. När du expanderar en Windows Server-nod kan du Visa en eller flera poddar och behållare som körs på noden. När en nod har marker ATS visas versions information i fönstret Egenskaper. Agent informationen är exkluderad eftersom Windows Server-noder inte har någon agent installerad. 
+Windows Server-behållare som kör Windows Server 2019 OS visas efter alla Linux-baserade noder i listan. När du expanderar en Windows Server-nod kan du visa en eller flera poddar och behållare som körs på noden. När en nod har markerats visar egenskapsfönstret versionsinformation. Agentinformation är utesluten eftersom Windows Server-noder inte har en agent installerad. 
 
-![Exempel på Node-hierarki med Windows Server-noder listade](./media/container-insights-analyze/nodes-view-windows.png) 
+![Exempelnodhierarki med Windows Server-noder listade](./media/container-insights-analyze/nodes-view-windows.png) 
 
-Azure Container Instances virtuella noder som kör Linux-OS visas efter den sista AKS i listan. När du expanderar en Container Instances virtuell nod kan du Visa en eller flera Container Instances-poddar och behållare som körs på noden. Mått samlas inte in och rapporteras inte för noder, endast för poddar.
+Virtuella noder för Azure-behållarinstanser som kör Linux OS visas efter den senaste AKS-klusternoden i listan. När du expanderar en virtuell containerinstans nod kan du visa en eller flera containerinstanser poddar och behållare som körs på noden. Mått samlas inte in och rapporteras för noder, bara för poddar.
 
-![Exempel-Node-hierarkin med Container Instances visas](./media/container-insights-analyze/nodes-view-aci.png)
+![Exempelnodhierarki med behållarinstanser listade](./media/container-insights-analyze/nodes-view-aci.png)
 
-Från en utökad nod kan du öka detalj nivån från POD eller containern som körs på noden till kontrollanten för att visa prestanda data som filtrerats för kontrollanten. Välj värdet i kolumnen **kontrollant** för den angivna noden.
+Från en expanderad nod kan du öka detaljnivån från podden eller behållaren som körs på noden till styrenheten för att visa prestandadata filtrerade för den styrenheten. Välj värdet under kolumnen **Controller** för den specifika noden.
  
-![Exempel gå nedåt från noden till kontrollanten i vyn prestanda](./media/container-insights-analyze/drill-down-node-controller.png)
+![Exempel detaljgranskning från nod till styrenhet i prestandavyn](./media/container-insights-analyze/drill-down-node-controller.png)
 
-Välj kontrollanter eller behållare högst upp på sidan för att granska status och resursutnyttjande för dessa objekt. Om du vill granska minnes användningen väljer du **minnes-RSS** eller **minnes arbets minne**i list rutan **mått** . **RSS-minnen** stöds bara för Kubernetes version 1,8 och senare. Annars kan du Visa värden för **Min&nbsp;%** som *Nan&nbsp;%* , vilket är ett numeriskt värde för data typen som representerar ett odefinierat eller värde som inte kan återges.
+Välj styrenheter eller behållare högst upp på sidan om du vill granska status- och resursanvändningen för dessa objekt. Om du vill granska minnesanvändning väljer du **Minnes-RSS** eller **Minnesbearbetningsuppsättning**i listrutan **Mått** . **Minnes-RSS** stöds endast för Kubernetes version 1.8 och senare. Annars visar du värden för **Min&nbsp; ** som *NaN&nbsp;*, vilket är ett numeriskt datatypsvärde som representerar ett odefinierat eller orepresenterbart värde.
 
-![Behållaren noder prestandavy](./media/container-insights-analyze/containers-node-metric-dropdown.png)
+![Prestandavy för behållanoder](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
-**Minnes arbets minnet** visar både det residenta minnet och det virtuella minnet (cache) som ingår och är det totala antalet som programmet använder. **Minne RSS** visar bara huvud minnet (vilket är inget men det residenta minnet med andra ord). Det här måttet visar den faktiska kapaciteten för tillgängligt minne. Vad är skillnaden mellan Resident minne och virtuellt minne?
+**Minnesbearbetningsuppsättningen** visar både det inhemska minnet och det virtuella minnet (cache) som ingår och är totalt vad programmet använder. **Minne RSS** visar bara huvudminne (vilket är inget annat än bosatt minne med andra ord). Det här måttet visar den faktiska kapaciteten för tillgängligt minne. Vad är skillnaden mellan residentt minne och virtuellt minne?
 
-- Inbyggt minne eller primärt minne är den faktiska mängden maskin minne som är tillgängligt för noderna i klustret.
+- Resident minne eller huvudminne, är den faktiska mängden datorminne som är tillgänglig för noderna i klustret.
 
-- Det virtuella minnet är ett reserverat hårddisk utrymme (cache) som används av operativ systemet för att växla data från minne till disk när de är under minnes belastning och sedan hämta tillbaka dem till minnet när det behövs.
+- Virtuellt minne är reserverat hårddiskutrymme (cache) som används av operativsystemet för att byta data från minne till disk när under minnestryck och sedan hämta tillbaka det till minnet när det behövs.
 
-Som standard baseras prestanda data på de senaste sex timmarna, men du kan ändra fönstret genom att använda alternativet **TimeRange** längst upp till vänster. Du kan också filtrera resultaten inom tidsintervallet genom att välja **min**, **AVG**, **50**, **nittionde**, **95**och **Max** i percentils väljaren. 
+Som standard baseras prestandadata på de senaste sex timmarna, men du kan ändra fönstret med alternativet **TimeRange** längst upp till vänster. Du kan också filtrera resultaten inom tidsintervallet genom att välja **Min,** **Medel,** **50,** **90,** **95:e**och **Max** i percentilväljaren. 
 
-![: E percentilen val för filtrering av data](./media/container-insights-analyze/containers-metric-percentile-filter.png)
+![Percentilval för datafiltrering](./media/container-insights-analyze/containers-metric-percentile-filter.png)
 
-När du hovrar över stapeldiagrammet under kolumnen **trend** visar varje STAPEL antingen processor-eller minnes användning, beroende på vilket mått som valts, inom en exempel period på 15 minuter. När du har valt trend diagrammet i ett tangent bord, använder du tangenterna ALT + PGUP eller ALT + PGDN för att gå igenom varje stapel individuellt. Du får samma information som om du hovrar över fältet.
+När du hovrar över stapeldiagrammet under kolumnen **Trend** visar varje stapel antingen CPU- eller minnesanvändning, beroende på vilket mått som väljs, inom en exempelperiod på 15 minuter. När du har valt trenddiagrammet via ett tangentbord använder du Alt+Page up-tangenten eller Alt+Page down-tangenten för att bläddra igenom varje stapel individuellt. Du får samma information som du skulle om du svävade över baren.
 
-![Trend linje diagram hov ring – över exempel](./media/container-insights-analyze/containers-metric-trend-bar-01.png) 
+![Exempel på hovringsdiagram i trendraddiagram](./media/container-insights-analyze/containers-metric-trend-bar-01.png) 
 
-I nästa exempel, för den första noden i listan, *AKS-nodepool1*, är värdet för **containers** 9. Det här värdet är en sammanfattning av det totala antalet distribuerade behållare.
+I nästa exempel är värdet för **Behållare** *aks-nodepool1-* 9 för den första noden i listan. Det här värdet är en sammanslagning av det totala antalet distribuerade behållare.
 
-![Samla in behållare per nod-exempel](./media/container-insights-analyze/containers-nodes-containerstotal.png)
+![Exempel på sammanslagning av behållare per nod](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
-Den här informationen kan hjälpa dig att snabbt identifiera om du har en korrekt balans för behållare mellan noder i klustret. 
+Den här informationen kan hjälpa dig att snabbt identifiera om du har ett korrekt saldo för behållare mellan noder i klustret. 
 
-Den information som visas när du visar fliken **noder** beskrivs i följande tabell.
+Informationen som visas när du visar fliken **Noder** beskrivs i följande tabell.
 
 | Kolumn | Beskrivning | 
 |--------|-------------|
 | Namn | Namnet på värden. |
-| Status | Kubernetes vy över nodstatusen. |
-| Minsta&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;%  | Genomsnittlig nod procent baserat på: e percentilen under den valda perioden. |
-| Min, AVG, 50, nittionde, 95, max | Genomsnittligt antal noders faktiska värde baserat på percentil under den valda tids perioden. Det genomsnittliga värdet mäts från PROCESSORns/minnes gränsen som angetts för en nod. För poddar och behållare är det det genomsnittliga värdet som rapporteras av värden. |
+| Status | Kubernetes vy av nodstatus. |
+| Min&nbsp;%,&nbsp;Medel %, 50:e&nbsp;%, 90:e&nbsp;%, 95:e&nbsp;%, Max&nbsp;%  | Genomsnittlig nodprocent baserat på percentil under den valda varaktigheten. |
+| Min, Medel, 50: e, 90: e, 95: e, Max | Genomsnittligt noders faktiska värde baserat på percentil under den valda tidslängden. Medelvärdet mäts från den CPU/minnesgräns som angetts för en nod. För poddar och behållare är det det genomsnittliga värdet som rapporteras av värden. |
 | Containrar | Antal behållare. |
-| Drifttid | Representerar tid eftersom en nod startas eller startades om. |
-| Domänkontrollant | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. Alla poddar finns inte i en kontrollant, så vissa kan visa **ej tillämpligt**. | 
-| Trend för min&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;% | Stapeldiagram trend representerar genomsnittliga: e percentilen mått procentandelen kontrollanten. |
+| Upptid | Representerar tiden sedan en nod startades eller startades om. |
+| Controller | Endast för containrar och kapslar. Den visar vilken styrenhet den finns i. Alla poddar finns inte i en handkontroll, så vissa kan visa **N/A**. | 
+| Trend&nbsp;Min %,&nbsp;Medel %,&nbsp;50:e&nbsp;%, 90:e %, 95:e&nbsp;%, Max&nbsp;% | Stapeldiagramtrenden representerar den genomsnittliga percentilmåttprocenten för styrenheten. |
 
-I väljaren väljer du **kontrollanter**.
+Du kan märka en arbetsbelastning efter att ha expanderat en nod med namnet **Annan process**. Den representerar processer som inte är behållare som körs på noden och innehåller:
 
-![Välj kontrollanter-vy](./media/container-insights-analyze/containers-controllers-tab.png)
+* Självhanterade eller hanterade Kubernetes processer som inte är behållare
 
-Här kan du Visa hälso tillståndet för dina styrenheter och Container Instances virtuella poddar eller virtuella noder som inte är anslutna till en kontrollant.
+* Körningsprocesser för behållare  
 
-![prestanda vy för \<namn > kontrollanter](./media/container-insights-analyze/containers-controllers-view.png)
+* Kubelet  
 
-Row-hierarkin börjar med en kontroll enhet. När du expanderar en kontrollant visar du en eller flera poddar. Expandera en POD och den sista raden visar behållaren som är grupperad mot pod. Från en utökad kontroll enhet kan du öka detalj nivån till den nod som körs på för att visa prestanda data som filtrerats för noden. Container Instances poddar som inte är anslutna till en kontrollant visas sist i listan.
+* Systemprocesser som körs på noden
 
-![Exempel-styrenheter hierarki med Container Instances poddar i listan](./media/container-insights-analyze/controllers-view-aci.png)
+* Andra icke-Kubernetes-arbetsbelastningar som körs på nodmaskinvara eller virtuell dator
 
-Välj värdet i kolumnen **nod** för den aktuella kontrollanten.
+Den beräknas av: *Total användning från CAdvisor-användning* - *från containerprocess*.  
 
-![Exempel gå nedåt från noden till kontrollanten i vyn prestanda](./media/container-insights-analyze/drill-down-controller-node.png)
+Välj **Controllers**i väljaren .
 
-Den information som visas när du visar kontrollanter beskrivs i följande tabell.
+![Välj kontrollanter vyn](./media/container-insights-analyze/containers-controllers-tab.png)
+
+Här kan du visa prestandahälsa för dina styrenheter och behållarinstanser virtuella nodkontroller eller virtuella nodenheter som inte är anslutna till en styrenhet.
+
+![\<Namn> styrenheters prestandavy](./media/container-insights-analyze/containers-controllers-view.png)
+
+Radhierarkin börjar med en styrenhet. När du expanderar en handkontroll visar du en eller flera poddar. Expandera en pod och den sista raden visar behållaren grupperad till podden. Från en utökad styrenhet kan du öka detaljnivån till den nod som körs på för att visa prestandadata filtrerade för den noden. Container instances pods som inte är anslutna till en styrenhet visas sist i listan.
+
+![Exempel på kontrollanter hierarki med containerinstanser poddar listade](./media/container-insights-analyze/controllers-view-aci.png)
+
+Välj värdet under kolumnen **Nod** för den specifika styrenheten.
+
+![Exempel detaljgranskning från nod till styrenhet i prestandavyn](./media/container-insights-analyze/drill-down-controller-node.png)
+
+Den information som visas när du visar styrenheter beskrivs i följande tabell.
 
 | Kolumn | Beskrivning | 
 |--------|-------------|
 | Namn | Namnet på kontrollanten.|
-| Status | Sammanslagnings statusen för behållarna när den har slutförts med status, till exempel *OK*, *avslutad*, *misslyckad*, *stoppad*eller *pausad*. Om behållaren körs men status antingen inte visas korrekt eller inte har hämtats av agenten och inte har svarat i mer än 30 minuter, är statusen *okänd*. Ytterligare information om status ikonen finns i följande tabell.|
-| Minsta&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;%| Samlad medelvärde för den genomsnittliga procentandelen av varje entitet för valda mått- och: e percentilen. |
-| Min, AVG, 50, nittionde, 95, max  | Insamling av Genomsnittlig CPU millicore eller minne prestanda för behållaren för den valda: e percentilen. Medelvärdet mäts från processor/minne gränsen för en pod. |
-| Containrar | Totalt antal behållare för domänkontrollant eller pod. |
-| Startar om | Insamling av antalet omstarter från behållare. |
-| Drifttid | Representerar tid efter att en behållare startades. |
-| Node | Endast för behållare och poddar. Den visar vilken kontrollant den finns i. | 
-| Trend för min&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;% | Stapeldiagram trend representerar genomsnittliga: e percentilen mått för kontrollenheten. |
+| Status | Sammanslagningsstatusen för behållarna när den har körts klart med status som *OK*, *Avslutad*, *Stoppad*, *Stoppad*eller *Pausad*. Om behållaren körs men statusen antingen inte visades korrekt eller inte plockades upp av agenten och har inte svarat på mer än 30 minuter, är statusen *Okänd*. Ytterligare information om statusikonen finns i följande tabell.|
+| Min&nbsp;%,&nbsp;Medel %, 50:e&nbsp;%, 90:e&nbsp;%, 95:e&nbsp;%, Max&nbsp;%| Sammanslagningsgenomsnittet för den genomsnittliga procentandelen för varje entitet för det valda måttet och percentilen. |
+| Min, Medel, 50: e, 90: e, 95: e, Max  | Sammanslagning av den genomsnittliga CPU-millicore- eller minnesprestandan för behållaren för den valda percentilen. Medelvärdet mäts från den CPU/Minnesgräns som angetts för en pod. |
+| Containrar | Totalt antal behållare för styrenheten eller podden. |
+| Startar | Sammanslagning av antalet omstarter från behållare. |
+| Upptid | Representerar tiden sedan en behållare startades. |
+| Node | Endast för containrar och kapslar. Den visar vilken styrenhet den finns i. | 
+| Trend&nbsp;Min %,&nbsp;Medel %,&nbsp;50:e&nbsp;%, 90:e %, 95:e&nbsp;%, Max&nbsp;% | Stapeldiagramtrenden representerar styrenhetens genomsnittliga percentilmått. |
 
-Ikonerna i fältet status anger behållar statusen för behållarna.
+Ikonerna i statusfältet anger behållarnas onlinestatus.
  
 | Ikon | Status | 
 |--------|-------------|
-| ![Klar körs statusikon](./media/container-insights-analyze/containers-ready-icon.png) | Kör (klar)|
-| ![Ikon för väntande eller pausad status](./media/container-insights-analyze/containers-waiting-icon.png) | Väntar på eller pausats|
-| ![Senast rapporterat kör statusikon](./media/container-insights-analyze/containers-grey-icon.png) | Senast rapporterat, men har inte svarat i mer än 30 minuter|
-| ![Lyckad statusikon](./media/container-insights-analyze/containers-green-icon.png) | Har stoppats eller gick inte att stoppa|
+| ![Statusikon för klar körning](./media/container-insights-analyze/containers-ready-icon.png) | Köra (klar)|
+| ![Ikon för vänte- eller pausad status](./media/container-insights-analyze/containers-waiting-icon.png) | Väntar eller pausas|
+| ![Statusikon för senast rapporterad körning](./media/container-insights-analyze/containers-grey-icon.png) | Senast rapporterade körs men har inte svarat på mer än 30 minuter|
+| ![Ikon för lyckad status](./media/container-insights-analyze/containers-green-icon.png) | Har stoppats eller misslyckats med att stoppa|
 
-Statusikonen visar ett antal baserat på din pod tillhandahåller. Den visar sämsta två tillstånd och när du hovrar över statusen visar statusen samlad från alla poddar i behållaren. Om det inte finns ett klart status värde visas **(0)** .
+Statusikonen visar ett antal baserat på vad podden tillhandahåller. Den visar de värsta två lägena, och när du hovrar över statusen visas en sammanslagningsstatus från alla poddar i behållaren. Om det inte finns ett färdigt tillstånd visas statusvärdet **(0)**.
 
-I väljar väljer du **behållare**.
+Välj **Behållare**i väljaren .
 
-![Välj behållare-vy](./media/container-insights-analyze/containers-containers-tab.png)
+![Välj behållare vyn](./media/container-insights-analyze/containers-containers-tab.png)
 
-Här kan du visa hälsotillståndet för prestanda för dina Azure Kubernetes och Azure Container Instances-behållare. 
+Här kan du visa prestandahälsan för dina Azure Kubernetes- och Azure Container Instances-behållare. 
 
-![prestanda vy för \<namn > behållare](./media/container-insights-analyze/containers-containers-view.png)
+![\<Namn> behållares prestandavy](./media/container-insights-analyze/containers-containers-view.png)
 
-Från en behållare kan du öka detaljnivån till en pod eller noden för att visa prestandadata som filtreras för objektet. Välj värdet i kolumnen **Pod** eller **Node** för den angivna behållaren.
+Från en behållare kan du öka detaljnivån till en pod eller nod för att visa prestandadata som filtrerats för det objektet. Välj värdet under kolumnen **Pod** eller **Nod** för den specifika behållaren.
 
-![Exempel på att öka detalj nivån från noden till behållare i vyn prestanda](./media/container-insights-analyze/drill-down-controller-node.png)
+![Exempel detaljgranskning från nod till behållare i prestandavyn](./media/container-insights-analyze/drill-down-controller-node.png)
 
-Den information som visas när du visar behållare beskrivs i följande tabell.
+Informationen som visas när du visar behållare beskrivs i följande tabell.
 
 | Kolumn | Beskrivning | 
 |--------|-------------|
 | Namn | Namnet på kontrollanten.|
-| Status | Status för behållare, om sådana. Ytterligare information om statusikonen finns i nästa tabell.|
-| Minsta&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;% | Insamling av den genomsnittliga procentandelen av varje entitet för valda mått- och: e percentilen. |
-| Min, AVG, 50, nittionde, 95, max | Insamling av Genomsnittlig CPU millicore eller minne prestanda för behållaren för den valda: e percentilen. Medelvärdet mäts från processor/minne gränsen för en pod. |
-| Pod | Behållaren där poden finns.| 
-| Node |  Noden där behållaren finns. | 
-| Startar om | Representerar tid efter att en behållare startades. |
-| Drifttid | Representerar tid eftersom en behållare startades eller startas om. |
-| Trend för min&nbsp;%, AVG&nbsp;%, 50&nbsp;%, nittionde&nbsp;%, 95&nbsp;%, Max&nbsp;% | Stapeldiagram trend representerar genomsnittliga: e percentilen mått procentandelen av behållaren. |
+| Status | Eventuella behållares status. Ytterligare information om statusikonen finns i nästa tabell.|
+| Min&nbsp;%,&nbsp;Medel %, 50:e&nbsp;%, 90:e&nbsp;%, 95:e&nbsp;%, Max&nbsp;% | Sammanslagningen av den genomsnittliga procentandelen för varje entitet för det valda måttet och percentilen. |
+| Min, Medel, 50: e, 90: e, 95: e, Max | Sammanslagningen av den genomsnittliga CPU-millicore- eller minnesprestandan för behållaren för den valda percentilen. Medelvärdet mäts från den CPU/Minnesgräns som angetts för en pod. |
+| Pod | Behållare där podden finns.| 
+| Node |  Nod där behållaren finns. | 
+| Startar | Representerar tiden sedan en behållare startades. |
+| Upptid | Representerar tiden sedan en behållare startades eller startades om. |
+| Trend&nbsp;Min %,&nbsp;Medel %,&nbsp;50:e&nbsp;%, 90:e %, 95:e&nbsp;%, Max&nbsp;% | Stapeldiagramtrenden representerar den genomsnittliga percentilmåttprocenten för behållaren. |
 
-Ikonerna i fältet status anger online-status för poddar, enligt beskrivningen i följande tabell.
+Ikonerna i statusfältet anger poddars onlinestatus, enligt beskrivningen i följande tabell.
  
 | Ikon | Status |  
 |--------|-------------|  
-| ![Klar körs statusikon](./media/container-insights-analyze/containers-ready-icon.png) | Kör (klar)|  
-| ![Ikon för väntande eller pausad status](./media/container-insights-analyze/containers-waiting-icon.png) | Väntar på eller pausats|  
-| ![Senast rapporterat kör statusikon](./media/container-insights-analyze/containers-grey-icon.png) | Senast rapporterat körs men har inte svarat under mer än 30 minuterna|  
-| ![Avslutade statusikon](./media/container-insights-analyze/containers-terminated-icon.png) | Har stoppats eller gick inte att stoppa|  
-| ![Misslyckade statusikon](./media/container-insights-analyze/containers-failed-icon.png) | Felaktigt tillstånd |  
+| ![Statusikon för klar körning](./media/container-insights-analyze/containers-ready-icon.png) | Köra (klar)|  
+| ![Ikon för vänte- eller pausad status](./media/container-insights-analyze/containers-waiting-icon.png) | Väntar eller pausas|  
+| ![Statusikon för senast rapporterad körning](./media/container-insights-analyze/containers-grey-icon.png) | Senast rapporterade igång men har inte svarat på mer än 30 minuter|  
+| ![Ikon för avslutad status](./media/container-insights-analyze/containers-terminated-icon.png) | Har stoppats eller misslyckats med att stoppa|  
+| ![Ikon för misslyckad status](./media/container-insights-analyze/containers-failed-icon.png) | Tillståndet misslyckades |  
 
 ## <a name="workbooks"></a>Arbetsböcker
 
-Arbets böcker kombinerar text, [logg frågor](../log-query/query-language.md), [mått](../platform/data-platform-metrics.md)och parametrar till omfattande interaktiva rapporter. Arbets böcker kan redige ras av andra team medlemmar som har åtkomst till samma Azure-resurser.
+Arbetsböcker kombinerar text, [loggfrågor,](../log-query/query-language.md) [mått](../platform/data-platform-metrics.md)och parametrar i avancerade interaktiva rapporter. Arbetsböcker kan redigeras av andra teammedlemmar som har åtkomst till samma Azure-resurser.
 
-Azure Monitor för behållare innehåller fyra arbets böcker för att komma igång:
+Azure Monitor för behållare innehåller fyra arbetsböcker för att komma igång:
 
-- **Disk kapacitet**: visar interaktiva disk användnings diagram för varje disk som visas för noden i en behållare i följande perspektiv:
+- **Diskkapacitet:** Visar interaktiva diskanvändningsdiagram för varje disk som presenteras för noden i en behållare med följande perspektiv:
 
-    - Disk procents användning för alla diskar.
-    - Ledigt disk utrymme för alla diskar.
-    - Ett rutnät som visar varje nods disk, dess procent andel av använt utrymme, trenden i procent av använt utrymme, ledigt disk utrymme (GiB) och trenden för ledigt disk utrymme (GiB). När en rad väljs i tabellen visas procent andelen använt utrymme och ledigt disk utrymme (GiB) under raden. 
+    - Disk procentanvändning för alla diskar.
+    - Gratis diskutrymme för alla diskar.
+    - Ett rutnät som visar varje nods disk, dess procentandel av använt utrymme, trend av procentandel av använt utrymme, ledigt diskutrymme (GiB) och trenden för ledigt diskutrymme (GiB). När en rad är markerad i tabellen visas procentandelen använt utrymme och ledigt diskutrymme (GiB) under raden. 
 
-- **Disk-i/o**: visar interaktiva disk användnings diagram för varje disk som visas för noden i en behållare i följande perspektiv:
+- **Disk-I/O:** Presenterar interaktiva diskanvändningsdiagram för varje disk som presenteras för noden i en behållare med följande perspektiv:
 
-    - Disk-I/O sammanfattas över alla diskar med lästa byte/s, skrivna byte/s och Läs-och skriv byte/s-trender.
-    - Åtta prestanda diagram visar nyckeltal för att hjälpa till att mäta och identifiera disk-I/O-Flask halsar.
+    - Disk I/O sammanfattas på alla diskar med läs byte/sek, skriver bytes/sek och läser och skriver byte/sek-trender.
+    - Åtta resultatdiagram visar nyckeltal för att mäta och identifiera disk-I/O-flaskhalsar.
 
-- **Kubelet**: innehåller två rutnät som visar drift statistik över viktiga noder:
+- **Kubelet**: Innehåller två rutnät som visar nyckelnoddriftsstatistik:
 
-    - Översikt per Node-rutnät sammanfattar total åtgärd, totalt antal fel och lyckade åtgärder efter procent och trend för varje nod.
-    - Översikt per åtgärds typ sammanfattar för varje åtgärd, totalt antal fel och lyckade åtgärder efter procent och trend.
+    - Översikt per nod rutnät sammanfattar totala åtgärder, totala fel och framgångsrika operationer efter procent och trend för varje nod.
+    - Översikt efter operationstyp sammanfattar för varje operation den totala åtgärden, totala fel och lyckade operationer efter procent och trend.
 
-- **Nätverk**: visar interaktiva nätverks användnings diagram för varje nods nätverkskort och ett rutnät presenterar nyckeltalet för att mäta prestanda för nätverkskorten.
+- **Nätverk**: Visar interaktiva nätverksanvändningsdiagram för varje nods nätverkskort och ett rutnät visar de viktigaste prestandaindikatorerna för att mäta nätverkskortens prestanda.
 
-Du kommer åt dessa arbets böcker genom att välja var och en i list rutan **Visa arbets böcker** .
+Du öppnar dessa arbetsböcker genom att välja var och en i listrutan **Visa arbetsböcker.**
 
-![Visa List rutan för arbets böcker](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+![Lista över arbetsböcker](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [skapa prestanda varningar med Azure Monitor för behållare](container-insights-alerts.md) för att lära dig hur du skapar aviseringar för hög processor-och minnes användning för att stödja DevOps eller operativa processer och procedurer.
+- Granska [Skapa prestandaaviseringar med Azure Monitor för behållare för](container-insights-alerts.md) att lära dig hur du skapar aviseringar för hög CPU- och minnesanvändning för att stödja dina DevOps eller operativa processer och procedurer.
 
-- Visa [exempel på logg frågor](container-insights-log-search.md#search-logs-to-analyze-data) för att se fördefinierade frågor och exempel för att utvärdera eller anpassa till avisering, visualisera eller analysera dina kluster.
+- Visa [exempel på loggfrågor](container-insights-log-search.md#search-logs-to-analyze-data) om du vill visa fördefinierade frågor och exempel som du kan utvärdera eller anpassa för att avisera, visualisera eller analysera kluster.
 
-- Se [övervaka kluster hälsa](container-insights-health.md) för att lära dig mer om att Visa hälso status för Kubernetes-klustret.
+- Visa [övervakarkhälsa](container-insights-health.md) om du vill veta mer om hur du visar hälsostatusen för Kubernetes-klustret.

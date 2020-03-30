@@ -1,24 +1,23 @@
 ---
 title: Skapa eller ändra ett erbjudande | Azure Marketplace
-description: API för att skapa ett nytt eller uppdatering och befintligt erbjudande.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+description: API för att skapa ett nytt eller uppdaterat och befintligt erbjudande.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: bfb9cfbe2c63caafef8487015f42a05b98afa29c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 681e71fae161100c8804f95980b9e9567dcf1863
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819723"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288622"
 ---
 <a name="create-or-modify-an-offer"></a>Skapa eller ändra ett erbjudande
 =========================
 
-Det här anropet uppdaterar ett enskilt erbjudande i utgivarens namnrymd eller skapar ett nytt erbjudande.
+Det här anropet uppdaterar ett specifikt erbjudande inom utgivarens namnområde eller skapar ett nytt erbjudande.
 
   `PUT https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>?api-version=2017-10-31`
 
@@ -28,9 +27,9 @@ Det här anropet uppdaterar ett enskilt erbjudande i utgivarens namnrymd eller s
 
 |  **Namn**         |  **Beskrivning**                      |  **Datatyp**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  Utgivar-ID, till exempel `contoso` |   Sträng |
-| OfferId           |  Erbjudande-ID                     |   Sträng        |
-| API-version       |  Senaste versionen av API: et            |   Date           |
+| publisherId       |  Publisher-identifierare, till exempel`contoso` |   String |
+| offerId (erbjudandeId)           |  Identifierare för erbjudande                     |   String        |
+| api-version       |  Senaste versionen av API            |   Datum           |
 |  |  |  |
 
 <a name="header"></a>Huvud
@@ -43,10 +42,10 @@ Det här anropet uppdaterar ett enskilt erbjudande i utgivarens namnrymd eller s
 |  |  |
 
 
-<a name="body-example"></a>Body-exempel
+<a name="body-example"></a>Exempel på brödtext
 ------------
 
-I följande exempel skapas ett erbjudande med offerID av `contosovirtualmachine`.
+I följande exempel skapas ett `contosovirtualmachine`erbjudande med offerID för .
 
 ### <a name="request"></a>Förfrågan
 
@@ -240,23 +239,23 @@ I följande exempel skapas ett erbjudande med offerID av `contosovirtualmachine`
 ```
 
 > [!NOTE]
-> Om du vill ändra det här erbjudandet lägger du till ett **If-Match-** huvud inställt på * på begäran ovan. Använd samma begär ande text som ovan, men ändra värdena efter behov. 
+> Om du vill ändra det här erbjudandet lägger du till ett **If-Match-huvud** inställt på * i ovanstående begäran. Använd samma begärandetext som ovan, men ändra värdena som du vill. 
 
 
-### <a name="response-status-codes"></a>Svars status koder
+### <a name="response-status-codes"></a>Statuskoder för svar
 
-| **Rikt**  |  **Beskrivning**                                                                            |
+| **Kod**  |  **Beskrivning**                                                                            |
 | --------  |  ---------------                                                                            |
 |  200      | `OK`. Begäran har bearbetats och erbjudandet har ändrats.           |
 |  201      | `Created`. Begäran har bearbetats och erbjudandet har skapats.   |
-|  400      | `Bad/Malformed request`. Fel svars texten kan innehålla mer information.            |
-|  403      | `Forbidden`. Klienten har inte åtkomst till det begärda namn området.                     |
-|  404      | `Not found`. Den entitet som klienten refererar till finns inte.                           |
-|  412      | Servern uppfyller inte ett av de förutsättningar som beställaren angav i begäran. Klienten bör kontrol lera att ETAG har skickats med begäran. |
+|  400      | `Bad/Malformed request`. Felsvarstexten kan ge mer information.            |
+|  403      | `Forbidden`. Klienten har inte åtkomst till det begärda namnområdet.                     |
+|  404      | `Not found`. Den enhet som klienten refererar till finns inte.                           |
+|  412      | Servern uppfyller inte någon av de förutsättningar som beställaren angav i begäran. Klienten bör kontrollera ETAG skickas med begäran. |
 |  |  |
 
 
-<a name="uploading-artifacts"></a>Laddar upp artefakter
+<a name="uploading-artifacts"></a>Ladda upp artefakter
 -------------------
 
-Artefakter, till exempel bilder och logo typer, bör delas genom att ladda upp dem till en tillgänglig plats på webben, inklusive varje som en URI i förfrågan-begäran, som i exemplet ovan. Systemet upptäcker att dessa filer inte finns på Azure Marketplace-lagringen och laddar ned dessa filer till lagringen.  Därför kan du se att framtida GET-begäranden returnerar en URL för Azure Marketplace-tjänsten för de här filerna.
+Artefakter, till exempel bilder och logotyper, bör delas genom att ladda upp dem till en tillgänglig plats på webben och sedan inkludera var och en som en URI i PUT-begäran, som i exemplet ovan. Systemet kommer att upptäcka att dessa filer inte finns i Azure marketplace lagring och ladda ner dessa filer till lagring.  Därför kommer du att upptäcka att framtida GET-begäranden returnerar en URL för Azure Marketplace-tjänst för dessa filer.

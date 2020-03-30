@@ -1,47 +1,47 @@
 ---
-title: Skapa ett Azure Red Hat OpenShift 4,3-kluster | Microsoft Docs
-description: Skapa ett kluster med Azure Red Hat OpenShift 4,3
+title: Skapa ett Azure Red Hat OpenShift 4.3-kluster | Microsoft-dokument
+description: Skapa ett kluster med Azure Red Hat OpenShift 4.3
 author: lamek
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/06/2020
-keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
-ms.openlocfilehash: 23d7c950396c36925ce50d746195916292d360ad
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+keywords: aro, openshift, az aro, röd hatt, cli
+ms.openlocfilehash: 423f09c135da51b8401c1933a4a271d0becd2c8f
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79201050"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80349438"
 ---
-# <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Skapa, komma åt och hantera ett Azure Red Hat OpenShift 4,3-kluster
+# <a name="create-access-and-manage-an-azure-red-hat-openshift-43-cluster"></a>Skapa, komma åt och hantera ett Azure Red Hat OpenShift 4.3-kluster
 
 > [!IMPORTANT]
-> Observera att Azure Red Hat OpenShift 4,3 är för närvarande endast tillgängligt i privat för hands version i USA, östra. Godkännande av privat för hands version är endast efter inbjudan. Var noga med att registrera din prenumeration innan du försöker aktivera den här funktionen: [Azure Red Hat OpenShift, privat för hands registrering](https://aka.ms/aro-preview-register)
+> Observera att Azure Red Hat OpenShift 4.3 för närvarande endast är tillgängligt i privat förhandsversion i östra USA. Accepterar privat förhandsgranskning sker endast genom inbjudan. Var noga med att registrera din prenumeration innan du försöker aktivera den här funktionen: [Azure Red Hat OpenShift Private Preview Registration](https://aka.ms/aro-preview-register)
 
 > [!NOTE]
-> För hands versions funktionerna är självbetjäning och tillhandahålls och är tillgängliga och omfattas inte av service nivå avtalet (SLA) och begränsad garanti. Därför är funktionerna inte avsedda att användas för produktion.
+> Förhandsversionsfunktioner är självbetjäning och tillhandahålls i dess fall och är undantagna från servicenivåavtalet (SLA) och begränsad garanti. Därför är funktionerna inte avsedda för produktionsanvändning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Du behöver följande för att skapa ett Azure Red Hat OpenShift 4,3-kluster:
+Du behöver följande för att skapa ett Azure Red Hat OpenShift 4.3-kluster:
 
-- Azure CLI-version 2.0.72 eller senare
+- Azure CLI version 2.0.72 eller senare
   
-- Tillägget ' AZ Aro '
+- Förlängningen "az aro"
 
-- Ett virtuellt nätverk som innehåller två tomma undernät, var och en med ingen nätverks säkerhets grupp ansluten.  Klustret kommer att distribueras till dessa undernät.
+- Ett virtuellt nätverk som innehåller två tomma undernät, var och en utan nätverkssäkerhetsgrupp ansluten.  Klustret distribueras i dessa undernät.
 
-- Ett AAD-program (klient-ID och hemlighet) och tjänstens huvud namn, eller tillräckliga AAD-behörigheter för `az aro create` för att skapa ett AAD-program och tjänstens huvud namn åt dig automatiskt.
+- Ett klusterAAD-program (klient-ID och hemligt) och tjänsthuvudnamn, eller tillräcklig AAD-behörighet för `az aro create` att skapa ett AAD-program och tjänsthuvudnamn för dig automatiskt.
 
-- Tjänstens huvud namn och tjänstens huvud namn för tjänsten RP måste var och en ha rollen deltagare i det virtuella kluster nätverket.  Om du har rollen som administratör för användar åtkomst i det virtuella nätverket skapar `az aro create` roll tilldelningarna automatiskt.
+- Huvudhuvudhuvudbeloppet för RP-tjänsten och klustertjänstens huvudnamn måste ha rollen Deltagare i klustrets virtuella nätverk.  Om du har rollen "Administratör för användaråtkomst" i det virtuella nätverket `az aro create` ställer du in rolltilldelningarna för dig automatiskt.
 
-### <a name="install-the-az-aro-extension"></a>Installera tillägget ' AZ Aro '
-Med tillägget `az aro` kan du skapa, komma åt och ta bort Azure Red Hat OpenShift-kluster direkt från kommando raden med hjälp av Azure CLI.
+### <a name="install-the-az-aro-extension"></a>Installera tillägget "az aro"
+Tillägget `az aro` kan du skapa, komma åt och ta bort Azure Red Hat OpenShift-kluster direkt från kommandoraden med hjälp av Azure CLI.
 
 > [!Note] 
-> `az aro`-tillägget är aktuellt i för hands versionen. Den kan ändras eller tas bort i en framtida version.
-> Om du vill välja för hands versionen av `az aro`-tillägget måste du registrera `Microsoft.RedHatOpenShift` Resource Provider.
+> Tillägget `az aro` är aktuellt i förhandsgranskningen. Det kan ändras eller tas bort i en framtida version.
+> För att anmäla `az aro` dig till förhandsgranskningen `Microsoft.RedHatOpenShift` av tillägget måste du registrera resursleverantören.
 > 
 >    ```console
 >    az provider register -n Microsoft.RedHatOpenShift --wait
@@ -53,13 +53,13 @@ Med tillägget `az aro` kan du skapa, komma åt och ta bort Azure Red Hat OpenSh
    az login
    ```
 
-2. Kör följande kommando för att installera `az aro`-tillägget:
+2. Kör följande kommando för `az aro` att installera tillägget:
 
    ```console
    az extension add -n aro --index https://az.aroapp.io/preview
    ```
 
-3. Kontrol lera att ARO-tillägget är registrerat.
+3. Kontrollera att ARO-tillägget är registrerat.
 
    ```console
    az -v
@@ -71,7 +71,7 @@ Med tillägget `az aro` kan du skapa, komma åt och ta bort Azure Red Hat OpenSh
   
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Skapa ett virtuellt nätverk som innehåller två tomma undernät
 
-Följ dessa steg om du vill skapa ett virtuellt nätverk med två tomma undernät.
+Följ dessa steg för att skapa ett virtuellt nätverk som innehåller två tomma undernät.
 
 1. Ange följande variabler.
 
@@ -79,9 +79,17 @@ Följ dessa steg om du vill skapa ett virtuellt nätverk med två tomma undernä
    LOCATION=eastus        #the location of your cluster
    RESOURCEGROUP="v4-$LOCATION"    #the name of the resource group where you want to create your cluster
    CLUSTER=cluster        #the name of your cluster
+   PULL_SECRET="<optional-pull-secret>"
    ```
+   >[!NOTE]
+   > Den valfria pull-hemligheten gör det möjligt för klustret att komma åt Red Hat-behållarregister tillsammans med ytterligare innehåll.
+   >
+   > Få tillgång till din https://cloud.redhat.com/openshift/install/azure/installer-provisioned pull hemlighet genom att navigera till och klicka *kopiera Pull Secret*.
+   >
+   > Du måste logga in på ditt Red Hat-konto, eller skapa ett nytt Red Hat-konto med ditt företags e-postadress och acceptera villkoren.
+ 
 
-2. Skapa en resurs grupp för klustret.
+2. Skapa en resursgrupp för klustret.
 
    ```console
    az group create -g "$RESOURCEGROUP" -l $LOCATION
@@ -111,7 +119,7 @@ Följ dessa steg om du vill skapa ett virtuellt nätverk med två tomma undernä
    done
    ```
 
-5. Inaktivera nätverks principer för tjänsten för privata länkar i ditt virtuella nätverk och undernät. Detta är ett krav för att ARO-tjänsten ska kunna komma åt och hantera klustret.
+5. Inaktivera nätverksprinciper för private link-tjänsten i ditt virtuella nätverk och i undernät. Detta är ett krav för ARO-tjänsten att komma åt och hantera klustret.
 
    ```console
    az network vnet subnet update \
@@ -132,21 +140,22 @@ az aro create \
   -n "$CLUSTER" \
   --vnet vnet \
   --master-subnet "$CLUSTER-master" \
-  --worker-subnet "$CLUSTER-worker"
+  --worker-subnet "$CLUSTER-worker" \
+  --pull-secret "$PULL_SECRET"
 ```
 
 >[!NOTE]
 > Det tar normalt cirka 35 minuter att skapa ett kluster.
 
-## <a name="access-the-cluster-console"></a>Åtkomst till kluster konsolen
+## <a name="access-the-cluster-console"></a>Få tillgång till klusterkonsolen
 
-Du hittar kluster konsolens URL (av formuläret `https://console-openshift-console.apps.<random>.<location>.aroapp.io/`) under kluster resursen för att OpenShift 4,3 i Azure Red Hat. Kör följande kommando för att Visa resursen:
+Du hittar klusterkonsolens URL `https://console-openshift-console.apps.<random>.<location>.aroapp.io/`(i formuläret) under Azure Red Hat OpenShift 4.3-klusterresursen. Kör följande kommando för att visa resursen:
 
 ```console
 az aro list -o table
 ```
 
-Du kan logga in på klustret med `kubeadmin` användare.  Kör följande kommando för att hitta lösen ordet för den `kubeadmin` användaren:
+Du kan logga in `kubeadmin` i klustret med hjälp av användaren.  Kör följande kommando för att `kubeadmin` hitta lösenordet för användaren:
 
 ```dotnetcli
 az aro list-credentials -g "$RESOURCEGROUP" -n "$CLUSTER"

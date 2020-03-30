@@ -1,20 +1,19 @@
 ---
-title: Cloud Partner Portal hantering | Azure Marketplace
-description: Föråldrad CPP-artikel, pekad på PC-artikel; Beskriver de typer av åtgärder som är tillgängliga för att hantera konton för Cloud Partner Portal för Azure Marketplace. "
-services: Azure, Marketplace, Cloud Partner Portal, Partner Center
-author: ChJenk
+title: Hantering av Molnpartnerportal | Azure Marketplace
+description: Föråldrad CPP artikel, pekade på PC artikel; var "Beskriver de typer av åtgärder som är tillgängliga för att hantera konton för Cloud Partner Portal för Azure Marketplace."
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.author: v-chjen
-ms.openlocfilehash: 4d586e45b0d86bedce61eef69a87d3fc187cf279
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.author: dsindona
+ms.openlocfilehash: ce7e56352533072c625d0ea54a77fa6c4860f2e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666400"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288452"
 ---
-# <a name="cloud-partner-portal-management"></a>Cloud Partner Portal hantering
+# <a name="cloud-partner-portal-management"></a>Hantering av Molnpartnerportal
 
-Den här funktionen har flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [Hantera ditt kommersiella Marketplace-konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).
+Den här funktionen har flyttats till Microsoft [Partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [Så här hanterar du ditt kommersiella Marketplace-konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account).

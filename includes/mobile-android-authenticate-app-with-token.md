@@ -5,20 +5,20 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67188031"
 ---
-Föregående exempel visade en standard inloggning, vilket kräver att klienten kan kontakta identitetsprovidern- och backend Azure-tjänsten varje gång appen startas. Den här metoden är ineffektiv och du kan ha användning-relaterade problem om många kunder försöker starta din app samtidigt. En bättre metod är att cachelagra den autentiseringstoken som returneras av Azure-tjänsten och försöker använda den här första innan du använder en provider-baserad inloggning.
+I föregående exempel visades en standard inloggning, som kräver att klienten kontaktar både identitetsprovidern och den bakre Azure-tjänsten varje gång appen startar. Den här metoden är ineffektiv och du kan ha användningsrelaterade problem om många kunder försöker starta appen samtidigt. En bättre metod är att cachelagra auktoriseringstoken som returneras av Azure-tjänsten och försöka använda den här först innan du använder en providerbaserad inloggning.
 
 > [!NOTE]
-> Du kan cachelagra den token som utfärdas av serverdelen Azure-tjänsten oavsett om du använder hanteras av klienten eller service-autentisering. Den här självstudien använder tjänsthanterade autentisering.
+> Du kan cachelagra den token som utfärdas av den serverdelsbaserade Azure-tjänsten oavsett om du använder klienthanterad eller tjänsthanterad autentisering. Den här självstudien använder tjänsthanterad autentisering.
 >
 >
 
-1. Öppna ToDoActivity.java-filen och Lägg till följande importuttryck:
+1. Öppna filen ToDoActivity.java och lägg till följande importsatser:
 
     ```java
     import android.content.Context;
@@ -26,7 +26,7 @@ Föregående exempel visade en standard inloggning, vilket kräver att klienten 
     import android.content.SharedPreferences.Editor;
     ```
 
-2. Lägg till följande medlemmar till den `ToDoActivity` klass.
+2. Lägg till följande `ToDoActivity` medlemmar i klassen.
 
     ```java
     public static final String SHAREDPREFFILE = "temp";
@@ -34,7 +34,7 @@ Föregående exempel visade en standard inloggning, vilket kräver att klienten 
     public static final String TOKENPREF = "tkn";
     ```
 
-3. I ToDoActivity.java-filen lägger du till följande definition för den `cacheUserToken` metoden.
+3. Lägg till följande definition för metoden i `cacheUserToken` filen ToDoActivity.java.
 
     ```java
     private void cacheUserToken(MobileServiceUser user)
@@ -47,14 +47,14 @@ Föregående exempel visade en standard inloggning, vilket kräver att klienten 
     }
     ```
 
-    Den här metoden lagrar användar-ID och token i en fil med inställningar som har markerats som privat. Detta ska skydda åtkomsten till cachen så att andra appar på enheten inte har åtkomst till token. Inställningen är i begränsat läge för appen. Om någon får tillgång till enheten, är det dock möjligt att de kan få åtkomst till tokencache på annat sätt.
+    Den här metoden lagrar användar-ID och token i en inställningsfil som är markerad som privat. Detta bör skydda åtkomsten till cachen så att andra appar på enheten inte har åtkomst till token. Inställningen är begränsat för appen. Men om någon får åtkomst till enheten, är det möjligt att de kan få tillgång till tokencachen på annat sätt.
 
    > [!NOTE]
-   > Du kan ytterligare skydda token med kryptering, om token åtkomst till dina data betraktas som känslig och någon kan få åtkomst till enheten. En helt säker lösning ligger utanför omfånget för den här självstudien, men och beror på dina säkerhetskrav.
+   > Du kan ytterligare skydda token med kryptering, om tokenåtkomst till dina data anses vara mycket känslig och någon kan få åtkomst till enheten. En helt säker lösning ligger dock utanför den här självstudiens omfattning och beror på dina säkerhetskrav.
    >
    >
 
-4. I ToDoActivity.java-filen lägger du till följande definition för den `loadUserTokenCache` metoden.
+4. Lägg till följande definition för metoden i `loadUserTokenCache` filen ToDoActivity.java.
 
     ```java
     private boolean loadUserTokenCache(MobileServiceClient client)
@@ -75,7 +75,7 @@ Föregående exempel visade en standard inloggning, vilket kräver att klienten 
     }
     ```
 
-5. I den *ToDoActivity.java* filen ersätter den `authenticate` och `onActivityResult` metoder med de följande som använder en token-cache. Ändra inloggningsprovidern om du vill använda ett annat konto än Google.
+5. I filen *ToDoActivity.java* ersätter du metoderna `authenticate` och `onActivityResult` med följande, som använder en tokencache. Ändra inloggningsleverantören om du vill använda ett annat konto än Google.
 
     ```java
     private void authenticate() {
@@ -114,4 +114,4 @@ Föregående exempel visade en standard inloggning, vilket kräver att klienten 
     }
     ```
 
-6. Skapa appen och test-autentisering med hjälp av ett giltigt konto. Kör minst två gånger. Under den första körningen får du en uppmaning om att logga in och skapa token-cache. Efter det varje körning som försöker läsa in tokens cacheminne för autentisering. Du bör inte krävas för att logga in.
+6. Skapa appen och testa autentisering med ett giltigt konto. Kör det minst två gånger. Under den första körningen bör du få en uppmaning att logga in och skapa tokencachen. Därefter försöker varje körning att läsa in tokencachen för autentisering. Du ska inte behöva logga in.

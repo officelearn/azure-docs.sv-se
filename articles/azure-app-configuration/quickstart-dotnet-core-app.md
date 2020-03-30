@@ -7,68 +7,70 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 1/9/2019
 ms.author: lcozzens
-ms.openlocfilehash: f27ad43fabbba92f97a4035b00f72a8a4af4cc5c
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 420d9b48013f5f6debe588667fe1cc0390517e66
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500218"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80245386"
 ---
-# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabb start: skapa en .NET Core-app med app-konfiguration
+# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabbstart: Skapa en .NET Core-app med appkonfiguration
 
-I den här snabb starten inkluderar du Azure App konfiguration i en .NET Core-konsol för att centralisera lagring och hantering av program inställningar separat från din kod.
+I den här snabbstarten införlivar du Azure App-konfiguration i en .NET Core-konsolapp för att centralisera lagring och hantering av programinställningar som är åtskilda från koden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-- [.Net Core SDK](https://dotnet.microsoft.com/download) – även tillgängligt i [Azure Cloud Shell](https://shell.azure.com).
+- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
+- [.NET Core SDK](https://dotnet.microsoft.com/download) - även tillgängligt i [Azure Cloud Shell](https://shell.azure.com).
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
+## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations utforskaren** > **skapa** för att lägga till följande nyckel/värde-par:
+6. Välj**Skapa** > nyckelvärde för **konfigurationsutforskaren** > om du vill lägga till följande nyckel-värde-par:**Key-value**
 
     | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
-    Lämna **etiketten** och **innehålls typen** tom för tillfället.
+    Lämna **etikett** och **innehållstyp** tomma för tillfället.
+
+7. Välj **Använd**.
 
 ## <a name="create-a-net-core-console-app"></a>Skapa en .NET Core-konsolapp
 
-Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.com/dotnet/core/tools/) för att skapa ett nytt .net Core Console-projekt. Fördelen med att använda .NET Core CLI i Visual Studio är att den är tillgänglig på Windows-, macOS-och Linux-plattformarna.  Du kan också använda de förinstallerade verktygen som är tillgängliga i [Azure Cloud Shell](https://shell.azure.com).
+Du kan använda [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) för att skapa ett nytt .NET Core-konsolappprojekt. Fördelen med att använda .NET Core CLI över Visual Studio är att den är tillgänglig på Windows-, macOS- och Linux-plattformarna.  Du kan också använda de förinstallerade verktygen som finns i [Azure Cloud Shell](https://shell.azure.com).
 
 1. Skapa en ny mapp för ditt projekt.
 
-2. I den nya mappen kör du följande kommando för att skapa ett nytt ASP.NET Core Console-projekt:
+2. I den nya mappen kör du följande kommando för att skapa ett nytt ASP.NET Core-konsolappprojekt:
 
-    ```CLI
-        dotnet new console
+    ```dotnetcli
+    dotnet new console
     ```
 
-## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
+## <a name="connect-to-an-app-configuration-store"></a>Ansluta till ett appkonfigurationsarkiv
 
-1. Lägg till en referens till `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet genom att köra följande kommando:
+1. Lägg till en `Microsoft.Extensions.Configuration.AzureAppConfiguration` referens till NuGet-paketet genom att köra följande kommando:
 
-    ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    ```dotnetcli
+    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     ```
 
-2. Kör följande kommando för att återställa paket för ditt projekt:
+2. Kör följande kommando för att återställa paket för projektet:
 
-    ```CLI
-        dotnet restore
+    ```dotnetcli
+    dotnet restore
     ```
 
-3. Öppna *program.cs*och Lägg till en referens till .net Core app Configuration-providern.
+3. Öppna *Program.cs*och lägg till en referens till .NET Core App Configuration Provider.
 
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-4. Uppdatera `Main`-metoden för att använda app-konfiguration genom att anropa `builder.AddAzureAppConfiguration()`-metoden.
+4. Uppdatera `Main` metoden för att använda `builder.AddAzureAppConfiguration()` appkonfiguration genom att anropa metoden.
 
     ```csharp
     static void Main(string[] args)
@@ -83,32 +85,34 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Ange en miljö variabel med namnet **ConnectionString**och ange den till åtkomst nyckeln till appens konfigurations arkiv. Kör följande kommando på kommando raden och starta om kommando tolken för att ändringarna ska börja gälla:
+1. Ange en miljövariabel med namnet **ConnectionString**och ange den till åtkomstnyckeln till appkonfigurationsarkivet. Kör följande kommando på kommandoraden:
 
-    ```CLI
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```cmd
+    setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
     Om du använder Windows PowerShell kör du följande kommando:
 
     ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
     Om du använder macOS eller Linux kör du följande kommando:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Kör följande kommando för att skapa konsol programmet:
+    Starta om kommandotolken så att ändringen kan börja gälla. Skriv ut värdet för miljövariabeln för att verifiera att den är korrekt inställd.
 
-    ```CLI
-        dotnet build
+2. Kör följande kommando för att skapa konsolappen:
+
+    ```dotnetcli
+    dotnet build
     ```
 
-3. När skapandet har slutförts kör du följande kommando för att köra appen lokalt:
+3. När versionen har slutförts kör du följande kommando för att köra appen lokalt:
 
-    ```CLI
-        dotnet run
+    ```dotnetcli
+    dotnet run
     ```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -117,7 +121,7 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten skapade du ett nytt konfigurations Arkiv för appar och använde det med en .NET Core-konsol-app via [appens Konfigurationsprovider](https://go.microsoft.com/fwlink/?linkid=2074664). Fortsätt till nästa självstudie om du vill lära dig hur du konfigurerar din .NET Core-app så att konfigurations inställningarna uppdateras dynamiskt.
+I den här snabbstarten skapade du ett nytt App Configuration Store och använde det med en .NET Core-konsolapp via [appkonfigurationsleverantören](https://go.microsoft.com/fwlink/?linkid=2074664). Om du vill veta hur du konfigurerar .NET Core-appen för att dynamiskt uppdatera konfigurationsinställningarna fortsätter du till nästa självstudiekurs.
 
 > [!div class="nextstepaction"]
 > [Aktivera dynamisk konfiguration](./enable-dynamic-configuration-dotnet-core.md)

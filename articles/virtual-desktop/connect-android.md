@@ -1,53 +1,53 @@
 ---
-title: Ansluta till Windows Virtual Desktop från Android – Azure
-description: Ansluta till virtuella Windows-datorer med Android-klienten.
+title: Ansluta till Windows Virtual Desktop från Android - Azure
+description: Så här ansluter du till Windows Virtual Desktop med Android-klienten.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99d52077d84ab8a9495f92d9c75fb742ff988ba8
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: d2990c82efbcdac7d453f920301787b8c83db1e9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128272"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295367"
 ---
 # <a name="connect-with-the-android-client"></a>Ansluta med Android-klienten
 
-> Gäller för: Android 4,1 och senare, Chromebooks med Chrome 53 och senare.
+> Gäller: Android 4.1 och senare Chromebooks med ChromeOS 53 och senare.
 
 >[!NOTE]
-> Möjligheten att komma åt Windows-resurser för virtuella skriv bord från Android-klienten är för närvarande tillgänglig som för hands version.
+> Möjligheten att komma åt Windows Virtual Desktop-resurser från Android-klienten är för närvarande tillgänglig i förhandsversionen.
 
-Du kan komma åt Windows-resurser för virtuella skriv bord från din Android-enhet med vår nedladdnings bara klient. Du kan också använda Android-klienten på Chromebook-enheter som har stöd för Google Play Butik. I den här guiden får du lära dig hur du konfigurerar Android-klienten.
+Du kan komma åt Windows Virtual Desktop-resurser från din Android-enhet med vår nedladdningsbara klient. Du kan också använda Android-klienten på Chromebook-enheter som stöder Google Play Butik. Den här guiden kommer att berätta hur du ställer in Android-klienten.
 
 ## <a name="install-the-android-client"></a>Installera Android-klienten
 
-Kom igång genom att [Ladda ned](https://play.google.com/store/apps/details?id=com.microsoft.rdc.android) och installera-klienten på din Android-enhet.
+För att komma [igång, ladda ner](https://play.google.com/store/apps/details?id=com.microsoft.rdc.androidx) och installera klienten på din Android-enhet.
 
-## <a name="subscribe-to-a-feed"></a>Prenumerera på en feed
+## <a name="subscribe-to-a-feed"></a>Prenumerera på ett flöde
 
-Prenumerera på den feed som administratören har fått för att hämta listan över hanterade resurser som du har åtkomst till på din Android-enhet.
+Prenumerera på flödet från administratören för att få en lista över hanterade resurser som du kan komma åt på din Android-enhet.
 
-Så här prenumererar du på en feed:
+Så här prenumererar du på ett flöde:
 
-1. I anslutnings Center trycker du på **+** och trycker sedan på **fjär resurs matning**.
-2. Ange feed-URL: en i fältet **feed URL** . Feed-URL: en kan vara antingen en URL eller en e-postadress.
-   - Om du använder en URL kan du använda den som din administratör har gett dig, vanligt vis <https://rdweb.wvd.microsoft.com>.
-   - Ange din e-postadress om du vill använda e-post. Klienten söker efter en URL som är kopplad till din e-postadress om din administratör har konfigurerat servern på det sättet.
-3. Tryck på **Nästa**.
-4. Ange dina autentiseringsuppgifter när du uppmanas till det.
-   - Ge användar namnet behörighet att komma åt resurser för **användar namn**.
-   - Ange lösen ordet som är associerat med användar namnet för **lösen ord**.
-   - Du kan också uppmanas att ange ytterligare faktorer om din administratör har konfigurerat autentiseringen på det sättet.
+1. Tryck på **+** i Anslutningscenter och sedan **på Fjärrresursmatning**.
+2. Ange feed-URL:en i fältet **Feed URL.** Feed-URL:en kan vara antingen en WEBBADRESS eller en e-postadress.
+   - Om du använder en webbadress använder du den <https://rdweb.wvd.microsoft.com>som administratören gav dig, normalt .
+   - Om du vill använda e-post anger du din e-postadress. Klienten söker efter en URL som är kopplad till din e-postadress om administratören har konfigurerat servern på det sättet.
+3. Tryck på **NÄSTA**.
+4. Ange dina autentiseringsuppgifter när du uppmanas att göra det.
+   - För **Användarnamn**ger du användarnamnet med behörighet att komma åt resurser.
+   - För **Lösenord**anger du lösenordet som är kopplat till användarnamnet.
+   - Du kan också uppmanas att ange ytterligare faktorer om administratören har konfigurerat autentisering på det sättet.
 
-När du har prenumererat bör anslutnings centret Visa fjär resurserna.
+När du har prenumererat bör anslutningscentret visa fjärrresurserna.
 
-När du prenumererar på en feed uppdateras feedens innehåll automatiskt regelbundet. Resurser kan läggas till, ändras eller tas bort utifrån ändringar som gjorts av administratören.
+När du prenumererar på ett flöde uppdateras feedens innehåll automatiskt regelbundet. Resurser kan läggas till, ändras eller tas bort baserat på ändringar som gjorts av administratören.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du använder Android-klienten finns i [komma igång med Android-klienten](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/).
+Om du vill veta mer om hur du använder Android-klienten kan du läsa [Kom igång med Android-klienten](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/).

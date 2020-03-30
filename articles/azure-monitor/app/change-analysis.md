@@ -1,122 +1,122 @@
 ---
-title: Använd program ändrings analys i Azure Monitor för att hitta problem med webb program | Microsoft Docs
-description: Använd program ändrings analys i Azure Monitor för att felsöka program problem på Live-webbplatser på Azure App Service.
+title: Använd programändringsanalys i Azure Monitor för att hitta webb-appproblem | Microsoft-dokument
+description: Använd programändringsanalys i Azure Monitor för att felsöka programproblem på aktiva webbplatser på Azure App Service.
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 143f55a02a856b536172bd5fc2bac15903a228b9
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 036b8c084bdfdc11c02274758c550c76bdc7b1e7
+ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655692"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80348734"
 ---
-# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda program ändrings analys (för hands version) i Azure Monitor
+# <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Använda programändringsanalys (förhandsversion) i Azure Monitor
 
-När ett problem med en aktiv webbplats eller ett avbrott inträffar kan du snabbt avgöra rotor saken är kritiskt. Vanliga övervaknings lösningar kan varna dig för problem. De kan till och med Visa vilken komponent som Miss fungerar. Men aviseringen kan inte alltid direkt förklara orsaken till felet. Du vet att webbplatsen arbetade fem minuter sedan och att den nu är bruten. Vad har ändrats under de senaste fem minuterna? Detta är den fråga som program ändrings analysen har utformats för att svara i Azure Monitor.
+När ett problem eller avbrott på en levande plats inträffar är det viktigt att snabbt fastställa orsaken. Standardövervakningslösningar kan varna dig för ett problem. De kan till och med ange vilken komponent som misslyckas. Men den här varningen kommer inte alltid omedelbart att förklara felets orsak. Du vet att din webbplats fungerade för fem minuter sedan, och nu är den trasig. Vad har förändrats de senaste fem minuterna? Det här är frågan som Application Change Analysis är utformad för att svara på i Azure Monitor.
 
-Genom att bygga vidare på kraften i [Azures resurs diagram](https://docs.microsoft.com/azure/governance/resource-graph/overview)får du insikter om dina Azure-programändringar för att öka den observerade och minska MTTR (genomsnittlig tid för reparation).
+Ändra analys bygger på kraften i [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)och ger insikter om dina Azure-programändringar för att öka observerbarheten och minska MTTR (tid att reparera).
 
 > [!IMPORTANT]
-> Ändrings analys är för närvarande en för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal. Den här versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan ha begränsade funktioner. Mer information finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.
+> Ändringsanalysen förhandsgranskas för närvarande. Den här förhandsversionen tillhandahålls utan ett servicenivåavtal. Den här versionen rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsade funktioner. Mer information finns i [Tilläggsvillkor för microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="overview"></a>Översikt
 
-Ändrings analysen identifierar olika typer av ändringar, från infrastruktur skiktet hela vägen till program distributionen. Det är en Azure-adressresurs på prenumerations nivå som kontrollerar resurs ändringar i prenumerationen. Med ändrings analys får du data för olika diagnostiska verktyg som hjälper användarna att förstå vilka ändringar som kan ha orsakat problem.
+Ändringsanalys identifierar olika typer av ändringar, från infrastrukturlagret hela vägen till programdistribution. Det är en Azure-resursleverantör på prenumerationsnivå som kontrollerar resursändringar i prenumerationen. Ändringsanalys innehåller data för olika diagnostikverktyg som hjälper användarna att förstå vilka ändringar som kan ha orsakat problem.
 
-Följande diagram illustrerar arkitekturen för ändrings analys:
+Följande diagram illustrerar arkitekturen i ändringsanalys:
 
-![Arkitektur diagram över hur ändrings analys får ändra data och ger den till klient verktyg](./media/change-analysis/overview.png)
+![Arkitekturdiagram över hur ändringsanalys får ändringsdata och tillhandahåller dem till klientverktyg](./media/change-analysis/overview.png)
 
-För närvarande är ändrings analys integrerad i lösningen för att **diagnostisera och lösa problem** i App Service webbapp, samt tillgänglig som en fristående flik i Azure Portal.
-Se avsnittet *Visa ändringar för alla resurser i Azure* för att få åtkomst till ändrings analys bladet och *ändrings analysen för avsnittet Web Apps funktion* för att använda den i Web App-portalen senare i den här artikeln.
+För närvarande är ändringsanalys integrerad i **diagnostisera och lösa problemupplevelse** i App Service-webbappen, samt tillgänglig som en fristående flik i Azure-portalen.
+Se *avsnittet Visa ändringar för alla resurser i Azure* för att komma åt bladet Ändra analys och avsnittet Ändra analys för *webbappar* för att använda det i Web App-portalen senare i den här artikeln.
 
-### <a name="azure-resource-manager-tracked-properties-changes"></a>Ändringar i Azure Resource Manager spårade egenskaper
+### <a name="azure-resource-manager-tracked-properties-changes"></a>Spårade ändringar i Azure Resource Manager
 
-Med hjälp av [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)får du en historisk förteckning över hur Azure-resurser som är värdar för ditt program har ändrats över tid. Spårade inställningar, till exempel hanterade identiteter, plattforms-OS-uppgradering och värdnamn kan identifieras.
+Med Hjälp av [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)innehåller ändringsanalys en historisk post om hur De Azure-resurser som är värdar för ditt program har ändrats med tiden. Spårade inställningar som hanterade identiteter, uppgradering av plattformsoperativsystem och värdnamn kan identifieras.
 
-### <a name="azure-resource-manager-proxied-setting-changes"></a>Inställnings ändringar för Azure Resource Manager-proxy
-Inställningar som IP-konfigurationsinformation, SSL-inställningar och tilläggs versioner är ännu inte tillgängliga i ARG, så ändra analys frågor och beräkna dessa ändringar på ett säkert sätt för att ge mer information om vad som har ändrats i appen. Informationen är inte tillgänglig ännu i Azure Resource Graph men kommer snart att vara tillgänglig.
+### <a name="azure-resource-manager-proxied-setting-changes"></a>Azure Resource Manager-proxied-inställningsändringar
+Inställningar som IP-konfigurationsregel, TLS-inställningar och tilläggsversioner är ännu inte tillgängliga i ARG, så ändra analysfrågor och beräknar dessa ändringar på ett säkert sätt för att ge mer information i vad som har ändrats i appen. Den här informationen är ännu inte tillgänglig i Azure Resource Graph men kommer snart att vara tillgänglig.
 
 ### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>Ändringar i distribution och konfiguration av webbappar (ändringar i gästen)
 
-Med ändrings analys samlas distributions-och konfigurations status för ett program var fjärde timme. Den kan till exempel identifiera ändringar i program miljöns variabler. Verktyget beräknar skillnaderna och visar vad som har ändrats. Till skillnad från i Resource Manager-ändringar kanske kod distributionens ändrings information inte är tillgänglig direkt i verktyget. Om du vill visa de senaste ändringarna i ändrings analysen väljer du **Genomsök ändringar nu**.
+Ändringsanalys fångar distributions- och konfigurationstillståndet för ett program var fjärde timme. Den kan identifiera till exempel ändringar i programmiljövariablerna. Verktyget beräknar skillnaderna och presenterar vad som har förändrats. Till skillnad från Resource Manager-ändringar kanske information om ändring av koddistribution inte är tillgänglig direkt i verktyget. Om du vill visa de senaste ändringarna i ändringsanalys väljer du **Skanna ändringar nu**.
 
-![Skärm bild av knappen "Skanna ändringar nu"](./media/change-analysis/scan-changes.png)
+![Skärmbild av knappen "Skanna ändra nu"](./media/change-analysis/scan-changes.png)
 
-### <a name="dependency-changes"></a>Beroende ändringar
+### <a name="dependency-changes"></a>Beroendeändringar
 
-Ändringar i resurs beroenden kan också orsaka problem i en webbapp. Om en webbapp till exempel anropar en Redis cache kan Redis cache-SKU: n påverka webbappens prestanda. Om du vill identifiera ändringar i beroenden kontrollerar ändrings analysen webbappens DNS-post. På så sätt identifieras ändringar i alla app-komponenter som kan orsaka problem.
+Ändringar av resursberoenden kan också orsaka problem i en webbapp. Om till exempel en webbapp anropar en Redis-cache kan Redis-cachen SKU påverka webbappens prestanda. Om du vill identifiera ändringar i beroenden kontrollerar Ändringsanalys webbappens DNS-post. På så sätt identifierar den ändringar i alla appkomponenter som kan orsaka problem.
 För närvarande stöds följande beroenden:
-- Webbappar
+- Web Apps
 - Azure Storage
 - Azure SQL
 
 ### <a name="enablement"></a>Aktivering
-Resurs leverantören Microsoft. ChangeAnalysis måste registreras med en prenumeration för Azure Resource Manager spårade egenskaper och proxy-inställningar ändra att data ska vara tillgängliga. När du anger ett verktyg för att diagnostisera och lösa problem, eller ta fram fliken för att skapa ändrings analyser, registreras denna resurs leverantör automatiskt. Det finns inga prestanda-och kostnads implementeringar för din prenumeration. När du aktiverar ändrings analys för webbappar (eller aktiverar i verktyget diagnostisera och lösa problem) har den försumbar prestanda påverkan på webbappen och ingen fakturerings kostnad.
-För att webbappen ska ändras i gästen krävs separat aktivering för att genomsöka filer i en webbapp. Mer information finns i [Aktivera ändrings analys i avsnittet diagnosticera och lösa problem](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#enable-change-analysis-in-the-diagnose-and-solve-problems-tool) längre fram i den här artikeln.
+"Microsoft.ChangeAnalysis"-resursprovidern måste registreras med en prenumeration för azure Resource Manager-spårade egenskaper och avancerade inställningar ändra data för att vara tillgängliga. När du anger webbappdiagnostisera och löser problemverktyget eller tar upp fliken Ändra analys fristående registreras den här resursleverantören automatiskt. Den har inga prestanda- och kostnadsimplementeringar för din prenumeration. När du aktiverar ändringsanalys för webbappar (eller aktiverar i verktyget Diagnostisera och lösa problem) har det försumbar prestandapåverkan på webbappen och ingen faktureringskostnad.
+För ändringar i webbappens gäst krävs separat aktivering för att skanna kodfiler i en webbapp. Mer information finns [i Aktivera ändringsanalys i](https://docs.microsoft.com/azure/azure-monitor/app/change-analysis#enable-change-analysis-in-the-diagnose-and-solve-problems-tool) avsnittet Diagnostisera och lösa problemverktyg senare i den här artikeln för mer information.
 
 
 ## <a name="viewing-changes-for-all-resources-in-azure"></a>Visa ändringar för alla resurser i Azure
-I Azure Monitor finns det ett fristående blad för ändrings analys för att visa alla ändringar med insikter och resurser för program beroenden.
+I Azure Monitor finns det ett fristående blad för ändringsanalys för att visa alla ändringar med insikter och programberoenderesurser.
 
-Sök efter ändrings analys i Sök fältet på Azure Portal för att starta bladet.
+Sök efter ändringsanalys i sökfältet på Azure-portalen för att starta bladet.
 
-![Skärm bild av sökning av ändrings analys i Azure Portal](./media/change-analysis/search-change-analysis.png)
+![Skärmbild av sökning av ändringsanalys i Azure-portalen](./media/change-analysis/search-change-analysis.png)
 
-Välj resurs grupp och resurser för att starta visning av ändringar.
+Välj Resursgrupp och resurser för att börja visa ändringar.
 
-![Skärm bild av bladet för ändrings analys i Azure Portal](./media/change-analysis/change-analysis-standalone-blade.png)
+![Skärmbild av bladet Ändra analys i Azure-portalen](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Du kan se insikter och relaterade beroende resurser som är värdar för ditt program. Den här vyn är utformad för att vara programinriktad för utvecklare för att felsöka problem.
+Du kan se insikter och relaterade beroenderesurser som är värd för ditt program. Den här vyn är utformad för att vara programcentrerad för utvecklare att felsöka problem.
 
-Resurser som stöds för närvarande är:
+Resurser som för närvarande stöds omfattar:
 - Virtuella datorer
-- Skalnings uppsättning för virtuell dator
-- Nätverks resurser för Azure
-- Webbapp med ändringar i gäst fil spårning och miljövariabler
+- Skaluppsättning för virtuell dator
+- Azure Networking-resurser
+- Webbapp med in-guest filspårning och miljövariabler ändras
 
-Använd knappen Skicka feedback i bladet eller e-postchangeanalysisteam@microsoft.comför all feedback.
+För all feedback, använd knappen skicka feedback changeanalysisteam@microsoft.comi bladet eller e-postmeddelandet .
 
-![Skärm bild av knappen feedback i bladet ändra analys](./media/change-analysis/change-analysis-feedback.png)
+![Skärmbild av feedback-knappen i bladet Ändra analys](./media/change-analysis/change-analysis-feedback.png)
 
-## <a name="change-analysis-for-the-web-apps-feature"></a>Ändrings analys för funktionen Web Apps
+## <a name="change-analysis-for-the-web-apps-feature"></a>Ändra analys för webbappfunktionen
 
-I Azure Monitor är även ändrings analys inbyggd i självbetjänings **diagnos och lösa problem** . Få åtkomst till den här upplevelsen från sidan **Översikt** i ditt App Service-program.
+I Azure Monitor är ändringsanalys också inbyggd i **självbetjäningsdiagnosen och löser problemupplevelsen.** Få tillgång till den här upplevelsen från **sidan Översikt i** ditt App Service-program.
 
-![Skärm bild av knappen "Översikt" och "diagnosticera och lösa problem"](./media/change-analysis/change-analysis.png)
+![Skärmbild av knappen "Översikt" och knappen "Diagnostisera och lösa problem"](./media/change-analysis/change-analysis.png)
 
-### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Aktivera ändrings analys i verktyget diagnostisera och lösa problem
+### <a name="enable-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Aktivera förändringsanalys i verktyget Diagnostisera och lösa problem
 
-1. Välj **tillgänglighet och prestanda**.
+1. Välj **Tillgänglighet och prestanda**.
 
-    ![Skärm bild av fel söknings alternativen "tillgänglighet och prestanda"](./media/change-analysis/availability-and-performance.png)
+    ![Skärmbild av felsökningsalternativen "Tillgänglighet och prestanda"](./media/change-analysis/availability-and-performance.png)
 
-1. Välj **program ändringar**. Inte att funktionen också är tillgänglig i **program krascher**.
+1. Välj **Programändringar**. Inte för att funktionen också är tillgänglig i **Programkrascher**.
 
-   ![Skärm bild av knappen "program krascher"](./media/change-analysis/application-changes.png)
+   ![Skärmbild av knappen "Programkrascher"](./media/change-analysis/application-changes.png)
 
-1. Om du vill aktivera ändrings analys väljer du **Aktivera nu**.
+1. Om du vill aktivera ändringsanalys väljer du **Aktivera nu**.
 
-   ![Skärm bild av alternativen för "program krascher"](./media/change-analysis/enable-changeanalysis.png)
+   ![Skärmbild av alternativen "Programkrascher"](./media/change-analysis/enable-changeanalysis.png)
 
-1. Aktivera **ändrings analys** och välj **Spara**. Verktyget visar alla webbappar under en App Service plan. Du kan använda plan nivå växeln för att aktivera ändrings analyser för alla webbappar under en plan.
+1. Aktivera **Ändra analys** och välj **Spara**. Verktyget visar alla webbappar under en App Service-plan. Du kan använda bytet på plannivå för att aktivera Ändra analys för alla webbappar under ett abonnemang.
 
-    ![Skärm bild av användar gränssnittet "Aktivera ändrings analys"](./media/change-analysis/change-analysis-on.png)
-
-
-1. Om du vill komma åt ändrings analyser väljer du **diagnostisera och löser problem** > **tillgänglighet och prestanda** > **program krascher**. Du ser en graf som sammanfattar typen av ändringar över tid tillsammans med information om dessa ändringar. Som standard visas ändringar under de senaste 24 timmarna för att hjälpa till med omedelbara problem.
-
-     ![Skärm bild av vyn ändra diff](./media/change-analysis/change-view.png)
+    ![Skärmbild av användargränssnittet "Aktivera ändringsanalys"](./media/change-analysis/change-analysis-on.png)
 
 
-### <a name="enable-change-analysis-at-scale"></a>Aktivera ändrings analys i skala
+1. Om du vill komma åt ändringsanalys väljer du **Diagnostisera och löser problem** > Tillgänglighet och**prestandaprogramkrascher****Availability and Performance** > . Du ser ett diagram som sammanfattar typen av ändringar över tid tillsammans med information om dessa ändringar. Som standard visas ändringar under de senaste 24 timmarna för att hjälpa till med omedelbara problem.
 
-Om din prenumeration innehåller flera webbappar är det inte effektivt att aktivera tjänsten på nivån för webbappen. Kör följande skript för att aktivera alla webb program i din prenumeration.
+     ![Skärmbild av ändringsdiffvyn](./media/change-analysis/change-view.png)
 
-Krav:
-* PowerShell-modulen AZ. Följ anvisningarna i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
+
+### <a name="enable-change-analysis-at-scale"></a>Aktivera ändringsanalys i stor skala
+
+Om din prenumeration innehåller många webbappar är det ineffektivt att aktivera tjänsten på webbappens nivå. Kör följande skript för att aktivera alla webbappar i din prenumeration.
+
+Förutsättningar:
+* PowerShell Az-modul. Följ instruktionerna vid [Installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
 
 Kör följande skript:
 
@@ -149,6 +149,6 @@ foreach ($webapp in $webapp_list)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Aktivera Application Insights för [Azure App Services-appar](azure-web-apps.md).
-- Aktivera Application Insights för [virtuella Azure-datorer och skalnings uppsättningar för IIS-värdbaserade appar i Azure](azure-vm-vmss-apps.md).
-- Lär dig mer om [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), som hjälper dig att analysera energi ändringar.
+- Aktivera programstatistik för [Azure App Services-appar](azure-web-apps.md).
+- Aktivera Application Insights för [Azure VM och Azure virtual machine scale set IIS-värdappar](azure-vm-vmss-apps.md).
+- Läs mer om [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), som hjälper till att driva förändringsanalys.

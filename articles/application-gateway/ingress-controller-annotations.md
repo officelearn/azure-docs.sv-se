@@ -1,43 +1,43 @@
 ---
-title: Application Gateway ingångs kontroll anteckningar
-description: Den här artikeln innehåller dokumentation om anteckningarna som är aktuella för Application Gateway ingress-kontrollanten.
+title: Anteckningar för ingående styrenhet för programgateway
+description: Den här artikeln innehåller dokumentation om de anteckningar som är specifika för programgateway-ingress-styrenheten.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: a3583a5efd120733ce7f6b71a7594b5636593f99
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79279967"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80335825"
 ---
-# <a name="annotations-for-application-gateway-ingress-controller"></a>Anteckningar för Application Gateway ingångs kontroll 
+# <a name="annotations-for-application-gateway-ingress-controller"></a>Anteckningar för ingresskontroll för programgateway 
 
 ## <a name="introductions"></a>Introduktioner
 
-Kubernetes ingress-resursen kan kommenteras med godtyckliga nyckel/värde-par. AGIC är beroende av kommentarer till program Application Gateway funktioner som inte kan konfigureras via ingångs YAML. Ingångs anteckningar tillämpas på alla HTTP-inställningar, backend-pooler och lyssnare som härletts från en ingress-resurs.
+Kubernetes ingress-resurs kan kommenteras med godtyckliga nyckel-/värdepar. AGIC förlitar sig på anteckningar för att programmera Application Gateway-funktioner, som inte kan konfigureras via Ingress YAML. Ingående anteckningar tillämpas på alla HTTP-inställningar, backend-pooler och lyssnare som härleds från en ingående resurs.
 
 ## <a name="list-of-supported-annotations"></a>Lista över anteckningar som stöds
 
-För att en ingångs resurs ska kunna observeras av AGIC **måste den kommenteras** med `kubernetes.io/ingress.class: azure/application-gateway`. AGIC kommer bara att fungera med den ingående resursen i fråga.
+För att en ingressresurs ska kunna observeras av `kubernetes.io/ingress.class: azure/application-gateway`AGIC måste den **kommenteras** med . Först då kommer AGIC att arbeta med ingressresursen i fråga.
 
-| Antecknings nyckel | Värdetyp | Standardvärde | Tillåtna värden
+| Anteckningsnyckel | Värdetyp | Standardvärde | Tillåtna värden
 | -- | -- | -- | -- |
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` | |
-| [appgw.ingress.kubernetes.io/ssl-redirect](#ssl-redirect) | `bool` | `false` | |
+| [appgw.ingress.kubernetes.io/ssl-redirect](#tls-redirect) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/connection-draining](#connection-draining) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32` (sekunder) | `30` | |
+| [appgw.ingress.kubernetes.io/connection-draining-timeout](#connection-draining) | `int32`(sekunder) | `30` | |
 | [appgw.ingress.kubernetes.io/cookie-based-affinity](#cookie-based-affinity) | `bool` | `false` | |
-| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32` (sekunder) | `30` | |
+| [appgw.ingress.kubernetes.io/request-timeout](#request-timeout) | `int32`(sekunder) | `30` | |
 | [appgw.ingress.kubernetes.io/use-private-ip](#use-private-ip) | `bool` | `false` | |
 | [appgw.ingress.kubernetes.io/backend-protocol](#backend-protocol) | `string` | `http` | `http`, `https` |
 
-## <a name="backend-path-prefix"></a>Prefix för Server dels Sök väg
+## <a name="backend-path-prefix"></a>Prefix för bakåtsträvningssökväg
 
-Den här anteckningen tillåter att Server dels Sök vägen som anges i en ingress-resurs skrivs om med prefix som anges i den här anteckningen. Detta gör det möjligt för användare att exponera tjänster vars slut punkter skiljer sig från slut punkts namn som används för att exponera en tjänst i en ingress-resurs.
+Med den här anteckningen kan backend-sökvägen som anges i en ingående resurs skrivas om med prefixet som anges i den här anteckningen. På så sätt kan användare exponera tjänster vars slutpunkter skiljer sig från slutpunktsnamn som används för att exponera en tjänst i en ingående resurs.
 
 ### <a name="usage"></a>Användning
 
@@ -65,14 +65,14 @@ spec:
           serviceName: go-server-service
           servicePort: 80
 ```
-I exemplet ovan har vi definierat en ingress-resurs med namnet `go-server-ingress-bkprefix` med en antecknings `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"`. Anteckningen instruerar programgatewayen att skapa en HTTP-inställning som ska åsidosätta Path-`/hello` att `/test/`.
+I exemplet ovan har vi definierat `go-server-ingress-bkprefix` en ingressresurs `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` med namnet med en anteckning . Anteckningen talar om för programgatewayen att skapa en HTTP-inställning, `/hello` `/test/`som har en åsidosättning av sökvägsprefixet för sökvägen till .
 
 > [!NOTE] 
-> I ovanstående exempel har vi bara en definierad regel. Anteckningarna är dock tillämpliga för hela ingångs resursen, så om en användare har definierat flera regler, skulle sökvägen för Server delen vara inställd för var och en av de angivna Sök vägarna. Det innebär att om en användare vill ha olika regler med olika sökvägar för prefix (även för samma tjänst) måste de definiera olika ingångs resurser.
+> I exemplet ovan har vi bara en definierad regel. Anteckningarna är dock tillämpliga på hela ingressresursen, så om en användare hade definierat flera regler skulle backend-sökvägens prefix ställas in för var och en av de angivna sökvägarna. Om en användare vill ha olika regler med olika sökvägsprefix (även för samma tjänst) måste de definiera olika ingressresurser.
 
-## <a name="ssl-redirect"></a>SSL-omdirigering
+## <a name="tls-redirect"></a>TLS-omdirigering
 
-Application Gateway [kan konfigureras](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) för automatisk omdirigering av http-URL: er till deras https-motsvarigheter. När den här anteckningen är tillgänglig och TLS har kon figurer ATS, skapar Kubernetes ingress Controller en [regel för vidarebefordran med en omdirigerings konfiguration](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) och tillämpar ändringarna på din Application Gateway. Den omdirigering som skapas är HTTP-`301 Moved Permanently`.
+Application Gateway [kan konfigureras](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) för att automatiskt omdirigera HTTP-URL:er till sina HTTPS-motsvarigheter. När den här anteckningen finns och TLS är korrekt konfigurerad skapar Kubernetes Ingress-styrenhet en [routningsregel med en omdirigeringskonfiguration](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) och tillämpar ändringarna i programgatewayen. Den omdirigering som skapas är HTTP `301 Moved Permanently`.
 
 ### <a name="usage"></a>Användning
 
@@ -105,10 +105,10 @@ spec:
           servicePort: 80
 ```
 
-## <a name="connection-draining"></a>Anslutningen töms
+## <a name="connection-draining"></a>Tömning av anslutning
 
-`connection-draining`: den här anteckningen låter användare ange om anslutning ska aktive ras.
-`connection-draining-timeout`: den här anteckningen gör det möjligt för användare att ange en tids gräns efter vilken Application Gateway kommer att avsluta begär anden till slut punkt för tömning av Server del.
+`connection-draining`: Med den här anteckningen kan användare ange om anslutningen ska tömmas.
+`connection-draining-timeout`: Med den här anteckningen kan användare ange en timeout varefter Application Gateway ska avsluta begäranden till den dränerande backend-slutpunkten.
 
 ### <a name="usage"></a>Användning
 
@@ -141,7 +141,7 @@ spec:
 
 ## <a name="cookie-based-affinity"></a>Cookie-baserad tillhörighet
 
-Med den här anteckningen kan du ange om du vill aktivera cookie-baserad tillhörighet.
+Den här anteckningen gör det möjligt att ange om cookie-baserad tillhörighet ska aktiveras.
 
 ### <a name="usage"></a>Användning
 
@@ -172,7 +172,7 @@ spec:
 
 ## <a name="request-timeout"></a>Timeout för begäran
 
-Den här anteckningen gör det möjligt att ange tids gränsen för begäran i sekunder efter vilken Application Gateway Miss kan utföra begäran om inget svar tas emot.
+Den här anteckningen gör det möjligt att ange tidsgränsen för begäran i sekunder efter vilken Application Gateway misslyckas med begäran om svaret inte tas emot.
 
 ### <a name="usage"></a>Användning
 
@@ -203,11 +203,11 @@ spec:
 
 ## <a name="use-private-ip"></a>Använd privat IP
 
-Med den här anteckningen kan vi ange om den här slut punkten ska exponeras för den privata IP-adressen för Application Gateway.
+Den här anteckningen gör det möjligt för oss att ange om den här slutpunkten ska exponeras på Private IP of Application Gateway.
 
 > [!NOTE]
-> * Application Gateway stöder inte flera IP-adresser på samma port (exempel: 80/443). Ingress med antecknings `appgw.ingress.kubernetes.io/use-private-ip: "false"` och en annan med `appgw.ingress.kubernetes.io/use-private-ip: "true"` på `HTTP` gör att AGIC inte kan uppdatera Application Gateway.
-> * För Application Gateway som inte har en privat IP-adress ignoreras ingressen med `appgw.ingress.kubernetes.io/use-private-ip: "true"`. Detta återspeglas i styrenhets loggarna och inkommande händelser för dessa ingress med `NoPrivateIP` varning.
+> * Application Gateway stöder inte flera IP-adresser på samma port (exempel: 80/443). Inträngning med anteckningar `appgw.ingress.kubernetes.io/use-private-ip: "false"` och `appgw.ingress.kubernetes.io/use-private-ip: "true"` en `HTTP` annan med på kommer att orsaka AGIC misslyckas med att uppdatera Application Gateway.
+> * För Application Gateway som inte har en privat `appgw.ingress.kubernetes.io/use-private-ip: "true"` IP ignoreras Ingresses med. Detta återspeglas i styrenheten loggar och inträngning händelser `NoPrivateIP` för de ingresses med varning.
 
 
 ### <a name="usage"></a>Användning
@@ -237,10 +237,10 @@ spec:
 
 ## <a name="backend-protocol"></a>Backend-protokoll
 
-Med den här anteckningen kan vi ange det protokoll som Application Gateway bör använda vid pratar med poddar. Protokoll som stöds: `http``https`
+Denna anteckning tillåter oss att ange det protokoll som Application Gateway ska använda när du talar med poddar. Protokoll som `http`stöds: ,`https`
 
 > [!NOTE]
-> * Även om självsignerade certifikat stöds på Application Gateway, stöder AGIC endast `https` när poddar använder certifikat som signerats av en välkänd certifikat utfärdare.
+> * Även om självsignerade certifikat stöds på Application Gateway, `https` stöder AGIC för närvarande bara när Pods använder certifikat som signerats av en välkänd certifikatutfärdare.
 > * Se till att inte använda port 80 med HTTPS och port 443 med HTTP på poddar.
 
 ### <a name="usage"></a>Användning

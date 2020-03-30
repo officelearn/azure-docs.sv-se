@@ -1,128 +1,127 @@
 ---
-title: Uppdatering av Marketplace-erbjudanden | Azure Marketplace
-description: Uppdaterings erbjudanden på Azure-och AppSource-Marketplace med hjälp av Cloud Partner Portal
-services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Uppdatera marknadsplatserbjudanden | Azure Marketplace
+description: Uppdatera erbjudanden på Azure- och AppSource Marketplaces med cloud partnerportalen
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pabutler
-ms.openlocfilehash: b3f579dbdc943b2380c9de3dde6b2ebf4754d4d1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 101369a050770be3acd9534cef6229037fe1c366
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826716"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288520"
 ---
-# <a name="update-azure-marketplace-and-appsource-offers"></a>Uppdatera Azure Marketplace-och AppSource-erbjudanden
+# <a name="update-azure-marketplace-and-appsource-offers"></a>Uppdatera Azure Marketplace- och AppSource-erbjudanden
 
-Det finns olika typer av uppdateringar som du kan använda för ditt erbjudande när det har publicerats.  [Cloud Partner Portal](https://cloudpartner.azure.com/) hjälper dig att ändra attribut för ett erbjudande på rätt sätt, inklusive:
+Det finns olika typer av uppdateringar som du kan använda för ditt erbjudande när det har publicerats.  [Cloud Partner Portal](https://cloudpartner.azure.com/) hjälper dig att korrekt ändra attribut för ett erbjudande, inklusive:
 
--  Lägga till ny avbildning av virtuell dator (VM) eller paket version till en befintlig SKU
--  Ändra regioner en SKU är tillgänglig i
--  Lägga till nya SKU: er
--  Uppdatera Marketplace-metadata för erbjudanden eller SKU: er 
--  Uppdatering av priser för betala per användning-erbjudanden
+-  Lägga till ny avbildning eller paketversion för virtuella datorer (VM) i en befintlig SKU
+-  Ändra regioner som en SKU är tillgänglig i
+-  Lägga till nya SKU:er
+-  Uppdatera marketplace-metadata för erbjudanden eller SKU:er 
+-  Uppdatera priser på erbjudanden om användningsbaserad betalning
 
-Portalen har också funktioner, till exempel möjlighet att jämföra funktioner och visa en historik över funktioner för ett erbjudande, som hjälper dig att hantera ändringar.  När du har ändrat ett erbjudande eller en SKU måste det publiceras igen innan ändringarna går in i Live.  Den här artikeln vägleder dig genom de olika aspekterna av att uppdatera Marketplace-erbjudandet.
+Portalen har också funktioner, till exempel möjligheten att jämföra funktioner och visa en historik över funktioner för ett erbjudande, som hjälper dig att hantera ändringar.  När du har ändrat ett erbjudande eller SKU måste det publiceras på nytt innan ändringarna går "live".  I den här artikeln får du hjälp med de olika aspekterna av att uppdatera ditt marketplace-erbjudande.
 
 ## <a name="unpermitted-changes-to-an-offersku"></a>Otillåtna ändringar i ett erbjudande/SKU
 
-Det finns vissa attribut för ett erbjudande eller SKU som inte kan ändras när det har publicerats på Marketplace.  Motsvarande fält är inaktiverade på fliken **redigerare** i portalen, till exempel:  
+Det finns vissa attribut för ett erbjudande eller en SKU som inte kan ändras när det har publicerats på marknadsplatsen.  Motsvarande fält är inaktiverade på fliken **Redigerare** i portalen, till exempel:  
 
-- ID för erbjudande och utgivarens ID
+- Erbjudande-ID och Publisher-ID
 - SKU-ID 
-- Antal data diskar för befintliga SKU: er
-- Ändringar av befintliga SKU: er för fakturering/licens modell
-- Versions taggar, till exempel: `1.0.1`
+- Antal datadiskar för befintliga SKU:er
+- Ändringar av fakturerings-/licensmodell för befintliga SKU:er
+- Versionstaggar, till exempel:`1.0.1`
 
 
-## <a name="common-update-operations"></a>Vanliga uppdaterings åtgärder
+## <a name="common-update-operations"></a>Vanliga uppdateringsåtgärder
 
-I följande avsnitt beskrivs hur du utför några av de flesta uppdaterings åtgärder.  Dessa åtgärder är inte tillgängliga för alla erbjudande typer.  Du måste logga in på Cloud Partner Portal för att starta någon av dessa åtgärder.
+I följande avsnitt beskrivs hur du utför några av de mest uppdateringsåtgärderna.  Dessa åtgärder är inte tillgängliga för alla erbjudandetyper.  Du måste logga in på Cloud Partner Portal för att starta någon av dessa åtgärder.
 
 
-### <a name="update-offer-contacts"></a>Uppdatera erbjudande kontakter
+### <a name="update-offer-contacts"></a>Uppdatera erbjudandekontakter
 
-Använd följande steg för att uppdatera support kontakterna för ditt erbjudande.
-1. På sidan **alla erbjudanden** väljer du erbjudandet.
-2. Välj fliken **kontakter** . uppdatera dina kontakter.
+Följ följande steg för att uppdatera supportkontakterna för ditt erbjudande.
+1. Välj erbjudandet på sidan **Alla erbjudanden.**
+2. Välj fliken **Kontakter.**
 3. Välj knappen **Spara**.
-4. Välj **publicera** för att starta publicerings processen.
+4. Välj **Publicera** om du vill starta publiceringsprocessen.
 
 
-### <a name="change-regions-an-offer-or-sku-is-available-in"></a>Ändra regioner ett erbjudande eller en SKU är tillgänglig i
+### <a name="change-regions-an-offer-or-sku-is-available-in"></a>Ändra regioner ett erbjudande eller SKU är tillgängligt i
 
 Med tiden kanske du vill göra ditt erbjudande/SKU tillgängligt i fler regioner.
-Alternativt kanske du vill sluta stödja Erbjudandet/SKU: n i en specifik region.
-Följ stegen nedan om du vill implementera ändringarna.
+Alternativt kanske du vill sluta stödja erbjudandet/SKU i en viss region.
+Följ följande steg för att implementera dessa ändringar.
 
-1. På sidan **alla erbjudanden** hittar du det erbjudande som du vill uppdatera.
+1. På sidan **Alla erbjudanden** hittar du det erbjudande du vill uppdatera.
 
 För Azure Marketplace-erbjudanden:
 
-1. Välj fliken **SKU: er** .  Välj den SKU som ska ändras.
-1. Klicka på knappen **Välj länder** under **tillgänglighets fältet land/region** .
-1. I dialog rutan region tillgänglighet lägger du till eller tar bort regionerna för denna SKU.
+1. Välj fliken **SKU:er.**  Välj den SKU som ska ändras.
+1. Klicka på knappen **Välj länder** under tillgänglighetsfältet **Land/Region.**
+1. Lägg till eller ta bort regioner för den här SKU:n i dialogrutan Regiontillgänglighet.
 
 För AppSource-erbjudanden:
 
-1. Välj fliken **butik information** .
-1. Bredvid etiketten **länder/regioner som stöds** klickar du på **länder/regioner som stöds**. 
-1. Lägg till eller ta bort regioner för det här erbjudandet i dialog rutan länder/regioner som stöds.
+1. Välj fliken **Information om skyltfönster.**
+1. Klicka på **Länder/regioner** **som stöds.** 
+1. I dialogrutan länder/regioner som stöds lägger du till eller tar bort regionerna för det här erbjudandet.
 
-För antingen Marketplace:
+För antingen marknadsplats:
 
-1. Klicka på **publicera** för att starta publicerings processen. 
+1. Klicka på **Publicera** om du vill starta publiceringsprocessen. 
 
-Om en SKU görs tillgänglig i en ny region kan du ange prissättning för den specifika regionen via funktionen **Exportera pris data** . Om du lägger till en region tillbaka som tidigare var tillgänglig kan du inte uppdatera dess priser eftersom pris ändringar inte är tillåtna.
-
-
-### <a name="add-a-new-sku"></a>Lägg till en ny SKU 
-
-Använd följande steg för att göra en ny SKU tillgänglig för ett befintligt erbjudande:
-
-1. På sidan **alla erbjudanden** hittar du erbjudandet.
-3. Under **SKU** -formuläret klickar du på **Lägg till ny SKU** och anger ett **SKU-ID** i popup-fönstret.
-4. Följ resten av stegen som beskrivs i [publicera ett erbjudande för virtuella datorer](../virtual-machine/cpp-publish-offer.md).
-5. Klicka på **publicera** för att starta publicerings processen.
+Om en SKU görs tillgänglig i en ny region kan du ange priser för just den regionen via funktionen **Exportera prisdata.** Om du lägger till en region tillbaka som tidigare var tillgänglig, kan du inte uppdatera dess prissättning eftersom prisändringar inte är tillåtna.
 
 
-### <a name="update-offer-marketplace-assets"></a>Uppdatera erbjud Marketplace till gångar
+### <a name="add-a-new-sku"></a>Lägga till en ny SKU 
 
-Du kan ha scenarier där du behöver uppdatera platshållartexten och bildfilerna i Marketplace, t. ex. företags logo typer, erbjudande beskrivning osv. Använd följande steg för att uppdatera dessa till gångar.
+Så här gör du en ny SKU tillgänglig för ett befintligt erbjudande:
 
-1. På sidan **alla erbjudanden** hittar du ditt erbjudande. 
-2. Välj fliken **Marketplace** och följ anvisningarna på *fliken Marketplace* för ditt erbjudande.
-3. Klicka på **publicera** för att starta publicerings processen.
+1. På sidan **Alla erbjudanden** hittar du erbjudandet.
+3. Klicka på **Lägg till ny SKU** under formuläret **SKU** och ange ett **SKU-ID** i popup-programmet.
+4. Följ resten av stegen som beskrivs i [Publicera ett erbjudande om virtuell dator](../virtual-machine/cpp-publish-offer.md).
+5. Klicka på **Publicera** om du vill starta publiceringsprocessen.
 
 
-### <a name="update-pricing-on-published-offers"></a>Uppdatera prissättningen på publicerade erbjudanden
+### <a name="update-offer-marketplace-assets"></a>Uppdatera marknadsplatstillgångar för erbjudanden
 
-När du har publicerat erbjudandet för betalning per användning kan du inte öka priset på en befintlig SKU.  Skapa i stället en SKU under samma erbjudande, ta bort den gamla SKU: n och publicera sedan om erbjudandet. Du kan minska priset för tidigare publicerade erbjudanden. Så här minskar du priset för erbjudandet:
+Du kan ha scenarier där du behöver uppdatera marknadsplats text-baserade och bildtillgångar, såsom ditt företag logotyper, erbjudande beskrivning, etc. Följ följande steg för att uppdatera dessa tillgångar.
 
-1. Välj den SKU som du vill minska priset för.
-2. Du måste ange det lägre priset med samma mekanism som du ursprungligen använde: antingen direkt i Portal gränssnittet eller med kalkyl bladet importera/exportera.
+1. På sidan **Alla erbjudanden** hittar du ditt erbjudande. 
+2. Välj fliken **Marketplace** och följ instruktionerna i ditt erbjudandes *Marketplace-flikämne.*
+3. Klicka på **Publicera** om du vill starta publiceringsprocessen.
+
+
+### <a name="update-pricing-on-published-offers"></a>Uppdatera priser på publicerade erbjudanden
+
+När ditt pay-as-you-go-erbjudande har publicerats kan du inte höja priset på en befintlig SKU.  Skapa i stället en SKU under samma erbjudande, ta bort den gamla SKU:n och publicera sedan erbjudandet igen. Du kan sänka priset på tidigare publicerade erbjudanden. Så här minskar du ditt erbjudandepris:
+
+1. Välj den SKU som du vill minska priserna för.
+2. Du måste ange det lägre priset med samma mekanism som du ursprungligen använde: antingen direkt i portalgränssnittet eller med import-/exportkalkylbladet.
 3. Klicka på **Spara**.
-4. Klicka på **publicera** för att starta publicerings processen.
+4. Klicka på **Publicera** om du vill starta publiceringsprocessen.
 
-Priset är synligt för nya kunder när det är aktivt på Marketplace, och alla nya kunder betalar det nya minskade priset.  För befintliga kunder återspeglas prisminskningen retroaktivt till början av den fakturerings period under vilken pris minskningen blev giltig.  Om de redan har fakturerats för den cykel under vilken en prissänkning har skett, får de ett bidrag under nästa fakturerings period för att ta upp det minskade priset.
+Prissättningen är synlig för nya kunder när den är live på marknaden, och alla nya kunder kommer då att betala det nya sänkta priset.  För befintliga kunder återspeglas prissänkningen retroaktivt i början av faktureringscykeln under vilken prissänkningen trädde i kraft.  Om de redan har fakturerats för den cykel under vilken en prissänkning inträffade, kommer de att få en återbetalning under nästa faktureringsperiod för att täcka det minskade priset.
 
 
 ## <a name="compare-feature"></a>Jämför funktion
 
-När du gör ändringar i ett publicerat erbjudande kan du använda funktionen *Jämför* för att granska ändringarna. För att använda den här funktionen:
+När du gör ändringar i ett publicerat erbjudande kan du använda funktionen *Jämför* för att granska ändringarna. Så här använder du den här funktionen:
 
-1. När som helst i redigerings processen kan du klicka på knappen **Jämför** på fliken **redigerare** för ditt erbjudande.
-2. Ett jämförelse fönster visar versioner sida vid sida av de sparade ändringarna i det här erbjudandet jämfört med Marketplace-erbjudandet. 
+1. När som helst i redigeringsprocessen kan du klicka på knappen **Jämför** på fliken **Redigerare** för ditt erbjudande.
+2. Ett jämförelsefönster visar versioner sida vid sida av de sparade ändringarna i det här erbjudandet jämfört med marketplace-erbjudandet. 
 
-![Knappen Jämför erbjudande på fliken redigerare](./media/offer-compare-button.png)
+![Knappen Jämför erbjudande på fliken Redigerare](./media/offer-compare-button.png)
 
 
-## <a name="history-of-publishing-actions"></a>Historik för publicerings åtgärder
+## <a name="history-of-publishing-actions"></a>Historia av publicerande handlingar
 
-Om du vill visa historisk publicerings aktivitet väljer du fliken **Historik** i den vänstra lodräta meny raden i Cloud Partner Portal.  Historik sidan ger flexibel filtrering av flera egenskaper och stöder kolumn sortering.  Varje publicerings händelse är tidsstämpel.  Mer information finns på [sidan gransknings historik](../portal-tour/cpp-history-page.md).
+Om du vill visa historisk publiceringsaktivitet väljer du fliken **Historik** i det vänstra lodräta menyraden i Cloud Partner Portal.  Sidan Historik ger flexibel filtrering med flera egenskaper och stöder kolumnordning.  Varje publiceringshändelse är tidsstämplad.  Mer information finns på [sidan Granskningshistorik](../portal-tour/cpp-history-page.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

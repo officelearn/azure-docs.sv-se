@@ -1,43 +1,41 @@
 ---
-title: Regel inställningar för smart identifiering – Azure Application insikter
-description: Automatisera hantering och konfiguration av regler för smart identifiering av Azure Application Insights med Azure Resource Manager mallar
+title: Inställningar för smart identifieringsregel - Azure Application Insights
+description: Automatisera hantering och konfiguration av smarta identifieringsregler för Azure Application Insights med Azure Resource Manager-mallar
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3c028a97c2fb554b13035026025437d5331104c2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669717"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294908"
 ---
-# <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Hantera Application Insights regler för smart identifiering med Azure Resource Manager-mallar
+# <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Hantera smarta identifieringsregler för Program insights med Azure Resource Manager-mallar
 
-Regler för smart identifiering i Application Insights kan hanteras och konfigureras med [Azure Resource Manager-mallar](../../azure-resource-manager/templates/template-syntax.md).
-Den här metoden kan användas när du distribuerar nya Application Insights-resurser med Azure Resource Manager Automation, eller för att ändra inställningarna för befintliga resurser.
+Smarta identifieringsregler i Application Insights kan hanteras och konfigureras med Azure [Resource Manager-mallar](../../azure-resource-manager/templates/template-syntax.md).
+Den här metoden kan användas när du distribuerar nya Application Insights-resurser med Azure Resource Manager-automatisering eller för att ändra inställningarna för befintliga resurser.
 
-## <a name="smart-detection-rule-configuration"></a>Konfiguration av Smart identifierings regel
+## <a name="smart-detection-rule-configuration"></a>Konfiguration av smart identifieringsregel
 
 Du kan konfigurera följande inställningar för en regel för smart identifiering:
-- Om regeln är aktive rad (Standardvärdet är **True**.)
-- Om e-postmeddelanden ska skickas till användare som är kopplade till prenumerationens Rolls [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) och [övervaknings deltagar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roller när en identifiering hittas (Standardvärdet är **True**.)
-- Ytterligare e-postmottagare som bör få ett meddelande när en identifiering hittas.
-    -  E-postkonfiguration är inte tillgänglig för regler för smart identifiering som är markerade som för _hands version_.
+- Om regeln är aktiverad (standardvärdet är **sant**.)
+- Om e-postmeddelanden ska skickas till användare som är associerade till prenumerationens [roller övervakningsläsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) och [övervakningsdeltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) när en identifiering hittas (standardvärdet är **sant**.)
+- Eventuella ytterligare e-postmottagare som ska få ett meddelande när en identifiering hittas.
+    -  E-postkonfiguration är inte tillgänglig för smarta identifieringsregler som markerats som _förhandsgranskning_.
 
-För att tillåta konfigurering av regel inställningarna via Azure Resource Manager är konfigurationen av Smart identifierings regeln nu tillgänglig som en inre resurs i Application Insights resurs med namnet **ProactiveDetectionConfigs**.
-För maximal flexibilitet kan varje smart identifierings regel konfigureras med unika meddelande inställningar.
-
-## 
+Om du vill tillåta konfiguration av regelinställningarna via Azure Resource Manager är konfigurationen av smart identifiering nu tillgänglig som en inre resurs i application insights-resursen, med namnet **ProactiveDetectionConfigs**.
+För maximal flexibilitet kan varje smart identifieringsregel konfigureras med unika meddelandeinställningar.
 
 ## <a name="examples"></a>Exempel
 
-Nedan visas några exempel på hur du konfigurerar inställningarna för smart detekterings regler med hjälp av Azure Resource Manager mallar.
-Alla exempel refererar till en Application Insights resurs med namnet _"Mina program"_ och till regeln för smart identifiering av långa beroende varaktigheter, som är internt med namnet _"longdependencyduration"_ .
-Se till att ersätta Application Insights resurs namn och ange det interna namnet för den aktuella Smart detekterings regeln. I tabellen nedan finns en lista över motsvarande interna Azure Resource Manager namn för varje smart identifierings regel.
+Nedan följer några exempel som visar hur du konfigurerar inställningarna för smarta identifieringsregler med Hjälp av Azure Resource Manager-mallar.
+Alla exempel refererar till en Application Insights-resurs med namnet _"myApplication"_ och till den "långa regeln för smart identifiering av beroendevaraktighet", som internt heter _"longdependencyduration"._
+Se till att ersätta application insights-resursnamnet och ange det interna namnet för den interna namn som är tillämplig för smart identifiering. I tabellen nedan finns en lista över motsvarande interna Azure Resource Manager-namn för varje smart identifieringsregel.
 
-### <a name="disable-a-smart-detection-rule"></a>Inaktivera en regel för smart identifiering
+### <a name="disable-a-smart-detection-rule"></a>Inaktivera en smart identifieringsregel
 
 ```json
 {
@@ -68,7 +66,7 @@ Se till att ersätta Application Insights resurs namn och ange det interna namne
     }
 ```
 
-### <a name="disable-sending-email-notifications-for-a-smart-detection-rule"></a>Inaktivera sändning av e-postaviseringar för en smart identifierings regel
+### <a name="disable-sending-email-notifications-for-a-smart-detection-rule"></a>Inaktivera att skicka e-postmeddelanden för en smart identifieringsregel
 
 ```json
 {
@@ -99,7 +97,7 @@ Se till att ersätta Application Insights resurs namn och ange det interna namne
     }
 ```
 
-### <a name="add-additional-email-recipients-for-a-smart-detection-rule"></a>Lägg till ytterligare e-postmottagare för en smart identifierings regel
+### <a name="add-additional-email-recipients-for-a-smart-detection-rule"></a>Lägga till ytterligare e-postmottagare för en smart identifieringsregel
 
 ```json
 {
@@ -131,12 +129,33 @@ Se till att ersätta Application Insights resurs namn och ange det interna namne
 
 ```
 
-### <a name="failure-anomalies-alert-rule"></a>Varnings regel för fel avvikelser
 
-Den här Azure Resource Manager mallen visar hur du konfigurerar en varnings regel för fel avvikelser med allvarlighets graden 2. Den här nya versionen av varnings regeln för fel avvikelser är en del av den nya Azure Alerting-plattformen och ersätter den klassiska versionen som tas bort som en del av den [klassiska aviserings processen](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+## <a name="smart-detection-rule-names"></a>Namn på smarta identifieringsregeler
+
+Nedan visas en tabell med smarta identifieringsregelnamn som de visas i portalen, tillsammans med deras interna namn, som ska användas i Azure Resource Manager-mallen.
 
 > [!NOTE]
-> Fel avvikelser är en global tjänst därför skapas den här regel platsen på den globala platsen.
+> Smarta identifieringsregler som markerats som _förhandsversion_ stöder inte e-postmeddelanden. Därför kan du bara ange den _aktiverade_ egenskapen för dessa regler. 
+
+| Namn på Azure-portalregel | Internt namn
+|:---|:---|
+| Långsam inläsningstid för sidan | långsam körningsladdningstid |
+| Långsam svarstid för servern | långsamserversvartid |
+| Lång beroendevaraktighet | långberoenden |
+| Försämring av serverns svarstid | försämras på serverns svarstid |
+| Försämring av beroendevaraktighet | försämrad oberoende |
+| Nedbrytning i spår allvarlighetsgrad (förhandsgranskning) | extension_traceseveritydetector |
+| Onormal ökning av undantagsvolymen (förhandsgranskning) | extension_exceptionchangeextension |
+| Potentiell minnesläcka har upptäckts (förhandsgranskning) | extension_memoryleakextension |
+| Potentiella säkerhetsproblem har upptäckts (förhandsgranskning) | extension_securityextensionspackage |
+| Onormal ökning av den dagliga datavolymen (förhandsgranskning) | extension_billingdatavolumedailyspikeextension |
+
+### <a name="failure-anomalies-alert-rule"></a>Varningsregel för avvikelser vid fel
+
+Den här Azure Resource Manager-mallen visar att konfigurera en aviseringsregel för felavvikelser med en allvarlighetsgrad på 2. Den här nya versionen av aviseringsregeln Felavvikelser är en del av den nya Azure-aviseringsplattformen och ersätter den klassiska versionen som dras tillbaka som en del av den [klassiska aviseringsprocessen](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+> [!NOTE]
+> Felavvikelser är en global tjänst därför regelplats skapas på den globala platsen.
 
 ```json
 {
@@ -167,32 +186,12 @@ Den här Azure Resource Manager mallen visar hur du konfigurerar en varnings reg
 ```
 
 > [!NOTE]
-> Den här Azure Resource Manager mallen är unik för varnings regeln för fel avvikelser och skiljer sig från de andra klassiska reglerna för smart identifiering som beskrivs i den här artikeln.
+> Den här Azure Resource Manager-mallen är unik för aviseringsregeln Felavvikelser och skiljer sig från de andra klassiska smarta identifieringsreglerna som beskrivs i den här artikeln. Om du vill hantera felavvikelser manuellt görs detta i Azure Monitor Alerts medan alla andra smarta identifieringsregler hanteras i fönstret Smart identifiering i användargränssnittet.
 
-## <a name="smart-detection-rule-names"></a>Namn för smart identifierings regel
+## <a name="next-steps"></a>Efterföljande moment
 
-Nedan visas en tabell med namn på Smart identifierings regler som visas i portalen, tillsammans med deras interna namn, som ska användas i Azure Resource Manager-mallen.
-
-> [!NOTE]
-> Regler för smart identifiering som marker ATS som _förhands granskning_ stöder inte e-postmeddelanden. Därför kan du bara ange egenskapen _Enabled_ för dessa regler. 
-
-| Azure Portal regel namn | Internt namn
-|:---|:---|
-| Långsam sid inläsnings tid | slowpageloadtime |
-| Långsam Server svars tid | slowserverresponsetime |
-| Lång beroende varaktighet | longdependencyduration |
-| Försämring av Server svars tid | degradationinserverresponsetime |
-| Försämring i beroende varaktighet | degradationindependencyduration |
-| Nedbrytning i allvarlighets grad för spårning (för hands version) | extension_traceseveritydetector |
-| Onormal ökning av undantags volym (för hands version) | extension_exceptionchangeextension |
-| Potentiell minnes läcka upptäcktes (förhands granskning) | extension_memoryleakextension |
-| Eventuellt säkerhets problem upptäcktes (för hands version) | extension_securityextensionspackage |
-| Onormal ökning av daglig data volym (förhands granskning) | extension_billingdatavolumedailyspikeextension |
-
-## <a name="next-steps"></a>Nästa steg
-
-Läs mer om att identifiera automatiskt:
+Läs mer om att automatiskt identifiera:
 
 - [Felavvikelser](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Minnes läckor](../../azure-monitor/app/proactive-potential-memory-leak.md)
+- [Minnesläckor](../../azure-monitor/app/proactive-potential-memory-leak.md)
 - [Prestandaavvikelser](../../azure-monitor/app/proactive-performance-diagnostics.md)

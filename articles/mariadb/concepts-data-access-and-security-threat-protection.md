@@ -1,47 +1,47 @@
 ---
-title: Avancerat skydd – Azure Database for MariaDB
-description: Avancerat skydd identifierar avvikande databas aktiviteter som indikerar potentiella säkerhetshot mot databasen.
+title: Avancerat skydd mot hot – Azure-databas för MariaDB
+description: Avancerat skydd mot hot identifierar avvikande databasaktiviteter som indikerar potentiella säkerhetshot mot databasen.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 164457444fc097c0b1322909110f705726df1083
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 8485907eba75f80c8f0ed4fd0cc7368c6147b9fd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772853"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79532186"
 ---
-# <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Azure Database for MariaDB Avancerat skydd
+# <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Azure-databas för MariaDB avancerat hotskydd
 
-Avancerat skydd för Azure Database for MariaDB identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
+Avancerat skydd mot azure-databas för MariaDB identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
 > [!IMPORTANT]
-> Avancerat skydd är i offentlig för hands version.
+> Avancerat skydd mot hot finns i offentlig förhandsversion.
 
-Avancerat skydd är en del av det avancerade data säkerhets erbjudandet, som är ett enhetligt paket för avancerade säkerhetsfunktioner. Avancerat skydd kan nås och hanteras via [Azure Portal](https://portal.azure.com). Funktionen är tillgänglig för Generell användning och minnesoptimerade servrar.
+Avancerat skydd mot hot är en del av erbjudandet om avancerad datasäkerhet, som är ett enhetligt paket för avancerade säkerhetsfunktioner. Avancerat skydd mot hot kan nås och hanteras via [Azure-portalen](https://portal.azure.com). Funktionen är tillgänglig för servrar som är allmänt avsedda och minnesoptimerade.
 
 > [!NOTE]
-> Funktionen för avancerat skydd är **inte** tillgänglig i följande Azure-myndigheter och suveräna moln regioner: US Gov, Texas, US Gov, Arizona, US gov, IOWA, US, Gov Virginia, US DoD, östra, US DoD, centrala, Tyskland Central, Tyskland, norra, Kina, östra, Kina, östra 2. Besök [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) om du vill ha allmän produkt tillgänglighet.
+> Funktionen Avancerat skydd mot hot är **inte** tillgänglig i följande Azure-myndigheter och suveräna molnregioner: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Besök [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän produkttillgänglighet.
 
 
-## <a name="what-is-advanced-threat-protection"></a>Vad är Avancerat skydd?
+## <a name="what-is-advanced-threat-protection"></a>Vad är avancerat skydd mot hot?
 
-Avancerat skydd för Azure Database for MariaDB ger ett nytt säkerhets lager som gör det möjligt för kunder att identifiera och svara på potentiella hot när de inträffar genom att tillhandahålla säkerhets aviseringar om avvikande aktiviteter. Användare får en avisering om misstänkt databas aktiviteter och potentiella sårbarheter, samt mönster för avvikande databas åtkomst och frågor. Avancerat skydd för Azure Database for MariaDB integrerar aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/), som innehåller information om misstänkt aktivitet och rekommenderar åtgärder för att undersöka och minimera hotet. Avancerat skydd för Azure Database for MariaDB gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhets expert eller hantera avancerade säkerhets övervaknings system. 
+Avancerat skydd mot azure-databas för MariaDB ger ett nytt säkerhetslager som gör det möjligt för kunder att identifiera och svara på potentiella hot när de uppstår genom att tillhandahålla säkerhetsaviseringar om avvikande aktiviteter. Användare får en avisering om misstänkta databasaktiviteter och potentiella sårbarheter, samt avvikande databasåtkomst och frågorsmönster. Avancerat skydd mot hot för Azure Database för MariaDB integrerar aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/), som innehåller information om misstänkt aktivitet och rekommenderar åtgärder för hur du undersöker och minskar hotet. Avancerat skydd mot Azure-databas för MariaDB gör det enkelt att hantera potentiella hot mot databasen utan att behöva vara säkerhetsexpert eller hantera avancerade säkerhetsövervakningssystem. 
 
-![Koncept för avancerat skydd](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
+![Avancerat hotskyddskoncept](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## <a name="advanced-threat-protection-alerts"></a>Aviseringar för avancerat skydd 
-Avancerat skydd för Azure Database for MariaDB identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser och kan utlösa följande aviseringar:
-- **Åtkomst från ovanlig plats**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MariaDB-servern, där någon har loggat in på Azure Database for MariaDB servern från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
-- **Åtkomst från ovanliga Azure-datacenter**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MariaDB-servern, där någon har loggat in på servern från ett ovanligt Azure-datacenter som setts på den här servern under den senaste perioden. I vissa fall identifierar aviseringen en legitim åtgärd (ditt nya program i Azure, Power BI). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
-- **Åtkomst från okända huvud objekt**: den här aviseringen utlöses när åtkomst mönstret ändras till Azure Database for MariaDB-servern, där någon har loggat in på servern med en ovanlig huvud server (Azure Database for MariaDB användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
+## <a name="advanced-threat-protection-alerts"></a>Varningar för avancerat skydd mot hot 
+Avancerat skydd mot hot för Azure Database för MariaDB identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser och kan utlösa följande aviseringar:
+- **Åtkomst från ovanlig plats**: Den här aviseringen utlöses när åtkomstmönstret ändras till Azure Database för MariaDB-servern, där någon har loggat in på Azure Database för MariaDB-servern från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
+- **Åtkomst från ovanliga Azure-datacenter**: Den här aviseringen utlöses när åtkomstmönstret ändras till Azure Database för MariaDB-servern, där någon har loggat in på servern från ett ovanligt Azure-datacenter som sågs på den här servern under den senaste perioden. I vissa fall identifierar aviseringen en legitim åtgärd (ditt nya program i Azure, Power BI). I andra fall identifierar aviseringen en skadlig åtgärd från en Azure-resurs/-tjänst (tidigare anställd, extern angripare).
+- **Åtkomst från okänt huvudnamn**: Den här aviseringen utlöses när åtkomstmönstret ändras till Azure Database för MariaDB-servern, där någon har loggat in på servern med ett ovanligt huvudnamn (Azure-databas för MariaDB-användare). I vissa fall identifierar aviseringen en giltig åtgärd (nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (tidigare anställd, extern angripare).
 - **Access from a potentially harmful application** (Åtkomst från ett potentiellt skadligt program): Den här aviseringen utlöses när ett potentiellt skadligt program används för att få åtkomst till databasen. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen en attack med vanliga angreppsverktyg.
-- **Brute force Azure Database for MariaDB autentiseringsuppgifter**: den här aviseringen utlöses när det finns ett onormalt stort antal misslyckade inloggningar med andra autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
+- **Brute force Azure Database for MariaDB-autentiseringsuppgifter:** Den här aviseringen utlöses när det finns ett onormalt stort antal misslyckade inloggningar med olika autentiseringsuppgifter. I vissa fall identifierar aviseringen pågående intrångstestning. I andra fall identifierar aviseringen ett nyckelsökningsangrepp.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Mer information om priser finns på sidan med [Azure Database for MariaDB priser](https://azure.microsoft.com/pricing/details/mariadb/) 
-* Konfigurera [Azure Database for MariaDB Avancerat skydd](howto-database-threat-protection-portal.md) med hjälp av Azure Portal  
+* Mer information om priser finns på [sidan Azure Database for MariaDB Pricing](https://azure.microsoft.com/pricing/details/mariadb/) 
+* Konfigurera [Azure-databas för MariaDB Avancerat skydd mot hot](howto-database-threat-protection-portal.md) med Azure-portalen  

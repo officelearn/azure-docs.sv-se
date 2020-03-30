@@ -1,43 +1,42 @@
 ---
-title: Kontakt information för ett erbjudande för Power BI app | Azure Marketplace
-description: Konfigurera kontaktfält för ett Power BI app-erbjudande för Microsoft AppSource Marketplace.
-services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-author: v-miclar
+title: Kontaktinformation för ett Power BI-apperbjudande | Azure Marketplace
+description: Konfigurera kontaktfält för ett Power BI-apperbjudande för Microsoft AppSource Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: ec1ed23b253f705e1830c1c014492fe52b2133f0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 79cdd12359a0d781b51db2632bc9d534e0d88c6d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826525"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80285239"
 ---
-# <a name="power-bi-app-contacts-tab"></a>Fliken kontakter i Power BI app
+# <a name="power-bi-app-contacts-tab"></a>Fliken Kontakter i Power BI-appar
 
-Använd fliken **kontakter** på sidan **ny erbjudande** för att ge teknisk support och support resurser för ditt erbjudande. Den är uppdelad i två delar: **teknik** och **kund support**.
+Använd fliken **Kontakter** på sidan **Nytt erbjudande** för att tillhandahålla tekniska resurser och användarsupport för ditt erbjudande. Den är uppdelad i två avsnitt: **Teknik** och **kundsupport**.
 
 ![Fliken Kontakter](media/contacts-tab.png)
 
 
-## <a name="contacts-fields"></a>Kontaktfält 
+## <a name="contacts-fields"></a>Fält för kontakter 
 
-I följande tabell beskrivs syftet med varje fält.  Obligatoriska fält förutsägs av en asterisk (*). 
+I följande tabell beskrivs syftet med varje fält.  Obligatoriska fält åtalas av en asterisk (*). 
 
-|   Fält               |   Beskrivning                                                            |
+|   Field               |   Beskrivning                                                            |
 |-----------------------|--------------------------------------------------------------------------|
 | *Teknisk kontakt* | Fungerar som en teknisk kontakt mellan AppSource och din organisation.    |
-| **Namn\***              | Namnet på den person eller grupp som fungerar som teknisk eller teknisk support. |
-| **E-\***             | E-postadressen till den här tekniska kontakten.                                  |
+| **Namn\***              | Namnet på den person eller grupp som fungerar som teknisk support eller teknisk support. |
+| **Email\***             | E-postadressen till denna tekniska kontakt.                                  |
 | **Telefon\***             | Telefonnumret till teknisk support.                                       |
-| *Support kontakt*     | Tar emot support biljetter som öppnats av kunder inom AppSource.            |
-| **Namn\***              | Namnet på den person eller grupp som fungerar som kund support.              |
-| **E-\***             | E-postadressen till kund support.                                        |
+| *Support kontakt*     | Tar emot supportärenden som öppnats av kunder inom AppSource.            |
+| **Namn\***              | Namnet på den person eller grupp som fungerar som kundsupport.              |
+| **Email\***             | Kundsupportens e-postadress.                                        |
 |   |   |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har slutfört ditt Power BI app-erbjudande bekräftar du att du har skapat alla tillhör ande [tekniska till gångar](./cpp-create-technical-assets.md) för erbjudandet.
+När du har slutfört ditt Power BI App-erbjudande bekräftar du att du har skapat alla associerade [tekniska resurser](./cpp-create-technical-assets.md) för erbjudandet.

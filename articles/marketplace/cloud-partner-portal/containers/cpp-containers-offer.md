@@ -1,46 +1,45 @@
 ---
-title: Erbjudande om Azure containers-avbildning | Azure Marketplace
-description: Översikt över processen för att publicera ett behållar erbjudande på Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: dan-wesley
+title: Erbjudande om avbildning av Azure Containers | Azure Marketplace
+description: Översikt över processen för att publicera ett behållarerbjudande på Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/02/2018
-ms.author: pabutler
-ms.openlocfilehash: f0e71d8135a5dd691dc1f746ec54cfb6170e281d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 9c0b4ca6e9a26f13d1539845ca9fb43f31a1a9dd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823233"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281722"
 ---
 # <a name="containers"></a>Containrar
 
-<table> <tr> <td>I det här avsnittet beskrivs hur du publicerar en behållar avbildning på <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.  
-Behållarens erbjudande typ har stöd för Docker-behållar avbildningar som tillhandahålls som <a href="https://docs.microsoft.com/azure/aks/index">Azure Kubernetes-</a> tjänsteinstanser eller <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Azure Container instances</a> och finns i en <a href="https://docs.microsoft.com/azure/container-registry">Azure Container Registry</a> -lagringsplats. </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>
+<table> <tr> <td>I det här avsnittet beskrivs hur du publicerar en behållaravbildning till <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.  
+Behållaren erbjudandetyp stöder Docker-behållaravbildningar som etablerats som <a href="https://docs.microsoft.com/azure/aks/index">Azure Kubernetes</a> Service-instanser eller <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Azure Container Instances</a> och finns i en <a href="https://docs.microsoft.com/azure/container-registry">Azure Container Registry-databas.</a> </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>
 
-## <a name="offer-components"></a>Erbjudande komponenter
+## <a name="offer-components"></a>Erbjud komponenter
 
-I det här avsnittet beskrivs hur du publicerar en behållare och är avsedd som en guide för utgivaren till Azure Marketplace. Publiceringen är uppdelad i följande huvud delar:
+Det här avsnittet beskriver elementen för att publicera en behållare och är avsett som en guide för utgivaren till Azure Marketplace. Publiceringen är uppdelad i följande huvuddelar:
 
-- [Krav – visar](./cpp-prerequisites.md) en lista över de tekniska och affärs kraven innan du skapar eller publicerar ett behållar erbjudande.
-- [Skapa erbjudandet](./cpp-create-offer.md) – visar en lista över de steg som krävs för att skapa en ny behållare för container erbjudandet med hjälp av Cloud Partner Portal.
-- [Förbered de tekniska till gångarna](./cpp-create-technical-assets.md) – så här skapar du tekniska till gångar för en behållar lösning som ett erbjudande på Azure Marketplace.
-- [Publicera erbjudandet](./cpp-publish-offer.md) – så här skickar du erbjudandet om publicering till Azure Marketplace.
+- Förutsättningar - [listar](./cpp-prerequisites.md) tekniska och affärsmässiga krav innan du skapar eller publicerar ett behållarerbjudande.
+- [Skapa erbjudandet](./cpp-create-offer.md) -listar de steg som krävs för att skapa en ny container erbjudandepost med hjälp av Cloud Partner Portal.
+- [Förbered de tekniska tillgångarna](./cpp-create-technical-assets.md) – hur du skapar de tekniska tillgångarna för en behållarlösning som ett erbjudande på Azure Marketplace.
+- [Publicera erbjudandet](./cpp-publish-offer.md) – hur du skickar erbjudandet för publicering till Azure Marketplace.
 
-## <a name="container-publishing-process"></a>Process för publicering av behållare
+## <a name="container-publishing-process"></a>Publiceringsprocess för behållare
 
-Följande diagram illustrerar de övergripande stegen för att publicera ett erbjudande för virtuella datorer.
-![steg för att publicera ett erbjudande](./media/containers-offer-process.png)
+Följande diagram illustrerar stegen på hög nivå för att publicera ett vm-erbjudande.
+![Steg för att publicera ett erbjudande](./media/containers-offer-process.png)
 
-De övergripande stegen för att publicera ett behållar erbjudande är:
+Stegen på hög nivå för att publicera ett behållarerbjudande är:
 
-1. Skapa erbjudandet – ange detaljerad information om erbjudandet. Den här informationen omfattar: Beskrivning av erbjudandet, marknadsförings material, supportinformation och till gångs uppgifter.
-2. Skapa företags-och teknik till gångar – skapa företags till gångar (juridiska dokument och marknadsförings material) och tekniska till gångar för den associerade lösningen (behållar avbildningarna som finns i en Azure Container Registry.
-3. Skapa SKU – skapa de SKU: er som är associerade med erbjudandet. En unik SKU krävs för varje avbildning som du planerar att publicera.
-4. Certifiera och publicera erbjudandet – när erbjudandet och de tekniska till gångarna har slutförts kan du skicka in erbjudandet. Den här sändningen startar publicerings processen. Under den här processen testas, verifieras, godkänns, certifieras och aktive ras på Azure Marketplace.
+1. Skapa erbjudandet - Ge detaljerad information om erbjudandet. Den här informationen omfattar: erbjudandebeskrivning, marknadsföringsmaterial, supportinformation och tillgångsspecifikationer.
+2. Skapa affärs- och tekniska tillgångar – Skapa affärstillgångar (juridiska dokument och marknadsföringsmaterial) och tekniska resurser för den associerade lösningen (behållaravbildningarna finns i ett Azure-behållarregister.
+3. Skapa SKU - Skapa de SKU:er som är associerade med erbjudandet. En unik SKU krävs för varje bild som du planerar att publicera.
+4. Certifiera och publicera erbjudandet - När erbjudandet och de tekniska tillgångarna har slutförts kan du skicka erbjudandet. Den här inlämningen startar publiceringsprocessen. Under den här processen testas, valideras, certifieras lösningen och "publiceras" på Azure Marketplace.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du tar hänsyn till de här stegen måste du uppfylla de [tekniska och affärsmässiga kraven](./cpp-prerequisites.md) för att publicera en behållare till Microsoft Azure Marketplace.
+Innan du överväger de här stegen måste du uppfylla de [tekniska kraven och affärskraven](./cpp-prerequisites.md) för att publicera en behållare till Microsoft Azure Marketplace.

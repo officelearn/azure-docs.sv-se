@@ -1,20 +1,19 @@
 ---
-title: Rikt linjer för Azure Marketplace och AppSource Publisher | Azure
-description: Rikt linjer för Azure Marketplace och AppSource för app-och tjänst utgivare
+title: Riktlinjer för Azure Marketplace och AppSource-utgivare | Azure
+description: Riktlinjer för Azure Marketplace och AppSource för app- och tjänstutgivare
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
-ms.author: ellacroi
-ms.openlocfilehash: 371f36e13c244439a583cbeb7ff06c6a1283d272
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: f41aeb75253c803eac03b856d1e1ed0edb74a7e6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825941"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80281535"
 ---
 # <a name="guidelines"></a>Riktlinjer  
 
@@ -23,52 +22,52 @@ ms.locfileid: "73825941"
 -->
 ---
 
-## <a name="guidelines-for-azure-marketplace"></a>Rikt linjer för Azure Marketplace  
+## <a name="guidelines-for-azure-marketplace"></a>Riktlinjer för Azure Marketplace  
 
-### <a name="guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account"></a>Rikt linjer för att skapa ett Microsoft-ID för att hantera ett Marketplace-konto  
-Om mer än en person behöver åtkomst till samma Microsoft-ID som används för att skapa ett Marketplace-konto bör du följa dessa rikt linjer som hjälper dig att skapa ett företags konto. 
+### <a name="guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account"></a>Riktlinjer för att skapa ett Microsoft-ID för att hantera ett marketplace-konto  
+Om fler än en person behöver åtkomst till samma Microsoft-ID som används för att skapa ditt marketplace-konto bör du följa dessa riktlinjer för att hjälpa dig att skapa ett företagskonto. 
 
 >[!IMPORTANT]
->Om du vill ge flera användare åtkomst till ditt Microsoft Developer Center-konto (dev Center) rekommenderar Microsoft att du använder Azure Active Directory (Azure AD) för att tilldela roller till enskilda användare. Varje användare måste ha åtkomst till kontot genom att logga in med enskilda autentiseringsuppgifter för Azure AD. Skapa ditt Microsoft-ID med hjälp av en e-postadress i en domän som är registrerad på företaget Microsoft rekommenderar att e-postmeddelandet inte tilldelas till en person. Ett exempel är `windowsapps@fabrikam.com`.  
->*   Mer information finns på [problemet: Microsoft ID i en federerad Azure AD-domän](#issue-microsoft-id-in-an-azure-ad-federated-domain) .  
+>Om du vill att flera användare ska komma åt ditt Microsoft Developer Center-konto (Dev Center) rekommenderar Microsoft att du använder Azure Active Directory (Azure AD) för att tilldela roller till enskilda användare. Varje användare måste komma åt kontot genom att logga in med enskilda Azure AD-autentiseringsuppgifter. Skapa ditt Microsoft-ID med hjälp av en e-postadress i en domän som är registrerad på ditt företag Microsoft föreslår att e-postmeddelandet inte tilldelas en individ. Ett exempel är `windowsapps@fabrikam.com`.  
+>*   Mer information finns i [problemet: Microsoft-ID i ett Azure AD-federerat domänavsnitt.](#issue-microsoft-id-in-an-azure-ad-federated-domain)  
 
-*   Begränsa åtkomsten till Microsoft-ID: t till det minsta möjliga antalet utvecklare. 
-*   Konfigurera en distributions lista för företagets e-post (DL) som innehåller alla som måste ha åtkomst till ditt dev Center-konto. Lägg till DL-e-postadressen i din säkerhets information. DL gör det möjligt för alla anställda i listan att ta emot säkerhets koder när de begärs och för att hantera säkerhets informationen för ditt Microsoft-ID. Om det inte är möjligt att konfigurera en distributions lista, måste ägaren till det enskilda e-postkontot vara tillgänglig för att komma åt och dela säkerhets koden när du uppmanas till det.  
-    *   Till exempel uppmanas ägaren att ange ny säkerhets information till Microsoft-ID: t eller när Microsoft-ID: t nås från en ny enhet.  
-*   Lägg till ett företags telefonnummer som inte kräver ett tillägg och som är tillgängligt för viktiga grupp medlemmar.  
-*   I allmänhet bör du kräva att utvecklare använder betrodda enheter för att logga in på ditt dev Center-konto. Alla viktiga grupp medlemmar ska ha åtkomst till de betrodda enheterna. Om du använder betrodda enheter för åtkomst minskar kravet på att skicka säkerhets koder när någon får åtkomst till dev Center-kontot.  
-*   Om du måste bevilja åtkomst till dev Center-kontot från en icke betrodd dator bör du begränsa åtkomsten till fler än fem utvecklare. Vi rekommenderar att utvecklarna får åtkomst till kontot från datorer som delar samma geografiska plats och nätverks plats.  
-*   Granska och verifiera din säkerhets information.  
-    *   Om du vill visa din säkerhets information går du till sidan säkerhets inställningar på [Account.live.com/proofs/Manage](https://account.live.com/proofs/Manage).
+*   Begränsa åtkomsten till Microsoft-ID:et till minsta möjliga antal utvecklare. 
+*   Konfigurera en företagsdistributionslista (DL) som innehåller alla som måste komma åt ditt Dev Center-konto. Lägg till DL-e-postadressen i din säkerhetsinformation. DL gör det möjligt för alla anställda i listan att ta emot säkerhetskoder på begäran och hantera säkerhetsinformationen för ditt Microsoft-ID. Om det inte är möjligt att konfigurera en distributionslista måste ägaren till det enskilda e-postkontot vara tillgänglig för åtkomst och delning av säkerhetskoden när du uppmanas att göra det.  
+    *   Ägaren uppmanas till exempel när ny säkerhetsinformation läggs till i Microsoft-ID:t eller när Microsoft-ID:t nås från en ny enhet.  
+*   Lägg till ett företagstelefonnummer som inte kräver ett tillägg och som är tillgängligt för viktiga gruppmedlemmar.  
+*   I allmänhet bör du kräva att utvecklare använder betrodda enheter för att logga in på ditt Dev Center-konto. Alla viktiga gruppmedlemmar bör ha åtkomst till de betrodda enheterna. Om du använder betrodda enheter för åtkomst minskar kravet på att skicka säkerhetskoder när någon ansluter till Dev Center-kontot.  
+*   Om du måste bevilja åtkomst till Dev Center-kontot från en icke-betrodd dator bör du begränsa åtkomsten till högst fem utvecklare. Helst bör dina utvecklare komma åt kontot från datorer som delar samma geografiska plats och nätverksplats.  
+*   Granska och verifiera ofta din säkerhetsinformation.  
+    *   Om du vill visa din säkerhetsinformation besöker du sidan Säkerhetsinställningar som finns på [account.live.com/proofs/Manage](https://account.live.com/proofs/Manage).
 
-Ditt dev Center-konto bör främst kommas åt från betrodda datorer. Det är viktigt att du ansluter till betrodda datorer, eftersom det finns en gräns för antalet koder som genereras per dev Center-konto per vecka. Att använda betrodda datorer möjliggör även den säkraste och konsekventa inloggnings upplevelsen. 
-*   Mer information om ytterligare rikt linjer och säkerhet för dev Center-konto finns på sidan om att öppna ett Developer-konto på [docs.Microsoft.com/Windows/UWP/Publish/Opening-a-Developer-Account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account). 
+Ditt Dev Center-konto bör i första hand nås från betrodda datorer. Det är viktigt att du kommer åt från betrodda datorer, eftersom det finns en gräns för antalet koder som genereras per Dev Center-konto per vecka. Genom att använda betrodda datorer kan du också använda de säkraste och konsekventa inloggningsupplevelsen. 
+*   Mer information om ytterligare riktlinjer för Dev Center-kontot och säkerhet finns på sidan Öppna ett utvecklarkonto som finns på [docs.microsoft.com/windows/uwp/publish/opening-a-developer-account](https://docs.microsoft.com/windows/uwp/publish/opening-a-developer-account). 
 
 ---
 
-#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problem: Microsoft ID i en federerad Azure AD-domän  
-Ditt företags konto kan vara federerat genom Azure Active Directory (Azure AD). Om du försöker skapa ett Microsoft-ID med en företags-e-postadress som är federerad med Azure AD, får du ett fel meddelande. Om du får ett fel bör du kontakta IT-teamet för att bekräfta att ditt konto är sammanslaget via Azure AD. Azure AD federerad e-post är ett känt problem och Microsoft arbetar med att lösa det.  
-*   Mer information om Azure AD finns på sidan Azure Active Directory dokumentation på [docs.Microsoft.com/Azure/Active-Directory](https://docs.microsoft.com/azure/active-directory).
+#### <a name="issue-microsoft-id-in-an-azure-ad-federated-domain"></a>Problem: Microsoft-ID i en Azure AD-federerad domän  
+Ditt företagskonto kan federeras via Azure Active Directory (Azure AD). Om du försöker skapa ett Microsoft-ID med en företags-e-postadress som är federerad med Azure AD visas ett felmeddelande. Om du får ett felmeddelande bör du kontrollera med IT-teamet för att bekräfta att ditt konto är federerat via Azure AD. Azure AD federerade e-post är ett känt problem och Microsoft arbetar för att lösa det.  
+*   Mer information om Azure AD finns på sidan Azure Active Directory Documentation som finns på [docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory).
 
-Microsoft rekommenderar en lösning. Följ de här stegen för att skapa en ny e-postadress i `outlook.com`-domänen och skapa en regel för att vidarebefordra kommunikationen.  
+Microsoft rekommenderar en lösning. Följ dessa steg för att skapa `outlook.com` en ny e-postadress i domänen och skapa en regel för att vidarebefordra din kommunikation.  
 1.  Gå till sidan Skapa konto och klicka på länken Hämta en ny e-postadress. 
-    *   Registrera dig för ditt Microsoft-ID genom att besöka sidan Skapa konto på [signup.live.com/signup](https://signup.live.com/signup).  
-2.  Skapa den nya e-postadressen och ange ett lösen ord. Ett nytt Microsoft-ID och en e-postlåda i `outlook.com` domän skapas. Fortsätt registrerings processen tills kontot har skapats.  
+    *   Om du vill registrera dig för ditt Microsoft-ID besöker du sidan Skapa konto som finns på [signup.live.com/signup](https://signup.live.com/signup).  
+2.  Skapa den nya e-postadressen och ange ett lösenord. Ett nytt Microsoft-ID och `outlook.com` en e-postpostlåda i domänen skapas. Fortsätt registreringsprocessen tills kontot skapas.  
 
     >[!IMPORTANT]
-    >Du måste använda en e-postadress eller distributions lista som har registrerats som ett Microsoft-ID för att registrera dig i dev Center. Microsoft rekommenderar att du använder en distributions lista för att ta bort beroendet från enskilda användare. Om din e-postadress eller distributions lista inte är registrerad, måste du registrera dig nu.    
+    >Du måste använda en e-postadress eller distributionslista som är registrerad som ett Microsoft-ID för att registrera dig i Dev Center. Microsoft rekommenderar att du använder en distributionslista för att ta bort beroendet från enskilda personer. Om din e-postadress eller distributionslista inte är registrerad måste du registrera dig nu.    
 
     >[!Important]
-    >Om din e-postadress finns i `Microsoft` företags domän kan du inte använda den för registrering i dev Center.  
+    >Om din e-postadress finns `Microsoft` i företagsdomänen kan du inte använda den för registrering i Dev Center.  
 
-3.  När du har skapat Microsoft-ID: t med Outlook-e-postadressen loggar du in på din Outlook-postlåda. Skapa en regel för vidarebefordran av e-post. Regeln för vidarebefordran av e-post bör flytta alla e-postmeddelanden som tas emot i Outlook-brevlådan till e-postadressen i din domän som du skapade för att hantera ditt Marketplace-konto.  
-    *   Om du vill logga in på Outlook-brevlådan går du till Outlook-sidan som finns på [Outlook.live.com/OWA](https://outlook.live.com/owa).  
-    *   Mer information om regler för vidarebefordran finns i använda regler i Outlook Web App för att automatiskt vidarebefordra meddelanden till en annan konto sida som finns på [support.Office.com/article/use-Rules-in-Outlook-Web-App-to-automatically-Forward-Messages-to-another-Account-1433e3a0-7fb0-4999-b536-50e05cb67fed](https://support.office.com/article/Use-rules-in-Outlook-Web-App-to-automatically-forward-messages-to-another-account-1433e3a0-7fb0-4999-b536-50e05cb67fed).  
+3.  När du har skapat Microsoft-ID:n med e-postadressen i Outlook loggar du in på outlook-postlådan. Skapa en regel för vidarebefordran av e-post. Regeln om vidarebefordran av e-post bör flytta alla e-postmeddelanden som tas emot i Outlook-postlådan till e-postadressen på domänen som du skapade för att hantera ditt marketplace-konto.  
+    *   Om du vill logga in på outlook-postlådan besöker du outlook-sidan som finns på [outlook.live.com/owa](https://outlook.live.com/owa).  
+    *   Mer information om vidarebefordringsregler finns i användningsreglerna i Outlook Web App om du automatiskt vidarebefordrar meddelanden till en annan kontosida som finns på [support.office.com/article/Use-rules-in-Outlook-Web-App-to-automatically-forward-messages-to-another-account-1433e3a0-7fb0-4999-b536-50e05cb67fed](https://support.office.com/article/Use-rules-in-Outlook-Web-App-to-automatically-forward-messages-to-another-account-1433e3a0-7fb0-4999-b536-50e05cb67fed).  
 
-1.  Vidarebefordrings regeln skickar all e-post och kommunikation som tas emot i Outlook-e-postkontot till e-postadressen i en domän som är registrerad i företaget. Din `outlook.com` e-postadress måste användas för att autentisera i både dev Center och Cloud Partner Portal.  
+1.  Vidarebefordringsregeln skickar all e-post och kommunikation som tas emot i Outlook-e-postkontot till e-postadressen i en domän som är registrerad på ditt företag. Din `outlook.com` e-postadress måste användas för att autentisera i både Dev Center och Cloud Partner Portal.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-*   Besök [Azure Marketplace-och AppSource Publisher-guide](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) sidan. 
+*   Besök sidan [Azure Marketplace och AppSource Publisher Guide.](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) 
  
 ---

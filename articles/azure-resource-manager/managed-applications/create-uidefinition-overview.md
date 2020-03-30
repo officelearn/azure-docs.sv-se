@@ -1,20 +1,20 @@
 ---
-title: CreateUiDefinition. JSON-fil för Portal fönstret
-description: Beskriver hur du skapar användar gränssnitts definitioner för Azure Portal. Används när du definierar Azure Managed Applications.
+title: Filen CreateUiDefinition.json för portalfönstret
+description: Beskriver hur du skapar användargränssnittsdefinitioner för Azure-portalen. Används när du definierar Azure Managed Applications.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5fcc87e894cfab0075b33835a0673b133c629b73
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2956c76f5bec353639b39228b982db21b6932deb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650882"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294899"
 ---
-# <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition. JSON för Azure Managed Applications Create Experience
+# <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json för Azure-upplevelsen för att skapa hanterade program
 
-I det här dokumentet beskrivs de grundläggande begreppen i filen **createUiDefinition. JSON** som Azure Portal använder för att definiera användar gränssnittet när du skapar ett hanterat program.
+Det här dokumentet introducerar de grundläggande begreppen i filen **createUiDefinition.json** som Azure-portalen använder för att definiera användargränssnittet när du skapar ett hanterat program.
 
 Mallen är följande
 
@@ -34,31 +34,31 @@ Mallen är följande
 
 En CreateUiDefinition innehåller alltid tre egenskaper: 
 
-* protokollhanteraren
+* Handler
 * version
 * parameters
 
-Hanteraren bör alltid vara `Microsoft.Azure.CreateUIDef`och den senaste versionen som stöds är `0.1.2-preview`.
+Hanteraren ska alltid `Microsoft.Azure.CreateUIDef`vara det och `0.1.2-preview`den senaste versionen som stöds är .
 
-Schemat för Parameters-egenskapen är beroende av kombinationen av den angivna hanteraren och versionen. För hanterade program är de egenskaper som stöds `basics`, `steps`och `outputs`. Egenskaperna grundläggande och steg innehåller [elementen](create-uidefinition-elements.md) , t. ex. text rutor och list rutor, som ska visas i Azure Portal. Egenskapen outputs används för att mappa indatavärdena för de angivna elementen till parametrarna i mallen för Azure Resource Manager distribution.
+Schemat för parameteregenskapen beror på kombinationen av den angivna hanteraren och versionen. För hanterade program är `basics`de `steps`egenskaper `outputs`som stöds , och . Egenskaperna grunderna och stegen innehåller de [element](create-uidefinition-elements.md) - som textrutor och listrutor - som ska visas i Azure-portalen. Egenskapen outputs används för att mappa utdatavärdena för de angivna elementen till parametrarna för distributionsmallen för Azure Resource Manager.
 
-Inklusive `$schema` rekommenderas, men valfritt. Om det här alternativet anges måste värdet för `version` matcha versionen i `$schema` URI.
+Inklusive `$schema` rekommenderas, men valfritt. Om det anges måste `version` värdet för matcha `$schema` versionen i URI.If specified, the value for must match the version within the URI.
 
-Du kan använda en JSON-redigerare för att skapa din createUiDefinition och sedan testa den i [sand boxen createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) för att förhandsgranska den. Mer information om sandbox finns i [Testa ditt Portal gränssnitt för Azure Managed Applications](test-createuidefinition.md).
+Du kan använda en JSON-redigerare för att skapa din createUiDefinition och sedan testa den i [sandlådan createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) för att förhandsgranska den. Mer information om sandlådan finns i [Testa portalgränssnittet för Azure Managed Applications](test-createuidefinition.md).
 
 ## <a name="basics"></a>Grundläggande inställningar
 
-Grunderna är det första steget som skapas när Azure Portal tolkar filen. Förutom att visa de element som anges i `basics`, infogar portalen element för användare för att välja prenumeration, resurs grupp och plats för distributionen. När det är möjligt bör element som frågar om distributionens globala parametrar, t. ex. namnet på ett kluster eller administratörs behörighet, fortsätta i det här steget.
+Grunderna är det första steget som genereras när Azure-portalen tolkar filen. Förutom att visa de element `basics`som anges i injicerar portalen element för användare att välja prenumeration, resursgrupp och plats för distributionen. När det är möjligt bör element som frågar distributionsomfattande parametrar, till exempel namnet på ett kluster eller administratörsbehörighet, gå i det här steget.
 
 ## <a name="steps"></a>Steg
 
-Egenskapen steg kan innehålla noll eller ytterligare ytterligare steg för att visa efter grunderna, som innehåller ett eller flera element. Överväg att lägga till steg per roll eller nivå för det program som distribueras. Du kan till exempel lägga till ett steg för indata för huvudnoder och ett steg för arbetsnoder i ett kluster.
+Egenskapen Steps kan innehålla noll eller fler ytterligare steg för att visa efter grunderna, som var och en innehåller ett eller flera element. Överväg att lägga till steg per roll eller nivå för det program som distribueras. Lägg till exempel till ett steg för huvudnodindata och ett steg för arbetsnoderna i ett kluster.
 
 ## <a name="outputs"></a>Utdata
 
-Azure Portal använder egenskapen `outputs` för att mappa element från `basics` och `steps` till parametrarna i mallen för Azure Resource Manager distribution. Nycklarna för den här ord listan är namnen på mallparametrar och värdena är egenskaper för de utgående objekten från de refererade elementen.
+Azure-portalen `outputs` använder egenskapen `basics` för `steps` att mappa element från och till parametrarna för distributionsmallen för Azure Resource Manager. Nycklarna i den här ordlistan är namnen på mallparametrarna och värdena är egenskaper för utdataobjekten från de refererade elementen.
 
-Om du vill ange resurs namnet för den hanterade appen måste du inkludera ett värde med namnet `applicationResourceName` i egenskapen utdata. Om du inte anger det här värdet tilldelar programmet ett GUID för namnet. Du kan inkludera en text ruta i användar gränssnittet som begär ett namn från användaren.
+Om du vill ange det hanterade programresursnamnet måste du inkludera ett värde som namnges `applicationResourceName` i egenskapen utdata. Om du inte anger det här värdet tilldelar programmet ett GUID för namnet. Du kan inkludera en textruta i användargränssnittet som begär ett namn från användaren.
 
 ```json
 "outputs": {
@@ -72,7 +72,7 @@ Om du vill ange resurs namnet för den hanterade appen måste du inkludera ett v
 
 ## <a name="resource-types"></a>Resurstyper
 
-Om du vill filtrera tillgängliga platser till endast de platser som har stöd för de resurs typer som ska distribueras, anger du en matris av resurs typerna. Om du anger mer än en resurs typ returneras bara de platser som stöder alla resurs typer. Den här egenskapen är valfri.
+Om du bara vill filtrera de tillgängliga platserna till de platser som stöder de resurstyper som ska distribueras anger du en matris med resurstyperna. Om du anger mer än en resurstyp returneras endast de platser som stöder alla resurstyper. Den här egenskapen är valfri.
 
 ```json
 {
@@ -87,15 +87,15 @@ Om du vill filtrera tillgängliga platser till endast de platser som har stöd f
 
 ## <a name="functions"></a>Funktioner
 
-CreateUiDefinition innehåller [funktioner](create-uidefinition-functions.md) för att arbeta med element indata och utdata, samt funktioner som till exempel villkor. Dessa funktioner liknar funktionerna i både syntax och funktioner i Azure Resource Manager mallar.
+CreateUiDefinition innehåller [funktioner](create-uidefinition-functions.md) för att arbeta med elementens indata och utdata och funktioner som villkor. Dessa funktioner liknar både syntax och funktionalitet som Azure Resource Manager-mallfunktioner.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Filen createUiDefinition. JSON har ett enkelt schema. Det verkliga djupet i den kommer från alla element och funktioner som stöds. Dessa objekt beskrivs mer detaljerat på:
+Själva filen createUiDefinition.json har ett enkelt schema. Det verkliga djupet av det kommer från alla element och funktioner som stöds. Dessa poster beskrivs mer i detalj på:
 
-- [Ämnen](create-uidefinition-elements.md)
+- [Element](create-uidefinition-elements.md)
 - [Funktioner](create-uidefinition-functions.md)
 
-Det finns ett aktuellt JSON-schema för createUiDefinition här: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
+Ett aktuellt JSON-schema för createUiDefinition finns här: `https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json`.
 
-Ett exempel på en användar gränssnitts fil finns i [createUiDefinition. JSON](https://github.com/Azure/azure-managedapp-samples/blob/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet/createUiDefinition.json).
+En exempelanvändargränssnittsfil finns i [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet/createUiDefinition.json).

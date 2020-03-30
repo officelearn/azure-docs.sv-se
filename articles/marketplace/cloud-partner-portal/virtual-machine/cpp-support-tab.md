@@ -1,46 +1,45 @@
 ---
-title: Fliken stöd för virtuella datorer i Cloud Partner Portal för Azure Marketplace
-description: Beskriver fliken Support som används för att skapa ett erbjudande för virtuella Azure Marketplace-datorer.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Fliken Support för virtuella datorer i Cloud Partner Portal för Azure Marketplace
+description: Beskriver fliken Support som används för att skapa ett Azure Marketplace VM-erbjudande.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: pabutler
-ms.openlocfilehash: fcf7a51e69e901ae04b29c4fb621d401d170d2f1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: e8143f33aacbc68653d19ffb72e88af447f8cc40
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808807"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288860"
 ---
-# <a name="virtual-machine-support-tab"></a>Fliken Support för virtuell dator
+# <a name="virtual-machine-support-tab"></a>Fliken Support för virtuella datorer
 
-På fliken **support** på sidan **ny erbjudande** kan du tillhandahålla teknisk support och användar support resurser för ditt erbjudande.  Den är uppdelad i tre områden: **teknik**, **kund support**och **Support-URL: er**.
+På fliken **Support** på sidan **Nytt erbjudande** kan du tillhandahålla tekniska resurser och användarsupport för ditt erbjudande.  Den är uppdelad i tre områden: **Engineering,** **Kundsupport**och **Support URL:er**.
 
-![Fliken Support i formuläret ny erbjudande för virtuella datorer](./media/publishvm_012.png)
+![Fliken Support i formuläret Nytt erbjudande för virtuella datorer](./media/publishvm_012.png)
 
-## <a name="field-values"></a>Fält värden
+## <a name="field-values"></a>Fältvärden
 
-I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatoriska fält förutsägs av en asterisk (*).
+I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatoriska fält åtalas av en asterisk (*).
 
-|         Fält                 |       Beskrivning                                                        |
+|         Field                 |       Beskrivning                                                        |
 |        -------                |       ------------                                                       |
 | *Teknisk kontakt*     | Fungerar som en teknisk kontakt mellan Microsoft och din organisation | 
-| **Namn\***                | Namnet på den person eller grupp som fungerar som teknisk/teknisk support     |
-| **E-\***               | E-postadress till den här tekniska kontakten                                      |
+| **Namn\***                | Namn på den person eller grupp som fungerar som teknisk/teknisk support     |
+| **Email\***               | E-postadress till denna tekniska kontakt                                      |
 | **Telefon\***               | Telefonnummer för teknisk support                                           |
-| *Kund support*        | Tar emot support biljetter som kunder har öppnat i Azure |
-| **Namn\***                | Namnet på den person eller grupp som fungerar som kund support                  |
-| **E-\***               | E-postadress till kund support                                            |
-| **Telefon\***               | Telefonnummer för kund support                                            |
-| *Support-URL: er*            | Support webbplatser som Microsoft kommer att använda när dina kunder öppnar support biljetter |
-| **Offentlig Azure**          | URL för offentlig Internet support webbplats                                         |
-| **Azure Government molnet**| URL för myndighets moln support webbplats                                        |
+| *Kundsupport*        | Tar emot supportärenden som öppnats av kunder i Azure |
+| **Namn\***                | Namn på den person eller grupp som fungerar som kundsupport                  |
+| **Email\***               | E-postadress till kundsupport                                            |
+| **Telefon\***               | Telefonnummer för kundsupport                                            |
+| *Stöd-url:er*            | Supportwebbplatser som Microsoft kommer att använda när dina kunder öppnar supportbiljetter |
+| **Offentlig Azure**          | URL för offentlig webbplats för internetsupport                                         |
+| **Azure Government Cloud**| URL för supportwebbplats för myndighetsmoln                                        |
 |  |  |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Härnäst, om du inte redan har doen så kan du slutföra dina [tekniska till gångar för virtuella datorer](./cpp-create-technical-assets.md).
+Nästa om du inte redan har doen så, slutföra din [virtuella dator tekniska tillgångar](./cpp-create-technical-assets.md).

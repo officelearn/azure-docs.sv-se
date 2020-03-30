@@ -1,52 +1,51 @@
 ---
-title: Erbjudande om Azure-och Dynamics 365-konsulttjänster | Azure Marketplace
-description: Guide för att definiera och publicera ett Azure-eller Dynamics 365 konsult tjänst erbjudande i Cloud Partner Portal.
-services: Azure, Marketplace, Cloud Partner Portal,
+title: Erbjudande om konsulttjänster i Azure och Dynamics 365 | Azure Marketplace
+description: Guide för att definiera och publicera ett Azure- eller Dynamics 365-erbjudande om konsulttjänster i Cloud Partner Portal.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: evansma
-ms.openlocfilehash: d744c0bdcae177ca5cee5617622f04da7312e15f
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.author: dsindona
+ms.openlocfilehash: 1015734ac0da6b4641c0bf32049146e3820f4616
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
-ms.locfileid: "78268301"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278543"
 ---
-# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Erbjudande om Azure-och Dynamics 365-konsulttjänster
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Erbjudande om azure- och dynamics 365-konsulttjänster
 
-Den här artikeln beskriver hur du publicerar ett konsult tjänst erbjudande på antingen Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> eller <a href="https://appsource.microsoft.com">AppSource</a>. Lösningar som baseras på Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>och <a href="https://powerapps.microsoft.com">Power Apps</a> kan listas på AppSource. Andra erbjudanden baserade på andra Microsoft <a href="https://azure.microsoft.com/services">Azure-tjänster</a> kan listas på Azure Marketplace.
+I den här artikeln beskrivs hur du publicerar ett erbjudande om konsulttjänster på Antingen Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> eller <a href="https://appsource.microsoft.com">AppSource</a>. Lösningar baserade på Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365,</a> <a href="https://powerbi.microsoft.com">Power BI</a>och <a href="https://powerapps.microsoft.com">Power Apps</a> kan visas på AppSource. Andra erbjudanden som baseras på andra Microsoft <a href="https://azure.microsoft.com/services">Azure-tjänster</a> kan listas på Azure Marketplace.
 
-## <a name="publishing-benefits"></a>Publicera förmåner
+## <a name="publishing-benefits"></a>Publiceringsförmåner
 
-Publicering till någon av Microsofts marknads platser har följande fördelar:
+Publicering till någon av Microsofts marknadsplatser har följande fördelar:
 
-- Marknadsför ditt företag genom att dra nytta av Microsofts varumärke.
-- Det kan finnas fler än 100 000 000 Office 365-och Dynamics 365-användare på AppSource och når fler än 200 000 organisationer via Azure Marketplace.
-- Få högkvalitativa leads från dessa marknads platser.
-- Få dina tjänster upphöjda av Microsoft-fälten och inköps gruppen för köp.
+- Marknadsför ditt företag genom att utnyttja Microsofts varumärke.
+- Potentiellt nå mer än 100 miljoner Office 365- och Dynamics 365-användare på AppSource och nå mer än 200 000 organisationer via Azure Marketplace.
+- Få högkvalitativa leads från dessa marknadsplatser.
+- Få dina tjänster marknadsförda av Microsoft-fält- och telefonförsäljningsteamen.
 
-## <a name="publish-a-consulting-service-offer"></a>Publicera ett konsult tjänst erbjudande
+## <a name="publish-a-consulting-service-offer"></a>Publicera ett konsulttjänsterbjudande
 
-Det här avsnittet beskriver delarna i publiceringen av ett konsult tjänst erbjudande. Publicering är indelat i följande huvud delar:
+I det här avsnittet beskrivs de delar av publiceringen av ett konsulttjänsterbjudande. Publiceringen är uppdelad i följande huvuddelar:
 
-- [Konsult tjänsternas](./cpp-consulting-service-prerequisites.md) krav listar kraven för att publicera ett konsult tjänst erbjudande för:
+- [Förutsättningarna för konsulttjänster listar](./cpp-consulting-service-prerequisites.md) kraven för att publicera ett konsultserviceerbjudande för:
  
     - Microsoft Azure
-    - Dynamics 365 kund engagemang 
-    - Dynamics 365 ekonomi & åtgärder 
+    - Dynamics 365 kundengagemang 
+    - Dynamics 365 Finance & Operations 
     - Dynamics 365 Customer Insights
     - Dynamics 365 Business Central 
     - Power BI 
     - Power Apps
     - Power Automate
-- [Skapa ett nytt erbjudande](./cpp-consulting-service-create-offer.md) visar de steg som krävs för att skapa ett erbjudande för konsult tjänster med hjälp av Cloud Partner Portal:
-    - [Definiera inställningar för erbjudandet](./cpp-consulting-service-define-offer-settings.md).
-    - [Ange butik information och om du vill publicera på Azure Marketplace eller på AppSource.](./cpp-consulting-service-storefront-details.md)
-- [Publicera ditt erbjudande](./cpp-consulting-service-publish-offer.md) förklarar hur du skickar in erbjudandet om publicering.
+- [Skapa ett nytt erbjudande](./cpp-consulting-service-create-offer.md) visar de steg som krävs för att skapa en erbjudandepost för konsulttjänster med hjälp av Cloud Partner Portal:
+    - [Definiera erbjudandeinställningar](./cpp-consulting-service-define-offer-settings.md).
+    - [Ange information i ett skyltfönster och om du vill publicera på Azure Marketplace eller på AppSource.](./cpp-consulting-service-storefront-details.md)
+- [Publicera ditt erbjudande](./cpp-consulting-service-publish-offer.md) förklarar hur du skickar erbjudandet för publicering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Innan du utför de här stegen för att publicera konsult tjänst erbjudandet måste du uppfylla [kraven](./cpp-consulting-service-prerequisites.md) för att publicera ett konsult tjänst erbjudande.
+Innan du gör dessa steg för att publicera ditt konsulttjänsterbjudande måste du uppfylla [förutsättningarna](./cpp-consulting-service-prerequisites.md) för att publicera ett konsulttjänsterbjudande.

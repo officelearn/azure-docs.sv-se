@@ -1,37 +1,36 @@
 ---
-title: Analys för den kommersiella marknads platsen i Partner Center
-description: Översikt över åtkomst till analys rapporter för att övervaka försäljning, utvärdera prestanda och optimera dina Marketplace-erbjudanden.
-author: ChJenk
-manager: evansma
-ms.author: v-chjen
+title: Analys för den kommersiella marknadsplatsen i Partner Center
+description: Översikt över hur du får tillgång till analytiska rapporter för att övervaka försäljning, utvärdera resultat och optimera dina marknadsplatserbjudanden.
+author: dsindona
+ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 9d7887894e796c71f0a92402e0a26fccc4d03f75
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f1db4479d04b8f81f95b95c5277efb35210745b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431947"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80279784"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analys för den kommersiella marknads platsen i Partner Center
+# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analys för den kommersiella marknadsplatsen i Partner Center
 
-Lär dig hur du får åtkomst till analys rapporter i Microsoft Partner Center för att övervaka försäljning, utvärdera prestanda och optimera dina erbjudanden på Marketplace. Som partner kan du övervaka dina erbjudande listor med hjälp av diagrammet data visualisering och insikter som stöds av Partner Center och hitta sätt att maximera din försäljning. Med de förbättrade analys verktygen kan du arbeta med prestanda resultat och upprätthålla bättre relationer med dina kunder och åter försäljare.
+Lär dig hur du kommer åt analytiska rapporter i Microsoft Partner Center för att övervaka försäljning, utvärdera resultat och optimera dina erbjudanden på marknaden. Som partner kan du övervaka dina erbjudandelistor med hjälp av datavisualiserings- och insiktsdiagram som stöds av Partner Center och hitta sätt att maximera din försäljning. Med de förbättrade analysverktygen kan du agera utifrån resultat och upprätthålla bättre relationer med dina kunder och återförsäljare.
 
-## <a name="partner-center-analytics-tools"></a>Analys verktyg för partner Center
+## <a name="partner-center-analytics-tools"></a>Analysverktyg för Partner Center
 
-Om du vill komma åt Partner Center Analytics-verktyg öppnar du **[analys](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** instrument panelen under kommersiell marknads plats.
+Öppna instrumentpanelen **[Analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** under Kommersiell marknadsplats för att komma åt analysverktygen för Partner Center.
 
 >[!NOTE]
-> Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](./faq-terminology.md).
+> Detaljerade definitioner av analysterminologi finns [i Vanliga frågor och terminologi för Analys av kommersiella marknadsplatser](./faq-terminology.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För grafer, trender och värden för sammanställda data som sammanfattar Marketplace-aktivitet för ditt erbjudande, se [översikts instrument panel i](./summary-dashboard.md)marknads plats analys.
-- Information om dina beställningar i ett grafiskt och nedladdnings Bart format finns i [order instrument panel i kommersiell Marketplace-analys](./orders-dashboard.md).
-- För virtuell dator (VM) erbjuder vi användnings-och mätnings mått i [användnings instrument panelen i den kommersiella Marketplace-analysen](./usage-dashboard.md).
-- Detaljerad information om dina kunder, inklusive tillväxt trender, finns [på kund instrument panel i affärs Marketplace-analys](./customer-dashboard.md).
-- En lista över dina nedladdnings begär Anden under de senaste 30 dagarna finns i [Hämta instrument panel i kommersiell Marketplace-analys](./downloads-dashboard.md).
-- Om du vill se en sammanställd vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource, se [klassificering och granskning på instrument panelen i kommersiell Marketplace-analys](./ratings-reviews.md).
-- Vanliga frågor och svar om den kommersiella Marketplace-analysen och en omfattande ord lista med data termer finns i [vanliga frågor och termer för att få en kommersiell Marketplace-analys](./faq-terminology.md).
+- Diagram, trender och värden för aggregerade data som sammanfattar marketplace-aktivitet för ditt erbjudande finns [i Sammanfattningsinstrumentpanel i analys av kommersiella marknadsplatser](./summary-dashboard.md).
+- Information om dina beställningar i ett grafiskt och nedladdningsbart format finns [i Instrumentpanelen för order i Analys av Kommersiella marknadsplatser](./orders-dashboard.md).
+- För virtuell dator (VM) erbjuder användnings- och datapriser för faktureringsmått finns [i Användningsinstrumentpanel i kommersiell marketplace-analys](./usage-dashboard.md).
+- Detaljerad information om dina kunder, inklusive tillväxttrender, finns [i Customer Dashboard i Kommersiell Marketplace-analys](./customer-dashboard.md).
+- En lista över dina hämtningsbegäranden under de senaste 30 dagarna finns [i Hämta instrumentpanel i Kommersiell Marketplace-analys](./downloads-dashboard.md).
+- Information om hur du ser en konsoliderad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource finns [i instrumentpanelen Klassificeringar och recensioner i Kommersiell Marketplace-analys](./ratings-reviews.md).
+- Vanliga frågor och svar om Analys av kommersiella marknadsplatser och en omfattande ordlista med datatermer finns i [Vanliga frågor och terminologi för Kommersiell Marketplace-analys](./faq-terminology.md).

@@ -1,66 +1,66 @@
 ---
-title: Kognitiva kunskaper om PII-identifiering (förhands granskning)
+title: PII-identifiering av kognitiv färdighet (förhandsgranskning)
 titleSuffix: Azure Cognitive Search
-description: Extrahera och maskera personligt identifierbar information från text i en pipeline i Azure Kognitiv sökning. Den här kunskapen är för närvarande en offentlig för hands version.
+description: Extrahera och maskera personligt identifierbar information från text i en anrikningspipeline i Azure Cognitive Search. Den här färdigheten är för närvarande i offentlig förhandsversion.
 manager: nitinme
 author: careyjmac
 ms.author: chalton
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: 7011d971ddb1888b312173a42ecd4a50f0954395
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f21200bc6f5b25f3330f5bb87c0843caa5a84e56
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849050"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80298884"
 ---
-#   <a name="pii-detection-cognitive-skill"></a>Kognitiva kunskaper om PII-identifiering
+#    <a name="pii-detection-cognitive-skill"></a>PII-identifiering kognitiv skicklighet
 
 > [!IMPORTANT] 
-> Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för Portal eller .NET SDK.
+> Den här färdigheten är för närvarande i offentlig förhandsversion. Förhandsversionsfunktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för portal eller .NET SDK.
 
-**Identifieringen av PII** hämtar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
+**Pii-identifieringsfärdigheten** extraherar personligt identifierbar information från en indatatext och ger dig möjlighet att maskera den från den texten på olika sätt. Den här färdigheten använder de maskininlärningsmodeller som tillhandahålls av [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
+> När du utökar omfattningen genom att öka bearbetningsfrekvensen, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [bifoga en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifter ackumuleras när du anropar API:er i Cognitive Services och för bildutvinning som en del av dokumentsprickningsfasen i Azure Cognitive Search. Det finns inga avgifter för textextrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Utförande av inbyggda färdigheter debiteras på den befintliga [Cognitive Services pay-as-you go pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättning för avbildningsextrahering beskrivs på [prissidan](https://go.microsoft.com/fwlink/?linkid=2042400)för Azure Cognitive Search .
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. färdigheter. text. PIIDetectionSkill
+Microsoft.Skills.Text.PIIDetectionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till kunskapen bör du överväga att använda [text delnings kunskaper](cognitive-search-skill-textsplit.md).
+Den maximala storleken på en post bör vara 50 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)000 tecken mätt med . Om du behöver dela upp dina data innan du skickar dem till färdigheten kan du överväga att använda [textdelningsfärdigheten](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-parameters"></a>Kunskaps parametrar
+## <a name="skill-parameters"></a>Färdighetsparametrar
 
-Parametrar är Skift läges känsliga och alla är valfria.
+Parametrar är skiftlägeskänsliga och alla är valfria.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| defaultLanguageCode | Språk koden för inmatad text. För närvarande stöds endast `en`. |
-| minimumPrecision | Ett värde mellan 0,0 och 1,0. Om förtroende poängen (i `piiEntities` utdata) är lägre än värdet för ange `minimumPrecision`, returneras eller maskeras inte entiteten. Standardvärdet är 0,0. |
-| maskingMode | En parameter som ger olika sätt att maskera identifierad personligt identifierbar information i indatamängden. Följande alternativ stöds: <ul><li>`none` (standard): det innebär att ingen maskning utförs och `maskedText` utdata kommer inte att returneras. </li><li> `redact`: det här alternativet tar bort identifierade entiteter från inmatad text och ersätter dem inte med något. Observera att i det här fallet är förskjutningen i `piiEntities` utdata i förhållande till den ursprungliga texten och inte den maskerade texten. </li><li> `replace`: med det här alternativet ersätts identifierade entiteter med det som angavs i `maskingCharacter`-parametern.  Specialtecknet upprepas till den identifierade entitetens längd så att förskjutningarna motsvarar både inmatnings text och utdata `maskedText`.</li></ul> |
-| maskingCharacter | Det tecken som ska användas för att maskera texten om `maskingMode`-parametern är inställd på `replace`. Följande alternativ stöds: `*` (standard) `#``X`. Den här parametern kan bara `null` om `maskingMode` inte är inställt på `replace`. |
+| standardSpråkkod |    Ingångstextens språkkod. För tillfället `en` stöds bara. |
+| minimumPrecision | Ett värde mellan 0,0 och 1,0. Om konfidenspoängen `piiEntities` (i utdata) är lägre än det inställda `minimumPrecision` värdet returneras eller maskeras inte entiteten. Standardvärdet är 0,0. |
+| maskeringMode | En parameter som ger olika sätt att maskera den identifierade PII i indatatexten. Följande alternativ stöds: <ul><li>`none`(standard): Detta innebär att ingen maskering `maskedText` kommer att utföras och utdata kommer inte att returneras. </li><li> `redact`: Det här alternativet tar bort de identifierade entiteterna från indatatexten och ersätter dem inte med någonting. Observera att i det här `piiEntities` fallet kommer förskjutningen i utdata att vara i förhållande till den ursprungliga texten och inte den maskerade texten. </li><li> `replace`: Det här alternativet ersätter de identifierade `maskingCharacter` entiteterna med det tecken som anges i parametern.  Tecknet upprepas till längden på den identifierade entiteten så att förskjutningarna korrekt motsvarar `maskedText`både indatatexten och utdata .</li></ul> |
+| maskeringTecken | Tecknet som ska användas för att `maskingMode` maskera texten `replace`om parametern är inställd på . Följande alternativ stöds: `*` `#`(standard), `X`, . Den här parametern `maskingMode` kan bara `replace`vara `null` om den inte är inställd på . |
 
 
-## <a name="skill-inputs"></a>Kompetens inmatningar
+## <a name="skill-inputs"></a>Indata för färdighet
 
-| Inmatat namn      | Beskrivning                   |
+| Indatanamn      | Beskrivning                   |
 |---------------|-------------------------------|
-| languageCode  | Valfri. Standardvärdet är `en`.  |
-| text          | Den text som ska analyseras.          |
+| languageCode    | Valfri. Standardvärdet är `en`.  |
+| text          | Texten att analysera.          |
 
-## <a name="skill-outputs"></a>Kunskaps utmatningar
+## <a name="skill-outputs"></a>Utdata för färdighet
 
-| Namn på utdata     | Beskrivning                   |
+| Utdatanamn      | Beskrivning                   |
 |---------------|-------------------------------|
-| piiEntities | En matris med komplexa typer som innehåller följande fält: <ul><li>text (den faktiska PII som extraheras)</li> <li>typ</li><li>Undertyp</li><li>Score (högre värde innebär att det är mer troligt att det är en riktig entitet)</li><li>förskjutning (i inmatad text)</li><li>length</li></ul> </br> [Möjliga typer och under typer hittar du här.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
-| maskedText | Om `maskingMode` är inställt på ett annat värde än `none`, kommer utdata att vara sträng resultatet av maskeringen som utförts på inmatnings texten, enligt beskrivningen av den valda `maskingMode`.  Om `maskingMode` är inställt på `none`visas inte det här resultatet. |
+| pii Enheter | En matris med komplexa typer som innehåller följande fält: <ul><li>text (Den faktiska PII som extraheras)</li> <li>typ</li><li>Subtyp</li><li>poäng (Högre värde innebär att det är mer sannolikt att vara en verklig enhet)</li><li>(i indatatexten)</li><li>length</li></ul> </br> [Möjliga typer och undertyper finns här.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/named-entity-types?tabs=personal) |
+| maskeradText | Om `maskingMode` är inställt på `none`ett annat värde än kommer det här utdata att vara strängresultatet för maskeringen som utförs på indatatexten enligt beskrivningen av den valda `maskingMode`.  Om `maskingMode` är `none`inställt på kommer den här utdata inte att finnas. |
 
-##  <a name="sample-definition"></a>Exempel definition
+##    <a name="sample-definition"></a>Exempeldefinition
 
 ```json
   {
@@ -85,7 +85,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
     ]
   }
 ```
-##  <a name="sample-input"></a>Exempel på inmatade
+##    <a name="sample-input"></a>Exempelinmatning
 
 ```json
 {
@@ -101,7 +101,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
 }
 ```
 
-##  <a name="sample-output"></a>Exempel på utdata
+##    <a name="sample-output"></a>Exempel på utdata
 
 ```json
 {
@@ -127,15 +127,16 @@ Parametrar är Skift läges känsliga och alla är valfria.
 }
 ```
 
+Observera att förskjutningar som returneras för entiteter i utdata för den här färdigheten returneras direkt från [API:et](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)för textanalys , vilket innebär att om du använder dem för att indexera till den ursprungliga strängen bör du använda klassen [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) i .NET för att extrahera rätt innehåll.  [Mer information hittar du här.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
 
-## <a name="error-and-warning-cases"></a>Fel-och varnings fall
-Om språk koden för dokumentet inte stöds returneras en varning och inga entiteter extraheras.
-Om texten är tom skapas en varning.
-Om texten är större än 50 000 tecken kommer endast de första 50 000 tecknen att analyseras och en varning utfärdas.
+## <a name="error-and-warning-cases"></a>Fel- och varningsfall
+Om språkkoden för dokumentet inte stöds returneras en varning och inga entiteter extraheras.
+Om texten är tom visas en varning.
+Om texten är större än 50 000 tecken analyseras endast de första 50 000 tecknen och en varning utfärdas.
 
-Om kunskapen returnerar en varning kan utdatan `maskedText` vara tom.  Det innebär att om du förväntar dig att utdata ska finnas för indata till senare kunskaper fungerar den inte som avsett. Tänk på detta när du skriver färdigheter-definitionen.
+Om färdigheten returnerar en `maskedText` varning kan utdata vara tomma.  Detta innebär att om du förväntar dig att produktionen ska finnas för indata i senare färdigheter, kommer det inte att fungera som avsett. Tänk på detta när du skriver din skillset definition.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-+ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
-+ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
++ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)

@@ -1,73 +1,73 @@
 ---
-title: Kognitiv kunskap om entitets igenkänning
+title: Kognitiv färdighet för enhetsigenkänning
 titleSuffix: Azure Cognitive Search
-description: Extrahera olika typer av entiteter från text i en pipeline för anrikning i Azure Kognitiv sökning.
+description: Extrahera olika typer av entiteter från text i en anrikningspipeline i Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6393c1eeaaa72d653704fcc52442bfb326dc2cdd
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 6ef5952b6413563b2c2e16ff2218f709b414fb84
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472340"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80297817"
 ---
-#   <a name="entity-recognition-cognitive-skill"></a>Kognitiv kunskap om entitets igenkänning
+#    <a name="entity-recognition-cognitive-skill"></a>Kognitiv färdighet för enhetsigenkänning
 
-Kunskapen om **enhets igenkänning** extraherar entiteter av olika typer från text. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
+Skilliteten **Entitetsigenkänning** extraherar entiteter av olika typer från text. Den här färdigheten använder de maskininlärningsmodeller som tillhandahålls av [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
+> När du utökar omfattningen genom att öka bearbetningsfrekvensen, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [bifoga en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifter ackumuleras när du anropar API:er i Cognitive Services och för bildutvinning som en del av dokumentsprickningsfasen i Azure Cognitive Search. Det finns inga avgifter för textextrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Utförande av inbyggda färdigheter debiteras på den befintliga [Cognitive Services pay-as-you go pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättning för avbildningsextrahering beskrivs på [prissidan](https://go.microsoft.com/fwlink/?linkid=2042400)för Azure Cognitive Search .
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. färdigheter. text. EntityRecognitionSkill
+Microsoft.skills.text.entityRecognitionskill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till nyckel frasen Extractor, bör du överväga att använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+Den maximala storleken på en post bör vara 50 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)000 tecken mätt med . Om du behöver dela upp dina data innan du skickar dem till nyckelfrasutsugaren kan du använda [textdelningsfärdigheten](cognitive-search-skill-textsplit.md).
 
-## <a name="skill-parameters"></a>Kunskaps parametrar
+## <a name="skill-parameters"></a>Färdighetsparametrar
 
-Parametrar är Skift läges känsliga och alla är valfria.
+Parametrar är skiftlägeskänsliga och är alla valfria.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| kategorier    | Matris med kategorier som ska extraheras.  Möjliga kategori typer: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Om ingen kategori anges returneras alla typer.|
-|defaultLanguageCode |  Språk koden för inmatad text. Följande språk stöds: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. Alla enhets kategorier stöds inte för alla språk. se kommentaren nedan.|
-|minimumPrecision | Ett värde mellan 0 och 1. Om förtroende poängen (i `namedEntities` utdata) är lägre än det här värdet returneras inte entiteten. Standardvärdet är 0. |
-|includeTypelessEntities | Ange till `true` om du vill identifiera välkända entiteter som inte passar de aktuella kategorierna. Identifierade entiteter returneras i fältet `entities` komplext utdata. Till exempel är "Windows 10" en välkänd entitet (en produkt), men eftersom "produkter" inte är en kategori som stöds, skulle den här enheten inkluderas i fältet entiteter-utdata. Standardvärdet är `false` |
+| kategorier    | Matris med kategorier som ska extraheras.  Möjliga `"Person"`kategorityper: `"Location"` `"Organization"`, `"Quantity"` `"Datetime"`, `"URL"` `"Email"`, , , , . Om ingen kategori anges returneras alla typer.|
+|standardSpråkkod |    Ingångstextens språkkod. Följande språk stöds: `ar, cs, da, de, en, es, fi, fr, hu, it, ja, ko, nl, no, pl, pt-BR, pt-PT, ru, sv, tr, zh-hans`. Alla entitetskategorier stöds inte för alla språk. se anmärkning nedan.|
+|minimumPrecision | Ett värde mellan 0 och 1. Om konfidenspoängen `namedEntities` (i utdata) är lägre än det här värdet returneras inte entiteten. Standardvärdet är 0. |
+|includeTypelessEntities includeTypelessEntities includeTypelessEntities includeType | Ange `true` om du vill känna igen välkända entiteter som inte passar de aktuella kategorierna. Erkända entiteter returneras i det `entities` komplexa utdatafältet. Till exempel är "Windows 10" en välkänd entitet (en produkt), men eftersom "Produkter" inte är en kategori som stöds, skulle den här entiteten inkluderas i entiteternas utdatafält. Standard är`false` |
 
 
-## <a name="skill-inputs"></a>Kompetens inmatningar
+## <a name="skill-inputs"></a>Indata för färdighet
 
-| Inmatat namn      | Beskrivning                   |
+| Indatanamn      | Beskrivning                   |
 |---------------|-------------------------------|
-| languageCode  | Valfri. Standardvärdet är `"en"`.  |
-| text          | Den text som ska analyseras.          |
+| languageCode    | Valfri. Standardvärdet är `"en"`.  |
+| text          | Texten att analysera.          |
 
-## <a name="skill-outputs"></a>Kunskaps utmatningar
+## <a name="skill-outputs"></a>Utdata för färdighet
 
 > [!NOTE]
-> Alla enhets kategorier stöds inte för alla språk. Kategori typerna `"Person"`, `"Location"`och `"Organization"` entiteter stöds för den fullständiga listan över språk ovan. Endast _de_, _en_, _es_, _fr_och _zh-hans_ har stöd för extrahering av `"Quantity"`, `"Datetime"`, `"URL"`och `"Email"` typer. Mer information finns i [språk-och region stöd för API för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
+> Alla entitetskategorier stöds inte för alla språk. `"Person"`Kategorityperna `"Location"`, `"Organization"` och entitetskategori stöds för den fullständiga listan över språk ovan. Endast _de_, _en_, _es_, _fr_och `"Quantity"` `"Datetime"` _zh-hans_ stöd utvinning av , , `"URL"`och `"Email"` typer. Mer information finns i [Språk- och regionstöd för API:et för textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/language-support).  
 
-| Namn på utdata     | Beskrivning                   |
+| Utdatanamn      | Beskrivning                   |
 |---------------|-------------------------------|
-| ansvariga      | En sträng mat ris där varje sträng representerar namnet på en person. |
-| platser  | En sträng mat ris där varje sträng representerar en plats. |
-| organisationer  | En sträng mat ris där varje sträng representerar en organisation. |
-| outnyttja  | En sträng mat ris där varje sträng representerar en kvantitet. |
-| dateTimes  | En sträng mat ris där varje sträng representerar ett DateTime-värde (som det visas i texten). |
-| er | En sträng mat ris där varje sträng representerar en URL |
-| emails | En sträng mat ris där varje sträng representerar ett e-postmeddelande |
-| namedEntities | En matris med komplexa typer som innehåller följande fält: <ul><li>category</li> <li>värde (namnet på den faktiska entiteten)</li><li>offset (platsen där den hittades i texten)</li><li>förtroende (högre värde innebär att det är mer att vara en riktig entitet)</li></ul> |
-| poster | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraheras från text, med följande fält <ul><li> namn (namnet på den faktiska entiteten. Detta representerar en "normaliserad" form)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (en länk till Wikipedia-sidan för entiteten)</li><li>bingId</li><li>typ (den enhets kategori som identifieras)</li><li>Undertyp (endast tillgängligt för vissa kategorier, detta ger en mer detaljerad vy av entitetstypen)</li><li> matchningar (en komplex samling som innehåller)<ul><li>text (den råa texten för entiteten)</li><li>förskjutning (platsen där den hittades)</li><li>längd (längden på texten i den obearbetade entiteten)</li></ul></li></ul> |
+| Personer       | En matris med strängar där varje sträng representerar namnet på en person. |
+| platser  | En matris med strängar där varje sträng representerar en plats. |
+| organisationer  | En matris med strängar där varje sträng representerar en organisation. |
+| Kvantiteter  | En matris med strängar där varje sträng representerar en kvantitet. |
+| dateTimes  | En matris med strängar där varje sträng representerar ett DateTime-värde (som det visas i texten). |
+| Webbadresser | En matris med strängar där varje sträng representerar en URL |
+| Email | En matris med strängar där varje sträng representerar ett e-postmeddelande |
+| namngivna entiteter | En matris med komplexa typer som innehåller följande fält: <ul><li>category</li> <li>(Det faktiska enhetsnamnet)</li><li>(Den plats där den hittades i texten)</li><li>förtroende (Högre värde innebär att det är mer att vara en verklig enhet)</li></ul> |
+| Enheter | En matris med komplexa typer som innehåller omfattande information om de entiteter som extraherats från text, med följande fält <ul><li> (det faktiska entitetsnamnet. Detta representerar ett "normaliserat" formulär)</li><li> wikipediaId (på)</li><li>wikipediaSpråk</li><li>wikipediaUrl (en länk till Wikipedia sida för enheten)</li><li>bingId (på)</li><li>typ (kategorin för den enhet som redovisas)</li><li>subType (endast tillgängligt för vissa kategorier ger detta en mer detaljerad vy av entitetstypen)</li><li> matchar (en komplex samling som innehåller)<ul><li>text (den råa texten för entiteten)</li><li>(den plats där den hittades)</li><li>längd (längden på den råa entitetstexten)</li></ul></li></ul> |
 
-##  <a name="sample-definition"></a>Exempel definition
+##    <a name="sample-definition"></a>Exempeldefinition
 
 ```json
   {
@@ -97,7 +97,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
     ]
   }
 ```
-##  <a name="sample-input"></a>Exempel på inmatade
+##    <a name="sample-input"></a>Exempelinmatning
 
 ```json
 {
@@ -114,7 +114,7 @@ Parametrar är Skift läges känsliga och alla är valfria.
 }
 ```
 
-##  <a name="sample-output"></a>Exempel på utdata
+##    <a name="sample-output"></a>Exempel på utdata
 
 ```json
 {
@@ -187,11 +187,12 @@ Parametrar är Skift läges känsliga och alla är valfria.
 }
 ```
 
+Observera att förskjutningar som returneras för entiteter i utdata för den här färdigheten returneras direkt från [API:et](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)för textanalys , vilket innebär att om du använder dem för att indexera till den ursprungliga strängen bör du använda klassen [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) i .NET för att extrahera rätt innehåll.  [Mer information hittar du här.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets)
 
-## <a name="error-cases"></a>Fel fall
-Om språk koden för dokumentet inte stöds returneras ett fel och inga entiteter extraheras.
+## <a name="error-cases"></a>Felfall
+Om dokumentets språkkod inte stöds returneras ett fel och inga entiteter extraheras.
 
 ## <a name="see-also"></a>Se även
 
-+ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
-+ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
++ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)

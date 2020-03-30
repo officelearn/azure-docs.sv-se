@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor arbets böcker med anpassade parametrar
-description: Förenkla komplex rapportering med förbyggda och anpassade parameterstyrda arbets böcker
+title: Azure Monitor-arbetsböcker med anpassade parametrar
+description: Förenkla komplex rapportering med färdiga och anpassade parameteriserade arbetsböcker
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,138 +10,138 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4d9f6e48722f01970a90a3a1d8d8b58b5d939774
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658285"
 ---
-# <a name="interactive-workbooks"></a>Interaktiva arbets böcker
+# <a name="interactive-workbooks"></a>Interaktiva arbetsböcker
 
-Med arbets böcker kan författare skapa interaktiva rapporter och upplevelser för sina konsumenter. Interaktivitet stöds på flera sätt.
+Arbetsböcker gör det möjligt för författare att skapa interaktiva rapporter och upplevelser för sina konsumenter. Interaktivitet stöds på flera olika sätt.
 
-## <a name="parameter-changes"></a>Parameter ändringar
-När en arbets boks användare uppdaterar en parameter uppdateras alla kontroller som använder parametern automatiskt och ritas om för att återspegla det nya läget. Så här fungerar de flesta av Azure Portal-rapporterna stöd för interaktivitet. Arbets böcker ger detta på ett mycket rakt sätt med minimal användar ansträngning.
+## <a name="parameter-changes"></a>Ändringar av parametern
+När en arbetsboksanvändare uppdaterar en parameter uppdateras och ritas en kontroll som använder parametern automatiskt upp och ritas om för att återspegla det nya tillståndet. Så här stöder de flesta Azure-portalrapporter interaktivitet. Arbetsböcker ger detta på ett mycket rakt fram sätt med minimal användaransträngning.
 
-Lär dig mer om [parametrar i arbets böcker](workbooks-parameters.md)
+Läs mer om [Parametrar i arbetsböcker](workbooks-parameters.md)
 
-## <a name="grid-row-clicks"></a>Rutnäts rad klickningar
-Med arbets böcker kan författare skapa scenarier där man klickar på en rad i ett rutnät uppdaterar efterföljande diagram baserat på radens innehåll. 
+## <a name="grid-row-clicks"></a>Klick på rutnätsrad
+Arbetsböcker gör det möjligt för författare att skapa scenarier där om du klickar på en rad i ett rutnät uppdateras efterföljande diagram baserat på innehållet på raden. 
 
-En användare kan till exempel ha ett rutnät som visar en lista med begär Anden och vissa statistik som antal misslyckade. De kan konfigureras så att de klickar på en rad som motsvarar en begäran, vilket leder till att detaljerade diagram nedan uppdaterar för att filtrera ned till just den begäran.
+En användare kan till exempel ha ett rutnät som visar en lista över begäranden och viss statistik som felantal. De kan ställa in det så att klicka på en rad som motsvarar en begäran, kommer att resultera i detaljerade diagram nedan uppdatera för att filtrera ner till just denna begäran.
 
-### <a name="setting-up-interactivity-on-grid-row-click"></a>Konfigurera interaktivitet i rutnäts rad klickar du på
-1. Ändra arbets boken till redigerings läge genom att klicka på objektet _Redigera_ verktygsfält.
-2. Använd länken _Lägg till fråga_ för att lägga till en logg frågas kontroll i arbets boken. 
-3. Välj typ av fråga som _logg_, resurs typ (till exempel Application Insights) och de resurser som ska riktas mot målet.
+### <a name="setting-up-interactivity-on-grid-row-click"></a>Ställa in interaktivitet på rutnätsradens klick
+1. Växla arbetsboken till redigeringsläge genom att klicka på alternativet _Redigera_ verktygsfält.
+2. Använd länken _Lägg till fråga_ om du vill lägga till en loggfrågekontroll i arbetsboken. 
+3. Välj frågetypen som _Log_, resurstyp (till exempel Application Insights) och de resurser som ska riktas.
 4. Använd Frågeredigeraren för att ange KQL för din analys
     ```kusto
     requests
     | summarize AllRequests = count(), FailedRequests = countif(success == false) by Request = name
     | order by AllRequests desc    
     ```
-5. `Run query` för att se resultatet
-6. Klicka på ikonen _Avancerade inställningar_ i frågans sidfot (ikonen ser ut som ett kugg hjul). Då öppnas fönstret avancerade inställningar 
-7. Kontrol lera inställningen: `When an item is selected, export a parameter`
-    1. Fält som ska exporteras: `Request`
-    2. Parameter namn: `SelectedRequest`
-    3. Standardvärde: `All requests`
+5. `Run query`för att se resultaten
+6. Klicka på ikonen _Avancerade inställningar_ på frågefoten (ikonen ser ut som en växel). Då öppnas fönstret avancerade inställningar 
+7. Kontrollera inställningen:`When an item is selected, export a parameter`
+    1. Fält att exportera:`Request`
+    2. Parameternamn:`SelectedRequest`
+    3. Standardvärdet:`All requests`
     
-    ![Bild som visar avancerad redigerare med inställningar för att exportera fält som parametrar](./media/workbooks-interactive/advanced-settings.png)
+    ![Bild som visar den avancerade redigeraren med inställningar för export av fält som parametrar](./media/workbooks-interactive/advanced-settings.png)
 
 8. Klicka på `Done Editing`.
-9. Lägg till en annan fråges kontroll med steg 2 och 3.
+9. Lägg till ytterligare en frågekontroll med steg 2 och 3.
 10. Använd Frågeredigeraren för att ange KQL för din analys
     ```kusto
     requests
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
     ```
-11. `Run query` för att se resultatet.
-12. Ändra _visualisering_ till `Area chart`
-12. Klicka på en rad i det första rutnätet. Observera hur ytdiagram nedan filtrerar till den valda begäran.
+11. `Run query`för att se resultaten.
+12. Ändra _visualisering_ till`Area chart`
+12. Klicka på en rad i det första rutnätet. Observera hur ytdiagrammet nedan filtrerar till den valda begäran.
 
-Den resulterande rapporten ser ut så här i redigerings läge:
+Den resulterande rapporten ser ut så här i redigeringsläge:
 
-![Bild som visar hur du skapar en interaktiv upplevelse med rutnäts rad klickningar](./media/workbooks-interactive//grid-click-create.png)
+![Bild som visar skapandet av en interaktiv upplevelse med hjälp av rutnätsradklick](./media/workbooks-interactive//grid-click-create.png)
 
-Bilden nedan visar en mer avancerad interaktiv rapport i Läs läge baserat på samma principer. I rapporten används rutnäts klickningar för att exportera parametrar, vilket i sin tur används i två diagram och ett textblock.
+Bilden nedan visar en mer detaljerad interaktiv rapport i läsläge baserat på samma principer. Rapporten använder rutnätsklick för att exportera parametrar – som i sin tur används i två diagram och ett textblock.
 
-![Bild som visar hur du skapar en interaktiv upplevelse med rutnäts rad klickningar](./media/workbooks-interactive/grid-click-read-mode.png)
+![Bild som visar skapandet av en interaktiv upplevelse med hjälp av rutnätsradklick](./media/workbooks-interactive/grid-click-read-mode.png)
 
 ### <a name="exporting-the-contents-of-an-entire-row"></a>Exportera innehållet i en hel rad
-Ibland är det önskvärt att exportera hela innehållet i den markerade raden i stället för bara en viss kolumn. I sådana fall lämnar du `Field to export` egenskap unset i steg 7,1 ovan. I arbets böckerna exporteras hela rad innehållet som en JSON-parameter till-parametern. 
+Ibland är det önskvärt att exportera hela innehållet på den markerade raden i stället för bara en viss kolumn. I sådana fall, `Field to export` lämna fastigheten okopplad i steg 7.1 ovan. Arbetsböcker exporterar hela radinnehållet som ett skämt till parametern. 
 
-Använd funktionen `todynamic` för att parsa JSON och få åtkomst till de enskilda kolumnerna på den refererande KQL-kontrollen.
+På den refererande KQL-kontrollen `todynamic` använder du funktionen för att tolka json och komma åt de enskilda kolumnerna.
 
- ## <a name="grid-cell-clicks"></a>Rutnäts cell klickningar
-Med arbets böcker kan författare lägga till interaktivitet via en speciell typ av rutnäts kolumn åter givning som kallas en `link renderer`. En länk åter givning konverterar en rutnäts cell till en hyperlänk baserat på innehållet i cellen. Arbets böcker har stöd för många typer av länk åter givning, inklusive de som tillåter att öppna resurs översikts blad, egenskaps uppsättnings visnings program, App Insights-sökning, användning, transaktions spårning osv.
+ ## <a name="grid-cell-clicks"></a>Klick på rutnätscell
+Arbetsböcker gör det möjligt för författare att lägga till interaktivitet via en särskild typ av rutnätskolumnrenader som kallas `link renderer`. En länkåtergivning konverterar en rutnätscell till en hyperlänk baserat på cellens innehåll. Arbetsböcker stöder många typer av länkrendare – inklusive sådana som gör det möjligt att öppna resursöversiktsblad, fastighetsskasse-tittare, appstatistiksökning, användning, transaktionsspårning osv.
 
-### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>Konfigurera interaktivitet med cell klickningar i rutnät
-1. Ändra arbets boken till redigerings läge genom att klicka på objektet _Redigera_ verktygsfält.
-2. Använd länken _Lägg till fråga_ för att lägga till en logg frågas kontroll i arbets boken. 
-3. Välj typ av fråga som _logg_, resurs typ (till exempel Application Insights) och de resurser som ska riktas mot målet.
+### <a name="setting-up-interactivity-using-grid-cell-clicks"></a>Ställa in interaktivitet med rutnätscellklick
+1. Växla arbetsboken till redigeringsläge genom att klicka på alternativet _Redigera_ verktygsfält.
+2. Använd länken _Lägg till fråga_ om du vill lägga till en loggfrågekontroll i arbetsboken. 
+3. Välj frågetypen som _Log_, resurstyp (till exempel Application Insights) och de resurser som ska riktas.
 4. Använd Frågeredigeraren för att ange KQL för din analys
     ```kusto
     requests
     | summarize Count = count(), Sample = any(pack_all()) by Request = name
     | order by Count desc
     ```
-5. `Run query` för att se resultatet
-6. Klicka på _kolumn inställningar_ för att öppna fönstret inställningar.
-7. I avsnittet _kolumner_ ställer du in:
-    1. _Exempel_ på kolumn åter givning: `Link`, Visa för att öppna: `Cell Details`, länk etikett: `Sample`
-    2. _Antal_ -kolumn åter givning: `Bar`, färgpalett: `Blue`, minimalt värde: `0`
-    3. _Begäran_ -kolumn åter givning: `Automatic`
-    4. Klicka på _Spara och Stäng_ för att tillämpa ändringarna
-8. Klicka på någon av `Sample` länkar i rutnätet. Då öppnas ett egenskaps fönster med information om en exempel förfrågan.
+5. `Run query`för att se resultaten
+6. Öppna inställningsfönstret genom att klicka _på Kolumninställningar._
+7. I avsnittet _Kolumner_ anger du:
+    1. _Exempel_ - Kolumnåtergivning: `Link`, Visa `Cell Details`för att öppna: , Länketikett:`Sample`
+    2. _Antal_ - Kolumnåtergivning: `Bar`, Färgpalett: `Blue`, Lägsta värde:`0`
+    3. _Begäran_ - Kolumnåtergivning:`Automatic`
+    4. Klicka på _Spara och stäng_ om du vill tillämpa ändringar
+8. Klicka på en `Sample` av länkarna i rutnätet. Då öppnas en egenskapsruta med information om en exempelbegäran.
 
-    ![Bild som visar hur du skapar en interaktiv upplevelse med rutnäts cell klickningar](./media/workbooks-interactive/grid-cell-click-create.png)
+    ![Bild som visar skapandet av en interaktiv upplevelse med rutnätscellklick](./media/workbooks-interactive/grid-cell-click-create.png)
 
-### <a name="link-renderer-actions"></a>Länka åter givnings åtgärder
-| Länk åtgärd | Åtgärd vid klickning |
+### <a name="link-renderer-actions"></a>Åtgärder för länkåtergivning
+| Länka åtgärd | Åtgärd vid klickning |
 |:------------- |:-------------|
-| `Generic Details` | Visar rad värden i ett Sammanhangs blad för egenskaps rutnät |
-| `Cell Details` | Visar cellvärdet i ett Sammanhangs blad för egenskaps rutnät. Användbart när cellen innehåller en dynamisk typ med information (t. ex. JSON med begär ande egenskaper som plats, roll instans osv.). |
-| `Cell Details` | Visar cellvärdet i ett Sammanhangs blad för egenskaps rutnät. Användbart när cellen innehåller en dynamisk typ med information (t. ex. JSON med begär ande egenskaper som plats, roll instans osv.). |
-| `Custom Event Details` | Öppnar Application Insights Sök information med det anpassade händelse-ID: t (itemId) i cellen |
-| `* Details` | Liknar anpassad händelse information, förutom för beroenden, undantag, sid visningar, begär Anden och spår. |
-| `Custom Event User Flows` | Öppnar Application Insights Användarflödens upplevelsen som är pivoterad på det anpassade händelse namnet i cellen |
-| `* User Flows` | Liknar anpassade händelse Användarflöden utom undantag, sid visningar och begär Anden |
-| `User Timeline` | Öppnar användarens tids linje med användar-ID (user_Id) i cellen |
-| `Session Timeline` | Öppnar den Application Insights Sök upplevelsen för värdet i cellen (du kan till exempel söka efter texten "ABC" där ABC är värdet i cellen) |
+| `Generic Details` | Visar radvärdena i ett kontextblad för egenskapsrutnät |
+| `Cell Details` | Visar cellvärdet i ett kontextblad för egenskapsstöd. Användbart när cellen innehåller en dynamisk typ med information (till exempel json med begäranegenskaper som plats, rollinstans osv.). |
+| `Cell Details` | Visar cellvärdet i ett kontextblad för egenskapsstöd. Användbart när cellen innehåller en dynamisk typ med information (till exempel json med begäranegenskaper som plats, rollinstans osv.). |
+| `Custom Event Details` | Öppnar sökinformationen för Application Insights med det anpassade händelse-ID:t (itemId) i cellen |
+| `* Details` | Liknar anpassad händelseinformation, med undantag för beroenden, undantag, sidvisningar, begäranden och spårningar. |
+| `Custom Event User Flows` | Öppnar användarflöden för programinsikter som är pivoterade på det anpassade händelsenamnet i cellen |
+| `* User Flows` | Liknar anpassade händelseanvändarflöden förutom undantag, sidvisningar och begäranden |
+| `User Timeline` | Öppnar användarens tidslinje med användar-ID (user_Id) i cellen |
+| `Session Timeline` | Öppnar sökupplevelsen för Application Insights efter värdet i cellen (sök till exempel efter texten 'abc' där abc är värdet i cellen) |
 | `Resource overview` | Öppna resursens översikt i portalen baserat på resurs-ID-värdet i cellen |
 
 ## <a name="conditional-visibility"></a>Villkorlig synlighet
-Med hjälp av arbets boken kan användare se till att vissa kontroller visas eller försvinner baserat på parametrarnas värden. På så sätt kan skribenter se olika ut baserat på användarens indata-eller telemetri-tillstånd. Ett exempel visar att konsumenterna bara är en sammanfattning när saker är bra men Visa fullständig information när något är fel.
+Arbetsboken gör det möjligt för användare att se till att vissa kontroller visas eller försvinner baserat på värden för parametrarna. Detta gör att författare kan ha rapporter ser annorlunda ut baserat på användarindata eller telemetri tillstånd. Ett exempel är att visa konsumenterna bara en sammanfattning när saker och ting är bra men visa fullständig information när något är fel.
 
-### <a name="setting-up-interactivity-using-conditional-visibility"></a>Konfigurera interaktivitet med villkorsstyrd synlighet
-1. Följ stegen i avsnittet `Setting up interactivity on grid row click` för att konfigurera två interaktiva kontroller.
+### <a name="setting-up-interactivity-using-conditional-visibility"></a>Ställa in interaktivitet med villkorad synlighet
+1. Följ stegen i `Setting up interactivity on grid row click` avsnittet för att konfigurera två interaktiva kontroller.
 2. Lägg till en ny parameter högst upp:
-    1. Namn: `ShowDetails`
-    2. Parameter typ: `Drop down`
-    3. Krävs: `checked`
-    4. Hämta data från: `JSON`
-    5. JSON-inmatare: `["Yes", "No"]`
+    1. Namn:`ShowDetails`
+    2. Parametertyp:`Drop down`
+    3. Krävs:`checked`
+    4. Hämta data från:`JSON`
+    5. JSON Ingång:`["Yes", "No"]`
     6. Spara för att genomföra ändringar.
-3. Ange parameter värde till `Yes`
-4. I kontrollen fråga med ytdiagram klickar du på ikonen _Avancerade inställningar_ (kugg hjuls ikonen)
-5. Kontrol lera inställningen `Make this item conditionally visible`
-    1. Det här objektet visas om `ShowDetails` parameter värde `equals` `Yes`
-6. Klicka på _klar redigering_ för att genomföra ändringarna.
-7. Klicka på _klar redigering_ i arbets bokens verktygsfält för att ange Läs läge.
-8. Växla värdet för parametern `ShowDetails` till `No`. Observera att diagrammet nedan försvinner.
+3. Ange parametervärde till`Yes`
+4. Klicka på ikonen _Avancerade inställningar (kugghjulsikonen)_ i frågekontrollen med områdesdiagrammet.
+5. Kontrollera inställningen`Make this item conditionally visible`
+    1. Det här objektet `ShowDetails` är `equals` synligt om parametervärdet`Yes`
+6. Klicka på _Klar redigering_ om du vill genomföra ändringar.
+7. Klicka på _Klar redigering_ i verktygsfältet för arbetsbok för att gå in i läsläge.
+8. Växla parametervärdet `ShowDetails` till `No`. Observera att diagrammet nedan försvinner.
 
-Bilden nedan visar det synliga fallet där `ShowDetails` är `Yes`
+Bilden nedan visar det `ShowDetails` synliga fallet där`Yes`
 
-![Bild som visar den villkorliga synlighet där diagrammet är synligt](./media/workbooks-interactive/conditional-visibility.png)
+![Bild som visar den villkorliga synligheten där diagrammet är synligt](./media/workbooks-interactive/conditional-visibility.png)
 
-Bilden nedan visar det dolda fallet där `ShowDetails` är `No`
+Bilden nedan visar det `ShowDetails` dolda fallet där det finns`No`
 
-![Bild som visar den villkorliga synlighet där diagrammet är dolt](./media/workbooks-interactive/conditional-invisible.png)
+![Bild som visar den villkorliga synligheten där diagrammet är dolt](./media/workbooks-interactive/conditional-invisible.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 
-* [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
-* [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.
+* [Kom igång](workbooks-visualizations.md) med att lära dig mer om arbetsböcker många avancerade visualiseringar alternativ.
+* [Kontrollera](workbooks-access-control.md) och dela åtkomst till arbetsboksresurserna.

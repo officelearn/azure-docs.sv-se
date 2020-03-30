@@ -1,6 +1,6 @@
 ---
-title: Konfigurera Azure Multi-Factor Authentication-Azure Active Directory
-description: Den här artikeln beskriver hur du konfigurerar inställningar för Azure-Multi-Factor Authentication i Azure Portal
+title: Konfigurera Azure Multi Factor-autentisering – Azure Active Directory
+description: I den hÃ¤r artikeln beskrivs sÃ¤nder du instÃ¤llning av Azure Multi-Factor Authentication-in settings in the Azure portal
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -12,419 +12,420 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 077032e4fe3886d5bf9a678dffdffca1a5802091
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263808"
 ---
-# <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure-Multi-Factor Authentication
+# <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
-Den här artikeln hjälper dig att hantera Multi-Factor Authentication inställningar i Azure Portal. Den täcker olika ämnen som hjälper dig att få ut mesta möjliga av Azure-Multi-Factor Authentication. Alla funktioner är inte tillgängliga i alla versioner av Azure Multi-Factor Authentication.
+Den här artikeln hjälper dig att hantera multifaktorautentiseringsinställningar i Azure-portalen. Den innehåller olika avsnitt som hjälper dig att få ut det mesta av Azure Multi-Factor Authentication. Alla funktioner är inte tillgängliga i alla versioner av Azure Multi-Factor Authentication.
 
-Du kan komma åt inställningar som rör Azure Multi-Factor Authentication från Azure Portal genom att bläddra till **Azure Active Directory** > **säkerhet** > **MFA**.
+Du kan komma åt inställningar som är relaterade till Azure Multi-Factor Authentication från Azure-portalen genom att bläddra till **Azure Active Directory** > **Security** > **MFA**.
 
-![Azure Portal-inställningar för Azure AD Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
+![Azure Portal - Azure AD MultiFaktor Autentiseringsinställningar](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
 ## <a name="settings"></a>Inställningar
 
-Några av de här inställningarna gäller för MFA Server, Azure MFA eller både och.
+Vissa av dessa inställningar gäller för MFA Server, Azure MFA eller båda.
 
 | Funktion | Beskrivning |
 | ------- | ----------- |
-| Konto utelåsning | Lås tillfälligt konton i Multi-Factor Authentication-tjänsten om det finns alltför många nekade autentiseringsförsök i en rad. Den här funktionen gäller endast för användare som anger en PIN-kod för autentisering. (MFA-Server) |
-| [Blockera/avblockera användare](#block-and-unblock-users) | Används för att blockera vissa användare från att kunna ta emot Multi-Factor Authentication begär Anden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är blockerade i 90 dagar från blockeringens starttid. |
-| [Bedrägeri avisering](#fraud-alert) | Konfigurera inställningar för användarnas möjlighet att rapportera falska verifierings begär Anden |
+| Kontoutelåsning | Lås konton i multifaktorautentiseringstjänsten tillfälligt om det finns för många nekade autentiseringsförsök i rad. Den här funktionen gäller endast användare som anger en PIN-kod för att autentisera. (MFA-server) |
+| [Blockera/avblockera användare](#block-and-unblock-users) | Används för att blockera specifika användare från att kunna ta emot multifaktorautentiseringsbegäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är blockerade i 90 dagar från blockeringens starttid. |
+| [Bedrägerivarning](#fraud-alert) | Konfigurera inställningar som är relaterade till användares möjlighet att rapportera bedrägliga verifieringsbegäranden |
 | [Meddelanden](#notifications) | Aktivera meddelanden om händelser från MFA Server. |
-| [OATH-token](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Används i Cloud-baserade Azure MFA-miljöer för att hantera OATH-token för användare. |
-| [Telefonsamtals inställningar](#phone-call-settings) | Konfigurera inställningar för telefonsamtal och hälsningar för moln miljöer och lokala miljöer. |
-| Leverantörer | Då visas befintliga autentiseringsproviders som du kan ha associerat med ditt konto. Nya autentiseringsproviders får inte skapas från den 1 september 2018 |
+| [OATH-tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Används i molnbaserade Azure MFA-miljöer för att hantera OATH-token för användare. |
+| [Inställningar för telefonsamtal](#phone-call-settings) | Konfigurera inställningar som är relaterade till telefonsamtal och hälsningar för molnmiljöer och lokala miljöer. |
+| Leverantörer | Detta visar alla befintliga autentiseringsleverantörer som du kan ha kopplat till ditt konto. Nya autentiseringsleverantörer kan inte skapas från och med den 1 september 2018 |
 
-## <a name="manage-mfa-server"></a>Hantera MFA-Server
+## <a name="manage-mfa-server"></a>Hantera MFA-server
 
-Inställningarna i det här avsnittet gäller endast MFA Server.
+Inställningarna i det här avsnittet gäller endast för MFA-server.
 
 | Funktion | Beskrivning |
 | ------- | ----------- |
-| Serverinställningar | Hämta MFA Server och generera autentiseringsuppgifter för aktivering för att initiera din miljö |
-| [Kringgå vid ett tillfälle](#one-time-bypass) | Tillåt en användare att autentisera utan att utföra tvåstegsverifiering under en begränsad tid. |
-| [Regler för cachelagring](#caching-rules) |  Cachelagring används främst när lokala system, till exempel VPN, skickar flera verifierings begär Anden medan den första begäran fortfarande pågår. Den här funktionen gör att efterföljande begär Anden kan lyckas automatiskt när användaren har slutfört den första verifieringen. |
-| Server status | Se status för dina lokala MFA-servrar, inklusive version, status, IP och senaste kommunikations tid och datum. |
+| Serverinställningar
+ | Ladda ner MFA Server och generera aktiveringsautentiseringsuppgifter för att initiera din miljö |
+| [En gång bypass](#one-time-bypass) | Tillåt en användare att autentisera utan att utföra tvåstegsverifiering under en begränsad tid. |
+| [Cachelagringsregler](#caching-rules) |  Cachelagring används främst när lokala system, till exempel VPN, skickar flera verifieringsbegäranden medan den första begäran fortfarande pågår. Med den här funktionen kan efterföljande begäranden lyckades automatiskt, när användaren har lyckats med den första verifieringen som pågår. |
+| Serverstatus | Se status för dina lokala MFA-servrar, inklusive version, status, IP och senaste kommunikationstid och datum. |
 
-## <a name="activity-report"></a>Aktivitets rapport
+## <a name="activity-report"></a>Aktivitetsrapport
 
-Den rapportering som är tillgänglig här är unik för MFA Server (lokal). För Azure MFA (Cloud)-rapporter se inloggnings rapporten i Azure AD.
+Den rapportering som finns här är specifik för MFA Server (lokalt). För Azure MFA -rapporter (moln) finns inloggningsrapporten i Azure AD.
 
 ## <a name="block-and-unblock-users"></a>Blockera och avblockera användare
 
-Använd funktionen _blockera och avblockera användare_ om du vill förhindra att användare tar emot autentiseringsbegäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är blockerade i 90 dagar från blockeringens starttid.
+Använd _funktionen blockera och avblockera användare_ för att förhindra att användare tar emot autentiseringsbegäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är blockerade i 90 dagar från blockeringens starttid.
 
 ### <a name="block-a-user"></a>Blockera en användare
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhet** > **MFA** > **blockera/avblockera användare**.
-3. Välj **Lägg till** för att blockera en användare.
-4. Välj **replikeringsgrupp**. Ange användar namnet för den blockerade användaren som **användar namn\@Domain.com**. Ange en kommentar i fältet **orsak** .
+1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör.
+2. Bläddra till **Azure Active Directory** > **Security** > **MFA** > **Block/unblock-användare**.
+3. Välj **Lägg till** om du vill blockera en användare.
+4. Välj **replikeringsgruppen**. Ange användarnamnet för den blockerade användaren som **användarnamn\@domain.com**. Ange en kommentar i fältet **Orsak.**
 5. Välj **Lägg till** för att slutföra blockeringen av användaren.
 
 ### <a name="unblock-a-user"></a>Avblockera en användare
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhet** > **MFA** > **blockera/avblockera användare**.
-3. Välj **Häv blockering** i kolumnen **åtgärd** bredvid användaren att avblockera.
-4. Ange en kommentar i fältet **orsak till att fältet avblockeras** .
-5. Klicka på **Tillåt** för att avbryta blockeringen av användaren.
+1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör.
+2. Bläddra till **Azure Active Directory** > **Security** > **MFA** > **Block/unblock-användare**.
+3. Välj **Ta bort blockeringen** i kolumnen **Åtgärd** bredvid användaren som ska häva blockeringen.
+4. Ange en kommentar i fältet **Orsak till avblockering.**
+5. Välj **Ta bort blockeringen** om du vill avsluta blockeringen av användaren.
 
 ## <a name="fraud-alert"></a>Bedrägerivarning
 
-Konfigurera _bedrägeri aviserings_ funktionen så att användarna kan rapportera falska försök att komma åt sina resurser. Användare kan rapportera bedrägerier-försök med hjälp av mobilappen eller via telefon.
+Konfigurera _funktionen för bedrägerivarning_ så att användarna kan rapportera bedrägliga försök att komma åt sina resurser. Användare kan rapportera bedrägeriförsök med hjälp av mobilappen eller via sin telefon.
 
-### <a name="turn-on-fraud-alerts"></a>Aktivera bedrägerier-aviseringar
+### <a name="turn-on-fraud-alerts"></a>Aktivera bedrägerivarningar
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhet** > **MFA** > **bedrägeri varning**.
-3. Ange inställningen **Tillåt användare att skicka bedrägeri varningar** till **på**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör.
+2. Bläddra till **Azure Active Directory** > **Security** > **MFA** > **Fraud alert**.
+3. Ange inställningen **Tillåt användare att skicka bedrägerivarningar** till **På**.
 4. Välj **Spara**.
 
 ### <a name="configuration-options"></a>Konfigurationsalternativ
 
-* **Blockera användare när bedrägeri rapporteras**: om en användare rapporterar bedrägerier, blockeras kontot i 90 dagar eller tills en administratör avblockerar sitt konto. En administratör kan granska inloggningar med hjälp av inloggnings rapporten och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
-* **Kod för att rapportera bedrägeri under inledande hälsning**: När användarna får ett telefonsamtal för att utföra tvåstegsverifiering, trycker de vanligt vis på **#** för att bekräfta inloggningen. Användaren kan rapportera bedrägerier genom att ange en kod innan du trycker på **#** . Den här koden är **0** som standard, men du kan anpassa den.
+* **Blockera användare när bedrägeri rapporteras**: Om en användare rapporterar bedrägeri blockeras deras konto i 90 dagar eller tills en administratör avblockerar sitt konto. En administratör kan granska inloggningar med hjälp av inloggningsrapporten och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [häva blockeringen](#unblock-a-user) av användarens konto.
+* **Kod för att rapportera bedrägeri under första hälsning:** När användare får **#** ett telefonsamtal för att utföra tvåstegsverifiering trycker de normalt på för att bekräfta sin inloggning. Om du vill rapportera bedrägeri anger **#** användaren en kod innan du trycker på . Den här koden är **0** som standard, men du kan anpassa den.
 
    >[!NOTE]
-   >Vanliga röst hälsningar från Microsoft instruerar användarna att trycka på **0 #** för att skicka en bedrägeri avisering. Om du vill använda en annan kod än **0**, spelar du in och laddar upp egna röst hälsningar med lämpliga instruktioner för dina användare.
+   >Standardrösthälsningarna från Microsoft instruerar användarna att trycka på **0#** för att skicka in en bedrägerivarning. Om du vill använda en annan kod än **0**spelar du in och laddar upp egna anpassade rösthälsningar med lämpliga instruktioner för användarna.
    >
 
-### <a name="view-fraud-reports"></a>Visa bedrägerier-rapporter
+### <a name="view-fraud-reports"></a>Visa bedrägerirapporter
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **inloggningar**. Bedrägeri rapporten är nu en del av standard rapporten för Azure AD-inloggningar.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Välj Azure Active**Directory-inloggningar** **Azure Active Directory** > . Bedrägerirapporten är nu en del av standardrapporten för Azure AD-inloggningar.
 
 ## <a name="notifications"></a>Meddelanden
 
-Konfigurera e-postadresser här för användare som ska få meddelanden om bedrägerier.
+Konfigurera e-postadresser här för användare som får e-postmeddelanden om bedrägeriavisering.
 
-![Avisering om meddelande bedrägerier e-exempel](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
+![E-exempel på e-postprov för meddelandebedrägeri](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
-## <a name="phone-call-settings"></a>Telefonsamtals inställningar
+## <a name="phone-call-settings"></a>Inställningar för telefonsamtal
 
-### <a name="caller-id"></a>Uppringarens ID
+### <a name="caller-id"></a>Nummerpresentationen
 
-**MFA-uppringarens ID-nummer** – det här är det tal som användarna ser på sin telefon. Endast amerikanska-baserade tal är tillåtna.
+**MFA-nummernummer** - Det här är numret som användarna ser på sin telefon. Endast USA-baserade nummer är tillåtna.
 
 >[!NOTE]
->När Multi-Factor Authentication anrop görs via det offentliga telefonnätet, kan de ibland dirigeras via en operatör som inte har stöd för uppringarens ID. Därför garanteras inte anropar-ID, trots att Multi-Factor Authentication systemet alltid skickar det.
+>När multifaktorautentiseringssamtal placeras via det allmänna telefonnätet dirigeras de ibland via en operatör som inte stöder nummerpresentatör. På grund av detta är nummerpresentatör inte garanterat, även om multifaktorautentiseringssystemet alltid skickar det.
 
-Om du inte har konfigurerat MFA Caller ID i USA, kommer röst samtal från Microsoft att komma från följande nummer: + 1 (866) 539 4191, + 1 (855) 330 8653 och + 1 (877) 668 6536. Om du använder skräp post filter ska du se till att undanta de här talen.
+I USA, om du inte har konfigurerat MFA-nummerpresentatör, kommer röstsamtal från Microsoft från följande nummer: +1 (866) 539 4191, +1 (855) 330 8653 och +1 (877) 668 6536. Om du använder skräppostfilter måste du utesluta dessa nummer.
 
-### <a name="custom-voice-messages"></a>Anpassade röst meddelanden
+### <a name="custom-voice-messages"></a>Anpassade röstmeddelanden
 
-Du kan använda dina egna inspelningar eller hälsningar för tvåstegsverifiering med funktionen för _anpassade röst meddelanden_ . Dessa meddelanden kan användas utöver eller för att ersätta Microsoft-inspelningar.
+Du kan använda dina egna inspelningar eller hälsningar för tvåstegsverifiering med funktionen _anpassade röstmeddelanden._ Dessa meddelanden kan användas utöver eller ersätta Microsoft-inspelningarna.
 
-Innan du börjar bör du vara medveten om följande begränsningar:
+Innan du börjar bör du känna till följande begränsningar:
 
-* De fil format som stöds är. wav och. mp3.
-* Gränsen för fil storlek är 1 MB.
-* Autentiseringsfel bör vara kortare än 20 sekunder. Meddelanden som är längre än 20 sekunder kan göra att verifieringen inte fungerar. Användaren kanske inte svarar innan meddelandet har slutförts och verifierings tiden är slut.
+* Filformaten som stöds är WAV och .mp3.
+* Filstorleksgränsen är 1 MB.
+* Autentiseringsmeddelanden bör vara kortare än 20 sekunder. Meddelanden som är längre än 20 sekunder kan orsaka att verifieringen misslyckas. Användaren kanske inte svarar innan meddelandet är klart och verifieringen är.
 
-### <a name="custom-message-language-behavior"></a>Språk beteende för anpassade meddelanden
+### <a name="custom-message-language-behavior"></a>Anpassat meddelandespråkbeteende
 
-När ett anpassat röst meddelande spelas upp till användaren, beror språket i meddelandet på följande faktorer:
+När ett anpassat röstmeddelande spelas upp för användaren beror meddelandets språk på följande faktorer:
 
-* Den aktuella användarens språk.
+* Språket för den aktuella användaren.
   * Språket som identifieras av användarens webbläsare.
-  * Andra verifierings scenarier kan bete sig annorlunda.
+  * Andra autentiseringsscenarier kan bete sig annorlunda.
 * Språket för alla tillgängliga anpassade meddelanden.
   * Det här språket väljs av administratören när ett anpassat meddelande läggs till.
 
-Om det till exempel bara finns ett anpassat meddelande, med språket tyska:
+Om det till exempel bara finns ett anpassat meddelande med ett språk i tyska:
 
-* En användare som autentiserar på tyska språk kommer att höra det anpassade tyska meddelandet.
-* En användare som autentiserar på engelska kommer att höra det engelska standard meddelandet.
+* En användare som autentiserar på tyska kommer att höra det anpassade tyska meddelandet.
+* En användare som autentiserar på engelska hör det vanliga engelska meddelandet.
 
 ### <a name="set-up-a-custom-message"></a>Konfigurera ett anpassat meddelande
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-1. Bläddra till **Azure Active Directory** > **säkerhet** > **MFA** > **Telefonsamtals inställningar**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör.
+1. Bläddra till **Azure Active Directory** > **Security** > **MFA-samtalsinställningar** > **Phone call settings**.
 1. Välj **Lägg till hälsning**.
 1. Välj typ av hälsning.
 1. Välj språk.
-1. Välj en. mp3-eller. WAV-ljudfil som ska överföras.
+1. Välj en .mp3- eller .wav-ljudfil som ska laddas upp.
 1. Välj **Lägg till**.
 
-### <a name="custom-voice-message-defaults"></a>Standardinställningar för anpassade röst meddelanden
+### <a name="custom-voice-message-defaults"></a>Standardinställningar för anpassat röstmeddelande
 
-Exempel skript för att skapa anpassade meddelanden.
+Exempel på skript för att skapa anpassade meddelanden.
 
-| Meddelande namn | Skript |
+| Meddelandenamn | Skript |
 | --- | --- |
-| Autentiseringen lyckades | Inloggningen har verifierats. Hej då. |
-| Tilläggs varning | Tack för att du använder Microsofts inloggnings verifierings system. Fortsätt genom att trycka på fyrkant. |
-| Bekräfta bedrägeri | En bedrägeri avisering har skickats. Om du vill häva blockeringen av ditt konto kontaktar du ditt företags IT-supportavdelning. |
-| Bedrägeri meddelande (standard) | Tack för att du använder Microsofts inloggnings verifierings system. Slutför verifieringen genom att trycka på fyrkant. Om du inte har initierat den här verifieringen kan någon försöka komma åt ditt konto. Skicka en bedrägeri avisering genom att trycka på noll. Detta kommer att meddela ditt företags IT-team och blockera ytterligare verifierings försök. |
-| Bedrägerier rapporterade att en bedrägeri avisering har skickats. | Om du vill häva blockeringen av ditt konto kontaktar du ditt företags IT-supportavdelning. |
-| Processen | Tack för att du använder Microsofts inloggnings verifierings system. Slutför verifieringen genom att trycka på fyrkant. |
-| Försök att neka autentisering | Verifiering nekad. |
-| Försök igen (standard) | Tack för att du använder Microsofts inloggnings verifierings system. Slutför verifieringen genom att trycka på fyrkant. |
-| Hälsning (standard) | Tack för att du använder Microsofts inloggnings verifierings system. Slutför verifieringen genom att trycka på fyrkant. |
-| Hälsning (PIN-kod) | Tack för att du använder Microsofts inloggnings verifierings system. Ange din PIN-kod följt av fyrkant-tangenten för att slutföra verifieringen. |
-| Bedrägeri meddelande (PIN-kod) | Tack för att du använder Microsofts inloggnings verifierings system.  Ange din PIN-kod följt av fyrkant-tangenten för att slutföra verifieringen. Om du inte har initierat den här verifieringen kan någon försöka komma åt ditt konto. Skicka en bedrägeri avisering genom att trycka på noll. Detta kommer att meddela ditt företags IT-team och blockera ytterligare verifierings försök. |
-| Försök igen (PIN-kod) | Tack för att du använder Microsofts inloggnings verifierings system. Ange din PIN-kod följt av fyrkant-tangenten för att slutföra verifieringen. |
-| Utöknings varning efter siffror | Om du redan har gjort det här tillägget trycker du på knappen fyrkant för att fortsätta. |
-| Autentisering nekad | Jag kan tyvärr inte logga in dig just nu. Försök igen senare. |
-| Aktiverings hälsning (standard) | Tack för att du använder Microsofts inloggnings verifierings system. Slutför verifieringen genom att trycka på fyrkant. |
-| Nytt aktiverings försök (standard) | Tack för att du använder Microsofts inloggnings verifierings system. Slutför verifieringen genom att trycka på fyrkant. |
-| Aktiverings hälsning (PIN-kod) | Tack för att du använder Microsofts inloggnings verifierings system. Ange din PIN-kod följt av fyrkant-tangenten för att slutföra verifieringen. |
-| Utöknings varning före siffror | Tack för att du använder Microsofts inloggnings verifierings system. Överför det här anropet till Extension... |
+| Autentiseringen lyckades | Din inloggning har verifierats. Hej då. |
+| Fråga om tillägg | Tack för att du använder Microsofts inloggningsverifieringssystem. Tryck på pund för att fortsätta. |
+| Bekräftelse av bedrägerier | En bedrägerivarning har lämnats in. Om du vill häva blockeringen av ditt konto kontaktar du företagets IT-support. |
+| Bedrägeri hälsning (Standard) | Tack för att du använder Microsofts inloggningsverifieringssystem. Tryck på pundknappen för att slutföra verifieringen. Om du inte initierade den här verifieringen kan någon försöka komma åt ditt konto. Tryck på noll pund för att skicka in en bedrägerivarning. Detta meddelar ditt företags IT-team och blockerar ytterligare verifieringsförsök. |
+| Bedrägeri anmält En bedrägerivarning har lämnats in. | Om du vill häva blockeringen av ditt konto kontaktar du företagets IT-support. |
+| Aktivering | Tack för att du använder Microsofts inloggningsverifieringssystem. Tryck på pundknappen för att slutföra verifieringen. |
+| Autentisering nekad återförsök | Verifiering nekad. |
+| Försök igen (standard) | Tack för att du använder Microsofts inloggningsverifieringssystem. Tryck på pundknappen för att slutföra verifieringen. |
+| Hälsning (standard) | Tack för att du använder Microsofts inloggningsverifieringssystem. Tryck på pundknappen för att slutföra verifieringen. |
+| Hälsning (PIN) | Tack för att du använder Microsofts inloggningsverifieringssystem. Ange din PIN-kod följt av pund-tangenten för att slutföra verifieringen. |
+| Hälsning av bedrägerier (PIN- kod) | Tack för att du använder Microsofts inloggningsverifieringssystem.  Ange din PIN-kod följt av pund-tangenten för att slutföra verifieringen. Om du inte initierade den här verifieringen kan någon försöka komma åt ditt konto. Tryck på noll pund för att skicka in en bedrägerivarning. Detta meddelar ditt företags IT-team och blockerar ytterligare verifieringsförsök. |
+| Försök igen(PIN)Retry(PIN) | Tack för att du använder Microsofts inloggningsverifieringssystem. Ange din PIN-kod följt av pund-tangenten för att slutföra verifieringen. |
+| Tilläggsfråga efter siffror | Om redan vid denna förlängning, tryck på pundknappen för att fortsätta. |
+| Autentisering nekad | Jag är ledsen, vi kan inte skriva in dig just nu. Försök igen senare. |
+| Aktiveringshälsning (standard) | Tack för att du använder Microsofts inloggningsverifieringssystem. Tryck på pundknappen för att slutföra verifieringen. |
+| Återförsök för aktivering (standard) | Tack för att du använder Microsofts inloggningsverifieringssystem. Tryck på pundknappen för att slutföra verifieringen. |
+| Aktiveringshälsning (PIN) | Tack för att du använder Microsofts inloggningsverifieringssystem. Ange din PIN-kod följt av pund-tangenten för att slutföra verifieringen. |
+| Tilläggsfråga före siffror | Tack för att du använder Microsofts inloggningsverifieringssystem. Vänligen överföra denna uppmaning till förlängning ... |
 
-## <a name="one-time-bypass"></a>Kringgå vid ett tillfälle
+## <a name="one-time-bypass"></a>En gång bypass
 
-Med funktionen för att _kringgå_ en funktion kan en användare autentisera en enstaka gång utan att utföra tvåstegsverifiering. Bypass är tillfälligt och upphör att gälla efter ett angivet antal sekunder. I situationer där mobilappen eller telefon inte tar emot ett meddelande eller telefonsamtal kan du tillåta en eng ång slö fördröjning så att användaren kan komma åt den önskade resursen.
+Med _en gång bypass-funktionen_ kan en användare autentisera en enda gång utan att utföra tvåstegsverifiering. Förbikopplingen är tillfällig och upphör att gälla efter ett angivet antal sekunder. I situationer där mobilappen eller telefonen inte tar emot ett meddelande eller telefonsamtal kan du tillåta en engångsförsening så att användaren kan komma åt önskad resurs.
 
-### <a name="create-a-one-time-bypass"></a>Skapa en eng ång slö fördröjning
+### <a name="create-a-one-time-bypass"></a>Skapa en engångsförsening
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhet** > **MFA** > **kringgås**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör.
+2. Bläddra till **Azure Active Directory** > **Security** > **MFA** > **Engångsföregång.**
 3. Välj **Lägg till**.
-4. Om det behövs väljer du replikeringsgruppen för bypass.
-5. Ange användar namnet som **användar namn\@Domain.com**. Ange antalet sekunder som förbikopplingen ska vara sist. Ange anledningen till kringgåendet.
-6. Välj **Lägg till**. Tids gränsen börjar gälla omedelbart. Användaren måste logga in innan eng ång slö tiden upphör att gälla.
+4. Om det behövs väljer du replikeringsgruppen för förbikopplingen.
+5. Ange användarnamnet som **användarnamn\@domain.com**. Ange hur många sekunder som förbikopplingen ska pågå. Ange orsaken till förbifartsleden.
+6. Välj **Lägg till**. Tidsfristen träder i kraft omedelbart. Användaren måste logga in innan en gång bypass upphör att gälla.
 
-### <a name="view-the-one-time-bypass-report"></a>Visa en rapport för att kringgå en stund
+### <a name="view-the-one-time-bypass-report"></a>Visa en gång bypass-rapport
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Bläddra till **Azure Active Directory** > **säkerhet** > **MFA** > **kringgås**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Bläddra till **Azure Active Directory** > **Security** > **MFA** > **Engångsföregång.**
 
-## <a name="caching-rules"></a>Regler för cachelagring
+## <a name="caching-rules"></a>Cachelagringsregler
 
-Du kan ange en tids period för att tillåta autentiseringsförsök när en användare autentiseras med hjälp av funktionen för _cachelagring_ . Efterföljande autentiseringsförsök för användaren inom den angivna tids perioden slutförs automatiskt. Cachelagring används främst när lokala system, till exempel VPN, skickar flera verifierings begär Anden medan den första begäran fortfarande pågår. Den här funktionen gör att efterföljande begär Anden kan lyckas automatiskt när användaren har slutfört den första verifieringen.
+Du kan ange en tidsperiod för att tillåta autentiseringsförsök när en användare har autentiserats med hjälp av _cachelagringsfunktionen._ Efterföljande autentiseringsförsök för användaren inom den angivna tidsperioden lyckas automatiskt. Cachelagring används främst när lokala system, till exempel VPN, skickar flera verifieringsbegäranden medan den första begäran fortfarande pågår. Med den här funktionen kan efterföljande begäranden lyckades automatiskt, när användaren har lyckats med den första verifieringen som pågår.
 
 >[!NOTE]
->Cachelagring-funktionen är inte avsedd att användas för inloggningar till Azure Active Directory (Azure AD).
+>Cachelagringsfunktionen är inte avsedd att användas för inloggningar till Azure Active Directory (Azure AD).
 
 ### <a name="set-up-caching"></a>Konfigurera cachelagring
 
-1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhet** > **MFA** > **caching-regler**.
+1. Logga in på [Azure-portalen](https://portal.azure.com) som administratör.
+2. Bläddra till **Azure Active Directory** > **Security** > **MFA** > **Caching regler**.
 3. Välj **Lägg till**.
-4. Välj **cache-typ** i list rutan. Ange maximalt antal cache- **sekunder**.
+4. Välj **cachetypen** i listrutan. Ange det maximala antalet **cachesekunder**.
 5. Om det behövs väljer du en autentiseringstyp och anger ett program.
 6. Välj **Lägg till**.
 
-## <a name="mfa-service-settings"></a>Inställningar för MFA-tjänsten
+## <a name="mfa-service-settings"></a>MFA-tjänstinställningar
 
-Inställningar för applösenord, tillförlitliga IP-adresser, verifierings alternativ och kom ihåg Multi-Factor Authentication för Azure Multi-Factor Authentication finns i tjänst inställningar. Du kan komma åt tjänst inställningarna från Azure Portal genom att bläddra till **Azure Active Directory** > **säkerhet** > **MFA** > **komma igång** > **Konfigurera** > **ytterligare molnbaserad MFA-inställningar**.
+Inställningar för applösenord, betrodda IPs, verifieringsalternativ och kom ihåg multifaktorautentisering för Azure Multi Factor Authentication finns i tjänstinställningarna. Tjänstinställningar kan nås från Azure-portalen genom att bläddra till **Azure Active Directory** > **Security** > **MFA** > **Komma igång** > **Konfigurera** > **ytterligare molnbaserade MFA-inställningar**.
 
-![Azure Multi-Factor Authentication Service-inställningar](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
+![Tjänstinställningar för Azure Multi Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
-De betrodda IP-adressintervall kan vara privata eller offentliga.
+De betrodda IP-adressintervallen kan vara privata eller offentliga.
 
 ## <a name="app-passwords"></a>Applösenord
 
-Vissa program, t. ex. Office 2010 eller tidigare och Apple Mail före iOS 11, stöder inte tvåstegsverifiering. Apparna är inte konfigurerade för att godkänna en andra verifiering. Om du vill använda dessa program kan du dra nytta av funktionen _applösenord_ . Du kan använda ett applösenord i stället för ditt traditionella lösen ord för att tillåta att en app kringgår tvåstegsverifiering och fortsätter att fungera.
+Vissa program, till exempel Office 2010 eller tidigare och Apple Mail före iOS 11, stöder inte tvåstegsverifiering. Apparna är inte konfigurerade för att acceptera en andra verifiering. Använd _appens lösenord_ om du vill använda dessa program. Du kan använda ett applösenord i stället för ditt traditionella lösenord för att tillåta en app att kringgå tvåstegsverifiering och fortsätta arbeta.
 
-Modern autentisering stöds för Microsoft Office 2013-klienter och senare. Office 2013-klienter, inklusive Outlook, stöder moderna autentiseringsprotokoll och kan aktive ras för att fungera med tvåstegsverifiering. När klienten har Aktiver ATS krävs inte applösenord för klienten.
+Modern autentisering stöds för Microsoft Office 2013-klienterna och senare. Office 2013-klienter, inklusive Outlook, stöder moderna autentiseringsprotokoll och kan aktiveras för att fungera med tvåstegsverifiering. När klienten har aktiverats krävs inte applösenord för klienten.
 
 >[!NOTE]
->Applösenord fungerar inte med villkorlig åtkomst baserade Multi-Factor Authentication-principer och modern autentisering.
+>Applösenord fungerar inte med villkorade åtkomstbaserade principer för multifaktorautentisering och modern autentisering.
 
 ### <a name="considerations-about-app-passwords"></a>Överväganden om applösenord
 
-När du använder applösenord, bör du tänka på följande viktiga punkter:
+När du använder applösenord bör du tänka på följande viktiga punkter:
 
-* Applösenord anges bara en gång per program. Användarna behöver inte hålla reda på lösen orden eller ange dem varje gång.
-* Det faktiska lösenordet genereras automatiskt och tillhandahålls inte av användaren. Det automatiskt genererade lösen ordet är svårare för en angripare att gissa sig till och är säkrare.
-* Det finns en gräns på 40 lösen ord per användare.
-* Program som cachelagrar lösen ord och använder dem i lokala scenarier kan börja fungera eftersom appens lösen ord inte är känt utanför arbets-eller skol kontot. Ett exempel på det här scenariot är Exchange-e-post som är lokalt, men det arkiverade e-postmeddelandet finns i molnet. I det här scenariot fungerar inte samma lösen ord.
-* När Multi-Factor Authentication har Aktiver ATS på ett användar konto kan applösenord användas med de flesta klienter som inte är webbläsare, till exempel Outlook och Microsoft Skype för företag. Administrativa åtgärder kan inte utföras med hjälp av applösenord via appar som inte är webb läsar program, till exempel Windows PowerShell. Det går inte att utföra åtgärderna även om användaren har ett administratörs konto. Om du vill köra PowerShell-skript skapar du ett tjänst konto med ett starkt lösen ord och aktiverar inte kontot för tvåstegsverifiering.
+* Applösenord anges bara en gång per program. Användarna behöver inte hålla reda på lösenorden eller ange dem varje gång.
+* Det faktiska lösenordet genereras automatiskt och tillhandahålls inte av användaren. Det automatiskt genererade lösenordet är svårare för en angripare att gissa och är säkrare.
+* Det finns en gräns på 40 lösenord per användare.
+* Program som cachelagrar lösenord och använder dem i lokala scenarier kan börja misslyckas eftersom applösenordet inte är känt utanför arbets- eller skolkontot. Ett exempel på det här scenariot är Exchange-e-postmeddelanden som är lokala, men den arkiverade e-postmeddelandet finns i molnet. I det här fallet fungerar inte samma lösenord.
+* När Multifaktorautentisering har aktiverats på en användares konto kan applösenord användas med de flesta klienter som inte är webbläsare, till exempel Outlook och Microsoft Skype för företag. Administrativa åtgärder kan inte utföras med hjälp av applösenord via program som inte är webbläsare, till exempel Windows PowerShell. Åtgärderna kan inte utföras även när användaren har ett administrativt konto. Om du vill köra PowerShell-skript skapar du ett tjänstkonto med ett starkt lösenord och aktiverar inte kontot för tvåstegsverifiering.
 
 >[!WARNING]
->Applösenord fungerar inte i hybrid miljöer där klienter kommunicerar med både lokala och molnbaserade slut punkter för automatisk identifiering. Domän lösen ord krävs för autentisering lokalt. Applösenord krävs för att autentisera med molnet.
+>Applösenord fungerar inte i hybridmiljöer där klienter kommunicerar med både lokala och moln automatiskt upptäcka slutpunkter. Domänlösenord krävs för att autentisera lokalt. Applösenord krävs för att autentisera med molnet.
 
-### <a name="guidance-for-app-password-names"></a>Vägledning för lösen ords namn för appen
+### <a name="guidance-for-app-password-names"></a>Vägledning för applösenordsnamn
 
-Appens lösen ords namn ska motsvara den enhet där de används. Om du har en bärbar dator som har icke-webbläsarbaserade program som Outlook, Word och Excel, skapar du ett applösenord med namnet **bärbar dator** för dessa appar. Skapa ett annat applösenord med namnet **Desktop** för samma program som körs på din station ära dator.
-
->[!NOTE]
->Vi rekommenderar att du skapar ett applösenord per enhet, i stället för ett applösenord per program.
-
-### <a name="federated-or-single-sign-on-app-passwords"></a>Applösenord för federerad eller enkel inloggning
-
-Azure AD stöder Federation eller enkel inloggning (SSO) med lokala Windows Server-Active Directory Domain Services (AD DS). Om din organisation är federerad med Azure AD och du använder Azure Multi-Factor Authentication bör du tänka på följande saker om applösenord.
+App lösenordsnamn bör återspegla den enhet där de används. Om du har en bärbar dator som har program som inte är webbläsare som Outlook, Word och Excel skapar du ett **applösenord** med namnet Laptop för dessa appar. Skapa ett annat **applösenord** med namnet Desktop för samma program som körs på din stationära dator.
 
 >[!NOTE]
->Följande punkter gäller endast för federerade (SSO)-kunder.
+>Vi rekommenderar att du skapar ett applösenord per enhet i stället för ett applösenord per program.
 
-* Applösenord verifieras av Azure AD och kan därför kringgå Federation. Federation används aktivt bara när du konfigurerar applösenord.
-* Identitets leverantören (IdP) kontaktas inte för federerade (SSO)-användare, till skillnad från det passiva flödet. Applösenord lagras på arbets-eller skol kontot. Om en användare lämnar företaget kan användarens information flöda till arbets-eller skol kontot med hjälp av **DirSync** i real tid. Det kan ta upp till tre timmar innan kontot kan synkroniseras, vilket kan försena inaktive ring/borttagning av applösenord i Azure AD.
-* Lokala klient Access Controls inställningar hanteras inte av appens lösen ord.
-* Ingen lokal autentiserings-och gransknings funktion är tillgänglig för användning med funktionen applösenord.
-* Vissa avancerade arkitekturer kräver en kombination av autentiseringsuppgifter för tvåstegsverifiering med-klienter. Dessa autentiseringsuppgifter kan omfatta ett arbets-eller skol konto användar namn och lösen ord samt applösenord. Kraven beror på hur autentiseringen utförs. För klienter som autentiseras mot en lokal infrastruktur krävs ett användar namn och lösen ord för arbets-eller skol kontot. För klienter som autentiseras mot Azure AD krävs ett applösenord.
+### <a name="federated-or-single-sign-on-app-passwords"></a>Lösenord för federerade eller enstaka inloggningsappar
+
+Azure AD stöder federation, eller enkel inloggning (SSO), med lokala Windows Server Active Directory Domain Services (AD DS). Om din organisation är federerad med Azure AD och du använder Azure Multi-Factor Authentication bör du tänka på följande punkter om applösenord.
+
+>[!NOTE]
+>Följande punkter gäller endast federerade (SSO) kunder.
+
+* Applösenord verifieras av Azure AD och kringgå därför federationen. Federation används aktivt endast när du ställer in applösenord.
+* Identitetsprovidern (IdP) kontaktas inte för federerade (SSO) användare, till skillnad från det passiva flödet. Applösenorden lagras i arbets- eller skolkontot. Om en användare lämnar företaget flödar användarens information till arbets- eller skolkontot med hjälp av **DirSync** i realtid. Inaktivera/ta bort kontot kan ta upp till tre timmar att synkronisera, vilket kan fördröja inaktivera/borttagning av applösenordet i Azure AD.
+* Lokala inställningar för åtkomstkontroll för klienten respekteras inte av appens lösenordsfunktionen.
+* Det finns ingen lokal autentiseringsloggnings-/granskningsfunktion tillgänglig för användning med funktionen för applösenord.
+* Vissa avancerade arkitekturer kräver en kombination av autentiseringsuppgifter för tvåstegsverifiering med klienter. Dessa autentiseringsuppgifter kan innehålla ett användarnamn och lösenord för arbets- eller skolkonto och applösenord. Kraven beror på hur autentiseringen utförs. För klienter som autentiserar mot en lokal infrastruktur, ett användarnamn och lösenord för arbets- eller skolkonto som krävs. För klienter som autentiserar mot Azure AD krävs ett applösenord.
 
   Anta till exempel att du har följande arkitektur:
 
   * Din lokala instans av Active Directory är federerad med Azure AD.
-  * Du använder Exchange Online.
+  * Du använder Exchange online.
   * Du använder Skype för företag lokalt.
   * Du använder Azure Multi-Factor Authentication.
 
-  I det här scenariot använder du följande autentiseringsuppgifter:
+  I det här fallet använder du följande autentiseringsuppgifter:
 
-  * Om du vill logga in på Skype för företag använder du användar namnet och lösen ordet för ditt arbets-eller skol konto.
-  * Använd ett applösenord för att få åtkomst till adress boken från en Outlook-klient som ansluter till Exchange Online.
+  * Om du vill logga in på Skype för företag använder du användarnamn och lösenord för ditt arbets- eller skolkonto.
+  * Om du vill komma åt adressboken från en Outlook-klient som ansluter till Exchange online använder du ett applösenord.
 
 ### <a name="allow-users-to-create-app-passwords"></a>Tillåt användare att skapa applösenord
 
-Som standard kan användarna inte skapa applösenord. Funktionen applösenord måste vara aktive rad. Använd följande procedur för att ge användarna möjlighet att skapa applösenord:
+Som standard kan användarna inte skapa applösenord. Appens lösenordsfunktion måste vara aktiverad. Om du vill ge användarna möjlighet att skapa applösenord använder du följande procedur:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **användare**till vänster.
-3. Välj **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
-5. På sidan **tjänst inställningar** väljer du alternativet **Tillåt användare att skapa applösenord för att logga in på icke-webbläsarbaserade appar** .
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Till vänster väljer du **Azure Active Directory** > **Users**.
+3. Välj **Multifaktorautentisering**.
+4. Under Multifaktorautentisering väljer du **tjänstinställningar**.
+5. På sidan **Tjänstinställningar** väljer du alternativet **Tillåt användare att skapa applösenord för att logga in på appar som inte är webbläsare.**
 
 ### <a name="create-app-passwords"></a>Skapa applösenord
 
-Användare kan skapa applösenord under den ursprungliga registreringen. Användaren kan välja att skapa applösenord i slutet av registrerings processen.
+Användare kan skapa applösenord under den första registreringen. Användaren har möjlighet att skapa applösenord i slutet av registreringsprocessen.
 
-Användare kan också skapa applösenord efter registreringen. Mer information och detaljerade anvisningar för dina användare finns i [Vad är app-lösenord i Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Användare kan också skapa applösenord efter registreringen. Mer information och detaljerade steg för användarna finns [i Vad är applösenord i Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="trusted-ips"></a>Tillförlitliga IP-adresser
 
-Funktionen _betrodda IP-adresser_ i Azure Multi-Factor Authentication används av administratörer för en hanterad eller federerad klient. Funktionen hoppar över tvåstegsverifiering för användare som loggar in från företagets intranät. Funktionen är tillgänglig med den fullständiga versionen av Azure Multi-Factor Authentication och inte den kostnads fria versionen för administratörer. Mer information om hur du hämtar den fullständiga versionen av Azure Multi-Factor Authentication finns i [Azure Multi-Factor Authentication](multi-factor-authentication.md).
+Funktionen _Betrodda IPs_ i Azure Multi-Factor Authentication används av administratörer för en hanterad eller federerad klientorganisation. Funktionen kringgår tvåstegsverifiering för användare som loggar in från företagets intranät. Funktionen är tillgänglig med den fullständiga versionen av Azure Multi-Factor Authentication och inte den kostnadsfria versionen för administratörer. Mer information om hur du hämtar den fullständiga versionen av Azure Multi-Factor Authentication finns i [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 > [!NOTE]
-> MFA-betrodda IP-adresser och namngivna platser för villkorlig åtkomst fungerar bara med IPV4-adresser.
+> MFA-betrodda IPs och villkorlig åtkomst namngivna platser fungerar bara med IPV4-adresser.
 
-Om din organisation distribuerar NPS-tillägget för att tillhandahålla MFA till lokala program, ser käll-IP-adressen alltid vara den NPS-server som autentiseringen försöker flöda genom.
+Om din organisation distribuerar NPS-tillägget för att tillhandahålla MFA till lokala program observera källan IP-adressen alltid verkar vara NPS-servern autentiseringsförsöket flödar igenom.
 
-| Typ av Azure AD-klient | Funktions alternativ för betrodda IP-adresser |
+| Klienttyp för Azure AD | Alternativ för betrodda IPs-funktionsalternativ |
 |:--- |:--- |
-| Leda |Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från företagets intranät. Högst 50 betrodda IP-intervall kan konfigureras.|
-| Externt |**Alla federerade användare**: alla federerade användare som loggar in från i organisationen kan kringgå tvåstegsverifiering. Användarna kringgår verifieringen genom att använda ett anspråk som utfärdats av Active Directory Federation Services (AD FS) (AD FS).<br/>Ett **särskilt intervall med IP-adresser**: administratörer anger ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från företagets intranät. |
+| Hanterade |**Specifikt intervall med IP-adresser**: Administratörer anger ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från företagets intranät. Högst 50 betrodda IP-intervall kan konfigureras.|
+| Federerade |**Alla federerade användare:** Alla federerade användare som loggar in in från insidan av organisationen kan kringgå tvåstegsverifiering. Användarna kringgår verifieringen med hjälp av ett anspråk som utfärdas av AD FS (Active Directory Federation Services).<br/>**Specifikt intervall med IP-adresser**: Administratörer anger ett intervall med IP-adresser som kan kringgå tvåstegsverifiering för användare som loggar in från företagets intranät. |
 
-De betrodda IP-adresserna kringgår bara Works inifrån företagets intranät. Om du väljer alternativet **alla federerade användare** och en användare loggar in utanför företagets intranät, måste användaren autentisera med hjälp av tvåstegsverifiering. Processen är densamma även om användaren presenterar ett AD FS-anspråk. 
+Förbifartsleden betrodda IPs fungerar bara inifrån företagets intranät. Om du väljer alternativet **Alla Federerade användare** och en användare loggar in utanför företagets intranät måste användaren autentisera med hjälp av tvåstegsverifiering. Processen är densamma även om användaren presenterar ett AD FS-anspråk. 
 
-### <a name="end-user-experience-inside-of-corpnet"></a>Slut användar upplevelse i Corpnet
+### <a name="end-user-experience-inside-of-corpnet"></a>Slutanvändarupplevelse inom corpnet
 
-När funktionen betrodda IP-adresser är inaktive rad krävs tvåstegsverifiering för webb läsar flöden. Applösenord krävs för äldre avancerade klient program.
+När funktionen Betrodda IPs är inaktiverad krävs tvåstegsverifiering för webbläsarflöden. Applösenord krävs för äldre avancerade klientprogram.
 
-Tvåstegsverifiering krävs *inte* för webb läsar flöden när funktionen betrodda IP-adresser är aktive rad. Applösenord krävs *inte* för äldre avancerade klient program, förutsatt att användaren inte har skapat ett applösenord. När ett applösenord används är lösen ordet obligatoriskt. 
+När funktionen Betrodda IPs är aktiverad krävs *inte* tvåstegsverifiering för webbläsarflöden. Applösenord krävs *inte* för äldre avancerade klientprogram, förutsatt att användaren inte har skapat ett applösenord. När ett applösenord används krävs lösenordet. 
 
-### <a name="end-user-experience-outside-corpnet"></a>Slut användar upplevelse utanför Corpnet
+### <a name="end-user-experience-outside-corpnet"></a>Slutanvändarupplevelse utanför corpnet
 
-Oberoende av om funktionen för betrodda IP-adresser är aktive rad krävs tvåstegsverifiering för webb läsar flöden. Applösenord krävs för äldre avancerade klient program.
+Oavsett om funktionen Betrodda IPs är aktiverad krävs tvåstegsverifiering för webbläsarflöden. Applösenord krävs för äldre avancerade klientprogram.
 
-### <a name="enable-named-locations-by-using-conditional-access"></a>Aktivera namngivna platser med hjälp av villkorlig åtkomst
+### <a name="enable-named-locations-by-using-conditional-access"></a>Aktivera namngivna platser med villkorsstyrd åtkomst
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Till vänster väljer du **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst** > **namngivna platser**.
-3. Välj **ny plats**.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Till vänster väljer du**Namngivna platser**för Azure Active**Directory-säkerhetsvillkorsåtkomst** > **Conditional Access** >  **Azure Active Directory** > .
+3. Välj **Ny plats**.
 4. Ange ett namn på platsen.
 5. Välj **Markera som betrodd plats**.
-6. Ange IP-intervallet i CIDR-notation, t. ex. **192.168.1.1/24**.
+6. Ange IP-intervallet i CIDR-notation som **192.168.1.1/24**.
 7. Välj **Skapa**.
 
-### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Aktivera funktionen för betrodda IP-adresser med hjälp av villkorlig åtkomst
+### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Aktivera funktionen Betrodda IPs med villkorsstyrd åtkomst
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Till vänster väljer du **Azure Active Directory** > **säkerhet** >  **villkorlig åtkomst** > **namngivna platser**.
-3. Välj **Konfigurera MFA-betrodda IP-adresser**.
-4. På sidan **tjänst inställningar** under **betrodda IP-adresser**väljer du något av följande två alternativ:
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Till vänster väljer du**Namngivna platser**för Azure Active**Directory-säkerhetsvillkorsåtkomst** >  **Conditional Access** >  **Azure Active Directory** > .
+3. Välj **Konfigurera MFA-betrodda IPs**.
+4. Välj bland något av följande två alternativ under **Betrodda IPs**på sidan **Tjänstinställningar:**
 
-   * **För förfrågningar från federerade användare som kommer från mitt intranät**: Markera kryss rutan om du vill välja det här alternativet. Alla federerade användare som loggar in från företags nätverket kringgår tvåstegsverifiering genom att använda ett anspråk som utfärdas av AD FS. Se till att AD FS har en regel för att lägga till intranät anspråk till lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
+   * **För begäranden från federerade användare som kommer från intranätet**: Markera kryssrutan om du vill välja det här alternativet. Alla federerade användare som loggar in från företagsnätverket kringgår tvåstegsverifiering med hjälp av ett anspråk som utfärdas av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätanspråket i lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **För förfrågningar från ett särskilt utbud av offentliga IP-adresser**: om du vill välja det här alternativet anger du IP-adresserna i text rutan med CIDR-notering.
-      * För IP-adresser som ligger inom intervallet xxx. xxx. xxx. 1 till xxx. xxx. xxx. 254 använder du notation som **xxx. xxx. xxx. 0/24**.
-      * Använd notation som **xxx.xxx.xxx.xxx/32**för en enskild IP-adress.
-      * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser hoppar över tvåstegsverifiering.
+   * **För begäranden från ett visst intervall av offentliga IP-adresser:** Om du vill välja det här alternativet anger du IP-adresserna i textrutan med hjälp av CIDR-notation.
+      * För IP-adresser som finns i intervallet xxx.xxx.xxx.1 till xxx.xxx.xxx.254, använd notation som **xxx.xxx.xxx.0/24**.
+      * För en enda IP-adress använder du notation som **xxx.xxx.xxx.xxx/32**.
+      * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser kringgår tvåstegsverifiering.
 
 5. Välj **Spara**.
 
-### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Aktivera funktionen för betrodda IP-adresser med hjälp av tjänst inställningar
+### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Aktivera funktionen Betrodda IPs med hjälp av tjänstinställningar
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **användare**till vänster.
-3. Välj **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
-5. På sidan **tjänst inställningar** under **betrodda IP-adresser**väljer du ett (eller båda) av följande två alternativ:
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Till vänster väljer du **Azure Active Directory** > **Users**.
+3. Välj **Multifaktorautentisering**.
+4. Under Multifaktorautentisering väljer du **tjänstinställningar**.
+5. På sidan **Tjänstinställningar** under **Betrodda IPs**väljer du ett (eller båda) av följande två alternativ:
 
-   * **För förfrågningar från federerade användare i mitt intranät**: om du vill välja det här alternativet markerar du kryss rutan. Alla federerade användare som loggar in från företags nätverket kringgår tvåstegsverifiering genom att använda ett anspråk som utfärdas av AD FS. Se till att AD FS har en regel för att lägga till intranät anspråk till lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
+   * **För begäranden från federerade användare i intranätet**: Markera kryssrutan om du vill välja det här alternativet. Alla federerade användare som loggar in från företagsnätverket kringgår tvåstegsverifiering med hjälp av ett anspråk som utfärdas av AD FS. Kontrollera att AD FS har en regel för att lägga till intranätanspråket i lämplig trafik. Om regeln inte finns skapar du följande regel i AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **För förfrågningar från ett angivet intervall IP-adressundernät**: om du vill välja det här alternativet anger du IP-adresserna i text rutan med CIDR-notering.
-      * För IP-adresser som ligger inom intervallet xxx. xxx. xxx. 1 till xxx. xxx. xxx. 254 använder du notation som **xxx. xxx. xxx. 0/24**.
-      * Använd notation som **xxx.xxx.xxx.xxx/32**för en enskild IP-adress.
-      * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser hoppar över tvåstegsverifiering.
+   * **För begäranden från ett angivet intervall med IP-adressundernät:** Om du vill välja det här alternativet anger du IP-adresserna i textrutan med hjälp av CIDR-notation.
+      * För IP-adresser som finns i intervallet xxx.xxx.xxx.1 till xxx.xxx.xxx.254, använd notation som **xxx.xxx.xxx.0/24**.
+      * För en enda IP-adress använder du notation som **xxx.xxx.xxx.xxx/32**.
+      * Ange upp till 50 IP-adressintervall. Användare som loggar in från dessa IP-adresser kringgår tvåstegsverifiering.
 
 6. Välj **Spara**.
 
-## <a name="verification-methods"></a>Verifierings metoder
+## <a name="verification-methods"></a>Verifieringsmetoder
 
-Du kan välja de verifierings metoder som är tillgängliga för dina användare. Följande tabell innehåller en kort översikt över metoderna.
+Du kan välja vilka verifieringsmetoder som är tillgängliga för användarna. Följande tabell ger en kort översikt över metoderna.
 
-När dina användare registrerar sina konton för Azure Multi-Factor Authentication väljer de den önskade verifierings metoden från de alternativ som du har aktiverat. Vägledning för användar registrerings processen finns i [Konfigurera mitt konto för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-first-time.md).
+När användarna registrerar sina konton för Azure Multi-Factor Authentication väljer de den önskade verifieringsmetoden bland de alternativ som du har aktiverat. Vägledning för användarregistreringsprocessen finns i [Konfigurera mitt konto för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 | Metod | Beskrivning |
 |:--- |:--- |
-| Ring till telefon |Placerar ett automatiskt röst samtal. Användaren svarar på anropet och trycker på # i telefon tangent bordet för att autentisera. Telefonnumret är inte synkroniserat med lokala Active Directory. |
-| Textmeddelande till telefon |Skickar ett textmeddelande som innehåller en verifierings kod. Användaren uppmanas att ange verifierings koden i inloggnings gränssnittet. Den här processen kallas ett enkelriktat SMS. Dubbelriktat SMS innebär att användaren måste använda text för att återställa en viss kod. Dubbelriktat SMS är föråldrat och stöds inte efter 14 november 2018. Administratörer bör aktivera en annan metod för användare som tidigare har använt dubbelriktat SMS.|
-| Meddelande via mobilapp |Skickar ett push-meddelande till din telefon eller registrerade enhet. Användaren visar meddelandet och väljer **Verifiera** för att slutföra verifieringen. Microsoft Authenticator-appen är tillgänglig för [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
-| Verifierings kod från mobilapp eller maskinvaru-token |Microsoft Authenticator-appen genererar en ny OATH-verifierings kod var 30: e sekund. Användaren anger verifierings koden i inloggnings gränssnittet. Microsoft Authenticator-appen är tillgänglig för [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072)och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Ringa till telefon |Placerar ett automatiserat röstsamtal. Användaren identifierar sig genom att svara och trycka på #-tangenten. Telefonnumret synkroniseras inte med lokal Active Directory. |
+| Sms till telefon |Skickar ett textmeddelande som innehåller en verifieringskod. Användaren uppmanas att ange verifieringskoden i inloggningsgränssnittet. Denna process kallas enkelriktad SMS. Tvåvägs SMS innebär att användaren måste skicka tillbaka en viss kod. Tvåvägs-SMS är inaktuellt och stöds inte efter den 14 november 2018. Administratörer bör aktivera en annan metod för användare som tidigare använt tvåvägs-SMS.|
+| Avisering via mobilapp |Skickar ett push-meddelande till telefonen eller den registrerade enheten. Användaren visar meddelandet och väljer **Verifiera** för att slutföra verifieringen. Microsoft Authenticator-appen är tillgänglig för [Windows Phone,](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) [Android](https://go.microsoft.com/fwlink/?Linkid=825072)och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
+| Verifieringskod från mobilapp eller maskinvarutoken |Microsoft Authenticator-appen genererar en ny OATH-verifieringskod var 30:e sekund. Användaren anger verifieringskoden i inloggningsgränssnittet. Microsoft Authenticator-appen är tillgänglig för [Windows Phone,](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) [Android](https://go.microsoft.com/fwlink/?Linkid=825072)och [iOS](https://go.microsoft.com/fwlink/?Linkid=825073). |
 
-### <a name="enable-and-disable-verification-methods"></a>Aktivera och inaktivera verifierings metoder
+### <a name="enable-and-disable-verification-methods"></a>Aktivera och inaktivera verifieringsmetoder
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **användare**till vänster.
-3. Välj **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
-5. På sidan **tjänst inställningar** under **verifierings alternativ**väljer/avmarkerar du de metoder som du vill använda för dina användare.
-6. Klicka på **Save** (Spara).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Till vänster väljer du **Azure Active Directory** > **Users**.
+3. Välj **Multifaktorautentisering**.
+4. Under Multifaktorautentisering väljer du **tjänstinställningar**.
+5. Välj/avmarkera de metoder som ska tillhandahållas användarna under **verifieringsalternativ**på sidan **Tjänstinställningar.**
+6. Klicka på **Spara**.
 
-Ytterligare information om användningen av autentiseringsmetoder finns i artikeln [Vad är autentiseringsmetoder](concept-authentication-methods.md).
+Ytterligare information om användningen av autentiseringsmetoder finns i artikeln [Vilka är autentiseringsmetoder](concept-authentication-methods.md).
 
-## <a name="remember-multi-factor-authentication"></a>Kom ihåg Multi-Factor Authentication
+## <a name="remember-multi-factor-authentication"></a>Kom ihåg multifaktorautentisering
 
-Funktionen _kom ihåg Multi-Factor Authentication_ för enheter och webbläsare som är betrodda av användaren är en kostnads fri funktion för alla Multi-Factor Authentication användare. Användare kan kringgå efterföljande verifieringar under ett visst antal dagar efter att de har loggat in på en enhet med hjälp av Multi-Factor Authentication. Funktionen förbättrar användbarhet genom att minimera antalet gånger som en användare måste utföra tvåstegsverifiering på samma enhet.
+_Funktionen Kom ihåg multifaktorautentisering_ för enheter och webbläsare som är betrodda av användaren är en kostnadsfri funktion för alla multifaktorautentiseringsanvändare. Användare kan kringgå efterföljande verifieringar under ett visst antal dagar efter att de har loggat in på en enhet med hjälp av Multi-Factor Authentication. Funktionen förbättrar användbarheten genom att minimera antalet gånger en användare har att utföra tvåstegsverifiering på samma enhet.
 
 >[!IMPORTANT]
->Om ett konto eller en enhet komprometteras kan det påverka säkerheten genom att komma ihåg Multi-Factor Authentication för betrodda enheter. Om ett företags konto blir komprometterat eller om en betrodd enhet tappas bort eller blir stulen, bör du [återkalla MFA-sessioner](howto-mfa-userdevicesettings.md).
+>Om ett konto eller en enhet äventyras kan det påverka säkerheten om du kommer ihåg multifaktorautentisering för betrodda enheter. Om ett företagskonto äventyras eller en betrodd enhet försvinner eller blir stulen bör du [återkalla MFA-sessioner](howto-mfa-userdevicesettings.md).
 >
->Återställnings åtgärden återkallar betrodd status från alla enheter och användaren måste utföra tvåstegsverifiering igen. Du kan också instruera användarna att återställa Multi-Factor Authentication på sina egna enheter med hjälp av anvisningarna i [Hantera dina inställningar för](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device)tvåstegsverifiering.
+>Återställningsåtgärden återkallar den betrodda statusen från alla enheter och användaren måste utföra tvåstegsverifiering igen. Du kan också instruera användarna att återställa multifaktorautentisering på sina egna enheter med instruktionerna i [Hantera dina inställningar för tvåstegsverifiering](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Så här fungerar funktionen
 
-Funktionen kom ihåg Multi-Factor Authentication anger en permanent cookie i webbläsaren när användaren väljer alternativet **fråga inte igen om X dagar** vid inloggning. Användaren tillfrågas inte igen för Multi-Factor Authentication från samma webbläsare tills cookien upphör att gälla. Om användaren öppnar en annan webbläsare på samma enhet eller rensar sina cookies uppmanas de att verifiera.
+Med funktionen Kom ihåg multifaktorautentisering ställs in en beständig cookie i webbläsaren när en användare väljer alternativet **Fråga inte igen om X-dagar** vid inloggning. Användaren uppmanas inte igen för multifaktorautentisering från samma webbläsare förrän cookien går ut. Om användaren öppnar en annan webbläsare på samma enhet eller rensar sina cookies uppmanas han att verifiera igen.
 
-Alternativet **fråga inte igen om X dagar** visas inte i program som inte är webbläsare, oavsett om appen stöder modern autentisering eller inte. De här apparna använder _uppdateringstoken_ som ger nya åtkomsttoken varje timma. När en uppdateringstoken verifieras kontrollerar Azure AD att den senaste tvåstegsverifiering har inträffat inom det angivna antalet dagar.
+Alternativet **Fråga inte igen för X-dagar** visas inte i program som inte är webbläsare, oavsett om appen stöder modern autentisering. Dessa appar använder _uppdateringstoken_ som ger nya åtkomsttoken varje timme. När en uppdateringstoken valideras kontrollerar Azure AD att den senaste tvåstegsverifieringen inträffade inom det angivna antalet dagar.
 
-Funktionen minskar antalet autentiseringar i Web Apps, som normalt frågas varje gång. Funktionen ökar antalet autentiseringar för moderna autentiserings klienter som normalt uppmanas var 90: e dag. Kan också öka antalet autentiseringar när de kombineras med villkorliga åtkomst principer.
+Funktionen minskar antalet autentiseringar på webbappar, som normalt frågar varje gång. Funktionen ökar antalet autentiseringar för moderna autentiseringsklienter som normalt frågar var 90:e dag. Kan också öka antalet autentiseringar i kombination med principer för villkorlig åtkomst.
 
 >[!IMPORTANT]
->Funktionen **kom ihåg Multi-Factor Authentication** är inte kompatibel med funktionen **Håll mig inloggad i** AD FS, när användare utför tvåstegsverifiering för AD FS via Azure-Multi-Factor Authentication-Server eller en Multi-Factor Authentication-lösning från tredje part.
+>**Funktionen kom ihåg multifaktorautentisering** är inte kompatibel med funktionen håll mig inloggad **i** AD FS, när användare utför tvåstegsverifiering för AD FS via Azure Multi-Factor Authentication Server eller en tredjepartslösning för multifaktorautentisering.
 >
->Om användarna väljer att **låta mig vara inloggad** på AD FS och även markera enheten som betrodd för Multi-Factor Authentication, kontrol leras inte användaren automatiskt när det **sparade Multi-Factor Authentication** -antalet dagar upphör att gälla. Azure AD begär en ny tvåstegsverifiering, men AD FS returnerar en token med den ursprungliga Multi-Factor Authentication anspråket och datumet, i stället för att utföra tvåstegsverifiering igen. **Den här reaktionen anger en verifierings slinga mellan Azure AD och AD FS.**
+>Om användarna väljer **att hålla mig inloggad** på AD FS och även markera sin enhet som betrodd för multifaktorautentisering, verifieras inte användaren automatiskt efter att antalet dagar för kom ihåg flera **faktorer** har gått ut. Azure AD begär en ny tvåstegsverifiering, men AD FS returnerar en token med det ursprungliga multifaktorautentiseringsanspråket och datumet, i stället för att utföra tvåstegsverifiering igen. **Den här reaktionen utlöser en verifieringsloop mellan Azure AD och AD FS.**
 >
->Funktionen **kom ihåg Multi-Factor Authentication** är inte kompatibel med B2B-användare och kommer inte att vara synlig för B2B-användare när de loggar in på inbjudna klienter.
+>**Kom ihåg multifaktorautentisering** funktionen är inte kompatibel med B2B-användare och kommer inte att vara synlig för B2B-användare när du loggar in på de inbjudna klienterna.
 >
 
-### <a name="enable-remember-multi-factor-authentication"></a>Aktivera kom ihåg Multi-Factor Authentication
+### <a name="enable-remember-multi-factor-authentication"></a>Aktivera kom ihåg multifaktorautentisering
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **användare**till vänster.
-3. Välj **Multi-Factor Authentication**.
-4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
-5. På sidan **tjänst inställningar** hanterar du **kom ihåg Multi-Factor Authentication**och väljer alternativet **Tillåt användare att komma ihåg Multi-Factor Authentication på enheter som de litar på** .
-6. Ange antalet dagar att tillåta att betrodda enheter kringgår tvåstegsverifiering. Standardvärdet är 14 dagar.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Till vänster väljer du **Azure Active Directory** > **Users**.
+3. Välj **Multifaktorautentisering**.
+4. Under Multifaktorautentisering väljer du **tjänstinställningar**.
+5. På sidan **Tjänstinställningar,** **hantera kom ihåg multifaktorautentisering**, välj **alternativet Tillåt användare att komma ihåg multifaktorautentisering på enheter som de litar på.**
+6. Ange antalet dagar så att betrodda enheter kan kringgå tvåstegsverifiering. Standardvärdet är 14 dagar.
 7. Välj **Spara**.
 
 ### <a name="mark-a-device-as-trusted"></a>Markera en enhet som betrodd
 
-När du har aktiverat funktionen kom ihåg Multi-Factor Authentication kan användarna Markera en enhet som betrodd när de loggar in genom att välja **fråga inte igen**.
+När du har aktiverat funktionen Kom ihåg multifaktorautentisering kan användarna markera en enhet som betrodd när de loggar in genom att välja **Fråga inte igen**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Ändra anpassning av inloggnings sidan för Azure AD](../fundamentals/customize-branding.md)
+[Ändra varumärke för Azure AD-inloggningssidan](../fundamentals/customize-branding.md)

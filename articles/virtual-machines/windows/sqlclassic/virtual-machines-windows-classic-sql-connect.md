@@ -1,6 +1,6 @@
 ---
-title: Ansluta till en SQL Server virtuell dator på Azure (klassisk) | Microsoft Docs
-description: Lär dig hur du ansluter till SQL Server som körs på en virtuell dator i Azure. I det här avsnittet används den klassiska distributions modellen. Scenarierna varierar beroende på nätverks konfigurationen och klientens plats.
+title: Ansluta till en virtuell SQL Server-dator på Azure (Klassisk) | Microsoft-dokument
+description: Lär dig hur du ansluter till SQL Server som körs på en virtuell dator i Azure. Det här avsnittet använder den klassiska distributionsmodellen. Scenarierna varierar beroende på nätverkskonfigurationen och klientens plats.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -17,13 +17,13 @@ ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
 ms.openlocfilehash: 4627d9c4fa5c87e8e80ab80892062dabd77e9229
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249716"
 ---
-# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Ansluta till en SQL Server virtuell dator på Azure (klassisk distribution)
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Anslut en virtuell SQL Server-dator på Azure (klassisk distribution)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../sql/virtual-machines-windows-sql-connect.md)
 > * [Klassisk](../classic/sql-connect.md)
@@ -31,71 +31,71 @@ ms.locfileid: "79249716"
 > 
 
 ## <a name="overview"></a>Översikt
-I det här avsnittet beskrivs hur du ansluter till din SQL Server-instans som körs på en virtuell Azure-dator. Det täcker några [allmänna anslutnings scenarier](#connection-scenarios) och innehåller sedan [detaljerade steg för att konfigurera SQL Server anslutning i en virtuell Azure-dator](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+I det här avsnittet beskrivs hur du ansluter till SQL Server-instansen som körs på en virtuell Azure-dator. Den täcker några [allmänna anslutningsscenarier](#connection-scenarios) och innehåller sedan [detaljerade steg för att konfigurera SQL Server-anslutning i en Azure VM](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du använder virtuella Resource Manager-datorer, se [ansluta till en SQL Server virtuell dator på Azure med Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och Classic](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du använder virtuella resurser i Resource Manager läser du [Anslut till en virtuell SQL Server-dator på Azure med Hjälp av Resource Manager](../sql/virtual-machines-windows-sql-connect.md).
 
-## <a name="connection-scenarios"></a>Anslutnings scenarier
-Hur en klient ansluter till SQL Server som körs på en virtuell dator varierar beroende på klientens plats och konfigurationen av dator/nätverk. Några vanliga scenarier:
+## <a name="connection-scenarios"></a>Scenarier för anslutning
+Hur en klient ansluter till SQL Server som körs på en virtuell dator skiljer sig beroende på var klienten och datorn/nätverkskonfigurationen finns. Några vanliga scenarier:
 
-* [Anslut till SQL Server i samma moln tjänst](#connect-to-sql-server-in-the-same-cloud-service)
-* [Ansluta till SQL Server via Internet](#connect-to-sql-server-over-the-internet)
-* [Anslut till SQL Server i samma virtuella nätverk](#connect-to-sql-server-in-the-same-virtual-network)
+* [Ansluta till SQL Server i samma molntjänst](#connect-to-sql-server-in-the-same-cloud-service)
+* [Ansluta till SQL Server via internet](#connect-to-sql-server-over-the-internet)
+* [Ansluta till SQL Server i samma virtuella nätverk](#connect-to-sql-server-in-the-same-virtual-network)
 
 > [!NOTE]
-> Innan du ansluter till någon av dessa metoder måste du följa [stegen i den här artikeln för att konfigurera anslutningen](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
+> Innan du ansluter till någon av dessa metoder måste du följa stegen i den [här artikeln för att konfigurera anslutningen](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 > 
 > 
 
-### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Anslut till SQL Server i samma moln tjänst
-Flera virtuella datorer kan skapas i samma moln tjänst. Information om det här scenariot för virtuella datorer finns i [så här ansluter du virtuella datorer med ett virtuellt nätverk eller en moln tjänst](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). Det här scenariot är när en klient på en virtuell dator försöker ansluta till SQL Server som körs på en annan virtuell dator i samma moln tjänst.
+### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>Ansluta till SQL Server i samma molntjänst
+Flera virtuella datorer kan skapas i samma molntjänst. För att förstå det här scenariot för virtuella datorer finns i [Så här ansluter du virtuella datorer med ett virtuellt nätverk eller en molntjänst](/previous-versions/azure/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service). Det här scenariot är när en klient på en virtuell dator försöker ansluta till SQL Server som körs på en annan virtuell dator i samma molntjänst.
 
-I det här scenariot kan du ansluta med **namnet** på den virtuella datorn (visas också som **dator namn** eller **värdnamn** i portalen). Detta är det namn som du angav för den virtuella datorn när du skapade. Om du till exempel har namngett din SQL VM- **mysqlvm**kan en virtuell klient dator i samma moln tjänst använda följande anslutnings sträng för att ansluta:
+I det här fallet kan du ansluta med **vm-namnet** (visas även som **datornamn** eller **värdnamn** i portalen). Det här är namnet som du angav för den virtuella datorn när den skapas. Om du till exempel har döpt din SQL VM **mysqlvm**kan en klient-VM i samma molntjänst använda följande anslutningssträng för att ansluta:
 
     "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
 ### <a name="connect-to-sql-server-over-the-internet"></a>Ansluta till SQL Server via Internet
-Om du vill ansluta till din SQL Server-databasmotor från Internet måste du skapa en virtuell dator slut punkt för inkommande TCP-kommunikation. I det här Azure-konfigurationssteget dirigeras inkommande trafik via TCP-porten till en TCP-port som är tillgänglig på den virtuella datorn.
+Om du vill ansluta till SQL Server-databasmotorn från Internet måste du skapa en slutpunkt för virtuella datorer för inkommande TCP-kommunikation. I det här Azure-konfigurationssteget dirigeras inkommande trafik via TCP-porten till en TCP-port som är tillgänglig på den virtuella datorn.
 
-Om du vill ansluta via Internet måste du använda den virtuella datorns DNS-namn och port nummer för den virtuella datorns slut punkt (konfigureras senare i den här artikeln). Du hittar DNS-namnet genom att navigera till Azure Portal och välja **virtuella datorer (klassisk)** . Välj sedan den virtuella datorn. **DNS-namnet** visas i **översikts** avsnittet.
+Om du vill ansluta via internet måste du använda den virtuella datorns DNS-namn och vm-slutpunktsportnumret (konfigurerat senare i den här artikeln). Om du vill hitta DNS-namnet navigerar du till Azure-portalen och väljer **Virtuella datorer (klassiska).** Välj sedan din virtuella dator. **DNS-namnet** visas i avsnittet **Översikt.**
 
-Anta till exempel att du har en klassisk virtuell dator med namnet **mysqlvm** med DNS-namnet **MYSQLVM7777.CLOUDAPP.net** och en VM-slutpunkt på **57500**. Om du antar korrekt konfigurerad anslutning kan följande anslutnings sträng användas för att få åtkomst till den virtuella datorn från var som helst på Internet:
+Tänk dig till exempel en klassisk virtuell dator med namnet **mysqlvm** med ett DNS-namn **på mysqlvm7777.cloudapp.net** och en vm-slutpunkt **på 57500**. Om du antar korrekt konfigurerad anslutning kan följande anslutningssträng användas för att komma åt den virtuella datorn var som helst på internet:
 
     "Server=mycloudservice.cloudapp.net,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-Även om detta möjliggör anslutning för klienter via Internet innebär detta inte att vem som helst kan ansluta till din SQL Server. Externa klienter har rätt användar namn och lösen ord. För ytterligare säkerhet ska du inte använda den välkända porten 1433 för den offentliga virtuella dator slut punkten. Om möjligt bör du överväga att lägga till en ACL på slut punkten för att begränsa trafiken enbart till de klienter som du tillåter. Instruktioner för hur du använder ACL: er med slut punkter finns i [Hantera ACL för en slut punkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
+Även om detta möjliggör anslutning för klienter över internet, innebär detta inte att vem som helst kan ansluta till din SQL Server. Externa klienter måste rätt användarnamn och lösenord. För ytterligare säkerhet ska du inte använda den välkända port 1433 för slutpunkten för den offentliga virtuella datorn. Och om möjligt, överväg att lägga till en åtkomstkontrollista på slutpunkten för att begränsa trafiken endast till de klienter du tillåter. Instruktioner om hur du använder ACL med slutpunkter finns i [Hantera åtkomstkontrollistan på en slutpunkt](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint).
 
 > [!NOTE]
-> Det är viktigt att Observera att när du använder den här metoden för att kommunicera med SQL Server, är alla utgående data från Azure-datacentret föremål för normal [prissättning på utgående data överföringar](https://azure.microsoft.com/pricing/details/data-transfers/).
+> Det är viktigt att notera att när du använder den här tekniken för att kommunicera med SQL Server, är alla utgående data från Azure-data föremål för normal [prissättning vid utgående dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).
 > 
 > 
 
-### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Anslut till SQL Server i samma virtuella nätverk
-[Virtual Network](../../../virtual-network/virtual-networks-overview.md) aktiverar ytterligare scenarier. Du kan ansluta virtuella datorer i samma virtuella nätverk, även om de virtuella datorerna finns i olika moln tjänster. Med en [plats-till-plats-VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)kan du skapa en hybrid arkitektur som ansluter virtuella datorer med lokala nätverk och datorer.
+### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>Ansluta till SQL Server i samma virtuella nätverk
+[Virtuellt nätverk](../../../virtual-network/virtual-networks-overview.md) möjliggör ytterligare scenarier. Du kan ansluta virtuella datorer i samma virtuella nätverk, även om dessa virtuella datorer finns i olika molntjänster. Och med en [plats-till-plats-VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)kan du skapa en hybridarkitektur som ansluter virtuella datorer med lokala nätverk och datorer.
 
-Med virtuella nätverk kan du också ansluta dina virtuella Azure-datorer till en domän. Detta är det enda sättet att använda Windows-autentisering för att SQL Server. De andra anslutnings scenarierna kräver SQL-autentisering med användar namn och lösen ord.
+Med virtuella nätverk kan du också ansluta till dina virtuella Azure-datorer till en domän. Det här är det enda sättet att använda Windows-autentisering till SQL Server. De andra anslutningsscenarierna kräver SQL-autentisering med användarnamn och lösenord.
 
-Om du ska konfigurera en domän miljö och Windows-autentisering behöver du inte använda stegen i den här artikeln för att konfigurera den offentliga slut punkten eller SQL-autentisering och inloggningar. I det här scenariot kan du ansluta till din SQL Server-instans genom att ange SQL Server VM namnet i anslutnings strängen. I följande exempel förutsätts att Windows-autentisering också har kon figurer ATS och att användaren har beviljats åtkomst till SQL Server-instansen.
+Om du ska konfigurera en domänmiljö och Windows-autentisering behöver du inte använda stegen i den här artikeln för att konfigurera den offentliga slutpunkten eller SQL-autentiseringen och inloggningarna. I det här fallet kan du ansluta till SQL Server-instansen genom att ange SQL Server VM-namnet i anslutningssträngen. I följande exempel förutsätts att Windows-autentisering också har konfigurerats och att användaren har beviljats åtkomst till SQL Server-instansen.
 
     "Server=mysqlvm;Integrated Security=true"
 
-## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Steg för att konfigurera SQL Server anslutning på en virtuell Azure-dator
-Följande steg visar hur du ansluter till SQL Server-instansen via Internet med SQL Server Management Studio (SSMS). Samma steg gäller dock för att göra din SQL Server virtuella dator tillgänglig för dina program, som körs både lokalt och i Azure.
+## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Steg för att konfigurera SQL Server-anslutning i en virtuell Azure-dator
+Följande steg visar hur du ansluter till SQL Server-instansen via Internet med HJÄLP AV SQL Server Management Studio (SSMS). Samma steg gäller dock för att göra din virtuella SQL Server-dator tillgänglig för dina program, som körs både lokalt och i Azure.
 
-Innan du kan ansluta till instansen av SQL Server från en annan virtuell dator eller Internet, måste du utföra följande uppgifter enligt beskrivningen i följande avsnitt:
+Innan du kan ansluta till instansen av SQL Server från en annan virtuell dator eller internet måste du utföra följande uppgifter enligt beskrivningen i följande avsnitt:
 
 * [Skapa en TCP-slutpunkt för den virtuella datorn](#create-a-tcp-endpoint-for-the-virtual-machine)
 * [Öppna TCP-portar i Windows-brandväggen](#open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine)
-* [Konfigurera SQL Server att lyssna på TCP-protokollet](#configure-sql-server-to-listen-on-the-tcp-protocol)
-* [Konfigurera SQL Server för autentisering med blandat läge](#configure-sql-server-for-mixed-mode-authentication)
-* [Skapa SQL Server inloggningar för autentisering](#create-sql-server-authentication-logins)
-* [Kontrol lera den virtuella datorns DNS-namn](#determine-the-dns-name-of-the-virtual-machine)
-* [Ansluta till databas motorn från en annan dator](#connect-to-the-database-engine-from-another-computer)
+* [Konfigurera SQL Server för att lyssna på TCP-protokollet](#configure-sql-server-to-listen-on-the-tcp-protocol)
+* [Konfigurera SQL Server för blandat läge-autentisering](#configure-sql-server-for-mixed-mode-authentication)
+* [Skapa SQL Server-autentiseringsinloggningar](#create-sql-server-authentication-logins)
+* [Bestämma DNS-namnet på en virtuell dator](#determine-the-dns-name-of-the-virtual-machine)
+* [Anslut till databasmotorn från en annan dator](#connect-to-the-database-engine-from-another-computer)
 
-Anslutnings Sök vägen sammanfattas i följande diagram:
+Anslutningssökvägen sammanfattas med följande diagram:
 
-![Ansluta till en SQL Server virtuell dator](../../../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
+![Ansluta till en virtuell SQL Server-dator](../../../../includes/media/virtual-machines-sql-server-connection-steps/SQLServerinVMConnectionMap.png)
 
 [!INCLUDE [Connect to SQL Server in a VM Classic TCP Endpoint](../../../../includes/virtual-machines-sql-server-connection-steps-classic-tcp-endpoint.md)]
 
@@ -103,12 +103,12 @@ Anslutnings Sök vägen sammanfattas i följande diagram:
 
 [!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
-## <a name="next-steps"></a>Nästa steg
-Om du också planerar att använda AlwaysOn-tillgänglighetsgrupper för hög tillgänglighet och haveri beredskap bör du överväga att implementera en lyssnare. Databas klienter ansluter till lyssnaren i stället för direkt till en av SQL Server instanserna. Lyssnaren dirigerar klienter till den primära repliken i tillgänglighets gruppen. Mer information finns i [Konfigurera en ILB-lyssnare för AlwaysOn-tillgänglighetsgrupper i Azure](../classic/ps-sql-int-listener.md).
+## <a name="next-steps"></a>Efterföljande moment
+Om du också planerar att använda AlwaysOn-tillgänglighetsgrupper för hög tillgänglighet och haveriberedskap bör du överväga att implementera en lyssnare. Databasklienter ansluter till lyssnaren i stället för direkt till en av SQL Server-instanserna. Lyssnaren dirigerar klienter till den primära repliken i tillgänglighetsgruppen. Mer information finns i [Konfigurera en ILB-lyssnare för AlwaysOn-tillgänglighetsgrupper i Azure](../classic/ps-sql-int-listener.md).
 
-Det är viktigt att du går igenom alla rekommenderade säkerhets metoder för SQL Server som körs på en virtuell Azure-dator. Mer information finns i [Säkerhetsöverväganden för SQL Server på Azure Virtual Machines](../sql/virtual-machines-windows-sql-security.md).
+Det är viktigt att granska alla de bästa säkerhetsrutinerna för SQL Server som körs på en virtuell Azure-dator. Mer information finns i [Säkerhetsöverväganden för SQL Server på Azure Virtual Machines](../sql/virtual-machines-windows-sql-security.md).
 
 [Utforska utbildningsvägen](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) för SQL Server på virtuella datorer i Azure. 
 
-Andra avsnitt om att köra SQL Server i virtuella Azure-datorer finns [SQL Server på Azure-Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Mer information om hur du kör SQL Server i virtuella Azure-datorer finns i [SQL Server på virtuella Azure-datorer](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
 

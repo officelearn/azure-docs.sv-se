@@ -1,7 +1,7 @@
 ---
-title: Använda .NET för att hantera egenskaper och metadata för en BLOB-behållare
+title: Använda .NET för att hantera egenskaper och metadata för en blob-behållare
 titleSuffix: Azure Storage
-description: Lär dig hur du ställer in och hämtar system egenskaper och lagrar anpassade metadata i BLOB-behållare i ditt Azure Storage konto med hjälp av .NET-klient biblioteket.
+description: Lär dig hur du ställer in och hämtar systemegenskaper och lagrar anpassade metadata på blob-behållare i ditt Azure Storage-konto med hjälp av .NET-klientbiblioteket.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,37 +9,37 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.openlocfilehash: c66b521b5cd75825fcafe07b24d5d527c45f5153
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79135929"
 ---
-# <a name="manage-container-properties-and-metadata-with-net"></a>Hantera behållar egenskaper och metadata med .NET
+# <a name="manage-container-properties-and-metadata-with-net"></a>Hantera behållaregenskaper och metadata med .NET
 
-BLOB-behållare stöder system egenskaper och användardefinierade metadata, förutom de data som de innehåller. Den här artikeln visar hur du hanterar system egenskaper och användardefinierade metadata med [Azure Storage klient biblioteket för .net](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+Blob-behållare stöder systemegenskaper och användardefinierade metadata, utöver de data de innehåller. Den här artikeln visar hur du hanterar systemegenskaper och användardefinierade metadata med [Azure Storage-klientbiblioteket för .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
 ## <a name="about-properties-and-metadata"></a>Om egenskaper och metadata
 
-- **System egenskaper**: system egenskaper finns på varje Blob Storage-resurs. En del av dem kan läsas eller anges, medan andra är skrivskyddade. Under försättsblad motsvarar vissa system egenskaper vissa standard-HTTP-huvuden. Azure Storage klient bibliotek för .NET underhåller dessa egenskaper åt dig.
+- **Systemegenskaper**: Systemegenskaper finns på varje Blob-lagringsresurs. Vissa av dem kan läsas eller ställas in, medan andra är skrivskyddade. Under skalskydden motsvarar vissa systemegenskaper vissa standard-HTTP-huvuden. Azure Storage-klientbiblioteket för .NET underhåller dessa egenskaper åt dig.
 
-- **Användardefinierade metadata**: användardefinierade metadata består av ett eller flera namn-värdepar som du anger för en Blob Storage-resurs. Du kan använda metadata för att lagra ytterligare värden med resursen. Metadata-värden är enbart för egna behov och påverkar inte hur resursen beter sig.
+- **Användardefinierade metadata**: Användardefinierade metadata består av ett eller flera namnvärdespar som du anger för en Blob-lagringsresurs. Du kan använda metadata för att lagra ytterligare värden med resursen. Metadatavärden är endast för dina egna syften och påverkar inte hur resursen beter sig.
 
-Att hämta egenskaps-och metadata-värden för en Blob Storage-resurs är en två stegs process. Innan du kan läsa dessa värden måste du explicit hämta dem genom att anropa metoden **FetchAttributes** eller **FetchAttributesAsync** . Undantaget till den här regeln är att metoderna **exists** och **ExistsAsync** anropar lämplig **FetchAttributes** -metod under försättsblad. När du anropar någon av dessa metoder behöver du inte också anropa **FetchAttributes**.
+Att hämta egenskaps- och metadatavärden för en Blob-lagringsresurs är en tvåstegsprocess. Innan du kan läsa dessa värden måste du uttryckligen hämta dem genom att anropa metoden **FetchAttributes** eller **FetchAttributesAsync.** Undantaget från den här regeln är att metoderna **Exists** och **ExistsAsync** anropar lämplig **Metoden FetchAttributes** under omfattar. När du anropar någon av dessa metoder behöver du inte heller anropa **FetchAttributes**.
 
 > [!IMPORTANT]
-> Om du upptäcker att egenskaps-eller metadata-värden för en lagrings resurs inte har fyllts i kontrollerar du att koden anropar metoden **FetchAttributes** eller **FetchAttributesAsync** .
+> Om du upptäcker att egenskaps- eller metadatavärden för en lagringsresurs inte har fyllts i kontrollerar du att koden anropar metoden **FetchAttributes** eller **FetchAttributesAsync.**
 
-Metadata-namn/värde-par är giltiga HTTP-huvuden och bör därför följa alla begränsningar som gäller för HTTP-huvuden. Metadata-namn måste vara giltiga HTTP-huvudnamn C# och giltiga identifierare, får bara innehålla ASCII-tecken och bör behandlas som Skift läges okänsligt. Metadata-värden som innehåller icke-ASCII-tecken ska vara base64-kodade eller URL-kodade.
+Metadatanamn/värdepar är giltiga HTTP-huvuden och bör därför följa alla begränsningar som styr HTTP-huvuden. Metadatanamn måste vara giltiga HTTP-huvudnamn och giltiga C#-identifierare, får endast innehålla ASCII-tecken och bör behandlas som skiftlägesokänsliga. Metadatavärden som innehåller icke-ASCII-tecken ska vara Base64-kodade eller URL-kodade.
 
-## <a name="retrieve-container-properties"></a>Hämta behållar egenskaper
+## <a name="retrieve-container-properties"></a>Hämta behållaregenskaper
 
-Anropa någon av följande metoder för att hämta behållar egenskaper:
+Om du vill hämta behållaregenskaper anropar du någon av följande metoder:
 
 - [FetchAttributes](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributes)
 - [FetchAttributesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.fetchattributesasync)
 
-Följande kod exempel hämtar en behållares system egenskaper och skriver några egenskaps värden till ett konsol fönster:
+I följande kodexempel hämtas en behållares systemegenskaper och vissa egenskapsvärden skrivs till ett konsolfönster:
 
 ```csharp
 private static async Task ReadContainerPropertiesAsync(CloudBlobContainer container)
@@ -65,14 +65,14 @@ private static async Task ReadContainerPropertiesAsync(CloudBlobContainer contai
 
 ## <a name="set-and-retrieve-metadata"></a>Ange och hämta metadata
 
-Du kan ange metadata som ett eller flera namn-värdepar på en BLOB-eller container resurs. Om du vill ange metadata lägger du till namn-värdepar i **metadata** -samlingen på resursen och anropar sedan någon av följande metoder för att skriva värdena:
+Du kan ange metadata som ett eller flera namnvärdespar på en blob- eller behållarresurs. Om du vill ange metadata lägger du till namnvärdespar i **metadatasamlingen** på resursen och anropar sedan någon av följande metoder för att skriva värdena:
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.setmetadataasync)
 
-Namnet på dina metadata måste följa namngivnings konventionerna för C# identifierare. Metadata-namn bevarar det Skift läge som de skapades i, men är Skift läges okänsliga när de har angetts eller lästs. Om två eller flera metadata-huvuden med samma namn skickas för en resurs returnerar Blob Storage HTTP-felkoden 400 (felaktig begäran).
+Namnet på dina metadata måste överensstämma med namngivningskonventionerna för C#-identifierare. Metadatanamn bevarar det ärende som de skapades med, men är skiftlägesokänsliga när de ställs in eller läses. Om två eller flera metadatarubriker med samma namn skickas för en resurs returnerar Blob-lagring HTTP-felkod 400 (Felaktig begäran).
 
-I följande kod exempel anges metadata i en behållare. Ett värde anges med samlingens **Add** -metod. Det andra värdet anges med implicit nyckel/värde-syntax. Båda är giltiga.
+I följande kodexempel anges metadata på en behållare. Ett värde anges med hjälp **Add** av samlingens Add-metod. Det andra värdet anges med implicit nyckel/värdesyntax. Båda är giltiga.
 
 ```csharp
 public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
@@ -97,7 +97,7 @@ public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 }
 ```
 
-Om du vill hämta metadata anropar du metoden **FetchAttributes** eller **FetchAttributesAsync** på blobben eller behållaren för att fylla i **metadata** -samlingen och läser sedan värdena, som visas i exemplet nedan.
+Om du vill hämta metadata anropar du metoden **FetchAttributes** eller **FetchAttributesAsync** på din blob eller behållare för att fylla i **metadatasamlingen** och läser sedan värdena, som visas i exemplet nedan.
 
 ```csharp
 public static async Task ReadContainerMetadataAsync(CloudBlobContainer container)
@@ -130,6 +130,6 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 ## <a name="see-also"></a>Se även
 
-- [Hämta container egenskaper-åtgärd](/rest/api/storageservices/get-container-properties)
-- [Ange metadata åtgärd för container](/rest/api/storageservices/set-container-metadata)
-- [Hämta metadata åtgärd för behållare](/rest/api/storageservices/set-container-metadata)
+- [Åtgärden Hämta behållaregenskaper](/rest/api/storageservices/get-container-properties)
+- [Ange åtgärden Behållarindata](/rest/api/storageservices/set-container-metadata)
+- [Hämta åtgärden Behålla metadata](/rest/api/storageservices/set-container-metadata)

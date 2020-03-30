@@ -1,7 +1,7 @@
 ---
-title: Automatisk träna en tids serie prognos modell
+title: Auto-träna en prognosmodell för tidsserier
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder Azure Machine Learning för att träna en Regressions Regressions modell i Time Series med hjälp av automatisk maskin inlärning.
+description: Lär dig hur du använder Azure Machine Learning för att träna en regressionsmodell för prognostisering i tidsserier med hjälp av automatiserad maskininlärning.
 services: machine-learning
 author: trevorbye
 ms.author: trbye
@@ -11,60 +11,60 @@ ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.openlocfilehash: d4e36c0d3838af85768453496a51ecd295c22b93
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79081853"
 ---
-# <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
+# <a name="auto-train-a-time-series-forecast-model"></a>Auto-träna en prognosmodell för tidsserier
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du tränar en uppskattnings Regressions modell i Time Series med hjälp av automatisk maskin inlärning i Azure Machine Learning. Att konfigurera en prognos modell liknar att konfigurera en standard Regressions modell med hjälp av automatisk maskin inlärning, men vissa konfigurations alternativ och för bearbetnings steg finns för att arbeta med Time Series-data. I följande exempel visas hur du:
+I den här artikeln får du lära dig hur du tränar en regressionsmodell för prognostisering i tidsserier med hjälp av automatiserad maskininlärning i Azure Machine Learning. Konfigurera en prognosmodell liknar att ställa in en standard regressionsmodell med hjälp av automatiserad maskininlärning, men vissa konfigurationsalternativ och förbearbetningssteg finns för att arbeta med tidsseriedata. Följande exempel visar hur du:
 
-* Förbereda data för tids serie modellering
-* Konfigurera angivna parametrar för tids serier i ett [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) -objekt
-* Köra förutsägelser med Time Series-data
+* Förbereda data för tidsseriemodellering
+* Konfigurera specifika tidsserieparametrar i ett [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) objekt
+* Kör förutsägelser med tidsseriedata
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
-Du kan använda automatiserad ML för att kombinera teknik och metoder och få en rekommenderad prognos för tids serier med hög kvalitet. Ett automatiserat experiment med tids serier behandlas som ett multivarierad Regressions problem. Tidigare tids serie värden är "pivoterade" för att bli ytterligare dimensioner för modellerings regressor tillsammans med andra förutsägelser.
+Du kan använda automatiserad ML för att kombinera tekniker och metoder och få en rekommenderad, högkvalitativ tidsserieprognos. Ett automatiserat tidsserieexperiment behandlas som ett multivariat regressionsproblem. Tidigare tidsserievärden är "pivoterade" för att bli ytterligare dimensioner för regressor tillsammans med andra prediktorer.
 
-Den här metoden, till skillnad från klassiska Time Series-metoder, har en fördel med att använda flera sammanhangsbaserade variabler och deras relation till varandra under utbildningen. I verkliga prognos program kan flera faktorer påverka en prognos. Till exempel, när försäljnings prognoser används, interaktioner över historiska trender, utbytes pris och pris alla gemensamt styr försäljnings resultatet. En ytterligare förmån är att alla nya innovationer i Regressions modeller omedelbart tillämpas på prognoser.
+Detta tillvägagångssätt, till skillnad från klassiska tidsseriemetoder, har en fördel av att naturligt införliva flera kontextuella variabler och deras förhållande till varandra under träning. I verkliga prognosprogram kan flera faktorer påverka en prognos. Till exempel vid prognostisering av försäljning, interaktioner mellan historiska trender, växelkurs och pris alla gemensamt driva försäljningsutfallet. En ytterligare fördel är att alla nya innovationer i regressionsmodeller omedelbart gäller för prognoser.
 
-Du kan [Konfigurera](#config) hur långt i framtiden prognosen ska utsträckas (prognos Horisont) samt lags med mera. Med automatisk ML får du en enda, men ofta ingrenad modell för alla objekt i data uppsättningen och förutsägelserna. Mer data är därför tillgängliga för att uppskatta modell parametrar och generalisering till osett-serien blir möjlig.
+Du kan [konfigurera](#config) hur långt in i framtiden prognosen ska sträcka sig (prognoshorisonten), samt fördröjningar med mera. Automatiserad ML lär sig en enda, men ofta internt grenade modell för alla objekt i datauppsättningen och förutsägelsehorisonterna. Mer data är således tillgängliga för att uppskatta modellparametrar och generalisering till osynliga serier blir möjligt.
 
-Funktioner som har extraherats från tränings data spelar en viktig roll. Och automatiserade ML utför standard för bearbetnings steg och genererar ytterligare tids serie funktioner för att fånga säsongs effekter och maximera förutsägelse noggrannhet.
+Funktioner som extraheras från träningsdata spelar en avgörande roll. Och automatiserade ML utför standardförbehandlingssteg och genererar ytterligare funktioner i tidsserier för att fånga säsongseffekter och maximera prediktiv noggrannhet.
 
-## <a name="time-series-and-deep-learning-models"></a>Tids serie-och djup inlärnings modeller
+## <a name="time-series-and-deep-learning-models"></a>Time-series och Deep Learning modeller
 
 
-Med automatisk ML får användare både interna Time-och djup inlärnings modeller som en del av rekommendations systemet. Dessa lärare är:
-+ Prophet
-+ ARIMA automatiskt
-+ ForecastTCN
+Automatiserad ML ger användare med både inbyggda tidsserier och djupinlärningsmodeller som en del av rekommendationssystemet. Bland dessa elever finns:
++ Profeten
++ Auto-ARIMA
++ PrognosTCN
 
-Med automatiserad MLs djup inlärning kan du prognostisera univariate-och multivarierad Time Series-data.
+Automatiserad ML: s djupinlärning möjliggör prognoser univariat och multivariata tidsserier data.
 
-Djup inlärnings modeller har tre inbyggda funktioner:
-1. De kan lära sig från valfria mappningar från indata till utdata
-1. De stöder flera indata och utdata
+Deep learning-modeller har tre inneboende funktioner:
+1. De kan lära sig av godtyckliga mappningar från ingångar till utdata
+1. De stöder flera ingångar och utgångar
 1. De kan automatiskt extrahera mönster i indata som sträcker sig över långa sekvenser
 
-Med större data kan djup inlärnings modeller, till exempel Microsofts ForecastTCN, förbättra poängen i den resulterande modellen. 
+Med tanke på större data kan djupinlärningsmodeller, till exempel Microsofts ForecastTCN, förbättra poängen för den resulterande modellen. 
 
-Interna Time Series-läraare tillhandahålls också som en del av automatiserad ML. Prophet fungerar bäst med tids serier som har starka säsongs effekter och flera säsonger av historiska data. Prophet är korrekt & snabbt, robust för att kunna avvika, saknade data och dramatiska ändringar i din tids serie. 
+Inbyggda tidsserier elever tillhandahålls också som en del av automatiserade ML. Profeten fungerar bäst med tidsserier som har starka säsongseffekter och flera säsonger av historiska data. Profeten är korrekt & snabb, robust för avvikare, saknade data och dramatiska förändringar i din tidsserie. 
 
-Autoregressivt Integrated glidande medelvärde (ARIMA) är en populär statistisk metod för tids serie prognoser. Den här metoden för Prognosticering används ofta på kort sikts scenarier där data visar bevis på trender, till exempel cykler, som kan vara oförutsägbara och svåra för modeller eller prognoser. AutoARIMA omvandlar dina data till station ära data för att få konsekventa, pålitliga resultat.
+ArIMA (AutoRegressive Integrated Moving Average) är en populär statistisk metod för tidsserieprognoser. Denna teknik för prognoser används ofta i kortsiktiga prognosscenarier där data visar tecken på trender som cykler, som kan vara oförutsägbara och svåra att modellera eller förutse. Auto-ARIMA omvandlar dina data till stationära data för att få konsekventa och tillförlitliga resultat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En Azure Machine Learning-arbetsyta. Information om hur du skapar arbets ytan finns i [skapa en Azure Machine Learning arbets yta](how-to-manage-workspace.md).
-* I den här artikeln förutsätter vi att du har konfigurerat ett automatiserat experiment för maskin inlärning. Följ [själv studie kursen](tutorial-auto-train-models.md) eller [anvisningar](how-to-configure-auto-train.md) för att se design mönster för det grundläggande automatiserade maskin inlärnings experimentet.
+* En Azure Machine Learning-arbetsyta. Information om hur du skapar arbetsytan finns i [Skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
+* Den här artikeln förutsätter grundläggande förtrogenhet med att konfigurera ett automatiserat maskininlärningsexperiment. Följ [självstudien](tutorial-auto-train-models.md) eller instruktioner för [att](how-to-configure-auto-train.md) se de grundläggande automatiserade maskininlärningsexperimentdesignmönster.
 
-## <a name="preparing-data"></a>Förbereda data
+## <a name="preparing-data"></a> Förbereda data
 
-Den viktigaste skillnaden mellan en typ av Regressions Regressions typ och Regressions aktivitet i Automatisk maskin inlärning är bland annat en funktion i dina data som representerar en giltig tids serie. En vanlig tids serie har en väldefinierad och konsekvent frekvens och har ett värde vid varje exempel punkt i ett kontinuerligt tidsintervall. Överväg följande ögonblicks bild av en fil `sample.csv`.
+Den viktigaste skillnaden mellan en prognosregressionsaktivitetstyp och regressionsaktivitetstyp inom automatiserad maskininlärning är att inkludera en funktion i dina data som representerar en giltig tidsserie. En vanlig tidsserie har en väldefinierad och konsekvent frekvens och har ett värde vid varje provpunkt under en kontinuerlig tidsperiod. Tänk på följande ögonblicksbild `sample.csv`av en fil .
 
     day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
@@ -78,7 +78,7 @@ Den viktigaste skillnaden mellan en typ av Regressions Regressions typ och Regre
     9/7/2018,A,2450,36
     9/7/2018,B,650,36
 
-Den här data uppsättningen är ett enkelt exempel på dagliga försäljnings data för ett företag som har två olika butiker, A och B. Dessutom finns det en funktion för `week_of_year` som gör att modellen kan identifiera varje veckas säsongs beroende. Fältet `day_datetime` representerar en ren tids serie med den dagliga frekvensen och fältet `sales_quantity` är mål kolumnen för att köra förutsägelser. Läs data till en Pandas-dataframe och Använd sedan funktionen `to_datetime` för att se till att tids serien är en `datetime` typ.
+Denna datauppsättning är ett enkelt exempel på dagliga försäljningsdata för ett företag som har två `week_of_year` olika butiker, A och B. Dessutom finns det en funktion för som gör det möjligt för modellen att upptäcka säsongsvariationer varje vecka. Fältet `day_datetime` representerar en ren tidsserie med `sales_quantity` daglig frekvens och fältet är målkolumnen för att köra förutsägelser. Läs data i en Pandas-dataram `to_datetime` och använd sedan funktionen `datetime` för att säkerställa att tidsserien är en typ.
 
 ```python
 import pandas as pd
@@ -86,7 +86,7 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-I det här fallet sorteras data redan stigande efter Time-fältet `day_datetime`. Men när du konfigurerar ett experiment ser du till att kolumnen önskad tid sorteras i stigande ordning för att skapa en giltig tids serie. Anta att data innehåller 1 000 poster och gör en deterministisk delning i data för att skapa utbildnings-och test data uppsättningar. Identifiera etikettens kolumn namn och ange den som etikett. I det här exemplet kommer etiketten att `sales_quantity`. Separera sedan etikett fältet från `test_data` för att skapa `test_target`s uppsättningen.
+I det här fallet sorteras data redan stigande `day_datetime`efter tidsfältet . När du ställer in ett experiment ska du dock se till att den önskade tidskolumnen sorteras i stigande ordning för att skapa en giltig tidsserie. Anta att data innehåller 1 000 poster och gör en deterministisk delning av data för att skapa tränings- och testdatauppsättningar. Identifiera etikettkolumnens namn och ange det till etikett. I det här exemplet `sales_quantity`kommer etiketten att vara . Separera sedan etikettfältet `test_data` från `test_target` för att bilda uppsättningen.
 
 ```python
 train_data = data.iloc[:950]
@@ -98,33 +98,33 @@ test_labels = test_data.pop(label).values
 ```
 
 > [!NOTE]
-> När du tränar en modell för att förutsäga framtida värden kan du se till att alla funktioner som används i träningen kan användas när du kör förutsägelser för din avsedda horisont. När du skapar en prognos för efter frågan kan du till exempel öka inlärnings precisionen med en funktion för det aktuella lager priset. Men om du planerar att prognostisera med lång horisont kanske du inte kan förutsäga framtida lager värden som motsvarar framtida tids serie punkter och modell precisionen kan bli lidande.
+> När du tränar en modell för att prognostisera framtida värden, se till att alla funktioner som används i utbildningen kan användas när du kör förutsägelser för din avsedda horisont. När du till exempel skapar en efterfrågeprognos, inklusive en funktion för aktuell aktiekurs, kan det öka utbildningsnoggrannheten avsevärt. Men om du tänker prognos med en lång horisont, kanske du inte kan exakt förutsäga framtida lagervärden som motsvarar framtida tidsserier punkter, och modellen noggrannhet kan lida.
 
 <a name="config"></a>
-## <a name="configure-and-run-experiment"></a>Konfigurera och kör experiment
+## <a name="configure-and-run-experiment"></a>Konfigurera och köra experiment
 
-För prognos uppgifter använder automatisk maskin inlärning för bearbetning och beräknings steg som är aktuella för Time Series-data. Följande steg för bearbetning utförs:
+För prognosuppgifter använder automatiserad maskininlärning förbearbetnings- och uppskattningssteg som är specifika för tidsseriedata. Följande förbearbetningssteg kommer att utföras:
 
-* Identifiera exempel frekvensen för tids serier (till exempel varje timme, varje dag, varje vecka) och skapa nya poster för frånvaro tids punkter för att göra serien kontinuerlig.
-* Ange värden som saknas i målet (via Forward-Fill) och funktions kolumner (med kolumn värden i median)
-* Skapa korniga funktioner för att aktivera fasta effekter i olika serier
-* Skapa tidsbaserade funktioner för att hjälpa till med utbildnings säsongs mönster
-* Koda kategoriska-variabler till numeriska kvantiteter
+* Identifiera exempelfrekvens i tidsserier (till exempel timme, dag, vecka) och skapa nya poster för frånvarande tidspunkter för att göra serien kontinuerlig.
+* Tillskriv saknade värden i målet (via vidarefyllning) och funktionskolumner (med hjälp av mediankolumnvärden)
+* Skapa kornbaserade funktioner för att aktivera fasta effekter i olika serier
+* Skapa tidsbaserade funktioner som hjälper dig att lära sig säsongsmönster
+* Koda kategoriska variabler till numeriska kvantiteter
 
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) -objektet definierar de inställningar och data som krävs för en automatiserad maskin inlärnings uppgift. Precis som med ett Regressions problem definierar du standard utbildnings parametrar som aktivitets typ, antal iterationer, tränings data och antalet kors valideringar. För prognos uppgifter finns det ytterligare parametrar som måste anges som påverkar experimentet. I följande tabell beskrivs varje parameter och dess användning.
+Objektet [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) definierar de inställningar och data som krävs för en automatiserad maskininlärningsuppgift. I likhet med ett regressionsproblem definierar du standardträningsparametrar som aktivitetstyp, antal iterationer, träningsdata och antal korsvalideringar. För prognosaktiviteter finns det ytterligare parametrar som måste anges som påverkar experimentet. I följande tabell förklaras varje parameter och dess användning.
 
-| Parameter&nbsp;namn | Beskrivning | Krävs |
+| Parameternamn&nbsp; | Beskrivning | Krävs |
 |-------|-------|-------|
-|`time_column_name`|Används för att ange kolumnen datetime i de indata som används för att bygga tids serien och härleda dess frekvens.|✓|
-|`grain_column_names`|Namn (er) som definierar enskilda serie grupper i indata. Om kornig het inte har definierats antas data uppsättningen vara en tids serie.||
-|`max_horizon`|Definierar den högsta önskade prognos horisonten i enheter för tids serie frekvens. Enheter baseras på tidsintervallet för dina utbildnings data, till exempel varje månad, varje vecka att prognosen ska förutsäga.|✓|
-|`target_lags`|Antal rader att ange för fördröjning av målvärdena baserat på data frekvensen. Fördröjningen visas som en lista eller ett enda heltal. Fördröjning ska användas när relationen mellan oberoende variabler och beroende variabel inte matchar eller korrelerar som standard. När du till exempel försöker prognostisera efter frågan för en produkt kan efter frågan i någon månad bero på priset för vissa råvaruer 3 månader tidigare. I det här exemplet kanske du vill ange ett negativt värde för målet (efter frågan) med tre månader, så att modellen är en utbildning på rätt relation.||
-|`target_rolling_window_size`|*n* historiska perioder som ska användas för att generera prognostiserade värden < = storlek för tränings uppsättning. Om det utelämnas är *n* den fullständiga inlärnings uppsättningens storlek. Ange den här parametern när du bara vill ta hänsyn till en viss mängd historik när du tränar modellen.||
-|`enable_dnn`|Aktivera Prognosticering av Hyperoptimerade.||
+|`time_column_name`|Används för att ange datetime-kolumnen i indata som används för att skapa tidsserierna och dra slutsatsen att dess frekvens.|✓|
+|`grain_column_names`|Namn som definierar enskilda seriegrupper i indata. Om kornet inte har definierats antas datauppsättningen vara en tidsserie.||
+|`max_horizon`|Definierar den maximala önskade prognoshorisonten i enheter av tidsseriefrekvens. Enheter baseras på tidsintervallet för dina träningsdata, till exempel månadsvis, varje vecka som prognosmakaren ska förutsäga ut.|✓|
+|`target_lags`|Antal rader som ska fördröjs målvärdena baserat på datafrekvensen. Fördröjningen representeras som en lista eller ett enda heltal. Fördröjning bör användas när förhållandet mellan de oberoende variablerna och den beroende variabeln inte matchar eller korrelerar som standard. Till exempel, när man försöker prognostisera efterfrågan på en produkt, efterfrågan i en månad kan bero på priset på specifika råvaror 3 månader före. I det här exemplet kanske du vill släpa målet (efterfrågan) negativt med 3 månader så att modellen tränar på rätt relation.||
+|`target_rolling_window_size`|*n* historiska perioder att använda för att generera prognostiserade värden, <= träningsuppsättningsstorlek. Om utelämnas, *n* är full utbildning inställd storlek. Ange den här parametern när du bara vill ta hänsyn till en viss mängd historik när du tränar modellen.||
+|`enable_dnn`|Aktivera prognostisering DNN.||
 
-Mer information finns i [referens dokumentationen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) .
+Mer information finns i [referensdokumentationen.](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)
 
-Skapa tids serie inställningarna som ett Dictionary-objekt. Ange `time_column_name` till fältet `day_datetime` i data uppsättningen. Definiera parametern `grain_column_names` för att se till att **två separata tids serie grupper** skapas för data. en för Store A och B. Ange slutligen `max_horizon` till 50 för att förutsäga för hela test uppsättningen. Ange en prognos period på 10 perioder med `target_rolling_window_size`och ange en enda fördröjning på målvärdena för två perioder i förväg med parametern `target_lags`. Vi rekommenderar att du ställer in `max_horizon``target_rolling_window_size` och `target_lags` till "Auto", vilket automatiskt identifierar dessa värden. I exemplet nedan har inställningarna "Auto" använts för dessa parametrar. 
+Skapa tidsserieinställningarna som ett ordlisteobjekt. Ange `time_column_name` fältet `day_datetime` i datauppsättningen. Definiera `grain_column_names` parametern för att säkerställa att **två separata tidsseriegrupper** skapas för data. en för butik A och B. `max_horizon` Slutligen ställer du in 50 för att förutsäga för hela testuppsättningen. Ange ett prognosfönster till 10 perioder med `target_rolling_window_size`och ange en enda fördröjning `target_lags` på målvärdena för två perioder framåt med parametern. Det rekommenderas att `max_horizon` `target_rolling_window_size` ställa `target_lags` in , och att "auto" som automatiskt kommer att upptäcka dessa värden för dig. I exemplet nedan har "auto"-inställningar använts för dessa parametrar. 
 
 ```python
 time_series_settings = {
@@ -138,11 +138,11 @@ time_series_settings = {
 ```
 
 > [!NOTE]
-> Automatiserad bearbetning av Machine Learning för bearbetning (funktions normalisering, hantering av saknade data, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma för bearbetnings steg som tillämpas på dina indata-data automatiskt.
+> Automatiserade förbearbetningssteg för maskininlärning (funktionsnormalisering, hantering av data som saknas, konvertering av text till numeriska osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma förbearbetningssteg som tillämpas under träningen automatiskt på dina indata.
 
-Genom att definiera `grain_column_names` i kodfragmentet ovan skapar AutoML två separata Time-Series-grupper, även kallat flera tids serier. Om ingen kornig het har definierats kommer AutoML att anta att data uppsättningen är en enda tids serie. Mer information om engångs-serien finns i [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+Genom att `grain_column_names` definiera kodavsnittet ovan skapar AutoML två separata tidsseriegrupper, även kallade flera tidsserier. Om inget korn har definierats antar AutoML att datauppsättningen är en enda tidsserie. Mer information om enstaka tidsserier finns i [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-Skapa nu ett standard `AutoMLConfig`-objekt, ange aktivitets typen `forecasting` och skicka experimentet. När modellen har slutförts hämtar du den bästa körnings iterationen.
+Skapa nu `AutoMLConfig` ett standardobjekt, `forecasting` ange aktivitetstypen och skicka experimentet. När modellen är klar hämtar du den bästa körningsiterationen.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -167,52 +167,52 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-Se [exempel antecknings böcker för Prognosticering](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) för detaljerade kod exempel på avancerad prognos konfiguration, inklusive:
+Se [prognostiseringsprovets anteckningsböcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) för detaljerade kodexempel på avancerad prognoskonfiguration, inklusive:
 
-* [jul avkänning och funktionalisering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [kors validering av rullande ursprung](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* [konfigurerbar lags](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
-* [mängd funktioner för rullande fönster](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
-* [DNN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
+* [semester upptäckt och featurization](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [validering av korsvalidering av rullande ursprung](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [konfigurerbara fördröjningar](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [sammanlagt funktioner för rullande fönster](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [Dnn](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
 
-### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Konfigurera en DNN aktivera prognos experiment
+### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Konfigurera ett DNN-aktiverat prognosexperiment
 
 > [!NOTE]
-> DNN-stöd för Prognosticering i automatiserade Machine Learning är i för hands version och stöds inte för lokala körningar.
+> DNN-stöd för prognoser i automatiserad maskininlärning finns i förhandsversion och stöds inte för lokala körningar.
 
-För att kunna utnyttja Hyperoptimerade för prognostisering måste du ange parametern `enable_dnn` i AutoMLConfig till true. 
+För att kunna utnyttja DNN för prognoser måste `enable_dnn` du ställa in parametern i AutoMLConfig till true. 
 
-Vi rekommenderar att du använder ett AML beräknings kluster med GPU SKU: er och minst två noder som beräknings mål. För att få tillräckligt med tid för att DNN-utbildningen ska slutföras rekommenderar vi att du ställer in experiment tids gränsen på minst ett par timmar.
-Mer information om AML-beräkning och VM-storlekar som innehåller GPU: n finns i [AML Compute-dokumentationen](how-to-set-up-training-targets.md#amlcompute) och [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+Vi rekommenderar att du använder ett AML Compute-kluster med GPU SKU:er och minst två noder som beräkningsmål. För att ge tillräckligt med tid för att DNN-träningen ska slutföras rekommenderar vi att du ställer in tidsgränsen för experimentet på minst ett par timmar.
+Mer information om AML-beräknings- och VM-storlekar som innehåller GPU:er finns i [dokumentationen för AML Compute](how-to-set-up-training-targets.md#amlcompute) och [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
 
-Visa [Notebook Production Forecasting-anteckningsboken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) för ett detaljerat kod exempel som utnyttjar hyperoptimerade.
+Visa [anteckningsboken dryckesproduktionsprognoser](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) för ett detaljerat kodexempel som använder DNN.
 
-### <a name="view-feature-engineering-summary"></a>Visa sammanfattning av funktions teknik
+### <a name="view-feature-engineering-summary"></a>Visa sammanfattning av funktionsteknik
 
-För aktivitets typer för Time-serien i Automatisk maskin inlärning kan du Visa information från funktions teknik processen. Följande kod visar varje RAW-funktion tillsammans med följande attribut:
+För tidsserieuppgifter i automatiserad maskininlärning kan du visa information från funktionsteknikprocessen. Följande kod visar varje rå funktion tillsammans med följande attribut:
 
-* Oformaterat funktions namn
-* Antalet funktioner som skapats av den här RAW-funktionen
-* Typ identifierad
-* Om funktionen har släppts
-* Lista över funktions omvandlingar för RAW-funktionen
+* Namn på funktionen Rå
+* Antal konstruerade funktioner som bildats av den här råa funktionen
+* Typ har upptäckts
+* Om funktionen har tagits bort
+* Lista över funktionsomvandlingar för råfunktionen
 
 ```python
 fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 ```
 
-## <a name="forecasting-with-best-model"></a>Prognosticering med bästa modell
+## <a name="forecasting-with-best-model"></a>Prognostisering med bästa modell
 
-Använd den bästa modellen iterationer för att beräkna prognos värden för data uppsättningen test.
+Använd den bästa modelliterationen för att prognostisera värden för testdatauppsättningen.
 
 ```python
 predict_labels = fitted_model.predict(test_data)
 actual_labels = test_labels.flatten()
 ```
 
-Du kan också använda funktionen `forecast()` i stället för `predict()`, vilket gör det möjligt att ange specifikationer för när förutsägelserna ska starta. I följande exempel ersätter du först alla värden i `y_pred` med `NaN`. Prognosens ursprung är i slutet av tränings data i det här fallet, eftersom det normalt skulle vara när `predict()`används. Men om du bara ersatte den andra halvan av `y_pred` med `NaN`, lämnar funktionen de numeriska värdena i den första halvan oförändrade, men prognoserar `NaN` värdena i den andra halvan. Funktionen returnerar både de beräknade värdena och de justerade funktionerna.
+Alternativt kan du använda `forecast()` funktionen `predict()`i stället för , vilket tillåter specifikationer för när förutsägelser ska starta. I följande exempel ersätter du `y_pred` först `NaN`alla värden med . Det prognostiserade ursprunget kommer att vara i slutet av utbildningsdata i detta fall, som det normalt skulle vara när du använder `predict()`. Men om du bara ersatte `y_pred` den `NaN`andra halvan av med , skulle funktionen lämna de `NaN` numeriska värdena i första halvlek oförändrade, men prognostisera värdena i andra halvlek. Funktionen returnerar både de prognostiserade värdena och de justerade funktionerna.
 
-Du kan också använda parametern `forecast_destination` i `forecast()`-funktionen för att beräkna värden fram till ett visst datum.
+Du kan också `forecast_destination` använda `forecast()` parametern i funktionen för att prognostisera värden fram till ett angivet datum.
 
 ```python
 label_query = test_labels.copy().astype(np.float)
@@ -221,7 +221,7 @@ label_fcst, data_trans = fitted_pipeline.forecast(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-Beräkna RMSE (rot genomsnitts fel) mellan `actual_labels` faktiska värdena och de prognostiserade värdena i `predict_labels`.
+Beräkna RMSE (rotmedelsrutat `actual_labels` fel) mellan de faktiska `predict_labels`värdena och de prognostiserade värdena i .
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -231,18 +231,18 @@ rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-Nu när den övergripande modell precisionen har fastställts är det mest realistiska nästa steg att använda modellen för att förutsäga okända framtida värden. Ange en data uppsättning i samma format som test uppsättningen `test_data` men med framtida datetime-värden och den resulterande förutsägelse uppsättningen är de prognostiserade värdena för varje tids serie steg. Anta att de senaste tid serie posterna i data uppsättningen var i 12/31/2018. Om du vill prognostisera efter frågan för nästa dag (eller så många perioder som du behöver prognos, < = `max_horizon`), skapar du en post för en tids serie för varje butik för 01/01/2019.
+Nu när den övergripande modellens noggrannhet har fastställts är det mest realistiska nästa steget att använda modellen för att prognostisera okända framtida värden. Ange en datauppsättning i samma format `test_data` som testuppsättningen men med framtida datumtider, och den resulterande förutsägelseuppsättningen är de prognostiserade värdena för varje steg i tidsserierna. Anta att de senaste tidsserieposterna i datauppsättningen var för 12/31/2018. Om du vill prognostisera efterfrågan för nästa dag (eller så `max_horizon`många perioder som du behöver prognostisera, <= ) skapar du en enda tidsseriepost för varje butik för 2019-01-01.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1
     01/01/2019,A,1
 
-Upprepa de nödvändiga stegen för att läsa in framtida data till en dataframe och kör sedan `best_run.predict(test_data)` för att förutsäga framtida värden.
+Upprepa de nödvändiga stegen för att läsa in `best_run.predict(test_data)` framtida data till en dataram och kör sedan för att förutsäga framtida värden.
 
 > [!NOTE]
-> Det går inte att förutsäga värden för antalet perioder som är större än `max_horizon`. Modellen måste tränas om med en större horisont för att förutsäga framtida värden bortom den aktuella horisonten.
+> Värden kan inte förutsägas för ett `max_horizon`antal perioder som är större än . Modellen måste omformas med en större horisont för att förutsäga framtida värden bortom den nuvarande horisonten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Följ [själv studie kursen](tutorial-auto-train-models.md) för att lära dig hur du skapar experiment med automatiserad maskin inlärning.
-* Visa [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens dokumentation.
+* Följ [självstudien](tutorial-auto-train-models.md) för att lära dig hur du skapar experiment med automatiserad maskininlärning.
+* Visa referensdokumentationen [för Azure Machine Learning SDK för Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

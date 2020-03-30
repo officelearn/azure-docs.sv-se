@@ -1,50 +1,50 @@
 ---
-title: Lägg till autentisering i UWP-appen
-description: Lär dig hur du använder Azure App Service Mobile Apps för att autentisera användare av din Universell Windows-plattform-app (UWP) med identitets leverantörer som AAD, Google, Facebook, Twitter och Microsoft.
+title: Lägga till autentisering i din UWP-app
+description: Lär dig hur du använder Azure App Service Mobile Apps för att autentisera användare av din UWP-app (Universal Windows Platform) med identitetsleverantörer som AAD, Google, Facebook, Twitter och Microsoft.
 ms.assetid: 6cffd951-893e-4ce5-97ac-86e3f5ad9466
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 32d4313b345964a2db13d68e83f81756a4acf0d9
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77458944"
 ---
-# <a name="add-authentication-to-your-windows-app"></a>Lägg till autentisering i Windows-appen
+# <a name="add-authentication-to-your-windows-app"></a>Lägga till autentisering i Din Windows-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## <a name="overview"></a>Översikt
-Det här avsnittet visar hur du lägger till molnbaserad autentisering i mobilappen. I den här självstudien lägger du till autentisering i snabb starts projektet för Universell Windows-plattform (UWP) för Mobile Apps med hjälp av en identitetsprovider som stöds av Azure App Service. När du har autentiserat och auktoriserat av din server del för mobilappen visas värdet användar-ID.
+I det här avsnittet visas hur du lägger till molnbaserad autentisering i mobilappen. I den här självstudien lägger du till autentisering i snabbstartsprojektet för Universell Windows-plattform (UWP) för mobilappar med hjälp av en identitetsprovider som stöds av Azure App Service. När användar-ID-värdet har autentiserats och auktoriserats av din mobile app-backend visas det.
 
-Den här självstudien baseras på Mobile Apps snabb start. Du måste först gå igenom kursen [Kom igång med Mobile Apps](app-service-mobile-windows-store-dotnet-get-started.md).
+Den här självstudien baseras på snabbstarten för mobilappar. Du måste först slutföra självstudien [Kom igång med mobilappar](app-service-mobile-windows-store-dotnet-get-started.md).
 
-## <a name="register"></a>Registrera din app för autentisering och konfigurera App Service
+## <a name="register-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>Registrera appen för autentisering och konfigurera App-tjänsten
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Lägg till din app i de tillåtna externa omdirigerings-URL: erna
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>Lägga till appen i url:erna för tillåtna externa omdirigering
 
-Säker autentisering kräver att du definierar ett nytt URL-schema för din app. Detta gör att Authentication-systemet kan omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder _vi program_ varan för URL-program i alla. Du kan dock använda alla URL-scheman du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på Server sidan:
+Säker autentisering kräver att du definierar ett nytt URL-schema för din app. Detta gör det möjligt för autentiseringssystemet att omdirigera tillbaka till din app när autentiseringsprocessen är klar. I den här självstudien använder vi _url-schemats appnamn_ hela tiden. Du kan dock använda vilket URL-schema du vill. Den ska vara unik för din mobilapplikation. Så här aktiverar du omdirigering på serversidan:
 
-1. I [Azure Portal](https://ms.portal.azure.com)väljer du App Service.
+1. Välj din App-tjänst i [Azure-portalen.](https://ms.portal.azure.com)
 
-2. Klicka på meny alternativet **autentisering/auktorisering** .
+2. Klicka på **menyalternativet Autentisering/auktorisering.**
 
-3. I de **tillåtna externa omdirigerings-URL: erna**anger du `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** i den här STRÄNGEN är URL-schemat för det mobila programmet.  Den bör följa normal URL-specifikation för ett protokoll (Använd bara bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer när du behöver justera koden för mobil program med URL-schemat på flera platser.
+3. Ange i **url:erna Tillåten extern omdirigering** `url_scheme_of_your_app://easyauth.callback`.  Den **url_scheme_of_your_app** i den här strängen är URL-schemat för din mobilapplikation.  Den bör följa normal URL-specifikation för ett protokoll (använd endast bokstäver och siffror och börja med en bokstav).  Du bör anteckna strängen som du väljer eftersom du måste justera din mobilprogramkod med URL-schemat på flera ställen.
 
-4. Klicka på **Save** (Spara).
+4. Klicka på **Spara**.
 
-## <a name="permissions"></a>Begränsa behörigheter till autentiserade användare
+## <a name="restrict-permissions-to-authenticated-users"></a><a name="permissions"></a>Begränsa behörigheter till autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Nu kan du kontrol lera att anonym åtkomst till Server delen har inaktiverats. Med UWP app-projektet inställt som start projekt, distribuera och kör appen. kontrol lera att ett ohanterat undantag med status kod 401 (obehörig) utlöses när appen startar. Detta inträffar eftersom appen försöker komma åt din mobilapp som en oautentiserad användare, men *TodoItem* -tabellen kräver nu autentisering.
+Nu kan du kontrollera att anonym åtkomst till din backend har inaktiverats. Med UWP-appprojektet inställt som startprojekt distribuerar och kör appen. kontrollera att ett ohanterat undantag med en statuskod på 401 (Obehörig) utlöses när appen startar. Detta beror på att appen försöker komma åt din mobilappkod som en oautentiserade användare, men *tabellen TodoItem* kräver nu autentisering.
 
-Sedan ska du uppdatera appen för att autentisera användare innan du begär resurser från din App Service.
+Därefter uppdaterar du appen för att autentisera användare innan du begär resurser från apptjänsten.
 
-## <a name="add-authentication"></a>Lägg till autentisering i appen
-1. I projekt filen för UWP-appen MainPage.xaml.cs och lägger till följande kodfragment:
+## <a name="add-authentication-to-the-app"></a><a name="add-authentication"></a>Lägga till autentisering i appen
+1. I UWP-appprojektfilen MainPage.xaml.cs och lägg till följande kodavsnitt:
    
         // Define a member variable for storing the signed-in user. 
         private MobileServiceUser user;
@@ -77,8 +77,8 @@ Sedan ska du uppdatera appen för att autentisera användare innan du begär res
             return success;
         }
    
-    Den här koden autentiserar användaren med en Facebook-inloggning. Om du använder en annan identitets leverantör än Facebook ändrar du värdet för **MobileServiceAuthenticationProvider** ovanför till värdet för din Provider.
-2. Ersätt metoden **OnNavigatedTo ()** i mainpage.XAML.cs. Sedan lägger du till knappen **Logga** in i appen som utlöser autentisering.
+    Den här koden autentiserar användaren med en Facebook-inloggning. Om du använder en annan identitetsleverantör än Facebook ändrar du värdet för **MobileServiceAuthenticationProvider** ovan till värdet för din leverantör.
+2. Ersätt metoden **OnNavigatedTo()** i MainPage.xaml.cs. Därefter lägger du till knappen **Logga in i** appen som utlöser autentisering.
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -88,7 +88,7 @@ Sedan ska du uppdatera appen för att autentisera användare innan du begär res
             }
         }
 
-3. Lägg till följande kodfragment i MainPage.xaml.cs:
+3. Lägg till följande kodavsnitt i MainPage.xaml.cs:
    
         private async void ButtonLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -102,7 +102,7 @@ Sedan ska du uppdatera appen för att autentisera användare innan du begär res
                 await RefreshTodoItems();
             }
         }
-4. Öppna projekt filen MainPage. XAML, leta upp det element som definierar knappen **Spara** och ersätt den med följande kod:
+4. Öppna projektfilen MainPage.xaml, leta reda på elementet som definierar **knappen Spara** och ersätt den med följande kod:
    
         <Button Name="ButtonSave" Visibility="Collapsed" Margin="0,8,8,0" 
                 Click="ButtonSave_Click">
@@ -118,7 +118,7 @@ Sedan ska du uppdatera appen för att autentisera användare innan du begär res
                 <TextBlock Margin="5">Sign in</TextBlock> 
             </StackPanel>
         </Button>
-5. Lägg till följande kodfragment i App.xaml.cs:
+5. Lägg till följande kodavsnitt i App.xaml.cs:
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -134,21 +134,21 @@ Sedan ska du uppdatera appen för att autentisera användare innan du begär res
             Window.Current.Activate();
             base.OnActivated(args);
         }
-6. Öppna Package. appxmanifest-filen, navigera till **deklarationer**i list rutan **tillgängliga deklarationer** , Välj **protokoll** och klicka på knappen **Lägg till** . Nu ska du konfigurera **egenskaperna** för **protokoll** deklarationen. I **visnings namn**lägger du till det namn som du vill visa för användare av ditt program. I **namn**lägger du till {url_scheme_of_your_app}.
-7. Tryck på F5 för att köra appen, klicka på knappen **Logga in** och logga in på appen med den valda identitets leverantören. När inloggningen är klar körs appen utan fel och du kan ställa frågor till Server delen och göra uppdateringar av data.
+6. Öppna filen Package.appxmanifest, navigera till **deklarationer**, i listrutan **Tillgängliga deklarationer** väljer du **Protokoll** och klickar på Knappen **Lägg till.** Konfigurera nu **egenskaperna för** **protokolldeklarationen.** I **Visa namn**lägger du till det namn som du vill visa för användare av ditt program. Lägg till {url_scheme_of_your_app} i **Namn.**
+7. Tryck på F5 för att köra appen, klicka på **inloggningsknappen** och logga in på appen med din valda identitetsleverantör. När inloggningen har framgångsrikt körs appen utan fel och du kan fråga din backend och göra uppdateringar av data.
 
-## <a name="tokens"></a>Lagra autentiseringstoken på klienten
-Föregående exempel visade en standard inloggning, som kräver att klienten kontaktar både identitets leverantören och App Service varje gång appen startas. Det är inte bara den här metoden som är ineffektiv, du kan köra användnings problem om många kunder försöker starta appen samtidigt. En bättre metod är att cachelagra autentiseringstoken som returneras av din App Service och försöka använda det först innan du använder en providerspecifik inloggning.
+## <a name="store-the-authentication-token-on-the-client"></a><a name="tokens"></a>Lagra autentiseringstoken på klienten
+I föregående exempel visades en standard inloggning, som kräver att klienten kontaktar både identitetsleverantören och App-tjänsten varje gång appen startar. Den här metoden är inte bara ineffektiv, du kan stöta på problem med användning om många kunder försöker starta appen samtidigt. En bättre metod är att cachelagra auktoriseringstoken som returneras av din App-tjänst och försöka använda den här först innan du använder en providerbaserad inloggning.
 
 > [!NOTE]
-> Du kan cachelagra token som utfärdas av App Services oavsett om du använder klient-eller tjänstehanterad autentisering. I den här självstudien används tjänst hanterad autentisering.
+> Du kan cachelagra den token som utfärdats av App Services oavsett om du använder klienthanterad eller tjänsthanterad autentisering. Den här självstudien använder tjänsthanterad autentisering.
 > 
 > 
 
 [!INCLUDE [mobile-windows-universal-dotnet-authenticate-app-with-token](../../includes/mobile-windows-universal-dotnet-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har slutfört den här grundläggande autentiseringen kan du fortsätta med någon av följande själv studie kurser:
+Nu när du har slutfört den här grundläggande autentiseringsstudien bör du fortsätta till någon av följande självstudier:
 
 * [Lägg till push-meddelanden i appen](app-service-mobile-windows-store-dotnet-get-started-push.md)  
   Läs om hur du lägger till stöd för push-meddelanden i appen och konfigurerar serverdelen för mobilappen så att Azure Notification Hubs används för att skicka push-meddelanden.

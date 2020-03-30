@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudiekurs: Konfigurera Workplace by Facebook för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Workplace by Facebook.
 services: active-directory
 documentationCenter: na
@@ -16,57 +16,57 @@ ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77603218"
 ---
-# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudie: Konfigurera arbets ytan efter Facebook för automatisk användar etablering
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Workplace by Facebook för automatisk användaretablering
 
-I den här självstudien beskrivs de steg du behöver utföra i båda arbets platserna av Facebook och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [arbets ytan efter Facebook](https://work.workplace.com/) med Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
+I den här självstudien beskrivs de steg du behöver utföra på både Workplace by Facebook och Azure Active Directory (Azure AD) för att konfigurera automatisk användaretablering. När azure AD är konfigurerat avsersättningar och avsersättningar av användare och grupper till [Workplace av Facebook](https://work.workplace.com/) med hjälp av Azure AD-etableringstjänsten. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Migrera till den nya arbets ytan efter Facebook-program
-Om du har en befintlig integrering med arbets ytan av Facebook kan du läsa avsnittet nedan om vilka ändringar som kommer. Om du konfigurerar arbets ytan efter Facebook för första gången kan du hoppa över det här avsnittet och flytta till de funktioner som stöds. 
+## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Migrera till den nya Workplace by Facebook ansökan
+Om du har en befintlig integrering med Workplace by Facebook läser du avsnittet nedan om kommande ändringar. Om du konfigurerar Workplace by Facebook för första gången kan du hoppa över det här avsnittet och gå vidare till de funktioner som stöds. 
 
 #### <a name="whats-changing"></a>Vad förändras?
-* Ändringar på Azure AD-sidan: autentiseringsmetoden för att etablera användare i arbets platsen har tidigare varit en hemlig hemlig token. Snart kommer du att se den auktoriseringsregler som ändrades till beviljande av OAuth-auktorisering. 
-* Ändringar på arbets plats sidan: tidigare var Azure AD-appen en anpassad integrering på arbets platsen av Facebook. Nu kommer du att se Azure AD i katalogen för arbets plats integrering som ett program från tredje part. 
+* Ändringar på Azure AD-sidan: Auktoriseringsmetoden för att etablera användare på Workplace har historiskt varit en långlivad hemlig token. Snart kommer du att se auktoriseringsmetoden ändras till OAuth-auktoriseringsbidraget. 
+* Ändringar på workplace-sidan: Azure AD-appen var tidigare en anpassad integrering på Workplace by Facebook. Nu ser du Azure AD i katalogen Arbetsplatsintegreringar som ett tredjepartsprogram. 
 
  
 
-#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Vad behöver jag för att migrera min befintliga anpassade integrering till det nya programmet?
-Om du har en befintlig arbets plats integration med en giltig token **krävs ingen åtgärd**. Vi migrerar automatiskt kunder varje vecka till det nya programmet. Detta görs helt bakom bakgrunden. Om du inte kan vänta och vill flytta till det nya programmet manuellt kan du lägga till en ny instans av arbets ytan från galleriet och konfigurera etableringen igen. Alla nya instanser av arbets platsen kommer automatiskt att använda den nya program versionen. 
+#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Vad behöver jag göra för att migrera min befintliga anpassade integrering till det nya programmet?
+Om du har en befintlig Workplace-integrering med en giltig token **krävs ingen åtgärd**. Vi migrerar automatiskt kunder varje vecka till det nya programmet. Detta görs helt bakom kulisserna. Om du inte kan vänta och vill flytta till det nya programmet manuellt kan du lägga till en ny instans av Workplace från galleriet och konfigurera etableringen igen. Alla nya instanser av Workplace kommer automatiskt att använda den nya programversionen. 
 
  
-Om din arbets plats integrering är i karantän måste du ange en giltig token igen för att vi ska kunna migrera dig. Avsnittet admin credentials blir nedtonat, men du kan lägga till följande ( **? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride = True**) till din URL för att spara autentiseringsuppgifterna igen. 
+Om din Workplace-integrering är i karantän måste du ange en giltig token igen för att vi ska kunna migrera dig. Avsnittet administratörsautentiseringsuppgifter kommer att vara nedtonat, men du kan lägga till följande (**? Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true)** till webbadressen för att spara autentiseringsuppgifter igen. 
 
 https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
 
-#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Hur ser jag om mitt program har migrerats? 
-När ditt program migreras tas banderollen i avsnittet Authorization om att överföra ändringar bort och fältet hemligt token ersätts med en blå auktorisera-knapp. 
+#### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Hur vet jag om mitt program har migrerats? 
+När ditt program migreras tas banderollen i auktoriseringsavsnittet om omväljningsändringar bort och det hemliga tokenfältet ersätts med en blå auktoriseringsknapp. 
 
-#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>Avsnittet admin credentials är nedtonat i mitt program och jag kan inte spara. Varför?
-Vi har låst avsnittet admin credentials för befintliga arbets plats kunder. När klienten har migrerats till det nya arbets plats programmet kommer du att kunna uppdatera avsnittet admin-autentiseringsuppgifter igen. Om du inte kan vänta kan du använda URL: en ovan för att redigera ditt program. 
+#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>Avsnittet administratörsautentiseringsuppgifter är nedtonat på mitt program och jag kan inte spara. Varför det?
+Vi har låst avsnittet administratörsautentiseringsuppgifter för befintliga Workplace-kunder. När din klient har migrerats till det nya Workplace-programmet kan du uppdatera avsnittet administratörsautentiseringsuppgifter igen. Om du inte kan vänta kan du använda webbadressen ovan för att redigera programmet. 
 
  
-#### <a name="when-will-these-changes-happen"></a>När sker dessa ändringar?
-Alla nya instanser av arbets platsen använder redan den nya integrerings-/autentiseringsmetoden. Befintliga integrationer kommer att migreras gradvis av maj. Arbets grupps teamet har angett ett tillägg på tids gränsen från Feb-28 till maj-1. 
+#### <a name="when-will-these-changes-happen"></a>När kommer dessa förändringar att ske?
+Alla nya instanser av Workplace kommer redan att använda den nya integrations-/auktoriseringsmetoden. Befintliga integrationer kommer att migreras gradvis i maj. Arbetsgruppen har gett en förlängning av tidsfristen från 28 februari till 1 maj. 
 
 ## <a name="capabilities-supported"></a>Funktioner som stöds
 > [!div class="checklist"]
-> * Skapa användare på arbets ytan efter Facebook
-> * Ta bort användare i arbets ytan efter Facebook när de inte behöver åtkomst längre
-> * Behåll användarattribut synkroniserade mellan Azure AD och arbets platsen på Facebook
-> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) till arbets plats efter Facebook (rekommenderas)
+> * Skapa användare på Workplace by Facebook
+> * Ta bort användare på Workplace by Facebook när de inte längre behöver åtkomst
+> * Synkronisera användarattribut mellan Azure AD och Workplace by Facebook
+> * [Enkel inloggning på](https://docs.microsoft.com/azure/active-directory/saas-apps/workplacebyfacebook-tutorial) Workplace by Facebook (rekommenderas)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
 
 * [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör)
-* En arbets plats per Facebook-aktiverad prenumeration med enkel inloggning
+* Ett användarkonto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t.ex. programadministratör, molnprogramadministratör, programägare eller global administratör)
+* En arbetsplats av Facebook enkel inloggning aktiverat prenumeration
 
 > [!NOTE]
 > Vi rekommenderar att du inte använder en produktionsmiljö för att testa stegen i den här självstudien.
@@ -74,121 +74,121 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Använd inte din produktionsmiljö om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en utvärderingsmiljö för Azure AD kan du få en utvärderingsversion på en månad [här](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen
-1. Läs om [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Ta reda på vem som kommer att vara inom [omfånget för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Ta reda på vilka data som ska [mappas mellan Azure AD och arbets ytan på Facebook](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera distributionen av etableringen
+1. Läs mer om [hur etableringstjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Bestäm vem som ska vara i [omfång för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Bestäm vilka data som ska [mappas mellan Azure AD och Workplace by Facebook](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
-## <a name="step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera arbets ytan efter Facebook för att stödja etablering med Azure AD
+## <a name="step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Workplace by Facebook för att stödja etablering med Azure AD
 
-Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till din arbets plats av Facebook-appen. När du har bestämt dig kan du tilldela dessa användare till din arbets plats av Facebook-appen genom att följa anvisningarna här:
+Innan du konfigurerar och aktiverar etableringstjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till din Arbetsplats via Facebook-app. När du har bestämt dig kan du tilldela dessa användare till din Workplace via Facebook-appen genom att följa instruktionerna här:
 
-*   Vi rekommenderar att en enda Azure AD-användare tilldelas arbets platsen av Facebook för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+*   Vi rekommenderar att en enda Azure AD-användare tilldelas Workplace av Facebook för att testa etableringskonfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-*   När du tilldelar en användare till arbets ytan per Facebook måste du välja en giltig användar roll. Rollen "standard åtkomst" fungerar inte för etablering.
+*   När du tilldelar en användare till Workplace by Facebook måste du välja en giltig användarroll. Rollen "Standardåtkomst" fungerar inte för etablering.
 
-## <a name="step-3-add-workplace-by-facebook-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till arbets plats från Facebook från Azure AD-programgalleriet
+## <a name="step-3-add-workplace-by-facebook-from-the-azure-ad-application-gallery"></a>Steg 3. Lägga till Arbetsplats av Facebook från Azure AD-programgalleriet
 
-Lägg till arbets ytan från Facebook från Azure AD-programgalleriet för att börja hantera etablering till arbets platsen av Facebook. Om du tidigare har konfigurerat arbets ytan på Facebook för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen från början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
+Lägg till Workplace by Facebook från Azure AD-programgalleriet för att börja hantera etablering på Workplace by Facebook. Om du tidigare har konfigurerat Workplace by Facebook för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integrationen från början. Läs mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas inom omfånget för etablering 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska vara i utrymme för etablering 
 
-Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandahållas baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på attribut för användaren eller gruppen kan du använda ett omfångs filter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Azure AD-etableringstjänsten gör att du kan begränsa vem som ska etableras baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att begränsa vem som ska etableras i din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att begränsa vem som ska etableras enbart baserat på attribut för användaren eller gruppen kan du använda ett omfångsfilter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* När du tilldelar användare och grupper till arbets ytan per Facebook måste du välja en annan roll än **standard åtkomst**. Användare med standard åtkomst rollen undantas från etablering och markeras som inte faktiskt berättigade i etablerings loggarna. Om den enda rollen som är tillgänglig i programmet är standard åtkomst rollen kan du [Uppdatera applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
+* När du tilldelar användare och grupper till Workplace by Facebook måste du välja en annan roll än **Standardåtkomst**. Användare med rollen Standardåtkomst är undantagna från etablering och markeras som inte effektivt berättigade i etableringsloggarna. Om den enda roll som är tillgänglig för programmet är standardåtkomstrollen kan du [uppdatera programmanifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
 
-* Starta litet. Testa med en liten uppsättning användare och grupper innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Börja i liten skala. Testa med en liten uppsättning användare och grupper innan du distribuerar till alla. När omfång för etablering är inställt på tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När scopet är inställt på alla användare och grupper kan du ange ett [attributbaserat omfångsfilter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **arbets plats efter Facebook**.
+2. Välj Arbetsplats av **Facebook**i listan över applikationer .
 
     ![Länken för Workplace by Facebook i listan med program](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering.**
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Fliken Etablering](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ställ in **etableringsläget** på **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Fliken Etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** klickar du på **auktorisera**. Du kommer att omdirigeras till sidan för arbets plats på Facebook-sidan. Mata in din arbets plats efter Facebook-användarnamn och klicka på knappen **Fortsätt** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till arbets ytan på Facebook. Om anslutningen Miss lyckas ser du till att din arbets plats av Facebook-kontot har administratörs behörighet och försöker igen.
+5. Klicka på **Auktorisera**under avsnittet **Administratörsautentiseringsuppgifter** . Du kommer att omdirigeras till Workplace av Facebooks auktoriseringssida. Mata in ditt användarnamn på Workplace efter Facebook och klicka på knappen **Fortsätt.** Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till Workplace by Facebook. Om anslutningen misslyckas kontrollerar du att workplace by Facebook-kontot har administratörsbehörighet och försöker igen.
 
-    ![etablerings](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![Etableringen](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-    ![Ring](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
+    ![auktorisera](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 
-6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
+6. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan **Skicka ett e-postmeddelande när ett fel inträffar.**
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
 7. Välj **Spara**.
 
-8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till arbets ytan efter Facebook**.
+8. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-användare till arbetsplats av Facebook**.
 
-9. Granska de användarattribut som synkroniseras från Azure AD till arbets ytan efter Facebook i avsnittet **attribut-mappning** . De attribut som väljs som **matchande** egenskaper används för att matcha användar kontona på arbets platsen av Facebook för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att arbets ytan av Facebook API stöder filtrering av användare baserat på detta attribut. Välj knappen **Spara** för att spara ändringarna.
+9. Granska användarattributen som synkroniseras från Azure AD till Workplace av Facebook i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona på Workplace by Facebook för uppdateringsåtgärder. Om du väljer att ändra det [matchande målattributet](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att Workplace by Facebook API stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** om du vill utföra eventuella ändringar.
 
    |Attribut|Typ|
    |---|---|
-   |userName|Sträng|
-   |displayName|Sträng|
-   |aktiv|Boolesk|
-   |title|Boolesk|
-   |e-postmeddelanden [typ eq ”arbete pågår”] .value|Sträng|
-   |name.givenName|Sträng|
-   |name.familyName|Sträng|
-   |namn. formaterad|Sträng|
-   |adresser [Type EQ "Work"]. formaterad|Sträng|
-   |adresser typ eq ”arbete pågår” .streetAddress|Sträng|
-   |adresser [Type EQ "Work"]. plats|Sträng|
-   |adresser [Type EQ "Work"]. region|Sträng|
-   |adresser [Type EQ "Work"]. land|Sträng|
-   |adresser typ eq ”arbete pågår” .postalCode|Sträng|
-   |adresser [Type EQ "other"]. formaterad|Sträng|
-   |phoneNumbers [typ eq ”arbete pågår”] .value|Sträng|
-   |phoneNumbers [typ eq ”mobil”] .value|Sträng|
-   |phoneNumbers [typ eq ”fax”] .value|Sträng|
-   |externalId|Sträng|
-   |preferredLanguage|Sträng|
-   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Sträng|
-   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
+   |userName|String|
+   |displayName|String|
+   |aktiv|Boolean|
+   |title|Boolean|
+   |e-postmeddelanden[typ eq "arbete"].värde|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |name.formatted|String|
+   |adresser[skriv eq "work"].formaterad|String|
+   |adresser[typ eq "work"].streetAddress|String|
+   |adresser[typ eq "work"].locality|String|
+   |adresser[typ eq "arbete"].region|String|
+   |adresser[typ eq "arbete"].land|String|
+   |adresser[typ eq "arbete"].postalCode|String|
+   |adresser[skriv eq "other"].formaterad|String|
+   |phoneNumbers[typ eq "arbete"].värde|String|
+   |phoneNumbers[typ eq "mobil"].värde|String|
+   |phoneNumbers[typ eq "fax"].värde|String|
+   |externt|String|
+   |preferredLanguage|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
 
-10. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. Om du vill aktivera Azure AD Provisioning-tjänsten för arbets ytan av Facebook ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+11. Om du vill aktivera Azure AD-etableringstjänsten för Workplace by Facebook ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
 
-12. Definiera de användare och/eller grupper som du vill etablera till arbets ytan på Facebook genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+12. Definiera de användare och/eller grupper som du vill etablera till Workplace av Facebook genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 13. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats i **omfånget** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40: e minut, förutsatt att Azure AD Provisioning-tjänsten körs. 
+Den här åtgärden startar den inledande synkroniseringscykeln för alla användare och grupper som **definierats** i Scope i avsnittet **Inställningar.** Den inledande cykeln tar längre tid att utföra än efterföljande cykler, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
 När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen:
 
-1. Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
-2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
-3. Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+1. Använd [etableringsloggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller utan framgång
+2. Kontrollera [förloppsindikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etableringscykeln och hur nära den är till slutförande
+3. Om etableringskonfigurationen verkar vara i feltillstånd kommer programmet att placeras i karantän. Läs mer om karantäntillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="troubleshooting-tips"></a>Felsökningstips
-*  Om du ser en användare som inte har skapats utan problem och det finns en Gransknings logg händelse med koden "1789003" innebär det att användaren är från en overifierad domän.
+*  Om du ser en användare utan framgång skapas och det finns en granskningslogghändelse med koden "1789003" betyder det att användaren kommer från en overifierad domän.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Hantera etablering av användarkonton för Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)
+* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../manage-apps/check-status-user-account-provisioning.md)

@@ -1,24 +1,24 @@
 ---
-title: 'Snabb start: din första Azure CLI-fråga'
-description: I den här snabb starten följer du stegen för att aktivera resurs diagram tillägget för Azure CLI och kör din första fråga.
+title: 'Snabbstart: Din första Azure CLI-fråga'
+description: I den här snabbstarten följer du stegen för att aktivera Resource Graph-tillägget för Azure CLI och kör din första fråga.
 ms.date: 11/21/2019
 ms.topic: quickstart
 ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79240669"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Snabb start: kör din första resurs diagram fråga med Azure CLI
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Snabbstart: Kör din första Resource Graph-fråga med Azure CLI
 
 Det första steget till att använda Azure Resource Graph är att kontrollera att tillägget för [Azure CLI](/cli/azure/) är installerat. Denna snabbstart vägleder dig genom processen för att lägga till tillägget i Azure CLI-installationen. Du kan använda tillägget med Azure CLI installerat lokalt eller via [Azure Cloud Shell](https://shell.azure.com).
 
 I slutet av den här processen kommer du att ha lagt till tillägget till valfri Azure CLI-installation och kört din första Resource Graph-fråga.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Om du vill aktivera Azure CLI för att skicka frågor till Azure Resource Graph, måste du lägga till tillägget. Det här tillägget fungerar överallt där Azure CLI kan användas, inklusive [bash i Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) (både fristående och i portalen), [Azure CLI-dockeravbildningen](https://hub.docker.com/r/microsoft/azure-cli/) och där det är lokalt installerat.
 
-1. Kontrol lera att den senaste versionen av Azure CLI är installerad (minst **2.0.76**). Om den ännu inte är installerad följer du [de här instruktionerna](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Kontrollera att den senaste Azure CLI är installerad (minst **2.0.76**). Om den ännu inte är installerad följer du [de här instruktionerna](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. I din valda Azure CLI-miljö importerar du den med följande kommando:
 
@@ -35,7 +35,7 @@ Om du vill aktivera Azure CLI för att skicka frågor till Azure Resource Graph,
    az extension add --name resource-graph
    ```
 
-1. Kontrol lera att tillägget har installerats och att den är den förväntade versionen (minst **1.0.0**):
+1. Verifiera att tillägget har installerats och är den förväntade versionen (minst **1.0.0):**
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -91,7 +91,7 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lagt till resurs diagram tillägget i din Azure CLI-miljö och kör din första fråga. Om du vill veta mer om det här resurs språket fortsätter du till sidan information om frågespråk.
+I den här snabbstarten har du lagt till Resource Graph-tillägget i din Azure CLI-miljö och kör din första fråga. Om du vill veta mer om resursdiagramspråket fortsätter du till sidan med frågespråkinformation.
 
 > [!div class="nextstepaction"]
 > [Få mer information om frågespråket](./concepts/query-language.md)

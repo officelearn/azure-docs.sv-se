@@ -1,5 +1,5 @@
 ---
-title: Översikt över användare, grupper, licensiering och roller – Azure AD | Microsoft Docs
+title: Översikt över användare, grupper, licensiering och roller – Azure AD | Microsoft-dokument
 description: Relationen mellan tilldelade användare och licenser, administratörsroller, gruppmedlemskap i Azure Active Directory
 keywords: ''
 author: curtand
@@ -15,10 +15,10 @@ services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a3cc2de5a2f297e8133011905ff2961b44476d6b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77046325"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Användare, grupper, licensiering och roller för stora organisationer
@@ -31,7 +31,7 @@ Den här artikeln ger Azure AD-administratören en introduktion till relationen 
 
 ## <a name="assign-users-to-groups"></a>Tilldela användare grupper
 
-Du kan använda grupper i Azure AD för att tilldela licenser till ett stort antal användare eller tilldela användaråtkomst till distribuerade företagsprogram. Du kan använda grupper för att tilldela alla administratörs roller förutom global administratör i Azure AD, eller så kan du bevilja åtkomst till resurser som är externa, till exempel SaaS-program eller SharePoint-webbplatser.
+Du kan använda grupper i Azure AD för att tilldela licenser till ett stort antal användare eller tilldela användaråtkomst till distribuerade företagsprogram. Du kan använda grupper för att tilldela alla administratörsroller utom Global administratör i Azure AD, eller så kan du bevilja åtkomst till externa resurser, till exempel SaaS-program eller SharePoint-webbplatser.
 
 För ytterligare flexibilitet och för att minska arbetet med att hantera gruppmedlemskap kan du använda [dynamiska grupper](groups-create-rule.md) i Azure AD för att expandera och begränsa gruppmedlemskap automatiskt. Du behöver en Azure AD Premium P1-licens för varje unik användare som är medlem i en eller flera dynamiska grupper.
 
@@ -52,7 +52,7 @@ Många stora organisationer vill ha alternativ för att kunna ge användarna til
 
  Rollnamn | Sammanfattning av behörigheter
  --------- | -------------------
- **Programadministratör** | Kan lägga till och hantera företagsprogram och programregistreringar och konfigurera inställningar för proxyprogram. Program administratörer kan visa principer och enheter för villkorlig åtkomst, men inte hantera dem.
+ **Programadministratör** | Kan lägga till och hantera företagsprogram och programregistreringar och konfigurera inställningar för proxyprogram. Programadministratörer kan visa principer och enheter för villkorlig åtkomst, men inte hantera dem.
  **Molnprogramadministratör** | Kan lägga till och hantera företagsprogram och registreringar av företagsprogram. Den här rollen har samtliga programadministratörsbehörigheter, förutom att den inte kan hantera proxyinställningarna för programmet.
 **Programutvecklare** | Kan lägga till och uppdatera programregistreringar, men kan inte hantera företagsprogram eller konfigurera inställningar för programproxy.
 

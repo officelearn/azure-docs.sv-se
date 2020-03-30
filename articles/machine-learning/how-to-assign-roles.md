@@ -1,7 +1,7 @@
 ---
-title: Hantera roller i din arbets yta
+title: Hantera roller på arbetsytan
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du kommer åt en Azure Machine Learning-arbetsyta med rollbaserad åtkomst kontroll (RBAC).
+description: Lär dig hur du kommer åt en Azure Machine Learning-arbetsyta med hjälp av rollbaserad åtkomstkontroll (RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,37 +12,37 @@ author: Blackmist
 ms.date: 03/06/2020
 ms.custom: seodec18
 ms.openlocfilehash: 127a0a2b7f7573db91df9347169e90de3e14c4c9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270100"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Hantera åtkomst till en Azure Machine Learning-arbetsyta
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Machine Learning-arbetsyta. [Rollbaserad åtkomst kontroll (RBAC)](/azure/role-based-access-control/overview) används för att hantera åtkomst till Azure-resurser. Användare i Azure Active Directory tilldelas vissa roller som ger åtkomst till resurser. Azure tillhandahåller både inbyggda roller och möjligheten att skapa anpassade roller.
+I den här artikeln får du lära dig hur du hanterar åtkomst till en Azure Machine Learning-arbetsyta. [Rollbaserad åtkomstkontroll (RBAC)](/azure/role-based-access-control/overview) används för att hantera åtkomst till Azure-resurser. Användare i din Azure Active Directory tilldelas specifika roller som ger åtkomst till resurser. Azure ger både inbyggda roller och möjligheten att skapa anpassade roller.
 
-## <a name="default-roles"></a>Standard roller
+## <a name="default-roles"></a>Standardroller
 
-En Azure Machine Learning-arbetsyta är en Azure-resurs. När en ny Azure Machine Learning-arbetsyta skapas levereras den med tre standardroller precis som andra Azure-resurser. Du kan lägga till användare i arbets ytan och tilldela dem till någon av dessa inbyggda roller.
+En Azure Machine Learning-arbetsyta är en Azure-resurs. Precis som andra Azure-resurser, när en ny Azure Machine Learning-arbetsyta skapas, levereras den med tre standardroller. Du kan lägga till användare på arbetsytan och tilldela dem till en av dessa inbyggda roller.
 
 | Roll | Åtkomstnivå |
 | --- | --- |
-| **Läsare** | Skrivskyddade åtgärder på arbetsytan. Läsare kan lista och visa tillgångar på en arbetsyta men kan inte skapa eller uppdatera dessa tillgångar. |
-| **Deltagare** | Visa, skapa, redigera eller ta bort (om det är tillämpligt) tillgångar på en arbetsyta. Deltagare kan till exempel skapa ett experiment, skapa eller ansluta ett beräkningskluster, skicka in en körning och distribuera en webbtjänst. |
-| **Ägare** | Fullständig åtkomst till arbetsytan, inklusive möjligheten att visa, skapa, redigera eller ta bort (om det är tillämpligt) tillgångar på en arbetsyta. Dessutom kan du ändra rolltilldelningar. |
+| **Läsare** | Skrivskyddade åtgärder på arbetsytan. Läsare kan lista och visa tillgångar på en arbetsyta, men de kan inte skapa eller uppdatera dessa resurser. |
+| **Deltagare** | Visa, skapa, redigera eller ta bort (i förekommande fall) tillgångar på en arbetsyta. Deltagare kan till exempel skapa ett experiment, skapa eller bifoga ett beräkningskluster, skicka en körning och distribuera en webbtjänst. |
+| **Ägare** | Fullständig åtkomst till arbetsytan, inklusive möjligheten att visa, skapa, redigera eller ta bort (i förekommande fall) tillgångar på en arbetsyta. Dessutom kan du ändra rolltilldelningar. |
 
 > [!IMPORTANT]
-> Roll åtkomsten kan begränsas till flera nivåer i Azure. Till exempel kanske någon med ägar åtkomst till en arbets yta saknar ägar åtkomst till den resurs grupp som innehåller arbets ytan. Mer information finns i [hur RBAC fungerar](/azure/role-based-access-control/overview#how-rbac-works).
+> Rollåtkomst kan begränsas till flera nivåer i Azure. Till exempel kan det hända att någon med ägaråtkomst till en arbetsyta inte har ägarbehörighet till resursgruppen som innehåller arbetsytan. Mer information finns i [Så här fungerar RBAC](/azure/role-based-access-control/overview#how-rbac-works).
 
-Mer information om de inbyggda rollerna finns i [inbyggda roller för Azure](/azure/role-based-access-control/built-in-roles).
+Mer information om specifika inbyggda roller finns [i Inbyggda roller för Azure](/azure/role-based-access-control/built-in-roles).
 
-## <a name="manage-workspace-access"></a>Hantera åtkomst till arbets ytan
+## <a name="manage-workspace-access"></a>Hantera åtkomst till arbetsyta
 
-Om du är ägare till en arbetsyta kan du lägga till och ta bort roller för arbetsytan. Du kan även tilldela roller till användare. Använd följande länkar för att ta reda på hur du hanterar åtkomst:
-- [Användargränssnittet i Azure-portalen](/azure/role-based-access-control/role-assignments-portal)
-- [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+Om du äger en arbetsyta kan du lägga till och ta bort roller för arbetsytan. Du kan också tilldela roller till användare. Använd följande länkar för att identifiera hur du hanterar åtkomst:
+- [Azure portal användargränssnitt](/azure/role-based-access-control/role-assignments-portal)
+- [Powershell](/azure/role-based-access-control/role-assignments-powershell)
 - [Azure CLI](/azure/role-based-access-control/role-assignments-cli)
 - [REST API](/azure/role-based-access-control/role-assignments-rest)
 - [Azure Resource Manager-mallar](/azure/role-based-access-control/role-assignments-template)
@@ -53,7 +53,7 @@ Om du har installerat [Azure Machine Learning CLI](reference-azure-machine-learn
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-Fältet `user` är e-postadressen till en befintlig användare i instansen av Azure Active Directory där den överordnade prenumerationen för arbets ytan finns. Här är ett exempel på hur du använder det här kommandot:
+Fältet `user` är e-postadressen till en befintlig användare i instansen av Azure Active Directory där den överordnade prenumerationen på arbetsytan finns. Här är ett exempel på hur du använder det här kommandot:
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
@@ -61,12 +61,12 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="create-custom-role"></a>Skapa anpassad roll
 
-Om de inbyggda rollerna är otillräckliga kan du skapa anpassade roller. Anpassade roller kan ha behörigheterna läsa, skriva, ta bort och beräkna resurs på arbets ytan. Du kan göra rollen tillgänglig på en speciell arbets yta, en bestämd resurs grupps nivå eller en speciell prenumerations nivå.
+Om de inbyggda rollerna är otillräckliga kan du skapa anpassade roller. Anpassade roller kan ha läs-, skriv-, borttagnings- och beräkningsresursbehörigheter på arbetsytan. Du kan göra rollen tillgänglig på en viss arbetsytasnivå, en viss resursgruppsnivå eller en viss prenumerationsnivå.
 
 > [!NOTE]
-> Du måste vara ägare till resursen på den nivån för att skapa anpassade roller i resursen.
+> Du måste vara ägare till resursen på den nivån för att kunna skapa anpassade roller inom resursen.
 
-Skapa en anpassad roll genom att skapa en JSON-fil för roll definition som anger behörigheten och omfånget för rollen. I följande exempel definieras en anpassad roll med namnet "data expert" på en speciell arbets ytans nivå:
+Om du vill skapa en anpassad roll konstruerar du först en JSON-rolldefinition som anger behörighet och omfång för rollen. I följande exempel definieras en anpassad roll med namnet "Data Scientist" på en viss arbetsytasnivå:
 
 `data_scientist_role.json` :
 ```json
@@ -87,90 +87,90 @@ Skapa en anpassad roll genom att skapa en JSON-fil för roll definition som ange
 }
 ```
 
-Du kan ändra fältet `AssignableScopes` för att ange omfånget för den här anpassade rollen på prenumerations nivå, resurs grupps nivå eller en speciell arbets ytans nivå.
+Du kan `AssignableScopes` ändra fältet för att ange omfattningen för den här anpassade rollen på prenumerationsnivå, resursgruppsnivå eller en viss arbetsytasnivå.
 
-Den här anpassade rollen kan göra allt på arbets ytan, förutom följande åtgärder:
+Den här anpassade rollen kan göra allt på arbetsytan förutom följande åtgärder:
 
-- Det går inte att skapa eller uppdatera en beräknings resurs.
-- Det går inte att ta bort en beräknings resurs.
-- Det går inte att lägga till, ta bort eller ändra roll tilldelningar.
-- Det går inte att ta bort arbets ytan.
+- Det kan inte skapa eller uppdatera en beräkningsresurs.
+- Det går inte att ta bort en beräkningsresurs.
+- Det går inte att lägga till, ta bort eller ändra rolltilldelningar.
+- Det går inte att ta bort arbetsytan.
 
-Använd följande Azure CLI-kommando för att distribuera den här anpassade rollen:
+Om du vill distribuera den här anpassade rollen använder du följande Azure CLI-kommando:
 
 ```azurecli-interactive 
 az role definition create --role-definition data_scientist_role.json
 ```
 
-Efter distributionen blir den här rollen tillgänglig på den angivna arbets ytan. Nu kan du lägga till och tilldela den här rollen i Azure Portal. Du kan också tilldela rollen till en användare med hjälp av kommandot `az ml workspace share` CLI:
+Efter distributionen blir den här rollen tillgänglig på den angivna arbetsytan. Nu kan du lägga till och tilldela den här rollen i Azure-portalen. Du kan också tilldela den här rollen `az ml workspace share` till en användare med kommandot CLI:
 
 ```azurecli-interactive
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Mer information om anpassade roller finns i [anpassade roller för Azure-resurser](/azure/role-based-access-control/custom-roles).
+Mer information om anpassade roller finns i [Anpassade roller för Azure-resurser](/azure/role-based-access-control/custom-roles).
 
-Mer information om de åtgärder (åtgärder) som kan användas med anpassade roller finns i [Resource Provider-åtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Mer information om de åtgärder (åtgärder) som kan hanteras med anpassade roller finns i [Resursprovideråtgärder](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 
-### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>F. Vilka är de behörigheter som krävs för att utföra olika åtgärder i Azure Machine Learnings tjänsten?
+### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>F. Vilka behörigheter behövs för att utföra olika åtgärder i Azure Machine Learning-tjänsten?
 
-Följande tabell är en sammanfattning av Azure Machine Learning aktiviteter och de behörigheter som krävs för att utföra dem med minsta möjliga omfattning. Exempel: om en aktivitet kan utföras med ett område för arbets ytor (kolumn 4), kommer alla högre omfång med den behörigheten också att fungera automatiskt. Alla sökvägar i den här tabellen är **relativa sökvägar** till `Microsoft.MachineLearningServices/`.
+Följande tabell är en sammanfattning av Azure Machine Learning-aktiviteter och de behörigheter som krävs för att utföra dem minst omfång. Som ett exempel om en aktivitet kan utföras med ett arbetsyteomfattning (kolumn 4), fungerar även allt högre omfång med den behörigheten automatiskt. Alla banor i den här `Microsoft.MachineLearningServices/`tabellen är **relativa banor** till .
 
-| Aktivitet | Omfång på prenumerations nivå | Omfång på resurs grupps nivå | Omfång på arbets ytans nivå |
+| Aktivitet | Omfattning på prenumerationsnivå | Omfång på resursgruppsnivå | Omfattning på arbetsytasnivå |
 |---|---|---|---|
-| Skapa ny arbets yta | Krävs inte | Ägare eller deltagare | Ej tillämpligt (blir ägare eller ärver högre omfattnings roll efter att det har skapats) |
-| Skapa nytt beräknings kluster | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `workspaces/computes/write` |
-| Skapa ny virtuell dator för Notebook | Krävs inte | Ägare eller deltagare | Inte möjlig |
-| Skapa en ny beräknings instans | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `workspaces/computes/write` |
-| Data Plans aktivitet som att skicka körning, komma åt data, distribuera modell eller publicera pipeline | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter: `workspaces/*/write` <br/> Observera att du också behöver ett data lager som är registrerat på arbets ytan för att tillåta MSI att komma åt data i ditt lagrings konto. |
+| Skapa ny arbetsyta | Krävs inte | Ägare eller bidragsgivare | Saknas (blir ägare eller ärver rollen med högre omfattning när den har skapats) |
+| Skapa nytt beräkningskluster | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/computes/write` |
+| Skapa ny virtuell dator för bärbara datorer | Krävs inte | Ägare eller bidragsgivare | Inte möjligt |
+| Skapa ny beräkningsinstans | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/computes/write` |
+| Dataplanaktivitet som att skicka körning, komma åt data, distribuera modell eller publicera pipeline | Krävs inte | Krävs inte | Ägare, deltagare eller anpassad roll som tillåter:`workspaces/*/write` <br/> Observera att du också behöver ett datalager som är registrerat på arbetsytan så att MSI kan komma åt data i ditt lagringskonto. |
 
 
-### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>F. Hur gör jag för att lista alla anpassade roller i min prenumeration?
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>F. Hur listar jag alla anpassade roller i min prenumeration?
 
-Kör följande kommando i Azure CLI.
+I Azure CLI kör du följande kommando.
 
 ```azurecli-interactive
 az role definition list --subscription <sub-id> --custom-role-only true
 ```
 
-### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>F. Hur gör jag för att hittar du roll definitionen för en roll i min prenumeration?
+### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>F. Hur hittar jag rolldefinitionen för en roll i min prenumeration?
 
-Kör följande kommando i Azure CLI. Observera att `<role-name>` ska ha samma format som returneras av kommandot ovan.
+I Azure CLI kör du följande kommando. Observera `<role-name>` att bör vara i samma format som returneras av kommandot ovan.
 
 ```azurecli-interactive
 az role definition list -n <role-name> --subscription <sub-id>
 ```
 
-### <a name="q-how-do-i-update-a-role-definition"></a>F. Hur gör jag för att uppdatera en roll definition?
+### <a name="q-how-do-i-update-a-role-definition"></a>F. Hur uppdaterar jag en rolldefinition?
 
-Kör följande kommando i Azure CLI.
+I Azure CLI kör du följande kommando.
 
 ```azurecli-interactive
 az role definition update --role-definition update_def.json --subscription <sub-id>
 ```
 
-Observera att du måste ha behörighet för hela omfattningen av din nya roll definition. Om den nya rollen till exempel har ett omfång över tre prenumerationer måste du ha behörighet för alla tre prenumerationerna. 
+Observera att du måste ha behörigheter för hela omfattningen av den nya rolldefinitionen. Om den nya rollen till exempel har ett scope mellan tre prenumerationer måste du ha behörighet för alla tre prenumerationer. 
 
 > [!NOTE]
-> Roll uppdateringar kan ta 15 minuter till en timme att tillämpa på alla roll tilldelningar i det omfånget.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>F. Kan jag definiera en roll som förhindrar uppdatering av arbets ytans version? 
+> Rolluppdateringar kan ta 15 minuter till en timme att tillämpa över alla rolltilldelningar i det omfånget.
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>F. Kan jag definiera en roll som förhindrar att uppdatera workspace Edition? 
 
-Ja, du kan definiera en roll som förhindrar uppdatering av arbets ytans version. Eftersom uppdatering av arbets ytan är ett KORRIGERINGs anrop för objektet arbets yta gör du detta genom att lägga till följande åtgärd i `"NotActions"` matrisen i din JSON-definition: 
+Ja, du kan definiera en roll som förhindrar att uppdatera workspace Edition. Eftersom uppdateringen av arbetsytan är ett PATCH-anrop på arbetsytan fungerar `"NotActions"` det genom att placera följande åtgärd i matrisen i JSON-definitionen: 
 
 `"Microsoft.MachineLearningServices/workspaces/write"`
 
-### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>F. Vilka behörigheter krävs för att utföra kvot åtgärder på en arbets yta? 
+### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>F. Vilka behörigheter krävs för att utföra kvotåtgärder på en arbetsyta? 
 
-Du måste ha behörighet som prenumerations nivå för att utföra en kvot relaterad åtgärd i arbets ytan. Det innebär att det bara går att ange kvoten på prenumerations nivå eller på arbets ytans kvot för dina hanterade beräknings resurser om du har Skriv behörighet i prenumerations omfånget. 
+Du behöver behörigheter på prenumerationsnivå för att utföra alla kvotrelaterade åtgärder på arbetsytan. Det innebär att det bara kan hända att du anger kvoter på prenumerationsnivå eller arbetsyta för dina hanterade beräkningsresurser om du har skrivbehörighet i prenumerationsomfånget. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över företags säkerhet](concept-enterprise-security.md)
-- [Köra experiment och härledning/Poäng i ett virtuellt nätverk på ett säkert sätt](how-to-enable-virtual-network.md)
-- [Självstudie: träna modeller](tutorial-train-models-with-aml.md)
+- [Översikt över Enterprise Security](concept-enterprise-security.md)
+- [Kör experiment och slutsatser/poäng på ett säkert sätt i ett virtuellt nätverk](how-to-enable-virtual-network.md)
+- [Handledning: Träna modeller](tutorial-train-models-with-aml.md)
 - [Åtgärder för resursprovider](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

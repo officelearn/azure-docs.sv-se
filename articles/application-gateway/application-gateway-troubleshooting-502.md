@@ -1,6 +1,6 @@
 ---
-title: Felsöka dåliga Gateway-fel – Azure Application Gateway
-description: 'Lär dig hur du felsöker Application Gateway server fel: 502-webb servern tog emot ett ogiltigt svar när den fungerade som en gateway eller proxyserver.'
+title: Felsöka fel i felaktig gateway – Azure Application Gateway
+description: 'Lär dig hur du felsöker Application Gateway Server Error: 502 - Webbservern fick ett ogiltigt svar när du agerade som en gateway eller proxyserver.'
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
@@ -8,59 +8,59 @@ ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
 ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74130482"
 ---
-# <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsöka Felaktiga Gateway-fel i Application Gateway
+# <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Felsöka felaktig gateway i Application Gateway
 
-Lär dig hur du felsöker Felaktiga Gateway-fel (502) som tas emot när du använder Azure Application Gateway.
+Lär dig hur du felsöker felaktiga gatewayfel (502) som tas emot när du använder Azure Application Gateway.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
 
-När du har konfigurerat en Programgateway är ett av de fel som visas är "Server fel: 502-webb servern tog emot ett ogiltigt svar när den fungerade som en gateway eller proxyserver". Det här felet kan inträffa av följande skäl:
+När du har konfigurerat en programgateway visas ett av felen som kan visas "Serverfel: 502 – webbservern fick ett ogiltigt svar när den agerade som en gateway- eller proxyserver". Det här felet kan inträffa av följande huvudskäl:
 
-* NSG, UDR eller anpassad DNS blockerar åtkomsten till medlemmar i Server delen.
-* Virtuella backend-datorer eller instanser av skalnings uppsättningar för virtuella datorer svarar inte på standard hälso avsökningen.
-* Ogiltig eller felaktig konfiguration av anpassade hälso avsökningar.
-* Azure Application gatewayens [backend-pool är inte konfigurerad eller tom](#empty-backendaddresspool).
-* Ingen av de virtuella datorerna eller instanserna i den [virtuella datorns skalnings uppsättning är felfria](#unhealthy-instances-in-backendaddresspool).
-* [Begär timeout-eller anslutnings problem](#request-time-out) med användar förfrågningar.
+* NSG, UDR eller Anpassad DNS blockerar åtkomst till serverda poolmedlemmar.
+* Backend-datorer eller instanser av skalningsuppsättning för virtuella datorer svarar inte på standardhälsoavsökningen.
+* Ogiltig eller felaktig konfiguration av anpassade hälsoavsökningar.
+* Azure Application Gateways [backend-pool är inte konfigurerad eller tom](#empty-backendaddresspool).
+* Ingen av de virtuella datorerna eller instanserna i [skalningsuppsättningen för virtuella datorer är felfria](#unhealthy-instances-in-backendaddresspool).
+* [Begär time out- eller anslutningsproblem](#request-time-out) med användarbegäranden.
 
-## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>Nätverks säkerhets grupp, användardefinierad väg eller anpassat DNS-problem
+## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>Nätverkssäkerhetsgrupp, användardefinierad väg eller anpassat DNS-problem
 
 ### <a name="cause"></a>Orsak
 
-Om åtkomst till Server delen blockeras på grund av en NSG, UDR eller anpassad DNS, kan Application Gateway-instanser inte nå backend-poolen. Detta orsakar avsöknings fel, vilket resulterar i 502 fel.
+Om åtkomsten till serverdan blockeras på grund av en NSG, UDR eller anpassad DNS, kan programgatewayinstanser inte nå serverda poolen. Detta orsakar avsökningsfel, vilket resulterar i 502 fel.
 
-NSG/UDR kan finnas antingen i Application Gateway-undernätet eller under nätet där de virtuella program datorerna distribueras.
+NSG/UDR kan finnas antingen i undernätet för programgateway eller i undernätet där program-virtuella datorer distribueras.
 
-På samma sätt kan förekomsten av en anpassad DNS i VNet också orsaka problem. Ett FQDN som används för medlemmar i Server delens medlemmar kanske inte kan lösas korrekt av den konfigurerade DNS-servern för det virtuella nätverket.
+På samma sätt kan förekomsten av en anpassad DNS i det virtuella nätverket också orsaka problem. En FQDN som används för serverda poolmedlemmar kanske inte matchas korrekt av den användarkonfigurerade DNS-servern för det virtuella nätverket.
 
 ### <a name="solution"></a>Lösning
 
-Verifiera NSG, UDR och DNS-konfiguration genom att gå igenom följande steg:
+Validera NSG-, UDR- och DNS-konfigurationen genom att gå igenom följande steg:
 
-* Kontrol lera NSG: er som är associerade med Application Gateway-undernätet. Se till att kommunikationen med Server delen inte är blockerad.
-* Kontrol lera UDR som är associerade med Application Gateway-undernätet. Se till att UDR inte dirigerar trafik från backend-undernätet. Sök till exempel efter routning till virtuella nätverks enheter eller standard vägar som annonseras till Application Gateway-undernätet via ExpressRoute/VPN.
+* Kontrollera NSG:er som är associerade med undernätet för programgateway. Se till att kommunikationen till backend inte är blockerad.
+* Kontrollera UDR som är associerat med undernätet för programgateway. Kontrollera att UDR inte dirigerar trafik bort från backend-undernätet. Kontrollera till exempel om det finns routning till virtuella nätverksinstallationer eller standardvägar som annonseras till undernätet för programgateway via ExpressRoute/VPN.
 
 ```azurepowershell
 $vnet = Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName
 Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
-* Kontrol lera den effektiva NSG och dirigera med den virtuella server delen
+* Kontrollera effektiv NSG och rutt med backend VM
 
 ```azurepowershell
 Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
 Get-AzEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
 ```
 
-* Kontrol lera närvaron av anpassad DNS i VNet. DNS kan kontrol leras genom att se information om VNet-egenskaperna i utdata.
+* Kontrollera förekomsten av anpassad DNS i det virtuella nätverket. DNS kan kontrolleras genom att titta på information om VNet-egenskaperna i utdata.
 
 ```json
 Get-AzVirtualNetwork -Name vnetName -ResourceGroupName rgName 
@@ -70,91 +70,91 @@ DhcpOptions            : {
                            ]
                          }
 ```
-Om den är tillgänglig kontrollerar du att DNS-servern kan matcha FQDN-medlemmarnas FQDN korrekt.
+Om det finns, se till att DNS-servern kan lösa serverda poolmedlemmens FQDN korrekt.
 
-## <a name="problems-with-default-health-probe"></a>Problem med standard hälso avsökning
+## <a name="problems-with-default-health-probe"></a>Problem med standardhälsoavsökning
 
 ### <a name="cause"></a>Orsak
 
-502-fel kan också vara frekventa indikatorer som standard hälso avsökningen inte kan komma åt backend-VM: ar.
+502 fel kan också vara vanliga indikatorer på att standardhälsoavsökningen inte kan nå backend-datorer.
 
-När en instans av en Application Gateway har tillhandahållits, konfigurerar den automatiskt en standard hälso avsökning för varje BackendAddressPool med hjälp av egenskaperna för BackendHttpSetting. Inga användarindata krävs för att ställa in den här avsökningen. När en belastnings Utjämnings regel har kon figurer ATS görs en association mellan en BackendHttpSetting och en BackendAddressPool. En standard avsökning har kon figurer ATS för var och en av dessa associationer och programgatewayen startar en regelbunden hälso kontroll anslutning till varje instans i BackendAddressPool på den port som anges i BackendHttpSetting-elementet. 
+När en programgatewayinstans etableras konfigureras automatiskt en standardhälsoavsökning till varje BackendAddressPool med hjälp av egenskaperna för Serverdelhttpsetting. Ingen användarindata krävs för att ställa in den här avsökningen. När en belastningsutjämningsregel har konfigurerats görs en association mellan en Serverdelhttpsetting och en BackendAddressPool. En standardavsökning har konfigurerats för var och en av dessa associationer och programgatewayen startar en periodisk hälsokontrollanslutning till varje instans i BackendAddressPool i porten som anges i elementet BackendHttpSetting. 
 
-I följande tabell visas de värden som är associerade med standard hälso avsökningen:
+I följande tabell visas de värden som är associerade med standardhälsoavsökningen:
 
-| Egenskapen avsökning | Värde | Beskrivning |
+| Egenskapen Probe | Värde | Beskrivning |
 | --- | --- | --- |
-| Avsöknings-URL |`http://127.0.0.1/` |URL-sökväg |
-| Intervall |30 |Avsöknings intervall i sekunder |
-| Timeout |30 |Timeout för avsökning i sekunder |
-| Tröskelvärde för ej felfri |3 |Antal nya försök för avsökning. Backend-servern är markerad när det efterföljande antalet avsöknings fel uppnår tröskelvärdet. |
+| Url för avsökning |`http://127.0.0.1/` |URL-sökväg |
+| Intervall |30 |Avsökningsintervall i sekunder |
+| Timeout |30 |Avsökning time-out i sekunder |
+| Felfritt tröskelvärde |3 |Antalet försök för avsökningen. Backend-servern markeras efter att antalet avsökningsfel i följd når det felaktiga tröskelvärdet. |
 
 ### <a name="solution"></a>Lösning
 
-* Kontrol lera att en standard plats har kon figurer ATS och att den lyssnar på 127.0.0.1.
-* Om BackendHttpSetting anger en annan port än 80, ska standard platsen konfigureras för att lyssna på den porten.
-* Anropet till `http://127.0.0.1:port` ska returnera en HTTP-resultat kod på 200. Detta bör returneras inom 30 sekunders tids period.
-* Kontrol lera att den konfigurerade porten är öppen och att det inte finns några brand Väggs regler eller Azure-nätverks säkerhets grupper, som blockerar inkommande eller utgående trafik på den konfigurerade porten.
-* Om de klassiska virtuella Azure-datorerna eller moln tjänsten används med ett fullständigt domän namn eller en offentlig IP-adress kontrollerar du att motsvarande [slut punkt](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) är öppen.
-* Om den virtuella datorn har kon figurer ATS via Azure Resource Manager och är utanför det virtuella nätverk där programgatewayen distribueras, måste en [nätverks säkerhets grupp](../virtual-network/security-overview.md) konfigureras för att tillåta åtkomst på önskad port.
+* Kontrollera att en standardplats är konfigurerad och lyssnar klockan 127.0.0.1.
+* Om BackendHttpSetting anger en annan port än 80 ska standardplatsen konfigureras för att lyssna på den porten.
+* Anropet `http://127.0.0.1:port` ska returnera en HTTP-resultatkod på 200. Detta bör returneras inom 30-sekundersperioden.
+* Kontrollera att porten som konfigurerats är öppen och att det inte finns några brandväggsregler eller Azure Network Security Groups, som blockerar inkommande eller utgående trafik på porten konfigurerad.
+* Om Azure klassiska virtuella datorer eller molntjänst används med en FQDN eller en offentlig IP, se till att motsvarande [slutpunkt](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) öppnas.
+* Om den virtuella datorn är konfigurerad via Azure Resource Manager och ligger utanför det virtuella nätverk där programgatewayen distribueras, måste en [nätverkssäkerhetsgrupp](../virtual-network/security-overview.md) konfigureras för att tillåta åtkomst på önskad port.
 
-## <a name="problems-with-custom-health-probe"></a>Problem med anpassad hälso avsökning
+## <a name="problems-with-custom-health-probe"></a>Problem med anpassad hälsoavsökning
 
 ### <a name="cause"></a>Orsak
 
-Anpassade hälso avsökningar ger ytterligare flexibilitet för standard beteendet för avsökning. När du använder anpassade avsökningar kan du konfigurera avsöknings intervallet, URL: en, sökvägen till testet och hur många misslyckade svar som ska accepteras innan du markerar backend-instansen som ohälsosam.
+Anpassade hälsoavsökningar ger ytterligare flexibilitet till standardutsökningsbeteendet. När du använder anpassade avsökningar kan du konfigurera avsökningsintervallet, URL:en, sökvägen som ska testas och hur många misslyckade svar som ska accepteras innan backend-poolinstansen markeras som felaktig.
 
 Följande ytterligare egenskaper läggs till:
 
-| Egenskapen avsökning | Beskrivning |
+| Egenskapen Probe | Beskrivning |
 | --- | --- |
-| Namn |Namn på avsökningen. Det här namnet används för att referera till avsökningen i HTTP-inställningarna på backend-sidan. |
-| Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen använder protokollet som definierats i Server delens HTTP-inställningar |
-| Värd |Värdnamn för att skicka avsökningen. Gäller endast när flera platser har kon figurer ATS på Application Gateway. Detta skiljer sig från värd namnet för den virtuella datorn. |
-| Sökväg |Den relativa sökvägen för avsökningen. Den giltiga sökvägen börjar från/. Avsökningen skickas till \<protokoll\>://\<Host\>:\<port\>\<sökväg\> |
-| Intervall |Avsöknings intervall i sekunder. Detta är ett tidsintervall mellan två på varandra följande avsökningar. |
-| Timeout |Timeout för avsökning i sekunder. Om ett giltigt svar inte tas emot inom den här tids perioden markeras avsökningen som misslyckad. |
-| Tröskelvärde för ej felfri |Antal nya försök för avsökning. Backend-servern är markerad när det efterföljande antalet avsöknings fel uppnår tröskelvärdet. |
+| Namn |Sondens namn. Det här namnet används för att referera till avsökningen i http-inställningar för backend. |
+| Protokoll |Protokoll som används för att skicka sonden. Avsökningen använder protokollet som definierats i http-inställningarna för backend |
+| Värd |Värdnamn för att skicka avsökningen. Gäller endast när flera plats konfigureras på programgatewayen. Detta skiljer sig från vm-värdnamnet. |
+| Sökväg |Sondens relativa sökväg. Den giltiga sökvägen börjar från '/'. Avsökningen skickas \<\>till\<\>protokoll\<\>\<:// värd: portsökväg\> |
+| Intervall |Avsökningsintervallet på några sekunder. Detta är tidsintervallet mellan två på varandra följande sonder. |
+| Timeout |Sondens time-out på några sekunder. Om ett giltigt svar inte tas emot inom den här time-out-perioden markeras avsökningen som misslyckad. |
+| Felfritt tröskelvärde |Antalet försök för avsökningen. Backend-servern markeras efter att antalet avsökningsfel i följd når det felaktiga tröskelvärdet. |
 
 ### <a name="solution"></a>Lösning
 
-Kontrol lera att den anpassade hälso avsökningen är korrekt konfigurerad som föregående tabell. Förutom föregående fel söknings steg kontrollerar du också följande:
+Verifiera att den anpassade hälsoavsökningen är korrekt konfigurerad som föregående tabell. Förutom föregående felsökningssteg ska du även se till följande:
 
-* Se till att avsökningen anges korrekt enligt [hand boken](application-gateway-create-probe-ps.md).
-* Om programgatewayen har kon figurer ATS för en enda plats, som standard, ska värd namnet anges som `127.0.0.1`, om inget annat anges i anpassad avsökning.
-* Se till att ett anrop till http://\<värd\>:\<port\>\<sökväg\> returnerar en HTTP-resultat kod på 200.
-* Se till att intervallet, tids gränsen och UnhealtyThreshold ligger inom de acceptabla intervallen.
-* Om du använder en HTTPS-avsökning kontrollerar du att backend-servern inte kräver SNI genom att konfigurera ett återställnings certifikat på backend-servern.
+* Se till att sonden är korrekt angiven enligt [guiden](application-gateway-create-probe-ps.md).
+* Om programgatewayen är konfigurerad för en enskild plats bör `127.0.0.1`värdnamnet som standard anges som , om inte annat konfigureras i anpassad avsökning.
+* Kontrollera att ett anrop\<till\>\<http://\>\<\> värd: portsökvägen returnerar en HTTP-resultatkod på 200.
+* Se till att intervall, timeout och unhealtyThreshold ligger inom de acceptabla intervallen.
+* Om du använder en HTTPS-avsökning kontrollerar du att serveråtkomstservern inte kräver SNI genom att konfigurera ett reservcertifikat på serveringsservern själv.
 
-## <a name="request-time-out"></a>Timeout för begäran
+## <a name="request-time-out"></a>Tidsförst utflykt för begäran
 
 ### <a name="cause"></a>Orsak
 
-När en användarbegäran tas emot tillämpar programgatewayen de konfigurerade reglerna på begäran och dirigerar den till en instans på backend-poolen. Det väntar ett konfigurerbart tidsintervall för ett svar från backend-instansen. Som standard är det här intervallet **20** sekunder. Om Application Gateway inte får något svar från backend-appen i det här intervallet får användaren ett 502-fel.
+När en användarbegäran tas emot tillämpar programgatewayen de konfigurerade reglerna på begäran och dirigerar den till en backend-pool-instans. Den väntar på ett konfigurerbart tidsintervall för ett svar från backend-instansen. Som standard är det här intervallet **20** sekunder. Om programgatewayen inte får ett svar från backend-programmet i det här intervallet får användarbegäran ett 502-fel.
 
 ### <a name="solution"></a>Lösning
 
-Med Application Gateway kan du konfigurera den här inställningen via BackendHttpSetting, som sedan kan tillämpas på olika pooler. Olika Server dels pooler kan ha olika BackendHttpSetting och en annan begäran-timeout har kon figurer ATS.
+Med Application Gateway kan du konfigurera den här inställningen via BackendHttpSetting, som sedan kan tillämpas på olika pooler. Olika backend-pooler kan ha olika BackendHttpSetting och en annan tidsinställning för begäran konfigurerad.
 
 ```azurepowershell
     New-AzApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
-## <a name="empty-backendaddresspool"></a>Tom BackendAddressPool
+## <a name="empty-backendaddresspool"></a>Töm BackendAddressPool
 
 ### <a name="cause"></a>Orsak
 
-Om programgatewayen inte har några virtuella datorer eller skalnings uppsättningar för virtuella datorer som kon figurer ATS i backend-adresspoolen, kan den inte dirigera någon kund förfrågan och skickar ett felaktigt Gateway-fel.
+Om programgatewayen inte har några virtuella datorer eller skala för virtuella datorer som konfigurerats i backend-adresspoolen, kan den inte dirigera någon kundbegäran och skickar ett felaktigt gatewayfel.
 
 ### <a name="solution"></a>Lösning
 
-Se till att backend-adresspoolen inte är tom. Detta kan göras antingen via PowerShell, CLI eller Portal.
+Kontrollera att backend-adresspoolen inte är tom. Detta kan göras antingen via PowerShell, CLI eller portal.
 
 ```azurepowershell
 Get-AzApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
 ```
 
-Utdata från föregående cmdlet ska innehålla en icke-tom backend-adresspool. I följande exempel visas två pooler som har kon figurer ATS med ett fullständigt domän namn eller IP-adresser för de virtuella datorerna i Server delen. Etablerings statusen för BackendAddressPool måste vara lyckades.
+Utdata från föregående cmdlet ska innehålla en icke-tom backend-adresspool. I följande exempel visas två pooler som returneras och som har konfigurerats med en FQDN eller en IP-adress för serverda virtuella datorer. Avstämmelsen för BackendAddressPool måste vara "lyckades".
 
 BackendAddressPoolsText:
 
@@ -182,17 +182,17 @@ BackendAddressPoolsText:
 }]
 ```
 
-## <a name="unhealthy-instances-in-backendaddresspool"></a>Skadade instanser i BackendAddressPool
+## <a name="unhealthy-instances-in-backendaddresspool"></a>Felaktiga instanser i BackendAddressPool
 
 ### <a name="cause"></a>Orsak
 
-Om alla instanser av BackendAddressPool inte är felfria har programgatewayen ingen backend-server för att dirigera användar förfrågan till. Detta kan också vara fallet när backend-instanser är felfria men inte har det program som krävs distribuerat.
+Om alla instanser av BackendAddressPool är felaktiga, har programgatewayen ingen backend att dirigera användarbegäran till. Detta kan också vara fallet när backend-instanser är felfria men inte har det nödvändiga programmet distribuerat.
 
 ### <a name="solution"></a>Lösning
 
-Kontrol lera att instanserna är felfria och att programmet har kon figurer ATS korrekt. Kontrol lera om Server dels instanserna kan svara på ett ping från en annan virtuell dator i samma VNet. Om den har kon figurer ATS med en offentlig slut punkt bör du se till att en webb program förfrågan till webb programmet kan betjänas.
+Kontrollera att instanserna är felfria och att programmet är korrekt konfigurerat. Kontrollera om backend-instanserna kan svara på en ping från en annan virtuell dator i samma virtuella nätverk. Om den konfigureras med en offentlig slutpunkt kontrollerar du att en webbläsarbegäran till webbprogrammet kan hanteras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om föregående steg inte löser problemet öppnar du ett [support ärende](https://azure.microsoft.com/support/options/).
+Om föregående steg inte löser problemet öppnar du en [supportbiljett](https://azure.microsoft.com/support/options/).
 

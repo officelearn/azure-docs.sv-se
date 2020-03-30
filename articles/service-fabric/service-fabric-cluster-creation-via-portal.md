@@ -1,205 +1,205 @@
 ---
 title: Skapa ett Service Fabric-kluster i Azure-portalen
-description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i Azure med hjälp av Azure Portal och Azure Key Vault.
+description: Lär dig hur du konfigurerar ett säkert Service Fabric-kluster i Azure med Azure-portalen och Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.openlocfilehash: 0f384da75f09390e9b0988722b974e7e16d13e63
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258803"
 ---
-# <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric kluster i Azure med hjälp av Azure Portal
+# <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric-kluster i Azure med Azure-portalen
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure-portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
-Det här är en steg-för-steg-guide som vägleder dig genom stegen för att konfigurera ett Service Fabric kluster (Linux eller Windows) i Azure med hjälp av Azure Portal. Den här guiden vägleder dig genom följande steg:
+Det här är en steg-för-steg-guide som hjälper dig att konfigurera ett Service Fabric-kluster (Linux eller Windows) i Azure med Hjälp av Azure-portalen. Den här guiden går igenom följande steg:
 
-* Skapa ett kluster i Azure via Azure Portal.
+* Skapa ett kluster i Azure via Azure-portalen.
 * Autentisera administratörer med certifikat.
 
 > [!NOTE]
-> För mer avancerade säkerhets alternativ, till exempel användarautentisering med Azure Active Directory och konfiguration av certifikat för program säkerhet, [skapar du klustret med Azure Resource Manager][create-cluster-arm].
+> Om du vill ha mer avancerade säkerhetsalternativ, till exempel användarautentisering med Azure Active Directory och konfigurera certifikat för programsäkerhet, [skapar du klustret med Azure Resource Manager][create-cluster-arm].
 > 
 > 
 
 ## <a name="cluster-security"></a>Klustersäkerhet 
 Certifikat används i Service Fabric till att autentisera och kryptera olika delar av ett kluster och de program som körs där. Mer information om hur du använder certifikat i Service Fabric finns i [Service Fabric cluster security scenarios][service-fabric-cluster-security] (Säkerhet för Service Fabric-kluster).
 
-Om det här är första gången du skapar ett Service Fabric-kluster eller distribuerar ett kluster för test arbets belastningar kan du gå vidare till nästa avsnitt (**skapa kluster i Azure-portalen**) och låta systemet generera certifikat som krävs för kluster som kör test arbets belastningar. Om du konfigurerar ett kluster för produktions arbets belastningar fortsätter du att läsa.
+Om det är första gången du skapar ett tjänstinfrastrukturkluster eller distribuerar ett kluster för testarbetsbelastningar, kan du hoppa till nästa avsnitt (**Skapa kluster i Azure Portal**) och låta systemet generera certifikat som behövs för dina kluster som kör testarbetsbelastningar. Om du konfigurerar ett kluster för produktionsarbetsbelastningar fortsätter du att läsa.
 
-#### <a name="cluster-and-server-certificate-required"></a>Kluster-och Server certifikat (obligatoriskt)
-Detta certifikat krävs för att skydda ett kluster och förhindra obehörig åtkomst till det. Den ger kluster säkerhet på ett par olika sätt:
+#### <a name="cluster-and-server-certificate-required"></a>Kluster- och servercertifikat (obligatoriskt)
+Det här certifikatet krävs för att skydda ett kluster och förhindra obehörig åtkomst till det. Det ger klustersäkerhet på ett par sätt:
 
-* **Autentisering av kluster:** Autentiserar nod-till-nod-kommunikation för kluster Federation. Endast noder som kan bevisa sin identitet med det här certifikatet kan ansluta till klustret.
-* Serverautentisering **:** Autentiserar kluster hanterings slut punkter till en hanterings klient, så att hanterings klienten vet att den kommunicerar med det riktiga klustret. Det här certifikatet tillhandahåller även SSL för HTTPS Management API och för Service Fabric Explorer över HTTPS.
+* **Klusterautentisering:** Autentiserar nod-till-nodkommunikation för klusterfederation. Endast noder som kan bevisa sin identitet med det här certifikatet kan ansluta till klustret.
+* **Autentisering av servrar:** Autentiserar slutpunkterna för klusterhantering till en hanteringsklient, så att hanteringsklienten vet att den talar med det verkliga klustret. Det här certifikatet tillhandahåller även SSL för HTTPS-hanterings-API:et och för Service Fabric Explorer via HTTPS.
 
-För att kunna hantera dessa måste certifikatet uppfylla följande krav:
+För att kunna tjäna dessa syften måste certifikatet uppfylla följande krav:
 
 * Certifikatet måste innehålla en privat nyckel.
-* Certifikatet måste skapas för nyckel utbyte, exporteras till en personal information Exchange-fil (. pfx).
-* Certifikatets **ämnes namn måste matcha den domän** som används för att komma åt Service Fabric klustret. Detta krävs för att tillhandahålla SSL för klustrets slut punkter för HTTPS-hantering och Service Fabric Explorer. Det går inte att hämta ett SSL-certifikat från en certifikat utfärdare (CA) för den `.cloudapp.azure.com` domänen. Hämta ett anpassat domän namn för klustret. När du begär ett certifikat från en certifikat utfärdare måste certifikatets ämnes namn matcha det anpassade domän namn som används för klustret.
+* Certifikatet måste skapas för nyckelutbyte, som kan exporteras till en fil för personligt informationsutbyte (.pfx).
+* Certifikatets **ämnesnamn måste matcha den domän** som används för att komma åt Service Fabric-klustret. Detta krävs för att tillhandahålla SSL för klustrets HTTPS-hanteringsslutpunkter och Service Fabric Explorer. Du kan inte hämta ett SSL-certifikat från `.cloudapp.azure.com` en certifikatutfärdarcertifikat för domänen. Skaffa ett anpassat domännamn för klustret. När du begär ett certifikat från en certifikatutfärdare måste certifikatets ämnesnamn matcha det anpassade domännamnet som används för klustret.
 
 #### <a name="client-authentication-certificates"></a>Certifikat för klientautentisering
-Ytterligare klient certifikat autentisera administratörer för kluster hanterings aktiviteter. Service Fabric har två åtkomst nivåer: **admin** och **skrivskyddad användare**. Ett enskilt certifikat för administrativ åtkomst bör vara minst. För ytterligare åtkomst på användar nivå måste ett separat certifikat tillhandahållas. Mer information om åtkomst roller finns i [rollbaserad åtkomst kontroll för Service Fabric klienter][service-fabric-cluster-security-roles].
+Ytterligare klientcertifikat autentiserar administratörer för klusterhanteringsuppgifter. Service Fabric har två åtkomstnivåer: **admin** och **skrivskyddad användare**. Minst bör ett enda certifikat för administrativ åtkomst användas. För ytterligare åtkomst på användarnivå måste ett separat certifikat tillhandahållas. Mer information om åtkomstroller finns i [rollbaserad åtkomstkontroll för Service Fabric-klienter][service-fabric-cluster-security-roles].
 
-Du behöver inte ladda upp certifikat för klientautentisering till Key Vault för att arbeta med Service Fabric. Dessa certifikat behöver endast tillhandahållas till användare som har behörighet för kluster hantering. 
+Du behöver inte ladda upp klientautentiseringscertifikat till Key Vault för att fungera med Service Fabric. Dessa certifikat behöver bara tillhandahållas till användare som är auktoriserade för klusterhantering. 
 
 > [!NOTE]
-> Azure Active Directory är det rekommenderade sättet att autentisera klienter för kluster hanterings åtgärder. Om du vill använda Azure Active Directory måste du [skapa ett kluster med hjälp av Azure Resource Manager][create-cluster-arm].
+> Azure Active Directory är det rekommenderade sättet att autentisera klienter för klusterhanteringsåtgärder. Om du vill använda Azure Active Directory måste du [skapa ett kluster med Azure Resource Manager][create-cluster-arm].
 > 
 > 
 
-#### <a name="application-certificates-optional"></a>Program certifikat (valfritt)
-Valfritt antal ytterligare certifikat kan installeras i ett kluster för program säkerhets syfte. Innan du skapar klustret bör du tänka på vilka program säkerhets scenarier som kräver att ett certifikat installeras på noderna, till exempel:
+#### <a name="application-certificates-optional"></a>Programcertifikat (valfritt)
+Valfritt antal ytterligare certifikat kan installeras i ett kluster för programsäkerhetsändamål. Innan du skapar klustret bör du tänka på de programsäkerhetsscenarier som kräver att ett certifikat installeras på noderna, till exempel:
 
-* Kryptering och dekryptering av program konfigurations värden
+* Kryptering och dekryptering av programkonfigurationsvärden
 * Kryptering av data mellan noder under replikering 
 
-Det går inte att konfigurera program certifikat när [du skapar ett kluster via Azure Portal](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md). Om du vill konfigurera program certifikat när klustret konfigureras måste du [skapa ett kluster med hjälp av Azure Resource Manager][create-cluster-arm]. Du kan också lägga till program certifikat i klustret när det har skapats.
+Programcertifikat kan inte konfigureras när [ett kluster skapas via Azure-portalen](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md). Om du vill konfigurera programcertifikat vid klusterinställningstid måste du [skapa ett kluster med Azure Resource Manager][create-cluster-arm]. Du kan också lägga till programcertifikat i klustret när det har skapats.
 
-## <a name="create-cluster-in-the-azure-portal"></a>Skapa kluster i Azure Portal
+## <a name="create-cluster-in-the-azure-portal"></a>Skapa kluster i Azure-portalen
 
-Att skapa ett produktions kluster som passar dina program behov innefattar viss planering, som hjälper dig med det, rekommenderar vi starkt att du läser och förstår det [Service Fabric kluster planerings][service-fabric-cluster-capacity] dokumentet. 
+Att skapa ett produktionskluster för att uppfylla dina programbehov innebär viss planering, för att hjälpa dig med det, rekommenderar vi starkt att du läser och förstår service [fabric-klusterplaneringsöverväganden.][service-fabric-cluster-capacity] 
 
-### <a name="search-for-the-service-fabric-cluster-resource"></a>Sök efter Service Fabric kluster resursen
+### <a name="search-for-the-service-fabric-cluster-resource"></a>Sök efter klusterresursen Service Fabric
 
-Logga in på [Azure Portal][azure-portal].
-Klicka på **skapa en resurs** för att lägga till en ny resurs mal len. Sök efter Service Fabric Cluster-mallen i **Marketplace** under **allt**.
-Välj **Service Fabric kluster** i listan.
+Logga in på [Azure-portalen][azure-portal].
+Klicka på **Skapa en resurs** om du vill lägga till en ny resursmall. Sök efter mallen Service Fabric Cluster på **Marketplace** under **Allt**.
+Välj **Service Fabric Cluster** i listan.
 
-![Sök efter Service Fabric Cluster-mall på Azure Portal.][SearchforServiceFabricClusterTemplate]
+![sök efter klustermall för Service Fabric på Azure-portalen.][SearchforServiceFabricClusterTemplate]
 
-Gå till bladet **Service Fabric kluster** och klicka på **skapa**.
+Navigera till bladet **Service Fabric Cluster** och klicka på **Skapa**.
 
-Bladet **skapa Service Fabric kluster** har följande fyra steg:
+**Klusterbladet Skapa service fabric** har följande fyra steg:
 
-### <a name="1-basics"></a>1. grundläggande information
-![Skärm bild som visar hur du skapar en ny resurs grupp.][CreateRG]
+### <a name="1-basics"></a>1. Grunderna
+![Skärmbild av hur du skapar en ny resursgrupp.][CreateRG]
 
-På bladet grundläggande måste du ange grundläggande information om klustret.
+I bladet Grunderna måste du ange grundläggande information för klustret.
 
 1. Ange namnet på klustret.
-2. Ange ett **användar namn** och **lösen ord** för fjärr skrivbord för de virtuella datorerna.
+2. Ange ett **användarnamn** och **lösenord** för fjärrskrivbord för de virtuella datorerna.
 3. Se till att välja den **prenumeration** som du vill att klustret ska distribueras till, särskilt om du har flera prenumerationer.
-4. Skapa en ny **resurs grupp**. Det är bäst att ge det samma namn som klustret, eftersom det hjälper till att hitta dem senare, särskilt när du försöker göra ändringar i distributionen eller ta bort klustret.
+4. Skapa en ny **resursgrupp**. Det är bäst att ge det samma namn som klustret, eftersom det hjälper till att hitta dem senare, särskilt när du försöker göra ändringar i distributionen eller ta bort klustret.
    
    > [!NOTE]
-   > Även om du kan välja att använda en befintlig resurs grupp, är det en bra idé att skapa en ny resurs grupp. Detta gör det enkelt att ta bort kluster och alla resurser som används.
+   > Även om du kan välja att använda en befintlig resursgrupp är det en bra idé att skapa en ny resursgrupp. Detta gör det enkelt att ta bort kluster och alla resurser som används.
    > 
    > 
-5. Välj den **plats** där du vill skapa klustret. Om du planerar att använda ett befintligt certifikat som du redan har laddat upp till ett nyckel valv måste du använda samma region som nyckel valvet. 
+5. Välj den **plats** där du vill skapa klustret. Om du planerar att använda ett befintligt certifikat som du redan har laddat upp till ett nyckelvalv måste du använda samma region som nyckelvalvet finns i. 
 
-### <a name="2-cluster-configuration"></a>2. kluster konfiguration
+### <a name="2-cluster-configuration"></a>2. Klusterkonfiguration
 ![Skapa en nodtyp][CreateNodeType]
 
-Konfigurera klusternoderna. Nodtyper definierar VM-storlekar, antalet virtuella datorer och deras egenskaper. Klustret kan ha fler än en nodtyp, men den primära nodtypen (den första som du definierar på portalen) måste ha minst fem virtuella datorer, eftersom det här är nodtypen där Service Fabric system tjänster placeras. Konfigurera inte **placerings egenskaper** eftersom en standard placerings egenskap för "NodeTypeName" läggs till automatiskt.
+Konfigurera klusternoderna. Nodtyper definierar vm-storlekar, antalet virtuella datorer och deras egenskaper. Klustret kan ha mer än en nodtyp, men den primära nodtypen (den första som du definierar på portalen) måste ha minst fem virtuella datorer, eftersom det här är nodtypen där Service Fabric-systemtjänster placeras. Konfigurera inte **placeringsegenskaper** eftersom en standardplaceringsegenskap för "NodeTypeName" läggs till automatiskt.
 
 > [!NOTE]
-> Ett vanligt scenario för flera nodtyper är ett program som innehåller en front-end-tjänst och en backend-tjänst. Du vill placera frontend-tjänsten på mindre virtuella datorer (VM-storlekar som D2_V2) med portar öppna på Internet och placera backend-tjänsten på större virtuella datorer (med VM-storlekar som D3_V2, D6_V2, D15_V2 och så vidare) utan att några portar öppnas på Internet.
+> Ett vanligt scenario för flera nodtyper är ett program som innehåller en frontend-tjänst och en backend-tjänst. Du vill placera frontend-tjänsten på mindre virtuella datorer (VM-storlekar som D2_V2) med portar öppna mot Internet och placera backend-tjänsten på större virtuella datorer (med vm-storlekar som D3_V2, D6_V2, D15_V2 och så vidare) utan Internet-öppna portar.
 > 
 
 1. Välj ett namn för nodtypen (1 till 12 tecken som bara innehåller bokstäver och siffror).
-2. Minimi **storleken** på virtuella datorer för den primära nodtypen styrs av den **hållbarhets nivå** som du väljer för klustret. Standardvärdet för hållbarhets nivån är brons. Mer information om hållbarhet finns i [så här väljer du Service Fabric klustrets hållbarhet][service-fabric-cluster-durability].
-3. Välj **storlek på virtuell dator**. Virtuella datorer i D-serien har SSD-enheter och rekommenderas för tillstånds känsliga program. Använd inte några VM-SKU: er som har delar av kärnor eller färre än 10 GB ledigt disk utrymme. Mer information om hur du väljer VM-storlek hittar du i [planerings dokumentet för Service Fabric-kluster][service-fabric-cluster-capacity] .
-4.  **Kluster med en nod och tre nod kluster** är avsedda för endast test användning. De stöds inte för produktions arbets belastningar som körs.
-5. Välj den **första kapaciteten för skalnings uppsättningen för virtuella datorer** för nodtypen. Du kan skala upp eller ned antalet virtuella datorer i en nodtyp senare, men på den primära nodtypen är minimivärdet fem för produktions arbets belastningar. Andra nodtyper kan ha minst en virtuell dator. Det minsta **antalet** virtuella datorer för den primära nodtypen styr klustrets **tillförlitlighet** .  
-6. Konfigurera **anpassade slut punkter**. Med det här fältet kan du ange en kommaavgränsad lista med portar som du vill exponera genom Azure Load Balancer till det offentliga Internet för dina program. Om du till exempel planerar att distribuera ett webb program till klustret anger du "80" här för att tillåta trafik på port 80 till klustret. Mer information om slut punkter finns i [kommunicera med program][service-fabric-connect-and-communicate-with-services]
-7. **Aktivera omvänd proxy**.  [Service Fabric omvänd proxy](service-fabric-reverseproxy.md) hjälper mikrotjänster som körs i ett Service Fabric-kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter.
-8. Gå tillbaka till bladet **kluster konfiguration** under **+ Visa valfria inställningar**, konfigurera kluster **diagnos**. Som standard är diagnostik aktiverat på klustret för att hjälpa till med fel söknings problem. Om du vill inaktivera diagnostik ändrar du **statusen** växla till **av**. Du rekommenderas **inte** att stänga av diagnostik. Om du redan har skapat Application Insights projekt kan du ge dess nyckel, så att program spårningarna dirigeras till den.
-9. **Ta med DNS-tjänst**.  [DNS-tjänsten](service-fabric-dnsservice.md) en valfri tjänst som gör att du kan hitta andra tjänster med hjälp av DNS-protokollet.
-10. Välj det **uppgraderings läge för Fabric** som du vill konfigurera klustret till. Välj **Automatisk**om du vill att systemet automatiskt ska hämta den senaste tillgängliga versionen och försöka uppgradera klustret till det. Ange läget **manuellt**om du vill välja en version som stöds. Mer information om uppgraderings läget för Fabric finns i [Service Fabric Cluster Upgrade Document.][service-fabric-cluster-upgrade]
+2. Den minsta **storleken på** virtuella datorer för den primära nodtypen styrs av den hållbarhetsnivå som du väljer för **klustret.** Standardnivån för hållbarhetsnivån är brons. Mer information om hållbarhet finns i [hur du väljer service fabric-klusterhållbarheten][service-fabric-cluster-durability].
+3. Välj **storleken**på den virtuella datorn . Virtuella datorer i D-serien har SSD-enheter och rekommenderas starkt för tillståndskänsliga program. Använd inte någon VM SKU som har partiella kärnor eller har mindre än 10 GB tillgänglig diskkapacitet. Se dokumentet för att planera behandling av [tjänstinfrastrukturkluster][service-fabric-cluster-capacity] för att få hjälp med att välja storleken på den virtuella datorn.
+4.  **Ennodskluster och tre nodkluster** är endast avsedda för testanvändning. De stöds inte för alla produktionsarbetsbelastningar som körs.
+5. Välj den **ursprungliga vm-skalningsuppsättningskapaciteten** för nodtypen. Du kan skala upp eller ned antalet virtuella datorer i en nodtyp senare, men på den primära nodtypen är det minsta fem för produktionsarbetsbelastningar. Andra nodtyper kan ha minst en virtuell dator. Det minsta **antalet** virtuella datorer för den primära nodtypen styr **tillförlitligheten** i klustret.  
+6. Konfigurera **anpassade slutpunkter**. I det här fältet kan du ange en kommaavgränsad lista över portar som du vill exponera via Azure Load Balancer till det offentliga Internet för dina program. Om du till exempel planerar att distribuera ett webbprogram till klustret anger du "80" här för att tillåta trafik på port 80 i klustret. Mer information om slutpunkter finns i [kommunicera med program][service-fabric-connect-and-communicate-with-services]
+7. **Aktivera omvänd proxy**.  [Omvänd proxy för Service Fabric](service-fabric-reverseproxy.md) hjälper mikrotjänster som körs i ett Service Fabric-kluster att upptäcka och kommunicera med andra tjänster som har http-slutpunkter.
+8. Tillbaka i **klusterkonfigurationsbladet,** under **+Visa valfria inställningar**, konfigurera **klusterdiagnostik**. Som standard är diagnostik aktiverat i klustret för att hjälpa till med felsökningsproblem. Om du vill inaktivera diagnostik ändra **statusväxlingsknappen** till **Av**. Det rekommenderas **inte** att stänga av diagnostiken. Om du redan har skapat Application Insights-projektet ger du dess nyckel så att programspårningarna dirigeras till det.
+9. **Inkludera DNS-tjänst**.  [DNS-tjänsten](service-fabric-dnsservice.md) en valfri tjänst som gör att du kan hitta andra tjänster med HJÄLP av DNS-protokollet.
+10. Välj det **uppgraderingsläge för fabric** som du vill ställa in klustret på. Välj **Automatisk**, om du vill att systemet automatiskt ska plocka upp den senaste tillgängliga versionen och försöka uppgradera klustret till det. Ställ in läget på **Manuell**, om du vill välja en version som stöds. Mer information om uppgraderingsläget För infrastruktur finns i [servicetygsklusteruppgraderingsdokumentet.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
-> Vi stöder bara kluster som kör Service Fabric-versioner som stöds. Genom att välja det **manuella** läget tar du ansvar för att uppgradera klustret till en version som stöds.
+> Vi stöder endast kluster som kör versioner av Service Fabric som stöds. Genom att välja **manuellt** läge tar du på dig ansvaret för att uppgradera klustret till en version som stöds.
 > 
 
-### <a name="3-security"></a>3. säkerhet
-![Skärm bild av säkerhetskonfigurationer på Azure Portal.][BasicSecurityConfigs]
+### <a name="3-security"></a>3. Säkerhet
+![Skärmbild av säkerhetskonfigurationer på Azure-portalen.][BasicSecurityConfigs]
 
-Vi har angett det **grundläggande** alternativet för att göra det enkelt för dig att konfigurera ett säkert test kluster. Om du redan har ett certifikat och har laddat upp det till ditt [nyckel valv](/azure/key-vault/) (och aktiverat nyckel valvet för distribution), använder du det **anpassade** alternativet
+För att göra det enkelt för dig att konfigurera ett säkert testkluster har vi tillhandahållit alternativet **Grundläggande.** Om du redan har ett certifikat och har laddat upp det till [nyckelvalvet](/azure/key-vault/) (och aktiverat nyckelvalvet för distribution) använder du alternativet **Anpassad**
 
 #### <a name="basic-option"></a>Grundläggande alternativ
-Följ skärmarna för att lägga till eller återanvända ett befintligt nyckel valv och lägga till ett certifikat. Tillägget av certifikatet är en synkron process, så du måste vänta tills certifikatet har skapats.
+Följ skärmarna för att lägga till eller återanvända ett befintligt nyckelvalv och lägg till ett certifikat. Tillägget av certifikatet är en synkron process och därför måste du vänta på att certifikatet ska skapas.
 
-Flytta bort frestelsenen från skärmen tills föregående process har slutförts.
+Motstå frestelsen att navigera bort från skärmen tills föregående process är klar.
 
-![CreateKeyVault]
+![Skapa NyckelVault]
 
-Nu när nyckel valvet har skapats redigerar du åtkomst principerna för nyckel valvet. 
+Nu när nyckelvalvet har skapats redigerar du åtkomstprinciperna för nyckelvalvet. 
 
-![CreateKeyVault2]
+![Skapa NyckelVault2]
 
-Klicka på **Redigera åtkomst principer**och Visa sedan **avancerade åtkomst principer** och aktivera åtkomst till Azure-Virtual Machines för distribution. Vi rekommenderar att du aktiverar mall distributionen också. När du har gjort dina val ska du inte glömma att klicka på knappen **Spara** och stänga av fönstret **åtkomst principer** .
+Klicka på **principerna för redigera åtkomst**, sedan Visa avancerade **åtkomstprinciper** och aktivera åtkomst till Virtuella Azure-datorer för distribution. Vi rekommenderar att du också aktiverar malldistributionen. När du har gjort dina val, glöm inte att klicka på **knappen Spara** och stänga ute i **fönstret Åtkomstprinciper.**
 
-![CreateKeyVault3]
+![Skapa NyckelVault3]
 
-Ange certifikatets namn och klicka på **OK**.
+Ange namnet på certifikatet och klicka på **OK**.
 
-![CreateKeyVault4]
+![Skapa NyckelVault4]
 
 #### <a name="custom-option"></a>Anpassat alternativ
-Hoppa över det här avsnittet om du redan har utfört stegen i **Basic** -alternativet.
+Hoppa över det här avsnittet om du redan har utfört stegen i **det grundläggande** alternativet.
 
-![SecurityCustomOption]
+![SäkerhetCustomOption]
 
-Du behöver käll nyckel valvet, certifikatets URL och certifikatets tumavtryck för att slutföra säkerhets sidan. Om du inte har det kan du öppna ett nytt webbläsarfönster och i Azure Portal göra följande
+Du behöver informationen om källnyckelvalvet, certifikat-URL:en och certifikatets tumavtryck för att slutföra säkerhetssidan. Om du inte har det praktiskt öppnar du ett annat webbläsarfönster och gör följande i Azure-portalen
 
-1. Navigera till Key Vault-tjänsten.
-2. Välj fliken "egenskaper" och kopiera "resurs-ID" till "käll nyckel valvet" i det andra webbläsarfönstret 
+1. Navigera till din nyckelvalvstjänst.
+2. Välj fliken Egenskaper och kopiera "RESURS-ID" till "Source key vault" i det andra webbläsarfönstret 
 
     ![CertInfo0]
 
-3. Välj nu fliken "certifikat".
-4. Klicka på tumavtryck för certifikatet, som tar dig till sidan versioner.
-5. Klicka på de GUID som du ser under den aktuella versionen.
+3. Välj nu fliken "Certifikat".
+4. Klicka på certifikatets tumavtryck, som tar dig till sidan Versioner.
+5. Klicka på de GUIDs du ser under den aktuella versionen.
 
     ![CertInfo1]
 
-6. Nu bör du vara på skärmen som nedan. Kopiera det hexadecimala SHA-1-tumavtrycket till "certifikat-tumavtryck" i det andra webbläsarfönstret
-7. Kopiera "hemlig identifierare" till "certifikatets URL" i ett annat webbläsarfönster.
+6. Du bör nu vara på skärmen som nedan. Kopiera det hexadecimala SHA-1-tumavtrycket till "Certificate thumbprint" i det andra webbläsarfönstret
+7. Kopiera "Hemlig identifierare" till "Certifikat-URL" i andra webbläsarfönster.
 
     ![CertInfo2]
 
-Markera kryss rutan **Konfigurera avancerade inställningar** om du vill ange klient certifikat för **Administratörs klienten** och den **skrivskyddade klienten**. I de här fälten anger du tumavtrycket för ditt administratörs klient certifikat och tumavtrycket för det skrivskyddade användar klient certifikatet, om tillämpligt. När administratörer försöker ansluta till klustret beviljas de åtkomst endast om de har ett certifikat med ett tumavtryck som matchar de tumavtryck som anges här.  
+Markera rutan **Konfigurera avancerade inställningar** om du vill ange klientcertifikat för **administratörsklient** och **skrivskyddad klient**. I dessa fält anger du tumavtrycket för administratörsklientcertifikatet och tumavtrycket för ditt skrivskyddade användarklientcertifikat, om tillämpligt. När administratörer försöker ansluta till klustret beviljas de endast åtkomst om de har ett certifikat med ett tumavtryck som matchar tumavtrycksvärdena som anges här.  
 
 ### <a name="4-summary"></a>4. Sammanfattning
 
-Nu är du redo att distribuera klustret. Innan du gör det kan du hämta certifikatet och titta i den stora informations rutan för länken. Se till att hålla certifikatet på en säker plats. du behöver den för att ansluta till klustret. Eftersom det certifikat du hämtade inte har ett lösen ord, bör du lägga till ett.
+Nu är du redo att distribuera klustret. Innan du gör det laddar du ned certifikatet och tittar i den stora blå informationsrutan för länken. Se till att förvara certifikatet på ett säkert ställe. du behöver den för att ansluta till klustret. Eftersom certifikatet du hämtade inte har något lösenord rekommenderas att du lägger till ett.
 
-Klicka på **skapa**om du vill slutföra skapandet av klustret. Du kan också hämta mallen.
+Om du vill slutföra skapandet av kluster klickar du på **Skapa**. Du kan också hämta mallen.
 
 ![Sammanfattning]
 
-Du kan se förloppet bland aviseringarna. (Klicka på ikonen "Bell" nära statusfältet överst till höger på skärmen.) Om du klickade på **Fäst på Start sidan** när du skapade klustret, ser du **distribuera Service Fabric kluster** fäst till **Start** kortet. Den här processen kan ta lite tid. 
+Du kan se förloppet bland aviseringarna. (Klicka på "Bell"-ikonen nära statusfältet längst upp till höger på skärmen.) Om du klickade på **Fäst på Startboard** när du skapade **klustret visas Distribuera serviceinfrastrukturkluster** som är fäst på **Startkortet.** Denna process kommer att ta lite tid. 
 
-För att kunna utföra hanterings åtgärder på klustret med hjälp av PowerShell eller CLI måste du ansluta till klustret och läsa mer om hur du [ansluter till klustret](service-fabric-connect-to-secure-cluster.md).
+För att utföra hanteringsåtgärder i klustret med Powershell eller CLI måste du ansluta till klustret, läs mer om hur du [ansluter till klustret](service-fabric-connect-to-secure-cluster.md).
 
-## <a name="view-your-cluster-status"></a>Visa kluster status
-![Skärm bild av kluster information på instrument panelen.][ClusterDashboard]
+## <a name="view-your-cluster-status"></a>Visa klusterstatus
+![Skärmbild av klusterinformation på instrumentpanelen.][ClusterDashboard]
 
-När klustret har skapats kan du inspektera klustret i portalen:
+När klustret har skapats kan du granska klustret i portalen:
 
-1. Gå till **Bläddra** och klicka på **Service Fabric kluster**.
-2. Leta upp klustret och klicka på det.
+1. Gå till **Bläddra** och klicka på **Service Fabric Clusters**.
+2. Leta reda på klustret och klicka på det.
 3. Där kan du se information om klustret på instrumentpanelen, bland annat klustrets offentliga slutpunkter och en länk till Service Fabric Explorer.
 
-Avsnittet **Node Monitor** på bladet för klustrets instrument panel anger antalet virtuella datorer som är felfria och inte felfria. Du hittar mer information om klustrets hälsa på [Service Fabric hälso modell introduktion][service-fabric-health-introduction].
+Avsnittet **Nodövervakare** på klustrets instrumentpanelsblad anger antalet virtuella datorer som är felfria och inte felfria. Du hittar mer information om klustrets hälsomodell introduktion på [Service Fabric.][service-fabric-health-introduction]
 
 > [!NOTE]
-> Service Fabric kluster kräver att ett visst antal noder alltid är igång för att upprätthålla tillgänglighet och bevara tillstånd – kallas "Kvarhåll kvorum". Därför är det vanligt vis inte säkert att stänga av alla datorer i klustret om du inte har gjort en [fullständig säkerhets kopia av ditt tillstånd][service-fabric-reliable-services-backup-restore].
+> Service Fabric kluster kräver ett visst antal noder att vara upp alltid för att upprätthålla tillgänglighet och bevara tillstånd - kallad "upprätthålla kvorum". Därför är det vanligtvis inte säkert att stänga av alla datorer i klustret om du inte först har utfört en [fullständig säkerhetskopia av ditt tillstånd][service-fabric-reliable-services-backup-restore].
 > 
 > 
 
-## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Fjärrans luta till en instans av en skalnings uppsättning för virtuell dator eller en klusternod
-Var och en av de NodeTypes som du anger i klustret resulterar i en konfiguration av en skalnings uppsättning för virtuella datorer. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
+## <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Fjärranslutning till en skaladiseringsförekomst för virtuell dator eller en klusternod
+Var och en av de nodetyper som du anger i klustret resulterar i en skaladator för virtuell dator som konfigureras. <!--See [Remote connect to a Virtual Machine Scale Set instance][remote-connect-to-a-vm-scale-set] for details. -->
 
 ## <a name="next-steps"></a>Nästa steg
-Nu har du ett säkert kluster som använder certifikat för hanterings autentisering. Anslut sedan [till klustret](service-fabric-connect-to-secure-cluster.md) och lär dig hur du [hanterar program hemligheter](service-fabric-application-secret-management.md).  Läs även om [Service Fabric support alternativ](service-fabric-support.md).
+Nu har du ett säkert kluster med certifikat för hanteringsautentisering. Anslut [sedan till klustret](service-fabric-connect-to-secure-cluster.md) och lär dig hur du [hanterar programhemligheter](service-fabric-application-secret-management.md).  Lär dig också mer om [supportalternativ för Service Fabric.](service-fabric-support.md)
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
@@ -221,14 +221,14 @@ Nu har du ett säkert kluster som använder certifikat för hanterings autentise
 [CreateRG]: ./media/service-fabric-cluster-creation-via-portal/CreateRG.png
 [CreateNodeType]: ./media/service-fabric-cluster-creation-via-portal/NodeType.png
 [BasicSecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/BasicSecurityConfigs.PNG
-[CreateKeyVault]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault.PNG
-[CreateKeyVault2]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault2.PNG
-[CreateKeyVault3]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault3.PNG
-[CreateKeyVault4]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault4.PNG
+[Skapa NyckelVault]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault.PNG
+[Skapa NyckelVault2]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault2.PNG
+[Skapa NyckelVault3]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault3.PNG
+[Skapa NyckelVault4]: ./media/service-fabric-cluster-creation-via-portal/CreateKeyVault4.PNG
 [CertInfo0]: ./media/service-fabric-cluster-creation-via-portal/CertInfo0.PNG
 [CertInfo1]: ./media/service-fabric-cluster-creation-via-portal/CertInfo1.PNG
 [CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
-[SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
+[SäkerhetCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
 [DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
 [Sammanfattning]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png

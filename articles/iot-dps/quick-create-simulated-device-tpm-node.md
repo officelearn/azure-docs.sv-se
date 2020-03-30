@@ -1,6 +1,6 @@
 ---
-title: Snabb start – etablera en simulerad TPM-enhet till Azure IoT Hub med Node. js
-description: Snabb start – skapa och etablera en simulerad TPM-enhet med Node. js-enhets-SDK för Azure IoT Hub Device Provisioning Service (DPS). Den här snabbstarten använder enskilda registreringar.
+title: Snabbstart – etablera simulerad TPM-enhet till Azure IoT Hub med Node.js
+description: Snabbstart – Skapa och etablera en simulerad TPM-enhet med Node.js-enheten SDK för Azure IoT Hub Device Provisioning Service (DPS). Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -9,24 +9,24 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: 93e68246d1c978bdb1517922f0284524395c218a
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77605473"
 ---
-# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad TPM-enhet med Node. js-enhets-SDK för IoT Hub Device Provisioning Service
+# <a name="quickstart-create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabbstart: Skapa och etablera en simulerad TPM-enhet med Node.js-enheten SDK för IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-I den här snabb starten skapar du en simulerad IoT-enhet på en Windows-dator. Den simulerade enheten innehåller en TPM-simulator som en maskin varu säkerhetsmodul (HSM). Du använder enhets exempel Node. js-koden för att ansluta den här simulerade enheten med IoT-hubben med hjälp av en enskild registrering med enhets etablerings tjänsten (DPS).
+I den här snabbstarten skapar du en simulerad IoT-enhet på en Windows-dator. Den simulerade enheten innehåller en TPM-simulator som en maskinvarusäkerhetsmodul (HSM). Du använder enhetsexempel nod.js-kod för att ansluta den här simulerade enheten till din IoT-hubb med hjälp av en enskild registrering med DPS (Device Provisioning Service).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Granskning av [koncept för automatisk etablering](concepts-auto-provisioning.md).
-- Slut för ande av [konfigurations IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md).
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Node. js v 4.0 +](https://nodejs.org).
+- Översyn av [begrepp för automatisk etablering](concepts-auto-provisioning.md).
+- Slutförande av [konfigurera IoT Hub Device Provisioning Service med Azure-portalen](./quick-setup-auto-provision.md).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Node.js v4.0+](https://nodejs.org).
 - [Git](https://git-scm.com/download/).
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
@@ -46,7 +46,7 @@ I den här snabb starten skapar du en simulerad IoT-enhet på en Windows-dator. 
     git clone https://github.com/Azure/azure-utpm-c.git --recursive
     ```
 
-1. Navigera till rot katalogen för GitHub och kör [TPM](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) -simulatorn som [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för den simulerade enheten. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommando fönstret. Du måste hålla denna simulator igång tills du är klar med den här snabb starts guiden: 
+1. Navigera till GitHub-rotmappen och kör [TPM-simulatorn](https://docs.microsoft.com/windows/device-security/tpm/trusted-platform-module-overview) för att vara [HSM](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) för den simulerade enheten. Den lyssnar via en socket på portarna 2321 och 2322. Stäng inte det här kommandofönstret. du måste hålla den här simulatorn igång till slutet av den här snabbstartsguiden: 
 
     ```cmd/sh
     .\azure-utpm-c\tools\tpm_simulator\Simulator.exe
@@ -130,7 +130,7 @@ I den här snabb starten skapar du en simulerad IoT-enhet på en Windows-dator. 
     node ExtractDevice.js
     ```
 
-1. I fönstret Utdata visas **_bekräftelse nyckeln_** och det **_registrerings-ID_** som krävs för enhets registreringen. Anteckna dessa värden. 
+1. Utdatafönstret visar **_bekräftelsenyckeln_** och **_registrerings-ID:t_** som behövs för enhetsregistrering. Anteckna dessa värden. 
 
 
 ## <a name="create-a-device-entry"></a>Skapa en enhetspost
@@ -138,22 +138,22 @@ I den här snabb starten skapar du en simulerad IoT-enhet på en Windows-dator. 
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
 
 - [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
-- [Enskilda registreringar](concepts-service.md#individual-enrollment): används för att registrera en enskild enhet.
+- [Individuella registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enda enhet.
 
 Den här artikeln visar enskilda registreringar.
 
-1. Logga in på Azure Portal, Välj knappen **alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
+1. Logga in på Azure-portalen, välj knappen **Alla resurser** på menyn till vänster och öppna tjänsten Enhetsetablering.
 
-1. Från menyn enhets etablerings tjänst väljer du **Hantera registreringar**. Välj fliken **enskilda registreringar** och välj knappen **Lägg till individuell registrering** överst. 
+1. Välj **Hantera registreringar**på menyn Tjänst för enhetsetablering . Välj fliken **Enskilda registreringar** och välj knappen **Lägg till individuell registrering** högst upp. 
 
-1. Ange följande information på panelen **Lägg till registrering** :
+1. Ange följande information på panelen **Lägg till registrering:**
    - Välj **TPM** som identitet för bestyrkande *mekanism*.
-   - Ange *registrerings-ID* och *bekräftelse nyckel* för din TPM-enhet från de värden som du antecknade tidigare.
+   - Ange *registrerings-ID* och *bekräftelsenyckel* för din TPM-enhet från de värden som du noterade tidigare.
    - Välj en IoT hub som är länkad till din etableringstjänst.
    - Du kan även ange följande information:
-       - Ange ett unikt *enhets-ID*. Se till att undvika känsliga data när du namnger din enhet. Om du väljer att inte ange en, används registrerings-ID: t för att identifiera enheten i stället.
+       - Ange ett unikt *enhets-ID*. Se till att undvika känsliga data när du namnger din enhet. Om du väljer att inte ange ett används registrerings-ID:et för att identifiera enheten i stället.
        - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-   - När du är klar trycker du på knappen **Spara** . 
+   - När du är klar trycker du på **knappen Spara.** 
 
      ![Ange information för enhetsregistrering på portalbladet](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
@@ -162,7 +162,7 @@ Den här artikeln visar enskilda registreringar.
 
 ## <a name="register-the-device"></a>Registrera enheten
 
-1. I Azure Portal väljer du bladet **Översikt** för enhets etablerings tjänsten och noterar värdena för **_Global enhets slut punkt_** och **_ID-omfång_** .
+1. I Azure-portalen väljer du **bladet Översikt** för tjänsten Enhetsetablering och noterar värdena **_för slutpunkt_** och **_ID-scope_** för globala enheter.
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
@@ -241,26 +241,26 @@ Den här artikeln visar enskilda registreringar.
     node RegisterDevice.js
     ```
 
-1. Lägg märke till de meddelanden som simulerar enhetsstart och anslutning till Device Provisioning-tjänsten för att hämta IoT-hubinformationen. Vid lyckad etablering av den simulerade enheten till IoT-hubben som är länkad till din etablerings tjänst visas enhets-ID på hubbens bladet **IoT-enheter** . 
+1. Lägg märke till de meddelanden som simulerar enhetsstart och anslutning till Device Provisioning-tjänsten för att hämta IoT-hubinformationen. När din simulerade enhet har etablerats till IoT-hubben som är länkad till etableringstjänsten visas enhets-ID:et på hubbens **IoT-enhetsblad.** 
 
     ![Enheten är registrerad på IoT-hubben](./media/quick-create-simulated-device/hub-registration.png) 
 
-    Om du ändrade din *inledande enhetstvillingstatus* från standardvärdet i registreringsposten för din enhet kan den hämta önskad tvillingstatus från hubben och agera utifrån det. Mer information finns i [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md) (Förstå och använda enhetstvillingar i IoT Hub)
+    Om du ändrade din *inledande enhetstvillingstatus* från standardvärdet i registreringsposten för din enhet kan den hämta önskad tvillingstatus från hubben och agera utifrån det. Mer information finns i [Förstå och använda enhetstvillingar i IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
+Om du planerar att fortsätta arbeta med och utforska enhetsklientexemplet ska du inte rensa de resurser som skapas i den här snabbstarten. Om du inte planerar att fortsätta använder du följande steg för att ta bort alla resurser som skapats av den här snabbstarten.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
 1. Stäng fönstret för TPM-simulatorn på datorn.
-1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna bladet **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
-1. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan din IoT Hub. Öppna bladet **IoT-enheter** för navet, markera kryss rutan bredvid *enhets-ID* för den enhet som du registrerade i den här snabb starten och tryck sedan på knappen **ta bort** högst upp i fönstret.
+1. På menyn till vänster i Azure-portalen väljer du **Alla resurser** och väljer sedan din enhetsetableringstjänst. Öppna bladet **Hantera registreringar** för tjänsten och markera sedan fliken **Enskilda registreringar.** *REGISTRATION ID* **Delete** 
+1. På menyn till vänster i Azure-portalen väljer du **Alla resurser** och väljer sedan din IoT-hubb. Öppna **ioT-enhetsbladet** för navet, markera kryssrutan bredvid *DEVICE-ID:t* för den enhet som du registrerade i den här snabbstarten och tryck sedan på knappen **Ta bort** högst upp i fönstret.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en TPM-simulerad enhet på datorn och allokerat den till IoT-hubben med hjälp av IoT Hub Device Provisioning Service. Om du vill lära dig hur du registrerar en TPM-enhet program mässigt kan du fortsätta till snabb starten för program registrering av en TPM-enhet. 
+I den här snabbstarten har du skapat en TPM-simulerad enhet på datorn och etablerat den i din IoT-hubb med hjälp av IoT Hub Device Provisioning Service. Om du vill veta hur du registrerar TPM-enheten programmässigt fortsätter du till snabbstarten för programmatisk registrering av en TPM-enhet. 
 
 > [!div class="nextstepaction"]
-> [Azure snabb start – registrera TPM-enhet på Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-node.md)
+> [Snabbstart i Azure – Registrera TPM-enhet till Azure IoT Hub Device Provisioning Service](quick-enroll-device-tpm-node.md)

@@ -1,6 +1,6 @@
 ---
-title: Använda Azure Service Bus ämnen och prenumerationer med Java
-description: I den här snabb starten skriver du Java-kod för att skicka meddelanden till ett Azure Service Bus ämne och sedan ta emot meddelanden från prenumerationer på det avsnittet.
+title: Använda ämnen och prenumerationer på Azure Service Bus med Java
+description: I den här snabbstarten skriver du Java-kod för att skicka meddelanden till ett Azure Service Bus-ämne och sedan ta emot meddelanden från prenumerationer till det ämnet.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -16,40 +16,40 @@ ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ms.openlocfilehash: a08a071466f4f10c1364cefdda7c9c136e1e1ef5
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79137996"
 ---
-# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Snabb start: använda Service Bus ämnen och prenumerationer med Java
+# <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Snabbstart: Använd servicebussämnen och prenumerationer med Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-I den här snabb starten skriver du Java-kod för att skicka meddelanden till ett Azure Service Bus ämne och sedan ta emot meddelanden från prenumerationer på det avsnittet. 
+I den här snabbstarten skriver du Java-kod för att skicka meddelanden till ett Azure Service Bus-ämne och sedan ta emot meddelanden från prenumerationer till det ämnet. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att utföra följande uppgifter:
-    1. Skapa ett Service Bus- **namnområde**.
-    2. Hämta **anslutnings strängen**.
-    3. Skapa ett **ämne** i namn området.
-    4. Skapa **tre prenumerationer** på avsnittet i namn området.
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina fördelar för [Visual Studio- eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Följ stegen i [snabbstarten: Använd Azure-portalen för att skapa ett Service Bus-ämne och prenumerationer på ämnet](service-bus-quickstart-topics-subscriptions-portal.md) för att utföra följande uppgifter:
+    1. Skapa ett **servicebussnamnområde**.
+    2. Hämta **anslutningssträngen**.
+    3. Skapa ett **ämne** i namnområdet.
+    4. Skapa **tre prenumerationer** på ämnet i namnområdet.
 3. [Azure SDK för Java][Azure SDK for Java].
 
-## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera programmet så att det använder Service Bus
-Kontrol lera att du har installerat [Azure SDK för Java][Azure SDK for Java] innan du skapar det här exemplet. Om du använder Sol förmörkelse kan du installera [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] som innehåller Azure SDK för Java. Du kan sedan lägga till **Microsoft Azure bibliotek för Java** i projektet:
+## <a name="configure-your-application-to-use-service-bus"></a>Konfigurera ditt program så att det använder Service Bus
+Kontrollera att du har installerat [Azure SDK för Java][Azure SDK for Java] innan du skapar det här exemplet. Om du använder Eclipse kan du installera [Azure Toolkit för Eclipse][Azure Toolkit for Eclipse] som innehåller Azure SDK för Java. Du kan sedan lägga till **Microsoft Azure-bibliotek för Java** i projektet:
 
-![Lägg till Microsoft Azure bibliotek för java i ditt Sol förmörkelse-projekt](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
+![Lägga till Microsoft Azure-bibliotek för Java i ditt Eclipse-projekt](media/service-bus-java-how-to-use-topics-subscriptions/eclipse-azure-libraries-java.png)
 
-Du måste också lägga till följande jar v7 i Java-build-sökvägen:
+Du måste också lägga till följande JARs i Java Build Path:
 
-- Gson-2.6.2. jar
-- Commons-CLI-1.4. jar
-- Proton-j-0.21.0. jar
+- gson-2.6.2.jar
+- commons-cli-1.4.jar
+- proton-j-0.21.0.jar
 
-Lägg till en klass med en **main** -Metod och Lägg sedan till följande `import`-instruktioner överst i Java-filen:
+Lägg till en klass med en **huvudmetod** och lägg sedan till följande `import` satser högst upp i Java-filen:
 
 ```java
 import com.google.gson.reflect.TypeToken;
@@ -66,11 +66,11 @@ import org.apache.commons.cli.DefaultParser;
 ```
 
 ## <a name="send-messages-to-a-topic"></a>Skicka meddelanden till ett ämne
-Uppdatera **main** -metoden för att skapa ett **TopicClient** -objekt och anropa en hjälp metod som asynkront skickar exempel meddelanden till Service Bus avsnittet.
+Uppdatera **huvudmetoden** för att skapa ett **TopicClient-objekt** och anropa en hjälpmetod som asynkront skickar exempelmeddelanden till servicebussavsnittet.
 
 > [!NOTE] 
-> - Ersätt `<NameOfServiceBusNamespace>` med namnet på ditt Service Bus namn område. 
-> - Ersätt `<AccessKey>` med åtkomst nyckeln för ditt namn område.
+> - Ersätt `<NameOfServiceBusNamespace>` med namnet på Service Bus-namnområdet. 
+> - Ersätt `<AccessKey>` med åtkomstnyckeln för namnområdet.
 
 ```java
 public class MyServiceBusTopicClient {
@@ -123,10 +123,10 @@ public class MyServiceBusTopicClient {
 }
 ```
 
-Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som lagras i ett ämne, men det finns en gräns för den totala storleken på de meddelanden som innehas av ett ämne. Den här ämnesstorleken definieras när ämnet skapas, med en övre gräns på 5 GB.
+Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som finns i ett ämne, men det finns en gräns för den totala storleken på de meddelanden som innehas av ett ämne. Den här ämnesstorleken definieras när ämnet skapas, med en övre gräns på 5 GB.
 
 ## <a name="how-to-receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
-Uppdatera **main** -metoden för att skapa tre **SubscriptionClient** -objekt för tre prenumerationer och anropa en hjälp metod som asynkront tar emot meddelanden från Service Bus avsnittet. Exempel koden förutsätter att du har skapat ett ämne med namnet **BasicTopic** och tre prenumerationer som heter **Subscription1**, **Subscription2**och **Subscription3**. Om du har använt olika namn för dem uppdaterar du koden innan du testar den. 
+Uppdatera **huvudmetoden** för att skapa tre **SubscriptionClient-objekt** för tre prenumerationer och anropa en hjälpmetod som asynkront tar emot meddelanden från servicebussavsnittet. Exempelkoden förutsätter att du har skapat ett ämne med namnet **BasicTopic** och tre prenumerationer med namnet **Prenumeration1,** **Prenumeration2**och **Prenumeration3**. Om du har använt olika namn för dem uppdaterar du koden innan du testar den. 
 
 ```java
 public class MyServiceBusTopicClient {
@@ -456,10 +456,10 @@ Message sending: Id = 9
 ```
 
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett servicebussnamnområde och administrera meddelandeenheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelsehubbar. 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information finns i [Service Bus köer, ämnen och prenumerationer][Service Bus queues, topics, and subscriptions].
+Mer information finns i [Köer, ämnen och prenumerationer][Service Bus queues, topics, and subscriptions]i Service Bus .
 
 [Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
 [Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse

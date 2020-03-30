@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
 ms.openlocfilehash: a25bbd0f14d38a70624dbc58755c0e814753a181
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77604177"
 ---
 # <a name="azure-security-center-data-security"></a>Datasäkerhet i Azure Security Center
@@ -35,7 +35,7 @@ Azure Security Center analyserar data från följande källor för att ge dig in
 
 
 ## <a name="data-protection"></a>Dataskydd
-**Datauppdelning**: Data lagras logiskt separerade på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
+**Datauppdelning**: Data lagras logiskt och separat på varje komponent i tjänsten. Alla data taggas efter organisation. Den här taggningen finns kvar i informationens hela livscykel och används på varje lager i tjänsten.
 
 **Dataåtkomst**: För att kunna ge säkerhetsrekommendationer och undersöka potentiella säkerhetshot kan Microsoft-personal använda information som samlats in eller analyserats av Azure-tjänster. Det kan till exempel vara kraschdumpfiler, händelser som genereras när processer skapas, ögonblicksbilder av virtuella datordiskar och artefakter, vilka oavsiktligt kan innehålla kunddata eller personuppgifter från dina virtuella datorer. Vi följer [villkoren för Microsoft Online Services och tillhörande sekretesspolicy](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), som garanterar att Microsoft inte använder kunddata eller härleder information från dem för reklamändamål eller i liknande kommersiellt syfte. Vi använder bara kunddata i den mån det är nödvändigt för att tillhandahålla Azure-tjänsterna, samt för därtill relaterade ändamål. Du äger alla rättigheter till dina kunddata.
 
@@ -72,16 +72,16 @@ Artefakter lagras centralt i samma region som den virtuella datorn.
 ## <a name="managing-data-collection-from-virtual-machines"></a>Hantera datainsamling från virtuella datorer
 
 När du väljer att aktivera Security Center i Azure är datainsamling aktiverat för var och en av dina Azure-prenumerationer. Du kan också aktivera datainsamling för dina prenumerationer i avsnittet Säkerhetsprincip i Azure Security Center. När datainsamling är aktiverat etablerar Azure Security Center Microsoft Monitoring Agent på alla befintliga virtuella Azure-datorer som stöds och eventuella nya som skapas.
-Microsoft Monitoring Agent söker efter olika säkerhetsrelaterade konfigurationer och händelser och skickar dem till [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). Dessutom utlöser operativsystemet händelser för händelseloggar när datorn körs. Exempel på sådana data är: operativsystemets typ och version, operativsystemloggar (Windows-händelseloggar), processer som körs, datornamn, IP-adresser, inloggad användare och klient-ID. Microsoft Monitoring Agent läser händelseloggposter och ETW-spårning och kopierar dem till din arbetsyta/dina arbetsytor för analys. Microsoft Monitoring Agent kopierar även kraschdumpfiler till dina arbetsytor, möjliggör händelsegenerering när processer skapas och kommandoradsgranskning.
+Agenten Microsoft Monitoring söker efter olika säkerhetsrelaterade konfigurationer och händelser med hjälp av [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx). Dessutom utlöser operativsystemet händelselogghändelser när datorn körs. Exempel på sådana data är: operativsystemets typ och version, operativsystemloggar (Windows-händelseloggar), processer som körs, datornamn, IP-adresser, inloggad användare och klient-ID. Microsoft Monitoring Agent läser händelseloggposter och ETW-spårning och kopierar dem till din arbetsyta/dina arbetsytor för analys. Microsoft Monitoring Agent kopierar även kraschdumpfiler till dina arbetsytor, möjliggör processgenereringshändelser och granskning av kommandorad.
 
 Om du använder Azure Security Center Free, kan du inaktivera datainsamling från virtuella datorer i säkerhetsprincipen. Insamling av data krävs för prenumerationer på standardnivån. Funktionerna för ögonblicksbilder av virtuella datordisker och artefaktinsamling är fortfarande aktiverade även om datainsamling har inaktiverats.
 
 ## <a name="data-consumption"></a>Dataförbrukning
 
-Kunder kan använda Security Center-relaterade data från olika dataströmmar:
+Kunder kan förbruka Security Center-relaterade data från olika dataströmmar:
 
-* **Azure-aktivitet**: alla säkerhets aviseringar, godkända Security Center [just-in-Time-](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) begäranden och alla aviseringar som genereras av [anpassningsbara program kontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
-* **Azure Monitor loggar**: alla säkerhets aviseringar.
+* **Azure-aktivitet:** alla säkerhetsaviseringar, godkända säkerhetscenter [just-in-time-begäranden](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) och alla aviseringar som genereras av [adaptiva programkontroller](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Azure Monitor loggar:** alla säkerhetsaviseringar.
 
 
 > [!NOTE]
@@ -90,8 +90,8 @@ Kunder kan använda Security Center-relaterade data från olika dataströmmar:
 ## <a name="see-also"></a>Se även
 I det här dokumentet har du lärt dig hur data hanteras och skyddas i Azure Security Center. Mer information om Azure Security Center finns här:
 
-* [Planerings- och bruksanvisning för Azure Security Center](security-center-planning-and-operations-guide.md) – Här får du lära dig att planera och vad du behöver tänka på när det gäller design när du ska börja använda Azure Security Center.
-* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar dina Azure-resursers hälsa.
-* [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Här får du lära dig hur du hanterar och åtgärdar säkerhetsaviseringar.
-* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure
+* [Planerings- och driftsguide för Azure Security Center](security-center-planning-and-operations-guide.md) – Lär dig hur du planerar och förstår designövervägandena om att anta Azure Security Center.
+* [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar hälsotillståndet för dina Azure-resurser
+* [Hantera och svara på säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md) – Lär dig hur du hanterar och svarar på säkerhetsaviseringar
+* [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar hälsostatusen för dina partnerlösningar.
+* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) – Hitta blogginlägg om Azure-säkerhet och efterlevnad

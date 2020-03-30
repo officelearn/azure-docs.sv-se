@@ -1,47 +1,47 @@
 ---
 title: Vägledning för begränsade begäranden
-description: Lär dig att gruppera, sprida, ta sid brytning och fråga parallellt för att undvika att förfrågningar begränsas av Azure Resource Graph.
+description: Lär dig att gruppera, fördela, paginera och fråga parallellt för att undvika att begäranden begränsas av Azure Resource Graph.
 ms.date: 12/02/2019
 ms.topic: conceptual
 ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79259856"
 ---
-# <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
+# <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begäranden i Azure Resource Graph
 
-När du skapar program mässig och frekvent användning av data i Azure Resource Graph bör du tänka på hur begränsningen påverkar resultatet av frågorna. Att ändra hur data begärs kan hjälpa dig och din organisation att undvika att begränsas och upprätthålla data flödet för dina Azure-resurser.
+När du skapar programmatiska och frekventa användning av Azure Resource Graph-data bör hänsyn tas till hur begränsning påverkar resultatet av frågorna. Om du ändrar hur data efterfrågas kan du och din organisation undvika att begränsas och underhålla flödet av snabbdata om dina Azure-resurser.
 
-Den här artikeln beskriver fyra områden och mönster som rör skapandet av frågor i Azure Resource Graph:
+Den här artikeln innehåller fyra områden och mönster som är relaterade till skapandet av frågor i Azure Resource Graph:
 
-- Förstå begränsnings rubriker
+- Förstå begränsningsrubriker
 - Gruppera frågor
-- Sprid frågor
-- Effekten av sid brytning
+- Spridning av frågor
+- Effekterna av sidnumrering
 
-## <a name="understand-throttling-headers"></a>Förstå begränsnings rubriker
+## <a name="understand-throttling-headers"></a>Förstå begränsningsrubriker
 
-Azure Resource Graph allokerar kvot nummer för varje användare baserat på ett tids periods fönster. En användare kan till exempel skicka högst 15 frågor inom varje 5-sekunders period utan att vara begränsad. Kvot svärdet bestäms av många faktorer och kan komma att ändras.
+Azure Resource Graph allokerar kvotnummer för varje användare baserat på ett tidsfönster. En användare kan till exempel skicka högst 15 frågor inom varje 5-sekundersfönster utan att begränsas. Kvotvärdet bestäms av många faktorer och kan komma att ändras.
 
-I varje fråge svar lägger Azure Resource Graph till två begränsnings rubriker:
+I varje frågesvar lägger Azure Resource Graph till två begränsningshuvuden:
 
-- `x-ms-user-quota-remaining` (int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
-- `x-ms-user-quota-resets-after` (hh: mm: SS): tids perioden tills en användares kvot förbrukning återställs.
+- `x-ms-user-quota-remaining`(int): Den återstående resurskvoten för användaren. Det här värdet mappar till frågeantal.
+- `x-ms-user-quota-resets-after`(hh:mm:ss): Tidslängden tills en användares kvotförbrukning återställs.
 
-För att illustrera hur rubrikerna fungerar, ska vi titta på ett fråge svar som har sidhuvud och värden för `x-ms-user-quota-remaining: 10` och `x-ms-user-quota-resets-after: 00:00:03`.
+Om du vill illustrera hur rubrikerna fungerar ska vi titta på `x-ms-user-quota-remaining: 10` ett `x-ms-user-quota-resets-after: 00:00:03`frågesvar som har huvudet och värdena för och .
 
-- Inom de kommande 3 sekunderna kan högst 10 frågor skickas utan begränsning.
-- I 3 sekunder kommer värdena för `x-ms-user-quota-remaining` och `x-ms-user-quota-resets-after` att återställas till `15` respektive `00:00:05`.
+- Inom de närmaste 3 sekunderna kan högst 10 frågor skickas in utan att begränsas.
+- `x-ms-user-quota-remaining` Om 3 sekunder återställs `x-ms-user-quota-resets-after` och återställs värdena för `15` `00:00:05` respektive.
 
-Om du vill se ett exempel på hur du använder rubrikerna för att _backoff_ på fråge förfrågningar, se exemplet i [query parallellt](#query-in-parallel).
+Ett exempel på hur du använder rubrikerna för att _backa_ från frågebegäranden finns i exemplet [i Fråga i parallell](#query-in-parallel).
 
 ## <a name="grouping-queries"></a>Gruppera frågor
 
-Att gruppera frågor efter prenumeration, resurs grupp eller enskild resurs är mer effektivt än att parallellt frågar frågor. Kvot kostnaden för en större fråga är ofta lägre än kvot kostnaden för många små och riktade frågor. Grupp storleken rekommenderas vara mindre än _300_.
+Att gruppera frågor efter prenumeration, resursgrupp eller enskild resurs är effektivare än att parallellisera frågor. Kvotkostnaden för en större fråga är ofta mindre än kvotkostnaden för många små och riktade frågor. Gruppstorleken rekommenderas att vara mindre än _300_.
 
-- Exempel på en dåligt optimerad metod
+- Exempel på ett dåligt optimerat tillvägagångssätt
 
   ```csharp
   // NOT RECOMMENDED
@@ -62,7 +62,7 @@ Att gruppera frågor efter prenumeration, resurs grupp eller enskild resurs är 
   }
   ```
 
-- Exempel på #1 av en optimerad grupperings metod
+- Exempel #1 av en optimerad grupperingsmetod
 
   ```csharp
   // RECOMMENDED
@@ -85,7 +85,7 @@ Att gruppera frågor efter prenumeration, resurs grupp eller enskild resurs är 
   }
   ```
 
-- Exempel #2 av en optimerad grupp metod för att hämta flera resurser i en fråga
+- Exempel #2 en optimerad grupperingsmetod för att hämta flera resurser i en fråga
 
   ```kusto
   Resources | where id in~ ({resourceIdGroup}) | project name, type
@@ -113,23 +113,23 @@ Att gruppera frågor efter prenumeration, resurs grupp eller enskild resurs är 
   }
   ```
 
-## <a name="staggering-queries"></a>Sprid frågor
+## <a name="staggering-queries"></a>Spridning av frågor
 
-På grund av hur begränsningen upprätthålls rekommenderar vi att frågor översätts till varandra. Det vill säga, i stället för att skicka 60-frågor samtidigt, ska du sprida frågorna till fyra andra fönster i 5:
+På grund av hur begränsning tillämpas rekommenderar vi frågor som ska fördelas. Det vill än att skicka 60 frågor samtidigt, fördela frågorna i fyra 5-sekundersfönster:
 
-- Schema för icke-spridd fråga
+- Icke-förskjutet frågeschema
 
   | Antal frågor         | 60  | 0    | 0     | 0     |
   |---------------------|-----|------|-------|-------|
-  | Tidsintervall (SEK) | 0-5 | 5-10 | 10-15 | 15-20 |
+  | Tidsintervall (sek) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-- Schema för överdelad fråga
+- Förskjutet frågeschema
 
   | Antal frågor         | 15  | 15   | 15    | 15    |
   |---------------------|-----|------|-------|-------|
-  | Tidsintervall (SEK) | 0-5 | 5-10 | 10-15 | 15-20 |
+  | Tidsintervall (sek) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Nedan visas ett exempel på hur du kan följa upp begränsnings rubriker när du frågar Azure Resource Graph:
+Nedan följer ett exempel på respekt för begränsningshuvuden när du frågar Azure Resource Graph:
 
 ```csharp
 while (/* Need to query more? */)
@@ -153,7 +153,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Fråga parallellt
 
-Även om gruppering rekommenderas över parallellisering, finns det tillfällen där frågor inte kan grupperas. I dessa fall kanske du vill fråga Azure Resource Graph genom att skicka flera frågor på ett parallellt sätt. Nedan visas ett exempel på hur du _backoff_ baserat på begränsnings rubriker i sådana scenarier:
+Även om gruppering rekommenderas över parallellisering finns det tillfällen där frågor inte lätt kan grupperas. I dessa fall kanske du vill fråga Azure Resource Graph genom att skicka flera frågor på ett parallellt sätt. Nedan följer ett exempel på hur du _backar_ baserat på begränsningshuvuden i sådana scenarier:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryGroup = /* Groups of queries  */
@@ -185,13 +185,13 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>Sidbrytning
+## <a name="pagination"></a>Sidnumrering
 
-Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge svar, kan du behöva [fylla i frågorna](./work-with-data.md#paging-results) för att få den fullständiga data uppsättningen som du letar efter. Vissa Azure Resource Graph-klienter hanterar dock sid brytning annorlunda än andra.
+Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda frågesvar kan du behöva [paginera](./work-with-data.md#paging-results) dina frågor för att få den fullständiga datauppsättningen du letar efter. Vissa Azure Resource Graph-klienter hanterar dock sidnumrering på ett annat sätt än andra.
 
 - C#-SDK
 
-  När du använder ResourceGraph SDK måste du hantera sid brytning genom att skicka Skip-token som returneras från föregående fråge svar till nästa sid brytnings fråga. Den här designen innebär att du måste samla in resultat från alla sid brytnings anrop och kombinera dem tillsammans i slutet. I det här fallet tar varje sid brytnings fråga som du skickar en fråga-kvot:
+  När du använder ResourceGraph SDK måste du hantera sidnumrering genom att skicka hoppa token som returneras från föregående frågesvar till nästa sidnumrerade fråga. Denna design innebär att du måste samla in resultat från alla sidnumrerade samtal och kombinera dem tillsammans i slutet. I det här fallet tar varje sidnumrerad fråga som du skickar en frågekvot:
 
   ```csharp
   var results = new List<object>();
@@ -214,9 +214,9 @@ Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge sv
   }
   ```
 
-- Azure CLI/Azure PowerShell
+- Azure CLI / Azure PowerShell
 
-  När du använder antingen Azure CLI eller Azure PowerShell, fylls frågor till Azure Resource Graph automatiskt i för att hämta högst 5000 poster. Frågeresultaten returnerar en kombinerad lista med poster från alla sid brytnings anrop. I det här fallet, beroende på antalet poster i frågeresultatet, kan en enskild sid brytnings fråga förbruka mer än en fråga-kvot. I exemplet nedan kan till exempel en enskild körning av frågan använda upp till fem frågesträng:
+  När du använder antingen Azure CLI eller Azure PowerShell sidnumrerar frågor till Azure Resource Graph automatiskt för att hämta högst 5000 poster. Frågeresultatet returnerar en kombinerad lista med poster från alla sidnumrerade anrop. I det här fallet, beroende på antalet poster i frågeresultatet, kan en enskild sidnumrerad fråga förbruka mer än en frågekvot. I exemplet nedan kan till exempel en enda körning av frågan förbruka upp till fem frågekvoter:
 
   ```azurecli-interactive
   az graph query -q 'Resources | project id, name, type' --first 5000
@@ -226,19 +226,19 @@ Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge sv
   Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
-## <a name="still-get-throttled"></a>Är du fortfarande begränsad?
+## <a name="still-get-throttled"></a>Fortfarande få strypt?
 
-Om du får en begränsning efter ovanstående rekommendationer kan du kontakta teamet på [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
+Om du får strypt efter att ha utövat ovanstående rekommendationer, kontakta teamet på [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
 
-Ange följande information:
+Lämna följande information:
 
-- Din specifika användnings fall och affärs driv rutin behöver en högre begränsnings gräns.
-- Hur många resurser har du åtkomst till? Hur många av returneras från en enda fråga?
-- Vilka typer av resurser är du intresse rad av?
-- Vad är ditt fråge mönster? X-frågor per Y-sekunder osv.
+- Din specifika användningsfall och affärsdrivrutin behöver för en högre begränsningsgräns.
+- Hur många resurser har du åtkomst till? Hur många av de returneras från en enda fråga?
+- Vilka typer av resurser är du intresserad av?
+- Vad är frågemönstret? X frågor per Y sekunder etc.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se språket som används i [Start frågor](../samples/starter.md).
-- Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md).
-- Lär dig mer om hur du [utforskar resurser](explore-resources.md).
+- Se språket som används i [Starter-frågor](../samples/starter.md).
+- Se avancerade användningsområden i [avancerade frågor](../samples/advanced.md).
+- Läs mer om hur du [utforskar resurser](explore-resources.md).

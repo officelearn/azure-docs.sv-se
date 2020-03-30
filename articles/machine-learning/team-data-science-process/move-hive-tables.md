@@ -1,6 +1,6 @@
 ---
 title: Skapa Hive-tabeller och läsa in data från Blob storage - Team Data Science Process
-description: Använda Hive-frågor för att skapa Hive-tabeller och läsa in data från Azure blob storage. Partitionera Hive-tabeller och använda den optimerade rad kolumner (ORC) formatering för att förbättra frågeprestanda.
+description: Använd Hive-frågor för att skapa Hive-tabeller och läsa in data från Azure blob storage. Partition Hive-tabeller och använd ORC-formateringen (Optimized Row Columnar) för att förbättra frågeprestanda.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -12,113 +12,113 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 625d9d5c5ecf095d4acbff625754b2065f184536
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79251666"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och läsa in data från Azure Blob Storage
 
-Den här artikeln beskriver vi allmän Hive-frågor som skapar Hive-tabeller och läsa in data från Azure blob storage. Vägledning finns även på partitionering Hive-tabeller och om hur du använder den optimerade rad kolumner (ORC) formatering för att förbättra frågeprestanda.
+Den här artikeln innehåller allmänna Hive-frågor som skapar Hive-tabeller och läser in data från Azure blob storage. Viss vägledning ges också om partitionering av Hive-tabeller och om hur du använder ORC-formateringen (Optimized Row Columnar) för att förbättra frågeprestanda.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du har:
 
-* Ett Azure Storage-konto har skapats. Om du behöver instruktioner, se [om Azure Storage-konton](../../storage/common/storage-introduction.md).
-* Etablerat en anpassade Hadoop-kluster med HDInsight-tjänsten.  Om du behöver instruktioner, se [installations kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
-* Aktiverade fjärråtkomst till klustret, loggat in och öppnas Hadoop-Kommandotolken. Om du behöver instruktioner, se [hantera Apache Hadoop kluster](../../hdinsight/hdinsight-administer-use-portal-linux.md).
+* Skapade ett Azure Storage-konto. Om du behöver instruktioner läser du [Om Azure Storage-konton](../../storage/common/storage-introduction.md).
+* Etablerat ett anpassat Hadoop-kluster med HDInsight-tjänsten.  Om du behöver instruktioner läser du [Konfigurera kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+* Aktiverad fjärråtkomst till klustret, inloggad och öppnade Hadoop Command-Line-konsolen. Om du behöver instruktioner läser du [Hantera Apache Hadoop-kluster](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
-## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure blob storage
-Om du har skapat en virtuell Azure-dator genom att följa anvisningarna i [Konfigurera en virtuell Azure-dator för avancerad analys](../../machine-learning/data-science-virtual-machine/overview.md), bör den här skript filen ha hämtats till *C:\\användare\\\<användar namn\>\\Documents\\data science scripts* -katalogen på den virtuella datorn. Dessa Hive-frågor kräver bara att du anger ett data schema och Azure Blob Storage-konfigurationen i lämpliga fält för att kunna skickas.
+## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure-bloblagring
+Om du skapade en virtuell Azure-dator genom att följa instruktionerna i [Konfigurera en virtuell Azure-dator för avancerad analys,](../../machine-learning/data-science-virtual-machine/overview.md)borde den här skriptfilen ha hämtats till katalogen *C:\\\\\<Users-användarnamn\>\\dokumentdatavetenskapsskript\\* på den virtuella datorn. Dessa Hive-frågor kräver bara att du tillhandahåller ett dataschema och Azure blob-lagringskonfiguration i lämpliga fält för att vara redo för inlämning.
 
-Vi antar att data för Hive-tabeller är i ett **okomprimerat** tabell format och att data har överförts till standard (eller till en ytterligare) behållare för det lagrings konto som används av Hadoop-klustret.
+Vi förutsätter att data för Hive-tabeller är i ett **okomprimerat** tabellformat och att data har överförts till standardbehållaren (eller till en ytterligare) behållare för lagringskontot som används av Hadoop-klustret.
 
-Om du vill öva på **NYC taxi-rese data**måste du:
+Om du vill öva på **NYC Taxi Trip Data**måste du:
 
-* **Hämta** 24 [NYC taxi](https://www.andresmh.com/nyctaxitrips) -datafiler (12-reseinformation och 12-pris per pris).
-* **zippa** upp alla filer till CSV-filer och sedan
-* **överför** dem till standardvärdet (eller lämplig container) för det Azure Storage kontot. alternativ för ett sådant konto visas i avsnittet [använda Azure Storage med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) . Processen att ladda upp CSV-filerna till standard behållaren på lagrings kontot finns på den här [sidan](hive-walkthrough.md#upload).
+* **ladda ner** 24 [NYC Taxi Trip Data](https://www.andresmh.com/nyctaxitrips) filer (12 Trip filer och 12 Fare filer),
+* **packa upp** alla filer i CSV-filer och sedan
+* **ladda upp** dem till standard -(eller lämplig behållare) för Azure Storage-kontot. alternativ för ett sådant konto visas på [Använd Azure Storage med Azure HDInsight-kluster.](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) Processen att ladda upp CSV-filerna till standardbehållaren på lagringskontot finns på den här [sidan](hive-walkthrough.md#upload).
 
-## <a name="submit"></a>Så här skickar du Hive-frågor
-Du kan skicka hive-frågor med hjälp av:
+## <a name="how-to-submit-hive-queries"></a><a name="submit"></a>Så här skickar du Hive-frågor
+Hive-frågor kan skickas med hjälp av:
 
-* [Skicka Hive-frågor via Hadoop-kommandoraden i huvudnoden för Hadoop-kluster](#headnode)
-* [Skicka Hive-frågor med Hive-redigeraren](#hive-editor)
+* [Skicka Hive-frågor via Hadoop Command Line i headnod av Hadoop-kluster](#headnode)
+* [Skicka Hive-frågor till Hive Editor](#hive-editor)
 * [Skicka Hive-frågor med Azure PowerShell-kommandon](#ps)
 
-Hive-frågor körs SQL-liknande. Om du är bekant med SQL kan du hitta [Hive för SQL-användare lathund-bladet](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) .
+Hive-frågor är SQL-liknande. Om du är bekant med SQL, Du kan hitta [Hive för SQL-användare lathund](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) användbar.
 
-När du skickar en Hive-fråga, kan du också styra målet utdata från Hive-frågor, oavsett om det är på skärmen eller till en lokal fil på huvudnoden eller till en Azure-blob.
+När du skickar en Hive-fråga kan du också styra resultatets mål från Hive-frågor, oavsett om det är på skärmen eller till en lokal fil på huvudnoden eller till en Azure-blob.
 
-### <a name="headnode"></a>Skicka Hive-frågor via Hadoop-kommandoraden i huvudnoden för Hadoop-kluster
-Om Hive-frågan är komplex kan leder skicka den direkt i klustrets huvudnod Hadoop kluster normalt till returtid snabbare än att skicka den med en Hive-redigeraren eller Azure PowerShell-skript.
+### <a name="submit-hive-queries-through-hadoop-command-line-in-headnode-of-hadoop-cluster"></a><a name="headnode"></a>Skicka Hive-frågor via Hadoop Command Line i headnod av Hadoop-kluster
+Om Hive-frågan är komplex, skickar du den direkt i huvudnoden i Hadoop-klustret leder vanligtvis till snabbare vändning än att skicka den med ett Hive Editor- eller Azure PowerShell-skript.
 
-Logga in på noden Head i Hadoop-klustret, öppna Hadoop-kommandoraden på Skriv bordet i head-noden och ange kommandot `cd %hive_home%\bin`.
+Logga in på huvudnoden för Hadoop-klustret, öppna Hadoop-kommandoraden på `cd %hive_home%\bin`skrivbordet i huvudnoden och kommandot Enter .
 
-Du har tre sätt att skicka Hive-frågor i Hadoop-kommandoraden:
+Du kan skicka in Hive-frågor på Hadoop-kommandoraden:
 
-* direkt
-* använda. HQL-filer
-* med kommandokonsolen Hive
+* Direkt
+* använda ".hql" filer
+* med befallningskonsolen Hive
 
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Skicka Hive-frågor direkt i Hadoop-kommandoraden.
-Du kan köra kommandot som `hive -e "<your hive query>;` för att skicka enkla Hive-frågor direkt i Hadoop-kommandoraden. Här är ett exempel där den röda rutan beskriver det kommando som skickar Hive-fråga, och den gröna rutan visar utdata från Hive-frågan.
+Du kan köra `hive -e "<your hive query>;` kommandot som att skicka enkla Hive-frågor direkt i Hadoop Command Line. Här är ett exempel där den röda rutan beskriver kommandot som skickar Hive-frågan och den gröna rutan beskriver utdata från Hive-frågan.
 
 ![Kommando för att skicka Hive-fråga med utdata från Hive-fråga](./media/move-hive-tables/run-hive-queries-1.png)
 
-#### <a name="submit-hive-queries-in-hql-files"></a>Skicka Hive-frågor i '. HQL '-filer
-När Hive-frågan är mer komplicerad och har flera rader kan är redigera frågor i kommandoraden eller Hive kommandokonsolen inte praktiskt. Ett alternativ är att använda en text redigerare i noden Head i Hadoop-klustret för att spara Hive-frågor i en. HQL-fil i en lokal katalog i head-noden. Sedan kan Hive-frågan i filen ". HQL" skickas genom att använda argumentet `-f` enligt följande:
+#### <a name="submit-hive-queries-in-hql-files"></a>Skicka Hive-frågor i '.hql'-filer
+När Hive-frågan är mer komplicerad och har flera rader är det inte praktiskt att redigera frågor på kommandoraden eller hive-kommandokonsolen. Ett alternativ är att använda en textredigerare i huvudnoden i Hadoop-klustret för att spara Hive-frågorna i en '.hql-fil i en lokal katalog över huvudnoden. Då Hive frågan i ".hql" fil kan `-f` skickas med hjälp av argumentet på följande sätt:
 
     hive -f "<path to the '.hql' file>"
 
-![Hive-fråga i en. HQL-fil](./media/move-hive-tables/run-hive-queries-3.png)
+![Hive-fråga i en '.hql-fil](./media/move-hive-tables/run-hive-queries-3.png)
 
-**Ignorera förlopps status skärm utskrift av Hive-frågor**
+**Undertrycka utskrift av status för status för Hive-frågor**
 
-Som standard när Hive-frågan har skickats i Hadoop kommandoraden skrivs förloppet för Map/Reduce-jobb på skärmen. Om du inte vill att skärmen ska skrivas ut eller minska jobbets förlopp, kan du använda ett argument `-S` ("S" i versaler) på kommando raden enligt följande:
+När Hive-frågan har skickats i Hadoop-kommandoraden skrivs som standard ut förloppet för jobbet Karta/Minska på skärmen. Om du vill dölja skärmutskriften för jobbförloppet `-S` för karta/minska kan du använda ett argument ("S" i versaler) på kommandoraden enligt följande:
 
     hive -S -f "<path to the '.hql' file>"
     hive -S -e "<Hive queries>"
 
-#### <a name="submit-hive-queries-in-hive-command-console"></a>Skicka Hive-frågor i kommandokonsolen för Hive.
-Du kan också först ange Hive-kommandoraden genom att köra kommandot `hive` i Hadoop-kommandoraden och sedan skicka Hive-frågor i Hive-Kommandotolken. Här är ett exempel. I det här exemplet markerar du två röda rutor de kommandon som används för att ange Hive kommandokonsolen och Hive-fråga som skickats i kommandokonsolen Hive respektive. Den gröna rutan visar utdata från Hive-frågan.
+#### <a name="submit-hive-queries-in-hive-command-console"></a>Skicka Hive-frågor i Hive-kommandokonsolen.
+Du kan också först ange kommandotasolen Hive genom att köra kommandot `hive` i Hadoop Command Line och sedan skicka Hive-frågor i Hive-kommandokonsolen. Här är ett exempel. I det här exemplet markerar de två röda rutorna de kommandon som används för att ange hive-kommandokonsolen och Hive-frågan som skickades i Hive-kommandokonsolen. Den gröna rutan markerar utdata från Hive-frågan.
 
-![Öppna Hive kommandokonsolen och anger kommandot kan visa utdata för Hive-fråga](./media/move-hive-tables/run-hive-queries-2.png)
+![Öppna Hive kommandokonsol och ange kommando, visa Hive fråga utdata](./media/move-hive-tables/run-hive-queries-2.png)
 
-I föregående exempel utdata direkt Hive-frågeresultatet på skärmen. Du kan också skriva utdata till en lokal fil på huvudnoden eller till en Azure-blob. Du kan sedan använda andra verktyg för ytterligare analys utdata för Hive-frågor.
+De tidigare exemplen matar direkt ut Hive-frågeresultatet på skärmen. Du kan också skriva utdata till en lokal fil på huvudnoden eller till en Azure-blob. Sedan kan du använda andra verktyg för att ytterligare analysera utdata från Hive-frågor.
 
-**Resulterande Hive-frågeresultat i en lokal fil.**
-Om du vill spara resultatet av Hive-frågan till en lokal katalog på huvudnoden har att skicka Hive-frågan i Hadoop-kommandoraden enligt följande:
+**Utdata Hive-frågeresultat till en lokal fil.**
+Om du vill mata ut Hive-frågeresultat till en lokal katalog på huvudnoden måste du skicka Hive-frågan på Hadoop-kommandoraden enligt följande:
 
     hive -e "<hive query>" > <local path in the head node>
 
-I följande exempel skrivs utdata från Hive-frågan till en fil `hivequeryoutput.txt` i katalog `C:\apps\temp`.
+I följande exempel skrivs utdata från Hive-frågan till en fil `hivequeryoutput.txt` i katalogen `C:\apps\temp`.
 
-![Utdata för Hive-fråga](./media/move-hive-tables/output-hive-results-1.png)
+![Utdata från Hive-fråga](./media/move-hive-tables/output-hive-results-1.png)
 
-**Returnera utdata för Hive-frågor till en Azure-Blob**
+**Utdata Hive-frågeresultat till en Azure-blob**
 
-Du kan också spara resultatet av Hive-frågan till en Azure blob i standardbehållaren för Hadoop-kluster. Hive-frågan för det här är följande:
+Du kan också mata ut Hive-frågeresultaten till en Azure-blob, i standardbehållaren för Hadoop-klustret. Hive-frågan för detta är följande:
 
     insert overwrite directory wasb:///<directory within the default container> <select clause from ...>
 
-I följande exempel skrivs utdata från Hive-frågan till en BLOB-katalog `queryoutputdir` i standard behållaren för Hadoop-klustret. Här kan behöver du bara ange katalognamnet utan blobnamnet. Ett fel genereras om du anger både katalog-och blob-namn, till exempel `wasb:///queryoutputdir/queryoutput.txt`.
+I följande exempel skrivs utdata från Hive-frågan `queryoutputdir` till en blob-katalog i standardbehållaren för Hadoop-klustret. Här behöver du bara ange katalognamnet, utan blob-namnet. Ett fel genereras om du anger både katalog- `wasb:///queryoutputdir/queryoutput.txt`och blobnamn, till exempel .
 
-![Utdata för Hive-fråga](./media/move-hive-tables/output-hive-results-2.png)
+![Utdata från Hive-fråga](./media/move-hive-tables/output-hive-results-2.png)
 
-Om du öppnar standardbehållaren för Hadoop-kluster med Azure Storage Explorer kan du se utdata för Hive-fråga som visas i följande bild. Du kan använda filter (visas med röd ram) för att endast hämta blob med angivna bokstäverna i namn.
+Om du öppnar standardbehållaren för Hadoop-klustret med Azure Storage Explorer kan du se utdata för Hive-frågan som visas i följande bild. Du kan använda filtret (markerat med röd ruta) för att bara hämta blobben med angivna bokstäver med namn.
 
-![Azure Storage Explorer visar utdata för Hive-fråga](./media/move-hive-tables/output-hive-results-3.png)
+![Azure Storage Explorer som visar utdata från Hive-frågan](./media/move-hive-tables/output-hive-results-3.png)
 
-### <a name="hive-editor"></a>Skicka Hive-frågor med Hive-redigeraren
-Du kan också använda fråga konsolen (Hive-redigeraren) genom att ange en URL i formatet *https:\//\<Hadoop-kluster namn >. azurehdinsight. net/Home/HiveEditor* i en webbläsare. Du måste vara inloggad i ser den här konsolen och du måste ha autentiseringsuppgifter här dina Hadoop-kluster.
+### <a name="submit-hive-queries-with-the-hive-editor"></a><a name="hive-editor"></a>Skicka Hive-frågor till Hive Editor
+Du kan också använda Frågekonsolen (Hive Editor) genom att ange en URL för formuläret *https:\//\<Hadoop-klusternamn>.azurehdinsight.net/Home/HiveEditor* i en webbläsare. Du måste vara inloggad på den här konsolen så du behöver dina Hadoop-klusterautentiseringsuppgifter här.
 
-### <a name="ps"></a>Skicka Hive-frågor med Azure PowerShell-kommandon
+### <a name="submit-hive-queries-with-azure-powershell-commands"></a><a name="ps"></a>Skicka Hive-frågor med Azure PowerShell-kommandon
 Du kan också använda PowerShell för att skicka Hive-frågor. Instruktioner finns i [Skicka Hive-jobb med PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
-## <a name="create-tables"></a>Skapa Hive-databas och tabeller
-Hive-frågorna delas i GitHub- [lagringsplatsen](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) och kan laddas ned därifrån.
+## <a name="create-hive-database-and-tables"></a><a name="create-tables"></a>Skapa Hive-databas och tabeller
+Hive-frågorna delas i [GitHub-databasen](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_db_tbls_load_data_generic.hql) och kan hämtas därifrån.
 
 Här är Hive-frågan som skapar en Hive-tabell.
 
@@ -135,34 +135,34 @@ Här är Hive-frågan som skapar en Hive-tabell.
     ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' lines terminated by '<line separator>'
     STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line.count"="1");
 
-Här följer beskrivningar av de fält som ska anslutas och andra konfigurationer:
+Här är beskrivningarna av de fält som du behöver för att koppla in och andra konfigurationer:
 
-* **\<databas namn\>** : namnet på den databas som du vill skapa. Om du bara vill använda standard databasen kan frågan "*skapa databas...* " utelämnas.
-* **\<tabell namn\>** : namnet på den tabell som du vill skapa i den angivna databasen. Om du vill använda standard databasen kan tabellen direkt refereras av *\<tabell namn\>* utan \<databas namn\>.
-* **\<fält avgränsare\>** : avgränsaren som avgränsar fält i data filen som ska överföras till Hive-tabellen.
-* **\<rad avgränsare\>** : avgränsaren som avgränsar rader i data filen.
-* **\<lagrings plats\>** : Azure Storages plats för att spara data för Hive-tabeller. Om du inte anger *plats \<lagrings plats\>* , lagras databasen och tabellerna i *Hive/lager/* katalog i standard behållaren för Hive-klustret som standard. Om du vill ange lagringsplatsen måste lagringsplatsen vara i standardbehållaren för databasen och tabeller. Den här platsen måste refereras till platsen i förhållande till standard behållaren för klustret i formatet *"wasb:///\<Directory 1 >/"* eller *"wasb:///\<Directory 1 >/\<Directory 2 >/"* osv. När frågan har körts skapas de relativa katalogerna i standard behållaren.
-* **TBLPROPERTIES ("Skip. header. line. Count" = "1")** : om data filen har en rubrik rad måste du lägga till den här egenskapen **i slutet** av frågan *CREATE TABLE* . I annat fall rubrikraden har lästs in som en post i tabellen. Om filen inte har en rubrikrad kan du utelämna den här konfigurationen i frågan.
+* **databasnamn:\>namnet på den databas som du vill skapa. \<** Om du bara vill använda standarddatabasen kan frågan "*skapa databas...*" utelämnas.
+* **tabellnamn:\>namnet på den tabell som du vill skapa i den angivna databasen. \<** Om du vill använda standarddatabasen kan tabellen refereras direkt \<efter\> * \<tabellnamn\> * utan databasnamn .
+* **fältavgränsare:\>avgränsaren som avgränsar fält i datafilen som ska överföras till tabellen Hive. \<**
+* **linjeavgränsare:\>avgränsaren som avgränsar rader i datafilen. \<**
+* **lagringsplats:\>Azure Storage-platsen för att spara data från Hive-tabeller. \<** Om du inte anger * \<LOCATION-lagringsplats\>* lagras databasen och tabellerna i *registreringsdatafilen/lager-/katalogen* i standardbehållaren för Hive-klustret som standard. Om du vill ange lagringsplatsen måste lagringsplatsen finnas i standardbehållaren för databasen och tabellerna. Den här platsen måste kallas plats i förhållande till standardbehållaren för klustret i formatet *"wasb:///\<katalog 1>/"* eller *"wasb:///\<katalog 1>/\<katalog 2>/"* osv. När frågan har körts skapas de relativa katalogerna i standardbehållaren.
+* **TBLPROPERTIES("skip.header.line.count"="1")**: Om datafilen har en rubrikrad måste du lägga till den här **egenskapen i slutet** av *tabellen.* Annars läses rubrikraden in som en post i tabellen. Om datafilen inte har någon rubrikrad kan den här konfigurationen utelämnas i frågan.
 
-## <a name="load-data"></a>Läs in data till Hive-tabeller
+## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Läsa in data i Hive-tabeller
 Här är Hive-frågan som läser in data i en Hive-tabell.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<sökväg till BLOB-data\>** : om BLOB-filen som ska överföras till Hive-tabellen finns i standard behållaren för HDInsight Hadoop-klustret, ska *\<sökvägen till blob-data\>* vara i formatet *' wasb://\<directory i den här behållaren >/\<BLOB File name > '* . Blob-fil kan också vara i ytterligare en behållare för HDInsight Hadoop-kluster. I det här fallet ska *\<sökväg till BLOB-data\>* ha formatet *"wasb://\<container Name >\<lagrings kontots namn >. blob. Core. Windows. net/\<blob File name >"* .
+* **sökväg till\>blob-data: Om blob-filen som ska överföras till Hive-tabellen finns i standardbehållaren för HDInsight Hadoop-klustret, bör sökvägen till blob-data vara i formatet "wasb:// katalog i det här>/ blob-filnamnet>". \<** * \<\> * *\<\<* Blob-filen kan också finnas i ytterligare en behållare i HDInsight Hadoop-klustret. I det här fallet bör * \<sökvägen till\> blob-data* vara i formatet *"wasb://\<behållarnamn>\<lagringskontonamn>.blob.core.windows.net/\<blob filnamn>"*.
 
   > [!NOTE]
-  > Blob-data som ska överföras till Hive-tabell måste vara i standard eller ytterligare en behållare för storage-konto för Hadoop-kluster. I annat fall Miss lyckas *inläsnings data* frågan så att den inte kan komma åt data.
+  > Blob-data som ska överföras till Hive-tabellen måste finnas i standard- eller ytterligare behållaren för lagringskontot för Hadoop-klustret. Annars misslyckas *load data-frågan* med att klaga på att den inte kan komma åt data.
   >
   >
 
-## <a name="partition-orc"></a>Avancerade ämnen: partitionerad tabell och lagra Hive-data i ORC-format
-Om data är stor kan är partitionera tabellen bra för frågor som behöver bara skanna några partitioner i tabellen. Exempelvis är det rimligt att partitionera loggdata av en webbplats med datum.
+## <a name="advanced-topics-partitioned-table-and-store-hive-data-in-orc-format"></a><a name="partition-orc"></a>Avancerade ämnen: partitionerad tabell och lagra Hive-data i ORC-format
+Om data är stora är partitionering av tabellen fördelaktigt för frågor som bara behöver söka igenom några partitioner i tabellen. Det är till exempel rimligt att partitionera loggdata för en webbplats efter datum.
 
-Förutom partitionering Hive-tabeller, är det också bra att lagra Hive-data i formatet optimerade rad kolumner (ORC). Mer information om ORC-formatering finns i <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">använda Orc-filer ger bättre prestanda när Hive läser, skriver och bearbetar data</a>.
+Förutom att partitionera Hive-tabeller är det också fördelaktigt att lagra Hive-data i ORC-formatet (Optimized Row Columnar). Mer information om ORC-formatering finns i <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC#LanguageManualORC-ORCFiles" target="_blank">Använda ORC-filer förbättrar prestanda när Hive läser, skriver och bearbetar data</a>.
 
 ### <a name="partitioned-table"></a>Partitionerad tabell
-Här är Hive-frågan som skapar en partitionerad tabell och läser in data till den.
+Här är Hive-frågan som skapar en partitionerad tabell och läser in data i den.
 
     CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<table name>
     (field1 string,
@@ -174,17 +174,17 @@ Här är Hive-frågan som skapar en partitionerad tabell och läser in data till
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-När du frågar efter partitionerade tabeller rekommenderar vi att du lägger till ett partitionsschema i **början** av `where`-satsen, vilket förbättrar Sök effektiviteten.
+När du frågar partitionerade tabeller rekommenderar vi att **beginning** du `where` lägger till partitionsvillkoret i början av satsen, vilket förbättrar sökeffektiviteten.
 
     select
         field1, field2, ..., fieldN
     from <database name>.<partitioned table name>
     where <partitionfieldname>=<partitionfieldvalue> and ...;
 
-### <a name="orc"></a>Lagra Hive-data i ORC-format
-Du kan inte direkt läsa in data från blob storage till Hive-tabeller som lagras i ORC-format. Här är de steg som du behöver vidta för att läsa in data från Azure BLOB-objekt till Hive-tabeller som lagras i ORC-format.
+### <a name="store-hive-data-in-orc-format"></a><a name="orc"></a>Lagra Hive-data i ORC-format
+Du kan inte direkt läsa in data från blob-lagring i Hive-tabeller som lagras i ORC-format. Här är de steg som du behöver vidta för att läsa in data från Azure-blobbar till Hive-tabeller som lagras i ORC-format.
 
-Skapa en extern tabell **som lagras som textfile** och Läs in data från Blob Storage till tabellen.
+Skapa en extern tabell **som lagras som TEXTFILE** och läs in data från bloblagring till tabellen.
 
         CREATE EXTERNAL TABLE IF NOT EXISTS <database name>.<external textfile table name>
         (
@@ -199,7 +199,7 @@ Skapa en extern tabell **som lagras som textfile** och Läs in data från Blob S
 
         LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<table name>;
 
-Skapa en intern tabell med samma schema som den externa tabellen i steg 1, med samma fältavgränsaren och lagra Hive-data i ORC-format.
+Skapa en intern tabell med samma schema som den externa tabellen i steg 1, med samma fältavgränsare, och lagra Hive-data i ORC-format.
 
         CREATE TABLE IF NOT EXISTS <database name>.<ORC table name>
         (
@@ -210,13 +210,13 @@ Skapa en intern tabell med samma schema som den externa tabellen i steg 1, med s
         )
         ROW FORMAT DELIMITED FIELDS TERMINATED BY '<field separator>' STORED AS ORC;
 
-Välj data från den externa tabellen i steg 1 och infoga i ORC-tabell
+Markera data från den externa tabellen i steg 1 och infoga i ORC-tabellen
 
         INSERT OVERWRITE TABLE <database name>.<ORC table name>
             SELECT * FROM <database name>.<external textfile table name>;
 
 > [!NOTE]
-> Om TEXTFILE-tabellen *\<databas namn\>.\<externa textfile-\>* har partitioner, i steg 3 `SELECT * FROM <database name>.<external textfile table name>`, väljer kommandot partition variabeln som ett fält i den returnerade data uppsättningen. Lägg till den i *\<databasens namn\>.\<Orc tabell namn\>* Miss lyckas eftersom *\<databas namn\>.\<ORC tabell namn\>* saknar variabeln partition som ett fält i Table-schemat. I så fall måste du särskilt Markera de fält som ska infogas i *\<databas namn\>.\<Orc tabell namn\>* enligt följande:
+> Om * \<textfile-tabelldatabasens namn\>.\< externt textfiltabellnamn\> * har partitioner, i `SELECT * FROM <database name>.<external textfile table name>` STEG 3 väljer kommandot partitionsvariabeln som ett fält i den returnerade datauppsättningen. Infoga den i * \<\>databasnamnet\< . ORC-tabellnamn\> * misslyckas sedan * \<\>databasnamnet .\< ORC-tabellnamnet\> * har inte partitionsvariabeln som ett fält i tabellschemat. I det här fallet måste du specifikt välja de fält som ska infogas i * \<databasnamnet\>.\< ORC-tabellnamn\> * enligt följande:
 >
 >
 
@@ -225,8 +225,8 @@ Välj data från den externa tabellen i steg 1 och infoga i ORC-tabell
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Det är säkert att ta bort *\<external text fils tabell namnet\>* när du använder följande fråga efter att alla data har infogats i *\<databas namn\>.\<ORC tabell namn\>* :
+Det är säkert att släppa det * \<externa\> textfilstabellnamnet* när du använder följande fråga efter att alla data har infogats i * \<databasnamnet\>.\< ORC-tabellnamn:\>*
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
-Du bör ha en tabell med data i ORC-format kan användas när du har genomfört den här proceduren.  
+När du har följt den här proceduren bör du ha en tabell med data i ORC-formatet redo att användas.  

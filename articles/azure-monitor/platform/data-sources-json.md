@@ -1,34 +1,34 @@
 ---
-title: Samlar in anpassade JSON-data i Azure Monitor | Microsoft Docs
-description: Anpassade JSON-datakällor kan samlas in i Azure Monitor med hjälp av Log Analytics-agenten för Linux.  De här anpassade data källorna kan vara enkla skript som returnerar JSON, till exempel sväng eller ett av de populäraste, 300 + plugin-programmen. I den här artikeln beskrivs den konfiguration som krävs för den här data insamlingen.
+title: Samla in anpassade JSON-data i Azure Monitor | Microsoft-dokument
+description: 'Anpassade JSON-datakällor kan samlas in i Azure Monitor med Log Analytics Agent för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som curl eller en av FluentD: s 300 + plugins. I den här artikeln beskrivs den konfiguration som krävs för den här datainsamlingen.'
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
 ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77662169"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Samla in anpassade JSON-datakällor med Log Analytics-agenten för Linux i Azure Monitor
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-Anpassade JSON-datakällor kan samlas in i [Azure Monitor](data-platform.md) med hjälp av Log Analytics-agenten för Linux.  De här anpassade data källorna kan vara enkla skript som returnerar JSON, till exempel [sväng](https://curl.haxx.se/) eller ett av de populäraste, [300 + plugin](https://www.fluentd.org/plugins/all)-programmen. I den här artikeln beskrivs den konfiguration som krävs för den här data insamlingen.
+Anpassade JSON-datakällor kan samlas in i [Azure Monitor](data-platform.md) med Log Analytics-agenten för Linux.  Dessa anpassade datakällor kan vara enkla skript som returnerar JSON som [curl](https://curl.haxx.se/) eller en av [FluentD: s 300 + plugins](https://www.fluentd.org/plugins/all). I den här artikeln beskrivs den konfiguration som krävs för den här datainsamlingen.
 
 
 > [!NOTE]
-> Log Analytics agent för Linux v 1.1.0-217 + krävs för anpassade JSON-data
+> Log Analytics-agent för Linux v1.1.0-217+ krävs för anpassade JSON-data
 
 ## <a name="configuration"></a>Konfiguration
 
-### <a name="configure-input-plugin"></a>Konfigurera plugin-programmet för indatamängd
+### <a name="configure-input-plugin"></a>Konfigurera indatainsticksprogrammet
 
-Om du vill samla in JSON-data i Azure Monitor lägger du till `oms.api.` i början av en flytande tagg i ett plugin-program för indata.
+Om du vill samla in `oms.api.` JSON-data i Azure Monitor lägger du till början av en FluentD-tagg i ett indatainsticksprogram.
 
-Följande är till exempel en separat konfigurations fil `exec-json.conf` i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`.  Detta använder det Fluent-plugin-`exec` för att köra ett spiral kommando var 30: e sekund.  Utdata från det här kommandot samlas in av JSON-utdata-plugin-programmet.
+Följande följer till exempel en `exec-json.conf` `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`separat konfigurationsfil i .  Detta använder FluentD `exec` plugin för att köra en curl kommando var 30 sekunder.  Utdata från det här kommandot samlas in av JSON-utdatainsticksprogrammet.
 
 ```
 <source>
@@ -52,12 +52,12 @@ Följande är till exempel en separat konfigurations fil `exec-json.conf` i `/et
   retry_wait 30s
 </match>
 ```
-Den konfigurations fil som läggs till under `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` måste ha ägarskapet ändrad med följande kommando.
+Konfigurationsfilen som `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` läggs till under måste få ägarskapet ändrat med följande kommando.
 
 `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/exec-json.conf`
 
 ### <a name="configure-output-plugin"></a>Konfigurera plugin-program för utdata 
-Lägg till följande plugin-konfiguration för utdata i huvud konfigurationen i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` eller som en separat konfigurations fil som placerats i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
+Lägg till följande konfiguration av plugin-utdata i huvudkonfigurationen i `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf` eller som en separat konfigurationsfil som placeras i`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`
 
 ```
 <match oms.api.**>
@@ -74,19 +74,19 @@ Lägg till följande plugin-konfiguration för utdata i huvud konfigurationen i 
 </match>
 ```
 
-### <a name="restart-log-analytics-agent-for-linux"></a>Starta om Log Analytics agent för Linux
-Starta om Log Analytics agent för Linux-tjänsten med följande kommando.
+### <a name="restart-log-analytics-agent-for-linux"></a>Starta om Log Analytics-agent för Linux
+Starta om Log Analytics-agenten för Linux-tjänsten med följande kommando.
 
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>Resultat
-Data samlas in i Azure Monitor med en post typ `<FLUENTD_TAG>_CL`.
+Data samlas in i Azure Monitor med `<FLUENTD_TAG>_CL`en posttyp av .
 
-Till exempel är den anpassade taggen `tag oms.api.tomcat` i Azure Monitor med en post typ `tomcat_CL`.  Du kan hämta alla poster av den här typen med följande logg fråga.
+Till exempel den `tag oms.api.tomcat` anpassade taggen i Azure `tomcat_CL`Monitor med en posttyp av .  Du kan hämta alla poster av den här typen med följande loggfråga.
 
     Type=tomcat_CL
 
-Kapslade JSON-datakällor stöds, men indexeras baserat på överordnat fält. Till exempel returneras följande JSON-data från en log-fråga som `tag_s : "[{ "a":"1", "b":"2" }]`.
+Kapslade JSON-datakällor stöds, men indexeras baserat på det överordnade fältet. Följande JSON-data returneras till exempel från `tag_s : "[{ "a":"1", "b":"2" }]`en loggfråga som .
 
 ```
 {
@@ -99,4 +99,4 @@ Kapslade JSON-datakällor stöds, men indexeras baserat på överordnat fält. T
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 
+* Lär dig mer om [loggfrågor](../log-query/log-query-overview.md) för att analysera data som samlas in från datakällor och lösningar. 

@@ -1,5 +1,5 @@
 ---
-title: Uppgradera till standard nivå – Azure Security Center
+title: Uppgradera till standardnivå – Azure Security Center
 description: I den här snabbstarten får du lära dig att uppgradera till Security Centers Standard-prisnivå för ytterligare säkerhet.
 services: security-center
 documentationcenter: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
 ms.openlocfilehash: 26d62f2c027a093ba518b98fa37ce3a31a14f175
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73664287"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snabbstart: Publicera din Azure-prenumeration till Security Center Standard
@@ -26,15 +26,15 @@ Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i 
 
 I den här artikeln uppgraderar du till Standard-nivån för utökad säkerhet och installerar Microsoft Monitoring Agent på dina virtuella datorer för att övervaka säkerhetsproblem och hot.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Du måste ha en prenumeration på Microsoft Azure för att komma igång med Security Center. Om du inte har någon prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
 
 Om du vill uppgradera en prenumeration till standardnivån måste du vara tilldelad rollen som prenumerationsägare, prenumerationsdeltagare eller säkerhetsadministratör.
 
 ## <a name="enable-your-azure-subscription"></a>Aktivera din Azure-prenumeration
 
-1. Logga in på [Azure Portal](https://azure.microsoft.com/features/azure-portal/).
-2. På menyn **Microsoft Azure** väljer du **Security Center**. **Security Center – Översikt** öppnas.
+1. Logga in på [Azure-portalen](https://azure.microsoft.com/features/azure-portal/).
+2. Välj **Security Center**på **Microsoft Azure-menyn** . **Security Center – Översikt** öppnas.
 
    ![Översikt över Security Center][2]
 
@@ -54,7 +54,7 @@ Du måste uppgradera till standardnivån för att kunna använda snabbstart och 
 
 1. På huvudmenyn i Security Center väljer du **Komma igång**.
  
-   ![Kom igång][4]
+   ![Komma igång][4]
 
 2. Under **Uppgradera** listar Security Center prenumerationer och arbetsytor som är behöriga för registrering. 
    - Du kan klicka på den expanderbara texten **Använd din utvärderingsversion** för att se en lista över alla prenumerationer och arbetsytor med deras berättigandestatus för utvärderingsversion.
@@ -72,8 +72,8 @@ När automatisk etablering är aktiverat installerar Security Center Microsoft M
 
 Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
 
-1. Under Security Center huvud menyn väljer du **pris & inställningar**.
-2. På prenumerations raden klickar du på den prenumeration som du vill ändra inställningarna för.
+1. Under huvudmenyn för Säkerhetscenter väljer du **Inställningar för &.**
+2. Klicka på prenumerationen som du vill ändra inställningarna på prenumerationen på prenumerationen på.
 3. På fliken **Datainsamling** anger du **Automatisk etablering** till **På**.
 4. Välj **Spara**.
 ---
@@ -86,15 +86,15 @@ Med de här nya kunskaperna om dina virtuella datorer i Azure kan Security Cente
 ## <a name="clean-up-resources"></a>Rensa resurser
 De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
 
-1. Gå tillbaka till Security Center huvud menyn och välj **pris & inställningar**.
-2. Klicka på den prenumeration som du vill ändra till den kostnads fria nivån.
+1. Gå tillbaka till huvudmenyn för Säkerhetscenter och välj **Inställningar för &**.
+2. Klicka på den prenumeration som du vill ändra till den kostnadsfria nivån.
 3. Välj **Prisnivå** och välj **Kostnadsfri** om du vill byta prenumeration från Standard-nivån till den kostnadsfria nivån.
 5. Välj **Spara**.
 
 Om du vill avaktivera automatisk etablering:
 
-1. Gå tillbaka till Security Center huvud menyn och välj **pris & inställningar**.
-2. Rensa den prenumeration som du vill inaktivera automatisk etablering på.
+1. Gå tillbaka till huvudmenyn för Säkerhetscenter och välj **Inställningar för &**.
+2. Rensa på den prenumeration som du vill inaktivera automatisk etablering på.
 3. På fliken **Datainsamling** anger du **Automatisk etablering** till **Av**.
 4. Välj **Spara**.
 

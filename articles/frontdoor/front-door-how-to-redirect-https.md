@@ -1,111 +1,111 @@
 ---
-title: Skapa en ytterdörren med HTTP till HTTPS-omdirigering i Azure Portal
-description: Lär dig hur du skapar en ytterdörren med omdirigerade trafik från HTTP till HTTPS med Azure-portalen.
+title: Skapa en ytterdörr med HTTP till HTTPS-omdirigering med Azure-portalen
+description: Lär dig hur du skapar en ytterdörr med omdirigerad trafik från HTTP till HTTPS med Hjälp av Azure-portalen.
 services: front-door
 author: sharad4u
 ms.service: frontdoor
 ms.topic: article
 ms.date: 5/21/2019
 ms.author: sharadag
-ms.openlocfilehash: 7fabc1e3445d3dbd357700ffde3caeb985cc60c4
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b7385ef27cd17705f2c86b6f57d4780511b6935c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67601963"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246865"
 ---
-# <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en ytterdörren med HTTP till HTTPS-omdirigering i Azure Portal
+# <a name="create-a-front-door-with-http-to-https-redirection-using-the-azure-portal"></a>Skapa en ytterdörr med HTTP till HTTPS-omdirigering med Azure-portalen
 
-Du kan använda Azure-portalen för att skapa en [ytterdörren](front-door-overview.md) med ett certifikat för SSL-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS.
+Du kan använda Azure-portalen för att skapa en [ytterdörr](front-door-overview.md) med ett certifikat för SSL-avslutning. En routningsregel används för att omdirigera HTTP-trafik till HTTPS.
 
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Skapa en ytterdörren med en befintlig Webbapp-resurs
-> * Lägg till en anpassad domän med SSL-certifikat 
+> * Skapa en ytterdörr med en befintlig Web App-resurs
+> * Lägga till en anpassad domän med SSL-certifikat 
 > * Konfigurera HTTPS-omdirigering på den anpassade domänen
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="create-a-front-door-with-an-existing-web-app-resource"></a>Skapa en ytterdörren med en befintlig Webbapp-resurs
+## <a name="create-a-front-door-with-an-existing-web-app-resource"></a>Skapa en ytterdörr med en befintlig Web App-resurs
 
-1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+1. Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
-3. Sök efter **ytterdörren** med hjälp av sökfunktionen och när du har hittat resurstypen klickar du på **skapa**.
-4. Välj en prenumeration och Använd en befintlig resursgrupp eller skapa en ny. Observera att platsen och svar i Användargränssnittet är för resursgruppen bara. Konfigurationen ytterdörren kommer att distribueras på alla [POP-platser för Azure Front dörren](https://docs.microsoft.com/azure/frontdoor/front-door-faq#what-are-the-pop-locations-for-azure-front-door-service).
+3. Sök efter **ytterdörren** med hjälp av sökfältet och när du hittar resurstypen klickar du på **Skapa**.
+4. Välj en prenumeration och använd sedan en befintlig resursgrupp eller skapa en ny. Den plats som efterfrågas i användargränssnittet är endast för resursgruppen. Konfigurationen för ytterdörren distribueras på alla [Azure Front Doors POP-platser.](front-door-faq.md#what-are-the-pop-locations-for-azure-front-door)
 
-    ![Konfigurera grundläggande inställningar för nya ytterdörren](./media/front-door-url-redirect/front-door-create-basics.png)
+    ![Konfigurera grunderna för nya ytterdörren](./media/front-door-url-redirect/front-door-create-basics.png)
 
-5. Klicka på **nästa** ange konfigurationsfliken. Konfiguration för ytterdörren sker i tre steg – lägga till en värd för standard-klientdel, lägga till serverdelar i en serverdelspool och sedan skapa routningsregler för att mappa routning beteendet för frontend-värd. 
+5. Klicka på **Nästa** om du vill ange konfigurationsfliken. Konfigurationen för ytterdörren sker i tre steg - lägga till en standard frontend-värd, lägga till serverdelspool i en serverdelspool och sedan skapa routningsregler för att mappa routningsbeteendet för frontend-värden. 
 
-     ![Ytterdörren configuration designer](./media/front-door-url-redirect/front-door-designer.png)
+     ![Konfigurationsdesigner för ytterdörren](./media/front-door-url-redirect/front-door-designer.png)
 
-6. Klickar du på den ” **+** ”-ikonen i den _klientdel värdar_ för att skapa en frontend-värd, kan du ange ett globalt unikt namn för standardvärd för klientdelen för ytterdörren (`\<**name**\>.azurefd.net`). Klicka på **Lägg till** för att gå vidare till nästa steg.
+6. Klicka på**+** ikonen ' ' på _Frontend-värden_ för att skapa en frontend-värd, ange ett`\<**name**\>.azurefd.net`globalt unikt namn för din standard frontend-värd för din ytterdörr ( ). Klicka på **Lägg** till för att gå vidare till nästa steg.
 
-     ![Lägger till en frontend-värd](./media/front-door-url-redirect/front-door-create-fehost.png)
+     ![Lägga till en klientdelsvärd](./media/front-door-url-redirect/front-door-create-fehost.png)
 
-7. Klicka på den ' **+** ”-ikonen i den _serverdelspooler_ att skapa en serverdelspool. Ange ett namn för serverdelspoolen och klicka sedan på ”**lägga till en serverdel**'.
-8. Välj typ för Backend-värd som _apptjänst_. Välj den prenumeration där webbappen finns och välj sedan de specifika webbappen i listrutan för **serverdel värdnamn**.
-9. Klicka på **Lägg till** att spara serverdelen och klicka på **Lägg till** igen för att spara konfigurationen för backend-poolen.   ![Lägga till en serverdel i en serverdelspool](./media/front-door-url-redirect/front-door-create-backendpool.png)
+7. Klicka på**+** ikonen ' ' i _backend-poolerna_ för att skapa en backend-pool. Ange ett namn för backend-poolen och klicka sedan på "**Lägg till en backend**".
+8. Välj tjänsten Värd för bakåtsträvning som _app_. Välj den prenumeration där webbappen finns och välj sedan den specifika webbappen i listrutan för **Backend-värdnamnet**.
+9. Klicka på **Lägg till** om du vill spara backend och klicka på **Lägg till** igen om du vill spara konfigurationen för backend-poolen.   ![Lägga till en backend i en backend pool](./media/front-door-url-redirect/front-door-create-backendpool.png)
 
-10. Klicka på den ” **+** ”-ikonen i den _regler för routning_ att skapa en väg. Ange ett namn för flödet, säg ”HttpToHttpsRedirect” och sedan ange den _godkänt protokoll_ fältet **”HTTP”** . Se till att rätt _klientdel värden_ har valts.  
-11. På den _flödesinformation_ anger den _Vägtyp_ till **omdirigera**, se till att den _omdirigera typ_ är inställd på  **Hittades (302)** och _omdirigera protokollet_ är inställd på **endast HTTPS**. 
-12. Klicka på Lägg till om du vill spara en routningsregel för HTTP till HTTPS-omdirigering.
-     ![Lägg till en HTTP till HTTPS omdirigerings-flöde](./media/front-door-url-redirect/front-door-redirect-config-example.png)
-13. Lägg till en annan regel för vidarebefordran för hantering av HTTPS-trafik. Klickar du på den ' **+** ”logga in i _regler för routning_ och ange ett namn för flödet, säg” DefaultForwardingRoute ”och ange sedan den _godkänt protokoll_ fält att **”endast HTTPS-** . Se till att rätt _klientdel värden_ har valts.
-14. I avsnittet flödesinformation ange den _Vägtyp_ till **framåt**, kontrollera att rätt serverdelspoolen är valt och _vidarebefordran protokollet_ är inställd på  **Endast HTTPS**. 
-15. Klicka på Lägg till om du vill spara en routningsregel för vidarebefordran för begäran.
-     ![Lägg till en vanlig väg för HTTPS-trafik](./media/front-door-url-redirect/front-door-forward-route-example.png)
-16. Klicka på **granska + skapa** och sedan **skapa**, för att skapa din ytterdörren-profil. Gå till resursen efter att de skapats.
+10. Klicka på**+** ikonen ' ' på _routningsreglerna_ för att skapa en rutt. Ange ett namn för rutten, säg "HttpToHttpsRedirect" och ange sedan fältet _Godkända protokoll_ till **endast HTTP.** Kontrollera att lämplig _klientdelsvärd_ är vald.  
+11. I avsnittet _Väginformation_ anger du _vägtypen_ till **Omdirigering**, se till att _omdirigeringstypen_ är inställd **på Found (302)** och _Omdirigeringsprotokollet_ är **inställt på HTTPS endast**. 
+12. Klicka på Lägg till om du vill spara routningsregeln för HTTP i HTTPS-omdirigering.
+     ![Lägga till en HTTP-omdirigeringsväg för HTTPS](./media/front-door-url-redirect/front-door-redirect-config-example.png)
+13. Lägg till ytterligare en routningsregel för hantering av HTTPS-trafik. Klicka på**+**' ' sign on the _Routing rules_ and provide a name for the route, say 'DefaultForwardingRoute', and then set the _Accepted Protocols_ field to **'HTTPS only'**. Kontrollera att lämplig _klientdelsvärd_ är vald.
+14. I avsnittet Flödesinformation anger du _vägtypen_ till **Framåt**, se till att den högra serverdelspoolen är markerad och att _vidarebefordringsprotokollet_ endast är inställt på **HTTPS**. 
+15. Klicka på Lägg till om du vill spara routningsregeln för vidarebefordran av begäran.
+     ![Lägga till en framåtväg för HTTPS-trafik](./media/front-door-url-redirect/front-door-forward-route-example.png)
+16. Klicka på **Granska + skapa** och sedan **skapa**, för att skapa din ytterdörr profil. Gå till resursen när den har skapats.
 
-## <a name="add-a-custom-domain-to-your-front-door-and-enable-https-on-it"></a>Lägg till en anpassad domän till dörren och aktivera HTTPS på den
-Följande steg visar hur du kan lägga till en anpassad domän på en befintlig ytterdörren resurs och sedan aktivera HTTP till HTTPS-omdirigering på den. 
+## <a name="add-a-custom-domain-to-your-front-door-and-enable-https-on-it"></a>Lägga till en anpassad domän i ytterdörren och aktivera HTTPS på den
+Följande steg visar hur du kan lägga till en anpassad domän på en befintlig frontdörrresurs och sedan aktivera HTTP till HTTPS-omdirigering på den. 
 
 ### <a name="add-a-custom-domain"></a>Lägga till en anpassad domän
 
-I det här exemplet kan du lägga till en CNAME-post för den `www` underdomän (till exempel `www.contosonews.com`).
+I det här exemplet lägger du `www` till en CNAME-post för underdomänen (till exempel `www.contosonews.com`).
 
 #### <a name="create-the-cname-record"></a>Skapa CNAME-posten
 
-Lägg till en CNAME-post för att mappa en underdomän till din ytterdörren standardvärden för klientdelen (`<name>.azurefd.net`, där `<name>` är namnet på profilen ytterdörren).
+Lägg till en CNAME-post för att mappa en underdomän`<name>.azurefd.net`till `<name>` frontluckans standardvärd för klientdel (, där är namnet på din frontdörrsprofil).
 
-För den `www.contoso.com` domän, till exempel lägga till en CNAME-post som mappar namnet `www` till `<name>.azurefd.net`.
+För `www.contoso.com` domänen, som ett exempel, lägger du `www` `<name>.azurefd.net`till en CNAME-post som mappar namnet till .
 
 När du har lagt till CNAME ser sidan med DNS-poster ut så här:
 
 ![CNAME anpassad domän till ytterdörren](./media/front-door-url-redirect/front-door-dns-cname.png)
 
-#### <a name="onboard-the-custom-domain-on-your-front-door"></a>Publicera den anpassade domänen på ytterdörren
+#### <a name="onboard-the-custom-domain-on-your-front-door"></a>Ombord på den anpassade domänen på din ytterdörr
 
-1. På fliken ytterdörren designer klickar du på ”+”-ikonen i Frontend-värdarna avsnittet för att lägga till en ny anpassad domän. 
-2. Ange det fullständigt kvalificerade DNS-namnet i namnfältet på anpassade värden exempel `www.contosonews.com`. 
-3. När CNAME-mappningen från domänen till dörren har verifierats klickar du på **Lägg till** att lägga till den anpassade domänen.
-4. Klicka på **spara** att skicka ändringarna.
+1. På fliken Designer på ytterdörren klickar du på ikonen +på frontend-värdavsnittet för att lägga till en ny anpassad domän. 
+2. Ange det fullständigt kvalificerade anpassade DNS-namnet i `www.contosonews.com`det anpassade värdnamnsfältet, exempel . 
+3. När CNAME-mappningen från domänen till ytterdörren har validerats klickar du på **Lägg** till för att lägga till den anpassade domänen.
+4. Klicka på **Spara** om du vill skicka ändringarna.
 
 ![Meny för anpassad domän](./media/front-door-url-redirect/front-door-add-custom-domain.png)
 
-### <a name="enable-https-on-your-custom-domain"></a>Aktivera HTTPS på din domän
+### <a name="enable-https-on-your-custom-domain"></a>Aktivera HTTPS på din anpassade domän
 
-1. Klicka på den anpassade domänen som har lagts till och under avsnittet **HTTPS för anpassad domän**, ändrar du statusen till **aktiverad**.
-2. Du kan lämna den **certifikattyp management** inställd _ytterdörren hanteras_ kostnadsfria certifikatet underhålls, hanterade, och autorotated av ytterdörren. Du kan också välja att använda ditt eget anpassade SSL-certifikat som lagras med Azure Key Vault. Den här självstudien förutsätter att användningen av ytterdörren hanteras certifikat.
+1. Klicka på den anpassade domänen som lades till och ändra statusen till **Aktiverad**under avsnittet **Anpassad domän HTTPS**.
+2. Du kan lämna **certifikathanteringstypen** inställd på _Ytterdörren som hanteras_ för det kostnadsfria certifikat som underhålls, hanteras och roteras automatiskt av ytterdörren. Du kan också välja att använda ditt eget anpassade SSL-certifikat som lagras med Azure Key Vault. Den här självstudien förutsätter att användningen av Front Door hanterat certifikat.
 ![Aktivera HTTPS för anpassad domän](./media/front-door-url-redirect/front-door-custom-domain-https.png)
 
-3. Klicka på **uppdatering** spara markeringen och klicka sedan på **spara**.
-4. Klicka på **uppdatera** efter ett par minuter och sedan klicka på den anpassade domänen igen för att se förloppet för tilldelning av certifikat. 
+3. Klicka på **Uppdatera** för att spara markeringen och klicka sedan på **Spara**.
+4. Klicka på **Uppdatera** efter ett par minuter och klicka sedan på den anpassade domänen igen för att se förloppet för certifikatetablering. 
 
 > [!WARNING]
-> Att aktivera HTTPS för en anpassad domän kan ta flera minuter och beror också på att verifiera domänen ägarskap om CNAME inte mappas direkt till din ytterdörren värd `<name>.azurefd.net`. Läs mer om [aktivera HTTPS för en anpassad domän](./front-door-custom-domain-https.md).
+> Det kan ta flera minuter att aktivera HTTPS för en anpassad domän och beror också på `<name>.azurefd.net`validering av domänägarskap om CNAME inte mappas direkt till din dörrvärd . Läs mer om [hur du aktiverar HTTPS för en anpassad domän](./front-door-custom-domain-https.md).
 
-## <a name="configure-the-routing-rules-for-the-custom-domain"></a>Konfigurera regler för vidarebefordran för den anpassade domänen
+## <a name="configure-the-routing-rules-for-the-custom-domain"></a>Konfigurera routningsreglerna för den anpassade domänen
 
-1. Klicka på en routningsregel för omdirigering som skapades tidigare.
-2. Klicka på listrutan för Frontend-värdar och välj din anpassade domän att tillämpa den här vägen för din domän samt.
+1. Klicka på den omdirigeringsregel som skapats tidigare.
+2. Klicka på listrutan för Frontend värdar och välj din anpassade domän för att tillämpa denna väg för din domän också.
 3. Klicka på **Uppdatera**.
-4. Gör på samma gång för andra routingregeln samt det vill säga för din vägen för vidarebefordringen att lägga till den anpassade domänen.
-5. Klicka på **spara** att skicka ändringarna.
+4. Gör samma åtgärd för den andra routningsregeln också, för att vidarebefordringsvägen ska lägga till den anpassade domänen.
+5. Klicka på **Spara** om du vill skicka in ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).
-- Läs mer om [URL-omdirigering på ytterdörren](front-door-url-redirect.md).
+- Läs mer om [URL-omdirigering på Ytterdörren](front-door-url-redirect.md).

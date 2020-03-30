@@ -1,26 +1,26 @@
 ---
-title: Samla in data från insamlade Azure Monitor | Microsoft Docs
-description: Insamlad är en Linux-daemon med öppen källkod som regelbundet samlar in data från program och system nivå information.  Den här artikeln innehåller information om att samla in data från insamlade Azure Monitor.
+title: Samla in data från Insamlad i Azure Monitor | Microsoft-dokument
+description: CollectD är en Linux-demon med öppen källkod som regelbundet samlar in data från program och information på systemnivå.  Den här artikeln innehåller information om hur du samlar in data från Insamlad i Azure Monitor.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
 ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77670618"
 ---
-# <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från insamlade på Linux-agenter i Azure Monitor
-[Insamlad](https://collectd.org/) är en Linux-daemon med öppen källkod som regelbundet samlar in prestanda mått från program och information på system nivå. Exempel på program är Java Virtual Machine (JVM), MySQL server och Nginx. Den här artikeln innehåller information om hur du samlar in prestanda data från insamlade Azure Monitor.
+# <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Samla in data från Insamlade data på Linux-agenter i Azure Monitor
+[CollectD](https://collectd.org/) är en Linux-demon med öppen källkod som regelbundet samlar in prestandamått från program och information på systemnivå. Exempel på program är Java Virtual Machine (JVM), MySQL Server och Nginx. Den här artikeln innehåller information om hur du samlar in prestandadata från Insamlad i Azure Monitor.
 
-En fullständig lista över tillgängliga plugin-program finns i [tabellen med plugin](https://collectd.org/wiki/index.php/Table_of_Plugins)-program.
+En fullständig lista över tillgängliga plugins finns på [Table of Plugins](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
-![Insamlad översikt](media/data-sources-collectd/overview.png)
+![Översikt över insamlingar](media/data-sources-collectd/overview.png)
 
-Följande insamlade konfiguration ingår i Log Analytics agent för Linux för att dirigera insamlade data till Log Analytics agenten för Linux.
+Följande CollectD-konfiguration ingår i Log Analytics-agenten för Linux för att dirigera insamlade data till Log Analytics-agenten för Linux.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -34,7 +34,7 @@ Följande insamlade konfiguration ingår i Log Analytics agent för Linux för a
          </Node>
     </Plugin>
 
-Om du använder en version som samlats in före 5,5 använder du dessutom följande konfiguration i stället.
+Om du använder en version av collectD före 5.5 använder du dessutom följande konfiguration i stället.
 
     LoadPlugin write_http
 
@@ -45,12 +45,12 @@ Om du använder en version som samlats in före 5,5 använder du dessutom följa
        </URL>
     </Plugin>
 
-Den insamlade konfigurationen använder standard`write_http`-plugin-programmet för att skicka prestanda måtts data via port 26000 till Log Analytics-agenten för Linux. 
+Den insamlade konfigurationen`write_http` använder standardinsticksprogrammet för att skicka prestandamåttdata över port 26000 till Log Analytics-agenten för Linux. 
 
 > [!NOTE]
-> Den här porten kan konfigureras till en anpassad port vid behov.
+> Den här porten kan konfigureras till en anpassad definierad port om det behövs.
 
-Log Analytics agenten för Linux lyssnar också på port 26000 för insamlade mått och konverterar dem sedan till Azure Monitor schema mått. Följande är Log Analytics agent för Linux-konfiguration `collectd.conf`.
+Log Analytics-agenten för Linux lyssnar också på port 26000 för insamlade mått och konverterar dem sedan till Azure Monitor-schemamått. Följande är Log Analytics-agenten `collectd.conf`för Linux-konfiguration .
 
     <source>
       type http
@@ -63,59 +63,59 @@ Log Analytics agenten för Linux lyssnar också på port 26000 för insamlade m�
     </filter>
 
 > [!NOTE]
-> Som standard är inställt på Läs värden med 10 sekunders [intervall](https://collectd.org/wiki/index.php/Interval). Eftersom detta direkt påverkar mängden data som skickas till Azure Monitor loggar kan du behöva justera intervallet inom den insamlade konfigurationen för att skapa en fin balans mellan övervaknings kraven och tillhör ande kostnader och användning för Azure Monitors loggar.
+> CollectD som standard är inställd på att läsa [interval](https://collectd.org/wiki/index.php/Interval)värden med ett 10-sekundersintervall . Eftersom detta direkt påverkar mängden data som skickas till Azure Monitor Logs, kan du behöva justera det här intervallet inom CollectD-konfigurationen för att hitta en bra balans mellan övervakningskraven och tillhörande kostnader och användning för Azure Monitor Logs.
 
 ## <a name="versions-supported"></a>Versioner som stöds
-- Azure Monitor stöder för närvarande samlad version 4,8 och senare.
-- Log Analytics agent för Linux v 1.1.0-217 eller senare krävs för insamling av insamlade mått.
+- Azure Monitor stöder för närvarande CollectD version 4.8 och senare.
+- Log Analytics-agent för Linux v1.1.0-217 eller högre krävs för insamling av mätinsamling.
 
 
 ## <a name="configuration"></a>Konfiguration
 Följande är grundläggande steg för att konfigurera insamling av insamlade data i Azure Monitor.
 
-1. Konfigurera insamlad för att skicka data till Log Analytics agent för Linux med hjälp av write_http plugin-programmet.  
-2. Konfigurera Log Analytics agent för Linux för att lyssna efter insamlade data på lämplig port.
-3. Starta om samlad och Log Analytics agent för Linux.
+1. Konfigurera insamlad för att skicka data till Log Analytics-agenten för Linux med hjälp av plugin-programmet write_http.  
+2. Konfigurera Log Analytics-agenten för Linux för att lyssna efter insamlade data på lämplig port.
+3. Starta om CollectD och Log Analytics agent för Linux.
 
 ### <a name="configure-collectd-to-forward-data"></a>Konfigurera insamlad för att vidarebefordra data 
 
-1. För att dirigera insamlade data till Log Analytics agenten för Linux måste `oms.conf` läggas till i den insamlade konfigurations katalogen. Filens mål är beroende av datorns Linux-distribution.
+1. Om du vill dirigera insamlade data `oms.conf` till Log Analytics-agenten för Linux måste du läggas till i CollectD:s konfigurationskatalog. Målet för den här filen beror på Linux-distributioner av din maskin.
 
-    Om din uppsamlade konfigurations katalog finns i/etc/collectd.d/:
+    Om din CollectD config-katalog finns i /etc/collectd.d/:
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd.d/oms.conf
 
-    Om din uppsamlade konfigurations katalog finns i/etc/collectd/collectd.conf.d/:
+    Om din CollectD config-katalog finns i /etc/collectd/collectd.conf.d/:
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/oms.conf /etc/collectd/collectd.conf.d/oms.conf
 
     >[!NOTE]
-    >För insamlade versioner före 5,5 måste du ändra taggarna i `oms.conf` som visas ovan.
+    >För collectd-versioner före 5.5 måste du `oms.conf` ändra taggarna i som visas ovan.
     >
 
-2. Kopiera insamlad. conf till den önskade arbets ytans omsagent-konfigurations katalog.
+2. Kopiera collectd.conf till den önskade arbetsytans konfigurationskatalog för omsagent.
 
         sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/collectd.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/
         sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/collectd.conf
 
-3. Starta om insamlad och Log Analytics agent för Linux med följande kommandon.
+3. Starta om CollectD och Log Analytics-agenten för Linux med följande kommandon.
 
-    sudo-tjänsten insamlad omstart sudo/opt/Microsoft/omsagent/bin/service_control omstart
+    sudo tjänsten samlas omstart sudo / opt / microsoft / omsagent / bin / service_control omstart
 
-## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Insamlade mått till Azure Monitor schema konvertering
-För att upprätthålla en välbekant modell mellan infrastruktur mått som redan har samlats in av Log Analytics agent för Linux och de nya mått som samlas in genom att samla in följande schema mappning används:
+## <a name="collectd-metrics-to-azure-monitor-schema-conversion"></a>Insamlade mått till azure monitor-schemakonvertering
+För att upprätthålla en välbekant modell mellan infrastrukturmått som redan samlats in av Log Analytics-agent för Linux och de nya mått som samlas in av CollectD används följande schemamappning:
 
-| Fältet insamlat mått | Azure Monitor fält |
+| Fältet Insamlad mått | Fältet Azure Monitor |
 |:--|:--|
 | `host` | Dator |
-| `plugin` | Ingen |
-| `plugin_instance` | Instans namn<br>Om **plugin_instance** är *Null* then = " *_Total*" |
+| `plugin` | Inget |
+| `plugin_instance` | Förekomstnamn<br>Om **plugin_instance** är *null* _Total *_Total*" |
 | `type` | ObjectName |
-| `type_instance` | CounterName<br>Om **type_instance** är *Null* är CounterName =**tomt** |
-| `dsnames[]` | CounterName |
-| `dstypes` | Ingen |
-| `values[]` | CounterValue |
+| `type_instance` | CounterName (Motnamn)<br>Om **type_instance** är *null* då CounterName =**tom** |
+| `dsnames[]` | CounterName (Motnamn) |
+| `dstypes` | Inget |
+| `values[]` | Motvärdering |
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar. 
-* Använd [anpassade fält](custom-fields.md) för att parsa data från syslog-poster i enskilda fält.
+* Lär dig mer om [loggfrågor](../log-query/log-query-overview.md) för att analysera data som samlas in från datakällor och lösningar. 
+* Använd [anpassade fält](custom-fields.md) för att tolka data från syslog-poster i enskilda fält.

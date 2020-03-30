@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: diagnostisera ett problem med trafik filter för virtuella dator nätverk – Azure Portal'
+title: 'Snabbstart: Diagnostisera ett problem med ett problem med nätverkstrafikfiltret för den virtuella datorn - Azure-portal'
 titleSuffix: Azure Network Watcher
 description: I den här snabbstarten lär du dig hur du diagnostiserar problem med filtreringen av nätverkstrafik på en virtuell dator med hjälp av funktionen Kontrollera IP-flöde i Azure Network Watcher.
 services: network-watcher
@@ -18,17 +18,17 @@ ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: mvc
 ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "79241600"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer med hjälp av Azure Portal
 
 I den här snabbstarten ska du distribuera en virtuell dator (VM) och kontrollera kommunikationen till en IP-adress och URL och från en IP-adress. Du lär dig också hur du fastställer orsaken till ett kommunikationsfel och hur du löser problemet.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -38,7 +38,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
 2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller en version av **Ubuntu Server**.
-3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
+3. Ange, eller välj, följande information, acceptera standardinställningarna för de återstående inställningarna och välj sedan **OK:**
 
     |Inställning|Värde|
     |---|---|
@@ -46,8 +46,8 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Användarnamn| Ange ett valfritt användarnamn.|
     |lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
-    |plats.| Välj **USA, östra**|
+    |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
+    |Location| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -61,7 +61,7 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 
 Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare till [Använda Kontrollera IP-flöde](#use-ip-flow-verify).
 
-1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Aktivera en nätverksbevakare i regionen USA, östra eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -72,7 +72,7 @@ Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare 
 
 När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till och från den virtuella datorn som standard. Om du vill kan du åsidosätta standardinställningarna i Azure och tillåta eller neka andra typer av trafik.
 
-1. Välj **Alla tjänster** på portalen. I rutan **alla tjänster** *Filter* anger du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I rutan *Filter för* **alla tjänster** anger du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Kontrollera IP-flöde** under **DIAGNOSTISKA VERKTYG FÖR NÄTVERK**.
 3. Välj din prenumeration, ange eller välj följande värden och välj sedan **Kontrollera**, som du ser i bilden nedan:
 
@@ -85,7 +85,7 @@ När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till 
     | Riktning         | Utgående                                                                                          |
     | Lokal IP-adress  | 10.0.0.4                                                                                          |
     | Lokal port      | 60000                                                                                                |
-    | Fjärr-IP-adress | 13.107.21.200 – en av adresserna för < www. Bing. com >.                                             |
+    | Fjärr-IP-adress | 13.107.21.200 - En av adresserna för <www.bing.com>.                                             |
     | Fjärrport       | 80                                                                                                |
 
     ![Kontrollera IP-flöde](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
@@ -103,7 +103,7 @@ Nu när du vet vilka säkerhetsregler som tillåter eller nekar trafik till elle
 
     ![Gällande säkerhetsregler](./media/diagnose-vm-network-traffic-filtering-problem/effective-security-rules.png)
 
-    I steg 3 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) såg du att kommunikationen tilläts på grund av regeln **AllowInternetOutbound**. Som du ser i föregående bild är **Internet** **MÅL** för regeln. Det är dock oklart hur 13.107.21.200, adressen som du testade i steg 3 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify), relaterar till **Internet**.
+    I steg 3 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify) såg du att kommunikationen tilläts på grund av regeln **AllowInternetOutbound**. Som du ser i föregående bild är **Internet****MÅL** för regeln. Det är dock oklart hur 13.107.21.200, adressen som du testade i steg 3 i [Använda Kontrollera IP-flöde](#use-ip-flow-verify), relaterar till **Internet**.
 3. Välj regeln **AllowInternetOutBound** och välj sedan **Mål**, som du ser i följande bild:
 
     ![Prefix för säkerhetsregler](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
@@ -118,7 +118,7 @@ Kontrollerna i den här snabbstarten testade Azure-konfigurationen. Om kontrolle
 
 Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller:
 
-1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
+1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
 3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
 

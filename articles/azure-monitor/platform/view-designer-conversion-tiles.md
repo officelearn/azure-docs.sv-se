@@ -1,5 +1,5 @@
 ---
-title: Panel konverteringar Azure Monitor Visa designer till arbets böcker
+title: Azure Monitor-vydesigner till arbetsböcker panelkonverteringar
 description: ''
 author: austonli
 ms.author: aul
@@ -7,31 +7,31 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: f07d15521c787dfd588c285bff57616059caa2f3
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658634"
 ---
-# <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor Visa designer panels konverteringar
-[View Designer](view-designer.md) är en funktion i Azure Monitor som gör att du kan skapa anpassade vyer som hjälper dig att visualisera data i arbets ytan Log Analytics, med diagram, listor och tids linjer. De fasas ut och ersätts med arbets böcker som tillhandahåller ytterligare funktioner. Den här artikeln innehåller information om hur du konverterar olika paneler till arbets böcker.
+# <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor-vykonverteringar av designerpaneler
+[View designer](view-designer.md) är en funktion i Azure Monitor som låter dig skapa anpassade vyer som hjälper dig att visualisera data i din Log Analytics arbetsyta, med diagram, listor och tidslinjer. De håller på att fasas ut och ersättas med arbetsböcker som ger ytterligare funktioner. Den här artikeln innehåller information om hur du konverterar olika paneler till arbetsböcker.
 
-## <a name="donut--list-tile"></a>Ring & list panel
+## <a name="donut--list-tile"></a>Panel för donut & lista
 
-![Ring lista](media/view-designer-conversion-tiles/donut-list.png)
+![Donut lista](media/view-designer-conversion-tiles/donut-list.png)
 
-Att återskapa Ring & list panelen i arbets böcker omfattar två separata visualiseringar. Det finns två alternativ för ring delen.
-För båda början genom att välja **Lägg till fråga** och klistra in den ursprungliga frågan från View Designer i cellen.
+Att återskapa & listpanelen i arbetsböcker innebär två separata visualiseringar. För donut delen finns det två alternativ.
+För båda börja med att välja **Lägg till fråga** och klistra in den ursprungliga frågan från vydesignern i cellen.
 
-**Alternativ 1:** Välj **cirkel diagram** i list rutan **visualisering** : ![visualiserings menyn för cirkel diagram](media/view-designer-conversion-tiles/pie-chart.png)
+**Alternativ 1:** Välj **cirkeldiagram** på den nedrullningsbara **visualiseringsrutan:** ![Menyn Cirkeldiagramvisualisering](media/view-designer-conversion-tiles/pie-chart.png)
 
-**Alternativ 2:** Välj **Ange efter fråga** i list rutan **visualisering** och Lägg till `| render piechart` i frågan:
+**Alternativ 2:** Välj **Ange efter fråga** i listrutan **Visualisering** och lägg `| render piechart` till i frågan:
 
- ![Visualiserings meny](media/view-designer-conversion-tiles/set-by-query.png)
+ ![Menyn Visualisering](media/view-designer-conversion-tiles/set-by-query.png)
 
 **Exempel**
 
-Ursprungliga frågan
+Ursprunglig fråga
 ```KQL
 search * 
 | summarize AggregatedValue = count() by Type 
@@ -46,18 +46,18 @@ search *
 | render piechart
 ```
 
-Information om hur du skapar en lista och aktiverar miniatyr diagram finns i artikeln om [vanliga uppgifter](view-designer-conversion-tasks.md).
+Information om hur du skapar en lista och aktiverar miniatyrdiagram finns i artikeln om [vanliga uppgifter](view-designer-conversion-tasks.md).
 
-Nedan visas ett exempel på hur Ring & list panelen kan tolkas om i arbets böcker:
+Följande är ett exempel på hur den donut & listpanelen kan omtolkas i arbetsböcker:
 
-![Arbets böcker för ring lista](media/view-designer-conversion-tiles/donut-workbooks.png)
+![Arbetsböcker för donutlista](media/view-designer-conversion-tiles/donut-workbooks.png)
 
-## <a name="line-chart--list-tile"></a>Linje diagram & list panel
-![Linje diagram lista](media/view-designer-conversion-tiles/line-list.png) 
+## <a name="line-chart--list-tile"></a>Linjediagram & listpanel
+![Lista över linjediagram](media/view-designer-conversion-tiles/line-list.png) 
 
-För att återskapa linje diagram delen uppdaterar du frågan på följande sätt:
+Så här återskapar du linjediagramdelen frågan enligt följande:
 
-Ursprungliga frågan
+Ursprunglig fråga
 ```KQL
 search * 
 | summarize AggregatedValue = count() by Type
@@ -69,15 +69,15 @@ search *
 | make-series Count = count() default=0 on TimeGenerated from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain} by Type
 ```
 
-Det finns två alternativ för att visualisera linje diagrammet
+Det finns två alternativ för att visualisera linjediagrammet
 
-**Alternativ 1:** Välj **linje diagram** i list rutan **visualisering** :
+**Alternativ 1:** Välj **linjediagram** i listrutan **Visualisering:**
  
- ![Linje Diagram-menyn](media/view-designer-conversion-tiles/line-visualization.png)
+ ![Meny för linjediagram](media/view-designer-conversion-tiles/line-visualization.png)
 
-**Alternativ 2:** Välj **Ange efter fråga** i list rutan **visualisering** och Lägg till `| render linechart` i frågan:
+**Alternativ 2:** Välj **Ange efter fråga** i listrutan **Visualisering** och lägg `| render linechart` till i frågan:
 
- ![Visualiserings meny](media/view-designer-conversion-tiles/set-by-query.png)
+ ![Menyn Visualisering](media/view-designer-conversion-tiles/set-by-query.png)
 
 **Exempel**
 
@@ -87,19 +87,19 @@ search *
 | render linechart_
 ```
 
-Information om hur du skapar en lista och aktiverar miniatyr diagram finns i artikeln om [vanliga uppgifter](view-designer-conversion-tasks.md).
+Information om hur du skapar en lista och aktiverar miniatyrdiagram finns i artikeln om [vanliga uppgifter](view-designer-conversion-tasks.md).
 
-Följande är ett exempel på hur linje diagrammet & list panelen kan tolkas om i arbets böcker:
+Nedan följer ett exempel på hur linjediagrammet & listpanelen kan omtolkas i arbetsböcker:
 
-![Linje diagram lista arbets böcker](media/view-designer-conversion-tiles/line-workbooks.png)
+![Arbetsböcker för linjediagramlista](media/view-designer-conversion-tiles/line-workbooks.png)
 
-## <a name="number--list-tile"></a>List panelen nummer &
+## <a name="number--list-tile"></a>Antal & listpanel
 
- ![Panel lista](media/view-designer-conversion-tiles/tile-list-example.png)
+ ![Panellista](media/view-designer-conversion-tiles/tile-list-example.png)
 
-Uppdatera frågan på panelen tal enligt följande:
+För nummerpanelen uppdaterar du frågan på följande sätt:
 
-Ursprungliga frågan
+Ursprunglig fråga
 ```KQL
 search * 
 | summarize AggregatedValue = count() by Computer | count
@@ -112,27 +112,27 @@ search *
 | summarize Count = count()
 ```
 
-Ändra List rutan visualisering till **paneler** och välj sedan **panel inställningar**.
- ![panels visualisering](media/view-designer-conversion-tiles/tile-visualization.png)
+Ändra listrutan Visualisering till **Paneler** och välj sedan **Panelinställningar**.
+ ![Visualisering av paneler](media/view-designer-conversion-tiles/tile-visualization.png)
 
-Lämna avsnittet **title** tomt och välj **vänster**. Ändra värdet för **use-kolumnen:** to **Count**och **Column rendering** till **Big Number**:
+Lämna avsnittet **Rubrik** tomt och välj **Vänster**. Ändra värdet för **kolumnen Använd:** till **Antal**och **Kolumnåtergivning** till **Stort tal:**
 
-![Panel inställningar](media/view-designer-conversion-tiles/tile-settings.png)
+![Inställningar för paneler](media/view-designer-conversion-tiles/tile-settings.png)
 
  
-Information om hur du skapar en lista och aktiverar miniatyr diagram finns i artikeln om [vanliga uppgifter](view-designer-conversion-tasks.md).
+Information om hur du skapar en lista och aktiverar miniatyrdiagram finns i artikeln om [vanliga uppgifter](view-designer-conversion-tasks.md).
 
-Följande är ett exempel på hur List panelen för nummer & kan tolkas om i arbets böcker:
+Här följer ett exempel på hur antalet & listpanelen kan omtolkas i arbetsböcker:
 
-![Lista med antal arbets böcker](media/view-designer-conversion-tiles/number-workbooks.png)
+![Tallista arbetsböcker](media/view-designer-conversion-tiles/number-workbooks.png)
 
 ## <a name="timeline--list"></a>Tidslinje och lista
 
- ![Tids linje lista](media/view-designer-conversion-tiles/time-list.png)
+ ![Tidslinjelista](media/view-designer-conversion-tiles/time-list.png)
 
-Uppdatera frågan på tids linjen enligt följande:
+För tidslinjen uppdatera din fråga på följande sätt:
 
-Ursprungliga frågan
+Ursprunglig fråga
 ```KQL
 search * 
 | sort by TimeGenerated desc
@@ -146,19 +146,19 @@ search *
 
 Det finns två alternativ för att visualisera frågan som ett stapeldiagram:
 
-**Alternativ 1:** Välj **stapeldiagram** i list rutan **visualisering** : ![Barchart visualisering](media/view-designer-conversion-tiles/bar-visualization.png)
+**Alternativ 1:** Välj **stapeldiagram** i listrutan ![ **Visualisering:** Visualisering av stapeldiagram](media/view-designer-conversion-tiles/bar-visualization.png)
  
-**Alternativ 2:** Välj **Ange efter fråga** i list rutan **visualisering** och Lägg till `| render barchart` i frågan:
+**Alternativ 2:** Välj **Ange efter fråga** i listrutan **Visualisering** och lägg `| render barchart` till i frågan:
 
- ![Visualiserings meny](media/view-designer-conversion-tiles/set-by-query.png)
+ ![Menyn Visualisering](media/view-designer-conversion-tiles/set-by-query.png)
 
  
-Information om hur du skapar en lista och aktiverar miniatyr diagram finns i artikeln om [vanliga uppgifter](view-designer-conversion-tasks.md).
+Information om hur du skapar en lista och aktiverar miniatyrdiagram finns i artikeln om [vanliga uppgifter](view-designer-conversion-tasks.md).
 
-Följande är ett exempel på hur tids linje & list panelen kan tolkas om i arbets böcker:
+Här följer ett exempel på hur tidslinjen & listpanelen kan omtolkas i arbetsböcker:
 
-![Arbets tids böcker-lista](media/view-designer-conversion-tiles/time-workbooks.png)
+![Arbetsböcker för tidslinjelista](media/view-designer-conversion-tiles/time-workbooks.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över över gången Visa designer till arbets böcker](view-designer-conversion-overview.md)
+- [Översikt över visa designer till arbetsböcker övergång](view-designer-conversion-overview.md)

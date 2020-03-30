@@ -1,6 +1,6 @@
 ---
-title: Använda en mall för att distribuera virtuella Azure-datorer (för hands version)
-description: Lär dig hur du använder en mall för att distribuera virtuella datorer för virtuella datorer för att spara kostnader.
+title: Använda en mall för att distribuera virtuella Azure Spot-datorer (förhandsversion)
+description: Lär dig hur du använder en mall för att distribuera spot-datorer för att spara kostnader.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -15,29 +15,29 @@ ms.topic: article
 ms.date: 02/11/2020
 ms.author: cynthn
 ms.openlocfilehash: 0e635fe7ce9b442a9cc8f0fdf614feef5a3a756a
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79082803"
 ---
-# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Distribuera virtuella datorer med hjälp av en Resource Manager-mall
+# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Distribuera spot-datorer med hjälp av en Resource Manager-mall
 
-Med hjälp av [virtuella datorer](spot-vms.md) kan du dra nytta av vår outnyttjade kapacitet till betydande besparingar. Vid alla tidpunkter när Azure behöver kapaciteten tillbaka, tar Azure-infrastrukturen bort virtuella datorer. De virtuella datorerna är därför fantastiska för arbets belastningar som kan hantera avbrott som bearbetnings jobb, utvecklings-/test miljöer, stora beräknings arbets belastningar med mera.
+Med hjälp av [Spot virtuella datorer](spot-vms.md) kan du dra nytta av vår outnyttjade kapacitet till en betydande kostnadsbesparingar. När som helst när Azure behöver tillbaka kapaciteten kommer Azure-infrastrukturen att ta bort spot-datorer. Därför är spot-virtuella datorer bra för arbetsbelastningar som kan hantera avbrott som batchbearbetningsjobb, utvecklings-/testmiljöer, stora beräkningsarbetsbelastningar med mera.
 
-Priser för virtuella datorer i virtuella datorer är varierande, baserat på region och SKU. Mer information finns i prissättning för virtuella datorer för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+Priserna för spot-virtuella datorer varierar, baserat på region och SKU. Mer information finns i VM-priser för [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
-Du har möjlighet att ange ett högsta pris som du är villig att betala per timme för den virtuella datorn. Det maximala priset för en VM-VM kan anges i USD (USD) med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset som ska `-1`avlägsnas inte den virtuella datorn baserat på priset. Priset för den virtuella datorn är det aktuella priset för dekor pris eller priset för en standard-VM, som någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot. Mer information om hur du ställer in högsta pris finns i [VM-priser för virtuella datorer](spot-vms.md#pricing).
+Du har möjlighet att ställa in ett maxpris som du är villig att betala, per timme, för den virtuella datorn. Maxpriset för en spot-VM kan ställas in i US-dollar (USD), med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett maxpris på 0,98765 USD per timme. Om du ställer in `-1`maxpriset så kommer den virtuella datorn inte att vräkas baserat på priset. Priset för den virtuella datorn blir det aktuella priset för Spot eller priset för en vanlig virtuell dator, som någonsin är mindre, så länge det finns kapacitet och kvot tillgänglig. Mer information om hur du anger maxpriset finns i [Spot-virtuella datorer - Prissättning](spot-vms.md#pricing).
 
 > [!IMPORTANT]
-> Punkt instanser finns för närvarande i offentlig för hands version.
-> Den här för hands versionen rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
+> Spot-instanser är för närvarande i offentlig förhandsversion.
+> Den här förhandsversionen rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 ## <a name="use-a-template"></a>Använda en mall
 
-Använd`"apiVersion": "2019-03-01"` eller senare för distribution av dekor mallar. Lägg till egenskaperna `priority`, `evictionPolicy` och `billingProfile` i mallen:
+Använd`"apiVersion": "2019-03-01"` eller senare för spotmalldistributioner. Lägg `priority`till `evictionPolicy` `billingProfile` , och egenskaperna i mallen:
 
 ```json
 "priority": "Spot",
@@ -47,7 +47,7 @@ Använd`"apiVersion": "2019-03-01"` eller senare för distribution av dekor mall
 }
 ```
 
-Här är en exempel-mall med de tillagda egenskaperna för en VM-VM. Ersätt resurs namnen med dina egna och `<password>` med ett lösen ord för det lokala administratörs kontot på den virtuella datorn.
+Här är en exempelmall med de tillagda egenskaperna för en spot-vm. Ersätt resursnamnen med `<password>` dina egna och med ett lösenord för det lokala administratörskontot på den virtuella datorn.
 
 ```json
 {
@@ -186,6 +186,6 @@ Här är en exempel-mall med de tillagda egenskaperna för en VM-VM. Ersätt res
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också skapa en virtuell dator med hjälp av [Azure PowerShell](../windows/spot-powershell.md) eller [Azure CLI](spot-cli.md).
+Du kan också skapa en spot-vm med [Azure PowerShell](../windows/spot-powershell.md) eller [Azure CLI](spot-cli.md).
 
-Om du stöter på ett fel, se [felkoder](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Om du stöter på ett fel läser du [Felkoder](../error-codes-spot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

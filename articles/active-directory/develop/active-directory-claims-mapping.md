@@ -1,7 +1,7 @@
 ---
-title: Anpassa Azure AD-klientens app-anspråk (PowerShell)
+title: Anpassa anspråk på Azure AD-klientprogram (PowerShell)
 titleSuffix: Microsoft identity platform
-description: Den här sidan beskriver Azure Active Directory anspråks mappning.
+description: På den här sidan beskrivs Azure Active Directory-anspråksmappning.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -14,96 +14,96 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.openlocfilehash: 49860504da8dd2a1b994a23a24df95f59c959c90
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79263197"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Gör så här: anpassa anspråk som skickas i token för en angiven app i en klient (för hands version)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Så här anpassar du anspråk som skickas ut i token för en viss app i en klientorganisation (förhandsversion)
 
 > [!NOTE]
-> Den här funktionen ersätter och ersätter den [anpassning av anspråk](active-directory-saml-claims-customization.md) som erbjuds via portalen idag. Om du i samma program anpassar anspråk med hjälp av portalen, förutom den graf/PowerShell-metod som beskrivs i det här dokumentet, kommer tokens som utfärdats för programmet att ignorera konfigurationen i portalen. Konfigurationer som görs genom de metoder som beskrivs i det här dokumentet visas inte i portalen.
+> Den här funktionen ersätter och ersätter den [anspråksanpassning](active-directory-saml-claims-customization.md) som erbjuds via portalen idag. Om du anpassar anspråk med hjälp av portalen utöver den Graph/PowerShell-metod som beskrivs i det här dokumentet ignoreras konfigurationen i portalen om du anpassar anspråk med hjälp av portalen utöver den Graph/PowerShell-metod som beskrivs i det här dokumentet. Konfigurationer som görs med hjälp av de metoder som beskrivs i det här dokumentet kommer inte att återspeglas i portalen.
 
-Den här funktionen används av klient administratörer för att anpassa de anspråk som skickas i token för ett särskilt program i klienten. Du kan använda anspråk mappnings principer för att:
+Den här funktionen används av klientadministratörer för att anpassa anspråk som skickas ut i token för ett visst program i deras klientorganisation. Du kan använda principer för anspråksmappning för att:
 
-- Välj vilka anspråk som ska ingå i tokens.
-- Skapa anspråks typer som inte redan finns.
-- Välj eller ändra data källan som skickas i vissa anspråk.
+- Välj vilka anspråk som ingår i token.
+- Skapa anspråkstyper som inte redan finns.
+- Välj eller ändra källan till data som släpps ut i specifika anspråk.
 
 > [!NOTE]
-> Den här funktionen finns för närvarande i offentlig för hands version. Observera att du kan behöva återställa eller ta bort eventuella ändringar. Funktionen är tillgänglig i en Azure Active Directory (Azure AD)-prenumeration under den offentliga för hands versionen. Men när funktionen blir allmänt tillgänglig kan vissa aspekter av funktionen kräva en Azure AD Premium-prenumeration. Den här funktionen stöder konfigurering av anspråks mappnings principer för WS-utfodras-, SAML-, OAuth-och OpenID Connect-protokoll.
+> Den här funktionen är för närvarande i offentlig förhandsversion. Observera att du kan behöva återställa eller ta bort eventuella ändringar. Funktionen är tillgänglig i alla Azure Active Directory-prenumerationer (Azure AD) under offentlig förhandsversion. Men när funktionen blir allmänt tillgänglig kan vissa aspekter av funktionen kräva en Azure AD premium-prenumeration. Den här funktionen stöder konfiguration av anspråksmappningsprinciper för WS-Fed-, SAML-, OAuth- och OpenID Connect-protokoll.
 
-## <a name="claims-mapping-policy-type"></a>Princip typ för anspråks mappning
+## <a name="claims-mapping-policy-type"></a>Principtyp för anspråksmappning
 
-I Azure AD representerar ett **princip** objekt en uppsättning regler som tillämpas på enskilda program eller på alla program i en organisation. Varje typ av princip har en unik struktur med en uppsättning egenskaper som sedan tillämpas på objekt som de är tilldelade till.
+I Azure AD representerar ett **principobjekt** en uppsättning regler som tillämpas på enskilda program eller på alla program i en organisation. Varje typ av princip har en unik struktur, med en uppsättning egenskaper som sedan tillämpas på objekt som de är tilldelade.
 
-En princip för anspråks mappning är en typ av **princip** objekt som ändrar de anspråk som skickats i token som utfärdas för vissa program.
+En princip för anspråksmappning är en typ av **principobjekt** som ändrar anspråk som skickas ut i token som utfärdats för specifika program.
 
-## <a name="claim-sets"></a>Anspråks uppsättningar
+## <a name="claim-sets"></a>Anspråksuppsättningar
 
-Det finns vissa uppsättningar med anspråk som definierar hur och när de används i tokens.
+Det finns vissa uppsättningar av anspråk som definierar hur och när de används i tokens.
 
-| Anspråks uppsättning | Beskrivning |
+| Anspråksuppsättning | Beskrivning |
 |---|---|
-| Uppsättning Core-anspråk | Förekommer i varje token oavsett principen. Dessa anspråk anses också vara begränsade och kan inte ändras. |
-| Grundläggande anspråks uppsättning | Innehåller de anspråk som genereras som standard för token (utöver uppsättningen med kärn anspråk). Du kan utelämna eller ändra grundläggande anspråk genom att använda anspråks mappnings principerna. |
-| Begränsad anspråks uppsättning | Kan inte ändras med en princip. Det går inte att ändra data källan och ingen omvandling används när dessa anspråk genereras. |
+| Uppsättning kärnanspråk | Finns i varje token oavsett policy. Dessa anspråk anses också vara begränsade och kan inte ändras. |
+| Grundläggande anspråksuppsättning | Inkluderar anspråk som avges som standard för token (utöver den grundläggande anspråksuppsättningen). Du kan utelämna eller ändra grundläggande anspråk med hjälp av anspråksmappningsprinciperna. |
+| Begränsad anspråksuppsättning | Det går inte att ändra med hjälp av principen. Det går inte att ändra datakällan och ingen omvandling används när dessa anspråk skapas. |
 
-### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabell 1: begränsad anspråks uppsättning för JSON Web Token (JWT)
+### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabell 1: JSON Web Token (JWT) begränsad anspråksuppsättning
 
-| Anspråks typ (namn) |
+| Anspråkstyp (namn) |
 | ----- |
 | _claim_names |
 | _claim_sources |
 | access_token |
 | account_type |
 | acr |
-| actor |
-| actortoken |
-| aio |
-| altsecid |
-| AMR |
+| Skådespelare |
+| skådespelaretoken |
+| Aio |
+| altsecid (olika) |
+| Amr |
 | app_chain |
 | app_displayname |
 | app_res |
-| appctx |
-| appctxsender |
-| undanta |
-| appidacr |
-| assertion |
+| appctx (på ett sätt) |
+| appctxsender (appctxsender) |
+| Appid |
+| appidacr (på ett år) |
+| Påstående |
 | at_hash |
-| AUD |
+| aud |
 | auth_data |
 | auth_time |
 | authorization_code |
-| azp |
-| azpacr |
+| azp (aska) |
+| azpacr ( |
 | c_hash |
 | ca_enf |
-| CC |
+| cc |
 | cert_token_use |
 | client_id |
 | cloud_graph_host_name |
 | cloud_instance_name |
-| CNF |
-| code |
+| Cnf |
+| kod |
 | kontroller |
 | credential_keys |
-| csr |
+| Csr |
 | csr_type |
-| DeviceID |
+| Deviceid |
 | dns_names |
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
 | e-post |
 | slutpunkt |
-| enfpolids |
+| enfpolids (enfpolids) |
 | exp |
 | expires_on |
 | grant_type |
-| graph |
+| Diagram |
 | group_sids |
 | grupper |
 | hasgroups |
@@ -116,15 +116,15 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
 | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
-| iat |
-| identityprovider |
-| idp |
+| Iat |
+| identitetsprovider |
+| Idp |
 | in_corp |
-| instance |
+| Instans |
 | ipaddr |
 | isbrowserhostedapp |
-| ISS |
-| jwk |
+| Iss |
+| jwk (na) |
 | key_id |
 | key_type |
 | mam_compliance_url |
@@ -133,23 +133,23 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | mdm_compliance_url |
 | mdm_enrollment_url |
 | mdm_terms_of_use_url |
-| NameID |
-| nbf |
+| nameid (namn) |
+| Nbf |
 | netbios_name |
-| Nnär |
-| OID |
+| Nonce |
+| Oid |
 | on_prem_id |
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| lösenord |
-| platf |
-| polids |
+| password |
+| platf (platf) |
+| polids (polids) |
 | pop_jwk |
 | preferred_username |
 | previous_refresh_token |
 | primary_sid |
-| puid |
+| puid (puid) |
 | pwd_exp |
 | pwd_url |
 | redirect_uri |
@@ -160,34 +160,34 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 | roll |
 | roles |
 | omfång |
-| punkten |
-| sid |
-| signature |
+| Scp |
+| Sid |
+| Signatur |
 | signin_state |
-| src1 |
-| src2 |
-| Build |
-| tbid |
+| src1 (src1) |
+| src2 (src2) |
+| Sub |
+| tbid (tbid) |
 | tenant_display_name |
 | tenant_region_scope |
 | thumbnail_photo |
-| bekräfta |
+| tid |
 | tokenAutologonEnabled |
-| trustedfordelegation |
+| betroddafordring |
 | unique_name |
-| upn |
+| Upn |
 | user_setting_sync_url |
 | användarnamn |
-| uti: er |
-| ver |
+| Uvi |
+| Ver |
 | verified_primary_email |
 | verified_secondary_email |
-| wids |
+| wids (på en) |
 | win_ver |
 
-### <a name="table-2-saml-restricted-claim-set"></a>Tabell 2: begränsad SAML-anspråks uppsättning
+### <a name="table-2-saml-restricted-claim-set"></a>Tabell 2: FAST på ett begränsat skadeståndskrav
 
-| Anspråks typ (URI) |
+| Anspråkstyp (URI) |
 | ----- |
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
@@ -236,289 +236,289 @@ Det finns vissa uppsättningar med anspråk som definierar hur och när de anvä
 |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
 |`http://schemas.microsoft.com/identity/claims/scope`|
 
-## <a name="claims-mapping-policy-properties"></a>Princip egenskaper för anspråks mappning
+## <a name="claims-mapping-policy-properties"></a>Principegenskaper för anspråksmappning
 
-Du styr vilka anspråk som ska genereras och var data kommer från genom att använda egenskaperna för en princip för anspråks mappning. Om en princip inte har angetts utfärdar systemet token som innehåller den kärn anspråks uppsättningen, den grundläggande anspråks uppsättningen och eventuella [valfria anspråk](active-directory-optional-claims.md) som programmet har valt att ta emot.
+Om du vill styra vilka anspråk som släpps ut och var data kommer ifrån använder du egenskaperna för en princip för anspråksmappning. Om en princip inte har angetts utfärdar systemet token som innehåller den grundläggande anspråksuppsättningen, den grundläggande anspråksuppsättningen och [eventuella valfria anspråk](active-directory-optional-claims.md) som programmet har valt att ta emot.
 
-### <a name="include-basic-claim-set"></a>Inkludera grundläggande anspråks uppsättning
+### <a name="include-basic-claim-set"></a>Inkludera grundläggande anspråksuppsättning
 
-**Sträng:** IncludeBasicClaimSet
+**Sträng:** InkluderaBasicClaimSet
 
 **Datatyp:** Boolesk (sant eller falskt)
 
-**Sammanfattning:** Den här egenskapen avgör om den grundläggande anspråks uppsättningen ingår i tokens som påverkas av den här principen.
+**Sammanfattning:** Den här egenskapen avgör om den grundläggande anspråksuppsättningen ingår i token som påverkas av den här principen.
 
-- Om värdet är true genereras alla anspråk i den grundläggande anspråks uppsättningen i tokens som påverkas av principen. 
-- Om värdet är false är anspråk i den grundläggande anspråks uppsättningen inte i tokens, om de inte individuellt läggs till i egenskapen anspråk schema för samma princip.
+- Om värdet är True skickas alla anspråk i den grundläggande anspråksuppsättningen i token som påverkas av principen. 
+- Om värdet är False finns inte anspråk i den grundläggande anspråksuppsättningen i token, såvida de inte läggs till individuellt i egenskapen skadeschema för samma princip.
 
 > [!NOTE] 
-> Anspråk i den kärn anspråks uppsättningen finns i varje token, oavsett vad den här egenskapen är inställd på. 
+> Anspråk i huvudanspråksuppsättningen finns i varje token, oavsett vad den här egenskapen är inställd på. 
 
-### <a name="claims-schema"></a>Anspråks schema
+### <a name="claims-schema"></a>Schema för anspråk
 
 **Sträng:** ClaimsSchema
 
-**Datatyp:** JSON-BLOB med en eller flera anspråks schema poster
+**Datatyp:** JSON-blob med en eller flera anspråksschemaposter
 
-**Sammanfattning:** Den här egenskapen definierar vilka anspråk som finns i de token som påverkas av principen, förutom den grundläggande anspråks uppsättningen och kärn anspråks uppsättningen.
-För varje anspråks schema post som definieras i den här egenskapen krävs viss information. Ange var data kommer från (**värde** eller **käll-ID-par**) och vilka anspråk data genereras som (**anspråks typ**).
+**Sammanfattning:** Den här egenskapen definierar vilka anspråk som finns i de token som påverkas av principen, utöver den grundläggande anspråksuppsättningen och kärnanspråksuppsättningen.
+För varje anspråksschemapost som definieras i den här egenskapen krävs viss information. Ange var data kommer ifrån (**Värde** eller **Källa/ID-par**) och vilket påstående uppgifterna släpps ut som (**Anspråkstyp**).
 
-### <a name="claim-schema-entry-elements"></a>Poster för anspråks schema poster
+### <a name="claim-schema-entry-elements"></a>Element för anspråksschemainmatning
 
-**Värde:** Värdet element definierar ett statiskt värde som de data som ska genereras i anspråket.
+**Värde:** Värdeelementet definierar ett statiskt värde som de data som ska släppas ut i anspråket.
 
-**Käll-/ID-par:** Käll-och ID-elementen definierar var data i anspråket ska hämtas från. 
+**Käll-/ID-par:** Käll- och ID-elementen definierar var data i anspråket kommer ifrån. 
 
-Ange käll elementet till något av följande värden: 
+Ange källelementet till något av följande värden: 
 
-- "användare": data i anspråket är en egenskap för objektet användare. 
-- "program": data i anspråket är en egenskap på program tjänstens huvud namn (klient). 
-- "resurs": data i anspråket är en egenskap för resurs tjänstens huvud namn.
-- "Audience": data i anspråket är en egenskap för tjänstens huvud namn som är mål gruppen för token (antingen klienten eller resurs tjänstens huvud namn).
-- "företag": data i anspråket är en egenskap för resurs innehavarens företags objekt.
-- "omvandling": data i anspråket är från en anspråks omvandling (se avsnittet "anspråks omvandling" längre fram i den här artikeln).
+- "användare": Data i anspråket är en egenskap på användarobjektet. 
+- "application": Uppgifterna i anspråket är en egenskap på programmets (klient)-tjänstens huvudnamn. 
+- "resurs": Data i anspråket är en egenskap på resurstjänstens huvudnamn.
+- "målgrupp": Data i anspråket är en egenskap på tjänstens huvudnamn som är målgruppen för token (antingen klienten eller resurstjänstens huvudnamn).
+- "företag": Data i anspråket är en egenskap på resursens företagsobjekt.
+- "transformation": Data i anspråket kommer från anspråksomvandling (se avsnittet "Anspråksomvandling" senare i den här artikeln).
 
-Om källan är omvandling, måste **TransformationID** -elementet inkluderas i denna anspråks definition också.
+Om källan är omvandling måste **TransformationID-elementet** också inkluderas i den här anspråksdefinitionen.
 
-ID-elementet identifierar vilken egenskap på källan som innehåller värdet för anspråket. I följande tabell visas värdena för de ID som är giltiga för varje värde för källa.
+ID-elementet identifierar vilken egenskap på källan som ger värdet för anspråket. I följande tabell visas de värden för ID som gäller för varje värde i Källa.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: giltiga ID-värden per källa
+#### <a name="table-3-valid-id-values-per-source"></a>Tabell 3: Giltiga ID-värden per källa
 
 | Källa | ID | Beskrivning |
 |-----|-----|-----|
-| Användare | surname | Familjenamn |
+| Användare | surname | Efternamn |
 | Användare | givenname | Förnamn |
 | Användare | displayname (visningsnamn) | Visningsnamn |
-| Användare | objectID | ObjectID |
+| Användare | Objectid | ObjectID |
 | Användare | e-post | E-postadress |
-| Användare | userPrincipalName | User Principal Name |
+| Användare | användarnamn | User Principal Name |
 | Användare | avdelning|Avdelning|
-| Användare | egna namnet onpremisessamaccountname | Namn på lokal SAM-konto |
-| Användare | NetbiosName| NetBios-namn |
+| Användare | onpremisessamaccountname | Lokalt SAM-kontonamn |
+| Användare | netbiosname (netbiosname)| NetBios Namn |
 | Användare | dnsdomainname | DNS-domännamn |
-| Användare | onpremisesecurityidentifier | Lokal säkerhets identifierare |
-| Användare | CompanyName| Organisationens namn |
-| Användare | streetaddress | Gatuadress |
-| Användare | post nummer | Postnummer |
+| Användare | om säkerhetsidentifierare | Lokal säkerhetsidentifierare |
+| Användare | företagets namn| Organisationsnamn |
+| Användare | streetaddress (streetaddress) | Gatuadress |
+| Användare | Postnummer | Postnummer |
 | Användare | preferredlanguange | Önskat språk |
-| Användare | onpremisesuserprincipalname | Lokalt UPN |
-| Användare | MailNickName | E-postsmek namn |
-| Användare | extensionattribute1 | Attribut 1 för tillägg |
-| Användare | extensionattribute2 | Attribut för tillägg 2 |
-| Användare | extensionattribute3 | Attribut för tillägg 3 |
-| Användare | extensionattribute4 | Attribut för tillägg 4 |
-| Användare | extensionattribute5 | Attribut för tillägg 5 |
-| Användare | extensionattribute6 | Attribut för tillägg 6 |
-| Användare | extensionattribute7 | Attribut för tillägg 7 |
-| Användare | extensionattribute8 | Attribut för tillägg 8 |
-| Användare | extensionattribute9 | Attribut för tillägg 9 |
-| Användare | extensionattribute10 | Attribut för tillägg 10 |
-| Användare | extensionattribute11 | Attribut för tillägg 11 |
-| Användare | extensionattribute12 | Attribut för tillägg 12 |
-| Användare | extensionattribute13 | Attribut för tillägg 13 |
-| Användare | extensionattribute14 | Attribut för tillägg 14 |
-| Användare | extensionattribute15 | Attribut för tillägg 15 |
-| Användare | othermail | Annan e-post |
-| Användare | ursprungslandet | Land/region |
+| Användare | påpremisesuserprincipalnamn | Lokala UPN |
+| Användare | mailnicknamn | Smeknamn för e-post |
+| Användare | förlängningattribut1 | Tilläggsattribut 1 |
+| Användare | förlängningstillägg2 | Tilläggsattribut 2 |
+| Användare | förlängningattribut3 | Tilläggsattribut 3 |
+| Användare | förlängningar4 | Tilläggsattribut 4 |
+| Användare | förlängningar5 | Tilläggsattribut 5 |
+| Användare | förlängningat16 | Tilläggsattribut 6 |
+| Användare | förlängningat7 | Tilläggsattribut 7 |
+| Användare | förlängningat 8 | Tilläggsattribut 8 |
+| Användare | förlängningar9 | Tilläggsattribut 9 |
+| Användare | förlängningat10 | Tilläggsattribut 10 |
+| Användare | förlängningat11 | Tilläggsattribut 11 |
+| Användare | förlängningar12 | Tilläggsattribut 12 |
+| Användare | förlängningar13 | Tilläggsattribut 13 |
+| Användare | förlängningar14 | Tilläggsattribut 14 |
+| Användare | förlängningar15 | Tilläggsattribut 15 |
+| Användare | othermail (annanpost) | Annan e-post |
+| Användare | land | Land/region |
 | Användare | city | Ort |
 | Användare | state | Status |
-| Användare | befattning | Befattning |
-| Användare | employeeid | Medarbetar-ID |
-| Användare | facsimiletelephonenumber | Facsimile-telefonnummer |
-| program, resurs, mål grupp | displayname (visningsnamn) | Visningsnamn |
-| program, resurs, mål grupp | inobjekt | ObjectID |
-| program, resurs, mål grupp | taggar | Tjänstens huvud namns etikett |
-| Företag | tenantcountry | Innehavarens land |
+| Användare | jobtitle (jobtitle) | Befattning |
+| Användare | employeeid | Anställnings-ID |
+| Användare | facsimiletelephonenumber | Faxtelefonnummer |
+| program, resurs, målgrupp | displayname (visningsnamn) | Visningsnamn |
+| program, resurs, målgrupp | Invände | ObjectID |
+| program, resurs, målgrupp | tags | Tjänstens huvudmärke |
+| Företag | hyresgästerland | Hyresgästens land |
 
-**TransformationID:** TransformationID-elementet får bara anges om käll elementet har angetts till "Transformation".
+**TransformationID:** TransformationID-elementet får endast anges om källelementet är inställt på "omvandling".
 
-- Elementet måste matcha ID-elementet för omvandlings posten i **ClaimsTransformation** -egenskapen som definierar hur data för det här anspråket genereras.
+- Det här elementet måste matcha ID-elementet för omvandlingsposten i egenskapen **ClaimsTransformation** som definierar hur data för det här anspråket genereras.
 
-**Anspråks typ:** **JwtClaimType** -och **SamlClaimType** -elementen definierar vilka anspråk som den här anspråks schema posten refererar till.
+**Typ av anspråk:** **JwtClaimType-** och **SamlClaimType-elementen** definierar vilket anspråk som den här anspråksschemaposten refererar till.
 
-- JwtClaimType måste innehålla namnet på det anspråk som ska genereras i JWTs.
-- SamlClaimType måste innehålla URI: n för det anspråk som ska genereras i SAML-token.
+- JwtClaimType måste innehålla namnet på det anspråk som ska sändas ut i JV.
+- SamlClaimType måste innehålla URI för anspråk som ska sändas i SAML-token.
 
 > [!NOTE]
-> Namn och URI: er för anspråk i den begränsade anspråks uppsättningen kan inte användas för anspråks typ element. Mer information finns i avsnittet "undantag och begränsningar" längre fram i den här artikeln.
+> Namn och URI:er för anspråk i den begränsade anspråksuppsättningen kan inte användas för elementen för anspråkstyp. Mer information finns i avsnittet "Undantag och begränsningar" senare i den här artikeln.
 
 ### <a name="claims-transformation"></a>Anspråkstransformering
 
-**Sträng:** ClaimsTransformation
+**Sträng:** Skadetransformation
 
-**Datatyp:** JSON-BLOB med en eller flera omvandlings poster 
+**Datatyp:** JSON blob, med en eller flera omvandlingsposter 
 
-**Sammanfattning:** Använd den här egenskapen för att tillämpa vanliga transformeringar för källdata för att generera utdata för anspråk som anges i anspråks schemat.
+**Sammanfattning:** Använd den här egenskapen om du vill använda vanliga omvandlingar på källdata för att generera utdata för anspråk som anges i anspråksschemat.
 
-**ID:** Använd ID-elementet för att referera till den här omvandlings posten i schema posten TransformationID Claims. Det här värdet måste vara unikt för varje omvandlings post i den här principen.
+**ID:** Använd ID-elementet för att referera till den här omvandlingsposten itransformidanvisningsschemaposten. Det här värdet måste vara unikt för varje omvandlingspost i den här principen.
 
-**TransformationMethod:** TransformationMethod-elementet identifierar vilken åtgärd som utförs för att generera data för anspråket.
+**TransformationMethod:** Elementet TransformationMethod identifierar vilken åtgärd som utförs för att generera data för anspråket.
 
-Baserat på den valda metoden förväntas en uppsättning indata och utdata. Definiera indata och utdata med hjälp av elementen **InputClaims**, **indataparametrar** och **OutputClaims** .
+Baserat på den valda metoden förväntas en uppsättning in- och utdata. Definiera in- och utdata med hjälp av **elementen InputClaims,** **InputParameters** och **OutputClaims.**
 
-#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabell 4: omvandlings metoder och förväntade indata och utdata
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabell 4: Omvandlingsmetoder och förväntade in- och utdata
 
-|TransformationMethod|Förväntad Indatatyp|Förväntad utdata|Beskrivning|
+|TransformationMethod|Förväntad inmatning|Förväntad utdata|Beskrivning|
 |-----|-----|-----|-----|
-|Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Kopplar ihop inmatade strängar med hjälp av en avgränsare mellan. Exempel: sträng1: "foo@bar.com", sträng2: "sandbox", avgränsare: "." resulterar i outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|e-post|outputClaim|Extraherar den lokala delen av en e-postadress. Exempel: mail: "foo@bar.com" resulterar i outputClaim: "foo". Om det inte finns något \@-tecken returneras den ursprungliga Indatasträngen som den är.|
+|Slå ihop|sträng1, sträng2, avgränsare|outputClaim|Sammanfogar indatasträngar med hjälp av en avgränsare däremellan. Till exempel: sträng1:"foo@bar.com" , string2:"sandbox", separator:"."foo@bar.com.sandboxresulterar i outputClaim:" " "|
+|ExtractMailPrefix|e-post|outputClaim|Extraherar den lokala delen av en e-postadress. Till exempel: mail:"foo@bar.com" resulterar i outputClaim:"foo". Om \@ det inte finns något tecken returneras den ursprungliga indatasträngen som den är.|
 
-**InputClaims:** Använd ett InputClaims-element för att skicka data från en anspråks schema post till en omvandling. Det har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
+**InputClaims:** Använd ett InputClaims-element för att skicka data från en anspråksschemapost till en omvandling. Den har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** är ansluten med ID-elementet för anspråks schema posten för att hitta rätt indatamängds-anspråk. 
-- **TransformationClaimType** används för att ge det unika namnet för den här indatamängden. Det här namnet måste matcha en av förväntade indata för omvandlings metoden.
+- **ClaimTypeReferenceId** är kopplad till ID-elementet i anspråksschemaposten för att hitta rätt indataanspråk. 
+- **TransformationClaimType** används för att ge den här indata ett unikt namn. Det här namnet måste matcha en av de förväntade indata för omvandlingsmetoden.
 
-**Indataparametrar:** Använd ett indataparametrar för att skicka ett konstant värde till en Transformation. Det har två attribut: **Value** och **ID**.
+**InputParametrar:** Använd ett InputParameters-element för att skicka ett konstant värde till en omformning. Den har två attribut: **Värde** och **ID**.
 
-- **Värde** är det faktiska konstantvärde som ska skickas.
-- **ID** används för att ge indatatypen ett unikt namn. Namnet måste matcha en av förväntade indata för Transformations metoden.
+- **Värdet** är det faktiska konstantvärdet som ska skickas.
+- **ID** används för att ge indata ett unikt namn. Namnet måste matcha en av de förväntade indata för omvandlingsmetoden.
 
-**OutputClaims:** Använd ett OutputClaims-element för att lagra data som genereras av en omvandling och koppla dem till en anspråks schema post. Det har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
+**OutputClaims:** Använd ett OutputClaims-element för att lagra data som genereras av en omvandling och koppla det till en anspråksschemapost. Den har två attribut: **ClaimTypeReferenceId** och **TransformationClaimType**.
 
-- **ClaimTypeReferenceId** är kopplat till ID: t för anspråks schema posten för att hitta rätt utgående anspråk.
-- **TransformationClaimType** används för att ge utdata ett unikt namn. Namnet måste matcha en av förväntade utdata för omvandlings metoden.
+- **ClaimTypeReferenceId** är ansluten med ID för anspråk schema posten för att hitta rätt utdata anspråk.
+- **TransformationClaimType** används för att ge utdata ett unikt namn. Namnet måste matcha en av de förväntade utgångarna för omvandlingsmetoden.
 
 ### <a name="exceptions-and-restrictions"></a>Undantag och begränsningar
 
-**SAML-NameID och UPN:** De attribut som du använder för att källa NameID-och UPN-värden, och de anspråk omvandlingar som tillåts, är begränsade. Se tabell 5 och tabell 6 för att se tillåtna värden.
+**SAML NameID och UPN:** De attribut som du hämtar NameID- och UPN-värdena från och de anspråksomformningar som är tillåtna är begränsade. Se tabell 5 och tabell 6 för att se de tillåtna värdena.
 
-#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: attribut som tillåts som data källa för SAML-NameID
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabell 5: Attribut som tillåts som datakälla för SAML NameID
 
 |Källa|ID|Beskrivning|
 |-----|-----|-----|
 | Användare | e-post|E-postadress|
-| Användare | userPrincipalName|User Principal Name|
-| Användare | egna namnet onpremisessamaccountname|Namn på lokal SAM-konto|
-| Användare | employeeid|Medarbetar-ID|
-| Användare | extensionattribute1 | Attribut 1 för tillägg |
-| Användare | extensionattribute2 | Attribut för tillägg 2 |
-| Användare | extensionattribute3 | Attribut för tillägg 3 |
-| Användare | extensionattribute4 | Attribut för tillägg 4 |
-| Användare | extensionattribute5 | Attribut för tillägg 5 |
-| Användare | extensionattribute6 | Attribut för tillägg 6 |
-| Användare | extensionattribute7 | Attribut för tillägg 7 |
-| Användare | extensionattribute8 | Attribut för tillägg 8 |
-| Användare | extensionattribute9 | Attribut för tillägg 9 |
-| Användare | extensionattribute10 | Attribut för tillägg 10 |
-| Användare | extensionattribute11 | Attribut för tillägg 11 |
-| Användare | extensionattribute12 | Attribut för tillägg 12 |
-| Användare | extensionattribute13 | Attribut för tillägg 13 |
-| Användare | extensionattribute14 | Attribut för tillägg 14 |
-| Användare | extensionattribute15 | Attribut för tillägg 15 |
+| Användare | användarnamn|User Principal Name|
+| Användare | onpremisessamaccountname|Namn på lokalt Sam-konto|
+| Användare | employeeid|Anställnings-ID|
+| Användare | förlängningattribut1 | Tilläggsattribut 1 |
+| Användare | förlängningstillägg2 | Tilläggsattribut 2 |
+| Användare | förlängningattribut3 | Tilläggsattribut 3 |
+| Användare | förlängningar4 | Tilläggsattribut 4 |
+| Användare | förlängningar5 | Tilläggsattribut 5 |
+| Användare | förlängningat16 | Tilläggsattribut 6 |
+| Användare | förlängningat7 | Tilläggsattribut 7 |
+| Användare | förlängningat 8 | Tilläggsattribut 8 |
+| Användare | förlängningar9 | Tilläggsattribut 9 |
+| Användare | förlängningat10 | Tilläggsattribut 10 |
+| Användare | förlängningat11 | Tilläggsattribut 11 |
+| Användare | förlängningar12 | Tilläggsattribut 12 |
+| Användare | förlängningar13 | Tilläggsattribut 13 |
+| Användare | förlängningar14 | Tilläggsattribut 14 |
+| Användare | förlängningar15 | Tilläggsattribut 15 |
 
-#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabell 6: omvandlings metoder som tillåts för SAML-NameID
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabell 6: Omvandlingsmetoder som tillåts för SAML NameID
 
 | TransformationMethod | Begränsningar |
 | ----- | ----- |
-| ExtractMailPrefix | Ingen |
-| Slå ihop | Det suffix som anslöts måste vara en verifierad domän för resurs klienten. |
+| ExtractMailPrefix | Inget |
+| Slå ihop | Suffixet som sammanfogas måste vara en verifierad domän för resursklienten. |
 
-### <a name="custom-signing-key"></a>Anpassad signerings nyckel
+### <a name="custom-signing-key"></a>Anpassad signeringsnyckel
 
-En anpassad signerings nyckel måste tilldelas till tjänstens huvud objekt för att en anspråks mappnings princip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråks mappnings principen och skyddar program från principer för anspråk mappning som skapats av skadliga aktörer. Om du vill lägga till en anpassad signerings nyckel kan du använda Azure PowerShell cmdlet `new-azureadapplicationkeycredential` för att skapa en symmetrisk nyckel autentiseringsuppgift för ditt program objekt. Mer information om denna Azure PowerShell-cmdlet finns i [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+En anpassad signeringsnyckel måste tilldelas tjänstens huvudobjekt för att en anspråksmappningsprincip ska börja gälla. Detta säkerställer bekräftelse på att token har ändrats av skaparen av anspråksmappningsprincipen och skyddar program från anspråksmappningsprinciper som skapats av skadliga aktörer. Om du vill lägga till en anpassad signeringsnyckel `new-azureadapplicationkeycredential` kan du använda Azure PowerShell-cmdleten för att skapa en symmetrisk nyckelautentiseringsuppgifter för ditt programobjekt. Mer information om den här Azure PowerShell-cmdleten finns i [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Appar som har aktive rad anspråks mappning måste verifiera sina token signerings nycklar genom att lägga till `appid={client_id}` i deras [OpenID Connect metadata-begäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Nedan visas formatet för OpenID Connect-Metadatadokumentet som du bör använda: 
+Appar som har aktiverat anspråksmappning måste validera `appid={client_id}` sina tokensigneringsnycklar genom att lägga till deras [OpenID Connect-metadatabegäranden](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Nedan visas formatet för det OpenID Connect-metadatadokument som du bör använda: 
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
 ```
 
-### <a name="cross-tenant-scenarios"></a>Scenarier mellan klienter
+### <a name="cross-tenant-scenarios"></a>Scenarier mellan innehavare
 
-Principer för anspråks mappning gäller inte för gäst användare. Om en gäst användare försöker få åtkomst till ett program med en anspråks mappnings princip som är tilldelad till tjänstens huvud namn, utfärdas standardtoken (principen har ingen påverkan).
+Principer för anspråksmappning gäller inte för gästanvändare. Om en gästanvändare försöker komma åt ett program med en anspråksmappningsprincip som tilldelats tjänstens huvudnamn utfärdas standardtoken (principen har ingen effekt).
 
-## <a name="claims-mapping-policy-assignment"></a>Princip tilldelning för anspråks mappning
+## <a name="claims-mapping-policy-assignment"></a>Principtilldelning av anspråksmappning
 
-Principer för anspråks mappning kan bara tilldelas till tjänstens huvud objekt.
+Principer för anspråksmappning kan endast tilldelas huvudobjekt för tjänsten.
 
-### <a name="example-claims-mapping-policies"></a>Exempel på anspråks mappnings principer
+### <a name="example-claims-mapping-policies"></a>Exempel på principer för anspråksmappning
 
-I Azure AD är många scenarier möjliga när du kan anpassa anspråk som skickas i tokens för särskilda tjänst huvud namn. I det här avsnittet går vi igenom några vanliga scenarier som hjälper dig att grepp hur du använder princip typen för anspråks mappning.
+I Azure AD är många scenarier möjliga när du kan anpassa anspråk som skickas ut i token för specifika tjänsthuvudnamn. I det här avsnittet går vi igenom några vanliga scenarier som kan hjälpa dig att förstå hur du använder principtypen för anspråksmappning.
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
-I följande exempel kan du skapa, uppdatera, länka och ta bort principer för tjänstens huvud namn. Om du är nybörjare på Azure AD rekommenderar vi att du [Lär dig hur du skaffar en Azure AD-klient](quickstart-create-new-tenant.md) innan du fortsätter med de här exemplen.
+I följande exempel skapar, uppdaterar, länkar och tar du bort principer för tjänstens huvudnamn. Om du inte har gjort det tidigare i Azure AD rekommenderar vi att du lär dig mer om hur du [skaffar en Azure AD-klient innan](quickstart-create-new-tenant.md) du fortsätter med de här exemplen.
 
-Gör så här för att komma igång:
+Så här kommer du igång:
 
-1. Ladda ned den senaste [Azure AD PowerShell-modulens offentliga för hands version](https://www.powershellgallery.com/packages/AzureADPreview).
-1. Kör kommandot Connect för att logga in på ditt Azure AD-administratörskonto. Kör det här kommandot varje gången du startar en ny session.
+1. Ladda ned den senaste [versionen av den offentliga förhandsversionen av Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Kör kommandot Anslut för att logga in på ditt Azure AD-administratörskonto. Kör det här kommandot varje gång du startar en ny session.
 
    ``` powershell
    Connect-AzureAD -Confirm
    ```
-1. Kör följande kommando för att se alla principer som har skapats i din organisation. Vi rekommenderar att du kör det här kommandot efter de flesta åtgärder i följande scenarier för att kontrol lera att dina principer skapas som förväntat.
+1. Om du vill visa alla principer som har skapats i organisationen kör du följande kommando. Vi rekommenderar att du kör det här kommandot efter de flesta åtgärder i följande scenarier för att kontrollera att dina principer skapas som förväntat.
 
    ``` powershell
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exempel: skapa och tilldela en princip för att utelämna grundläggande anspråk från token som utfärdats till ett huvud namn för tjänsten
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exempel: Skapa och tilldela en princip för att utelämna grundläggande anspråk från token som utfärdats till ett tjänsthuvudnamn
 
-I det här exemplet skapar du en princip som tar bort den grundläggande anspråks uppsättningen från token som utfärdats till länkade tjänstens huvud namn.
+I det här exemplet skapar du en princip som tar bort den grundläggande anspråksuppsättningen från token som utfärdats till länkade tjänsthuvudnamn.
 
-1. Skapa en princip för anspråks mappning. Den här principen, som är länkad till särskilda tjänstens huvud namn, tar bort den grundläggande anspråks uppsättningen från tokens.
-   1. Kör följande kommando för att skapa principen: 
+1. Skapa en princip för anspråksmappning. Den här principen, som är länkad till specifika tjänsthuvudnamn, tar bort den grundläggande anspråksuppsättningen från token.
+   1. Om du vill skapa principen kör du det här kommandot: 
     
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
       ```
-   2. Kör följande kommando för att se den nya principen och hämta principen ObjectId:
+   2. Om du vill se din nya princip och hämta principen ObjectId kör du följande kommando:
     
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn.
-   1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph-API: et](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-   2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando:  
+1. Tilldela principen till tjänstens huvudnamn. Du måste också hämta ObjectId för din tjänst huvudnamn.
+   1. Om du vill visa alla organisationens tjänsthuvudnamn kan du [fråga microsoft graph API](/graph/traverse-the-graph). Eller logga in på ditt Azure AD-konto i [Microsoft Graph Explorer.](https://developer.microsoft.com/graph/graph-explorer)
+   2. Kör följande kommando när du har ObjectId för tjänstens huvudnamn:  
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exempel: skapa och tilldela en princip för att inkludera fälten Anställningsnr och TenantCountry som anspråk i token som utfärdats till ett huvud namn för tjänsten
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exempel: Skapa och tilldela en princip för att inkludera EmployeeID och TenantCountry som anspråk i token som utfärdats till ett tjänsthuvudnamn
 
-I det här exemplet skapar du en princip som lägger till fälten Anställningsnr och TenantCountry för token som utfärdats till länkade tjänstens huvud namn. Anställningsnr genereras som namn anspråks typ i både SAML-tokens och JWTs. TenantCountry genereras som land anspråks typ i både SAML-tokens och JWTs. I det här exemplet fortsätter vi att inkludera de grundläggande anspråks uppsättningarna i tokens.
+I det här exemplet skapar du en princip som lägger till EmployeeID och TenantCountry i token som utfärdats till länkade tjänsthuvudnamn. EmployeeID avges som namnanspråkstyp i både SAML-token och JWTs. TenantCountry avges som landanspråkstyp i både SAML-token och JWTs. I det här exemplet fortsätter vi att inkludera de grundläggande anspråksuppsättningen i token.
 
-1. Skapa en princip för anspråks mappning. Den här principen, som är länkad till särskilda tjänst huvud namn, lägger till anspråken Anställningsnr och TenantCountry till tokens.
-   1. Kör följande kommando för att skapa principen:  
+1. Skapa en princip för anspråksmappning. Den här principen, som är länkad till specifika tjänsthuvudnamn, lägger till anspråk på EmployeeID och TenantCountry i tokens.
+   1. Om du vill skapa principen kör du följande kommando:  
      
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
-   2. Kör följande kommando för att se den nya principen och hämta principen ObjectId:
+   2. Om du vill se din nya princip och hämta principen ObjectId kör du följande kommando:
      
       ``` powershell  
       Get-AzureADPolicy
       ```
-1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn. 
-   1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph-API: et](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-   2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando:  
+1. Tilldela principen till tjänstens huvudnamn. Du måste också hämta ObjectId för din tjänst huvudnamn. 
+   1. Om du vill visa alla organisationens tjänsthuvudnamn kan du [fråga microsoft graph API](/graph/traverse-the-graph). Eller logga in på ditt Azure AD-konto i [Microsoft Graph Explorer.](https://developer.microsoft.com/graph/graph-explorer)
+   2. Kör följande kommando när du har ObjectId för tjänstens huvudnamn:  
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exempel: skapa och tilldela en princip som använder en anspråks omvandling i token som utfärdats till ett huvud namn för tjänsten
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exempel: Skapa och tilldela en princip som använder en anspråkstransformation i token som utfärdats till ett tjänsthuvudnamn
 
-I det här exemplet skapar du en princip som ger ett anpassat anspråk "JoinedData" till JWTs som utfärdats till länkade tjänstens huvud namn. Det här anspråket innehåller ett värde som skapats genom att koppla data som lagras i attributet extensionAttribute1 i användarobjektet med ". Sandbox". I det här exemplet utesluter vi de grundläggande anspråks uppsättningarna i tokens.
+I det här exemplet skapar du en princip som avger ett anpassat anspråk "JoinedData" till JWTs som utfärdats till länkade tjänsthuvudnamn. Det här anspråket innehåller ett värde som skapas genom att koppla data som lagras i attributet extensionattribute1 på användarobjektet med ".sandbox". I det här exemplet utesluter vi de grundläggande anspråksuppsättningen i token.
 
-1. Skapa en princip för anspråks mappning. Den här principen, som är länkad till särskilda tjänst huvud namn, lägger till anspråken Anställningsnr och TenantCountry till tokens.
-   1. Kör följande kommando för att skapa principen:
+1. Skapa en princip för anspråksmappning. Den här principen, som är länkad till specifika tjänsthuvudnamn, lägger till anspråk på EmployeeID och TenantCountry i tokens.
+   1. Om du vill skapa principen kör du följande kommando:
      
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
-   2. Kör följande kommando för att se den nya principen och hämta principen ObjectId: 
+   2. Om du vill se din nya princip och hämta principen ObjectId kör du följande kommando: 
      
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Tilldela principen till tjänstens huvud namn. Du måste också hämta ObjectId för tjänstens huvud namn. 
-   1. Om du vill se alla företagets huvud namn för tjänsten kan du [fråga Microsoft Graph-API: et](/graph/traverse-the-graph). Du kan också logga in på ditt Azure AD-konto i [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-   2. När du har ObjectId för ditt huvud namn för tjänsten kör du följande kommando: 
+1. Tilldela principen till tjänstens huvudnamn. Du måste också hämta ObjectId för din tjänst huvudnamn. 
+   1. Om du vill visa alla organisationens tjänsthuvudnamn kan du [fråga microsoft graph API](/graph/traverse-the-graph). Eller logga in på ditt Azure AD-konto i [Microsoft Graph Explorer.](https://developer.microsoft.com/graph/graph-explorer)
+   2. Kör följande kommando när du har ObjectId för tjänstens huvudnamn: 
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
@@ -526,4 +526,4 @@ I det här exemplet skapar du en princip som ger ett anpassat anspråk "JoinedDa
 
 ## <a name="see-also"></a>Se även
 
-Information om hur du anpassar anspråk som utfärdats i SAML-token via Azure Portal finns i [så här gör du: anpassa anspråk som utfärdats i SAML-token för företags program](active-directory-saml-claims-customization.md)
+Mer information om hur du anpassar anspråk som utfärdats i SAML-token via Azure-portalen finns [i Så här: Anpassa anspråk som utfärdats i SAML-token för företagsprogram](active-directory-saml-claims-customization.md)

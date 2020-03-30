@@ -1,6 +1,6 @@
 ---
-title: Distribuera med terraform från Azure Cloud Shell | Microsoft Docs
-description: Distribuera med terraform från Azure Cloud Shell
+title: Distribuera med Terraform från Azure Cloud Shell | Microsoft-dokument
+description: Distribuera med Terraform från Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: tomarchermsft
@@ -13,38 +13,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: tarcher
-ms.openlocfilehash: f5939251729905d349b79a94411cf87e3873b279
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 8bacadd8941131f608411e61cc15c120c1b2bc60
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742069"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79458162"
 ---
-# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuera med terraform från bash i Azure Cloud Shell
-Den här artikeln vägleder dig genom att skapa en resurs grupp med [terraform AzureRM](https://www.terraform.io/docs/providers/azurerm/index.html)-providern. 
+# <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Distribuera med Terraform från Bash i Azure Cloud Shell
+I den här artikeln får du hjälp med att skapa en resursgrupp med [Terraform AzureRM-providern](https://www.terraform.io/docs/providers/azurerm/index.html).
 
-[Hashicorp terraform](https://www.terraform.io/) är ett verktyg med öppen källkod som Codifies-API: er i deklarativ konfigurationsfiler som kan delas mellan team medlemmar som ska redige ras, granskas och versions hantering. Microsoft AzureRM-providern används för att interagera med resurser som stöds av Azure Resource Manager via AzureRM-API: er. 
+[Hashicorp Terraform](https://www.terraform.io/) är ett verktyg med öppen källkod som kodifierar API:er i deklarativa konfigurationsfiler som kan delas mellan gruppmedlemmar som ska redigeras, granskas och versionshanteras. Microsoft AzureRM-providern används för att interagera med resurser som stöds av Azure Resource Manager via AzureRM API:er.
 
 ## <a name="automatic-authentication"></a>Automatisk autentisering
-Terraform installeras i bash i Cloud Shell som standard. Dessutom autentiserar Cloud Shell automatiskt Azure CLI-prenumerationen för att distribuera resurser via terraform Azure-moduler.
+Terraform installeras som standard i Bash i Cloud Shell. Dessutom autentiserar Cloud Shell automatiskt din standardprenumeration för Azure CLI för att distribuera resurser via Terraform Azure-modulerna.
 
-Terraform använder standard Azure CLI-prenumerationen som har angetts. Om du vill uppdatera standard prenumerationer kör du:
+Terraform använder standardprenumerationen för Azure CLI som har angetts. Om du vill uppdatera standardprenumerationer kör du:
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionName
 ```
 
 ## <a name="walkthrough"></a>Genomgång
-### <a name="launch-bash-in-cloud-shell"></a>Starta bash i Cloud Shell
+### <a name="launch-bash-in-cloud-shell"></a>Starta Bash i Cloud Shell
 1. Starta Cloud Shell från önskad plats
-2. Verifiera att den önskade prenumerationen har angetts
+2. Verifiera att önskad prenumeration är inställd
 
 ```azurecli-interactive
 az account show
 ```
 
-### <a name="create-a-terraform-template"></a>Skapa en terraform-mall
-Skapa en ny terraform-mall med namnet main.tf med din önskade text redigerare.
+### <a name="create-a-terraform-template"></a>Skapa en Terraform-mall
+Skapa en ny Terraform-mall med namnet main.tf med önskad textredigerare.
 
 ```
 vim main.tf
@@ -59,10 +59,10 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-Spara filen och avsluta text redigeraren.
+Spara filen och avsluta textredigeraren.
 
 ### <a name="terraform-init"></a>Terraform init
-Börja med att `terraform init`köra.
+Börja med `terraform init`att köra .
 
 ```
 justin@Azure:~$ terraform init
@@ -90,10 +90,10 @@ rerun this command to reinitialize your working directory. If you forget, other
 commands will detect it and remind you to do so if necessary.
 ```
 
-[Terraform init-kommandot](https://www.terraform.io/docs/commands/init.html) används för att initiera en arbets katalog som innehåller konfigurationsfiler för terraform. `terraform init` Kommandot är det första kommandot som ska köras efter att du har skrivit en ny terraform-konfiguration eller klonat en befintlig från versions kontroll. Det är säkert att köra det här kommandot flera gånger.
+Terraform [init-kommandot](https://www.terraform.io/docs/commands/init.html) används för att initiera en arbetskatalog som innehåller Terraform-konfigurationsfiler. Kommandot `terraform init` är det första kommandot som ska köras efter att ha skrivit en ny Terraform-konfiguration eller kloning av en befintlig från versionskontrollen. Det är säkert att köra det här kommandot flera gånger.
 
 ### <a name="terraform-plan"></a>Terraform-plan
-Förhandsgranska resurserna som ska skapas av terraform-mallen med `terraform plan`.
+Förhandsgranska de resurser som ska skapas `terraform plan`av Terraform-mallen med .
 
 ```
 justin@Azure:~$ terraform plan
@@ -126,10 +126,10 @@ can't guarantee that exactly these actions will be performed if
 "terraform apply" is subsequently run.
 ```
 
-Kommandot [terraform plan](https://www.terraform.io/docs/commands/plan.html) används för att skapa en körningsplan. Terraform utför en uppdatering, om det inte uttryckligen inaktive ras, och avgör sedan vilka åtgärder som krävs för att uppnå det önskade tillstånd som anges i konfigurationsfilerna. Planen kan sparas med-out och tillhandahålls sedan terraform för att säkerställa att endast de i förväg planerade åtgärderna utförs.
+Kommandot [terraform plan](https://www.terraform.io/docs/commands/plan.html) används för att skapa en körningsplan. Terraform utför en uppdatering, om inte uttryckligen inaktiveras, och bestämmer sedan vilka åtgärder som är nödvändiga för att uppnå önskat tillstånd som anges i konfigurationsfilerna. Planen kan sparas med -out och sedan tillhandahållas för terraform gäller för att säkerställa att endast de förplanerade åtgärderna utförs.
 
 ### <a name="terraform-apply"></a>Terraform-kommandot apply
-Etablera Azure-resurserna med `terraform apply`.
+Etablera Azure-resurser `terraform apply`med .
 
 ```
 justin@Azure:~$ terraform apply
@@ -142,17 +142,17 @@ azurerm_resource_group.demo: Creation complete after 0s (ID: /subscriptions/mySu
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
 
-[Kommandot terraform Apply](https://www.terraform.io/docs/commands/apply.html) används för att tillämpa de ändringar som krävs för att uppnå önskat tillstånd för konfigurationen.
+[Terraform apply-kommandot](https://www.terraform.io/docs/commands/apply.html) används för att tillämpa de ändringar som krävs för att nå önskat tillstånd för konfigurationen.
 
 ### <a name="verify-deployment-with-azure-cli"></a>Verifiera distribution med Azure CLI
-Kör `az group show -n myRgName` för att kontrol lera att resursen har slutfört etableringen.
+Kör `az group show -n myRgName` för att verifiera att resursen har lyckats etablera.
 
-```azcliinteractive
+```azurecli-interactive
 az group show -n myRgName
 ```
 
-### <a name="clean-up-with-terraform-destroy"></a>Rensa med terraform-förstöring
-Rensa resurs gruppen som skapats med [kommandot terraform förstör](https://www.terraform.io/docs/commands/destroy.html) för att rensa terraform-skapade infrastruktur.
+### <a name="clean-up-with-terraform-destroy"></a>Städa upp med terraform förstöra
+Rensa resursgruppen som skapats med [kommandot Terraform destroy](https://www.terraform.io/docs/commands/destroy.html) för att rensa terraform-skapad infrastruktur.
 
 ```
 justin@Azure:~$ terraform destroy
@@ -185,8 +185,8 @@ azurerm_resource_group.demo: Destruction complete after 45s
 Destroy complete! Resources: 1 destroyed.
 ```
 
-Du har skapat en Azure-resurs via terraform. Besök nästa steg för att fortsätta lära dig mer Cloud Shell.
+Du har skapat en Azure-resurs via Terraform. Besök nästa steg för att fortsätta lära dig mer om Cloud Shell.
 
 ## <a name="next-steps"></a>Nästa steg
-[Lär dig mer om Azure-providern för terraform](https://www.terraform.io/docs/providers/azurerm/#)<br>
-[Bash i Cloud Shell snabb start](quickstart.md)
+[Lär dig mer om Terraform Azure-providern](https://www.terraform.io/docs/providers/azurerm/#)<br>
+[Bash i Cloud Shell snabbstart](quickstart.md)

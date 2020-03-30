@@ -1,6 +1,6 @@
 ---
 title: Om att använda ExpressRoute med Azure Site Recovery
-description: Beskriver hur du använder Azure-ExpressRoute med Azure Site Recovery tjänsten för haveri beredskap och migrering.
+description: Beskriver hur du använder Azure ExpressRoute med Azure Site Recovery-tjänsten för haveriberedskap och migrering.
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -9,57 +9,57 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
 ms.openlocfilehash: e4525bdc6165e8e736db5f539c764d25250cb248
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79258010"
 ---
-# <a name="azure-expressroute-with-azure-site-recovery"></a>Azure-ExpressRoute med Azure Site Recovery
+# <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute med Azure Site Recovery
 
 Microsoft Azure ExpressRoute låter dig utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning med hjälp av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure, Office 365 och Dynamics 365.
 
-I den här artikeln beskrivs hur du kan använda Azure-ExpressRoute med Azure Site Recovery för haveri beredskap och migrering.
+I den här artikeln beskrivs hur du kan använda Azure ExpressRoute med Azure Site Recovery för haveriberedskap och migrering.
 
 ## <a name="expressroute-circuits"></a>ExpressRoute-kretsar
 
-En ExpressRoute-krets representerar en logisk anslutning mellan din lokala infrastruktur och Microsofts molntjänster via en anslutningsleverantör. Du kan beställa flera ExpressRoute-kretsar. Varje krets kan finnas i samma eller olika regioner och kan vara ansluten till ditt lokala nätverk via olika anslutningsleverantörer. Lär dig mer om ExpressRoute-kretsar [här](../expressroute/expressroute-circuit-peerings.md).
+En ExpressRoute-krets representerar en logisk anslutning mellan din lokala infrastruktur och Microsofts molntjänster via en anslutningsleverantör. Du kan beställa flera ExpressRoute-kretsar. Varje krets kan vara i samma eller olika regioner och kan anslutas till dina lokaler via olika anslutningsleverantörer. Läs mer om ExpressRoute-kretsar [här](../expressroute/expressroute-circuit-peerings.md).
 
-En ExpressRoute-krets har flera kopplade routningsdomäner. Lär dig mer om och jämför ExpressRoute-routningsdomäner [här](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
+En ExpressRoute-krets har flera routningsdomäner associerade med sig. Läs mer om och jämför Routningsdomäner för ExpressRoute [här](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
-## <a name="on-premises-to-azure-replication-with-expressroute"></a>Lokal till Azure-replikering med ExpressRoute
+## <a name="on-premises-to-azure-replication-with-expressroute"></a>Lokalt till Azure-replikering med ExpressRoute
 
-Azure Site Recovery möjliggör haveri beredskap och migrering till Azure för lokala [virtuella Hyper-V-datorer](hyper-v-azure-architecture.md), [virtuella VMware-datorer](vmware-azure-architecture.md)och [fysiska servrar](physical-azure-architecture.md). För alla lokala Azure-scenarier skickas replikeringsdata till och lagras i ett Azure Storage-konto. Under replikeringen betalar du inga avgifter för virtuella datorer. När du kör en redundansväxling till Azure skapar Site Recovery automatiskt virtuella Azure IaaS-datorer.
+Azure Site Recovery möjliggör haveriberedskap och migrering till Azure för lokala [virtuella Hyper-V-datorer,](hyper-v-azure-architecture.md) [virtuella VMware-datorer](vmware-azure-architecture.md)och [fysiska servrar](physical-azure-architecture.md). För alla lokala till Azure-scenarier skickas replikeringsdata till och lagras i ett Azure Storage-konto. Under replikering betalar du inga avgifter för virtuella datorer. När du kör en redundans till Azure skapar Site Recovery automatiskt virtuella Azure IaaS-datorer.
 
-Site Recovery replikerar data till ett Azure Storage konto eller en replik hanterad disk på Azure-målets Azure-region via en offentlig slut punkt. Om du vill använda ExpressRoute för Site Recovery replikeringstrafik kan du använda [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) eller en befintlig [offentlig peering](../expressroute/about-public-peering.md) (inaktuell för nya skapelser). Microsoft-peering är den rekommenderade routningsdomänen för replikering. Observera att replikering inte stöds via privat peering.
+Site Recovery replikerar data till ett Azure Storage-konto eller replikhanterad disk på Azure-regionen för målet över en offentlig slutpunkt. Om du vill använda ExpressRoute för replikeringstrafik för webbplatsåterställning kan du använda [Microsoft-peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) eller en befintlig [offentlig peering](../expressroute/about-public-peering.md) (föråldrad för nya skapelser). Microsoft-peering är den rekommenderade routningsdomänen för replikering. Observera att replikering inte stöds via privat peering.
 
-Se till att [nätverks kraven](vmware-azure-configuration-server-requirements.md#network-requirements) för konfigurations servern också är uppfyllda. Anslutning till vissa URL: er krävs av konfigurations servern för att dirigera Site Recovery replikering. ExpressRoute kan inte användas för den här anslutningen. 
+Kontrollera att [nätverkskraven](vmware-azure-configuration-server-requirements.md#network-requirements) för konfigurationsservern också uppfylls. Anslutning till specifika url:er krävs av Configuration Server för orkestrering av site recovery-replikering. ExpressRoute kan inte användas för den här anslutningen. 
 
-Om du använder proxy lokalt och vill använda ExpressRoute för replikeringstrafik måste du konfigurera listan över återanvändade proxyservrar på konfigurations servern och process servrarna. Följ stegen nedan:
+Om du använder proxy lokalt och vill använda ExpressRoute för replikeringstrafik måste du konfigurera listan Proxy bypass på konfigurationsserver- och processservrarna. Följ stegen nedan:
 
-- Hämta PsExec-verktyget [härifrån för att få åtkomst till användar](https://aka.ms/PsExec) kontexten för systemet.
-- Öppna Internet Explorer i system användar kontext genom att köra följande kommando rad PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
-- Lägg till proxyinställningar i IE
-- I listan över undantag lägger du till Azure Storage-URL: en *. blob.core.windows.net
+- Ladda ner PsExec verktyg [härifrån](https://aka.ms/PsExec) för att komma åt System användarkontext.
+- Öppna Internet Explorer i systemanvändarkontext genom att köra följande kommandorad psexec -s -i %programfiler%\Internet Explorer\iexplore.exe"
+- Lägga till proxyinställningar i IE
+- Lägg till Azure-lagrings-URL:en *.blob.core.windows.net
 
-Detta säkerställer att endast replikeringstrafik flödar genom ExpressRoute medan kommunikationen kan gå via proxy.
+Detta säkerställer att endast replikeringstrafik flödar via ExpressRoute medan kommunikationen kan gå via proxy.
 
-När virtuella datorer eller servrar växlar över till ett virtuellt Azure-nätverk kan du komma åt dem via [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). 
+När virtuella datorer eller servrar har växlat över till ett virtuellt Azure-nätverk kan du komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). 
 
-Det kombinerade scenariot visas i följande diagram: ![lokalt till Azure med ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
+Det kombinerade scenariot finns representerat ![i följande diagram: Lokalt-till-Azure med ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 
 ## <a name="azure-to-azure-replication-with-expressroute"></a>Azure till Azure-replikering med ExpressRoute
 
-Azure Site Recovery möjliggör haveri beredskap för [virtuella Azure-datorer](azure-to-azure-architecture.md). Beroende på om dina virtuella Azure-datorer använder [azure Managed disks](../virtual-machines/windows/managed-disks-overview.md)skickas replikeringsdata till ett Azure Storage konto eller en replik hanterad disk i Azure-regionen. Även om replikeringens slut punkter är offentliga, kommer replikeringstrafiken för replikering av virtuella Azure-datorer som standard inte att passera Internet, oavsett vilken Azure-region det virtuella käll nätverket finns i. Du kan åsidosätta Azures standard system väg för adressprefixet 0.0.0.0/0 med en [anpassad väg och dirigera](../virtual-network/virtual-networks-udr-overview.md#custom-routes) VM-trafik till en lokal virtuell nätverks installation (NVA), men den här konfigurationen rekommenderas inte för Site Recovery replikering. Om du använder anpassade vägar bör du [skapa en tjänst slut punkt för virtuellt nätverk](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i ditt virtuella nätverk för "lagring", så att replikeringstrafiken inte lämnar Azure-gränser.
+Azure Site Recovery möjliggör haveriberedskap för [virtuella Azure-datorer](azure-to-azure-architecture.md). Beroende på om dina virtuella Azure-datorer använder [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md)skickas replikeringsdata till ett Azure Storage-konto eller replikhanterad disk på azure-regionen för målet. Även om replikeringsslutpunkterna är offentliga, går replikeringstrafik för Azure VM-replikering, som standard, inte över Internet, oavsett vilken Azure-region källvirtosnätverket finns i. Du kan åsidosätta Azures standardsystemväg för 0.0.0.0/0-adressprefixet med en [anpassad väg](../virtual-network/virtual-networks-udr-overview.md#custom-routes) och vidarekoppla VM-trafik till en lokal virtuell nätverksinstallation (NVA), men den här konfigurationen rekommenderas inte för site recovery-replikering. Om du använder anpassade vägar bör du skapa en slutpunkt för [en virtuell nätverkstjänst](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) i det virtuella nätverket för "Lagring" så att replikeringstrafiken inte lämnar Azure-gränsen.
 
-För haveri beredskap för virtuella Azure-datorer krävs som standard inte ExpressRoute för replikering. När de virtuella datorerna redundansväxlas till Azure-regionen kan du komma åt dem via [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Observera att priserna för data överföring gäller oavsett vilket läge som används för datareplikering i Azure-regioner.
+För Azure VM-haveriberedskap krävs som standard inte ExpressRoute för replikering. När virtuella datorer har växlat över till Azure-regionen för mål kan du komma åt dem med hjälp av [privat peering](../expressroute/expressroute-circuit-peerings.md#privatepeering). Observera att dataöverföringspriser gäller oavsett hur datareplikeringssättet ska gälla i Azure-regioner.
 
-Om du redan använder ExpressRoute för att ansluta från ditt lokala data Center till de virtuella Azure-datorerna i käll regionen kan du planera för att återupprätta ExpressRoute-anslutningen i mål regionen för redundans. Du kan använda samma ExpressRoute-krets för att ansluta till mål regionen via en ny virtuell nätverks anslutning eller använda en separat ExpressRoute-krets och anslutning för haveri beredskap. De olika möjliga scenarierna beskrivs [här](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute).
+Om du redan använder ExpressRoute för att ansluta från ditt lokala datacenter till virtuella Azure-datorer i källregionen kan du planera för att återupprätta ExpressRoute-anslutningen i målregionen redundans. Du kan använda samma ExpressRoute-krets för att ansluta till målregionen via en ny virtuell nätverksanslutning eller använda en separat ExpressRoute-krets och anslutning för haveriberedskap. De olika möjliga scenarierna beskrivs [här](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute).
 
-Du kan replikera virtuella Azure-datorer till valfri Azure-region inom samma geografiska kluster som beskrivs [här](../site-recovery/azure-to-azure-support-matrix.md#region-support). Om den valda Azure-regionen inte är inom samma region som källan, kan du behöva aktivera ExpressRoute Premium. Om du vill ha mer information kontrollerar du [ExpressRoute-platser](../expressroute/expressroute-locations.md) och [ExpressRoute-priser](https://azure.microsoft.com/pricing/details/expressroute/).
+Du kan replikera virtuella Azure-datorer till alla Azure-regioner inom samma geografiska kluster som beskrivs [här](../site-recovery/azure-to-azure-support-matrix.md#region-support). Om den valda Azure-regionen inte ligger inom samma geopolitiska region som källan kan du behöva aktivera ExpressRoute Premium. Mer information finns i [ExpressRoute-platser](../expressroute/expressroute-locations.md) och [ExpressRoute-priser](https://azure.microsoft.com/pricing/details/expressroute/).
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [ExpressRoute-kretsar](../expressroute/expressroute-circuit-peerings.md).
-- Läs mer om [ExpressRoute-routningsdomäner](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
+- Läs mer om [ExpressRoute-kretsar](../expressroute/expressroute-circuit-peerings.md).
+- Läs mer om [Routningsdomäner för ExpressRoute](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 - Läs mer om [ExpressRoute-platser](../expressroute/expressroute-locations.md).
-- Läs mer om haveri beredskap för [virtuella Azure-datorer med ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- Läs mer om haveriberedskap av [virtuella Azure-datorer med ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

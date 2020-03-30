@@ -1,6 +1,6 @@
 ---
-title: Använd hjälp databas funktionen för att ansluta databaser i Azure Datautforskaren
-description: Lär dig mer om hur du ansluter databaser i Azure Datautforskaren med hjälp av databas funktionen.
+title: Använda efterföljare databasfunktionen för att bifoga databaser i Azure Data Explorer
+description: Lär dig mer om hur du bifogar databaser i Azure Data Explorer med hjälp av efterardatabasfunktionen.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabilehner
@@ -8,42 +8,42 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.openlocfilehash: f6dbdb54c1c5a5d477c3ccb988963758faab83b0
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79140022"
 ---
-# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Använd följande databas för att koppla databaser i Azure Datautforskaren
+# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Använda följardatabasen för att bifoga databaser i Azure Data Explorer
 
-Med **hjälp av databas** funktionen kan du koppla en databas som finns i ett annat kluster till ditt Azure datautforskaren-kluster. **Följande databas** är i *skrivskyddat* läge, vilket gör det möjligt att visa data och köra frågor på data som har matats in i **ledar databasen**. Följande databas synkroniserar ändringar i ledar databaserna. På grund av synkroniseringen är det en data fördröjning på några sekunder till några minuter i data tillgänglighet. Längden på tids fördröjningen beror på den övergripande storleken på ledar databasens metadata. Ledare och Uppföljnings databaser använder samma lagrings konto för att hämta data. Lagrings platsen ägs av ledar databasen. I följande databas visas data utan att du behöver mata in dem. Eftersom den bifogade databasen är en skrivskyddad databas går det inte att ändra data, tabeller och principer i [databasen, förutom](#manage-principals)princip för [cachelagring, principer](#configure-caching-policy)och [behörigheter](#manage-permissions). Det går inte att ta bort anslutna databaser. De måste kopplas bort av ledaren eller följaren och de kan bara tas bort. 
+Med **efterföljarens databasfunktionen** kan du koppla en databas som finns i ett annat kluster till Azure Data Explorer-klustret. **Följardatabasen** är ansluten i *skrivskyddat* läge, vilket gör det möjligt att visa data och köra frågor om data som förtärdes i **leader-databasen**. Efterföljaren databasen synkroniserar ändringar i leader-databaser. På grund av synkroniseringen finns det en datafördröjning på några sekunder till några minuter i datatillgänglighet. Tidsfördröjningens längd beror på den totala storleken på metadata för leader-databasen. Leader- och follower-databaserna använder samma lagringskonto för att hämta data. Lagringen ägs av leader-databasen. Efterföljaren databasen visar data utan att behöva inta den. Eftersom den bifogade databasen är en skrivskyddad databas kan data, tabeller och principer i databasen inte ändras förutom [cachelagringsprinciper,](#configure-caching-policy) [huvudnamn](#manage-principals)och [behörigheter](#manage-permissions). Det går inte att ta bort bifogade databaser. De måste tas bort av ledaren eller efterföljaren och först då kan de tas bort. 
 
-Att ansluta en databas till ett annat kluster med hjälp av följande funktioner används som infrastruktur för att dela data mellan organisationer och team. Funktionen är användbar för att åtskilja beräknings resurser för att skydda en produktions miljö från icke-produktions användnings fall. Du kan också använda uppföljning för att koppla kostnaden för Azure Datautforskaren-kluster till den part som kör frågor på data.
+Att koppla en databas till ett annat kluster med hjälp av följarfunktionen används som infrastruktur för att dela data mellan organisationer och team. Funktionen är användbar för att segregera beräkningsresurser för att skydda en produktionsmiljö från icke-produktionsanvändningsfall. Follower kan också användas för att associera kostnaden för Azure Data Explorer-klustret till den part som kör frågor om data.
 
 ## <a name="which-databases-are-followed"></a>Vilka databaser följs?
 
-* Ett kluster kan följa en databas, flera databaser eller alla databaser i ett ledar kluster. 
-* Ett enda kluster kan följa databaser från flera ledar kluster. 
-* Ett kluster kan innehålla både uppföljnings databaser och ledar databaser
+* Ett kluster kan följa en databas, flera databaser eller alla databaser i ett leader-kluster. 
+* Ett enda kluster kan följa databaser från flera leader-kluster. 
+* Ett kluster kan innehålla både efterardatabaser och leaderdatabaser
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-1. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
-1. [Skapa kluster och databas](/azure/data-explorer/create-cluster-database-portal) för ledare och uppföljning.
-1. Mata in [data](/azure/data-explorer/ingest-sample-data) till ledar databasen med hjälp av en av de olika metoderna som beskrivs i inmatnings [översikten](/azure/data-explorer/ingest-data-overview).
+1. Om du inte har en Azure-prenumeration [skapar du ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+1. [Skapa kluster och DB](/azure/data-explorer/create-cluster-database-portal) för ledaren och efterföljaren.
+1. [Inta data](/azure/data-explorer/ingest-sample-data) till leader-databasen med hjälp av en av olika metoder som beskrivs [i inmatningsöversikten](/azure/data-explorer/ingest-data-overview).
 
 ## <a name="attach-a-database"></a>Ansluta en databas
 
-Det finns olika metoder som du kan använda för att koppla en databas. I den här artikeln diskuterar vi hur du kopplar en databas C# med hjälp av eller en Azure Resource Manager-mall. Om du vill ansluta en databas måste du ha behörighet för ledar klustret och Uppföljnings klustret. Mer information om behörigheter finns i [Manage Permissions](#manage-permissions).
+Det finns olika metoder som du kan använda för att bifoga en databas. I den här artikeln diskuterar vi att bifoga en databas med C# eller en Azure Resource Manager-mall. Om du vill koppla en databas måste du ha behörighet för leader-klustret och efterföljaren klustret. Mer information om behörigheter finns i [Hantera behörigheter](#manage-permissions).
 
-### <a name="attach-a-database-using-c"></a>Koppla en databas medC#
+### <a name="attach-a-database-using-c"></a>Bifoga en databas med C #
 
-#### <a name="needed-nugets"></a>Nödvändig NuGets
+#### <a name="needed-nugets"></a>Behövs NuGets
 
-* Installera [Microsoft. Azure. Management. kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Installera [Microsoft. rest. ClientRuntime. Azure. Authentication för autentisering](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
+* Installera [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Installera [Microsoft.Rest.ClientRuntime.Azure.Authentication för autentisering](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
 
-#### <a name="code-example"></a>Kod exempel
+#### <a name="code-example"></a>Exempel på kod
 
 ```Csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -77,16 +77,16 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
 ```
 
-### <a name="attach-a-database-using-python"></a>Koppla en databas med python
+### <a name="attach-a-database-using-python"></a>Bifoga en databas med Python
 
-#### <a name="needed-modules"></a>Moduler som krävs
+#### <a name="needed-modules"></a>Nödvändiga moduler
 
 ```
 pip install azure-common
 pip install azure-mgmt-kusto
 ```
 
-#### <a name="code-example"></a>Kod exempel
+#### <a name="code-example"></a>Exempel på kod
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -125,9 +125,9 @@ attached_database_configuration_properties = AttachedDatabaseConfiguration(clust
 poller = kusto_management_client.attached_database_configurations.create_or_update(follower_resource_group_name, follower_cluster_name, attached_database_Configuration_name, attached_database_configuration_properties)
 ```
 
-### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Koppla en databas med en Azure Resource Manager mall
+### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Bifoga en databas med en Azure Resource Manager-mall
 
-I det här avsnittet får du lära dig hur du kopplar en databas till en befintlig kluster med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/management/overview.md). 
+I det här avsnittet lär du dig att bifoga en databas till en befintlig cluser med hjälp av en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -196,41 +196,41 @@ I det här avsnittet får du lära dig hur du kopplar en databas till en befintl
 
 ### <a name="deploy-the-template"></a>Distribuera mallen 
 
-Du kan distribuera Azure Resource Manager-mallen med [hjälp av Azure Portal](https://portal.azure.com) eller med hjälp av PowerShell.
+Du kan distribuera Azure Resource Manager-mallen med hjälp av [Azure-portalen](https://portal.azure.com) eller med powershell.
 
-   ![mall distribution](media/follower/template-deployment.png)
+   ![malldistribution](media/follower/template-deployment.png)
 
 
 |**Inställning**  |**Beskrivning**  |
 |---------|---------|
-|Namn på Uppföljnings kluster     |  Namnet på Uppföljnings klustret. var mallen ska distribueras.  |
-|Konfigurations namn för bifogad databas    |    Namnet på det anslutna databas konfigurations objekt. Namnet kan vara vilken sträng som helst som är unik på kluster nivå.     |
-|Databasnamn     |      Namnet på databasen som ska följas. Om du vill följa alla ledares databaser använder du "*".   |
-|Resurs-ID för ledar kluster    |   Resurs-ID för ledar klustret.      |
-|Standard princip för ändrings typ    |   Standard princip för ändrings typ. Kan vara `Union`, `Replace` eller `None`. Mer information om ändrings typen av standard princip objekt finns i avsnittet [ändra typ kontroll kommando](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|plats.   |   Platsen för alla resurser. Ledaren och följaren måste finnas på samma plats.       |
+|Namn på efterföljarenskluster     |  Namnet på efterföljaren klustret; där mallen ska distribueras.  |
+|Namn på bifogade databaskonfigurationer    |    Namnet på det bifogade databaskonfigurationsobjektet. Namnet kan vara vilken sträng som helst som är unik på klusternivå.     |
+|Databasnamn     |      Namnet på den databas som ska följas. Om du vill följa alla ledarens databaser använder du '*'.   |
+|Resurs-ID för Leader-kluster    |   Resurs-ID för leaderklustret.      |
+|Standardhuvudnamn Ändringssort    |   Standardinställningsregeln för ändring. Kan `Union`vara `Replace` `None`, eller . Mer information om standardnamnsändringssort finns i [kommandot för huvudändringsroll](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
+|Location   |   Platsen för alla resurser. Ledaren och efterföljaren måste vara på samma plats.       |
  
-### <a name="verify-that-the-database-was-successfully-attached"></a>Kontrol lera att databasen har kopplats
+### <a name="verify-that-the-database-was-successfully-attached"></a>Kontrollera att databasen har anslutits
 
-Du kan kontrol lera att databasen har anslutits genom att leta upp dina anslutna databaser i [Azure Portal](https://portal.azure.com). 
+Om du vill kontrollera att databasen har anslutits hittar du dina bifogade databaser i [Azure-portalen](https://portal.azure.com). 
 
-1. Gå till klustret i följar och välj **databaser**
-1. Sök efter nya skrivskyddade databaser i databas listan.
+1. Navigera till efterarklustret och välj **Databaser**
+1. Sök efter nya skrivskyddade databaser i databaslistan.
 
-    ![Skrivskyddad uppföljnings databas](media/follower/read-only-follower-database.png)
+    ![Skrivskyddad följardatabas](media/follower/read-only-follower-database.png)
 
-Också
+Du kan också:
 
-1. Navigera till ledar klustret och välj **databaser**
-2. Kontrol lera att relevanta databaser är markerade som **delade med andra** > **Ja**
+1. Navigera till leader-klustret och välj **Databaser**
+2. Kontrollera att relevanta databaser är markerade som **DELADE MED ANDRA** > **Ja**
 
-    ![Läsa och skriva anslutna databaser](media/follower/read-write-databases-shared.png)
+    ![Läsa och skriva bifogade databaser](media/follower/read-write-databases-shared.png)
 
-## <a name="detach-the-follower-database-using-c"></a>Koppla från följer-databasen medC# 
+## <a name="detach-the-follower-database-using-c"></a>Koppla bort följardatabasen med C # 
 
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Koppla från den anslutna databasen från följande kluster
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Koppla bort den bifogade följardatabasen från efterföljaren
 
-Med hjälp av klustret kan du koppla från alla anslutna databaser på följande sätt:
+Efterföljaren klustret kan koppla från alla bifogade databaser på följande sätt:
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -252,9 +252,9 @@ var attachedDatabaseConfigurationsName = "uniqueName";
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
 
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Koppla från den anslutna databasen från ledar klustret
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Koppla bort den bifogade följardatabasen från leader-klustret
 
-Med ledar klustret kan du koppla från alla anslutna databaser på följande sätt:
+Leader-klustret kan koppla från alla bifogade databaser enligt följande:
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -282,11 +282,11 @@ var followerDatabaseDefinition = new FollowerDatabaseDefinition()
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
-## <a name="detach-the-follower-database-using-python"></a>Koppla från följer-databasen med python
+## <a name="detach-the-follower-database-using-python"></a>Koppla bort följardatabasen med Python
 
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Koppla från den anslutna databasen från följande kluster
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Koppla bort den bifogade följardatabasen från efterföljaren
 
-Med hjälp av klustret kan du koppla från alla anslutna databaser på följande sätt:
+Efterföljaren klustret kan koppla från alla bifogade databaser på följande sätt:
 
 ```python
 from azure.mgmt.kusto import KustoManagementClient
@@ -315,9 +315,9 @@ attached_database_configurationName = "uniqueName"
 poller = kusto_management_client.attached_database_configurations.delete(follower_resource_group_name, follower_cluster_name, attached_database_configurationName)
 ```
 
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Koppla från den anslutna databasen från ledar klustret
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Koppla bort den bifogade följardatabasen från leader-klustret
 
-Med ledar klustret kan du koppla från alla anslutna databaser på följande sätt:
+Leader-klustret kan koppla från alla bifogade databaser enligt följande:
 
 ```python
 
@@ -354,37 +354,37 @@ cluster_resource_id = "/subscriptions/" + follower_subscription_id + "/resourceG
 poller = kusto_management_client.clusters.detach_follower_databases(resource_group_name = leader_resource_group_name, cluster_name = leader_cluster_name, cluster_resource_id = cluster_resource_id, attached_database_configuration_name = attached_database_configuration_name)
 ```
 
-## <a name="manage-principals-permissions-and-caching-policy"></a>Hantera Principal, behörigheter och princip för cachelagring
+## <a name="manage-principals-permissions-and-caching-policy"></a>Hantera principer, behörigheter och cachelagringsprincip
 
-### <a name="manage-principals"></a>Hantera huvud konton
+### <a name="manage-principals"></a>Hantera huvudnamn
 
-När du bifogar en databas anger du **"standard princip för ändrings typ"** . Standardvärdet är insamlingen av [auktoriserade objekt](/azure/kusto/management/access-control/index#authorization) i ledar databasen
+När du bifogar en databas anger du **"standardnamnsändringssort"**. Standardär att behålla leader-databassamlingen av [auktoriserade huvudmän](/azure/kusto/management/access-control/index#authorization)
 
-|**Metod** |**Beskrivning**  |
+|**Typ** |**Beskrivning**  |
 |---------|---------|
-|**Union**     |   De bifogade databas huvud namnen innehåller alltid de ursprungliga databas huvud kontona och ytterligare nya säkerhets objekt som lagts till i följande databas.      |
-|**Bytt**   |    Inga arv av huvud konton från den ursprungliga databasen. Nya säkerhets objekt måste skapas för den bifogade databasen.     |
-|**Alternativet**   |   De bifogade databas huvud kontona innehåller bara huvud kontona för den ursprungliga databasen utan ytterligare huvud objekt.      |
+|**Union**     |   De bifogade databashuvudnamnen kommer alltid att innehålla de ursprungliga databashuvudnamnen plus ytterligare nya huvudmän som läggs till i efterföljarens databas.      |
+|**Ersätt**   |    Inget arv av huvudnamn från den ursprungliga databasen. Nya huvudnamn måste skapas för den bifogade databasen.     |
+|**Inget**   |   De bifogade databasobjekten omfattar endast huvudmännen i den ursprungliga databasen utan ytterligare huvudmän.      |
 
-Mer information om hur du använder kontroll kommandon för att konfigurera de auktoriserade huvud kontona finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower).
+Mer information om hur du använder kontrollkommandon för att konfigurera de auktoriserade huvudnamnen finns i [Kontrollkommandon för hantering av ett efterföljarenskluster](/azure/kusto/management/cluster-follower).
 
 ### <a name="manage-permissions"></a>Hantera behörigheter
 
-Att hantera behörighet för skrivskyddad databas är detsamma som för alla databas typer. Se [Hantera behörigheter i Azure Portal](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
+Att hantera skrivskyddad databasbehörighet är samma som för alla databastyper. Se [hantera behörigheter i Azure-portalen](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
 
-### <a name="configure-caching-policy"></a>Konfigurera princip för cachelagring
+### <a name="configure-caching-policy"></a>Konfigurera cachelagringsprincipen
 
-Databas administratören för databaserna kan ändra [principen för cachelagring](/azure/kusto/management/cache-policy) av den anslutna databasen eller någon av dess tabeller i värd klustret. Standardvärdet är insamlingen av databas-och cachelagrade principer på databas-och tabell nivå. Du kan till exempel ha en princip på 30 dagar för att placera ledar databasen för att köra Månatlig rapportering och en tre dagars caching-princip på databasen för att endast fråga efter den senaste informationen för fel sökning. Mer information om hur du använder kontroll kommandon för att konfigurera principen för cachelagring i databasen eller tabellen finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower).
+Den efterföljande databasadministratören kan ändra [cachelagringsprincipen](/azure/kusto/management/cache-policy) för den bifogade databasen eller någon av dess tabeller i värdklustret. Standardär att behålla den ledande databassamlingen för cachelagringsprinciper på databas- och tabellnivå. Du kan till exempel ha en 30 dagars cachelagringsprincip i leaderdatabasen för att köra månadsrapportering och en tre dagars cachelagringsprincip i efterföljaren-databasen för att fråga endast de senaste data för felsökning. Mer information om hur du använder kontrollkommandon för att konfigurera cachelagringsprincipen i följardatabasen eller tabellen finns i [Kontrollera kommandon för hantering av ett efterföljareskluster](/azure/kusto/management/cluster-follower).
 
 ## <a name="limitations"></a>Begränsningar
 
-* Följaren och ledar klustren måste vara i samma region.
-* [Strömnings](/azure/data-explorer/ingest-data-streaming) inmatning kan inte användas för en databas som följs.
-* Data kryptering med hjälp av [Kundhanterade nycklar](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) stöds inte i både ledande kluster och kluster för efterföljande. 
+* Efterföljaren och leaderkluster måste vara i samma region.
+* [Inmatning av direktuppspelning](/azure/data-explorer/ingest-data-streaming) kan inte användas i en databas som följs.
+* Datakryptering med [kundhanterade nycklar](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) stöds inte i både leader- och follower-kluster. 
 * Du kan inte ta bort en databas som är kopplad till ett annat kluster innan du kopplar från den.
-* Du kan inte ta bort ett kluster som har en databas som är kopplad till ett annat kluster innan du kopplar bort det.
-* Det går inte att stoppa ett kluster som har bifogad följare eller ledar databas (er). 
+* Du kan inte ta bort ett kluster som har en databas kopplad till ett annat kluster innan du kopplar från det.
+* Du kan inte stoppa ett kluster som har bifogat efterföljare eller leader-databaser. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om konfiguration av uppföljnings kluster finns i [kontrol lera kommandon för att hantera ett uppföljnings kluster](/azure/kusto/management/cluster-follower).
+* Information om uppföljningsklusterkonfiguration finns i [Styra kommandon för hantering av ett efterföljarenskluster](/azure/kusto/management/cluster-follower).

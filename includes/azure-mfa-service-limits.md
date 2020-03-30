@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: df237cdbb8944928641f2dbea2117bbef7ba9165
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74224439"
 ---
 | Resurs | Standardgräns | Övre gräns |
@@ -17,8 +17,8 @@ ms.locfileid: "74224439"
 | Kom ihåg mina enheter, antal dagar |14 |60 |
 | Maximalt antal applösenord |0 |Obegränsad |
 | Tillåt **X** försök under MFA-anrop |1 |99 |
-| Timeoutvärde för tvåvägs textmeddelande i sekunder |60 |600 |
-| Standard för engångsförbikopplingar i sekunder |300 |1 800 |
-| Lås användarkontot efter **X** på varandra följande MFA-nekanden i följd |Inte angivet |99 |
-| Återställ räknaren för kontoutelåsning efter **X** minuter |Inte angivet |9 999 |
-| Återställ konto efter **X** minuter |Inte angivet |9 999 |
+| Tidsgränsen för tvåvägsformat för textmeddelande |60 |600 |
+| Standard för engångsförbikopplingar i sekunder |300 |1800 |
+| Lås användarkontot efter **X** på varandra följande MFA-nekanden i följd |Inte inställd |99 |
+| Återställ räknaren för kontoutelåsning efter **X** minuter |Inte inställd |9,999 |
+| Återställ konto efter **X** minuter |Inte inställd |9,999 |

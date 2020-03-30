@@ -1,35 +1,35 @@
 ---
-title: Integrera Azure Container Registry med Azure Kubernetes-tjänsten
-description: Lär dig hur du integrerar Azure Kubernetes service (AKS) med Azure Container Registry (ACR)
+title: Integrera Azure-behållarregister med Azure Kubernetes-tjänsten
+description: Lär dig hur du integrerar Azure Kubernetes Service (AKS) med Azure Container Registry (ACR)
 services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 02/25/2020
 ms.openlocfilehash: f83faf05eb7099557d5b653e0b24591062c44d11
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79368459"
 ---
-# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
+# <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes Service
 
-När du använder Azure Container Registry (ACR) med Azure Kubernetes service (AKS) måste du upprätta en autentiseringsmekanism. Den här artikeln innehåller exempel på hur du konfigurerar autentisering mellan dessa två Azure-tjänster.
+När du använder Azure Container Registry (ACR) med Azure Kubernetes Service (AKS) måste en autentiseringsmekanism upprättas. Den här artikeln innehåller exempel för att konfigurera autentisering mellan dessa två Azure-tjänster.
 
 Du kan ställa in AKS till ACR-integrering i några enkla kommandon med Azure CLI.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Följande exempel kräver:
+Dessa exempel kräver:
 
-* Rollen **ägare** eller **administratör för Azure-konto** på Azure- **prenumerationen**
-* Azure CLI-version 2.0.73 eller senare
+* **Ägar-** eller **Azure-kontoadministratörsrollen** i **Azure-prenumerationen**
+* Azure CLI version 2.0.73 eller senare
 
-För att undvika att du behöver en **ägare** eller rollen som **administratör för Azure-konto** kan du konfigurera ett huvud namn för tjänsten manuellt eller använda ett befintligt huvud namn för tjänsten för att autentisera ACR från AKS. Mer information finns i [ACR-autentisering med tjänstens huvud namn](../container-registry/container-registry-auth-service-principal.md) eller [autentisera från Kubernetes med en pull-hemlighet](../container-registry/container-registry-auth-kubernetes.md).
+Om du vill undvika att behöva en **administratörsroll för ägare** eller **Azure-konto** kan du konfigurera ett tjänsthuvudnamn manuellt eller använda ett befintligt tjänsthuvudnamn för att autentisera ACR från AKS. Mer information finns i [ACR-autentisering med tjänsthuvudnamn](../container-registry/container-registry-auth-service-principal.md) eller [Autentisera från Kubernetes med pull-hemlighet](../container-registry/container-registry-auth-kubernetes.md).
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Skapa ett nytt AKS-kluster med ACR-integrering
 
-Du kan ställa in AKS-och ACR-integration när du skapar ditt AKS-kluster.  För att tillåta ett AKS-kluster att samverka med ACR används ett Azure Active Directory **tjänstens huvud namn** . Med följande CLI-kommando kan du auktorisera en befintlig ACR i din prenumeration och konfigurera rätt **ACRPull** -roll för tjänstens huvud namn. Ange giltiga värden för parametrarna nedan.
+Du kan ställa in AKS- och ACR-integrering under det första skapandet av AKS-klustret.  För att ett AKS-kluster ska kunna interagera med ACR används **ett huvudnamn för** Tjänsten Azure. Med följande CLI-kommando kan du auktorisera en befintlig ACR i din prenumeration och konfigurerar lämplig **ACRPull-roll** för tjänstens huvudnamn. Ange giltiga värden för dina parametrar nedan.
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
@@ -42,7 +42,7 @@ az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 ```
 
-Alternativt kan du ange namnet på ACR med ett ACR-resurs-ID, som har följande format:
+Du kan också ange ACR-namnet med hjälp av ett ACR-resurs-ID, som har följande format:
 
 `/subscriptions/\<subscription-id\>/resourceGroups/\<resource-group-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\>` 
 
@@ -54,19 +54,19 @@ Det här steget kan ta flera minuter att slutföra.
 
 ## <a name="configure-acr-integration-for-existing-aks-clusters"></a>Konfigurera ACR-integrering för befintliga AKS-kluster
 
-Integrera en befintlig ACR med befintliga AKS-kluster genom att ange giltiga värden för **ACR-Name** eller **ACR-Resource-ID** enligt nedan.
+Integrera en befintlig ACR med befintliga AKS-kluster genom att ange giltiga värden för **acr-name** eller **acr-resource-id** enligt nedan.
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acrName>
 ```
 
-eller,
+Eller
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```
 
-Du kan också ta bort integrationen mellan ett ACR och ett AKS-kluster med följande
+Du kan också ta bort integreringen mellan en ACR och ett AKS-kluster med följande
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
@@ -80,16 +80,16 @@ az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 
 ## <a name="working-with-acr--aks"></a>Arbeta med ACR & AKS
 
-### <a name="import-an-image-into-your-acr"></a>Importera en avbildning till din ACR
+### <a name="import-an-image-into-your-acr"></a>Importera en bild till ACR
 
-Importera en avbildning från Docker Hub till din ACR genom att köra följande:
+Importera en bild från dockerhubben till ACR genom att köra följande:
 
 
 ```azurecli
 az acr import  -n <myContainerRegistry> --source docker.io/library/nginx:latest --image nginx:v1
 ```
 
-### <a name="deploy-the-sample-image-from-acr-to-aks"></a>Distribuera exempel bilden från ACR till AKS
+### <a name="deploy-the-sample-image-from-acr-to-aks"></a>Distribuera exempelavbildningen från ACR till AKS
 
 Se till att du har rätt AKS-autentiseringsuppgifter
 
@@ -97,7 +97,7 @@ Se till att du har rätt AKS-autentiseringsuppgifter
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
-Skapa en fil med namnet **ACR-nginx. yaml** som innehåller följande:
+Skapa en fil som heter **acr-nginx.yaml** som innehåller följande:
 
 ```yaml
 apiVersion: apps/v1
@@ -123,7 +123,7 @@ spec:
         - containerPort: 80
 ```
 
-Kör sedan den här distributionen i ditt AKS-kluster:
+Kör sedan den här distributionen i AKS-klustret:
 
 ```console
 kubectl apply -f acr-nginx.yaml
@@ -135,7 +135,7 @@ Du kan övervaka distributionen genom att köra:
 kubectl get pods
 ```
 
-Du bör ha två poddar som körs.
+Du borde ha två löparkapslar.
 
 ```output
 NAME                                 READY   STATUS    RESTARTS   AGE

@@ -1,7 +1,7 @@
 ---
 title: Felsöka din modell
 titleSuffix: ML Studio (classic) - Azure
-description: Så här felsöker du fel som uppstår i modulerna träna modell och Poäng modell i Azure Machine Learning Studio (klassisk).
+description: Så här felar du fel som produceras av moduler för tågmodell och poängmodell i Azure Machine Learning Studio (klassisk).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,10 +11,10 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/14/2017
 ms.openlocfilehash: 910e788830ec55b610a9234a8c8ac75dda1ea189
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218103"
 ---
 # <a name="debug-your-model-in-azure-machine-learning-studio-classic"></a>Felsöka din modell i Azure Machine Learning Studio (klassisk)
@@ -23,51 +23,51 @@ ms.locfileid: "79218103"
 
 När du kör en modell kan du stöta på följande fel:
 
-* modulen [träna modell][train-model] ger ett fel 
-* modulen [Poäng modell][score-model] ger felaktiga resultat 
+* [Tågmodellmodulen][train-model] ger ett fel 
+* Modulen [Poängmodell][score-model] ger felaktiga resultat 
 
-I den här artikeln förklaras möjliga orsaker till dessa fel.
+I den här artikeln förklaras potentiella orsaker till dessa fel.
 
 
-## <a name="train-model-module-produces-an-error"></a>Träna modell genererar ett fel
+## <a name="train-model-module-produces-an-error"></a>Train Model Module ger ett fel
 
 ![image1](./media/debug-models/train_model-1.png)
 
-Modulen [träna modell][train-model] förväntar sig två indata:
+[Tågmodellmodulen][train-model] förväntar sig två ingångar:
 
-1. Typ av Machine Learning-modell från den samling av modeller som tillhandahålls av Azure Machine Learning Studio (klassisk).
-2. Tränings data med en angiven etikett kolumn som anger vilken variabel som ska förutsägas (de andra kolumnerna antas vara funktioner).
+1. Typ av maskininlärningsmodell från samlingen modeller som tillhandahålls av Azure Machine Learning Studio (klassisk).
+2. Träningsdata med en angiven etikettkolumn som anger variabeln att förutsäga (de andra kolumnerna antas vara funktioner).
 
-Den här modulen kan producera ett fel i följande fall:
+Den här modulen kan skapa ett fel i följande fall:
 
-1. Kolumnen etikett har angetts felaktigt. Detta kan inträffa om mer än en kolumn har markerats som etikett eller en felaktig kolumnindex har valts. Till exempel gäller det andra fallet om ett kolumn index på 30 används med en indata-datamängd som bara har 25 kolumner.
+1. Kolumnen Etikett har angetts felaktigt. Detta kan inträffa om antingen mer än en kolumn är markerad som etikett eller om ett felaktigt kolumnindex är markerat. Det andra fallet skulle till exempel gälla om ett kolumnindex på 30 används med en indatauppsättning som bara har 25 kolumner.
 
-2. Datauppsättningen innehåller inte några kolumner i funktionen. Till exempel om datauppsättningen för indata har endast en kolumn som har markerats som kolumnen etikett, blir det inga funktioner med att bygga modellen. I det här fallet genererar modulen [träna modell][train-model] ett fel.
+2. Datauppsättningen innehåller inga funktionskolumner. Om indatauppsättningen till exempel bara har en kolumn, som är markerad som kolumnen Etikett, finns det inga funktioner som modellen kan byggas med. I det här fallet skapar modulen [Tågmodell][train-model] ett fel.
 
-3. Datauppsättningen för indata (funktioner eller etikett) innehåller Infinity som ett-värde.
+3. Indatauppsättningen (Funktioner eller Etikett) innehåller Oändlighet som ett värde.
 
-## <a name="score-model-module-produces-incorrect-results"></a>Modulen poängsätta modell ger felaktiga resultat
+## <a name="score-model-module-produces-incorrect-results"></a>Poängmodellmodul ger felaktiga resultat
 
 ![image2](./media/debug-models/train_test-2.png)
 
-I ett typiskt övnings-och testnings experiment för övervakad inlärning delar modulen [dela data][split] upp den ursprungliga data uppsättningen i två delar: en del används för att träna modellen och en del används för att visa hur väl den tränade modellen presterar. Den tränade modellen används sedan för att bedöma testdata, varefter resultaten utvärderas för att fastställa korrektheten i modellen.
+I ett typiskt utbildnings-/testexperiment för övervakad inlärning delar [modulen Dela data][split] den ursprungliga datauppsättningen i två delar: en del används för att träna modellen och en del används för att få hur bra den tränade modellen presterar. Den tränade modellen används sedan för att poängsätta testdata, varefter resultaten utvärderas för att bestämma modellens noggrannhet.
 
-Modulen [Poäng modell][score-model] kräver två indata:
+Modulen [Poängmodell][score-model] kräver två ingångar:
 
-1. En tränad modell utmatning från modulen [träna modell][train-model] .
-2. En arbetsflödesbaserad datauppsättning som skiljer sig från den datauppsättning som används för att träna modellen.
+1. En tränad modellutgång från modulen [Tågmodell.][train-model]
+2. En bedömningsdatauppsättning som skiljer sig från den datauppsättning som används för att träna modellen.
 
-Det är möjligt att även om experimentet lyckas, ger modulen [Poäng modell][score-model] felaktiga resultat. Det kan hända att det här problemet uppstår i flera scenarier:
+Det är möjligt att även om experimentet lyckas ger modulen [Poängmodell][score-model] felaktiga resultat. Flera scenarier kan orsaka att problemet inträffar:
 
-1. Om den angivna etiketten är kategoriska och en Regressions modell tränas på data, skapas Felaktiga utdata av modulen [Poäng modell][score-model] . Det beror på att regression kräver en kontinuerlig svar-variabel. I så fall skulle det vara lämpligare att använda en modell för klassificering. 
+1. Om den angivna etiketten är kategorisk och en regressionsmodell tränas på data, skapas en felaktig utdata av modulen [Poängmodell.][score-model] Detta beror på att regression kräver en kontinuerlig svarsvariabel. I detta fall skulle det vara mer lämpligt att använda en klassificeringsmodell. 
 
-2. Om en klassificering tränas på en datauppsättning med flyttal i kolumnen etikett, på samma sätt kan det ge oönskade resultat. Detta beror på att klassificeringen kräver en diskret variabel som bara tillåter värden som sträcker sig över en begränsad och liten uppsättning klasser.
+2. På samma sätt, om en klassificeringsmodell tränas på en datauppsättning med flyttalsnummer i kolumnen Etikett, kan det ge oönskade resultat. Detta beror på att klassificeringen kräver en diskret svarsvariabel som bara tillåter värden som sträcker sig över en begränsad och liten uppsättning klasser.
 
-3. Om poängsättnings data uppsättningen inte innehåller alla funktioner som används för att träna modellen, genererar [Poäng modellen][score-model] ett fel.
+3. Om bedömningsdatauppsättningen inte innehåller alla funktioner som används för att träna modellen, skapar [poängmodellen][score-model] ett fel.
 
-4. Om en rad i poängsättnings data uppsättningen innehåller ett saknat värde eller ett oändligt värde för någon av dess funktioner, genererar inte [Poäng modellen][score-model] några utdata som motsvarar den raden.
+4. Om en rad i bedömningsdatauppsättningen innehåller ett värde som saknas eller ett oändligt värde för någon av dess funktioner, ger [poängmodellen][score-model] inte några utdata som motsvarar den raden.
 
-5. [Poäng modellen][score-model] kan producera identiska utdata för alla rader i poängsättnings data uppsättningen. Detta kan inträffa, till exempel vid klassificering med hjälp av beslut skogar om det minsta antalet prover per lövnod väljs vara fler än antalet utbildning exempel tillgängliga.
+5. [Poängmodellen][score-model] kan ge identiska utdata för alla rader i bedömningsdatauppsättningen. Detta kan till exempel inträffa när man försöker klassificera med hjälp av Beslutsskogar om det minsta antalet prover per bladnod väljs för att vara mer än antalet tillgängliga utbildningsexempel.
 
 <!-- Module References -->
 [score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/

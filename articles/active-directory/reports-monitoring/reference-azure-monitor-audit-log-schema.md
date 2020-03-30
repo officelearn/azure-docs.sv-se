@@ -1,9 +1,9 @@
 ---
-title: Tolka Azure Active Directory Gransknings logg schema i Azure Monitor | Microsoft Docs
-description: Beskriv Azure AD audit log-schemat för användning i Azure Monitor
+title: Tolka Azure Active Directory-granskningsloggschemat i Azure Monitor | Microsoft-dokument
+description: Beskriv Azure AD-granskningsloggschemat för användning i Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f75af14e388626a9ebbb54d43079f30dcfdd98a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68987942"
 ---
-# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Tolka schemat för gransknings loggar för Azure AD i Azure Monitor (för hands version)
+# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Tolka Azure AD-granskningsloggar schema i Azure Monitor (förhandsversion)
 
-Den här artikeln beskriver Gransknings logg schema för Azure Active Directory (Azure AD) i Azure Monitor. Varje enskild loggpost lagras som text och formateras som en JSON-BLOB, som du ser i följande två exempel: 
+I den här artikeln beskrivs granskningsloggschemat för Azure Active Directory (Azure AD) i Azure Monitor. Varje enskild loggpost lagras som text och formateras som en JSON-blob, vilket visas i följande två exempel: 
 
 ```json
 { 
@@ -145,39 +145,39 @@ Den här artikeln beskriver Gransknings logg schema för Azure Active Directory 
 
 ```
 
-## <a name="field-and-property-descriptions"></a>Fält-och egenskaps beskrivningar
+## <a name="field-and-property-descriptions"></a>Fält- och egenskapsbeskrivningar
 
 | Fältnamn | Beskrivning |
 |------------|-------------|
 | time       | Datum och tid (UTC). |
-| operationName | Åtgärdens namn. |
-| operationVersion | Den REST API version som begärs av klienten. |
-| category | För närvarande är *granskning* det enda värde som stöds. |
-| tenantId | Klient-GUID som är associerat med loggarna. |
-| resultType | Resultatet av åtgärden. Resultatet kan vara *lyckat* eller *misslyckat*. |
-| resultSignature |  Det här fältet är omappat och du kan ignorera det på ett säkert sätt. | 
-| resultDescription | En ytterligare beskrivning av resultatet, där det är tillgängligt. | 
-| durationMs |  Det här fältet är omappat och du kan ignorera det på ett säkert sätt. |
+| operationName | Namnet på operationen. |
+| operationVersion | REST API-versionen som begärs av klienten. |
+| category | För närvarande är *Granskning* det enda värde som stöds. |
+| tenantId (hyresgäst) | Klient-GUID som är associerad med loggarna. |
+| resultType | Resultatet av operationen. Resultatet kan bli *framgång* eller *misslyckande*. |
+| resultSignature |  Det här fältet är avmappat och du kan ignorera det på ett säkert sätt. | 
+| resultDescription | Ytterligare en beskrivning av resultatet, om tillgängligt. | 
+| durationMs |  Det här fältet är avmappat och du kan ignorera det på ett säkert sätt. |
 | callerIpAddress | IP-adressen för klienten som gjorde begäran. | 
-| correlationId | Ett valfritt GUID som skickas av klienten. Det kan bidra till att korrelera åtgärder på klient sidan med åtgärder på Server sidan och det är användbart när du spårar loggar som omfattar tjänster. |
-| identity | Identiteten från den token som angavs när du gjorde begäran. Identiteten kan vara ett användar konto, ett system konto eller ett huvud namn för tjänsten. |
-| level | Meddelande typen. För gransknings loggar är nivån alltid *information*. |
-| location | Platsen för data centret. |
-| properties | Visar en lista över de egenskaper som stöds och som är relaterade till en Gransknings logg. Mer information finns i nästa tabell. | 
+| correlationId | Ett valfritt GUID som skickas av klienten. Det kan hjälpa korrelera åtgärder på klientsidan med åtgärder på serversidan och det är användbart när du spårar loggar som sträcker sig över tjänster. |
+| identity | Identiteten från token som presenterades när du gjorde begäran. Identiteten kan vara ett användarkonto, ett systemkonto eller tjänsthuvudnamn. |
+| nivå | Meddelandetypen. För granskningsloggar är nivån alltid *informativ*. |
+| location | Platsen för datacentret. |
+| properties | Visar en lista över egenskaper som stöds och som är relaterade till en granskningslogg. Mer information finns i nästa tabell. | 
 
 <br>
 
 | Egenskapsnamn | Beskrivning |
 |---------------|-------------|
-| AuditEventCategory | Typ av gransknings händelse. Det kan vara *användar hantering*, *program hantering*eller någon annan typ.|
-| Identitets typ | Typen kan vara *program* eller *användare*. |
-| Åtgärdstyp | Typen kan vara *Lägg till*, *Uppdatera*och *ta bort*. eller *annat*. |
-| Målresurstyp | Anger den mål resurs typ som åtgärden utfördes på. Typen kan vara *program*, *användare*, *roll*, *princip* | 
-| Mål resurs namn | Namnet på mål resursen. Det kan vara ett program namn, ett rollnamn, ett User Principal Name eller ett huvud namn för tjänsten. |
-| additionalTargets | Visar alla ytterligare egenskaper för vissa åtgärder. För en uppdaterings åtgärd visas till exempel de gamla värdena och de nya värdena under *targetUpdatedProperties*. | 
+| AuditEventKategori | Typ av granskningshändelse. Det kan vara *Användarhantering,* *Programhantering*eller annan typ.|
+| Identitetstyp | Typen kan vara *Program* eller *Användare*. |
+| Åtgärdstyp | Typen kan vara *Lägg till*, *Uppdatera*, *Ta bort*. eller *Annat*. |
+| Målresurstyp | Anger den målresurstyp som åtgärden utfördes på. Typen kan vara *Program,* *Användare*, *Roll*, *Princip* | 
+| Namn på målresurs | Namnet på målresursen. Det kan vara ett programnamn, ett rollnamn, ett användarnamn eller ett huvudnamn för tjänsten. |
+| ytterligareMål | Visar en lista över ytterligare egenskaper för specifika åtgärder. För en uppdateringsåtgärd visas till exempel de gamla värdena och de nya värdena under *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Tolka schema för inloggningsloggar i Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md)
-* [Azure Diagnostics-loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Azure diagnostik loggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Vanliga frågor och kända problem](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

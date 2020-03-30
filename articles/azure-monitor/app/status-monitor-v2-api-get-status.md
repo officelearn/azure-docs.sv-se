@@ -1,35 +1,35 @@
 ---
 title: API-referens för Azure Application Insights-agent
-description: Application Insights Agent-API-referens. Get-ApplicationInsightsMonitoringStatus. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+description: Api-referens för Application Insights Agent. Hämta programInightsMonitoringStatus. Övervaka webbplatsens prestanda utan att distribuera om webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
 ms.openlocfilehash: 159dab4a228c822ef62c45c9ccceff638a9bea45
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77671264"
 ---
-# <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>Application Insights Agent-API: get-ApplicationInsightsMonitoringStatus
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>Program Insights Agent API: Get-ApplicationInsightsMonitoringStatus
 
-Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+I den här artikeln beskrivs en cmdlet som är medlem i [modulen Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>Beskrivning
 
-Denna cmdlet innehåller felsöknings information om Statusövervakare.
-Använd den här cmdleten för att undersöka övervaknings status, version av PowerShell-modulen och för att kontrol lera processen som körs.
-Denna cmdlet kommer att rapportera versions information och information om viktiga filer som krävs för övervakning.
+Den här cmdleten innehåller felsökningsinformation om statusövervakaren.
+Använd den här cmdleten för att undersöka övervakningsstatus, version av PowerShell-modulen och för att inspektera den pågående processen.
+Den här cmdleten rapporterar versionsinformation och information om nyckelfiler som krävs för övervakning.
 
 > [!IMPORTANT] 
-> Denna cmdlet kräver en PowerShell-session med administratörs behörighet.
+> Den här cmdleten kräver en PowerShell-session med administratörsbehörighet.
 
 ## <a name="examples"></a>Exempel
 
-### <a name="example-application-status"></a>Exempel: program status
+### <a name="example-application-status"></a>Exempel: Programstatus
 
-Kör kommandot `Get-ApplicationInsightsMonitoringStatus` för att Visa övervaknings statusen för webbplatser.
+Kör kommandot `Get-ApplicationInsightsMonitoringStatus` för att visa övervakningsstatus för webbplatser.
 
 ```
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
@@ -66,14 +66,14 @@ AppAlreadyInstrumented : true
 ```
 
 I det här exemplet;
-- **Dator** -ID är ett anonymt ID som används för att identifiera servern unikt. Om du skapar en support förfrågan behöver vi detta ID för att hitta loggar för servern.
-- **Standard webbplatsen** stoppas i IIS
-- **DemoWebApp111** har startats i IIS, men har inte tagit emot några förfrågningar. Den här rapporten visar att det inte finns någon process som körs (ProcessId: hittades inte).
-- **DemoWebApp222** körs och övervakas (instrumenterat: sant). Baserat på användar konfigurationen matchades Instrumentation-nyckeln XXXXXXXX-XXXX-XXXX-XXXX-xxxxxxxxx123 för den här platsen.
-- **DemoWebApp333** har instrumenterats manuellt med hjälp av Application Insights SDK. Statusövervakare identifierade SDK och övervakar inte den här platsen.
+- **Maskinidentifierare** är ett anonymt ID som används för att unikt identifiera din server. Om du skapar en supportbegäran behöver vi det här ID:t för att hitta loggar för servern.
+- **Standardwebbplatsen** stoppas i IIS
+- **DemoWebApp111** har startats i IIS, men har inte fått några förfrågningar. Den här rapporten visar att det inte finns någon process som körs (ProcessId: hittades inte).
+- **DemoWebApp222** körs och övervakas (Instrumenterad: true). Baserat på användarkonfigurationen matchades Instrumentation Key xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 för den här webbplatsen.
+- **DemoWebApp333** har instrumenterats manuellt med hjälp av Application Insights SDK. Statusövervakaren upptäckte SDK och övervakar inte den här platsen.
 
 
-### <a name="example-powershell-module-information"></a>Exempel: information om PowerShell-modul
+### <a name="example-powershell-module-information"></a>Exempel: Information om PowerShell-modul
 
 Kör kommandot `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` för att visa information om den aktuella modulen:
 
@@ -127,11 +127,11 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>Exempel: körnings status
+### <a name="example-runtime-status"></a>Exempel: Körningsstatus
 
-Du kan kontrol lera processen på den instrumenterade datorn för att se om alla DLL-filer har lästs in. Om övervakningen fungerar bör minst 12 DLL-filer läsas in.
+Du kan kontrollera processen på den instrumenterade datorn för att se om alla DLL-filer har lästs in. Om övervakningen fungerar ska minst 12 DLL-filer läsas in.
 
-Kör kommandot `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
+Kör kommandot: `Get-ApplicationInsightsMonitoringStatus -InspectProcess`
 
 
 ```
@@ -169,33 +169,33 @@ listdlls64.exe -accepteula w3wp
 
 ### <a name="no-parameters"></a>(Inga parametrar)
 
-Som standard rapporterar denna cmdlet övervaknings statusen för webb program.
-Använd det här alternativet om du vill läsa om ditt program har instrumenterats.
-Du kan också granska vilken Instrumentation-nyckel som matchade din webbplats.
+Som standard kommer den här cmdleten att rapportera övervakningsstatus för webbprogram.
+Använd det här alternativet om du vill granska om programmet har instrumenterats.
+Du kan också granska vilken instrumenteringsnyckel som matchades till din webbplats.
 
 
 ### <a name="-powershellmodule"></a>-PowerShellModule
-**Valfritt**. Använd den här växeln för att rapportera versions nummer och sökvägar för dll: er som krävs för övervakning.
-Använd det här alternativet om du behöver identifiera versionen av någon DLL, inklusive Application Insights SDK.
+**Valfritt**. Använd den här växeln för att rapportera versionsnummer och sökvägar för DLL:er som krävs för övervakning.
+Använd det här alternativet om du behöver identifiera versionen av en DLL, inklusive Application Insights SDK.
 
-### <a name="-inspectprocess"></a>-InspectProcess
+### <a name="-inspectprocess"></a>-InspekteraProcess
 
 **Valfritt**. Använd den här växeln för att rapportera om IIS körs.
-Du kan också hämta externa verktyg för att avgöra om de nödvändiga DLL-filerna har lästs in i IIS-körningen.
+Det kommer också att hämta externa verktyg för att avgöra om de nödvändiga DLL-filer laddas i IIS-körningen.
 
 
-Om den här processen Miss lyckas av någon anledning kan du köra dessa kommandon manuellt:
-- iisreset. exe/status
-- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p W3wp | Findstr/I "InstrumentationEngine AI. ApplicationInsights"
-- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) W3wp | Findstr/I "InstrumentationEngine AI ApplicationInsights"
+Om den här processen misslyckas av någon anledning kan du köra dessa kommandon manuellt:
+- iisreset.exe /status
+- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr /I "InstrumentationEngine AI. ApplicationInsights"
+- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr /I "InstrumentationEngine AI ApplicationInsights"
 
 
 ### <a name="-force"></a>-Force
 
-**Valfritt**. Används endast med InspectProcess. Använd den här växeln för att hoppa över den användar fråga som visas innan ytterligare verktyg laddas ned.
+**Valfritt**. Används endast med InspectProcess. Använd den här växeln för att hoppa över användarprompten som visas innan ytterligare verktyg hämtas.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
- Gör mer med Application Insights agent:
- - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.
+ Gör mer med Application Insights Agent:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights Agent.

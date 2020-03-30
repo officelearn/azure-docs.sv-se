@@ -1,7 +1,7 @@
 ---
-title: Sök över JSON-blobbar
+title: Sök över JSON blobbar
 titleSuffix: Azure Cognitive Search
-description: Crawla Azure JSON-blobbar för text innehåll med hjälp av Azure Kognitiv sökning BLOB-indexeraren. Indexerare automatiserar data inmatning för valda data källor som Azure Blob Storage.
+description: Crawla Azure JSON-blobbar efter textinnehåll med hjälp av Azure Cognitive Search Blob indexeraren. Indexerare automatiserar datainmatning för valda datakällor som Azure Blob-lagring.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -10,144 +10,144 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74533973"
 ---
-# <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Så här indexerar du JSON-blobbar med en BLOB-indexerare i Azure Kognitiv sökning
+# <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Indexera JSON-blobbar med hjälp av en Blob-indexerare i Azure Cognitive Search
 
-Den här artikeln visar hur du konfigurerar en Azure Kognitiv sökning BLOB- [indexerare](search-indexer-overview.md) för att extrahera strukturerat innehåll från JSON-dokument i Azure Blob Storage och göra det sökbart i Azure kognitiv sökning. Det här arbets flödet skapar ett Azure Kognitiv sökning-index och läser in det med befintlig text som extraherats från JSON-blobbar. 
+Den här artikeln visar hur du konfigurerar en Azure Cognitive Search [blob-indexerare](search-indexer-overview.md) för att extrahera strukturerat innehåll från JSON-dokument i Azure Blob-lagring och göra det sökbart i Azure Cognitive Search. Det här arbetsflödet skapar ett Azure Cognitive Search-index och läser in det med befintlig text som extraherats från JSON-blobbar. 
 
-Du kan använda [portalen](#json-indexer-portal), [REST-API: er](#json-indexer-rest)eller [.NET SDK](#json-indexer-dotnet) för att indexera JSON-innehåll. Gemensamma för alla tillvägagångs sätt är att JSON-dokument finns i en BLOB-behållare i ett Azure Storage-konto. Vägledning om hur du skickar JSON-dokument från andra plattformar än Azure-plattformar finns [i data import i Azure kognitiv sökning](search-what-is-data-import.md).
+Du kan använda [portalen,](#json-indexer-portal) [REST-API:erna](#json-indexer-rest)eller [.NET SDK](#json-indexer-dotnet) för att indexera JSON-innehåll. Gemensamt för alla metoder är att JSON-dokument finns i en blob-behållare i ett Azure Storage-konto. Mer information om hur du pressar JSON-dokument från andra plattformar som inte är Azure Cognitive Search finns [i Dataimport i Azure Cognitive Search](search-what-is-data-import.md).
 
-JSON-blobar i Azure Blob Storage är vanligt vis antingen ett enda JSON-dokument (tolknings läge `json`) eller en samling JSON-entiteter. För samlingar kan blobben ha en **matris** med välformulerade JSON-element (tolknings läge är `jsonArray`). Blobbar kan också bestå av flera enskilda JSON-entiteter som skiljs åt av en ny rad (tolknings läge är `jsonLines`). **ParsingMode** -parametern på begäran bestämmer utmatnings strukturerna.
+JSON-blobbar i Azure Blob-lagring är vanligtvis antingen ett `json`enda JSON-dokument (tolkningsläge är) eller en samling JSON-entiteter. För samlingar kan bloben ha en **rad** välformade JSON-element `jsonArray`(tolkningsläge är ). Blobbar kan också bestå av flera enskilda JSON-enheter åtskilda av `jsonLines`en nyrad (tolkningsläget är ). Parametern **parsingMode** på begäran bestämmer utdatastrukturerna.
 
 > [!NOTE]
-> Mer information om hur du indexerar flera Sök dokument från en enda BLOB finns i [en-till-många-indexering](search-howto-index-one-to-many-blobs.md).
+> Mer information om hur du indexerar flera sökdokument från en enda blob finns i [En-till-många-indexering](search-howto-index-one-to-many-blobs.md).
 
 <a name="json-indexer-portal"></a>
 
 ## <a name="use-the-portal"></a>Använda portalen
 
-Den enklaste metoden för att indexera JSON-dokument är att använda en guide i [Azure Portal](https://portal.azure.com/). Genom att parsa metadata i Azure Blob-behållaren kan guiden [**Importera data**](search-import-data-portal.md) skapa ett standard index, mappa käll fält till mål index fält och läsa in indexet i en enda åtgärd. Beroende på storleken och komplexiteten hos källdata kan du ha ett fullständigt texts öknings index på några minuter.
+Den enklaste metoden för att indexera JSON-dokument är att använda en guide i [Azure-portalen](https://portal.azure.com/). Genom att tolka metadata i Azure blob-behållaren kan guiden [**Importera data**](search-import-data-portal.md) skapa ett standardindex, mappa källfält för att rikta indexfält och läsa in indexet i en enda åtgärd. Beroende på källdatas storlek och komplexitet kan du ha ett fungerande fulltextsökindex på några minuter.
 
-Vi rekommenderar att du använder samma region eller plats för både Azure Kognitiv sökning och Azure Storage för kortare svars tid och för att undvika bandbredds kostnader.
+Vi rekommenderar att du använder samma region eller plats för både Azure Cognitive Search och Azure Storage för lägre svarstid och för att undvika bandbreddsavgifter.
 
-### <a name="1---prepare-source-data"></a>1 – Förbered källdata
+### <a name="1---prepare-source-data"></a>1 - Förbereda källdata
 
-[Logga in på Azure Portal](https://portal.azure.com/) och [skapa en BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) som innehåller dina data. Den offentliga åtkomst nivån kan anges till något av dess giltiga värden.
+[Logga in på Azure-portalen](https://portal.azure.com/) och [skapa en Blob-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) för att innehålla dina data. Public Access-nivån kan ställas in på alla dess giltiga värden.
 
-Du behöver lagrings kontots namn, behållar namn och en åtkomst nyckel för att hämta dina data i guiden **Importera data** .
+Du behöver lagringskontonamnet, behållarnamnet och en åtkomstnyckel för att hämta data i guiden **Importera data.**
 
-### <a name="2---start-import-data-wizard"></a>2-Starta guiden Importera data
+### <a name="2---start-import-data-wizard"></a>2 - Guiden Starta importera data
 
-På sidan Översikt i din Sök tjänst kan du [starta guiden](search-import-data-portal.md) från kommando fältet.
+På sidan Översikt i söktjänsten kan du [starta guiden](search-import-data-portal.md) från kommandofältet.
 
-   ![Importera data kommando i portalen](./media/search-import-data-portal/import-data-cmd2.png "Starta guiden Importera data")
+   ![Kommandot Importera data i portalen](./media/search-import-data-portal/import-data-cmd2.png "Starta guiden Importera data")
 
-### <a name="3---set-the-data-source"></a>3 – ange data källan
+### <a name="3---set-the-data-source"></a>3 - Ställ in datakällan
 
-På sidan **data källa** måste källan vara **Azure Blob Storage**, med följande specifikationer:
+På **sidan datakälla** måste källan vara **Azure Blob Storage**, med följande specifikationer:
 
-+ **Data som ska extraheras** bör vara *innehåll och metadata*. Genom att välja det här alternativet kan guiden härleda ett index schema och Mappa fälten för import.
++ **Data som ska extraheras** bör vara *Innehåll och metadata*. Om du väljer det här alternativet kan guiden dra slutsatsen ett indexschema och mappa fälten för import.
    
-+ **Tolknings läget** ska vara inställt på *JSON*, *JSON-matris* eller *JSON-linjer*. 
++ **Tolkningsläget** ska ställas in på *JSON-,* *JSON-matris-* eller *JSON-linjer*. 
 
-  *JSON* leder varje blob som ett enda sökdokument, som visas som ett oberoende objekt i Sök resultaten. 
+  *JSON* artikulerar varje blob som ett enda sökdokument och visas som ett oberoende objekt i sökresultaten. 
 
-  *JSON-matris* är för blobbar som innehåller välformulerade JSON-data – det välformulerade JSON motsvarar en matris med objekt, eller har en egenskap som är en objekt mat ris och du vill att varje element ska ledas som ett fristående, oberoende sökdokument. Om blobbar är komplexa och du inte väljer JSON- *matris* , matas hela blobben in som ett enda dokument.
+  *JSON array* är för blobbar som innehåller välformade JSON-data - den välformade JSON motsvarar en matris med objekt, eller har en egenskap som är en matris med objekt och du vill att varje element ska artikuleras som en fristående, oberoende sökdokument. Om blobbar är komplexa och du inte väljer *JSON-matrisen* förtärs hela bloben som ett enda dokument.
 
-  *JSON-linjer* är för blobbar som består av flera JSON-enheter, avgränsade med en ny rad, där du vill att varje entitet ska ledas som ett fristående, oberoende Sök dokument. Om blobbar är komplexa och du inte väljer JSON- *rader* tolknings läge, matas hela blobben in som ett enda dokument.
+  *JSON-rader* är för blobbar som består av flera JSON-entiteter avgränsade med en ny rad, där du vill att varje entitet ska artikuleras som ett fristående oberoende sökdokument. Om blobbar är komplexa och du inte väljer *JSON-linjers* tolkningsläge, intas hela bloben som ett enda dokument.
    
-+ **Lagrings behållaren** måste ange ditt lagrings konto och din behållare, eller en anslutnings sträng som matchar behållaren. Du kan hämta anslutnings strängar på sidan Blob Service Portal.
++ **Lagringsbehållaren** måste ange ditt lagringskonto och din behållare, eller en anslutningssträng som matchas till behållaren. Du kan hämta anslutningssträngar på blob-tjänstportalsidan.
 
-   ![Definition av BLOB-datakälla](media/search-howto-index-json/import-wizard-json-data-source.png)
+   ![Definition av blob-datakälla](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 – hoppa över sidan "utöka innehåll" i guiden
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4 - Hoppa över sidan "Berika innehåll" i guiden
 
-Att lägga till kognitiva färdigheter (eller anrikning) är inte ett import krav. Om du inte har ett speciellt behov av att [lägga till AI-berikning](cognitive-search-concept-intro.md) till din indexerings pipeline, bör du hoppa över det här steget.
+Att lägga till kognitiva färdigheter (eller anrikning) är inte ett importkrav. Om du inte har ett specifikt behov av att lägga till [AI-anrikning](cognitive-search-concept-intro.md) i din indexeringspipeline bör du hoppa över det här steget.
 
-Om du vill hoppa över steget klickar du på blå knappar längst ned på sidan för "Nästa" och "hoppa över".
+Om du vill hoppa över steget klickar du på de blå knapparna längst ned på sidan för "Nästa" och "Hoppa över".
 
-### <a name="5---set-index-attributes"></a>5-Ange indexattribut
+### <a name="5---set-index-attributes"></a>5 - Ange indexattribut
 
-På sidan **index** visas en lista med fält med data typen och en serie kryss rutor för att ställa in indexattribut. Guiden kan generera en fält lista baserat på metadata och genom att sampla data källan. 
+På sidan **Index** bör du se en lista över fält med en datatyp och en serie kryssrutor för inställning av indexattribut. Guiden kan generera en fältlista baserad på metadata och genom att prova källdata. 
 
-Du kan massredigera attribut genom att klicka på kryss rutan överst i en Attribute-kolumn. Välj **hämtnings** **Bart och sökbart** för varje fält som ska returneras till en klient-app och för full texts öknings bearbetning. Du märker att heltal inte är full text eller fuzzy sökbar (tal utvärderas orda Grant och ofta är användbara i filter).
+Du kan mass markera attribut genom att klicka på kryssrutan högst upp i en attributkolumn. Välj **Hämtningsbar** och **sökbar** för varje fält som ska returneras till en klientapp och vara föremål för fulltextsökningsbearbetning. Du kommer att märka att heltal inte är fulltext eller suddiga sökbara (tal utvärderas ordagrant och är ofta användbara i filter).
 
-Granska beskrivningen av [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) och [språk analys](https://docs.microsoft.com/rest/api/searchservice/language-support) verktyg för mer information. 
+Läs beskrivningen av [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index#bkmk_indexAttrib) och [språkanalysatorer](https://docs.microsoft.com/rest/api/searchservice/language-support) för mer information. 
 
-Ägna en stund åt att granska dina val. När du har kört guiden skapas fysiska data strukturer och du kan inte redigera dessa fält utan att släppa och återskapa alla objekt.
+Ta en stund att granska dina val. När du har kört guiden skapas fysiska datastrukturer och du kan inte redigera dessa fält utan att släppa och återskapa alla objekt.
 
-   ![Definition av BLOB index](media/search-howto-index-json/import-wizard-json-index.png)
+   ![Definition av Blob-index](media/search-howto-index-json/import-wizard-json-index.png)
 
-### <a name="6---create-indexer"></a>6 – skapa indexerare
+### <a name="6---create-indexer"></a>6 - Skapa indexerare
 
-Fullständigt angivet skapar guiden tre distinkta objekt i din Sök tjänst. Ett data käll objekt och ett index objekt sparas som namngivna resurser i Azure Kognitiv sökning-tjänsten. Det sista steget skapar ett indexerare-objekt. Om du namnger indexeraren kan den finnas som en fristående resurs, som du kan schemalägga och hantera oberoende av indexet och datakällobjektet, vilket skapas i samma guide ordning.
+Guiden är helt angiven och skapar tre olika objekt i söktjänsten. Ett datakällobjekt och indexobjekt sparas som namngivna resurser i azure Cognitive Search-tjänsten. Det sista steget skapar ett indexerarobjekt. Genom att namnge indexeraren kan den finnas som en fristående resurs, som du kan schemalägga och hantera oberoende av index- och datakällobjektet, som skapas i samma guidesekvens.
 
-Om du inte är bekant med indexerare är en *indexerare* en resurs i Azure kognitiv sökning som crawlar en extern data källa för sökbart innehåll. Utdata från guiden **Importera data** är en indexerare som crawlar din JSON-datakälla, extraherar sökbart innehåll och importerar det till ett index på Azure kognitiv sökning.
+Om du inte är bekant med indexerare är en *indexerare* en resurs i Azure Cognitive Search som genomsöker en extern datakälla efter sökbart innehåll. Utdataguiden **Import data** är en indexerare som genomsöker din JSON-datakälla, extraherar sökbart innehåll och importerar det till ett index på Azure Cognitive Search.
 
-   ![Definition av BLOB-indexerare](media/search-howto-index-json/import-wizard-json-indexer.png)
+   ![Definition av Blob-indexerare](media/search-howto-index-json/import-wizard-json-indexer.png)
 
-Klicka på **OK** för att köra guiden och skapa alla objekt. Indexeringen börjar omedelbart.
+Klicka på **OK** om du vill köra guiden och skapa alla objekt. Indexeringen påbörjas omedelbart.
 
-Du kan övervaka data import på Portal sidorna. Förlopps meddelanden indikerar indexerings status och hur många dokument som laddas upp. 
+Du kan övervaka dataimporten på portalsidorna. Förloppsmeddelanden anger indexeringsstatus och hur många dokument som överförs. 
 
-När indexeringen är klar kan du använda [Sök Utforskaren](search-explorer.md) för att fråga ditt index.
+När indexeringen är klar kan du använda [Sökutforskaren](search-explorer.md) för att fråga ditt index.
 
 > [!NOTE]
-> Om du inte ser de data du förväntar dig kan du behöva ange fler attribut för fler fält. Ta bort indexet och indexeraren som du nyss skapade och gå igenom guiden igen och ändra dina val för indexattribut i steg 5. 
+> Om du inte ser de data du förväntar dig kan du behöva ange fler attribut i fler fält. Ta bort index och indexerare som du just skapade och gå igenom guiden igen och ändra dina val för indexattribut i steg 5. 
 
 <a name="json-indexer-rest"></a>
 
 ## <a name="use-rest-apis"></a>Använda REST-API:er
 
-Du kan använda REST API för att indexera JSON-blobbar, efter ett arbets flöde med tre delar som är gemensamt för alla indexerare i Azure Kognitiv sökning: skapa en data källa, skapa ett index, skapa en indexerare. Data extrahering från Blob Storage sker när du skickar en begäran om att skapa indexerare. När den här begäran har avslut ATS har du ett index som kan anropas. 
+Du kan använda REST API för att indexera JSON-blobbar, efter ett tredeladt arbetsflöde som är gemensamt för alla indexerare i Azure Cognitive Search: skapa en datakälla, skapa ett index, skapa en indexerare. Dataextrahering från blob-lagring inträffar när du skickar begäran Skapa indexerare. När begäran är klar har du ett frågebart index. 
 
-Du kan granska [resten exempel kod](#rest-example) i slutet av det här avsnittet som visar hur du skapar alla tre objekten. Det här avsnittet innehåller också information [om JSON-parsningsfel](#parsing-modes), [enskilda blobbar](#parsing-single-blobs), JSON- [matriser](#parsing-arrays)och [kapslade matriser](#nested-json-arrays).
+Du kan granska [REST-exempelkoden](#rest-example) i slutet av det här avsnittet som visar hur du skapar alla tre objekten. Det här avsnittet innehåller också information om [JSON-tolkningslägen,](#parsing-modes) [enstaka blobbar,](#parsing-single-blobs) [JSON-matriser](#parsing-arrays)och [kapslade matriser](#nested-json-arrays).
 
-För kodbaserade JSON-indexering använder du [Postman](search-get-started-postman.md) och REST API för att skapa dessa objekt:
+För kodbaserad JSON-indexering använder du [Postman](search-get-started-postman.md) och REST API för att skapa dessa objekt:
 
-+ [Tabbindex](https://docs.microsoft.com/rest/api/searchservice/create-index)
-+ [data Källa](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Index](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [datakälla](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
++ [Indexerare](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
-Ordningen på åtgärder kräver att du skapar och anropar objekt i den här ordningen. Till skillnad från Portal arbets flödet kräver en kod metod ett tillgängligt index för att acceptera JSON-dokumenten som skickas via begäran om att **skapa indexerare** .
+Åtgärdsordningen kräver att du skapar och anropar objekt i den här ordningen. I motsats till portalarbetsflödet kräver en kodmetod ett tillgängligt index för att acceptera JSON-dokument som skickas via **Begäran skapa indexerare.**
 
-JSON-blobar i Azure Blob Storage är vanligt vis antingen ett enda JSON-dokument eller en JSON-matris. BLOB-indexeraren i Azure Kognitiv sökning kan tolka antingen konstruktion, beroende på hur du ställer in parametern **parsingMode** på begäran.
+JSON-blobbar i Azure Blob-lagring är vanligtvis antingen ett enda JSON-dokument eller en JSON -matris. Blob-indexeraren i Azure Cognitive Search kan tolka antingen konstruktionen, beroende på hur du ställer in parametern **parsingMode** på begäran.
 
-| JSON-dokument | parsingMode | Beskrivning | Tillgänglighet |
+| JSON-dokument | tolkaMode | Beskrivning | Tillgänglighet |
 |--------------|-------------|--------------|--------------|
-| En per BLOB | `json` | Parsar JSON-blobbar som ett enda text segment. Varje JSON-BLOB blir ett enda Azure Kognitiv sökning-dokument. | Allmänt tillgänglig i både [rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Flera per BLOB | `jsonArray` | Parsar en JSON-matris i blobben där varje element i matrisen blir ett separat Azure Kognitiv sökning-dokument.  | Allmänt tillgänglig i både [rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Flera per BLOB | `jsonLines` | Parsar en blob som innehåller flera JSON-entiteter (en "matris") som skiljs åt av en ny rad, där varje entitet blir ett separat Azure Kognitiv sökning-dokument. | Allmänt tillgänglig i både [rest](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| En per blob | `json` | Tolkar JSON-blobbar som ett enda textsegment. Varje JSON-blob blir ett enda Azure Cognitive Search-dokument. | Allmänt tillgängligt i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per blob | `jsonArray` | Tolkar en JSON-matris i blobben, där varje element i matrisen blir ett separat Azure Cognitive Search-dokument.  | Allmänt tillgängligt i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Flera per blob | `jsonLines` | Tolkar en blob som innehåller flera JSON-entiteter (en "matris") avgränsad med en ny rad, där varje entitet blir ett separat Azure Cognitive Search-dokument. | Allmänt tillgängligt i både [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API och [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
-### <a name="1---assemble-inputs-for-the-request"></a>1 – Sammanställ indata för begäran
+### <a name="1---assemble-inputs-for-the-request"></a>1 - Montera ingångar för begäran
 
-För varje begäran måste du ange tjänst namnet och administratörs nyckeln för Azure Kognitiv sökning (i POST huvudet) och lagrings kontots namn och nyckel för Blob Storage. Du kan använda [Postman](search-get-started-postman.md) för att skicka HTTP-förfrågningar till Azure kognitiv sökning.
+För varje begäran måste du ange tjänstnamn och administratörsnyckel för Azure Cognitive Search (i POST-huvudet) och lagringskontots namn och nyckel för blob-lagring. Du kan använda [Postman](search-get-started-postman.md) för att skicka HTTP-begäranden till Azure Cognitive Search.
 
-Kopiera följande fyra värden till anteckningar så att du kan klistra in dem i en förfrågan:
+Kopiera följande fyra värden till Anteckningar så att du kan klistra in dem i en begäran:
 
-+ Namn på Azure Kognitiv sökning-tjänst
-+ Administratörs nyckel för Azure Kognitiv sökning
-+ Namn på Azure Storage-konto
-+ Nyckel för Azure Storage-konto
++ Namn på Azure Cognitive Search-tjänst
++ Administratörsnyckel för Azure Cognitive Search
++ Azure Storage-kontonamn
++ Nyckeln för Azure-lagringskonto
 
-Du kan hitta dessa värden i portalen:
+Du hittar dessa värden i portalen:
 
-1. På Portal sidorna för Azure Kognitiv sökning kopierar du URL: en för Sök tjänsten från översikts sidan.
+1. Kopiera söktjänstens URL på portalsidorna för Azure Cognitive Search från sidan Översikt.
 
-2. I det vänstra navigerings fönstret klickar du på **nycklar** och kopierar antingen den primära eller sekundära nyckeln (de är motsvarande).
+2. I det vänstra navigeringsfönstret klickar du på **Nycklar** och kopierar antingen primär- eller sekundärnyckeln (de är likvärdiga).
 
-3. Växla till Portal sidorna för ditt lagrings konto. I det vänstra navigerings fönstret, under **Inställningar**, klickar du på **åtkomst nycklar**. Den här sidan innehåller både konto namnet och nyckeln. Kopiera lagrings kontots namn och en av nycklarna till anteckningar.
+3. Växla till portalsidorna för ditt lagringskonto. Klicka på **Snabbtangenter**under **Inställningar**i det vänstra navigeringsfönstret. På den här sidan finns både kontonamnet och nyckeln. Kopiera lagringskontonamnet och en av nycklarna till Anteckningar.
 
-### <a name="2---create-a-data-source"></a>2 – Skapa en data Källa
+### <a name="2---create-a-data-source"></a>2 - Skapa en datakälla
 
-Det här steget ger anslutnings information för data källan som används av indexeraren. Data källan är ett namngivet objekt i Azure Kognitiv sökning som behåller anslutnings informationen. Typen av data källa, `azureblob`, bestämmer vilka beteenden för data extrahering som anropas av indexeraren. 
+Det här steget innehåller information om datakällans anslutning som används av indexeraren. Datakällan är ett namngivet objekt i Azure Cognitive Search som bevarar anslutningsinformationen. Datakälltypen `azureblob`bestämmer vilka dataextraheringsbeteenden som anropas av indexeraren. 
 
-Ersätt giltiga värden för tjänst namn, administratörs nyckel, lagrings konto och plats hållare för konto nycklar.
+Ersätt giltiga värden för tjänstnamn, administratörsnyckel, lagringskonto och platshållare för kontonyckel.
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -160,13 +160,13 @@ Ersätt giltiga värden för tjänst namn, administratörs nyckel, lagrings kont
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
 
-### <a name="3---create-a-target-search-index"></a>3 – skapa ett mål Sök index 
+### <a name="3---create-a-target-search-index"></a>3 - Skapa ett målsökindex 
 
-Indexerare är kopplade till ett index schema. Om du använder API: et (i stället för portalen) förbereder du ett index i förväg så att du kan ange det för indexerings åtgärden.
+Indexerare paras ihop med ett indexschema. Om du använder API:et (i stället för portalen) förbereder du ett index i förväg så att du kan ange det på indexeringsåtgärden.
 
-Indexet lagrar sökbart innehåll i Azure Kognitiv sökning. Skapa ett index genom att ange ett schema som anger fälten i ett dokument, attribut och andra konstruktioner som formar Sök upplevelsen. Om du skapar ett index som har samma fält namn och data typer som källan kommer indexeraren att matcha käll-och mål fälten, vilket sparar arbetet för att explicit Mappa fälten.
+Indexet lagrar sökbart innehåll i Azure Cognitive Search. Om du vill skapa ett index anger du ett schema som anger fälten i ett dokument, attribut och andra konstruktioner som formar sökupplevelsen. Om du skapar ett index som har samma fältnamn och datatyper som källan matchar indexeraren käll- och målfälten, vilket sparar arbetet med att uttryckligen mappa fälten.
 
-I följande exempel visas en begäran om att [skapa index](https://docs.microsoft.com/rest/api/searchservice/create-index) . Indexet har ett sökbart `content` fält för att lagra texten som extraheras från blobbar:   
+I följande exempel visas en [begäran om skapa index.](https://docs.microsoft.com/rest/api/searchservice/create-index) Indexet har ett sökbart `content` fält för att lagra texten som extraherats från blobbar:   
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
@@ -181,9 +181,9 @@ I följande exempel visas en begäran om att [skapa index](https://docs.microsof
     }
 
 
-### <a name="4---configure-and-run-the-indexer"></a>4 – Konfigurera och kör indexeraren
+### <a name="4---configure-and-run-the-indexer"></a>4 - Konfigurera och kör indexeraren
 
-Precis som med ett index och en data källa, och indexeraren också är ett namngivet objekt som du skapar och återanvänder på en Azure Kognitiv sökning-tjänst. En fullständigt angiven begäran om att skapa en indexerare kan se ut så här:
+Som med ett index och en datakälla, och indexerare är också ett namngivet objekt som du skapar och återanvänder på en Azure Cognitive Search-tjänst. En fullständigt angiven begäran om att skapa en indexerare kan se ut så här:
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -197,20 +197,20 @@ Precis som med ett index och en data källa, och indexeraren också är ett namn
       "parameters" : { "configuration" : { "parsingMode" : "json" } }
     }
 
-Indexerings konfigurationen är i bröd texten i begäran. Den kräver en data källa och ett tomt mål index som redan finns i Azure Kognitiv sökning. 
+Indexerkonfigurationen finns i brödtexten för begäran. Det kräver en datakälla och ett tomt målindex som redan finns i Azure Cognitive Search. 
 
-Schema och parametrar är valfria. Om du utelämnar dem körs indexeraren omedelbart med `json` som tolknings läge.
+Schema och parametrar är valfria. Om du utelämnar dem körs indexeraren omedelbart med hjälp av `json` som tolkningsläge.
 
-Den här specifika indexeraren innehåller inte fält mappningar. I index definitions definitionen kan du lämna **fält mappningar** om egenskaperna för käll-JSON-dokumentet matchar fälten i mål Sök indexet. 
+Den här indexeraren innehåller inte fältmappningar. I indexeringsdefinitionen kan du utelämna **fältmappningar** om egenskaperna för käll-JSON-dokumentet matchar fälten i målsökindexet. 
 
 
-### <a name="rest-example"></a>REST-exempel
+### <a name="rest-example"></a>EXEMPEL PÅ REST
 
-Det här avsnittet är en sammanfattning av alla förfrågningar som används för att skapa objekt. En beskrivning av komponent delar finns i föregående avsnitt i den här artikeln.
+Det här avsnittet är en sammanfattning av alla begäranden som används för att skapa objekt. En diskussion om komponenter finns i föregående avsnitt i den här artikeln.
 
-### <a name="data-source-request"></a>Begäran om data Källa
+### <a name="data-source-request"></a>Begäran om datakälla
 
-Alla indexerare kräver ett data käll objekt som ger anslutnings information till befintliga data. 
+Alla indexerare kräver ett datakällobjekt som tillhandahåller anslutningsinformation till befintliga data. 
 
     POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
@@ -224,9 +224,9 @@ Alla indexerare kräver ett data käll objekt som ger anslutnings information ti
     }  
 
 
-### <a name="index-request"></a>Index förfrågan
+### <a name="index-request"></a>Begäran om index
 
-Alla indexerare kräver ett mål index som tar emot data. Bröd texten i begäran definierar index schemat, som består av fält, attribut som stöder önskade beteenden i ett sökbart index. Detta index måste vara tomt när du kör indexeraren. 
+Alla indexerare kräver ett målindex som tar emot data. Brödtexten i begäran definierar indexschemat, som består av fält, som tillskrivs stödja önskade beteenden i ett sökbart index. Det här indexet ska vara tomt när du kör indexeraren. 
 
     POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
@@ -241,11 +241,11 @@ Alla indexerare kräver ett mål index som tar emot data. Bröd texten i begära
     }
 
 
-### <a name="indexer-request"></a>Indexerare-begäran
+### <a name="indexer-request"></a>Begäran om indexerare
 
-Den här begäran visar en fullständigt angiven indexerare. Den innehåller fält mappningar som utelämnats i föregående exempel. Kom ihåg att "schema", "parametrar" och "fieldMappings" är valfria så länge det finns ett tillgängligt standardvärde. Om du utelämnar "schema" körs indexeraren omedelbart. Att utelämna "parsingMode" gör att indexet använder standard-JSON.
+Den här begäran visar en fullständigt angiven indexerare. Den innehåller fältmappningar som utelämnades i tidigare exempel. Kom ihåg att "schema", "parametrar" och "fieldMappings" är valfria så länge det finns en tillgänglig standard. Om du utelämnar "schema" körs indexeraren omedelbart. Om du utelämnar "parsingMode" används indexet som standard.Utelämna "parsingMode" causes the index to use the "json" default.
 
-Att skapa indexeraren på Azure Kognitiv sökning utlöser data import. Den körs omedelbart och därefter enligt ett schema om du har angett ett.
+Om du skapar indexeraren på Azure Cognitive Search utlöses dataimport. Det körs omedelbart, och därefter på ett schema om du har gett en.
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -267,40 +267,40 @@ Att skapa indexeraren på Azure Kognitiv sökning utlöser data import. Den kör
 
 <a name="json-indexer-dotnet"></a>
 
-## <a name="use-net-sdk"></a>Använd .NET SDK
+## <a name="use-net-sdk"></a>Använda .NET SDK
 
-.NET SDK har fullständig paritet med REST API. Vi rekommenderar att du läser avsnittet tidigare REST API för att lära dig begrepp, arbets flöden och krav. Du kan sedan se följande dokumentation om .NET API-referens för att implementera en JSON-indexerare i förvaltad kod.
+.NET SDK har full paritet med REST API. Vi rekommenderar att du granskar det tidigare REST API-avsnittet för att lära dig begrepp, arbetsflöde och krav. Du kan sedan referera till följande .NET API-referensdokumentation för att implementera en JSON-indexerare i hanterad kod.
 
-+ [Microsoft. Azure. search. Models. DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft. Azure. search. Models. datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft. Azure. search. Models. Indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="parsing-modes"></a>
 
-## <a name="parsing-modes"></a>Tolknings lägen
+## <a name="parsing-modes"></a>Tolkningslägen
 
-JSON-blobbar kan anta flera formulär. Parametern **parsingMode** i JSON-indexeraren avgör hur JSON-BLOB-innehåll tolkas och struktureras i ett Azure kognitiv sökning-index:
+JSON blobbar kan anta flera formulär. Parametern **parsingMode** på JSON-indexeraren avgör hur JSON-blobinnehåll tolkas och struktureras i ett Azure Cognitive Search-index:
 
-| parsingMode | Beskrivning |
+| tolkaMode | Beskrivning |
 |-------------|-------------|
-| `json`  | Indexera varje blob som ett enskilt dokument. Detta är standardinställningen. |
-| `jsonArray` | Välj det här läget om Blobbarna består av JSON-matriser och du behöver varje element i matrisen för att bli ett separat dokument i Azure Kognitiv sökning. |
-|`jsonLines` | Välj det här läget om blobben består av flera JSON-entiteter, som skiljs åt av en ny rad, och du behöver varje entitet för att bli ett separat dokument i Azure Kognitiv sökning. |
+| `json`  | Indexera varje blob som ett enda dokument. Det här är standard. |
+| `jsonArray` | Välj det här läget om dina blobbar består av JSON-matriser och du behöver varje element i matrisen för att bli ett separat dokument i Azure Cognitive Search. |
+|`jsonLines` | Välj det här läget om dina blobbar består av flera JSON-entiteter, som avgränsas av en ny rad, och du behöver varje entitet för att bli ett separat dokument i Azure Cognitive Search. |
 
-Du kan tänka dig ett dokument som ett enda objekt i Sök resultaten. Om du vill att varje element i matrisen ska visas i Sök resultat som ett oberoende objekt, använder du `jsonArray` eller `jsonLines` alternativet efter behov.
+Du kan se ett dokument som ett enda objekt i sökresultaten. Om du vill att varje element i matrisen ska visas i `jsonArray` `jsonLines` sökresultaten som ett oberoende objekt använder du alternativet eller.
 
-Inom index definitions definitionen kan du välja att använda [fält mappningar](search-indexer-field-mappings.md) för att välja vilka egenskaper för käll-JSON-dokumentet som används för att fylla i mål Sök indexet. Om matrisen finns som en lågnivå egenskap i `jsonArray` tolknings läge kan du ange en dokument rot som anger var matrisen placeras i blobben.
+I indexerdefinitionen kan du också använda [fältmappningar](search-indexer-field-mappings.md) för att välja vilka egenskaper för käll-JSON-dokumentet som ska användas för att fylla i målsökindexet. Om `jsonArray` matrisen finns som egenskap på lägre nivå kan du ange en dokumentrot som anger var matrisen placeras i bloben om matrisen finns som egenskap på lägre nivå.
 
 > [!IMPORTANT]
-> När du använder `json`, `jsonArray` eller `jsonLines` tolknings läge förutsätter Azure Kognitiv sökning att alla blobbar i data källan innehåller JSON. Om du behöver stöd för en blandning av JSON-och icke-JSON-blobbar i samma data källa kan du berätta för oss på [vår UserVoice-webbplats](https://feedback.azure.com/forums/263029-azure-search).
+> När du `json` `jsonArray` använder `jsonLines` eller tolkar läge förutsätter Azure Cognitive Search att alla blobbar i datakällan innehåller JSON. Om du behöver stödja en blandning av JSON och icke-JSON blobbar i samma datakälla, låt oss veta på [vår UserVoice webbplats](https://feedback.azure.com/forums/263029-azure-search).
 
 
 <a name="parsing-single-blobs"></a>
 
-## <a name="parse-single-json-blobs"></a>Parsa enkla JSON-blobbar
+## <a name="parse-single-json-blobs"></a>Tolka enda JSON blobbar
 
-Som standard parsar [Azure kognitiv sökning BLOB-indexeraren](search-howto-indexing-azure-blob-storage.md) JSON-blobbar som ett enda text segment. Ofta vill du behålla strukturen för dina JSON-dokument. Anta till exempel att du har följande JSON-dokument i Azure Blob Storage:
+Som standard [tolkar Azure Cognitive Search blob indexerar](search-howto-indexing-azure-blob-storage.md) JSON-blobbar som en enda textbit. Ofta vill du bevara strukturen på dina JSON-dokument. Anta till exempel att du har följande JSON-dokument i Azure Blob-lagring:
 
     {
         "article" : {
@@ -310,15 +310,15 @@ Som standard parsar [Azure kognitiv sökning BLOB-indexeraren](search-howto-inde
         }
     }
 
-BLOB-indexeraren parsar JSON-dokumentet till ett enda Azure Kognitiv sökning-dokument. Indexeraren läser in ett index genom att matcha "text", "datePublished" och "Taggar" från källan mot identiska namngivna och angivna mål index fält.
+Blob-indexeraren tolkar JSON-dokumentet till ett enda Azure Cognitive Search-dokument. Indexeraren läser in ett index genom att matcha "text", "datePublished" och "tags" från källan mot identiskt namngivna och maskinskrivna målindexfält.
 
-Som anges krävs inte fält mappningar. Med ett index med fälten "text", "datePublished" och "Taggar" kan BLOB-indexeraren härleda rätt mappning utan att det finns någon fält mappning i begäran.
+Som nämnts krävs inte fältmappningar. Med tanke på ett index med fälten "text", "datePublished och "tags" kan blobindexeraren sluta sig till rätt mappning utan en fältmappning i begäran.
 
 <a name="parsing-arrays"></a>
 
-## <a name="parse-json-arrays"></a>Parsa JSON-matriser
+## <a name="parse-json-arrays"></a>Tolka JSON-matriser
 
-Du kan också använda alternativet JSON-matris. Det här alternativet är användbart när blobbar innehåller en *matris med välformulerade JSON-objekt*, och du vill att varje element ska bli ett separat Azure kognitiv sökning-dokument. Till exempel kan du med följande JSON-BLOB fylla i ditt Azure Kognitiv sökning-index med tre separata dokument, var och en med fälten "ID" och "text".  
+Du kan också använda alternativet JSON-matris. Det här alternativet är användbart när blobbar innehåller en *matris med välformade JSON-objekt*och du vill att varje element ska bli ett separat Azure Cognitive Search-dokument. Med tanke på följande JSON-blob kan du till exempel fylla i ditt Azure Cognitive Search-index med tre separata dokument, var och en med fälten "id" och "text".  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -326,7 +326,7 @@ Du kan också använda alternativet JSON-matris. Det här alternativet är anvä
         { "id" : "3", "text" : "example 3" }
     ]
 
-För en JSON-matris bör index definitions definitionen se ut ungefär som i följande exempel. Observera att parsingMode-parametern anger `jsonArray` parser. Att ange rätt parser och ha rätt data inmatning är de enda två leverantörsspecifika kraven för indexera JSON-blobbar.
+För en JSON-matris bör indexeringsdefinitionen se ut ungefär som i följande exempel. Observera att parametern parsingMode `jsonArray` anger tolken. Att ange rätt tolk och ha rätt datainmatning är de enda två matrisspecifika kraven för indexering av JSON-blobbar.
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -340,12 +340,12 @@ För en JSON-matris bör index definitions definitionen se ut ungefär som i fö
       "parameters" : { "configuration" : { "parsingMode" : "jsonArray" } }
     }
 
-Observera återigen att fält mappningar kan utelämnas. Om du antar ett index med identiskt med namnet "ID" och "text", kan BLOB-indexeraren härleda rätt mappning utan en explicit fält mappnings lista.
+Observera återigen att fältmappningar kan utelämnas. Om du antar ett index med identiskt namngivna id- och "textfält" kan blobindexeraren sluta sig till rätt mappning utan en explicit fältmappningslista.
 
 <a name="nested-json-arrays"></a>
 
-## <a name="parse-nested-arrays"></a>Parsa kapslade matriser
-För JSON-matriser med kapslade element kan du ange en `documentRoot` för att ange en struktur på flera nivåer. Om dina blobbar till exempel ser ut så här:
+## <a name="parse-nested-arrays"></a>Tolka kapslade matriser
+För JSON-matriser med kapslade `documentRoot` element kan du ange en för att ange en struktur på flera nivåer. Om dina blobbar till exempel ser ut så här:
 
     {
         "level1" : {
@@ -357,7 +357,7 @@ För JSON-matriser med kapslade element kan du ange en `documentRoot` för att a
         }
     }
 
-Använd den här konfigurationen för att indexera matrisen som finns i egenskapen `level2`:
+Använd den här konfigurationen för `level2` att indexera matrisen i egenskapen:
 
     {
         "name" : "my-json-array-indexer",
@@ -365,15 +365,15 @@ Använd den här konfigurationen för att indexera matrisen som finns i egenskap
         "parameters" : { "configuration" : { "parsingMode" : "jsonArray", "documentRoot" : "/level1/level2" } }
     }
 
-## <a name="parse-blobs-separated-by-newlines"></a>Parsa blobbar avgränsade med newlines
+## <a name="parse-blobs-separated-by-newlines"></a>Tolka blobbar åtskilda av newlines
 
-Om din BLOB innehåller flera JSON-entiteter åtskilda av en ny rad, och du vill att varje element ska bli ett separat Azure Kognitiv sökning-dokument, kan du välja alternativet JSON-linjer. Till exempel, med följande BLOB (där det finns tre olika JSON-entiteter) kan du fylla i ditt Azure Kognitiv sökning-index med tre separata dokument, var och en med fälten "ID" och "text".
+Om din blob innehåller flera JSON-entiteter avgränsade med en ny rad och du vill att varje element ska bli ett separat Azure Cognitive Search-dokument, kan du välja alternativet JSON-rader. Med tanke på följande blob (där det finns tre olika JSON-entiteter) kan du till exempel fylla i ditt Azure Cognitive Search-index med tre separata dokument, var och en med fälten "id" och "text".
 
     { "id" : "1", "text" : "example 1" }
     { "id" : "2", "text" : "example 2" }
     { "id" : "3", "text" : "example 3" }
 
-För JSON-linjer bör index indefinitionen se ut ungefär som i följande exempel. Observera att parsingMode-parametern anger `jsonLines` parser. 
+För JSON-rader bör indexeringsdefinitionen se ut ungefär som i följande exempel. Observera att parametern parsingMode `jsonLines` anger tolken. 
 
     POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
@@ -387,15 +387,15 @@ För JSON-linjer bör index indefinitionen se ut ungefär som i följande exempe
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
 
-Observera återigen att fält mappningar kan utelämnas, ungefär som `jsonArray` tolknings läge.
+Observera återigen att fältmappningar kan utelämnas, `jsonArray` ungefär som tolkningsläget.
 
-## <a name="add-field-mappings"></a>Lägg till fält mappningar
+## <a name="add-field-mappings"></a>Lägga till fältmappningar
 
-När käll-och mål fälten inte är perfekt justerade kan du definiera ett fält mappnings avsnitt i begär ande texten för explicita fält-till-fält-kopplingar.
+När käll- och målfält inte är helt justerade kan du definiera ett fältmappningsavsnitt i begärandetexten för explicita fält-till-fält-associationer.
 
-Azure Kognitiv sökning kan för närvarande inte indexera valfria JSON-dokument direkt eftersom det endast stöder primitiva data typer, sträng matriser och interjson-punkter. Du kan dock använda **fält mappningar** för att välja delar av ditt JSON-dokument och "lyft" dem till översta fält i Sök dokumentet. Information om grundläggande fält mappningar finns i [fält mappningar i Azure kognitiv sökning indexerare](search-indexer-field-mappings.md).
+Azure Cognitive Search kan för närvarande inte indexera godtyckliga JSON-dokument direkt eftersom den endast stöder primitiva datatyper, strängmatriser och GeoJSON-punkter. Du kan dock använda **fältmappningar** för att välja delar av JSON-dokumentet och "lyfta" dem till fält på den översta nivån i sökdokumentet. Mer information om grundläggande fältmappningar finns [i Fältmappningar i Azure Cognitive Search-indexerare](search-indexer-field-mappings.md).
 
-Gå till vårt exempel JSON-dokument:
+Se över vårt exempel JSON dokument:
 
     {
         "article" : {
@@ -405,7 +405,7 @@ Gå till vårt exempel JSON-dokument:
         }
     }
 
-Antag ett Sök index med följande fält: `text` av typen `Edm.String`, `date` av typen `Edm.DateTimeOffset`och `tags` av typen `Collection(Edm.String)`. Observera skillnaden mellan "datePublished" i fältet källa och `date` i indexet. Använd följande fält mappningar för att mappa JSON till önskad form:
+Anta att ett sökindex `text` med `Edm.String`följande `date` fält: av typen , av typen `Edm.DateTimeOffset`och `tags` av typen `Collection(Edm.String)`. Lägg märke till avvikelsen mellan "datePublished" i käll- och `date` fältet i indexet. Om du vill mappa din JSON till önskad form använder du följande fältmappningar:
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -413,20 +413,20 @@ Antag ett Sök index med följande fält: `text` av typen `Edm.String`, `date` a
         { "sourceFieldName" : "/article/tags", "targetFieldName" : "tags" }
       ]
 
-Käll fält namnen i mappningarna anges med [JSON-pekarens](https://tools.ietf.org/html/rfc6901) notation. Du börjar med ett snedstreck för att referera till roten i JSON-dokumentet och sedan väljer du önskad egenskap (på valfri kapslings nivå) med hjälp av en snedstreck-separerad sökväg.
+Källfältnamnen i mappningarna anges med hjälp av [notationen JSON-pekare.](https://tools.ietf.org/html/rfc6901) Du börjar med ett snedstreck för att referera till roten i JSON-dokumentet och väljer sedan önskad egenskap (på godtycklig kapslingsnivå) med hjälp av framåtsnedstrecksavgränsad sökväg.
 
-Du kan också referera till enskilda mat ris element genom att använda ett nollbaserat index. Om du till exempel vill välja det första elementet i matrisen "Taggar" från exemplet ovan använder du en fält mappning som detta:
+Du kan också referera till enskilda matriselement med hjälp av ett nollbaserat index. Om du till exempel vill välja det första elementet i matrisen "taggar" från exemplet ovan använder du en fältmappning så här:
 
     { "sourceFieldName" : "/article/tags/0", "targetFieldName" : "firstTag" }
 
 > [!NOTE]
-> Om ett käll fält namn i en sökväg för fält mappning refererar till en egenskap som inte finns i JSON, hoppas mappningen över utan fel. Detta görs så att vi kan stödja dokument med ett annat schema (som är ett vanligt användnings fall). Eftersom det inte finns någon validering måste du ta hand om att undvika skrivfel i specifikationen för fält mappning.
+> Om ett källfältnamn i en fältmappningssökväg refererar till en egenskap som inte finns i JSON hoppas mappningen över utan fel. Detta görs så att vi kan stödja dokument med ett annat schema (vilket är ett vanligt användningsfall). Eftersom det inte finns någon validering måste du vara noga med att undvika stavfel i fältmappningsspecifikationen.
 >
 >
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-+ [Indexerare i Azure Kognitiv sökning](search-indexer-overview.md)
-+ [Indexera Azure Blob Storage med Azure Kognitiv sökning](search-howto-index-json-blobs.md)
-+ [Indexera CSV-blobbar med Azure Kognitiv sökning BLOB-indexeraren](search-howto-index-csv-blobs.md)
-+ [Självstudie: söka i halv strukturerade data från Azure Blob Storage](search-semi-structured-data.md)
++ [Indexerare i Azure Cognitive Search](search-indexer-overview.md)
++ [Indexera Azure Blob Storage med Azure Cognitive Search](search-howto-index-json-blobs.md)
++ [Indexera CSV-blobbar med Azure Cognitive Search blob indexerare](search-howto-index-csv-blobs.md)
++ [Självstudiekurs: Sök efter semistrukturerad data från Azure Blob-lagring](search-semi-structured-data.md)

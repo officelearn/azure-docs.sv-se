@@ -1,29 +1,29 @@
 ---
-title: Microsoft Threat Modeling Tool version 02/11/2020 – Azure
-description: Dokumentera viktig information för verktyget Threat Modeling
+title: Microsoft Threat Modeling Tool release 2020/02/11 - Azure
+description: Dokumentera viktig information för verktyget för hotmodellering
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 02/25/2020
 ms.openlocfilehash: 354707aec90375b4bf25aea6e1baa743d85f20aa
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77624844"
 ---
-# <a name="threat-modeling-tool-update-release-73002061---02112020"></a>Threat Modeling Tool uppdaterings version 7.3.00206.1 – 02/11/2020
+# <a name="threat-modeling-tool-update-release-73002061---02112020"></a>Hot Modeling Tool uppdatering release 7.3.00206.1 - 2020-02-11
 
-Version 7.3.00206.1 av Microsoft Threat Modeling Tool (TMT) släpptes den 11 2020 februari och innehåller följande ändringar:
+Version 7.3.00206.1 av Microsoft Threat Modeling Tool (TMT) släpptes den 11 februari 2020 och innehåller följande ändringar:
 
 - Felkorrigeringar
 
-## <a name="notable-bug-fixes"></a>Viktiga fel korrigeringar
+## <a name="notable-bug-fixes"></a>Anmärkningsvärda buggfixar
 
-### <a name="errors-related-to-priority-values-outside-of-the-expected-ranges"></a>Fel relaterade till prioritets värden utanför förväntade intervall
+### <a name="errors-related-to-priority-values-outside-of-the-expected-ranges"></a>Fel relaterade till prioritetsvärden utanför de förväntade intervallen
 
-Vissa kunder hade rapporterat följande fel meddelande när de öppnade filer som skapades i "Threat Modeling Tool 2016" eller anpassade mallar:
+Vissa kunder hade rapporterat att de fick följande felmeddelande när de öppnade filer som skapats i mallarna "Threat Modeling Tool 2016" eller anpassade:
 
     System.InvalidOperationException: Invalid Priority value. Accepted values are [0..4] and 'High', 'Medium', 'Low' at ThreatModeling.Model.Threat.get_Priority()
     
@@ -34,16 +34,16 @@ Det här problemet har lösts i den här versionen.
 ## <a name="system-requirements"></a>Systemkrav
 
 - Operativsystem som stöds
-  - [Uppdatering av Microsoft Windows 10-årsdag](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) eller senare
+  - [Microsoft Windows 10 Anniversary Update](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update/#HTkoK5Zdv0g2F2Zq.97) eller senare
 - .NET-version krävs
-  - [.NET-4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) eller senare
+  - [.Net 4.7.1](https://go.microsoft.com/fwlink/?LinkId=863262) eller senare
 - Ytterligare krav
-  - En Internet anslutning krävs för att ta emot uppdateringar av verktyget och mallar.
+  - En Internetanslutning krävs för att ta emot uppdateringar av verktyget och mallar.
 
 ## <a name="documentation-and-feedback"></a>Dokumentation och feedback
 
-- Dokumentationen för Threat Modeling Tool finns på [docs.Microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)och innehåller information [om hur du använder verktyget](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
+- Dokumentation för hotmodelleringsverktyget finns på [docs.microsoft.com](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)och innehåller information [om hur du använder verktyget](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool-getting-started).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ladda ned den senaste versionen av [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).
+Hämta den senaste versionen av [Microsoft Threat Modeling Tool](https://aka.ms/threatmodelingtool).

@@ -1,6 +1,6 @@
 ---
 title: Använda Azure Storage Explorer med Azure Data Lake Storage Gen2
-description: Använd Azure Storage Explorer för att hantera kataloger och åtkomst kontrol listor för filer och kataloger (ACL) i lagrings konton med hierarkiskt namn område (HNS) aktiverat.
+description: Använd Azure Storage Explorer för att hantera kataloger och ACL (File and Directory Access Control List) i lagringskonton som har aktiverat hierarkiskt namnområde (HNS).
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -9,34 +9,34 @@ ms.date: 01/23/2019
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: fca9fa8a964c6c9d69ffbb3036bd4774e0d1bd34
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79255553"
 ---
-# <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd Azure Storage Explorer för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använda Azure Storage Explorer för att hantera kataloger, filer och ACL:er i Azure Data Lake Storage Gen2
 
-Den här artikeln visar hur du använder [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att skapa och hantera kataloger, filer och behörigheter i lagrings konton med hierarkiskt namn område (HNS) aktiverat.
+Den här artikeln visar hur du använder [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) för att skapa och hantera kataloger, filer och behörigheter i lagringskonton som har aktiverat hierarkiskt namnområde (HNS).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 > [!div class="checklist"]
 > * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-> * Ett lagrings konto med hierarkiskt namn område (HNS) aktiverat. Följ [de här](data-lake-storage-quickstart-create-account.md) anvisningarna för att skapa en.
-> * Azure Storage Explorer installerat på den lokala datorn. Information om hur du installerar Azure Storage Explorer för Windows, Macintosh och Linux finns i [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+> * Ett lagringskonto med hierarkiskt namnområde (HNS) aktiverat. Följ [dessa](data-lake-storage-quickstart-create-account.md) instruktioner för att skapa en.
+> * Azure Storage Explorer installerat på din lokala dator. Information om hur du installerar Azure Storage Explorer för Windows, Macintosh och Linux finns i [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## <a name="sign-in-to-storage-explorer"></a>Logga in på Storage Explorer
+## <a name="sign-in-to-storage-explorer"></a>Logga in i Storage Explorer
 
 När du först startar Storage Explorer visas fönstret **Microsoft Azure Storage Explorer – anslut**. Storage Explorer erbjuder flera sätt att ansluta till lagringskonton, men för närvarande stöds bara ett sätt för att hantera ACL: er.
 
 |Aktivitet|Syfte|
 |---|---|
-|Lägga till ett Azure-konto | Omdirigerar dig till din organisations inloggnings sida för att autentisera dig för Azure. Det här är för närvarande den enda autentiseringsmetod som stöds om du vill hantera och ange ACL: er.|
+|Lägga till ett Azure-konto | Omdirigerar dig till organisationens inloggningssida för att autentisera dig till Azure. Det här är för närvarande den enda autentiseringsmetod som stöds om du vill hantera och ange ACL: er.|
 |Använda en anslutningssträng eller en signatur-URI för delad åtkomst | Kan användas för direkt åtkomst till en container eller ett lagringskonto med en SAS-token eller en delad anslutningssträng. |
 |Använda lagringskontots namn och nyckel| Använd lagringskontonamnet och nyckeln för ditt lagringskonto för att ansluta till Azure Storage.|
 
-Välj **Lägg till ett Azure-konto** och klicka på **Logga in..** . Logga in på ditt Azure-konto genom att följa anvisningarna på skärmen.
+Välj **Lägg till ett Azure-konto** och klicka på Logga **in..**. Följ anvisningarna på skärmen för att logga in på ditt Azure-konto.
 
 ![Fönstret Microsoft Azure Storage Explorer – anslut](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -46,19 +46,19 @@ När anslutningen är klar läses Azure Storage Explorer in med fliken **Utforsk
 
 ## <a name="create-a-container"></a>Skapa en container
 
-En behållare innehåller kataloger och filer. Om du vill skapa ett expanderar du det lagrings konto som du skapade i steget Fortsätt. Välj **Blob Containers** (Blob-behållare), högerklicka och välj **Create Blob Container** (Skapa blob-behållare). Ange namnet på din behållare. Se avsnittet [skapa en behållare](storage-quickstart-blobs-dotnet.md#create-a-container) för en lista över regler och begränsningar för namn containrar. När du är klar trycker du på **RETUR** för att skapa behållaren. När behållaren har skapats visas den under mappen **BLOB containers** för det valda lagrings kontot.
+En behållare innehåller kataloger och filer. Om du vill skapa ett expanderar du lagringskontot som du skapade i ingåendet. Välj **Blob Containers** (Blob-behållare), högerklicka och välj **Create Blob Container** (Skapa blob-behållare). Ange namnet på din behållare. Se avsnittet [Skapa en behållare](storage-quickstart-blobs-dotnet.md#create-a-container) för en lista över regler och begränsningar för namngivning av behållare. När du är klar trycker du på **Retur** för att skapa behållaren. När behållaren har skapats visas den under mappen **Blob Containers** för det valda lagringskontot.
 
-![Microsoft Azure Storage Explorer – skapa en behållare](media/data-lake-storage-explorer/creating-a-filesystem.png)
+![Microsoft Azure Storage Explorer – Skapa en behållare](media/data-lake-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="create-a-directory"></a>Skapa en katalog
 
-Om du vill skapa en katalog väljer du den behållare som du skapade i steget för att fortsätta. I menyfliksområdet container väljer du knappen **ny mapp** . Ange namnet på din katalog. När du är klar trycker du på **RETUR** för att skapa katalogen. När katalogen har skapats visas den i redigerings fönstret.
+Om du vill skapa en katalog markerar du den behållare som du skapade i ingåendet. Välj knappen **Ny mapp i menyfliksområdet för** behållaren. Ange namnet på katalogen. När du är klar trycker du på **Retur** för att skapa katalogen. När katalogen har skapats visas den i redigeringsfönstret.
 
-![Microsoft Azure Storage Explorer – skapa en katalog](media/data-lake-storage-explorer/creating-a-directory.png)
+![Microsoft Azure Storage Explorer – Skapa en katalog](media/data-lake-storage-explorer/creating-a-directory.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>Ladda upp blobar till katalogen
 
-I menyfliksområdet katalog väljer du knappen **överför** . Den här åtgärden ger dig möjlighet att ladda upp en mapp eller fil.
+Välj knappen **Ladda upp** i katalogfliksområdet. Den här åtgärden ger dig möjlighet att ladda upp en mapp eller fil.
 
 Välj de filer eller mappar du vill ladda upp.
 
@@ -74,11 +74,11 @@ I programmet **Azure Storage Explorer** väljer du en katalog under ett lagrings
 
 ## <a name="download-blobs"></a>Ladda ned blobbar
 
-Om du vill hämta filer med hjälp av **Azure Storage Explorer**väljer du **Ladda ned** från menyfliksområdet när en fil har valts. En fildialogruta öppnas och där du kan ange ett filnamn. Klicka på **Spara** för att starta nedladdningen av en fil till den lokala platsen.
+Om du vill hämta filer med Hjälp av **Azure Storage Explorer**väljer du **Hämta** från menyfliksområdet. En fildialogruta öppnas och där du kan ange ett filnamn. Välj **Spara** om du vill starta hämtningen av en fil till den lokala platsen.
 
 ## <a name="managing-access"></a>Hantera åtkomst
 
-Du kan ange behörigheter i roten för din behållare. För att göra det måste du vara inloggad på Azure Storage Explorer med ditt enskilda konto med behörighet att göra detta (till skillnad från med en anslutnings sträng). Högerklicka på din behållare och välj **Hantera behörigheter**, så visas dialog rutan **Hantera behörighet** .
+Du kan ange behörigheter i behållarens rot. För att göra det måste du vara inloggad i Azure Storage Explorer med ditt enskilda konto med behörighet att göra det (i motsats till med en anslutningssträng). Högerklicka på behållaren och välj **Hantera behörigheter**och hämta dialogrutan **Hantera behörighet.**
 
 ![Microsoft Azure Storage Explorer – Hantera katalogåtkomst](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
@@ -88,18 +88,18 @@ Du kan lägga till en ny användare eller grupp i åtkomstkontrollistan genom at
 
 Ange motsvarande Azure Active Directory-post (AAD) du vill lägga till i listan och välj sedan **Lägg till**.
 
-Användaren eller gruppen visas nu i fältet **Användare och grupper:** , där du kan börja hantera deras behörigheter.
+Användaren eller gruppen visas nu i fältet **Användare och grupper:**, där du kan börja hantera deras behörigheter.
 
 > [!NOTE]
 > Vi rekommenderar bästa praxis att skapa en säkerhetsgrupp i AAD och hantera behörigheter för gruppen istället för enskilda användare. Information om den här rekommendationen, samt andra metodtips, finns i [metodtipsen för Data Lake Storage Gen2](data-lake-storage-best-practices.md).
 
 Det finns två kategorier av behörigheter du kan tilldela: åtkomst-ACL och standard-ACL.
 
-* **Åtkomst**: åtkomst kontrol listor styr åtkomst till ett objekt. Filer och kataloger har båda åtkomst-ACL:er.
+* **Åtkomst:** Åtkomstkontrollistor styr åtkomsten till ett objekt. Filer och kataloger har båda åtkomst-ACL:er.
 
-* **Standard**: en mall för ACL: er som är kopplade till en katalog som fastställer åtkomst-ACL: er för underordnade objekt som skapas under den katalogen. Filer har inte standard-ACL:er.
+* **Standard**: En mall med ACL:er som är associerad med en katalog som bestämmer åtkomstkontrollistorna för underordnade objekt som skapas under den katalogen. Filer har inte standard-ACL:er.
 
-I båda dessa kategorier finns tre behörigheter som du kan tilldela till filer eller kataloger: **läsa**, **skriva**och **köra**.
+Inom båda dessa kategorier finns det tre behörigheter som du sedan kan tilldela på filer eller kataloger: **Läs**, **Skriv**och **Kör**.
 
 >[!NOTE]
 > När du gör val här anges inte behörigheter för några befintliga objekt i katalogen. Du måste gå till varje enskilt objekt och ange behörigheterna manuellt, om filen redan finns.
@@ -108,7 +108,7 @@ Du kan hantera behörigheter för enskilda kataloger, och enskilda filer, vilket
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om åtkomst kontrol listor i Data Lake Storage Gen2.
+Lär dig åtkomstkontrollistor i Gen2 för lagring av datasjö.
 
 > [!div class="nextstepaction"]
 > [Åtkomstkontroll i Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)

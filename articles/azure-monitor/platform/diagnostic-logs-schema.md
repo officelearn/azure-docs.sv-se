@@ -1,319 +1,319 @@
 ---
-title: Tjänster och scheman som stöds av Azure-resurs loggar
-description: Förstå tjänster och händelse schema som stöds för Azures resurs loggar.
+title: Azure Resource Logs stöds tjänster och scheman
+description: Förstå de tjänster och händelseschema som stöds för Azure-resursloggar.
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
 ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79248819"
 ---
-# <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Tjänster, scheman och kategorier som stöds för Azure-resurs loggar
+# <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Tjänster, scheman och kategorier för Azure Resource Logs som stöds
 
 > [!NOTE]
-> Resurs loggar kallades tidigare för diagnostikloggar.
+> Resursloggar kallades tidigare diagnostikloggar.
 
-[Azure Monitor resurs loggar](../../azure-monitor/platform/platform-logs-overview.md) genereras av Azure-tjänster som beskriver driften av dessa tjänster eller resurser. Alla resurs loggar som är tillgängliga via Azure Monitor dela ett gemensamt schema på högsta nivå, med flexibilitet för varje tjänst för att generera unika egenskaper för sina egna händelser.
+[Azure Monitor-resursloggar](../../azure-monitor/platform/platform-logs-overview.md) är loggar som skickas ut av Azure-tjänster som beskriver driften av dessa tjänster eller resurser. Alla resursloggar som är tillgängliga via Azure Monitor delar ett gemensamt schema på den högsta nivån, med flexibilitet för varje tjänst att avge unika egenskaper för sina egna händelser.
 
-En kombination av resurs typen (tillgänglig i egenskapen `resourceId`) och `category` unikt identifierar ett schema. Den här artikeln beskriver schemat på högsta nivån för resurs loggar och länkar till scheman för varje tjänst.
+En kombination av resurstypen `resourceId` (tillgänglig i `category` egenskapen) och ett unikt identifiering av ett schema. I den här artikeln beskrivs schemat på den högsta nivån för resursloggar och länkar till schemat för varje tjänst.
 
-## <a name="top-level-resource-logs-schema"></a>Schema för resurs loggar på högsta nivån
+## <a name="top-level-resource-logs-schema"></a>Schema för resursloggar på högsta nivå
 
 | Namn | Obligatorisk/valfri | Beskrivning |
 |---|---|---|
-| time | Krävs | Tids stämplingen (UTC) för händelsen. |
-| resourceId | Krävs | Resurs-ID för den resurs som har orsakat händelsen. För klient tjänster är detta av formatet/Tenants/Tenant-ID/providers/Provider-Name. |
-| tenantId | Krävs för klient loggar | Klient-ID för den Active Directory klient som den här händelsen är kopplad till. Den här egenskapen används bara för loggar på klient nivå, den visas inte i loggar på resurs nivå. |
-| operationName | Krävs | Namnet på åtgärden som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd är detta namnet på RBAC-åtgärden (t. ex. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Vanligt vis modelleras i form av en Resource Manager-åtgärd, även om de inte är faktiska dokumenterade Resource Manager-åtgärder (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Valfri | Den API-version som är kopplad till åtgärden, om operationName utfördes med hjälp av ett API (t. ex. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Om det inte finns något API som motsvarar den här åtgärden representerar-versionen den åtgärd som är associerad med åtgärden i framtiden. |
-| category | Krävs | Händelsens logg kategori. Kategori är den granularitet som du kan använda för att aktivera eller inaktivera loggar för en viss resurs. Egenskaperna som visas i en händelses egenskaps-BLOB är desamma inom en viss logg kategori och resurs typ. Typiska logg kategorier är "granskning", "körning" och "begäran". |
-| resultType | Valfri | Händelsens status. Vanliga värden är startad, pågår, lyckades, misslyckades, aktivt och löst. |
-| resultSignature | Valfri | Händelsens under status. Om den här åtgärden motsvarar ett REST API-anrop är detta HTTP-statuskod för motsvarande REST-anrop. |
-| resultDescription | Valfri | Den statiska text beskrivningen för den här åtgärden, t. ex. "Hämta lagrings fil". |
-| durationMs | Valfri | Åtgärdens varaktighet i millisekunder. |
-| callerIpAddress | Valfri | IP-adressen för anroparen, om åtgärden motsvarar ett API-anrop som kommer från en entitet med en offentligt tillgänglig IP-adress. |
-| correlationId | Valfri | Ett GUID som används för att gruppera samman en uppsättning relaterade händelser. Normalt, om två händelser har samma operationName men två olika status värden (t. ex. "Startade" och "lyckades") delar samma korrelations-ID. Detta kan även representera andra relationer mellan händelser. |
-| identity | Valfri | En JSON-blob som beskriver identiteten för den användare eller det program som utförde åtgärden. Detta inkluderar vanligt vis auktorisering och anspråk/JWT-token från Active Directory. |
-| Nivå | Valfri | Händelsens allvarlighets grad. Måste vara en av information, varning, fel eller kritisk. |
-| location | Valfri | Den region i resursen som avger händelsen, t. ex. "USA, östra" eller "Frankrike, södra" |
-| properties | Valfri | Eventuella utökade egenskaper som är relaterade till den här specifika kategorin av händelser. Alla anpassade/unika egenskaper måste placeras i det här "del B" av schemat. |
+| time | Krävs | Tidsstämpeln (UTC) för händelsen. |
+| resourceId | Krävs | Resurs-ID för den resurs som avgav händelsen. För klienttjänster är detta av formuläret /tenants/tenant-id/providers/provider-name. |
+| tenantId (hyresgäst) | Krävs för klientloggar | Klient-ID för Active Directory-klienten som den här händelsen är knuten till. Den här egenskapen används endast för loggar på klientnivå, den visas inte i resursnivåloggar. |
+| operationName | Krävs | Namnet på den åtgärd som representeras av den här händelsen. Om händelsen representerar en RBAC-åtgärd är detta RBAC-åtgärdsnamnet (t.ex. Microsoft.Storage/storageAccounts/blobServices/blobbar/Read). Modelleras vanligtvis i form av en Resource Manager-åtgärd, även om`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`de inte är faktiska dokumenterade Resource Manager-åtgärder ( ) |
+| operationVersion | Valfri | Api-versionen som är associerad med åtgärden, om operationName utfördes med hjälp av ett API (t.ex. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Om det inte finns något API som motsvarar den här åtgärden representerar versionen den versionen av åtgärden om egenskaperna som är associerade med åtgärden ändras i framtiden. |
+| category | Krävs | Loggkategorin för händelsen. Kategori är den granularitet där du kan aktivera eller inaktivera loggar på en viss resurs. De egenskaper som visas i egenskapsbloben för en händelse är desamma inom en viss loggkategori och resurstyp. Typiska loggkategorier är "Granska" "Operativ" "Utförande" och "Begäran". |
+| resultType | Valfri | Status för händelsen. Typiska värden är Startad, Pågår, Lyckades, Misslyckades, Aktiv och Löst. |
+| resultSignature | Valfri | Händelsens understatus. Om den här åtgärden motsvarar ett REST API-anrop är detta HTTP-statuskoden för motsvarande REST-anrop. |
+| resultDescription | Valfri | Den statiska textbeskrivningen av denna operation, t.ex. "Hämta lagringsfil." |
+| durationMs | Valfri | Varaktigheten av operationen i millisekunder. |
+| callerIpAddress | Valfri | Anroparens IP-adress, om åtgärden motsvarar ett API-anrop som skulle komma från en entitet med en allmänt tillgänglig IP-adress. |
+| correlationId | Valfri | Ett GUID som används för att gruppera en uppsättning relaterade händelser. Vanligtvis, om två händelser har samma operationName men två olika status (t.ex. "Startade" och "Lyckades" de har samma korrelations-ID. Detta kan också representera andra relationer mellan händelser. |
+| identity | Valfri | En JSON-blob som beskriver identiteten på den användare eller det program som utförde åtgärden. Vanligtvis inkluderar detta auktorisering och anspråk / JWT-token från Active Directory. |
+| Nivå | Valfri | Allvarlighetsgraden för händelsen. Måste vara en av Informativ, Varning, Fel eller Kritisk. |
+| location | Valfri | Regionen för den resurs som avger händelsen, t.ex. "Östra USA" eller "Frankrike South" |
+| properties | Valfri | Alla utökade egenskaper som är relaterade till den här specifika kategori av händelser. Alla anpassade/unika egenskaper måste placeras i den här "del B" i schemat. |
 
-## <a name="service-specific-schemas-for-resource-logs"></a>Tjänstspecifika scheman för resurs loggar
-Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg kategori. I den här listan visas alla tjänster som gör tillgängliga resurs loggar och länkar till tjänsten och det projektspecifika schemat där det är tillgängligt.
+## <a name="service-specific-schemas-for-resource-logs"></a>Tjänstspecifika scheman för resursloggar
+Schemat för resursdiagnostikloggar varierar beroende på resurs- och loggkategori. I den här listan visas alla tjänster som gör tillgängliga resursloggar och länkar till det tjänst- och kategorispecifika schemat där det finns tillgängligt.
 
 | Tjänst | Schema & dokument |
 | --- | --- |
-| Azure Active Directory | [Översikt](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), schema för [Gransknings logg](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) och [inloggnings tillägg](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Översikt,](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md) [granskningsloggschema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) och [inloggningsschema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
-| API Management | [API Management resurs loggar](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
-| Programgateways |[Loggning för Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
-| Azure Automation |[Log Analytics för Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
-| Azure Batch |[Azure Batch loggning](../../batch/batch-diagnostics.md) |
-| Azure Database for MySQL | [Azure Database for MySQL diagnostikloggar](../../mysql/concepts-server-logs.md#diagnostic-logs) |
-| Azure Database for PostgreSQL | [Azure Database for PostgreSQL loggar](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Azure-datautforskaren | [Azure Datautforskaren-loggar](../../data-explorer/using-diagnostic-logs.md) |
-| Cognitive Services | [Loggning för Azure-Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
-| Container Registry | [Loggning för Azure Container Registry](../../container-registry/container-registry-diagnostics-audit-logs.md) |
+| API Management | [API Management resursloggar](../../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
+| Programgateways |[Logga för programgateway](../../application-gateway/application-gateway-diagnostics.md) |
+| Azure Automation |[Logganalys för Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
+| Azure Batch |[Loggning av Azure Batch](../../batch/batch-diagnostics.md) |
+| Azure Database for MySQL | [Diagnostikloggar i Azure Database för MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database for PostgreSQL | [Azure-databas för PostgreSQL-loggar](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
+| Azure-datautforskaren | [Azure Data Explorer-loggar](../../data-explorer/using-diagnostic-logs.md) |
+| Cognitive Services | [Logga för Azure Cognitive Services](../../cognitive-services/diagnostic-logging.md) |
+| Container Registry | [Loggning för Azure-behållarregister](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [Azure-loggar för CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
-| CosmosDB | [Azure Cosmos DB loggning](../../cosmos-db/logging.md) |
-| Data Factory | [Övervaka data fabriker med hjälp av Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
-| Data Lake Analytics |[Åtkomst till loggar för Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
-| Data Lake Store |[Åtkomst till loggar för Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Event Hubs |[Azure Event Hubs-loggar](../../event-hubs/event-hubs-diagnostic-logs.md) |
+| CosmosDB | [Azure Cosmos DB-loggning](../../cosmos-db/logging.md) |
+| Data Factory | [Övervaka datafabriker med Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
+| Data Lake Analytics |[Komma åt loggar för Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| Data Lake Store |[Komma åt loggar för Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| Händelsehubbar |[Azure Event Hubs loggar](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schemat är inte tillgängligt. |
 | Azure Firewall | Schemat är inte tillgängligt. |
-| IoT Hub | [IoT Hub åtgärder](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Key Vault |[Azure Key Vault-loggning](../../key-vault/key-vault-logging.md) |
-| Kubernetes Service |[Azure Kubernetes-loggning](../../aks/view-master-logs.md#log-event-schema) |
-| Lastbalanserare |[Logganalys för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
+| IoT Hub | [IoT Hub-verksamhet](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| Key Vault |[Loggning av Azure Key Vault](../../key-vault/key-vault-logging.md) |
+| Kubernetes Service |[Loggning av Azure Kubernetes](../../aks/view-master-logs.md#log-event-schema) |
+| Lastbalanserare |[Log Analytics för Azure Load Balancer](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Anpassat Logic Apps B2B-spårningsschema](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Nätverkssäkerhetsgrupper |[Log Analytics för nätverkssäkerhetsgrupper (NSG)](../../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS Protection | [Hantera Azure DDoS Protection standard](../../virtual-network/manage-ddos-protection.md) |
-| Dedikerad Power BI | [Loggning för Power BI Embedded i Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
-| Recovery Services | [Data modell för Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Söka |[Aktivera och använda Sök Trafikanalys](../../search/search-traffic-analytics.md) |
+| DDOS-skydd | [Hantera Azure DDoS Protection Standard](../../virtual-network/manage-ddos-protection.md) |
+| Dedikerad Power BI | [Loggning för Power BI inbäddad i Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
+| Recovery Services | [Datamodell för Azure Backup](../../backup/backup-azure-reports-data-model.md)|
+| Search |[Aktivera och använda Search Traffic Analytics](../../search/search-traffic-analytics.md) |
 | Service Bus |[Azure Service Bus loggar](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Azure SQL Database loggning](../../sql-database/sql-database-metrics-diag-logging.md) |
-| Stream Analytics |[Jobb loggar](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
-| Traffic Manager | [Traffic Manager logg schema](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
+| SQL Database | [Loggning av Azure SQL-databas](../../sql-database/sql-database-metrics-diag-logging.md) |
+| Stream Analytics |[Jobbloggar](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Traffic Manager | [Loggschema för Traffic Manager](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Virtuella nätverk | Schemat är inte tillgängligt. |
 | Virtuella nätverksgatewayer | Schemat är inte tillgängligt. |
 
-## <a name="supported-log-categories-per-resource-type"></a>Logg kategorier som stöds per resurs typ
+## <a name="supported-log-categories-per-resource-type"></a>Loggkategorier som stöds per resurstyp
 
-Vissa kategorier kan bara användas för vissa typer av resurser. Det här är en lista över alla som är tillgängliga i ett visst formulär.  Till exempel är inte kategorierna Microsoft. SQL/Server/Databass tillgängliga för alla typer av databaser. Mer information finns i [information om SQL Database diagnostisk loggning](../../sql-database/sql-database-metrics-diag-logging.md). 
+Vissa kategorier kanske bara stöds för specifika typer av resurser. Det här är en lista över alla som är tillgängliga i någon form.  Kategorier för Microsoft.Sql/servrar/databaser är till exempel inte tillgängliga för alla typer av databaser. Mer information finns i [information om diagnostikloggning av SQL Database](../../sql-database/sql-database-metrics-diag-logging.md). 
 
-|Resurstyp|Kategori|Kategori visnings namn|
+|Resurstyp|Kategori|Visningsnamn för kategori|
 |---|---|---|
-|Microsoft. AAD/domainServices|SystemSecurity|SystemSecurity|
-|Microsoft. AAD/domainServices|AccountManagement|AccountManagement|
-|Microsoft. AAD/domainServices|LogonLogoff|LogonLogoff|
-|Microsoft. AAD/domainServices|ObjectAccess|ObjectAccess|
-|Microsoft. AAD/domainServices|PolicyChange|PolicyChange|
-|Microsoft. AAD/domainServices|PrivilegeUse|PrivilegeUse|
-|Microsoft. AAD/domainServices|DetailTracking|DetailTracking|
-|Microsoft. AAD/domainServices|DirectoryServiceAccess|DirectoryServiceAccess|
-|Microsoft. AAD/domainServices|AccountLogon|AccountLogon|
-|Microsoft. aadiam/klient organisationer|Inloggning|Inloggning|
-|Microsoft.AnalysisServices/servers|Motorn|Motorn|
-|Microsoft.AnalysisServices/servers|Tjänst|Tjänst|
-|Microsoft.ApiManagement/service|GatewayLogs|Loggar som rör API Management-Gateway|
-|Microsoft. AppPlatform/våren|ApplicationConsole|Program konsol|
-|Microsoft. Automation/automationAccounts|JobLogs|Jobb loggar|
-|Microsoft. Automation/automationAccounts|JobStreams|Jobb strömmar|
-|Microsoft. Automation/automationAccounts|DscNodeStatus|DSC-nods status|
-|Microsoft.Batch/batchAccounts|ServiceLog|Tjänst loggar|
-|Microsoft. BatchAI/arbets ytor|BaiClusterEvent|BaiClusterEvent|
-|Microsoft. BatchAI/arbets ytor|BaiClusterNodeEvent|BaiClusterNodeEvent|
-|Microsoft. BatchAI/arbets ytor|BaiJobEvent|BaiJobEvent|
-|Microsoft.Blockchain/blockchainMembers|BlockchainApplication|Blockchain-program|
-|Microsoft.Blockchain/blockchainMembers|Proxy|Proxy|
-|Microsoft. CDN/profiler/slut punkter|CoreAnalytics|Hämtar Mät värdena för slut punkten, t. ex. bandbredd, utgående data osv.|
-|Microsoft.ClassicNetwork/networksecuritygroups|Regel flödes händelse för nätverks säkerhets grupp|Regel flödes händelse för nätverks säkerhets grupp|
-|Microsoft.CognitiveServices/accounts|Granska|Granskningsloggar|
-|Microsoft.CognitiveServices/accounts|RequestResponse|Förfrågningar och svars loggar|
-|Microsoft. ContainerRegistry/register|ContainerRegistryRepositoryEvents|RepositoryEvent-loggar (förhands granskning)|
-|Microsoft. ContainerRegistry/register|ContainerRegistryLoginEvents|Inloggnings händelser (förhands granskning)|
-|Microsoft. container service/managedClusters|kube-apiserver|Kubernetes-API-Server|
-|Microsoft. container service/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
-|Microsoft. container service/managedClusters|kube-scheduler|Kubernetes Scheduler|
-|Microsoft. container service/managedClusters|Kube – granskning|Kubernetes granskning|
-|Microsoft. container service/managedClusters|cluster-autoscaler|Kubernetes-kluster autoskalning|
-|Microsoft. Databricks/arbets ytor|dBFS|Databricks-filsystem|
-|Microsoft. Databricks/arbets ytor|kluster|Databricks-kluster|
-|Microsoft. Databricks/arbets ytor|konton|Databricks-konton|
-|Microsoft. Databricks/arbets ytor|utskrifts|Databricks-jobb|
-|Microsoft. Databricks/arbets ytor|1150|Databricks-anteckningsbok|
-|Microsoft. Databricks/arbets ytor|SSH|Databricks SSH|
-|Microsoft. Databricks/arbets ytor|arbetsyta|Databricks-arbetsyta|
-|Microsoft. Databricks/arbets ytor|hemligheter|Databricks hemligheter|
-|Microsoft. Databricks/arbets ytor|sqlPermissions|Databricks SQLPermissions|
-|Microsoft. Databricks/arbets ytor|instancePools|Instans-pooler|
-|Microsoft. DataCatalog/datacatalogs|ScanStatusLogEvent|ScanStatus|
-|Microsoft. DataFactory/fabriker|ActivityRuns|Pipeline-aktivitet kör logg|
-|Microsoft. DataFactory/fabriker|PipelineRuns|Pipeline kör logg|
-|Microsoft. DataFactory/fabriker|TriggerRuns|Utlös körnings logg|
-|Microsoft.DataLakeAnalytics/accounts|Granska|Granskningsloggar|
-|Microsoft.DataLakeAnalytics/accounts|Begäranden|Begär ande loggar|
-|Microsoft.DataLakeStore/accounts|Granska|Granskningsloggar|
-|Microsoft.DataLakeStore/accounts|Begäranden|Begär ande loggar|
-|Microsoft. DataShare/konton|Resurser|Resurser|
-|Microsoft. DataShare/konton|ShareSubscriptions|Dela prenumerationer|
-|Microsoft. DataShare/konton|SentShareSnapshots|Ögonblicks bilder av skickade resurser|
-|Microsoft. DataShare/konton|ReceivedShareSnapshots|Mottagna resurs ögonblicks bilder|
-|Microsoft. DBforMySQL/servers|MySqlSlowLogs|MySQL server-loggar|
-|Microsoft. DBforMySQL/servers|MySqlAuditLogs|MySQL gransknings loggar|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL Server-loggar|
-|Microsoft.DBforPostgreSQL/servers|QueryStoreRuntimeStatistics|PostgreSQL för fråge lagrings körning|
-|Microsoft.DBforPostgreSQL/servers|QueryStoreWaitStatistics|Väntande statistik för PostgreSQL Query Store|
-|Microsoft.DBforPostgreSQL/serversv2|PostgreSQLLogs|PostgreSQL Server-loggar|
-|Microsoft.DBforPostgreSQL/serversv2|QueryStoreRuntimeStatistics|PostgreSQL för fråge lagrings körning|
-|Microsoft.DBforPostgreSQL/serversv2|QueryStoreWaitStatistics|Väntande statistik för PostgreSQL Query Store|
-|Microsoft. DesktopVirtualization/arbets ytor|Checkpoint|Checkpoint|
-|Microsoft. DesktopVirtualization/arbets ytor|Fel|Fel|
-|Microsoft. DesktopVirtualization/arbets ytor|Hantering|Hantering|
-|Microsoft. DesktopVirtualization/arbets ytor|Tillförsel|Tillförsel|
-|Microsoft. DesktopVirtualization/applicationGroups|Checkpoint|Checkpoint|
-|Microsoft. DesktopVirtualization/applicationGroups|Fel|Fel|
-|Microsoft. DesktopVirtualization/applicationGroups|Hantering|Hantering|
-|Microsoft. DesktopVirtualization/hostPools|Checkpoint|Checkpoint|
-|Microsoft. DesktopVirtualization/hostPools|Fel|Fel|
-|Microsoft. DesktopVirtualization/hostPools|Hantering|Hantering|
-|Microsoft. DesktopVirtualization/hostPools|Anslutning|Anslutning|
-|Microsoft. DesktopVirtualization/hostPools|HostRegistration|HostRegistration|
+|Microsoft.AAD/domainServices|SystemSäkerhet|SystemSäkerhet|
+|Microsoft.AAD/domainServices|AccountManagement|AccountManagement|
+|Microsoft.AAD/domainServices|Inloggningsloggoff|Inloggningsloggoff|
+|Microsoft.AAD/domainServices|ObjectAccess (objekt)|ObjectAccess (objekt)|
+|Microsoft.AAD/domainServices|PolicyChange|PolicyChange|
+|Microsoft.AAD/domainServices|PrivilegiumAnvänd|PrivilegiumAnvänd|
+|Microsoft.AAD/domainServices|DetailTracking|DetailTracking|
+|Microsoft.AAD/domainServices|DirectoryServiceAccess|DirectoryServiceAccess|
+|Microsoft.AAD/domainServices|KontoLoggon|KontoLoggon|
+|microsoft.aadiam/klienter|Signin (på andra)|Signin (på andra)|
+|Microsoft.AnalysisServices/servrar|Motor|Motor|
+|Microsoft.AnalysisServices/servrar|Tjänst|Tjänst|
+|Microsoft.ApiManagement/service|GatewayLogs|Loggar relaterade till ApiManagement Gateway|
+|Microsoft.AppPlattform/Fjäder|AnsökanConsole|Programkonsol|
+|Microsoft.Automation/automationKonton|Jobbloggar|Jobbloggar|
+|Microsoft.Automation/automationKonton|JobStreams (JobbStrömmar)|Jobbströmmar|
+|Microsoft.Automation/automationKonton|DscNodeStatus|Status för Dsc-nod|
+|Microsoft.Batch/batchKonton|ServiceLogg|Serviceloggar|
+|Microsoft.BatchAI/arbetsytor|BaiClusterevent (på andra sätt)|BaiClusterevent (på andra sätt)|
+|Microsoft.BatchAI/arbetsytor|BaiClusterNodeEvent|BaiClusterNodeEvent|
+|Microsoft.BatchAI/arbetsytor|BaiJobEvent (0)|BaiJobEvent (0)|
+|Microsoft.Blockchain/blockchainMedlem|BlockchainApplication|Blockchain-program|
+|Microsoft.Blockchain/blockchainMedlem|Proxy|Proxy|
+|Microsoft.Cdn/profiler/slutpunkter|CoreAnalytics (Kärnanalytika)|Hämtar måtten för slutpunkten, t.ex.|
+|Microsoft.ClassicNetwork/networksecuritygroups|Regelflödeshändelse för nätverkssäkerhetsgrupp|Regelflödeshändelse för nätverkssäkerhetsgrupp|
+|Microsoft.CognitiveServices/konton|Granska|Granskningsloggar|
+|Microsoft.CognitiveServices/konton|RequestResponse|Loggböcker för begäran och svar|
+|Microsoft.Container-register/register|ContainerRegistryRepositoryEvents|DatabasEvent loggar (förhandsgranska)|
+|Microsoft.Container-register/register|ContainerRegistryLoginEvents|Inloggningshändelser (förhandsgranskning)|
+|Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API-server|
+|Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
+|Microsoft.ContainerService/managedClusters|kube-schemaläggare|Kubernetes Schemaläggare|
+|Microsoft.ContainerService/managedClusters|kube-revision|Kubernetes-granskning|
+|Microsoft.ContainerService/managedClusters|kluster-automatisk skalning|Kubernetes Kluster Automatisk skalning|
+|Microsoft.Databricks/arbetsytor|dbfs (av )|Databricks-filsystem|
+|Microsoft.Databricks/arbetsytor|Kluster|Databricks kluster|
+|Microsoft.Databricks/arbetsytor|konton|Databricks konton|
+|Microsoft.Databricks/arbetsytor|Jobb|Databricks Jobb|
+|Microsoft.Databricks/arbetsytor|Anteckningsboken|Databricks-anteckningsbok|
+|Microsoft.Databricks/arbetsytor|Ssh|Databricks SSH|
+|Microsoft.Databricks/arbetsytor|arbetsyta|Databricks arbetsyta|
+|Microsoft.Databricks/arbetsytor|secrets|Databricks Hemligheter|
+|Microsoft.Databricks/arbetsytor|sqlPermissions (sqlPermissions)|Databricks SQLPermissions|
+|Microsoft.Databricks/arbetsytor|instancePools|Instanspooler|
+|Microsoft.DataCatalog/datakategoris|ScanStatusLogevent|ScanStatus|
+|Microsoft.DataFactory/fabriker|ActivityRuns|Logg för pipelineaktivitet körs|
+|Microsoft.DataFactory/fabriker|PipelineRuns|Logg för pipelinekörningar|
+|Microsoft.DataFactory/fabriker|TriggerRuns|Logg för utlösarkörningar|
+|Microsoft.DataLakeAnalytics/konton|Granska|Granskningsloggar|
+|Microsoft.DataLakeAnalytics/konton|Begäranden|Begär loggar|
+|Microsoft.DataLakeStore/konton|Granska|Granskningsloggar|
+|Microsoft.DataLakeStore/konton|Begäranden|Begär loggar|
+|Microsoft.DataShare/konton|Resurser|Resurser|
+|Microsoft.DataShare/konton|Delateckningar|Dela abonnemang|
+|Microsoft.DataShare/konton|SentShareSnapshots|Ögonblicksbilder av skickade delningar|
+|Microsoft.DataShare/konton|ReceivedShareSnapshots|Mottagna ögonblicksbilder av resurs|
+|Microsoft.DBforMySQL/servrar|MySqlSlowLogs|MySQL-serverloggar|
+|Microsoft.DBforMySQL/servrar|MySqlAuditLogs|MySQL-granskningsloggar|
+|Microsoft.DBforPostgreSQL/servrar|PostgreSQLLogs (på efter)|Serverloggar för PostgreSQL|
+|Microsoft.DBforPostgreSQL/servrar|QueryStoreRuntimeStatistics|Statistik över postgreSQL-frågearkiv|
+|Microsoft.DBforPostgreSQL/servrar|QueryStoreWaitStatistics|Vänta statistik för efterfrågareklagret efter inlägg|
+|Microsoft.DBforPostgreSQL/serversv2|PostgreSQLLogs (på efter)|Serverloggar för PostgreSQL|
+|Microsoft.DBforPostgreSQL/serversv2|QueryStoreRuntimeStatistics|Statistik över postgreSQL-frågearkiv|
+|Microsoft.DBforPostgreSQL/serversv2|QueryStoreWaitStatistics|Vänta statistik för efterfrågareklagret efter inlägg|
+|Microsoft.DesktopVirtualization/workspaces|Checkpoint|Checkpoint|
+|Microsoft.DesktopVirtualization/workspaces|Fel|Fel|
+|Microsoft.DesktopVirtualization/workspaces|Hantering|Hantering|
+|Microsoft.DesktopVirtualization/workspaces|Feed|Feed|
+|Microsoft.DesktopVirtualization/applicationGroups|Checkpoint|Checkpoint|
+|Microsoft.DesktopVirtualization/applicationGroups|Fel|Fel|
+|Microsoft.DesktopVirtualization/applicationGroups|Hantering|Hantering|
+|Microsoft.DesktopVirtualization/hostPools|Checkpoint|Checkpoint|
+|Microsoft.DesktopVirtualization/hostPools|Fel|Fel|
+|Microsoft.DesktopVirtualization/hostPools|Hantering|Hantering|
+|Microsoft.DesktopVirtualization/hostPools|Anslutning|Anslutning|
+|Microsoft.DesktopVirtualization/hostPools|Värdregistration|Värdregistration|
 |Microsoft.Devices/IotHubs|Anslutningar|Anslutningar|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Enhetstelemetri|
-|Microsoft.Devices/IotHubs|C2DCommands|C2D-kommandon|
-|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Enhets identitets åtgärder|
-|Microsoft.Devices/IotHubs|FileUploadOperations|Fil överförings åtgärder|
+|Microsoft.Devices/IotHubs|C2DCommands (C2DCommands)|C2D-kommandon|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Åtgärder för enhetsidentitet|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Åtgärder för filuppladdning|
 |Microsoft.Devices/IotHubs|Vägar|Vägar|
 |Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
-|Microsoft.Devices/IotHubs|C2DTwinOperations|C2D dubbla åtgärder|
-|Microsoft.Devices/IotHubs|TwinQueries|Dubbla frågor|
-|Microsoft.Devices/IotHubs|JobsOperations|Jobb åtgärder|
-|Microsoft.Devices/IotHubs|DirectMethods|Direkta metoder|
-|Microsoft.Devices/IotHubs|DistributedTracing|Distribuerad spårning (för hands version)|
+|Microsoft.Devices/IotHubs|C2DTwinOperations|C2D Twin Operationer|
+|Microsoft.Devices/IotHubs|TwinQueries (TwinQueries)|Dubbla frågor|
+|Microsoft.Devices/IotHubs|JobbOperationer|Jobb operationer|
+|Microsoft.Devices/IotHubs|DirectMethods (direktmetaller)|Direkta metoder|
+|Microsoft.Devices/IotHubs|DistribuerasTracing|Distribuerad spårning (förhandsgranskning)|
 |Microsoft.Devices/IotHubs|Konfigurationer|Konfigurationer|
-|Microsoft.Devices/IotHubs|DeviceStreams|Enhets strömmar (förhands granskning)|
-|Microsoft.Devices/provisioningServices|DeviceOperations|Enhets åtgärder|
-|Microsoft.Devices/provisioningServices|ServiceOperations|Tjänst åtgärder|
-|Microsoft. DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
-|Microsoft. DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
-|Microsoft. DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
-|Microsoft. DocumentDB/databaseAccounts|PartitionKeyStatistics|PartitionKeyStatistics|
-|Microsoft. DocumentDB/databaseAccounts|ControlPlaneRequests|ControlPlaneRequests|
-|Microsoft. EnterpriseKnowledgeGraph/Services|AuditEvent|AuditEvent-logg|
-|Microsoft. EnterpriseKnowledgeGraph/Services|DataIssue|DataIssue-logg|
-|Microsoft. EnterpriseKnowledgeGraph/Services|Begäranden|Konfigurations logg|
-|Microsoft.EventHub/namespaces|ArchiveLogs|Arkiv loggar|
-|Microsoft.EventHub/namespaces|OperationalLogs|Drift loggar|
-|Microsoft.EventHub/namespaces|AutoScaleLogs|Automatisk skalnings loggar|
-|Microsoft.EventHub/namespaces|KafkaCoordinatorLogs|Kafka koordinator loggar|
-|Microsoft.EventHub/namespaces|KafkaUserErrorLogs|Kafka användar fel loggar|
-|Microsoft.EventHub/namespaces|EventHubVNetConnectionEvent|Anslutnings loggar för VNet/IP-filtrering|
-|Microsoft.EventHub/namespaces|CustomerManagedKeyUserLogs|Kund hanterade nyckel loggar|
-|Microsoft. HealthcareApis/Services|AuditLogs|Granskningsloggar|
-|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Autoskala-utvärderingar|
-|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Åtgärder för autoskalning av skala|
-|Microsoft.IoTSpaces/Graph|Spårning|Spårning|
-|Microsoft.IoTSpaces/Graph|Verksamhetsrelaterade|Verksamhetsrelaterade|
-|Microsoft.IoTSpaces/Graph|Granska|Granska|
-|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
-|Microsoft.IoTSpaces/Graph|Ingress|Ingress|
-|Microsoft.IoTSpaces/Graph|Utgående|Utgående|
-|Microsoft.KeyVault/vaults|AuditEvent|Granskningsloggar|
-|Microsoft. Kusto/kluster|SucceededIngestion|Framgångs åtgärder|
-|Microsoft. Kusto/kluster|FailedIngestion|Misslyckade inmatnings åtgärder|
-|Microsoft.Logic/workflows|WorkflowRuntime|Diagnostiska händelser för arbets flödes körning|
-|Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Spårnings händelser för integrations konto|
-|Microsoft.MachineLearningServices/workspaces|AmlComputeClusterEvent|AmlComputeClusterEvent|
-|Microsoft.MachineLearningServices/workspaces|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
-|Microsoft.MachineLearningServices/workspaces|AmlComputeJobEvent|AmlComputeJobEvent|
-|Microsoft. Media/Media Services|KeyDeliveryRequests|Begär Anden om nyckel leverans|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Händelse för nätverks säkerhets grupp|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Regel räknare för nätverks säkerhets grupp|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Regel flödes händelse för nätverks säkerhets grupp|
-|Microsoft. Network/publicIPAddresses|DDoSProtectionNotifications|DDoS skydds meddelanden|
-|Microsoft. Network/publicIPAddresses|DDoSMitigationFlowLogs|Flödes loggar för DDoSa beslut om minskning|
-|Microsoft. Network/publicIPAddresses|DDoSMitigationReports|Rapporter för DDoS-åtgärder|
-|Microsoft.Network/virtualNetworks|VMProtectionAlerts|Aviseringar för VM-skydd|
-|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway åtkomst logg|
-|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Application Gateway prestanda logg|
-|Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Application Gateway brand Väggs logg|
-|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Regel för Azure brand Väggs program|
-|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Nätverks regel för Azure Firewall|
-|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Gateway-diagnostikloggar|
-|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tunnel diagnostikloggar|
-|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Vidarebefordra diagnostikloggar|
-|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE-diagnostikloggar|
-|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S diagnostikloggar|
-|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager händelse av hälso resultat för avsökning|
-|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Tabell loggar för peering-routning|
-|Microsoft. Network/vpnGateways|GatewayDiagnosticLog|Gateway-diagnostikloggar|
-|Microsoft. Network/vpnGateways|TunnelDiagnosticLog|Tunnel diagnostikloggar|
-|Microsoft. Network/vpnGateways|RouteDiagnosticLog|Vidarebefordra diagnostikloggar|
-|Microsoft. Network/vpnGateways|IKEDiagnosticLog|IKE-diagnostikloggar|
-|Microsoft. Network/frontdoors|FrontdoorAccessLog|Ytterdörr åtkomst logg|
-|Microsoft. Network/frontdoors|FrontdoorWebApplicationFirewallLog|Ytterdörr webb program brand Väggs logg|
-|Microsoft. Network/p2sVpnGateways|GatewayDiagnosticLog|Gateway-diagnostikloggar|
-|Microsoft. Network/p2sVpnGateways|IKEDiagnosticLog|IKE-diagnostikloggar|
-|Microsoft. Network/p2sVpnGateways|P2SDiagnosticLog|P2S diagnostikloggar|
-|Microsoft. Network/bastionHosts|BastionAuditLogs|Gransknings loggar för skydds|
-|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Load Balancer aviserings händelser|
-|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Load Balancer avsökningens hälso status|
-|Microsoft. PowerBIDedicated/kapacitet|Motorn|Motorn|
-|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup rapporterings data|
-|Microsoft.RecoveryServices/Vaults|CoreAzureBackup|Kärn Azure Backup data|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupJobs|Jobb data för addon Azure Backup|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupAlerts|Aviserings data för addon Azure Backup|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupPolicy|Princip data för addon Azure Backup|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupStorage|Tillägg för Azure Backup lagrings data|
-|Microsoft.RecoveryServices/Vaults|AddonAzureBackupProtectedInstance|Addon Azure Backup skyddade instans data|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery jobb|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery händelser|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery replikerade objekt|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Statistik för Azure Site Recovery-replikering|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery återställnings punkter|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Azure Site Recovery överförings hastighet för replikeringsdata|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery skyddad disk data omsättning|
-|Microsoft.Search/searchServices|OperationLogs|Åtgärds loggar|
-|Microsoft.ServiceBus/namespaces|OperationalLogs|Drift loggar|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
-|Microsoft.Sql/servers/databases|AutomaticTuning|Automatisk inställning|
-|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Körnings statistik för Query Store|
-|Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Väntande statistik för Query Store|
-|Microsoft.Sql/servers/databases|Fel|Fel|
-|Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Väntande statistik över databasen|
-|Microsoft.Sql/servers/databases|Timeouter|Timeouter|
-|Microsoft.Sql/servers/databases|Delar|Delar|
-|Microsoft.Sql/servers/databases|Låsningar|Låsningar|
-|Microsoft.Sql/servers/databases|Granska|Granskningsloggar|
-|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Säkerhets gransknings händelse i SQL|
-|Microsoft.Sql/servers/databases|DmsWorkers|DMS-arbetare|
-|Microsoft.Sql/servers/databases|ExecRequests|Exec-begäranden|
-|Microsoft.Sql/servers/databases|RequestSteps|Förfrågnings steg|
-|Microsoft.Sql/servers/databases|SqlRequests|SQL-begäranden|
-|Microsoft.Sql/servers/databases|Väntar|Väntar|
-|Microsoft.Sql/managedInstances|ResourceUsageStats|Statistik för resursanvändning|
-|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Säkerhets gransknings händelse i SQL|
-|Microsoft. SQL/managedInstances/-databaser|SQLInsights|SQL Insights|
-|Microsoft. SQL/managedInstances/-databaser|QueryStoreRuntimeStatistics|Körnings statistik för Query Store|
-|Microsoft. SQL/managedInstances/-databaser|QueryStoreWaitStatistics|Väntande statistik för Query Store|
-|Microsoft. SQL/managedInstances/-databaser|Fel|Fel|
-|Microsoft.Storage/storageAccounts/tableServices|StorageRead|StorageRead|
-|Microsoft.Storage/storageAccounts/tableServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/tableServices|StorageDelete|StorageDelete|
-|Microsoft.Storage/storageAccounts/blobServices|StorageRead|StorageRead|
-|Microsoft.Storage/storageAccounts/blobServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/blobServices|StorageDelete|StorageDelete|
-|Microsoft.Storage/storageAccounts/fileServices|StorageRead|StorageRead|
-|Microsoft.Storage/storageAccounts/fileServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/fileServices|StorageDelete|StorageDelete|
-|Microsoft.Storage/storageAccounts/queueServices|StorageRead|StorageRead|
-|Microsoft.Storage/storageAccounts/queueServices|StorageWrite|StorageWrite|
-|Microsoft.Storage/storageAccounts/queueServices|StorageDelete|StorageDelete|
+|Microsoft.Devices/IotHubs|DeviceStreams|Enhetsströmmar (förhandsgranskning)|
+|Microsoft.Devices/provisioningServices Microsoft.Devices/provisioningServices Microsoft.Devices/provisioningServices Microsoft.|DeviceOperations|Enhetsoperationer|
+|Microsoft.Devices/provisioningServices Microsoft.Devices/provisioningServices Microsoft.Devices/provisioningServices Microsoft.|ServiceOperations|Serviceåtgärder|
+|Microsoft.DocumentDB/databasKonton|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databasKonton|MongoRequests (|MongoRequests (|
+|Microsoft.DocumentDB/databasKonton|QueryRuntimeStatistics|QueryRuntimeStatistics|
+|Microsoft.DocumentDB/databasKonton|PartitionKeyStatistics|PartitionKeyStatistics|
+|Microsoft.DocumentDB/databasKonton|ControlPlaneRequests|ControlPlaneRequests|
+|Microsoft.EnterpriseKnowledgeGraph/tjänster|AuditEvent|AuditEvent-logg|
+|Microsoft.EnterpriseKnowledgeGraph/tjänster|DataIssue|DataIssue logg|
+|Microsoft.EnterpriseKnowledgeGraph/tjänster|Begäranden|Konfigurationslogg|
+|Microsoft.EventHub/namnområden|Arkivbild|Arkiv loggar|
+|Microsoft.EventHub/namnområden|OperationalLogs|Operativa loggar|
+|Microsoft.EventHub/namnområden|Automatisk skalningsloggar|Loggar för automatisk skalning|
+|Microsoft.EventHub/namnområden|KafkaCoordinatorLogs|Kafka samordnare loggar|
+|Microsoft.EventHub/namnområden|KafkaUserErrorLogs|Kafka användarfel loggar|
+|Microsoft.EventHub/namnområden|EventHubVNetConnectionEvent|Anslutningsloggar för VNet/IP-filtrering|
+|Microsoft.EventHub/namnområden|CustomerManagedKeyUserLogs|Kundhanterade nyckelloggar|
+|Microsoft.HealthcareApis/tjänster|AuditLogs|Granskningsloggar|
+|Microsoft.Insights/AutoscaleSettings|Autoskalavärderingar|Utvärderingar för automatisk skalning|
+|Microsoft.Insights/AutoscaleSettings|Automatisk skalningsåtgärd|Åtgärder för automatisk skalning|
+|Microsoft.IoTSpaces/Diagram|Spårning|Spårning|
+|Microsoft.IoTSpaces/Diagram|Operativa|Operativa|
+|Microsoft.IoTSpaces/Diagram|Granska|Granska|
+|Microsoft.IoTSpaces/Diagram|UserDefinedFunction AnvändareDefinedFunction|UserDefinedFunction AnvändareDefinedFunction|
+|Microsoft.IoTSpaces/Diagram|Ingress|Ingress|
+|Microsoft.IoTSpaces/Diagram|Utgående|Utgående|
+|Microsoft.KeyVault/valv|AuditEvent|Granskningsloggar|
+|Microsoft.Kusto/Kluster|Efterföljande Ingestion|Lyckade ingest-operationer|
+|Microsoft.Kusto/Kluster|Misslyckade skrivningar|Misslyckade intagsåtgärder|
+|Microsoft.Logic/arbetsflöden|Workflowruntime|Diagnostikhändelser för arbetsflödeskörning|
+|Microsoft.Logic/integrationKonton|IntegrationAccountTrackingEvents|Spåra händelser för integrationskonto|
+|Microsoft.MachineLearningServices/arbetsytor|AmlComputeClusterEvent|AmlComputeClusterEvent|
+|Microsoft.MachineLearningServices/arbetsytor|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|
+|Microsoft.MachineLearningServices/arbetsytor|AmlComputeJobEvent|AmlComputeJobEvent|
+|Microsoft.Media/mediaservices|KeyDeliveryRequests|Viktiga leveransförfrågningar|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Händelse i nätverkssäkerhetsgruppen|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Regelräknare för nätverkssäkerhetsgrupp|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Regelflödeshändelse för nätverkssäkerhetsgrupp|
+|Microsoft.Network/publicIPAdresser|DDoSProtectionAnmälningar|DDoS-skyddsmeddelanden|
+|Microsoft.Network/publicIPAdresser|DDoSMitigationFlowLogs|Flödesloggar för DDoS-begränsningsbeslut|
+|Microsoft.Network/publicIPAdresser|DDoSMitigationRapporter|Rapporter om DDoS-mildrande åtgärder|
+|Microsoft.Network/virtualNetworks|VMProtectionAlerts|VM-skyddsvarningar|
+|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Åtkomstlogg för programgateway|
+|Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Prestandalogg för programgateway|
+|Microsoft.Network/applicationGateways|AnsökanGatewayFirewallLog|Brandväggslogg för programgateway|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Programregel för Azure-brandvägg|
+|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Regel för Azure-brandväggens nätverk|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Diagnostikloggar för gateway|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tunnel diagnostiska loggar|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Diagnostikloggar för rutt|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE diagnostiska loggar|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S-diagnostikloggar|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Händelse av hälsoresultat för Traffic Manager-avsökning|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Peering rutttabellloggar|
+|Microsoft.Network/vpnGateways|GatewayDiagnosticLog|Diagnostikloggar för gateway|
+|Microsoft.Network/vpnGateways|TunnelDiagnosticLog|Tunnel diagnostiska loggar|
+|Microsoft.Network/vpnGateways|RouteDiagnosticLog|Diagnostikloggar för rutt|
+|Microsoft.Network/vpnGateways|IKEDiagnosticLog|IKE diagnostiska loggar|
+|Microsoft.Network/frontdoors|FrontdoorAccessLog|Åtkomstlogg för frontdoor|
+|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Brandväggslogg för Frontdoor-webbprogram|
+|Microsoft.Network/p2sVpnGateways|GatewayDiagnosticLog|Diagnostikloggar för gateway|
+|Microsoft.Network/p2sVpnGateways|IKEDiagnosticLog|IKE diagnostiska loggar|
+|Microsoft.Network/p2sVpnGateways|P2SDiagnosticLog|P2S-diagnostikloggar|
+|Microsoft.Network/bastionHosts|BastionAuditLogs|Loggar för granskning av bastioner|
+|Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Varningshändelser för belastningsutjämnare|
+|Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Hälsostatus för belastningsutjämningsavsökning|
+|Microsoft.PowerBIDedicated/capacity|Motor|Motor|
+|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Rapporteringsdata för Azure-säkerhetskopiering|
+|Microsoft.RecoveryServices/Vaults|CoreAzureBackup|Grundläggande Azure-säkerhetskopieringsdata|
+|Microsoft.RecoveryServices/Vaults|AddonAzureBackupJobs|Jobbdata för Addon Azure-säkerhetskopiering|
+|Microsoft.RecoveryServices/Vaults|AddonAzureBackupAlerts|Addon Azure-aviseringsdata för säkerhetskopiering|
+|Microsoft.RecoveryServices/Vaults|AddonAzureBackupPolicy|Addon Azure-principdata för säkerhetskopiering|
+|Microsoft.RecoveryServices/Vaults|AddonAzureBackupStorage|Addon Azure-lagringsdata för säkerhetskopiering|
+|Microsoft.RecoveryServices/Vaults|AddonAzureBackupSkyddadeInstance|Addon Azure-data för skyddad instans för säkerhetskopiering|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery Jobb|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery-händelser|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Replikerade objekt för azure-återställning av webbplatsen|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Statistik över azure-återställningsreplikering|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Återställningspunkter för Azure Site-återställning|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Uppladdningshastighet för Azure Site Recovery Replication-data|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery Protected Disk Data Churn|
+|Microsoft.Search/searchServices|OperationLogs|Åtgärdsloggar|
+|Microsoft.ServiceBus/namnområden|OperationalLogs|Operativa loggar|
+|Microsoft.Sql/servrar/databaser|SQLInsights|SQL-insikter|
+|Microsoft.Sql/servrar/databaser|Automatiskinställning|Automatisk inställning|
+|Microsoft.Sql/servrar/databaser|QueryStoreRuntimeStatistics|Frågebutikskörningsstatistik|
+|Microsoft.Sql/servrar/databaser|QueryStoreWaitStatistics|Vänta statistik för frågearkiv|
+|Microsoft.Sql/servrar/databaser|Fel|Fel|
+|Microsoft.Sql/servrar/databaser|DatabasWaitStatistics|Statistik över väntetid för databas|
+|Microsoft.Sql/servrar/databaser|Timeouter|Timeouter|
+|Microsoft.Sql/servrar/databaser|Block|Block|
+|Microsoft.Sql/servrar/databaser|Dödlägen|Dödlägen|
+|Microsoft.Sql/servrar/databaser|Granska|Granskningsloggar|
+|Microsoft.Sql/servrar/databaser|SQLSecurityAuditEvents|Sql Security Audit Händelse|
+|Microsoft.Sql/servrar/databaser|DmsArbetare|Dms Arbetstagare|
+|Microsoft.Sql/servrar/databaser|ExecRequests|Exec-begäranden|
+|Microsoft.Sql/servrar/databaser|RequestSteps|Steg för begäran|
+|Microsoft.Sql/servrar/databaser|SqlRequests (SqlRequests)|Sql-begäranden|
+|Microsoft.Sql/servrar/databaser|Väntar|Väntar|
+|Microsoft.Sql/managedInstances|ResourceUsageStats|Statistik över resursanvändning|
+|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Sql Security Audit Händelse|
+|Microsoft.Sql/managedInstances/databaser|SQLInsights|SQL-insikter|
+|Microsoft.Sql/managedInstances/databaser|QueryStoreRuntimeStatistics|Frågebutikskörningsstatistik|
+|Microsoft.Sql/managedInstances/databaser|QueryStoreWaitStatistics|Vänta statistik för frågearkiv|
+|Microsoft.Sql/managedInstances/databaser|Fel|Fel|
+|Microsoft.Storage/storageAccounts/tableServices|LagringLäs|LagringLäs|
+|Microsoft.Storage/storageAccounts/tableServices|LagringSkriva|LagringSkriva|
+|Microsoft.Storage/storageAccounts/tableServices|LagringTa bort|LagringTa bort|
+|Microsoft.Storage/storageAccounts/blobServices|LagringLäs|LagringLäs|
+|Microsoft.Storage/storageAccounts/blobServices|LagringSkriva|LagringSkriva|
+|Microsoft.Storage/storageAccounts/blobServices|LagringTa bort|LagringTa bort|
+|Microsoft.Storage/storageAccounts/fileServices|LagringLäs|LagringLäs|
+|Microsoft.Storage/storageAccounts/fileServices|LagringSkriva|LagringSkriva|
+|Microsoft.Storage/storageAccounts/fileServices|LagringTa bort|LagringTa bort|
+|Microsoft.Storage/storageAccounts/queueServices|LagringLäs|LagringLäs|
+|Microsoft.Storage/storageAccounts/queueServices|LagringSkriva|LagringSkriva|
+|Microsoft.Storage/storageAccounts/queueServices|LagringTa bort|LagringTa bort|
 |Microsoft.StreamAnalytics/streamingjobs|Körnings-|Körnings-|
 |Microsoft.StreamAnalytics/streamingjobs|Redigering|Redigering|
-|Microsoft. Web/hostingenvironments|AppServiceEnvironmentPlatformLogs|App Service-miljön plattforms loggar|
-|microsoft.web/sites|FunctionAppLogs|Funktions program loggar|
-|microsoft.web/sites|AppServiceHTTPLogs|HTTP-loggar|
-|microsoft.web/sites|AppServiceConsoleLogs|App Service konsol loggar|
-|microsoft.web/sites|AppServiceAppLogs|App Service program loggar|
-|microsoft.web/sites|AppServiceFileAuditLogs|Gransknings loggar för ändring av webbplats innehåll|
-|microsoft.web/sites|AppServiceAuditLogs|Åtkomst gransknings loggar|
-|microsoft.web/sites/slots|FunctionAppLogs|Funktions program loggar|
+|microsoft.web/hostingenvironments|AppServiceMiljöPlattformar|Plattformsloggar för App Service-miljö|
+|microsoft.web/webbplatser|FunctionAppLogs|Funktionsprogramloggar|
+|microsoft.web/webbplatser|AppServiceHTTPLogs|HTTP-loggar|
+|microsoft.web/webbplatser|AppServiceConsoleLogs|App Service Console loggar|
+|microsoft.web/webbplatser|AppServiceAppLogs|Programloggar för apptjänst|
+|microsoft.web/webbplatser|AppServiceFileAuditLogs|Granskningsloggar för innehållsinnehåll|
+|microsoft.web/webbplatser|AppServiceAuditLogs|Komma åt granskningsloggar|
+|microsoft.web/sites/slots|FunctionAppLogs|Funktionsprogramloggar|
 |microsoft.web/sites/slots|AppServiceHTTPLogs|HTTP-loggar|
-|microsoft.web/sites/slots|AppServiceConsoleLogs|Konsol loggar|
+|microsoft.web/sites/slots|AppServiceConsoleLogs|Konsolloggar|
 |microsoft.web/sites/slots|AppServiceAppLogs|Programloggar|
-|microsoft.web/sites/slots|AppServiceFileAuditLogs|Gransknings loggar för ändring av webbplats innehåll|
-|microsoft.web/sites/slots|AppServiceAuditLogs|Åtkomst gransknings loggar|
+|microsoft.web/sites/slots|AppServiceFileAuditLogs|Granskningsloggar för innehållsinnehåll|
+|microsoft.web/sites/slots|AppServiceAuditLogs|Komma åt granskningsloggar|
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-* [Läs mer om resurs loggar](../../azure-monitor/platform/platform-logs-overview.md)
-* [Strömma resurs resurs loggar till **Event Hubs**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Ändra diagnostikinställningar för resurs loggen med hjälp av Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [Analysera loggar från Azure Storage med Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [Läs mer om resursloggar](../../azure-monitor/platform/platform-logs-overview.md)
+* [Strömma resursresursloggar till **eventhubbar**](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+* [Ändra diagnostikinställningar för resursloggen med hjälp av AZURE Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
+* [Analysera loggar från Azure-lagring med Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)

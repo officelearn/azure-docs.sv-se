@@ -7,71 +7,71 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.openlocfilehash: 1bf8f8e198f6c4a4a0af308262cd830685698a80
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79249352"
 ---
-# <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Så här använder du klient biblioteket för iOS för Azure Mobile Apps
+# <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Så här använder du iOS-klientbibliotek för Azure Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 ## <a name="overview"></a>Översikt
-Den här guiden lär dig att utföra vanliga scenarier med hjälp av den senaste [Azure Mobile Apps iOS SDK][1]. Om du är nybörjare på Azure Mobile Apps måste du först slutföra [Azure Mobile Apps Snabbstart] för att skapa en server del, skapa en tabell och ladda ned ett fördefinierat iOS Xcode-projekt. I den här hand boken fokuserar vi på klient sidans iOS SDK. Mer information om Server sidans SDK för Server delen finns i Server SDK-HOWTOs.
+Den här guiden lär dig att utföra vanliga scenarier med hjälp av den senaste [Azure Mobile Apps iOS SDK][1]. Om du inte har tidigare azure mobile apps har du först slutfört [snabbstarten] för Azure Mobile Apps för att skapa en backend, skapa en tabell och hämta ett förbyggt iOS Xcode-projekt. I den här guiden fokuserar vi på klientsidan iOS SDK. Mer information om serversidan SDK för serversidan finns i Server SDK HOWTOs.
 
-## <a name="reference-documentation"></a>Referens dokumentation
+## <a name="reference-documentation"></a>Referensdokumentation
 
-Referens dokumentationen för iOS client SDK finns här: [klient referens för Azure Mobile Apps iOS][2].
+Referensdokumentationen för iOS-klienten SDK finns här: [Azure Mobile Apps iOS Client Reference][2].
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
 
-IOS SDK stöder mål-C-projekt, Swift 2,2-projekt och SWIFT 2,3-projekt för iOS version 8,0 eller senare.
+IOS SDK stöder Objective-C-projekt, Swift 2.2-projekt och Swift 2.3-projekt för iOS-versioner 8.0 eller senare.
 
-Autentiseringen "Server-Flow" använder en webbvy för det visade användar gränssnittet.  Om enheten inte kan visa användar gränssnittet för WebView krävs en annan autentiseringsmetod som ligger utanför produktens omfattning.  
-Detta SDK är därför inte lämpligt för bevakade eller liknande enheter.
+Autentiseringen "serverflöde" använder en WebView för det presenterade användargränssnittet.  Om enheten inte kan presentera ett WebView-användargränssnitt krävs en annan autentiseringsmetod som ligger utanför produktens omfattning.  
+Denna SDK är därför inte lämplig för Watch-type eller liknande begränsade enheter.
 
-## <a name="Setup"></a>Konfiguration och krav
+## <a name="setup-and-prerequisites"></a><a name="Setup"></a>Inställningar och förutsättningar
 
-Den här guiden förutsätter att du har skapat en server del med en tabell. Den här guiden förutsätter att tabellen har samma schema som tabellerna i de här självstudierna. Den här guiden förutsätter också att du refererar `MicrosoftAzureMobile.framework` och importera `MicrosoftAzureMobile/MicrosoftAzureMobile.h`i din kod.
+Den här guiden förutsätter att du har skapat en backend med en tabell. Den här guiden förutsätter att tabellen har samma schema som tabellerna i dessa självstudier. Den här guiden förutsätter också att `MicrosoftAzureMobile.framework` du `MicrosoftAzureMobile/MicrosoftAzureMobile.h`i koden refererar och importerar .
 
-## <a name="create-client"></a>Gör så här: skapa klient
+## <a name="how-to-create-client"></a><a name="create-client"></a>Så här skapar du klient
 
-Skapa en `MSClient`för att få åtkomst till en Azure Mobile Apps Server del i projektet. Ersätt `AppUrl` med appens URL. Du kan lämna `gatewayURLString` och `applicationKey` tomt. Om du konfigurerar en gateway för autentisering fyller du i `gatewayURLString` med Gateway-URL: en.
+Skapa en `MSClient`. Ersätt `AppUrl` med appens URL. Du kan `gatewayURLString` `applicationKey` gå och tömma. Om du konfigurerar en gateway `gatewayURLString` för autentisering fyller du i med gateway-URL:en.
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 let client = MSClient(applicationURLString: "AppUrl")
 ```
 
-## <a name="table-reference"></a>Gör så här: skapa tabell referens
+## <a name="how-to-create-table-reference"></a><a name="table-reference"></a>Så här skapar du tabellreferens
 
 För att få åtkomst till eller uppdatera data skapar du en referens till serverdelstabellen. Ersätt `TodoItem` med namnet på tabellen
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 let table = client.tableWithName("TodoItem")
 ```
 
-## <a name="querying"></a>Så här gör du: fråga efter data
+## <a name="how-to-query-data"></a><a name="querying"></a>Så här: Fråga data
 
-Fråga `MSTable`-objektet om du vill skapa en databas fråga. Följande fråga hämtar alla objekt i `TodoItem` och loggar texten för varje objekt.
+Om du vill skapa `MSTable` en databasfråga frågar du objektet. Följande fråga hämtar alla `TodoItem` objekt och loggar texten för varje objekt.
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
@@ -85,7 +85,7 @@ Fråga `MSTable`-objektet om du vill skapa en databas fråga. Följande fråga h
 }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 table.readWithCompletion { (result, error) in
@@ -99,13 +99,13 @@ table.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="filtering"></a>Gör så här: filtrera returnerade data
+## <a name="how-to-filter-returned-data"></a><a name="filtering"></a>Så här filtrerar du returnerade data
 
-Det finns många tillgängliga alternativ för att filtrera resultat.
+För att filtrera resultat finns det många tillgängliga alternativ.
 
-Använd en `NSPredicate` och `readWithPredicate`för att filtrera med hjälp av ett predikat. Följande filter returnerade data för att hitta endast ofullständiga att göra-objekt.
+Om du vill filtrera med `NSPredicate` ett `readWithPredicate`predikat använder du en och . Följande filter returnerade data för att hitta endast ofullständiga Todo-objekt.
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 // Create a predicate that finds items where complete is false
@@ -122,7 +122,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 // Create a predicate that finds items where complete is false
@@ -139,40 +139,40 @@ table.readWithPredicate(predicate) { (result, error) in
 }
 ```
 
-## <a name="query-object"></a>Gör så här: använda MSQuery
+## <a name="how-to-use-msquery"></a><a name="query-object"></a>Så här: Använd MSQuery
 
-Om du vill utföra en komplex fråga (inklusive sortering och växling) skapar du ett `MSQuery` objekt, direkt eller genom att använda ett predikat:
+Om du vill utföra en komplex fråga (inklusive sortering och växling) skapar du ett `MSQuery` objekt, direkt eller med hjälp av ett predikat:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 MSQuery *query = [table query];
 MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 let query = table.query()
 let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 ```
 
-med `MSQuery` kan du styra flera fråge beteenden.
+`MSQuery`kan du styra flera frågebeteenden.
 
-* Ange resultat ordning
+* Ange resultatordning
 * Begränsa vilka fält som ska returneras
 * Begränsa hur många poster som ska returneras
-* Ange totalt antal i svar
-* Ange anpassade parametrar för frågesträngen i begäran
-* Använd ytterligare funktioner
+* Ange totalt antal som svar
+* Ange anpassade frågesträngparametrar i begäran
+* Använda ytterligare funktioner
 
-Kör en `MSQuery` fråga genom att anropa `readWithCompletion` på objektet.
+Kör `MSQuery` en fråga `readWithCompletion` genom att anropa objektet.
 
-## <a name="sorting"></a>Så här gör du: sortera data med MSQuery
+## <a name="how-to-sort-data-with-msquery"></a><a name="sorting"></a>Så här: Sortera data med MSQuery
 
-För att sortera resultaten ska vi titta på ett exempel. Om du vill sortera efter fält "text", sedan efter "Slutför", anropar du `MSQuery` så här:
+Om du vill sortera resultat ska vi titta på ett exempel. Om du vill sortera efter fältet "text" stigande, sedan `MSQuery` med "fullständig" fallande, anropa så här:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 [query orderByAscending:@"text"];
@@ -188,7 +188,7 @@ För att sortera resultaten ska vi titta på ett exempel. Om du vill sortera eft
 }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 query.orderByAscending("text")
@@ -204,25 +204,25 @@ query.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="selecting"></a><a name="parameters"></a>Så här: begränsa fält och expandera frågeparametrar med MSQuery
+## <a name="how-to-limit-fields-and-expand-query-string-parameters-with-msquery"></a><a name="selecting"></a><a name="parameters"></a>Så här begränsar du fält och expanderar frågesträngparametrar med MSQuery
 
-Om du vill begränsa vilka fält som ska returneras i en fråga anger du namnen på fälten i egenskapen **selectFields** . I det här exemplet returneras endast fälten text och slutförda:
+Om du vill begränsa fält som ska returneras i en fråga anger du namnen på fälten i egenskapen **selectFields.** I det här exemplet returneras bara texten och de ifyllda fälten:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 query.selectFields = @[@"text", @"complete"];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 query.selectFields = ["text", "complete"]
 ```
 
-Om du vill inkludera ytterligare parametrar för frågesträngar i serverbegäran (till exempel på grund av ett anpassat skript på Server sidan använder dem) fyller du i `query.parameters` så här:
+Om du vill inkludera ytterligare frågesträngparametrar i serverbegäran (till exempel `query.parameters` eftersom ett anpassat serverskript använder dem) fyller du i så här:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 query.parameters = @{
@@ -231,27 +231,27 @@ query.parameters = @{
 };
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
-## <a name="paging"></a>Gör så här: Konfigurera sid storlek
+## <a name="how-to-configure-page-size"></a><a name="paging"></a>Så här konfigurerar du sidstorlek
 
-Med Azure Mobile Apps kontrollerar sid storleken antalet poster som hämtas i taget från Server dels tabellerna. Ett anrop till `pull` data skulle sedan skapa data, baserat på den här sid storleken, tills det inte finns några fler poster att hämta.
+Med Azure Mobile Apps styr sidstorleken antalet poster som hämtas samtidigt från backend-tabellerna. Ett anrop till `pull` data skulle sedan batch upp data, baserat på denna sida storlek, tills det inte finns några fler poster att dra.
 
-Det är möjligt att konfigurera en sid storlek med **MSPullSettings** som visas nedan. Standard sid storleken är 50 och exemplet nedan ändrar den till 3.
+Det är möjligt att konfigurera en sidstorlek med **MSPullSettings** som visas nedan. Standardsidans storlek är 50 och exemplet nedan ändrar den till 3.
 
-Du kan konfigurera en annan sid storlek av prestanda skäl. Om du har ett stort antal små data poster minskar en hög sid storlek antalet servers tur och-svar.
+Du kan konfigurera en annan sidstorlek av prestandaskäl. Om du har ett stort antal små dataposter minskar en hög sidstorlek antalet rundturer på servern.
 
-Den här inställningen styr bara sid storleken på klient sidan. Om klienten frågar efter en större sid storlek än den Mobile Apps backend-servern har stöd för, är sid storleken ett tak på den maximala Server delen som är konfigurerad för att stödja.
+Den här inställningen styr bara sidstorleken på klientsidan. Om klienten frågar efter en större sidstorlek än vad backend för mobilappar stöder, begränsas sidstorleken till det maximala serverdaten är konfigurerad för att stödja.
 
-Den här inställningen är också *antalet* data poster, inte byte- *storlek*.
+Den här inställningen är också *antalet* dataposter, inte *bytestorleken*.
 
-Om du ökar klient sidans storlek bör du också öka sid storleken på servern. Se ["How to: Restore table sid storlek"](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) för att göra detta.
+Om du ökar klientsidans storlek bör du också öka sidstorleken på servern. Se ["Så här justerar du tabellväxlingsstorleken"](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) för stegen för att göra detta.
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
   MSPullSettings *pullSettings = [[MSPullSettings alloc] initWithPageSize:3];
@@ -263,7 +263,7 @@ Om du ökar klient sidans storlek bör du också öka sid storleken på servern.
                            }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 let pullSettings = MSPullSettings(pageSize: 3)
@@ -274,15 +274,15 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 }
 ```
 
-## <a name="inserting"></a>Så här: infoga data
+## <a name="how-to-insert-data"></a><a name="inserting"></a>Så här infogar du data
 
-Om du vill infoga en ny tabell rad skapar du en `NSDictionary` och anropar `table insert`. Om [dynamiskt schema] är aktiverat genererar Azure App Service mobil Server del automatiskt nya kolumner baserat på `NSDictionary`.
+Om du vill infoga en `NSDictionary` ny `table insert`tabellrad skapar du en och anropar . Om [Dynamiskt schema] är aktiverat genererar Azure App Service mobile-backend `NSDictionary`automatiskt nya kolumner baserat på .
 
-Om `id` inte anges genererar Server delen automatiskt ett nytt unikt ID. Ange din egen `id` för att använda e-postadresser, användar namn eller dina egna anpassade värden som-ID. Att tillhandahålla ditt eget ID kan under lätta anslutningarna och affärs orienterad databas logik.
+Om `id` det inte anges genererar backend automatiskt ett nytt unikt ID. Ange dina `id` egna för att använda e-postadresser, användarnamn eller dina egna anpassade värden som ID. Om du tillhandahåller ditt eget ID kan det underlätta kopplingar och affärsorienterad databaslogik.
 
-`result` innehåller det nya objektet som infogades. Beroende på din server logik kan det finnas ytterligare eller ändrade data jämfört med vad som skickats till servern.
+Innehåller `result` det nya objektet som infogades. Beroende på serverlogiken kan det ha ytterligare eller ändrade data jämfört med vad som skickades till servern.
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"complete" : @NO};
@@ -295,7 +295,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
@@ -308,11 +308,11 @@ table.insert(newItem) { (result, error) in
 }
 ```
 
-## <a name="modifying"></a>Gör så här: ändra data
+## <a name="how-to-modify-data"></a><a name="modifying"></a>Så här ändrar du data
 
-Om du vill uppdatera en befintlig rad ändrar du ett objekt och anropar `update`:
+Om du vill uppdatera en befintlig `update`rad ändrar du ett objekt och ett anrop:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
@@ -326,7 +326,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
@@ -341,9 +341,9 @@ if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
 }
 ```
 
-Alternativt kan du ange rad-ID och uppdaterat fält:
+Du kan också ange rad-ID:et och det uppdaterade fältet:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 [table update:@{@"id":@"custom-id", @"text":"my EDITED item"} completion:^(NSDictionary *result, NSError *error) {
@@ -355,7 +355,7 @@ Alternativt kan du ange rad-ID och uppdaterat fält:
 }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
@@ -367,13 +367,13 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 }
 ```
 
-Som minst måste attributet `id` anges när uppdateringar görs.
+Minst måste `id` attributet anges när uppdateringar skapas.
 
-## <a name="deleting"></a>Så här gör du: ta bort data
+## <a name="how-to-delete-data"></a><a name="deleting"></a>Så här tar du bort data
 
-Om du vill ta bort ett objekt anropar du `delete` med objektet:
+Om du vill ta `delete` bort ett objekt anropar du med objektet:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 [table delete:item completion:^(id itemId, NSError *error) {
@@ -385,7 +385,7 @@ Om du vill ta bort ett objekt anropar du `delete` med objektet:
 }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
@@ -397,9 +397,9 @@ table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
 }
 ```
 
-Du kan också ta bort genom att ange ett rad-ID:
+Alternativt kan du ta bort genom att ange ett rad-ID:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 [table deleteWithId:@"37BBF396-11F0-4B39-85C8-B319C729AF6D" completion:^(id itemId, NSError *error) {
@@ -411,7 +411,7 @@ Du kan också ta bort genom att ange ett rad-ID:
 }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
@@ -423,15 +423,15 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 }
 ```
 
-Som minst måste attributet `id` anges när du gör borttagningar.
+Minst måste `id` attributet anges när borttagningar tas bort.
 
-## <a name="customapi"></a>Gör så här: anropa anpassat API
+## <a name="how-to-call-custom-api"></a><a name="customapi"></a>Så här: Anropa anpassat API
 
-Med ett anpassat API kan du exponera Server dels funktioner. Den behöver inte mappas till en tabell åtgärd. Om du inte bara får mer kontroll över meddelanden kan du till och med läsa/ange rubriker och ändra text formatet för svar.
+Med ett anpassat API kan du exponera alla serverdfunktioner. Det behöver inte mappas till en tabelloperation. Inte bara får du mer kontroll över meddelanden, kan du även läsa / ställa in rubriker och ändra svaret kroppsformat.
 
-Anropa `MSClient.invokeAPI`för att anropa en anpassad API. Innehållet i begäran och svaret behandlas som JSON. Om du vill använda andra medie typer [använder du den andra överlagringen för `invokeAPI`][5].  Om du vill göra en `GET`-begäran i stället för en `POST`-begäran anger du parameter `HTTPMethod` till `"GET"` och parametern `body` till `nil` (eftersom GET-begäranden inte har några meddelande texter). Om ditt anpassade API stöder andra HTTP-verb ändrar du `HTTPMethod` på lämpligt sätt.
+Anropa ett anpassat API `MSClient.invokeAPI`om du vill anropa ett anpassat API. Begäran och svarsinnehåll behandlas som JSON. Om du vill använda andra medietyper [använder du den andra överbelastningen av `invokeAPI` ][5].  Om du `GET` vill göra `POST` en begäran `HTTPMethod` `"GET"` i `body` stället `nil` för en begäran anger du parameter till och parameter till (eftersom GET-begäranden inte har meddelandekroppar.) Om ditt anpassade API stöder andra `HTTPMethod` HTTP-verb ändrar du på lämpligt sätt.
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 [self.client invokeAPI:@"sendEmail"
@@ -448,7 +448,7 @@ Anropa `MSClient.invokeAPI`för att anropa en anpassad API. Innehållet i begär
             }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 client.invokeAPI("sendEmail",
@@ -466,11 +466,11 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-## <a name="templates"></a>Gör så här: registrera push-mallar för att skicka meddelanden mellan plattformar
+## <a name="how-to-register-push-templates-to-send-cross-platform-notifications"></a><a name="templates"></a>Så här registrerar du push-mallar för att skicka meddelanden över flera plattformar
 
-För att registrera mallar, passa mallar med din **klient. push-registerDeviceToken** -Metod i klient programmet.
+Om du vill registrera mallar skickar du mallar med metoden **client.push registerDeviceToken** i klientappen.
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 [client.push registerDeviceToken:deviceToken template:iOSTemplate completion:^(NSError *error) {
@@ -480,7 +480,7 @@ För att registrera mallar, passa mallar med din **klient. push-registerDeviceTo
 }];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
@@ -492,33 +492,33 @@ client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { 
 
 Mallarna är av typen NSDictionary och kan innehålla flera mallar i följande format:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-Alla Taggar tas bort från begäran om säkerhet.  Information om hur du lägger till taggar till installationer eller mallar i installationer finns i [arbeta med .NET-Server del Server SDK för Azure Mobile Apps][4].  Om du vill skicka meddelanden med hjälp av dessa registrerade mallar kan du arbeta med [Notification Hubs API: er][3].
+Alla taggar tas bort från begäran om säkerhet.  Information om hur du lägger till taggar i installationer eller mallar i installationer finns i [Arbeta med .NET-server för server för server för server för server för server för azure mobile apps][4].  Om du vill skicka meddelanden med dessa registrerade mallar arbetar du med [API:er för Notification Hubs][3].
 
-## <a name="errors"></a>Så här gör du: hantera fel
+## <a name="how-to-handle-errors"></a><a name="errors"></a>Så här: Hantera fel
 
-När du anropar en Azure App Service mobil Server del innehåller slut för ande blocket en `NSError`-parameter. När ett fel inträffar är den här parametern icke-Nil. I din kod bör du kontrol lera den här parametern och hantera felet efter behov, som visas i föregående kodfragment.
+När du anropar en Azure App Service-mobile backend innehåller slutförandeblocket en `NSError` parameter. När ett fel inträffar är den här parametern inte noll. I koden bör du kontrollera den här parametern och hantera felet efter behov, vilket visas i föregående kodavsnitt.
 
-Filen [`<WindowsAzureMobileServices/MSError.h>`][6] definierar konstanterna `MSErrorResponseKey`, `MSErrorRequestKey`och `MSErrorServerItemKey`. Hämta mer information om felet:
+Filen [`<WindowsAzureMobileServices/MSError.h>`][6] definierar konstanterna `MSErrorResponseKey` `MSErrorRequestKey`, `MSErrorServerItemKey`och . Så här hämtar du mer data som är relaterade till felet:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 let serverItem = error.userInfo[MSErrorServerItemKey]
@@ -526,42 +526,42 @@ let serverItem = error.userInfo[MSErrorServerItemKey]
 
 Dessutom definierar filen konstanter för varje felkod:
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>Gör så här: autentisera användare med Active Directory-autentiseringsbibliotek
+## <a name="how-to-authenticate-users-with-the-active-directory-authentication-library"></a><a name="adal"></a>Så här: Autentiserar användare med Active Directory-autentiseringsbiblioteket
 
-Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga användare i ditt program med Azure Active Directory. Autentisering med klient flöde med hjälp av en Identity Provider SDK är ett bättre sätt att använda metoden `loginWithProvider:completion:`.  Autentisering med klient flöde ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
+Du kan använda Active Directory Authentication Library (ADAL) för att logga in användare i ditt program med Azure Active Directory. Klientflödesautentisering med hjälp av en identitetsprovider SDK är att föredra framför att använda `loginWithProvider:completion:` metoden.  Klientflödesautentisering ger en mer inbyggd UX-känsla och möjliggör ytterligare anpassning.
 
-1. Konfigurera din server del för mobilappen för AAD-inloggning genom att följa själv studie kursen [konfigurera App Service för Active Directory inloggning][7] . Se till att slutföra det valfria steget när du registrerar ett internt klient program. För iOS rekommenderar vi att omdirigerings-URI: n har formen `<app-scheme>://<bundle-id>`. Mer information finns i snabb starten för [ADAL iOS][8].
-2. Installera ADAL med Cocoapods. Redigera din Podfile för att inkludera följande definition, och ersätt projektet med namnet på ditt Xcode **-** projekt:
+1. Konfigurera din backend för mobilappen för AAD-inloggning genom att följa [självstudien Så här konfigurerar du App Service för Active Directory-inloggningsdoktor.][7] Se till att slutföra det valfria steget för att registrera ett inbyggt klientprogram. För iOS rekommenderar vi att omdirigerings-URI:n är av formuläret `<app-scheme>://<bundle-id>`. Mer information finns i [snabbstarten för ADAL iOS][8].
+2. Installera ADAL med Cocoapods. Redigera din Podfile så att den innehåller följande definition och ersätt ditt projekt med namnet på **Xcode-projektet:**
 
         source 'https://github.com/CocoaPods/Specs.git'
         link_with ['YOUR-PROJECT']
         xcodeproj 'YOUR-PROJECT'
 
-   och pod:
+   och Pod:
 
         pod 'ADALiOS'
 
-3. Använd terminalen och kör `pod install` från katalogen som innehåller ditt projekt och öppna sedan den genererade Xcode-arbetsytan (inte projektet).
-4. Lägg till följande kod i programmet, enligt det språk som du använder. I vart och ett, gör du följande ersättningar:
+3. Med terminalen `pod install` körs den katalog som innehåller projektet och öppna sedan den genererade Xcode-arbetsytan (inte projektet).
+4. Lägg till följande kod i din ansökan, enligt det språk du använder. I varje, gör dessa ersättare:
 
-   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure Portal].
-   * Ersätt **insert-Resource-ID – här** med klient-ID: t för Server delen för mobilappen. Du kan hämta klient-ID: t från fliken **Avancerat** under **Azure Active Directory inställningar** i portalen.
-   * Ersätt **insert-Client-ID – här** med det klient-ID som du kopierade från det interna klient programmet.
-   * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Det här värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
+   * Ersätt **INSERT-AUTHORITY-HERE** med namnet på klienten där du har etablerat ditt program. Formatet ska https://login.microsoftonline.com/contoso.onmicrosoft.comvara . Det här värdet kan kopieras från fliken Domän i Din Azure Active Directory i [Azure-portalen].
+   * Ersätt **INSERT-RESOURCE-ID-HERE** med klient-ID för din mobilapps backend. Du kan hämta klient-ID:t från fliken **Avancerat** under **Azure Active Directory-inställningar** i portalen.
+   * Ersätt **INSERT-CLIENT-ID-HERE** med klient-ID som du kopierade från det inbyggda klientprogrammet.
+   * Ersätt **INSERT-REDIRECT-URI-HERE** med webbplatsens *slutpunkt /.auth/login/done* med hjälp av HTTPS-schemat. Det här värdet *https://contoso.azurewebsites.net/.auth/login/done*bör liknas vid .
 
-**Mål-C**:
+**Mål C**:
 
 ```objc
 #import <ADALiOS/ADAuthenticationContext.h>
@@ -597,7 +597,7 @@ Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga a
 }
 ```
 
-**Swift**:
+**Swift:**
 
 ```swift
 // add the following imports to your bridging header:
@@ -625,13 +625,13 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 }
 ```
 
-## <a name="facebook-sdk"></a>Gör så här: autentisera användare med Facebook SDK för iOS
+## <a name="how-to-authenticate-users-with-the-facebook-sdk-for-ios"></a><a name="facebook-sdk"></a>Så här: Autentiserar användare med Facebook SDK för iOS
 
-Du kan använda Facebook SDK för iOS för att logga användare i ditt program med Facebook.  Användning av en klient flödes autentisering är att föredra att använda metoden `loginWithProvider:completion:`.  Autentiseringen av klient flödet ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
+Du kan använda Facebook SDK för iOS för att logga in användare i din applikation med Facebook.  Att använda en klientflödesautentisering `loginWithProvider:completion:` är att föredra framför att använda metoden.  Klientflödesautentisering ger en mer inbyggd UX-känsla och möjliggör ytterligare anpassning.
 
-1. Konfigurera din server del för mobilappen för Facebook-inloggning genom att följa själv studie kursen [konfigurera App Service för Facebook-inloggning][9] .
-2. Installera Facebook SDK för iOS genom att följa [Facebook SDK för iOS-komma igång-][10] dokumentationen. I stället för att skapa en app kan du lägga till iOS-plattformen till din befintliga registrering.
-3. Facebook-dokumentationen innehåller viss mål-C-kod i appens ombud. Om du använder **Swift**kan du använda följande översättningar för AppDelegate. SWIFT:
+1. Konfigurera din mobilappshandledning för Facebook-inloggning genom att följa [så här konfigurerar du App Service för Facebook-inloggningshandledning.][9]
+2. Installera Facebook SDK för iOS genom att följa [Facebook SDK för iOS - Komma igång-dokumentation.][10] I stället för att skapa en app kan du lägga till iOS-plattformen i din befintliga registrering.
+3. Facebooks dokumentation innehåller viss Objective-C-kod i appdelegaten. Om du använder **Swift**kan du använda följande översättningar för AppDelegate.swift:
 
     ```swift
     // Add the following import to your bridging header:
@@ -649,10 +649,10 @@ Du kan använda Facebook SDK för iOS för att logga användare i ditt program m
         return handled
     }
     ```
-4. Förutom att lägga till `FBSDKCoreKit.framework` i projektet kan du också lägga till en referens till `FBSDKLoginKit.framework` på samma sätt.
-5. Lägg till följande kod i programmet, enligt det språk som du använder.
+4. Förutom att `FBSDKCoreKit.framework` lägga till i projektet, `FBSDKLoginKit.framework` lägg också till en referens till på samma sätt.
+5. Lägg till följande kod i din ansökan, enligt det språk du använder.
 
-    **Mål-C**:
+    **Mål C**:
 
     ```objc
     #import <FBSDKLoginKit/FBSDKLoginKit.h>
@@ -680,7 +680,7 @@ Du kan använda Facebook SDK för iOS för att logga användare i ditt program m
     }
     ```
 
-    **Swift**:
+    **Swift:**
 
     ```swift
     // Add the following imports to your bridging header:
@@ -704,19 +704,19 @@ Du kan använda Facebook SDK för iOS för att logga användare i ditt program m
     }
     ```
 
-## <a name="twitter-fabric"></a>Gör så här: autentisera användare med Twitter Fabric för iOS
+## <a name="how-to-authenticate-users-with-twitter-fabric-for-ios"></a><a name="twitter-fabric"></a>Så här: Autentiserar användare med Twitter Fabric för iOS
 
-Du kan använda Fabric för iOS för att logga användare i ditt program med hjälp av Twitter. Autentisering med klient flöde är att föredra att använda metoden `loginWithProvider:completion:`, eftersom den ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
+Du kan använda Fabric för iOS för att logga in användare i ditt program med Twitter. Klientflödesautentisering är att `loginWithProvider:completion:` föredra framför att använda metoden, eftersom den ger en mer inbyggd UX-känsla och möjliggör ytterligare anpassning.
 
-1. Konfigurera Server delen för mobilappen för Twitter-inloggning genom att följa själv studie kursen [konfigurera App Service för Twitter-inloggning](../app-service/configure-authentication-provider-twitter.md) .
-2. Lägg till infrastruktur resurser i projektet genom att följa [Infrastruktur resurs för iOS – Komma igång] dokumentation och konfigurera TwitterKit.
+1. Konfigurera din mobilappshandledning för Twitter-inloggning genom att följa [hur du konfigurerar App Service för Twitter-inloggningshandledning.](../app-service/configure-authentication-provider-twitter.md)
+2. Lägg till Fabric i projektet genom att följa [Fabric for iOS - Komma] igång-dokumentationen och konfigurera TwitterKit.
 
    > [!NOTE]
-   > Som standard skapar Fabric ett Twitter-program åt dig. Du kan undvika att skapa ett program genom att registrera konsument nyckeln och den konsument hemlighet som du skapade tidigare med hjälp av följande kodfragment.    Alternativt kan du ersätta konsument nyckeln och de konsument hemliga värden som du anger för att App Service med de värden som visas i [Instrument panel för infrastruktur resurser]. Om du väljer det här alternativet måste du ange en URL för återanrop till en plats hållare, till exempel `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
+   > Som standard skapar Fabric ett Twitter-program åt dig. Du kan undvika att skapa ett program genom att registrera konsumentnyckeln och konsumenthemligheten som du skapade tidigare med hjälp av följande kodavsnitt.    Du kan också ersätta de värden för konsumentnyckel och konsumenthemlighet som du anger till App-tjänsten med de värden som visas i [instrumentpanelen fabric]. Om du väljer det här alternativet måste du ange motringningsadressen till ett platshållarvärde, till exempel `https://<yoursitename>.azurewebsites.net/.auth/login/twitter/callback`.
 
-    Om du väljer att använda de hemligheter som du skapade tidigare, lägger du till följande kod i appens ombud:
+    Om du väljer att använda hemligheterna som du skapade tidigare lägger du till följande kod i appombudet:
 
-    **Mål-C**:
+    **Mål C**:
 
     ```objc
     #import <Fabric/Fabric.h>
@@ -731,7 +731,7 @@ Du kan använda Fabric för iOS för att logga användare i ditt program med hj�
     }
     ```
 
-    **Swift**:
+    **Swift:**
 
     ```swift
     import Fabric
@@ -745,9 +745,9 @@ Du kan använda Fabric för iOS för att logga användare i ditt program med hj�
     }
     ```
 
-3. Lägg till följande kod i programmet, enligt det språk som du använder.
+3. Lägg till följande kod i din ansökan, enligt det språk du använder.
 
-    **Mål-C**:
+    **Mål C**:
 
     ```objc
     #import <TwitterKit/TwitterKit.h>
@@ -768,7 +768,7 @@ Du kan använda Fabric för iOS för att logga användare i ditt program med hj�
     }
     ```
 
-    **Swift**:
+    **Swift:**
 
     ```swift
     import TwitterKit
@@ -786,15 +786,15 @@ Du kan använda Fabric för iOS för att logga användare i ditt program med hj�
     }
     ```
 
-## <a name="google-sdk"></a>Gör så här: autentisera användare med Google-inloggning SDK för iOS
+## <a name="how-to-authenticate-users-with-the-google-sign-in-sdk-for-ios"></a><a name="google-sdk"></a>Så här: Autentiserar användare med Googles inloggnings-SDK för iOS
 
-Du kan använda Google-inloggning SDK för iOS för att logga in användare i ditt program med ett Google-konto.  Google har nyligen lanserat ändringar i sina OAuth-säkerhetsprinciper.  Dessa princip ändringar kräver att Google SDK används i framtiden.
+Du kan använda Googles inloggning sdk för iOS för att logga in användare i ditt program med ett Google-konto.  Google tillkännagav nyligen ändringar i sina OAuth-säkerhetspolicyer.  Dessa policyändringar kräver användning av Google SDK i framtiden.
 
-1. Konfigurera din server del för mobilappen för Google-inloggning genom att följa själv studie kursen [konfigurera App Service för Google-inloggning](../app-service/configure-authentication-provider-google.md) .
-2. Installera Google SDK för iOS genom att följa den [Google-inloggningen för iOS-börja integrera](https://developers.google.com/identity/sign-in/ios/start-integrating) dokumentation. Du kan hoppa över avsnittet "autentisera med en backend-server".
-3. Lägg till följande i ditt ombuds `signIn:didSignInForUser:withError:` metod enligt det språk som du använder.
+1. Konfigurera din mobilappshandledning för Google-inloggning genom att följa så [här konfigurerar du App Service för Googles inloggningshandledning.](../app-service/configure-authentication-provider-google.md)
+2. Installera Google SDK för iOS genom att följa [Googles inloggning för iOS - Börja integrera](https://developers.google.com/identity/sign-in/ios/start-integrating) dokumentation. Du kan hoppa över avsnittet "Autentisera med en serverdelsserver".
+3. Lägg till följande i `signIn:didSignInForUser:withError:` ombudets metod enligt det språk du använder.
 
-    **Mål-C**:
+    **Mål C**:
     ```objc
     NSDictionary *payload = @{
                                 @"id_token":user.authentication.idToken,
@@ -806,7 +806,7 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
     }];
     ```
 
-    **Swift**:
+    **Swift:**
 
     ```swift
     let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
@@ -815,23 +815,23 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
     }
     ```
 
-4. Se till att du även lägger till följande i `application:didFinishLaunchingWithOptions:` i appens ombud, och Ersätt "SERVER_CLIENT_ID" med samma ID som du använde för att konfigurera App Service i steg 1.
+4. Se till att du `application:didFinishLaunchingWithOptions:` också lägger till följande i ditt appombud och ersätter "SERVER_CLIENT_ID" med samma ID som du använde för att konfigurera App Service i steg 1.
 
-    **Mål-C**:
+    **Mål C**:
 
     ```objc
     [GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
     ```
 
-     **Swift**:
+     **Swift:**
 
     ```swift
     GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
     ```
 
-5. Lägg till följande kod i programmet i en UIViewController som implementerar `GIDSignInUIDelegate`-protokollet, enligt det språk som du använder.  Du är utloggad innan du loggar in igen och även om du inte behöver ange dina autentiseringsuppgifter igen visas en dialog ruta för medgivande.  Anropa bara den här metoden när sessionstoken har upphört att gälla.
+5. Lägg till följande kod i ditt program i en `GIDSignInUIDelegate` UIViewController som implementerar protokollet, enligt det språk du använder.  Du är utloggade innan du loggas in igen, och även om du inte behöver ange dina autentiseringsuppgifter igen visas en dialogruta för medgivande.  Anropa endast den här metoden när sessionstoken har upphört att gälla.
 
-   **Mål-C**:
+   **Mål C**:
 
     ```objc
     #import <Google/SignIn.h>
@@ -844,7 +844,7 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
     }
     ```
 
-   **Swift**:
+   **Swift:**
 
     ```swift
     // ...
@@ -884,7 +884,7 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Mobile Apps Snabbstart]: app-service-mobile-ios-get-started.md
+[Snabbstart för Azure Mobile Apps]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -892,7 +892,7 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Azure Portal]: https://portal.azure.com/
+[Azure-portal]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
@@ -906,8 +906,8 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
 [CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
-[Instrument panel för infrastruktur resurser]: https://www.fabric.io/home
-[Infrastruktur resurs för iOS – Komma igång]: https://docs.fabric.io/ios/fabric/getting-started.html
+[Instrumentpanel för tyg]: https://www.fabric.io/home
+[Tyg för iOS - Komma igång]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
 [2]: https://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx

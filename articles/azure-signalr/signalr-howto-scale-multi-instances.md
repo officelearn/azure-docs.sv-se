@@ -1,30 +1,30 @@
 ---
-title: Skala med flera instanser – Azure SignalR-tjänsten
-description: I många skalnings scenarier behöver kunden ofta etablera flera instanser och konfigurera att använda dem tillsammans för att skapa en storskalig distribution. Horisontell partitionering kräver exempelvis stöd för flera instanser.
+title: Skala med flera instanser - Azure SignalR-tjänst
+description: I många skalningsscenarier måste kunden ofta etablera flera instanser och konfigurera för att använda dem tillsammans för att skapa en storskalig distribution. Fragmentering kräver till exempel stöd för flera instanser.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
 ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74158153"
 ---
-# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Hur skalar jag SignalR-tjänsten med flera instanser?
-Den senaste tjänsten för SignalR service SDK stöder flera slut punkter för signalerande tjänst instanser. Du kan använda den här funktionen för att skala samtidiga anslutningar eller använda den för meddelanden över flera regioner.
+# <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Hur skalar du SignalR-tjänsten med flera instanser?
+Den senaste SignalR Service SDK stöder flera slutpunkter för SignalR Service-instanser. Du kan använda den här funktionen för att skala samtidiga anslutningar eller använda den för meddelanden mellan regioner.
 
 ## <a name="for-aspnet-core"></a>För ASP.NET Core
 
-### <a name="how-to-add-multiple-endpoints-from-config"></a>Hur lägger du till flera slut punkter från config?
+### <a name="how-to-add-multiple-endpoints-from-config"></a>Hur lägger man till flera slutpunkter från config?
 
-Konfigurera med nyckel `Azure:SignalR:ConnectionString` eller `Azure:SignalR:ConnectionString:` för signal tjänst anslutnings sträng.
+Config med `Azure:SignalR:ConnectionString` `Azure:SignalR:ConnectionString:` nyckel eller för SignalR Service anslutningssträng.
 
-Om nyckeln börjar med `Azure:SignalR:ConnectionString:`ska den vara i formatet `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, där `Name` och `EndpointType` är egenskaper för `ServiceEndpoint`-objektet och är tillgängliga från kod.
+Om nyckeln börjar `Azure:SignalR:ConnectionString:`med ska den `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`vara `Name` `EndpointType` i format `ServiceEndpoint` , var och är egenskaper för objektet och är tillgängliga från kod.
 
-Du kan lägga till flera instans anslutnings strängar med följande `dotnet`-kommandon:
+Du kan lägga till anslutningssträngar för flera instanser med följande `dotnet` kommandon:
 
 ```batch
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
@@ -32,10 +32,10 @@ dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <Co
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>
 ```
 
-### <a name="how-to-add-multiple-endpoints-from-code"></a>Hur lägger jag till flera slut punkter från koden?
+### <a name="how-to-add-multiple-endpoints-from-code"></a>Hur lägger man till flera slutpunkter från koden?
 
-En `ServicEndpoint` klass introduceras för att beskriva egenskaperna för en Azure SignalR service-slutpunkt.
-Du kan konfigurera flera instans slut punkter när du använder Azure SignalR service SDK via:
+En `ServicEndpoint` klass introduceras för att beskriva egenskaperna för en Slutpunkt för Azure SignalR-tjänst.
+Du kan konfigurera flera instansslutpunkter när du använder Azure SignalR Service SDK via:
 ```cs
 services.AddSignalR()
         .AddAzureSignalR(options => 
@@ -53,23 +53,23 @@ services.AddSignalR()
         });
 ```
 
-### <a name="how-to-customize-endpoint-router"></a>Hur anpassar du slut punkts router?
+### <a name="how-to-customize-endpoint-router"></a>Hur man anpassar slutpunkt router?
 
-Som standard använder SDK [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) för att hämta slut punkter.
+Som standard använder SDK [DefaultEndpointRouter](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR/EndpointRouters/DefaultEndpointRouter.cs) för att plocka upp slutpunkter.
 
 #### <a name="default-behavior"></a>Standardbeteende 
-1. Routning av klient begär Anden
+1. Routning av klientbegäran
 
-    När klient `/negotiate` med app server. Som standard väljer SDK **slumpmässigt** en slut punkt från uppsättningen tillgängliga tjänst slut punkter.
+    När `/negotiate` klient med appservern. Som standard väljer SDK **slumpmässigt** en slutpunkt från uppsättningen tillgängliga tjänstslutpunkter.
 
-2. Routning av Server meddelande
+2. Routning av servermeddelanden
 
-    När * skickar ett meddelande till en unik * *-anslutning * * * och mål anslutningen dirigeras till den aktuella servern, skickas meddelandet direkt till den anslutna slut punkten. Annars skickas meddelandena till varje Azure SignalR-slutpunkt.
+    När *skicka meddelande till en viss **anslutning***, och målanslutningen dirigeras till aktuell server, går meddelandet direkt till den anslutna slutpunkten. Annars sänds meddelandena till varje Azure SignalR-slutpunkt.
 
-#### <a name="customize-routing-algorithm"></a>Anpassa algoritmen för routning
-Du kan skapa en egen router när du har särskilda kunskaper för att identifiera vilka slut punkter som meddelandena ska gå till.
+#### <a name="customize-routing-algorithm"></a>Anpassa routningsalgoritm
+Du kan skapa en egen router när du har särskild kunskap för att identifiera vilka slutpunkter meddelandena ska gå till.
 
-En anpassad router definieras nedan som ett exempel när grupper som börjar med `east-` alltid går till slut punkten med namnet `east`:
+En anpassad router definieras nedan som ett `east-` exempel när grupper `east`som börjar med alltid går till slutpunkten med namnet:
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -87,7 +87,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Ett annat exempel nedan, som åsidosätter standard förhandlings beteendet, för att välja slut punkterna beror på var app-servern finns.
+Ett annat exempel nedan, som åsidosätter standardförhandsförhöret, för att välja slutpunkter beror på var appservern finns.
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -110,7 +110,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Glöm inte att registrera routern på en DI-behållare med:
+Glöm inte att registrera routern till DI-behållaren med:
 
 ```cs
 services.AddSingleton(typeof(IEndpointRouter), typeof(CustomRouter));
@@ -129,13 +129,13 @@ services.AddSignalR()
 
 ## <a name="for-aspnet"></a>För ASP.NET
 
-### <a name="how-to-add-multiple-endpoints-from-config"></a>Hur lägger du till flera slut punkter från config?
+### <a name="how-to-add-multiple-endpoints-from-config"></a>Hur lägger man till flera slutpunkter från config?
 
-Konfigurera med nyckel `Azure:SignalR:ConnectionString` eller `Azure:SignalR:ConnectionString:` för signal tjänst anslutnings sträng.
+Config med `Azure:SignalR:ConnectionString` `Azure:SignalR:ConnectionString:` nyckel eller för SignalR Service anslutningssträng.
 
-Om nyckeln börjar med `Azure:SignalR:ConnectionString:`ska den vara i formatet `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`, där `Name` och `EndpointType` är egenskaper för `ServiceEndpoint`-objektet och är tillgängliga från kod.
+Om nyckeln börjar `Azure:SignalR:ConnectionString:`med ska den `Azure:SignalR:ConnectionString:{Name}:{EndpointType}`vara `Name` `EndpointType` i format `ServiceEndpoint` , var och är egenskaper för objektet och är tillgängliga från kod.
 
-Du kan lägga till flera instans anslutnings strängar i `web.config`:
+Du kan lägga till anslutningssträngar för flera instanser i: `web.config`
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -150,10 +150,10 @@ Du kan lägga till flera instans anslutnings strängar i `web.config`:
 </configuration>
 ```
 
-### <a name="how-to-add-multiple-endpoints-from-code"></a>Hur lägger jag till flera slut punkter från koden?
+### <a name="how-to-add-multiple-endpoints-from-code"></a>Hur lägger man till flera slutpunkter från koden?
 
-En `ServicEndpoint` klass introduceras för att beskriva egenskaperna för en Azure SignalR service-slutpunkt.
-Du kan konfigurera flera instans slut punkter när du använder Azure SignalR service SDK via:
+En `ServicEndpoint` klass introduceras för att beskriva egenskaperna för en Slutpunkt för Azure SignalR-tjänst.
+Du kan konfigurera flera instansslutpunkter när du använder Azure SignalR Service SDK via:
 
 ```cs
 app.MapAzureSignalR(
@@ -171,11 +171,11 @@ app.MapAzureSignalR(
         });
 ```
 
-### <a name="how-to-customize-router"></a>Så här anpassar du router?
+### <a name="how-to-customize-router"></a>Hur man anpassar router?
 
-Den enda skillnaden mellan ASP.NET-Signalerare och ASP.NET Core SignalR är http-kontexten för `GetNegotiateEndpoint`. För ASP.NET-signaler är det av [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) -typ.
+Den enda skillnaden mellan ASP.NET SignalR och ASP.NET Core SignalR är `GetNegotiateEndpoint`http-kontexttypen för . För ASP.NET SignalR är det av [IOwinContext](https://github.com/Azure/azure-signalr/blob/dev/src/Microsoft.Azure.SignalR.AspNet/EndpointRouters/DefaultEndpointRouter.cs#L19) typ.
 
-Nedan visas det anpassade förhandlings exemplet för ASP.NET-Signalerare:
+Nedan är det anpassade förhandla exempel för ASP.NET SignalR:
 
 ```cs
 private class CustomRouter : EndpointRouterDecorator
@@ -197,7 +197,7 @@ private class CustomRouter : EndpointRouterDecorator
 }
 ```
 
-Glöm inte att registrera routern på en DI-behållare med:
+Glöm inte att registrera routern till DI-behållaren med:
 
 ```cs
 var hub = new HubConfiguration();
@@ -213,33 +213,33 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 });
 ```
 
-## <a name="configuration-in-cross-region-scenarios"></a>Konfiguration i scenarier med flera regioner
+## <a name="configuration-in-cross-region-scenarios"></a>Konfiguration i scenarier mellan regioner
 
-`ServiceEndpoint`-objektet har en `EndpointType`-egenskap med värde `primary` eller `secondary`.
+Objektet `ServiceEndpoint` har `EndpointType` en egenskap `primary` `secondary`med värde eller .
 
-`primary` slut punkter är önskade slut punkter för att ta emot klient trafik och anses ha mer pålitliga nätverks anslutningar. `secondary` slut punkter anses ha mindre pålitliga nätverks anslutningar och används endast för att ta server till klient trafik, till exempel broadcast-meddelanden, inte för att ta klient till Server trafik.
+`primary`Slutpunkter är att föredra slutpunkter för att ta emot klienttrafik och anses ha mer tillförlitliga nätverksanslutningar. `secondary` slutpunkter anses ha mindre tillförlitliga nätverksanslutningar och används endast för att ta server till klienttrafik, till exempel sändning av meddelanden, inte för att ta klient till servertrafik.
 
-I frågor över flera regioner kan nätverket vara instabilt. För en app-server i *östra USA*kan SignalR service-slutpunkten i samma region i *östra USA* konfigureras som `primary` och slut punkter i andra regioner som har marker ATS som `secondary`. I den här konfigurationen kan tjänst slut punkter i andra regioner **ta emot** meddelanden från den här *amerikanska* app-servern, men det finns inga klienter **över flera regioner** som skickas till den här program servern. Arkitekturen visas i diagrammet nedan:
+I fall mellan regioner kan nätverket vara instabilt. För en appserver i *östra USA*kan slutpunkten för SignalR-tjänsten i samma region i *östra USA* konfigureras som `primary` och slutpunkter i andra regioner som markerats som `secondary`. I den här konfigurationen kan tjänstslutpunkter i andra regioner **ta emot** meddelanden från den här östra **usa-appservern,** men det kommer inte att finnas några klienter mellan regioner dirigerade till den här appservern. *East US* Arkitekturen visas i diagrammet nedan:
 
-![Mellan geo-infraröd](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
+![Cross-Geo Infra](./media/signalr-howto-scale-multi-instances/cross_geo_infra.png)
 
-När en klient försöker `/negotiate` med app-servern, med standardroutern väljer SDK **slumpmässigt** en slut punkt från uppsättningen tillgängliga `primary` slut punkter. När den primära slut punkten inte är tillgänglig väljer SDK **slumpmässigt** från alla tillgängliga `secondary` slut punkter. Slut punkten är markerad som **tillgänglig** när anslutningen mellan servern och tjänst slut punkten är Alive.
+När en `/negotiate` klient försöker med appservern, med standardroutern, väljer SDK `primary` **slumpmässigt** en slutpunkt från uppsättningen tillgängliga slutpunkter. När den primära slutpunkten inte är tillgänglig väljer SDK `secondary` sedan **slumpmässigt** från alla tillgängliga slutpunkter. Slutpunkten markeras som **tillgänglig** när anslutningen mellan servern och tjänstslutpunkten är vid liv.
 
-När en klient försöker `/negotiate` med den app-server som finns i *östra USA*, som standard, returnerar den alltid den `primary`-slutpunkt som finns i samma region. När alla slut punkter för *östra USA* inte är tillgängliga omdirigeras klienten till slut punkter i andra regioner. I avsnittet redundans beskrivs scenariot i detalj.
+I scenario över flera regioner, `/negotiate` när en klient försöker med appservern i `primary` östra *USA*, som standard returnerar den alltid slutpunkten som finns i samma region. När alla slutpunkter i *östra USA* inte är tillgängliga omdirigeras klienten till slutpunkter i andra regioner. Avsnittet Över fail-over nedan beskriver scenariot i detalj.
 
-![Normal förhandling](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
+![Normal Förhandla](./media/signalr-howto-scale-multi-instances/normal_negotiate.png)
 
-## <a name="fail-over"></a>Redundans
+## <a name="fail-over"></a>Växla över
 
-När alla `primary` slut punkter inte är tillgängliga, kan klientens `/negotiate` plockningar från tillgängliga `secondary` slut punkter. Den här redundansväxla mekanismen kräver att varje slut punkt ska fungera som `primary` slut punkt till minst en app server.
+När `primary` alla slutpunkter inte är tillgängliga `/negotiate` väljer klienten `secondary` från de tillgängliga slutpunkterna. Den här felväxlingsmekanismen kräver att `primary` varje slutpunkt ska fungera som slutpunkt till minst en appserver.
 
-![Redundans](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
+![Växla över](./media/signalr-howto-scale-multi-instances/failover_negotiate.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här guiden har du lärt dig hur du konfigurerar flera instanser i samma program för skalnings-, horisontell partitionering-och kors regions scenarier.
+I den här guiden har du lärt dig hur du konfigurerar flera instanser i samma program för skalning, fragmentering och scenarier mellan regioner.
 
-Stöd för flera slut punkter kan också användas i scenarier med hög tillgänglighet och haveri beredskap.
+Flera slutpunkter stöder kan också användas i hög tillgänglighet och katastrofåterställning scenarier.
 
 > [!div class="nextstepaction"]
-> [Konfigurera signal tjänsten för haveri beredskap och hög tillgänglighet](./signalr-concept-disaster-recovery.md)
+> [Konfigurera SignalR-tjänst för haveriberedskap och hög tillgänglighet](./signalr-concept-disaster-recovery.md)

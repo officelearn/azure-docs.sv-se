@@ -1,7 +1,7 @@
 ---
-title: Exportera eller ta bort data i arbetsytan
+title: Exportera eller ta bort arbetsytedata
 titleSuffix: Azure Machine Learning
-description: 'Lär dig hur du exporterar eller tar bort din arbets yta med Azure Machine Learning Studio-, CLI-, SDK-och autentiserade REST-API: er.'
+description: Lär dig hur du exporterar eller tar bort arbetsytan med Azure Machine Learning studio, CLI, SDK och autentiserade REST-API:er.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,47 +12,47 @@ ms.author: laobri
 ms.date: 03/06/2020
 ms.custom: seodec18
 ms.openlocfilehash: 4abef0146b4bf0cfaa254d196b0ca68f0d8ac883
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79218293"
 ---
-# <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportera eller ta bort arbetsyta för Machine Learning tjänstdata
+# <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportera eller ta bort arbetsytedata för machine learning-tjänsten
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Du kan exportera eller ta bort dina data i arbetsytan med autentiserade REST-API i Azure Machine Learning. Den här artikeln visar hur du gör.
+I Azure Machine Learning kan du exportera eller ta bort dina arbetsytedata med det autentiserade REST API:et. I den här artikeln får du lära dig hur du gör.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="control-your-workspace-data"></a>Kontrollera dina arbetsytedata
+## <a name="control-your-workspace-data"></a>Styra dina arbetsytedata
 
-Produkt data som lagras av Azure Machine Learning kan exporteras och tas bort via Azure Machine Learning Studio-, CLI-, SDK-och autentiserade REST-API: er. Dessa data kan nås via sekretess för Azure-portalen. 
+Produktdata som lagras av Azure Machine Learning är tillgängliga för export och borttagning via Azure Machine Learning studio, CLI, SDK och autentiserade REST-API:er. Telemetridata kan nås via Azure Privacy-portalen. 
 
-I Azure Machine Learning består personliga data av användar information i historik dokument och telemetri poster för vissa användar interaktioner med tjänsten.
+I Azure Machine Learning består personuppgifter av användarinformation i körningshistorikdokument och telemetriposter för vissa användarinteraktioner med tjänsten.
 
 ## <a name="delete-workspace-data-with-the-rest-api"></a>Ta bort arbetsytedata med REST API
 
-Följande API-anrop kan göras med HTTP DELETE-verb för att ta bort data. De är auktoriserade genom att ha ett `Authorization: Bearer <arm-token>`-huvud i begäran där `<arm-token>` är AAD-åtkomsttoken för `https://management.core.windows.net/` slut punkten.  
+För att ta bort data kan följande API-anrop göras med HTTP DELETE-verbet. Dessa auktoriseras `Authorization: Bearer <arm-token>` genom att ha `<arm-token>` ett huvud i begäran, var är AAD-åtkomsttoken för `https://management.core.windows.net/` slutpunkten.  
 
-Information om hur du hämtar denna token och anropar Azure-slutpunkter finns i [använda rest för att hantera ml-resurser](how-to-manage-rest.md) och [Azure REST API-dokumentation](https://docs.microsoft.com/rest/api/azure/).  
+Mer information om hur du hämtar den här token- och anropa Azure-slutpunkterna finns i [Använda REST för att hantera ML-resurser](how-to-manage-rest.md) och Azure REST [API-dokumentation](https://docs.microsoft.com/rest/api/azure/).  
 
-I exemplen nedan ersätter du texten i {} med de instans namn som avgör den associerade resursen.
+I exemplen nedan ersätter {} du texten med de förekomstnamn som bestämmer den associerade resursen.
 
 ### <a name="delete-an-entire-workspace"></a>Ta bort en hel arbetsyta
 
-Använd det här anropet för att ta bort en hela arbetsytan.  
+Använd det här anropet om du vill ta bort en hel arbetsyta.  
 > [!WARNING]
-> All information som kommer att tas bort och arbetsytan inte längre användas.
+> All information kommer att tas bort och arbetsytan kommer inte längre att kunna användas.
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}?api-version=2019-11-01
 
 ### <a name="delete-models"></a>Ta bort modeller
 
-Använd det här anropet för att hämta en lista över modeller och deras ID:
+Använd det här samtalet för att få en lista över modeller och deras ID:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models?api-version=2019-11-01
 
@@ -62,7 +62,7 @@ Enskilda modeller kan tas bort med:
 
 ### <a name="delete-assets"></a>Ta bort tillgångar
 
-Använd det här anropet för att hämta en lista över tillgångar och deras ID:
+Använd det här anropet för att få en lista över tillgångar och deras ID:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets?api-version=2019-11-01
 
@@ -72,7 +72,7 @@ Enskilda tillgångar kan tas bort med:
 
 ### <a name="delete-images"></a>Ta bort avbildningar
 
-Använd det här anropet för att hämta en lista över avbildningar och deras ID:
+Använd det här samtalet för att få en lista över bilder och deras ID:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images?api-version=2019-11-01
 
@@ -82,7 +82,7 @@ Enskilda bilder kan tas bort med:
 
 ### <a name="delete-services"></a>Ta bort tjänster
 
-Använd det här anropet för att hämta en lista över tjänster och deras ID:
+Använd det här samtalet för att få en lista över tjänster och deras ID:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services?api-version=2019-11-01
 
@@ -90,37 +90,37 @@ Enskilda tjänster kan tas bort med:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services/{id}?api-version=2019-11-01
 
-## <a name="export-service-data-with-the-rest-api"></a>Exportera service data med REST API
+## <a name="export-service-data-with-the-rest-api"></a>Exportera tjänstdata med REST API
 
-Om du vill exportera data kan följande API-anrop göras med HTTP GET-verb. De är auktoriserade genom att ha ett `Authorization: Bearer <arm-token>`-huvud i begäran där `<arm-token>` är AAD-åtkomsttoken för slut punkten `https://management.core.windows.net/`  
+För att exportera data kan följande API-anrop göras med HTTP GET-verbet. Dessa auktoriseras `Authorization: Bearer <arm-token>` genom att ha `<arm-token>` ett huvud i begäran, var är AAD-åtkomsttoken för slutpunkten`https://management.core.windows.net/`  
 
-Information om hur du hämtar denna token och anropar Azure-slutpunkter finns i [använda rest för att hantera ml-resurser](how-to-manage-rest.md) och [Azure REST API-dokumentation](https://docs.microsoft.com/rest/api/azure/)..   
+Mer information om hur du hämtar den här token- och anropa Azure-slutpunkterna finns i [Använda REST för att hantera ML-resurser](how-to-manage-rest.md) och Azure REST [API-dokumentation](https://docs.microsoft.com/rest/api/azure/)..   
 
-I exemplen nedan ersätter du texten i {} med de instans namn som avgör den associerade resursen.
+I exemplen nedan ersätter {} du texten med de förekomstnamn som bestämmer den associerade resursen.
 
 ### <a name="export-workspace-information"></a>Exportera information om arbetsytan
 
-Använd det här anropet för att hämta en lista över alla arbetsytor:
+Använd det här anropet om du vill få en lista över alla arbetsytor:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces?api-version=2019-11-01
 
-Information om en enskild arbetsyta kan erhållas genom:
+Information om en enskild arbetsyta kan erhållas genom att:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}?api-version=2019-11-01
 
-### <a name="export-compute-information"></a>Exportera beräkning Information
+### <a name="export-compute-information"></a>Exportera beräkningsinformation
 
-Alla beräkningsresurser mål som är kopplade till en arbetsyta kan erhållas genom:
+Alla beräkningsmål som är kopplade till en arbetsyta kan erhållas genom att:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes?api-version=2019-11-01
 
-Information om en enda beräkningsmål kan erhållas genom:
+Information om ett enda beräkningsmål kan erhållas genom att:
 
     https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}?api-version=2019-11-01
 
-### <a name="export-run-history-data"></a>Historikdata för exportkörning
+### <a name="export-run-history-data"></a>Exportera körningshistorikdata
 
-Använd det här anropet för att hämta en lista över alla experiment och deras information:
+Använd det här samtalet för att få en lista över alla experiment och deras information:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments 
 
@@ -128,67 +128,67 @@ Alla körningar för ett visst experiment kan erhållas genom:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs 
 
-Körningshistorik objekt kan erhållas genom:
+Körhistorikobjekt kan erhållas genom:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/runs/{runId} 
 
-Alla kör mått för ett experiment kan erhållas genom:
+Alla körningsmått för ett experiment kan erhållas genom:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/metrics 
 
-Ett kör mått kan erhållas genom:
+Ett enda körningsmått kan erhållas genom:
 
     https://{location}.experiments.azureml.net/history/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/experiments/{experimentName}/metrics/{metricId}
 
 ### <a name="export-artifacts"></a>Exportera artefakter
 
-Använd det här anropet för att hämta en lista över artefakter och deras sökvägar:
+Använd det här anropet om du vill få en lista över artefakter och deras sökvägar:
 
     https://{location}.experiments.azureml.net/artifact/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/artifacts/origins/ExperimentRun/containers/{runId}
 
 ### <a name="export-notifications"></a>Exportera meddelanden
 
-Använd det här anropet för att hämta en lista över lagrade uppgifter:
+Använd det här anropet om du vill få en lista över lagrade uppgifter:
 
     https://{location}.experiments.azureml.net/notification/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/tasks
 
-Meddelanden för en enskild uppgift kan erhållas genom:
+Meddelanden för en enskild uppgift kan erhållas genom att:
 
     https://{location}.experiments.azureml.net/notification/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}tasks/{taskId}
 
 ### <a name="export-data-stores"></a>Exportera datalager
 
-Använd det här anropet för att hämta en lista över datalager:
+Använd det här samtalet för att få en lista över datalager:
 
     https://{location}.experiments.azureml.net/datastore/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datastores
 
-Enskilda datalager kan erhållas genom:
+Individuella datalager kan erhållas genom:
 
     https://{location}.experiments.azureml.net/datastore/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datastores/{name}
 
 ### <a name="export-models"></a>Exportera modeller
 
-Använd det här anropet för att hämta en lista över modeller och deras ID:
+Använd det här samtalet för att få en lista över modeller och deras ID:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models?api-version=2019-11-01
 
-Enskilda modeller kan erhållas genom:
+Individuella modeller kan erhållas genom:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/models/{id}?api-version=2019-11-01
 
 ### <a name="export-assets"></a>Exportera tillgångar
 
-Använd det här anropet för att hämta en lista över tillgångar och deras ID:
+Använd det här anropet för att få en lista över tillgångar och deras ID:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets?api-version=2019-11-01
 
-Enskilda tillgångar kan erhållas genom:
+Enskilda tillgångar kan erhållas genom att:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/assets/{id}?api-version=2019-11-01
 
 ### <a name="export-images"></a>Exportera bilder
 
-Använd det här anropet för att hämta en lista över avbildningar och deras ID:
+Använd det här samtalet för att få en lista över bilder och deras ID:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images?api-version=2019-11-01
 
@@ -196,68 +196,68 @@ Enskilda bilder kan erhållas genom:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/images/{id}?api-version=2019-11-01
 
-### <a name="export-services"></a>Exportera tjänster
+### <a name="export-services"></a>Exporttjänster
 
-Använd det här anropet för att hämta en lista över tjänster och deras ID:
+Använd det här samtalet för att få en lista över tjänster och deras ID:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services?api-version=2019-11-01
 
-Enskilda tjänster kan erhållas genom:
+Individuella tjänster kan erhållas genom att:
 
     https://{location}.modelmanagement.azureml.net/api/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspace}/services/{id}?api-version=2019-11-01
 
-### <a name="export-pipeline-experiments"></a>Exportera Pipeline experiment
+### <a name="export-pipeline-experiments"></a>Exportera pipelineexperiment
 
-Enskilda experiment kan erhållas genom:
+Individuella experiment kan erhållas genom:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Experiments/{experimentId}
 
-### <a name="export-pipeline-graphs"></a>Exportera Pipeline-diagram
+### <a name="export-pipeline-graphs"></a>Exportera pipelinediagram
 
-Enskilda diagram kan erhållas genom:
+Individuella grafer kan erhållas genom:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Graphs/{graphId}
 
-### <a name="export-pipeline-modules"></a>Exportera Pipelinemoduler
+### <a name="export-pipeline-modules"></a>Exportera pipelinemoduler
 
 Moduler kan erhållas genom:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Modules/{id}
 
-### <a name="export-pipeline-templates"></a>Exportera Pipeline-mallar
+### <a name="export-pipeline-templates"></a>Exportera pipeline-mallar
 
 Mallar kan erhållas genom:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/Templates/{templateId}
 
-### <a name="export-pipeline-data-sources"></a>Exportera Pipeline-datakällor
+### <a name="export-pipeline-data-sources"></a>Exportera pipeline-datakällor
 
-Datakällor kan erhållas genom:
+Datakällor kan erhållas genom att:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-assets-in-the-designer"></a>Ta bort till gångar i designern
+## <a name="delete-assets-in-the-designer"></a>Ta bort tillgångar i designern
 
-Ta bort enskilda till gångar i designern där du skapade experimentet:
+I designern där du skapade experimentet tar du bort enskilda resurser:
 
 1. Gå till designern
 
     ![Ta bort tillgångar](./media/how-to-export-delete-data/delete-experiment.png)
 
-1. I listan väljer du det enskilda pipeline-utkastet som ska tas bort.
+1. Välj det enskilda pipeline-utkastet som ska tas bort i listan.
 
 1. Välj **Ta bort**.
 
-### <a name="delete-datasets-in-the-designer"></a>Ta bort data uppsättningar i designern
+### <a name="delete-datasets-in-the-designer"></a>Ta bort datauppsättningar i designern
 
-Om du vill ta bort data uppsättningar i designern använder du Azure Portal eller Storage Explorer för att navigera till anslutna lagrings konton och ta bort data uppsättningar där. När data uppsättningar avregistreras i designern tas endast referens punkten i lagring bort.
+Om du vill ta bort datauppsättningar i designern använder du Azure-portalen eller Storage Explorer för att navigera till anslutna lagringskonton och ta bort datauppsättningar där. Om du avregistrerar datauppsättningar i designern tas endast referenspunkten i lagringen bort.
 
 ## <a name="export-data-in-the-designer"></a>Exportera data i designern
 
-Exportera data som du har lagt till i designern där du skapade experimentet:
+I designern där du skapade experimentet exporterar du data som du har lagt till:
 
-1. Välj **data uppsättningar**till vänster.
+1. Till vänster väljer du **Datauppsättningar**.
 
-1. I listan väljer du den data uppsättning som ska exporteras
+1. I listan väljer du den datauppsättning som ska exporteras
 
-    ![Hämta data](./media/how-to-export-delete-data/unregister-dataset.png)
+    ![Nedladdning av data](./media/how-to-export-delete-data/unregister-dataset.png)

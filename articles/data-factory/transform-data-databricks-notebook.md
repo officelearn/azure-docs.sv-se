@@ -1,6 +1,6 @@
 ---
-title: Transformera data med Databricks Notebook
-description: Lär dig hur du bearbetar eller transformerar data genom att köra en Databricks Notebook.
+title: Omvandla data med databricks bärbar dator
+description: Lär dig hur du bearbetar eller omvandlar data genom att köra en Databricks-anteckningsbok.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -12,19 +12,19 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: c7a2aec35511ef066033c3d6462143ac31660e76
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74923063"
 ---
-# <a name="transform-data-by-running-a-databricks-notebook"></a>Transformera data genom att köra en Databricks Notebook
+# <a name="transform-data-by-running-a-databricks-notebook"></a>Omvandla data genom att köra en databricks-anteckningsbok
 
-Azure Databricks Notebook-aktiviteten i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en Databricks-anteckningsbok i din Azure Databricks-arbetsyta. Den här artikeln bygger på [data Transformations aktiviteter](transform-data.md) artikeln, som visar en allmän översikt över Datatransformeringen och de omvandlings aktiviteter som stöds. Azure Databricks är en hanterad plattform för att köra Apache Spark.
+Azure Databricks Notebook Activity i en [Data Factory-pipeline](concepts-pipelines-activities.md) kör en Databricks-anteckningsbok på din Azure Databricks-arbetsyta. Den här artikeln bygger på artikeln [om dataomvandlingsaktiviteter,](transform-data.md) som ger en allmän översikt över dataomvandling och de omvandlingsaktiviteter som stöds.Azure Databricks är en hanterad plattform för att köra Apache Spark.
 
-## <a name="databricks-notebook-activity-definition"></a>Aktivitets definition för Databricks Notebook
+## <a name="databricks-notebook-activity-definition"></a>Databricks Anteckningsbok aktivitetsdefinition
 
-Här är exempel-JSON-definitionen för en Databricks Notebook-aktivitet:
+Här är exemplet JSON definition av en Databricks Notebook Activity:
 
 ```json
 {
@@ -52,24 +52,24 @@ Här är exempel-JSON-definitionen för en Databricks Notebook-aktivitet:
 }
 ```
 
-## <a name="databricks-notebook-activity-properties"></a>Egenskaper för Databricks Notebook-aktivitet
+## <a name="databricks-notebook-activity-properties"></a>Aktivitetsegenskaper för Databricks Bärbar dator
 
 I följande tabell beskrivs de JSON-egenskaper som används i JSON-definitionen:
 
 |Egenskap|Beskrivning|Krävs|
 |---|---|---|
-|namn|Namnet på aktiviteten i pipelinen.|Ja|
-|beskrivning|Text som beskriver vad aktiviteten gör.|Nej|
-|typ|Aktivitets typen är DatabricksNotebook för Databricks Notebook-aktivitet.|Ja|
-|linkedServiceName|Namnet på den länkade Databricks-tjänsten som Databricks-anteckningsboken körs på. Mer information om den här länkade tjänsten finns i artikeln [Compute Linked services](compute-linked-services.md) .|Ja|
-|notebookPath|Den absoluta sökvägen till antecknings boken som ska köras i Databricks-arbetsytan. Sökvägen måste börja med ett snedstreck.|Ja|
-|baseParameters|En matris med nyckel/värde-par. Du kan använda bas parametrar för varje aktivitets körning. Om antecknings boken använder en parameter som inte har angetts används standardvärdet från antecknings boken. Hitta mer information om parametrar i [Databricks Notebooks](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Nej|
-|bibliotek|En lista med bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara en matris med \<sträng, objekt >.|Nej|
+|namn|Namnet på aktiviteten på pipelinen.|Ja|
+|description|Text som beskriver vad aktiviteten gör.|Inga|
+|typ|För Databricks Notebook Activity är aktivitetstypen DatabricksNotebook.|Ja|
+|linkedServiceName|Namnet på den Databricks Linked Service som den bärbara databricks-anteckningsboken körs på. Mer information om den länkade tjänsten finns i artikel [om beräkningslänkade tjänster.](compute-linked-services.md) |Ja|
+|notebookPath (notebookPath)|Den absoluta sökvägen till den anteckningsbok som ska köras i Databricks-arbetsytan. Den här sökvägen måste börja med ett snedstreck.|Ja|
+|basParametrar|En matris med nyckelvärdespar. Basparametrar kan användas för varje aktivitetskörning. Om anteckningsboken tar en parameter som inte har angetts används standardvärdet från anteckningsboken. Hitta mer om parametrar i [Databricks Bärbara datorer](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|Inga|
+|bibliotek|En lista över bibliotek som ska installeras i klustret som ska köra jobbet. Det kan vara \<en matris med sträng, objekt>.|Inga|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotek som stöds för Databricks-aktiviteter
 
-I Databricks-aktivitets definitionen anger du dessa biblioteks typer: *jar*, *ägg*, *WHL*, *maven*, *pypi*, *cran*.
+I ovanstående Databricks aktivitetsdefinition anger du dessa bibliotekstyper: *burk*, *ägg*, *whl*, *maven*, *pypi*, *cran*.
 
 ```json
 {
@@ -109,31 +109,31 @@ I Databricks-aktivitets definitionen anger du dessa biblioteks typer: *jar*, *ä
 
 ```
 
-Mer information finns i Databricks- [dokumentationen](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) för biblioteks typer.
+Mer information finns i Dokumentationen för [Databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) för bibliotekstyper.
 
-## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Skicka parametrar mellan antecknings böcker och Data Factory
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Skicka parametrar mellan anteckningsböcker och Data Factory
 
-Du kan skicka data Factory-parametrar till antecknings böcker med egenskapen *baseParameters* i databricks-aktivitet. 
+Du kan skicka datafabriksparametrar till anteckningsböcker med hjälp av *egenskapen baseParameters* i databricks-aktivitet. 
 
-I vissa fall kan du behöva skicka tillbaka vissa värden från antecknings boken till Data Factory, som kan användas för kontroll flöde (villkorliga kontroller) i Data Factory eller användas av underordnade aktiviteter (storleks gränsen är 2 MB). 
+I vissa fall kan du behöva skicka tillbaka vissa värden från anteckningsboken tillbaka till datafabriken, som kan användas för kontrollflöde (villkorliga kontroller) i datafabriken eller förbrukas av aktiviteter i efterföljande led (storleksgränsen är 2 MB). 
 
-1. I din antecknings bok kan du anropa [dbutils. Notebook. Exit ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) och motsvarande "returnValue" kommer att returneras till Data Factory.
+1. I anteckningsboken kan du ringa [dbutils.notebook.exit("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) och motsvarande "returnValue" kommer att returneras till datafabriken.
 
-2. Du kan använda utdata i Data Factory genom att använda uttryck som `'@activity('databricks notebook activity name').output.runOutput'`. 
+2. Du kan använda utdata i datafabriken med hjälp av uttryck som `'@activity('databricks notebook activity name').output.runOutput'`. 
 
    > [!IMPORTANT]
-   > Om du skickar JSON-objekt kan du hämta värden genom att lägga till egenskaps namn. Exempel: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
+   > Om du skickar JSON-objekt kan du hämta värden genom att lägga till egenskapsnamn. Exempel: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
-## <a name="how-to-upload-a-library-in-databricks"></a>Ladda upp ett bibliotek i Databricks
+## <a name="how-to-upload-a-library-in-databricks"></a>Så här laddar du upp ett bibliotek i Databricks
 
-#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Använda användar gränssnittet för Databricks-arbetsyta](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+#### <a name="using-databricks-workspace-ui"></a>[Använda databricks arbetsytans användargränssnitt](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 
-Du kan hämta dBFS-sökvägen till biblioteket som lagts till med hjälp av användar gränssnittet genom att använda [DATABRICKS CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+Om du vill hämta sökvägen till dbfs för biblioteket som lagts till med användargränssnittet kan du använda [Databricks CLI (installation)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Jar-bibliotek lagras vanligt vis under dBFS:/FileStore/jar v7 när användar gränssnittet används. Du kan visa alla via CLI: *databricks FS LS dBFS:/FileStore/jar v7*.
+Vanligtvis lagras Jar-biblioteken under dbfs:/FileStore/jars när användargränssnittet används. Du kan lista hela CLI: *databricks fs ls dbfs:/FileStore/jars*.
 
 
 
-#### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Kopiera bibliotek med Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+#### <a name="copy-library-using-databricks-cli"></a>[Kopiera bibliotek med Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
 
-Exempel: *databricks FS CP sparkpi-Assembly-0,1. jar dBFS:/FileStore/jar v7*
+Exempel: *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*

@@ -1,6 +1,6 @@
 ---
-title: Använd ett delat avbildnings galleri i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du konfigurerar ett labb konto för att använda ett delat bild galleri så att en användare kan dela en avbildning med andra och en annan användare kan använda avbildningen för att skapa en mall för virtuella datorer i labbet.
+title: Använda ett delat avbildningsgalleri i Azure Lab Services | Microsoft-dokument
+description: Lär dig hur du konfigurerar ett labbkonto för att använda ett delat bildgalleri så att en användare kan dela en avbildning med andra och en annan användare kan använda avbildningen för att skapa en virtuell mall virtuell dator i labbet.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,45 +14,45 @@ ms.topic: article
 ms.date: 02/24/2020
 ms.author: spelluru
 ms.openlocfilehash: c611ecdb5a2534f7368e533e3e19e6e3f96de57f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78190457"
 ---
-# <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Använd ett delat avbildnings galleri i Azure Lab Services
-Den här artikeln visar hur lärare/labb administratören kan spara en mall för en virtuell dator för att återanvändas av andra. Dessa bilder sparas i ett galleri för Azure- [delade avbildningar](../../virtual-machines/windows/shared-image-galleries.md). Som ett första steg kopplar labb administratören ett befintligt delat avbildnings galleri till labb kontot. När du har bifogat det delade bild galleriet kan labb som skapats i labb kontot Spara bilder i det delade avbildnings galleriet. Andra lärare kan välja den här avbildningen från galleriet för delade avbildningar för att skapa en mall för deras klasser. 
+# <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Använda ett delat avbildningsgalleri i Azure Lab Services
+Den här artikeln visar hur lärare/labbadministratör kan spara en mallavbildning för virtuella datorer för att den ska återanvändas av andra. Dessa avbildningar sparas i ett [delat azure-bildgalleri](../../virtual-machines/windows/shared-image-galleries.md). Som ett första steg bifogar labbadministratören ett befintligt delat bildgalleri till labbkontot. När det delade bildgalleriet är bifogat kan övningar som skapats i labbkontot spara bilder i det delade bildgalleriet. Andra lärare kan välja den här bilden från det delade bildgalleriet för att skapa en mall för sina klasser. 
 
 > [!NOTE]
-> För närvarande stöder Azure Lab Services skapandet av mall-VM: ar baserat på endast **generaliserade** VM-avbildningar (inte specialiserade bilder) i ett delat avbildnings Galleri. 
+> Azure Lab Services stöder för närvarande skapandet av virtuella mall-datorer baserat på endast **generaliserade** VM-avbildningar (inte specialiserade avbildningar) i ett delat bildgalleri. 
 
-## <a name="prerequisites"></a>Förutsättningar
-- Skapa ett galleri för delad avbildning med hjälp av antingen [Azure PowerShell](../../virtual-machines/windows/shared-images.md) eller [Azure CLI](../../virtual-machines/linux/shared-images.md).
-- Du har kopplat det delade avbildnings galleriet till labb kontot. Stegvisa instruktioner finns i [så här ansluter du eller kopplar från delade avbildnings galleriet](how-to-attach-detach-shared-image-gallery.md).
+## <a name="prerequisites"></a>Krav
+- Skapa ett delat avbildningsgalleri med hjälp av [Azure PowerShell](../../virtual-machines/windows/shared-images.md) eller [Azure CLI](../../virtual-machines/linux/shared-images.md).
+- Du har bifogat det delade bildgalleriet till labbkontot. Stegvisa instruktioner finns i [Så här bifogar eller kopplar du från delat bildgalleri](how-to-attach-detach-shared-image-gallery.md).
 
 
-## <a name="save-an-image-to-the-shared-image-gallery"></a>Spara en bild i galleriet för delade avbildningar
-När ett delat avbildnings Galleri har kopplats kan en labb konto administratör eller en lärare Spara en bild i det delade bild galleriet så att den kan återanvändas av andra lärare. 
+## <a name="save-an-image-to-the-shared-image-gallery"></a>Spara en bild i det delade bildgalleriet
+När ett delat bildgalleri har bifogats kan en labbkontoadministratör eller en lärare spara en bild i det delade bildgalleriet så att den kan återanvändas av andra lärare. 
 
-1. På **mall** -sidan för labbet väljer du **Exportera till delat avbildnings Galleri** i verktygsfältet.
+1. På **sidan Mall** för labbet väljer du **Exportera till delat bildgalleri** i verktygsfältet.
 
     ![Knappen Spara bild](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-button.png)
-2. I dialog rutan **Exportera till delad avbildnings Galleri** anger **du ett namn för avbildningen**och väljer sedan **Exportera**. 
+2. I dialogrutan **Exportera till delat bildgalleri** anger du ett **namn på bilden**och väljer sedan **Exportera**. 
 
-    ![Dialog rutan exportera till delat bild galleri](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png)
-3. Du kan se förloppet för den här åtgärden på **mallsidan** . Den här åtgärden kan ta en stund. 
+    ![Dialogrutan Exportera till delat bildgalleri](../media/how-to-use-shared-image-gallery/export-to-shared-image-gallery-dialog.png)
+3. Du kan se förloppet för den här åtgärden på **sidan Mall.** Den här operationen kan ta någon gång. 
 
     ![Export pågår](../media/how-to-use-shared-image-gallery/exporting-image-in-progress.png)
-4. När export åtgärden lyckas visas följande meddelande:
+4. När exportåtgärden lyckas visas följande meddelande:
 
-    ![Export slutförd](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
+    ![Exporten har slutförts](../media/how-to-use-shared-image-gallery/exporting-image-completed.png)
 
-Du kan också ladda upp en avbildning till galleriet för delade avbildningar utanför kontexten för ett labb. Mer information finns i [Översikt över Shared Image Gallery](../../virtual-machines/windows/shared-images.md). 
+Du kan också ladda upp en bild till det delade bildgalleriet utanför ramen för ett labb. Mer information finns i [Översikt över delat bildgalleri](../../virtual-machines/windows/shared-images.md). 
 
-## <a name="use-an-image-from-the-shared-image-gallery"></a>Använd en avbildning från galleriet för delad avbildning
-En lärare/lärare kan välja en anpassad avbildning som är tillgänglig i galleriet för delade avbildningar för mallen när nya labb skapas.
+## <a name="use-an-image-from-the-shared-image-gallery"></a>Använda en bild från det delade bildgalleriet
+En lärare/professor kan välja en anpassad bild som är tillgänglig i det delade bildgalleriet för mallen när nya labbet skapas.
 
-![Använd avbildningen av en virtuell dator från galleriet](../media/how-to-use-shared-image-gallery/use-shared-image.png)
+![Använda avbildning för virtuella datorer från galleriet](../media/how-to-use-shared-image-gallery/use-shared-image.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om delade avbildnings gallerier finns i avsnittet [Shared Image Gallery](../../virtual-machines/windows/shared-image-galleries.md).
+Mer information om delade bildgallerier finns i [det delade bildgalleriet](../../virtual-machines/windows/shared-image-galleries.md).

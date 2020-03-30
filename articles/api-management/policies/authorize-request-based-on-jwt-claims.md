@@ -1,7 +1,7 @@
 ---
-title: Exempel-API Management-princip – auktorisera åtkomst baserat på JWT-anspråk
+title: Exempel på API-hanteringsprincip – Auktorisera åtkomst baserat på JWT-anspråk
 titleSuffix: Azure API Management
-description: Exempel på Azure API Management policy – visar hur du auktoriserar åtkomst till vissa HTTP-metoder i ett API som baseras på JWT-anspråk.
+description: Exempel på Azure API-hanteringsprincip - Visar hur du auktoriserar åtkomst till specifika HTTP-metoder på ett API baserat på JWT-anspråk.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 1b84854688fbdcc017b16698dfebfe54a7210110
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75422185"
 ---
-# <a name="authorize-access-based-on-jwt-claims"></a>Auktorisera åtkomst baserat på JWT-anspråk
+# <a name="authorize-access-based-on-jwt-claims"></a>Auktorisera åtkomstbaserat på JWT-anspråk
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du auktoriserar åtkomst till vissa HTTP-metoder i ett API som baseras på JWT-anspråk. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på Azure API-hanteringsprincip som visar hur du auktoriserar åtkomst till specifika HTTP-metoder på ett API baserat på JWT-anspråk. Om du vill ange eller redigera en principkod följer du stegen som beskrivs i [Ange eller redigerar en princip](../set-edit-policies.md). Mer om du vill se andra exempel finns i [principexempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 
@@ -35,5 +35,5 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip exempel](../policy-samples.md)
++ [Policyexempel](../policy-samples.md)
 

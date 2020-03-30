@@ -1,6 +1,6 @@
 ---
-title: Felsöka kluster skapande fel med Azure HDInsight
-description: Lär dig hur du felsöker problem med skapande av Apache-kluster för Azure HDInsight.
+title: Felsöka klusterskapande fel med Azure HDInsight
+description: Lär dig hur du felsöker problem med att skapa Apache-kluster för Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,80 +9,80 @@ ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
 ms.openlocfilehash: 1e13c7ef8eae81ef2a12a8761b0596f6329f94dc
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76937909"
 ---
-# <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Felsöka kluster skapande fel med Azure HDInsight
+# <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Felsöka klusterskapande fel med Azure HDInsight
 
-Följande problem är de vanligaste orsakerna till kluster skapande fel:
+Följande problem är de vanligaste grundorsakerna till klusterskapande fel:
 
-- Behörighets problem
-- Begränsningar för resurs principer
+- Problem med behörighet
+- Begränsningar av resursprinciper
 - Brandväggar
-- Resurs lås
-- Komponent versioner som inte stöds
-- Begränsningar för lagrings konto namn
-- Drift avbrott för tjänsten
+- Resurslås
+- Komponentversioner som inte stöds
+- Begränsningar för lagringskontonamn
+- Avbrott i tjänsten
 
 ## <a name="permissions-issues"></a>Problem med behörigheter
 
-Om du använder Azure Data Lake Storage Gen2 och tar emot fel ```AmbariClusterCreationFailedErrorCode```, ```Internal server error occurred while processing the request. Please retry the request or contact support.```, öppnar du Azure Portal, går till ditt lagrings konto och under Access Control (IAM) kontrollerar du att rollen **Storage BLOB data-deltagare** eller **lagrings-BLOB-dataägare** har tilldelat åtkomst till den **användare som tilldelats den hanterade identiteten** för prenumerationen. Detaljerade anvisningar finns i [Konfigurera behörigheter för den hanterade identiteten i Data Lake Storage Gen2-kontot](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
+Om du använder Azure Data Lake Storage ```AmbariClusterCreationFailedErrorCode```Gen2 ```Internal server error occurred while processing the request. Please retry the request or contact support.```och får felet , öppna Azure-portalen, gå till ditt lagringskonto och under Åtkomstkontroll (IAM) kontrollerar du att storage **blob Data Contributor** eller **rollen Storage Blob Data Owner** har tilldelat åtkomst till den **användartilldelade hanterade identiteten** för prenumerationen. Detaljerade anvisningar finns i [Konfigurera behörigheter för den hanterade identiteten i Data Lake Storage Gen2-kontot](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
 
-Om du använder Azure Data Lake Storage Gen1, se installations-och konfigurations anvisningar [här](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 stöds inte för HBase-kluster och stöds inte i HDInsight version 4,0.
+Om du använder Azure Data Lake Storage Gen1 läser du installations- och konfigurationsinstruktioner [här](../hdinsight-hadoop-use-data-lake-store.md). DataSjölagringsgen1 stöds inte för HBase-kluster och stöds inte i HDInsight version 4.0.
 
-Om du använder Azure Storage, se till att lagrings konto namnet är giltigt när klustret skapas.
+Om du använder Azure Storage kontrollerar du att lagringskontonamnet är giltigt när klustret skapas.
 
-## <a name="resource-policy-restrictions"></a>Begränsningar för resurs principer
+## <a name="resource-policy-restrictions"></a>Begränsningar av resursprinciper
 
-Med prenumerations Azure-principer kan du inte skapa offentliga IP-adresser. Skapande av HDInsight-klustret kräver två offentliga IP-adresser.  
+Prenumerationsbaserade Azure-principer kan neka skapandet av offentliga IP-adresser. Skapande av HDInsight-klustret kräver två offentliga IP-adresser.  
 
 I allmänhet kan följande principer påverka skapandet av kluster:
 
-* Principer förhindrar skapande av IP-adress & belastningsutjämnare i prenumerationen.
-* Princip förhindrar skapande av lagrings konto.
-* Princip som förhindrar borttagning av nätverks resurser (IP-/load-saldon).
+* Principer som förhindrar att IP-adress skapas & belastningsutjämnare i prenumerationen.
+* Princip som förhindrar att lagringskonto skapas.
+* Princip som förhindrar borttagning av nätverksresurser (IP-adress /belastningsutjämning).
 
 ## <a name="firewalls"></a>Brandväggar
 
-Brand väggar i ditt virtuella nätverk eller lagrings konto kan neka kommunikation med hanterings-IP-adresser för HDInsight.
+Brandväggar på ditt virtuella nätverks- eller lagringskonto kan neka kommunikation med HDInsight-hanterings-IP-adresser.
 
 Tillåt trafik från IP-adresserna i tabellen nedan.
 
 | Källans IP-adress | Mål | Riktning |
 |---|---|---|
-| 168.61.49.99 | *: 443 | Inkommande |
-| 23.99.5.239 | *: 443 | Inkommande |
-| 168.61.48.131 | *: 443 | Inkommande |
-| 138.91.141.162 | *: 443 | Inkommande |
+| 168.61.49.99 | *:443 | Inkommande |
+| 23.99.5.239 | *:443 | Inkommande |
+| 168.61.48.131 | *:443 | Inkommande |
+| 138.91.141.162 | *:443 | Inkommande |
 
-Lägg också till de IP-adresser som är speciella för den region där klustret skapas. Se [hanterings-IP-adresser för HDInsight](../hdinsight-management-ip-addresses.md) för en lista över adresser för varje Azure-region.
+Lägg också till IP-adresser som är specifika för den region där klustret skapas. Se [IP-adresser för HDInsight-hantering](../hdinsight-management-ip-addresses.md) för en lista över adresserna för varje Azure-region.
 
-Om du använder en Express-väg eller din egen anpassade DNS-server kan du läsa [planera ett virtuellt nätverk för Azure HDInsight – ansluta flera nätverk](../hdinsight-plan-virtual-network-deployment.md#multinet).
+Om du använder en expressväg eller en egen anpassad DNS-server läser du [Planera ett virtuellt nätverk för Azure HDInsight – ansluta flera nätverk](../hdinsight-plan-virtual-network-deployment.md#multinet).
 
-## <a name="resources-locks"></a>Resurs lås  
+## <a name="resources-locks"></a>Resurser lås  
 
-Se till att det inte finns några [Lås på det virtuella nätverket och resurs gruppen](../../azure-resource-manager/management/lock-resources.md). Det går inte att skapa eller ta bort kluster om resurs gruppen är låst. 
+Kontrollera att det inte finns några [lås i det virtuella nätverket och resursgruppen](../../azure-resource-manager/management/lock-resources.md). Kluster kan inte skapas eller tas bort om resursgruppen är låst. 
 
-## <a name="unsupported-component-versions"></a>Komponent versioner som inte stöds
+## <a name="unsupported-component-versions"></a>Komponentversioner som inte stöds
 
-Se till att du använder en [version av Azure HDInsight](../hdinsight-component-versioning.md) och Apache Hadoop- [komponenter](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) som stöds i din lösning.  
+Kontrollera att du använder en [version av Azure HDInsight](../hdinsight-component-versioning.md) som stöds och eventuella [Apache Hadoop-komponenter](../hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions) i din lösning.  
 
-## <a name="storage-account-name-restrictions"></a>Begränsningar för lagrings konto namn
+## <a name="storage-account-name-restrictions"></a>Begränsningar för lagringskontonamn
 
-Lagrings konto namn får inte vara längre än 24 tecken och får inte innehålla specialtecken. Dessa begränsningar gäller även för standardnamnet för containrar i lagringskontot.
+Lagringskontonamn får inte vara fler än 24 tecken och får inte innehålla ett specialtecken. Dessa begränsningar gäller även för standardnamnet för containrar i lagringskontot.
 
-Andra namngivnings begränsningar gäller även för skapande av kluster. Mer information finns i [begränsningar för kluster namn](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name).
+Andra namngivningsbegränsningar gäller även för att skapa kluster. Se [Begränsningar för klusternamn](../hdinsight-hadoop-provision-linux-clusters.md#cluster-name), för mer information.
 
-## <a name="service-outages"></a>Drift avbrott för tjänsten
+## <a name="service-outages"></a>Avbrott i tjänsten
 
-Kontrol lera [Azure-status](https://status.azure.com) för eventuella problem med avbrott och tjänster.
+Kontrollera [Azure-status](https://status.azure.com) för eventuella avbrott eller serviceproblem.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utöka HDInsight med ett Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
+* [Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk](../hdinsight-plan-virtual-network-deployment.md)
 * [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 * [Använda Azure-lagring med Azure HDInsight-kluster](../hdinsight-hadoop-use-blob-storage.md)
 * [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](../hdinsight-hadoop-provision-linux-clusters.md)

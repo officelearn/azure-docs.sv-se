@@ -1,8 +1,8 @@
 ---
-title: Ange Azure Portal inställningar | Microsoft Docs
-description: Du kan ändra Azure Portal standardinställningarna så att de passar dina egna inställningar. Inställningarna omfattar tids gräns för inaktiv session, standardvy, Meny läge, kontrast, tema, meddelanden och språk och nationella format
+title: Ange inställningar för Azure-portalen | Microsoft-dokument
+description: Du kan ändra standardinställningarna för Azure-portalen så att de uppfyller dina egna inställningar. Inställningarna inkluderar tidsgränsen för inaktiv session, standardvy, menyläge, kontrast, tema, meddelanden och språk- och regionalformat
 services: azure-portal
-keywords: inställningar, tids gräns, språk, regional
+keywords: inställningar, timeout, språk, regional
 author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
@@ -10,116 +10,116 @@ ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
 ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76310687"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Ange Azure-portalinställningar
 
-Du kan ändra standardinställningarna för Azure Portal så att de passar dina egna inställningar. Var och en av inställningarna i listan nedan kan ändras:
+Du kan ändra standardinställningarna för Azure-portalen så att de uppfyller dina egna inställningar. Var och en av inställningarna nedan kan ändras:
 
-* [Tids gräns för inaktiv session](#change-the-idle-duration-for-inactive-sign-out)
+* [Time-out för inaktiv session](#change-the-idle-duration-for-inactive-sign-out)
 * [Standardvy](#choose-your-default-view)
-* [Meny läge för Portal](#choose-a-portal-menu-mode)
-* [Tema för färg och hög kontrast](#choose-a-theme)
+* [Menyläge för Portal](#choose-a-portal-menu-mode)
+* [Temat Färg och hög kontrast](#choose-a-theme)
 * [Popup-meddelanden](#enable-or-disable-pop-up-notifications)
-* [Språk och regionalt format](#change-language-and-regional-settings)
+* [Språk och regionsformat](#change-language-and-regional-settings)
 
-## <a name="change-general-portal-settings"></a>Ändra allmänna Portal inställningar
+## <a name="change-general-portal-settings"></a>Ändra allmänna portalinställningar
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **Inställningar** från det globala sidhuvudet.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Välj **Inställningar** i det globala sidhuvudet.
 
-    ![Skärm bild som visar globala sidhuvuds ikoner med markerade inställningar](./media/set-preferences/header-settings.png)
+    ![Skärmbild som visar globala sidrubrikikoner med markerade inställningar](./media/set-preferences/header-settings.png)
 
-### <a name="change-the-idle-duration-for-inactive-sign-out"></a>Ändra varaktighet för inaktivitet för inaktiv utloggning
+### <a name="change-the-idle-duration-for-inactive-sign-out"></a>Ändra inaktiv varaktighet för inaktiv ut signering
 
-Inställningen tids gräns för inaktivitet hjälper till att skydda resurser från obehörig åtkomst om du glömmer att skydda din arbets Station. När du har varit inaktiv under en stund loggas du in automatiskt från Azure Portal-sessionen.
+Timeout-inställningen för inaktivitet hjälper till att skydda resurser från obehörig åtkomst om du glömmer att skydda din arbetsstation. När du har varit inaktiv ett tag loggas du automatiskt ut från din Azure-portalsession.
 
-Välj List rutan under **Logga ut mig när du är inaktiv**. Välj hur länge din Azure Portal-session ska loggas ut om du är inaktiv.
+Markera listrutan under **Logga ut när du är inaktiv**. Välj hur länge din Azure-portalsession är utloggade om du är inaktiv.
 
-   ![Skärm bild som visar Portal inställningar med inaktiva timeout-inställningar markerade](./media/set-preferences/inactive-signout-user.png)
+   ![Skärmbild som visar portalinställningar med inaktiva timeout-inställningar markerade](./media/set-preferences/inactive-signout-user.png)
 
-Ändringen sparas automatiskt. Om du är inaktiv kommer din Azure Portal-session att logga ut efter den varaktighet som du har angett.
+Ändringen sparas automatiskt. Om du är inaktiv loggas din Azure-portalsession ut efter den tid du anger.
 
-Den här inställningen kan också göras av en administratör på katalog nivå för att genomdriva en maximal inaktiv tid. Om en administratör har gjort en timeout-inställning på katalog nivå kan du fortfarande ange en egen inaktiv inloggnings tid. Välj en tids inställning som är mindre än vad som anges på katalog nivå.
+Den här inställningen kan också göras av en administratör på katalognivå för att framtvinga en maximal inaktiv tid. Om en administratör har angett en timeout på katalognivå kan du fortfarande ange din egen inaktiva utcheckningstid. Välj en tidsinställning som är mindre än vad som anges på katalognivå.
 
-Om din administratör har aktiverat en timeout-princip för inaktivitet markerar du kryss rutan **Åsidosätt timeout-princip för katalog inaktivitet** . Ange ett tidsintervall som är mindre än princip inställningen.
+Om administratören har aktiverat en timeout-princip för inaktivitet markerar du kryssrutan **Åsidosätt tidsgränsen för kataloginteaktivitet.** Ange ett tidsintervall som är mindre än principinställningen.
 
-   ![Skärm bild som visar Portal inställningar som åsidosätter inställningen för timeout för katalog inaktivitet](./media/set-preferences/inactive-signout-override.png)
+   ![Skärmbild som visar portalinställningar med åsidosättning av tidsgränsen för kataloginformation markerad](./media/set-preferences/inactive-signout-override.png)
 
 
 > [!NOTE]
-> Om du är administratör och vill framtvinga en inaktiv timeout-inställning för alla användare av Azure Portal, se [Ange tids gräns för inaktivitet i katalog nivå för användare av Azure Portal](admin-timeout.md)
+> Om du är administratör och vill tillämpa en inaktiv timeout-inställning för alla användare av Azure-portalen läser [du Ange tidsgränsen för inaktivitet på katalognivå för användare av Azure-portalen](admin-timeout.md)
 >
 
 ### <a name="choose-your-default-view"></a>Välj standardvy 
 
-Du kan ändra sidan som öppnas som standard när du loggar in på Azure Portal.
+Du kan ändra sidan som öppnas som standard när din inloggning till Azure-portalen.
 
-   ![Skärm bild som visar Azure Portal inställningar med standard visning markerat](./media/set-preferences/default-view.png)
+   ![Skärmbild som visar Azure-portalinställningar med standardvyn markerad](./media/set-preferences/default-view.png)
 
-Inställningen standardvy styr vilken Azure Portal vy som visas när du loggar in. Du kan välja att öppna Azure start som standard eller vyn instrument panel.
+Standardvyinställningen styr vilken Azure portalvy som visas när du loggar in. Du kan välja att öppna Azure Home som standard eller instrumentpanelsvyn.
 
-* Det går inte att anpassa **Start sidan** .  Den visar genvägar till populära Azure-tjänster och listar de resurser som du har använt senast. Vi ger dig också användbara länkar till resurser som Microsoft Learn och Azure-översikten.
-* Instrument paneler kan anpassas för att skapa en arbets yta som har utformats precis för dig. Du kan till exempel bygga en instrument panel som är projekt, uppgift eller roll fokuserad. Om du väljer **instrument panel**, kommer din standardvy att gå till den senast använda instrument panelen.
+* **Hemmet** kan inte anpassas.  Den visar genvägar till populära Azure-tjänster och visar de resurser du har använt senast. Vi ger dig också användbara länkar till resurser som Microsoft Learn och Azure-färdplanen.
+* Instrumentpaneler kan anpassas för att skapa en arbetsyta som är utformad just för dig. Du kan till exempel skapa en instrumentpanel som är projekt-, aktivitets- eller rollfokuserad. Om du väljer **Instrumentpanel**går standardvyn till den senast använda instrumentpanelen.
 
-### <a name="choose-a-portal-menu-mode"></a>Välj ett meny läge för portalen
+### <a name="choose-a-portal-menu-mode"></a>Välj ett portalmenyläge
 
-Standard läget för Portal-menyn styr hur mycket utrymme som Portal menyn tar upp på sidan.
+Standardläget för portalmenyn styr hur mycket utrymme portalmenyn tar upp på sidan.
 
-* När Portal menyn är i **utfällt** läge är den dold tills du behöver den. Välj Meny ikonen för att öppna eller stänga menyn.
-* Om du väljer **dockat** läge för Portal-menyn är det alltid synligt. Du kan komprimera menyn för att få mer arbets yta. 
+* När portalmenyn är i **utfällbart** läge döljs den tills du behöver den. Välj menyikonen för att öppna eller stänga menyn.
+* Om du väljer **dockat** läge för portalmenyn är det alltid synligt. Du kan komprimera menyn för att ge mer arbetsutrymme. 
 
 ### <a name="choose-a-theme"></a>Välj ett tema
 
-Det tema som du väljer påverkar bakgrunds-och teckensnitts färgerna som visas i Azure Portal. Du kan välja någon av fyra förinställda färg teman. Välj varje miniatyr bild för att hitta det tema som passar dig bäst.
+Det tema du väljer påverkar bakgrunds- och teckensnittsfärgerna som visas i Azure-portalen. Du kan välja bland ett av fyra förinställda färgteman. Välj varje miniatyr för att hitta det tema som passar dig bäst.
 
-   ![Skärm bild som visar Azure Portal inställningar med teman markerade](./media/set-preferences/theme.png)
+   ![Skärmbild som visar Azure-portalinställningar med teman markerade](./media/set-preferences/theme.png)
 
-Du kan välja ett tema med hög kontrast i stället. Med inställningarna för hög kontrast blir Azure Portal lättare att läsa för synskadade användare och åsidosätta alla andra tema val. Mer information finns i [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md).
+Du kan välja ett av de högkontrastteman i stället. Inställningarna med hög kontrast gör Azure-portalen lättare att läsa för synskadade användare och åsidosätter alla andra temaval. Mer information finns i [Aktivera hög kontrast eller ändra tema](azure-portal-change-theme-high-contrast.md).
 
 ### <a name="enable-or-disable-pop-up-notifications"></a>Aktivera eller inaktivera popup-meddelanden
 
-Meddelanden är system meddelanden relaterade till din aktuella session. De tillhandahåller information som ditt aktuella kredit saldo när resurser som du just har skapat blir tillgängliga eller bekräfta din senaste åtgärd, till exempel. När popup-meddelanden är aktiverade visas meddelandena kortfattat i det övre hörnet på skärmen. 
+Aviseringar är systemmeddelanden som är relaterade till din aktuella session. De ger information som ditt nuvarande kreditsaldo, när resurser som du just har skapat blir tillgängliga eller bekräftar din senaste åtgärd, till exempel. När popup-meddelanden är aktiverade visas meddelandena en kort stund i det övre hörnet på skärmen. 
 
-Markera eller avmarkera kryss rutan **Aktivera popup-meddelanden** om du vill aktivera eller inaktivera popup-meddelanden.
+Om du vill aktivera eller inaktivera popup-meddelanden markerar eller avmarkerar du kryssrutan **Aktivera popup-meddelanden.**
 
-   ![Skärm bild som visar Azure Portal inställningar med popup-meddelanden markerade](./media/set-preferences/popup-notifications.png)
+   ![Skärmbild som visar Azure-portalinställningar med popup-meddelanden markerade](./media/set-preferences/popup-notifications.png)
 
-Om du vill läsa alla meddelanden som tagits emot under den aktuella sessionen väljer du **meddelanden** från den globala rubriken.
+Om du vill läsa alla meddelanden som tas emot under den aktuella sessionen väljer du **Meddelanden** i det globala huvudet.
 
-   ![Skärm bild som visar Azure Portal global rubrik med meddelanden markerade](./media/set-preferences/read-notifications.png)
+   ![Skärmbild som visar global sidhuvud i Azure-portalen med markerade meddelanden](./media/set-preferences/read-notifications.png)
 
-Om du vill läsa meddelanden från tidigare sessioner söker du efter händelser i aktivitets loggen. Läs mer i läsa [och hämta Azure aktivitets logg händelser](/azure/azure-monitor/platform/activity-log-view).
+Om du vill läsa aviseringar från tidigare sessioner letar du efter händelser i aktivitetsloggen. Mer information finns i [Visa och hämta Azure Activity-logghändelser](/azure/azure-monitor/platform/activity-log-view).
 
 ### <a name="settings-under-useful-links"></a>Inställningar under användbara länkar
 
-Om du har ändrat Azure Portal inställningarna och vill ta bort dem väljer du **Återställ standardinställningar**. Eventuella ändringar som du har gjort i Portal inställningarna går förlorade. Det här alternativet påverkar inte anpassningar av instrument paneler.
+Om du har gjort ändringar i Azure-portalinställningarna och vill ignorera dem väljer du **Återställ standardinställningar .** Alla ändringar som du har gjort i portalinställningarna går förlorade. Det här alternativet påverkar inte anpassningar av instrumentpanelen.
 
-Mer information om att **Exportera alla inställningar** eller **ta bort alla inställningar och privata instrument paneler**finns i [Exportera eller ta bort användar inställningar](azure-portal-export-delete-settings.md).
+Mer information om **Exportera alla inställningar** eller Ta bort alla inställningar och privata **instrumentpaneler**finns i [Exportera eller ta bort användarinställningar](azure-portal-export-delete-settings.md).
 
 ## <a name="change-language-and-regional-settings"></a>Ändra språk och nationella inställningar
 
-Det finns två inställningar som styr hur texten i Azure Portal visas. **Språk** inställningen styr språket som visas för text i Azure Portal. **Regions formatet** styr hur datum, tid, siffror och valuta visas.
+Det finns två inställningar som styr hur texten i Azure-portalen visas. **Språkinställningen** styr det språk du ser för text i Azure-portalen. **Regionalt format** styr hur datum, tid, siffror och valuta visas.
 
-Om du vill ändra vilket språk som används i Azure Portal använder du List rutan för att välja i listan över tillgängliga språk.
+Om du vill ändra det språk som används i Azure-portalen använder du listrutan för att välja från listan över tillgängliga språk.
 
-Det regionala format valet ändras för att Visa regionala alternativ för endast det språk som du har valt. Om du vill ändra det automatiskt väljer du det regionala formatet du vill använda i list rutan.
+Valet av regionalt format ändras för att visa nationella alternativ för endast det språk du har valt. Om du vill ändra den automatiska markeringen använder du listrutan för att välja önskat regionalt format.
 
-Om du till exempel väljer engelska som språk och väljer USA som regions format, visas valutan i amerikanska dollar. Om du väljer engelska som språk och väljer sedan Europa som regions format visas valutan i euro.
+Om du till exempel väljer engelska som språk och sedan väljer USA som regionalt format visas valutan i US-dollar. Om du väljer engelska som språk och sedan väljer Europa som regionalt format visas valutan i euro.
 
-Välj **tillämpa** för att uppdatera språk och nationella format inställningar.
+Välj **Använd** för att uppdatera dina inställningar för språk och regionalt format.
 
-   ![Skärm bild som visar inställningar för språk och nationella format](./media/set-preferences/language.png)
+   ![Skärmbild som visar inställningar för språk och regionalt format](./media/set-preferences/language.png)
 
 >[!NOTE]
->Dessa språk och nationella inställningar påverkar bara Azure Portal. I dokumentations länkar som öppnas i en ny flik eller i ett fönster används webbläsarens språk inställningar för att avgöra vilket språk som ska visas.
+>Dessa språkinställningar och nationella inställningar påverkar bara Azure-portalen. Dokumentationslänkar som öppnas på en ny flik eller ett nytt fönster använder webbläsarens språkinställningar för att bestämma vilket språk som ska visas.
 >
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa och dela anpassade instrument paneler](azure-portal-dashboards.md)
-* [Azure Portal instruktions video serie](azure-portal-video-series.md)
+* [Skapa och dela anpassade instrumentpaneler](azure-portal-dashboards.md)
+* [Instruktionsvideoserie om Azure-portalen](azure-portal-video-series.md)

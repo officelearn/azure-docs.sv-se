@@ -1,553 +1,553 @@
 ---
-title: Azure Service Fabric CLI – sfctl-program
-description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera program.
+title: Azure Service Fabric CLI- sfctl-program
+description: Lär dig mer om sfctl, kommandoradsgränssnittet i Azure Service Fabric. Innehåller en lista över kommandon för att hantera program.
 author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
 ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76906209"
 ---
 # <a name="sfctl-application"></a>sfctl application
-Skapa, ta bort och hantera program och program typer.
+Skapa, ta bort och hantera program och programtyper.
 
 ## <a name="commands"></a>Kommandon
 
 |Kommando|Beskrivning|
 | --- | --- |
-| skapa | Skapar ett Service Fabric program med hjälp av den angivna beskrivningen. |
+| skapa | Skapar ett Service Fabric-program med den angivna beskrivningen. |
 | delete | Tar bort ett befintligt Service Fabric-program. |
-| deployed | Hämtar information om ett program som distribuerats på en Service Fabric-nod. |
-| deployed-health | Hämtar information om hälso tillståndet för ett program som distribuerats på en Service Fabric-nod. |
-| deployed-list | Hämtar listan över program som har distribuerats på en Service Fabric-nod. |
-| hälsa | Hämtar hälso tillståndet för Service Fabric-programmet. |
-| info | Hämtar information om ett Service Fabric-program. |
-| lista | Hämtar listan med program som skapats i det Service Fabric kluster som matchar de angivna filtren. |
-| läser in | Läser in information om ett Service Fabric-program. |
-| manifest | Hämtar manifestet som beskriver en program typ. |
-| provision | Etablerar eller registrerar en Service Fabric program typ med klustret med hjälp av sfpkg-paketet i den externa lagringen eller med hjälp av programpaketet i avbildnings arkivet. |
-| report-health | Skickar en hälso rapport i Service Fabric programmet. |
-| typ | Hämtar listan över program typer i Service Fabric klustret som matchar det angivna namnet. |
-| type-list | Hämtar listan över program typer i Service Fabric klustret. |
-| unprovision | Tar bort eller avregistrerar en Service Fabric program typ från klustret. |
-| upgrade | Startar uppgraderingen av ett program i Service Fabric klustret. |
-| upgrade-resume | Återupptar uppgraderingen av ett program i Service Fabric klustret. |
-| upgrade-rollback | Börjar återställa den pågående uppgraderingen av ett program i Service Fabric klustret. |
-| upgrade-status | Hämtar information om den senaste uppgraderingen som utförs i det här programmet. |
-| upload | Kopiera ett Service Fabric-programpaket till avbildnings arkivet. |
+| Distribuerat | Hämtar information om ett program som distribueras på en Service Fabric-nod. |
+| distribuerad hälsa | Hämtar information om hälsotillstånd för ett program som distribueras på en Service Fabric-nod. |
+| distribuerad lista | Hämtar listan över program som distribueras på en Service Fabric-nod. |
+| Hälsa | Hämtar hälsotillståndet för programmet för serviceinfrastruktur. |
+| information | Hämtar information om ett Service Fabric-program. |
+| lista | Hämtar listan över program som skapats i Service Fabric-klustret som matchar de angivna filtren. |
+| läsa in | Hämtar inläsningsinformation om ett Service Fabric-program. |
+| manifest | Hämtar manifestet som beskriver en programtyp. |
+| Bestämmelse | Avsättningar eller registrerar en tjänst fabric-programtyp med klustret med hjälp av paketet ".sfpkg" i det externa arkivet eller med hjälp av programpaketet i avbildningsarkivet. |
+| rapport-hälsa | Skickar en hälsorapport om programmet Service Fabric. |
+| typ | Hämtar listan över programtyper i Service Fabric-klustret som matchar exakt det angivna namnet. |
+| typlista | Hämtar listan över programtyper i Service Fabric-klustret. |
+| oetablera | Tar bort eller avregistrerar en tjänst fabric-programtyp från klustret. |
+| uppgradera | Startar uppgradering av ett program i Service Fabric-klustret. |
+| uppgradering-återuppta | Återupptar uppgraderingen av ett program i service fabric-klustret. |
+| återställning av uppgradering | Startar att återställa den pågående uppgraderingen av ett program i service fabric-klustret. |
+| uppgraderingsstatus | Hämtar information om den senaste uppgraderingen som utförts för det här programmet. |
+| upload | Kopiera ett Programpaket för Service Fabric till bildarkivet. |
 
-## <a name="sfctl-application-create"></a>Skapa sfctl-program
-Skapar ett Service Fabric program med hjälp av den angivna beskrivningen.
+## <a name="sfctl-application-create"></a>sfctl ansökan skapa
+Skapar ett Service Fabric-program med den angivna beskrivningen.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --App-Name [required] | Namnet på programmet, inklusive URI-schemat "Fabric\:". |
-| --app-Type [required] | Det program typs namn som finns i applikations manifestet. |
-| --app-version [required] | Versionen av program typen som definieras i applikations manifestet. |
-| --max-node-count | Det maximala antalet noder där Service Fabric reserverar kapaciteten för det här programmet. Observera att detta inte innebär att tjänsterna i det här programmet kommer att placeras på alla noderna. |
-| --mått | En JSON-kodad lista över beskrivningar av program kapacitets värden. Ett mått definieras som ett namn som är associerat med en uppsättning kapaciteter för varje nod som programmet finns på. |
-| --min-Node-Count | Det minsta antal noder där Service Fabric reserverar kapaciteten för det här programmet. Observera att detta inte innebär att tjänsterna i det här programmet kommer att placeras på alla noderna. |
-| --parametrar | En JSON-kodad lista över program parameter åsidosättningar som ska tillämpas när du skapar programmet. |
-| --timeout-t | Standard\: 60. |
+| --app-name [Obligatoriskt] | Namnet på programmet, inklusive "fabric"\:URI-schemat. |
+| --app-typ [Obligatoriskt] | Programtypens namn som finns i programmanifestet. |
+| --app-version [Obligatoriskt] | Den version av programtypen som definieras i programmanifestet. |
+| --max-nod-antal | Det maximala antalet noder där Service Fabric reserverar kapacitet för det här programmet. Observera att detta inte betyder att tjänsterna i denna ansökan kommer att placeras på alla dessa noder. |
+| --mått | En JSON-kodad lista över beskrivningar av programkapacitetsmått. Ett mått definieras som ett namn som associeras med en uppsättning kapaciteter för varje nod som programmet finns på. |
+| --min-nod-antal | Det minsta antalet noder där Service Fabric reserverar kapacitet för det här programmet. Observera att detta inte betyder att tjänsterna i denna ansökan kommer att placeras på alla dessa noder. |
+| --parametrar | En JSON-kodad lista över programparameter åsidosättningar som ska tillämpas när programmet skapas. |
+| --timeout -t | Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-delete"></a>ta bort sfctl-program
+## <a name="sfctl-application-delete"></a>sfctl ansökan bort
 Tar bort ett befintligt Service Fabric-program.
 
-Ett program måste skapas innan det kan tas bort. Om du tar bort ett program tas alla tjänster som ingår i programmet bort. Som standard kommer Service Fabric att försöka stänga tjänst repliker på ett korrekt sätt och sedan ta bort tjänsten. Men om en tjänst har problem med att stänga av repliken kan borttagnings åtgärden ta lång tid eller bli fastnad. Använd den valfria ForceRemove-flaggan för att hoppa över den korrekt stängnings ordningen och framtvinga borttagning av programmet och alla dess tjänster.
+Ett program måste skapas innan det kan tas bort. Om du tar bort ett program tas alla tjänster som ingår i programmet bort. Som standard försöker Service Fabric stänga tjänstrepliker på ett graciöst sätt och sedan ta bort tjänsten. Men om en tjänst har problem med att stänga repliken på ett smidigt sätt kan borttagningsåtgärden ta lång tid eller fastna. Använd den valfria ForceRemove-flaggan för att hoppa över den graciösa stängningssekvensen och kraftfullt ta bort programmet och alla dess tjänster.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Framtvinga-ta bort | Ta bort ett Service Fabric program eller en tjänst framtvingar utan att gå igenom den korrekt avstängnings ordningen. Den här parametern kan användas för att framtvinga borttagning av ett program eller en tjänst för vilken borttagning har nått tids gränsen på grund av problem i Service koden som förhindrar en korrekt stängning av repliker. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --force-remove | Ta bort ett Service Fabric-program eller en tjänst med kraft utan att gå igenom den graciösa avstängningssekvensen. Den här parametern kan användas för att kraftfullt ta bort ett program eller en tjänst som tar bort är tidsgränsen på grund av problem i tjänstkoden som förhindrar graciös stängning av repliker. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-deployed"></a>sfctl-programmet har distribuerats
-Hämtar information om ett program som distribuerats på en Service Fabric-nod.
+## <a name="sfctl-application-deployed"></a>sfctl-program har distribuerats
+Hämtar information om ett program som distribueras på en Service Fabric-nod.
 
-Den här frågan returnerar system program information om det angivna program-ID: t är för System program. Resultaten omfattar distribuerade program i aktiva, aktiverade och hämtnings bara tillstånd. Den här frågan kräver att nodnamnet motsvarar en nod i klustret. Frågan Miss lyckas om det angivna nodnamnet inte pekar på några aktiva Service Fabric noder i klustret.
+Den här frågan returnerar systemprograminformation om det angivna program-ID:t är för systemprogram. Resultaten omfattar distribuerade program i aktiva, aktiverande och nedladdningsbara tillstånd. Den här frågan kräver att nodnamnet motsvarar en nod i klustret. Frågan misslyckas om det angivna nodnamnet inte pekar på några aktiva Service Fabric-noder i klustret.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Node-Name [required] | Nodens namn. |
-| --ta med hälso tillstånd | Ta med hälso tillståndet för en entitet. Om den här parametern är falsk eller inte anges, är det hälso tillstånd som returnerades "okänt". När värdet är true går frågan parallellt till noden och tjänsten för hälso tillstånds systemet innan resultatet slås samman. Därför är frågan dyrare och kan ta längre tid. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --include-health-state | Inkludera hälsotillståndet för en entitet. Om den här parametern är falsk eller inte angiven, är hälsotillståndet som returneras "Okänd". När den är inställd på true går frågan parallellt med noden och hälsosystemtjänsten innan resultaten slås samman. Därför är frågan dyrare och kan ta längre tid. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-deployed-health"></a>sfctl-programmet har distribuerats – hälsa
-Hämtar information om hälso tillståndet för ett program som distribuerats på en Service Fabric-nod.
+## <a name="sfctl-application-deployed-health"></a>sfctl-program distribuerad-hälsa
+Hämtar information om hälsotillstånd för ett program som distribueras på en Service Fabric-nod.
 
-Hämtar information om hälso tillståndet för ett program som distribuerats på en Service Fabric-nod. Använd EventsHealthStateFilter om du vill filtrera efter samlingen av HealthEvent-objekt som rapporteras i det distribuerade programmet baserat på hälso tillstånd. Använd DeployedServicePackagesHealthStateFilter om du vill filtrera efter DeployedServicePackageHealth underordnade baserat på hälso tillstånd.
+Hämtar information om hälsotillstånd för ett program som distribueras på en Service Fabric-nod. Använd EventsHealthStateFilter för att filtrera för insamlingen av HealthEvent-objekt som rapporterats på det distribuerade programmet baserat på hälsotillstånd. Använd DeployedServicePackagesHealthStateFilter för att eventuellt filtrera efter DistribueradeServicePackageHealth-underordnade baserat på hälsotillstånd.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Node-Name [required] | Nodens namn. |
-| --deployed-service-packages-health-state-filter | Tillåter filtrering av de distribuerade tjänst paketets hälso tillstånds objekt som returneras i resultatet av distribuerad program hälso fråga baserat på deras hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast distribuerade tjänst paket som matchar filtret returneras. Alla distribuerade tjänst paket används för att utvärdera det sammanlagda hälso tillståndet för det distribuerade programmet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det tillhandahållna värdet till exempel är 6 returneras hälso tillståndet för tjänst paket med hälso tillstånds värdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --events-health-state-filter | Tillåter filtrering av samlingen av HealthEvent-objekt som returneras baserat på hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det angivna värdet till exempel är 6 returneras alla händelser med hälso tillstånd svärdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --Exkludera-hälso statistik | Anger om hälso statistik ska returneras som en del av frågeresultatet. Falskt som standard. Statistiken visar antalet underordnade entiteter i hälso tillståndet OK, varning och fel. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --deployed-service-packages-health-state-filter | Tillåter filtrering av hälsotillståndsobjekt för distribuerade tjänstpaket som returneras till resultatet av den distribuerade programhälsofrågan baserat på deras hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast distribuerade tjänstpaket som matchar filtret returneras. Alla distribuerade tjänstpaket används för att utvärdera det aggregerade hälsotillståndet för det distribuerade programmet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden, som erhålls med hjälp av operatorn "ELLER". Om värdet till exempel är 6 returneras hälsotillståndet för tjänstpaket med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --events-health-state-filter | Gör det möjligt att filtrera samlingen av HealthEvent-objekt som returneras baserat på hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden, som erhålls med hjälp av operatorn "ELLER". Om det angivna värdet till exempel är 6 returneras alla händelser med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --exklude-hälso-statistik | Anger om hälsostatistiken ska returneras som en del av frågeresultatet. Falskt som standard. Statistiken visar antalet underordnade entiteter i hälsotillståndet Ok, Varning och Fel. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-deployed-list"></a>sfctl program distribuerad – lista
-Hämtar listan över program som har distribuerats på en Service Fabric-nod.
+## <a name="sfctl-application-deployed-list"></a>sfctl-program distribuerad lista
+Hämtar listan över program som distribueras på en Service Fabric-nod.
 
-Hämtar listan över program som har distribuerats på en Service Fabric-nod. Resultaten omfattar inte information om distribuerade system program, om det inte uttryckligen efter frågas av ID. Resultaten omfattar distribuerade program i aktiva, aktiverade och hämtnings bara tillstånd. Den här frågan kräver att nodnamnet motsvarar en nod i klustret. Frågan Miss lyckas om det angivna nodnamnet inte pekar på några aktiva Service Fabric noder i klustret.
+Hämtar listan över program som distribueras på en Service Fabric-nod. Resultaten innehåller inte information om distribuerade systemprogram om inte uttryckligen efterfrågas av ID. Resultaten omfattar distribuerade program i aktiva, aktiverande och nedladdningsbara tillstånd. Den här frågan kräver att nodnamnet motsvarar en nod i klustret. Frågan misslyckas om det angivna nodnamnet inte pekar på några aktiva Service Fabric-noder i klustret.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Node-Name [required] | Nodens namn. |
-| --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
-| --ta med hälso tillstånd | Ta med hälso tillståndet för en entitet. Om den här parametern är falsk eller inte anges, är det hälso tillstånd som returnerades "okänt". När värdet är true går frågan parallellt till noden och tjänsten för hälso tillstånds systemet innan resultatet slås samman. Därför är frågan dyrare och kan ta längre tid. |
-| --max-results | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre kanten på antalet returnerade resultat. Resultaten som returneras kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de Max begränsningar för meddelande storlek som definierats i konfigurationen. Om den här parametern är noll eller inte anges, innehåller den växlade frågan så många resultat som möjligt som passar i retur meddelandet. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --nodnamn [Obligatoriskt] | Namnet på noden. |
+| --fortsättning-token | Parametern för fortsättningstoken används för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tomt värde inkluderas i svaret på API:et när resultaten från systemet inte får plats i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API:et nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller fortsättningstoken inget värde. Värdet för den här parametern bör inte URL-kodas. |
+| --include-health-state | Inkludera hälsotillståndet för en entitet. Om den här parametern är falsk eller inte angiven, är hälsotillståndet som returneras "Okänd". När den är inställd på true går frågan parallellt med noden och hälsosystemtjänsten innan resultaten slås samman. Därför är frågan dyrare och kan ta längre tid. |
+| --max-resultat | Det maximala antalet resultat som ska returneras som en del av de växlingsdelade frågorna. Den här parametern definierar den övre gränsen för antalet returnerade resultat. De returnerade resultaten kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de begränsningar för högsta meddelandestorlek som definierats i konfigurationen. Om den här parametern är noll eller inte angiven innehåller den växlingsbara frågan så många resultat som möjligt som passar i returmeddelandet. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-health"></a>sfctl program hälsa
-Hämtar hälso tillståndet för Service Fabric-programmet.
+## <a name="sfctl-application-health"></a>sfctl ansökan hälsa
+Hämtar hälsotillståndet för programmet för serviceinfrastruktur.
 
-Returnerar hälso status för Service Fabric-programmet. Svaret rapporterar antingen OK, fel eller varnings hälso tillstånd. Om entiteten inte hittas i hälso lagret kommer den att returnera fel.
+Returnerar hälsotillståndet för tjänstinfrastrukturprogrammet. Svaret rapporterar hälsotillståndet Ok, Error eller Warning. Om entiteten inte hittas i hälsoarkivet returneras Fel.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --deployed-applications-health-state-filter | Tillåter filtrering av de distribuerade program hälso tillstånds objekt som returneras i resultatet av en program hälso fråga baserat på deras hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast distribuerade program som matchar filtret kommer att returneras. Alla distribuerade program används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av bitvis-eller-operator. Om det tillhandahållna värdet till exempel är 6 returneras hälso tillståndet för distribuerade program med hälso tillståndet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --events-health-state-filter | Tillåter filtrering av samlingen av HealthEvent-objekt som returneras baserat på hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av den bitvisa operatorn eller. Om det angivna värdet till exempel är 6 returneras alla händelser med hälso tillstånd svärdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --Exkludera-hälso statistik | Anger om hälso statistik ska returneras som en del av frågeresultatet. Falskt som standard. Statistiken visar antalet underordnade entiteter i hälso tillståndet OK, varning och fel. |
-| --services-health-state-filter | Tillåter filtrering av tjänsternas hälso tillstånds objekt som returneras i resultatet av tjänstens hälso tillstånds fråga baserat på deras hälso tillstånd. De möjliga värdena för den här parametern är heltals värde för något av följande hälso tillstånd. Endast tjänster som matchar filtret returneras. Alla tjänster används för att utvärdera det sammanlagda hälso tillståndet. Om inget anges returneras alla poster. Tillstånds värden är flaggning-baserad uppräkning, så värdet kan vara en kombination av dessa värden, erhållna med hjälp av bitvis-eller-operator. Om det tillhandahållna värdet till exempel är 6, returneras hälso tillståndet för tjänster med hälso tillstånds värdet OK (2) och varning (4).  <br> -Standard-standardvärdet. Matchar alla hälso tillstånd. Värdet är noll.  <br> -Inget – filter som inte matchar något värde för hälso tillstånd. Används för att returnera inga resultat för en specifik samling av tillstånd. Värdet är 1.  <br> – OK-filter som matchar inmatade hälso tillstånds värden OK. Värdet är 2.  <br> -Varnings filter som matchar inmatade värde varningar för hälso tillstånd. Värdet är 4.  <br> -Fel-filter som matchar InInformationen med hälso tillstånds värde fel. Värdet är 8.  <br> – Alla – filter som matchar indatamängden med ett värde för hälso tillstånd. Värdet är 65535. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --deployed-applications-health-state-filter | Gör det möjligt att filtrera de distribuerade programhälsotillståndsobjekten som returneras i resultatet av programmets hälsofråga baserat på deras hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast distribuerade program som matchar filtret returneras. Alla distribuerade program används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden, som erhålls med hjälp av bitvis "ELLER"-operator. Om värdet till exempel är 6 returneras hälsotillståndet för distribuerade program med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --events-health-state-filter | Gör det möjligt att filtrera samlingen av HealthEvent-objekt som returneras baserat på hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast händelser som matchar filtret returneras. Alla händelser används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden, som erhålls med hjälp av operatorn "ELLER". Om det angivna värdet till exempel är 6 returneras alla händelser med HealthState-värdet OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --exklude-hälso-statistik | Anger om hälsostatistiken ska returneras som en del av frågeresultatet. Falskt som standard. Statistiken visar antalet underordnade entiteter i hälsotillståndet Ok, Varning och Fel. |
+| --services-health-state-filter | Tillåter filtrering av tjänsthälsotillståndsobjekt som returneras i resultatet av hälsofrågan för tjänster baserat på deras hälsotillstånd. De möjliga värdena för den här parametern inkluderar heltalsvärdet för något av följande hälsotillstånd. Endast tjänster som matchar filtret returneras. Alla tjänster används för att utvärdera det aggregerade hälsotillståndet. Om inget anges returneras alla transaktioner. Tillståndsvärdena är flaggbaserad uppräkning, så värdet kan vara en kombination av dessa värden, som erhålls med hjälp av bitvis "ELLER"-operator. Om värdet till exempel är 6 returneras hälsotillståndet för tjänster med HealthState-värde på OK (2) och Varning (4).  <br> - Standard - Standardvärde. Matchar alla HealthState. Värdet är noll.  <br> - Ingen - Filter som inte matchar något HealthState-värde. Används för att returnera inga resultat på en viss samling av stater. Värdet är 1.  <br> - Ok - Filter som matchar indata med HealthState-värdet Ok. Värdet är 2.  <br> - Varning - Filter som matchar indata med HealthState-värde Varning. Värdet är 4.  <br> - Fel - Filter som matchar indata med HealthState-värdefel. Värdet är 8.  <br> - Alla - Filter som matchar indata med alla HealthState-värde. Värdet är 65535. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-info"></a>information om sfctl-program
+## <a name="sfctl-application-info"></a>sfctl ansökan info
 Hämtar information om ett Service Fabric-program.
 
-Returnerar informationen om programmet som har skapats eller håller på att skapas i Service Fabric klustret och vars namn matchar det som angavs som parameter. Svaret innehåller namn, typ, status, parametrar och annan information om programmet.
+Returnerar informationen om programmet som skapades eller pågår för att skapas i service fabric-klustret och vars namn matchar den som anges som parametern. Svaret innehåller namn, typ, status, parametrar och annan information om programmet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --exclude-Application-Parameters | Den flagga som anger om program parametrar ska uteslutas från resultatet. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --exclude-application-parameters --exclude-application-parameters --exclude-application-parameters -- | Flaggan som anger om programparametrar ska uteslutas från resultatet. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-list"></a>lista över sfctl program
-Hämtar listan med program som skapats i det Service Fabric kluster som matchar de angivna filtren.
+## <a name="sfctl-application-list"></a>sfctl-programlista
+Hämtar listan över program som skapats i Service Fabric-klustret som matchar de angivna filtren.
 
-Hämtar information om de program som har skapats eller håller på att skapas i Service Fabric klustret och matchar de angivna filtren. Svaret innehåller namn, typ, status, parametrar och annan information om programmet. Om programmen inte får plats på en sida returneras en resultat sida och en fortsättnings-token som kan användas för att hämta nästa sida. Filter ApplicationTypeName och ApplicationDefinitionKindFilter kan inte anges samtidigt.
+Hämtar information om de program som har skapats eller håller på att skapas i service fabric-klustret och matcha de angivna filtren. Svaret innehåller namn, typ, status, parametrar och annan information om programmet. Om programmen inte får plats på en sida returneras en resultatsida samt en fortsättningstoken, som kan användas för att hämta nästa sida. Filter ApplicationTypeName och ApplicationDefinitionKindFilter kan inte anges samtidigt.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --application-definition-kind-filter | Används för att filtrera på ApplicationDefinitionKind, vilket är mekanismen som används för att definiera ett Service Fabric-program.  <br> – Standardvärde – standardvärdet som utför samma funktion som att välja "alla". Värdet är 0.  <br> – Alla – filter som matchar inmatade värden med ett ApplicationDefinitionKind-värde. Värdet är 65535.  <br> -ServiceFabricApplicationDescription – filter som matchar InInformationen med ApplicationDefinitionKind-värdet ServiceFabricApplicationDescription. Värdet är 1.  <br> – Skriv-filter som matchar InInformationen med ApplicationDefinitionKind-värde-Skriv. Värdet är 2. |
-| --program-typ-namn | Det program typs namn som används för att filtrera de program som ska frågas efter. Det här värdet får inte innehålla program typ versionen. |
-| --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
-| --exclude-Application-Parameters | Den flagga som anger om program parametrar ska uteslutas från resultatet. |
-| --max-results | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre kanten på antalet returnerade resultat. Resultaten som returneras kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de Max begränsningar för meddelande storlek som definierats i konfigurationen. Om den här parametern är noll eller inte anges, innehåller den växlade frågan så många resultat som möjligt som passar i retur meddelandet. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-definition-kind-filter | Används för att filtrera på ApplicationDefinitionKind, som är den mekanism som används för att definiera ett Service Fabric-program.  <br> - Standard - Standardvärde, som utför samma funktion som att välja "Alla". Värdet är 0.  <br> - Alla - Filter som matchar indata med alla ApplicationDefinitionKind-värde. Värdet är 65535.  <br> - ServiceFabricApplicationDescription - Filter som matchar indata med ApplicationDefinitionKind värde ServiceFabricApplicationDescription. Värdet är 1.  <br> - Komponera - Filter som matchar indata med ApplicationDefinitionKind värde Komponera. Värdet är 2. |
+| --application-type-name --application-type-name --application-type-name -- | Programtypnamnet som används för att filtrera programmen att fråga efter. Det här värdet bör inte innehålla programtypsversionen. |
+| --fortsättning-token | Parametern för fortsättningstoken används för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tomt värde inkluderas i svaret på API:et när resultaten från systemet inte får plats i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API:et nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller fortsättningstoken inget värde. Värdet för den här parametern bör inte URL-kodas. |
+| --exclude-application-parameters --exclude-application-parameters --exclude-application-parameters -- | Flaggan som anger om programparametrar ska uteslutas från resultatet. |
+| --max-resultat | Det maximala antalet resultat som ska returneras som en del av de växlingsdelade frågorna. Den här parametern definierar den övre gränsen för antalet returnerade resultat. De returnerade resultaten kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de begränsningar för högsta meddelandestorlek som definierats i konfigurationen. Om den här parametern är noll eller inte angiven innehåller den växlingsbara frågan så många resultat som möjligt som passar i returmeddelandet. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-load"></a>sfctl program inläsning
-Läser in information om ett Service Fabric-program.
+## <a name="sfctl-application-load"></a>sfctl ansökan belastning
+Hämtar inläsningsinformation om ett Service Fabric-program.
 
-Returnerar inläsnings information om programmet som skapades eller håller på att skapas i Service Fabric klustret och vars namn matchar det som angavs som parameter. Svaret innehåller namn, lägsta noder, maximalt antal noder, antalet noder som programmet använder för närvarande och information om program inläsnings statistik för programmet.
+Returnerar inläsningsinformationen om programmet som skapades eller som håller på att skapas i service fabric-klustret och vars namn matchar den som anges som parameter. Svaret innehåller namn, minsta noder, maximala noder, antalet noder som programmet upptar för närvarande och programinläsningsmåttinformation om programmet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-manifest"></a>sfctl program manifest
-Hämtar manifestet som beskriver en program typ.
+## <a name="sfctl-application-manifest"></a>sfctl ansökan manifest
+Hämtar manifestet som beskriver en programtyp.
 
-Svaret innehåller program Manifestets XML som en sträng.
+Svaret innehåller programmet manifestet XML som en sträng.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-typ-namn [obligatoriskt] | Namnet på program typen. |
-| --program-Type-version [required] | Versionen av program typen. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-type-name [Obligatoriskt] | Namnet på programtypen. |
+| --application-type-version [Obligatoriskt] | Versionen av programtypen. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-provision"></a>sfctl applikations etablering
-Etablerar eller registrerar en Service Fabric program typ med klustret med hjälp av sfpkg-paketet i den externa lagringen eller med hjälp av programpaketet i avbildnings arkivet.
+## <a name="sfctl-application-provision"></a>sfctl ansökan bestämmelse
+Avsättningar eller registrerar en tjänst fabric-programtyp med klustret med hjälp av paketet ".sfpkg" i det externa arkivet eller med hjälp av programpaketet i avbildningsarkivet.
 
-Etablerar en Service Fabric program typ med klustret. Etableringen krävs innan det går att instansiera nya program. Etablerings åtgärden kan utföras antingen på det programpaket som anges av relativePathInImageStore, eller med hjälp av URI: n för den externa. sfpkg. Om inte--external-provision har angetts kommer det här kommandot att förväntas tillhandahålla avbildnings lagring.
+Etablerar en tjänst fabric-programtyp med klustret. Bestämmelsen krävs innan nya program kan instansieras. Etableringsåtgärden kan utföras antingen på det programpaket som anges av relativePathInImageStore eller genom att använda URI:n för den externa '.sfpkg'. Om inte --extern-etablering är inställd, kommer det här kommandot förväntar bildlagringsetablering.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-Package-Download-URI | Sökvägen till programpaketet '. sfpkg ' från var programpaketet kan hämtas med hjälp av HTTP-eller HTTPS-protokoll. <br><br> Endast för etablerings typ extern lagring. Programpaketet kan lagras i en extern lagrings plats som tillhandahåller åtgärden Hämta för att hämta filen. Protokoll som stöds är HTTP och HTTPS och sökvägen måste tillåta Läs åtkomst. |
-| --application-type-build-path | Endast för etablerings avbildnings lagring. Den relativa sökvägen för programpaketet i avbildnings arkivet som angavs under föregående uppladdning. |
-| --program-typ-namn | Endast för etablerings typ extern lagring. Namnet på program typen representerar namnet på den program typ som finns i applikations manifestet. |
-| --application-type-version | Endast för etablerings typ extern lagring. Program typ versionen representerar versionen av den program typ som finns i applikations manifestet. |
-| --extern-provision | Platsen där programpaket kan registreras eller tillhandahållas. Anger att etableringen avser ett programpaket som tidigare har överförts till en extern lagrings plats. Programpaketet slutar med fil namns tillägget *. sfpkg. |
-| --No-wait | Anger om etableringen ska ske asynkront eller inte. <br><br> När värdet är true, returnerar etablerings åtgärden när begäran accepteras av systemet och etablerings åtgärden fortsätter utan att någon tids gräns överskrids. Standardvärdet är false. För stora programpaket rekommenderar vi att du anger värdet till sant. |
-| --timeout-t | Standard\: 60. |
+| --ansökan-paket-download-uri | Sökvägen till programpaketet '.sfpkg från vilken programpaketet kan hämtas med HJÄLP AV HTTP- eller HTTPS-protokoll. <br><br> Endast för avsättningssortsorta externt arkiv. Programpaketet kan lagras i ett externt arkiv som tillhandahåller GET-åtgärden för att hämta filen. Protokoll som stöds är HTTP och HTTPS, och sökvägen måste tillåta LÄS-åtkomst. |
+| --application-type-build-path --application-type-build-path --application-type-build-path -- | Endast för etableringssortbildarkivet. Den relativa sökvägen för programpaketet i bildarkivet som angavs under den tidigare uppladdningsåtgärden. |
+| --application-type-name --application-type-name --application-type-name -- | Endast för avsättningssortsorta externt arkiv. Programtypens namn representerar namnet på den programtyp som finns i programmanifestet. |
+| --application-type-version --application-type-version --application-type-version -- | Endast för avsättningssortsorta externt arkiv. Programtypsversionen representerar versionen av programtypen som finns i programmanifestet. |
+| --extern-tillhandahållande | Den plats där programpaketet kan registreras eller etableras. Anger att bestämmelsen gäller ett programpaket som tidigare har överförts till ett externt arkiv. Programpaketet avslutas med tillägget *.sfpkg. |
+| --ingen-vänta | Anger om etablering ska ske asynkront. <br><br> När den är inställd på true returneras etableringsåtgärden när begäran accepteras av systemet och etableringsåtgärden fortsätter utan någon timeout-gräns. Standardvärdet är false. För stora programpaket rekommenderar vi att värdet ska vara sant. |
+| --timeout -t | Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-report-health"></a>sfctl program rapport – hälsa
-Skickar en hälso rapport i Service Fabric programmet.
+## <a name="sfctl-application-report-health"></a>sfctl ansökan rapport-hälsa
+Skickar en hälsorapport om programmet Service Fabric.
 
-Rapporterar hälso tillstånd för det angivna Service Fabric programmet. Rapporten måste innehålla information om källan till hälso rapporten och egenskapen som den rapporteras om. Rapporten skickas till ett Service Fabric Gateway-program, som vidarebefordrar till hälso lagret. Rapporten kan godkännas av gatewayen, men avvisas av hälso lagret efter extra verifiering. Hälso lagret kan till exempel avvisa rapporten på grund av en ogiltig parameter, t. ex. ett inaktuellt ordnings nummer. Om du vill se om rapporten användes i hälso lagret, hämtar du program hälsan och kontrollerar att rapporten visas.
+Rapporterar hälsotillståndet för det angivna Service Fabric-programmet. Rapporten måste innehålla information om källan till hälsorapporten och egenskapen som den rapporteras till. Rapporten skickas till ett service fabric-gatewayprogram som vidarebefordras till hälsoarkivet. Rapporten kan accepteras av gatewayen, men avvisas av hälsoarkivet efter extra validering. Hälsoarkivet kan till exempel avvisa rapporten på grund av en ogiltig parameter, till exempel ett inaktuellt sekvensnummer. Om du vill se om rapporten har tillämpats i hälsoarkivet hämtar du programmets hälsotillstånd och kontrollerar att rapporten visas.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. <br><br> Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet exempelvis är Fabric\:/MyApp/APP1, skulle program identiteten vara "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --Health-Property [required] | Hälso informationens egenskaper. <br><br> En entitet kan ha hälso rapporter för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkning som tillåter rapportörens flexibilitet att kategorisera det tillstånds villkor som utlöser rapporten. Till exempel kan en rapportör med SourceId "LocalWatchdog" övervaka statusen för den tillgängliga disken på en nod, så att den kan rapportera egenskapen "AvailableDisk" på noden. Samma rapportör kan övervaka nodens anslutning, så att den kan rapportera en egenskap "anslutning" på samma nod. I hälso lagret behandlas dessa rapporter som separata hälso händelser för den angivna noden. Tillsammans med värdet för SourceId kan egenskapen unikt identifiera hälso informationen. |
-| --hälso tillstånd [krävs] | Möjliga värden är\: "ogiltig", "OK", "varning", "Error", "okänd". |
-| --Käll-ID [obligatoriskt] | Det käll namn som identifierar klient/övervaknings-/system komponenten som genererade hälso informationen. |
-| --Beskrivning | Beskrivning av hälso informationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala sträng längden för beskrivningen är 4096 tecken. Om den angivna strängen blir längre trunkeras den automatiskt. Vid trunkering innehåller de sista tecknen i beskrivningen en markör, "[trunkerad]" och den totala sträng storleken är 4096 tecken. Förekomsten av markören anger för användare som har trunkerats. Observera att beskrivningen innehåller färre än 4096 tecken från den ursprungliga strängen när den trunkeras. |
-| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälso rapport skickas till ett Service Fabric Gateway-program, som vidarebefordrar till hälso lagret. Om omedelbar är inställt på Sant skickas rapporten omedelbart från HTTP-gatewayen till hälso lagret, oavsett vilka klient inställningar för klient program varan som HTTP-gatewayen använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tids inställningar och andra villkor kan det hända att det fortfarande inte går att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om omedelbar är inställt på false skickas rapporten baserat på hälso klient inställningarna från HTTP-gatewayen. Därför kommer den att grupperas enligt HealthReportSendInterval-konfigurationen. Detta är den rekommenderade inställningen eftersom den gör det möjligt för hälso klienten att optimera hälso rapporterings meddelanden till hälso Arkiv och bearbetning av hälso rapporter. Som standard skickas inte rapporter direkt. |
-| --remove-when-expired | Värde som anger om rapporten tas bort från hälso arkivet när den upphör att gälla. <br><br> Om värdet är True tas rapporten bort från hälso arkivet när den har gått ut. Om värdet är false behandlas rapporten som ett fel när den upphör att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet ska de ange RemoveWhenExpired false (standard). På så sätt har rapportören problem (t. ex. död läge) och kan inte rapportera. enheten utvärderas vid fel när hälso rapporten upphör att gälla. Den här flaggan anger att entiteten har fel hälso tillstånd. |
-| --sekvens-nummer | Serie numret för den här hälso rapporten som en numerisk sträng. <br><br> Rapportens sekvensnummer används av hälso lagret för att identifiera inaktuella rapporter. Om inget värde anges genereras ett sekvensnummer automatiskt av hälso klienten när en rapport läggs till. |
-| --timeout-t | Standard\: 60. |
-| --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ställa in tiden till oändligt. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
+| --application-id [Obligatoriskt] | Programmets identitet. <br><br> Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med tecknet ' ' . Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och 'myapp/app1' i tidigare versioner. |
+| --health-property [Obligatoriskt] | Egenskapen av hälsoinformationen. <br><br> En entitet kan ha hälsorapporter för olika egenskaper. Egenskapen är en sträng och inte en fast uppräkning för att tillåta reporterflexibilitet att kategorisera tillståndsvillkoret som utlöser rapporten. En reporter med SourceId "LocalWatchdog" kan till exempel övervaka tillståndet för den tillgängliga disken på en nod, så att den kan rapportera egenskapen "AvailableDisk" på den noden. Samma reporter kan övervaka nodanslutningen, så att den kan rapportera en egenskap "Anslutning" på samma nod. I hälsoarkivet behandlas dessa rapporter som separata hälsohändelser för den angivna noden. Tillsammans med SourceId identifierar egenskapen hälsoinformationen unikt. |
+| --hälsotillstånd [Krävs] | Möjliga värden\: är "Ogiltig", "Ok", "Varning", "Fel", "Okänd". |
+| --source-id [Obligatoriskt] | Källnamnet som identifierar komponenten klient/watchdog/system som genererade hälsoinformationen. |
+| --beskrivning | Beskrivningen av hälsoinformationen. <br><br> Den representerar fritext som används för att lägga till läsbar information om rapporten. Den maximala stränglängden för beskrivningen är 4096 tecken. Om den angivna strängen är längre trunkeras den automatiskt. När de sista tecknen i beskrivningen trunkeras innehåller de sista tecknen i beskrivningen en markör "[Trunkerad]" och den totala strängstorleken 4096 tecken. Förekomsten av markören anger för användarna att trunkering inträffade. Observera att när beskrivningen trunkeras har den mindre än 4096 tecken från den ursprungliga strängen. |
+| --omedelbar | En flagga som anger om rapporten ska skickas omedelbart. <br><br> En hälsorapport skickas till ett service fabric-gatewayprogram som vidarebefordras till hälsoarkivet. Om Omedelbar är inställd på true skickas rapporten omedelbart från HTTP Gateway till hälsoarkivet, oavsett de inställningar för fabric-klient som HTTP Gateway-programmet använder. Detta är användbart för kritiska rapporter som ska skickas så snart som möjligt. Beroende på tidpunkten och andra villkor kan det fortfarande misslyckas att skicka rapporten, till exempel om HTTP-gatewayen är stängd eller om meddelandet inte når gatewayen. Om Omedelbar är inställd på false skickas rapporten baserat på hälsoklientinställningarna från HTTP Gateway. Därför kommer den att batchas enligt HealthReportSendInterval-konfigurationen. Det här är den rekommenderade inställningen eftersom hälsoklienten kan optimera hälsorapporteringsmeddelanden till hälsoarkivet samt bearbetning av hälsorapporter. Som standard skickas inte rapporter omedelbart. |
+| --remove-when-expired --remove-when-expired --remove-when-expired -- | Värde som anger om rapporten tas bort från hälsoarkivet när den upphör att gälla. <br><br> Om värdet är true tas rapporten bort från hälsoarkivet när den har upphört att gälla. Om den är inställd på false behandlas rapporten som ett fel när den har upphört att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet bör de ange RemoveWhenExpired false (standard). På så sätt har reportern problem (t.ex. dödläge) och kan inte rapportera, entiteten utvärderas vid fel när hälsorapporten upphör att gälla. Detta flaggar entiteten som i felhälsotillstånd. |
+| --sekvens-nummer | Sekvensnumret för den här hälsorapporten som en numerisk sträng. <br><br> Rapportsekvensnumret används av hälsoarkivet för att identifiera inaktuella rapporter. Om inget anges genereras ett sekvensnummer automatiskt av hälsoklienten när en rapport läggs till. |
+| --timeout -t | Standard\: 60. |
+| --ttl | Den varaktighet för vilken hälsorapporten är giltig. I det här fältet används ISO8601-format för att ange varaktigheten. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid att leva. Om klienter rapporterar om övergången kan de ange att tiden ska vara oändlig. När tiden för att leva går ut tas hälsohändelsen som innehåller hälsoinformationen antingen bort från hälsoarkivet, om RemoveWhenExpired är sant eller utvärderas vid fel, om RemoveWhenExpired false. Om inget anges kan tid att leva som standard oändligt värde. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-type"></a>sfctl program typ
-Hämtar listan över program typer i Service Fabric klustret som matchar det angivna namnet.
+## <a name="sfctl-application-type"></a>sfctl-programtyp
+Hämtar listan över programtyper i Service Fabric-klustret som matchar exakt det angivna namnet.
 
-Returnerar information om de program typer som har tillhandahållits eller håller på att tillhandahållas i Service Fabric klustret. De här resultaten är av program typer vars namn matchar exakt det som anges som parameter och som uppfyller de angivna frågeparametrarna. Alla versioner av program typen som matchar program typ namnet returneras, och varje version returneras som en program typ. Svaret innehåller namn, version, status och annan information om program typen. Det här är en växlings fråga, vilket innebär att om inte alla program typer får plats på en sida, returneras en resultat sida samt en fortsättnings-token som kan användas för att hämta nästa sida. Om det till exempel finns 10 program typer men en sida bara passar de första tre program typerna, eller om max resultatet är 3, returneras tre. Hämta efterföljande sidor genom att använda den returnerade fortsättnings-token i nästa fråga för att få åtkomst till resten av resultaten. En tom fortsättnings-token returneras om det inte finns några efterföljande sidor.
+Returnerar informationen om de programtyper som har etablerats eller som håller på att etableras i service fabric-klustret. Dessa resultat är av programtyper vars namn matchar exakt den som anges som parametern och som överensstämmer med de angivna frågeparametrarna. Alla versioner av programtypen som matchar programtypens namn returneras, och varje version returneras som en programtyp. Svaret innehåller namn, version, status och annan information om programtypen. Detta är en växlingsfråga, vilket innebär att om inte alla programtyper passar på en sida, returneras en resultatsida samt en fortsättningstoken, som kan användas för att hämta nästa sida. Om det till exempel finns 10 programtyper men en sida bara passar de tre första programtyperna, eller om maxresultat är satt till 3, returneras tre. Om du vill komma åt resten av resultaten hämtar du efterföljande sidor med hjälp av den returnerade fortsättningstoken i nästa fråga. En tom fortsättningstoken returneras om det inte finns några efterföljande sidor.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-typ-namn [obligatoriskt] | Namnet på program typen. |
-| --application-type-version | Versionen av program typen. |
-| --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
-| --exclude-Application-Parameters | Den flagga som anger om program parametrar ska uteslutas från resultatet. |
-| --max-results | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre kanten på antalet returnerade resultat. Resultaten som returneras kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de Max begränsningar för meddelande storlek som definierats i konfigurationen. Om den här parametern är noll eller inte anges, innehåller den växlade frågan så många resultat som möjligt som passar i retur meddelandet. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-type-name [Obligatoriskt] | Namnet på programtypen. |
+| --application-type-version --application-type-version --application-type-version -- | Versionen av programtypen. |
+| --fortsättning-token | Parametern för fortsättningstoken används för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tomt värde inkluderas i svaret på API:et när resultaten från systemet inte får plats i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API:et nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller fortsättningstoken inget värde. Värdet för den här parametern bör inte URL-kodas. |
+| --exclude-application-parameters --exclude-application-parameters --exclude-application-parameters -- | Flaggan som anger om programparametrar ska uteslutas från resultatet. |
+| --max-resultat | Det maximala antalet resultat som ska returneras som en del av de växlingsdelade frågorna. Den här parametern definierar den övre gränsen för antalet returnerade resultat. De returnerade resultaten kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de begränsningar för högsta meddelandestorlek som definierats i konfigurationen. Om den här parametern är noll eller inte angiven innehåller den växlingsbara frågan så många resultat som möjligt som passar i returmeddelandet. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-type-list"></a>sfctl program typ – lista
-Hämtar listan över program typer i Service Fabric klustret.
+## <a name="sfctl-application-type-list"></a>sfctl programtyp-lista
+Hämtar listan över programtyper i Service Fabric-klustret.
 
-Returnerar information om de program typer som har tillhandahållits eller håller på att tillhandahållas i Service Fabric klustret. Varje version av en program typ returneras som en program typ. Svaret innehåller namn, version, status och annan information om program typen. Det här är en växlings fråga, vilket innebär att om inte alla program typer får plats på en sida, returneras en resultat sida samt en fortsättnings-token som kan användas för att hämta nästa sida. Om det till exempel finns 10 program typer men en sida bara passar de första tre program typerna, eller om max resultatet är 3, returneras tre. Hämta efterföljande sidor genom att använda den returnerade fortsättnings-token i nästa fråga för att få åtkomst till resten av resultaten. En tom fortsättnings-token returneras om det inte finns några efterföljande sidor.
+Returnerar informationen om de programtyper som har etablerats eller som håller på att etableras i service fabric-klustret. Varje version av en programtyp returneras som en programtyp. Svaret innehåller namn, version, status och annan information om programtypen. Detta är en växlingsfråga, vilket innebär att om inte alla programtyper passar på en sida, returneras en resultatsida samt en fortsättningstoken, som kan användas för att hämta nästa sida. Om det till exempel finns 10 programtyper men en sida bara passar de tre första programtyperna, eller om maxresultat är satt till 3, returneras tre. Om du vill komma åt resten av resultaten hämtar du efterföljande sidor med hjälp av den returnerade fortsättningstoken i nästa fråga. En tom fortsättningstoken returneras om det inte finns några efterföljande sidor.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --application-type-definition-kind-filter | Används för att filtrera på ApplicationTypeDefinitionKind, vilket är mekanismen som används för att definiera en Service Fabric program typ.  <br> – Standardvärde – standardvärdet som utför samma funktion som att välja "alla". Värdet är 0.  <br> – Alla – filter som matchar inmatade värden med ett ApplicationTypeDefinitionKind-värde. Värdet är 65535.  <br> -ServiceFabricApplicationPackage – filter som matchar InInformationen med ApplicationTypeDefinitionKind-värdet ServiceFabricApplicationPackage. Värdet är 1.  <br> – Skriv-filter som matchar InInformationen med ApplicationTypeDefinitionKind-värde-Skriv. Värdet är 2. |
-| --fortsättnings-token | Parametern för fortsatt token används för att hämta nästa uppsättning resultat. En fortsättnings-token med ett värde som inte är tom inkluderas i svaret på API: et när resultatet från systemet inte passar i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller inte fortsättnings-token ett värde. Värdet för den här parametern får inte vara URL-kodat. |
-| --exclude-Application-Parameters | Den flagga som anger om program parametrar ska uteslutas från resultatet. |
-| --max-results | Det maximala antalet resultat som ska returneras som en del av de växlade frågorna. Den här parametern definierar den övre kanten på antalet returnerade resultat. Resultaten som returneras kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de Max begränsningar för meddelande storlek som definierats i konfigurationen. Om den här parametern är noll eller inte anges, innehåller den växlade frågan så många resultat som möjligt som passar i retur meddelandet. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-type-definition-kind-filter | Används för att filtrera på ApplicationTypeDefinitionKind som är den mekanism som används för att definiera en tjänst fabric-programtyp.  <br> - Standard - Standardvärde, som utför samma funktion som att välja "Alla". Värdet är 0.  <br> - Alla - Filter som matchar indata med alla ApplicationTypeDefinitionKind-värden. Värdet är 65535.  <br> - ServiceFabricApplicationPackage - Filter som matchar indata med ApplicationTypeDefinitionKind värde ServiceFabricApplicationPackage. Värdet är 1.  <br> - Komponera - Filter som matchar indata med ApplicationTypeDefinitionKind värde Komponera. Värdet är 2. |
+| --fortsättning-token | Parametern för fortsättningstoken används för att hämta nästa uppsättning resultat. En fortsättningstoken med ett icke-tomt värde inkluderas i svaret på API:et när resultaten från systemet inte får plats i ett enda svar. När det här värdet skickas till nästa API-anrop returnerar API:et nästa uppsättning resultat. Om det inte finns några ytterligare resultat innehåller fortsättningstoken inget värde. Värdet för den här parametern bör inte URL-kodas. |
+| --exclude-application-parameters --exclude-application-parameters --exclude-application-parameters -- | Flaggan som anger om programparametrar ska uteslutas från resultatet. |
+| --max-resultat | Det maximala antalet resultat som ska returneras som en del av de växlingsdelade frågorna. Den här parametern definierar den övre gränsen för antalet returnerade resultat. De returnerade resultaten kan vara mindre än de angivna maximala resultaten om de inte får plats i meddelandet enligt de begränsningar för högsta meddelandestorlek som definierats i konfigurationen. Om den här parametern är noll eller inte angiven innehåller den växlingsbara frågan så många resultat som möjligt som passar i returmeddelandet. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-unprovision"></a>avetableringen av sfctl-program
-Tar bort eller avregistrerar en Service Fabric program typ från klustret.
+## <a name="sfctl-application-unprovision"></a>sfctl ansökan avetablerande
+Tar bort eller avregistrerar en tjänst fabric-programtyp från klustret.
 
-Den här åtgärden kan bara utföras om alla program instanser av program typen har tagits bort. När program typen har avregistrerats kan inga nya program instanser skapas för den aktuella program typen.
+Den här åtgärden kan bara utföras om alla programinstanser av programtypen har tagits bort. När programtypen är oregistrerad kan inga nya programinstanser skapas för den här programtypen.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-typ-namn [obligatoriskt] | Namnet på program typen. |
-| --program-Type-version [required] | Versionen av program typen som definieras i applikations manifestet. |
-| --async-parameter | Flaggan som anger om en avetablering ska ske asynkront eller inte. När värdet är true, returnerar avetablerings åtgärden när begäran accepteras av systemet, och avetablerings åtgärden fortsätter utan tids gräns. Standardvärdet är false. Vi rekommenderar dock att du ställer in det på sant för stora programpaket som har tillhandahållits. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-type-name [Obligatoriskt] | Namnet på programtypen. |
+| --application-type-version [Obligatoriskt] | Den version av programtypen som definieras i programmanifestet. |
+| --async-parameter | Flaggan som anger om avetablen ska ske asynkront. När den är inställd på true returneras avetablen när begäran accepteras av systemet och avetablera åtgärden fortsätter utan någon tidsgräns. Standardvärdet är false. Vi rekommenderar dock att du ställer in den på true för stora programpaket som har etablerats. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-upgrade"></a>sfctl program uppgradering
-Startar uppgraderingen av ett program i Service Fabric klustret.
+## <a name="sfctl-application-upgrade"></a>uppgradering av sfctl-program
+Startar uppgradering av ett program i Service Fabric-klustret.
 
-Verifierar de angivna program uppgraderings parametrarna och börjar uppgradera programmet om parametrarna är giltiga. Observera att uppgraderings beskrivningen ersätter den befintliga program beskrivningen. Det innebär att om parametrarna inte anges kommer de befintliga parametrarna i programmen att skrivas över med listan med tomma parametrar. Detta leder till att programmet använder standardvärdet för parametrarna från applikations manifestet.
+Validerar de angivna programuppgraderingsparametrarna och börjar uppgradera programmet om parametrarna är giltiga. Observera att uppgraderingsbeskrivningen ersätter den befintliga programbeskrivningen. Det innebär att om parametrarna inte anges skrivs de befintliga parametrarna i programmen över med listan över tomma parametrar. Detta skulle resultera i att programmet använder standardvärdet för parametrarna från programmanifestet.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. <br><br> Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --program version [krävs] | Mål program typ versionen (som finns i applikations manifestet) för program uppgraderingen. |
-| --parametrar [required] | En JSON-kodad lista över program parameter åsidosättningar som ska tillämpas vid uppgradering av programmet. |
-| --standard-service-Health-Policy | JSON-kodad specifikation av den hälso princip som används som standard för att utvärdera hälso tillståndet för en tjänst typ. |
-| --Failure-åtgärd | Åtgärden som ska utföras när en övervakad uppgradering påträffar övervaknings principen eller hälso policy överträdelser. |
-| --force-restart | Framtvinga omstart av processer under uppgraderingen även när kod versionen inte har ändrats. |
-| --health-check-retry-timeout | Hur lång tid det tar mellan försök att utföra hälso kontroller om programmet eller klustret inte är felfritt.  Standard\: PT0H10M0S. |
-| --hälso kontroll – stabil varaktighet | Hur lång tid programmet eller klustret måste vara felfritt innan uppgraderingen fortsätter till nästa uppgraderings domän.  Standard\: PT0H2M0S. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --health-check-wait-duration | Vänte tiden när en uppgraderings domän har slutförts innan hälso kontrollerna påbörjas.  Standard\: 0. |
-| --Max-ej felfri-appar | Högsta tillåtna procent andel ej hälsodistribuerade program. Representeras som ett tal mellan 0 och 100. |
-| --läge | Det läge som används för att övervaka hälsan vid en rullande uppgradering.  Standard\: UnmonitoredAuto. |
-| --replica-set-check-timeout | Maximal tid det tar att blockera bearbetningen av en uppgraderings domän och förhindra tillgänglighet när det uppstår oväntade problem. Mätt i sekunder. |
-| --tjänst-hälso princip | JSON-kodad karta med tjänst typens hälso princip per tjänst typs namn. Kartan är tom som standard. |
-| --timeout-t | Standard\: 60. |
-| --uppgradering-Domain-timeout | Hur lång tid varje uppgraderings domän måste vara slutförd innan FailureAction körs.  Standard\: P10675199DT02H48M-05.4775807 S. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --uppgraderings-timeout | Den tid som den övergripande uppgraderingen måste slutföras innan FailureAction körs.  Standard\: P10675199DT02H48M-05.4775807 S. <br><br> Den tolkas först som en sträng som representerar en varaktighet på ISO 8601. Om detta Miss lyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
-| --warning-as-error | Anger om varningar behandlas med samma allvarlighets grad som fel. |
+| --application-id [Obligatoriskt] | Programmets identitet. <br><br> Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --application-version [Obligatoriskt] | Målprogramtypens version (finns i programmanifestet) för programuppgraderingen. |
+| --parametrar [Obligatoriskt] | En JSON-kodad lista över programparameter åsidosättningar som ska tillämpas vid uppgradering av programmet. |
+| --default-service-health-policy | JSON kodade specifikationen av hälsoprincipen som används som standard för att utvärdera hälsotillståndet för en tjänsttyp. |
+| --fel-åtgärd | Åtgärden som ska utföras när en övervakad uppgradering stöter på övervakningsprincip eller hälsoprincipöverträdelser. |
+| --force-restart | Starta om processer under uppgraderingen med kraft även när kodversionen inte har ändrats. |
+| --health-check-retry-timeout | Hur lång tid det går mellan försök att utföra hälsokontroller om programmet eller klustret inte är felfritt.  Standard\: PT0H10M0S. |
+| --hälsokontroll-stabil varaktighet | Den tid som programmet eller klustret måste förbli felfritt innan uppgraderingen fortsätter till nästa uppgraderingsdomän.  Standard\: PT0H2M0S. <br><br> Det tolkas först som en sträng som representerar en ISO 8601 varaktighet. Om det misslyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --hälsa-check-vänta-varaktighet | Hur lång tid du ska vänta efter att ha slutfört en uppgraderingsdomän innan hälsokontrollprocessen startas.  Standard\: 0. |
+| --max-ohälsosam-appar | Den högsta tillåtna procentandelen av felaktiga distribuerade program. Representerad som ett tal mellan 0 och 100. |
+| --läge | Det läge som används för att övervaka hälsotillståndet under en rullande uppgradering.  Standard\: unmonitoredauto. |
+| --replica-set-check-timeout | Den maximala tiden för att blockera bearbetning av en uppgraderingsdomän och förhindra förlust av tillgänglighet när det finns oväntade problem. Mätt i sekunder. |
+| --service-health-policy | JSON kodade kartan med hälsoprincip för tjänsttyp per tjänsttypsnamn. Kartan är tom som standard. |
+| --timeout -t | Standard\: 60. |
+| --upgrade-domain-timeout --upgrade-domain-timeout --upgrade-domain-timeout -- | Den tid som varje uppgraderingsdomän måste slutföra innan FailureAction körs.  Standard\: P10675199DT02H48M05.4775807S. <br><br> Det tolkas först som en sträng som representerar en ISO 8601 varaktighet. Om det misslyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --upgrade-timeout --upgrade-timeout --upgrade-timeout -- | Hur lång tid den totala uppgraderingen måste slutföras innan FailureAction körs.  Standard\: P10675199DT02H48M05.4775807S. <br><br> Det tolkas först som en sträng som representerar en ISO 8601 varaktighet. Om det misslyckas tolkas det som ett tal som representerar det totala antalet millisekunder. |
+| --varning-som-fel | Anger om varningar behandlas med samma allvarlighetsgrad som fel. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-upgrade-resume"></a>sfctl program uppgradering – återuppta
-Återupptar uppgraderingen av ett program i Service Fabric klustret.
+## <a name="sfctl-application-upgrade-resume"></a>sfctl ansökan uppgradering-återuppta
+Återupptar uppgraderingen av ett program i service fabric-klustret.
 
-Återupptar en oövervakad manuell Service Fabric program uppgradering. Service Fabric uppgraderar en uppgraderings domän i taget. När Service Fabric har slutfört en uppgraderings domän för oövervakade manuella uppgraderingar väntar det på att du ska anropa detta API innan du fortsätter till nästa uppgraderings domän.
+Återupptar en oövervakad manuell service fabric-programuppgradering. Service Fabric uppgraderar en uppgraderingsdomän i taget. För oövervakade manuella uppgraderingar väntar du på att du ska anropa det här API:et när du har slutfört en uppgraderingsdomän när Service Fabric har slutfört en uppgraderingsdomän.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --uppgradering-domän namn [obligatoriskt] | Namnet på den uppgraderings domän där uppgraderingen ska återupptas. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --upgrade-domain-name [Obligatoriskt] | Namnet på uppgraderingsdomänen där uppgraderingen ska återupptas. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-upgrade-rollback"></a>sfctl program uppgradering-återställning
-Börjar återställa den pågående uppgraderingen av ett program i Service Fabric klustret.
+## <a name="sfctl-application-upgrade-rollback"></a>sfctl program uppgradering-rollback
+Startar att återställa den pågående uppgraderingen av ett program i service fabric-klustret.
 
-Börjar återställa den aktuella program uppgraderingen till den tidigare versionen. Detta API kan bara användas för att återställa den aktuella pågående uppgraderingen som går framåt till den nya versionen. Om programmet inte håller på att uppgraderas använder du StartApplicationUpgrade-API för att uppgradera det till önskad version, inklusive att återställa till en tidigare version.
+Startar att återställa den aktuella programuppgraderingen till den tidigare versionen. Det här API:et kan bara användas för att återställa den aktuella pågående uppgraderingen som rullar framåt till ny version. Om programmet för närvarande inte uppgraderas använd StartApplicationUpgrade API för att uppgradera det till önskad version, inklusive att återställa till en tidigare version.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-upgrade-status"></a>sfctl program uppgradering-status
-Hämtar information om den senaste uppgraderingen som utförs i det här programmet.
+## <a name="sfctl-application-upgrade-status"></a>uppgraderingsstatus för sfctl-program
+Hämtar information om den senaste uppgraderingen som utförts för det här programmet.
 
-Returnerar information om tillståndet för den senaste program uppgraderingen och information om hur du felsöker program hälso problem.
+Returnerar information om tillståndet för den senaste programuppgraderingen tillsammans med information för att underlätta felsökning av programhälsoproblem.
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --program-ID [obligatoriskt] | Programmets identitet. Detta är vanligt vis det fullständiga namnet på programmet utan URI-schemat "Fabric\:. Från och med version 6,0 avgränsas hierarkiska namn med "\~"-tecknen. Om program namnet till exempel är "Fabric\:/MyApp/APP1" blir program identiteten "MyApp\~APP1" i 6.0 + och "MyApp/APP1" i tidigare versioner. |
-| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+| --application-id [Obligatoriskt] | Programmets identitet. Detta är vanligtvis det fullständiga namnet på\:programmet utan "fabric" URI-schemat. Från och med version 6.0 avgränsas hierarkiska\~namn med " " tecken. Om programnamnet till exempel är\:"fabric /myapp/app1" skulle programidentiteten vara "myapp\~app1" i 6.0+ och "myapp/app1" i tidigare versioner. |
+| --timeout -t | Tidsgränsen för servern för att utföra åtgärden på några sekunder. Den här timeouten anger den tid som klienten är villig att vänta på att den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
-## <a name="sfctl-application-upload"></a>sfctl program uppladdning
-Kopiera ett Service Fabric-programpaket till avbildnings arkivet.
+## <a name="sfctl-application-upload"></a>sfctl ansökan ladda upp
+Kopiera ett Programpaket för Service Fabric till bildarkivet.
 
-Du kan också Visa uppladdnings förloppet för varje fil i paketet. Överförings förloppet skickas till `stderr`.
+Du kan också visa överföringsstatus för varje fil i paketet. Överföringsstatus skickas `stderr`till .
 
 ### <a name="arguments"></a>Argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --sökväg [obligatoriskt] | Sökväg till lokalt programpaket. |
-| --Komprimera | Gäller endast för Service Fabric programpaket. Skapa en ny mapp som innehåller det komprimerade programpaketet till standard platsen eller till den plats som anges av parametern Compressed-location och ladda sedan upp den nya mappen. <br><br> Om det redan finns en komprimerad fil som genererats av sfctl kommer den att skrivas över om den här flaggan har angetts. Ett fel returneras om katalogen inte är ett programpaket. Om det redan är ett komprimerat programpaket kopieras mappen över som är. Som standard tas det nyligen skapade komprimerade programpaketet bort efter en lyckad uppladdning. Om överföringen inte lyckas rensar du det komprimerade paketet manuellt efter behov. Borttagningen tar inte bort tomma kataloger som kan ha skapats om parametern Compressed location refererar till obefintliga kataloger. |
-| --komprimerad plats | Platsen där det komprimerade programpaketet ska läggas till. <br><br> Om ingen plats anges placeras det komprimerade paketet under en nyligen skapad mapp som kallas sfctl_compressed_temp under den överordnade katalogen som anges i argumentet Path. Om argumentet Path exempelvis har värdet C\:/FolderA/AppPkg, läggs det komprimerade paketet till C\:/FolderA/sfctl_compressed_temp/AppPkg. |
-| --avbildnings Arkiv-sträng | Mål avbildnings lager att ladda upp programpaketet till.  Standard\: Fabric\:avbildnings arkiv. <br><br> Om du vill överföra till en fil Sök väg startar du den här parametern med "fil\:". Annars bör värdet vara anslutnings strängen för bild arkivet, till exempel standardvärdet. |
-| --Behåll-komprimerad | Huruvida det genererade komprimerade paketet ska behållas vid slutförd uppladdning. <br><br> Om den inte anges kommer de komprimerade Appaketet att tas bort vid lyckad slut för ande. Om överföringen inte lyckades lagras programpaketet alltid i utdatakatalogen för omöverföring. |
-| --show-Progress | Visa fil överförings förlopp för stora paket. |
-| --timeout-t | Den totala tids gränsen i sekunder. Det går inte att överföra och returnera fel efter att varaktigheten för uppladdningen har passerat. Denna timeout gäller för hela programpaketet och enskilda fil-timeoutar är samma som den återstående tids gränsen. Timeout inkluderar inte den tid som krävs för att komprimera programpaketet.  Standard\: 300. |
+| --sökväg [Obligatoriskt] | Sökväg till lokalt programpaket. |
+| --kompress | Gäller endast för Service Fabric-programpaket. Skapa en ny mapp som innehåller det komprimerade programpaketet till antingen standardplatsen eller till den plats som anges av parametern komprimerad plats och ladda sedan upp den nyskapade mappen. <br><br> Om det redan finns en komprimerad fil som genereras av sfctl skrivs den över om den här flaggan är inställd. Ett fel returneras om katalogen inte är ett programpaket. Om det redan är ett komprimerat programpaket kopieras mappen som den är. Som standard tas det nyligen skapade komprimerade programpaketet bort efter en lyckad överföring. Om uppladdningen inte lyckas, vänligen rensa manuellt det komprimerade paketet efter behov. Borttagningen tar inte bort några tomma dirs som kan ha skapats om parametern komprimerad plats refererar till icke-existerande kataloger. |
+| --komprimerad plats | Platsen för att placera det komprimerade programpaketet. <br><br> Om ingen plats anges placeras det komprimerade paketet under en nyskapad mapp som heter sfctl_compressed_temp under den överordnade katalog som anges i sökvägsargumentet. Om sökvägsargumentet\:till exempel har värdet C /FolderA/AppPkg\:läggs det komprimerade paketet till c/folderA/sfctl_compressed_temp/apppkg. |
+| --imagestore-string | Målbildsarkivet för att ladda upp programpaketet till.  Standardtyg\: \:ImageStore. <br><br> Om du vill överföra till en filplats startar du den här parametern med "file".\: Annars ska värdet vara anslutningssträngen för bildarkiv, till exempel standardvärdet. |
+| --keep-komprimerad | Om det genererade komprimerade paketet ska behållas eller inte när det har slutförts. <br><br> Om inte inställt, sedan efter framgångsrikt slutförande, kommer de komprimerade apppaketen att tas bort. Om överföringen inte lyckades kommer programpaketet alltid att lagras i utdatakatalogen för återuppladdning. |
+| --show-progress --show-progress --show-progress -- | Visa förlopp för filöverföring för stora paket. |
+| --timeout -t | Den totala timeouten i sekunder. Överföringen misslyckas och returnerar fel när tidsgränsen för överföringen har passerats. Den här timeouten gäller för hela programpaketet och enskilda filtidsutgångar är lika med den återstående timeout-varaktigheten. Timeout innehåller inte den tid som krävs för att komprimera programpaketet.  Standard\: 300. |
 
 ### <a name="global-arguments"></a>Globala argument
 
 |Argument|Beskrivning|
 | --- | --- |
-| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
-| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
-| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
-| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
-| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+| --debug | Öka loggningsverbaliteten för att visa alla felsökningsloggar. |
+| --hjälp -h | Visa det här hjälpmeddelandet och avsluta. |
+| --utgång -o | Utdataformat.  Tillåtna\: värden json, jsonc, tabell, tsv.  Standard\: json. |
+| --fråga | JMESPath-frågesträng. Mer\:information och exempel finns på http //jmespath.org/. |
+| --utförlig | Öka loggningsverbaliteten. Använd --debug för fullständiga felsökningsloggar. |
 
 
 ## <a name="next-steps"></a>Nästa steg
-- [Konfigurera](service-fabric-cli.md) Service Fabric cli.
-- Lär dig hur du använder Service Fabric CLI med hjälp av [exempel skripten](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- [Konfigurera](service-fabric-cli.md) Service Fabric CLI.
+- Lär dig hur du använder Service Fabric CLI med hjälp av [exempelskripten](/azure/service-fabric/scripts/sfctl-upgrade-application).

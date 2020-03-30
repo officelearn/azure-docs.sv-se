@@ -1,127 +1,127 @@
 ---
-title: Skapa en bevakare-uppgift i Azure Automation kontot
-description: Lär dig hur du skapar en bevakare-aktivitet i Azure Automation-kontot och titta efter nya filer som skapats i en mapp.
+title: Skapa en bevakningsuppgift i Azure Automation-kontot
+description: Lär dig hur du skapar en watcher-uppgift i Azure Automation-kontot för att hålla utkik efter nya filer som skapats i en mapp.
 services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.openlocfilehash: 5dc6145940883ff6f4446ad67c399cdf4931d38e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75419743"
 ---
-# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Skapa en Azure Automation bevakare-aktiviteter för att spåra fil ändringar på en lokal dator
+# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Skapa en Azure Automation watcher-uppgifter för att spåra filändringar på en lokal dator
 
-Azure Automation använder övervaknings uppgifter för att övervaka händelser och utlösa åtgärder med PowerShell-Runbooks. Den här självstudien vägleder dig genom att skapa en bevakare-uppgift som ska övervakas när en ny fil läggs till i en katalog.
+Azure Automation använder watcher-uppgifter för att hålla utkik efter händelser och utlösa åtgärder med PowerShell-runbooks. Den här självstudien går igenom att skapa en bevakningsuppgift för att övervaka när en ny fil läggs till i en katalog.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Importera en övervakare Runbook
-> * Skapa en Automation-variabel
-> * Skapa en åtgärds-Runbook
-> * Skapa en bevakare-uppgift
-> * Utlös en övervakare
-> * Granska utdata
+> * Importera en bevakningskörningsbok
+> * Skapa en automatiseringsvariabel
+> * Skapa en åtgärdskörningsbok
+> * Skapa en bevakaraktivitet
+> * Utlösa en bevakning
+> * Kontrollera utdata
 
 ## <a name="prerequisites"></a>Krav
 
 Följande krävs för att genomföra kursen:
 
 * En Azure-prenumeration. Om du inte redan har ett konto kan du [aktivera dina MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation-konto](automation-offering-get-started.md) för att lagra övervakare och åtgärds-Runbooks och övervaknings aktiviteten.
-* En [hybrid Runbook Worker](automation-hybrid-runbook-worker.md) där övervaknings aktiviteten körs.
+* [Automation-konto](automation-offering-get-started.md) för att hålla watcher och action runbooks och Watcher Task.
+* En [hybridrunbook arbetare](automation-hybrid-runbook-worker.md) där watcher aktiviteten körs.
 
 > [!NOTE]
-> Övervaknings uppgifter stöds inte i Azure Kina.
+> Watcher-uppgifter stöds inte i Azure China.
 
-## <a name="import-a-watcher-runbook"></a>Importera en övervakare Runbook
+## <a name="import-a-watcher-runbook"></a>Importera en bevakningskörningsbok
 
-I den här självstudien används en bevakad Runbook som kallas **Watch-NewFile** för att leta efter nya filer i en katalog. Övervakarens Runbook hämtar den senast kända Skriv tiden till filerna i en mapp och tittar på filer som är nyare än den vattenstämpeln.
+Den här självstudien använder en watcher runbook som heter **Watch-NewFile** för att leta efter nya filer i en katalog. Den watcher runbook hämtar den senast kända skrivtiden till filerna i en mapp och tittar på alla filer nyare än att vattenstämpel.
 
-Den här import processen kan göras via [PowerShell-galleriet](https://www.powershellgallery.com).
+Den här importprocessen kan göras via [PowerShell Gallery](https://www.powershellgallery.com).
 
-1. Gå till Galleri sidan för [Watch-NewFile. ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd).
-2. Klicka på **distribuera i Azure Automation**på fliken **Azure Automation** .
+1. Navigera till gallerisidan för [Watch-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd).
+2. Klicka på **Distribuera till Azure Automation**under fliken Azure **Automation** .
 
-Du kan också importera denna Runbook till ditt Automation-konto från portalen med hjälp av följande steg.
+Du kan också importera den här runbooken till ditt automatiseringskonto från portalen med hjälp av följande steg.
 
-1. Öppna ditt Automation-konto och klicka på sidan **Runbooks** .
-2. Klicka på knappen **Bläddra i galleriet** .
-3. Sök efter "övervakare Runbook", Välj **övervakare Runbook som söker efter nya filer i en katalog** och välj **Importera**.
-  ![importera Automation-Runbook från UI](media/automation-watchers-tutorial/importsourcewatcher.png)
+1. Öppna ditt Automation-konto och klicka på sidan **Runbooks.**
+2. Klicka på knappen **Bläddra i galleri.**
+3. Sök efter "Watcher runbook", välj **Watcher runbook som söker efter nya filer i en katalog** och välj **Importera**.
+  ![Importera automationskörningsbok från användargränssnittet](media/automation-watchers-tutorial/importsourcewatcher.png)
 1. Ge runbooken ett namn och en beskrivning och välj **OK** för att importera runbooken till ditt Automation-konto.
-1. Välj **Redigera** och klicka sedan på **publicera**. När du tillfrågas väljer du **Ja** för att publicera runbooken.
+1. Välj **Redigera** och klicka sedan på **Publicera**. När du uppmanas till det väljer **du Ja** om du vill publicera runbooken.
 
-## <a name="create-an-automation-variable"></a>Skapa en Automation-variabel
+## <a name="create-an-automation-variable"></a>Skapa en automatiseringsvariabel
 
-En [Automation-variabel](automation-variables.md) används för att lagra tidsstämplar som föregående Runbook läser och lagrar från varje fil.
+En [automatiseringsvariabel](automation-variables.md) används för att lagra de tidsstämplar som föregående runbook läser och lagrar från varje fil.
 
-1. Välj **variabler** under **delade resurser** och välj **+ Lägg till en variabel**.
-1. Ange "Watch-NewFileTimestamp" som namn
-1. Välj DateTime som typ.
-1. Klicka på knappen **skapa** . Detta skapar Automation-variabeln.
+1. Välj **Variabler** under **DELADE RESURSER** och välj + Lägg till en **variabel**.
+1. Ange "Watch-NewFileTimestamp" för namnet
+1. Välj DateTime för typ.
+1. Klicka på knappen **Skapa.** Detta skapar automatiseringsvariabeln.
 
-## <a name="create-an-action-runbook"></a>Skapa en åtgärds-Runbook
+## <a name="create-an-action-runbook"></a>Skapa en åtgärdskörningsbok
 
-En åtgärds-Runbook används i en bevakare-uppgift för att agera på de data som skickas till den från en bevakad Runbook. PowerShell Workflow-Runbooks stöds inte av bevakade uppgifter. du måste använda PowerShell-Runbooks. Du måste importera en fördefinierad åtgärd Runbook som kallas **process-NewFile**.
+En åtgärdskörningsbok används i en watcher-uppgift för att agera på de data som skickas till den från en watcher-runbook. PowerShell Workflow runbooks stöds inte av watcher-uppgifter, du måste använda PowerShell-runbooks. Du måste importera en fördefinierad åtgärdskörningsbok med namnet **Process-NewFile**.
 
-Den här import processen kan göras via [PowerShell-galleriet](https://www.powershellgallery.com).
+Den här importprocessen kan göras via [PowerShell Gallery](https://www.powershellgallery.com).
 
-1. Gå till Galleri sidan för [process-NewFile. ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf).
-2. Klicka på **distribuera i Azure Automation**på fliken **Azure Automation** .
+1. Navigera till gallerisidan för [Process-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf).
+2. Klicka på **Distribuera till Azure Automation**under fliken Azure **Automation** .
 
-Du kan också importera denna Runbook till ditt Automation-konto från portalen med hjälp av följande steg.
+Du kan också importera den här runbooken till ditt automatiseringskonto från portalen med hjälp av följande steg.
 
-1. Navigera till ditt Automation-konto och välj **Runbooks** under kategorin **process automatisering** .
-1. Klicka på knappen **Bläddra i galleriet** .
-1. Sök efter "övervaknings åtgärd" och välj **bevakare åtgärd som bearbetar händelser som utlöses av en bevakad Runbook** och välj **Importera**.
-  ![importera åtgärds-Runbook från UI](media/automation-watchers-tutorial/importsourceaction.png)
+1. Navigera till ditt automationskonto och välj **Runbooks** under kategorin **PROCESS AUTOMATION.**
+1. Klicka på knappen **Bläddra i galleri.**
+1. Sök efter "Watcher action" och välj **Watcher-åtgärd som bearbetar händelser som utlöses av en watcher-runbook** och välj **Importera**.
+  ![Importera åtgärdskörningsbok från användargränssnittet](media/automation-watchers-tutorial/importsourceaction.png)
 1. Ge runbooken ett namn och en beskrivning och välj **OK** för att importera runbooken till ditt Automation-konto.
-1. Välj **Redigera** och klicka sedan på **publicera**. När du tillfrågas väljer du **Ja** för att publicera runbooken.
+1. Välj **Redigera** och klicka sedan på **Publicera**. När du uppmanas till det väljer **du Ja** om du vill publicera runbooken.
 
-## <a name="create-a-watcher-task"></a>Skapa en bevakare-uppgift
+## <a name="create-a-watcher-task"></a>Skapa en bevakaraktivitet
 
-Övervaknings aktiviteten innehåller två delar. Övervakare och åtgärd. Bevakaren körs med ett intervall som definierats i övervaknings aktiviteten. Data från övervaknings-runbooken skickas till Runbook-åtgärden. I det här steget konfigurerar du aktiviteten Övervakare som refererar till övervakare och åtgärds-Runbooks som definierats i föregående steg.
+Bevakningsuppgiften innehåller två delar. Väktaren och handlingen. Bevakaren körs med ett intervall som definieras i bevakningsuppgiften. Data från watcher-runbooken skickas till åtgärdskörningsboken. I det här steget konfigurerar du bevakningsuppgiften som refererar till watcher- och åtgärdskörningsböckerna som definierats i föregående steg.
 
-1. Navigera till ditt Automation-konto och välj **övervaknings uppgifter** under kategorin **process automatisering** .
-1. Välj sidan övervakare och klicka på **+ Lägg till en bevakare-aktivitets** knapp.
+1. Navigera till ditt automationskonto och välj **Watcher-uppgifter** under kategorin **PROCESS AUTOMATION.**
+1. Välj sidan Bevakareuppgifter och klicka på **+ Lägg till en bevakningsuppgiftsknapp.**
 1. Ange "WatchMyFolder" som namn.
 
-1. Välj **Konfigurera övervakare** och välj **NewFile-** runbooken.
+1. Välj **Konfigurera watcher** och välj **runbooken Watch-NewFile.**
 
 1. Ange följande värden för parametrarna:
 
-   * **FOLDERPATH** – en mapp på Hybrid Worker där nya filer skapas. d:\examplefiles
-   * **Tillägg** – lämna tomt om du vill bearbeta alla fil namns tillägg.
-   * **Rekursivt** – lämna det här värdet som standard.
-   * **Kör inställningar** – Välj hybrid Worker.
+   * **FOLDERPATH** - En mapp på hybridarbetaren där nya filer skapas. d:\exempelfiler
+   * **EXTENSION** - Lämna tomt för att bearbeta alla filnamnstillägg.
+   * **RECURSE** - Lämna det här värdet som standard.
+   * **KÖR INSTÄLLNINGAR** - Välj hybridarbetaren.
 
-1. Klicka på OK och välj sedan för att återgå till sidan övervakare.
-1. Välj **Konfigurera åtgärd** och välj "bearbeta-NewFile"-Runbook.
+1. Klicka på OK och sedan välj för att gå tillbaka till watcher-sidan.
+1. Välj **Konfigurera åtgärd** och välj runbooken "Process-NewFile".
 1. Ange följande värden för parametrar:
 
-   * **EVENTDATA** – lämna tomt. Data skickas från övervaknings-runbooken.
-   * **Kör inställningar** -lämna som Azure eftersom denna Runbook körs i Automation-tjänsten.
+   * **EVENTDATA** - Lämna tomt. Data skickas in från watcher runbook.
+   * **Kör inställningar** – Lämna som Azure när den här runbooken körs i tjänsten Automation.
 
-1. Klicka på **OK**och välj sedan för att återgå till sidan övervakare.
-1. Klicka på **OK** för att skapa bevakare-aktiviteten.
+1. Klicka på **OK**och sedan välj för att gå tillbaka till watcher-sidan.
+1. Klicka på **OK** om du vill skapa bevakningsuppgiften.
 
-![Konfigurera övervaknings åtgärd från användar gränssnittet](media/automation-watchers-tutorial/watchertaskcreation.png)
+![Konfigurera watcher-åtgärd från användargränssnittet](media/automation-watchers-tutorial/watchertaskcreation.png)
 
-## <a name="trigger-a-watcher"></a>Utlös en övervakare
+## <a name="trigger-a-watcher"></a>Utlösa en bevakning
 
-För att testa bevakaren fungerar som förväntat måste du skapa en test fil.
+Om du vill testa att bevakningen fungerar som förväntat måste du skapa en testfil.
 
-Fjärran slut till hybrid Worker. Öppna **PowerShell** och skapa en test fil i mappen.
+Fjärr till hybridarbetaren. Öppna **PowerShell** och skapa en testfil i mappen.
 
 ```azurepowerShell-interactive
 New-Item -Name ExampleFile1.txt
 ```
 
-I följande exempel visas förväntade utdata.
+I följande exempel visas den förväntade utdata.
 
 ```output
     Directory: D:\examplefiles
@@ -132,16 +132,16 @@ Mode                LastWriteTime         Length Name
 -a----       12/11/2017   9:05 PM              0 ExampleFile1.txt
 ```
 
-## <a name="inspect-the-output"></a>Granska utdata
+## <a name="inspect-the-output"></a>Kontrollera utdata
 
-1. Navigera till ditt Automation-konto och välj **övervaknings uppgifter** under kategorin **process automatisering** .
-1. Välj bevakad uppgift "WatchMyFolder".
-1. Klicka på **Visa övervakare strömmar** under **strömmar** för att se att bevakaren hittade den nya filen och startade åtgärden Runbook.
-1. Klicka på **Åtgärds jobben Visa övervakare**för att se Runbook-jobb. Varje jobb kan väljas Visa information om jobbet.
+1. Navigera till ditt automationskonto och välj **Watcher-uppgifter** under kategorin **PROCESS AUTOMATION.**
+1. Välj bevakningsuppgiften "WatchMyFolder".
+1. Klicka på **Visa watcher strömmar** under **Strömmar** för att se att watcher hittade den nya filen och startade åtgärden runbook.
+1. Om du vill se actionkörningsjobben klickar du på **åtgärdsjobben Visa bevakare**. Varje jobb kan väljas visa detaljerna för jobbet.
 
-   ![Övervaknings åtgärds jobb från användar gränssnittet](media/automation-watchers-tutorial/WatcherActionJobs.png)
+   ![Action-jobb för watcher från användargränssnittet](media/automation-watchers-tutorial/WatcherActionJobs.png)
 
-Förväntade utdata när den nya filen hittas kan visas i följande exempel:
+Den förväntade utdata när den nya filen hittas kan ses i följande exempel:
 
 ```output
 Message is Process new file...
@@ -156,15 +156,15 @@ Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
 I den här självstudiekursen lärde du dig att:
 
 > [!div class="checklist"]
-> * Importera en övervakare Runbook
-> * Skapa en Automation-variabel
-> * Skapa en åtgärds-Runbook
-> * Skapa en bevakare-uppgift
-> * Utlös en övervakare
-> * Granska utdata
+> * Importera en bevakningskörningsbok
+> * Skapa en automatiseringsvariabel
+> * Skapa en åtgärdskörningsbok
+> * Skapa en bevakaraktivitet
+> * Utlösa en bevakning
+> * Kontrollera utdata
 
-Följ den här länken om du vill veta mer om hur du redigerar din egen Runbook.
+Följ den här länken om du vill veta mer om hur du skapar en egen runbook.
 
 > [!div class="nextstepaction"]
-> [Min första PowerShell-Runbook](automation-first-runbook-textual-powershell.md).
+> [Min första PowerShell runbook](automation-first-runbook-textual-powershell.md).
 

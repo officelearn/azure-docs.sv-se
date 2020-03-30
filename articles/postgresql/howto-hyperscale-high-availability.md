@@ -1,35 +1,35 @@
 ---
-title: Konfigurera hög tillgänglighet – storskalig (citus) – Azure Database for PostgreSQL
-description: Så här aktiverar eller inaktiverar du hög tillgänglighet
+title: Konfigurera hög tillgänglighet – Hyperskala (Citus) - Azure-databas för PostgreSQL
+description: Aktivera eller inaktivera hög tillgänglighet
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: a8d4b5949b34d16191e9ec10a1dd39faff3660dc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74977681"
 ---
-# <a name="configure-hyperscale-citus-high-availability"></a>Konfigurera storskalig (citus) hög tillgänglighet
+# <a name="configure-hyperscale-citus-high-availability"></a>Konfigurera hyperskala (Citus) hög tillgänglighet
 
-Azure Database for PostgreSQL-storskalig (citus) ger hög tillgänglighet (HA) för att undvika avbrott i databasen. När HA Aktiver ATS kommer varje nod i en Server grupp att få ett vänte läge. Om den ursprungliga noden blir ohälsosam, kommer vänte läge att höjas för att ersätta den.
+Azure Database for PostgreSQL - Hyperscale (Citus) ger hög tillgänglighet (HA) för att undvika avbrott i databasen. Med HA aktiverat får varje nod i en servergrupp en vänteläge. Om den ursprungliga noden blir felaktig kommer dess vänteläge att befordras för att ersätta den.
 
 > [!IMPORTANT]
-> Eftersom HA dubbelt så många servrar i gruppen kommer det också att dubblera kostnaden.
+> Eftersom HA fördubblar antalet servrar i gruppen, kommer det också att fördubbla kostnaden.
 
-Det går att aktivera HA när Server gruppen skapas, eller efteråt på fliken **Konfigurera** för din server grupp i Azure Portal. Användar gränssnittet ser ut ungefär som i båda fallen. Dra skjutreglaget för **hög tillgänglighet** till Ja:
+Det går att aktivera HA när servergruppen skapas eller efteråt på fliken **Konfigurera** för servergruppen i Azure-portalen. Användargränssnittet ser likadant ut i båda fallen. Dra skjutreglaget för **Hög tillgänglighet** till JA:
 
-![ha-skjutreglage](./media/howto-hyperscale-high-availability/01-ha-slider.png)
+![ha skjutreglage](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 
-Klicka på knappen **Spara** för att tillämpa ditt val. Det kan ta lite tid att aktivera HA, eftersom Server gruppen tillhandahåller vänte läge och strömmar data till dem.
+Klicka på knappen **Spara** om du vill använda ditt val. Det kan ta lite tid att aktivera HA eftersom servergruppen etablerar väntelägen och strömmar data till dem.
 
-Fliken **Översikt** för Server gruppen visar en lista över alla noder och deras vänte läge, tillsammans med en kolumn med **hög tillgänglighet** som visar om ha Aktiver ATS för varje nod.
+På fliken **Översikt** för servergruppen visas alla noder och väntelägen, tillsammans med kolumnen **Hög tillgänglighet** som anger om HA har aktiverats för varje nod.
 
-![kolumnen ha i Server grupp översikt](./media/howto-hyperscale-high-availability/02-ha-column.png)
+![ha-kolumnen i servergruppsöversikten](./media/howto-hyperscale-high-availability/02-ha-column.png)
 
 ### <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [hög tillgänglighet](concepts-hyperscale-high-availability.md).
+Läs mer om [hög tillgänglighet](concepts-hyperscale-high-availability.md).

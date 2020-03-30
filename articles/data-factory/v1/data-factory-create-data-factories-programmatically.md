@@ -1,6 +1,6 @@
 ---
-title: Skapa datapipelines med hjälp av Azure .NET SDK
-description: Lär dig att program mässigt skapa, övervaka och hantera Azure-datafabriker med hjälp av Data Factory SDK.
+title: Skapa datapipelpipels med hjälp av Azure .NET SDK
+description: Lär dig hur du programmässigt skapar, övervakar och hanterar Azure-datafabriker med hjälp av Data Factory SDK.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,28 +12,28 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.openlocfilehash: 9cd3cd60f5d62a0c416b0e05ea408c20483bff13
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74931320"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Skapa, övervaka och hantera Azure-datafabriker med Azure Data Factory .NET SDK
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten bör du gå igenom [självstudien för kopieringsaktiviteter](../quickstart-create-data-factory-dot-net.md). 
+> Den här artikeln gäller för version 1 av Data Factory. Läs [copy activity tutorial in version 2 documentation](../quickstart-create-data-factory-dot-net.md) (kopiera aktivitetssjälvstudien i dokumentationen för version 2) om du använder den aktuella versionen av Data Factory-tjänsten. 
 
 ## <a name="overview"></a>Översikt
-Du kan skapa, övervaka och hantera Azure-datafabriker via programmering med Data Factory .NET SDK. Den här artikeln innehåller en genom gång som du kan följa för att skapa ett exempel på ett .NET-konsol program som skapar och övervakar en data fabrik. 
+Du kan skapa, övervaka och hantera Azure-datafabriker programmässigt med Data Factory .NET SDK. Den här artikeln innehåller en genomgång som du kan följa för att skapa ett exempel på .NET-konsolprogram som skapar och övervakar en datafabrik. 
 
 > [!NOTE]
-> Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Läs [Data Factory .NET API-referens](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) för omfattande dokumentation om .net api för Data Factory. 
+> Den här artikeln beskriver inte hela .NET-API:et för Data Factory. Se [Data Factory .NET API Reference](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1) för omfattande dokumentation om .NET API för Data Factory. 
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * Visual Studio 2012, 2013 eller 2015
-* Ladda ned och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
+* Hämta och installera [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Följ instruktionerna i artikeln [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview) för att installera Azure PowerShell på datorn. Du kan använda Azure PowerShell för att skapa ett Azure Active Directory-program.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Skapa ett program i Azure Active Directory
@@ -50,7 +50,7 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
     ```powershell
     Get-AzSubscription
     ```
-4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt **&lt;NameOfAzureSubscription**&gt; med namnet på din Azure-prenumeration.
+4. Kör följande kommando för att välja den prenumeration som du vill arbeta med. Ersätt ** &lt;NameOfAzureAbonnemang med** &gt; namnet på din Azure-prenumeration.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -99,28 +99,28 @@ Skapa ett Azure Active Directory-program, skapa ett tjänstobjektnamn för progr
 Du bör nu ha tillgång till följande fyra värden efter de här stegen:
 
 * Klient-ID:t
-* Prenumerations-ID
+* Prenumerations-ID:t
 * Program-ID:t
 * Lösenord (anges i det första kommandot)
 
 ## <a name="walkthrough"></a>Genomgång
-I genom gången skapar du en data fabrik med en pipeline som innehåller en kopierings aktivitet. Kopierings aktiviteten kopierar data från en mapp i Azure Blob Storage till en annan mapp i samma blob-lagring. 
+I genomgången skapar du en datafabrik med en pipeline som innehåller en kopieringsaktivitet. Kopieringsaktiviteten kopierar data från en mapp i Azure-bloblagringen till en annan mapp i samma blob-lagring. 
 
 Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten drivs av en globalt tillgänglig tjänst som kan kopiera data mellan olika datalager på ett säkert, tillförlitligt och skalbart sätt. Se artikeln [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) för information om kopieringsaktiviteten.
 
 1. Skapa ett C# .NET-konsolprogram med hjälp av Visual Studio 2012/2013/2015.
    1. Starta **Visual Studio** 2012/2013/2015.
    2. Klicka på **Arkiv**, peka på **Nytt** och klicka på **Projekt**.
-   3. Expandera **Mallar** och välj **Visual C#** . I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk.
+   3. Expandera **Mallar** och välj **Visual C#**. I den här genomgången ska du använda C#, men du kan använda valfritt .NET-språk.
    4. Välj **Konsolprogram** i listan över projekttyper till höger.
    5. Ange **DataFactoryAPITestApp** som namn.
    6. Välj **C:\ADFGetStarted** som plats.
    7. Klicka på **OK** för att skapa projektet.
-2. Klicka på **Verktyg**, peka på **NuGet Package Manager** och klicka på **Package Manager Console**.
+2. Klicka på **Verktyg**, peka på **NuGet Package Manager**och klicka på Package Manager **Console**.
 3. I **Package Manager Console** gör du följande steg:
    1. Kör följande kommando för att installera Data Factory-paketet: `Install-Package Microsoft.Azure.Management.DataFactories`
    2. Kör följande kommando för att installera Azure Active Directory-paketet (du använder Active Directory-API i koden): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
-4. Ersätt innehållet i **app. config** -filen i projektet med följande innehåll: 
+4. Ersätt innehållet i **Filen App.config** i projektet med följande innehåll: 
     
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -137,8 +137,8 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
         </appSettings>
     </configuration>
     ```
-5. I filen app. config uppdaterar du värdena för **&lt;program-ID&gt;** , **&lt;lösen ord&gt;** , **&lt;prenumerations-ID&gt;** och **&lt;klient-ID&gt;** med dina egna värden.
-6. Lägg till följande **using** -uttryck i **program.cs** -filen i projektet.
+5. I filen App.Config uppdaterar du värden för ** &lt;&gt;program-ID,** ** &lt;Lösenord,&gt;** ** &lt;Prenumerations-ID&gt;** och ** &lt;klient-ID&gt; ** med dina egna värden.
+6. Lägg till följande **med hjälp av** satser i **Program.cs** filen i projektet.
 
     ```csharp
     using System.Configuration;
@@ -176,7 +176,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
     ```
 
    > [!IMPORTANT]
-   > Ersätt värdet för **resourceGroupName** med namnet på Azure-resursgruppen. Du kan skapa en resurs grupp med hjälp av cmdleten [New-AzureResourceGroup](/powershell/module/az.resources/new-azresourcegroup) .
+   > Ersätt värdet för **resourceGroupName** med namnet på Azure-resursgruppen. Du kan skapa en resursgrupp med cmdleten [New-AzureResourceGroup.](/powershell/module/az.resources/new-azresourcegroup)
    >
    > Uppdatera namnet på datafabriken (dataFactoryName) så att det är unikt. Namnet på datafabriken måste vara unikt globalt. Se artikeln [Data Factory – namnregler](data-factory-naming-rules.md) för namnregler för Data Factory-artefakter.
 7. Lägg till följande kod som skapar en **datafabrik** till **Main**-metoden.
@@ -220,9 +220,9 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
     ```
 9. Lägg till följande kod som skapar **in- och utdatauppsättningar** till **Main**-metoden.
 
-    **FolderPath** för indata-bloben anges till **adftutorial/** där **adftutorial** är namnet på behållaren i blob-lagringen. Om den här behållaren inte finns i Azure Blob Storage skapar du en behållare med det här namnet: **adftutorial** och laddar upp en textfil till behållaren.
+    **FolderPath** för indatabloben är inställd på **adftutorial/** där **adftutorial** är namnet på behållaren i blob-lagringen. Om den här behållaren inte finns i azure-blob-lagringen skapar du en behållare med det här namnet: **adftutorial** och överför en textfil till behållaren.
 
-    FolderPath för utgående BLOB är inställt på: **adftutorial/apifactoryoutput/{slice}** där **sektorn** beräknas dynamiskt baserat på värdet för **SliceStart** (start datum och-tid för varje sektor)
+    FolderPath för utdatabloben är inställd på: **adftutorial/apifactoryoutput/{Slice}** där **Segmentet** beräknas dynamiskt baserat på värdet för **SegmentStart** (startdatum för varje segment.)
 
     ```csharp
     // create input and output datasets
@@ -358,7 +358,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
         }
     });
     ```
-12. Lägg till följande kod till **Main**-metoden för att hämta statusen för en datasektor i utdatauppsättningen. Det finns bara en sektor som förväntas i det här exemplet.
+12. Lägg till följande kod till **Main**-metoden för att hämta statusen för en datasektor i utdatauppsättningen. Det finns bara en del som förväntas i det här exemplet.
 
     ```csharp
     // Pulling status within a timeout threshold
@@ -393,7 +393,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
         }
     }
     ```
-13. **(valfritt)** Lägg till följande kod för att hämta körnings information för en data sektor till **main** -metoden.
+13. **(valfritt)** Lägg till följande kod för att få **Main** körinformation för ett datasegment till huvudmetoden.
 
     ```csharp
     Console.WriteLine("Getting run details of a data slice");
@@ -425,7 +425,7 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
     Console.WriteLine("\nPress any key to exit.");
     Console.ReadKey();
     ```
-14. Lägg till följande helper-metod som används av **Main**-metoden i **Program**-klassen. Den här metoden visar en dialog ruta där du kan ange **användar namn** och **lösen ord** som du använder för att logga in på Azure Portal.
+14. Lägg till följande helper-metod som används av **Main**-metoden i **Program**-klassen. Den här metoden visar en dialogruta där du kan ange **användarnamn** och **lösenord** som du använder för att logga in på Azure-portalen.
 
     ```csharp
     public static async Task<string> GetAuthorizationHeader()
@@ -445,22 +445,22 @@ Kopieringsaktiviteten utför dataflyttningen i Azure Data Factory. Aktiviteten d
     }
     ```
 
-15. I Solution Explorer expanderar du projektet: **DataFactoryAPITestApp**, högerklickar på **referenser**och klickar på **Lägg till referens**. Markera kryss rutan för `System.Configuration` sammansättning och klicka på **OK**.
+15. Expandera projektet i Lösningsutforskaren: **DataFactoryAPITestApp**, högerklicka på **Referenser**och klicka på **Lägg till referens**. Markera kryssrutan `System.Configuration` för montering och klicka på **OK**.
 15. Skapa konsolprogrammet. Klicka på **Skapa** på menyn och klicka sedan på **Build Solution** (Skapa lösning).
-16. Bekräfta att det finns minst en fil i adftutorial-behållaren i Azure Blob Storage. Om inte skapar du filen EMP. txt i anteckningar med följande innehåll och laddar upp den till adftutorial-behållaren.
+16. Kontrollera att det finns minst en fil i adftutorial-containern i Azure-bloblagringen. Om inte skapar du Emp.txt-filen i Anteckningar med följande innehåll och laddar upp den till adftutorial-containern.
 
     ```
     John, Doe
     Jane, Doe
     ```
-17. Kör exemplet genom att klicka på **Felsök** -> **Börja felsöka** på menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
+17. Kör exemplet genom att klicka på **Felsökning** -> **Avsöka på** menyn. När du ser **Getting run details of a data slice** (Hämta körningsdata för en datorsektor) väntar du några minuter och trycker sedan på **Retur**.
 18. Använd Azure-portalen och kontrollera att datafabriken **APITutorialFactory** har skapats med följande artefakter:
     * Länkad tjänst: **AzureStorageLinkedService**
     * Datauppsättning: **DatasetBlobSource** och **DatasetBlobDestination**.
     * Pipeline: **PipelineBlobSample**
-19. Kontrol lera att en utdatafil har skapats i mappen **apifactoryoutput** i behållaren **adftutorial** .
+19. Kontrollera att en utdatafil har skapats i mappen **apifactoryoutput** i **adftutorial-behållaren.**
 
-## <a name="get-a-list-of-failed-data-slices"></a>Hämta en lista över misslyckade data sektorer 
+## <a name="get-a-list-of-failed-data-slices"></a>Hämta en lista över misslyckade datasegment 
 
 ```csharp
 // Parse the resource path
@@ -500,6 +500,6 @@ while (response != null);
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande exempel för att skapa en pipeline med .NET SDK som kopierar data från en Azure Blob Storage till en Azure SQL-databas: 
+Se följande exempel för att skapa en pipeline med .NET SDK som kopierar data från en Azure-bloblagring till en Azure SQL-databas: 
 
 - [Skapa en pipeline för att kopiera data från Blob Storage till SQL Database](data-factory-copy-activity-tutorial-using-dotnet-api.md)

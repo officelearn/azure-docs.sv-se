@@ -5,18 +5,18 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 880b630ae48eda086f6454f0d7108d27d3403b77
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67188011"
 ---
-Om du startar upp i en icke-DHCP-miljö, följer du stegen nedan för att distribuera den virtuella datorn för din Data Box-Gateway.
+Om du startar upp i en icke-DHCP-miljö följer du dessa steg för att distribuera den virtuella datorn för databoxgatewayen.
 
-1. [Ansluta till Windows PowerShell-gränssnittet på enheten](#connect-to-the-powershell-interface).
-2. Använd den `Get-HcsIpAddress` cmdlet för att lista de nätverksgränssnitt som är aktiverad på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
+1. [Anslut till enhetens Windows PowerShell-gränssnitt](#connect-to-the-powershell-interface).
+2. Använd `Get-HcsIpAddress` cmdleten för att lista de nätverksgränssnitt som är aktiverade på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
 
-    I följande exempel visas användningen av denna cmdlet:
+    I följande exempel visas användningen av den här cmdleten:
 
     ```
     [10.100.10.10]: PS>Get-HcsIpAddress

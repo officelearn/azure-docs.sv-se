@@ -1,57 +1,57 @@
 ---
-title: Planera distribution av Azure Service Fabric-kluster
-description: Lär dig mer om att planera och förbereda för en produktions Service Fabric kluster distribution till Azure.
+title: Planera en Azure Service Fabric-klusterdistribution
+description: Lär dig mer om att planera och förbereda för en distribution av Service Fabric-kluster till Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.openlocfilehash: 1762a6975448301957579b3437a8af5c89b3accd
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78193484"
 ---
-# <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för en kluster distribution
+# <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för en klusterdistribution
 
-Det är mycket viktigt att planera och förbereda för distribution av produktions kluster.  Det finns många faktorer att tänka på.  Den här artikeln vägleder dig igenom stegen för att förbereda kluster distributionen.
+Det är mycket viktigt att planera och förbereda för en distribution av produktionskluster.  Det finns många faktorer att tänka på.  I den här artikeln får du hjälp med stegen för att förbereda klusterdistributionen.
 
-## <a name="read-the-best-practices-information"></a>Läs informationen om bästa praxis
-För att kunna hantera Azure Service Fabric-program och-kluster, finns det åtgärder som vi rekommenderar för att optimera tillförlitligheten i produktions miljön.  Mer information finns i [metod tips för Service Fabric program och kluster](service-fabric-best-practices-overview.md).
+## <a name="read-the-best-practices-information"></a>Läs information om bästa praxis
+För att hantera Azure Service Fabric-program och kluster framgångsrikt finns det åtgärder som vi rekommenderar att du utför för att optimera tillförlitligheten i din produktionsmiljö.  Mer information finns i [metodtips för Service Fabric-program och kluster .](service-fabric-best-practices-overview.md)
 
-## <a name="select-the-os-for-the-cluster"></a>Välj operativ system för klustret
-Service Fabric gör det möjligt att skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server eller Linux.  Innan du distribuerar klustret måste du välja operativ system: Windows eller Linux.  Varje nod (virtuell dator) i klustret kör samma OS, men du kan inte blanda virtuella Windows-och Linux-datorer i samma kluster.
+## <a name="select-the-os-for-the-cluster"></a>Välj operativsystemet för klustret
+Service Fabric gör det möjligt att skapa Service Fabric-kluster på alla virtuella datorer eller datorer som kör Windows Server eller Linux.  Innan du distribuerar klustret måste du välja OS: Windows eller Linux.  Varje nod (virtuell dator) i klustret kör samma operativsystem, du kan inte blanda Windows och Linux virtuella datorer i samma kluster.
 
 ## <a name="capacity-planning"></a>Kapacitetsplanering
-För produktions distribution är kapacitets planering ett viktigt steg. Här är några saker att tänka på i samband med den här processen.
+Vid distribution till en produktionsmiljö är det viktigt med kapacitetsplanering. Här är några saker att tänka på i samband med den här processen.
 
-* Det första antalet nodtyper för klustret 
-* Egenskaperna för varje nodtyp (storlek, antal instanser, primär, Internet som är riktad, antal virtuella datorer osv.)
+* Det ursprungliga antalet nodtyper för klustret 
+* Egenskaperna för varje nodtyp (storlek, antal instanser, primär, internet inför, antal virtuella datorer, etc.)
 * Klustrets egenskaper för tillförlitlighet och hållbarhet
 
-### <a name="select-the-initial-number-of-node-types"></a>Välj det första antalet nodtyper
-Först måste du ta reda på vad klustret som du skapar ska användas för. Vilka typer av program som du planerar att distribuera till det här klustret? Har ditt program flera tjänster och behöver de vara offentliga eller Internet riktade? Har dina tjänster (som utgör ditt program) olika infrastruktur behov, till exempel större RAM-minne eller högre CPU-cykler? Ett Service Fabric kluster kan bestå av fler än en nodtyp: en primär nodtyp och en eller flera typer som inte är av en primär typ. Varje nodtyp mappas till en skalnings uppsättning för virtuella datorer. Varje nodtyp kan sedan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. [Nodens egenskaper och placerings begränsningar][placementconstraints] kan konfigureras för att begränsa vissa tjänster till vissa nodtyper.  Mer information finns i [antalet nodtyper som ditt kluster måste börja med](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
+### <a name="select-the-initial-number-of-node-types"></a>Välj det ursprungliga antalet nodtyper
+Först måste du ta reda på vad klustret du skapar kommer att användas för. Vilka typer av program planerar du att distribuera till det här klustret? Har din ansökan har flera tjänster, och gör någon av dem måste vara offentliga eller internet inför? Har dina tjänster (som utgör ditt program) har olika infrastrukturbehov såsom större RAM eller högre CPU-cykler? Ett Service Fabric-kluster kan bestå av mer än en nodtyp: en primär nodtyp och en eller flera icke-primära nodtyper. Varje nodtyp mappas till en skaluppsättning för den virtuella datorn. Varje nodtyp kan sedan skalas upp eller ned oberoende av de andra, ha olika portar öppna och ha olika kapacitet. [Nodegenskaper och placeringsbegränsningar][placementconstraints] kan ställas in för att begränsa specifika tjänster till specifika nodtyper.  Mer information finns [i Antalet nodtyper som klustret behöver börja med](service-fabric-cluster-capacity.md#the-number-of-node-types-your-cluster-needs-to-start-out-with).
 
-### <a name="select-node-properties-for-each-node-type"></a>Välj Node-egenskaper för varje nodtyp
-Node types definierar VM SKU, antal och egenskaper för de virtuella datorerna i den associerade skalnings uppsättningen.
+### <a name="select-node-properties-for-each-node-type"></a>Välj nodegenskaper för varje nodtyp
+Nodtyper definierar VM SKU, tal och egenskaper för de virtuella datorerna i den associerade skalningsuppsättningen.
 
-Minimi storleken på virtuella datorer för varje nodtyp bestäms av den [hållbarhets nivå][durability] som du väljer för nodtypen.
+Den minsta storleken på virtuella datorer för varje nodtyp bestäms av den [hållbarhetsnivå][durability] du väljer för nodtypen.
 
-Det minsta antalet virtuella datorer för den primära nodtypen avgörs av den [Tillförlitlighets nivå][reliability] som du väljer.
+Det minsta antalet virtuella datorer för den primära nodtypen bestäms av den [tillförlitlighetsnivå][reliability] du väljer.
 
-Se de lägsta rekommendationerna för [primära nodtyper](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [tillstånds känsliga arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)och [tillstånds lösa arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
+Se minimirekommendationerna för [primära nodtyper,](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance) [tillståndskänsliga arbetsbelastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)och [tillståndslösa arbetsbelastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
 
-Fler än det minsta antalet noder bör baseras på antalet repliker av de program/tjänster som du vill köra i den här nodtypen.  Med [kapacitets planering för Service Fabric program](service-fabric-capacity-planning.md) kan du beräkna vilka resurser du behöver för att köra dina program. Du kan alltid skala klustret uppåt eller nedåt senare för att justera för att ändra program arbets belastning. 
+Fler än det minsta antalet noder bör baseras på antalet repliker av programmet/tjänsterna som du vill köra i den här nodtypen.  [Kapacitetsplanering för Service Fabric-program](service-fabric-capacity-planning.md) hjälper dig att uppskatta de resurser du behöver för att köra dina program. Du kan alltid skala klustret uppåt eller nedåt senare för att justera för att ändra programarbetsbelastningen. 
 
-#### <a name="use-ephemeral-os-disks-for-virtual-machine-scale-sets"></a>Använd tillfälliga OS-diskar för skalnings uppsättningar för virtuella datorer
+#### <a name="use-ephemeral-os-disks-for-virtual-machine-scale-sets"></a>Använda efemära OS-diskar för skalningsuppsättningar för virtuella datorer
 
-*Tillfälliga OS-diskar* har skapats på den lokala virtuella datorn (VM) och sparas inte på fjärr Azure Storage. De rekommenderas för alla Service Fabric Node-typer (primär och sekundär), på grund av traditionella beständiga OS-diskar, tillfälliga OS-diskar:
+*Efemära OS-diskar* är lagring som skapas på den lokala virtuella datorn (VM) och sparas inte på fjärr-Azure Storage. De rekommenderas för alla nodtyper för Service Fabric (Primär och Sekundär), eftersom efemära OS-diskar jämfört med traditionella beständiga OS-diskar jämfört med traditionella beständiga OS-diskar:
 
-* Minska svars tiden för Läs/skriv till OS-disk
-* Aktivera snabbare återställnings-och avbildnings hanterings åtgärder
-* Minska totalkostnaden (diskarna är kostnads fria och debiteras inga ytterligare lagrings kostnader)
+* Minska läs-/skrivsvarstiden till OS-disk
+* Aktivera snabbare hantering av återställnings-/ominställning av nodhantering
+* Minska de totala kostnaderna (diskarna är gratis och medför ingen extra lagringskostnad)
 
-Tillfälliga OS-diskar är inte en speciell Service Fabric funktion, utan i stället en funktion i de *skalnings uppsättningar för virtuella* Azure-datorer som mappas till Service Fabric Node-typer. Om du använder dem med Service Fabric krävs följande i klustrets Azure Resource Manager mall:
+Efemära OS-diskar är inte en specifik Service Fabric-funktion, utan snarare en funktion i *Azure-skalningsuppsättningarna* för virtuella datorer som mappas till nodtyper för Service Fabric. Om du använder dem med Service Fabric krävs följande i klustrets Azure Resource Manager-mall:
 
-1. Se till att Node-typerna har [stöd för Azure VM-storlekar som stöds](../virtual-machines/windows/ephemeral-os-disks.md) för tillfälliga OS-diskar och att storleken på den virtuella datorn har tillräckligt med cachestorlek för att stöda storleken på operativ system disken (se *Obs!* ) Exempel:
+1. Kontrollera att nodtyperna anger [Azure VM-storlekar](../virtual-machines/windows/ephemeral-os-disks.md) som stöds för Efemära OPERATIVSYSTEM-diskar och att vm-storleken har tillräcklig cachestorlek för att stödja dess diskstorlek (se *Anmärkning* nedan.) Till exempel:
 
     ```xml
     "vmNodeType1Size": {
@@ -60,16 +60,16 @@ Tillfälliga OS-diskar är inte en speciell Service Fabric funktion, utan i stä
     ```
 
     > [!NOTE]
-    > Se till att välja en VM-storlek med en cachestorlek som är lika stor som eller större än storleken på den virtuella datorns OS-disk, annars kan din Azure-distribution leda till fel (även om den först accepteras).
+    > Var noga med att välja en VM-storlek med en cachestorlek som är lika med eller större än os-diskstorleken för den virtuella datorn själv, annars kan din Azure-distribution resultera i fel (även om den först accepteras).
 
-2. Ange en version av en skalnings uppsättning för virtuella datorer (`vmssApiVersion`) av `2018-06-01` eller senare:
+2. Ange en version för`vmssApiVersion`skalningsuppsättning för virtuella datorer ( ) av `2018-06-01` eller senare:
 
     ```xml
     "variables": {
         "vmssApiVersion": "2018-06-01",
     ```
 
-3. I avsnittet skalnings uppsättning för virtuell dator i distributions mal len anger du `Local` alternativ för `diffDiskSettings`:
+3. I avsnittet skala för virtuell dator i `Local` distributionsmallen anger du alternativet för: `diffDiskSettings`
 
     ```xml
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -87,30 +87,30 @@ Tillfälliga OS-diskar är inte en speciell Service Fabric funktion, utan i stä
         }
     ```
 
-Mer information och ytterligare konfigurations alternativ finns i [tillfälliga OS-diskar för virtuella Azure-datorer](../virtual-machines/windows/ephemeral-os-disks.md) 
+Mer information och ytterligare konfigurationsalternativ finns i [Efemära OS-diskar för virtuella Azure-datorer](../virtual-machines/windows/ephemeral-os-disks.md) 
 
 
-### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Välj nivåer för hållbarhet och pålitlighet för klustret
-Hållbarhets nivån används för att ange systemet de privilegier som dina virtuella datorer har med den underliggande Azure-infrastrukturen. I den primära nodtypen kan du med den här behörigheten Service Fabric pausa alla infrastruktur förfrågningar för virtuella datorer (till exempel en VM-omstart, återställning av virtuella datorer eller migrering av virtuella datorer) som påverkar kraven på kvorum för system tjänsterna och dina tillstånds känsliga tjänster. I de icke-primära nodtypen kan den här behörigheten Service Fabric pausa alla infrastruktur begär Anden för virtuella datorer (t. ex. omstart av virtuell dator, avbildning av virtuell dator och migrering av virtuella datorer) som påverkar kraven för de tillstånds känsliga tjänsterna.  För fördelarna med de olika nivåerna och rekommendationerna på vilken nivå som ska användas och när, se behållar [egenskaperna för klustret][durability].
+### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Välj hållbarhets- och tillförlitlighetsnivåer för klustret
+Hållbarhetsnivån används för att ange för systemet de privilegier som dina virtuella datorer har med den underliggande Azure-infrastrukturen. I den primära nodtypen tillåter den här behörigheten Service Fabric att pausa alla infrastrukturbegäranden på vm-nivå (till exempel en omstart av den virtuella datorn, ominställd för den virtuella datorn eller vm-migrering) som påverkar kvorumkraven för systemtjänsterna och dina tillståndskänsliga tjänster. I de icke-primära nodtyperna tillåter den här behörigheten Service Fabric att pausa alla infrastrukturbegäranden på vm-nivå (till exempel omstart av virtuella datorer, ominställd för virtuella datorer och vm-migrering) som påverkar kvorumkraven för dina tillståndskänsliga tjänster.  Fördelar med de olika nivåerna och rekommendationerna på vilken nivå som ska användas och när, se [Klustrets hållbarhetsegenskaper][durability].
 
-Tillförlitlighets nivån används för att ange antalet repliker av de system tjänster som du vill köra i det här klustret på den primära nodtypen. Antalet repliker, desto mer pålitliga system tjänsterna finns i klustret.  För fördelarna med de olika nivåerna och rekommendationerna på vilken nivå som ska användas och när, se [Tillförlitlighets egenskaperna för klustret][reliability]. 
+Tillförlitlighetsnivån används för att ange antalet repliker av de systemtjänster som du vill köra i det här klustret på den primära nodtypen. Ju fler repliker, desto mer tillförlitliga systemtjänster finns i klustret.  Fördelar med de olika nivåerna och rekommendationerna på vilken nivå som ska användas och när finns [i Klustrets tillförlitlighetsegenskaper][reliability]. 
 
 ## <a name="enable-reverse-proxy-andor-dns"></a>Aktivera omvänd proxy och/eller DNS
-Tjänster som ansluter till varandra i ett kluster kan i allmänhet direkt komma åt slut punkterna för andra tjänster eftersom noderna i ett kluster finns i samma lokala nätverk. För att göra det enklare att ansluta mellan tjänster Service Fabric tillhandahåller ytterligare tjänster: en [DNS-tjänst](service-fabric-dnsservice.md) och en [omvänd proxy-tjänst](service-fabric-reverseproxy.md).  Båda tjänsterna kan aktive ras när du distribuerar ett kluster.
+Tjänster som ansluter till varandra i ett kluster kan i allmänhet direkt komma åt slutpunkterna för andra tjänster eftersom noderna i ett kluster finns i samma lokala nätverk. För att göra det enklare att ansluta mellan tjänster tillhandahåller Service Fabric ytterligare tjänster: En [DNS-tjänst](service-fabric-dnsservice.md) och en [omvänd proxytjänst](service-fabric-reverseproxy.md).  Båda tjänsterna kan aktiveras när du distribuerar ett kluster.
 
-Eftersom många tjänster, särskilt behållar tjänster, kan ha ett befintligt URL-namn, kan det vara bra att lösa dessa med standard-DNS-protokollet (i stället för Naming Service-protokollet) är bekvämt, särskilt i program "lyft och Shift"-scenarier. Detta är exakt vad DNS-tjänsten gör. Du kan mappa DNS-namn till ett tjänst namn och därmed matcha slut punktens IP-adresser.
+Eftersom många tjänster, särskilt behållartjänster, kan ha ett befintligt URL-namn är det praktiskt att kunna lösa dessa med hjälp av standard-DNS-protokollet (i stället för Naming Service-protokollet) särskilt i scenarierna "lyft och skift". Detta är precis vad DNS-tjänsten gör. Det gör att du kan mappa DNS-namn till ett tjänstnamn och därmed lösa slutpunkts-IP-adresser.
 
-Den omvända proxyn adresser tjänster i klustret som exponerar HTTP-slutpunkter (inklusive HTTPS). Den omvända proxyn fören klar att anropa andra tjänster avsevärt genom att tillhandahålla ett angivet URI-format.  Den omvända proxyn hanterar även de åtgärder för att lösa, ansluta och testa om som krävs för att en tjänst ska kunna kommunicera med en annan.
+De omvända proxyadresserna i klustret som exponerar HTTP-slutpunkter (inklusive HTTPS). Den omvända proxyn förenklar i hög grad att anropa andra tjänster genom att tillhandahålla ett specifikt URI-format.  Den omvända proxyn hanterar också de steg för att lösa, ansluta och försöka igen som krävs för att en tjänst ska kunna kommunicera med en annan.
 
 ## <a name="prepare-for-disaster-recovery"></a>Förbereda för haveriberedskap
-En viktig del av att leverera hög tillgänglighet säkerställer att tjänsterna kan överleva alla olika typer av problem. Detta är särskilt viktigt för problem som är oplanerade och utanför din kontroll. [För att förbereda för haveri beredskap](service-fabric-disaster-recovery.md) beskrivs några vanliga fel lägen som kan vara katastrofer om de inte modelleras och hanteras korrekt. Den diskuterar också åtgärder och åtgärder som ska vidtas om en olycka ändå har skett.
+En viktig del av att leverera hög tillgänglighet är att se till att tjänster kan överleva alla olika typer av fel. Detta är särskilt viktigt för fel som är oplanerade och utanför din kontroll. [Förbered för haveriberedskap](service-fabric-disaster-recovery.md) beskriver några vanliga fellägen som kan vara katastrofer om de inte modelleras och hanteras korrekt. Den diskuterar också mildrande åtgärder och åtgärder att vidta om en katastrof hände ändå.
 
 ## <a name="production-readiness-checklist"></a>Checklista för produktionsberedskap
-Är ditt program och kluster redo att ta produktions trafik? Innan du distribuerar klustret till produktion kan du köra genom [Check listan för produktions beredskap](service-fabric-production-readiness-checklist.md). Se till att ditt program och kluster fungerar smidigt genom att gå igenom objekten i den här check listan. Vi rekommenderar starkt att alla dessa objekt checkas ut innan du börjar arbeta med produktionen.
+Är ditt program och kluster redo att ta produktionstrafik? Innan du distribuerar klustret till produktion, kör igenom [checklistan för produktionsberedskap](service-fabric-production-readiness-checklist.md). Se till att programmet och klustret fungerar smidigt genom att arbeta igenom objekten i den här checklistan. Vi rekommenderar starkt att alla dessa artiklar kontrolleras innan de går i produktion.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa ett Service Fabric kluster som kör Windows](service-fabric-best-practices-overview.md)
-* [Skapa ett Service Fabric kluster som kör Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+* [Skapa ett Service Fabric-kluster som kör Windows](service-fabric-best-practices-overview.md)
+* [Skapa ett Service Fabric-kluster som kör Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 
 [placementconstraints]: service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster

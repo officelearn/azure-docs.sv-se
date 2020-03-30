@@ -1,7 +1,7 @@
 ---
-title: Översikt över Azure App Security-grupper
+title: Översikt över azure-programsäkerhetsgrupper
 titlesuffix: Azure Virtual Network
-description: Lär dig mer om användningen av program säkerhets grupper.
+description: Läs mer om hur du använder programsäkerhetsgrupper.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,10 +14,10 @@ ms.date: 02/27/2020
 ms.author: kumud
 ms.reviewer: kumud
 ms.openlocfilehash: 775ef92a0ca486d1f8a6c44c78a4df04cd5ef467
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78274715"
 ---
 # <a name="application-security-groups"></a>Programsäkerhetsgrupper
@@ -32,7 +32,7 @@ I föregående bild är *NIC1* och *NIC2* medlemmar i programsäkerhetsgruppen *
 
 Den här regeln krävs för att tillåta trafik från Internet till webbservrarna. Eftersom inkommande trafik från Internet nekas av standardsäkerhetsregeln **DenyAllInbound**, krävs ingen ytterligare regel för programsäkerhetsgruppen *AsgLogic* eller *AsgDb*.
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
+|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | Tillåt |
 
@@ -40,7 +40,7 @@ Den här regeln krävs för att tillåta trafik från Internet till webbservrarn
 
 Eftersom standardsäkerhetsregeln **AllowVNetInBound** tillåter all kommunikation mellan resurser i samma virtuella nätverk, krävs den här regeln för att neka trafik från alla resurser.
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
+|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Alla | Neka |
 
@@ -48,7 +48,7 @@ Eftersom standardsäkerhetsregeln **AllowVNetInBound** tillåter all kommunikati
 
 Den här regeln tillåter trafik från programsäkerhetsgruppen *AsgLogic* till programsäkerhetsgruppen *AsgDb*. Den här regeln har högre prioritet än regeln *Deny-Database-All*. Det innebär att den här regeln bearbetas före regeln *Deny-Database-All*, så att trafik från programsäkerhetsgruppen *AsgLogic* tillåts, medan all annan trafik blockeras.
 
-|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Access |
+|Prioritet|Källa|Källportar| Mål | Målportar | Protokoll | Åtkomst |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | Tillåt |
 

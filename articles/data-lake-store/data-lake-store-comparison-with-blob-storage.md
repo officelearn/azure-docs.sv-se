@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Gen1 jämförelse med Azure Storage Blob | Microsoft Docs
+title: Azure Data Lake Storage Gen1 jämförelse med Azure Storage Blob | Microsoft-dokument
 description: Azure Data Lake Storage Gen1 jämförelse med Azure Storage Blob
 services: data-lake-store
 documentationcenter: ''
@@ -13,39 +13,39 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 7c958c3ed4d6ddaabd87f053005fcfc1eba8c842
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75438726"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämföra Azure Data Lake Storage Gen1 och Azure Blob Storage
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)] 
 
-I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake Storage Gen1 och Azure Blob Storage tillsammans med några viktiga aspekter av stor data bearbetning. Azure Blob Storage är ett generellt, skalbart objekt lager som har utformats för en mängd olika lagrings scenarier. Azure Data Lake Storage Gen1 är en databas för storskalig lagring som är optimerad för Big data Analytics-arbetsbelastningar.
+Tabellen i den här artikeln sammanfattar skillnaderna mellan Azure Data Lake Storage Gen1 och Azure Blob Storage längs några viktiga aspekter av stordatabearbetning. Azure Blob Storage är ett allmänt, skalbart objektarkiv som är utformat för en mängd olika lagringsscenarier. Azure Data Lake Storage Gen1 är en lagringsplats i hyperskala som är optimerad för arbetsbelastningar för stordataanalys.
 
 |  | Azure Data Lake Storage Gen1 | Azure Blob Storage |
 | --- | --- | --- |
-| Syfte |Optimerad lagring för Big data Analytics-arbetsbelastningar |Allmän objekt lagring för en mängd olika lagrings scenarier, inklusive big data Analytics |
-| Användningsfall |Batch, interaktiv, strömnings analys och maskin inlärnings data, till exempel loggfiler, IoT-data, klicka på strömmar, stora data uppsättningar |Alla typer av text eller binära data, t. ex. Programserver del, säkerhets kopierings data, medie lagring för strömning och generella användnings data. Dessutom är fullständig support för analys arbets belastningar. batch, interaktiv, strömnings analys och maskin inlärnings data, till exempel loggfiler, IoT-data, klicka på strömmar, stora data uppsättningar |
-| Viktiga begrepp |Data Lake Storage Gen1-kontot innehåller mappar, vilket i sin tur innehåller data som lagras som filer |Lagrings kontot har behållare, vilket i sin tur har data i form av blobbar |
-| Struktur |Hierarkiskt fil system |Objekt Arkiv med platt namn område |
-| API |REST-API via HTTPS |REST-API via HTTP/HTTPS |
-| API för serversidan |[WebHDFS-kompatibla REST-API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Hadoop-klienten för System |Ja |Ja |
-| Data åtgärder-autentisering |Baserat på [Azure Active Directory identiteter](../active-directory/develop/authentication-scenarios.md) |Baserat på delade hemligheter – [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md) och [signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
-| Data åtgärder – autentiseringsprotokoll |OAuth 2.0. Anrop måste innehålla en giltig JWT (JSON Web Token) som utfärdats av Azure Active Directory |Hash-baserad Message Authentication Code (HMAC). Anrop måste innehålla en Base64-kodad SHA-256-hash över en del av HTTP-begäran. |
-| Data åtgärder-auktorisering |POSIX Access Control listor (ACL: er).  ACL: er baserade på Azure Active Directory identiteter kan ställas in på fil-och mappnivå. |För auktorisering på konto nivå – Använd [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md)<br>För konto-, container-eller BLOB-auktorisering – Använd [signatur nycklar för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
-| Data åtgärder – granskning |Få. Mer information finns [här](data-lake-store-diagnostic-logs.md) . |Tillgänglig |
-| Vilande krypteringsdata |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv</li></ul></ul> |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv (för hands version)</li></ul><li>Kryptering av klientsidan</li></ul> |
-| Management-åtgärder (t.ex. Account Create) |[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för kontohantering |[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för kontohantering |
-| SDK: er för utvecklare |.NET, Java, Python, Node.js |.Net, Java, python, Node. js, C++, ruby, php, go, Android, iOS |
-| Analys arbets belastnings prestanda |Optimerad prestanda för arbetsbelastningar för parallella analyser. Högt dataflöde och IOPS. |Optimerad prestanda för arbetsbelastningar för parallella analyser. |
-| Storleksbegränsningar |Inga gränser för kontostorlekar, filstorlekar eller antal filer |För vissa gränser, se [skalbarhets mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md) och [skalbarhets-och prestanda mål för Blob Storage](../storage/blobs/scalability-targets.md). Större konto gränser tillgängliga genom att kontakta [Azure-supporten](https://azure.microsoft.com/support/faq/) |
-| GEO-redundans |Lokalt redundant (flera kopior av data i en Azure-region) |Lokalt redundant (LRS), zon redundant (ZRS), globalt redundant (GRS), Läs åtkomst globalt redundant (RA-GRS). Mer information finns [här](../storage/common/storage-redundancy.md) |
+| Syfte |Optimerad lagring för arbetsbelastningar för stordataanalys |Objektarkiv för allmänt ändamål för en mängd olika lagringsscenarier, inklusive stordataanalys |
+| Användningsfall |Batch-, interaktiva, strömmande analys- och maskininlärningsdata som loggfiler, IoT-data, klickströmmar, stora datauppsättningar |Alla typer av text eller binära data, till exempel programbakslut, säkerhetskopieringsdata, medielagring för direktuppspelning och data för allmänna ändamål. Dessutom fullt stöd för analysarbetsbelastningar; batch-, interaktiva, strömmande analys- och maskininlärningsdata som loggfiler, IoT-data, klickströmmar, stora datauppsättningar |
+| Viktiga begrepp |Data Lake Storage Gen1-kontot innehåller mappar, som i sin tur innehåller data som lagras som filer |Lagringskonto har behållare, som i sin tur har data i form av blobbar |
+| Struktur |Hierarkiskt filsystem |Objektbutik med platt namnområde |
+| API |REST API över HTTPS |REST API över HTTP/HTTPS |
+| API på serversidan |[WebHDFS-kompatibelt REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| Hadoop-filsystemklient |Ja |Ja |
+| Dataåtgärder - Autentisering |Baserat på [Azure Active Directory-identiteter](../active-directory/develop/authentication-scenarios.md) |Baserat på delade hemligheter - [Kontoåtkomstnycklar](../storage/common/storage-account-keys-manage.md) och [signaturenycklar för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Dataåtgärder - autentiseringsprotokoll |OAuth 2.0. Anrop måste innehålla en giltig JWT (JSON Web Token) som utfärdats av Azure Active Directory |Hash-baserad meddelandeautentiseringskod (HMAC) . Anrop måste innehålla en Base64-kodad SHA-256-hash över en del av HTTP-begäran. |
+| Dataoperationer - Auktorisering |KASSA-åtkomstkontrollistor (ACL).  ACL:er som baseras på Azure Active Directory-identiteter kan anges på fil- och mappnivå. |För auktorisering på kontonivå – Använd [kontoåtkomstnycklar](../storage/common/storage-account-keys-manage.md)<br>För konto-, behållar- eller blob-auktorisering – Använd [signaturenycklar för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Dataoperationer - Granskning |Tillgängliga. Se [här](data-lake-store-diagnostic-logs.md) för information. |Tillgängligt |
+| Krypteringsdata i vila |<ul><li>Transparent, Serversida</li> <ul><li>Med tjänsthanterade nycklar</li><li>Med kundhanterade nycklar i Azure KeyVault</li></ul></ul> |<ul><li>Transparent, Serversida</li> <ul><li>Med tjänsthanterade nycklar</li><li>Med kundhanterade nycklar i Azure KeyVault (förhandsversion)</li></ul><li>Kryptering av klientsidan</li></ul> |
+| Hanteringsåtgärder (t.ex. skapa konton) |[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för kontohantering |[Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för kontohantering |
+| Utvecklare SDK |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
+| Prestanda för analysarbetsbelastning |Optimerad prestanda för parallella analysarbetsbelastningar. Högt dataflöde och IOPS. |Optimerad prestanda för parallella analysarbetsbelastningar. |
+| Storleksbegränsningar |Inga gränser för kontostorlekar, filstorlekar eller antal filer |Specifika begränsningar finns i [Skalbarhetsmål för standardlagringskonton](../storage/common/scalability-targets-standard-account.md) och [Skalbarhets- och prestandamål för Blob-lagring](../storage/blobs/scalability-targets.md). Större kontogränser tillgängliga genom att kontakta [Azure Support](https://azure.microsoft.com/support/faq/) |
+| Geo-redundans |Lokalt redundant (flera kopior av data i en Azure-region) |Lokalt redundant (LRS), zonundant (ZRS), globalt redundant (GRS), läsåtkomst globalt redundant (RA-GRS). Se [här](../storage/common/storage-redundancy.md) för mer information |
 | Tjänsttillstånd |Allmänt tillgänglig |Allmänt tillgänglig |
 | Regional tillgänglighet |Se [här](https://azure.microsoft.com/regions/#services) |Tillgängligt i alla Azure-regioner |
-| Pris |Se [priser](https://azure.microsoft.com/pricing/details/data-lake-store/) |Se [priser](https://azure.microsoft.com/pricing/details/storage/) |
+| Pris |Se [Priser](https://azure.microsoft.com/pricing/details/data-lake-store/) |Se [Priser](https://azure.microsoft.com/pricing/details/storage/) |
 
 

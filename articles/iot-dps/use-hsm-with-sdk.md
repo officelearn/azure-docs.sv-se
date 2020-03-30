@@ -1,6 +1,6 @@
 ---
-title: Använd olika mekanismer för attestering med Azure IoT Hub Device Provisioning Service client SDK
-description: Azure så här använder du olika attesterings metoder med klient-SDK för enhets etablerings tjänsten (DPS) i Azure
+title: Använda olika attestationmekanismer med Azure IoT Hub Device Provisioning Service Client SDK
+description: Azure How to - Så här använder du olika attestationmekanismer med DPS-klienten SDK (Device Provisioning Service) i Azure
 author: robinsh
 ms.author: robinsh
 ms.date: 03/30/2018
@@ -9,15 +9,15 @@ ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
 ms.openlocfilehash: c85d958074ea5d41d32f71350164c3c983e372a2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74976663"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Använda olika attesteringsmetoder för maskinvara med klient-SDK för enhetsetableringstjänsten för C
 
-I den här artikeln beskrivs hur du använder olika [attesteringsmetoder](concepts-security.md#attestation-mechanism) med klient-SDK för enhetsetableringstjänsten för C. Du kan antingen använda en fysisk enhet eller en simulator. Etablerings tjänsten stöder autentisering för två typer av mekanismer för attestering: X. 509 och Trusted Platform Module (TPM).
+I den här artikeln beskrivs hur du använder olika [attesteringsmetoder](concepts-security.md#attestation-mechanism) med klient-SDK för enhetsetableringstjänsten för C. Du kan antingen använda en fysisk enhet eller en simulator. Etableringstjänsten stöder autentisering för två typer av attesteringsmetoder: X.509 och TPM (Trusted Platform Module).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -35,11 +35,11 @@ Läs mer i informationen om [säkerhetsbegrepp](concepts-security.md) för IoT H
 
 ## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>Aktivera autentisering för attesteringsmetoder som stöds
 
-SDK-autentiseringsläget (X. 509 eller TPM) måste aktive ras för den fysiska enheten eller simulatorn innan de kan registreras i Azure Portal. Navigera först till rotmappen för azure-iot-sdk-c. Kör sedan det angivna kommandot beroende på vilket autentiseringsläge du väljer:
+Autentiseringsläge (X.509 eller TPM) för SDK måste aktiveras för den fysiska enheten eller simulatorn innan den kan registreras i Azure Portal. Navigera först till rotmappen för azure-iot-sdk-c. Kör sedan det angivna kommandot beroende på vilket autentiseringsläge du väljer:
 
-### <a name="use-x509-with-simulator"></a>Använd X. 509 med Simulator
+### <a name="use-x509-with-simulator"></a>Använd X.509 med simulator
 
-Etablerings tjänsten levereras med en tärning-emulator (Device Identity komposition Engine) som genererar ett **X. 509** -certifikat för autentisering av enheten. Kör följande kommando för att aktivera **X. 509** -autentisering: 
+Etableringstjänsten levereras med en DICE-emulator (Device Identity Composition Engine) som genererar ett **X.509-certifikat** för att autentisera enheten. Om du vill aktivera **X.509-autentisering** kör du följande kommando: 
 
 ```
 cmake -Ddps_auth_type=x509 ..
@@ -47,9 +47,9 @@ cmake -Ddps_auth_type=x509 ..
 
 Information om maskinvara med DICE finns [här](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/).
 
-### <a name="use-x509-with-hardware"></a>Använd X. 509 med maskin vara
+### <a name="use-x509-with-hardware"></a>Använd X.509 med maskinvara
 
-Etablerings tjänsten kan användas med **X. 509** på annan maskin vara. Det behövs ett gränssnitt mellan maskinvara och SDK:t för att upprätta anslutningen. Prata med tillverkaren av din maskinvarusäkerhetsmodul för mer information om gränssnittet.
+Etableringstjänsten kan användas med **X.509** på annan maskinvara. Det behövs ett gränssnitt mellan maskinvara och SDK:t för att upprätta anslutningen. Prata med tillverkaren av din maskinvarusäkerhetsmodul för mer information om gränssnittet.
 
 ### <a name="use-tpm"></a>Använd TPM
 
@@ -148,8 +148,8 @@ Om du använder TPM, följer du anvisningarna i ["Create and provision a simulat
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Logga in på Azure-portalen, klicka på knappen **Alla resurser** i den vänstra menyn och öppna Device Provisioning-tjänsten.
-   - **X. 509-registrering**: i sammanfattnings bladet för etablerings tjänsten väljer du **Hantera registreringar**. Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. Välj **X. 509** som *mekanism*för identitets attestering, ladda upp löv certifikatet som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
-   - **Grupp registrering för X. 509**: Välj **Hantera registreringar**på bladet Sammanfattning för etablerings tjänsten. Välj fliken **Group Enrollments** (gruppregistreringar) och klicka på knappen **Lägg till** längst upp. Välj **X. 509** som *mekanism*för identitets attestering, ange ett grupp namn och certifikat namn, ladda upp ca/mellanliggande certifikat som krävs av bladet. Klicka på knappen **Spara** när det är klart. 
+   - **X.509 Individuell registrering:** På sammanfattningsbladet för etableringstjänsten väljer du **Hantera registreringar**. Välj fliken **Individual Enrollments** (Enskilda registreringar) och klicka på knappen **Lägg till** längst upp. Välj **X.509** som identitetsintygsmekanism , ladda upp lövcertifikatet enligt bladets krav. *Mechanism* Klicka på knappen **Spara** när det är klart. 
+   - **X.509 Gruppregistrering:** Välj Hantera registreringar på **sammanfattningsbladet för etableringstjänsten**. Välj fliken **Group Enrollments** (gruppregistreringar) och klicka på knappen **Lägg till** längst upp. Välj **X.509** som identitetsintygsmekanism , ange ett gruppnamn och certifieringsnamn, ladda upp certifikatutfärdaren/mellanliggande certifikatet enligt bladets krav. *Mechanism* Klicka på knappen **Spara** när det är klart. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Aktivera autentisering för enheter med hjälp av en anpassad attesteringsmetod (valfri)
 
@@ -181,7 +181,7 @@ När biblioteket skapas på egen hand måste du integrera det med klient-SDK fö
 
 ## <a name="connecting-to-iot-hub-after-provisioning"></a>Ansluta till IoT Hub efter etablering
 
-När enheten har etablerats med etablerings tjänsten använder det här API: t det angivna autentiseringsläget (**X. 509** eller TPM) för att ansluta till IoT Hub: 
+När enheten har etablerats med etableringstjänsten använder detta API det angivna autentiseringsläget **(X.509** eller TPM) för att ansluta till IoT Hub: 
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```

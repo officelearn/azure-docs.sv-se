@@ -1,6 +1,6 @@
 ---
-title: Automatisk uppdatering av mobilitets tjänsten i Azure Site Recovery
-description: Översikt över automatisk uppdatering av mobilitets tjänsten när du replikerar virtuella Azure-datorer med hjälp av Azure Site Recovery.
+title: Automatisk uppdatering av mobilitetstjänsten i Azure Site Recovery
+description: Översikt över automatisk uppdatering av mobilitetstjänsten när Azure-virtuella datorer replikeras med hjälp av Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -9,65 +9,65 @@ ms.topic: article
 ms.date: 10/24/2019
 ms.author: rajanaki
 ms.openlocfilehash: 3a9b0717368fa67f5a7dd477e018a68e048b6740
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451411"
 ---
-# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitets tjänsten i Azure till Azure-replikering
+# <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av mobilitetstjänsten i Azure-to-Azure-replikering
 
-Azure Site Recovery använder en månatlig release-takt för att åtgärda eventuella problem och förbättra befintliga funktioner eller lägga till nya. För att hålla dig uppdaterad med tjänsten måste du planera för korrigerings distribution varje månad. För att undvika omkostnader som är kopplade till varje uppgradering kan du i stället låta Site Recovery hantera komponent uppdateringar.
+Azure Site Recovery använder en månatlig version kadens för att åtgärda eventuella problem och förbättra befintliga funktioner eller lägga till nya. Om du vill behålla tjänsten måste du planera för korrigeringsdistribution varje månad. Om du vill undvika omkostnader som är associerade med varje uppgradering kan du i stället tillåta att webbplatsåterställning hanterar komponentuppdateringar.
 
-Som vi nämnt i en [arkitektur för haveri beredskap i Azure till Azure](azure-to-azure-architecture.md)installeras mobilitets tjänsten på alla virtuella Azure-datorer (VM) för vilka replikering är aktiverat, samtidigt som virtuella datorer replikeras från en Azure-region till en annan. När du använder automatiska uppdateringar uppdaterar varje ny version mobilitets tjänst tillägget.
+Som nämnts i [Azure-to-Azure-arkitektur för haveriberedskap](azure-to-azure-architecture.md)installeras mobilitetstjänsten på alla virtuella Azure-datorer (VMs) för vilka replikering är aktiverat, samtidigt som virtuella datorer replikeras från en Azure-region till en annan. När du använder automatiska uppdateringar uppdaterar varje ny utgåva tillägget mobilitetstjänst.
  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="how-automatic-updates-work"></a>Så här fungerar automatiska uppdateringar
 
-När du använder Site Recovery för att hantera uppdateringar distribuerar den en global Runbook (som används av Azure-tjänster) via ett Automation-konto som skapats i samma prenumeration som valvet. Varje valv använder ett Automation-konto. Runbooken söker efter varje virtuell dator i ett valv för aktiva automatiska uppdateringar och uppgraderar mobilitets tjänst tillägget om det finns en nyare version.
+När du använder Site Recovery för att hantera uppdateringar distribuerar den en global runbook (som används av Azure-tjänster) via ett automatiseringskonto som skapats i samma prenumeration som valvet. Varje valv använder ett automationskonto. Runbooken söker efter aktiva automatiska uppdateringar och uppgraderar tillägget mobilitetstjänsten om det finns en nyare version.
 
-Standard-Runbook-schemat återkommer dagligen vid 12:00 i tids zonen för den replikerade virtuella datorns geografiska plats. Du kan också ändra Runbook-schemat via Automation-kontot.
+Standardschemat för runbook återkommer dagligen klockan 12:00 i tidszonen för den replikerade virtuella datorns geo. Du kan också ändra runbook-schemat via automationskontot.
 
 > [!NOTE]
-> Från och med Samlad uppdatering 35 kan du välja ett befintligt Automation-konto som ska användas för uppdateringar. Före den här uppdateringen skapade Site Recovery det här kontot som standard. Observera att du bara kan välja det här alternativet när du aktiverar replikering för en virtuell dator. Den är inte tillgänglig för en replikerad virtuell dator. Inställningen du väljer gäller för alla virtuella Azure-datorer som skyddas i samma valv.
+> Från och med samlad uppdatering 35 kan du välja ett befintligt automatiseringskonto som ska användas för uppdateringar. Före den här uppdateringen skapade Site Recovery det här kontot som standard. Observera att du bara kan välja det här alternativet när du aktiverar replikering för en virtuell dator. Den är inte tillgänglig för en replikerande virtuell dator. Den inställning du väljer gäller för alla virtuella Azure-datorer som skyddas i samma valv.
  
-> Att aktivera automatiska uppdateringar kräver ingen omstart av dina virtuella Azure-datorer eller påverkar pågående replikering.
+> Aktivera automatiska uppdateringar kräver inte en omstart av dina virtuella Azure-datorer eller påverkar pågående replikering.
 
-> Jobb fakturering i Automation-kontot baseras på antalet jobb körnings minuter som används under en månad. Som standard ingår 500 minuter som kostnads fria enheter för ett Automation-konto. Jobb körningen tar några sekunder till ungefär en minut varje dag och täcks som lediga enheter.
+> Jobbfakturering i automatiseringskontot baseras på antalet jobbkörningsminuter som använts under en månad. Som standard ingår 500 minuter som kostnadsfria enheter för ett automationskonto. Jobbkörning tar några sekunder till ungefär en minut varje dag och täcks som fria enheter.
 
-| Kostnads fria enheter som ingår (varje månad) | Pris |
+| Gratis enheter ingår (varje månad) | Pris |
 |---|---|
-| Jobb körning 500 minuter | ₹ 0.14/Minute
+| Jobbkörning 500 minuter | 0,14/minut
 
 ## <a name="enable-automatic-updates"></a>Aktivera automatiska uppdateringar
 
-Du kan låta Site Recovery hantera uppdateringar på följande sätt.
+Du kan tillåta att webbplatsåterställning hanterar uppdateringar på följande sätt.
 
-### <a name="manage-as-part-of-the-enable-replication-step"></a>Hantera som en del av steget aktivera replikering
+### <a name="manage-as-part-of-the-enable-replication-step"></a>Hantera som en del av aktivera replikeringssteget
 
-När du aktiverar replikering för en virtuell dator som antingen startar [från vyn VM](azure-to-azure-quickstart.md) eller [från Recovery Services-valvet](azure-to-azure-how-to-enable-replication.md)kan du antingen låta Site Recovery hantera uppdateringar för Site Recovery tillägget eller hantera det manuellt.
+När du aktiverar replikering för en virtuell dator, antingen [från vm-vyn](azure-to-azure-quickstart.md) eller [från återställningstjänstvalvet,](azure-to-azure-how-to-enable-replication.md)kan du antingen tillåta platsåterställning att hantera uppdateringar för site recovery-tillägget eller hantera det manuellt.
 
-![Tilläggs inställningar](./media/azure-to-azure-autoupdate/enable-rep.png)
+![Inställningar för tillägg](./media/azure-to-azure-autoupdate/enable-rep.png)
 
-### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Växla inställningarna för tilläggs uppdatering i valvet
+### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Växla inställningarna för tilläggsuppdatering i valvet
 
-1. I valvet går du till **hantera** > **Site Recovery infrastruktur**.
-2. Under **uppdaterings inställningarna** **för Azure Virtual Machines** > tillägg aktiverar du alternativet **Tillåt Site Recovery att hantera** växling. Om du vill hantera manuellt kan du stänga av den. 
+1. Gå till **Hantera** > **infrastruktur för webbplatsåterställning**i valvet .
+2. Aktivera **växlingsknappen Tillåt webbplatsåterställning** under För azure **Virtual Machines** > **Extension Update Settings.** Om du vill hantera manuellt inaktiverar du den. 
 3. Välj **Spara**.
 
-![Inställningar för tilläggs uppdatering](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![Inställningar för tilläggsuppdatering](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important]
-> När du väljer **tillåt Site Recovery att hantera**tillämpas inställningen på alla virtuella datorer i motsvarande valv.
+> När du väljer **Tillåt platsåterställning att hantera**tillämpas inställningen på alla virtuella datorer i motsvarande valv.
 
 
 > [!Note]
-> Något av alternativen meddelar dig om Automation-kontot som används för att hantera uppdateringar. Om du använder den här funktionen i ett valv för första gången skapas ett nytt Automation-konto som standard. Alternativt kan du anpassa inställningen och välja ett befintligt Automation-konto. Alla efterföljande aktiverings replikeringar i samma valv använder det tidigare skapade. För närvarande visar List rutan bara Automation-konton som finns i samma resurs grupp som valvet.  
+> Båda alternativen meddelar dig om det automatiseringskonto som används för att hantera uppdateringar. Om du använder den här funktionen i ett valv för första gången skapas ett nytt automationskonto som standard. Alternativt kan du anpassa inställningen och välja ett befintligt automatiseringskonto. Alla efterföljande aktivera replikeringar i samma valv använder den tidigare skapade. För närvarande listrutan kommer bara lista Automation-konton som finns i samma resursgrupp som valvet.  
 
 > [!IMPORTANT]
-> Skriptet nedan måste köras i kontexten för ett Automation-konto för ett anpassat Automation-konto, Använd följande skript:
+> Skriptet nedan måste köras i samband med ett automationskonto För ett anpassat automationskonto använder du följande skript:
 
 ```azurepowershell
 param(
@@ -506,44 +506,44 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 ### <a name="manage-updates-manually"></a>Hantera uppdateringar manuellt
 
-1. Om det finns nya uppdateringar för mobilitets tjänsten som är installerade på de virtuella datorerna visas följande meddelande: "New Site Recovery Replication Agent-uppdatering är tillgänglig. Klicka om du vill installera "
+1. Om det finns nya uppdateringar för mobilitetstjänsten installerad på dina virtuella datorer visas följande meddelande: "Uppdatering av ny webbplatsåterställningsreplikeragent är tillgänglig. Klicka för att installera"
 
-     ![Fönstret replikerade objekt](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
-2. Välj meddelandet för att öppna sidan för val av virtuell dator.
-3. Välj de virtuella datorer som du vill uppgradera och välj sedan **OK**. Uppdaterings mobilitets tjänsten kommer att starta för varje vald virtuell dator.
+     ![Fönstret Replikerade objekt](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
+2. Välj meddelandet om du vill öppna urvalssidan för den virtuella datorn.
+3. Välj de virtuella datorer som du vill uppgradera och välj sedan **OK**. Tjänsten Uppdatera mobilitet startar för varje vald virtuell dator.
 
-     ![Lista över replikerade objekt för virtuella datorer](./media/vmware-azure-install-mobility-service/update-okpng.png)
+     ![VM-lista för replikerade objekt](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 
-## <a name="common-issues-and-troubleshooting"></a>Vanliga problem och fel sökning
+## <a name="common-issues-and-troubleshooting"></a>Vanliga problem och felsökning
 
-Om det är problem med automatiska uppdateringar visas ett fel meddelande under **konfigurations problem** på instrument panelen för valv.
+Om det finns ett problem med de automatiska uppdateringarna visas ett felmeddelande under **Konfigurationsproblem** på instrumentpanelen för valvet.
 
-Om du inte kan aktivera automatiska uppdateringar, se följande vanliga fel och rekommenderade åtgärder:
+Om du inte kunde aktivera automatiska uppdateringar läser du följande vanliga fel och rekommenderade åtgärder:
 
-- **Fel**: du har inte behörighet att skapa ett Kör som-konto i Azure (tjänstens huvud namn) och bevilja deltagar rollen till tjänstens huvud namn.
+- **Fel:** Du har inte behörighet att skapa ett Azure Run As-konto (tjänstens huvudnamn) och bevilja rollen Deltagare till tjänstens huvudnamn.
 
-   **Rekommenderad åtgärd**: kontrol lera att det inloggade kontot har tilldelats deltagare och försök igen. Läs avsnittet nödvändiga behörigheter i [Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) för mer information om hur du tilldelar behörigheter.
+   **Rekommenderad åtgärd**: Kontrollera att det inloggade kontot tilldelas som deltagare och försök igen. Se avsnittet behörigheter som krävs i [Använd portalen för att skapa ett Azure AD-program och tjänsthuvudnamn som kan komma åt resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) för mer information om tilldelning av behörigheter.
  
-   Välj **Reparera**om du vill åtgärda de flesta problem när du har aktiverat automatiska uppdateringar. Om reparations knappen inte är tillgänglig, se fel meddelandet som visas i fönstret inställningar för uppdaterings uppdatering.
+   Om du vill åtgärda de flesta problem när du har aktiverat automatiska uppdateringar väljer du **Reparera**. Om reparationsknappen inte är tillgänglig läser du felmeddelandet som visas i inställningsfönstret för tilläggsuppdatering.
 
-   ![Site Recovery tjänst reparations knapp i inställningar för tilläggs uppdatering](./media/azure-to-azure-autoupdate/repair.png)
+   ![Reparationsknappen för site recovery-tjänsten i inställningar för uppdatering av tillägg](./media/azure-to-azure-autoupdate/repair.png)
 
-- **Fel**: Kör som-kontot har inte åtkomst behörighet till Recovery Services-resursen.
+- **Fel:** Kontot Kör som har inte behörighet att komma åt återställningstjänstresursen.
 
-    **Rekommenderad åtgärd**: ta bort och återskapa sedan [Kör som-kontot](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Eller kontrol lera att kör som-kontots Azure Active Directory program har åtkomst till Recovery Services-resursen.
+    **Rekommenderad åtgärd**: Ta bort och återskapa sedan [kontot Kör som](https://docs.microsoft.com/azure/automation/automation-create-runas-account). Eller kontrollera att Automation Run As-kontots Azure Active Directory-program har åtkomst till återställningstjänstresursen.
 
-- **Fel**: det gick inte att hitta kör som-kontot. Något av dessa har tagits bort eller inte skapats – Azure Active Directory program, tjänstens huvud namn, roll, Automation-certifikatets till gång, Automation-anslutning till gång – eller så är tumavtrycket inte identiskt mellan certifikat och anslutning. 
+- **Fel:** Kör som konto hittades inte. Antingen togs något av dessa bort eller har inte skapats - Azure Active Directory Application, Service Principal, Role, Automation Certificate Asset, Automation Connection Asset - eller så är tumavtrycket inte identiskt mellan certifikat och anslutning. 
 
-    **Rekommenderad åtgärd**: ta bort och återskapa sedan [Kör som-kontot](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Rekommenderad åtgärd**: Ta bort och återskapa sedan [kontot Kör som](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
--  **Fel**: Azure kör som-certifikatet som används av Automation-kontot upphör snart att gälla. 
+-  **Fel:** Azure Run som certifikat som används av automationskontot håller på att upphöra att gälla. 
 
-    Det självsignerade certifikatet som skapas för kör som-kontot går ut ett år från datumet då det skapades. Du kan förnya det när som helst innan det upphör att gälla. Om du har registrerat dig för e-postaviseringar får du också e-postmeddelanden när en åtgärd krävs från din sida. Det här felet visas två månader före utgångs datumet och ändras till ett kritiskt fel om certifikatet har upphört att gälla. När certifikatet har gått ut fungerar inte automatisk uppdatering förrän du förnyar samma.
+    Det självsignerade certifikat som skapas för kontot Kör som upphör att gälla ett år från det datum då det skapades. Du kan förnya det när som helst innan det upphör att gälla. Om du har registrerat dig för e-postmeddelanden får du också e-postmeddelanden när en åtgärd krävs från din sida. Det här felet visas två månader före utgångsdatumet och ändras till ett kritiskt fel om certifikatet har upphört att gälla. När certifikatet har upphört att gälla fungerar inte automatisk uppdatering förrän du förnyar samma.
 
-   **Rekommenderad åtgärd**: Klicka på reparera och sedan Förnya certifikat för att lösa problemet.
+   **Rekommenderad åtgärd**: Klicka på "Reparera" och sedan "Förnya certifikat" för att lösa problemet.
     
-   ![förnya – cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+   ![förnya-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
 
 > [!NOTE]
-> När du har förnyat certifikatet uppdaterar du sidan så att den aktuella statusen uppdateras.
+> När du förnyar certifikatet uppdaterar du sidan så att aktuell status uppdateras.

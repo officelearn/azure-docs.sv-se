@@ -9,30 +9,30 @@ ms.date: 10/19/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: c3f485765e0bbbb91de0938261b587c27bf414bf
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "74875574"
 ---
-## <a name="use-the-azure-portal-to-move-a-vm-to-a-different-subscription"></a>Använd Azure Portal för att flytta en virtuell dator till en annan prenumeration
-Du kan flytta en virtuell dator och dess associerade resurser till en annan prenumeration med hjälp av Azure Portal.
+## <a name="use-the-azure-portal-to-move-a-vm-to-a-different-subscription"></a>Använda Azure-portalen för att flytta en virtuell dator till en annan prenumeration
+Du kan flytta en virtuell dator och dess associerade resurser till en annan prenumeration med hjälp av Azure-portalen.
 
-1. Gå till [Azure Portal](https://portal.azure.com) för att hantera resurs gruppen som innehåller den virtuella datorn som ska flyttas. Sök efter och välj **resurs grupper**.
-2. Välj den resurs grupp som innehåller den virtuella dator som du vill flytta.
-3. Längst upp på sidan för resurs gruppen väljer du **Flytta** och väljer sedan **Flytta till en annan prenumeration**. Sidan **Flytta resurser** öppnas.
-4. Välj var och en av de resurser som ska flyttas. I de flesta fall bör du flytta alla relaterade resurser i listan.
+1. Gå till [Azure-portalen](https://portal.azure.com) för att hantera resursgruppen som innehåller den virtuella datorn för att flytta. Sök efter och välj **Resursgrupper**.
+2. Välj den resursgrupp som innehåller den virtuella datorn som du vill flytta.
+3. Högst upp på sidan för resursgruppen väljer du **Flytta** och väljer sedan **Flytta till en annan prenumeration**. Sidan **Flytta resurser** öppnas.
+4. Markera var och en av de resurser som ska flyttas. I de flesta fall bör du flytta alla relaterade resurser som visas.
 5. Välj den **prenumeration** där du vill att den virtuella datorn ska flyttas.
-6. Välj en befintlig **resurs grupp**eller ange ett namn för att skapa en ny resurs grupp.
-7. När du är färdig väljer du att ta reda på att nya resurs-ID: n kommer att skapas och att de nya ID: na måste användas med den virtuella datorn när den har flyttats. Välj sedan **OK**.
+6. Välj en befintlig **resursgrupp**eller ange ett namn om du vill att en ny resursgrupp ska skapas.
+7. När du är klar väljer du att du förstår att nya resurs-ID:n ska skapas och att de nya ID:na måste användas med den virtuella datorn när den har flyttats och välj sedan **OK**.
 
-## <a name="use-the-azure-portal-to-move-a-vm-to-another-resource-group"></a>Använd Azure Portal för att flytta en virtuell dator till en annan resurs grupp
-Du kan flytta en virtuell dator och dess associerade resurser till en annan resurs grupp med hjälp av Azure Portal.
+## <a name="use-the-azure-portal-to-move-a-vm-to-another-resource-group"></a>Använda Azure-portalen för att flytta en virtuell dator till en annan resursgrupp
+Du kan flytta en virtuell dator och dess associerade resurser till en annan resursgrupp med hjälp av Azure-portalen.
 
-1. Gå till [Azure Portal](https://portal.azure.com) för att hantera resurs gruppen som innehåller den virtuella datorn som ska flyttas. Sök efter och välj **resurs grupper**.
-2. Välj den resurs grupp som innehåller den virtuella dator som du vill flytta.
-3. Längst upp på sidan för resurs gruppen väljer du **Flytta** och väljer sedan **Flytta till en annan resurs grupp**. Sidan **Flytta resurser** öppnas.
-4. Välj var och en av de resurser som ska flyttas. I de flesta fall bör du flytta alla relaterade resurser i listan.
-5. Välj en befintlig **resurs grupp**eller ange ett namn för att skapa en ny resurs grupp.
-6. När du är färdig väljer du att ta reda på att nya resurs-ID: n kommer att skapas och att de nya ID: na måste användas med den virtuella datorn när den har flyttats. Välj sedan **OK**.
+1. Gå till [Azure-portalen](https://portal.azure.com) för att hantera resursgruppen som innehåller den virtuella datorn för att flytta. Sök efter och välj **Resursgrupper**.
+2. Välj den resursgrupp som innehåller den virtuella datorn som du vill flytta.
+3. Högst upp på sidan för resursgruppen väljer du **Flytta** och väljer sedan **Flytta till en annan resursgrupp**. Sidan **Flytta resurser** öppnas.
+4. Markera var och en av de resurser som ska flyttas. I de flesta fall bör du flytta alla relaterade resurser som visas.
+5. Välj en befintlig **resursgrupp**eller ange ett namn om du vill att en ny resursgrupp ska skapas.
+6. När du är klar väljer du att du förstår att nya resurs-ID:n ska skapas och att de nya ID:na måste användas med den virtuella datorn när den har flyttats och välj sedan **OK**.
 

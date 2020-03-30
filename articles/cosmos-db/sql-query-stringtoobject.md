@@ -1,6 +1,6 @@
 ---
-title: StringToObject i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system Function StringToObject i Azure Cosmos DB.
+title: StringToObject i Azure Cosmos DB-frågespråk
+description: Lär dig mer om SQL-systemfunktionen StringToObject i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
 ms.openlocfilehash: c3e61d1efe20910d84ef4ff583d74982b3ea9f3d
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78296389"
 ---
 # <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
- Returnerar uttryck översatt till ett objekt. Om uttrycket inte kan översättas returneras undefined.  
+ Returnerar uttryck som översätts till ett objekt. Om uttrycket inte kan översättas returnerar det odefinierade.  
   
 ## <a name="syntax"></a>Syntax
   
@@ -26,17 +26,17 @@ StringToObject(<str_expr>)
 ## <a name="arguments"></a>Argument
   
 *str_expr*  
-   Är ett sträng uttryck som ska tolkas som ett JSON-objekt uttryck. Observera att kapslade sträng värden måste skrivas med dubbla citat tecken för att vara giltiga. Mer information om JSON-formatet finns i [JSON.org](https://json.org/)  
+   Är ett stränguttryck som ska tolkas som ett JSON-objektuttryck. Observera att kapslade strängvärden måste skrivas med dubbla citattecken för att vara giltiga. Mer information om JSON-formatet finns [i json.org](https://json.org/)  
   
-## <a name="return-types"></a>Retur typer
+## <a name="return-types"></a>Returtyper
   
-  Returnerar ett objekt uttryck eller ett odefinierat objekt.  
+  Returnerar ett objektuttryck eller odefinierat.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel visas hur `StringToObject` beter sig mellan olika typer. 
+  I följande exempel `StringToObject` visas hur det fungerar mellan olika typer. 
   
- Följande är exempel på giltiga indatatyper.
+ Följande är exempel med giltig indata.
 
 ```sql
 SELECT 
@@ -55,10 +55,10 @@ Här är resultatuppsättningen.
   "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
 ```
 
- Följande är exempel på ogiltiga indatatyper.
-Även om de är giltiga i en fråga, kommer de inte att parsas till giltiga objekt. Strängar i objekt strängen måste antingen föregås av "{\\" a\\":\\" Str\\"}" eller det omgivande citatet måste vara Single {"a": "Str"}.
+ Följande är exempel med ogiltig indata.
+Även om de är giltiga i en fråga, kommer de inte att tolka till giltiga objekt. Strängar i objektsträngen måste antingen fly\\"{\\"a ":\\"str\\"}" eller det omgivande citatet måste vara enstaka {"a": "str"}.
 
-Enkla citat tecken som omger egenskaps namnen är inte giltiga JSON.
+Enstaka citattecken som omger egenskapsnamn är ogiltiga JSON.
 
 ```sql
 SELECT 
@@ -71,7 +71,7 @@ Här är resultatuppsättningen.
 [{}]
 ```  
 
-Egenskaps namn utan omgivande citat tecken är inte giltiga JSON.
+Egenskapsnamn utan omgivande citattecken är inte giltiga JSON.
 
 ```sql
 SELECT 
@@ -84,9 +84,9 @@ Här är resultatuppsättningen.
 [{}]
 ``` 
 
-Följande är exempel på ogiltiga indatatyper.
+Följande är exempel med ogiltig indata.
 
- Det överförda uttrycket kommer att parsas som ett JSON-objekt. dessa indata utvärderas inte till Type-objekt och returneras därför inte.
+ Uttrycket som skickas tolkas som ett JSON-objekt. Dessa indata utvärderar inte att skriva objekt och därmed returnera odefinierade.
 
 ```sql
 SELECT 
@@ -106,10 +106,10 @@ SELECT
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här system funktionen kommer inte att använda indexet.
+Den här systemfunktionen kommer inte att använda indexet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Sträng funktioner Azure Cosmos DB](sql-query-string-functions.md)
-- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Strängfunktioner Azure Cosmos DB](sql-query-string-functions.md)
+- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

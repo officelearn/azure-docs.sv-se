@@ -1,6 +1,6 @@
 ---
-title: Säkerhets rekommendationer för Azure Key Vault
-description: Säkerhets rekommendationer för Azure Key Vault. Genom att implementera den här vägledningen kan du uppfylla dina säkerhets skyldigheter enligt beskrivningen i vår delade ansvars modell
+title: Säkerhetsrekommendationer för Azure Key Vault
+description: Säkerhetsrekommendationer för Azure Key Vault. Genom att implementera den här vägledningen kan du uppfylla dina säkerhetsskyldigheter enligt beskrivningen i vår modell för delat ansvar
 services: key-vault
 author: barclayn
 manager: rkarlin
@@ -11,47 +11,47 @@ ms.date: 09/30/2019
 ms.author: barclayn
 ms.custom: security-recommendations
 ms.openlocfilehash: 9fd41ae9b61a9c74fd5d99dd71199cfde06f5cb2
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78192378"
 ---
-# <a name="security-recommendations-for-azure-key-vault"></a>Säkerhets rekommendationer för Azure Key Vault
+# <a name="security-recommendations-for-azure-key-vault"></a>Säkerhetsrekommendationer för Azure Key Vault
 
-Den här artikeln innehåller säkerhets rekommendationer för Azure Key Vault. Genom att implementera dessa rekommendationer kan du uppfylla dina säkerhets skyldigheter enligt beskrivningen i vår delade ansvars modell. Mer information om vad Microsoft gör för att uppfylla ansvaret för service leverantörer finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
+Den här artikeln innehåller säkerhetsrekommendationer för Azure Key Vault. Genom att implementera dessa rekommendationer kan du uppfylla dina säkerhetsskyldigheter enligt beskrivningen i vår modell för delat ansvar. Mer information om vad Microsoft gör för att uppfylla tjänsteleverantörens ansvar finns i [Delat ansvar för molnbaserad databehandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
-Några av rekommendationerna som ingår i den här artikeln kan övervakas automatiskt av Azure Security Center. Azure Security Center är den första försvars linjen i att skydda dina resurser i Azure. Den analyserar regelbundet säkerhets läget för dina Azure-resurser för att identifiera potentiella säkerhets risker. Sedan får du rekommendationer om hur du kan åtgärda dem.
+Några av rekommendationerna i den här artikeln kan övervakas automatiskt av Azure Security Center. Azure Security Center är den första försvarslinjen för att skydda dina resurser i Azure. Den analyserar regelbundet säkerhetstillståndet för dina Azure-resurser för att identifiera potentiella säkerhetsproblem. Den ger dig sedan rekommendationer om hur du ska hantera dem.
 
-- Mer information om Azure Security Center rekommendationer finns [i säkerhets rekommendationer i Azure Security Center](../security-center/security-center-recommendations.md).
-- Mer information om Azure Security Center finns i [Azure Security Center?](../security-center/security-center-intro.md)
+- Mer information om Azure Security Center-rekommendationer finns [i Säkerhetsrekommendationer i Azure Security Center](../security-center/security-center-recommendations.md).
+- Information om Azure Security Center finns i [Vad är Azure Security Center?](../security-center/security-center-intro.md)
 
 ## <a name="data-protection"></a>Dataskydd
 
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
-|Aktivera mjuk borttagning | Med [mjuk borttagning](key-vault-ovw-soft-delete.md) kan du återställa borttagna valv och valv objekt |  - |
-| Begränsa åtkomsten till valv data  | Följ principen om minsta behörighet och begränsa vilka medlemmar i organisationen som har åtkomst till valv data |  - |
+|Aktivera mjuk borttagning | [Med mjuk borttagning](key-vault-ovw-soft-delete.md) kan du återställa borttagna valv och valvobjekt |  - |
+| Begränsa åtkomsten till arkivdata  | Följ principen om lägsta behörighet och begränsa vilka medlemmar i organisationen som har åtkomst till arkivdata |  - |
 
 ## <a name="identity-and-access-management"></a>Identitets- och åtkomsthantering
 
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
-| Begränsa antalet användare med deltagar åtkomst | Om en användare har deltagar behörighet till ett nyckel valv hanterings plan kan användaren ge sig själva åtkomst till data planet genom att ange en Key Vault åtkomst princip. Du bör ha närmare kontroll över vem som har deltagar rollen åtkomst till dina nyckel valv. Se till att endast de med ett behov av åtkomst behöriga personer kan komma åt och hantera dina valv. Du kan läsa [säker åtkomst till ett nyckel valv](key-vault-secure-your-key-vault.md) | - |
+| Begränsa antalet användare med deltagaråtkomst | Om en användare har behörighet för deltagare till ett nyckelvalvhanteringsplan kan användaren ge sig själva åtkomst till dataplanet genom att ange en åtkomstprincip för Nyckelvalv. Du bör ha en noggrann kontroll över vem som har deltagarrollåtkomst till dina nyckelvalv. Se till att endast de med behov av åtkomst behöriga personer kan komma åt och hantera dina valv. Du kan läsa [Säker åtkomst till ett nyckelvalv](key-vault-secure-your-key-vault.md) | - |
 
 ## <a name="monitoring"></a>Övervakning
 
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
- Diagnostikloggar i Key Vault ska vara aktive rad | Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. | [Ja](../security-center/security-center-identity-access.md) |
-| Begränsa vem som har åtkomst till dina Azure Key Vault-loggar | [Key Vault loggar](key-vault-logging.md) sparar information om aktiviteterna som har utförts på ditt valv, till exempel skapande eller borttagning av valv, nycklar, hemligheter och kan användas under en undersökning |  - |
+ Diagnostikloggar i Key Vault ska vara aktiverade | Aktivera loggar och behåll dem upp till ett år. På så sätt kan du återskapa aktivitetsspår i undersökningssyfte när en säkerhetsincident inträffar eller ditt nätverk äventyras. | [Ja](../security-center/security-center-identity-access.md) |
+| Begränsa vem som kan komma åt dina Azure Key-valvloggar | [Key Vault loggar](key-vault-logging.md) spara information om de aktiviteter som utförs på ditt valv såsom skapande eller borttagning av valv, nycklar, hemligheter och kan användas under en undersökning |  - |
 
 ## <a name="networking"></a>Nätverk
 
 | Rekommendation | Kommentarer | Security Center |
 |-|----|--|
-|Begränsa nätverks exponering | Nätverks åtkomsten bör begränsas till de virtuella nätverk som används av lösningar som kräver valv åtkomst. Granska information om [tjänst slut punkter för virtuella nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) | - |
+|Begränsa nätverksexponeringen | Nätverksåtkomst bör begränsas till de virtuella nätverk som används av lösningar som kräver åtkomst till valvet. Granska information om [slutpunkter för virtuella nätverkstjänster för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) | - |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kontakta din programprovider för att se om det finns ytterligare säkerhets krav. Mer information om hur du utvecklar säkra program finns i [dokumentationen om säker utveckling](../security/fundamentals/abstract-develop-secure-apps.md).
+Kontrollera med programleverantören om det finns ytterligare säkerhetskrav. Mer information om hur du utvecklar säkra program finns i [Säker utvecklingsdokumentation](../security/fundamentals/abstract-develop-secure-apps.md).

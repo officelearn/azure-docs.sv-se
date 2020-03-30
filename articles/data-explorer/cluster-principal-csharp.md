@@ -1,6 +1,6 @@
 ---
-title: Lägg till kluster huvud konton för Azure Datautforskaren med hjälp avC#
-description: I den här artikeln får du lära dig hur du lägger till kluster huvud konton för Azure C#datautforskaren med hjälp av.
+title: 'Lägga till klusterobjektnamn för Azure Data Explorer med hjälp av C #'
+description: I den här artikeln får du lära dig hur du lägger till klusterobjektnamn för Azure Data Explorer med C#.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,37 +8,37 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.openlocfilehash: e6c3970890dfe2c669dee1acf631e9dd45ab1085
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76965065"
 ---
-# <a name="add-cluster-principals-for-azure-data-explorer-by-using-c"></a>Lägg till kluster huvud konton för Azure Datautforskaren med hjälp avC#
+# <a name="add-cluster-principals-for-azure-data-explorer-by-using-c"></a>Lägga till klusterobjektnamn för Azure Data Explorer med hjälp av C #
 
 > [!div class="op_single_selector"]
 > * [C#](cluster-principal-csharp.md)
 > * [Python](cluster-principal-python.md)
 > * [Azure Resource Manager-mall](cluster-principal-resource-manager.md)
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln lägger du till kluster huvud konton för Azure Datautforskaren med C#hjälp av.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. I den här artikeln lägger du till klusterobjektnamn för Azure Data Explorer med C#.
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Om du inte har Installerat Visual Studio 2019 kan du ladda ned och använda den **kostnadsfria** [Visual Studio 2019 Community Edition.](https://www.visualstudio.com/downloads/) Se till att du aktiverar **Azure-utveckling** under installationen av Visual Studio.
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Skapa ett kluster](create-cluster-database-csharp.md).
 
 ## <a name="install-c-nuget"></a>Installera C# NuGet
 
-* Installera [Microsoft. Azure. Management. kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Installera [Microsoft. rest. ClientRuntime. Azure. Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) för autentisering.
+* Installera [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Installera [Microsoft.Rest.ClientRuntime.Azure.Authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication) för autentisering.
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-## <a name="add-a-cluster-principal"></a>Lägg till ett kluster huvud konto
+## <a name="add-a-cluster-principal"></a>Lägga till ett klusterhuvudnamn
 
-I följande exempel visas hur du lägger till ett kluster säkerhets objekt program mässigt.
+I följande exempel visas hur du lägger till ett klusterhuvudnamn programmässigt.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -67,18 +67,18 @@ await kustoManagementClient.ClusterPrincipalAssignments.CreateOrUpdateAsync(reso
 
 |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
 |---|---|---|
-| tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Även känt som katalog-ID.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Det prenumerations-ID som du använder för att skapa resurser.|
-| clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som har åtkomst till resurser i din klient organisation.|
-| clientSecret | *xxxxxxxxxxxxxx* | Klient hemligheten för programmet som har åtkomst till resurser i din klient organisation. |
-| resourceGroupName | *testrg* | Namnet på resurs gruppen som innehåller klustret.|
-| clusterName | *mykustocluster* | Namnet på klustret.|
-| principalAssignmentName | *clusterPrincipalAssignment1* | Namnet på klustrets huvud resurs.|
-| principalId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ägar-ID: t, som kan vara användarens e-post, program-ID eller namn på säkerhets grupp.|
-| roll | *AllDatabasesAdmin* | Rollen för ditt klusters huvud konto, som kan vara "AllDatabasesAdmin' eller" AllDatabasesViewer ".|
-| tenantIdForPrincipal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Innehavarens ID för huvud kontot.|
-| principalType | *App* | Typ av huvud konto, som kan vara User, app eller Group|
+| tenantId (hyresgäst) | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Kallas även katalog-ID.|
+| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Prenumerations-ID som du använder för att skapa resurser.|
+| ClientID | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som kan komma åt resurser i din klient.|
+| clientSecret (klientSecret) | *xxxxxxxxxxxxxx* | Klienthemligheten för programmet som kan komma åt resurser i din klientorganisation. |
+| resourceGroupName | *testrg* | Namnet på resursgruppen som innehåller klustret.|
+| clusterName | *mykustocluster (en)* | Namnet på klustret.|
+| principalAssignmentName | *klusterPrincipAtilldelning1* | Namnet på klustrets huvudresurs.|
+| principalId (huvudsakligaId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Huvud-ID: t, som kan vara användar-E-post, program-ID eller säkerhetsgruppnamn.|
+| roll | *AllDatabasesAdmin* | Rollen för ditt klusterhuvudnamn, som kan vara "AllDatabasesAdmin" eller "AllDatabasesViewer".|
+| tenantIdForPrincipal | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för huvudmannen.|
+| principalType (principalType) | *App* | Typen av huvudnamn, som kan vara "Användare", "App" eller "Grupp"|
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lägg till databasens huvud namn](database-principal-csharp.md)
+* [Lägga till databashuvudnamn](database-principal-csharp.md)

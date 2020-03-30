@@ -1,7 +1,7 @@
 ---
 title: Felsöka anpassade principer med Application Insights
 titleSuffix: Azure AD B2C
-description: Konfigurera Application Insights för att spåra körningen av dina anpassade principer.
+description: Så här konfigurerar du Programinsikter för att spåra körningen av dina anpassade principer.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -12,56 +12,56 @@ ms.date: 11/04/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78186275"
 ---
-# <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Samla in Azure Active Directory B2C loggar med Application Insights
+# <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Samla in Azure Active Directory B2C-loggar med Application Insights
 
-Den här artikeln innehåller steg för att samla in loggar från Active Directory B2C (Azure AD B2C) så att du kan diagnostisera problem med dina anpassade principer. Application Insights är ett sätt att diagnostisera undantag och visualisera problem med program prestanda. Azure AD B2C innehåller en funktion för att skicka data till Application Insights.
+Den här artikeln innehåller steg för att samla in loggar från Active Directory B2C (Azure AD B2C) så att du kan diagnostisera problem med dina anpassade principer. Application Insights är ett sätt att diagnostisera undantag och visualisera problem med programmets prestanda. Azure AD B2C innehåller en funktion för att skicka data till Application Insights.
 
-De detaljerade aktivitets loggarna som beskrivs här ska **bara** aktive ras under utvecklingen av dina anpassade principer.
+De detaljerade aktivitetsloggar som beskrivs här bör **endast** aktiveras under utvecklingen av dina anpassade principer.
 
 > [!WARNING]
-> Aktivera inte utvecklings läge i produktion. Loggar samlar in alla anspråk som skickas till och från identitets leverantörer. Du när utvecklaren antar ansvar för alla personliga data som samlas in i dina Application Insights loggar. Dessa detaljerade loggar samlas endast in när principen placeras i **utvecklarläge**.
+> Aktivera inte utvecklingsläge i produktionen. Loggar samlar in alla anspråk som skickas till och från identitetsleverantörer. Du som utvecklare tar ansvar för alla personuppgifter som samlas in i dina Application Insights-loggar. Dessa detaljerade loggar samlas endast in när principen placeras i **DEVELOPER MODE**.
 
-## <a name="set-up-application-insights"></a>Konfigurera Application Insights
+## <a name="set-up-application-insights"></a>Konfigurera programinsikter
 
-Om du inte redan har en, skapar du en instans av Application Insights i din prenumeration.
+Om du inte redan har en, skapa en instans av Application Insights i din prenumeration.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller din Azure-prenumeration (inte din Azure AD B2C-katalog).
-1. Välj **skapa en resurs** i den vänstra navigerings menyn.
-1. Sök efter och välj **Application Insights**och välj sedan **skapa**.
-1. Fyll i formuläret, Välj **Granska + skapa**och välj sedan **skapa**.
-1. När distributionen har slutförts väljer **du gå till resurs**.
-1. Under **Konfigurera** i Application Insights-menyn väljer du **Egenskaper**.
-1. Registrera **Instrumentation-nyckeln** för användning i ett senare steg.
+1. Välj **katalog + prenumerationsfilter** på den övre menyn och välj sedan den katalog som innehåller din Azure-prenumeration (inte din Azure AD B2C-katalog).
+1. Välj **Skapa en resurs** på menyn för vänster navigering.
+1. Sök efter och välj **Programstatistik**och välj sedan **Skapa**.
+1. Fyll i formuläret, välj **Granska + skapa**och välj sedan **Skapa**.
+1. När distributionen har slutförts väljer du **Gå till resurs**.
+1. Välj **Egenskaper**under **Konfigurera** på menyn Programinsikter .
+1. Registrera **INSTRUMENTERINGSNYCKELN** för användning i ett senare steg.
 
 ## <a name="configure-the-custom-policy"></a>Konfigurera den anpassade principen
 
-1. Öppna den förlitande part filen (RP), till exempel *SignUpOrSignin. XML*.
-1. Lägg till följande attribut i `<TrustFrameworkPolicy>`-elementet:
+1. Öppna den förlitande partfilen (RP), till exempel *SignUpOrSignin.xml*.
+1. Lägg till följande attribut `<TrustFrameworkPolicy>` i elementet:
 
    ```XML
    DeploymentMode="Development"
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
 
-1. Om den inte redan finns lägger du till en `<UserJourneyBehaviors>` underordnad nod till noden `<RelyingParty>`. Den måste finnas omedelbart efter `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
-1. Lägg till följande nod som underordnad till `<UserJourneyBehaviors>`-elementet. Se till att ersätta `{Your Application Insights Key}` med den Application Insights **Instrumentation-nyckel** som du spelade in tidigare.
+1. Om den inte redan finns `<UserJourneyBehaviors>` lägger du `<RelyingParty>` till en underordnad nod i noden. Det måste placeras `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`omedelbart efter .
+1. Lägg till följande nod som `<UserJourneyBehaviors>` underordnad för elementet. Se till `{Your Application Insights Key}` att ersätta med Application Insights **Instrumentation Key** som du spelade in tidigare.
 
     ```XML
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
-    * `DeveloperMode="true"` anger att ApplicationInsights ska påskynda Telemetrin genom bearbetnings pipelinen. Lämpligt för utveckling, men är begränsat till hög volym.
-    * `ClientEnabled="true"` skickar skript för ApplicationInsights på klient sidan för att spåra sid visning och fel på klient sidan. Du kan visa dessa i tabellen **browserTimings** i Application Insights-portalen. Genom att ange `ClientEnabled= "true"`lägger du till Application Insights till sid skriptet och du får tids inställningar för sid inläsningar och AJAX-anrop, antal, information om webb läsar undantag och AJAX-fel samt antal användare och sessioner. Det här fältet är **valfritt**och är inställt på `false` som standard.
-    * `ServerEnabled="true"` skickar den befintliga UserJourneyRecorder-JSON som en anpassad händelse till Application Insights.
+    * `DeveloperMode="true"`säger till ApplicationInsights att påskynda telemetrin genom bearbetningspipelinen. Bra för utvecklingen, men begränsad till höga volymer.
+    * `ClientEnabled="true"`skickar skriptet ApplicationInsights på klientsidan för spårning av sidvisning och fel på klientsidan. Du kan visa dessa i tabellen **browserTimings** i portalen Application Insights. Genom `ClientEnabled= "true"`att ställa in lägger du till Application Insights till din sida skript och du får timings av sidan laster och AJAX samtal, räknas, information om webbläsarundantag och AJAX misslyckanden, och användare och session räknas. Det här fältet är **valfritt**och är inställt på som `false` standard.
+    * `ServerEnabled="true"`skickar den befintliga UserJourneyRecorder JSON som en anpassad händelse till Application Insights.
 
-    Några exempel:
+    Ett exempel:
 
     ```XML
     <TrustFrameworkPolicy
@@ -81,33 +81,33 @@ Om du inte redan har en, skapar du en instans av Application Insights i din pren
     </TrustFrameworkPolicy>
     ```
 
-1. Överför principen.
+1. Ladda upp principen.
 
 ## <a name="see-the-logs-in-application-insights"></a>Se loggarna i Application Insights
 
-Det finns en kort fördröjning, vanligt vis mindre än fem minuter, innan du kan se nya loggar i Application Insights.
+Det är en kort fördröjning, vanligtvis mindre än fem minuter, innan du kan se nya loggar i Application Insights.
 
-1. Öppna Application Insights resurs som du skapade i [Azure Portal](https://portal.azure.com).
-1. I **översikts** menyn väljer du **analys**.
+1. Öppna application insights-resursen som du skapade i [Azure-portalen](https://portal.azure.com).
+1. Välj **Analytics**på **översiktsmenyn** .
 1. Öppna en ny flik i Application Insights.
 
-Här är en lista över frågor som du kan använda för att visa loggarna:
+Här är en lista över frågor som du kan använda för att se loggarna:
 
-| Fråga | Beskrivning |
+| Söka i data | Beskrivning |
 |---------------------|--------------------|
-`traces` | Se alla loggar som genererats av Azure AD B2C |
-`traces | where timestamp > ago(1d)` | Se alla loggar som genererats av Azure AD B2C den senaste dagen
+`traces` | Se alla loggar som genereras av Azure AD B2C |
+`traces | where timestamp > ago(1d)` | Se alla loggar som genereras av Azure AD B2C för den sista dagen
 
 Posterna kan vara långa. Exportera till CSV för en närmare titt.
 
-Mer information om frågor finns i [Översikt över logg frågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Mer information om frågor finns [i Översikt över loggfrågor i Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Communityn har utvecklat ett användar resa visnings program för att hjälpa identitets utvecklare. Den läser från din Application Insights instans och ger en välstrukturerad vy över användar resans händelser. Du får käll koden och distribuerar den i din egen lösning.
+Communityn har utvecklat en användare resa betraktaren för att hjälpa identitetsutvecklare. Den läser från din Application Insights-instans och ger en välstrukturerad vy över användarfärdhändelserna. Du får källkoden och distribuera den i din egen lösning.
 
-Användarens körnings spelare stöds inte av Microsoft och görs tillgänglig enbart i befintligt skick.
+Användarens färdspelare stöds inte av Microsoft och görs tillgänglig strikt som den är.
 
-Du hittar den version av visnings programmet som läser händelser från Application Insights på GitHub, här:
+Du hittar den version av visningsprogrammet som läser händelser från Application Insights på GitHub här:
 
-[Azure-samples/Active-Directory-B2C-Advanced-policys](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)
+[Azure-Samples/active-directory-b2c-advanced-policies](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/wingtipgamesb2c/src/WingTipUserJourneyPlayerWebApplication)

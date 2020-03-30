@@ -5,28 +5,28 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: b609a708a987194398c53bdf83f0d6e1f281808d
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187836"
 ---
-Som standard kan API: er i en Mobile Apps Server del anropas anonymt. Sedan måste du begränsa åtkomsten till endast autentiserade klienter.  
+Som standard kan API:er i en backdel för mobilappar anropas anonymt. Därefter måste du begränsa åtkomsten till endast autentiserade klienter.  
 
-* **Node. js-Server delen (via Azure Portal)** :  
+* **Nod.js-backend (via Azure-portalen):**  
 
-    I Mobile Apps inställningar klickar du på **enkla tabeller** och väljer din tabell. Klicka på **ändra behörigheter**, Välj **autentiserad åtkomst endast** för alla behörigheter och klicka sedan på **Spara**.
-* **.NET-Server delC#()** :  
+    Klicka på **Enkla tabeller i** inställningarna för Mobilappar och välj tabellen. Klicka på **Ändra behörigheter,** välj **Autentiserat åtkomst endast** för alla behörigheter och klicka sedan på **Spara**.
+* **.NET-backend (C#):**  
 
-    I Server projektet navigerar du till **controllers** > **TodoItemController.cs**. Lägg till attributet i TodoItemController-klassen enligt följande. `[Authorize]` Om du bara vill begränsa åtkomsten till vissa metoder kan du även använda det här attributet precis för dessa metoder i stället för klassen. Publicera om Server projektet.
+    I serverprojektet navigerar du till **Controllers** > **TodoItemController.cs**. Lägg `[Authorize]` till attributet i klassen **TodoItemController** enligt följande. Om du bara vill begränsa åtkomsten till specifika metoder kan du också använda det här attributet bara på dessa metoder i stället för klassen. Publicera om serverprojektet.
 
         [Authorize]
         public class TodoItemController : TableController<TodoItem>
 
-* **Node. js-backend (via Node. js-kod)** :  
+* **Nod.js backend (via Node.js-kod):**  
 
-    Om du vill kräva autentisering för tabell åtkomst lägger du till följande rad i Node. js-Server skriptet:
+    Om du vill kräva autentisering för tabellåtkomst lägger du till följande rad i nod.js-serverskriptet:
 
         table.access = 'authenticated';
 
-    Mer information finns i [How to: Kräv autentisering för åtkomst till tabeller](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Information om hur du laddar ned snabb starts kod projektet från din webbplats [finns i How to: Hämta ett kod projekt för Node. js-Server delen](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart)med git.
+    Mer information finns i [Så här: Kräv autentisering för åtkomst till tabeller](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#howto-tables-auth). Mer information om hur du hämtar snabbstartskodprojektet från webbplatsen finns i Så här hämtar du [snabbstartskodprojektet Node.js-säkerhetskopiering med Git](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart).

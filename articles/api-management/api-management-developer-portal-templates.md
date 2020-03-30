@@ -1,7 +1,7 @@
 ---
-title: Anpassa API Management Developer-portalen med hjälp av mallar
+title: Anpassa utvecklarportalen för API Management med hjälp av mallar
 titleSuffix: Azure API Management
-description: Lär dig hur du anpassar Azure API Management Developer-portalen med hjälp av mallar.
+description: Lär dig hur du anpassar utvecklarportalen för Azure API Management med hjälp av mallar.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -15,57 +15,57 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 7a8c348340be143f7059ce7e64a1c66b66074a45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75430779"
 ---
-# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Anpassa Azure API Management Developer-portalen med hjälp av mallar
+# <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Anpassa utvecklarportalen för Azure API Management med hjälp av mallar
 
 Det finns tre grundläggande metoder för att anpassa utvecklarportalen i Azure API Management:
 
 * [Redigera innehållet på statiska sidor och sidlayoutelement][modify-content-layout]
-* [Uppdatera formaten som används för sid element i Developer-portalen][customize-styles]
-* [Ändra mallarna som används för sidor som genereras av portalen][portal-templates] (förklaras i den här hand boken)
+* [Uppdatera formaten som används för sidelement i utvecklingsportalen][customize-styles]
+* [Ändra mallarna som används för sidor som genereras av portalen (förklaras][portal-templates] i den här guiden)
 
-Mallar används för att anpassa innehållet i systemgenererade utvecklings Portal sidor (till exempel API-dokument, produkter, användarautentisering osv.). Genom att använda [DotLiquid](http://dotliquidmarkup.org/) -syntax och en angiven uppsättning lokaliserade sträng resurser, ikoner och sid kontroller har du stor flexibilitet att konfigurera innehållet på sidorna när du ser anpassa.
+Mallar används för att anpassa innehållet på systemgenererade utvecklarportalsidor (till exempel API-dokument, produkter, användarautentisering osv.). Med [dotliquid-syntax](http://dotliquidmarkup.org/) och en uppsättning lokaliserade strängresurser, ikoner och sidkontroller har du stor flexibilitet att konfigurera innehållet på sidorna som du vill.
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="developer-portal-templates-overview"></a>Översikt över utvecklare Portal mallar
+## <a name="developer-portal-templates-overview"></a>Översikt över utvecklarportalmallar
 
-Redigera mallar görs från **Developer-portalen** när du är inloggad som administratör. Börja med att öppna Azure Portal och klicka på **Developer Portal** i tjänst verktygsfältet i API Management-instansen.
+Redigeringsmallar görs från **utvecklarportalen** när de loggas in som administratör. Om du vill komma dit öppnar du först Azure-portalen och klickar på **utvecklarportalen** från tjänstverktygsfältet i DIN API Management-instans.
 
-Du kommer åt Developer Portal-mallarna genom att klicka på anpassnings ikonen till vänster för att Visa anpassnings menyn och klicka på **mallar**.
+Om du vill komma åt utvecklarportalmallarna klickar du på anpassa ikonen till vänster för att visa **anpassningsmenyn**och klickar på Mallar .
 
-![Mallar för utvecklare][api-management-customize-menu]
+![Mallar för utvecklarportal][api-management-customize-menu]
 
-I listan mallar visas flera kategorier av mallar som täcker de olika sidorna i Developer-portalen. Varje mall är annorlunda, men stegen för att redigera dem och publicera ändringarna är desamma. Om du vill redigera en mall klickar du på namnet på mallen.
+Malllistan visar flera kategorier av mallar som täcker de olika sidorna i utvecklarportalen. Varje mall är olika, men stegen för att redigera dem och publicera ändringarna är desamma. Om du vill redigera en mall klickar du på namnet på mallen.
 
-![Mallar för utvecklare][api-management-templates-menu]
+![Mallar för utvecklarportal][api-management-templates-menu]
 
-Genom att klicka på en mall går du till sidan för utvecklings portalen som är anpassningsbar med mallen. I det här exemplet visas **produkt list** mal len. Mallen för **produkt listan** styr området på skärmen som anges av den röda rektangeln.
+Om du klickar på en mall kommer du till utvecklarportalsidan som kan anpassas med mallen. I det här exemplet visas **mallen Produktlista.** **Mallen Produktlista** styr det område på skärmen som indikeras av den röda rektangeln.
 
-![Mall för produkt lista][api-management-developer-portal-templates-overview]
+![Mall för produktlista][api-management-developer-portal-templates-overview]
 
-Vissa mallar, t. ex. mallar för **användar profiler** , anpassar olika delar av samma sida.
+Vissa mallar, till exempel **mallarna för användarprofiler,** anpassar olika delar av samma sida.
 
-![Mallar för användar profiler][api-management-user-profile-templates]
+![Mallar för användarprofiler][api-management-user-profile-templates]
 
-Redigeraren för varje utvecklare Portal mall har två avsnitt som visas längst ned på sidan. Den vänstra sidan visar redigerings fönstret för mallen och den högra sidan visar mallens data modell.
+Redigeraren för varje utvecklarportalmall har två avsnitt som visas längst ned på sidan. På vänster sida visas redigeringsfönstret för mallen och på höger sida visas mallens datamodell.
 
-Redigerings fönstret för mallar innehåller den markering som styr utseendet och beteendet för motsvarande sida i Developer-portalen. Markeringen i mallen använder [DotLiquid](http://dotliquidmarkup.org/) -syntaxen. Ett populärt redigerings program för DotLiquid är [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Alla ändringar som görs i mallen under redigering visas i real tid i webbläsaren, men de visas inte för dina kunder förrän du [sparar](#to-save-a-template) och [publicerar](#to-publish-a-template) mallen.
+Mallredigeringsfönstret innehåller markeringen som styr utseendet och beteendet för motsvarande sida i utvecklarportalen. Markeringen i mallen använder syntaxen [DotLiquid.](http://dotliquidmarkup.org/) En populär redaktör för DotLiquid är [DotLiquid för designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers). Alla ändringar som görs i mallen under redigeringen visas i realtid i webbläsaren, men är inte synliga för kunderna förrän du [sparar](#to-save-a-template) och [publicerar](#to-publish-a-template) mallen.
 
-![Mallkod][api-management-template]
+![Mallmarkering][api-management-template]
 
-Fönstret **mall data** innehåller en guide till data modellen för de entiteter som är tillgängliga för användning i en viss mall. Den innehåller den här guiden genom att visa de real tids data som för närvarande visas i Developer-portalen. Du kan expandera fönstret mallar genom att klicka på rektangeln i det övre högra hörnet i fönstret **mallens data** .
+Datafönstret **Mall** innehåller en guide till datamodellen för de entiteter som är tillgängliga för användning i en viss mall. Den här guiden visas genom att visa de realtidsdata som för närvarande visas i utvecklarportalen. Du kan expandera mallrutorna genom att klicka på rektangeln i det övre högra hörnet i **fönstret Malldata.**
 
-![Mallens data modell][api-management-template-data]
+![Malldatamodell][api-management-template-data]
 
-I föregående exempel finns det två produkter som visas i Developer-portalen som hämtades från de data som visas i fönstret **mall data** , som du ser i följande exempel:
+I föregående exempel visas två produkter i utvecklarportalen som hämtades från data som visas i **datafönstret mall,** vilket visas i följande exempel:
 
 ```json
 {
@@ -103,7 +103,7 @@ I föregående exempel finns det två produkter som visas i Developer-portalen s
 }
 ```
 
-Markeringen i **produkt list** mal len bearbetar data för att tillhandahålla önskade utdata genom att gå igenom insamling av produkter för att visa information och en länk till varje enskild produkt. Observera `<search-control>` och `<page-control>` element i markeringen. Dessa styr visningen av Sök-och sid kontroller på sidan. `ProductsStrings|PageTitleProducts` är en lokaliserad sträng referens som innehåller `h2` rubrik texten för sidan. En lista över sträng resurser, sid kontroller och ikoner som är tillgängliga för användning i mallar för utvecklare finns i [API Management Developer Portal templates Reference](api-management-developer-portal-templates-reference.md).
+Pålägget i **mallen Produktlista** bearbetar data för att ge önskad utdata genom att iterera genom insamling av produkter för att visa information och en länk till varje enskild produkt. Observera `<search-control>` elementen och `<page-control>` i markeringen. Dessa styr visningen av sök- och växlingskontrollerna på sidan. `ProductsStrings|PageTitleProducts`är en lokaliserad strängreferens `h2` som innehåller sidhuvudtexten. En lista över strängresurser, sidkontroller och ikoner som är tillgängliga för användning i utvecklarportalmallar finns i [API Management developer portal templates reference](api-management-developer-portal-templates-reference.md).
 
 ```html
 <search-control></search-control>
@@ -132,33 +132,33 @@ Markeringen i **produkt list** mal len bearbetar data för att tillhandahålla �
 ```
 
 ## <a name="to-save-a-template"></a>Så här sparar du en mall
-Om du vill spara en mall klickar du på Spara i redigeraren för mallar.
+Om du vill spara en mall klickar du på Spara i mallredigeraren.
 
-![Spara mall][api-management-save-template]
+![Spara mallen][api-management-save-template]
 
-Sparade ändringar är inte aktiva i Developer-portalen förrän de har publicerats.
+Sparade ändringar visas inte i utvecklarportalen förrän de har publicerats.
 
-## <a name="to-publish-a-template"></a>Publicera en mall
-Sparade mallar kan publiceras antingen individuellt eller tillsammans. Om du vill publicera en enskild mall klickar du på Publicera i redigeraren för mallar.
+## <a name="to-publish-a-template"></a>Så här publicerar du en mall
+Sparade mallar kan publiceras antingen individuellt eller tillsammans. Om du vill publicera en enskild mall klickar du på Publicera i mallredigeraren.
 
 ![Publicera mall][api-management-publish-template]
 
-Bekräfta och gör mallen Live på Developer-portalen genom att klicka på **Ja** .
+Klicka på **Ja** för att bekräfta och göra mallen live på utvecklarportalen.
 
 ![Bekräfta publicering][api-management-publish-template-confirm]
 
-Publicera alla för tillfället opublicerade versioner genom att klicka på **publicera** i listan mallar. Opublicerade mallar anges med en asterisk som följer mallnamnet. I det här exemplet publiceras **produkt listan** och **produkt** mallarna.
+Om du vill publicera alla opublicerade mallversioner klickar du på **Publicera** i malllistan. Opublicerade mallar betecknas med en asterisk som följer mallnamnet. I det här exemplet publiceras **produktlistan** och **produktmallarna.**
 
 ![Publicera mallar][api-management-publish-templates]
 
-Klicka på **publicera anpassningar** för att bekräfta.
+Klicka på **Publicera anpassningar** för att bekräfta.
 
 ![Bekräfta publicering][api-management-publish-customizations]
 
-Nyligen publicerade mallar träder i kraft direkt i Developer-portalen.
+Nyligen publicerade mallar träder omedelbart i utvecklarportalen.
 
-## <a name="to-revert-a-template-to-the-previous-version"></a>Återställa en mall till den tidigare versionen
-Om du vill återställa en mall till den tidigare publicerade versionen klickar du på Återställ i redigeraren för mallar.
+## <a name="to-revert-a-template-to-the-previous-version"></a>Så här återställer du en mall till den tidigare versionen
+Om du vill återställa en mall till den tidigare publicerade versionen klickar du på Återställ i mallredigeraren.
 
 ![Återställ mall][api-management-revert-template]
 
@@ -166,12 +166,12 @@ Bekräfta genom att klicka på **Ja**.
 
 ![Bekräfta][api-management-revert-template-confirm]
 
-Den tidigare publicerade versionen av en mall är Live i Developer-portalen när återställnings åtgärden har slutförts.
+Den tidigare publicerade versionen av en mall finns i utvecklarportalen när återställningen är klar.
 
-## <a name="to-restore-a-template-to-the-default-version"></a>Återställa en mall till standard versionen
-Att återställa mallar till standard versionen är en två stegs process. Först måste mallarna återställas och de återställda versionerna måste publiceras.
+## <a name="to-restore-a-template-to-the-default-version"></a>Så här återställer du en mall till standardversionen
+Att återställa mallar till standardversionen är en tvåstegsprocess. Först måste mallarna återställas och sedan måste de återställda versionerna publiceras.
 
-Om du vill återställa en enskild mall till standard versionen klickar du på Återställ i redigeraren för mallar.
+Om du vill återställa en enda mall till standardversionen klickar du på återställ i mallredigeraren.
 
 ![Återställ mall][api-management-reset-template]
 
@@ -179,14 +179,14 @@ Bekräfta genom att klicka på **Ja**.
 
 ![Bekräfta][api-management-reset-template-confirm]
 
-Om du vill återställa alla mallar till sina standard versioner klickar du på **Återställ standardmallar** i mal listan.
+Om du vill återställa alla mallar till standardversionerna klickar du på **Återställ standardmallar** i malllistan.
 
 ![Återställa mallar][api-management-restore-templates]
 
-De återställda mallarna måste sedan publiceras separat eller samtidigt genom att följa stegen i [för att publicera en mall](#to-publish-a-template).
+De återställda mallarna måste sedan publiceras individuellt eller alla på en gång genom att följa stegen i [Publicera en mall](#to-publish-a-template).
 
 ## <a name="next-steps"></a>Nästa steg
-Referens information för mallar för utvecklare, sträng resurser, ikoner och sid kontroller finns i [API Management Developer Portal templates Reference](api-management-developer-portal-templates-reference.md).
+Referensinformation för utvecklarportalmallar, strängresurser, ikoner och sidkontroller finns i [API Management developer portal templates reference](api-management-developer-portal-templates-reference.md).
 
 [modify-content-layout]: api-management-modify-content-layout.md
 [customize-styles]: api-management-customize-styles.md

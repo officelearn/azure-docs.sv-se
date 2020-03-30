@@ -1,6 +1,6 @@
 ---
-title: Kör pipeline-aktivitet i Azure Data Factory
-description: Lär dig hur du kan använda aktiviteten kör pipeliner för att anropa en Data Factory pipeline från en annan Data Factory-pipeline.
+title: Köra pipelineaktivitet i Azure Data Factory
+description: Lär dig hur du kan använda pipeline-aktiviteten Kör pipeline för att anropa en Data Factory-pipeline från en annan Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 26dd7c4f33360030b13ddbfc1516396436724c40
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440441"
 ---
-# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Kör pipeline-aktivitet i Azure Data Factory
-Med aktiviteten kör pipeliner kan en Data Factory pipeline anropa en annan pipeline.
+# <a name="execute-pipeline-activity-in-azure-data-factory"></a>Köra pipeline-aktivitet i Azure Data Factory
+Med aktiviteten Kör pipeline kan en Data Factory-pipeline anropa en annan pipeline.
 
 ## <a name="syntax"></a>Syntax
 
@@ -57,23 +57,23 @@ Med aktiviteten kör pipeliner kan en Data Factory pipeline anropa en annan pipe
 }
 ```
 
-## <a name="type-properties"></a>Typ egenskaper
+## <a name="type-properties"></a>Egenskaper för typ
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på aktiviteten kör pipeliner. | String | Ja
-typ | Måste vara inställt på: **ExecutePipeline**. | String | Ja
-pipeline | Pipeline-referens till den beroende pipelinen som den här pipelinen anropar. Ett pipeline-referens objekt har två egenskaper: **referenceName** och **Type**. Egenskapen referenceName anger namnet på referens pipelinen. Egenskapen Type måste anges till PipelineReference. | PipelineReference | Ja
-parameters | Parametrar som ska skickas till den anropade pipelinen | Ett JSON-objekt som mappar parameter namn till argument värden | Inga
-waitOnCompletion | Definierar om aktivitets körningen väntar på att körningen av beroende pipelinen ska slutföras. Standardvärdet är false. | Boolean | Inga
+namn | Namn på pipeline-aktiviteten. | String | Ja
+typ | Måste ställas in på: **ExecutePipeline**. | String | Ja
+Rörledning | Pipeline-referens till den beroende pipeline som den här pipelinen anropar. Ett referensobjekt för pipeline har två egenskaper: **referenceName** och **type**. Egenskapen referenceName anger namnet på referenspipelinen. Typegenskapen måste anges till PipelineReference. | PipelineReference | Ja
+parameters | Parametrar som ska skickas till den anropade pipelinen | Ett JSON-objekt som mappar parameternamn till argumentvärden | Inga
+waitOnCompletion | Definierar om aktivitetskörningen väntar på att den beroende pipelinekörningen ska slutföras. Standardvärdet är false. | Boolean | Inga
 
 ## <a name="sample"></a>Exempel
-Det här scenariot har två pipeliner:
+Det här scenariot har två pipelines:
 
-- **Huvud pipeline** – den här pipelinen har en utför pipeline-aktivitet som anropar den anropade pipelinen. Huvud-pipeline tar två parametrar: `masterSourceBlobContainer``masterSinkBlobContainer`.
-- **Anropad pipeline** – den här pipelinen har en kopierings aktivitet som kopierar data från en Azure Blob-källa till Azure Blob-mottagare. Den anropade pipelinen tar två parametrar: `sourceBlobContainer``sinkBlobContainer`.
+- **Huvudpipeline** - Den här pipelinen har en Kör pipeline-aktivitet som anropar den anropade pipelinen. Huvudpipelinen tar `masterSourceBlobContainer`två `masterSinkBlobContainer`parametrar: , .
+- **Anropad pipeline** - Den här pipelinen har en kopiera aktivitet som kopierar data från en Azure Blob-källa till Azure Blob sink. Den anropade pipelinen `sourceBlobContainer`tar `sinkBlobContainer`två parametrar: , .
 
-### <a name="master-pipeline-definition"></a>Huvud pipeline-definition
+### <a name="master-pipeline-definition"></a>Huvudpipelinedefinition
 
 ```json
 {
@@ -115,7 +115,7 @@ Det här scenariot har två pipeliner:
 
 ```
 
-### <a name="invoked-pipeline-definition"></a>Definition av anropad pipeline
+### <a name="invoked-pipeline-definition"></a>Anropad pipelinedefinition
 
 ```json
 {
@@ -174,7 +174,7 @@ Det här scenariot har två pipeliner:
 }
 ```
 
-**Käll data uppsättning**
+**Källdatauppsättning**
 ```json
 {
     "name": "SourceBlobDataset",
@@ -195,7 +195,7 @@ Det här scenariot har två pipeliner:
 }
 ```
 
-**Data uppsättning för mottagare**
+**Datauppsättning för mottagare**
 ```json
 {
     "name": "sinkBlobDataset",
@@ -217,7 +217,7 @@ Det här scenariot har två pipeliner:
 
 ### <a name="running-the-pipeline"></a>Köra pipelinen
 
-För att köra huvud pipelinen i det här exemplet skickas följande värden för parametrarna masterSourceBlobContainer och masterSinkBlobContainer: 
+Om du vill köra huvudpipelinen i det här exemplet skickas följande värden för parametrarna masterSourceBlobContainer och masterSinkBlobContainer: 
 
 ```json
 {
@@ -226,7 +226,7 @@ För att köra huvud pipelinen i det här exemplet skickas följande värden fö
 }
 ```
 
-Huvud pipelinen vidarebefordrar dessa värden till den anropade pipelinen som visas i följande exempel: 
+Huvudpipelinen vidarebefordrar dessa värden till den anropade pipelinen enligt följande exempel: 
 
 ```json
 {
@@ -252,9 +252,9 @@ Huvud pipelinen vidarebefordrar dessa värden till den anropade pipelinen som vi
 
 ```
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
+Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [För varje aktivitet](control-flow-for-each-activity.md)
-- [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
+- [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
 - [Lookup-aktivitet](control-flow-lookup-activity.md)
-- [Webb aktivitet](control-flow-web-activity.md)
+- [Webbaktivitet](control-flow-web-activity.md)

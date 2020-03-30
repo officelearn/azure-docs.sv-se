@@ -1,7 +1,7 @@
 ---
-title: Exempel-API Management-princip – Lägg till ett sidhuvud som innehåller korrelations-ID
+title: Exempel på API-hanteringsprincip - Lägg till ett huvud som innehåller korrelations-ID
 titleSuffix: Azure API Management
-description: Exempel på Azure API Management policy – visar hur du lägger till en rubrik som innehåller ett korrelations-ID till den inkommande begäran.
+description: Exempel på Azure API-hanteringsprincip - Visar hur du lägger till ett huvud som innehåller ett korrelations-ID till den inkommande begäran.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 79910aa60602a80cbe79c4ce9899f6ff73fbfde9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75422255"
 ---
-# <a name="add-a-header-containing-a-correlation-id"></a>Lägg till en rubrik som innehåller ett korrelations-ID
+# <a name="add-a-header-containing-a-correlation-id"></a>Lägga till en rubrik som innehåller ett korrelations-id
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du lägger till en rubrik som innehåller ett korrelations-ID till den inkommande begäran. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på Azure API-hanteringsprincip som visar hur du lägger till ett huvud som innehåller ett korrelations-ID till den inkommande begäran. Om du vill ange eller redigera en principkod följer du stegen som beskrivs i [Ange eller redigerar en princip](../set-edit-policies.md). Mer om du vill se andra exempel finns i [principexempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 
@@ -35,5 +35,5 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip exempel](../policy-samples.md)
++ [Policyexempel](../policy-samples.md)
 

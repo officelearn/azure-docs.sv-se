@@ -1,6 +1,6 @@
 ---
 title: Växla aktivitet i Azure Data Factory
-description: Med växel aktiviteten kan du styra bearbetnings flödet baserat på ett villkor.
+description: Med switch-aktiviteten kan du styra bearbetningsflödet baserat på ett villkor.
 services: data-factory
 author: djpmsft
 ms.author: daperlov
@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.openlocfilehash: fd0e6d526f0c47304e7bf53f91d08f42b924ff23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75440388"
 ---
 # <a name="switch-activity-in-azure-data-factory"></a>Växla aktivitet i Azure Data Factory
 
-Växel aktiviteten ger samma funktioner som en switch-instruktion i programmeringsspråk. Den utvärderar en uppsättning aktiviteter som motsvarar ett ärende som matchar villkors utvärderingen.
+Switch-aktiviteten ger samma funktioner som en switch-sats tillhandahåller i programmeringsspråk. Den utvärderar en uppsättning aktiviteter som motsvarar ett ärende som matchar villkorsutvärderingen.
 
 ## <a name="syntax"></a>Syntax
 
@@ -63,24 +63,24 @@ Växel aktiviteten ger samma funktioner som en switch-instruktion i programmerin
 }
 ```
 
-## <a name="type-properties"></a>Typ egenskaper
+## <a name="type-properties"></a>Egenskaper för typ
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Växel aktivitetens namn. | String | Ja
-typ | Måste anges för att *växla** | String | Ja
-expression | Uttryck som måste utvärderas till sträng värde | Uttryck med resultat typs sträng | Ja
-fall | En uppsättning ärenden som innehåller ett värde och en uppsättning aktiviteter som ska köras när värdet matchar uttrycks utvärderingen. Måste innehålla minst ett fall. Det finns en Max gräns på 25 fall. | Matris med Case-objekt | Ja
-defaultActivities | Uppsättning aktiviteter som körs när uttrycks utvärderingen inte är uppfyllt. | Matris med aktiviteter | Ja
+namn | Namnet på växelaktiviteten. | String | Ja
+typ | Måste ställas in på *Switch** | String | Ja
+uttryck | Uttryck som måste utvärderas till strängvärde | Uttryck med sträng av resultattyp | Ja
+Fall | Uppsättning ärenden som innehåller ett värde och en uppsättning aktiviteter som ska utföras när värdet matchar uttrycksutvärderingen. Måste tillhandahålla minst ett fall. Det finns en maxgräns på 25 fall. | Matris med ärendeobjekt | Ja
+defaultActivities (standardAktiviteter) | Uppsättning aktiviteter som körs när uttrycksutvärderingen inte är nöjd. | Matris med aktiviteter | Ja
 
 ## <a name="example"></a>Exempel
 
-Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Mappen utdata bestäms av värdet för pipeline-parametern: routeSelection.
+Pipelinen i det här exemplet kopierar data från en indatamapp till en utdatamapp. Utdatamappen bestäms av värdet för pipelineparametern: routeSelection.
 
 > [!NOTE]
-> Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genomgång med steg-för-steg-instruktioner för att skapa en Data Factory-pipeline med hjälp av Azure PowerShell- och JSON-definitioner finns i [självstudiekurs: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline med växel aktivitet (Adfv2QuickStartPipeline. JSON)
+### <a name="pipeline-with-switch-activity-adfv2quickstartpipelinejson"></a>Pipeline med växelaktivitet (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -228,7 +228,7 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Map
 
 ```
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage-länkad tjänst (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -242,9 +242,9 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Map
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset. JSON)
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parameteriserad Azure Blob-datauppsättning (BlobDataset.json)
 
-Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller **outputPath2** -parametern för pipelinen. 
+Pipelinen ställer in **folderPath** till värdet för antingen **parametern outputPath1** eller **outputPath2** för pipelinen. 
 
 ```json
 {
@@ -270,7 +270,7 @@ Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parametern JSON (PipelineParameters.json)
 
 ```json
 {
@@ -329,11 +329,11 @@ $result.Error -join "`r`n"
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
+Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [If-villkorsaktivitet](control-flow-if-condition-activity.md)
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
-- [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
+- [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
 - [Lookup-aktivitet](control-flow-lookup-activity.md)
-- [Webb aktivitet](control-flow-web-activity.md)
+- [Webbaktivitet](control-flow-web-activity.md)

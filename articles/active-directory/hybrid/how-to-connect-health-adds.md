@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e27287a414a2a4edef3e9090b7d91beb1c70f554
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76897312"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Använda Azure AD Connect Health med AD DS
@@ -56,12 +56,12 @@ Den här funktionen visar grafiska trender hos olika prestandaräknare som samla
 
 Som standard har vi förvalt fyra prestandaräknare. Du kan dock inkludera andra genom att klicka på filterkommandot och markera eller avmarkera alla önskade prestandaräknare. Dessutom kan du dubbelklicka på ett diagram för en prestandaräknare för att öppna ett nytt blad som innehåller datapunkter för alla övervakade domänkontrollanter.
 
-## <a name="related-links"></a>Tillhörande länkar
+## <a name="related-links"></a>Relaterade länkar
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installation av Azure AD Connect Health Agent](how-to-connect-health-agent-install.md)
-* [Azure AD Connect Health-åtgärder](how-to-connect-health-operations.md)
+* [Hälsoåtgärder för Azure AD Connect](how-to-connect-health-operations.md)
 * [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md)
 * [Använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md)
 * [Vanliga frågor och svar om Azure AD Connect Health](reference-connect-health-faq.md)
-* [Versionshistorik för Azure AD Connect Health](reference-connect-health-version-history.md)
+* [Azure AD Connect-historik för hälsoversion](reference-connect-health-version-history.md)
 

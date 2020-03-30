@@ -9,25 +9,25 @@ ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 4b10955a1d3b85acbcae109836bebc03ec04c72c
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "76279318"
 ---
-Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till blob-och Queue-data med hjälp av Azure AD och OAuth:
+Azure tillhandahåller följande inbyggda RBAC-roller för att auktorisera åtkomst till blob- och ködata med Azure AD och OAuth:
 
-- [Storage BLOB data-ägare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): Använd för att ange ägarskap och hantera POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2. Mer information finns i [åtkomst kontroll i Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
-- [Storage BLOB data-deltagare](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Använd för att bevilja läs-/skriv-/borttagnings behörigheter till Blob Storage-resurser.
-- [Storage BLOB data Reader](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader): används för att bevilja Läs behörighet till Blob Storage-resurser.
-- [Data deltagare i Storage Queue](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Använd för att bevilja läs-/skriv-/borttagnings behörigheter till Azure-köer.
-- [Data läsare för lagrings köer](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): Använd för att bevilja Läs behörighet till Azure-köer.
-- [Processor för lagrings data meddelande](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Använd för att ge behörighet att granska, hämta och ta bort meddelanden i Azure Storage köer.
-- [Avsändare av data meddelande i lagrings](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender)köer: Använd för att bevilja Lägg till behörigheter till meddelanden i Azure Storage köer.
+- [Lagring blob dataägare:](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner)Används för att ange ägarskap och hantera POSIX-åtkomstkontroll för Azure Data Lake Storage Gen2. Mer information finns [i Åtkomstkontroll i Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
+- [Storage Blob Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Används för att bevilja läs-/skriv-/borttagningsbehörigheter till Blob-lagringsresurser.
+- [Lagring blob dataläsare:](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-reader)Används för att bevilja skrivskyddade behörigheter till Blob lagringsresurser.
+- [Storage Queue Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Används för att bevilja läs-/skriv-/borttagningsbehörigheter till Azure-köer.
+- [Dataläsare för lagringskö:](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader)Används för att bevilja skrivskyddade behörigheter till Azure-köer.
+- [Lagringsködatameddelandebehandlare:](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor)Används för att bevilja peek, retrieve och ta bort behörigheter till meddelanden i Azure Storage-köer.
+- [Meddelandeavsändare för lagringsködata:](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender)Används för att bevilja tilläggsbehörigheter för meddelanden i Azure Storage-köer.
 
 > [!NOTE]
-> Det kan ta upp till fem minuter att sprida RBAC-roll tilldelningar.
+> RBAC-rolltilldelningar kan ta upp till fem minuter att sprida.
 >
-> Endast roller som uttryckligen definierats för data åtkomst tillåter ett säkerhets objekt att komma åt BLOB-eller Queue data. Roller som **ägare**, **deltagare**och **lagrings konto deltagare** tillåter ett säkerhets objekt att hantera ett lagrings konto, men ger inte till gång till BLOB-eller Queue-data inom det kontot.
+> Endast roller som uttryckligen definierats för dataåtkomst gör det möjligt för ett säkerhetsobjekt att komma åt blob- eller ködata. Roller som **Ägare,** **Deltagare**och **Storage Account Contributor** tillåter ett säkerhetsobjekt att hantera ett lagringskonto, men ger inte åtkomst till blob- eller ködata i det kontot.
 >
-> Åtkomst till BLOB-eller Queue-data i Azure Portal kan godkännas med hjälp av antingen ditt Azure AD-konto eller lagrings kontots åtkomst nyckel. Mer information finns i [använda Azure Portal för att få åtkomst till BLOB-eller Queue-data](../articles/storage/common/storage-access-blobs-queues-portal.md).
+> Åtkomst till blob- eller ködata i Azure-portalen kan auktoriseras med antingen ditt Azure AD-konto eller åtkomstnyckeln för lagringskontot. Mer information finns i [Använda Azure-portalen för att komma åt blob- eller ködata](../articles/storage/common/storage-access-blobs-queues-portal.md).

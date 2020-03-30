@@ -1,73 +1,73 @@
 ---
-title: Azure Monitor för områdes mappningar för behållare
-description: I den här artikeln beskrivs de region mappningar som stöds mellan Azure Monitor för behållare, Log Analytics arbets yta och anpassade mått.
+title: Azure Monitor för behållare regionmappningar
+description: I den här artikeln beskrivs de regionmappningar som stöds mellan Azure Monitor för behållare, Log Analytics Workspace och anpassade mått.
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.openlocfilehash: a058f9cac987bb5c7130019f50370c6a176b09ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75403430"
 ---
-# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Region mappningar som stöds av Azure Monitor för behållare
+# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Regionmappningar som stöds av Azure Monitor för behållare
 
- När du aktiverar Azure Monitor för behållare, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett AKS-kluster och samla in anpassade mått som skickas till Azure Monitor.
+ När du aktiverar Azure Monitor för behållare stöds endast vissa regioner för att länka en Log Analytics-arbetsyta och ett AKS-kluster och samla in anpassade mått som skickas till Azure Monitor.
 
-## <a name="log-analytics-workspace-supported-mappings"></a>Mappningar som stöds av Log Analytics Workspace
+## <a name="log-analytics-workspace-supported-mappings"></a>Mappningar för logganalysarbetsyta
 
-AKS-kluster resurserna eller Log Analytics arbets ytan kan finnas i andra regioner och följande tabell visar våra mappningar.
+AKS-klusterresurserna eller log analytics-arbetsytan kan finnas i andra regioner och i följande tabell visas våra mappningar.
 
-|**AKS-kluster region** | **Region för Log Analytics arbets yta** |
+|**AKS-klusterregion** | **Regionen Logganalysarbetsyta** |
 |-----------------------|------------------------------------|
-|**Centralafrika** | |
+|**Afrika** | |
 |SouthAfricaNorth |Västeuropa |
-|SouthAfricaWest |Västeuropa |
+|Södra Sydvästra |Västeuropa |
 |**Australien** | |
-|AustraliaEast |AustraliaEast |
-|AustraliaCentral |AustraliaCentral |
-|AustraliaCentral2 |AustraliaCentral |
-|AustraliaEast |AustraliaEast |
+|AustralienEast |AustralienEast |
+|AustralienCentralen |AustralienCentralen |
+|AustralienCentral2 |AustralienCentralen |
+|AustralienEast |AustralienEast |
 |**Asien och stillahavsområdet** | |
-|Asienöstra |Asienöstra |
-|Sydostasien |Sydostasien |
+|Östasien |Östasien |
+|Sydöstran |Sydöstran |
 |**Brasilien** | |
-|Centrala | Usasödracentrala |
+|BrasilienSouth | Södra CentralEN |
 |**Kanada** ||
-|Indiensödra |Indiensödra |
-|Indien |Indiensödra |
+|CanadaCentral |CanadaCentral |
+|KanadaEast |CanadaCentral |
 |**Europa** | |
-|FranceCentral |FranceCentral |
-|FranceSouth |FranceCentral |
-|Europanorra |Europanorra |
-|UKSouth |UKSouth |
-|Västrastorbritannien |UKSouth |
+|FranceCentral (på andra) |FranceCentral (på andra) |
+|FrankrikeSouth |FranceCentral (på andra) |
+|Nordeuropeiska |Nordeuropeiska |
+|UkSouth (svenska) |UkSouth (svenska) |
+|StorbritannienVäst |UkSouth (svenska) |
 |Västeuropa |Västeuropa |
 |**Indien** | |
-|Kanada |Kanada |
-|Australienöstra |Kanada |
-|Usavästracentrala |Kanada |
+|CentralIndia (centralindia) |CentralIndia (centralindia) |
+|SouthIndia (på andra sätt) |CentralIndia (centralindia) |
+|WestIndia (på andra) |CentralIndia (centralindia) |
 |**Japan** | |
-|Japanöstra |Japanöstra |
-|Japanvästra |Japanöstra |
+|JapanEast |JapanEast |
+|JapanVäst |JapanEast |
 |**Korea** | |
-|Centrala |Centrala |
-|KoreaSouth |Centrala |
+|KoreaCentral |KoreaCentral |
+|KoreaSouth ( |KoreaCentral |
 |**USA** | |
-|Centra lus |Centra lus|
-|USAöstra |USAöstra |
-|EastUS2 |EastUS2 |
-|WestUS |WestUS |
-|WestUS2 |WestUS2 |
-|WestCentralUS<sup>1</sup>|Östra USA<sup>1</sup>|
-|USA Gov Virginia |USA Gov Virginia |
+|CentralUS (CentralUS) |CentralUS (CentralUS)|
+|EastUS (östra) |EastUS (östra) |
+|ÖstraUS2 |ÖstraUS2 |
+|WestUS (på andra sätt) |WestUS (på andra sätt) |
+|WestUS2 (På andra sätt) |WestUS2 (På andra sätt) |
+|Västra CentralaUS<sup>1</sup>|EastUS<sup>1</sup>|
+|US Gov, Virginia |US Gov, Virginia |
 
-<sup>1</sup> på grund av kapacitets begränsningar är regionen inte tillgänglig när du skapar nya resurser. Detta inkluderar en Log Analytics-arbetsyta. Befintliga länkade resurser i regionen bör dock fortsätta att fungera.
+<sup>1</sup> På grund av kapacitetsbegränsningar är regionen inte tillgänglig när du skapar nya resurser. Detta inkluderar en Log Analytics-arbetsyta. Befintliga kopplade resurser i regionen bör dock fortsätta att fungera.
 
-## <a name="custom-metrics-supported-regions"></a>Regioner som stöds för anpassade mått
+## <a name="custom-metrics-supported-regions"></a>Anpassade mått som stöds regioner
 
-Insamling av mått från Azure Kubernetes Services (AKS)-kluster noder och poddar stöds endast för publicering som anpassade mått i följande [Azure-regioner](../platform/metrics-custom-overview.md#supported-regions).
+Samla in mått från AKS-klusterkluster (Azure Kubernetes Services) stöds för publicering som anpassade mått endast i följande [Azure-regioner](../platform/metrics-custom-overview.md#supported-regions).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill börja övervaka ditt AKS-kluster läser du [så här aktiverar du Azure Monitor för behållare](container-insights-onboard.md) för att förstå kraven och tillgängliga metoder för att aktivera övervakning.  
+Om du vill börja övervaka AKS-klustret läser du [Så här aktiverar du Azure Monitor för behållare för](container-insights-onboard.md) att förstå kraven och tillgängliga metoder för att aktivera övervakning.  

@@ -1,6 +1,6 @@
 ---
-title: Rensa SSISDB-loggar med Azure Elastic Database-jobb
-description: Den här artikeln beskriver hur du rensar SSISDB-loggar med hjälp av Azure Elastic Database-jobb för att utlösa den lagrade proceduren som finns för detta ändamål
+title: Rensa SSISDB-loggar med Azure Elastiska databasjobb
+description: I den här artikeln beskrivs hur du rensar SSISDB-loggar med hjälp av Azure Elastic Database-jobb för att utlösa den lagrade proceduren som finns för detta ändamål
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -11,27 +11,27 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.openlocfilehash: 331a2317f11fbb6f0dd1437a0b41f7ad110a63c7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74928013"
 ---
-# <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Rensa SSISDB-loggar med Azure Elastic Database-jobb
+# <a name="clean-up-ssisdb-logs-with-azure-elastic-database-jobs"></a>Rensa SSISDB-loggar med Azure Elastiska databasjobb
 
-Den här artikeln beskriver hur du använder Azure Elastic Database-jobb för att utlösa den lagrade proceduren som rensar loggar för SQL Server Integration Services Catalog-databasen `SSISDB`.
+I den hÃ¤r artikeln beskrivs hur du anvÃ¤nder Azure Elastic Database `SSISDB`Jobs för att utlösa den lagrade proceduren som rensar upp loggar för katalogdatabasen SQL Server Integration Services.
 
-Elastic Database-jobb är en Azure-tjänst som gör det enkelt att automatisera och köra jobb mot en databas eller en grupp med databaser. Du kan schemalägga, köra och övervaka dessa jobb med hjälp av Azure Portal, Transact-SQL, PowerShell eller REST-API: er. Använd Elastic Database jobb för att utlösa den lagrade proceduren för logg rensning en gången eller enligt ett schema. Du kan välja schema intervall baserat på SSISDB resursanvändning för att undvika tung databas belastning.
+Elastiska databasjobb är en Azure-tjänst som gör det enkelt att automatisera och köra jobb mot en databas eller en grupp av databaser. Du kan schemalägga, köra och övervaka dessa jobb med hjälp av Azure-portalen, Transact-SQL-, PowerShell- eller REST-API:erna. Använd det elastiska databasjobbet för att utlösa den lagrade proceduren för loggrensning en gång eller enligt ett schema. Du kan välja schemaintervall baserat på SSISDB-resursanvändning för att undvika tung databasbelastning.
 
-Mer information finns i [hantera grupper med databaser med Elastic Database-jobb](../sql-database/elastic-jobs-overview.md).
+Mer information finns i [Hantera grupper av databaser med elastiska databasjobb](../sql-database/elastic-jobs-overview.md).
 
-I följande avsnitt beskrivs hur du utlöser den lagrade proceduren `[internal].[cleanup_server_retention_window_exclusive]`, vilket tar bort SSISDB-loggar som är utanför det bevarande fönster som anges av administratören.
+I följande avsnitt beskrivs hur `[internal].[cleanup_server_retention_window_exclusive]`du utlöser den lagrade proceduren , som tar bort SSISDB-loggar som ligger utanför bevarandefönstret som angetts av administratören.
 
 ## <a name="clean-up-logs-with-power-shell"></a>Rensa loggar med Power Shell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-Följande exempel på PowerShell-skript skapar ett nytt elastiskt jobb för att utlösa den lagrade proceduren för rensning av SSISDB-loggen. Mer information finns i [skapa en elastisk jobb agent med hjälp av PowerShell](../sql-database/elastic-jobs-powershell.md).
+I följande exempel på PowerShell-skript skapas ett nytt elastiskt jobb för att utlösa den lagrade proceduren för SSISDB-loggrensning. Mer information finns i [Skapa en elastisk jobbagent med PowerShell](../sql-database/elastic-jobs-powershell.md).
 
 ### <a name="create-parameters"></a>Skapa parametrar
 
@@ -63,7 +63,7 @@ $IntervalCount = $(Read-Host "Please enter the detailed interval value in the gi
 $StartTime = (Get-Date)
 ```
 
-### <a name="trigger-the-cleanup-stored-procedure"></a>Utlös den lagrade proceduren rensa
+### <a name="trigger-the-cleanup-stored-procedure"></a>Utlösa den lagrade rensningsproceduren
 
 ```powershell
 # Install the latest PackageManagement powershell package which PowershellGet v1.6.5 is dependent on
@@ -157,11 +157,11 @@ $Job | Set-AzureRmSqlElasticJob -IntervalType $IntervalType -IntervalCount $Inte
 
 ## <a name="clean-up-logs-with-transact-sql"></a>Rensa loggar med Transact-SQL
 
-I följande exempel Transact-SQL-skript skapar du ett nytt elastiskt jobb för att utlösa den lagrade proceduren för rensning av SSISDB-loggen. Mer information finns i [använda Transact-SQL (T-SQL) för att skapa och hantera Elastic Database-jobb](../sql-database/elastic-jobs-tsql.md).
+Följande exempel på Transact-SQL-skript skapar ett nytt elastiskt jobb för att utlösa den lagrade proceduren för SSISDB-loggrensning. Mer information finns i [Använda Transact-SQL (T-SQL) för att skapa och hantera elastiska databasjobb](../sql-database/elastic-jobs-tsql.md).
 
-1. Skapa eller identifiera en tom S0 eller högre Azure SQL Database som ska vara SSISDBCleanup-Job-databasen. Skapa sedan en elastisk jobb agent i [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
+1. Skapa eller identifiera en tom S0 eller högre Azure SQL-databas som SSISDBCleanup-jobbdatabas. Skapa sedan en elastisk jobbagent i [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.SQLElasticJobAgent).
 
-2. I jobb databasen skapar du en autentiseringsuppgift för rensnings jobbet för SSISDB-loggen. Den här autentiseringsuppgiften används för att ansluta till SSISDB-databasen för att rensa loggarna.
+2. Skapa en autentiseringsbok för SSISDB-loggrensningsjobbet i jobbdatabasen. Den här autentiseringsinformationen används för att ansluta till SSISDB-databasen för att rensa loggarna.
 
     ```sql
     -- Connect to the job database specified when creating the job agent
@@ -172,7 +172,7 @@ I följande exempel Transact-SQL-skript skapar du ett nytt elastiskt jobb för a
     CREATE DATABASE SCOPED CREDENTIAL SSISDBLogCleanupCred WITH IDENTITY = 'SSISDBLogCleanupUser', SECRET = '<EnterStrongPasswordHere>'; 
     ```
 
-3. Definiera mål gruppen som innehåller den SSISDB-databas som du vill köra den lagrade proceduren rensa.
+3. Definiera den målgrupp som innehåller SSISDB-databasen som du vill köra rensningsproceduren för.
 
     ```sql
     -- Connect to the job database 
@@ -189,7 +189,7 @@ I följande exempel Transact-SQL-skript skapar du ett nytt elastiskt jobb för a
     SELECT * FROM jobs.target_groups WHERE target_group_name = 'SSISDBTargetGroup';
     SELECT * FROM jobs.target_group_members WHERE target_group_name = 'SSISDBTargetGroup';
     ```
-4. Bevilja lämpliga behörigheter för SSISDB-databasen. SSISDB-katalogen måste ha rätt behörigheter för den lagrade proceduren för att kunna köra SSISDB log-rensning. Detaljerad vägledning finns i [Hantera inloggningar](../sql-database/sql-database-manage-logins.md).
+4. Bevilja lämpliga behörigheter för SSISDB-databasen. SSISDB-katalogen måste ha rätt behörighet för den lagrade proceduren för att köra SSISDB-loggrensning. Detaljerad vägledning finns i [Hantera inloggningar](../sql-database/sql-database-manage-logins.md).
 
     ```sql
     -- Connect to the master database in the target server including SSISDB 
@@ -199,7 +199,7 @@ I följande exempel Transact-SQL-skript skapar du ett nytt elastiskt jobb för a
     CREATE USER SSISDBLogCleanupUser FROM LOGIN SSISDBLogCleanupUser;
     GRANT EXECUTE ON internal.cleanup_server_retention_window_exclusive TO SSISDBLogCleanupUser
     ```
-5. Skapa jobbet och Lägg till ett jobb steg för att utlösa körningen av den lagrade proceduren för rensning av SSISDB-loggen.
+5. Skapa jobbet och lägg till ett jobbsteg för att utlösa körningen av den lagrade proceduren för SSISDB-loggrensning.
 
     ```sql
     --Connect to the job database 
@@ -212,9 +212,9 @@ I följande exempel Transact-SQL-skript skapar du ett nytt elastiskt jobb för a
     @credential_name='SSISDBLogCleanupCred',
     @target_group_name='SSISDBTargetGroup'
     ```
-6. Innan du fortsätter kontrollerar du att fönstret kvarhållning har angetts korrekt. SSISDB loggar utanför fönstret tas bort och kan inte återställas.
+6. Innan du fortsätter kontrollerar du att kvarhållningsfönstret har ställts in på rätt sätt. SSISDB-loggar utanför fönstret tas bort och kan inte återställas.
 
-   Sedan kan du köra jobbet direkt för att starta SSISDB logg rensning.
+   Sedan kan du köra jobbet omedelbart för att påbörja SSISDB-loggrensning.
 
     ```sql
     --Connect to the job database 
@@ -226,7 +226,7 @@ I följande exempel Transact-SQL-skript skapar du ett nytt elastiskt jobb för a
     select @je
     select * from jobs.job_executions where job_execution_id = @je
     ```
-7. Du kan också schemalägga jobb körningar för att ta bort SSISDB-loggar utanför kvarhållningsperioden enligt ett schema. Använd ett liknande uttryck för att uppdatera jobb parametrarna.
+7. Du kan också schemalägga jobbkörningar för att ta bort SSISDB-loggar utanför kvarhållningsfönstret enligt ett schema. Använd en liknande sats för att uppdatera jobbparametrarna.
 
     ```sql
     --Connect to the job database 
@@ -239,15 +239,15 @@ I följande exempel Transact-SQL-skript skapar du ett nytt elastiskt jobb för a
     @schedule_end_time='<EnterProperEndTimeForSchedule>'
     ```
 
-## <a name="monitor-the-cleanup-job-in-the-azure-portal"></a>Övervaka rensnings jobbet i Azure Portal
+## <a name="monitor-the-cleanup-job-in-the-azure-portal"></a>Övervaka rensningsjobbet i Azure-portalen
 
-Du kan övervaka körningen av rensnings jobbet i Azure Portal. För varje körning ser du status, start tid och slut tid för jobbet.
+Du kan övervaka körningen av rensningsjobbet i Azure-portalen. För varje körning visas status, starttid och sluttid för jobbet.
 
-![Övervaka rensnings jobbet i Azure Portal](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png)
+![Övervaka rensningsjobbet i Azure-portalen](media/how-to-clean-up-ssisdb-logs-with-elastic-jobs/monitor-cleanup-job-portal.png)
 
-## <a name="monitor-the-cleanup-job-with-transact-sql"></a>Övervaka rensnings jobbet med Transact-SQL
+## <a name="monitor-the-cleanup-job-with-transact-sql"></a>Övervaka rensningsjobbet med Transact-SQL
 
-Du kan också använda Transact-SQL för att Visa körnings historiken för rensnings jobbet.
+Du kan också använda Transact-SQL för att visa körningshistoriken för rensningsjobbet.
 
 ```sql
 --Connect to the job database 
@@ -262,8 +262,8 @@ ORDER BY start_time DESC
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hanterings-och övervaknings aktiviteter som är relaterade till Azure-SSIS Integration Runtime finns i följande artiklar. Azure-SSIS IR är körnings motor för SSIS-paket som lagras i SSISDB i Azure SQL Database.
+För hantering och övervakning av uppgifter relaterade till Azure-SSIS Integration Runtime finns i följande artiklar. Azure-SSIS IR är körningsmotorn för SSIS-paket som lagras i SSISDB i Azure SQL Database.
 
 -   [Omkonfigurera Azure SSIS-integreringskörningen](manage-azure-ssis-integration-runtime.md)
 
--   [Övervaka Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).
+-   [Övervaka Azure-SSIS-integreringskörningen](monitor-integration-runtime.md#azure-ssis-integration-runtime).

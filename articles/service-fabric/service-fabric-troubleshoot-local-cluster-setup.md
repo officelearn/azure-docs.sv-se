@@ -1,22 +1,22 @@
 ---
-title: Felsöka din lokala Azure Service Fabric Cluster-installation
-description: Den här artikeln beskriver en uppsättning förslag för fel sökning av ditt lokala utvecklings kluster
+title: Felsöka den lokala azure service fabric-klusterkonfigurationen
+description: Den här artikeln innehåller en uppsättning förslag på felsökning av ditt lokala utvecklingskluster
 author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
 ms.openlocfilehash: ea313adb43f8d91ec9e57dd1d0b8d3447a8075f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465502"
 ---
-# <a name="troubleshoot-your-local-development-cluster-setup"></a>Felsöka konfiguration av lokala utvecklings kluster
-Om du stöter på ett problem när du interagerar med ditt lokala Azure Service Fabric Development-kluster kan du läsa följande förslag för möjliga lösningar.
+# <a name="troubleshoot-your-local-development-cluster-setup"></a>Felsöka konfigurationen av ditt lokala utvecklingskluster
+Om du stöter på ett problem när du interagerar med ditt lokala Azure Service Fabric-utvecklingskluster läser du följande förslag på potentiella lösningar.
 
-## <a name="cluster-setup-failures"></a>Kluster konfigurations fel
-### <a name="cannot-clean-up-service-fabric-logs"></a>Det går inte att rensa Service Fabric loggar
+## <a name="cluster-setup-failures"></a>Fel i klusterkonfigurationen
+### <a name="cannot-clean-up-service-fabric-logs"></a>Det går inte att rensa service fabric-loggar
 #### <a name="problem"></a>Problem
 När du kör DevClusterSetup-skriptet visas följande fel:
 
@@ -28,20 +28,20 @@ När du kör DevClusterSetup-skriptet visas följande fel:
 
 
 #### <a name="solution"></a>Lösning
-Stäng det aktuella PowerShell-fönstret och öppna ett nytt PowerShell-fönster som administratör. Nu kan du köra skriptet.
+Stäng det aktuella PowerShell-fönstret och öppna ett nytt PowerShell-fönster som administratör. Du kan nu köra skriptet.
 
-## <a name="cluster-connection-failures"></a>Kluster anslutnings fel
+## <a name="cluster-connection-failures"></a>Klusteranslutningsfel
 
-### <a name="type-initialization-exception"></a>Typ initierings undantag
+### <a name="type-initialization-exception"></a>Typ initiering undantag
 #### <a name="problem"></a>Problem
-När du ansluter till klustret i PowerShell visas fel TypeInitializationException för system. Fabric. Common. AppTrace.
+När du ansluter till klustret i PowerShell visas felet TypeInitializationException för System.Fabric.Common.AppTrace.
 
 #### <a name="solution"></a>Lösning
-Path-variabeln angavs inte korrekt under installationen. Logga ut från Windows och logga in igen. Detta uppdaterar din sökväg.
+Sökvägens variabel har inte angetts korrekt under installationen. Logga ut från Windows och logga in igen. Detta uppdaterar din väg.
 
-### <a name="cluster-connection-fails-with-object-is-closed"></a>Kluster anslutningen Miss lyckas med "objektet är stängt"
+### <a name="cluster-connection-fails-with-object-is-closed"></a>Klusteranslutningen misslyckas med "Objektet är stängt"
 #### <a name="problem"></a>Problem
-Ett anrop till Connect-ServiceFabricCluster Miss lyckas med ett fel som detta:
+Ett anrop till Connect-ServiceFabricCluster misslyckas med ett sådant här fel:
 
     Connect-ServiceFabricCluster : The object is closed.
     At line:1 char:1
@@ -53,21 +53,21 @@ Ett anrop till Connect-ServiceFabricCluster Miss lyckas med ett fel som detta:
 #### <a name="solution"></a>Lösning
 Stäng det aktuella PowerShell-fönstret och öppna ett nytt PowerShell-fönster som administratör.
 
-### <a name="fabric-connection-denied-exception"></a>Undantag vid nekad Fabric-anslutning
+### <a name="fabric-connection-denied-exception"></a>Undantag för nekad infrastrukturanslutning
 #### <a name="problem"></a>Problem
 När du felsöker från Visual Studio får du ett FabricConnectionDeniedException-fel.
 
 #### <a name="solution"></a>Lösning
-Det här felet uppstår vanligt vis när du försöker starta en tjänst värd process manuellt.
+Det här felet uppstår vanligtvis när du försöker starta en tjänstvärdprocess manuellt.
 
-Kontrol lera att du inte har angett några tjänst projekt som start projekt i din lösning. Endast Service Fabric program projekt ska anges som start projekt.
+Se till att du inte har några serviceprojekt som är inställda som startprojekt i din lösning. Endast Service Fabric-programprojekt bör anges som startprojekt.
 
 > [!TIP]
-> Om det går att använda det lokala klustret på ett onormalt sätt i följande installation, kan du återställa det med det lokala kluster hanterarens program i system fältet. Detta tar bort det befintliga klustret och konfigurerar ett nytt. Observera att alla distribuerade program och associerade data tas bort.
+> Om ditt lokala kluster börjar bete sig onormalt efter installationen kan du återställa det med hjälp av det lokala systemfältet för klusterhanteraren. Detta tar bort det befintliga klustret och konfigurerar ett nytt. Observera att alla distribuerade program och associerade data tas bort.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Förstå och felsöka ditt kluster med system hälso rapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+* [Förstå och felsöka klustret med systemhälsorapporter](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [Visualisera ditt kluster med Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 

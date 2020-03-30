@@ -1,6 +1,6 @@
 ---
-title: Ta bort åtgärder på Azure Cosmos DB API för Cassandra från Spark
-description: Den här artikeln beskriver hur du tar bort data i tabeller i Azure Cosmos DB API för Cassandra från Spark
+title: Ta bort åtgärder på Azure Cosmos DB Cassandra API från Spark
+description: I den här artikeln beskrivs hur du tar bort data i tabeller i Azure Cosmos DB Cassandra API från Spark
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,17 +9,17 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 0317fab158b2ea73b365bedc272721816da22c4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442093"
 ---
-# <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Ta bort data i Azure Cosmos DB API för Cassandra tabeller från Spark
+# <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Ta bort data i Azure Cosmos DB Cassandra API-tabeller från Spark
 
-I den här artikeln beskrivs hur du tar bort data i Azure Cosmos DB API för Cassandra tabeller från Spark.
+I den här artikeln beskrivs hur du tar bort data i Azure Cosmos DB Cassandra API-tabeller från Spark.
 
-## <a name="cassandra-api-configuration"></a>Cassandra-API-konfiguration
+## <a name="cassandra-api-configuration"></a>Cassandra API-konfiguration
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -46,8 +46,8 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="sample-data-generator"></a>Exempel på data Generator
-Vi kommer att använda det här kodfragmentet för att generera exempel data:
+## <a name="sample-data-generator"></a>Exempel på datagenerator
+Vi kommer att använda detta kodfragment för att generera exempeldata:
 
 ```scala
 //Create dataframe
@@ -67,7 +67,7 @@ booksDF.write
   .save()
 ```
 
-## <a name="dataframe-api"></a>Nu när dataramen API
+## <a name="dataframe-api"></a>Api för dataram
 
 ### <a name="delete-rows-that-match-a-condition"></a>Ta bort rader som matchar ett villkor
 
@@ -116,7 +116,7 @@ spark
   .show
 ```
 
-**Utdata:**
+**Resultat:**
 
 ```
 == Physical Plan ==
@@ -199,7 +199,7 @@ spark
   .show
 ```
 
-**Utdata:**
+**Resultat:**
 
 ```
 == Physical Plan ==
@@ -278,7 +278,7 @@ println("==================")
 println("3) After")
 sc.cassandraTable("books_ks", "books").collect.foreach(println)
 ```
-**Utdata:**
+**Resultat:**
 
 ```
 ==================
@@ -300,7 +300,7 @@ deleteBooksRDD: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datas
 cdbConnector: com.datastax.spark.connector.cql.CassandraConnector = com.datastax.spark.connector.cql.CassandraConnector@317927
 ```
 
-### <a name="delete-specific-columns"></a>Ta bort vissa kolumner
+### <a name="delete-specific-columns"></a>Ta bort specifika kolumner
 
 ```scala
 //1) Create RDD 
@@ -331,7 +331,7 @@ println("3) After")
 sc.cassandraTable("books_ks", "books").take(4).foreach(println)
 ```
 
-**Utdata:**
+**Resultat:**
 
 ```
 ==================
@@ -358,7 +358,7 @@ deleteBooksRDD: com.datastax.spark.connector.rdd.CassandraTableScanRDD[com.datas
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill utföra agg regerings-och data kopierings åtgärder, se
+Om du vill utföra aggregerings- och datakopieringsoperationer, se -
  
-* [Aggregeringsåtgärder](cassandra-spark-aggregation-ops.md)
-* [Tabellen kopieringsåtgärder](cassandra-spark-table-copy-ops.md)
+* [Sammansättningsåtgärder](cassandra-spark-aggregation-ops.md)
+* [Tabellkopieringsåtgärder](cassandra-spark-table-copy-ops.md)

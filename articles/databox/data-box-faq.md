@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.openlocfilehash: 73256aef19a03c4c971be5fc9e69f988ef5a831a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75438618"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
@@ -36,12 +36,12 @@ Frågor och svar är ordnade i följande kategorier:
 A.  Azure Data Box-tjänsten är utformad för offlineinmatning av data. Den här tjänsten hanterar en rad produkter som alla har skräddarsytts för dataöverföring för olika lagringskapaciteter. 
 
 ### <a name="q-what-is-azure-data-box"></a>F. Vad är Azure Data Box?
-A. Azure Data Box ger en snabb, billig och säker överföring av terabyte data till Azure. Du beställer Data Box-enheten via Azure-portalen. Microsoft levererar en lagringsenhet med en användbar kapacitet på 80 TB via ett regionalt transportföretag. 
+A. Azure Data Box möjliggör en snabb, billig och säker överföring av terabyte data till Azure. Du beställer Data Box-enheten via Azure-portalen. Microsoft levererar en lagringsenhet med en användbar kapacitet på 80 TB via ett regionalt transportföretag. 
 
 När enheten har tagits emot konfigurerar du den snabbt med hjälp av det lokala webbgränssnittet. Kopiera data från dina servrar till enheten och skicka sedan tillbaka enheten till Azure. I Azure-datacentret överförs dina data automatiskt från enheten till Azure. Hela processen spåras från slutpunkt till slutpunkt av Data Box-tjänsten på Azure-portalen.
 
 ### <a name="q-when-should-i-use-data-box"></a>F. När ska jag använda Data Box?
-A. Om du har mellan 40 och 500 TB data som du vill överföra till Azure kan du använda Data Box. För data storlekar < 40 TB använder du Data Box Disk och för data storlekar > 500 TB registrerar du dig för [data Box Heavy](data-box-heavy-overview.md).
+A. Om du har mellan 40 och 500 TB data som du vill överföra till Azure kan du använda Data Box. För datastorlekar < 40 TB använder du Data Box Disk och för datastorlekar > 500 TB, registrera dig för [Data Box Heavy](data-box-heavy-overview.md).
 
 ### <a name="q-what-is-the-price-of-data-box"></a>F. Hur mycket kostar Data Box?
 A. Data Box-tjänsten är tillgänglig mot en nominell kostnad i tio dagar. Kostnaden för enheten visas när du väljer produktmodellen när du skapar din beställning på Azure-portalen. Leveransen kostar inte heller någonting, men vi tar ut avgifter för Azure-lagringen. Mer information finns på [prissidan för Azure Data Box](https://azure.microsoft.com/pricing/details/storage/databox/). 
@@ -50,10 +50,10 @@ A. Data Box-tjänsten är tillgänglig mot en nominell kostnad i tio dagar. Kost
 A. Data Box har en råkapacitet på 100 TB och en användbar kapacitet på 80 TB. Du kan överföra upp till 80 TB data med Data Box. Om du vill överföra en större datamängd måste du beställa fler enheter.
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>F. Hur kan jag kontrollera om Data Box är tillgänglig i min region? 
-A.  Om du vill ha mer information om vilka länder/regioner som Data Box-enhet är tillgängliga går du till [region tillgänglighet](data-box-overview.md#region-availability).  
+A.  Information om vilka länder/regioner datarutan är tillgänglig finns i [regionens tillgänglighet](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>F. I vilka regioner kan jag lagra data med Data Box?
-A. Data Box-enhet stöds för alla regioner i USA, västra Europa, norra Europa, Frankrike, Storbritannien, Japan, Australien och Kanada. Mer information finns i [Regional tillgänglighet](data-box-overview.md#region-availability).
+A. Data Box stöds för alla regioner inom USA, Västeuropa, Norra Europa, Frankrike, Storbritannien, Japan, Australien och Kanada. Mer information finns i [Regional tillgänglighet](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>F. Vem kontaktar jag om jag får problem med Data Box?
 A. Om du får problem med Data Box [kontaktar du Microsoft Support](data-box-disk-contact-microsoft-support.md).
@@ -101,7 +101,7 @@ A.  Du kan bara avbryta en Data Box-beställning innan ordern har bearbetats. N�
 A. Ja. Flera värddatorer kan ansluta till Data Box för att överföra data, och flera kopieringsjobb kan köras parallellt. Mer information finns i [Självstudie: Kopiera data till Azure Data Box](data-box-deploy-copy-data.md).
 
 ### <a name="q-can-i-connect-to-both-the-10-gbe-interfaces-on-the-data-box-to-transfer-data"></a>F. Kan jag ansluta till båda 10 GbE-gränssnitten i Data Box för att överföra data?
-A. Ja. Båda 10 GbE-gränssnitten kan anslutas i Data Box för samtidig datakopiering. Mer information om hur du kopierar data finns i [Självstudier: kopiera data till Azure Data Box](data-box-deploy-copy-data.md).
+A. Ja. Båda 10 GbE-gränssnitten kan anslutas i Data Box för samtidig datakopiering. Mer information om hur du kopierar data finns i [Självstudiekurs: Kopiera data till Azure Data Box](data-box-deploy-copy-data.md).
 
 <!--### Q. The network interface on my Data Box is not working. What should I do? 
 A. 
@@ -115,8 +115,8 @@ A.
 ### Q. I could not set up Data Box on a private network. Why would this be?
 A.-->
 
-### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>F. Indikatorn för systemfel lyser på framsidan av datorn. Vad gör jag?
-A. Om indikatorn för systemfel lyser betyder det att datorn inte är felfri. [Kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) om du vill ha hjälp.
+### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>F. Indikatorn för systemfel lyser på framsidan av datorn. Vad ska jag göra?
+A. Om indikatorn för systemfel lyser betyder det att datorn inte är felfri. [Kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) för nästa steg.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>F. Jag kan inte komma åt Data Box-upplåsningslösenordet på Azure-portalen. Vad kan det bero på?
 A. Om du inte kan komma åt upplåsningslösenordet på Azure-portalen kontrollerar du behörigheterna för din prenumeration och ditt lagringskonto. Kontrollera att du har behörighet som deltagare eller ägare på resursgruppsnivå. Om inte behöver du minst ha rollbehörigheten som Data Box-operator för att kunna se autentiseringsuppgifterna.
@@ -141,7 +141,7 @@ A. Du kan gå till din Data Box-beställning på Azure-portalen och sedan till *
 A.  Data Box har en användbar lagringskapacitet på 80 TB. Du kan använda en enskild Data Box-enhet för datastorlekar från 40 TB till 80 TB. För större datastorlekar på upp till 500 TB kan du beställa flera Data Box-enheter. För datastorlekar över 500 TB registrerar du dig för Data Box Heavy.  
 
 ### <a name="q-what-are-the-maximum-block-blob-and-page-blob-sizes-supported-by-data-box"></a>F. Vilken är den största blockblob- och sidblobstorleken som stöds av Data Box? 
-A.  De maximala storlekarna regleras av begränsningarna för Azure Storage. Den maximala blockbloben är ungefär 4,768 TiB och den maximala sidblobstorleken är 8 TiB. Mer information finns i [skalbarhets-och prestanda mål för Blob Storage](../storage/blobs/scalability-targets.md).
+A.  De maximala storlekarna regleras av begränsningarna för Azure Storage. Den maximala blockbloben är ungefär 4,768 TiB och den maximala sidblobstorleken är 8 TiB. Mer information finns i [Skalbarhets- och prestandamål för Blob-lagring](../storage/blobs/scalability-targets.md).
 
 ### <a name="q-how-do-i-know-that-my-data-is-secure-during-transit"></a>F. Hur vet jag att mina data är säkra under överföringen? 
 A. Flera säkerhetsfunktioner har implementerats för att säkerställa att din Data Box är säker under överföringen. Några exempel är säkra förslutningar, identifiering av maskin- och programvarumanipulering, lösenord för upplåsning av enheten. Mer information finns i [Säkerhet och dataskydd i Azure Data Box](data-box-security.md).
@@ -159,7 +159,7 @@ A.  Påskynda kopieringsprocessen:
 - Använd flera dataströmmar. Med till exempel Robocopy kan du använda flertrådsalternativet. Mer information om de exakta kommandon som används finns i [Självstudie: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md).
 - Använda flera sessioner.
 - Kontrollera att dina data finns lokalt på datorn som Data Box är ansluten till, i stället för att kopiera via nätverk (där du kan begränsas av nätverkshastigheterna).
-- Analysera prestanda för den dator som används för att kopiera data. Ladda ned och använd [Bluestop FIO-verktyget](https://ci.appveyor.com/project/axboe/fio) för att analysera servermaskinvarans prestanda. Välj den senaste x86-eller x64-versionen, Välj fliken **artefakter** och ladda ned MSI.
+- Analysera prestanda för den dator som används för att kopiera data. Ladda ned och använd [Bluestop FIO-verktyget](https://ci.appveyor.com/project/axboe/fio) för att analysera servermaskinvarans prestanda. Välj den senaste x86- eller x64-versionen, välj fliken **Artefakter** och hämta MSI.
 
 <!--### Q. How to speed up the data copy if the source data has small files (KBs or few MBs)?
 A.  To speed up the copy process:
@@ -177,30 +177,30 @@ A.  Ja. Högst tio lagringskonton, GA-version (generell användning), klassisk e
 
 <!--### Q. How do I schedule a pickup for my Data Box?--> 
 
-### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>F. Min enhet har levererats men enheten verkar vara skadad. Vad gör jag?
+### <a name="q-my-device-was-delivered-but-the-device-seems-to-be-damaged-what-should-i-do"></a>F. Min enhet har levererats men enheten verkar vara skadad. Vad ska jag göra?
 A. Om enheten är skadad eller om det finns tecken på att den har manipulerats ska du inte använda enheten. [Kontakta Microsoft Support](data-box-disk-contact-microsoft-support.md) och returnera enheten så snart som möjligt. Du kan också skapa en ny Data Box-beställning för en ersättningsenhet. I så fall debiteras du inte för ersättningsenheten.
 
-### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>F. Kan jag hämta min Data Box-enhet beställningen själv? Kan jag returnera Data Box-enhet via en operatör som jag väljer?
-A. Ja. Microsoft erbjuder även självhanterad leverans i US Gov region. När du placerar Data Box-enhets ordningen kan du välja alternativ för själv hantering av leverans. Utför följande steg för att hämta din Data Box-enhet-enhet:
+### <a name="q-can-i-pick-up-my-data-box-order-myself-can-i-return-the-data-box-via-a-carrier-that-i-choose"></a>F. Kan jag hämta min Data Box-beställning själv? Kan jag returnera datarutan via en operatör som jag väljer?
+A. Ja. Microsoft erbjuder också självhanterad frakt endast i USA Gov-regionen. När du gör databoxen kan du välja självhanterad leveransalternativ. Så här hämtar du databoxenheten:
     
-1. När du har placerat ordern bearbetas ordern och Data Box-enhet är för beredd. Du kommer att meddelas via ett e-postmeddelande om att din beställning är klar för hämtning. 
-2. När ordern är klar för hämtning går du till din beställning i Azure Portal och navigerar till **översikts** bladet. 
-3. Ett meddelande visas med en kod i Azure Portal. E-posta [Azure Data boxs drifts teamet](mailto:adbops@microsoft.com) och ange koden. Teamet tillhandahåller platsen och schemalägger hämtnings datum och-tid. Du måste ringa teamet inom fem arbets dagar efter att du fått e-postaviseringen.
+1. När du har gjort beställningen behandlas beställningen och datarutan förbereds. Du kommer att meddelas via ett e-postmeddelande att din beställning är klar för upphämtning. 
+2. När beställningen är klar för upphämtning går du till din beställning i Azure-portalen och navigerar till **bladet Översikt.** 
+3. Du kommer att se ett meddelande med en kod i Azure-portalen. Skicka [azure data box operations-teamet](mailto:adbops@microsoft.com) via e-post och ge dem koden. Teamet kommer att tillhandahålla platsen och schemalägga ett upphämtningsdatum och en upphämtningstid. Du måste ringa teamet inom 5 arbetsdagar efter att du fått e-postmeddelandet.
 
-När data kopieringen är klar utför du följande steg för att returnera enheten:
+När datakopian är klar gör du följande för att returnera enheten:
 
-1. Kör **Förbered för att skicka**när data kopieringen har slutförts utan fel. När förberedelsen är klar får du en kod i enhetens lokala webb gränssnitt. Kopiera och spara koden.
-2. Stäng av enheten och ta bort anslutande kablar.
+1. När datakopian är klar utan fel kör du **Förbered för att leverera**. När förberedelsen är klar får du en kod i enhetens lokala webbgränssnitt. Kopiera och spara koden.
+2. Stäng av enheten och ta bort anslutningskablarna.
 3. Rulla upp strömkabeln som levererades med enheten och placera kabeln säkert på baksidan av enheten.
-4. E-posta [Azure Data boxs drifts teamet](mailto:adbops@microsoft.com) och ange koden som du sparade tidigare. De ger dig information om var och när du ska ta bort enheten.
+4. Skicka e-post till [Azure Data Box Operations-teamet](mailto:adbops@microsoft.com) och ge dem koden som du sparade tidigare. De skulle ge dig information om var och när du ska släppa av enheten.
 
-### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>F. Kommer mina Data Box-enhet enheter att korsa lands gränser under leverans?
-A. Alla Data Box-enhet enheter levereras inifrån samma land som deras destination och kommer inte att korsa några internationella gränser. Det enda undantaget är för beställningar i Europeiska unionen (EU), där enheterna kan leverera till och från ett EU-land. Detta gäller både för Data Box-enhet och Data Box Heavy enheterna.
+### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>F. Kommer mina Data Box-enheter att korsa landsgränserna under leveransen?
+A. Alla Data Box-enheter levereras inifrån samma land som destinationen och kommer inte att passera några internationella gränser. Det enda undantaget är order i Europeiska unionen (EU), där anordningar kan levereras till och från vilket EU-land som helst. Detta gäller både Data Box och Data Box Heavy-enheterna.
 
-### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>F. Jag har beställt en Data Box-enhet i östra USA, men jag har fått en enhet som levererades från en plats i västra USA. Var ska jag återställa enheten?
-A. Vi försöker få en Data Box-enhet enhet så fort som möjligt. Vi prioriterar leveransen från ett Data Center som är närmast din lagrings konto plats, men kommer att leverera en enhet från alla Azure-datacenter som har tillgängligt lager. Din Data Box-enhet ska returneras till samma plats som den levererades från som visas i leverans etiketten.
+### <a name="q-i-ordered-a-data-box-in-us-east-but-i-received-a-device-that-was-shipped-from-a-location-in-us-west-where-should-i-return-the-device-to"></a>F. Jag beställde en Data Box i USA East men jag fick en enhet som levererades från en plats i US West. Var ska jag returnera enheten till?
+A. Vi försöker få en Data Box-enhet så fort som möjligt till dig. Vi prioriterar leveransen från ett datacenter närmast din lagringskontoplats men skickar en enhet från alla Azure-datacenter som har tillgängligt lager. Databoxen ska returneras till samma plats där den levererades från som visas i fraktetiketten.
 
-### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>F. Returadressetiketten visas inte på e-bläckskärmen. Vad gör jag?
+### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>F. Returadressetiketten visas inte på e-bläckskärmen. Vad ska jag göra?
 A. Om returadressetiketten inte visas på e-bläckskärmen följer du dessa steg:
 - Ta bort den gamla adressetiketten och eventuella klistermärken från den tidigare leveransen.
 - Gå till din beställning på Azure-portalen. Gå till **Översikt** och **Ladda ned adressetikett**. Mer information finns i [Ladda ned adressetikett](data-box-portal-admin.md#download-shipping-label).
@@ -222,7 +222,7 @@ A. Om enheten inte startar går du till din beställning i Azure-portalen. Ladda
 ## <a name="verify-and-upload"></a>Verifiera och ladda upp
 
 ### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-data-box-back"></a>F. Hur snart kommer jag åt mina data i Azure när jag har skickat tillbaka Data Box? 
-A.  När orderstatusen för **datakopieringen** visas som **Slutförd** bör du komma åt dina data direkt.
+A.  När orderstatusen för **datakopiering** visas som **slutförd**bör du kunna komma åt dina data direkt.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>F. Var i Azure finns mina data efter uppladdningen?
 A.  När du kopierar data till Data Box laddas de upp till någon av följande sökvägar i ditt Azure Storage-konto, beroende på om det rör sig om en blockblob, sidblob eller Azure-filer.

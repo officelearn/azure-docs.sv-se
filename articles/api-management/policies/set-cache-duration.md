@@ -1,7 +1,7 @@
 ---
-title: Exempel-API Management-princip – ange varaktighet för svars-cache
+title: Exempel på API-hanteringsprincip - Ange varaktighet för svarscachen
 titleSuffix: Azure API Management
-description: Exempel på Azure API Management policy-visar hur du ställer in varaktigheten för svars-cachen med maxAge-värdet i Cache-Control-huvudet som skickas av Server delen.
+description: Exempel på Azure API-hanteringsprincip - Visar hur du anger svarscachevaraktighet med maxAge-värdet i cachekontrollhuvudet som skickas av serverda..
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
 ms.openlocfilehash: 3101c5695272e8fa6b577ad313897cbc1fa29629
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75442401"
 ---
-# <a name="set-response-cache-duration"></a>Ange varaktighet för svars-cache
+# <a name="set-response-cache-duration"></a>Ange varaktighet för svarscache
 
-Den här artikeln visar ett exempel på en Azure API Management-princip som visar hur du anger varaktighet för svars-cachen med maxAge-värdet i Cache-Control-huvudet som skickas av Server delen. Om du vill ange eller redigera en princip kod följer du stegen som beskrivs i [Ange eller redigera en princip](../set-edit-policies.md). Fler exempel finns i [princip exempel](../policy-samples.md).
+Den här artikeln visar ett exempel på Azure API-hanteringsprincip som visar hur du anger svarscachevaraktighet med maxAge-värdet i cachekontrollhuvudet som skickas av serverda. Om du vill ange eller redigera en principkod följer du stegen som beskrivs i [Ange eller redigerar en princip](../set-edit-policies.md). Mer om du vill se andra exempel finns i [principexempel](../policy-samples.md).
 
 ## <a name="policy"></a>Princip
 
@@ -35,5 +35,5 @@ Klistra in koden i det **inkommande** blocket.
 Läs mer om APIM-principer:
 
 + [Omvandlingsprinciper](../api-management-transformation-policies.md)
-+ [Princip exempel](../policy-samples.md)
++ [Policyexempel](../policy-samples.md)
 

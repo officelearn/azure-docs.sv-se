@@ -1,21 +1,21 @@
 ---
-title: Hantera signerade avbildningar
-description: Lär dig hur du aktiverar innehålls förtroende för Azure Container Registry och push-och pull-signerade avbildningar.
+title: Hantera signerade bilder
+description: Lär dig hur du aktiverar innehållsförtroende för ditt Azure-behållarregister och pushar och hämtar signerade avbildningar.
 ms.topic: article
 ms.date: 09/06/2019
 ms.openlocfilehash: ce1e9e5cce0de58703e69df8db14cfbf3ecf04f3
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78249928"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Innehållsförtroende i Azure Container Registry
 
-Azure Container Registry implementerar Docker-modellen för [innehålls förtroende][docker-content-trust] , vilket möjliggör push-överföring och hämtning av signerade avbildningar. Den här artikeln hjälper dig att komma igång med att aktivera innehålls förtroende i dina behållar register.
+Azure Container Registry implementerar Dockers [innehållsförtroendemodell,][docker-content-trust] vilket möjliggör dragning och dragning av signerade avbildningar. I den här artikeln börjar du aktivera innehållsförtroende i behållarregister.
 
 > [!NOTE]
-> Content Trust är en funktion i [Premium-SKU: n](container-registry-skus.md) för Azure Container Registry.
+> Innehållsförtroende är en funktion i [Premium SKU](container-registry-skus.md) i Azure Container Registry.
 
 ## <a name="how-content-trust-works"></a>Så fungerar innehållsförtroende
 
@@ -29,16 +29,16 @@ Innehållsförtroende fungerar med **taggarna** i en lagringsplats. Lagringsplat
 
 ### <a name="signing-keys"></a>Signeringsnycklar
 
-Innehållsförtroende hanteras genom användning av en uppsättning kryptografiska signeringsnycklar. De här nycklarna är associerade med en specifik lagringsplats i ett register. Det finns flera typer av signeringsnycklar som Docker-klienter och ditt register använder vid hantering av förtroende för taggarna i en databas. När du aktiverar innehållsförtroende och integrerar det i din containerpublicerings- och förbrukningspipeline måste du hantera de här nycklarna noggrant. Mer information finns i [nyckel hantering](#key-management) senare i den här artikeln och [Hantera nycklar för innehålls förtroende][docker-manage-keys] i Docker-dokumentationen.
+Innehållsförtroende hanteras genom användning av en uppsättning kryptografiska signeringsnycklar. De här nycklarna är associerade med en specifik lagringsplats i ett register. Det finns flera typer av signeringsnycklar som Docker-klienter och ditt register använder vid hantering av förtroende för taggarna i en databas. När du aktiverar innehållsförtroende och integrerar det i din containerpublicerings- och förbrukningspipeline måste du hantera de här nycklarna noggrant. Mer information finns i [Nyckelhantering](#key-management) senare i den här artikeln och [Hantera nycklar för innehållsförtroende][docker-manage-keys] i Docker-dokumentationen.
 
 > [!TIP]
-> Detta var en mycket allmän översikt över Dockers modell för innehållsförtroende. En detaljerad beskrivning av innehålls förtroendet finns i [innehålls förtroende i Docker][docker-content-trust].
+> Detta var en mycket allmän översikt över Dockers modell för innehållsförtroende. En detaljerad beskrivning av innehållsförtroende finns i [Innehållsförtroende i Docker][docker-content-trust].
 
 ## <a name="enable-registry-content-trust"></a>Aktivera innehållsförtroende för register
 
 Första steget är att aktivera innehållsförtroende på registernivån. När du har aktiverat innehållsförtroende kan klienter (användare eller tjänster) överföra signerade avbildningar till ditt register. Aktivering av innehållsförtroende i ditt register begränsar inte registeranvändning till endast konsumenter med innehållsförtroende aktiverat. Konsumenter utan innehållsförtroende aktiverat kan fortsätta att använda ditt register som vanligt. Konsumenter som har aktiverat innehållsförtroende i sina klienter kan dock *endast* se signerade avbildningar i ditt register.
 
-Om du vill aktivera innehållsförtroende för ditt register navigerar du först till registret i Azure-portalen. Under **principer**väljer du **innehåll förtroende** > **aktiverat** > **Spara**. Du kan också använda kommandot [AZ ACR config Content-Trust Update][az-acr-config-content-trust-update] i Azure CLI.
+Om du vill aktivera innehållsförtroende för ditt register navigerar du först till registret i Azure-portalen. Under **Principer**väljer du Spara**innehållsförtroende** >  **Content Trust** > **.** Du kan också använda kommandot [az acr config content-trust update][az-acr-config-content-trust-update] i Azure CLI.
 
 ![Aktivera innehållsförtroende för ett register i Azure-portalen][content-trust-01-portal]
 
@@ -69,16 +69,16 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 
 ## <a name="grant-image-signing-permissions"></a>Bevilja behörigheter för signering av avbildningar
 
-Endast de användare eller system som du har beviljat behörighet kan skicka betrodda avbildningar till registret. Om du vill ge användare behörighet att skicka betrodda avbildningar (eller ett system som använder ett tjänsthuvudnamn) ger du deras Azure Active Directory-identiteter rollen `AcrImageSigner`. Detta är utöver den `AcrPush` (eller motsvarande) roll som krävs för att överföra avbildningar till registret. Mer information finns i [Azure Container Registry roller och behörigheter](container-registry-roles.md).
+Endast de användare eller system som du har beviljat behörighet kan skicka betrodda avbildningar till registret. Om du vill ge användare behörighet att skicka betrodda avbildningar (eller ett system som använder ett tjänsthuvudnamn) ger du deras Azure Active Directory-identiteter rollen `AcrImageSigner`. Detta är utöver `AcrPush` den (eller motsvarande) roll som krävs för att driva bilder till registret. Mer information finns i [Azure Container Registry roller och behörigheter](container-registry-roles.md).
 
 > [!NOTE]
-> Du kan inte bevilja en betrodd avbildnings-push-behörighet till [Administratörs kontot](container-registry-authentication.md#admin-account) för ett Azure Container Registry.
+> Du kan inte bevilja åtkomstbehörighet för betrodd avbildning till [administratörskontot](container-registry-authentication.md#admin-account) för ett Azure-behållarregister.
 
 Information om att bevilja rollen `AcrImageSigner` i Azure-portalen och Azure CLI följer nedan.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Gå till ditt register i Azure-portalen och välj sedan **Åtkomstkontroll (IAM)**  > **Lägg till rolltilldelning**. Under **Lägg till rolltilldelning** väljer du `AcrImageSigner` under **Roll**. **Välj** sedan en eller flera användare eller tjänsthuvudnamn och **Spara** därefter.
+Navigera till registret i Azure-portalen och välj sedan **Åtkomstkontroll (IAM)** > **Lägg till rolltilldelning**. Under **Lägg till rolltilldelning** väljer du `AcrImageSigner` under **Roll**. **Välj** sedan en eller flera användare eller tjänsthuvudnamn och **Spara** därefter.
 
 I det här exemplet har två entiteter tilldelats rollen `AcrImageSigner`: ett tjänsthuvudnamn med namnet ”service-principal” och en användare med namnet ”Azure User”.
 
@@ -114,7 +114,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 `<service principal ID>` kan vara tjänsthuvudnamnets **appId**, **objectId**, eller något av dess **servicePrincipalNames**. Mer information om hur du arbetar med tjänsthuvudnamn och Azure Container Registry finns i avsnittet om [Azure Container Registry-autentisering med tjänsthuvudnamn](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> När rollerna har ändrats kör `az acr login` för att uppdatera den lokala identitets-token för Azure CLI så att de nya rollerna kan börja gälla. Information om hur du verifierar roller för en identitet finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md) och [Felsöka RBAC för Azure-resurser](../role-based-access-control/troubleshooting.md).
+> När en roll `az acr login` har ändrats körs du för att uppdatera den lokala identitetstoken för Azure CLI så att de nya rollerna kan börja gälla. Information om hur du verifierar roller för en identitet finns i [Hantera åtkomst till Azure-resurser med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md) och [Felsöka RBAC för Azure-resurser](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Överföra en betrodd avbildning
 
@@ -144,7 +144,7 @@ Efter din första `docker push` med innehållsförtroende aktiverat använder Do
 
 ## <a name="pull-a-trusted-image"></a>Hämta en betrodd avbildning
 
-För att hämta en betrodd avbildning aktiverar du innehållsförtroende och kör kommandot `docker pull` som vanligt. För att hämta betrodda avbildningar räcker `AcrPull` rollen för normala användare. Inga ytterligare roller som en `AcrImageSigner` roll krävs. Konsumenter med innehållsförtroende aktiverat kan endast hämta avbildningar med signerade taggar. Här är ett exempel på att hämta en signerad tagg:
+För att hämta en betrodd avbildning aktiverar du innehållsförtroende och kör kommandot `docker pull` som vanligt. För att hämta `AcrPull` betrodda bilder är rollen tillräckligt för vanliga användare. Inga ytterligare roller `AcrImageSigner` som en roll krävs. Konsumenter med innehållsförtroende aktiverat kan endast hämta avbildningar med signerade taggar. Här är ett exempel på att hämta en signerad tagg:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -165,7 +165,7 @@ No valid trust data for unsigned
 
 ### <a name="behind-the-scenes"></a>I bakgrunden
 
-När du kör `docker pull`använder Docker-klienten samma bibliotek som i [Notary CLI][docker-notary-cli] för att begära en Digest-mappning från tag till SHA-256 för taggen som du hämtar. Efter verifiering av signaturerna på förtroendedata instruerar klienten Docker-motorn att utföra en ”hämtning via hash”. Under hämtningen använder motorn SHA-256-kontrollsumman som en innehållsadress för att begära och verifiera avbildningsmanifestet från Azure-containerregistret.
+När du kör `docker pull` använder Docker-klienten samma bibliotek som i [Notary CLI][docker-notary-cli] för att begära tagg-till-SHA-256-hashmappningen för den tagg du hämtar. Efter verifiering av signaturerna på förtroendedata instruerar klienten Docker-motorn att utföra en ”hämtning via hash”. Under hämtningen använder motorn SHA-256-kontrollsumman som en innehållsadress för att begära och verifiera avbildningsmanifestet från Azure-containerregistret.
 
 ## <a name="key-management"></a>Nyckelhantering
 
@@ -175,13 +175,13 @@ Enligt `docker push`-utdata är rotnyckeln som mest känslig när du överför d
 ~/.docker/trust/private
 ```
 
-Säkerhetskopiera dina rot-och lagrings nycklar genom att komprimera dem i ett arkiv och lagra dem på en säker plats. Till exempel i Bash:
+Säkerhetskopiera rot- och databasnycklarna genom att komprimera dem i ett arkiv och lagra dem på en säker plats. Till exempel i Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
 ```
 
-Utöver de lokalt genererade rot- och lagringsplatsnycklarna genereras och lagras flera andra av Azure Container Registry när du överför en betrodd avbildning. En detaljerad beskrivning av de olika nycklarna i Docker: s innehålls förtroende implementering, inklusive ytterligare hanterings vägledning finns i [Hantera nycklar för innehålls förtroende][docker-manage-keys] i Docker-dokumentationen.
+Utöver de lokalt genererade rot- och lagringsplatsnycklarna genereras och lagras flera andra av Azure Container Registry när du överför en betrodd avbildning. En detaljerad beskrivning av olika nycklar i Dockers implementering av innehållsförtroende, inklusive ytterligare vägledning för hantering, finns i [Hantera nycklar för innehållsförtroende][docker-manage-keys] i Docker-dokumentationen.
 
 ### <a name="lost-root-key"></a>Förlorad rotnyckel
 
@@ -190,15 +190,15 @@ Om du förlorar åtkomst till din rotnyckel förlorar du åtkomsten till de sign
 > [!WARNING]
 > Om du inaktiverar och återaktiverar innehållsförtroende i registret **tas alla förtroendedata bort för alla signerade taggar i alla lagringsplats i registret**. Den här åtgärden går inte att ångra – Azure Container Registry kan inte återställa borttagna förtroendedata. Inaktivering av innehållsförtroende tar inte bort själva avbildningarna.
 
-Om du vill inaktivera innehållsförtroende för ditt register navigerar du till registret i Azure-portalen. Under **principer**väljer du **innehålls förtroende** > **inaktiverat** > **Spara**. Du får en varning om förlust av alla signaturer i registret. Välj **OK** om du vill ta bort alla signaturer i registret permanent.
+Om du vill inaktivera innehållsförtroende för ditt register navigerar du till registret i Azure-portalen. Under **Principer**väljer du Spara spara**Save** > **innehållsförtroende** > . **Content Trust** Du får en varning om förlust av alla signaturer i registret. Välj **OK** om du vill ta bort alla signaturer i registret permanent.
 
 ![Inaktivera innehållsförtroende för ett register i Azure-portalen][content-trust-03-portal]
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [innehålls förtroende i Docker][docker-content-trust] för mer information om förtroende för innehåll. Den här artikeln berör flera viktiga punkter, men innehållsförtroende är ett omfattande ämne och beskrivs mer ingående i Docker-dokumentationen.
+* Se [Innehållsförtroende i Docker][docker-content-trust] för ytterligare information om innehållsförtroende. Den här artikeln berör flera viktiga punkter, men innehållsförtroende är ett omfattande ämne och beskrivs mer ingående i Docker-dokumentationen.
 
-* I dokumentationen för [Azure-pipelinen](/azure/devops/pipelines/build/content-trust) finns ett exempel på hur du använder innehålls förtroende när du skapar och push-överför en Docker-avbildning.
+* Se [Azure Pipelines-dokumentationen](/azure/devops/pipelines/build/content-trust) för ett exempel på att använda innehållsförtroende när du skapar och skickar en Docker-avbildning.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

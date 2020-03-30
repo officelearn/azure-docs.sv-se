@@ -5,31 +5,31 @@ author: ecfan
 ms.author: estfan
 ms.date: 11/03/2016
 ms.openlocfilehash: 951ab2300aa4ffed2c5f1039ff993cd7f6af543f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74789687"
 ---
 ## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto; Du kan skapa ett [kostnads fritt konto](https://azure.microsoft.com/free)
-* Ett [OneDrive](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) -konto 
+* Ett Azure-konto; du kan skapa ett [gratis konto](https://azure.microsoft.com/free)
+* Ett [OneDrive-konto](https://www.microsoft.com/store/apps/onedrive/9wzdncrfj1p3) 
 
-Innan du kan använda ditt OneDrive-konto i en Logic-app ska du godkänna att Logic-appen ansluter till ditt OneDrive-konto.  Du kan enkelt göra detta i din Logic-app på Azure Portal. 
+Innan du kan använda ditt OneDrive-konto i en logikapp godkänner du att logikappen ansluter till ditt OneDrive-konto.  Du kan enkelt göra detta i logikappen på Azure-portalen. 
 
-Auktorisera din Logic app för att ansluta till ditt OneDrive-konto med följande steg:
+Auktorisera logikappen för att ansluta till ditt OneDrive-konto med följande steg:
 
-1. Skapa en Logic-app. I Logic Apps designer väljer du **Visa Microsoft-hanterade API: er** i list rutan och anger sedan "OneDrive" i sökrutan. Välj en av utlösarna eller åtgärderna:  
+1. Skapa en logikapp. I Logic Apps-designern väljer du **Visa Microsoft-hanterade API:er** i listrutan och anger sedan "onedrive" i sökrutan. Välj en av utlösarna eller åtgärderna:  
    ![](./media/connectors-create-api-onedrive/onedrive-1.png)
-2. Om du inte redan har skapat några anslutningar till OneDrive uppmanas du att logga in med dina OneDrive-autentiseringsuppgifter:  
+2. Om du inte tidigare har skapat några anslutningar till OneDrive uppmanas du att logga in med dina OneDrive-autentiseringsuppgifter:  
    ![](./media/connectors-create-api-onedrive/onedrive-2.png)
-3. Välj **Logga**in och ange ditt användar namn och lösen ord. Välj **Logga**in:  
+3. Välj **Logga in**och ange ditt användarnamn och lösenord. Välj **Logga in:**  
    ![](./media/connectors-create-api-onedrive/onedrive-3.png)   
    
-    Dessa autentiseringsuppgifter används för att auktorisera din Logic app att ansluta till och komma åt data i ditt OneDrive-konto. 
-4. Välj **Ja** för att godkänna att Logic-appen använder ditt OneDrive-konto:  
+    Dessa autentiseringsuppgifter används för att auktorisera din logikapp att ansluta till och komma åt data i ditt OneDrive-konto. 
+4. Välj **Ja** om du vill auktorisera logikappen för att använda ditt OneDrive-konto:  
    ![](./media/connectors-create-api-onedrive/onedrive-4.png)   
-5. Observera att anslutningen har skapats. Fortsätt nu med de andra stegen i din Logic app:  
+5. Observera att anslutningen har skapats. Fortsätt nu med de andra stegen i logikappen:  
    ![](./media/connectors-create-api-onedrive/onedrive-5.png)
 

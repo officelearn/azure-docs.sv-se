@@ -1,6 +1,6 @@
 ---
-title: Reagerar på Azure Media Services händelser | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Azure Event Grid för att prenumerera på Media Services händelser.
+title: Reagera på Azure Media Services-händelser | Microsoft-dokument
+description: I den här artikeln beskrivs hur du använder Azure Event Grid för att prenumerera på Media Services-händelser.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,37 +12,37 @@ ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
 ms.openlocfilehash: e24bacb0ea7ab406442022915872fc77e9cc1a5e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74887892"
 ---
 # <a name="handling-event-grid-events"></a>Hantera Event Grid-händelser
 
-Media Services händelser gör att program kan reagera på olika händelser (till exempel händelsen jobb status ändring) med hjälp av moderna Server lösa arkitekturer. Det gör det utan att det behövs komplicerade kod eller dyra och ineffektiva avsöknings tjänster. I stället skickas händelser via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till händelse hanterare som [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)eller till och med din egen webhook och du betalar bara för det du använder. Information om priser finns i [Event Grid priser](https://azure.microsoft.com/pricing/details/event-grid/).
+Media Services-händelser gör det möjligt för program att reagera på olika händelser (till exempel händelsen för ändring av jobbtillstånd) med hjälp av moderna serverlösa arkitekturer. Det gör den utan behov av komplicerad kod eller dyra och ineffektiva valtjänster. I stället trycks händelser via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) till händelsehanterare som Azure [Functions,](https://azure.microsoft.com/services/functions/) [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)eller till och med till din egen Webhook, och du betalar bara för det du använder. Information om priser finns i [Prissättning för Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
 
-Tillgänglighet för Media Services händelser är knutna till Event Grid [tillgänglighet](../../event-grid/overview.md) och blir tillgängliga i andra regioner som Event Grid gör.  
+Tillgänglighet för Media Services-händelser är knuten till [event grid-tillgänglighet](../../event-grid/overview.md) och blir tillgänglig i andra regioner som Event Grid gör.  
 
-## <a name="media-services-events-and-schemas"></a>Media Services händelser och scheman
+## <a name="media-services-events-and-schemas"></a>Evenemang och scheman för Media Services
 
-Event Grid använder [händelse prenumerationer](../../event-grid/concepts.md#event-subscriptions) för att dirigera händelse meddelanden till prenumeranter. Media Services händelser innehåller all information du behöver för att svara på ändringar i dina data. Du kan identifiera en Media Services-händelse eftersom egenskapen eventType börjar med "Microsoft. Media.".
+Event grid använder [händelseprenumerationer](../../event-grid/concepts.md#event-subscriptions) för att dirigera händelsemeddelanden till prenumeranter. Media Services-händelser innehåller all information du behöver för att svara på ändringar i dina data. Du kan identifiera en Media Services-händelse eftersom eventType-egenskapen börjar med "Microsoft.Media".
 
-Mer information finns i [Media Services händelse scheman](media-services-event-schemas.md).
+Mer information finns i [Media Services-händelsescheman](media-services-event-schemas.md).
 
 ## <a name="practices-for-consuming-events"></a>Metoder för att konsumera händelser
 
-Program som hanterar Media Services händelser bör följa några rekommenderade metoder:
+Program som hanterar Media Services-händelser bör följa några rekommenderade metoder:
 
-* Eftersom flera prenumerationer kan konfigureras för att dirigera händelser till samma händelse hanterare, är det viktigt att inte anta att händelser kommer från en viss källa, men för att kontrol lera ämnet i meddelandet för att säkerställa att det kommer från det lagrings konto som du förväntar dig.
-* På samma sätt kan du kontrol lera att eventType är att du är för beredd att bearbeta och inte förutsätter att alla händelser som du tar emot är de typer som du förväntar dig.
-* Ignorera fält som du inte förstår.  Den här övningen hjälper dig att hålla dig flexibel till nya funktioner som kan läggas till i framtiden.
-* Använd prefixet "subject" och suffixet matchar för att begränsa händelser till en viss händelse.
+* Eftersom flera prenumerationer kan konfigureras för att dirigera händelser till samma händelsehanterare är det viktigt att inte anta att händelser kommer från en viss källa, utan för att kontrollera ämnet för meddelandet för att säkerställa att det kommer från det lagringskonto du förväntar dig.
+* På samma sätt kontrollerar du att eventType är en som du är beredd att bearbeta och förutsätter inte att alla händelser du får kommer att vara de typer du förväntar dig.
+* Ignorera fält som du inte förstår.  Den här metoden hjälper dig att hålla dig motståndskraftig mot nya funktioner som kan läggas till i framtiden.
+* Använd prefixet "subject" och suffixmatchningar för att begränsa händelser till en viss händelse.
 
 > [!NOTE]
-> Händelser omfattas Event Grid [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Om du vill hämta händelse meddelanden med hjälp av API: er, se exempel på hur du använder händelser, med [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) eller [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
+> Händelser omfattas av servicenivåavtalet för händelsenät [(SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/). Om du vill få händelseaviseringar med API:er kan du se exempel på hur du använder händelser med [.NET SDK](https://github.com/Azure-Samples/media-services-v3-dotnet) eller [Java SDK](https://github.com/Azure-Samples/media-services-v3-java).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Övervaka händelser – Portal](monitor-events-portal-how-to.md)
+* [Övervaka händelser - portal](monitor-events-portal-how-to.md)
 * [Övervaka händelser – CLI](job-state-events-cli-how-to.md)

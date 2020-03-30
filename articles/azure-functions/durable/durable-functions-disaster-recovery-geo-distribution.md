@@ -1,86 +1,86 @@
 ---
-title: Haveri beredskap och geo-distribution av Azure Durable Functions
-description: Lär dig mer om haveri beredskap och geo-distribution i Durable Functions.
+title: Katastrofåterställning och geodistribution av Azure Durable Functions
+description: Lär dig mer om haveriberedskap och geodistribution i varaktiga funktioner.
 author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433338"
 ---
-# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Haveri beredskap och geo-distribution i Azure Durable Functions
+# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Haveriberedskap och geodistribution i Azure Durable Functions
 
-I Durable Functions sparas all status i Azure Storage. En [aktivitets hubb](durable-functions-task-hubs.md) är en logisk behållare för Azure Storage resurser som används för dirigering. Orchestrator-och aktivitets funktioner kan bara samverka med varandra när de tillhör samma aktivitets nav.
-De scenarier som beskrivs ger förslag på distributions alternativ för att öka tillgängligheten och minimera stillestånds tiden vid haveri beredskap.
+I varaktiga funktioner sparas alla tillstånd i Azure Storage. En [aktivitetsnav](durable-functions-task-hubs.md) är en logisk behållare för Azure Storage-resurser som används för orkestreringar. Orchestrator- och aktivitetsfunktioner kan bara interagera med varandra när de tillhör samma aktivitetsnav.
+De beskrivna scenarierna föreslår distributionsalternativ för att öka tillgängligheten och minimera driftstopp under haveriberedskapsaktiviteter.
 
-Det är viktigt att Observera att de här scenarierna baseras på aktiva passiva konfigurationer, eftersom de guidas av användningen av Azure Storage. Det här mönstret består av att distribuera en säkerhets kopiering (passiv) Function-app till en annan region. Traffic Manager övervakar den primära (aktiva) Function-appen för tillgänglighet. Appen växlar över till säkerhets kopierings funktionen om den primära Miss lyckas. Mer information finns i [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) [Priority-metoden för trafik-routning.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
+Det är viktigt att notera att dessa scenarier baseras på active-passive-konfigurationer, eftersom de styrs av användningen av Azure Storage. Det här mönstret består i att distribuera en backup -funktionsapp (passiv) till en annan region. Traffic Manager övervakar den primära (aktiva) funktionsappen för tillgänglighet. Det kommer att växla över till backup funktion app om den primära misslyckas. Mer information finns i [Traffic Manager's](https://azure.microsoft.com/services/traffic-manager/) [Priority Traffic-Routing Method.](../../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)
 
 >[!NOTE]
 >
-> - Den föreslagna aktiva passiva konfigurationen säkerställer att klienten alltid kan utlösa nya dirigeringar via HTTP. Till följd av att två Functions-appar delar samma lagring, distribueras bakgrunds bearbetningen mellan båda, och konkurrerar om meddelanden i samma köer. Den här konfigurationen medför ytterligare utgående kostnader för appen för sekundär funktion.
-> - Det underliggande lagrings kontot och aktivitets navet skapas i den primära regionen och delas av båda funktions apparna.
-> - Alla funktions program som är redundanta distribuerade måste dela samma funktions åtkomst nycklar om de ska aktive ras via HTTP. Functions-körningen exponerar ett [hanterings-API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) som gör det möjligt för användare att program mässigt lägga till, ta bort och uppdatera funktions nycklar.
+> - Den föreslagna active-passive-konfigurationen säkerställer att en klient alltid kan utlösa nya orkestreringar via HTTP. Men som en följd av att ha två funktionsappar som delar samma lagring, kommer bakgrundsbearbetning att distribueras mellan dem båda, som konkurrerar om meddelanden i samma köer. Den här konfigurationen medför extra utgående kostnader för den sekundära funktionsappen.
+> - Det underliggande lagringskontot och aktivitetshubben skapas i den primära regionen och delas av båda funktionsapparna.
+> - Alla funktionsappar som distribueras redundant måste dela samma funktionsåtkomstnycklar om de aktiveras via HTTP. Funktionskörningen visar ett [hanterings-API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API) som gör det möjligt för konsumenter att programmässigt lägga till, ta bort och uppdatera funktionsnycklar.
 
-## <a name="scenario-1---load-balanced-compute-with-shared-storage"></a>Scenario 1 – belastnings bal anse rad beräkning med delad lagring
+## <a name="scenario-1---load-balanced-compute-with-shared-storage"></a>Scenario 1 - Belastningsbalanserad beräkning med delad lagring
 
-Om beräknings infrastrukturen i Azure Miss lyckas kan Function-appen bli otillgänglig. I det här scenariot används två Function-appar som distribuerats till olika regioner för att minimera risken för sådana nedtid.
-Traffic Manager har kon figurer ATS för att identifiera problem i den primära Function-appen och automatiskt omdirigera trafik till Function-appen i den sekundära regionen. Den här funktions appen delar samma Azure Storage konto och aktivitets nav. Därför försvinner inte statusen för Function-apparna och arbetet kan återupptas normalt. När hälso tillståndet har återställts till den primära regionen börjar Azure Traffic Manager dirigera begär anden till den Function-appen automatiskt.
+Om beräkningsinfrastrukturen i Azure misslyckas kan funktionsappen bli otillgänglig. För att minimera risken för sådana driftstopp använder det här scenariot två funktionsappar som distribueras till olika regioner.
+Traffic Manager är konfigurerad för att identifiera problem i den primära funktionsappen och omdirigera automatiskt trafik till funktionsappen i den sekundära regionen. Den här funktionsappen delar samma Azure Storage-konto och Aktivitetshub. Därför går funktionsapparnas tillstånd inte förlorat och arbetet kan återupptas normalt. När hälsotillståndet har återställts till den primära regionen startar Azure Traffic Manager routningsbegäranden till den funktionsappen automatiskt.
 
 ![Diagram som visar scenario 1.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario01.png)
 
-Det finns flera fördelar med att använda det här distributions scenariot:
+Det finns flera fördelar när du använder det här distributionsscenariot:
 
-- Om beräknings infrastrukturen Miss lyckas kan arbetet återupptas i området redundansväxla utan tillstånds förlust.
-- Traffic Manager tar hand om automatisk redundans till appen för felfri funktion automatiskt.
-- Traffic Manager automatiskt återupprätta trafik till den primära Function-appen när avbrottet har åtgärd ATS.
+- Om beräkningsinfrastrukturen misslyckas kan arbetet återupptas i regionen överväxling utan tillståndsförlust.
+- Traffic Manager tar hand om den automatiska växla över till felfri funktion app automatiskt.
+- Traffic Manager återupprättar automatiskt trafiken till den primära funktionsappen efter att avbrottet har korrigerats.
 
-Men i det här scenariot bör du tänka på följande:
+Men med hjälp av det här scenariot överväga:
 
-- Om Function-appen distribueras med hjälp av en dedikerad App Service plan, ökar kostnaderna genom att replikera beräknings infrastrukturen i data centret för redundans.
-- Det här scenariot täcker avbrott i beräknings infrastrukturen, men lagrings kontot fortsätter att vara den enda felpunkten för Function-appen. Om det uppstår ett lagrings avbrott får programmet en nedtid.
-- Om Function-appen har redundansväxlats, ökar svars tiden eftersom den kommer åt sitt lagrings konto över flera regioner.
-- Åtkomst till lagrings tjänsten från en annan region där den befinner sig i högre kostnad på grund av utgående trafik i nätverket.
-- Det här scenariot är beroende av Traffic Manager. Med tanke på [hur Traffic Manager fungerar](../../traffic-manager/traffic-manager-how-it-works.md), kan det ta en stund innan ett klient program som förbrukar en varaktig funktion måste fråga igen appens adress från Traffic Manager.
+- Om funktionsappen distribueras med hjälp av en dedikerad App Service-plan ökar kostnaderna att replikera beräkningsinfrastrukturen i datacentret för felväxling.
+- Det här scenariot täcker avbrott vid beräkningsinfrastrukturen, men lagringskontot fortsätter att vara den enda felpunkten för funktionsappen. Om det finns ett lagringsstopp drabbas programmet av driftstopp.
+- Om funktionsappen har misslyckats över kommer det att finnas en ökad svarstid eftersom den kommer åt sitt lagringskonto i olika regioner.
+- Åtkomst till lagringstjänsten från en annan region där den finns medför högre kostnader på grund av nätverksutgående trafik.
+- Det här scenariot beror på Traffic Manager. Med tanke på [hur Traffic Manager fungerar](../../traffic-manager/traffic-manager-how-it-works.md)kan det dröja tills ett klientprogram som använder en varaktig funktion behöver fråga igen funktionsappadressen från Traffic Manager.
 
-## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>Scenario 2 – belastnings bal anse rad beräkning med regional lagring
+## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>Scenario 2 - Belastningsbalanserad beräkning med regional lagring
 
-Föregående scenario täcker bara händelse av ett haveri i beräknings infrastrukturen. Om lagrings tjänsten Miss lyckas resulterar det i ett avbrott i Function-appen.
-För att säkerställa kontinuerlig drift av de varaktiga funktionerna använder det här scenariot ett lokalt lagrings konto i varje region som funktions programmen distribueras till.
+Föregående scenario täcker endast fel i beräkningsinfrastrukturen. Om lagringstjänsten misslyckas resulterar det i ett avbrott i funktionsappen.
+För att säkerställa kontinuerlig drift av de varaktiga funktionerna använder det här scenariot ett lokalt lagringskonto för varje region som funktionsapparna distribueras till.
 
 ![Diagram som visar scenario 2.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario02.png)
 
-Den här metoden lägger till förbättringar i föregående scenario:
+Den här metoden lägger till förbättringar jämfört med det tidigare scenariot:
 
-- Om funktions programmet Miss lyckas, Traffic Manager ta hand om att redundansväxla till den sekundära regionen. Men eftersom Function-appen är beroende av sitt eget lagrings konto fortsätter de varaktiga funktionerna att fungera.
-- Under en växling vid misslyckande finns det ingen ytterligare fördröjning i området redundans, eftersom Function-appen och lagrings kontot är samplacerade.
-- Fel i lagrings lagret orsakar fel i de varaktiga funktionerna, vilket i sin tur utlöser en omdirigering till området redundans. Eftersom Function-appen och lagringen isoleras per region fortsätter de varaktiga funktionerna att fungera.
+- Om funktionsappen misslyckas tar Traffic Manager hand om att misslyckas med att gå över till den sekundära regionen. Men eftersom funktionsappen är beroende av sitt eget lagringskonto fortsätter de varaktiga funktionerna att fungera.
+- Under en återställnings-, finns det ingen ytterligare svarstid i regionen växla över, eftersom funktionsappen och lagringskontot finns i samlokalring.
+- Fel på lagringslagret orsakar fel i de varaktiga funktionerna, vilket i sin tur utlöser en omdirigering till regionen växla över. Återigen, eftersom funktionsappen och lagringen är isolerade per region, fortsätter de varaktiga funktionerna att fungera.
 
 Viktiga överväganden för det här scenariot:
 
-- Om Function-appen distribueras med hjälp av en dedikerad AppService-plan ökar kostnaderna genom att replikera beräknings infrastrukturen i data centret för redundans.
-- Det går inte att redundansväxla det aktuella läget, vilket innebär att det inte går att köra och checkpointd functions. Det är upp till klient programmet att försöka igen/starta om arbetet.
+- Om funktionsappen distribueras med hjälp av en dedikerad AppService-plan ökar kostnaderna att replikera beräkningsinfrastrukturen i datacentret för felväxling.
+- Det aktuella tillståndet har inte misslyckats över, vilket innebär att körnings- och kontrollpunktsfunktioner misslyckas. Det är upp till klientprogrammet att försöka/starta om arbetet igen.
 
-## <a name="scenario-3---load-balanced-compute-with-grs-shared-storage"></a>Scenario 3 – belastnings bal anse rad beräkning med GRS delad lagring
+## <a name="scenario-3---load-balanced-compute-with-grs-shared-storage"></a>Scenario 3 – Belastningsbalanserad beräkning med delad GRS-lagring
 
-Det här scenariot är en ändring i det första scenariot, vilket implementerar ett delat lagrings konto. Den största skillnaden att lagrings kontot har skapats med geo-replikering aktiverat.
-Det här scenariot ger samma fördelar som scenario 1, men det ger ytterligare fördelar för data återställning:
+Det här scenariot är en ändring jämfört med det första scenariot, implementera ett delat lagringskonto. Den största skillnaden att lagringskontot skapas med geo-replikering aktiverat.
+Funktionellt ger det här scenariot samma fördelar som scenario 1, men det möjliggör ytterligare dataåterställningsfördelar:
 
-- Geo-redundant lagring (GRS) och Read-Access GRS (RA-GRS) maximerar tillgängligheten för ditt lagrings konto.
-- Om lagrings tjänsten har ett regions avbrott är en av möjligheterna att data Center åtgärderna bestämmer att lagringen måste växlas över till den sekundära regionen. I det här fallet omdirigeras åtkomsten till lagrings kontot transparent till den geo-replikerade kopian av lagrings kontot, utan att användaren tillfrågas.
-- I det här fallet kommer tillstånd för de varaktiga funktionerna att bevaras upp till den senaste replikeringen av lagrings kontot, vilket sker vart några minuter.
+- Geo-redundant lagring (GRS) och Read-access GRS (RA-GRS) maximerar tillgängligheten för ditt lagringskonto.
+- Om det finns ett regionutbrott för lagringstjänsten är en av möjligheterna att datacenteråtgärderna avgör att lagring måste överföras till den sekundära regionen. I det här fallet omdirigeras åtkomsten till lagringskontot transparent till den geore replikerade kopian av lagringskontot, utan att användaren behöver göra något.
+- I det här fallet kommer tillståndet för de varaktiga funktionerna att bevaras upp till den sista replikeringen av lagringskontot, som inträffar med några minuters mellanrum.
 
-Precis som med andra scenarier finns det viktiga överväganden:
+Precis som med de andra scenarierna finns det viktiga överväganden:
 
-- Redundans till repliken utförs av data Center operatörer och det kan ta lite tid. Fram till dess kommer funktions programmet att drabbas av ett avbrott.
-- Det finns en ökad kostnad för att använda geo-replikerade lagrings konton.
-- GRS sker asynkront. Några av de senaste transaktionerna kan gå förlorade på grund av svars tiden för replikeringen.
+- Växla över till repliken görs av datacenteroperatorer och det kan ta lite tid. Fram till dess kommer funktionsappen att drabbas av ett avbrott.
+- Det finns en ökad kostnad för att använda geo-replikerade lagringskonton.
+- GRS sker asynkront. Vissa av de senaste transaktionerna kan gå förlorade på grund av fördröjningen för replikeringsprocessen.
 
 ![Diagram som visar scenario 3.](./media/durable-functions-disaster-recovery-geo-distribution/durable-functions-geo-scenario03.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan läsa mer om att [utforma hög tillgängliga program med RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)
+Du kan läsa mer om [design av program med högtillgängliga program med RA-GRS](../../storage/common/storage-designing-ha-apps-with-ragrs.md)

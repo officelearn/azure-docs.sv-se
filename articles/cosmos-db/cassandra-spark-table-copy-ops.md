@@ -1,6 +1,6 @@
 ---
-title: Tabell kopierings åtgärder på Azure Cosmos DB API för Cassandra från Spark
-description: Den här artikeln beskriver hur du kopierar data mellan tabeller i Azure Cosmos DB API för Cassandra
+title: Tabellkopieringsåtgärder på Azure Cosmos DB Cassandra API från Spark
+description: I den här artikeln beskrivs hur du kopierar data mellan tabeller i Azure Cosmos DB Cassandra API
 author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
@@ -9,17 +9,17 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 32714e216e59565c787f92bf1e8da62957bc7233
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75445617"
 ---
-# <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Tabell kopierings åtgärder på Azure Cosmos DB API för Cassandra från Spark
+# <a name="table-copy-operations-on-azure-cosmos-db-cassandra-api-from-spark"></a>Tabellkopieringsåtgärder på Azure Cosmos DB Cassandra API från Spark
 
-I den här artikeln beskrivs hur du kopierar data mellan tabeller i Azure Cosmos DB API för Cassandra från Spark. Kommandona som beskrivs i den här artikeln kan också användas för att kopiera data från Apache Cassandra-tabeller till Azure Cosmos DB API för Cassandra tabeller.
+I den här artikeln beskrivs hur du kopierar data mellan tabeller i Azure Cosmos DB Cassandra API från Spark. De kommandon som beskrivs i den här artikeln kan också användas för att kopiera data från Apache Cassandra-tabeller till Azure Cosmos DB Cassandra API-tabeller.
 
-## <a name="cassandra-api-configuration"></a>Cassandra-API-konfiguration
+## <a name="cassandra-api-configuration"></a>Cassandra API-konfiguration
 
 ```scala
 import org.apache.spark.sql.cassandra._
@@ -46,7 +46,7 @@ spark.conf.set("spark.cassandra.output.batch.grouping.buffer.size", "1000")
 spark.conf.set("spark.cassandra.connection.keep_alive_ms", "600000000")
 ```
 
-## <a name="insert-sample-data"></a>Infoga exempel data 
+## <a name="insert-sample-data"></a>Infoga exempeldata 
 ```scala
 val booksDF = Seq(
    ("b00001", "Arthur Conan Doyle", "A study in scarlet", 1887,11.33),
@@ -65,7 +65,7 @@ booksDF.write
 
 ## <a name="copy-data-between-tables"></a>Kopiera data mellan tabeller
 
-### <a name="copy-data-between-tables-destination-table-exists"></a>Kopiera data mellan tabeller (mål tabellen finns)
+### <a name="copy-data-between-tables-destination-table-exists"></a>Kopiera data mellan tabeller (måltabell finns)
 
 ```scala
 //1) Create destination table
@@ -93,7 +93,7 @@ sqlContext
   .show
 ```
 
-### <a name="copy-data-between-tables-destination-table-does-not-exist"></a>Kopiering av data mellan tabeller (mål tabellen finns inte)
+### <a name="copy-data-between-tables-destination-table-does-not-exist"></a>Kopiera data mellan tabeller (måltabellen finns inte)
 
 ```scala
 import com.datastax.spark.connector._
@@ -127,7 +127,7 @@ sqlContext
   .load
   .show
 ```
-Utdata
+Produktionen av
 ```
 +-------+------------------+--------------------+----------+-------------+
 |book_id|       book_author|           book_name|book_price|book_pub_year|
@@ -146,6 +146,6 @@ newBooksDF: org.apache.spark.sql.DataFrame = [book_id: string, book_author: stri
 
 ## <a name="next-steps"></a>Nästa steg
 
- * Kom igång med att [skapa ett konto, en databas och en tabell för Cassandra-API:et](create-cassandra-api-account-java.md) med hjälp av ett Java-program.
+ * Kom igång med [att skapa ett Cassandra API-konto, databas och en tabell](create-cassandra-api-account-java.md) med hjälp av ett Java-program.
  * [Läs in exempeldata i tabellen för Cassandra-API:et](cassandra-api-load-data.md) med hjälp av ett Java-program.
  * [Fråga efter data från kontot för Cassandra-API:et](cassandra-api-query-data.md) med hjälp av ett Java-program.

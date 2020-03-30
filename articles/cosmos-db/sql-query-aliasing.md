@@ -1,25 +1,25 @@
 ---
-title: Alias i Azure Cosmos DB
-description: Lär dig hur du använder alias i Azure Cosmos DB SQL-frågor för att skilja två egenskaper med samma namn
+title: Aliasing i Azure Cosmos DB
+description: Lär dig hur du använder aliasing i Azure Cosmos DB SQL-frågor för att skilja två egenskaper med samma namn
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 74849eec4c5808a584894321269c49c41f0b8a5c
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74873479"
 ---
-# <a name="aliasing-in-azure-cosmos-db"></a>Alias i Azure Cosmos DB
+# <a name="aliasing-in-azure-cosmos-db"></a>Aliasing i Azure Cosmos DB
 
-Du kan uttryckligen Ali Aset värden i frågor. Om en fråga har två egenskaper med samma namn, använder du alias för att byta namn på en eller båda av egenskaperna så att de är disambiguated i det planerade resultatet.
+Du kan uttryckligen alias värden i frågor. Om en fråga har två egenskaper med samma namn använder du alias för att byta namn på en eller båda av egenskaperna så att de är oeniga i det beräknade resultatet.
 
 ## <a name="examples"></a>Exempel
 
-AS-nyckelordet som används för alias är valfritt, som visas i följande exempel när du projicerar det andra värdet som `NameInfo`:
+Nyckelordet AS som används för aliasing är valfritt, vilket visas `NameInfo`i följande exempel när det andra värdet projiceras som:
 
 ```sql
     SELECT 
@@ -46,5 +46,5 @@ Resultatet är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [SELECT-satsen](sql-query-select.md)
-- [FROM-satsen](sql-query-from.md)
+- [SELECT-sats](sql-query-select.md)
+- [FRÅN-satsen](sql-query-from.md)

@@ -9,34 +9,34 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: d2a85f3947e9993e5d1853e45c6d03586a074cf6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187306"
 ---
 ## <a name="update-resources"></a>Uppdatera resurser
 
-Det finns vissa begränsningar vad kan uppdateras. Följande objekt kan uppdateras: 
+Det finns vissa begränsningar för vad som kan uppdateras. Följande objekt kan uppdateras: 
 
-Delade bildgalleriet:
+Delat bildgalleri:
 - Beskrivning
 
-definition av avbildningen:
-- Rekommenderade virtuella processorer
+Bilddefinition:
+- Rekommenderade vCPUs
 - Rekommenderat minne
 - Beskrivning
-- Slutet av liv datum
+- Datum för uttjänt
 
-Avbildningsversion:
-- Regionala replikantal
+Bildversion:
+- Antal regionala repliker
 - Målregioner
-- Undantag från den senaste
-- Slutet av liv datum
+- Uteslutning från senaste
+- Datum för uttjänt
 
-Om du planerar att lägga till repliken regioner, ta inte bort hanterade Källavbildningen. Hanterade Källavbildningen krävs för att replikera versionsnumret för avbildningen till ytterligare regioner. 
+Om du planerar att lägga till replikområden ska du inte ta bort den källhanterade avbildningen. Källhanterad avbildning behövs för att replikera avbildningsversionen till ytterligare regioner. 
 
-Uppdatera beskrivningen av ett galleri med [uppdatering AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
+Om du vill uppdatera beskrivningen av ett galleri använder du [Update-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/update-azgallery).
 
 ```azurepowershell-interactive
 Update-AzGallery `
@@ -44,7 +44,7 @@ Update-AzGallery `
    -ResourceGroupName $resourceGroup.Name
 ```
 
-Det här exemplet visar hur du använder [uppdatering AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimagedefinition) att uppdatera datum slutet på sin livscykel för vår avbildningsdefinitionen.
+Det här exemplet visar hur du använder [Update-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimagedefinition) för att uppdatera uttjänta datum för vår bilddefinition.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageDefinition `
@@ -54,7 +54,7 @@ Update-AzGalleryImageDefinition `
    -EndOfLifeDate 01/01/2030
 ```
 
-Det här exemplet visar hur du använder [uppdatering AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) att undanta den här versionen av avbildningen från att användas som den *senaste* bild.
+I det här exemplet visas hur du använder [Update-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/update-azgalleryimageversion) för att utesluta den här avbildningsversionen från att användas som den *senaste* avbildningen.
 
 ```azurepowershell-interactive
 Update-AzGalleryImageVersion `
@@ -68,7 +68,7 @@ Update-AzGalleryImageVersion `
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du tar bort resurser, måste du starta med sista objektet i kapslade resurser - versionsnumret för avbildningen. När versioner har tagits bort, kan du ta bort avbildningsdefinitionen. Du kan inte ta bort galleriet förrän alla resurser under den har tagits bort.
+När du tar bort resurser måste du börja med det sista objektet i de kapslade resurserna - avbildningsversionen. När versioner har tagits bort kan du ta bort bilddefinitionen. Du kan inte ta bort galleriet förrän alla resurser under det har tagits bort.
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"

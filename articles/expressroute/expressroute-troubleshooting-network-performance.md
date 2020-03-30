@@ -1,6 +1,6 @@
 ---
-title: 'Felsöka prestanda för nätverks länkar: Azure'
-description: Den här sidan innehåller en standardiserad metod för att testa prestanda för Azures nätverks länkar.
+title: 'Felsöka prestanda för nätverkslänkar: Azure'
+description: Den här sidan innehåller en standardiserad metod för att testa Azure-nätverkslänkprestanda.
 services: expressroute
 author: tracsman
 ms.service: expressroute
@@ -9,59 +9,59 @@ ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
 ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74869654"
 ---
-# <a name="troubleshooting-network-performance"></a>Felsöka nätverks prestanda
+# <a name="troubleshooting-network-performance"></a>Felsöka nätverksprestanda
 ## <a name="overview"></a>Översikt
-Azure erbjuder ett stabilt och snabbt sätt att ansluta från ditt lokala nätverk till Azure. Små och stora kunder använder metoder som plats-till-plats-VPN och ExpressRoute för att driva sin verksamhet i Azure. Men vad händer om prestandan inte passar din förväntade eller tidigare upplevelse? Det här dokumentet kan hjälpa dig att standardisera hur du testar och bas linjerna i din miljö.
+Azure erbjuder ett stabilt och snabbt sätt att ansluta från ditt lokala nätverk till Azure. Små och stora kunder använder metoder som plats-till-plats-VPN och ExpressRoute för att driva sin verksamhet i Azure. Men vad händer när prestanda inte uppfyller dina förväntningar eller tidigare erfarenheter? Det här dokumentet kan hjälpa till att standardisera hur du testar och baslinje din specifika miljö.
 
-Det här dokumentet visar hur du enkelt och konsekvent kan testa nätverks fördröjningen och bandbredden mellan två värdar. Det här dokumentet innehåller också några råd om hur du kan titta på Azure-nätverket och hjälpa dig att isolera problem punkter. PowerShell-skriptet och de verktyg som beskrivs kräver två värdar i nätverket (antingen i slutet av länken som testas). En värd måste vara en Windows-Server eller ett skriv bord, men den andra kan vara antingen Windows eller Linux. 
+Det här dokumentet visar hur du enkelt och konsekvent kan testa nätverksfördröjning och bandbredd mellan två värdar. Det här dokumentet innehåller också några råd om hur du kan titta på Azure-nätverket och hjälpa till att isolera problempunkter. PowerShell-skriptet och de verktyg som diskuteras kräver två värdar i nätverket (i vardera änden av länken som testas). En värd måste vara en Windows Server eller Desktop, den andra kan vara antingen Windows eller Linux. 
 
 >[!NOTE]
->Metoden för fel sökning, verktyg och metoder som används är personliga inställningar. Det här dokumentet beskriver den metod och de verktyg som jag ofta tar. Din metod skiljer sig förmodligen, det är något fel med olika metoder för att lösa problemet. Men om du inte har ett etablerat tillvägagångs sätt kan du komma igång med det här dokumentet för att skapa egna metoder, verktyg och inställningar för fel sökning av nätverks problem.
+>Metoden för felsökning, verktyg och metoder som används är personliga preferenser. Detta dokument beskriver den metod och de verktyg jag ofta tar. Din strategi kommer förmodligen att skilja sig, det är inget fel med olika metoder för problemlösning. Men om du inte har en etablerad metod kan det här dokumentet komma igång på vägen till att skapa egna metoder, verktyg och inställningar för felsökning av nätverksproblem.
 >
 >
 
 ## <a name="network-components"></a>Nätverkskomponenter
-Innan du utforska till fel sökning ska vi diskutera några vanliga villkor och komponenter. Den här diskussionen ser till att vi tänker på varje komponent i slut punkt till slut punkt som möjliggör anslutning i Azure.
+Innan du gräver i felsökning, låt oss diskutera några vanliga termer och komponenter. Den här diskussionen säkerställer att vi tänker på varje komponent i slutkedjan som möjliggör anslutning i Azure.
 ![1][1]
 
-På den högsta nivån beskriver jag tre huvudsakliga nätverks Dirigerings domäner.
+På högsta nivå beskriver jag tre stora nätverksroutningsdomäner;
 
 - Azure-nätverket (blått moln till höger)
 - Internet eller WAN (grönt moln i mitten)
-- Företags nätverket (persiko molnet till vänster)
+- Corporate Network (persika moln till vänster)
 
-Vi tittar på diagrammet från höger till vänster och diskuterar varje komponent:
- - **Virtuell dator** – servern kan ha flera nätverkskort, se till att alla statiska vägar, standard vägar och operativ system inställningar skickar och tar emot trafik på det sätt som du tycker att det är. Dessutom har varje VM-SKU en bandbredds begränsning. Om du använder en mindre VM-SKU begränsas trafiken av den bandbredd som är tillgänglig för NÄTVERKSKORTet. Jag använder vanligt vis en DS5v2 för testning (och tar sedan bort när du har utfört testet för att spara pengar) för att säkerställa tillräcklig bandbredd på den virtuella datorn.
- - **NIC** – se till att du känner till den privata IP-adress som är tilldelad nätverkskortet i fråga.
- - **NIC-NSG** – det kan finnas en speciell NSG: er som tillämpas på nätverkskorts nivån, se till att NSG regel uppsättning är lämplig för den trafik som du försöker skicka. Se till exempel att portarna 5201 för iPerf, 3389 för RDP eller 22 för SSH är öppna för att tillåta att test trafik skickas.
- - **VNet-undernät** – nätverkskortet är tilldelat ett särskilt undernät, se till att du vet vilket och vilka regler som är kopplade till det under nätet.
- - **Under nätet NSG** – precis som nätverkskortet kan NSG: er även tillämpas på under nätet. Se till att regel uppsättningen NSG är lämplig för den trafik som du försöker skicka. (för inkommande trafik till NÄTVERKSKORTet gäller under nätet NSG först, sedan NIC-NSG, omvänt för trafik utgående från den virtuella datorn som NIC-NSG tillämpas först och under nätet NSG kommer att bli i spel).
- - **UNDERNÄT UDR** – användardefinierade vägar kan dirigera trafik till ett mellanliggande hopp (t. ex. en brand vägg eller belastnings utjämning). Se till att du vet om det finns en UDR för din trafik, och om så är fallet och vad som händer i nästa hopp till din trafik. (en brand vägg kan till exempel överföra viss trafik och neka annan trafik mellan samma två värdar).
- - **Gateway-undernät/NSG/UDR** – precis som det virtuella dator under nätet kan gateway-undernätet ha NSG: er och UDR. Se till att du vet om de är där och vilka effekter de har på din trafik.
- - **VNet Gateway (ExpressRoute)** – när peering (ExpressRoute) eller VPN har Aktiver ATS finns det inte många inställningar som kan påverka hur eller om trafik vägar. Om du har flera ExpressRoute-kretsar eller VPN-tunnlar anslutna till samma VNet-Gateway, bör du vara medveten om inställningarna för anslutningens vikt när den här inställningen påverkar anslutnings inställningarna och påverkar den väg trafiken tar.
- - **Flödes filter** (visas inte) – ett flödes filter gäller endast för Microsoft-peering på ExpressRoute, men det är viktigt att kontrol lera om du inte ser de vägar som du förväntar dig på Microsoft-peering. 
+Om du tittar på diagrammet från höger till vänster, låt oss diskutera kortfattat varje komponent:
+ - **Virtuell dator** - Servern kan ha flera nätverkskort, se till att alla statiska vägar, standardvägar och inställningar för operativsystem skickar och tar emot trafik som du tror att den är. Dessutom har varje VM SKU en bandbreddsbegränsning. Om du använder en mindre VM SKU begränsas trafiken av den bandbredd som är tillgänglig för nätverkskortet. Jag brukar använda en DS5v2 för att testa (och sedan ta bort en gång gjort med testning för att spara pengar) för att säkerställa tillräcklig bandbredd på den virtuella datorn.
+ - **NIC** - Se till att du känner till den privata IP som har tilldelats nätverkskortet i fråga.
+ - **NIC NSG** - Det kan finnas specifika NSGs tillämpas på NIC-nivå, se till att NSG regeluppsättningen är lämplig för den trafik du försöker passera. Kontrollera till exempel att portarna 5201 för iPerf, 3389 för RDP eller 22 för SSH är öppna så att testtrafiken kan passera.
+ - **VNet-undernät** - Nätverkskortet tilldelas ett visst undernät, se till att du vet vilken och vilka regler som är associerade med det undernätet.
+ - **Subnet NSG** - Precis som nätverkskortet kan NSG:er också användas i undernätet. Kontrollera att NSG-regeluppsättningen är lämplig för den trafik du försöker passera. (för trafik som kommer in till nätverkskortet applicerar subnet NSG först, därefter NICEN NSG, omvänt för trafikerar utgående från DEN VM NIC NSGEN applicerar först därefter subnet NSG kommer in i lek).
+ - **Udr** för undernät – Användardefinierade rutter kan dirigera trafik till ett mellanliggande hopp (som en brandvägg eller belastningsutjämnare). Se till att du vet om det finns en UDR på plats för din trafik och i så fall var det går och vad det nästa hopp kommer att göra med din trafik. (till exempel kan en brandvägg passera en del trafik och neka annan trafik mellan samma två värdar).
+ - **Gateway undernät / NSG / UDR** - Precis som vm undernätet, gateway undernätet kan ha NSGs och UDRs. Se till att du vet om de är där och vilka effekter de har på din trafik.
+ - **VNet Gateway (ExpressRoute)** - När peering (ExpressRoute) eller VPN är aktiverat finns det inte många inställningar som kan påverka hur eller om trafikvägar. Om du har flera ExpressRoute-kretsar eller VPN-tunnlar anslutna till samma VNet Gateway bör du vara medveten om anslutningsviktinställningarna eftersom den här inställningen påverkar anslutningsinställningarna och påverkar den väg som trafiken tar.
+ - **Flödesfilter** (visas inte) – Ett flödesfilter gäller endast För Microsoft Peering på ExpressRoute, men det är viktigt att kontrollera om du inte ser de vägar du förväntar dig på Microsoft Peering. 
 
-Nu är du på WAN-delen av länken. Den här routningsdomänen kan vara din tjänst leverantör, ditt företags WAN eller Internet. Många hopp, tekniker och företag som ingår i dessa länkar kan göra det något svårt att felsöka. Ofta arbetar du med att utesluta både Azure och företagets nätverk innan du hoppar till den här samlingen av företag och hopp.
+Nu är du på WAN-delen av länken. Den här routningsdomänen kan vara din tjänsteleverantör, ditt FÖRETAGS WAN eller Internet. Många humle, tekniker och företag som arbetar med dessa länkar kan göra det något svårt att felsöka. Ofta arbetar du för att utesluta både Azure och dina företagsnätverk först innan du hoppar in i den här samlingen av företag och hopp.
 
-I det föregående diagrammet är företagets nätverk längst till vänster. Beroende på företagets storlek kan den här routningsdomänen vara ett fåtal nätverks enheter mellan dig och WAN eller flera lager enheter i ett Campus/Enterprise-nätverk.
+Längst till vänster finns ditt företagsnätverk. Beroende på företagets storlek kan den här routningsdomänen vara några nätverksenheter mellan dig och WAN eller flera lager av enheter i ett campus/företagsnätverk.
 
-Med tanke på de här tre olika nätverks miljöerna på hög nivå är det ofta bäst att börja på kanterna och försöka visa var prestanda är bra och var de degraderas. Den här metoden kan hjälpa dig att identifiera problemet som vidarebefordrar domänen för de tre och sedan fokusera på din fel sökning i den aktuella miljön.
+Med tanke på komplexiteten i dessa tre olika nätverksmiljöer på hög nivå är det ofta optimalt att börja vid kanterna och försöka visa var prestanda är bra och var den försämras. Den här metoden kan hjälpa till att identifiera problemroutningsdomänen för de tre och sedan fokusera felsökningen på den specifika miljön.
 
 ## <a name="tools"></a>Verktyg
-De flesta nätverks problem kan analyseras och isoleras med hjälp av grundläggande verktyg som ping och traceroute. Det är sällsynt att du måste gå lika djupt som en paket analys som Wireshark. För att under lätta fel sökningen utvecklades Azure Connectivity Toolkit (AzureCT) för att publicera några av dessa verktyg i ett enkelt paket. För prestanda testning vill jag använda iPerf och PSPing. iPerf är ett vanligt verktyg som körs på de flesta operativ system. iPerf är bra för grundläggande prestanda test och är ganska enkelt att använda. PSPing är ett ping-verktyg som utvecklats av SysInternals. PSPing är ett enkelt sätt att utföra ICMP-och TCP-Pings på ett enkelt sätt med kommandot. Båda dessa verktyg är lätta att "installeras" genom att bara kopiera filerna till en katalog på värden.
+De flesta nätverksproblem kan analyseras och isoleras med hjälp av grundläggande verktyg som ping och traceroute. Det är ovanligt att du måste gå så djupt som ett paket analys som Wireshark. För att hjälpa till med felsökning har Azure Connectivity Toolkit (AzureCT) utvecklats för att placera några av dessa verktyg i ett enkelt paket. För prestandatestning, jag gillar att använda iPerf och PSPing. iPerf är ett vanligt verktyg och körs på de flesta operativsystem. iPerf är bra för grundläggande prestanda tester och är ganska lätt att använda. PSPing är ett pingverktyg utvecklat av SysInternals. PSPing är ett enkelt sätt att utföra ICMP och TCP ping i en också lätt att använda kommandot. Båda dessa verktyg är lätta och är "installerade" helt enkelt genom att hantera filerna till en katalog på värden.
 
-Jag har lagt till alla dessa verktyg och metoder i en PowerShell-modul (AzureCT) som du kan installera och använda.
+Jag har slagit in alla dessa verktyg och metoder i en PowerShell-modul (AzureCT) som du kan installera och använda.
 
-### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT – Azure Connectivity Toolkit
-AzureCT PowerShell-modulen har två komponenter [tillgänglighets testning][Availability Doc] och [prestandatest][Performance Doc]. Det här dokumentet är bara bekymrat med prestanda testning, så att du kan fokusera på de två länk prestanda kommandona i den här PowerShell-modulen.
+### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT – verktygslådan för Azure Connectivity-anslutning
+AzureCT PowerShell-modulen har två komponenter [Testning][Availability Doc] och [prestandatestning][Performance Doc]. Det här dokumentet handlar bara om prestandatestning, så kan fokusera på de två Link Performance-kommandona i den här PowerShell-modulen.
 
-Det finns tre grundläggande steg för att använda den här verktygs uppsättningen för prestanda testning. 1) installera PowerShell-modulen, 2) installera de stödda programmen iPerf och PSPing 3) kör prestanda testet.
+Det finns tre grundläggande steg för att använda den här verktygslådan för prestandatestning. 1) Installera PowerShell-modulen, 2) Installera stödprogrammen iPerf och PSPing 3) Kör prestandatestet.
 
 1. Installera PowerShell-modulen
 
@@ -70,142 +70,142 @@ Det finns tre grundläggande steg för att använda den här verktygs uppsättni
     
     ```
 
-    Det här kommandot laddar ned PowerShell-modulen och installerar den lokalt.
+    Det här kommandot hämtar PowerShell-modulen och installerar den lokalt.
 
-2. Installera de stödda programmen
+2. Installera stödprogrammen
     ```powershell
     Install-LinkPerformance
     ```
-    Detta AzureCT-kommando installerar iPerf och PSPing i en ny katalog "C:\ACTTools", och öppnar även portarna för Windows-brandväggen för att tillåta ICMP-och port 5201-trafik (iPerf).
+    Detta AzureCT-kommando installerar iPerf och PSPing i en ny katalog "C:\ACTTools", det öppnar också Windows-brandväggen portar så att ICMP och port 5201 (iPerf) trafik.
 
-3. Kör prestanda testet
+3. Kör prestandatestet
 
-    Först måste du installera och köra iPerf i server läge på den fjärranslutna värden. Se också till att fjärrvärden lyssnar på antingen 3389 (RDP för Windows) eller 22 (SSH för Linux) och tillåter trafik på port 5201 för iPerf. Om fjärrvärden är Windows installerar du AzureCT och kör kommandot Install-LinkPerformance för att konfigurera iPerf och de brand Väggs regler som krävs för att starta iPerf i server läge. 
+    Först på fjärrvärden måste du installera och köra iPerf i serverläge. Se också till att fjärrvärden lyssnar på antingen 3389 (RDP för Windows) eller 22 (SSH för Linux) och tillåter trafik på port 5201 för iPerf. Om fjärrvärden är windows installerar du AzureCT och kör kommandot Install-LinkPerformance för att konfigurera iPerf och brandväggsreglerna som krävs för att starta iPerf i serverläge. 
     
     När fjärrdatorn är klar öppnar du PowerShell på den lokala datorn och startar testet:
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 10
     ```
 
-    Det här kommandot kör en serie av samtidiga belastnings-och svars tider för att beräkna bandbredds kapaciteten och fördröjningen hos din nätverks länk.
+    Det här kommandot kör en serie samtidiga belastnings- och svarstidstester för att uppskatta bandbreddskapaciteten och svarstiden för nätverkslänken.
 
-4. Granska utdata från testerna
+4. Granska resultaten av testerna
 
-    Formatet för PowerShell-utdata ser ut ungefär så här:
+    Utdataformatet PowerShell liknar:
 
     ![4][4]
 
-    De detaljerade resultaten av alla iPerf-och PSPing-testerna finns i enskilda textfiler i katalogen AzureCT tools på "C:\ACTTools."
+    De detaljerade resultaten av alla iPerf- och PSPing-tester finns i enskilda textfiler i AzureCT-verktygskatalogen på "C:\ACTTools".
 
-## <a name="troubleshooting"></a>Felsöka
-Om prestanda testet inte ger dig förväntade resultat ska du räkna ut varför bör vara en stegvis steg-för-steg-process. Med hänsyn till antalet komponenter i sökvägen ger en systematisk metod vanligt vis en snabbare väg till lösning än att hoppa över och eventuellt onödan utföra samma testning flera gånger.
+## <a name="troubleshooting"></a>Felsökning
+Om prestandatestet inte ger dig förväntade resultat bör du räkna ut varför det ska vara en progressiv steg-för-steg-process. Med tanke på antalet komponenter i vägen, ett systematiskt tillvägagångssätt ger i allmänhet en snabbare väg till upplösning än att hoppa runt och potentiellt i onödan göra samma tester flera gånger.
 
 >[!NOTE]
->Scenariot här är ett prestanda problem, inte ett anslutnings problem. Stegen skulle vara olika om trafiken inte överfördes alls.
+>Scenariot här är ett prestandaproblem, inte ett anslutningsproblem. Stegen skulle vara annorlunda om trafiken inte passerade alls.
 >
 >
 
-Börja med att utmana dina antaganden. Är ditt förväntat omdöme? Om du till exempel har en 1 Gbit/s ExpressRoute-krets och 100 ms av latens kan det vara orimligt att förvänta sig att den fullständiga 1 Gbit/s trafik har fått prestanda egenskaperna för TCP över högt latens-länkar. I [avsnittet referenser](#references) finns mer information om prestanda antaganden.
+Först utmana dina antaganden. Är dina förväntningar rimliga? Om du till exempel har en 1-Gbps ExpressRoute-krets och 100 ms latens är det orimligt att förvänta sig hela 1 Gbit/s trafik med tanke på prestandaegenskaperna hos TCP över länkar med hög latens. Mer information om prestandaantaganden finns i [avsnittet Referenser.](#references)
 
-Sedan rekommenderar jag att du börjar på kanterna mellan routningsdomäner och försöker att isolera problemet till en enda större routningsdomän. Företags nätverket, WAN-nätverket eller Azure-nätverket. Personer klandra ofta "svart ruta" i sökvägen, medan den svarta rutan är lätt att göra, men den kan ofta fördröja upplösningen, särskilt om problemet verkligen är i ett utrymme där du kan göra ändringar. Kontrol lera att du har noggrannhet innan du lämnar till din tjänst leverantör eller Internet leverantör.
+Därefter rekommenderar jag att du börjar vid kanterna mellan routningsdomäner och försöker isolera problemet till en enda större routningsdomän. företagsnätverket, WAN eller Azure-nätverket. Människor skyller ofta den "svarta lådan" i vägen, medan skylla den svarta lådan är lätt att göra, kan det avsevärt fördröja upplösningen, särskilt om problemet är faktiskt i ett område som du har förmågan att göra ändringar. Se till att du gör din due diligence innan du lämnar över till din tjänsteleverantör eller Internetleverantör.
 
-När du har identifierat den huvudsakliga routningsdomänen som verkar innehålla problemet bör du skapa ett diagram över det aktuella avsnittet. Antingen på en whiteboard, anteckningar eller Visio som ett diagram ger en konkret "konkret karta" för att ge en metodisk metod för att ytterligare isolera problemet. Du kan planera test punkter och uppdatera kartan när du rensar områden eller går djupare när Testningen fortskrider.
+När du har identifierat den större routningsdomänen som verkar innehålla problemet bör du skapa ett diagram över området i fråga. Antingen på en whiteboard, anteckningsblock eller Visio som ett diagram ger en konkret "stridskarta" för att möjliggöra en metodisk metod för att ytterligare isolera problemet. Du kan planera testpunkter och uppdatera kartan när du rensar områden eller gräver djupare under testningens gång.
 
-Nu när du har ett diagram börjar du med att dela upp nätverket i segment och minska problemet. Ta reda på var det fungerar och var det inte är det. Fortsätt att flytta dina test punkter för att isolera ned till den felande komponenten.
+Nu när du har ett diagram börjar du dela upp nätverket i segment och begränsa problemet. Ta reda på var det fungerar och var det inte gör det. Fortsätt att flytta dina testpunkter för att isolera ner till den felande komponenten.
 
-Glöm inte heller att titta på andra lager i OSI-modellen. Det är enkelt att fokusera på nätverket och skikt 1-3 (fysiska, data och nätverks lager), men problemen kan också vara upp på nivå 7 i program lagret. Behåll ett öppet sinne och verifiera antaganden.
+Glöm inte heller att titta på andra lager av OSI-modellen. Det är lätt att fokusera på nätverket och lager 1 - 3 (fysiska, data och nätverkslager) men problemen kan också vara uppe på lager 7 i programlagret. Tänk på det och verifiera antaganden.
 
-## <a name="advanced-expressroute-troubleshooting"></a>Avancerad ExpressRoute-felsökning
-Om du inte är säker på var molnet faktiskt är, kan det vara en utmaning att isolera Azure-komponenterna. När ExpressRoute används är gränsen en nätverks komponent som kallas Microsoft Enterprise Edge (MSEE: N). **När du använder ExpressRoute**är msee: n den första kontakt punkten i Microsofts nätverk, och det senaste hoppet lämnar Microsoft-nätverket. När du skapar ett anslutnings objekt mellan din VNet-gateway och ExpressRoute-kretsen ansluter du faktiskt en anslutning till MSEE: N. Att identifiera MSEE: N som det första eller sista hoppet (beroende på vilken riktning du använder) är avgörande för att isolera Azure-nätverks problem för att antingen bevisa att problemet är i Azure eller längre fram i WAN-eller företags nätverket. 
+## <a name="advanced-expressroute-troubleshooting"></a>Avancerad Felsökning av ExpressRoute
+Om du inte är säker på var kanten av molnet faktiskt är, kan det vara en utmaning att isolera Azure-komponenterna. När ExpressRoute används är kanten en nätverkskomponent som kallas Microsoft Enterprise Edge (MSEE). **När du använder ExpressRoute**är MSEE den första kontaktpunkten i Microsofts nätverk och det sista hoppet som lämnar Microsoft-nätverket. När du skapar ett anslutningsobjekt mellan VNet-gatewayen och ExpressRoute-kretsen gör du faktiskt en anslutning till MSEE. Att känna igen MSEE som det första eller sista hoppet (beroende på vilken riktning du ska) är avgörande för att isolera Azure Network-problem för att antingen bevisa att problemet finns i Azure eller längre nedströms i WAN eller Företagsnätverket. 
 
 ![2][2]
 
 >[!NOTE]
-> Observera att MSEE: N inte finns i Azure-molnet. ExpressRoute är faktiskt i kanten av Microsoft-nätverket som inte faktiskt finns i Azure. När du är ansluten till ExpressRoute till en MSEE: N är du ansluten till Microsofts nätverk, där du sedan kan gå till någon av moln tjänsterna, t. ex. Office 365 (med Microsoft-peering) eller Azure (med privat och/eller Microsoft-peering).
+> Observera att MSEE inte finns i Azure-molnet. ExpressRoute är faktiskt i utkanten av Microsoft-nätverket faktiskt inte i Azure. När du är ansluten till ExpressRoute till en MSEE är du ansluten till Microsofts nätverk, därifrån kan du sedan gå till någon av molntjänsterna, till exempel Office 365 (med Microsoft Peering) eller Azure (med Privat och/eller Microsoft Peering).
 >
 >
 
-Om två virtuella nätverk (virtuella nätverk A och B i diagrammet) är anslutna till **samma** ExpressRoute-krets kan du utföra en serie tester för att isolera problemet i Azure (eller bevisa att det inte finns i Azure)
+Om två virtuella nätverk (VNets A och B i diagrammet) är anslutna till **samma** ExpressRoute-krets kan du utföra en serie tester för att isolera problemet i Azure (eller bevisa att det inte finns i Azure)
  
-### <a name="test-plan"></a>Test plan
-1. Kör get-LinkPerformance-testet mellan VM1 och VM2. Det här testet ger inblick i om problemet är lokalt eller inte. Om det här testet ger godtagbar svars tid och bandbredds resultat kan du markera det lokala VNet-nätverket som bra.
-2. Under förutsättning att den lokala VNet-trafiken är felfri, kör get-LinkPerformance-testet mellan VM1 och VM3. Det här testet utnyttjar anslutningen via Microsoft-nätverket till MSEE: N och tillbaka till Azure. Om det här testet ger godtagbar svars tid och bandbredds resultat kan du markera Azure-nätverket som bra.
-3. Om Azure har reglerat ut kan du utföra en liknande sekvens med tester i företags nätverket. Om det också testar, är det dags att arbeta med din tjänst leverantör eller ISP för att diagnostisera WAN-anslutningen. Exempel: kör det här testet mellan två avdelnings kontor eller mellan ditt skriv bord och en data Center Server. Beroende på vad du testar kan du söka efter slut punkter (servrar, datorer osv.) som kan utnyttja den sökvägen.
+### <a name="test-plan"></a>Testplan
+1. Kör Get-LinkPerformance-testet mellan VM1 och VM2. Det här testet ger insikt om problemet är lokalt eller inte. Om det här testet ger godtagbara svarstid och bandbreddsresultat kan du markera det lokala virtuella nätverket som bra.
+2. Om du antar att den lokala VNet-trafiken är bra kör du Get-LinkPerformance-testet mellan VM1 och VM3. Det här testet övningar anslutningen via Microsoft-nätverket ner till MSEE och tillbaka till Azure. Om det här testet ger godtagbara svarstid och bandbreddsresultat kan du markera Azure-nätverket som bra.
+3. Om Azure är uteslutet kan du utföra en liknande sekvens av tester i ditt företagsnätverk. Om det också testar bra är det dags att arbeta med din tjänsteleverantör eller Internetleverantör för att diagnostisera DIN WAN-anslutning. Exempel: Kör det här testet mellan två filialkontor eller mellan skrivbordet och en datacenterserver. Beroende på vad du testar, hitta slutpunkter (servrar, datorer, etc.) som kan utöva den sökvägen.
 
 >[!IMPORTANT]
-> Det är viktigt att för varje test markerar du den tid på dagen då du kör testet och registrerar resultatet på en gemensam plats (till exempel OneNote eller Excel). Varje testkörning bör ha identiska utdata så att du kan jämföra resultat data över test körningar och inte ha "hål" i data. Konsekvens över flera tester är den primära anledningen till att jag använder AzureCT för fel sökning. Magic är inte i de exakta belastnings scenarier som jag kör, men *i stället är det* faktum att jag får ett *konsekvent test och data utdata* från varje test. Att registrera tiden och få konsekventa data varje gång är det särskilt användbart om du senare upptäcker att problemet är sporadiskt. Var noggrann med data insamlingen och Undvik att du behöver testa om samma scenarier (jag har lärt dig hur många år sedan).
+> Det är viktigt att du för varje test markerar den tid på dagen du kör testet och registrerar resultaten på en gemensam plats (jag gillar OneNote eller Excel). Varje testkörning bör ha identiska utdata så att du kan jämföra de resulterande data över testkörningar och inte ha "hål" i data. Konsekvens i flera tester är den främsta anledningen till att jag använder AzureCT för felsökning. Magin är inte i den exakta belastningen scenarier jag kör, men istället *magin* är det faktum att jag får ett *konsekvent test och datautgång* från varje test. Att registrera tiden och ha konsekventa data varje gång är särskilt användbart om du senare upptäcker att problemet är sporadiskt. Var flitig med din datainsamling på framsidan och du kommer att undvika timmar av omtestning av samma scenarier (jag lärde mig denna hårda väg för många år sedan).
 >
 >
 
-## <a name="the-problem-is-isolated-now-what"></a>Problemet är isolerat, nu vad?
-Mer du kan isolera problemet och det är enklare att åtgärda det, men ofta når du den punkt där du inte kan gå djupare eller mer med fel sökningen. Exempel: du ser länken över din tjänst leverantör som tar hopp via Europa, men din förväntade sökväg är i Asien. Den här punkten är när du ska kontakta dig för hjälp. Vem du ställer är beroende av routningsdomänen som du har isolerat problemet till, eller till och med bättre om du kan begränsa den till en specifik komponent.
+## <a name="the-problem-is-isolated-now-what"></a>Problemet är isolerat, vad händer nu?
+Ju mer du kan isolera problemet desto lättare är det att åtgärda, men ofta når du den punkt där du inte kan gå djupare eller längre med felsökningen. Exempel: du ser länken mellan din tjänsteleverantör som tar hopp via Europa, men din förväntade väg är allt i Asien. Denna punkt är när du bör nå ut för hjälp. Vem du frågar är beroende av routningsdomänen som du har isolerat problemet till, eller ännu bättre om du kan begränsa det till en viss komponent.
 
-För företags nätverks problem kan din interna IT-avdelning eller tjänst leverantör som stöder ditt nätverk (som maskin varu tillverkaren) kunna hjälpa till med enhets konfiguration eller maskin varu reparation.
+För företagsnätverksproblem kan din interna IT-avdelning eller tjänsteleverantör som stöder nätverket (som kan vara maskinvarutillverkaren) hjälpa till med enhetskonfiguration eller maskinvarureparation.
 
-För WAN-nätverket kan du dela dina test resultat med din tjänst leverantör eller Internet leverantör kan hjälpa dem att komma igång och undvika att täcka en del av samma mark som du har testat redan. Dock är de inte felaktiga om de vill verifiera resultatet själva. "Förtroende men verifiera" är ett korrekt motto vid fel sökning baserat på andra personers rapporterade resultat.
+För WAN kan det hjälpa dig att komma igång med att dela dina testresultat med din Tjänsteleverantör eller Internetleverantör och undvika att täcka en del av samma mark som du redan har testat. Men bli inte förolämpad om de vill verifiera dina resultat själva. "Lita på men verifiera" är ett bra motto vid felsökning baserat på andras rapporterade resultat.
 
-När du har isolerat problemet i så mycket information som du kan med Azure, är det dags att granska [Azures nätverks dokumentation][Network Docs] och om du fortfarande behöver [öppna ett support ärende][Ticket Link].
+Med Azure är det dags att granska [Azure Network-dokumentationen][Network Docs] när du har isolerat problemet så detaljerat som [möjligt.][Ticket Link]
 
 ## <a name="references"></a>Referenser
-### <a name="latencybandwidth-expectations"></a>Förväntningar på fördröjning/bandbredd
+### <a name="latencybandwidth-expectations"></a>Förväntningar om latens/bandbredd
 >[!TIP]
-> Geografisk latens (miles eller kilo meter) mellan de slut punkter som du testar är den största delen av svars tiden. Även om det finns utrustnings latens (fysiska och virtuella komponenter, antal hopp osv.), har geografin visat sig vara den största delen av den övergripande svars tiden vid hantering av WAN-anslutningar. Det är också viktigt att Observera att avståndet är avståndet för fiber körningen, inte det raka linje-eller väg kart avståndet. Det här avståndet är otroligt hårt för att få en noggrannhet. Därför använder jag vanligt vis en distans kalkylator på Internet och vet att den här metoden är ett felaktigt mått, men det räcker med att ange en allmän förväntad åtgärd.
+> Geografisk svarstid (miles eller kilometer) mellan slutpunkterna du testar är den överlägset största komponenten i svarstiden. Även om det finns utrustning svarstid (fysiska och virtuella komponenter, antal humle, etc.) inblandade, geografi har visat sig vara den största komponenten i övergripande latens när det handlar om WAN-anslutningar. Det är också viktigt att notera att avståndet är avståndet till fibern kör inte den raka linjen eller vägkarta avstånd. Detta avstånd är otroligt svårt att få med någon noggrannhet. Som ett resultat använder jag i allmänhet en stad avstånd kalkylator på Internet och vet att denna metod är en grovt felaktig åtgärd, men är tillräckligt för att ställa en allmän förväntan.
 >
 >
 
-Jag har en ExpressRoute-installation i Seattle, Washington i USA. I följande tabell visas den svars tid och bandbredd som jag såg för att testa på olika Azure-platser. Jag har beräknat det geografiska avståndet mellan varje tests slut.
+Jag har en ExpressRoute setup i Seattle, Washington i USA. Följande tabell visar svarstiden och bandbredden som jag såg testa till olika Azure-platser. Jag har uppskattat det geografiska avståndet mellan varje ände av testet.
 
-Test konfiguration:
- - En fysisk server som kör Windows Server 2016 med 10 Gbit/s NIC ansluten till en ExpressRoute-krets.
- - En 10Gbps Premium ExpressRoute-krets på den plats som identifieras med privat peering aktive rad.
+Testinställning:
+ - En fysisk server som kör Windows Server 2016 med ett 10 Gbit/s-nätverkskort som är anslutet till en ExpressRoute-krets.
+ - En 10 Gbit/s Premium ExpressRoute-krets på den plats som identifieras med Privat peering aktiverat.
  - Ett Azure VNet med en UltraPerformance-gateway i den angivna regionen.
- - En virtuell DS5v2-dator som kör Windows Server 2016 på VNet. Den virtuella datorn var icke-domänansluten, byggd från standard Azure-avbildningen (ingen optimering eller anpassning) med AzureCT installerad.
- - Alla tester använde kommandot AzureCT get-LinkPerformance med ett belastnings test på 5 minuter för var och en av de sex test körningarna. Exempel:
+ - En virtuell DS5v2-dator som kör Windows Server 2016 på det virtuella nätverket. Den virtuella datorn var icke-domän ansluten, byggd från standard Azure-avbildningen (ingen optimering eller anpassning) med AzureCT installerat.
+ - Alla tester använde azurect get-linkperformance kommandot med en 5-minuters belastningstest för var och en av de sex testkörningarna. Ett exempel:
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
     ```
- - Data flödet för varje test hade belastningen flödar från den lokala fysiska servern (iPerf-klienten i Seattle) upp till den virtuella Azure-datorn (iPerf-server i den Azure-region som visas).
- - Kolumn data för "svars tid" är från ingen belastnings test (ett TCP-svars svar utan iPerf körs).
- - Kolumn data för "max bandbredd" hämtas från belastnings testet på 16 TCP-flöde med en storlek på 1 MB.
+ - Dataflödet för varje test hade belastningen flödade från den lokala fysiska servern (iPerf-klient i Seattle) upp till Azure VM (iPerf-servern i den listade Azure-regionen).
+ - Kolumndata för "Latens" kommer från testet Ingen belastning (ett TCP-svarstidstest utan iPerf som körs).
+ - Kolumndata för "Max bandbredd" kommer från 16 TCP-flödesbelastningstestet med en fönsterstorlek på 1 Mb.
 
 ![3][3]
 
-### <a name="latencybandwidth-results"></a>Svars tid/bandbredds resultat
+### <a name="latencybandwidth-results"></a>Resultat av svarstid/bandbredd
 >[!IMPORTANT]
-> Dessa tal är endast för allmän referens. Många faktorer påverkar svars tiden och även om dessa värden vanligt vis är konsekventa över tid, kan villkor i Azure eller tjänst leverantörs nätverket skicka trafik via olika sökvägar när som helst, så att svars tiden och bandbredden kan påverkas. Effekterna av dessa ändringar resulterar i allmänhet inte i betydande skillnader.
+> Dessa siffror är endast för allmän referens. Många faktorer påverkar svarstiden, och även om dessa värden i allmänhet är konsekventa över tiden kan villkoren i Azure eller Service Providers-nätverket skicka trafik via olika sökvägar när som helst, vilket innebär att svarstid och bandbredd kan påverkas. I allmänhet leder effekterna av dessa förändringar inte till betydande skillnader.
 >
 >
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>Plats|Azure<br/>Region|Ungefärlig<br/>Avstånd (km)|Svarstid|1 session<br/>Bandbredd|Maximal<br/>Bandbredd|
-| Seattle | USA, västra 2        |    191 km |   5 ms | 262,0 Mbit per sekund |  3,74 Gbits per sekund |
-| Seattle | USA, västra          |  1 094 km |  18 MS |  82,3 Mbit per sekund |  3,70 Gbits per sekund |
-| Seattle | USA, centrala       |  2 357 km |  40 MS |  38,8 Mbit per sekund |  2,55 Gbits per sekund |
-| Seattle | USA, södra centrala |  2 877 km |  51 MS |  30,6 Mbit per sekund |  2,49 Gbits per sekund |
-| Seattle | USA, norra centrala |  2 792 km |  55 MS |  27,7 Mbit per sekund |  2,19 Gbits per sekund |
-| Seattle | USA, östra 2        |  3 769 km |  73 MS |  21,3 Mbit per sekund |  1,79 Gbits per sekund |
-| Seattle | USA, östra          |  3 699 km |  74 MS |  21,1 Mbit per sekund |  1,78 Gbits per sekund |
-| Seattle | Japan, östra       |  7 705 km | 106 MS |  14,6 Mbit per sekund |  1,22 Gbits per sekund |
-| Seattle | Storbritannien, södra         |  7 708 km | 146 MS |  10,6 Mbit per sekund |   896 Mbit per sekund |
-| Seattle | Europa, västra      |  7 834 km | 153 MS |  10,2 Mbit per sekund |   761 Mbit per sekund |
-| Seattle | Australien, östra   | 12 484 km | 165 ms |   9,4 Mbit per sekund |   794 Mbit per sekund |
-| Seattle | Sydostasien   | 12 989 km | 170 MS |   9,2 Mbit per sekund |   756 Mbit per sekund |
-| Seattle | Brasilien, södra *   | 10 930 km | 189 MS |   8,2 Mbit per sekund |   699 Mbit per sekund |
-| Seattle | Indien, södra      | 12 918 km | 202 MS |   7,7 Mbit per sekund |   634 Mbit per sekund |
+|ExpressRoute<br/>Location|Azure<br/>Region|Beräknade<br/>Avstånd (km)|Svarstid|1 Session<br/>Bandbredd|Maximal<br/>Bandbredd|
+| Seattle | USA, västra 2        |    191 km |   5 ms | 262,0 Mbit/sek |  3,74 Gbits/sek |
+| Seattle | USA, västra          |  1 094 km |  18 ms |  82,3 Mbits/sek |  3,70 Gbits/sek |
+| Seattle | USA, centrala       |  2 357 km |  40 ms |  38,8 Mbits/sek |  2,55 Gbits/sek |
+| Seattle | USA, södra centrala |  2 877 km |  51 ms |  30,6 Mbits/sek |  2,49 Gbits/sek |
+| Seattle | USA, norra centrala |  2 792 km |  55 ms |  27,7 Mbits/sek |  2.19 Gbits/sek |
+| Seattle | USA, östra 2        |  3 769 km |  73 ms |  21,3 Mbits/sek |  1,79 Gbits/sek |
+| Seattle | USA, östra          |  3 699 km |  74 ms |  21,1 Mbits/sek |  1,78 Gbits/sek |
+| Seattle | Japan, östra       |  7 705 km | 106 ms |  14,6 Mbits/sek |  1,22 Gbits/sek |
+| Seattle | Storbritannien, södra         |  7 708 km | 146 ms |  10,6 Mbit/sek |   896 Mbits/sek |
+| Seattle | Europa, västra      |  7 834 km | 153 ms |  10,2 Mbit/sek |   761 Mbits/sek |
+| Seattle | Australien, östra   | 12 484 km | 165 ms |   9,4 Mbits/sek |   794 Mbits/sek |
+| Seattle | Sydostasien   | 12 989 km | 170 ms |   9,2 Mbits/sek |   756 Mbits/sek |
+| Seattle | Södra Brasilien *   | 10 930 km | 189 ms |   8,2 Mbits/sek |   699 Mbits/sek |
+| Seattle | Indien, södra      | 12 918 km | 202 ms |   7,7 Mbits/sek |   634 Mbits/sek |
 
-\* svars tiden till Brasilien är ett användbart exempel där det linjära avståndet skiljer sig avsevärt från det fiber kör avståndet. Jag tror att svars tiden skulle vara i 160 MS, men är i själva verket 189 MS. Den här skillnaden mot den förväntade förväntan kan tyda på ett nätverks problem någonstans, men det troligaste är att fiber körningen inte går till Brasilien i en rät linje och har en extra 1 000 km eller så att resan kan komma till Brasilien från Seattle.
+\*Latensen till Brasilien är ett bra exempel där den raka linjen avstånd skiljer sig avsevärt från fiber kör avstånd. Jag förväntar mig att latensen skulle vara i närheten av 160 ms, men är faktiskt 189 ms. Denna skillnad mot mina förväntningar kan tyda på ett nätverk fråga någonstans, men troligen att fibern köra inte går till Brasilien i en rak linje och har en extra 1.000 km eller så av resor för att komma till Brasilien från Seattle.
 
 ## <a name="next-steps"></a>Nästa steg
-1. Hämta Azure Connectivity Toolkit från GitHub på [https://aka.ms/AzCT][ACT]
-2. Följ anvisningarna för [testning av länk prestanda][Performance Doc]
+1. Ladda ned Azure Connectivity Toolkit från GitHub på[https://aka.ms/AzCT][ACT]
+2. Följ instruktionerna för [länkprestandatestning][Performance Doc]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Azure nätverks komponenter"
-[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "ExpressRoute-felsökning"
-[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Prestanda test miljö"
-[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "PowerShell-utdata"
+[1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Azure-nätverkskomponenter"
+[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Felsökning av ExpressRoute"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Perf testmiljö"
+[4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "PowerShell-utgång"
 
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md

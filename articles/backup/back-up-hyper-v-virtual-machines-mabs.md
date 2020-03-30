@@ -1,234 +1,234 @@
 ---
 title: Säkerhetskopiera virtuella Hyper-V-datorer med MABS
-description: Den här artikeln innehåller procedurer för att säkerhetskopiera och återställa virtuella datorer med hjälp av Microsoft Azure Backup Server (MABS).
+description: Den här artikeln innehåller procedurer för säkerhetskopiering och återställning av virtuella datorer med Hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.openlocfilehash: 00d1dd04522c51e4d68450a7b8f25d7159d63724
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78255053"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Säkerhetskopiera virtuella Hyper-V-datorer med Azure Backup Server
 
-Den här artikeln förklarar hur du säkerhetskopierar virtuella Hyper-V-datorer med hjälp av Microsoft Azure Backup Server (MABS).
+I den hÃ¤r artikeln beskrivs hur du säkerhetskopierar virtuella Hyper-V-datorer med Microsoft Azure Backup Server (MABS).
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-MABS kan säkerhetskopiera virtuella datorer som körs på Hyper-V-värd servrar i följande scenarier:
+MABS kan säkerhetskopiera virtuella datorer som körs på Hyper-V-värdservrar i följande scenarier:
 
-- **Virtuella datorer med lokal eller direkt lagring** – säkerhetskopiera virtuella datorer som finns på fristående Hyper-V-värdar som har lokal eller direktansluten lagring. Till exempel: en hård disk, en storage area network-enhet (SAN) eller en nätverksansluten lagrings enhet (NAS). MABS-skyddsagenten måste vara installerad på alla värdar.
+- **Virtuella datorer med lokal eller direkt lagring** – Säkerhetskopiera virtuella datorer som finns på fristående Hyper-V-värdservrar med lokal eller direktansluten lagring. Till exempel: en hårddisk, en SAN-enhet (Storage Area Network) eller en NAS-enhet (Network fastsatt lagring). MABS-skyddsagenten måste installeras på alla värdar.
 
-- **Virtuella datorer i ett kluster med CSV-lagring** – säkerhetskopiera virtuella datorer som finns på ett Hyper-V-kluster med klusterdelad volym lagring (CSV). MABS-skyddsagenten installeras på varje klusternod.
+- **Virtuella datorer som finns på ett kluster med CSV-lagring** – Säkerhetskopiera virtuella datorer som finns på ett Hyper-V-kluster med lagring på klusterdelade volymer (CSV). MABS-skyddsagenten installeras på varje klusternod.
 
-## <a name="host-versus-guest-backup"></a>Värd kontra gäst säkerhets kopiering
+## <a name="host-versus-guest-backup"></a>Värd kontra gäst säkerhetskopiering
 
-MABS kan göra en säkerhets kopia av virtuella Hyper-V-datorer på värd-eller gästnivå. På värdnivå är MABS-skyddsagenten installerad på Hyper-V-värdservern eller klustret och skyddar alla virtuella datorer och datafiler som körs på värden.   På gästnivå är agenten installerad på varje virtuell dator och skyddar arbets belastningen på den datorn.
+MABS kan göra en värd- eller gästnivå backup av virtuella hyper-virtuella datorer. På värdnivå installeras MABS-skyddsagenten på Hyper-V-värdservern eller -klustret och skyddar hela virtuella datorer och datafiler som körs på den värden.   På gästnivå installeras agenten på varje virtuell dator och skyddar arbetsbelastningen som finns på den datorn.
 
-Båda metoderna har-och nack delar:
+Det för- och nackdelar med båda metoderna:
 
-- Säkerhets kopiering på värdnivå är flexibla eftersom de fungerar oavsett vilken typ av operativ system som körs på gäst datorerna och inte kräver installation av MABS-skyddsagenten på varje virtuell dator. Om du distribuerar säkerhets kopiering på värdnivå kan du återställa en hel virtuell dator eller filer och mappar (återställning på objekt nivå).
+- Säkerhetskopior på värdnivå är flexibla eftersom de fungerar oavsett vilken typ av operativsystem som körs på gästdatorerna och inte kräver installation av MABS-skyddsagenten på varje virtuell dator. Om du distribuerar säkerhetskopia på värdnivå kan du återställa en hel virtuell dator eller filer och mappar (återställning på objektnivå).
 
-- Säkerhets kopiering på gästnivå är användbart om du vill skydda vissa arbets belastningar som körs på en virtuell dator. På värdnivå kan du återställa en hel virtuell dator eller specifika filer, men den ger inte återställnings kontexten för ett särskilt program. Om du till exempel vill återställa vissa SharePoint-objekt från en säkerhets kopie rad virtuell dator bör du göra en säkerhets kopia av den virtuella datorn på gästnivå. Använd säkerhets kopiering på gästnivå om du vill skydda data som lagras på genom strömnings diskar. Genom strömning får den virtuella datorn direkt åtkomst till lagrings enheten och lagrar inte virtuella volym data i en VHD-fil.
+- Säkerhetskopiering på gästnivå är användbart om du vill skydda specifika arbetsbelastningar som körs på en virtuell dator. På värdnivå kan du återställa en hel virtuell dator eller specifika filer, men det ger inte återställning i samband med ett visst program. Om du till exempel vill återställa specifika SharePoint-objekt från en säkerhetskopierad virtuell dator bör du göra säkerhetskopiering på gästnivå av den virtuella datorn. Använd säkerhetskopiering på gästnivå om du vill skydda data som lagras på genomströmningsdiskar. Genomströmning kan den virtuella datorn komma åt lagringsenheten direkt och lagrar inte virtuella volymdata i en VHD-fil.
 
-## <a name="how-the-backup-process-works"></a>Så här fungerar säkerhets kopieringen
+## <a name="how-the-backup-process-works"></a>Så här fungerar säkerhetskopieringsprocessen
 
-MABS utför säkerhets kopiering med VSS på följande sätt. Stegen i den här beskrivningen är numrerade för att hjälpa dig med klarhet.
+MABS utför säkerhetskopiering med VSS enligt följande. Stegen i den här beskrivningen är numrerade för tydlighetens skull.
 
-1. MABS-block-based Synchronization-motorn gör en ursprunglig kopia av den skyddade virtuella datorn och ser till att kopian av den virtuella datorn är fullständig och konsekvent.
+1. Den MABS-blockbaserade synkroniseringsmotorn gör en första kopia av den skyddade virtuella datorn och säkerställer att kopian av den virtuella datorn är fullständig och konsekvent.
 
-2. När den första kopian har gjorts och verifierats använder MABS Hyper-V VSS-skrivaren för att samla in säkerhets kopior. VSS-skrivaren tillhandahåller en data enhetlig uppsättning disk block som är synkroniserade med MABS-servern. Den här metoden ger fördelen med en fullständig säkerhets kopiering med MABS-servern och minimerar de säkerhets kopierings data som måste överföras i nätverket.
+2. När den första kopian har gjorts och verifierats använder MABS Hyper-V VSS-skrivaren för att fånga säkerhetskopior. VSS-skrivaren tillhandahåller en datakonsekvent uppsättning diskblock som synkroniseras med MABS-servern. Den här metoden ger fördelen av en "fullständig säkerhetskopiering" med MABS-servern, samtidigt som du minimerar säkerhetskopieringsdata som måste överföras över nätverket.
 
-3. MABS-skyddsagenten på en server där Hyper-V körs använder de befintliga Hyper-V API: erna för att avgöra om en skyddad virtuell dator också har stöd för VSS.
+3. MABS-skyddsagenten på en server som kör Hyper-V använder befintliga Hyper-V-API:er för att avgöra om en skyddad virtuell dator också stöder VSS.
 
-   - Om en virtuell dator uppfyller kraven för onlinesäkerhetskopiering och har komponenten för Hyper-V integrations tjänster installerad, vidarebefordrar Hyper-V VSS-skrivaren rekursivt VSS-begäran till alla VSS-medvetna processer på den virtuella datorn. Den här åtgärden utförs utan att MABS-skyddsagenten installeras på den virtuella datorn. Den rekursiva VSS-begäran gör att Hyper-V VSS-skrivaren kan säkerställa att disk skrivnings åtgärder synkroniseras så att en VSS-ögonblicksbild samlas in utan data förlust.
+   - Om en virtuell dator uppfyller kraven för onlinesäkerhetskopiering och har komponenten för integrering av Hyper-V-tjänster installerad kommer Hyper-V VSS-skrivaren rekursivt att vidarebefordra VSS-begäran till alla VSS-medvetna processer på den virtuella datorn. Den här åtgärden utförs utan att MABS-skyddsagenten installeras på den virtuella datorn. Denna rekursiva VSS-begäran gör att Hyper-V VSS-skrivaren kan kontrollera att diskskrivningsåtgärderna synkroniseras så att en VSS-ögonblicksbild tas utan dataförlust.
 
-     Komponenten för integrerings tjänster för Hyper-V anropar Hyper-V VSS-skrivaren i Volume Shadow Copy Services (VSS) på virtuella datorer för att säkerställa att deras program data är i ett konsekvent tillstånd.
+     Komponenten för Hyper-V-integreringstjänsterna anropar Hyper-V VSS-skrivaren i VSS-tjänsterna (Volume Shadow Copy) på virtuella datorer för att säkerställa att deras programdata är i ett enhetligt tillstånd.
 
-   - Om den virtuella datorn inte följer säkerhets kopierings kraven online använder MABS automatiskt Hyper-V-API: erna för att pausa den virtuella datorn innan de fångar in datafiler.
+   - Om den virtuella datorn inte uppfyller kraven för säkerhetskopiering online använder MABS automatiskt Hyper-V-API:erna för att pausa den virtuella datorn innan de samlar in datafiler.
 
-4. När den ursprungliga bas linje kopian av den virtuella datorn har synkroniserats med MABS-servern, fångas alla ändringar som görs i de virtuella dator resurserna på en ny återställnings punkt. Återställnings punkten representerar det konsekventa läget för den virtuella datorn vid en viss tidpunkt. Avbildningar av återställnings punkter kan ske minst en gång per dag. När en ny återställnings punkt skapas använder MABS block nivå replikering tillsammans med Hyper-V VSS-skrivaren för att avgöra vilka block som har ändrats på den server där Hyper-V körs när den sista återställnings punkten skapades. Dessa data block överförs sedan till MABS-servern och tillämpas på repliken av skyddade data.
+4. När den första originalvarian för den virtuella datorn synkroniseras med MABS-servern, fångas alla ändringar som görs i resurser för den virtuella datorn i en ny återställningspunkt. Återställningspunkten representerar det konsekventa tillståndet hos den virtuella datorn vid en viss tidpunkt. Registreringar av återställningspunkter kan ske minst en gång per dag. När en ny återställningspunkt skapas använder MABS replikering på blocknivå tillsammans med Hyper-V VSS-skrivaren för att avgöra vilka block som har ändrats på servern som kör Hyper-V efter att den senaste återställningspunkten skapades. Dessa datablock överförs sedan till MABS-servern och tillämpas på repliken av skyddade data.
 
-5. MABS-servern använder VSS på de volymer som är värdar för återställnings data så att flera skugg kopior är tillgängliga. Var och en av dessa skugg kopior ger en separat återställning. VSS-återställnings punkter lagras på MABS-servern. Den tillfälliga kopia som görs på servern som kör Hyper-V lagras bara under hela MABS-synkroniseringen.
+5. MABS-servern använder VSS på de volymer som är värd för återställningsdata så att flera skuggkopior är tillgängliga. Var och en av dessa skuggkopior möjliggör separat återställning. VSS-återställningspunkter lagras på MABS-servern. Den tillfälliga kopian som görs på servern som kör Hyper-V lagras endast under hela MABS-synkroniseringen.
 
 >[!NOTE]
 >
->Från och med Windows Server 2016 har Hyper-V-virtuella hård diskar inbyggd ändrings spårning som kallas elastisk ändrings spårning (RCT). MABS använder RCT (den interna ändrings spårningen i Hyper-V), vilket minskar behovet av konsekvens kontroller i scenarier som VM kraschar. RCT ger bättre återhämtning än ändrings spårningen som tillhandahålls av VSS Snapshot-baserade säkerhets kopieringar. MABS v3 optimerar användningen av nätverks-och lagrings utrymme ytterligare genom att endast överföra ändrade data under en konsekvens kontroll.
+>Från och med Windows Server 2016 har Hyper-V virtuella hårddiskar inbyggd ändringsspårning som kallas motståndskraftig ändringsspårning (RCT). MABS använder RCT (den inbyggda ändringsspårningen i Hyper-V), vilket minskar behovet av tidskrävande konsekvenskontroller i scenarier som vm-krascher. RCT ger bättre flexibilitet än den ändringsspårning som tillhandahålls av säkerhetskopiering med VSS-ögonblicksbild. MABS V3 optimerar nätverks- och lagringsförbrukningen ytterligare genom att endast överföra ändrade data under eventuella konsekvenskontroller.
 
-## <a name="backup-prerequisites"></a>Krav för säkerhets kopiering
+## <a name="backup-prerequisites"></a>Förutsättningar för säkerhetskopiering
 
-Detta är kraven för att säkerhetskopiera virtuella Hyper-V-datorer med MABS:
+Dessa är förutsättningarna för säkerhetskopiering av virtuella Hyper-V-datorer med MABS:
 
-|Krav|Detaljer|
+|Krav|Information|
 |------------|-------|
-|MABS-krav|– Om du vill utföra återställning på objekt nivå för virtuella datorer (återställa filer, mappar, volymer) måste du installera Hyper-V-rollen på MABS-servern.  Om du bara vill återställa den virtuella datorn och inte på objekt nivå så krävs inte rollen.<br />-Du kan skydda upp till 800 virtuella datorer på 100 GB vardera på en MABS-Server och tillåta flera MABS-servrar som stöder större kluster.<br />-MABS utesluter växlings filen från stegvisa säkerhets kopieringar för att förbättra prestanda för säkerhets kopiering av virtuella datorer.<br />-MABS kan säkerhetskopiera en Hyper-V-server eller ett kluster i samma domän som MABS-servern eller i en underordnad eller betrodd domän. Om du vill säkerhetskopiera Hyper-V i en arbets grupp eller en ej betrodd domän måste du konfigurera autentisering. Du kan använda NTLM eller certifikatautentisering för en enskild Hyper-V-server. Du kan endast använda certifikatautentisering för ett kluster.<br />-Att använda säkerhets kopiering på värdnivå för att säkerhetskopiera data för virtuella datorer på passthrough-diskar stöds inte. I det här scenariot rekommenderar vi att du använder säkerhets kopiering på värdnivå för att säkerhetskopiera VHD-filer och säkerhets kopiering på gästnivå för att säkerhetskopiera andra data som inte är synliga på värden.<br />   -Du kan säkerhetskopiera virtuella datorer som lagras på deduplicerade volymer.|
-|Krav för virtuell Hyper-V-dator|-Versionen av integrations komponenterna som körs på den virtuella datorn måste vara samma som versionen av Hyper-V-värden. <br />– För varje säkerhets kopiering av virtuella datorer behöver du ledigt utrymme på volymen som är värd för de virtuella hård diskarna för att tillåta att Hyper-V är tillräckligt med utrymme för differentierings diskar (AVHD) under säkerhets kopieringen. Utrymmet måste minst vara lika med beräkningen **inledande disk storlek\*omsättnings takt\*tid för säkerhets kopierings** fönstret. Om du kör flera säkerhets kopieringar i ett kluster behöver du tillräckligt med lagrings kapacitet för att hantera AVHD: erna för var och en av de virtuella datorerna som använder den här beräkningen.<br />– Om du vill säkerhetskopiera virtuella datorer som finns på Hyper-V-värd servrar som kör Windows Server 2012 R2, måste den virtuella datorn ha en angiven SCSI-styrenhet, även om den inte är ansluten till något. (I Windows Server 2012 R2 online backup monterar Hyper-V-värden en ny virtuell hård disk i den virtuella datorn och demonterar sedan den senare. Endast SCSI-styrenheten stöder detta och krävs därför för onlinesäkerhetskopiering av den virtuella datorn.  Utan den här inställningen kommer händelse-ID 10103 att utfärdas när du försöker säkerhetskopiera den virtuella datorn.)|
-|Förutsättningar för Linux|– Du kan säkerhetskopiera virtuella Linux-datorer med MABS. Endast filkonsekventa ögonblicks bilder stöds.|
-|Säkerhetskopiera virtuella datorer med CSV-lagring|– För CSV-lagring installerar du VSS-maskinvaruprovidern (Volume Shadow Copy Services) på Hyper-V-servern. Kontakta din storage area network-leverantör (SAN) för VSS-maskinvaruprovidern.<br />– Om en enda nod stängs av utan förvarning i ett CSV-kluster utför MABS en konsekvens kontroll mot de virtuella datorer som kördes på noden.<br />– Om du behöver starta om en Hyper-V-server som har BitLocker-diskkryptering aktiverat i CSV-klustret måste du köra en konsekvens kontroll för virtuella Hyper-V-datorer.|
-|Säkerhetskopiera virtuella datorer med SMB-lagring|– Aktivera automatisk montering på den server som kör Hyper-V för att aktivera skydd av virtuella datorer.<br />   -Inaktivera TCP Chimney-avlastning.<br />– Kontrol lera att alla Hyper-V Machine $-konton har fullständig behörighet för de enskilda SMB-filresurserna.<br />– Kontrol lera att fil Sök vägen för alla virtuella dator komponenter under återställningen till den alternativa platsen är färre än 260 tecken. Annars kan återställningen lyckas, men Hyper-V kan inte montera den virtuella datorn.<br />-Följande scenarier stöds inte:<br />     Distributioner där vissa komponenter i den virtuella datorn finns på lokala volymer och vissa komponenter finns på fjärrvolymer. en IPv4-eller IPv6-adress för lagrings platsens fil server och återställning av en virtuell dator till en dator som använder SMB-fjärrresurser.<br />-Du måste aktivera VSS-agenttjänsten för fil server på varje SMB-server – Lägg till den i **Lägg till roller och funktioner** > **välj Server roller** > **fil-och lagrings tjänster** > **fil tjänster** > **fil tjänst** > **VSS-agenttjänsten för fil Server**.|
+|MABS förutsättningar|- Om du vill utföra återställning på objektnivå för virtuella datorer (återställning av filer, mappar, volymer) måste du installera Hyper-V-rollen på MABS-servern.  Om du bara vill återställa den virtuella datorn och inte på objektnivå krävs inte rollen.<br />- Du kan skydda upp till 800 virtuella datorer på 100 GB vardera på en MABS-server och tillåta flera MABS-servrar som stöder större kluster.<br />- MABS utesluter sidfilen från inkrementella säkerhetskopior för att förbättra prestanda för säkerhetskopiering av virtuella datorer.<br />- MABS kan säkerhetskopiera en Hyper-V-server eller ett kluster i samma domän som MABS-servern eller i en underordnad eller betrodd domän. Om du vill säkerhetskopiera Hyper-V i en arbetsgrupp eller en domän som inte har anförtrotts måste du konfigurera autentisering. För en enda Hyper-V-server kan du använda NTLM- eller certifikatautentisering. För ett kluster kan du bara använda certifikatautentisering.<br />-   Du kan inte använda säkerhetskopiering på värdnivå för att säkerhetskopiera data på virtuella datorer på direktlagringsdiskar. I det här fallet rekommenderar vi att du använder säkerhetskopiering på värdnivå för att säkerhetskopiera VHD-filer och säkerhetskopiering på gästnivå för att säkerhetskopiera andra data som inte visas på värden.<br />   -Du kan säkerhetskopiera virtuella datorer som lagras på deduplicated volymer.|
+|Förutsättningar för Hyper-V VM|- Den version av integrationskomponenter som körs på den virtuella datorn ska vara samma som versionen av Hyper-V-värden. <br />-   För varje säkerhetskopiering av virtuella datorer måste du frigöra utrymme på volymen där VHD-filerna finns så att Hyper-V har tillräckligt med utrymme för differentieringsdiskar (AVHD:er) under säkerhetskopieringen. Utrymmet måste minst vara lika med beräkningen **ursprunglig hårddiskstorlek\* omsättningshastighet tidslucka för \*säkerhetskopiering**. Om du använder flera säkerhetskopieringar i ett kluster behöver du tillräckligt mycket lagringskapacitet för att få plats med AVHD:erna för var och en av de virtuella datorerna baserat på den här beräkningen.<br />- Om du vill säkerhetskopiera virtuella datorer som finns på Hyper-V-värdservrar som kör Windows Server 2012 R2 bör den virtuella datorn ha en SCSI-styrenhet angiven, även om den inte är ansluten till någonting. (I windows server 2012 R2 online backup monterar Hyper-V-värden en ny virtuell hårddisk i den virtuella datorn och demonterar den senare. Endast SCSI-styrenheten kan stödja detta och krävs därför för säkerhetskopiering online av den virtuella datorn.  Utan den här inställningen utfärdas händelse-ID 10103 när du försöker säkerhetskopiera den virtuella datorn.)|
+|Förutsättningar för Linux|- Du kan säkerhetskopiera Virtuella Linux-datorer med HJÄLP AV MABS. Endast filkonsekventa ögonblicksbilder stöds.|
+|Säkerhetskopiera virtuella datorer med CSV-lagring|-   För CSV-lagring installerar du maskinvaruprovidern Volume Shadow Copy Services (VSS) på Hyper-V-servern. Kontakta din SAN-leverantör (Storage Area Network) för VSS-maskinvaruprovidern.<br />- Om en enda nod stängs av oväntat i ett CSV-kluster, utför MABS en konsekvenskontroll mot de virtuella datorer som kördes på noden.<br />-   Om du behöver starta om en Hyper-V-server som har BitLocker-diskkryptering aktiverat för CSV-klustret måste du utföra en konsekvenskontroll för virtuella Hyper-V-datorer.|
+|Säkerhetskopiera virtuella datorer med SMB-lagring|-   Aktivera automatisk montering på servern där Hyper-V körs så att skyddet av virtuella datorer aktiveras.<br />   -   Inaktivera TCP Chimney-avlastning.<br />-   Kontrollera att alla Hyper-V:s machine$-konton har fullständig behörighet till de aktuella SMB-filresurserna.<br />- Se till att filsökvägen för alla komponenter till virtuella datorer under återställning till alternativ plats är färre än 260 tecken. Om inte, kan återställningen lyckas, men Hyper-V kan inte montera den virtuella datorn.<br />- Följande scenarier stöds inte:<br />     Distributioner där vissa komponenter i den virtuella datorn finns på lokala volymer och vissa komponenter finns på fjärrvolymer. en IPv4- eller IPv6-adress för lagringsplatsfilserver och återställning av en virtuell dator till en dator som använder fjärr-SMB-resurser.<br />- Du måste aktivera tjänsten File Server VSS Agent på varje SMB-server - Lägg till den i **Lägg till roller och funktioner** > Välj**serverroller** > **Fil- och lagringstjänster** > **File Services** > **Filtjänstfilserver** > **VSS-agenttjänsten**.|
 
 ## <a name="back-up-virtual-machines"></a>Säkerhetskopiera virtuella datorer
 
-1. Konfigurera din [Mabs-Server](backup-azure-microsoft-azure-backup.md) och [lagrings utrymme](backup-mabs-add-storage.md). Använd dessa rikt linjer för lagrings kapacitet när du konfigurerar lagringen.
-   - Genomsnittlig storlek på virtuell dator – 100 GB
-   - Antal virtuella datorer per MABS-Server – 800
-   - Total storlek på 800 VM-80 TB
-   - Nödvändigt utrymme för säkerhets kopierings lagring – 80 TB
+1. Konfigurera [MABS-servern](backup-azure-microsoft-azure-backup.md) och [ditt lagringsutrymme](backup-mabs-add-storage.md). Använd följande riktlinjer för lagringskapacitet när du konfigurerar lagringen.
+   - Genomsnittlig storlek för virtuell dator – 100 GB
+   - Antal virtuella datorer per MABS-server - 800
+   - Total storlek på 800 virtuella datorer – 80 TB
+   - Utrymme som krävs för lagring av säkerhetskopior – 80 TB
 
-2. Konfigurera skydds agenten för MABS på Hyper-V-servern eller Hyper-V-klusternoderna. Om du utför säkerhets kopiering på gästnivå installerar du agenten på de virtuella datorer som du vill säkerhetskopiera på gästnivå.
+2. Konfigurera MABS-skyddsagenten på Hyper-V-servern eller Hyper-V-klusternoderna. Om du säkerhetskopierar gästnivå installerar du agenten på de virtuella datorer som du vill säkerhetskopiera på gästnivå.
 
-3. I administratörs konsolen för MABS klickar du på **skydd** > **skapa skydds grupp** för att öppna guiden **Skapa ny skydds grupp** .
+3. Öppna > **guiden** Skapa nytt skydd **grupp** **i**MABS-administratörskonsolen.
 
-4. På sidan **Välj grupp medlemmar** väljer du de virtuella datorer som du vill skydda från de Hyper-V-värd servrar som de finns på. Vi rekommenderar att du sätter alla virtuella datorer som ska ha samma skydds princip i en skydds grupp. Aktivera samplacering för att få effektiv användning av utrymme. Med samplacering kan du hitta data från olika skydds grupper på samma disk-eller band lagring, så att flera data källor har en enda replik och återställnings punkt volym.
+4. På sidan **Välj gruppmedlemmar** väljer du de virtuella datorer som du vill skydda (från de Hyper-V-värdservrar som de virtuella datorerna finns på). Vi rekommenderar att du placerar alla virtuella datorer som har samma skyddsprincip i samma skyddsgrupp. Du får en effektivare användning av diskutrymmet om du aktiverar samplacering. Med samplacering kan du hitta data i olika skyddsgrupper på samma disk- eller bandlagring. Flera datakällor får då en enda replik och återställningspunktvolym.
 
-5. På sidan **Välj data skydds metod** anger du ett skydds grupp namn. Välj **Jag vill ha kortvarigt skydd med disk** och välj **Jag vill ha onlineskydd** om du vill säkerhetskopiera data till Azure med hjälp av tjänsten Azure Backup.
+5. På sidan **Välj dataskyddsmetod** anger du ett skyddsgruppnamn. Välj **Jag vill ha kortvarigt skydd med disk** och välj **Jag vill ha ett onlineskydd** om du vill säkerhetskopiera data till Azure med tjänsten Azure Backup.
 
-6. I **Ange kortsiktiga mål** > **kvarhållningsintervall**anger du hur länge du vill behålla disk data. I **Synkroniseringsfrekvens**anger du hur ofta stegvis säkerhets kopiering av data ska köras. Alternativt kan du, i stället för att välja ett intervall för stegvisa säkerhets kopieringar, aktivera **precis innan en återställnings punkt**. När den här inställningen är aktive rad kommer MABS att köra en fullständig snabb säkerhets kopiering precis innan varje schemalagd återställnings punkt.
+6. I **Ange korttidsmål** > **kvarhållningsintervall**anger du hur länge du vill behålla diskdata. I **Synkroniseringsfrekvens**anger du hur ofta inkrementella säkerhetskopior av data ska köras. Du kan också välja att aktivera **Precis innan en återställningspunkt** i stället för att välja ett intervall för inkrementell säkerhetskopiering. Med den här inställningen aktiverad kör MABS en express fullständig säkerhetskopiering strax före varje schemalagd återställningspunkt.
 
     > [!NOTE]
     >
-    >Om du skyddar program arbets belastningar skapas återställnings punkter i enlighet med synkroniseringsfrekvensen, förutsatt att programmet har stöd för stegvisa säkerhets kopieringar. Om den inte gör det kör MABS en fullständig snabb säkerhets kopiering i stället för en stegvis säkerhets kopiering och skapar återställnings punkter i enlighet med schemat för snabb säkerhets kopiering.
+    >Om du skyddar programarbetsbelastningarna skapas återställningspunkter i enlighet med synkroniseringsfrekvensen under förutsättning att programmet har stöd för inkrementella säkerhetskopior. Om den inte gör det kör MABS en snabb fullständig säkerhetskopiering i stället för en inkrementell säkerhetskopiering och skapar återställningspunkter i enlighet med schemat för snabb säkerhetskopiering.
 
-7. På sidan **Granska diskallokering** granskar du allokerat disk utrymme för lagringspoolen för skydds gruppen.
+7. På sidan **Granska diskallokering** granskar du det lagringsutrymme för lagringspool som tilldelats för skyddsgruppen.
 
-   **Total data storlek** är storleken på de data som du vill säkerhetskopiera och **disk utrymme som ska tillhandahållas på Mabs** är det utrymme som Mabs rekommenderar för skydds gruppen. MABS väljer den ideala säkerhets kopierings volymen baserat på inställningarna. Du kan dock redigera säkerhets kopierings volym alternativen i **disk tilldelnings informationen**. För arbets belastningarna väljer du önskad lagring i list menyn. Dina ändringar ändrar värdena för **Total lagring** och **ledigt lagrings utrymme** i fönstret **tillgängliga disklagring** . Underetablerat utrymme är mängden lagrings MABS som föreslår att du lägger till volymen, för att fortsätta med säkerhets kopieringar smidigt i framtiden.
+   **Total datastorlek** är storleken på de data som du vill säkerhetskopiera och **diskutrymme som ska etableras på MABS** är det utrymme som MABS rekommenderar för skyddsgruppen. MABS väljer den perfekta säkerhetskopieringsvolymen, baserat på inställningarna. Du kan dock redigera valen av säkerhetskopieringsvolym under **Disk allocation details (Diskallokeringsdetaljer)**. Välj önskad lagringsplats för arbetsbelastningarna i den nedrullningsbara menyn. Redigeringarna ändrar värdena för **Totalt lagringsutrymme** och **Ledigt lagringsutrymme** i fönstret **Tillgängligt disklagringsutrymme**. Underetablerat utrymme är mängden lagringsutrymme MABS föreslår att du lägger till volymen, för att fortsätta med säkerhetskopior smidigt i framtiden.
 
-8. På sidan **Välj metod för skapande av replik** anger du hur den inledande replikeringen av data i skydds gruppen ska utföras. Om du väljer att **Replikera över nätverket automatiskt**rekommenderar vi att du väljer en tid med låg belastning. För stora mängder data eller mindre än optimala nätverks förhållanden bör du överväga att välja **manuellt**, vilket kräver att replikera data offline med hjälp av flyttbara medier.
+8. På sidan **Välj metod för skapande av replik** anger du hur den första replikeringen av data i skyddsgruppen ska utföras. Om du väljer att **replikera automatiskt över nätverket**rekommenderar vi att du väljer en lågtrafiktid. För stora mängder data eller mindre än optimala nätverksvillkor bör du överväga att välja **Manuellt**, vilket kräver att data replikeras offline med hjälp av flyttbara media.
 
-9. På sidan **alternativ för konsekvens kontroll** väljer du hur du vill automatisera konsekvens kontroller. Du kan aktivera att en kontroll endast körs när replik data blir inkonsekventa eller enligt ett schema. Om du inte vill konfigurera automatisk konsekvens kontroll kan du när som helst köra en manuell kontroll genom att högerklicka på skydds gruppen och välja **utför konsekvens kontroll**.
+9. På sidan **Alternativ för konsekvenskontroll** väljer du hur du vill automatisera konsekvenskontroller. Du kan aktivera att en kontroll endast körs när replikdata blir inkonsekvent, eller enligt ett schema. Om du inte vill konfigurera automatiska konsekvenskontroller kan du när som helst köra en manuell kontroll genom att högerklicka på skyddsgruppen och välja **Utför konsekvenskontroll**.
 
-    När du har skapat skydds gruppen utförs inledande replikering av data i enlighet med den metod som du har valt. Efter den inledande replikeringen sker varje säkerhets kopiering i enlighet med inställningarna för skydds gruppen. Tänk på följande om du behöver återställa säkerhetskopierade data:
+    När du har skapat skyddsgruppen utförs inledande replikering av data i enlighet med den metod som du har valt. Efter den inledande replikeringen utförs varje säkerhetskopiering i enlighet med inställningarna för skyddsgruppen. Om du behöver återställa säkerhetskopierade data bör du tänka på följande:
 
-## <a name="back-up-virtual-machines-configured-for-live-migration"></a>Säkerhetskopiera virtuella datorer som kon figurer ATS för direktmigrering
+## <a name="back-up-virtual-machines-configured-for-live-migration"></a>Säkerhetskopiera virtuella datorer som är konfigurerade för direktmigrering
 
-När virtuella datorer är involverade i Direktmigrering, fortsätter MABS att skydda de virtuella datorerna så länge MABS-skyddsagenten är installerad på Hyper-V-värden. Hur MABS skyddar de virtuella datorerna beror på vilken typ av Direktmigrering som berörs.
+När virtuella datorer är involverade i livemigrering fortsätter MABS att skydda de virtuella datorerna så länge MABS-skyddsagenten är installerad på Hyper-V-värden. Hur MABS skyddar de virtuella datorerna beror på vilken typ av livemigrering det innebär.
 
-**Direktmigrering i ett kluster** – när en virtuell dator migreras i ett kluster Mabs identifierar migreringen och säkerhetskopierar den virtuella datorn från den nya klusternoden utan krav på åtgärder från användaren. Eftersom lagrings platsen inte har ändrats fortsätter MABS med snabba och fullständiga säkerhets kopieringar.
+**Live migrering inom ett kluster** - När en virtuell dator migreras inom ett kluster MABS identifierar migreringen och säkerhetskopierar den virtuella datorn från den nya klusternoden utan några krav på användarintervention. Eftersom lagringsplatsen inte har ändrats fortsätter MABS med fullständiga säkerhetskopior.
 
-**Direktmigrering utanför klustret** – när en virtuell dator migreras mellan fristående servrar, olika kluster eller mellan en fristående server och ett kluster, identifierar Mabs migreringen och kan säkerhetskopiera den virtuella datorn utan åtgärder från användaren.
+**Livemigrering utanför klustret** – När en virtuell dator migreras mellan fristående servrar, olika kluster eller mellan en fristående server och ett kluster identifierar MABS migreringen och kan säkerhetskopiera den virtuella datorn utan att användaren behöver ingripa.
 
-### <a name="requirements-for-maintaining-protection"></a>Krav för att upprätthålla skyddet
+### <a name="requirements-for-maintaining-protection"></a>Krav för att bevara skyddet
 
-Följande är krav för att upprätthålla skyddet under Direktmigrering:
+Följande är krav för att bevara skyddet under direktmigrering:
 
-- Hyper-V-värdarna för de virtuella datorerna måste finnas i ett System Center VMM-moln på en VMM-server som kör minst System Center 2012 med SP1.
+- Hyper-V-värdarna för de virtuella datorerna måste finnas i ett VMM-moln i System Center, på en VMM-server som kör minst System Center 2012 med SP1.
 
-- MABS-skydds agenten måste vara installerad på alla Hyper-V-värdar.
+- MABS-skyddsagenten måste vara installerad på alla Hyper-V-värdar.
 
-- MABS-servrar måste vara anslutna till VMM-servern. Alla Hyper-V-värdstyrenheter i VMM-molnet måste också vara anslutna till MABS-servrarna. Detta gör att MABS kan kommunicera med VMM-servern så att MABS kan ta reda på vilken Hyper-V-värdservern som den virtuella datorn körs för tillfället och för att skapa en ny säkerhets kopia från den Hyper-V-servern. Om det inte går att upprätta en anslutning till Hyper-V-servern Miss lyckas säkerhets kopieringen med ett meddelande om att MABS-skyddsagenten inte kan kontaktas.
+- MABS-servrar måste vara anslutna till VMM-servern. Alla Hyper-V-värdservrar i VMM-molnet måste också vara anslutna till MABS-servrarna. Detta gör att MABS att kommunicera med VMM-servern så MABS kan ta reda på på vilken Hyper-V-värdserver den virtuella datorn körs för närvarande och skapa en ny säkerhetskopia från den Hyper-V-servern. Om en anslutning inte kan upprättas till Hyper-V-servern misslyckas säkerhetskopieringen med ett meddelande om att MABS-skyddsagenten inte kan nås.
 
-- Alla MABS-servrar, VMM-servrar och Hyper-V-värd servrar måste finnas i samma domän.
+- Alla MABS-servrar, VMM-servrar och Hyper-V-värdservrar måste finnas i samma domän.
 
-### <a name="details-about-live-migration"></a>Information om Direktmigrering
+### <a name="details-about-live-migration"></a>Information om direktmigrering
 
-Observera följande för säkerhets kopiering under Direktmigrering:
+Observera följande om säkerhetskopiering under direktmigrering:
 
-- Om en Direktmigrering överför lagring, utför MABS en fullständig konsekvens kontroll av den virtuella datorn och fortsätter sedan med snabba och fullständiga säkerhets kopieringar. När direktmigrering av lagring sker omorganiserar Hyper-V den virtuella hård disken (VHD) eller VHDX, vilket orsakar en engångs insamling i storleken på MABS säkerhets kopierings data.
+- Om en livemigrering överför lagring utför MABS en fullständig konsekvenskontroll av den virtuella datorn och fortsätter sedan med fullständiga snabbsäkerhetskopior. När direktmigrering av lagring sker omorganiserar Hyper-V den virtuella hårddisken (VHD) eller VHDX, vilket medför en engångsökning i storleken på MABS-säkerhetskopieringsdata.
 
-- Aktivera automatisk montering på den virtuella värddatorn för att aktivera virtuellt skydd och inaktivera TCP Chimney-avlastning.
+- Aktivera automatisk montering på den virtuella datorvärden om du vill aktivera virtuellt skydd, och inaktivera TCP Chimney-avlastning.
 
-- MABS använder port 6070 som standard port för att vara värd för DPM-VMM Helper-tjänsten. Så här ändrar du registret:
+- MABS använder port 6070 som standardport för att vara värd för DPM-VMM Helper Service. Så här ändrar du i registret:
 
-    1. Gå till **HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration**.
-    2. Skapa ett 32-bitars DWORD-värde: DpmVmmHelperServicePort och skriv det uppdaterade port numret som en del av register nyckeln.
-    3. Öppna ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```och ändra port numret från 6070 till den nya porten. Exempel: ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
-    4. Starta om DPM-VMM Helper service och starta om DPM-tjänsten.
+    1. Navigera till **HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration**.
+    2. Skapa ett 32-bitars DWORD-värde: DpmVmmHelperServicePort, och skriv det uppdaterade portnumret som en del av registernyckeln.
+    3. Öppna ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```, och ändra portnumret från 6070 till den nya porten. Exempel: ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
+    4. Starta om DPM-VMM Helper Service och starta om DPM-tjänsten.
 
-### <a name="set-up-protection-for-live-migration"></a>Konfigurera skydd för direktmigrering
+### <a name="set-up-protection-for-live-migration"></a>Konfigurera skydd vid direktmigrering
 
-Konfigurera skydd för direktmigrering:
+Så här konfigurerar du skydd vid direktmigrering:
 
-1. Konfigurera MABS-servern och dess lagring och installera MABS-skyddsagenten på varje Hyper-V-värdservern eller klusternod i VMM-molnet. Om du använder SMB-lagring i ett kluster, installerar du MABS-skyddsagenten på alla klusternoder.
+1. Konfigurera MABS-servern och dess lagring och installera MABS-skyddsagenten på varje Hyper-V-värdserver eller klusternod i VMM-molnet. Om du använder SMB-lagring i ett kluster installerar du MABS-skyddsagenten på alla klusternoder.
 
-2. Installera VMM-konsolen som en klient komponent på MABS-servern så att MABS kan kommunicera med VMM-servern. Konsolen ska vara samma version som den som körs på VMM-servern.
+2. Installera VMM-konsolen som en klientkomponent på MABS-servern så att MABS kan kommunicera med VMM-servern. Konsolen ska vara av samma version som den som körs på VMM-servern.
 
-3. Tilldela MABSMachineName $-kontot som ett skrivskyddat administratörs konto på VMM-hanteringsservern.
+3. Tilldela KONTOT MABSMachineName$ som ett skrivskyddat administratörskonto på VMM-hanteringsservern.
 
-4. Anslut alla Hyper-V-värdstyrenheter till alla MABS-servrar med PowerShell-cmdleten `Set-DPMGlobalProperty`. Cmdleten accepterar flera MABS-Server namn. Använd formatet: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Mer information finns i [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
+4. Anslut alla Hyper-V-värdservrar till alla `Set-DPMGlobalProperty` MABS-servrar med PowerShell-cmdleten. Cmdlet accepterar flera MABS-servernamn. Använd formatet `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. Mer information finns i [Set-DPMGlobalProperty](https://docs.microsoft.com/powershell/module/dataprotectionmanager/set-dpmglobalproperty?view=systemcenter-ps-2019).
 
-5. När alla virtuella datorer som körs på Hyper-V-värdar i VMM-molnet har identifierats i VMM skapar du en skydds grupp och lägger till de virtuella datorer som du vill skydda. Automatiska konsekvens kontroller bör vara aktiverat på skydds grupps nivå för skydd under scenarier med virtuella datorer.
+5. När alla virtuella datorer som körs på Hyper-V-värdarna i VMM-molnet har identifierats i VMM skapar du en skyddsgrupp och lägger till de virtuella datorer som du vill skydda. Automatiska konsekvenskontroller bör aktiveras på skyddsgruppsnivå för skydd under mobilitetsscenarier för virtuella datorer.
 
-6. När inställningarna har kon figurer ATS, när en virtuell dator migreras från ett kluster till ett annat, fortsätter alla säkerhets kopior som förväntat. Du kan kontrol lera att direktmigrering är aktiverat som förväntat på följande sätt:
+6. När inställningarna har konfigurerats fortsätter alla säkerhetskopior som förväntat när en virtuell dator migrerar från ett kluster till ett annat. Så här gör du för att kontrollera att direktmigreringen aktiveras som väntat:
 
-   1. Kontrol lera att DPM-VMM Helper Service körs. Om den inte är det startar du den.
+   1. Kontrollera att DPM-VMM Helper Service körs. Om det inte är det, starta den.
 
-   2. Öppna Microsoft SQL Server Management Studio och Anslut till den instans som är värd för MABS-databasen (DPMDB). Kör följande fråga på DPMDB: `SELECT TOP 1000 [PropertyName] ,[PropertyValue] FROM[DPMDB].[dbo].[tbl_DLS_GlobalSetting]`.
+   2. Öppna Microsoft SQL Server Management Studio och anslut till den instans som är värd för MABS-databasen (DPMDB). Kör följande fråga på DPMDB:`SELECT TOP 1000 [PropertyName] ,[PropertyValue] FROM[DPMDB].[dbo].[tbl_DLS_GlobalSetting]`.
 
-      Den här frågan innehåller en egenskap med namnet `KnownVMMServer`. Värdet ska vara samma värde som du angav i `Set-DPMGlobalProperty`-cmdleten.
+      Den här frågan innehåller `KnownVMMServer`en egenskap som heter . Detta värde bör vara detsamma som värdet som du angav med cmdletten `Set-DPMGlobalProperty`.
 
-   3. Kör följande fråga för att verifiera parametern *VMMIdentifier* i `PhysicalPathXML` för en viss virtuell dator. Ersätt `VMName` med namnet på den virtuella datorn.
+   3. Kör följande fråga för att verifiera parametern *VMMIdentifier* i `PhysicalPathXML` för en specifik virtuell dator. Ersätt `VMName` med den virtuella datorns namn.
 
       ```sql
       select cast(PhysicalPath as XML) from tbl_IM_ProtectedObject where DataSourceId in (select datasourceid from tbl_IM_DataSource   where DataSourceName like '%<VMName>%')
       ```
 
-   4. Öppna XML-filen som den här frågan returnerar och kontrol lera att fältet *VMMIdentifier* har ett värde.
+   4. Öppna xml-filen som den här frågan returnerar och kontrollera att fältet *VMMIdentifier* har ett värde.
 
-### <a name="run-manual-migration"></a>Kör manuell migrering
+### <a name="run-manual-migration"></a>Köra manuell migrering
 
-När du har slutfört stegen i föregående avsnitt och MABS Summary Manager-jobbet har slutförts, aktive ras migreringen. Som standard startar detta jobb vid midnatt och körs varje morgon. Om du vill köra en manuell migrering för att kontrol lera att allt fungerar som förväntat gör du följande:
+När du har slutfört stegen i föregående avsnitt och jobbet MABS Summary Manager har slutförts aktiveras migreringen. Detta jobb startas normalt vid midnatt och körs varje morgon. Gör så här om du vill köra en manuell migrering för att kontrollera att allt fungerar som förväntat:
 
-1. Öppna SQL Server Management Studio och Anslut till den instans som är värd för MABS-databasen.
+1. Öppna SQL Server Management Studio och anslut till den instans som är värd för MABS-databasen.
 
-2. Kör följande fråga: `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`. Den här frågan returnerar **ScheduleID**. Observera detta ID eftersom du kommer att använda det i nästa steg.
+2. Kör följande fråga: `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`. Frågan returnerar **ScheduleID**. Skriv upp detta ID eftersom du kommer att använda det i nästa steg.
 
-3. Expandera **SQL Server Agent**i SQL Server Management Studio och expandera sedan **jobb**. Högerklicka på **ScheduleID** som du har antecknat och välj **starta jobb i steg**.
+3. Utöka **SQL Server Agent** i SQL Server Management Studio och utöka sedan **Jobs (Jobb)**. Högerklicka på det **ScheduleID (Schema-ID) **som du har antecknat och välj **Start Job at Step (Starta jobb vid steg)**.
 
-Prestanda vid säkerhets kopiering påverkas när jobbet körs. Distributionens storlek och skala avgör hur lång tid det tar att slutföra jobbet.
+Säkerhetskopieringsprestanda påverkas när jobbet körs. Distributionens storlek och skala avgör hur lång tid jobbet tar.
 
-## <a name="back-up-replica-virtual-machines"></a>Säkerhetskopiera virtuella replik datorer
+## <a name="back-up-replica-virtual-machines"></a>Säkerhetskopiera virtuella replikdatorer
 
-Om MABS körs på Windows Server 2012 R2 eller senare kan du säkerhetskopiera virtuella replik datorer. Detta är användbart av flera skäl:
+Om MABS körs på Windows Server 2012 R2 eller senare kan du säkerhetskopiera virtuella replikdatorer. Detta är användbart av flera skäl:
 
-**Minskar effekten av säkerhets kopieringar på arbets belastningen som körs** – en säkerhets kopia av en virtuell dator medför en del kostnader när en ögonblicks bild skapas. Genom att avlasta säkerhets kopierings processen till en sekundär fjärrplats påverkas inte längre den aktiva arbets belastningen av säkerhets kopierings åtgärden. Detta gäller endast för distributioner där säkerhets kopian lagras på en fjärran sluten plats. Du kan till exempel göra dagliga säkerhets kopior och lagra data lokalt för att säkerställa snabba återställnings tider, men göra månatliga eller kvartals Visa säkerhets kopior från virtuella replik datorer som fjärrlagras för långsiktig kvarhållning.
+**Det minskar säkerhetskopieringens inverkan på arbetsbelastningen som körs** – När du gör en säkerhetskopia av en virtuell dator krävs vissa extra resurser när en ögonblicksbild skapas. Genom att avlasta säkerhetskopieringsprocessen till en sekundär fjärrplats påverkas den arbetsbelastning som körs inte längre av säkerhetskopieringen. Detta gäller endast för distributioner där säkerhetskopian lagras på en fjärrplats. Du kan till exempel göra dagliga säkerhetskopior och lagra data lokalt för att säkerställa snabba återställningstider, och samtidigt göra månadsvisa eller kvartalsvisa säkerhetskopior från virtuella replikdatorer som fjärrlagras för långsiktig kvarhållning.
 
-**Sparar bandbredd** – i en typisk distribution av fjärranslutna avdelnings kontor/huvud kontor behöver du en lämplig mängd allokerad bandbredd för att överföra säkerhets kopierings data mellan platser. Om du skapar en replikerings-och redundansväxlings strategi kan du, förutom din data säkerhets kopierings strategi, minska mängden redundanta data som skickas över nätverket. Genom att säkerhetskopiera den virtuella replik datorns data i stället för den primära, sparar du omkostnaderna för att skicka säkerhetskopierade data över nätverket.
+**Sparar bandbredd** – I en typisk distribution för fjärranslutna avdelningskontor/huvudkontor behöver du en lämplig mängd etablerad bandbredd för att överföra säkerhetskopieringsdata mellan olika platser. Om du skapar en replikerings- och redundansstrategi utöver din säkerhetskopieringsstrategi kan du minska mängden redundanta data som skickas över nätverket. Genom att säkerhetskopiera replikdata för virtuella datorer i stället för den primära sparar du omkostnaderna för att skicka säkerhetskopierade data över nätverket.
 
-**Aktiverar säkerhets kopiering av värdar** – du kan använda ett värdbaserad Data Center som en replik plats, utan att det finns något behov av ett sekundärt Data Center. I det här fallet kräver värd avtalets service avtal konsekvent säkerhets kopiering av virtuella replik datorer.
+**Aktiverar värdleverantörens säkerhetskopiering** – Du kan använda ett värdbaserat datacenter som en replikplats utan behov av ett sekundärt datacenter. I det här fallet kräver hoster SLA konsekvent säkerhetskopiering av virtuella datorer för repliker.
 
-En virtuell replik dator stängs av tills en redundansväxling initieras, och VSS kan inte garantera en programkonsekvent säkerhets kopiering för en virtuell replik dator. Därför kommer säkerhets kopieringen av en virtuell replik dator att krascha. Om krasch konsekvens inte kan garanteras kommer säkerhets kopieringen att Miss lyckas och detta kan inträffa under ett antal förhållanden:
+En virtuell replikdator är inaktiverad till dess att redundansväxling initieras, och VSS kan inte garantera en programkonsekvent säkerhetskopiering för en virtuell replikdator. Därför kommer säkerhetskopieringen av en virtuell replikdator endast att vara kraschkonsekvent. Om kraschkonsekvens inte kan garanteras misslyckas säkerhetskopieringen. Detta kan inträffa i ett antal situationer:
 
-- Den virtuella replik datorn är inte felfri och är i ett kritiskt tillstånd.
+- Den virtuella replikdatorn är inte felfri och är i ett kritiskt tillstånd.
 
-- Den virtuella replik datorn omsynkroniseras (i läget omsynkronisering pågår eller Omsynkronisering krävs).
+- Den virtuella replikdatorn omsynkroniseras (den är i något av tillstånden Omsynkronisering pågår eller Omsynkronisering krävs).
 
-- Inledande replikering mellan den primära och den sekundära platsen pågår eller väntar på den virtuella datorn.
+- Den första replikeringen mellan den primära och den sekundära platsen pågår eller väntar på den virtuella datorn.
 
-- . HRL-loggar tillämpas på den virtuella replik datorn eller en tidigare åtgärd för att tillämpa. HRL-loggarna på den virtuella disken misslyckades eller avbröts eller avbröts.
+- HRL-loggar tillämpas på den virtuella datorn för repliken eller en tidigare åtgärd för att tillämpa HRL-loggarna på den virtuella disken misslyckades eller avbröts eller avbröts.
 
-- Migrering eller redundans av den virtuella replik datorn pågår
+- Migrering eller redundans av den virtuella replikdatorn pågår
 
 ## <a name="recover-backed-up-virtual-machines"></a>Återställa säkerhetskopierade virtuella datorer
 
-När du kan återställa en säkerhets kopie rad virtuell dator använder du återställnings guiden för att välja den virtuella datorn och den aktuella återställnings punkten. Öppna återställnings guiden och Återställ en virtuell dator:
+När du kan återställa en säkerhetskopierade virtuell dator använder du guiden Återställning för att välja den virtuella datorn och specifik återställningspunkt. Så här öppnar du guiden Återställning och återställer en virtuell dator:
 
-1. I administratörs konsolen för MABS anger du namnet på den virtuella datorn eller expanderar listan över skyddade objekt och väljer den virtuella dator som du vill återställa.
+1. Skriv namnet på den virtuella datorn i MABS-administratörskonsolen eller expandera listan över skyddade objekt och välj den virtuella dator som du vill återställa.
 
-2. I rutan **återställnings punkter för** klickar du på ett datum i kalendern för att se tillgängliga återställnings punkter. I rutan **sökväg** väljer du sedan den återställnings punkt som du vill använda i återställnings guiden.
+2. Gå till kalendern i fönstret **Återställningspunkter för** och klicka på ett datum om du vill se vilka återställningspunkter som är tillgängliga. Välj den återställningspunkt som du vill använda på menyn **Sökväg** i återställningsguiden.
 
-3. Från menyn **åtgärder** klickar du på **Återställ** för att öppna återställnings guiden.
+3. Klicka på menyn **Återställ** i fönstret **Åtgärder** så öppnas återställningsguiden.
 
-    Den virtuella datorn och återställnings punkten du har valt visas på skärmen **Granska val av återställning** . Klicka på **Next**.
+    Den virtuella dator och återställningspunkt som du har valt visas på skärmen **Granska val av återställning**. Klicka på **Nästa**.
 
-4. På skärmen **Välj återställnings typ** väljer du var du vill återställa data och klickar sedan på **Nästa**.
+4. På skärmen **Välj typ av återställning** väljer du var du vill återställa data och klickar sedan på **Nästa**.
 
-    - **Återställ till ursprunglig instans**: när du återställer till den ursprungliga instansen tas den ursprungliga virtuella hård disken bort. MABS återställer den virtuella hård disken och andra konfigurationsfiler till den ursprungliga platsen med hjälp av VSS-skrivaren för Hyper-V. I slutet av återställnings processen har virtuella datorer fortfarande hög tillgänglighet.
-        Resurs gruppen måste vara tillgänglig för återställning. Om den inte är tillgänglig återställer du till en annan plats och gör sedan den virtuella datorn hög tillgänglig.
+    - **Återställ till ursprunglig instans**: När du återställer till den ursprungliga instansen tas den ursprungliga virtuella hårddisken bort. MABS återställer den virtuella hårddisken och andra konfigurationsfiler till den ursprungliga platsen med Hyper-V VSS-brännare. I slutet av återställningsprocessen är de virtuella datorerna fortfarande högtillgängliga.
+        Resursgruppen måste vara tillgänglig för återställning. Om den inte är tillgänglig återställer du till en annan plats och gör sedan den virtuella datorn högtillgänglig.
 
-    - **Återställ som virtuell dator till valfri värd**: Mabs stöder alternativ plats återställning (återställning till), vilket ger en sömlös återställning av en skyddad virtuell Hyper-v-dator till en annan Hyper-v-värd, oberoende av processor arkitekturen. Virtuella Hyper-V-datorer som återställs till en klusternod är inte hög tillgängliga. Om du väljer det här alternativet visar återställnings guiden en ytterligare skärm för att identifiera mål-och mål Sök vägen.
+    - **Återställ som virtuell dator till alla värdar:** MABS stöder alternativ platsåterställning (ALR), vilket ger en sömlös återställning av en skyddad Hyper-V virtuell dator till en annan Hyper-V-värd, oberoende av processorarkitektur. Virtuella Hyper-V-datorer som återställs till en klusternod blir inte högtillgängliga. Om du väljer det här alternativet visas ytterligare en skärm i Återställningsguiden där du kan identifiera mål och målsökväg.
 
-    - **Kopiera till en nätverksmapp**: Mabs har stöd för återställning på objekt nivå (ILR), vilket gör att du kan utföra återställning på objekt nivå av filer, mappar, volymer och virtuella hård diskar (VHD) från en säkerhets kopiering på värdnivå av virtuella Hyper-V-datorer till en nätverks resurs eller en volym på en Mabs-skyddad Server. MABS-skyddsagenten behöver inte vara installerad på gästen för att utföra återställning på objekt nivå. Om du väljer det här alternativet visar återställnings guiden en ytterligare skärm för att identifiera mål-och mål Sök vägen.
+    - **Kopiera till en nätverksmapp:** MABS stöder återställning på objektnivå (ILR), vilket gör att du kan göra återställning på objektnivå av filer, mappar, volymer och virtuella hårddiskar (VHD) från en säkerhetskopia på värdnivå av Virtuella Hyper-V-datorer till en nätverksresurs eller en volym på en MABS-skyddad server. MABS-skyddsagenten behöver inte installeras i gästen för att utföra återställning på objektnivå. Om du väljer det här alternativet visas ytterligare en skärm i Återställningsguiden där du kan identifiera mål och målsökväg.
 
-5. Konfigurera återställnings alternativen i **Ange återställnings alternativ** och klicka på **Nästa**:
+5. Under **Ange återställningsalternativ** konfigurerar du återställningsalternativen och klickar på **Nästa**:
 
-    - Om du återställer en virtuell dator över låg bandbredd klickar du på **ändra** för att aktivera **begränsning av nätverks bandbredd**. När du har aktiverat alternativet för begränsning kan du ange hur mycket bandbredd som ska vara tillgänglig och hur lång tid det tar att använda bandbredden.
-    - Välj **Aktivera San-baserad återställning med hjälp av ögonblicks bilder av maskin vara** om du har konfigurerat nätverket.
-    - Välj **Skicka ett e-postmeddelande när återställningen är slutförd** och ange sedan e-postadresserna, om du vill att e-postaviseringar ska skickas när återställningen är klar
+    - Om du återställer en virtuell dator via låg bandbredd klickar du på **Ändra** om du vill aktivera **Begränsning av nätverksbandbredd**. Du kan ange hur mycket bandbredd som du vill göra tillgänglig och den tidpunkt då bandbredd är tillgänglig när du har aktiverat alternativet för begränsning.
+    - Välj **Aktivera SAN-baserad återställning med hjälp av ögonblicksbilder av maskinvara** om du har konfigurerat nätverket.
+    - Välj **Send an e-mail when the recovery complete (Skicka ett e-postmeddelande när återställningen har slutförts)** och ange de e-postadresserna om du vill att e-postmeddelandena ska skickas när återställningen är klar.
 
-6. På sidan Sammanfattning kontrollerar du att all information är korrekt. Om informationen inte är korrekt, eller om du vill göra en ändring, klickar du på **tillbaka**. Om du är nöjd med inställningarna klickar du på **Återställ** för att starta återställnings processen.
+6. Kontrollera att alla uppgifter i fönstret Sammanfattning är korrekta. Om uppgifterna inte är korrekta, eller om du vill göra en ändring, klickar du på **Tillbaka**. Om du är nöjd med inställningarna klickar du på **Återställ** så startar återställningsprocessen.
 
-7. Skärmen **återställnings status** innehåller information om återställnings jobbet.
+7. Skärmen **Återställningsstatus** innehåller information om återställningsjobbet.
 
 ## <a name="next-steps"></a>Nästa steg
 

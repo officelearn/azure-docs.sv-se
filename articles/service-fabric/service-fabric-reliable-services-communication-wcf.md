@@ -1,24 +1,24 @@
 ---
-title: WCF-kommunikationsstack för Reliable Services
-description: Den inbyggda WCF Communication-stacken i Service Fabric tillhandahåller WCF-kommunikation via klient för Reliable Services.
+title: Pålitliga tjänster WCF kommunikation stack
+description: Den inbyggda WCF-kommunikationsstacken i Service Fabric tillhandahåller WCF-kommunikation för tillförlitliga tjänster för klienttjänster.
 author: BharatNarasimman
 ms.topic: conceptual
 ms.date: 06/07/2017
 ms.author: bharatn
 ms.openlocfilehash: 7f3b3974893316a488270f755b8f8822080658d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75433865"
 ---
-# <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-baserad kommunikations stack för Reliable Services
-Reliable Services Framework gör det möjligt för tjänst författarna att välja den kommunikations stack som de vill använda för tjänsten. De kan ansluta till kommunikations stacken som de väljer via **ICommunicationListener** som returneras från [CreateServiceReplicaListeners-eller CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) -metoderna. Ramverket innehåller en implementering av kommunikations stacken baserat på Windows Communication Foundation (WCF) för tjänst författare som vill använda WCF-baserad kommunikation.
+# <a name="wcf-based-communication-stack-for-reliable-services"></a>WCF-baserad kommunikationsstack för reliable services
+Reliable Services-ramverket gör det möjligt för tjänstförfattare att välja den kommunikationsstack som de vill använda för sin tjänst. De kan koppla in kommunikationsstacken som de själva väljer via **metoderna ICommunicationListener** som returneras från [metoderna CreateServiceReplicaListeners eller CreateServiceInstanceListeners.](service-fabric-reliable-services-communication.md) Ramverket tillhandahåller en implementering av kommunikationsstacken baserat på Windows Communication Foundation (WCF) för tjänstförfattare som vill använda WCF-baserad kommunikation.
 
-## <a name="wcf-communication-listener"></a>Lyssnare för WCF-kommunikation
-Den WCF-/regionsspecifika implementeringen av **ICommunicationListener** tillhandahålls av klassen **Microsoft. ServiceFabric. Services. Communication. WCF. Runtime. WcfCommunicationListener** .
+## <a name="wcf-communication-listener"></a>WCF-kommunikationslyssnare
+Den WCF-specifika **implementeringen av ICommunicationListener** tillhandahålls av klassen **Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime.WcfCommunicationListener.**
 
-Lest säger att vi har ett tjänst kontrakt av typen `ICalculator`
+Så att inte säga att vi har ett serviceavtal av typ`ICalculator`
 
 ```csharp
 [ServiceContract]
@@ -29,7 +29,7 @@ public interface ICalculator
 }
 ```
 
-Vi kan skapa en lyssnare för WCF-kommunikation i tjänsten på följande sätt.
+Vi kan skapa en WCF-kommunikationslyssnare i tjänsten på följande sätt.
 
 ```csharp
 
@@ -55,8 +55,8 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 
 ```
 
-## <a name="writing-clients-for-the-wcf-communication-stack"></a>Skriver klienter för WCF Communication-stacken
-För att klienter ska kunna kommunicera med tjänster med hjälp av WCF tillhandahåller ramverket **WcfClientCommunicationFactory**, som är den WCF-/regionsspecifika implementeringen av [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
+## <a name="writing-clients-for-the-wcf-communication-stack"></a>Skriva klienter för WCF-kommunikationsstacken
+För att skriva klienter att kommunicera med tjänster med hjälp av WCF, ger ramen **WcfClientCommunicationFactory**, vilket är WCF-specifika genomförandet av [ClientCommunicationFactoryBase](service-fabric-reliable-services-communication.md).
 
 ```csharp
 
@@ -68,7 +68,7 @@ public WcfCommunicationClientFactory(
     object callback = null);
 ```
 
-WCF Communication-kanalen kan nås från **WcfCommunicationClient** som skapats av **WcfCommunicationClientFactory**.
+WCF-kommunikationskanalen kan nås från **WcfCommunicationClient** som skapats av **WcfCommunicationClientFactory**.
 
 ```csharp
 
@@ -82,7 +82,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-Klient koden kan använda **WcfCommunicationClientFactory** tillsammans med **WcfCommunicationClient** som implementerar **ServicePartitionClient** för att fastställa tjänstens slut punkt och kommunicera med tjänsten.
+Klientkod kan använda **WcfCommunicationClientFactory** tillsammans med **WcfCommunicationClient** som implementerar **ServicePartitionClient** för att bestämma tjänstens slutpunkt och kommunicera med tjänsten.
 
 ```csharp
 // Create binding
@@ -110,12 +110,12 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 
 ```
 > [!NOTE]
-> Standard-ServicePartitionResolver förutsätter att klienten körs i samma kluster som tjänsten. Om detta inte är fallet skapar du ett ServicePartitionResolver-objekt och skickar slut punkterna för kluster anslutning.
+> StandardtjänstenPartitionResolver förutsätter att klienten körs i samma kluster som tjänsten. Om så inte är fallet skapar du ett ServicePartitionResolver-objekt och skickar i slutpunkterna för klusteranslutningen.
 > 
 > 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Fjärran rop med Reliable Services fjärr kommunikation](service-fabric-reliable-services-communication-remoting.md)
-* [Webb-API med OWIN i Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-* [Skydda kommunikation för Reliable Services](service-fabric-reliable-services-secure-communication-wcf.md)
+* [Fjärrproceduranrop med reliable services-ommotning](service-fabric-reliable-services-communication-remoting.md)
+* [Webb-API med OWIN i reliable services](service-fabric-reliable-services-communication-webapi.md)
+* [Säkra kommunikation för tillförlitliga tjänster](service-fabric-reliable-services-secure-communication-wcf.md)
 

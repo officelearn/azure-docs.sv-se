@@ -1,6 +1,6 @@
 ---
-title: Utgående regler – Azure Load Balancer
-description: Med den här utbildnings vägen kan du börja använda utgående regler för att definiera utgående översättningar av nätverks adresser.
+title: Utgående regler - Azure Load Balancer
+description: Med den här utbildningssökvägen börjar du använda utgående regler för att definiera utgående översättningar av nätverksadresser.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,40 +13,40 @@ ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
 ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78304199"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
-Azure Load Balancer tillhandahåller utgående anslutning från ett virtuellt nätverk förutom inkommande.  Utgående regler gör det enkelt att konfigurera offentliga [standard load BALANCERS](load-balancer-standard-overview.md)utgående Network Address Translation.  Har du fullständig deklarativa kontroll över utgående anslutning till skala och finjustera den här möjligheten för dina specifika behov.
+Azure Load Balancer tillhandahåller utgående anslutning från ett virtuellt nätverk förutom inkommande.  Utgående regler gör det enkelt att konfigurera offentliga [standardbelastningsutjämnings](load-balancer-standard-overview.md)utgående nätverksadressöversättning.  Du har full deklarativ kontroll över utgående anslutning för att skala och justera denna förmåga till dina specifika behov.
 
 ![Utgående regler för belastningsutjämnare](media/load-balancer-outbound-rules-overview/load-balancer-outbound-rules.png)
 
-Du kan använda belastningsutjämnare med utgående regler: 
-- Definiera utgående NAT från grunden.
-- skala och finjustera beteendet för befintliga utgående NAT. 
+Med utgående regler kan du använda Belastningsutjämnare för att: 
+- definiera utgående NAT från grunden.
+- skala och justera beteendet för befintlig utgående NAT. 
 
-Utgående regler kan du styra:
-- vilka virtuella datorer ska översättas till som offentliga IP-adresser. 
-- hur [utgående SNAT-portar](load-balancer-outbound-connections.md#snat) ska allokeras.
-- vilka protokoll som används för att ge utgående översättning för.
-- vilken varaktighet som ska användas för utgående timeout för utgående anslutning (4-120 minuter).
-- Om du vill skicka en TCP-återställning vid inaktivitet
+Med utgående regler kan du styra:
+- vilka virtuella datorer som ska översättas till vilka offentliga IP-adresser. 
+- hur [utgående SNAT-portar](load-balancer-outbound-connections.md#snat) ska fördelas.
+- vilka protokoll som ska tillhandahålla utgående översättning för.
+- vilken varaktighet som ska användas för utgående anslutningsutlösa tidsgräns (4-120 minuter).
+- om du vill skicka en TCP-återställning på inaktiv tidsgränsen
 
-Utgående regler expandera [Scenario 2](load-balancer-outbound-connections.md#lb) i beskrivningen i artikeln [utgående anslutningar](load-balancer-outbound-connections.md) och scenario prioriteten finns kvar.
+Utgående regler [utökar scenario 2](load-balancer-outbound-connections.md#lb) i beskrivningen i artikeln [för utgående anslutningar](load-balancer-outbound-connections.md) och scenarioprioriteten förblir som den är.
 
 ## <a name="outbound-rule"></a>Utgående regel
 
-Precis som alla regler för belastningsutjämnare Följ utgående regler samma välbekanta syntax som belastningsutjämning och inkommande NAT-regler:
+Precis som alla belastningsutjämna regler följer utgående regler samma välbekanta syntax som belastningsutjämning och inkommande NAT-regler:
 
-**klient dels** + **parametrar** + **backend-pool**
+**frontend** + **parametrar** + **backend pool**
 
-En utgående regel konfigurerar utgående NAT för _alla virtuella datorer som identifieras av backend-poolen_ som ska översättas till _klient delen_.  _Parametrarna_ och ger ytterligare detaljerad kontroll över den utgående NAT-algoritmen.
+En utgående regel konfigurerar utgående NAT för _alla virtuella datorer som identifieras av serverdelspoolen_ som ska översättas till _klientdelen_.  Och _parametrar_ ger ytterligare finkornig kontroll över den utgående NAT-algoritmen.
 
-API-versionen ”2018-07-01” tillåter en utgående regeldefinition strukturerade på följande sätt:
+API-versionen "2018-07-01" tillåter en utgående regeldefinition strukturerad enligt följande:
 
 ```json
       "outboundRules": [
@@ -62,70 +62,70 @@ API-versionen ”2018-07-01” tillåter en utgående regeldefinition strukturer
 ```
 
 >[!NOTE]
->Effektiva utgående NAT-konfigurationen är sammansatt av alla utgående regler och regler för belastningsutjämning. Utgående regler är inkrementell säkerhetskopiering regler för belastningsutjämning. Granska [inaktivera utgående NAT för en belastnings Utjämnings regel](#disablesnat) för att hantera den effektiva utgående NAT-översättningen när flera regler gäller för en virtuell dator. Du måste [inaktivera utgående SNAT](#disablesnat) när du definierar en utgående regel som använder samma offentliga IP-adress som en belastnings Utjämnings regel.
+>Den effektiva utgående NAT-konfigurationen är en blandning av alla utgående regler och belastningsutjämningsregler. Utgående regler är inkrementella till belastningsutjämningsregler. Granska [inaktivera utgående NAT för en belastningsutjämningsregel för](#disablesnat) att hantera den effektiva utgående NAT-översättningen när flera regler gäller för en virtuell dator. Du måste [inaktivera utgående SNAT](#disablesnat) när du definierar en utgående regel som använder samma offentliga IP-adress som en belastningsutjämningsregel.
 
-### <a name="scale"></a>Skala utgående NAT med flera IP-adresser
+### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a>Skala utgående NAT med flera IP-adresser
 
-En utgående regel kan användas med bara en enda offentlig IP-adress, förenklar utgående regler arbetet konfiguration för att skala utgående NAT. Du kan använda flera IP-adresser för att planera för storskaliga scenarier och du kan använda utgående regler för att minska mönstren för [SNAT-överbelastningar](load-balancer-outbound-connections.md#snatexhaust) .  
+Även om en utgående regel kan användas med bara en enda offentlig IP-adress, underlättar utgående regler konfigurationsbördan för skalning av utgående NAT. Du kan använda flera IP-adresser för att planera för storskaliga scenarier och du kan använda utgående regler för att minska [SNAT-utmattningsbenägna](load-balancer-outbound-connections.md#snatexhaust) mönster.  
 
-Varje ytterligare IP-adress som tillhandahålls av en klient del ger 64 000 tillfälliga portar för Load Balancer att använda sig av SNAT-portar. Även om Utjämning av nätverksbelastning eller inkommande NAT-regler har en enda klientdel, utgående regel utökas frontend-notation och gör att flera klienter per regel.  Antalet tillgängliga portar för SNAT multipliceras med varje offentlig IP-adress med flera klienter per regel och stora scenarier stöds.
+Varje ytterligare IP-adress som tillhandahålls av en klientdel ger 64 000 tillfälliga portar som lastjämförelser ska användas som SNAT-portar. Medan belastningsutjämning eller inkommande NAT-regler har en enda frontend, utökar den utgående regeln frontend-begreppet och tillåter flera frontends per regel.  Med flera frontends per regel multipliceras antalet tillgängliga SNAT-portar med varje offentlig IP-adress och stora scenarier kan stödjas.
 
-Dessutom kan du använda ett [offentligt IP-prefix](https://aka.ms/lbpublicipprefix) direkt med en utgående regel.  Med hjälp av offentliga IP-Adressen ger prefix enklare skalning och förenklad vit-lista över flöden från din Azure-distribution. Du kan konfigurera en frontend IP-konfiguration i belastningsutjämnaren resursen att direkt referera till en offentlig IP-adressprefix.  På så sätt kan belastningsutjämnaren exklusiv kontroll över det offentliga IP-adressprefix och utgående regel används automatiskt alla offentliga IP-adresser som ingår i det offentliga IP-adressprefix för utgående anslutningar.  Var och en av IP-adresserna inom intervallet för det offentliga IP-prefixet ger 64 000 tillfälliga portar per IP-adress för Load Balancer som ska användas som SNAT-portar.   
+Dessutom kan du använda ett [offentligt IP-prefix](https://aka.ms/lbpublicipprefix) direkt med en utgående regel.  Med hjälp av offentligt IP-prefix kan du skala och förenkla vitlista med flöden som kommer från din Azure-distribution. Du kan konfigurera en klientdels-IP-konfiguration i belastningsutjämnaren för att referera till ett offentligt IP-adressprefix direkt.  Detta gör att belastningsutjämnaren exklusiv kontroll över det offentliga IP-prefixet och den utgående regeln kommer automatiskt att använda alla offentliga IP-adresser som finns i det offentliga IP-prefixet för utgående anslutningar.  Var och en av IP-adresserna inom intervallet för det offentliga IP-prefixet ger 64 000 tillfälliga portar per IP-adress för belastningsutjämnare som ska användas som SNAT-portar.   
 
-Du kan inte ha enskilda offentliga IP-adressresurser som skapats från det offentliga IP-adressprefix när du använder det här alternativet som utgående regel måste ha fullständig kontroll över det offentliga IP-adressprefix.  Om du behöver mer bra störrre kontroll kan du skapa enskilda offentliga IP-adressresurs från det offentliga IP-adressprefix och tilldela flera offentliga IP-adresser individuellt till klientdelen av en utgående regel.
+Du kan inte ha enskilda offentliga IP-adressresurser som skapats från det offentliga IP-prefixet när du använder det här alternativet eftersom den utgående regeln måste ha fullständig kontroll över det offentliga IP-prefixet.  Om du behöver mer finkornig kontroll kan du skapa enskilda offentliga IP-adressresurs från det offentliga IP-prefixet och tilldela flera offentliga IP-adresser individuellt till klientdelen för en utgående regel.
 
-### <a name="snatports"></a>Finjustera SNAT-port tilldelning
+### <a name="tune-snat-port-allocation"></a><a name="snatports"></a>Justera SNAT-portallokering
 
-Du kan använda utgående regler för att finjustera den [automatiska SNAT-port tilldelningen baserat på storleken på backend-poolen](load-balancer-outbound-connections.md#preallocatedports) och allokera mer eller mindre än den automatiska SNAT-port tilldelningen ger.
+Du kan använda utgående regler för att justera den [automatiska SNAT-portallokeringen baserat på backend-poolstorlek](load-balancer-outbound-connections.md#preallocatedports) och allokera mer eller mindre än den automatiska SNAT-portallokeringen ger.
 
-Du kan använda följande parameter för att allokera 10 000 SNAT portar per virtuell dator (NIC IP-konfiguration).
+Använd följande parameter för att allokera 10 000 SNAT-portar per virtuell dator (NIC IP-konfiguration).
  
 
           "allocatedOutboundPorts": 10000
 
-Varje offentlig IP-adress från alla klient delar av en utgående regel bidrar upp till 64 000 tillfälliga portar för användning som SNAT-portar.  Belastningsutjämnaren tilldelas SNAT portar i multipler av 8. Om du anger ett värde som inte är delbara med 8 avvisade konfigurationen igen.  Om du försöker att allokera mer SNAT portar än vad som är tillgängliga beror på hur många offentliga IP-adresser, avvisade konfigurationen igen.  Om du till exempel allokerar 10 000-portar per virtuell dator och 7 virtuella datorer i en backend-pool delar en enskild offentlig IP-adress, så avvisas konfigurationen (7 x 10 000/SNAT-portar > 64 000/SNAT-portar).  Du kan lägga till fler offentliga IP-adresser för klientdelen av utgående regeln för att aktivera scenariot.
+Varje offentlig IP-adress från alla frontends av en utgående regel bidrar med upp till 64 000 tillfälliga portar för användning som SNAT-portar.  Belastningsutjämnaren allokerar SNAT-portar i multiplar av 8. Om du anger ett värde som inte är delbart med 8 avvisas konfigurationsåtgärden.  Om du försöker allokera fler SNAT-portar än vad som är tillgängligt baserat på antalet offentliga IP-adresser avvisas konfigurationsåtgärden.  Om du till exempel allokerar 10 000 portar per virtuell dator och 7 virtuella datorer i en serverdelspool skulle dela en enda offentlig IP-adress, avvisas konfigurationen (7 x 10 000 SNAT-portar > 64 000 SNAT-portar).  Du kan lägga till fler offentliga IP-adresser i frontend för den utgående regeln för att aktivera scenariot.
 
-Du kan återgå till [Automatisk SNAT-port tilldelning baserat på storlek på backend-poolen](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antal portar. I så fall kommer de första 50 VM-instanserna att få 1024 portar, 51-100 VM-instanser får 512 och så vidare enligt tabellen.
+Du kan återgå till [automatisk SNAT-portallokering baserat på serverdapoolstorlek](load-balancer-outbound-connections.md#preallocatedports) genom att ange 0 för antal portar. I så fall får de första 50 VM-instanserna 1024 portar, 51-100 VM-instanser får 512 och så vidare enligt tabellen.
 
-### <a name="idletimeout"></a>Kontrol lera timeout för utgående inaktivt flöde
+### <a name="control-outbound-flow-idle-timeout"></a><a name="idletimeout"></a>Kontroll av utgående flödesutlösande timeout
 
-Utgående regler ger en konfigurationsparameter för kontroll av tidsgränsen för inaktivitet utgående flödet och matcha den mot programmets behov.  Utgående inaktiv tidsgränser som standard 4 minuter.  Parametern accepterar ett värde från 4 till 120 till ett specifikt antal minuter för tids gränsen för inaktivitet för flöden som matchar den här regeln.
+Utgående regler ger en konfigurationsparameter för att styra den utgående tidsgränsen för inaktivt flöde och matcha den med behoven i ditt program.  Utgående tidsutlösa tidsutgångar som standard är 4 minuter.  Parametern accepterar ett värde från 4 till 120 till specifika antalet minuter för inaktiv tidsgränsen för flöden som matchar den här regeln.
 
-Använd följande parameter och ange utgående tidsgränsen för inaktivitet till 1 timme:
+Använd följande parameter för att ange tidsgränsen för utgående inaktiv tidsutskrift till 1 timme:
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a><a name="tcpreset"></a> Aktivera timeout för TCP-återställning vid inaktivitet
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Aktivera TCP-återställning vid inaktiv timeout
 
-Standardbeteendet för belastningsutjämnare är att ta bort flödet tyst när utgående tidsgränsen för inaktivitet har uppnåtts.  Med parametern enableTCPReset som du kan aktivera en mer förutsägbar programmets beteende och kontrollera om du vill skicka dubbelriktad TCP-återställning (TCP RSTA) vid tidsgränsen för utgående timeout för inaktivitet. 
+Standardbeteendet för belastningsutjämnaren är att släppa flödet tyst när den utgående tidsgränsen för inaktiv har uppnåtts.  Med parametern enableTCPReset kan du aktivera ett mer förutsägbart programbeteende och styra om du vill skicka dubbelriktad TCP-återställning (TCP RST) vid den tidpunkt efter utgående tidsgränsen för inaktiv inaktivitet. 
 
 Använd följande parameter för att aktivera TCP-återställning på en utgående regel:
 
            "enableTcpReset": true
 
-Granska [TCP-återställning vid inaktivitet](https://aka.ms/lbtcpreset) för mer information, inklusive region tillgänglighet.
+Granska [TCP-återställning vid inaktiv tidsgränsen](https://aka.ms/lbtcpreset) för mer information, inklusive regiontillgänglighet.
 
-### <a name="proto"></a>Stöd för både TCP-och UDP-transport protokoll med en enda regel
+### <a name="support-both-tcp-and-udp-transport-protocols-with-a-single-rule"></a><a name="proto"></a>Stöd för både TCP- och UDP-transportprotokoll med en enda regel
 
-Vill du förmodligen att använda ”alla” för transport-protokoll för regel för utgående trafik, men du kan också använda regel för utgående trafik till en specifik transport-protokollet om det finns ett behov av att göra detta.
+Du kommer förmodligen att vilja använda "Alla" för transportprotokollet för den utgående regeln, men du kan också tillämpa den utgående regeln på ett visst transportprotokoll också om det finns ett behov av att göra det.
 
-Använd följande parameter för att ange protokollet till TCP och UDP:
+Använd följande parameter för att ställa in protokollet till TCP och UDP:
 
           "protocol": "All"
 
-### <a name="disablesnat"></a>Inaktivera utgående NAT för en belastnings Utjämnings regel
+### <a name="disable-outbound-nat-for-a-load-balancing-rule"></a><a name="disablesnat"></a>Inaktivera utgående NAT för en belastningsutjämningsregel
 
-Som nämnts tidigare ger belastningsutjämningsregler automatisk programmeringen av utgående NAT. Men vissa scenarier dra eller kräver att du inaktiverar automatisk utgående NAT-programmering med regel om du vill kan du styra eller begränsa beteendet för belastningsutjämning.  Utgående regler har scenarier där det är viktigt att stoppa automatiska utgående NAT-programmering.
+Som tidigare nämnts ger belastningsutjämningsregler automatisk programmering av utgående NAT. Vissa scenarier gynnar eller kräver dock att du inaktiverar automatisk programmering av utgående NAT genom belastningsutjämningsregeln så att du kan styra eller förfina beteendet.  Utgående regler har scenarier där det är viktigt att stoppa den automatiska utgående NAT-programmeringen.
 
 Du kan använda den här parametern på två sätt:
-- Valfritt Undertryckning av med inkommande IP-adress för utgående NAT.  Utgående regler är inkrementell säkerhetskopiering regler för belastningsutjämning och med den här parameteruppsättningen utgående regel som finns i kontrollen.
+- Dämpning som tillval för att använda den inkommande IP-adressen för utgående NAT.  Utgående regler är inkrementella till belastningsutjämningsregler och med den här parameteruppsättningen är den utgående regeln i kontroll.
   
-- Finjustera utgående NAT-parametrarna för en IP-adress som används för inkommande och utgående samtidigt.  Automatisk utgående NAT-programmering måste inaktiveras för att tillåta en utgående regel genom att ta kontroll.  Till exempel för att kunna ändra porttilldelning SNAT för en adress också används för inkommande, den här parametern måste anges till true.  Om du försöker använda en utgående regel för att omdefiniera parametrarna för en IP-adress som också används för inkommande och utgående NAT-programmering av regel för belastningsutjämning inte släppts, misslyckas åtgärden att konfigurera en utgående regel.
+- Justera de utgående NAT-parametrarna för en IP-adress som används för inkommande och utgående samtidigt.  Den automatiska utgående NAT-programmeringen måste inaktiveras så att en utgående regel kan ta kontroll.  Om du till exempel vill ändra SNAT-portallokeringen för en adress som också används för inkommande, måste den här parametern anges till true.  Om du försöker använda en utgående regel för att definiera om parametrarna för en IP-adress som också används för inkommande och inte har släppt utgående NAT-programmering av belastningsutjämningsregeln, misslyckas åtgärden för att konfigurera en utgående regel.
 
 >[!IMPORTANT]
-> Den virtuella datorn har ingen utgående anslutning om du anger den här parametern till true och inte har en utgående regel (eller ett [offentligt IP-scenario på instans nivå](load-balancer-outbound-connections.md#ilpip) för att definiera utgående anslutning.  Vissa åtgärder på den virtuella datorn eller ditt program kan bero på att ha utgående anslutningar som är tillgängliga. Kontrollera att du förstår beroenden för ditt scenario och har vara effekten av den här ändringen.
+> Den virtuella datorn har inte utgående anslutning om du anger den här parametern till true och inte har en utgående regel (eller [offentligt IP-scenario på instansnivå](load-balancer-outbound-connections.md#ilpip) för att definiera utgående anslutning.  Vissa åtgärder för den virtuella datorn eller ditt program kan bero på att det finns utgående anslutningar tillgängliga. Se till att du förstår beroenden i ditt scenario och har övervägt effekten av att göra den här ändringen.
 
-Du kan inaktivera utgående SNAT på regel med den här Konfigurationsparametern för belastningsutjämning:
+Du kan inaktivera utgående SNAT på belastningsutjämningsregeln med den här konfigurationsparametern:
 
 ```json
       "loadBalancingRules": [
@@ -135,82 +135,82 @@ Du kan inaktivera utgående SNAT på regel med den här Konfigurationsparametern
       ]
 ```
 
-Parametern disableOutboundSNAT **har** värdet false, vilket innebär att belastnings Utjämnings regeln tillhandahåller automatisk utgående NAT som en spegel avbildning av konfigurationen för belastnings Utjämnings regeln.  
+Parametern disableOutboundSNAT är som standard false, **does** vilket innebär att belastningsutjämningsregeln tillhandahåller automatisk utgående NAT som en spegelbild av belastningsutjämningsregelkonfigurationen.  
 
-Om du anger disableOutboundSnat till true för belastningsutjämningsregeln släpper belastningsutjämningsregeln kontrollen över annars automatisk utgående NAT-programmering.  Utgående SNAT till följd av belastningsutjämningsregel har inaktiverats.
+Om du ställer in disableOutboundSnat på true på belastningsutjämningsregeln frigör belastningsutjämningsregeln kontrollen över den annars automatiska utgående NAT-programmeringen.  Utgående SNAT som ett resultat av belastningsutjämningsregeln är inaktiverad.
 
-### <a name="reuse-existing-or-define-new-backend-pools"></a>Återanvända befintliga eller definiera nya serverdelspooler
+### <a name="reuse-existing-or-define-new-backend-pools"></a>Återanvända befintliga eller definiera nya backend-pooler
 
-Utgående regler inför inte ett nytt koncept för att definiera gruppen med virtuella datorer som regeln gäller.  I stället återanvända de konceptet med en backend-adresspool som också används för regler för belastningsutjämning. Du kan använda detta för att förenkla konfigurationen genom att antingen återanvända en befintlig definition för backend-pool eller skapa ett specifikt för en utgående regel.
+Utgående regler introducerar inte ett nytt koncept för att definiera den grupp av virtuella datorer som regeln ska gälla för.  I stället återanvänder de konceptet med en backend pool, som också används för belastningsutjämningsregler. Du kan använda detta för att förenkla konfigurationen genom att antingen återanvända en befintlig serverdpooldefinition eller skapa en specifik för en utgående regel.
 
 ## <a name="scenarios"></a>Scenarier
 
-### <a name="groom"></a>Rensa utgående anslutningar till en speciell uppsättning offentliga IP-adresser
+### <a name="groom-outbound-connections-to-a-specific-set-of-public-ip-addresses"></a><a name="groom"></a>Groom utgående anslutningar till en viss uppsättning offentliga IP-adresser
 
-Du kan använda en utgående regel för att regelbundet rensa utgående anslutningar kommer från en specifik uppsättning offentliga IP-adresser för att underlätta vitlistning scenarier.  Den här offentliga IP-källadressen kan vara samma som används av en belastningsutjämningsregel eller en annan uppsättning offentliga IP-adresser än vad som används av en regel för belastningsutjämning.  
+Du kan använda en utgående regel för att förbereda utgående anslutningar som ska visas som kommer från en viss uppsättning offentliga IP-adresser för att underlätta vitlistningsscenarier.  Den här källans offentliga IP-adress kan vara samma som används av en belastningsutjämningsregel eller en annan uppsättning offentliga IP-adresser än vad som används av en belastningsutjämningsregel.  
 
-1. Skapa [offentliga IP-prefix](https://aka.ms/lbpublicipprefix) (eller offentliga IP-adresser från offentliga IP-prefix)
+1. Skapa [offentligt IP-prefix](https://aka.ms/lbpublicipprefix) (eller offentliga IP-adresser från offentligt IP-prefix)
 2. Skapa en offentlig Standard Load Balancer
-3. Skapa klienter som refererar till offentligt IP-prefix (eller offentliga IP-adresser) du vill använda
-4. Återanvända en serverdelspool eller skapa en serverdelspool och placera de virtuella datorerna i en serverdelspool för offentlig belastningsutjämnare
-5. Konfigurera en utgående regel på den offentliga belastningsutjämnare att programmera utgående NAT för dessa virtuella datorer med klienter
+3. Skapa frontends som refererar till det offentliga IP-prefix (eller offentliga IP-adresser) som du vill använda
+4. Återanvända en backend-pool eller skapa en backend-pool och placera de virtuella datorerna i en backend-pool av den offentliga belastningsutjämnaren
+5. Konfigurera en utgående regel för den offentliga belastningsutjämnaren för att programmera utgående NAT för dessa virtuella datorer med hjälp av frontends
    
-Om du inte vill att belastnings Utjämnings regeln ska användas för utgående trafik måste du [inaktivera utgående SNAT](#disablesnat) i belastnings Utjämnings regeln.
+Om du inte vill att belastningsutjämningsregeln ska användas för utgående måste du [inaktivera utgående SNAT](#disablesnat) på belastningsutjämningsregeln.
 
-### <a name="modifysnat"></a>Ändra SNAT-port tilldelning
+### <a name="modify-snat-port-allocation"></a><a name="modifysnat"></a>Ändra SNAT-portallokering
 
-Du kan använda utgående regler för att finjustera den [automatiska SNAT-port tilldelningen baserat på storleken på backend-poolen](load-balancer-outbound-connections.md#preallocatedports).
+Du kan använda utgående regler för att justera den [automatiska SNAT-portallokeringen baserat på backend-poolstorlek](load-balancer-outbound-connections.md#preallocatedports).
 
-Om du har två virtuella datorer som delar en enda offentlig IP-adress för utgående NAT kanske du exempelvis vill öka antalet SNAT-portar som allokerats 1024 standardportarna om du upplever SNAT överbelastning. Varje offentlig IP-adress kan bidra upp till 64 000 tillfälliga portar.  Om du konfigurerar en utgående regel med en enda offentlig IP-adresspool kan du distribuera totalt 64 000 SNAT-portar till virtuella datorer i backend-poolen.  För två virtuella datorer kan högst 32 000 SNAT-portar tilldelas med en utgående regel (2x 32 000 = 64 000).
+Om du till exempel har två virtuella datorer som delar en enda offentlig IP-adress för utgående NAT kan du öka antalet SNAT-portar som allokerats från standardportarna för 1024 om du upplever SNAT-utmattning. Varje offentlig IP-adress kan bidra med upp till 64 000 tillfälliga portar.  Om du konfigurerar en utgående regel med en enda offentlig IP-adress frontend kan du distribuera totalt 64 000 SNAT-portar till virtuella datorer i serverdelspoolen.  För två virtuella datorer kan högst 32 000 SNAT-portar tilldelas med en utgående regel (2x 32 000 = 64 000).
 
-Granska [utgående anslutningar](load-balancer-outbound-connections.md) och information om hur [SNAT](load-balancer-outbound-connections.md#snat) -portar allokeras och används.
+Granska [utgående anslutningar](load-balancer-outbound-connections.md) och information om hur [SNAT-portar](load-balancer-outbound-connections.md#snat) allokeras och används.
 
-### <a name="outboundonly"></a>Aktivera endast utgående
+### <a name="enable-outbound-only"></a><a name="outboundonly"></a>Endast aktivera utgående
 
-Du kan använda en offentlig Standard Load Balancer för att ange utgående NAT för en grupp virtuella datorer. I det här scenariot kan du använda en utgående regel, utan behov av alla ytterligare regler.
+Du kan använda en offentlig standardbelastningsutfärdare för att tillhandahålla utgående NAT för en grupp virtuella datorer. I det här fallet kan du använda en utgående regel av sig själv, utan att behöva ytterligare regler.
 
-#### <a name="outbound-nat-for-vms-only-no-inbound"></a>Utgående NAT för virtuella datorer endast (inte inkommande)
+#### <a name="outbound-nat-for-vms-only-no-inbound"></a>Utgående NAT endast för virtuella datorer (ingen inkommande)
 
-Definiera en offentlig Standard Load Balancer, placera de virtuella datorerna i serverdelspoolen och konfigurera en utgående regel för att programmera utgående NAT och rensa de utgående anslutningarna till kommer från en specifik offentlig IP-adress. Du kan också använda en offentlig IP-adressprefix förenkla vit-lista källan för utgående anslutningar.
+Definiera en offentlig standardbelastningsutjämning, placera de virtuella datorerna i serverdapoolen och konfigurera en utgående regel för att programmera utgående NAT och vårda de utgående anslutningarna så att de kommer från en viss offentlig IP-adress. Du kan också använda ett offentligt IP-prefix förenkla vitlista källan till utgående anslutningar.
 
-1. Skapa en offentlig Standard Load Balancer.
-2. Skapa en serverdelspool och placera de virtuella datorerna i en serverdelspool för den offentliga belastningsutjämnare.
-3. Konfigurera en utgående regel på offentlig belastningsutjämnare att programmera utgående NAT för dessa virtuella datorer.
+1. Skapa en offentlig standardbelastningsutjämningsapparat.
+2. Skapa en backend-pool och placera de virtuella datorerna i en backend-pool av den offentliga belastningsutjämnaren.
+3. Konfigurera en utgående regel för den offentliga belastningsutjämnaren för att programmera utgående NAT för dessa virtuella datorer.
 
-#### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>Utgående NAT för interna Standard Load Balancer-scenarier
+#### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>Utgående NAT för interna standardscenarier för belastningsutjämnare
 
-När du använder en intern Standard Load Balancer, är utgående NAT inte tillgängligt förrän utgående anslutning har deklarerats explicit. Du kan definiera utgående anslutning som använder en utgående regel för att skapa utgående anslutning för virtuella datorer bakom en intern Standard Load Balancer med de här stegen:
+När du använder en intern standardbelastningsutjämnare är utgående NAT inte tillgänglig förrän utgående anslutning uttryckligen har deklarerats. Du kan definiera utgående anslutning med hjälp av en utgående regel för att skapa utgående anslutning för virtuella datorer bakom en intern standardbelastningsutjämnare med följande steg:
 
-1. Skapa en offentlig Standard Load Balancer.
-2. Skapa en serverdelspool och placera de virtuella datorerna i en serverdelspool för den offentliga belastningsutjämnare utöver den interna belastningsutjämnaren.
-3. Konfigurera en utgående regel på offentlig belastningsutjämnare att programmera utgående NAT för dessa virtuella datorer.
+1. Skapa en offentlig standardbelastningsutjämningsapparat.
+2. Skapa en backend-pool och placera de virtuella datorerna i en backend-pool av den offentliga belastningsutjämnaren utöver den interna belastningsutjämnaren.
+3. Konfigurera en utgående regel för den offentliga belastningsutjämnaren för att programmera utgående NAT för dessa virtuella datorer.
 
-#### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Aktivera både TCP och UDP-protokoll för utgående NAT med en offentlig Standard Load Balancer
+#### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Aktivera både TCP-& UDP-protokoll för utgående NAT med en offentlig standardbelastningsutjämning
 
-- När du använder en offentlig Standardbelastningsutjämnare matchar den automatiska utgående NAT-programmering tillhandahålls transportprotokollet av regel för belastningsutjämning.  
+- När du använder en offentlig standardbelastningsutjämning matchar den automatiska utgående NAT-programmeringen transportprotokollet för belastningsutjämningsregeln.  
 
-   1. Inaktivera utgående SNAT på regeln för belastningsutjämning.
+   1. Inaktivera utgående SNAT på belastningsutjämningsregeln.
    2. Konfigurera en utgående regel på samma belastningsutjämnare.
-   3. Återanvända serverdelspoolen som redan används av dina virtuella datorer.
-   4. Ange ”protokoll”: ”alla” som en del av regel för utgående trafik.
+   3. Återanvänd den backend-pool som redan används av dina virtuella datorer.
+   4. Ange "protokoll": "Alla" som en del av den utgående regeln.
 
-- Ingen utgående NAT tillhandahålls när endast inkommande NAT-regler används.
+- När endast inkommande NAT-regler används anges ingen utgående NAT.
 
-   1. Placera virtuella datorer i en serverdelspool.
-   2. Definiera en eller flera frontend IP-konfigurationer med offentliga IP-adresser eller offentliga IP-prefix.
+   1. Placera virtuella datorer i en backend-pool.
+   2. Definiera en eller flera IP-konfigurationer med offentliga IP-adresser eller offentligt IP-prefix.
    3. Konfigurera en utgående regel på samma belastningsutjämnare.
-   4. Ange ”protokoll”: ”alla” som en del av utgående regel
+   4. Ange "protokoll": "Alla" som en del av den utgående regeln
 
 ## <a name="limitations"></a>Begränsningar
 
-- Det maximala antalet användbara tillfälliga portar per IP-adress för klient delen är 64 000.
-- Intervallet för den konfigurerbara tids gränsen för utgående inaktivitet är 4 till 120 minuter (240 till 7200 sekunder).
-- Belastningsutjämnaren har inte stöd för ICMP för utgående NAT.
-- Utgående regler kan bara tillämpas på en primär IP-konfiguration för ett nätverkskort.  Det finns stöd för flera nätverkskort.
+- Det maximala antalet användbara efemära portar per ip-adress för klientdel är 64 000.
+- Intervallet för den konfigurerbara utgående tidsgränsen för inaktiv är 4 till 120 minuter (240 till 7200 sekunder).
+- Belastningsutjämnaren stöder inte ICMP för utgående NAT.
+- Utgående regler kan endast tillämpas på primär IP-konfiguration av ett nätverkskort.  Flera nätverkskort stöds.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om hur du använder [Load Balancer för utgående anslutningar](load-balancer-outbound-connections.md).
-- Läs mer om [standard Load Balancer](load-balancer-standard-overview.md).
-- Lär dig mer om [dubbelriktad TCP-återställning vid inaktiv tids gräns](load-balancer-tcp-reset.md).
-- [Konfigurera utgående regler med Azure CLI 2,0](configure-load-balancer-outbound-cli.md).
+- Lär dig mer om hur du använder [belastningsutjämnaren för utgående anslutningar](load-balancer-outbound-connections.md).
+- Läs mer om [standardbelastningsutjämningsdon](load-balancer-standard-overview.md).
+- Lär dig mer om [dubbelriktad TCP-återställning vid inaktiv timeout](load-balancer-tcp-reset.md).
+- [Konfigurera utgående regler med Azure CLI 2.0](configure-load-balancer-outbound-cli.md).

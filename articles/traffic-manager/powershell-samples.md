@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell exempel för Traffic Manager | Microsoft Docs
-description: Med det här exemplet använder Azure PowerShell för att distribuera och konfigurera Azure Traffic Manager.
+title: Azure PowerShell-exempel för Traffic Manager| Microsoft-dokument
+description: Med det här exemplet använder du Azure PowerShell för att distribuera och konfigurera Azure Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: rohinkoul
@@ -13,18 +13,18 @@ ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: rohink
 ms.openlocfilehash: 25864e3b419d86cbe1ec816bea4438958ca33124
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76934536"
 ---
-# <a name="azure-powershell-samples-for-traffic-manager"></a>Azure PowerShell exempel för Traffic Manager
+# <a name="azure-powershell-samples-for-traffic-manager"></a>Azure PowerShell-exempel för Traffic Manager
 
-Följande tabell innehåller länkar till Traffic Manager skript som skapats med hjälp av Azure PowerShell.
+Följande tabell innehåller länkar till Traffic Manager-skript som skapats med Azure PowerShell.
 
 |Titel  |Beskrivning |
 |---------|---------|
-|[Direkt trafik över flera regioner för hög program tillgänglighet](./scripts/traffic-manager-powershell-websites-high-availability.md)   |    Skapar två App Service-planer, två webbappar, en Traffic Manager-profil och två Traffic Manager-slutpunkter.     |
+|[Direkt trafik över flera regioner för hög programtillgänglighet](./scripts/traffic-manager-powershell-websites-high-availability.md)   |    Skapar två apptjänstplaner, två webbappar, en traffic manager-profil och två slutpunkter för Trafikhanteraren.     |
 |    |         |
 

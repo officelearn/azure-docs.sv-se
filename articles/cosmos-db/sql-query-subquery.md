@@ -1,51 +1,51 @@
 ---
 title: SQL-underfrågor för Azure Cosmos DB
-description: Lär dig om SQL-underfrågaer och deras vanliga användnings fall och olika typer av under frågor i Azure Cosmos DB
+description: Lär dig mer om SQL-underfrågor och deras vanliga användningsfall och olika typer av underkategorier i Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
 ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74870572"
 ---
-# <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exempel på SQL-underfrågan för Azure Cosmos DB
+# <a name="sql-subquery-examples-for-azure-cosmos-db"></a>EXEMPEL på SQL-underkrymning för Azure Cosmos DB
 
-En under fråga är en fråga som är kapslad i en annan fråga. En under fråga kallas även för en inre fråga eller inre Select. Den instruktion som innehåller en under fråga kallas vanligt vis för en yttre fråga.
+En underfråga är en fråga som är kapslad i en annan fråga. En underfråga kallas också en inre fråga eller en inre markering. Uttrycket som innehåller en underfråga kallas vanligtvis en yttre fråga.
 
-I den här artikeln beskrivs SQL-underfrågor och deras vanliga användnings fall i Azure Cosmos DB. Alla exempel frågor i det här dokumentet kan köras mot en näringsvärdes data uppsättning som är förinstallerad på [Azure Cosmos DB testplats för databasfrågor](https://www.documentdb.com/sql/demo).
+I den här artikeln beskrivs SQL-underfrågor och deras vanliga användningsfall i Azure Cosmos DB. Alla exempelfrågor i det här dokumentet kan köras mot en näringsdatauppsättning som är förinläst på [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo).
 
-## <a name="types-of-subqueries"></a>Typer av under frågor
+## <a name="types-of-subqueries"></a>Typer av underkategorier
 
-Det finns två huvud typer av under frågor:
+Det finns två huvudtyper av underfrågor:
 
-* **Korrelerade**: en under fråga som refererar till värden från den yttre frågan. Under frågan utvärderas en gång för varje rad som den yttre frågan bearbetar.
-* **Icke-korrelerad**: en under fråga som är oberoende av den yttre frågan. Den kan köras på egen hand utan att det förlitar sig på den yttre frågan.
+* **Korrelerad**: En underfråga som refererar till värden från den yttre frågan. Underfrågan utvärderas en gång för varje rad som den yttre frågan bearbetar.
+* **Icke-korrelerad:** En underfråga som är oberoende av den yttre frågan. Den kan köras på egen hand utan att förlita sig på den yttre frågan.
 
 > [!NOTE]
-> Azure Cosmos DB stöder endast korrelerade under frågor.
+> Azure Cosmos DB stöder endast korrelerade underfrågor.
 
-Under frågor kan klassificeras ytterligare baserat på antalet rader och kolumner som de returnerar. Det finns tre typer:
-* **Tabell**: returnerar flera rader och flera kolumner.
-* **Flera värden**: returnerar flera rader och en kolumn.
-* **Skalär**: returnerar en enskild rad och en enskild kolumn.
+Underfrågor kan klassificeras ytterligare baserat på antalet rader och kolumner som de returnerar. Det finns tre typer:
+* **Tabell**: Returnerar flera rader och flera kolumner.
+* **Flera värden**: Returnerar flera rader och en enskild kolumn.
+* **Skalär**: Returnerar en enda rad och en enskild kolumn.
 
-SQL-frågor i Azure Cosmos DB returnerar alltid en enda kolumn (antingen ett enkelt värde eller ett komplext dokument). Därför kan bara flera värden och skalära under frågor användas i Azure Cosmos DB. Du kan bara använda en under fråga med flera värden i FROM-satsen som ett Relations uttryck. Du kan använda en skalär under fråga som ett skalärt uttryck i SELECT-eller WHERE-satsen eller som ett Relations uttryck i from-satsen.
+SQL-frågor i Azure Cosmos DB returnerar alltid en enda kolumn (antingen ett enkelt värde eller ett komplext dokument). Därför är endast subkvaltar med flera värde och skalär tillämpliga i Azure Cosmos DB. Du kan bara använda en subquery med flera värden i FROM-satsen som ett relationsuttryck. Du kan använda en scalar-underkräktning som ett skaläruttryck i SELECT- eller WHERE-satsen, eller som ett relationsuttryck i FROM-satsen.
 
-## <a name="multi-value-subqueries"></a>Under frågor med flera värden
+## <a name="multi-value-subqueries"></a>Underfrågor med flera värden
 
-Under frågor med flera värden returnerar en uppsättning dokument och används alltid i FROM-satsen. De används för:
+Underfrågor med flera värden returnerar en uppsättning dokument och används alltid inom FROM-satsen. De används för:
 
-* Optimerar KOPPLINGs uttryck. 
-* Utvärderar dyra uttryck en gång och refererar flera gånger.
+* Optimera JOIN-uttryck. 
+* Utvärdera dyra uttryck en gång och referera flera gånger.
 
-## <a name="optimize-join-expressions"></a>Optimera KOPPLINGs uttryck
+## <a name="optimize-join-expressions"></a>Optimera JOIN-uttryck
 
-Under frågor med flera värden kan optimera KOPPLINGs uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors kopplingar i WHERE-satsen.
+Underfrågor med flera värden kan optimera JOIN-uttryck genom att trycka predikat efter varje select-many-uttryck i stället för korskopplingar i WHERE-satsen.
 
 Överväg följande fråga:
 
@@ -59,11 +59,11 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-I den här frågan matchar indexet alla dokument som har en tagg med namnet "mode/mode-formel". Det är ett näringsämnes objekt med ett värde mellan 0 och 10, och ett betjänande objekt med ett större belopp än 1. KOPPLINGs uttrycket här utför kors produkten av alla objekt i taggar, näringsämnen och betjänar matriser för varje matchande dokument innan något filter tillämpas. 
+För den här frågan matchar indexet alla dokument som har en tagg med namnet "modersmjölksersättning". Det är ett näringsobjekt med ett värde mellan 0 och 10 och ett serveringsobjekt med en mängd som är större än 1. JOIN-uttrycket här kommer att utföra korsprodukten för alla objekt av taggar, näringsämnen och serveringar matriser för varje matchande dokument innan något filter tillämpas. 
 
-WHERE-satsen använder sedan filtrets predikat på varje < c, t, n, s > tupel. Om ett matchande dokument exempelvis hade 10 objekt i var och en av de tre matriserna, expanderas det till 1 x 10 x 10 x 10 (d.v.s. 1 000) tupler. Om du använder under frågor här kan du filtrera ut sammanfogade mat ris objekt innan du ansluter till nästa uttryck.
+WHERE-satsen kommer sedan att tillämpa filter predikat på varje <c, t, n, s> tuppel. Om ett matchande dokument till exempel hade 10 objekt i var och en av de tre matriserna, expanderas det till 1 x 10 x 10 x 10 (det vill än 1 000) tupplar. Om du använder underfrågor här kan du filtrera bort kopplade matrisobjekt innan du går med i nästa uttryck.
 
-Den här frågan motsvarar den tidigare en men använder under frågor:
+Den här frågan motsvarar den föregående men använder underfrågor:
 
 ```sql
 SELECT Count(1) AS Count
@@ -73,13 +73,13 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-Anta att endast ett objekt i matrisen taggar matchar filtret och det finns fem objekt för båda näringsämnena och som betjänar matriser. KOPPLINGs uttrycken utökas sedan till 1 x 1 x 5 x 5 = 25 objekt, i stället för 1 000 objekt i den första frågan.
+Anta att endast ett objekt i taggmatrisen matchar filtret och att det finns fem objekt för både näringsämnen och portioner. JOIN-uttrycken utökas sedan till 1 x 1 x 5 x 5 = 25 objekt, jämfört med 1 000 objekt i den första frågan.
 
-## <a name="evaluate-once-and-reference-many-times"></a>Utvärdera en gång och referera flera gånger
+## <a name="evaluate-once-and-reference-many-times"></a>Utvärdera en gång och referera till många gånger
 
-Under frågor kan hjälpa till att optimera frågor med dyra uttryck, till exempel användardefinierade funktioner (UDF: er), komplexa strängar eller aritmetiska uttryck. Du kan använda en under fråga tillsammans med ett JOIN-uttryck för att utvärdera uttrycket en gång, men referera till det flera gånger.
+Underfrågor kan hjälpa till att optimera frågor med dyra uttryck som användardefinierade funktioner (UDF), komplexa strängar eller aritmetiska uttryck. Du kan använda en underkö tillsammans med ett JOIN-uttryck för att utvärdera uttrycket en gång men referera till det många gånger.
 
-Följande fråga kör UDF-`GetMaxNutritionValue` två gånger:
+Följande fråga kör UDF `GetMaxNutritionValue` två gånger:
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -87,7 +87,7 @@ FROM c
 WHERE udf.GetMaxNutritionValue(c.nutrients) > 100
 ```
 
-Här är en motsvarande fråga som bara kör UDF-filen en gång:
+Här är en motsvarande fråga som kör UDF bara en gång:
 
 ```sql
 SELECT TOP 1000 c.id, MaxNutritionValue
@@ -97,7 +97,7 @@ WHERE MaxNutritionValue > 100
 ``` 
 
 > [!NOTE] 
-> Tänk på kors produkt beteendet för KOPPLINGs uttryck. Om UDF-uttrycket kan utvärderas som odefinierat, bör du se till att JOIN-uttrycket alltid genererar en enda rad genom att returnera ett objekt från under frågan i stället för värdet direkt.
+> Tänk på korsproduktbeteendet för JOIN-uttryck. Om UDF-uttrycket kan utvärderas till odefinierat bör du se till att JOIN-uttrycket alltid skapar en enda rad genom att returnera ett objekt från underfrågan i stället för värdet direkt.
 >
 
 Här är ett liknande exempel som returnerar ett objekt i stället för ett värde:
@@ -109,7 +109,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-Metoden är inte begränsad till UDF: er. Den gäller för ett potentiellt kostsamt uttryck. Du kan till exempel ta samma metod med den matematiska funktionen `avg`:
+Tillvägagångssättet är inte begränsat till UDF. Det gäller alla potentiellt dyra uttryck. Du kan till exempel ha samma metod `avg`med den matematiska funktionen:
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -118,34 +118,34 @@ JOIN (SELECT VALUE avg(n.nutritionValue) FROM n IN c.nutrients) AvgNutritionValu
 WHERE AvgNutritionValue > 80
 ```
 
-## <a name="mimic-join-with-external-reference-data"></a>Härma koppling med externa referens data
+## <a name="mimic-join-with-external-reference-data"></a>Härma koppling med externa referensdata
 
-Du kanske ofta behöver referera till statiska data som sällan ändras, till exempel mått enheter eller lands koder. Det är bättre att inte duplicera sådana data för varje dokument. Att undvika den här dupliceringen sparar på lagring och förbättrar Skriv prestandan genom att minska storleken på dokumentet. Du kan använda en under fråga för att efterlikna inre kopplings-semantik med en samling referens data.
+Du kan ofta behöva referera till statiska data som sällan ändras, till exempel måttenheter eller landskoder. Det är bättre att inte duplicera sådana data för varje dokument. Om du undviker den här dupliceringen sparas på lagring och läsprestanda förbättras genom att dokumentstorleken är mindre. Du kan använda en underklyssning för att efterlikna semantik med inre koppling med en samling referensdata.
 
-Överväg till exempel den här uppsättningen referens data:
+Tänk till exempel på den här uppsättningen referensdata:
 
-| **Processor** | **Namn**            | **Multiplikatorn** | **Bas enhet** |
+| **Enhet** | **Namn**            | **Multiplikator** | **Basenhet** |
 | -------- | ------------------- | -------------- | ------------- |
-| ng       | Nanogram            | 1,00 e-09       | Grammatikkontroll          |
-| µg       | Microgram           | 1,00 e-06       | Grammatikkontroll          |
-| mg       | Mg           | 1,00 e-03       | Grammatikkontroll          |
-| g        | Grammatikkontroll                | 1,00 e + 00       | Grammatikkontroll          |
-| kg       | Kilo            | 1,00 e + 03       | Grammatikkontroll          |
-| MB       | Megagram            | 1,00 e + 06       | Grammatikkontroll          |
-| Gg       | Gigagram            | 1,00 e + 09       | Grammatikkontroll          |
-| nJ       | Nanojoule           | 1,00 e-09       | Joule         |
-| µJ       | Microjoule          | 1,00 e-06       | Joule         |
-| mJ       | Millijoule          | 1,00 e-03       | Joule         |
-| J        | Joule               | 1,00 e + 00       | Joule         |
-| kJ       | Kilojoule           | 1,00 e + 03       | Joule         |
-| MJ       | Megajoule           | 1,00 e + 06       | Joule         |
-| GJ       | Gigajoule           | 1,00 e + 09       | Joule         |
-| installera      | Calorie             | 1,00 e + 00       | calorie       |
-| kcal     | Calorie             | 1,00 e + 03       | calorie       |
-| AGGLUTINATIONSENHETER       | Internationella enheter |                |               |
+| Ng       | Nanogram            | 1.00E-09       | Gram (gram)          |
+| Μg       | Mikrogram           | 1.00E-06       | Gram (gram)          |
+| Mg       | Milligram           | 1.00E-03       | Gram (gram)          |
+| g        | Gram (gram)                | 1.00E+00       | Gram (gram)          |
+| Kg       | Kilogram            | 1.00E+03       | Gram (gram)          |
+| Mg       | Megagram (på)            | 1.00E+06       | Gram (gram)          |
+| Gg       | Gigagram (på)            | 1.00E+09       | Gram (gram)          |
+| Nj       | Nanojoule (nanojoule)           | 1.00E-09       | Joule (se)         |
+| μJ (μJ)       | Mikrojoule          | 1.00E-06       | Joule (se)         |
+| Mj       | Millijoule (millijoule)          | 1.00E-03       | Joule (se)         |
+| J        | Joule (se)               | 1.00E+00       | Joule (se)         |
+| Kj       | Kilojoule           | 1.00E+03       | Joule (se)         |
+| Mj       | Megajoule (megajoule)           | 1.00E+06       | Joule (se)         |
+| Gj       | Gigajoule           | 1.00E+09       | Joule (se)         |
+| Cal      | Kalori             | 1.00E+00       | Kalori       |
+| Kcal     | Kalori             | 1.00E+03       | Kalori       |
+| Ie       | Internationella enheter |                |               |
 
 
-Följande fråga imiterar anslutning till dessa data så att du lägger till namnet på enheten i utdata:
+Följande fråga härmar sammanfogningen med dessa data så att du lägger till enhetens namn i utdata:
 
 ```sql
 SELECT TOP 10 n.id, n.description, n.nutritionValue, n.units, r.name
@@ -175,21 +175,21 @@ JOIN r IN (
 WHERE n.units = r.unit
 ```
 
-## <a name="scalar-subqueries"></a>Skalära under frågor
+## <a name="scalar-subqueries"></a>Scalar underklöt
 
-Ett skalärt under frågeuttryck är en under fråga som utvärderar till ett enda värde. Värdet för det skalära under frågans uttryck är värdet för under frågans projektion (SELECT-sats).  Du kan använda ett uttryck för en skalär under fråga på många platser där ett skalärt uttryck är giltigt. Du kan till exempel använda en skalär under fråga i alla uttryck i både SELECT-och WHERE-satserna.
+Ett scalar-underkrytningsuttryck är en underkvent som utvärderas till ett enda värde. Värdet för scalar-delklyet är värdet för underkventets projektion (SELECT-satsen).  Du kan använda ett scalar-underkryttningsuttryck på många ställen där ett skaläruttryck är giltigt. Du kan till exempel använda en scalar-underkräftor i alla uttryck i både SELECT- och WHERE-satserna.
 
-Att använda en skalär under fråga bidrar inte alltid till att optimera, trots. Om du till exempel skickar en skalär under fråga som ett argument till antingen en systemdefinierad funktion eller en användardefinierad funktion ger du ingen nytta av förbrukningen eller svars tiden för resurs enheten (RU).
+Att använda en scalar subquery hjälper inte alltid optimera, dock. Om du till exempel skickar en scalar-underkläde som ett argument till antingen ett system eller användardefinierade funktioner ger det ingen fördel i förbrukning av resursenhet (RU) eller svarstid.
 
-Skalära under frågor kan klassificeras ytterligare som:
-* Skalära under frågor med enkla uttryck
-* Aggregerade skalära under frågor
+Skalär underkräppningar kan vidare klassificeras som:
+* Underklöt underklöt med enkelt uttryck
+* Aggregerade skalärunderkvätningar
 
-## <a name="simple-expression-scalar-subqueries"></a>Skalära under frågor med enkla uttryck
+## <a name="simple-expression-scalar-subqueries"></a>Underklöt underklöt med enkelt uttryck
 
-En skalär under fråga med enkla uttryck är en korrelerad under fråga som har en SELECT-sats som inte innehåller några mängd uttryck. Dessa under frågor ger inga optimerings fördelar eftersom kompilatorn konverterar dem till ett större enkelt uttryck. Det finns ingen korrelerad kontext mellan inre och yttre frågor.
+En skalningsunderklädningssubquery med enkla uttryck är en korrelerad underkläde som har en SELECT-sats som inte innehåller några aggregerade uttryck. Dessa underfrågor ger inga optimeringsfördelar eftersom kompilatorn konverterar dem till ett större enkelt uttryck. Det finns ingen korrelerad kontext mellan de inre och yttre frågorna.
 
-Här följer några exempel:
+Här är några exempel:
 
 **Exempel 1**
 
@@ -197,13 +197,13 @@ Här följer några exempel:
 SELECT 1 AS a, 2 AS b
 ```
 
-Du kan skriva om den här frågan genom att använda en skalär, enkel uttryck, för att:
+Du kan skriva om den här frågan genom att använda en underfråga för skalning med enkla uttryck för att:
 
 ```sql
 SELECT (SELECT VALUE 1) AS a, (SELECT VALUE 2) AS b
 ```
 
-Båda frågorna ger följande utdata:
+Båda frågorna ger den här utdata:
 
 ```json
 [
@@ -218,14 +218,14 @@ SELECT TOP 5 Concat('id_', f.id) AS id
 FROM food f
 ```
 
-Du kan skriva om den här frågan genom att använda en skalär, enkel uttryck, för att:
+Du kan skriva om den här frågan genom att använda en underfråga för skalning med enkla uttryck för att:
 
 ```sql
 SELECT TOP 5 (SELECT VALUE Concat('id_', f.id)) AS id
 FROM food f
 ```
 
-Frågans utdata:
+Frågeutdata:
 
 ```json
 [
@@ -244,14 +244,14 @@ SELECT TOP 5 f.id, Contains(f.description, 'fruit') = true ? f.description : und
 FROM food f
 ```
 
-Du kan skriva om den här frågan genom att använda en skalär, enkel uttryck, för att:
+Du kan skriva om den här frågan genom att använda en underfråga för skalning med enkla uttryck för att:
 
 ```sql
 SELECT TOP 10 f.id, (SELECT f.description WHERE Contains(f.description, 'fruit')).description
 FROM food f
 ```
 
-Frågans utdata:
+Frågeutdata:
 
 ```json
 [
@@ -263,13 +263,13 @@ Frågans utdata:
 ]
 ```
 
-### <a name="aggregate-scalar-subqueries"></a>Aggregerade skalära under frågor
+### <a name="aggregate-scalar-subqueries"></a>Aggregerade skalärunderkvätningar
 
-En sammansatt skalär under fråga är en under fråga som har en mängd funktion i projektionen eller filtret som utvärderas till ett enda värde.
+En aggregerad skalärsubquery är en underkvent som har en mängdfunktion i projektionen eller filtret som utvärderas till ett enda värde.
 
 **Exempel 1:**
 
-Här är en under fråga med ett enda mängd funktions uttryck i projektionen:
+Här är en underkryta med ett enda mängdfunktionsuttryck i projektionen:
 
 ```sql
 SELECT TOP 5 
@@ -279,7 +279,7 @@ SELECT TOP 5
 FROM food f
 ```
 
-Frågans utdata:
+Frågeutdata:
 
 ```json
 [
@@ -293,7 +293,7 @@ Frågans utdata:
 
 **Exempel 2**
 
-Här är en under fråga med flera mängd funktions uttryck:
+Här är en underavdelning med flera mängdfunktioners uttryck:
 
 ```sql
 SELECT TOP 5 f.id, (
@@ -304,7 +304,7 @@ SELECT TOP 5 f.id, (
 FROM food f
 ```
 
-Frågans utdata:
+Frågeutdata:
 
 ```json
 [
@@ -318,7 +318,7 @@ Frågans utdata:
 
 **Exempel 3**
 
-Här är en fråga med en sammanställd under fråga i både projektion och filter:
+Här är en fråga med en aggregerad underfråga i både projektionen och filtret:
 
 ```sql
 SELECT TOP 5 
@@ -328,7 +328,7 @@ FROM food f
 WHERE (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') > 20
 ```
 
-Frågans utdata:
+Frågeutdata:
 
 ```json
 [
@@ -340,7 +340,7 @@ Frågans utdata:
 ]
 ```
 
-Ett mer optimalt sätt att skriva den här frågan är att ansluta till under frågan och referera till under frågans alias i både SELECT-och WHERE-satserna. Den här frågan är mer effektiv eftersom du bara behöver köra under frågan i Join-instruktionen och inte i både projektion och filter.
+Ett mer optimalt sätt att skriva den här frågan är att gå med på underfrågan och referera till underklyssningsaliaset i både SELECT- och WHERE-satserna. Den här frågan är effektivare eftersom du bara behöver köra underfrågan i kopplingssatsen och inte i både projektionen och filtret.
 
 ```sql
 SELECT TOP 5 f.id, count_mg
@@ -349,28 +349,28 @@ JOIN (SELECT VALUE Count(1) FROM n IN f.nutrients WHERE n.units = 'mg') AS count
 WHERE count_mg > 20
 ```
 
-## <a name="exists-expression"></a>EXISTS-uttryck
+## <a name="exists-expression"></a>FINNS uttryck
 
-Azure Cosmos DB stöder EXISTS-uttryck. Det här är en sammanställd skalär under fråga som är inbyggd i Azure Cosmos DB SQL API. EXISTS är ett booleskt uttryck som använder uttryck för under frågor och returnerar true om under frågan returnerar några rader. Annars returnerar den false.
+Azure Cosmos DB stöder EXISTS-uttryck. Detta är en aggregerad skalärsubquery inbyggd i Azure Cosmos DB SQL API. FINNS är ett booleskt uttryck som tar ett underköna uttryck och returnerar sant om underfrågan returnerar några rader. Annars returneras falskt.
 
-Eftersom Azure Cosmos DB SQL API skiljer sig mellan booleska uttryck och andra skalära uttryck, kan du använda finns i både SELECT-och WHERE-satser. Detta skiljer sig från T-SQL, där ett booleskt uttryck (till exempel finns, mellan och IN) är begränsat till filtret.
+Eftersom Azure Cosmos DB SQL API inte skiljer mellan booleska uttryck och andra skalsatser, kan du använda FINNS I både SELECT- och WHERE-satser. Detta är till skillnad från T-SQL, där ett booleskt uttryck (till exempel FINNS, MELLAN och IN) är begränsat till filtret.
 
-Om under frågan EXISTS returnerar ett enskilt värde som är odefinierat, utvärderas värdet FALSKT. Överväg till exempel följande fråga som utvärderar till falskt:
+Om underfrågan EXISTS returnerar ett enda värde som är odefinierat utvärderas EXISTS till false. Tänk till exempel på följande fråga som utvärderas till false:
 ```sql
 SELECT EXISTS (SELECT VALUE undefined)
 ```   
 
 
-Om nyckelordet VALUE i föregående under fråga utelämnas, kommer frågan att utvärderas till sant:
+Om nyckelordet VALUE i föregående underfråga utelämnas utvärderas frågan till true:
 ```sql
 SELECT EXISTS (SELECT undefined) 
 ```
 
-Under frågan omger listan med värden i den markerade listan i ett objekt. Om den markerade listan inte har några värden returnerar under frågan det enskilda värdet "{}". Det här värdet är definierat, så det finns utvärderas till sant.
+Underfrågan omger listan med värden i den markerade listan i ett objekt. Om den valda listan inte har några värden returneras{}det enda värdet ' '. Det här värdet definieras, så EXISTS utvärderar till true.
 
-### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exempel: skriva om ARRAY_CONTAINS och delta som det finns
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>Exempel: Skriva om ARRAY_CONTAINS och JOIN som FINNS
 
-Ett vanligt användnings fall av ARRAY_CONTAINS är att filtrera ett dokument genom att finnas ett objekt i en matris. I det här fallet kontrollerar vi om taggarna innehåller ett objekt med namnet "orange".
+Ett vanligt användningsfall för ARRAY_CONTAINS är att filtrera ett dokument efter att ett objekt finns i en matris. I det här fallet kontrollerar vi om taggarna array innehåller ett objekt som heter "orange".
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -378,7 +378,7 @@ FROM food f
 WHERE ARRAY_CONTAINS(f.tags, {name: 'orange'})
 ```
 
-Du kan skriva om samma fråga som ska användas:
+Du kan skriva om samma fråga som finns:
 
 ```sql
 SELECT TOP 5 f.id, f.tags
@@ -386,9 +386,9 @@ FROM food f
 WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 ```
 
-Dessutom kan ARRAY_CONTAINS bara kontrol lera om ett värde är lika med ett element i en matris. Om du behöver mer komplexa filter på mat ris egenskaper använder du JOIN.
+Dessutom kan ARRAY_CONTAINS bara kontrollera om ett värde är lika med ett element i en matris. Om du behöver mer komplexa filter på matrisegenskaper använder du JOIN.
 
-Tänk på följande fråga som filtrerar utifrån enheterna och `nutritionValue` egenskaper i matrisen: 
+Tänk på följande fråga som filtrerar `nutritionValue` baserat på enheter och egenskaper i matrisen: 
 
 ```sql
 SELECT VALUE c.description
@@ -397,9 +397,9 @@ JOIN n IN c.nutrients
 WHERE n.units= "mg" AND n.nutritionValue > 0
 ```
 
-För varje dokument i samlingen utförs en kors produkt med dess mat ris element. Den här KOPPLINGs åtgärden gör det möjligt att filtrera efter egenskaper i matrisen. Den här frågans RU-förbrukning är dock viktig. Om till exempel 1 000 dokument hade 100 objekt i varje matris, expanderas det till 1 000 x 100 (dvs. 100 000) tupler.
+För vart och ett av dokumenten i samlingen utförs en korsprodukt med dess matriselement. Den här JOIN-åtgärden gör det möjligt att filtrera på egenskaper i matrisen. Den här frågans RU-förbrukning kommer dock att vara betydande. Om till exempel 1 000 dokument hade 100 objekt i varje matris utökas det till 1 000 x 100 (det vill än 100 000) tupplar.
 
-Att använda finns kan hjälpa till att undvika den dyra kors produkten:
+Att använda EXISTS kan hjälpa till att undvika denna dyra korsprodukt:
 
 ```sql
 SELECT VALUE c.description
@@ -411,9 +411,9 @@ WHERE EXISTS(
 )
 ```
 
-I det här fallet filtrerar du på mat ris element i under frågan som finns. Om ett mat ris element matchar filtret, så projicera det och det finns utvärderas till sant.
+I det här fallet filtrerar du på matriselement i underfrågan EXISTS. Om ett matriselement matchar filtret projiceras det och EXISTS utvärderas till true.
 
-Du kan också ha ett alias som finns och referera till det i projektionen:
+Du kan också alias FINNS och referera till det i projektionen:
 
 ```sql
 SELECT TOP 1 c.description, EXISTS(
@@ -423,7 +423,7 @@ SELECT TOP 1 c.description, EXISTS(
 FROM c
 ```
 
-Frågans utdata:
+Frågeutdata:
 
 ```json
 [
@@ -434,16 +434,16 @@ Frågans utdata:
 ]
 ```
 
-## <a name="array-expression"></a>MAT ris uttryck
+## <a name="array-expression"></a>ARRAY-uttryck
 
-Du kan använda mat ris uttrycket för att projicera resultatet av en fråga som en matris. Du kan bara använda det här uttrycket inom frågans SELECT-sats.
+Du kan använda ARRAY-uttrycket för att projicera resultatet av en fråga som en matris. Du kan bara använda det här uttrycket inom SELECT-satsen för frågan.
 
 ```sql
 SELECT TOP 1   f.id, ARRAY(SELECT VALUE t.name FROM t in f.tags) AS tagNames
 FROM  food f
 ```
 
-Frågans utdata:
+Frågeutdata:
 
 ```json
 [
@@ -459,14 +459,14 @@ Frågans utdata:
 ]
 ```
 
-Precis som med andra under frågor är filter med mat ris uttryck möjliga.
+Precis som med andra underfrågor är filter med ARRAY-uttryck möjligt.
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t FROM t in c.tags WHERE t.name != 'infant formula') AS tagNames
 FROM c
 ```
 
-Frågans utdata:
+Frågeutdata:
 
 ```json
 [
@@ -493,7 +493,7 @@ Frågans utdata:
 ]
 ```
 
-Mat ris uttryck kan också komma efter FROM-satsen i under frågor.
+Matrisuttryck kan också komma efter FROM-satsen i underfrågor.
 
 ```sql
 SELECT TOP 1 c.id, ARRAY(SELECT VALUE t.name FROM t in c.tags) as tagNames
@@ -501,7 +501,7 @@ FROM c
 JOIN n IN (SELECT VALUE ARRAY(SELECT t FROM t in c.tags WHERE t.name != 'infant formula'))
 ```
 
-Frågans utdata:
+Frågeutdata:
 
 ```json
 [
@@ -520,4 +520,4 @@ Frågans utdata:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Modell dokument data](modeling-data.md)
+- [Modelldokumentdata](modeling-data.md)

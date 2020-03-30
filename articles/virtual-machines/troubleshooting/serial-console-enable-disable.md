@@ -1,6 +1,6 @@
 ---
-title: Aktivera och inaktivera Azures serie konsol | Microsoft Docs
-description: Så här aktiverar och inaktiverar du tjänsten Azure Serial Console
+title: Aktivera och inaktivera Azure Serial Console | Microsoft-dokument
+description: Aktivera och inaktivera Azure Serial Console-tjänsten
 services: virtual-machines
 documentationcenter: ''
 author: asinn826
@@ -15,46 +15,46 @@ ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
 ms.openlocfilehash: e09e08f8ba36cf576bc27551254225adee3bb0fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75451309"
 ---
-# <a name="enable-and-disable-the-azure-serial-console"></a>Aktivera och inaktivera Azures serie konsol
+# <a name="enable-and-disable-the-azure-serial-console"></a>Aktivera och inaktivera Azure Serial Console
 
-Precis som med andra resurser kan Azures serie konsol aktive ras och inaktive ras. Serie konsolen är aktive rad som standard för alla prenumerationer i Global Azure. Vid inaktive ring av serie konsolen inaktive ras tjänsten för hela prenumerationen för närvarande. Om du inaktiverar eller återaktiverar en serie konsol för en prenumeration krävs åtkomst till deltagar nivå eller högre i prenumerationen.
+Precis som alla andra resurser kan Azure Serial Console aktiveras och inaktiveras. Serial Console är aktiverat som standard för alla prenumerationer i globala Azure. Om du inaktiverar Serial Console inaktiveras tjänsten för hela prenumerationen. Om du inaktiverar eller aktiverar Serial Console igen för en prenumeration krävs åtkomst på deltagarnivå eller högre på prenumerationen.
 
-Du kan också inaktivera en serie konsol för en enskild virtuell dator eller en virtuell dators skalnings uppsättnings instans genom att inaktivera startdiagnostik. Du måste ha åtkomst till deltagar nivå eller mer på både virtuell dator/virtuell dators skalnings uppsättning och ditt lagrings konto för startdiagnostik.
+Du kan också inaktivera seriell konsol för en enskild vm- eller virtuell datorskalauppsättningsinstans genom att inaktivera startdiagnostik. Du kommer att kräva åtkomst på deltagarnivå eller högre på både skalningsuppsättningen för virtuella datorer/virtuella datorer och ditt startdiagnostiklagringskonto.
 
-## <a name="vm-level-disable"></a>Inaktivera för VM-nivå
-Serie konsolen kan inaktive ras för en angiven virtuell dator eller en virtuell dators skalnings uppsättning genom att inaktivera inställningen för startdiagnostik. Inaktivera startdiagnostik från Azure Portal för att inaktivera serie konsolen för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn. Om du använder en seriell konsol på en skalnings uppsättning för virtuella datorer måste du uppgradera de virtuella datorernas skalnings uppsättnings instanser till den senaste modellen.
+## <a name="vm-level-disable"></a>Inaktivera VM-nivå
+Seriekonsolen kan inaktiveras för en viss skala för virtuella datorer eller virtuella datorer som har angetts genom att inaktivera inställningen för startdiagnostik. Inaktivera startdiagnostik från Azure-portalen för att inaktivera seriell konsol för den virtuella datorn eller skalningsuppsättningen för den virtuella datorn. Om du använder seriell konsol på en skalningsuppsättning för virtuella datorer kontrollerar du att du uppgraderar de uppsättning instanserna för virtuell datorskala till den senaste modellen.
 
 
-## <a name="subscription-level-enabledisable"></a>Aktivera/inaktivera prenumerations nivå
+## <a name="subscription-level-enabledisable"></a>Aktivera/inaktivera prenumerationsnivå
 
 > [!NOTE]
-> Se till att du befinner dig i rätt moln (offentliga Azure-moln, Azure-molnet för amerikanska myndigheter) innan du kör det här kommandot. Du kan kontrol lera med `az cloud list` och ange ditt moln med `az cloud set -n <Name of cloud>`.
+> Se till att du är i rätt moln (Azure Public Cloud, Azure US Government Cloud) innan du kör det här kommandot. Du kan `az cloud list` kontrollera med och `az cloud set -n <Name of cloud>`ställa in molnet med .
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Seriell konsol kan inaktive ras och aktive ras för en hel prenumeration med hjälp av följande kommandon i Azure CLI (du kan använda knappen "testa" för att starta en instans av Azure Cloud Shell där du kan köra kommandona):
+Seriell konsol kan inaktiveras och återaktiveras för en hel prenumeration med hjälp av följande kommandon i Azure CLI (du kan använda "Prova"-knappen för att starta en instans av Azure Cloud Shell där du kan köra kommandona):
 
-Om du vill inaktivera en serie konsol för en prenumeration använder du följande kommandon:
+Om du vill inaktivera seriell konsol för en prenumeration använder du följande kommandon:
 ```azurecli-interactive
 subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource invoke-action --action disableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
-Om du vill aktivera en prenumerations serie konsol använder du följande kommandon:
+Om du vill aktivera seriekonsol för en prenumeration använder du följande kommandon:
 ```azurecli-interactive
 subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource invoke-action --action enableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
-Använd följande kommandon för att hämta den aktuella aktiverade/inaktiverade statusen för en prenumerations serie konsol:
+Om du vill ha den aktuella aktiverade/inaktiverade statusen seriell konsol för en prenumeration använder du följande kommandon:
 ```azurecli-interactive
 subscriptionId=$(az account show --output=json | jq -r .id)
 
@@ -63,16 +63,16 @@ az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.Seria
 
 ### <a name="powershell"></a>PowerShell
 
-Seriell konsol kan också aktive ras och inaktive ras med PowerShell.
+Seriell konsol kan också aktiveras och inaktiveras med PowerShell.
 
-Om du vill inaktivera en serie konsol för en prenumeration använder du följande kommandon:
+Om du vill inaktivera seriell konsol för en prenumeration använder du följande kommandon:
 ```azurepowershell-interactive
 $subscription=(Get-AzContext).Subscription.Id
 
 Invoke-AzResourceAction -Action disableConsole -ResourceId /subscriptions/$subscription/providers/Microsoft.SerialConsole/consoleServices/default -ApiVersion 2018-05-01
 ```
 
-Om du vill aktivera en prenumerations serie konsol använder du följande kommandon:
+Om du vill aktivera seriekonsol för en prenumeration använder du följande kommandon:
 ```azurepowershell-interactive
 $subscription=(Get-AzContext).Subscription.Id
 
@@ -80,6 +80,6 @@ Invoke-AzResourceAction -Action enableConsole -ResourceId /subscriptions/$subscr
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [Azures serie konsol för virtuella Linux-datorer](./serial-console-linux.md)
-* Lär dig mer om [Azures serie konsol för virtuella Windows-datorer](./serial-console-windows.md)
-* Lär dig mer om [energispar funktioner i Azures serie konsol](./serial-console-power-options.md)
+* Läs mer om [virtuella Azure-konsol för virtuella Linux-datorer](./serial-console-linux.md)
+* Läs mer om [virtuella Azure-seriekonsolen för Virtuella Datorer i Windows](./serial-console-windows.md)
+* Lär dig mer om [energisparalternativ i Azure Serial Console](./serial-console-power-options.md)

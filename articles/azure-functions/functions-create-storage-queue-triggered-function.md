@@ -1,15 +1,15 @@
 ---
-title: Skapa en funktion i Azure som utlöses av köa meddelanden
+title: Skapa en funktion i Azure som utlöses av kömeddelanden
 description: Använd Azure Functions för att skapa en funktion utan server som startas av meddelanden som skickas till en Azure Storage-kö.
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 3d4cfc40f1849ecd2745b1d662973c7f64a0a60c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75769259"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Skapa en funktion som utlöses av Azure Queue Storage
@@ -22,7 +22,7 @@ Läs hur du skapar en funktion som utlöses när meddelanden skickas till en Azu
 
 - Hämta och installera [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
-- En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+- En Azure-prenumeration. Om du inte har ett, skapa ett [gratis konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-an-azure-function-app"></a>Skapa en Azure Functions-app
 
@@ -36,7 +36,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-a-queue-triggered-function"></a>Skapa en funktion som utlöses av en kö
 
-1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
+1. Expandera funktionsappen **+** och klicka på knappen bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
 
    ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-portal.png)
 
@@ -46,7 +46,7 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 1. Skriv `queue` i sökfältet och välj sedan mallen **Köutlösare**.
 
-1. Om du uppmanas till det väljer du **Installera** för att installera Azure Storage-tillägget och eventuella beroenden i Function-appen. När installationen är klar väljer du **Fortsätt**.
+1. Om du uppmanas till det väljer du **Installera** för att installera Azure Storage-tillägget och eventuella beroenden i funktionsappen. När installationen är klar väljer du **Fortsätt**.
 
     ![Installera bindningstillägg](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 
@@ -88,7 +88,7 @@ Nu när du har en lagringskö kan du testa funktionen genom att lägga till ett 
 
 1. Gå till Azure Portal igen, bläddra till din funktion, expandera **Loggar** längst ned på sidan och se till att loggströmningen inte är pausad.
 
-1. I Storage Explorer expanderar du ditt lagrings konto, **köer**och **kön-objekt**och klickar sedan på **Lägg till meddelande**.
+1. Expandera ditt **lagringskonto, Köer**och **myqueue-objekt**i Storage Explorer och klicka sedan på **Lägg till meddelande**.
 
     ![Lägg till ett meddelande i kön.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
 

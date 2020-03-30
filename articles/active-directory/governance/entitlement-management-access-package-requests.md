@@ -1,9 +1,9 @@
 ---
-title: Visa begär Anden för ett Access-paket i Azure AD-hantering av rättigheter – Azure Active Directory
-description: Lär dig hur du visar begär Anden för ett Access-paket i Azure Active Directory rättighets hantering.
+title: Visa begäranden för ett åtkomstpaket i Azure AD-berättigandehantering - Azure Active Directory
+description: Lär dig hur du visar begäranden för ett åtkomstpaket i Azure Active Directory-berättigandehantering.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -12,37 +12,37 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/15/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: addc7db2aa2f0f9ba16438d2a31d6c7cc6bfa49e
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f210602817c03b73ca4c48da2c3dad5549777f47
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261923"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128733"
 ---
-# <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa begär Anden för ett Access-paket i hantering av Azure AD-rättigheter
+# <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Visa begäranden för ett åtkomstpaket i Azure AD-berättigandehantering
 
-I hantering av Azure AD-rättigheter kan du se vem som har begärt åtkomst paket, deras principer och status. Den här artikeln beskriver hur du visar begär Anden för ett åtkomst paket.
+I Azure AD-berättigandehantering kan du se vem som har begärt åtkomstpaket, deras princip och status. I den här artikeln beskrivs hur du visar begäranden om ett åtkomstpaket.
 
 ## <a name="view-requests"></a>Visa begäran
 
-**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
+**Viktig roll:** Global administratör, användaradministratör, katalogägare eller åtkomstpakethanterare
 
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
 
-1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
+1. Klicka på **Access-paket** på menyn till vänster och öppna sedan åtkomstpaketet.
 
-1. Klicka på **begär Anden**.
+1. Klicka på **Begäranden**.
 
-1. Klicka på en enskild begäran om du vill visa mer information.
+1. Klicka på en specifik begäran om du vill se ytterligare information.
 
-    ![Lista över begär Anden för ett Access-paket](./media/entitlement-management-access-package-requests/requests-list.png)
+    ![Lista över begäranden om ett åtkomstpaket](./media/entitlement-management-access-package-requests/requests-list.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md)
-- [Visa, lägga till och ta bort tilldelningar för ett Access-paket](entitlement-management-access-package-assignments.md)
-- [Felsöka förfrågningar](entitlement-management-troubleshoot.md#requests)
+- [Ändra inställningar för begäran och godkännande för ett åtkomstpaket](entitlement-management-access-package-request-policy.md)
+- [Visa, lägga till och ta bort tilldelningar för ett åtkomstpaket](entitlement-management-access-package-assignments.md)
+- [Felsöka begäranden](entitlement-management-troubleshoot.md#requests)

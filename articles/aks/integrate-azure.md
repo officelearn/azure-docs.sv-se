@@ -6,22 +6,22 @@ ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
 ms.openlocfilehash: 2eddedea7d626a92e21442c81aa49e00491958a1
-ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78273024"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Integrera med Azure-hanterade tjänster med Open Service Broker for Azure (OSBA)
 
 Tillsammans med [Kubernetes-tjänstkatalogen][kubernetes-service-catalog] gör Open Service Broker for Azure (OSBA) att utvecklare kan utnyttja Azure-hanterade tjänster i Kubernetes. Den här guiden fokuserar på att distribuera-tjänstkatalogen, Open Service Broker for Azure (OSBA) och program som använder Azure-hanterade tjänster med Kubernetes.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * En Azure-prenumeration
 
-* Azure CLI: [installera det lokalt][azure-cli-install]eller Använd det i [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI: [installera det lokalt][azure-cli-install] eller använd det i [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7 +: [installera det lokalt][helm-cli-install]eller Använd det i [Azure Cloud Shell][azure-cloud-shell].
+* Helm CLI 2.7+: [installera det lokalt][helm-cli-install] eller använd det i [Azure Cloud Shell][azure-cloud-shell].
 
 * Behörigheter för att skapa tjänstens huvudnamn med deltagarrollen på din Azure-prenumeration
 
@@ -31,7 +31,7 @@ Tillsammans med [Kubernetes-tjänstkatalogen][kubernetes-service-catalog] gör O
 
 Det första steget är att installera tjänstkatalogen i ditt Kubernetes-kluster med ett Helm-diagram.
 
-Gå till [https://shell.azure.com](https://shell.azure.com) för att öppna Cloud Shell i webbläsaren.
+Gå [https://shell.azure.com](https://shell.azure.com) till för att öppna Cloud Shell i din webbläsare.
 
 Uppgradera din Tiller-installation (Helm-server) i klustret med:
 

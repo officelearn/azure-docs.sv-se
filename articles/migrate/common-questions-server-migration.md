@@ -1,93 +1,101 @@
 ---
-title: Vanliga frågor och svar om migrering av Azure Migrate Server
-description: Få svar på vanliga frågor om att använda Azure Migrate Server-migrering för att migrera datorer.
+title: Vanliga frågor och svar om migrering av Azure Migrera server
+description: Få svar på vanliga frågor om hur du använder Azure Migrate Server Migration för att migrera datorer.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 4d3638e930b4e12a29df4ab189ffb24ab248582b
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: 507cc8088bf54b1a4f4483673ec5332efcdd36c5
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939210"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127806"
 ---
-# <a name="azure-migrate-server-migration-common-questions"></a>Migrering av Azure Migrate Server: vanliga frågor
+# <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrera servermigrering: Vanliga frågor
 
-I den här artikeln besvaras vanliga frågor om verktyget Azure Migrate: Migreringsverktyg för Server. Om du har andra frågor kontrollerar du följande resurser:
+Den här artikeln besvarar vanliga frågor om verktyget Azure Migrate: Server Migration. Om du har andra frågor kontrollerar du dessa resurser:
 
 - [Allmänna frågor](resources-faq.md) om Azure Migrate
 - Frågor om [Azure Migrate-enheten](common-questions-appliance.md)
-- Frågor om [identifiering, utvärdering och beroende visualisering](common-questions-discovery-assessment.md)
+- Frågor om [identifiering, bedömning och beroendevisualisering](common-questions-discovery-assessment.md)
 - Få svar på frågor i [Azure Migrate-forumet](https://aka.ms/AzureMigrateForum)
 
-## <a name="how-does-agentless-vmware-replication-work"></a>Hur fungerar agent lös VMware-replikering?
+## <a name="how-does-agentless-vmware-replication-work"></a>Hur fungerar agentless VMware-replikering?
 
-Metoden för att lösa in utan agent för VMware använder VMware-ögonblicksbilder och VMware-KANALBINDNINGSTOKEN (changed block tracking).
+Agentless replication-metoden för VMware använder VMware-ögonblicksbilder och VMware Changed Block Tracking (KBT).
 
-Här är processen:
+Så här ser processen ut:
 
-1. När du startar replikering schemaläggs en inledande replikeringscykel. I den första cykeln tas en ögonblicks bild av den virtuella datorn. Ögonblicks bilden används för att replikera VM-VMDK: er (diskar). 
-2. När den inledande replikeringen har slutförts schemaläggs delta-replikering med jämna mellanrum.
-    - Under delta-replikering tas en ögonblicks bild och data block som har ändrats sedan den tidigare replikeringen replikeras.
-    - VMware KANALBINDNINGSTOKEN används för att avgöra vilka block som har ändrats sedan den senaste cykeln.
-    - Frekvensen av de periodiska replikeringarna hanteras automatiskt av Azure Migrate och är beroende av hur många andra virtuella datorer och diskar som replikeras samtidigt från samma data lager. På ideala villkor konvergerar replikeringen slutligen till en cykel per timme för varje virtuell dator.
+1. När du startar replikering schemaläggs en inledande replikeringscykel. I den inledande cykeln tas en ögonblicksbild av den virtuella datorn. Ögonblicksbilden används för att replikera virtuella datorer VMDK (diskar). 
+2. När den inledande replikeringscykeln är klar schemaläggs deltareplikeringscykler regelbundet.
+    - Under deltareplikering tas en ögonblicksbild och datablock som har ändrats sedan den föregående replikeringscykeln replikeras.
+    - VMware KBT används för att bestämma block som har ändrats sedan den senaste cykeln.
+    - Frekvensen för periodiska replikeringscykler hanteras automatiskt av Azure Migrate och beror på hur många andra virtuella datorer och diskar replikeras samtidigt från samma datalager. Under idealiska förhållanden konvergerar replikering så småningom till en cykel per timme för varje virtuell dator.
 
-När du migrerar schemaläggs en replikering på begäran för att datorn ska kunna samla in återstående data. För att förhindra data förlust och program konsekvens kan du välja att stänga av datorn under migreringen.
+När du migrerar schemaläggs en replikeringscykel på begäran för att datorn ska kunna samla in återstående data. För att säkerställa noll dataförlust och programkonsekvens kan du välja att stänga av datorn under migreringen.
 
-## <a name="why-isnt-resynchronization-exposed"></a>Varför är inte omsynkronisering exponerad?
+## <a name="why-isnt-resynchronization-exposed"></a>Varför avslöjas inte omsynkronisering?
 
-I varje delta cykel skrivs skillnaden mellan den aktuella ögonblicks bilden och den tidigare tagna ögonblicks bilden under en migrering utan agent. Det är alltid skillnaden mellan ögonblicks bilder, vik data i. Om en särskild sektor skrivs *N* gånger mellan ögonblicks bilder måste bara den senaste skrivningen överföras eftersom vi bara är intresserade av den senaste synkroniseringen. Processen skiljer sig från agent-baserad replikering under vilken vi spårar och tillämpar varje skrivning. I den här processen är varje delta cykel en omsynkronisering. Därför visas inget alternativ för omsynkronisering. Om diskarna aldrig synkroniseras på grund av ett problem, korrigeras det i nästa cykel. 
+Under agentlös migrering skrivs skillnaden mellan den aktuella ögonblicksbilden och den tidigare tagna ögonblicksbilden i varje deltacykel. Det är alltid skillnaden mellan ögonblicksbilder, vikning data i. Om en viss sektor skrivs *N* gånger mellan ögonblicksbilder, behöver endast den sista skrivningen överföras eftersom vi bara är intresserade av den senaste synkroniseringen. Processen skiljer sig från agentbaserad replikering, under vilken vi spårar och tillämpar varje skrivning. I den här processen är varje deltacykel en omsynkronisering. Så, ingen omsynkronisering alternativ exponeras. Om diskarna aldrig synkroniseras på grund av ett fel, är det fast i nästa cykel. 
 
-## <a name="how-does-churn-rate-affect-agentless-replication"></a>Hur påverkar omsättnings takten för en misslyckad replikering?
+## <a name="how-does-churn-rate-affect-agentless-replication"></a>Hur påverkar omsättningshastigheten agentless replication?
 
-Eftersom mikroreplikeringen är i data, är det *omsättnings mönster* som är viktigare än *omsättnings takten*. När en fil skrivs igen och återigen har hastigheten ingen effekt. Men ett mönster där varje annan sektor skrivs orsakar hög omsättning i nästa cykel. Eftersom vi minimerar mängden data som vi överför, tillåter vi att data viks så mycket som möjligt innan vi schemalägger nästa cykel.  
+Eftersom agentless replication viks i data är *omsättningsmönstret* viktigare än *omsättningshastigheten*. När en fil skrivs om och om igen har hastigheten inte mycket effekt. Men ett mönster där alla andra sektorer är skrivna orsakar hög omsättning i nästa cykel. Eftersom vi minimerar mängden data vi överför tillåter vi att data viks så mycket som möjligt innan vi schemalägger nästa cykel.  
 
 ## <a name="how-frequently-is-a-replication-cycle-scheduled"></a>Hur ofta schemaläggs en replikeringscykel?
 
-Formeln för att schemalägga nästa replikeringscykel är (föregående cykel tid/2) eller en timme, beroende på vilket som är högre.
+Formeln för att schemalägga nästa replikeringscykel är (föregående cykeltid / 2) eller en timme, beroende på vilket som är högst.
 
-Om en virtuell dator till exempel tar fyra timmar för en delta cykel, schemaläggs nästa cykel på två timmar och inte under nästa timma. Processen skiljer sig direkt efter den inledande replikeringen, när den första delta cykeln har schemalagts direkt.
+Om en virtuell dator till exempel tar fyra timmar för en deltacykel schemaläggs nästa cykel om två timmar och inte i nästa timme. Processen är annorlunda omedelbart efter den första replikeringen, när den första deltacykeln schemaläggs omedelbart.
 
-## <a name="how-does-agentless-replication-affect-vmware-servers"></a>Hur påverkar agenten replikeringen VMware-servrar?
+## <a name="how-does-agentless-replication-affect-vmware-servers"></a>Hur påverkar agentless replication VMware-servrar?
 
-Replikeringen utan agent medför att vissa prestanda påverkas av VMware vCenter Server och VMware ESXi värdar. Eftersom en agent utan replikering använder ögonblicks bilder, förbrukar den IOPS på lagrings utrymme, så viss bandbredd för IOPS krävs. Vi rekommenderar inte att du använder replikering utan Agent om du har begränsningar på lagring eller IOPs i din miljö.
+Agentlös replikering resulterar i viss prestandapåverkan på VMware vCenter Server- och VMware ESXi-värdar. Eftersom agentless replication använder ögonblicksbilder förbrukar den IOPS vid lagring, så viss IOPS-lagringsbandbredd krävs. Vi rekommenderar inte att du använder agentless replikering om du har begränsningar för lagring eller IOPs i din miljö.
 
-## <a name="can-i-do-agentless-migration-of-uefi-vms-to-azure-gen-2"></a>Kan jag utföra en agent lös migrering av virtuella UEFI-datorer till Azure gen 2?
+## <a name="can-i-do-agentless-migration-of-uefi-vms-to-azure-gen-2"></a>Kan jag göra agentless migrering av UEFI virtuella datorer till Azure Gen 2?
 
-Nej. Använd Azure Site Recovery för att migrera de virtuella datorerna till virtuella datorer i Azure. 
+Nej. Använd Azure Site Recovery för att migrera dessa virtuella datorer till virtuella virtuella azure-datorer i Gen 2. 
 
-## <a name="can-i-pin-vms-to-azure-availability-zones-when-i-migrate"></a>Kan jag fästa virtuella datorer på Azure-tillgänglighetszoner när jag migrerar?
+## <a name="can-i-pin-vms-to-azure-availability-zones-when-i-migrate"></a>Kan jag fästa virtuella datorer i Azure-tillgänglighetszoner när jag migrerar?
 
-Nej. Azure-tillgänglighetszoner stöds inte för Azure Migrate migrering.
+Nej. Azure-tillgänglighetszoner stöds inte för Azure Migrera migrera.
 
-## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Vilket transport protokoll använder Azure Migrate under replikeringen?
+## <a name="what-transport-protocol-does-azure-migrate-use-during-replication"></a>Vilket transportprotokoll använder Azure Migrate under replikeringen?
 
-Azure Migrate använder protokollet för Network Block Device (NBD) med SSL-kryptering.
+Azure Migrate använder NBD-protokollet (Network Block Device) med SSL-kryptering.
 
-## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Vilken lägsta vCenter Server version krävs för migrering?
+## <a name="what-is-the-minimum-vcenter-server-version-required-for-migration"></a>Vilken är den minsta vCenter Server-versionen som krävs för migrering?
 
-Du måste ha minst vCenter Server 5,5 och vSphere ESXi Host version 5,5.
+Du måste ha minst vCenter Server 5.5 och vSphere ESXi värd version 5.5.
 
-## <a name="can-customers-migrate-their-vms-to-unmanaged-disks"></a>Kan kunder migrera sina virtuella datorer till ohanterade diskar?
+## <a name="can-customers-migrate-their-vms-to-unmanaged-disks"></a>Kan kunder migrera sina virtuella datorer till ohanterat diskar?
 
-Nej. Azure Migrate stöder endast migrering till hanterade diskar (Standard HDD, Premium SSD).
+Nej. Azure Migrate stöder migrering endast till hanterade diskar (Standard HDD, Premium SSD).
 
-## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Hur många virtuella datorer kan jag replikera på en gång med hjälp av en agent utan migrering?
+## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>Hur många virtuella datorer kan jag replikera samtidigt med hjälp av agentless migration?
 
-För närvarande kan du migrera 100-VM: ar per instans av vCenter Server samtidigt. Migrera i batchar med 10 virtuella datorer.
+För närvarande kan du migrera 100 virtuella datorer per instans av vCenter Server samtidigt. Migrera i grupper om 10 virtuella datorer.
 
-## <a name="when-do-i-migrate-machines-as-physical-servers"></a>När migrerar jag datorer som fysiska servrar?
+## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Hur begränsar jag replikering i att använda Azure Migrate-installation för agentlös VMware-replikering?  
 
-Att migrera datorer genom att behandla dem som fysiska servrar är användbara i ett antal scenarier:
+Du kan begränsa med NetQosPolicy. Ett exempel:
+
+Det AppNamePrefix som ska användas i NetQosPolicy är "GatewayWindowsService.exe". Du kan skapa en princip för Azure Migrate-enheten för att begränsa replikeringstrafiken från installationen genom att skapa en princip som den här:
+ 
+New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB
+
+## <a name="when-do-i-migrate-machines-as-physical-servers"></a>När migrerar jag maskiner som fysiska servrar?
+
+Migrera maskiner genom att behandla dem som fysiska servrar är användbart i ett antal scenarier:
 
 - När du migrerar lokala fysiska servrar.
-- Om du migrerar virtuella datorer som är virtualiserade av plattformar som xen, KVM.
-- Om du av någon anledning inte kan använda standard migreringsprocessen för [Hyper-v](tutorial-migrate-hyper-v.md)eller [VMware](server-migrate-overview.md) -migrering för att migrera virtuella Hyper-v-eller VMware-datorer. Om du till exempel inte kör VMware vCenter och använder ESXi-värdar.
-- Migrera virtuella datorer som för närvarande körs i privata moln till Azure
-- Om du vill migrera virtuella datorer som körs i offentliga moln, till exempel Amazon Web Services (AWS) eller Google Cloud Platform (GCP), till Azure.
+- Om du migrerar virtuella datorer som virtualiseras av plattformar som Xen, KVM.
+- Om du vill migrera virtuella virtuella datorer med Hyper-V eller VMware kan du inte använda standardmigreringsprocessen för [Hyper-V](tutorial-migrate-hyper-v.md)eller [VMware-migrering.](server-migrate-overview.md) Till exempel om du inte kör VMware vCenter och bara använder ESXi-värdar.
+- Så här migrerar du virtuella datorer som körs i privata moln till Azure
+- Om du vill migrera virtuella datorer som körs i offentliga moln som Amazon Web Services (AWS) eller Google Cloud Platform (GCP) till Azure.
 
-## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Behöver jag VMware vCenter för att migrera virtuella VMware-datorer?
-Om du vill [migrera virtuella VMware-datorer](server-migrate-overview.md) med hjälp av VMware agent-eller agent lös migrering måste ESXi-värdar som de virtuella datorerna finns på hanteras av vCenter Server. Om du inte har vCenter Server kan du migrera virtuella VMware-datorer genom att migrera dem som fysiska servrar. [Läs mer](migrate-support-matrix-physical-migration.md).
+## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>Behöver jag VMware vCenter för att migrera virtuella datorer med VMware?
+Om du vill [migrera virtuella virtuella datorer](server-migrate-overview.md) med VMware-agentbaserad eller agentlös migrering måste ESXi-värdar där virtuella datorer finns hanteras av vCenter Server. Om du inte har vCenter Server kan du migrera virtuella virtuella datorer med VMware genom att migrera dem som fysiska servrar. [Läs mer](migrate-support-matrix-physical-migration.md).
  
 ## <a name="next-steps"></a>Nästa steg
 
-Läs [Azure Migrate översikt](migrate-services-overview.md).
+Läs [översikten över Azure Migrate](migrate-services-overview.md).

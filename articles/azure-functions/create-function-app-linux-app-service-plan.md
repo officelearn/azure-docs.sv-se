@@ -1,18 +1,18 @@
 ---
-title: Skapa en Function-app på Linux från Azure Portal
+title: Skapa en funktionsapp på Linux från Azure-portalen
 description: Lär dig hur du skapar din första Azure-funktion för serverfri körning i Azure Portal.
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76963843"
 ---
-# <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Skapa en Function-app i Linux i ett Azure App Service plan
+# <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Skapa en funktionsapp på Linux i en Azure App Service-plan
 
-Med hjälp av Azure Functions kan Linux användas som värd för funktionerna i en Azure App Service-standardcontainer. Den här artikeln beskriver hur du använder [Azure Portal](https://portal.azure.com) för att skapa en Linux-värdbaserad Function-app som körs i en [App Service plan](functions-scale.md#app-service-plan). Du kan även [använda en egen anpassad container](functions-create-function-linux-custom-image.md).
+Med hjälp av Azure Functions kan Linux användas som värd för funktionerna i en Azure App Service-standardcontainer. I den här artikeln får du lära dig hur du använder [Azure-portalen](https://portal.azure.com) för att skapa en Linux-värdfunktionsapp som körs i en [App Service-plan](functions-scale.md#app-service-plan). Du kan även [använda en egen anpassad container](functions-create-function-linux-custom-image.md).
 
 ![Skapa en funktionsapp i Azure Portal](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
 
@@ -24,9 +24,9 @@ Logga in på Azure-portalen på <https://portal.azure.com> med ditt Azure-konto.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen är en miljö för körning av funktionskoden. Med den kan du gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser. I den här artikeln skapar du en App Service plan när du skapar din Function-app.
+Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux. Funktionsappen är en miljö för körning av funktionskoden. Det låter dig gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser. I den här artikeln skapar du en App Service-plan när du skapar din funktionsapp.
 
-1. Välj knappen **skapa en resurs** i det övre vänstra hörnet av Azure Portal och välj sedan **Compute** > **Funktionsapp**.
+1. Välj knappen **Skapa en resurs** längst upp till vänster i Azure-portalen och sedan **Beräkning** > **Funktionsapp**.
 
     ![Skapa en funktionsapp i Azure Portal](./media/create-function-app-linux-app-service-plan/function-app-create-flow.png)
 
@@ -36,16 +36,16 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
 
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Appens namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
+    | **Appnamn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. | 
     | **[Resursgrupp](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
-    | **OS** | Linux | Function-appen körs på Linux. |
-    | **Publicera** | Programmera | Standard-Linux-behållaren för **körnings stacken** används. Allt du behöver ange är din projekt kod för Function-appen. Ett annat alternativ är att publicera en anpassad [Docker-avbildning](functions-create-function-linux-custom-image.md). |
-    | **[Värdplan](functions-scale.md)** | App Service-plan | Värdplan som definierar hur resurser allokeras till din funktionsapp. När du kör i ett App Service plan kan du kontrol lera [skalningen för din Function-app](functions-scale.md).  |
-    | **App Service plan/plats** | Skapa plan | Välj **Skapa nytt** och ange ett **App Service plan** namn. Välj en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner har åtkomst till. Välj önskad **[pris nivå](https://azure.microsoft.com/pricing/details/app-service/linux/)** . <br/>Du kan inte köra både Linux-och Windows-funktionella appar i samma App Service plan. |
+    | **Operativsystem** | Linux | Funktionsappen körs på Linux. |
+    | **Publicera** | Kod | Standardbehållaren för Linux för din **Runtime Stack** används. Allt du behöver ange är din funktion app projektkod. Ett annat alternativ är att publicera en anpassad [Docker-bild](functions-create-function-linux-custom-image.md). |
+    | **[Hosting plan](functions-scale.md)** | App Service-plan | Värdplan som definierar hur resurser allokeras till din funktionsapp. När du kör i en apptjänstplan kan du styra [skalningen av funktionsappen](functions-scale.md).  |
+    | **App Service-plan/plats** | Skapa plan | Välj **Skapa nytt** och ange ett namn på **apptjänstplanen.** Välj en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller i närheten av andra tjänster som dina funktioner har åtkomst till. Välj önskad **[prisnivå](https://azure.microsoft.com/pricing/details/app-service/linux/)**. <br/>Du kan inte köra både Linux- och Windows-funktionsappar i samma App Service-plan. |
     | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.NET** för C#- och F#-funktioner. |
-    | **[Storage](../storage/common/storage-account-create.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto, som måste uppfylla [kraven för ett lagringskonto](storage-considerations.md#storage-account-requirements). |
-    | **[Application Insights](functions-monitoring.md)** | Enabled | Application Insights är inaktiverat som standard. Vi rekommenderar att du aktiverar Application Insights integration nu och väljer en värd plats nära din App Service plan plats. Om du vill göra detta senare, se [övervaka Azure Functions](functions-monitoring.md).  |
+    | **[Lagring](../storage/common/storage-account-create.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto, som måste uppfylla [kraven för ett lagringskonto](storage-considerations.md#storage-account-requirements). |
+    | **[Application Insights](functions-monitoring.md)** | Enabled | Application Insights är inaktiverat som standard. Vi rekommenderar att du aktiverar integrering av Application Insights nu och väljer en värdplats nära din apptjänstplanplats. Om du vill göra detta senare läser du [Övervaka Azure Functions](functions-monitoring.md).  |
 
 3. Välj **Skapa** för att etablera och distribuera funktionsappen.
 
@@ -55,22 +55,22 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
 
 5. Välj **Gå till resurs** att visa den nya funktionsappen.
 
-Därefter skapar du en funktion i den nya funktionsappen. Även efter att din Function-app är tillgänglig kan det ta några minuter innan den är helt initierad.
+Därefter skapar du en funktion i den nya funktionsappen. Även efter att din funktionsapp är tillgänglig kan det ta några minuter att initiera.
 
-## <a name="create-function"></a>Skapa en HTTP-utlöst funktion
+## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Skapa en HTTP-utlöst funktion
 
-Det här avsnittet visar hur du skapar en funktion i din nya Function-app i portalen.
+I det här avsnittet visas hur du skapar en funktion i din nya funktionsapp i portalen.
 
 > [!NOTE]
-> Portal utvecklings upplevelsen kan vara användbar för att testa Azure Functions. I de flesta fall bör du överväga att utveckla dina funktioner lokalt och publicera projektet till din Function-app med hjälp av [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) eller [Azure Functions Core tools](functions-run-local.md#create-a-local-functions-project).  
+> Portalutvecklingsupplevelsen kan vara användbar för att prova Azure Functions. I de flesta scenarier bör du överväga att utveckla dina funktioner lokalt och publicera projektet i funktionsappen med visual [studiokod](functions-create-first-function-vs-code.md#create-an-azure-functions-project) eller [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
 
-1. I din nya Function-app väljer du fliken **Översikt** och när den har lästs in helt väljer du **+ ny funktion**.
+1. I den nya funktionsappen väljer du fliken **Översikt** och väljer + **Ny funktion**när den har läses in .
 
-    ![Skapa en ny funktion från fliken Översikt](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
+    ![Skapa en ny funktion på fliken Översikt](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
 
-1. På fliken **snabb start** väljer du **i-portalen**och väljer **Fortsätt**.
+1. Välj **In-portal**på fliken **Snabbstart** och välj **Fortsätt**.
 
-    ![Välj funktions utvecklings plattform.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
+    ![Välj din funktionsutvecklingsplattform.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
 
 1. Välj **WebHook + API** och välj sedan **Skapa**.
 
@@ -82,7 +82,7 @@ Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. I den nya funktionen klickar du på **</> Hämta funktionswebbadress** längst upp till höger och väljer **Standard (funktionsnyckel)** . Sedan klickar du på **Kopiera**. 
+1. I den nya funktionen klickar du på **</> Hämta funktionswebbadress** längst upp till höger och väljer **Standard (funktionsnyckel)**. Sedan klickar du på **Kopiera**. 
 
     ![Kopiera funktionswebbadressen från Azure Portal](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
 

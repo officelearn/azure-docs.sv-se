@@ -4,17 +4,17 @@ description: Ta reda på hur Azure App Service hjälper dig att utveckla och han
 ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 01/04/2017
-ms.custom: seodec18
-ms.openlocfilehash: 849886eb03f46949301d76113109aae8188ff8fc
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: mvc, seodec18
+ms.openlocfilehash: b385136183fba5d1e64db3763453d2f4b23d4d96
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687036"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80045175"
 ---
 # <a name="app-service-overview"></a>Översikt över App Service
 
-*Azure App Service* är en HTTP-baserad tjänst som är värd för webb program, REST API: er och mobila Server delar. Du kan utveckla i det språk du föredrar, oavsett om det är .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python. Program körs och skalas enkelt i både Windows- och Linux-baserade miljöer. Mer information om Linux-baserade miljöer finns i [App Service i Linux](containers/app-service-linux-intro.md). 
+*Azure App Service* är en HTTP-baserad tjänst för värd för webbprogram, REST-API:er och mobila bakåtslutningar. Du kan utveckla i det språk du föredrar, oavsett om det är .NET, .NET Core, Java, Ruby, Node.js, PHP eller Python. Program körs och skalas enkelt i både Windows- och Linux-baserade miljöer. Mer information om Linux-baserade miljöer finns i [App Service i Linux](containers/app-service-linux-intro.md). 
 
 App Services lägger inte bara till kraften hos Microsoft Azure i ditt program, t.ex. säkerhet, belastningsutjämning, automatisk skalning och automatiserad hantering. Du kan även dra nytta av dess DevOps-funktioner, t.ex. löpande utveckling från Azure DevOps, GitHub, Docker Hub och andra källor, pakethantering, mellanlagringsmiljöer, anpassade domäner och SSL-certifikat. 
 
@@ -47,7 +47,7 @@ Skapa din första webbapp.
 > [ASP.NET](app-service-web-get-started-dotnet-framework.md)
 
 > [!div class="nextstepaction"]
-> [PHP](app-service-web-get-started-php.md)
+> [Php](app-service-web-get-started-php.md)
 
 > [!div class="nextstepaction"]
 > [Ruby (på Linux)](containers/quickstart-ruby.md)
@@ -62,4 +62,4 @@ Skapa din första webbapp.
 > [Python (på Linux)](containers/quickstart-python.md)
 
 > [!div class="nextstepaction"]
-> [HTML](app-service-web-get-started-html.md)
+> [Html](app-service-web-get-started-html.md)

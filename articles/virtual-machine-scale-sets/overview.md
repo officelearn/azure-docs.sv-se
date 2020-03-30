@@ -1,5 +1,5 @@
 ---
-title: Översikt över skalnings uppsättningar för virtuella Azure-datorer
+title: Översikt över azure-skalningsuppsättningar för virtuella datorer
 description: Lär dig mer om VM-skalningsuppsättningar i Azure och hur du skalar dina program automatiskt
 author: mayanknayar
 tags: azure-resource-manager
@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: manayar
 ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76273694"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
@@ -38,7 +38,7 @@ VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som k
     - Autoskalning minskar också antalet onödiga VM-instanser som kör programmet när efterfrågan är låg, samtidigt som kunderna ändå kan åtnjuta en godtagbar prestandanivå när efterfrågan växer och ytterligare VM-instanser läggs till automatiskt. Den här möjligheten bidrar till att sänka kostnaderna och på ett effektivt sätt skapa de Azure-resurser som krävs.
 
 - **Fungerar i stor skala**
-    - En skalningsuppsättning har stöd för upp till 1 000 instanser av virtuella datorer. Om du skapar och laddar upp dina egna anpassade VM-avbildningar är gränsen 600 VM-instanser.
+    - En skalningsuppsättning har stöd för upp till 1 000 instanser av virtuella datorer. Om du skapar och laddar upp egna anpassade VM-avbildningar är gränsen 600 VM-instanser.
     - För att få bästa prestanda med produktionsarbetsbelastningar använder du [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 
@@ -54,11 +54,11 @@ Skalningsuppsättningar skapas från virtuella datorer. Med skalningsuppsättnin
 
 Det tillkommer ingen extra kostnad för skalningsuppsättningar. Du betalar bara för de underliggande beräkningsresurserna som VM-instanser, lastbalanserare eller hanterad disklagring. Hanteringen och automatiseringen av funktioner, t.ex. autoskalning och redundans, medför inga ytterligare avgifter vid användningen av virtuella datorer.
 
-## <a name="how-to-monitor-your-scale-sets"></a>Så här övervakar du dina skalnings uppsättningar
+## <a name="how-to-monitor-your-scale-sets"></a>Så här övervakar du dina skalningsuppsättningar
 
-Använd [Azure Monitor for VMS](../azure-monitor/insights/vminsights-overview.md), som har en enkel onboarding-process och automatiserar samlingen av viktiga prestanda räknare för processor, minne, disk och nätverk från de virtuella datorerna i din skalnings uppsättning. Den innehåller också ytterligare övervakningsfunktioner och fördefinierade visualiseringar som hjälper dig att fokusera på tillgänglighet och prestanda för dina skalnings uppsättningar.
+Använd [Azure Monitor för virtuella datorer](../azure-monitor/insights/vminsights-overview.md), som har en enkel introduktionsprocess och automatiserar insamlingen av viktiga processor-, minnes-, disk- och nätverksprestandaräknare från de virtuella datorerna i din skalningsuppsättning. Den innehåller också ytterligare övervakningsfunktioner och fördefinierade visualiseringar som hjälper dig att fokusera på tillgängligheten och prestandan för dina skalningsuppsättningar.
 
-Aktivera övervakning av den [virtuella datorns skalnings uppsättnings program](../azure-monitor/app/azure-vm-vmss-apps.md) med Application Insights för att samla in detaljerad information om ditt program, till exempel sidvyer, program begär Anden och undantag. Kontrol lera att programmet är tillgängligt genom att konfigurera ett [tillgänglighets test](../azure-monitor/app/monitor-web-app-availability.md) för att simulera användar trafik.
+Aktivera övervakning för ditt program för [skalningsuppsättning](../azure-monitor/app/azure-vm-vmss-apps.md) för virtuella datorer med Application Insights för att samla in detaljerad information om ditt program, inklusive sidvisningar, programbegäranden och undantag. Ytterligare kontrollera tillgängligheten för ditt program genom att konfigurera ett [tillgänglighetstest](../azure-monitor/app/monitor-web-app-availability.md) för att simulera användartrafik.
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång genom att skapa din första VM-skalningsuppsättning i Azure Portal.

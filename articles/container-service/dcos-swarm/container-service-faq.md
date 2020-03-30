@@ -10,17 +10,17 @@ ms.date: 03/28/2017
 ms.author: mlearned
 ms.custom: H1Hack27Feb201
 ms.openlocfilehash: 317862b694b93de44422ac3c28575c732ffc5be5
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75887928"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(INAKTUELL) Vanliga frågor och svar om Container Service
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-## <a name="orchestrators"></a>Initierare
+## <a name="orchestrators"></a>Dirigeringsverktyg
 
 ### <a name="which-container-orchestrators-do-you-support-on-azure-container-service"></a>Vilka behållardirigeringsverktyg stöder Azure Container Service? 
 
@@ -52,7 +52,7 @@ Mer information finns i vår [supportpolicy för containrar](https://support.mic
 
 Du kan använda standardverktygen i ditt operativsystem för att skapa en privat och en offentlig SSH-RSA-nyckel för autentisering mot virtuella Linux-datorer för ditt kluster. Anvisningar finns i guiden för [OS X och Linux](../../virtual-machines/linux/mac-create-ssh-keys.md) eller [Windows](../../virtual-machines/linux/ssh-from-windows.md). 
 
-Om du använder Azure CLI-kommandon för att distribuera ett Container Service-kluster kan SSH-nycklar genereras automatiskt för klustret.
+Om du använder Azure CLI-kommandon för att distribuera ett kluster för containertjänsten kan SSH-nycklar genereras automatiskt för klustret.
 
 ### <a name="how-do-i-create-a-service-principal-for-my-kubernetes-cluster"></a>Hur skapar jag ett huvudnamn för mitt Kubernetes-kluster?
 
@@ -112,9 +112,9 @@ ssh userName@masterFQDN –A –p 22 
 
 Mer information finns i [Ansluta till ett Azure Container Service-kluster](../../container-service/kubernetes/container-service-connect.md).
 
-### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>DNS-namnmatchningen fungerar inte i Windows. Vad gör jag?
+### <a name="my-dns-name-resolution-isnt-working-on-windows-what-should-i-do"></a>DNS-namnmatchningen fungerar inte i Windows. Vad ska jag göra?
 
-Det finns vissa kända DNS-problem i Windows vars korrigeringar fortfarande pågår. Kontrol lera att du använder den senaste uppdaterade versionen av ACS-motorn och Windows (med [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) och [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installerat) så att din miljö kan dra nytta av detta. Annars se tabellen nedan för migreringsstegen:
+Det finns några kända DNS-problem i Windows vars korrigeringar fortfarande håller på att fasas ut aktivt. Kontrollera att du använder den mest uppdaterade acs-motorn och Windows-versionen (med [KB4074588](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4074588) och [KB4089848](https://www.catalog.update.microsoft.com/Search.aspx?q=KB4089848) installerat) så att din miljö kan dra nytta av detta. Annars se tabellen nedan för migreringsstegen:
 
 | DNS-problem | Lösning  |
 |-------------|-------------|

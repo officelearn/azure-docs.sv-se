@@ -1,6 +1,6 @@
 ---
-title: Vad är identitets etablering med Azure AD? | Microsoft Docs
-description: Beskriver översikt över identitets etablering.
+title: Vad är identitetsetablering med Azure AD? | Microsoft Docs
+description: Beskriver översikt över identitetsetablering.
 services: active-directory
 author: billmath
 manager: daveba
@@ -12,57 +12,57 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76712549"
 ---
 # <a name="what-is-identity-provisioning"></a>Vad är identitetsetablering?
 
-Företag och organisationer blir i dag allt mer en blandning av lokala och molnbaserade program.  Användare behöver åtkomst till program både lokalt och i molnet. Det måste finnas en enda identitet i dessa olika program (både lokalt och i molnet).
+Företag och organisationer blir i dag allt mer en blandning av lokala och molnbaserade program.  Användare kräver åtkomst till program både lokalt och i molnet. Det finns behov av att ha en enda identitet i dessa olika program (lokalt och i molnet).
 
-Etablering är en process för att skapa ett objekt baserat på vissa villkor, hålla objektet uppdaterat och ta bort objektet när villkoren inte längre uppfylls. Till exempel när en ny användare ansluter till din organisation, anges användaren i HR-systemet.  Vid detta tillfälle kan etableringen skapa ett motsvarande användar konto i molnet, i Active Directory och olika program som användaren behöver åtkomst till.  Detta gör att användaren kan starta arbetet och ha åtkomst till de program och system som de behöver på dag ett. 
+Etablering är processen att skapa ett objekt baserat på vissa villkor, hålla objektet uppdaterat och ta bort objektet när villkoren inte längre uppfylls. När en ny användare till exempel ansluter till din organisation anges den användaren i HR-systemet.  Då kan etablering skapa ett motsvarande användarkonto i molnet, i Active Directory och olika program som användaren behöver åtkomst till.  Detta gör det möjligt för användaren att börja arbeta och har tillgång till de program och system de behöver på dag ett. 
 
-![moln etablering](media/what-is-provisioning/cloud1.png)
+![molnetablering](media/what-is-provisioning/cloud1.png)
 
-Med avseende på Azure Active Directory kan etableringen delas upp i följande viktiga scenarier.  
+När det gäller Azure Active Directory kan etablering delas upp i följande nyckelscenarier.  
 
 - **[HR-driven etablering](#hr-driven-provisioning)**  
-- **[App-etablering](#app-provisioning)**  
-- **[Katalog etablering](#directory-provisioning)** 
+- **[Etablering av appar](#app-provisioning)**  
+- **[Katalogtablering](#directory-provisioning)** 
 
 ## <a name="hr-driven-provisioning"></a>HR-driven etablering
 
-![moln etablering](media/what-is-provisioning/cloud2.png)
+![molnetablering](media/what-is-provisioning/cloud2.png)
 
-Etableringen från HR till molnet innebär att du kan skapa objekt (användare, roller, grupper osv.) baserat på den information som finns i ditt HR-system.  
+Etablering från HR till molnet innebär att skapa objekt (användare, roller, grupper osv.) baserat på den information som finns i ditt HR-system.  
 
-Det vanligaste scenariot är att när en ny medarbetare ansluts till företaget registreras de i HR-systemet.  När detta sker är de etablerade i molnet.  I det här fallet Azure AD.  Etableringen från HR kan avse följande scenarier. 
+Det vanligaste scenariot är att när en ny medarbetare ansluter sig till ditt företag, de anges i HR-systemet.  När det inträffar etableras de till molnet.  I det här fallet Azure AD.  Etablering från HR kan omfatta följande scenarier. 
 
-- **Anställning av nya anställda** – när en ny medarbetare läggs till i Cloud HR skapas ett användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD, med Skriv-tillbaka till molnets e-postadress.
-- **Uppdateringar av anställda och profiler** – när en medarbetar post uppdateras i moln HR (till exempel namn, titel eller chef) uppdateras deras användar konto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD.
-- **Anställdas uppsägningar** – när en medarbetare avslutas i molnet, inaktive ras användar kontot automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD.
-- **Anställdas återställningar** – när en medarbetare återställs i molnet kan deras gamla konto automatiskt återaktiveras eller etableras på nytt (beroende på dina önskemål) till Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD.
+- **Anställa nya medarbetare** – När en ny medarbetare läggs till i moln-HR skapas ett användarkonto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD, med tillbakaskrivning av e-postadressen till Cloud HR.
+- **Medarbetarattribut och profiluppdateringar** – När en medarbetarpost uppdateras i moln-HR (till exempel namn, titel eller chef) uppdateras deras användarkonto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD.
+- **Uppsägning av medarbetare** - När en medarbetare sägs upp i moln-HR inaktiveras deras användarkonto automatiskt i Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD.
+- **Medarbetare återanställer** - När en medarbetare återanställs i moln-HR kan deras gamla konto automatiskt återaktiveras eller återupprättas (beroende på dina önskemål) till Active Directory, Azure Active Directory och eventuellt Office 365 och andra SaaS-program som stöds av Azure AD.
 
 
-## <a name="app-provisioning"></a>App-etablering
+## <a name="app-provisioning"></a>Etablering av appar
 
-![moln etablering](media/what-is-provisioning/cloud3.png)
+![molnetablering](media/what-is-provisioning/cloud3.png)
 
-I Azure Active Directory (Azure AD), avser termen **[app-etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** att automatiskt skapa användar identiteter och roller i de moln program som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)och mycket annat.
+I Azure Active Directory (Azure AD) avser termen **[appetablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** att automatiskt skapa användaridentiteter och roller i molnprogrammen som användarna behöver åtkomst till. Förutom att skapa användaridentiteter, automatisk etablering inkluderar underhåll och borttagning av användaridentiteter som status eller roller förändras. Vanliga scenarier är att etablera en Azure AD-användare i program som [Dropbox,](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial) [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)med mera.
 
-## <a name="directory-provisioning"></a>Katalog etablering
+## <a name="directory-provisioning"></a>Katalogtablering
 
-![moln etablering](media/what-is-provisioning/cloud4.png)
+![molnetablering](media/what-is-provisioning/cloud4.png)
 
-Lokal etablering innebär etablering från lokala källor (till exempel Active Directory) till Azure AD.  
+Lokal etablering innebär etablering från lokala källor (som Active Directory) till Azure AD.  
 
-Det vanligaste scenariot är att när en användare i Active Directory (AD) är etablerad i Azure AD.
+Det vanligaste scenariot skulle vara när en användare i Active Directory (AD) etableras i Azure AD.
 
-Detta har gjorts genom Azure AD Connect Sync, Azure AD Connect moln etablering och Microsoft Identity Manager. 
+Detta har utförts av Azure AD Connect sync, Azure AD Connect molnetablering och Microsoft Identity Manager. 
  
 ## <a name="next-steps"></a>Nästa steg 
 
-- [Vad är Azure AD Connect Cloud revisioner?](what-is-cloud-provisioning.md)
-- [Installera moln etablering](how-to-install.md)
+- [Vad är Azure AD Connect-molnetablering?](what-is-cloud-provisioning.md)
+- [Installera molnetablering](how-to-install.md)

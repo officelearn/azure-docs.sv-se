@@ -1,6 +1,6 @@
 ---
-title: 'Azure-ExpressRoute: arbets flöden för krets konfiguration'
-description: Den här sidan visas arbetsflödena för att konfigurera ExpressRoute-kretsen och peer-kopplingar
+title: 'Azure ExpressRoute: Arbetsflöden för kretskonfiguration'
+description: På den här sidan visas arbetsflöden för att konfigurera ExpressRoute-krets och peerings
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,96 +8,96 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
 ms.openlocfilehash: e833e20085d7cfd8f727acb394851e96e7e19368
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75864374"
 ---
-# <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute-arbetsflöden för kretsetablering och kretstillstånd
-Den här sidan vägleder dig genom tjänsten etablering och routning configuration arbetsflöden på hög nivå.
+# <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Arbetsflöden i ExpressRoute för kretsetablering och kretstillstånd
+På den här sidan får du hjälp med konfigurationsarbetsflöden för tjänstetablering och routning på en hög nivå.
 
-![kretsen arbetsflöde](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![kretsarbetsflöde](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-Följande bild och motsvarande steg beskriver aktiviteterna för att etablera en ExpressRoute-krets från slut punkt till slut punkt. 
+Följande bild och motsvarande steg beskriver aktiviteterna för att etablera en ExpressRoute-krets från på slutning. 
 
-1. Konfigurera en ExpressRoute-krets med hjälp av PowerShell. Följ instruktionerna i den [skapa ExpressRoute-kretsar](expressroute-howto-circuit-classic.md) nedan för mer information.
-2. Ordning anslutningen från tjänstleverantören. Den här processen varierar. Kontakta din anslutningsleverantör för mer information om hur du beställer anslutning.
-3. Se till att kretsen har etablerats har genom att verifiera ExpressRoute-kretsen Etableringsstatus via PowerShell. 
-4. Konfigurera routningsdomäner. Om din anslutnings leverantör hanterar Layer 3-konfiguration, konfigureras routning för din krets. Om din anslutnings leverantör bara erbjuder Layer 2-tjänster, måste du konfigurera routning enligt rikt linjerna som beskrivs i sidorna för [routnings krav](expressroute-routing.md) och [konfiguration av routning](expressroute-howto-routing-classic.md) .
+1. Använd PowerShell för att konfigurera en ExpressRoute-krets. Följ instruktionerna i artikeln [Skapa ExpressRoute-kretsar](expressroute-howto-circuit-classic.md) för mer information.
+2. Beställ anslutning från tjänsteleverantören. Den här processen varierar. Kontakta din anslutningsleverantör för mer information om hur du beställer anslutning.
+3. Kontrollera att kretsen har etablerats genom att verifiera tillståndet för etablerar ExpressRoute-kretsen via PowerShell. 
+4. Konfigurera routningsdomäner. Om anslutningsleverantören hanterar Layer 3-konfigurationen konfigurerar de routning för din krets. Om anslutningsleverantören endast erbjuder Layer 2-tjänster måste du konfigurera routning enligt riktlinjerna som beskrivs i [routningskraven](expressroute-routing.md) och [routningskonfigurationssidorna.](expressroute-howto-routing-classic.md)
    
-   * Aktiverar Azures privata peering – aktivera den här peering för att ansluta till virtuella datorer / molntjänster som distribuerats i virtuella nätverk.
+   * Aktivera privat Azure-peering – Aktivera den här peeringen för att ansluta till virtuella datorer/molntjänster som distribueras i virtuella nätverk.
 
-   * Aktivera Microsoft-peering – aktivera detta för att få åtkomst till Microsoft onlinetjänster, till exempel Office 365. Alla Azure PaaS-tjänster är tillgängliga via Microsoft-peering.
+   * Aktivera Microsoft-peering – Aktivera detta för att komma åt Microsofts onlinetjänster, till exempel Office 365. Alla Azure PaaS-tjänster är tillgängliga via Microsoft-peering.
      
      > [!IMPORTANT]
-     > Du måste se till att du använder en separat proxyserver / edge för att ansluta till Microsoft än som du använder för Internet. Använder samma kant för både ExpressRoute och Internet orsaka asymmetrisk Routning och orsaka avbrott i anslutningen för ditt nätverk.
+     > Du måste se till att du använder en separat proxy / kant för att ansluta till Microsoft än den du använder för Internet. Om du använder samma kant för både ExpressRoute och Internet orsaka asymmetrisk routning och orsaka anslutningsbrott för nätverket.
      > 
      > 
      
-     ![Routning arbetsflöden](./media/expressroute-workflows/routing-workflow.png)
-5. Länka virtuella nätverk till ExpressRoute-kretsar – du kan länka virtuella nätverk till ExpressRoute-kretsen. Följ instruktionerna [att länka virtuella nätverk](expressroute-howto-linkvnet-arm.md) för din krets. Dessa virtuella nätverk kan antingen vara i samma Azure-prenumeration som ExpressRoute-krets eller kan vara i en annan prenumeration.
+     ![routningsarbetsflöden](./media/expressroute-workflows/routing-workflow.png)
+5. Länka virtuella nätverk till ExpressRoute-kretsar - Du kan länka virtuella nätverk till din ExpressRoute-krets. Följ instruktionerna [för att länka virtuella nätverk](expressroute-howto-linkvnet-arm.md) till din krets. Dessa virtuella nätverk kan antingen vara i samma Azure-prenumeration som ExpressRoute-kretsen eller vara i en annan prenumeration.
 
-## <a name="expressroute-circuit-provisioning-states"></a>ExpressRoute-krets Etableringsstatus
-Varje ExpressRoute-krets har två lägen:
+## <a name="expressroute-circuit-provisioning-states"></a>Etablerande lägen för ExpressRoute-krets
+Varje ExpressRoute-krets har två tillstånd:
 
-* Etableringsstatus för service provider
+* Etableringstillstånd för tjänsteleverantörer
 * Status
 
-Status representerar Microsofts Etableringsstatus. Den här egenskapen är inställd på aktiverad när du skapar en Expressroute-krets
+Status representerar Microsofts etableringstillstånd. Den här egenskapen är aktiverad när du skapar en Expressroute-krets
 
-Etableringsstatus för anslutning providern representerar tillstånd i anslutningsleverantörens sida. Det kan antingen vara *NotProvisioned*, *etablering*, eller *etablerad*. ExpressRoute-kretsen måste vara i ett tillhandahållet tillstånd för att konfigurera peering.
+Etableringstillståndet för anslutningsprovidern representerar tillståndet på anslutningsleverantörens sida. Det kan antingen vara *NotProvisioned,* *Etablering*eller *Etablering .* ExpressRoute-kretsen måste vara i ett etablerat tillstånd för att konfigurera peering.
 
-### <a name="possible-states-of-an-expressroute-circuit"></a>Möjliga tillstånd för en ExpressRoute-krets
-I det här avsnittet visas en lista över möjliga tillstånd för en ExpressRoute-krets.
+### <a name="possible-states-of-an-expressroute-circuit"></a>Möjliga tillstånd av en ExpressRoute krets
+I det här avsnittet visas möjliga tillstånd för en ExpressRoute-krets.
 
-**Vid skapandet**
+**Vid skapande tid**
 
-ExpressRoute-kretsen rapporterar följande tillstånd när en resurs skapas.
+ExpressRoute-kretsen rapporterar följande tillstånd när resurserna skapas.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-**När anslutningsleverantör är processen för att etablera kretsen**
+**När anslutningsleverantören håller på att etablera kretsen**
 
-ExpressRoute-kretsen kommer att rapportera följande tillstånd när anslutnings leverantören arbetar för att etablera kretsen.
+ExpressRoute-kretsen rapporterar följande tillstånd medan anslutningsleverantören arbetar för att etablera kretsen.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
 
 
-**När connectivity-leverantör har slutfört etableringsprocessen**
+**När anslutningsleverantören har slutfört etableringsprocessen**
 
-ExpressRoute-kretsen rapporterar följande tillstånd när anslutnings leverantören har kunnat allokera kretsen.
+ExpressRoute-kretsen rapporterar följande tillstånd när anslutningsleverantören har etablerat kretsen.
 
     ServiceProviderProvisioningState : Provisioned
     Status                           : Enabled
 
 
-**När anslutningsleverantör håller på att avetablera kretsen**
+**När anslutningsleverantören avetableras avetableras**
 
-Om ExpressRoute-kretsen behöver avetableras, kommer kretsen att rapportera följande tillstånd när tjänste leverantören har slutfört avetablerings processen.
+Om ExpressRoute-kretsen behöver avetableras kommer kretsen att rapportera följande tillstånd när tjänsteleverantören har slutfört avetableringsprocessen.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
 
 
-Du kan välja att aktivera den igen om det behövs, eller kör PowerShell-cmdletar för att ta bort kretsen.  
+Du kan välja att återaktivera den om det behövs, eller köra PowerShell-cmdlets för att ta bort kretsen.  
 
 > [!IMPORTANT]
-> Det går inte att ta bort en krets när ServiceProviderProvisioningState är etablerad eller etablerad. Anslutnings leverantören måste avetablera kretsen innan den kan tas bort. Microsoft fortsätter att debitera kretsen tills ExpressRoute-krets-resursen tas bort i Azure.
+> Det går inte att ta bort en krets när ServiceProviderProvisioningState etablerar eller etableras. Anslutningsleverantören måste avetablera kretsen innan den kan tas bort. Microsoft fortsätter att fakturera kretsen tills ExpressRoute-kretsresursen tas bort i Azure.
 > 
 
-## <a name="routing-session-configuration-state"></a>Routning sessionstillstånd för konfiguration
-Tillstånds rapporter för BGP-etablering om BGP-sessionen har Aktiver ATS på Microsoft Edge. Status måste vara aktive rad för att använda privat eller Microsoft-peering.
+## <a name="routing-session-configuration-state"></a>Konfigurationstillstånd för routningssession
+BGP-etableringstillståndsrapporter om BGP-sessionen har aktiverats på Microsoft-kanten. Tillståndet måste vara aktiverat för att använda privat eller Microsoft-peering.
 
-Det är viktigt att kontrollera tillståndet för BGP-sessionen särskilt för Microsoft-peering. Förutom BGP Etableringsstatus, det finns ett annat tillstånd som kallas *annonserade offentliga prefix tillstånd*. Det annonserade offentliga prefixet måste vara i det *konfigurerade* läget, båda för att BGP-sessionen ska vara igång och för att routningen ska fungera från slut punkt till slut punkt. 
+Det är viktigt att kontrollera BGP-sessionstillståndet, särskilt för Microsoft-peering. Förutom bgp-etableringstillståndet finns det ett annat tillstånd som kallas *annonserade offentliga prefixtillstånd*. Tillståndet annonserade offentliga prefix måste vara i *konfigurerat* tillstånd, både för att BGP-sessionen ska vara uppe och för att routningen ska fungera från på nytt. 
 
-Om tillståndet annonserade offentliga prefix har angetts till en *verifiering krävs* tillstånd, BGP-sessionen inte är aktiverad, eftersom de annonserade prefix inte matchade det AS-nummer i någon av routningsregister. 
+Om det annonserade offentliga prefixtillståndet är inställt på ett tillstånd som *krävs för validering* är BGP-sessionen inte aktiverad, eftersom de annonserade prefixen inte matchade AS-numret i något av routningsregistren. 
 
 > [!IMPORTANT]
-> Om det annonserade offentliga prefixet är i *manuellt validerings* tillstånd måste du öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) och tillhandahålla bevis på att du äger IP-adresserna som annonseras tillsammans med det tillhör ande autonoma system numret.
+> Om tillståndet för annonserade offentliga prefix är i *manuellt valideringstillstånd* måste du öppna en supportbiljett med [Microsoft-support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) och tillhandahålla bevis på att du äger de IP-adresser som annonseras tillsammans med det associerade autonoma systemnumret.
 > 
 > 
 

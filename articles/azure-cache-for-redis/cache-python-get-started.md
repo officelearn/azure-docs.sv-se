@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa en python-app – Azure cache för Redis'
-description: I den här snabb starten får du lära dig hur du skapar en python-app som använder Azure cache för Redis.
+title: 'Snabbstart: Skapa en Python-app - Azure Cache för Redis'
+description: I den här snabbstarten får du lära dig hur du skapar en Python-app som använder Azure Cache för Redis.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
@@ -11,19 +11,19 @@ ms.custom:
 - seo-python-october2019
 ms.date: 11/05/2019
 ms.openlocfilehash: 7b05f12ad3fd3a0f56605d708bbbf06df7e341ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75433471"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Snabb start: skapa en python-app som använder Azure cache för Redis
+# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Snabbstart: Skapa en Python-app som använder Azure Cache för Redis
 
-I den här artikeln införlivar du Azure cache för Redis i en python-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
+I den här artikeln införlivar du Azure Cache för Redis i en Python-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
 ## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
 - [Python 2 eller 3](https://www.python.org/downloads/)
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Skapa en Azure Cache for Redis-instans
@@ -33,15 +33,15 @@ I den här artikeln införlivar du Azure cache för Redis i en python-app för a
 
 ## <a name="install-redis-py"></a>Installera redis-py
 
-[Redis-py](https://github.com/andymccurdy/redis-py) är ett Python-gränssnitt för Azure Cache for Redis. Använd verktyget python packages, *pip*för att installera *Redis-py-* paketet från en kommando tolk. 
+[Redis-py](https://github.com/andymccurdy/redis-py) är ett Python-gränssnitt för Azure Cache for Redis. Använd python-paketverktyget *pip*för att installera *paketet redis-py* från en kommandotolk. 
 
-I följande exempel användes *PIP3* för python 3 för att installera *Redis-py* på Windows 10 från en administratörs kommando tolk.
+I följande exempel används *pip3* för Python 3 för att installera *redis-py* på Windows 10 från en administratörskommandofråga.
 
-![Installera Redis-py python-gränssnittet till Azure cache för Redis](./media/cache-python-get-started/cache-python-install-redis-py.png)
+![Installera redis-py Python-gränssnittet i Azure Cache för Redis](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 ## <a name="read-and-write-to-the-cache"></a>Läsa och skriva till cachen
 
-Kör python från kommando raden och testa cacheminnet med hjälp av följande kod. Ersätt `<Your Host Name>` och `<Your Access Key>` med värdena från Azure-cachen för Redis-instansen. Värd namnet har formatet *\<DNS-namn >. Redis. cache. Windows. net*.
+Kör Python från kommandoraden och testa cacheminnet med hjälp av följande kod. Ersätt `<Your Host Name>` `<Your Access Key>` och med värdena från Azure Cache för Redis-instansen. Värdnamnet är av formuläret * \<DNS-namn>.redis.cache.windows.net*.
 
 ```python
 >>> import redis
@@ -54,11 +54,11 @@ b'bar'
 ```
 
 > [!IMPORTANT]
-> För Azure cache för Redis version 3,0 eller högre tillämpas SSL-certifikat kontroll. ssl_ca_certs måste anges explicit vid anslutning till Azure cache för Redis. För RedHat Linux finns ssl_ca_certs i */etc/PKI/TLS/certs/ca-Bundle.CRT* -modulen för certifikat.
+> För Azure Cache för Redis version 3.0 eller senare tillämpas SSL-certifikatkontrollen. ssl_ca_certs måste uttryckligen anges när du ansluter till Azure Cache för Redis. För RedHat Linux finns ssl_ca_certs i certifikatmodulen */etc/pki/tls/certs/ca-bundle.crt.*
 
-## <a name="create-a-python-sample-app"></a>Skapa en python-exempel App
+## <a name="create-a-python-sample-app"></a>Skapa en Python-exempelapp
 
-Skapa en ny textfil, Lägg till följande skript och spara filen som *PythonApplication1.py*. Ersätt `<Your Host Name>` och `<Your Access Key>` med värdena från Azure-cachen för Redis-instansen. Värd namnet har formatet *\<DNS-namn >. Redis. cache. Windows. net*.
+Skapa en ny textfil, lägg till följande skript och spara filen som *PythonApplication1.py*. Ersätt `<Your Host Name>` `<Your Access Key>` och med värdena från Azure Cache för Redis-instansen. Värdnamnet är av formuläret * \<DNS-namn>.redis.cache.windows.net*.
 
 ```python
 import redis
@@ -84,25 +84,25 @@ for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
 
-Kör *PythonApplication1.py* med python. Du bör se resultatet som i följande exempel:
+Kör *PythonApplication1.py* med Python. Du bör se resultat som följande exempel:
 
-![Kör Python-skript för att testa cache-åtkomst](./media/cache-python-get-started/cache-python-completed.png)
+![Kör Python-skript för att testa cacheåtkomst](./media/cache-python-get-started/cache-python-completed.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du är klar med den Azure-resurs grupp och de resurser som du skapade i den här snabb starten kan du ta bort dem för att undvika avgifter.
+Om du är klar med Azure-resursgruppen och resurser som du skapade i den här snabbstarten kan du ta bort dem för att undvika avgifter.
 
 > [!IMPORTANT]
-> Att ta bort en resurs grupp går inte att ångra, och resurs gruppen och alla resurser i den tas bort permanent. Om du har skapat Azure cache för Redis-instansen i en befintlig resurs grupp som du vill behålla, kan du ta bort bara cachen genom att välja **ta bort** på sidan cache- **Översikt** . 
+> Det går inte att ta bort en resursgrupp och resursgruppen och alla resurser i resursen tas bort permanent. Om du har skapat azure-cachen för Redis-instansen i en befintlig resursgrupp som du vill behålla kan du bara ta bort cacheminnet genom att välja **Ta bort** från sidan Översikt **för cache.** 
 
-Så här tar du bort resurs gruppen och dess Redis Cache för Azure-instansen:
+Så här tar du bort resursgruppen och dess Redis-cache för Azure-instans:
 
-1. Sök efter och välj **resurs grupper**från [Azure Portal](https://portal.azure.com).
-1. I text rutan **Filtrera efter namn** anger du namnet på den resurs grupp som innehåller din cache-instans och väljer sedan den från Sök resultaten. 
+1. Sök efter och välj **Resursgrupper**i [Azure-portalen](https://portal.azure.com).
+1. I textrutan **Filter efter namn** anger du namnet på resursgruppen som innehåller cacheinstansen och markerar den sedan i sökresultaten. 
 1. Välj **Ta bort resursgrupp** på din resursgruppssida.
-1. Skriv namnet på resurs gruppen och välj sedan **ta bort**.
+1. Skriv resursgruppsnamnet och välj sedan **Ta bort**.
    
-   ![Ta bort din resurs grupp för Azure cache för Redis](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
+   ![Ta bort resursgruppen för Azure Cache för Redis](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,5 +1,5 @@
 ---
-title: Snabb start – integrera ett Azure Storage-konto med Azure CDN
+title: Snabbstart – integrera ett Azure-lagringskonto med Azure CDN
 description: Lär dig hur man använder Azure Content Delivery Network (CDN) för att leverera innehåll med hög bandbredd genom att cachelagra blobbar från Azure Storage.
 services: cdn
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
 ms.openlocfilehash: ffcbeb311a91791432bb285b59f5486393ffe4f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75386994"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Snabbstart: Integrera ett Azure Storage-konto med Azure CDN
@@ -55,9 +55,9 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
    
     Det här värdet blir värdnamnet i den URI som används för att adressera prenumerationens blobb-, kö- eller tabellresurser. När du vill adressera en containerresurs i Blob Storage så använd en URI i följande format:
    
-    http:// *&lt;StorageAcountLabel&gt;* .blob.core.windows.net/ *&lt;mycontainer&gt;*
+    http://*&lt;StorageAcountLabel&gt;*.blob.core.windows.net/*&lt;mycontainer&gt; *
 
-    där *&lt;StorageAccountLabel&gt;* refererar till värdet i rutan **Namn**.
+    där * &lt;&gt; StorageAccountLabel* refererar till värdet som du angav i rutan **Namn.**
    
     > [!IMPORTANT]    
     > URL-etiketten bildar underdomänen i lagringskontots URI och måste vara unika bland alla värdbaserade tjänster i Azure.
@@ -70,7 +70,7 @@ Du kan använda flera metoder för att skapa ett lagringskonto, bl.a. Azure Port
     | -------- | ----- |
     | **Distributionsmodell** | Använd standardvärdet. |
     | **Typ av konto** | Använd standardvärdet. |
-    | **Plats**    | Välj **USA, centrala** i listrutan. |
+    | **Location**    | Välj **USA, centrala** i listrutan. |
     | **Replikering** | Använd standardvärdet. |
     | **Prestanda** | Använd standardvärdet. |
     | **Säker överföring krävs** | Använd standardvärdet. |
@@ -96,9 +96,9 @@ Du kan aktivera Azure CDN för ditt lagringskonto direkt från ditt lagringskont
 
     | Inställning  | Värde |
     | -------- | ----- |
-    | **CDN-profil** | Välj **Skapa ny** och ange ditt profil namn, till exempel *My-CDN-Profile-123*. Det här namnet måste vara globalt unikt.  |
-    | **prisnivå** | Välj **Standard Verizon** i listrutan. |
-    | **CDN-slutpunktsnamn** | Ange slut punktens värdnamn, t. ex. *min-slutpunkt-123*. Det här namnet måste vara globalt unikt. Namnet används för att komma åt cachelagrade resurser på domänen _&lt;slutpunktens namn&gt;_ .azureedge.net. |
+    | **CDN-profil** | Välj **Skapa nytt** och ange ditt profilnamn, till exempel *my-cdn-profile-123*. Det här namnet måste vara globalt unikt.  |
+    | **Prisnivå** | Välj **Standard Verizon** i listrutan. |
+    | **CDN-slutpunktsnamn** | Ange ditt slutpunktsvärdnamn, *dvs.* Det här namnet måste vara globalt unikt. Det här namnet används för att komma åt dina cachelagrade resurser vid _ &lt;domännamnet&gt;_.azureedge.net. |
     | **Ursprungets värdnamn** | En ny CDN-slutpunkt använder som standard lagringskontots värdnamn som ursprunglig server. |
 
 3. Välj **Skapa**. När slutpunkten har skapats visas den i listan med slutpunkter.
@@ -125,7 +125,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 ## <a name="remove-content-from-azure-cdn"></a>Ta bort innehåll från Azure CDN
 Om du inte längre vill cachelagra ett objekt i Azure CDN kan du vidta något av följande steg:
 
-* Gör containern privat i stället för offentlig. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../storage/blobs/storage-manage-access-to-resources.md).
+* Gör containern privat i stället för offentlig. Mer information finns i [Hantera anonym läsåtkomst till behållare och blobbar](../storage/blobs/storage-manage-access-to-resources.md).
 * Inaktivera eller ta bort CDN-slutpunkten med hjälp av Azure Portal.
 * Ändra din värdbaserade tjänst så att den inte längre svarar på förfrågningar för objektet.
 

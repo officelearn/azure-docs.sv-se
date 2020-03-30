@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 01/13/2020
 ms.author: rohogue
 ms.openlocfilehash: a9dab2ca844feb1c24dfffc48b4f29cd1a311314
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76153199"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Vad är Avere vFXT för Azure?
@@ -19,13 +19,13 @@ Avere vFXT för Azure är cachelagringslösning för filsystem för dataintensiv
 
 Avere vFXT stöder följande vanliga databehandlingsscenarier:
 
-* Hybrid moln arkitektur – aver vFXT för Azure kan arbeta med ett maskin varu lagrings system, vilket ger fördelarna med molnbaserad data behandling utan att behöva flytta filer.
+* Hybridmolnarkitektur - Avere vFXT för Azure kan arbeta med ett maskinvarulagringssystem, vilket ger fördelen av molnbaserad databehandling utan att behöva flytta filer.
 
-* Cloud bursting – aver vFXT för Azure kan hjälpa dig att flytta dina data till molnet för ett enskilt projekt eller "lyft och Shift" hela arbets flödet permanent.
+* Cloud bursting - Avere vFXT för Azure kan hjälpa dig att flytta dina data till molnet för ett enda projekt, eller "lyft och flytta" hela arbetsflödet permanent.
 
 ![diagram som visar information om Avere vFXT-systemet i en Azure-prenumeration ansluten till bloblagring och till ett lokalt datacenter](media/avere-vfxt-hybrid.png)
 
-Aver vFXT for Azure passar bäst för följande situationer:
+Avere vFXT för Azure passar bäst för dessa situationer:
 
 * Läsintensiva åtgärder för HPC-arbetsbelastningar
 * Program som använder vanligt NFS-protokoll
@@ -44,9 +44,9 @@ Inom media och underhållning kan Avere vFXT-klustret påskynda dataåtkomsten f
 
 ### <a name="life-sciences"></a>Biovetenskap
 
-Aver vFXT gör det möjligt för forskare att köra sekundära analys arbets flöden i Azure Compute och få åtkomst till genomiks data oavsett var de befinner sig.
+Med Avere vFXT kan forskare köra sekundära analysarbetsflöden i Azure Compute och komma åt genomiska data oavsett var de befinner sig.
 
-I farmaceutiska forsknings-och vFXT-kluster kan du påskynda identifiering av narkotika genom att hjälpa forskare förutsäga interaktioner mellan läkemedel och analysera forsknings data.
+I läkemedelsforskning, Avere vFXT kluster kan påskynda läkemedelsupptäckt genom att hjälpa forskare förutsäga läkemedelsmål interaktioner och analysera forskningsdata.
 
 ### <a name="financial-services-analytics"></a>Analyser för ekonomiska tjänster
 
@@ -58,25 +58,25 @@ Avere vFXT-systemet utgörs av minst tre virtuella Edge Filer-noder, konfigurera
 
 Avere vFXT-klustret cachelagrar filerna när de begärs. Upprepade begäranden kan hanteras från cachen i drygt 80 procent av gångerna.
 
-### <a name="compatibility"></a>Efterlevnad
+### <a name="compatibility"></a>Kompatibilitet
 
 * Kompatibelt med NAS-maskinvarusystem från NetApp eller Dell EMC Isilon
 * Kompatibelt med Azure Blob
 * Använder NFSv3- eller SMB2-protokoll
 
-AVERT vFXT för Azure använder följande Azure-resurser:
+Avere vFXT för Azure använder följande Azure-resurser:
 
 |Azure-komponent|   |
 |----------|-----------|
-|Virtuella maskiner|3 eller flera E32s_v3|
+|Virtuella datorer|3 eller fler E32s_v3|
 |Premium SSD-lagring|200 GB OS-utrymme plus 1 TB till 4 TB cacheutrymme per nod |
 |Lagringskonto (valfritt) |v2|
 |Data backend-lagring (valfritt) | En tom LRS Blob-container |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs de här artiklarna för att planera och skapa en egen aver-vFXT för Azure-distribution.
+Läs dessa artiklar för att planera och skapa din egen Avere vFXT för Azure-distribution.
 
-* [Planera systemet](avere-vfxt-deploy-plan.md)
+* [Planera ditt system](avere-vfxt-deploy-plan.md)
 * [Distributionsöversikt](avere-vfxt-deploy-overview.md)
 * [Skapa vFXT](avere-vfxt-deploy.md)

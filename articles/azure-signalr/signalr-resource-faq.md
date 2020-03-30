@@ -1,16 +1,16 @@
 ---
 title: Vanliga frågor och svar om Azure SignalR Service
-description: Få snabb åtkomst till vanliga frågor om Azure SignalR-tjänsten, om fel sökning och typiska användnings scenarier.
+description: Ha snabb åtkomst till vanliga frågor om Azure SignalR-tjänst, om felsökning och typiska användningsscenarier.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: dde11b6097dddb1568f5adfea811606214a9759e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75891254"
 ---
 # <a name="azure-signalr-service-faq"></a>Vanliga frågor och svar Azure SignalR Service

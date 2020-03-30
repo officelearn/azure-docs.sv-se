@@ -1,6 +1,6 @@
 ---
-title: Interagera med en IoT Plug and Play förhands gransknings enhet som är ansluten till din Azure IoT-lösning | Microsoft Docs
-description: Använd C# (.net) för att ansluta till och interagera med en IoT plug and Play för hands version som är ansluten till din Azure IoT-lösning.
+title: Interagera med en IoT Plug and Play Preview-enhet som är ansluten till din Azure IoT-lösning | Microsoft-dokument
+description: Använd C# (.NET) för att ansluta till och interagera med en IoT Plug and Play Preview-enhet som är ansluten till din Azure IoT-lösning.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/30/2019
@@ -9,23 +9,23 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 ms.openlocfilehash: 0953f68839217c1c75eb86f8399ce023f3863ab4
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/02/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76963979"
 ---
-# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-c"></a>Snabb start: interagera med en IoT Plug and Play förhands gransknings enhet som ärC#ansluten till din lösning ()
+# <a name="quickstart-interact-with-an-iot-plug-and-play-preview-device-thats-connected-to-your-solution-c"></a>Snabbstart: Interagera med en IoT Plug and Play Preview-enhet som är ansluten till din lösning (C#)
 
 [!INCLUDE [iot-pnp-quickstarts-3-selector.md](../../includes/iot-pnp-quickstarts-3-selector.md)]
 
-IoT Plug and Play Preview fören klar IoT genom att göra det möjligt för dig att interagera med enhetens funktioner utan att du behöver känna till den underliggande enhets implementeringen. Den här snabb starten visar hur du C# använder (med .net) för att ansluta till och styra en IoT plug and Play-enhet som är ansluten till din lösning.
+IoT Plug and Play Preview förenklar IoT genom att du kan interagera med en enhets funktioner utan att du känner till den underliggande enhetsimplementeringen. Den här snabbstarten visar hur du använder C# (med .NET) för att ansluta till och styra en IoT Plug and Play-enhet som är ansluten till din lösning.
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabb starten måste du installera .NET Core (2. x. x eller 3. x) på din utvecklings dator. Du kan ladda ned den önskade versionen av .NET Core SDK för flera plattformar från [Ladda ned .net Core](https://dotnet.microsoft.com/download/dotnet-core/).
+För att slutföra den här snabbstarten måste du installera .NET Core (2.x.x eller 3.x.x) på utvecklingsmaskinen. Du kan hämta önskad version av .NET Core SDK för flera plattformar från [Hämta .NET Core](https://dotnet.microsoft.com/download/dotnet-core/).
 
-Du kan kontrol lera vilken version av .NET som finns på utvecklings datorn genom att köra följande kommando i ett lokalt terminalfönster: 
+Du kan verifiera den version av .NET som finns på utvecklingsdatorn genom att köra följande kommando i ett lokalt terminalfönster: 
 
 ```cmd/sh
 dotnet --version
@@ -35,45 +35,45 @@ dotnet --version
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
-Kör följande kommando för att hämta _anslutnings strängen för IoT Hub_ för din hubb (Anmärkning för användning senare):
+Kör följande kommando för att hämta _anslutningssträngen för IoT-hubben_ för navet (observera för användning senare):
 
 ```azurecli-interactive
 az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
 
-## <a name="run-the-sample-device"></a>Kör exempel enheten
+## <a name="run-the-sample-device"></a>Kör exempelenheten
 
-I den här snabb starten använder du en exempel miljö sensor som är skriven C# som IoT plug and Play-enheten. Följande instruktioner visar hur du installerar och kör enheten:
+I den här snabbstarten använder du en exempelmiljösensor som är skriven i C# som IoT Plug and Play-enhet. Följande instruktioner visar hur du installerar och kör enheten:
 
-1. Öppna ett terminalfönster i valfri katalog. Kör följande kommando för att klona [Azure IoT-exempel C# för (.net) GitHub-](https://github.com/Azure-Samples/azure-iot-samples-csharp) lagringsplatsen till den här platsen:
+1. Öppna ett terminalfönster i valfri katalog. Kör följande kommando för att klona [Azure IoT Samples for C# (.NET)](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub-databasen till den här platsen:
 
     ```cmd/sh
     git clone https://github.com/Azure-Samples/azure-iot-samples-csharp
     ```
 
-1. Det här terminalfönstret används nu som din _enhets_ Terminal. Gå till mappen för den klonade lagrings platsen och navigera till mappen **/Azure-IoT-samples-csharp/digitaltwin/samples/Device/EnvironmentalSensorSample** .
+1. Detta terminalfönster kommer nu att användas som _din enhetsterminal._ Gå till mappen i den klonade databasen och navigera till mappen **/azure-iot-samples-csharp/digitaltwin/Samples/device/EnvironmentalSensorSample.**
 
-1. Konfigurera _enhets anslutnings strängen_:
+1. Konfigurera _enhetens anslutningssträng:_
 
     ```cmd/sh
     set DIGITAL_TWIN_DEVICE_CONNECTION_STRING=<YourDeviceConnectionString>
     ```
 
-1. Skapa de nödvändiga paketen och kör exemplet med följande kommando:
+1. Skapa nödvändiga paket och kör exemplet med följande kommando:
 
     ```cmd\sh
         dotnet run
     ```
 
-1. Du ser meddelanden som säger att enheten har registrerats och väntar på uppdateringar från molnet. Detta anger att enheten nu är redo att ta emot kommandon och egenskaps uppdateringar och har börjat skicka telemetridata till hubben. Stäng inte den här terminalen, du behöver den senare för att bekräfta att tjänst exemplen också fungerade.
+1. Du ser meddelanden som säger att enheten har registrerats och väntar på uppdateringar från molnet. Detta indikerar att enheten nu är redo att ta emot kommandon och egenskapsuppdateringar och har börjat skicka telemetridata till navet. Stäng inte terminalen, du behöver den senare för att bekräfta att serviceproverna också fungerade.
 
-## <a name="run-the-sample-solution"></a>Kör exempel lösningen
+## <a name="run-the-sample-solution"></a>Kör exempellösningen
 
-I den här snabb starten använder du en exempel-IoT C# -lösning i för att interagera med exempel enheten.
+I den här snabbstarten använder du en prov-IoT-lösning i C# för att interagera med exempelenheten.
 
-1. Öppna ett annat terminalfönster (det här är din _tjänsts_ Terminal). Gå till mappen för den klonade lagrings platsen och navigera till mappen **/Azure-IoT-samples-csharp/digitaltwin/samples/service** .
+1. Öppna ett annat terminalfönster (detta kommer att vara din _serviceterminal)._ Gå till mappen i den klonade databasen och navigera till mappen **/azure-iot-samples-csharp/digitaltwin/Samples/service.**
 
-1. Konfigurera _IoT Hub-anslutningssträngen_ och _enhets-ID: t_ så att tjänsten kan ansluta till båda dessa:
+1. Konfigurera _anslutningssträngen för IoT-hubb_ och _enhets-ID_ så att tjänsten kan ansluta till båda dessa:
 
     ```cmd/sh
     set IOTHUB_CONNECTION_STRING=<YourIoTHubConnectionString>
@@ -82,20 +82,20 @@ I den här snabb starten använder du en exempel-IoT C# -lösning i för att int
 
 ### <a name="read-a-property"></a>Läsa en egenskap
 
-1. När du anslöt _enheten_ i terminalen såg du följande meddelande som visar att statusen är online:
+1. När du anslöt _enheten_ i terminalen såg du följande meddelande som anger dess onlinestatus:
 
     ```cmd/sh
     Waiting to receive updates from cloud...
     ```
 
-1. Gå till _tjänsten_ Terminal och Använd följande kommandon för att köra exemplet för att läsa enhets information:
+1. Gå till _serviceterminalen_ och använd följande kommandon för att köra exemplet för att läsa enhetsinformation:
 
     ```cmd/sh
     cd GetDigitalTwin
     dotnet run
     ```
 
-1. Bläddra till `environmentalSensor`-komponenten i _tjänstens_ Terminal-utdata. Du ser att egenskapen `state`, som används för att ange om enheten är online, har rapporter ATS som _Sant_:
+1. Bläddra till komponenten i `environmentalSensor` serviceterminalutdata. _service_ Du ser `state` att egenskapen, som används för att ange om enheten är online, har rapporterats som _sant:_
 
     ```JSON
     "environmentalSensor": {
@@ -112,7 +112,7 @@ I den här snabb starten använder du en exempel-IoT C# -lösning i för att int
 
 ### <a name="update-a-writable-property"></a>Uppdatera en skrivbar egenskap
 
-1. Gå till _tjänsten_ Terminal och ange följande variabler för att definiera vilken egenskap som ska uppdateras:
+1. Gå till _serviceterminalen_ och ange följande variabler för att definiera vilken egenskap som ska uppdateras:
     ```cmd/sh
     set INTERFACE_INSTANCE_NAME=environmentalSensor
     set PROPERTY_NAME=brightness
@@ -126,7 +126,7 @@ I den här snabb starten använder du en exempel-IoT C# -lösning i för att int
     dotnet run
     ```
 
-1. I _tjänstens Terminal-_ utdata visas den uppdaterade enhets informationen. Rulla till `environmentalSensor`-komponenten för att se det nya värdet för ljus styrka på 42.
+1. _Serviceterminalutdata_ visar den uppdaterade enhetsinformationen. Bläddra till `environmentalSensor` komponenten för att se det nya ljusstyrvvärdet 42.
 
     ```json
         "environmentalSensor": {
@@ -146,7 +146,7 @@ I den här snabb starten använder du en exempel-IoT C# -lösning i för att int
     }
     ```
 
-1. Gå till _enhetens_ Terminal. du ser att enheten har tagit emot uppdateringen:
+1. Gå till _enhetsterminalen_ visas när enheten har fått uppdateringen:
 
     ```cmd/sh
     Received updates for property 'brightness'
@@ -156,13 +156,13 @@ I den här snabb starten använder du en exempel-IoT C# -lösning i för att int
     Sent pending status for brightness property.
     Sent completed status for brightness property.
     ```
-2. Gå tillbaka till _tjänstens_ Terminal och kör kommandona nedan för att hämta enhets informationen igen för att bekräfta att egenskapen har uppdaterats.
+2. Gå tillbaka till _din serviceterminal_ och kör nedanstående kommandon för att hämta enhetsinformationen igen för att bekräfta att egenskapen har uppdaterats.
     
     ```cmd/sh
     cd ..\GetDigitalTwin
     dotnet run
     ```
-3. I _tjänstens_ Terminal-utdata under `environmentalSensor`-komponenten ser du att det uppdaterade värdet för ljus styrka har rapporter ATS. Obs: det kan ta en stund innan enheten har slutfört uppdateringen. Du kan upprepa det här steget tills enheten faktiskt har bearbetat egenskaps uppdateringen.
+3. I _service_ serviceterminalutdata, `environmentalSensor` under komponenten, ser du att det uppdaterade ljusstyrhetsvärdet har rapporterats. Det kan ta ett tag innan enheten slutför uppdateringen. Du kan upprepa det här steget tills enheten faktiskt har bearbetat egenskapsuppdateringen.
     
     ```json
     "environmentalSensor": {
@@ -192,7 +192,7 @@ I den här snabb starten använder du en exempel-IoT C# -lösning i för att int
 
 ### <a name="invoke-a-command"></a>Anropa ett kommando
 
-1. Gå till _tjänsten_ Terminal och ange följande variabler för att definiera vilket kommando som ska anropas:
+1. Gå till _serviceterminalen_ och ange följande variabler för att definiera vilket kommando som ska anropas:
     ```cmd/sh
     set INTERFACE_INSTANCE_NAME=environmentalSensor
     set COMMAND_NAME=blink
@@ -205,7 +205,7 @@ I den här snabb starten använder du en exempel-IoT C# -lösning i för att int
     dotnet run
     ```
 
-1. Utdata i _tjänstens_ Terminal ska visa följande bekräftelse:
+1. Utdata i _serviceterminalen_ bör visa följande bekräftelse:
 
     ```cmd/sh
     Invoking blink on device <YourDeviceID> with interface instance name environmentalSensor
@@ -215,7 +215,7 @@ I den här snabb starten använder du en exempel-IoT C# -lösning i för att int
     Enter any key to finish
     ```
 
-1. Gå till _enhetens_ Terminal. du ser att kommandot har bekräftats:
+1. Gå till _enhetsterminalen,_ du ser kommandot har bekräftats:
 
     ```cmd/sh
     Command - blink was invoked from the service
@@ -227,7 +227,7 @@ I den här snabb starten använder du en exempel-IoT C# -lösning i för att int
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du ansluter en IoT Plug and Play-enhet till en IoT-lösning. Mer information om hur du skapar en lösning som interagerar med din IoT Plug and Play-enheter finns i:
+I den här snabbstarten lärde du dig hur du ansluter en IoT Plug and Play-enhet till en IoT-lösning. Mer information om hur du skapar en lösning som interagerar med dina IoT Plug and Play-enheter finns i:
 
 > [!div class="nextstepaction"]
-> [Anvisningar: ansluta till och interagera med en enhet](howto-develop-solution.md)
+> [Så här: Ansluta till och interagera med en enhet](howto-develop-solution.md)

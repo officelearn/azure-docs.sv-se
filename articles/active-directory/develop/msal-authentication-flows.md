@@ -1,7 +1,7 @@
 ---
-title: Flöden för MSAL-autentisering | Azure
+title: MSAL-autentiseringsflöden | Azure
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om de autentiserings flöden och-anslag som används av Microsoft Authentication Library (MSAL).
+description: Lär dig mer om autentiseringsflöden och bidrag som används av Microsoft Authentication Library (MSAL).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -13,223 +13,223 @@ ms.date: 01/30/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ace636152f6a0c9bf3896860eb17cc291bef2887
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 25c219bedbbbec9fbc0c5617c7bd9fc482faf49a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79262911"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80050517"
 ---
-# <a name="authentication-flows"></a>Autentiserings flöden
+# <a name="authentication-flows"></a>Autentiseringsflöden
 
-I den här artikeln beskrivs de olika autentiserings flöden som tillhandahålls av Microsoft Authentication Library (MSAL).  Dessa flöden kan användas i olika program scenarier.
+I den här artikeln beskrivs de olika autentiseringsflöden som tillhandahålls av Microsoft Authentication Library (MSAL).  Dessa flöden kan användas i en mängd olika programscenarier.
 
 | Flöde | Beskrivning | Används i|  
 | ---- | ----------- | ------- | 
-| [Interaktiv](#interactive) | Hämtar token via en interaktiv process som efterfrågar användaren om autentiseringsuppgifter via en webbläsare eller popup-fönster. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar](scenario-mobile-overview.md) |
-| [Implicit beviljande](#implicit-grant) | Tillåter appen att hämta tokens utan att säkerhetskopiera autentiseringsuppgifter för backend-servern. Detta gör att appen kan logga in användaren, underhålla sessionen och hämta token till andra webb-API: er i klientens JavaScript-kod.| [Enkels Ides program (SPA)](scenario-spa-overview.md) |
-| [Auktoriseringskod](#authorization-code) | Används i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. På så sätt kan du lägga till inloggnings-och API-åtkomst till dina mobila och Station ära appar. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar](scenario-mobile-overview.md), [Web Apps](scenario-web-app-call-api-overview.md) | 
-| [På uppdrag av](#on-behalf-of) | Ett program anropar en tjänst eller ett webb-API, som i sin tur måste anropa en annan tjänst eller ett webb-API. Tanken är att sprida den delegerade användar identiteten och behörigheterna via begär ande kedjan. | [Webb-API:er](scenario-web-api-call-api-overview.md) |
-| [Klientautentiseringsuppgifter](#client-credentials) | Gör att du kan komma åt webb värd resurser genom att använda identiteten för ett program. Används ofta för server-till-Server-interaktioner som måste köras i bakgrunden, utan omedelbar interaktion med en användare. | [Daemon-appar](scenario-daemon-overview.md) |
-| [Enhets kod](#device-code) | Tillåter att användare loggar in på inmatade enheter, till exempel en smart TV, IoT-enhet eller skrivare. | [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
-| [Integrerad Windows-autentisering](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Gör det möjligt för program på domän-eller Azure Active Directory (Azure AD) anslutna datorer att hämta en token tyst (utan någon användar GRÄNSSNITTs interaktion från användaren).| [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [Användar namn/lösen ord](scenario-desktop-acquire-token.md#username-and-password) | Gör att ett program kan logga in användaren genom att direkt hantera lösen ordet. Det här flödet rekommenderas inte. | [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#username-and-password) |
+| [Interaktiva](#interactive) | Hämtar token genom en interaktiv process som uppmanar användaren att ange autentiseringsuppgifter via en webbläsare eller ett popup-fönster. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar](scenario-mobile-overview.md) |
+| [Implicit bidrag](#implicit-grant) | Gör att appen kan hämta token utan att utföra ett backend-serverautentiseringsutbyte. På så sätt kan appen logga in användaren, underhålla sessionen och hämta token till andra webb-API:er, allt inom klientens JavaScript-kod.| [Ensidiga program (SPA)](scenario-spa-overview.md) |
+| [Authorization code (Auktoriseringskod)](#authorization-code) | Används i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API:er. På så sätt kan du lägga till inloggning och API-åtkomst till dina mobil- och skrivbordsappar. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar,](scenario-mobile-overview.md) [webbappar](scenario-web-app-call-api-overview.md) | 
+| [På uppdrag av](#on-behalf-of) | Ett program anropar en tjänst eller ett webb-API, som i sin tur måste anropa en annan tjänst eller webb-API. Tanken är att sprida den delegerade användaridentiteten och behörigheterna via förfråkomstkedjan. | [Webb-API:er](scenario-web-api-call-api-overview.md) |
+| [Klientautentiseringsuppgifter](#client-credentials) | Gör att du kan komma åt webbaserade resurser med hjälp av ett programs identitet. Används ofta för server-till-server-interaktioner som måste köras i bakgrunden, utan omedelbar interaktion med en användare. | [Daemon-appar](scenario-daemon-overview.md) |
+| [Enhetskod](#device-code) | Gör det möjligt för användare att logga in på indatabegränsade enheter, till exempel en smart-TV, IoT-enhet eller skrivare. | [Skrivbords-/mobilappar](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
+| [Integrerad Windows-autentisering](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Tillåter att program på domän eller Azure Active Directory (Azure AD) gick till datorer för att hämta en token tyst (utan gränssnittsinteraktion från användaren).| [Skrivbords-/mobilappar](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
+| [Användarnamn/lösenord](scenario-desktop-acquire-token.md#username-and-password) | Tillåter ett program att logga in användaren genom att direkt hantera sitt lösenord. Det här flödet rekommenderas inte. | [Skrivbords-/mobilappar](scenario-desktop-acquire-token.md#username-and-password) |
 
-## <a name="how-each-flow-emits-tokens-and-codes"></a>Hur varje flöde avger tokens och koder
+## <a name="how-each-flow-emits-tokens-and-codes"></a>Hur varje flöde avger token och koder
  
-Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiserings flöden som stöds av Microsoft Identity Platform.  Dessa flöden kan skapa en mängd olika tokens (id_tokens, uppdatera tokens, åtkomsttoken) och auktoriseringsregler, och kräver olika token för att de ska fungera. Det här diagrammet innehåller en översikt:
+Beroende på hur klienten är byggd kan den använda en (eller flera) av de autentiseringsflöden som stöds av Microsofts identitetsplattform.  Dessa flöden kan producera en mängd olika token (id_tokens, uppdatera token, åtkomsttoken) samt auktoriseringskoder och kräva olika token för att få dem att fungera. Det här diagrammet innehåller en översikt:
  
-|Flöde | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
+|Flöde | Kräver | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
 |-----|----------|----------|--------------|---------------|--------------------|
-|[Flöde för auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
+|[Flöde av auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Implicit flöde](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Hybrid OIDC-flöde](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
-|[Uppdatera token-inlösen](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | uppdatera token | x | x | x| |
+|[Uppdatera tokeninlösen](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | uppdatera token | x | x | x| |
 |[On-Behalf-Of-flöde](v2-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
-|[Enhets kod flöde](v2-oauth2-device-code.md) | | x| x| x| |
-|[Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |
+|[Flöde av enhetskod](v2-oauth2-device-code.md) | | x| x| x| |
+|[Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) | | | x (endast app)| | |
  
-Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL: en (där `response_mode` är `query` eller `fragment`).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Dessa tokens har därför inte `groups`-eller `wids`-anspråk.
+Tokens som utfärdas via implicit läge har en längdbegränsning på grund av `response_mode` `query` att `fragment`de skickas tillbaka till webbläsaren via webbadressen (var är eller ).  Vissa webbläsare har en gräns för storleken på webbadressen som kan placeras i webbläsarfältet och misslyckas när den är för lång.  Dessa tokens har `groups` eller `wids` gör anspråk.
 
 ## <a name="interactive"></a>Interaktiv
 
-MSAL stöder möjligheten att interaktivt fråga användaren om sina autentiseringsuppgifter för att logga in och hämta en token genom att använda dessa autentiseringsuppgifter.
+MSAL stöder möjligheten att interaktivt uppmana användaren att logga in och hämta en token med hjälp av dessa autentiseringsuppgifter.
 
 ![Diagram över interaktivt flöde](media/msal-authentication-flows/interactive.png)
 
-Mer information om hur du använder MSAL.NET för att interaktivt Hämta token på vissa plattformar finns i:
+Mer information om hur du använder MSAL.NET för att interaktivt hämta token på specifika plattformar finns i:
 - [Xamarin Android](msal-net-xamarin-android-considerations.md)
 - [Xamarin iOS](msal-net-xamarin-ios-considerations.md)
 - [Universal Windows Platform](msal-net-uwp-considerations.md)
 
-Mer information om interaktiva anrop i MSAL. js finns i [fråga om beteende i interaktiva begär anden i MSAL. js](msal-js-prompt-behavior.md).
+Mer information om interaktiva samtal i MSAL.js finns [i Snabbt beteende i MSAL.js interaktiva begäranden](msal-js-prompt-behavior.md).
 
-## <a name="implicit-grant"></a>Implicit beviljande
+## <a name="implicit-grant"></a>Implicit bidrag
 
-MSAL stöder det [implicita tilldelnings flödet för OAuth 2](v2-oauth2-implicit-grant-flow.md), vilket gör att appen kan hämta tokens från Microsoft Identity Platform utan att utföra en server för autentiseringsuppgifter för backend-servern. Detta gör att appen kan logga in användaren, underhålla sessionen och hämta token till andra webb-API: er i klientens JavaScript-kod.
+MSAL stöder [OAuth 2 implicit beviljande flöde](v2-oauth2-implicit-grant-flow.md), vilket gör att appen för att få token från Microsoft identitetsplattform utan att utföra en back-end server autentiseringsuppgifter utbyte. På så sätt kan appen logga in användaren, underhålla sessionen och hämta token till andra webb-API:er, allt inom klientens JavaScript-kod.
 
-![Diagram över implicit beviljande av flöde](media/msal-authentication-flows/implicit-grant.svg)
+![Diagram över implicit bidragsflöde](media/msal-authentication-flows/implicit-grant.svg)
 
-Många moderna webb program skapas som program på klient sidan, med en sida, skrivna med hjälp av Java Script eller ett SPA-ramverk, till exempel vinkel, Vue. js och reagerar. js. Dessa program körs i en webbläsare och har olika egenskaper för autentisering än traditionella webb program på Server sidan. Microsoft Identity Platform gör det möjligt för program att logga in användare och hämta token för att få åtkomst till backend-tjänster eller webb-API: er med hjälp av det implicita tilldelnings flödet. Det implicita flödet gör att programmet kan hämta ID-token för att representera den autentiserade användaren och även få åtkomst till tokens som krävs för att anropa skyddade API: er.
+Många moderna webbapplikationer är byggda som klient-side, single page-program, skrivna med javascript eller ett SPA-ramverk som Angular, Vue.js och React.js. Dessa program körs i en webbläsare och har andra autentiseringsegenskaper än traditionella webbprogram på serversidan. Microsofts identitetsplattform gör det möjligt för program med en sida att logga in användare och få token för att komma åt backend-tjänster eller webb-API:er med hjälp av det implicita bidragsflödet. Det implicita flödet gör att programmet kan hämta ID-token för att representera den autentiserade användaren och även komma åt token som behövs för att anropa skyddade API:er.
 
-Det här autentiseringsschemat omfattar inte program scenarier som använder plattforms oberoende JavaScript-ramverk, till exempel Electron och reagerar-Native, eftersom de kräver ytterligare funktioner för interaktion med de ursprungliga plattformarna.
+Det här autentiseringsflödet innehåller inte programscenarier som använder JavaScript-ramverk över flera plattformar, till exempel Elektron och React-Native, eftersom de kräver ytterligare funktioner för interaktion med de inbyggda plattformarna.
 
-## <a name="authorization-code"></a>auktoriseringskod
+## <a name="authorization-code"></a>Authorization code (Auktoriseringskod)
 
-MSAL stöder [utfärdande av OAuth 2-auktoriseringskod](v2-oauth2-auth-code-flow.md). Det här bidraget kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. På så sätt kan du lägga till inloggnings-och API-åtkomst till dina mobila och Station ära appar. 
+MSAL stöder [tillståndskodsbidraget OAuth 2](v2-oauth2-auth-code-flow.md). Det här bidraget kan användas i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API:er. På så sätt kan du lägga till inloggning och API-åtkomst till dina mobil- och skrivbordsappar. 
 
-När användarna loggar in på webb program (webbplatser) får webb programmet en auktoriseringskod.  Auktoriseringskod löses för att hämta en token för att anropa webb-API: er. I ASP.NET-och ASP.NET Core webbappar är det enda målet för `AcquireTokenByAuthorizationCode` att lägga till en token i token-cachen. Token kan sedan användas av programmet (vanligt vis i kontrollanter som bara får en token för ett API med hjälp av `AcquireTokenSilent`).
+När användare loggar in på webbprogram (webbplatser) får webbprogrammet en auktoriseringskod.  Auktoriseringskoden löses in för att hämta en token för att anropa webb-API:er. I ASP.NET och ASP.NET Core-webbappar `AcquireTokenByAuthorizationCode` är det enda målet med att lägga till en token i tokencachen. Token kan sedan användas av programmet (vanligtvis i styrenheterna, som bara `AcquireTokenSilent`får en token för ett API med hjälp av ).
 
-![Diagram över flöde för auktoriseringskod](media/msal-authentication-flows/authorization-code.png)
+![Diagram över auktoriseringskodflödet](media/msal-authentication-flows/authorization-code.png)
 
-I föregående diagram är programmet:
+I föregående diagram visas följande:
 
 1. Begär en auktoriseringskod som löses in för en åtkomsttoken.
 2. Använder åtkomsttoken för att anropa ett webb-API.
 
 ### <a name="considerations"></a>Överväganden
 
-- Du kan bara använda auktoriseringskod en gång för att lösa in en token. Försök inte att hämta en token flera gånger med samma auktoriseringskod (den uttryckligen förbjuds av protokoll standard specifikationen). Om du löser in koden flera gånger avsiktligt, eller om du inte är medveten om att ett ramverk också gör det, får du följande fel meddelande: `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
+- Du kan bara använda auktoriseringskoden en gång för att lösa in en token. Försök inte att skaffa en token flera gånger med samma auktoriseringskod (det är uttryckligen förbjudet enligt protokollstandardspecifikationen). Om du löser in koden flera gånger avsiktligt, eller om du inte är medveten om att ett ramverk också gör det åt dig, får du följande felmeddelande:`AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
-- Om du skriver ett ASP.NET-eller ASP.NET Core-program kan detta inträffa om du inte talar om för ramverket att du redan har löst in auktoriserings koden. För detta måste du anropa `context.HandleCodeRedemption()`-metoden för `AuthorizationCodeReceived` händelse hanteraren.
+- Om du skriver ett ASP.NET eller ASP.NET Core-program kan detta inträffa om du inte talar om för ramverket att du redan har löst in auktoriseringskoden. För detta måste du `context.HandleCodeRedemption()` anropa metoden `AuthorizationCodeReceived` för händelsehanteraren.
 
-- Undvik att dela åtkomsttoken med ASP.NET, vilket kan förhindra att ett stegvist godkännande sker korrekt. Mer information finns i avsnittet om [problem #693](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/693).
+- Undvik att dela åtkomsttoken med ASP.NET, vilket kan förhindra att inkrementellt medgivande sker korrekt. Mer information finns i [problem #693](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/693).
 
-## <a name="on-behalf-of"></a>On-behalf-of
+## <a name="on-behalf-of"></a>På uppdrag av
 
-MSAL har stöd för [OAuth 2 på uppdrag av autentiseringspaket](v2-oauth2-on-behalf-of-flow.md).  Det här flödet används när ett program anropar en tjänst eller ett webb-API, vilket i sin tur måste anropa en annan tjänst eller ett webb-API. Tanken är att sprida den delegerade användar identiteten och behörigheterna via begär ande kedjan. För att mellanskikts tjänsten ska kunna göra autentiserade begär anden till den underordnade tjänsten måste den skydda en åtkomsttoken från Microsoft Identity Platform, å användarens vägnar.
+MSAL stöder [OAuth 2 för autentiseringsflödet](v2-oauth2-on-behalf-of-flow.md).  Det här flödet används när ett program anropar en tjänst eller ett webb-API, som i sin tur måste anropa en annan tjänst eller webb-API. Tanken är att sprida den delegerade användaridentiteten och behörigheterna via förfråkomstkedjan. För att tjänsten på mellannivå ska kunna göra autentiserade begäranden till tjänsten nedströms måste den skydda en åtkomsttoken från Microsofts identitetsplattform för användarens räkning.
 
-![Diagram över flöde på samma vägnar](media/msal-authentication-flows/on-behalf-of.png)
+![Diagram över flödet för den skull](media/msal-authentication-flows/on-behalf-of.png)
 
-I föregående diagram:
+I diagrammet ovan:
 
-1. Programmet hämtar en åtkomsttoken för webb-API: et.
-2. En klient (webb-, skriv bords-, mobil-eller Enkels Ides program) anropar ett skyddat webb-API och lägger till åtkomsttoken som en Bearer-token i HTTP-begärans Authentication-huvud. Webb-API: et autentiserar användaren.
-3. När klienten anropar webb-API: et begär webb-API en annan token för användaren.  
-4. Det skyddade webb-API: et använder denna token för att anropa ett underordnat webb-API för användaren.  Webb-API: et kan också senare begära token för andra underordnade API: er (men fortfarande på uppdrag av samma användare).
+1. Programmet hämtar en åtkomsttoken för webb-API:et.
+2. En klient (webb-, skrivbords-, mobil- eller ensidigt program) anropar ett skyddat webb-API och lägger till åtkomsttoken som innehavartoken i autentiseringshuvudet för HTTP-begäran. Webb-API:et autentiserar användaren.
+3. När klienten anropar webb-API:et begär webb-API:et en annan token för användarens räkning.  
+4. Det skyddade webb-API:et använder den här token för att anropa ett nedströms webb-API för användarens räkning.  Webb-API:et kan också senare begära token för andra underordnade API:er (men fortfarande för samma användare).
 
 ## <a name="client-credentials"></a>Klientautentiseringsuppgifter
 
-MSAL stöder [flödet för OAuth 2-klientens autentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md). Med det här flödet kan du komma åt webb värd resurser genom att använda identiteten för ett program. Den här typen av tilldelning används ofta för server-till-Server-interaktioner som måste köras i bakgrunden, utan omedelbar interaktion med en användare. Dessa typer av program kallas ofta för daemon eller tjänst konton. 
+MSAL stöder [OAuth 2-klientautentiseringsflödet](v2-oauth2-client-creds-grant-flow.md). Med det här flödet kan du komma åt webbbaserade resurser med hjälp av ett programs identitet. Den här typen av bidrag används ofta för server-till-server-interaktioner som måste köras i bakgrunden, utan omedelbar interaktion med en användare. Dessa typer av program kallas ofta demoner eller tjänstkonton. 
 
-Med det beviljande flödet för klientautentiseringsuppgifter tillåts en webb tjänst (en konfidentiell klient) att använda sina egna autentiseringsuppgifter, i stället för att personifiera en användare, för att autentisera vid anrop till en annan webb tjänst. I det här scenariot är klienten vanligt vis en webb tjänst på mellan nivå, en daemon-tjänst eller en webbplats. För en högre säkerhets nivå tillåter Microsofts identitets plattform också att anrops tjänsten använder ett certifikat (i stället för en delad hemlighet) som autentiseringsuppgift.
+Tilldelningsflödet för klientuppgifter gör det möjligt för en webbtjänst (en konfidentiell klient) att använda sina egna autentiseringsuppgifter, i stället för att utge sig för att vara en användare, för att autentisera när du anropar en annan webbtjänst. I det här fallet är klienten vanligtvis en mellannivåwebbtjänst, en daemontjänst eller en webbplats. För en högre säkerhetsnivå gör Microsofts identitetsplattform det också möjligt för den anropande tjänsten att använda ett certifikat (i stället för en delad hemlighet) som en autentiseringstjänst.
 
 > [!NOTE]
-> Det konfidentiella klient flödet är inte tillgängligt på de mobila plattformarna (UWP, Xamarin. iOS och Xamarin. Android), eftersom dessa endast stöder offentliga klient program. Offentliga klient program vet inte hur man kan bevisa programmets identitet för identitets leverantören. En säker anslutning kan uppnås på webbappen eller webb-API-backend genom att distribuera ett certifikat.
+> Det konfidentiella klientflödet är inte tillgängligt på de mobila plattformarna (UWP, Xamarin.iOS och Xamarin.Android), eftersom dessa endast stöder offentliga klientprogram. Offentliga klientprogram vet inte hur du bevisar programmets identitet för identitetsprovidern. En säker anslutning kan uppnås på webbapp eller webb-API-tillbaka slutar genom att distribuera ett certifikat.
 
-MSAL.NET stöder två typer av klientautentiseringsuppgifter. Dessa klientautentiseringsuppgifter måste registreras med Azure AD. Autentiseringsuppgifterna skickas till konstruktörerna för det konfidentiella klient programmet i din kod.
+MSAL.NET stöder två typer av klientautentiseringsuppgifter. Dessa klientuppgifter måste registreras med Azure AD. Autentiseringsuppgifterna skickas till konstruktörerna av det konfidentiella klientprogrammet i koden.
 
-### <a name="application-secrets"></a>Program hemligheter
+### <a name="application-secrets"></a>Ansökan hemligheter
 
-![Diagram över konfidentiell klient med lösen ord](media/msal-authentication-flows/confidential-client-password.png)
+![Diagram över konfidentiell klient med lösenord](media/msal-authentication-flows/confidential-client-password.png)
 
-I föregående diagram är programmet:
+I föregående diagram visas följande:
 
-1. Hämtar en token med hjälp av autentiseringsuppgifter för program hemlighet eller lösen ord.
-2. Använder token för att göra begär Anden för resursen.
+1. Hämtar en token med hjälp av programhemlighets- eller lösenordsuppgifter.
+2. Använder token för att göra begäranden av resursen.
 
 ### <a name="certificates"></a>Certifikat
 
 ![Diagram över konfidentiell klient med certifikat](media/msal-authentication-flows/confidential-client-certificate.png)
 
-I föregående diagram är programmet:
+I föregående diagram visas följande:
 
-1. Hämtar en token med hjälp av autentiseringsuppgifter för certifikatet.
-2. Använder token för att göra begär Anden för resursen.
+1. Hämtar en token med hjälp av certifikatautentiseringsuppgifter.
+2. Använder token för att göra begäranden av resursen.
 
-Dessa klientautentiseringsuppgifter måste vara:
-- Registrerad med Azure AD.
-- Skickas till det konfidentiella klient programmet i din kod.
+Dessa klientuppgifter måste vara:
+- Registrerad hos Azure AD.
+- Skickas in vid byggandet av den konfidentiella klientansökan i din kod.
 
-## <a name="device-code"></a>Enhets kod
+## <a name="device-code"></a>Enhetskod
 
-MSAL stöder [OAuth 2-enhetens kod flöde](v2-oauth2-device-code.md), vilket gör att användarna kan logga in på indata-begränsade enheter, till exempel en smart TV, IoT-enhet eller skrivare. Interaktiv autentisering med Azure AD kräver en webbläsare. Med enhets kod flödet kan användaren använda en annan enhet (till exempel en annan dator eller en mobil telefon) för att logga in interaktivt, där enheten eller operativ systemet inte tillhandahåller någon webbläsare.
+MSAL stöder [OAuth 2-enhetskodflödet](v2-oauth2-device-code.md), som gör det möjligt för användare att logga in på indatabegränsade enheter, till exempel en smart-TV, IoT-enhet eller skrivare. Interaktiv autentisering med Azure AD kräver en webbläsare. Med enhetskodflödet kan användaren använda en annan enhet (till exempel en annan dator eller en mobiltelefon) för att logga in interaktivt, där enheten eller operativsystemet inte tillhandahåller en webbläsare.
 
-Genom att använda enhets kod flödet hämtar programmet token via en två stegs process som är särskilt utformad för dessa enheter eller operativ system. Exempel på sådana program är sådana som körs på IoT-enheter eller kommando rads verktyg (CLI). 
+Genom att använda enhetskodflödet hämtar programmet token genom en tvåstegsprocess som är särskilt utformad för dessa enheter eller operativsystem. Exempel på sådana program är de som körs på IoT-enheter eller kommandoradsverktyg (CLI). 
 
-![Diagram över enhets kod flöde](media/msal-authentication-flows/device-code.png)
+![Diagram över enhetskodflödet](media/msal-authentication-flows/device-code.png)
 
-I föregående diagram:
+I diagrammet ovan:
 
-1. När användarautentisering krävs ger appen en kod och ber användaren att använda en annan enhet (till exempel en Internet-ansluten smartphone) för att gå till en URL (till exempel https://microsoft.com/devicelogin). Användaren uppmanas sedan att ange koden och fortsätter med en normal autentisering, inklusive medgivande-prompter och Multi-Factor Authentication om det behövs.
+1. När användarautentisering krävs tillhandahåller appen en kod och ber användaren att använda en annan enhet (till exempel en `https://microsoft.com/devicelogin`internetansluten smartphone) för att gå till en webbadress (till exempel). Användaren uppmanas sedan att ange koden och fortsätter genom en normal autentiseringsupplevelse, inklusive samtyckesuppmaningar och multifaktorautentisering om det behövs.
 
-2. Vid lyckad autentisering tar kommando rads appen emot de begärda token via en återställnings kanal och använder dem för att utföra de webb-API-anrop som krävs.
+2. När autentiseringen har slutförts tar kommandoradsappen emot de token som krävs via en bakåtkanal och använder dem för att utföra de webb-API-anrop som behövs.
 
 ### <a name="constraints"></a>Villkor
 
-- Enhets kod flödet är bara tillgängligt för offentliga klient program.
-- Den auktoritet som skickades när du konstruerade det offentliga klient programmet måste vara något av följande:
-  - Tenant (av formuläret `https://login.microsoftonline.com/{tenant}/` där `{tenant}` är antingen det GUID som representerar klient-ID: t eller en domän som är associerad med klienten).
-  - För arbets-och skol konton (`https://login.microsoftonline.com/organizations/`).
-- Microsoft personliga konton stöds ännu inte av Azure AD v 2.0-slutpunkten (du kan inte använda `/common` eller `/consumers` klienter).
+- Enhetskodflödet är endast tillgängligt för offentliga klientprogram.
+- Den myndighet som skickas in vid konstruktionen av den offentliga klientansökan måste vara något av följande:
+  - Klientad (i `https://login.microsoftonline.com/{tenant}/` formuläret `{tenant}` där är antingen DET GUID som representerar klient-ID eller en domän som är associerad med klienten).
+  - För alla arbets-`https://login.microsoftonline.com/organizations/`och skolkonton ( ).
+- Microsofts personliga konton stöds ännu inte av Slutpunkten för Azure AD v2.0 (du kan inte använda `/common` eller `/consumers` klienter).
 
 ## <a name="integrated-windows-authentication"></a>Integrerad Windows-autentisering
 
-MSAL stöder integrerad Windows-autentisering (IWA) för Station ära eller mobila program som körs på en domänansluten eller Azure AD-ansluten Windows-dator. Med hjälp av IWA kan dessa program hämta en token tyst (utan någon användar GRÄNSSNITTs interaktion från användaren). 
+MSAL stöder integrerad Windows-autentisering (IWA) för stationära eller mobila program som körs på en domänanserad eller Azure AD-ansluten Windows-dator. Med IWA kan dessa program hämta en token tyst (utan gränssnittsinteraktion från användaren). 
 
 ![Diagram över integrerad Windows-autentisering](media/msal-authentication-flows/integrated-windows-authentication.png)
 
-I föregående diagram är programmet:
+I föregående diagram visas följande:
 
-1. Hämtar en token med hjälp av integrerad Windows-autentisering.
-2. Använder token för att göra begär Anden för resursen.
+1. Hämtar en token med integrerad Windows-autentisering.
+2. Använder token för att göra begäranden av resursen.
 
 ### <a name="constraints"></a>Villkor
 
-IWA stöder enbart federerade användare, vilket innebär att användare som skapats i Active Directory och som backas upp av Azure AD. Användare som skapats direkt i Azure AD, utan Active Directory säkerhets kopiering (hanterade användare) kan inte använda det här autentiseringsschemat. Den här begränsningen påverkar inte [flödet av användar namn/lösen ord](#usernamepassword).
+IWA stöder endast federerade användare, vilket innebär att användare som skapats i Active Directory och backas upp av Azure AD. Användare som skapats direkt i Azure AD, utan Active Directory-stöd (hanterade användare) kan inte använda det här autentiseringsflödet. Den här begränsningen påverkar inte [flödet användarnamn/lösenord](#usernamepassword).
 
-IWA är avsedd för appar som är skrivna för .NET Framework, .NET Core och Universell Windows-plattform plattformar.
+IWA är för appar som är skrivna för plattformarna .NET Framework, .NET Core och Universal Windows Platform.
 
-IWA kringgår inte Multi-Factor Authentication. Om Multi-Factor Authentication har kon figurer ATS kan IWA Miss förväntat om en Multi-Factor Authentication-utmaning krävs. Multi-Factor Authentication kräver användar interaktion.
+IWA kringgår inte multifaktorautentisering. Om multifaktorautentisering har konfigurerats kan IWA misslyckas om en multifaktorautentiseringsutmaning krävs. Multifaktorautentisering kräver användarinteraktion.
 
-Du styr inte när identitets leverantören begär tvåfaktorautentisering som ska utföras. Klient organisationens administratör gör. Normalt krävs tvåfaktorautentisering när du loggar in från ett annat land, när du inte är ansluten via VPN till ett företags nätverk och ibland även när du är ansluten via VPN. Azure AD använder AI för att kontinuerligt lära sig om tvåfaktorautentisering krävs. Om IWA Miss lyckas bör du gå tillbaka till en [interaktiv användar varning] (#interactive).
+Du styr inte när identitetsprovidern begär tvåfaktorsautentisering som ska utföras. Klientadministratören gör det. Vanligtvis krävs tvåfaktorsautentisering när du loggar in från ett annat land, när du inte är ansluten via VPN till ett företagsnätverk och ibland även när du är ansluten via VPN. Azure AD använder AI för att kontinuerligt ta reda på om tvåfaktorsautentisering krävs. Om IWA misslyckas bör du återgå till en [interaktiv användarprompt] (#interactive).
 
-Den auktoritet som skickades när du konstruerade det offentliga klient programmet måste vara något av följande:
-- Tenant (av formuläret `https://login.microsoftonline.com/{tenant}/` där `tenant` är antingen det GUID som representerar klient-ID: t eller en domän som är associerad med klienten).
-- För arbets-och skol konton (`https://login.microsoftonline.com/organizations/`). Microsoft-personliga konton stöds inte (du kan inte använda `/common` eller `/consumers` klienter).
+Den myndighet som skickas in vid konstruktionen av den offentliga klientansökan måste vara något av följande:
+- Klientad (i `https://login.microsoftonline.com/{tenant}/` formuläret `tenant` där är antingen guid som representerar klient-ID eller en domän som är associerad med klienten).
+- För alla arbets-`https://login.microsoftonline.com/organizations/`och skolkonton ( ). Microsofts personliga konton stöds inte (du kan inte använda `/common` eller `/consumers` klienter).
 
-Eftersom IWA är ett tyst flöde måste något av följande vara sant:
+Eftersom IWA är ett tyst flöde måste ett av följande vara sant:
 - Användaren av ditt program måste tidigare ha samtyckt till att använda programmet. 
-- Klient organisationens administratör måste tidigare ha samtyckt till alla användare i klienten för att kunna använda programmet.
+- Klientadministratören måste tidigare ha samtyckt till alla användare i klienten för att kunna använda programmet.
 
-Det innebär att något av följande stämmer:
-- Du som utvecklare har valt att **bevilja** Azure Portal själv.
-- En innehavaradministratör har valt **beviljande/återkalla administratörs medgivande för {klient domän}** på fliken **API-behörigheter** i registreringen för programmet (se [lägga till behörigheter för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
-- Du har angett ett sätt för användare att samtycka till programmet (se [begära individuell användar medgivande](v2-permissions-and-consent.md#requesting-individual-user-consent)).
-- Du har angett ett sätt för klient administratören att godkänna programmet (se [administrativt medgivande](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
+Detta innebär att ett av följande är sant:
+- Du som utvecklare har själv valt **Grant** på Azure-portalen.
+- En klientadministratör har valt **Bevilja/återkalla administratörsmedgivande för {klientdomän}** på fliken **API-behörigheter** för registreringen för programmet (se [Lägg till behörigheter för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
+- Du har lämnat ett sätt för användare att samtycka till programmet (se [Begäran om individuellt användarmedgivande).](v2-permissions-and-consent.md#requesting-individual-user-consent)
+- Du har lämnat ett sätt för klientadministratören att godkänna programmet (se [administratörssamtycke](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)).
 
-IWA-flödet har Aktiver ATS för .NET Desktop-, .NET Core-och Windows Universal Platform-appar. På .NET Core måste du ange användar namnet för IWA, eftersom .NET Core inte kan hämta användar namn från operativ systemet.
+IWA-flödet är aktiverat för .NET-skrivbords-, .NET Core- och Windows Universal Platform-appar. På .NET Core måste du ange användarnamnet till IWA, eftersom .NET Core inte kan hämta användarnamn från operativsystemet.
   
-Mer information om medgivande finns i [v 2.0-behörigheter och medgivande](v2-permissions-and-consent.md).
+Mer information om samtycke finns i [v2.0-behörigheter och samtycke](v2-permissions-and-consent.md).
 
 ## <a name="usernamepassword"></a>Användarnamn/lösenord
 
-MSAL stöder [tilldelning av autentiseringsuppgifter för OAuth 2-resurs ägare](v2-oauth-ropc.md), vilket gör att ett program kan logga in användaren genom att direkt hantera lösen ordet. I ditt Skriv bords program kan du använda flödet för användar namn/lösen ord för att hämta en token i bakgrunden. Inget användar gränssnitt krävs när programmet används.
+MSAL stöder beviljande av [OAuth 2-resursägarelösenord](v2-oauth-ropc.md), vilket gör att ett program kan logga in användaren genom att direkt hantera deras lösenord. I ditt skrivbordsprogram kan du använda flödet användarnamn/lösenord för att hämta en token tyst. Inget användargränssnitt krävs när du använder programmet.
 
-![Diagram över flödet för användar namn/lösen ord](media/msal-authentication-flows/username-password.png)
+![Diagram över användarnamnet/lösenordsflödet](media/msal-authentication-flows/username-password.png)
 
-I föregående diagram är programmet:
+I föregående diagram visas följande:
 
-1. Hämtar en token genom att skicka användar namnet och lösen ordet till identitets leverantören.
+1. Hämtar en token genom att skicka användarnamnet och lösenordet till identitetsleverantören.
 2. Anropar ett webb-API med hjälp av token.
 
 > [!WARNING]
-> Det här flödet rekommenderas inte. Den kräver en hög grad av förtroende och användar exponering.  Du bör endast använda det här flödet när andra, säkrare och flöden inte kan användas. Mer information finns i [Vad är lösningen på det växande problemet med lösen ord?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
+> Det här flödet rekommenderas inte. Det kräver en hög grad av förtroende och användarexponering.  Du bör bara använda det här flödet när andra, säkrare, flöden inte kan användas. Mer information finns i [Vad är lösningen på det växande problemet med lösenord?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 
 
-Det prioriterade flödet för att hämta en token tyst på domänanslutna Windows-datorer är [integrerad Windows-autentisering](#integrated-windows-authentication). Annars kan du också använda [enhets kod flödet](#device-code).
+Det önskade flödet för att hämta en token tyst på Windows-domänanslutna datorer är [integrerad Windows-autentisering](#integrated-windows-authentication). Annars kan du också använda [Enhetskodflödet](#device-code).
 
-Även om detta är användbart i vissa fall (DevOps-scenarier), om du vill använda användar namn/lösen ord i interaktiva scenarier där du anger ditt eget användar gränssnitt, kan du försöka undvika det. Med användar namn/lösen ord:
-- Användare som behöver utföra Multi-Factor Authentication kan inte logga in (eftersom det inte finns någon interaktion).
-- Användare kan inte utföra enkel inloggning.
+Även om detta är användbart i vissa fall (DevOps-scenarier), försök att undvika det om du vill använda användarnamn/lösenord i interaktiva scenarier där du tillhandahåller ett eget användargränssnitt. Genom att använda användarnamn/lösenord:
+- Användare som behöver multifaktorautentisering kan inte logga in (eftersom det inte finns någon interaktion).
+- Användarna kan inte göra enkel inloggning.
 
 ### <a name="constraints"></a>Villkor
 
-Utöver de [integrerade begränsningarna för Windows-autentisering](#integrated-windows-authentication)gäller även följande begränsningar:
+Förutom de [integrerade windows-autentiseringsbegränsningarna](#integrated-windows-authentication)gäller även följande begränsningar:
 
-- Användar namnet/lösen ordet är inte kompatibelt med villkorlig åtkomst och Multi-Factor Authentication. Det innebär att om din app körs i en Azure AD-klient där klient organisationen kräver Multi-Factor Authentication, kan du inte använda det här flödet. Många organisationer gör det.
-- Det fungerar bara för arbets-och skol konton (inte Microsoft-konton).
-- Flödet är tillgängligt på .NET Desktop och .NET Core, men inte på Universell Windows-plattform.
+- Flödet för användarnamn/lösenord är inte kompatibelt med villkorlig åtkomst och multifaktorautentisering. Om din app körs i en Azure AD-klient där klientadministratören kräver multifaktorautentisering kan du därför inte använda det här flödet. Många organisationer gör det.
+- Det fungerar bara för arbets- och skolkonton (inte Microsoft-konton).
+- Flödet är tillgängligt på .NET-skrivbordet och .NET Core, men inte på Universell Windows-plattform.
 
-### <a name="azure-ad-b2c-specifics"></a>Azure AD B2C information
+### <a name="azure-ad-b2c-specifics"></a>Azure AD B2C-specifika
 
-Mer information om hur du använder MSAL.NET och Azure AD B2C finns i [använda ROPC med Azure AD B2C (MSAL.net)](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c).
+Mer information om hur du använder MSAL.NET och Azure AD B2C finns i [Använda ROPC med Azure AD B2C (MSAL.NET).](msal-net-aad-b2c-considerations.md#resource-owner-password-credentials-ropc-with-azure-ad-b2c)

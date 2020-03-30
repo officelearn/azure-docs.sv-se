@@ -1,30 +1,30 @@
 ---
 title: Länka mallar för distribution
-description: 'Beskriver hur du använder länkade mallar i en Azure Resource Manager-mall för att skapa en modulbaserad mall-lösning. Visar hur du skickar parametrar värden, anger du en parameterfil och dynamiskt skapade URL: er.'
+description: Beskriver hur du använder länkade mallar i en Azure Resource Manager-mall för att skapa en modulär malllösning. Visar hur du skickar parametervärden, anger en parameterfil och dynamiskt skapade webbadresser.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: e26b795a645ab9128dd738ba6a54b66ac0b7da2a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 322797383ee865ceb66c44793387da827aeb8879
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274260"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131915"
 ---
-# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Använda länkade och nästlade mallar vid distribution av Azure-resurser
 
-Om du vill distribuera komplexa lösningar kan du dela upp mallen i flera relaterade mallar och sedan distribuera dem tillsammans via en huvud-mall. De relaterade mallarna kan vara separata filer eller mall-syntax som är inbäddad i huvud mal len. Den här artikeln använder den **länkade termen mall** för att referera till en separat mallfil som är länkad till från huvud mal len. Den använder termen **kapslad mall** för att referera till inbäddad mall-syntax i huvud mal len.
+Om du vill distribuera komplexa lösningar kan du dela upp mallen i många relaterade mallar och sedan distribuera dem tillsammans via en huvudmall. De relaterade mallarna kan vara separata filer eller mallsyntax som är inbäddad i huvudmallen. I den här artikeln används den **länkade termen mall** för att referera till en separat mallfil som refereras via en länk från huvudmallen. Den använda termen **kapslad mall** för att referera till inbäddad mallsyntax i huvudmallen.
 
-För små till medelstora lösningar är lättare att förstå och hantera en enda mall. Du kan se alla resurser och värden i en enda fil. Med länkade mallar i avancerade scenarier kan du dela upp lösningen i riktade komponenter. Du kan enkelt återanvända dessa mallar för andra scenarier.
+För små till medelstora lösningar är en enda mall lättare att förstå och underhålla. Du kan se alla resurser och värden i en enda fil. I avancerade scenarier kan du med länkade mallar dela upp lösningen i riktade komponenter. Du kan enkelt återanvända dessa mallar för andra scenarier.
 
-En själv studie kurs finns i [Självstudier: Skapa länkade Azure Resource Manager mallar](template-tutorial-create-linked-templates.md).
+En självstudiekurs finns i [Självstudiekurs: skapa länkade Azure Resource Manager-mallar](template-tutorial-create-linked-templates.md).
 
 > [!NOTE]
-> För länkade eller kapslade mallar kan du bara använda [stegvis](deployment-modes.md) distributions läge.
+> För länkade eller kapslade mallar kan du bara använda [inkrementellt distributionsläge.](deployment-modes.md)
 >
 
 ## <a name="nested-template"></a>Kapslad mall
 
-Om du vill kapsla en mall lägger du till en [distributions resurs](/azure/templates/microsoft.resources/deployments) i huvud mal len. I egenskapen **mall** anger du mallens syntax.
+Om du vill kapsla en mall lägger du till en [distributionsresurs](/azure/templates/microsoft.resources/deployments) i huvudmallen. Ange **template** mallsyntaxen i mallegenskapen.
 
 ```json
 {
@@ -50,7 +50,7 @@ Om du vill kapsla en mall lägger du till en [distributions resurs](/azure/templ
 }
 ```
 
-I följande exempel distribueras ett lagrings konto via en kapslad mall.
+I följande exempel distribueras ett lagringskonto via en kapslad mall.
 
 ```json
 {
@@ -92,11 +92,11 @@ I följande exempel distribueras ett lagrings konto via en kapslad mall.
 }
 ```
 
-### <a name="scope-for-expressions-in-nested-templates"></a>Omfång för uttryck i kapslade mallar
+### <a name="expression-evaluation-scope-in-nested-templates"></a>Uttrycksutvärderingsscope i kapslade mallar
 
-När du använder en kapslad mall kan du ange om mall uttryck ska utvärderas inom omfånget för den överordnade mallen eller den kapslade mallen. Omfånget avgör hur parametrar, variabler och funktioner som [resourceGroup](template-functions-resource.md#resourcegroup) och [prenumerationen](template-functions-resource.md#subscription) löses.
+När du använder en kapslad mall kan du ange om malluttryck ska utvärderas inom ramen för den överordnade mallen eller den kapslade mallen. Scopet avgör hur parametrar, variabler och funktioner som [resourceGroup](template-functions-resource.md#resourcegroup) och [prenumeration](template-functions-resource.md#subscription) löses.
 
-Du ställer in omfånget via `expressionEvaluationOptions`-egenskapen. Som standard är egenskapen `expressionEvaluationOptions` inställd på `outer`, vilket innebär att den använder den överordnade mallens omfattning. Ställ in värdet på `inner` till omfångs uttryck i den kapslade mallen.
+Du kan ange `expressionEvaluationOptions` omfattningen via egenskapen. Egenskapen `expressionEvaluationOptions` är som standard `outer`inställd på , vilket innebär att den använder det överordnade mallomfånget. Ange värdet `inner` till att låta uttryck utvärderas inom omfånget för den kapslade mallen.
 
 ```json
 {
@@ -110,7 +110,7 @@ Du ställer in omfånget via `expressionEvaluationOptions`-egenskapen. Som stand
   ...
 ```
 
-Följande mall visar hur mall uttryck matchas enligt omfånget. Den innehåller en variabel med namnet `exampleVar` som definieras i både den överordnade mallen och den kapslade mallen. Den returnerar variabelns värde.
+Följande mall visar hur malluttryck löses enligt omfånget. Den innehåller en `exampleVar` variabel med namnet som definieras i både den överordnade mallen och den kapslade mallen. Värdet för variabeln returneras.
 
 ```json
 {
@@ -158,14 +158,14 @@ Följande mall visar hur mall uttryck matchas enligt omfånget. Den innehåller 
 }
 ```
 
-Värdet för variabeln ändras baserat på omfånget. I följande tabell visas resultaten för båda omfattningarna.
+Värdet på `exampleVar` ändringarna beroende på `scope` egenskapens värde i `expressionEvaluationOptions`. I följande tabell visas resultaten för båda scopea.
 
-| Omfång | Resultat |
+| `expressionEvaluationOptions` `scope` | Resultat |
 | ----- | ------ |
-| innersta | från kapslad mall |
-| yttre (eller standard) | från överordnad mall |
+| Inre | från kapslad mall |
+| yttre (eller standard) | från den överordnade mallen |
 
-I följande exempel distribueras en SQL-Server och en nyckel valvs hemlighet som används för lösen ordet hämtas. Omfånget anges till `inner` eftersom det dynamiskt skapar Key Vault-ID: t och skickar det som en parameter till den kapslade mallen.
+I följande exempel distribueras en SQL-server och en nyckelvalvshemlighet som ska användas för lösenordet hämtas. Scopet är `inner` inställt på eftersom det dynamiskt skapar `adminPassword.reference.keyVault` nyckelvalvs-ID (se i de yttre mallarna) `parameters`och skickar det som en parameter till den kapslade mallen.
 
 ```json
 {
@@ -215,6 +215,22 @@ I följande exempel distribueras en SQL-Server och en nyckel valvs hemlighet som
         "expressionEvaluationOptions": {
           "scope": "inner"
         },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "adminLogin": {
+            "value": "ghuser"
+          },
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('secretName')]"
+            }
+          }
+        },
         "template": {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
@@ -250,22 +266,6 @@ I följande exempel distribueras en SQL-Server och en nyckel valvs hemlighet som
               "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
             }
           }
-        },
-        "parameters": {
-          "location": {
-            "value": "[parameters('location')]"
-          },
-          "adminLogin": {
-            "value": "ghuser"
-          },
-          "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-              },
-              "secretName": "[parameters('secretName')]"
-            }
-          }
         }
       }
     }
@@ -277,11 +277,11 @@ I följande exempel distribueras en SQL-Server och en nyckel valvs hemlighet som
 
 > [!NOTE]
 >
-> När omfånget är inställt på `outer`kan du inte använda funktionen `reference` i avsnittet utdata i en kapslad mall för en resurs som du har distribuerat i den kapslade mallen. Om du vill returnera värdena för en distribuerad resurs i en kapslad mall kan du antingen använda ett inre område eller konvertera den kapslade mallen till en länkad mall.
+> När scopet `outer`är inställt på kan `reference` du inte använda funktionen i utdataavsnittet i en kapslad mall för en resurs som du har distribuerat i den kapslade mallen. Om du vill returnera värdena för en distribuerad resurs i en kapslad mall använder `inner` du antingen scope eller konverterar den kapslade mallen till en länkad mall.
 
 ## <a name="linked-template"></a>Länkad mall
 
-Om du vill länka en mall lägger du till en [distributions resurs](/azure/templates/microsoft.resources/deployments) i huvud mal len. I egenskapen **templateLink** anger du URI för den mall som ska tas med. Följande exempel länkar till en mall som distribuerar ett nytt lagrings konto.
+Om du vill länka en mall lägger du till en [distributionsresurs](/azure/templates/microsoft.resources/deployments) i huvudmallen. Ange URI för mallen som ska inkluderas i egenskapen **templateLink.** I följande exempel länkar du till en mall som distribuerar ett nytt lagringskonto.
 
 ```json
 {
@@ -308,13 +308,19 @@ Om du vill länka en mall lägger du till en [distributions resurs](/azure/templ
 }
 ```
 
-Du kan inte ange en lokal fil eller en fil som endast är tillgängliga i det lokala nätverket. Du kan bara ange ett URI-värde som innehåller antingen **http** eller **https**. Resource Manager måste kunna komma åt mallen. Ett alternativ är att placera din länkade mall i ett lagringskonto och använda URI: N för objektet.
+När du refererar till en länkad mall får värdet för `uri` inte vara en lokal fil eller en fil som bara är tillgänglig i det lokala nätverket. Du måste ange ett URI-värde som kan hämtas som **http** eller **https**. 
 
-Du behöver inte ange egenskapen `contentVersion` för mallen eller parametrarna. Om du inte anger ett värde för innehållsversion, distribueras den aktuella versionen av mallen. Om du anger ett värde för innehållsversion måste måste den matcha versionen i länkade mallen. annars misslyckas distributionen med ett fel.
+> [!NOTE]
+>
+> Du kan referera till mallar med hjälp av parametrar som i `_artifactsLocation` slutändan matchas till något som använder **http** eller **https,** till exempel med hjälp av parametern så här:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+
+
+
+Resurshanteraren måste kunna komma åt mallen. Ett alternativ är att placera den länkade mallen i ett lagringskonto och använda URI för det objektet.
 
 ### <a name="parameters-for-linked-template"></a>Parametrar för länkad mall
 
-Du kan ange parametrar för den länkade mallen antingen i en extern fil eller infogad. När du anger en extern parameter fil använder du egenskapen **parametersLink** :
+Du kan ange parametrarna för den länkade mallen antingen i en extern fil eller i infogad fil. När du tillhandahåller en extern parameterfil använder du egenskapen **parametersLink:**
 
 ```json
 "resources": [
@@ -325,19 +331,19 @@ Du kan ange parametrar för den länkade mallen antingen i en extern fil eller i
   "properties": {
     "mode": "Incremental",
     "templateLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
+      "contentVersion":"1.0.0.0"
     },
     "parametersLink": {
-    "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
-    "contentVersion":"1.0.0.0"
+      "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
+      "contentVersion":"1.0.0.0"
     }
   }
   }
 ]
 ```
 
-Om du vill skicka parameter värden infogade använder **du parameter** egenskapen.
+Använd egenskapen **parametrar** om du vill skicka parametervärden.
 
 ```json
 "resources": [
@@ -359,13 +365,48 @@ Om du vill skicka parameter värden infogade använder **du parameter** egenskap
 ]
 ```
 
-Du kan inte använda både infogade parametrar och en länk till en parameterfil. Distributionen Miss lyckas med ett fel när både `parametersLink` och `parameters` har angetts.
+Du kan inte använda både infogade parametrar och en länk till en parameterfil. Distributionen misslyckas med `parametersLink` ett `parameters` fel när båda och anges.
 
-## <a name="using-copy"></a>Använda kopiera
+## `contentVersion`
 
-Om du vill skapa flera instanser av en resurs med en kapslad mall lägger du till kopiera-elementet på nivån i resursen **Microsoft. Resources/distributions** . Eller, om omfånget är Inner, kan du lägga till kopian i den kapslade mallen.
+Du behöver inte tillhandahålla `contentVersion` egendomen `templateLink` eller `parametersLink` boendet. Om du inte anger `contentVersion`en distribueras den aktuella versionen av mallen. Om du anger ett värde för innehållsversionen måste den matcha versionen i den länkade mallen. Annars misslyckas distributionen med ett fel.
 
-I följande exempel mall visas hur du använder kopiera med en kapslad mall.
+## <a name="using-variables-to-link-templates"></a>Använda variabler för att länka mallar
+
+De tidigare exemplen visade hårdkodade URL-värden för malllänkarna. Den här metoden kan fungera för en enkel mall, men det fungerar inte bra för en stor uppsättning modulära mallar. I stället kan du skapa en statisk variabel som lagrar en bas-URL för huvudmallen och sedan dynamiskt skapa webbadresser för de länkade mallarna från den bas-URL:en. Fördelen med den här metoden är att du enkelt kan flytta eller dela mallen eftersom du bara behöver ändra den statiska variabeln i huvudmallen. Huvudmallen skickar rätt URI:er i hela den neddelade mallen.
+
+I följande exempel visas hur du använder en bas-URL för att skapa två webbadresser för länkade mallar **(sharedTemplateUrl** och **vmTemplate**).
+
+```json
+"variables": {
+  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
+  "sharedTemplateUrl": "[uri(variables('templateBaseUrl'), 'shared-resources.json')]",
+  "vmTemplateUrl": "[uri(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
+}
+```
+
+Du kan också använda [deployment()](template-functions-deployment.md#deployment) för att hämta bas-URL:en för den aktuella mallen och använda den för att hämta URL:en för andra mallar på samma plats. Den här metoden är användbar om mallplatsen ändras eller om du vill undvika att url:er kodar hårt i mallfilen. Egenskapen templateLink returneras endast när du länkar till en fjärrmall med en URL. Om du använder en lokal mall är den egenskapen inte tillgänglig.
+
+```json
+"variables": {
+  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
+}
+```
+
+I slutändan skulle du `uri` använda variabeln i egenskapen för en `templateLink` egenskap.
+
+```json
+"templateLink": {
+ "uri": "[variables('sharedTemplateUrl')]",
+ "contentVersion":"1.0.0.0"
+}
+```
+
+## <a name="using-copy"></a>Använda kopia
+
+Om du vill skapa flera instanser av en resurs med en kapslad mall lägger du till kopieringselementet på nivån för **Microsoft.Resources/deployments-resursen.** Om omfånget är inre kan du lägga till kopian i den kapslade mallen.
+
+Följande exempelmall visar hur du använder kopia med en kapslad mall.
 
 ```json
 "resources": [
@@ -410,35 +451,13 @@ I följande exempel mall visas hur du använder kopiera med en kapslad mall.
 ]
 ```
 
-## <a name="using-variables-to-link-templates"></a>Använda variabler för att länka mallar
-
-I föregående exempel visade hårdkodade URL-värden för mall-länkar. Den här metoden fungerar för en enkel mall, men det fungerar inte bra när du arbetar med ett stort antal modulära mallar. I stället kan du skapa en statisk variabel som lagrar en bas-URL för den huvudsakliga mallen och dynamiskt skapa URL: er för de länkade mallarna från den grundläggande URL: en. Fördelen med den här metoden är att du enkelt kan flytta eller Förgrena mallen eftersom du behöver bara ändra den statiska variabeln i huvudsakliga mallen. Den huvudsakliga mallen skickar rätt URI: er i uppdelade mallen.
-
-I följande exempel visas hur du använder en bas-URL för att skapa två URL: er för länkade mallar (**sharedTemplateUrl** och **vmTemplate**).
-
-```json
-"variables": {
-  "templateBaseUrl": "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/postgresql-on-ubuntu/",
-  "sharedTemplateUrl": "[concat(variables('templateBaseUrl'), 'shared-resources.json')]",
-  "vmTemplateUrl": "[concat(variables('templateBaseUrl'), 'database-2disk-resources.json')]"
-}
-```
-
-Du kan också använda [Deployment ()](template-functions-deployment.md#deployment) för att hämta bas-URL: en för den aktuella mallen och använda den för att hämta URL: en för andra mallar på samma plats. Den här metoden är användbar om ändringarna mall platsen eller om du vill undvika hårt kodning URL: er i mallfilen. Egenskapen templateLink returneras bara när du länkar till en fjärransluten mall med en URL. Om du använder en lokal mall är egenskapen inte tillgängligt.
-
-```json
-"variables": {
-  "sharedTemplateUrl": "[uri(deployment().properties.templateLink.uri, 'shared-resources.json')]"
-}
-```
-
 ## <a name="get-values-from-linked-template"></a>Hämta värden från den länkade mallen
 
-Hämta ett utdata-värde från en länkad mall genom att hämta egenskap svärdet med syntax som: `"[reference('deploymentName').outputs.propertyName.value]"`.
+Om du vill hämta ett utdatavärde från en `"[reference('deploymentName').outputs.propertyName.value]"`länkad mall hämtar du egenskapsvärdet med syntax som: .
 
-När du hämtar en egenskap för utdata från en länkad mall, får inte egenskapsnamnet innehålla ett bindestreck.
+När du hämtar en utdataegenskap från en länkad mall får egenskapsnamnet inte innehålla ett streck.
 
-I följande exempel visar hur du refererar till en länkad mall och hämta utdatavärde. Länkad mall returnerar ett enkelt meddelande.
+Följande exempel visar hur du refererar till en länkad mall och hämtar ett utdatavärde. Den länkade mallen returnerar ett enkelt meddelande.  Först den länkade mallen:
 
 ```json
 {
@@ -456,7 +475,7 @@ I följande exempel visar hur du refererar till en länkad mall och hämta utdat
 }
 ```
 
-Den huvudsakliga mallen distribuerar länkad mall och hämtar värdet som returneras. Observera att den refererar till resursen distribution efter namn och namnet på egenskapen som returneras av den länkade mallen används.
+Huvudmallen distribuerar den länkade mallen och hämtar det returnerade värdet. Observera att den refererar till distributionsresursen efter namn och använder namnet på egenskapen som returneras av den länkade mallen.
 
 ```json
 {
@@ -487,9 +506,9 @@ Den huvudsakliga mallen distribuerar länkad mall och hämtar värdet som return
 }
 ```
 
-Du kan ange beroenden mellan länkade mallen och andra resurser som andra typer av resurser. När andra resurser kräver ett värde för utdata från den länkade mallen kontrollerar du att den länkade mallen har distribuerats före dem. Eller, när den länkade mallen är beroende av andra resurser, se till att andra resurser distribueras innan länkad mall.
+Precis som med andra resurstyper kan du ange beroenden mellan den länkade mallen och andra resurser. När andra resurser kräver ett utdatavärde från den länkade mallen kontrollerar du att den länkade mallen distribueras före dem. När den länkade mallen är beroende av andra resurser kontrollerar du också att andra resurser distribueras före den länkade mallen.
 
-I följande exempel visas en mall som distribuerar en offentlig IP-adress och returnerar resurs-ID:
+I följande exempel visas en mall som distribuerar en offentlig IP-adress och returnerar resurs-ID för Azure-resursen för den offentliga IP:en:
 
 ```json
 {
@@ -524,7 +543,7 @@ I följande exempel visas en mall som distribuerar en offentlig IP-adress och re
 }
 ```
 
-Länka till mallen för att använda offentliga IP-adress från den föregående mallen när du distribuerar en belastningsutjämnare, och Lägg till ett beroende på resursen för distribution. Offentliga IP-adress i belastningsutjämnaren har tilldelats värdet från den länkade mallen.
+Om du vill använda den offentliga IP-adressen från föregående mall när du distribuerar en `Microsoft.Resources/deployments` belastningsutjämnare länkar du till mallen och deklarerar ett beroende av resursen. Den offentliga IP-adressen på belastningsutjämnaren anges till utdatavärdet från den länkade mallen.
 
 ```json
 {
@@ -554,6 +573,7 @@ Länka till mallen för att använda offentliga IP-adress från den föregående
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
+                // this is where the output value from linkedTemplate is used
                 "id": "[reference('linkedTemplate').outputs.resourceID.value]"
               }
             }
@@ -566,6 +586,7 @@ Länka till mallen för att använda offentliga IP-adress från den föregående
         "outboundNatRules": [],
         "inboundNatPools": []
       },
+      // This is where the dependency is declared
       "dependsOn": [
         "linkedTemplate"
       ]
@@ -591,11 +612,11 @@ Länka till mallen för att använda offentliga IP-adress från den föregående
 
 ## <a name="deployment-history"></a>Distributionshistorik
 
-Resource Manager bearbetar varje mall som en separat distribution i distributionshistoriken. En huvud-mall med tre länkade eller kapslade mallar visas i distributions historiken som:
+Resource Manager bearbetar varje mall som en separat distribution i distributionshistoriken. En huvudmall med tre länkade eller kapslade mallar visas i distributionshistoriken som:
 
 ![Distributionshistorik](./media/linked-templates/deployment-history.png)
 
-Du kan använda de här separata posterna i historiken för att hämta utdatavärden efter distributionen. Följande mall skapas en offentlig IP-adress och matar ut IP-adress:
+Du kan använda dessa separata poster i historiken för att hämta utdatavärden efter distributionen. I följande mall skapas en offentlig IP-adress och IP-adressen matas ut:
 
 ```json
 {
@@ -633,7 +654,7 @@ Du kan använda de här separata posterna i historiken för att hämta utdatavä
 }
 ```
 
-Följande mall länkar till föregående mall. Den skapar tre offentliga IP-adresser.
+Följande mall länkar till föregående mall. Det skapar tre offentliga IP-adresser.
 
 ```json
 {
@@ -666,7 +687,7 @@ Följande mall länkar till föregående mall. Den skapar tre offentliga IP-adre
 }
 ```
 
-Efter distributionen kan hämta du utdatavärden med följande PowerShell-skript:
+Efter distributionen kan du hämta utdatavärdena med följande PowerShell-skript:
 
 ```azurepowershell-interactive
 $loopCount = 3
@@ -678,7 +699,7 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-Eller Azure CLI-skript i ett Bash-gränssnitt:
+Eller Azure CLI-skript i ett Bash-skal:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -686,7 +707,7 @@ Eller Azure CLI-skript i ett Bash-gränssnitt:
 for i in 0 1 2;
 do
   name="linkedTemplate$i";
-  deployment=$(az group deployment show -g examplegroup -n $name);
+  deployment=$(az deployment group show -g examplegroup -n $name);
   ip=$(echo $deployment | jq .properties.outputs.returnedIPAddress.value);
   echo "deployment $name returned $ip";
 done
@@ -694,11 +715,11 @@ done
 
 ## <a name="securing-an-external-template"></a>Skydda en extern mall
 
-Även om den länkade mallen måste vara externt tillgänglig, behöver det inte att vara allmänt tillgängligt för allmänheten. Du kan lägga till mallen för ett privat storage-konto som är tillgänglig för endast lagringskontoägaren. Sedan kan skapa du en token för delad åtkomst (signatur) för att möjliggöra åtkomst under distributionen. Du kan lägga till den SAS-token till URI: N för den länkade mallen. Även om token skickas som en säker sträng, loggas URI för länkade mallen, inklusive SAS-token i distributionsåtgärder. Ange en giltighetstid för token för att begränsa exponering.
+Även om den länkade mallen måste vara externt tillgänglig behöver den inte vara allmänt tillgänglig för allmänheten. Du kan lägga till mallen i ett privat lagringskonto som endast är tillgängligt för lagringskontots ägare. Sedan skapar du en SAS-token (Shared Access Signature) för att aktivera åtkomst under distributionen. Du lägger till den SAS-token i URI för den länkade mallen. Även om token skickas in som en säker sträng loggas URI:n för den länkade mallen, inklusive SAS-token, i distributionsåtgärderna. Om du vill begränsa exponeringen anger du ett förfallodatum för token.
 
-Parameterfilen kan också vara begränsad till åtkomst via en SAS-token.
+Parameterfilen kan också begränsas till åtkomst via en SAS-token.
 
-För närvarande kan du inte länka till en mall i ett lagrings konto som ligger bakom en [Azure Storage brand vägg](../../storage/common/storage-network-security.md).
+För närvarande kan du inte länka till en mall i ett lagringskonto som finns bakom en [Azure Storage-brandvägg](../../storage/common/storage-network-security.md).
 
 I följande exempel visas hur du skickar en SAS-token när du länkar till en mall:
 
@@ -728,7 +749,7 @@ I följande exempel visas hur du skickar en SAS-token när du länkar till en ma
 }
 ```
 
-I PowerShell kan du hämta en token för behållaren och distribuera mallar med följande kommandon. Observera att parametern **containerSasToken** definieras i mallen. Det är inte en parameter i kommandot **New-AzResourceGroupDeployment** .
+I PowerShell får du en token för behållaren och distribuerar mallarna med följande kommandon. Observera att **parametern containerSasToken** har definierats i mallen. Det är inte en parameter i budet **New-AzResourceGroupDeployment.**
 
 ```azurepowershell-interactive
 Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
@@ -737,7 +758,7 @@ $url = (Get-AzStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-För Azure CLI i Bash-gränssnittet, hämta en token för behållaren och distribuera mallar med följande kod:
+För Azure CLI i ett Bash-skal får du en token för behållaren och distribuerar mallarna med följande kod:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -759,22 +780,22 @@ url=$(az storage blob url \
   --output tsv \
   --connection-string $connection)
 parameter='{"containerSasToken":{"value":"?'$token'"}}'
-az group deployment create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
+az deployment group create --resource-group ExampleGroup --template-uri $url?$token --parameters $parameter
 ```
 
 ## <a name="example-templates"></a>Exempel på mallar
 
-I följande exempel visas vanliga användningsområden för länkade mallar.
+Följande exempel visar vanliga användningsområden för länkade mallar.
 
 |Huvudmall  |Länkad mall |Beskrivning  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Returnerar en sträng från länkad mall. |
-|[Load Balancer med offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Returnerar den offentliga IP-adress från länkad mall och ställer in värdet i belastningsutjämnaren. |
+|[Hej världen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Returnerar sträng från länkad mall. |
+|[Belastningsutjämnare med offentlig IP-adress](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Returnerar offentlig IP-adress från länkad mall och anger det värdet i belastningsutjämnaren. |
 |[Flera IP-adresser](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [länkad mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Skapar flera offentliga IP-adresser i länkad mall.  |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du går igenom självstudierna finns i [Självstudier: Skapa länkade Azure Resource Manager mallar](template-tutorial-create-linked-templates.md).
-* Mer information om hur du definierar distributions ordningen för dina resurser finns i [definiera beroenden i Azure Resource Manager mallar](define-resource-dependency.md).
-* Information om hur du definierar en resurs men skapar många instanser av den finns i [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
-* Anvisningar om hur du konfigurerar en mall i ett lagrings konto och genererar en SAS-token finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](deploy-powershell.md) eller [distribuera resurser med Resource Manager-mallar och Azure CLI](deploy-cli.md).
+* Information om hur du går igenom en självstudiekurs finns i [Självstudiekurs: skapa länkade Azure Resource Manager-mallar](template-tutorial-create-linked-templates.md).
+* Mer information om hur du definierar distributionsordern för dina resurser finns [i Definiera beroenden i Azure Resource Manager-mallar](define-resource-dependency.md).
+* Mer information om hur du definierar en resurs men skapar många instanser av den finns [i Skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
+* Steg om hur du konfigurerar en mall i ett lagringskonto och genererar en SAS-token finns [i Distribuera resurser med Resource Manager-mallar och Azure PowerShell](deploy-powershell.md) eller Distribuera resurser med Resource [Manager-mallar och Azure CLI](deploy-cli.md).

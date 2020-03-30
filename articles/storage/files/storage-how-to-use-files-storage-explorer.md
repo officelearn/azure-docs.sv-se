@@ -1,5 +1,5 @@
 ---
-title: Hantera Azure-filresurser med hjälp av Azure Storage Explorer
+title: Hantera Azure-filresurser med Azure Storage Explorer
 description: I den här snabbstarten lär du dig hur du använder Azure Storage Explorer till att hantera Azure Files.
 author: roygara
 ms.service: storage
@@ -8,18 +8,18 @@ ms.date: 10/18/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 0bf66baba1b665c92a11d7bda91dcaa3e355dd96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75431825"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Snabbstart: Skapa och hantera Azure-filresurser med Azure Storage Explorer
-Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med Azure Storage Explorer. Azure-filresurser är precis som andra filresurser men lagras i molnet och backas av Azure-plattformen. Azure-filresurser stöder SMB-protokollet som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
+Den här guiden vägleder dig igenom grunderna i att arbeta med [Azure-filresurser](storage-files-introduction.md) med Azure Storage Explorer. Azure-filresurser är precis som andra filresurser men lagras i molnet och täcks av Azure-plattformen. Azure-filresurser stöder SMB-protokollet som är branschstandard och möjliggör fildelning på olika datorer, program och instanser. 
 
 Azure Storage Explorer är ett populärt klientverktyg som finns för Windows, macOS och Linux. Du kan använda Storage Explorer för att hantera Azure-filresurser och andra lagringsresurser.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 För den här snabbstarten krävs det att Storage Explorer är installerat. Hämta och installera det genom att gå till [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
@@ -49,12 +49,12 @@ Så här skapar du din första Azure-filresurs inom lagringskontot `storageacct<
 
 3. För filresursen anger du *myshare* och trycker på Retur.
 
-Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck (men får inte inledas med bindestreck). Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Resursnamn får bara innehålla gemener, siffror och enskilda bindestreck (men får inte inledas med bindestreck). Fullständig information om namngivning av filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
 När filresursen har skapats öppnas en flik för filresursen i den högra rutan. 
 
 ## <a name="use-your-azure-file-share"></a>Använda Azure-filresursen
-Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB på [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Alternativt kan du arbeta med din Azure-filresurs genom att använda Azure Storage Explorer. Fördelen med att använda Azure Storage Explorer istället för att montera filresursen med SMB är att alla förfrågningar som görs med Azure Storage Explorer görs med fil-REST-API:n. Du kan använda fil-REST-API:n för att skapa, ändra och ta bort filer och kataloger på klienter som inte har SMB-åtkomst.
+Nu när du har skapat en Azure-filresurs kan du montera filresursen med SMB i [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) eller [macOS](storage-how-to-use-files-mac.md). Alternativt kan du arbeta med din Azure-filresurs genom att använda Azure Storage Explorer. Fördelen med att använda Azure Storage Explorer istället för att montera filresursen med SMB är att alla förfrågningar som görs med Azure Storage Explorer görs med fil-REST-API:n. Du kan använda fil-REST-API:n för att skapa, ändra och ta bort filer och kataloger på klienter som inte har SMB-åtkomst.
 
 ### <a name="create-a-directory"></a>Skapa en katalog
 Om du lägger till en katalog får du en hierarkisk struktur där du kan hantera din filresurs. Du kan skapa flera nivåer i din katalog. Men du måste se till att de överordnade katalogerna finns måste du skapa underkataloger. För sökvägen myDirectory/mySubDirectory måste du t.ex. först skapa katalogen *myDirectory*. Därefter kan du skapa *mySubDirectory*. 

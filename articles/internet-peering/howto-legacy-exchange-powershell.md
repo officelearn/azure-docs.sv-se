@@ -1,7 +1,7 @@
 ---
-title: Konvertera en äldre Exchange-peering till Azure-resurs med hjälp av PowerShell
+title: Konvertera en äldre Exchange-peering till Azure-resurs med PowerShell
 titleSuffix: Azure
-description: Konvertera en äldre Exchange-peering till Azure-resurs med hjälp av PowerShell
+description: Konvertera en äldre Exchange-peering till Azure-resurs med PowerShell
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
@@ -9,31 +9,31 @@ ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: aa11f329cf0a0cb27d58b940b42731a2ec41c272
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75775399"
 ---
-# <a name="convert-a-legacy-exchange-peering-to-azure-resource-using-powershell"></a>Konvertera en äldre Exchange-peering till Azure-resurs med hjälp av PowerShell
+# <a name="convert-a-legacy-exchange-peering-to-azure-resource-using-powershell"></a>Konvertera en äldre Exchange-peering till Azure-resurs med PowerShell
 
-Den här artikeln beskriver hur du konverterar en befintlig äldre Exchange-peering till Azure-resurser med hjälp av PowerShell-cmdletar.
+I den här artikeln beskrivs hur du konverterar en befintlig äldre Exchange-peering till Azure-resurs med PowerShell-cmdletar.
 
 Om du vill kan du slutföra den här guiden med hjälp av [portalen](howto-legacy-exchange-portal.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
-* Granska [krav](prerequisites.md) och [genom gång av Exchange-peering](walkthrough-exchange-all.md) innan du påbörjar konfigurationen.
+* Granska [förutsättningar](prerequisites.md) och [Exchange peer-genomgång](walkthrough-exchange-all.md) innan du börjar konfigurationen.
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
 [!INCLUDE [CloudShell](./includes/cloudshell-powershell-about.md)]
 
-## <a name="convert-a-legacy-exchange-peering-to-azure-resource"></a>Konvertera en äldre Exchange-peering till Azure Resource
+## <a name="convert-a-legacy-exchange-peering-to-azure-resource"></a>Konvertera en äldre Exchange-peering till en Azure-resurs
 
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Logga in på ditt Azure-konto och välj din prenumeration
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
-### <a name= get></a>Hämta äldre Exchange-peering för konvertering
-Nedan visas ett exempel på hur du kan hämta äldre Exchange-peering på Seattle-peering-platsen:
+### <a name="get-legacy-exchange-peering-for-conversion"></a><a name= get></a>Få äldre Exchange-peering för konvertering
+Nedan är exemplet för att få äldre Exchange peering på Seattle peering plats:
 
 ```powershell
 $legacyPeering = Get-AzLegacyPeering -Kind Exchange -PeeringLocation "Seattle"
@@ -58,7 +58,7 @@ Svaret liknar följande exempel:
 ```
 
 ### <a name="convert-legacy-peering"></a>Konvertera äldre peering
-Kommandot nedan kan användas för att konvertera äldre Exchange-peering till Azure-resursen:
+Nedan kan kommandot användas för att konvertera äldre Exchange-peering till Azure-resurs:
 
 ```powershell
 $legacyPeering[0] | New-AzPeering `
@@ -69,9 +69,9 @@ $legacyPeering[0] | New-AzPeering `
 
 &nbsp;
 > [!IMPORTANT] 
-> Observera att när du konverterar äldre peering till Azure-resurs, stöds inte ändringar &nbsp;
+> Observera att vid konvertering av äldre peer-peering till azure-resurs stöds inte ändringar&nbsp;
 
-Nedan visas ett exempel på ett svar när end-to-end-etableringen har slutförts:
+Nedan visas ett exempelsvar när etableringen från slutna till slutna har slutförts:
 
 ```powershell
     Name                     : SeattleExchangePeering
@@ -96,7 +96,7 @@ Du kan få detaljerade beskrivningar av alla parametrar genom att köra följand
 ```powershell
 Get-Help Get-AzPeering -detailed
 ```
-Mer information finns i [vanliga frågor och svar om Internet-peering](faqs.md)
+Mer information finns på [vanliga frågor om internet peering](faqs.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

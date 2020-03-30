@@ -1,24 +1,24 @@
 ---
-title: Definiera flera instanser av en variabel
-description: Använd kopierings åtgärden i en Azure Resource Manager mall för att iterera flera gånger när du skapar en variabel.
+title: Definiera flera förekomster av en variabel
+description: Använd kopieringsåtgärd i en Azure Resource Manager-mall för att iterera flera gånger när du skapar en variabel.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: ea4caf3553b3cd14eec194b8cef0db59499a4f4c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622871"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80153309"
 ---
-# <a name="variable-iteration-in-azure-resource-manager-templates"></a>Variabel iteration i Azure Resource Manager mallar
+# <a name="variable-iteration-in-arm-templates"></a>Variabel iteration i ARM-mallar
 
-Den här artikeln visar hur du skapar fler än ett värde för en variabel i din Azure Resource Manager-mall. Genom att lägga till elementet **Kopiera** i avsnittet variabler i mallen kan du dynamiskt ange antalet objekt för en variabel under distributionen. Du behöver inte heller upprepa syntaxen för mallar.
+Den här artikeln visar hur du skapar mer än ett värde för en variabel i din AZURE Resource Manager -mall (ARM). Genom att **copy** lägga till kopieringselementet i variabelavsnittet i mallen kan du dynamiskt ange antalet objekt för en variabel under distributionen. Du undviker också att behöva upprepa mallsyntaxen.
 
-Du kan också använda kopiera med [resurser](copy-resources.md), [Egenskaper i en resurs](copy-properties.md)och [utdata](copy-outputs.md).
+Du kan också använda kopia med [resurser,](copy-resources.md) [egenskaper i en resurs](copy-properties.md)och [utdata](copy-outputs.md).
 
 ## <a name="variable-iteration"></a>Variabel iteration
 
-Kopierings elementet har följande allmänna format:
+Kopieringselementet har följande allmänna format:
 
 ```json
 "copy": [
@@ -30,11 +30,11 @@ Kopierings elementet har följande allmänna format:
 ]
 ```
 
-Egenskapen **Name** är ett värde som identifierar slingan. Egenskapen **Count** anger antalet iterationer som du vill använda för variabeln.
+Namnegenskapen är ett värde som identifierar loopen. **name** Egenskapen **count** anger hur många iterationer du vill använda för variabeln.
 
-Egenskapen **indatamängd** anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i egenskapen **indatamängd** . Det kan vara en enskild egenskap (till exempel en sträng) eller ett objekt med flera egenskaper.
+**Indataegenskapen** anger de egenskaper som du vill upprepa. Du kan skapa en matris med element som skapats från värdet i **indataegenskapen.** Det kan vara en enda egenskap (som en sträng) eller ett objekt med flera egenskaper.
 
-I följande exempel visas hur du skapar en matris med sträng värden:
+I följande exempel visas hur du skapar en matris med strängvärden:
 
 ```json
 {
@@ -65,7 +65,7 @@ I följande exempel visas hur du skapar en matris med sträng värden:
 }
 ```
 
-Föregående mall returnerar en matris med följande värden:
+Den föregående mallen returnerar en matris med följande värden:
 
 ```json
 [
@@ -77,7 +77,7 @@ Föregående mall returnerar en matris med följande värden:
 ]
 ```
 
-I nästa exempel visas hur du skapar en matris med objekt med tre egenskaper: Name, diskSizeGB och diskIndex.
+Nästa exempel visar hur du skapar en matris med objekt med tre egenskaper - namn, diskSizeGB och diskIndex.
 
 ```json
 {
@@ -112,7 +112,7 @@ I nästa exempel visas hur du skapar en matris med objekt med tre egenskaper: Na
 }
 ```
 
-Föregående exempel returnerar en matris med följande värden:
+I föregående exempel returneras en matris med följande värden:
 
 ```json
 [
@@ -145,10 +145,10 @@ Föregående exempel returnerar en matris med följande värden:
 ```
 
 > [!NOTE]
-> Variabeln iteration stöder ett offset-argument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex (' diskNames ', 1). Om du inte anger ett förskjutnings värde används 0 som standard för den första instansen.
+> Variabel iteration stöder ett förskjutningsargument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex('diskNames', 1). Om du inte anger ett förskjutningsvärde är det standard 0 för första instansen.
 >
 
-Du kan också använda kopierings elementet i en variabel. I följande exempel skapas ett objekt som har en matris som en av dess värden.
+Du kan också använda kopieringselementet i en variabel. I följande exempel skapas ett objekt som har en matris som ett av dess värden.
 
 ```json
 {
@@ -186,7 +186,7 @@ Du kan också använda kopierings elementet i en variabel. I följande exempel s
 }
 ```
 
-Föregående exempel returnerar ett-objekt med följande värden:
+Föregående exempel returnerar ett objekt med följande värden:
 
 ```json
 {
@@ -221,7 +221,7 @@ Föregående exempel returnerar ett-objekt med följande värden:
 }
 ```
 
-I nästa exempel visas olika sätt som du kan använda kopiera med variabler.
+I nästa exempel visas olika sätt att använda kopian med variabler.
 
 ```json
 {
@@ -295,28 +295,28 @@ I nästa exempel visas olika sätt som du kan använda kopiera med variabler.
 }
 ```
 
-## <a name="copy-limits"></a>Kopierings gränser
+## <a name="copy-limits"></a>Kopiera gränser
 
-Antalet får inte överskrida 800.
+Antalet får inte överstiga 800.
 
-Antalet får inte vara ett negativt tal. Om du distribuerar en mall med Azure PowerShell 2,6 eller senare, Azure CLI 2.0.74 eller senare, eller REST API version **2019-05-10** eller senare, kan du ange antal till noll. Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för Count.
+Antalet kan inte vara ett negativt tal. Om du distribuerar en mall med Azure PowerShell 2.6 eller senare, Azure CLI 2.0.74 eller senare, eller REST API version **2019-05-10** eller senare, kan du ange antal till noll. Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för antal.
 
 ## <a name="example-templates"></a>Exempel på mallar
 
-I följande exempel visas vanliga scenarier för att skapa mer än ett värde för en variabel.
+Följande exempel visar vanliga scenarier för att skapa mer än ett värde för en variabel.
 
 |Mall  |Beskrivning  |
 |---------|---------|
-|[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Visar de olika sätten att iterera på variabler. |
-|[Flera säkerhets regler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuerar flera säkerhets regler till en nätverks säkerhets grupp. Den skapar säkerhets reglerna från en parameter. För-parametern, se [flera NSG-parameter fil](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
+|[Kopiera variabler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Visar olika sätt att iterera på variabler. |
+|[Flera säkerhetsregler](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Distribuerar flera säkerhetsregler till en nätverkssäkerhetsgrupp. Säkerhetsregler na konstrueras från en parameter. För parametern finns [i flera NSG-parameterfil](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du går igenom självstudierna finns i [Självstudier: skapa flera resurs instanser med Resource Manager-mallar](template-tutorial-create-multiple-instances.md).
-* För andra användnings områden av elementet Copy, se:
-  * [Resurs iteration i Azure Resource Manager mallar](copy-resources.md)
-  * [Egenskaps iteration i Azure Resource Manager mallar](copy-properties.md)
-  * [Utdata iteration i Azure Resource Manager mallar](copy-outputs.md)
-* Om du vill lära dig mer om avsnitten i en mall, se [redigera Azure Resource Manager mallar](template-syntax.md).
-* Information om hur du distribuerar din mall finns i [distribuera ett program med Azure Resource Manager-mall](deploy-powershell.md).
+* Information om hur du går igenom en självstudiekurs finns i [Självstudiekurs: skapa flera resursinstanser med ARM-mallar](template-tutorial-create-multiple-instances.md).
+* För annan användning av kopieringselementet, se:
+  * [Resursiteration i ARM-mallar](copy-resources.md)
+  * [Egenskapsiter iteration i ARM-mallar](copy-properties.md)
+  * [Utdataiteration i ARM-mallar](copy-outputs.md)
+* Om du vill lära dig mer om avsnitten i en mall läser [du Skapa ARM-mallar](template-syntax.md).
+* Mer information om hur du distribuerar mallen finns i [Distribuera ett program med ARM-mall](deploy-powershell.md).
 

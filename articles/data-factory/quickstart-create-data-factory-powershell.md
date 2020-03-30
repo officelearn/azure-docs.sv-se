@@ -14,13 +14,13 @@ ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
 ms.openlocfilehash: 7f527d3c57f086e7941505a9ca4396885c746762
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75440086"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Snabb start: skapa en Azure-datafabrik med hjälp av PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Snabbstart: Skapa en Azure-datafabrik med PowerShell
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -88,7 +88,7 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
     $dataFactoryName = "ADFQuickStartFactory";
     ```
 
-4. Skapa data fabriken genom att köra följande **set-AzDataFactoryV2-** cmdlet med hjälp av egenskapen location och ResourceGroupName från variabeln $ResGrp:
+4. Om du vill skapa datafabriken kör du följande **Cmdlet Set-AzDataFactoryV2** med egenskapen Location och ResourceGroupName från variabeln $ResGrp:
 
     ```powershell
     $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
@@ -138,7 +138,7 @@ Skapa länkade tjänster i en datafabrik för att länka ditt datalager och ber�
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**.
+3. Kör cmdleten **Set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
@@ -157,10 +157,10 @@ Skapa länkade tjänster i en datafabrik för att länka ditt datalager och ber�
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 
-I den här proceduren skapar du två datauppsättningar: **InputDataset** och **OutputDataset**. Dessa data uppsättningar är av typen **Binary**. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt.
+I den här proceduren skapar du två datauppsättningar: **InputDataset** och **OutputDataset**. Dessa datauppsättningar är av typen **Binär .** De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt.
 Datauppsättningen för indata representerar källdata i indatamappen. I definitionen av datauppsättningen för indata anger du blobcontainern (**adftutorial**), mappen (**input**) och filen (**emp.txt**) som innehåller källdata.
 Datauppsättningen för utdata representerar de data som kopieras till målet. I definitionen av datauppsättningen för utdata anger du blobcontainern (**adftutorial**), mappen (**output**) och filen som data ska kopieras till. 
-1. Skapa en JSON-fil med namnet **InputDataset. JSON** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
+1. Skapa en JSON-fil med namnet **InputDataset.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
 
     ```json
     {
@@ -184,7 +184,7 @@ Datauppsättningen för utdata representerar de data som kopieras till målet. I
     }
     ```
 
-2. Om du vill skapa data uppsättningen: **InputDataset**kör du cmdleten **set-AzDataFactoryV2Dataset** .
+2. Om du vill skapa datauppsättningen: **InputDataset**kör du cmdleten **Set-AzDataFactoryV2Dataset.**
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -202,7 +202,7 @@ Datauppsättningen för utdata representerar de data som kopieras till målet. I
     Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
 
-3. Upprepa stegen för att skapa datauppsättningen för utdata. Skapa en JSON-fil med namnet **OutputDataset. JSON** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
+3. Upprepa stegen för att skapa datauppsättningen för utdata. Skapa en JSON-fil med namnet **OutputDataset.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
 
     ```json
     {
@@ -225,7 +225,7 @@ Datauppsättningen för utdata representerar de data som kopieras till målet. I
     }
     ```
 
-4. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa en **data uppsättning**.
+4. Kör **cmdlet set-AzDataFactoryV2Dataset** för att skapa **OutDataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -244,7 +244,7 @@ Datauppsättningen för utdata representerar de data som kopieras till målet. I
     ```
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
 
-I den här proceduren skapar du en pipeline med en kopierings aktivitet som använder data uppsättningar för indata och utdata. Kopieringsaktiviteten kopierar data från filen som anges i inställningarna för datauppsättningen för indata till filen som anges i inställningarna för datauppsättningen för utdata.  
+I den här proceduren skapar du en pipeline med en kopieringsaktivitet som använder indata- och utdatauppsättningarna. Kopieringsaktiviteten kopierar data från filen som anges i inställningarna för datauppsättningen för indata till filen som anges i inställningarna för datauppsättningen för utdata.  
 
 1. Skapa en JSON-fil med namnet **Adfv2QuickStartPipeline.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
 
@@ -300,7 +300,7 @@ I den här proceduren skapar du en pipeline med en kopierings aktivitet som anv�
     }
     ```
 
-2. Om du vill skapa pipelinen: **Adfv2QuickStartPipeline**kör du cmdleten **set-AzDataFactoryV2Pipeline** .
+2. Så här skapar du pipelinen: **Adfv2QuickStartPipeline**, Kör cmdleten **Set-AzDataFactoryV2Pipeline.**
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline `

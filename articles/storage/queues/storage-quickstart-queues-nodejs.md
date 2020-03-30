@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: Azure Queue Storage-bibliotek V12 – Java Script'
-description: Lär dig hur du använder Azure Queue JavaScript V12-biblioteket för att skapa en kö och lägga till meddelanden i kön. Härnäst får du lära dig hur du läser och tar bort meddelanden från kön. Du lär dig också hur du tar bort en kö.
+title: 'Snabbstart: Azure Queue storage library v12 - JavaScript'
+description: Lär dig hur du använder Azure Queue JavaScript v12-biblioteket för att skapa en kö och lägga till meddelanden i kön. Därefter får du lära dig att läsa och ta bort meddelanden från kön. Du får också lära dig hur du tar bort en kö.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 12/13/2019
@@ -8,17 +8,17 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.openlocfilehash: 59a5308d2c0a1fa2e1f38f2fe3da3a2cc29448be
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78199792"
 ---
-# <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Snabb start: Azure Queue Storage klient bibliotek V12 för Java Script
+# <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Snabbstart: Azure Queue storage client library v12 för JavaScript
 
-Kom igång med Azure Queue Storage klient bibliotek version 12 för Java Script. Azure Queue Storage är en tjänst för att lagra ett stort antal meddelanden för senare hämtning och bearbetning. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
+Kom igång med Azure Queue storage client library version 12 för JavaScript. Azure Queue storage är en tjänst för att lagra ett stort antal meddelanden för senare hämtning och bearbetning. Följ dessa steg för att installera paketet och prova exempelkod för grundläggande uppgifter.
 
-Använd klient biblioteket för Azure Queue Storage-V12 för Java Script för att:
+Använd Azure Queue storage client library v12 för JavaScript för att:
 
 * Skapa en kö
 * Lägga till meddelanden i en kö
@@ -28,35 +28,35 @@ Använd klient biblioteket för Azure Queue Storage-V12 för Java Script för at
 * Ta bort meddelanden från en kö
 * Ta bort en kö
 
-[API Reference-dokumentation](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [paketet (Node Pack Manager)](https://www.npmjs.com/package/@azure/storage-queue) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+[API-referensdokumentation](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [Bibliotekskodpaket](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [(Nod Package Manager)](https://www.npmjs.com/package/@azure/storage-queue) | [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Aktuell [Node. js](https://nodejs.org/en/download/) för ditt operativ system.
+* Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
+* Azure storage-konto - [skapa ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* Aktuella [nod.js](https://nodejs.org/en/download/) för ditt operativsystem.
 
-## <a name="setting-up"></a>Konfigurera
+## <a name="setting-up"></a>Inrätta
 
-Det här avsnittet beskriver hur du förbereder ett projekt så att det fungerar med Azure Queue Storage-V12 för Java Script.
+I det här avsnittet beskrivs hur du förbereder ett projekt för att arbeta med Azure Queue storage client library v12 för JavaScript.
 
 ### <a name="create-the-project"></a>Skapa projektet
 
-Skapa ett Node. js-program med namnet *köer-snabb start-V12*.
+Skapa ett Node.js-program med namnet *queues-quickstart-v12*.
 
-1. Skapa en ny katalog för projektet i ett konsol fönster (till exempel cmd, PowerShell eller bash).
+1. Skapa en ny katalog för projektet i ett konsolfönster (till exempel cmd, PowerShell eller Bash).
 
     ```console
     mkdir queues-quickstart-v12
     ```
 
-1. Växla till de nyligen skapade *köerna-snabb starts-V12-* katalogen.
+1. Växla till den nyskapade *kökatalogen-quickstart-v12.*
 
     ```console
     cd queues-quickstart-v12
     ```
 
-1. Skapa en ny textfil med namnet *Package. JSON*. Den här filen definierar Node. js-projektet. Spara filen i *V12-katalogen för köer – snabb start* . Här är filens innehåll:
+1. Skapa en ny textfil som heter *package.json*. Den här filen definierar nod.js-projektet. Spara filen i katalogen *köer-quickstart-v12.* Här är innehållet i filen:
 
     ```json
     {
@@ -77,25 +77,25 @@ Skapa ett Node. js-program med namnet *köer-snabb start-V12*.
     }
     ```
 
-    Du kan ange ett eget namn i för fältet `author` om du vill.
+    Du kan sätta ditt eget `author` namn i för fältet, om du vill.
 
 ### <a name="install-the-package"></a>Installera paketet
 
-Medan du fortfarande finns i *köer-V12-* katalogen, installerar du klient biblioteket för Azure Queue Storage för JavaScript-paket med hjälp av kommandot `npm install`.
+Medan du fortfarande är i *katalogen köer-quickstart-v12* installerar du Azure `npm install` Queue storage client library för JavaScript-paketet med kommandot.
 
 ```console
 npm install
 ```
 
- Det här kommandot läser *Package. JSON* -filen och installerar klient biblioteket för Azure Queue Storage-V12 för JavaScript-paket och alla bibliotek som det är beroende av.
+ Det här kommandot läser *filen package.json* och installerar Azure Queue storage client library v12 for JavaScript-paketet och alla bibliotek som det är beroende av.
 
-### <a name="set-up-the-app-framework"></a>Konfigurera app Framework
+### <a name="set-up-the-app-framework"></a>Konfigurera ramverket för appen
 
-Från projekt katalogen:
+Från projektkatalogen:
 
-1. Öppna en annan ny textfil i kod redigeraren
-1. Lägg till `require` anrop för att läsa in Azure-och Node. js-moduler
-1. Skapa strukturen för programmet, inklusive mycket grundläggande undantags hantering
+1. Öppna en ny textfil i kodredigeraren
+1. Lägga `require` till anrop för att läsa in Azure- och Node.js-moduler
+1. Skapa strukturen för programmet, inklusive mycket grundläggande undantagshantering
 
     Här är koden:
 
@@ -112,33 +112,33 @@ Från projekt katalogen:
 
     ```
 
-1. Spara den nya filen som *Queues-QuickStart-V12. js* i katalogen *köer-snabb start-V12* .
+1. Spara den nya filen som *köer-quickstart-v12.js* i *katalogen köer-quickstart-v12.*
 
 [!INCLUDE [storage-quickstart-credentials-include](../../../includes/storage-quickstart-credentials-include.md)]
 
-## <a name="object-model"></a>Objekt modell
+## <a name="object-model"></a>Objektmodell
 
-Azure Queue Storage är en tjänst för lagring av ett stort antal meddelanden. Ett Queue-meddelande kan vara upp till 64 KB stort. En kö kan innehålla miljon tals meddelanden, upp till den totala kapacitets gränsen för ett lagrings konto. Köer används ofta för att skapa en efter släpning av arbete som ska bearbetas asynkront. Queue Storage erbjuder tre typer av resurser:
+Azure Queue Storage är en tjänst för lagring av ett stort antal meddelanden. Ett kömeddelande kan vara upp till 64 kB i storlek. En kö kan innehålla miljontals meddelanden, upp till den totala kapacitetsgränsen för ett lagringskonto. Köer används ofta för att skapa en eftersläpning av arbete för att bearbeta asynkront. Kölagring erbjuder tre typer av resurser:
 
-* Lagrings kontot
-* En kö i lagrings kontot
+* Lagringskontot
+* En kö i lagringskontot
 * Meddelanden i kön
 
 Följande diagram visar relationen mellan de här resurserna.
 
-![Diagram över kö Storage-arkitektur](./media/storage-queues-introduction/queue1.png)
+![Diagram över lagringsarkitektur för kö](./media/storage-queues-introduction/queue1.png)
 
 Använd följande JavaScript-klasser för att interagera med dessa resurser:
 
-* [QueueServiceClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient` gör att du kan hantera alla köer i ditt lagrings konto.
-* [QueueClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient): klassen `QueueClient` gör att du kan hantera och ändra en enskild kö och dess meddelanden.
-* [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage): klassen `QueueMessage` representerar de enskilda objekt som returneras när [receiveMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient?view=azure-node-latest#receivemessages-queuereceivemessageoptions-) anropas i en kö.
+* [QueueServiceClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueserviceclient): `QueueServiceClient` Med möjlighet att hantera alla köer i ditt lagringskonto.
+* [QueueClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient): `QueueClient` Klassen låter dig hantera och manipulera en enskild kö och dess meddelanden.
+* [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage): `QueueMessage` Klassen representerar de enskilda objekt som returneras när du [anropar mottaMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient?view=azure-node-latest#receivemessages-queuereceivemessageoptions-) i en kö.
 
-## <a name="code-examples"></a>Kod exempel
+## <a name="code-examples"></a>Kodexempel
 
-I de här exempel kods tycken visar vi hur du utför följande åtgärder med klient biblioteket för Azure Queue Storage för Java Script:
+I det här exemplet visar kodavsnitten hur du utför följande åtgärder med Azure Queue storage-klientbiblioteket för JavaScript:
 
-* [Hämta anslutnings strängen](#get-the-connection-string)
+* [Hämta anslutningssträngen](#get-the-connection-string)
 * [Skapa en kö](#create-a-queue)
 * [Lägga till meddelanden i en kö](#add-messages-to-a-queue)
 * [Granska meddelanden i en kö](#peek-at-messages-in-a-queue)
@@ -149,9 +149,9 @@ I de här exempel kods tycken visar vi hur du utför följande åtgärder med kl
 
 ### <a name="get-the-connection-string"></a>Hämta anslutningssträngen
 
-Koden nedan hämtar anslutnings strängen för lagrings kontot från den miljö variabel som skapades i avsnittet [Konfigurera din lagrings anslutnings sträng](#configure-your-storage-connection-string) .
+Koden nedan hämtar anslutningssträngen för lagringskontot från den miljövariabel som skapas i avsnittet [Konfigurera lagringsanslutningssträngen.](#configure-your-storage-connection-string)
 
-Lägg till den här koden i `main`-funktionen:
+Lägg till den `main` här koden i funktionen:
 
 ```javascript
 // Retrieve the connection string for use with the application. The storage
@@ -165,14 +165,14 @@ const AZURE_STORAGE_CONNECTION_STRING = process.env.AZURE_STORAGE_CONNECTION_STR
 
 ### <a name="create-a-queue"></a>Skapa en kö
 
-Välj ett namn för den nya kön. Koden nedan lägger till ett UUID-värde till könamnet för att säkerställa att det är unikt.
+Bestäm ett namn för den nya kön. Koden nedan lägger till ett UUID-värde i könamnet för att säkerställa att det är unikt.
 
 > [!IMPORTANT]
-> Könamn får bara innehålla gemena bokstäver, siffror och bindestreck, och måste börja med en bokstav eller en siffra. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck. Namnet måste vara mellan 3 och 63 tecken långt. Mer information om namngivning av köer finns i [namnge köer och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata).
+> Könamn får bara innehålla gemener, siffror och bindestreck och måste börja med en bokstav eller ett tal. Varje bindestreck måste föregås och följas av ett tecken som inte är ett bindestreck. Namnet måste också vara mellan 3 och 63 tecken långt. Mer information om namngivning av köer finns i [Namnge köer och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-queues-and-metadata).
 
-Skapa en instans av klassen [QueueClient](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient) . Anropa sedan metoden [create](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) för att skapa kön i ditt lagrings konto.
+Skapa en instans av klassen [QueueClient.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient) Anropa sedan [metoden create](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#create-queuecreateoptions-) för att skapa kön i ditt lagringskonto.
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 // Create a unique name for the queue
@@ -191,9 +191,9 @@ console.log("Queue created, requestId:", createQueueResponse.requestId);
 
 ### <a name="add-messages-to-a-queue"></a>Lägga till meddelanden i en kö
 
-Följande kodfragment lägger till meddelanden i kön genom att anropa [SendMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) -metoden. Den sparar även [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage) som returneras från det tredje `sendMessage`-anropet. Den returnerade `sendMessageResponse` används för att uppdatera meddelande innehållet senare i programmet.
+Följande kodavsnitt lägger till meddelanden i kö genom att anropa [metoden sendMessage.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#sendmessage-string--queuesendmessageoptions-) Den sparar också [QueueMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queuemessage) som returneras från det tredje `sendMessage` samtalet. Den returnerade `sendMessageResponse` används för att uppdatera meddelandeinnehållet senare i programmet.
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 console.log("\nAdding messages to the queue...");
@@ -208,9 +208,9 @@ console.log("Messages added, requestId:", sendMessageResponse.requestId);
 
 ### <a name="peek-at-messages-in-a-queue"></a>Granska meddelanden i en kö
 
-Titta på meddelandena i kön genom att anropa metoden [peekMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) . Metoden `peekMessages` hämtar ett eller flera meddelanden från början av kön, men ändrar inte synligheten för meddelandet.
+Kika på meddelandena i kön genom att anropa [peekMessages-metoden.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#peekmessages-queuepeekmessagesoptions-) Metoden `peekMessages` hämtar ett eller flera meddelanden från framsidan av kön men ändrar inte meddelandets synlighet.
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 console.log("\nPeek at the messages in the queue...");
@@ -226,7 +226,7 @@ for (i = 0; i < peekedMessages.peekedMessageItems.length; i++) {
 
 ### <a name="update-a-message-in-a-queue"></a>Uppdatera ett meddelande i en kö
 
-Uppdatera innehållet i ett meddelande genom att anropa [updateMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) -metoden. Metoden `updateMessage` kan ändra ett meddelandes Synlighets-timeout och innehåll. Meddelande innehållet måste vara en kodad UTF-8-sträng som är upp till 64 KB stor. Tillsammans med det nya innehållet kan du skicka in `messageId` och `popReceipt` från svaret som sparades tidigare i koden. `sendMessageResponse` egenskaperna identifierar vilket meddelande som ska uppdateras.
+Uppdatera innehållet i ett meddelande genom att anropa [metoden updateMessage.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--undefined---number--queueupdatemessageoptions-) Metoden `updateMessage` kan ändra ett meddelandes synlighetstidsutgång och innehåll. Meddelandeinnehållet måste vara en UTF-8-kodad sträng som är upp till 64 kB i storlek. Tillsammans med det nya `messageId` innehållet, skicka in och `popReceipt` från svaret som sparades tidigare i koden. Egenskaperna `sendMessageResponse` identifierar vilket meddelande som ska uppdateras.
 
 ```javascript
 console.log("\nUpdating the third message in the queue...");
@@ -243,9 +243,9 @@ console.log("Message updated, requestId:", updateMessageResponse.requestId);
 
 ### <a name="receive-messages-from-a-queue"></a>Ta emot meddelanden från en kö
 
-Hämta tidigare tillagda meddelanden genom att anropa [receiveMessages](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-) -metoden.  I fältet `numberOfMessages` skickar du det maximala antalet meddelanden som ska tas emot för det här anropet.
+Hämta tidigare tillagda meddelanden genom att anropa metoden [receiveMessages.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#receivemessages-queuereceivemessageoptions-)  I `numberOfMessages` fältet skickar du in det maximala antalet meddelanden som ska mottars för det här samtalet.
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 console.log("\nReceiving messages from the queue...");
@@ -258,11 +258,11 @@ console.log("Messages received, requestId:", receivedMessagesResponse.requestId)
 
 ### <a name="delete-messages-from-a-queue"></a>Ta bort meddelanden från en kö
 
-Ta bort meddelanden från kön när de har tagits emot och bearbetats. I det här fallet visar bearbetningen bara meddelandet i-konsolen.
+Ta bort meddelanden från kön när de har tagits emot och bearbetats. I det här fallet är bearbetning bara visar meddelandet på konsolen.
 
-Ta bort meddelanden genom att anropa [deleteMessage](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) -metoden. Eventuella meddelanden som inte tas bort kommer att bli synliga i kön igen för en annan chans att bearbeta dem.
+Ta bort meddelanden genom att anropa [metoden deleteMessage.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#deletemessage-string--string--queuedeletemessageoptions-) Alla meddelanden som inte uttryckligen tas bort kommer så småningom att bli synliga i kön igen för en ny chans att bearbeta dem.
 
-Lägg till den här koden i slutet av `main`-funktionen:
+Lägg till den här `main` koden i slutet av funktionen:
 
 ```javascript
 // 'Process' and delete messages from the queue
@@ -283,9 +283,9 @@ for (i = 0; i < receivedMessagesResponse.receivedMessageItems.length; i++) {
 
 ### <a name="delete-a-queue"></a>Ta bort en kö
 
-Följande kod rensar resurserna som skapats av appen genom att ta bort kön med [Delete](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-) -metoden.
+Följande kod rensar de resurser som appen har skapat genom att ta bort kön med [borttagningsmetoden.](https://docs.microsoft.com/javascript/api/@azure/storage-queue/queueclient#delete-queuedeleteoptions-)
 
-Lägg till den här koden i slutet av `main`-funktionen och spara filen:
+Lägg till den här `main` koden i slutet av funktionen och spara filen:
 
 ```javascript
 // Delete the queue
@@ -296,15 +296,15 @@ console.log("Queue deleted, requestId:", deleteQueueResponse.requestId);
 
 ## <a name="run-the-code"></a>Kör koden
 
-Den här appen skapar och lägger till tre meddelanden i en Azure-kö. I koden visas meddelanden i kön, sedan hämtas och tas de bort innan kön tas bort.
+Den här appen skapar och lägger till tre meddelanden i en Azure-kö. Koden visar meddelandena i kön och hämtar och tar sedan bort dem innan du slutligen tar bort kön.
 
-I konsol fönstret navigerar du till den katalog som innehåller filen *Queues-QuickStart-V12. js* och kör sedan följande `node` kommando för att köra appen.
+I konsolfönstret navigerar du till katalogen som innehåller filen *köer-quickstart-v12.js* och kör sedan följande `node` kommando för att köra appen.
 
 ```console
 node queues-quickstart-v12.js
 ```
 
-Utdata från appen liknar följande exempel:
+Utdata för appen liknar följande exempel:
 
 ```output
 Azure Queue storage v12 - JavaScript quickstart sample
@@ -339,16 +339,16 @@ Queue deleted, requestId: 5c0bca05-6003-011b-1e11-b13d06000000
 Done
 ```
 
-Gå igenom koden i fel söknings programmet och kontrol lera [Azure Portal](https://portal.azure.com) under hela processen. Kontrol lera ditt lagrings konto för att verifiera att meddelanden i kön skapas och tas bort.
+Gå igenom koden i felsökaren och kontrollera din [Azure-portal](https://portal.azure.com) under hela processen. Kontrollera ditt lagringskonto för att verifiera att meddelanden i kön skapas och tas bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du lärt dig hur du skapar en kö och lägger till meddelanden i den med hjälp av JavaScript-kod. Sedan har du lärt dig att granska, hämta och ta bort meddelanden. Slutligen har du lärt dig hur du tar bort en meddelandekö.
+I den här snabbstarten lärde du dig hur du skapar en kö och lägger till meddelanden i den med JavaScript-kod. Sedan lärde du dig att granska, hämta och ta bort meddelanden. Slutligen har du lärt dig hur du tar bort en meddelandekö.
 
-För självstudier, exempel, snabb starter och annan dokumentation går du till:
+För självstudier, exempel, snabbstarter och annan dokumentation, besök:
 
 > [!div class="nextstepaction"]
-> [Dokumentation om Azure för Java Script](https://docs.microsoft.com/azure/javascript/)
+> [Azure för JavaScript-dokumentation](https://docs.microsoft.com/azure/javascript/)
 
-* Läs mer i [Azure Storage Queue klient bibliotek för Java Script](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
-* Om du vill se fler Azure Queue Storage-exempelprogram fortsätter du till [Azure Queue Storage-V12 för klient bibliotek](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).
+* Mer information finns i [Azure Storage Queue-klientbiblioteket för JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue).
+* Om du vill se fler exempelappar för Azure Queue storage fortsätter du till [Azure Queue storage client library v12 JavaScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue/samples).

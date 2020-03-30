@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en profil för HA med program – Azure Portal – Azure Traffic Manager'
+title: Snabbstart:Skapa en profil för HA-program - Azure portal - Azure Traffic Manager
 description: I den här snabbstartsartikeln beskrivs hur du skapar en Traffic Manager-profil för att bygga en webbapp med hög tillgänglighet.
 services: traffic-manager
 author: rohinkoul
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: rohink
 ms.openlocfilehash: 559ed0a134bb6db78d1e89634138b4025e04152b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/01/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76934773"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Snabb start: skapa en Traffic Manager profil med hjälp av Azure Portal
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Snabbstart: Skapa en Traffic Manager-profil med Azure-portalen
 
 I den här snabbstarten beskrivs hur du skapar en Traffic Manager-profil som ger hög tillgänglighet för din webbapp.
 
@@ -35,32 +35,32 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 
 För den här snabbstarten behöver du två instanser av en webbapp som distribuerats i två olika Azure-regioner (*USA, östra* och *Europa, västra*). Var och en av dessa kommer att fungera som primär- och redundansslutpunkter för Traffic Manager.
 
-1. Uppe till vänster på skärmen väljer du **Skapa en resurs** > **Webb** > **Webbapp**.
+1. Välj Skapa en > **resurswebbapp** > **Web App** **Create a resource**längst upp till vänster på skärmen .
 
-1. I **skapa en webbapp**skriver eller väljer du följande värden på fliken **grundläggande** :
+1. Skriv eller markera följande värden på fliken **Grunderna** i **Skapa ett webbprogram:**
 
-   - **Prenumerations** > **resurs grupp**: Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
-   - **Instans information** > **namn**: Skriv *myWebAppEastUS*.
-   - **Instans information** > **publicera**: Välj **kod**.
-   - **Instans information** > **körnings stack**: Välj **ASP.net v 4.7**
-   - **Instans information** > **operativ system**: Välj **Windows**.
-   - **Instans information** > **region**: Välj **USA, östra**.
-   - **App Service plan** > **Windows plan (USA, östra)** : Välj **Skapa ny** och skriv sedan **myAppServicePlanEastUS**
-   - **App Service Plan** > **SKU och storlek**: Välj **standard S1**.
+   - **Subscription** > **Prenumerationsresursgrupp:** Välj **Skapa ny** och skriv sedan **myResourceGroupTM1**.
+   - **Instansinformation** > **Namn:** Skriv *myWebAppEastUS*.
+   - **Instansinformation** > **Publicera:** Välj **kod**.
+   - **Instansinformation** > **Runtime stack:** Välj **ASP.NET V4.7**
+   - **Instansinformation** > **Operativsystem:** Välj **Windows**.
+   - **Instance Details** > Region för**instansinformation**: Välj **östra USA**.
+   - **App Service Plan** > **Windows Plan (östra USA):** Välj **Skapa nya** och skriv sedan **myAppServicePlanEastUS**
+   - **App Service Plan** > **Sku och storlek:** Välj **Standard S1**.
    
-3. Välj fliken **övervakning** eller Välj **Nästa: övervakning**.  Under **övervakning**anger **Application Insights** > **Aktivera Application Insights** till **Nej**.
+3. Välj fliken **Övervakning** eller välj **Nästa:Övervakning**.  Under **Övervakning**anger du **Application Insights** > Enable Application**Insights** till **No**.
 
 4. Välj **Granska och skapa**
 
-5. Granska inställningarna och klicka sedan på **skapa**.  När webbappen har distribuerats skapar den en standardwebbplats.
+5. Granska inställningarna och klicka sedan på **Skapa**.  När webbappen har distribuerats skapar den en standardwebbplats.
 
-6. Följ stegen för att skapa en andra webbapp med namnet *myWebAppWestEurope*, med **resurs grupp** namnet *MyResourceGroupTM2*, en **region** i *Västeuropa*, ett **App Service plan** namn för **myAppServicePlanWestEurope**och alla andra inställningar på samma sätt som *myWebAppEastUS*.
+6. Följ stegen för att skapa en andra webapp med namnet *myWebAppWestEurope*, med namnet **på resursgruppen** *myResourceGroupTM2*, en **region i** *Västeuropa*, ett **apptjänstplannamn** för **myAppServicePlanWestEurope**och alla andra inställningar på samma sätt som *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Skapa en Traffic Manager-profil
 
 Skapa en Traffic Manager-profil som dirigerar användartrafik baserat på slutpunktsprioritet.
 
-1. Uppe till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Traffic Manager-profil**.
+1. Välj **Skapa en profil** > för**Traffic** > **Manager-resursnätverk**längst upp till vänster .
 2. I **Skapa Traffic Manager-profil** anger eller väljer du de här inställningarna:
 
     | Inställning | Värde |
@@ -86,8 +86,8 @@ Lägg till webbplatsen i *USA, östra* som primär slutpunkt för att dirigera a
     | ------- | ------|
     | Typ | Välj **Azure-slutpunkt**. |
     | Namn | Ange *myPrimaryEndpoint*. |
-    | Målresurstyp | Välj **App Service**. |
-    | Målresurs | Välj **Välj en apptjänst** > **USA, östra**. |
+    | Målresurstyp | Välj **Apptjänst**. |
+    | Målresurs | Välj **Välj en apptjänst** > **östra USA**. |
     | Prioritet | Välj **1**. All trafik skickas till den här slutpunkten när den är felfri. |
 
     ![Skärmbild av det ställe där du lägger till en slutpunkt i Traffic Manager-profilen.](./media/quickstart-create-traffic-manager-profile/add-traffic-manager-endpoint.png)
@@ -99,8 +99,8 @@ Lägg till webbplatsen i *USA, östra* som primär slutpunkt för att dirigera a
     | ------- | ------|
     | Typ | Välj **Azure-slutpunkt**. |
     | Namn | Ange *myFailoverEndpoint*. |
-    | Målresurstyp | Välj **App Service**. |
-    | Målresurs | Välj **Välj en apptjänst** > **Europa, västra**. |
+    | Målresurstyp | Välj **Apptjänst**. |
+    | Målresurs | Välj **Välj en apptjänst** > **Västeuropa**. |
     | Prioritet | Välj **2**. All trafik skickas till den här redundansslutpunkten om den primära slutpunkten är skadad. |
 
 7. Välj **OK**.

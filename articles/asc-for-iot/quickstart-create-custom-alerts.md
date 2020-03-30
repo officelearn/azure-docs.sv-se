@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skapa anpassade aviseringar för Azure Security Center för IoT'
-description: Förstå, skapa och tilldela anpassade enhets aviseringar för tjänsten Azure Security Center för IoT-säkerhet.
+title: 'Snabbstart: Skapa anpassade aviseringar för Azure Security Center för IoT'
+description: Förstå, skapa och tilldela anpassade enhetsaviseringar för Azure Security Center för IoT-säkerhetstjänst.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -16,32 +16,32 @@ ms.workload: na
 ms.date: 1/27/2020
 ms.author: mlottner
 ms.openlocfilehash: 063e5c9e7d75fd1c07d148c265b1fe64eee3cbc8
-ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "78303536"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Snabb start: skapa anpassade aviseringar
+# <a name="quickstart-create-custom-alerts"></a>Snabbstart: Skapa anpassade aviseringar
 
 
-Genom att använda anpassade säkerhets grupper och aviseringar kan du utnyttja all fullständig säkerhets information och kategoriska för att säkerställa bättre säkerhet i din IoT-lösning. 
+Med hjälp av anpassade säkerhetsgrupper och aviseringar drar du full nytta av säkerhetsinformationen från slutna till slutna enheter och kategorisk enhetskunskap för att säkerställa bättre säkerhet i din IoT-lösning. 
 
-## <a name="why-use-custom-alerts"></a>Varför ska jag använda anpassade aviseringar? 
+## <a name="why-use-custom-alerts"></a>Varför använda anpassade aviseringar? 
 
-Du vet att dina IoT-enheter är bäst.
+Du känner till dina IoT-enheter bäst.
 
-För kunder som helt förstår sina förväntade enhets beteende kan du med hjälp av Azure Security Center för IoT översätta den här förståelsen till en princip för enhets beteende och en avisering om eventuella avvikelser från förväntat, normalt beteende.
+För kunder som till fullo förstår sitt förväntade enhetsbeteende kan du med Azure Security Center for IoT översätta den här förståelsen till en enhetsbeteendeprincip och avisera eventuella avvikelser från förväntat, normalt beteende.
 
 ## <a name="security-groups"></a>Säkerhetsgrupper
 
-Med säkerhets grupper kan du definiera logiska grupper av enheter och hantera deras säkerhets tillstånd på ett centraliserat sätt.
+Med säkerhetsgrupper kan du definiera logiska grupper av enheter och hantera deras säkerhetstillstånd på ett centraliserat sätt.
 
-Dessa grupper kan representera enheter med specifik maskin vara, enheter som har distribuerats på en viss plats eller någon annan grupp som passar dina specifika behov.
+Dessa grupper kan representera enheter med specifik maskinvara, enheter som distribueras på en viss plats eller någon annan grupp som passar dina specifika behov.
 
-Säkerhets grupper definieras av en enhets dubbla tag-egenskap med namnet **SecurityGroup**. Som standard har varje IoT-lösning på IoT Hub en säkerhets grupp med namnet **default**. Ändra värdet för egenskapen **SecurityGroup** om du vill ändra säkerhets gruppen för en enhet.
+Säkerhetsgrupper definieras av en enhetsvillingtaggsegenskap med namnet **SecurityGroup**. Som standard har varje IoT-lösning på IoT Hub en säkerhetsgrupp med namnet **standard**. Ändra värdet för egenskapen **SecurityGroup** om du vill ändra säkerhetsgruppen för en enhet.
  
-Exempel:
+Ett exempel:
 
 ```
 {
@@ -64,27 +64,27 @@ Exempel:
   }, 
 ```
 
-Använd säkerhets grupper för att gruppera dina enheter i logiska kategorier. När du har skapat grupperna tilldelar du dem till de anpassade aviseringarna som du önskar, för den mest effektiva IoT-säkerhetslösningen från slut punkt till slut punkt. 
+Använd säkerhetsgrupper för att gruppera dina enheter i logiska kategorier. När du har skapat grupperna tilldelar du dem till de anpassade aviseringar som du väljer, för den mest effektiva end-to-end IoT-säkerhetslösningen. 
 
 ## <a name="customize-an-alert"></a>Anpassa en avisering
 
 1. Öppna din IoT Hub. 
-2. Klicka på **anpassade aviseringar** i avsnittet **säkerhet** . 
-3. Välj en säkerhets grupp som du vill tillämpa anpassningen på. 
+2. Klicka på **Anpassade aviseringar** i avsnittet **Säkerhet.** 
+3. Välj en säkerhetsgrupp som du vill använda anpassningen på. 
 4. Klicka på **Lägg till en anpassad avisering**.
-5. Välj en anpassad avisering i list rutan. 
-6. Redigera de nödvändiga egenskaperna och klicka på **OK**.
-7. Se till att klicka på **Spara**. Om du inte sparar den nya aviseringen tas aviseringen bort nästa gången du stänger IoT Hub.
+5. Välj en anpassad avisering i listrutan. 
+6. Redigera de egenskaper som krävs, klicka på **OK**.
+7. Se till att klicka på **SPARA**. Utan att spara den nya aviseringen tas aviseringen bort nästa gång du stänger IoT Hub.
 
  
-## <a name="alerts-available-for-customization"></a>Aviseringar tillgängliga för anpassning
+## <a name="alerts-available-for-customization"></a>Varningar tillgängliga för anpassning
 
-Azure Security Center for IoT erbjuder ett stort antal aviseringar som kan anpassas efter dina egna behov. Granska den [anpassningsbara aviserings tabellen](concept-customizable-security-alerts.md) för aviserings allvarlighets grad, data källa, beskrivning och våra föreslagna reparations steg om och när varje avisering tas emot. 
+Azure Security Center för IoT erbjuder ett stort antal aviseringar som kan anpassas efter dina specifika behov. Granska den [anpassningsbara varningstabellen](concept-customizable-security-alerts.md) för allvarlighetsgrad, datakälla, beskrivning och våra föreslagna reparationssteg om och när varje avisering tas emot. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till nästa artikel om du vill lära dig hur du distribuerar en säkerhets agent...
+Gå vidare till nästa artikel om du vill lära dig hur du distribuerar en säkerhetsagent...
 
 > [!div class="nextstepaction"]
-> [Distribuera en säkerhets agent](how-to-deploy-agent.md)
+> [Distribuera en säkerhetsagent](how-to-deploy-agent.md)

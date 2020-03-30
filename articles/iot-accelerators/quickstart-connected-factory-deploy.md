@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "62127471"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Snabbstart: Testa en molnbaserad lösning för att hantera mina industriella IoT-enheter
@@ -26,7 +26,7 @@ Den här snabbstarten visar hur du distribuerar Azure IoT-lösningsacceleratorn 
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="deploy-the-solution"></a>Distribuera lösningen
 
@@ -40,13 +40,13 @@ Klicka på panelen **Ansluten fabrik**. På sidan **Ansluten fabrik** klickar du
 
 På sidan **Skapa lösningen Ansluten fabrik** anger du ett unikt **lösningsnamn** för lösningsacceleratorn Ansluten fabrik. Det här namnet är namnet på den Azure-resursgrupp som innehåller alla acceleratorresurser för lösningen. Den här snabbstarten använder namnet **MyDemoConnectedFactory**.
 
-Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. I den här snabbstarten använder vi **Visual Studio Enterprise** och **USA, östra**. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
+Välj den **prenumeration** och **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. I den här snabbstarten använder vi **Visual Studio Enterprise** och **USA, östra**. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
 
 Klicka på **Skapa** för att inleda distributionen. Processen tar minst fem minuter att köra:
 
 ![Information om lösningen Ansluten fabrik](./media/quickstart-connected-factory-deploy/createform.png)
 
-## <a name="sign-in-to-the-solution"></a>Logga in på lösningen
+## <a name="sign-in-to-the-solution"></a>Logga in till lösningen
 
 När distributionen till Azure-prenumerationen är klar visas en grön bockmarkering och **Redo** på lösningspanelen. Du kan nu logga in på instrumentpanelen för lösningsacceleratorn Ansluten fabrik.
 
@@ -80,7 +80,7 @@ OEE mäter produktionseffektiviteten med hjälp av produktionsrelaterade driftsp
 
 Du kan ytterligare analysera OEE för vilken nivå som helst i hierarkidata. Klicka på reglaget för OEE, tillgänglighet, prestanda eller kvalitetsprocent. En kontextpanel visas med visualiseringar som visar data över olika tidsskalor:
 
-[![Information om övergripande utrustningseffektivitet](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
+[![Övergripande detalj för utrustningens effektivitet](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
 
 Du kan klicka på ett diagram för att göra vidare analyser av data.
 
@@ -92,7 +92,7 @@ Panelen för **KPI:er** visar antalet enheter som produceras per timme och energ
 
 Du kan ytterligare analysera KPI:er för vilken nivå som helst i hierarkidata. Klicka på reglaget för OEE, tillgänglighet, prestanda eller kvalitetsprocent. En kontextpanel visas med visualiseringar som visar data över olika tidsskalor:
 
-[![KPI-information](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
+[![KPI-detalj](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
 
 Du kan klicka på ett diagram för att göra vidare analyser av data.
 
@@ -137,7 +137,7 @@ Klicka på något av larmen. I listrutan **Välj åtgärd** väljer du **Bekräf
 
 Om du vill analysera larmdata mer i detalj klickar du på diagrammet på larmpanelen.
 
-Larmen genereras av regler som anges i en konfigurationsfil i lösningsacceleratorn. Dessa regler kan generera larm när OEE- eller KPI siffrorna eller OPC UA-nodvärden överskrider ett tröskelvärde. Du kan ange detta tröskelvärde.
+Larmen genereras av regler som anges i en konfigurationsfil i lösningsacceleratorn. Dessa regler kan generera alarm när OEE- eller KPI-siffrorna eller OPC UA-nodvärdena överskrider ett tröskelvärde. Du kan ange detta tröskelvärde.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

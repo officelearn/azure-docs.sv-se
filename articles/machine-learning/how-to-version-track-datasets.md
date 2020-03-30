@@ -1,40 +1,40 @@
 ---
-title: Versions hantering för data uppsättning
+title: Versionshantering av datauppsättning
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du bäst version av data uppsättningar och hur versioner fungerar med maskin inlärnings pipeliner.
+description: Lär dig hur du bäst kan version av dina datauppsättningar och hur versionshantering fungerar med maskininlärningspipelor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
-author: sihhu
+author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.custom: ''
-ms.openlocfilehash: 7b124c0f35b5cfda4380555385971e4968d4c45c
-ms.sourcegitcommit: 8f4d54218f9b3dccc2a701ffcacf608bbcd393a6
+ms.openlocfilehash: acbd2e3ba756255cbc69ae8a7b7ad62d7a1c1c5a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2020
-ms.locfileid: "78939261"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528480"
 ---
-# <a name="version-and-track-datasets-in-experiments"></a>Version och spårning av data uppsättningar i experiment
+# <a name="version-and-track-datasets-in-experiments"></a>Versions- och spåra datauppsättningar i experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig hur du använder version och spår Azure Machine Learning data uppsättningar för reproducerbarhet. Versions hantering av data uppsättningar är ett sätt att ange data uppsättningens tillstånd så att du kan använda en angiven version av data uppsättningen för framtida experiment.
+I den här artikeln får du lära dig hur du skapar och spårar Azure Machine Learning-datauppsättningar för reproducerbarhet. Datauppsättningsversion är ett sätt att bokmärka tillståndet för dina data så att du kan använda en viss version av datauppsättningen för framtida experiment.
 
-Scenarier för typiska versioner:
+Typiska versionsscenarier:
 
-* När nya data är tillgängliga för omskolning
-* När du använder olika metoder för data förberedelse eller funktions teknik
+* När nya data finns tillgängliga för omskolning
+* När du använder olika dataförberedelser eller funktionstekniker
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande för den här självstudien:
 
-- [Azure Machine Learning SDK för python installerat](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Det här SDK: t innehåller paketet [azureml-DataSets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) .
+- [Azure Machine Learning SDK för Python installerat](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). Den här SDK:er innehåller [azureml-dataset-paketet.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py)
     
-- En [Azure Machine Learning-arbetsyta](concept-workspace.md). Hämta ett befintligt namn genom att köra följande kod eller [skapa en ny arbets yta](how-to-manage-workspace.md).
+- En [Azure Machine Learning-arbetsyta](concept-workspace.md). Hämta en befintlig genom att köra följande kod eller [skapa en ny arbetsyta](how-to-manage-workspace.md).
 
     ```Python
     import azureml.core
@@ -42,17 +42,17 @@ Du behöver följande för den här självstudien:
     
     ws = Workspace.from_config()
     ```
-- En [Azure Machine Learning data uppsättning](how-to-create-register-datasets.md).
+- En [Azure Machine Learning-datauppsättning](how-to-create-register-datasets.md).
 
 <a name="register"></a>
 
-## <a name="register-and-retrieve-dataset-versions"></a>Registrera och hämta data uppsättnings versioner
+## <a name="register-and-retrieve-dataset-versions"></a>Registrera och hämta datauppsättningsversioner
 
-Genom att registrera en data uppsättning kan du version, åter användning och dela den över experiment och med kollegor. Du kan registrera flera data uppsättningar med samma namn och hämta en speciell version efter namn och versions nummer.
+Genom att registrera en datauppsättning kan du göra en version, återanvändning och dela den över experiment och med kollegor. Du kan registrera flera datauppsättningar under samma namn och hämta en viss version efter namn och versionsnummer.
 
-### <a name="register-a-dataset-version"></a>Registrera en data uppsättnings version
+### <a name="register-a-dataset-version"></a>Registrera en datauppsättningsversion
 
-Följande kod registrerar en ny version av `titanic_ds` data uppsättningen genom att ange parametern `create_new_version` till `True`. Om det inte finns någon befintlig `titanic_ds` data uppsättning registrerad i arbets ytan skapar koden en ny data uppsättning med namnet `titanic_ds` och anger dess version till 1.
+Följande kod registrerar en ny `titanic_ds` version av datauppsättningen genom att ange parametern `create_new_version` till `True`. Om det inte `titanic_ds` finns någon befintlig datauppsättning registrerad med arbetsytan skapar koden en `titanic_ds` ny datauppsättning med namnet och anger dess version till 1.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -60,13 +60,13 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'titanic training data',
                                  create_new_version = True)
 ```
-Du kan också registrera en ny version av en data uppsättning på 
+Du kan också registrera en ny version av en datauppsättning på 
 
-### <a name="retrieve-a-dataset-by-name"></a>Hämta en data uppsättning efter namn
+### <a name="retrieve-a-dataset-by-name"></a>Hämta en datauppsättning efter namn
 
-Som standard returnerar metoden [get_by_name ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) i klassen `Dataset` den senaste versionen av data uppsättningen som är registrerad i arbets ytan. 
+Som standard returnerar [metoden get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) `Dataset` i klassen den senaste versionen av datauppsättningen som registrerats med arbetsytan. 
 
-Följande kod hämtar version 1 av `titanic_ds`-datauppsättningen.
+Följande kod får version 1 av datauppsättningen. `titanic_ds`
 
 ```Python
 from azureml.core import Dataset
@@ -78,18 +78,18 @@ titanic_ds = Dataset.get_by_name(workspace = workspace,
 
 <a name="best-practice"></a>
 
-## <a name="versioning-best-practice"></a>Metod tips för versions hantering
+## <a name="versioning-best-practice"></a>Bästa praxis för versionshantering
 
-När du skapar en data uppsättnings version skapar du *inte* en extra kopia av data med arbets ytan. Eftersom data uppsättningar är referenser till data i din lagrings tjänst har du en enda källa för sanningen, som hanteras av din lagrings tjänst.
+När du skapar en datauppsättningsversion skapar du *inte* en extra kopia av data med arbetsytan. Eftersom datauppsättningar är referenser till data i lagringstjänsten har du en enda sanningskälla som hanteras av din lagringstjänst.
 
 >[!IMPORTANT]
-> Om data som refereras till av data mängden skrivs över eller tas bort, återställs *inte* ändringen om du anropar en angiven version av data uppsättningen.
+> Om de data som refereras av datauppsättningen skrivs över eller tas bort, återställs *inte* ändringen om ändringen om du anropar en viss version av datauppsättningen.
 
-När du läser in data från en data uppsättning laddas alltid det aktuella data innehåll som refereras till av data uppsättningen. Om du vill se till att varje data uppsättnings version är reproducerbar, rekommenderar vi att du inte ändrar data innehåll som data uppsättnings versionen refererar till. När nya data kommer in, sparar du nya datafiler i en separat datamapp och skapar sedan en ny data uppsättnings version som innehåller data från den nya mappen.
+När du läser in data från en datauppsättning läses alltid det aktuella datainnehållet som refereras av datauppsättningen in. Om du vill vara säker på att varje datauppsättningsversion kan reproduceras rekommenderar vi att du inte ändrar datainnehåll som refereras av datauppsättningsversionen. När nya data kommer in sparar du nya datafiler i en separat datamapp och skapar sedan en ny datauppsättningsversion för att inkludera data från den nya mappen.
 
-Följande bild och exempel kod visar det rekommenderade sättet att strukturera datamapparna och skapa data uppsättnings versioner som refererar till dessa mappar:
+Följande bild- och exempelkod visar det rekommenderade sättet att strukturera datamapparna och skapa datauppsättningsversioner som refererar till dessa mappar:
 
-![Mappstruktur](./media/how-to-version-track-datasets/folder-image.png)
+![Mappstrukturen](./media/how-to-version-track-datasets/folder-image.png)
 
 ```Python
 from azureml.core import Dataset
@@ -117,11 +117,11 @@ dataset2.register(workspace = workspace,
 
 <a name="pipeline"></a>
 
-## <a name="version-a-pipeline-output-dataset"></a>Version en data uppsättning för pipeline-utdata
+## <a name="version-a-pipeline-output-dataset"></a>Version av en pipeline-utdatauppsättning
 
-Du kan använda en data uppsättning som indata och utdata för varje Machine Learning pipeline-steg. När du kör pipelines igen registreras utdata för varje pipeline-steg som en ny data uppsättnings version.
+Du kan använda en datauppsättning som indata och utdata för varje Machine Learning-pipelinesteg. När du kör pipelines igen registreras utdata för varje pipeline-steg som en ny datauppsättningsversion.
 
-Eftersom Machine Learning pipelines fyller i utdata för varje steg i en ny mapp varje gång pipelinen återanvänds, är de versioner av data uppsättningarna som är i drift att återproduceras. Läs mer om [data uppsättningar i pipelines](how-to-create-your-first-pipeline.md#steps).
+Eftersom Machine Learning-pipelines fyller i utdata för varje steg i en ny mapp varje gång pipelinen körs igen, kan de versionsutgångsdatauppsättningar reproduceras. Läs mer om [datauppsättningar i pipelines](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -155,11 +155,11 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## <a name="track-datasets-in-experiments"></a>Spåra data uppsättningar i experiment
+## <a name="track-datasets-in-experiments"></a>Spåra datauppsättningar i experiment
 
-För varje Machine Learning experiment kan du enkelt spåra data uppsättningarna som används som indata genom experiment `Run`-objektet.
+För varje Machine Learning-experiment kan du enkelt spåra de datauppsättningar som används som indata genom experimentobjektet. `Run`
 
-I följande kod används metoden [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) för att spåra vilka indata-datauppsättningar som användes när experimentet kördes:
+Följande kod använder [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) metoden för att spåra vilka indatauppsättningar som användes i experimentkörningen:
 
 ```Python
 # get input datasets
@@ -170,13 +170,13 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-Du kan också hitta `input_datasets` från experiment med https://ml.azure.com/. 
+Du kan också `input_datasets` hitta från https://ml.azure.com/experiment med hjälp av . 
 
-Följande bild visar var du hittar indata-datauppsättningen för ett experiment på Azure Machine Learning Studio. I det här exemplet går du till fönstret **experiment** och öppnar fliken **Egenskaper** för en speciell körning av experimentet `keras-mnist`.
+Följande bild visar var du hittar indatauppsättningen för ett experiment i Azure Machine Learning studio. I det här exemplet går du till fönstret **Experiment** och öppnar fliken `keras-mnist` **Egenskaper** för en viss körning av experimentet.
 
-![Indata-datauppsättningar](./media/how-to-version-track-datasets/input-datasets.png)
+![Indatauppsättningar](./media/how-to-version-track-datasets/input-datasets.png)
 
-Använd följande kod för att registrera modeller med data uppsättningar:
+Använd följande kod för att registrera modeller med datauppsättningar:
 
 ```Python
 model = run.register_model(model_name='keras-mlp-mnist',
@@ -184,13 +184,13 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-Efter registreringen kan du se en lista över modeller som registrerats med data uppsättningen med hjälp av python eller gå till https://ml.azure.com/.
+Efter registreringen kan du se listan över modeller som registrerats https://ml.azure.com/med datauppsättningen med hjälp av Python eller gå till .
 
-Följande vy är från fönstret **data uppsättningar** under **till gångar**. Välj data uppsättningen och välj sedan fliken **modeller** för en lista med de modeller som är registrerade med data uppsättningen. 
+Följande vy kommer från fönstret **Datauppsättningar** under **Tillgångar**. Välj datauppsättningen och välj sedan fliken **Modeller** för en lista över de modeller som är registrerade med datauppsättningen. 
 
-![Data uppsättnings modeller för indata](./media/how-to-version-track-datasets/dataset-models.png)
+![Modeller för indatamängder](./media/how-to-version-track-datasets/dataset-models.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Träna med data uppsättningar](how-to-train-with-datasets.md)
-* [Fler exempel på data uppsättnings antecknings böcker](https://aka.ms/dataset-tutorial)
+* [Träna med datauppsättningar](how-to-train-with-datasets.md)
+* [Fler exempel på anteckningsböcker för datauppsättning](https://aka.ms/dataset-tutorial)

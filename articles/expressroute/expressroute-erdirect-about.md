@@ -8,88 +8,88 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
 ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083592"
 ---
 # <a name="about-expressroute-direct"></a>Om ExpressRoute Direct
 
-ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser strategiskt distribueras över hela världen. ExpressRoute Direct tillhandahåller dubbla 100 Gbit/s-anslutningar på 10 Gbit/s, som stöder aktiv/aktiv anslutning i stor skala.
+ExpressRoute Direct ger dig möjlighet att ansluta direkt till Microsofts globala nätverk på peering-platser som är strategiskt fördelade över hela världen. ExpressRoute Direct ger dubbla 100 Gbit/s- eller 10 Gbit/s-anslutning, som stöder aktiv/aktiv anslutning i stor skala.
 
-Viktiga funktioner som tillhandahåller ExpressRoute Direct inkludera, men inte begränsat till:
+Viktiga funktioner som ExpressRoute Direct tillhandahåller är, men är inte begränsade till:
 
 * Stora datainmatningar till tjänster som Storage och Cosmos DB
-* Fysisk isolering för branscher som regleras och kräver särskilda och isoleras anslutning som: Bank, myndigheter och detaljhandel
+* Fysisk isolering för branscher som är reglerade och kräver dedikerad och isolerad konnektivitet som: Bank, regering och Detaljhandel
 * Detaljerad kontroll över kretsfördelning utifrån affärsenheter
 
-## <a name="onboard-to-expressroute-direct"></a>Publicera till ExpressRoute Direct
+## <a name="onboard-to-expressroute-direct"></a>Ombord på ExpressRoute Direct
 
-Innan du använder ExpressRoute Direct måste du först registrera din prenumeration. Om du vill registrera, skicka ett e- <ExpressRouteDirect@microsoft.com> med ditt prenumerations-ID, inklusive följande information:
+Innan du använder ExpressRoute Direct måste du först registrera din prenumeration. Om du vill registrera <ExpressRouteDirect@microsoft.com> dig skickar du ett e-postmeddelande till med ditt prenumerations-ID, inklusive följande information:
 
 * Scenarier som du vill utföra med **ExpressRoute Direct**
-* Inställningar för plats - finns i [Partners och peeringplatser](expressroute-locations-providers.md) för en fullständig lista över alla platser
+* Platsinställningar – se [Partner och peering-platser](expressroute-locations-providers.md) för en fullständig lista över alla platser
 * Tidslinje för implementering
-* Andra frågor
+* Alla andra frågor
 
-## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute med en tjänstleverantör och ExpressRoute Direct
+## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute med hjälp av en tjänsteleverantör och ExpressRoute Direct
 
-| **ExpressRoute med en tjänstleverantör** | **ExpressRoute Direct** | 
+| **ExpressRoute med hjälp av en tjänsteleverantör** | **ExpressRoute Direct** | 
 | --- | --- |
-| Använder leverantörer för att möjliggöra snabb onboarding och anslutning till befintlig infrastruktur | Kräver en infrastruktur på 100 Gbit/s/10 Gbit/s och fullständig hantering av alla skikt
-| Kan integreras med hundratals av inklusive Ethernet och MPLS-leverantörer | Direct eller dedikerad kapacitet för reglerade branscher och enorma datainmatning |
-| Kretsar SKU: er från 50 Mbit/s till 10 Gbit/s | Kunden kan välja en kombination av följande krets-SKU: er på 100 Gbit/s ExpressRoute Direct: <ul><li>5 Gbit/s</li><li>10 Gbit/s</li><li>40 Gbit/s</li><li>100 Gbit/s</li></ul> Kunden kan välja en kombination av följande krets-SKU: er på 10 Gbit/s ExpressRoute Direct:<ul><li>1 Gbit/s</li><li>2 Gbit/s</li><li>5 Gbit/s</li><li>10 Gbit/s</li></ul>
-| Optimerad för enskild klient | Optimerad för en enskild klient med flera affär senheter och flera arbets miljöer
+| Använder tjänsteleverantörer för att möjliggöra snabb introduktion och anslutning till befintlig infrastruktur | Kräver 100 Gbps/10 Gbps-infrastruktur och full hantering av alla lager
+| Integreras med hundratals leverantörer, inklusive Ethernet och MPLS | Direkt/särskild kapacitet för reglerade industrier och massiv datainmatning |
+| Kretsar SKU:er från 50 Mbit/s till 10 Gbit/s | Kunden kan välja en kombination av följande kretsskrot på 100 Gbps ExpressRoute Direct: <ul><li>5 Gbit/s</li><li>10 Gbit/s</li><li>40 Gbit/s</li><li>100 Gbit/s</li></ul> Kunden kan välja en kombination av följande kretsskrot på 10 Gbit/s ExpressRoute Direct:<ul><li>1 Gbit/s</li><li>2 Gbit/s</li><li>5 Gbit/s</li><li>10 Gbit/s</li></ul>
+| Optimerad för en enda klient | Optimerad för en enda hyresgäst med flera affärsenheter och flera arbetsmiljöer
 
-## <a name="expressroute-direct-circuits"></a>Direct för ExpressRoute-kretsar
+## <a name="expressroute-direct-circuits"></a>ExpressRoute Direct kretsar
 
-Microsoft Azure ExpressRoute låter dig utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning med hjälp av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts moln tjänster, till exempel Microsoft Azure och Office 365.
+Microsoft Azure ExpressRoute låter dig utöka ditt lokala nätverk till Microsoft-molnet över en privat anslutning med hjälp av en anslutningsprovider. Med ExpressRoute kan du upprätta anslutningar till Microsofts molntjänster, till exempel Microsoft Azure och Office 365.
 
-Varje peeringplats har åtkomst till Microsofts globala nätverk och kan komma åt alla regioner i en geopolitiska zon som standard och har åtkomst till alla globala regioner med en premium-krets.  
+Varje peering-plats har åtkomst till Microsofts globala nätverk och kan som standard komma åt alla regioner i en geopolitisk zon och kan komma åt alla globala regioner med en premiumkrets.  
 
-Funktionerna i de flesta fall motsvarar kretsar som använder en ExpressRoute-leverantör för att fungera. För att stödja mer detaljrikedom och nya funktioner som erbjuds med hjälp av ExpressRoute Direct, finns det vissa viktiga funktioner som finns på direkt ExpressRoute-kretsar.
+Funktionaliteten i de flesta scenarier motsvarar kretsar som använder en ExpressRoute-tjänsteleverantör för att fungera. För att stödja ytterligare granularitet och nya funktioner som erbjuds med ExpressRoute Direct finns det vissa viktiga funktioner som finns på ExpressRoute Direct Circuits.
 
-## <a name="circuit-skus"></a>Kretsen SKU: er
+## <a name="circuit-skus"></a>Krets SKU:er
 
-ExpressRoute Direct stöder scenarier för inmatning av massiva data i Azure storage och andra tjänster för stordata. ExpressRoute-kretsar på 100 Gbit/s ExpressRoute Direct stöder nu även **40 Gbit/** s och **100 Gbit/s** krets SKU: er. De fysiska portarna är **100 eller 10 Gbit/s** och kan ha flera virtuella kretsar. Krets storlekar:
+ExpressRoute Direct stöder massiva scenarier för datainmatning i Azure-lagring och andra stordatatjänster. ExpressRoute-kretsar på 100 Gbps ExpressRoute Direct stöder nu även **40 Gbit/s** och **100 Gbit/s-kretsskrokar.** De fysiska portparen är endast **100 eller 10 Gbit/s** och kan ha flera virtuella kretsar. Kretsstorlekar:
 
-| **100 Gbit/s ExpressRoute Direct** | **10 Gbit/s ExpressRoute Direct** | 
+| **100 Gbit/s ExpressRoute Direkt** | **10 Gbit/s ExpressRoute Direkt** | 
 | --- | --- |
-| **Prenumererad bandbredd**: 200 Gbit/s | **Prenumererad bandbredd**: 20 Gbit/s |
+| **Prenumererad bandbredd:** 200 Gbps | **Prenumererad bandbredd:** 20 Gbit/s |
 | <ul><li>5 Gbit/s</li><li>10 Gbit/s</li><li>40 Gbit/s</li><li>100 Gbit/s</li></ul> | <ul><li>1 Gbit/s</li><li>2 Gbit/s</li><li>5 Gbit/s</li><li>10 Gbit/s</li></ul>
 
 ## <a name="technical-requirements"></a>Tekniska krav
 
-* Microsoft MSEE: N-gränssnitt (Enterprise Edge router):
-    * Dubbla 10-eller 100 Gigabit Ethernet-portar endast över router-par
-    * LR fiber anslutning med enkel läge
+* MSEE-gränssnitt (Microsoft Enterprise Edge Router):
+    * Dubbla 10- eller 100 Gigabit Ethernet-portar endast mellan routerpar
+    * LR-fiberanslutning i ett läge
     * IPv4 och IPv6
-    * IP-MTU 1500 byte
+    * IP MTU 1500 byte
 
-* Anslutning/router skikt 2/Layer 3-anslutning:
-    * Måste ha stöd för 1 802.1 Q (Dot1Q)-tagg eller två tag 802.1 Q (QinQ) tagg-inkapsling
+* Switch/Router Layer 2/Layer 3-anslutning:
+    * Måste ha stöd för tagginkapsling med 1 802.1Q (Dot1Q) eller två Tag 802.1Q-tagginkapsling
     * Ethertype = 0x8100
-    * Måste lägga till den yttre VLAN-taggen (STAG) baserat på det VLAN-ID som anges av Microsoft- *endast tillgängligt på QinQ*
+    * Måste lägga till den yttre VLAN-taggen (STAG) baserat på det VLAN-ID som anges av Microsoft - *gäller endast på QinQ*
     * Måste ha stöd för flera BGP-sessioner (VLAN) per port och enhet
-    * IPv4-och IPv6-anslutning. *Inga ytterligare under gränssnitt kommer att skapas för IPv6. IPv6-adressen kommer att läggas till i det befintliga under gränssnittet*. 
-    * Valfritt: stöd för [BFD-stöd (dubbelriktad vidarebefordring)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) som är konfigurerat som standard för alla privata peer-kopplingar på ExpressRoute-kretsar
+    * IPv4- och IPv6-anslutning. *För IPv6 skapas inget ytterligare undergränssnitt. IPv6-adressen läggs till i befintligt undergränssnitt*. 
+    * Valfritt: [Stöd för BFD (Bidirectional Forwarding Detection),](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) som konfigureras som standard på alla privata peerings på ExpressRoute-kretsar
 
 ## <a name="vlan-tagging"></a>VLAN-märkning
 
-ExpressRoute Direct stöder både QinQ och Dot1Q VLAN-märkning.
+ExpressRoute Direct stöder både QinQ- och Dot1Q VLAN-taggning.
 
-* **QinQ VLAN-märkning** möjliggör isolerade routningsdomäner på en per ExpressRoute-krets basis. Azure allokerar en S-tagg på används för att skapa dynamiskt och kan inte ändras. Varje peering i kretsen (privat och Microsoft) ska använda en unik C-tagg som VLAN. C-taggen krävs inte vara unikt för kretsar på ExpressRoute Direct-portar.
+* **QinQ VLAN-taggning** möjliggör isolerade routningsdomäner enligt ExpressRoute-kretsbasis. Azure allokerar dynamiskt en S-Tagg vid att skapa krets och kan inte ändras. Varje peering på kretsen (Privat och Microsoft) kommer att använda en unik C-Tag som VLAN. C-Tag behöver inte vara unikt över kretsar på ExpressRoute Direct-portarna.
 
-* **Dot1Q VLAN-märkning** tillåter för en enda taggade VLAN på en per ExpressRoute direkt port par basis. En C-tagg som används på en peering måste vara unikt för alla kretsar och peer-kopplingar på ExpressRoute direkt port paret.
+* **Dot1Q VLAN-taggning** möjliggör en enda taggad VLAN på basis av Per ExpressRoute Direct-portpar. En C-Tag som används på en peering måste vara unik över alla kretsar och peerings på ExpressRoute Direct-portparet.
 
 ## <a name="workflow"></a>Arbetsflöde
 
-[![arbets flöde](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
+[![Arbetsflöde](./media/expressroute-erdirect-about/workflow1.png)](./media/expressroute-erdirect-about/workflow1.png#lightbox)
 
 ## <a name="sla"></a>SLA
 
-ExpressRoute Direct ger redundanta aktiv/aktiv-anslutningar till Microsofts globala nätverk av samma serviceavtal i företagsklass. ExpressRoute-infrastruktur är redundant och anslutning till Microsofts globala nätverk är redundant och skilda och kan skalas på lämpligt sätt med kundbehov. 
+ExpressRoute Direct tillhandahåller samma serviceavtal i företagsklass med aktiva/aktiva redundanta anslutningar till Microsofts globala nätverk. ExpressRoute-infrastrukturen är redundant och anslutningen till Microsoft Global Network är överflödig och varierad och skalar därefter med kundernas krav. 
 
 ## <a name="next-steps"></a>Nästa steg
 

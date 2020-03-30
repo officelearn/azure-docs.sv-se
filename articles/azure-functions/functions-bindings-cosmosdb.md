@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB-bindningar för Functions 1.x
+title: Azure Cosmos DB-bindningar för funktioner 1.x
 description: Förstå hur du använder Azure Cosmos DB-utlösare och bindningar i Azure Functions.
 author: craigshoemaker
 ms.author: cshoe
@@ -7,45 +7,45 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
 ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79277549"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindningar för Azure Functions 1.x
 
-> [!div class="op_single_selector" title1="Välj den version av Azure Functions runtime som du använder: "]
+> [!div class="op_single_selector" title1="Välj den version av Azure Functions-körningen som du använder: "]
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
-Den här artikeln förklarar hur du arbetar med [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) -bindningar i Azure Functions. Azure Functions stöder utlösa, indata och utdata-bindningar för Azure Cosmos DB.
+I den här artikeln beskrivs hur du arbetar med [Azure Cosmos](../cosmos-db/serverless-computing-database.md) DB-bindningar i Azure Functions. Azure Functions stöder utlösande, indata och utdatabindningar för Azure Cosmos DB.
 
 > [!NOTE]
-> Den här artikeln är för Azure Functions 1.x. Information om hur du använder dessa bindningar i functions 2. x och högre finns [Azure Cosmos DB bindningar för Azure Functions 2. x](functions-bindings-cosmosdb-v2.md).
+> Den här artikeln är avsedd för Azure Functions 1.x. Information om hur du använder dessa bindningar i Functions 2.x och senare finns i [Azure Cosmos DB-bindningar för Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
 >
->Den här bindningen hette ursprungligen DocumentDB. I funktioner version 1.x, endast utlösaren har bytt namn Cosmos DB. den indatabindning och utdatabindning NuGet-paketet kan du behålla DocumentDB-namn.
+>Den här bindningen hette ursprungligen DocumentDB. I Functions version 1.x har endast utlösaren bytt namn till Cosmos DB. Indatabindningen, utdatabindningen och NuGet-paketet behåller DocumentDB-namnet.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Azure Cosmos DB-bindningar stöds endast för användning med SQL-API:n. För alla andra Azure Cosmos DB-API: er ska du komma åt databasen från din funktion med hjälp av den statiska klienten för ditt API, inklusive [Azure Cosmos DB s API för MongoDB](../cosmos-db/mongodb-introduction.md), [API för Cassandra](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md)och [tabell-API](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB-bindningar stöds endast för användning med SQL-API:n. För alla andra Azure Cosmos DB-API:er bör du komma åt databasen från din funktion med hjälp av den statiska klienten för ditt API, inklusive [Azure Cosmos DB:s API för MongoDB,](../cosmos-db/mongodb-introduction.md) [Cassandra API](../cosmos-db/cassandra-introduction.md), [Gremlin API](../cosmos-db/graph-introduction.md)och Table [API](../cosmos-db/table-introduction.md).
 
-## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
+## <a name="packages---functions-1x"></a>Paket - Funktioner 1.x
 
-Azure Cosmos DB-bindningar för functions version 1. x finns i [Microsoft. Azure. WebJobs. Extensions. DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet-paketet, version 1. x. Käll koden för bindningarna finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) lagringsplatsen.
+Azure Cosmos DB-bindningar för Funktioner version 1.x finns i [Paketet Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet, version 1.x. Källkoden för bindningarna finns i [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub-databasen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
 ## <a name="trigger"></a>Utlösare
 
-Azure Cosmos DB-utlösaren använder [Azure Cosmos DB ändra feed](../cosmos-db/change-feed.md) för att lyssna efter infogningar och uppdateringar över partitioner. Ändringsflöde publicerar infogningar och uppdateringar, inte borttagningar.
+Azure Cosmos DB-utlösaren använder [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) för att lyssna efter infogningar och uppdateringar över partitioner. Ändringsflödet publicerar infogningar och uppdateringar, inte borttagningar.
 
 ## <a name="trigger---example"></a>Utlösare - exempel
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som anropas när det finns infogningar eller uppdateringar i den angivna databasen och samlingen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som anropas när det finns infogningar eller uppdateringar i den angivna databasen och samlingen.
 
 ```cs
 using Microsoft.Azure.Documents;
@@ -76,11 +76,11 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-I följande exempel visas en Cosmos DB trigger-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver loggmeddelanden när Cosmos DB-poster har ändrats.
+I följande exempel visas en Cosmos DB-utlösare som binder i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver loggmeddelanden när Cosmos DB-poster ändras.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
 ```json
 {
@@ -95,7 +95,7 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```cs
     #r "Microsoft.Azure.Documents.Client"
@@ -112,11 +112,11 @@ Här är C#-skriptkoden:
     }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-I följande exempel visas en Cosmos DB trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver loggmeddelanden när Cosmos DB-poster har ändrats.
+I följande exempel visas en Cosmos DB-utlösare som binder i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver loggmeddelanden när Cosmos DB-poster ändras.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
 ```json
 {
@@ -131,7 +131,7 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
     module.exports = function (context, documents) {
@@ -147,9 +147,9 @@ Här är JavaScript-kod:
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Använd attributet [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
+I [klassbibliotek för C#](functions-dotnet-class-library.md)använder du attributet [CosmosDBTrigger.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs)
 
-Attributets konstruktorn tar databasens namn och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [trigger-Configuration](#trigger---configuration). Här är ett exempel på ett `CosmosDBTrigger`-attribut i en metodsignatur:
+Attributets konstruktor tar databasnamnet och samlingsnamnet. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [Utlösare - konfiguration](#trigger---configuration). Här är `CosmosDBTrigger` ett attributexempel i en metodsignatur:
 
 ```csharp
     [FunctionName("DocumentUpdates")]
@@ -162,71 +162,71 @@ Attributets konstruktorn tar databasens namn och samlingens namn. Information om
     }
 ```
 
-Ett fullständigt exempel finns i [Utlös ande- C# exempel](#trigger).
+Ett fullständigt exempel finns i [Utlösare - C#exempel](#trigger).
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Attribut stöds inte av C# skript.
+Attribut stöds inte av C# Script.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Attribut stöds inte av Java Script.
+Attribut stöds inte av JavaScript.
 
 ---
 
 ## <a name="trigger---configuration"></a>Utlösare - konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `CosmosDBTrigger`-attributet.
+I följande tabell beskrivs de bindningskonfigurationsegenskaper som `CosmosDBTrigger` du anger i *filen function.json* och attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|egenskapen function.json | Egenskapen Attribute |Beskrivning|
 |---------|---------|----------------------|
-|**typ** | Saknas | Måste anges till `cosmosDBTrigger`. |
-|**riktning** | Saknas | Måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. |
-|**connectionStringSetting**|**ConnectionStringSetting** | Namnet på en appinställning som innehåller anslutningssträngen som används för att ansluta till Azure Cosmos DB-kontot som övervakas. |
-|**Databas**|**Databas**  | Namnet på Azure Cosmos DB-databasen med den samling som övervakas. |
-|**Samling** |**Samling** | Namnet på samlingen som övervakas. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Valfritt) Namnet på en appinställning som innehåller anslutningssträngen till den tjänst som innehar lånet samlingen. Om värdet inte anges används `connectionStringSetting` svärdet. Den här parametern anges automatiskt när bindningen skapas i portalen. Anslutningssträngen för lånsamlingen måste ha skrivbehörighet.|
-|**leaseDatabaseName** |**LeaseDatabaseName** | (Valfritt) Namnet på den databas som innehåller den samling som används för att lagra lån. När inställningen inte anges används värdet för `databaseName`-inställningen. Den här parametern anges automatiskt när bindningen skapas i portalen. |
-|**leaseCollectionName** | **LeaseCollectionName** | (Valfritt) Namnet på den samling som används för att lagra lån. När den inte anges används värdet `leases`. |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | Valfritt När värdet är `true`skapas låne samlingen automatiskt när den inte redan finns. Standardvärdet är `false`. |
-|**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (Valfritt) Definierar mängd Begäransenheter för att tilldela när lånsamlingen skapas. Den här inställningen används bara när `createLeaseCollectionIfNotExists` är inställt på `true`. Den här parametern anges automatiskt när bindningen skapas med hjälp av portalen.
-|**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (Valfritt) När värdet den lägger till ett prefix till lån som skapats i lånsamling för den här funktionen så effektivt att två separata Azure-Functions för att dela samma lånsamling med hjälp av olika prefix.
-|**feedPollDelay**| **FeedPollDelay**| (Valfritt) När mängd, den definierar, i millisekunder, fördröjning mellan att avsöka en partition för nya ändringar på flödet, är när alla aktuella ändringar tömda. Standardvärdet är 5 000 (5 sekunder).
-|**leaseAcquireInterval**| **LeaseAcquireInterval**| (Valfritt) När värdet definierar den, i millisekunder, intervallet sätta igång en uppgift att beräkna om partitioner fördelas jämnt mellan kända ha instanser. Standardvärdet är 13000 (13 sekunder).
-|**leaseExpirationInterval**| **LeaseExpirationInterval**| (Valfritt) När värdet definierar den, i millisekunder, intervallet som fattas lånet om ett lån som representerar en partition. Om lånet inte förnyas inom intervallet, det gör att det upphör att gälla och ägarskap för partitionen flyttas till en annan instans. Standardvärdet är 60000 (60 sekunder).
-|**leaseRenewInterval**| **LeaseRenewInterval**| (Valfritt) När värdet definierar den, i millisekunder, förnyelseintervallet för alla lån för partitioner som för tillfället hålls av en instans. Standardvärdet är 17000 (17 sekunder).
-|**checkpointFrequency**| **CheckpointFrequency**| (Valfritt) När värdet definierar den, i millisekunder, hur många lån kontrollpunkter. Standardvärdet är alltid efter varje funktions anrop.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Valfritt) När värdet anpassar det den maximala mängden objekt tas emot per funktionsanrop.
-|**startFromBeginning**| **StartFromBeginning**| Valfritt När det är inställt, instrueras utlösaren att börja läsa ändringar från början av samlingens historik i stället för den aktuella tiden. Detta fungerar bara första gången utlösaren startar, precis som vid efterföljande körningar, så är kontroll punkterna redan lagrade. Om du anger detta till `true` när det redan har skapats lån har ingen påverkan.
+|**Typ** | Saknas | Måste ställas `cosmosDBTrigger`in på . |
+|**riktning** | Saknas | Måste ställas `in`in på . Den här parametern ställs in automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | Saknas | Variabelnamnet som används i funktionskoden och som representerar listan över dokument med ändringar. |
+|**anslutningStringInställning**|**ConnectionStringSetting** | Namnet på en appinställning som innehåller anslutningssträngen som används för att ansluta till Azure Cosmos DB-kontot som övervakas. |
+|**Databasename**|**DatabaseName**  | Namnet på Azure Cosmos DB-databasen med samlingen som övervakas. |
+|**collectionName (samlingsnamn)** |**CollectionName** | Namnet på den samling som övervakas. |
+|**leConnectionStringSetting** | **LeaseConnectionStringSetting** | (Valfritt) Namnet på en appinställning som innehåller anslutningssträngen till tjänsten som innehåller lånesamlingen. När värdet inte `connectionStringSetting` har angetts används det. Den här parametern ställs in automatiskt när bindningen skapas i portalen. Anslutningssträngen för lånesamlingen måste ha skrivbehörighet.|
+|**leasaDatabaseName** |**LeaseDatabaseName** | (Valfritt) Namnet på databasen som innehåller samlingen som används för att lagra lån. När inställningen inte har `databaseName` ställts in används värdet för inställningen. Den här parametern ställs in automatiskt när bindningen skapas i portalen. |
+|**leaseCollectionName** | **LeaseCollectionName** | (Valfritt) Namnet på den samling som används för att lagra leasingavtal. När värdet inte `leases` har angetts används det. |
+|**skapaLeaseCollectionIfNotExists** | **SkapaLeaseCollectionIfNotExists** | (Valfritt) När den `true`är inställd på skapas lånesamlingen automatiskt när den inte redan finns. Standardvärdet är `false`. |
+|**leasingerCollectionThroughput**| **LeasingUppsamlingGenomgenomströmning**| (Valfritt) Definierar mängden begärandeenheter som ska tilldelas när lånesamlingen skapas. Den här inställningen `createLeaseCollectionIfNotExists` används bara `true`När är inställd på . Den här parametern ställs in automatiskt när bindningen skapas med hjälp av portalen.
+|**leCollectionPrefix**| **LeaseCollectionPrefix**| (Valfritt) När den är inställd läggs ett prefix till de lån som skapats i lånesamlingen för den här funktionen, vilket i praktiken gör att två separata Azure-funktioner kan dela samma Lånesamling med hjälp av olika prefix.
+|**feedPollDelay**| **FeedPollDelay**| (Valfritt) När den är inställd definierar den i millisekunder fördröjningen mellan avsökningen av en partition för nya ändringar i flödet, när alla aktuella ändringar har tömts. Standard är 5000 (5 sekunder).
+|**lendeRättInterval**| **LeaseAcquireInterval**| (Valfritt) När den är inställd definierar den i millisekunder intervallet för att starta en uppgift för att beräkna om partitioner fördelas jämnt mellan kända värdinstanser. Standard är 13000 (13 sekunder).
+|**leaseExpirationInterval**| **LeaseExpirationInterval**| (Valfritt) När den är inställd definierar den i millisekunder det intervall för vilket lånet tas på ett lån som representerar en partition. Om lånet inte förnyas inom det här intervallet kommer det att leda till att det upphör att gälla och ägarskapet av partitionen flyttas till en annan instans. Standard är 60000 (60 sekunder).
+|**leasingRenewInterval**| **LeaseRenewInterval**| (Valfritt) När den är inställd definierar den i millisekunder förnyelseintervallet för alla lån för partitioner som för närvarande innehas av en instans. Standard är 17000 (17 sekunder).
+|**checkpointFrequency**| **KontrollpunktFrekvent**| (Valfritt) När den är inställd definierar den i millisekunder intervallet mellan lånekontrollpunkter. Standard är alltid efter varje funktionsanrop.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Valfritt) När den är inställd anpassas det maximala antalet objekt som tas emot per funktionsanrop.
+|**startFrånBeginning**| **StartFrånBesning**| (Valfritt) När den är inställd talar den om att utlösaren ska börja läsa ändringar från början av samlingens historik i stället för den aktuella tiden. Detta fungerar bara första gången utlösaren startar, som i efterföljande körningar, är kontrollpunkterna redan lagrade. Om du `true` ställer in detta på när det redan har skapats lån har ingen effekt.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
-Utlösaren kräver en andra samling som används för att lagra _lån_ över partitionerna. Både den samling som övervakas och den samling som innehåller lån måste vara tillgänglig för utlösaren ska fungera.
+Utlösaren kräver en andra samling som den använder för att lagra _lån_ över partitionerna. Både samlingen som övervakas och samlingen som innehåller lånen måste vara tillgängliga för att utlösaren ska fungera.
 
 >[!IMPORTANT]
-> Om flera funktioner har kon figurer ATS för att använda en Cosmos DB-utlösare för samma samling, ska varje funktion använda en dedikerad Lease-samling eller ange en annan `LeaseCollectionPrefix` för varje funktion. Annars kan aktiveras endast en av funktionerna. Information om prefixet finns i [avsnittet konfiguration](#trigger---configuration).
+> Om flera funktioner är konfigurerade för att använda en Cosmos DB-utlösare för samma samling, `LeaseCollectionPrefix` bör var och en av funktionerna använda en dedikerad lånesamling eller ange en annan för varje funktion. Annars utlöses bara en av funktionerna. Information om prefixet finns i [avsnittet Konfiguration](#trigger---configuration).
 
-Utlösaren anger inte om ett dokument har uppdateras eller infogas, den bara innehåller själva dokumentet. Om du vill hantera uppdateringar och infogningar på olika sätt, kan du göra det genom att implementera värdefält för infogning eller uppdaterar.
+Utlösaren anger inte om ett dokument har uppdaterats eller infogats, utan själva dokumentet. Om du behöver hantera uppdateringar och infogar olika kan du göra det genom att implementera tidsstämpelfält för insättning eller uppdatering.
 
 ## <a name="input"></a>Indata
 
-Azure Cosmos DB-indatabindning använder SQL-API för att hämta en eller flera Azure Cosmos DB-dokument och skickar dem till Indataparametern för funktionen. Dokument-ID eller frågeparametrar kan fastställas baserat på utlösare som anropar funktionen.
+Azure Cosmos DB-indatabindningen använder SQL API för att hämta en eller flera Azure Cosmos DB-dokument och skickar dem till indataparametern för funktionen. Dokument-ID:t och frågeparametrarna kan fastställas baserat på den utlösare som anropar funktionen.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
 Det här avsnittet innehåller följande exempel:
 
-* [Köa utlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-c)
-* [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-c)
-* [HTTP-utlösare, slå upp ID från flödes data](#http-trigger-look-up-id-from-route-data-c)
-* [HTTP-utlösare, slå upp ID från routa data med SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
+* [Köutlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-c)
+* [HTTP-utlösare, slå upp ID från frågesträngen](#http-trigger-look-up-id-from-query-string-c)
+* [HTTP-utlösare, slå upp ID från vägdata](#http-trigger-look-up-id-from-route-data-c)
+* [HTTP-utlösare, slå upp ID från vägdata med SqlQuery](#http-trigger-look-up-id-from-route-data-using-sqlquery-c)
 * [HTTP-utlösare, hämta flera dokument med SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c)
 * [HTTP-utlösare, hämta flera dokument med DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c)
 
-Exemplen refererar till en enkel `ToDoItem`s typ:
+Exemplen refererar `ToDoItem` till en enkel typ:
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -241,9 +241,9 @@ namespace CosmosDBSamplesV1
 
 <a id="queue-trigger-look-up-id-from-json-c"></a>
 
-### <a name="queue-trigger-look-up-id-from-json"></a>Köa utlösare, slå upp ID från JSON
+### <a name="queue-trigger-look-up-id-from-json"></a>Köutlösare, slå upp ID från JSON
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av ett kömeddelande som innehåller ett JSON-objekt. Queue-utlösaren parsar JSON till ett objekt med namnet `ToDoItemLookup`, som innehåller det ID som ska sökas upp. Detta ID används för att hämta ett `ToDoItem`-dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enda dokument. Funktionen utlöses av ett kömeddelande som innehåller ett JSON-objekt. Köutlösaren tolkar JSON till `ToDoItemLookup`ett objekt med namnet , som innehåller ID:t för att slå upp. Det ID:t används `ToDoItem` för att hämta ett dokument från den angivna databasen och samlingen.
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -290,9 +290,9 @@ namespace CosmosDBSamplesV1
 
 <a id="http-trigger-look-up-id-from-query-string-c"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, leta upp ID från frågesträng
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, slå upp ID från frågesträngen
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. Detta ID används för att hämta ett `ToDoItem`-dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange vilket ID som ska sökas upp. Det ID:t används `ToDoItem` för att hämta ett dokument från den angivna databasen och samlingen.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -332,9 +332,9 @@ namespace CosmosDBSamplesV1
 
 <a id="http-trigger-look-up-id-from-route-data-c"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från flödes data
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från vägdata
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder dirigera data för att ange ID för att leta upp. Detta ID används för att hämta ett `ToDoItem`-dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder vägdata för att ange id för att slå upp. Det ID:t används `ToDoItem` för att hämta ett dokument från den angivna databasen och samlingen.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -375,13 +375,13 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Hoppa över inmatade exempel](#input---attributes)
+[Hoppa över indataexempel](#input---attributes)
 
 <a id="http-trigger-look-up-id-from-route-data-using-sqlquery-c"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>HTTP-utlösare, slå upp ID från routa data med SqlQuery
+### <a name="http-trigger-look-up-id-from-route-data-using-sqlquery"></a>HTTP-utlösare, slå upp ID från vägdata med SqlQuery
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder dirigera data för att ange ID för att leta upp. Detta ID används för att hämta ett `ToDoItem`-dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder vägdata för att ange id för att slå upp. Det ID:t används `ToDoItem` för att hämta ett dokument från den angivna databasen och samlingen.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -417,13 +417,13 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Hoppa över inmatade exempel](#input---attributes)
+[Hoppa över indataexempel](#input---attributes)
 
 <a id="http-trigger-get-multiple-docs-using-sqlquery-c"></a>
 
 ### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>HTTP-utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Frågan anges i egenskapen `SqlQuery` attribut.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Frågan anges i attributegenskapen. `SqlQuery`
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -460,13 +460,13 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-[Hoppa över inmatade exempel](#input---attributes)
+[Hoppa över indataexempel](#input---attributes)
 
 <a id="http-trigger-get-multiple-docs-using-documentclient-c"></a>
 
-### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>HTTP utlösa får flera docs, med hjälp av DocumentClient (C#)
+### <a name="http-trigger-get-multiple-docs-using-documentclient-c"></a>HTTP-utlösare, hämta flera dokument med DocumentClient (C#)
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. I koden används en `DocumentClient`-instans från Azure Cosmos DB-bindningen för att läsa en lista över dokument. `DocumentClient`-instansen kan också användas för Skriv åtgärder.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Koden använder `DocumentClient` en instans som tillhandahålls av Azure Cosmos DB-bindningen för att läsa en lista över dokument. Instansen `DocumentClient` kan också användas för skrivåtgärder.
 
 ```cs
 using Microsoft.Azure.Documents.Client;
@@ -523,18 +523,18 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
 Det här avsnittet innehåller följande exempel:
 
-* [Köa utlösare, leta upp ID från sträng](#queue-trigger-look-up-id-from-string-c-script)
-* [Köa utlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
-* [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-c-script)
-* [HTTP-utlösare, slå upp ID från flödes data](#http-trigger-look-up-id-from-route-data-c-script)
+* [Köutlösare, slå upp ID från sträng](#queue-trigger-look-up-id-from-string-c-script)
+* [Köutlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-c-script)
+* [HTTP-utlösare, slå upp ID från frågesträngen](#http-trigger-look-up-id-from-query-string-c-script)
+* [HTTP-utlösare, slå upp ID från vägdata](#http-trigger-look-up-id-from-route-data-c-script)
 * [HTTP-utlösare, hämta flera dokument med SqlQuery](#http-trigger-get-multiple-docs-using-sqlquery-c-script)
 * [HTTP-utlösare, hämta flera dokument med DocumentClient](#http-trigger-get-multiple-docs-using-documentclient-c-script)
 
-Exempel på HTTP-utlösare hänvisar till en enkel `ToDoItem`s typ:
+HTTP-utlösarexemplen refererar `ToDoItem` till en enkel typ:
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -549,11 +549,11 @@ namespace CosmosDBSamplesV1
 
 <a id="queue-trigger-look-up-id-from-string-c-script"></a>
 
-### <a name="queue-trigger-look-up-id-from-string"></a>Köa utlösare, leta upp ID från sträng
+### <a name="queue-trigger-look-up-id-from-string"></a>Köutlösare, slå upp ID från sträng
 
-I följande exempel visas en Cosmos DB-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen läser ett enskilt dokument och uppdaterar dokumentets textvärde.
+I följande exempel visas en Cosmos DB-indatabindning i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets textvärde.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
 ```json
 {
@@ -568,9 +568,9 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#input---configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#input---configuration) förklarar dessa egenskaper.
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```cs
     using System;
@@ -584,13 +584,13 @@ Här är C#-skriptkoden:
 
 <a id="queue-trigger-get-multiple-docs-using-sqlquery-c-script"></a>
 
-### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köa utlösare, hämta flera dokument med SqlQuery
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köutlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en Azure Cosmos DB-bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga som använder en kö-utlösare för att anpassa Frågeparametrar.
+I följande exempel visas en Azure Cosmos DB-indatabindning i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en köutlösare för att anpassa frågeparametrarna.
 
-Utlösaren för kön innehåller en parameter `departmentId`. Ett köat meddelande i `{ "departmentId" : "Finance" }` skulle returnera alla poster för ekonomi avdelningen.
+Köutlösaren tillhandahåller `departmentId`en parameter . Ett kömeddelande `{ "departmentId" : "Finance" }` om returnerar alla poster för ekonomiavdelningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
 ```json
 {
@@ -604,9 +604,9 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#input---configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#input---configuration) förklarar dessa egenskaper.
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```csharp
     public static void Run(QueuePayload myQueueItem, IEnumerable<dynamic> documents)
@@ -625,11 +625,11 @@ Här är C#-skriptkoden:
 
 <a id="http-trigger-look-up-id-from-query-string-c-script"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, leta upp ID från frågesträng
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, slå upp ID från frågesträngen
 
-I följande exempel visas en [ C# skript funktion](functions-reference-csharp.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. Detta ID används för att hämta ett `ToDoItem`-dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-skriptfunktion](functions-reference-csharp.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange vilket ID som ska sökas upp. Det ID:t används `ToDoItem` för att hämta ett dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -663,7 +663,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```cs
 using System.Net;
@@ -686,11 +686,11 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 <a id="http-trigger-look-up-id-from-route-data-c-script"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från flödes data
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från vägdata
 
-I följande exempel visas en [ C# skript funktion](functions-reference-csharp.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder dirigera data för att ange ID för att leta upp. Detta ID används för att hämta ett `ToDoItem`-dokument från den angivna databasen och samlingen.
+I följande exempel visas en [C#-skriptfunktion](functions-reference-csharp.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder vägdata för att ange id för att slå upp. Det ID:t används `ToDoItem` för att hämta ett dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -725,7 +725,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```cs
 using System.Net;
@@ -750,9 +750,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 ### <a name="http-trigger-get-multiple-docs-using-sqlquery"></a>HTTP-utlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en [ C# skript funktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Frågan anges i egenskapen `SqlQuery` attribut.
+I följande exempel visas en [C#-skriptfunktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Frågan anges i attributegenskapen. `SqlQuery`
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -786,7 +786,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```cs
 using System.Net;
@@ -807,9 +807,9 @@ public static HttpResponseMessage Run(HttpRequestMessage req, IEnumerable<ToDoIt
 
 ### <a name="http-trigger-get-multiple-docs-using-documentclient"></a>HTTP-utlösare, hämta flera dokument med DocumentClient
 
-I följande exempel visas en [ C# skript funktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. I koden används en `DocumentClient`-instans från Azure Cosmos DB-bindningen för att läsa en lista över dokument. `DocumentClient`-instansen kan också användas för Skriv åtgärder.
+I följande exempel visas en [C#-skriptfunktion](functions-reference-csharp.md) som hämtar en lista med dokument. Funktionen utlöses av en HTTP-begäran. Koden använder `DocumentClient` en instans som tillhandahålls av Azure Cosmos DB-bindningen för att läsa en lista över dokument. Instansen `DocumentClient` kan också användas för skrivåtgärder.
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -842,7 +842,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```cs
 #r "Microsoft.Azure.Documents.Client"
@@ -881,23 +881,23 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
 Det här avsnittet innehåller följande exempel:
 
-* [Köa utlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-javascript)
-* [HTTP-utlösare, leta upp ID från frågesträng](#http-trigger-look-up-id-from-query-string-javascript)
-* [HTTP-utlösare, slå upp ID från flödes data](#http-trigger-look-up-id-from-route-data-javascript)
-* [Köa utlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
+* [Köutlösare, slå upp ID från JSON](#queue-trigger-look-up-id-from-json-javascript)
+* [HTTP-utlösare, slå upp ID från frågesträngen](#http-trigger-look-up-id-from-query-string-javascript)
+* [HTTP-utlösare, slå upp ID från vägdata](#http-trigger-look-up-id-from-route-data-javascript)
+* [Köutlösare, hämta flera dokument med SqlQuery](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
 
 
 <a id="queue-trigger-look-up-id-from-json-javascript"></a>
 
-### <a name="queue-trigger-look-up-id-from-json"></a>Köa utlösare, slå upp ID från JSON
+### <a name="queue-trigger-look-up-id-from-json"></a>Köutlösare, slå upp ID från JSON
 
-I följande exempel visas en Cosmos DB-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen läser ett enskilt dokument och uppdaterar dokumentets textvärde.
+I följande exempel visas en Cosmos DB-indatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen läser ett enda dokument och uppdaterar dokumentets textvärde.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
 ```json
 {
@@ -922,9 +922,9 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#input---configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#input---configuration) förklarar dessa egenskaper.
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
     // Change input document contents using Azure Cosmos DB input binding, using context.bindings.inputDocumentOut
@@ -937,11 +937,11 @@ Här är JavaScript-kod:
 
 <a id="http-trigger-look-up-id-from-query-string-javascript"></a>
 
-### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, leta upp ID från frågesträng
+### <a name="http-trigger-look-up-id-from-query-string"></a>HTTP-utlösare, slå upp ID från frågesträngen
 
-I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. Detta ID används för att hämta ett `ToDoItem`-dokument från den angivna databasen och samlingen.
+I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange vilket ID som ska sökas upp. Det ID:t används `ToDoItem` för att hämta ett dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -975,7 +975,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = function (context, req, toDoItem) {
@@ -995,11 +995,11 @@ module.exports = function (context, req, toDoItem) {
 
 <a id="http-trigger-look-up-id-from-route-data-javascript"></a>
 
-### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från flödes data
+### <a name="http-trigger-look-up-id-from-route-data"></a>HTTP-utlösare, slå upp ID från vägdata
 
-I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enskilt dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange ID för att leta upp. Detta ID används för att hämta ett `ToDoItem`-dokument från den angivna databasen och samlingen.
+I följande exempel visas en [JavaScript-funktion](functions-reference-node.md) som hämtar ett enda dokument. Funktionen utlöses av en HTTP-begäran som använder en frågesträng för att ange vilket ID som ska sökas upp. Det ID:t används `ToDoItem` för att hämta ett dokument från den angivna databasen och samlingen.
 
-Här är *Function. JSON* -filen:
+Här är *filen function.json:*
 
 ```json
 {
@@ -1034,7 +1034,7 @@ Här är *Function. JSON* -filen:
 }
 ```
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = function (context, req, toDoItem) {
@@ -1054,13 +1054,13 @@ module.exports = function (context, req, toDoItem) {
 
 <a id="queue-trigger-get-multiple-docs-using-sqlquery-javascript"></a>
 
-### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köa utlösare, hämta flera dokument med SqlQuery
+### <a name="queue-trigger-get-multiple-docs-using-sqlquery"></a>Köutlösare, hämta flera dokument med SqlQuery
 
-I följande exempel visas en Azure Cosmos DB-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga som använder en kö-utlösare för att anpassa Frågeparametrar.
+I följande exempel visas en Azure Cosmos DB-indatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen hämtar flera dokument som anges av en SQL-fråga med hjälp av en köutlösare för att anpassa frågeparametrarna.
 
-Utlösaren för kön innehåller en parameter `departmentId`. Ett köat meddelande i `{ "departmentId" : "Finance" }` skulle returnera alla poster för ekonomi avdelningen.
+Köutlösaren tillhandahåller `departmentId`en parameter . Ett kömeddelande `{ "departmentId" : "Finance" }` om returnerar alla poster för ekonomiavdelningen.
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
 ```json
 {
@@ -1074,9 +1074,9 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#input---configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#input---configuration) förklarar dessa egenskaper.
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
     module.exports = function (context, input) {
@@ -1095,66 +1095,66 @@ Här är JavaScript-kod:
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Använd attributet [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
+I [klassbiblioteken C#](functions-dotnet-class-library.md)använder du attributet [DocumentDB.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs)
 
-Attributets konstruktorn tar databasens namn och samlingens namn. Information om de inställningar och andra egenskaper som du kan konfigurera finns i [följande konfigurations avsnitt](#input---configuration).
+Attributets konstruktor tar databasnamnet och samlingsnamnet. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns [i följande konfigurationsavsnitt](#input---configuration).
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Attribut stöds inte av C# skript.
+Attribut stöds inte av C# Script.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Attribut stöds inte av Java Script.
+Attribut stöds inte av JavaScript.
 
 ---
 
-## <a name="input---configuration"></a>Indata - konfiguration
+## <a name="input---configuration"></a>Ingång - konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `DocumentDB`-attributet.
+I följande tabell beskrivs de bindningskonfigurationsegenskaper som `DocumentDB` du anger i *filen function.json* och attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|egenskapen function.json | Egenskapen Attribute |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     | Saknas | Måste anges till `documentdb`.        |
-|**riktning**     | Saknas | Måste anges till `in`.         |
-|**Namn**     | Saknas | Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
-|**Databas** |**Databas** |Den databas som innehåller dokumentet.        |
-|**Samling** |**Samling** | Namnet på den samling som innehåller dokumentet. |
-|**identitet**    | **Id** | ID för dokumentet som ska hämtas. Den här egenskapen stöder [bindnings uttryck](./functions-bindings-expressions-patterns.md). Ange inte egenskaperna för både **ID** och **sqlQuery** . Om du inte anger någon hämtas hela samlingen. |
-|**sqlQuery**  |**SqlQuery**  | En Azure Cosmos DB SQL-fråga som används för att hämta flera dokument. Egenskapen stöder runtime-bindningar, som i det här exemplet: `SELECT * FROM c where c.departmentId = {departmentId}`. Ange inte egenskaperna för både **ID** och **sqlQuery** . Om du inte anger någon hämtas hela samlingen.|
-|**anslutningen**     |**ConnectionStringSetting**|Namnet på den appinställning som innehåller din Azure Cosmos DB-anslutningssträng.        |
-|**partitionKey**|**PartitionKey**|Anger partitionsnyckelvärdet för sökningen. Omfatta bindande parametrar.|
+|**Typ**     | Saknas | Måste ställas `documentdb`in på .        |
+|**riktning**     | Saknas | Måste ställas `in`in på .         |
+|**Namn**     | Saknas | Namn på den bindningsparameter som representerar dokumentet i funktionen.  |
+|**Databasename** |**DatabaseName** |Databasen som innehåller dokumentet.        |
+|**collectionName (samlingsnamn)** |**CollectionName** | Namnet på samlingen som innehåller dokumentet. |
+|**Id**    | **Id** | ID:et för det dokument som ska hämtas. Den här egenskapen stöder [bindningsuttryck](./functions-bindings-expressions-patterns.md). Ange inte egenskaperna för både **id** och **sqlQuery.** Om du inte anger någon av dem hämtas hela samlingen. |
+|**sqlQuery (sqlQuery)**  |**SqlQuery (SqlQuery)**  | En Azure Cosmos DB SQL-fråga som används för att hämta flera dokument. Egenskapen stöder körningsbindningar, som `SELECT * FROM c where c.departmentId = {departmentId}`i det här exemplet: . Ange inte egenskaperna för både **id** och **sqlQuery.** Om du inte anger någon av dem hämtas hela samlingen.|
+|**Anslutning**     |**ConnectionStringSetting**|Namnet på appinställningen som innehåller din Azure Cosmos DB-anslutningssträng.        |
+|**partitionKey (partitionKey)**|**PartitionKey**|Anger partitionsnyckelvärdet för sökningen. Kan innehålla bindande parametrar.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="input---usage"></a>Indata - användning
+## <a name="input---usage"></a>Inmatning - användning
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-När funktionen avslutas sparas alla ändringar som gjorts i indatamängds dokumentet via namngivna indataparametrar automatiskt.
+När funktionen avslutas sparas alla ändringar som görs i indatadokumentet via namngivna indataparametrar automatiskt.
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-När funktionen avslutas sparas alla ändringar som gjorts i indatamängds dokumentet via namngivna indataparametrar automatiskt.
+När funktionen avslutas sparas alla ändringar som görs i indatadokumentet via namngivna indataparametrar automatiskt.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Uppdateringar görs inte automatiskt när funktionen avslutas. Använd i stället `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` för att göra uppdateringar. Se [exemplet på indatamängden](#input).
+Uppdateringar görs inte automatiskt vid funktionsavgång. Använd `context.bindings.<documentName>In` och `context.bindings.<documentName>Out` göra uppdateringar i stället. Se [indataexemplet](#input).
 
 ---
 
 ## <a name="output"></a>Resultat
 
-I Azure Cosmos DB-utdatabindning kan skriva du ett nytt dokument till en Azure Cosmos DB-databas med hjälp av SQL-API.
+Med Azure Cosmos DB-utdatabindningen kan du skriva ett nytt dokument till en Azure Cosmos DB-databas med SQL API.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
 Det här avsnittet innehåller följande exempel:
 
-* Köutlösare, Skriv ett dokument
-* Köa utlösare, skriv dokument med `IAsyncCollector`
+* Köutlösare, skriv ett dokument
+* Köutlösare, skriva dokument med`IAsyncCollector`
 
-Exemplen refererar till en enkel `ToDoItem`s typ:
+Exemplen refererar `ToDoItem` till en enkel typ:
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -1167,9 +1167,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-### <a name="queue-trigger-write-one-doc"></a>Köutlösare, Skriv ett dokument
+### <a name="queue-trigger-write-one-doc"></a>Köutlösare, skriv ett dokument
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som lägger till ett dokument i en databas med hjälp av data som anges i meddelande från Queue Storage.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som lägger till ett dokument i en databas med hjälp av data som tillhandahålls i meddelandet från kölagring.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -1198,9 +1198,9 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Köutlösare, Skriv docs med IAsyncCollector
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Köutlösare, skriva dokument med IAsyncCollector
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som lägger till en samling dokument i en databas med hjälp av data som finns i ett meddelande-JSON för köer.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som lägger till en samling dokument i en databas med hjälp av data som tillhandahålls i ett kömeddelande JSON.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -1233,16 +1233,16 @@ namespace CosmosDBSamplesV1
 }
 ```
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
 Det här avsnittet innehåller följande exempel:
 
-* Köutlösare, Skriv ett dokument
-* Köa utlösare, skriv dokument med `IAsyncCollector`
+* Köutlösare, skriv ett dokument
+* Köutlösare, skriva dokument med`IAsyncCollector`
 
-### <a name="queue-trigger-write-one-doc"></a>Köutlösare, Skriv ett dokument
+### <a name="queue-trigger-write-one-doc"></a>Köutlösare, skriv ett dokument
 
-I följande exempel visas en Azure Cosmos DB utgående bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en indatabindning i kö för en kö som tar emot JSON i följande format:
+I följande exempel visas en Azure Cosmos DB-utdatabindning i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en köindatabindning för en kö som tar emot JSON i följande format:
 
 ```json
 {
@@ -1263,7 +1263,7 @@ Funktionen skapar Azure Cosmos DB-dokument i följande format för varje post:
 }
 ```
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
 ```json
 {
@@ -1277,9 +1277,9 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#output---configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#output---configuration) förklarar dessa egenskaper.
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```cs
     #r "Newtonsoft.Json"
@@ -1302,11 +1302,11 @@ Här är C#-skriptkoden:
     }
 ```
 
-### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Köutlösare, Skriv docs med IAsyncCollector
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Köutlösare, skriva dokument med IAsyncCollector
 
-Om du vill skapa flera dokument kan du binda till `ICollector<T>` eller `IAsyncCollector<T>` där `T` är en av de typer som stöds.
+Om du vill skapa flera `ICollector<T>` `IAsyncCollector<T>` dokument `T` kan du binda till eller var är en av de typer som stöds.
 
-Det här exemplet refererar till en enkel `ToDoItem`s typ:
+Det här exemplet refererar till en enkel `ToDoItem` typ:
 
 ```cs
 namespace CosmosDBSamplesV1
@@ -1344,7 +1344,7 @@ Här är filen function.json:
 }
 ```
 
-Här är C#-skriptkoden:
+Här är C# skriptkoden:
 
 ```cs
 using System;
@@ -1361,9 +1361,9 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-I följande exempel visas en Azure Cosmos DB utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en indatabindning i kö för en kö som tar emot JSON i följande format:
+I följande exempel visas en Azure Cosmos DB-utdatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en köindatabindning för en kö som tar emot JSON i följande format:
 
 ```json
 {
@@ -1384,7 +1384,7 @@ Funktionen skapar Azure Cosmos DB-dokument i följande format för varje post:
 }
 ```
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
 ```json
 {
@@ -1398,9 +1398,9 @@ Här är bindnings data i *Function. JSON* -filen:
 }
 ```
 
-I [konfigurations](#output---configuration) avsnittet förklaras dessa egenskaper.
+[Konfigurationsavsnittet](#output---configuration) förklarar dessa egenskaper.
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
     module.exports = function (context) {
@@ -1422,9 +1422,9 @@ Här är JavaScript-kod:
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Använd attributet [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
+I [klassbiblioteken C#](functions-dotnet-class-library.md)använder du attributet [DocumentDB.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs)
 
-Attributets konstruktorn tar databasens namn och samlingens namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [utdata-konfiguration](#output---configuration). Här är ett exempel på ett `DocumentDB`-attribut i en metodsignatur:
+Attributets konstruktor tar databasnamnet och samlingsnamnet. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [Utdata - konfiguration](#output---configuration). Här är `DocumentDB` ett attributexempel i en metodsignatur:
 
 ```csharp
     [FunctionName("QueueToDocDB")]
@@ -1436,53 +1436,53 @@ Attributets konstruktorn tar databasens namn och samlingens namn. Information om
     }
 ```
 
-Ett fullständigt exempel finns i [utdata](#output).
+Ett fullständigt exempel finns i [Utdata](#output).
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Attribut stöds inte av C# skript.
+Attribut stöds inte av C# Script.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Attribut stöds inte av Java Script.
+Attribut stöds inte av JavaScript.
 
 ---
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `DocumentDB`-attributet.
+I följande tabell beskrivs de bindningskonfigurationsegenskaper som `DocumentDB` du anger i *filen function.json* och attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|egenskapen function.json | Egenskapen Attribute |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     | Saknas | Måste anges till `documentdb`.        |
-|**riktning**     | Saknas | Måste anges till `out`.         |
-|**Namn**     | Saknas | Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
-|**Databas** | **Databas**|Den databas som innehåller den samling där dokumentet skapas.     |
-|**Samling** |**Samling**  | Namnet på den samling där dokumentet skapas. |
-|**createIfNotExists**  |**CreateIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när den inte finns. Standardvärdet är *false* eftersom nya samlingar skapas med reserverat data flöde, vilket innebär kostnads konsekvenser. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/documentdb/).  |
-|**partitionKey**|**PartitionKey** |När `CreateIfNotExists` är true definierar partitionens nyckel Sök väg för den skapade samlingen.|
-|**collectionThroughput**|**CollectionThroughput**| När `CreateIfNotExists` är true definierar [data flödet](../cosmos-db/set-throughput.md) för den skapade samlingen.|
-|**anslutningen**    |**ConnectionStringSetting** |Namnet på den appinställning som innehåller din Azure Cosmos DB-anslutningssträng.        |
+|**Typ**     | Saknas | Måste ställas `documentdb`in på .        |
+|**riktning**     | Saknas | Måste ställas `out`in på .         |
+|**Namn**     | Saknas | Namn på den bindningsparameter som representerar dokumentet i funktionen.  |
+|**Databasename** | **DatabaseName**|Databasen som innehåller samlingen där dokumentet skapas.     |
+|**collectionName (samlingsnamn)** |**CollectionName**  | Namnet på den samling där dokumentet skapas. |
+|**createIfNotExists**  |**CreateIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när den inte finns. Standardvärdet är *falskt* eftersom nya samlingar skapas med reserverat dataflöde, vilket har kostnadskonsekvenser. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/documentdb/).  |
+|**partitionKey (partitionKey)**|**PartitionKey** |När `CreateIfNotExists` är sant definierar du sökvägen till partitionsnyckeln för den skapade samlingen.|
+|**insamlingGenomströmning**|**InsamlingGenomströmning**| När `CreateIfNotExists` är sant definierar du [dataflödet](../cosmos-db/set-throughput.md) för den skapade samlingen.|
+|**Anslutning**    |**ConnectionStringSetting** |Namnet på appinställningen som innehåller din Azure Cosmos DB-anslutningssträng.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Utdata - användning
 
-När du skriver till Utdataparametern i din funktion skapas ett dokument i databasen. Det här dokumentet har en automatiskt genererad GUID som dokument-ID Du kan ange dokument-ID: t för utdatafilen genom att ange egenskapen `id` i JSON-objektet som skickas till Utdataparametern.
+När du skriver till utdataparametern i funktionen skapas som standard ett dokument i databasen. Det här dokumentet har ett automatiskt genererat GUID som dokument-ID. Du kan ange dokument-ID för utdatadokumentet genom att ange egenskapen `id` i JSON-objektet som skickas till utdataparametern.
 
 > [!Note]
-> När du anger ID för ett befintligt dokument, hämtar den skrivs över av det nya utdatadokumentet.
+> När du anger ID för ett befintligt dokument skrivs det över av det nya utdatadokumentet.
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
 
 | Bindning | Referens |
 |---|---|
-| CosmosDB | [Felkoder för CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [CosmosDB-felkoder](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om databas bearbetning utan server med Cosmos DB](../cosmos-db/serverless-computing-database.md)
-* [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)
+* [Läs mer om serverlös databasdatoranvändning med Cosmos DB](../cosmos-db/serverless-computing-database.md)
+* [Läs mer om Utlösare och bindningar för Azure-funktioner](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]

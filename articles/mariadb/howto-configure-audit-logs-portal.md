@@ -1,72 +1,72 @@
 ---
-title: Åtkomst gransknings loggar – Azure Portal-Azure Database for MariaDB
-description: I den här artikeln beskrivs hur du konfigurerar och får åtkomst till gransknings loggarna i Azure Database for MariaDB från Azure Portal.
+title: Granskningsloggar för Access - Azure-portal - Azure Database för MariaDB
+description: I den här artikeln beskrivs hur du konfigurerar och kommer åt granskningsloggarna i Azure Database för MariaDB från Azure-portalen.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: e3c87143652895c57b464cba229a0e68049ffeb2
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: d31b7531e00199ea63c7b057dacff1b67d7cedc6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767525"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79528939"
 ---
-# <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Konfigurera och få åtkomst till gransknings loggar i Azure Portal
+# <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Konfigurera och komma åt granskningsloggar i Azure-portalen
 
-Du kan konfigurera [Azure Database for MariaDB gransknings loggar](concepts-audit-logs.md) och diagnostikinställningar från Azure Portal.
+Du kan konfigurera [Azure-databasen för MariaDB-granskningsloggar](concepts-audit-logs.md) och diagnostikinställningar från Azure-portalen.
 
 > [!IMPORTANT]
-> Gransknings logg funktionen är för närvarande en för hands version.
+> Granskningsloggfunktionen är för närvarande i förhandsgranskning.
 
 ## <a name="prerequisites"></a>Krav
 
-För att gå igenom den här instruktions guiden behöver du:
+För att gå igenom den här guiden behöver du:
 
-- [Azure Database for MariaDB Server](quickstart-create-mariadb-server-database-using-azure-portal.md)
+- [Azure-databas för MariaDB-server](quickstart-create-mariadb-server-database-using-azure-portal.md)
 
-## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
+## <a name="configure-audit-logging"></a>Konfigurera granskningsloggning
 
-Aktivera och konfigurera gransknings loggning.
+Aktivera och konfigurera granskningsloggning.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Välj din Azure Database for MariaDB-Server.
+1. Välj din Azure-databas för MariaDB-server.
 
-1. Under avsnittet **Inställningar** på sid panelen väljer du **Server parametrar**.
+1. Välj **Serverparametrar**under avsnittet **Inställningar** i sidofältet .
     ![Serverparametrar](./media/howto-configure-audit-logs-portal/server-parameters.png)
 
-1. Uppdatera **audit_log_enabled** -parametern till på.
-    ![aktivera gransknings loggar](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
+1. Uppdatera **parametern audit_log_enabled** till ON.
+    ![Aktivera granskningsloggar](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. Välj de [händelse typer](concepts-audit-logs.md#configure-audit-logging) som ska loggas genom att uppdatera **audit_log_events** -parametern.
-    ![Gransknings logg händelser](./media/howto-configure-audit-logs-portal/audit-log-events.png)
+1. Välj de [händelsetyper](concepts-audit-logs.md#configure-audit-logging) som ska loggas genom att uppdatera **parametern audit_log_events.**
+    ![Granskningslogghändelser](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
-1. Lägg till eventuella MariaDB-användare som ska undantas från loggning genom att uppdatera **audit_log_exclude_users** -parametern. Ange användare genom att ange sitt MariaDB användar namn.
-    ![Gransknings logg exkludera användare](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
+1. Lägg till alla MariaDB-användare som ska uteslutas från loggning genom att uppdatera **parametern audit_log_exclude_users.** Ange användare genom att ange deras MariaDB-användarnamn.
+    ![Granskningslogg utesluter användare](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
 
-1. När du har ändrat parametrarna kan du klicka på **Spara**. Eller så kan du **Ignorera** dina ändringar.
+1. När du har ändrat parametrarna kan du klicka på **Spara**. Eller så kan du **ignorera** ändringarna.
     ![Spara](./media/howto-configure-audit-logs-portal/save-parameters.png)
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurera diagnostikloggar
 
-1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostikinställningar**.
+1. Under avsnittet **Övervakning** i sidofältet väljer du **Diagnostikinställningar**.
 
-1. Klicka på "+ Lägg till diagnostisk inställning" ![lägga till diagnostisk inställning](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Klicka på "+ Lägg ![till diagnostikinställning" Lägg till diagnostikinställning](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
-1. Ange ett namn på en diagnostisk inställning.
+1. Ange ett diagnostikinställningsnamn.
 
-1. Ange vilka data mottagare som ska skicka gransknings loggarna (lagrings konto, händelsehubben och/eller Log Analytics arbets yta).
+1. Ange vilka datamottagare som ska skickas till granskningsloggarna (lagringskonto, händelsenav och/eller Logganalysarbetsyta).
 
-1. Välj "MySqlAuditLogs" som logg typ.
-![konfigurera diagnostikinställningar](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
+1. Välj "MySqlAuditLogs" som loggtyp.
+![Konfigurera diagnostikinställning](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
 
-1. När du har konfigurerat data Sinks att skicka in gransknings loggarna till kan du klicka på **Spara**.
-![Spara diagnostisk inställning](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
+1. När du har konfigurerat datamottagarena så att granskningsloggarna har förts till kan du klicka på **Spara**.
+![Spara diagnostikinställning](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
 
-1. Få åtkomst till gransknings loggarna genom att utforska dem i de data mottagare du konfigurerade. Det kan ta upp till 10 minuter innan loggarna visas.
+1. Öppna granskningsloggarna genom att utforska dem i de datamottagare som du har konfigurerat. Det kan ta upp till 10 minuter innan loggarna visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [gransknings loggar](concepts-audit-logs.md) i Azure Database for MariaDB.
+- Läs mer om [granskningsloggar](concepts-audit-logs.md) i Azure Database för MariaDB.

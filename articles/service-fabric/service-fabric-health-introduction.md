@@ -1,93 +1,93 @@
 ---
-title: Hälso övervakning i Service Fabric
-description: En introduktion till övervaknings modellen för Azure Service Fabric Health som tillhandahåller övervakning av klustret och dess program och tjänster.
+title: Hälsoövervakning i Service Fabric
+description: En introduktion till hälsoövervakningsmodellen för Azure Service Fabric, som tillhandahåller övervakning av klustret och dess program och tjänster.
 author: oanapl
 ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 473aa2b9a74193a857390cd3e29b2b559b6084d3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79282424"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
-Azure Service Fabric introducerar en hälso modell som ger omfattande, flexibel och utöknings bar hälso utvärdering och rapportering. Modellen möjliggör real tids övervakning av klustrets tillstånd och de tjänster som körs i den. Du kan enkelt få hälso information och åtgärda eventuella problem innan de överlappar varandra och orsakar enorma avbrott. I den typiska modellen skickar tjänster rapporter baserat på deras lokala vyer och den informationen aggregeras för att ge en övergripande vy på kluster nivå.
+Azure Service Fabric introducerar en hälsomodell som ger omfattande, flexibel och utökningsbar hälsoutvärdering och rapportering. Modellen möjliggör nästan realtidsövervakning av klustrets tillstånd och de tjänster som körs i det. Du kan enkelt få hälsoinformation och korrigera potentiella problem innan de kaskad och orsaka massiva avbrott. I den typiska modellen skickar tjänster rapporter baserat på deras lokala vyer och den informationen sammanställs för att ge en övergripande vy på klusternivå.
 
-Service Fabric-komponenter använder den här omfattande hälso modellen för att rapportera det aktuella tillståndet. Du kan använda samma mekanism för att rapportera hälso tillstånd från dina program. Om du investerar i hälso rapporter med hög kvalitet som samlar in dina anpassade villkor kan du enkelt identifiera och åtgärda problem för det program som körs.
+Service Fabric-komponenter använder den här avancerade hälsomodellen för att rapportera deras aktuella tillstånd. Du kan använda samma mekanism för att rapportera hälsotillstånd från dina program. Om du investerar i hälsorapportering av hög kvalitet som fångar dina anpassade villkor kan du identifiera och åtgärda problem för ditt program som körs mycket enklare.
 
 > [!NOTE]
-> Vi startade hälso under systemet för att åtgärda behovet av övervakade uppgraderingar. Service Fabric tillhandahåller övervakade program och kluster uppgraderingar som garanterar fullständig tillgänglighet, ingen stillestånds tid och minimal till ingen användar åtgärd. För att uppnå dessa mål kontrollerar uppgraderingen hälso tillståndet baserat på konfigurerade uppgraderings principer. En uppgradering kan bara fortsätta när hälso tillståndet respekterar önskade tröskelvärden. Annars återställs eller pausas uppgraderingen automatiskt för att ge administratörer möjlighet att åtgärda problemen. Mer information om program uppgraderingar finns i [den här artikeln](service-fabric-application-upgrade.md).
+> Vi startade hälsoundersystemet för att åtgärda ett behov av övervakade uppgraderingar. Service Fabric tillhandahåller övervakade program- och klusteruppgraderingar som säkerställer full tillgänglighet, inga driftstopp och minimala till inga användaråtgärder. För att uppnå dessa mål kontrollerar uppgraderingen hälsotillstånd baserat på konfigurerade uppgraderingsprinciper. En uppgradering kan endast fortsätta när hälsoskydd respekterar önskade tröskelvärden. Annars återställs uppgraderingen antingen automatiskt eller pausas för att ge administratörerna en chans att åtgärda problemen. Mer information om programuppgraderingar finns i [den här artikeln](service-fabric-application-upgrade.md).
 > 
 > 
 
-## <a name="health-store"></a>Hälso Arkiv
-Hälso lagringen skyddar hälso information om entiteter i klustret för enkel hämtning och utvärdering. Den implementeras som en Service Fabric bestående tillstånds känslig tjänst för att säkerställa hög tillgänglighet och skalbarhet. Hälso lagret är en del av **infrastruktur resursen:/systemet** och är tillgänglig när klustret är igång.
+## <a name="health-store"></a>Hälsobutik
+Hälsoarkivet behåller hälsorelaterad information om entiteter i klustret för enkel hämtning och utvärdering. Den implementeras som en service fabric-beständig tillståndskänslig tjänst för att säkerställa hög tillgänglighet och skalbarhet. Hälsoarkivet är en del av **programmet fabric:/system** och är tillgängligt när klustret är igång.
 
 ## <a name="health-entities-and-hierarchy"></a>Hälsoentiteter och hierarki
-Hälsoentiteterna är ordnade i en logisk hierarki som samlar in interaktioner och beroenden mellan olika entiteter. Hälso lagringen skapar automatiskt hälsoentiteter och hierarkier baserat på rapporter som tas emot från Service Fabric-komponenter.
+Hälsoentiteterna är ordnade i en logisk hierarki som fångar interaktioner och beroenden mellan olika entiteter. Hälsoarkivet skapar automatiskt hälsoentiteter och hierarki baserat på rapporter som tagits emot från Service Fabric-komponenter.
 
-Hälso enheterna speglar Service Fabric entiteter. (Till exempel kan **hälsoprogram entiteten** matcha en program instans som distribueras i klustret, medan **hälsonodens entitet** matchar en Service Fabric klusternod.) Hälsohierarkin samlar in interaktioner för systementiteter och är grunden för avancerad hälso utvärdering. Du kan lära dig mer om viktiga Service Fabric koncept i [Service Fabric teknisk översikt](service-fabric-technical-overview.md). Mer information om program finns i [Service Fabric program modell](service-fabric-application-model.md).
+Hälsoentiteterna speglar service fabric-entiteterna. **(Hälsoprogramentiteten** matchar till exempel en programinstans som distribueras i klustret, medan **hälsonodentiteten** matchar en klusternod för tjänstinfrastruktur.) Hälsohierarkin fångar interaktionerna mellan systementiteterna och den ligger till grund för avancerad hälsoutvärdering. Du kan läsa mer om viktiga Service Fabric-koncept i [den tekniska översikten serviceinfrastruktur](service-fabric-technical-overview.md). Mer information om programmet finns i [Programmodell för Service Fabric](service-fabric-application-model.md).
 
-Hälso deklarationerna och hierarkin gör det möjligt för kluster och program att rapporteras effektivt, felsökas och övervakas. Hälso modellen ger en korrekt, *detaljerad* representation av hälso tillståndet för de många flytt delarna i klustret.
+Hälsoentiteterna och hierarkin gör att klustret och programmen kan rapporteras, avbuggas och övervakas på ett effektivt sätt. Hälsomodellen ger en korrekt, *detaljerad* representation av hälsan hos de många rörliga delarna i klustret.
 
-![hälsoentiteter.][1]
-Hälsoentiteter, ordnade i en hierarki baserat på överordnade-underordnade relationer.
+![Hälsoentiteter.][1]
+Hälsoentiteterna, organiserade i en hierarki baserat på överordnade och underordnade relationer.
 
 [1]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy.png
 
-Hälso tillstånds enheterna är:
+Hälsoenheterna är:
 
-* **Kluster**. Representerar hälsan för ett Service Fabric kluster. Hälso rapporter i kluster beskriver villkor som påverkar hela klustret. Dessa villkor påverkar flera entiteter i klustret eller själva klustret. Utifrån villkoret kan rapportören inte begränsa problemet till en eller flera av de underordnade objekten. Exempel är hjärna i kluster delningen på grund av nätverks partitionering eller kommunikations problem.
-* **Node**. Representerar hälsan för en Service Fabric nod. Hälso rapporter för noden beskriver villkor som påverkar nodens funktion. De påverkar normalt alla distribuerade entiteter som körs på den. Exempel innefattar nodens slut på disk utrymme (eller andra egenskaper för hela datorn, till exempel minne, anslutningar) och när en nod är nere. Noden entitet identifieras av nodnamnet (sträng).
-* **Programmet**. Representerar hälsan för en program instans som körs i klustret. Program hälso rapporter beskriver villkor som påverkar programmets övergripande hälso tillstånd. De kan inte begränsas till enskilda underordnade (tjänster eller distribuerade program). Exempel på detta är interaktionen från slut punkt till slut punkt mellan olika tjänster i programmet. Programmets entitet identifieras av program namnet (URI).
-* **Tjänsten**. Representerar hälsan för en tjänst som körs i klustret. Service Health-rapporter beskriver villkor som påverkar tjänstens övergripande hälso tillstånd. Rapportören kan inte begränsa problemet till en felaktig partition eller replik. Exempel omfattar en tjänst konfiguration (till exempel port eller extern fil resurs) som orsakar problem för alla partitioner. Tjänste entiteten identifieras av tjänst namnet (URI).
-* **Partition**. Representerar hälsan för en tjänstmall. Partitioner hälso rapporter beskriver villkor som påverkar hela replik uppsättningen. Exempel på detta är när antalet repliker unders tiger mål antalet och när en partition har förlorat kvorum. Partitionens entitet identifieras av partitions-ID: t (GUID).
-* **Replik**. Representerar hälsan för en tillstånds känslig tjänst replik eller en tillstånds lös tjänst instans. Repliken är den minsta enhet som övervaknings enheter och system komponenter kan rapportera om för ett program. För tillstånds känsliga tjänster inkluderar exempel en primär replik som inte kan replikera åtgärder till sekundära och långsamma replikeringar. Dessutom kan en tillstånds lös instans rapporteras när resurserna håller på att ta slut eller anslutnings problem. Replik entiteten identifieras av partitions-ID: t (GUID) och replik-eller instans-ID (Long).
-* **DeployedApplication**. Representerar hälsan för ett *program som körs på en nod*. Distribuerade program hälso rapporter beskriver villkor som är specifika för programmet på noden som inte kan begränsas till tjänst paket som distribueras på samma nod. Exempel är fel när det inte går att hämta program paketet på noden och problem med att ställa in program säkerhets objekt på noden. Det distribuerade programmet identifieras med ett program namn (URI) och nodnamn (sträng).
-* **DeployedServicePackage**. Representerar hälsan för ett tjänst paket som körs på en nod i klustret. Den beskriver villkor som är specifika för ett tjänst paket som inte påverkar de andra tjänst paketen på samma nod för samma program. Exempel inkluderar ett kod paket i tjänst paketet som inte kan startas och ett konfigurations paket som inte kan läsas. Det distribuerade tjänst paketet identifieras av program namn (URI), nodnamn (sträng), tjänst manifest namn (sträng) och aktiverings-ID för tjänst paket (sträng).
+* **Kluster**. Representerar hälsotillståndet för ett service fabric-kluster. Klusterhälsorapporter beskriver villkor som påverkar hela klustret. Dessa villkor påverkar flera entiteter i klustret eller klustret självt. Baserat på tillståndet kan reportern inte begränsa problemet till ett eller flera ohälsosamma barn. Exempel är hjärnan i klusterdelning på grund av nätverkspartitionering eller kommunikationsproblem.
+* **Nod**. Representerar hälsotillståndet för en service fabric-nod. Hälsorapporter för nod beskriver villkor som påverkar nodfunktionen. De påverkar vanligtvis alla distribuerade entiteter som körs på den. Exempel på detta är noden utanför diskutrymmet (eller andra maskinomfattande egenskaper, till exempel minne, anslutningar) och när en nod är nere. Nodeniteten identifieras med nodnamnet (strängen).
+* **Ansökan**. Representerar hälsotillståndet för en programinstans som körs i klustret. Programhälsorapporter beskriver villkor som påverkar programmets allmänna hälsotillstånd. De kan inte begränsas till enskilda underordnade (tjänster eller distribuerade program). Exempel är den heltäckande interaktionen mellan olika tjänster i programmet. Programentiteten identifieras med programnamnet (URI).
+* **Service**. Representerar hälsotillståndet för en tjänst som körs i klustret. Hälsorapporter för tjänster beskriver förhållanden som påverkar tjänstens allmänna hälsa. Reportern kan inte begränsa problemet till en felaktig partition eller replik. Exempel på detta är en tjänstkonfiguration (till exempel port eller extern filresurs) som orsakar problem för alla partitioner. Serviceentiteten identifieras med tjänstnamnet (URI).
+* **Partition**. Representerar hälsotillståndet för en tjänstpartition. Hälsorapporter för partition beskriver villkor som påverkar hela replikuppsättningen. Exempel är när antalet repliker är lägre än antalet mål och när en partition är i kvorumförlust. Partitionentiteten identifieras av partitions-ID (GUID).
+* **Replik**. Representerar hälsotillståndet för en tillståndskänslig tjänstreplik eller en tillståndslös tjänstinstans. Repliken är den minsta enhet som watchdogs och systemkomponenter kan rapportera om för ett program. För tillståndskänsliga tjänster innehåller exempel en primär replik som inte kan replikera åtgärder till sekundärer och långsam replikering. Dessutom kan en tillståndslös instans rapportera när resurserna har eller har anslutningsproblem. Replikentiteten identifieras av partitions-ID (GUID) och replik- eller instans-ID (long).
+* **DistribueradTillämning**. Representerar hälsotillståndet för ett *program som körs på en nod*. Distribuerade programhälsorapporter beskriver villkor som är specifika för programmet på noden som inte kan begränsas till tjänstpaket som distribueras på samma nod. Exempel är fel när programpaketet inte kan hämtas på den noden och utfärdar princip för programsäkerhet på noden. Det distribuerade programmet identifieras med programnamnet (URI) och nodnamnet (strängen).
+* **DistribueradServicePackage**. Representerar hälsotillståndet för ett tjänstpaket som körs på en nod i klustret. Den beskriver villkor som är specifika för ett servicepaket som inte påverkar de andra servicepaketen på samma nod för samma program. Exempel är ett kodpaket i tjänstpaketet som inte kan startas och ett konfigurationspaket som inte kan läsas. Det distribuerade tjänstpaketet identifieras med programnamnet (URI), nodnamn (sträng), tjänstmanifestnamn (sträng) och aktiverings-ID för tjänstpaket (sträng).
 
-Hälso modellens kornig het gör det enkelt att identifiera och åtgärda problem. Om en tjänst till exempel inte svarar är det möjligt att rapportera att program instansen är i fel tillstånd. Rapportering på den nivån är inte idealiskt, men eftersom problemet kanske inte påverkar alla tjänster i programmet. Rapporten bör tillämpas på den felaktiga tjänsten eller en speciell underordnad partition, om mer information pekar på den partitionen. Data placeras automatiskt i-hierarkin och en felaktig partition görs synlig på tjänst-och program nivå. Den här agg regeringen hjälper till att hitta och lösa rotor saken till problemet snabbare.
+Granulariteten i hälsomodellen gör det enkelt att upptäcka och korrigera problem. Om en tjänst till exempel inte svarar är det möjligt att rapportera att programinstansen är felaktig. Rapportering på den nivån är dock inte idealiskt, eftersom problemet kanske inte påverkar alla tjänster i det programmet. Rapporten bör tillämpas på den felaktiga tjänsten eller på en viss underordnad partition, om mer information pekar på den partitionen. Data ytors automatiskt genom hierarkin och en felaktig partition görs synlig på tjänst- och programnivå. Den här aggregeringen hjälper till att identifiera och lösa orsaken till problemet snabbare.
 
-Certifikathierarkin består av överordnade och underordnade relationer. Ett kluster består av noder och program. Program har tjänster och distribuerade program. Distribuerade program har distribuerade tjänst paket. Tjänsterna har partitioner och varje partition har en eller flera repliker. Det finns en särskild relation mellan noder och distribuerade entiteter. En felaktig nod som rapporteras av dess system komponent, tjänsten Redundanshanteraren, påverkar de distribuerade program, tjänst paket och repliker som distribueras på den.
+Hälsohierarkin består av överordnade och underordnade relationer. Ett kluster består av noder och program. Program har tjänster och distribuerade program. Distribuerade program har distribuerade tjänstpaket. Tjänster har partitioner och varje partition har en eller flera repliker. Det finns en särskild relation mellan noder och distribuerade entiteter. En felaktig nod som rapporterats av dess myndighetssystemkomponent, Redundanshanteraren, påverkar de distribuerade programmen, tjänstpaketen och replikerna som distribueras på den.
 
-Hälsohierarkin representerar det senaste tillståndet för systemet baserat på de senaste hälso rapporterna, vilket är nästan real tids information.
-Interna och externa övervaknings enheter kan rapportera om samma entiteter baserat på programspecifik logik eller anpassade övervakade villkor. Användar rapporter är tillsammans med system rapporterna.
+Hälsohierarkin representerar det senaste tillståndet i systemet baserat på de senaste hälsorapporterna, vilket är nästan realtidsinformation.
+Interna och externa watchdogs kan rapportera om samma entiteter baserat på programspecifik logik eller anpassade övervakade villkor. Användarrapporter samexisterar med systemrapporterna.
 
-Planera för att investera i hur du ska rapportera och reagera på hälsan under utformningen av en stor moln tjänst. Den här första investeringen gör tjänsten lättare att felsöka, övervaka och använda.
+Planera att investera i hur du rapporterar och svarar på hälsa under utformningen av en stor molntjänst. Den här investeringen gör tjänsten enklare att felsöka, övervaka och använda.
 
-## <a name="health-states"></a>Hälso tillstånd
-Service Fabric använder tre hälso tillstånd för att beskriva om en entitet är felfri eller inte: OK, varning och fel. Alla rapporter som skickas till hälso arkivet måste ange något av dessa tillstånd. Resultatet av hälso utvärderingen är ett av dessa tillstånd.
+## <a name="health-states"></a>Hälsotillstånd
+Service Fabric använder tre hälsotillstånd för att beskriva om en entitet är felfri eller inte: OK, varning och fel. Alla rapporter som skickas till hälsoarkivet måste ange ett av dessa tillstånd. Hälsoutvärderingsresultatet är ett av dessa tillstånd.
 
-Möjliga [hälso tillstånd](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) är:
+De möjliga [hälsotillstånden](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate) är:
 
-* **OK**. Entiteten är felfri. Inga kända problem har rapporter ATS för den eller dess underordnade (om tillämpligt).
-* **Varning**. Entiteten innehåller vissa problem, men den kan fortfarande fungera korrekt. Det finns till exempel fördröjningar, men de orsakar inga funktionella problem än. I vissa fall kan varnings villkoret korrigeras utan extern åtgärd. I dessa fall kan hälso rapporter höja medvetenheten och ge insyn i vad som händer. I andra fall kan varnings villkoret försämras till ett allvarligt problem utan åtgärder från användaren.
-* **Fel**. Enheten är inte felfri. Åtgärden bör vidtas för att åtgärda status för entiteten, eftersom den inte kan fungera korrekt.
-* **Okänd**. Enheten finns inte i hälso arkivet. Det här resultatet kan hämtas från de distribuerade frågor som sammanfogar resultat från flera komponenter. Till exempel går frågan Hämta lista över noder till **FailoverManager**, **ClusterManager**och **HealthManager**; Hämta program lista fråga går till **ClusterManager** och **HealthManager**. Dessa frågor sammankopplar resultat från flera system komponenter. Om en annan system komponent returnerar en entitet som inte finns i Health Store har det sammanslagna resultatet okänt hälso tillstånd. En entitet är inte i arkivet eftersom hälso rapporter ännu inte har bearbetats eller om entiteten har rensats efter borttagning.
+* **OK.** Entiteten är felfri. Det finns inga kända problem som rapporterats om den eller dess barn (i förekommande fall).
+* **Varning**. Entiteten har vissa problem, men den kan fortfarande fungera korrekt. Det finns till exempel förseningar, men de orsakar inga funktionella problem ännu. I vissa fall kan varningsvillkoret åtgärda sig själv utan extern inblandning. I dessa fall ökar hälsorapporterna medvetenheten och synliggör vad som händer. I andra fall kan varningstillståndet försämras till ett allvarligt problem utan att användaren behöver ingripa.
+* **Fel**. Entiteten är felfritt. Åtgärder bör vidtas för att åtgärda tillståndet för entiteten, eftersom den inte kan fungera korrekt.
+* **Okänd**. Entiteten finns inte i hälsoarkivet. Det här resultatet kan erhållas från de distribuerade frågor som sammanfogar resultat från flera komponenter. Frågan hämta nodlista går till exempel till **FailoverManager**, **ClusterManager**och **HealthManager**; hämta programlistefrågan går till **ClusterManager** och **HealthManager**. Dessa frågor sammanfogar resultat från flera systemkomponenter. Om en annan systemkomponent returnerar en entitet som inte finns i hälsoarkivet har det kopplade resultatet okänt hälsotillstånd. Entitet finns inte i lager eftersom hälsorapporter ännu inte har bearbetats eller om entiteten har rensats efter borttagningen.
 
-## <a name="health-policies"></a>Hälso principer
-Hälso lagret tillämpar hälso principer för att avgöra om en entitet är felfri baserat på dess rapporter och dess underordnade.
+## <a name="health-policies"></a>Hälsopolitik
+Hälsoarkivet tillämpar hälsoprinciper för att avgöra om en entitet är felfri baserat på dess rapporter och dess underordnade.
 
 > [!NOTE]
-> Hälso principer kan anges i kluster manifestet (för kluster-och Node-utvärdering av hälsa) eller i applikations manifestet (för program utvärdering och alla dess underordnade). Hälso utvärderings begär Anden kan också skicka i anpassade hälso utvärderings principer som endast används för den utvärderingen.
+> Hälsoprinciper kan anges i klustermanifestet (för hälsoutvärdering av kluster- och nod) eller i programmanifestet (för programutvärdering och någon av dess underordnade). Hälsoutvärderingsbegäranden kan också passera i anpassade hälsoutvärderingsprinciper, som endast används för den utvärderingen.
 > 
 > 
 
-Som standard tillämpar Service Fabric strikta regler (allting måste vara felfria) för den överordnade och underordnade hierarkiska relationen. Om även en av de underordnade objekten har en händelse som inte är felfri betraktas den överordnade aktiviteten som ohälsosam.
+Som standard tillämpar Service Fabric strikta regler (allt måste vara felfritt) för den överordnade och underordnade hierarkiska relationen. Om även ett av barnen har en ohälsosam händelse anses föräldern vara ohälsosam.
 
-### <a name="cluster-health-policy"></a>Kluster hälso princip
-[Kluster hälso principen](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) används för att utvärdera hälso tillståndet för klustret och nodens hälso tillstånd. Principen kan definieras i kluster manifestet. Om den inte finns används standard principen (noll tolererade Miss lyckas).
-Kluster hälso principen innehåller:
+### <a name="cluster-health-policy"></a>Hälsoprincip för kluster
+[Klusterhälsoprincipen](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy) används för att utvärdera hälsotillståndet för klustret och hälsotillståndet för nod. Principen kan definieras i klustermanifestet. Om den inte finns används standardprincipen (noll tolererade fel).
+Klusterhälsoprincipen innehåller:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varnings hälso rapporter ska behandlas som fel under hälso utvärderingen. Standard: falskt.
-* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Anger den maximala procent andelen program som kan vara felfria innan klustret betraktas som ett fel.
-* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Anger den maximala procent andelen av de noder som kan vara felfria innan klustret betraktas som ett fel. I stora kluster är vissa noder alltid nere eller ut för reparationer, så den här procent andelen bör konfigureras för att tolerera.
-* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Princip mappningen för program typens hälso princip kan användas vid utvärdering av kluster hälsa för att beskriva särskilda program typer. Som standard placeras alla program i en pool och utvärderas med MaxPercentUnhealthyApplications. Om vissa program typer ska behandlas annorlunda kan de tas bort från den globala poolen. I stället utvärderas de mot procent andelen som är kopplade till deras program typs namn i kartan. I ett kluster finns det till exempel tusentals program av olika typer och några kontroll program instanser av en särskild program typ. Kontroll programmen ska aldrig ha fel. Du kan ange globala MaxPercentUnhealthyApplications till 20% för att tolerera vissa problem, men för program typen "ControlApplicationType" anger du MaxPercentUnhealthyApplications till 0. På så sätt kommer klustret att utvärderas som varning om några av de många programmen inte är felfria, men lägre än den globala procent andelen. En varnings hälso tillstånd påverkar inte kluster uppgraderingen eller annan övervakning som utlöses av fel hälso tillstånd. Men till och med ett kontroll program i fel skulle klustret bli ohälsosamt, vilket utlöser eller pausar kluster uppgraderingen, beroende på uppgraderings konfigurationen.
-  För de program typer som definierats i kartan tas alla program instanser bort från den globala poolen med program. De utvärderas baserat på det totala antalet program av program typen, med hjälp av den specifika MaxPercentUnhealthyApplications från kartan. Alla resten av programmen finns kvar i den globala poolen och utvärderas med MaxPercentUnhealthyApplications.
+* [ÖvervägWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varningshälsorapporter ska behandlas som fel under hälsoutvärderingen. Standard: falskt.
+* [MaxPercentUnhealthyApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthyapplications). Anger den högsta tillåtna procentandelen av program som kan vara felaktiga innan klustret betraktas som ett fel.
+* [MaxPercentUnhealthyNodes](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.maxpercentunhealthynodes). Anger den maximala tolererade procentandelen noder som kan vara felaktiga innan klustret betraktas som ett fel. I stora kluster är vissa noder alltid nere eller ute för reparationer, så den här procentsatsen bör konfigureras för att tolerera det.
+* [ApplicationTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.applicationtypehealthpolicymap). Hälsoprincipmappningen för programtyp kan användas vid utvärdering av klusterhälsa för att beskriva särskilda programtyper. Som standard läggs alla program i en pool och utvärderas med MaxPercentUnhealthyApplications. Om vissa programtyper ska behandlas olika kan de tas ut ur den globala poolen. I stället utvärderas de mot de procentsatser som är associerade med deras programtypsnamn i kartan. I ett kluster finns det till exempel tusentals program av olika typer och några kontrollprograminstanser av en särskild programtyp. Kontrollprogrammen får aldrig vara felaktiga. Du kan ange globala MaxPercentUnhealthyApplications till 20% för att tolerera vissa fel, men för programtypen "ControlApplicationType" ange MaxPercentUnhealthyApplications till 0. På så sätt, om några av de många programmen är felaktiga, men under den globala felaktiga procentsatsen, skulle klustret utvärderas till Varning. Ett varningshälsotillstånd påverkar inte klusteruppgraderingen eller annan övervakning som utlöses av felhälsotillstånd. Men även ett kontrollprogram av misstag skulle göra klustret felfritt, vilket utlöser återställa eller pausar klusteruppgraderingen, beroende på uppgraderingskonfigurationen.
+  För de programtyper som definierats i kartan tas alla programinstanser bort från den globala programpoolen. De utvärderas baserat på det totala antalet program av programtypen, med hjälp av specifika MaxPercentUnhealthyApplications från kartan. Alla resten av programmen finns kvar i den globala poolen och utvärderas med MaxPercentUnhealthyApplications.
 
-Följande exempel är ett utdrag från ett kluster manifest. Om du vill definiera poster i program typs mappningen, anger du parameter namnet med "ApplicationTypeMaxPercentUnhealthyApplications-", följt av programmets typ namn.
+Följande exempel är ett utdrag från ett klustermanifest. Om du vill definiera poster i programtypskartan prefixar parameternamnet med "ApplicationTypeMaxPercentUnhealthyApplications-", följt av programtypsnamnet.
 
 ```xml
 <FabricSettings>
@@ -100,23 +100,23 @@ Följande exempel är ett utdrag från ett kluster manifest. Om du vill definier
 </FabricSettings>
 ```
 
-### <a name="application-health-policy"></a>Program hälso princip
-[Program hälso principen](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) beskriver hur utvärderingen av händelser och sammansättning av underordnade tillstånd görs för program och deras underordnade. Den kan definieras i applikations manifestet, **ApplicationManifest. XML**, i programpaketet. Om inga principer anges förutsätter Service Fabric att enheten inte är felfri om den har en hälso rapport eller en underordnad i varnings-eller fel hälso tillståndet.
+### <a name="application-health-policy"></a>Hälsoprincip för program
+[Programmets hälsoprincip](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) beskriver hur utvärderingen av händelser och aggregering av underordnade tillstånd görs för program och deras underordnade. Det kan definieras i **programmanifest.xml,** i programpaketet. Om inga principer anges förutsätter Service Fabric att entiteten är felfritt om den har en hälsorapport eller ett underordnat vid varnings- eller felhälsotillståndet.
 De konfigurerbara principerna är:
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varnings hälso rapporter ska behandlas som fel under hälso utvärderingen. Standard: falskt.
-* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Anger den maximala procent andelen av distribuerade program som kan vara felfria innan programmet betraktas som ett fel. Den här procent satsen beräknas genom att dividera antalet ej hälsodistribuerade program över antalet noder som programmen för närvarande har distribuerat i klustret. Beräkningen avrundar upp till att tolerera ett problem på ett litet antal noder. Standard procents ATS: noll.
-* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Anger standard hälso principen för tjänst typen, som ersätter standard hälso principen för alla tjänst typer i programmet.
-* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Innehåller en karta över tjänst hälso principer per tjänst typ. Dessa principer ersätter standard hälso principerna för tjänst typen för varje angiven tjänst typ. Om ett program till exempel har en tillstånds lös tjänst typ för gateway och en tillstånds känslig motor tjänst typ, kan du konfigurera hälso principerna för utvärderingen på olika sätt. När du anger princip per tjänst typ kan du få mer detaljerad kontroll över hälso tillståndet för tjänsten.
+* [ÖvervägWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). Anger om varningshälsorapporter ska behandlas som fel under hälsoutvärderingen. Standard: falskt.
+* [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). Anger den maximala tolererade procentandelen distribuerade program som kan vara felaktiga innan programmet betraktas som ett fel. Den här procentsatsen beräknas genom att dividera antalet felaktiga distribuerade program över antalet noder som programmen för närvarande distribueras i klustret. Beräkningen avrundar upp för att tolerera ett fel på ett litet antal noder. Standardprocent: noll.
+* [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). Anger hälsoprincipen för standardtjänsttyp, som ersätter standardhälsoprincipen för alla tjänsttyper i programmet.
+* [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). Innehåller en karta över tjänsthälsoprinciper per tjänsttyp. Dessa principer ersätter standardhälsoprinciperna för tjänsttyp för varje angiven tjänsttyp. Om ett program till exempel har en tillståndslös gateway-tjänsttyp och en tillståndskänslig motortjänsttyp kan du konfigurera hälsoprinciperna för utvärderingen på ett annat sätt. När du anger princip per tjänsttyp kan du få mer detaljerad kontroll över tjänstens hälsotillstånd.
 
-### <a name="service-type-health-policy"></a>Hälso princip för tjänst typ
-[Hälso principen för tjänst typen](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) anger hur du ska utvärdera och aggregera tjänsterna och underordnade tjänster. Principen innehåller:
+### <a name="service-type-health-policy"></a>Hälsoprincip för tjänsttyp
+[Hälsoprincipen för tjänsttyp](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy) anger hur du utvärderar och aggregerar tjänster och underordnade tjänster. Principen innehåller:
 
-* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Anger den maximala procent andelen av felaktiga partitioner innan en tjänst betraktas som ohälsosam. Standard procents ATS: noll.
-* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Anger den maximala procent andelen av felaktiga repliker innan en partition anses vara ohälsosam. Standard procents ATS: noll.
-* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Anger den maximala procent andelen av felaktiga tjänster innan programmet betraktas som ohälsosamt. Standard procents ATS: noll.
+* [MaxPercentUnhealthyPartitionsPerService](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthypartitionsperservice). Anger den maximala tolererade procentandelen felaktiga partitioner innan en tjänst anses vara fel. Standardprocent: noll.
+* [MaxPercentUnhealthyReplicasPerPartition](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyreplicasperpartition). Anger den maximala tolererade procentandelen felaktiga repliker innan en partition anses vara fel. Standardprocent: noll.
+* [MaxPercentUnhealthyServices](https://docs.microsoft.com/dotnet/api/system.fabric.health.servicetypehealthpolicy.maxpercentunhealthyservices). Anger den maximala tolererade procentandelen felaktiga tjänster innan programmet anses vara felfritt. Standardprocent: noll.
 
-Följande exempel är ett utdrag från ett program manifest:
+Följande exempel är ett utdrag från ett programmanifest:
 
 ```xml
     <Policies>
@@ -138,90 +138,90 @@ Följande exempel är ett utdrag från ett program manifest:
     </Policies>
 ```
 
-## <a name="health-evaluation"></a>Hälso utvärdering
-Användare och automatiserade tjänster kan när som helst utvärdera hälso tillståndet för alla enheter. För att utvärdera hälso tillståndet för en entitet aggregerar hälso lagret alla hälso rapporter i entiteten och utvärderar alla dess underordnade (om tillämpligt). Algoritmen för hälso tillstånds insamling använder hälso principer som anger hur du ska utvärdera hälso rapporter och hur du sammanställer underordnade hälso tillstånd (om tillämpligt).
+## <a name="health-evaluation"></a>Utvärdering av hälsa
+Användare och automatiserade tjänster kan utvärdera hälsotillståndet för alla enheter när som helst. För att utvärdera en entitets hälsotillstånd sammanställer hälsoarkivet alla hälsorapporter på entiteten och utvärderar alla dess underordnade (i förekommande fall). Hälsoaggregeringsalgoritmen använder hälsoprinciper som anger hur hälsorapporter ska utvärderas och hur du aggregerar underordnade hälsotillstånd (i förekommande fall).
 
-### <a name="health-report-aggregation"></a>Insamling av hälso rapporter
-En entitet kan ha flera hälso rapporter som skickas av olika rapporter (system komponenter eller övervaknings enheter) i olika egenskaper. Sammanställningen använder de tillhör ande hälso principerna, särskilt ConsiderWarningAsError-medlemmen i program-eller kluster hälso principen. ConsiderWarningAsError anger hur varningar ska utvärderas.
+### <a name="health-report-aggregation"></a>Aggregering av hälsorapport
+En entitet kan ha flera hälsorapporter som skickas av olika reportrar (systemkomponenter eller watchdogs) på olika egenskaper. Aggregeringen använder de associerade hälsoprinciperna, särskilt ConsiderWarningAsError-medlemmen i programmets eller klustrets hälsoprincip. ConsiderWarningAsError anger hur varningar ska utvärderas.
 
-Det sammanställda hälso tillståndet utlöses av de *värsta* hälso rapporterna på entiteten. Om det finns minst en fel hälso rapport, är det sammanlagda hälso tillståndet ett fel.
+Det aggregerade hälsotillståndet utlöses av de *sämsta* hälsorapporterna på entiteten. Om det finns minst en felhälsorapport är det aggregerade hälsotillståndet ett fel.
 
-![Insamling av hälso rapporter med fel rapport.][2]
+![Aggregering av hälsorapporter med felrapport.][2]
 
-En hälsoentitet som har en eller flera fel hälso rapporter utvärderas som ett fel. Samma sak gäller för en hälso rapport som har gått ut, oavsett hälso tillstånd.
+En hälsoentitet som har en eller flera felhälsorapporter utvärderas som fel. Detsamma gäller för en hälsorapport som har upphört att gälla, oavsett hälsotillstånd.
 
 [2]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-error.png
 
-Om det inte finns några fel rapporter och en eller flera varningar, är det sammanställda hälso tillståndet antingen varnings-eller fel, beroende på princip flaggan ConsiderWarningAsError.
+Om det inte finns några felrapporter och en eller flera varningar är det aggregerade hälsotillståndet antingen varning eller fel, beroende på policyflaggan considerWarningAsError.
 
-![Insamling av hälso rapporter med varnings rapport och ConsiderWarningAsError false.][3]
+![Hälsorapport aggregering med varningsrapport och ConsiderWarningAsError falskt.][3]
 
-Insamling av hälso rapporter med varnings rapport och ConsiderWarningAsError inställt på false (standard).
+Hälsorapportaggregering med varningsrapport och ConsiderWarningAsError inställd på false (standard).
 
 [3]: ./media/service-fabric-health-introduction/servicefabric-health-report-eval-warning.png
 
-### <a name="child-health-aggregation"></a>Underordnad hälso agg regering
-Det sammanlagda hälso tillståndet för en entitet motsvarar de underordnade hälso tillstånden (om tillämpligt). Algoritmen för att aggregera underordnade hälso tillstånd använder hälso principerna som är tillämpliga baserat på enhets typen.
+### <a name="child-health-aggregation"></a>Aggregering av barnhälsa
+Det aggregerade hälsotillståndet för en enhet återspeglar barnhälsotillstånden (i förekommande fall). Algoritmen för att aggregera underordnade hälsotillstånd använder de hälsoprinciper som gäller baserat på entitetstypen.
 
-![Hälso agg regering för underordnade entiteter.][4]
+![Hälsoaggregering av underordnade enheter.][4]
 
-Underordnad agg regering baserat på hälso principer.
+Underordnad aggregering baserat på hälsoprinciper.
 
 [4]: ./media/service-fabric-health-introduction/servicefabric-health-hierarchy-eval.png
 
-När hälso insamlingen har utvärderat alla underordnade, aggregerar de sina hälso tillstånd baserat på den konfigurerade maximala procent andelen Felaktiga underordnade. Den här procent andelen hämtas från principen som baseras på entiteten och den underordnade typen.
+När hälsoarkivet har utvärderat alla underordnade, sammanställer det deras hälsotillstånd baserat på den konfigurerade maximala procentandelen ohälsosamma underordnade. Den här procentsatsen hämtas från principen baserat på entitets- och underordnade typ.
 
-* Om alla underordnade har statusen OK är det underordnade sammanställda hälso tillståndet OK.
-* Om underordnade har både OK och varnings tillstånd, är det underordnade sammanställda hälso tillståndet varning.
-* Om det finns underordnade med fel tillstånd som inte respekterar den högsta tillåtna procent andelen av ohälsosama underordnade hälso tillstånd, är det sammanställda överordnade hälso tillståndet ett fel.
-* Om underordnade med fel tillstånd respekterar den högsta tillåtna procent andelen av ohälsosama underordnade hälso tillstånd, är det sammanställda överordnade hälso tillståndet varning.
+* Om alla underordnade har OK-tillstånd är det samlade hälsotillståndet OK.
+* Om barn har både OK och varningstillstånd varnar det samlade hälsotillståndet för barn.
+* Om det finns underordnade med feltillstånd som inte respekterar den högsta tillåtna procentandelen ohälsosamma underordnade, är det aggregerade överordnade hälsotillståndet ett fel.
+* Om underordnade med feltillstånd respekterar den högsta tillåtna procentandelen ohälsosamma underordnade, varnar det aggregerade överordnade hälsotillståndet.
 
-## <a name="health-reporting"></a>Hälso rapportering
-System komponenter, system Fabric-program och interna/externa övervaknings enheter kan rapportera mot Service Fabric entiteter. Rapporterna gör *lokala* bestämningar av hälsan hos de övervakade enheterna, baserat på de villkor som de övervakar. De behöver inte titta på några globala eller aggregerade data. Det önskade beteendet är att ha enkla rapporter och inte komplexa organismer som behöver titta på många saker för att härleda vilken information som ska skickas.
+## <a name="health-reporting"></a>Hälsorapportering
+Systemkomponenter, System Fabric-program och interna/externa watchdogs kan rapportera mot Service Fabric-entiteter. Reportrarna gör *lokala* bestämningar av de övervakade enheternas hälsa, baserat på de förhållanden som de övervakar. De behöver inte titta på någon global stat eller aggregerade data. Det önskade beteendet är att ha enkla reportrar, och inte komplexa organismer som behöver titta på många saker att dra slutsatsen vilken information att skicka.
 
-För att skicka hälso data till hälso lagret måste en rapportör identifiera den berörda enheten och skapa en hälso rapport. Om du vill skicka rapporten använder du [FabricClient. HealthClient. ReportHealth](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) API, rapportera hälso-API: er som exponeras på `Partition` eller `CodePackageActivationContext` objekt, PowerShell-cmdletar eller rest.
+Om du vill skicka hälsodata till hälsoarkivet måste en reporter identifiera den berörda entiteten och skapa en hälsorapport. Om du vill skicka rapporten använder du API:et [FabricClient.HealthClient.ReportHealth,](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.reporthealth) rapportera hälso-API:er som exponeras på objekten eller `Partition` `CodePackageActivationContext` objekten PowerShell eller REST.
 
-### <a name="health-reports"></a>Hälso rapporter
-[Hälso rapporter](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) för var och en av entiteterna i klustret innehåller följande information:
+### <a name="health-reports"></a>Hälsorapporter
+[Hälsorapporterna](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthreport) för var och en av entiteterna i klustret innehåller följande information:
 
-* **SourceId**. En sträng som unikt identifierar rapportören för hälso händelsen.
-* **Enhets identifierare**. Identifierar den entitet där rapporten används. Det skiljer sig beroende på [enhets typen](service-fabric-health-introduction.md#health-entities-and-hierarchy):
+* **SourceId**. En sträng som unikt identifierar hälsohändelsens reporter.
+* **Entitetsidentifierare**. Identifierar entiteten där rapporten tillämpas. Den skiljer sig beroende på [enhetstypen:](service-fabric-health-introduction.md#health-entities-and-hierarchy)
   
-  * Flernodskluster. Inga.
-  * Nodfel. Nodnamn (sträng).
-  * Applicering. Program namn (URI). Representerar namnet på den program instans som distribueras i klustret.
-  * Telefonitjänstprovider. Tjänst namn (URI). Representerar namnet på den tjänst instans som distribueras i klustret.
-  * Partitionstabellen. Partitions-ID (GUID). Representerar Partitionens unika identifierare.
-  * Replica. Det tillstånds känsliga tjänstens replik-ID eller det tillstånds lösa tjänst instans-ID: t (INT64).
-  * DeployedApplication. Program namn (URI) och nodnamn (sträng).
-  * DeployedServicePackage. Program namn (URI), nodnamn (sträng) och tjänst manifest namn (sträng).
-* **Egenskap**. En *sträng* (inte en fast uppräkning) som tillåter rapportören att kategorisera hälso händelsen för en viss egenskap i entiteten. Rapportör A kan till exempel rapportera hälso tillståndet för Node01 "lagring"-egenskapen och rapportör B kan rapportera hälsan för egenskapen Node01 "Connectivity". I hälso lagret behandlas dessa rapporter som separata hälso händelser för Node01-enheten.
-* **Beskrivning**. En sträng som tillåter en rapportör att tillhandahålla detaljerad information om hälso händelsen. **SourceId**, **Property**och **hälsohälso** tillstånd bör beskriva rapporten fullständigt. Beskrivningen lägger till läsbar information om rapporten. Texten gör det enklare för administratörer och användare att förstå hälso rapporten.
-* **Hälso**tillstånd. En [uppräkning](service-fabric-health-introduction.md#health-states) som beskriver rapportens hälso tillstånd. Godkända värden är OK, varning och fel.
-* **TimeToLive**. TimeSpan som anger hur länge hälso rapporten är giltig. Tillsammans med **RemoveWhenExpired**kan hälso lagret veta hur du kan utvärdera utgångna händelser. Som standard är värdet oändligt och rapporten är giltig för alltid.
-* **RemoveWhenExpired**. Ett booleskt värde. Om det är inställt på Sant tas den utgångna hälso rapporten bort automatiskt från hälso lagret och rapporten påverkar inte utvärderingen av enhetens hälsa. Används endast när rapporten är giltig under en angiven tids period, och rapportören behöver inte uttryckligen ta bort den. Den används också för att ta bort rapporter från hälso lagret (till exempel en övervaknings enhet ändras och slutar skicka rapporter med föregående källa och egenskap). Den kan skicka en rapport med en kort TimeToLive tillsammans med RemoveWhenExpired för att ta bort alla tidigare tillstånd från hälso lagret. Om värdet är inställt på falskt behandlas den utgångna rapporten som ett fel i hälso utvärderingen. Det falska värdet signalerar till hälso arkivet som källan bör rapportera regelbundet om den här egenskapen. Om den inte gör det måste det vara något fel med övervaknings enheten. Hälso tillståndet för övervaknings enheten fångas genom att överväger händelsen som ett fel.
-* **SequenceNumber**. Ett positivt heltal som behöver utökas, motsvarar den ordningen på rapporterna. Den används av Health Store för att identifiera inaktuella rapporter som tas emot sent på grund av nätverks fördröjningar eller andra problem. En rapport avvisas om sekvensnumret är mindre än eller lika med det senast använda talet för samma entitet, källa och egenskap. Om inget värde anges genereras sekvensnumret automatiskt. Det är nödvändigt att endast placeras i sekvensnumret vid rapportering av tillstånds över gångar. I den här situationen behöver källan komma ihåg vilka rapporter den skickade och behålla informationen för återställning vid redundans.
+  * Kluster. Inga.
+  * Nod. Nodnamn (sträng).
+  * Program. Programnamn (URI). Representerar namnet på programinstansen som distribueras i klustret.
+  * Tjänst. Tjänstnamn (URI). Representerar namnet på den tjänstinstans som distribueras i klustret.
+  * Partition. Partition ID (GUID). Representerar partitionens unika identifierare.
+  * Replika. Det tillståndskänsliga tjänstreplik-ID:t eller det tillståndslösa tjänstinstans-ID :t (INT64).
+  * DistribueradTillämning. Programnamn (URI) och nodnamn (sträng).
+  * DistribueradServicePaket. Programnamn (URI), nodnamn (sträng) och tjänstmanifestnamn (sträng).
+* **Egenskap**. En *sträng* (inte en fast uppräkning) som gör att reportern kan kategorisera hälsohändelsen för en viss egenskap för entiteten. Reporter A kan till exempel rapportera hälsotillståndet för egenskapen "Lagring" nod01 och reporter B kan rapportera hälsotillståndet för egenskapen Node01 "Anslutning". I hälsoarkivet behandlas dessa rapporter som separata hälsohändelser för entiteten Node01.
+* **Beskrivning**. En sträng som gör att en reporter kan ge detaljerad information om hälsohändelsen. **SourceId,** **egenskap**och **HealthState** bör beskriva rapporten fullständigt. Beskrivningen lägger till läsbar information om rapporten. Texten gör det enklare för administratörer och användare att förstå hälsorapporten.
+* **HealthState**. En [uppräkning](service-fabric-health-introduction.md#health-states) som beskriver hälsotillståndet för rapporten. De godkända värdena är OK, Varning och Fel.
+* **TimeToLive**. En tidsspann som anger hur länge hälsorapporten är giltig. Tillsammans med **RemoveWhenExpired**låter det hälsoarkivet veta hur du utvärderar utgångna händelser. Som standard är värdet oändligt och rapporten är giltig för alltid.
+* **RemoveWhenExpired**. En boolesk. Om den är inställd på true tas den utgångna hälsorapporten automatiskt bort från hälsoarkivet och rapporten påverkar inte entitetshälsoutvärderingen. Används när rapporten bara är giltig under en viss tidsperiod och reportern behöver inte uttryckligen rensa den. Det används också för att ta bort rapporter från hälsoarkivet (till exempel ändras en watchdog och slutar skicka rapporter med tidigare källa och egendom). Det kan skicka en rapport med en kort TimeToLive tillsammans med RemoveWhenExpired att rensa upp något tidigare tillstånd från hälsobutiken. Om värdet är inställt på false behandlas den utgångna rapporten som ett fel i hälsoutvärderingen. Det falska värdet signalerar till hälsoarkivet att källan ska rapportera regelbundet på den här egenskapen. Om det inte gör det, då måste det vara något fel med vakthund. Den watchdog hälsa fångas genom att betrakta händelsen som ett fel.
+* **SequenceNumber**. Ett positivt heltal som ständigt måste öka, det representerar ordningen på rapporterna. Den används av hälsoarkivet för att identifiera inaktuella rapporter som tas emot sent på grund av nätverksförseningar eller andra problem. En rapport avvisas om sekvensnumret är mindre än eller lika med det senast tillämpade numret för samma entitet, källa och egenskap. Om det inte anges genereras sekvensnumret automatiskt. Det är nödvändigt att placera i sekvensnumret endast när du rapporterar om tillståndsövergångar. I det här fallet måste källan komma ihåg vilka rapporter den skickade och behålla informationen för återställning vid redundans.
 
-Dessa fyra delar av information--SourceId, enhets identifierare, egenskap och hälso tillstånd – krävs för varje hälso rapport. Det går inte att starta en SourceId-sträng med prefixet**system.** , som är reserverat för system rapporter. För samma entitet finns det bara en rapport för samma källa och egenskap. Flera rapporter för samma källa och egenskap åsidosätter varandra, antingen på hälso klient sidan (om de är grupperade) eller på hälso Arkiv sidan. Ersättningen baseras på serie nummer. nyare rapporter (med högre ordnings nummer) ersätter äldre rapporter.
+Dessa fyra delar av information - SourceId, entitet identifierare, egenskap och HealthState - krävs för varje hälsorapport. SourceId-strängen får inte börja med prefixet "**System.**", som är reserverat för systemrapporter. För samma entitet finns det bara en rapport för samma källa och egenskap. Flera rapporter för samma källa och egenskap åsidosätter varandra, antingen på hälsoklientsidan (om de är batchade) eller på hälsobutikssidan. Ersättningen baseras på sekvensnummer. nyare rapporter (med högre sekvensnummer) ersätter äldre rapporter.
 
-### <a name="health-events"></a>Hälso händelser
-Internt bevarar hälso [tillståndet hälso händelser](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent)som innehåller all information från rapporterna och ytterligare metadata. Metadata innehåller den tid som rapporten fick till hälso klienten och den tid som den ändrades på Server sidan. Hälso tillstånds händelser returneras av [hälso frågor](service-fabric-view-entities-aggregated-health.md#health-queries).
+### <a name="health-events"></a>Hälsoevenemang
+Internt behåller hälsoarkivet [hälsohändelser](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthevent), som innehåller all information från rapporterna, och ytterligare metadata. Metadata innehåller den tid rapporten gavs till hälsoklienten och den tidpunkt då den ändrades på serversidan. Hälsohändelserna returneras av [hälsofrågor](service-fabric-view-entities-aggregated-health.md#health-queries).
 
-De tillagda metadatana innehåller:
+De tillagda metadata innehåller:
 
-* **SourceUtcTimestamp**. Tiden då rapporten gavs till hälso klienten (Coordinated Universal Time).
-* **LastModifiedUtcTimestamp**. Tiden då rapporten senast ändrades på Server sidan (Coordinated Universal Time).
-* **IsExpired**. En flagga som anger om rapporten har upphört att gälla när frågan kördes av hälso lagret. En händelse kan bara ha upphört om RemoveWhenExpired är false. Annars returneras inte händelsen av frågan och tas bort från butiken.
-* **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. Senaste gången för OK/varning/fel över gångar. Dessa fält ger historiken för hälso tillstånds över gångar för händelsen.
+* **SourceUtcTimestamp**. Den tid rapporten gavs till hälsoklienten (Coordinated Universal Time).
+* **LastModifiedUtcTimestamp**. Den tidpunkt då rapporten senast ändrades på serversidan (Coordinated Universal Time).
+* **IsExpired**. En flagga som anger om rapporten har upphört att gälla när frågan kördes av hälsoarkivet. En händelse kan bara förfalla om RemoveWhenExpired är falskt. Annars returneras inte händelsen av frågan och tas bort från arkivet.
+* **LastOkTransitionAt**, **LastWarningTransitionAt**, **LastErrorTransitionAt**. Sista gången för OK/varning/felövergångar. Dessa fält ger historiken över hälsotillståndsövergångarna för händelsen.
 
-Du kan använda fält för tillstånds över gång för aviseringar med smartare eller historisk hälso information. De möjliggör scenarier som:
+Tillståndsövergångsfälten kan användas för smartare aviseringar eller "historisk" hälsohändelseinformation. De möjliggör scenarier som:
 
-* Avisera när en egenskap har varit vid varning/fel i mer än X minuter. Genom att kontrol lera villkoret under en tids period undviks aviseringar på tillfälliga villkor. Till exempel, en avisering om hälso tillståndet har varit varning under mer än fem minuter kan översättas till (hälso deklaration = = varning och nu-LastWarningTransitionTime > 5 minuter).
-* Varna bara för villkor som har ändrats under de senaste X minuterna. Om en rapport redan har varit vid ett fel före den angivna tiden kan den ignoreras eftersom den redan signalerades tidigare.
-* Om en egenskap växlas mellan varning och fel, fastställer du hur lång tid det har varit skadat (det vill säga inte OK). En avisering om egenskapen inte har varit felfri under mer än fem minuter kan översättas till (hälsohälsa! = OK och nu-LastOkTransitionTime > 5 minuter).
+* Avisera när en egenskap har varit på varning/fel i mer än X minuter. Genom att kontrollera villkoret under en viss tid undviks varningar om tillfälliga förhållanden. En avisering om hälsotillståndet har varnats i mer än fem minuter kan till exempel översättas till (HealthState == Varning och nu - LastWarningTransitionTime > 5 minuter).
+* Avisering endast om villkor som har ändrats under de senaste X minuterna. Om en rapport redan var fel före den angivna tiden kan den ignoreras eftersom den redan har signalerats tidigare.
+* Om en egenskap växlar mellan varning och fel, avgöra hur länge det har varit felfritt (det vill vara, inte OK). En avisering om egenskapen inte har varit felfri i mer än fem minuter kan till exempel översättas till (HealthState != Ok och Now - LastOkTransitionTime > 5 minuter).
 
-## <a name="example-report-and-evaluate-application-health"></a>Exempel: rapportera och utvärdera program hälsa
-I följande exempel skickas en hälso rapport via PowerShell i Application **Fabric:/WORDCOUNT** från källan min **övervaknings**enhet. Hälso rapporten innehåller information om hälso egenskapen "tillgänglighet" i ett fel hälso tillstånd med oändlig TimeToLive. Sedan frågar den program hälsan, som returnerar sammanställda hälso tillstånds fel och rapporterade hälso händelser i listan över hälso händelser.
+## <a name="example-report-and-evaluate-application-health"></a>Exempel: Rapportera och utvärdera programmets hälsotillstånd
+I följande exempel skickas en hälsorapport via PowerShell på **programstrukturen:/WordCount** från källan **MyWatchdog**. Hälsorapporten innehåller information om hälsoegenskapen "tillgänglighet" i ett felhälsotillstånd, med oändlig TimeToLive. Sedan frågar programmets hälsotillstånd, som returnerar aggregerade hälsotillståndsfel och rapporterade hälsohändelser i listan över hälsohändelser.
 
 ```powershell
 PS C:\> Send-ServiceFabricApplicationHealthReport –ApplicationName fabric:/WordCount –SourceId "MyWatchdog" –HealthProperty "Availability" –HealthState Error
@@ -288,22 +288,22 @@ HealthEvents                    :
                                   Transitions           : Ok->Error = 3/23/2016 3:27:56 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-## <a name="health-model-usage"></a>Användning av hälso modell
-Hälso modellen gör det möjligt för moln tjänster och den underliggande Service Fabrics plattformen att skalas, eftersom övervakning och hälso bestämning distribueras bland de olika övervakarna i klustret.
-Andra system har en enda, centraliserad tjänst på kluster nivå som analyserar all *potentiellt* användbar information som skickas av tjänster. Den här metoden hindrar deras skalbarhet. Det innebär inte heller att de kan samla in information som kan hjälpa till att identifiera problem och potentiella problem så nära rotor saken som möjligt.
+## <a name="health-model-usage"></a>Användning av hälsomodeller
+Hälsomodellen gör att molntjänster och den underliggande Service Fabric-plattformen kan skalas, eftersom övervaknings- och hälsobestämningar fördelas mellan de olika övervakarna i klustret.
+Andra system har en enda centraliserad tjänst på klusternivå som tolkar all *potentiellt* användbar information som skickas ut av tjänster. Detta tillvägagångssätt hindrar deras skalbarhet. Det tillåter dem inte heller att samla in specifik information för att identifiera problem och potentiella problem så nära grundorsaken som möjligt.
 
-Hälso modellen används kraftigt för övervakning och diagnostik för att utvärdera kluster-och program hälsa och för övervakade uppgraderingar. Andra tjänster använder hälso data för att utföra automatiska reparationer, skapa kluster hälso historik och skicka aviseringar på vissa villkor.
+Hälsomodellen används mycket för övervakning och diagnos, för utvärdering av kluster- och programhälsa och för övervakade uppgraderingar. Andra tjänster använder hälsodata för att utföra automatiska reparationer, skapa klusterhälsohistorik och utfärda aviseringar om vissa villkor.
 
 ## <a name="next-steps"></a>Nästa steg
-[Visa Service Fabric hälso rapporter](service-fabric-view-entities-aggregated-health.md)
+[Visa hälsorapporter för Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
-[Använda system hälso rapporter för fel sökning](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Använda systemhälsorapporter för felsökning](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[Rapportera och kontrol lera tjänstens hälsa](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Så här rapporterar och kontrollerar du tjänstens hälsa](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Lägg till anpassade Service Fabric hälso rapporter](service-fabric-report-health.md)
+[Lägga till anpassade hälsorapporter för Service Fabric](service-fabric-report-health.md)
 
 [Övervaka och diagnostisera tjänster lokalt](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
-[Service Fabric program uppgradering](service-fabric-application-upgrade.md)
+[Uppgradering av Service Fabric-programmet](service-fabric-application-upgrade.md)
 

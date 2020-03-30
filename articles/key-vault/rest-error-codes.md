@@ -1,6 +1,6 @@
 ---
-title: REST API felkoder – Azure Key Vault
-description: De här fel koderna kan returneras av en åtgärd på en Azure Key Vault-webbtjänst.
+title: REST API-felkoder - Azure Key Vault
+description: Dessa felkoder kan returneras av en åtgärd på en Azure Key Vault-webbtjänst.
 keywords: ''
 services: machine-learning
 author: msmbaldwin
@@ -9,31 +9,31 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 8c9390ea498647d34e8643ed4be596372ffb8696
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 01fb5393217834bc0196da25c4a56314ca7eae2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293393"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294539"
 ---
-# <a name="azure-key-vault-rest-api-error-codes"></a>Fel koder för Azure Key Vault REST API
+# <a name="azure-key-vault-rest-api-error-codes"></a>AZURE Key Vault REST API-felkoder
  
 Följande felkoder kan returneras av en åtgärd på en Azure Key Vault-webbtjänst.
  
-## <a name="http-401-unauthenticated-request"></a>HTTP 401: oautentiserad begäran
+## <a name="http-401-unauthenticated-request"></a>HTTP 401: Oautentiserade begäran
 
-401 innebär att begäran inte autentiseras för Key Vault. 
+401 innebär att begäran inte är oautentiserade för Key Vault. 
 
 En begäran autentiseras om:
 
-- Nyckel valvet känner till identiteten för anroparen. särskilt
+- Nyckelvalvet känner till den som ringers identitet. Och
 - Anroparen kan försöka komma åt Key Vault-resurser. 
 
-Det finns flera olika orsaker till varför en begäran kan returnera 401.
+Det finns flera olika skäl till varför en begäran kan returnera 401.
 
-### <a name="no-authentication-token-attached-to-the-request"></a>Ingen autentiseringstoken är kopplad till begäran. 
+### <a name="no-authentication-token-attached-to-the-request"></a>Ingen autentiseringstoken som är kopplad till begäran. 
 
-Här är ett exempel på begäran om att ange värdet för en hemlighet:
+Här är ett exempel PUT-begäran som anger värdet för en hemlighet:
 
 ``` 
 PUT https://putreqexample.vault.azure.net//secrets/DatabaseRotatingPassword?api-version=7.0 HTTP/1.1
@@ -50,15 +50,15 @@ Content-Length: 31
 }
 ```
 
-Rubriken "Authorization" är den åtkomsttoken som krävs för varje anrop till Key Vault för data Plans åtgärder. Om rubriken saknas måste svaret vara 401.
+Rubriken "Auktorisering" är den åtkomsttoken som krävs för varje anrop till Key Vault för dataplansoperationer. Om huvudet saknas måste svaret vara 401.
 
-### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Token saknar rätt resurs som är kopplad till den. 
+### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Token saknar rätt resurs som är associerad med den. 
 
-När du begär en åtkomsttoken från Azure OAUTH-slutpunkten är en parameter med namnet "Resource" obligatorisk. Värdet är viktigt för token-providern eftersom det omfångerar token för den avsedda användningen. Resursen för **alla** tokens för att komma åt en Key Vault är *https:\//Vault.keyvault.net* (utan avslutande snedstreck).
+När du begär en åtkomsttoken från Azure OAUTH-slutpunkten är en parameter som kallas "resurs" obligatorisk. Värdet är viktigt för tokenprovidern eftersom det scopes token för dess avsedda användning. Resursen för **alla** token för att komma åt ett Key Vault är *https:\//vault.keyvault.net* (utan avslutande snedstreck).
 
 ### <a name="the-token-is-expired"></a>Token har upphört att gälla
 
-Tokens är base64-kodade och värdena kan avkodas på webbplatser som [http://jwt.calebb.net](http://jwt.calebb.net). Här är den ovanstående token som är avkodad:
+Tokens är base64 kodade och värdena kan avkodas på webbplatser som [http://jwt.calebb.net](http://jwt.calebb.net). Här är ovanstående token avkodas:
 
 ```
     {
@@ -86,20 +86,20 @@ Tokens är base64-kodade och värdena kan avkodas på webbplatser som [http://jw
 [signature]
 ```
 
-Vi kan se flera viktiga delar i denna token:
+Vi kan se många viktiga delar i denna token:
 
-- AUD (mål grupp): token-token. Observera att detta är <https://vault.azure.net>. Denna token fungerar inte för resurser som inte uttryckligen matchar det här värdet, till exempel Graph.
-- IAT (utfärdat i): antalet Tick sedan den epoken börjar när token utfärdades.
-- NBF (inte före): antalet Tick sedan den epoken börjar när denna token börjar gälla.
-- EXP (Expires): antalet Tick sedan den epoken börjar när denna token upphör att gälla.
-- AppID (program-ID): GUID för program-ID: t som utför den här begäran.
-- tid (klient-ID): GUID för klient-ID för huvudobjektet som gör den här begäran
+- aud (publik): Tokens resurs. Observera att <https://vault.azure.net>detta är . Den här token fungerar INTE för någon resurs som inte uttryckligen matchar det här värdet, till exempel diagram.
+- iat (utfärdat på): Antalet fästingar sedan början av epoken när token utfärdades.
+- nbf (inte före): Antalet fästingar sedan epoken började när denna token blir giltig.
+- exp (förfallodatum): Antalet fästingar sedan början av epoken när den här token upphör att gälla.
+- appid (program-ID): GUID för program-ID som gör den här begäran.
+- tid (klient-ID): GUID för klient-ID för huvudmannen som gör den här begäran
 
-Det är viktigt att alla värden identifieras korrekt i token för att begäran ska fungera. Om allt är korrekt kommer begäran inte att resultera i 401.
+Det är viktigt att alla värden identifieras korrekt i token för att begäran ska fungera. Om allt är korrekt, kommer begäran inte resultera i 401.
 
-### <a name="troubleshooting-401"></a>Felsöka 401
+### <a name="troubleshooting-401"></a>Felsökning 401
 
-401s bör undersökas från punkten för generering av token innan begäran görs till nyckel valvet. Normalt används kod för att begära token. När token har tagits emot skickas den till Key Vault begäran. Om koden körs lokalt kan du använda Fiddler för att avbilda begäran/svar till https://login.microsoftonline.com. En begäran ser ut så här:
+401:ar bör undersökas från den punkt där tokengenerering sker, innan begäran görs till nyckelvalvet. I allmänhet används kod för att begära token. När token har tagits emot skickas den till Key Vault-begäran. Om koden körs lokalt kan du använda Fiddler för att `https://login.microsoftonline.com`samla in begäran/svaret på . En begäran ser ut så här:
 
 ``` 
 POST https://login.microsoftonline.com/<key vault tenant ID>/oauth2/token HTTP/1.1
@@ -111,59 +111,59 @@ Content-Length: 192
 resource=https%3A%2F%2Fvault.azure.net&client_id=<registered-app-ID>&client_secret=<registered-app-secret>&client_info=1&grant_type=client_credentials
 ```
 
-Följande användar information mush vara korrekt:
+Följande information som tillhandahålls av användaren är korrekt:
 
-- Klient-ID för Key Vault
-- Resurs värde har angetts till https %3 A %2 F %2 F Vault. Azure. net (URL-kodad)
+- Klient-ID:et för nyckelvalv
+- Resursvärde inställt på https%3A%2F%2Fvault.azure.net (URL-kodad)
 - Klientorganisations-ID
 - Klienthemlighet
 
-Se till att resten av begäran är nästan identiska.
+Se till att resten av begäran är nästan identisk.
 
-Om du bara kan hämta svars-åtkomsttoken kan du avkoda den (som visas ovan) för att säkerställa klient-ID, klient-ID (app-ID) och resursen.
+Om du bara kan hämta svarsåtkomsttoken kan du avkoda den (som visas ovan) för att säkerställa klient-ID, klient-ID (app-ID) och resursen.
 
-## <a name="http-403-insufficient-permissions"></a>HTTP 403: otillräcklig behörighet
+## <a name="http-403-insufficient-permissions"></a>HTTP 403: Otillräckliga behörigheter
 
-HTTP 403 innebär att begäran har autentiserats (den känner till den begärda identiteten) men identiteten har inte behörighet att komma åt den begärda resursen. Det finns två orsaker:
+HTTP 403 innebär att begäran autentiserades (den känner till den begärande identiteten) men identiteten har inte behörighet att komma åt den begärda resursen. Det finns två orsaker:
 
-- Det finns ingen åtkomst princip för identiteten.
-- IP-adressen för den begär ande resursen är inte vit listas i nyckel valvets brand Väggs inställningar.
+- Det finns ingen åtkomstprincip för identiteten.
+- IP-adressen för den begärande resursen är inte vitlistad i nyckelvalvets brandväggsinställningar.
 
-HTTP 403 uppstår ofta när kundens program inte använder det klient-ID som kunden tycker att det är. Det innebär vanligt vis att åtkomst principerna inte har kon figurer ATS korrekt för den faktiska anrops identiteten.
+HTTP 403 inträffar ofta när kundens program inte använder klient-ID som kunden tror att det är. Det innebär vanligtvis att åtkomstprinciperna inte har ställts in korrekt för den faktiska anropande identiteten.
 
-### <a name="troubleshooting-403"></a>Felsöka 403
+### <a name="troubleshooting-403"></a>Felsökning 403
 
-Börja med att aktivera loggning. Instruktioner för hur du gör detta finns i [Azure Key Vault loggning](key-vault-logging.md).
+Aktivera först loggning. Instruktioner om hur du gör det finns i [Loggning av Azure Key Vault](key-vault-logging.md).
 
-När loggning har Aktiver ATS kan du avgöra om 403 är på grund av åtkomst principen eller brand Väggs principen.
+När loggningen är aktiverad kan du avgöra om 403 beror på åtkomstprincipen eller brandväggsprincipen.
 
-#### <a name="error-due-to-firewall-policy"></a>Fel på grund av brand Väggs princip
+#### <a name="error-due-to-firewall-policy"></a>Fel på grund av brandväggsprincipen
 
-"Klient adressen (00.00.00.00) är inte auktoriserad och anroparen är inte en betrodd tjänst"
+"Klientadress (00.00.00.00) är inte auktoriserad och anroparen är inte en betrodd tjänst"
 
-Det finns en begränsad lista över "Azure-betrodda tjänster". Azure Web Sites är **inte** en betrodd Azure-tjänst. Mer information finns i blogg inlägget [Key Vault brand Väggs åtkomst av Azure App Services](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services).
+Det finns en begränsad lista över "Azure Trusted Services". Azure-webbplatser är **inte** en betrodd Azure-tjänst. Mer information finns i [åtkomsten till nyckelvalvsåtkomst för key vault-brandväggen via Azure App Services](https://azidentity.azurewebsites.net/post/2019/01/03/key-vault-firewall-access-by-azure-app-services).
 
-Du måste lägga till IP-adressen för Azure-webbplatsen i Key Vault för att den ska fungera.
+Du måste lägga till IP-adressen för Azure-webbplatsen i Nyckelvalvet för att den ska fungera.
 
-Om det beror på åtkomst princip: hitta objekt-ID för begäran och se till att objekt-ID: t matchar objektet som användaren försöker tilldela åtkomst principen till. Det finns ofta flera objekt i AAD som har samma namn, så det är mycket viktigt att man väljer rätt. Genom att ta bort och lägga till åtkomst principen, är det möjligt att se om det finns flera objekt med samma namn.
+Om det beror på åtkomstprincip: hitta objekt-ID för begäran och se till att objekt-ID matchar det objekt som användaren försöker tilldela åtkomstprincipen. Det kommer ofta att finnas flera objekt i AAD som har samma namn, så att välja rätt är mycket viktigt. Genom att ta bort och lägga till åtkomstprincipen igen är det möjligt att se om flera objekt finns med samma namn.
 
-Dessutom kräver de flesta åtkomst principer inte användningen av det "auktoriserade programmet" som visas i portalen. Auktoriserat program används för "autentisering av" på uppdrags nivå ", som är sällsynt. 
+Dessutom kräver de flesta åtkomstprinciper inte att det "auktoriserade programmet" används som visas i portalen. Auktoriserat program används för autentiseringsscenarier för "för den skull" som är sällsynta. 
 
 
-## <a name="http-429-too-many-requests"></a>HTTP 429: för många begär Anden
+## <a name="http-429-too-many-requests"></a>HTTP 429: För många begäranden
 
-Begränsningen inträffar när antalet begär Anden överskrider det angivna Max värdet för tidsram. Om begränsningen inträffar kommer Key Vaultens svar att vara HTTP 429. Det finns angivna Max värde för typer av begär Anden som görs. Till exempel: skapandet av en HSM 2048-bitars nyckel är 5 begär Anden per 10 sekunder, men alla andra HSM-transaktioner har en gräns på 1000-begäran/10 sekunder. Det är därför viktigt att förstå vilka typer av samtal som görs när du bestämmer orsaken till begränsningen.
-I allmänhet är begär anden till Key Vault begränsade till 2000 begär Anden/10 sekunder. Undantag är nyckel åtgärder, enligt beskrivningen i [Key Vault tjänst gränser](key-vault-service-limits.md)
+Begränsning sker när antalet begäranden överskrider det angivna maxbeloppet för tidsramen. Om begränsning inträffar kommer Key Vault svar vara HTTP 429. Det finns angivna maximiför olika typer av förfrågningar. Till exempel: skapandet av en HSM 2048-bitarsnyckel är 5 begäranden per 10 sekunder, men alla andra HSM-transaktioner har en gräns på 1 000 begäranden/10 sekunder. Därför är det viktigt att förstå vilka typer av samtal som görs vid fastställandet av orsaken till begränsning.
+I allmänhet är begäranden till Key Vault begränsade till 2000 begäranden/10 sekunder. Undantag är nyckelåtgärder, som dokumenteras i [servicegränser för Key Vault](key-vault-service-limits.md)
 
-### <a name="troubleshooting-429"></a>Felsöka 429
-Begränsningen arbetar med följande metoder:
+### <a name="troubleshooting-429"></a>Felsökning 429
+Begränsning bearbetas med hjälp av dessa tekniker:
 
-- Minska antalet begär Anden som görs till Key Vault genom att fastställa om det finns mönster för en begärd resurs och försöka cachelagra dem i det anropande programmet. 
+- Minska antalet begäranden som görs till Nyckelvalvet genom att avgöra om det finns mönster för en begärd resurs och försöker cachelagra dem i det anropande programmet. 
 
-- När Key Vault begränsning sker kan du anpassa den begär ande koden så att en exponentiell backoff används för att försöka igen. Algoritmen beskrivs här: [så här begränsar du appen](key-vault-ovw-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
+- När Begränsning av Key Vault inträffar anpassar du den begärande koden så att den använder en exponentiell backoff för återförsök. Algoritmen förklaras här: [Så här begränsar du din app](key-vault-ovw-throttling.md#how-to-throttle-your-app-in-response-to-service-limits)
 
-- Om antalet begär Anden inte kan minskas genom cachelagring och tidsinställda backoff inte fungerar, kan du överväga att dela upp nycklarna i flera nyckel valv. Tjänst gränsen för en enskild prenumeration är 5x den enskilda Key Vault gränsen. Om du använder fler än 5 nyckel valv bör du överväga att använda flera prenumerationer. 
+- Om antalet begäranden inte kan minskas genom cachelagring och tidsinnad backoff inte fungerar, överväg du att dela upp nycklarna i flera nyckelvalv. Servicegränsen för en enskild prenumeration är 5x den enskilda Key Vault-gränsen. Om du använder mer än 5 nyckelvalv bör man överväga att använda flera prenumerationer. 
 
-Detaljerad vägledning, inklusive begäran om att öka gränserna, hittar du här: [Key Vault begränsnings vägledning](key-vault-ovw-throttling.md)
+Detaljerad vägledning inklusive begäran om att öka gränserna, kan hittas här: [Key Vault strypning vägledning](key-vault-ovw-throttling.md)
 
 

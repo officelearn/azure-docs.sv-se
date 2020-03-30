@@ -1,26 +1,26 @@
 ---
-title: Villkorlig åtkomst – Kräv MFA för administratörer – Azure Active Directory
-description: Skapa en anpassad princip för villkorlig åtkomst för att kräva att administratörer utför Multi-Factor Authentication
+title: Villkorlig åtkomst - Kräv MFA för administratörer - Azure Active Directory
+description: Skapa en anpassad princip för villkorlig åtkomst för att kräva att administratörer utför multifaktorautentisering
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 03/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb396429c95dbed090283752c5a0d9ff5cc176af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c08c8d5d4203ae90cedd826bb5dcb01011d07afa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148206"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80295270"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Villkorlig åtkomst: Kräv MFA för administratörer
 
-Konton som tilldelas administrativa rättigheter är riktade mot angripare. Att kräva Multi-Factor Authentication (MFA) för dessa konton är ett enkelt sätt att minska risken för att dessa konton komprometteras.
+Konton som tilldelas administrativa rättigheter är måltavlor för angripare. Att kräva multifaktorautentisering (MFA) på dessa konton är ett enkelt sätt att minska risken för att dessa konton äventyras.
 
 Microsoft rekommenderar att du behöver MFA på följande roller minst:
 
@@ -28,53 +28,55 @@ Microsoft rekommenderar att du behöver MFA på följande roller minst:
 * Administratör för villkorlig åtkomst
 * Exchange-administratör
 * Global administratör
-* Administratör för supportavdelningen (lösen ord)
+* Administratör för Helpdesk (lösenord)
 * Lösenordsadministratör
 * Säkerhetsadministratör
 * SharePoint-administratör
-* Användar administratör
+* Användaradministratör
 
-Organisationer kan välja att inkludera eller exkludera roller som de ser bäst.
+Organisationer kan välja att inkludera eller utesluta roller som de vill.
 
-## <a name="user-exclusions"></a>Användar undantag
+## <a name="user-exclusions"></a>Undantag från användare
 
-Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att du undantar följande konton från principen:
+Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att du utesluter följande konton från din policy:
 
-* **Nöd åtkomst** eller **Bryt** punkts konton för att förhindra konto utelåsning för hela klienten. I det osannolika scenariot är alla administratörer utelåsta från din klient, ditt administrations konto för nöd administration kan användas för att logga in på klienten och vidta åtgärder för att återställa åtkomsten.
-   * Mer information finns i artikeln [Hantera nöd åtkomst konton i Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Tjänst konton** och **tjänst huvud namn**, till exempel Azure AD Connect Sync-kontot. Tjänst konton är icke-interaktiva konton som inte är kopplade till någon viss användare. De används vanligt vis av backend-tjänster och ger program mässig åtkomst till program. Tjänst konton ska undantas eftersom MFA inte kan slutföras program mässigt.
-   * Om din organisation har dessa konton som används i skript eller kod kan du ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan du undanta dessa konton från bas linje principen.
+* **Nödåtkomst** eller **break-glass-konton** för att förhindra kontoutelåsning för hela klienten. I det osannolika scenariot är alla administratörer utelåsta från din klientorganisation, ditt administrativa konto för nödåtkomst kan användas för att logga in på klienten vidta åtgärder för att återställa åtkomsten.
+   * Mer information finns i [artikeln, Hantera konton för nödåtkomst i Azure AD](../users-groups-roles/directory-emergency-access.md).
+* **Tjänstkonton** och **tjänsthuvudnamn**, till exempel Azure AD Connect Sync-konto. Tjänstkonton är icke-interaktiva konton som inte är kopplade till en viss användare. De används normalt av backend-tjänster och ger programmatisk åtkomst till program. Tjänstkonton bör uteslutas eftersom MFA inte kan slutföras programmässigt.
+   * Om din organisation har dessa konton som används i skript eller kod kan du överväga att ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan du utesluta dessa specifika konton från originalprincipen.
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-Följande steg hjälper dig att skapa en princip för villkorlig åtkomst som kräver att de tilldelade administrativa rollerna utför Multi-Factor Authentication.
+Följande steg hjälper till att skapa en princip för villkorlig åtkomst för att kräva att de tilldelade administrativa rollerna utför multifaktorautentisering.
 
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
-1. Välj **ny princip**.
-1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
-1. Under **tilldelningar**väljer **du användare och grupper**
-   1. Under **Inkludera**väljer du **katalog roller (för hands version)** och väljer följande roller som minst:
+1. Logga in på **Azure-portalen** som global administratör, säkerhetsadministratör eller administratör för villkorlig åtkomst.
+1. Bläddra till **Azure Active Directory** > **Security** > **Conditional Access**.
+1. Välj **Ny princip**.
+1. Ge din policy ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på sina principer.
+1. Under **Tilldelningar**väljer du **Användare och grupper**
+   1. Under **Inkludera**väljer du **Katalogroller (förhandsgranskning)** och väljer minst följande roller:
+      * Administratör för autentisering
       * Faktureringsadministratör
       * Administratör för villkorlig åtkomst
       * Exchange-administratör
       * Global administratör
-      * Support administratör
+      * Helpdesk-administratör
       * Lösenordsadministratör
       * Säkerhetsadministratör
       * SharePoint-administratör
-      * Användar administratör
-   1. Under **exkludera**väljer **du användare och grupper** och väljer organisationens nödfalls åtkomst eller Bryt glas konton. 
+      * Användaradministratör
+   1. Under **Uteslut**väljer du **Användare och grupper** och väljer organisationens konton för nödåtkomst eller glasbrott. 
    1. Välj **Done** (Klar).
-1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **alla molnappar**och väljer sedan **Slutför**.
-1. Under **åtkomst kontroller** > **bevilja**, väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och väljer **Välj**.
-1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
-1. Välj **skapa** för att skapa för att aktivera principen.
+1. Under **Molnappar eller åtgärder** > **Inkludera**väljer du **Alla molnappar**och väljer **Klar**.
+1. Under **Villkor** > **klientappar (förhandsversion)** ställer du in **Konfigurera** till **Ja**och väljer **Klar**.
+1. Under **Åtkomstkontroller** > **Bevilja**väljer du Bevilja **åtkomst**, **Kräv multifaktorautentisering**och välj **Välj**.
+1. Bekräfta dina inställningar och ställ in **Aktivera princip** på **På**.
+1. Välj **Skapa** för att skapa för att aktivera din princip.
 
 ## <a name="next-steps"></a>Nästa steg
 
 [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 
-[Bestäm inverkan med endast rapport läge för villkorlig åtkomst](howto-conditional-access-report-only.md)
+[Fastställa påverkan med hjälp av rapportläge med villkorsstyrd åtkomst](howto-conditional-access-report-only.md)
 
-[Simulera inloggnings beteende med hjälp av What If verktyget för villkorlig åtkomst](troubleshoot-conditional-access-what-if.md)
+[Simulera inloggningsbeteende med verktyget Villkorlig åtkomst Vad händer om](troubleshoot-conditional-access-what-if.md)

@@ -1,118 +1,117 @@
 ---
 title: Integrerade lösningar – Azure Marketplace
 description: Integrerade lösningar i Azure Marketplace och Microsoft AppSource
-services: Azure, Marketplace, Compute, Storage, Networking
-author: MaggiePucciEvans
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/16/2019
-ms.author: evansma
-ms.openlocfilehash: 6f09df7c4ccdfa8a339b9d7f2655128c7ead5184
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: dsindona
+ms.openlocfilehash: 356713bd7d51be6f3550a6975a766fe1b6a0fc05
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978651"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286225"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicera en integrerad lösning
 
-I ett enda samlat erbjudande kombinerar en integrerad lösning lösnings tekniker från program varu leverantörer med distribution och support för en tjänste partner. Tjänste partnern listar erbjudandet i Microsoft AppSource eller Azure Marketplace som [konsult tjänst](https://docs.microsoft.com/azure/marketplace/consulting-services).
+I ett enda paketerat erbjudande kombinerar en integrerad lösning teknik för point-solution från programvaruleverantörer med distribution och support av en tjänstepartner. Tjänstepartnern listar erbjudandet i Microsoft AppSource eller Azure Marketplace som en [konsulttjänst](https://docs.microsoft.com/azure/marketplace/consulting-services).
 
-Integrerade lösningar syftar till att tillgodose ett bestämt kund behov eller scenario. Leverantörer börjar med att förstå branschens utmaning eller smärta. De integrerar sedan två eller fler bästa tekniker för att skapa en enhetlig och upprepnings bar distributions upplevelse för kunderna. Leverantörer får kunderna igång snabbt. De erbjuder en enda kontakt punkt för kunden, vilket ger relevant anpassning, rådgivning och lösnings support. Resultatet är en integrerad lösning, inklusive teknik och tjänster.
+Integrerade lösningar syftar till att tillgodose ett specifikt kundbehov eller ett visst scenario. Leverantörer börjar med att förstå branschen utmaning eller smärtpunkter. De integrerar sedan två eller flera tekniker som är bäst för rasen för att skapa en enhetlig och repeterbar distributionsupplevelse för kunder. Leverantörer får kunderna igång snabbt. De erbjuder en enda kontaktpunkt till kunden, vilket ger relevant anpassning, rådgivning och lösningssupport. Resultatet är en integrerad lösning, inklusive teknik och tjänster.
 
-Titta på [den här videon](https://aka.ms/AA5qos4)om du vill ha en översikt över det integrerade lösnings programmet.
+En översikt över programmet Integrated Solutions finns i [den här videon.](https://aka.ms/AA5qos4)
 
-## <a name="benefits-of-integrated-solutions-in-the-marketplace"></a>Fördelar med integrerade lösningar på Marketplace
+## <a name="benefits-of-integrated-solutions-in-the-marketplace"></a>Fördelar med integrerade lösningar på marknaden
 
-* Kunder kan hitta paketerade lösningar som löser slut punkt till slut punkt på affärs utmaningar via Marketplace. De får snabbare tid eftersom tekniken är inbyggd. Kunder undviker att behöva delta separat med flera appar som distribueras på ett fragmenterat sätt.
-* IP paketeras tillsammans med andra lösningar och tjänster som förbättrar värdet för tekniken som levereras av expert tjänst partner.
-* Tjänste partners skapar fördefinierade, förintegrerade lösningar med bästa teknik för att skala, landa och expandera i fler kund konton.
-* Microsoft kan använda dessa förintegrerade, branschledande lösningar för att enklare samsälja till kunder. Priser och villkor sorteras i förväg.
+* Kunderna kan hitta paketerade lösningar som löser heltäckande affärsutmaningar via marknadsplatsen. De får snabbare tid till värde eftersom tekniken är integrerad på framsidan. Kunder undviker att behöva interagera separat med flera appar som distribueras på ett fragmenterat sätt.
+* IP paketerar tillsammans med andra lösningar och tjänster som ökar värdet av den teknik som levereras av experttjänster.
+* Tjänstepartner skapar fördefinierade, förintegrerade lösningar med bäst av rasteknik för att skala, landa och expandera i fler kundkonton.
+* Microsoft kan använda dessa förintegrerade, branschjusterade lösningar för att lättare samsälja till kunder. Priser och villkor sorteras i förväg.
 
 ## <a name="eligibility-criteria"></a>Behörighetskrav
 
-* Deltagande partners måste ha ett MPN-ID.
-* Deltagande tjänste leverantörer ska vara samförsäljnings klara.
-* Deltagande program leverantörer bör vara färdiga IP-adresser.
-* Minst en deltagande partner måste ha guld kompetens i något av följande områden:
+* Deltagande partner måste ha ett MPN-ID.
+* Deltagande tjänsteleverantörer bör vara medsälja redo.
+* Deltagande programvaruleverantörer bör vara IP-co-sell redo.
+* Minst en deltagande partner måste ha guldkompetens inom något av följande områden:
 
     * Apputveckling
     * Integrering av program
-    * Hantering av program livs cykel
-    * Cloud Platform
-    * Datanalys
+    * Hantering av programmets livscykel
+    * Molnplattform
+    * Dataanalys
     * Datacenter
-    * Data Platform
+    * Dataplattform
     * DevOps
 
-* Lösningen måste innehålla minst två partner organisationer, som sammanför IP och tjänster för en komplett kund lösning och erfarenhet.
-* Partnerns IP-adress måste bygga på Azure, Dynamics 365 eller Power Platform.
-* IP-adressen för den integrerade lösningen behöver särskiljas från bara IP-adressen för program varu leverantören och de grundläggande tjänsterna-Provider-erbjudandena.
-* Alla partner delar målet med att skapa ett upprepnings bara erbjudande som kan listas och till och med utföras genom Microsoft AppSource, Azure Marketplace eller båda.
+* Lösningen måste omfatta minst två partnerorganisationer, som samlar IP och tjänster för en komplett kundlösning och upplevelse.
+* Partner-IP måste byggas på Azure, Dynamics 365 eller Power Platform.
+* IP-adressen för den integrerade lösningen måste skiljas från helt enkelt IP för programvaruleverantören och de grundläggande tjänsteleverantörernas erbjudanden.
+* Alla partner delar målet att skapa ett repeterbart erbjudande som kan listas och så småningom överföras via Microsoft AppSource, Azure Marketplace eller båda.
 
-## <a name="submit-a-nomination"></a>Skicka in en valör
+## <a name="submit-a-nomination"></a>Skicka en utnämning
 
-Partner som vill delta i programmet ska identifiera andra partner som de vill arbeta med. De bör fylla i det [integrerade lösnings betecknings formuläret](https://aka.ms/AA5qicu). Program teamet för Integrated Solutions granskar nominerandet och följer upp inom 10 arbets dagar. Teamet innehåller godkännande och nästa steg.
+Partners som vill delta i programmet bör identifiera andra partner som de vill arbeta med. De bör fylla i [nomineringsformuläret för integrerade lösningar](https://aka.ms/AA5qicu). Programmet Integrated Solutions granskar nomineringen och följer upp inom 10 arbetsdagar. Teamet ger godkännande och nästa steg.
 
 ## <a name="develop-an-integrated-solution"></a>Utveckla en integrerad lösning
 
-När din utnämning har godkänts använder du de länkade program resurserna för att utveckla din integrerade lösning. Följ de här stegen:
+När nomineringen har godkänts använder du de länkade programresurserna för att utveckla din integrerade lösning. Följ de här stegen:
 
-1. Slutför viktiga affärs-och teknik diskussioner i ett workshop-format för att definiera lösningen och integrerings metoden.
+1. Slutföra viktiga affärs- och tekniska diskussioner i ett verkstadsformat för att definiera lösnings- och integrationsmetoden.
 
     Din diskussion om lösningen bör omfatta följande punkter:
     * Omfång
     * Rikta kunder
-    * Förslagsvärde
+    * Värde proposition
     * Prissättning
     * Licensiering
-    * Allmänna villkor
-    * Support metod
-    * Marknadsförings aktiviteter
-    * Försäljnings process
+    * Villkor
+    * Supportstrategi
+    * Marknadsföringsaktiviteter
+    * Försäljningsprocess
     * Aktiviteter
 
-    Din diskussion om integrerings metoden bör omfatta följande punkter:
-    * Integrations platser
+    Din diskussion om integrationsmetoden bör omfatta följande punkter:
+    * Integrationspunkter
     * Lösningsarkitektur
     * Autentisering
     * Användargränssnitt
     * Övervakning
-    * Distributions mekanism
+    * Mekanism för distribution
     * API:er
-    * Enhetlig data Central
+    * Enhetlig datadatabas
 
-    Använd följande resurser för utvecklings processen:
+    Använd dessa resurser för utvecklingsprocessen:
 
-    * [Diskussions guide för Business besluts workshop](https://aka.ms/AA5qicx)
-    * [Diskussions guide för teknisk besluts workshop](https://aka.ms/AA5qid1)
-    * [Snabb starts video: affärs-och teknik workshops](https://aka.ms/AA5qos9)
+    * [Diskussionsguide för affärsbeslutsworkshop](https://aka.ms/AA5qicx)
+    * [Diskussionsguide för teknisk beslutsworkshop](https://aka.ms/AA5qid1)
+    * [Snabbstartsvideo: Affärs- och tekniska workshops](https://aka.ms/AA5qos9)
 
-1. Identifiera en plattforms oberoende projekt hanterare för att driva projektplanen och tids linjen som du utvecklade i affärs-och teknik workshops.
+1. Identifiera en partneransvarig för att driva projektplanen och tidslinjen som du utvecklat i affärs- och teknikverkstäderna.
 
-1. Utveckla den fullständiga tekniska integreringen av lösningen.
+1. Utveckla den fullständiga tekniska integrationen av lösningen.
 
-1. Bestäm prissättningen för lösningen och en enda pris punkt till Surface på Microsoft AppSource eller Azure Marketplace.
+1. Bestäm lösningspriser och en enda prispunkt till ytan på Microsoft AppSource eller Azure Marketplace.
 
-1. Slutför marknadsförings material för Microsoft AppSource eller Azure Marketplace-listan, inklusive:
+1. Slutför marknadsföringssäkerheterna för Microsoft AppSource- eller Azure Marketplace-listan, inklusive:
 
-    * Ett kombinerat lösnings namn.
-    * En lista Beskrivning av den integrerade lösningen. Följ [erbjudande-lista över bästa praxis](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
-    * Ett avstånd för en sida till kunder. Använd [mallen One-pager](https://aka.ms/AA5s08a).
-    * En kund presentation. Använd [presentations mal len](https://aka.ms/AA5s7ql).
-    * En logo typ för den kombinerade lösningen.
+    * Ett kombinerat lösningsnamn.
+    * En beskrivning av den integrerade lösningen. Följ [metodtips för erbjudandelistor](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+    * En ensidig pitch till kunder. Använd [mallen för en personsökare](https://aka.ms/AA5s08a).
+    * En kundpresentation. Använd [presentationsmallen](https://aka.ms/AA5s7ql).
+    * En logotyp för den kombinerade lösningen.
 
 ## <a name="publish-your-integrated-solution"></a>Publicera din integrerade lösning
 
-När du har slutfört teknisk integrering och marknadsförings säkerhet kan du läsa mer i utgivar guiden för [konsult tjänster för Microsoft AppSource och Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). Använd den här resursen för att avgöra om din lösning ska publiceras i Microsoft AppSource eller på Azure Marketplace. Använd också guiden för att förbereda dina publicerings artefakter och slutföra publicerings processen.
+När du är klar med den tekniska integrationen och marknadsföringssäkerheterna läser du utgivarguiden för [konsulttjänster för Microsoft AppSource och Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). Använd den här resursen för att avgöra om din lösning kommer att publiceras i Microsoft AppSource eller Azure Marketplace. Använd också guiden för att förbereda dina publiceringsartefakter och slutföra publiceringsprocessen.
 
-Även om fem tjänst typer är tillgängliga för konsult tjänster, måste en integrerad lösning antingen vara ett koncept bevis eller en fullständig implementering.
+Även om fem servicetyper finns tillgängliga för erbjudanden om konsulttjänster måste en integrerad lösning vara antingen ett konceptbevis eller ett fullständigt genomförande.
 
 ## <a name="go-to-market-with-your-integrated-solution"></a>Gå till marknaden med din integrerade lösning
 
-När lösningen är Live i Microsoft AppSource eller Azure Marketplace, vill du öka medvetenheten och behovet genom marknadsförings aktiviteter. Granska de aktiviteter som anges i [projektplanen och tids linjen](https://aka.ms/AA5qiuc). Den här resursen innehåller aktiviteter som partners kan driva i sina egna team och med varandra. Få sedan till gång till [marknads förmåner](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) för partner som publicerar på Marketplace. Alla erbjudanden för integrerad lösning är berättigade till förmåner på utvärderings nivå.
+När din lösning är live i Microsoft AppSource eller Azure Marketplace vill du öka medvetenheten och efterfrågan genom marknadsföringsaktiviteter. Granska aktiviteterna i [projektplanen och tidslinjen](https://aka.ms/AA5qiuc). Den här resursen omfattar aktiviteter som partner kan köra inom sina egna team och med varandra. Få sedan tillgång [till go-to-market-fördelarna](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) för partner som publicerar på marknaden. Alla erbjudanden om integrerade lösningar är berättigade till förmåner på testnivå.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du köper en integrerad lösning på Marketplace finns i [integrerade lösningar](https://docs.microsoft.com/azure/marketplace/integrated-solutions).
+Information om hur du köper en integrerad lösning på marknaden finns i [Integrerade lösningar](https://docs.microsoft.com/azure/marketplace/integrated-solutions).

@@ -1,32 +1,31 @@
 ---
-title: Sidan godkännanden för Azure Marketplace
-description: Översikt över sidan godkännanden i Cloud Partner Portal för Azure Marketplace.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Sidan Godkännanden för Azure Marketplace
+description: Översikt över sidan Godkännanden i Cloud Partner Portal för Azure Marketplace.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pabutler
-ms.openlocfilehash: de6ad58ebd0442772eddfcf14792bc77cd76aad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 8bd00e3b71e74775697a615152885e55703a41fb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821533"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288945"
 ---
 # <a name="approvals-page"></a>Sidan med godkännanden
 
-Sidan [**godkännanden**](https://cloudpartner.azure.com/#approvals) innehåller en lista över godkända erbjudanden, inklusive erbjudande namn, utgivare, erbjudande typ och aktuell åtgärd.  Godkända erbjudanden är antingen redan publicerade eller håller på att publiceras.  Resultaten kan sorteras efter kolumn eller filtreras efter en angiven sträng.  Status fältet längst ned på sidan visar mängd-och sid antal och gör det möjligt att navigera mellan list sidor.  Om du väljer ett erbjudande i den här listan visas erbjudandet i den associerade erbjudande redigeraren. 
+Sidan [**Godkännanden**](https://cloudpartner.azure.com/#approvals) innehåller en lista över godkända erbjudanden, inklusive erbjudandenamn, utgivare, erbjudandetyp och aktuell åtgärd.  Godkända erbjudanden är antingen redan publicerade eller håller på att publiceras.  Resultaten kan sorteras efter kolumn eller filtreras på en angiven sträng.  Statusområdet längst ned på sidan visar aggregerade och sidantal och gör att du kan navigera mellan listsidorna.  Om du väljer ett erbjudande i den här listan visas erbjudandet i den associerade erbjudanderedigeraren. 
 
 
-## <a name="example-page"></a>Exempel sida
+## <a name="example-page"></a>Exempelsida
 
-Följande bild visar sidan **godkännanden** för contoso.
+Följande bild visar sidan **Godkännanden** för Contoso.
 
-![Sidan godkända erbjudanden](./media/approvals-page1.png)
+![Sida för godkända erbjudanden](./media/approvals-page1.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa meny objekt för navigering visar [sidan alla utgivare](./cpp-all-publishers-page.md), som visar en lista över alla registrerade utgivare.
+I nästa menyrad i navigeringsmenyn visas en [sida alla utgivare](./cpp-all-publishers-page.md), som visar alla registrerade utgivare.

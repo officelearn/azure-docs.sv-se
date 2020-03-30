@@ -1,24 +1,23 @@
 ---
-title: Hämta erbjudande status | Azure Marketplace
+title: Hämta erbjudandestatus | Azure Marketplace
 description: API hämtar aktuell status för erbjudandet.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 2f5211716145d6c05bbfb0132c4a6ba2f9cceabe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819668"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280515"
 ---
 <a name="retrieve-offer-status"></a>Hämta erbjudandestatus 
 =====================
 
-Hämtar aktuell status för erbjudandet.
+Hämtar erbjudandets aktuella status.
 
   `GET  https://cloudpartner.azure.com/api/publishers/<publisherId>/offers/<offerId>/status?api-version=2017-10-31`
 
@@ -27,9 +26,9 @@ Hämtar aktuell status för erbjudandet.
 
 |  **Namn**       |   **Beskrivning**                            |  **Datatyp** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Utgivar-ID, till exempel `Contoso`  |     Sträng     |
-|  OfferId        | GUID som unikt identifierar erbjudandet      |     Sträng     |
-|  API-version    | Senaste versionen av API                        |     Date       |
+|  publisherId    | Publisher-identifierare, till exempel`Contoso`  |     String     |
+|  offerId (erbjudandeId)        | GUID som unikt identifierar erbjudandet      |     String     |
+|  api-version    | Senaste versionen av API                        |     Datum       |
 |  |  |
 
 
@@ -43,7 +42,7 @@ Hämtar aktuell status för erbjudandet.
 |  |  |
 
 
-<a name="body-example"></a>Body-exempel
+<a name="body-example"></a>Exempel på brödtext
 ------------
 
 ### <a name="response"></a>Svar
@@ -121,60 +120,60 @@ Hämtar aktuell status för erbjudandet.
 ```
 
 
-### <a name="response-body-properties"></a>Egenskaper för svars text
+### <a name="response-body-properties"></a>Egenskaper för svarstext
 
 |  **Namn**             |    **Beskrivning**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  status               | Status för erbjudandet. En lista över möjliga värden finns i [erbjudande status](#offer-status) nedan. |
+|  status               | Erbjudandets status. Information om listan över möjliga värden finns i [Erbjudandestatus](#offer-status) nedan. |
 |  meddelanden             | Matris med meddelanden som är associerade med erbjudandet                                                    |
-|  steg                | Matris med de steg som erbjudandet går igenom under publiceringen av erbjudandet                      |
-|  estimatedTimeFrame   | Uppskattning av hur lång tid det tar att slutföra det här steget, i eget format                       |
+|  steg                | Matris över de steg som erbjudandet går igenom under en erbjudandepublicering                      |
+|  uppskattadTimeFrame   | Uppskattning av den tid det skulle ta att slutföra detta steg, i vänligt format                       |
 |  id                   | Identifierare för steget                                                                         |
-|  stepName             | Namn på steget                                                                               |
+|  stepName (stegnamn)             | Stegets namn                                                                               |
 |  description          | Beskrivning av steget                                                                        |
-|  status               | Status för steget. En lista över möjliga värden finns i [steg status](#step-status) nedan.    |
-|  meddelanden             | Matris med meddelanden som är relaterade till steget                                                          |
-|  processPercentage    | Procent slutfört för steget                                                              |
-|  previewLinks         | *Inte implementerad för närvarande*                                                                    |
-|  liveLinks            | *Inte implementerad för närvarande*                                                                    |
-|  notificationEmails   | Kommaavgränsad lista över e-postadresser som ska meddelas om åtgärdens förlopp        |
+|  status               | Stegets status. En lista över möjliga värden finns i [Stegstatus](#step-status) nedan.    |
+|  meddelanden             | Matris med meddelanden relaterade till steget                                                          |
+|  processPercentage    | Procentuellt slutförande av steget                                                              |
+|  previewLinks         | *Inte implementerad för tillfället*                                                                    |
+|  liveLinks            | *Inte implementerad för tillfället*                                                                    |
+|  anmälanMeddelanden   | Kommaavgränsad lista över e-postadresser som ska meddelas om hur åtgärden fortskrider        |
 |  |  |
 
 
-### <a name="response-status-codes"></a>Svars status koder
+### <a name="response-status-codes"></a>Statuskoder för svar
 
-| **Rikt** |   **Beskrivning**                                                                                 |
+| **Kod** |   **Beskrivning**                                                                                 |
 | -------  |   ----------------------------------------------------------------------------------------------- |
-|  200     |  `OK`-begäran har bearbetats och aktuell status för erbjudandet returnerades. |
-|  400     | `Bad/Malformed request` – fel svars texten kan innehålla mer information.                 |
-|  404     | `Not found`-den angivna entiteten finns inte.                                                |
+|  200     |  `OK`- Begäran har bearbetats och erbjudandets aktuella status returnerades. |
+|  400     | `Bad/Malformed request`- Felsvarstexten kan innehålla mer information.                 |
+|  404     | `Not found`- Den angivna entiteten finns inte.                                                |
 |  |  |
 
 
-### <a name="offer-status"></a>Erbjudande status
+### <a name="offer-status"></a>Status för erbjudande
 
 |  **Namn**                    |    **Beskrivning**                                       |
 |  --------------------------  |  ------------------------------------------------------  |
-|  NeverPublished              | Erbjudandet har aldrig publicerats.                          |
-|  NotStarted                  | Erbjudandet är nytt och har inte startats.                            |
-|  WaitingForPublisherReview   | Erbjudandet väntar på godkännande av utgivare.                 |
-|  Körs                     | Överföring av erbjudande bearbetas.                     |
-|  Lyckades                   | Bearbetningen av erbjudandet har slutförts.               |
-|  Avbrutna                    | Överföring av erbjudande avbröts.                           |
-|  Misslyckad                      | Det gick inte att skicka erbjudandet.                                 |
+|  Aldrigpublicerat              | Erbjudandet har aldrig publicerats.                          |
+|  Inte startad                  | Erbjudandet är nytt och inte startat.                            |
+|  Väntar påpublicerAreView   | Erbjudandet väntar på utgivarens godkännande.                 |
+|  Körs                     | Inlämning av erbjudande bearbetas.                     |
+|  Lyckades                   | Erbjudandet inlämning har slutfört behandlingen.               |
+|  Avbrutna                    | Inlämningen av erbjudandet avbröts.                           |
+|  Misslyckades                      | Erbjudandet misslyckades.                                 |
 |  |  |
 
 
-### <a name="step-status"></a>Steg status
+### <a name="step-status"></a>Stegstatus
 
 |  **Namn**                    |    **Beskrivning**                           |
 |  -------------------------   |  ------------------------------------------  |
-|  NotStarted                  | Steget har inte startats.                        |
-|  Pågår                  | Steget körs.                             |
-|  WaitingForPublisherReview   | Steget väntar på godkännande av utgivare.      |
-|  WaitingForApproval          | Steget väntar på process godkännande.        |
-|  Blockeras                     | Steget är blockerat.                             |
-|  Slagit                    | Steget avvisades.                            |
-|  Slutför                    | Steget har slutförts.                            |
+|  Inte startad                  | Steget har inte startat.                        |
+|  InProgress (InProgress)                  | Steget är igång.                             |
+|  Väntar påpublicerAreView   | Steget väntar på utgivarens godkännande.      |
+|  Väntar På Väntar På          | Steget väntar på processgodkännande.        |
+|  Blockerad                     | Steget är blockerat.                             |
+|  Avvisad                    | Steget avvisas.                            |
+|  Slutför                    | Steget är klart.                            |
 |  Avbrutna                    | Steget avbröts.                           |
 |  |  |

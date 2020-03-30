@@ -1,8 +1,8 @@
 ---
-title: Lagra autentiseringsuppgifter på ett säkert sätt
+title: Lagra autentiseringsuppgifter för säkert åtkomst
 titleSuffix: Azure Data Science Virtual Machine
-description: Lär dig mer om att på ett säkert sätt lagra autentiseringsuppgifter på den virtuella datorn för datavetenskap. Du lär dig hur du använder hanterade tjänst identiteter och Azure Key Vault för att lagra autentiseringsuppgifter för åtkomst.
-keywords: djupinlärning, AI, verktyg för datavetenskap, virtuell dator för datavetenskap, geospatial analys, tdsp
+description: Lär dig hur du lagrar autentiseringsuppgifter för datavetenskap på ett säkert sätt på den virtuella datorn för datavetenskap. Du får lära dig hur du använder hanterade tjänstidentiteter och Azure Key Vault för att lagra åtkomstautentiseringsuppgifter.
+keywords: djupinlärning, AI, datavetenskapsverktyg, virtuell datavetenskap, geospatial analys, teamdatavetenskapsprocess
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -10,27 +10,26 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 17e611007d2b5400497597946159826df7aa4848
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 1cb0c5094d49eac5a1c8f63406a28d2927d8fa94
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195607"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79477331"
 ---
-# <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Lagra autentiseringsuppgifter på ett säkert sätt på en Azure-Data Science Virtual Machine
+# <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Lagra åtkomstautentiseringsuppgifter på ett säkert sätt på en virtuell Azure Data Science-dator
 
-Det är vanligt att koden i moln program innehåller autentiseringsuppgifter för autentisering till moln tjänster. Hur du hanterar och skyddar dessa autentiseringsuppgifter är en välkänd utmaning i att skapa moln program. Vi rekommenderar att autentiseringsuppgifterna aldrig visas på Developer-arbetsstationer eller är incheckade i käll kontrollen.
+Det är vanligt att koden i molnprogram innehåller autentiseringsuppgifter för autentisering till molntjänster. Hur du hanterar och säkrar dessa autentiseringsuppgifter är en välkänd utmaning när du skapar molnprogram. Helst bör autentiseringsuppgifter aldrig visas på utvecklararbetsstationer eller checkas in för källkontroll.
 
-Funktionen [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) gör det enklare att lösa det här problemet genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.
+Den [hanterade identitetsfunktionen för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) gör det enklare att lösa problemet genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.
 
-Ett sätt att skydda autentiseringsuppgifter är att använda Windows Installer (MSI) i kombination med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), en hanterad Azure-tjänst för att lagra hemligheter och kryptografiska nycklar på ett säkert sätt. Du kan komma åt ett nyckel valv med hjälp av den hanterade identiteten och sedan hämta de auktoriserade hemligheterna och krypterings nycklarna från nyckel valvet.
+Ett sätt att skydda autentiseringsuppgifter är att använda Windows Installer (MSI) i kombination med [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), en hanterad Azure-tjänst för att lagra hemligheter och kryptografiska nycklar på ett säkert sätt. Du kan komma åt ett nyckelvalv med hjälp av den hanterade identiteten och sedan hämta de auktoriserade hemligheterna och kryptografiska nycklarna från nyckelvalvet.
 
-Dokumentationen om hanterade identiteter för Azure-resurser och Key Vault omfattar en omfattande resurs för detaljerad information om dessa tjänster. Resten av den här artikeln beskriver grundläggande användning av MSI och Key Vault på Data Science Virtual Machine (DSVM) att komma åt Azure-resurser. 
+Dokumentationen om hanterade identiteter för Azure-resurser och Key Vault innehåller en omfattande resurs för djupgående information om dessa tjänster. Resten av den här artikeln går igenom den grundläggande användningen av MSI och Key Vault på Virtual Machine (Data Science Machine) för att komma åt Azure-resurser. 
 
-## <a name="create-a-managed-identity-on-the-dsvm"></a>Skapa en hanterad identitet på DSVM 
+## <a name="create-a-managed-identity-on-the-dsvm"></a>Skapa en hanterad identitet på DSVM
 
-
-```
+```azurecli-interactive
 # Prerequisite: You have already created a Data Science VM in the usual way.
 
 # Create an identity principal for the VM.
@@ -39,18 +38,18 @@ az vm assign-identity -g <Resource Group Name> -n <Name of the VM>
 az resource list -n <Name of the VM> --query [*].identity.principalId --out tsv
 ```
 
+## <a name="assign-key-vault-access-permissions-to-a-vm-principal"></a>Tilldela behörigheter för key vault-åtkomst till ett huvudnamn för virtuell dator
 
-## <a name="assign-key-vault-access-permissions-to-a-vm-principal"></a>Tilldela Key Vault åtkomst behörighet till en VM-huvudobjekt
-```
+```azurecli-interactive
 # Prerequisite: You have already created an empty Key Vault resource on Azure by using the Azure portal or Azure CLI.
 
 # Assign only get and set permissions but not the capability to list the keys.
 az keyvault set-policy --object-id <Principal ID of the DSVM from previous step> --name <Key Vault Name> -g <Resource Group of Key Vault>  --secret-permissions get set
 ```
 
-## <a name="access-a-secret-in-the-key-vault-from-the-dsvm"></a>Åtkomst till en hemlighet i nyckelvalvet från DSVM
+## <a name="access-a-secret-in-the-key-vault-from-the-dsvm"></a>Få tillgång till en hemlighet i nyckelvalvet från DSVM
 
-```
+```bash
 # Get the access token for the VM.
 x=`curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true`
 token=`echo $x | python -c "import sys, json; print(json.load(sys.stdin)['access_token'])"`
@@ -59,9 +58,9 @@ token=`echo $x | python -c "import sys, json; print(json.load(sys.stdin)['access
 curl https://<Vault Name>.vault.azure.net/secrets/SQLPasswd?api-version=2016-10-01 -H "Authorization: Bearer $token"
 ```
 
-## <a name="access-storage-keys-from-the-dsvm"></a>Åtkomstnycklar för lagring från DSVM
+## <a name="access-storage-keys-from-the-dsvm"></a>Komma åt lagringsnycklar från DSVM
 
-```
+```bash
 # Prerequisite: You have granted your VMs MSI access to use storage account access keys based on instructions at https://docs.microsoft.com/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage. This article describes the process in more detail.
 
 y=`curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true`
@@ -70,7 +69,8 @@ curl https://management.azure.com/subscriptions/<SubscriptionID>/resourceGroups/
 
 # Now you can access the data in the storage account from the retrieved storage account keys.
 ```
-## <a name="access-the-key-vault-from-python"></a>Åtkomst till nyckelvalvet från Python
+
+## <a name="access-the-key-vault-from-python"></a>Få tillgång till nyckelvalvet från Python
 
 ```python
 from azure.keyvault import KeyVaultClient
@@ -99,9 +99,9 @@ secret = key_vault_client.get_secret(
 print("My secret value is {}".format(secret.value))
 ```
 
-## <a name="access-the-key-vault-from-azure-cli"></a>Åtkomst till nyckelvalvet från Azure CLI
+## <a name="access-the-key-vault-from-azure-cli"></a>Få tillgång till nyckelvalvet från Azure CLI
 
-```
+```azurecli-interactive
 # With managed identities for Azure resources set up on the DSVM, users on the DSVM can use Azure CLI to perform the authorized functions. The following commands enable access to the key vault from Azure CLI without requiring login to an Azure account.
 # Prerequisites: MSI is already set up on the DSVM as indicated earlier. Specific permissions, like accessing storage account keys, reading specific secrets, and writing new secrets, are provided to the MSI.
 

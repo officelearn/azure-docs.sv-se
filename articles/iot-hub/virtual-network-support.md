@@ -1,70 +1,72 @@
 ---
-title: Azure IoT Hub stöd för virtuella nätverk
-description: Så här använder du anslutnings mönster för virtuella nätverk med IoT Hub
+title: Azure IoT Hub-stöd för virtuella nätverk
+description: Så här använder du anslutningsmönster för virtuella nätverk med IoT Hub
 services: iot-hub
 author: rezasherafat
 ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: rezas
-ms.openlocfilehash: 1b250bee302cb305ee613010238283ceac4014ed
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 34f66c13b0e7eb7092332a48744f9abfd8f0db80
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79375088"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79501433"
 ---
-# <a name="iot-hub-support-for-virtual-networks"></a>IoT Hub stöd för virtuella nätverk
+# <a name="iot-hub-support-for-virtual-networks"></a>IoT Hub-stöd för virtuella nätverk
 
-Den här artikeln beskriver det virtuella nätverkets anslutnings mönster och beskriver hur du konfigurerar en privat anslutning till en IoT-hubb via ett kundägda Azure VNET.
+Den här artikeln introducerar VNET-anslutningsmönstret och beskriver hur du konfigurerar en privat anslutningsupplevelse till en IoT-hubb via ett kundägt Azure VNET.
 
 > [!NOTE]
-> De IoT Hub-funktioner som beskrivs i den här artikeln är för närvarande tillgängliga för IoT Hub som skapats i följande regioner: östra USA, södra centrala USA och västra USA 2.
+> IoT Hub-funktionerna som beskrivs i den här artikeln är för närvarande tillgängliga för IoT-hubbar [som skapats med hanterad tjänstidentitet](#create-an-iot-hub-with-managed-service-identity) i följande regioner: Östra USA, Södra centrala USA och Västra USA 2.
 
 
 ## <a name="introduction"></a>Introduktion
 
-Som standard mappas IoT Hub-värdnamn till en offentlig slut punkt med en offentligt dirigerad IP-adress via Internet. Som du ser i bilden nedan delas den här IoT Hub offentliga slut punkten mellan nav som ägs av olika kunder och kan nås av IoT-enheter över WAN-nätverk såväl som lokala nätverk.
+Som standard mappar IoT Hub-värdnamn till en offentlig slutpunkt med en offentligt dirigerbar IP-adress över Internet. Som visas i bilden nedan delas den här offentliga slutpunkten för IoT Hub mellan nav som ägs av olika kunder och kan nås av IoT-enheter via både stora nätverk och lokala nätverk.
 
-Flera IoT Hub funktioner, bland annat [meddelanderoutning](./iot-hub-devguide-messages-d2c.md), [fil överföring](./iot-hub-devguide-file-upload.md)och [Mass import/export](./iot-hub-bulk-identity-mgmt.md) kräver anslutning från IoT Hub till en Azure-resurs som ägs av en kund via den offentliga slut punkten. Som illustreras nedan utgör dessa anslutnings vägar kollektivt den utgående trafiken från IoT Hub till kund resurser.
-![IoT Hub offentlig slut punkt](./media/virtual-network-support/public-endpoint.png)
-
-
-Av flera skäl kan kunderna vilja begränsa anslutningen till sina Azure-resurser (inklusive IoT Hub) via ett virtuellt nätverk som de äger och använder. Dessa orsaker är:
-
-* Introducera ytterligare säkerhets lager via isolering på nätverks nivå för din IoT-hubb genom att förhindra anslutningens exponering för navet via det offentliga Internet.
-
-* Att aktivera en privat anslutning från dina lokala nätverks resurser och se till att dina data och trafik skickas direkt till Azure stamnät nätverket.
-
-* Förhindra exfiltrering attacker från känsliga lokala nätverk. 
-
-* Följande etablerade Azure-wide-anslutnings mönster använder [privata slut punkter](../private-link/private-endpoint-overview.md).
+Flera IoT Hub-funktioner, inklusive [meddelanderoutning,](./iot-hub-devguide-messages-d2c.md) [filöverföring](./iot-hub-devguide-file-upload.md)och [massimport/export](./iot-hub-bulk-identity-mgmt.md) av enheter kräver på samma sätt anslutning från IoT Hub till en kundägd Azure-resurs över den offentliga slutpunkten. Som visas nedan utgör dessa anslutningsvägar tillsammans utgående trafik från IoT Hub till kundresurser.
+![Offentlig slutpunkt för IoT Hub](./media/virtual-network-support/public-endpoint.png)
 
 
-I den här artikeln beskrivs hur du uppnår dessa mål med hjälp av [privata slut punkter](../private-link/private-endpoint-overview.md) för ingångs anslutning till IoT Hub, med hjälp av Azure Trusted First part Services-undantag för utgående anslutning från IoT Hub till andra Azure-resurser.
+Av flera skäl kan kunder vilja begränsa anslutningen till sina Azure-resurser (inklusive IoT Hub) via ett virtuella nätverk som de äger och driver. Dessa skäl är:
+
+* Vi presenterar ytterligare säkerhetslager via isolering på nätverksnivå för IoT-hubben genom att förhindra anslutningsexponering för ditt nav via det offentliga Internet.
+
+* Aktivera en privat anslutningsupplevelse från dina lokala nätverkstillgångar som säkerställer att dina data och din trafik överförs direkt till Azure-stamnätsnätverket.
+
+* Förhindra exfiltrationattacker från känsliga lokala nätverk. 
+
+* Efter etablerade Azure-omfattande anslutningsmönster med hjälp av [privata slutpunkter](../private-link/private-endpoint-overview.md).
 
 
-## <a name="ingress-connectivity-to-iot-hub-using-private-endpoints"></a>Ingress-anslutning till IoT Hub med hjälp av privata slut punkter
+I den här artikeln beskrivs hur du uppnår dessa mål med hjälp av [privata slutpunkter](../private-link/private-endpoint-overview.md) för inkommande anslutning till IoT Hub, som använder Azure-undantag för betrodda förstapartstjänster för egress-anslutning från IoT Hub till andra Azure-resurser.
 
-En privat slut punkt är en privat IP-adress som tilldelas i ett kundägda VNET via vilken en Azure-resurs kan kontaktas. Genom att ha en privat slut punkt för din IoT-hubb kommer du att kunna tillåta tjänster som körs i ditt VNET för att uppnå IoT Hub utan att trafik måste skickas till IoT Hub offentliga slut punkter. På samma sätt kan enheter som arbetar i din lokala dator använda [virtuella privata nätverk (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privata peering för att få anslutning till ditt VNet i Azure och därefter till din IoT Hub (via dess privata slut punkt). Därför kan kunder som vill begränsa anslutningen till sina offentliga slut punkter för IoT Hub (eller eventuellt helt blockera det) uppnå målet genom att använda [IoT Hub brand Väggs regler](./iot-hub-ip-filtering.md) och samtidigt behålla anslutningen till hubben med hjälp av den privata slut punkten.
+
+## <a name="ingress-connectivity-to-iot-hub-using-private-endpoints"></a>Inkommande anslutning till IoT Hub med privata slutpunkter
+
+En privat slutpunkt är en privat IP-adress som allokeras i ett kundägt VNET via vilket en Azure-resurs kan nås. Genom att ha en privat slutpunkt för din IoT-hubb kan du tillåta tjänster som körs i ditt VNET att nå IoT Hub utan att kräva att trafik skickas till IoT Hubs offentliga slutpunkt. På samma sätt kan enheter som fungerar i din lokala kan använda [VPN (Virtual Private Network)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) Private Peering för att få anslutning till ditt virtuella nätverk i Azure och därefter till din IoT Hub (via dess privata slutpunkt). Som ett resultat kan kunder som vill begränsa anslutningen till sina IoT-hubb offentliga slutpunkter (eller eventuellt helt blockera det) uppnå detta mål genom att använda [IoT Hub-brandväggsregler](./iot-hub-ip-filtering.md) samtidigt som de behåller anslutningen till sin Hub med hjälp av den privata slutpunkten.
 
 > [!NOTE]
-> Huvud fokus för den här installationen är för enheter i ett lokalt nätverk. Den här installationen rekommenderas inte för enheter som distribueras i ett WAN-nätverk.
+> Huvudfokus för den här inställningen är för enheter i ett lokalt nätverk. Den här inställningen rekommenderas inte för enheter som distribueras i ett nätverk i stort område.
 
-![IoT Hub offentlig slut punkt](./media/virtual-network-support/virtual-network-ingress.png)
+![Offentlig slutpunkt för IoT Hub](./media/virtual-network-support/virtual-network-ingress.png)
 
-Innan du fortsätter kontrollerar du att följande krav uppfylls:
+Innan du fortsätter, se till att följande förutsättningar är uppfyllda:
 
-* IoT-hubben måste vara etablerad i någon av de [regioner som stöds](#regional-availability-private-endpoints).
+* Din IoT-hubb måste etableras med [hanterad tjänstidentitet](#create-an-iot-hub-with-managed-service-identity).
 
-* Du har skapat ett Azure VNET med ett undernät där den privata slut punkten ska skapas. Mer information finns i [skapa ett virtuellt nätverk med Azure CLI](../virtual-network/quick-create-cli.md) .
+* IoT-hubben måste etableras i en av de [regioner som stöds.](#regional-availability-private-endpoints)
 
-* För enheter som arbetar i lokala nätverk ställer du in [VPN (virtuellt privat nätverk)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privat peering i ditt Azure VNet.
+* Du har etablerat ett Azure VNET med ett undernät där den privata slutpunkten skapas. Mer information [finns i Skapa ett virtuellt nätverk med Azure CLI.](../virtual-network/quick-create-cli.md)
+
+* För enheter som fungerar inuti lokala nätverk konfigurerar du [VPN (Virtual Private Network)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller [ExpressRoute-privat](https://azure.microsoft.com/services/expressroute/) peering i ditt Azure VNET.
 
 
-### <a name="regional-availability-private-endpoints"></a>Regional tillgänglighet (privata slut punkter)
+### <a name="regional-availability-private-endpoints"></a>Regional tillgänglighet (privata slutpunkter)
 
-Privata slut punkter som stöds i IoT Hub har skapats i följande regioner:
+Privata slutpunkter som stöds i IoT Hub har skapats i följande regioner:
 
 * USA, östra
 
@@ -73,50 +75,50 @@ Privata slut punkter som stöds i IoT Hub har skapats i följande regioner:
 * USA, västra 2
 
 
-### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>Konfigurera en privat slut punkt för IoT Hub ingress
+### <a name="set-up-a-private-endpoint-for-iot-hub-ingress"></a>Konfigurera en privat slutpunkt för IoT Hub-inträngning
 
-Följ dessa steg om du vill konfigurera en privat slut punkt:
+Så här konfigurerar du en privat slutpunkt:
 
-1. Kör följande Azure CLI-kommando för att registrera Azure IoT Hub-providern igen med din prenumeration:
+1. Kör följande Azure CLI-kommando för att registrera om Azure IoT Hub-providern med din prenumeration:
 
     ```azurecli-interactive
     az provider register --namespace Microsoft.Devices --wait --subscription  <subscription-name>
     ```
 
-2. Gå till fliken **anslutningar för privata slut punkter** på din IoT Hub portal (den här fliken är bara tillgänglig för i IoT-hubbar i de [regioner som stöds](#regional-availability-private-endpoints)) och klicka på **+** signera för att lägga till en ny privat slut punkt.
+2. Navigera till fliken **Privata slutpunktsanslutningar** i IoT Hub-portalen (den här fliken är endast tillgänglig **+** för i IoT-hubbar i de regioner som [stöds)](#regional-availability-private-endpoints)och klicka på tecknet för att lägga till en ny privat slutpunkt.
 
-3. Ange prenumeration, resurs grupp, namn och region för att skapa den nya privata slut punkten i (vi rekommenderar att privat slut punkt skapas i samma region som hubben. mer information finns i [avsnittet om regional tillgänglighet](#regional-availability-private-endpoints) ).
+3. Ange prenumeration, resursgrupp, namn och region för att skapa den nya privata slutpunkten i (helst bör privat slutpunkt skapas i samma region som navet; se [avsnittet regional tillgänglighet](#regional-availability-private-endpoints) för mer information).
 
-4. Klicka på **Nästa: resurs**och ange prenumerationen för din IoT Hub-resurs och välj **"Microsoft. Devices/IotHubs"** som resurs typ, ditt IoT Hub namn som **resurs**och **iotHub** som mål under resurs.
+4. Klicka på **Nästa: Resurs**och ange prenumerationen för IoT Hub-resursen och välj **"Microsoft.Devices/IotHubs"** som resurstyp, IoT Hub-namnet som **resurs**och **iotHub** som målunderresurs.
 
-5. Klicka på **Nästa: konfiguration** och ange ditt virtuella nätverk och undernät för att skapa den privata slut punkten i. Välj alternativet att integrera med Azures privata DNS-zon, om så önskas.
+5. Klicka på **Nästa: Konfiguration** och ange ditt virtuella nätverk och undernät för att skapa den privata slutpunkten i. Välj alternativet att integrera med Azure privat DNS-zon, om så önskas.
 
-6. Klicka på **Nästa: Taggar**och om du vill kan du även ange taggar för resursen.
+6. Klicka på **Nästa: Taggar**och ange eventuella taggar för din resurs.
 
-7. Klicka på **Granska + skapa** för att skapa din privata slut punkts resurs.
-
-
-### <a name="pricing-private-endpoints"></a>Priser (privata slut punkter)
-
-Pris information finns i [priser för privata Azure-länkar](https://azure.microsoft.com/pricing/details/private-link).
+7. Klicka på **Granska + skapa** om du vill skapa en privat slutpunktsresurs.
 
 
-## <a name="egress-connectivity-from-iot-hub-to-other-azure-resources"></a>Utgående anslutning från IoT Hub till andra Azure-resurser
+### <a name="pricing-private-endpoints"></a>Prissättning (privata slutpunkter)
 
-IoT Hub behöver åtkomst till Azure Blob Storage, Event Hub, Service Bus-resurser för [meddelanderoutning](./iot-hub-devguide-messages-d2c.md), [fil uppladdning](./iot-hub-devguide-file-upload.md)och [import/export av Mass enheter](./iot-hub-bulk-identity-mgmt.md), som vanligt vis äger rum över resursens offentliga slut punkt. I händelse av att du binder ditt lagrings konto, händelse hubbar eller Service Bus-resurs till ett virtuellt nätverk blockerar den välinformerade konfigurationen anslutningen till resursen som standard. Därför hindrar detta att IoT Hubs funktioner som kräver åtkomst till dessa resurser.
-
-För att minska den här situationen måste du aktivera anslutning från din IoT Hub-resurs till ditt lagrings konto, händelse hubbar eller Service Bus-resurser via **Azure First part Trust Services** -alternativet.
-
-Kraven är följande:
-
-* IoT-hubben måste vara etablerad i någon av de [regioner som stöds](#regional-availability-trusted-microsoft-first-party-services).
-
-* Din IoT Hub måste tilldelas en hanterad tjänst identitet vid hubbens etablerings tid. Följ anvisningarna om hur du [skapar en hubb med hanterad tjänst identitet](#create-a-hub-with-managed-service-identity).
+Information om priser finns i [Azure Private Link-priser](https://azure.microsoft.com/pricing/details/private-link).
 
 
-### <a name="regional-availability-trusted-microsoft-first-party-services"></a>Regional tillgänglighet (betrodda Microsoft-tjänster från första part)
+## <a name="egress-connectivity-from-iot-hub-to-other-azure-resources"></a>Egressanslutning från IoT Hub till andra Azure-resurser
 
-Undantag för Azure-betrodda första part tjänster för att kringgå brand Väggs begränsningar för Azure Storage, Event Hub och Service Bus-resurser stöds bara för IoT-hubbar i följande regioner:
+IoT Hub behöver åtkomst till din Azure blob-lagring, händelsehubbar, servicebussresurser för [meddelanderoutning,](./iot-hub-devguide-messages-d2c.md) [filöverföring](./iot-hub-devguide-file-upload.md)och [massenhetsimport/export](./iot-hub-bulk-identity-mgmt.md), som vanligtvis sker över resursernas offentliga slutpunkt. I händelse av att du binder ditt lagringskonto, händelsehubbar eller servicebussresurs till ett VNET, blockerar den rekommenderade konfigurationen anslutningen till resursen som standard. Detta kommer därför att hindra IoT Hubs funktionalitet som kräver åtkomst till dessa resurser.
+
+För att minska den här situationen måste du aktivera anslutning från din IoT Hub-resurs till ditt lagringskonto, händelsehubbar eller servicebussresurser via **Azures första part betrodda tjänster.**
+
+Kraven är som följer:
+
+* IoT-hubben måste etableras i en av de [regioner som stöds.](#regional-availability-trusted-microsoft-first-party-services)
+
+* Din IoT Hub måste tilldelas en hanterad tjänstidentitet vid hubbetableringstid. Följ instruktioner om hur du [skapar ett nav med hanterad tjänstidentitet](#create-an-iot-hub-with-managed-service-identity).
+
+
+### <a name="regional-availability-trusted-microsoft-first-party-services"></a>Regional tillgänglighet (betrodda Microsoft-tjänster för första part)
+
+Azure betrodda första parts tjänster undantag för att kringgå brandväggsbegränsningar till Azure-lagring, händelsehubbar och servicebussresurser stöds endast för IoT-hubbar i följande regioner:
 
 * USA, östra
 
@@ -125,170 +127,180 @@ Undantag för Azure-betrodda första part tjänster för att kringgå brand Väg
 * USA, västra 2
 
 
-### <a name="pricing-trusted-microsoft-first-party-services"></a>Priser (betrodda Microsoft-tjänster från första part)
+### <a name="pricing-trusted-microsoft-first-party-services"></a>Prissättning (betrodda Microsoft-tjänster från första part)
 
-Den betrodda Microsoft-tjänsten för första parts tjänster är kostnads fri i IoT Hub i de [regioner som stöds](#regional-availability-trusted-microsoft-first-party-services). Avgifter för etablerade lagrings konton, händelse nav eller Service Bus-resurser gäller separat.
+Undantagsfunktionen betrodda Microsoft-tjänster för första parts tjänster är kostnadsfri i IoT Hubs i de [regioner som stöds](#regional-availability-trusted-microsoft-first-party-services). Avgifter för de etablerade lagringskontona, händelsehubbar eller servicebussresurserna gäller separat.
 
 
-### <a name="create-a-hub-with-managed-service-identity"></a>Skapa en hubb med hanterad tjänst identitet
+### <a name="create-an-iot-hub-with-managed-service-identity"></a>Skapa en IoT-hubb med hanterad tjänstidentitet
 
-En hanterad tjänst identitet kan tilldelas till navet vid resurs etablerings tiden (den här funktionen stöds för närvarande inte för befintliga hubbar). För det här ändamålet måste du använda resurs mal len ARM nedan:
+En hanterad tjänstidentitet kan tilldelas till hubben vid resursetableringstid (den här funktionen stöds för närvarande inte för befintliga hubbar), vilket kräver att IoT-hubben använder TLS 1.2 som minimiversion. För detta ändamål måste du använda ARM-resursmallen nedan:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Devices/IotHubs",
-            "apiVersion": "2020-03-01",
-            "name": "<provide-a-valid-resource-name>",
-            "location": "<any-of-supported-regions>",
-            "identity": { "type": "SystemAssigned" },
-            "properties": { "minTlsVersion": "1.2" },
-            "sku": {
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Devices/IotHubs",
+      "apiVersion": "2020-03-01",
+      "name": "<provide-a-valid-resource-name>",
+      "location": "<any-of-supported-regions>",
+      "identity": {
+        "type": "SystemAssigned"
+      },
+      "properties": {
+        "minTlsVersion": "1.2"
+      },
+      "sku": {
+        "name": "<your-hubs-SKU-name>",
+        "tier": "<your-hubs-SKU-tier>",
+        "capacity": 1
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-02-01",
+      "name": "updateIotHubWithKeyEncryptionKey",
+      "dependsOn": [
+        "<provide-a-valid-resource-name>"
+      ],
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "0.9.0.0",
+          "resources": [
+            {
+              "type": "Microsoft.Devices/IotHubs",
+              "apiVersion": "2020-03-01",
+              "name": "<provide-a-valid-resource-name>",
+              "location": "<any-of-supported-regions>",
+              "identity": {
+                "type": "SystemAssigned"
+              },
+              "properties": {
+                "minTlsVersion": "1.2"
+              },
+              "sku": {
                 "name": "<your-hubs-SKU-name>",
                 "tier": "<your-hubs-SKU-tier>",
                 "capacity": 1
+              }
             }
-        },
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2018-02-01",
-            "name": "updateIotHubWithKeyEncryptionKey",
-            "dependsOn": [ "<provide-a-valid-resource-name>" ],
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-                    "contentVersion": "0.9.0.0",
-                    "resources": [
-                        {
-                            "type": "Microsoft.Devices/IotHubs",
-                            "apiVersion": "2020-03-01",
-                            "name": "<provide-a-valid-resource-name>",
-                            "location": "<any-of-supported-regions>",
-                            "identity": { "type": "SystemAssigned" },
-                            "properties": { "minTlsVersion": "1.2" },
-                            "sku": {
-                                "name": "<your-hubs-SKU-name>",
-                                "tier": "<your-hubs-SKU-tier>",
-                                "capacity": 1
-                            }
-                        }
-                    ]
-                }
-            }
+          ]
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
-När du har angett värdena för din resurs `name``location`, `SKU.name` och `SKU.tier`, kan du använda Azure CLI för att distribuera resursen i en befintlig resurs grupp med hjälp av:
+När du har ersatt `name`värdena `SKU.tier`för din resurs `location` `SKU.name` kan du använda Azure CLI för att distribuera resursen i en befintlig resursgrupp med hjälp av:
 
 ```azurecli-interactive
 az group deployment create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
 ```
 
-När resursen har skapats kan du hämta den hanterade tjänst identiteten som tilldelats navet med Azure CLI:
+När resursen har skapats kan du hämta den hanterade tjänstidentitet som tilldelats din hubb med Azure CLI:
 
 ```azurecli-interactive
 az resource show --resource-type Microsoft.Devices/IotHubs --name <iot-hub-resource-name> --resource-group <resource-group-name>
 ```
 
-När IoT Hub med en hanterad tjänst identitet har tillhandahållits följer du motsvarande avsnitt för att konfigurera routnings slut punkter för [lagrings konton](#egress-connectivity-to-storage-account-endpoints-for-routing), [händelse nav](#egress-connectivity-to-event-hubs-endpoints-for-routing)och [Service Bus](#egress-connectivity-to-service-bus-endpoints-for-routing) -resurser eller för att konfigurera [import/export](#egress-connectivity-to-storage-accounts-for-bulk-device-importexport)av [fil överföring](#egress-connectivity-to-storage-accounts-for-file-upload) och Mass enhet.
+När IoT Hub med en hanterad tjänstidentitet har etablerats följer du motsvarande avsnitt för att ställa in routningsslutpunkter till [lagringskonton,](#egress-connectivity-to-storage-account-endpoints-for-routing) [händelsehubbar](#egress-connectivity-to-event-hubs-endpoints-for-routing)och [servicebussresurser,](#egress-connectivity-to-service-bus-endpoints-for-routing) eller för att konfigurera [filöverföring](#egress-connectivity-to-storage-accounts-for-file-upload) och [massenhetsimport/export](#egress-connectivity-to-storage-accounts-for-bulk-device-importexport).
 
 
-### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Utgående anslutning till lagrings konto slut punkter för routning
+### <a name="egress-connectivity-to-storage-account-endpoints-for-routing"></a>Utgående anslutning till slutpunkter för lagringskonto för routning
 
-IoT Hub kan konfigureras för att dirigera meddelanden till ett kundägda lagrings konto. För att routnings funktionen ska kunna komma åt ett lagrings konto medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad tjänst identitet (se så här [skapar du en hubb med hanterad tjänst identitet](#create-a-hub-with-managed-service-identity)). När en hanterad tjänst identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för åtkomst till ditt lagrings konto.
+IoT Hub kan konfigureras för att dirigera meddelanden till ett kundägt lagringskonto. Om du vill att routningsfunktionen ska kunna komma åt ett lagringskonto medan brandväggsbegränsningar är på plats måste IoT-hubben ha en hanterad tjänstidentitet (se hur du [skapar en hubb med hanterad tjänstidentitet](#create-an-iot-hub-with-managed-service-identity)). När en hanterad tjänstidentitet har etablerats följer du stegen nedan för att ge RBAC-behörighet till hubbens resursidentitet att komma åt ditt lagringskonto.
 
-1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
+1. Navigera till fliken **Åtkomstkontroll (IAM) i** Azure-portalen och klicka på **Lägg till** under avsnittet Lägg till **en rolltilldelning.**
 
-2. Välj **Storage BLOB data-deltagare** som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja din IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Storage Blob Data Contributor** som **roll**, **Azure AD-användare, grupp eller tjänsthuvudnamn** som **Tilldela åtkomst till** och välj IoT Hub resursnamn i listrutan. Klicka på knappen **Spara**.
 
-3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
+3. Navigera till fliken **Brandväggar och virtuella nätverk** i ditt lagringskonto och aktivera Alternativet **Tillåt åtkomst från valda nätverk.** Markera kryssrutan **Tillåt betrodda Microsoft-tjänster att komma åt det här lagringskontot**under listan **Undantag** . Klicka på knappen **Spara**.
 
-4. På resurs sidan för IoT Hub navigerar du till fliken **meddelanderoutning** .
+4. På ioT-hubbens resurssida navigerar du till fliken **Meddelanderoutning.**
 
-5. Gå till avsnittet **anpassade slut punkter** och klicka på **Lägg till**. Välj **lagring** som typ av slut punkt.
+5. Navigera till avsnittet **Anpassade slutpunkter** och klicka på **Lägg till**. Välj **Lagring** som slutpunktstyp.
 
-6. På sidan som visas anger du ett namn för din slut punkt, väljer den behållare som du vill använda i blob-lagringen, ange kodning och fil namns format. Välj **system tilldelat** som **Autentiseringstyp** till lagrings slut punkten. Klicka på knappen **Skapa**.
+6. På sidan som visas anger du ett namn för slutpunkten, väljer den behållare som du tänker använda i blob-lagringen, tillhandahåller kodning och filnamnsformat. Välj **System tilldelad** som **autentiseringstyp** till lagringsslutpunkten. Klicka på knappen **Skapa**.
 
-Nu är din anpassade lagrings slut punkt inställd på att använda navets tilldelade identitet och har behörighet att komma åt lagrings resursen trots dess brand Väggs begränsningar. Du kan nu använda den här slut punkten för att ställa in en regel för routning.
-
-
-### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Utgående anslutning till Event Hub-slutpunkter för routning
-
-IoT Hub kan konfigureras för att dirigera meddelanden till en kundägda Event Hub-namnrymd. Om du vill tillåta att routningsfunktioner får åtkomst till en händelse för händelse nav medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad tjänst identitet (se så här [skapar du en hubb med hanterad tjänst identitet](#create-a-hub-with-managed-service-identity)). När en hanterad tjänst identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att få åtkomst till dina händelse nav.
-
-1. I Azure Portal navigerar du till fliken för Event Hub- **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
-
-2. Välj **Event Hubs data avsändare** som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja din IoT Hubs resurs namn i list rutan. Klicka på knappen **Spara**.
-
-3. Gå till fliken **brand väggar och virtuella nätverk** i Event Hub och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till Event Hub**. Klicka på knappen **Spara**.
-
-4. På resurs sidan för IoT Hub navigerar du till fliken **meddelanderoutning** .
-
-5. Gå till avsnittet **anpassade slut punkter** och klicka på **Lägg till**. Välj **händelse nav** som typ av slut punkt.
-
-6. Ange ett namn för din slut punkt på sidan som visas, Välj namn området för Event Hub och instansen och klicka på knappen **skapa** .
-
-Nu konfigureras slut punkten för anpassade händelse nav till att använda navets tilldelade identitet och har behörighet att komma åt dina Event Hub-resurser trots dess brand Väggs begränsningar. Du kan nu använda den här slut punkten för att ställa in en regel för routning.
+Nu är din anpassade lagringsslutpunkt inställd på att använda hubbens systemtilldelade identitet och har behörighet att komma åt lagringsresursen trots brandväggsbegränsningar. Du kan nu använda den här slutpunkten för att ställa in en routningsregel.
 
 
-### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Utgående anslutning till Service Bus-slutpunkter för routning
+### <a name="egress-connectivity-to-event-hubs-endpoints-for-routing"></a>Utgående anslutning till händelsehubbarslutpunkter för routning
 
-IoT Hub kan konfigureras för att dirigera meddelanden till ett kundägda Service Bus-namnområde. För att routnings funktionen ska kunna komma åt en Service Bus-resurs medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad tjänst identitet (se så här [skapar du en hubb med hanterad tjänst identitet](#create-a-hub-with-managed-service-identity)). När en hanterad tjänst identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att få åtkomst till din Service Bus.
+IoT Hub kan konfigureras för att dirigera meddelanden till ett kundägt händelsehubbarnamnområde. Om du vill att routningsfunktionen ska kunna komma åt en händelsehubbarresurs när brandväggsbegränsningar finns på plats måste IoT Hub ha en hanterad tjänstidentitet (se hur du [skapar en hubb med hanterad tjänstidentitet](#create-an-iot-hub-with-managed-service-identity)). När en hanterad tjänstidentitet har etablerats följer du stegen nedan för att ge RBAC-behörighet till hubbens resursidentitet för att komma åt dina händelsehubbar.
 
-1. I Azure Portal navigerar du till fliken åtkomst kontroll för Service Bus **(IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
+1. I Azure-portalen navigerar du till fliken **IAM (Event** hubs Access Control) och klickar på **Lägg till** under avsnittet **Lägg till en rolltilldelning.**
 
-2. Välj **Service Bus-avsändare** som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja din IoT Hubs resurs namn i list rutan. Klicka på knappen **Spara**.
+2. Välj **Händelsehubbar dataavsändare** som **roll**, **Azure AD-användare, grupp eller tjänsthuvudnamn** som **Tilldela åtkomst till** och välj IoT Hubs resursnamn i listrutan. Klicka på knappen **Spara**.
 
-3. Gå till fliken **brand väggar och virtuella nätverk** i Service Bus och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan för **Tillåt att betrodda Microsoft-tjänster har åtkomst till den här Service Bus-tjänsten**. Klicka på knappen **Spara**.
+3. Navigera till fliken **Brandväggar och virtuella nätverk** i händelsehubbar och aktivera Alternativet **Tillåt åtkomst från valda nätverk.** Markera kryssrutan **Tillåt betrodda Microsoft-tjänster att komma åt händelsehubbar**under listan **Undantag** . Klicka på knappen **Spara**.
 
-4. På resurs sidan för IoT Hub navigerar du till fliken **meddelanderoutning** .
+4. På ioT-hubbens resurssida navigerar du till fliken **Meddelanderoutning.**
 
-5. Gå till avsnittet **anpassade slut punkter** och klicka på **Lägg till**. Välj **Service Bus-kö** eller **Service Bus-ämne** (i förekommande fall) som typ av slut punkt.
+5. Navigera till avsnittet **Anpassade slutpunkter** och klicka på **Lägg till**. Välj **Händelsehubbar** som slutpunktstyp.
 
-6. På sidan som visas anger du ett namn för din slut punkt, väljer din Service Bus-namnrymd och kö eller ämne (om det är tillämpligt). Klicka på knappen **Skapa**.
+6. På sidan som visas anger du ett namn på slutpunkten, väljer namnområde och instans för händelsehubbar och klickar på knappen **Skapa.**
 
-Nu är din anpassade Service Bus-slutpunkt konfigurerad att använda navets tilldelade identitet och har behörighet att komma åt din Service Bus-resurs trots dess brand Väggs begränsningar. Du kan nu använda den här slut punkten för att ställa in en regel för routning.
-
-
-### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Utgående anslutning till lagrings konton för fil uppladdning
-
-Med IoT Hub fil överförings funktionen kan enheter Ladda upp filer till ett kundägda lagrings konto. För att tillåta fil uppladdning att fungera måste både enheter och IoT Hub ha anslutning till lagrings kontot. Om brand Väggs begränsningar finns på lagrings kontot, måste enheterna använda något av de lagrings konto funktioner som stöds (inklusive [privata slut punkter](../private-link/create-private-endpoint-storage-portal.md), [tjänst slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) eller [konfiguration av direkt brand vägg](../storage/common/storage-network-security.md)) för att få anslutning. Om brand Väggs begränsningarna finns på lagrings kontot måste IoT Hub konfigureras för åtkomst till lagrings resursen via det betrodda Microsoft Services-undantaget. För det här ändamålet måste IoT Hub ha en hanterad tjänst identitet (se så här [skapar du en hubb med hanterad tjänst identitet](#create-a-hub-with-managed-service-identity)). När en hanterad tjänst identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för åtkomst till ditt lagrings konto.
-
-1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
-
-2. Välj **Storage BLOB data-deltagare** som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja din IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
-
-3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
-
-4. På resurs sidan för IoT Hub navigerar du till fliken **fil uppladdning** .
-
-5. På sidan som visas väljer du den behållare som du vill använda i blob-lagringen, konfigurerar **inställningarna för fil meddelanden**, **SAS TTL**, standard- **TTL** och **maximalt antal leveranser** som önskas. Välj **system tilldelat** som **Autentiseringstyp** till lagrings slut punkten. Klicka på knappen **Skapa**.
-
-Nu har din lagrings slut punkt för fil uppladdning kon figurer ATS för att använda navets tilldelade identitet och har behörighet att komma åt lagrings resursen trots dess brand Väggs begränsningar.
+Nu är slutpunkten för dina anpassade händelsehubbar konfigurerad för att använda hubbens systemtilldelade identitet och har behörighet att komma åt din händelsehubbarresurs trots brandväggsbegränsningar. Du kan nu använda den här slutpunkten för att ställa in en routningsregel.
 
 
-### <a name="egress-connectivity-to-storage-accounts-for-bulk-device-importexport"></a>Utgående anslutning till lagrings konton för import/export av Mass enhet
+### <a name="egress-connectivity-to-service-bus-endpoints-for-routing"></a>Utgående anslutning till servicebussslutpunkter för routning
 
-IoT Hub stöder funktionerna för att [Importera/exportera](./iot-hub-bulk-identity-mgmt.md) enheters information i bulk från/till en lagrings-BLOB för kunden. För att tillåta Mass import/export-funktionen att fungera måste både enheter och IoT Hub ha anslutning till lagrings kontot.
+IoT Hub kan konfigureras för att dirigera meddelanden till ett kundägt servicebussnamnområde. Om du vill att routningsfunktionen ska kunna komma åt en servicebussresurs när brandväggsbegränsningar är på plats måste IoT Hub ha en hanterad tjänstidentitet (se hur du [skapar ett nav med hanterad tjänstidentitet](#create-an-iot-hub-with-managed-service-identity)). När en hanterad tjänstidentitet har etablerats följer du stegen nedan för att ge RBAC-behörighet till hubbens resursidentitet att komma åt din servicebuss.
 
-Den här funktionen kräver anslutning från IoT Hub till lagrings kontot. För att få åtkomst till en Service Bus-resurs medan brand Väggs begränsningarna är på plats måste IoT Hub ha en hanterad tjänst identitet (se så här [skapar du en hubb med hanterad tjänst identitet](#create-a-hub-with-managed-service-identity)). När en hanterad tjänst identitet har tillhandahållits följer du stegen nedan för att ge RBAC-behörighet till navets resurs identitet för att få åtkomst till din Service Bus.
+1. I Azure-portalen navigerar du till fliken **Åtkomstkontroll (IAM) till** tjänstbussen och klickar på **Lägg till** under avsnittet Lägg till **en rolltilldelning.**
 
-1. I Azure Portal navigerar du till ditt lagrings kontos **åtkomst kontroll (IAM)** och klickar på **Lägg till** under avsnittet **Lägg till en roll tilldelning** .
+2. Välj **Servicebussdataavsändare** som **roll**, **Azure AD-användare, grupp eller tjänsthuvudnamn** som **Tilldela åtkomst till** och välj IoT Hub resursnamn i listrutan. Klicka på knappen **Spara**.
 
-2. Välj **Storage BLOB data-deltagare** som **roll**, **Azure AD-användare, grupp eller tjänstens huvud** namn som **att tilldela åtkomst till** och välja din IoT Hub resurs namn i list rutan. Klicka på knappen **Spara**.
+3. Navigera till fliken **Brandväggar och virtuella nätverk** i servicebussen och aktivera Alternativet **Tillåt åtkomst från valda nätverk.** Markera kryssrutan Tillåt **betrodda Microsoft-tjänster att komma åt den här servicebussen**under listan **Undantag** . Klicka på knappen **Spara**.
 
-3. Gå till fliken **brand väggar och virtuella nätverk** i ditt lagrings konto och aktivera alternativet **Tillåt åtkomst från valda nätverk** . Under **undantags** listan markerar du kryss rutan **Tillåt att betrodda Microsoft-tjänster får åtkomst till det här lagrings kontot**. Klicka på knappen **Spara**.
+4. På ioT-hubbens resurssida navigerar du till fliken **Meddelanderoutning.**
 
-Nu kan du använda Azure IoT-REST API för att [skapa import-och export jobb](https://docs.microsoft.com/rest/api/iothub/jobclient/getimportexportjobs) för information om hur du använder Mass import/export-funktionen. Observera att du måste ange `storageAuthenticationType="identityBased"` i din begär ande text och använda `inputBlobContainerUri="https://..."` och `outputBlobContainerUri="https://..."` som indata-och utdata-URL för ditt lagrings konto.
+5. Navigera till avsnittet **Anpassade slutpunkter** och klicka på **Lägg till**. Välj **Servicebusskö** eller **Servicebussämne** (beroende på vad som är tillämpligt) som slutpunktstyp.
+
+6. På sidan som visas anger du ett namn för slutpunkten, väljer servicebussens namnområde och kö eller ämne (beroende på vad som är tillämpligt). Klicka på knappen **Skapa**.
+
+Nu är din anpassade servicebussslutpunkt inställd på att använda hubbens systemtilldelade identitet, och den har behörighet att komma åt din servicebussresurs trots brandväggsbegränsningar. Du kan nu använda den här slutpunkten för att ställa in en routningsregel.
 
 
-Azure IoT Hub SDK har också stöd för den här funktionen i tjänst klientens register hanterare. Följande kodfragment visar hur du startar ett import jobb eller ett export jobb i med hjälp av C# SDK.
+### <a name="egress-connectivity-to-storage-accounts-for-file-upload"></a>Egressanslutning till lagringskonton för filöverföring
+
+IoT Hubs filuppladdningsfunktion gör det möjligt för enheter att ladda upp filer till ett kundägt lagringskonto. För att filöverföringen ska fungera måste både enheter och IoT Hub ha anslutning till lagringskontot. Om brandväggsbegränsningar finns på lagringskontot måste dina enheter använda någon av det lagringskonto som stöds (inklusive [privata slutpunkter,](../private-link/create-private-endpoint-storage-portal.md) [tjänstslutpunkter](../virtual-network/virtual-network-service-endpoints-overview.md) eller [direkt brandväggskonfiguration)](../storage/common/storage-network-security.md)för att få anslutning. Om brandväggsbegränsningar finns på lagringskontot måste IoT Hub konfigureras för att komma åt lagringsresursen via undantaget betrodda Microsoft-tjänster. För detta ändamål måste din IoT Hub ha en hanterad tjänstidentitet (se hur du [skapar ett nav med hanterad tjänstidentitet](#create-an-iot-hub-with-managed-service-identity)). När en hanterad tjänstidentitet har etablerats följer du stegen nedan för att ge RBAC-behörighet till hubbens resursidentitet att komma åt ditt lagringskonto.
+
+1. Navigera till fliken **Åtkomstkontroll (IAM) i** Azure-portalen och klicka på **Lägg till** under avsnittet Lägg till **en rolltilldelning.**
+
+2. Välj **Storage Blob Data Contributor** som **roll**, **Azure AD-användare, grupp eller tjänsthuvudnamn** som **Tilldela åtkomst till** och välj IoT Hub resursnamn i listrutan. Klicka på knappen **Spara**.
+
+3. Navigera till fliken **Brandväggar och virtuella nätverk** i ditt lagringskonto och aktivera Alternativet **Tillåt åtkomst från valda nätverk.** Markera kryssrutan **Tillåt betrodda Microsoft-tjänster att komma åt det här lagringskontot**under listan **Undantag** . Klicka på knappen **Spara**.
+
+4. På ioT-hubbens resurssida navigerar du till fliken **Filuppladdning.**
+
+5. På sidan som visas väljer du den behållare som du tänker använda i blob-lagringen, konfigurerar **inställningarna för filmeddelanden**, **SAS TTL**, **Standard TTL** och **Maximalt leveransantal** som du vill. Välj **System tilldelad** som **autentiseringstyp** till lagringsslutpunkten. Klicka på knappen **Skapa**.
+
+Nu är lagringsslutpunkten för filöverföring inställd på att använda hubbens systemtilldelade identitet, och den har behörighet att komma åt lagringsresursen trots brandväggsbegränsningar.
+
+
+### <a name="egress-connectivity-to-storage-accounts-for-bulk-device-importexport"></a>Egressanslutning till lagringskonton för import/export av bulkenheter
+
+IoT Hub stöder funktionerna för att [importera/exportera](./iot-hub-bulk-identity-mgmt.md) enheters information i bulk från/till en lagringsblob som tillhandahålls av kunden. För att funktionen massimport/export ska fungera måste både enheter och IoT Hub ha anslutning till lagringskontot.
+
+Den här funktionen kräver anslutning från IoT Hub till lagringskontot. För att komma åt en servicebussresurs när brandväggsbegränsningar är på plats måste IoT Hub ha en hanterad tjänstidentitet (se hur du [skapar ett nav med hanterad tjänstidentitet).](#create-an-iot-hub-with-managed-service-identity) När en hanterad tjänstidentitet har etablerats följer du stegen nedan för att ge RBAC-behörighet till hubbens resursidentitet att komma åt din servicebuss.
+
+1. Navigera till fliken **Åtkomstkontroll (IAM) i** Azure-portalen och klicka på **Lägg till** under avsnittet Lägg till **en rolltilldelning.**
+
+2. Välj **Storage Blob Data Contributor** som **roll**, **Azure AD-användare, grupp eller tjänsthuvudnamn** som **Tilldela åtkomst till** och välj IoT Hub resursnamn i listrutan. Klicka på knappen **Spara**.
+
+3. Navigera till fliken **Brandväggar och virtuella nätverk** i ditt lagringskonto och aktivera Alternativet **Tillåt åtkomst från valda nätverk.** Markera kryssrutan **Tillåt betrodda Microsoft-tjänster att komma åt det här lagringskontot**under listan **Undantag** . Klicka på knappen **Spara**.
+
+Du kan nu använda Azure IoT REST API: s för [att skapa import exportjobb](https://docs.microsoft.com/rest/api/iothub/service/jobclient/getimportexportjobs) för information om hur du använder massimport/ export funktionalitet. Observera att du måste `storageAuthenticationType="identityBased"` ange i din `inputBlobContainerUri="https://..."` begäran `outputBlobContainerUri="https://..."` kropp och använda och som in- och utdata-URL:er för ditt lagringskonto, respektive.
+
+
+Azure IoT Hub SDK stöder även den här funktionen i tjänstklientens registerhanterare. Följande kodavsnitt visar hur du initierar ett importjobb eller exporterar jobb med hjälp av C# SDK.
 
 ```csharp
 // Call an import job on the IoT Hub
@@ -305,32 +317,29 @@ await registryManager.ExportDevicesAsync(
 ```
 
 
-Om du vill använda den här regionen – begränsad version av Azure IoT SDK: er C#med VNet-stöd för, Java och Node. js:
+Så här använder du den här regionbegränsade versionen av Azure IoT-SDK:er med stöd för virtuellt nätverk för C#, Java och Node.js:
 
-1. Skapa en miljö variabel med namnet `EnableStorageIdentity` och ange dess värde som `1`.
+1. Skapa en miljövariabel med `EnableStorageIdentity` `1`namnet och ange dess värde till .
 
-2. Hämta SDK:
-    - > [Java](https://aka.ms/vnetjavasdk)
-    - > [C#](https://aka.ms/vnetcsharsdk)
-    - > [Node.js](https://aka.ms/vnetnodesdk)
+2. Ladda ner SDK: [Java](https://aka.ms/vnetjavasdk) | [C#](https://aka.ms/vnetcsharpsdk) | [Node.js](https://aka.ms/vnetnodesdk)
  
-För python laddar du ned vår begränsade version från GitHub.
+För Python laddar du ned vår begränsade version från GitHub.
 
-1. Gå till [sidan med GitHub-versionen](https://aka.ms/vnetpythonsdk).
+1. Navigera till [GitHub-utgivningssidan](https://aka.ms/vnetpythonsdk).
 
-2. Ladda ned följande fil, som du hittar längst ned på sidan version under rubriken namngivna **till gångar**.
-    > *azure_iot_hub-2.2.0. Limited-PY2. py3-none-any. WHL*
+2. Hämta följande fil, som du hittar längst ned på utgivningssidan under rubriken **tillgångar**.
+    > *azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl*
 
-3. Öppna en Terminal och navigera till mappen med den nedladdade filen.
+3. Öppna en terminal och navigera till mappen med den nedladdade filen.
 
-4. Kör följande kommando för att installera python service SDK med stöd för virtuella nätverk:
-    > PIP install./azure_iot_hub-2.2.0. Limited-PY2. py3-none-any. WHL
+4. Kör följande kommando för att installera Python Service SDK med stöd för virtuella nätverk:
+    > pip installera ./azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd länkarna nedan för att lära dig mer om IoT Hub funktioner:
+Använd länkarna nedan om du vill veta mer om IoT Hub-funktioner:
 
 * [Meddelanderoutning](./iot-hub-devguide-messages-d2c.md)
-* [Fil uppladdning](./iot-hub-devguide-file-upload.md)
-* [Import/export av Mass enhet](./iot-hub-bulk-identity-mgmt.md) 
+* [Ladda upp filer](./iot-hub-devguide-file-upload.md)
+* [Import/export av bulkenhet](./iot-hub-bulk-identity-mgmt.md) 

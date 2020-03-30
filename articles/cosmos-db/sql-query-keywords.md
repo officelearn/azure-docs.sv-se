@@ -1,24 +1,25 @@
 ---
 title: SQL-nyckelord för Azure Cosmos DB
-description: Läs om SQL-nyckelord för Azure Cosmos DB.
+description: Läs mer om SQL-nyckelord för Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 03/17/2020
 ms.author: mjbrown
-ms.openlocfilehash: 711e961bd5eb1607e2e6f11b0b5762423d78c0e7
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: f2da2695ec20eac9dd2636104d3314427e60d541
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79246583"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79498549"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Nyckelord i Azure Cosmos DB
-Den här artikeln innehåller information om nyckelord som kan användas i Azure Cosmos DB SQL-frågor.
 
-## <a name="between"></a>DELAS
+I den här artikeln beskrivs nyckelord som kan användas i Azure Cosmos DB SQL-frågor.
 
-Som i ANSI SQL kan du använda nyckelordet BETWEEN för att uttrycka frågor mot intervall med sträng eller numeriska värden. Följande fråga returnerar till exempel alla objekt där de första underordnade klasserna är 1-5.
+## <a name="between"></a>BETWEEN
+
+Du kan `BETWEEN` använda nyckelordet för att uttrycka frågor mot intervall med sträng- eller numeriska värden. Följande fråga returnerar till exempel alla objekt där det första barnets resultat är 1-5, inklusive.
 
 ```sql
     SELECT *
@@ -26,30 +27,30 @@ Som i ANSI SQL kan du använda nyckelordet BETWEEN för att uttrycka frågor mot
     WHERE c.grade BETWEEN 1 AND 5
 ```
 
-Till skillnad från ANSI SQL kan du också använda uttrycket BETWEEN i from-satsen, som i följande exempel.
+Du kan också `BETWEEN` använda `SELECT` nyckelordet i satsen, som i följande exempel.
 
 ```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
 ```
 
-I SQL API, till skillnad från ANSI SQL, kan du uttrycka intervall frågor mot egenskaper av blandade typer. `grade` kan till exempel vara ett tal som `5` i vissa objekt och en sträng som `grade4` i andra. I dessa fall, som i Java Script, resulterar jämförelsen mellan de två olika typerna i `Undefined`, så att objektet hoppas över.
+I SQL API, till skillnad från ANSI SQL, kan du uttrycka intervallfrågor mot egenskaper för blandade typer. Det kan `grade` till exempel `5` vara ett tal som `grade4` i vissa objekt och en sträng som i andra. I dessa fall, som i JavaScript, resulterar `Undefined`jämförelsen mellan de två olika typerna i , så objektet hoppas över.
 
 > [!TIP]
-> För snabbare körnings tider för frågor skapar du en indexerings princip som använder en intervall index typ mot eventuella numeriska egenskaper eller sökvägar som BETWEEN-satsen filtrerar.
+> För snabbare körningstider för frågor skapar du en indexeringsprincip som använder `BETWEEN` en intervallindextyp mot alla numeriska egenskaper eller banor som satsen filtrerar.
 
-## <a name="distinct"></a>KONTROLLSTÄMPEL
+## <a name="distinct"></a>DISTINKTA
 
-Nyckelordet DISTINCT eliminerar dubbletter i frågans projektion.
+Nyckelordet `DISTINCT` eliminerar dubbletter i frågans projektion.
 
-I det här exemplet är fråga projekt värden för varje efter namn:
+I det här exemplet projicerar frågan värden för varje efternamn:
 
 ```sql
 SELECT DISTINCT VALUE f.lastName
 FROM Families f
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
 [
@@ -57,14 +58,14 @@ Resultaten är:
 ]
 ```
 
-Du kan också projicera unika objekt. I det här fallet finns inte fältet lastName i något av de två dokumenten, så frågan returnerar ett tomt objekt.
+Du kan också projicera unika objekt. I det här fallet finns inte fältet efternamn i något av de två dokumenten, så frågan returnerar ett tomt objekt.
 
 ```sql
 SELECT DISTINCT f.lastName
 FROM Families f
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
 [
@@ -75,16 +76,16 @@ Resultaten är:
 ]
 ```
 
-DISTINCT kan också användas i projektionen inom en under fråga:
+DISTINCT kan också användas i projektionen inom en underkräpelse:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
 FROM f
 ```
 
-Den här frågan projekterar en matris som innehåller varje barns givenName och dubbletter tas bort. Matrisen har ett alias som ChildNames och projiceras i den yttre frågan.
+Den här frågan projicerar en matris som innehåller varje underordnads givenName med dubbletter borttagna. Den här matrisen är aliaserad som ChildNames och projiceras i den yttre frågan.
 
-Resultaten är:
+Resultatet är:
 
 ```json
 [
@@ -102,7 +103,7 @@ Resultaten är:
 ]
 ```
 
-Frågor med en sammansatt systemfunktion och en under fråga med DISTINCT stöds inte. Följande fråga stöds exempelvis inte:
+Frågor med en mängdsystemfunktion och en `DISTINCT` underkvent med stöds inte. Följande fråga stöds till exempel inte:
 
 ```sql
 SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
@@ -110,7 +111,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 
 ## <a name="in"></a>IN
 
-Använd nyckelordet IN för att kontrol lera om ett angivet värde matchar ett värde i en lista. Följande fråga returnerar till exempel alla familje objekt där `id` är `WakefieldFamily` eller `AndersenFamily`.
+Använd nyckelordet IN för att kontrollera om ett angivet värde matchar något värde i en lista. Följande fråga returnerar till exempel alla `id` `WakefieldFamily` familjeobjekt där den finns eller `AndersenFamily`.
 
 ```sql
     SELECT *
@@ -118,7 +119,7 @@ Använd nyckelordet IN för att kontrol lera om ett angivet värde matchar ett v
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
 ```
 
-I följande exempel returneras alla objekt där status är något av de angivna värdena:
+I följande exempel returneras alla objekt där tillståndet är något av de angivna värdena:
 
 ```sql
     SELECT *
@@ -126,22 +127,22 @@ I följande exempel returneras alla objekt där status är något av de angivna 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 ```
 
-SQL API ger stöd för att [iterera över JSON-matriser](sql-query-object-array.md#Iteration), med en ny konstruktion som lagts till via nyckelordet i från-källan.
+SQL API ger stöd för [itererering över JSON-matriser](sql-query-object-array.md#Iteration), med en ny konstruktion som lagts till via nyckelordet in i FROM-källan.
 
-Om du inkluderar din partitionsnyckel i `IN`s filtret filtreras frågan automatiskt till de relevanta partitionerna.
+Om du inkluderar partitionsnyckeln i filtret `IN` filtreras frågan automatiskt till endast relevanta partitioner.
 
-## <a name="top"></a>ÖVERSTA
+## <a name="top"></a>Topp
 
-Nyckelordet TOP returnerar det första `N` antalet frågeresultat i en odefinierad ordning. Bästa praxis är att använda TOP med ORDER BY-satsen för att begränsa resultaten till det första `N` antalet beställda värden. Att kombinera dessa två satser är det enda sättet att förutsäga vilka rader som påverkar.
+Nyckelordet TOP returnerar det första `N` antalet frågeresultat i en odefinierad ordning. Bäst i övning kan du `ORDER BY` använda TOP med `N` satsen för att begränsa resultaten till det första antalet beställda värden. Att kombinera dessa två satser är det enda sättet att förutsägbart ange vilka rader TOP påverkar.
 
-Du kan använda TOP med ett konstant värde, som i följande exempel, eller med ett variabel värde med hjälp av parametriserade frågor.
+Du kan använda TOP med ett konstant värde, som i följande exempel, eller med ett variabelvärde med hjälp av parameteriserade frågor.
 
 ```sql
     SELECT TOP 1 *
     FROM Families f
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [{
@@ -166,5 +167,5 @@ Resultaten är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [Kopplingar](sql-query-join.md)
-- [Under frågor](sql-query-subquery.md)
+- [Går](sql-query-join.md)
+- [Underfrågor](sql-query-subquery.md)

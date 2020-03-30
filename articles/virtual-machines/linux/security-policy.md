@@ -1,5 +1,5 @@
 ---
-title: Skydda och Använd principer på dina virtuella Linux-datorer i Azure
+title: Skydda och använda principer för dina virtuella Linux-datorer i Azure
 description: Lär dig mer om säkerhet och principer för Linux och virtuella datorer i Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,10 +15,10 @@ ms.date: 11/27/2018
 ms.author: cynthn
 ms.topic: conceptual
 ms.openlocfilehash: 9cd31d39d2881aebf83d5b40aa826433de5d0993
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74035066"
 ---
 # <a name="secure-and-use-policies-on-virtual-machines-in-azure"></a>Skydda och använda principer på virtuella datorer i Azure

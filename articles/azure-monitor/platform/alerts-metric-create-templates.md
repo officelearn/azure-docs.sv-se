@@ -1,6 +1,6 @@
 ---
-title: Skapa en metrisk varning med en Resource Manager-mall
-description: Lär dig hur du använder en Resource Manager-mall för att skapa en måtta aviseringar.
+title: Skapa en måttvarning med en Resource Manager-mall
+description: Lär dig hur du använder en Resource Manager-mall för att skapa en måttavisering.
 author: harelbr
 ms.author: harelbr
 services: azure-monitor
@@ -8,33 +8,33 @@ ms.topic: conceptual
 ms.date: 2/24/2020
 ms.subservice: alerts
 ms.openlocfilehash: 2f6e9cd4e7a035e6555b2241613cb9c46c3be550
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274988"
 ---
-# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
+# <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Den här artikeln visar hur du kan använda en [Azure Resource Manager mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera [nya mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Med Resource Manager-mallar kan du konfigurera aviseringar via programmering på ett konsekvent och reproducerbart sätt i alla miljöer. Nya mått aviseringar är för närvarande tillgängliga i [den här uppsättningen resurs typer](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera [nyare måttaviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Med Resource Manager-mallar kan du programmässigt ställa in aviseringar på ett konsekvent och reproducerbart sätt i dina miljöer. Nyare måttaviseringar är för närvarande tillgängliga på [den här uppsättningen resurstyper](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (d.v.s.) `Microsoft.OperationalInsights/workspaces`, kräver ytterligare steg. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resursmall för att skapa måttaviseringar för resurstyp: Azure `Microsoft.OperationalInsights/workspaces`Log Analytics Workspace (dvs. ) kräver ytterligare steg. Mer information finns i artikeln om [Måttavisering för loggar - Resursmall](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 De grundläggande stegen är följande:
 
 1. Använd en av mallarna nedan som en JSON-fil som beskriver hur du skapar aviseringen.
-2. Redigera och använd motsvarande parameter fil som JSON för att anpassa aviseringen.
-3. För `metricName`-parametern, se tillgängliga mått i [Azure Monitor mått som stöds](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
-4. Distribuera mallen med [valfri distributions metod](../../azure-resource-manager/templates/deploy-powershell.md).
+2. Redigera och använd motsvarande parameterfil som en JSON för att anpassa aviseringen.
+3. För `metricName` parametern finns i tillgängliga mått i [Azure Monitor som stöds mått](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+4. Distribuera mallen med valfri [distributionsmetod](../../azure-resource-manager/templates/deploy-powershell.md).
 
-## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Mall för en mått avisering för enkel statisk tröskel
+## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Mall för en enkel statisk tröskelmåttvarning
 
-Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/metricAlerts` och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
+Om du vill skapa en avisering med hjälp `Microsoft.Insights/metricAlerts` av en Resource Manager-mall skapar du en resurs av typen och fyller i alla relaterade egenskaper. Nedan finns en exempelmall som skapar en måttaviseringsregel.
 
-Spara JSON-filen nedan som simplestaticmetricalert. JSON för den här genom gången.
+Spara json nedan som simplestaticmetricalert.json för denna genomgång.
 
 ```json
 {
@@ -204,11 +204,11 @@ Spara JSON-filen nedan som simplestaticmetricalert. JSON för den här genom gå
 }
 ```
 
-En förklaring av schema och egenskaper för en varnings regel [finns här](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+En förklaring av schemat och egenskaperna för en [varningsregel finns här](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
-Du kan ange värden för parametrarna antingen på kommando raden eller via en parameter fil. En exempel parameter fil anges nedan.
+Du kan ange värden för parametrarna antingen på kommandoraden eller via en parameterfil. Nedan finns en exempelparameterfil.
 
-Spara JSON-filen nedan som simplestaticmetricalert. Parameters. JSON och ändra den efter behov.
+Spara json nedan som simplestaticmetricalert.parameters.json och ändra den efter behov.
 
 ```json
 {
@@ -250,7 +250,7 @@ Spara JSON-filen nedan som simplestaticmetricalert. Parameters. JSON och ändra 
 ```
 
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI.
 
 Använda Azure PowerShell
 
@@ -277,13 +277,13 @@ az group deployment create \
 
 > [!NOTE]
 >
-> Även om mått aviseringen kan skapas i en annan resurs grupp till mål resursen rekommenderar vi att du använder samma resurs grupp som mål resursen.
+> Måttaviseringen kan skapas i en annan resursgrupp än målresursen, men vi rekommenderar att du använder samma resursgrupp som målresursen.
 
-## <a name="template-for-a-simple-dynamic-thresholds-metric-alert"></a>Mall för en mått avisering för enkel dynamisk tröskel
+## <a name="template-for-a-simple-dynamic-thresholds-metric-alert"></a>Mall för en enkel måttvarning för dynamiska tröskelvärden
 
-Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/metricAlerts` och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
+Om du vill skapa en avisering med hjälp `Microsoft.Insights/metricAlerts` av en Resource Manager-mall skapar du en resurs av typen och fyller i alla relaterade egenskaper. Nedan finns en exempelmall som skapar en måttaviseringsregel.
 
-Spara JSON-filen nedan som simpledynamicmetricalert. JSON för den här genom gången.
+Spara json nedan som simpledynamicmetricalert.json för denna genomgång.
 
 ```json
 {
@@ -477,11 +477,11 @@ Spara JSON-filen nedan som simpledynamicmetricalert. JSON för den här genom g�
 }
 ```
 
-En förklaring av schema och egenskaper för en varnings regel [finns här](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
+En förklaring av schemat och egenskaperna för en [varningsregel finns här](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate).
 
-Du kan ange värden för parametrarna antingen på kommando raden eller via en parameter fil. En exempel parameter fil anges nedan. 
+Du kan ange värden för parametrarna antingen på kommandoraden eller via en parameterfil. Nedan finns en exempelparameterfil. 
 
-Spara JSON-filen nedan som simpledynamicmetricalert. Parameters. JSON och ändra den efter behov.
+Spara json nedan som simpledynamicmetricalert.parameters.json och ändra den efter behov.
 
 ```json
 {
@@ -532,7 +532,7 @@ Spara JSON-filen nedan som simpledynamicmetricalert. Parameters. JSON och ändra
 ```
 
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI.
 
 Använda Azure PowerShell
 
@@ -559,20 +559,20 @@ az group deployment create \
 
 > [!NOTE]
 >
-> Även om mått aviseringen kan skapas i en annan resurs grupp till mål resursen rekommenderar vi att du använder samma resurs grupp som mål resursen.
+> Måttaviseringen kan skapas i en annan resursgrupp än målresursen, men vi rekommenderar att du använder samma resursgrupp som målresursen.
 
-## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Mall för en statisk tröskel mått avisering som övervakar flera villkor
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>Mall för en statisk måttavisering för tröskelvärdet som övervakar flera villkor
 
-Nya mått aviseringar stöder aviseringar om flerdimensionella mått och stöd för flera villkor. Du kan använda följande mall för att skapa en mer avancerad mått varnings regel för mått och ange flera kriterier.
+Nyare måttaviseringar stöder aviseringar om flerdimensionella mått samt stöder flera kriterier. Du kan använda följande mall för att skapa en mer avancerad måttaviseringsregel för dimensionella mått och ange flera villkor.
 
-Observera följande begränsningar när du använder dimensioner i en aviseringsregel som innehåller flera kriterier:
-- Du kan bara välja ett värde per dimension i varje kriterium.
-- Du kan inte använda "\*" som dimensions värde.
-- När mått som kon figurer ATS i olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta kriterierna).
-    - I exemplet nedan, eftersom både **transaktionerna** och **SuccessE2ELatency** -mått har en **ApiName** -dimension, och *Criterion1* anger värdet *"GetBlob"* för **ApiName** -dimensionen, måste *criterion2* även ange ett *"GetBlob"* -värde för **ApiName** -dimensionen.
+Observera följande begränsningar när du använder dimensioner i en varningsregel som innehåller flera villkor:
+- Du kan bara välja ett värde per dimension inom varje villkor.
+- Du kan\*inte använda " " som ett dimensionsvärde.
+- När mått som är konfigurerade i olika villkor stöder samma dimension måste ett konfigurerat dimensionsvärde uttryckligen anges på samma sätt för alla dessa mått (i relevanta villkor).
+    - I exemplet nedan, eftersom både **måtten Transaktioner** och **SuccessE2ELatency** har en **ApiName-dimension** och *villkor1* anger *värdet "GetBlob"* för **ApiName-dimensionen,** måste *criterion2* också ange värdet *"GetBlob"* för **ApiName-dimensionen.**
 
 
-Spara JSON-filen nedan som advancedstaticmetricalert. JSON för den här genom gången.
+Spara json nedan som advancedstaticmetricalert.json för denna genomgång.
 
 ```json
 {
@@ -705,9 +705,9 @@ Spara JSON-filen nedan som advancedstaticmetricalert. JSON för den här genom g
 }
 ```
 
-Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
+Du kan använda mallen ovan tillsammans med parameterfilen nedan. 
 
-Spara och ändra JSON nedan som advancedstaticmetricalert. Parameters. JSON för den här genom gången.
+Spara och ändra json nedan som advancedstaticmetricalert.parameters.json för denna genomgång.
 
 ```json
 {
@@ -774,7 +774,7 @@ Spara och ändra JSON nedan som advancedstaticmetricalert. Parameters. JSON för
 ```
 
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 ```powershell
@@ -800,23 +800,23 @@ az group deployment create \
 ```
 
 
-## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>Mall för en statisk mått avisering som övervakar flera dimensioner
+## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>Mall för en statisk måttavisering som övervakar flera dimensioner
 
-Du kan använda följande mall för att skapa en statisk mått varnings regel för mått.
+Du kan använda följande mall för att skapa en statisk måttaviseringsregel för dimensionsmått.
 
-En enda varnings regel kan övervaka flera tids serier i taget, vilket leder till att färre varnings regler hanteras.
+En enda varningsregel kan övervaka flera måtttidsserier i taget, vilket resulterar i färre varningsregler att hantera.
 
-I exemplet nedan övervakar varnings regeln dimensions värde kombinationerna för **ResponseType** -och **ApiName** -dimensionerna för **transaktionernas** mått:
-1. **ResponsType** – användningen av jokertecknet "\*" innebär att för varje värde av **ResponseType** -dimensionen, inklusive framtida värden, övervakas en annan tids serie individuellt.
-2. **ApiName** – en annan tids serie övervakas endast för **GetBlob** -och **PutBlob** -dimensionsvärdena.
+I exemplet nedan övervakar varningsregeln dimensionsvärdekombinationerna för **Dimensionerna ResponseType** och **ApiName** för måttet **Transaktioner:**
+1. **ResponsType** - Användningen av\*" " wildcard innebär att för varje värde i **ResponseType-dimensionen,** inklusive framtida värden, övervakas en annan tidsserie individuellt.
+2. **ApiName** - En annan tidsserie övervakas endast för dimensionvärdena **GetBlob** och **PutBlob.**
 
-Till exempel är några av de tänkbara tids serier som övervakas av den här aviserings regeln:
-- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *GetBlob*
-- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *PutBlob*
-- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *PutBlob*
+Några av de potentiella tidsserier som övervakas av den här aviseringsregeln är till exempel:
+- Mått = *Transaktioner*, ResponseType = *Framgång*, ApiName = *GetBlob*
+- Mått = *Transaktioner*, ResponseType = *Framgång*, ApiName = *PutBlob*
+- Mått = *Transaktioner*, ResponseType = *Server timeout*, ApiName = *GetBlob*
+- Mått = *Transaktioner*, ResponseType = *Server timeout*, ApiName = *PutBlob*
 
-Spara JSON-filen nedan som multidimensionalstaticmetricalert. JSON för den här genom gången.
+Spara json nedan som multidimensionalstaticmetricalert.json för denna genomgång.
 
 ```json
 {
@@ -941,9 +941,9 @@ Spara JSON-filen nedan som multidimensionalstaticmetricalert. JSON för den här
 }
 ```
 
-Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
+Du kan använda mallen ovan tillsammans med parameterfilen nedan. 
 
-Spara och ändra JSON nedan som multidimensionalstaticmetricalert. Parameters. JSON för den här genom gången.
+Spara och ändra json nedan som multidimensionalstaticmetricalert.parameters.json i syfte att denna genomgång.
 
 ```json
 {
@@ -994,7 +994,7 @@ Spara och ändra JSON nedan som multidimensionalstaticmetricalert. Parameters. J
 ```
 
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 ```powershell
@@ -1020,23 +1020,23 @@ az group deployment create \
 ```
 
 
-## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>Mall för en mått avisering för dynamiska tröskelvärden som övervakar flera dimensioner
+## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>Mall för en måttavisering för dynamiska tröskelvärden som övervakar flera dimensioner
 
-Du kan använda följande mall för att skapa en mer avancerad dynamisk tröskel varnings regel för mått.
+Du kan använda följande mall för att skapa en mer avancerad måttaviseringsregel för dynamiska tröskelvärden för dimensionsmått.
 
-En varnings regel för ett enskilt dynamiskt tröskelvärden kan skapa skräddarsydda tröskelvärden för hundratals tids serier (även olika typer) i taget, vilket resulterar i färre varnings regler.
+En enda aviseringsregel för dynamiska tröskelvärden kan skapa anpassade tröskelvärden för hundratals måtttidsserier (till och med olika typer) i taget, vilket resulterar i färre varningsregler att hantera.
 
-I exemplet nedan övervakar varnings regeln dimensions värde kombinationerna för **ResponseType** -och **ApiName** -dimensionerna för **transaktionernas** mått:
-1. **ResponsType** – för varje värde i dimensionen **ResponseType** , inklusive framtida värden, övervakas en annan tids serie individuellt.
-2. **ApiName** – en annan tids serie övervakas endast för **GetBlob** -och **PutBlob** -dimensionsvärdena.
+I exemplet nedan övervakar varningsregeln dimensionsvärdekombinationerna för **Dimensionerna ResponseType** och **ApiName** för måttet **Transaktioner:**
+1. **ResponsType** - För varje värde i **ResponseType-dimensionen,** inklusive framtida värden, övervakas en annan tidsserie individuellt.
+2. **ApiName** - En annan tidsserie övervakas endast för dimensionvärdena **GetBlob** och **PutBlob.**
 
-Till exempel är några av de tänkbara tids serier som övervakas av den här aviserings regeln:
-- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *GetBlob*
-- Metric = *transaktioner*, ResponseType = *lyckades*, ApiName = *PutBlob*
-- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *GetBlob*
-- Metric = *Transactions*, ResponseType = *Server-timeout*, ApiName = *PutBlob*
+Några av de potentiella tidsserier som övervakas av den här aviseringsregeln är till exempel:
+- Mått = *Transaktioner*, ResponseType = *Framgång*, ApiName = *GetBlob*
+- Mått = *Transaktioner*, ResponseType = *Framgång*, ApiName = *PutBlob*
+- Mått = *Transaktioner*, ResponseType = *Server timeout*, ApiName = *GetBlob*
+- Mått = *Transaktioner*, ResponseType = *Server timeout*, ApiName = *PutBlob*
 
-Spara JSON-filen nedan som advanceddynamicmetricalert. JSON för den här genom gången.
+Spara json nedan som avanceraddynamicmetricalert.json för denna genomgång.
 
 ```json
 {
@@ -1156,9 +1156,9 @@ Spara JSON-filen nedan som advanceddynamicmetricalert. JSON för den här genom 
 }
 ```
 
-Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
+Du kan använda mallen ovan tillsammans med parameterfilen nedan. 
 
-Spara och ändra JSON nedan som advanceddynamicmetricalert. Parameters. JSON för den här genom gången.
+Spara och ändra json nedan som advanceddynamicmetricalert.parameters.json för denna genomgång.
 
 ```json
 {
@@ -1214,7 +1214,7 @@ Spara och ändra JSON nedan som advanceddynamicmetricalert. Parameters. JSON fö
 ```
 
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 ```powershell
@@ -1241,18 +1241,18 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Flera kriterier stöds för närvarande inte för mått varnings regler som använder dynamiska tröskelvärden.
+> Flera villkor stöds för närvarande inte för måttaviseringsregler som använder dynamiska tröskelvärden.
 
 
-## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>Mall för en statisk tröskel mått avisering som övervakar ett anpassat mått
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>Mall för en statisk måttavisering för tröskelvärden som övervakar ett anpassat mått
 
-Du kan använda följande mall för att skapa en mer avancerad varnings regel för statiskt tröskelvärde för ett anpassat mått.
+Du kan använda följande mall för att skapa en mer avancerad statisk tröskelmåttvarningsregel för ett anpassat mått.
 
-Mer information om anpassade mått i Azure Monitor finns i [anpassade mått i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
+Mer information om anpassade mått i Azure Monitor finns [i Anpassade mått i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview).
 
-När du skapar en varnings regel för ett anpassat mått måste du ange både måttets namn och mått namn området. Du bör också se till att det anpassade måttet redan rapporteras, eftersom du inte kan skapa en aviserings regel för ett anpassat mått som ännu inte finns.
+När du skapar en aviseringsregel för ett anpassat mått måste du ange både måttnamnet och det metriska namnområdet. Du bör också se till att det anpassade måttet redan rapporteras, eftersom du inte kan skapa en aviseringsregel för ett anpassat mått som ännu inte finns.
 
-Spara JSON-filen nedan som customstaticmetricalert. JSON för den här genom gången.
+Spara json nedan som tulltaticmetricalert.json för denna genomgång.
 
 ```json
 {
@@ -1430,9 +1430,9 @@ Spara JSON-filen nedan som customstaticmetricalert. JSON för den här genom gå
 }
 ```
 
-Du kan använda ovanstående mall tillsammans med den parameter fil som anges nedan. 
+Du kan använda mallen ovan tillsammans med parameterfilen nedan. 
 
-Spara och ändra JSON nedan som customstaticmetricalert. Parameters. JSON för den här genom gången.
+Spara och ändra json nedan som customstaticmetricalert.parameters.json i syfte att denna genomgång.
 
 ```json
 {
@@ -1477,7 +1477,7 @@ Spara och ändra JSON nedan som customstaticmetricalert. Parameters. JSON för d
 ```
 
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 ```powershell
@@ -1504,26 +1504,26 @@ az group deployment create \
 
 >[!NOTE]
 >
-> Du kan hitta mått namn området för en speciell anpassad mått genom [att bläddra bland dina anpassade mått via Azure Portal](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
+> Du kan hitta det metriska namnområdet för ett specifikt anpassat mått genom [att bläddra i dina anpassade mått via Azure-portalen](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal)
 
 
-## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Mall för en mått avisering som övervakar flera resurser
+## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>Mall för en måttavisering som övervakar flera resurser
 
-I föregående avsnitt beskrivs exempel Azure Resource Manager mallar för att skapa mått aviseringar som övervakar en enskild resurs. Azure Monitor har nu stöd för övervakning av flera resurser (av samma typ) med en enda mått varnings regel för resurser som finns i samma Azure-region. Den här funktionen stöds för närvarande endast i Azures offentliga moln och endast för virtuella datorer, SQL Server-databaser, elastiska SQL Server-pooler och data Edge-enheter. Den här funktionen är även tillgänglig för plattforms mått och stöds inte för anpassade mått.
+I föregående avsnitt beskrivs exempel på Azure Resource Manager-mallar för att skapa måttaviseringar som övervakar en enda resurs. Azure Monitor stöder nu övervakning av flera resurser (av samma typ) med en enda måttaviseringsregel, för resurser som finns i samma Azure-region. Den här funktionen stöds för närvarande endast i Offentliga Azure-moln och endast för virtuella datorer, SQL-serverdatabaser, elastiska SQL-serverpooler och databoxkantenheter. Den här funktionen är också endast tillgänglig för plattformsmått och stöds inte för anpassade mått.
 
-Aviserings regeln för dynamiska tröskelvärden kan också hjälpa dig att skapa skräddarsydda tröskelvärden för hundratals mått serier (även olika typer) i taget, vilket leder till att färre aviserings regler hanteras.
+Dynamic Thresholds alerts-regeln kan också bidra till att skapa skräddarsydda tröskelvärden för hundratals måttserier (även olika typer) i taget, vilket resulterar i färre varningsregler att hantera.
 
-I det här avsnittet beskrivs Azure Resource Manager mallar för tre scenarier för att övervaka flera resurser med en enda regel.
+I det här avsnittet beskrivs Azure Resource Manager-mallar för tre scenarier för att övervaka flera resurser med en enda regel.
 
-- Övervaka alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper.
+- Övervaka alla virtuella datorer (i en Azure-region) i en eller flera resursgrupper.
 - Övervaka alla virtuella datorer (i en Azure-region) i en prenumeration.
-- Övervakning av en lista över virtuella datorer (i en Azure-region) i en prenumeration.
+- Övervaka en lista över virtuella datorer (i en Azure-region) i en prenumeration.
 
-### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Varning för statisk tröskel på alla virtuella datorer i en eller flera resurs grupper
+### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Statisk tröskelvarning för alla virtuella datorer i en eller flera resursgrupper
 
-Den här mallen skapar en varnings regel för statisk tröskel som övervakar procent CPU för alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper.
+Den här mallen skapar en statisk tröskelmåttvarningsregel som övervakar procentuell processor för alla virtuella datorer (i en Azure-region) i en eller flera resursgrupper.
 
-Spara JSON-filen nedan som alla VM-in-Resource-Group-static. JSON för den här genom gången.
+Spara json nedan som all-vms-in-resource-group-static.json i syfte att denna genomgång.
 
 ```json
 {
@@ -1755,8 +1755,8 @@ Spara JSON-filen nedan som alla VM-in-Resource-Group-static. JSON för den här 
 }
 ```
 
-Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som alla VM-in-Resource-Group-static. Parameters. JSON för den här genom gången.
+Du kan använda mallen ovan med parameterfilen nedan.
+Spara och ändra json nedan som all-vms-in-resource-group-static.parameters.json i den här genomgången.
 
 ```json
 {
@@ -1806,7 +1806,7 @@ Spara och ändra JSON nedan som alla VM-in-Resource-Group-static. Parameters. JS
 }
 ```
 
-Du kan skapa en statisk mått-avisering med hjälp av mall-och parameter filen med PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa den statiska måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 
@@ -1831,11 +1831,11 @@ az group deployment create \
     --parameters @all-vms-in-resource-group-static.parameters.json
 ```
 
-### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Varning om dynamiska tröskelvärden på alla virtuella datorer i en eller flera resurs grupper
+### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>Avisering om dynamiska tröskelvärden på alla virtuella datorer i en eller flera resursgrupper
 
-Med den här mallen skapas en regel för dynamiska tröskelvärden som övervakar procent processor för alla virtuella datorer (i en Azure-region) i en eller flera resurs grupper.
+Den här mallen skapar en måttaviseringsregel för dynamiska tröskelvärden som övervakar procent cpu för alla virtuella datorer (i en Azure-region) i en eller flera resursgrupper.
 
-Spara JSON-filen nedan som alla VM-in-Resource-Group-Dynamic. JSON för den här genom gången.
+Spara json nedan som all-vms-in-resource-group-dynamic.json i syfte att denna genomgång.
 
 ```json
 {
@@ -2084,8 +2084,8 @@ Spara JSON-filen nedan som alla VM-in-Resource-Group-Dynamic. JSON för den här
 }
 ```
 
-Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som alla VM-in-Resource-Group-Dynamic. Parameters. JSON för den här genom gången.
+Du kan använda mallen ovan med parameterfilen nedan.
+Spara och ändra json nedan som all-vms-in-resource-group-dynamic.parameters.json i den här genomgången.
 
 ```json
 {
@@ -2141,7 +2141,7 @@ Spara och ändra JSON nedan som alla VM-in-Resource-Group-Dynamic. Parameters. J
 }
 ```
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 
@@ -2166,11 +2166,11 @@ az group deployment create \
     --parameters @all-vms-in-resource-group-dynamic.parameters.json
 ```
 
-### <a name="static-threshold-alert-on-all-virtual-machines-in-a-subscription"></a>Varning om statisk tröskel på alla virtuella datorer i en prenumeration
+### <a name="static-threshold-alert-on-all-virtual-machines-in-a-subscription"></a>Statisk tröskelvarning för alla virtuella datorer i en prenumeration
 
-Den här mallen skapar en varnings regel för statisk tröskel som övervakar procent CPU för alla virtuella datorer (i en Azure-region) i en prenumeration.
+Den här mallen skapar en statisk tröskelmåttvarningsregel som övervakar procentuell processor för alla virtuella datorer (i en Azure-region) i en prenumeration.
 
-Spara JSON-filen nedan som alla-VM-in-Subscription-static. JSON för den här genom gången.
+Spara json nedan som all-vms-in-subscription-static.json för denna genomgång.
 
 ```json
 {
@@ -2403,8 +2403,8 @@ Spara JSON-filen nedan som alla-VM-in-Subscription-static. JSON för den här ge
 }
 ```
 
-Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som alla-VM-in-Subscription-static. Parameters. JSON för den här genom gången.
+Du kan använda mallen ovan med parameterfilen nedan.
+Spara och ändra json nedan som all-vms-in-subscription-static.parameters.json i den här genomgången.
 
 ```json
 {
@@ -2451,7 +2451,7 @@ Spara och ändra JSON nedan som alla-VM-in-Subscription-static. Parameters. JSON
 }
 ```
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 
@@ -2476,11 +2476,11 @@ az group deployment create \
     --parameters @all-vms-in-subscription.parameters-static.json
 ```
 
-### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-a-subscription"></a>Varning om dynamiska tröskelvärden på alla virtuella datorer i en prenumeration
+### <a name="dynamic-thresholds-alert-on-all-virtual-machines-in-a-subscription"></a>Dynamisk tröskelvärdesvarning för alla virtuella datorer i en prenumeration
 
-Med den här mallen skapas en regel för dynamiska tröskelvärden som övervakar procent processor för alla virtuella datorer (i en Azure-region) i en prenumeration.
+Den här mallen skapar en måttaviseringsregel för dynamiska tröskelvärden som övervakar procent cpu för alla virtuella datorer (i en Azure-region) i en prenumeration.
 
-Spara JSON-filen nedan som alla-VM-in-Subscription-Dynamic. JSON för den här genom gången.
+Spara json nedan som all-vms-in-subscription-dynamic.json för denna genomgång.
 
 ```json
 {
@@ -2729,8 +2729,8 @@ Spara JSON-filen nedan som alla-VM-in-Subscription-Dynamic. JSON för den här g
 }
 ```
 
-Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som alla-VM-in-Subscription-Dynamic. Parameters. JSON för den här genom gången.
+Du kan använda mallen ovan med parameterfilen nedan.
+Spara och ändra json nedan som all-vms-in-subscription-dynamic.parameters.json i den här genomgången.
 
 ```json
 {
@@ -2783,7 +2783,7 @@ Spara och ändra JSON nedan som alla-VM-in-Subscription-Dynamic. Parameters. JSO
 }
 ```
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 
@@ -2808,11 +2808,11 @@ az group deployment create \
     --parameters @all-vms-in-subscription-dynamic.parameter-dynamics.json
 ```
 
-### <a name="static-threshold-alert-on-a-list-of-virtual-machines"></a>Varning om statisk tröskel i en lista över virtuella datorer
+### <a name="static-threshold-alert-on-a-list-of-virtual-machines"></a>Statisk tröskelvarning på en lista över virtuella datorer
 
-Den här mallen skapar en varnings regel för statisk tröskel som övervakar procent CPU för en lista över virtuella datorer (i en Azure-region) i en prenumeration.
+Den här mallen skapar en statisk tröskelmåttvarningsregel som övervakar procentuell PROCESSOR för en lista över virtuella datorer (i en Azure-region) i en prenumeration.
 
-Spara JSON-filen nedan som lista över virtuella datorer – statisk. JSON för den här genom gången.
+Spara json nedan som lista-of-vms-static.json för denna genomgång.
 
 ```json
 {
@@ -3045,8 +3045,8 @@ Spara JSON-filen nedan som lista över virtuella datorer – statisk. JSON för 
 }
 ```
 
-Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som List-of-VM-static. Parameters. JSON för den här genom gången.
+Du kan använda mallen ovan med parameterfilen nedan.
+Spara och ändra json nedan som lista-av-vms-static.parameters.json i syfte att den här genomgången.
 
 ```json
 {
@@ -3096,7 +3096,7 @@ Spara och ändra JSON nedan som List-of-VM-static. Parameters. JSON för den hä
 }
 ```
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 
@@ -3121,11 +3121,11 @@ az group deployment create \
     --parameters @list-of-vms-static.parameters.json
 ```
 
-### <a name="dynamic-thresholds-alert-on-a-list-of-virtual-machines"></a>Varning om dynamiska tröskelvärden på en lista över virtuella datorer
+### <a name="dynamic-thresholds-alert-on-a-list-of-virtual-machines"></a>Varning för dynamiska tröskelvärden i en lista över virtuella datorer
 
-Den här mallen skapar en varnings regel för dynamiska tröskelvärden som övervakar procent processor för en lista över virtuella datorer (i en Azure-region) i en prenumeration.
+Den här mallen skapar en måttaviseringsregel för dynamiska tröskelvärden som övervakar procentuell processor för en lista över virtuella datorer (i en Azure-region) i en prenumeration.
 
-Spara JSON-filen nedan som en lista över virtuella datorer – Dynamic. JSON för den här genom gången.
+Spara json nedan som lista-of-vms-dynamic.json för denna genomgång.
 
 ```json
 {
@@ -3374,8 +3374,8 @@ Spara JSON-filen nedan som en lista över virtuella datorer – Dynamic. JSON f�
 }
 ```
 
-Du kan använda ovanstående mall med parameter filen nedan.
-Spara och ändra JSON nedan som lista-för-VM-Dynamic. Parameters. JSON för den här genom gången.
+Du kan använda mallen ovan med parameterfilen nedan.
+Spara och ändra json nedan som list-of-vms-dynamic.parameters.json i syfte att den här genomgången.
 
 ```json
 {
@@ -3431,7 +3431,7 @@ Spara och ändra JSON nedan som lista-för-VM-Dynamic. Parameters. JSON för den
 }
 ```
 
-Du kan skapa mått aviseringen med hjälp av mallen mall och parametrar med hjälp av PowerShell eller Azure CLI från din aktuella arbets katalog.
+Du kan skapa måttaviseringen med mall- och parameterfilen med PowerShell eller Azure CLI från din aktuella arbetskatalog.
 
 Använda Azure PowerShell
 
@@ -3456,12 +3456,12 @@ az group deployment create \
     --parameters @list-of-vms-dynamic.parameters.json
 ```
 
-## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>Mall för ett tillgänglighets test tillsammans med en mått avisering
+## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>Mall för ett tillgänglighetstest tillsammans med en måttavisering
 
-Med [Application Insights tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) kan du övervaka tillgängligheten för webbplatsen/programmet från olika platser världen över. Aviseringar om tillgänglighets test meddelar dig när tillgänglighets testen kraschar från ett visst antal platser.
-Tillgänglighets test aviseringar av samma resurs typ som mått varningar (Microsoft. Insights/metricAlerts). Följande exempel på Azure Resource Manager mall kan användas för att konfigurera ett enkelt tillgänglighets test och en associerad avisering.
+[Tillgänglighetstester för application insights](../../azure-monitor/app/monitor-web-app-availability.md) hjälper dig att övervaka tillgängligheten för din webbplats/ditt program från olika platser runt om i världen. Tillgänglighetstestvarningar meddelar dig när tillgänglighetstester misslyckas från ett visst antal platser.
+Tillgänglighetstestvarningar av samma resurstyp som måttaviseringar (Microsoft.Insights/metricAlerts). Följande exempel på Azure Resource Manager-mall kan användas för att ställa in ett enkelt tillgänglighetstest och tillhörande avisering.
 
-Spara JSON-filen nedan som availabilityalert. JSON för den här genom gången.
+Spara json nedan som availabilityalert.json för denna genomgång.
 
 ```json
 {
@@ -3563,14 +3563,14 @@ Spara JSON-filen nedan som availabilityalert. JSON för den här genom gången.
 }
 ```
 
-Du kan ange värden för parametrarna antingen på kommando raden eller via en parameter fil. En exempel parameter fil anges nedan.
+Du kan ange värden för parametrarna antingen på kommandoraden eller via en parameterfil. Nedan finns en exempelparameterfil.
 
 
 > [!NOTE]
 >
-> `&amp`; är referensen till HTML-entiteten för &. URL-parametrar är fortfarande åtskilda av en enda &, men om du nämner URL: en i HTML måste du koda den. Så om du har några "&" i ditt pingURL-parameter värde måste du kringgå det med "`&amp`;"
+> `&amp`; är HTML-entitetsreferensen för &. URL-parametrar separeras fortfarande med en enda &, men om du nämner webbadressen i HTML måste du koda den. Så, om du har någon "&" i din pingURL parameter värde,`&amp`måste du fly det med ";"
 
-Spara JSON-filen nedan som availabilityalert. Parameters. JSON och ändra den efter behov.
+Spara json nedan som availabilityalert.parameters.json och ändra den efter behov.
 
 ```json
 {
@@ -3593,7 +3593,7 @@ Spara JSON-filen nedan som availabilityalert. Parameters. JSON och ändra den ef
 }
 ```
 
-Du kan skapa tillgänglighets testet och den tillhör ande aviseringen med hjälp av mall-och parameter filen med PowerShell eller Azure CLI.
+Du kan skapa tillgänglighetstestet och tillhörande avisering med hjälp av mall- och parameterfilen med PowerShell eller Azure CLI.
 
 Använda Azure PowerShell
 
@@ -3621,5 +3621,5 @@ az group deployment create \
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [aviseringar i Azure](alerts-overview.md)
-- Lär dig hur du [skapar en åtgärds grupp med Resource Manager-mallar](action-groups-create-resource-manager-template.md)
-- För JSON-syntax och egenskaper, se referens för [Microsoft. Insights/metricAlerts-](/azure/templates/microsoft.insights/metricalerts) mallen.
+- Lär dig hur du [skapar en åtgärdsgrupp med Resource Manager-mallar](action-groups-create-resource-manager-template.md)
+- Mer information om JSON-syntaxen och egenskaperna finns i Mallreferens för [Microsoft.Insights/metricAlerts.](/azure/templates/microsoft.insights/metricalerts)

@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server och Active Directory-Azure Active Directory
+title: Azure MFA Server och Active Directory – Azure Active Directory
 description: Hur du integrerar Azure Multi-Factor Authentication-server med Active Directory så att du kan synkronisera katalogerna.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51c6284c0d7ee21f67d37465100f84d4b2f5ae2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: fceaa203944074b0c3fcf5cb6254f1e87ac16cba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848093"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480988"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
 
 Använd avsnittet Katalogintegrering i Azure MFA Server om du vill integrera med Active Directory eller en annan LDAP-katalog. Du kan konfigurera attribut för att matcha katalogschemat och ställa in automatisk användarsynkronisering.
 
 > [!IMPORTANT]
-> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva Multi-Factor Authentication från sina användare bör använda molnbaserad Azure-Multi-Factor Authentication. Befintliga kunder som har aktiverat MFA Server tidigare än 1 juli kommer att kunna ladda ned den senaste versionen, framtida uppdateringar och generera autentiseringsuppgifter för aktivering som vanligt.
+> Från och med den 1 juli 2019 kommer Microsoft inte längre att erbjuda MFA Server för nya distributioner. Nya kunder som vill kräva multifaktorautentisering från sina användare bör använda molnbaserad Azure Multi-Factor-autentisering. Befintliga kunder som har aktiverat MFA Server före den 1 juli kommer att kunna ladda ner den senaste versionen, framtida uppdateringar och generera aktiveringsautentiseringsuppgifter som vanligt.
 
 ## <a name="settings"></a>Inställningar
 
@@ -33,7 +33,7 @@ Som standard konfigureras Azure Multi-Factor Authentication (MFA) Server att imp
 ![Redigera LDAP-konfiguration i MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
 
 > [!NOTE]
-> Katalog integrering garanterar inte att fungera med andra kataloger än Active Directory Domain Services.
+> Katalogintegration garanteras inte att fungera med andra kataloger än Active Directory Domain Services.
 
 | Funktion | Beskrivning |
 | --- | --- |
@@ -47,7 +47,7 @@ LDAP-inställningarna beskrivs i följande tabell.
 
 | Funktion | Beskrivning |
 | --- | --- |
-| Server |Ange värdnamnet eller IP-adressen för servern som kör LDAP-katalogen.  En sekundär server kan också anges, avgränsad med semikolon. <br>Obs! När bindningstypen är SSL krävs ett fullständigt kvalificerat värdnamn. |
+| Server |Ange värdnamnet eller IP-adressen för servern som kör LDAP-katalogen.  En sekundär server kan också anges, avgränsad med semikolon. <br>När bindningstyp är SSL (TLS) krävs ett fullständigt kvalificerat värdnamn. |
 | Grundläggande unikt namn |Ange det unika namnet på baskatalogobjektet som alla katalogfrågor ska starta från.  Till exempel dc=abc,dc=com. |
 | Bindningstyp – frågor |Välj lämplig bindningstyp som ska användas vid bindning för att söka i LDAP-katalogen.  Detta används för importer, synkronisering och matchning av användarnamn. <br><br>  Anonym – En anonym bindning utförs.  Unikt namn för bindning och Bindningslösenord används inte.  Detta fungerar bara om LDAP-katalogen tillåter anonym bindning och om behörigheterna tillåter frågor efter relevanta poster och attribut.  <br><br> Enkelt – Unikt namn för bindning och Bindningslösenord skickas som klartext för att binda till LDAP-katalogen.  Detta används för testningsändamål för att kontrollera att servern kan nås och att bindningskontot har rätt åtkomst. När lämpligt certifikat har installerats använder du SSL i stället.  <br><br> SSL – Unikt namn för bindning och Bindningslösenord krypteras med SSL för att binda till LDAP-katalogen.  Installera ett certifikat lokalt som LDAP-katalogen litar på.  <br><br> Windows – Bind användarnamn och Bindningslösenord används för att på ett säkert sätt ansluta till en Active Directory-domänkontrollant eller en ADAM-katalog.  Om Bind användarnamn lämnas tomt används det inloggade användarkontot för att binda. |
 | Bindningstyp – autentiseringar |Välj lämplig bindningstyp som ska användas när LDAP-bindningsautentisering utförs.  Se beskrivningarna av bindningstyperna under Bindningstyp – frågor.  Detta gör till exempel att en anonym bindning kan användas för frågor medan SSL-bindning används för att skydda LDAP-bindningsautentiseringar. |
@@ -60,7 +60,7 @@ LDAP-inställningarna beskrivs i följande tabell.
 
 Med filter kan du ange villkor för att kvalificera poster när du utför en katalogsökning.  Genom att ange filtret kan du definiera de objekt som du vill synkronisera.  
 
-![Konfigurera katalog filtrering i MFA Server](./media/howto-mfaserver-dir-ad/dirint2.png)
+![Konfigurera katalogfiltrering i MFA Server](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication har följande tre filteralternativ:
 
@@ -70,17 +70,17 @@ Azure Multi-Factor Authentication har följande tre filteralternativ:
 
 ## <a name="attributes"></a>Attribut
 
-Du kan anpassa attributen efter behov för en viss katalog.  På så sätt kan du lägga till anpassade attribut och finjustera synkroniseringen till endast de attribut som du behöver. Använd namnet på attributet som det definieras i katalog schemat för värdet för varje attribut-fält. Följande tabell innehåller ytterligare information om varje funktion.
+Du kan anpassa attributen efter behov för en viss katalog.  På så sätt kan du lägga till anpassade attribut och finjustera synkroniseringen till endast de attribut som du behöver. Använd namnet på attributet enligt definitionen i katalogschemat för värdet för varje attributfält. Följande tabell innehåller ytterligare information om varje funktion.
 
 Attribut kan anges manuellt och behöver inte matcha ett attribut i attributlistan.
 
-![Anpassa attribut för katalog integrering i MFA Server](./media/howto-mfaserver-dir-ad/dirint3.png)
+![Anpassa katalogintegrationsattribut i MFA Server](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | Funktion | Beskrivning |
 | --- | --- |
 | Unik identifierare |Ange attributnamnet för attributet som fungerar som den unika identifieraren för container-, säkerhetsgrupps- och användarposter.  I Active Directory är detta vanligtvis objectGUID. Andra LDAP-implementeringar kan använda entryUUID eller liknande.  Standardvärdet är objectGUID. |
 | Typ av unik identifierare |Välj typen för attributet för unik identifierare.  I Active Directory har objectGUID-attributet typen GUID. Andra LDAP-implementeringar kan använda typen ASCII, bytematris eller Sträng.  Standardvärdet är GUID. <br><br>Det är viktigt att du anger den här typen korrekt eftersom de unika identifierarna används för att referera till synkroniseringsobjekt. Typen av unik identifierare används för att hitta objektet i katalogen.  Om du anger typen till Sträng trots att katalogen lagrar värdet som en bytematris (ByteArray) med ASCII-tecken så fungerar inte synkroniseringen korrekt. |
-| Unikt namn |Ange attributnamnet för attributet som innehåller det unika namnet för varje post.  I Active Directory är detta normalt distinguishedName. Andra LDAP-implementeringar kan använda entryDN eller liknande.  Standardvärdet är distinguishedName. <br><br>Om det inte finns något attribut som bara innehåller det unika namnet kan attributet sökväg för annonser användas.  ”LDAP://\<server\>/”-delen av sökvägen tas bort automatiskt så att bara objektets unika namn är kvar. |
+| Unikt namn |Ange attributnamnet för attributet som innehåller det unika namnet för varje post.  I Active Directory är detta normalt distinguishedName. Andra LDAP-implementeringar kan använda entryDN eller liknande.  Standardvärdet är distinguishedName. <br><br>Om ett attribut som bara innehåller det unika namnet inte finns kan attributet ads path användas.  ”LDAP://\<server\>/”-delen av sökvägen tas bort automatiskt så att bara objektets unika namn är kvar. |
 | Containerns namn |Ange attributnamnet för attributet som innehåller namnet i en containerpost.  Värdet för det här attributet visas i containerhierarkin när du importerar från Active Directory eller lägger till synkroniseringsobjekt.  Standardvärdet är name. <br><br>Om olika containrar använder olika attribut för sina namn använder du semikolon för att avgränsa flera attribut med containernamn.  Det första attributet för containernamn som hittas i ett containerobjekt används för att visa dess namn. |
 | Namn på säkerhetsgrupp |Ange attributnamnet för attributet som innehåller namnet i en säkerhetsgruppspost.  Värdet för det här attributet visas i säkerhetsgruppslistan när du importerar från Active Directory eller lägger till synkroniseringsobjekt.  Standardvärdet är name. |
 | Användarnamn |Ange attributnamnet för attributet som innehåller användarnamnet i en användarpost.  Värdet för det här attributet används som Multi-Factor Auth Server-användarnamnet.  Ett andra attribut kan anges som en reserv till det första.  Det andra attributet används endast om det första attributet inte innehåller ett värde för användaren.  Standardvärdena är userPrincipalName och sAMAccountName. |
@@ -100,12 +100,12 @@ Attribut kan anges manuellt och behöver inte matcha ett attribut i attributlist
 | Fax |Ange attributnamnet för attributet som innehåller faxnumret i en användarpost.  Standardvärdet är facsimileTelephoneNumber. |
 | IP-telefon |Ange attributnamnet för attributet som innehåller IP-telefonnumret i en användarpost.  Standardvärdet är ipPhone. |
 | Anpassat |Ange attributnamnet för attributet som innehåller ett anpassat telefonnummer i en användarpost.  Standardvärdet är tomt. |
-| Tillägg |Ange attributnamnet för attributet som innehåller anknytningsnumret i en användarpost.  Värdet för anknytningsfältet används endast som anknytningen till det primära telefonnumret.  Standardvärdet är tomt. <br><br>Om attributet Anknytning inte anges kan anknytningar tas med som en del av telefonattributet. I så fall lägger du till ”x” före anknytningen så att den tolkas korrekt.  I exempelnumret 555-123-4567 x890 tolkas 555-123-4567 som telefonnumret och 890 som anknytningen. |
+| Anknytning |Ange attributnamnet för attributet som innehåller anknytningsnumret i en användarpost.  Värdet för anknytningsfältet används endast som anknytningen till det primära telefonnumret.  Standardvärdet är tomt. <br><br>Om attributet Anknytning inte anges kan anknytningar tas med som en del av telefonattributet. I så fall lägger du till ”x” före anknytningen så att den tolkas korrekt.  I exempelnumret 555-123-4567 x890 tolkas 555-123-4567 som telefonnumret och 890 som anknytningen. |
 | Knappen Återställ standardvärden |Klicka på **Återställ standardvärden** om du vill återställa standardvärdet för alla attribut.  Standardvärdena bör fungera korrekt med det vanliga Active Directory- eller ADAM-schemat. |
 
-Om du vill redigera attribut klickar du på **Redigera** på fliken attribut.  Då visas ett fönster där du kan redigera attributen. Välj **...** bredvid valfritt attribut så öppnas ett fönster där du kan välja vilka attribut som ska visas.
+Om du vill redigera attribut klickar du på **Redigera** på fliken Attribut.  Då visas ett fönster där du kan redigera attributen. Välj **...** bredvid valfritt attribut så öppnas ett fönster där du kan välja vilka attribut som ska visas.
 
-![Redigera mappning av katalog-attribut i MFA Server](./media/howto-mfaserver-dir-ad/dirint4.png)
+![Redigera mappning av katalogattribut i MFA Server](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>Synkronisering
 
@@ -117,7 +117,7 @@ Tjänsten Multi-Factor Auth ADSync använder DirSync LDAP-servertillägget från
 
 Om LDAP-katalogen har stöd för och är konfigurerad för DirSync fungerar avsökningen av ändringar i användar- och säkerhetsgrupper på samma sätt som med Active Directory.  Om LDAP-katalogen inte stöder DirSync-kontrollen utförs en fullständig synkronisering under varje cykel.
 
-![Synkronisering av katalog objekt till MFA-Server](./media/howto-mfaserver-dir-ad/dirint5.png)
+![Synkronisering av katalogobjekt till MFA-server](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 Följande tabell innehåller ytterligare information om inställningarna på fliken Synkronisering.
 
@@ -143,8 +143,8 @@ Med knapparna Flytta upp och Flytta ned kan administratören ändra ordning på 
 > [!TIP]
 > En fullständig synkronisering bör utföras när du har tagit bort synkroniseringsobjekt.  En fullständig synkronisering bör utföras när du har ändrat ordning på synkroniseringsobjekt.  Klicka på **Synkronisera nu** om du vill utföra en fullständig synkronisering.
 
-## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication servrar
+## <a name="multi-factor-authentication-servers"></a>Multifaktorautentiseringsservrar
 
-Ytterligare Multi-Factor Authentication-servrar kan konfigureras för att fungera som en säkerhets kopierings-RADIUS-proxy, LDAP-proxy eller för IIS-autentisering. Synkroniseringskonfigurationen delas av alla agenter. Men endast en av dessa agenter kan ha Multi-Factor Authentication Server-tjänsten igång. På den här fliken kan du välja den Multi-Factor Authentication Server som ska aktive ras för synkronisering.
+Ytterligare multifaktorautentiseringsservrar kan konfigureras för att fungera som en RADIUS-proxy för säkerhetskopiering, LDAP-proxy eller för IIS-autentisering. Synkroniseringskonfigurationen delas av alla agenter. Endast en av dessa agenter kan dock ha servertjänsten multifaktorautentisering igång. På den här fliken kan du välja den multifaktorautentiseringsserver som ska aktiveras för synkronisering.
 
-![Relaterade Multi-Factor Authentication-servrar](./media/howto-mfaserver-dir-ad/dirint6.png)
+![Relaterade multifaktorautentiseringsservrar](./media/howto-mfaserver-dir-ad/dirint6.png)

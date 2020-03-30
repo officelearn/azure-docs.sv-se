@@ -1,59 +1,59 @@
 ---
-title: Distribuerad spårning i Azure Application Insights | Microsoft Docs
-description: Innehåller information om Microsofts support för distribuerad spårning via vår lokala vidarebefordrare och partnerskap i projektet för openinventering
+title: Distribuerad spårning i Azure Application Insights | Microsoft-dokument
+description: Ger information om Microsofts support för distribuerad spårning genom vårt partnerskap i OpenCensus-projektet
 ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9f67250a232d4666e4655f83e9bdc7622754331
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: c2f384370c3ceaf24164e4a27adc05b1a1e1ddf7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136748"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80294963"
 ---
 # <a name="what-is-distributed-tracing"></a>Vad är distribuerad spårning?
 
-Ankomsten av moderna moln-och [mikrotjänster](https://azure.com/microservices) -arkitekturer har gett upphov till enkla, oberoende, oberoende tjänster som kan hjälpa till att minska kostnaderna samtidigt som tillgänglighet och data flöde ökar. Men även om dessa transporter har gjort enskilda tjänster lättare att förstå som helhet, har de gjort övergripande system svårare att ta reda på och felsöka.
+Tillkomsten av moderna moln- och [mikrotjänstarkitekturer](https://azure.com/microservices) har gett upphov till enkla, oberoende driftsättstjänster som kan bidra till att minska kostnaderna och samtidigt öka tillgängligheten och dataflödet. Men medan dessa rörelser har gjort enskilda tjänster lättare att förstå som helhet, har de gjort övergripande system svårare att resonera om och felsöka.
 
-I monolitisk-arkitekturer har vi använt för att felsöka anrops stackar. Anrops stackar är klara verktyg för att Visa körnings flödet (metod A kallas metod B, som kallas metod C), tillsammans med information och parametrar om var och en av dessa anrop. Detta är perfekt för Monoliths eller tjänster som körs på en enda process, men hur gör vi för att felsöka när anropet sker över en process gränser, inte bara en referens på den lokala stacken? 
+I monolitiska arkitekturer har vi vant oss vid felsökning med anropsstackar. Anropsstackar är briljanta verktyg för att visa körningsflödet (metod A som kallas metod B, som kallas metod C), tillsammans med detaljer och parametrar om vart och ett av dessa anrop. Detta är bra för monoliter eller tjänster som körs på en enda process, men hur felsöker vi när anropet är över en processgräns, inte bara en referens på den lokala stacken? 
 
-Det är där den distribuerade spårningen kommer in.  
+Det är där distribuerad spårning kommer in.  
 
-Distributed tracing är motsvarigheten till anrops stackar för moderna moln-och mikrotjänster-arkitekturer, med tillägg av en förenklad prestanda profilering i. I Azure Monitor tillhandahåller vi två upplevelser för att konsumera distribuerade spårnings data. Den första är vår vy för [transaktions-diagnostik](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) , som är som en anrops stack med en tids dimension som lagts till i. Vyn transaktions-diagnostik ger insyn i en enda transaktion/begäran och är användbar för att hitta rotor saken till problem med tillförlitlighet och prestanda Flask halsar per begäran.
+Distribuerad spårning motsvarar anropsstaplar för moderna moln- och mikrotjänstarkitekturer, med tillägg av en förenklad prestandaprofilering kastas in. I Azure Monitor tillhandahåller vi två upplevelser för att använda distribuerade spårningsdata. Den första är vår [transaktionsdiagnostikvy,](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) som är som en anropsstack med en tidsdimension som läggs till. Transaktionsdiagnostikvyn ger insyn i en enda transaktion/begäran och är användbar för att hitta orsaken till tillförlitlighetsproblem och flaskhalsar i prestanda per begäran.
 
-Azure Monitor erbjuder också en vy över [program översikt](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) som sammanställer många transaktioner för att visa en Top ologiska vy över hur systemen interagerar och vilka genomsnitts prestanda och fel frekvens som är. 
+Azure Monitor erbjuder också en [programkartvy](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) som sammanställer många transaktioner för att visa en topologisk vy över hur systemen interagerar och vilka genomsnittliga prestanda och felfrekvenser det är. 
 
 ## <a name="how-to-enable-distributed-tracing"></a>Aktivera distribuerad spårning
 
-Att aktivera distribuerad spårning mellan tjänsterna i ett program är lika enkelt som att lägga till rätt SDK eller bibliotek i varje tjänst, baserat på vilket språk tjänsten implementerades i.
+Att aktivera distribuerad spårning över tjänsterna i ett program är lika enkelt som att lägga till rätt SDK eller bibliotek till varje tjänst, baserat på det språk som tjänsten implementerades i.
 
-## <a name="enabling-via-application-insights-sdks"></a>Aktivera via Application Insights SDK: er
+## <a name="enabling-via-application-insights-sdks"></a>Aktivera via Application Insights SDK:er
 
-Application Insights SDK: er för .NET, .NET Core, Java, Node. js och Java Script all stöder distribuerad spårning internt. Instruktioner för att installera och konfigurera varje Application Insights SDK finns nedan:
+Programstatistiken för SDK:er för .NET, .NET Core, Java, Node.js och JavaScript stöder alla distribuerad spårning internt. Instruktioner för att installera och konfigurera varje Program Insights SDK finns nedan:
 
 * [.NET](https://docs.microsoft.com/azure/application-insights/quick-monitor-portal)
 * [.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-dotnetcore-quick-start)
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
-* [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Javascript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
 * [Python](opencensus-python.md)
 
-När du har installerat och konfigurerat rätt Application Insights SDK samlas spårnings information automatiskt in för populära ramverk, bibliotek och tekniker med SDK-beroenden automatiskt insamlare. En fullständig lista över tekniker som stöds finns i [den beroende automatiska insamlings dokumentationen](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies).
+Med rätt Application Insights SDK installerat och konfigurerat samlas spårningsinformation automatiskt in för populära ramverk, bibliotek och tekniker av SDK-beroende automatiska samlare. Den fullständiga listan över tekniker som stöds finns i [dokumentationen för automatisk insamling av beroende.](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)
 
  Dessutom kan all teknik spåras manuellt med ett anrop till [TrackDependency](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics) på [TelemetryClient](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics).
 
-## <a name="enable-via-opencensus"></a>Aktivera via openräkning
+## <a name="enable-via-opencensus"></a>Aktivera via OpenCensus
 
-Utöver Application Insights SDK: er Application Insights även stöd för distribuerad spårning via [openräkning](https://opencensus.io/). Openräkning är en öppen källkod, en oberoende, en enda distribution av bibliotek, som tillhandahåller statistik insamling och distribuerad spårning för tjänster. Den gör det också möjligt för communityn för öppen källkod att aktivera distribuerad spårning med populära tekniker som Redis, memcached eller MongoDB. [Microsoft samarbetar om openräkning med flera andra övervaknings-och moln partner](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
+Förutom SDK:erna för Application Insights stöder Application Insights även distribuerad spårning via [OpenCensus](https://opencensus.io/). OpenCensus är en öppen källkod, leverantörsagnostiker, enda distribution av bibliotek för att tillhandahålla måttsamling och distribuerad spårning för tjänster. Det gör det också möjligt för öppen källkod att möjliggöra distribuerad spårning med populära tekniker som Redis, Memcached eller MongoDB. [Microsoft samarbetar på OpenCensus med flera andra övervaknings- och molnpartners](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
 [Python](opencensus-python.md) 
 
-Webbplatsen för opensite innehåller API-referens dokumentation för [python](https://opencensus.io/api/python/trace/usage.html) och [Go](https://godoc.org/go.opencensus.io), samt olika guider för att använda openräkning. 
+OpenCensus webbplats underhåller API-referensdokumentation för [Python](https://opencensus.io/api/python/trace/usage.html) och [Go](https://godoc.org/go.opencensus.io), samt olika guider för att använda OpenCensus. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Användnings guide för openräkning python](https://opencensus.io/api/python/trace/usage.html)
-* [Program karta](./../../azure-monitor/app/app-map.md)
-* [Prestanda övervakning från slut punkt till slut punkt](./../../azure-monitor/learn/tutorial-performance.md)
+* [Användningsguide för OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
+* [Programkarta](./../../azure-monitor/app/app-map.md)
+* [Övervakning av prestanda från slutna till slutna dagar](./../../azure-monitor/learn/tutorial-performance.md)

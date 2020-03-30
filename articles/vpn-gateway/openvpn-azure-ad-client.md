@@ -1,100 +1,106 @@
 ---
-title: 'VPN Gateway: VPN-klienten för OpenVPN-protokoll P2S anslutningar: Azure AD-autentisering'
-description: Du kan använda P2S VPN för att ansluta till ditt VNet med Azure AD-autentisering
+title: 'VPN Gateway: VPN-klient för OpenVPN-protokoll P2S-anslutningar: Azure AD-autentisering'
+description: Du kan använda P2S VPN för att ansluta till ditt virtuella nätverk med Azure AD-autentisering
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: 3559a139ff89c949ee691310ae25af7d6950abdf
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.openlocfilehash: 9250464e3d28bdac20840aa9f69cfac707f73b30
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79138968"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371496"
 ---
-# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokoll anslutningar: Azure AD-autentisering
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Konfigurera en VPN-klient för P2S OpenVPN-protokollanslutningar: Azure AD-autentisering
 
-Den här artikeln hjälper dig att konfigurera en VPN-klient för att ansluta till ett virtuellt nätverk med hjälp av punkt-till-plats-VPN och Azure Active Directory autentisering. Innan du kan ansluta och autentisera med Azure AD måste du först konfigurera Azure AD-klienten. Mer information finns i [Konfigurera en Azure AD-klient](openvpn-azure-ad-tenant.md).
+Den här artikeln hjälper dig att konfigurera en VPN-klient för att ansluta till ett virtuellt nätverk med Point-to-Site VPN och Azure Active Directory-autentisering. Innan du kan ansluta och autentisera med Azure AD måste du först konfigurera din Azure AD-klientorganisation. Mer information finns i [Konfigurera en Azure AD-klientorganisation](openvpn-azure-ad-tenant.md).
 
 > [!NOTE]
-> Azure AD-autentisering stöds bara för OpenVPN-® protokoll anslutningar.
+> Azure AD-autentisering stöds endast för OpenVPN® protokollanslutningar.
 >
 
-## <a name="profile"></a>Arbeta med klient profiler
+## <a name="working-with-client-profiles"></a><a name="profile"></a>Arbeta med klientprofiler
 
-För att ansluta måste du ladda ned Azure VPN-klienten och konfigurera en VPN-klient profil på varje dator som vill ansluta till det virtuella nätverket. Du kan skapa en klient profil på en dator, exportera den och sedan importera den till ytterligare datorer.
+För att ansluta måste du hämta Azure VPN-klienten och konfigurera en VPN-klientprofil på varje dator som vill ansluta till det virtuella nätverket. Du kan skapa en klientprofil på en dator, exportera den och sedan importera den till ytterligare datorer.
 
-### <a name="to-download-the-azure-vpn-client"></a>Ladda ned Azure VPN-klienten
+### <a name="to-download-the-azure-vpn-client"></a>Så här hämtar du Azure VPN-klienten
 
-Använd den här [länken](https://go.microsoft.com/fwlink/?linkid=2117554) för att ladda ned Azure VPN-klienten.
+Använd den här [länken](https://go.microsoft.com/fwlink/?linkid=2117554) för att hämta Azure VPN-klienten. Kontrollera att Azure VPN-klienten har behörighet att köras i bakgrunden. Så här kontrollerar/aktiverar du behörigheten följer du stegen nedan:
 
-### <a name="cert"></a>Så här skapar du en certifikatbaserad klient profil
+1. Gå till Start och välj sedan Inställningar > Sekretess > Bakgrundsappar.
+2. Under Bakgrundsappar kontrollerar du att **Låt appar köras i bakgrunden** är aktiverat.
+3. Under Välj vilka appar som kan köras i bakgrunden vrider du inställningarna för Azure VPN-klient till **På**.
 
-När du arbetar med en certifikatbaserad profil bör du kontrol lera att rätt certifikat är installerade på klient datorn. Mer information om certifikat finns i [Installera klient certifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
+  ![Tillstånd](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
-  ![certifikatet](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
+### <a name="to-create-a-certificate-based-client-profile"></a><a name="cert"></a>Så här skapar du en certifikatbaserad klientprofil
 
-### <a name="radius"></a>Så här skapar du en RADIUS-klient profil
+När du arbetar med en certifikatbaserad profil kontrollerar du att lämpliga certifikat är installerade på klientdatorn. Mer information om certifikat finns i [Installera klientcertifikat](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-  ![RADIUS](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+  ![Cert](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
+
+### <a name="to-create-a-radius-client-profile"></a><a name="radius"></a>Så här skapar du en RADIUS-klientprofil
+
+  ![Radie](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
   
 > [!NOTE]
-> Server hemligheten kan exporteras i P2S VPN-klient profil.  Anvisningar om hur du exporterar en klient profil finns [här](about-vpn-profile-download.md).
+> Serverhemligheten kan exporteras i P2S VPN-klientprofilen.  Instruktioner om hur du exporterar en kundprofil finns [här](about-vpn-profile-download.md).
 >
 
-### <a name="export"></a>Så här exporterar och distribuerar du en klient profil
+### <a name="to-export-and-distribute-a-client-profile"></a><a name="export"></a>Så här exporterar och distribuerar du en klientprofil
 
-När du har en fungerande profil och behöver distribuera den till andra användare kan du exportera den med hjälp av följande steg:
+När du har en fungerande profil och behöver distribuera den till andra användare kan du exportera den med följande steg:
 
-1. Markera den VPN-klientkonfiguration som du vill exportera, Välj **...** och välj sedan **Exportera**.
+1. Markera den VPN-klientprofil som du vill exportera, välj **...** och välj sedan **Exportera**.
 
-    ![exporteras](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![Exportera](./media/openvpn-azure-ad-client/export/export1.jpg)
 
-2. Välj den plats där du vill spara profilen, lämna fil namnet som det är och välj sedan **Spara** för att spara XML-filen.
+2. Välj den plats som du vill spara profilen på, lämna filnamnet som det är och välj sedan **Spara** för att spara xml-filen.
 
-    ![exporteras](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![Exportera](./media/openvpn-azure-ad-client/export/export2.jpg)
 
-### <a name="import"></a>Så här importerar du en klient profil
+### <a name="to-import-a-client-profile"></a><a name="import"></a>Så här importerar du en klientprofil
 
-1. På sidan väljer du **Importera**.
+1. Välj **Importera**på sidan .
 
-    ![export](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import1.jpg)
 
-2. Bläddra till profil-XML-filen och markera den. När filen är vald väljer du **Öppna**.
+2. Bläddra till profil xml-filen och markera den. När filen är markerad väljer du **Öppna**.
 
-    ![export](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. Ange namnet på profilen och välj **Spara**.
 
-    ![export](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. Välj **Anslut** för att ansluta till VPN.
 
-    ![export](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import4.jpg)
 
-5. När du har anslutit ikonen blir den grön och säg **ansluten**.
+5. När den är ansluten blir ikonen grön och säger **Ansluten**.
 
-    ![export](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![importera](./media/openvpn-azure-ad-client/import/import5.jpg)
 
-### <a name="delete"></a>Ta bort en klient profil
+### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Så här tar du bort en klientprofil
 
-1. Välj ellipserna bredvid den klient profil som du vill ta bort. Välj sedan **ta bort**.
+1. Markera ellipserna bredvid den klientprofil som du vill ta bort. Välj sedan **Ta bort**.
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
-2. Välj **ta bort** för att ta bort.
+2. Välj **Ta bort** om du vill ta bort.
 
     ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
-## <a name="connection"></a>Skapa en anslutning
+## <a name="create-a-connection"></a><a name="connection"></a>Skapa en anslutning
 
-1. På sidan väljer du **+** och sedan **+ Lägg till**.
+1. På sidan väljer **+** du och sedan **+ Lägg till**.
 
     ![anslutning](./media/openvpn-azure-ad-client/create/create1.jpg)
 
-2. Fyll i anslutnings informationen. Kontakta administratören om du är osäker på värdena. När du har fyllt i värdena väljer du **Spara**.
+2. Fyll i anslutningsinformationen. Om du är osäker på värdena kontaktar du administratören. När du har fyllt i värdena väljer du **Spara**.
 
     ![anslutning](./media/openvpn-azure-ad-client/create/create2.jpg)
 
@@ -106,53 +112,53 @@ När du har en fungerande profil och behöver distribuera den till andra använd
 
     ![anslutning](./media/openvpn-azure-ad-client/create/create4.jpg)
 
-5. När anslutningen är klar blir ikonen grön och säg **ansluten**.
+5. När den har anslutits blir ikonen grön och säger **Ansluten**.
 
     ![anslutning](./media/openvpn-azure-ad-client/create/create5.jpg)
 
-### <a name="autoconnect"></a>Så här ansluter du automatiskt
+### <a name="to-connect-automatically"></a><a name="autoconnect"></a>Så här ansluter du automatiskt
 
-Dessa steg hjälper dig att konfigurera anslutningen till att ansluta automatiskt med Always On.
+De här stegen hjälper dig att konfigurera anslutningen så att den ansluts automatiskt med Always-on.
 
-1. På Start sidan för VPN-klienten väljer du **VPN-inställningar**.
+1. Välj **VPN-inställningar**på startsidan för din VPN-klient .
 
-    ![disk](./media/openvpn-azure-ad-client/auto/auto1.jpg)
+    ![Auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
-2. Välj **Ja** i dialog rutan Växla appar.
+2. Välj **Ja** i dialogrutan Växla appar.
 
-    ![disk](./media/openvpn-azure-ad-client/auto/auto2.jpg)
+    ![Auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
 
-3. Kontrol lera att den anslutning som du vill ange inte redan är ansluten, markera sedan profilen och markera kryss rutan **Anslut automatiskt** .
+3. Kontrollera att anslutningen som du vill ange inte redan är ansluten, markera sedan profilen och markera kryssrutan **Anslut automatiskt.**
 
-    ![disk](./media/openvpn-azure-ad-client/auto/auto3.jpg)
+    ![Auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
 
 4. Välj **Anslut** för att initiera VPN-anslutningen.
 
-    ![disk](./media/openvpn-azure-ad-client/auto/auto4.jpg)
+    ![Auto](./media/openvpn-azure-ad-client/auto/auto4.jpg)
 
-## <a name="diagnose"></a>Diagnostisera anslutnings problem
+## <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnostisera anslutningsproblem
 
-1. För att diagnostisera anslutnings problem kan du använda verktyget **diagnostisera** . Välj **...** bredvid den VPN-anslutning som du vill diagnostisera för att Visa menyn. Välj sedan **diagnostisera**.
+1. Om du vill diagnostisera anslutningsproblem kan du använda **diagnosverktyget.** Välj **den ...** bredvid VPN-anslutningen som du vill diagnostisera för att visa menyn. Välj sedan **Diagnostisera**.
 
-    ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+    ![Diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
-2. På sidan **anslutnings egenskaper** väljer du **Kör diagnostik**.
+2. På sidan **Anslutningsegenskaper** väljer du **Kör diagnos**.
 
-    ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+    ![Diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
 
 3. Logga in med dina autentiseringsuppgifter.
 
-    ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+    ![Diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
 
-4. Visa diagnos resultatet.
+4. Visa diagnosresultaten.
 
-    ![diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+    ![Diagnostisera](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur gör jag för att lägga till DNS-suffix till VPN-klienten?
+### <a name="how-do-i-add-dns-suffixes-to-the-vpn-client"></a>Hur lägger jag till DNS-suffix i VPN-klienten?
 
-Du kan ändra den hämtade profil-XML-filen och lägga till **\<dnssuffixes >\<dnssufix > \</dnssufix >\</dnssuffixes >** Taggar
+Du kan ändra den nedladdade profil-XML-filen och lägga till ** \<dnssuffixes>\<dnssufix> \</dnssufix>\</dnssuffixes>** taggar
 
 ```
 <azvpnprofile>
@@ -168,9 +174,9 @@ Du kan ändra den hämtade profil-XML-filen och lägga till **\<dnssuffixes >\<d
 </azvpnprofile>
 ```
 
-### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Hur gör jag för att lägga till anpassade DNS-servrar i VPN-klienten?
+### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>Hur lägger jag till anpassade DNS-servrar i VPN-klienten?
 
-Du kan ändra den hämtade profil-XML-filen och lägga till **\<dnsservers >\<dns server > \</dnsserver >\</dnsservers >** Taggar
+Du kan ändra den nedladdade profil-XML-filen och lägga till ** \<dnsservers \<>dnsserver> \</dnsserver>\</dnsservers>** taggar
 
 ```
 <azvpnprofile>
@@ -186,12 +192,12 @@ Du kan ändra den hämtade profil-XML-filen och lägga till **\<dnsservers >\<dn
 ```
 
 > [!NOTE]
-> OpenVPN Azure AD-klienten använder NRPT-poster (namn matchnings princip tabell), vilket innebär att DNS-servrar inte visas under utdata från `ipconfig /all`. Om du vill bekräfta dina DNS-inställningar som du använder, se [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) i PowerShell.
+> OpenVPN Azure AD-klienten använder NRPT-poster (DNS Name Resolution Policy Table), vilket innebär `ipconfig /all`att DNS-servrar inte visas under utdata från . Information om hur du bekräftar DNS-inställningarna i användning finns i [Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) i PowerShell.
 >
 
-### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Hur gör jag för att lägga till anpassade vägar i VPN-klienten?
+### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Hur lägger jag till anpassade vägar till VPN-klienten?
 
-Du kan ändra den nedladdade profil-XML-filen och lägga till **\<includeroutes >\<route >\<destination >\</destination > \<>\<>/mask\<>/route\<>/includeroutes** Taggar
+Du kan ändra den nedladdade profil-XML-filen och lägga till ** \< \<>-väg \<>>mål>\<mask \<> \</>/>\</>\</includeroutes>** taggar
 
 ```
 <azvpnprofile>
@@ -207,9 +213,9 @@ Du kan ändra den nedladdade profil-XML-filen och lägga till **\<includeroutes 
 </azvpnprofile>
 ```
 
-### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Vill du Hur gör jag för att blockera vägar (undanta) från VPN-klienten?
+### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>Hur blockerar jag (utesluter) vägar från VPN-klienten?
 
-Du kan ändra den nedladdade profil-XML-filen och lägga till **\<excluderoutes >\<route >\<destination >\</destination > \<>\<>/mask\<>/route\<>/excluderoutes** Taggar
+Du kan ändra den nedladdade profil-XML-filen och lägga till ** \< \<exkluderingsflödet>\<väg>mål>\<mask> \</>\< \</>\</route>/excluderoutes>** taggar
 
 ```
 <azvpnprofile>
@@ -227,4 +233,4 @@ Du kan ändra den nedladdade profil-XML-filen och lägga till **\<excluderoutes 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [skapa en Azure Active Directory-klient för P2s öppna VPN-anslutningar som använder Azure AD-autentisering](openvpn-azure-ad-tenant.md).
+Mer information finns i [Skapa en Azure Active Directory-klient för P2S Open VPN-anslutningar som använder Azure AD-autentisering](openvpn-azure-ad-tenant.md).

@@ -1,43 +1,43 @@
 ---
-title: Skapa en ny avbildnings version från en befintlig avbildnings version med hjälp av Azure Image Builder (för hands version)
-description: Skapa en ny version av VM-avbildningen från en befintlig avbildnings version med hjälp av Azure Image Builder.
+title: Skapa en ny avbildningsversion från en befintlig avbildningsversion med Azure Image Builder (förhandsgranskning)
+description: Skapa en ny VM-avbildningsversion från en befintlig avbildningsversion med Azure Image Builder.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 160de4521f4035ba3abd01137955cafc27071a05
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 60a37588ddcac339d9545fb6f597ef7bdc17ccb4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976102"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80247375"
 ---
-# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>För hands version: skapa en ny version av VM-avbildning från en befintlig avbildnings version med hjälp av Azure Image Builder
+# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>Preview: Skapa en ny VM-avbildningsversion från en befintlig avbildningsversion med Azure Image Builder
 
-Den här artikeln visar hur du tar en befintlig avbildnings version i ett [delat avbildnings Galleri](shared-image-galleries.md), uppdaterar den och publicerar den som en ny avbildnings version i galleriet.
+I den här artikeln visas hur du tar en befintlig bildversion i ett [delat bildgalleri,](shared-image-galleries.md)uppdaterar den och publicerar den som en ny bildversion i galleriet.
 
-Vi kommer att använda en Sample. JSON-mall för att konfigurera avbildningen. JSON-filen som vi använder är här: [helloImageTemplateforSIGfromWinSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
+Vi kommer att använda ett exempel .json mall för att konfigurera avbildningen. Den .json filen vi använder är här: [helloImageTemplateforSIGfromWinSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json). 
 
 > [!IMPORTANT]
-> Azure Image Builder är för närvarande en offentlig för hands version.
+> Azure Image Builder är för närvarande i offentlig förhandsversion.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registrera funktionerna
-Om du vill använda Azure Image Builder i för hands versionen måste du registrera den nya funktionen.
+Om du vill använda Azure Image Builder under förhandsversionen måste du registrera den nya funktionen.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Kontrol lera status för funktions registreringen.
+Kontrollera status för funktionsregistreringen.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Kontrol lera registreringen.
+Kontrollera din registrering.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -45,7 +45,7 @@ az provider show -n Microsoft.Storage | grep registrationState
 az provider show -n Microsoft.Compute | grep registrationState
 ```
 
-Om de inte säger att de är registrerade kör du följande:
+Om de inte säger registrerade, kör följande:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -56,9 +56,9 @@ az provider register -n Microsoft.Compute
 
 ## <a name="set-variables-and-permissions"></a>Ange variabler och behörigheter
 
-Om du har använt [skapa en avbildning och distribuerar till ett delat avbildnings Galleri](image-builder-gallery.md) för att skapa ditt delade avbildnings Galleri har du redan skapat de variabler vi behöver. Om inte, måste du konfigurera vissa variabler som ska användas i det här exemplet.
+Om du använde [Skapa en bild och distribuera till ett delat bildgalleri](image-builder-gallery.md) för att skapa ditt delade bildgalleri har du redan skapat de variabler vi behöver. Om inte, ställ in några variabler som ska användas för det här exemplet.
 
-För för hands versionen stöder Image Builder bara att skapa anpassade avbildningar i samma resurs grupp som den hanterade avbildningen. Uppdatera resurs grupp namnet i det här exemplet så att det blir samma resurs grupp som din käll hanterade avbildning.
+För förhandsgranskning stöder bildverktyget bara att skapa anpassade bilder i samma resursgrupp som källhanterad avbildning. Uppdatera resursgruppsnamnet i det här exemplet så att det är samma resursgrupp som källhanterad avbildning.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -78,13 +78,13 @@ username="user name for the VM"
 vmpassword="password for the VM"
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`.
+Skapa en variabel för ditt prenumerations-ID. Du kan få `az account show | grep id`detta med .
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
 ```
 
-Hämta avbildnings versionen som du vill uppdatera.
+Hämta den bildversion som du vill uppdatera.
 
 ```azurecli-interactive
 sigDefImgVersionId=$(az sig image-version list \
@@ -95,7 +95,7 @@ sigDefImgVersionId=$(az sig image-version list \
 ```
 
 
-Om du redan har ett eget galleri för delad avbildning, och inte har följt det tidigare exemplet, måste du tilldela behörigheter för Image Builder för att få åtkomst till resurs gruppen, så att den kan komma åt galleriet.
+Om du redan har ett eget delat bildgalleri och inte följt föregående exempel måste du tilldela behörigheter för Image Builder för att komma åt resursgruppen, så att det kan komma åt galleriet.
 
 
 ```azurecli-interactive
@@ -106,11 +106,11 @@ az role assignment create \
 ```
 
 
-## <a name="modify-helloimage-example"></a>Ändra helloImage-exempel
-Du kan granska exemplet som vi ska använda genom att öppna. JSON-filen här: [helloImageTemplateforSIGfromSIG. JSON](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) tillsammans med [Image Builder-mal len referens](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+## <a name="modify-helloimage-example"></a>Ändra exempel på helloImage
+Du kan granska exemplet vi är på väg att använda genom att öppna .json-filen här: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) tillsammans med [Image Builder-mallreferensen](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 
-Hämta. JSON-exemplet och konfigurera den med dina variabler. 
+Hämta .json-exemplet och konfigurera det med dina variabler. 
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Win_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromWinSIG.json -o helloImageTemplateforSIGfromWinSIG.json
@@ -126,7 +126,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromWinSI
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Skicka avbildnings konfigurationen till tjänsten VM Image Builder.
+Skicka avbildningskonfigurationen till tjänsten VM Image Builder.
 
 ```azurecli-interactive
 az resource create \
@@ -137,7 +137,7 @@ az resource create \
     -n imageTemplateforSIGfromWinSIG01
 ```
 
-Starta avbildnings versionen.
+Starta bildversionen.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -147,7 +147,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Vänta tills avbildningen har skapats och repliker ATS innan du går vidare till nästa steg.
+Vänta tills avbildningen har byggts och replikeringen innan du går vidare till nästa steg.
 
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
@@ -163,17 +163,17 @@ az vm create \
 ```
 
 ## <a name="verify-the-customization"></a>Verifiera anpassningen
-Skapa en fjärr skrivbords anslutning till den virtuella datorn med det användar namn och lösen ord som du angav när du skapade den virtuella datorn. Öppna en kommando tolk i den virtuella datorn och skriv:
+Skapa en anslutning till fjärrskrivbord till den virtuella datorn med det användarnamn och lösenord som du angav när du skapade den virtuella datorn. Öppna en cmd-prompt i den virtuella datorn och skriv:
 
 ```console
 dir c:\
 ```
 
-Nu bör du se två kataloger:
-- `buildActions` som skapades i den första avbildnings versionen.
-- `buildActions2` som skapades som en del av uppdateringen av den första avbildnings versionen för att skapa den andra avbildnings versionen.
+Du bör nu se två kataloger:
+- `buildActions`som skapades i den första bildversionen.
+- `buildActions2`som skapades som en del upp uppdatera den första bildversionen för att skapa den andra bildversionen.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om komponenterna i. JSON-filen som används i den här artikeln finns i [referens för Image Builder-mallar](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Mer information om komponenterna i .json-filen som används i den här artikeln finns i [Referens för mallreferens för bildbyggare](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

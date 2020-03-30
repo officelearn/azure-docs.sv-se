@@ -1,9 +1,9 @@
 ---
-title: Hur länge rapporterar Azure AD Store-data? | Microsoft Docs
-description: Lär dig hur länge Azure lagrar de olika typerna av rapporterings data.
+title: Hur länge lagrar Azure AD rapporteringsdata? | Microsoft Docs
+description: Läs om hur länge Azure lagrar de olika typerna av rapporteringsdata.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 183e53b0-0647-42e7-8abe-3e9ff424de12
@@ -13,52 +13,53 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: chadam
+ms.date: 03/24/2020
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52f8873527d92e621ef032f5bc3e82d3364a691
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 54636600c208f8f5df9fa2e25460c63dd9f46e85
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989584"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239550"
 ---
-# <a name="how-long-does-azure-ad-store-reporting-data"></a>Hur länge rapporterar Azure AD Store-data?
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>Hur länge lagrar Azure AD rapporteringsdata?
 
-I den här artikeln får du lära dig om data lagrings principer för de olika aktivitets rapporterna i Azure Active Directory. 
+
+I den här artikeln får du lära dig mer om datalagringsprinciperna för de olika aktivitetsrapporterna i Azure Active Directory. 
 
 ### <a name="when-does-azure-ad-start-collecting-data"></a>När börjar Azure AD samla in data?
 
-| Azure AD-utgåva | Samlings start |
+| Azure AD-utgåva | Start av samling |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | När du registrerar dig för en prenumeration |
-| Azure AD Kostnadsfri <br /> Azure AD Basic | Första gången du öppnar [Azure Active Directory bladet](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) eller använder rapporterings- [API: erna](https://aka.ms/aadreports)  |
+| Azure AD Kostnadsfri| Första gången du öppnar [Azure Active Directory-bladet](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) eller använder [rapporterar API:erna](https://aka.ms/aadreports)  |
 
 ---
 
-### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>När är aktivitets data tillgängliga i Azure Portal?
+### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>När är aktivitetsdata tillgängliga i Azure-portalen?
 
-- **Omedelbart** – om du redan har arbetat med rapporter i Azure Portal.
-- **Inom 2 timmar** – om du inte har aktiverat rapportering i Azure Portal.
-
----
-
-### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hur snart kan jag se aktivitets data när de har skaffat en Premium-licens?
-
-Om du redan har aktivitets data med din kostnads fria licens kan du se den direkt vid uppgraderingen. Om du inte har några data, tar det en eller två dagar innan data visas i rapporterna efter att du har uppgraderat till en Premium-licens.
+- **Omedelbart** - Om du redan har arbetat med rapporter i Azure-portalen.
+- **Inom 2 timmar** - Om du inte har aktiverat rapportering i Azure-portalen.
 
 ---
 
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Kan jag se den senaste månadens data efter att ha skaffat en Azure AD Premium-licens?
+### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Hur snart kan jag se aktivitetsdata efter att ha fått en premiumlicens?
 
-Om du nyligen har bytt till en Premium-version (inklusive en utvärderings version) kan du se data upp till sju dagar från början. När data ackumuleras kan du se data för de senaste 30 dagarna.
+Om du redan har aktiviteter data med din gratis licens, då kan du se det omedelbart vid uppgradering. Om du inte har några data tar det en eller två dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens.
 
 ---
 
-### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>När börjar Azure AD samla in säkerhets signal data?  
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>Kan jag se förra månadens data efter att ha fått en Azure AD-premiumlicens?
 
-För säkerhets signaler startar samlings processen när du väljer att använda **identitets skydds centret**. 
+Om du nyligen har bytt till en premiumversion (inklusive en testversion) kan du se data upp till 7 dagar från början. När data ackumuleras kan du se data för de senaste 30 dagarna.
+
+---
+
+### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>När börjar Azure AD samla in säkerhetssignaldata?  
+
+För säkerhetssignaler startar insamlingsprocessen när du väljer att använda **Identity Protection Center**. 
 
 ---
 
@@ -66,19 +67,19 @@ För säkerhets signaler startar samlings processen när du väljer att använda
 
 **Aktivitetsrapporter**    
 
-| Rapport                 | Azure AD Kostnadsfri | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--            | :--                 | :--                 |
-| Granskningsloggar             | 7 dagar        |  7 dagar        | 30 dagar             | 30 dagar             |
-| Inloggningar               | Gäller inte           |  Gäller inte           | 30 dagar             | 30 dagar             |
-| Användning av Azure MFA        | 30 dagar       |  30 dagar       | 30 dagar             | 30 dagar             |
+| Rapport                 | Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--                    | :--           | :--                 | :--                 |
+| Granskningsloggar             | 7 dagar        | 30 dagar             | 30 dagar             |
+| Inloggningar               | 7 dagar        | 30 dagar             | 30 dagar             |
+| Azure MFA-användning        | 30 dagar       | 30 dagar             | 30 dagar             |
 
-Du kan behålla gransknings-och inloggnings aktivitets data längre än den standard kvarhållningsperiod som beskrivs ovan genom att dirigera den till ett Azure Storage-konto med hjälp av Azure Monitor. Mer information finns i [arkivera Azure AD-loggar till ett Azure Storage-konto](quickstart-azure-monitor-route-logs-to-storage-account.md).
+Du kan behålla gransknings- och inloggningsaktivitetsdata längre än den standardlagringsperiod som beskrivs ovan genom att dirigera dem till ett Azure-lagringskonto med Azure Monitor. Mer information finns i [Arkivera Azure AD-loggar till ett Azure-lagringskonto](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
-**Säkerhets signaler**
+**Säkerhetssignaler**
 
-| Rapport         | Azure AD Kostnadsfri | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--            | :--           | :--            | :--                 | :--                 |
-| Användare i farozonen  | 7 dagar        | 7 dagar         | 30 dagar             | 90 dagar             |
-| Riskfyllda inloggningar | 7 dagar        | 7 dagar         |  30 dagar            | 90 dagar             |
+| Rapport         | Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
+| :--            | :--           | :--                 | :--                 |
+| Användare i riskzonen  | 7 dagar        | 30 dagar             | 90 dagar             |
+| Riskfyllda inloggningar | 7 dagar        | 30 dagar             | 90 dagar             |
 
 ---

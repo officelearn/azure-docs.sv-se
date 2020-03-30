@@ -1,23 +1,22 @@
 ---
-title: Mall för Azure Key Vault distribution | Azure Marketplace
-description: Visar den Azure Resource Manager mall som krävs för att distribuera en ny Azure Key Vault-instans.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Distributionsmall för Azure Key Vault | Azure Marketplace
+description: Visar den Azure Resource Manager-mall som krävs för att distribuera en ny Azure Key Vault-instans.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/29/2018
-ms.author: pabutler
-ms.openlocfilehash: befed70b6858ebc8aaab7ebe200bb8082a430bab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 63f49946b14b003348758a5ae7ebadd7a4acf383
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824051"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277676"
 ---
 # <a name="key-vault-deployment-template"></a>Distributionsmall för nyckelvalv
 
-Följande Azure Resource Manager mall definierar en ny Azure Key Vault instans.  Den används i artikeln [skapa Key Vault-certifikat](cpp-create-key-vault-cert.md). 
+Följande Azure Resource Manager-mall definierar en ny Azure Key Vault-instans.  Den används i artikeln [Skapa nyckelvalvcertifikat](cpp-create-key-vault-cert.md). 
 
 ```json
 {

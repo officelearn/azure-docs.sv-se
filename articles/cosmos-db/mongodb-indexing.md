@@ -1,148 +1,90 @@
 ---
-title: Indexering i Azure Cosmos DBs API för MongoDB
-description: Visar en översikt över indexerings funktionerna med Azure Cosmos DB s API för MongoDB.
+title: Indexering i Azure Cosmos DB:s API för MongoDB
+description: Visar en översikt över indexeringsfunktionerna med Azure Cosmos DB:s API för MongoDB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
-ms.openlocfilehash: c8879884cf3d882e6a6b441244ed139072bedeeb
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 03/27/2020
+author: timsander1
+ms.author: tisande
+ms.openlocfilehash: 7c75f0d6f74fe8cf1417e0dc40a5ad01615d7057
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029477"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80371076"
 ---
-# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexera med Azure Cosmos DB s API för MongoDB
+# <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexering med Azure Cosmos DB:s API för MongoDB
 
-Azure Cosmos DBs API för MongoDB utnyttjar funktioner för automatisk index hantering i Cosmos DB. Det innebär att användarna har åtkomst till standard indexerings principerna för Cosmos DB. Så om inga index har definierats av användaren eller om inga index har släppts indexeras alla fält automatiskt som standard när de infogas i en samling. I de flesta fall bör du använda kontots standardindexeringsprincip.
+Azure Cosmos DB:s API för MongoDB utnyttjar kärnindexhanteringsfunktionerna i Azure Cosmos DB. Det här dokumentet fokuserar på hur du lägger till index med Azure Cosmos DB:s API för MongoDB. Du kan också läsa en [översikt över indexering i Azure Cosmos DB](index-overview.md) som är relevant för alla API:er.
 
-## <a name="indexing-for-version-36"></a>Indexering för version 3,6
+## <a name="indexing-for-version-36"></a>Indexering för version 3.6
 
-Konton som betjänar Wire Protocol version 3,6 har en annan standard indexerings princip än principen i tidigare versioner. Som standard är bara fältet _id indexerat. Om du vill indexera ytterligare fält måste användaren använda MongoDB index Management-kommandon. För att kunna tillämpa en sortering i en fråga, måste ett index skapas för de fält som används i sorterings åtgärden.
+Fältet `_id` indexeras alltid automatiskt och kan inte tas bort. Azure Cosmos DB:s API för MongoDB tillämpar `_id` automatiskt fältets unika egenskaper per shardnyckel.
 
-### <a name="dropping-the-default-indexes-36"></a>Släpper standard indexen (3,6)
+Om du vill indexera ytterligare fält bör du använda kommandona för MongoDB-indexhantering. Precis som i MongoDB indexeras endast fältet `_id` automatiskt. Den här standardindexeringsprincipen skiljer sig från Azure Cosmos DB SQL API, som indexerar alla fält som standard.
 
-För konton som hanterar Wire Protocol version 3,6 är det enda standard indexet _id, som inte går att släppa.
+Om du vill använda en sortering på en fråga måste ett index skapas i fälten som används i sorteringsåtgärden.
 
-### <a name="creating-a-compound-index-36"></a>Skapa ett sammansatt index (3,6)
+## <a name="index-types"></a>Indextyper
 
-Sanna sammansatta index stöds för konton med hjälp av 3,6-Wire-protokollet. Följande kommando skapar ett sammansatt index för fälten "a" och "b": `db.coll.createIndex({a:1,b:1})`
+### <a name="single-field"></a>Ett fält
 
-Sammansatta index kan användas för att sortera effektivt på flera fält samtidigt, till exempel: `db.coll.find().sort({a:1,b:1})`
+Du kan skapa index på ett och samma fält. Sorteringsordningen för det enskilda fältindexet spelar ingen roll. Följande kommando skapar ett index `name`i fältet :
 
-### <a name="track-the-index-progress"></a>Spåra index förloppet
+`db.coll.createIndex({name:1})`
 
-3,6-versionen av Azure Cosmos DBs API för MongoDB-konton stöder kommandot `currentOp()` för att spåra indexerings förloppet på en databas instans. Det här kommandot returnerar ett dokument som innehåller information om pågående åtgärder på en databas instans. Kommandot `currentOp` används för att spåra alla pågående åtgärder i interna MongoDB, i Azure Cosmos DB s API för MongoDB, men det här kommandot stöder bara spårning av index åtgärden.
+En fråga kommer att använda flera enskilda fält index, där det är tillgängligt.
 
-Här följer några exempel som visar hur du använder kommandot `currentOp` för att spåra indexerings förloppet:
+### <a name="compound-indexes-36"></a>Sammansatta index (3,6)
 
-• Hämta index förloppet för en samling:
+Sammansatta index stöds för konton som använder 3.6-trådprotokollet. Du kan inkludera upp till 8 fält i ett sammansatt index. Till skillnad från i MongoDB bör du bara skapa ett sammansatt index om frågan behöver sorteras effektivt på flera fält samtidigt. För frågor med flera filter som inte behöver sorteras bör du skapa flera ettfältsindex i stället för ett enda sammansatt index.
 
-   ```shell
-   db.currentOp({"command.createIndexes": <collectionName>, "command.$db": <databaseName>})
-   ```
+Följande kommando skapar ett sammansatt index `name` `age`för fälten och:
 
-• Hämta index förloppet för alla samlingar i en databas:
+`db.coll.createIndex({name:1,age:1})`
 
-  ```shell
-  db.currentOp({"command.$db": <databaseName>})
-  ```
+Sammansatta index kan användas för att sortera effektivt på flera fält samtidigt, till exempel:
 
-• Hämta index förloppet för alla databaser och samlingar i ett Azure Cosmos-konto:
+`db.coll.find().sort({name:1,age:1})`
 
-  ```shell
-  db.currentOp({"command.createIndexes": { $exists : true } })
-  ```
+Ovanstående sammansatta index kan också användas för effektiv sortering på en fråga med motsatt sorteringsordning på alla fält. Här är ett exempel:
 
-Informationen om index förloppet innehåller en procent andel av förloppet för den aktuella index åtgärden. I följande exempel visas utdatafilens format för olika steg i index förloppet:
+`db.coll.find().sort({name:-1,age:-1})`
 
-1. Om index åtgärden för en "foo"-samling och "stapel"-databasen som har 60% indexering har slutförts, kommer följande utdata att vara kvar. `Inprog[0].progress.total` visar 100 som mål slut för ande.
+Men sekvensen av sökvägarna i det sammansatta indexet måste exakt matcha frågan. Här är ett exempel på en fråga som skulle kräva ytterligare ett sammansatt index:
 
-   ```json
-   {
-        "inprog" : [
-        {
-                ………………...
-                "command" : {
-                        "createIndexes" : foo
-                        "indexes" :[ ],
-                        "$db" : bar
-                },
-                "msg" : "Index Build (background) Index Build (background): 60 %",
-                "progress" : {
-                        "done" : 60,
-                        "total" : 100
-                },
-                …………..…..
-        }
-        ],
-        "ok" : 1
-   }
-   ```
+`db.coll.find().sort({age:1,name:1})`
 
-2. För en index åtgärd som precis har börjat i en "foo"-samling och "stapel"-databasen kan utmatnings dokumentet Visa 0% förlopp tills det når en mätbar nivå.
+### <a name="multikey-indexes"></a>Index med flera nycklar
 
-   ```json
-   {
-        "inprog" : [
-        {
-                ………………...
-                "command" : {
-                        "createIndexes" : foo
-                        "indexes" :[ ],
-                        "$db" : bar
-                },
-                "msg" : "Index Build (background) Index Build (background): 0 %",
-                "progress" : {
-                        "done" : 0,
-                        "total" : 100
-                },
-                …………..…..
-        }
-        ],
-       "ok" : 1
-   }
-   ```
+Azure Cosmos DB skapar multikey index för att indexera innehåll som lagras i matriser. Om du indexerar ett fält med ett matrisvärde indexerar Azure Cosmos DB automatiskt varje element i matrisen.
 
-3. När den pågående index åtgärden har slutförts, visar utmatnings dokumentet tomma insamlings åtgärder.
+### <a name="geospatial-indexes"></a>Geospatiala index
 
-   ```json
-   {
-      "inprog" : [],
-      "ok" : 1
-   }
-   ```
+Många geospatiala operatörer kommer att dra nytta av geospatiala index. Azure Cosmos DB:s API för MongoDB stöder `2dsphere` för närvarande index. `2d`index stöds ännu inte.
 
-## <a name="indexing-for-version-32"></a>Indexering för version 3,2
+Här är ett exempel på hur du skapar `location` ett geospatialt index på fältet:
 
-### <a name="dropping-the-default-indexes-32"></a>Släpper standard indexen (3,2)
+`db.coll.createIndex({ location : "2dsphere" })`
 
-Följande kommando kan användas för att ta bort standardindexen i en samling ```coll```:
+### <a name="text-indexes"></a>Textindex
 
-```JavaScript
-> db.coll.dropIndexes()
-{ "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
-```
+Textindex stöds för närvarande inte. För textsökningsfrågor på strängar bör du använda [Azure Cognitive Searchs](https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb) integrering med Azure Cosmos DB.
 
-### <a name="creating-a-compound-index-32"></a>Skapa ett sammansatt index (3,2)
+## <a name="index-properties"></a>Indexegenskaper
 
-Sammansatta index innehåller referenser till flera fält i ett dokument. Logiskt sett är detta motsvarigheten till att skapa flera individuella index per fält. Om du vill dra nytta av de optimeringar som tillhandahålls av Cosmos DB:s indexeringstekniker rekommenderar vi att du skapar flera individuella index istället för att använda ett enda (icke-unikt) sammansatt index.
+Följande åtgärder är vanliga för både konton som betjänar trådprotokoll version 3.6 och konton som betjänar tidigare trådprotokollversioner. Du kan också läsa mer om [index och indexerade egenskaper som stöds](mongodb-feature-support-36.md#indexes-and-index-properties).
 
-## <a name="common-indexing-operations"></a>Vanliga indexerings åtgärder
-
-Följande åtgärder är gemensamma för båda kontona som betjänar Wire Protocol version 3,6 och konton som hanterar tidigare tråd protokoll versioner. 
-
-## <a name="creating-unique-indexes"></a>Skapa unika index
+### <a name="unique-indexes"></a>Unika index
 
 [Unika index](unique-keys.md) är användbara när du vill säkerställa att samma fältvärde inte förekommer i flera index.
 
 >[!Important]
-> För närvarande går det bara att skapa unika index när samlingen är tom (inte innehåller några dokument).
+> Unika index kan bara skapas när samlingen är tom (innehåller inga dokument).
 
-Följande kommando skapar ett unikt index i fältet student_id:
+Följande kommando skapar ett unikt index på fältet "student_id":
 
 ```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
@@ -155,7 +97,7 @@ globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 }
 ```
 
-Om du har fragmenterade (sharded) samlingar kräver MongoDB att du tillhandahåller shardnyckeln (partitionsnyckeln) när du skapar unika index. Med andra ord så utgör alla unika index i en fragmenterad samling alltså sammansatta index där ett av fälten är en partitionsnyckel.
+För fragmenterade samlingar måste du ange fragmentnyckeln (partition) för att skapa ett unikt index. Med andra ord så utgör alla unika index i en fragmenterad samling alltså sammansatta index där ett av fälten är en partitionsnyckel.
 
 Följande kommandon för skapar en fragmenterad samling ```coll``` (shardnyckeln är ```university```) med ett unikt index för fälten student_id och university:
 
@@ -180,7 +122,7 @@ Om satsen ```"university":1``` utelämnas i exemplet ovan returneras ett fel med
 
 ```"cannot create unique index over {student_id : 1.0} with shard key pattern { university : 1.0 }"```
 
-## <a name="ttl-indexes"></a>TTL-index
+### <a name="ttl-indexes"></a>TTL-index
 
 Om du vill aktivera förfallodatum för dokumenten i en viss samling måste du skapa ett [TTL-index (Time to Live)](../cosmos-db/time-to-live.md). Ett TTL-index är ett index för fältet _ts med värdet ”expireAfterSeconds”.
 
@@ -193,11 +135,121 @@ globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 Föregående kommando raderar alla dokument i samlingen ```db.coll``` som inte har ändrats under de senaste tio sekunderna.
 
 > [!NOTE]
-> **_ts** är ett fält som är unikt för Cosmos DB och det går inte att använda med MongoDB-klienter. Det är en reserverad (system)egenskap som innehåller tidsstämpeln för senaste ändringen av dokumentet.
+> **_ts** är ett Azure Cosmos DB-specifikt fält och är inte tillgängligt från MongoDB-klienter. Det är en reserverad (system)egenskap som innehåller tidsstämpeln för senaste ändringen av dokumentet.
+
+## <a name="track-the-index-progress"></a>Spåra indexstatus
+
+3.6-versionen av Azure Cosmos DB:s API för `currentOp()` MongoDB-konton stöder kommandot för att spåra indexförloppet för en databasinstans. Det här kommandot returnerar ett dokument som innehåller information om pågående åtgärder för en databasinstans. Kommandot `currentOp` används för att spåra alla pågående åtgärder i inbyggda MongoDB, medan det här kommandot i Azure Cosmos DB:s API för MongoDB endast stöder spårning av indexåtgärden.
+
+Här är några exempel som `currentOp` visar hur du använder kommandot för att spåra indexets förlopp:
+
+* Hämta indexstatus för en samling:
+
+   ```shell
+   db.currentOp({"command.createIndexes": <collectionName>, "command.$db": <databaseName>})
+   ```
+
+* Hämta indexstatus för alla samlingar i en databas:
+
+  ```shell
+  db.currentOp({"command.$db": <databaseName>})
+  ```
+
+* Hämta indexstatus för alla databaser och samlingar i ett Azure Cosmos-konto:
+
+  ```shell
+  db.currentOp({"command.createIndexes": { $exists : true } })
+  ```
+
+Indexstatusinformationen innehåller en procentandel av förloppet för den aktuella indexoperationen. I följande exempel visas utdatadokumentformatet för olika steg i indexets status:
+
+1. Om indexoperationen på en foo-samlings- och "bardatabas" med 60 % indexering är klar kommer följande utdatadokument att ha följande utdatadokument. `Inprog[0].progress.total`visar 100 som måluppfyllande.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 60 %",
+                "progress" : {
+                        "done" : 60,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+        "ok" : 1
+   }
+   ```
+
+2. För en indexåtgärd som just har startat på en "foo"-samling och "bar"-databas kan utdatadokumentet visa 0 % förlopp tills det når en mätbar nivå.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 0 %",
+                "progress" : {
+                        "done" : 0,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+       "ok" : 1
+   }
+   ```
+
+3. När pågående indexoperationen är klar visar utdatadokumentet tomma inprog-operationer.
+
+   ```json
+   {
+      "inprog" : [],
+      "ok" : 1
+   }
+   ```
+
+### <a name="background-index-updates"></a>Uppdateringar av bakgrundsindex
+
+Oavsett vilket värde som angetts för egenskapen **Bakgrundsindex** görs alltid indexuppdateringar i bakgrunden. Indexuppdateringar förbrukar RU:s lägre prioritet än andra databasåtgärder. Indexändringar leder därför inte till några driftstopp för skrivningar, uppdateringar eller borttagningar.
+
+När du lägger till ett nytt index används det omedelbart i frågor. Detta innebär att frågor kanske inte returnerar alla matchande resultat, och kommer att göra det utan att returnera några fel. När indexomvandlingen är klar är frågeresultaten konsekventa. Du kan [spåra indexets förlopp](#track-the-index-progress).
 
 ## <a name="migrating-collections-with-indexes"></a>Migrera samlingar med index
 
-För närvarande går det bara att skapa unika index när samlingen inte innehåller några dokument. Många av de vanligaste migreringsverktygen för MongoDB försöker skapa unika index när du har importerat data. För att kringgå det här problemet rekommenderar vi att användare skapar motsvarande samlingar och unika index manuellt, i stället för att tillåta Migreringsverktyg (för ```mongorestore``` det här beteendet uppnås med hjälp av `--noIndexRestore`-flaggan på kommando raden).
+För närvarande går det bara att skapa unika index när samlingen inte innehåller några dokument. Många av de vanligaste migreringsverktygen för MongoDB försöker skapa unika index när du har importerat data. För att kringgå det här problemet föreslås att användare manuellt skapar motsvarande samlingar och ```mongorestore``` unika index, i `--noIndexRestore` stället för att tillåta migreringsverktyget (för det här beteendet uppnås med hjälp av flaggan på kommandoraden).
+
+## <a name="indexing-for-version-32"></a>Indexering för version 3.2
+
+För Azure Cosmos DB-konton som är kompatibla med 3.2-versionen av MongoDB-trådprotokollet är de tillgängliga indexeringsfunktionerna och standardvärdena olika. Du kan [kontrollera kontots version](mongodb-feature-support-36.md#protocol-support). Du kan uppgradera till 3.6-versionen genom att lämna in en [supportbegäran](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+Om du använder version 3.2 beskrivs viktiga skillnader i det här avsnittet med version 3.6.
+
+### <a name="dropping-the-default-indexes-32"></a>Släppa standardindex (3,2)
+
+Till skillnad från 3.6-versionen av Azure Cosmos DB:s API för MongoDB indexerar 3.2-versionen varje egenskap som standard. Följande kommando kan användas för att släppa dessa ```coll```standardindex för en samling:
+
+```JavaScript
+> db.coll.dropIndexes()
+{ "_t" : "DropIndexesResponse", "ok" : 1, "nIndexesWas" : 3 }
+```
+
+När du har tappat standardindexen kan du lägga till ytterligare index enligt version 3.6.
+
+### <a name="compound-indexes-32"></a>Sammansatta index (3,2)
+
+Sammansatta index innehåller referenser till flera fält i ett dokument. Om du vill skapa ett sammansatt index, uppgradera till 3,6 version genom att lämna in en [supportbegäran](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="next-steps"></a>Nästa steg
 

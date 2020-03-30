@@ -1,6 +1,6 @@
 ---
-title: Skapa en regel för Service Bus auktoriseringsregler med en Azure-mall
-description: Skapa en Service Bus auktoriseringsregel för namn område och kö med Azure Resource Manager-mall
+title: Skapa en servicebussauktoriseringsregel med hjälp av en Azure-mall
+description: Skapa en servicebussauktoriseringsregel för namnområde och kö med Azure Resource Manager-mall
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -14,38 +14,38 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: c795c61ec4891205ad9c77e96914d9b374fa88af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bfb2d2d946a85c1d051315fb29a5a63f7a00871
+ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426903"
+ms.lasthandoff: 03/29/2020
+ms.locfileid: "80384933"
 ---
-# <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Skapa en Service Bus auktoriseringsregel för namn område och kö med hjälp av en Azure Resource Manager mall
+# <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>Skapa en servicebussauktoriseringsregel för namnområde och kö med hjälp av en Azure Resource Manager-mall
 
-Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar en [auktoriseringsregel](service-bus-authentication-and-authorization.md#shared-access-signature) för ett Service Bus namn område och en kö. Artikeln förklarar hur du anger vilka resurser som distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
+Den här artikeln visar hur du använder en Azure Resource Manager-mall som skapar en [auktoriseringsregel](service-bus-authentication-and-authorization.md#shared-access-signature) för ett tjänstbussnamnområde och en kö. Artikeln förklarar hur du anger vilka resurser som ska distribueras och hur du definierar parametrar som anges när distributionen körs. Du kan använda den här mallen för dina egna distributioner eller anpassa den så att den uppfyller dina krav.
 
-Mer information om hur du skapar mallar finns i [redigera Azure Resource Manager mallar][Authoring Azure Resource Manager templates].
+Mer information om hur du skapar mallar finns i [Redigera Azure Resource Manager-mallar][Authoring Azure Resource Manager templates].
 
-Den fullständiga mallen finns i [mallen Service Bus autentiseringsregel][Service Bus auth rule template] på GitHub.
+Den fullständiga mallen finns i [mallen Service Bus auktoriseringsregel][Service Bus auth rule template] på GitHub.
 
 > [!NOTE]
-> Följande Azure Resource Manager mallar är tillgängliga för hämtning och distribution.
+> Följande Azure Resource Manager-mallar är tillgängliga för hämtning och distribution.
 > 
-> * [Skapa ett Service Bus-namnområde](service-bus-resource-manager-namespace.md)
-> * [Skapa ett Service Bus-namnområde med kö](service-bus-resource-manager-namespace-queue.md)
-> * [Skapa ett Service Bus-namnområde med ämne och prenumeration](service-bus-resource-manager-namespace-topic.md)
-> * [Skapa ett Service Bus-namnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Skapa ett namnområde för Service Bus](service-bus-resource-manager-namespace.md)
+> * [Skapa ett servicebussnamnområde med kö](service-bus-resource-manager-namespace-queue.md)
+> * [Skapa ett servicebussnamnområde med ämne och prenumeration](service-bus-resource-manager-namespace-topic.md)
+> * [Skapa ett servicebussnamnområde med ämne, prenumeration och regel](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Om du vill söka efter de senaste mallarna går du till galleriet för [Azure snabb starts mallar][Azure Quickstart Templates] och söker efter **Service Bus**.
+> Om du vill söka efter de senaste mallarna besöker du galleriet [Azure Quickstart Templates][Azure Quickstart Templates] och söker efter **Service Bus**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-will-you-deploy"></a>Vad vill du distribuera?
 
-Med den här mallen distribuerar du en Service Bus auktoriseringsregel för en namnrymd och meddelande enhet (i det här fallet en kö).
+Med den här mallen distribuerar du en servicebussauktoriseringsregel för ett namnområde och entiteten meddelanden (i det här fallet en kö).
 
-Den här mallen använder [signaturen för delad åtkomst (SAS)](service-bus-sas.md) för autentisering. SAS gör det möjligt för program att autentisera till Service Bus att använda en åtkomst nyckel som kon figurer ATS i namn området eller i meddelande enheten (kö eller ämne) med vilka vissa rättigheter är associerade. Du kan sedan använda den här nyckeln för att generera en SAS-token som klienter kan använda för att autentisera till Service Bus.
+Den här mallen använder [SAS (Shared Access Signature)](service-bus-sas.md) för autentisering. SAS gör det möjligt för program att autentisera till Service Bus med hjälp av en åtkomstnyckel som konfigurerats på namnområdet eller på meddelandeentiteten (kön eller ämnet) som specifika rättigheter är associerade med. Du kan sedan använda den här nyckeln för att generera en SAS-token som klienter i sin tur kan använda för att autentisera till Service Bus.
 
 Klicka på följande knapp för att köra distributionen automatiskt:
 
@@ -53,12 +53,13 @@ Klicka på följande knapp för att köra distributionen automatiskt:
 
 ## <a name="parameters"></a>Parametrar
 
-Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett avsnitt som heter `Parameters` som innehåller alla parameter värden. Du bör definiera en parameter för de värden som varierar beroende på vilket projekt du distribuerar eller baserat på den miljö som du distribuerar till. Definiera inte parametrar för värden som alltid ska vara desamma. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
+Med Azure Resource Manager kan du definiera parametrar för värden som du vill ange när mallen distribueras. Mallen innehåller ett `Parameters` avsnitt som heter som innehåller alla parametervärden. Du bör definiera en parameter för de värden som varierar beroende på det projekt som du distribuerar eller baserat på den miljö som du distribuerar till. Definiera inte parametrar för värden som alltid förblir desamma. Varje parametervärde används i mallen för att definiera de resurser som distribueras.
 
 Mallen definierar följande parametrar.
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-Namnet på Service Bus namn området som ska skapas.
+
+Namnet på namnområdet Service Bus som ska skapas.
 
 ```json
 "serviceBusNamespaceName": {
@@ -66,8 +67,9 @@ Namnet på Service Bus namn området som ska skapas.
 }
 ```
 
-### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
-Namnet på auktoriseringsregeln för namn området.
+### <a name="namespaceauthorizationrulename"></a>namnområdeAuktoriseringRuleName
+
+Namnet på auktoriseringsregeln för namnområdet.
 
 ```json
 "namespaceAuthorizationRuleName ": {
@@ -76,7 +78,8 @@ Namnet på auktoriseringsregeln för namn området.
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
-Köns namn i Service Bus namn området.
+
+Namnet på kön i servicebussnamnområdet.
 
 ```json
 "serviceBusQueueName": {
@@ -85,7 +88,8 @@ Köns namn i Service Bus namn området.
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-Mallens Service Bus-API-version.
+
+Service Bus API-versionen av mallen.
 
 ```json
 "serviceBusApiVersion": { 
@@ -97,7 +101,8 @@ Mallens Service Bus-API-version.
 ```
 
 ## <a name="resources-to-deploy"></a>Resurser som ska distribueras
-Skapar ett standard Service Bus-namnområde av typ **meddelanden**och en Service Bus auktoriseringsregel för namn område och entitet.
+
+Skapar ett standardnamnområde för Service Bus av typen **Meddelanden**och en servicebussauktoriseringsregel för namnområde och entitet.
 
 ```json
 "resources": [
@@ -149,29 +154,33 @@ Skapar ett standard Service Bus-namnområde av typ **meddelanden**och en Service
     ]
 ```
 
-Information om JSON-syntax och egenskaper finns i [namnrymder](/azure/templates/microsoft.servicebus/namespaces), [köer](/azure/templates/microsoft.servicebus/namespaces/queues)och [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
+För JSON-syntax och egenskaper finns [namnområden](/azure/templates/microsoft.servicebus/namespaces), [köer](/azure/templates/microsoft.servicebus/namespaces/queues)och [AuthorizationRules](/azure/templates/microsoft.servicebus/namespaces/authorizationrules).
 
 ## <a name="commands-to-run-deployment"></a>Kommandon för att köra distributionen
+
 [!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
 
 ### <a name="powershell"></a>PowerShell
-```powershell
+
+```powershell-interactive
 New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
-```azurecli
+
+```azurecli-interactive
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/301-servicebus-create-authrule-namespace-and-queue/azuredeploy.json>
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har skapat och distribuerat resurser med Azure Resource Manager kan du läsa mer om hur du hanterar resurserna genom att läsa följande artiklar:
+
+Nu när du har skapat och distribuerat resurser med Hjälp av Azure Resource Manager kan du läsa om hur du hanterar dessa resurser genom att visa följande artiklar:
 
 * [Hantera Service Bus med PowerShell](service-bus-powershell-how-to-provision.md)
-* [Hantera Service Bus-resurser med Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
-* [Service Bus autentisering och auktorisering](service-bus-authentication-and-authorization.md)
+* [Hantera servicebussresurser med Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Service Bus, autentisering och auktorisering](service-bus-authentication-and-authorization.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md
 [Azure Quickstart Templates]: https://azure.microsoft.com/documentation/templates/?term=service+bus

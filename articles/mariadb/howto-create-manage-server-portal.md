@@ -1,107 +1,107 @@
 ---
-title: Hantera Server-Azure Portal-Azure Database for MariaDB
-description: Lär dig hur du hanterar en Azure Database for MariaDB-Server från Azure Portal.
+title: Hantera server - Azure portal - Azure Database för MariaDB
+description: Lär dig hur du hanterar en Azure-databas för MariaDB-server från Azure-portalen.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: b70b4810f32941938b6afe217f94e18a0f2f3523
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 43004f8c52bbec17f78ed4be024cf75224dbd179
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767134"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530248"
 ---
-# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Hantera en Azure Database for MariaDB-server med hjälp av Azure Portal
-Den här artikeln visar hur du hanterar dina Azure Database for MariaDB-servrar. Hanterings uppgifter omfattar skalning av beräknings-och lagrings utrymme, återställning av administratörs lösen ord och visning av Server information.
+# <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Hantera en Azure-databas för MariaDB-server med Azure-portalen
+Den här artikeln visar hur du hanterar din Azure-databas för MariaDB-servrar. Hanteringsuppgifter omfattar beräknings- och lagringsskalning, återställning av administratörslösenord och visning av serverinformation.
 
 ## <a name="sign-in"></a>Logga in
 Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Skapa en server
-Besök [snabb](quickstart-create-mariadb-server-database-using-azure-portal.md) starten för att lära dig hur du skapar och kommer igång med en Azure Database for MariaDB-Server.
+Besök [snabbstarten](quickstart-create-mariadb-server-database-using-azure-portal.md) för att lära dig hur du skapar och kommer igång med en Azure-databas för MariaDB-server.
 
 ## <a name="scale-compute-and-storage"></a>Skala beräkning och lagring
 
-När servern har skapats kan du skala mellan Generell användning-och Minnesoptimerade nivåer när dina behov förändras. Du kan också skala beräkning och minne genom att öka eller minska virtuella kärnor. Lagringen kan skalas upp (men du kan inte skala lagringen).
+När du har skapat servern kan du skala mellan nivåerna Allmänt syfte och Minnesoptimerade när dina behov ändras. Du kan också skala beräkning och minne genom att öka eller minska virtuella kärnor. Lagring kan skalas upp (du kan dock inte skala ner lagringsutrymmet).
 
-### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Skala mellan Generell användning-och Minnesoptimerade nivåer
+### <a name="scale-between-general-purpose-and-memory-optimized-tiers"></a>Skala mellan allmänna ändamål och minnesoptimerade nivåer
 
-Du kan skala från Generell användning till Minnesoptimerade och tvärtom. Det går inte att byta till och från Basic-nivån efter att servern har skapats. 
+Du kan skala från allmänt syfte till minnesoptimerad och vice versa. Det går inte att ändra till och från basic-nivån när servern har skapats. 
 
-1. Välj din server i Azure Portal. Välj **pris nivå**, som finns i avsnittet **Inställningar** .
+1. Välj din server i Azure-portalen. Välj **prisnivå**, som finns i avsnittet **Inställningar.**
 
-2. Välj **generell användning** eller **minne som är optimerat**, beroende på vad du skalar till. 
+2. Välj **Allmänt ändamål** eller **Minnesoptimerad**, beroende på vad du skalar till. 
 
-    ![ändra pris nivå](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![förändringsprisnivå](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
-    > Om du ändrar nivåer startas servern om.
+    > Om du ändrar nivåer startas en serverstart.
 
-4. Välj **OK** för att spara ändringarna.
+4. Välj **OK** för att spara ändringar.
 
 
 ### <a name="scale-vcores-up-or-down"></a>Skala virtuella kärnor uppåt eller nedåt
 
-1. Välj din server i Azure Portal. Välj **pris nivå**, som finns i avsnittet **Inställningar** .
+1. Välj din server i Azure-portalen. Välj **prisnivå**, som finns i avsnittet **Inställningar.**
 
-2. Ändra **vCore** -inställningen genom att flytta skjutreglaget till önskat värde.
+2. Ändra **vCore-inställningen** genom att flytta skjutreglaget till önskat värde.
 
-    ![skala – beräkna](./media/howto-create-manage-server-portal/scaling-compute.png)
-
-    > [!NOTE]
-    > Vid skalning av virtuella kärnor sker en omstart av servern.
-
-3. Välj **OK** för att spara ändringarna.
-
-
-### <a name="scale-storage-up"></a>Skala upp lagring
-
-1. Välj din server i Azure Portal. Välj **pris nivå**, som finns i avsnittet **Inställningar** .
-
-2. Ändra **lagrings** inställningen genom att flytta skjutreglaget uppåt till önskat värde.
-
-    ![skala – lagring](./media/howto-create-manage-server-portal/scaling-storage.png)
+    ![skala-beräkna](./media/howto-create-manage-server-portal/scaling-compute.png)
 
     > [!NOTE]
-    > Det går inte att skala upp lagrings utrymmet.
+    > Skalning av virtuella kärnor gör att en server startas om.
 
-3. Välj **OK** för att spara ändringarna.
+3. Välj **OK** för att spara ändringar.
 
 
-## <a name="update-admin-password"></a>Uppdatera administratörs lösen ord
-Du kan ändra administratörs rollens lösen ord med hjälp av Azure Portal.
+### <a name="scale-storage-up"></a>Skala lagring upp
 
-1. Välj din server i Azure Portal. Välj **Återställ lösen ord**i **översikts** fönstret.
+1. Välj din server i Azure-portalen. Välj **prisnivå**, som finns i avsnittet **Inställningar.**
+
+2. Ändra **lagringsinställningen** genom att flytta skjutreglaget till önskat värde.
+
+    ![skala-lagring](./media/howto-create-manage-server-portal/scaling-storage.png)
+
+    > [!NOTE]
+    > Det går inte att skala ned lagringsutrymmet.
+
+3. Välj **OK** för att spara ändringar.
+
+
+## <a name="update-admin-password"></a>Uppdatera administratörslösenord
+Du kan ändra administratörsrollens lösenord med Hjälp av Azure-portalen.
+
+1. Välj din server i Azure-portalen. Välj **Återställ lösenord**i fönstret **Översikt** .
 
    ![översikt](./media/howto-create-manage-server-portal/overview-reset-password.png)
 
-2. Ange ett nytt lösen ord och bekräfta lösen ordet. I text rutan visas ett varnings krav för lösen ords komplexitet.
+2. Ange ett nytt lösenord och bekräfta lösenordet. Textrutan kommer att fråga dig om krav på lösenordskomplexitet.
 
-   ![Återställ lösen ord](./media/howto-create-manage-server-portal/reset-password.png)
+   ![återställa-lösenord](./media/howto-create-manage-server-portal/reset-password.png)
 
-3. Välj **OK** för att spara det nya lösen ordet.
+3. Välj **OK** om du vill spara det nya lösenordet.
 
 
 ## <a name="delete-a-server"></a>Ta bort en server
 
 Du kan ta bort servern om du inte längre behöver den. 
 
-1. Välj din server i Azure Portal. I **översikts** fönstret väljer du **ta bort**.
+1. Välj din server i Azure-portalen. Välj **Ta bort**i fönstret **Översikt** .
 
     ![delete](./media/howto-create-manage-server-portal/overview-delete.png)
 
-2. Skriv namnet på servern i indatatypen för att bekräfta att det är den server som du vill ta bort.
+2. Skriv namnet på servern i indatarutan för att bekräfta att det här är den server som du vill ta bort.
 
     ![bekräfta-ta bort](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
-    > Det går inte att ångra borttagningen av en server.
+    > Det går inte att ta bort en server.
 
 3. Välj **Ta bort**.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [säkerhets kopiering och återställning av Server](howto-restore-server-portal.md)
-- Lär dig mer om [justerings-och övervaknings alternativ i Azure Database for MariaDB](concepts-monitoring.md)
+- Lär dig mer om [säkerhetskopior och serveråterställning](howto-restore-server-portal.md)
+- Lär dig mer om [justerings- och övervakningsalternativ i Azure Database för MariaDB](concepts-monitoring.md)

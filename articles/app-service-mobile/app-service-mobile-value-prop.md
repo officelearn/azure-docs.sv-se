@@ -1,18 +1,18 @@
 ---
-title: Om Mobile Apps
+title: Om mobilappar
 description: Läs om fördelarna med App Service i dina företagsmobilappar.
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
 ms.tgt_pltfrm: mobile-multiple
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/25/2019
-ms.openlocfilehash: 73fdf7f09ebb5073829f9787917946e8053f8e12
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 33548f202046310b91fc79d38ac7d8fb18a8727e
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461444"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79499423"
 ---
-# <a name="getting-started"> </a>Om Mobile Apps i Azure App Service
+# <a name="about-mobile-apps-in-azure-app-service"></a><a name="getting-started"> </a>Om Mobile Apps i Azure App Service
 
 Azure App Service är ett helt hanterat [PaaS](https://azure.microsoft.com/overview/what-is-paas/)-erbjudande (plattform som en tjänst) för professionella utvecklare. Tjänsten ger en omfattande uppsättning funktioner för webb-, mobil- och integrationsscenarier. 
 
@@ -45,7 +45,7 @@ Följande funktioner är viktiga för molnkompatibel mobilutveckling:
 
   Läs mer om [push-meddelandefunktionerna].
 
-* **Klient-SDK:er**: Det finns en komplett uppsättning klient-SDK:er för plattformsspecifik utveckling ([iOS], [Android] och [Windows]), plattformsoberoende utveckling ([Xamarin.iOS och Xamarin.Android], [Xamarin.Forms]) och hybridprogramutveckling ([Apache Cordova]). Alla klient-SDK:er fås med MIT-licens och har öppen källkod.
+* **Klient-SDK:er**: Det finns en komplett uppsättning klient-SDK:er för plattformsspecifik utveckling ([iOS], [Android] och [Windows]), plattformsoberoende utveckling ([Xamarin.iOS och Xamarin.Android], [Xamarin Forms]) och hybridprogramutveckling ([Apache Cordova]). Alla klient-SDK:er fås med MIT-licens och har öppen källkod.
 
 ## <a name="azure-app-service-features"></a>Funktioner i Azure App Service
 Följande plattformsfunktioner är användbara i produktionsmiljöer för mobilappar:
@@ -68,23 +68,23 @@ Följande plattformsfunktioner är användbara i produktionsmiljöer för mobila
 
 * **Isolerade/dedikerade miljöer**: Du kan köra App Service i en helt isolerad och dedikerad miljö för säker körning av Azure App Service-appar. Miljön är perfekt för programarbetsbelastningar som kräver storskalighet, isolering eller säker nätverksåtkomst.
 
-  Läs mer om [App Service-miljöer].
+  Upptäck mer om [App Service-miljöer].
 
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång med Mobile Apps i Azure App Service genom att slutföra den här [självstudiekursen]. I kursen lär du dig grunderna i hur du skapar en valfri mobil serverdelstjänst och klient. Kursen omfattar också integrering av autentisering, offlinesynkronisering och push-meddelanden. Du kan slutföra kursen flera gånger, en gång för varje klientprogram.
 
 Mer information om Mobile Apps finns i vår [utbildningsväg].
-Mer information om Azure App Service-plattformen finns på [Azure Apptjänst].
+Mer information om Azure App Service-plattformen finns i [Azure App Service].
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[självstudiekursen]: app-service-mobile-ios-get-started.md
+[komma igång]: app-service-mobile-ios-get-started.md
 [Azure Table Storage]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
-[autentiseringsfunktionerna]: ./app-service-mobile-auth.md
-[datafunktionerna]: ./app-service-mobile-offline-data-sync.md
-[push-meddelandefunktionerna]: ../notification-hubs/notification-hubs-push-notification-overview.md
+[autentiseringsfunktioner]: ./app-service-mobile-auth.md
+[datafunktioner]: ./app-service-mobile-offline-data-sync.md
+[push-meddelandefunktioner]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [iOS]: ./app-service-mobile-ios-how-to-use-client-library.md
 [Android]: ./app-service-mobile-android-how-to-use-client-library.md
 [Windows]: ./app-service-mobile-dotnet-how-to-use-client-library.md
@@ -95,7 +95,7 @@ Mer information om Azure App Service-plattformen finns på [Azure Apptjänst].
 [mellanlagringsmiljöer]: ../app-service/deploy-staging-slots.md
 [hybridanslutningar]: ../biztalk-services/integration-hybrid-connection-overview.md
 [virtuella nätverk]: ../app-service/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[ExpressRoute (ort)]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service-miljöer]: ../app-service/environment/intro.md
 [utbildningsväg]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
-[Azure Apptjänst]: ../app-service/overview.md
+[Azure App-tjänst]: ../app-service/overview.md

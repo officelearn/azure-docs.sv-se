@@ -1,89 +1,89 @@
 ---
-title: Hantera brand Väggs regler – Azure CLI – Azure Database for MariaDB
-description: Den här artikeln beskriver hur du skapar och hanterar Azure Database for MariaDB brand Väggs regler med hjälp av kommando raden i Azure CLI.
+title: Hantera brandväggsregler - Azure CLI - Azure Database för MariaDB
+description: I den här artikeln beskrivs hur du skapar och hanterar Azure Database för MariaDB-brandväggsregler med hjälp av Azure CLI-kommandoraden.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 6690c0862b83af70f3beda4190547d6fbb80a601
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 898b65f07140bca04bd97ff7314b01920b783914
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764260"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530639"
 ---
-# <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database for MariaDB brand Väggs regler med hjälp av Azure CLI
-Brand Väggs regler på server nivå kan användas för att hantera åtkomst till en Azure Database for MariaDB-Server från en speciell IP-adress eller ett intervall med IP-adresser. Med hjälp av praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, Visa och Visa brand Väggs regler för hantering av servern. En översikt över Azure Database for MariaDB brand väggar finns i [Azure Database for MariaDB Server brand Väggs regler](./concepts-firewall-rules.md).
+# <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Skapa och hantera Azure Database för MariaDB-brandväggsregler med hjälp av Azure CLI
+Brandväggsregler på servernivå kan användas för att hantera åtkomst till en Azure-databas för MariaDB Server från en specifik IP-adress eller ett intervall med IP-adresser. Med hjälp av praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista och visa brandväggsregler för att hantera servern. En översikt över Azure Database för MariaDB-brandväggar finns i [Azure Database for MariaDB-serverbrandväggsregler](./concepts-firewall-rules.md).
 
-Virtual Network-regler (VNet) kan också användas för att skydda åtkomsten till servern. Lär dig mer om [att skapa och hantera Virtual Network tjänst slut punkter och regler med hjälp av Azure CLI](howto-manage-vnet-cli.md).
+Virtuella nätverksregler (Virtual Network) kan också användas för att skydda åtkomsten till servern. Läs mer om [hur du skapar och hanterar slutpunkter och regler för tjänsten För virtuella nätverk med hjälp av Azure CLI](howto-manage-vnet-cli.md).
 
 ## <a name="prerequisites"></a>Krav
 * [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-* En [Azure Database for MariaDB Server och databas](quickstart-create-mariadb-server-database-using-azure-cli.md).
+* En [Azure-databas för MariaDB-server och databas](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
-## <a name="firewall-rule-commands"></a>Kommandon för brand Väggs regel:
-Kommandot **AZ MariaDB Server Firewall-Rule** används från Azure CLI för att skapa, ta bort, lista, Visa och uppdatera brand Väggs regler.
+## <a name="firewall-rule-commands"></a>Kommandon för brandväggsregel:
+Kommandot **az mariadb-server firewall-rule** används från Azure CLI för att skapa, ta bort, lista, visa och uppdatera brandväggsregler.
 
-Kommandon
-- **skapa**: skapa en brand Väggs regel för Azure MariaDB Server.
-- **ta bort**: ta bort en regel för Azure MariaDB Server-brandvägg.
-- **lista**: visar en lista över brand Väggs regler för Azure MariaDB Server.
-- **Visa**: Visa information om en brand Väggs regel för Azure MariaDB Server.
-- **uppdatering**: uppdatera en brand Väggs regel för Azure MariaDB Server.
+Kommandon:
+- **skapa**: Skapa en Azure MariaDB-serverbrandväggsregel.
+- **ta bort**: Ta bort en Azure MariaDB-serverbrandväggsregel.
+- **lista**: Lista Azure MariaDB-serverns brandväggsregler.
+- **visa**: Visa information om en Azure MariaDB-serverbrandväggsregel.
+- **uppdatering**: Uppdatera en Azure MariaDB-serverbrandväggsregel.
 
-## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Logga in på Azure och lista dina Azure Database for MariaDB-servrar
-Anslut säkert Azure CLI med ditt Azure-konto med hjälp av kommandot **AZ login** .
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Logga in på Azure och lista din Azure-databas för MariaDB-servrar
+Anslut Azure CLI på ett säkert sätt med ditt Azure-konto med kommandot **az login.**
 
-1. Kör följande kommando från kommando raden:
+1. Kör följande kommando på kommandoraden:
    ```azurecli
    az login
    ```
    Det här kommandot matar ut en kod som ska användas i nästa steg.
 
-2. Använd en webbläsare för att öppna sidan [https://aka.ms/devicelogin](https://aka.ms/devicelogin)och ange sedan koden.
+2. Använd en webbläsare för [https://aka.ms/devicelogin](https://aka.ms/devicelogin)att öppna sidan och ange sedan koden.
 
-3. Logga in med dina Azure-autentiseringsuppgifter vid prompten.
+3. Logga in med dina Azure-autentiseringsuppgifter i prompten.
 
-4. När inloggningen har godkänts skrivs en lista över prenumerationer ut i-konsolen. Kopiera ID: t för den önskade prenumerationen för att ange den aktuella prenumerationen som ska användas. Använd kommandot [AZ Account set](/cli/azure/account#az-account-set) .
+4. När din inloggning har auktoriserats skrivs en lista över prenumerationer ut i konsolen. Kopiera ID:t för den önskade prenumerationen för att ställa in den aktuella prenumerationen som ska användas. Använd kommandot [az account set.](/cli/azure/account#az-account-set)
    ```azurecli-interactive
    az account set --subscription <your subscription id>
    ```
 
-5. Visa en lista över Azure-databaser för MariaDB-servrar för din prenumeration och resurs grupp om du är osäker på namnen. Använd kommandot [AZ MariaDB Server List](/cli/azure/mariadb/server#az-mariadb-server-list) .
+5. Lista Azure-databaser för MariaDB-servrar för din prenumeration och resursgrupp om du är osäker på namnen. Använd kommandot [az mariadb server list.](/cli/azure/mariadb/server#az-mariadb-server-list)
 
    ```azurecli-interactive
    az mariadb server list --resource-group myresourcegroup
    ```
 
-   Anteckna attributet name i listan, som du måste ange den MariaDB-server som du vill arbeta med. Om det behövs bekräftar du informationen för servern och använder attributet name för att kontrol lera att den är korrekt. Använd kommandot [AZ MariaDB server show](/cli/azure/mariadb/server#az-mariadb-server-show) .
+   Observera namnattributet i listan, som du måste ange vilken MariaDB-server som ska fungera. Om det behövs bekräftar du informationen för servern och använder namnattributet för att säkerställa att den är korrekt. Använd kommandot [az mariadb server show.](/cli/azure/mariadb/server#az-mariadb-server-show)
 
    ```azurecli-interactive
    az mariadb server show --resource-group myresourcegroup --name mydemoserver
    ```
 
-## <a name="list-firewall-rules-on-azure-database-for-mariadb-server"></a>Visa en lista med brand Väggs regler på Azure Database for MariaDB Server 
-Använd Server namnet och resurs grupps namnet och ange de befintliga reglerna för Server brand väggen på servern. Använd kommandot [AZ MariaDB Server Firewall List](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-list) .  Observera att attributet Server namn anges i växeln **--Server** och inte i växeln **--Name** . 
+## <a name="list-firewall-rules-on-azure-database-for-mariadb-server"></a>Lista brandväggsregler för Azure Database för MariaDB Server 
+Med hjälp av servernamnet och resursgruppens namn anger du de befintliga serverbrandväggsreglerna på servern. Använd kommandot [az mariadb-serverbrandväggslista.](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-list)  Observera att servernamnsattributet anges i **växeln --server** och inte i växeln **--name.** 
 ```azurecli-interactive
 az mariadb server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver
 ```
-I utdata visas reglerna, om de finns, i JSON-format (som standard). Du kan använda växeln **--output Table** för att skriva ut resultaten i ett mer läsbart tabell format.
+Utdata visar eventuella regler i JSON-format (som standard). Du kan använda tabellväxeln **--output** för att mata ut resultaten i ett mer läsbart tabellformat.
 ```azurecli-interactive
 az mariadb server firewall-rule list --resource-group myresourcegroup --server-name mydemoserver --output table
 ```
-## <a name="create-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Skapa en brand Väggs regel på Azure Database for MariaDB Server
-Skapa en ny brand Väggs regel på servern med hjälp av namnet på Azure MariaDB-servern och resurs gruppens namn. Använd kommandot [AZ MariaDB Server Firewall Create](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) . Ange ett namn för regeln, samt Start-IP och slut-IP (för att ge åtkomst till ett intervall med IP-adresser) för regeln.
+## <a name="create-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Skapa en brandväggsregel för Azure Database för MariaDB Server
+Skapa en ny brandväggsregel på servern med hjälp av Servernamnet För Azure MariaDB och resursgruppens namn. Använd kommandot [az mariadb server firewall create.](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-create) Ange ett namn för regeln, samt start-IP- och slut-IP-adressen (för att ge åtkomst till ett intervall av IP-adresser) för regeln.
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.15
 ```
 
-Om du vill tillåta åtkomst för en enskild IP-adress anger du samma IP-adress som Start-IP och slut-IP, som i det här exemplet.
+Om du vill tillåta åtkomst för en enda IP-adress anger du samma IP-adress som Start IP och End IP, som i det här exemplet.
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 1.1.1.1 --end-ip-address 1.1.1.1
 ```
 
-Om du vill tillåta att program från Azure IP-adresser ansluter till din Azure Database for MariaDB-Server, anger du IP-adressen 0.0.0.0 som Start-IP och slut-IP, som i det här exemplet.
+Om du vill tillåta att program från Azure IP-adresser ansluter till din Azure-databas för MariaDB-server anger du IP-adressen 0.0.0.0 som Start-IP- och slut-IP, som i det här exemplet.
 ```azurecli-interactive
 az mariadb server firewall-rule create --resource-group myresourcegroup --server mariadb --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
@@ -92,33 +92,33 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 > Det här alternativet konfigurerar brandväggen så att alla anslutningar från Azure tillåts, inklusive anslutningar från prenumerationer för andra kunder. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
 > 
 
-När det är klart visar varje utdata-kommando information om brand Väggs regeln som du har skapat i JSON-format (som standard). Om det uppstår ett fel visar utdata i stället fel meddelande text i stället.
+När du lyckas visar var och en kommandoutdata information om brandväggsregeln som du har skapat i JSON-format (som standard). Om det är fel visar utdata felmeddelandetext i stället.
 
-## <a name="update-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Uppdatera en brand Väggs regel på Azure Database for MariaDB Server 
-Använd namnet på Azure MariaDB-servern och resurs grupps namnet och uppdatera en befintlig brand Väggs regel på servern. Använd kommandot [AZ MariaDB Server Firewall Update](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-update) . Ange namnet på den befintliga brand Väggs regeln som ininformation, samt de Start-IP-och slut-IP-attribut som ska uppdateras.
+## <a name="update-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Uppdatera en brandväggsregel på Azure Database för MariaDB-server 
+Uppdatera en befintlig brandväggsregel på servern med hjälp av Servernamnet för Azure MariaDB och resursgruppens namn. Använd kommandot [az mariadb server firewall update.](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-update) Ange namnet på den befintliga brandväggsregeln som indata, samt start-IP- och slut-IP-attribut som ska uppdateras.
 ```azurecli-interactive
 az mariadb server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
 ```
-När kommandot har slutförts visas information om den brand Väggs regel som du har uppdaterat i JSON-format (som standard). Om det uppstår ett fel visar utdata i stället fel meddelande text i stället.
+När kommandot har gått ut visas information om brandväggsregeln som du har uppdaterat i JSON-format (som standard). Om det är fel visar utdata felmeddelandetext i stället.
 
 > [!NOTE]
-> Om brand Väggs regeln inte finns skapas regeln av kommandot Update.
+> Om brandväggsregeln inte finns skapas regeln av uppdateringskommandot.
 
-## <a name="show-firewall-rule-details-on-azure-database-for-mariadb-server"></a>Visa information om brand Väggs regler på Azure Database for MariaDB Server
-Med hjälp av namnet på Azure MariaDB-servern och namnet på resurs gruppen visar du den befintliga brand Väggs regel informationen från servern. Använd kommandot [AZ MariaDB Server Firewall show](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-show) . Ange namnet på den befintliga brand Väggs regeln som inmatade.
+## <a name="show-firewall-rule-details-on-azure-database-for-mariadb-server"></a>Visa information om brandväggsregel på Azure Database för MariaDB Server
+Visa den befintliga brandväggsregelinformationen från servern med servernamnet Azure MariaDB och resursgruppens namn. Använd kommandot [az mariadb server firewall show.](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-show) Ange namnet på den befintliga brandväggsregeln som indata.
 ```azurecli-interactive
 az mariadb server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
-När kommandot har slutförts visas information om den brand Väggs regel som du har angett i JSON-format (som standard). Om det uppstår ett fel visar utdata i stället fel meddelande text i stället.
+När kommandot har gått ut visas information om den brandväggsregel som du har angett i JSON-format (som standard). Om det är fel visar utdata felmeddelandetext i stället.
 
-## <a name="delete-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Ta bort en brand Väggs regel på Azure Database for MariaDB Server
-Ta bort en befintlig brand Väggs regel från servern med hjälp av namnet på Azure MariaDB-servern och resurs gruppens namn. Använd kommandot [AZ MariaDB Server Firewall Delete](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-delete) . Ange namnet på den befintliga brand Väggs regeln.
+## <a name="delete-a-firewall-rule-on-azure-database-for-mariadb-server"></a>Ta bort en brandväggsregel på Azure Database för MariaDB Server
+Ta bort en befintlig brandväggsregel med servernamnet Azure MariaDB och resursgruppens namn. Använd kommandot [az mariadb server firewall delete.](/cli/azure/mariadb/server/firewall-rule#az-mariadb-server-firewall-rule-delete) Ange namnet på den befintliga brandväggsregeln.
 ```azurecli-interactive
 az mariadb server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
 ```
-När det är klart finns det inga utdata. Vid fel visas fel meddelande text.
+Vid framgång, det finns ingen produktion. Vid fel visas sms-texten.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig mer om [brand Väggs regler för Azure Database for MariaDB Server](./concepts-firewall-rules.md).
-- [Skapa och hantera Azure Database for MariaDB brand Väggs regler med hjälp av Azure Portal](./howto-manage-firewall-portal.md).
-- Mer säker åtkomst till servern genom [att skapa och hantera Virtual Network tjänst slut punkter och regler med hjälp av Azure CLI](howto-manage-vnet-cli.md).
+- Förstå mer om [Azure Database för MariaDB Server-brandväggsregler](./concepts-firewall-rules.md).
+- [Skapa och hantera Azure Database för MariaDB-brandväggsregler med Hjälp av Azure-portalen](./howto-manage-firewall-portal.md).
+- Ytterligare säker åtkomst till servern genom [att skapa och hantera slutpunkter och regler för tjänsten För virtuella nätverk med hjälp av Azure CLI](howto-manage-vnet-cli.md).

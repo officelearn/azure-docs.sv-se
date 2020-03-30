@@ -1,54 +1,54 @@
 ---
-title: Säkerhet – Azure Database for MariaDB
-description: En översikt över säkerhetsfunktionerna i Azure Database for MariaDB.
+title: Säkerhet - Azure-databas för MariaDB
+description: En översikt över säkerhetsfunktionerna i Azure Database för MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: d23eabdacc57a3f5a10d9e3b132a6daac42fbd4d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 8f41fe1005e96b428337bc73b9d468962a079596
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74772161"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527834"
 ---
 # <a name="security-in-azure-database-for-mariadb"></a>Säkerhet i Azure Database for MariaDB
 
-Det finns flera säkerhets lager som är tillgängliga för att skydda data på din Azure Database for MariaDB-Server. Den här artikeln beskriver de här säkerhets alternativen.
+Det finns flera säkerhetslager som är tillgängliga för att skydda data på din Azure-databas för MariaDB-server. I den här artikeln beskrivs dessa säkerhetsalternativ.
 
-## <a name="information-protection-and-encryption"></a>Informations skydd och kryptering
+## <a name="information-protection-and-encryption"></a>Informationsskydd och kryptering
 
-### <a name="in-transit"></a>Under överföring
-Azure Database for MariaDB skyddar dina data genom att kryptera data under överföring med Transport Layer Security. Kryptering (SSL/TLS) tillämpas som standard.
+### <a name="in-transit"></a>Under transitering
+Azure Database för MariaDB skyddar dina data genom att kryptera data under överföring med Transport Layer Security. Kryptering (SSL/TLS) tillämpas som standard.
 
 ### <a name="at-rest"></a>I vila
-Tjänsten Azure Database for MariaDB använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk, med undantag för tillfälliga filer som skapas vid körning av frågor. Tjänsten använder AES 256-bit-chiffer som ingår i Azure Storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
+Azure Database for MariaDB-tjänsten använder FIPS 140-2-validerad kryptografisk modul för lagringskryptering av data i vila. Data, inklusive säkerhetskopior, krypteras på disk, med undantag för temporära filer som skapas när frågor körs. Tjänsten använder AES 256-bitars chiffer som ingår i Azure-lagringskryptering och nycklarna hanteras. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 
 
 ## <a name="network-security"></a>Nätverkssäkerhet
-Anslutningar till en Azure Database for MariaDB-Server dirigeras först via en regional Gateway. Gatewayen har en offentligt tillgänglig IP-adress, medan serverns IP-adresser är skyddade. Mer information om gatewayen finns i artikeln om [anslutnings arkitektur](concepts-connectivity-architecture.md).  
+Anslutningar till en Azure-databas för MariaDB-server dirigeras först via en regional gateway. Gatewayen har en allmänt tillgänglig IP, medan serverns IP-adresser är skyddade. Mer information om gatewayen finns i [artikeln för anslutningsarkitektur](concepts-connectivity-architecture.md).  
 
-En nyligen skapad Azure Database for MariaDB-Server har en brand vägg som blockerar alla externa anslutningar. Även om de når gatewayen, tillåts de inte ansluta till servern. 
+En nyligen skapad Azure Database för MariaDB-server har en brandvägg som blockerar alla externa anslutningar. Även om de når gatewayen, är de inte tillåtet att ansluta till servern. 
 
-### <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
-Regler för IP-brandvägg ger åtkomst till servrar baserat på den ursprungliga IP-adressen för varje begäran. Mer information finns i [Översikt över brand Väggs regler](concepts-firewall-rules.md) .
+### <a name="ip-firewall-rules"></a>REGLER för IP-brandväggen
+IP-brandväggsregler ger åtkomst till servrar baserat på den ursprungliga IP-adressen för varje begäran. Mer information finns i översikten över [brandväggsregler.](concepts-firewall-rules.md)
 
 ### <a name="virtual-network-firewall-rules"></a>Brandväggsregler för virtuella nätverk
-Tjänst slut punkter i virtuella nätverk utökar din virtuella nätverks anslutning via Azure-stamnätet. Med hjälp av regler för virtuella nätverk kan du aktivera Azure Database for MariaDB servern för att tillåta anslutningar från valda undernät i ett virtuellt nätverk. Mer information finns i [Översikt över Virtual Network Service-slutpunkt](concepts-data-access-security-vnet.md).
+Slutpunkter för virtuella nätverkstjänster utökar din virtuella nätverksanslutning över Azure-stamnätet. Med hjälp av virtuella nätverksregler kan du aktivera din Azure Database för MariaDB-server för att tillåta anslutningar från valda undernät i ett virtuellt nätverk. Mer information finns i [slutpunktsöversikten för den virtuella nätverkstjänsten](concepts-data-access-security-vnet.md).
 
 
 ## <a name="access-management"></a>Åtkomsthantering
 
-När du skapar Azure Database for MariaDB-servern anger du autentiseringsuppgifter för en administratörs användare. Den här administratören kan användas för att skapa ytterligare MariaDB-användare.
+När du skapar Azure Database för MariaDB-servern anger du autentiseringsuppgifter för en administratörsanvändare. Den här administratören kan användas för att skapa ytterligare MariaDB-användare.
 
 
 ## <a name="threat-protection"></a>Hotskydd
 
-Du kan välja att använda [Avancerat skydd](concepts-data-access-and-security-threat-protection.md) som identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja servrar.
+Du kan välja [advanced threat protection](concepts-data-access-and-security-threat-protection.md) som identifierar avvikande aktiviteter som indikerar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja servrar.
 
-[Gransknings loggning](concepts-audit-logs.md) är tillgängligt för att spåra aktiviteter i dina databaser. 
+[Granskningsloggning](concepts-audit-logs.md) är tillgängligt för att spåra aktivitet i dina databaser. 
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Aktivera brand Väggs regler för [IP-adresser](concepts-firewall-rules.md) eller [virtuella nätverk](concepts-data-access-security-vnet.md)
+- Aktivera brandväggsregler för [IP-adresser](concepts-firewall-rules.md) eller [virtuella nätverk](concepts-data-access-security-vnet.md)

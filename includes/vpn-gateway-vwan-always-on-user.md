@@ -8,24 +8,22 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7d2248360e499aab79459d0be549da3d8baa79ab
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 17df5dca584b760cc52ddc171e92fb26b418c347
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371020"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500197"
 ---
-## <a name="configure-a-user-tunnel"></a>Konfigurera en användar tunnel
+1. Installera klientcertifikat på Windows 10-klienten, vilket visas i den här [punkt-till-plats-VPN-klientartikeln.](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) Certifikatet måste finnas i det aktuella användararkivet.
 
-1. Installera klient certifikat på Windows 10-klienten, som du ser i den här artikeln [punkt-till-plats-VPN-klient](../articles/vpn-gateway/point-to-site-how-to-vpn-client-install-azure-cert.md) . Certifikatet måste finnas i det aktuella användar arkivet.
+1. Konfigurera alltid på VPN-klienten via PowerShell, Configuration Manager eller Intune genom att följa instruktionerna i [Konfigurera Windows 10-klienten alltid på VPN-anslutningar](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
-1. Konfigurera Always on VPN-klienten via PowerShell, Configuration Manager eller Intune genom att följa anvisningarna i [Konfigurera Windows 10-klienten alltid på VPN-anslutningar](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
+### <a name="example-configuration-for-the-user-tunnel"></a>Exempel konfiguration för användartunneln
 
-### <a name="example-configuration-for-the-user-tunnel"></a>Exempel på konfiguration av användar tunneln
+När du har konfigurerat den virtuella nätverksgatewayen och installerat klientcertifikatet i det lokala datorarkivet på Windows 10-klienten konfigurerar du en klientenhetstunnel med hjälp av följande exempel:
 
-När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient certifikatet i den lokala datorns Arkiv på Windows 10-klienten, konfigurerar du en tunnel för klient enheter med hjälp av följande exempel:
-
-1. Kopiera följande text och spara den som *Usercert. ps1*:
+1. Kopiera följande text och spara den som *usercert.ps1:*
 
    ```
    Param(
@@ -77,7 +75,7 @@ När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Kopiera följande text och spara den som *VPNProfile. XML* i samma mapp som *Usercert. ps1*. Redigera följande text för att matcha din miljö:
+1. Kopiera följande text och spara den som *VPNProfile.xml* i samma mapp som *usercert.ps1*. Redigera följande text så att den matchar din miljö:
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>  <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address>  <= IP of resource in the vnet or the vnet address space`
@@ -123,13 +121,13 @@ När du har konfigurerat den virtuella Nätverksgatewayen och installerat klient
    ```
 1. Kör PowerShell som administratör.
 
-1. I PowerShell växlar du till den mapp där *Usercert. ps1* och *VPNProfile. XML* finns och kör följande kommando:
+1. I PowerShell växlar du till mappen där *usercert.ps1* och *VPNProfile.xml* finns och kör följande kommando:
 
    ```powershell
    C:\> .\usercert.ps1 .\VPNProfile.xml UserTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
-1. Leta upp posten **UserTest** under **VPN-inställningar**och välj sedan **Anslut**.
+   ![MachineCertTest (MachineCert)](./media/vpn-gateway-vwan-always-on-user/p2s2.jpg)
+1. Leta efter **posten UserTest** under **VPN-inställningar**och välj sedan **Anslut**.
 
-1. Om anslutningen lyckas har du konfigurerat en användar tunnel som Always.
+1. Om anslutningen lyckas har du konfigurerat en alltid på användartunnel.

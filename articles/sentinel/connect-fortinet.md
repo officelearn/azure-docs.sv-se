@@ -1,5 +1,5 @@
 ---
-title: Anslut Fortinet-data till Azure Sentinel | Microsoft Docs
+title: Anslut Fortinet-data till Azure Sentinel| Microsoft-dokument
 description: Lär dig hur du ansluter Fortinet-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -16,25 +16,25 @@ ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
 ms.openlocfilehash: aabc95fcb8d3b32b89bb83f4f6892c3d40b03417
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77588203"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Anslut Fortinet till Azure Sentinel
 
 
 
-Den här artikeln förklarar hur du ansluter din Fortinet-installation till Azure Sentinel. Med Fortinet data Connector kan du enkelt ansluta dina Fortinet-loggar med Azure Sentinel, för att visa instrument paneler, skapa anpassade aviseringar och förbättra undersökningen. Genom att använda Fortinet på Azure Sentinel får du mer insikter om din organisations Internet användning och förbättrar säkerhets åtgärdens funktioner. 
+I den här artikeln beskrivs hur du ansluter Din Fortinet-installation till Azure Sentinel. Med Fortinet-datakopplingen kan du enkelt ansluta dina Fortinet-loggar med Azure Sentinel, visa instrumentpaneler, skapa anpassade aviseringar och förbättra undersökningen. Genom att använda Fortinet på Azure Sentinel får du mer information om organisationens Internetanvändning och förbättrar dess säkerhetsfunktioner. 
 
 
  
-## <a name="forward-fortinet-logs-to-the-syslog-agent"></a>Vidarebefordra Fortinet-loggar till syslog-agenten
+## <a name="forward-fortinet-logs-to-the-syslog-agent"></a>Vidarebefordra Fortinet-loggar till Syslog-agenten
 
-Konfigurera Fortinet så att syslog-meddelanden vidarebefordras i CEF-format till Azure-arbetsytan via syslog-agenten.
+Konfigurera Fortinet för att vidarebefordra Syslog-meddelanden i CEF-format till din Azure-arbetsyta via Syslog-agenten.
 
-1. Öppna CLI på Fortinet-enheten och kör följande kommandon:
+1. Öppna CLI på din Fortinet-apparat och kör följande kommandon:
 
         config log syslogd setting
         set format cef
@@ -43,22 +43,22 @@ Konfigurera Fortinet så att syslog-meddelanden vidarebefordras i CEF-format til
         set status enable
         end
 
-    - Ersätt serverns **IP-adress** med AGENTens IP-adress.
-    - Ställ in **syslog-porten** på **514** eller port uppsättningen på agenten.
-    - Om du vill aktivera CEF-format i tidiga FortiOS-versioner kan du behöva köra kommandot **CSV Disable**.
+    - Ersätt **serverns IP-adress** med agentens IP-adress.
+    - Ställ in **syslogporten** på **514** eller porten som ställts in på agenten.
+    - Om du vill aktivera CEF-format i tidiga FortiOS-versioner kan du behöva köra kommandouppsättningen **csv inaktivera**.
  
    > [!NOTE] 
-   > Mer information finns i [Fortinet-dokumentbiblioteket](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Välj din version och Använd referensen **handböcker** och **logg meddelande**.
+   > Mer information finns i [Dokumentbiblioteket i Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Välj din version och använd **handboken** och **loggmeddelandereferensen**.
 
-1. Om du vill använda det relevanta schemat i Azure Monitor Log Analytics för Fortinet-händelser söker du efter `CommonSecurityLog`.
+1. Om du vill använda det relevanta schemat i Azure Monitor `CommonSecurityLog`Log Analytics för Fortinet-händelserna söker du efter .
 
-1. Fortsätt till [steg 3: verifiera anslutningen](connect-cef-verify.md).
+1. Fortsätt till [STEG 3: Validera anslutningen](connect-cef-verify.md).
 
 
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du lärt dig hur du ansluter Fortinet-enheter till Azure Sentinel. Mer information om Azure Sentinel finns i följande artiklar:
-- Lär dig hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
+- Läs om hur du [får insyn i dina data och potentiella hot](quickstart-get-visibility.md).
 - Kom igång [med att identifiera hot med Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Använd arbets böcker](tutorial-monitor-your-data.md) för att övervaka dina data.
+- [Använd arbetsböcker](tutorial-monitor-your-data.md) för att övervaka dina data.
 
 

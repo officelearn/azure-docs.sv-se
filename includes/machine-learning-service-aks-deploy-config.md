@@ -2,51 +2,51 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 10/06/2019
+ms.date: 03/16/2020
 ms.author: larryfr
-ms.openlocfilehash: 2124b5241015ca74ff6507767396b1a27bd1191d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c71f35a06d904b45cb014d5199197220b57cf230
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935906"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79486091"
 ---
-Posterna i `deploymentconfig.json` dokument översikt till parametrarna för [AksWebservice. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för-metoden:
+Posterna i `deploymentconfig.json` dokumentöversikten till parametrarna för [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). I följande tabell beskrivs mappningen mellan entiteterna i JSON-dokumentet och parametrarna för metoden:
 
-| JSON-entitet | Metod parameter | Beskrivning |
+| JSON-enhet | Parametern Metod | Beskrivning |
 | ----- | ----- | ----- |
-| `computeType` | Ej tillämpligt | Beräkningsmålet. För AKS måste värdet vara `aks`. |
-| `autoScaler` | Ej tillämpligt | Innehåller konfigurations element för autoskalning. Se tabellen för autoskalning. |
-| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Om autoskalning ska aktive ras för webb tjänsten. Om `numReplicas` = `0``True`; annars `False`. |
-| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Det minsta antal behållare som ska användas när den här webb tjänsten autoskalas. Standard `1`. |
-| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Det maximala antal behållare som ska användas när den här webb tjänsten autoskalas. Standard `10`. |
-| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Hur ofta den automatiska skalnings tjänsten försöker skala den här webb tjänsten. Standard `1`. |
-| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Mål användningen (i procent av 100) som autoskalning ska försöka underhålla för den här webb tjänsten. Standard `70`. |
-| `dataCollection` | Ej tillämpligt | Innehåller konfigurations element för data insamling. |
-| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Huruvida modell data insamling ska aktive ras för webb tjänsten. Standard `False`. |
-| `authEnabled` | `auth_enabled` | Huruvida nyckel autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` och `authEnabled` kan inte `True`s. Standard `True`. |
-| `tokenAuthEnabled` | `token_auth_enabled` | Huruvida token-autentisering ska aktive ras för webb tjänsten. Både `tokenAuthEnabled` och `authEnabled` kan inte `True`s. Standard `False`. |
-| `containerResourceRequirements` | Ej tillämpligt | Behållare för processor-och minnes enheterna. |
-| &emsp;&emsp;`cpu` | `cpu_cores` | Antalet processor kärnor som ska allokeras för den här webb tjänsten. Standardvärden `0.1` |
-| &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webb tjänsten. Standard `0.5` |
-| `appInsightsEnabled` | `enable_app_insights` | Om Application Insights loggning ska aktive ras för webb tjänsten. Standard `False`. |
-| `scoringTimeoutMs` | `scoring_timeout_ms` | En tids gräns för att genomdriva för Poäng anrop till webb tjänsten. Standard `60000`. |
-| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Maximalt antal samtidiga förfrågningar per nod för den här webb tjänsten. Standard `1`. |
-| `maxQueueWaitMs` | `max_request_wait_time` | Den längsta tid som en begäran kommer att finnas kvar i Thee-kön (i millisekunder) innan ett 503-fel returneras. Standard `500`. |
-| `numReplicas` | `num_replicas` | Antalet behållare som ska allokeras för den här webb tjänsten. Inget standardvärde. Om den här parametern inte anges är autoskalning aktive rad som standard. |
-| `keys` | Ej tillämpligt | Innehåller konfigurations element för nycklar. |
-| &emsp;&emsp;`primaryKey` | `primary_key` | En primär autentiserings nyckel som ska användas för den här webbtjänsten |
-| &emsp;&emsp;`secondaryKey` | `secondary_key` | En sekundär autentiserings nyckel som ska användas för den här webbtjänsten |
-| `gpuCores` | `gpu_cores` | Antalet GPU-kärnor som ska allokeras för den här webbtjänsten. Standardvärdet är 1. Stöder endast heltals värden. |
-| `livenessProbeRequirements` | Ej tillämpligt | Innehåller konfigurations element för Live-avsöknings krav. |
-| &emsp;&emsp;`periodSeconds` | `period_seconds` | Hur ofta (i sekunder) som utsökningen av Direktmigrering ska utföras. Standardvärdet är 10 sekunder. Minimalt värde är 1. |
-| &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Antal sekunder efter att containern har startats innan direktmigreringen avsökningar initieras. Standardvärdet är 310 |
-| &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Antal sekunder efter vilket tids gränsen för direktmigreringen avsökningen uppnåddes. Standardvärdet är 2 sekunder. Minimalt värde är 1 |
-| &emsp;&emsp;`successThreshold` | `success_threshold` | Minimi kraven på efterföljande lyckade försök för att avsökningen av Direktmigrering ska anses vara lyckad efter att ha misslyckats. Standardvärdet är 1. Minimalt värde är 1. |
-| &emsp;&emsp;`failureThreshold` | `failure_threshold` | När en POD startar och Live-avsökningen Miss lyckas, kommer Kubernetes att försöka failureThreshold gånger innan den ger upp. Standardvärdet är 3. Minimalt värde är 1. |
-| `namespace` | `namespace` | Kubernetes-namnområdet som webservicen distribueras till. Upp till 63 gemena alfanumeriska tecken ("a-z", "0"-' 9 ') och bindestreck (-). Det första och sista tecknet får inte vara bindestreck. |
+| `computeType` | Ej tillämpligt | Beräkningsmålet. För AKS måste värdet `aks`vara . |
+| `autoScaler` | Ej tillämpligt | Innehåller konfigurationselement för automatisk skalning. Se tabellen för automatisk skalning. |
+| &emsp;&emsp;`autoscaleEnabled` | `autoscale_enabled` | Om du vill aktivera automatisk skalning för webbtjänsten. `numReplicas`  = Om `0` `True`, ; annars. `False` |
+| &emsp;&emsp;`minReplicas` | `autoscale_min_replicas` | Det minsta antalet behållare som ska användas när den här webbtjänsten automatiskt ska kalibreras. Standard, `1`. |
+| &emsp;&emsp;`maxReplicas` | `autoscale_max_replicas` | Det maximala antalet behållare som ska användas när den här webbtjänsten automatiskt ska kalibreras. Standard, `10`. |
+| &emsp;&emsp;`refreshPeriodInSeconds` | `autoscale_refresh_seconds` | Hur ofta autoskalningsapparaten försöker skala den här webbtjänsten. Standard, `1`. |
+| &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | Målutnyttjandet (i procent av 100) som den automatiska skalanvändaren ska försöka underhålla för den här webbtjänsten. Standard, `70`. |
+| `dataCollection` | Ej tillämpligt | Innehåller konfigurationselement för datainsamling. |
+| &emsp;&emsp;`storageEnabled` | `collect_model_data` | Om du vill aktivera insamling av modelldata för webbtjänsten. Standard, `False`. |
+| `authEnabled` | `auth_enabled` | Om nyckelautentisering för webbtjänsten ska aktiveras eller inte. Båda `tokenAuthEnabled` `authEnabled` och `True`kan inte vara . Standard, `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Om tokenautentisering för webbtjänsten ska aktiveras eller inte. Båda `tokenAuthEnabled` `authEnabled` och `True`kan inte vara . Standard, `False`. |
+| `containerResourceRequirements` | Ej tillämpligt | Behållare för CPU- och minnesentiteter. |
+| &emsp;&emsp;`cpu` | `cpu_cores` | Antalet CPU-kärnor som ska allokeras för den här webbtjänsten. Standardvärden`0.1` |
+| &emsp;&emsp;`memoryInGB` | `memory_gb` | Mängden minne (i GB) som ska allokeras för den här webbtjänsten. Standard`0.5` |
+| `appInsightsEnabled` | `enable_app_insights` | Om application insights-loggning ska aktiveras för webbtjänsten. Standard, `False`. |
+| `scoringTimeoutMs` | `scoring_timeout_ms` | En timeout för att framtvinga för bedömning av anrop till webbtjänsten. Standard, `60000`. |
+| `maxConcurrentRequestsPerContainer` | `replica_max_concurrent_requests` | Den maximala samtidiga begäranden per nod för den här webbtjänsten. Standard, `1`. |
+| `maxQueueWaitMs` | `max_request_wait_time` | Den maximala tiden en begäran kommer att stanna i dig-kön (i millisekunder) innan ett 503-fel returneras. Standard, `500`. |
+| `numReplicas` | `num_replicas` | Antalet behållare som ska allokeras för den här webbtjänsten. Inget standardvärde. Om den här parametern inte är inställd aktiveras den automatiska skalningsapparaten som standard. |
+| `keys` | Ej tillämpligt | Innehåller konfigurationselement för nycklar. |
+| &emsp;&emsp;`primaryKey` | `primary_key` | En primär autentiseringsnyckel som ska användas för den här webbtjänsten |
+| &emsp;&emsp;`secondaryKey` | `secondary_key` | En sekundär autentiseringsnyckel som ska användas för den här webbtjänsten |
+| `gpuCores` | `gpu_cores` | Antalet GPU-kärnor (replik per behållare) som ska allokeras för den här webbtjänsten. Standard är 1. Stöder endast heltalsvärden. |
+| `livenessProbeRequirements` | Ej tillämpligt | Innehåller konfigurationselement för krav på livenessavsökning. |
+| &emsp;&emsp;`periodSeconds` | `period_seconds` | Hur ofta (i sekunder) för att utföra liveness sonden. Standard till 10 sekunder. Minimivärdet är 1. |
+| &emsp;&emsp;`initialDelaySeconds` | `initial_delay_seconds` | Antal sekunder efter att behållaren har startat innan liveness-avsökningar initieras. Standardvärdet till 310 |
+| &emsp;&emsp;`timeoutSeconds` | `timeout_seconds` | Antal sekunder efter vilka liveness-sonden tar time out. Standardvärdet till 2 sekunder. Minimivärdet är 1 |
+| &emsp;&emsp;`successThreshold` | `success_threshold` | Minsta på varandra följande framgångar för liveness sonden att anses framgångsrik efter att ha misslyckats. Standard till 1. Minimivärdet är 1. |
+| &emsp;&emsp;`failureThreshold` | `failure_threshold` | När en pod startar och liveness-sonden misslyckas, kommer Kubernetes att försöka felStrösiska gånger innan de ger upp. Standard till 3. Minimivärdet är 1. |
+| `namespace` | `namespace` | Det Kubernetes-namnområde som webbtjänsten distribueras till. Upp till 63 gemener alfanumeriska ("a'-'z", '0'-'9') och bindestreck ('-') tecken. Det första och sista antalet tecken kan inte vara bindestreck. |
 
-Följande JSON är ett exempel på en distributions konfiguration för användning med CLI:
+Följande JSON är en exempeldistributionskonfiguration som kan användas med CLI:
 
 ```json
 {

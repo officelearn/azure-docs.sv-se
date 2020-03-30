@@ -1,6 +1,6 @@
 ---
-title: Text parametrar för Azure Monitor-arbetsböcker
-description: Förenkla komplex rapportering med färdiga och anpassade arbets böcker med parametrar. Läs mer om text parametrar för arbets bok.
+title: Textparametrar för Azure Monitor-arbetsböcker
+description: Förenkla komplex rapportering med fördefinierade och anpassade parameteriserade arbetsböcker. Läs mer om arbetsbokstextparametrar.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,80 +10,80 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: c5fb585d0eb6aeb7866c2ab04b324ee31fe903ca
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658057"
 ---
-# <a name="workbook-text-parameters"></a>Text parametrar för arbets bok
+# <a name="workbook-text-parameters"></a>Parametrar för arbetsbokstext
 
-Med text Rute parametrar får du ett enkelt sätt att samla in text från arbets boks användare. De används när det inte är praktiskt att använda en listruta för att samla in indatamängden (till exempel ett godtyckligt tröskelvärde eller allmänna filter). Med arbets böcker kan författare Hämta standardvärdet för text rutan från en fråga. Detta möjliggör intressanta scenarier som att ställa in standard tröskeln baserat på måttets P95.
+Textbox parametrar ger ett enkelt sätt att samla in textinmatning från arbetsboksanvändare. De används när det inte är praktiskt möjligt att använda en rullgardinsmenyn för att samla in indata (till exempel en godtycklig tröskel eller generiska filter). Arbetsböcker gör det möjligt för författare att hämta standardvärdet för textrutan från en fråga. Detta gör det möjligt för intressanta scenarier som att ange standardtröskeln baserat på p95 i måttet.
 
-En vanlig användning av text rutor är som interna variabler som används av andra arbets boks kontroller. Detta görs genom att använda en fråga för standardvärden och göra indatamängden osynlig i Read-mode. En användare kan till exempel vilja att ett tröskelvärde ska komma från en formel (inte en användare) och sedan använda tröskelvärdet i efterföljande frågor.
+En vanlig användning av textrutor är som interna variabler som används av andra arbetsbokskontroller. Detta görs genom att använda en fråga för standardvärden och göra indatakontrollen osynlig i läsläge. En användare kanske till exempel vill att ett tröskelvärde ska komma från en formel (inte en användare) och sedan använda tröskelvärdet i efterföljande frågor.
 
-## <a name="creating-a-text-parameter"></a>Skapa en text parameter
-1. Börja med en tom arbets bok i redigerings läge.
-2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
-3. Klicka på knappen blå _Lägg till parameter_ .
-4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn: `SlowRequestThreshold`
-    2. Parameter typ: `Text`
-    3. Krävs: `checked`
-    4. Hämta standardvärdet från fråga: `unchecked`
-5. Skapa parametern genom att välja Spara i verktygsfältet.
+## <a name="creating-a-text-parameter"></a>Skapa en textparameter
+1. Börja med en tom arbetsbok i redigeringsläge.
+2. Välj _Lägg till parametrar_ i länkarna i arbetsboken.
+3. Klicka på knappen _Lägg till parameter._
+4. I det nya parameterfönstret som dyker upp anger du:
+    1. Parameternamn:`SlowRequestThreshold`
+    2. Parametertyp:`Text`
+    3. Krävs:`checked`
+    4. Hämta standardvärde från frågan:`unchecked`
+5. Välj Spara i verktygsfältet för att skapa parametern.
 
-    ![Bild som visar hur en text parameter skapas](./media/workbooks-text/text-create.png)
+    ![Bild som visar skapandet av en textparameter](./media/workbooks-text/text-create.png)
 
-Så här kommer arbets boken att se ut i Read-mode.
+Så här kommer arbetsboken att se ut i läsläge.
 
-![Bild som visar en text parameter i läsläge](./media/workbooks-text/text-readmode.png)
+![Bild som visar en textparameter i läsläge](./media/workbooks-text/text-readmode.png)
 
-## <a name="referencing-a-text-parameter"></a>Referens till en text parameter
-1. Lägg till en frågeplan i arbets boken genom att välja länken blå `Add query` och välj en Application Insights resurs.
-2. I rutan KQL lägger du till följande kodfragment:
+## <a name="referencing-a-text-parameter"></a>Referera till en textparameter
+1. Lägg till en frågekontroll i arbetsboken `Add query` genom att välja den blå länken och välja en Application Insights-resurs.
+2. Lägg till det här kodavsnittet i rutan KQL:
     ```kusto
     requests
     | summarize AllRequests = count(), SlowRequests = countif(duration >= {SlowRequestThreshold}) by name
     | extend SlowRequestPercent = 100.0 * SlowRequests / AllRequests
     | order by SlowRequests desc
     ```
-3. Genom att använda text parametern med värdet 500 kopplat till den fråga som du använder för att köra frågan nedan:
+3. Genom att använda textparametern med värdet 500 i kombination med frågekontrollen kör du frågan nedan:
     ```kusto
     requests
     | summarize AllRequests = count(), SlowRequests = countif(duration >= 500) by name
     | extend SlowRequestPercent = 100.0 * SlowRequests / AllRequests
     | order by SlowRequests desc
     ```
-4. Kör fråga för att visa resultaten
+4. Kör fråga för att se resultaten
 
-    ![Bild som visar en text parameter som refereras i KQL](./media/workbooks-text/text-reference.png)
+    ![Bild som visar en textparameter som refereras i KQL](./media/workbooks-text/text-reference.png)
 
 
 ## <a name="setting-default-values"></a>Ange standardvärden
-1. Börja med en tom arbets bok i redigerings läge.
-2. Välj _Lägg till parametrar_ från länkarna i arbets boken.
-3. Klicka på knappen blå _Lägg till parameter_ .
-4. I fönstret ny parameter som öppnas anger du:
-    1. Parameter namn: `SlowRequestThreshold`
-    2. Parameter typ: `Text`
-    3. Krävs: `checked`
-    4. Hämta standardvärdet från fråga: `checked`
-5. I rutan KQL lägger du till följande kodfragment:
+1. Börja med en tom arbetsbok i redigeringsläge.
+2. Välj _Lägg till parametrar_ i länkarna i arbetsboken.
+3. Klicka på knappen _Lägg till parameter._
+4. I det nya parameterfönstret som dyker upp anger du:
+    1. Parameternamn:`SlowRequestThreshold`
+    2. Parametertyp:`Text`
+    3. Krävs:`checked`
+    4. Hämta standardvärde från frågan:`checked`
+5. Lägg till det här kodavsnittet i rutan KQL:
     ```kusto
     requests
     | summarize round(percentile(duration, 95), 2)
     ```
-    Den här frågan anger standardvärdet för text rutan till 95 percentilen för alla förfrågningar i appen.
+    Den här frågan anger standardvärdet för textrutan till den 95:e percentilen för alla begäranden i appen.
 6. Kör fråga för att se resultatet
-7. Skapa parametern genom att välja Spara i verktygsfältet.
+7. Välj Spara i verktygsfältet för att skapa parametern.
 
-    ![Bild som visar en text parameter med standardvärdet från KQL](./media/workbooks-text/text-default-value.png)
+    ![Bild som visar en textparameter med standardvärde från KQL](./media/workbooks-text/text-default-value.png)
 
 > [!NOTE]
-> Det här exemplet frågar Application Insights data, men metoden kan användas för alla loggbaserade data källor – Log Analytics, Azure Resource Graph osv.
+> Medan det här exemplet frågar Application Insights-data kan metoden användas för alla loggbaserade datakällor - Log Analytics, Azure Resource Graph, etc.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
-* [Kontrol lera](workbooks-access-control.md) och dela åtkomst till dina arbets boks resurser.
+* [Kom igång](workbooks-visualizations.md) med att lära dig mer om arbetsböcker många avancerade visualiseringar alternativ.
+* [Kontrollera](workbooks-access-control.md) och dela åtkomst till arbetsboksresurserna.

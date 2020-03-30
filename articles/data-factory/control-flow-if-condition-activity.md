@@ -1,6 +1,6 @@
 ---
-title: Om villkors aktivitet i Azure Data Factory
-description: Med aktiviteten if-villkor kan du styra bearbetnings flödet baserat på ett villkor.
+title: Om villkorsaktivitet i Azure Data Factory
+description: Med aktiviteten Om villkor kan du styra bearbetningsflödet baserat på ett villkor.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ef63a159c132f5b565123eeb4824fb1ae5812ce1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfa308e2cc67bd14a248f3edc7b182f9a772ed98
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444157"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80238705"
 ---
-# <a name="if-condition-activity-in-azure-data-factory"></a>Om villkors aktivitet i Azure Data Factory
+# <a name="if-condition-activity-in-azure-data-factory"></a>Om villkorsaktivitet i Azure Data Factory
 If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk. Det utvärderar en uppsättning aktiviteter om villkoret utvärderas till `true` och en annan uppsättning aktiviteter när villkoret utvärderas till `false`. 
 
 ## <a name="syntax"></a>Syntax
@@ -61,23 +61,23 @@ If-villkoret fungerar på samma sätt som en if-sats i ett programmeringsspråk.
 }
 ```
 
-## <a name="type-properties"></a>Typ egenskaper
+## <a name="type-properties"></a>Egenskaper för typ
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-namn | Namnet på IF-condition-aktiviteten. | String | Ja
-typ | Måste anges till **IfCondition** | String | Ja
-expression | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultat typen Boolean | Ja
-ifTrueActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `true`. | Matris | Ja
-ifFalseActivities | Uppsättning aktiviteter som körs när uttrycket utvärderas till `false`. | Matris | Ja
+namn | Namn på if-villkorsaktiviteten. | String | Ja
+typ | Måste ställas in på **IfCondition** | String | Ja
+uttryck | Uttryck som måste utvärderas till sant eller falskt | Uttryck med resultattyp boolesk | Ja
+ifTrueActivities ifTrueActivities ifTrueActivities ifTru | Uppsättning aktiviteter som körs när uttrycket `true`utvärderas till . | Matris | Ja
+ifFalseActivities ifFalseActivities ifFalseActivities ifFal | Uppsättning aktiviteter som körs när uttrycket `false`utvärderas till . | Matris | Ja
 
 ## <a name="example"></a>Exempel
-Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Mappen utdata bestäms av värdet för pipeline-parametern: routeSelection. Om värdet för routeSelection är sant kopieras data till outputPath1. Om värdet för routeSelection är false kopieras data till outputPath2. 
+Pipelinen i det här exemplet kopierar data från en indatamapp till en utdatamapp. Utdatamappen bestäms av värdet för pipelineparametern: routeSelection. Om värdet för routeSelection är sant kopieras data till outputPath1. Och om värdet för routeSelection är falskt kopieras data till outputPath2. 
 
 > [!NOTE]
-> Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genom gång med stegvisa instruktioner för att skapa en Data Factory pipeline med hjälp av Azure PowerShell-och JSON-definitioner finns i [Självstudier: skapa en data fabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> Det här avsnittet innehåller JSON-definitioner och exempel på PowerShell-kommandon för att köra pipelinen. En genomgång med steg-för-steg-instruktioner för att skapa en Data Factory-pipeline med hjälp av Azure PowerShell- och JSON-definitioner finns i [självstudiekurs: skapa en datafabrik med hjälp av Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
-### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline med IF-condition-aktivitet (Adfv2QuickStartPipeline. JSON)
+### <a name="pipeline-with-if-condition-activity-adfv2quickstartpipelinejson"></a>Pipeline med IF-villkorsaktivitet (Adfv2QuickStartPipeline.json)
 
 ```json
 {
@@ -178,17 +178,17 @@ Pipelinen i det här exemplet kopierar data från en mapp till en utdatafil. Map
 }
 ```
 
-Ett annat exempel på uttrycket är: 
+Ett annat exempel för uttryck är: 
 
 ```json
 "expression":  {
-    "value":  "@pipeline().parameters.routeSelection == 1", 
+    "value":  "@equals(pipeline().parameters.routeSelection,1)", 
     "type": "Expression"
 }
 ```
 
 
-### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage länkad tjänst (AzureStorageLinkedService. JSON)
+### <a name="azure-storage-linked-service-azurestoragelinkedservicejson"></a>Azure Storage-länkad tjänst (AzureStorageLinkedService.json)
 
 ```json
 {
@@ -202,8 +202,8 @@ Ett annat exempel på uttrycket är:
 }
 ```
 
-### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parametriserad Azure Blob-datauppsättning (BlobDataset. JSON)
-Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller **outputPath2** -parametern för pipelinen. 
+### <a name="parameterized-azure-blob-dataset-blobdatasetjson"></a>Parameteriserad Azure Blob-datauppsättning (BlobDataset.json)
+Pipelinen ställer in **folderPath** till värdet för antingen **parametern outputPath1** eller **outputPath2** för pipelinen. 
 
 ```json
 {
@@ -229,7 +229,7 @@ Pipelinen anger **folderPath** till värdet för antingen **OutputPath1** -eller
 }
 ```
 
-### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parameter-JSON (PipelineParameters. JSON)
+### <a name="pipeline-parameter-json-pipelineparametersjson"></a>Pipeline-parametern JSON (PipelineParameters.json)
 
 ```json
 {
@@ -286,10 +286,10 @@ $result.Error -join "`r`n"
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se andra kontroll flödes aktiviteter som stöds av Data Factory: 
+Se andra kontrollflödesaktiviteter som stöds av Data Factory: 
 
 - [Execute Pipeline-aktivitet](control-flow-execute-pipeline-activity.md)
 - [För varje aktivitet](control-flow-for-each-activity.md)
-- [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)
+- [Hämta metadataaktivitet](control-flow-get-metadata-activity.md)
 - [Lookup-aktivitet](control-flow-lookup-activity.md)
-- [Webb aktivitet](control-flow-web-activity.md)
+- [Webbaktivitet](control-flow-web-activity.md)

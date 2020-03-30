@@ -1,46 +1,46 @@
 ---
-title: Apache Spark ansluta till Azure Cosmos DB
-description: Läs mer om Azure Cosmos DB Spark-anslutningsappen som gör det möjligt att ansluta Apache Spark i Azure Cosmos DB.
+title: Anslut Apache Spark till Azure Cosmos DB
+description: Lär dig mer om Azure Cosmos DB Spark-kopplingen som gör att du kan ansluta Apache Spark till Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: 2a0e88a439400bc36873ed7160b8eb039a16ebfb
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: bbc97489f0c7045040dd0189b97946c2bd8fb3c0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356191"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481644"
 ---
-# <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Påskynda analyser av stordata med Apache Spark för Azure Cosmos DB-anslutningsapp
+# <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Påskynda stordataanalys med hjälp av Apache Spark till Azure Cosmos DB-anslutning
 
-Du kan köra [Spark](https://spark.apache.org/) -jobb med data som lagras i Azure Cosmos dB med hjälp av Cosmos DB Spark-anslutaren. Cosmos kan användas för bearbetning av batch-och data strömmar och som betjänar lager för åtkomst med låg latens.
+Du kan köra [Spark-jobb](https://spark.apache.org/) med data som lagras i Azure Cosmos DB med Cosmos DB Spark-kopplingen. Cosmos kan användas för batch- och dataflödesbearbetning och som ett serveringslager för låg latensåtkomst.
 
-Du kan använda anslutningen med [Azure Databricks](https://azure.microsoft.com/services/databricks) eller [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), som tillhandahåller hanterade Spark-kluster i Azure. I följande tabell visas de Spark-versioner som stöds.
+Du kan använda kopplingen med [Azure Databricks](https://azure.microsoft.com/services/databricks) eller [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), som tillhandahåller hanterade Spark-kluster på Azure. I följande tabell visas Spark-versioner som stöds.
 
 | Komponent | Version |
 |---------|-------|
-| Apache Spark | 2.4. x, 2.3. x, 2,2. x och 2.1. x |
+| Apache Spark | 2.4.x, 2.3.x, 2.2.x och 2.1.x |
 | Scala | 2.11 |
-| Azure Databricks-körningsversion | > 3.4 |
+| Azure Databricks runtime version | > 3,4 |
 
 > [!WARNING]
-> Den här anslutningen stöder kärnan (SQL) API för Azure Cosmos DB.
-> För Cosmos DB för MongoDB-API använder du [MongoDB Spark-anslutningsprogrammet](https://docs.mongodb.com/spark-connector/master/).
-> För Cosmos DB API för Cassandra använder du [Cassandra Spark-anslutaren](https://github.com/datastax/spark-cassandra-connector).
+> Den här anslutningen stöder core -API:et (SQL) i Azure Cosmos DB.
+> Använd [MongoDB Spark-anslutningen](https://docs.mongodb.com/spark-connector/master/)för Cosmos DB för MongoDB API .
+> Använd [Cassandra Spark-kontakten](https://github.com/datastax/spark-cassandra-connector)för Cosmos DB Cassandra API .
 >
 
 ## <a name="quickstart"></a>Snabbstart
 
-* Följ stegen i [Kom igång med Java SDK](sql-api-async-java-get-started.md) för att skapa ett Cosmos DB-konto och fyll i några data.
-* Följ stegen i [Azure Databricks komma igång](https://docs.azuredatabricks.net/getting-started/index.html) för att skapa en Azure Databricks arbets yta och ett kluster.
-* Nu kan du skapa nya antecknings böcker och importera Cosmos DB anslutnings biblioteket. Gå till [arbeta med Cosmos DB-anslutaren](#bk_working_with_connector) för mer information om hur du konfigurerar din arbets yta.
-* I följande avsnitt finns kod avsnitt om hur du läser och skriver med hjälp av-anslutningen.
+* Följ stegen på [Kom igång med Java SDK](sql-api-async-java-get-started.md) för att konfigurera ett Cosmos DB-konto och fylla i vissa data.
+* Följ stegen i [Azure Databricks som kommer igång](/azure/azure-databricks/quickstart-create-databricks-workspace-portal) för att konfigurera en Azure Databricks-arbetsyta och ett kluster.
+* Du kan nu skapa nya anteckningsböcker och importera Cosmos DB-anslutningsbiblioteket. Gå till [Arbeta med Cosmos DB-kopplingen](#bk_working_with_connector) för mer information om hur du konfigurerar arbetsytan.
+* I följande avsnitt finns utdrag om hur du läser och skriver med kopplingen.
 
 ### <a name="batch-reads-from-cosmos-db"></a>Batch läser från Cosmos DB
 
-Följande fragment visar hur du skapar en spark-DataFrame för att läsa från Cosmos DB i PySpark.
+Följande kodavsnitt visar hur du skapar en Spark DataFrame att läsa från Cosmos DB i PySpark.
 
 ```python
 # Read Configuration
@@ -58,7 +58,7 @@ flights = spark.read.format(
 flights.count()
 ```
 
-Och samma kodfragment i Scala:
+Och samma kodavsnitt i Scala:
 
 ```scala
 // Import Necessary Libraries
@@ -80,9 +80,9 @@ val flights = spark.read.cosmosDB(readConfig)
 flights.count()
 ```
 
-### <a name="batch-writes-to-cosmos-db"></a>Batch-skrivningar till Cosmos DB
+### <a name="batch-writes-to-cosmos-db"></a>Batch skriver till Cosmos DB
 
-Följande kodfragment visar hur du skriver en data ram som Cosmos DB i PySpark.
+Följande kodavsnitt visar hur du skriver en dataram till Cosmos DB i PySpark.
 
 ```python
 # Write configuration
@@ -99,7 +99,7 @@ flights.write.format("com.microsoft.azure.cosmosdb.spark").options(
     **writeConfig).save()
 ```
 
-Och samma kodfragment i Scala:
+Och samma kodavsnitt i Scala:
 
 ```scala
 // Write configuration
@@ -117,9 +117,9 @@ import org.apache.spark.sql.SaveMode
 flights.write.mode(SaveMode.Overwrite).cosmosDB(writeConfig)
 ```
 
-### <a name="streaming-reads-from-cosmos-db"></a>Strömmande läsningar från Cosmos DB
+### <a name="streaming-reads-from-cosmos-db"></a>Streaming läser från Cosmos DB
 
-Följande kodfragment visar hur du ansluter till och läser från Azure Cosmos DB ändra feed.
+Följande kodavsnitt visar hur du ansluter till och läser från Azure Cosmos DB Change Feed.
 
 ```python
 # Read Configuration
@@ -143,7 +143,7 @@ changes = (spark
            .options(**readConfig)
            .load())
 ```
-Och samma kodfragment i Scala:
+Och samma kodavsnitt i Scala:
 
 ```scala
 // Import Necessary Libraries
@@ -168,9 +168,9 @@ val readConfig = Config(Map(
 val df = spark.readStream.format(classOf[CosmosDBSourceProvider].getName).options(readConfig).load()
 ```
 
-### <a name="streaming-writes-to-cosmos-db"></a>Strömmande skrivningar till Cosmos DB
+### <a name="streaming-writes-to-cosmos-db"></a>Streaming skriver till Cosmos DB
 
-Följande kodfragment visar hur du skriver en data ram som Cosmos DB i PySpark.
+Följande kodavsnitt visar hur du skriver en dataram till Cosmos DB i PySpark.
 
 ```python
 # Write configuration
@@ -193,7 +193,7 @@ changeFeed = (changes
               .start())
 ```
 
-Och samma kodfragment i Scala:
+Och samma kodavsnitt i Scala:
 
 ```scala
 // Write configuration
@@ -215,30 +215,30 @@ df
 .options(writeConfig)
 .start()
 ```
-Fler kodfragment och slut punkt till slut punkts exempel finns i [Jupyter](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/notebooks).
+Fler utdrag och end to end-prover, se [Jupyter](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/notebooks).
 
-## <a name="bk_working_with_connector"></a>Arbeta med anslutningen
+## <a name="working-with-the-connector"></a><a name="bk_working_with_connector"></a>Arbeta med kontakten
 
-Du kan bygga anslutningen från källan i GitHub eller ladda ned Uber-jar v7 från maven i länkarna nedan.
+Du kan skapa kopplingen från källan i GitHub, eller ladda ner uber burkar från Maven i länkarna nedan.
 
-| Spark | Scala | Senaste version |
+| Spark | Scala | Senaste versionen |
 |---|---|---|
 | 2.4.0 | 2.11 | [azure-cosmosdb-spark_2.4.0_2.11_1.4.0](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar)
 | 2.3.0 | 2.11 | [azure-cosmosdb-spark_2.3.0_2.11_1.3.3](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.3.0_2.11/1.3.3/jar)
 | 2.2.0 | 2.11 | [azure-cosmosdb-spark_2.2.0_2.11_1.1.1](https://search.maven.org/#artifactdetails%7Ccom.microsoft.azure%7Cazure-cosmosdb-spark_2.2.0_2.11%7C1.1.1%7Cjar)
 | 2.1.0 | 2.11 | [azure-cosmosdb-spark_2.1.0_2.11_1.2.2](https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.1.0_2.11/1.2.2/jar)
 
-### <a name="using-databricks-notebooks"></a>Använda Databricks-anteckningsböcker
+### <a name="using-databricks-notebooks"></a>Använda databricks-anteckningsböcker
 
-Skapa ett bibliotek med hjälp av din Databricks-arbetsyta genom att följa anvisningarna i Azure Databrickss guide > [använda Azure Cosmos DB Spark-anslutaren](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)
+Skapa ett bibliotek med hjälp av din Databricks-arbetsyta genom att följa vägledningen i Azure Databricks Guide > [Använda Azure Cosmos DB Spark-kopplingen](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/cosmosdb-connector.html)
 
 > [!NOTE]
-> Obs! **använd Azure Cosmos DB Spark Connector** -sidan är för närvarande inte aktuell. I stället för att hämta sex separata jar v7 i sex olika bibliotek kan du Hämta Uber-jar från maven på https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar) och installera den här jar/-biblioteket.
+> Sidan **Använd Azure Cosmos DB Spark Connector** är för närvarande inte uppdaterad. Istället för att ladda ner de sex separata burkarna till sex olika https://search.maven.org/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11/1.4.0/jar) bibliotek kan du ladda ner uber-burken från maven på och installera den här burken/biblioteket.
 > 
 
-### <a name="using-spark-cli"></a>Använda Spark-cli
+### <a name="using-spark-cli"></a>Använda spark-cli
 
-Om du vill arbeta med anslutningen med hjälp av Spark-CLI (det `spark-shell` `pyspark`vill säga `spark-submit`,,) kan du använda `--packages` parametern med kopplingens [maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11)-koordinater.
+Om du vill arbeta med kontakten med `spark-shell`hjälp `pyspark` `spark-submit`av spark-cli `--packages` (det vill säga , , , ) kan du använda parametern med kopplingens [maven-koordinater](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb-spark_2.4.0_2.11).
 
 ```sh
 spark-shell --master yarn --packages "com.microsoft.azure:azure-cosmosdb-spark_2.4.0_2.11:1.4.0"
@@ -247,7 +247,7 @@ spark-shell --master yarn --packages "com.microsoft.azure:azure-cosmosdb-spark_2
 
 ### <a name="using-jupyter-notebooks"></a>Använda Jupyter-anteckningsböcker
 
-Om du använder Jupyter-anteckningsböcker i HDInsight kan du använda Spark-Magic `%%configure` -cellen för att ange kopplingens maven-koordinater.
+Om du använder Jupyter-anteckningsböcker i HDInsight kan `%%configure` du använda sparkmagicell för att ange kontaktens maven-koordinater.
 
 ```python
 { "name":"Spark-to-Cosmos_DB_Connector",
@@ -259,65 +259,65 @@ Om du använder Jupyter-anteckningsböcker i HDInsight kan du använda Spark-Mag
 }
 ```
 
-> Observera att inkluderingen av `spark.jars.excludes` är unik för att ta bort potentiella konflikter mellan anslutningen, Apache Spark och livy.
+> Obs, införandet av `spark.jars.excludes` är specifik för att ta bort potentiella konflikter mellan kopplingen, Apache Spark och Livy.
 
-### <a name="build-the-connector"></a>Bygg anslutningen
+### <a name="build-the-connector"></a>Skapa kopplingen
 
-För närvarande använder `maven` det här kopplings projektet för att skapa utan beroenden, du kan köra:
+För närvarande använder `maven` det här anslutningsprojektet så att det skapas utan beroenden kan du köra:
 
 ```sh
 mvn clean package
 ```
 
-## <a name="working-with-our-samples"></a>Arbeta med våra exempel
+## <a name="working-with-our-samples"></a>Arbeta med våra prover
 
-[Cosmos DB Spark GitHub](https://github.com/Azure/azure-cosmosdb-spark) -lagringsplatsen har följande exempel på bärbara datorer och skript som du kan prova.
+[Cosmos DB Spark GitHub-databasen](https://github.com/Azure/azure-cosmosdb-spark) har följande exempel anteckningsböcker och skript som du kan prova.
 
-* **Preflight-prestanda i real tid med Spark och Cosmos dB (Seattle)** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb)  |  [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html): Anslut Spark till Cosmos DB med hjälp av HDInsight Jupyter Notebook service för att presentera Spark SQL, GraphFrames och förutsäga flyg fördröjningar med ML pipelines.
-* **Twitter-källa med Apache Spark och Azure Cosmos DB ändra feed**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.ipynb) | [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.html)
-* **Använda Apache Spark för att fråga Cosmos DB grafer**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [HTML](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
-* **[Ansluta Azure Databricks till Azure Cosmos DB](https://docs.databricks.com/spark/latest/data-sources/azure/cosmosdb-connector.html)** med `azure-cosmosdb-spark`hjälp av.  Länkade här är också en Azure Databricks version av den [bärbara datorn för flyg prestanda i real tid](https://github.com/dennyglee/databricks/tree/master/notebooks/Users/denny%40databricks.com/azure-databricks).
-* **[Lambda-arkitektur med Azure Cosmos DB och HDInsight (Apache Spark)](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/readme.md)** : Du kan minska drifts omkostnaderna för att underhålla Big datapipelines med Cosmos DB och Spark.
+* **On-Time Flight Performance med Spark och Cosmos DB (Seattle)** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb) | [html:](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html)Anslut Spark till Cosmos DB med HDInsight Jupyter notebook service för att visa upp Spark SQL, GraphFrames och förutsäga flygförseningar med ML-pipelines.
+* **Twitter Källa med Apache Spark och Azure Cosmos DB Ändra Feed:** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.html)
+* **Använda Apache Spark att fråga Cosmos DB Grafer:** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb) | [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
+* **[Ansluta Azure Databricks till Azure Cosmos DB](https://docs.databricks.com/spark/latest/data-sources/azure/cosmosdb-connector.html)** med `azure-cosmosdb-spark`.  Länkad här är också en Azure Databricks-version av [notebooken On-Time Flight Performance](https://github.com/dennyglee/databricks/tree/master/notebooks/Users/denny%40databricks.com/azure-databricks).
+* **[Lambda-arkitektur med Azure Cosmos DB och HDInsight (Apache Spark):](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/lambda/readme.md)** Du kan minska driftkostnaderna för att underhålla stordatapipelpipelsar med Cosmos DB och Spark.
 
 ## <a name="more-information"></a>Mer information
 
-Vi har mer information i `azure-cosmosdb-spark` [wikin](https://github.com/Azure/azure-cosmosdb-spark/wiki) , inklusive:
+Vi har mer `azure-cosmosdb-spark` information i [wikin](https://github.com/Azure/azure-cosmosdb-spark/wiki) inklusive:
 
-* [Användar handbok för Azure Cosmos DB Spark Connector](https://github.com/Azure/azure-documentdb-spark/wiki/Azure-Cosmos-DB-Spark-Connector-User-Guide)
-* [Exempel på agg regeringar](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
+* [Användarhandbok för Azure Cosmos DB Spark Connector](https://github.com/Azure/azure-documentdb-spark/wiki/Azure-Cosmos-DB-Spark-Connector-User-Guide)
+* [Exempel på aggregeringar](https://github.com/Azure/azure-documentdb-spark/wiki/Aggregations-Examples)
 
 ### <a name="configuration-and-setup"></a>Konfiguration och installation
 
-* [Konfiguration av Spark-anslutning](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references)
-* [Spark för att Cosmos DB anslutnings installationen](https://github.com/Azure/azure-documentdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) (Pågår)
+* [Konfiguration av Spark Connector](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references)
+* [Spark till Cosmos DB Connector Setup](https://github.com/Azure/azure-documentdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) (Pågår)
 * [Konfigurera Power BI Direct-fråga till Azure Cosmos DB via Apache Spark (HDI)](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuring-Power-BI-Direct-Query-to-Azure-Cosmos-DB-via-Apache-Spark-(HDI))
 
 ### <a name="troubleshooting"></a>Felsökning
 
-* [Använda Cosmos DB agg regeringar](https://github.com/Azure/azure-documentdb-spark/wiki/Troubleshooting:-Using-Cosmos-DB-Aggregates)
+* [Använda Cosmos DB-aggregat](https://github.com/Azure/azure-documentdb-spark/wiki/Troubleshooting:-Using-Cosmos-DB-Aggregates)
 * [Kända problem](https://github.com/Azure/azure-cosmosdb-spark/wiki/Known-Issues)
 
 ### <a name="performance"></a>Prestanda
 
-* [Prestanda tips](https://github.com/Azure/azure-cosmosdb-spark/wiki/Performance-tips)
-* [Fråga test körningar](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs)
-* [Skriver test körningar](https://github.com/Azure/azure-cosmosdb-spark/wiki/Writing-Test-Runs)
+* [Tips för prestanda](https://github.com/Azure/azure-cosmosdb-spark/wiki/Performance-tips)
+* [Frågetestkörningar](https://github.com/Azure/azure-documentdb-spark/wiki/Query-Test-Runs)
+* [Skriva testkörningar](https://github.com/Azure/azure-cosmosdb-spark/wiki/Writing-Test-Runs)
 
 ### <a name="change-feed"></a>Ändringsflöde
 
-* [Bearbetning av ström bearbetnings ändringar med Azure Cosmos DB ändra feed och Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
-* [Ändra feed-demonstrationer](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
-* [Sammanstrukturerade Stream-demonstrationer](https://github.com/Azure/azure-cosmosdb-spark/wiki/Structured-Stream-demos)
+* [Strömma bearbetningsändringar med Azure Cosmos DB Change Feed och Apache Spark](https://github.com/Azure/azure-cosmosdb-spark/wiki/Stream-Processing-Changes-using-Azure-Cosmos-DB-Change-Feed-and-Apache-Spark)
+* [Ändra feeddemos](https://github.com/Azure/azure-cosmosdb-spark/wiki/Change-Feed-demos)
+* [Demonstrationer för strukturerad ström](https://github.com/Azure/azure-cosmosdb-spark/wiki/Structured-Stream-demos)
 
 ### <a name="monitoring"></a>Övervakning
 
-* [Övervaka Spark-jobb med Application Insights](https://github.com/Azure/azure-cosmosdb-spark/tree/2.3/samples/monitoring)
+* [Övervaka Spark-jobb med programinsikter](https://github.com/Azure/azure-cosmosdb-spark/tree/2.3/samples/monitoring)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte redan gjort hämta Spark till Azure Cosmos DB-anslutningen från den [azure cosmosdb spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub-lagringsplatsen. Utforska följande ytterligare resurser i lagringsplatsen:
+Om du inte redan har gjort det hämtar du Spark till Azure Cosmos [DB-anslutningen från Azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark) GitHub-databasen. Utforska följande ytterligare resurser i repoet:
 
-* [Aggregeringar exempel](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
+* [Exempel på aggregeringar](https://github.com/Azure/azure-cosmosdb-spark/wiki/Aggregations-Examples)
 * [Exempel på skript och anteckningsböcker](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples)
 
-Du kan också gå igenom den [Apache Spark SQL och DataFrames datauppsättningar Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html), och [Apache Spark på Azure HDInsight](../hdinsight/spark/apache-spark-jupyter-spark-sql.md) artikeln.
+Du kanske också vill granska [Apache Spark SQL, DataFrames och Datasets Guide](https://spark.apache.org/docs/latest/sql-programming-guide.html)och Apache Spark på Azure [HDInsight-artikeln.](../hdinsight/spark/apache-spark-jupyter-spark-sql.md)

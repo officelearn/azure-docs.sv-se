@@ -1,6 +1,6 @@
 ---
-title: Skydda SPA-backend med OAuth 2,0 med hjälp av Azure Active Directory B2C och Azure API Management.
-description: Skydda ett API med OAuth 2,0 med hjälp av Azure Active Directory B2C, Azure API Management och enkel autentisering som ska anropas från ett Java Script SPA.
+title: Skydda SPA-serverning med OAuth 2.0 med hjälp av Azure Active Directory B2C och Azure API Management.
+description: Skydda ett API med OAuth 2.0 med hjälp av Azure Active Directory B2C, Azure API Management och Easy Auth som ska anropas från ett JavaScript SPA.
 services: api-management, azure-ad-b2c, app-service
 documentationcenter: ''
 author: WillEastbury
@@ -14,93 +14,93 @@ ms.topic: article
 ms.date: 02/20/2020
 ms.author: wieastbu
 ms.custom: fasttrack-new
-ms.openlocfilehash: ae776fc3fb1f9eb4b7fa9747f2769dcccb25e042
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.openlocfilehash: 55acea360de11c5fcc699d65daf92cf24dfd691d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
-ms.locfileid: "79136354"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79475484"
 ---
-# <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Skydda SPA-backend med OAuth 2,0, Azure Active Directory B2C och Azure API Management
+# <a name="protect-spa-backend-with-oauth-20-azure-active-directory-b2c-and-azure-api-management"></a>Skydda SPA-serverd med OAuth 2.0, Azure Active Directory B2C och Azure API Management
 
-Det här scenariot visar hur du konfigurerar Azure API Management-instansen för att skydda ett API.
-Vi använder OAuth 2,0-protokollet med Azure AD B2C, tillsammans med API Management för att skydda en Azure Functions Server del med EasyAuth.
+Det här scenariot visar hur du konfigurerar din Azure API Management-instans för att skydda ett API.
+Vi använder OAuth 2.0-protokollet med Azure AD B2C, tillsammans med API Management för att skydda en Azure Functions serverdel med EasyAuth.
 
-## <a name="aims"></a>Syftar
-Vi ska se hur API Management kan användas i ett förenklat scenario med Azure Functions och Azure AD B2C. Du kommer att skapa en JavaScript-app (JS) som anropar en API, som loggar in användare med Azure AD B2C. Sedan använder du API Management validera-JWT-principinställningar för att skydda Server dels-API: et.
+## <a name="aims"></a>Syftar till
+Vi ska se hur API Management kan användas i ett förenklat scenario med Azure Functions och Azure AD B2C. Du skapar en JavaScript-app (JS) som anropar ett API som loggar in användare med Azure AD B2C. Sedan använder du API Managements policyfunktioner för validering-jwt för att skydda Serverda-API:et.
 
-För att få skydd i djupet använder vi EasyAuth för att validera token igen inuti Server dels-API: et.
+För försvar på djupet använder vi sedan EasyAuth för att validera token igen i backend-API:et.
 
-## <a name="prerequisites"></a>Förutsättningar
-För att följa stegen i den här artikeln måste du ha:
-* Ett Azure (StorageV2) Generell användning v2-lagrings konto som värd för frontend JS-appen med en sida
+## <a name="prerequisites"></a>Krav
+Om du vill följa stegen i den här artikeln måste du ha:
+* Ett Azure-konto (StorageV2) Allmänt syfte V2-lagring som är värd för den första JS-appen för ensidig sida
 * En Azure API Management-instans 
-* En tom Azure Function-app (som kör v2 .NET Core runtime, i en Windows-plan) som värd för den anropade API: n
-* En Azure AD B2C klient, länkad till en prenumeration 
+* En tom Azure Function-app (som kör V2 .NET Core-körningen, på en Windows-förbrukningsplan) som värd för det anropade API:et
+* En Azure AD B2C-klient, kopplad till en prenumeration 
 
-Även om du i praktiken använder resurser i samma region i produktions arbets belastningar, för den här instruktions artikeln är distributions området inte viktigt.
+Även om du i praktiken skulle använda resurser i samma region i produktionsarbetsbelastningar, är distributionsregionen inte viktig för den här artikeln.
 
 ## <a name="overview"></a>Översikt
-Här är en illustration av de komponenter som används och flödet mellan dem när den här processen har slutförts.
-![Komponenter som används och Flow](../api-management/media/howto-protect-backend-frontend-azure-ad-b2c/image-arch.png "Komponenter som används och Flow")
+Här är en illustration av de komponenter som används och flödet mellan dem när denna process är klar.
+![Komponenter som används och flöde](../api-management/media/howto-protect-backend-frontend-azure-ad-b2c/image-arch.png "Komponenter som används och flöde")
 
 Här är en snabb översikt över stegen:
 
-1. Skapa Azure AD B2C anropa (frontend, API Management) och API-program med omfattningar och bevilja API-åtkomst
-1. Skapa registrerings-eller inloggnings principer så att användarna kan logga in med Azure AD B2C 
-1. Konfigurera API Management med de nya Azure AD B2C-klient-ID: na och nycklarna för att aktivera OAuth2-användarauktorisering i Developer-konsolen
-1. Bygg funktions-API: et
-1. Konfigurera funktions-API: et för att aktivera EasyAuth med de nya Azure AD B2C klient-ID: n och nycklarna och lås till APIM VIP 
-1. Bygg API-definitionen i API Management
-1. Konfigurera OAuth2 för API-konfigurationen för API Management
-1. Konfigurera **CORS** -principen och Lägg till **validate-JWT-** principen för att verifiera OAuth-token för varje inkommande begäran
-1. Bygg det anropande programmet för att använda API: et
-1. Överför SPA-exemplet för JS
-1. Konfigurera exempel-Client-appen med de nya Azure AD B2C-klient-ID: n och nycklarna 
-1. Testa klient programmet
+1. Skapa Azure AD B2C-anrop (Frontend, API Management) och API-program med scope och bevilja API-åtkomst
+1. Skapa inloggnings- eller inloggningsprinciper för att tillåta användare att logga in med Azure AD B2C 
+1. Konfigurera API-hantering med de nya Azure AD B2C-klient-ID:na och nycklarna för att aktivera OAuth2-användarauktorisering i utvecklarkonsolen
+1. Skapa funktions-API:et
+1. Konfigurera funktions-API:et för att aktivera EasyAuth med det nya Azure AD B2C-klient-ID:et och nycklar och lås till APIM VIP 
+1. Skapa API-definitionen i API Management
+1. Konfigurera Oauth2 för API Management API-konfigurationen
+1. Konfigurera **CORS-principen** och lägg till **principen validate-jwt** för att validera OAuth-token för varje inkommande begäran
+1. Skapa det anropande programmet för att använda API:et
+1. Ladda upp JS SPA-provet
+1. Konfigurera exempelhs-klientappen med det nya Azure AD B2C-klient-ID:et och -nycklarna 
+1. Testa klientprogrammet
 
 ## <a name="configure-azure-ad-b2c"></a>Konfigurera Azure AD B2C 
-Öppna bladet Azure AD B2C på portalen och utför följande steg.
-1. Välj fliken **program** 
-1. Klicka på knappen Lägg till och skapa tre program i följande syfte
-   * Klient dels klienten.
-   * Server delens funktions-API.
-   * Valfritt API Management Developer-portalen (om du inte kör Azure API Management på förbruknings nivån längre fram i det här scenariot senare).
-1. Ange WebApp/webb-API för alla 3 program och ange alternativet Tillåt implicit flöde till Ja endast för klient dels klienten.
-1. Nu anger du app-ID-URI: n och väljer något unikt och relevant för den tjänst som skapas.
-1. Använd plats hållare för svars-URL: er för tillfället, till exempel https://localhost, uppdaterar vi dessa URL: er senare.
-1. Klicka på Skapa och upprepa sedan steg 2-5 för var och en av de tre apparna ovan, och registrera AppID URI, namn och program-ID för senare användning för alla tre apparna.
-1. Öppna programmet API Management Developer-portalen i listan med program och välj fliken *nycklar* (under Allmänt) och klicka sedan på generera nyckel för att generera en auth-nyckel
-1. När du klickar på Spara registrerar du nyckeln på ett säkert sätt för senare användning – Observera att den här platsen är den enda chansen att visa och kopiera den här nyckeln.
-1. Klicka nu på fliken *publicerade områden* (under API-åtkomst)
-1. Skapa och namnge ett omfång för funktions-API: et och registrera omfattningen och det fullständiga värdet för omfattning och klicka sedan på Spara.
+Öppna Azure AD B2C-bladet i portalen och gör följande steg.
+1. Välj fliken **Program** 
+1. Klicka på knappen Lägg till och skapa tre program för följande ändamål
+   * Frontend-klienten.
+   * Api:et för serverdfunktion.
+   * [Valfritt] API Management-utvecklarportalen (såvida du inte kör Azure API Management på förbrukningsnivån, mer om det här scenariot senare).
+1. Ange WebApp / Web API för alla 3 program och ange "Tillåt implicit flöde" till ja för endast Frontend-klienten.
+1. Ställ nu in App ID URI, välj något unikt och relevant för den tjänst som skapas.
+1. Använd platshållare för svarsadresser för https://localhostnu, till exempel, vi uppdaterar dessa webbadresser senare.
+1. Klicka på Skapa och upprepa sedan steg 2-5 för var och en av de tre apparna ovan, spela in AppID URI, namn och program-ID för senare användning för alla tre apparna.
+1. Öppna API Management Developer Portal Application från listan över program och välj fliken *Nycklar* (under Allmänt) och klicka sedan på "Generera nyckel" för att generera en auth-nyckel
+1. När du klickar spara, spela in nyckeln någonstans säkert för senare användning - observera att denna plats är den enda chansen kommer du att få visa och kopiera denna nyckel.
+1. Välj nu fliken *Publicerade scope* (under API Access)
+1. Skapa och namnge ett scope för funktions-API:et och registrera scopet och det ifyllda fullständigt scopevärde och klicka sedan på Spara.
    > [!NOTE]
-   > Azure AD B2C omfattningar är effektiva behörigheter inom ditt API som andra program kan begära åtkomst till via bladet för API-åtkomst från sina program, vilket effektivt precis har skapat program behörigheter för ditt anropade API.
-1. Öppna de andra två programmen och titta sedan på fliken *API-åtkomst* .
-1. Ge dem åtkomst till Server dels-API-omfånget och det som redan finns där ("åtkomst till användarens profil").
-1. Skapa en nyckel var och en genom att välja fliken *nycklar* under allmänt för att generera en autentiseringsnyckel och registrera nycklarna någon annan stans.
+   > Azure AD B2C-scope är effektivt behörigheter inom ditt API som andra program kan begära åtkomst till via API-åtkomstbladet från sina program, effektivt du bara skapade programbehörigheter för ditt anropade API.
+1. Öppna de andra två programmen och titta sedan under fliken *API Access.*
+1. Ge dem åtkomst till serverd-API-scopet och det standardområde som redan fanns där ("Öppna användarens profil").
+1. Generera dem en nyckel vardera genom att välja fliken *Nycklar* under "Allmänt" för att generera en auth-nyckel och spela in dessa nycklar någonstans säkert för senare.
 
-## <a name="create-a-sign-up-or-sign-in-user-flow"></a>Skapa ett användar flöde för "Registrera dig eller logga in"
-1. Gå tillbaka till roten (eller "översikten") på bladet Azure AD B2C 
-1. Välj sedan "Användarflöden (principer)" och klicka på "nytt användar flöde"
-1. Välj användar flödes typen "Registrera dig och logga in"
-1. Ge principen ett namn och registrera den för senare.
-1. Klicka sedan på "identitets leverantörer" och kontrol lera sedan "användar-ID-registrering" (det kan säga e-postregistrering) och klicka på OK. 
-1. Under "användarattribut och anspråk" klickar du på "Visa fler..." Välj sedan de anspråks alternativ som du vill att användarna ska ange och ha returnerat i token. Kontrol lera minst visnings namn och e-postadress för att samla in och returnera och klicka på OK och sedan på Skapa.
-1. Välj den princip som du skapade i listan och klicka sedan på knappen Kör användar flöde.
-1. Den här åtgärden öppnar bladet kör användar flöde, väljer klient delens program och registrerar sedan adressen för b2clogin.com-domänen som visas under List rutan för "Välj domän".
-1. Klicka på länken längst upp för att öppna den välkända OpenID konfigurations slut punkt och registrera authorization_endpoint och token_endpoint värden samt värdet för själva länken som den välkända OpenID konfigurations slut punkten.
+## <a name="create-a-sign-up-or-sign-in-user-flow"></a>Skapa ett användarflöde för "Registrera dig eller Logga in"
+1. Återgå till roten (eller översikt) för Azure AD B2C-bladet 
+1. Välj sedan "Användarflöden (principer)" och klicka på "Nytt användarflöde"
+1. Välj användarflödestypen "Registrera dig och logga in"
+1. Ge principen ett namn och spela in den för senare.
+1. Sedan under "Identitetsleverantörer", sedan kontrollera "Användar-ID registrera dig" (detta kan säga "E-registrera dig") och klicka på OK. 
+1. Under Användarattribut och anspråk klickar du på Visa mer...' Välj sedan de anspråksalternativ som du vill att användarna ska ange och har returnerat i token. Kontrollera åtminstone "Visningsnamn" och "E-postadress" för att samla in och returnera, och klicka på "OK", klicka sedan på "Skapa".
+1. Välj den princip som du skapade i listan och klicka sedan på knappen Kör användarflöde.
+1. Den här åtgärden öppnar bladet för användarflödet, väljer klientdelsprogrammet och registrerar sedan adressen till den b2clogin.com domän som visas under listrutan för Välj domän.
+1. Klicka på länken högst upp för att öppna slutpunkten för "välkänd openid-konfiguration" och registrera authorization_endpoint- och token_endpoint-värden samt värdet på själva länken som den välkända openid-konfigurationsslutpunkten.
 
    > [!NOTE]
-   > Med B2C-principer kan du exponera Azure AD B2C inloggnings slut punkter för att kunna avbilda olika data komponenter och logga in användare på olika sätt. I det här fallet konfigurerade vi en registrering eller inloggnings slut punkt, som exponerade en välkänd konfigurations slut punkt, särskilt vår skapade princip identifierades i URL: en med parametern p =.
+   > Med B2C-principer kan du exponera Azure AD B2C-inloggningsslutpunkterna för att kunna samla in olika datakomponenter och logga in användare på olika sätt. I det här fallet konfigurerade vi en registrerings- eller inloggningsslutpunkt, som exponerade en välkänd konfigurationsslutpunkt, specifikt identifierades vår skapade princip i URL:en av parametern p=.
    > 
-   > När detta är gjort – har du nu en funktionell verksamhet för konsument identitets plattformen som loggar användare i flera program. 
-   > Om du vill kan du klicka på knappen "kör användar flöde" (för att gå igenom registrerings-eller inloggnings processen) och få en känsla för vad den gör i praktiken, men omdirigeringen fungerar inte eftersom appen ännu inte har distribuerats.
+   > När detta är gjort - du har nu en funktionell Business to Consumer identitetsplattform som kommer att logga in användare i flera program. 
+   > Om du vill kan du klicka på "Kör användarflöde" knappen här (för att gå igenom registreringen eller logga in) och få en känsla för vad den kommer att göra i praktiken, men omdirigeringssteget i slutet kommer att misslyckas eftersom appen ännu inte har distribuerats.
 
-## <a name="build-the-function-api"></a>Bygg funktions-API: et
-1. Växla tillbaka till Azure AD-standardklienten i Azure Portal så att vi kan konfigurera objekt i din prenumeration igen 
-1. Gå till bladet Function apps i Azure Portal, öppna din tomma Function-app och skapa sedan en ny i-Portals webhook + API-funktion via snabb starten.
-1. Klistra in exempel koden nedan i Run. CSX över den befintliga koden som visas.
+## <a name="build-the-function-api"></a>Skapa funktions-API:et
+1. Växla tillbaka till din vanliga Azure AD-klient i Azure-portalen så att vi kan konfigurera objekt i din prenumeration igen 
+1. Gå till bladet Funktionsappar i Azure-portalen, öppna din tomma funktionsapp och skapa sedan en ny inportalfunktion för "Webhook + API" via snabbstarten.
+1. Klistra in exempelkoden nedanifrån i Run.csx över den befintliga koden som visas.
 
    ```csharp
    
@@ -118,10 +118,10 @@ Här är en snabb översikt över stegen:
    ```
 
    > [!NOTE]
-   > Den c#-skript funktions kod som du nyss klistrade in loggar bara in en rad till funktions loggarna och returnerar texten "Hello World" med vissa dynamiska data (datum och tid).
+   > C # script funktionskod du just klistrat in loggar helt enkelt en rad till funktioner loggar, och returnerar texten "Hello World" med några dynamiska data (datum och tid).
 
-3. Välj "integrera" på bladet till vänster och välj sedan "Avancerad redigerare" i det övre högra hörnet i fönstret.
-4. Klistra in exempel koden nedan över den befintliga JSON-filen.
+3. Välj "Integrera" från det vänstra bladet och välj sedan "Avancerad redigerare" i det övre högra hörnet av fönstret.
+4. Klistra in exempelkoden nedan över den befintliga json.
 
    ```json
    {
@@ -145,76 +145,76 @@ Här är en snabb översikt över stegen:
    }
    ```
 
-5. Växla tillbaka till fliken HttpTrigger1, klicka på Hämta funktions webb adress och kopiera sedan den URL som visas.
+5. Växla tillbaka till fliken HttpTrigger1, klicka på "Hämta funktions-URL" och kopiera sedan webbadressen som visas.
 
    > [!NOTE]
-   > Bindningarna som du nyss skapade ger dig bara funktioner för att svara på anonyma HTTP GET-begäranden till den URL som du nyss kopierade. (https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey) nu har vi en skalbart Server lös https API som kan returnera en mycket enkel nytto Last.
-   > Nu kan du testa att anropa det här API: et från en webbläsare med hjälp av URL: en ovan. du kan också ta bort filen Code = Secret i URL: en och bevisa att Azure Functions returnerar ett 401-fel.
+   > Bindningarna du just skapade berättar helt enkelt funktioner att svara på anonyma http GET-förfrågningar till webbadressen du just kopierade. (Nuhttps://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey) har vi en skalbar serverlös https API, som kan returnera en mycket enkel nyttolast.
+   > Du kan nu testa att anropa detta API från en webbläsare med hjälp av webbadressen ovan, du kan också ta bort ?code=secret delen av URL:en och bevisa att Azure Functions returnerar ett 401-fel.
 
-## <a name="configure-and-secure-the-function-api"></a>Konfigurera och skydda funktions-API: et
-1. Två extra områden i Function-appen måste konfigureras (autentiserings-och nätverks begränsningar).
-1. Börja med att konfigurera autentisering/auktorisering, så klicka på namnet på Function-appen (bredvid ikonen &lt;Z&gt; Functions) för att Visa översikts sidan.
-1. Välj sedan fliken "plattforms funktioner" och välj "autentisering/auktorisering".
-1. Aktivera funktionen för App Service autentisering.
-1. Under "autentiseringsproviders" väljer du "Azure Active Directory" och väljer Avancerat från växeln hanterings läge.
-1. Klistra in API: t för Server delens funktions-API (från Azure AD B2C i rutan klient-ID)
-1. Klistra in den välkända konfigurations slut punkten med öppen ID från registrerings-eller inloggnings principen i rutan utfärdar-URL (vi har spelat in den här konfigurationen tidigare).
+## <a name="configure-and-secure-the-function-api"></a>Konfigurera och skydda funktions-API:et
+1. Två extra områden i funktionsappen måste konfigureras (Auth- och nätverksbegränsningar).
+1. För det första Låt oss konfigurera Autentisering / auktorisering, &lt;så&gt; klicka på namnet på funktionsappen (bredvid Z-funktionsikonen) för att visa översiktssidan.
+1. Välj sedan fliken "Plattformsfunktioner" och välj "Autentisering/auktorisering".
+1. Aktivera funktionen Autentisering av apptjänst.
+1. Under Autentiseringsleverantörer väljer du "Azure Active Directory" och väljer "Avancerat" i växeln hanteringsläge.
+1. Klistra in serverfunktions-API:ets program-ID (från Azure AD B2C i rutan "Klient-ID"
+1. Klistra in den välkända slutpunkten för konfiguration med öppen id från registrerings- eller inloggningsprincipen i rutan Utfärdares URL (vi spelade in den här konfigurationen tidigare).
 1. Välj OK.
-1. Ange den åtgärd som ska vidtas när förfrågan inte är autentiserad till "logga in med Azure Active Directory" och klicka sedan på Spara.
+1. Ange åtgärden som ska vidtas när begäran inte autentiseras till "Logga in med Azure Active Directory" och klicka sedan på Spara.
 
    > [!NOTE]
-   > Nu distribueras funktions-API: et och ska resultera i 401 svar om rätt nyckel inte anges och ska returnera data när en giltig begäran visas.
-   > Du har lagt till ytterligare skydd mot djupgående säkerhet i EasyAuth genom att konfigurera alternativet "logga in med Azure AD" för att hantera oautentiserade begär Anden. Tänk på att detta ändrar beteendet för obehöriga begär Anden mellan backend-Funktionsapp och klient delens SPA som EasyAuth utfärdar en 302-omdirigering till AAD i stället för en 401 som inte har auktoriserats, korrigerar vi detta genom att använda API Management senare.
-   > Vi har fortfarande ingen IP-säkerhet tillämpad, om du har en giltig nyckel-och OAuth2-token, kan vem som helst anropa detta från var som helst, så vi vill tvinga alla förfrågningar att komma via API Management.
-   > Om du använder API Management förbruknings nivån kan du inte utföra den här låsningen av VIP eftersom det inte finns någon dedikerad statisk IP-adress för den nivån, du måste förlita dig på metoden för att låsa API-anropen via den delade hemliga funktions nyckeln så steg 11-13 är inte möjliga.
+   > Nu distribueras funktions-API:et och bör kasta 401 svar om rätt nyckel inte anges och returnera data när en giltig begäran presenteras.
+   > Du har lagt till ytterligare försvars-djupgående säkerhet i EasyAuth genom att konfigurera alternativet Logga in med Azure AD för att hantera oautentiserade begäranden. Tänk på att detta kommer att ändra obehörigbegäran beteende mellan Backend Funktion App och Frontend SPA som EasyAuth kommer att utfärda en 302 omdirigera till AAD i stället för en 401 Inte auktoriserad svar, kommer vi att rätta detta med hjälp av API Management senare.
+   > Vi har fortfarande ingen IP-säkerhet tillämpas, om du har en giltig nyckel och OAuth2 token, kan vem som helst ringa detta från var som helst - helst vill vi tvinga alla förfrågningar att komma via API Management.
+   > Om du använder förbrukningsnivån för API Management kan du inte utföra den här låsningen med VIP eftersom det inte finns någon dedikerad statisk IP för den nivån, du måste förlita dig på metoden för att låsa dina API-anrop via den delade hemliga funktionsnyckeln , så steg 11-13 kommer inte att vara möjligt.
 
-1. Stäng bladet "autentisering/auktorisering" 
-1. Välj nätverk och välj sedan åtkomst begränsningar
-1. Sedan kan du låsa IP-adresserna för tillåten Function-app till API Management-instansen VIP. Denna VIP visas i avsnittet API Management-översikt i portalen.
-1. Om du vill fortsätta att interagera med funktions portalen och utföra de valfria stegen nedan, bör du lägga till din egen offentliga IP-adress eller CIDR-intervall här.
-1. När det finns en Tillåt-post i listan lägger Azure till en implicit neka-regel för att blockera alla andra adresser. 
+1. Stäng bladet "Autentisering/auktorisering" 
+1. Välj Nätverk och välj sedan "Åtkomstbegränsningar"
+1. Lås sedan av de tillåtna funktionsapp-IP-adresser till API Management-instansen VIP. Denna VIP visas i API-hantering - översikt delen av portalen.
+1. Om du vill fortsätta att interagera med funktionsportalen och utföra de valfria stegen nedan bör du lägga till din egen offentliga IP-adress eller CIDR-intervall även här.
+1. När det finns en tillåt-post i listan lägger Azure till en implicit neka-regel för att blockera alla andra adresser. 
 
-Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsningar. När du behöver lägga till en enskild adress, till exempel API Management VIP, måste du lägga till den i formatet xx. xx. xx. xx.
+Du måste lägga till CIDR-formaterade adressblock på IP-begränsningspanelen. När du behöver lägga till en enda adress, till exempel API Management VIP, måste du lägga till den i formatet xx.xx.xx.xx.
 
    > [!NOTE]
-   > Nu ska funktions-API: et inte kunna anropas från någon annan stans än via API Management eller din adress.
+   > Nu ska inte funktions-API:et kunna anropas från någon annanstans än via API-hantering eller din adress.
    
-## <a name="import-the-function-app-definition"></a>Importera Function-appens definition
-1. Öppna *bladet API Management*och öppna sedan *instansen*.
-1. Välj bladet API: er från API Management avsnittet i din instans.
-1. I fönstret Lägg till ett nytt API väljer du Funktionsapp och väljer sedan fullständig längst upp i popup-fönstret.
-1. Klicka på Bläddra, Välj den app som du är värd för API: et i och klicka på Välj.
-1. Ge API: et ett namn och en beskrivning för API Managementens interna användning och Lägg till det i den obegränsade produkten.
-1. Se till att du spelar in bas-URL: en för senare användning och klicka sedan på Skapa.
+## <a name="import-the-function-app-definition"></a>Importera funktionsappdefinitionen
+1. Öppna *API Management-bladet*och öppna sedan *instansen*.
+1. Välj API:ernas blad i avsnittet API Management i din instans.
+1. Välj "Funktionsapp" i fönstret Lägg till ett nytt API och välj sedan "Full" högst upp i popup-fönstret.
+1. Klicka på Bläddra, välj den funktionsapp som du är värd för API:et inuti och klicka på välj.
+1. Ge API:et ett namn och en beskrivning av API-hanteringens interna användning och lägg till det i den "obegränsade" produkten.
+1. Se till att du registrerar bas-URL:en för senare användning och klicka sedan på skapa.
 
-## <a name="configure-oauth2-for-api-management"></a>Konfigurera OAuth2 för API Management
+## <a name="configure-oauth2-for-api-management"></a>Konfigurera Oauth2 för API-hantering
 
-1. Välj sedan det OAuth 2,0-bladet på fliken säkerhet och klicka på Lägg till
-1. Ange värden för *visnings namn* och *Beskrivning* för den tillagda OAuth-slutpunkten (dessa värden visas i nästa steg som en OAuth2-slutpunkt).
-1. Du kan ange valfritt värde i URL: en för klient registrerings sidan eftersom det här värdet inte används.
-1. Kontrol lera den *implicita typen av autentiserings* beviljande och lämna godkännande typen checked.
-1. Flytta till fälten för *auktorisering* och *token* -slutpunkt och ange de värden som du hämtade från det välkända XML-dokumentet för konfiguration tidigare.
-1. Rulla nedåt och fyll i *ytterligare en Body-parameter* med namnet Resource med Server del FUNKTIONENS API-klientcertifikat från Azure AD B2C app-registreringen
-1. Välj klientens autentiseringsuppgifter, ange klient-ID: t till appens app-ID för Developer-konsolen – hoppa över det här steget om du använder förbruknings API Managements modellen.
-1. Ange klient hemligheten till nyckeln du registrerade tidigare – hoppa över det här steget om du använder förbruknings API Managements modellen.
-1. Slutligen kan du registrera redirect_uri av auth Code-tilldelningen från API Management för senare användning.
+1. Välj sedan bladet Oauth 2.0 på fliken Säkerhet och klicka på Lägg till
+1. Ange värden för *visningsnamn* och *beskrivning* för den tillagda Oauth-slutpunkten (dessa värden visas i nästa steg som en Oauth2-slutpunkt).
+1. Du kan ange valfritt värde i klientregistreringssidans URL, eftersom det här värdet inte används.
+1. Kontrollera typen *Implicit auth* grant och lämna beviljandetypen auktoriseringskod markerad.
+1. Flytta till slutpunktsfälten *Auktorisering* och *Token* och ange de värden som du hämtade från det välkända konfigurations xml-dokumentet tidigare.
+1. Bläddra nedåt och fyll i en *ytterligare brödtextparameter* som kallas "resurs" med klient-ID:et för serverdelsfunktions-API från Azure AD B2C-appregistreringen
+1. Välj "Klientuppgifter", ange klient-ID till utvecklarkonsolappens app-ID – hoppa över det här steget om du använder modellen för förbruknings-API Management.
+1. Ange klienthemligheten till nyckeln som du spelade in tidigare - hoppa över det här steget om du använder modellen för hantering av förbruknings-API.Set the Client Secret to the key you recorded earlier - skip this step if using the consumption API Management model.
+1. Slutligen, nu registrera redirect_uri av auth kod bidrag från API Management för senare användning.
 
-## <a name="set-up-oauth2-for-your-api"></a>Konfigurera OAuth2 för ditt API
-1. Ditt API visas till vänster i portalen under avsnittet "alla API: er" och öppnar ditt API genom att klicka på det.
+## <a name="set-up-oauth2-for-your-api"></a>Konfigurera Oauth2 för ditt API
+1. Ditt API visas till vänster på portalen under avsnittet Alla API:er, öppna ditt API genom att klicka på det.
 1. Välj fliken Inställningar.
-1. Uppdatera inställningarna genom att välja "OAuth 2,0" på alternativ knappen för användarautentisering.
-1. Välj den OAuth-server som du definierade tidigare.
-1. Markera kryss rutan Åsidosätt omfattning och ange den omfattning du registrerade för Server dels-API-anropet tidigare.
+1. Uppdatera inställningarna genom att välja "Oauth 2.0" från alternativknappen för användarauktorisering.
+1. Välj den Oauth-server som du definierade tidigare.
+1. Markera kryssrutan Åsidosätt omfattning och ange det scope som du spelade in för serverd-API-anropet tidigare.
 
    > [!NOTE]
-   > Nu har vi en API Management-instans som vet hur man får åtkomst till tokens från Azure AD B2C för att auktorisera begär Anden och förstår vår OAuth2 Azure Active Directory B2C-konfiguration.
+   > Nu har vi en API Management-instans som vet hur du får åtkomsttoken från Azure AD B2C för att auktorisera begäranden och förstår vår Oauth2 Azure Active Directory B2C-konfiguration.
 
-## <a name="set-up-the-cors-and-validate-jwt-policies"></a>Konfigurera **CORS** **-och validate-JWT-** principer
+## <a name="set-up-the-cors-and-validate-jwt-policies"></a>Ställa in **CORS-** och **validate-jwt-principer**
 
-> Följande avsnitt bör följas oavsett vilken APIM-nivå som används. 
+> Följande avsnitt bör följas oavsett den APIM-nivå som används. 
 
-1. Växla tillbaka till fliken Design och välj alla API: er och klicka sedan på knappen kodvy för att Visa princip redigeraren.
-1. Redigera avsnittet inkommande och klistra in nedanstående XML så att det ser ut ungefär så här.
+1. Växla tillbaka till designfliken och välj "Alla API:er" och klicka sedan på kodvisningsknappen för att visa principredigeraren.
+1. Redigera det inkommande avsnittet och klistra in nedanstående xml så att det lyder som följande.
 
    ```xml
    <inbound>
@@ -242,56 +242,56 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
        </cors>
    </inbound>
    ```
-1. Redigera URL: en för OpenID-config så att den matchar den välkända Azure AD B2C slut punkten för registrerings-eller inloggnings principen.
-1. Redigera anspråks värdet så att det matchar det giltiga program-ID: t, även kallat klient-ID för Server dels-API-programmet och spara.
+1. Redigera url:en openid-config för att matcha din välkända Azure AD B2C-slutpunkt för registrerings- eller inloggningsprincipen.
+1. Redigera anspråksvärdet för att matcha det giltiga program-ID:t, även kallat klient-ID för serverd-API-programmet och spara.
 
    > [!NOTE]
-   > Nu kan API Management svara på frågor över olika ursprung till JS SPA-appar, och den utför begränsning, hastighets begränsning och för validering av JWT auth-token som skickas innan begäran skickas till funktions-API: et.
+   > Nu kan API-hantering svara på begäranden mellan ursprung till JS SPA-appar, och den kommer att utföra begränsning, hastighetsbegränsning och förvalidering av JWT-auth-token som skickas innan begäran vidarebefordras till funktions-API:et.
 
    > [!NOTE]
-   > Följande avsnitt är valfritt och gäller inte för **förbruknings** nivån, som inte stöder Developer-portalen.
-   > Om du inte tänker använda Developer-portalen eller inte kan använda den eftersom du använder förbruknings nivån kan du hoppa över det här steget och gå direkt till ["skapa Java Script Spa för att använda API: et"](#build-the-javascript-spa-to-consume-the-api).
+   > Följande avsnitt är valfritt och gäller inte för **förbrukningsnivån,** som inte stöder utvecklarportalen.
+   > Om du inte tänker använda utvecklarportalen, eller inte kan använda den eftersom du använder förbrukningsnivån, hoppa över det här steget och hoppa direkt till ["Bygg JavaScript SPA för att använda API".](#build-the-javascript-spa-to-consume-the-api)
 
-## <a name="optional-configure-the-developer-portal"></a>Valfritt Konfigurera Developer-portalen
+## <a name="optional-configure-the-developer-portal"></a>[Valfritt] Konfigurera utvecklarportalen
 
-1. Öppna bladet Azure AD B2C och gå till program registreringen för Developer-portalen
-1. Ange "svars-URL"-posten till den som du antecknade när du konfigurerade redirect_uri av auth Code-tilldelningen i API Management tidigare.
+1. Öppna Azure AD B2C-bladet och navigera till programregistreringen för utvecklarportalen
+1. Ange posten Svara på URL till den du noterade nedåt när du konfigurerade redirect_uri av auth-kodbidraget i API Management tidigare.
 
-   Nu när OAuth 2,0-användarauktorisering har Aktiver ATS på `Echo API`, hämtar Developer-konsolen en åtkomsttoken för användaren innan du anropar API: et.
+   Nu när OAuth 2.0-användarauktoriseringen är aktiverad på `Echo API`erhåller Utvecklarkonsolen en åtkomsttoken för användaren innan API:et anropas.
 
-1. Bläddra till en åtgärd under `Echo API` i Developer-portalen och välj **prova** att öppna Developer-konsolen.
-1. Observera ett nytt objekt i avsnittet **auktorisering** , som motsvarar den auktoriseringsservern som du nyss lade till.
-1. Välj **auktoriseringskod** i list rutan auktorisering och du uppmanas att logga in på Azure AD-klienten. Om du redan har loggat in med kontot kanske du inte uppmanas att göra det.
-1. Efter lyckad inloggning läggs ett `Authorization: Bearer`-huvud till i begäran med en åtkomsttoken från Azure AD B2C kodad i base64. 
-1. Välj **Skicka** och du kan anropa API: et.
-
-   > [!NOTE]
-   > Nu kan API Management Hämta token för Developer-portalen för att testa ditt API och kunna förstå dess definition och återge lämplig test sida i dev-portalen.
-
-1. Från översikts bladet i API Managements portalen klickar du på Developer Portal för att logga in som administratör för API: et.
-1. Här kan du och andra valda konsumenter av ditt API testa och anropa dem från en-konsol.
-1. Välj "produkter" och sedan "obegränsad" och välj sedan det API som vi skapade tidigare och klicka på "prova"
-1. Ta fram API-prenumerationens nyckel och kopiera den till en säker plats tillsammans med URL: en för begäran som du behöver senare.
-1. Välj även implicit, från List rutan OAuth-autentisering och du kan behöva autentisera detta med ett popup-fönster.
-1. Klicka på "Skicka" och i så fall kan din Funktionsapp svara igen med ett hello-meddelande via API Management med ett 200 OK-meddelande och vissa JSON.
+1. Bläddra till alla `Echo API` åtgärder under utvecklarportalen och välj Prova den **för** att ta dig till utvecklarkonsolen.
+1. Observera ett nytt objekt i avsnittet **Auktorisering,** som motsvarar den auktoriseringsserver som du just har lagt till.
+1. Välj **Auktoriseringskod** i listrutan auktorisering och du uppmanas att logga in på Azure AD-klienten. Om du redan är inloggad med kontot kanske du inte blir tillfrågad.
+1. Efter lyckad inloggning `Authorization: Bearer` läggs ett huvud till i begäran, med en åtkomsttoken från Azure AD B2C kodad i Base64. 
+1. Välj **Skicka** och du kan anropa API:et.
 
    > [!NOTE]
-   > Grattis, nu har du Azure AD B2C, API Management och Azure Functions samar beta för att publicera, skydda och använda ett API. Du kanske har lagt märke till att API: t i själva verket skyddas två gånger med den här metoden, en gång med API Management OCP-Subscription-Key-huvud och en gång med auktorisering: Bearer JWT.
-   > Du skulle vara korrekt, eftersom det här exemplet är ett program med en enda sida med Java Script, vi använder bara API Management nyckeln för Rate-Limiting-och fakturerings anrop.
-   > Den faktiska auktoriseringen och autentiseringen hanteras av Azure AD B2C och kapslas in i JWT, som verifieras två gånger, en gång av API Management och sedan Azure Functions.
+   > Nu kan API-hantering hämta token för utvecklarportalen för att testa ditt API och kan förstå dess definition och återge lämplig testsida i utvecklingsportalen.
 
-## <a name="build-the-javascript-spa-to-consume-the-api"></a>Bygg in Java Script SPA för att använda API: et
-1. Öppna bladet lagrings konton i Azure Portal 
-1. Välj det konto som du skapade och välj bladet "statisk webbplats" från avsnittet Inställningar (om du inte ser alternativet "statisk webbplats" kontrollerar du att du har skapat ett v2-konto).
-1. Ange funktionen för statisk webb värd till "aktive rad" och ange index dokument namnet till "index. html" och klicka sedan på "Spara".
-1. Anteckna innehållet i den primära slut punkten, eftersom den här platsen är den plats där klient dels platsen finns. 
+1. Från översiktsbladet för API Management-portalen klickar du på Utvecklarportalen för att logga in som administratör för API:et.
+1. Här kan du och andra utvalda konsumenter av ditt API testa och anropa dem från en konsol.
+1. Välj "Produkter" och välj sedan "Obegränsad", välj sedan det API vi skapade tidigare och klicka på "PROVA DET"
+1. Ta fram API-prenumerationsnyckeln och kopiera den någonstans säkert tillsammans med url:en för begäran som du behöver senare.
+1. Välj också Implicit, från oauth auth-listrutan och du kan behöva autentisera här med en popup.
+1. Klicka på "Skicka" och om allt är bra, bör din funktion App svara tillbaka med ett hej meddelande via API-hantering med en 200 OK meddelande och några JSON.
 
    > [!NOTE]
-   > Du kan använda Azure Blob Storage + CDN-omskrivning eller Azure App Service, men Blob Storage är värd för en statisk webbplats som innehåller en standard behållare för att hantera statiskt webb innehåll/HTML/JS/CSS från Azure Storage och kommer att ange en standard sida för oss för noll arbete.
+   > Grattis, du har nu Azure AD B2C, API Management och Azure Functions som arbetar tillsammans för att publicera, skydda och använda ett API. Du kanske har märkt att API:et faktiskt är skyddat två gånger med den här metoden, en gång med API Management Ocp-Subscription-Key Header och en gång med Auktoriseringen: Bearer JWT.
+   > Du skulle vara korrekt, eftersom det här exemplet är ett JavaScript-program för ensidig sida använder vi API Management Key endast för hastighetsbegränsande och faktureringssamtal.
+   > Den faktiska auktorisering och autentisering hanteras av Azure AD B2C och är inkapslad i JWT, som valideras två gånger, en gång av API Management och sedan av Azure Functions.
 
-## <a name="upload-the-js-spa-sample"></a>Överför SPA-exemplet för JS
-1. På bladet lagrings konto väljer du bladet "blobs" från avsnittet BLOB service och klickar på den $web behållare som visas i den högra rutan.
-1. Spara koden nedan till en fil lokalt på din dator som index. html och ladda upp filen index. html till $web-behållaren.
+## <a name="build-the-javascript-spa-to-consume-the-api"></a>Skapa JavaScript SPA för att använda API
+1. Öppna bladet för lagringskonton i Azure-portalen 
+1. Välj det konto du skapade och välj bladet "Statisk webbplats" i avsnittet Inställningar (om du inte ser alternativet "Statisk webbplats" kontrollerar du att du har skapat ett V2-konto).
+1. Ställ in den statiska webbhostingfunktionen på "aktiverad" och ställ in indexdokumentnamnet på 'index.html', klicka sedan på 'save'.
+1. Lägg till innehållet i den primära slutpunkten, eftersom den här platsen är där frontend-platsen kommer att vara värd. 
+
+   > [!NOTE]
+   > Du kan använda antingen Azure Blob Storage + CDN omskrivning, eller Azure App Service - men Blob Storage statisk webbplats hosting-funktionen ger oss en standardbehållare för att betjäna statiskt webbinnehåll / html / js / css från Azure Storage och kommer att dra slutsatsen en standardsida för oss för noll arbete.
+
+## <a name="upload-the-js-spa-sample"></a>Ladda upp JS SPA-provet
+1. I bladet för lagringskonto väljer du bladet "Blobbar" från avsnittet Blob Service och klickar på den $web behållaren som visas i den högra rutan.
+1. Spara koden nedan till en fil lokalt på datorn som index.html och ladda sedan upp filen index.html till $web behållaren.
 
    ```html
    <!doctype html>
@@ -408,18 +408,18 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
    
    ```
 
-1. Bläddra till den primära slut punkten för den statiska webbplatsen som du sparade tidigare i det sista avsnittet.
+1. Bläddra till den primära slutpunkten för statisk webbplats som du sparade tidigare i det sista avsnittet.
 
    > [!NOTE]
-   > Grattis, du har precis distribuerat en JavaScript-app med en enda sida som Azure Storage eftersom vi inte har konfigurerat JS-appen med dina nycklar för API: et eller konfigurerat JS-appen med din Azure AD B2C information ännu – sidan fungerar inte ännu om du öppnar den.
+   > Grattis har du precis distribuerat en JavaScript Single Page App till Azure Storage Eftersom vi inte har konfigurerat JS-appen med dina nycklar för API:et eller konfigurerat JS-appen med din Azure AD B2C-information ännu – sidan fungerar inte ännu om du öppnar den.
 
 ## <a name="configure-the-js-spa-for-azure-ad-b2c"></a>Konfigurera JS SPA för Azure AD B2C
-1. Nu vet vi var allt är: vi kan konfigurera SPA med lämplig API Management-API-adress och rätt Azure AD B2C program/klient-ID
-1. Gå tillbaka till bladet Azure Portal lagring och klicka på index. html och välj sedan redigera BLOB 
-1. Uppdatera auth-informationen så att den matchar ditt frontend-program som du registrerade i B2C tidigare, och Observera att värdena "b2cScopes" är för API-Server delen.
-1. Du hittar webApi-nyckeln och API-URL: en i API Management test fönstret för API-åtgärden.
-1. Skapa en prenumerations nyckel för APIM per rubrik till API Management tillbaka till bladet API Management, Välj prenumerationer och klicka på Lägg till prenumeration och spara sedan posten. Om du klickar på ellipsen (...) bredvid den skapade raden kan du Visa nycklarna så att du kan kopiera den primära nyckeln.
-1. Det bör se ut ungefär så här:-  
+1. Nu vet vi var allt är: vi kan konfigurera SPA med lämplig API Management API-adress och rätt Azure AD B2C-program / klient-ID
+1. Gå tillbaka till Azure portal lagring blad och klicka på index.html, välj sedan "Redigera Blob" 
+1. Uppdatera auth-informationen för att matcha frontend-programmet som du registrerade i B2C tidigare, och notera att "b2cScopes"-värdena är för API-serverdelen.
+1. WebApi-nyckeln och api-url:en finns i testfönstret för API-hantering för API-åtgärden.
+1. Skapa en APIM-prenumerationsnyckel genom att gå till API Management tillbaka till API Management-bladet, välja Prenumerationer och klicka på Lägg till prenumeration och spara posten. Om du klickar på ellipsen (...) bredvid den skapade raden kan du visa tangenterna så att du kan kopiera primärnyckeln.
+1. Det bör se ut ungefär som nedanstående kod: -  
 
    ```javascript
    var applicationConfig =
@@ -433,36 +433,33 @@ Du måste lägga till CIDR-formaterade block med adresser i panelen IP-begränsn
 
 1. Klicka på Spara
 
-## <a name="set-the-redirect-uris-for-the-azure-ad-b2c-frontend-app"></a>Ange omdirigerings-URI: er för Azure AD B2C frontend-appen
-1. Öppna bladet Azure AD B2C och gå till program registreringen för JavaScript-frontend-programmet
-1. Ange omdirigerings-URL: en till den som du antecknade när du tidigare konfigurerade den statiska platsens primära slut punkt ovan
+## <a name="set-the-redirect-uris-for-the-azure-ad-b2c-frontend-app"></a>Ange omdirigerings-URI:er för Azure AD B2C-klientdelsappen
+1. Öppna Azure AD B2C-bladet och navigera till programregistreringen för JavaScript-klientdelsprogrammet
+1. Ange omdirigerings-URL:en till den du noterade nedåt när du tidigare konfigurerade den statiska webbplatsens primära slutpunkt ovan
 
    > [!NOTE] 
-   > Den här konfigurationen leder till att en klient med klient dels programmet tar emot en åtkomsttoken med lämpliga anspråk från Azure AD B2C.
-   > SPA kommer att kunna lägga till detta som en Bearer-token i https-huvudet i anropet till Server dels-API: et.
-   > API Management validerar token, hastighets begränsnings anrop till slut punkten av prenumerantens nyckel, innan de skickas genom begäran till mottagnings-API: t för Azure function.
+   > Den här konfigurationen resulterar i att en klient för klienten för klientprogrammet tar emot en åtkomsttoken med lämpliga anspråk från Azure AD B2C.
+   > SPA kommer att kunna lägga till detta som en bärare token i https-huvudet i anropet till serverd API.
+   > API Management kommer att för validera token, rate-limit anrop till slutpunkten av prenumerantnyckeln, innan du skickar via begäran till den mottagande Azure Function API.
    > SPA kommer att återge svaret i webbläsaren.
 
-   > *Grattis, du har konfigurerat Azure AD B2C, Azure API Management Azure Functions, Azure App Service behörighet att arbeta med perfekt harmoniregeln!*
+   > *Grattis, du har konfigurerat Azure AD B2C, Azure API Management, Azure Functions, Azure App Service Authorization att fungera i perfekt harmoni!*
 
    > [!NOTE]
-   > Nu har vi en enkel app med en enkel säker API som vi testar.
+   > Nu har vi en enkel app med ett enkelt skyddat API, låt oss testa den.
 
-## <a name="test-the-client-application"></a>Testa klient programmet
-1. Öppna den exempel-App-URL som du antecknade från det lagrings konto som du skapade tidigare
-1. Klicka på "logga in" i det övre högra hörnet, så öppnas det Azure AD B2C registrera dig eller logga in i profilen.
-1. Efter inloggning i avsnittet "logga in som" på skärmen fylls det från ditt JWT.
-1. Klicka på "anropa webb-API" och uppdatera sidan med värdena som skickas tillbaka från ditt säkra API.
+## <a name="test-the-client-application"></a>Testa klientprogrammet
+1. Öppna exempelapp-URL:en som du noterade nere från lagringskontot som du skapade tidigare
+1. Klicka på "Logga in" i det övre högra hörnet, det här klicket kommer att dyka upp din Azure AD B2C registrera dig eller logga in profil.
+1. Post Logga in "Inloggad som" delen av skärmen kommer att fyllas i från din JWT.
+1. Klicka nu på "Ring webb-API", och du sidan ska uppdatera med de värden som skickas tillbaka från ditt säkra API.
 
 ## <a name="and-were-done"></a>Och vi är klara
-Stegen ovan kan anpassas och redige ras för att tillåta många olika användningar av Azure AD B2C med API Management.
+Stegen ovan kan anpassas och redigeras för att tillåta många olika användningsområden för Azure AD B2C med API Management.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [Azure Active Directory och OAuth 2.0](../active-directory/develop/authentication-scenarios.md).
-* Se fler [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API Management.
-* Andra sätt att skydda Server dels tjänsten finns i [ömsesidig certifikatautentisering](api-management-howto-mutual-certificates.md).
-* Överväg att använda Azure AD-Graph API för att tilldela anpassade anspråk och använda en API Management-princip för att verifiera att de finns i token.
-
-* [Skapa en API Management tjänst instans](get-started-create-service-instance.md).
-
+* Läs mer om [Azure Active Directory och OAuth2.0](../active-directory/develop/authentication-scenarios.md).
+* Kolla in fler [videor](https://azure.microsoft.com/documentation/videos/index/?services=api-management) om API Management.
+* Andra sätt att skydda backend-tjänsten finns i [Autentisering av ömsesidigt certifikat](api-management-howto-mutual-certificates.md).
+* [Skapa en API Management-tjänstinstans](get-started-create-service-instance.md).
 * [Hantera ditt första API](import-and-publish.md).

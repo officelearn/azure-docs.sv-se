@@ -1,6 +1,6 @@
 ---
-title: Användningsvillkor-Azure Active Directory | Microsoft Docs
-description: Kom igång med att använda Azure Active Directory användnings villkor för att presentera information till anställda eller gäster innan du får åtkomst.
+title: Användningsvillkor - Azure Active Directory | Microsoft-dokument
+description: Kom igång med Azure Active Directory-användningsvillkor för att presentera information för anställda eller gäster innan du får åtkomst.
 services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
@@ -11,50 +11,50 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dbd1d96cda88d500e16fff885dae03ebfa230f0
-ms.sourcegitcommit: 72c2da0def8aa7ebe0691612a89bb70cd0c5a436
+ms.openlocfilehash: a2f06a7c88a7c17f5f93201192664c2d4a97564e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/10/2020
-ms.locfileid: "79079895"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480971"
 ---
-# <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory användnings villkor
+# <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory användningsvillkor
 
-Användnings villkoren för Azure AD är en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. Den här artikeln beskriver hur du kommer igång med användnings villkoren.
+Azure AD användarvillkor ger en enkel metod som organisationer kan använda för att presentera information för slutanvändare. Den här presentationen gör att användare kan se relevanta ansvarsfriskrivningar för juridiska krav eller efterlevnadskrav. I den här artikeln beskrivs hur du kommer igång med användningsvillkor.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="overview-videos"></a>Översikt över videor
+## <a name="overview-videos"></a>Översikt videor
 
-Följande videoklipp ger en snabb överblick över användnings villkor.
+Följande video ger en snabb översikt över användningsvillkoren.
 
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
-Fler videor finns här:
-- [Distribuera användnings villkoren i Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
-- [Hur du distribuerar användnings villkoren i Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
+Fler videor finns i:
+- [Så här distribuerar du användningsvillkor i Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [Så här distribuerar du användningsvillkor i Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
-## <a name="what-can-i-do-with-terms-of-use"></a>Vad kan jag göra med användnings villkoren?
+## <a name="what-can-i-do-with-terms-of-use"></a>Vad kan jag göra med användarvillkoren?
 
-Användnings villkoren för Azure AD har följande funktioner:
+Azure AD-användningsvillkor har följande funktioner:
 
-- Kräv att medarbetare eller gäster accepterar dina användnings villkor innan de får åtkomst.
-- Kräv att medarbetare eller gäster accepterar dina användnings villkor på varje enhet innan du får åtkomst.
-- Kräv att medarbetare eller gäster accepterar dina användnings villkor enligt ett återkommande schema.
-- Kräv att medarbetare eller gäster accepterar dina användnings villkor innan säkerhets information registreras i Azure Multi-Factor Authentication (MFA).
-- Kräv att medarbetarna accepterar dina användnings villkor innan säkerhets information registreras i Azure AD självbetjäning för återställning av lösen ord (SSPR).
-- Visa allmänna användnings villkor för alla användare i din organisation.
-- Visa vissa användnings villkor baserat på ett användarattribut (t. ex. läkare jämfört med sjuksköterskor eller inhemska jämfört med internationella medarbetare, via [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md)).
-- Visa specifika användnings villkor vid åtkomst till program med höga affärs effekter, till exempel Salesforce.
-- Nuvarande användnings villkor på olika språk.
-- Lista med eller har inte accepterat dina användnings villkor.
-- Hjälpa uppfyller sekretessbestämmelser.
-- Visa en logg med villkor för användnings aktivitet för efterlevnad och granskning.
-- Skapa och hantera användnings villkor med hjälp av [Microsoft Graph API: er](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (för närvarande i för hands version).
+- Kräv att anställda eller gäster accepterar dina användarvillkor innan du får tillgång.
+- Kräv att anställda eller gäster accepterar dina användarvillkor på alla enheter innan du får tillgång.
+- Kräv att anställda eller gäster accepterar dina användarvillkor enligt ett återkommande schema.
+- Kräv att anställda eller gäster accepterar dina användarvillkor innan du registrerar säkerhetsinformation i Azure Multi-Factor Authentication (MFA).
+- Kräv att anställda accepterar dina användarvillkor innan du registrerar säkerhetsinformation i Azure AD-självbetjäningslösenordsåterställning (SSPR).
+- Presentera allmänna användningsvillkor för alla användare i organisationen.
+- Presentera specifika användningsvillkor baserat på ett användarattribut (t.ex. läkare jämfört med sjuksköterskor eller inhemska jämfört med internationella medarbetare, via [dynamiska grupper](../users-groups-roles/groups-dynamic-membership.md)).
+- Presentera specifika användningsvillkor när du använder program med hög påverkan, till exempel Salesforce.
+- Nuvarande användningsvillkor på olika språk.
+- Lista vem som har eller inte har accepterat dina användarvillkor.
+- Hjälp till att uppfylla sekretessregler.
+- Visa en logg över användningsvillkor för efterlevnad och granskning.
+- Skapa och hantera användningsvillkor med hjälp av [Microsoft Graph API:er](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (för närvarande i förhandsversion).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill använda och konfigurera användnings villkor för Azure AD måste du ha:
+Om du vill använda och konfigurera Azure AD-användningsvillkor måste du ha:
 
 - Azure AD Premium P1-, P2-, EMS E3- eller EMS E5-prenumeration.
    - Om du inte har en av de här prenumerationerna, kan du [hämta Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) eller [aktivera Azure AD Premium-utvärderingsversionen](https://azure.microsoft.com/trial/get-started-active-directory/).
@@ -65,192 +65,192 @@ Om du vill använda och konfigurera användnings villkor för Azure AD måste du
 
 ## <a name="terms-of-use-document"></a>Dokument med användningsvillkor
 
-Användnings villkoren för Azure AD använder PDF-formatet för att presentera innehåll. PDF-filen kan innehålla valfritt innehåll, som befintliga kontraktdokument, så att du kan samla in slutanvändaravtal under inloggningen. För användare på mobila enheter måste är den rekommenderade teckenstorleken i PDF-filen 24.
+Azure AD-användningsvillkor använder PDF-formatet för att presentera innehåll. PDF-filen kan innehålla valfritt innehåll, som befintliga kontraktdokument, så att du kan samla in slutanvändaravtal under inloggningen. För att stödja användare på mobila enheter är den rekommenderade teckenstorleken i PDF-filen 24 punkter.
 
-## <a name="add-terms-of-use"></a>Lägga till användningsvillkor
+## <a name="add-terms-of-use"></a>Lägg till användningsvillkor
 
-När du har slutfört användnings villkoren använder du följande procedur för att lägga till det.
+När du har slutfört användningsdokumentet använder du följande procedur för att lägga till det.
 
-1. Logga in på Azure som en Global administratör, säkerhetsadministratör eller administratör för villkorsstyrd åtkomst.
+1. Logga in på Azure som global administratör, säkerhetsadministratör eller administratör för villkorlig åtkomst.
 1. Gå till **användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
 
-   ![Villkorlig åtkomst – Användningsvillkor bladet](./media/terms-of-use/tou-blade.png)
+   ![Villkorlig åtkomst - Användningsvillkor blad](./media/terms-of-use/tou-blade.png)
 
 1. Klicka på **Nya villkor**.
 
-   ![Nytt användnings villkor för att ange dina användnings villkor](./media/terms-of-use/new-tou.png)
+   ![Nytt användningsfönster för att ange användningsvillkor](./media/terms-of-use/new-tou.png)
 
-1. I rutan **namn** anger du ett namn för de användnings villkor som ska användas i Azure Portal.
-1. I rutan **visnings namn** anger du en rubrik som användarna ser när de loggar in.
-1. För **användningsvillkor dokument**bläddrar du till dina slutliga villkor för användning av PDF-filen och väljer den.
-1. Välj språk för dina användnings villkors dokument. Via språkalternativet kan du ladda upp flera användningsvillkor, vart och ett med olika språk. Versionen av användningsvillkoren som en användare ser baseras på deras inställningar för webbläsaren.
-1. Om du vill att slutanvändarna ska kunna se användnings villkoren innan de godkänns, ställer du in **Kräv att användarna expanderar användnings villkoren** till **på**.
-1. Om du vill att slutanvändarna ska kunna acceptera dina användnings villkor på varje enhet som de ansluter till, ställer du in **Kräv att användare godkänner varje enhet** till **på**. Användare kan behöva installera ytterligare program om det här alternativet är aktiverat. Mer information finns i [användnings villkoren per enhet](#per-device-terms-of-use).
-1. Om du vill att användnings villkoren ska upphöra att gälla i ett schema anger du **förfallo datum för medgivanden** till **på**. När värdet på visas två ytterligare schemainställningar.
+1. I rutan **Namn** anger du ett namn för de användningsvillkor som ska användas i Azure-portalen.
+1. Ange en rubrik som användarna ser när de loggar in i rutan **Visningsnamn.**
+1. För **användningsvillkor dokument,** bläddra till dina slutliga användarvillkor PDF och välj den.
+1. Välj språk för ditt användningsdokument. Via språkalternativet kan du ladda upp flera användningsvillkor, vart och ett med olika språk. Versionen av användningsvillkoren som en användare ser baseras på deras inställningar för webbläsaren.
+1. Om du vill att slutanvändarna ska visa användningsvillkoren innan de accepteras anger du **Kräv att användarna utökar användningsvillkoren** till **På**.
+1. Om du vill att slutanvändarna ska acceptera dina användarvillkor på alla enheter som de använder från ställer du **in Kräv att användare samtycker på varje enhet** till **På**. Användare kan behöva installera ytterligare program om det här alternativet är aktiverat. Mer information finns i [Användarvillkoren per enhet](#per-device-terms-of-use).
+1. Om du vill upphöra att gälla villkor för användning samtycker på ett schema, ange **Expire samtycker** till **På**. När den är inställd på På visas ytterligare två schemainställningar.
 
-   ![Inställningar som upphör att gälla anger start datum, frekvens och varaktighet](./media/terms-of-use/expire-consents.png)
+   ![Förfalla inställningar för upphör att gälla för att ange startdatum, frekvens och varaktighet](./media/terms-of-use/expire-consents.png)
 
-1. Använd inställningarna för att **börja om från** och med **frekvensen** för att ange schemat för användnings villkor. I följande tabell visar resultatet för ett par exempel på inställningar:
+1. Använd **inställningarna För upphör att gälla och** **Frekvens** för att ange schemat för giltighetstid för användningsvillkor. I följande tabell visas resultatet för ett par exempelinställningar:
 
-   | Upphörandet startar den | Frequency | Resultat |
+   | Upphör att gälla från och med | Frequency | Resultat |
    | --- | --- | --- |
-   | Dagens datum  | Månadsvis | Från och med idag måste användarna godkänna användnings villkoren och sedan acceptera igen varje månad. |
-   | Datum i framtiden  | Månadsvis | Från och med idag måste användarna godkänna användnings villkoren. När det framtida datumet infaller medgivanden upphör att gälla och sedan måste användarna måste godkänna varje månad.  |
+   | Dagens datum  | Månadsvis | Från och med idag måste användarna acceptera användarvillkoren och sedan acceptera varje månad. |
+   | Datum i framtiden  | Månadsvis | Från och med idag måste användarna acceptera användarvillkoren. När det framtida datumet inträffar upphör medgivanden och sedan måste användarna accepteras igen varje månad.  |
 
-   Om du t. ex. ställer in sista giltighets datum till **1 januari** och frekvens till **månatlig**, så kan det uppstå förfallo datum för två användare:
+   Om du till exempel anger att förfalla från och med den **1 januari** och frekvensen till **Månadsvis,** är det så här förfallodatum kan inträffa för två användare:
 
-   | Användare | Först acceptera datum | Först går ut datum | Andra upphör att gälla datum | Tredje upphör att gälla datum |
+   | Användare | Första acceptera datum | Första förfallodatum | Andra utgångsdatum | Tredje utgångsdatum |
    | --- | --- | --- | --- | --- |
-   | Alice | 1 januari | Den 1 februari | 1 mars | Den 1 april |
-   | Bob | 15 jan | Den 1 februari | 1 mars | Den 1 april |
+   | Alice | 1 jan | 1 februari | 1 mars | Den 1 april |
+   | Bob | 15 jan | 1 februari | 1 mars | Den 1 april |
 
-1. Använd inställningen **tid innan godkännande krävs (dagar)** för att ange antalet dagar innan användaren måste godkänna användnings villkoren igen. På så sätt kan användarna att följa sitt eget schema. Om du till exempel ställer in varaktigheten på **30** dagar så är det hur förfallo datum kan uppstå för två användare:
+1. Använd inställningen **Varaktighet innan omacceptans kräver (dagar)** för att ange antalet dagar innan användaren måste acceptera användarvillkoren igen. Detta gör det möjligt för användare att följa sitt eget schema. Om du till exempel anger varaktigheten till **30** dagar kan du använda förfallodatum för två användare:
 
-   | Användare | Först acceptera datum | Först går ut datum | Andra upphör att gälla datum | Tredje upphör att gälla datum |
+   | Användare | Första acceptera datum | Första förfallodatum | Andra utgångsdatum | Tredje utgångsdatum |
    | --- | --- | --- | --- | --- |
-   | Alice | 1 januari | Och med 31 jan | Mar 2 | Den 1 april |
-   | Bob | 15 jan | Den 14 februari | 16 mars | Den 15 april |
+   | Alice | 1 jan | Den 31 januari | 2 mars | Den 1 april |
+   | Bob | 15 jan | Den 14 februari | Den 16 mars | Den 15 april |
 
-   Det går att använda **förfallna** **godkännanden och varaktighet innan omgodkännandet kräver (dagar)** inställningar tillsammans, men vanligt vis använder du en eller ett annat.
+   Det är möjligt att använda **godkännerna upphör att gälla** och Varaktighet **innan inställningarna för återacceptans kräver (dagar)** tillsammans, men vanligtvis använder du det ena eller det andra.
 
-1. Under **villkorlig åtkomst**använder du listan **tillämpa med princip mal len för villkorlig åtkomst** för att välja den mall som ska användas för användnings villkoren.
+1. Under **Villkorlig åtkomst**använder du listan **Framtvinga med principmall** för villkorlig åtkomst för att välja mallen för att framtvinga användningsvillkoren.
 
    ![Listruta för villkorlig åtkomst för att välja en principmall](./media/terms-of-use/conditional-access-templates.png)
 
    | Mall | Beskrivning |
    | --- | --- |
-   | **Åtkomst till molnappar för alla gäster** | En princip för villkorlig åtkomst skapas för alla gäster och molnappar. Den här principen påverkar Azure-portalen. När den har skapats kan du bli ombedd att logga ut och logga in. |
-   | **Åtkomst till molnappar för alla användare** | En princip för villkorlig åtkomst skapas för alla användare och alla molnappar. Den här principen påverkar Azure-portalen. När den har skapats, kommer du att behöva logga ut och logga in. |
-   | **Anpassad princip** | Välj de användare, grupper och appar som de här användnings villkoren ska tillämpas på. |
-   | **Skapa en princip för villkorlig åtkomst senare** | De här användnings villkoren visas i listan bevilja kontroll när du skapar en princip för villkorlig åtkomst. |
+   | **Tillgång till molnappar för alla gäster** | En policy för villkorlig åtkomst skapas för alla gäster och alla molnappar. Den här principen påverkar Azure-portalen. När detta har skapats kan du behöva logga ut och logga in. |
+   | **Åtkomst till molnappar för alla användare** | En princip för villkorlig åtkomst skapas för alla användare och alla molnappar. Den här principen påverkar Azure-portalen. När detta har skapats måste du logga ut och logga in. |
+   | **Anpassad princip** | Välj de användare, grupper och appar som de här användningsvillkoren ska tillämpas på. |
+   | **Skapa princip för villkorlig åtkomst senare** | De här användningsvillkoren visas i listan över bidragskontroll när du skapar en princip för villkorlig åtkomst. |
 
    >[!IMPORTANT]
-   >Princip kontroller för villkorlig åtkomst (inklusive användnings villkor) stöder inte tillämpning av tjänst konton. Vi rekommenderar att du undantar alla tjänst konton från principen för villkorlig åtkomst.
+   >Policykontroller för villkorlig åtkomst (inklusive användningsvillkor) stöder inte tvingande på tjänstkonton. Vi rekommenderar att du utesluter alla tjänstkonton från principen villkorlig åtkomst.
 
-    Anpassade principer för villkorlig åtkomst möjliggör detaljerade användnings villkor, ned till ett bestämt moln program eller en grupp med användare. Mer information finns i [snabb start: Kräv användnings villkor som ska accepteras innan du får åtkomst till molnappar](require-tou.md).
+    Principer för anpassad villkorlig åtkomst möjliggör detaljerade användningsvillkor, ned till ett visst molnprogram eller en viss grupp av användare. Mer information finns i [Snabbstart: Kräv att användningsvillkor accepteras innan du öppnar molnappar](require-tou.md).
 
 1. Klicka på **Skapa**.
 
-   Om du har valt en anpassad mall för villkorlig åtkomst visas en ny skärm där du kan skapa en anpassad princip för villkorlig åtkomst.
+   Om du har valt en anpassad villkorsstyrd åtkomstmall visas en ny skärm som gör att du kan skapa den anpassade principen för villkorlig åtkomst.
 
-   ![Nytt fönster för villkorlig åtkomst om du har valt mallen anpassad princip för villkorlig åtkomst](./media/terms-of-use/custom-policy.png)
+   ![Nytt villkorsanpassningsfönster om du väljer principmallen för anpassad princip för villkorlig åtkomst](./media/terms-of-use/custom-policy.png)
 
-   Nu bör du se dina nya användnings villkor.
+   Du bör nu se dina nya användarvillkor.
 
-   ![Nya användnings villkor visas i bladet användnings villkor](./media/terms-of-use/create-tou.png)
+   ![Nya användarvillkor som anges i användningsbladet](./media/terms-of-use/create-tou.png)
 
-## <a name="view-report-of-who-has-accepted-and-declined"></a>Visa rapport över vem som har godkänts och nekats
+## <a name="view-report-of-who-has-accepted-and-declined"></a>Visa rapport över vem som har accepterat och avböjt
 
-Bladet för användningsvillkor visar antalet användare som har godkänt och avböjt. De här räknarna och vilka som har accepterat/avböjt lagras under användnings villkoren.
-
-1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
-
-   ![Användningsvillkor bladet visar antalet användare som har accepterat och avböjt](./media/terms-of-use/view-tou.png)
-
-1. För användnings villkor klickar du på numren under **accepterad** eller **nekad** för att visa det aktuella läget för användare.
-
-   ![Rutan Användningsvillkor-fönster visar en lista över användare som har accepterat](./media/terms-of-use/accepted-tou.png)
-
-1. Om du vill visa historiken för en enskild användare klickar du på ellipsen ( **...** ) och sedan på **Visa historik**.
-
-   ![Visa snabb meny för historik för en användare](./media/terms-of-use/view-history-menu.png)
-
-   I fönstret Visa historik du ser en historik över alla de accepterar avböjningar och förfallodatum.
-
-   ![Visa historik fönstret listar historiken godkänner, avböjer och upphör Ande för en användare](./media/terms-of-use/view-history-pane.png)
-
-## <a name="view-azure-ad-audit-logs"></a>Öppna Azure AD-granskningsloggar
-
-Om du vill visa ytterligare aktivitet innehåller användnings villkoren för Azure AD gransknings loggar. Varje användar medgivande utlöser en händelse i gransknings loggarna som lagras i **30 dagar**. Du kan visa dessa loggar i portalen eller hämta dem som en CSV-fil.
-
-Du kommer igång med Azure AD granskningsloggar, Följ stegen nedan:
+Bladet för användningsvillkor visar antalet användare som har godkänt och avböjt. Dessa räknas och som accepterade / avböjt lagras under hela användarvillkoren.
 
 1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
-1. Välj ett användnings villkor.
+
+   ![Användarvillkor blad lista antalet användare visar har accepterat och minskat](./media/terms-of-use/view-tou.png)
+
+1. Om du vill använda användarvillkor klickar du på siffrorna under **Accepterad** eller **Avböjd** om du vill visa det aktuella tillståndet för användarna.
+
+   ![Villkor för användning samtycker rutan med en lista över de användare som har accepterat](./media/terms-of-use/accepted-tou.png)
+
+1. Om du vill visa historiken för en enskild användare klickar du på ellipsen (**...**) och sedan **på Visa historik**.
+
+   ![Snabbmeny för visa historik för en användare](./media/terms-of-use/view-history-menu.png)
+
+   I fönstret Vyhistorik visas en historik över alla accepterar, avböjningar och förfallodatum.
+
+   ![I fönstret Visa historik visas historiken accepterar, avböjer och upphör att gälla för en användare](./media/terms-of-use/view-history-pane.png)
+
+## <a name="view-azure-ad-audit-logs"></a>Visa Granskningsloggar för Azure AD
+
+Om du vill visa ytterligare aktivitet innehåller Azure AD-användningsvillkor granskningsloggar. Varje användarmedgivande utlöser en händelse i granskningsloggarna som lagras i **30 dagar**. Du kan visa dessa loggar i portalen eller hämta dem som en CSV-fil.
+
+Använd följande procedur för att komma igång med Azure AD-granskningsloggar:
+
+1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
+1. Välj ett användningsvillkor.
 1. Klicka på **Visa granskningsloggar**.
 
-   ![Användningsvillkor blad med alternativet Visa gransknings loggar markerat](./media/terms-of-use/audit-tou.png)
+   ![Villkor för användning blad med alternativet Visa granskningsloggar markerat](./media/terms-of-use/audit-tou.png)
 
-1. Granska skärmen på Azure AD kan du filtrera informationen med de tillhandahållna listorna som ska target specifik granskningslogginformation.
+1. På skärmen Azure AD-granskningsloggar kan du filtrera informationen med hjälp av de angivna listorna för att rikta in dig på specifik granskningslogginformation.
 
    Du kan också klicka på **Hämta** för att ladda ned informationen i en CSV-fil och använda den lokalt.
 
-   ![Skärm listans datum, mål princip, initierad av och aktivitet i gransknings loggar i Azure AD](./media/terms-of-use/audit-logs-tou.png)
+   ![Skärmlista för Azure AD-granskning loggar, målprincip, initierad av och aktivitet](./media/terms-of-use/audit-logs-tou.png)
 
-   Om du klickar på en logg visas ett fönster med information om ytterligare aktivitet.
+   Om du klickar på en logg visas en ruta med ytterligare aktivitetsinformation.
 
-   ![Aktivitets information för en logg med aktivitet, aktivitets status, initierad av, mål princip](./media/terms-of-use/audit-log-activity-details.png)
+   ![Aktivitetsinformation för en logg som visar aktivitet, aktivitetsstatus, initierad av, målprincip](./media/terms-of-use/audit-log-activity-details.png)
 
-## <a name="what-terms-of-use-looks-like-for-users"></a>Vilka användnings villkor ser ut för användarna
+## <a name="what-terms-of-use-looks-like-for-users"></a>Hur användningsvillkoren ser ut för användarna
 
-När ett användnings villkor har skapats och tillämpats kommer användare, som finns inom området, att se följande skärm under inloggningen.
+När ett användningsvillkor har skapats och verkställts ser användare, som är i omfånget, följande skärm under inloggningen.
 
-![Exempel användnings villkor som visas när en användare loggar in](./media/terms-of-use/user-tou.png)
+![Exempel på användningsvillkor som visas när en användare loggar in](./media/terms-of-use/user-tou.png)
 
-Användare kan visa användnings villkoren och, om det behövs, använda knappar för att zooma in och ut.
+Användare kan visa användningsvillkoren och vid behov använda knappar för att zooma in och ut.
 
-![Vy över användnings villkor med zoomnings knappar](./media/terms-of-use/zoom-buttons.png)
+![Visa användningsvillkor med zoomknappar](./media/terms-of-use/zoom-buttons.png)
 
-Följande skärm bild visar hur användnings villkoren ser ut på mobila enheter.
+Följande skärm visar hur användningsvillkoren ser ut på mobila enheter.
 
-![Exempel användnings villkor som visas när en användare loggar in på en mobil enhet](./media/terms-of-use/mobile-tou.png)
+![Exempel på användningsvillkor som visas när en användare loggar in på en mobil enhet](./media/terms-of-use/mobile-tou.png)
 
-Användarna behöver bara godkänna användnings villkoren en gång och de kommer inte att se användnings villkoren igen på efterföljande inloggningar.
+Användare behöver bara acceptera användarvillkoren en gång och de kommer inte att se användarvillkoren igen vid efterföljande inloggningar.
 
-### <a name="how-users-can-review-their-terms-of-use"></a>Hur användarna kan granska deras användnings villkor
+### <a name="how-users-can-review-their-terms-of-use"></a>Hur användare kan se över sina användarvillkor
 
-Användarna kan granska och se användnings villkoren som de har accepterat med hjälp av följande procedur.
+Användare kan granska och se de användarvillkor som de har accepterat med hjälp av följande procedur.
 
-1. Logga in på [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. Klicka på ditt namn i det övre högra hörnet och välj **profil**.
+1. Logga in [https://myapps.microsoft.com](https://myapps.microsoft.com)på .
+1. Klicka på ditt namn i det övre högra hörnet och välj **Profil**.
 
-   ![Webbplatsen för min Apps med användarens fönster öppen](./media/terms-of-use/tou14.png)
+   ![MyApps-webbplatsen med användarens fönsterruta öppen](./media/terms-of-use/tou14.png)
 
 1. Klicka på **Granska användningsvillkoren** på din profilsida.
 
-   ![Profil sida för en användare som visar länken gransknings villkor för användning](./media/terms-of-use/tou13a.png)
+   ![Profilsida för en användare som visar länken Granska användningsvillkor](./media/terms-of-use/tou13a.png)
 
 1. Därifrån kan du granska användningsvillkoren som du har accepterat.
 
-## <a name="edit-terms-of-use-details"></a>Redigera användnings villkors information
+## <a name="edit-terms-of-use-details"></a>Redigera användningsvillkor
 
-Du kan redigera viss information om användnings villkoren, men du kan inte ändra ett befintligt dokument. Följande procedur beskriver hur du redigerar detaljerna.
-
-1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
-1. Välj de användnings villkor som du vill redigera.
-1. Klicka på **Redigera villkor**.
-1. I Använd fönstret Redigera villkoren, byta namn, visningsnamn eller kräva att användarna expanderar värden.
-
-   Om det finns andra inställningar som du vill ändra, t. ex. PDF-dokument, kräver att användare godkänner varje enhet, upphör att gälla, varaktighet före godkännande eller princip för villkorlig åtkomst måste du skapa en ny användnings villkor.
-
-   ![Redigera användnings villkors fönstret som visar namn och visnings alternativ](./media/terms-of-use/edit-tou.png)
-
-1. Klicka på **Spara** för att spara ändringarna.
-
-   När du har sparat ändringarna behöver användarna inte acceptera dessa ändringar igen.
-
-## <a name="add-a-terms-of-use-language"></a>Lägg till ett språk för användnings villkor
-
-Följande procedur beskriver hur du lägger till ett språk för användnings villkor.
+Du kan redigera vissa information om användningsvillkoren, men du kan inte ändra ett befintligt dokument. I följande procedur beskrivs hur du redigerar informationen.
 
 1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
-1. Välj de användnings villkor som du vill redigera.
-1. I informations fönstret klickar du på fliken **språk** .
+1. Välj de användningsvillkor som du vill redigera.
+1. Klicka på **Redigera termer**.
+1. Ändra namn, visningsnamn eller kräva att användarna expanderar värden i fönstret Redigera användningsvillkor.
 
-   ![Användningsvillkor markerat och visar fliken språk i informations fönstret](./media/terms-of-use/languages-tou.png)
+   Om det finns andra inställningar som du vill ändra, till exempel PDF-dokument, kräver att användare samtycker på varje enhet, upphör att gälla, varaktighet före återacceptans eller policy för villkorlig åtkomst, måste du skapa ett nytt användningsvillkor.
+
+   ![Redigera användningstermer med namn- och expanderingsalternativ](./media/terms-of-use/edit-tou.png)
+
+1. Klicka på **Spara** om du vill spara ändringarna.
+
+   När du har sparat ändringarna behöver användarna inte acceptera ändringarna igen.
+
+## <a name="add-a-terms-of-use-language"></a>Lägga till ett villkor för användningsspråk
+
+I följande procedur beskrivs hur du lägger till ett användningsspråk.
+
+1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
+1. Välj de användningsvillkor som du vill redigera.
+1. Klicka på fliken **Språk** i informationsfönstret.
+
+   ![Valda användningsvillkor och fliken Språk i informationsfönstret](./media/terms-of-use/languages-tou.png)
 
 1. Klicka på **Lägg till språk**.
-1. Ladda upp din lokaliserade PDF-fil i Använd språk fönstret Lägg till villkor och Välj språk för.
+1. Ladda upp den lokaliserade PDF-filen och välj språk i fönstret Lägg till användningsvillkor.
 
-   ![Lägg till användnings villkors språk fönstret med alternativ för att överföra lokaliserade PDF-filer](./media/terms-of-use/language-add-tou.png)
+   ![Lägg till användningstermer med alternativ för att ladda upp lokaliserade PDF-filer](./media/terms-of-use/language-add-tou.png)
 
-1. Klicka på **Lägg till** för att lägga till språket.
+1. Klicka på **Lägg till** om du vill lägga till språket.
 
-## <a name="per-device-terms-of-use"></a>Användnings villkor per enhet
+## <a name="per-device-terms-of-use"></a>Användningsvillkor per enhet
 
-Inställningen **Kräv att användare samtycker till varje enhets** inställning gör det möjligt att kräva att slutanvändarna accepterar dina användnings villkor på varje enhet som de ansluter till från. Användaren kommer att behöva ansluta sina enheter i Azure AD. När enheten är ansluten används enhets-ID: t för att genomdriva användnings villkoren på varje enhet.
+**Med Kräv användarna att godkänna varje enhetsinställning** kan du kräva att slutanvändare accepterar dina användarvillkor på alla enheter de kommer åt från. Slutanvändaren måste registrera sin enhet i Azure AD. När enheten registreras används enhets-ID:t för att tillämpa användningsvillkoren på varje enhet.
 
-Här är en lista över plattformar som stöds och programvara.
+Här är en lista över de plattformar och program som stöds.
 
 > [!div class="mx-tableFixed"]
 > |  | iOS | Android | Windows 10 | Annat |
@@ -258,24 +258,24 @@ Här är en lista över plattformar som stöds och programvara.
 > | **Inbyggd app** | Ja | Ja | Ja |  |
 > | **Microsoft Edge** | Ja | Ja | Ja |  |
 > | **Internet Explorer** | Ja | Ja | Ja |  |
-> | **Chrome (med tillägget)** | Ja | Ja | Ja |  |
+> | **Chrome (med tillägg)** | Ja | Ja | Ja |  |
 
-Användnings villkoren per enhet har följande begränsningar:
+Användningsvillkoren per enhet har följande begränsningar:
 
-- En enhet kan endast kopplas till en klient.
+- En enhet kan bara anslutas till en klient.
 - En användare måste ha behörighet att ansluta till sin enhet.
 - Appen Intune-registrering stöds inte.
 - Azure AD B2B-användare stöds inte.
 
-Om användarens enhet inte är ansluten, visas ett meddelande om att de behöver för att ansluta sina enheter. Deras upplevelse blir beroende på plattform och programvara.
+Om användarens enhet inte är ansluten får de ett meddelande om att de måste ansluta till sin enhet. Deras erfarenhet kommer att vara beroende av plattformen och programvaran.
 
 ### <a name="join-a-windows-10-device"></a>Anslut en Windows 10-enhet
 
-Om en användare använder Windows 10 och Microsoft Edge får de ett meddelande som liknar följande för att [ansluta sina enheter](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
+Om en användare använder Windows 10 och Microsoft Edge får de ett meddelande som liknar följande för att [gå med i sin enhet](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
 
-![Windows 10 och Microsoft Edge – meddelande som anger att enheten måste registreras](./media/terms-of-use/per-device-win10-edge.png)
+![Windows 10 och Microsoft Edge - Meddelande om att enheten måste vara registrerad](./media/terms-of-use/per-device-win10-edge.png)
 
-Om de använder Chrome uppmanas de att installera [tillägg för Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Om de använder Chrome uppmanas de att installera [tillägget Windows 10-konton](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
 ### <a name="register-an-ios-device"></a>Registrera en iOS-enhet
 
@@ -287,109 +287,109 @@ Om en användare använder en Android-enhet uppmanas de att installera [Microsof
 
 ### <a name="browsers"></a>Webbläsare
 
-Om en användare använder webbläsaren som inte stöds, uppmanas de att använda en annan webbläsare.
+Om en användare använder webbläsare som inte stöds uppmanas de att använda en annan webbläsare.
 
-![Meddelande som anger att enheten måste vara registrerad, men webbläsaren stöds inte](./media/terms-of-use/per-device-browser-unsupported.png)
+![Meddelande om att enheten måste vara registrerad, men webbläsaren stöds inte](./media/terms-of-use/per-device-browser-unsupported.png)
 
-## <a name="delete-terms-of-use"></a>Ta bort användnings villkor
+## <a name="delete-terms-of-use"></a>Ta bort användningsvillkor
 
-Du kan ta bort gamla användnings villkor med hjälp av följande procedur.
+Du kan ta bort gamla användningsvillkor med hjälp av följande procedur.
 
 1. Logga in på Azure och gå till **Användningsvillkoren** på [https://aka.ms/catou](https://aka.ms/catou).
 1. Välj de användarvillkor du vill ta bort.
 1. Klicka på **Ta bort villkor**.
 1. På meddelandet som visas som frågar om du vill fortsätta klickar du **Ja**.
 
-   ![Meddelande som ber om bekräftelse för att ta bort användnings villkor](./media/terms-of-use/delete-tou.png)
+   ![Meddelande som ber om bekräftelse för att ta bort användningsvillkor](./media/terms-of-use/delete-tou.png)
 
-   Du bör inte längre se dina användnings villkor.
+   Du bör inte längre se dina användarvillkor.
 
-## <a name="deleted-users-and-active-terms-of-use"></a>Borttagna användare och aktiva användnings villkor
+## <a name="deleted-users-and-active-terms-of-use"></a>Borttagna användare och aktiva användningsvillkor
 
-Som standard är en borttagen användare i borttagen status i Azure AD i 30 dagar. Under den här perioden kan användaren återställas av en administratör om det behövs. Efter 30 dagar tas användaren bort permanent. En global administratör kan också använda Azure Active Directory-portalen för att uttryckligen och [permanent ta bort en användare som nyligen lagts till](../fundamentals/active-directory-users-restore.md) innan perioden är slut. En användare har tagits bort permanent, efterföljande data om användaren tas bort från de aktiva användnings villkoren. Granskningsinformation om borttagna användare finns kvar i spårningsloggen.
+Som standard är en borttagen användare i borttagen status i Azure AD i 30 dagar. Under den här perioden kan användaren återställas av en administratör om det behövs. Efter 30 dagar tas användaren bort permanent. Dessutom kan en global administratör, med hjälp av Azure Active Directory-portalen, uttryckligen [permanent ta bort en nyligen borttagen användare](../fundamentals/active-directory-users-restore.md) innan den tidsperioden har uppnåtts. En som en användare har tagits bort permanent, efterföljande data om den användaren tas bort från de aktiva användarvillkoren. Granskningsinformation om borttagna användare finns kvar i spårningsloggen.
 
 ## <a name="policy-changes"></a>Principändringar
 
-Principer för villkorlig åtkomst börjar gälla omedelbart. När detta händer börjar administratören Se ”sorgsna moln” eller ”Azure AD-tokenärenden”. Administratören måste logga ut och logga in igen för att uppfylla den nya principen.
+Principer för villkorlig åtkomst träder i kraft omedelbart. När detta inträffar börjar administratören se "sorgliga moln" eller "Azure AD-tokenproblem". Administratören måste logga ut och logga in igen för att uppfylla den nya principen.
 
 > [!IMPORTANT]
 > Användare inom området behöver logga ut och logga in för att uppfylla en ny princip om:
 >
-> - en princip för villkorlig åtkomst är aktive rad i användnings villkor
+> - en policy för villkorlig åtkomst är aktiverad på ett användningsvillkor
 > - eller andra användningsvillkor skapas
 
-## <a name="b2b-guests-preview"></a>B2B-gäster (förhandsversion)
+## <a name="b2b-guests-preview"></a>B2B-gäster (Preview)
 
-De flesta organisationer har en process på plats för sina anställda att godkänna sin organisations användnings villkor och sekretess policy. Men hur kan du ange samma medgivanden för Azure AD business-to-business (B2B) gästerna när de läggs via SharePoint eller team? Med villkorlig åtkomst och användnings villkor kan du genomdriva en princip direkt mot B2B-gäst användare. Under inbjudan till inlösen av inbjudan visas användaren användnings villkoren. Det här stödet förhandsvisas just nu.
+De flesta organisationer har en process på plats för sina anställda att samtycka till organisationens användarvillkor och sekretesspolicyer. Men hur kan du tillämpa samma medgivanden för Azure AD business-to-business (B2B) gäster när de läggs till via SharePoint eller Teams? Med villkorlig åtkomst och användarvillkor kan du tillämpa en policy direkt mot B2B-gästanvändare. Under inbjudningsflödet presenteras användaren med användningsvillkoren. Det här stödet är för närvarande i förhandsversion.
 
-Användningsvillkor visas bara när användaren har ett gäst konto i Azure AD. SharePoint Online har för närvarande en [ad hoc extern delnings funktion](/sharepoint/what-s-new-in-sharing-in-targeted-release) för att dela ett dokument eller en mapp som inte kräver att användaren har ett gäst konto. I det här fallet visas inte användnings villkoren.
+Användningsvillkor visas endast när användaren har ett gästkonto i Azure AD. SharePoint Online har för närvarande en [ad hoc extern delningsmottagare för](/sharepoint/what-s-new-in-sharing-in-targeted-release) att dela ett dokument eller en mapp som inte kräver att användaren har ett gästkonto. I det här fallet visas inte användningsvillkor.
 
-![Fönstret användare och grupper – fliken inkludera med alternativet alla gäst användare har marker ATS](./media/terms-of-use/b2b-guests.png)
+![Fönstret Användare och grupper – fliken Inkludera med alternativet Alla gästanvändare markerat](./media/terms-of-use/b2b-guests.png)
 
-## <a name="support-for-cloud-apps-preview"></a>Stöd för appar i molnet (förhandsversion)
+## <a name="support-for-cloud-apps-preview"></a>Stöd för molnappar (förhandsversion)
 
-Villkor för användning kan användas för olika molnappar, t.ex Azure Information Protection och Microsoft Intune. Det här stödet förhandsvisas just nu.
+Användningsvillkor kan användas för olika molnappar, till exempel Azure Information Protection och Microsoft Intune. Det här stödet är för närvarande i förhandsversion.
 
 ### <a name="azure-information-protection"></a>Azure Information Protection
 
-Du kan konfigurera en princip för villkorlig åtkomst för Azure Information Protection-appen och kräva användnings villkor när en användare kommer åt ett skyddat dokument. Detta utlöser ett användnings villkor före en användare som har åtkomst till ett skyddat dokument för första gången.
+Du kan konfigurera en princip för villkorlig åtkomst för Azure Information Protection-appen och kräva ett användningsvillkor när en användare kommer åt ett skyddat dokument. Detta utlöser ett användningsvillkor innan en användare öppnar ett skyddat dokument för första gången.
 
-![Fönstret Cloud Apps med Microsoft Azure Information Protection app valt](./media/terms-of-use/cloud-app-info-protection.png)
+![Fönstret Molnappar med Microsoft Azure Information Protection-appen markerad](./media/terms-of-use/cloud-app-info-protection.png)
 
 ### <a name="microsoft-intune-enrollment"></a>Microsoft Intune-registrering
 
-Du kan konfigurera en princip för villkorlig åtkomst för appen för Microsoft Intune registrering och kräva användnings villkor innan du registrerar en enhet i Intune. Mer information finns i avsnittet om [att välja rätt villkor för din organisations blogg inlägg](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+Du kan konfigurera en princip för villkorlig åtkomst för Microsoft Intune-registreringsappen och kräva ett användningsvillkor innan en enhet i Intune registreringsvillkor. Mer information finns i Läs [välja rätt villkor lösning för din organisation blogginlägg](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
-![Fönstret Cloud Apps med Microsoft Intune App valt](./media/terms-of-use/cloud-app-intune.png)
+![Fönstret Molnappar med Microsoft Intune-appen markerad](./media/terms-of-use/cloud-app-intune.png)
 
 > [!NOTE]
-> Appen Intune-registrering stöds inte för [användnings villkor per enhet](#per-device-terms-of-use).
+> Appen Intune-registrering stöds inte för [användningsvillkor per enhet](#per-device-terms-of-use).
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Hur ser jag om/när en användare har godkänt användningsvillkoren?**<br />
-A: Klicka på det antal som **godkänns**på bladet användningsvillkor. Du kan också visa eller söka efter accept-aktiviteten i Azure AD granskningsloggar. Mer information finns i Visa en rapport över vem som har accepterat och avböjt och [Visa Azure AD-gransknings loggar](#view-azure-ad-audit-logs).
+S: Klicka på numret under **Accepterad**på användningsbladet. Du kan också visa eller söka i acceptera-aktiviteten i Azure AD-granskningsloggarna. Mer information finns i Visa rapport över vem som har accepterat och avböjt och [Visa Granskningsloggar](#view-azure-ad-audit-logs)för Azure AD .
 
 **F: Hur länge lagras informationen?**<br />
-A: användaren räknar med användnings villkoren och vem som accepterade/avböjde lagras under användnings villkoren. Azure AD-granskningen loggar lagras i 30 dagar.
+S: Användaren räknas i användarvillkoren rapport och som accepterade / avböjt lagras under hela användarvillkoren. Azure AD-granskningsloggarna lagras i 30 dagar.
 
-**F: Varför ser jag ett annat antal medgivanden i användnings villkoren för Azure AD i gransknings loggarna?**<br />
-S: rapport användnings villkoren lagras under de användnings villkor som används, medan Azure AD audit-loggarna lagras i 30 dagar. Användnings villkors rapporten visar också endast användarens aktuella tillstånds tillstånd. Om en användare t. ex. avböjer och sedan accepterar, visar användnings villkoren endast den användaren accepterar. Om du vill se historiken kan du använda Azure AD granskningsloggar.
+**F: Varför ser jag ett annat antal medgivanden i användningsrapporten jämfört med Azure AD-granskningsloggarna?**<br />
+S: Användningsanspråksrapporten lagras under den livstid som används, medan Azure AD-granskningsloggarna lagras i 30 dagar. I användningsbeskrivningsrapporten visas också bara användarnas aktuella samtyckestillstånd. Om en användare till exempel avböjer och sedan accepterar, visar användarvillkoren endast att användaren accepterar. Om du behöver se historiken kan du använda Azure AD-granskningsloggarna.
 
-**F: om jag redigerar informationen för ett användnings villkor måste användarna godkänna det igen?**<br />
-A: Nej, om en administratör redigerar informationen för ett användnings villkor (namn, visnings namn, Kräv att användare expanderar eller lägger till ett språk) behöver inte användare godkänna de nya villkoren igen.
+**F: Om jag redigerar informationen för ett användningsvillkor, kräver det att användarna accepterar igen?**<br />
+S: Nej, om en administratör redigerar informationen för ett användningsvillkor (namn, visningsnamn, kräver att användarna expanderar eller lägger till ett språk) kräver den inte att användarna ska acceptera de nya termerna igen.
 
-**F: kan jag uppdatera befintliga användnings villkors dokument?**<br />
-A: för närvarande kan du inte uppdatera ett befintligt dokument med användnings villkor. Om du vill ändra ett användar villkor för användning måste du skapa en ny användnings villkors instans.
+**F: Kan jag uppdatera ett befintligt användningsdokument?**<br />
+S: För närvarande kan du inte uppdatera ett befintligt användningsdokument. Om du vill ändra ett användningsvillkor måste du skapa en ny användningstermer.
 
-**F: om hyperlänkarna finns i användnings villkoren för PDF-dokumentet, kommer användarna att kunna Klicka på dem?**<br />
-A: Ja, slutanvändarna kan välja hyperlänkar till ytterligare sidor, men länkar till avsnitt i dokumentet stöds inte.
+**F: Om hyperlänkar är i termer av användning PDF-dokument, kommer slutanvändarna att kunna klicka på dem?**<br />
+S: Ja, slutanvändare kan välja hyperlänkar till ytterligare sidor, men länkar till avsnitt i dokumentet stöds inte.
 
 **F: Kan användningsvillkor ha stöd för flera språk?**<br />
-S: Ja. För närvarande finns det 108 olika språk som en administratör kan konfigurera för ett enda användnings villkor. En administratör kan ladda upp flera PDF-dokument och tagga dessa dokument med ett motsvarande språk (upp till 108). När slutanvändarna loggar in tittar vi på deras inställningar för webbläsarens språk och visar det matchande dokumentet. Om det inte finns någon matchning, visas standard dokumentet, vilket är det första dokument som överförs.
+S: Ja. För närvarande finns det 108 olika språk som en administratör kan konfigurera för en enda användningsvillkor. En administratör kan ladda upp flera PDF-dokument och tagga dessa dokument med ett motsvarande språk (upp till 108). När slutanvändare loggar in tittar vi på deras språkinställningar för webbläsaren och visar det matchande dokumentet. Om det inte finns någon matchning visar vi standarddokumentet, som är det första dokumentet som överförs.
 
 **F: När tillämpas användningsvillkoren?**<br />
 S: Användningsvillkoren tillämpas under inloggningen.
 
 **F: Vilka program kan jag rikta användningsvillkor mot?**<br />
-A: du kan skapa en princip för villkorlig åtkomst i företags program med modern autentisering. Mer information finns i [enterprise applications](./../manage-apps/view-applications-portal.md) (företagsprogram).
+S: Du kan skapa en princip för villkorlig åtkomst för företagsprogram med hjälp av modern autentisering. Mer information finns i [enterprise applications](./../manage-apps/view-applications-portal.md) (företagsprogram).
 
 **F: Kan jag lägga till flera användningsvillkor till en viss användare eller app?**<br />
-A: Ja, genom att skapa flera principer för villkorlig åtkomst som riktar sig mot dessa grupper eller program. Om en användare befinner sig inom omfånget för flera användnings villkor godkänner de ett användnings villkor i taget.
+S: Ja, genom att skapa flera principer för villkorlig åtkomst som riktar sig till dessa grupper eller program. Om en användare omfattas av flera användningsvillkor accepterar de ett användningsvillkor åt gången.
 
 **F: Vad händer om en användare nekar användningsvillkoren?**<br />
-S: Användare blockeras från åtkomst till programmet. Användaren behöver logga in igen och acceptera villkoren för att få åtkomst.
+S: Användare blockeras från åtkomst till programmet. Användaren måste logga in igen och acceptera villkoren för att få åtkomst.
 
-**F: är det möjligt att ta emot användnings villkor som tidigare har accepterats?**<br />
-A: du kan [Granska tidigare godkända](#how-users-can-review-their-terms-of-use)användnings villkor, men för närvarande finns det inget sätt att ta emot.
+**F: Är det möjligt att acceptera ett användningsvillkor som tidigare accepterats?**<br />
+S: Du kan [granska tidigare accepterade användarvillkor](#how-users-can-review-their-terms-of-use), men för närvarande finns det inte ett sätt att unaccept.
 
-**F: Vad händer om jag också använder Intune-villkor?**<br />
-A: om du har konfigurerat både användnings villkoren för Azure AD och användar villkoren för [Intune](/intune/terms-and-conditions-create)måste användaren godkänna båda. Mer information finns i avsnittet [välja rätt lösning för din organisations blogg inlägg](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+**F: Vad händer om jag också använder Intunes villkor?**<br />
+S: Om du har konfigurerat både Azure AD-användarvillkor och [Intune-villkor](/intune/terms-and-conditions-create)måste användaren acceptera båda. Mer information finns i lösningen [Välja rätt villkor för ditt organisations blogginlägg](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
-**F: vilka slut punkter används vid användnings användnings tjänsten för autentisering?**<br />
-A: Användningsvillkor använder följande slut punkter för autentisering: https://tokenprovider.termsofuse.identitygovernance.azure.com och https://account.activedirectory.windowsazure.com. Om din organisation har en lista över tillåtna URL: er för registrering måste du lägga till dessa slut punkter i listan över tillåtna platser, tillsammans med Azure AD-slutpunkter för inloggning.
+**F: Vilka slutpunkter används användarvillkoren för autentisering?**<br />
+S: Användningsvillkoren använder följande slutpunkter för https://tokenprovider.termsofuse.identitygovernance.azure.com https://account.activedirectory.windowsazure.comautentisering: och . Om din organisation har en tillåt lista över webbadresser för registrering måste du lägga till dessa slutpunkter i listan över tillåtna enheter, tillsammans med Azure AD-slutpunkterna för inloggning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabb start: Kräv användnings villkor för att godkännas innan du får åtkomst till molnappar](require-tou.md)
-- [Metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md)
+- [Snabbstart: Kräv att användningsvillkor accepteras innan du öppnar molnappar](require-tou.md)
+- [Metodtips för villkorlig åtkomst i Azure Active Directory](best-practices.md)

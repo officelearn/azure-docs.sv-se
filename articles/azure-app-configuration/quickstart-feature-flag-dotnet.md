@@ -1,6 +1,6 @@
 ---
-title: Snabb start för att lägga till funktions flaggor i .NET Framework appar | Microsoft Docs | Microsoft Docs
-description: En snabb start för att lägga till funktions flaggor i .NET Framework appar och hantera dem i Azure App konfiguration
+title: Snabbstart för att lägga till funktionsflaggor i .NET Framework-appar | Microsoft Dokument | Microsoft-dokument
+description: En snabbstart för att lägga till funktionsflaggor i .NET Framework-appar och hantera dem i Azure App-konfiguration
 services: azure-app-configuration
 documentationcenter: ''
 author: lisaguthrie
@@ -15,46 +15,46 @@ ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
 ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77619327"
 ---
-# <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Snabb start: Lägg till funktions flaggor i en .NET Framework app
+# <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Snabbstart: Lägga till funktionsflaggor i en .NET Framework-app
 
-I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framework-app för att skapa en slut punkt till slut punkts implementering av funktions hantering. Du kan använda app Configuration service för att centralt lagra alla funktions flaggor och kontrol lera deras tillstånd. 
+I den här snabbstarten införlivar du Azure App-konfiguration i en .NET Framework-app för att skapa en implementering från slutna till. Du kan använda tjänsten Appkonfiguration för att centralt lagra alla dina funktionsflaggor och styra deras tillstånd. 
 
-Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå .NET-konfigurations systemet. De integreras sömlöst med app-konfigurationen via sin .NET-Konfigurationsprovider.
+.NET-funktionshanteringsbiblioteken utökar ramverket med omfattande stöd för funktionsflagga. Dessa bibliotek är byggda ovanpå .NET-konfigurationssystemet. De integreras sömlöst med App-konfiguration via .NET-konfigurationsprovidern.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+- Azure-prenumeration - [skapa en gratis](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4,8](https://dotnet.microsoft.com/download)
+- [.NET-ramverket 4,8](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
+## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **funktions hanteraren** >  **+ Lägg** till för att lägga till en funktions flagga som kallas `Beta`.
+6. Välj **Funktionshanteraren** > **+Lägg** till `Beta`om du vill lägga till en funktionsflagga med namnet .
 
     > [!div class="mx-imgBorder"]
-    > ![aktivera funktions flagga med namnet beta](media/add-beta-feature-flag.png)
+    > ![Aktivera funktionsflagga med namnet Beta](media/add-beta-feature-flag.png)
 
-    Lämna `label` odefinierat för tillfället.
+    Lämna `label` odefinierad för tillfället.
 
 ## <a name="create-a-net-console-app"></a>Skapa en .NET-konsolapp
 
-1. Starta Visual Studio och välj **fil** > **nytt** > **projekt**.
+1. Starta Visual Studio och välj **Arkiv** > **Nytt** > **Projekt**.
 
-1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)** . Klicka på **Next**.
+1. I **Skapa ett nytt projekt**filtrerar du på **konsolprojekttypen** och klickar på Console App **(.NET Framework).** Klicka på **Nästa**.
 
-1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4,8** eller högre. Klicka på **Skapa**.
+1. Ange ett projektnamn **i Konfigurera det nya projektet.** Under **Ram**väljer du **.NET Framework 4.8** eller senare. Klicka på **Skapa**.
 
-## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
+## <a name="connect-to-an-app-configuration-store"></a>Ansluta till ett appkonfigurationsarkiv
 
-1. Högerklicka på projektet och välj **Hantera NuGet-paket**. På fliken **Bläddra** söker du och lägger till följande NuGet-paket i projektet. Om du inte hittar dem markerar du kryss rutan **Inkludera för hands version** .
+1. Högerklicka på projektet och välj **Hantera NuGet-paket**. Sök och lägg till följande NuGet-paket på fliken **Bläddra** i. Om du inte hittar dem markerar du kryssrutan **Inkludera förhandsversion.**
 
     ```
     Microsoft.Extensions.DependencyInjection
@@ -62,7 +62,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd
     Microsoft.FeatureManagement
     ```
 
-1. Öppna *program.cs* och Lägg till följande-uttryck:
+1. Öppna *Program.cs* och lägg till följande satser:
 
     ```csharp
     using Microsoft.Extensions.DependencyInjection;
@@ -71,7 +71,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd
     using Microsoft.FeatureManagement;
     ```
 
-1. Uppdatera `Main`-metoden för att ansluta till app-konfigurationen, och ange alternativet `UseFeatureFlags` så att funktions flaggor hämtas. Visa sedan ett meddelande om funktions flaggan `Beta` är aktive rad.
+1. Uppdatera `Main` metoden för att ansluta till `UseFeatureFlags` appkonfiguration och ange alternativet så att funktionsflaggor hämtas. Visa sedan ett `Beta` meddelande om funktionsflaggan är aktiverad.
 
     ```csharp
         public static async Task Main(string[] args)
@@ -103,7 +103,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd
 
 ## <a name="build-and-run-the-app-locally"></a>Skapa och köra appen lokalt
 
-1. Ange en miljö variabel med namnet **ConnectionString** till anslutnings strängen för appens konfigurations lager. Om du använder kommando tolken i Windows kör du följande kommando:
+1. Ange en miljövariabel med namnet **ConnectionString** till anslutningssträngen i appkonfigurationsarkivet. Om du använder kommandotolken i Windows kör du följande kommando:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -111,11 +111,11 @@ Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-1. Starta om Visual Studio om du vill att ändringen ska börja gälla. 
+1. Starta om Visual Studio så att ändringen kan börja gälla. 
 
-1. Tryck på Ctrl + F5 för att skapa och köra-konsol programmet.
+1. Tryck på Ctrl + F5 för att skapa och köra konsolappen.
 
-    ![App med funktions flagga aktive rad](./media/quickstarts/dotnet-app-feature-flag.png)
+    ![App med funktionsflagga aktiverad](./media/quickstarts/dotnet-app-feature-flag.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -123,7 +123,7 @@ Biblioteken för .NET-funktions hantering utökar ramverket med omfattande stöd
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en funktions flagga i app-konfigurationen och använt den med en .NET Framework-konsol-app. Fortsätt till nästa självstudie om du vill veta mer om hur du uppdaterar funktions flaggor och andra konfigurations värden dynamiskt utan att starta om programmet.
+I den här snabbstarten skapade du en funktionsflagga i Appkonfiguration och använde den med en .NET Framework-konsolapp. Om du vill veta hur du dynamiskt uppdaterar funktionsflaggor och andra konfigurationsvärden utan att starta om programmet fortsätter du till nästa självstudiekurs.
 
 > [!div class="nextstepaction"]
 > [Aktivera dynamisk konfiguration](./enable-dynamic-configuration-dotnet.md)

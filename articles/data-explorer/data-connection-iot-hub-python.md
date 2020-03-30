@@ -1,6 +1,6 @@
 ---
-title: Skapa en IoT Hub data anslutning för Azure Datautforskaren med hjälp av python
-description: I den här artikeln får du lära dig hur du skapar en IoT Hub data anslutning för Azure Datautforskaren med hjälp av python.
+title: Skapa en IoT Hub-dataanslutning för Azure Data Explorer med hjälp av Python
+description: I den här artikeln får du lära dig hur du skapar en IoT Hub-dataanslutning för Azure Data Explorer med hjälp av Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,43 +8,43 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.openlocfilehash: 76c8ca24882f465bf2a973dc59736745178fc61f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77669530"
 ---
-# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Skapa en IoT Hub data anslutning för Azure Datautforskaren med hjälp av python (för hands version)
+# <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Skapa en IoT Hub-dataanslutning för Azure Data Explorer med hjälp av Python (förhandsversion)
 
 > [!div class="op_single_selector"]
-> * [Portalen](ingest-data-iot-hub.md)
+> * [Portal](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager-mall](data-connection-iot-hub-resource-manager.md)
 
-I den här artikeln skapar du en IoT Hub data anslutning för Azure Datautforskaren med hjälp av python. Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Datautforskaren erbjuder inmatning, eller data inläsning från Event Hubs, IoT-hubbar och blobbar skrivna till BLOB-behållare.
+I den här artikeln skapar du en IoT Hub-dataanslutning för Azure Data Explorer med hjälp av Python. Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning, eller datainläsning, från eventhubbar, IoT-hubbar och blobbar skrivna till blob-behållare.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4 +](https://www.python.org/downloads/).
+* [Python 3.4+](https://www.python.org/downloads/).
 
 * [Ett kluster och en databas](create-cluster-database-python.md).
 
-* [Tabell-och kolumn mappning](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+* [Tabell- och kolumnmappning](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
 
-* [Databas-och tabell principer](database-table-policies-python.md) (valfritt).
+* [Databas- och tabellprinciper](database-table-policies-python.md) (valfritt).
 
-* [En IoT Hub med en princip för delad åtkomst konfigurerad](ingest-data-iot-hub.md#create-an-iot-hub).
+* [En IoT-hubb med en princip för delad åtkomst konfigurerad](ingest-data-iot-hub.md#create-an-iot-hub).
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 
 [!INCLUDE [data-explorer-authentication](../../includes/data-explorer-authentication.md)]
 
-## <a name="add-an-iot-hub-data-connection"></a>Lägg till en IoT Hub data anslutning 
+## <a name="add-an-iot-hub-data-connection"></a>Lägga till en IoT Hub-dataanslutning 
 
-I följande exempel visas hur du lägger till en IoT Hub data anslutning program mässigt. Se [ansluta Azure datautforskaren-tabellen till IoT Hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) för att lägga till en data anslutning för IoT Hub med hjälp av Azure Portal.
+I följande exempel visas hur du lägger till en IoT Hub-dataanslutning programmässigt. Se [ansluta Azure Data Explorer-tabellen till IoT Hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) för att lägga till en Iot Hub-dataanslutning med Azure-portalen.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -88,20 +88,20 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 
 |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Även känt som katalog-ID.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Det prenumerations-ID som du använder för att skapa resurser.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som har åtkomst till resurser i din klient organisation.|
-| client_secret | *xxxxxxxxxxxxxx* | Klient hemligheten för programmet som har åtkomst till resurser i din klient organisation. |
-| resource_group_name | *testrg* | Namnet på resurs gruppen som innehåller klustret.|
-| cluster_name | *mykustocluster* | Namnet på klustret.|
-| database_name | *mykustodatabase* | Namnet på mål databasen i klustret.|
-| data_connection_name | *myeventhubconnect* | Det önskade namnet för din data anslutning.|
-| table_name | *StormEvents* | Namnet på mål tabellen i mål databasen.|
-| mapping_rule_name | *StormEvents_CSV_Mapping* | Namnet på kolumn mappningen som är relaterad till mål tabellen.|
-| data_format | *SKV* | Meddelandets data format.|
-| iot_hub_resource_id | *Resurs-ID* | Resurs-ID för din IoT-hubb som innehåller data för inmatning.|
-| shared_access_policy_name | *iothubforread* | Namnet på den delade åtkomst principen som definierar behörigheterna för enheter och tjänster som ska anslutas till IoT Hub. |
-| consumer_group | *$Default* | Konsument gruppen för händelsehubben.|
-| location | *USA, centrala* | Platsen för data anslutnings resursen.|
+| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Ditt klient-ID. Kallas även katalog-ID.|
+| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Prenumerations-ID som du använder för att skapa resurser.|
+| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Klient-ID för programmet som kan komma åt resurser i din klient.|
+| client_secret | *xxxxxxxxxxxxxx* | Klienthemligheten för programmet som kan komma åt resurser i din klientorganisation. |
+| resource_group_name | *testrg* | Namnet på resursgruppen som innehåller klustret.|
+| cluster_name | *mykustocluster (en)* | Namnet på klustret.|
+| database_name | *mykustodatabas* | Namnet på måldatabasen i klustret.|
+| data_connection_name | *myeventhubconnect* | Önskat namn på din dataanslutning.|
+| Table_name | *StormEvents* | Namnet på måltabellen i måldatabasen.|
+| mapping_rule_name | *StormEvents_CSV_Mapping* | Namnet på kolumnmappningen som är relaterad till måltabellen.|
+| data_format | *Csv* | Meddelandets dataformat.|
+| iot_hub_resource_id | *Resurs-ID* | Resurs-ID:et för IoT-hubben som innehåller data för inmatning.|
+| shared_access_policy_name | *iothubforread* | Namnet på principen för delad åtkomst som definierar behörigheter för enheter och tjänster att ansluta till IoT Hub. |
+| consumer_group | *$Default* | Konsumentgruppen för din händelsehubb.|
+| location | *USA, centrala* | Platsen för dataanslutningsresursen.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

@@ -1,6 +1,6 @@
 ---
-title: Distributionshanteraren för Azure Site Recovery för katastrof återställning i VMware
-description: Läs om Distributionshanteraren för Azure Site Recovery för haveri beredskap för virtuella VMware-datorer till Azure.
+title: Azure Site Recovery Deployment Planner för VMware-haveriberedskap
+description: Lär dig mer om Azure Site Recovery Deployment Planner för haveriberedskap av virtuella datorer med VMware till Azure.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: mayg
 ms.openlocfilehash: 70d84516e2d7a42b1c6a3714d9060bedf6535f58
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79366304"
 ---
-# <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Om Distributionshanteraren för Azure Site Recovery för VMware till Azure
+# <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Om Azure Site Recovery Deployment Planner för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.
 
 ## <a name="overview"></a>Översikt
@@ -41,8 +41,8 @@ Du kan se följande information i verktyget:
 
 **Krav på infrastruktur för Azure**
 
-* Krav för lagrings typ (standard eller Premium lagring) för varje virtuell dator
-* Totalt antal standard-och Premium lagrings konton som ska konfigureras för replikering (inklusive cache Storage-konton)
+* Lagringstyp (standard- eller premiumlagring) krav för varje virtuell dator
+* Totalt antal standard- och premiumlagringskonton som ska ställas in för replikering (inkluderar cachelagringskonton)
 * Namnförslag för lagringskonton baserade på riktlinjer för Storage
 * Antalet Azure-kärnor som ska etableras innan redundanstest eller redundans för prenumerationen
 * Den rekommenderade storleken på den virtuella Azure-datorn för varje lokal virtuell dator
@@ -52,7 +52,7 @@ Du kan se följande information i verktyget:
 
 **Beräknad kostnad för haveriberedskap till Azure**
 * Uppskattad total kostnad för haveriberedskap till Azure: databearbetning, lagring, nätverk och Site Recovery-licenskostnader
-* Detaljerad analys av faktiska kostnader per virtuell dator
+* Detaljerad analys av kostnader per virtuell dator
 
 
 >[!IMPORTANT]
@@ -60,24 +60,24 @@ Du kan se följande information i verktyget:
 >Eftersom användningen troligtvis ökar med tiden utförs alla föregående verktygsberäkningar med ett antagande om en 30-procentig tillväxt för arbetsbelastningen. Beräkningarna använder också ett 95-procentigt percentilvärde för alla profileringsmått, t.ex. skrivbar IOPS och omsättning. Både tillväxtfaktorn och percentilberäkningen kan konfigureras. Om du vill veta mer om tillväxtfaktor, se avsnittet ”Överväganden för tillväxtfaktorer”. Mer information om percentilvärdet finns i avsnittet ”Percentilvärde som används för beräkningen”.
 >
 
-## <a name="support-matrix"></a>Supportmatris
+## <a name="support-matrix"></a>Stödmatris
 
 | | **VMware till Azure** |**Hyper-V till Azure**|**Azure till Azure**|**Hyper-V till sekundär plats**|**VMware till sekundär plats**
 --|--|--|--|--|--
-Scenarier som stöds |Ja|Ja|Nej|Ja*|Nej
-Version som stöds | vCenter 6,7, 6,5, 6,0 eller 5,5| Windows Server 2016, Windows Server 2012 R2 | Ej tillämpligt |Windows Server 2016, Windows Server 2012 R2|Ej tillämpligt
+Scenarier som stöds |Ja|Ja|Inga|Ja*|Inga
+Version som stöds | vCenter 6.7, 6.5, 6.0 eller 5.5| Windows Server 2016, Windows Server 2012 R2 | Ej tillämpligt |Windows Server 2016, Windows Server 2012 R2|Ej tillämpligt
 Konfiguration som stöds|vCenter, ESXi| Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|Hyper-V-kluster, Hyper-V-värd|Ej tillämpligt|
 Antalet servrar som kan profileras per körningsinstans av Distributionshanteraren för Site Recovery |En enda (virtuella datorer som hör till en vCenter-server eller en ESXi-server kan profileras samtidigt)|Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt |Flera (virtuella datorer över flera värdar eller värdkluster kan profileras samtidigt)| Ej tillämpligt
 
-\* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner. Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
+* Verktyget är främst avsett för haveriberedskapsscenariot Hyper-V till Azure. För haveriberedskap från Hyper-V till sekundär plats kan det bara användas till att förstå rekommendationer för källsidan, till exempel nätverksbandbredd som krävs, ledigt lagringsutrymme som krävs på varje Hyper-V-källserver samt inledande batchnummer för replikering och batchdefinitioner. Ignorera Azure-rekommendationer och kostnader i rapporten. Åtgärden för att hämta dataflödet gäller dessutom inte för haveriberedskapsscenarion från Hyper-V till sekundär plats.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Verktyget har två huvudfaser: profilering och rapportgenerering. Det finns också ett tredje alternativ som endast beräknar dataflödet. Kraven för servern som profilering och dataflödesmätning initieras från visas i följande tabell.
 
 | Serverkrav | Beskrivning|
 |---|---|
-|Profilering och mätning av dataflöde| <ul><li>Operativsystem: Windows Server 2016 eller Windows Server 2012 R2<br>(matchar helst åtminstone [storleksrekommendationerna för konfigurationsservern](https://aka.ms/asr-v2a-on-prem-components))</li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internet åtkomst till Azure (*. blob.core.windows.net) från den här servern, port 443<br>[Detta är valfritt. Du kan välja att tillhandahålla tillgänglig bandbredd under rapportgenerering manuellt.]</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsätter 1 000 virtuella datorer med ett medeltal av tre diskar vardera, profilerade för 30 dagar)</li><li>Inställningarna för VMware vCenter-statistiknivå kan vara 1 eller högre nivå</li><li>Tillåt vCenter-port (standard 443): Site Recovery distribution Planner använder den här porten för att ansluta till vCenter-servern/ESXi-värden</ul></ul>|
-| Rapportgenerering | En Windows-dator eller Windows Server med Excel 2013 eller senare.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6,0 R3](https://aka.ms/download_powercli) krävs bara när du väljer alternativet för att skapa användare i kommandot rapportgenerering för att hämta den senaste konfigurations informationen för virtuella datorer för de virtuella datorerna. Distributions planeraren ansluter till vCenter-servern. Tillåt vCenter-port (standard 443) för att ansluta till vCenter-servern.</li>|
+|Profilering och mätning av dataflöde| <ul><li>Operativsystem: Windows Server 2016 eller Windows Server 2012 R2<br>(matchar helst åtminstone [storleksrekommendationerna för konfigurationsservern](https://aka.ms/asr-v2a-on-prem-components))</li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetåtkomst till Azure (*.blob.core.windows.net) från den här servern, port 443<br>[Detta är valfritt. Du kan välja att ange den tillgängliga bandbredden under rapportgenerering manuellt.]</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsätter 1 000 virtuella datorer med ett medeltal av tre diskar vardera, profilerade för 30 dagar)</li><li>VMware vCenter statistiknivåinställningar kan vara 1 eller högre nivå</li><li>Tillåt vCenter-port (standard 443): Site Recovery Deployment Planner använder den här porten för att ansluta till vCenter-servern/ESXi-värden</ul></ul>|
+| Rapportgenerering | En Windows-dator eller Windows Server med Excel 2013 eller senare.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) krävs endast när du skickar -Användaralternativet i kommandot rapportgenerering för att hämta den senaste vm-konfigurationsinformationen för de virtuella datorerna. Distributionsplaneraren ansluter till vCenter-servern. Tillåt att vCenter-port (standardport 443) ansluter till vCenter-servern.</li>|
 | Användarbehörigheter | Läsbehörighet för det användarkonto som ska användas för åtkomst till VMware vCenter-servern/VMware vSphere ESXi-värden under profilering |
 
 > [!NOTE]
@@ -98,13 +98,13 @@ Du kan köra verktyget från Windows Server 2012 R2 om servern har nätverksåtk
 Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
     Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den.
-    E:\ASR distributions Planner_v2.3. zip
+    E:\ASR-distribution Planner_v2.3.zip
 
-    E:\ASR distributions Planner_v2.3 \ ASRDeploymentPlanner. exe
+    E:\ASR-distribution Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Uppdatera till den senaste versionen av distributionshanteraren
 
-De senaste uppdateringarna sammanfattas i [versions historiken](site-recovery-deployment-planner-history.md)för Deployment Planner.
+De senaste uppdateringarna sammanfattas i [versionshistoriken](site-recovery-deployment-planner-history.md)för Deployment Planner .
 
 Om du har en tidigare version av distributionshanteraren gör du något av följande:
  * Om den senaste versionen innehåller inte en profileringskorrigering och profileringen pågår redan på den aktuella versionen av planeringsverktyget fortsätter du profileringen.
@@ -119,7 +119,7 @@ Om du har en tidigare version av distributionshanteraren gör du något av följ
 
 
 ## <a name="version-history"></a>Versionshistorik
-Den senaste versionen av Site Recovery Deployment Planner-verktyget är 2,5.
+Den senaste verktygsversionen av verktyget För distribution av platsåterställning är 2.5.
 Läs sidan med [versionshistorik för Distributionshanteraren för Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-deployment-planner-history) för information om korrigeringarna som har lagts till i varje uppdatering.
 
 ## <a name="next-steps"></a>Nästa steg

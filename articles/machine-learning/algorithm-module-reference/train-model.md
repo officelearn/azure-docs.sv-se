@@ -1,7 +1,7 @@
 ---
-title: 'Träna modell: modulreferens'
+title: 'Tågmodell: Modulreferens'
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder modulen **träna modell** i Azure Machine Learning för att träna en klassificerings-eller Regressions modell.
+description: Lär dig hur du använder modulen **Tågmodell** i Azure Machine Learning för att träna en klassificerings- eller regressionsmodell.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,71 +9,71 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 3141795ed9ccfdabc9fd462a1cd09a74690f9c5b
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 0a9728e05aee27e74054a77e2c9be7dc08968207
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137923"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79455867"
 ---
-# <a name="train-model-module"></a>Train-modell
+# <a name="train-model-module"></a>Tågmodellmodul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (förhandsversion).
 
-Använd den här modulen för att träna en klassificerings-eller Regressions modell. Träningen sker efter att du har definierat en modell och angett dess parametrar och kräver taggade data. Du kan också använda **träna modell** för att omträna en befintlig modell med nya data. 
+Använd den här modulen för att träna en klassificerings- eller regressionsmodell. Träningen sker efter att du har definierat en modell och angett dess parametrar och kräver taggade data. Du kan också använda **Train Model** för att omskola en befintlig modell med nya data. 
 
-## <a name="how-the-training-process-works"></a>Så här fungerar inlärnings processen
+## <a name="how-the-training-process-works"></a>Så här fungerar utbildningsprocessen
 
-I Azure Machine Learning är det vanligt vis en tre stegs process att skapa och använda en maskin inlärnings modell. 
+I Azure Machine Learning är det vanligtvis en trestegsprocess att skapa och använda en maskininlärningsmodell. 
 
-1. Du konfigurerar en modell genom att välja en viss typ av algoritm och definiera dess parametrar eller dess egenskaper. Välj någon av följande modell typer: 
+1. Du konfigurerar en modell genom att välja en viss typ av algoritm och definiera dess parametrar eller hyperparametrar. Välj någon av följande modelltyper: 
 
-    + **Klassificerings** modeller, baserade på neurala nätverk, besluts träd och besluts skogar och andra algoritmer.
-    + **Regressions** modeller, som kan innehålla standard linjär regression eller som använder andra algoritmer, inklusive neurala-nätverk och Bayesian regression.  
+    + **Klassificeringsmodeller,** baserade på neurala nätverk, beslutsträd och beslutsskogar och andra algoritmer.
+    + **Regressionsmodeller,** som kan innehålla linjär standardregression, eller som använder andra algoritmer, inklusive neurala nätverk och Bayesiansk regression.  
 
-2. Ange en data mängd som är märkt och har data som är kompatibla med algoritmen. Anslut både data och modellen för att **träna modellen**.
+2. Ange en datauppsättning som är märkt och har data som är kompatibla med algoritmen. Anslut både data och modell till **Train Model**.
 
-    Vilken utbildning som skapas är ett speciellt binärformat, iLearner, som kapslar in de statistiska mönster som har lärts från data. Du kan inte ändra eller läsa det här formatet direkt. andra moduler kan dock använda den här utbildade modellen. 
+    Vad utbildning producerar är ett specifikt binärt format, iLearner, som kapslar in de statistiska mönster som lärts från data. Du kan inte ändra eller läsa det här formatet direkt. Andra moduler kan dock använda den här tränade modellen. 
     
-    Du kan också Visa modellens egenskaper. Mer information finns i avsnittet resultat.
+    Du kan också visa modellens egenskaper. Mer information finns i avsnittet Resultat.
 
-3. När utbildningen har slutförts använder du den tränade modellen med en av [poängsättnings-modulerna](./score-model.md)för att göra förutsägelser på nya data.
+3. När träningen är klar använder du den tränade modellen med en av [bedömningsmodulerna](./score-model.md)för att göra förutsägelser om nya data.
 
-## <a name="how-to-use-train-model"></a>Använda träna modell 
+## <a name="how-to-use-train-model"></a>Så här använder du tågmodell 
   
-1.  I Azure Machine Learning konfigurerar du en klassificerings modell eller Regressions modell.
+1.  Konfigurera en klassificeringsmodell eller regressionsmodell i Azure Machine Learning.
     
-2. Lägg till modulen **träna modell** i pipelinen.  Du hittar den här modulen under kategorin **Machine Learning** . Expandera **träna**och dra modulen **träna modell** till din pipeline.
+2. Lägg till modulen **Tågmodell** i pipelinen.  Du hittar den här modulen under kategorin **Maskininlärning.** Expandera **Tåg**och dra sedan **tågmodellmodulen** till pipelinen.
   
-3.  Koppla det nedtränade läget till vänster. Koppla data uppsättningen utbildning till den högra indatan för **träna modell**.
+3.  Fäst det otränade läget i vänster ingång. Bifoga träningsdatauppsättningen till den högra inmatningen av **Tågmodell**.
 
-    Data uppsättningen för träning måste innehålla en etikett kolumn. Alla rader utan etiketter ignoreras.
+    Träningsdatauppsättningen måste innehålla en etikettkolumn. Alla rader utan etiketter ignoreras.
   
-4.  För **kolumnen etikett**klickar du på **Redigera kolumn** i den högra panelen i modulen och väljer en enda kolumn som innehåller resultat som modellen kan använda för utbildning.
+4.  För **kolumnen Etikett**klickar du på Redigera **kolumn** på modulens högra panel och väljer en enskild kolumn som innehåller resultat som modellen kan använda för utbildning.
   
-    - För klassificerings problem måste etikett kolumnen innehålla antingen **kategoriska** -värden eller **diskreta** värden. Några exempel kan vara ja/nej-klassificering, en klassificerings kod, ett namn på en sjukdom eller en inkomst grupp.  Om du väljer en noncategorical-kolumn kommer modulen att returnera ett fel under träningen.
+    - För klassificeringsproblem måste etikettkolumnen innehålla antingen **kategoriska** värden eller **diskreta** värden. Några exempel kan vara ett ja/nej-betyg, en sjukdomsklassificeringskod eller ett namn eller en inkomstgrupp.  Om du väljer en icke-kategorisk kolumn returnerar modulen ett fel under träningen.
   
-    -   För Regressions problem måste etikett kolumnen innehålla **numeriska** data som representerar variabeln Response. Det bästa är att de numeriska data representerar en kontinuerlig skala. 
+    -   För regressionsproblem måste etikettkolumnen innehålla **numeriska** data som representerar svarsvariabeln. Helst representerar numeriska data en kontinuerlig skala. 
     
-    Exempel kan vara ett kredit risk poäng, planerat tid för att Miss lyckas med en hård disk eller det prognostiserade antalet anrop till ett Call Center på en bestämd dag eller tid.  Om du inte väljer en numerisk kolumn kan du få ett fel meddelande.
+    Exempel kan vara en kreditriskpoäng, den beräknade tiden till fel för en hårddisk eller det prognostiserade antalet samtal till ett callcenter en viss dag eller tid.  Om du inte väljer en numerisk kolumn kan du få ett felmeddelande.
   
-    -   Om du inte anger vilken etikett kolumn som ska användas försöker Azure Machine Learning att härleda som är lämplig etikett kolumn med hjälp av data uppsättningens metadata. Om du väljer fel kolumn använder du kolumn väljaren för att korrigera den.
+    -   Om du inte anger vilken etikettkolumn som ska användas, kommer Azure Machine Learning att försöka dra slutsatsen vilken som är lämplig etikettkolumn, med hjälp av metadata för datauppsättningen. Om den väljer fel kolumn använder du kolumnväljaren för att korrigera den.
   
     > [!TIP] 
-    > Om du har problem med att använda kolumn Väljaren kan du läsa mer i artikeln [Välj kolumner i data uppsättning](./select-columns-in-dataset.md) . I den här artikeln beskrivs några vanliga scenarier och tips för att använda alternativen **med regler** och **efter namn** .
+    > Om du har problem med att använda kolumnväljaren läser du artikeln [Välj kolumner i datauppsättningen](./select-columns-in-dataset.md) för tips. Den beskriver några vanliga scenarier och tips för att använda **med reglerna och** **bynamn** alternativ.
   
-5.  Köra en pipeline. Om du har stora mängder data kan det ta en stund.
+5.  Skicka pipelinen. Om du har mycket data kan det ta ett tag.
 
-## <a name="bkmk_results"></a>Gör
+## <a name="results"></a><a name="bkmk_results"></a>Resultat
 
-När modellen har tränats:
+När modellen är utbildad:
 
 
-+ Om du vill använda modellen i andra pipeliner väljer du modulen och väljer ikonen **registrera data uppsättning** under fliken **utdata** i den högra panelen. Du kan komma åt sparade modeller i modulen modul under **data uppsättningar**.
++ Om du vill använda modellen i andra pipelines markerar du modulen och väljer ikonen **Registrera datauppsättning** under fliken **Utdata** på höger panel. Du kan komma åt sparade modeller i modulpaletten under **Datauppsättningar**.
 
-+ Om du vill använda modellen för att förutsäga nya värden ansluter du den till modulen [Poäng modell](./score-model.md) tillsammans med nya indata.
++ Om du vill använda modellen för att förutsäga nya värden ansluter du den till modulen [Poängmodell](./score-model.md) tillsammans med nya indata.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 
+Se uppsättningen [moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

@@ -1,53 +1,53 @@
 ---
-title: Skapa en Log Analytics-arbetsyta med hjälp av Azure PowerShell | Microsoft Docs
-description: Lär dig hur du skapar en Log Analytics-arbetsyta om du vill aktivera hantering av lösningar och datainsamling från ditt moln och lokala miljöer med Azure PowerShell.
+title: Skapa en log analytics-arbetsyta med Azure PowerShell| Microsoft-dokument
+description: Lär dig hur du skapar en Log Analytics-arbetsyta för att aktivera hanteringslösningar och datainsamling från dina moln- och lokala miljöer med Azure PowerShell.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
 ms.openlocfilehash: a2765aaf36aa5f7e541e0ee7fb3178246d2cca5d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77659908"
 ---
-# <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Skapa en Log Analytics-arbetsyta med Azure PowerShell
+# <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Skapa en log analytics-arbetsyta med Azure PowerShell
 
-Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabb starten visar hur du använder Azure PowerShell-modulen för att distribuera en Log Analytics arbets yta i Azure Monitor. En Log Analytics-arbetsyta är en unik miljö för Azure Monitor loggdata. Varje arbets yta har sin egen data lagrings plats och konfiguration, och data källor och lösningar har kon figurer ATS för att lagra data i en viss arbets yta. Du behöver en Log Analytics arbets yta om du vill samla in data från följande källor:
+Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabbstarten visar hur du använder Azure PowerShell-modulen för att distribuera en Log Analytics-arbetsyta i Azure Monitor. En Log Analytics-arbetsyta är en unik miljö för Azure Monitor-loggdata. Varje arbetsyta har en egen datadatabas och konfiguration, och datakällor och lösningar är konfigurerade för att lagra sina data på en viss arbetsyta. Du behöver en Log Analytics-arbetsyta om du tänker samla in data från följande källor:
 
 * Azure-resurser i din prenumeration  
 * Lokala datorer som övervakas av System Center Operations Manager  
-* Enhets samlingar från Configuration Manager  
+* Enhetssamlingar från Configuration Manager  
 * Diagnostik- eller loggdata från Azure Storage  
  
-Andra källor, till exempel virtuella Azure-datorer och Windows eller Linux-datorer i din miljö finns i följande avsnitt:
+Andra källor, till exempel virtuella Azure-datorer och virtuella Windows- eller Linux-datorer i din miljö, finns i följande avsnitt:
 
 * [Samla in data från virtuella Azure-datorer](../learn/quick-collect-azurevm.md)
-* [Samla in data från hybrid Linux-datorer](../learn/quick-collect-linux-computer.md)
-* [Samla in data från hybrid Windows-dator](quick-collect-windows-computer.md)
+* [Samla in data från hybrid-Linux-dator](../learn/quick-collect-linux-computer.md)
+* [Samla in data från hybrid windows-dator](quick-collect-windows-computer.md)
 
-Om du inte har en Azure-prenumeration kan du skapa [ett kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration skapar du [ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien den Azure PowerShell AZ-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell Az-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
-Skapa en arbets yta med [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). I följande exempel skapas en arbets yta på den *östra* platsen med hjälp av en Resource Manager-mall från den lokala datorn. JSON-mallen har konfigurerats för att bara efterfråga du namnet på arbetsytan och anger ett standardvärde för de andra parametrarna som sannolikt skulle användas som en standardkonfiguration i din miljö. 
+Skapa en arbetsyta med [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). I följande exempel skapas en arbetsyta på *eastus-platsen* med hjälp av en Resource Manager-mall från den lokala datorn. JSON-mallen är konfigurerad för att bara fråga dig om namnet på arbetsytan och anger ett standardvärde för de andra parametrar som troligen skulle användas som standardkonfiguration i din miljö. 
 
-Information om regioner som stöds finns i [regioner Log Analytics finns i](https://azure.microsoft.com/regions/services/) och söka efter Azure Monitor från fältet **Sök efter ett produkt** . 
+Information om regioner som stöds finns [i regioner Log Analytics är tillgängligt i](https://azure.microsoft.com/regions/services/) och söker efter Azure Monitor från fältet Sök efter en **produkt.** 
 
 Följande parametrar anger ett standardvärde:
 
-* plats – standardvärdet är USA, östra
-* SKU - som standard den nya Per GB prisnivån som introducerades i den prissättningsmodellen från April 2018
+* plats - standard till Östra USA
+* sku - standardvärden till den nya prisnivån per GB som släpptes i april 2018-prismodellen
 
 >[!WARNING]
->Om du skapar eller konfigurerar en Log Analytics arbets yta i en prenumeration som har valt att ha en ny pris modell på april 2018 är den enda giltiga Log Analytics pris nivån **PerGB2018**. 
+>Om du skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt den nya prismodellen april 2018 är den enda giltiga log analytics-prisnivån **PerGB2018**. 
 >
 
 ### <a name="create-and-deploy-template"></a>Skapa och distribuera mall
@@ -108,22 +108,22 @@ Följande parametrar anger ett standardvärde:
     }
     ```
 
-2. Redigera mallen så att den uppfyller dina krav. Granska [mallen Microsoft. OperationalInsights/arbetsytes](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) för att lära dig vilka egenskaper och värden som stöds. 
-3. Spara filen som **deploylaworkspacetemplate. JSON** i en lokal mapp.   
-4. Nu är det dags att distribuera den här mallen. Använd följande kommandon från mappen som innehåller mallen. När du uppmanas att ange ett namn på arbets ytan anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
+2. Redigera mallen för att uppfylla dina krav. Läs [mallreferensen för Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) för att ta reda på vilka egenskaper och värden som stöds. 
+3. Spara den här filen som **deploylaworkspacetemplate.json** i en lokal mapp.   
+4. Nu är det dags att distribuera den här mallen. Använd följande kommandon från mappen som innehåller mallen. När du uppmanas att ange ett arbetsområdesnamn anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
 
     ```powershell
         New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
     ```
 
-Det kan ta några minuter att slutföra distributionen. När den är klar kan du se ett meddelande som liknar följande som innehåller resultatet:
+Det kan ta några minuter att slutföra distributionen. När det är klart visas ett meddelande som liknar följande som innehåller resultatet:
 
-![Exempelresultat när distributionen är klar](media/quick-create-workspace-posh/template-output-01.png)
+![Exempel på resultat när distributionen är klar](media/quick-create-workspace-posh/template-output-01.png)
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har en arbetsyta som är tillgängliga kan du konfigurera insamling av övervakning av telemetri, köra loggsökningar för att analysera dessa data och lägga till en hanteringslösning för att ge ytterligare data och analytisk insikt.  
+Nu när du har en arbetsyta tillgänglig kan du konfigurera insamling av övervakningstelemetri, köra loggsökningar för att analysera dessa data och lägga till en hanteringslösning för att tillhandahålla ytterligare data och analytiska insikter.  
 
-* Information om hur du aktiverar data insamling från Azure-resurser med Azure-diagnostik eller Azure Storage finns i [samla in Azure Service-loggar och mått för användning i Azure Monitor](../platform/collect-azure-metrics-logs.md).  
-* Lägg till [System Center Operations Manager som en data källa](../platform/om-agents.md) för att samla in data från agenter som rapporterar din Operations Manager hanterings grupp och lagra den i din Log Analytics-arbetsyta.  
+* Information om hur du aktiverar datainsamling från Azure-resurser med Azure Diagnostics eller Azure-lagring finns [i Samla in Azure-tjänstloggar och mått för användning i Azure Monitor](../platform/collect-azure-metrics-logs.md).  
+* Lägg till [System Center Operations Manager som en datakälla](../platform/om-agents.md) för att samla in data från agenter som rapporterar din Hanteringsgrupp i Operations Manager och lagra den på logganalysarbetsytan.  
 * Anslut [Configuration Manager](../platform/collect-sccm.md) för att importera datorer som är medlemmar i samlingar i hierarkin.  
-* Granska de tillgängliga [övervaknings lösningarna](../insights/solutions.md) och Lägg till eller ta bort en lösning från din arbets yta.
+* Granska de [övervakningslösningar](../insights/solutions.md) som finns tillgängliga och hur du lägger till eller tar bort en lösning från arbetsytan.

@@ -1,6 +1,6 @@
 ---
 title: Övervaka användning och uppskattade kostnader i Azure Monitor
-description: Översikt över processen med att använda Azure Monitor-användning och uppskattade kostnader
+description: Översikt över processen med att använda Azure Monitor-användning och sidan uppskattade kostnader
 author: dalekoetke
 services: azure-monitor
 ms.topic: conceptual
@@ -9,90 +9,90 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
 ms.openlocfilehash: 22c7243cd966f458610c2abc67ed5540b37357b8
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658823"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Övervaka användning och uppskattade kostnader i Azure Monitor
 
 > [!NOTE]
-> Den här artikeln beskriver hur du visar användning och uppskattade kostnader för flera Azure-övervakningsfunktioner. Relaterade artiklar för vissa komponenter i Azure Monitor är:
-> - [Hantera användning och kostnader med Azure Monitor loggar](manage-cost-storage.md) beskriver hur du styr dina kostnader genom att ändra din data lagrings period och hur du analyserar och varnar för din data användning.
-> - [Hantera användning och kostnader för Application Insights](../../azure-monitor/app/pricing.md) beskriver hur du analyserar data användningen i Application Insights.
+> I den här artikeln beskrivs hur du visar användning och uppskattade kostnader för flera Azure-övervakningsfunktioner. Relaterade artiklar för specifika komponenter i Azure Monitor är:
+> - [Hantera användning och kostnader med Azure Monitor Logs](manage-cost-storage.md) beskriver hur du kan kontrollera dina kostnader genom att ändra din datalagringsperiod och hur du analyserar och varnar för din dataanvändning.
+> - [Hantera användning och kostnader för Application Insights](../../azure-monitor/app/pricing.md) beskriver hur du analyserar dataanvändning i Application Insights.
 
-## <a name="azure-monitor-pricing-model"></a>Azure Monitor pris modell
+## <a name="azure-monitor-pricing-model"></a>Azure Monitor-prismodell
 
-Den grundläggande Azure Monitor fakturerings modellen är en molnbaserad, konsumtions-baserad prissättning ("betala per användning"). Betala endast för det du använder. Pris information är tillgänglig för [aviseringar, statistik, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) och [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+Den grundläggande Azure Monitor-faktureringsmodellen är en molnvänlig, förbrukningsbaserad prissättning ("Betala per användning"). Betala endast för det du använder. Prisinformation är tillgänglig för [aviseringar, mått, meddelanden,](https://azure.microsoft.com/pricing/details/monitor/) [Logganalys](https://azure.microsoft.com/pricing/details/log-analytics/) och [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
 
-Förutom modellen betala per användning för loggdata, har Log Analytics kapacitets reservationer, vilket gör att du kan spara så mycket som 25% jämfört med priset för betala per användning. Med kapacitets reservations priset kan du köpa en reservation som börjar på 100 GB/dag. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. [Läs mer](https://azure.microsoft.com/pricing/details/monitor/) om priser för kapacitets reservationer.
+Förutom pay-as-you-go-modellen för loggdata har Log Analytics kapacitetsreservationer, vilket gör att du kan spara så mycket som 25% jämfört med priset för betala-för-du-gå. Med prissättningen för kapacitetsreservation kan du köpa en bokning som börjar på 100 GB/dag. All användning över bokningsnivån kommer att debiteras till priset betala per användning. [Läs mer](https://azure.microsoft.com/pricing/details/monitor/) om priser för kapacitetsbokning.
 
-Vissa kunder kommer att ha åtkomst till [äldre Log Analytics pris nivåer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers) och den [äldre företags Application Insights pris nivån](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier). 
+Vissa kunder har åtkomst till [äldre Log Analytics-prisnivåer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers) och den [äldre prisnivån för Enterprise Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#legacy-enterprise-per-node-pricing-tier). 
 
-## <a name="understanding-your-azure-monitor-costs"></a>Förstå Azure Monitor kostnader
+## <a name="understanding-your-azure-monitor-costs"></a>Förstå dina Azure Monitor-kostnader
 
-Det finns två faser för att förstå kostnaderna. Det första är när du överväger Azure Monitor som din övervaknings lösning. 
+Det finns två faser för att förstå kostnaderna. Den första är när du överväger Azure Monitor som din övervakningslösning. 
 
-### <a name="estimating-the-costs-to-manage-your-environment"></a>Beräkna kostnaderna för att hantera din miljö
+### <a name="estimating-the-costs-to-manage-your-environment"></a>Uppskatta kostnaderna för att hantera din miljö
 
-Om du inte använder Azure Monitor loggar än kan du använda [pris Kalkylatorn för Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att beräkna kostnaden för att använda Azure Monitor. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor panelen. Rulla ned sidan till Azure Monitor och välj ett av alternativen i list rutan typ:
+Om du ännu inte använder Azure Monitor Logs kan du använda [Azure Monitor-priskalkylatorn](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att uppskatta kostnaden för att använda Azure Monitor. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor-panelen. Bläddra nedåt på sidan till Azure Monitor och välj ett av alternativen i listrutan Typ:
 
-- Mått frågor och aviseringar  
+- Statistikfrågor och aviseringar  
 - Log Analytics
 - Application Insights
 
-I vart och ett av dessa kan pris kalkylatorn hjälpa dig att beräkna dina sannolika kostnader baserat på förväntad användning.
+I var och en av dessa, prissättning kalkylatorn hjälper dig att uppskatta dina sannolika kostnader baserat på din förväntade utnyttjande.
 
-Med Log Analytics kan du till exempel ange antalet virtuella datorer och de GB data GB som du förväntar dig att samla in från varje virtuell dator. Normalt används 1 GB till 3 GB data månad från en typisk virtuell Azure-dator. Om du redan utvärderar Azure Monitor loggar redan kan du använda din data statistik från din egen miljö. Nedan finns information om hur du fastställer [antalet övervakade virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data) och [mängden data som din arbets yta](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume)tar med.
+Med Logganalys kan du till exempel ange antalet virtuella datorer och GB data som du förväntar dig att samla in från varje virtuell dator. Vanligtvis intas 1 GB till 3 GB datamånad från en vanlig Virtuell Azure-dator. Om du redan utvärderar Azure Monitor Logs kan du använda din datastatistik från din egen miljö. Se nedan för hur du bestämmer [antalet övervakade virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data) och mängden data som [arbetsytan intagar](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).
 
-Om du aktiverar funktionen beräkna data volym utifrån program aktivitet på samma sätt som Application Insights, kan du ange indata om ditt program (förfrågningar per månad och sid visningar per månad, om du vill samla in telemetri på klient sidan). sedan visar kalkylatorn den median och nittionde percentils mängd data som samlas in av liknande program. Dessa program sträcker sig över ett Application Insights konfigurations intervall (t. ex. att vissa har standard sampling, har ingen sampling osv.), så du har fortfarande kontrollen att minska mängden data som du matar in långt under median nivån med hjälp av sampling. Men det här är en utgångs punkt för att förstå vad andra, liknande kunder ser. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/app/pricing#estimating-the-costs-to-manage-your-application) om hur du uppskattar kostnader för Application Insights.
+På samma sätt för Application Insights, om du aktiverar funktionen "Uppskatta datavolym baserat på programaktivitet", kan du ange indata om ditt program (förfrågningar per månad och sidvisningar per månad, om du samlar in telemetri på klientsidan). och sedan räknaren kommer att berätta medianen och 90: e percentilen mängden data som samlas in av liknande applikationer. Dessa program spänner över utbudet av Application Insights-konfiguration (t.ex. vissa har standardprovtagning, vissa har ingen sampling etc.), så du har fortfarande kontroll för att minska mängden data som du intar långt under mediannivån med hjälp av sampling. Men detta är en utgångspunkt för att förstå vad andra, liknande kunder ser. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/app/pricing#estimating-the-costs-to-manage-your-application) om att uppskatta kostnader för Application Insights.
 
-### <a name="understanding-your-usage-and-estimated-costs"></a>Förstå din användning och beräknade kostnader
+### <a name="understanding-your-usage-and-estimated-costs"></a>Förstå din användning och uppskattade kostnader
 
-Det är viktigt att förstå och spåra din användning när du använder Azure Monitor, och det finns många verktyg för att under lätta detta. 
+Det är viktigt att förstå och spåra din användning en gång med Azure Monitor, och det finns omfattande uppsättning verktyg för att underlätta detta. 
 
-Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. När du har öppnat **Azure Cost Management + fakturerings** hubb klickar du på **Cost Management** och väljer [omfånget](https://docs.microsoft.com/azure/cost-management/understand-work-scopes) (den uppsättning resurser som ska undersökas). 
+Azure tillhandahåller en hel del användbara funktioner i [Azure Cost Management + Billing](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hub. När du har öppnat azure **cost management + faktureringsnav** klickar du på **Kostnadshantering** och väljer [omfattning](https://docs.microsoft.com/azure/cost-management/understand-work-scopes) (uppsättning resurser att undersöka). 
 
-Om du sedan vill se de Azure Monitor kostnaderna under de senaste 30 dagarna klickar du på panelen **dagliga kostnader** , väljer de senaste 30 dagarna under relativa datum och lägger till ett filter som väljer tjänst namn:
+Om du sedan vill visa Azure Monitor-kostnaderna för de senaste 30 dagarna klickar du på panelen **Dagliga kostnader,** väljer "Senaste 30 dagarna" under Relativa datum och lägger till ett filter som väljer tjänstnamn:
 
 1. Azure Monitor
 2. Application Insights
 3. Log Analytics
 4. Insikter och analys
 
-Detta resulterar i en vy, till exempel:
+Detta resulterar i en vy som:
 
-![Azure Cost Management skärm bild](./media/usage-estimated-costs/010.png)
+![Skärmbild av Azure Cost Management](./media/usage-estimated-costs/010.png)
 
-Härifrån kan du gå vidare från denna ackumulerade kostnads Sammanfattning för att få mer information i vyn "kostnad per resurs". I de aktuella pris nivåerna debiteras Azure loggdata på samma uppsättning mätare, oavsett om den härstammar från Log Analytics eller Application Insights. Du kan lägga till ett filter för **resurs typen**om du vill avgränsa kostnaderna från Log Analytics eller Application Insights användning. Om du vill se alla Application Insights kostnader filtrerar du resurs typen till "Microsoft. Insights/Components" och för Log Analytics kostnader, filtrera resurs typ till "Microsoft. operationalinsights/arbetsyte". 
+Härifrån kan du gå in från den här ackumulerade kostnadssammanfattningen för att få de finare detaljerna i vyn Kostnad för resurs. I de aktuella prisnivåerna debiteras Azure Log-data på samma uppsättning mätare oavsett om de kommer från Log Analytics eller Application Insights. Om du vill skilja kostnader från användningen Logganalys eller Application Insights kan du lägga till ett filter på **resurstyp**. Om du vill visa alla kostnader för programstatistik filtrerar du resurstypen till "microsoft.insights/components" och filtrerar Resurstyp till "microsoft.operationalinsights/workspaces". 
 
-Du kan få mer information om din användning genom [att ladda ned din användning från Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID" som innehåller Microsoft. Insights/komponenter.  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
+Mer information om din användning är tillgänglig genom [att ladda ner din användning från Azure-portalen](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). I det hämtade kalkylbladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan användning från dina Application Insights-resurser hittas genom att först filtrera i kolumnen "Mätarkategori" för att visa "Application Insights" och "Log Analytics", och sedan lägga till ett filter i kolumnen "Instans-ID" som "innehåller microsoft.insights/components".  De flesta application insights-användning rapporteras på mätare med mätarkategorin Log Analytics, eftersom det finns en enda loggar backend för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre prisnivåer och webbtester i flera steg rapporteras med en mätarkategori för application insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "Enhet".  Mer information finns tillgänglig för att hjälpa dig att [förstå din Microsoft Azure-faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 > [!NOTE]
-> Att använda **Cost Management** i **Azure Cost Management + fakturerings** hubb är det bästa sättet att förstå övervaknings kostnaderna.  **Användnings-och uppskattade kostnader** för [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) och [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#understand-your-usage-and-estimate-costs) ger djupare insikter för var och en av dessa delar av Azure Monitor.
+> Att använda **kostnadshantering** i **Azure Cost Management + Billing** hub är den bästa metoden för att i stort sett förstå övervakningskostnader.  **Ering och uppskattade kostnader** för [Logganalys](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs) och [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#understand-your-usage-and-estimate-costs) ger djupare insikter för var och en av dessa delar av Azure Monitor.
 
-Ett annat alternativ för att visa din Azure Monitor användning är sidan **användning och uppskattade kostnader** i Monitor Hub. Detta visar användningen av grundläggande övervakningsfunktioner, till exempel [aviseringar, statistik, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), Azure- [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)och [Azure Application insikter](https://azure.microsoft.com/pricing/details/application-insights/). För kunder på priser avtal innan April 2018, omfattar detta även logganalys-användning som köpts via insikterna och Analytics erbjuder.
+Ett annat alternativ för att visa din Azure Monitor-användning är sidan **Användning och uppskattade kostnader** i monitorhubben. Detta visar användningen av grundläggande övervakningsfunktioner som [aviseringar, mått, meddelanden,](https://azure.microsoft.com/pricing/details/monitor/) [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/)och Azure Application [Insights](https://azure.microsoft.com/pricing/details/application-insights/). För kunder i de prisplaner som är tillgängliga före april 2018 inkluderar detta även användning av Logganalys som köpts via Insights and Analytics-erbjudandet.
 
-På den här sidan kan användare visa sina resursanvändningen för de senaste 31 dagarna, aggregerade per prenumeration. `Drill-ins` Visa användnings trender under den 31-dagars perioden. Stora mängder data behöver samlas för den här beräkningen så ha tålamod när sidan läses in.
+På den här sidan kan användarna visa sin resursanvändning för de senaste 31 dagarna, aggregerade per prenumeration. `Drill-ins`visar användningstrender under 31-dagarsperioden. En hel del data måste samlas för denna uppskattning, så ha tålamod när sidan laddas.
 
-Det här exemplet visar övervakad användning och en uppskattning av de resulterande kostnaderna:
+I det här exemplet visas övervakningsanvändning och en uppskattning av de resulterande kostnaderna:
 
-![Användning och uppskattade kostnader portal skärmbild](./media/usage-estimated-costs/001.png)
+![Skärmbild av användnings- och uppskattade kostnader](./media/usage-estimated-costs/001.png)
 
-Välj länken i kolumnen månatlig användning för att öppna ett diagram som visar trender för användning under de senaste 31 dagarna: 
+Välj länken i kolumnen månadsanvändning om du vill öppna ett diagram som visar användningstrender under den senaste 31-dagarsperioden: 
 
-![Ingår per nod liggande diagram skärmbild](./media/usage-estimated-costs/002.png)
+![Inkluderad skärmbild av stapeldiagram per nod](./media/usage-estimated-costs/002.png)
 
-## <a name="operations-management-suite-subscription-entitlements"></a>Operations Management Suite-prenumerations rättigheter
+## <a name="operations-management-suite-subscription-entitlements"></a>Prenumerationsrättigheter för Operations Management Suite
 
-Kunder som köpte Microsoft Operations Management Suite E1 och E2 är berättigade till data inmatnings rättigheter per nod för [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) och [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Att ta emot dessa rättigheter för Log Analytics-arbetsytor och Application Insights-resurser i en viss prenumeration: 
+Kunder som har köpt Microsoft Operations Management Suite E1 och E2 är berättigade till datainmatningsrättigheter per nod för [Logganalys-](https://www.microsoft.com/cloud-platform/operations-management-suite) och [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing). Så här får du dessa berättiganden för log analytics-arbetsytor eller application insights-resurser i en viss prenumeration: 
 
-- Log Analytics-arbetsytor bör använda den ”Per nod (OMS)” prisnivå.
-- Application Insights resurser bör använda pris nivån "Enterprise".
+- Log Analytics-arbetsytor bör använda prisnivån "Per node (OMS)".
+- Application Insights-resurser bör använda prisnivån "Enterprise".
 
-Beroende på antalet noder i serien som din organisation har köpt, kan det vara en fördel att flytta några prenumerationer till pris nivån betala per användning (per GB), men det kräver noggrant övervägande.
+Beroende på antalet noder i sviten som din organisation har köpt kan det vara fördelaktigt att flytta vissa prenumerationer till en prisnivå för användningsbaserad betalning (Per GB), men det kräver noggrant övervägande.
 
 > [!WARNING]
-> Om din organisation har nuvarande Microsoft Operations Management Suite E1 och E2, är det oftast bäst att hålla dina Log Analytics arbets ytor i pris nivån "per nod (OMS)" per nod (OMS) och dina Application Insights resurser på pris nivån "Enterprise". 
+> Om din organisation har nuvarande Microsoft Operations Management Suite E1 och E2 är det vanligtvis bäst att behålla dina Log Analytics-arbetsytor på prisnivån "Per node (OMS) och dina Application Insights-resurser på prisnivån "Företag". 
 >

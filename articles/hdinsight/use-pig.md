@@ -1,7 +1,7 @@
 ---
 title: Använda Apache Pig
 titleSuffix: Azure HDInsight
-description: Lär dig hur du använder gris med Apache Hadoop i HDInsight.
+description: Läs om hur du använder Pig med Apache Hadoop på HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -10,54 +10,54 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77672131"
 ---
-# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använda Apache gris med Apache Hadoop på HDInsight
+# <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Använd Apache Pig med Apache Hadoop på HDInsight
 
-Lär dig hur du använder [Apache gris](https://pig.apache.org/) med HDInsight.
+Läs om hur du använder [Apache Pig](https://pig.apache.org/) med HDInsight.
 
-Apache gris är en plattform för att skapa program för Apache Hadoop med hjälp av ett procedur språk som kallas *gris Latin*. Gris är ett alternativ till Java för att skapa *MapReduce* -lösningar och det ingår i Azure HDInsight. Använd följande tabell för att identifiera de olika sätt som gris kan användas med HDInsight:
+Apache Pig är en plattform för att skapa program för Apache Hadoop med hjälp av ett förfarandespråk som kallas *Pig Latin*. Pig är ett alternativ till Java för att skapa *MapReduce-lösningar,* och det ingår i Azure HDInsight. Använd följande tabell för att upptäcka de olika sätt som Pig kan användas med HDInsight:
 
-## <a id="why"></a>Varför ska man använda Apache gris
+## <a name="why-use-apache-pig"></a><a id="why"></a>Varför använda Apache Pig
 
-En av utmaningarna med att bearbeta data med hjälp av MapReduce i Hadoop är att implementera din bearbetnings logik genom att endast använda en karta och en minsknings funktion. Vid komplex bearbetning måste du ofta bryta bearbetningen till flera MapReduce-åtgärder som sammanställs tillsammans för att uppnå önskat resultat.
+En av utmaningarna med att bearbeta data med hjälp av MapReduce i Hadoop är att implementera din bearbetningslogik genom att bara använda en karta och en reduceringsfunktion. För komplex bearbetning måste du ofta dela upp bearbetningen i flera MapReduce-åtgärder som är sammankopplade för att uppnå önskat resultat.
 
-Med hjälp av gris kan du definiera bearbetning som en serie med omvandlingar som data flödar genom för att producera önskade utdata.
+Med Pig kan du definiera bearbetning som en serie omvandlingar som data flödar igenom för att producera önskad utdata.
 
-Med det latinska språket för svin kan du beskriva data flödet från rå data, via en eller flera transformeringar, för att skapa önskade utdata. De latinska programmen i gris följer detta allmänna mönster:
+Med det latinska språket Pig kan du beskriva dataflödet från råindata, genom en eller flera omvandlingar, för att producera önskad utdata. Pig latinska program följer detta allmänna mönster:
 
-* **Load**: Läs data som ska hanteras från fil systemet.
+* **Läs in**: Läs data som ska manipuleras från filsystemet.
 
-* **Transform**: manipulera data.
+* **Transformera**: Manipulera data.
 
-* **Dumpa eller lagra**: mata ut data till skärmen eller lagra den för bearbetning.
+* **Dumpa eller lagra**: Mata ut data till skärmen eller lagra dem för bearbetning.
 
 ### <a name="user-defined-functions"></a>Användardefinierade funktioner
 
-Med det latinska tillägget i gris kan du även använda användardefinierade funktioner (UDF), vilket gör att du kan anropa externa komponenter som implementerar logik som är svårt att modellera i gris Latin.
+Pig Latin stöder också användardefinierade funktioner (UDF), som gör att du kan anropa externa komponenter som implementerar logik som är svår att modellera i Pig Latin.
 
-För mer information om gris Latin, se [gris Latin Reference Manual 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) och [latinsk referens hand bok 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
+För mer information om Pig Latin, se [Referenshandbok för gris latin 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) och [referensmanual för gris latin 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
-## <a id="data"></a>Exempel data
+## <a name="example-data"></a><a id="data"></a>Exempeldata
 
-HDInsight innehåller olika exempel data uppsättningar som lagras i `/example/data` och `/HdiSamples` kataloger. Dessa kataloger finns i standard lagrings utrymmet för klustret. I exemplet i det här dokumentet används *log4j* -filen från `/example/data/sample.log`.
+HDInsight ger olika exempel datauppsättningar, `/example/data` `/HdiSamples` som lagras i och kataloger. Dessa kataloger finns i standardlagringen för klustret. I exemplet Pig i det här dokumentet `/example/data/sample.log`används *filen log4j* från .
 
-Varje logg i filen består av en rad med fält som innehåller ett `[LOG LEVEL]` fält för att Visa typ och allvarlighets grad, till exempel:
+Varje logg inuti filen består av en rad `[LOG LEVEL]` med fält som innehåller ett fält för att visa typen och allvarlighetsgraden, till exempel:
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
-I föregående exempel är loggnings nivån fel.
+I föregående exempel är loggnivån FEL.
 
 > [!NOTE]  
-> Du kan också skapa en log4j-fil med hjälp av verktyget [Apache log4j](https://en.wikipedia.org/wiki/Log4j) -loggning och sedan överföra filen till din BLOB. Instruktioner finns i [överföra data till HDInsight](hdinsight-upload-data.md) . Mer information om hur blobbar i Azure Storage används med HDInsight finns i [använda Azure Blob Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md).
+> Du kan också generera en log4j-fil med hjälp av [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) loggningsverktyget och sedan ladda upp filen till din blob. Se [Ladda upp data till HDInsight](hdinsight-upload-data.md) för instruktioner. Mer information om hur blobbar i Azure-lagring används med HDInsight finns i [Använda Azure Blob Storage med HDInsight](hdinsight-hadoop-use-blob-storage.md).
 
-## <a id="job"></a>Exempel jobb
+## <a name="example-job"></a><a id="job"></a>Exempel på jobb
 
-I följande exempel latinsk jobb läser in `sample.log`-filen från standard lagringen för ditt HDInsight-kluster. Sedan utför den en serie omvandlingar som resulterar i ett antal gånger som varje loggnings nivå inträffar i indata. Resultaten skrivs till STDOUT.
+Följande pig latin jobb `sample.log` läser in filen från standardlagring för din HDInsight kluster. Sedan utför en serie omvandlingar som resulterar i ett antal av hur många gånger varje loggnivå inträffade i indata. Resultaten skrivs till STDOUT.
 
     ```
     LOGS = LOAD 'wasb:///example/data/sample.log';
@@ -69,29 +69,29 @@ I följande exempel latinsk jobb läser in `sample.log`-filen från standard lag
     DUMP RESULT;
     ```
 
-Följande bild visar en sammanfattning av vad varje omvandling gör till data.
+Följande bild visar en sammanfattning av vad varje omvandling gör med data.
 
-![Grafisk representation av transformationer][image-hdi-pig-data-transformation]
+![Grafisk framställning av omformningar][image-hdi-pig-data-transformation]
 
-## <a id="run"></a>Köra det latinska jobbet för gris
+## <a name="run-the-pig-latin-job"></a><a id="run"></a>Kör pig latin jobb
 
-HDInsight kan köra Fax latinska jobb genom att använda olika metoder. Använd följande tabell för att bestämma vilken metod som passar dig bäst. Följ sedan länken för en genom gång.
+HDInsight kan köra Pig Latin jobb med hjälp av en mängd olika metoder. Använd följande tabell för att bestämma vilken metod som är rätt för dig och följ sedan länken för en genomgång.
 
-## <a name="pig-and-sql-server-integration-services"></a>Gris och SQL Server Integration Services
+## <a name="pig-and-sql-server-integration-services"></a>Integrationstjänster för gris och SQL Server
 
-Du kan använda SQL Server Integration Services (SSIS) för att köra ett gris-jobb. Azure Feature Pack för SSIS innehåller följande komponenter som fungerar med jobb för gris i HDInsight.
+Du kan använda SQL Server Integration Services (SSIS) för att köra ett Gris-jobb. Azure Feature Pack för SSIS innehåller följande komponenter som fungerar med Grisjobb på HDInsight.
 
-* [Aktivitet för Azure HDInsight-gris][pigtask]
+* [Azure HDInsight Pig-uppgift][pigtask]
 
-* [Anslutnings hanteraren för Azure-prenumeration][connectionmanager]
+* [Azure-hanteraren för prenumerationsanslutning][connectionmanager]
 
-Lär dig mer om Azure Feature Pack för SSIS [här][ssispack].
+Läs mer om Azure Feature Pack för SSIS [här][ssispack].
 
-## <a id="nextsteps"></a>Nästa steg
+## <a name="next-steps"></a><a id="nextsteps"></a>Nästa steg
 
-Nu när du har lärt dig hur du använder gris med HDInsight kan du använda följande länkar för att utforska andra sätt att arbeta med Azure HDInsight.
+Nu när du har lärt dig hur du använder Pig med HDInsight kan du använda följande länkar för att utforska andra sätt att arbeta med Azure HDInsight.
 
-* [Ladda upp data till HDInsight](hdinsight-upload-data.md)
+* [Överföra data till HDInsight](hdinsight-upload-data.md)
 * [Använda Apache Hive med HDInsight](./hadoop/hdinsight-use-hive.md)
 * [Använda Apache Sqoop med HDInsight](hdinsight-use-sqoop.md)
 * [Använda MapReduce-jobb med HDInsight](./hadoop/hdinsight-use-mapreduce.md)

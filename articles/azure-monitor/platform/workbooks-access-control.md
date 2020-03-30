@@ -1,6 +1,6 @@
 ---
-title: Åtkomst kontroll för Azure Monitor-arbetsböcker
-description: Förenkla komplex rapportering med färdiga och anpassade parameterstyrda arbets böcker med rollbaserad åtkomst kontroll
+title: Åtkomstkontroll för Azure Monitor-arbetsböcker
+description: Förenkla komplex rapportering med fördefinierade och anpassade parameteriserade arbetsböcker med rollbaserad åtkomstkontroll
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -10,35 +10,35 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
 ms.openlocfilehash: 20116ab105e4eb12875ba3cb279fb261eb5c70e4
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77658429"
 ---
 # <a name="access-control"></a>Åtkomstkontroll
 
-Åtkomst kontroll i arbets böcker refererar till två saker:
+Åtkomstkontroll i arbetsböcker refererar till två saker:
 
-* Åtkomst krävs för att läsa data i en arbets bok. Den här åtkomsten styrs av vanliga [Azure-roller](https://docs.microsoft.com/azure/role-based-access-control/overview) på de resurser som används i arbets boken. Arbets böcker anger eller konfigurerar inte åtkomst till dessa resurser. Användarna får vanligt vis denna åtkomst till dessa resurser med hjälp av rollen som [övervaknings läsare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) på dessa resurser.
+* Åtkomst krävs för att läsa data i en arbetsbok. Den här åtkomsten styrs av [standardiserade Azure-roller](https://docs.microsoft.com/azure/role-based-access-control/overview) på de resurser som används i arbetsboken. Arbetsböcker anger eller konfigurerar inte åtkomst till dessa resurser. Användare skulle vanligtvis få denna tillgång till dessa resurser med hjälp av [monitoring reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) roll på dessa resurser.
 
-* Åtkomst krävs för att spara arbets böcker
+* Åtkomst krävs för att spara arbetsböcker
 
-    - Att spara privata `("My")` arbets böcker kräver inga ytterligare behörigheter. Alla användare kan spara privata arbets böcker och de kan bara se arbets böckerna.
-    - Om du sparar delade arbets böcker krävs Skriv behörighet i en resurs grupp för att spara arbets boken. De här behörigheterna anges vanligt vis av rollen [övervaknings deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) , men kan också ställas in via rollen arbets grupps *deltagare* .
+    - För `("My")` att spara privata arbetsböcker krävs inga ytterligare privilegier. Alla användare kan spara privata arbetsböcker och bara de kan se dessa arbetsböcker.
+    - För att spara delade arbetsböcker krävs skrivbehörighet i en resursgrupp för att arbetsboken ska kunna sparas. Dessa privilegier anges vanligtvis av rollen [Övervakningsdeltagare,](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) men kan också ställas in via rollen *Arbetsböcker deltagare.*
     
-## <a name="standard-roles-with-workbook-related-privileges"></a>Standard roller med arbets boks-relaterade behörigheter
+## <a name="standard-roles-with-workbook-related-privileges"></a>Standardroller med arbetsboksrelaterade privilegier
 
-[Övervaknings läsaren](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) innehåller standard/Read-privilegier som används av övervaknings verktyg (inklusive arbets böcker) för att läsa data från resurser.
+[Övervakningsläsaren](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) innehåller standard-/läsbehörighet som skulle användas av övervakningsverktyg (inklusive arbetsböcker) för att läsa data från resurser.
 
-[Övervaknings bidrags givare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) innehåller allmänna `/write` behörigheter som används av olika övervaknings verktyg för att spara objekt (inklusive `workbooks/write` behörighet att spara delade arbets böcker).
-"Arbets bok deltagare" lägger till "arbets böcker/Skriv"-behörigheter till ett objekt för att spara delade arbets böcker.
-Inga särskilda behörigheter krävs för att användare ska kunna spara privata arbets böcker som bara de kan se.
+[Övervakningsbidragsgivaren](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) innehåller allmänna `/write` privilegier som `workbooks/write` används av olika övervakningsverktyg för att spara objekt (inklusive behörighet att spara delade arbetsböcker).
+"Arbetsböcker Deltagare" lägger till behörigheter för arbetsböcker/skriv i ett objekt för att spara delade arbetsböcker.
+Det krävs inga särskilda privilegier för att användarna ska kunna spara privata arbetsböcker som bara de kan se.
 
-För anpassad rollbaserad åtkomst kontroll:
+För anpassad rollbaserad åtkomstkontroll:
 
-Lägg till `microsoft.insights/workbooks/write` för att spara delade arbets böcker. Mer information finns i [arbets bokens deltagar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) roll.
+Lägg `microsoft.insights/workbooks/write` till för att spara delade arbetsböcker. Mer information finns i rollen [Arbetsboksdeltagare.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Kom igång](workbooks-visualizations.md) lär dig mer om arbets böcker många avancerade visualiserings alternativ.
+* [Kom igång](workbooks-visualizations.md) med att lära dig mer om arbetsböcker många avancerade visualiseringar alternativ.

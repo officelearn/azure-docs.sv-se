@@ -1,13 +1,13 @@
 ---
 title: Konfigurera webbappsanalyser för ASP.NET med Application Insights | Microsoft Docs
-description: Konfigurera prestanda-, tillgänglighets-och användar beteende analys verktyg för din ASP.NET-webbplats, som finns lokalt eller i Azure.
+description: Konfigurera prestanda- och tillgänglighets- och användarbeteendeanalysverktyg för din ASP.NET webbplats, som finns lokalt eller i Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665926"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurera Application Insights för din ASP.NET-webbplats
@@ -16,21 +16,21 @@ Den här proceduren konfigurerar din ASP.NET-webbapp för att skicka telemetri t
 
 Installationen kräver bara några klick i Visual Studio. Du har möjlighet att undvika kostnader genom att begränsa mängden telemetri. Med den här funktionen kan du experimentera och felsöka eller övervaka en webbplats med inte många användare. Om du sedan vill gå vidare och övervaka din produktionsplats, är det lätt att höja gränsen vid ett senare tillfälle.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 När du ska lägga till Application Insights för din ASP.NET-webbplats måste du göra följande:
 
-- Installera [Visual Studio 2019 för Windows](https://www.visualstudio.com/downloads/) med följande arbets belastningar:
-    - ASP.NET och webb utveckling (Avmarkera inte de valfria komponenterna)
+- Installera [Visual Studio 2019 för Windows](https://www.visualstudio.com/downloads/) med följande arbetsbelastningar:
+    - ASP.NET och webbutveckling (Avmarkera inte de valfria komponenterna)
     - Azure Development
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="ide"></a> Steg 1: Lägg till Application Insights SDK
+## <a name="step-1-add-the-application-insights-sdk"></a><a name="ide"></a> Steg 1: Lägg till Application Insights SDK
 
 > [!IMPORTANT]
-> Skärm bilderna i det här exemplet baseras på Visual Studio 2017 version 15.9.9 och senare. Hur du lägger till Application Insights varierar mellan olika versioner av Visual Studio samt av ASP.NET-Malltyp. Äldre versioner kan ha alternativ text, till exempel "konfigurera Application Insights".
+> Skärmbilderna i det här exemplet är baserade på Visual Studio 2017 version 15.9.9 och senare. Erfarenheten av att lägga till Application Insights varierar mellan olika versioner av Visual Studio samt efter ASP.NET malltyp. Äldre versioner kan ha alternativ text som "Konfigurera programstatistik".
 
-Högerklicka på namnet på din webbapp i Solution Explorer och välj **Lägg till** > **Application Insights Telemetry**
+Högerklicka på webbappnamnet i Lösningsutforskaren och välj **Lägg till** > **programstatistik Telemetri**
 
 ![Skärmbild av Solution Explorer med Configure Application Insights markerat](./media/asp-net/add-telemetry-new.png)
 
@@ -50,13 +50,13 @@ Om du vill ange resursgruppen eller den plats där dina data är lagrade klickar
 
 ![Skärmbild av sidan Register your app with Application Insights (Registrera din app med Application Insights)](./media/asp-net/00005-register-ed.png)
 
- Välj **projekt** > **Hantera NuGet-paket** > **paket Källa: NuGet.org** > bekräfta att du har den senaste stabila versionen av Application Insights SDK.
+ Välj **Project** > **Manage NuGet Paket** > **paket källa: nuget.org** > Bekräfta att du har den senaste stabila versionen av Application Insights SDK.
 
  Telemetri kommer att skickas till [Azure Portal](https://portal.azure.com), både under felsökningen och när du har publicerat din app.
 > [!NOTE]
 > Om du inte vill skicka telemetri till portalen medan du felsöker, lägger du bara till Application Insights SDK i din app men konfigurerar inte en resurs i portalen. Du kan se telemetrin i Visual Studio medan du felsöker. Du kan senare återvända till den här konfigurationssidan eller vänta tills du har distribuerat appen och [aktivera telemetri vid körtid](../../azure-monitor/app/monitor-performance-live-website-now.md).
 
-## <a name="run"></a> Steg 2: Kör appen
+## <a name="step-2-run-your-app"></a><a name="run"></a> Steg 2: Kör appen
 Kör din app med F5. Öppna olika sidor för att skapa viss telemetri.
 
 Du ser hur många händelser som har loggats i Visual Studio.
@@ -68,7 +68,7 @@ Du kan se din telemetri antingen i Visual Studio eller i Application Insights-we
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>Visa din telemetri i Visual Studio
 
-Visa Application Insights-data i Visual Studio.  Välj **Solution Explorer** > **Anslutna tjänster** > högerklicka på **Application Insights** och klicka sedan på **Search Live Telemetry** (Sök livetelemetri).
+Visa Application Insights-data i Visual Studio.  Välj Anslutna tjänster för **lösningsutforskare** > **Connected Services** > högerklicka på **Application Insights**och klicka sedan på **Sök live-telemetri**.
 
 I Visual Studio Application Insights-sökfönstret visas data från programmet för telemetri som genereras på serversidan för appen. Experimentera med filtren och klicka på en händelse om du vill visa mer information.
 
@@ -95,7 +95,7 @@ Klicka på valfri ikon eller valfritt diagram i portalen för att visa mer infor
 ## <a name="step-4-publish-your-app"></a>Steg 4: Publicera appen
 Publicera din app på din IIS-server eller i Azure. Bevaka [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) och se om allt fungerar som det ska.
 
-Din telemetri bygger upp i Application Insights Portal, där du kan övervaka mått, söka i din telemetri. Du kan också använda det kraftfulla [Kusto-frågespråket](/azure/kusto/query/) för att analysera användning och prestanda, eller för att hitta specifika händelser.
+Din telemetri byggs upp i application insights-portalen, där du kan övervaka mätvärden, genom att söka i din telemetri. Du kan också använda det kraftfulla [Kusto-frågespråket](/azure/kusto/query/) för att analysera användning och prestanda, eller för att hitta specifika händelser.
 
 Du kan också fortsätta att analysera din telemetri i [Visual Studio](../../azure-monitor/app/visual-studio.md) med verktyg som diagnossökning och [trender](../../azure-monitor/app/visual-studio-trends.md).
 
@@ -104,7 +104,7 @@ Du kan också fortsätta att analysera din telemetri i [Visual Studio](../../azu
 >
 >
 
-## <a name="land"></a> Då var allt klart
+## <a name="youre-all-set"></a><a name="land"></a>Du är redo
 
 Grattis! Du har installerat Application Insights-paketet i din app och konfigurerat det för att skicka telemetri till Application Insights-tjänsten på Azure.
 
@@ -112,13 +112,13 @@ Azure-resursen som tar emot din apps telemetri identifieras med en *instrumenter
 
 
 ## <a name="upgrade-to-future-sdk-versions"></a>Uppgradera till framtida SDK-versioner
-Om du vill uppgradera till en [ny SDK-version](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) öppnar du **NuGet-pakethanteraren** och filtrerar på installerade paket. Markera **Microsoft.ApplicationInsights.Web** och välj **Uppgradera**.
+Om du vill uppgradera till en [ny SDK-version](https://github.com/Microsoft/ApplicationInsights-dotnet-server/releases) öppnar du **NuGet-pakethanteraren** och filtrerar på installerade paket. Välj **Microsoft.ApplicationInsights.Web**och välj **Uppgradera**.
 
 Om du har gjort anpassningar i ApplicationInsights.config sparar du en kopia av den innan du uppgraderar. Sammanfogar sedan dina ändringar i den nya versionen.
 
 ## <a name="video"></a>Video
 
-* Extern steg-för-steg-video om hur du [konfigurerar Application Insights med ett .NET-program från grunden](https://www.youtube.com/watch?v=blnGAVgMAfA).
+* Extern steg-för-steg-video om [att konfigurera Application Insights med ett .NET-program från grunden](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -131,7 +131,7 @@ Det finns andra artiklar som du kan läsa om du är intresserad av följande:
 
 * **[Webbläsare och webbsidesinläsning](../../azure-monitor/app/javascript.md)** – Infoga ett kodfragment på dina webbsidor.
 * **[Få mer detaljerad beroende- och undantagsövervakning](../../azure-monitor/app/monitor-performance-live-website-now.md)** – Installera Status Monitor på servern.
-* **[Koda anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md)** för att räkna, ta tid på eller mäta användaråtgärder.
+* **[Koda anpassade händelser](../../azure-monitor/app/api-custom-events-metrics.md)** för att räkna, tid eller mäta användaråtgärder.
 * **[Hämta loggdata](../../azure-monitor/app/asp-net-trace-logs.md)** – Korrelera loggdata med din telemetri.
 
 ### <a name="analysis"></a>Analys
@@ -143,7 +143,7 @@ Det finns andra artiklar som du kan läsa om du är intresserad av följande:
 
 * [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md): Skapa tester som kan användas för att kontrollera att webbplatsen visas på webben.
 * [Smart diagnostik](../../azure-monitor/app/proactive-diagnostics.md): De här testerna körs automatiskt, så du behöver inte göra något för att konfigurera dem. De berättar om din app har ett ovanligt antal misslyckade begäranden.
-* [Mått aviseringar](../../azure-monitor/app/alerts.md): Ställ in aviseringar för att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.
+* [Måttaviseringar](../../azure-monitor/app/alerts.md): Ställ in aviseringar för att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.
 
 ### <a name="automation"></a>Automation
 

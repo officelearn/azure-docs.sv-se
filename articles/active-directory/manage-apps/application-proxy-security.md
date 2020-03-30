@@ -1,6 +1,6 @@
 ---
-title: Säkerhets aspekter för Azure AD-programproxy | Microsoft Docs
-description: Omfattar säkerhets överväganden för att använda Azure AD-programproxy
+title: Säkerhetsaspekter för Azure AD Application Proxy | Microsoft-dokument
+description: Täcker säkerhetsaspekter för att använda Azure AD Application Proxy
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,170 +16,170 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fd016e02c579f4e7230bd18d363cfe9a64c88eb
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 6fd6794bafc3c209032f32626e8c46b51769d05e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79366112"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79481236"
 ---
-# <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhets överväganden för att få åtkomst till appar via fjärr anslutning med Azure AD-programproxy
+# <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhetsöverväganden för åtkomst till appar på distans med Azure AD Application Proxy
 
-I den här artikeln beskrivs de komponenter som fungerar för att skydda dina användare och program när du använder Azure Active Directory-programproxy.
+I den här artikeln beskrivs de komponenter som fungerar för att skydda användare och program när du använder Azure Active Directory Application Proxy.
 
-Följande diagram visar hur Azure AD ger säker fjärråtkomst till dina lokala program.
+Följande diagram visar hur Azure AD möjliggör säker fjärråtkomst till dina lokala program.
 
- ![Diagram över säker fjärråtkomst via Azure AD-programproxy](./media/application-proxy-security/secure-remote-access.png)
+ ![Diagram över säker fjärråtkomst via Azure AD Application Proxy](./media/application-proxy-security/secure-remote-access.png)
 
-## <a name="security-benefits"></a>Säkerhets förmåner
+## <a name="security-benefits"></a>Säkerhetsfördelar
 
-Azure AD-programproxy erbjuder följande säkerhets fördelar:
+Azure AD Application Proxy erbjuder följande säkerhetsfördelar:
 
-### <a name="authenticated-access"></a>Autentiserad åtkomst 
+### <a name="authenticated-access"></a>Autentiserat åtkomst 
 
-Om du väljer att använda Azure Active Directory förautentisering kan endast autentiserade anslutningar komma åt ditt nätverk.
+Om du väljer att använda Azure Active Directory-förautentisering kan endast autentiserade anslutningar komma åt nätverket.
 
-Azure AD-programproxy förlitar sig på Azure AD Security Token Service (STS) för all autentisering.  Förautentisering, med sin natur, blockerar ett stort antal anonyma attacker, eftersom endast autentiserade identiteter kan komma åt backend-programmet.
+Azure AD Application Proxy är beroende av Azure AD security token service (STS) för all autentisering.  Preauthentication, till sin natur, blockerar ett betydande antal anonyma attacker, eftersom endast autentiserade identiteter kan komma åt backend-programmet.
 
-Om du väljer genom strömning som metod för förautentisering får du inte den här förmånen. 
+Om du väljer Passthrough som din förautentiseringsmetod får du inte den här förmånen. 
 
 ### <a name="conditional-access"></a>Villkorlig åtkomst
 
-Använd bättre princip kontroller innan anslutningar till nätverket upprättas.
+Använd rikare principkontroller innan anslutningar till nätverket upprättas.
 
-Med [villkorlig åtkomst](../conditional-access/overview.md)kan du definiera begränsningar för vilken trafik som får åtkomst till dina Server dels program. Du kan skapa principer som begränsar inloggningar baserat på plats, styrkan för autentisering och användar risk profil.
+Med [villkorlig åtkomst](../conditional-access/overview.md)kan du definiera begränsningar för vilken trafik som får komma åt dina backend-program. Du kan skapa principer som begränsar inloggningar baserat på plats, autentiseringsstyrka och användarriskprofil.
 
-Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer och lägga till ytterligare ett säkerhets lager till dina användarautentisering. Dessutom kan dina program dirigeras till Microsoft Cloud App Security via villkorlig åtkomst i Azure AD för att tillhandahålla övervakning och kontroller i real tid via [åtkomst](https://docs.microsoft.com/cloud-app-security/access-policy-aad) [och arbetsköprinciper](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
+Du kan också använda villkorlig åtkomst för att konfigurera principer för multifaktorautentisering och lägga till ytterligare ett säkerhetslager i dina användarautentiseringar. Dessutom kan dina program också dirigeras till Microsoft Cloud App Security via Azure AD Villkorlig åtkomst för att tillhandahålla övervakning och kontroller i realtid, via [åtkomst-](https://docs.microsoft.com/cloud-app-security/access-policy-aad) och [sessionsprinciper](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
 
-### <a name="traffic-termination"></a>Trafik terminering
+### <a name="traffic-termination"></a>Trafikavsättning
 
-All trafik avbryts i molnet.
+All trafik avslutas i molnet.
 
-Eftersom Azure AD-programproxy är en omvänd proxy avslutas all trafik till backend-program på tjänsten. Sessionen kan bara återupprättas med backend-servern, vilket innebär att backend-servrarna inte exponeras för direkt HTTP-trafik. Den här konfigurationen innebär att du är bättre skyddad mot riktade attacker.
+Eftersom Azure AD Application Proxy är en omvänd proxy avslutas all trafik till backend-program vid tjänsten. Sessionen kan bara återupprättas med backend-servern, vilket innebär att backend-servrarna inte utsätts för direkt HTTP-trafik. Den här konfigurationen innebär att du är bättre skyddad från riktade attacker.
 
 ### <a name="all-access-is-outbound"></a>All åtkomst är utgående 
 
-Du behöver inte öppna inkommande anslutningar till företags nätverket.
+Du behöver inte öppna inkommande anslutningar till företagsnätverket.
 
-Application Proxy-kopplingar använder bara utgående anslutningar till Azure AD-programproxy-tjänsten, vilket innebär att du inte behöver öppna brand Väggs portar för inkommande anslutningar. Traditionella proxyservrar krävde ett perimeternätverk (även kallat *DMZ*, *demilitariserad Zone*eller *skärmat undernät*) och tillåten åtkomst till oautentiserade anslutningar vid nätverks kanten. Det här scenariot kräver investeringar i brand Väggs produkter för webb program för att analysera trafik och skydda miljön. Med Application Proxy behöver du inte ett perimeternätverk eftersom alla anslutningar är utgående och sker över en säker kanal.
+Application Proxy-kopplingar använder endast utgående anslutningar till Azure AD Application Proxy-tjänsten, vilket innebär att det inte finns något behov av att öppna brandväggsportar för inkommande anslutningar. Traditionella proxyservrar krävde ett perimeternätverk (kallas även *DMZ,* *demilitariserad zon*eller *skärmat undernät)* och tillät åtkomst till oautentiserade anslutningar vid nätverkskanten. Det här scenariot krävde investeringar i brandväggsprodukter för webbprogram för att analysera trafik och skydda miljön. Med Application Proxy behöver du inte ett perimeternätverk eftersom alla anslutningar är utgående och sker över en säker kanal.
 
-Mer information om anslutningar finns i [förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md).
+Mer information om kopplingar finns i [Förstå Azure AD Application Proxy-kopplingar](application-proxy-connectors.md).
 
-### <a name="cloud-scale-analytics-and-machine-learning"></a>Analys och maskin inlärning i moln skala 
+### <a name="cloud-scale-analytics-and-machine-learning"></a>Analys och maskininlärning i molnskala 
 
-Få säkerhets skydd i den senaste säkerheten.
+Få ett ledande säkerhetsskydd.
 
-Eftersom den är en del av Azure Active Directory kan programproxyn utnyttja [Azure AD Identity Protection](../active-directory-identityprotection.md), med data från Microsoft Security Response Center och digital brottslighet Unit. Tillsammans identifierar vi på ett proaktivt sätt komprometterade konton och ger skydd mot högrisk inloggningar. Vi tar hänsyn till flera faktorer för att avgöra vilka inloggnings försök som är hög risk. De här faktorerna omfattar flagga infekterade enheter, maskera-nätverk och ovanlig eller platser som inte är osannolika.
+Eftersom det är en del av Azure Active Directory kan Programproxy utnyttja [Azure AD Identity Protection](../active-directory-identityprotection.md), med data från Microsoft Security Response Center och Digital Crimes Unit. Tillsammans identifierar vi proaktivt komprometterade konton och erbjuder skydd mot högriskde logga in. Vi tar hänsyn till många faktorer för att avgöra vilka inloggningsförsök som är högrisk. Dessa faktorer inkluderar flaggning av infekterade enheter, anonymisering av nätverk och atypiska eller osannolika platser.
 
-Många av dessa rapporter och händelser är redan tillgängliga via ett API för integrering med dina SIEM-system (Security information and Event Management).
+Många av dessa rapporter och händelser är redan tillgängliga via ett API för integrering med dina SIEM-system (Security Information and Event Management).
 
 ### <a name="remote-access-as-a-service"></a>Fjärråtkomst som en tjänst
 
-Du behöver inte bekymra dig om att underhålla och korrigera lokala servrar.
+Du behöver inte oroa dig för att underhålla och korrigera lokala servrar.
 
-Program vara som inte har uppdaterats har fortfarande konton för ett stort antal attacker. Azure AD-programproxy är en Internet-Scale-tjänst som Microsoft äger, så att du alltid får de senaste säkerhets korrigeringarna och-uppgraderingar.
+Opatrullerad programvara står fortfarande för ett stort antal attacker. Azure AD Application Proxy är en tjänst i Internetskala som Microsoft äger, så du får alltid de senaste säkerhetskorrigeringarna och uppgraderingarna.
 
-För att förbättra säkerheten för program som publiceras av Azure AD-programproxy blockerar vi webb robot robotarna från att indexera och arkivera dina program. Varje gången en robot försöker hämta robotens inställningar för en publicerad app, svarar programproxyn med en robots. txt-fil som innehåller `User-agent: * Disallow: /`.
+För att förbättra säkerheten för program som publiceras av Azure AD Application Proxy blockerar vi sökrobotar från att indexera och arkivera dina program. Varje gång en sökrobot försöker hämta robotens inställningar för en publicerad app svarar Application Proxy `User-agent: * Disallow: /`med en robots.txt-fil som innehåller .
 
-#### <a name="azure-ddos-protection-service"></a>Azure DDoS Protection-tjänst
+#### <a name="azure-ddos-protection-service"></a>Azure DDoS-skyddstjänst
 
-Program som publiceras via programproxyn skyddas mot DDoS-attacker (distributed denial of Service). **Azure DDoS Protection** är en tjänst som erbjuds med Azure-plattformen för att skydda dina Azure-resurser från denial of Service-attacker. Den **grundläggande** tjänst nivån aktive ras automatiskt, vilket ger Always trafik övervakning och real tids skydd av vanliga attacker på nätverks nivå. En **standard** nivå är också tillgänglig, och erbjuder ytterligare funktioner för minskning som är specifika för Azure Virtual Network-resurser. Mer information finns i [Azure DDoS Protection standard översikt](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+Program som publiceras via Application Proxy skyddas mot DDoS-attacker (Distributed Denial of Service). **Azure DDoS-skydd** är en tjänst som erbjuds med Azure-plattformen för att skydda dina Azure-resurser från överbelastningsattacker. **Basic-tjänstnivån** aktiveras automatiskt, vilket ger trafikövervakning alltid och begränsning i realtid av vanliga attacker på nätverksnivå. En **standardnivå** är också tillgänglig och erbjuder ytterligare begränsningsfunktioner som är just inställda på Azure Virtual Network-resurser. Mer information finns i [översikt över Azure DDoS Protection Standard](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>Under huven
 
-Azure AD-programproxy består av två delar:
+Azure AD Application Proxy består av två delar:
 
-* Den molnbaserade tjänsten: den här tjänsten körs i Azure och är den plats där den externa klienten/användar anslutningarna görs.
-* [Den lokala anslutningen](application-proxy-connectors.md): en lokal komponent lyssnar Connector efter begär Anden från Azure AD-programproxy-tjänsten och hanterar anslutningar till de interna programmen. 
+* Den molnbaserade tjänsten: Den här tjänsten körs i Azure och är där de externa klient-/användaranslutningarna görs.
+* [Den lokala anslutningsappen](application-proxy-connectors.md): En lokal komponent, anslutningen lyssnar efter begäranden från Azure AD Application Proxy-tjänsten och hanterar anslutningar till interna program. 
 
-Ett flöde mellan anslutningen och Application Proxy-tjänsten upprättas när:
+Ett flöde mellan anslutningen och application proxy-tjänsten upprättas när:
 
-* Anslutningen konfigureras först.
-* Anslutningen hämtar konfigurations information från Application Proxy-tjänsten.
-* En användare får åtkomst till ett publicerat program.
+* Kopplingen ställs först in.
+* Anslutningen hämtar konfigurationsinformation från tjänsten Programproxy.
+* En användare kommer åt ett publicerat program.
 
 >[!NOTE]
->All kommunikation sker över SSL och de har alltid sitt ursprung vid anslutningen till Application Proxy-tjänsten. Tjänsten är endast utgående.
+>All kommunikation sker via TLS och de kommer alltid från anslutningen till tjänsten Application Proxy. Tjänsten är endast utgående.
 
-Anslutningen använder ett klient certifikat för att autentisera till Application Proxy-tjänsten för nästan alla anrop. Det enda undantaget till den här processen är det inledande installations steget, där klient certifikatet upprättas.
+Anslutningen använder ett klientcertifikat för att autentisera till application proxy-tjänsten för nästan alla anrop. Det enda undantaget från den här processen är det första installationssteget, där klientcertifikatet upprättas.
 
-### <a name="installing-the-connector"></a>Installerar anslutningen
+### <a name="installing-the-connector"></a>Installera kontakten
 
-När anslutningen först konfigureras sker följande flödes händelser:
+När kopplingen först konfigureras sker följande flödeshändelser:
 
-1. Anslutnings registreringen till tjänsten görs som en del av installationen av anslutnings programmet. Användarna uppmanas att ange sina autentiseringsuppgifter för Azure AD-administratören. Den token som har hämtats från den här autentiseringen visas sedan för Azure AD-programproxy-tjänsten.
-2. Application Proxy-tjänsten utvärderar token. Den kontrollerar om användaren är företags administratör i klienten. Om användaren inte är administratör avbryts processen.
-3. Anslutningen genererar en begäran om klient certifikat och skickar den, tillsammans med token, till Application Proxy-tjänsten. Tjänsten i sin tur verifierar token och signerar begäran om klient certifikat.
-4. Anslutnings programmet använder klient certifikatet för framtida kommunikation med Application Proxy-tjänsten.
-5. Anslutningen utför en första hämtning av system konfigurations data från tjänsten med hjälp av dess klient certifikat och är nu redo att vidta begär Anden.
+1. Anslutningsregistreringen till tjänsten sker som en del av installationen av anslutningen. Användare uppmanas att ange sina Azure AD-administratörsautentiseringsuppgifter.Token som hämtas från den här autentiseringen presenteras sedan för Azure AD Application Proxy-tjänsten.
+2. Tjänsten Application Proxy utvärderar token. Den kontrollerar om användaren är en företagsadministratör i klienten.Om användaren inte är administratör avslutas processen.
+3. Anslutningsappen genererar en klientcertifikatbegäran och skickar den, tillsammans med token, till application proxy-tjänsten. Tjänsten verifierar i sin tur token och signerar klientcertifikatbegäran.
+4. Anslutningen använder klientcertifikatet för framtida kommunikation med application proxy-tjänsten.
+5. Anslutningen utför en första dragning av systemkonfigurationsdata från tjänsten med hjälp av klientcertifikatet och är nu redo att ta begäranden.
 
-### <a name="updating-the-configuration-settings"></a>Uppdaterar konfigurations inställningarna
+### <a name="updating-the-configuration-settings"></a>Uppdatera konfigurationsinställningarna
 
-När tjänsten Application Proxy uppdaterar konfigurations inställningarna sker följande flödes händelser:
+När application proxy-tjänsten uppdaterar konfigurationsinställningarna sker följande flödeshändelser:
 
-1. Anslutningen ansluter till konfigurations slut punkten i Application Proxy-tjänsten med hjälp av dess klient certifikat.
-2. När klient certifikatet har verifierats returnerar Application Proxy-tjänsten konfigurations data till anslutnings tjänsten (till exempel anslutnings gruppen som anslutningen ska vara en del av).
-3. Om det aktuella certifikatet är mer än 180 dagar gammalt, genererar anslutningen en ny certifikatbegäran som effektivt uppdaterar klient certifikatet var 180 dag.
+1. Anslutningen ansluter till konfigurationsslutpunkten i application proxy-tjänsten med hjälp av klientcertifikatet.
+2. När klientcertifikatet har validerats returnerar tjänsten Application Proxy konfigurationsdata till kopplingen (till exempel anslutningsgruppen som anslutningen ska ingå i).
+3. Om det aktuella certifikatet är äldre än 180 dagar genererar kopplingen en ny certifikatbegäran som uppdaterar klientcertifikatet var 180:e dag.
 
-### <a name="accessing-published-applications"></a>Åtkomst till publicerade program
+### <a name="accessing-published-applications"></a>Komma åt publicerade program
 
-När användare ansluter till ett publicerat program, sker följande händelser mellan Application Proxy-tjänsten och Application Proxy-anslutningen:
+När användare öppnar ett publicerat program inträffar följande händelser mellan tjänsten Application Proxy och Application Proxy-anslutningen:
 
 1. Tjänsten autentiserar användaren för appen
-2. Tjänsten placerar en begäran i anslutnings kön
+2. Tjänsten placerar en begäran i anslutningskön
 3. En anslutning bearbetar begäran från kön
-4. Anslutningen väntar på ett svar
+4. Kontakten väntar på ett svar
 5. Tjänsten strömmar data till användaren
 
-Om du vill veta mer om vad som händer i vart och ett av dessa steg fortsätter du med att läsa.
+Om du vill veta mer om vad som sker i vart och ett av dessa steg fortsätter du att läsa.
 
 
-#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. tjänsten autentiserar användaren för appen
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. Tjänsten autentiserar användaren för appen
 
-Om du konfigurerade appen så att den använder passthrough som sin Förautentiserings metod hoppas stegen i det här avsnittet över.
+Om du har konfigurerat appen för att använda Passthrough som förautentiseringsmetod hoppas stegen i det här avsnittet över.
 
-Om du konfigurerade appen för förautentisering med Azure AD omdirigeras användarna till Azure AD STS för att autentisera och följande steg utförs:
+Om du har konfigurerat appen för att föra autentisering med Azure AD omdirigeras användare till Azure AD STS för att autentisera och följande steg vidtas:
 
-1. Programproxyn söker efter eventuella krav för villkorlig åtkomst princip för det specifika programmet. Det här steget ser till att användaren har tilldelats till programmet. Om tvåstegsverifiering krävs uppmanas användaren att ange en andra autentiseringsmetod.
+1. Programproxy söker efter villkorsstyrda principkrav för det specifika programmet. Det här steget säkerställer att användaren har tilldelats programmet. Om tvåstegsverifiering krävs uppmanar autentiseringssekvensen användaren att ange en andra autentiseringsmetod.
 
-2. När alla kontroller har slutförts utfärdar Azure AD STS en signerad token för programmet och omdirigerar användaren tillbaka till Application Proxy-tjänsten.
+2. När alla kontroller har skickats utfärdar Azure AD STS en signerad token för programmet och omdirigerar användaren tillbaka till application proxy-tjänsten.
 
-3. Application Proxy kontrollerar att token har utfärdats till rätt program. Den utför andra kontroller också, till exempel att se till att token har signerats av Azure AD och att den fortfarande finns i det giltiga fönstret.
+3. Programproxy verifierar att token har utfärdats till rätt program. Den utför andra kontroller också, till exempel att se till att token har signerats av Azure AD och att den fortfarande finns i det giltiga fönstret.
 
-4. Application Proxy anger en krypterad autentiserings-cookie som indikerar att autentiseringen till programmet har inträffat. Cookien innehåller en förfallo tids stämpling som baseras på token från Azure AD och andra data, t. ex. användar namnet som autentiseringen baseras på. Cookien krypteras med en privat nyckel som endast är känd för Application Proxy-tjänsten.
+4. Application Proxy anger en krypterad autentiseringscookie för att indikera att autentisering till programmet har inträffat. Cookien innehåller en tidsstämpel för förfallodatum som baseras på token från Azure AD och andra data, till exempel användarnamnet som autentiseringen baseras på. Cookien krypteras med en privat nyckel som endast är känd för tjänsten Application Proxy.
 
-5. Application Proxy omdirigerar användaren tillbaka till den ursprungligen begärda URL: en.
+5. Programproxy omdirigerar användaren tillbaka till den ursprungligen begärda WEBBADRESSEN.
 
-Om någon del av förautentiseringen Miss lyckas nekas användarens begäran och användaren visas ett meddelande som anger orsaken till problemet.
+Om någon del av förautentiseringsstegen misslyckas nekas användarens begäran och användaren visas ett meddelande som anger orsaken till problemet.
 
 
-#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. tjänsten placerar en förfrågan i anslutnings kön
+#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. Tjänsten placerar en begäran i anslutningskön
 
-Anslutningar håller en utgående anslutning öppen till Application Proxy-tjänsten. När en begäran kommer i kö, ställer tjänsten upp begäran på en av de öppna anslutningarna för att ansluta.
+Kopplingar håller en utgående anslutning öppen för tjänsten Programproxy. När en begäran kommer in köar tjänsten begäran på en av de öppna anslutningarna som anslutningen ska hämtas.
 
-Begäran innehåller objekt från programmet, till exempel begärandehuvuden, data från den krypterade cookien, användaren som gör begäran och ID för begäran. Även om data från den krypterade cookien skickas med begäran, är själva autentiserings-cookien inte.
+Begäran innehåller objekt från programmet, till exempel begäranden, data från den krypterade cookien, användaren som gör begäran och begärande-ID. Även om data från den krypterade cookien skickas med begäran, är autentiseringscookien i sig inte.
 
-#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. anslutningen bearbetar begäran från kön. 
+#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. Anslutningsappen bearbetar begäran från kön. 
 
-Baserat på begäran utför programproxy en av följande åtgärder:
+Baserat på begäran utför Application Proxy någon av följande åtgärder:
 
-* Om begäran är en enkel åtgärd (t. ex. om det inte finns några data i bröd texten som är med en RESTful *Get* -begäran), gör anslutningen en anslutning till den interna interna resursen och väntar sedan på ett svar.
+* Om begäran är en enkel åtgärd (till exempel finns det inga data i brödtexten som med en RESTful *GET-begäran),* anslutningen gör en anslutning till målet intern resurs och väntar sedan på ett svar.
 
-* Om begäran har data som är kopplade till den i bröd texten (till exempel en RESTful *post* -åtgärd) gör anslutningen en utgående anslutning genom att använda klient certifikatet till Application Proxy-instansen. Den gör anslutningen till att begära data och öppna en anslutning till den interna resursen. När den tar emot begäran från anslutningen börjar Application Proxy-tjänsten att acceptera innehåll från användaren och vidarebefordra data till anslutnings tjänsten. Anslutningen vidarebefordrar i sin tur data till den interna resursen.
+* Om begäran har data som är associerade med den i brödtexten (till exempel en RESTful *POST-åtgärd)* upprättar anslutningen en utgående anslutning med hjälp av klientcertifikatet till Application Proxy-instansen. Den här anslutningen för att begära data och öppna en anslutning till den interna resursen. När den har tagit emot begäran från anslutningen börjar application proxy-tjänsten acceptera innehåll från användaren och vidarebefordrar data till anslutningen. Kopplingen vidarebefordrar i sin tur data till den interna resursen.
 
-#### <a name="4-the-connector-waits-for-a-response"></a>4. anslutningen väntar på ett svar.
+#### <a name="4-the-connector-waits-for-a-response"></a>4. Kontakten väntar på ett svar.
 
-När begäran och överföring av allt innehåll till Server delen har slutförts, väntar anslutningen på ett svar.
+När begäran och överföringen av allt innehåll till baksidan är klar väntar anslutningen på ett svar.
 
-När den får ett svar gör anslutningen en utgående anslutning till Application Proxy-tjänsten för att returnera rubrik informationen och börja strömma retur data.
+När den har fått ett svar upprättar anslutningen en utgående anslutning till application proxy-tjänsten, för att returnera huvudinformationen och börja strömma returdata.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. tjänsten strömmar data till användaren. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. Tjänsten strömmar data till användaren. 
 
-En del bearbetning av programmet kan inträffa här. Om du konfigurerade programproxyn för att översätta sidhuvuden eller URL: er i ditt program sker bearbetningen vid behov under det här steget.
+Viss bearbetning av programmet kan ske här. Om du har konfigurerat Programproxy för att översätta rubriker eller webbadresser i ditt program sker den bearbetningen efter behov under det här steget.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Nätverks sto pol faktorer när du använder Azure AD-programproxy](application-proxy-network-topology.md)
+[Nätverkstopologiöverväganden när du använder Azure AD Application Proxy](application-proxy-network-topology.md)
 
 [Förstå Azure AD-programproxy-kopplingar](application-proxy-connectors.md)

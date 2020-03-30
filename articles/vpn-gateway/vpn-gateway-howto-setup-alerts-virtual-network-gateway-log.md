@@ -1,51 +1,51 @@
 ---
-title: 'Azure VPN Gateway: Konfigurera aviseringar för diagnostiska logg händelser'
-description: Steg för att konfigurera aviseringar för VPN Gateway diagnostiska logg händelser
+title: 'Azure VPN Gateway: Konfigurera aviseringar om diagnostiklogghändelser'
+description: Steg för att konfigurera aviseringar om diagnostiklogghändelser för VPN Gateway
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: eb8f0204771b204af740c4ddc8e359499520a012
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b587fa31f1aa42e8dbd5a9d2430c0117891f2091
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045947"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80239793"
 ---
-# <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Konfigurera aviseringar för diagnostiska logg händelser från VPN Gateway
+# <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Konfigurera aviseringar om diagnostiska logghändelser från VPN Gateway
 
-Den här artikeln hjälper dig att ställa in aviseringar baserat på diagnostiska logg händelser från Azure VPN Gateway med Azure Log Analytics. 
+Den här artikeln hjälper dig att ställa in aviseringar baserat på diagnostiska logghändelser från Azure VPN Gateway med Hjälp av Azure Log Analytics. 
 
 Följande loggar är tillgängliga i Azure:
 
 |***Namn*** | ***Beskrivning*** |
 |---        | ---               |
-|GatewayDiagnosticLog | Innehåller diagnostikloggar för konfigurations händelser för gateway, primära ändringar och underhålls händelser |
-|TunnelDiagnosticLog | Innehåller ändringar av tunnel tillstånds händelser. Tunnel anslutning/från kopplings händelser har en sammanfattande orsak för tillstånds ändringen om det är tillämpligt |
-|RouteDiagnosticLog | Loggar ändringar av statiska vägar och BGP-händelser som inträffar på gatewayen |
-|IKEDiagnosticLog | Loggar IKE-kontrollmeddelanden och-händelser på gatewayen |
-|P2SDiagnosticLog | Loggar punkt-till-plats-kontroll meddelanden och händelser på gatewayen |
+|GatewayDiagnosticLog | Innehåller diagnostikloggar för gatewaykonfigurationshändelser, primära ändringar och underhållshändelser |
+|TunnelDiagnosticLog | Innehåller händelser för ändring av tunneltillstånd. Tunnelanslutnings-/frånkopplingshändelser har en sammanfattad orsak till tillståndsändringen om tillämpligt |
+|RouteDiagnosticLog | Loggar ändringar i statiska vägar och BGP-händelser som inträffar på gatewayen |
+|IKEDiagnosticLog | Loggar IKE-kontrollmeddelanden och händelser på gatewayen |
+|P2SDiagnosticLog | Loggar punkt-till-plats-kontrollmeddelanden och händelser på gatewayen |
 
-## <a name="setup"></a>Konfigurera aviseringar
+## <a name="set-up-alerts-in-the-azure-portal"></a><a name="setup"></a>Konfigurera aviseringar i Azure-portalen
 
-Följande exempel steg skapar en avisering för en från kopplings händelse som omfattar en plats-till-plats-VPN-tunnel:
+I följande exempelsteg skapas en avisering för en frånkopplingshändelse som involverar en VPN-tunnel från plats till plats:
 
 
-1. I Azure Portal söker du efter **Log Analytics** under **alla tjänster** och väljer **Log Analytics arbets ytor**.
+1. Sök efter **Logganalys** i Azure-portalen under **Alla tjänster** och välj **Log Analytics-arbetsytor**.
 
-   ![Val för att gå till Log Analytics arbets ytor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Create")
+   ![Val för att gå till Log Analytics-arbetsytor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert0.png "Skapa")
 
-2. Välj **skapa** på sidan **Log Analytics** .
+2. Välj **Skapa** på sidan **Logganalys.**
 
-   ![Log Analytics sida med knappen Skapa](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Välj")
+   ![Logga analytics-sida med knappen Skapa](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Välj")
 
 3. Välj **Skapa ny** och fyll i informationen.
 
-   ![Information om hur du skapar en arbets yta för Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Välj")
+   ![Information om hur du skapar en Log Analytics-arbetsyta](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Välj")
 
-4. Hitta din VPN-gateway på bladet **övervaka** > **diagnostikinställningar** .
+4. Hitta din VPN-gateway på**inställningsbladet För bildskärmsdiagnostik.** **Monitor** > 
 
    ![Val för att hitta VPN-gatewayen i diagnostikinställningar](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Välj")
 
@@ -53,27 +53,27 @@ Följande exempel steg skapar en avisering för en från kopplings händelse som
 
    ![Val för att aktivera diagnostik](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "Välj")
 
-6. Fyll i informationen och kontrol lera att **Skicka till Log Analytics** och **TunnelDiagnosticLog** är markerat. Välj Log Analytics arbets ytan som du skapade i steg 3.
+6. Fyll i informationen och se till att **Skicka till Log Analytics** och **TunnelDiagnosticLog** är valda. Välj arbetsytan Logganalys som du skapade i steg 3.
 
-   ![Markerade kryss rutor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Välj")
+   ![Markerade kryssrutor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Välj")
 
    > [!NOTE]
-   > Det kan ta några timmar innan data visas initialt.
+   > Det kan ta några timmar innan data visas från början.
 
-7. Gå till översikten för den virtuella nätverks-Gateway-resursen och välj **aviseringar** från fliken **övervakning** . Skapa sedan en ny varnings regel eller redigera en befintlig aviserings regel.
+7. Gå till översikten för den virtuella nätverksgatewayresursen och välj **Aviseringar** på fliken **Övervakning.** Skapa sedan en ny varningsregel eller redigera en befintlig varningsregel.
 
-   ![Val för att skapa en ny varnings regel](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Välj")
+   ![Val för att skapa en ny varningsregel](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Välj")
 
    ![punkt-till-plats](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Välj")
-8. Välj arbets ytan Log Analytics och resursen.
+8. Välj arbetsytan Logganalys och resursen.
 
-   ![Val för arbets yta och resurs](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Välj")
+   ![Val för arbetsyta och resurs](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Välj")
 
-9. Välj **anpassad loggs ökning** som signal logik under **Lägg till villkor**.
+9. Välj **Anpassad loggsökning** som signallogik under **Lägg till villkor**.
 
-   ![Val för en anpassad loggs ökning](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Välj")
+   ![Val för en anpassad loggsökning](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Välj")
 
-10. Ange sedan följande fråga i textrutan **Sökfråga**. Ersätt värdena i < > och TimeGenerated efter behov.
+10. Ange sedan följande fråga i textrutan **Sökfråga**. Ersätt värdena i <> och TimeGenerated efter behov.
 
     ```
     AzureDiagnostics
@@ -86,18 +86,115 @@ Följande exempel steg skapar en avisering för en från kopplings händelse som
     | sort by TimeGenerated asc
     ```
 
-    Ange tröskelvärdet till 0 och välj **klart**.
+    Ange tröskelvärdet till 0 och välj **Klar**.
 
     ![Ange en fråga och välja ett tröskelvärde](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Välj")
 
-11. På sidan **Skapa regel** väljer du **Skapa ny** under avsnittet **Åtgärds grupper** . Fyll i informationen och välj **OK**.
+11. På sidan **Skapa regel** väljer du **Skapa ny** under avsnittet **ÅTGÄRDSGRUPPER.** Fyll i detaljerna och välj **OK**.
 
-    ![Information om en ny åtgärds grupp](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Välj")
+    ![Information om en ny åtgärdsgrupp](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Välj")
 
-12. På sidan **Skapa regel** fyller du i informationen för att **Anpassa åtgärder** och kontrollerar att rätt namn visas i avsnittet **Åtgärds grupp namn** . Välj **skapa aviserings regel** för att skapa regeln.
+12. På sidan **Skapa regel** fyller du i informationen för **Anpassa åtgärder** och kontrollerar att rätt namn visas i avsnittet **ÅTGÄRDSGRUPPNAMN.** Välj **Skapa aviseringsregel** om du vill skapa regeln.
 
     ![Val för att skapa en regel](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "Välj")
 
+## <a name="set-up-alerts-by-using-powershell"></a><a name="setuppowershell"></a>Konfigurera aviseringar med powershell
+
+I följande exempelsteg skapas en avisering för en frånkopplingshändelse som involverar en VPN-tunnel från plats till plats.
+
+1. Skapa en log analytics-arbetsyta:
+
+   ```powershell
+   $Location           = 'westus2'
+   $ResourceGroupName  = 'TestRG1'
+   $Sku                = 'pergb2018'
+   $WorkspaceName      = 'LogAnalyticsWS123'
+
+   New-AzOperationalInsightsWorkspace -Location $Location -Name $WorkspaceName -Sku $Sku -ResourceGroupName $ResourceGroupName
+   ```
+
+2. Aktivera diagnostik för VPN-gatewayen:
+
+   ```powershell
+   $ResourceGroupName  = 'TestRG1'
+   $VpnGatewayName     = 'VNet1GW'
+   $WorkspaceName      = 'LogAnalyticsWS123'
+
+   $VpnGateway         = Get-AzVirtualNetworkGateway -Name $VpnGatewayName -ResourceGroupName $ResourceGroupName
+   $Workspace          = Get-AzOperationalInsightsWorkspace -Name $WorkspaceName -ResourceGroupName $ResourceGroupName
+
+   Set-AzDiagnosticSetting `
+       -Name 'VPN tunnel' `
+       -ResourceId $VpnGateway.Id `
+       -WorkspaceId $Workspace.ResourceId `
+       -Enabled $true `
+       -Category 'TunnelDiagnosticLog'
+   ```
+
+3. Skapa en åtgärdsgrupp.
+
+   Den här koden skapar en åtgärdsgrupp som skickar ett e-postmeddelande när en avisering utlöses:
+
+   ```powershell
+   $ActionGroupName            = 'EmailAdmins'   # Max. 60 characters long
+   $ActionGroupShortName       = 'EmailAdmins'   # Max. 12 characters long
+   $ActionGroupReceiverName    = 'My receiver Name'
+   $EmailAddress               = 'xyz@contoso.com'
+   $ResourceGroupName          = 'TestRG1'
+
+   $ActionGroupReceiver = New-AzActionGroupReceiver -Name $ActionGroupReceiverName -UseCommonAlertSchema -EmailReceiver -EmailAddress $EmailAddress
+
+   Set-AzActionGroup `
+      -ResourceGroupName $ResourceGroupName `
+      -Name $ActionGroupName `
+      -ShortName $ActionGroupShortName `
+      -Receiver @($ActionGroupReceiver)
+   ```
+
+4. Skapa en aviseringsregel baserat på en anpassad loggsökning:
+
+   ```powershell
+   $ActionGroupName    = 'EmailAdmins'
+   $EmailSubject       = 'Redmond VPN tunnel is disconnected'
+   $Location           = 'westus2'
+   $RemoteIp           = '104.42.209.46'
+   $ResourceGroupName  = 'TestRG1'
+   $VpnGatewayName     = 'VNet1GW'
+   $WorkspaceName      = 'LogAnalyticsWS123'
+
+   $VpnGateway         = Get-AzVirtualNetworkGateway -Name $VpnGatewayName -ResourceGroupName $ResourceGroupName
+   $Workspace          = Get-AzOperationalInsightsWorkspace -Name $WorkspaceName -ResourceGroupName $ResourceGroupName
+
+   $Query = @"
+   AzureDiagnostics |
+   where Category == "TunnelDiagnosticLog" |
+   where TimeGenerated > ago(5m) |
+   where _ResourceId == tolower("$($VpnGateway.id)") |
+   where remoteIP_s == "$($RemoteIp)" |
+   where status_s == "Disconnected" |
+   project TimeGenerated, OperationName, instance_s, Resource, ResourceGroup, _ResourceId |
+   sort by TimeGenerated asc
+   "@
+
+   $Source             = New-AzScheduledQueryRuleSource -Query $Query -DataSourceId $Workspace.ResourceId
+   $Schedule           = New-AzScheduledQueryRuleSchedule -FrequencyInMinutes 5 -TimeWindowInMinutes 5
+   $TriggerCondition   = New-AzScheduledQueryRuleTriggerCondition -ThresholdOperator 'GreaterThan' -Threshold 0
+
+   $ActionGroup        = Get-AzActionGroup -ResourceGroupName $ResourceGroupName -Name $ActionGroupName
+   $AznsActionGroup    = New-AzScheduledQueryRuleAznsActionGroup -ActionGroup $ActionGroup.Id -EmailSubject $EmailSubject
+   $AlertingAction     = New-AzScheduledQueryRuleAlertingAction -AznsAction $AznsActionGroup -Severity '1' -Trigger $TriggerCondition
+
+   New-AzScheduledQueryRule `
+       -ResourceGroupName $ResourceGroupName `
+       -Location $Location `
+       -Action $AlertingAction `
+       -Enabled $true `
+       -Description 'The tunnel between Azure and Redmond with IP address 104.42.209.46 is disconnected' `
+       -Schedule $Schedule `
+       -Source $Source `
+       -Name 'The Azure to Redmond tunnel is disconnected'
+   ```
+
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du konfigurerar aviseringar för tunnel mått finns i [Konfigurera aviseringar på VPN Gateway mått](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).
+Om du vill konfigurera aviseringar om tunnelmått finns i [Konfigurera aviseringar om VPN Gateway-mått](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).

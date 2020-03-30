@@ -1,139 +1,139 @@
 ---
-title: Förenkla omvandling i data flöde för mappning
-description: Normalisera hierarkiska data med hjälp av den sammanslagna omvandlingen
+title: Förenkla omformningen i mappning av dataflöde
+description: Denormalisera hierarkiska data med hjälp av förenklingsomformningen
 author: kromerm
 ms.author: makromer
 ms.review: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 74f6df1fbc749a5ec015afb954ca6b12cbe0f18f
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: b19aae8ab6730936a826f5bb069bfdb7d696cdfa
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79086964"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80246644"
 ---
-# <a name="flatten-transformation-in-mapping-data-flow"></a>Förenkla omvandling i data flöde för mappning
+# <a name="flatten-transformation-in-mapping-data-flow"></a>Förenkla omformningen i mappning av dataflöde
 
-Använd den sammanslagna omvandlingen för att ta mat ris värden i hierarkiska strukturer, till exempel JSON och avregistrera dem i enskilda rader. Den här processen kallas för denormalisering.
+Använd förenklingsomvandlingen för att ta matrisvärden inuti hierarkiska strukturer som JSON och rulla ut dem till enskilda rader. Denna process kallas denormalisering.
 
 ## <a name="configuration"></a>Konfiguration
 
-Den sammanslagna omvandlingen innehåller följande konfigurations inställningar
+Förenklingsomformningen innehåller följande konfigurationsinställningar
 
-![Förenklings inställningar](media/data-flow/flatten1.png "Förenklings inställningar")
+![Förenkla inställningar](media/data-flow/flatten1.png "Förenkla inställningar")
 
-### <a name="unroll-by"></a>Avregistrera av
+### <a name="unroll-by"></a>Avregistrera dig
 
-Välj en matris som ska avregistreras. Utdata kommer att ha en rad per objekt i varje matris. Om den avregistrera efter matrisen i inmatnings raden är null eller tom, finns det en rad matning med värden som är null.
+Välj en matris som ska avregistreras. Utdata kommer att ha en rad per objekt i varje matris. Om avrullningen efter matris på indataraden är null eller tom, kommer det att finnas en utdatarad med ej registrerade värden som null.
 
-### <a name="unroll-root"></a>Avregistrera rot
+### <a name="unroll-root"></a>Avrollrot
 
-Som standard registrerar den sammanslagna omvandlingen en matris längst upp i hierarkin som den finns i. Du kan också välja en matris som avregistrerad rot. Den avåterställda roten måste vara en matris med komplexa objekt som antingen är eller innehåller en avregistrering av matrisen. Om du väljer en avrullnings rot innehåller utdata minst en rad per objekt i den avbildade roten. Om inmatnings raden inte har några objekt i den expanderade roten, tas den bort från utdata. Om du väljer en avställnings rot skrivs alltid ett mindre än eller lika många rader med standard beteendet.
+Som standard avregistrerar sig förenklingsomformningen en matris överst i hierarkin som den finns i. Du kan också välja en matris som avrullningsrot. Avrollningsroten måste vara en matris med komplexa objekt som antingen är eller innehåller avrullningen efter matris. Om en avrollningsrot är markerad innehåller utdata minst en rad per objekt i avrollningsroten. Om indataraden inte har några objekt i avrollningsroten tas de bort från utdata. Om du väljer en avrollningsrot matas alltid ut mindre än eller lika många rader än standardbeteendet.
 
 ### <a name="flatten-mapping"></a>Förenkla mappning
 
-På samma sätt som Välj omvandling väljer du projektion av den nya strukturen från inkommande fält och den avnormaliserade matrisen. Om en denormaliserad matris mappas blir kolumnen utdata samma datatyp som matrisen. Om den avbildas efter matris är en matris med komplexa objekt som innehåller undermatriser, kommer mappningen av ett objekt i subarry att generera en matris.
+I likhet med den valda omformningen väljer du projektionen av den nya strukturen från inkommande fält och den denormaliserade matrisen. Om en denormaliserad array mappas kommer utdatakolumnen att vara samma datatyp som matrisen. Om avrullningen efter matris är en matris med komplexa objekt som innehåller underordningar, kommer mappning av ett objekt i det delarrytet att mata ut en matris.
 
-Kontrol lera dina mappnings resultat på fliken Granska och för hands versionen av data.
+Se fliken kontrollera och förhandsgranskning av data för att verifiera mappningsutdata.
 
 ## <a name="examples"></a>Exempel
 
-Se följande JSON-objekt för följande exempel på den sammanslagna omvandlingen
+Se följande JSON-objekt för nedanstående exempel på förenklingsomformningen
 
 ``` json
-[{
+{
   "name":"MSFT","location":"Redmond", "satellites": ["Bay Area", "Shanghai"],
   "goods": {
     "trade":true, "customers":["government", "distributer", "retail"],
     "orders":[
         {"orderId":1,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":2}]}},
         {"orderId":2,"orderTotal":323.34,"shipped":{"orderItems":[{"itemName":"Mice","itemQty":2},{"itemName":"Keyboard","itemQty":1}]}}
-    ]}},
+    ]}}
 {"name":"Company1","location":"Seattle", "satellites": ["New York"],
   "goods":{"trade":false, "customers":["store1", "store2"],
   "orders":[
       {"orderId":4,"orderTotal":123.34,"shipped":{"orderItems":[{"itemName":"Laptop","itemQty":20},{"itemName":"Charger","itemQty":3}]}},
       {"orderId":5,"orderTotal":343.24,"shipped":{"orderItems":[{"itemName":"Chair","itemQty":4},{"itemName":"Lamp","itemQty":2}]}}
-    ]}},
+    ]}}
 {"name": "Company2", "location": "Bellevue",
-  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}},
-{"name": "Company3", "location": "Kirkland"}]
+  "goods": {"trade": true, "customers":["Bank"], "orders": [{"orderId": 4, "orderTotal": 123.34}]}}
+{"name": "Company3", "location": "Kirkland"}
 ```
 
-### <a name="no-unroll-root-with-string-array"></a>Ingen Avregistrerings rot med sträng mat ris
+### <a name="no-unroll-root-with-string-array"></a>Ingen avrollningsrot med strängmatris
 
-| Avregistrera av | Avregistrera rot | Projektion |
+| Avregistrera dig | Avrollrot | Projektion |
 | --------- | ----------- | ---------- |
-| varor. kunder | Ingen | namn <br> kund = varor. kund |
+| varor.kunder | Inget | namn <br> kund = goods.customer |
 
 #### <a name="output"></a>Resultat
 
 ```
-{ 'MSFT', 'government'},
-{ 'MSFT', 'distributer'},
-{ 'MSFT', 'retail'},
-{ 'Company1', 'store'},
-{ 'Company1', 'store2'},
-{ 'Company2', 'Bank'},
+{ 'MSFT', 'government'}
+{ 'MSFT', 'distributer'}
+{ 'MSFT', 'retail'}
+{ 'Company1', 'store'}
+{ 'Company1', 'store2'}
+{ 'Company2', 'Bank'}
 { 'Company3', null}
 ```
 
-### <a name="no-unroll-root-with-complex-array"></a>Ingen Avregistrerings rot med komplex matris
+### <a name="no-unroll-root-with-complex-array"></a>Ingen avrollningsrot med komplex matris
 
-| Avregistrera av | Avregistrera rot | Projektion |
+| Avregistrera dig | Avrollrot | Projektion |
 | --------- | ----------- | ---------- |
-| varor. order. levererat. orderItems | Ingen | namn <br> Ordernr = varor. order. ordernr <br> itemName = varor. order. levererat. orderItems. itemName <br> itemQty = varor. Orders. levererat. orderItems. itemQty <br> plats = plats |
+| varor.orders.shipped.orderDepartement | Inget | namn <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> plats = plats |
 
 #### <a name="output"></a>Resultat
 
 ```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
-{ 'Company1', 4, 'Charger', 3, 'Seattle'},
-{ 'Company1', 5, 'Chair', 4, 'Seattle'},
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
-{ 'Company2', 4, null, null, 'Bellevue'},
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
+{ 'Company1', 4, 'Charger', 3, 'Seattle'}
+{ 'Company1', 5, 'Chair', 4, 'Seattle'}
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
+{ 'Company2', 4, null, null, 'Bellevue'}
 { 'Company3', null, null, null, 'Kirkland'}
 ```
 
-### <a name="same-root-as-unroll-array"></a>Samma rot som en Avregistrerings mat ris
+### <a name="same-root-as-unroll-array"></a>Samma rot som avväljande matris
 
-| Avregistrera av | Avregistrera rot | Projektion |
+| Avregistrera dig | Avrollrot | Projektion |
 | --------- | ----------- | ---------- |
-| varor. order | varor. order | namn <br> varor. order. levererat. orderItems. itemName <br> varor. kunder <br> location |
+| varor.order | varor.order | namn <br> varor.orders.shipped.orderItems.itemName <br> varor.kunder <br> location |
 
 #### <a name="output"></a>Resultat
 
 ```
-{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'},
-{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'},
-{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'},
-{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'},
+{ 'MSFT', ['Laptop','Charger'], ['government','distributer','retail'], 'Redmond'}
+{ 'MSFT', ['Mice', 'Keyboard'], ['government','distributer','retail'], 'Redmond'}
+{ 'Company1', ['Laptop','Charger'], ['store', 'store2'], 'Seattle'}
+{ 'Company1', ['Chair', 'Lamp'], ['store', 'store2'], 'Seattle'}
 { 'Company2', null, ['Bank'], 'Bellevue'}
 ```
 
-### <a name="unroll-root-with-complex-array"></a>Avregistrera rot med komplex matris
+### <a name="unroll-root-with-complex-array"></a>Rulla rot med komplex matris
 
-| Avregistrera av | Avregistrera rot | Projektion |
+| Avregistrera dig | Avrollrot | Projektion |
 | --------- | ----------- | ---------- |
-| varor. order. levererat. orderItem | varor. order |namn <br> Ordernr = varor. order. ordernr <br> itemName = varor. order. levererat. orderItems. itemName <br> itemQty = varor. Orders. levererat. orderItems. itemQty <br> plats = plats |
+| varor.orders.shipped.orderItem | varor.order |namn <br> orderId = goods.orders.orderId <br> itemName = goods.orders.shipped.orderItems.itemName <br> itemQty = goods.orders.shipped.orderItems.itemQty <br> plats = plats |
 
 #### <a name="output"></a>Resultat
 
 ```
-{ 'MSFT', 1, 'Laptop', 20, 'Redmond'},
-{ 'MSFT', 1, 'Charger', 2, 'Redmond'},
-{ 'MSFT', 2, 'Mice', 2, 'Redmond'},
-{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'},
-{ 'Company1', 4, 'Laptop', 20, 'Seattle'},
-{ 'Company1', 4, 'Charger', 3, 'Seattle'},
-{ 'Company1', 5, 'Chair', 4, 'Seattle'},
-{ 'Company1', 5, 'Lamp', 2, 'Seattle'},
+{ 'MSFT', 1, 'Laptop', 20, 'Redmond'}
+{ 'MSFT', 1, 'Charger', 2, 'Redmond'}
+{ 'MSFT', 2, 'Mice', 2, 'Redmond'}
+{ 'MSFT', 2, 'Keyboard', 1, 'Redmond'}
+{ 'Company1', 4, 'Laptop', 20, 'Seattle'}
+{ 'Company1', 4, 'Charger', 3, 'Seattle'}
+{ 'Company1', 5, 'Chair', 4, 'Seattle'}
+{ 'Company1', 5, 'Lamp', 2, 'Seattle'}
 { 'Company2', 4, null, null, 'Bellevue'}
 ```
 
@@ -169,5 +169,5 @@ source foldDown(unroll(goods.orders.shipped.orderItems, goods.orders),
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Använd [Pivot-transformeringen](data-flow-pivot.md) för att pivotera rader till kolumner.
-* Använd [unpivot-transformeringen](data-flow-unpivot.md) för att pivotera kolumner till rader.
+* Använd [pivotomvandlingen](data-flow-pivot.md) för att pivotera rader till kolumner.
+* Använd [unpivot-omformningen](data-flow-unpivot.md) för att pivotera kolumner till rader.

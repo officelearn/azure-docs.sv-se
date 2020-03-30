@@ -1,35 +1,35 @@
 ---
-title: ND-serien – Azure Virtual Machines
-description: Specifikationer för de virtuella datorerna i ND-serien.
+title: ND-serien – virtuella Azure-datorer
+description: Specifikationer för virtuella datorer i ND-serien.
 services: virtual-machines
 author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 9acf92649d5b44e277d3ae3d277c9b1112fdcdd0
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 163dc0d6ecd4f91273a82b04ce186f7a8df868af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "78273881"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79465064"
 ---
 # <a name="nd-series"></a>ND-serien
 
-De virtuella datorerna i ND-serien är ett nytt tillägg till GPU-familjen som är utformad för AI-och djup inlärnings arbets belastningar. De erbjuder utmärkt prestanda för utbildning och härledning. ND-instanser drivs av [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) -GPU: er och Intel Xeon E5-2690 v4-processorer (Broadwell). Dessa instanser ger utmärkta prestanda för flytt ALS åtgärder med enkel precision, för AI-arbetsbelastningar som använder Microsoft Cognitive Toolkit, TensorFlow, caffe och andra ramverk. ND-serien erbjuder även en mycket större GPU-minnes storlek (24 GB), vilket gör det möjligt att få plats med mycket större neurala NET-modeller. I likhet med NC-serien erbjuder ND-serien en konfiguration med ett sekundärt nätverk med låg latens, högt data flöde via RDMA och InfiniBand-anslutning så att du kan köra storskaliga utbildnings jobb över flera GPU: er.
+Virtuella datorer i ND-serien är ett nytt tillägg till GPU-familjen som är utformad för arbetsbelastningar för AI och Deep Learning. De erbjuder utmärkt prestanda för träning och slutledning. ND-instanser drivs av [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) GPU:er och Intel Xeon E5-2690 v4 (Broadwell) processorer. Dessa instanser ger utmärkt prestanda för flyttalsoperationer med en precision, för AI-arbetsbelastningar som använder Microsoft Cognitive Toolkit, TensorFlow, Caffe och andra ramverk. ND-serien erbjuder också en mycket större GPU-minnesstorlek (24 GB), vilket gör det möjligt att passa mycket större neurala nätmodeller. Precis som NC-serien erbjuder ND-serien en konfiguration med ett sekundärt nätverk med låg latens, hög genomströmning via RDMA och InfiniBand-anslutning så att du kan köra storskaliga utbildningsjobb som spänner över många GPU:er.
 
-Premium Storage: stöds
+Premium-lagring: Stöds
 
-Premium Storage caching: stöds
+Cachelagring av premiumlagring: Stöds
 
-Direktmigrering: stöds inte
+Live Migration: Stöds inte
 
-Minnes bebetjänings uppdateringar: stöds inte
+Minneskonering av uppdateringar: Stöds inte
 
 > [!IMPORTANT]
-> För den här VM-serien anges vCPU (Core)-kvoten per region i din prenumeration till 0. [Begär en vCPU-kvot ökning](../azure-supportability/resource-manager-core-quotas-request.md) för den här serien i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
+> För den här VM-serien är vCPU-kvoten (core) per region i prenumerationen ursprungligen inställd på 0. [Begär en ökning av vCPU-kvoten](../azure-supportability/resource-manager-core-quotas-request.md) för den här serien i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
 >
-| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Maximalt antal cachelagrade diskar: IOPS/MBps | Maximalt antal nätverkskort |
+| Storlek | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Maximalt antal datadiskar | Max oankopplat diskdataflöde: IOPS/MBps | Maximalt antal nätverkskort |
 |---|---|---|---|---|---|---|---|---|
 | Standard_ND6s    | 6  | 112 | 736  | 1 | 24 | 12 | 20000/200 | 4 |
 | Standard_ND12s   | 12 | 224 | 1474 | 2 | 48 | 24 | 40000/400 | 8 |
@@ -38,15 +38,17 @@ Minnes bebetjänings uppdateringar: stöds inte
 
 1 GPU = ett P40-kort.
 
-\* RDMA-kompatibel [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
+*RDMA-stöd
+
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="supported-operating-systems-and-drivers"></a>Operativsystem och drivrutiner som stöds
 
-För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien måste du installera NVIDIA GPU-drivrutiner.
+För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien måste NVIDIA GPU-drivrutiner installeras.
 
-[NVidia GPU-drivrutinen](./extensions/hpccompute-gpu-windows.md) installerar lämpliga NVIDIA-CUDA eller rutnäts driv rutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för NVIDIA GPU-drivrutins tillägget](./extensions/hpccompute-gpu-windows.md) . Allmän information om VM-tillägg finns i [tillägg och funktioner för virtuella Azure-datorer](./extensions/overview.md).
+[NVIDIA GPU Driver Extension](./extensions/hpccompute-gpu-windows.md) installerar lämpliga NVIDIA CUDA- eller GRID-drivrutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure-portalen eller verktyg som Azure PowerShell- eller Azure Resource Manager-mallar. Se [dokumentationen](./extensions/hpccompute-gpu-windows.md) för NVIDIA GPU Driver Extension för operativsystem och driftsättningssteg som stöds. Allmän information om vm-tillägg finns i [Azure-tillägg och funktioner för virtuella datorer](./extensions/overview.md).
 
-Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [N-seriens installations program för GPU-drivrutiner för Windows](./windows/n-series-driver-setup.md) eller [N-serien GPU-drivrutin installation för Linux](./linux/n-series-driver-setup.md) för operativ system, driv rutiner, installation och verifierings steg som stöds.
+Om du väljer att installera NVIDIA GPU-drivrutiner manuellt läser du [GPU-drivrutinsinställningarna i N-serien för](./windows/n-series-driver-setup.md) [GPU-drivrutinsinställningar i](./linux/n-series-driver-setup.md) Windows eller N-serien för Linux för operativsystem, drivrutiner, installations- och verifieringssteg.
 
 ## <a name="other-sizes"></a>Andra storlekar
 
@@ -59,4 +61,4 @@ Om du väljer att installera NVIDIA GPU-drivrutiner manuellt, se [N-seriens inst
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.
+Läs mer om hur [Azure compute units (ACU)](acu.md) kan hjälpa dig att jämföra beräkningsprestanda över Azure SKU:er.

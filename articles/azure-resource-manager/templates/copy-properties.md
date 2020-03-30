@@ -1,24 +1,24 @@
 ---
 title: Definiera flera instanser av en egenskap
-description: Använd kopierings åtgärden i en Azure Resource Manager-mall för att iterera flera gånger när du skapar en egenskap för en resurs.
+description: Använd kopieringsåtgärd i en Azure Resource Manager-mall för att iterera flera gånger när du skapar en egenskap på en resurs.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: b759389cd1065c399658bd8d0c1ddd263054697c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: e86d38b0e5d2e39d54b3c419b6eebdcda74022db
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77622862"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80258115"
 ---
-# <a name="property-iteration-in-azure-resource-manager-templates"></a>Egenskaps iteration i Azure Resource Manager mallar
+# <a name="property-iteration-in-arm-templates"></a>Egenskapsiter iteration i ARM-mallar
 
-Den här artikeln visar hur du skapar fler än en instans av en egenskap i din Azure Resource Manager-mall. Genom att lägga till elementet **Kopiera** i avsnittet Egenskaper i en resurs i mallen kan du dynamiskt ange antalet objekt för en egenskap under distributionen. Du behöver inte heller upprepa syntaxen för mallar.
+Den här artikeln visar hur du skapar mer än en instans av en egenskap i din AZURE Resource Manager -mall (ARM). Genom att **copy** lägga till kopieringselementet i egenskapsavsnittet för en resurs i mallen kan du ange antalet objekt för en egenskap dynamiskt under distributionen. Du undviker också att behöva upprepa mallsyntaxen.
 
-Du kan också använda kopiera med [resurser](copy-resources.md), [variabler](copy-variables.md)och [utdata](copy-outputs.md).
+Du kan också använda kopia med [resurser,](copy-resources.md) [variabler](copy-variables.md)och [utdata](copy-outputs.md).
 
-## <a name="property-iteration"></a>Egenskaps upprepning
+## <a name="property-iteration"></a>Egenskap iteration
 
-Kopierings elementet har följande allmänna format:
+Kopieringselementet har följande allmänna format:
 
 ```json
 "copy": [
@@ -30,11 +30,11 @@ Kopierings elementet har följande allmänna format:
 ]
 ```
 
-Som **namn**anger du namnet på den resurs egenskap som du vill skapa. Egenskapen **Count** anger antalet iterationer som du vill använda för egenskapen.
+För **namn**anger du namnet på den resursegenskap som du vill skapa. Egenskapen **Count** anger hur många iterationer du vill använda för egenskapen.
 
-Egenskapen **indatamängd** anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i egenskapen **indatamängd** .
+**Indataegenskapen** anger de egenskaper som du vill upprepa. Du kan skapa en matris med element som skapats från värdet i **indataegenskapen.**
 
-I följande exempel visas hur du tillämpar `copy` på data disks-egenskapen på en virtuell dator:
+I följande exempel visas `copy` hur du använder egenskapen dataDisks på en virtuell dator:
 
 ```json
 {
@@ -78,13 +78,13 @@ I följande exempel visas hur du tillämpar `copy` på data disks-egenskapen på
 }
 ```
 
-Observera att när du använder `copyIndex` inuti en egenskap iteration måste du ange namnet på iterationen.
+Observera att `copyIndex` när du använder inuti en egenskap iteration, måste du ange namnet på iterationen.
 
 > [!NOTE]
-> Egenskapen iteration stöder också ett offset-argument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex (' data disks ', 1).
+> Egenskapsiteration stöder också ett förskjutningsargument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex('dataDisks', 1).
 >
 
-Resource Manager expanderar `copy` matris under distributionen. Namnet på matrisen blir namnet på egenskapen. De angivna värdena blir objekt egenskaperna. Den distribuerade mallen blir:
+Resource Manager utökar matrisen `copy` under distributionen. Namnet på matrisen blir namnet på egenskapen. Indatavärdena blir objektegenskaperna. Den distribuerade mallen blir:
 
 ```json
 {
@@ -113,13 +113,13 @@ Resource Manager expanderar `copy` matris under distributionen. Namnet på matri
       ...
 ```
 
-Kopierings elementet är en matris så att du kan ange mer än en egenskap för resursen.
+Kopieringselementet är en matris så att du kan ange mer än en egenskap för resursen.
 
 ```json
 {
   "type": "Microsoft.Network/loadBalancers",
   "apiVersion": "2017-10-01",
-  "name": "examleLB",
+  "name": "exampleLB",
   "properties": {
     "copy": [
       {
@@ -141,7 +141,7 @@ Kopierings elementet är en matris så att du kan ange mer än en egenskap för 
 }
 ```
 
-Du kan använda en iteration av resurs och egenskap tillsammans. Referera till egenskapen iteration efter namn.
+Du kan använda resurs- och egenskapsiteration tillsammans. Referera till egenskapsiterationen efter namn.
 
 ```json
 {
@@ -175,11 +175,11 @@ Du kan använda en iteration av resurs och egenskap tillsammans. Referera till e
 }
 ```
 
-## <a name="copy-limits"></a>Kopierings gränser
+## <a name="copy-limits"></a>Kopiera gränser
 
-Antalet får inte överskrida 800.
+Antalet får inte överstiga 800.
 
-Antalet får inte vara ett negativt tal. Om du distribuerar en mall med Azure PowerShell 2,6 eller senare, Azure CLI 2.0.74 eller senare, eller REST API version **2019-05-10** eller senare, kan du ange antal till noll. Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för Count.
+Antalet kan inte vara ett negativt tal. Om du distribuerar en mall med Azure PowerShell 2.6 eller senare, Azure CLI 2.0.74 eller senare, eller REST API version **2019-05-10** eller senare, kan du ange antal till noll. Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för antal.
 
 ## <a name="example-templates"></a>Exempel på mallar
 
@@ -187,15 +187,15 @@ I följande exempel visas ett vanligt scenario för att skapa mer än ett värde
 
 |Mall  |Beskrivning  |
 |---------|---------|
-|[VM-distribution med ett variabel antal data diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera data diskar till en virtuell dator. |
+|[VM-distribution med ett varierande antal datadiskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Distribuerar flera datadiskar med en virtuell dator. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du går igenom självstudierna finns i [Självstudier: skapa flera resurs instanser med Resource Manager-mallar](template-tutorial-create-multiple-instances.md).
-* För andra användnings områden av elementet Copy, se:
-  * [Resurs iteration i Azure Resource Manager mallar](copy-resources.md)
-  * [Variabel iteration i Azure Resource Manager mallar](copy-variables.md)
-  * [Utdata iteration i Azure Resource Manager mallar](copy-outputs.md)
-* Om du vill lära dig mer om avsnitten i en mall, se [redigera Azure Resource Manager mallar](template-syntax.md).
-* Information om hur du distribuerar din mall finns i [distribuera ett program med Azure Resource Manager-mall](deploy-powershell.md).
+* Information om hur du går igenom en självstudiekurs finns i [Självstudiekurs: skapa flera resursinstanser med ARM-mallar](template-tutorial-create-multiple-instances.md).
+* För annan användning av kopieringselementet, se:
+  * [Resursiteration i ARM-mallar](copy-resources.md)
+  * [Variabel iteration i ARM-mallar](copy-variables.md)
+  * [Utdataiteration i ARM-mallar](copy-outputs.md)
+* Om du vill lära dig mer om avsnitten i en mall läser [du Skapa ARM-mallar](template-syntax.md).
+* Mer information om hur du distribuerar mallen finns i [Distribuera ett program med ARM-mall](deploy-powershell.md).
 

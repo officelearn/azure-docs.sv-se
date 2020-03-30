@@ -1,36 +1,36 @@
 ---
-title: Hastighets begränsning för SMS, e-post, Azure App push-meddelanden och Webhooks
-description: Förstå hur Azure begränsar antalet möjliga SMS-, e-Azure App push-eller webhook-aviseringar från en åtgärds grupp.
+title: Hastighetsbegränsning för SMS, e-post, Azure App push-meddelanden och webhooks
+description: Förstå hur Azure begränsar antalet möjliga SMS-, e-post-, Azure App-push- eller webhook-meddelanden från en åtgärdsgrupp.
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
 ms.openlocfilehash: 066fcac24571c8e982784a3845a010525ff9088a
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77665535"
 ---
-# <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Hastighets begränsning för röst, SMS, e-post, Azure App push-meddelanden och webhook-inlägg
-Hastighets begränsning är ett avbrott i meddelanden som inträffar när för många skickas till ett visst telefonnummer, en e-postadress eller en enhet. Hastighets begränsning garanterar att aviseringar kan hanteras och åtgärdas.
+# <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Hastighetsbegränsning för röst-, SMS-meddelanden, e-postmeddelanden, Azure App push-meddelanden och webhook-inlägg
+Hastighetsbegränsning är en avstängning av meddelanden som inträffar när för många skickas till ett visst telefonnummer, e-postadress eller enhet. Hastighetsbegränsning säkerställer att aviseringar är hanterbara och genomförbara.
 
-Tröskelvärden för frekvens gränser är:
+Tröskelvärdena för hastighetsbegränsningar är:
 
-- **SMS**: högst 1 SMS var 5: e minut.
-- **Röst**: högst 1 röst samtal var 5: e minut.
-- **E-post**: högst 100 e-postmeddelanden på en timme.
+- **SMS**: Högst 1 SMS var 5:e minut.
+- **Röst:** Högst 1 Röstsamtal var femte minut.
+- **E-post:** Inte mer än 100 e-postmeddelanden på en timme.
  
-  Andra åtgärder är inte begränsade.
+  Andra åtgärder är inte räntebegränsade.
 
-## <a name="rate-limit-rules"></a>Hastighets begränsnings regler
-- Ett visst telefonnummer eller e-postmeddelande är begränsat när det får fler meddelanden än tröskelvärdet tillåter.
-- Ett telefonnummer eller e-postmeddelande kan ingå i åtgärds grupper över flera prenumerationer. Hastighets begränsningen gäller för alla prenumerationer. Den gäller så snart tröskelvärdet har nåtts, även om meddelanden skickas från flera prenumerationer.
-- När en e-postadress är begränsad så skickas ytterligare ett meddelande för att kommunicera med hastighets begränsningen. E-posttillstånden när hastighets begränsningen upphör att gälla.
+## <a name="rate-limit-rules"></a>Regler för hastighetsbegränsning
+- Ett visst telefonnummer eller e-postmeddelande är begränsad när det tar emot fler meddelanden än tröskelvärdet tillåter.
+- Ett telefonnummer eller e-postmeddelande kan ingå i åtgärdsgrupper i många prenumerationer. Hastighetsbegränsning gäller för alla prenumerationer. Det gäller så snart tröskelvärdet har uppnåtts, även om meddelanden skickas från flera prenumerationer.
+- När en e-postadress är begränsad skickas ytterligare ett meddelande för att meddela prisbegränsningen. E-postmeddelandet anger när prisbegränsningen upphör att gälla.
 
 ## <a name="next-steps"></a>Nästa steg ##
-* Lär dig mer om [SMS-aviserings beteende](alerts-sms-behavior.md).
-* Få en [Översikt över aktivitets logg aviseringar](alerts-overview.md)och lär dig hur du tar emot aviseringar.  
-* Lär dig hur du [konfigurerar aviseringar när ett meddelande om tjänst hälsa har publicerats](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+* Läs mer om [SMS-varningsbeteende](alerts-sms-behavior.md).
+* Få en översikt över aviseringar för [aktivitetsloggar](alerts-overview.md)och lär dig hur du tar emot aviseringar.  
+* Lär dig hur du [konfigurerar aviseringar när ett hälsomeddelande för tjänsten publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
 

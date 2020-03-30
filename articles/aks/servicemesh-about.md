@@ -1,113 +1,113 @@
 ---
-title: Om tjänst nät
-description: Få en översikt över tjänst nät, deras arkitektur och funktioner och vilka kriterier du bör tänka på när du väljer en att distribuera.
+title: Om servicenät
+description: Få en översikt över servicenät, deras arkitektur och funktioner och vilka kriterier du bör tänka på när du väljer en att distribuera.
 author: paulbouwer
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77594319"
 ---
-# <a name="about-service-meshes"></a>Om tjänst nät
+# <a name="about-service-meshes"></a>Om servicenät
 
-Ett tjänst nät ger funktioner som trafik hantering, återhämtning, policy, säkerhet, stark identitet och rätt till dina arbets belastningar. Programmet är frikopplat från dessa operativa funktioner och service nätet flyttar dem från program lagret och nedåt till infrastruktur skiktet.
+Ett servicenät ger funktioner som trafikhantering, återhämtning, princip, säkerhet, stark identitet och observerbarhet för dina arbetsbelastningar. Ditt program är frikopplat från dessa driftsfunktioner och tjänstnätet flyttar dem ut ur programlagret och ner till infrastrukturlagret.
 
 ## <a name="scenarios"></a>Scenarier
 
-Detta är några av de scenarier som kan aktive ras för dina arbets belastningar när du använder ett tjänst nät:
+Det här är några av de scenarier som kan aktiveras för dina arbetsbelastningar när du använder ett tjänstnät:
 
-- **Kryptera all trafik i kluster** – aktivera ömsesidig TLS mellan angivna tjänster i klustret. Detta kan utökas till att tränga in och ut vid nätverks omkretsen. Är ett säkert alternativ som standard utan några ändringar som behövs för program kod och infrastruktur.
+- **Kryptera all trafik i klustret** - Aktivera ömsesidig TLS mellan angivna tjänster i klustret. Detta kan utökas till ingående och utgående vid nätverksperimetern. Ger ett säkert som standardalternativ utan ändringar som behövs för programkod och infrastruktur.
 
-- Distributioner av **Kanarie-och faser** – ange villkor för en delmängd trafik som ska dirigeras till en uppsättning nya tjänster i klustret. Vid lyckad testning av Kanarie-versionen tar du bort villkorlig Routning och fas gradvis ökande% av all trafik till den nya tjänsten. Till sist kommer all trafik att dirigeras till den nya tjänsten.
+- **Kanariefågel och stegvisa distributioner** – Ange villkoren för en delmängd av trafiken som ska dirigeras till en uppsättning nya tjänster i klustret. Vid lyckad test av kanariefågelfrisättning tar du bort villkorlig routning och fas gradvis ökar % av all trafik till ny tjänst. Så småningom kommer all trafik att dirigeras till ny tjänst.
 
-- **Trafik hantering och manipulering** – skapa en princip för en tjänst som begränsar all trafik till en version av en tjänst från ett visst ursprung. Eller en princip som tillämpar en strategi för återförsök i klasser med fel mellan angivna tjänster. Spegla Live-trafik till nya versioner av tjänster under en migrering eller till fel söknings problem. Injicera fel mellan tjänster i en test miljö för att testa återhämtning.
+- **Trafikhantering och manipulering** - Skapa en princip för en tjänst som kommer att begränsa begränsa all trafik till en version av en tjänst från ett visst ursprung. Eller en princip som tillämpar en strategi för återförsök på klasser av fel mellan angivna tjänster. Spegla direkt trafik till nya versioner av tjänster under en migrering eller för att felsöka problem. Injicera fel mellan tjänster i en testmiljö för att testa återhämtningen.
 
-- **Observera** att du får insikt om hur dina tjänster är anslutna till den trafik som flödar mellan dem. Hämta mått, loggar och spårningar för all trafik i klustret och ingress/utgående. Lägg till distribuerade spårnings möjligheter i dina program.
+- **Observerbarhet** - Få insikt i hur dina tjänster är anslutna trafik som flödar mellan dem. Hämta mått, loggar och spårningar för all trafik i klustret och ingående/utgående. Lägg till distribuerade spårningsfunktioner i dina program.
 
 ## <a name="architecture"></a>Arkitektur
 
-Ett service nät består vanligt vis av ett kontroll plan och data planet.
+Ett servicenät består vanligtvis av ett kontrollplan och dataplanet.
 
-**Kontroll planet** har ett antal komponenter som stöder hantering av tjänst nätet. Detta omfattar vanligt vis ett hanterings gränssnitt som kan vara ett gränssnitt eller ett API. Det finns också normalt komponenter som hanterar regeln och princip definitionerna som definierar hur service nätet ska implementera vissa funktioner. Det finns också komponenter som hanterar säkerhets aspekter som stark identitet och certifikat för mTLS. Service nät har vanligt vis ett mått eller en komponent för en komponent som samlar in och aggregerar mått och telemetri från arbets belastningarna.
+**Kontrollplanet** har ett antal komponenter som stöder hantering av servicenätet. Detta innehåller vanligtvis ett hanteringsgränssnitt som kan vara ett användargränssnitt eller ett API. Det finns vanligtvis också komponenter som hanterar regel- och principdefinitionerna som definierar hur servicenätet ska implementera specifika funktioner. Det finns också komponenter som hanterar aspekter av säkerhet som stark identitet och certifikat för mTLS. Tjänstnät har vanligtvis också en mått- eller observationskomponent som samlar in och sammanställer mått och telemetri från arbetsbelastningarna.
 
-**Data planet** består vanligt vis av en proxy som är transparent inmatad som en sidvagn till dina arbets belastningar. Den här proxyn är konfigurerad för att kontrol lera all nätverks trafik i och ut ur Pod som innehåller din arbets belastning. Detta gör att proxyn kan konfigureras för att skydda trafik via mTLS, dynamiskt dirigera trafik, tillämpa principer för trafik och samla in mått och spårnings information. 
+**Dataplanet** består vanligtvis av en proxy som matas in transparent som en sidovagn till dina arbetsbelastningar. Den här proxyn är konfigurerad för att styra all nätverkstrafik in och ut ur podden som innehåller din arbetsbelastning. Detta gör att proxyn kan konfigureras för att skydda trafik via mTLS, dynamiskt dirigera trafik, tillämpa principer för trafik och att samla in mått och spåra information. 
 
-![Typisk service nät arkitektur](media/servicemesh/typical-architecture.png)
+![Typisk servicenätarkitektur](media/servicemesh/typical-architecture.png)
 
 ## <a name="capabilities"></a>Funktioner
 
-Vart och ett av tjänst näten har en naturlig passning och fokuserar på stöd för vissa scenarier, men du kommer normalt att upptäcka att de flesta implementerar ett antal, om inte alla, av följande funktioner.
+Var och en av tjänstnäten har en naturlig passform och fokus på att stödja specifika scenarier, men du kommer vanligtvis att upptäcka att de flesta kommer att implementera ett antal, om inte alla, av följande funktioner.
 
-### <a name="traffic-management"></a>Trafik hantering 
+### <a name="traffic-management"></a>Trafikledning 
 
-- **Protokoll** – Layer 7 (http, grpc)
+- **Protokoll** – skikt 7 (http, grpc)
 - **Dynamisk routning** – villkorlig, viktning, spegling
-- **Återhämtning** – timeout, återförsök, krets brytare
-- **Princip** – åtkomst kontroll, hastighets begränsningar, kvoter
-- **Testar** – fel inmatning
+- **Återhämtning –** timeout, återförsök, brytare
+- **Policy** – åtkomstkontroll, räntegränser, kvoter
+- **Testning** - felinsprutning
 
 ### <a name="security"></a>Säkerhet
 
-- **Kryptering** – mTLS, certifikat hantering, extern ca
+- **Kryptering** – mTLS, certifikathantering, extern certifikatutfärdarorganisation
 - **Stark identitet** – SPIFFE eller liknande
-- **Autentisering – autentisering** , auktorisering
+- **Auth** – autentisering, auktorisation
 
-### <a name="observability"></a>Iakttagit
+### <a name="observability"></a>Observerbarhet
 
-- **Mått** – gyllene mått, Prometheus, Grafana
-- **Spårning** – spårning över arbets belastningar
-- **Trafik** – kluster, ingress/utgående
+- **Metrics** - gyllene mått, prometheus, grafana
+- **Spårning** - spår över arbetsbelastningar
+- **Trafik** – kluster, ingång/utgående
 
-### <a name="mesh"></a>Ruta
+### <a name="mesh"></a>Nät
 
-- **Beräknings** -Kubernetes, virtuella datorer som stöds
-- **Flera-kluster** – gatewayer, Federation
+- **Beräkning som stöds** - Kubernetes, virtuella datorer
+- **Multi-kluster** - gateways, federation
 
-## <a name="selection-criteria"></a>Urvals villkor
+## <a name="selection-criteria"></a>Urvalskriterier
 
-Innan du väljer ett service nät bör du se till att du förstår dina krav och orsakerna till att du installerar ett tjänst nät. Försök att ställa följande frågor.
+Innan du väljer ett servicenät ska du se till att du förstår dina krav och orsakerna till att du installerar ett servicenät. Försök att ställa följande frågor.
 
-- **Är en ingångs kontroll tillräckligt för mina behov?** – Ibland räcker det med en funktion som a/b-testning eller trafik delning vid ingångs tiden för att stödja det scenario som krävs. Lägg inte till komplexitet i din miljö utan någon upp.
+- **Räcker en ingresskontrollant för mina behov?** - Ibland har en förmåga som a / b-testning eller trafik uppdelning vid inträngningen är tillräckligt för att stödja det nödvändiga scenariot. Lägg inte till komplexitet i din miljö utan uppsida.
 
-- **Kan mina arbets belastningar och miljö tolerera ytterligare omkostnader?** – Alla ytterligare komponenter som krävs för att stödja tjänst nätet kräver ytterligare resurser som processor och minne. Dessutom kontrollerar alla proxyservrar och tillhör ande princip en fördröjning i trafiken. Om du har arbets belastningar som är mycket känsliga för svars tider eller inte kan tillhandahålla de ytterligare resurserna för att ta del av service nät komponenterna, kan du överväga att överväga om.
+- **Kan mina arbetsbelastningar och miljö tolerera ytterligare omkostnader?** - Alla ytterligare komponenter som krävs för att stödja tjänsten mesh kräver ytterligare resurser som cpu och minne. Dessutom lägger alla proxyservrar och tillhörande principkontroller till svarstid i trafiken. Om du har arbetsbelastningar som är mycket känsliga för svarstid eller inte kan tillhandahålla ytterligare resurser för att täcka tjänstnätkomponenterna bör du tänka ut igen.
 
-- **Är det här att lägga till ytterligare komplexitet i onödan?** – Om anledningen till att installera ett service nät är att få en funktion som inte nödvändigt vis är kritisk för affärs-eller drift teamen, kan du överväga om den ytterligare komplexiteten vid installation, underhåll och konfiguration är värda.
+- **Är detta att lägga till ytterligare komplexitet i onödan?** - Om anledningen till att installera ett servicenät är att få en kapacitet som inte nödvändigtvis är avgörande för affärs- eller driftteamen, bör du överväga om den ytterligare komplexiteten i installation, underhåll och konfiguration är värt det.
 
-- **Kan detta antas i en stegvis metod?** – Några av de tjänst nät som ger många funktioner kan antas i en mer stegvis metod. Installera bara de komponenter du behöver för att se till att du lyckas. När du är mer trygg och ytterligare funktioner krävs kan du utforska dem. Gå på och uppmana att installera *allt* från början.
+- **Kan detta antas i ett stegvis tillvägagångssätt?** - Några av de servicenät som ger en hel del kapacitet kan antas i en mer inkrementell strategi. Installera bara de komponenter du behöver för att säkerställa din framgång. När du är mer självsäker och ytterligare funktioner krävs, sedan utforska dessa. Motstå frestelsen att installera *allt* från början.
 
-Om du efter noggranna överväganden bestämmer att du behöver ett service nät för att tillhandahålla de funktioner som krävs, är nästa beslut *vilket service nät?*
+Om du efter noggrant övervägande bestämmer dig för att du behöver ett servicenät för att tillhandahålla de funktioner som krävs, då är ditt nästa beslut *vilket servicenät?*
 
-Tänk på följande områden och vilka av dem som är mest justerade med dina krav. På så sätt får du den bästa anpassningen för din miljö och dina arbets belastningar. Avsnittet [Nästa steg](#next-steps) tar dig till mer detaljerad information om särskilda service nät och hur de mappar till dessa områden.
+Tänk på följande områden och vilka av dem som är mest i linje med dina krav. Detta kommer att guida dig mot den bästa passformen för din miljö och arbetsbelastningar. I avsnittet [Nästa steg](#next-steps) får du mer detaljerad information om specifika servicenät och hur de mappas till dessa områden.
 
-- Hantering av **teknisk** trafik, policy, säkerhet, observerbarhet
+- **Teknisk** - trafikledning, policy, säkerhet, observerbarhet
 
-- **Business** -kommersiell support, grund (CNCF), oss-licens, styrning
+- **Business** - kommersiellt stöd, stiftelse (CNCF), OSS licens, styrning
 
-- **Drift** – installation/uppgraderingar, resurs krav, prestanda krav, integreringar (mått, telemetri, instrument paneler, verktyg, SMI), blandade arbets belastningar (Linux-och Windows Node-pooler), Compute (Kubernetes, Virtual Machines), flera kluster
+- **Drift** – installation/uppgraderingar, resurskrav, prestandakrav, integrationer (mått, telemetri, instrumentpaneler, verktyg, SMI), blandade arbetsbelastningar (Linux- och Windows-nodpooler), beräkning (Kubernetes, virtuella datorer), multikluster
 
-- **Säkerhet** -auth, identitet, certifikat hantering och rotation, anslutnings Bart extern ca
+- **Säkerhet** - autentisering, identitet, certifikathantering och rotation, inkopplad extern certifikatutfärdare
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Följande dokumentation innehåller mer information om tjänst nät som du kan prova på Azure Kubernetes service (AKS):
+Följande dokumentation innehåller mer information om tjänstnät som du kan prova på Azure Kubernetes Service (AKS):
 
 > [!div class="nextstepaction"]
-> [Läs mer om Istio...][istio-about]
+> [Läs mer om Istio ...][istio-about]
 
 > [!div class="nextstepaction"]
-> [Läs mer om Linkerd...][linkerd-about]
+> [Läs mer om Linkerd ...][linkerd-about]
 
 > [!div class="nextstepaction"]
-> [Läs mer om konsulär...][consul-about]
+> [Läs mer om konsul ...][consul-about]
 
-Du kanske också vill utforska service nät gränssnitt (SMI), ett standard gränssnitt för service nät på Kubernetes:
+Du kanske också vill utforska Service Mesh Interface (SMI), ett standardgränssnitt för servicenät på Kubernetes:
 
-- [Service nät gränssnitt (SMI)][smi]
+- [Service Mesh-gränssnitt (SMI)][smi]
 
 
 <!-- LINKS - external -->

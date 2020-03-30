@@ -1,6 +1,6 @@
 ---
-title: Azure Application insikter log-baserade mått | Microsoft Docs
-description: I den här artikeln visas Azure Application Insights-mått med stödda agg regeringar och dimensioner. Informationen om loggbaserade mått inkluderar de underliggande Kusto-frågeuttryck.
+title: Loggbaserade mätvärden för Azure Application Insights | Microsoft-dokument
+description: I den här artikeln visas Azure Application Insights-mått med aggregeringar och dimensioner som stöds. Informationen om loggbaserade mått inkluderar de underliggande Kusto-frågesatserna.
 author: vgorbenko
 services: azure-monitor
 ms.topic: reference
@@ -8,48 +8,48 @@ ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
 ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "77664923"
 ---
-# <a name="application-insights-log-based-metrics"></a>Application Insights log-baserade mått
+# <a name="application-insights-log-based-metrics"></a>Programinsikter loggbaserade mått
 
-Med Application Insights loggbaserade mått kan du analysera hälso tillståndet för dina övervakade appar, skapa kraftfulla instrument paneler och konfigurera aviseringar. Det finns två typer av mått:
+Med application insights-loggbaserade mått kan du analysera hälsotillståndet för dina övervakade appar, skapa kraftfulla instrumentpaneler och konfigurera aviseringar. Det finns två typer av mätvärden:
 
-* [Loggbaserade mått](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) bakom scenen översätts till Kusto- [frågor](https://docs.microsoft.com/azure/kusto/query/) från lagrade händelser.
-* [Standard mått](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) lagras som församlade tids serier.
+* [Loggbaserade mätvärden](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) bakom scenen översätts till [Kusto-frågor](https://docs.microsoft.com/azure/kusto/query/) från lagrade händelser.
+* Standardmått lagras som föraggregerade [tidsserier.](../../azure-monitor/app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics)
 
-Eftersom *standard mått* är församlade under samlingen har de bättre prestanda vid tidpunkten för frågan. Detta gör dem till ett bättre alternativ för instrument paneler och i real tids aviseringar. De *loggbaserade måtten* har fler dimensioner, vilket gör dem till det överordnade alternativet för data analys och ad hoc-diagnostik. Använd [namn områdes väljaren](metrics-getting-started.md#create-your-first-metric-chart) för att växla mellan log-baserade och standard mått i [Metrics Explorer](metrics-getting-started.md).
+Eftersom *standardmått* är föraggregerade under insamlingen har de bättre prestanda vid frågetid. Detta gör dem till ett bättre val för instrumentpaneler och i realtidsavisering. De *loggbaserade måtten* har fler dimensioner, vilket gör dem till det överlägsna alternativet för dataanalys och ad hoc-diagnostik. Använd [namnområdesväljaren](metrics-getting-started.md#create-your-first-metric-chart) för att växla mellan loggbaserade och standardmått i [statistikutforskaren](metrics-getting-started.md).
 
 ## <a name="interpret-and-use-queries-from-this-article"></a>Tolka och använda frågor från den här artikeln
 
-Den här artikeln innehåller mått med agg regeringar och dimensioner som stöds. Informationen om loggbaserade mått inkluderar de underliggande Kusto-frågeuttryck. För enkelhetens skull använder varje fråga standardvärden för tids kornig het, diagram typ och delar ibland upp dimension som fören klar användningen av frågan i Log Analytics utan att behöva ändra.
+I den här artikeln visas mått med aggregeringar och dimensioner som stöds. Informationen om loggbaserade mått inkluderar de underliggande Kusto-frågesatserna. För enkelhetens skull använder varje fråga standardvärden för tidsgranularitet, diagramtyp och ibland delningsdimension som förenklar användningen av frågan i Logganalys utan att det behövs ändringar.
 
-När du ritar samma mått i [Metrics Explorer](metrics-getting-started.md)finns det inga standardvärden – frågan justeras dynamiskt baserat på diagrammets inställningar:
+När du ritar samma mått i [statistikutforskaren](metrics-getting-started.md)finns det inga standardvärden – frågan justeras dynamiskt baserat på diagraminställningarna:
 
-- Det valda **tidsintervallet** översätts till en ytterligare *WHERE-timestamp...* -sats för att endast välja händelser från det valda tidsintervallet. Till exempel, ett diagram som visar data för de senaste 24 timmarna, inkluderar frågan *| där tidsstämpeln > sedan (24 h)* .
+- Det valda **tidsintervallet** översätts till ytterligare en *där tidsstämpel...* satsen för att bara välja händelser från valt tidsintervall. Ett diagram som visar data för de senaste 24 timmarna innehåller till exempel *frågan | där tidsstämpeln > sedan(24 h)*.
 
-- Den valda **tids kornig het** placeras i den slutliga *sammanfattningen... per bin-sats (timestamp, [Time kornig])* .
+- Den valda **Tidsgranularitet** sätts in i den slutliga *sammanfattningen ... efter bin(tidsstämpel, [tidskorn]) sats.*
 
-- Alla valda **filter** dimensioner översätts till ytterligare *WHERE* -satser.
+- Alla valda **filterdimensioner** översätts till ytterligare *varsatser.*
 
-- Den markerade dimensionen för **delad diagram** översätts till en extra sammanfattnings egenskap. Om du till exempel delar diagrammet efter *plats*och ritar med en tids kornig het på 5 minuter sammanfattas *sammanfattnings* satsen *... per Bing (tidsstämpel, 5 m), plats*.
+- Den valda **splitdiagramdimensionen** översätts till en extra sammanfattande egenskap. Om du till exempel delar diagrammet efter *plats*och ritar med en 5-minuters tidsgranularitet sammanfattas *summarize-satsen* *... lagerplats (tidsstämpel, 5 m), plats*.
 
 > [!NOTE]
-> Om du är nybörjare på Kusto-frågespråket börjar du med att kopiera och klistra in Kusto-uttryck i rutan Log Analytics fråga utan att göra några ändringar. Klicka på **Kör** för att visa det grundläggande diagrammet. När du börjar förstå syntaxen för frågespråket kan du börja göra små ändringar och se hur ändringen påverkar. Att utforska dina egna data är ett bra sätt att börja realisera den fulla kraften hos [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) och [Azure Monitor](../../azure-monitor/overview.md).
+> Om du inte har tidigare i Frågespråket Kusto börjar du med att kopiera och klistra in Kusto-satser i frågefönstret i Log Analytics utan att göra några ändringar. Klicka på **Kör** om du vill se det grundläggande diagrammet. När du börjar förstå syntaxen för frågespråket kan du börja göra små ändringar och se effekten av ändringen. Att utforska dina egna data är ett bra sätt att börja inse den fulla kraften i [Log Analytics](../../azure-monitor/log-query/get-started-portal.md) och [Azure Monitor](../../azure-monitor/overview.md).
 
-## <a name="availability-metrics"></a>Tillgänglighets mått
+## <a name="availability-metrics"></a>Tillgänglighetsmått
 
-Mått i kategorin tillgänglighet gör att du kan se hälso tillståndet för ditt webb program som observerats från platser runtom i världen. [Konfigurera tillgänglighets testerna](../../azure-monitor/app/monitor-web-app-availability.md) för att börja använda mått från den här kategorin.
+Mått i kategorin Tillgänglighet gör att du kan se hälsotillståndet för ditt webbprogram som observerats från platser runt om i världen. [Konfigurera tillgänglighetstesterna](../../azure-monitor/app/monitor-web-app-availability.md) för att börja använda alla mått från den här kategorin.
 
-### <a name="availability-availabilityresultsavailabilitypercentage"></a>Tillgänglighet (availabilityResults/availabilityPercentage)
-*Tillgänglighets* måttet visar procent andelen av de webb test körningar som inte identifierade några problem. Det lägsta möjliga värdet är 0, vilket innebär att alla webb test körningar har misslyckats. Värdet 100 innebär att alla webbtester körs och att verifierings villkoren har körts.
+### <a name="availability-availabilityresultsavailabilitypercentage"></a>Tillgänglighet (tillgänglighetResultat/tillgänglighetPercentage)
+Måttet *Tillgänglighet* visar procentandelen av webbtestkörningarna som inte upptäckte några problem. Det lägsta möjliga värdet är 0, vilket indikerar att alla webbtestkörningar har misslyckats. Värdet 100 innebär att alla webbtestkörningar klarade valideringskriterierna.
 
-|Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
+|Måttenhet|Aggregeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
-|Procent|Medel|Körnings plats, test namn|
+|Procent|Medel|Kör plats, Testnamn|
 
 ```Kusto
 availabilityResults 
@@ -57,13 +57,13 @@ availabilityResults
 | render timechart
 ```
 
-### <a name="availability-test-duration-availabilityresultsduration"></a>Tillgänglighets testets varaktighet (availabilityResults/duration)
+### <a name="availability-test-duration-availabilityresultsduration"></a>Varaktighet för tillgänglighetstest (tillgänglighetResultat/varaktighet)
 
-Måttet för *tillgänglighets testets varaktighet* visar hur lång tid det tog för webb testet att köras. För [webbtester med flera steg](../../azure-monitor/app/availability-multistep.md)återspeglar måttet den totala körnings tiden för alla steg.
+Måttet *Tillgänglighetstestvaraktighet* visar hur lång tid det tog för webbtestet att köras. För [webbtester i flera steg](../../azure-monitor/app/availability-multistep.md)återspeglar måttet den totala körningstiden för alla steg.
 
-|Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
+|Måttenhet|Aggregeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
-|Millisekunder|Genomsnitt, min, max|Körnings plats, test namn, test resultat
+|Millisekunder|Genomsnitt, Min, Max|Kör plats, Testnamn, Testresultat
 
 ```Kusto
 availabilityResults
@@ -73,13 +73,13 @@ availabilityResults
 | render timechart
 ```
 
-### <a name="availability-tests-availabilityresultscount"></a>Tillgänglighets test (availabilityResults/Count)
+### <a name="availability-tests-availabilityresultscount"></a>Tillgänglighetstester (tillgänglighetResultat/antal)
 
-Måttet *tillgänglighets test* visar antalet webbtester som körs av Azure Monitor.
+Måttet *Tillgänglighetstester* återspeglar antalet webbtester som körs av Azure Monitor.
 
-|Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
+|Måttenhet|Aggregeringar som stöds|Dimensioner som stöds|
 |---|---|---|---|---|---|
-|Antal|Antal|Körnings plats, test namn, test resultat|
+|Antal|Antal|Kör plats, Testnamn, Testresultat|
 
 ```Kusto
 availabilityResults
@@ -87,18 +87,18 @@ availabilityResults
 | render timechart
 ```
 
-## <a name="browser-metrics"></a>Webb läsar mått
+## <a name="browser-metrics"></a>Webbläsarmått
 
-Webb läsar mått samlas in av Application Insights JavaScript SDK från verkliga webbläsare för slutanvändare. De ger fantastiska insikter om användarnas upplevelse med din webbapp. Webb läsar måtten samplas vanligt vis inte, vilket innebär att de ger högre precision av användnings numren jämfört med mått på Server sidan som kan skevas genom sampling.
+Webbläsarmått samlas in av Application Insights JavaScript SDK från riktiga slutanvändarens webbläsare. De ger bra insikter om användarnas upplevelse med din webbapp. Webbläsarmått tas vanligtvis inte i prov, vilket innebär att de ger högre precision i användningsnumren jämfört med mätvärden på serversidan som kan vara skeva genom sampling.
 
 > [!NOTE]
-> För att samla in webb läsar mått måste ditt program instrumenteras med [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
+> Om du vill samla in webbläsarmått måste ditt program vara instrumenterat med [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md).
 
-### <a name="browser-page-load-time-browsertimingstotalduration"></a>Sid inläsnings tid för webbläsare (browserTimings/totalDuration)
+### <a name="browser-page-load-time-browsertimingstotalduration"></a>Inläsningstid för webbläsarsidan (webbläsareTimings/totalDuration)
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, Min, Max|Inget|
 
 ```Kusto
 browserTimings
@@ -110,11 +110,11 @@ browserTimings
 | render timechart
 ```
 
-### <a name="client-processing-time-browsertimingprocessingduration"></a>Klient bearbetnings tid (browserTiming/processingDuration)
+### <a name="client-processing-time-browsertimingprocessingduration"></a>Klientbearbetningstid (webbläsareTiming/bearbetningUnderydning)
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, Min, Max|Inget|
 
 ```Kusto
 browserTimings
@@ -126,11 +126,11 @@ browserTimings
 | render timechart
 ```
 
-### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>Sid inläsning nätverks anslutnings tid (browserTimings/networkDuration)
+### <a name="page-load-network-connect-time-browsertimingsnetworkduration"></a>Sidans inläsning av nätverksanslutningstid (webbläsareTimings/nätverkUnderyrering)
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, Min, Max|Inget|
 
 ```Kusto
 browserTimings
@@ -142,11 +142,11 @@ browserTimings
 | render timechart
 ```
 
-### <a name="receiving-response-time-browsertimingsreceiveduration"></a>Tar emot svars tid (browserTimings/receiveDuration)
+### <a name="receiving-response-time-browsertimingsreceiveduration"></a>Ta emot svarstid (webbläsareTimings/receiveDuration)
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, Min, Max|Inget|
 
 ```Kusto
 browserTimings
@@ -158,11 +158,11 @@ browserTimings
 | render timechart
 ```
 
-### <a name="send-request-time-browsertimingssendduration"></a>Sändnings tid för begäran (browserTimings/sendDuration)
+### <a name="send-request-time-browsertimingssendduration"></a>Skicka begärandetid (webbläsareTimings/sendDuration)
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|
 |---|---|---|
-|Millisekunder|Genomsnitt, min, max|Ingen|
+|Millisekunder|Genomsnitt, Min, Max|Inget|
 
 ```Kusto
 browserTimings
@@ -174,17 +174,17 @@ browserTimings
 | render timechart
 ```
 
-## <a name="failure-metrics"></a>Felaktiga mått
+## <a name="failure-metrics"></a>Mått för fel
 
-Måtten i **fel** visar problem med bearbetnings begär Anden, beroende anrop och utlösta undantag.
+Måtten i **Fel** visar problem med bearbetning av begäranden, beroendeanrop och intringade undantag.
 
-### <a name="browser-exceptions-exceptionsbrowser"></a>Webb läsar undantag (undantag/webbläsare)
+### <a name="browser-exceptions-exceptionsbrowser"></a>Webbläsarundantag (undantag/webbläsare)
 
-Det här måttet visar antalet utlösta undantag från din program kod som körs i webbläsaren. Endast undantag som spåras med ett ```trackException()``` Application Insights API-anrop ingår i måttet.
+Det här måttet visar antalet inkastade undantag från programkoden som körs i webbläsaren. Endast undantag som spåras ```trackException()``` med ett API-anrop för Application Insights ingår i måttet.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Inget|Logbaserad version **Sum** använder Summaaggregering|
 
 ```Kusto
 exceptions
@@ -193,13 +193,13 @@ exceptions
 | render barchart
 ```
 
-### <a name="dependency-call-failures-dependenciesfailed"></a>Misslyckade beroende anrop (beroenden/misslyckade)
+### <a name="dependency-call-failures-dependenciesfailed"></a>Fel i beroendeanrop (beroenden/misslyckades)
 
-Antalet misslyckade beroende anrop.
+Antalet misslyckade beroendeanrop.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Antal|Antal|Ingen|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Inget|Logbaserad version **Sum** använder Summaaggregering|
 
 ```Kusto
 dependencies
@@ -210,11 +210,11 @@ dependencies
 
 ### <a name="exceptions-exceptionscount"></a>Undantag (undantag/antal)
 
-Varje gång du loggar ett undantag till Application Insights finns det ett anrop till [trackException ()-metoden](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) i SDK: n. Undantags måttet visar antalet loggade undantag.
+Varje gång du loggar ett undantag till Application Insights anropas [metoden trackException()](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) för SDK. Måttet Undantag visar antalet loggade undantag.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Antal|Antal|Moln roll namn, moln roll instans, enhets typ|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Molnrollnamn, molnrollinstans, Enhetstyp|Logbaserad version **Sum** använder Summaaggregering|
 
 ```Kusto
 exceptions
@@ -222,13 +222,13 @@ exceptions
 | render barchart
 ```
 
-### <a name="failed-requests-requestsfailed"></a>Misslyckade förfrågningar (begär Anden/misslyckade)
+### <a name="failed-requests-requestsfailed"></a>Misslyckade begäranden (begäranden/misslyckades)
 
-Antalet spårade server begär Anden som marker ATS som *misslyckade*. Som standard märker Application Insights SDK automatiskt varje serverbegäran som returnerade HTTP-svarskod 5xx eller 4xx som en misslyckad begäran. Du kan anpassa den här logiken genom att ändra egenskapen *lyckades* för objektet begär telemetri i en [anpassad telemetri-initierare](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
+Antalet spårade serverbegäranden som har *markerats*som misslyckade . Som standard markerar Application Insights SDK automatiskt varje serverbegäran som returnerade HTTP-svarskoden 5xx eller 4xx som en misslyckad begäran. Du kan anpassa den här logiken genom att ändra den *lyckade* egenskapen för begärandettmetriobjekt i en [anpassad telemetriinitierare](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer).
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Antal|Antal|Moln roll instans, moln roll namn, verklig eller syntetisk trafik, prestanda för begäran, svarskod|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Molnrollinstans, Molnrollnamn, Verklig eller syntetisk trafik, Begärandeprestanda, Svarskod|Logbaserad version **Sum** använder Summaaggregering|
 
 ```Kusto
 requests
@@ -237,13 +237,13 @@ requests
 | render barchart
 ```
 
-### <a name="server-exceptions-exceptionsserver"></a>Server undantag (undantag/Server)
+### <a name="server-exceptions-exceptionsserver"></a>Serverundantag (undantag/server)
 
-Det här måttet visar antalet Server undantag.
+Det här måttet visar antalet serverundantag.
 
-|Måttenhet|Agg regeringar som stöds|Föraggregerade dimensioner|Anteckningar|
+|Måttenhet|Aggregeringar som stöds|Föraggregerade dimensioner|Anteckningar|
 |---|---|---|---|
-|Antal|Antal|Moln roll namn, moln roll instans|Log-baserad version använder **Summa** agg regering|
+|Antal|Antal|Molnrollnamn, molnrollinstans|Logbaserad version **Sum** använder Summaaggregering|
 
 ```Kusto
 exceptions
@@ -254,7 +254,7 @@ exceptions
 
 ## <a name="performance-counters"></a>Prestandaräknare
 
-Använd mått i kategorin **prestanda räknare** för att få åtkomst till [system prestanda räknare som samlats in av Application Insights](../../azure-monitor/app/performance-counters.md).
+Använd mått i kategorin **Prestandaräknare** för att komma åt [systemprestandaräknare som samlats in av Application Insights](../../azure-monitor/app/performance-counters.md).
 
 ### <a name="available-memory-performancecountersavailablememory"></a>Tillgängligt minne (performanceCounters/availableMemory)
 
@@ -266,7 +266,7 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="exception-rate-performancecountersexceptionrate"></a>Undantags frekvens (performanceCounters/exceptionRate)
+### <a name="exception-rate-performancecountersexceptionrate"></a>Undantagsfrekvens (performanceCounters/exceptionRate)
 
 ```Kusto
 performanceCounters
@@ -276,7 +276,7 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="http-request-execution-time-performancecountersrequestexecutiontime"></a>Körnings tid för HTTP-begäran (performanceCounters/requestExecutionTime)
+### <a name="http-request-execution-time-performancecountersrequestexecutiontime"></a>HTTP-körningskörningstid (performanceCounters/requestExecutionTime)
 
 ```Kusto
 performanceCounters
@@ -286,7 +286,7 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="http-request-rate-performancecountersrequestspersecond"></a>HTTP-begär ande frekvens (performanceCounters/requestsPerSecond)
+### <a name="http-request-rate-performancecountersrequestspersecond"></a>HTTP-begäranden (performanceCounters/requestsPerSecond)
 
 ```Kusto
 performanceCounters
@@ -296,7 +296,7 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="http-requests-in-application-queue-performancecountersrequestsinqueue"></a>HTTP-begäranden i program kön (performanceCounters/requestsInQueue)
+### <a name="http-requests-in-application-queue-performancecountersrequestsinqueue"></a>HTTP-begäranden i programkön (performanceCounters/requestsInQueue)
 
 ```Kusto
 performanceCounters
@@ -308,11 +308,11 @@ performanceCounters
 
 ### <a name="process-cpu-performancecountersprocesscpupercentage"></a>Process-CPU (performanceCounters/processCpuPercentage)
 
-Måttet visar hur mycket av den totala processor kapaciteten som förbrukas av processen som är värd för din övervakade app.
+Måttet visar hur mycket av den totala processorkapaciteten som förbrukas av processen som är värd för din övervakade app.
 
-|Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
+|Måttenhet|Aggregeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Procent|Genomsnitt, min, max|Moln roll instans
+|Procent|Genomsnitt, Min, Max|Molnrollinstans
 
 ```Kusto
 performanceCounters
@@ -322,11 +322,11 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="process-io-rate-performancecountersprocessiobytespersecond"></a>Processorns IO-frekvens (performanceCounters/processIOBytesPerSecond)
+### <a name="process-io-rate-performancecountersprocessiobytespersecond"></a>Process-I/O-hastighet (performanceCounters/processIOBytesPerSecond)
 
-|Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
+|Måttenhet|Aggregeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Byte per sekund|Genomsnitt, min, max|Moln roll instans
+|Byte per sekund|Genomsnitt, Min, Max|Molnrollinstans
 
 ```Kusto
 performanceCounters
@@ -338,11 +338,11 @@ performanceCounters
 
 ### <a name="process-private-bytes-performancecountersprocessprivatebytes"></a>Bearbeta privata byte (performanceCounters/processPrivateBytes)
 
-Mängden icke-delat minne som den övervakade processen har allokerat för sina data.
+Mängden icke-delat minne som den övervakade processen allokerade för sina data.
 
-|Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
+|Måttenhet|Aggregeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Byte|Genomsnitt, min, max|Moln roll instans
+|Byte|Genomsnitt, Min, Max|Molnrollinstans
 
 ```Kusto
 performanceCounters
@@ -352,16 +352,16 @@ performanceCounters
 | render timechart
 ```
 
-### <a name="processor-time-performancecountersprocessorcpupercentage"></a>Processor tid (performanceCounters/processorCpuPercentage)
+### <a name="processor-time-performancecountersprocessorcpupercentage"></a>Processortid (performanceCounters/processorCpuPercentage)
 
-PROCESSOR förbrukning för *alla* processer som körs på den övervakade Server instansen.
+CPU-förbrukning av *alla* processer som körs på den övervakade serverinstansen.
 
-|Måttenhet|Agg regeringar som stöds|Dimensioner som stöds|
+|Måttenhet|Aggregeringar som stöds|Dimensioner som stöds|
 |---|---|---|
-|Procent|Genomsnitt, min, max|Moln roll instans
+|Procent|Genomsnitt, Min, Max|Molnrollinstans
 
 >[!NOTE]
-> Måttet för processor tiden är inte tillgängligt för de program som finns i Azure App Services. Använd [process processor](#process-cpu-performancecountersprocesscpupercentage) måttet för att spåra processor användningen för de webb program som finns i app Services.
+> Processortidsmåttet är inte tillgängligt för de program som finns i Azure App Services. Använd [process-CPU-måttet](#process-cpu-performancecountersprocesscpupercentage) för att spåra CPU-användning av webbprogram som finns i App Services.
 
 ```Kusto
 performanceCounters
@@ -371,11 +371,11 @@ performanceCounters
 | render timechart
 ```
 
-## <a name="server-metrics"></a>Server mått
+## <a name="server-metrics"></a>Servermått
 
-### <a name="dependency-calls-dependenciescount"></a>Beroende anrop (beroenden/antal)
+### <a name="dependency-calls-dependenciescount"></a>Beroendeanrop (beroenden/antal)
 
-Måttet är i förhållande till antalet beroende anrop.
+Det här måttet är i förhållande till antalet beroendeanrop.
 
 ```Kusto
 dependencies
@@ -383,9 +383,9 @@ dependencies
 | render barchart
 ```
 
-### <a name="dependency-duration-dependenciesduration"></a>Beroende varaktighet (beroenden/varaktighet)
+### <a name="dependency-duration-dependenciesduration"></a>Beroendevaraktighet (beroende/varaktighet)
 
-Det här måttet avser varaktigheten för beroende anrop.
+Det här måttet refererar till varaktigheten för beroendeanrop.
 
 ```Kusto
 dependencies
@@ -398,9 +398,9 @@ dependencies
 | render timechart
 ```
 
-### <a name="server-requests-requestscount"></a>Server begär Anden (antal begär Anden/antal)
+### <a name="server-requests-requestscount"></a>Serverbegäranden (begäranden/antal)
 
-Det här måttet visar antalet inkommande server-begäranden som tagits emot av ditt webb program.
+Det här måttet visar antalet inkommande serverbegäranden som togs emot av webbprogrammet.
 
 ```Kusto
 requests
@@ -408,9 +408,9 @@ requests
 | render barchart
 ```
 
-### <a name="server-response-time-requestsduration"></a>Server svars tid (begär Anden/varaktighet)
+### <a name="server-response-time-requestsduration"></a>Svarstid för servern (begäranden/varaktighet)
 
-Det här måttet visar hur lång tid det tog för servrarna att bearbeta inkommande begär Anden.
+Det här måttet återspeglar den tid det tog för servrarna att bearbeta inkommande begäranden.
 
 ```Kusto
 requests
@@ -425,9 +425,9 @@ requests
 
 ## <a name="usage-metrics"></a>Användningsstatistik
 
-### <a name="page-view-load-time-pageviewsduration"></a>Inläsnings tid för sid visning (pageViews/duration)
+### <a name="page-view-load-time-pageviewsduration"></a>Inläsningstid för sidvy (pageViews/duration)
 
-Det här måttet avser hur lång tid det tog för sid visningar-händelser att läsas in.
+Det här måttet refererar till hur lång tid det tog för PageView-händelser att läsas in.
 
 ```Kusto
 pageViews
@@ -440,9 +440,9 @@ pageViews
 | render barchart
 ```
 
-### <a name="page-views-pageviewscount"></a>Sid visningar (pageViews/Count)
+### <a name="page-views-pageviewscount"></a>Sidvisningar (pageViews/count)
 
-Antalet sid visningar-händelser som loggats med TrackPageView () Application Insights API.
+Antalet PageView-händelser som loggats med Api:et för Application Insights för TrackPageView().
 
 ```Kusto
 pageViews
@@ -452,7 +452,7 @@ pageViews
 
 ### <a name="sessions-sessionscount"></a>Sessioner (sessioner/antal)
 
-Det här måttet avser antalet distinkta sessions-ID: n.
+Det här måttet refererar till antalet olika sessions-ID:er.
 
 ```Kusto
 union traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions, customMetrics, browserTimings
@@ -463,7 +463,7 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 
 ### <a name="traces-tracescount"></a>Spår (spår/antal)
 
-Antalet spårnings instruktioner som loggats med TrackTrace () Application Insights API-anrop.
+Antalet spårningssatser som loggats med API-anropet TrackTrace() Application Insights.
 
 ```Kusto
 traces
@@ -473,7 +473,7 @@ traces
 
 ### <a name="users-userscount"></a>Användare (användare/antal)
 
-Antalet distinkta användare som har åtkomst till ditt program. Noggrannheten för det här måttet kan påverkas avsevärt genom att använda telemetri-sampling och filtrering.
+Antalet olika användare som har åtkomst till ditt program. Noggrannheten i det här måttet kan påverkas avsevärt med hjälp av telemetriprovtagning och filtrering.
 
 ```Kusto
 union traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions, customMetrics, browserTimings
@@ -482,9 +482,9 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | render barchart
 ```
 
-### <a name="users-authenticated-usersauthenticated"></a>Användare, autentiserade (användare/autentiserade)
+### <a name="users-authenticated-usersauthenticated"></a>Användare, Autentiserade (användare/autentiserade)
 
-Antalet distinkta användare som autentiserats i ditt program.
+Antalet olika användare som autentiserats i ditt program.
 
 ```Kusto
 union traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions, customMetrics, browserTimings

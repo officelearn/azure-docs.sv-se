@@ -1,136 +1,132 @@
 ---
-title: Skapa interaktiva rapporter Azure Monitor for VMs med arbets böcker | Microsoft Docs
-description: Förenkla komplex rapportering med fördefinierade och anpassade parameterstyrda arbets böcker för Azure Monitor for VMs.
+title: Skapa interaktiva rapporter i Azure Monitor for VMs med arbetsböcker
+description: Förenkla komplex rapportering med fördefinierade och anpassade parameteriserade arbetsböcker för Azure Monitor för virtuella datorer.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: 7ec24f1eca0b2cf1d5ea2c171573f7c5e47319af
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.date: 03/12/2020
+ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77670686"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79480461"
 ---
-# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Skapa interaktiva rapporter Azure Monitor for VMs med arbets böcker
+# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Skapa interaktiva rapporter i Azure Monitor for VMs med arbetsböcker
 
-Arbets böcker kombinerar text, [logg frågor](../log-query/query-language.md), mått och parametrar till omfattande interaktiva rapporter. Arbets böcker kan redige ras av andra team medlemmar som har åtkomst till samma Azure-resurser.
+Arbetsböcker kombinerar text, [loggfrågor,](../log-query/query-language.md)mått och parametrar i avancerade interaktiva rapporter. Arbetsböcker kan redigeras av andra teammedlemmar som har åtkomst till samma Azure-resurser.
 
-Arbets böcker är användbara för scenarier som:
+Arbetsböcker är användbara för scenarier som:
 
-* Utforska användningen av den virtuella datorn när du inte känner till mått på intresse i förväg: processor användning, disk utrymme, minne, nätverks beroenden osv. Till skillnad från andra verktyg för användnings analys kan du med arbets böcker kombinera flera olika typer av visualiseringar och analyser, vilket gör dem fantastiska för den här typen av kostnads fri utforskning.
-* Vi förklarar ditt team hur en nyligen etablerad virtuell dator presterar genom att visa mått för nyckel räknare och andra logg händelser.
-* Dela resultatet av ett experiment med att ändra storlek på den virtuella datorn med andra medlemmar i din grupp. Du kan förklara målen för experimentet med text, och sedan Visa alla användnings mått och analys frågor som används för att utvärdera experimentet, tillsammans med tydliga anrop för anrop för om varje mått var över eller under mål.
-* Rapporterar effekten av ett avbrott i användningen av din virtuella dator, kombinera data, text förklaring och en beskrivning av nästa steg för att förhindra avbrott i framtiden.
+* Utforska användningen av din virtuella dator när du inte vet de mått av intresse i förväg: CPU-användning, diskutrymme, minne, nätverksberoenden, etc. Till skillnad från andra verktyg för användningsanalys kan du med arbetsböcker kombinera flera typer av visualiseringar och analyser, vilket gör dem bra för den här typen av frihandsutforskning.
+* Förklara för ditt team hur en nyligen etablerad virtuell dator presterar genom att visa mått för nyckelräknare och andra logghändelser.
+* Dela resultaten av ett storleksändringsexperiment av din virtuella dator med andra medlemmar i ditt team. Du kan förklara målen för experimentet med text och sedan visa varje användningsmått och analysfrågor som används för att utvärdera experimentet, tillsammans med tydliga länktexter för om varje mått var över- eller undermål.
+* Rapportera effekten av ett avbrott på användningen av den virtuella datorn, kombinera data, textförklaring och en diskussion om nästa steg för att förhindra avbrott i framtiden.
 
-Azure Monitor for VMs innehåller flera arbets böcker som hjälper dig att komma igång och följande tabell sammanfattar dem.
+I följande tabell sammanfattas de arbetsböcker som Azure Monitor för virtuella datorer innehåller för att komma igång.
 
-| Boken | Beskrivning | Omfång |
+| Arbetsbok | Beskrivning | Omfång |
 |----------|-------------|-------|
-| Prestanda | Innehåller en anpassningsbar version av vår översta N-lista och diagram-vy i en enda arbets bok som utnyttjar alla Log Analytics prestanda räknare som du har aktiverat.| I skala |
-| Prestandaräknare | En översta N-diagramvy över en stor uppsättning prestanda räknare. | I skala |
-| Anslutningar | Anslutningar är en djupgående vy över inkommande och utgående anslutningar från dina övervakade virtuella datorer. | I skala |
-| Aktiva portar | Innehåller en lista över de processer som har bundits till portarna på de övervakade virtuella datorerna och deras aktivitet inom den valda tids ramen. | I skala |
-| Öppna portar | Visar antalet portar som är öppna på de övervakade virtuella datorerna och information om de öppna portarna. | I skala |
-| Misslyckade anslutningar | Visa antalet misslyckade anslutningar på de övervakade virtuella datorerna, fel trenden och om procent andelen fel ökar med tiden. | I skala |
-| Säkerhet och granskning | En analys av TCP/IP-trafik som rapporterar om övergripande anslutningar, skadliga anslutningar, där IP-slutpunkterna finns globalt.  Om du vill aktivera alla funktioner måste du aktivera säkerhets identifiering. | I skala |
-| TCP-trafik | En rangordnad rapport för dina övervakade virtuella datorer och deras skickade, mottagna och totala nätverks trafik i ett rutnät och visas som en trend linje. | I skala |
-| Jämförelse av trafik | Med den här arbets boken kan du jämföra trender för nätverks trafik för en enskild dator eller en grupp av datorer. | I skala |
-| Prestanda | Ger en anpassningsbar version av vår prestanda vy som utnyttjar alla Log Analytics prestanda räknare som du har aktiverat. | Enstaka virtuell dator | 
-| Anslutningar | Anslutningar är en djupgående vy över inkommande och utgående anslutningar från den virtuella datorn. | Enstaka virtuell dator |
+| Prestanda | Innehåller en anpassningsbar version av vår topp-N-lista och diagramvyn i en enda arbetsbok som utnyttjar alla prestandaräknare för Log Analytics som du har aktiverat.| I stor skala |
+| Prestandaräknare | En topp N-diagramvy över en bred uppsättning prestandaräknare. | I stor skala |
+| Anslutningar | Anslutningar ger en djupgående vy över inkommande och utgående anslutningar från dina övervakade virtuella datorer. | I stor skala |
+| Aktiva portar | Innehåller en lista över de processer som har bundits till portarna på de övervakade virtuella datorerna och deras aktivitet inom den valda tidsramen. | I stor skala |
+| Öppna portar | Anger antalet portar som är öppna på dina övervakade virtuella datorer och information om dessa öppna portar. | I stor skala |
+| Misslyckade anslutningar | Visa antalet misslyckade anslutningar på dina övervakade virtuella datorer, feltrenden och om procentandelen fel ökar med tiden. | I stor skala |
+| Säkerhet och granskning | En analys av din TCP/IP-trafik som rapporterar om övergripande anslutningar, skadliga anslutningar, där IP-slutpunkterna finns globalt.  Om du vill aktivera alla funktioner måste du aktivera säkerhetsidentifiering. | I stor skala |
+| TCP-trafik | En rankad rapport för dina övervakade virtuella datorer och deras skickade, mottagna och totala nätverkstrafik i ett rutnät och visas som en trendlinje. | I stor skala |
+| Jämförelse av trafik | Med de här arbetsböckerna kan du jämföra nätverkstrafiktrender för en enda dator eller en grupp datorer. | I stor skala |
+| Prestanda | Innehåller en anpassningsbar version av vår prestandavy som utnyttjar alla prestandaräknare för Log Analytics som du har aktiverat. | Enstaka virtuell dator | 
+| Anslutningar | Anslutningar ger en djupgående vy över inkommande och utgående anslutningar från den virtuella datorn. | Enstaka virtuell dator |
  
-## <a name="starting-with-a-template-or-saved-workbook"></a>Starta med en mall eller Sparad arbets bok
+## <a name="creating-a-new-workbook"></a>Skapa en ny arbetsbok
 
-En arbets bok består av avsnitt som består av oberoende redigerbara diagram, tabeller, text och inmatade kontroller. Vi börjar med att öppna en mall och gå igenom hur du skapar en anpassad arbets bok för att bättre förstå arbets böcker. 
+En arbetsbok består av avsnitt som består av oberoende redigerbara diagram, tabeller, text och inmatningskontroller. Om du vill bättre förstå arbetsböcker ska vi börja med att öppna en mall och gå igenom att skapa en anpassad arbetsbok. 
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **Virtual Machines**.
+2. Välj **virtuella datorer**.
 
 3. Välj en virtuell dator i listan.
 
-4. På sidan virtuell dator i avsnittet **övervakning** väljer du **insikter (för hands version)** .
+4. Välj Insikter i avsnittet **Övervakning** på sidan Virtuell **dator**.
 
-5. Välj fliken **prestanda** eller **kartor** på sidan VM Insights och välj sedan **Visa arbets böcker** från länken på sidan. 
+5. På sidan Vm-statistik väljer du fliken **Prestanda** eller **Kartor** och väljer sedan **Visa arbetsböcker** från länken på sidan. Välj **Gå till galleri**i listrutan .
 
-    ![Skärm bild av navigering till arbets böcker](media/vminsights-workbooks/workbook-option-01.png)
+    ![Skärmbild av listrutan arbetsbok](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-6. Välj **gå till galleriet** längst ned i listan i list rutan.
+    Då startas arbetsboksgalleriet med ett antal fördefinierade arbetsböcker som hjälper dig att komma igång.
 
-    ![Skärm bild av list rutan för arbets boken](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
+7. Skapa en ny arbetsbok genom att välja **Ny**.
 
-    Arbets boks galleriet startas med ett antal färdiga arbets böcker som hjälper dig att komma igång.
+    ![Skärmbild av arbetsboksgalleriet](media/vminsights-workbooks/workbook-gallery-01.png)
 
-7. Vi börjar med **standard mal len**, som finns under rubriken **snabb start**.
+## <a name="editing-workbook-sections"></a>Redigera avsnitt i arbetsbok
 
-    ![Skärm bild av arbets boks Galleri](media/vminsights-workbooks/workbook-gallery-01.png)
+Arbetsböcker har två lägen: **redigeringsläge**och **läsläge**. När en ny arbetsbok startas öppnas den i **redigeringsläge**. Den visar allt innehåll i arbetsboken, inklusive alla steg och parametrar som annars är dolda. **Läsläge** visar en förenklad rapportformatvy. Läsläge kan du abstrakt bort komplexiteten som gick till att skapa en rapport samtidigt som den underliggande mekaniken bara några klick bort när det behövs för ändring.
 
-## <a name="editing-workbook-sections"></a>Redigera arbets bok avsnitt
+![Azure Monitor för virtuella datorer Arbetsböcker avsnitt redigering kontroller](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
-Arbets böcker har två lägen: **redigerings läge**och **läsläge**. När arbets boken för standard mal len startas första gången öppnas den i **redigerings läge**. Det visar allt innehåll i arbets boken, inklusive alla steg och parametrar som annars är dolda. **Läsläge** visar en förenklad vy för rapport format. Med läsläge kan du sammanställa komplexiteten som ingick i att skapa en rapport samtidigt som den underliggande Mechanics bara har några klickningar borta när det behövs för att ändra.
+1. När du är klar med redigeringen av ett avsnitt klickar du på **Klar redigering** i det nedre vänstra hörnet av avsnittet.
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+2. Om du vill skapa en dubblett av ett avsnitt klickar du på ikonen **Klona det här avsnittet.** Att skapa dubblettavsnitt är ett bra sätt att iterera på en fråga utan att förlora tidigare iterationer.
 
-1. När du är klar med redigeringen av ett avsnitt klickar du på **klar redigering** i det nedre vänstra hörnet i avsnittet.
+3. Om du vill flytta ett avsnitt i en arbetsbok klickar du på ikonen **Flytta uppåt** eller **Flytta ned.**
 
-2. Om du vill skapa en dubblett av ett avsnitt klickar du på ikonen **klona det här avsnittet** . Att skapa duplicerade avsnitt är ett bra sätt att iterera på en fråga utan att förlora tidigare iterationer.
+4. Om du vill ta bort ett avsnitt permanent klickar du på ikonen **Ta bort.**
 
-3. Om du vill flytta upp ett avsnitt i en arbets bok klickar du på ikonen **Flytta upp** eller **Flytta ned** .
+## <a name="adding-text-and-markdown-sections"></a>Lägga till text och Markdown-avsnitt
 
-4. Om du vill ta bort ett avsnitt permanent klickar du på ikonen **ta bort** .
+Genom att lägga till rubriker, förklaringar och kommentarer i arbetsböckerna kan du förvandla en uppsättning tabeller och diagram till en berättelse. Textavsnitt i arbetsböcker stöder [syntaxen markdown](https://daringfireball.net/projects/markdown/) för textformatering, till exempel rubriker, fetstil, kursiv stil och punktlistor.
 
-## <a name="adding-text-and-markdown-sections"></a>Lägga till text-och markdown-avsnitt
+Om du vill lägga till ett textavsnitt i arbetsboken använder du knappen **Lägg till text** längst ned i arbetsboken eller längst ned i ett avsnitt.
 
-Genom att lägga till rubriker, förklaringar och kommentarer i dina arbets böcker kan du omvandla en uppsättning tabeller och diagram till en rad olika. Text avsnitt i arbets böcker stöder [markdown-syntaxen](https://daringfireball.net/projects/markdown/) för textformatering, t. ex. rubrik, fet, kursiv stil och punkt listor.
+## <a name="adding-query-sections"></a>Lägga till frågeavsnitt
 
-Om du vill lägga till ett text avsnitt i din arbets bok använder du knappen **Lägg till text** längst ned i arbets boken eller längst ned i ett avsnitt.
+![Avsnittet Fråga i Arbetsböcker](media/vminsights-workbooks/005-workbook-query-section.png)
 
-## <a name="adding-query-sections"></a>Lägga till fråge avsnitt
+Om du vill lägga till frågeavsnitt i arbetsboken använder du knappen **Lägg till fråga** längst ned i arbetsboken eller längst ned i ett avsnitt.
 
-![Avsnittet fråga i arbets böcker](media/vminsights-workbooks/005-workbook-query-section.png)
+Frågeavsnitten är mycket flexibla och kan användas för att svara på frågor som:
 
-Om du vill lägga till en fråga i din arbets bok använder du knappen **Lägg till fråga** längst ned i arbets boken eller längst ned i ett avsnitt.
+* Hur var min CPU-användning under samma tidsperiod som en ökning av nätverkstrafiken?
+* Vad var trenden i tillgängligt diskutrymme under den senaste månaden?
+* Hur många nätverksanslutningsfel har min virtuella dator under de senaste två veckorna? 
 
-Fråge avsnitt är mycket flexibla och kan användas för att besvara frågor som:
+Du är inte heller bara begränsad till att fråga från kontexten för den virtuella datorn som du startade arbetsboken från. Du kan fråga över flera virtuella datorer samt Log Analytics-arbetsytor, så länge du har åtkomstbehörighet till dessa resurser.
 
-* Hur var min processor användning under samma tids period som en ökning av nätverks trafiken?
-* Vad var trenden i tillgängligt disk utrymme under den senaste månaden?
-* Hur många nätverks anslutnings fel har min VM-upplevelse under de senaste två veckorna? 
+Om du vill inkludera data från andra Log Analytics-arbetsytor eller från en specifik Application Insights-app med **arbetsyteidentifieraren.** Mer information om frågor mellan resurser finns i den [officiella vägledningen](../log-query/cross-workspace-query.md).
 
-Du är inte bara begränsad till att fråga från kontexten för den virtuella dator som du startade arbets boken från. Du kan fråga över flera virtuella datorer, samt Log Analytics arbets ytor, så länge du har åtkomst behörighet till dessa resurser.
+### <a name="advanced-analytic-query-settings"></a>Avancerade analytiska frågeinställningar
 
-Ta med data från andra Log Analytics arbets ytor eller från en speciell Application Insights-app med hjälp av **arbetsyte** -ID. Mer information om frågor över flera resurser finns i den [officiella vägledningen](../log-query/cross-workspace-query.md).
+Varje avsnitt har sina egna avancerade inställningar, ![som är tillgängliga](media/vminsights-workbooks/006-settings.png) via ikonen för redigering av inställningar arbetsböcker avsnittsredigeringskontroller som finns till höger om knappen **Lägg till parametrar.**
 
-### <a name="advanced-analytic-query-settings"></a>Avancerade inställningar för analys fråga
-
-Varje avsnitt har sina egna avancerade inställningar, som är tillgängliga via inställningarna ![arbets boks avsnitt redigera kontroller](media/vminsights-workbooks/006-settings.png) ikonen som finns till höger om knappen **Lägg till parametrar** .
-
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/007-settings-expanded.png)
+![Azure Monitor för virtuella datorer Arbetsböcker avsnitt redigering kontroller](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
-| **Anpassad bredd**    | Gör ett objekt till en godtycklig storlek, så att du kan passa många objekt på en enda rad så att du bättre kan organisera dina diagram och tabeller i interaktiva interaktiva rapporter.  |
-| **Villkorligt synlig** | Ange om du vill dölja steg baserat på en parameter i läsläge. |
-| **Exportera en parameter**| Tillåt en markerad rad i rutnätet eller diagrammet för att få senare steg att ändra värden eller bli synlig.  |
+| **Anpassad bredd**    | Gör ett objekt till en godtycklig storlek, så att du kan få plats med många objekt på en enda rad så att du bättre kan ordna dina diagram och tabeller i omfattande interaktiva rapporter.  |
+| **Villkorligt synlig** | Ange att dölja steg baserat på en parameter i läsläge. |
+| **Exportera en parameter**| Tillåt att en markerad rad i rutnätet eller diagrammet gör att senare steg ändrar värden eller blir synliga.  |
 | **Visa fråga när du inte redigerar** | Visar frågan ovanför diagrammet eller tabellen även i läsläge.
-| **Visa knappen Öppna i Analytics när du inte redigerar** | Lägger till den blå analys ikonen i det högra hörnet i diagrammet för att tillåta åtkomst till ett klick.|
+| **Visa knappen öppna i analys när du inte redigerar** | Lägger till den blå Analytics-ikonen i diagrammets högra hörn för att tillåta åtkomst med ett klick.|
 
-De flesta av dessa inställningar är ganska intuitiva, men för att förstå **export av en parameter** är det bättre att granska en arbets bok som använder den här funktionen.
+De flesta av dessa inställningar är ganska intuitiva, men för att förstå **Exportera en parameter** är det bättre att undersöka en arbetsbok som använder sig av den här funktionen.
 
-En av de färdiga arbets böckerna – **TCP-trafik**ger information om anslutnings mått från en virtuell dator.
+En av de fördefinierade arbetsböckerna - **TCP Traffic**, innehåller information om anslutningsmått från en virtuell dator.
 
-Det första avsnittet i arbets boken baseras på data från logg frågor. Det andra avsnittet baseras också på data från loggdata, men om du markerar en rad i den första tabellen uppdateras diagrammets innehåll interaktivt:
+Det första avsnittet i arbetsboken baseras på loggfrågedata. Det andra avsnittet baseras också på loggfrågedata, men om du väljer en rad i den första tabellen uppdateras innehållet i diagrammen interaktivt:
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Azure Monitor för virtuella datorer Arbetsböcker avsnitt redigering kontroller](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
-Beteendet är möjligt genom att använda **när ett objekt har valts, exportera en parameter** avancerade inställningar, som är aktiverade i tabellens logg fråga.
+Beteendet är möjligt med hjälp av **när ett objekt är markerat exporterar du avancerade parameterinställningar** som är aktiverade i tabellens loggfråga.
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/009-settings-export.png)
+![Azure Monitor för virtuella datorer Arbetsböcker avsnitt redigering kontroller](media/vminsights-workbooks/009-settings-export.png)
 
-Den andra logg frågan använder sedan de exporterade värdena när en rad väljs för att skapa en uppsättning värden som sedan används av avsnittets rubrik och diagram. Om ingen rad har marker ATS döljs avsnitts rubriken och diagram. 
+Den andra loggfrågan använder sedan de exporterade värdena när en rad väljs för att skapa en uppsättning värden som sedan används av avsnittsrubriken och diagrammen. Om ingen rad är markerad döljs avsnittsrubriken och diagrammen. 
 
-Den dolda parametern i det andra avsnittet använder till exempel följande referens från den rad som valts i rutnätet:
+Den dolda parametern i det andra avsnittet använder till exempel följande referens från raden som valts i rutnätet:
 
 ```
 VMConnection
@@ -139,58 +135,58 @@ VMConnection
 | summarize Sent = sum(BytesSent), Received = sum(BytesReceived) by bin(TimeGenerated, {TimeRange:grain})
 ```
 
-## <a name="adding-metrics-sections"></a>Lägga till mått avsnitt
+## <a name="adding-metrics-sections"></a>Lägga till måttavsnitt
 
-Mått avsnitt ger dig fullständig åtkomst till att införliva Azure Monitor Mät data i dina interaktiva rapporter. I Azure Monitor for VMs innehåller de färdiga arbets böckerna vanligt vis analytiska frågedata i stället för Mät data.  Du kan välja att skapa arbets böcker med mät data, så att du kan dra full nytta av det bästa av båda funktionerna på ett och samma ställe. Du kan också hämta mått data från resurser i någon av de prenumerationer som du har åtkomst till.
+Mätavsnitt ger dig fullständig åtkomst till att införliva Azure Monitor-måttdata i dina interaktiva rapporter. I Azure Monitor för virtuella datorer innehåller de fördefinierade arbetsböckerna vanligtvis analytiska frågedata i stället för måttdata.  Du kan välja att skapa arbetsböcker med måttdata, så att du kan dra full nytta av det bästa av båda funktionerna på ett ställe. Du har också möjlighet att hämta metriska data från resurser i någon av de prenumerationer du har åtkomst till.
 
-Här är ett exempel på data för virtuella datorer som hämtas till en arbets bok för att tillhandahålla en rutnäts visualisering av processor prestanda:
+Här är ett exempel på data från virtuella datorer som hämtas in i en arbetsbok för att tillhandahålla en rutnätsvisualisering av CPU-prestanda:
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/010-metrics-grid.png)
+![Azure Monitor för virtuella datorer Arbetsböcker avsnitt redigering kontroller](media/vminsights-workbooks/010-metrics-grid.png)
 
-## <a name="adding-parameter-sections"></a>Lägga till parameter avsnitt
+## <a name="adding-parameter-sections"></a>Lägga till parameteravsnitt
 
-Med arbets boks parametrar kan du ändra värden i arbets boken utan att behöva redigera fråge-eller text avsnitten manuellt. Detta tar bort behovet av att förstå det underliggande Analytics-frågespråket och utökar den potentiella mål gruppen för arbets boksbaserade rapporter.
+Med arbetsboksparametrar kan du ändra värden i arbetsboken utan att behöva redigera frågan eller textavsnitten manuellt. Detta tar bort kravet på att behöva förstå det underliggande analysfrågespråket och utökar den potentiella målgruppen för arbetsboksbaserad rapportering avsevärt.
 
-Värdena för parametrarna ersätts i frågor, text eller andra parameter avsnitt genom att namnet på parametern anges i klamrar, t. ex. ``{parameterName}``. Parameter namn är begränsade till liknande regler som JavaScript-identifierare, alfabetiska tecken eller under streck, följt av alfanumeriska tecken eller under streck. Till exempel tillåts **a1** , men **1a** tillåts inte.
+Värdena för parametrar ersätts i fråge-, text- eller andra parameteravsnitt genom ``{parameterName}``att parameterns namn sätts in i klammerparenteser, till exempel . Parameternamn är begränsade till liknande regler som JavaScript-identifierare, alfabetiska tecken eller understreck, följt av alfanumeriska tecken eller understreck. Till exempel tillåts **a1,** men **1a** är inte tillåtet.
 
-Parametrar är linjära, med början från början av en arbets bok och flödar ned till senare steg.  Parametrar som deklarerats senare i en arbets bok kan åsidosätta parametrar som har deklarerats tidigare. Detta gör det också möjligt att använda parametrar som använder frågor för att komma åt värdena från parametrarna som definierats tidigare. I själva steget för en parameter är parametrarna också linjära, vänster till höger, där parametrar till höger kan vara beroende av en parameter som har deklarerats tidigare i samma steg.
+Parametrarna är linjära, från början av en arbetsbok och som rinner ned till senare steg.  Parametrar som deklarerats senare i en arbetsbok kan åsidosätta parametrar som deklarerats tidigare. På så sätt kan du även använda parametrar som använder frågor för att komma åt värdena från parametrar som definierats tidigare. Inom själva parameterns steg är parametrarna också linjära, från vänster till höger, där parametrar till höger kan bero på en parameter som deklarerats tidigare i samma steg.
  
-Det finns fyra olika typer av parametrar som stöds för närvarande:
+Det finns fyra olika typer av parametrar som för närvarande stöds:
 
 |                  |      |
 | ---------------- |:-----|
-| **Text**    | Gör att användaren kan redigera en text ruta och du kan också ange en fråga för att fylla i standardvärdet. |
-| **Listruta** | Tillåter användaren att välja från en uppsättning värden. |
-| **Intervall väljare**| Gör att användaren kan välja från en fördefinierad uppsättning tidsintervalls värden eller välja från ett anpassat tidsintervall.|
-| **Resurs väljare** | Gör att användaren kan välja bland de resurser som har valts för arbets boken.|
+| **Text**    | Tillåter användaren att redigera en textruta och du kan också ange en fråga för att fylla i standardvärdet. |
+| **Listmeny** | Tillåter användaren att välja mellan en uppsättning värden. |
+| **Tidsintervallväljare**| Tillåter användaren att välja från en fördefinierad uppsättning tidsintervallvärden eller välja från ett anpassat tidsintervall.|
+| **Resursväljare** | Gör att användaren kan välja bland de resurser som valts för arbetsboken.|
 
-### <a name="using-a-text-parameter"></a>Använda en text parameter
+### <a name="using-a-text-parameter"></a>Använda en textparameter
 
-Värdet som en användare skriver i text rutan ersätts direkt i frågan, utan några undantag eller citat tecken. Om värdet du behöver är en sträng ska frågan ha citat tecken runt parametern (t. ex. **{parameter}** ).
+Värdet som en användare skriver i textrutan ersätts direkt i frågan, utan att du kan fly eller citera. Om värdet du behöver är en sträng bör frågan ha citattecken runt parametern (som **{parameter}'**).
 
-Med text parametern kan du använda värdet i en text ruta var som helst. Det kan vara ett tabell namn, ett kolumn namn, ett funktions namn, en operator osv.  Text parameter typen har inställningen **Hämta standardvärde från Analytics-frågan**, vilket gör att arbets bokens författare kan använda en fråga för att fylla i standardvärdet för text rutan.
+Med textparametern kan värdet i en textruta användas var som helst. Det kan vara ett tabellnamn, kolumnnamn, funktionsnamn, operator, etc.  Textparametertypen har en inställning **Hämta standardvärde från analytics-frågan**, vilket gör att arbetsboksförfattaren kan använda en fråga för att fylla i standardvärdet för den textrutan.
 
-När du använder standardvärdet från en logg fråga används bara det första värdet på den första raden (rad 0, kolumn 0) som standardvärdet. Vi rekommenderar därför att du begränsar frågan så att den returnerar bara en rad och en kolumn. Andra data som returneras av frågan ignoreras. 
+När standardvärdet används från en loggfråga används endast det första värdet i den första raden (rad 0, kolumn 0) som standardvärde. Därför rekommenderas att begränsa frågan så att bara en rad och en kolumn returneras. Alla andra data som returneras av frågan ignoreras. 
 
-Vilket värde som frågan returnerar ersätts direkt utan att det visas några undantag eller citat tecken. Om frågan inte returnerar några rader är resultatet av parametern antingen en tom sträng (om parametern inte krävs) eller odefinierad (om parametern krävs).
+Oavsett vilket värde frågereturer kommer att ersättas direkt utan att fly eller citera. Om frågan inte returnerar några rader är resultatet av parametern antingen en tom sträng (om parametern inte krävs) eller odefinierad (om parametern krävs).
 
-### <a name="using-a-drop-down"></a>Använda en listruta
+### <a name="using-a-drop-down"></a>Använda en rullgardinsmenyn
 
-Med den nedrullningsbara parameter typen kan du skapa en List Rute kontroll, så att du kan välja ett eller flera värden.
+Med parametertypen listruta kan du skapa en listruta som gör det möjligt att välja ett eller flera värden.
 
-List rutan fylls i av en logg fråga eller JSON. Om frågan returnerar en kolumn, är värdena i den kolumnen både värdet och etiketten i den nedrullningsbara kontrollen. Om frågan returnerar två kolumner är den första kolumnen värdet och den andra kolumnen är den etikett som visas i list rutan. Om frågan returnerar tre kolumner används den tredje kolumnen för att ange standard valet i list rutan. Den här kolumnen kan vara vilken typ som helst, men det enklaste är att använda bool-eller numeric-typer, där 0 är falskt och 1 är sant.
+Listrutan fylls i av en loggfråga eller JSON. Om frågan returnerar en kolumn är värdena i den kolumnen både värdet och etiketten i listrutan. Om frågan returnerar två kolumner är den första kolumnen värdet och den andra kolumnen är den etikett som visas i listrutan. Om frågan returnerar tre kolumner används den tredje kolumnen för att ange standardmarkeringen i listrutan. Den här kolumnen kan vara vilken typ som helst, men det enklaste är att använda bool- eller numeriska typer, där 0 är falskt och 1 är sant.
 
-Om kolumnen är en sträng typ anses null/tom sträng vara falskt och andra värden betraktas som sanna. För List rutor med enstaka val används det första värdet med ett sant värde som standard val.  För List rutor med flera val används alla värden med ett sant värde som standard vald uppsättning. Objekten i list rutan visas i vilken ordning frågan returnerade rader. 
+Om kolumnen är en strängtyp betraktas null/tom sträng som falsk och alla andra värden anses vara sanna. För listr=Enstaka markeringar används det första värdet med ett sant värde som standardval.  För listr=Flera markeringsgarde används alla värden med ett sant värde som standardmarkerade set. Objekten i listrutan visas i vilken ordning frågan returnerade rader. 
 
-Nu ska vi titta på de parametrar som finns i rapporten Översikt över anslutningar. Klicka på Redigera-symbolen bredvid **riktning**.
+Låt oss titta på parametrarna som finns i rapporten Anslutningar översikt. Klicka på redigeringssymbolen **bredvid Riktning**.
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Azure Monitor för virtuella datorer Arbetsböcker avsnitt redigering kontroller](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
-Då startas meny alternativet **Redigera parameter** .
+Då startas menyalternativet **Redigera parameter.**
 
-![Avsnittet redigerings kontroller för Azure Monitor for VMs-arbetsböcker](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Azure Monitor för virtuella datorer Arbetsböcker avsnitt redigering kontroller](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
-Med JSON kan du generera en godtycklig tabell som är ifylld med innehåll. Följande JSON genererar till exempel två värden i list rutan:
+Med JSON kan du skapa en godtycklig tabell som fylls med innehåll. Följande JSON genererar till exempel två värden i listrutan:
 
 ```
 [
@@ -199,7 +195,7 @@ Med JSON kan du generera en godtycklig tabell som är ifylld med innehåll. Föl
 ]
 ```
 
-Ett mer tillämpligt exempel är att använda en listruta för att välja från en uppsättning prestanda räknare efter namn:
+Ett mer användbart exempel är att använda en listruta för att välja från en uppsättning prestandaräknare efter namn:
 
 ```
 Perf
@@ -208,44 +204,44 @@ Perf
 | project Counter = pack('counter', CounterName, 'object', ObjectName), CounterName, group = ObjectName
 ```
 
-Frågan visar resultat enligt följande:
+Frågan visar resultaten på följande sätt:
 
-![Listruta för prestanda räknare](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
+![Nedrullningsning av Perf-räknare](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
 
-List rutor är otroligt kraftfulla verktyg för att anpassa och skapa interaktiva rapporter.
+Rullgardinsmenyn är otroligt kraftfulla verktyg för att anpassa och skapa interaktiva rapporter.
 
-### <a name="time-range-parameters"></a>Intervall parametrar
+### <a name="time-range-parameters"></a>Parametrar för tidsintervall
 
-Även om du kan skapa en egen anpassad tids intervall parameter via den nedrullningsbara parameter typen, kan du också använda parameter typen out-of-box för tidsintervallen om du inte behöver samma grad av flexibilitet. 
+Även om du kan skapa en egen anpassad parameter för tidsintervall via parametertypen listruta, kan du också använda parametertypen out-of-box time range om du inte behöver samma flexibilitet. 
 
-Parameter typer för tidsintervall har 15 standard intervall som går från fem minuter till de senaste 90 dagarna. Det finns också ett alternativ för att tillåta val av anpassat tidsintervall, vilket gör att rapportens operatör kan välja explicita start-och stopp värden för tidsintervallet.
+Parametertyper för tidsintervall har 15 standardintervall som går från fem minuter till de senaste 90 dagarna. Det finns också ett alternativ för att tillåta anpassad tidsintervallval, vilket gör att rapportoperatören kan välja explicita start- och stoppvärden för tidsintervallet.
 
-### <a name="resource-picker"></a>Resurs väljare
+### <a name="resource-picker"></a>Resursväljare
 
-Parameter typen resurs väljare ger dig möjlighet att begränsa rapporten till vissa typer av resurser. Ett exempel på en fördefinierad arbets bok som utnyttjar resurs väljar typen är arbets boken **prestanda** .
+Parametertypen resursväljare ger dig möjlighet att begränsa rapporten till vissa typer av resurser. Ett exempel på en fördefinierad arbetsbok som utnyttjar resursväljarens typ är **prestandaarbetsboken.**
 
-![Listruta för arbets ytor](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
+![Listruta arbetsytor](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
 
-## <a name="saving-and-sharing-workbooks-with-your-team"></a>Spara och dela arbets böcker med ditt team
+## <a name="saving-and-sharing-workbooks-with-your-team"></a>Spara och dela arbetsböcker med ditt team
 
-Arbets böcker sparas i en Log Analytics arbets yta eller en virtuell dator resurs, beroende på hur du kommer åt galleriet för arbets böcker. Arbets boken kan sparas i **Mina rapporter** avsnittet som är privat för dig eller i avsnittet **delade rapporter** som är tillgänglig för alla som har åtkomst till resursen. Om du vill visa alla arbets böcker i resursen klickar du på knappen **Öppna** i åtgärds fältet.
+Arbetsböcker sparas i en Log Analytics-arbetsyta eller en resurs för virtuella datorer, beroende på hur du kommer åt arbetsboksgalleriet. Arbetsboken kan sparas i avsnittet **Mina rapporter** som är privat för dig eller i avsnittet **Delade rapporter** som är tillgängligt för alla med åtkomst till resursen. Om du vill visa alla arbetsböcker i resursen klickar du på knappen **Öppna** i åtgärdsfältet.
 
-Så här delar du en arbets bok som för närvarande finns i **Mina rapporter**:
+Så här delar du en arbetsbok som för närvarande finns i **Mina rapporter:**
 
-1. Klicka på **Öppna** i åtgärds fältet
-2. Klicka på "..." bredvid den arbets bok som du vill dela
+1. Klicka på **Öppna** i åtgärdsfältet
+2. Klicka på "..." bredvid arbetsboken som du vill dela
 3. Klicka på **Flytta till delade rapporter**.
 
-Om du vill dela en arbets bok med en länk eller via e-post, klickar du på **dela** i åtgärds fältet. Tänk på att mottagare av länken behöver åtkomst till den här resursen i Azure Portal för att kunna visa arbets boken. För att göra redigeringar behöver mottagarna minst deltagar behörigheter för resursen.
+Om du vill dela en arbetsbok med en länk eller via e-post klickar du på **Dela** i åtgärdsfältet. Tänk på att mottagare av länken behöver åtkomst till den här resursen i Azure-portalen för att kunna visa arbetsboken. För att göra ändringar behöver mottagarna minst deltagarbehörighet för resursen.
 
-Fästa en länk till en arbets bok på en Azure-instrumentpanel:
+Så här fäster du en länk till en arbetsbok på en Azure Dashboard:
 
-1. Klicka på **Öppna** i åtgärds fältet
-2. Klicka på "..." bredvid den arbets bok som du vill fästa
+1. Klicka på **Öppna** i åtgärdsfältet
+2. Klicka på "..." bredvid arbetsboken som du vill fästa
 3. Klicka på **Fäst vid instrumentpanelen**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du identifierar begränsningar och övergripande prestanda för virtuella datorer finns i [Visa prestanda](vminsights-performance.md)för virtuella Azure-datorer.
+- Information om hur du identifierar begränsningar och övergripande vm-prestanda finns i [Visa Azure VM-prestanda](vminsights-performance.md).
 
-- Information om identifierade program beroenden finns i [visa Azure Monitor for VMS karta](vminsights-maps.md).
+- Mer information om identifierade programberoenden finns i [Visa Azure Monitor för virtuella datorer Karta](vminsights-maps.md).

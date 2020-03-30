@@ -1,31 +1,31 @@
 ---
-title: Utgående bindning för Azure Functions SignalR-tjänst
-description: Lär dig att skicka signalerande tjänst meddelanden från Azure Functions.
+title: Utdatabindning av Azure Functions SignalR-tjänst
+description: Lär dig att skicka SignalR-tjänstmeddelanden från Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/20/2020
 ms.author: cshoe
 ms.openlocfilehash: d3ba9183cdea752c3e69a41770b6a5319a4a601d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/21/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77530255"
 ---
-# <a name="signalr-service-output-binding-for-azure-functions"></a>Utgående bindning för signal tjänst för Azure Functions
+# <a name="signalr-service-output-binding-for-azure-functions"></a>SignalR-tjänstutdatabindning för Azure-funktioner
 
-Använd *signalens* utgående bindning för att skicka ett eller flera meddelanden med Azure SignalR-tjänsten. Du kan sända ett meddelande till:
+Använd *SignalR-utdatabindningen* för att skicka ett eller flera meddelanden med Azure SignalR-tjänsten. Du kan sända ett meddelande till:
 
 - Alla anslutna klienter
-- Anslutna klienter som autentiserats till en speciell användare
+- Anslutna klienter autentiserade till en viss användare
 
-Med utgående bindning kan du också hantera grupper.
+Utdatabindningen gör det också möjligt att hantera grupper.
 
-Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-signalr-service.md).
+Information om inställnings- och konfigurationsinformation finns i [översikten](functions-bindings-signalr-service.md).
 
-## <a name="broadcast-to-all-clients"></a>Sänd till alla klienter
+## <a name="broadcast-to-all-clients"></a>Sändning till alla klienter
 
-I följande exempel visas en funktion som skickar ett meddelande med hjälp av utgående bindning till alla anslutna klienter. *Målet* är namnet på den metod som ska anropas på varje klient. Egenskapen *arguments* är en matris med noll eller flera objekt som ska skickas till klient metoden.
+I följande exempel visas en funktion som skickar ett meddelande med utdatabindningen till alla anslutna klienter. *Målet* är namnet på den metod som ska anropas på varje klient. Egenskapen *Argument* är en matris med noll eller fler objekt som ska skickas till klientmetoden.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -44,11 +44,11 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -60,7 +60,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är C# skript koden:
+Här är C # Script kod:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -79,11 +79,11 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -95,7 +95,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -108,9 +108,9 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -122,7 +122,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är python-koden:
+Här är Python-koden:
 
 ```python
 def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
@@ -155,7 +155,7 @@ public SignalRMessage sendMessage(
 
 ## <a name="send-to-a-user"></a>Skicka till en användare
 
-Du kan bara skicka ett meddelande till anslutningar som har autentiserats för en användare genom att ange *användar-ID* i signal meddelandet.
+Du kan bara skicka ett meddelande till anslutningar som har autentiserats till en användare genom att ange *användar-ID:t* i SignalR-meddelandet.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -176,9 +176,9 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -190,7 +190,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är C# skript koden:
+Här är C # Script kod:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -211,9 +211,9 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -225,7 +225,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -240,9 +240,9 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -254,7 +254,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är python-koden:
+Här är Python-koden:
 
 ```python
 def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
@@ -290,7 +290,7 @@ public SignalRMessage sendMessage(
 
 ## <a name="send-to-a-group"></a>Skicka till en grupp
 
-Du kan bara skicka ett meddelande till anslutningar som har lagts till i en grupp genom att ange *grupp namnet* i signal meddelande meddelandet.
+Du kan bara skicka ett meddelande till anslutningar som har lagts till i en grupp genom att ange *gruppnamnet* i SignalR-meddelandet.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
@@ -311,9 +311,9 @@ public static Task SendMessage(
 }
 ```
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -325,7 +325,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är C# skript koden:
+Här är C # Script kod:
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -346,9 +346,9 @@ public static Task Run(
 }
 ```
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -360,7 +360,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```javascript
 module.exports = async function (context, req) {
@@ -375,9 +375,9 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Här är bindnings data i *Function. JSON* -filen:
+Här är bindningsdata i *filen function.json:*
 
-Exempel funktion. JSON:
+Exempel function.json:
 
 ```json
 {
@@ -389,7 +389,7 @@ Exempel funktion. JSON:
 }
 ```
 
-Här är python-koden:
+Här är Python-koden:
 
 ```python
 def main(req: func.HttpRequest, out_message: func.Out[str]) -> func.HttpResponse:
@@ -423,13 +423,13 @@ public SignalRMessage sendMessage(
 
 ---
 
-## <a name="group-management"></a>Grupp hantering
+## <a name="group-management"></a>Grupphantering
 
-Med SignalR-tjänsten kan användare läggas till i grupper. Meddelanden kan sedan skickas till en grupp. Du kan använda `SignalR` utgående bindning för att hantera en användares grupp medlemskap.
+SignalR-tjänsten gör det möjligt för användare att läggas till i grupper. Meddelanden kan sedan skickas till en grupp. Du kan `SignalR` använda utdatabindningen för att hantera en användares gruppmedlemskap.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-### <a name="add-user-to-a-group"></a>Lägg till användare i en grupp
+### <a name="add-user-to-a-group"></a>Lägga till användare i en grupp
 
 I följande exempel läggs en användare till i en grupp.
 
@@ -476,15 +476,15 @@ public static Task RemoveFromGroup(
 ```
 
 > [!NOTE]
-> Du måste ha konfigurerat autentiseringsinställningarna i Azure Functions för att få `ClaimsPrincipal` korrekt kopplad.
+> För att få `ClaimsPrincipal` rätt bunden måste du ha konfigurerat autentiseringsinställningarna i Azure Functions.
 
-# <a name="c-script"></a>[C#Över](#tab/csharp-script)
+# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
 
-### <a name="add-user-to-a-group"></a>Lägg till användare i en grupp
+### <a name="add-user-to-a-group"></a>Lägga till användare i en grupp
 
 I följande exempel läggs en användare till i en grupp.
 
-Exempel *funktion. JSON*
+Exempel *på funktion.json*
 
 ```json
 {
@@ -496,7 +496,7 @@ Exempel *funktion. JSON*
 }
 ```
 
-*Kör. CSX*
+*Run.csx (på andra)*
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -522,7 +522,7 @@ public static Task Run(
 
 I följande exempel tas en användare bort från en grupp.
 
-Exempel *funktion. JSON*
+Exempel *på funktion.json*
 
 ```json
 {
@@ -534,7 +534,7 @@ Exempel *funktion. JSON*
 }
 ```
 
-*Kör. CSX*
+*Run.csx (på andra)*
 
 ```cs
 #r "Microsoft.Azure.WebJobs.Extensions.SignalRService"
@@ -557,15 +557,15 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Du måste ha konfigurerat autentiseringsinställningarna i Azure Functions för att få `ClaimsPrincipal` korrekt kopplad.
+> För att få `ClaimsPrincipal` rätt bunden måste du ha konfigurerat autentiseringsinställningarna i Azure Functions.
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[Javascript](#tab/javascript)
 
-### <a name="add-user-to-a-group"></a>Lägg till användare i en grupp
+### <a name="add-user-to-a-group"></a>Lägga till användare i en grupp
 
 I följande exempel läggs en användare till i en grupp.
 
-Exempel *funktion. JSON*
+Exempel *på funktion.json*
 
 ```json
 {
@@ -577,7 +577,7 @@ Exempel *funktion. JSON*
 }
 ```
 
-*index. js*
+*index.js*
 
 ```javascript
 module.exports = async function (context, req) {
@@ -593,7 +593,7 @@ module.exports = async function (context, req) {
 
 I följande exempel tas en användare bort från en grupp.
 
-Exempel *funktion. JSON*
+Exempel *på funktion.json*
 
 ```json
 {
@@ -605,7 +605,7 @@ Exempel *funktion. JSON*
 }
 ```
 
-*index. js*
+*index.js*
 
 ```javascript
 module.exports = async function (context, req) {
@@ -619,11 +619,11 @@ module.exports = async function (context, req) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-### <a name="add-user-to-a-group"></a>Lägg till användare i en grupp
+### <a name="add-user-to-a-group"></a>Lägga till användare i en grupp
 
 I följande exempel läggs en användare till i en grupp.
 
-Exempel *funktion. JSON*
+Exempel *på funktion.json*
 
 ```json
 {
@@ -635,7 +635,7 @@ Exempel *funktion. JSON*
 }
 ```
 
-*\_\_init. py__*
+*\_\_init.py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -650,7 +650,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 
 I följande exempel tas en användare bort från en grupp.
 
-Exempel *funktion. JSON*
+Exempel *på funktion.json*
 
 ```json
 {
@@ -662,7 +662,7 @@ Exempel *funktion. JSON*
 }
 ```
 
-*\_\_init. py__*
+*\_\_init.py__*
 
 ```python
 def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
@@ -675,7 +675,7 @@ def main(req: func.HttpRequest, action: func.Out[str]) -> func.HttpResponse:
 
 # <a name="java"></a>[Java](#tab/java)
 
-### <a name="add-user-to-a-group"></a>Lägg till användare i en grupp
+### <a name="add-user-to-a-group"></a>Lägga till användare i en grupp
 
 I följande exempel läggs en användare till i en grupp.
 
@@ -725,31 +725,31 @@ public SignalRGroupAction removeFromGroup(
 
 ### <a name="signalrconnectioninfo"></a>SignalRConnectionInfo
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `SignalRConnectionInfo`-attributet.
+I följande tabell beskrivs de bindningskonfigurationsegenskaper som `SignalRConnectionInfo` du anger i *filen function.json* och attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|egenskapen function.json | Egenskapen Attribute |Beskrivning|
 |---------|---------|----------------------|
-|**typ**| Saknas | måste anges till `signalRConnectionInfo`.|
-|**riktning**| Saknas | måste anges till `in`.|
-|**Namn**| Saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
-|**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
-|**userId**|**UserId**| Valfritt: värdet på det användar-ID-anspråk som ska anges i åtkomst nyckelns token. |
-|**connectionStringSetting**|**ConnectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
+|**Typ**| Saknas | Måste ställas `signalRConnectionInfo`in på .|
+|**riktning**| Saknas | Måste ställas `in`in på .|
+|**Namn**| Saknas | Variabelnamn som används i funktionskoden för anslutningsinformationsobjekt. |
+|**hubName (hubName)**|**HubName (HubName)**| Det här värdet måste anges till namnet på den SignalR-hubb som anslutningsinformationen genereras för.|
+|**Userid**|**Userid**| Valfritt: Värdet för användarens identifierare anspråk som ska anges i åtkomstnyckeltoken. |
+|**anslutningStringInställning**|**ConnectionStringSetting**| Namnet på appinställningen som innehåller anslutningssträngen för SignalR-tjänsten (standard "AzureSignalRConnectionString") |
 
 ### <a name="signalr"></a>SignalR
 
-I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `SignalR`-attributet.
+I följande tabell beskrivs de bindningskonfigurationsegenskaper som `SignalR` du anger i *filen function.json* och attributet.
 
-|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|egenskapen function.json | Egenskapen Attribute |Beskrivning|
 |---------|---------|----------------------|
-|**typ**| Saknas | måste anges till `signalR`.|
-|**riktning**| Saknas | måste anges till `out`.|
-|**Namn**| Saknas | Variabel namn som används i funktions kod för objektet anslutnings information. |
-|**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
-|**connectionStringSetting**|**ConnectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
+|**Typ**| Saknas | Måste ställas `signalR`in på .|
+|**riktning**| Saknas | Måste ställas `out`in på .|
+|**Namn**| Saknas | Variabelnamn som används i funktionskoden för anslutningsinformationsobjekt. |
+|**hubName (hubName)**|**HubName (HubName)**| Det här värdet måste anges till namnet på den SignalR-hubb som anslutningsinformationen genereras för.|
+|**anslutningStringInställning**|**ConnectionStringSetting**| Namnet på appinställningen som innehåller anslutningssträngen för SignalR-tjänsten (standard "AzureSignalRConnectionString") |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Returnera URL: en för tjänstens slut punkt och åtkomsttoken (ingående bindning)](./functions-bindings-signalr-service-input.md)
+- [Returnera tjänstens slutpunkts-URL och åtkomsttoken (indatabindning)](./functions-bindings-signalr-service-input.md)

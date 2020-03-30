@@ -1,28 +1,31 @@
 ---
 title: Ansluta till Windows Virtual Desktop Windows 10 eller 7 – Azure
-description: Hur du ansluter till virtuella Windows-datorer med hjälp av Windows Skriv bords klienten.
+description: Ansluta till Windows Virtual Desktop med Windows Desktop-klienten.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 03/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1fb9ef702de4cec2a655aadebe0bc4d69f583ff7
-ms.sourcegitcommit: f97d3d1faf56fb80e5f901cd82c02189f95b3486
+ms.openlocfilehash: b6436059cc8b3637edfc2a146d0aab3e2beae6a8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79128201"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80154346"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ansluta med Windows-skrivbordsklienten
 
-> Gäller för: Windows 7, Windows 10 och Windows 10 IoT Enterprise
+> Gäller: Windows 7, Windows 10 och Windows 10 IoT Enterprise
 
-Du kan komma åt Windows-resurser för virtuella skriv bord på enheter med Windows 7, Windows 10 och Windows 10 IoT Enterprise med Windows Skriv bords klienten.
+Du kan komma åt Windows Virtual Desktop-resurser på enheter med Windows 7, Windows 10 och Windows 10 IoT Enterprise med Windows Desktop-klienten.
 
 > [!IMPORTANT]
-> Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp-och Desktop Connections) eller Anslutning till fjärrskrivbord-klienten (MSTSC).
+> Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp and Desktop Connections) eller MSTSC-klienten (Remote Desktop Connection).
+
+> [!IMPORTANT]
+> Windows Virtual Desktop stöder för närvarande inte klienten för fjärrskrivbord från Windows Store. Stöd för den här klienten kommer att läggas till i en framtida version.
 
 ## <a name="install-the-windows-desktop-client"></a>Installera Windows Desktop-klienten
 
@@ -30,32 +33,32 @@ Välj den klient som matchar din version av Windows:
 
 - [Windows 64-bitars](https://go.microsoft.com/fwlink/?linkid=2068602)
 - [Windows 32-bitars](https://go.microsoft.com/fwlink/?linkid=2098960)
-- [Windows-ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
+- [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2098961)
 
-Du kan installera klienten för den aktuella användaren, som inte kräver administratörs rättigheter, eller så kan administratören installera och konfigurera klienten så att alla användare på enheten kan komma åt den.
+Du kan installera klienten för den aktuella användaren, som inte kräver administratörsrättigheter, eller så kan administratören installera och konfigurera klienten så att alla användare på enheten kan komma åt den.
 
-När du har installerat kan klienten startas från Start-menyn genom att söka efter **fjärr skrivbord**.
+En gång installerat, klienten kan startas från Start-menyn genom att söka efter **Fjärrskrivbord**.
 
-## <a name="subscribe-to-a-feed"></a>Prenumerera på en feed
+## <a name="subscribe-to-a-feed"></a>Prenumerera på ett flöde
 
-Hämta listan över hanterade resurser som är tillgängliga för dig genom att prenumerera på den feed som administratören har fått. När du prenumererar blir resurserna tillgängliga på din lokala dator.
+Hämta listan över hanterade resurser som är tillgängliga för dig genom att prenumerera på flödet som tillhandahålls av administratören. Genom att prenumerera blir resurserna tillgängliga på den lokala datorn.
 
-Så här prenumererar du på en feed:
+Så här prenumererar du på ett flöde:
 
 1. Öppna Windows Desktop-klienten.
-2. Välj **Prenumerera** på huvud sidan för att ansluta till tjänsten och hämta dina resurser.
-3. Logga in med ditt användar konto när du uppmanas till det.
+2. Välj **Prenumerera** på huvudsidan för att ansluta till tjänsten och hämta dina resurser.
+3. Logga in med ditt användarkonto när du uppmanas att göra det.
 
-När du har loggat in bör du se en lista över de resurser som du har åtkomst till.
+När du har loggat in bör du se en lista över de resurser du kan komma åt.
 
-Du kan starta resurser på en av två sätt.
+Du kan starta resurser med en av två metoder.
 
-- Från klientens huvud sida dubbelklickar du på en resurs för att starta den.
-- Starta en resurs som vanligt vis andra appar från Start-menyn.
-  - Du kan också söka efter apparna i Sök fältet.
+- Dubbelklicka på en resurs från klientens huvudsida för att starta den.
+- Starta en resurs som vanligt andra appar från Start-menyn.
+  - Du kan också söka efter apparna i sökfältet.
 
-När du prenumererar på en feed uppdateras innehållet i flödet automatiskt med jämna mellanrum. Resurser kan läggas till, ändras eller tas bort utifrån ändringar som gjorts av administratören.
+När du prenumererar på ett flöde uppdateras innehållet i flödet automatiskt regelbundet. Resurser kan läggas till, ändras eller tas bort baserat på ändringar som gjorts av administratören.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om hur du använder Windows-skrivbordet kan du läsa [komma igång med Windows Skriv bords klienten](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).
+Mer information om hur du använder Windows Desktop-klienten finns i [Kom igång med Windows Desktop-klienten](/windows-server/remote/remote-desktop-services/clients/windowsdesktop/).

@@ -1,31 +1,31 @@
 ---
-title: Skapa ett kluster med hjälp av certifikatets nätverks namn
-description: Lär dig hur du skapar ett Service Fabric kluster med hjälp av certifikatets egna namn från en mall.
+title: Skapa ett kluster med gemensamt namn på certifikat
+description: Lär dig hur du skapar ett Service Fabric-kluster med ett vanligt certifikatnamn från en mall.
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.openlocfilehash: 4a4448c88fa9493979f075f6b9c669927dd1d39e
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75614561"
 ---
-# <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuera ett Service Fabric kluster som använder certifikatets delade namn i stället för tumavtryck
-Inga två certifikat kan ha samma tumavtryck, vilket gör det svårt att förnya kluster certifikat eller hantering. Flera certifikat kan dock ha samma egna namn eller ämne.  Ett kluster som använder Certifikatets gemensamma namn gör certifikat hanteringen mycket enklare. I den här artikeln beskrivs hur du distribuerar ett Service Fabric-kluster för att använda certifikatets egna namn i stället för certifikatets tumavtryck.
+# <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Distribuera ett Service Fabric-kluster som använder certifikatets gemensamma namn i stället för tumavtryck
+Det finns inga två certifikat som har samma tumavtryck, vilket gör det svårt att rulla över klustercertifikat eller hantera. Flera certifikat kan dock ha samma gemensamma namn eller ämne.  Ett kluster med vanliga certifikatnamn gör certifikathanteringen mycket enklare. I den här artikeln beskrivs hur du distribuerar ett Service Fabric-kluster för att använda certifikatets gemensamma namn i stället för certifikatets tumavtryck.
  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="get-a-certificate"></a>Hämta ett certifikat
-Börja med att hämta ett certifikat från en [certifikat utfärdare (ca)](https://wikipedia.org/wiki/Certificate_authority).  Certifikatets egna namn bör vara för den anpassade domän som du äger och som köps av en domän registrator. Till exempel "azureservicefabricbestpractices.com"; de som inte är anställda i Microsoft kan inte etablera certifikat för MS-domäner, så du kan inte använda DNS-namnen på dina LB-eller Traffic Manager som vanliga namn för ditt certifikat, och du måste etablera en [Azure DNS zon](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) om din anpassade domän ska kunna matchas i Azure. Du ska också deklarera din anpassade domän som du äger som ditt klusters "managementEndpoint" om du vill att portalen ska återspegla det anpassade domän Ali Aset för klustret.
+## <a name="get-a-certificate"></a>Skaffa ett certifikat
+Hämta först ett certifikat från en [certifikatutfärdarcertifikatutfärdning](https://wikipedia.org/wiki/Certificate_authority).  Certifikatets gemensamma namn ska vara för den anpassade domän du äger och köpas från en domänregistratorer. Till exempel "azureservicefabricbestpractices.com"; De som inte är Microsoft-anställda kan inte etablera certifikat för MS-domäner, så du kan inte använda DNS-namnen på din LB eller Traffic Manager som vanliga namn för ditt certifikat, och du måste etablera en [Azure DNS-zon](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns) om din anpassade domän ska kunna lösas i Azure. Du vill också deklarera din anpassade domän som du äger som klustrets "managementEndpoint" om du vill att portalen ska återspegla det anpassade domänaliaset för klustret.
 
-I test syfte kan du få ett CA-signerat certifikat från en kostnads fri eller öppen certifikat utfärdare.
+I testsyfte kan du få ett certifikatutfärdare signerat certifikat från en kostnadsfri eller öppen certifikatutfärdare.
 
 > [!NOTE]
-> Självsignerade certifikat, inklusive de som genereras när du distribuerar ett Service Fabric kluster i Azure Portal, stöds inte. 
+> Självsignerade certifikat, inklusive de som genereras vid distribution av ett Service Fabric-kluster i Azure-portalen, stöds inte. 
 
-## <a name="upload-the-certificate-to-a-key-vault"></a>Ladda upp certifikatet till ett nyckel valv
-I Azure distribueras ett Service Fabric-kluster på en skal uppsättning för virtuella datorer.  Ladda upp certifikatet till ett nyckel valv.  När klustret distribueras installerar certifikatet på den skalnings uppsättning för virtuella datorer som klustret körs på.
+## <a name="upload-the-certificate-to-a-key-vault"></a>Ladda upp certifikatet till ett nyckelvalv
+I Azure distribueras ett Service Fabric-kluster på en skalningsuppsättning för virtuella datorer.  Ladda upp certifikatet till ett nyckelvalv.  När klustret distribueras installeras certifikatet på den virtuella datorskalauppsättning som klustret körs på.
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -64,11 +64,11 @@ Write-Host "SourceVault              :"  $SourceVault
 Write-Host "Common Name              :"  $CommName    
 ```
 
-## <a name="download-and-update-a-sample-template"></a>Hämta och uppdatera en exempel mall
-I den här artikeln används mallen [5-nods säkra kluster exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) och mallparametrar. Ladda ned filerna *azuredeploy. JSON* och *azuredeploy. Parameters. JSON* till datorn.
+## <a name="download-and-update-a-sample-template"></a>Hämta och uppdatera en exempelmall
+Den här artikeln använder [5-noden säker kluster exempel](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure) mall och parametrar mall. Hämta *azuredeploy.json-* och *azuredeploy.parameters.json-filerna* till datorn.
 
-### <a name="update-parameters-file"></a>Uppdatera parameter fil
-Öppna först filen *azuredeploy. Parameters. JSON* i en text redigerare och Lägg till följande parameter värde:
+### <a name="update-parameters-file"></a>Uppdatera parameterfil
+Öppna först filen *azuredeploy.parameters.json* i en textredigerare och lägg till följande parametervärde:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
@@ -78,7 +78,7 @@ I den här artikeln används mallen [5-nods säkra kluster exempel](https://gith
 },
 ```
 
-Ange sedan *certificateCommonName*-, *SourceVaultValue*-och *certificateUrlValue* -parametervärdena för de som returneras av föregående skript:
+Ange sedan *parametervärdena certificateCommonName*, *sourceVaultValue*och *certificateUrlValue* till de värden som returneras av föregående skript:
 ```json
 "certificateCommonName": {
     "value": "myclustername.southcentralus.cloudapp.azure.com"
@@ -95,9 +95,9 @@ Ange sedan *certificateCommonName*-, *SourceVaultValue*-och *certificateUrlValue
 ```
 
 ### <a name="update-the-template-file"></a>Uppdatera mallfilen
-Öppna sedan filen *azuredeploy. JSON* i en text redigerare och gör tre uppdateringar till att ge stöd för certifikatets egna namn.
+Öppna sedan *filen azuredeploy.json* i en textredigerare och gör tre uppdateringar för att stödja certifikatets gemensamma namn.
 
-1. I avsnittet **parametrar** lägger du till en *certificateCommonName* -parameter:
+1. Lägg till en *parameter för certificateCommonName* i **parametern parametrar:**
     ```json
     "certificateCommonName": {
       "type": "string",
@@ -113,21 +113,21 @@ Ange sedan *certificateCommonName*-, *SourceVaultValue*-och *certificateUrlValue
     },
     ```
 
-    Överväg också att ta bort *certificateThumbprint*, men det kanske inte längre behövs.
+    Också överväga att ta bort *certifikatetDumbprint*, det kanske inte längre behövs.
 
-2. Ange värdet för variabeln *sfrpApiVersion* till "2018-02-01":
+2. Ange värdet för *sfrpApiVersion-variabeln* till "2018-02-01":
     ```json
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. I **Microsoft. Compute/virtualMachineScaleSets** -resursen uppdaterar du tillägget för den virtuella datorn så att det använder det egna namnet i certifikat inställningarna i stället för tumavtrycket.  I **virtualMachineProfile**->**extensionProfile**->**tillägg**->**Egenskaper**->**Inställningar**->**certifikat**, Lägg till 
+3. I **microsoft.Compute/virtualMachineScaleSets-resursen** uppdaterar du tillägget för virtuella datorer så att det använder det vanliga namnet i certifikatinställningarna i stället för tumavtrycket.  I **virtualMachineProfile-tilläggProfile-tilläggsegenskapersinställningar**->**extensionProfile**->**extensions**->**properties**->**settings**->**certifikat**lägger du till 
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"
        ],
     ```
 
-    och ta bort `"thumbprint": "[parameters('certificateThumbprint')]",`.
+    och `"thumbprint": "[parameters('certificateThumbprint')]",`ta bort .
 
     ```json
     "virtualMachineProfile": {
@@ -162,7 +162,7 @@ Ange sedan *certificateCommonName*-, *SourceVaultValue*-och *certificateUrlValue
           },
     ```
 
-4. Uppdatera API-versionen till "2018-02-01" i resursen **Microsoft. ServiceFabric/Clusters** .  Lägg också till en **certificateCommonNames** -inställning med en **commonNames** -egenskap och ta bort **certifikat** inställningen (med egenskapen tumavtryck) som i följande exempel:
+4. I **Microsoft.ServiceFabric/clusters-resursen** uppdaterar du API-versionen till "2018-02-01".  Lägg också till en **certifikatInställningar** med egenskapen **commonNames** och ta bort **certifikatinställningen** (med tumavtrycksegenskapen) som i följande exempel:
    ```json
    {
        "apiVersion": "2018-02-01",
@@ -189,9 +189,9 @@ Ange sedan *certificateCommonName*-, *SourceVaultValue*-och *certificateUrlValue
        ...
    ```
    > [!NOTE]
-   > I fältet certificateIssuerThumbprint kan du ange förväntade utfärdare för certifikat med ett angivet ämnes namn. Det här fältet accepterar en kommaavgränsad uppräkning av SHA1-tumavtrycken. Obs! det här är en förstärkning av certifikat valideringen – om utfärdaren inte har angetts eller är tom godkänns certifikatet för autentisering om dess kedja kan skapas och slutar i en rot som är betrodd av verifieraren. Om utfärdaren anges godkänns certifikatet om tumavtrycket för dess direkta utfärdare matchar något av de värden som anges i det här fältet, oavsett om roten är betrodd eller inte. Observera att en PKI kan använda olika certifikat utfärdare för att utfärda certifikat för samma ämne, och därför är det viktigt att ange alla förväntade Issuer-tumavtrycken för ett specifikt ämne.
+   > Fältet certifikatIssuerThumbprint gör det möjligt att ange förväntade utfärdare av certifikat med ett visst gemensamt namn. Det här fältet accepterar en kommaavgränsad uppräkning av SHA1-tumavtryck. Observera att detta är en förstärkning av certifikatvalideringen - om utfärdaren inte anges eller är tom accepteras certifikatet för autentisering om dess kedja kan byggas och hamnar i en rot som är betrodd av valideraren. Om utfärdaren anges accepteras certifikatet om tumavtrycket för dess direkta utfärdare matchar något av de värden som anges i det här fältet - oavsett om roten är betrodd eller inte. Observera att en PKI kan använda olika certifikatutfärdare för att utfärda certifikat för samma ämne, och därför är det viktigt att ange alla förväntade emittenttumavtryck för ett visst ämne.
    >
-   > Att ange utfärdaren anses vara bästa praxis. även om du utelämnar det fortsätter det att fungera för certifikat som går samman till en betrodd rot – det här beteendet har begränsningar och kan gå ut i en snar framtid. Observera också att kluster som distribueras i Azure och som är skyddade med X509-certifikat som utfärdats av en privat PKI och som deklareras av ämne kanske inte kan verifieras av Azure Service Fabric-tjänsten (för kluster-till-tjänst-kommunikation), om PKI: s certifikat princip är inte synligt, tillgängligt och tillgängligt. 
+   > Att ange utfärdaren anses vara en bästa praxis. medan utelämna det kommer att fortsätta att fungera - för certifikat kedja upp till en betrodd rot - detta beteende har begränsningar och kan fasas ut inom en snar framtid. Observera också att kluster som distribueras i Azure och skyddas med X509-certifikat som utfärdats av en privat PKI och deklarerats av ämne kanske inte kan valideras av Azure Service Fabric-tjänsten (för kluster-till-tjänst-kommunikation), om PKI:s certifikatprincip inte kan upptäckas, är tillgängligt och tillgängligt. 
 
 ## <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
 Distribuera om den uppdaterade mallen när du har gjort ändringarna.
@@ -212,9 +212,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFi
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig mer om [kluster säkerhet](service-fabric-cluster-security.md).
-* Lär dig hur du [förnyar ett kluster certifikat](service-fabric-cluster-rollover-cert-cn.md)
-* [Uppdatera och hantera kluster certifikat](service-fabric-cluster-security-update-certs-azure.md)
-* Förenkla certifikat hanteringen genom [att ändra klustret från certifikatets tumavtryck till eget namn](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
+* Lär dig mer om [klustersäkerhet](service-fabric-cluster-security.md).
+* Lär dig hur du [övertäcker ett klustercertifikat](service-fabric-cluster-rollover-cert-cn.md)
+* [Uppdatera och hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md)
+* Förenkla certifikathantering genom [att ändra kluster från certifikattumavtryck till vanligt namn](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

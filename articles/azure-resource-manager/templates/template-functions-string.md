@@ -1,72 +1,72 @@
 ---
-title: Template Functions-String
-description: Beskriver de funktioner som används i en Azure Resource Manager mall för att arbeta med strängar.
+title: Mallfunktioner - sträng
+description: Beskriver de funktioner som ska användas i en Azure Resource Manager-mall för att arbeta med strängar.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: f8d19179461693331a6091ec7a3562f536b959e4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: 070133c3db538e5df76644b62c25ced916adc4af
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79274208"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156284"
 ---
-# <a name="string-functions-for-azure-resource-manager-templates"></a>Sträng funktioner för Azure Resource Manager mallar
+# <a name="string-functions-for-arm-templates"></a>Strängfunktioner för ARM-mallar
 
-Resource Manager innehåller följande funktioner för att arbeta med strängar:
+Resource Manager innehåller följande funktioner för att arbeta med strängar i dina ARM-mallar (Azure Resource Manager):
 
-* [Base64](#base64)
-* [base64ToJson](#base64tojson)
+* [base64](#base64)
+* [bas64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
-* [concat](#concat)
-* [ingår](#contains)
+* [Concat](#concat)
+* [Innehåller](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
-* [saknas](#empty)
-* [endsWith](#endswith)
-* [förstagångskörningen](#first)
-* [formatering](#format)
-* [LED](#guid)
+* [Tom](#empty)
+* [slutarMed](#endswith)
+* [Första](#first)
+* [Format](#format)
+* [Guid](#guid)
 * [indexOf](#indexof)
-* [pågå](#last)
+* [Senaste](#last)
 * [lastIndexOf](#lastindexof)
-* [krävande](#length)
-* [newGuid](#newguid)
-* [padLeft](#padleft)
-* [bytt](#replace)
-* [Ignorera](#skip)
+* [Längd](#length)
+* [nyaGuid](#newguid)
+* [padVänd](#padleft)
+* [Ersätta](#replace)
+* [Hoppa över](#skip)
 * [split](#split)
-* [startsWith](#startswith)
-* [nollängd](#string)
-* [under sträng](#substring)
-* [gå](#take)
-* [toLower](#tolower)
-* [toUpper](#toupper)
-* [reducera](#trim)
-* [uniqueString](#uniquestring)
-* [URI](#uri)
-* [uriComponent](#uricomponent)
-* [uriComponentToString](#uricomponenttostring)
-* [utcNow](#utcnow)
+* [börjarMed](#startswith)
+* [sträng](#string)
+* [Delsträng](#substring)
+* [Ta](#take)
+* [toLower (TillLågare)](#tolower)
+* [tillUpper](#toupper)
+* [Trimma](#trim)
+* [uniqueString (unikSträngning)](#uniquestring)
+* [Uri](#uri)
+* [uriKompent](#uricomponent)
+* [uriKompent TillString](#uricomponenttostring)
+* [utcNow (olikartade)](#utcnow)
 
-## <a name="base64"></a>Base64
+## <a name="base64"></a>base64
 
 `base64(inputString)`
 
-Returnerar den base64-representation av Indatasträngen.
+Returnerar bas64-representationen för indatasträngen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |sträng |Värdet som ska returneras som en Base64-representation. |
+| inputString |Ja |sträng |Värdet som ska returneras som en base64-representation. |
 
 ### <a name="return-value"></a>Returvärde
 
-En sträng som innehåller base64-representation.
+En sträng som innehåller base64-representationen.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) visas hur du använder base64-funktionen.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) visar hur du använder funktionen base64.
 
 ```json
 {
@@ -109,21 +109,21 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
+| bas64Utflöde | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | Ett två tre |
-| toJsonOutput | Objekt | {"One": "a", "två": "b"} |
+| tillJsonOutput | Objekt | {"en": "a", "två": "b"} |
 
-## <a name="base64tojson"></a>base64ToJson
+## <a name="base64tojson"></a>bas64ToJson
 
 `base64tojson`
 
-Konverterar en Base64-representation till ett JSON-objekt.
+Konverterar en base64-representation till ett JSON-objekt.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |sträng |Den base64-representation som ska konverteras till ett JSON-objekt. |
+| bas64Värde |Ja |sträng |Den base64 representation att konvertera till ett JSON-objekt. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -131,7 +131,7 @@ Ett JSON-objekt.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) använder funktionen base64ToJson för att konvertera ett base64-värde:
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) används funktionen base64ToJson för att konvertera ett base64-värde:
 
 ```json
 {
@@ -174,29 +174,29 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
+| bas64Utflöde | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | Ett två tre |
-| toJsonOutput | Objekt | {"One": "a", "två": "b"} |
+| tillJsonOutput | Objekt | {"en": "a", "två": "b"} |
 
 ## <a name="base64tostring"></a>base64ToString
 
 `base64ToString(base64Value)`
 
-Konverterar en Base64-representation till en sträng.
+Konverterar en base64-representation till en sträng.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| base64Value |Ja |sträng |Den base64-representation som ska konverteras till en sträng. |
+| bas64Värde |Ja |sträng |Base64-representationen för att konvertera till en sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
-En sträng med det konverterade base64-värdet.
+En sträng med det konverterade bas64-värdet.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) använder funktionen base64ToString för att konvertera ett base64-värde:
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json) används funktionen base64ToString för att konvertera ett base64-värde:
 
 ```json
 {
@@ -239,24 +239,24 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
+| bas64Utflöde | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | Ett två tre |
-| toJsonOutput | Objekt | {"One": "a", "två": "b"} |
+| tillJsonOutput | Objekt | {"en": "a", "två": "b"} |
 
-## <a name="concat"></a>concat
+## <a name="concat"></a>Concat
 
 `concat (arg1, arg2, arg3, ...)`
 
-Kombinerar flera sträng värden och returnerar den sammanfogade strängen, eller kombinerar flera matriser och returnerar den sammanfogade matrisen.
+Kombinerar flera strängvärden och returnerar den sammanfogade strängen, eller kombinerar flera matriser och returnerar den sammanfogade matrisen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |sträng eller matris |Den första strängen eller matrisen för sammanfogning. |
-| ytterligare argument |Nej |sträng eller matris |Ytterligare strängar eller matriser i sekventiell ordning för sammanfogning. |
+| arg1 (arg1) |Ja |sträng eller matris |Den första strängen eller matrisen för sammanfogning. |
+| ytterligare argument |Inga |sträng eller matris |Ytterligare strängar eller matriser i sekventiell ordning för sammanfogning. |
 
-Den här funktionen kan ta valfritt antal argument och kan acceptera antingen strängar eller matriser för parametrarna. Du kan dock inte ange både matriser och strängar för parametrar. Strängar sammanfogas bara med andra strängar.
+Den här funktionen kan ta valfritt antal argument och kan acceptera antingen strängar eller matriser för parametrarna. Du kan dock inte ange både matriser och strängar för parametrar. Strängar sammanfogas endast med andra strängar.
 
 ### <a name="return-value"></a>Returvärde
 
@@ -264,7 +264,7 @@ En sträng eller matris med sammanfogade värden.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) visas hur du kombinerar två sträng värden och returnerar en sammanfogad sträng.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) visar hur du kombinerar två strängvärden och returnerar en sammanfogad sträng.
 
 ```json
 {
@@ -290,9 +290,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput (concatOutput) | String | prefix-5yj4yjf5mbg72 |
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) visas hur du kombinerar två matriser.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) visar hur du kombinerar två matriser.
 
 ```json
 {
@@ -331,28 +331,28 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| returrelaterade | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| återgå | Matris | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>innehåller
 
 `contains (container, itemToFind)`
 
-Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyckel eller en sträng innehåller en under sträng. Sträng jämförelsen är Skift läges känslig. Men när du testar om ett objekt innehåller en nyckel är jämförelsen Skift läges okänslig.
+Kontrollerar om en matris innehåller ett värde, ett objekt innehåller en nyckel eller en sträng innehåller en delsträng. Strängjämförelsen är skiftlägeskänslig. Men när du testar om ett objekt innehåller en nyckel är jämförelsen skiftlägesokänslig.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| container |Ja |matris, objekt eller sträng |Värdet som innehåller värdet som ska hittas. |
-| itemToFind |Ja |sträng eller heltal |Det värde som ska hittas. |
+| container |Ja |matris, objekt eller sträng |Värdet som innehåller värdet att hitta. |
+| itemToFind |Ja |sträng eller int |Värdet att hitta. |
 
 ### <a name="return-value"></a>Returvärde
 
-**Sant** om objektet hittas; annars **false**.
+**Sant** om objektet hittas. annars **falskt**.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) visas hur du använder med olika typer:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json) visar hur du använder innehåller med olika typer:
 
 ```json
 {
@@ -407,9 +407,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringTrue | Bool | True |
+| strängTrue | Bool | True |
 | stringFalse | Bool | False |
-| objectTrue | Bool | True |
+| objektTrue | Bool | True |
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
@@ -424,7 +424,7 @@ Konverterar ett värde till en data-URI.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Ja |sträng |Det värde som ska konverteras till en data-URI. |
+| strängTillKonvertera |Ja |sträng |Värdet som ska konverteras till en data-URI. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -432,7 +432,7 @@ En sträng formaterad som en data-URI.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) konverteras ett värde till en data-URI och en data-URI konverteras till en sträng:
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) konverteras ett värde till en data-URI och en data-URI konverteras till en sträng:
 
 ```json
 {
@@ -466,8 +466,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello World! |
+| dataUriOutput | String | data:text/oformaterad;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hej världen! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -487,7 +487,7 @@ En sträng som innehåller det konverterade värdet.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) konverteras ett värde till en data-URI och en data-URI konverteras till en sträng:
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json) konverteras ett värde till en data-URI och en data-URI konverteras till en sträng:
 
 ```json
 {
@@ -521,28 +521,28 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello World! |
+| dataUriOutput | String | data:text/oformaterad;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hej världen! |
 
-## <a name="empty"></a>saknas
+## <a name="empty"></a>tomt
 
 `empty(itemToTest)`
 
-Anger om en matris, ett objekt eller en sträng är tom.
+Avgör om en matris, ett objekt eller en sträng är tom.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Ja |matris, objekt eller sträng |Värdet för att kontrol lera om det är tomt. |
+| itemToTest |Ja |matris, objekt eller sträng |Värdet för att kontrollera om det är tomt. |
 
 ### <a name="return-value"></a>Returvärde
 
-Returnerar **Sant** om värdet är tomt. annars **false**.
+Returnerar **Sant** om värdet är tomt. annars **falskt**.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) kontrollerar om en matris, ett objekt och en sträng är tomma.
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json) kontrolleras om en matris, ett objekt och en sträng är tom.
 
 ```json
 {
@@ -586,29 +586,29 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
-| objectEmpty | Bool | True |
-| stringEmpty | Bool | True |
+| objektEmpty | Bool | True |
+| strängEmpty | Bool | True |
 
 ## <a name="endswith"></a>endsWith
 
 `endsWith(stringToSearch, stringToFind)`
 
-Anger om en sträng slutar med ett värde. Jämförelsen är inte Skift läges känslig.
+Avgör om en sträng slutar med ett värde. Jämförelsen är skiftlägesokänslig.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
-| stringToFind |Ja |sträng |Det värde som ska hittas. |
+| strängTillsökning |Ja |sträng |Värdet som innehåller artikeln att hitta. |
+| strängTillhittad |Ja |sträng |Värdet att hitta. |
 
 ### <a name="return-value"></a>Returvärde
 
-**Sant** om det sista tecknet eller tecknen i strängen matchar värdet; annars **false**.
+**Sant** om strängens sista tecken eller tecken matchar värdet. annars **falskt**.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) visas hur du använder funktionerna StartsWith och endsWith:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) visar hur du använder funktionerna startsWith och endsWith:
 
 ```json
 {
@@ -648,32 +648,32 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| startsTrue | Bool | True |
-| startsCapTrue | Bool | True |
-| startsFalse | Bool | False |
+| startsTrue (StartsTrue) | Bool | True |
+| startsCapTrue (StartsCapTrue) | Bool | True |
+| börjarFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
-## <a name="first"></a>first
+## <a name="first"></a>Första
 
 `first(arg1)`
 
-Returnerar det första tecken strängen eller det första elementet i matrisen.
+Returnerar det första tecknet i strängen eller det första elementet i matrisen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Värdet för att hämta det första elementet eller specialtecknet. |
+| arg1 (arg1) |Ja |matris eller sträng |Värdet för att hämta det första elementet eller tecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
-En sträng med det första tecken eller typen (sträng, heltal, matris eller objekt) för det första elementet i en matris.
+En sträng med det första tecknet, eller typen (sträng, int, array eller objekt) för det första elementet i en matris.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) visas hur du använder den första funktionen med en matris och sträng.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json) visar hur du använder den första funktionen med en matris och sträng.
 
 ```json
 {
@@ -711,23 +711,23 @@ Utdata från föregående exempel med standardvärdena är:
 
 `format(formatString, arg1, arg2, ...)`
 
-Skapar en formaterad sträng från angivna värden.
+Skapar en formaterad sträng från indatavärden.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| formatString | Ja | sträng | Strängen för sammansatt format. |
-| arg1 | Ja | sträng, heltal eller boolesk | Värdet som ska tas med i den formaterade strängen. |
-| ytterligare argument | Nej | sträng, heltal eller boolesk | Ytterligare värden som ska tas med i den formaterade strängen. |
+| formatString | Ja | sträng | Den sammansatta formatsträngen. |
+| arg1 (arg1) | Ja | sträng, heltal eller booleska | Värdet som ska inkluderas i den formaterade strängen. |
+| ytterligare argument | Inga | sträng, heltal eller booleska | Ytterligare värden som ska inkluderas i den formaterade strängen. |
 
 ### <a name="remarks"></a>Anmärkningar
 
-Använd den här funktionen för att formatera en sträng i mallen. Den använder samma formateringsalternativ som metoden [system. String. format](/dotnet/api/system.string.format) i .net.
+Använd den här funktionen om du vill formatera en sträng i mallen. Den använder samma formateringsalternativ som metoden [System.String.Format](/dotnet/api/system.string.format) i .NET.
 
 ### <a name="examples"></a>Exempel
 
-I följande exempel mall visas hur du använder funktionen format.
+Följande exempelmall visar hur du använder formatfunktionen.
 
 ```json
 {
@@ -764,7 +764,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | formatTest | String | Hej, användare. Formaterat tal: 8 175 133 |
 
-## <a name="guid"></a>guid
+## <a name="guid"></a>Guid
 
 `guid(baseString, ...)`
 
@@ -774,30 +774,30 @@ Skapar ett värde i formatet för en globalt unik identifierare baserat på de v
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |sträng |Värdet som används i hash-funktionen för att skapa GUID. |
-| ytterligare parametrar efter behov |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
+| basSträngning |Ja |sträng |Värdet som används i hash-funktionen för att skapa GUID. |
+| ytterligare parametrar efter behov |Inga |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån på unikheten. |
 
 ### <a name="remarks"></a>Anmärkningar
 
-Den här funktionen är användbar när du behöver skapa ett värde i formatet för en globalt unik identifierare. Du anger parameter värden som begränsar omfattningen av unikhet för resultatet. Du kan ange om namnet är unikt för prenumeration, resurs grupp eller distribution.
+Den här funktionen är användbar när du behöver skapa ett värde i formatet för en globalt unik identifierare. Du anger parametervärden som begränsar omfattningen av unika värden för resultatet. Du kan ange om namnet är unikt ned till prenumeration, resursgrupp eller distribution.
 
-Det returnerade värdet är inte en slumpmässig sträng, utan i stället resultatet av en hash-funktion på parametrarna. Det returnerade värdet är 36 tecken långt. Den är inte globalt unik. Om du vill skapa ett nytt GUID som inte baseras på det hash-värdet för parametrarna använder du funktionen [newGuid](#newguid) .
+Det returnerade värdet är inte en slumpmässig sträng, utan snarare resultatet av en hash-funktion på parametrarna. Det returnerade värdet är 36 tecken långt. Det är inte globalt unikt. Om du vill skapa ett nytt GUID som inte baseras på det hash-värdet för parametrarna använder du funktionen [newGuid.](#newguid)
 
-I följande exempel visas hur du använder GUID för att skapa ett unikt värde för ofta använda nivåer.
+Följande exempel visar hur du använder guid för att skapa ett unikt värde för vanliga nivåer.
 
-Unikt omfång för prenumeration
+Unikt begränsat till prenumeration
 
 ```json
 "[guid(subscription().subscriptionId)]"
 ```
 
-Unikt scope till resurs grupp
+Unikt scoped till resursgrupp
 
 ```json
 "[guid(resourceGroup().id)]"
 ```
 
-Unikt scope till distribution för en resurs grupp
+Unikt scoped till distribution för en resursgrupp
 
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
@@ -809,7 +809,7 @@ En sträng som innehåller 36 tecken i formatet för en globalt unik identifiera
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) returnerar resultat från GUID:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json) returnerar resultat från guid:
 
 ```json
 {
@@ -839,22 +839,22 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 
 `indexOf(stringToSearch, stringToFind)`
 
-Returnerar den första positionen för ett värde i en sträng. Jämförelsen är inte Skift läges känslig.
+Returnerar den första positionen för ett värde i en sträng. Jämförelsen är skiftlägesokänslig.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
-| stringToFind |Ja |sträng |Det värde som ska hittas. |
+| strängTillsökning |Ja |sträng |Värdet som innehåller artikeln att hitta. |
+| strängTillhittad |Ja |sträng |Värdet att hitta. |
 
 ### <a name="return-value"></a>Returvärde
 
-Ett heltal som representerar positionen för det objekt som ska hittas. Värdet är noll-baserat. Om objektet inte hittas, returneras-1.
+Ett heltal som representerar positionen för artikeln att hitta. Värdet är nollbaserat. Om objektet inte hittas returneras -1.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) visas hur du använder funktionerna indexOf och lastIndexOf:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) visar hur du använder funktionerna indexOf och lastIndexOf:
 
 ```json
 {
@@ -890,31 +890,31 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| första | Int | 0 |
-| Senaste | Int | 3 |
-| firstString | Int | 2 |
+| firstT (första) | Int | 0 |
+| lastT | Int | 3 |
+| firstString (förstaSträngs- | Int | 2 |
 | lastString | Int | 0 |
-| notFound | Int | -1 |
+| notFound (notFound) | Int | -1 |
 
-## <a name="last"></a>last
+## <a name="last"></a>Senaste
 
 `last (arg1)`
 
-Returnerar det sista tecken strängen eller det sista elementet i matrisen.
+Returnerar strängens sista tecken eller det sista elementet i matrisen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris eller sträng |Värdet för att hämta det sista elementet eller specialtecknet. |
+| arg1 (arg1) |Ja |matris eller sträng |Värdet för att hämta det sista elementet eller tecknet. |
 
 ### <a name="return-value"></a>Returvärde
 
-En sträng med det sista tecken eller typen (sträng, heltal, matris eller objekt) för det sista elementet i en matris.
+En sträng med det sista tecknet, eller typen (sträng, int, array eller objekt) för det sista elementet i en matris.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) visas hur du använder den sista funktionen med en matris och sträng.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json) visar hur du använder den sista funktionen med en matris och sträng.
 
 ```json
 {
@@ -952,22 +952,22 @@ Utdata från föregående exempel med standardvärdena är:
 
 `lastIndexOf(stringToSearch, stringToFind)`
 
-Returnerar den sista positionen för ett värde i en sträng. Jämförelsen är inte Skift läges känslig.
+Returnerar den sista positionen för ett värde i en sträng. Jämförelsen är skiftlägesokänslig.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
-| stringToFind |Ja |sträng |Det värde som ska hittas. |
+| strängTillsökning |Ja |sträng |Värdet som innehåller artikeln att hitta. |
+| strängTillhittad |Ja |sträng |Värdet att hitta. |
 
 ### <a name="return-value"></a>Returvärde
 
-Ett heltal som representerar den sista positionen för objektet som ska hittas. Värdet är noll-baserat. Om objektet inte hittas, returneras-1.
+Ett heltal som representerar den sista positionen för objektet att hitta. Värdet är nollbaserat. Om objektet inte hittas returneras -1.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) visas hur du använder funktionerna indexOf och lastIndexOf:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json) visar hur du använder funktionerna indexOf och lastIndexOf:
 
 ```json
 {
@@ -1003,23 +1003,23 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| första | Int | 0 |
-| Senaste | Int | 3 |
-| firstString | Int | 2 |
+| firstT (första) | Int | 0 |
+| lastT | Int | 3 |
+| firstString (förstaSträngs- | Int | 2 |
 | lastString | Int | 0 |
-| notFound | Int | -1 |
+| notFound (notFound) | Int | -1 |
 
 ## <a name="length"></a>length
 
 `length(string)`
 
-Returnerar antalet tecken i en sträng, element i en matris eller på rot nivå egenskaper i ett objekt.
+Returnerar antalet tecken i en sträng, element i en matris eller egenskaper på rotnivå i ett objekt.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| arg1 |Ja |matris, sträng eller objekt |Den matris som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken, eller objektet som ska användas för att hämta antalet rot nivå egenskaper. |
+| arg1 (arg1) |Ja |matris, sträng eller objekt |Matrisen som ska användas för att hämta antalet element, strängen som ska användas för att hämta antalet tecken eller det objekt som ska användas för att få antalet rotnivåegenskaper. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1027,7 +1027,7 @@ En int.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) visas hur du använder length med en matris och en sträng:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json) visar hur du använder längd med en matris och sträng:
 
 ```json
 {
@@ -1081,27 +1081,27 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayLength | Int | 3 |
-| stringLength | Int | 13 |
-| objectLength | Int | 4 |
+| arrayLängd | Int | 3 |
+| strängLängd | Int | 13 |
+| objektLängd | Int | 4 |
 
-## <a name="newguid"></a>newGuid
+## <a name="newguid"></a>nyaGuid
 
 `newGuid()`
 
-Returnerar ett värde i formatet för en globalt unik identifierare. **Den här funktionen kan endast användas i standardvärdet för en parameter.**
+Returnerar ett värde i formatet för en globalt unik identifierare. **Den här funktionen kan bara användas i standardvärdet för en parameter.**
 
 ### <a name="remarks"></a>Anmärkningar
 
-Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annan stans i en mall returneras ett fel. Funktionen tillåts inte i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Att distribuera samma mall med samma parametrar skulle inte tillförlitligt producera samma resultat.
+Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annanstans i en mall returneras ett fel. Funktionen är inte tillåten i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Om du distribuerar samma mall med samma parametrar skulle inte samma resultat ge samma resultat på ett tillförlitligt sätt.
 
-Funktionen newGuid skiljer sig från [GUID](#guid) -funktionen eftersom den inte tar några parametrar. När du anropar GUID med samma parameter returneras samma identifierare varje gång. Använd GUID när du behöver generera samma GUID tillförlitligt för en speciell miljö. Använd newGuid när du behöver en annan identifierare varje gång, till exempel att distribuera resurser till en test miljö.
+Funktionen newGuid skiljer sig från [guid-funktionen](#guid) eftersom den inte tar några parametrar. När du anropar guid med samma parameter returneras samma identifierare varje gång. Använd guid när du behöver tillförlitligt generera samma GUID för en viss miljö. Använd newGuid när du behöver en annan identifierare varje gång, till exempel distribuera resurser till en testmiljö.
 
-Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md), och den tidigare distributionen innehåller en parameter som använder newGuid, utvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställnings distributionen.
+Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md)och den tidigare distributionen innehåller en parameter som använder newGuid, omvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställningsdistributionen.
 
-I en test miljö kan du behöva distribuera resurser flera gånger under en kort tid. I stället för att skapa unika namn kan du använda newGuid med [uniqueString](#uniquestring) för att skapa unika namn.
+I en testmiljö kan du behöva distribuera resurser som bara visas flera gånger under en kort tid. I stället för att skapa unika namn kan du använda newGuid med [uniqueString](#uniquestring) för att skapa unika namn.
 
-Var noga med att distribuera om en mall som förlitar sig på newGuid-funktionen för ett standardvärde. När du distribuerar om och inte anger något värde för parametern utvärderas funktionen om. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, måste du skicka värdet i parametervärdet från den tidigare distributionen.
+Var försiktig med att distribuera om en mall som är beroende av den nya Guid-funktionen för ett standardvärde. När du distribuerar om och inte anger något värde för parametern omvärderas funktionen. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, skicka in parametervärdet från den tidigare distributionen.
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1109,7 +1109,7 @@ En sträng som innehåller 36 tecken i formatet för en globalt unik identifiera
 
 ### <a name="examples"></a>Exempel
 
-I följande exempel mall visas en parameter med en ny identifierare.
+I följande exempelmall visas en parameter med en ny identifierare.
 
 ```json
 {
@@ -1132,13 +1132,13 @@ I följande exempel mall visas en parameter med en ny identifierare.
 }
 ```
 
-Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
+Utdata från föregående exempel varierar för varje distribution, men liknar:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | guidOutput | sträng | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-I följande exempel används funktionen newGuid för att skapa ett unikt namn för ett lagrings konto. Den här mallen kan fungera för test miljöer där lagrings kontot finns under en kort tid och inte omdistribueras.
+I följande exempel används funktionen newGuid för att skapa ett unikt namn för ett lagringskonto. Den här mallen kan fungera för testmiljö där lagringskontot finns under en kort tid och inte distribueras om.
 
 ```json
 {
@@ -1175,28 +1175,28 @@ I följande exempel används funktionen newGuid för att skapa ett unikt namn f�
 }
 ```
 
-Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
+Utdata från föregående exempel varierar för varje distribution, men liknar:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| nameOutput | sträng | storagenziwvyru7uxie |
+| nameOutput | sträng | lagringnziwvyru7uxie |
 
 
-## <a name="padleft"></a>padLeft
+## <a name="padleft"></a>padVänd
 
 `padLeft(valueToPad, totalLength, paddingCharacter)`
 
-Returnerar en högerjusterad sträng genom att lägga till tecken till vänster tills den totala angivna längden uppnås.
+Returnerar en högerjusterad sträng genom att lägga till tecken till vänster tills den totala angivna längden har uppnåtts.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Ja |sträng eller heltal |Värdet till Högerjustera. |
-| totalLength |Ja |int |Det totala antalet tecken i den returnerade strängen. |
-| paddingCharacter |Nej |enstaka Character |Det tecken som ska användas för vänster utfyllnad tills den totala längden har uppnåtts. Standardvärdet är ett blank steg. |
+| värdeToPad |Ja |sträng eller int |Värdet för att högerjustera. |
+| totalt Längd |Ja |int |Det totala antalet tecken i den returnerade strängen. |
+| stoppningTecken |Inga |ett tecken |Tecknet som ska användas för vänsterutfyllnad tills den totala längden har uppnåtts. Standardvärdet är ett blanksteg. |
 
-Om den ursprungliga strängen är längre än antalet tecken som ska padas läggs inga tecken till.
+Om den ursprungliga strängen är längre än antalet tecken som ska pad, läggs inga tecken till.
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1204,7 +1204,7 @@ En sträng med minst antalet angivna tecken.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) visas hur du fyller i det användardefinierade parametervärdet genom att lägga till noll tecknet tills det når det totala antalet tecken. 
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json) visar hur du ska pad parametervärdet för användaren genom att lägga till nolltecknet tills det totala antalet tecken nårs. 
 
 ```json
 {
@@ -1232,19 +1232,19 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
-## <a name="replace"></a>bytt
+## <a name="replace"></a>Ersätta
 
 `replace(originalString, oldString, newString)`
 
-Returnerar en ny sträng med alla instanser av en sträng ersatt av en annan sträng.
+Returnerar en ny sträng med alla förekomster av en sträng ersatta av en annan sträng.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| originalString |Ja |sträng |Värdet som innehåller alla instanser av en sträng ersatt av en annan sträng. |
-| oldString |Ja |sträng |Strängen som ska tas bort från den ursprungliga strängen. |
-| newString |Ja |sträng |Strängen som ska läggas till i stället för den borttagna strängen. |
+| originalSträngning |Ja |sträng |Värdet som har alla förekomster av en sträng ersatt av en annan sträng. |
+| oldString (gammalSträng |Ja |sträng |Strängen som ska tas bort från den ursprungliga strängen. |
+| nyaSträng |Ja |sträng |Strängen som ska läggas till i stället för den borttagna strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1252,7 +1252,7 @@ En sträng med de ersatta tecknen.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) visas hur du tar bort alla streck från den användardefinierade strängen och hur du ersätter delar av strängen med en annan sträng.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json) visar hur du tar bort alla streck från den användarinförda strängen och hur du ersätter en del av strängen med en annan sträng.
 
 ```json
 {
@@ -1282,10 +1282,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
-| secondOutput | String | 123-123-xxxx |
+| firstOutput (förstaUtklippet) | String | 1231231234 |
+| andraUtskrift | String | 123-123-xxxx |
 
-## <a name="skip"></a>Ignorera
+## <a name="skip"></a>hoppa över
 
 `skip(originalValue, numberToSkip)`
 
@@ -1295,8 +1295,8 @@ Returnerar en sträng med alla tecken efter det angivna antalet tecken, eller en
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som ska användas för att hoppa över. |
-| numberToSkip |Ja |int |Det antal element eller tecken som ska hoppas över. Om värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
+| originalVärde |Ja |matris eller sträng |Den matris eller sträng som ska användas för att hoppa över. |
+| numberToSkip |Ja |int |Antalet element eller tecken som ska hoppas över. Om det här värdet är 0 eller mindre returneras alla element eller tecken i värdet. Om den är större än längden på matrisen eller strängen returneras en tom matris eller sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1304,7 +1304,7 @@ En matris eller sträng.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) hoppar över det angivna antalet element i matrisen och det angivna antalet tecken i en sträng.
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json) hoppar du över det angivna antalet element i matrisen och det angivna antalet tecken i en sträng.
 
 ```json
 {
@@ -1351,28 +1351,28 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | ["tre"] |
-| stringOutput | String | 2 3 |
+| stringOutput | String | två tre |
 
 ## <a name="split"></a>split
 
 `split(inputString, delimiter)`
 
-Returnerar en matris med strängar som innehåller under strängarna i Indatasträngen som avgränsas av angivna avgränsare.
+Returnerar en matris med strängar som innehåller delsträngarna för indatasträngen som avgränsas av de angivna avgränsarna.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| inputString |Ja |sträng |Strängen som ska delas. |
+| inputString |Ja |sträng |Strängen att dela. |
 | avgränsare |Ja |sträng eller matris med strängar |Avgränsaren som ska användas för att dela strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
-En sträng mat ris.
+En matris med strängar.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) delas Indatasträngen med kommatecken, med antingen ett kommatecken eller ett semikolon.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json) delar indatasträngen med ett kommatecken och med antingen ett kommatecken eller ett semikolon.
 
 ```json
 {
@@ -1409,29 +1409,29 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| firstOutput | Matris | ["One", "två", "tre"] |
-| secondOutput | Matris | ["One", "två", "tre"] |
+| firstOutput (förstaUtklippet) | Matris | ["en", "två", "tre"] |
+| andraUtskrift | Matris | ["en", "två", "tre"] |
 
 ## <a name="startswith"></a>startsWith
 
 `startsWith(stringToSearch, stringToFind)`
 
-Anger om en sträng börjar med ett värde. Jämförelsen är inte Skift läges känslig.
+Avgör om en sträng börjar med ett värde. Jämförelsen är skiftlägesokänslig.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Ja |sträng |Det värde som innehåller objektet som ska hittas. |
-| stringToFind |Ja |sträng |Det värde som ska hittas. |
+| strängTillsökning |Ja |sträng |Värdet som innehåller artikeln att hitta. |
+| strängTillhittad |Ja |sträng |Värdet att hitta. |
 
 ### <a name="return-value"></a>Returvärde
 
-**Sant** om det första tecknet eller tecknen i strängen matchar värdet; annars **false**.
+**Sant** om strängens första tecken eller tecken matchar värdet. annars **falskt**.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) visas hur du använder funktionerna StartsWith och endsWith:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json) visar hur du använder funktionerna startsWith och endsWith:
 
 ```json
 {
@@ -1471,9 +1471,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| startsTrue | Bool | True |
-| startsCapTrue | Bool | True |
-| startsFalse | Bool | False |
+| startsTrue (StartsTrue) | Bool | True |
+| startsCapTrue (StartsCapTrue) | Bool | True |
+| börjarFalse | Bool | False |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
@@ -1488,7 +1488,7 @@ Konverterar det angivna värdet till en sträng.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Ja | Alla |Värdet som ska konverteras till sträng. Alla typer av värden kan konverteras, inklusive objekt och matriser. |
+| värdeTillKonvertera |Ja | Alla |Värdet som ska konverteras till sträng. Alla typer av värden kan konverteras, inklusive objekt och matriser. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1496,7 +1496,7 @@ En sträng med det konverterade värdet.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) visas hur du konverterar olika typer av värden till strängar:
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json) visas hur du konverterar olika typer av värden till strängar:
 
 ```json
 {
@@ -1545,31 +1545,31 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| objectOutput | String | {"värdea": 10, "Värdeb": "exempel text"} |
+| objectOutput (objektOutput) | String | {"valueA":10,"valueB":"Exempeltext"} |
 | arrayOutput | String | ["a","b","c"] |
-| intOutput | String | 5 |
+| intOutput (intOutput) | String | 5 |
 
-## <a name="substring"></a>substring
+## <a name="substring"></a>Delsträng
 
 `substring(stringToParse, startIndex, length)`
 
-Returnerar en under sträng som börjar vid den angivna tecken positionen och som innehåller det angivna antalet tecken.
+Returnerar en delsträng som börjar på den angivna teckenpositionen och innehåller det angivna antalet tecken.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Ja |sträng |Den ursprungliga sträng som under strängen extraheras från. |
-| startIndex |Nej |int |Den nollbaserade start tecken positionen för under strängen. |
-| length |Nej |int |Antalet tecken för under strängen. Måste referera till en plats inom strängen. Måste vara noll eller större. |
+| stringToParse |Ja |sträng |Den ursprungliga strängen som delsträngen extraheras från. |
+| startIndex (startIndex) |Inga |int |Den nollbaserade startteckenpositionen för delsträngen. |
+| length |Inga |int |Antalet tecken för delsträngen. Måste referera till en plats i strängen. Måste vara noll eller större. |
 
 ### <a name="return-value"></a>Returvärde
 
-Under strängen. Eller en tom sträng om längden är noll.
+Delsträngen. Eller en tom sträng om längden är noll.
 
 ### <a name="remarks"></a>Anmärkningar
 
-Funktionen Miss lyckas när del strängen sträcker sig utanför slutet av strängen eller när längden är mindre än noll. Följande exempel Miss lyckas med felet "index-och längd parametrarna måste referera till en plats inom strängen. Indexparametern: '0', Längdparametern: ‘11’, längden på strängparametern: '10'.".
+Funktionen misslyckas när delsträngen sträcker sig utanför strängens ände eller när längden är mindre än noll. Följande exempel misslyckas med felet "Parametrarna index och längd måste referera till en plats i strängen. Indexparametern: "0", längdparametern :'11', längden på strängparametern: '10'."
 
 ```json
 "parameters": {
@@ -1582,7 +1582,7 @@ Funktionen Miss lyckas när del strängen sträcker sig utanför slutet av strä
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel mal len](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) extraherar en under sträng från en parameter.
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json) extraheras en delsträng från en parameter.
 
 ```json
 {
@@ -1608,20 +1608,20 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| substringOutput | String | tvåsiffrig |
+| delsträngUtomslag | String | två |
 
-## <a name="take"></a>take
+## <a name="take"></a>Ta
 
 `take(originalValue, numberToTake)`
 
-Returnerar en sträng med det angivna antalet tecken från början av strängen, eller en matris med det angivna antalet element från matrisens början.
+Returnerar en sträng med det angivna antalet tecken från början av strängen, eller en matris med det angivna antalet element från början av matrisen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Ja |matris eller sträng |Matrisen eller strängen som elementen ska tas från. |
-| numberToTake |Ja |int |Det antal element eller tecken som ska vidtas. Om värdet är 0 eller mindre returneras en tom matris eller sträng. Om det är större än längden på matrisen eller strängen returneras alla element i matrisen eller strängen. |
+| originalVärde |Ja |matris eller sträng |Matrisen eller strängen som elementen ska ta från. |
+| numberToTake |Ja |int |Antalet element eller tecken som ska vidtas. Om det här värdet är 0 eller mindre returneras en tom matris eller sträng. Om den är större än längden på den angivna matrisen eller strängen returneras alla element i matrisen eller strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1629,7 +1629,7 @@ En matris eller sträng.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) använder det angivna antalet element från matrisen och tecken från en sträng.
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json) tar det angivna antalet element från matrisen och tecken från en sträng.
 
 ```json
 {
@@ -1675,10 +1675,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | Matris | ["One", "två"] |
+| arrayOutput | Matris | ["en", "två"] |
 | stringOutput | String | på |
 
-## <a name="tolower"></a>toLower
+## <a name="tolower"></a>toLower (TillLågare)
 
 `toLower(stringToChange)`
 
@@ -1688,15 +1688,15 @@ Konverterar den angivna strängen till gemener.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |sträng |Värdet som ska konverteras till gemener. |
+| strängTilländ |Ja |sträng |Värdet som ska konverteras till gemener. |
 
 ### <a name="return-value"></a>Returvärde
 
-Strängen konverterad till gemener.
+Strängen konverteras till gemener.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) konverterar ett parameter värde till gemener och versaler.
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) konverteras ett parametervärde till gemener och versaler.
 
 ```json
 {
@@ -1727,9 +1727,9 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | toLowerOutput | String | Ett två tre |
-| toUpperOutput | String | Ett två tre |
+| tillUpperOutput | String | Ett två tre |
 
-## <a name="toupper"></a>toUpper
+## <a name="toupper"></a>tillUpper
 
 `toUpper(stringToChange)`
 
@@ -1739,15 +1739,15 @@ Konverterar den angivna strängen till versaler.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Ja |sträng |Värdet som ska konverteras till versaler. |
+| strängTilländ |Ja |sträng |Värdet som ska konverteras till versaler. |
 
 ### <a name="return-value"></a>Returvärde
 
-Strängen konverterad till versaler.
+Strängen konverteras till versaler.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) konverterar ett parameter värde till gemener och versaler.
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json) konverteras ett parametervärde till gemener och versaler.
 
 ```json
 {
@@ -1778,27 +1778,27 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | toLowerOutput | String | Ett två tre |
-| toUpperOutput | String | Ett två tre |
+| tillUpperOutput | String | Ett två tre |
 
-## <a name="trim"></a>reducera
+## <a name="trim"></a>Trimma
 
 `trim (stringToTrim)`
 
-Tar bort alla inledande och avslutande blank stegs tecken från den angivna strängen.
+Tar bort alla inledande och efterföljande blankstegstecken från den angivna strängen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Ja |sträng |Det värde som ska trimmas. |
+| stringToTrim |Ja |sträng |Värdet som ska trimmas. |
 
 ### <a name="return-value"></a>Returvärde
 
-Strängen utan inledande och avslutande blank stegs tecken.
+Strängen utan inledande och avslutande blankstegstecken.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) trimmas blank stegs tecken från parametern.
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json) trimmas blankstegstecken från parametern.
 
 ```json
 {
@@ -1824,9 +1824,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| returrelaterade | String | Ett två tre |
+| återgå | String | Ett två tre |
 
-## <a name="uniquestring"></a>uniqueString
+## <a name="uniquestring"></a>uniqueString (unikSträngning)
 
 `uniqueString (baseString, ...)`
 
@@ -1836,38 +1836,38 @@ Skapar en deterministisk hash-sträng baserat på de värden som anges som param
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseString |Ja |sträng |Värdet som används i hash-funktionen för att skapa en unik sträng. |
-| ytterligare parametrar efter behov |Nej |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån av unikhet. |
+| basSträngning |Ja |sträng |Värdet som används i hash-funktionen för att skapa en unik sträng. |
+| ytterligare parametrar efter behov |Inga |sträng |Du kan lägga till så många strängar som behövs för att skapa värdet som anger nivån på unikheten. |
 
 ### <a name="remarks"></a>Anmärkningar
 
-Den här funktionen är användbar när du behöver skapa ett unikt namn för en resurs. Du anger parameter värden som begränsar omfattningen av unikhet för resultatet. Du kan ange om namnet är unikt för prenumeration, resurs grupp eller distribution. 
+Den här funktionen är användbar när du behöver skapa ett unikt namn för en resurs. Du anger parametervärden som begränsar omfattningen av unika värden för resultatet. Du kan ange om namnet är unikt ned till prenumeration, resursgrupp eller distribution. 
 
-Det returnerade värdet är inte en slumpmässig sträng, utan i stället resultatet av en hash-funktion. Det returnerade värdet är 13 tecken långt. Den är inte globalt unik. Du kanske vill kombinera värdet med ett prefix från namngivnings konventionen för att skapa ett namn som är meningsfullt. I följande exempel visas formatet för det returnerade värdet. Det faktiska värdet varierar beroende på de angivna parametrarna.
+Det returnerade värdet är inte en slumpmässig sträng, utan snarare resultatet av en hash-funktion. Det returnerade värdet är 13 tecken långt. Det är inte globalt unikt. Du kanske vill kombinera värdet med ett prefix från namnkonventionen för att skapa ett namn som är meningsfullt. I följande exempel visas formatet på det returnerade värdet. Det faktiska värdet varierar beroende på de angivna parametrarna.
 
     tcvhiyu5h2o5o
 
-I följande exempel visas hur du använder uniqueString för att skapa ett unikt värde för ofta använda nivåer.
+Följande exempel visar hur du använder uniqueString för att skapa ett unikt värde för vanliga nivåer.
 
-Unikt omfång för prenumeration
+Unikt begränsat till prenumeration
 
 ```json
 "[uniqueString(subscription().subscriptionId)]"
 ```
 
-Unikt scope till resurs grupp
+Unikt scoped till resursgrupp
 
 ```json
 "[uniqueString(resourceGroup().id)]"
 ```
 
-Unikt scope till distribution för en resurs grupp
+Unikt scoped till distribution för en resursgrupp
 
 ```json
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-I följande exempel visas hur du skapar ett unikt namn för ett lagrings konto baserat på din resurs grupp. Inuti resurs gruppen är namnet inte unikt om det är konstruerat på samma sätt.
+I följande exempel visas hur du skapar ett unikt namn för ett lagringskonto baserat på din resursgrupp. I resursgruppen är namnet inte unikt om det skapas på samma sätt.
 
 ```json
 "resources": [{ 
@@ -1876,15 +1876,15 @@ I följande exempel visas hur du skapar ett unikt namn för ett lagrings konto b
     ...
 ```
 
-Om du behöver skapa ett nytt unikt namn varje gången du distribuerar en mall och inte vill uppdatera resursen, kan du använda funktionen [utcNow](#utcnow) med uniqueString. Du kan använda den här metoden i en test miljö. Ett exempel finns i [utcNow](#utcnow).
+Om du behöver skapa ett nytt unikt namn varje gång du distribuerar en mall och inte tänker uppdatera resursen kan du använda [funktionen utcNow](#utcnow) med uniqueString. Du kan använda den här metoden i en testmiljö. Ett exempel finns i [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Returvärde
 
-En sträng som innehåller 13 tecken.
+En sträng med 13 tecken.
 
 ### <a name="examples"></a>Exempel
 
-Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) returnerar resultat från uniquestring:
+Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json) returnerar resultat från unikstring:
 
 ```json
 {
@@ -1904,26 +1904,26 @@ Följande [exempel-mall](https://github.com/Azure/azure-docs-json-samples/blob/m
 }
 ```
 
-## <a name="uri"></a>URI
+## <a name="uri"></a>Uri
 
 `uri (baseUri, relativeUri)`
 
-Skapar en absolut URI genom att kombinera baseUri-och relativeUri-strängen.
+Skapar en absolut URI genom att kombinera baseUri och relativeUri-strängen.
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseUri |Ja |sträng |Bas-URI-sträng. Ta hand om det beteende som rör hanteringen av det avslutande snedstrecket ("/"), enligt beskrivningen i den här tabellen.  |
-| relativeUri |Ja |sträng |Den relativa URI-sträng som ska läggas till i bas-URI-strängen. |
+| baseUri (av ) |Ja |sträng |Basen uri strängen. Var noga med att observera beteendet när det gäller hanteringen av det efterföljande snedstrecket ('/'), som beskrivs i följande tabell.  |
+| relativeUri (relativUri) |Ja |sträng |Den relativa uri strängen att lägga till bas uri strängen. |
 
-* Om **baseUri** slutar på ett avslutande snedstreck är resultatet bara **baseUri** , följt av **relativeUri**.
+* Om **baseUri** slutar i ett avslutande snedstreck, är resultatet helt enkelt **baseUri** följt av **relativeUri**.
 
-* Om **baseUri** inte avslutas med ett avslutande snedstreck inträffar ett av två saker.  
+* Om **baseUri** inte slutar i en avslutande slash en av två saker händer.  
 
-   * Om **baseUri** inte har några snedstreck alls (förutom från "//" nära fram) är resultatet bara **baseUri** , följt av **relativeUri**.
+   * Om **baseUri** inte har några snedstreck alls (bortsett från "//" nära framsidan) är resultatet helt enkelt **baseUri** följt av **relativeUri**.
 
-   * Om **baseUri** har vissa snedstreck, men inte slutar med ett snedstreck, tas allt från det sista snedstrecket bort från **BaseUri** och resultatet är **BaseUri** följt av **relativeUri**.
+   * Om **baseUri** har några snedstreck, men inte slutar med ett snedstreck, tas allt från det sista snedstrecket framåt bort från **baseUri** och resultatet är **baseUri** följt av **relativeUri**.
      
 Här följer några exempel:
 
@@ -1933,11 +1933,11 @@ uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstp
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
-För fullständig information löses de **baseUri** -och **relativeUri** -parametrarna som anges i [RFC 3986, avsnitt 5](https://tools.ietf.org/html/rfc3986#section-5).
+För fullständig information, **baseUri** och **relativeUri** parametrar matchas som anges i [RFC 3986, avsnitt 5](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### <a name="return-value"></a>Returvärde
 
-En sträng som representerar den absoluta URI: n för bas-och relativa värden.
+En sträng som representerar den absoluta URI för bas- och relativa värden.
 
 ### <a name="examples"></a>Exempel
 
@@ -1947,7 +1947,7 @@ I följande exempel visas hur du skapar en länk till en kapslad mall baserat p�
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) visas hur du använder URI, UriComponent och uriComponentToString:
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) visas hur du använder uri, uriComponent och uriComponentToString:
 
 ```json
 {
@@ -1980,11 +1980,11 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| uriOutput (uriOutput) | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| komponentUtflöde | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
 | toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
-## <a name="uricomponent"></a>uriComponent
+## <a name="uricomponent"></a>uriKompent
 
 `uricomponent(stringToEncode)`
 
@@ -1994,7 +1994,7 @@ Kodar en URI.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Ja |sträng |Det värde som ska kodas. |
+| stringToEncode |Ja |sträng |Värdet som ska kodas. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -2002,7 +2002,7 @@ En sträng med det URI-kodade värdet.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) visas hur du använder URI, UriComponent och uriComponentToString:
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) visas hur du använder uri, uriComponent och uriComponentToString:
 
 ```json
 {
@@ -2035,11 +2035,11 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| uriOutput (uriOutput) | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| komponentUtflöde | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
 | toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
-## <a name="uricomponenttostring"></a>uriComponentToString
+## <a name="uricomponenttostring"></a>uriKompent TillString
 
 `uriComponentToString(uriEncodedString)`
 
@@ -2049,7 +2049,7 @@ Returnerar en sträng med ett URI-kodat värde.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Ja |sträng |Det URI-kodade värdet som ska konverteras till en sträng. |
+| uriEncodedString |Ja |sträng |Uri-kodat värde som ska konverteras till en sträng. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -2057,7 +2057,7 @@ En avkodad sträng med URI-kodat värde.
 
 ### <a name="examples"></a>Exempel
 
-I följande [exempel mall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) visas hur du använder URI, UriComponent och uriComponentToString:
+I följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json) visas hur du använder uri, uriComponent och uriComponentToString:
 
 ```json
 {
@@ -2090,37 +2090,37 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
-| componentOutput | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| uriOutput (uriOutput) | String | `http://contoso.com/resources/nested/azuredeploy.json` |
+| komponentUtflöde | String | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
 | toStringOutput | String | `http://contoso.com/resources/nested/azuredeploy.json` |
 
-## <a name="utcnow"></a>UtcNow
+## <a name="utcnow"></a>utcNow (olikartade)
 
 `utcNow(format)`
 
-Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget format anges används formatet ISO 8601 (yyyyMMddTHHmmssZ). **Den här funktionen kan endast användas i standardvärdet för en parameter.**
+Returnerar det aktuella datetime-värdet (UTC) i det angivna formatet. Om inget format tillhandahålls används ISO 8601-formatet (yyyyMMddTHHmmssZ). **Den här funktionen kan bara användas i standardvärdet för en parameter.**
 
 ### <a name="parameters"></a>Parametrar
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| format |Nej |sträng |Det URI-kodade värdet som ska konverteras till en sträng. Använd antingen [standard format strängar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Inga |sträng |Uri-kodat värde som ska konverteras till en sträng. Använd antingen [standardformatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) eller [anpassade formatsträngar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Anmärkningar
 
-Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annan stans i en mall returneras ett fel. Funktionen tillåts inte i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Att distribuera samma mall med samma parametrar skulle inte tillförlitligt producera samma resultat.
+Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annanstans i en mall returneras ett fel. Funktionen är inte tillåten i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Om du distribuerar samma mall med samma parametrar skulle inte samma resultat ge samma resultat på ett tillförlitligt sätt.
 
-Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md), och den tidigare distributionen innehåller en parameter som använder utcNow, utvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställnings distributionen.
+Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md)och den tidigare distributionen innehåller en parameter som använder utcNow, omvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställningsdistributionen.
 
-Var noga med att distribuera om en mall som förlitar sig på utcNow-funktionen för ett standardvärde. När du distribuerar om och inte anger något värde för parametern utvärderas funktionen om. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, måste du skicka värdet i parametervärdet från den tidigare distributionen.
+Var försiktig med att distribuera om en mall som är beroende av funktionen utcNow för ett standardvärde. När du distribuerar om och inte anger något värde för parametern omvärderas funktionen. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, skicka in parametervärdet från den tidigare distributionen.
 
 ### <a name="return-value"></a>Returvärde
 
-Aktuellt UTC-slutdatum värde.
+Det aktuella UTC-datetime-värdet.
 
 ### <a name="examples"></a>Exempel
 
-I följande exempel mall visas olika format för datetime-värdet.
+I följande exempelmall visas olika format för datetime-värdet.
 
 ```json
 {
@@ -2159,15 +2159,15 @@ I följande exempel mall visas olika format för datetime-värdet.
 }
 ```
 
-Resultatet från föregående exempel varierar för varje distribution, men ser ut ungefär så här:
+Utdata från föregående exempel varierar för varje distribution, men liknar:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| utcOutput | sträng | 20190305T175318Z |
+| utcOutput (utcOutput) | sträng | 20190305T175318Z |
 | utcShortOutput | sträng | 03/05/2019 |
 | utcCustomOutput | sträng | 3 5 |
 
-I nästa exempel visas hur du använder ett värde från funktionen när du anger ett tagg värde.
+I nästa exempel visas hur du använder ett värde från funktionen när du anger ett taggvärde.
 
 ```json
 {
@@ -2204,8 +2204,8 @@ I nästa exempel visas hur du använder ett värde från funktionen när du ange
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En beskrivning av avsnitten i en Azure Resource Manager mall finns i [redigera Azure Resource Manager mallar](template-syntax.md).
-* Information om hur du sammanfogar flera mallar finns i [använda länkade mallar med Azure Resource Manager](linked-templates.md).
-* Om du vill iterera ett visst antal gånger när du skapar en typ av resurs, se [skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
-* Information om hur du distribuerar mallen som du har skapat finns i [distribuera ett program med Azure Resource Manager mall](deploy-powershell.md).
+* En beskrivning av avsnitten i en Azure Resource Manager-mall finns i [Redigera Azure Resource Manager-mallar](template-syntax.md).
+* Information om hur du sammanfogar flera mallar finns [i Använda länkade mallar med Azure Resource Manager](linked-templates.md).
+* Information om hur du itererar ett angivet antal gånger när du skapar en typ av resurs finns [i Skapa flera instanser av resurser i Azure Resource Manager](copy-resources.md).
+* Information om hur du distribuerar mallen som du har skapat finns i [Distribuera ett program med Azure Resource Manager-mallen](deploy-powershell.md).
 

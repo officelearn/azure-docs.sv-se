@@ -1,9 +1,9 @@
 ---
-title: Skapa & hantera resurser i hantering av rättigheter – Azure AD
-description: Lär dig hur du skapar en ny behållare med resurser och åtkomst paket i Azure Active Directory rättighets hantering.
+title: Skapa & hantera resurser i rättighetshantering - Azure AD
+description: Lär dig hur du skapar en ny behållare med resurser och åtkomstpaket i Azure Active Directory-berättigandehantering.
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: barclayn
 manager: daveba
 editor: HANKI
 ms.service: active-directory
@@ -12,151 +12,151 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/07/2019
-ms.author: ajburnle
+ms.date: 03/22/2020
+ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5895ed256fa5f0337b74d9dbe14c4074dad4b522
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: dbafb0c506fd34e975efbe08c75c15c8c0b3888e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79261871"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80128942"
 ---
-# <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Skapa och hantera en katalog med resurser i hantering av Azure AD-rättigheter
+# <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Skapa och hantera en katalog med resurser i Azure AD-berättigandehantering
 
 ## <a name="create-a-catalog"></a>Skapa en katalog
 
-En katalog är en behållare för resurser och åtkomst paket. Du skapar en katalog när du vill gruppera relaterade resurser och åtkomst paket. Vem som skapar katalogen blir den första katalog ägaren. En katalog ägare kan lägga till ytterligare katalog ägare.
+En katalog är en behållare med resurser och åtkomstpaket. Du skapar en katalog när du vill gruppera relaterade resurser och åtkomstpaket. Den som skapar katalogen blir den första katalogägaren. En katalogägare kan lägga till ytterligare katalogägare.
 
-**Nödvändig roll:** Global administratör, användar administratör eller katalog skapare
+**Viktig roll:** Global administratör, användaradministratör eller katalogskapare
 
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
 
-1. På den vänstra menyn klickar du på **kataloger**.
+1. Klicka på **Kataloger**på den vänstra menyn.
 
-    ![Rättighets hanterings kataloger i Azure Portal](./media/entitlement-management-catalog-create/catalogs.png)
+    ![Hanteringskataloger för berättigande i Azure-portalen](./media/entitlement-management-catalog-create/catalogs.png)
 
-1. Klicka på **ny katalog**.
+1. Klicka på **Ny katalog**.
 
-1. Ange ett unikt namn för katalogen och ange en beskrivning.
+1. Ange ett unikt namn för katalogen och ge en beskrivning.
 
-    Användare ser den här informationen i ett åtkomst pakets information.
+    Användarna ser den här informationen i information om ett åtkomstpaket.
 
-1. Om du vill att åtkomst paketen i den här katalogen ska vara tillgängliga för användare att begära så fort de skapas, ställer du in **aktiverat** på **Ja**.
+1. Om du vill att åtkomstpaketen i den här katalogen ska vara tillgängliga för användare att begära så snart de har skapats anger du **Aktiverad** till **Ja**.
 
-1. Om du vill tillåta att användare i valda externa kataloger kan begära åtkomst paket i den här katalogen, ställer du in **aktiverat för externa användare** på **Ja**.
+1. Om du vill tillåta användare i valda externa kataloger att kunna begära åtkomstpaket i den här katalogen anger du **Aktiverat för externa användare** till **Ja**.
 
-    ![Fönstret ny katalog](./media/entitlement-management-shared/new-catalog.png)
+    ![Nytt katalogfönster](./media/entitlement-management-shared/new-catalog.png)
 
-1. Skapa katalogen genom att klicka på **skapa** .
+1. Klicka på **Skapa** om du vill skapa katalogen.
 
-### <a name="creating-a-catalog-programmatically"></a>Skapa en katalog program mässigt
+### <a name="creating-a-catalog-programmatically"></a>Skapa en katalog programmässigt
 
-Du kan också skapa en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörighet kan anropa API: et för att [skapa en accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
+Du kan också skapa en katalog med Microsoft Graph.  En användare i en lämplig roll med `EntitlementManagement.ReadWrite.All` ett program som har delegerad behörighet kan anropa API:et för att [skapa en accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-post?view=graph-rest-beta).
 
 ## <a name="add-resources-to-a-catalog"></a>Lägga till resurser i en katalog
 
-Om du vill inkludera resurser i ett Access-paket måste resurserna finnas i en katalog. De typer av resurser som du kan lägga till är grupper, program och SharePoint Online-webbplatser. Grupperna kan vara molnbaserade Office 365-grupper eller molnbaserade Azure AD-säkerhetsgrupper. Programmen kan vara Azure AD Enterprise-program, inklusive både SaaS-program och dina egna program federerade till Azure AD. Platserna kan vara SharePoint Online-webbplatser eller SharePoint Online-webbplats samlingar.
+Om du vill inkludera resurser i ett åtkomstpaket måste resurserna finnas i en katalog. De typer av resurser som du kan lägga till är grupper, program och SharePoint Online-webbplatser. Grupperna kan vara molnskapade Office 365-grupper eller molnskapade Azure AD-säkerhetsgrupper. Programmen kan vara Azure AD-företagsprogram, inklusive både SaaS-program och dina egna program som är federerade till Azure AD. Webbplatserna kan vara SharePoint Online-webbplatser eller SharePoint Online-webbplatssamlingar.
 
-**Nödvändig roll:** Se de [roller som krävs för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
+**Viktig roll:** Visa [Obligatoriska roller för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
 
-1. Klicka på **kataloger** i den vänstra menyn och öppna den katalog som du vill lägga till resurser i.
+1. Klicka på **Kataloger** på den vänstra menyn och öppna sedan den katalog som du vill lägga till resurser i.
 
-1. Klicka på **resurser**på den vänstra menyn.
+1. Klicka på **Resurser**på den vänstra menyn.
 
 1. Klicka på **Lägg till resurser**.
 
-1. Klicka på en resurs typ: **grupper och team**, **program**eller **SharePoint-webbplatser**.
+1. Klicka på en resurstyp: **Grupper och team,** **program**eller **SharePoint-webbplatser**.
 
-    Om du inte ser en resurs som du vill lägga till, eller om du inte kan lägga till en resurs, kontrollerar du att du har den nödvändiga rollen för Azure AD-katalogen och rättighets hanterings rollen. Du kanske måste ha någon med de nödvändiga rollerna för att lägga till resursen i katalogen. Mer information finns i de [roller som krävs för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    Om du inte ser en resurs som du vill lägga till eller om du inte kan lägga till en resurs, kontrollerar du att du har den nödvändiga Azure AD-katalogrollen och rättighetshanteringsrollen. Du kan behöva låta någon med de roller som krävs lägga till resursen i katalogen. Mer information finns i [Obligatoriska roller för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Välj en eller flera resurser av den typ som du vill lägga till i katalogen.
 
     ![Lägga till resurser i en katalog](./media/entitlement-management-catalog-create/catalog-add-resources.png)
 
-1. Klicka på **Lägg till**när du är färdig.
+1. När du är klar klickar du på **Lägg till**.
 
-    Dessa resurser kan nu inkluderas i åtkomst paket i katalogen.
+    Dessa resurser kan nu inkluderas i åtkomstpaket i katalogen.
 
-### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Lägga till en resurs i en katalog program mässigt
+### <a name="adding-a-resource-to-a-catalog-programmatically"></a>Lägga till en resurs i en katalog programmässigt
 
-Du kan också lägga till en resurs i en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll, eller en katalog-och resurs ägare, med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörighet kan anropa API: et för att [skapa en accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
+Du kan också lägga till en resurs i en katalog med Microsoft Graph.  En användare i en lämplig roll, eller en katalog och resursägare, med ett program som har delegerad `EntitlementManagement.ReadWrite.All` behörighet kan anropa API:et för att skapa en [accessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta).
 
 ## <a name="remove-resources-from-a-catalog"></a>Ta bort resurser från en katalog
 
-Du kan ta bort resurser från en katalog. En resurs kan bara tas bort från en katalog om den inte används i någon av katalogens åtkomst paket.
+Du kan ta bort resurser från en katalog. En resurs kan bara tas bort från en katalog om den inte används i något av katalogens åtkomstpaket.
 
-**Nödvändig roll:** Se de [roller som krävs för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
+**Viktig roll:** Visa [Obligatoriska roller för att lägga till resurser i en katalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
 
-1. Klicka på **kataloger** i den vänstra menyn och öppna den katalog som du vill ta bort resurser från.
+1. Klicka på **Kataloger** på den vänstra menyn och öppna sedan den katalog som du vill ta bort resurser från.
 
-1. Klicka på **resurser**på den vänstra menyn.
+1. Klicka på **Resurser**på den vänstra menyn.
 
-1. Välj de resurser som du vill ta bort.
+1. Markera de resurser som du vill ta bort.
 
-1. Klicka på **ta bort** (eller klicka på ellipsen ( **...** ) och klicka sedan på **ta bort resurs**).
+1. Klicka på **Ta bort** (eller klicka på ellipsen (**...**) och klicka sedan på Ta **bort resurs**).
 
-## <a name="add-additional-catalog-owners"></a>Lägg till ytterligare katalog ägare
+## <a name="add-additional-catalog-owners"></a>Lägg till ytterligare katalogägare
 
-Användaren som skapade en katalog blir den första katalog ägaren. Om du vill delegera hantering av en katalog lägger du till användare i Katalogens ägare roll. Detta hjälper dig att dela ansvars områden för katalog hantering. 
+Användaren som skapade en katalog blir den första katalogägaren. Om du vill delegera hanteringen av en katalog lägger du till användare i katalogägarrollen. Detta hjälper till att dela kataloghanteringsansvaret. 
 
-Följ dessa steg för att tilldela en användare rollen som katalog ägare:
+Så här ska du tilldela en användare till katalogägarens roll:
 
-**Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
+**Viktig roll:** Global administratör, användaradministratör eller katalogägare
 
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
 
-1. Klicka på **kataloger** i den vänstra menyn och öppna den katalog som du vill lägga till administratörer i.
+1. Klicka på **Kataloger** på den vänstra menyn och öppna sedan den katalog som du vill lägga till administratörer i.
 
-1. På den vänstra menyn klickar du på **roller och administratörer**.
+1. Klicka på Roller **och administratörer**på den vänstra menyn.
 
-    ![Katalog roller och administratörer](./media/entitlement-management-shared/catalog-roles-administrators.png)
+    ![Katalogroller och administratörer](./media/entitlement-management-shared/catalog-roles-administrators.png)
 
-1. Klicka på **Lägg till ägare** för att välja medlemmar för dessa roller.
+1. Klicka på **Lägg till ägare** om du vill välja medlemmar för dessa roller.
 
-1. Klicka på **Välj** för att lägga till dessa medlemmar.
+1. Klicka på **Markera** om du vill lägga till dessa medlemmar.
 
 ## <a name="edit-a-catalog"></a>Redigera en katalog
 
-Du kan redigera namn och beskrivning för en katalog. Användarna ser den här informationen i ett åtkomst pakets information.
+Du kan redigera namn och beskrivning för en katalog. Användare ser den här informationen i information om ett åtkomstpaket.
 
-**Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
+**Viktig roll:** Global administratör, användaradministratör eller katalogägare
 
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
 
-1. Klicka på **kataloger** i den vänstra menyn och öppna den katalog som du vill redigera.
+1. Klicka på **Kataloger** på den vänstra menyn och öppna sedan den katalog som du vill redigera.
 
-1. På sidan **Översikt** för katalogen klickar du på **Redigera**.
+1. Klicka på **Redigera**på **katalogens** översiktssida.
 
 1. Redigera katalogens namn, beskrivning eller aktiverade inställningar.
 
-    ![Redigera katalog inställningar](./media/entitlement-management-shared/catalog-edit.png)
+    ![Redigera kataloginställningar](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ## <a name="delete-a-catalog"></a>Ta bort en katalog
 
-Du kan ta bort en katalog, men bara om den inte har några åtkomst paket.
+Du kan ta bort en katalog, men bara om den inte har några åtkomstpaket.
 
-**Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
+**Viktig roll:** Global administratör, användaradministratör eller katalogägare
 
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
+1. Klicka på Azure **Active Directory** i Azure-portalen och klicka sedan på **Identitetsstyrning**.
 
-1. Klicka på **kataloger** i den vänstra menyn och öppna den katalog som du vill ta bort.
+1. Klicka på **Kataloger** på den vänstra menyn och öppna sedan den katalog som du vill ta bort.
 
-1. Klicka på **ta bort**i katalogens **Översikt**.
+1. Klicka på **Ta bort**i **katalogens översikt**.
 
-1. Klicka på **Ja**i meddelande rutan som visas.
+1. Klicka på **Ja**i meddelanderutan som visas .
 
-### <a name="deleting-a-catalog-programmatically"></a>Ta bort en katalog program mässigt
+### <a name="deleting-a-catalog-programmatically"></a>Ta bort en katalog programmässigt
 
-Du kan också ta bort en katalog med hjälp av Microsoft Graph.  En användare i en lämplig roll med ett program som har den delegerade `EntitlementManagement.ReadWrite.All` behörighet kan anropa API: et för att [ta bort en accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
+Du kan också ta bort en katalog med Microsoft Graph.  En användare i en lämplig roll med `EntitlementManagement.ReadWrite.All` ett program som har delegerad behörighet kan anropa API:t för att [ta bort en accessPackageCatalog](https://docs.microsoft.com/graph/api/accesspackagecatalog-delete?view=graph-rest-beta).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Delegera åtkomst styrning för att komma åt paket hanterare](entitlement-management-delegate-managers.md)
+- [Delegera åtkomststyrning till åtkomstpakethanterare](entitlement-management-delegate-managers.md)

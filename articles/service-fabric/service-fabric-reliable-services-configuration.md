@@ -1,33 +1,33 @@
 ---
-title: Konfigurera Azure Service Fabric Reliable Services
-description: Lär dig mer om att konfigurera tillstånds känsliga Reliable Services i ett Azure Service Fabric-program globalt och för en enskild tjänst.
+title: Konfigurera tillförlitliga tjänster för Azure-tjänstinfrastruktur
+description: Lär dig mer om hur du konfigurerar tillståndskänsliga reliable services i ett Azure Service Fabric-program globalt och för en enda tjänst.
 author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
 ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645522"
 ---
-# <a name="configure-stateful-reliable-services"></a>Konfigurera tillstånds känsliga Reliable Services
-Det finns två uppsättningar konfigurations inställningar för Reliable Services. En uppsättning är global för alla pålitliga tjänster i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.
+# <a name="configure-stateful-reliable-services"></a>Konfigurera tillståndskänsliga tillförlitliga tjänster
+Det finns två uppsättningar konfigurationsinställningar för tillförlitliga tjänster. En uppsättning är global för alla tillförlitliga tjänster i klustret medan den andra uppsättningen är specifik för en viss tillförlitlig tjänst.
 
 ## <a name="global-configuration"></a>Global konfiguration
-Den globala pålitliga tjänst konfigurationen anges i kluster manifestet för klustret under avsnittet KtlLogger. Den tillåter konfiguration av den delade logg platsen och storlek plus de globala minnes gränserna som används av loggaren. Kluster manifestet är en enskild XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligt vis ClusterManifest. xml. Du kan se kluster manifestet för klustret med hjälp av PowerShell-kommandot Get-ServiceFabricClusterManifest.
+Den globala tillförlitliga tjänstkonfigurationen anges i klustermanifestet för klustret under avsnittet KtlLogger. Det möjliggör konfiguration av den delade loggplatsen och storleken plus de globala minnesgränser som används av loggern. Klustermanifestet är en enda XML-fil som innehåller inställningar och konfigurationer som gäller för alla noder och tjänster i klustret. Filen kallas vanligtvis ClusterManifest.xml. Du kan se klustermanifestet för ditt kluster med kommandot Get-ServiceFabricClusterManifest powershell.
 
-### <a name="configuration-names"></a>Konfigurations namn
+### <a name="configuration-names"></a>Konfigurationsnamn
 | Namn | Enhet | Standardvärde | Anmärkningar |
 | --- | --- | --- | --- |
-| WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Minsta antal KB som ska allokeras i kernel-läge för loggen för Write buffer-anslutningspoolen. Den här mediepoolen används för cachelagring av statusinformation innan den skrivs till disken. |
-| WriteBufferMemoryPoolMaximumInKB |Kilobyte |Obegränsat |Maximal storlek som mediepoolen för logg skrivnings buffert kan växa till. |
-| SharedLogId |GUID |"" |Anger ett unikt GUID som ska användas för att identifiera den delade standard logg filen som används av alla pålitliga tjänster på alla noder i klustret som inte anger SharedLogId i deras tjänstspecifika konfiguration. Om SharedLogId anges måste även SharedLogPath anges. |
-| SharedLogPath |Fullständigt kvalificerat Sök vägs namn |"" |Anger den fullständiga sökvägen till den delade logg filen som används av alla pålitliga tjänster på alla noder i klustret som inte anger SharedLogPath i deras tjänstspecifika konfiguration. Men om SharedLogPath anges måste SharedLogId också anges. |
-| SharedLogSizeInMB |Megabyte |8192 |Anger antalet MB disk utrymme som ska allokeras statiskt för den delade loggen. Värdet måste vara 2048 eller större. |
+| SkrivBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Minsta antal KB att allokera i kernel-läge för logger skriva buffert minne pool. Den här minnespoolen används för cachelagringstillståndsinformation innan du skriver till disk. |
+| SkrivBufferMemoryPoolMaximumInKB |Kilobyte |Obegränsat |Maximal storlek som logger skriva buffert minne pool kan växa. |
+| SharedLogId |GUID |"" |Anger ett unikt GUID som ska användas för att identifiera standarddokumenterade loggfilen som används av alla tillförlitliga tjänster på alla noder i klustret som inte anger SharedLogId i sin tjänstspecifika konfiguration. Om SharedLogId har angetts måste även SharedLogPath anges. |
+| SharedLogPath |Fullständigt kvalificerat sökvägsnamn |"" |Anger den fullständigt kvalificerade sökvägen där den delade loggfilen som används av alla tillförlitliga tjänster på alla noder i klustret som inte anger SharedLogPath i sin tjänstspecifika konfiguration. Men om SharedLogPath anges måste SharedLogId också anges. |
+| SharedLogSizeInMB |Megabyte |8192 |Anger antalet MB diskutrymme som ska allokeras statiskt för den delade loggen. Värdet måste vara 2048 eller större. |
 
-I exemplet nedan i Azure ARM eller lokal JSON-mall visas hur du ändrar den delade transaktions loggen som skapas för att återställa pålitliga samlingar för tillstånds känsliga tjänster.
+I Azure ARM eller lokal JSON-mall visar exemplet nedan hur du ändrar den delade transaktionsloggen som skapas för att stödja alla tillförlitliga samlingar för tillståndskänsliga tjänster.
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -37,8 +37,8 @@ I exemplet nedan i Azure ARM eller lokal JSON-mall visas hur du ändrar den dela
         }]
     }]
 
-### <a name="sample-local-developer-cluster-manifest-section"></a>Exempel avsnitt för lokalt utvecklare-kluster
-Om du vill ändra detta i din lokala utvecklings miljö måste du redigera den lokala clustermanifest. XML-filen.
+### <a name="sample-local-developer-cluster-manifest-section"></a>Exempel på manifestavsnitt för lokalt utvecklarkluster
+Om du vill ändra detta i din lokala utvecklingsmiljö måste du redigera den lokala clustermanifest.xml-filen.
 
 ```xml
    <Section Name="KtlLogger">
@@ -51,74 +51,74 @@ Om du vill ändra detta i din lokala utvecklings miljö måste du redigera den l
 ```
 
 ### <a name="remarks"></a>Anmärkningar
-Loggaren har en global pool av minne som tilldelas från icke-växlat kernel-minne som är tillgängligt för alla pålitliga tjänster på en nod för cachelagring av tillstånds data innan de skrivs till den dedikerade logg som är associerad med tillförlitlig tjänst replik. Poolens storlek styrs av inställningarna WriteBufferMemoryPoolMinimumInKB och WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB anger både den ursprungliga storleken på den här lagringspoolen och den lägsta storlek som mediepoolen kan krympa till. WriteBufferMemoryPoolMaximumInKB är den högsta storleken som mediepoolen kan växa till. Varje tillförlitlig tjänst replik som har öppnats kan öka storleken på minnesbufferten genom ett fastställt system som är upp till WriteBufferMemoryPoolMaximumInKB. Om det finns mer efter frågan på minne från mediepoolen än vad som är tillgängligt, kommer begär Anden för minnet att fördröjas tills minnet är tillgängligt. Om lagringspoolen för skrivcache är för liten för en viss konfiguration kan prestanda försämras.
+Loggern har en global minnespool som allokerats från icke-sökt kernelminne som är tillgänglig för alla tillförlitliga tjänster på en nod för cachelagring av tillståndsdata innan den skrivs till den dedikerade loggen som är associerad med den tillförlitliga tjänstrepliken. Poolstorleken styrs av inställningarna WriteBufferMemoryPoolMinimumInKB och WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB anger både den ursprungliga storleken på den här minnespoolen och den lägsta storleken som minnespoolen kan krympa till. WriteBufferMemoryPoolMaximumInKB är den högsta storleken som minnespoolen kan växa till. Varje tillförlitlig tjänst replik som öppnas kan öka storleken på minnespoolen med ett system bestämd belopp upp till WriteBufferMemoryPoolMaximumInKB. Om det finns större efterfrågan på minne från minnespoolen än vad som är tillgängligt, kommer begäranden om minne att fördröjas tills minnet är tillgängligt. Därför om skrivbuffertminnespoolen är för liten för en viss konfiguration kan prestanda uppstå.
 
-Inställningarna SharedLogId och SharedLogPath används alltid tillsammans för att definiera GUID och platsen för den delade standard loggen för alla noder i klustret. Den delade standard loggen används för alla pålitliga tjänster som inte anger inställningarna i Settings. xml för den aktuella tjänsten. För bästa prestanda bör delade loggfiler placeras på diskar som endast används för den delade logg filen för att minska konkurrens.
+Inställningarna SharedLogId och SharedLogPath används alltid tillsammans för att definiera GUID och plats för standardloggen för alla noder i klustret. Standardloggen för delad logg används för alla tillförlitliga tjänster som inte anger inställningarna i settings.xml för den specifika tjänsten. För bästa prestanda bör delade loggfiler placeras på diskar som endast används för den delade loggfilen för att minska konkurrens.
 
-SharedLogSizeInMB anger mängden disk utrymme som ska förallokeras för den delade standard loggen på alla noder.  SharedLogId och SharedLogPath behöver inte anges för att SharedLogSizeInMB ska kunna anges.
+SharedLogSizeInMB anger hur mycket diskutrymme som ska förallokeras för standarddelloggen för alla noder.  SharedLogId och SharedLogPath behöver inte anges för att SharedLogSizeInMB ska kunna anges.
 
 ## <a name="service-specific-configuration"></a>Tjänstspecifik konfiguration
-Du kan ändra tillstånds känsliga Reliable Services standardkonfigurationer med hjälp av konfigurations paketet (config) eller tjänst implementeringen (kod).
+Du kan ändra tillståndskänsliga Reliable Services standardkonfigurationer med hjälp av konfigurationspaketet (Config) eller tjänstimplementeringen (koden).
 
-* **Konfiguration – konfiguration** via konfigurations paketet görs genom att ändra filen Settings. xml som genereras i Microsoft Visual Studio-paket roten under mappen config för varje tjänst i programmet.
-* **Kod** – konfiguration via kod görs genom att skapa en ReliableStateManager med hjälp av ett ReliableStateManagerConfiguration-objekt med lämpliga alternativ angivna.
+* **Config** - Konfiguration via config-paketet utförs genom att ändra filen Settings.xml som genereras i Microsoft Visual Studio-paketroten under config-mappen för varje tjänst i programmet.
+* **Kod** - Konfiguration via kod uppnås genom att skapa en ReliableStateManager med hjälp av ett ReliableStateManagerConfiguration-objekt med lämplig alternativuppsättning.
 
-Som standard söker Azure Service Fabric runtime efter fördefinierade avsnitts namn i filen Settings. xml och använder konfigurations värden när de underliggande kör komponenterna skapas.
+Som standard söker Azure Service Fabric-körningen efter fördefinierade avsnittsnamn i filen Settings.xml och använder konfigurationsvärdena samtidigt som de underliggande körningskomponenterna skapas.
 
 > [!NOTE]
-> Ta **inte** bort avsnitts namnen för följande konfigurationer i filen Settings. xml som genereras i Visual Studio-lösningen om du inte planerar att konfigurera tjänsten via kod.
-> Att byta namn på konfigurations paketets eller avsnittets namn kräver en kod ändring när du konfigurerar ReliableStateManager.
+> Ta **inte** bort avsnittsnamnen för följande konfigurationer i filen Settings.xml som genereras i Visual Studio-lösningen om du inte planerar att konfigurera tjänsten via kod.
+> Om du byter namn på konfigurationspaketet eller avsnittsnamnen krävs en kodändring när ReliableStateManager konfigureras.
 > 
 > 
 
-### <a name="replicator-security-configuration"></a>Säkerhets konfiguration för Replicator
-Replicators säkerhetskonfigurationer används för att skydda kommunikations kanalen som används vid replikering. Det innebär att tjänsterna inte kan se var and ras replikeringstrafik, vilket säkerställer att de data som görs med hög tillgänglighet också är säkra. Som standard förhindrar ett tomt säkerhets konfigurations avsnitt replikeringen av säkerheten.
+### <a name="replicator-security-configuration"></a>Säkerhetskonfiguration för Replikator
+Replikatorsäkerhetskonfigurationer används för att skydda kommunikationskanalen som används under replikering. Detta innebär att tjänsterna inte kommer att kunna se varandras replikeringstrafik, vilket säkerställer att de data som görs mycket tillgängliga också är säkra. Som standard förhindrar ett tomt säkerhetskonfigurationsavsnitt replikeringssäkerhet.
 
 > [!IMPORTANT]
-> På Linux-noder måste certifikaten vara PEM-formaterade. Mer information om hur du hittar och konfigurerar certifikat för Linux finns i [Konfigurera certifikat i Linux](./service-fabric-configure-certificates-linux.md). 
+> På Linux-noder måste certifikaten PEM-formaterade. Mer information om hur du hittar och konfigurerar certifikat för Linux finns i [Konfigurera certifikat på Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 > 
 
-### <a name="default-section-name"></a>Standard avsnitts namn
+### <a name="default-section-name"></a>Standardavsnittsnamn
 ReplicatorSecurityConfig
 
 > [!NOTE]
-> Om du vill ändra det här avsnitts namnet åsidosätter du parametern replicatorSecuritySectionName till ReliableStateManagerConfiguration-konstruktorn när du skapar ReliableStateManager för den här tjänsten.
+> Om du vill ändra det här avsnittsnamnet åsidosätter du parametern replicatorSecuritySectionName till ReliableStateManagerConfiguration constructor när reliablestatemanager skapas för den här tjänsten.
 > 
 > 
 
-### <a name="replicator-configuration"></a>Konfiguration av replikerare
-Konfigurationer för duplicering konfigurerar den ansvarige som ansvarar för att göra tillstånds känsliga Reliable service-tillstånd hög tillförlitlig genom att replikera och bevara tillstånd lokalt.
-Standard konfigurationen genereras av Visual Studio-mallen och bör vara tillräckligt. I det här avsnittet beskrivs ytterligare konfigurationer som är tillgängliga för att finjustera replikeringen.
+### <a name="replicator-configuration"></a>Konfiguration av Replikator
+Replikatorkonfigurationer konfigurerar replikatorn som är ansvarig för att göra den tillståndskänsliga tillförlitliga tjänstens tillstånd mycket tillförlitligt genom att replikera och bevara tillståndet lokalt.
+Standardkonfigurationen genereras av Visual Studio-mallen och bör räcka. I det här avsnittet beskrivs ytterligare konfigurationer som är tillgängliga för att finjustera replikatorn.
 
-### <a name="default-section-name"></a>Standard avsnitts namn
-ReplicatorConfig
+### <a name="default-section-name"></a>Standardavsnittsnamn
+ReplikatorKonfig
 
 > [!NOTE]
-> Om du vill ändra det här avsnitts namnet åsidosätter du parametern replicatorSettingsSectionName till ReliableStateManagerConfiguration-konstruktorn när du skapar ReliableStateManager för den här tjänsten.
+> Om du vill ändra det här avsnittsnamnet åsidosätter du parametern replicatorSettingsSectionName till ReliableStateManagerConfiguration constructor när reliablestatemanager för den här tjänsten skapas.
 > 
 > 
 
-### <a name="configuration-names"></a>Konfigurations namn
+### <a name="configuration-names"></a>Konfigurationsnamn
 | Namn | Enhet | Standardvärde | Anmärkningar |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Sekunder |0.015 |Den tids period som replikeraren på den sekundära väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom detta intervall skickas som ett svar. |
-| ReplicatorEndpoint |Gäller inte |Ingen standard-obligatorisk parameter |IP-adress och port som den primära/sekundära replikeraren ska använda för att kommunicera med andra replikeringar i replik uppsättningen. Detta bör referera till en slut punkt för en TCP-resurs i tjänst manifestet. Se [tjänst manifest resurser](service-fabric-service-manifest-resources.md) för att läsa mer om hur du definierar slut punkts resurser i ett tjänst manifest. |
-| MaxPrimaryReplicationQueueSize |Antal åtgärder |8192 |Maximalt antal åtgärder i den primära kön. En åtgärd frigörs efter att den primära replikeraren får en bekräftelse från alla sekundära replikeringar. Värdet måste vara större än 64 och en potens på 2. |
-| MaxSecondaryReplicationQueueSize |Antal åtgärder |16384 |Maximalt antal åtgärder i den sekundära kön. En åtgärd frigörs när den har gjort sitt tillstånd hög tillgängligt genom persistence. Värdet måste vara större än 64 och en potens på 2. |
-| CheckpointThresholdInMB |MB |50 |Mängden logg fils utrymme som används för att ange en kontroll punkt. |
-| MaxRecordSizeInKB |kB |1024 |Största post storlek som replikeraren kan skriva i loggen. Värdet måste vara en multipel av 4 och större än 16. |
-| MinLogSizeInMB |MB |0 (systemet bestäms) |Minimi storlek på transaktions loggen. Loggen får inte trunkeras till en storlek under den här inställningen. 0 anger att replikeringen ska bestämma den minsta logg storleken. Om du ökar det här värdet ökar risken för partiella kopior och stegvisa säkerhets kopieringar eftersom det är möjligt att minska antalet relevanta logg poster som trunkeras. |
-| TruncationThresholdFactor |Faktor |2 |Anger om loggens storlek ska avtrunken utlösas. Tröskelvärdet för trunkering bestäms av MinLogSizeInMB multiplicerat med TruncationThresholdFactor. TruncationThresholdFactor måste vara större än 1. MinLogSizeInMB * TruncationThresholdFactor måste vara mindre än MaxStreamSizeInMB. |
-| ThrottlingThresholdFactor |Faktor |4 |Anger när loggens storlek ska begränsas. Tröskelvärdet för begränsning (i MB) bestäms av Max ((MinLogSizeInMB * ThrottlingThresholdFactor), (CheckpointThresholdInMB * ThrottlingThresholdFactor)). Tröskelvärdet för begränsning (i MB) måste vara högre än tröskelvärdet för trunkering (i MB). Tröskelvärdet för trunkering (i MB) måste vara mindre än MaxStreamSizeInMB. |
-| MaxAccumulatedBackupLogSizeInMB |MB |800 |Maximal ackumulerad storlek (i MB) för säkerhets kopierings loggar i en specifik logg kedja för säkerhets kopiering. Det går inte att utföra en stegvis säkerhets kopiering om den stegvisa säkerhets kopieringen skulle generera en säkerhets kopierings logg som orsakar de ackumulerade säkerhets kopierings loggarna sedan den aktuella fullständiga säkerhets kopian skulle vara större än den här storleken. I sådana fall måste användaren göra en fullständig säkerhets kopia. |
-| SharedLogId |GUID |"" |Anger ett unikt GUID som ska användas för att identifiera den delade logg filen som används med den här repliken. Normalt bör inte tjänsterna använda den här inställningen. Men om SharedLogId anges måste SharedLogPath också anges. |
-| SharedLogPath |Fullständigt kvalificerat Sök vägs namn |"" |Anger den fullständiga sökvägen dit den delade logg filen för repliken kommer att skapas. Normalt bör inte tjänsterna använda den här inställningen. Men om SharedLogPath anges måste SharedLogId också anges. |
-| SlowApiMonitoringDuration |Sekunder |300 |Anger övervaknings intervallet för hanterade API-anrop. Exempel: användare som tillhandahöll funktionen motringning. När intervallet har passerat skickas en varnings hälso rapport till Health Manager. |
-| LogTruncationIntervalSeconds |Sekunder |0 |Konfigurerbart intervall då logg trunkering ska initieras på varje replik. Den används för att säkerställa att loggen också trunkeras baserat på tid istället för bara logg storleken. Den här inställningen tvingar även borttagning av borttagna poster i en tillförlitlig ord lista. Därför kan det användas för att se till att borttagna objekt rensas i rätt tid. |
-| EnableStableReads |Boolean |Falskt |Aktivering av stabila läsningar begränsar sekundära repliker för att returnera värden som har varit bekräftat. |
+| BatchAcknowledgementInterval |Sekunder |0.015 |Tidsperiod för vilken replikatorn vid den sekundära väntar efter att ha fått en åtgärd innan du skickar tillbaka en bekräftelse till den primära. Alla andra bekräftelser som ska skickas för åtgärder som bearbetas inom det här intervallet skickas som ett svar. |
+| ReplicatorEndpoint |Ej tillämpligt |Ingen parameter som krävs för standard |IP-adress och port som den primära/sekundära replikatorn använder för att kommunicera med andra replikatorer i replikuppsättningen. Detta bör referera till en TCP-resursslutpunkt i tjänstmanifestet. Se [Tjänstmanifestresurser](service-fabric-service-manifest-resources.md) om du vill läsa mer om hur du definierar slutpunktsresurser i ett tjänstmanifest. |
+| MaxPrimaryReplicationQueueSize |Antal operationer |8192 |Maximalt antal operationer i den primära kön. En åtgärd frigörs när den primära replikatorn tar emot en bekräftelse från alla sekundära replikatorer. Det här värdet måste vara större än 64 och en effekt på 2. |
+| MaxSecondaryReplicationQueueSize |Antal operationer |16384 |Maximalt antal operationer i den sekundära kön. En operation frigörs efter att ha gjort sitt tillstånd mycket tillgängligt genom uthållighet. Det här värdet måste vara större än 64 och en effekt på 2. |
+| CheckpointThresholdInMB |MB |50 |Mängden loggfilsutrymme efter vilket tillståndet är kontrollområde. |
+| MaxRecordSizeInKB |KB |1024 |Största poststorlek som replikatorn kan skriva i loggen. Det här värdet måste vara en multipel av 4 och större än 16. |
+| MinLogSizeInMB |MB |0 (systemet bestämt) |Minsta storlek på transaktionsloggen. Loggen kommer inte att tillåtas att trunkera till en storlek under den här inställningen. 0 anger att replikatorn bestämmer den minsta loggstorleken. Om du ökar det här värdet ökar möjligheten att göra partiella kopior och inkrementella säkerhetskopior eftersom risken för att relevanta loggposter trunkeras sänks. |
+| TrunkeringThresholdFactor |Faktor |2 |Bestämmer vid vilken storlek loggen är, kommer trunkering att utlösas. Trunkering tröskel bestäms av MinLogSizeInMB multiplicerat med TruncationThresholdFactor. TrunkeringThresholdFactor måste vara större än 1. MinLogSizeInMB * TrunkeringThresholdFactor måste vara mindre än MaxStreamSizeInMB. |
+| StrypningThresholdFactor |Faktor |4 |Bestämmer vid vilken storlek loggen är, kommer repliken att börja begränsas. Begränsningströskeln (i MB) bestäms av Max((MinLogSizeInMB * BegränsningThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). Begränsningströskeln (i MB) måste vara större än trunkeringströskeln (i MB). Trunkeringströskel (i MB) måste vara mindre än MaxStreamSizeInMB. |
+| MaxAccumulatedBackupLogSizeInMB |MB |800 |Max ackumulerad storlek (i MB) av backup loggar i en viss backup loggkedja. En inkrementell säkerhetskopieringsbegäranden misslyckas om den inkrementella säkerhetskopieringen skulle generera en säkerhetskopia som skulle orsaka att de ackumulerade säkerhetskopieringsloggarna eftersom den relevanta fullständiga säkerhetskopian är större än den här storleken. I sådana fall krävs användaren för att göra en fullständig säkerhetskopiering. |
+| SharedLogId |GUID |"" |Anger ett unikt GUID som ska användas för att identifiera den delade loggfilen som används med den här repliken. Vanligtvis bör tjänster inte använda den här inställningen. Men om SharedLogId anges måste SharedLogPath också anges. |
+| SharedLogPath |Fullständigt kvalificerat sökvägsnamn |"" |Anger den fullständigt kvalificerade sökvägen där den delade loggfilen för den här repliken ska skapas. Vanligtvis bör tjänster inte använda den här inställningen. Men om SharedLogPath anges måste SharedLogId också anges. |
+| SlowApiMonitoringDuration |Sekunder |300 |Anger övervakningsintervallet för hanterade API-anrop. Exempel: användaren som backup motringningsfunktion. När intervallet har passerat skickas en varningshälsorapport till hälsohanteraren. |
+| LogTruncationIntervalSeconds |Sekunder |0 |Konfigurerbart intervall med vilket logg trunkering initieras på varje replik. Det används för att säkerställa loggen är också trunkeras baserat på tid istället för bara loggstorlek. Den här inställningen tvingar också rensning av borttagna poster i tillförlitlig ordlista. Därför kan den användas för att säkerställa att borttagna objekt rensas i tid. |
+| EnableStableReads |Boolean |False |Om du aktiverar stabila läsningar begränsas sekundära repliker till att returnera värden som har kvorum-acked. |
 
-### <a name="sample-configuration-via-code"></a>Exempel på konfiguration via kod
+### <a name="sample-configuration-via-code"></a>Exempelkonfiguration via kod
 ```csharp
 class Program
 {
@@ -150,7 +150,7 @@ class MyStatefulService : StatefulService
 ```
 
 
-### <a name="sample-configuration-file"></a>Exempel på konfigurations fil
+### <a name="sample-configuration-file"></a>Exempelkonfigurationsfil
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -173,16 +173,16 @@ class MyStatefulService : StatefulService
 
 
 ### <a name="remarks"></a>Anmärkningar
-BatchAcknowledgementInterval styr svars tiden för replikering. Värdet "0" resulterar i lägsta möjliga svars tid, med kostnaden för data flödet (som fler bekräftelse meddelanden måste skickas och bearbetas, var och en innehåller färre bekräftelser).
-Ju större värde för BatchAcknowledgementInterval, desto högre det övergripande antalet data flöde för replikering, till kostnaden för högre åtgärds fördröjning. Detta översätter direkt till svars tiden för transaktions incheckningar.
+BatchAcknowledgementInterval styr replikeringsfördröjningen. Värdet "0" resulterar i lägsta möjliga latens, på bekostnad av dataflöde (eftersom fler bekräftelsemeddelanden måste skickas och bearbetas, var och en med färre bekräftelser).
+Ju större värde för BatchAcknowledgementInterval, desto högre är det totala replikeringsdataflödet, till kostnaden för högre operationsfördröjning. Detta översätts direkt till svarstiden för transaktionsförseningar.
 
-Värdet för CheckpointThresholdInMB styr mängden disk utrymme som replikeraren kan använda för att lagra tillståndsinformation i replikens dedikerade loggfil. Om du ökar värdet till ett högre värde än standardinställningen kan det leda till snabbare omkonfigurations tider när en ny replik läggs till i uppsättningen. Detta beror på den partiella tillstånds överföring som äger rum på grund av tillgängligheten för mer historik för åtgärder i loggen. Detta kan eventuellt öka återställnings tiden för en replik efter en krasch.
+Värdet för CheckpointThresholdInMB styr mängden diskutrymme som replikatorn kan använda för att lagra tillståndsinformation i replikens dedikerade loggfil. Om du ökar detta till ett högre värde än standardvärdet kan det leda till snabbare omkonfigurationstider när en ny replik läggs till i uppsättningen. Detta beror på den partiella tillståndsöverföringen som sker på grund av tillgängligheten för mer historik över åtgärder i loggen. Detta kan potentiellt öka återställningstiden för en replik efter en krasch.
 
-Inställningen MaxRecordSizeInKB definierar den maximala storleken för en post som kan skrivas av replikmappen i logg filen. I de flesta fall är standard post storleken på 1024 KB optimal. Men om tjänsten gör att större data objekt ska ingå i tillståndsinformation, kan det här värdet behöva ökas. Det finns lite förmån för att göra MaxRecordSizeInKB mindre än 1024 eftersom mindre poster bara använder det utrymme som krävs för den mindre posten. Vi tror att det här värdet skulle behöva ändras i sällsynta fall.
+Inställningen MaxRecordSizeInKB definierar den maximala storleken på en post som kan skrivas av replikatorn i loggfilen. I de flesta fall är standardpoststorleken på 1024 KB optimal. Men om tjänsten orsakar större dataobjekt att vara en del av tillståndsinformationen, kan det här värdet behöva ökas. Det finns liten nytta med att göra MaxRecordSizeInKB mindre än 1024, eftersom mindre poster bara använder det utrymme som behövs för den mindre posten. Vi förväntar oss att detta värde skulle behöva ändras i endast sällsynta fall.
 
-Inställningarna SharedLogId och SharedLogPath används alltid tillsammans för att en tjänst ska kunna använda en separat delad logg från den delade standard loggen för noden. För bästa möjliga effektivitet bör så många tjänster som möjligt ange samma delade logg. Delade loggfiler bör placeras på diskar som enbart används för den delade logg filen för att minska konkurrensen för huvud flyttning. Vi tror att det här värdet skulle behöva ändras i sällsynta fall.
+Inställningarna SharedLogId och SharedLogPath används alltid tillsammans för att göra en tjänst använda en separat delad logg från standardloggen för noden. För bästa effektivitet bör så många tjänster som möjligt ange samma delade logg. Delade loggfiler bör placeras på diskar som endast används för den delade loggfilen för att minska huvudförflyttningskonkurrensen. Vi förväntar oss att detta värde skulle behöva ändras i endast sällsynta fall.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Felsöka ditt Service Fabric program i Visual Studio](service-fabric-debugging-your-application.md)
-* [Referens för utvecklare för Reliable Services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
+* [Felsöka ditt Service Fabric-program i Visual Studio](service-fabric-debugging-your-application.md)
+* [Utvecklarreferens för reliable services](https://msdn.microsoft.com/library/azure/dn706529.aspx)
 

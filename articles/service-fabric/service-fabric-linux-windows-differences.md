@@ -1,27 +1,27 @@
 ---
-title: Azure Service Fabric skillnader mellan Linux och Windows
+title: Skillnader i Azure Service Fabric mellan Linux och Windows
 description: Skillnader mellan Azure Service Fabric i Linux och Azure Service Fabric i Windows.
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.custom: sfrev
 ms.openlocfilehash: c064291491110b17c172a561afbd1e65d6c08d06
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75748526"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Skillnader mellan Service Fabric i Linux och Windows
 
-Det finns vissa funktioner som inte finns i Linux ännu, utan bara i Windows. Till slut kommer alla funktioner att finnas på båda plattformarna. Skillnaderna minskar med varje ny version. Följande skillnader föreligger mellan de senaste tillgängliga versionerna.
+Det finns vissa funktioner som inte finns i Linux ännu, utan bara i Windows. Till slut kommer alla funktioner att finnas på båda plattformarna. Skillnaderna minskar med varje ny version. Följande skillnader finns mellan de senaste tillgängliga versionerna.
 
-* Mottagare (omvänd proxy) är i för hands version på Linux
+* Envoy (Reverse Proxy) är i förhandsversion på Linux
 * Fristående installationsprogram är inte tillgängligt ännu i Linux
 * Omdirigering av konsol (stöds inte i Linux- eller Windows-produktionskluster)
 * FAS (Fault Analysis Service) i Linux
 * DNS-tjänst för Service Fabric-tjänster (DNS-tjänst stöds för containrar i Linux)
 * Motsvarande CLI-kommandon för vissa Powershell-kommandon (se lista nedan, de flesta gäller endast fristående kluster)
-* [Skillnader i logg implementering som kan påverka skalbarheten](service-fabric-concepts-scalability.md#choosing-a-platform)
+* [Skillnader i loggimplementering som kan påverka skalbarheten](service-fabric-concepts-scalability.md#choosing-a-platform)
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>PowerShell-cmdletar som inte fungerar mot ett Linux Service Fabric-kluster
 

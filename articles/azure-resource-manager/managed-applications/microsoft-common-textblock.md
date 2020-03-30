@@ -1,22 +1,22 @@
 ---
-title: TextBlock-GRÄNSSNITTs element
-description: Beskriver elementet Microsoft. Common. TextBlock UI för Azure Portal. Använd för att lägga till text i gränssnittet.
+title: Gränssnittselement för TextBlock
+description: I artikeln beskrivs användargränssnittselementet Microsoft.Common.TextBlock för Azure-portalen. Används för att lägga till text i gränssnittet.
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
 ms.openlocfilehash: 418056cb149f4441bac49db839a0dba40c2bb42d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75652221"
 ---
-# <a name="microsoftcommontextblock-ui-element"></a>Elementet Microsoft. Common. TextBlock UI
+# <a name="microsoftcommontextblock-ui-element"></a>Microsoft.Common.TextBlock UI-element
 
-En kontroll som kan användas för att lägga till text i Portal gränssnittet.
+En kontroll som kan användas för att lägga till text i portalgränssnittet.
 
-## <a name="ui-sample"></a>UI-exempel
+## <a name="ui-sample"></a>Exempel på användargränssnitt
 
 ![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
 
@@ -45,5 +45,5 @@ En kontroll som kan användas för att lägga till text i Portal gränssnittet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).
+* En introduktion till att skapa gränssnittsdefinitioner finns i [Komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av vanliga egenskaper i gränssnittselement finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

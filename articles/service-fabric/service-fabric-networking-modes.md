@@ -1,32 +1,32 @@
 ---
-title: Konfigurera nätverks lägen för container tjänster
-description: Lär dig hur du konfigurerar olika nätverks lägen som stöds av Azure Service Fabric.
+title: Konfigurera nätverkslägen för behållartjänster
+description: Lär dig hur du konfigurerar de olika nätverkslägen som stöds av Azure Service Fabric.
 author: athinanthny
 ms.topic: conceptual
 ms.date: 2/23/2018
 ms.author: atsenthi
 ms.openlocfilehash: ba1fa92559d39a481008d1dd18036e4232be1bfa
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639810"
 ---
-# <a name="service-fabric-container-networking-modes"></a>Nätverks lägen för Service Fabric behållare
+# <a name="service-fabric-container-networking-modes"></a>Nätverkslägen för Service Fabric-behållare
 
-Ett Azure Service Fabric-kluster för container tjänster använder **NAT** -nätverks läge som standard. Om fler än en behållar tjänst lyssnar på samma port och NAT-läge används kan det uppstå distributions fel. För att stödja flera behållar tjänster som lyssnar på samma port, Service Fabric erbjuda **öppen** nätverks läge (version 5,7 och senare). I öppet läge har varje behållar tjänst en intern, dynamiskt tilldelad IP-adress som stöder flera tjänster som lyssnar på samma port.  
+Ett Azure Service Fabric-kluster **nat** för behållartjänster använder nat-nätverksläge som standard. När mer än en behållartjänst lyssnar på samma port och nat-läge används kan distributionsfel uppstå. Service Fabric **erbjuder** öppet nätverksläge (version 5.7 och senare) för att stödja att flera behållartjänster lyssnar på samma port. I öppet läge har varje behållartjänst en intern, dynamiskt tilldelad IP-adress som stöder flera tjänster som lyssnar på samma port.  
 
-Om du har en container service med en statisk slut punkt i tjänst manifestet kan du skapa och ta bort nya tjänster med hjälp av öppet läge utan distributions fel. Samma filen Docker. YML-fil kan också användas med statiska port mappningar för att skapa flera tjänster.
+Om du har en behållartjänst med en statisk slutpunkt i tjänstmanifestet kan du skapa och ta bort nya tjänster med hjälp av Öppet läge utan distributionsfel. Samma docker-compose.yml-fil kan också användas med statiska portmappningar för att skapa flera tjänster.
 
-När en behållar tjänst startas om eller flyttas till en annan nod i klustret ändras IP-adressen. Därför rekommenderar vi inte att du använder den dynamiskt tilldelade IP-adressen för att identifiera behållar tjänster. Endast Service Fabric Naming Service eller DNS-tjänsten ska användas för tjänst identifiering. 
+När en behållartjänst startas om eller flyttas till en annan nod i klustret ändras IP-adressen. Därför rekommenderar vi inte att du använder den dynamiskt tilldelade IP-adressen för att identifiera behållartjänster. Endast tjänst fabric-namngivningstjänsten eller DNS-tjänsten ska användas för identifiering av tjänsten. 
 
 >[!WARNING]
->Azure ger totalt 65 356 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet behållar tjänst instanser (som använder öppet läge) får inte överstiga 65 356 IP-adresser i ett virtuellt nätverk. För scenarier med hög densitet rekommenderar vi NAT-nätverkets läge. Dessutom kommer andra beroenden som belastningsutjämnaren att ha andra [begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) att överväga. För närvarande är upp till 50 IP-adresser per nod testat och beprövat stabilt. 
+>Azure tillåter totalt 65 356 IP-adresser per virtuellt nätverk. Summan av antalet noder och antalet behållartjänstinstanser (som använder öppet läge) kan inte överstiga 65 356 IP-adresser i ett virtuellt nätverk. För scenarier med hög densitet rekommenderar vi nat-nätverksläge. Dessutom har andra beroenden, till exempel belastningsutjämnaren, andra [begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits) att beakta. För närvarande har upp till 50 IPs per nod testats och visat sig vara stabila. 
 >
 
-## <a name="set-up-open-networking-mode"></a>Konfigurera öppet nätverks läge
+## <a name="set-up-open-networking-mode"></a>Konfigurera öppet nätverksläge
 
-1. Konfigurera Azure Resource Manager-mallen. I avsnittet **fabricSettings** i kluster resursen aktiverar du DNS-tjänsten och IP-providern: 
+1. Konfigurera Azure Resource Manager-mallen. Aktivera DNS-tjänsten och IP-providern i avsnittet **fabricSettings** i klusterresursen: 
 
     ```json
     "fabricSettings": [
@@ -60,9 +60,9 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
             ],
     ```
     
-2. Konfigurera nätverks profil avsnittet för den virtuella datorns skalnings uppsättnings resurs. Detta gör att flera IP-adresser kan konfigureras på varje nod i klustret. I följande exempel konfigureras fem IP-adresser per nod för ett Windows/Linux Service Fabric-kluster. Du kan ha fem tjänst instanser som lyssnar på porten på varje nod. Om du vill att de fem IP-adresserna ska vara tillgängliga från Azure Load Balancer registrerar du de fem IP-adresserna i den Azure Load Balancer backend-adresspoolen som visas nedan.  Du måste också lägga till variablerna överst i mallen i avsnittet Variables.
+2. Ställ in avsnittet nätverksprofil i skalauppsättningen för virtuella datorer. Detta gör att flera IP-adresser kan konfigureras på varje nod i klustret. I följande exempel anges fem IP-adresser per nod för ett Windows/Linux Service Fabric-kluster. Du kan ha fem tjänstinstanser som lyssnar på porten på varje nod. Om du vill att de fem IPs ska vara tillgängliga från Azure Load Balancer registrerar du de fem IPs i Azure Load Balancer Backend-adresspoolen som visas nedan.  Du måste också lägga till variablerna överst i mallen i variabelavsnittet.
 
-    Lägg till det här avsnittet i variabler:
+    Lägg till det här avsnittet i Variabler:
 
     ```json
     "variables": {
@@ -83,7 +83,7 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
     }
     ```
     
-    Lägg till det här avsnittet i den virtuella datorns skalnings uppsättnings resurs:
+    Lägg till det här avsnittet i skalauppsättningen för virtuella datorer:
 
     ```json   
     "networkProfile": {
@@ -189,7 +189,7 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
               }
    ```
  
-3. För Windows-kluster konfigurerar du en regel för Azure nätverks säkerhets grupp (NSG) som öppnar port UDP/53 för det virtuella nätverket med följande värden:
+3. Endast för Windows-kluster konfigurerar du en NSG-regel (Azure Network Security Group) som öppnar port UDP/53 för det virtuella nätverket med följande värden:
 
    |Inställning |Värde | |
    | --- | --- | --- |
@@ -201,7 +201,7 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
    |Åtgärd | Tillåt  | |
    | | |
 
-4. Ange Nätverks läget i applikations manifestet för varje tjänst: `<NetworkConfig NetworkType="Open">`. **Öppna** nätverks läge resultat i tjänsten hämtar en dedikerad IP-adress. Om ett läge inte har angetts använder tjänsten **NAT** -läge som standard. I följande manifest exempel kan `NodeContainerServicePackage1`-och `NodeContainerServicePackage2`-tjänsterna varje lyssning på samma port (båda tjänsterna lyssnar på `Endpoint1`). När du har angett öppet nätverks läge kan `PortBinding` konfigurationer inte anges.
+4. Ange nätverksläge i programmanifestet för `<NetworkConfig NetworkType="Open">`varje tjänst: . **Öppet** nätverksläge resulterar i att tjänsten får en dedikerad IP-adress. Om ett läge inte anges är tjänsten **nat** som standard nat-läge. I följande manifestexempel kan `NodeContainerServicePackage1` var och `NodeContainerServicePackage2` en av tjänsterna lyssna `Endpoint1`på samma port (båda tjänsterna lyssnar på). När öppna nätverksläge har `PortBinding` angetts kan det inte anges konfigurationer.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -230,13 +230,13 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
     </ApplicationManifest>
     ```
 
-    Du kan blanda och matcha olika nätverks lägen mellan tjänster i ett program för ett Windows-kluster. Vissa tjänster kan använda öppet läge medan andra använder NAT-läge. När en tjänst har kon figurer ATS för att använda NAT-läge måste porten som tjänsten lyssnar på vara unik.
+    Du kan blanda och matcha olika nätverkslägen mellan tjänster i ett program för ett Windows-kluster. Vissa tjänster kan använda öppet läge medan andra använder nat-läge. När en tjänst är konfigurerad för att använda nat-läge måste porten som tjänsten lyssnar på vara unik.
 
     >[!NOTE]
-    >I Linux-kluster stöds inte blandade nätverks lägen för olika tjänster. 
+    >På Linux-kluster stöds inte blandningsnätverkslägen för olika tjänster. 
     >
 
-5. När du har valt **öppet** läge ska **slut punkts** definitionen i tjänst manifestet uttryckligen peka mot det kod paket som motsvarar slut punkten, även om tjänst paketet bara har ett kod paket i det. 
+5. När **läget Öppna** är markerat bör **slutpunktsdefinitionen** i tjänstmanifestet uttryckligen peka på det kodpaket som motsvarar slutpunkten, även om servicepaketet bara har ett kodpaket i sig. 
    
    ```xml
    <Resources>
@@ -246,7 +246,7 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
    </Resources>
    ```
    
-6. För Windows kommer en omstart av den virtuella datorn leda till att det öppna nätverket återskapas. Detta är att minimera ett underliggande problem i nätverks stacken. Standard beteendet är att återskapa nätverket. Om det här beteendet måste inaktive ras kan följande konfiguration användas följt av en konfigurations uppgradering.
+6. För Windows kommer en omstart av den virtuella datorn att återskapa det öppna nätverket. Detta för att minska ett underliggande problem i nätverksstacken. Standardbeteendet är att återskapa nätverket. Om det här problemet måste inaktiveras kan följande konfiguration användas följt av en konfigurationsuppgradering.
 
 ```json
 "fabricSettings": [
@@ -264,6 +264,6 @@ När en behållar tjänst startas om eller flyttas till en annan nod i klustret 
  
 ## <a name="next-steps"></a>Nästa steg
 * [Förstå Service Fabric-programmodellen](service-fabric-application-model.md)
-* [Läs mer om resurser för Service Fabric tjänst manifest](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
+* [Läs mer om servicemanifestresurser för Tjänsten Service](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Distribuera en Windows-behållare till Service Fabric på Windows Server 2016](service-fabric-get-started-containers.md)
 * [Distribuera en Docker-behållare till Service Fabric på Linux](service-fabric-get-started-containers-linux.md)

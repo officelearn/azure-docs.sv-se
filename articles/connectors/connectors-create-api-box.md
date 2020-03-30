@@ -1,6 +1,6 @@
 ---
-title: Anslut till Box
-description: Automatisera aktiviteter och arbets flöden som skapar och hanterar filer i Box genom att använda Azure Logic Apps
+title: Anslut till ruta
+description: Automatisera uppgifter och arbetsflöden som skapar och hanterar filer i Box med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 11/07/2016
 tags: connectors
 ms.openlocfilehash: c7f97ff33742eb545cbfbd7521ba135584851e5e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75666779"
 ---
-# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Skapa och hantera filer i Box genom att använda Azure Logic Apps
+# <a name="create-and-manage-files-in-box-by-using-azure-logic-apps"></a>Skapa och hantera filer i Box med hjälp av Azure Logic Apps
 
-I den här artikeln visas hur du kan skapa och hantera dina filer i Box från en Logic-app med Box Connector. På så sätt kan du skapa Logi Kap par som automatiserar uppgifter och arbets flöden för att hantera filer och andra åtgärder, till exempel:
+Den här artikeln visar hur du kan skapa och hantera dina filer i Box inifrån en logikapp med Box-kopplingen. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för att hantera dina filer och andra åtgärder, till exempel:
 
-* Skapa ditt affärs flöde baserat på de data du får från Box.
+* Bygg upp ditt affärsflöde baserat på de data du får från Box.
 
-* Utlös automatiserade uppgifter och arbets flöde när en fil skapas eller uppdateras.
+* Utlösa automatiserade uppgifter och arbetsflöde när en fil skapas eller uppdateras.
 
 * Kör en åtgärd som kopierar en fil eller tar bort en fil.
 
-  När de här åtgärderna får svar gör de utdata tillgängliga för andra åtgärder. 
-  När en fil ändras i rutan kan du till exempel skicka filen i ett e-postmeddelande med Office 365.
+  När dessa åtgärder får ett svar gör de utdata tillgängliga för andra åtgärder. 
+  När en fil till exempel ändras i Box kan du skicka filen i e-post med Office 365.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -33,15 +33,15 @@ I den här artikeln visas hur du kan skapa och hantera dina filer i Box från en
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). 
 
-* Den Logic app där du vill komma åt ditt Box-konto. Om du vill starta din Logic app med en box-utlösare behöver du en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Logikappen där du vill komma åt ditt Box-konto. Om du vill starta logikappen med en Box-utlösare behöver du en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Grundläggande information om [hur du skapar Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Om du inte har använt Logic Apps igen kan du läsa mer [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+* Grundläggande kunskaper om [hur du skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Om du inte har tidigare i logikappar läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs i filens OpenAPI-fil (tidigare Swagger), finns på [kopplingens referens sida](/connectors/box/).
+Teknisk information, till exempel utlösare, åtgärder och begränsningar, enligt beskrivningen i kopplingens OpenAPI-fil (tidigare Swagger) finns på [kopplingens referenssida](/connectors/box/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps-kopplingar](../connectors/apis-list.md)

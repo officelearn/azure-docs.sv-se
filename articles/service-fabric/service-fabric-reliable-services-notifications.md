@@ -1,47 +1,47 @@
 ---
-title: Reliable Services meddelanden
-description: Konceptuell dokumentation för Service Fabric Reliable Services meddelanden för Reliable State Manager och tillförlitlig ord lista
+title: Meddelanden om tillförlitliga tjänster
+description: Konceptuell dokumentation för service fabric reliable services-meddelanden för reliable state manager och tillförlitlig ordlista
 author: mcoskun
 ms.topic: conceptual
 ms.date: 6/29/2017
 ms.author: mcoskun
 ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75639572"
 ---
-# <a name="reliable-services-notifications"></a>Reliable Services meddelanden
-Meddelanden låter klienter spåra ändringar som görs i ett objekt som de är intresserade av. Två typer av objekt har stöd för meddelanden: *tillförlitlig tillstånds hanterare* och *tillförlitlig ord lista*.
+# <a name="reliable-services-notifications"></a>Meddelanden om tillförlitliga tjänster
+Med aviseringar kan klienter spåra de ändringar som görs i ett objekt som de är intresserade av. Två typer av objekt stöder meddelanden: *Reliable State Manager* och Reliable *Dictionary*.
 
 Vanliga orsaker till att använda meddelanden är:
 
-* Skapa materialiserade vyer, till exempel sekundära index eller sammanställda, filtrerade vyer av replikens tillstånd. Ett exempel är ett sorterat index över alla nycklar i en tillförlitlig ord lista.
-* Skicka övervaknings data, till exempel antalet användare som lagts till den senaste timmen.
+* Skapa materialiserade vyer, till exempel sekundära index eller aggregerade filtrerade vyer av replikens tillstånd. Ett exempel är ett sorterat index över alla nycklar i Tillförlitlig ordlista.
+* Skickar övervakningsdata, till exempel antalet användare som lagts till under den senaste timmen.
 
-Meddelanden utlöses som en del av att tillämpa åtgärder. Därför bör aviseringar hanteras så snabbt som möjligt och synkrona händelser bör inte innehålla dyra åtgärder.
+Meddelanden utlöses som en del av att tillämpa åtgärder. På grund av detta bör meddelanden hanteras så snabbt som möjligt, och synkrona händelser bör inte innehålla några dyra åtgärder.
 
-## <a name="reliable-state-manager-notifications"></a>Reliable State Manager-meddelanden
-Reliable State Manager tillhandahåller meddelanden för följande händelser:
+## <a name="reliable-state-manager-notifications"></a>Tillförlitliga tillståndshanterare meddelanden
+Reliable State Manager ger meddelanden för följande händelser:
 
-* Transaktionen
+* Transaktion
   * Checka in
-* Tillstånds hanterare
+* Statligt ansvarig
   * Återskapa
   * Tillägg av ett tillförlitligt tillstånd
-  * Borttagning av ett tillförlitligt tillstånd
+  * Avlägsnande av ett tillförlitligt tillstånd
 
-Reliable State Manager spårar aktuella synlighetssekvensnummer-transaktioner. Den enda ändringen i transaktions tillstånd som gör att ett meddelande utlöses är att en transaktion genomförs.
+Reliable State Manager spårar de aktuella inflight-transaktionerna. Den enda ändring i transaktionstillståndet som gör att ett meddelande utlöses är en transaktion som genomförs.
 
-En tillförlitlig tillstånds hanterare har en samling pålitliga tillstånd som en tillförlitlig ord lista och en tillförlitlig kö. Reliable State Manager utlöser meddelanden när den här samlingen ändras: ett tillförlitligt tillstånd läggs till eller tas bort eller hela samlingen återskapas.
-Den Reliable State Manager-samlingen återskapas i tre fall:
+Reliable State Manager upprätthåller en samling tillförlitliga tillstånd som tillförlitlig ordlista och tillförlitlig kö. Reliable State Manager utlöser meddelanden när den här samlingen ändras: ett tillförlitligt tillstånd läggs till eller tas bort, eller så återskapas hela samlingen.
+Reliable State Manager-samlingen byggs om i tre fall:
 
-* Återställning: när en replik startar återställer den sitt tidigare tillstånd från disken. Vid slutet av återställningen använder den **NotifyStateManagerChangedEventArgs** för att utlösa en händelse som innehåller en uppsättning återställda Reliable-tillstånd.
-* Fullständig kopia: innan en replik kan anslutas till konfigurations uppsättningen måste den skapas. Ibland kräver detta en fullständig kopia av tillförlitlig tillstånds hanterarens tillstånd från den primära repliken som ska tillämpas på den sekundära sekundära repliken. Reliable State Manager på den sekundära repliken använder **NotifyStateManagerChangedEventArgs** för att utlösa en händelse som innehåller en uppsättning pålitliga tillstånd som den har köpt från den primära repliken.
-* Återställning: i scenarier med haveri beredskap kan replikens tillstånd återställas från en säkerhets kopia via **RestoreAsync**. I sådana fall använder Reliable State Manager på den primära repliken **NotifyStateManagerChangedEventArgs** för att utlösa en händelse som innehåller en uppsättning pålitliga tillstånd som den återställs från säkerhets kopian.
+* Återställning: När en replik startar återställs dess tidigare tillstånd från disken. I slutet av återställningen används **NotifyStateManagerChangedEventArgs** för att avfyra en händelse som innehåller uppsättningen återställda tillförlitliga tillstånd.
+* Fullständig kopia: Innan en replik kan ansluta till konfigurationsuppsättningen måste den byggas. Ibland kräver detta en fullständig kopia av Reliable State Manager tillstånd från den primära repliken som ska tillämpas på den inaktiva sekundära repliken. Reliable State Manager på den sekundära repliken använder **NotifyStateManagerChangedEventArgs** för att avfyra en händelse som innehåller uppsättningen tillförlitliga tillstånd som den har förvärvat från den primära repliken.
+* Återställning: I katastrofåterställningsscenarier kan replikens tillstånd återställas från en säkerhetskopia via **RestoreAsync**. I sådana fall använder Reliable State Manager på den primära repliken **NotifyStateManagerChangedEventArgs** för att avfyra en händelse som innehåller uppsättningen tillförlitliga tillstånd som återställs från säkerhetskopian.
 
-Om du vill registrera dig för transaktions meddelanden och/eller tillstånds hanterarens meddelanden måste du registrera dig för **TransactionChanged** -eller **StateManagerChanged** -händelserna i Reliable State Manager. En gemensam plats för att registrera med dessa händelse hanterare är konstruktören för din tillstånds känsliga tjänst. När du registrerar på konstruktorn saknar du inga meddelanden som orsakas av en ändring under livs längden för **IReliableStateManager**.
+Om du vill registrera dig för transaktionsmeddelanden och/eller tillståndshanterare måste du registrera dig med **händelserna TransactionChanged** eller **StateManagerChanged** på Reliable State Manager. En vanlig plats att registrera sig hos dessa händelsehanterare är konstruktorn för din tillståndskänsliga tjänst. När du registrerar dig på konstruktorn missar du inte något meddelande som orsakas av en ändring under **IReliableStateManagers**livstid .
 
 ```csharp
 public MyService(StatefulServiceContext context)
@@ -52,14 +52,14 @@ public MyService(StatefulServiceContext context)
 }
 ```
 
-Händelse hanteraren för **TransactionChanged** använder **NotifyTransactionChangedEventArgs** för att ange information om händelsen. Den innehåller åtgärds egenskapen (till exempel **NotifyTransactionChangedAction. commit**) som anger typen av ändring. Den innehåller också transaktions egenskapen som innehåller en referens till den transaktion som ändrades.
+Eventhanteraren **TransactionChanged** använder **NotifyTransactionChangedEventArgs** för att ge information om händelsen. Den innehåller åtgärdsegenskapen (till exempel **NotifyTransactionChangedAction.Commit**) som anger typen av ändring. Den innehåller också transaktionsegenskapen som ger en referens till transaktionen som ändrades.
 
 > [!NOTE]
-> I dag höjs **TransactionChanged** -händelser bara om transaktionen har genomförts. Åtgärden är sedan lika med **NotifyTransactionChangedAction. commit**. Men i framtiden kan händelser aktive ras för andra typer av transaktions status ändringar. Vi rekommenderar att du bara kontrollerar åtgärden och bearbetar händelsen om det är en som du förväntar dig.
+> Idag **utlöses TransactionChanged-händelser** endast om transaktionen har genomförts. Åtgärden är sedan lika med **NotifyTransactionChangedAction.Commit**. Men i framtiden kan händelser tas upp för andra typer av ändringar i transaktionstillstånd. Vi rekommenderar att du kontrollerar åtgärden och bearbetar händelsen endast om den är en som du förväntar dig.
 > 
 > 
 
-Följande är ett exempel på en händelse hanterare för **TransactionChanged** .
+Följande är ett exempel **TransactionChanged** händelsehanterare.
 
 ```csharp
 private void OnTransactionChangedHandler(object sender, NotifyTransactionChangedEventArgs e)
@@ -74,14 +74,14 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 }
 ```
 
-Händelse hanteraren för **StateManagerChanged** använder **NotifyStateManagerChangedEventArgs** för att ange information om händelsen.
+**Eventhanteraren StateManagerChanged** använder **NotifyStateManagerChangedEventArgs** för att ge information om händelsen.
 **NotifyStateManagerChangedEventArgs** har två underklasser: **NotifyStateManagerRebuildEventArgs** och **NotifyStateManagerSingleEntityChangedEventArgs**.
-Du använder egenskapen åtgärd i **NotifyStateManagerChangedEventArgs** för att omvandla **NotifyStateManagerChangedEventArgs** till rätt underklass:
+Du kan använda åtgärdsegenskapen i **NotifyStateManagerChangedEventArgs** för att **casta NotifyStateManagerChangedEventArgs** till rätt underklass:
 
-* **NotifyStateManagerChangedAction. Rebuild**: **NotifyStateManagerRebuildEventArgs**
-* **NotifyStateManagerChangedAction. Add** och **NotifyStateManagerChangedAction. Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
+* **NotifyStateManagerChangedAction.Rebuild**: **NotifyStateManagerRebuildEventArgs**
+* **NotifyStateManagerChangedAction.Add** och **NotifyStateManagerChangedAction.Remove**: **NotifyStateManagerSingleEntityChangedEventArgs**
 
-Följande är ett exempel på en **StateManagerChanged** meddelande hanterare.
+Följande är ett exempel **StateManagerChanged** meddelandehanterare.
 
 ```csharp
 public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChangedEventArgs e)
@@ -97,17 +97,17 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## <a name="reliable-dictionary-notifications"></a>Reliable Dictionary-meddelanden
-En tillförlitlig ord lista innehåller meddelanden för följande händelser:
+## <a name="reliable-dictionary-notifications"></a>Tillförlitliga ordlistemeddelanden
+Reliable Dictionary innehåller meddelanden för följande händelser:
 
-* Återskapa: anropas när **ReliableDictionary** har återställt sitt tillstånd från ett återställt eller kopierat lokalt tillstånd eller en säkerhets kopia.
-* Clear: anropas när status för **ReliableDictionary** har rensats via **ClearAsync** -metoden.
-* Lägg till: anropas när ett objekt har lagts till i **ReliableDictionary**.
-* Uppdatera: anropas när ett objekt i **IReliableDictionary** har uppdaterats.
-* Ta bort: anropas när ett objekt i **IReliableDictionary** har tagits bort.
+* Återskapa: Anropad när **ReliableDictionary** har återställt sitt tillstånd från ett återställt eller kopierat lokalt tillstånd eller säkerhetskopiering.
+* Rensa: Anropad när tillståndet **för ReliableDictionary** har rensats med metoden **ClearAsync.**
+* Lägg till: Anropas när ett objekt har lagts till **i ReliableDictionary**.
+* Uppdatering: Anropas när ett objekt i **IReliableDictionary** har uppdaterats.
+* Ta bort: Anropas när ett objekt i **IReliableDictionary** har tagits bort.
 
-För att få Reliable Dictionary-meddelanden måste du registrera dig med händelse hanteraren **DictionaryChanged** på **IReliableDictionary**. En gemensam plats för att registrera med dessa händelse hanterare finns i **ReliableStateManager. StateManagerChanged** Lägg till meddelande.
-Om du registrerar när **IReliableDictionary** läggs till i **IReliableStateManager** ser du till att du inte får några meddelanden.
+För att få Tillförlitliga ordlistemeddelanden måste du registrera dig hos **Händelsehanteraren DictionaryChanged** på **IReliableDictionary**. En vanlig plats att registrera med dessa händelsehanterare finns i **meddelandet ReliableStateManager.StateManagerChanged.**
+Registrering när **IReliableDictionary** läggs till **IReliableStateManager** säkerställer att du inte missar några meddelanden.
 
 ```csharp
 private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChangedEventArgs e)
@@ -127,11 +127,11 @@ private void ProcessStateManagerSingleEntityNotification(NotifyStateManagerChang
 ```
 
 > [!NOTE]
-> **ProcessStateManagerSingleEntityNotification** är exempel metoden som föregående **OnStateManagerChangedHandler** -exempel anropar.
+> **ProcessStateManagerSingleEntityNotification** är den exempelmetod som föregående **OnStateManagerChangedHandler** exempel anropar.
 > 
 > 
 
-Föregående kod anger **IReliableNotificationAsyncCallback** -gränssnittet, tillsammans med **DictionaryChanged**. Eftersom **NotifyDictionaryRebuildEventArgs** innehåller ett **IAsyncEnumerable** -gränssnitt – som måste räknas upp asynkront återbyggs aviseringar utlöses genom **RebuildNotificationAsyncCallback** i stället för **OnDictionaryChangedHandler**.
+Den föregående koden anger **gränssnittet IReliableNotificationAsyncCallback,** tillsammans med **DictionaryChanged**. Eftersom **NotifyDictionaryRebuildEventArgs** innehåller ett **IAsyncEnumerable** gränssnitt - som måste räknas upp asynkront - återskapa meddelanden avfyras via **RebuildNotificationAsyncCallback** istället för **OnDictionaryChangedHandler**.
 
 ```csharp
 public async Task OnDictionaryRebuildNotificationHandlerAsync(
@@ -149,18 +149,18 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 ```
 
 > [!NOTE]
-> I föregående kod, som en del av bearbetningen av återställnings aviseringen, rensas först det underhållna sammanlagda läget. Eftersom den tillförlitliga samlingen återskapas med ett nytt tillstånd är alla tidigare meddelanden irrelevanta.
+> I föregående kod, som en del av bearbetningen av återskapningsmeddelandet, rensas först det underhållna aggregerade tillståndet. Eftersom den tillförlitliga samlingen återskapas med ett nytt tillstånd är alla tidigare meddelanden irrelevanta.
 > 
 > 
 
-Händelse hanteraren för **DictionaryChanged** använder **NotifyDictionaryChangedEventArgs** för att ange information om händelsen.
-**NotifyDictionaryChangedEventArgs** har fem underklasser. Använd egenskapen Action i **NotifyDictionaryChangedEventArgs** för att omvandla **NotifyDictionaryChangedEventArgs** till rätt underklass:
+Händelsehanteraren **DictionaryChanged** använder **NotifyDictionaryChangedEventArgs** för att ge information om händelsen.
+**NotifyDictionaryChangedEventArgs** har fem underklasser. Använd åtgärdsegenskapen i **NotifyDictionaryChangedEventArgs** för att casta **NotifyDictionaryChangedEventArgs** till rätt underklass:
 
-* **NotifyDictionaryChangedAction. Rebuild**: **NotifyDictionaryRebuildEventArgs**
-* **NotifyDictionaryChangedAction. Clear**: **NotifyDictionaryClearEventArgs**
-* **NotifyDictionaryChangedAction. Add**: **NotifyDictionaryItemAddedEventArgs**
-* **NotifyDictionaryChangedAction. Update**: **NotifyDictionaryItemUpdatedEventArgs**
-* **NotifyDictionaryChangedAction. Remove**: **NotifyDictionaryItemRemovedEventArgs**
+* **NotifyDictionaryChangedAction.Rebuild**: **NotifyDictionaryRebuildEventArgs**
+* **NotifyDictionaryChangedAction.Clear**: **NotifyDictionaryClearEventArgs**
+* **NotifyDictionaryChangedAction.Add:** **NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Update**: **NotifyDictionaryItemUpdatedEventArgs**
+* **NotifyDictionaryChangedAction.Remove**: **NotifyDictionaryItemRemovedEventArgs**
 
 ```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
@@ -194,21 +194,21 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 ```
 
 ## <a name="recommendations"></a>Rekommendationer
-* *Slutför* aviserings händelser så snabbt som möjligt.
-* Kör *inte* några dyra åtgärder (t. ex. i/O-åtgärder) som en del av synkrona händelser.
-* *Kontrol lera* åtgärds typen innan du bearbetar händelsen. Nya åtgärds typer kan läggas till i framtiden.
+* *Gör* fullständiga meddelandehändelser så fort som möjligt.
+* *Kör inte* några dyra åtgärder (till exempel I/O-åtgärder) som en del av synkrona händelser.
+* *Kontrollera* åtgärdstypen innan du bearbetar händelsen. Nya åtgärdstyper kan läggas till i framtiden.
 
 Här är några saker att tänka på:
 
-* Meddelanden utlöses som en del av körningen av en åtgärd. Till exempel utlöses ett återställnings meddelande som det sista steget i en återställnings åtgärd. En återställning slutförs inte förrän meddelande händelsen har bearbetats.
-* Eftersom meddelanden utlöses som en del av tillämpningen, ser klienterna endast meddelanden för lokalt allokerade åtgärder. Eftersom åtgärder endast garanterar att de är lokalt allokerade (med andra ord som loggats) kan de eventuellt eller inte tas bort i framtiden.
-* I återställnings Sök vägen utlöses ett enskilt meddelande för varje tillämpad åtgärd. Det innebär att om transaktionen T1 inkluderar Create (X), Delete (X) och Create (X) får du ett meddelande om att skapa X, en för borttagningen och en för att skapa igen, i den ordningen.
-* För transaktioner som innehåller flera åtgärder tillämpas åtgärder i den ordning som de togs emot på den primära repliken från användaren.
-* Som en del av bearbetningen av falskt förlopp kan en del åtgärder återställas. Meddelanden har Aktiver ATS för sådana åtgärder för att ångra, så att repliken återställs till en stabil plats. En viktig skillnad för att ångra meddelanden är att händelser som har dubbla nycklar sammanställs. Om transaktionen T1 till exempel är ångrad visas ett enda meddelande om att ta bort (X).
+* Meddelanden utlöses som en del av körningen av en åtgärd. Ett återställningsmeddelande utlöses till exempel som det sista steget i en återställningsåtgärd. En återställning slutförs inte förrän meddelandehändelsen har bearbetats.
+* Eftersom meddelanden utlöses som en del av de tillämpande åtgärderna ser klienter endast meddelanden för lokalt genomförda åtgärder. Och eftersom åtgärder garanteras endast vara lokalt engagerade (med andra ord loggade), kan de ångras eller inte i framtiden.
+* På omriseringssökvägen utlöses ett enda meddelande för varje tillämpad åtgärd. Det innebär att om transaktion T1 innehåller Create(X), Delete(X) och Create(X) får du ett meddelande om att skapa X, en för borttagningen och en för att skapa igen, i den ordningen.
+* För transaktioner som innehåller flera operationer tillämpas åtgärder i den ordning som de togs emot på den primära repliken från användaren.
+* Som en del av bearbetningen av felaktiga förlopp kan vissa åtgärder ångras. Meddelanden utlöses för sådana ångra-åtgärder, vilket rullar tillbaka replikens tillstånd till en stabil punkt. En viktig skillnad med ångra-meddelanden är att händelser med dubblettnycklar aggregeras. Om transaktion T1 till exempel ångras visas ett enda meddelande till Delete(X).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Tillförlitliga samlingar](service-fabric-work-with-reliable-collections.md)
-* [Reliable Services snabb start](service-fabric-reliable-services-quick-start.md)
-* [Reliable Services säkerhets kopiering och återställning (haveri beredskap)](service-fabric-reliable-services-backup-restore.md)
-* [Referens för utvecklare för tillförlitliga samlingar](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
+* [Reliable Collections](service-fabric-work-with-reliable-collections.md)
+* [Snabbstart för Tillförlitliga tjänster](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services säkerhetskopiering och återställning (haveriberedskap)](service-fabric-reliable-services-backup-restore.md)
+* [Utvecklarreferens för tillförlitliga samlingar](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

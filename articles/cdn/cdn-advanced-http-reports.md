@@ -1,6 +1,6 @@
 ---
-title: Analysera användningsstatistik med Azure CDN avancerade HTTP-rapporter | Microsoft Docs
-description: Lär dig mer om att skapa avancerade HTTP-rapporter i Microsoft Azure CDN. De här rapporterna ger detaljerad information om CDN-aktivitet.
+title: Analysera användningsstatistik med Azure CDN avancerade HTTP-rapporter | Microsoft-dokument
+description: Lär dig hur du skapar avancerade HTTP-rapporter i Microsoft Azure CDN. Dessa rapporter innehåller detaljerad information om CDN-aktivitet.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -15,193 +15,193 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 0b0eec2425f8a1663eb7a09c83a6bad037d1d79c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67594099"
 ---
-# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analysera användningsstatistik med Azure CDN avancerade HTTP-rapporter
+# <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analysera användningsstatistik med Avancerade HTTP-rapporter i Azure CDN
 ## <a name="overview"></a>Översikt
-Det här dokumentet beskriver avancerade http-rapportering i Microsoft Azure CDN. De här rapporterna ger detaljerad information om CDN-aktivitet.
+Det här dokumentet förklarar avancerad HTTP-rapportering i Microsoft Azure CDN. Dessa rapporter innehåller detaljerad information om CDN-aktivitet.
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-## <a name="accessing-advanced-http-reports"></a>Åtkomst till avancerade HTTP-rapporter
-1. Från bladet för CDN-profil klickar du på den **hantera** knappen.
+## <a name="accessing-advanced-http-reports"></a>Komma åt avancerade HTTP-rapporter
+1. Klicka på knappen **Hantera** i CDN-profilbladet.
    
-    ![CDN-profilbladet hantera knappen](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
+    ![Knappen Hantera CDN-profilblad](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     CDN-hanteringsportalen öppnas.
-2. Hovra över den **Analytics** och sedan hovra över den **avancerade HTTP-rapporter** utfällbar meny.  Klicka på **HTTP stora plattform**.
+2. Hovra över fliken **Analytics** och hovra sedan över det avancerade **http-rapporternas** utfällbara rapporter.  Klicka på **HTTP Large Platform**.
    
-    ![CDN-hanteringsportalen - menyn för avancerade rapporter](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
+    ![CdN-hanteringsportal - menyn Avancerade rapporter](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
     Rapportalternativ visas.
 
-## <a name="geography-reports-map-based"></a>Geografi rapporter (Kartbaserade)
-Det finns fem rapporter som utnyttjar en karta som visar de regioner där ditt innehåll har begärts. Dessa rapporter är världskarta, kartan i USA, Kanada kartan, Europa kartan och Asien/Stillahavsområdet kartan.
+## <a name="geography-reports-map-based"></a>Geografi Rapporter (karta-baserade)
+Det finns fem rapporter som utnyttjar en karta för att ange de regioner som ditt innehåll begärs från. Dessa rapporter är World Map, United States Map, Canada Map, Europe Map och Asia Pacific Map.
 
-Varje kartbaserade rapport rangordnar geografiska enheter (d.v.s. länder/regioner, en karta tillhandahålls för att visualisera de platser där ditt innehåll har begärts. Det kan göra det genom att färgkodning varje region enligt mängden begäran erfarna i den regionen. Lättare skuggade regioner anger lägre efterfrågan på ditt innehåll, medan mörkare regioner indikerar högre nivåer av efterfrågan på ditt innehåll.
+Varje kartbaserad rapport rangordnar geografiska entiteter (dvs. länder/regioner, en karta tillhandahålls som hjälper dig att visualisera de platser från vilka ditt innehåll begärs. Det kan göra det genom färgkodning varje region beroende på hur mycket efterfrågan upplevs i den regionen. Ljusare skuggade områden indikerar lägre efterfrågan på ditt innehåll, medan mörkare områden indikerar högre nivåer av efterfrågan på ditt innehåll.
 
-Detaljerad information om trafik och bandbreddsanvändning för varje region tillhandahålls direkt nedanför kartan. Detta kan du visa det totala antalet träffar, procent av träffar, den totala mängden data överförs (i GB) och procent data överförs för varje region. Visa en beskrivning för var och en av de här måtten. Slutligen, när du hovrar över en region (t.ex, land/region, stat eller provins), och namnet och procentandelen träffar som inträffat i regionen visas som en knappbeskrivning.
+Detaljerad trafik- och bandbreddsinformation för varje region finns direkt under kartan. På så sätt kan du visa det totala antalet träffar, procentandelen träffar, den totala mängden data som överförs (i gigabyte) och procentandelen data som överförs för varje region. Visa en beskrivning för vart och ett av dessa mått. När du håller muspekaren över en region (t.ex. land/region, delstat eller provins) visas namnet och procentandelen träffar som inträffade i regionen som ett verktygstips.
 
-En kort beskrivning finns nedan för varje typ av kartbaserade geografi rapporten.
-
-| Rapportnamn | Beskrivning |
-| --- | --- |
-| Världskarta |Den här rapporten kan du visa världen över behovet av dina CDN-innehåll. Varje land/region är färgkodade på världskartan för att ange hur stor procentandel av träffar som kommer från den regionen. |
-| Förenta staternas karta |Den här rapporten kan du visa behovet av dina CDN-innehåll i USA. Varje tillstånd är färgkodade på den här kartan för att visa procentandelen träffar som kommer från den regionen. |
-| Kanada karta |Den här rapporten kan du visa behovet av dina CDN-innehåll i Kanada. Varje region har en annan färg på den här kartan för att visa procentandelen träffar som kommer från den regionen. |
-| Europa karta |Den här rapporten kan du visa behovet av dina CDN-innehåll i Europa. Varje land/region har en annan färg på den här kartan för att visa procentandelen träffar som kommer från den regionen. |
-| Sydöstra Stillahavsområdet karta |Den här rapporten kan du visa behovet av dina CDN-innehåll i Asien. Varje land/region har en annan färg på den här kartan för att visa procentandelen träffar som kommer från den regionen. |
-
-## <a name="geography-reports-bar-charts"></a>Geografi rapporter (cirkeldiagram)
-Det finns två ytterligare rapporter som ger statistisk information enligt geografisk plats, som är upp städer och Top länder. De här rapporterna rangordnas städer och länder/regioner, beroende på antal träffar som kommer från dessa länder/regioner. Vid generera den här typen av rapporten, visar ett liggande diagram de översta 10 populäraste städerna sett eller länder/regioner som har begärt innehåll över en viss plattform. Den här stapeldiagrammet kan du snabbt utvärdera de regioner som genererar det högsta antalet begäranden för ditt innehåll.
-
-Till vänster i diagrammet (y-axeln) anger hur många träffar inträffade för den angivna regionen. Direkt under diagrammet (x-axeln) hittar du en etikett för var och en av de översta 10 regionerna.
-
-### <a name="using-the-bar-charts"></a>Med hjälp av liggande diagram
-* Om du hovrar över en stapel visas namnet och det totala antalet träffar som inträffat i regionen som en knappbeskrivning.
-* Knappbeskrivning för Top städer rapporten identifierar en stad efter dess namn, region och land/region förkortning.
-* Om den stad eller region (t.ex, stat/provins) som en begäran kommer från inte kunde fastställas, att det indikera att de är okänd. Om land/region är okänd, två frågetecken (d.v.s.??), visas.
-* En rapport kan innehålla mått för ”Europa” eller ”Asien/Stillahavsområdet Region”. Dessa objekt är inte avsedda att ge statistisk information om alla IP-adresser i dessa regioner. I stället avser de endast begäranden som kommer från IP-adresser som är spridda över Europa eller Asien/Stillahavsområdet i stället för till en viss ort eller land/region.
-
-De data som användes för att generera stapeldiagrammet kan visas under den. Där finns det totala antalet träffar, procent av träffar, mängden data som överförs (i GB) och procent data överförs för top 250-regioner. Visa en beskrivning för var och en av de här måtten.
-
-En kort beskrivning tillhandahålls för båda typer av rapporter som nedan.
+En kort beskrivning ges nedan för varje typ av kartbaserad geografirapport.
 
 | Rapportnamn | Beskrivning |
 | --- | --- |
-| Översta städer |Den här rapporten rangordnar städer beroende på antal träffar som kommer från den regionen. |
-| Främsta länder/regioner |Den här rapporten rangordnar länder/regioner enligt antal träffar som kommer från den land/regionen. |
+| Världskarta |Med den här rapporten kan du visa den globala efterfrågan på cdn-innehåll. Varje land/region är färgkodad på världskartan för att ange procentandelen träffar som kommer från den regionen. |
+| Karta över USA |I den här rapporten kan du visa efterfrågan på CDN-innehåll i USA. Varje tillstånd är färgkodat på den här kartan för att ange procentandelen träffar som kommer från den regionen. |
+| Kanada Karta |I den här rapporten kan du visa efterfrågan på CDN-innehåll i Kanada. Varje provins är färgkodad på den här kartan för att ange procentandelen träffar som kommer från den regionen. |
+| Europa Karta |I den här rapporten kan du visa efterfrågan på cdn-innehåll i Europa. Varje land/region är färgkodad på den här kartan för att ange procentandelen träffar som kommer från den regionen. |
+| Asien och Stillahavsområdet Karta |I den här rapporten kan du visa efterfrågan på CDN-innehåll i Asien. Varje land/region är färgkodad på den här kartan för att ange procentandelen träffar som kommer från den regionen. |
+
+## <a name="geography-reports-bar-charts"></a>Geografi rapporter (stapeldiagram)
+Det finns ytterligare två rapporter som ger statistisk information enligt geografi, som är topstäder och toppländer. Dessa rapporter rangordnar städer och länder/regioner, respektive, enligt numrera av hits som påbörjade från de länder/regioner. När du skapar den här typen av rapport anger ett stapeldiagram de tio bästa städerna eller länderna/regionerna som har begärt innehåll via en viss plattform. Med det här stapeldiagrammet kan du snabbt bedöma de regioner som genererar det högsta antalet begäranden om ditt innehåll.
+
+Diagrammets vänstra sida (y-axeln) anger hur många träffar som inträffade i det angivna området. Direkt under diagrammet (x-axeln) hittar du en etikett för var och en av de 10 bästa regionerna.
+
+### <a name="using-the-bar-charts"></a>Använda stapeldiagrammen
+* Om du hovrar över en stapel visas namnet och det totala antalet träffar som har inträffat i regionen som ett verktygstips.
+* Verktygstipset för rapporten Toppstäder identifierar en stad efter namn, stat/provins och lands-/regionförkortning.
+* Om den stad eller region (dvs. stat/provins) från vilken en begäran inte kunde fastställas, kommer det att indikera att de är okända. Om landet/regionen är okänd visas två frågetecken (d.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.v.s.
+* En rapport kan innehålla mått för "Europa" eller "Asien/Stillahavsområdet". Dessa poster är inte avsedda att ge statistisk information om alla IP-adresser i dessa regioner. Snarare gäller de bara för förfrågningar som kommer från IP-adresser som är utspridda över Europa eller Asien/Stillahavsområdet i stället för till en viss stad eller ett visst land/en viss region.
+
+De data som användes för att generera stapeldiagrammet kan visas under det. Där hittar du det totala antalet träffar, procentandelen träffar, mängden data som överförs (i gigabyte) och procentandelen data som överförs för de 250 regionerna. Visa en beskrivning för vart och ett av dessa mått.
+
+En kort beskrivning ges för båda typerna av rapporter nedan.
+
+| Rapportnamn | Beskrivning |
+| --- | --- |
+| Toppstäder |Denna rapport rangordnar städer efter antalet träffar som härstammar från den regionen. |
+| Toppländer |Denna rapport rangordnar länder/regioner efter antalet träffar som härstammar från det landet/regionen. |
 
 ## <a name="daily-summary"></a>Daglig sammanfattning
-Daglig sammanfattning i rapporten kan du visa det totala antalet träffar och data som överförs via en viss plattform per dag. Den här informationen kan användas för att snabbt avläsa CDN aktivitet mönster. Exempelvis kan den här rapporten kan hjälpa dig att identifiera vilka dagar erfarna högre eller lägre än förväntad trafik.
+Med rapporten Daglig sammanfattning kan du visa det totala antalet träffar och data som överförs via en viss plattform dagligen. Denna information kan användas för att snabbt urskilja CDN-aktivitetsmönster. Den här rapporten kan till exempel hjälpa dig att identifiera vilka dagar som upplevdes som var högre eller lägre än förväntat trafik.
 
-Vid generera den här typen av rapporten, ger ett liggande diagram en visuell indikering om mängden plattformsspecifika begäran erfarna per dag under den tidsperioden som omfattas av rapporten. Det gör det genom att visa en stapel för varje dag i rapporten. Till exempel att välja hur lång tid med namnet ”förra veckan” skapar ett stapeldiagram med sju staplar. Varje meddelandefältet visar det totala antalet träffar erfarna den dagen.
+När den här typen av rapport tas fram ger ett stapeldiagram en visuell indikation på hur stor plattformsspecifik efterfrågan som upplevs dagligen under den tidsperiod som rapporten omfattar. Det kommer att göra det genom att visa en stapel för varje dag i rapporten. Om du till exempel väljer den tidsperiod som kallas "Förra veckan" skapas ett stapeldiagram med sju staplar. Varje stapel anger det totala antalet träffar som upplevs den dagen.
 
-Till vänster i diagrammet (y-axeln) anger hur många träffar uppstod på det angivna datumet. Direkt under diagrammet (x-axeln), hittar du en etikett som anger det datum då (Format: YYYY-MM-DD) för varje dag med i rapporten.
+Diagrammets vänstra sida (y-axeln) anger hur många träffar som inträffade på det angivna datumet. Direkt under diagrammet (x-axeln) hittar du en etikett som anger datumet (Format: YYY-MM-DD) för varje dag som ingår i rapporten.
 
 > [!TIP]
-> Om du hovrar över en stapel visas det totala antalet träffar som inträffat på samma datum som en knappbeskrivning.
+> Om du hovrar över en stapel visas det totala antalet träffar som inträffade på det datumet som ett verktygstips.
 > 
 > 
 
-De data som användes för att generera stapeldiagrammet kan visas under den. Där finns det totala antalet träffar och mängden data som överförs (i GB) för varje dag som omfattas av rapporten.
+De data som användes för att generera stapeldiagrammet kan visas under det. Där hittar du det totala antalet träffar och mängden data som överförs (i gigabyte) för varje dag som omfattas av rapporten.
 
 ## <a name="by-hour"></a>Per timme
-Rapporten för timme kan du visa det totala antalet träffar och data som överförs via en viss plattform per timme. Den här informationen kan användas för att snabbt avläsa CDN aktivitet mönster. Exempelvis kan den här rapporten kan hjälpa dig att identifiera tidsperioder under dagen som högre eller lägre än förväntad trafik.
+Med rapporten Per timme kan du visa det totala antalet träffar och data som överförs via en viss plattform varje timme. Denna information kan användas för att snabbt urskilja CDN-aktivitetsmönster. Den här rapporten kan till exempel hjälpa dig att identifiera tidsperioder under dagen som får högre eller lägre trafik än förväntat.
 
-Vid generera den här typen av rapporten, ger ett liggande diagram en visuell indikering om mängden plattformsspecifika begäran som uppstår vid timme under den tidsperioden som omfattas av rapporten. Det gör det genom att visa en stapel för varje timme som omfattas av rapporten. Till exempel genererar att välja en 24-timmars tidsperiod ett stapeldiagram med 24 staplar. Varje meddelandefältet visar det totala antalet träffar erfarna under den timmen.
+När du skapar den här typen av rapport ger ett stapeldiagram en visuell indikation på hur stor plattformsspecifik efterfrågan som upplevs per timme under den tidsperiod som rapporten omfattar. Det kommer att göra det genom att visa en stapel för varje timme som omfattas av rapporten. Om du till exempel väljer en tidsperiod på 24 timmar skapas ett stapeldiagram med 24 staplar. Varje stapel anger det totala antalet träffar som upplevs under den timmen.
 
-Till vänster i diagrammet (y-axeln) anger hur många träffar uppstod på den angivna timmen. Direkt under diagrammet (x-axeln), hittar du en etikett som anger datum och tid (Format: YYYY-MM-DD hh: mm) för varje timme som ingår i rapporten. Tid rapporteras med 24-timmarsformat och det har angetts med hjälp av UTC/GMT-tidszonen.
+Diagrammets vänstra sida (y-axeln) anger hur många träffar som inträffade under den angivna timmen. Direkt under diagrammet (x-axeln) hittar du en etikett som anger datum/tid (Format: YYYY-MM-DD hh:mm) för varje timme som ingår i rapporten. Tiden rapporteras med 24-timmarsformat och det anges med hjälp av UTC/GMT tidszon.
 
 > [!TIP]
-> Om du hovrar över en stapel visas det totala antalet träffar som uppstod under den timmen som en knappbeskrivning.
+> Om du hovrar över ett fält visas det totala antalet träffar som inträffade under den timmen som ett verktygstips.
 > 
 > 
 
-De data som användes för att generera stapeldiagrammet kan visas under den. Där finns det totala antalet träffar och mängden data som överförs (i GB) för varje timme som omfattas av rapporten.
+De data som användes för att generera stapeldiagrammet kan visas under det. Där hittar du det totala antalet träffar och mängden data som överförs (i gigabyte) för varje timme som omfattas av rapporten.
 
 ## <a name="by-file"></a>Efter fil
-Rapporten genom att filen kan du visa mängden begäran och trafik som tillkommer under en viss plattform för de mest efterfrågade tillgångarna. Ett stapeldiagram kommer att skapas på de översta 10 mest efterfrågade tillgångarna på generera den här typen av rapporten, under den angivna tidsperioden.
+Med rapporten Efter fil kan du visa mängden efterfrågan och den trafik som uppstått över en viss plattform för de mest efterfrågade tillgångarna. När du skapar den här typen av rapport genereras ett stapeldiagram på de 10 mest efterfrågade tillgångarna under den angivna tidsperioden.
 
 > [!NOTE]
-> För den här rapporten konverteras edge CNAME webbadresser till deras motsvarande CDN-URL: er. På så sätt kan en korrekt tally för det totala antalet träffar som är associerade med en tillgång, oberoende CDN eller edge CNAME-URL som används för att begära den.
+> I den här rapporten konverteras edge CNAME-url:er till motsvarande CDN-webbadresser. Detta möjliggör en korrekt sammanräkning för det totala antalet träffar som är associerade med en tillgång oavsett CDN eller kant CNAME URL används för att begära det.
 > 
 > 
 
-Till vänster i diagrammet (y-axeln) anger hur många begäranden för varje plats under den angivna tidsperioden. Direkt under diagrammet (x-axeln) hittar du en etikett som anger filnamnet för var och en av de översta 10 begärda tillgångarna.
+Diagrammets vänstra sida (y-axeln) anger antalet begäranden för varje tillgång under den angivna tidsperioden. Direkt under diagrammet (x-axeln) hittar du en etikett som anger filnamnet för var och en av de 10 begärda tillgångarna.
 
-De data som användes för att generera stapeldiagrammet kan visas under den. Där finns följande information för var och en av de främsta 250 begärda tillgångarna: relativ sökväg, det totala antalet träffar, procent av träffar, mängden data som överförs (i GB) och procent data överförs.
+De data som användes för att generera stapeldiagrammet kan visas under det. Där hittar du följande information för var och en av de 250 begärda tillgångarna: relativ sökväg, det totala antalet träffar, procentandelen träffar, mängden data som överförs (i gigabyte) och procentandelen data som överförs.
 
-## <a name="by-file-detail"></a>Av information i loggfilen
-Information i loggfilen av rapporten kan du visa mängden begäran och trafik som tillkommer under en viss plattform för en specifik tillgång. Högst upp i den här rapporten är alternativet filen information för. Det här alternativet innehåller en lista över dina mest efterfrågade tillgångar på den valda plattformen. För att generera en rapport med information i loggfilen måste du välja önskad tillgången från alternativet filen information för. Då och ett stapeldiagram visar mängden daglig efterfrågan som skapades under den angivna tidsperioden.
+## <a name="by-file-detail"></a>Information om fil
+Med rapporten Efter filinformation kan du visa mängden efterfrågan och den trafik som uppstått över en viss plattform för en viss tillgång. Högst upp i den här rapporten finns alternativet Filinformation för. Det här alternativet innehåller en lista över dina mest efterfrågade tillgångar på den valda plattformen. För att kunna generera en rapport om efter filinformation måste du välja önskad tillgång i alternativet Filinformation för. Därefter anger ett stapeldiagram hur mycket daglig efterfrågan som genereras under den angivna tidsperioden.
 
-Till vänster i diagrammet (y-axeln) anger det totala antalet begäranden om att en tillgång som uppstår vid en viss dag. Direkt under diagrammet (x-axeln), hittar du en etikett som anger det datum då (Format: YYYY-MM-DD) för vilka CDN behovet av tillgången har rapporterats.
+Diagrammets vänstra sida (y-axeln) anger det totala antalet begäranden som en tillgång har upplevt en viss dag. Direkt under diagrammet (x-axeln) hittar du en etikett som anger det datum (Format: YYYY-MM-DD) för vilket CDN-efterfrågan på tillgången rapporterades.
 
-De data som användes för att generera stapeldiagrammet kan visas under den. Där finns det totala antalet träffar och mängden data som överförs (i GB) för varje dag som omfattas av rapporten.
+De data som användes för att generera stapeldiagrammet kan visas under det. Där hittar du det totala antalet träffar och mängden data som överförs (i gigabyte) för varje dag som omfattas av rapporten.
 
 ## <a name="by-file-type"></a>Efter filtyp
-Filtyp rapporten kan du visa mängden begäran och trafiken åsamkar filtyp. Vid generera den här typen av rapporten, visar ett ringdiagram procentandelen av träffar som genereras av de översta 10 filtyperna.
+Med rapporten Efter filtyp kan du visa mängden efterfrågan och den trafik som uppstår efter filtyp. När du skapar den här typen av rapport visar ett donutdiagram hur många träffar som genereras av de 10 bästa filtyperna.
 
 > [!TIP]
-> Om du hovrar över en sektor i ringdiagrammet skriver Internet-media för att filtypen kommer att visas som en knappbeskrivning.
+> Om du hovrar över ett segment i donutdiagrammet visas internetmedietypen för den filtypen som ett verktygstips.
 > 
 > 
 
-De data som användes för att generera ringdiagrammet kan visas under den. Där finns medietyp för filen namnet tillägget/Internet, totalt antal träffar, procent av träffar, mängden data som överförs (i GB) och procent data överförs för var och en av de översta 250 filtyperna.
+De data som användes för att generera donutdiagrammet kan ses under det. Där hittar du filnamnstillägget/Internet-medietypen, det totala antalet träffar, procentandelen träffar, mängden data som överförs (i gigabyte) och procentandelen data som överförs för var och en av de 250 bästa filtyperna.
 
-## <a name="by-directory"></a>Av Directory
-Med Directory rapporten kan du visa mängden begäran och trafik som tillkommer under en viss plattform för innehåll från en viss katalog. Vid generera den här typen av rapporten, visar ett liggande diagram det totala antalet träffar som genererats av innehållet i de översta 10 katalogerna.
+## <a name="by-directory"></a>Efter katalog
+Med rapporten By Directory kan du visa mängden efterfrågan och den trafik som uppstått över en viss plattform för innehåll från en viss katalog. När du skapar den här typen av rapport visar ett stapeldiagram det totala antalet träffar som genereras av innehåll i de 10 främsta katalogerna.
 
-### <a name="using-the-bar-chart"></a>Med hjälp av stapeldiagrammet
-* Hovra över ett fält att visa den relativa sökvägen till motsvarande katalog.
-* Innehåll som lagras i en undermapp till en katalog räknas inte vid beräkning av begäran av directory. Den här beräkningen endast förlitar sig på antalet begäranden som genererats för innehåll som lagras i katalogen faktiska.
-* För den här rapporten konverteras edge CNAME webbadresser till deras motsvarande CDN-URL: er. På så sätt kan en korrekt tally för all statistik som är associerade med en tillgång, oberoende CDN eller edge CNAME-URL som används för att begära den.
+### <a name="using-the-bar-chart"></a>Använda stapeldiagrammet
+* Hovra över ett fält om du vill visa den relativa sökvägen till motsvarande katalog.
+* Innehåll som lagras i en undermapp i en katalog räknas inte vid beräkning av efterfrågan per katalog. Den här beräkningen är enbart beroende av antalet begäranden som genereras för innehåll som lagras i den faktiska katalogen.
+* I den här rapporten konverteras edge CNAME-url:er till motsvarande CDN-webbadresser. Detta möjliggör en korrekt sammanräkning för all statistik som är associerad med en tillgång oavsett CDN eller edge CNAME URL används för att begära det.
 
-Till vänster i diagrammet (y-axeln) anger det totala antalet begäranden om innehåll som lagras i översta 10-kataloger. Varje stapel i diagrammet representerar en katalog. Använd color-coding schemat för att matcha ett fält i en katalog som anges i avsnittet upp 250 fullständig kataloger.
+Den vänstra sidan av diagrammet (y-axeln) anger det totala antalet begäranden för innehållet som lagras i dina 10 toppkataloger. Varje stapel i diagrammet representerar en katalog. Använd färgkodningsschemat för att matcha ett fält med en katalog som visas i avsnittet Topp 250 fullständiga kataloger.
 
-De data som användes för att generera stapeldiagrammet kan visas under den. Där finns följande information för var och en av de översta 250 katalogerna: relativ sökväg, det totala antalet träffar, procent av träffar, mängden data som överförs (i GB) och procent data överförs.
+De data som användes för att generera stapeldiagrammet kan visas under det. Där hittar du följande information för var och en av de 250 katalogerna: relativ sökväg, det totala antalet träffar, procentandelen träffar, mängden data som överförs (i gigabyte) och procentandelen data som överförs.
 
-## <a name="by-browser"></a>I webbläsare
-Rapporten genom att webbläsaren kan du visa vilka webbläsare som användes för att begära innehåll. Vid generera den här typen av rapporten, visar ett cirkeldiagram procentandelen förfrågningar som hanteras av de översta 10 webbläsarna.
+## <a name="by-browser"></a>Efter webbläsare
+Med rapporten Efter webbläsare kan du visa vilka webbläsare som användes för att begära innehåll. När du skapar den här typen av rapport anger ett cirkeldiagram procentandelen begäranden som hanteras av de tio bästa webbläsarna.
 
-### <a name="using-the-pie-chart"></a>Med hjälp av cirkeldiagrammet
-* Hovra över en sektor i cirkeldiagrammet för att visa namn och version för en webbläsare.
-* För den här rapporten betraktas varje unik webbläsarversion kombination som en annan webbläsare.
-* Den sektor som kallas ”andra” anger procentandelen förfrågningar som hanteras av alla andra webbläsare och versioner.
+### <a name="using-the-pie-chart"></a>Använda cirkeldiagrammet
+* Hovra över ett segment i cirkeldiagrammet om du vill visa en webbläsares namn och version.
+* I den här rapporten betraktas varje unik kombination av webbläsare/version som en annan webbläsare.
+* Segmentet som kallas "Övrigt" anger procentandelen begäranden som hanteras av alla andra webbläsare och versioner.
 
-De data som användes för att generera cirkeldiagrammet kan visas under den. Där finns webbläsaren/versionsnummer, totalt antal träffar och procentandelen träffar för var och en av de översta 250 webbläsarna.
+De data som användes för att generera cirkeldiagrammet kan visas under det. Där hittar du webbläsaren typ / versionsnummer, det totala antalet träffar och andelen träffar för var och en av de 250 webbläsare.
 
-## <a name="by-referrer"></a>Genom att referent
-Av referent-rapporten kan du visa referenter till innehåll på den valda plattformen. En referent anger värdnamnet som en begäran skapades. Vid generera den här typen av rapporten, visar ett liggande diagram mängden begäran (d.v.s. träffar) som genereras av de översta 10 referenter.
+## <a name="by-referrer"></a>Av Referrer
+Med rapporten Efter hänvisning kan du visa de översta referenterna till innehåll på den valda plattformen. En referent anger det värdnamn från vilket en begäran genererades. När du skapar den här typen av rapport anger ett stapeldiagram hur mycket efterfrågan (dvs. träffar) som genereras av de 10 främsta referenerna.
 
-Till vänster i diagrammet (y-axeln) anger det totala antalet begäranden om att en tillgång inträffade för varje referent. Varje stapel i diagrammet representerar en referent. Använd color-coding schemat för att matcha ett fält till en referent som anges i avsnittet upp 250 referent.
+Diagrammets vänstra sida (y-axeln) anger det totala antalet begäranden som en tillgång har upplevt för varje referent. Varje stapel i diagrammet representerar en referrer. Använd färgkodningsschemat för att matcha ett fält med en referrer som visas i avsnittet Översta 250-hänvisningen.
 
-De data som användes för att generera stapeldiagrammet kan visas under den. Där finns URL: en och det totala antalet träffar procentandelen träffar som genereras från var och en av de främsta 250 referenter.
+De data som användes för att generera stapeldiagrammet kan visas under det. Där hittar du webbadressen, det totala antalet träffar och andelen träffar som genereras från var och en av de 250 som refererar.
 
 ## <a name="by-download"></a>Genom att ladda ner
-Genom att ladda ned rapporten kan du analysera download mönster för dina mest efterfrågade innehåll. Överst i rapporten innehåller ett stapeldiagram som jämför försökte nedladdningar med slutförda hämtningar för de översta 10 begärda tillgångarna. Varje fält är färgkodade enligt om det är ett försök har gjorts download (blå) eller en slutförd nedladdning (grön).
+Med rapporten Genom att hämta kan du analysera nedladdningsmönster för ditt mest efterfrågade innehåll. Överst i rapporten finns ett stapeldiagram som jämför försök till nedladdningar med slutförda nedladdningar för de 10 begärda tillgångarna. Varje stapel är färgkodad beroende på om det är ett försök att ladda ner (blå) eller en slutförd nedladdning (grön).
 
 > [!NOTE]
-> För den här rapporten konverteras edge CNAME webbadresser till deras motsvarande CDN-URL: er. På så sätt kan en korrekt tally för all statistik som är associerade med en tillgång, oberoende CDN eller edge CNAME-URL som används för att begära den.
+> I den här rapporten konverteras edge CNAME-url:er till motsvarande CDN-webbadresser. Detta möjliggör en korrekt sammanräkning för all statistik som är associerad med en tillgång oavsett CDN eller edge CNAME URL används för att begära det.
 > 
 > 
 
-Till vänster i diagrammet (y-axeln) anger namnet på filen för var och en av de översta 10 begärda resurser. Direkt under diagrammet (x-axeln) hittar du etiketter som anger det totala antalet försök/fyllas nedladdningar.
+Den vänstra sidan av diagrammet (y-axeln) anger filnamnet för var och en av de 10 begärda tillgångarna. Direkt under diagrammet (x-axeln) hittar du etiketter som anger det totala antalet försök/slutförda nedladdningar.
 
-Direkt under stapeldiagram, följande information visas för de övre 250 begärda tillgångarna: relativa sökvägen (inklusive filnamnet), hur många gånger som det har laddats ned till slutförande, hur många gånger som den begärdes och procentandelen begäranden som resulterade i en fullständig nedladdning.
+Direkt under stapeldiagrammet visas följande information för de 250 begärda tillgångarna: relativ sökväg (inklusive filnamn), antalet gånger som den har hämtats till slutförande, antalet gånger som begärdes och procentandelen av begäranden som resulterade i en fullständig nedladdning.
 
 > [!TIP]
-> Vår CDN inte informeras av en HTTP-klient (d.v.s. webbläsare) när en tillgång helt har hämtats. Därför kan vi behöva beräkna om en tillgång har laddats ned helt enligt statuskoder och byte-intervall begäranden. Det första vi letar när du gör den här beräkningen är om begäran resulterar i en 200 OK statuskod. I så, fall sedan titta vi på byte-intervall begäranden så att de täcker hela tillgången. Slutligen kan jämför vi mängden data som överförs till storleken på den begärda tillgången. Om överförda data är lika med eller större än filstorleken och begäranden byte-intervall som är lämpliga för tillgången, räknas höjdpunkt som en fullständig nedladdning.
+> Vår CDN informeras inte av en HTTP-klient (dvs. webbläsare) när en tillgång har laddats ner helt. Som ett resultat måste vi beräkna om en tillgång har laddats ner helt enligt statuskoder och byte-range-begäranden. Det första vi letar efter när du gör denna beräkning är om begäran resulterar i en 200 OK statuskod. Om så är fallet, då vi tittar på byte-range förfrågningar för att säkerställa att de täcker hela tillgången. Slutligen jämför vi mängden data som överförs till storleken på den begärda tillgången. Om de överförda data är lika med eller större än filstorleken och byte-intervallbegäranden är lämpliga för den tillgången, räknas träffen som en fullständig hämtning.
 > 
-> På grund av interpretive typen av den här rapporten bör du tänka på följande punkter som får ändra konsekvens och korrektheten i den här rapporten.
+> På grund av den tolkningskaraktär som finns i rapporten bör du tänka på följande punkter som kan ändra rapportens enhetlighet och riktighet.
 > 
-> * Trafikmönster kan inte förutsägas när användaragenter beter sig annorlunda. Detta kan ge hämtning slutförd resultat som är större än 100%.
-> * Tillgångar som drar nytta av HTTP progressiv nedladdning är kanske inte korrekt representeras av den här rapporten. Detta beror på användare som vill ha till andra platser på en video.
+> * Trafikmönster kan inte förutsägas korrekt när användaragenter beter sig annorlunda. Detta kan ge slutförda nedladdningsresultat som är större än 100 %.
+> * Tillgångar som utnyttjar HTTP Progressive Download kanske inte representeras korrekt av den här rapporten. Detta beror på användare som söker till olika positioner i en video.
 > 
 > 
 
-## <a name="by-404-errors"></a>Genom att 404-fel
-Rapporten genom att 404-fel kan du identifiera typ av innehåll som genererar flest antal statuskoder för 404 hittades inte. Överst i rapporten innehåller ett stapeldiagram för de översta 10 tillgångar som returnerades statuskod 404 hittades inte. Den här stapeldiagrammet jämförs det totala antalet begäranden med begäranden som resulterade i en 404 det gick inte att hitta statuskod för dessa resurser efterlevs. Varje fält är färgkodade. Ett gult fält används för att indikera att förfrågan resulterade i statuskod 404 hittades inte. En röd stapel används för att ange det totala antalet begäranden för tillgången.
+## <a name="by-404-errors"></a>Med 404 fel
+Med rapporten Genom 404 fel kan du identifiera vilken typ av innehåll som genererar flest antal statuskoder för 404 hittades inte. Överst i rapporten finns ett stapeldiagram för de tio viktigaste tillgångarna för vilka en statuskod på 404 hittades. I det här stapeldiagrammet jämförs det totala antalet begäranden med begäranden som resulterade i en statuskod på 404 hittades inte för dessa tillgångar. Varje stapel är färgkodad. En gul stapel används för att ange att begäran resulterade i en statuskod på 404 hittades inte. Ett rött fält används för att ange det totala antalet begäranden för tillgången.
 
 > [!NOTE]
-> För den här rapporten, Tänk på följande:
+> I denna rapport bör du tänka på följande:
 > 
-> * En träff representerar begäranden för en tillgång, oberoende statuskod.
-> * URL: er för Edge CNAME konverteras till deras motsvarande CDN-URL: er. På så sätt kan en korrekt tally för all statistik som är associerade med en tillgång, oberoende CDN eller edge CNAME-URL som används för att begära den.
+> * En träff representerar alla begäranden om en tillgång oavsett statuskod.
+> * Edge CNAME-url:er konverteras till motsvarande CDN-url:er. Detta möjliggör en korrekt sammanräkning för all statistik som är associerad med en tillgång oavsett CDN eller edge CNAME URL används för att begära det.
 > 
 > 
 
-Till vänster i diagrammet (y-axeln) anger filnamnet för var och en av de översta 10 begärda tillgångar som resulterade i statuskod 404 hittades inte. Du kommer märka etiketter som anger det totala antalet begäranden och antalet begäranden som resulterade i statuskod 404 hittades inte direkt under graph (x-axeln).
+Den vänstra sidan av diagrammet (y-axeln) anger filnamnet för var och en av de 10 begärda tillgångarna som resulterade i en statuskod på 404 hittades inte. Direkt under diagrammet (x-axeln) hittar du etiketter som anger det totala antalet begäranden och antalet begäranden som resulterade i en statuskod på 404 hittades inte.
 
-Direkt under stapeldiagram, följande information visas för de övre 250 begärda tillgångarna: relativa sökvägen (inklusive filnamnet), antalet begäranden som resulterade i en 404 det gick inte att hitta statuskod, det totala antalet gånger som tillgången begärdes och procentandelen av förfrågningarna som resulterade i statuskod 404 hittades inte.
+Direkt under stapeldiagrammet visas följande information för de 250 begärda tillgångarna: relativ sökväg (inklusive filnamn), antalet begäranden som resulterade i en statuskod på 404 hittades inte, det totala antalet gånger som tillgången begärdes och procentandelen begäranden som resulterade i statuskoden 404 hittades inte.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 * [Översikt över Azure CDN](cdn-overview.md)
-* [Realtidsstatistik i Microsoft Azure CDN](cdn-real-time-stats.md)
-* [Åsidosätta standardbeteendet för HTTP med regelmotorn](cdn-rules-engine.md)
-* [Analysera Gränsprestanda](cdn-edge-performance.md)
+* [Statistik i realtid i Microsoft Azure CDN](cdn-real-time-stats.md)
+* [Åsidosätta standard-HTTP-beteende med hjälp av regelmotorn](cdn-rules-engine.md)
+* [Analysera edge-prestanda](cdn-edge-performance.md)
 

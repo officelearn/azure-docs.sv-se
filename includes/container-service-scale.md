@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: a4af53e035929a44f74a95b8e9897cb1dc0c6d8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "66814743"
 ---
 [!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 När du har [distribuerat ett Azure Container Service-kluster](../articles/container-service/dcos-swarm/container-service-deployment.md) kanske du behöver ändra antalet agentnoder. Till exempel kan du behöva fler agenter så att du kan köra flera containerprogram eller instanser. 
 
-Du kan ändra antalet agentnoder i ett DC/OS, Docker Swarm eller Kubernetes-kluster med hjälp av Azure portal eller Azure CLI. 
+Du kan ändra antalet agentnoder i ett DC/OS-, Docker Swarm- eller Kubernetes-kluster med hjälp av Azure-portalen eller Azure CLI. 
 
 ## <a name="scale-with-the-azure-portal"></a>Skala med Azure Portal
 
@@ -29,7 +29,7 @@ Du kan ändra antalet agentnoder i ett DC/OS, Docker Swarm eller Kubernetes-klus
 
 ## <a name="scale-with-the-azure-cli"></a>Skala med Azure CLI
 
-[Installera Azure CLI](/cli/azure/install-azure-cli) och logga in på ett Azure-konto med `az login`.
+[Installera Azure CLI](/cli/azure/install-azure-cli) och logga in `az login`på ett Azure-konto med .
 
 ### <a name="see-the-current-agent-count"></a>Visa det aktuella antalet agenter
 För att se antalet agenter i klustret kör du kommandot `az acs show`. Detta visar klusterkonfigurationen. Följande kommando visar till exempel konfigurationen av containertjänsten som heter `containerservice-myACSName` i resursgruppen `myResourceGroup`:
@@ -49,7 +49,7 @@ Om du till exempel vill ändra antalet agenter i föregående kluster till 10 sk
 az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-Azure CLI returnerar en JSON-sträng som representerar den nya konfigurationen av behållartjänsten, inklusive det nya agentantalet.
+Azure CLI returnerar en JSON-sträng som representerar den nya konfigurationen av behållartjänsten, inklusive antalet nya agenter.
 
 Om du vill ha fler kommandoalternativ kör du `az acs scale --help`.
 
@@ -65,6 +65,6 @@ Om du vill ha fler kommandoalternativ kör du `az acs scale --help`.
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Se [fler exempel](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) med att använda Azure CLI-kommandon med Azure Container Service.
+* Se [fler exempel på](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) hur du använder Azure CLI-kommandon med Azure Container Service.
 * Läs mer om [DC/OS-agentpooler](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) i Azure Container Service.
 

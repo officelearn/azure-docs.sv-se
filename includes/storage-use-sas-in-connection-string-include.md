@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 2f27c50b1d016265c20102521a137bcbb0646115
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187561"
 ---
-Om du har en URL för delad åtkomst (signatur) som ger åtkomst till resurser i ett lagringskonto kan du använda signaturen för delad åtkomst i en anslutningssträng. Eftersom Signaturen innehåller information som krävs för att autentisera begäran, innehåller en anslutningssträng med en SAS protokollet, tjänstslutpunkten och autentiseringsuppgifterna som krävs för att få åtkomst till resursen.
+Om du har en SAS-URL (Shared Access Signature) som ger dig åtkomst till resurser i ett lagringskonto kan du använda SAS i en anslutningssträng. Eftersom SAS innehåller den information som krävs för att autentisera begäran, tillhandahåller en anslutningssträng med en SAS protokollet, tjänstslutpunkten och nödvändiga autentiseringsuppgifter för att komma åt resursen.
 
-Om du vill skapa en anslutningssträng som innehåller en signatur för delad åtkomst, anger du strängen i följande format:
+Om du vill skapa en anslutningssträng som innehåller en signatur för delad åtkomst anger du strängen i följande format:
 
 ```
 BlobEndpoint=myBlobEndpoint;
@@ -23,17 +23,17 @@ FileEndpoint=myFileEndpoint;
 SharedAccessSignature=sasToken
 ```
 
-Varje tjänstslutpunkt är valfritt, även om anslutningssträngen måste innehålla minst ett.
+Varje tjänstslutpunkt är valfri, även om anslutningssträngen måste innehålla minst en.
 
 > [!NOTE]
-> Du bör använda HTTPS med en SAS som bästa praxis.
+> Att använda HTTPS med en SAS rekommenderas som en bästa praxis.
 >
-> Om du anger en SAS i en anslutningssträng i en konfigurationsfil, kan du behöva koda specialtecken i URL: en.
+> Om du anger en SAS i en anslutningssträng i en konfigurationsfil kan du behöva koda specialtecken i URL:en.
 >
 >
 
-### <a name="service-sas-example"></a>SAS för tjänst-exempel
-Här är ett exempel på en anslutningssträng som innehåller en SAS-tjänsten för Blob storage:
+### <a name="service-sas-example"></a>Exempel på service SAS
+Här är ett exempel på en anslutningssträng som innehåller en tjänst SAS för Blob-lagring:
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;
@@ -47,8 +47,8 @@ BlobEndpoint=https://storagesample.blob.core.windows.net;
 SharedAccessSignature=sv=2015-04-05&amp;sr=b&amp;si=tutorial-policy-635959936145100803&amp;sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D
 ```
 
-### <a name="account-sas-example"></a>Exempel för konto-SAS
-Här är ett exempel på en anslutningssträng som innehåller en SAS-konto för Blob- och storage. Observera att slutpunkter för båda tjänsterna har angetts:
+### <a name="account-sas-example"></a>Exempel på konto SAS
+Här är ett exempel på en anslutningssträng som innehåller ett konto SAS för Blob och Fillagring. Observera att slutpunkter för båda tjänsterna har angetts:
 
 ```
 BlobEndpoint=https://storagesample.blob.core.windows.net;

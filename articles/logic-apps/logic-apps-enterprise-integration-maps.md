@@ -1,6 +1,6 @@
 ---
-title: Transformera XML med XSLT Maps
-description: Lägg till XSLT-mappningar för att transformera XML i Azure Logic Apps med Enterprise-integrationspaket
+title: Omvandla XML med XSLT-kartor
+description: Lägga till XSLT-mappningar för att omvandla XML i Azure Logic Apps med Enterprise Integration Pack
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -9,218 +9,218 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
 ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75979411"
 ---
-# <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformera XML med Maps i Azure Logic Apps med Enterprise-integrationspaket
+# <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformera XML med kartor i Azure Logic Apps med Enterprise-integrationspaket
 
-Om du vill överföra XML-data mellan format för scenarier för företags integrering i Azure Logic Apps kan din Logic app använda Maps eller mer specifikt XSLT-mappningar (Extensible Style Sheet Language Transformations). En karta är ett XML-dokument som beskriver hur du konverterar data från ett XML-dokument till ett annat format. 
+Om du vill överföra XML-data mellan format för företagsintegreringsscenarier i Azure Logic Apps kan logikappen använda kartor, eller mer specifikt, XSLT-kartor (Extensible Style Sheet Language Transformations). En karta är ett XML-dokument som beskriver hur du konverterar data från ett XML-dokument till ett annat format. 
 
-Anta till exempel att du regelbundet tar emot B2B-order eller fakturor från en kund som använder datum formatet YYYMMDD. Din organisation använder dock datum formatet MMDDYYY. Du kan definiera och använda en karta som omvandlar YYYMMDD datum format till MMDDYYY-formatet innan du lagrar order-eller faktura informationen i din kund aktivitets databas.
+Anta till exempel att du regelbundet får B2B-order eller fakturor från en kund som använder YYYMMDD-datumformatet. Din organisation använder dock MMDDYYY-datumformatet. Du kan definiera och använda en karta som omvandlar YYYMMDD-datumformatet till MMDDYYY-formatet innan du lagrar order- eller fakturainformationen i kundaktivitetsdatabasen.
 
-För begränsningar som rör integrations konton och artefakter som Maps, se [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
+Begränsningar som är relaterade till integrationskonton och artefakter som kartor finns i [Gränser och konfigurationsinformation för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits).
 
 ## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) där du lagrar dina kartor och andra artefakter för företags integrering och B2B-lösningar (Business-to-Business).
+* Ett [integrationskonto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) där du lagrar dina kartor och andra artefakter för företagsintegration och B2B-lösningar (Business-to-Business).
 
-* Om kartan refererar till en extern sammansättning måste du ladda upp *både sammansättningen och kartan* till ditt integrations konto. Se till att du [*laddar upp din sammansättning först*](#add-assembly)och ladda sedan upp kartan som refererar till sammansättningen.
+* Om kartan refererar till en extern sammansättning måste du ladda upp *både sammansättningen och kartan* till ditt integrationskonto. Se till att du [*laddar upp sammansättningen först*](#add-assembly)och ladda sedan upp kartan som refererar till sammansättningen.
 
-  Om din sammansättning är 2 MB eller mindre kan du lägga till din sammansättning i integrations kontot *direkt* från Azure Portal. Men om din sammansättning eller karta är större än 2 MB men inte större än [storleks gränsen för sammansättningar eller kartor](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits), har du följande alternativ:
+  Om din sammansättning är 2 MB eller mindre kan du lägga till din sammansättning i ditt integrationskonto *direkt* från Azure-portalen. Men om din sammansättning eller karta är större än 2 MB men inte större än [storleksgränsen för sammansättningar eller kartor](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits)har du följande alternativ:
 
-  * För sammansättningar behöver du en Azure Blob-behållare där du kan ladda upp din sammansättning och platsen för behållaren. På så sätt kan du ange platsen senare när du lägger till sammansättningen i integrations kontot. 
+  * För sammansättningar behöver du en Azure blob-behållare där du kan ladda upp din sammansättning och behållarens plats. På så sätt kan du ange den platsen senare när du lägger till sammansättningen i ditt integrationskonto. 
   För den här uppgiften behöver du följande objekt:
 
     | Objekt | Beskrivning |
     |------|-------------|
-    | [Azure Storage-konto](../storage/common/storage-account-overview.md) | Skapa en Azure Blob-behållare för din sammansättning i det här kontot. Lär dig [hur du skapar ett lagrings konto](../storage/common/storage-account-create.md). |
-    | Blobcontainer | I den här behållaren kan du ladda upp din sammansättning. Du behöver också den här behållarens plats när du lägger till sammansättningen i integrations kontot. Lär dig hur du [skapar en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md). |
-    | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Med det här verktyget kan du enklare hantera lagrings konton och blob-behållare. Om du vill använda Storage Explorer [laddar du ned och installerar Azure Storage Explorer](https://www.storageexplorer.com/). Anslut sedan Storage Explorer till ditt lagrings konto genom att följa stegen i [komma igång med Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Mer information finns i [snabb start: skapa en BLOB i objekt lagring med Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Du kan också söka efter och välja ditt lagrings konto i Azure Portal. Från menyn lagrings konto väljer du **Storage Explorer**. |
+    | [Azure-lagringskonto](../storage/common/storage-account-overview.md) | Skapa en Azure blob-behållare för din sammansättning i det här kontot. Läs om hur du [skapar ett lagringskonto](../storage/common/storage-account-create.md). |
+    | Blobcontainer | I den här behållaren kan du ladda upp din sammansättning. Du behöver också den här behållarens plats när du lägger till sammansättningen i ditt integrationskonto. Lär dig hur du [skapar en blob-behållare](../storage/blobs/storage-quickstart-blobs-portal.md). |
+    | [Utforskaren för Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Det här verktyget hjälper dig att enklare hantera lagringskonton och blob-behållare. Om du vill använda Storage Explorer hämtar och installerar du [Azure Storage Explorer](https://www.storageexplorer.com/). Anslut sedan Storage Explorer till ditt lagringskonto genom att följa stegen i [Komma igång med Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Mer information finns [i Snabbstart: Skapa en blob i objektlagring med Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Eller i Azure-portalen, hitta och välj ditt lagringskonto. Välj **Lagringskonto**på menyn för lagringskonto . |
     |||
 
-  * För Maps kan du för närvarande lägga till större kartor genom att använda [Azure Logic Apps REST API-Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+  * För kartor kan du för närvarande lägga till större kartor med hjälp av [AZURE Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
 
-Du behöver inte en logisk app när du skapar och lägger till Maps. Men om du vill använda en karta måste din Logic app länka till ett integrations konto där du lagrar kartan. Lär dig [hur du länkar Logic Apps till integrations konton](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Om du inte redan har en Logic app kan du läsa om [hur du skapar](../logic-apps/quickstart-create-first-logic-app-workflow.md)Logi Kap par.
+Du behöver ingen logikapp när du skapar och lägger till kartor. Om du vill använda en karta behöver logikappen länka till ett integrationskonto där du lagrar kartan. Läs om hur du [länkar logikappar till integrationskonton](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Om du inte har någon logikapp ännu kan du läsa om hur du [skapar logikappar](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-assembly"></a>
 
-## <a name="add-referenced-assemblies"></a>Lägg till refererade sammansättningar
+## <a name="add-referenced-assemblies"></a>Lägga till refererade sammansättningar
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
-1. Om du vill söka efter och öppna ditt integrations konto väljer du **alla tjänster**på huvud menyn i Azure. 
-   I rutan Sök anger du "integrations konto". 
-   Välj **integrations konton**.
+1. Om du vill söka efter och öppna ditt integrationskonto väljer du **Alla tjänster**på Azure-menyn. 
+   Skriv "integrationskonto" i sökrutan. 
+   Välj **integrationskonton**.
 
-   ![Hitta integrations konto](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
+   ![Hitta integrationskonto](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
-1. Välj det integrations konto där du vill lägga till din sammansättning, till exempel:
+1. Välj det integrationskonto där du vill lägga till din sammansättning, till exempel:
 
-   ![Välj integrations konto](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
+   ![Välj integrationskonto](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
-1. På sidan **Översikt** för integrations kontot, under **komponenter**, väljer du panelen **sammansättningar** .
+1. Välj panelen Sammansättningar under **Komponenter**på sidan **Översikt** för integrationskontot. **Assemblies**
 
-   ![Välj "sammansättningar"](./media/logic-apps-enterprise-integration-maps/select-assemblies.png)
+   ![Välj "Sammansättningar"](./media/logic-apps-enterprise-integration-maps/select-assemblies.png)
 
-1. När sidan **sammansättningar** öppnas väljer du **Lägg till**.
+1. När sidan **Sammansättningar** har öppnats väljer du **Lägg till**.
 
    ![Välj "Lägg till"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
-Baserat på sammansättnings filens storlek följer du stegen för att ladda upp en sammansättning som är antingen [upp till 2 MB](#smaller-assembly) eller [mer än 2 MB, men bara upp till 8 MB](#larger-assembly).
-För begränsningar av sammansättnings mängder i integrations konton, se [gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
+Baserat på monteringsfilens storlek följer du stegen för att ladda upp en sammansättning som antingen är [upp till 2 MB](#smaller-assembly) eller mer än [2 MB men bara upp till 8 MB](#larger-assembly).
+Begränsningar för monteringskvantiteter i integrationskonton finns i [Gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
 
 > [!NOTE]
-> Om du ändrar din sammansättning måste du också uppdatera kartan oavsett om kartan har ändrats eller inte.
+> Om du ändrar sammansättningen måste du också uppdatera kartan oavsett om kartan har ändrats eller inte.
 
 <a name="smaller-assembly"></a>
 
-### <a name="add-assemblies-up-to-2-mb"></a>Lägg till sammansättningar upp till 2 MB
+### <a name="add-assemblies-up-to-2-mb"></a>Lägg till sammansättningar på upp till 2 MB
 
-1. Under **Lägg till sammansättning**anger du ett namn för sammansättningen. Se till att **små filer** är markerade. Välj mappikonen bredvid rutan **sammansättning** . Sök efter och välj den sammansättning som du överför, till exempel:
+1. Ange ett namn på sammansättningen under **Lägg till**sammansättning. Håll **liten fil** markerad. Välj mappikonen bredvid rutan **Montering.** Hitta och välj den sammansättning du laddar upp, till exempel:
 
    ![Ladda upp mindre sammansättning](./media/logic-apps-enterprise-integration-maps/upload-assembly-file.png)
 
-   I egenskapen **sammansättnings namn** visas sammansättningens fil namn automatiskt när du har valt sammansättningen.
+   I egenskapen **Monteringsnamn** visas sammansättningens filnamn automatiskt när du har valt sammansättningen.
 
-1. När du är klar väljer du **OK**.
+1. När du är redo väljer du **OK**.
 
-   När sammansättnings filen har slutfört överföringen visas sammansättningen i listan **sammansättningar** .
+   När monteringsfilen har laddats upp visas sammansättningen i listan **Sammansättningar.**
 
-   ![Lista över överförda sammansättningar](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies-list.png)
+   ![Lista över uppladdade sammansättningar](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies-list.png)
 
-   På sidan **Översikt** för integrations kontot, under **komponenter**, visar panelen **sammansättningar** nu antalet överförda sammansättningar, till exempel:
+   På sidan Översikt **för** integrationskontot visar panelen **Sammansättningar** nu antalet uppladdade sammansättningar under **Komponenter:**
 
-   ![Överförda sammansättningar](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
+   ![Uppladdade sammansättningar](./media/logic-apps-enterprise-integration-maps/uploaded-assemblies.png)
 
 <a name="larger-assembly"></a>
 
-### <a name="add-assemblies-more-than-2-mb"></a>Lägg till sammansättningar över 2 MB
+### <a name="add-assemblies-more-than-2-mb"></a>Lägga till sammansättningar mer än 2 MB
 
-Om du vill lägga till större sammansättningar kan du ladda upp din sammansättning till en Azure Blob-behållare i ditt Azure Storage-konto. Dina steg för att lägga till sammansättningar skiljer sig åt beroende på om BLOB-behållaren har offentlig Läs behörighet. Först kontrollerar du om BLOB-behållaren har offentlig Läs behörighet genom att följa dessa steg: [Ange offentlig åtkomst nivå för BLOB-behållare](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Om du vill lägga till större sammansättningar kan du ladda upp din sammansättning till en Azure-blob-behållare i ditt Azure-lagringskonto. Dina steg för att lägga till sammansättningar skiljer sig åt beroende på om din blob-behållare har offentlig läsbehörighet. Så först, kontrollera om din blob-behållare har offentlig läsåtkomst genom att följa dessa steg: [Ange offentlig åtkomstnivå för blob-behållare](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
-#### <a name="check-container-access-level"></a>Kontrol lera åtkomst nivå för behållare
+#### <a name="check-container-access-level"></a>Kontrollera åtkomstnivå för behållare
 
-1. Öppna Azure Storage Explorer. I Explorer-fönstret expanderar du din Azure-prenumeration om den inte redan har expanderats.
+1. Öppna Azure Storage Explorer. Expandera din Azure-prenumeration i Utforskaren om den inte redan har expanderats.
 
-1. Expandera **lagrings konton** > {*ditt-Storage-Account*} > **BLOB-behållare**. Välj din BLOB-behållare.
+1. Expandera **lagringskonton** > {*ditt lagringskonto*} > **Blob Containers**. Välj din blob-behållare.
 
-1. Från BLOB-behållarens snabb meny väljer du **Ange offentlig åtkomst nivå**.
+1. Välj **Ange offentlig åtkomstnivå**på snabbmenyn i blob-behållaren.
 
-   * Om din BLOB-behållare har minst offentlig åtkomst väljer du **Avbryt**och följer dessa steg senare på den här sidan: [Ladda upp till behållare med offentlig åtkomst](#public-access-assemblies)
+   * Om blob-behållaren har åtminstone offentlig åtkomst väljer du **Avbryt**och följer dessa steg senare på den här sidan: [Ladda upp till behållare med offentlig åtkomst](#public-access-assemblies)
 
-     ![Offentlig åtkomst](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
+     ![Allmänhetens tillgång](media/logic-apps-enterprise-integration-schemas/azure-blob-container-public-access.png)
 
-   * Om BLOB-behållaren inte har offentlig åtkomst väljer du **Avbryt**och följer de här stegen senare på den här sidan: [Ladda upp till behållare utan offentlig åtkomst](#no-public-access-assemblies)
+   * Om blob-behållaren inte har offentlig åtkomst väljer du **Avbryt**och följer dessa steg senare på den här sidan: [Ladda upp till behållare utan offentlig åtkomst](#no-public-access-assemblies)
 
-     ![Ingen offentlig åtkomst](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
+     ![Ingen offentlig tillgång](media/logic-apps-enterprise-integration-schemas/azure-blob-container-no-public-access.png)
 
 <a name="public-access-assemblies"></a>
 
 #### <a name="upload-to-containers-with-public-access"></a>Ladda upp till behållare med offentlig åtkomst
 
-1. Ladda upp sammansättningen till ditt lagrings konto. 
-   I det högra fönstret väljer du **överför**.
+1. Ladda upp sammansättningen till ditt lagringskonto. 
+   I det högra fönstret väljer du **Ladda upp**.
 
-1. När du har slutfört överföringen väljer du den överförda sammansättningen. I verktygsfältet väljer du **Kopiera URL** så att du kopierar sammansättningens URL.
+1. När du har laddat upp dig väljer du den uppladdade sammansättningen. Välj **Kopiera URL i** verktygsfältet så att du kopierar sammansättningens URL.
 
-1. Gå tillbaka till Azure Portal där fönstret **Lägg till sammansättning** är öppet. 
-   Ange ett namn för sammansättningen. 
-   Välj **stor fil (större än 2 MB)** .
+1. Gå tillbaka till Azure-portalen där fönstret **Lägg till sammansättning** är öppet. 
+   Ange ett namn på sammansättningen. 
+   Välj **Stor fil (större än 2 MB)**.
 
-   Rutan **innehålls-URI** visas nu i stället för rutan **sammansättning** .
+   Rutan **Innehålls-URI** visas nu i stället för rutan **Montering.**
 
-1. I rutan **innehålls-URI** klistrar du in din sammansättnings URL. 
-   Slutför tillägget av sammansättningen.
+1. Klistra in sammansättningens URL i rutan **Innehålls-URI.** 
+   Slutför sammansättningen.
 
-När sammansättningen har slutfört överföringen visas schemat i listan **sammansättningar** .
-På sidan **Översikt** för integrations kontot, under **komponenter**, visar panelen **sammansättningar** nu antalet överförda sammansättningar.
+När sammansättningen har laddats upp visas schemat i listan **Sammansättningar.**
+På sidan Översikt **för** integrationskontot visar panelen **Sammansättningar** nu antalet uppladdade sammansättningar under **Komponenter.**
 
 <a name="no-public-access-assemblies"></a>
 
 #### <a name="upload-to-containers-without-public-access"></a>Ladda upp till behållare utan offentlig åtkomst
 
-1. Ladda upp sammansättningen till ditt lagrings konto. 
-   I det högra fönstret väljer du **överför**.
+1. Ladda upp sammansättningen till ditt lagringskonto. 
+   I det högra fönstret väljer du **Ladda upp**.
 
-1. När du har slutfört överföringen genererar du en signatur för delad åtkomst (SAS) för din sammansättning. 
-   Från din sammansättnings snabb meny väljer du **Hämta signatur för delad åtkomst**.
+1. När du har laddat upp klart genererar du en SAS -signatur (Shared Access Signature) för din sammansättning. 
+   Välj Hämta signatur för **delad åtkomst**på sammansättningens snabbmeny.
 
-1. I fönstret **signatur för delad åtkomst** väljer du skapa **signatur-URI för delad åtkomst till container nivå** > **skapa**. 
-   När SAS-URL: en har genererats väljer du **Kopiera**bredvid rutan **URL** .
+1. I fönstret Signatur för **delad åtkomst** väljer du Generera signatur för delad åtkomst **på behållarnivå URI** > **Create**. 
+   När SAS-URL:en har genererats väljer du **Kopiera**bredvid **url-rutan** .
 
-1. Gå tillbaka till Azure Portal där fönstret **Lägg till sammansättning** är öppet. 
-   Ange ett namn för sammansättningen. 
-   Välj **stor fil (större än 2 MB)** .
+1. Gå tillbaka till Azure-portalen där fönstret **Lägg till sammansättning** är öppet. 
+   Ange ett namn på sammansättningen. 
+   Välj **Stor fil (större än 2 MB)**.
 
-   Rutan **innehålls-URI** visas nu i stället för rutan **sammansättning** .
+   Rutan **Innehålls-URI** visas nu i stället för rutan **Montering.**
 
-1. I rutan **innehålls-URI** klistrar du in SAS-URI: n som du skapade tidigare. Slutför tillägget av sammansättningen.
+1. Klistra in den SAS URI som du tidigare har genererat i rutan **Innehålls-URI.** Slutför sammansättningen.
 
-När sammansättningen har slutfört överföringen visas sammansättningen i listan **scheman** . På sidan **Översikt** för integrations kontot, under **komponenter**, visar panelen **sammansättningar** nu antalet överförda sammansättningar.
+När sammansättningen har laddats upp visas sammansättningen i listan **Scheman.** På sidan Översikt **för** integrationskontot visar panelen **Sammansättningar** nu antalet uppladdade sammansättningar under **Komponenter.**
 
 ## <a name="create-maps"></a>Skapa kartor
 
-Om du vill skapa ett XSLT-dokument som du kan använda som en karta kan du använda Visual Studio 2015 för att skapa ett BizTalk-integrations projekt med hjälp av [Enterprise-integrationspaket](logic-apps-enterprise-integration-overview.md). I det här projektet kan du bygga en integrations kart fil som gör det möjligt att visuellt mappa objekt mellan två XML-schemafiler. När du har skapat det här projektet får du ett XSLT-dokument.
-För gränser för mappnings antalet i integrations konton, se [gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). 
+Om du vill skapa ett XSLT-dokument som du kan använda som karta kan du använda Visual Studio 2015 för att skapa ett BizTalk-integrationsprojekt med hjälp av [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md). I det här projektet kan du skapa en integrationsmappningsfil, där du visuellt kan mappa objekt mellan två XML-schemafiler. När du har byggt det här projektet får du ett XSLT-dokument.
+Begränsningar för mappningsmängder i integrationskonton finns i [Gränser och konfiguration för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits). 
 
 ## <a name="add-maps"></a>Lägg till kartor
 
-När du har laddat upp sammansättningar som kartan refererar till kan du ladda upp kartan.
+När du har laddat upp alla sammansättningar som kartan refererar till kan du nu ladda upp kartan.
 
-1. Om du inte redan har loggat in loggar du in på [Azure Portal](https://portal.azure.com) med dina autentiseringsuppgifter för Azure-kontot. 
+1. Om du inte redan har loggat in loggar du in på [Azure-portalen](https://portal.azure.com) med dina Azure-kontouppgifter. 
 
-1. Om ditt integrations konto inte redan är öppet väljer du **alla tjänster**på huvud menyn i Azure. 
-   I rutan Sök anger du "integrations konto". 
-   Välj **integrations konton**.
+1. Om ditt integrationskonto inte redan är öppet väljer du **Alla tjänster**på Azure-huvudmenyn . 
+   Skriv "integrationskonto" i sökrutan. 
+   Välj **integrationskonton**.
 
-   ![Hitta integrations konto](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
+   ![Hitta integrationskonto](./media/logic-apps-enterprise-integration-maps/find-integration-account.png)
 
-1. Välj det integrations konto där du vill lägga till kartan, till exempel:
+1. Välj det integrationskonto där du vill lägga till kartan, till exempel:
 
-   ![Välj integrations konto](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
+   ![Välj integrationskonto](./media/logic-apps-enterprise-integration-maps/select-integration-account.png)
 
-1. På sidan **Översikt** för integrations kontot under **komponenter**väljer du panelen **kartor** .
+1. Välj panelen **Kartor** under **Komponenter**på sidan **Översikt** för integrationskontot.
 
-   ![Välj "Maps"](./media/logic-apps-enterprise-integration-maps/select-maps.png)
+   ![Välj "Kartor"](./media/logic-apps-enterprise-integration-maps/select-maps.png)
 
-1. När sidan **kartor** öppnas väljer du **Lägg till**.
+1. När sidan **Kartor** har öppnats väljer du **Lägg till**.
 
    ![Välj "Lägg till"](./media/logic-apps-enterprise-integration-maps/add-map.png)  
 
 <a name="smaller-map"></a>
 
-### <a name="add-maps-up-to-2-mb"></a>Lägg till kartor upp till 2 MB
+### <a name="add-maps-up-to-2-mb"></a>Lägga till kartor på upp till 2 MB
 
-1. Under **Lägg till karta**anger du ett namn för kartan. 
+1. Under **Lägg till karta**anger du ett namn på kartan. 
 
-1. Under **kart typ**väljer du typ, till exempel: **flytande**, **XSLT**, **XSLT 2,0**eller **XSLT 3,0**.
+1. Under **Karttyp**väljer du typen, till exempel: **Vätska**, **XSLT**, **XSLT 2.0**eller **XSLT 3.0**.
 
-1. Se till att **små filer** är markerade. Välj mappikonen bredvid rutan **karta** . Sök efter och välj den karta som du överför, till exempel:
+1. Håll **liten fil** markerad. Välj mappikonen bredvid rutan **Karta.** Hitta och välj den karta du laddar upp, till exempel:
 
-   ![Överförings karta](./media/logic-apps-enterprise-integration-maps/upload-map-file.png)
+   ![Ladda upp karta](./media/logic-apps-enterprise-integration-maps/upload-map-file.png)
 
-   Om du lämnar **namn** egenskapen tom visas mappningens fil namn automatiskt i den egenskapen när du har valt mappnings filen. 
-   Du kan dock använda valfritt unikt namn.
+   Om du lämnade egenskapen **Namn** tomt visas kartans filnamn automatiskt i den egenskapen när du har valt kartfilen. 
+   Du kan dock använda vilket unikt namn som helst.
 
-1. När du är klar väljer du **OK**. 
-   När mappnings filen har slutfört överföringen visas kartan i listan **Maps** .
+1. När du är redo väljer du **OK**. 
+   När kartfilen har laddats upp visas kartan i listan **Kartor.**
 
-   ![Överförda Maps-lista](./media/logic-apps-enterprise-integration-maps/uploaded-maps-list.png)
+   ![Lista över uppladdade kartor](./media/logic-apps-enterprise-integration-maps/uploaded-maps-list.png)
 
-   På sidan **Översikt** för integrations kontot, under **komponenter**, visar panelen **kartor** nu antalet uppladdade kartor, till exempel:
+   På sidan Översikt **för** integrationskontot visar panelen **Kartor** nu antalet uppladdade kartor, till exempel: **Components**
 
-   ![Överförda kartor](./media/logic-apps-enterprise-integration-maps/uploaded-maps.png)
+   ![Uppladdade kartor](./media/logic-apps-enterprise-integration-maps/uploaded-maps.png)
 
 <a name="larger-map"></a>
 
-### <a name="add-maps-more-than-2-mb"></a>Lägg till kartor över 2 MB
+### <a name="add-maps-more-than-2-mb"></a>Lägga till kartor mer än 2 MB
 
-För närvarande, för att lägga till större Maps, använder du [Azure Logic Apps REST API-Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+För närvarande, för att lägga till större kartor, använd [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
 
 <!--
 
@@ -310,42 +310,42 @@ the map appears in the **Maps** list.
 
 ## <a name="edit-maps"></a>Redigera kartor
 
-Om du vill uppdatera en befintlig karta måste du ladda upp en ny mappnings fil som har de ändringar du önskar. Du kan dock först ladda ned den befintliga kartan för redigering.
+Om du vill uppdatera en befintlig karta måste du ladda upp en ny kartfil som har de ändringar du vill ha. Du kan dock först hämta den befintliga kartan för redigering.
 
-1. Leta upp och öppna ditt integrations konto i [Azure Portal](https://portal.azure.com), om det inte redan är öppet.
+1. I [Azure-portalen](https://portal.azure.com)söker du efter och öppnar ditt integrationskonto, om det inte redan är öppet.
 
-1. På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "integrations konto". Välj **integrations konton**.
+1. På huvudmenyn i Azure väljer du **Alla tjänster**. Skriv "integrationskonto" i sökrutan. Välj **integrationskonton**.
 
-1. Välj det integrations konto där du vill uppdatera kartan.
+1. Välj det integrationskonto där du vill uppdatera kartan.
 
-1. På sidan **Översikt** för integrations kontot under **komponenter**väljer du panelen **kartor** .
+1. Välj panelen **Kartor** under **Komponenter**på sidan **Översikt** för integrationskontot.
 
-1. När sidan **kartor** öppnas väljer du kartan. 
-   Hämta och redigera kartan först genom att välja **Hämta**och spara kartan.
+1. När sidan **Kartor** har öppnats väljer du kartan. 
+   Om du vill hämta och redigera kartan först väljer du **Hämta**och sparar kartan.
 
-1. När du är redo att ladda upp den uppdaterade kartan väljer du den mapp som du vill uppdatera på sidan **kartor** och väljer **Uppdatera**.
+1. När du är redo att ladda upp den uppdaterade kartan väljer du den karta du vill uppdatera på sidan **Kartor** och väljer **Uppdatera**.
 
-1. Sök efter och välj den uppdaterade mappning som du vill ladda upp. 
-   När mappnings filen har slutfört överföringen visas den uppdaterade kartan i listan **Maps** .
+1. Hitta och välj den uppdaterade kartan som du vill ladda upp. 
+   När kartfilen har laddats upp visas den uppdaterade kartan i listan **Kartor.**
 
 ## <a name="delete-maps"></a>Ta bort kartor
 
-1. Leta upp och öppna ditt integrations konto i [Azure Portal](https://portal.azure.com), om det inte redan är öppet.
+1. I [Azure-portalen](https://portal.azure.com)söker du efter och öppnar ditt integrationskonto, om det inte redan är öppet.
 
-1. På huvud menyn i Azure väljer du **alla tjänster**. 
-   I rutan Sök anger du "integrations konto". 
-   Välj **integrations konton**.
+1. På huvudmenyn i Azure väljer du **Alla tjänster**. 
+   Skriv "integrationskonto" i sökrutan. 
+   Välj **integrationskonton**.
 
-1. Välj det integrations konto där du vill ta bort kartan.
+1. Välj det integrationskonto där du vill ta bort kartan.
 
-1. På sidan **Översikt** för integrations kontot under **komponenter**väljer du panelen **kartor** .
+1. Välj panelen **Kartor** under **Komponenter**på sidan **Översikt** för integrationskontot.
 
-1. När sidan **kartor** öppnas väljer du kartan och sedan **ta bort**.
+1. När sidan **Kartor** har öppnats väljer du kartan och väljer **Ta bort**.
 
-1. Bekräfta att du vill ta bort kartan genom att välja **Ja**.
+1. Om du vill bekräfta att du vill ta bort kartan väljer du **Ja**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md)  
+* [Läs mer om Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)  
 * [Läs mer om scheman](../logic-apps/logic-apps-enterprise-integration-schemas.md)
 * [Läs mer om transformeringar](../logic-apps/logic-apps-enterprise-integration-transform.md)

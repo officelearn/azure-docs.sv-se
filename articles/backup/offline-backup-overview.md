@@ -1,86 +1,86 @@
 ---
-title: Översikt över säkerhets kopiering offline
-description: Läs mer om komponenterna i säkerhets kopiering offline. De inkluderar offline-säkerhetskopiering som baseras på Azure Data Box och offline-säkerhetskopiering baserat på Azure import/export-tjänsten.
+title: Översikt över offline säkerhetskopiering
+description: Läs mer om komponenterna för offline säkerhetskopiering. De inkluderar offline säkerhetskopiering baserat på Azure Data Box och offline backup baserat på Azure Import/Export-tjänsten.
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.openlocfilehash: 4dae68c46e0072a726bba13139e405b44be0f008
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "78196184"
 ---
-# <a name="overview-of-offline-backup"></a>Översikt över säkerhets kopiering offline
+# <a name="overview-of-offline-backup"></a>Översikt över offline säkerhetskopiering
 
-Den här artikeln ger en översikt över säkerhets kopiering offline.
+Den här artikeln innehåller en översikt över säkerhetskopiering offline.
 
-Första fullständiga säkerhets kopieringar till Azure överför vanligt vis stora mängder data online och kräver mer nätverks bandbredd jämfört med efterföljande säkerhets kopieringar som bara överför stegvisa ändringar. Fjärranslutna kontor eller data Center i vissa geografiska områden har inte alltid tillräckligt med nätverks bandbredd. Av den anledningen tar dessa inledande säkerhets kopieringar flera dagar. Under den här tiden använder säkerhets kopieringarna alltid samma nätverk som etablerades för program som körs i det lokala data centret.
+Inledande fullständiga säkerhetskopior till Azure överför vanligtvis stora mängder data online och kräver mer nätverksbandbredd jämfört med efterföljande säkerhetskopior som endast överför inkrementella ändringar. Fjärrkontor eller datacenter i vissa geografiska områden har inte alltid tillräcklig nätverksbandbredd. Av denna anledning tar dessa inledande säkerhetskopior flera dagar. Under den här tiden använder säkerhetskopiorna kontinuerligt samma nätverk som har etablerats för program som körs i det lokala datacentret.
 
-Azure Backup stöder säkerhets kopiering offline, som överför de första säkerhets kopierings data offline, utan att nätverks bandbredden används. Den innehåller en mekanism för att kopiera säkerhets kopierings data till fysiska lagrings enheter. Enheterna levereras sedan till ett närliggande Azure-datacenter och överförs till ett Recovery Services-valv. Den här processen säkerställer robust överföring av säkerhets kopierings data utan att använda någon nätverks bandbredd.
+Azure Backup stöder säkerhetskopiering offline, som överför initiala säkerhetskopieringsdata offline, utan användning av nätverksbandbredd. Det ger en mekanism för att kopiera säkerhetskopierade data till fysiska lagringsenheter. Enheterna levereras sedan till ett närliggande Azure-datacenter och överförs till ett Recovery Services-valv. Den här processen säkerställer robust överföring av säkerhetskopierade data utan att använda någon nätverksbandbredd.
 
-## <a name="offline-backup-options"></a>Alternativ för säkerhets kopiering offline
+## <a name="offline-backup-options"></a>Alternativ för säkerhetskopiering offline
 
-Offline-säkerhetskopiering erbjuds i två lägen baserat på ägarskapet för lagrings enheterna:
+Offline säkerhetskopiering erbjuds i två lägen baserat på ägandet av lagringsenheter:
 
-- Offline-säkerhetskopiering baserat på Azure Data Box (förhands granskning)
-- Offline-säkerhetskopiering baserat på Azure import/export-tjänsten
+- Offlinesäkerhetskopiering baserat på Azure Data Box (förhandsversion)
+- Offline säkerhetskopiering baserad på Azure Import/Export-tjänsten
 
-## <a name="offline-backup-based-on-azure-data-box-preview"></a>Offline-säkerhetskopiering baserat på Azure Data Box (förhands granskning)
+## <a name="offline-backup-based-on-azure-data-box-preview"></a>Offlinesäkerhetskopiering baserat på Azure Data Box (förhandsversion)
 
-Det här läget stöds för närvarande med Microsoft Azure Recovery Services (MARS)-agenten i för hands versionen. Det här alternativet drar nytta av [Azure Data Box](https://azure.microsoft.com/services/databox/) för att leverera Microsoft-patentskyddade, säkra och Manipulerings beständiga överförings apparater med USB-anslutningar till ditt data Center eller fjärrkontoret. Säkerhetskopierade data skrivs direkt till dessa enheter. Det här alternativet sparar den ansträngning som krävs för att skaffa dina egna Azure-kompatibla diskar och anslutningar eller för att etablera tillfällig lagring som en mellanlagringsplats. Microsoft hanterar även överförings logistiken från slut punkt till slut punkt, som du kan spåra genom Azure Portal. 
+Det här läget stöds för närvarande med MICROSOFT Azure Recovery Services (MARS) Agent i förhandsversion. Det här alternativet utnyttjar [Azure Data Box](https://azure.microsoft.com/services/databox/) för att leverera Microsoft-proprietära, säkra och manipuleringssäkra överföringsenheter med USB-kontakter till ditt datacenter eller fjärrkontor. Säkerhetskopieringsdata skrivs direkt på dessa enheter. Det här alternativet sparar den ansträngning som krävs för att skaffa egna Azure-kompatibla diskar och kopplingar eller för att etablera tillfällig lagring som mellanlagringsplats. Microsoft hanterar också överföringslogistiken från till, som du kan spåra via Azure-portalen. 
 
-En arkitektur som beskriver förflyttningen av säkerhetskopierade data med det här alternativet visas här.
+En arkitektur som beskriver förflyttning av säkerhetskopierade data med det här alternativet visas här.
 
-![Azure Backup Data Box-enhet arkitektur](./media/offline-backup-overview/azure-backup-databox-architecture.png)
-
-Här är en sammanfattning av arkitekturen:
-
-1. Azure Backup kopierar säkerhetskopierade data direkt till dessa förkonfigurerade enheter.
-2. Sedan kan du skicka tillbaka enheterna till ett Azure-datacenter.
-3. Azure Data Box kopierar data till ett kundägda lagrings konto.
-4. Azure Backup kopierar automatiskt säkerhetskopierade data från lagrings kontot till det angivna Recovery Services valvet. Stegvisa säkerhets kopieringar är schemalagda.
-
-Om du vill använda offline-säkerhetskopiering baserat på Azure Data Box, se [säkerhets kopiering offline med Azure Data Box](offline-backup-azure-data-box.md).
-
-## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Offline-säkerhetskopiering baserat på Azure import/export-tjänsten
-
-Det här alternativet stöds av Microsoft Azure Backup Server (MABS), System Center Data Protection Manager (DPM) DPM-A och MARS-agenten. [Tjänsten Azure import/export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service)används. Du kan överföra första säkerhets kopierings data till Azure med hjälp av dina egna Azure-kompatibla diskar och anslutningar. Den här metoden kräver att du etablerar tillfällig lagring som kallas mellanlagringsplats och använder förinställda verktyg för att formatera och kopiera säkerhetskopierade data till kundägda diskar. 
-
-En arkitektur som beskriver förflyttningen av säkerhetskopierade data med det här alternativet visas här.
-
-![Azure Backup import/export-tjänstens arkitektur](./media/offline-backup-overview/azure-backup-import-export.png)
+![Azure Backup Data Box-arkitektur](./media/offline-backup-overview/azure-backup-databox-architecture.png)
 
 Här är en sammanfattning av arkitekturen:
 
-1. I stället för att skicka säkerhetskopierade data via nätverket skriver Azure Backup säkerhets kopierings data till en mellanlagringsplats.
+1. Azure Backup kopierar säkerhetskopieringsdata direkt till dessa förkonfigurerade enheter.
+2. Du kan sedan leverera dessa enheter tillbaka till ett Azure-datacenter.
+3. Azure Data Box kopierar data till ett kundägt lagringskonto.
+4. Azure Backup kopierar automatiskt säkerhetskopierade data från lagringskontot till det angivna Recovery Services-valvet. Inkrementella online-säkerhetskopior är schemalagda.
+
+Information om hur du använder offlinesäkerhetskopiering baserat på Azure Data Box finns i [Offline-säkerhetskopiering med Azure Data Box](offline-backup-azure-data-box.md).
+
+## <a name="offline-backup-based-on-the-azure-importexport-service"></a>Offline säkerhetskopiering baserad på Azure Import/Export-tjänsten
+
+Det här alternativet stöds av Microsoft Azure Backup Server (MABS), DPM -DPM (System Center Data Protection Manager) och MARS-agenten. Den använder [azure import/export-tjänsten](https://docs.microsoft.com/azure/storage/common/storage-import-export-service). Du kan överföra initiala säkerhetskopieringsdata till Azure med hjälp av dina egna Azure-kompatibla diskar och kopplingar. Den här metoden kräver att du etablerar tillfällig lagring som kallas mellanlagringsplatsen och använder fördefinierade verktyg för att formatera och kopiera säkerhetskopierade data till kundägda diskar. 
+
+En arkitektur som beskriver förflyttning av säkerhetskopierade data med det här alternativet visas här.
+
+![Azure Import/Export-tjänstarkitektur för säkerhetskopiering](./media/offline-backup-overview/azure-backup-import-export.png)
+
+Här är en sammanfattning av arkitekturen:
+
+1. I stället för att skicka säkerhetskopierade data över nätverket skriver Azure Backup säkerhetskopieringsdata till en mellanlagringsplats.
 2. Data på mellanlagringsplatsen skrivs till en eller flera SATA-diskar med hjälp av ett anpassat verktyg.
-3. Som en del av det förberedande arbetet skapar verktyget ett Azure-importerat jobb. SATA-enheterna levereras till närmaste Azure-datacenter och refererar till import jobbet för att ansluta aktiviteterna.
-4. På Azure-datacentret kopieras data på diskarna till ett Azure Storage-konto.
-5. Azure Backup kopierar säkerhetskopierade data från lagrings kontot till Recovery Services-valvet. Stegvisa säkerhets kopieringar är schemalagda.
+3. Som en del av det förberedande arbetet skapar verktyget ett Azure-importjobb. SATA-enheterna levereras till närmaste Azure-datacenter och refererar till importjobbet för att ansluta aktiviteterna.
+4. På Azure-data kopieras data på diskarna till ett Azure-lagringskonto.
+5. Azure Backup kopierar säkerhetskopieringsdata från lagringskontot till Recovery Services-valvet. Inkrementella säkerhetskopior är schemalagda.
 
-Om du vill använda offline-säkerhetskopiering baserat på Azure import/export-tjänsten med MARS-agenten, se [arbets flöde för säkerhets kopiering offline i Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
+Information om hur du använder offlinesäkerhetskopiering baserat på Azure Import/Export-tjänsten med MARS-agenten finns [i Arbetsflöde för säkerhetskopiering offline i Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export).
 
-Om du vill använda samma tillsammans med MABS eller DPM-A, se [arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
+Information om hur du använder samma sak tillsammans med MABS eller DPM-A finns i [Arbetsflödet för offlinesäkerhetskopior för DPM och Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
 
-## <a name="offline-backup-support-summary"></a>Översikt över stöd för offline-säkerhetskopiering
+## <a name="offline-backup-support-summary"></a>Sammanfattning av stöd för offlinesäkerhetskopiering
 
 I följande tabell jämförs de två tillgängliga alternativen så att du kan göra lämpliga val baserat på ditt scenario.
 
-| **Övervägande**                                            | **Offline-säkerhetskopiering baserat på Azure Data Box**                     | **Offline-säkerhetskopiering baserat på Azure import/export-tjänsten**                |
+| **Övervägande**                                            | **Offlinesäkerhetskopiering baserat på Azure Data Box**                     | **Offline säkerhetskopiering baserad på Azure Import/Export-tjänsten**                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Azure Backup distributions modeller                              | MARS-agent (för hands version)                                              | MARS-agent, MABS, DPM-A                                           |
-| Högsta antal säkerhets kopierings data per server (MARS) eller per skydds grupp (MABS, DPM-A) | [Azure Data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) -7,2 TB <br> [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) -80 TB       | 80 TB (upp till 10 diskar av 8 TB var)                          |
-| Säkerhet (data, enhet och tjänst)                           | [Data](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) AES 256-bit-krypterad <br> [Enhet](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) – robust väska, patentskyddat, Credential-baserat gränssnitt för att kopiera data <br> [Tjänst](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) – skyddas av säkerhetsfunktioner i Azure | Data-BitLocker-krypterad                                 |
-| Tillfällig etablering av lagrings plats                     | Krävs inte                                                | Mer än eller lika med den beräknade säkerhets kopierings data storleken        |
-| Regioner som stöds                                           | [Azure Data Box disk regioner](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Azure Data Box regioner](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Azure import/export-tjänst regioner](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
-| Leverans mellan länder                                     | Stöds inte  <br>    Käll adress och mål Azure-datacenter måste finnas i samma land * | Stöds                                                    |
-| Överför logistik (leverans, transport, upphämtning)           | Fullständigt Microsoft-hanterat                                     | Kund hantering                                            |
-| Priser                                                      | [Azure Data Box priser](https://azure.microsoft.com/pricing/details/databox/) <br> [Priser för Azure Data Box disken](https://azure.microsoft.com/pricing/details/databox/disk/) | [Prissättning för Azure import/export-tjänsten](https://azure.microsoft.com/pricing/details/storage-import-export/) |
+| Distributionsmodeller för Azure Backup                              | MARS Agent (förhandsgranskning)                                              | MARS-agent, MABS, DPM-A                                           |
+| Maximalt säkerhetskopieringsdata per server (MARS) eller per skyddsgrupp (MABS, DPM-A) | [Azure Data Box-disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) - 7,2 TB <br> [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) - 80 TB       | 80 TB (upp till 10 diskar med 8 TB vardera)                          |
+| Säkerhet (data, enhet och tjänst)                           | [Data](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) - AES 256-bitars krypterad <br> [Enhet](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) - Robust fodral, proprietärt, autentiseringsuppgifter-baserat gränssnitt för att kopiera data <br> [Tjänst](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) - Skyddad av Azure-säkerhetsfunktioner | Data - BitLocker krypterat                                 |
+| Etablerar tillfällig mellanlagringsplats                     | Krävs inte                                                | Mer än eller lika med den uppskattade datastorleken för säkerhetskopiering        |
+| Regioner som stöds                                           | [Diskområden i Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Azure Data Box-regioner](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Azure Import/Export-tjänstområden](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
+| Gränsöverskridande frakt                                     | Stöds inte  <br>    Källadress och mål Azure-datacenter måste finnas i samma land* | Stöds                                                    |
+| Överför logistik (leverans, transport, pickup)           | Fullständigt hanterat Microsoft                                     | Hanterade kunder                                            |
+| Prissättning                                                      | [Priser för Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Priser för Azure Data Box-disk](https://azure.microsoft.com/pricing/details/databox/disk/) | [Priser för Azure Import/Export-tjänst](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
-\* Om ditt land inte har ett Azure-datacenter, måste du leverera diskarna till ett Azure-datacenter i ett annat land.
+*Om ditt land inte har ett Azure-datacenter måste du leverera dina diskar till ett Azure-datacenter i ett annat land.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Azure Backup offline-säkerhetskopiering med Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
-* [Arbets flöde för offline-säkerhetskopiering i Azure Backup](backup-azure-backup-import-export.md) 
-* [Arbets flöde för offline-säkerhetskopiering för DPM och Azure Backup Server](backup-azure-backup-server-import-export-.md)
+* [Azure Backup offline säkerhetskopiering med hjälp av Azure Data Box](offline-backup-azure-data-box.md#backup-data-size-and-supported-data-box-skus)
+* [Arbetsflöde för offlinesäkerhetskopiering i Azure Backup](backup-azure-backup-import-export.md) 
+* [Arbetsflöde för offlinesäkerhetskopior för DPM och Azure Backup Server](backup-azure-backup-server-import-export-.md)

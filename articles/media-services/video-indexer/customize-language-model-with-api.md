@@ -1,7 +1,7 @@
 ---
-title: 'Använd Video Indexer-API: er för att anpassa språk modeller – Azure'
+title: Anpassa en språkmodell med API för videoindexerare
 titlesuffix: Azure Media Services
-description: 'Den här artikeln visar hur du anpassar en språk modell med Video Indexer API: er.'
+description: Läs om hur du anpassar en språkmodell med API:et för videoindexerare.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,36 +10,36 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: anzaman
-ms.openlocfilehash: 01ea4d9ef943183f09baa86b729ec69344d4309e
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 19067bbbaf93c9abc9a9220b09dd482ce9115655
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049036"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80127987"
 ---
-# <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassa en språk modell med Video Indexer API: er
+# <a name="customize-a-language-model-with-the-video-indexer-api"></a>Anpassa en språkmodell med API:et för videoindexerare
 
-Med Video Indexer kan du skapa anpassade språk modeller för att anpassa tal igenkänning genom att överföra anpassnings text, nämligen text från den domän vars vokabulär du vill att motorn ska anpassa sig till. När du tränar din modell kommer nya ord som visas i anpassnings texten att identifieras. 
+Med Video Indexer kan du skapa anpassade språkmodeller för att anpassa taligenkänning genom att ladda upp anpassningstext, nämligen text från den domän vars ordförråd du vill att motorn ska anpassa sig till. När du tränar din modell kommer nya ord som visas i anpassningstexten att kännas igen.
 
-En detaljerad översikt och bästa praxis för anpassade språk modeller finns i [Anpassa en språk modell med video Indexer](customize-language-model-overview.md).
+En detaljerad översikt och metodtips för anpassade språkmodeller finns i [Anpassa en språkmodell med Video Indexer](customize-language-model-overview.md).
 
-Du kan använda Video Indexer API: er för att skapa och redigera anpassade språk modeller i ditt konto, enligt beskrivningen i det här avsnittet. Du kan också använda webbplatsen, enligt beskrivningen i [Anpassa språk modell med hjälp av video Indexer webbplats](customize-language-model-with-api.md).
+Du kan använda API:erna för videoindexerare för att skapa och redigera anpassade språkmodeller i ditt konto, enligt beskrivningen i det här avsnittet. Du kan också använda webbplatsen enligt beskrivningen i [Anpassa språkmodellen med hjälp av videoindexerarens webbplats](customize-language-model-with-api.md).
 
-## <a name="create-a-language-model"></a>Skapa en språk modell
+## <a name="create-a-language-model"></a>Skapa en språkmodell
 
-Med [skapa ett språk modells](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) -API skapar du en ny anpassad språk modell i det angivna kontot. Du kan ladda upp filer för språk modellen i det här anropet. Du kan också skapa språk modellen här och ladda upp filer för modellen senare genom att uppdatera språk modellen.
+[Skapa ett språkmodell-API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) skapar en ny anpassad språkmodell i det angivna kontot. Du kan ladda upp filer för språkmodellen i det här samtalet. Du kan också skapa språkmodellen här och ladda upp filer för modellen senare genom att uppdatera språkmodellen.
 
 > [!NOTE]
-> Du måste fortfarande träna modellen med de aktiverade filerna för modellen för att lära dig innehållet i dess filer. Anvisningar för utbildning ett språk finns i nästa avsnitt.
+> Du måste fortfarande träna modellen med dess aktiverade filer för att modellen ska lära sig innehållet i dess filer. Anvisningar om utbildning ett språk finns i nästa avsnitt.
 
-Om du vill ladda upp filer som ska läggas till i språk modellen måste du ladda upp filer i texten med hjälp av formulär data förutom att ange värden för de obligatoriska parametrarna ovan. Det finns två sätt att göra detta: 
+Om du vill ladda upp filer som ska läggas till i språkmodellen måste du ladda upp filer i brödtexten med FormData förutom att ange värden för de parametrar som krävs ovan. Det finns två sätt att utföra den här uppgiften:
 
-1. Nyckeln är fil namnet och värdet är txt-filen
-2. Nyckeln är fil namnet och värdet är en URL till txt-filen
+* Nyckeln kommer att vara filnamnet och värdet kommer att txt filen.
+* Nyckeln kommer att vara filnamnet och värdet kommer att vara en URL till txt fil.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata för den nyligen skapade språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på JSON-utdata.
+Svaret innehåller metadata på den nyskapade språkmodellen tillsammans med metadata på var och en av modellens filer enligt formatet för det här exemplet JSON-utdata:
 
 ```json
 {
@@ -68,16 +68,16 @@ Svaret innehåller metadata för den nyligen skapade språk modellen tillsammans
 
 ```
 
-## <a name="train-a-language-model"></a>Träna en språk modell
+## <a name="train-a-language-model"></a>Träna en språkmodell
 
-[Träna en språk modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) API tågen en anpassad språk modell i det angivna kontot med innehållet i de filer som överförts till och Aktiver ATS i språk modellen. 
+[Tåget en språkmodell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) API tränar en anpassad språkmodell i det angivna kontot med innehållet i filerna som laddades upp till och aktiveras i språkmodellen.
 
 > [!NOTE]
-> Du måste först skapa språk modellen och överföra dess filer. Du kan ladda upp filer antingen när du skapar språk modellen eller genom att uppdatera språk modellen. 
+> Du måste först skapa språkmodellen och ladda upp dess filer. Du kan ladda upp filer när du skapar språkmodellen eller genom att uppdatera språkmodellen.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata för den nytränade språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på JSON-utdata.
+Svaret innehåller metadata på den nyligen utbildade språkmodellen tillsammans med metadata på var och en av modellens filer enligt formatet för det här exemplet JSON-utdata:
 
 ```json
 {
@@ -105,32 +105,31 @@ Svaret innehåller metadata för den nytränade språk modellen tillsammans med 
 }
 ```
 
-Det returnerade **ID** : t är ett unikt ID som används för att skilja mellan språk modeller, medan **languageModelId** används både för att [Ladda upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) och [Indexera om ett video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) -api: er (kallas även **LinguisticModelId** i video Indexer upload/re-index-API: er).
+Den `id` returnerade är ett unikt ID som `languageModelId` `linguisticModelId` används för att skilja mellan språkmodeller, medan används både för att ladda upp en video för att [indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) och [indexera om en video-API:er](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) (kallas även i Video Indexer upload/reindex API:er).
 
-## <a name="delete-a-language-model"></a>Ta bort en språk modell
+## <a name="delete-a-language-model"></a>Ta bort en språkmodell
 
-[Ta bort ett språk modells](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) -API tar bort en anpassad språk modell från det angivna kontot. Alla videoklipp som använder den borttagna språk modellen behåller samma index tills du Omindexerar videon igen. Om du indexerar om videon kan du tilldela en ny språk modell till videon. Annars kommer Video Indexer använda sin standard modell för att indexera om videon.
+[Ta bort ett språkmodell-API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) tar bort en anpassad språkmodell från det angivna kontot. Alla videoklipp som använde den borttagna språkmodellen behåller samma index tills du indexerar om videon. Om du indexerar om videon kan du tilldela videon en ny språkmodell. Annars använder Video Indexer sin standardmodell för att indexera om videon.
 
 ### <a name="response"></a>Svar
 
-Det finns inget returnerat innehåll när språk modellen har tagits bort.
+Det finns inget returnerat innehåll när språkmodellen tas bort.
 
-## <a name="update-a-language-model"></a>Uppdatera en språk modell
+## <a name="update-a-language-model"></a>Uppdatera en språkmodell
 
-[Uppdateringen av ett språk modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) -API uppdaterar en anpassad språk modell i det angivna kontot.
+[Uppdateringen av ett språkmodell-API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) uppdaterar en anpassad språkpersonmodell i det angivna kontot.
 
 > [!NOTE]
-> Du måste redan ha skapat språk modellen. Du kan använda det här anropet för att aktivera eller inaktivera alla filer under modellen, uppdatera namnet på språk modellen och ladda upp filer som ska läggas till i språk modellen.
+> Du måste redan ha skapat språkmodellen. Du kan använda det här anropet för att aktivera eller inaktivera alla filer under modellen, uppdatera namnet på språkmodellen och ladda upp filer som ska läggas till i språkmodellen.
 
-Om du vill ladda upp filer som ska läggas till i språk modellen måste du ladda upp filer i texten med hjälp av formulär data förutom att ange värden för de obligatoriska parametrarna ovan. Det finns två sätt att göra detta: 
+Om du vill ladda upp filer som ska läggas till i språkmodellen måste du ladda upp filer i brödtexten med FormData förutom att ange värden för de parametrar som krävs ovan. Det finns två sätt att utföra den här uppgiften:
 
-1. Nyckeln är fil namnet och värdet är txt-filen
-2. Nyckeln är fil namnet och värdet är en URL till txt-filen
-
+* Nyckeln kommer att vara filnamnet och värdet kommer att txt filen.
+* Nyckeln kommer att vara filnamnet och värdet kommer att vara en URL till txt fil.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata för den nytränade språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på JSON-utdata.
+Svaret innehåller metadata på den nyligen utbildade språkmodellen tillsammans med metadata på var och en av modellens filer enligt formatet för det här exemplet JSON-utdata:
 
 ```json
 {
@@ -158,15 +157,15 @@ Svaret innehåller metadata för den nytränade språk modellen tillsammans med 
 }
 ```
 
-Använd **ID: t** för de filer som returneras i svaret för att ladda ned innehållet i filen.
+Använd `id` filerna som returneras i svaret för att hämta innehållet i filen.
 
-## <a name="update-a-file-from-a-language-model"></a>Uppdatera en fil från en språk modell
+## <a name="update-a-file-from-a-language-model"></a>Uppdatera en fil från en språkmodell
 
-Med [Uppdatera en fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) kan du uppdatera namnet och **aktiverings** statusen för en fil i en anpassad språk modell i det angivna kontot.
+Med uppdateringen av [en fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) kan `enable` du uppdatera namnet och tillståndet för en fil i en anpassad språkmodell i det angivna kontot.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata för den fil som du uppdaterade efter formatet på exemplet JSON-utdata nedan.
+Svaret innehåller metadata för filen som du uppdaterade efter formatet för exemplet JSON ut nedan.
 
 ```json
 {
@@ -177,15 +176,16 @@ Svaret innehåller metadata för den fil som du uppdaterade efter formatet på e
   "creationTime": "2018-04-27T20:10:10.5233333"
 }
 ```
-Använd **ID** för filen som returnerades i svaret för att ladda ned innehållet i filen.
 
-## <a name="get-a-specific-language-model"></a>Hämta en specifik språk modell
+Använd `id` filens som returneras i svaret för att hämta innehållet i filen.
 
-[Get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) -API: et returnerar information om den angivna språk modellen i det angivna kontot, till exempel språk och de filer som finns i språk modellen. 
+## <a name="get-a-specific-language-model"></a>Skaffa en specifik språkmodell
+
+Hämta [get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) API returnerar information om den angivna språkmodellen i det angivna kontot, till exempel språk och de filer som finns i språkmodellen.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata på den angivna språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på JSON-utdata nedan.
+Svaret innehåller metadata på den angivna språkmodellen tillsammans med metadata på var och en av modellens filer enligt formatet för det här exemplet JSON-utdata:
 
 ```json
 {
@@ -213,15 +213,15 @@ Svaret innehåller metadata på den angivna språk modellen tillsammans med meta
 }
 ```
 
-Använd **ID** för filen som returnerades i svaret för att ladda ned innehållet i filen.
+Använd `id` filens som returneras i svaret för att hämta innehållet i filen.
 
-## <a name="get-all-the-language-models"></a>Hämta alla språk modeller
+## <a name="get-all-the-language-models"></a>Hämta alla språkmodeller
 
-[Hämta alla](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) API: er returnerar alla anpassade språk modeller i det angivna kontot i en lista.
+Hämta [alla](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) API returnerar alla anpassade språkmodeller i det angivna kontot i en lista.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller en lista över alla språk modeller i ditt konto och var och en av deras metadata och filer efter formatet på exemplet JSON-utdata nedan.
+Svaret innehåller en lista över alla språkmodeller i ditt konto och var och en av deras metadata och filer enligt formatet för det här exemplet JSON-utdata:
 
 ```json
 [
@@ -259,21 +259,21 @@ Svaret innehåller en lista över alla språk modeller i ditt konto och var och 
 ]
 ```
 
-## <a name="delete-a-file-from-a-language-model"></a>Ta bort en fil från en språk modell
+## <a name="delete-a-file-from-a-language-model"></a>Ta bort en fil från en språkmodell
 
-[Borttagnings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) -API: n tar bort den angivna filen från den angivna språk modellen i det angivna kontot. 
-
-### <a name="response"></a>Svar
-
-Det finns inget returnerat innehåll när filen tas bort från språk modellen.
-
-## <a name="get-metadata-on-a-file-from-a-language-model"></a>Hämta metadata för en fil från en språk modell
-
-[Hämta metadata för ett fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) -API returnerar innehållet i och metadata för den angivna filen från den valda språk modellen i ditt konto.
+Borttagnings-API:et tar bort den angivna filen från den angivna språkmodellen i det angivna kontot. [delete](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete)
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller innehåll och metadata för filen i JSON-format, ungefär så här:
+Det finns inget returnerat innehåll när filen tas bort från språkmodellen.
+
+## <a name="get-metadata-on-a-file-from-a-language-model"></a>Hämta metadata på en fil från en språkmodell
+
+Hämta [metadata för ett fil-API](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) returnerar innehållet i och metadata på den angivna filen från den valda språkmodellen i ditt konto.
+
+### <a name="response"></a>Svar
+
+Svaret innehåller innehållet och metadata för filen i JSON-format, liknande det här exemplet:
 
 ```json
 {
@@ -287,16 +287,16 @@ Svaret innehåller innehåll och metadata för filen i JSON-format, ungefär så
 ```
 
 > [!NOTE]
-> Innehållet i den här exempel filen är orden "Hello" och "World" i två separata rader.
+> Innehållet i den här exempelfilen är orden "hej" och värld i två separata rader.
 
-## <a name="download-a-file-from-a-language-model"></a>Ladda ned en fil från en språk modell
+## <a name="download-a-file-from-a-language-model"></a>Ladda ned en fil från en språkmodell
 
-[Hämtningen av ett fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) -API laddar ned en textfil som innehåller innehållet i den angivna filen från den angivna språk modellen i det angivna kontot. Text filen måste matcha innehållet i text filen som ursprungligen överfördes.
+[Hämtningen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) av ett fil-API hämtar en textfil som innehåller innehållet i den angivna filen från den angivna språkmodellen i det angivna kontot. Den här textfilen ska matcha innehållet i textfilen som ursprungligen laddades upp.
 
 ### <a name="response"></a>Svar
 
-Svaret kommer att hämtas till en textfil med innehållet i filen i JSON-format. 
+Svaret kommer att vara nedladdningen av en textfil med innehållet i filen i JSON-format.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa språk modellen med hjälp av webbplats](customize-language-model-with-website.md)
+[Anpassa språkmodell med hjälp av webbplats](customize-language-model-with-website.md)

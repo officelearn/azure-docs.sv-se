@@ -1,6 +1,6 @@
 ---
 title: Feltolerans för kopieringsaktivitet i Azure Data Factory
-description: Lär dig mer om hur du lägger till fel tolerans för att kopiera aktiviteter i Azure Data Factory genom att hoppa över de inkompatibla raderna.
+description: Lär dig mer om hur du lägger till feltolerans för att kopiera aktivitet i Azure Data Factory genom att hoppa över de inkompatibla raderna.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
 ms.openlocfilehash: 42c637839172dab09a8721a93a67785a748afd2f
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75708910"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Feltolerans för kopieringsaktivitet i Azure Data Factory
@@ -23,33 +23,33 @@ ms.locfileid: "75708910"
 > * [Version 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Aktuell version](copy-activity-fault-tolerance.md)
 
-Kopierings aktiviteten i Azure Data Factory ger dig två sätt att hantera inkompatibla rader när du kopierar data mellan käll-och mottagar data lager:
+Kopieringsaktiviteten i Azure Data Factory erbjuder två sätt att hantera inkompatibla rader när du kopierar data mellan käll- och sink-datalager:
 
-- Du kan avbryta och avbryta kopierings aktiviteten när inkompatibla data påträffas (standard beteende).
-- Du kan fortsätta att kopiera alla data genom att lägga till fel tolerans och hoppa över inkompatibla data rader. Dessutom kan du logga de inkompatibla raderna i Azure Blob Storage eller Azure Data Lake Store. Du kan sedan granska loggen för att lära dig orsaken till felet, korrigera data på data källan och försöka kopiera aktiviteten igen.
+- Du kan avbryta och misslyckas med kopieringsaktiviteten när inkompatibla data påträffas (standardbeteende).
+- Du kan fortsätta att kopiera alla data genom att lägga till feltolerans och hoppa över inkompatibla datarader. Dessutom kan du logga de inkompatibla raderna i Azure Blob storage eller Azure Data Lake Store. Du kan sedan undersöka loggen för att lära dig orsaken till felet, åtgärda data på datakällan och försöka kopiera aktiviteten igen.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
-Kopierings aktiviteten stöder tre scenarier för att identifiera, hoppa över och logga inkompatibla data:
+Kopieringsaktivitet stöder tre scenarier för identifiering, hoppa över och logga inkompatibla data:
 
-- **Inkompatibilitet mellan käll data typ och inbyggd typ av mottagare**. 
+- **Inkompatibilitet mellan källdatatypen och den inbyggda sink-typen**. 
 
-    Exempel: kopiera data från en CSV-fil i Blob Storage till en SQL-databas med en schema definition som innehåller tre kolumner av typen INT. CSV-filrader som innehåller numeriska data, till exempel 123 456 789, kopieras till mottagar lagret. Men raderna som innehåller icke-numeriska värden, till exempel 123 456, ABC identifieras som inkompatibla och hoppas över.
+    Kopiera data från en CSV-fil i Blob-lagring till en SQL-databas med en schemadefinition som innehåller tre INT-typkolumner. Csv-filraderna som innehåller numeriska data, till exempel 123 456 789 kopieras framgångsrikt till sink-arkivet. Raderna som innehåller icke-numeriska värden, till exempel 123 456, abc identifieras dock som inkompatibla och hoppas över.
 
-- **Antalet kolumner mellan källan och sinken matchar inte**.
+- **Matchar inte antalet kolumner mellan källan och diskhon**.
 
-    Exempel: kopiera data från en CSV-fil i Blob Storage till en SQL-databas med en schema definition som innehåller sex kolumner. CSV-filrader som innehåller sex kolumner kopieras till mottagar lagret. CSV-filrader som innehåller fler än sex kolumner identifieras som inkompatibla och hoppas över.
+    Kopiera data från en CSV-fil i Blob-lagring till en SQL-databas med en schemadefinition som innehåller sex kolumner. Csv-filraderna som innehåller sex kolumner kopieras framgångsrikt till sink-arkivet. Csv-filraderna som innehåller fler än sex kolumner identifieras som inkompatibla och hoppas över.
 
-- **Fel vid primär nyckel vid skrivning till SQL Server/Azure SQL Database/Azure Cosmos DB**.
+- **Fel vid primärnyckel när du skriver till SQL Server/Azure SQL Database/Azure Cosmos DB**.
 
-    Exempel: kopiera data från en SQL-Server till en SQL-databas. En primär nyckel definieras i Sink-SQL-databasen, men ingen sådan primär nyckel definieras i SQL Server-källan. Det går inte att kopiera de duplicerade raderna som finns i källan till mottagaren. Kopierings aktiviteten kopierar bara den första raden i data källan till mottagaren. Efterföljande käll rader som innehåller värdet för duplicerad primär nyckel identifieras som inkompatibla och hoppas över.
+    Kopiera data från en SQL-server till en SQL-databas. En primärnyckel definieras i sink SQL-databasen, men ingen sådan primärnyckel definieras i källan SQL-servern. De duplicerade rader som finns i källan kan inte kopieras till diskhon. Kopiera aktivitet kopierar bara den första raden i källdata till diskhon. De efterföljande källraderna som innehåller det duplicerade primärnyckelvärdet identifieras som inkompatibla och hoppas över.
 
 >[!NOTE]
->- För att läsa in data i SQL Data Warehouse med PolyBase konfigurerar du polybases inställningar för ursprunglig fel tolerans genom att ange principer för avvisande av "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" i kopierings aktiviteten. Du kan fortfarande aktivera omdirigering av PolyBase-inkompatibla rader till BLOB eller ADLS som normalt som visas nedan.
->- Den här funktionen gäller inte när kopierings aktiviteten har kon figurer ATS för att anropa [Amazon RedShift-inläsning](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
->- Den här funktionen gäller inte när kopierings aktiviteten har kon figurer ATS för att anropa en [lagrad procedur från en SQL-mottagare](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
+>- För inläsning av data i SQL Data Warehouse med PolyBase konfigurerar du PolyBases inbyggda inställningar för feltolerans genom att ange avvisningsprinciper via "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" i kopieringsaktivitet. Du kan fortfarande aktivera omdirigering av PolyBase inkompatibla rader till Blob eller ADLS som vanligt enligt nedan.
+>- Den här funktionen gäller inte när kopieringsaktiviteten är konfigurerad för att anropa [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
+>- Den här funktionen gäller inte när kopieringsaktivitet är konfigurerad för att anropa en [lagrad procedur från en SQL-diskho](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
 
 ## <a name="configuration"></a>Konfiguration
-I följande exempel visas en JSON-definition som hoppar över inkompatibla rader i kopierings aktiviteten:
+I följande exempel finns en JSON-definition för att konfigurera hoppa över de inkompatibla raderna i Kopieringsaktivitet:
 
 ```json
 "typeProperties": {
@@ -72,13 +72,13 @@ I följande exempel visas en JSON-definition som hoppar över inkompatibla rader
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | -------- 
-enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas över vid kopiering eller inte. | Sant<br/>Falskt (standard) | Inga
+enableSkipIncompatibleRow | Anger om inkompatibla rader ska hoppas under kopian eller inte. | True<br/>False (standard) | Inga
 redirectIncompatibleRowSettings | En grupp egenskaper som kan anges när du vill logga de inkompatibla raderna. | &nbsp; | Inga
-linkedServiceName | Den länkade tjänsten [Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller [Azure Data Lake Store](connector-azure-data-lake-store.md#linked-service-properties) för att lagra loggen som innehåller de överhoppade raderna. | Namnet på en länkad `AzureStorage`-eller `AzureDataLakeStore` typ som refererar till den instans som du vill använda för att lagra logg filen. | Inga
-Sökväg | Sökvägen till logg filen som innehåller de överhoppade raderna. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga
+linkedServiceName | Den länkade tjänsten [för Azure Storage](connector-azure-blob-storage.md#linked-service-properties) eller Azure Data Lake [Store](connector-azure-data-lake-store.md#linked-service-properties) för att lagra loggen som innehåller de överhoppade raderna. | Namnet på `AzureStorage` en `AzureDataLakeStore` eller typlänkd tjänst, som refererar till den instans som du vill använda för att lagra loggfilen. | Inga
+path | Sökvägen till loggfilen som innehåller de överhoppade raderna. | Ange den sökväg som du vill använda för att logga inkompatibla data. Om du inte anger en sökväg skapar tjänsten en behållare åt dig. | Inga
 
 ## <a name="monitor-skipped-rows"></a>Övervaka överhoppade rader
-När körningen av kopierings aktiviteten är klar kan du se antalet rader som hoppades över i resultatet av kopierings aktiviteten:
+När kopieringsaktiviteten har körts är klar kan du se antalet överhoppade rader i utdata från kopieringsaktiviteten:
 
 ```json
 "output": {
@@ -93,11 +93,11 @@ När körningen av kopierings aktiviteten är klar kan du se antalet rader som h
         },
 
 ```
-Om du konfigurerar för att logga inkompatibla rader kan du hitta logg filen på den här sökvägen: `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`. 
+Om du konfigurerar för att logga de inkompatibla raderna `https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`hittar du loggfilen på den här sökvägen: . 
 
-Loggfilerna kan bara vara CSV-filerna. De ursprungliga data som hoppas över kommer att loggas med kommatecken som kolumn avgränsare om det behövs. Vi lägger till två fler kolumner "ErrorCode" och "ErrorMessage" i ytterligare till de ursprungliga källdata i logg filen, där du kan se den bakomliggande orsaken till inkompatibiliteten. ErrorCode och ErrorMessage anges med dubbla citat tecken. 
+Loggfilerna kan bara vara csv-filerna. De ursprungliga data som hoppas över loggas med kommatecken som kolumn avgränsare om det behövs. Vi lägger till ytterligare två kolumner "ErrorCode" och "ErrorMessage" i tillägg till den ursprungliga källdata i loggfilen, där du kan se orsaken till inkompatibiliteten. ErrorCode och ErrorMessage kommer att citeras med dubbla citattecken. 
 
-Ett exempel på logg filens innehåll är följande:
+Ett exempel på loggfilsinnehållet är följande:
 
 ```
 data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'."
@@ -105,9 +105,9 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Se de andra artiklarna i Kopieringsaktiviteten:
+Se de andra artiklarna för kopieringsaktivitet:
 
-- [Översikt över Kopieringsaktivitet](copy-activity-overview.md)
-- [Kopiera aktivitets prestanda](copy-activity-performance.md)
+- [Kopiera aktivitetsöversikt](copy-activity-overview.md)
+- [Kopiera aktivitetsprestanda](copy-activity-performance.md)
 
 

@@ -9,13 +9,13 @@ ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
 ms.openlocfilehash: badba278e88e5065d8a4ff57ca9506fe1f9ad203
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75774203"
 ---
-1. Visa anslutningar för den valda direkt peeringen.
+1. Visa anslutningar på den valda direkt peering.
     ```powershell
     $directPeering.Connections
 
@@ -31,7 +31,7 @@ ms.locfileid: "75774203"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Välj den anslutning som du vill aktivera för peering-tjänsten. I det här exemplet kommer vi att använda den enda tillgängliga anslutningen.
+1. Välj den anslutning som du vill aktivera för peering-tjänst. I det här exemplet använder vi den enda tillgängliga anslutningen.
     ```powershell
     $directPeering.Connections[1] = $directPeering.Connections[1] | Set-AzPeeringDirectConnectionObject -UseForPeeringService $true
 
@@ -47,12 +47,12 @@ ms.locfileid: "75774203"
     SessionStateV6              : None
     ConnectionState             : Active
     ```
-1. Spara nu ändringarna som gjorts i kommandot direkt peering med kommandot nedan.
+1. Spara nu ändringarna i kommandot Direct peering med kommandot nedan.
     ```powershell
     $directPeering | Update-AzPeering
     ```
     
-    Nedan visas ett exempel på utdata:
+    Nedan följer ett exempel på utdata:
     
     ```powershell
         Name                 : SeattleDirectPeering

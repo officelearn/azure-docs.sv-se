@@ -1,6 +1,6 @@
 ---
-title: Förstå och lösa WebHCat-fel i HDInsight – Azure
-description: Lär dig mer om vanliga fel som returneras av WebHCat i HDInsight och hur du löser dem.
+title: Förstå och lösa WebHCat-fel på HDInsight - Azure
+description: Läs om vanliga fel som returneras av WebHCat på HDInsight och hur du löser dem.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,71 +9,71 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/01/2020
 ms.openlocfilehash: 011ef4f192bbae12be7d2464d5b0526f584821a6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638858"
 ---
-# <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och lösa fel som tagits emot från WebHCat i HDInsight
+# <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Förstå och lösa fel som tas emot från WebHCat på HDInsight
 
-Läs mer om felmeddelanden när du använder WebHCat med HDInsight och hur du löser dem. WebHCat används internt av verktyg på klient sidan, till exempel Azure PowerShell och Data Lake verktyg för Visual Studio.
+Lär dig mer om fel som tas emot när du använder WebHCat med HDInsight och hur du löser dem. WebHCat används internt av klientverktyg som Azure PowerShell och Data Lake Tools för Visual Studio.
 
 ## <a name="what-is-webhcat"></a>Vad är WebHCat
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) är en REST API för [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), ett tabell-och lagrings hanterings lager för Apache Hadoop. WebHCat är aktiverat som standard i HDInsight-kluster och används av olika verktyg för att skicka jobb, Hämta jobb status och så vidare, utan att logga in på klustret.
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) är ett REST API för [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), en tabell och lagringshanteringslager för Apache Hadoop. WebHCat är aktiverat som standard i HDInsight-kluster och används av olika verktyg för att skicka jobb, få jobbstatus och så vidare, utan att logga in på klustret.
 
-## <a name="modifying-configuration"></a>Ändrar konfiguration
+## <a name="modifying-configuration"></a>Ändra konfiguration
 
-Flera av de fel som anges i det här dokumentet inträffar eftersom ett konfigurerat maximum har överskridits. När lösnings steget nämner att du kan ändra ett värde, använder du Apache Ambari (webb eller REST API) för att ändra värdet. Mer information finns i [Hantera HDInsight med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
+Flera av felen i det här dokumentet uppstår eftersom ett konfigurerat maximum har överskridits. När upplösningssteget nämner att du kan ändra ett värde använder du Apache Ambari (webb- eller REST API) för att ändra värdet. Mer information finns i [Hantera HDInsight med Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
-### <a name="default-configuration"></a>Standard konfiguration
+### <a name="default-configuration"></a>Standardkonfiguration
 
-Om följande standardvärden överskrids kan det försämra WebHCat prestanda eller orsaka fel:
+Om följande standardvärden överskrids kan det försämra WebHCat-prestanda eller orsaka fel:
 
-| Inställning | Vad verktyget gör | Standardvärde |
+| Inställning | Vad läget gör | Standardvärde |
 | --- | --- | --- |
-| [garn. Scheduler. Capacity. maximum-Applications][maximum-applications] |Maximalt antal jobb som kan vara aktiva samtidigt (väntar eller körs) |10 000 |
-| [Templeton. exec. Max-procs][max-procs] |Maximalt antal begär Anden som kan betjänas samtidigt |20 |
-| [MapReduce. jobhistory. Max-Age-MS][max-age-ms] |Antalet dagar som jobb historiken bevaras |7 dagar |
+| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Det maximala antalet jobb som kan vara aktiva samtidigt (väntande eller körs) |10 000 |
+| [templeton.exec.max-procs][max-procs] |Det maximala antalet begäranden som kan delges samtidigt |20 |
+| [mapreduce.jobhistory.max-age-ms][max-age-ms] |Antalet dagar som jobbhistoriken behålls |7 dagar |
 
-## <a name="too-many-requests"></a>För många begär Anden
+## <a name="too-many-requests"></a>För många förfrågningar
 
-**Http-status kod**: 429
+**HTTP-statuskod**: 429
 
-| Orsak | Upplösning |
+| Orsak | Lösning |
 | --- | --- |
-| Du har överskridit maximalt antal samtidiga begär Anden som hanteras av WebHCat per minut (standard 20) |Minska din arbets belastning för att säkerställa att du inte skickar fler än det högsta antalet samtidiga förfrågningar eller öka gränsen för samtidiga förfrågningar genom att ändra `templeton.exec.max-procs`. Mer information finns i [ändra konfiguration](#modifying-configuration) |
+| Du har överskridit de maximala samtidiga begäranden som betjänas av WebHCat per minut (standard 20) |Minska arbetsbelastningen för att säkerställa att du inte skickar in mer än det maximala antalet samtidiga `templeton.exec.max-procs`begäranden eller ökar gränsen för samtidig begäran genom att ändra . Mer information finns i [Ändra konfiguration](#modifying-configuration) |
 
 ## <a name="server-unavailable"></a>Servern är inte tillgänglig
 
-**Http-status kod**: 503
+**HTTP-statuskod**: 503
 
-| Orsak | Upplösning |
+| Orsak | Lösning |
 | --- | --- |
-| Denna status kod inträffar vanligt vis vid redundansväxling mellan den primära och sekundära huvudnoden för klustret |Vänta två minuter och försök sedan igen |
+| Den här statuskoden inträffar vanligtvis under redundans mellan den primära och sekundära HeadNode för klustret |Vänta två minuter och försök sedan igen |
 
-## <a name="bad-request-content-could-not-find-job"></a>Felaktigt innehåll i begäran: det gick inte att hitta jobbet
+## <a name="bad-request-content-could-not-find-job"></a>Fel begärandeinnehåll: Det gick inte att hitta jobb
 
-**Http-status kod**: 400
+**HTTP-statuskod**: 400
 
-| Orsak | Upplösning |
+| Orsak | Lösning |
 | --- | --- |
-| Jobb information har rensats av jobb historiken |Standard kvarhållningsperioden för jobb historik är 7 dagar. Du kan ändra standard kvarhållningsperiod genom att ändra `mapreduce.jobhistory.max-age-ms`. Mer information finns i [ändra konfiguration](#modifying-configuration) |
-| Jobbet har stoppats på grund av en redundansväxling |Försök att skicka jobb på upp till två minuter |
-| Ett ogiltigt jobb-ID användes |Kontrol lera om jobb-ID: t är korrekt |
+| Jobbdetaljer har städats upp av jobbhistorikrengöringsaren |Standardkvarhållningsperioden för jobbhistorik är 7 dagar. Standardkvarhållningsperioden kan ändras `mapreduce.jobhistory.max-age-ms`genom att ändra . Mer information finns i [Ändra konfiguration](#modifying-configuration) |
+| Jobbet har dödats på grund av en redundans |Försök med jobbering igen i upp till två minuter |
+| Ett ogiltigt jobb-ID användes |Kontrollera om jobb-ID:et är korrekt |
 
 ## <a name="bad-gateway"></a>Felaktig gateway
 
-**Http-status kod**: 502
+**HTTP-statuskod**: 502
 
-| Orsak | Upplösning |
+| Orsak | Lösning |
 | --- | --- |
-| Intern skräp insamling sker inom WebHCat-processen |Vänta tills skräp insamling har slutförts eller starta om WebHCat-tjänsten |
-| Tids gränsen nåddes i väntan på ett svar från ResourceManager-tjänsten. Det här felet kan inträffa när antalet aktiva program är konfigurerat maximum (standard 10 000) |Vänta tills pågående jobb har slutförts eller öka gränsen för antalet samtidiga jobb genom att ändra `yarn.scheduler.capacity.maximum-applications`. Mer information finns i avsnittet [ändra konfiguration](#modifying-configuration) . |
-| Försöker hämta alla jobb via [Get/Jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) -anropet medan `Fields` är inställt på `*` |Hämta inte *all* jobb information. Använd i stället `jobid` för att hämta information om jobb som bara är större än ett visst jobb-ID. Eller Använd inte `Fields` |
-| WebHCat-tjänsten är avstängd vid huvudnoden-redundans |Vänta i två minuter och försök igen |
-| Det finns fler än 500 väntande jobb som skickas via WebHCat |Vänta tills pågående jobb har slutförts innan du skickar fler jobb |
+| Intern skräpinsamling sker i WebHCat-processen |Vänta tills skräpinsamlingen är klar eller starta om WebHCat-tjänsten |
+| Time out väntar på ett svar från ResourceManager-tjänsten. Det här felet kan uppstå när antalet aktiva program går till det konfigurerade maxvärdet (standard 10 000) |Vänta tills jobb körs för att slutföra eller öka `yarn.scheduler.capacity.maximum-applications`den samtidiga jobbgränsen genom att ändra . Mer information finns i avsnittet [Ändra konfiguration.](#modifying-configuration) |
+| Försöker hämta alla jobb via GET `Fields` [/jobs-anropet](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) medan den är inställd på`*` |Hämta inte *alla* jobbuppgifter. Använd `jobid` i stället för att hämta information för jobb som bara är större än vissa jobb-ID. Eller använd inte`Fields` |
+| WebHCat-tjänsten är nere under HeadNode-redundans |Vänta i två minuter och försök igen |
+| Det finns mer än 500 väntande jobb som skickas via WebHCat |Vänta tills för närvarande väntande jobb har slutförts innan fler jobb skickas |
 
 [maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration

@@ -1,52 +1,52 @@
 ---
-title: Flytta Azures nätverks säkerhets grupp (NSG) till en annan Azure-region med hjälp av Azure Portal
-description: Använd Azure Resource Manager mall för att flytta Azures nätverks säkerhets grupp från en Azure-region till en annan med hjälp av Azure Portal.
+title: Flytta Azure Network Security Group (NSG) till en annan Azure-region med Azure-portalen
+description: Använd Azure Resource Manager-mallen för att flytta Azure-nätverkssäkerhetsgrupp från en Azure-region till en annan med hjälp av Azure-portalen.
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: allensu
 ms.openlocfilehash: dce267178c3caf813ccdcac4bba86ccfde3f3421
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75647194"
 ---
-# <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Flytta Azures nätverks säkerhets grupp (NSG) till en annan region med hjälp av Azure Portal
+# <a name="move-azure-network-security-group-nsg-to-another-region-using-the-azure-portal"></a>Flytta Azure Network Security Group (NSG) till en annan region med Hjälp av Azure-portalen
 
-Det finns olika scenarier där du vill flytta befintliga NSG: er från en region till en annan. Du kanske till exempel vill skapa en NSG med samma konfigurations-och säkerhets regler för testning. Du kanske också vill flytta en NSG till en annan region som en del av Disaster Recovery-planeringen.
+Det finns olika scenarier där du vill flytta dina befintliga NSG:er från en region till en annan. Du kanske till exempel vill skapa en NSG med samma konfigurations- och säkerhetsregler för testning. Du kanske också vill flytta en NSG till en annan region som en del av katastrofåterställningsplanering.
 
-Det går inte att flytta Azures säkerhets grupper från en region till en annan. Du kan dock använda en Azure Resource Manager mall för att exportera befintliga konfigurations-och säkerhets regler för en NSG.  Du kan sedan mellanlagra resursen i en annan region genom att exportera NSG till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen.  Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Azure-säkerhetsgrupper kan inte flyttas från en region till en annan. Du kan dock använda en Azure Resource Manager-mall för att exportera de befintliga konfigurations- och säkerhetsreglerna för en NSG.  Du kan sedan iscensätta resursen i en annan region genom att exportera NSG till en mall, ändra parametrarna för att matcha målregionen och sedan distribuera mallen till den nya regionen.  Mer information om Resurshanteraren och mallar finns i [Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
 
 ## <a name="prerequisites"></a>Krav
 
-- Kontrol lera att Azure-nätverks säkerhets gruppen finns i den Azure-region som du vill flytta.
+- Kontrollera att säkerhetsgruppen för Azure-nätverk finns i Azure-regionen som du vill flytta från.
 
-- Det går inte att flytta Azures nätverks säkerhets grupper mellan regioner.  Du måste associera den nya NSG till resurser i mål regionen.
+- Azure-nätverkssäkerhetsgrupper kan inte flyttas mellan regioner.  Du måste associera den nya NSG till resurser i målregionen.
 
-- Om du vill exportera en NSG-konfiguration och distribuera en mall för att skapa en NSG i en annan region behöver du rollen som nätverks deltagare eller högre.
+- Om du vill exportera en NSG-konfiguration och distribuera en mall för att skapa en NSG i en annan region behöver du rollen Nätverksbidragsgivare eller högre.
 
-- Identifiera käll nätverks layouten och alla resurser som du använder just nu. Den här layouten omfattar men är inte begränsad till belastningsutjämnare, offentliga IP-adresser och virtuella nätverk.
+- Identifiera källnätverkslayouten och alla resurser som du använder för tillfället. Den här layouten innehåller men är inte begränsad till belastningsutjämnare, offentliga IP-adresser och virtuella nätverk.
 
-- Kontrol lera att din Azure-prenumeration låter dig skapa NSG: er i mål regionen som används. Kontakta supporten och aktivera den kvot som krävs.
+- Kontrollera att din Azure-prenumeration gör att du kan skapa NSG:er i målregionen som används. Kontakta supporten och aktivera den kvot som krävs.
 
-- Kontrol lera att din prenumeration har tillräckligt med resurser för att kunna lägga till NSG: er för den här processen.  Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
+- Kontrollera att din prenumeration har tillräckligt med resurser för att stödja tillägg av NSG:er för den här processen.  Läs mer i [Azure-prenumeration och tjänstbegränsningar, kvoter och krav](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 
-## <a name="prepare-and-move"></a>Förbered och flytta
-Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfigurationen och säkerhets regeln flyttas med hjälp av en Resource Manager-mall och flyttar NSG-konfigurationen och säkerhets reglerna till mål regionen via portalen.
+## <a name="prepare-and-move"></a>Förbereda och flytta
+Följande steg visar hur du förbereder nätverkssäkerhetsgruppen för konfigurations- och säkerhetsregelflytten med hjälp av en Resource Manager-mall och flyttar NSG-konfigurations- och säkerhetsreglerna till målregionen med hjälp av portalen.
 
 
 ### <a name="export-the-template-and-deploy-from-the-portal"></a>Exportera mallen och distribuera från portalen
 
-1. Logga in på [Azure Portal](https://portal.azure.com) > **resurs grupper**.
-2. Leta upp resurs gruppen som innehåller käll-NSG och klicka på den.
-3. Välj > **inställningar** > **Exportera mall**.
-4. Välj **distribuera** på bladet **Exportera mall** .
-5. Klicka på **mall** > **Redigera parametrar** för att öppna filen **Parameters. JSON** i online-redigeraren.
-6. Om du vill redigera parametern för NSG-namnet ändrar du egenskapen **Value** under **parametrar**:
+1. Logga in på [Azure Portal](https://portal.azure.com) > **Resource Groups**.
+2. Leta upp resursgruppen som innehåller käll-NSG och klicka på den.
+3. Välj**mallen** **Exportera inställningar** > > inställningar .
+4. Välj **Distribuera** i **mallbladet Exportera.**
+5. Klicka på > **MALLRedigeringsparametrar** för att öppna **filen parameters.json** i onlineredigeraren. **TEMPLATE**
+6. Om du vill redigera parametern för NSG-namnet ändrar du **egenskapen värde** under **parametrar:**
 
     ```json
             {
@@ -60,13 +60,13 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
             }
     ```
 
-7. Ändra värdet för källans NSG i redigeraren till ett namn som du väljer för mål NSG. Se till att du omger namnet med citat tecken.
+7. Ändra käll-NSG-värdet i redigeraren till ett namn som du väljer för målet NSG. Se till att du bifogar namnet inom citationstecken.
 
 8.  Klicka på **Spara** i redigeraren.
 
-9.  Klicka på **mall** > **Redigera mall** för att öppna filen **Template. JSON** i online-redigeraren.
+9.  Klicka på > **MALLRedigeringsmall för** att öppna **filen template.json** i onlineredigeraren. **TEMPLATE**
 
-10. Om du vill redigera mål regionen där NSG-konfigurationen och säkerhets reglerna ska flyttas ändrar du egenskapen **location** under **resurser** i online-redigeraren:
+10. Om du vill redigera målområdet där NSG-konfigurationen och säkerhetsreglerna ska flyttas ändrar du platsegenskapen under **resurser** i onlineredigeraren: **location**
 
     ```json
             "resources": [
@@ -84,11 +84,11 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
 
     ```
 
-11. Information om hur du hämtar koder för regions platser finns i [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är regions namnet utan blank steg, **Central usa** = **centrala**.
+11. Information om hur du hämtar regionplatskoder finns i [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  Koden för en region är regionnamnet utan blanksteg, **Central US** = **centralus**.
 
-12. Du kan också ändra andra parametrar i mallen om du väljer, och de är valfria beroende på dina krav:
+12. Du kan också ändra andra parametrar i mallen om du vill och är valfria beroende på dina behov:
 
-    * **Säkerhets regler** – du kan redigera vilka regler som distribueras till mål-NSG genom att lägga till eller ta bort regler i **securityRules** -avsnittet i filen **Template. JSON** :
+    * **Säkerhetsregler** - Du kan redigera vilka regler som distribueras till målet NSG genom att lägga till eller ta bort regler i **avsnittet securityRules** i **filen template.json:**
 
         ```json
            "resources": [
@@ -124,7 +124,7 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
             }
         ```
 
-      Om du vill slutföra tillägg eller borttagning av reglerna i mål-NSG, måste du också redigera anpassade regel typer i slutet av filen **Template. JSON** i formatet i exemplet nedan:
+      Om du vill slutföra tillägget eller borttagningen av reglerna i mål-NSG måste du också redigera de anpassade regeltyperna i slutet av **filen template.json** i formatet nedan:
 
       ```json
            {
@@ -151,31 +151,31 @@ Följande steg visar hur du förbereder nätverks säkerhets gruppen för konfig
             }
       ```
 
-13. Klicka på **Spara** i redigeraren online.
+13. Klicka på **Spara** i onlineredigeraren.
 
-14. Klicka på **grunderna** > **prenumeration** för att välja den prenumeration där mål-NSG ska distribueras.
+14. Klicka på > **BASICS-prenumerationen** om du vill välja den prenumeration där mål-NSG ska distribueras. **BASICS**
 
-15. Klicka på **grunderna** > **resurs grupp** för att välja den resurs grupp där mål-NSG ska distribueras.  Du kan klicka på **Skapa ny** för att skapa en ny resurs grupp för mål-NSG.  Se till att namnet inte är samma som käll resurs gruppen för det befintliga NSG.
+15. Klicka på**RESURSGRUPP** FÖR **GRUNDLÄGGANDE** > om du vill välja den resursgrupp där mål-NSG ska distribueras.  Du kan klicka på **Skapa ny** om du vill skapa en ny resursgrupp för mål-NSG.  Kontrollera att namnet inte är samma som källresursgruppen för den befintliga NSG.Ensure the name isn't the same as the source resource group of the existing NSG.
 
-16. Kontrol lera **grunderna** > **plats** har angetts till den mål plats där du vill att NSG ska distribueras.
+16. Kontrollera **att BASICS-platsen** > **Location** är inställd på målplatsen där du vill att NSG ska distribueras.
 
-17. Verifiera under **Inställningar** att namnet matchar namnet som du angav i parameter redigeraren ovan.
+17. Kontrollera under **INSTÄLLNINGAR** att namnet matchar namnet som du angav i parameterredigeraren ovan.
 
-18. Markera kryss rutan under **allmänna**villkor.
+18. Markera rutan under **VILLKOR**.
 
-19. Klicka på knappen **köp** för att distribuera mål nätverks säkerhets gruppen.
+19. Klicka på knappen **Inköp** om du vill distribuera säkerhetsgruppen för målnätverket.
 
 ## <a name="discard"></a>Ignorera
 
-Om du vill ignorera mål-NSG tar du bort resurs gruppen som innehåller mål-NSG.  Det gör du genom att välja resurs gruppen från din instrument panel i portalen och välja **ta bort** överst på sidan Översikt.
+Om du vill ignorera målet NSG tar du bort resursgruppen som innehåller målet NSG.  Om du vill göra det markerar du resursgruppen från instrumentpanelen i portalen och väljer **Ta bort** högst upp på översiktssidan.
 
 ## <a name="clean-up"></a>Rensa
 
-Om du vill genomföra ändringarna och slutföra flyttningen av NSG tar du bort käll NSG eller resurs gruppen. Det gör du genom att välja nätverks säkerhets grupp eller resurs grupp på instrument panelen i portalen och välja **ta bort** överst på varje sida.
+Om du vill genomföra ändringarna och slutföra flytten av NSG tar du bort käll-NSG- eller resursgruppen. Det gör du genom att välja nätverkssäkerhetsgruppen eller resursgruppen från instrumentpanelen i portalen och välja **Ta bort** högst upp på varje sida.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du flyttat en Azure-nätverks säkerhets grupp från en region till en annan och rensade käll resurserna.  Mer information om hur du flyttar resurser mellan regioner och haveri beredskap i Azure finns i:
+I den här självstudien flyttade du en Azure-nätverkssäkerhetsgrupp från en region till en annan och rensade källresurserna.  Mer information om hur du flyttar resurser mellan regioner och haveriberedskap i Azure finns i:
 
 
 - [Flytta resurser till en ny resursgrupp eller prenumeration](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

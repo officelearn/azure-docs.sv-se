@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 8b919608dfc562d8db77619d5215a6828a53a4aa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "67187285"
 ---
 1. Sök efter **Configuration Manager** medan du fortfarande är fjärrskrivbordsansluten till den virtuella datorn:
@@ -17,11 +17,11 @@ ms.locfileid: "67187285"
 
 1. Expandera **SQL Server-nätverkskonfiguration** i konsolfönstret i Konfigurationshanteraren för SQL Server.
 
-1. Klicka på **Protokoll för MSSQLSERVER** (standardinstansnamnet) i konsolfönstret. Högerklicka på **TCP** i informationsfönstret och klicka på **Aktivera** om det inte redan har aktiverats.
+1. Klicka på Protokoll **för MSSQLSERVER** i konsolfönstret (standardinstansnamnet.) Högerklicka på **TCP** i informationsfönstret och klicka på **Aktivera** om den inte redan är aktiverad.
 
     ![Aktivera TCP](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 
-1. Klicka på **SQL Server-tjänster** i konsolfönstret. I informationsfönstret högerklickar du på **SQL Server (*instansnamn*)** (standardinstansen är **SQL Server (MSSQLSERVER)** ), och klicka sedan på **starta om**, för att stoppa och starta om SQL Server-instansen.
+1. Klicka på **SQL Server-tjänster** i konsolfönstret. Högerklicka på SQL Server ***(instansnamn*)** i informationsfönstret (standardinstansen är **SQL Server (MSSQLSERVER)** och klicka sedan på **Starta om**och starta om instansen av SQL Server.
 
     ![Starta om databasmotorn](./media/virtual-machines-sql-server-connection-tcp-protocol/restart-sql-server.png)
 

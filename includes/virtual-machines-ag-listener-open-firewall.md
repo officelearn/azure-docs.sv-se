@@ -5,27 +5,27 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187289"
 ---
-I det här steget ska du skapa en brandväggsregel för att öppna avsökningsporten för slutpunkten för Utjämning av nätverksbelastning (enligt vad som anges tidigare 59999) och en annan regel för att öppna porten för tillgänglighetsgruppens lyssnare. Eftersom du har skapat den belastningsutjämnade slutpunkten på de virtuella datorerna som innehåller tillgänglighetsgrupprepliker måste du öppna avsökningsporten och lyssningsport på respektive virtuella datorer.
+I det här steget skapar du en brandväggsregel för att öppna avsökningsporten för den belastningsbalanserade slutpunkten (59999, som tidigare angivets) och en annan regel för att öppna tillgänglighetsgrupplyssnadporten. Eftersom du har skapat den belastningsbalanserade slutpunkten på de virtuella datorerna som innehåller tillgänglighetsgrupprepliker måste du öppna avsökningsporten och lyssnarporten på respektive virtuella datorer.
 
-1. Starta på virtuella datorer som är värdar för repliker, **Windows-brandväggen med avancerad säkerhet**.
+1. På virtuella datorer som är värdar för repliker startar du **Windows-brandväggen med avancerad säkerhet**.
 
-2. Högerklicka på **regler för inkommande trafik**, och klicka sedan på **ny regel**.
+2. Högerklicka på **Inkommande regler**och klicka sedan på Ny **regel**.
 
-3. På den **regeltyp** väljer **Port**, och klicka sedan på **nästa**.
+3. På sidan **Regeltyp** väljer du **Port**och klickar sedan på **Nästa**.
 
-4. På den **protokoll och portar** väljer **TCP**, typ **59999** i den **specifika lokala portar** rutan och klicka sedan på  **Nästa**.
+4. På sidan **Protokoll och Portar** väljer du **TCP**, skriver **59999** i rutan **Specifika lokala portar** och klickar sedan på **Nästa**.
 
-5. På den **åtgärd** behåller **Tillåt anslutningen** markerad och klicka sedan på **nästa**.
+5. Behåll **Tillåt anslutningen** markerad på sidan **Åtgärd** och klicka sedan på **Nästa**.
 
-6. På den **profil** sidan, accepterar du standardinställningarna och klicka sedan på **nästa**.
+6. På sidan **Profil** godkänner du standardinställningarna och klickar sedan på **Nästa**.
 
-7. På den **namn** sidan den **namn** text, anger du ett namn för regeln som **alltid på avsökning lyssningsport**, och klicka sedan på **Slutför**.
+7. Ange ett regelnamn i textrutan **Namn** på sidan **Namn,** till exempel **Alltid på avsökningsporten**för lyssnaren och klicka sedan på **Slutför**.
 
-8. Upprepa föregående steg för porten för tillgänglighetsgruppens lyssnare (som anges tidigare i parametern $EndpointPort för skriptet) och ange sedan ett lämpligt namn, till exempel **alltid på lyssningsport**.
+8. Upprepa föregående steg för tillgänglighetsgruppens lyssnarport (som angavs tidigare i parametern $EndpointPort för skriptet) och ange sedan ett lämpligt regelnamn, till exempel **Alltid på lyssnarporten**.
 

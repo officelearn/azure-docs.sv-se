@@ -1,19 +1,19 @@
 ---
 title: Räkna upp aktörer på Azure Service Fabric
-description: Lär dig mer om uppräkning av Reliable Actors och deras metadata i ett Azure-Service Fabric program med hjälp av exempel.
+description: Lär dig mer om uppräkning av tillförlitliga aktörer och deras metadata i ett Azure Service Fabric-program med hjälp av exempel.
 author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
 ms.openlocfilehash: 1516c9005a7c4dd0adcb279e9954e5f882c575c1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75645607"
 ---
-# <a name="enumerate-service-fabric-reliable-actors"></a>Räkna upp Service Fabric Reliable Actors
-Med tjänsten Reliable Actors kan en klient räkna upp metadata om de aktörer som tjänsten är värd för. Eftersom aktörs tjänsten är en partitionerad tillstånds känslig tjänst utförs uppräkningen per partition. Eftersom varje partition kan innehålla många aktörer returneras uppräkningen som en uppsättning växlade resultat. Sidorna upprepas tills alla sidor har lästs. I följande exempel visas hur du skapar en lista över alla aktiva aktörer i en partition av en aktörs tjänst:
+# <a name="enumerate-service-fabric-reliable-actors"></a>Räkna upp driftsinfrastruktur för serviceinfrastruktur
+Tjänsten Reliable Actors gör det möjligt för en klient att räkna upp metadata om de aktörer som tjänsten är värd för. Eftersom aktörstjänsten är en partitionerad tillståndskänslig tjänst utförs uppräkning per partition. Eftersom varje partition kan innehålla många aktörer returneras uppräkningen som en uppsättning växlingsresultat. Sidorna loopas över tills alla sidor läss. I följande exempel visas hur du skapar en lista över alla aktiva aktörer i en partition i en aktörstjänst:
 
 ```csharp
 IActorService actorServiceProxy = ActorServiceProxy.Create(
@@ -59,11 +59,11 @@ while (continuationToken != null);
 
 
 ## <a name="next-steps"></a>Nästa steg
-* [Hantering av aktörs tillstånd](service-fabric-reliable-actors-state-management.md)
-* [Aktörs livs cykel och skräp insamling](service-fabric-reliable-actors-lifecycle.md)
-* [Dokumentation om aktörers API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [.NET-exempel kod](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java-exempel kod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Hantering av aktörstillstånd](service-fabric-reliable-actors-state-management.md)
+* [Skådespelarens livscykel och skräpinsamling](service-fabric-reliable-actors-lifecycle.md)
+* [Dokumentation för ACTORS API-referens](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [EXEMPELkod för .NET](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java-exempelkod](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-platform/actor-service.png

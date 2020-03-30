@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: d71d52257b6e8cfa243207c9bfdb5c7de7d3dd37
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67188024"
 ---
-1. Lägg till följande i filen MainPage.xaml.cs projekt **med** instruktioner:
+1. Lägg till **följande** i MainPage.xaml.cs projektfilen:
    
         using System.Linq;        
         using Windows.Security.Credentials;
-2. Ersätt den **AuthenticateAsync** metoden med följande kod:
+2. Ersätt **metoden AuthenticateAsync** med följande kod:
    
         private async System.Threading.Tasks.Task<bool> AuthenticateAsync()
         {
@@ -84,13 +84,13 @@ ms.locfileid: "67188024"
             return success;
         }
    
-    I den här versionen av **AuthenticateAsync**, appen försöker använda autentiseringsuppgifter som lagras i den **PasswordVault** åtkomst till tjänsten. En vanlig inloggning också utförs när det finns inga lagrade autentiseringsuppgifter.
+    I den här versionen av **AuthenticateAsync**försöker appen använda autentiseringsuppgifter som lagras i **PasswordVault** för att komma åt tjänsten. En vanlig inloggning utförs också när det inte finns någon lagrad autentiseringsuppgifter.
    
    > [!NOTE]
-   > Kan ha upphört att gälla en cachelagrad token och token upphör att gälla kan också inträffa efter autentisering när appen används. Läs hur du avgör om en token har upphört att gälla i [söka efter utgångna autentiseringstoken](https://aka.ms/jww5vp). En lösning för att hantera auktoriseringsfel som rör utgångna token, finns i inlägget [Caching och hantering av utgångna token i Azure Mobile Services hanteras SDK](https://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+   > En cachelagrad token kan ha upphört att gälla och tokens förfallodatum kan också uppstå efter autentisering när appen används. Mer information om hur du tar reda på om en token har upphört att gälla finns [i Sök efter utgångna autentiseringstoken](https://aka.ms/jww5vp). En lösning för hantering av auktoriseringsfel relaterade till förfallna token finns i post [Caching och hantering av utgångna token i Azure Mobile Services hanterade SDK](https://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
-3. Starta om appen.
+3. Starta om appen två gånger.
    
-    Observera att på första start, logga in med providern krävs igen. Men efter den andra omstarten cachelagrade autentiseringsuppgifter används och logga in kringgås. 
+    Observera att vid den första starten krävs inloggning hos leverantören igen. Vid den andra omstarten används dock cachelagrade autentiseringsuppgifter och inloggning kringgås. 
 

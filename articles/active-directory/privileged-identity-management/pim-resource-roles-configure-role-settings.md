@@ -1,6 +1,6 @@
 ---
-title: Konfigurera inställningar för Azure-resurs roller i PIM – Azure AD | Microsoft Docs
-description: Lär dig hur du konfigurerar inställningar för Azure-resurs roller i Azure AD Privileged Identity Management (PIM).
+title: Konfigurera Azure-resursrollinställningar i PIM - Azure AD | Microsoft-dokument
+description: Lär dig hur du konfigurerar Azure-resursrollinställningar i Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -16,126 +16,126 @@ ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4db330a875b8241b642bcbc71fb0866c9833ee7e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75638688"
 ---
-# <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Konfigurera inställningar för Azure-resurs roll i Privileged Identity Management
+# <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Konfigurera Azure-resursrollinställningar i Privilegierad identitetshantering
 
-När du konfigurerar inställningar för Azure-resurs roller definierar du de standardinställningar som tillämpas på Azure-resursens roll tilldelningar i Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Använd följande procedurer för att konfigurera arbets flödet för godkännande och ange vem som kan godkänna eller neka begär Anden.
+När du konfigurerar Azure-resursrollinställningar definierar du standardinställningarna som tillämpas på Azure-resursrolltilldelningar i Azure Active Directory (Azure AD) Privilegierad identitetshantering (PIM). Använd följande procedurer för att konfigurera arbetsflödet för godkännande och ange vem som kan godkänna eller neka begäranden.
 
-## <a name="open-role-settings"></a>Öppna roll inställningar
+## <a name="open-role-settings"></a>Öppna rollinställningar
 
-Följ dessa steg för att öppna inställningarna för en Azure-resurs roll.
+Följ dessa steg för att öppna inställningarna för en Azure-resursroll.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) med en användare i rollen [privilegie rad roll administratör](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) .
+1. Logga in på [Azure-portalen](https://portal.azure.com/) med en användare i rollen [Administratör för privilegierad roll.](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-1. Öppna **Azure AD Privileged Identity Management**.
+1. Öppna **Azure AD-privilegierad identitetshantering**.
 
 1. Välj **Azure-resurser**.
 
-1. Välj den resurs som du vill hantera, till exempel en prenumeration eller hanterings grupp.
+1. Välj den resurs som du vill hantera, till exempel en prenumeration eller hanteringsgrupp.
 
-    ![Sidan Azure-resurser visar resurser som kan hanteras](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Lista resurser som kan hanteras på Azure-resurssidan](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-1. Välj **roll inställningar**.
+1. Välj **Rollinställningar**.
 
-    ![Sidan roll inställningar visar Azure-resurs roller](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Sidan Rollinställningar lista Azure-resursroller](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. Välj den roll vars inställningar du vill konfigurera.
 
-    ![Sidan information om roll inställning visar flera tilldelnings-och aktiverings inställningar](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Information om rollinställningsinformation med flera tilldelnings- och aktiveringsinställningar](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. Välj **Redigera** för att öppna fönstret **roll inställningar** . På den första fliken kan du uppdatera konfigurationen för roll aktivering i Privileged Identity Management.
+1. Välj **Redigera** om du vill öppna fönstret **Rollinställningar.** På den första fliken kan du uppdatera konfigurationen för rollaktivering i Privilegierad identitetshantering.
 
-    ![Sidan Redigera roll inställningar med fliken aktivering öppen](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
+    ![Sidan Redigera rollinställningar med fliken Aktivering öppen](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-1. Välj fliken **tilldelning** eller **Nästa: tilldelnings** knapp längst ned på sidan för att öppna fliken tilldelnings inställning. De här inställningarna kontrollerar roll tilldelningarna som görs i Privileged Identity Management-gränssnittet.
+1. Välj fliken **Tilldelning** eller knappen **Nästa: Tilldelning** längst ned på sidan för att öppna fliken tilldelningsinställning. De här inställningarna styr rolltilldelningar som gjorts i gränssnittet för privilegierad identitetshantering.
 
-    ![Fliken roll tilldelning på sidan roll inställningar](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+    ![Fliken Rolltilldelning på sidan Rollinställningar](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
 
-1. Använd fliken **meddelande** eller **Nästa: aktiverings** knappen längst ned på sidan för att komma till fliken meddelande inställning för den här rollen. De här inställningarna styr alla e-postaviseringar relaterade till den här rollen.
+1. Använd fliken **Meddelande** eller knappen **Nästa: Aktivering** längst ned på sidan för att komma till fliken meddelandeinställning för den här rollen. De här inställningarna styr alla e-postmeddelanden som är relaterade till den här rollen.
 
-    ![Fliken roll meddelanden på sidan roll inställningar](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+    ![Fliken Rollmeddelanden på sidan Rollinställningar](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
 
-    På fliken **meddelanden** på sidan roll inställningar kan Privileged Identity Management ge detaljerad kontroll över vem som tar emot meddelanden och vilka meddelanden de får.
+    På fliken **Meddelanden** på sidan Rollinställningar möjliggör Privilegierad identitetshantering detaljerad kontroll över vem som tar emot meddelanden och vilka meddelanden de får.
 
-    - **Stänga av ett e-postmeddelande**<br>Du kan inaktivera vissa e-postmeddelanden genom att avmarkera kryss rutan standard mottagare och ta bort ytterligare mottagare.  
+    - **Stänga av ett e-postmeddelande**<br>Du kan inaktivera specifika e-postmeddelanden genom att avmarkera standardinställningsrutan mottagare och ta bort ytterligare mottagare.  
 
-    - **Begränsa e-postmeddelanden till angivna e-postadresser**<br>Du kan stänga av e-postmeddelanden som skickas till standard mottagare genom att avmarkera kryss rutan standard mottagare. Du kan sedan lägga till ytterligare e-postadresser som ytterligare mottagare. Om du vill lägga till fler än en e-postadress avgränsar du dem med ett semikolon (;).
+    - **Begränsa e-postmeddelanden till angivna e-postadresser**<br>Du kan stänga av e-postmeddelanden som skickas till standardmottagare genom att avmarkera standardrutan mottagare. Du kan sedan lägga till ytterligare e-postadresser som ytterligare mottagare. Om du vill lägga till mer än en e-postadress separerar du dem med ett semikolon (;).
 
-    - **Skicka e-postmeddelanden till både standard mottagare och ytterligare mottagare**<br>Du kan skicka e-postmeddelanden till både standard mottagare och ytterligare mottagare genom att markera kryss rutan standard mottagare och lägga till e-postadresser för ytterligare mottagare.
+    - **Skicka e-postmeddelanden till både standardmottagare och ytterligare mottagare**<br>Du kan skicka e-postmeddelanden till både standardmottagare och ytterligare mottagare genom att markera standardruterutan för mottagare och lägga till e-postadresser för ytterligare mottagare.
 
-    - **Endast kritiska e-postmeddelanden**<br>För varje typ av e-post kan du bara markera kryss rutan för att ta emot viktiga e-postmeddelanden. Det innebär att Privileged Identity Management fortsätter att skicka e-postmeddelanden till de konfigurerade mottagarna endast om e-postmeddelandet kräver en omedelbar åtgärd. E-postmeddelanden som uppmanar användarna att utöka sin roll tilldelning utlöses till exempel inte medan ett e-postmeddelande som kräver administratörer för att godkänna en tilläggs förfrågan utlöses.
+    - **Endast kritiska e-postmeddelanden**<br>För varje typ av e-post kan du markera kryssrutan om du bara vill ta emot viktiga e-postmeddelanden. Vad detta innebär är att privilegierad identitetshantering kommer att fortsätta att skicka e-post till de konfigurerade mottagarna endast när e-postmeddelandet kräver en omedelbar åtgärd. E-postmeddelanden där användarna uppmanas att utöka sin rolltilldelning utlöses till exempel inte medan ett e-postmeddelande som kräver att administratörer godkänner en tilläggsbegäran utlöses.
 
-1. Välj knappen **Uppdatera** när som helst när du vill uppdatera roll inställningarna.
+1. Välj knappen **Uppdatera** när som helst för att uppdatera rollinställningarna.
 
-## <a name="assignment-duration"></a>Varaktighet för tilldelning
+## <a name="assignment-duration"></a>Tilldelningens varaktighet
 
-Du kan välja mellan två alternativ för tilldelnings varaktighet för varje tilldelnings typ (giltig och aktiv) när du konfigurerar inställningar för en roll. De här alternativen blir den maximala standard varaktigheten när en användare tilldelas rollen i Privileged Identity Management.
+Du kan välja mellan två tilldelningslängdsalternativ för varje tilldelningstyp (kvalificerad och aktiv) när du konfigurerar inställningar för en roll. Dessa alternativ blir standardtidslängd när en användare tilldelas rollen i Privilegierad identitetshantering.
 
-Du kan välja något av följande **tillgängliga** varaktighets alternativ för tilldelning:
-
-| | |
-| --- | --- |
-| **Tillåt permanent berättigad tilldelning** | Resurs administratörer kan tilldela permanent berättigad tilldelning. |
-| **Giltig tilldelning har förfallit efter** | Resurs administratörer kan kräva att alla kvalificerade tilldelningar har ett angivet start-och slutdatum. |
-
-Och du kan välja något av dessa alternativ för varaktighet för **aktiv** tilldelning:
+Du kan välja ett av dessa **berättigade** tilldelningslängdsalternativ:
 
 | | |
 | --- | --- |
-| **Tillåt permanent aktiv tilldelning** | Resurs administratörer kan tilldela permanent aktiv tilldelning. |
-| **Aktiv tilldelning förfaller efter** | Resurs administratörer kan kräva att alla aktiva tilldelningar har ett angivet start-och slutdatum. |
+| **Tillåt permanent berättigat uppdrag** | Resursadministratörer kan tilldela permanent berättigad tilldelning. |
+| **Förfalla kvalificerat uppdrag efter** | Resursadministratörer kan kräva att alla kvalificerade tilldelningar har ett angivet start- och slutdatum. |
+
+Och du kan välja ett av dessa **aktiva** tilldelningslängdsalternativ:
+
+| | |
+| --- | --- |
+| **Tillåt permanent aktiv tilldelning** | Resursadministratörer kan tilldela permanent aktiv tilldelning. |
+| **Upphör att gälla aktiv tilldelning efter** | Resursadministratörer kan kräva att alla aktiva tilldelningar har ett angivet start- och slutdatum. |
 
 > [!NOTE]
-> Alla tilldelningar som har ett angivet slutdatum kan förnyas av resurs administratörer. Användare kan även initiera självbetjänings begär Anden för att [utöka eller förnya roll tilldelningar](pim-resource-roles-renew-extend.md).
+> Alla tilldelningar som har ett angivet slutdatum kan förnyas av resursadministratörer. Användare kan också initiera självbetjäningsbegäranden för att [utöka eller förnya rolltilldelningar](pim-resource-roles-renew-extend.md).
 
-## <a name="require-multi-factor-authentication"></a>Kräv Multi-Factor Authentication
+## <a name="require-multi-factor-authentication"></a>Kräv multifaktorautentisering
 
-Privileged Identity Management tillhandahåller en valfri tillämpning av Azure Multi-Factor Authentication för två olika scenarier.
+Privilegierad identitetshantering ger valfri tillämpning av Azure Multi-Factor Authentication för två olika scenarier.
 
-### <a name="require-multi-factor-authentication-on-active-assignment"></a>Kräv Multi-Factor Authentication för aktiv tilldelning
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Kräv multifaktorautentisering vid aktiv tilldelning
 
-I vissa fall kanske du vill tilldela en användare eller grupp till en roll under en kort varaktighet (till exempel en dag). I det här fallet behöver de tilldelade användarna inte begära aktivering. I det här scenariot kan Privileged Identity Management inte tillämpa Multi-Factor Authentication när användaren använder sin roll tilldelning eftersom de redan är aktiva i rollen från den tid som den tilldelas.
+I vissa fall kanske du vill tilldela en användare eller grupp till en roll för en kort tid (till exempel en dag). I det här fallet behöver de tilldelade användarna inte begära aktivering. I det här fallet kan privilegierad identitetshantering inte framtvinga multifaktorautentisering när användaren använder sin rolltilldelning eftersom de redan är aktiva i rollen från den tidpunkt då den tilldelas.
 
-För att säkerställa att resurs administratören som uppfyller tilldelningen är den som de säger att de är, kan du tillämpa Multi-Factor Authentication för aktiv tilldelning genom att markera rutan **kräv Multi-Factor Authentication i den aktiva tilldelningen** .
+Om du vill vara säkra på att resursadministratören som uppfyller tilldelningen är den de säger att de är, kan du framtvinga multifaktorautentisering vid aktiv tilldelning genom att markera rutan **Kräv multifaktorautentisering i aktiv tilldelning.**
 
-### <a name="require-multi-factor-authentication-on-activation"></a>Kräv Multi-Factor Authentication vid aktivering
+### <a name="require-multi-factor-authentication-on-activation"></a>Kräv multifaktorautentisering vid aktivering
 
-Du kan kräva att användare som är berättigade till en roll för att bevisa vem de använder Azure Multi-Factor Authentication innan de kan aktivera. Multi-Factor Authentication säkerställer att användaren är den som har rimlig säkerhet. Att framtvinga det här alternativet skyddar viktiga resurser i situationer när användar kontot kan ha komprometterats.
+Du kan kräva att användare som är berättigade till en roll bevisar vem de använder Azure Multi-Factor Authentication innan de kan aktiveras. Multifaktorautentisering säkerställer att användaren är den de säger att de är med rimlig säkerhet. Om du tillämpar det här alternativet skyddas kritiska resurser i situationer där användarkontot kan ha komprometterats.
 
-Om du vill kräva Multi-Factor Authentication innan aktiveringen, markerar du kryss rutan **kräv Multi-Factor Authentication vid aktivering** .
+Om du vill kräva multifaktorautentisering före aktivering kontrollerar du kryssrutan **Kräv multifaktorautentisering vid aktivering.**
 
-Mer information finns i [Multi-Factor Authentication och Privileged Identity Management](pim-how-to-require-mfa.md).
+Mer information finns i [Multifaktorautentisering och Privilegierad identitetshantering](pim-how-to-require-mfa.md).
 
 ## <a name="activation-maximum-duration"></a>Maximal varaktighet för aktivering
 
-Använd skjutreglaget **maximal varaktighet** för att ange den maximala tiden, i timmar, som en roll förblir aktiv innan den upphör att gälla. Värdet kan vara mellan 1 och 24 timmar.
+Använd skjutreglaget För maximal varaktighet för **aktivering** för att ange den maximala tid, i timmar, som en roll förblir aktiv innan den upphör att gälla. Det här värdet kan vara från ett till 24 timmar.
 
 ## <a name="require-justification"></a>Kräv motivering
 
-Du kan kräva att användarna anger en affärs justering när de aktiverar. Om du vill kräva en motivering markerar du kryss rutan **Kräv motivering för aktiva tilldelningar** eller kryss rutan **Kräv motivering för aktivering** .
+Du kan kräva att användarna anger en affärsmotivering när de aktiveras. Om du vill kräva justering markerar du rutan **Kräv justering vid aktiv tilldelning** eller rutan **Kräv justering vid aktivering.**
 
 ## <a name="require-approval-to-activate"></a>Kräv godkännande för att aktivera
 
-Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
+Om du vill kräva godkännande för att aktivera en roll följer du dessa steg.
 
-1. Markera kryss rutan **Kräv godkännande för aktivering** .
+1. Markera kryssrutan **Kräv godkännande för att aktivera.**
 
-1. Välj **Välj god kännare** för att öppna sidan **Välj en medlem eller grupp** .
+1. Välj **Välj godkännare** om du vill öppna sidan **Välj en medlem eller grupp.**
 
-    ![Välj en användare eller grupp fönster för att välja god kännare](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Markera ett användar- eller gruppfönster för att välja godkännare](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-1. Välj minst en användare eller grupp och klicka sedan på **Välj**. Du kan lägga till valfri kombination av användare och grupper. Du måste välja minst en god kännare. Det finns inga standard god kännare.
+1. Markera minst en användare eller grupp och klicka sedan på **Markera**. Du kan lägga till valfri kombination av användare och grupper. Du måste välja minst en godkännare. Det finns inga standardgodkännare.
 
-    Dina val kommer att visas i listan över valda god kännare.
+    Dina val visas i listan över valda godkännare.
 
-1. När du har angett alla dina roll inställningar väljer du **Uppdatera** för att spara ändringarna.
+1. När du har angett alla dina rollinställningar väljer du **Uppdatera** för att spara ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela Azure-resurs roller i Privileged Identity Management](pim-resource-roles-assign-roles.md)
-- [Konfigurera säkerhets aviseringar för Azures resurs roller i Privileged Identity Management](pim-resource-roles-configure-alerts.md)
+- [Tilldela Azure-resursroller i Privilegierad identitetshantering](pim-resource-roles-assign-roles.md)
+- [Konfigurera säkerhetsaviseringar för Azure-resursroller i Privilegierad identitetshantering](pim-resource-roles-configure-alerts.md)

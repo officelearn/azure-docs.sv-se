@@ -1,6 +1,6 @@
 ---
-title: Distribuera Azure API Management-Gateway med egen värd till Docker | Microsoft Docs
-description: Lär dig hur du distribuerar en Azure API Management-Gateway med egen värd till Docker
+title: Distribuera självvärd azure API Management-gateway till Docker | Microsoft-dokument
+description: Lär dig hur du distribuerar en självvärd Azure API Management-gateway till Docker
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,58 +13,58 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
 ms.openlocfilehash: b5acda30f7f4a01e1b7b6ac82652452c3c40e3bf
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75768511"
 ---
-# <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Distribuera en Azure API Management egen värd-Gateway till Docker
+# <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Distribuera en självvärd port för Azure API Management till Docker
 
-Den här artikeln innehåller anvisningar för att distribuera Azure API Management Gateway i egen värd till en Docker-miljö.
+Den här artikeln innehåller stegen för att distribuera självvärd Azure API Management-gateway till en Docker-miljö.
 
 > [!NOTE]
-> Funktionen för lokal gateway är i för hands version. Under för hands versionen är den egna värdbaserade gatewayen bara tillgänglig på utvecklings-och Premium-nivåerna utan extra kostnad. Developer-nivån är begränsad till en enda lokal gateway-distribution.
+> Den självvärdbaserade gatewayfunktionen är i förhandsversion. Under förhandsversionen är den självvärdbaserade gatewayen endast tillgänglig på utvecklar- och premiumnivåerna utan extra kostnad. Utvecklarnivån är begränsad till en enda självvärd gateway-distribution.
 
 ## <a name="prerequisites"></a>Krav
 
 - Slutför följande snabbstart: [Skapa en Azure API Management-instans](get-started-create-service-instance.md)
-- Skapa en Docker-miljö. [Docker för skriv bord](https://www.docker.com/products/docker-desktop) är ett utmärkt alternativ för utveckling och utvärdering. Se [Docker-dokumentationen](https://docs.docker.com) för information om alla Docker-versioner, deras funktioner och omfattande dokumentation på Docker.
+- Skapa en Docker-miljö. [Docker for Desktop](https://www.docker.com/products/docker-desktop) är ett bra alternativ för utvecklings- och utvärderingsändamål. Se [Docker-dokumentation](https://docs.docker.com) för information om alla Docker-utgåvor, deras funktioner och omfattande dokumentation om Docker själv.
 - [Etablera en gateway-resurs i API Management-instansen](api-management-howto-provision-self-hosted-gateway.md)
 
 > [!NOTE]
-> Egen värd-Gateway är paketerad som en x86-64 Linux-baserad Docker-behållare.
+> Självvärdbaserad gateway är paketerad som en x86-64 Linux-baserad Docker-behållare.
 
-## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Distribuera den egna värdbaserade gatewayen till Docker
+## <a name="deploy-the-self-hosted-gateway-to-docker"></a>Distribuera den självvärderade gatewayen till Docker
 
-1. Välj **gateways** från **Inställningar**.
-2. Välj den gateway-resurs som du vill distribuera.
-3. Välj **distribution**.
-4. Observera att en ny token i text rutan **token** genererades automatiskt när du använder standard värdena för **förfallo datum** och **hemlig nyckel** . Justera antingen eller båda om du vill och välj **generera** för att skapa en ny token.
-4. Kontrol lera att **Docker** är markerat under **distributions skript**.
-5. Klicka på **kuvert. conf** -fillänk bredvid **miljön** för att ladda ned filen.
-6. Välj **Kopiera** -ikonen längst till höger i text rutan **Kör** för att spara Docker-kommandot i Urklipp.
-7. Klistra in kommandot i terminalfönstret (eller kommando fönstret). Justera port mappningarna och behållar namnet efter behov. Observera att kommandot förväntar sig att den nedladdade miljö filen finns i den aktuella katalogen.
+1. Välj **Gateways** under **Inställningar**.
+2. Välj den gatewayresurs som du tänker distribuera.
+3. Välj **Distribution**.
+4. Observera att en ny token i textrutan **Token** skapades automatiskt med standardvärdena **Förfallodatum** och **hemlig nyckel.** Justera antingen eller båda om så önskas och välj **Generera** för att skapa en ny token.
+4. Kontrollera att **Docker** är markerat under **Distributionsskript**.
+5. Välj **env.conf** fillänk bredvid **miljön** för att hämta filen.
+6. Välj **kopieringsikon** som finns till höger i textrutan **Kör** om du vill spara Kommandot Docker i Urklipp.
+7. Klistra in kommandot i terminalfönstret (eller kommandofönstret). Justera portmappningarna och behållarnamnet efter behov. Observera att kommandot förväntar sig att den hämtade miljöfilen ska finnas i den aktuella katalogen.
 ```
     docker run -d -p 80:8080 -p 443:8081 --name <gateway-name> --env-file env.conf mcr.microsoft.com/azure-api-management/gateway:<tag>
 ```
-8. Kör kommandot. Kommandot instruerar din Docker-miljö att köra behållaren med hjälp av den lokala gatewayens avbildning som hämtats från Microsoft Container Registry och för att mappa behållarens HTTP-(8080)-och HTTPS-portar (8081) till portarna 80 och 443 på värden.
-9. Kör kommandot nedan för att kontrol lera att Gateway-Pod körs:
+8. Kör kommandot. Kommandot instruerar Docker-miljön att köra behållaren med hjälp av självvärderade gateway-avbildningar som hämtats från Microsoft Container-registret och att mappa behållarens HTTP-portar (8080) och HTTPS (8081) till portarna 80 och 443 på värden.
+9. Kör kommandot nedan för att kontrollera att gateway pod körs:
 ```console
 docker ps
 CONTAINER ID        IMAGE                                                 COMMAND                  CREATED             STATUS              PORTS                                         NAMES
 895ef0ecf13b        mcr.microsoft.com/azure-api-management/gateway:beta   "/bin/sh -c 'dotnet …"   5 seconds ago       Up 3 seconds        0.0.0.0:80->8080/tcp, 0.0.0.0:443->8081/tcp   my-gateway
 ```
-10. Gå tillbaka till Azure Portal och kontrol lera att Gateway-noden som du precis har distribuerat rapporterar felfri status.
+10. Gå tillbaka till Azure-portalen och bekräfta att gateway-nod som du just har distribuerat rapporterar felfritt.
 
-![Gateway-status](media/api-management-howto-deploy-self-hosted-gateway-to-docker/status.png)
+![gateway-status](media/api-management-howto-deploy-self-hosted-gateway-to-docker/status.png)
 
 > [!TIP]
-> Använd <code>console docker container logs <gateway-name></code> kommando om du vill visa en ögonblicks bild av Gateway-loggen med egen värd.
+> Använd <code>console docker container logs <gateway-name></code> kommandot för att visa en ögonblicksbild av självvärdbaserad gatewaylogg.
 >
-> Använd <code>docker container logs --help</code> kommando för att visa alla logg visnings alternativ.
+> Använd <code>docker container logs --help</code> kommandot för att se alla loggvisningsalternativ.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om den egen värdbaserade gatewayen finns i [Översikt över Azure API Management egen Gateway](self-hosted-gateway-overview.md).
-* [Konfigurera eget domän namn för den egna värdbaserade gatewayen](api-management-howto-configure-custom-domain-gateway.md).
+* Mer information om den självvärderade gatewayen finns i [Azure API Management självvärderade gateway översikt](self-hosted-gateway-overview.md).
+* [Konfigurera anpassat domännamn för den självvärdbaserade gatewayen](api-management-howto-configure-custom-domain-gateway.md).

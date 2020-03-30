@@ -1,47 +1,48 @@
 ---
-title: Använda Robo 3T för att ansluta till Azure Cosmos DB
-description: Lär dig hur du ansluter till Azure Cosmos DB med Robo 3T och Azure Cosmos DB API för MongoDB
+title: Använd Robo 3T för att ansluta till Azure Cosmos DB
+description: Lär dig hur du ansluter till Azure Cosmos DB med Robo 3T och Azure Cosmos DB:s API för MongoDB
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
-ms.openlocfilehash: ab066fef4bffe35408fdc5f3ad6d66796b4d0818
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/23/2020
+author: timsander1
+ms.author: tisande
+ms.openlocfilehash: 120c8c45999e6d4071fc397d6e585d7d2f83aebc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61372563"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80131439"
 ---
-# <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Använda Robo 3T med Azure Cosmos DB: s API för MongoDB
+# <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Använda Robo 3T med Azure Cosmos DB-API:et för MongoDB
 
-För att ansluta till Cosmos-konto med Robo 3T, måste du:
+Om du vill ansluta till Cosmos-kontot med Robo 3T måste du:
 
-* Ladda ned och installera [Robo 3T](https://robomongo.org/)
-* Har ditt Cosmos DB [anslutningssträngen](connect-mongodb-account.md) information
+* Ladda ner och installera [Robo 3T](https://robomongo.org/)
+* Har information om cosmos [DB-anslutningssträng](connect-mongodb-account.md)
 
-## <a name="connect-using-robo-3t"></a>Ansluta med hjälp av Robo 3T
-Lägg till ditt Cosmos till Anslutningshanteraren för Robo 3T, utför du följande steg:
+## <a name="connect-using-robo-3t"></a>Ansluta med Robo 3T
 
-1. Hämta anslutningsinformationen för ditt Cosmos-konto som har konfigurerats med Azure Cosmos DB API MongoDB med hjälp av anvisningarna [här](connect-mongodb-account.md).
+Så här lägger du till ditt Cosmos-konto i Robo 3T-anslutningshanteraren:
 
-    ![Skärmbild av bladet för anslutningssträng](./media/mongodb-robomongo/connectionstringblade.png)
+1. Hämta anslutningsinformationen för ditt Cosmos-konto som konfigurerats med Azure Cosmos DB:s API MongoDB med hjälp av instruktionerna [här](connect-mongodb-account.md).
+
+    ![Skärmbild av anslutningssträngbladet](./media/mongodb-robomongo/connectionstringblade.png)
 2. Kör *Robomongo.exe*
 
-3. Klicka på anslutningsknappen under **filen** att hantera dina anslutningar. Klicka sedan på **skapa** i den **MongoDB klientanslutningar** fönstret som öppnas den **anslutningsinställningar** fönster.
+3. Klicka på anslutningsknappen under **Arkiv** för att hantera dina anslutningar. Klicka sedan på **Skapa** i fönstret **MongoDB-anslutningar,** som öppnar fönstret **Anslutningsinställningar.**
 
-4. I den **anslutningsinställningar** fönstret, Välj ett namn. Leta sedan reda på **värden** och **Port** från anslutningsinformation i steg 1 och ange dem till **adress** och **Port**respektive.
+4. Välj ett namn i fönstret **Anslutningsinställningar.** Leta sedan reda på **värden** och **porten** från din anslutningsinformation i steg 1 och ange dem i **Adress** respektive **Port.**
 
-    ![Skärmbild av Robomongo hantera anslutningar](./media/mongodb-robomongo/manageconnections.png)
-5. På den **autentisering** fliken **utför autentisering**. Ange sedan databasen (standardvärdet är *Admin*), **användarnamn** och **lösenord**.
-Båda **användarnamn** och **lösenord** finns i informationen i steg 1.
+    ![Skärmbild av Robomongo Hantera anslutningar](./media/mongodb-robomongo/manageconnections.png)
+5. Klicka på Utför **autentisering**på fliken **Autentisering** . Ange sedan databasen (standard är *Admin),* **Användarnamn** och **Lösenord**.
+Både **användarnamn** och **lösenord** finns i din anslutningsinformation i steg 1.
 
-    ![Skärmbild av fliken Robomongo autentisering](./media/mongodb-robomongo/authentication.png)
-6. På den **SSL** fliken Kontrollera **Använd SSL-protokollet**, ändra den **autentiseringsmetod** till **självsignerat certifikat**.
+    ![Skärmbild av fliken Autentisering av Robomongo](./media/mongodb-robomongo/authentication.png)
+6. Kontrollera **Använd SSL-protokollet**på fliken **SSL** och ändra sedan **autentiseringsmetoden** till **självsignerat certifikat**.
 
     ![Skärmbild av fliken Robomongo SSL](./media/mongodb-robomongo/SSL.png)
-7. Klicka slutligen på **Test** att kontrollera att du kan sedan ansluta **spara**.
+7. Klicka slutligen på **Testa** för att kontrollera att du kan ansluta och sedan **spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

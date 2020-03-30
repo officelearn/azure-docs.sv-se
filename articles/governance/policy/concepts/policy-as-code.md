@@ -1,35 +1,35 @@
 ---
 title: Arbetsflöden för att utforma princip som kod
-description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
+description: Lär dig att utforma arbetsflöden för att distribuera dina Azure-principdefinitioner som kod och validera resurser automatiskt.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74267265"
 ---
 # <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
 
-När du fortskrider på resan med moln styrning vill du byta från manuellt hantering av varje princip definition i Azure Portal eller genom de olika SDK: erna till något mer hanterbart och upprepat i företags skala. Två av de dominerande metoderna för att hantera system i skala i molnet är:
+När du går vidare med din resa med molnstyrning, vill du gå från att manuellt hantera varje principdefinition i Azure-portalen eller genom de olika SDK:erna till något mer hanterbart och repeterbart i företagsskala. Två av de dominerande metoderna för att hantera system i stor skala i molnet är:
 
-- Infrastruktur som kod: metoden att behandla innehållet som definierar dina miljöer, allt från Resource Manager-mallar för att Azure Policy definitioner till Azure-ritningar som käll kod.
-- DevOps: föreningen av personer, processer och produkter för att möjliggöra kontinuerlig leverans av värde till våra slutanvändare.
+- Infrastruktur som kod: Bruket att behandla innehållet som definierar dina miljöer, allt från Resource Manager-mallar till Azure-principdefinitioner till Azure Blueprints, som källkod.
+- DevOps: Föreningen av människor, processer och produkter för att möjliggöra kontinuerlig leverans av värde till våra slutanvändare.
 
-Princip som kod är kombinationen av dessa idéer. Behåll i princip definitionerna i käll kontrollen och när en ändring görs, testa och validera den ändringen. Det bör dock inte vara den omfattning av principer som används i infrastrukturen som kod eller DevOps.
+Policy som kod är en kombination av dessa idéer. I huvudsak hålla dina principdefinitioner i källkontroll och när en ändring görs, testa och validera den ändringen. Det bör dock inte vara omfattningen av principer som är inblandade i infrastruktur som kod eller DevOps.
 
-Validerings steget bör också vara en komponent i andra kontinuerliga integreringar eller arbets flöden för kontinuerlig distribution. Exempel på detta är att distribuera en program miljö eller virtuell infrastruktur. Genom att göra Azure Policy validera en tidig komponent i bygg-och distributions processen kan program-och drift teamen upptäcka om deras ändringar inte är av klagomål, långa innan det är för sent och de försöker distribuera i produktion.
+Valideringssteget bör också vara en komponent i andra arbetsflöden för kontinuerlig integrering eller kontinuerlig distribution. Exempel på detta är att distribuera en programmiljö eller virtuell infrastruktur. Genom att göra Azure Policy-validering till en tidig komponent i bygg- och distributionsprocessen upptäcker program- och driftteamen om deras ändringar inte är klagomål, långt innan det är för sent och de försöker distribuera i produktion.
 
-## <a name="workflow-overview"></a>Översikt över arbets flöde
+## <a name="workflow-overview"></a>Översikt över arbetsflöden
 
-Det rekommenderade allmänna arbets flödet som kod ser ut som i det här diagrammet:
+Det rekommenderade allmänna arbetsflödet för princip som kod ser ut så här:
 
-![Princip som kod arbets flöde – översikt](../media/policy-as-code/policy-as-code-workflow.png)
+![Översikt över princip som kodarbetsflöde](../media/policy-as-code/policy-as-code-workflow.png)
 
-### <a name="create-and-update-policy-definitions"></a>Skapa och uppdatera princip definitioner
+### <a name="create-and-update-policy-definitions"></a>Skapa och uppdatera principdefinitioner
 
-Princip definitionerna skapas med JSON och lagras i käll kontroll. Varje princip har en egen uppsättning filer, till exempel parametrar, regler och miljö parametrar, som ska lagras i samma mapp. Följande struktur är ett rekommenderat sätt att behålla princip definitionerna i käll kontrollen.
+Principdefinitionerna skapas med JSON och lagras i källkontrollen. Varje princip har sin egen uppsättning filer, till exempel parametrar, regler och miljöparametrar, som ska lagras i samma mapp. Följande struktur är ett rekommenderat sätt att behålla principdefinitionerna i källkontrollen.
 
 ```text
 .
@@ -53,11 +53,11 @@ Princip definitionerna skapas med JSON och lagras i käll kontroll. Varje princi
 |
 ```
 
-När en ny princip läggs till eller en befintlig har uppdaterats, bör arbets flödet automatiskt uppdatera princip definitionen i Azure. Testning av den nya eller uppdaterade princip definitionen kommer i ett senare steg.
+När en ny princip läggs till eller en befintlig uppdateras bör arbetsflödet automatiskt uppdatera principdefinitionen i Azure. Testning av den nya eller uppdaterade principdefinitionen kommer i ett senare steg.
 
-### <a name="create-and-update-initiative-definitions"></a>Skapa och uppdatera initiativ definitioner
+### <a name="create-and-update-initiative-definitions"></a>Skapa och uppdatera initiativdefinitioner
 
-Initiativ har också sin egen JSON-fil och relaterade filer som ska lagras i samma mapp. Initiativ definitionen kräver att princip definitionen redan finns, så det går inte att skapa eller uppdatera förrän principen har uppdaterats i käll kontroll och sedan uppdaterats i Azure. Följande struktur är ett rekommenderat sätt att hålla dina initiativ definitioner i käll kontroll:
+På samma sätt har initiativ en egen JSON-fil och relaterade filer som ska lagras i samma mapp. Initiativdefinitionen kräver att principdefinitionen redan finns, så kan inte skapas eller uppdateras förrän källan för principen har uppdaterats i källkontrollen och sedan uppdaterats i Azure. Följande struktur är ett rekommenderat sätt att hålla dina initiativdefinitioner i källkontroll:
 
 ```text
 .
@@ -81,53 +81,53 @@ Initiativ har också sin egen JSON-fil och relaterade filer som ska lagras i sam
 |
 ```
 
-Precis som princip definitioner, när du lägger till eller uppdaterar ett befintligt initiativ, bör arbets flödet automatiskt uppdatera initiativ definitionen i Azure. Testning av den nya eller uppdaterade initiativ definitionen finns i ett senare steg.
+Precis som principdefinitioner bör arbetsflödet uppdateras automatiskt när du lägger till eller uppdaterar ett befintligt initiativ. Testning av den nya eller uppdaterade initiativdefinitionen kommer i ett senare steg.
 
 ### <a name="test-and-validate-the-updated-definition"></a>Testa och validera den uppdaterade definitionen
 
-När Automation har vidtagit de nyligen skapade eller uppdaterade definitionerna för principer eller initiativ och gjort uppdateringen till objektet i Azure, är det dags att testa ändringarna som har gjorts. Antingen principen eller de initiativ som den är en del av bör sedan tilldelas resurser i miljön längst bort från produktionen. Den här miljön är vanligt vis _dev_.
+När automatiseringen har tagit dina nyligen skapade eller uppdaterade princip- eller initiativdefinitioner och gjort uppdateringen till objektet i Azure är det dags att testa de ändringar som har gjorts. Antingen den eller de initiativ som den är en del av bör sedan tilldelas resurser i miljön längst bort från produktionen. Den här miljön är vanligtvis _Dev_.
 
-Tilldelningen ska använda [enforcementMode](./assignment-structure.md#enforcement-mode) _inaktiverat_ så att inga resurser skapas och uppdateringar blockeras, men att befintliga resurser fortfarande granskas för att följa den uppdaterade princip definitionen. Även med enforcementMode rekommenderar vi att tilldelnings omfånget är antingen en resurs grupp eller en prenumeration som används särskilt för att verifiera principer.
+Tilldelningen bör använda [enforcementMode](./assignment-structure.md#enforcement-mode) för _inaktiverad_ så att resursskapande och uppdateringar inte blockeras, men att befintliga resurser fortfarande granskas för efterlevnad av den uppdaterade principdefinitionen. Även med enforcementMode rekommenderas tilldelningsomfånget antingen är en resursgrupp eller en prenumeration som används specifikt för att validera principer.
 
 > [!NOTE]
-> Även om tvingande läge är användbart, är det inte en ersättning för att noggrant testa en princip definition under olika förhållanden. Princip definitionen bör testas med `PUT` och `PATCH` REST API-anrop, kompatibla och icke-kompatibla resurser och Edge-fall som en egenskap som saknas i resursen.
+> Även om tvingande läge är till hjälp, är det inte en ersättning för att noggrant testa en principdefinition under olika förhållanden. Principdefinitionen bör testas `PUT` med `PATCH` och REST API-anrop, kompatibla och icke-kompatibla resurser och kantfall som en egenskap som saknas i resursen.
 
-När tilldelningen har distribuerats kan du använda princip-SDK: n för att [Hämta kompatibilitetsinformation](../how-to/get-compliance-data.md) för den nya tilldelningen. Den miljö som används för att testa principerna och tilldelningarna bör ha både kompatibla och icke-kompatibla resurser. Precis som ett bra enhets test för kod vill du testa att resurserna är som förväntat och att du inte har några falska positiva eller falska negativa negativa. Om du testar och validerar enbart för det du förväntar dig kan det uppstå oväntade och oidentifierade konsekvenser från principen. Mer information finns i [utvärdera effekten av en ny Azure-princip](./evaluate-impact.md).
+När tilldelningen har distribuerats använder du princip-SDK för att [hämta efterlevnadsdata](../how-to/get-compliance-data.md) för den nya tilldelningen. Den miljö som används för att testa principer och tilldelningar bör ha både kompatibla och icke-kompatibla resurser. Som ett bra enhetstest för kod, vill du testa att resurser är som förväntat och att du också inte har några falskt positiva eller falska negativ. Om du bara testar och validerar för det du förväntar dig kan det finnas oväntade och oidentifierade effekter från principen. Mer information finns i [Utvärdera effekten av en ny Azure-princip](./evaluate-impact.md).
 
-### <a name="enable-remediation-tasks"></a>Aktivera reparations åtgärder
+### <a name="enable-remediation-tasks"></a>Aktivera reparationsuppgifter
 
 Om valideringen av tilldelningen uppfyller förväntningarna är nästa steg att validera reparation.
-Principer som använder antingen [deployIfNotExists](./effects.md#deployifnotexists) eller [Modify](./effects.md#modify) kan omvandlas till en reparations uppgift och korrigera resurser från ett icke-kompatibelt tillstånd.
+Principer som använder antingen [deployIfNotExists](./effects.md#deployifnotexists) eller [ändra](./effects.md#modify) kan omvandlas till en reparationsaktivitet och korrigera resurser från ett icke-kompatibelt tillstånd.
 
-Det första steget för att göra detta är att bevilja princip tilldelningen den roll tilldelning som definierats i princip definitionen. Den här roll tilldelningen ger princip tilldelningen hanterad identitet tillräckligt med behörighet för att göra nödvändiga ändringar för att göra resursen kompatibel.
+Det första steget för att göra detta är att ge principtilldelningen den rolltilldelning som definierats i principdefinitionen. Den här rolltilldelningen ger principtilldelningen hanterad identitet tillräckligt med rättigheter för att göra de nödvändiga ändringarna för att göra resursen kompatibel.
 
-När princip tilldelningen har rätt behörighet använder du princip-SDK: n för att utlösa en reparations aktivitet mot en uppsättning resurser som är kända för att vara inkompatibla. Tre tester bör utföras mot dessa åtgärdade uppgifter innan du fortsätter:
+När principtilldelningen har lämpliga rättigheter använder du SDK för princip för att utlösa en reparationsaktivitet mot en uppsättning resurser som är kända för att inte vara kompatibla. Tre tester bör slutföras mot dessa åtgärdade uppgifter innan du fortsätter:
 
-- Verifiera att reparations uppgiften har slutförts
-- Kör princip utvärdering för att se att dessa resultat för efterlevnad av princip uppdateras som förväntat
-- Kör en miljö enhets test mot resurserna direkt för att verifiera att deras egenskaper har ändrats
+- Verifiera att reparationsuppgiften har slutförts
+- Kör principutvärdering för att se att resultaten för regelefterlevnad uppdateras som förväntat
+- Kör ett miljöenhetstest mot resurserna direkt för att verifiera att deras egenskaper har ändrats
 
-Genom att testa både de uppdaterade utvärderings resultaten och miljön ger du en bekräftelse på att reparations aktiviteterna har ändrat vad som förväntades och att princip definitionen visade att ändringen förväntades.
+Testa både uppdaterade resultat principutvärdering och miljön direkt ge bekräftelse på att reparationsuppgifterna ändrat vad som förväntades och att principdefinitionen såg efterlevnadsändringen som förväntat.
 
-### <a name="update-to-enforced-assignments"></a>Uppdatera till framtvingade tilldelningar
+### <a name="update-to-enforced-assignments"></a>Uppdatera till verkställda tilldelningar
 
-När alla verifierings grindar har slutförts uppdaterar du tilldelningen för att använda **enforcementMode** av _aktive rad_. Den här ändringen bör inlednings vis göras i samma miljö som från produktionen. När miljön har verifierats som fungerar som förväntat, kommer ändringen att begränsas till att omfatta nästa miljö och så vidare tills principen distribueras till produktions resurser.
+När alla valideringsgrindar har slutförts uppdaterar du tilldelningen så att den använder **enforcementMode** för _aktiverad_. Denna förändring bör inledningsvis göras i samma miljö långt från produktionen. När den miljön har validerats som arbetssätt som förväntat bör ändringen begränsas till att omfatta nästa miljö och så vidare tills principen distribueras till produktionsresurser.
 
-## <a name="process-integrated-evaluations"></a>Bearbeta integrerade utvärderingar
+## <a name="process-integrated-evaluations"></a>Processintegrerade utvärderingar
 
-Det allmänna arbets flödet för princip som kod är för att utveckla och distribuera principer och initiativ till en miljö i stor skala. Princip utvärderingen bör dock vara en del av distributions processen för alla arbets flöden som distribuerar eller skapar resurser i Azure, till exempel att distribuera program eller köra Resource Manager-mallar för att skapa infrastruktur.
+Det allmänna arbetsflödet för princip som kod är för att utveckla och distribuera principer och initiativ till en miljö i stor skala. Principutvärdering bör dock vara en del av distributionsprocessen för alla arbetsflöden som distribuerar eller skapar resurser i Azure, till exempel distribuera program eller köra Resource Manager-mallar för att skapa infrastruktur.
 
-I dessa fall, när distributionen av program eller infrastrukturen görs i en test prenumeration eller resurs grupp, bör princip utvärderingen utföras för den omfattningen för att kontrol lera valideringen av alla befintliga principer och initiativ. Även om de kan konfigureras som **enforcementMode** _inaktiverade_ i en sådan miljö, är det bra att veta tidigt om en program-eller infrastruktur distribution strider mot princip definitionerna tidigt. Den här princip utvärderingen bör därför vara ett steg i dessa arbets flöden och misslyckade distributioner som skapar icke-kompatibla resurser.
+I dessa fall, när programmet eller infrastrukturdistributionen har gjorts till en testprenumeration eller resursgrupp, bör principutvärdering göras för den scopekontrollvalideringen av alla befintliga principer och initiativ. Även om de kan konfigureras som **enforcementMode** _inaktiveras_ i en sådan miljö, är det bra att veta tidigt om ett program eller infrastrukturdistribution bryter mot principdefinitioner tidigt. Den här principutvärderingen bör därför vara ett steg i dessa arbetsflöden och misslyckas med distributioner som skapar resurser som inte är kompatibla.
 
 ## <a name="review"></a>Granska
 
-Den här artikeln beskriver det allmänna arbets flödet för policy som kod och även var princip utvärderingen ska ingå i andra distributions arbets flöden. Det här arbets flödet kan användas i alla miljöer som har stöd för skriptbaserade steg och automatisering baserat på utlösare.
+Den här artikeln beskriver det allmänna arbetsflödet för princip som kod och även där principutvärdering bör ingå i andra distributionsarbetsflöden. Det här arbetsflödet kan användas i alla miljöer som stöder skriptsteg och automatisering baserat på utlösare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [princip definitions strukturen](./definition-structure.md).
-- Lär dig mer om [princip tilldelnings strukturen](./assignment-structure.md).
-- Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).
-- Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/get-compliance-data.md).
+- Läs mer om [principdefinitionsstrukturen](./definition-structure.md).
+- Läs mer om [principtilldelningsstrukturen](./assignment-structure.md).
+- Förstå hur du [programmässigt skapar principer](../how-to/programmatically-create.md).
+- Läs om hur du [hämtar efterlevnadsdata](../how-to/get-compliance-data.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](../how-to/remediate-resources.md).
-- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).
+- Granska vad en hanteringsgrupp är med [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).

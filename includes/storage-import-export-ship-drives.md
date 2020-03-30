@@ -8,19 +8,18 @@ ms.topic: include
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 5972f5745a2a01cbb7f23cc0523b2aef75e08a61
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7ecc36218df23d81c4646612b5474a1465f428eb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673535"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80282485"
 ---
-FedEx, UPS eller DHL kan användas för att skicka paket till Azure-datacenter. Om du vill använda en operatör än FedEx/DHL kontakta Azure Data Box Operations-teamet på `adbops@microsoft.com`
+FedEx, UPS eller DHL kan användas för att leverera paketet till Azure-datacenter. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box Operations-teamet på`adbops@microsoft.com`
 
-- Ange en giltig FedEx, UPS eller DHL operatör kontonummer att Microsoft använder för att leverera enheter tillbaka. 
-    
-    - En FedEx, UPS eller DHL kontonummer krävs för att skicka enheter tillbaka från USA och Europa. 
-    - En DHL kontonummer rekommenderas för att skicka enheter från platser för Asien och Australien. 
-    - Om du inte har ett kontonummer, skapar du en [FedEx](https://www.fedex.com/us/oadr/) eller [DHL](http://www.dhl.com/) transportföretagskonto.
-- Vid leverans dina paket, måste du följa den [Tjänstvillkor för Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
-- Korrekt paketera ditt diskar för att undvika eventuella skador och fördröjningar i bearbetningen.
+* Ange ett giltigt FedEx-, UPS- eller DHL-operatörskontonummer som Microsoft använder för att skicka tillbaka enheterna.
+  * Ett FedEx-, UPS- eller DHL-kontonummer krävs för att skicka tillbaka enheter från USA och Europa.
+    * Ett DHL-kontonummer är att föredra för att skicka enheter tillbaka från Asien och Australien platser.
+    * Om du inte har ett kontonummer skapar du ett [FedEx-](https://www.fedex.com/us/oadr/) eller DHL-operatörskonto. [DHL](http://www.dhl.com/)
+* När du skickar dina paket måste du följa villkoren för [Microsoft Azure-tjänsten](https://azure.microsoft.com/support/legal/services-terms/).
+* Paketera dina diskar på rätt sätt för att undvika eventuella skador och förseningar i bearbetningen.

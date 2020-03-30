@@ -1,52 +1,52 @@
 ---
-title: Lagring av container avbildning
-description: Information om hur dina Docker-behållar avbildningar lagras i Azure Container Registry, inklusive säkerhet, redundans och kapacitet.
+title: Lagring av behållaravbildning
+description: Information om hur docker-behållaravbildningar lagras i Azure Container Registry, inklusive säkerhet, redundans och kapacitet.
 ms.topic: article
 ms.date: 03/21/2018
 ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74456201"
 ---
-# <a name="container-image-storage-in-azure-container-registry"></a>Lagrings avbildnings lagring i Azure Container Registry
+# <a name="container-image-storage-in-azure-container-registry"></a>Lagring av behållaravbildning i Azure Container-registret
 
-Alla fördelar med Azure Container Registry för [Basic, standard och Premium](container-registry-skus.md) från avancerade Azure Storage-funktioner som kryptering i vila för avbildnings data säkerhet och GEO-redundans för avbildnings data skydd. I följande avsnitt beskrivs både funktionerna och gränserna för avbildnings lagring i Azure Container Registry (ACR).
+Alla [basic-, standard- och Premium](container-registry-skus.md) Azure-behållarregister drar nytta av avancerade Azure-lagringsfunktioner som kryptering i vila för avbildningsdatasäkerhet och georedundans för avbildningsdataskydd. I följande avsnitt beskrivs både funktioner och begränsningar för avbildningslagring i Azure Container Registry (ACR).
 
-## <a name="encryption-at-rest"></a>Kryptering vid vila
+## <a name="encryption-at-rest"></a>Kryptering-i vila
 
-Alla behållar avbildningar i registret är krypterade i vila. Azure krypterar automatiskt en avbildning innan den lagras och dekrypterar den direkt när du eller dina program och tjänster hämtar avbildningen.
+Alla behållaravbildningar i registret krypteras i vila. Azure krypterar automatiskt en avbildning innan du lagrar den och dekrypterar den i farten när du eller dina program och tjänster hämtar avbildningen.
 
 ## <a name="geo-redundant-storage"></a>Geografiskt redundant lagring
 
-Azure använder ett Geo-redundant lagrings schema för att skydda mot förlust av behållar avbildningar. Azure Container Registry replikerar automatiskt dina behållar avbildningar till flera geografiskt avlägsnade Data Center, vilket förhindrar förlust i händelse av ett regionalt lagrings haveri.
+Azure använder ett geouppsagtiskt lagringsschema för att skydda mot förlust av dina behållaravbildningar. Azure Container Registry replikerar automatiskt dina behållaravbildningar till flera geografiskt avlägsna datacenter, vilket förhindrar att de går förlorade i händelse av ett regionalt lagringsfel.
 
 ## <a name="geo-replication"></a>Geo-replikering
 
-För scenarier som kräver ännu mer hög tillgänglighets säkerhet kan du överväga att använda funktionen för [geo-replikering](container-registry-geo-replication.md) i Premium register. Geo-replikering hjälper till att förlora åtkomsten till registret i händelse av ett *totalt* regionalt haveri, inte bara ett lagrings haveri. Geo-replikering ger även andra fördelar, t. ex. nätverks nära avbildnings lagring för snabbare push-meddelanden och hämtningar i distribuerade utvecklings-eller distributions scenarier.
+Överväg att använda [georeplikeringsfunktionen i Premium-register](container-registry-geo-replication.md) för scenarier som kräver ännu mer hög tillgänglighet. Geo-replikering hjälper till att skydda mot att förlora åtkomst till registret i händelse av ett *totalt* regionalt fel, inte bara ett lagringsfel. Geo-replikering ger andra fördelar också, som nätverksnära avbildningslagring för snabbare pushs och pulls i distribuerade utvecklings- eller distributionsscenarier.
 
-## <a name="image-limits"></a>Bild gränser
+## <a name="image-limits"></a>Bildgränser
 
-I följande tabell beskrivs behållar avbildningen och lagrings gränserna för Azure Container register.
+I följande tabell beskrivs behållaravbildningen och lagringsgränserna för Azure-behållarregister.
 
 | Resurs | Gräns |
 | -------- | :---- |
 | Centrallager | Obegränsad |
 | Avbildningar | Obegränsad |
-| Plast | Obegränsad |
+| Skikt | Obegränsad |
 | Taggar | Obegränsad|
-| Storage | 5 TB |
+| Lagring | 5 TB |
 
-Ett stort antal databaser och taggar kan påverka prestanda för registret. Ta regelbundet bort oanvända databaser, taggar och avbildningar som en del av din rutin för register underhåll. Borttagna register resurser som Arkiv, bilder och taggar *kan inte* återställas efter borttagning. Mer information om hur du tar bort register resurser finns [i ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
+Mycket många databaser och taggar kan påverka registrets prestanda. Ta regelbundet bort oanvända databaser, taggar och avbildningar som en del av registrets underhållsrutin. Borttagna registerresurser som databaser, avbildningar och taggar *kan inte* återställas efter borttagning. Mer information om hur du tar bort registerresurser finns [i Ta bort behållaravbildningar i Azure Container Registry](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Lagringskostnad
 
-Fullständig information om priser finns i [Azure Container Registry prissättning][pricing].
+Fullständig information om priser finns i [prissättningen för Azure Container Registry][pricing].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om de olika Azure Container Registry SKU: er (Basic, standard, Premium) finns i [Azure Container Registry SKU: er](container-registry-skus.md).
+Mer information om de olika SKU:erna för Azure Container Registry (Basic, Standard, Premium) finns i [Azure Container Registry SKU: er](container-registry-skus.md).
 
 <!-- IMAGES -->
 

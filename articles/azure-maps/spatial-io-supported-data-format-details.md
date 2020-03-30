@@ -1,79 +1,79 @@
 ---
-title: Information om data format som stöds | Microsoft Azure Maps
-description: Lär dig hur avgränsade spatialdata parsas i den spatiala IO-modulen.
-author: farah-alyasari
-ms.author: v-faalya
+title: Information om dataformat som stöds | Microsoft Azure Maps
+description: Lär dig hur avgränsade rumsliga data tolkas i den rumsliga IO-modulen.
+author: philmea
+ms.author: philmea
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fff801731c3c3a94b4039a8c65ad8ccaab7cc725
-ms.sourcegitcommit: 05b36f7e0e4ba1a821bacce53a1e3df7e510c53a
+ms.openlocfilehash: 3353620f1751e939a04543115fe704555fb3bc21
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78402740"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334088"
 ---
-# <a name="supported-data-format-details"></a>Information om data format som stöds
+# <a name="supported-data-format-details"></a>Information om dataformat som stöds
 
-Den här artikeln innehåller information om Läs-och skriv stöd för alla XML-taggar och välkända text geometri typer. Den innehåller också information om hur avgränsade spatialdata tolkas i den spatiala IO-modulen.
+Den här artikeln innehåller detaljer om läs- och skrivstöd för alla XML-taggar och geometrityper för välkänd text. Den beskriver också hur avgränsade rumsliga data tolkas i den rumsliga IO-modulen.
 
 ## <a name="supported-xml-namespaces"></a>XML-namnområden som stöds
 
-Den spatiala IO-modulen stöder XML-taggar från följande namn rymder.
+Den rumsliga IO-modulen stöder XML-taggar från följande namnområden.
 
-| Namnområdesprefix | Namnområdes-URI   | Anteckningar                                                                    |
+| Namnområdesprefix | Namnområde URI   | Anteckningar                                                                    |
 |:------------------|:-----------------|:----------------------------------------|
 | `atom`           | `http://www.w3.org/2005/Atom`   |                                         |
-| `geo`            | `http://www.w3.org/2003/01/geo/wgs84_pos#`  | Skrivskyddad support i GeoRSS-filer.           |
+| `geo`            | `http://www.w3.org/2003/01/geo/wgs84_pos#`  | Skrivskyddat stöd i GeoRSS-filer.           |
 | `georss`         | `http://www.georss.org/georss`  |                                                |
-| `geourl`         | `http://geourl.org/rss/module/` | Skrivskyddad support i GeoRSS-filer.                       |
+| `geourl`         | `http://geourl.org/rss/module/` | Skrivskyddat stöd i GeoRSS-filer.                       |
 | `gml`            | `http://www.opengis.net/gml`    |                                                        |
 | `gpx`            | `http://www.topografix.com/GPX/1/1` |                                                   |
-| `gpxx`           | `http://www.garmin.com/xmlschemas/GpxExtensions/v3` | Skrivskyddad support i GPX-filer. Parsar och använder DisplayColor. Alla andra egenskaper som har lagts till i formens metadata. |
-| `gpx_style`      | `http://www.topografix.com/GPX/gpx_style/0/2`      | Stöds i GPX-filer. Använder linje färg. |
+| `gpxx`           | `http://www.garmin.com/xmlschemas/GpxExtensions/v3` | Skrivskyddat stöd i GPX-filer. Tolkar och använder DisplayColor. Alla andra egenskaper som läggs till i formmetadata. |
+| `gpx_style`      | `http://www.topografix.com/GPX/gpx_style/0/2`      | Stöds i GPX-filer. Använder linjefärg. |
 | `gx`             | `http://www.google.com/kml/ext/2.2` |                                                      |
 | `kml`            | `http://www.opengis.net/kml/2.2`    |                                                      |
 | `rss`            |                                 | Skrivskyddad. GeoRSS skriver med Atom-format.              |
 
 ## <a name="supported-xml-elements"></a>XML-element som stöds
 
-Den spatiala IO-modulen har stöd för följande XML-element. Alla XML-taggar som inte stöds kommer att konverteras till ett JSON-objekt. Sedan läggs varje tagg till som en egenskap i fältet `properties` i den överordnade formen eller lagret.
+Den rumsliga IO-modulen stöder följande XML-element. Alla XML-taggar som inte stöds konverteras till ett JSON-objekt. Sedan läggs varje tagg till som `properties` en egenskap i fältet för den överordnade formen eller lagret.
 
 ### <a name="kml-elements"></a>KML-element
 
-Den spatiala IO-modulen har stöd för följande KML-element.
+Den rumsliga IO-modulen stöder följande KML-element.
 
-| Element namn         | Läsa    | Skriva   | Anteckningar                                                                                                                      |
+| Elementnamn         | Läsa    | Skriva   | Anteckningar                                                                                                                      |
 |----------------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------|
-| `address`            | signatur | ja     | Objektet är parsat men används inte för placering av form.                                                                    |
-| `AddressDetails`     | signatur | nej      | Objektet är parsat men används inte för placering av form.                                                                    |
+| `address`            | Partiell | ja     | Objektet tolkas men används inte för positioneringsform.                                                                    |
+| `AddressDetails`     | Partiell | nej      | Objektet tolkas men används inte för positioneringsform.                                                                    |
 | `atom:author`        | ja     | ja     |                                                                                                                            |
 | `atom:link`          | ja     | ja     |                                                                                                                            |
 | `atom:name`          | ja     | ja     |                                                                                                                            |
-| `BalloonStyle`       | signatur | signatur | `displayMode` stöds inte. Konverteras till en `PopupTemplate`. Om du vill skriva lägger du till en `popupTemplate`-egenskap som egenskap för den funktion som du vill skriva den för. |
+| `BalloonStyle`       | Partiell | Partiell | `displayMode`stöds inte. Konverteras till `PopupTemplate`en . Om du vill `popupTemplate` skriva lägger du till en egenskap som en egenskap för den funktion som du vill skriva den för. |
 | `begin`              | ja     | ja     |                                                                                                                            |
-| `color`              | ja     | ja     | Innehåller `#AABBGGRR` och `#BBGGRR`. Parsas till en CSS-färgsträng                                                           |
+| `color`              | ja     | ja     | Inkluderar `#AABBGGRR` `#BBGGRR`och . Tolkas i en CSS-färgsträng                                                           |
 | `colorMode`          | ja     | nej      |                                                                                                                            |
 | `coordinates`        | ja     | ja     |                                                                                                                            |
 | `Data`               | ja     | ja     |                                                                                                                            |
 | `description`        | ja     | ja     |                                                                                                                            |
 | `displayName`        | ja     | ja     |                                                                                                                            |
 | `Document`           | ja     | ja     |                                                                                                                            |
-| `drawOrder`          | signatur | nej      | Läses för mark överlägg och används för att sortera dem. 
+| `drawOrder`          | Partiell | nej      | Läs för marköverlägg och används för att sortera dem. 
 | `east`               | ja     | ja     |                                                                                                                            |
 | `end`                | ja     | ja     |                                                                                                                            |
-| `ExtendedData`       | ja     | ja     | Har stöd för avskrivna `Data`, `SimpleData` eller `Schema`och omplaceringar av enheten i formuläret `$[dataName]`.                      |
-| `extrude`            | signatur | signatur | Stöds endast för polygoner. Multigeometrier som har polygoner med olika höjd kommer att delas upp i enskilda funktioner. Linje format stöds inte. Polygoner med en höjd på 0 kommer att återges som en platt polygon. Vid läsning läggs den första koordinatens höjd i den yttre ringen till som en höjd-egenskap för polygonen. Sedan kommer den första koordinatens höjd att användas för att rendera polygonen på kartan. |
+| `ExtendedData`       | ja     | ja     | Stöder `Data`otypade `SimpleData` `Schema`eller , och entitetsersättning av formuläret `$[dataName]`.                      |
+| `extrude`            | Partiell | Partiell | Stöds endast för polygoner. MultiGeometry som har polygoner av olika höjder kommer att delas ut i enskilda funktioner. Linjeformat stöds inte. Polygoner med en höjd av 0 kommer att återges som en platt polygon. Vid läsning kommer höjden på den första koordinaten i den yttre ringen att läggas till som en höjdegenskap för polygonen. Sedan används höjden på den första koordinaten för att återge polygonen på kartan. |
 | `fill`               | ja     | ja     |                                                                                                                            |
 | `Folder`             | ja     | ja     |                                                                                                                            |
-| `GroundOverlay`      | ja     | ja     | `color` stöds inte                                                                                                   |
-| `heading`            | signatur | nej      | Parsas men återges inte av `SimpleDataLayer`. Skriver endast om data lagras i formens egenskap.                 |
-| `hotSpot`            | ja     | signatur | Skriver endast om data lagras i formens egenskap. Enheter anges bara som "bild punkter".                         |
+| `GroundOverlay`      | ja     | ja     | `color`stöds inte                                                                                                   |
+| `heading`            | Partiell | nej      | Tolkas men inte återges av `SimpleDataLayer`. Skriv endast om data lagras i formens egenskap.                 |
+| `hotSpot`            | ja     | Partiell | Skriv endast om data lagras i formens egenskap. Enheter matas endast ut som "pixlar".                         |
 | `href`               | ja     | ja     |                                                                                                                            |
-| `Icon`               | signatur | signatur | Parsas men återges inte av `SimpleDataLayer`. Skriver bara ikon egenskapen för formen om den innehåller en URI-data. Endast `href` stöds. |
-| `IconStyle`          | signatur | signatur | `icon`, `heading`, `colorMode`och `hotspots` värden tolkas, men de återges inte av `SimpleDataLayer`         |
+| `Icon`               | Partiell | Partiell | Tolkas men inte återges av `SimpleDataLayer`. Skriv bara ikonengenskapen för formen om den innehåller en URI-data. Endast `href` stöds. |
+| `IconStyle`          | Partiell | Partiell | `icon`, `heading` `colorMode`, `hotspots` och värden tolkas, men de återges inte av`SimpleDataLayer`         |
 | `innerBoundaryIs`    | ja     | ja     |                                                                                                                            |
 | `kml`                | ja     | ja     |                                                                                                                            |
 | `LabelStyle`         | nej      | nej      |                                                                                                                            |
@@ -81,47 +81,47 @@ Den spatiala IO-modulen har stöd för följande KML-element.
 | `gx:LatLonQuad`      | ja     | ja     |                                                                                                                            |
 | `LinearRing`         | ja     | ja     |                                                                                                                            |
 | `LineString`         | ja     | ja     |                                                                                                                            |
-| `LineStyle`          | ja     | ja     | `colorMode` stöds inte.                                                                                         |
-| `Link`               | ja     | nej      | Endast `href`-egenskapen stöds för nätverks länkar.                                                                   |
-| `MultiGeometry`      | signatur | signatur | Kan delas upp i enskilda funktioner när de läses.                                                                     |
+| `LineStyle`          | ja     | ja     | `colorMode`stöds inte.                                                                                         |
+| `Link`               | ja     | nej      | Endast `href` egenskapen stöds för nätverkslänkar.                                                                   |
+| `MultiGeometry`      | Partiell | Partiell | Kan delas ut i enskilda funktioner när de läss.                                                                     |
 | `name`               | ja     | ja     |                                                                                                                            |
-| `NetworkLink`        | ja     | nej      | Länkar måste finnas i samma domän som dokumentet.                                                                  |
+| `NetworkLink`        | ja     | nej      | Länkar måste finnas på samma domän som dokumentet.                                                                  |
 | `NetworkLinkControl` | nej      | nej      |                                                                                                                            |
 | `north`              | ja     | ja     |                                                                                                                            |
 | `open`               | ja     | ja     |                                                                                                                            |
 | `outerBoundaryIs`    | ja     | ja     |                                                                                                                            |
 | `outline`            | ja     | ja     |                                                                                                                            |
 | `overlayXY`          | nej      | nej      |                                                                                                                            |
-| `Pair`               | signatur | nej      | Endast `normal` formatet i en `StyleMap` stöds. `highlight` stöds inte.                                   |
+| `Pair`               | Partiell | nej      | Endast `normal` formatet i `StyleMap` en stöds. `highlight`stöds inte.                                   |
 | `phoneNumber`        | ja     | ja     |                                                                                                                            |
 | `PhotoOverlay`       | nej      | nej      |                                                                                                                            |
 | `Placemark`          | ja     | ja     |                                                                                                                            |
 | `Point`              | ja     | ja     |                                                                                                                            |
 | `Polygon`            | ja     | ja     |                                                                                                                            |
 | `PolyStyle`          | ja     | ja     |                                                                                                                            |
-| `Region`             | signatur | signatur | `LatLongBox` stöds på dokument nivå.                                                                      |
+| `Region`             | Partiell | Partiell | `LatLongBox`stöds på dokumentnivå.                                                                      |
 | `rotation`           | nej      | nej      |                                                                                                                            |
 | `rotationXY`         | nej      | nej      |                                                                                                                            |
 | `scale`              | nej      | nej      |                                                                                                                            |
 | `Schema`             | ja     | ja     |                                                                                                                            |
 | `SchemaData`         | ja     | ja     |                                                                                                                            |
-| `schemaUrl`          | signatur | ja     | Stöder inte inläsning av format från externa dokument som inte ingår i en KMZ.                             |
+| `schemaUrl`          | Partiell | ja     | Stöder inte inläsning av format från externa dokument som inte ingår i en KMZ.                             |
 | `ScreenOverlay`      | nej      | nej      |                                                                                                                            |
 | `screenXY`           | nej      | nej      |                                                                                                                            |
 | `SimpleData`         | ja     | ja     |                                                                                                                            |
 | `SimpleField`        | ja     | ja     |                                                                                                                            |
 | `size`               | nej      | nej      |                                                                                                                            |
-| `Snippet`            | signatur | signatur | `maxLines` attribut ignoreras.                                                                                  |
+| `Snippet`            | Partiell | Partiell | `maxLines`attributet ignoreras.                                                                                  |
 | `south`              | ja     | ja     |                                                                                                                            |
 | `Style`              | ja     | ja     |                                                                                                                            |
-| `StyleMap`           | signatur | nej      | Endast normal formatet i en `StyleMap` stöds.                                                                        |
-| `styleUrl`           | signatur | ja     | URL: er för externa format stöds inte.                                                                         |
-| `text`               | ja     | ja     | Ersättning av `$[geDirections]` stöds inte                                                                          |
+| `StyleMap`           | Partiell | nej      | Endast den normala `StyleMap` stilen i en stöds.                                                                        |
+| `styleUrl`           | Partiell | ja     | Webbadresser med externt format stöds inte.                                                                         |
+| `text`               | ja     | ja     | Byte `$[geDirections]` av stöds inte                                                                          |
 | `textColor`          | ja     | ja     |                                                                                                                            |
 | `TimeSpan`           | ja     | ja     |                                                                                                                            |
 | `TimeStamp`          | ja     | ja     |                                                                                                                            |
 | `value`              | ja     | ja     |                                                                                                                            |
-| `viewRefreshMode`    | signatur | nej      |  Om du pekar på en WMS-tjänst stöds endast `onStop` för mark överlägg. Lägger till `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` till URL: en och uppdaterar när kartan flyttas.  |
+| `viewRefreshMode`    | Partiell | nej      |  Om du pekar på en WMS-tjänst stöds endast `onStop` marköverlägg. Kommer `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` att lägga till webbadressen och uppdatera när kartan flyttas.  |
 | `visibility`         | ja     | ja     |                                                                                                                            |
 | `west`               | ja     | ja     |                                                                                                                            |
 | `when`               | ja     | ja     |                                                                                                                            |
@@ -129,9 +129,9 @@ Den spatiala IO-modulen har stöd för följande KML-element.
 
 ### <a name="georss-elements"></a>GeoRSS-element
 
-Den spatiala IO-modulen har stöd för följande GeoRSS-element.
+Den rumsliga IO-modulen stöder följande GeoRSS-element.
 
-| Element namn             | Läsa    | Skriva | Anteckningar                                                                                          |
+| Elementnamn             | Läsa    | Skriva | Anteckningar                                                                                          |
 |--------------------------|---------|-------|------------------------------------------------------------------------------------------------|
 | `atom:author`            | ja     | ja   |                                                                                                |
 | `atom:category`          | ja     | ja   |                                                                                                |
@@ -153,10 +153,10 @@ Den spatiala IO-modulen har stöd för följande GeoRSS-element.
 | `atom:title`             | ja     | ja   |                                                                                                |
 | `atom:updated`           | ja     | ja   |                                                                                                |
 | `atom:uri`               | ja     | ja   |                                                                                                |
-| `geo:lat`                | ja     | nej    | Skriven som en `georss:point`.                                                                   |
-| `geo:lon`                | ja     | nej    | Skriven som en `georss:point`.                                                                   |
-| `geo:long`               | ja     | nej    | Skriven som en `georss:point`.                                                                   |
-| `georss:box`             | ja     | nej    | Läs som en polygon och få en `subType` egenskap för "rektangel"                                |
+| `geo:lat`                | ja     | nej    | Skrivet `georss:point`som en .                                                                   |
+| `geo:lon`                | ja     | nej    | Skrivet `georss:point`som en .                                                                   |
+| `geo:long`               | ja     | nej    | Skrivet `georss:point`som en .                                                                   |
+| `georss:box`             | ja     | nej    | Läs som en polygon `subType` och ges en egenskap av "Rektangel"                                |
 | `georss:circle`          | ja     | ja   |                                                                                                |
 | `georss:elev`            | ja     | ja   |                                                                                                |
 | `georss:featurename`     | ja     | ja   |                                                                                                |
@@ -168,71 +168,71 @@ Den spatiala IO-modulen har stöd för följande GeoRSS-element.
 | `georss:radius`          | ja     | ja   |                                                                                                |
 | `georss:relationshiptag` | ja     | ja   |                                                                                                |
 | `georss:where`           | ja     | ja   |                                                                                                |
-| `geourl:latitude`        | ja     | nej    | Skriven som en `georss:point`.                                                                   |
-| `geourl:longitude`       | ja     | nej    | Skriven som en `georss:point`.                                                                   |
-| `position`               | ja     | nej    | Vissa XML-matningar radbryts GML med en positions tagg i stället för att figursättas med en GeoRSS: Where-tagg. Kommer att läsa den här taggen, men kommer att skriva med en GeoRSS: Where-tagg. |
+| `geourl:latitude`        | ja     | nej    | Skrivet `georss:point`som en .                                                                   |
+| `geourl:longitude`       | ja     | nej    | Skrivet `georss:point`som en .                                                                   |
+| `position`               | ja     | nej    | Vissa XML-flöden kommer att radbrytas GML med `georss:where` en positionstagg i stället för att slå in den med en tagg. Kommer att läsa den här `georss:where` taggen, men kommer att skriva med hjälp av en tagg. |
 | `rss`                    | ja     | nej    | GeoRSS skrivet i ATOM-format.                                                                 |
-| `rss:author`             | ja     | signatur | Skriven som en `atom:author`.                                                                 |
-| `rss:category`           | ja     | signatur | Skriven som en `atom:category`.                                                               |
+| `rss:author`             | ja     | Partiell | Skrivet `atom:author`som en .                                                                 |
+| `rss:category`           | ja     | Partiell | Skrivet `atom:category`som en .                                                               |
 | `rss:channel`            | ja     | nej    |                                                                                                |
 | `rss:cloud`              | ja     | nej    |                                                                                                |
 | `rss:comments`           | ja     | nej    |                                                                                                |
-| `rss:copyright`          | ja     | signatur | Skriven som en `atom:rights` om det inte redan finns en `rights` `properties`-egenskap.       |
-| `rss:description`        | ja     | signatur | Skriven som en `atom:content` om det inte redan finns en `content` `properties`-egenskap.      |
+| `rss:copyright`          | ja     | Partiell | Skrivet `atom:rights` som en om-form `rights` `properties` har inte redan en egenskap.       |
+| `rss:description`        | ja     | Partiell | Skrivet `atom:content` som en om-form `content` `properties` har inte redan en egenskap.      |
 | `rss:docs`               | ja     | nej    |                                                                                                |
 | `rss:enclosure`          | ja     | nej    |                                                                                                |
 | `rss:generator`          | ja     | nej    |                                                                                                |
-| `rss:guid`               | ja     | signatur | Skriven som en `atom:id` om det inte redan finns en `id` `properties`-egenskap.         |
-| `rss:image`              | ja     | signatur | Skriven som en `atom:logo` om det inte redan finns en `logo` `properties`-egenskap.      |
-| `rss:item`               | ja     | signatur | Skriven som en `atom:entry`.                                                                  |
+| `rss:guid`               | ja     | Partiell | Skrivet `atom:id` som en om-form `id` `properties` har inte redan en egenskap.         |
+| `rss:image`              | ja     | Partiell | Skrivet `atom:logo` som en om-form `logo` `properties` har inte redan en egenskap.      |
+| `rss:item`               | ja     | Partiell | Skrivet `atom:entry`som en .                                                                  |
 | `rss:language`           | ja     | nej    |                                                                                                |
-| `rss:lastBuildDate`      | ja     | signatur | Skriven som en `atom:updated` om det inte redan finns en `updated` `properties`-egenskap.     |
-| `rss:link`               | ja     | signatur | Skriven som en `atom:link`.                                                                   |
-| `rss:managingEditor`     | ja     | signatur | Skriven som en `atom:contributor`.                                                            |
-| `rss:pubDate`            | ja     | signatur | Skriven som en `atom:published` om det inte redan finns en `published` `properties`-egenskap.  |
+| `rss:lastBuildDate`      | ja     | Partiell | Skrivet `atom:updated` som en om-form `updated` `properties` har inte redan en egenskap.     |
+| `rss:link`               | ja     | Partiell | Skrivet `atom:link`som en .                                                                   |
+| `rss:managingEditor`     | ja     | Partiell | Skrivet `atom:contributor`som en .                                                            |
+| `rss:pubDate`            | ja     | Partiell | Skrivet `atom:published` som en om-form `published` `properties` har inte redan en egenskap.  |
 | `rss:rating`             | ja     | nej    |                                                                                                |
 | `rss:skipDays`           | ja     | nej    |                                                                                                |
 | `rss:skipHours`          | ja     | nej    |                                                                                                |
-| `rss:source`             | ja     | signatur | Skriven som en `atom:source` som innehåller ett `atom:link`.                                       |
+| `rss:source`             | ja     | Partiell | Skrivet `atom:source` som `atom:link`en innehållande en .                                       |
 | `rss:textInput`          | ja     | nej    |                                                                                                |
-| `rss:title`              | ja     | signatur | Skriven som en `atom:title`.                                                                  |
+| `rss:title`              | ja     | Partiell | Skrivet `atom:title`som en .                                                                  |
 | `rss:ttl`                | ja     | nej    |                                                                                                |
 | `rss:webMaster`          | ja     | nej    |                                                                                                |
 
 ### <a name="gml-elements"></a>GML-element
 
-Den spatiala IO-modulen har stöd för följande GML-element. 
+Den rumsliga IO-modulen stöder följande GML-element. 
 
-| Element namn            | Läsa | Skriva | Anteckningar                                                                                  |
+| Elementnamn            | Läsa | Skriva | Anteckningar                                                                                  |
 |-------------------------|------|-------|----------------------------------------------------------------------------------------|
-| `gml:coordinates`       | ja  | nej    | Skriven som `gml:posList`.                                                              |
+| `gml:coordinates`       | ja  | nej    | Skrivet `gml:posList`som .                                                              |
 | `gml:curveMember`       | ja  | nej    |                                                                                        |
 | `gml:curveMembers`      | ja  | nej    |                                                                                        |
-| `gml:Box`               | ja  | nej    | Skriven som `gml:Envelope`.                                                             |
+| `gml:Box`               | ja  | nej    | Skrivet `gml:Envelope`som .                                                             |
 | `gml:description`       | ja  | ja   |                                                                                        |
 | `gml:Envelope`          | ja  | ja   |                                                                                        |
 | `gml:exterior`          | ja  | ja   |                                                                                        |
 | `gml:Feature`           | ja  | nej    | Skriven som en form.                                                                    |
-| `gml:FeatureCollection` | ja  | nej    | Skrivet som en geometri samling.                                                      |
-| `gml:featureMember`     | ja  | nej    | Skrivet som en geometri samling.                                                      |
+| `gml:FeatureCollection` | ja  | nej    | Skriven som en geometrisamling.                                                      |
+| `gml:featureMember`     | ja  | nej    | Skriven som en geometrisamling.                                                      |
 | `gml:geometry`          | ja  | nej    | Skriven som en form.                                                                    |
 | `gml:geometryMember`    | ja  | ja   |                                                                                        |
 | `gml:geometryMembers`   | ja  | ja   |                                                                                        |
 | `gml:identifier`        | ja  | ja   |                                                                                        |
-| `gml:innerBoundaryIs`   | ja  | nej    | Skrivet med `gml.interior`.                                                          |
+| `gml:innerBoundaryIs`   | ja  | nej    | Skrivet `gml.interior`med .                                                          |
 | `gml:interior`          | ja  | ja   |                                                                                        |
 | `gml:LinearRing`        | ja  | ja   |                                                                                        |
 | `gml:LineString`        | ja  | ja   |                                                                                        |
 | `gml:lineStringMember`  | ja  | ja   |                                                                                        |
 | `gml:lineStringMembers` | ja  | nej    |                                                                                        |
-| `gml:MultiCurve`        | ja  | nej    | Läser bara `gml:LineString` medlemmar. Skriven som `gml.MultiLineString`                  |
-| `gml:MultiGeometry`     | signatur  | signatur   | Läs bara som en FeatureCollection.                                              |
+| `gml:MultiCurve`        | ja  | nej    | Läser `gml:LineString` bara medlemmar. Skrivet som`gml.MultiLineString`                  |
+| `gml:MultiGeometry`     | Partiell  | Partiell   | Läs endast som en FeatureCollection.                                              |
 | `gml:MultiLineString`   | ja  | ja   |                                                                                        |
 | `gml:MultiPoint`        | ja  | ja   |                                                                                        |
 | `gml:MultiPolygon`      | ja  | ja   |                                                                                        |
-| `gml:MultiSurface`      | ja  | nej    | Läser bara `gml:Polygon` medlemmar. Skriven som `gml.MultiPolygon`                        |
+| `gml:MultiSurface`      | ja  | nej    | Läser `gml:Polygon` bara medlemmar. Skrivet som`gml.MultiPolygon`                        |
 | `gml:name`              | ja  | ja   |                                                                                        |
-| `gml:outerBoundaryIs`   | ja  | nej    | Skrivet med `gml.exterior`.                                                          |
+| `gml:outerBoundaryIs`   | ja  | nej    | Skrivet `gml.exterior`med .                                                          |
 | `gml:Point`             | ja  | ja   |                                                                                        |
 | `gml:pointMember`       | ja  | ja   |                                                                                        |
 | `gml:pointMembers`      | ja  | nej    |                                                                                        |
@@ -243,28 +243,28 @@ Den spatiala IO-modulen har stöd för följande GML-element.
 | `gml:posList`           | ja  | ja   |                                                                                        |
 | `gml:surfaceMember`     | ja  | ja   |                                                                                        |
 
-#### <a name="additional-notes"></a>Ytterligare information
+#### <a name="additional-notes"></a>ytterligare anteckningar
 
-- Medlems element kommer att sökas efter en geometri som kan vara täckt inom underordnade element. Den här Sök åtgärden krävs eftersom många XML-format som sträcker sig från GML inte kan placera en geometri som ett direkt underordnat objekt till ett medlems element.
-- `srsName` stöds delvis för WGS84-koordinater och följande koder:[EPSG: 4326](https://epsg.io/4326)) och webb Mercator ([EPSG: 3857](https://epsg.io/3857) eller någon av dess alternativa koder. Alla andra koordinatsystem kommer att tolkas som WGS84.
-- Om inget annat anges vid läsning av ett XML-flöde bestäms axel ordningen utifrån tips i XML-flödet. En preferens anges för axel ordningen "latitud, longitud".
-- Om inte ett anpassat GML-namnområde har angetts för egenskaperna vid skrivning till en GML-fil, kommer ytterligare egenskaps information inte att läggas till.
+- Medlemselement kommer att sökas efter en geometri som kan begravas i underordnade element. Den här sökåtgärden är nödvändig eftersom många XML-format som sträcker sig från GML kanske inte placerar en geometri som ett direkt underordnat medlemselement.
+- `srsName`stöds delvis för WGS84-koordinater och följande koder:[EPSG:4326](https://epsg.io/4326)) och web Mercator ([EPSG:3857](https://epsg.io/3857) eller någon av dess alternativa koder. Alla andra koordinatsystem tolkas som WGS84 som de är.
+- Om inte anges när du läser en XML-feed bestäms axelordningen baserat på tips i XML-feeden. En preferens ges för axelordningen "latitud, longitud".
+- Om inte ett anpassat GML-namnområde anges för egenskaperna när du skriver till en GML-fil, läggs ytterligare egenskapsinformation inte till.
 
 ### <a name="gpx-elements"></a>GPX-element
 
-Den spatiala IO-modulen har stöd för följande GPX-element.
+Den rumsliga IO-modulen stöder följande GPX-element.
 
-| Element namn             | Läsa    | Skriva   | Anteckningar                                                                                       |
+| Elementnamn             | Läsa    | Skriva   | Anteckningar                                                                                       |
 |--------------------------|---------|---------|---------------------------------------------------------------------------------------------|
 | `gpx:ageofdgpsdata`      | ja     | ja     |                                                                                             |
 | `gpx:author`             | ja     | ja     |                                                                                             |
-| `gpx:bounds`             | ja     | ja     | Konverteras till en LocationRect när den läses.                                                    |
+| `gpx:bounds`             | ja     | ja     | Konverteras till en PlatsRect när den läss.                                                    |
 | `gpx:cmt`                | ja     | ja     |                                                                                             |
 | `gpx:copyright`          | ja     | ja     |                                                                                             |
-| `gpx:desc`               | ja     | ja     | Kopieras till en beskrivnings egenskap när den läses för att justeras mot andra XML-format.               |
+| `gpx:desc`               | ja     | ja     | Kopieras till en beskrivningsegenskap när den läss för att justeras med andra XML-format.               |
 | `gpx:dgpsid`             | ja     | ja     |                                                                                             |
 | `gpx:ele`                | ja     | ja     |                                                                                             |
-| `gpx:extensions`         | signatur | signatur | Vid läsning extraheras format information. Alla andra tillägg kommer att förenklas till ett enkelt JSON-objekt. Endast form stils information skrivs. |
+| `gpx:extensions`         | Partiell | Partiell | När du läser extraheras formatinformation. Alla andra tillägg kommer att förenklas till ett enkelt JSON-objekt. Endast formformatinformation skrivs. |
 | `gpx:geoidheight`        | ja     | ja     |                                                                                             |
 | `gpx:gpx`                | ja     | ja     |                                                                                             |
 | `gpx:hdop`               | ja     | ja     |                                                                                             |
@@ -277,7 +277,7 @@ Den spatiala IO-modulen har stöd för följande GPX-element.
 | `gpx:rtept`              | ja     | ja     |                                                                                             |
 | `gpx:sat`                | ja     | ja     |                                                                                             |
 | `gpx:src`                | ja     | ja     |                                                                                             |
-| `gpx:sym`                | ja     | ja     | Värdet fångas, men det används inte för att ändra kartnål-ikonen.                               |
+| `gpx:sym`                | ja     | ja     | Värdet fångas in, men det används inte för att ändra pushpin-ikonen.                               |
 | `gpx:text`               | ja     | ja     |                                                                                             |
 | `gpx:time`               | ja     | ja     |                                                                                             |
 | `gpx:trk`                | ja     | ja     |                                                                                             |
@@ -287,67 +287,67 @@ Den spatiala IO-modulen har stöd för följande GPX-element.
 | `gpx:vdop`               | ja     | ja     |                                                                                             |
 | `gpx:wpt`                | ja     | ja     |                                                                                             |
 | `gpx_style:color`        | ja     | ja     |                                                                                             |
-| `gpx_style:line`         | signatur | signatur | `color``opacity`, `width`, `lineCap` stöds.                                           |
+| `gpx_style:line`         | Partiell | Partiell | `color`, `opacity` `width`, `lineCap` stöds.                                           |
 | `gpx_style:opacity`      | ja     | ja     |                                                                                             |
 | `gpx_style:width`        | ja     | ja     |                                                                                             |
-| `gpxx:DisplayColor`      | ja     | nej      | Används för att ange färgen på en form. När du skriver används `gpx_style:line`s färg i stället.  |
-| `gpxx:RouteExtension`    | signatur | nej      | Alla egenskaper läses in i `properties`. Endast `DisplayColor` används.                     |
-| `gpxx:TrackExtension`    | signatur | nej      | Alla egenskaper läses in i `properties`. Endast `DisplayColor` används.                     |
-| `gpxx:WaypointExtension` | signatur | nej      | Alla egenskaper läses in i `properties`. Endast `DisplayColor` används.                     |
+| `gpxx:DisplayColor`      | ja     | nej      | Används för att ange färgen på en form. När du `gpx_style:line` skriver används färgen i stället.  |
+| `gpxx:RouteExtension`    | Partiell | nej      | Alla egenskaper läss in i `properties`. Endast `DisplayColor` används.                     |
+| `gpxx:TrackExtension`    | Partiell | nej      | Alla egenskaper läss in i `properties`. Endast `DisplayColor` används.                     |
+| `gpxx:WaypointExtension` | Partiell | nej      | Alla egenskaper läss in i `properties`. Endast `DisplayColor` används.                     |
 | `gpx:keywords`           | ja     | ja     |                                                                                             |
 | `gpx:fix`                | ja     | ja     |                                                                                             |
 
-#### <a name="additional-notes"></a>Ytterligare information
+#### <a name="additional-notes"></a>ytterligare anteckningar
 
-Vid skrivning,
+När du skriver;
 
-- Multipoäng delas upp i enskilda waypoints.
-- Polygoner och multipolygoner skrivs som spår. 
+- MultiPoints delas upp i enskilda waypoints.
+- Polygoner och MultiPolygons kommer att skrivas som spår. 
   
-## <a name="supported-well-known-text-geometry-types"></a>Välkända text geometri typer som stöds
+## <a name="supported-well-known-text-geometry-types"></a>Geometrityper för välkänd text som stöds
 
-| Geometri typ | Läsa | Skriva |
+| Geometrityp | Läsa | Skriva |
 |--------------|:----:|:-----:|
-| PEKAREN | x | x |
+| Punkt | x | x |
 | PUNKT Z | x | x | 
 | PUNKT M | x | x<sup>[2]</sup> |
 | PUNKT ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
-| Lin Est ring | x | x |
-| LIN EST RING Z | x | x | 
-| LIN EST RING M | x | x<sup>[2]</sup> |
-| LIN EST RING ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
-| POLYGONLASSO | x | x |
+| LINJERNAS RIKTNING | x | x |
+| LINJERNA Z | x | x | 
+| LINJERNA M | x | x<sup>[2]</sup> |
+| LINJERNA ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| Polygon | x | x |
 | POLYGON Z | x | x |
 | POLYGON M | x | x<sup>[2]</sup> |
 | POLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
-| MULTIPOINT | x | x |
-| MULTIPOINT Z | x | x | 
-| MULTIPOINT M | x | x<sup>[2]</sup> |
+| Multipoint | x | x |
+| FLERAPUNKT Z | x | x | 
+| FLERAPUNKT M | x | x<sup>[2]</sup> |
 | POMULTIPOINTINT ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
 | MULTILINESTRING | x | x |
 | MULTILINESTRING Z | x | x | 
 | MULTILINESTRING M | x | x<sup>[2]</sup> |
-| MULTILINESTRING ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| ZM med flera strecklinjer | x<sup>[1]</sup><sup>[2]</sup> | | 
 | MULTIPOLYGON | x | x |
 | MULTIPOLYGON Z | x | x | 
 | MULTIPOLYGON M | x | x<sup>[2]</sup> |
-| MULTIPOLYGON-ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
+| MULTIPOLYGON ZM | x<sup>[1]</sup><sup>[2]</sup> | | 
 | GEOMETRYCOLLECTION | x | x |
 | GEOMETRYCOLLECTION Z | x | x | 
 | GEOMETRYCOLLECTION M | x | x<sup>[2]</sup> | 
 | GEOMETRYCOLLECTION ZM | x<sup>[1]</sup><sup>[2]</sup> | x | 
 
-\[1\] endast en Z-parameter samlas in och läggs till som ett tredje värde i position svärdet.
+\[1\] Endast Z-parametern fångas in och läggs till som ett tredje värde i positionsvärdet.
 
-\[2\] M-parametern har inte registrerats.
+\[2\] M-parametern fångas inte.
 
-## <a name="delimited-spatial-data-support"></a>Stöd för avgränsad spatial data
+## <a name="delimited-spatial-data-support"></a>Stöd för avgränsade rumsliga data
 
-Avgränsade spatialdata, till exempel CSV-filer (kommaavgränsade filer) har ofta kolumner som innehåller spatialdata. Det kan till exempel finnas kolumner som innehåller information om latitud och longitud. I välkänt text format kan det finnas en kolumn som innehåller data för spatial geometri.
+Avgränsade rumsliga data, till exempel kommaavgränsade värdefiler (CSV), har ofta kolumner som innehåller rumsliga data. Det kan till exempel finnas kolumner som innehåller latitud- och longitudinformation. I formatet Välkänd text kan det finnas en kolumn som innehåller rumsliga geometridata.
 
-### <a name="spatial-data-column-detection"></a>Identifiering av kolumn för avstånds data
+### <a name="spatial-data-column-detection"></a>Identifiering av kolumn i spatialdata
 
-När du läser en avgränsad fil som innehåller spatialdata kommer rubriken att analyseras för att avgöra vilka kolumner som innehåller plats fält. Om rubriken innehåller typ information används den för att omvandla cellvärdena till lämplig typ. Om du inte anger något sidhuvud kommer den första raden att analyseras och användas för att generera ett sidhuvud. När den första raden analyseras utförs en kontroll för att matcha kolumn namn med följande namn på ett skift läges okänsligt sätt. Ordningen på namnen är prioritet, om det finns två eller fler namn i en fil.
+När du läser en avgränsad fil som innehåller rumsliga data analyseras huvudet för att avgöra vilka kolumner som innehåller platsfält. Om huvudet innehåller textinformation används cellvärdena till lämplig typ. Om inget huvud anges analyseras den första raden och används för att generera ett huvud. När du analyserar den första raden körs en check för att matcha kolumnnamn med följande namn på ett skiftlägesokänsligt sätt. Namnordningen är prioriteten, om det finns två eller flera namn i en fil.
 
 #### <a name="latitude"></a>Latitud
 
@@ -375,7 +375,7 @@ När du läser en avgränsad fil som innehåller spatialdata kommer rubriken att
 - `xcenter`
 - `point-x`
 
-#### <a name="elevation"></a>Höjning
+#### <a name="elevation"></a>Höjd
 
 - `elevation`
 - `elv`
@@ -383,53 +383,53 @@ När du läser en avgränsad fil som innehåller spatialdata kommer rubriken att
 - `alt`
 - `z`
 
-#### <a name="geography"></a>Placering
+#### <a name="geography"></a>Geografi
 
-Den första raden med data genomsöks efter strängar som har välkänd text format. 
+Den första raden med data kommer att genomsökas efter strängar som är i välkänt textformat. 
 
-### <a name="delimited-data-column-types"></a>Avgränsade data kolumn typer
+### <a name="delimited-data-column-types"></a>Avgränsade datakolumntyper
 
-När du skannar rubrik raden kommer all typ information som finns i kolumn namnet att extraheras och användas för att omvandla cellerna i kolumnen. Här är ett exempel på ett kolumn namn som har ett typ värde: "ColumnName (typeName)". Följande Skift läges känsliga typ namn stöds:
+När du skannar rubrikraden extraheras all typinformation som finns i kolumnnamnet och används för att casta cellerna i den kolumnen. Här är ett exempel på ett kolumnnamn som har ett textvärde: "ColumnName (typeName)". Följande skiftlägesokänsliga typnamn stöds:
 
-#### <a name="numbers"></a>Nummer
+#### <a name="numbers"></a>Tal
 
-- EDM. Int64
+- edm.int64
 - int
 - long
-- EDM. Double
+- edm.double (edm.double)
 - float
 - double
 - nummer
 
-#### <a name="booleans"></a>Booleska värden
+#### <a name="booleans"></a>Booleans
 
-- EDM. Boolean
-- booleska
+- edm.boolean
+- bool
 - boolean
 
 #### <a name="dates"></a>Datum
 
-- EDM. DateTime
+- edm.datetime
 - date
 - datetime
 
-#### <a name="geography"></a>Placering
+#### <a name="geography"></a>Geografi
 
-- EDM. geography
+- edm.geografi
 - geography
 
 #### <a name="strings"></a>Strängar
 
-- EDM. String
+- edm.string (edm.string)
 - varchar
 - text
-- Case-sträng
+- sträng
 
-Om ingen typ information kan extraheras från rubriken och alternativet för dynamiskt Skriv aktive ras när du läser, kommer varje cell att analyseras individuellt för att avgöra vilken data typ som passar bäst för att omvandlas till.
+Om ingen typinformation kan extraheras från huvudet och det dynamiska skrivalternativet är aktiverat vid läsning, analyseras varje cell individuellt för att avgöra vilken datatyp den är bäst lämpad att casta som.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se följande artiklar för fler kod exempel som du kan lägga till i dina kartor:
+Se följande artiklar för fler kodexempel att lägga till i dina kartor:
 
 > [!div class="nextstepaction"]
-> [Läsa och skriva spatialdata](spatial-io-read-write-spatial-data.md)
+> [Läsa och skriva rumsliga data](spatial-io-read-write-spatial-data.md)

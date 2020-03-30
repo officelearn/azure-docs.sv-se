@@ -1,35 +1,35 @@
 ---
-title: Åtkomst till långsamma Query-loggar – Azure CLI – Azure Database for MariaDB
-description: Den här artikeln beskriver hur du kommer åt långsamma loggar i Azure Database for MariaDB med hjälp av kommando rads verktyget för Azure CLI.
+title: Långsamma frågeloggar i Access - Azure CLI - Azure Database för MariaDB
+description: I den här artikeln beskrivs hur du kommer åt de långsamma loggarna i Azure Database för MariaDB med hjälp av kommandoradsverktyget Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 32e73835732538813f90de5cb737429373c3762a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: f33a02ff0e287c135a7d63277cf3d8d3c0cd13d4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767389"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79527664"
 ---
-# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurera och komma åt långsamma Query-loggar med hjälp av Azure CLI
-Du kan hämta Azure Database for MariaDB långsamma frågemeddelanden med hjälp av Azure CLI, kommando rads verktyget för Azure.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Konfigurera och komma åt långsamma frågeloggar med hjälp av Azure CLI
+Du kan hämta Azure Database för MariaDB långsamma frågeloggar med hjälp av Azure CLI, Azure kommandoradsverktyget.
 
 ## <a name="prerequisites"></a>Krav
-För att gå igenom den här instruktions guiden behöver du:
-- [Azure Database for MariaDB Server](quickstart-create-mariadb-server-database-using-azure-cli.md)
+För att gå igenom den här guiden behöver du:
+- [Azure-databas för MariaDB-server](quickstart-create-mariadb-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) eller Azure Cloud Shell i webbläsaren
 
-## <a name="configure-logging-for-azure-database-for-mariadb"></a>Konfigurera loggning för Azure Database for MariaDB
-Du kan konfigurera servern för att få åtkomst till MariaDB långsamma Query-loggen genom att utföra följande steg:
-1. Aktivera loggning genom att ställa in den **långsamma\_frågan\_logg** parameter till på.
-2. Justera andra parametrar, till exempel **lång\_fråga\_tid** och **logg\_långsamma\_admin\_-instruktioner**.
+## <a name="configure-logging-for-azure-database-for-mariadb"></a>Konfigurera loggning för Azure Database för MariaDB
+Du kan konfigurera servern så att den kommer åt den långsamma frågeloggen för MariaDB genom att vidta följande åtgärder:
+1. Aktivera loggning genom att ange parametern **\_långsam frågelogg\_** på PÅ.
+2. Justera andra parametrar, till exempel **lång\_frågetid\_** och logga **\_långsamma\_admin-satser\_**.
 
-Information om hur du ställer in värdet för dessa parametrar via Azure CLI finns i [så här konfigurerar du Server parametrar](howto-configure-server-parameters-cli.md).
+Mer information om hur du anger värdet för dessa parametrar via Azure CLI finns i [Konfigurera serverparametrar](howto-configure-server-parameters-cli.md).
 
-Följande CLI-kommando aktiverar till exempel loggen långsam fråga, ställer in tiden för lång tid till 10 sekunder och stänger sedan av loggningen av den långsamma administratörs instruktionen. Slutligen visas konfigurations alternativen för din granskning.
+Följande CLI-kommando aktiverar till exempel den långsamma frågeloggen, anger den långa frågetiden till 10 sekunder och inaktiverar sedan loggningen av den långsamma administratörssatsen. Slutligen visas konfigurationsalternativen för din granskning.
 ```azurecli-interactive
 az mariadb server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 az mariadb server configuration set --name long_query_time --resource-group myresourcegroup --server mydemoserver --value 10
@@ -37,20 +37,20 @@ az mariadb server configuration set --name log_slow_admin_statements --resource-
 az mariadb server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 
-## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Lista loggar för Azure Database for MariaDB Server
-Om du vill visa en lista över tillgängliga långsamma loggfiler för servern kör du kommandot [AZ MariaDB Server-logs List](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) .
+## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Lista loggar för Azure Database för MariaDB-server
+Om du vill visa tillgängliga långsamma frågeloggfiler för servern kör du kommandot [az mariadb server-logs list.](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list)
 
-Du kan visa en lista över loggfilerna för Server **mydemoserver.MariaDB.Database.Azure.com** under resurs gruppen **myresourcegroup**. Dirigera sedan listan över loggfiler till en textfil med namnet **log\_filer\_List. txt**.
+Du kan lista loggfilerna för server **mydemoserver.mariadb.database.azure.com** under resursgruppen **myresourcegroup**. Sedan rikta listan över loggfiler till en textfil som kallas **loggfiler\_\_list.txt**.
 ```azurecli-interactive
 az mariadb server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Hämta loggar från servern
-Med kommandot [AZ MariaDB Server-logs Download](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download) kan du hämta enskilda loggfiler för servern.
+Med [az mariadb server-loggar nedladdning](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download) kommandot kan du ladda ner enskilda loggfiler för din server.
 
-Använd följande exempel för att hämta den speciella logg filen för servern **mydemoserver.MariaDB.Database.Azure.com** under resurs gruppen **myresourcegroup** till din lokala miljö.
+Använd följande exempel för att hämta den specifika loggfilen för servern **mydemoserver.mariadb.database.azure.com** under resursgruppen **myresourcegroup** till din lokala miljö.
 ```azurecli-interactive
 az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --resource-group myresourcegroup --server mydemoserver
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [långsamma frågemeddelanden i Azure Database for MariaDB](concepts-server-logs.md).
+- Lär dig mer om [långsamma frågeloggar i Azure Database för MariaDB](concepts-server-logs.md).

@@ -3,12 +3,12 @@ title: Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 description: Ger en sammanfattning av supportinställningar och begränsningar när du säkerhetskopierar virtuella Azure-datorer med Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: c30a1d1b30fcc7a12449b44d35704b3b43daa385
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d86ce94c62ec9f25b364e9fdc963e3043b274722
+ms.sourcegitcommit: 0553a8b2f255184d544ab231b231f45caf7bbbb0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79247909"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80389298"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -115,7 +115,6 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 **Återställa** | **Stöds**
 --- | ---
 Återställa filer över operativsystem | Du kan återställa filer på alla datorer som har samma (eller kompatibla) operativsystem som den säkerhetskopierade virtuella datorn. Se [tabellen Kompatibelt operativsystem](backup-azure-restore-files-from-vm.md#system-requirements).
-Återställa filer på klassiska virtuella datorer | Stöds inte.
 Återställa filer från krypterade virtuella datorer | Stöds inte.
 Återställa filer från nätverksbegränsade lagringskonton | Stöds inte.
 Återställa filer på virtuella datorer med Windows Lagringsutrymmen | Återställning stöds inte på samma virtuella dator.<br/><br/> Återställ i stället filerna på en kompatibel virtuell dator.

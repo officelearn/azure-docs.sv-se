@@ -1,6 +1,6 @@
 ---
-title: Visa och hantera StorSimple Virtual Array-jobb | Microsoft Docs
-description: Beskriver sidan StorSimple Device Manager-jobb och hur du använder den för att spåra senaste och aktuella jobb för StorSimple Virtual Array.
+title: Visa och hantera StorSimple Virtual Array-jobb | Microsoft-dokument
+description: Beskriver tjänsten StorSimple-tjänsthanterarens tjänst jobb och hur du använder den för att spåra senaste och aktuella jobb för StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,53 +15,53 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: dbab2aaab2c12bef07748f54e5864d042f1c982a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "60302507"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Använda StorSimple Device Manager-tjänsten för att visa jobb för StorSimple Virtual Array
+# <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>Använda Tjänsten StorSimple Device Manager för att visa jobb för den virtuella storsimple-matrisen
 ## <a name="overview"></a>Översikt
-Den **jobb** bladet ger en enda central portal för att visa och hantera jobb som startas på virtuella matriser som är anslutna till din StorSimple Device Manager-tjänsten. Du kan visa körs, slutförda och misslyckade jobb för flera virtuella enheter. Resultaten visas i tabellformat.
+**Jobbbladet** tillhandahåller en enda central portal för visning och hantering av jobb som startas på virtuella matriser som är anslutna till Tjänsten StorSimple Device Manager. Du kan visa jobb som körs, slutförs och misslyckades för flera virtuella enheter. Resultaten presenteras i tabellformat.
 
-![Jobb-bladet](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
+![Jobb blad](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
 
-Du kan snabbt hitta de jobb som du är intresserad av genom att filtrera på fält som:
+Du kan snabbt hitta de jobb du är intresserad av genom att filtrera på fält som:
 
-* **Tidsintervall** – jobb kan filtreras baserat på det datum och tid-intervallet.
-* **Enheter** – jobb startas på en specifik enhet är ansluten till din tjänst. Filtrerade jobben visas sedan som en tabell baserat på följande attribut:
+* **Tidsintervall** – Jobb kan filtreras baserat på datum och tidsintervall.
+* **Enheter** – Jobb initieras på en viss enhet som är ansluten till din tjänst. De filtrerade jobben tabuleras sedan baserat på följande attribut:
   
-  * **Namnet** – Jobbnamnet kan vara **alla**, **Backup**, **klona**, **Redundansväxla**, **hämta uppdateringar**, eller **installera uppdateringar**.
-  * **Status för** – jobb kan vara **alla**, **pågår**, **lyckades**, eller **misslyckades**, eller **avbruten**.
-  * **Entiteten** – jobb kan associeras med en volym, resurs eller enhet.
-  * **Enheten** – med namnet på den enhet som då jobbet startades.
-  * **Startad** – tiden då jobbet startades.
-  * **Varaktighet** – varaktigheten för som jobbet körs.
-* **Status för** – du kan söka efter alla, som körs, slutförda och misslyckade jobb.
-* **Typ av utskriftsjobb** – jobbtypen kan all, säkerhetskopiering, återställning, växling vid fel, ladda ned uppdateringar, eller installera uppdateringar.
+  * **Namn** – Jobbnamnet kan vara **Alla**, **Säkerhetskopiering,** **Klona**, **Växla över,** **Hämta uppdateringar**eller **Installera uppdateringar**.
+  * **Status** – Jobb kan vara **Alla,** **Pågår,** **Lyckades**eller **Misslyckades**eller **Avbröt .**
+  * **Entitet** – Jobben kan associeras med en volym, resurs eller enhet.
+  * **Enhet** – Namnet på den enhet där jobbet startades.
+  * **Började** på – Den tid då jobbet startades.
+  * **Varaktighet** – Varaktigheten för jobbet som jobbet kördes på.
+* **Status** – Du kan söka efter alla jobb som körs, har slutförts eller misslyckats.
+* **Jobbtyp** – Jobbtypen kan vara allt, säkerhetskopiera, återställa, redundans, hämta uppdateringar eller installera uppdateringar.
 
-Listan över jobb uppdateras var 30: e sekund.
+Listan över jobb uppdateras var 30:e sekund.
 
 ## <a name="view-job-details"></a>Visa jobbinformation
-Utför följande steg om du vill visa information om alla jobb.
+Gör följande för att visa information om ett jobb.
 
-#### <a name="to-view-job-details"></a>Visa jobbinformation
-1. På den **jobb** bladet visar de jobb som du är intresserad av genom att köra en fråga med lämpliga filter. Du kan söka efter slutförd eller pågående jobb.
-2. Välj ett jobb från listan med jobb.
+#### <a name="to-view-job-details"></a>Så här visar du jobbinformation
+1. På bladet **Jobb** visar du de jobb som du är intresserad av genom att köra en fråga med lämpliga filter. Du kan söka efter slutförda eller pågående jobb.
+2. Välj ett jobb i tabelllistan med jobb.
    
-    ![Jobb-bladet](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
-3. Längst ned på sidan klickar du på **information**.
-4. I den **information** dialogrutan kan du visa status, information och statistik. Följande bild visar ett exempel på den **säkerhetskopiering jobbinformation** dialogrutan.
+    ![Jobbblad](./media/storsimple-virtual-array-manage-jobs/ova-jobs-blade.png)
+3. Klicka på **Detaljer**längst ned på sidan .
+4. I dialogrutan **Information** kan du visa status, information och tidsstatistik. Följande bild visar ett exempel på dialogrutan **Information om säkerhetskopieringsjobb.**
    
     ![Information om jobb](./media/storsimple-virtual-array-manage-jobs/ova-jobs-details.png)
 
-#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Misslyckade jobb när den virtuella datorn har pausats i hypervisor-programmet
-När ett jobb är i förloppet på StorSimple Virtual Array och enhet (virtuell dator som etablerats i hypervisor-program) har pausats för längre än 15 minuter, jobbet har misslyckats. Detta på grund av din StorSimple Virtual Array-tid är osynkroniserad med Microsoft Azure-tiden. 
+#### <a name="job-failures-when-the-virtual-machine-is-paused-in-the-hypervisor"></a>Jobbfel när den virtuella datorn pausas i hypervisorn
+När ett jobb pågår på den virtuella storsimple-matrisen och enheten (virtuell dator som etableras i hypervisor) pausas i mer än 15 minuter misslyckas jobbet. Detta beror på att din StorSimple Virtual Array-tid är osynkroniserad med Microsoft Azure-tiden. 
 
-Följande fel visas: ”Din enhets tidsinställningar är inte synkroniserat med Microsoft Azure-tiden med mer än 15 minuter. Se till att hypervisor-programmet och enheten servertiderna är synkroniserade med en NTP-server. Kontrollera att det inte finns några anslutningsproblem. Om du vill felsöka problem med nätverksanslutningen, köra diagnostiktest från det lokala webbgränssnittet på den virtuella enheten ”.
+Följande felmeddelande visas: "Din enhetstid är inte synkroniserad med Microsoft Azure-tiden med mer än 15 minuter. Kontrollera att hypervisorn och enhetstiderna synkroniseras med en NTP-server. Kontrollera att det inte finns några anslutningsproblem. Om du vill felsöka anslutningsproblem kör du diagnostiska tester från det lokala webbgränssnittet på den virtuella enheten."
 
-De här felen gäller för säkerhetskopiering, återställning, uppdatering och redundans jobb. Om den virtuella datorn har etablerats i Hyper-V, synkroniseras datorn så småningom tid med din hypervisor-programmet. När det händer kan du starta om jobbet.
+Dessa fel gäller för säkerhetskopierings-, återställnings-, uppdaterings- och redundansjobb. Om den virtuella datorn etableras i Hyper-V synkroniseras datorn så småningom tiden med hypervisorn. När det händer kan du starta om jobbet.
 
 ## <a name="next-steps"></a>Nästa steg
 [Lär dig hur du använder det lokala webbgränssnittet för att administrera din StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

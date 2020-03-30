@@ -1,6 +1,6 @@
 ---
-title: 'Återställa en misslyckad krets-ExpressRoute: PowerShell: Azure | Microsoft Docs'
-description: Den här artikeln hjälper dig att återställa en ExpressRoute-krets som är i ett felaktigt tillstånd.
+title: 'Återställa en misslyckad krets – ExpressRoute: PowerShell: Azure | Microsoft-dokument'
+description: Den här artikeln hjälper dig att återställa en ExpressRoute-krets som är i ett misslyckat tillstånd.
 services: expressroute
 author: anzaman
 ms.service: expressroute
@@ -9,15 +9,15 @@ ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
 ms.openlocfilehash: deeb1c65cae7e3a5b42230dbda1ad8efa717ba0b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73748101"
 ---
-# <a name="reset-a-failed-expressroute-circuit"></a>Återställa en misslyckad ExpressRoute-krets
+# <a name="reset-a-failed-expressroute-circuit"></a>Återställ en ExpressRoute-krets som misslyckats
 
-När en åtgärd på en ExpressRoute-krets inte slutförs kan kretsen hamna i ett misslyckat tillstånd. Den här artikeln hjälper dig att återställa en misslyckad Azure ExpressRoute-krets.
+När en åtgärd på en ExpressRoute-krets inte slutförs kan kretsen gå in i ett "misslyckat" tillstånd. Den här artikeln hjälper dig att återställa en misslyckad Azure ExpressRoute-krets.
 
 [!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
@@ -40,7 +40,7 @@ När en åtgärd på en ExpressRoute-krets inte slutförs kan kretsen hamna i et
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
-5. Kör följande kommandon för att återställa en krets som är i ett felaktigt tillstånd:
+5. Kör följande kommandon för att återställa en krets som är i ett misslyckat tillstånd:
 
    ```azurepowershell-interactive
    $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
@@ -48,8 +48,8 @@ När en åtgärd på en ExpressRoute-krets inte slutförs kan kretsen hamna i et
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
    ```
 
-Kretsen bör nu vara felfri. Öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om kretsen fortfarande är i ett felaktigt tillstånd.
+Kretsen bör nu vara frisk. Öppna en supportbiljett med [Microsoft-support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om kretsen fortfarande är i ett misslyckat tillstånd.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Öppna ett support ärende med [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om det fortfarande uppstår problem.
+Öppna en supportbiljett med [Microsoft-support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om du fortfarande har problem.

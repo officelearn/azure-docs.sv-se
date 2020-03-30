@@ -1,5 +1,5 @@
 ---
-title: Snabb start – skapa ett Azure Stream Analytics jobb med Visual Studio
+title: Snabbstart – skapa ett Azure Stream Analytics-jobb med Visual Studio
 description: Den här snabbstarten visar hur du kommer igång genom att skapa ett Stream Analytics-jobb, konfigurerar indata och utdata samt definierar en fråga med Visual Studio.
 author: mamccrea
 ms.author: mamccrea
@@ -7,23 +7,23 @@ ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.openlocfilehash: 21dbd4128cad7df11aeb713286d868879a58519b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "75431531"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Snabb start: skapa ett Azure Stream Analytics jobb med hjälp av Visual Studio
+# <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Snabbstart: Skapa ett Azure Stream Analytics-jobb med hjälp av Visual Studio
 
 Den här snabbstarten visar hur du skapar och kör ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-verktyg för Visual Studio. Exempeljobbet läser strömmande data från en IoT Hub-enhet. Du definierar ett jobb som beräknar medeltemperaturen när den överstiger 27° och skriver utdatahändelser till en ny fil i Blob Storage.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
 * Logga in på [Azure-portalen](https://portal.azure.com/).
 
-* Installera Visual Studio 2019, Visual Studio 2015 eller Visual Studio 2013 uppdatering 4. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte.
+* Installera Visual Studio 2019, Visual Studio 2015 eller Visual Studio 2013 Update 4. Versionerna Enterprise (Ultimate/Premium), Professional och Community stöds. Versionen Express stöds inte.
 
 * Följ [installationsanvisningarna](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) för att installera Stream Analytics-verktygen för Visual Studio.
 
@@ -33,7 +33,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-2. Välj **Skapa en resurs** > **Sakernas internet** > **IoT Hub**.
+2. Välj Skapa ett**resurs-Internet** >  **Create a resource** > för**saker IoT Hub**.
 
 3. I rutan **IoT-hubb** anger du följande information:
    
@@ -64,7 +64,7 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
 ## <a name="create-blob-storage"></a>Skala bloblagring
 
-1. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto** i det övre vänstra hörnet i Azure-portalen.
+1. Välj Skapa ett > **resurslagringslagringskonto** > **Storage account** **Create a resource**i det övre vänstra hörnet i Azure-portalen .
 
 2. I fönsterrutan **Skapa lagringskonto** anger du namn, plats och resursgrupp för lagringskonto. Välj samma plats och resursgrupp som den IoT-hubb som du skapade. Klicka sedan på **Granska + skapa** för att skapa kontot.
 
@@ -129,7 +129,7 @@ Lägg märke till de element som ingår i ett Azure Stream Analytics-projekt.
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**   |
    |---------|---------|---------|
    |Utdataalias  |  Resultat   |  Ange ett namn som identifierar jobbets utdata.   |
-   |Kanalmottagare   |  Blob-lagring |  Välj lämplig kanalmottagare.    |
+   |Kanalmottagare   |  Blob Storage |  Välj lämplig kanalmottagare.    |
    |Resurs  |  Ange inställningar för datakälla manuellt |  Välj att ange data manuellt eller välj ett befintligt konto.   |
    |Prenumeration  |  \<Din prenumeration\>   | Välj den Azure-prenumeration där det lagringskonto som du skapade finns. Lagringskontot kan vara i samma eller en annan prenumeration. I det här exemplet förutsätts att du har skapat lagringskontot i samma prenumeration.   |
    |Lagringskonto  |  asaquickstartstorage   |  Välj eller ange lagringskontots namn. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.   |
@@ -167,7 +167,7 @@ Lägg märke till de element som ingår i ett Azure Stream Analytics-projekt.
 
 2. Ersätt platshållaren på rad 15 med Azure IoT Hub-enhetens anslutningssträng, som du sparade i föregående avsnitt.
 
-3. Klicka på **Run** (Kör). Utdata bör visas de sensordata och meddelanden som skickas till din IoT-hubb.
+3. Klicka på **Kör**. Utdata bör visas de sensordata och meddelanden som skickas till din IoT-hubb.
 
    ![Raspberry Pi Azure IoT-onlinesimulator](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 

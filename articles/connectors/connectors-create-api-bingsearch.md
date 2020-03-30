@@ -1,6 +1,6 @@
 ---
 title: Anslut till Bing-sökning
-description: Automatisera aktiviteter och arbets flöden som hittar resultat i Bing-sökning med hjälp av Azure Logic Apps
+description: Automatisera uppgifter och arbetsflöden som hittar resultat i Bing Search med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
@@ -8,137 +8,137 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: e547ae59f7b3260f46756825bca2bef1c10bcc97
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75665895"
 ---
-# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Hitta resultat i Bing-sökning med Azure Logic Apps
+# <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Hitta resultat i Bing Search med hjälp av Azure Logic Apps
 
-Den här artikeln visar hur du kan hitta nyheter, videor och andra objekt genom Bing-sökning inifrån en Logic-app med Bing-sökning-anslutningen. På så sätt kan du skapa Logi Kap par som automatiserar aktiviteter och arbets flöden för bearbetning av Sök Resultat och gör dessa objekt tillgängliga för andra åtgärder. 
+Den här artikeln visar hur du kan hitta nyheter, videor och andra objekt via Bing Search inifrån en logikapp med Bing Search-kopplingen. På så sätt kan du skapa logikappar som automatiserar uppgifter och arbetsflöden för bearbetning av sökresultat och gör dessa objekt tillgängliga för andra åtgärder. 
 
-Du kan till exempel hitta nyhets objekt baserat på Sök villkor och låta Twitter publicera dessa objekt som tweets i ditt Twitter-flöde.
+Du kan till exempel hitta nyheter baserat på sökkriterier och låta Twitter publicera dessa objekt som tweets i ditt Twitter-flöde.
 
-Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-Information om anslutningsspecifika teknisk information finns i referens för [Bing-sökning Connector](https://docs.microsoft.com/connectors/bingsearch/).
+Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Om du inte har tidigare i logikappar läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Anslutningsspecifik teknisk information finns i [Bing Search-anslutningsreferensen](https://docs.microsoft.com/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Krav
 
-* Ett [Cognitive Services konto](../cognitive-services/cognitive-services-apis-create-account.md)
+* Ett [Cognitive Services-konto](../cognitive-services/cognitive-services-apis-create-account.md)
 
-* En [Bing-sökning API-nyckel](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)som ger åtkomst från din Logic app till API:er för Bing-sökresultat
+* En [API-nyckel för Bing-sökning](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)som ger åtkomst från logikappen till API:erna för Bing-sökning
 
-* Den Logic-app där du vill komma åt Händelsehubben. Om du vill starta din Logic app med en Bing-sökning utlösare behöver du en [Tom Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Logikappen där du vill komma åt din eventhubb. Om du vill starta logikappen med en Bing Search-utlösare behöver du en [tom logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-trigger"></a>
 
-## <a name="add-a-bing-search-trigger"></a>Lägg till en Bing-sökning-utlösare
+## <a name="add-a-bing-search-trigger"></a>Lägga till en Bing-sökutlösare
 
-I Azure Logic Apps måste varje Logi Kap par starta med en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts)som utlöses när en enskild händelse inträffar eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans och börjar köra appens arbets flöde.
+I Azure Logic Apps måste varje logikapp starta med en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts), som utlöses när en viss händelse inträffar eller när ett visst villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en logikappinstans och börjar köra appens arbetsflöde.
 
-1. I Azure Portal eller Visual Studio skapar du en tom Logic-app som öppnar Logic App Designer. I det här exemplet används Azure Portal.
+1. Skapa en tom logikapp i Azure-portalen eller Visual Studio som öppnar Logic App Designer. I det här exemplet används Azure-portalen.
 
-2. Skriv "Bing search" som filter i rutan Sök. Välj den utlösare som du vill använda från listan utlösare.
+2. I sökrutan anger du "Bing-sökning" som filter. Välj den utlösare du vill använda i listan utlösare.
 
-   I det här exemplet används den här utlösaren: **Bing-sökning ny nyhets artikel**
+   I det här exemplet används den här utlösaren: **Bing Search - På ny nyhetsartikel**
 
-   ![Hitta Bing-sökning utlösare](./media/connectors-create-api-bing-search/add-trigger.png)
+   ![Hitta Bing-sökutlösare](./media/connectors-create-api-bing-search/add-trigger.png)
 
-3. Om du uppmanas att ange anslutnings information [skapar du din Bing-sökning-anslutning nu](#create-connection).
-Eller, om anslutningen redan finns, anger du den information som krävs för utlösaren.
+3. Om du uppmanas att ange anslutningsinformation [skapar du din Bing Search-anslutning nu](#create-connection).
+Eller, om anslutningen redan finns, ange nödvändig information för utlösaren.
 
-   I det här exemplet anger du kriterier för att returnera matchande nyhets artiklar från Bing-sökning.
+   I det här exemplet kan du ange kriterier för att returnera matchande nyhetsartiklar från Bing Search.
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | Search Query | Ja | <*Sök efter ord*> | Ange Sök nyckelorden som du vill använda. |
-   | Marknad | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
-   | Safe Search | Ja | <*search-level*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Antal | Inga | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
-   | Offset | Inga | <*skip-value*> | Antal resultat som ska hoppas över innan resultat returneras |
+   | Sökfråga | Ja | <*sökord*> | Ange de sökord som du vill använda. |
+   | Marknaden | Ja | <*Locale*> | Söklokalen. Standardvärdet är "en-US", men du kan välja ett annat värde. |
+   | Säker sökning | Ja | <*söknivå*> | Filternivån för att utesluta barnförbjudet innehåll. Standardär "Måttlig", men du väljer en annan nivå. |
+   | Antal | Inga | <*resultaträkning*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna talet. |
+   | Offset | Inga | <*hoppa över värde*> | Antalet resultat att hoppa över innan resultaten returneras |
    |||||
 
    Ett exempel:
 
-   ![Konfigurera utlösare](./media/connectors-create-api-bing-search/bing-search-trigger.png)
+   ![Ställ in utlösare](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
 4. Välj intervall och frekvens för hur ofta du vill att utlösaren ska söka efter resultat.
 
-5. När du är klar väljer du **Spara**i verktygsfältet designer.
+5. När du är klar väljer du **Spara**i designerverktygsfältet .
 
-6. Fortsätt nu att lägga till en eller flera åtgärder i din Logic app för de uppgifter som du vill utföra med utlösnings resultaten.
+6. Fortsätt nu att lägga till en eller flera åtgärder i logikappen för de uppgifter som du vill utföra med utlösarresultaten.
 
 <a name="add-action"></a>
 
-## <a name="add-a-bing-search-action"></a>Lägg till en Bing-sökning-åtgärd
+## <a name="add-a-bing-search-action"></a>Lägga till en Bing-sökåtgärd
 
-I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) ett steg i arbets flödet som följer en utlösare eller en annan åtgärd. I det här exemplet börjar Logic app med en Bing-sökning-utlösare som returnerar nyhets artiklar som matchar de angivna kriterierna.
+I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) ett steg i arbetsflödet som följer en utlösare eller en annan åtgärd. I det här exemplet börjar logikappen med en Bing Search-utlösare som returnerar nyhetsartiklar som matchar de angivna villkoren.
 
-1. Öppna din Logic app i Logic App Designer i Azure Portal eller Visual Studio. I det här exemplet används Azure Portal.
+1. Öppna logikappen i Logic App Designer i Azure-portalen eller Visual Studio. I det här exemplet används Azure-portalen.
 
-2. Under utlösaren eller åtgärden väljer du **nytt steg** > **lägger till en åtgärd**.
+2. Under utlösaren eller åtgärden väljer du **Nytt steg** > **Lägg till en åtgärd**.
 
    I det här exemplet används den här utlösaren:
 
-   **Bing-sökning ny nyhets artikel**
+   **Bing Search - På nya nyheter artikel**
 
    ![Lägg till åtgärd](./media/connectors-create-api-bing-search/add-action.png)
 
-   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. 
-   Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över anslutningspilen. 
+   Markera plustecknet**+**( ) som visas och välj sedan **Lägg till en åtgärd**.
 
-3. Skriv "Bing search" som filter i rutan Sök.
-Välj den åtgärd du vill använda i listan åtgärder.
+3. I sökrutan anger du "Bing-sökning" som filter.
+Välj den åtgärd du vill använda i åtgärdslistan.
 
    I det här exemplet används den här åtgärden:
 
-   **Bing-sökning Visa nyheter per fråga**
+   **Bing Search - Lista nyheter efter fråga**
 
-   ![Åtgärd för att hitta Bing-sökning](./media/connectors-create-api-bing-search/bing-search-select-action.png)
+   ![Sök i Bing-sökning](./media/connectors-create-api-bing-search/bing-search-select-action.png)
 
-4. Om du uppmanas att ange anslutnings information [skapar du din Bing-sökning-anslutning nu](#create-connection). Eller, om anslutningen redan finns, anger du den information som krävs för åtgärden.
+4. Om du uppmanas att ange anslutningsinformation [skapar du din Bing Search-anslutning nu](#create-connection). Eller, om anslutningen redan finns, ange nödvändig information för åtgärden.
 
    I det här exemplet anger du villkoren för att returnera en delmängd av utlösarens resultat.
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | Search Query | Ja | <*Sök uttryck*> | Ange ett uttryck för att skicka frågor till utlösnings resultaten. Du kan välja bland fälten i listan med dynamiskt innehåll eller skapa ett uttryck med uttrycks verktyget. |
-   | Marknad | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
-   | Safe Search | Ja | <*search-level*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
-   | Antal | Inga | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
-   | Offset | Inga | <*skip-value*> | Antal resultat som ska hoppas över innan resultat returneras |
+   | Sökfråga | Ja | <*sök-uttryck*> | Ange ett uttryck för att fråga utlösarresultaten. Du kan välja bland fälten i listan med dynamiskt innehåll eller skapa ett uttryck med uttrycksverktyget. |
+   | Marknaden | Ja | <*Locale*> | Söklokalen. Standardvärdet är "en-US", men du kan välja ett annat värde. |
+   | Säker sökning | Ja | <*söknivå*> | Filternivån för att utesluta barnförbjudet innehåll. Standardär "Måttlig", men du väljer en annan nivå. |
+   | Antal | Inga | <*resultaträkning*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna talet. |
+   | Offset | Inga | <*hoppa över värde*> | Antalet resultat att hoppa över innan resultaten returneras |
    |||||
 
-   Anta till exempel att du vill ha dessa resultat vars kategori namn innehåller ordet "Tech".
+   Anta till exempel att du vill ha de resultat vars kategorinamn innehåller ordet "tech".
 
-   1. Klicka i rutan **Sök fråga** så att listan med dynamiskt innehåll visas. 
-   Välj **uttryck** i listan så att uttrycks verktyget visas. 
+   1. Klicka i rutan **Sökfråga** så att listan med dynamiskt innehåll visas. 
+   Välj **Uttryck** i listan så att uttrycksverktyget visas. 
 
       ![Bing-sökning utlösare](./media/connectors-create-api-bing-search/bing-search-action.png)
 
       Nu kan du börja skapa ditt uttryck.
 
-   2. I listan funktioner väljer du funktionen **contains ()** som visas i rutan uttryck. Klicka på **dynamiskt innehåll** så att fält listan visas igen, men se till att markören stannar innanför parenteserna.
+   2. Välj funktionen **contains()** i funktionslistan, som sedan visas i uttrycksrutan. Klicka på **Dynamiskt innehåll** så att fältlistan visas igen, men se till att markören stannar inom parenteserna.
 
       ![Välj en funktion](./media/connectors-create-api-bing-search/expression-select-function.png)
 
-   3. I listan fält väljer du **kategori**, som konverterar till en parameter. 
-   Lägg till ett kommatecken efter den första parametern och efter kommatecken lägger du till det här ordet: `'tech'` 
+   3. Välj **Kategori**i fältlistan som konverteras till en parameter. 
+   Lägg till ett kommatecken efter den första parametern och lägg efter kommatecknet till det här ordet:`'tech'` 
 
-      ![Välj ett fält](./media/connectors-create-api-bing-search/expression-select-field.png)
+      ![Markera ett fält](./media/connectors-create-api-bing-search/expression-select-field.png)
 
    4. När du är klar väljer du **Ok**.
 
-      Uttrycket visas nu i rutan **Sök fråga** i följande format:
+      Uttrycket visas nu i rutan **Sökfråga** i det här formatet:
 
-      ![Slut uttryck](./media/connectors-create-api-bing-search/resolved-expression.png)
+      ![Avslutat uttryck](./media/connectors-create-api-bing-search/resolved-expression.png)
 
-      I kodvyn visas detta uttryck i följande format:
+      I kodvyn visas det här uttrycket i det här formatet:
 
       `"@{contains(triggerBody()?['category'],'tech')}"`
 
-5. När du är klar väljer du **Spara**i verktygsfältet designer.
+5. När du är klar väljer du **Spara**i designerverktygsfältet .
 
 <a name="create-connection"></a>
 
@@ -146,13 +146,13 @@ Välj den åtgärd du vill använda i listan åtgärder.
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. När du uppmanas att ange anslutnings information anger du följande information:
+1. Ange följande information när du uppmanas att ange anslutningsinformation:
 
    | Egenskap | Krävs | Värde | Beskrivning |
    |----------|----------|-------|-------------|
-   | Anslutningsnamn | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
-   | API-version | Ja | <*API-version*> | Som standard är Bing-sökning API-versionen inställd på den aktuella versionen. Du kan välja en tidigare version om det behövs. |
-   | API-nyckel | Ja | < *-API-nyckel*> | Den Bing-sökning API-nyckel som du fick tidigare. Om du inte har någon nyckel kan du hämta din [API-nyckel nu](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Anslutningsnamn | Ja | <*anslutningsnamn*> | Namnet som ska skapas för anslutningen |
+   | API-version | Ja | <*API-version*> | Som standard är API-versionen för Bing Search inställd på den aktuella versionen. Du kan välja en tidigare version om det behövs. |
+   | API-nyckel | Ja | <*API-nyckel*> | Api-nyckeln för Bing-sökning som du fick tidigare. Om du inte har en nyckel hämtar du [API-nyckeln nu](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Ett exempel:
@@ -163,8 +163,8 @@ Välj den åtgärd du vill använda i listan åtgärder.
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Teknisk information, till exempel utlösare, åtgärder och gränser, som beskrivs av kopplingens Swagger-fil, finns på [kopplingens referens sida](/connectors/bingsearch/).
+Teknisk information, till exempel utlösare, åtgärder och begränsningar, enligt beskrivningen i kopplingens Swagger-fil, finns på [kopplingens referenssida](/connectors/bingsearch/).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om andra [Logic Apps anslutningar](../connectors/apis-list.md)
+* Lär dig mer om andra [Logic Apps-kopplingar](../connectors/apis-list.md)

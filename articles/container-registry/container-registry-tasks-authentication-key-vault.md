@@ -1,54 +1,54 @@
 ---
-title: Extern autentisering från ACR-aktivitet
-description: Konfigurera en Azure Container Registry aktivitet (ACR Task) för att läsa autentiseringsuppgifter för Docker Hub lagrade i ett Azure Key Vault med hjälp av en hanterad identitet för Azure-resurser.
+title: Extern autentisering från ACR-uppgift
+description: Konfigurera en AZURE-administratörsregisteruppgift (ACR-uppgift) för att läsa Docker Hub-autentiseringsuppgifter som lagras i ett Azure-nyckelvalv med hjälp av en hanterad identitet för Azure-resurser.
 ms.topic: article
 ms.date: 01/14/2020
 ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "76842528"
 ---
-# <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Extern autentisering i en ACR-aktivitet med hjälp av en Azure-hanterad identitet 
+# <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Extern autentisering i en ACR-uppgift med hjälp av en Azure-hanterad identitet 
 
-I en [ACR-uppgift](container-registry-tasks-overview.md)kan du [Aktivera en hanterad identitet för Azure-resurser](container-registry-tasks-authentication-managed-identity.md). Uppgiften kan använda identiteten för att få åtkomst till andra Azure-resurser, utan att behöva ange eller hantera autentiseringsuppgifter. 
+I en [ACR-aktivitet](container-registry-tasks-overview.md)kan du [aktivera en hanterad identitet för Azure-resurser](container-registry-tasks-authentication-managed-identity.md). Uppgiften kan använda identiteten för att komma åt andra Azure-resurser, utan att behöva ange eller hantera autentiseringsuppgifter. 
 
-I den här artikeln får du lära dig hur du aktiverar en hanterad identitet i en aktivitet som har åtkomst till hemligheter lagrade i ett Azure Key Vault. 
+I den här artikeln får du lära dig hur du aktiverar en hanterad identitet i en uppgift som kommer åt hemligheter som lagras i ett Azure-nyckelvalv. 
 
-Den här artikeln kräver att du kör Azure CLI-version 2.0.68 eller senare för att skapa Azure-resurser. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
+För att skapa Azure-resurser kräver den här artikeln att du kör Azure CLI version 2.0.68 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
 ## <a name="scenario-overview"></a>Scenarioöversikt
 
-I exempel uppgiften läses Docker hubbens autentiseringsuppgifter som lagras i ett Azure Key Vault. Autentiseringsuppgifterna är för ett Docker Hub-konto med behörighet att skriva (push) till en privat Docker Hub-lagringsplats. Om du vill läsa autentiseringsuppgifterna konfigurerar du aktiviteten med en hanterad identitet och tilldelar den behörigheten. Uppgiften som är associerad med identiteten skapar en avbildning och loggar in i Docker Hub för att skicka avbildningen till den privata lagrings platsen. 
+Exempeluppgiften läser Docker Hub-autentiseringsuppgifter som lagras i ett Azure-nyckelvalv. Autentiseringsuppgifterna gäller för ett Docker Hub-konto med skriv-behörighet (push)-behörigheter till en privat Docker Hub-databas. Om du vill läsa autentiseringsuppgifterna konfigurerar du uppgiften med en hanterad identitet och tilldelar den lämpliga behörigheter. Uppgiften som är associerad med identiteten skapar en avbildning och loggar in på Docker Hub för att skicka avbildningen till den privata reporäntan. 
 
-Det här exemplet visar steg som använder antingen en användardefinierad eller systemtilldelad hanterad identitet. Ditt val av identitet beror på organisationens behov.
+I det här exemplet visas steg med antingen en användartilldelad eller systemtilldelad hanterad identitet. Ditt val av identitet beror på organisationens behov.
 
-I ett verkligt scenario kan ett företag publicera avbildningar till en privat lagrings platsen i Docker-hubben som en del av en build-process. 
+I ett verkligt scenario kan ett företag publicera bilder till en privat repa i Docker Hub som en del av en byggprocess. 
 
 ## <a name="prerequisites"></a>Krav
 
-Du behöver ett Azure Container Registry som du kör aktiviteten i. I den här *artikeln kallas registret för registret.* Ersätt med ditt eget register namn i senare steg.
+Du behöver ett Azure-behållarregister där du kör uppgiften. I den här artikeln heter det här registret *mitt register*. Ersätt med ditt eget registernamn i senare steg.
 
-Om du inte redan har ett Azure Container Registry, se [snabb start: skapa ett privat behållar register med hjälp av Azure CLI](container-registry-get-started-azure-cli.md). Du behöver inte skicka avbildningar till registret ännu.
+Om du inte redan har ett Azure-behållarregister läser du [Snabbstart: Skapa ett privat behållarregister med Azure CLI](container-registry-get-started-azure-cli.md). Du behöver inte skicka avbildningar till registret ännu.
 
-Du behöver också ett privat lager i Docker Hub och ett Docker Hub-konto med behörighet att skriva till lagrings platsen. I det här exemplet heter den här lagrings platsen *hubuser/hubrepo*. 
+Du behöver också en privat databas i Docker Hub och ett Docker Hub-konto med behörighet att skriva till strömförsörjningen. I det här exemplet heter den här repoen *hubuser/hubrepo*. 
 
-## <a name="create-a-key-vault-and-store-secrets"></a>Skapa ett nyckel valv och lagra hemligheter
+## <a name="create-a-key-vault-and-store-secrets"></a>Skapa ett nyckelvalv och lagra hemligheter
 
-Först, om du behöver, skapa en resurs grupp med namnet *myResourceGroup* på den *östra* platsen med följande [AZ Group Create][az-group-create] -kommando:
+Om du behöver skapa du först en resursgrupp med namnet *myResourceGroup* på *eastus-platsen* med följande kommando [för az-gruppge:][az-group-create]
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Använd kommandot [AZ-valv][az-keyvault-create] för att skapa ett nyckel valv. Se till att ange ett unikt nyckel valvs namn. 
+Använd kommandot [az keyvault create][az-keyvault-create] för att skapa ett nyckelvalv. Var noga med att ange ett unikt nyckelvalvnamn. 
 
 ```azurecli-interactive
 az keyvault create --name mykeyvault --resource-group myResourceGroup --location eastus
 ```
 
-Lagra nödvändiga autentiseringsuppgifter för Docker Hub i nyckel valvet med hjälp av kommandot [AZ Key Vault Secret set][az-keyvault-secret-set] . I de här kommandona skickas värdena i miljövariabler:
+Lagra de nödvändiga Docker Hub-autentiseringsuppgifterna i nyckelvalvet med kommandot [az keyvault secret set.][az-keyvault-secret-set] I dessa kommandon skickas värdena i miljövariabler:
 
 ```azurecli
 # Store Docker Hub user name
@@ -64,11 +64,11 @@ az keyvault secret set \
   --vault-name mykeyvault
 ```
 
-I ett verkligt scenario skulle hemligheter troligt vis ställas in och behållas i en separat process.
+I ett verkligt scenario skulle hemligheter sannolikt fastställas och underhållas i en separat process.
 
-## <a name="define-task-steps-in-yaml-file"></a>Definiera uppgifts steg i YAML-filen
+## <a name="define-task-steps-in-yaml-file"></a>Definiera aktivitetssteg i YAML-fil
 
-Stegen för den här exempel uppgiften definieras i en [yaml-fil](container-registry-tasks-reference-yaml.md). Skapa en fil med namnet `dockerhubtask.yaml` i en lokal arbets katalog och klistra in följande innehåll. Se till att ersätta Key Vault-namnet i filen med namnet på ditt nyckel valv.
+Stegen för den här exempeluppgiften definieras i en [YAML-fil](container-registry-tasks-reference-yaml.md). Skapa en `dockerhubtask.yaml` fil som namnges i en lokal arbetskatalog och klistra in följande innehåll. Var noga med att ersätta nyckelvalvets namn i filen med namnet på nyckelvalvet.
 
 ```yml
 version: v1.1.0
@@ -88,23 +88,23 @@ steps:
     - {{.Values.PrivateRepo}}:$ID
 ```
 
-Uppgifts stegen gör följande:
+Aktivitetsstegen gör följande:
 
 * Hantera hemliga autentiseringsuppgifter för att autentisera med Docker Hub.
-* Autentisera med Docker Hub genom att skicka hemligheterna till kommandot `docker login`.
-* Bygg en avbildning med hjälp av ett Dockerfile i exempel på [Azure-samples/ACR-tasks](https://github.com/Azure-Samples/acr-tasks.git) lagrings platsen.
-* Push-överför avbildningen till den privata Docker Hub-lagringsplatsen.
+* Autentisera med Docker Hub genom `docker login` att skicka hemligheterna till kommandot.
+* Skapa en avbildning med hjälp av ett exempel på Dockerfile i repoan [azure-samples/acr-tasks.](https://github.com/Azure-Samples/acr-tasks.git)
+* Skicka avbildningen till den privata Docker Hub-databasen.
 
 
-## <a name="option-1-create-task-with-user-assigned-identity"></a>Alternativ 1: Skapa uppgift med användardefinierad identitet
+## <a name="option-1-create-task-with-user-assigned-identity"></a>Alternativ 1: Skapa uppgift med användartilldelad identitet
 
-Stegen i det här avsnittet skapar en uppgift och aktiverar en användardefinierad identitet. Om du vill aktivera en tilldelad identitet i stället, se [Alternativ 2: Skapa uppgift med systemtilldelad identitet](#option-2-create-task-with-system-assigned-identity). 
+Stegen i det här avsnittet skapar en uppgift och aktiverar en användartilldelad identitet. Om du vill aktivera en systemtilldelad identitet i stället läser du [Alternativ 2: Skapa uppgift med systemtilldelad identitet](#option-2-create-task-with-system-assigned-identity). 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="create-task"></a>Skapa uppgift
 
-Skapa uppgiften *dockerhubtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktiviteten körs utan en käll kods kontext och kommandot refererar till filen `dockerhubtask.yaml` i arbets katalogen. Parametern `--assign-identity` skickar resurs-ID: t för den användare som tilldelats identiteten. 
+Skapa kommandot *Task dockerhubtask* genom att köra följande kommando [för att skapa a-filer.][az-acr-task-create] Aktiviteten körs utan en källkodskontext och kommandot `dockerhubtask.yaml` refererar till filen i arbetskatalogen. Parametern `--assign-identity` skickar resurs-ID för den användartilldelade identiteten. 
 
 ```azurecli
 az acr task create \
@@ -119,11 +119,11 @@ az acr task create \
 
 ## <a name="option-2-create-task-with-system-assigned-identity"></a>Alternativ 2: Skapa uppgift med systemtilldelad identitet
 
-Stegen i det här avsnittet skapar en uppgift och aktiverar en tilldelad identitet. Om du vill aktivera en användardefinierad identitet i stället, se [alternativ 1: Skapa uppgift med användardefinierad identitet](#option-1-create-task-with-user-assigned-identity). 
+Stegen i det här avsnittet skapar en uppgift och aktiverar en systemtilldelad identitet. Om du vill aktivera en användartilldelad identitet i stället läser du [Alternativ 1: Skapa uppgift med användartilldelade identitet](#option-1-create-task-with-user-assigned-identity). 
 
 ### <a name="create-task"></a>Skapa uppgift
 
-Skapa uppgiften *dockerhubtask* genom att köra följande kommando för [AZ ACR Task Create][az-acr-task-create] . Aktiviteten körs utan en käll kods kontext och kommandot refererar till filen `dockerhubtask.yaml` i arbets katalogen. Parametern `--assign-identity` utan värde aktiverar den systemtilldelade identiteten för aktiviteten.  
+Skapa kommandot *Task dockerhubtask* genom att köra följande kommando [för att skapa a-filer.][az-acr-task-create] Aktiviteten körs utan en källkodskontext och kommandot `dockerhubtask.yaml` refererar till filen i arbetskatalogen. Parametern `--assign-identity` utan värde aktiverar den systemtilldelade identiteten för aktiviteten.  
 
 ```azurecli
 az acr task create \
@@ -136,9 +136,9 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## <a name="grant-identity-access-to-key-vault"></a>Bevilja identitets åtkomst till nyckel valv
+## <a name="grant-identity-access-to-key-vault"></a>Bevilja identitetsåtkomst till nyckelvalvet
 
-Kör följande [AZ-nyckel valv set-princip][az-keyvault-set-policy] kommando för att ange en åtkomst princip i nyckel valvet. I följande exempel kan identiteten läsa hemligheter från nyckel valvet. 
+Kör följande [az keyvault set-policy-kommando][az-keyvault-set-policy] för att ange en åtkomstprincip för nyckelvalvet. I följande exempel kan identiteten läsa hemligheter från nyckelvalvet. 
 
 ```azurecli
 az keyvault set-policy --name mykeyvault \
@@ -149,13 +149,13 @@ az keyvault set-policy --name mykeyvault \
 
 ## <a name="manually-run-the-task"></a>Kör uppgiften manuellt
 
-Om du vill kontrol lera att den aktivitet där du har aktiverat en hanterad identitet har körts manuellt utlöser du uppgiften med kommandot [AZ ACR Task Run][az-acr-task-run] . Parametern `--set` används för att skicka namnet på den privata lagrings platsen till aktiviteten. I det här exemplet är plats hållarens lagrings platsen namn *hubuser/hubrepo*.
+Om du vill kontrollera att aktiviteten där du aktiverade en hanterad identitet körs korrekt utlöser du aktiviteten manuellt med kommandot [az acr-aktivitetskörning.][az-acr-task-run] Parametern `--set` används för att skicka det privata repanamnet till aktiviteten. I det här exemplet är platshållarrespondnamnet *hubuser/hubrepo*.
 
 ```azurecli
 az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo
 ```
 
-När aktiviteten körs visar utdata lyckad autentisering till Docker Hub och avbildningen har skapats och skickats till den privata lagrings platsen:
+När aktiviteten körs visar utdata lyckad autentisering till Docker Hub och avbildningen har skapats och skjuts till den privata repoen:
 
 ```console
 Queued a run with ID: cf24
@@ -202,12 +202,12 @@ Sending build context to Docker daemon    129kB
 Run ID: cf24 was successful after 15s
 ```
 
-Om du vill bekräfta att avbildningen har push-överförts söker du efter taggen (`cf24` i det här exemplet) i den privata Docker Hub-lagrings platsen.
+Kontrollera om det finns en markering om`cf24` bilden trycks genom att leta efter taggen (i det här exemplet) i den privata Repo-strömförsörjningen för Docker Hub.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om hur du [aktiverar en hanterad identitet i en ACR-aktivitet](container-registry-tasks-authentication-managed-identity.md).
-* Se [yaml-referensen ACR tasks](container-registry-tasks-reference-yaml.md)
+* Läs mer om [hur du aktiverar en hanterad identitet i en ACR-uppgift](container-registry-tasks-authentication-managed-identity.md).
+* Se [YAML-referensen för ACR-uppgifter](container-registry-tasks-reference-yaml.md)
 
 
 <!-- LINKS - Internal -->

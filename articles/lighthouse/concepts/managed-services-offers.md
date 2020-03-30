@@ -1,43 +1,43 @@
 ---
 title: Erbjudanden om hanterade tjänster på Azure Marketplace
-description: Med hanterade tjänster kan tjänste leverantörer sälja resurs hanterings erbjudanden till kunder på Azure Marketplace.
-ms.date: 12/16/2019
+description: Med hanterade tjänster kan tjänsteleverantörer sälja resurshanteringserbjudanden till kunder på Azure Marketplace.
+ms.date: 03/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b4f0d7457a74afe710a48f429cfe47535a9b122
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2d6e39f753736c0582e9d91870a99b66ae41255b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453592"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79500781"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Erbjudanden om hanterade tjänster på Azure Marketplace
 
-I den här artikeln beskrivs de nya **hanterade tjänsternas** typ av erbjudande på [Azure Marketplace](https://azuremarketplace.microsoft.com). Med hanterade tjänster kan du erbjuda resurs hanterings tjänster till kunder med Azure delegerad resurs hantering. Du kan göra dessa erbjudanden tillgängliga för alla potentiella kunder eller bara för en eller flera olika kunder. Eftersom du fakturerar kunder direkt för kostnader som rör dessa hanterade tjänster, finns det inga avgifter som debiteras av Microsoft.
+I den här artikeln beskrivs den nya erbjudandetypen **För hanterade tjänster** i Azure [Marketplace](https://azuremarketplace.microsoft.com). Med erbjudanden om hanterade tjänster kan du erbjuda resurshanteringstjänster till kunder med Azure-delegerad resurshantering. Du kan göra dessa erbjudanden tillgängliga för alla potentiella kunder eller endast för en eller flera specifika kunder. Eftersom du fakturerar kunder direkt för kostnader relaterade till dessa hanterade tjänster finns det inga avgifter som tas ut av Microsoft.
 
-## <a name="understand-managed-services-offers"></a>Förstå erbjudandet om hanterade tjänster
+## <a name="understand-managed-services-offers"></a>Förstå erbjudanden om hanterade tjänster
 
-Hanterade tjänster erbjuder en strömlinjeformad process för att registrera kunder för Azure-delegerad resurs hantering. När en kund köper ett erbjudande på Azure Marketplace kan de ange vilka prenumerationer och/eller resurs grupper som ska registreras. Observera att prenumerationen först måste godkännas för onboarding genom att manuellt registrera **Microsoft. ManagedServices** -resurs leverantören.
+Hanterade tjänster erbjuder effektivisera processen för introduktion av kunder för Azure-delegerad resurshantering. När en kund köper ett erbjudande på Azure Marketplace kan de ange vilka prenumerationer och/eller resursgrupper som ska finnas ombord. Observera att prenumerationen först måste godkännas för introduktion genom att manuellt registrera **microsoft.ManagedServices** resursprovider.
 
-Efter det kommer användare i organisationen att kunna utföra administrativa uppgifter för dessa resurser inifrån organisationens klient organisation, enligt den åtkomst som du definierade när du skapar erbjudandet i [Cloud Partner Portal](https://cloudpartner.azure.com/). Detta görs via ett manifest som anger de Azure AD-användare, grupper och tjänstens huvud namn som kommer att ha åtkomst till kund resurser med hjälp av Azure delegerad resurs hantering, tillsammans med roller som definierar deras åtkomst nivå. Genom att tilldela behörigheter till en Azure AD-grupp i stället för en serie enskilda användare eller program konton kan du lägga till eller ta bort enskilda användare när åtkomst kraven ändras.
+Därefter kan användare i organisationen utföra administrativa uppgifter för dessa resurser från organisationens klientorganisation, beroende på vilken åtkomst du definierade när du skapade erbjudandet i [Cloud Partner Portal](https://cloudpartner.azure.com/). Detta görs genom ett manifest som anger Azure AD-användare, grupper och tjänsthuvudnamn som kommer att ha åtkomst till kundresurser med Azure-delegerad resurshantering, tillsammans med roller som definierar deras åtkomstnivå. Genom att tilldela behörigheter till en Azure AD-grupp i stället för en serie enskilda användarkonton eller programkonton kan du lägga till eller ta bort enskilda användare när åtkomstkraven ändras.
 
 ## <a name="public-and-private-offers"></a>Offentliga och privata erbjudanden
 
-Varje hanterings tjänst erbjudande innehåller en eller flera planer. Planer kan vara antingen privata eller offentliga. 
+Varje erbjudande om hanterade tjänster innehåller en eller flera planer. Planer kan vara antingen privata eller offentliga. 
 
-Om du vill begränsa ditt erbjudande till vissa kunder kan du publicera en privat plan. När du gör det kan planen bara köpas för de aktuella] prenumerations-ID: n som du anger. Mer information finns i [privata erbjudanden](../../marketplace/private-offers.md).
+Om du vill begränsa erbjudandet till specifika kunder kan du publicera en privat plan. När du gör det kan planen bara köpas för de specifika prenumerations-ID:n som du anger. Mer information finns i [Privata erbjudanden](../../marketplace/private-offers.md).
 
-Med offentliga planer kan du marknadsföra dina tjänster till nya kunder. Dessa är vanligt vis mer lämpliga när du bara behöver begränsad åtkomst till kundens klient organisation. När du har upprättat en relation med en kund kan du, om de bestämmer dig för att ge organisationen ytterligare åtkomst, göra detta genom att publicera en ny privat plan för den kunden eller genom [att registrera dem för ytterligare åtkomst med hjälp av Azure Resource Manager mallar](../how-to/onboard-customer.md).
+Med offentliga planer kan du marknadsföra dina tjänster till nya kunder. Dessa är vanligtvis lämpligare när du bara behöver begränsad åtkomst till kundens klientorganisation. När du har upprättat en relation med en kund, om de bestämmer sig för att ge din organisation ytterligare åtkomst, kan du göra det antingen genom att publicera en ny privat plan endast för den kunden eller genom att [lägga till dem för ytterligare åtkomst med Hjälp av Azure Resource Manager-mallar](../how-to/onboard-customer.md).
 
-Om det behövs kan du inkludera både offentliga och privata planer i samma erbjudande.
+Om det är lämpligt kan du inkludera både offentliga och privata planer i samma erbjudande.
 
 > [!IMPORTANT]
-> När en plan har publicerats som offentlig kan du inte ändra den till privat. Använd en privat plan för att kontrol lera vilka kunder som kan acceptera ditt erbjudande och delegera resurser. Med en offentlig plan kan du inte begränsa tillgänglighet till vissa kunder eller till och med ett visst antal kunder (även om du kan sluta sälja planen helt om du väljer att göra det). Det finns för närvarande ingen mekanism för att avvisa eller ta bort delegeringar när en kund accepterar ett erbjudande, men du kan alltid nå ut till en kund och be dem att [ta bort din åtkomst](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> När en plan har publicerats som offentlig kan du inte ändra den till privat. Om du vill styra vilka kunder som kan acceptera erbjudandet och delegera resurser använder du en privat plan. Med en offentlig plan kan du inte begränsa tillgängligheten till vissa kunder eller ens till ett visst antal kunder (även om du kan sluta sälja planen helt om du väljer att göra det). Du kan [ta bort åtkomsten till en delegering](../how-to/onboard-customer.md#remove-access-to-a-delegation) när en kund bara har accepterat ett erbjudande om du har inkluderat ett **auktorisering med** **rolldefinitionen** inställd på [Borttagning av tilldelning](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) av hanterade tjänster när du publicerade erbjudandet. Du kan också nå ut till kunden och be dem att [ta bort din åtkomst](../how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
-## <a name="publish-managed-service-offers"></a>Publicera hanterade tjänst erbjudanden
+## <a name="publish-managed-service-offers"></a>Publicera erbjudanden om hanterade tjänster
 
-Information om hur du publicerar ett erbjudande för hanterade tjänster finns i [publicera ett erbjudande för hanterade tjänster på Azure Marketplace](../how-to/publish-managed-services-offers.md). Allmän information om hur du publicerar till Azure Marketplace med hjälp av Cloud Partner Portal finns i [Azure Marketplace och AppSource Publishing guide](../../marketplace/marketplace-publishers-guide.md) och [Hantera Azure-och AppSource Marketplace-erbjudanden](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md).
+Mer information om hur du publicerar ett erbjudande om hanterade tjänster finns i [Publicera ett erbjudande om hanterade tjänster till Azure Marketplace](../how-to/publish-managed-services-offers.md). Allmän information om publicering till Azure Marketplace med Cloud Partner Portal finns i [Azure Marketplace och AppSource Publishing Guide](../../marketplace/marketplace-publishers-guide.md) och Hantera [Azure- och AppSource Marketplace-erbjudanden](../../marketplace/cloud-partner-portal/manage-offers/cpp-manage-offers.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [Azure-delegerad resurs hantering](azure-delegated-resource-management.md) och [flera klient hanterings upplevelser](cross-tenant-management-experience.md).
-- [Publicera hanterade tjänster erbjuder](../how-to/publish-managed-services-offers.md) Azure Marketplace.
+- Lär dig mer om [Azure-delegerad resurshantering](azure-delegated-resource-management.md) och [hantering av flera innehavare.](cross-tenant-management-experience.md)
+- [Publicera erbjudanden om hanterade tjänster](../how-to/publish-managed-services-offers.md) till Azure Marketplace.

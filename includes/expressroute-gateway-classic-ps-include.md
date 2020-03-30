@@ -9,24 +9,24 @@ ms.date: 12/13/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 70ac106995324c758bde942d12191a01e3457e6e
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "67187077"
 ---
 > [!NOTE]
-> De här exemplen gäller inte för S2S/ExpressRoute samexistera konfigurationer.
-> Läs mer om hur du arbetar med gatewayer i en konfiguration med coexist [konfigurerar du samexisterande anslutningar.](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)
+> Dessa exempel gäller inte för S2S/ExpressRoute samexistera konfigurationer.
+> Mer information om hur du arbetar med gateways i en samexistera konfiguration finns i [Konfigurera samtidiga anslutningar.](../articles/expressroute/expressroute-howto-coexist-classic.md#gw)
 
 ## <a name="add-a-gateway"></a>Lägga till en gateway
 
-När du lägger till en gateway till ett virtuellt nätverk med den klassiska modellen måste ändra du nätverkskonfigurationsfilen direkt innan du skapar gatewayen. Värden i exemplen nedan måste finnas i filen för att skapa en gateway. Om det virtuella nätverket tidigare hade en gateway som är associerade med den, vara några av dessa värden redan ifylld. Ändra filen för att återspegla värdena nedan.
+När du lägger till en gateway i ett virtuellt nätverk med den klassiska resursmodellen ändrar du nätverkskonfigurationsfilen direkt innan gatewayen skapas. Värdena i exemplen nedan måste finnas i filen för att skapa en gateway. Om det virtuella nätverket tidigare hade en gateway kopplad till sig finns redan några av dessa värden. Ändra filen så att den återspeglar värdena nedan.
 
-### <a name="download-the-network-configuration-file"></a>Ladda ned nätverkskonfigurationsfilen
+### <a name="download-the-network-configuration-file"></a>Hämta nätverkskonfigurationsfilen
 
-1. Ladda ned nätverkskonfigurationsfilen med hjälp av stegen i [nätverkskonfigurationsfilen](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) artikeln. Öppna filen i en textredigerare.
-2. Lägg till en lokal nätverksplats i filen. Du kan använda valfri giltig adressprefix. Du kan lägga till någon giltig IP-adress för VPN-gateway. Adressvärden i det här avsnittet används inte för ExpressRoute-åtgärder, men krävs för verifiering av filen. I det här exemplet är ”branch1” namnet på platsen. Du kan använda ett annat namn, men se till att använda samma värde i avsnittet Gateway filens.
+1. Hämta nätverkskonfigurationsfilen med hjälp av stegen i artikeln [om nätverkskonfiguration.](../articles/virtual-network/virtual-networks-using-network-configuration-file.md) Öppna filen med hjälp av en textredigerare.
+2. Lägg till en lokal nätverksplats i filen. Du kan använda valfritt giltigt adressprefix. Du kan lägga till en giltig IP-adress för VPN-gatewayen. Adressvärdena i det här avsnittet används inte för ExpressRoute-åtgärder, men krävs för filverifiering. I exemplet är "branch1" namnet på webbplatsen. Du kan använda ett annat namn, men se till att använda samma värde i avsnittet Gateway i filen.
 
    ```
    <VirtualNetworkConfiguration>
@@ -41,9 +41,9 @@ När du lägger till en gateway till ett virtuellt nätverk med den klassiska mo
    ```
 3. Navigera till VirtualNetworkSites och ändra fälten.
 
-   * Kontrollera att Gateway-undernätet finns för det virtuella nätverket. Om det inte kan du lägga till något just nu. Namnet måste vara ”GatewaySubnet”.
-   * Kontrollera avsnittet Gateway filens finns. Om inte kan du lägga till den. Detta krävs för att koppla det virtuella nätverket till den lokala nätverksplatsen (som representerar det nätverket som du ansluter).
-   * Kontrollera att anslutningstypen = dedikerad. Detta krävs för ExpressRoute-anslutningar.
+   * Kontrollera att gateway-undernätet finns för det virtuella nätverket. Om den inte gör det kan du lägga till en just nu. Namnet måste vara "GatewaySubnet".
+   * Kontrollera att avsnittet Gateway i filen finns. Om den inte gör det, lägg till den. Detta krävs för att associera det virtuella nätverket med den lokala nätverksplatsen (som representerar det nätverk som du ansluter till).
+   * Kontrollera att anslutningstypen = Dedikerad. Detta krävs för ExpressRoute-anslutningar.
 
    ```
    </LocalNetworkSites>
@@ -72,19 +72,19 @@ När du lägger till en gateway till ett virtuellt nätverk med den klassiska mo
    </VirtualNetworkConfiguration>
    </NetworkConfiguration>
    ```
-4. Spara filen och överföra den till Azure.
+4. Spara filen och ladda upp den till Azure.
 
 ### <a name="create-the-gateway"></a>Skapa gatewayen
 
-Använd kommandot nedan för att skapa en gateway. Ersätt alla värden för dina egna.
+Använd kommandot nedan för att skapa en gateway. Ersätt alla värden mot dina egna.
 
 ```powershell
 New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
-## <a name="verify-the-gateway-was-created"></a>Kontrollera att gatewayen har skapats
+## <a name="verify-the-gateway-was-created"></a>Verifiera att gatewayen har skapats
 
-Använd kommandot nedan för att verifiera att gatewayen har skapats. Detta kommando hämtar också gateway-ID som du behöver för andra åtgärder.
+Använd kommandot nedan för att kontrollera att gatewayen har skapats. Det här kommandot hämtar också gateway-ID: et, som du behöver för andra åtgärder.
 
 ```powershell
 Get-AzureVNetGateway
@@ -92,10 +92,10 @@ Get-AzureVNetGateway
 
 ## <a name="resize-a-gateway"></a>Ändra storlek på en gateway
 
-Det finns ett antal [Gateway SKU: er](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Du kan använda följande kommando för att ändra den Gateway-SKU när som helst.
+Det finns ett antal [SKU:er för gateway](../articles/expressroute/expressroute-about-virtual-network-gateways.md). Du kan när som helst använda följande kommando för att ändra gateway-SKU: n.
 
 > [!IMPORTANT]
-> Det här kommandot fungerar inte för UltraPerformance-gateway. Om du vill ändra din gateway till en UltraPerformance-gateway, först ta bort den befintliga ExpressRoute-gatewayen och skapa sedan en ny UltraPerformance-gateway. Ta först bort UltraPerformance-gateway för att nedgradera din gateway från en UltraPerformance-gateway och sedan skapa en ny gateway.
+> Det här kommandot fungerar inte för UltraPerformance gateway. Om du vill ändra din gateway till en UltraPerformance-gateway tar du först bort den befintliga ExpressRoute-gatewayen och skapar sedan en ny UltraPerformance-gateway. Om du vill nedgradera gatewayen från en UltraPerformance-gateway tar du först bort UltraPerformance-gatewayen och skapar sedan en ny gateway.
 >
 >
 

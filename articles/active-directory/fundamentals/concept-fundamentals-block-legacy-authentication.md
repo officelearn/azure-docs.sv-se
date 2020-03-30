@@ -1,6 +1,6 @@
 ---
-title: Blockera bakåtkompatibla autentiseringsprotokoll i Azure AD
-description: Lär dig hur och varför organisationer ska blockera bakåtkompatibla autentiseringsprotokoll
+title: Blockera äldre autentiseringsprotokoll i Azure AD
+description: Lär dig hur och varför organisationer bör blockera äldre autentiseringsprotokoll
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,91 +12,91 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 63271567e70955f6dfb0b10a5c882b6dce9545ce
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74932494"
 ---
-# <a name="blocking-legacy-authentication"></a>Blockerar äldre autentisering
+# <a name="blocking-legacy-authentication"></a>Blockera äldre autentisering
  
-Azure Active Directory (Azure AD) stöder en mängd olika autentiseringsprotokoll, inklusive äldre autentisering, för att ge dina användare enkel åtkomst till dina molnappar. Äldre autentisering är en term som hänvisar till en autentiseringsbegäran som görs av:
+För att ge användarna enkel åtkomst till dina molnappar stöder Azure Active Directory (Azure AD) ett brett utbud av autentiseringsprotokoll, inklusive äldre autentisering. Äldre autentisering är en term som refererar till en autentiseringsbegäran som gjorts av:
 
 - Äldre Office-klienter som inte använder modern autentisering (till exempel Office 2010-klienten)
 - Alla klienter som använder äldre e-postprotokoll som IMAP/SMTP/POP3
 
-Idag kommer majoriteten av alla kompromissade inloggnings försök från äldre autentisering. Äldre autentisering stöder inte Multi-Factor Authentication (MFA). Även om du har en MFA-princip aktive rad i din katalog, kan en felaktig aktör autentisera med ett äldre protokoll och kringgå MFA. Det bästa sättet att skydda ditt konto från skadliga autentiseringsbegäranden som görs av äldre protokoll är att blockera dessa försök helt och hållet.
+Idag kommer majoriteten av alla komprometterande inloggningsförsök från äldre autentisering. Äldre autentisering stöder inte MFA (Multifaktorautentisering). Även om du har en MFA-princip aktiverad på din katalog kan en dålig aktör autentisera med ett äldre protokoll och kringgå MFA. Det bästa sättet att skydda ditt konto från begäranden om skadlig autentisering som görs av äldre protokoll är att blockera dessa försök helt och hållet.
 
-## <a name="identify-legacy-authentication-use"></a>Identifiera användning av äldre autentisering
+## <a name="identify-legacy-authentication-use"></a>Identifiera äldre autentiseringsanvändning
 
-Innan du kan blockera äldre autentisering i din katalog måste du först förstå om dina användare har appar som använder äldre autentisering och hur de påverkar den övergripande katalogen. Inloggnings loggar för Azure AD kan användas för att förstå om du använder äldre autentisering.
+Innan du kan blockera äldre autentisering i katalogen måste du först förstå om användarna har appar som använder äldre autentisering och hur det påverkar din övergripande katalog. Azure AD-inloggningsloggar kan användas för att förstå om du använder äldre autentisering.
 
-1. Gå till Azure Portal > Azure Active Directory > inloggningar.
-1. Lägg till kolumnen klient program om den inte visas genom att klicka på kolumner >-klient program.
-1. Filtrera efter klient program > kontrol lera alla andra klient alternativ som visas och klicka på Använd.
-1. Filtrera efter status > lyckades och klicka på Använd. 
-1. Expandera datum intervallet om det behövs med datum filtret.
+1. Navigera till Azure-portalen > Azure Active Directory > inloggningar.
+1. Lägg till kolumnen Klientapp om den inte visas genom att klicka på Kolumner > klientapp.
+1. Filtrera efter klientapp > kontrollera alla andra klientalternativ som visas och klicka på Verkställ.
+1. Filtrera efter status > lyckad och klicka på Använd. 
+1. Expandera datumintervallet om det behövs med hjälp av filtret Datum.
 
-Vid filtrering visas endast lyckade inloggnings försök som gjorts av de valda äldre autentiseringsprotokollen. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. I kolumnen klient program eller fältet klient app under fliken grundläggande information när du har valt en enskild rad med data visas vilket äldre autentiseringsprotokoll som användes. I dessa loggar anges vilka användare som fortfarande är beroende av tidigare autentisering och vilka program som använder äldre protokoll för att göra autentiseringsbegäranden. För användare som inte visas i dessa loggar och som bekräftas att inte använda äldre autentisering, implementera en princip för villkorlig åtkomst eller aktivera bas linje principen: blockera äldre autentisering enbart för dessa användare.
+Filtrering visar bara lyckade inloggningsförsök som har gjorts av de valda äldre autentiseringsprotokollen. Om du klickar på varje enskilt inloggningsförsök visas ytterligare information. Kolumnen Klientapp eller fältet Klientapp under fliken Grundläggande information efter att ha valt en enskild datarad anger vilket äldre autentiseringsprotokoll som användes. Dessa loggar anger vilka användare som fortfarande är beroende av äldre autentisering och vilka program som använder äldre protokoll för att göra autentiseringsbegäranden. För användare som inte visas i dessa loggar och som inte har äldre autentisering implementerar du en princip för villkorlig åtkomst eller aktiverar baslinjeprincipen: blockera äldre autentisering endast för dessa användare.
 
-## <a name="moving-away-from-legacy-authentication"></a>Flytta bort från äldre autentisering 
+## <a name="moving-away-from-legacy-authentication"></a>Gå bort från äldre autentisering 
 
-När du har en bättre uppfattning om vem som använder äldre autentisering i din katalog och vilka program som är beroende av den, uppgraderar nästa steg dina användare till att använda modern autentisering. Modern autentisering är en metod för identitets hantering som ger säkrare användarautentisering och auktorisering. Om du har en MFA-princip på plats i din katalog, ser modern autentisering till att användaren uppmanas att använda MFA vid behov. Det är det säkrare alternativet för bakåtkompatibla autentiseringsprotokoll.
+När du har en bättre uppfattning om vem som använder äldre autentisering i din katalog och vilka program som är beroende av den, är nästa steg att uppgradera användarna för att använda modern autentisering. Modern autentisering är en metod för identitetshantering som erbjuder säkrare användarautentisering och auktorisering. Om du har en MFA-princip på plats i katalogen säkerställer modern autentisering att användaren uppmanas till MFA när det behövs. Det är det säkrare alternativet till äldre autentiseringsprotokoll.
 
-Det här avsnittet innehåller en steg-för-steg-översikt om hur du uppdaterar din miljö till modern autentisering. Läs igenom stegen nedan innan du aktiverar en äldre princip för att blockera autentisering i din organisation.
+Det här avsnittet innehåller en steg-för-steg-översikt över hur du uppdaterar din miljö till modern autentisering. Läs igenom stegen nedan innan du aktiverar en äldre autentiseringsblockeringsprincip i organisationen.
 
-### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Steg 1: Aktivera modern autentisering i din katalog
+### <a name="step-1-enable-modern-authentication-in-your-directory"></a>Steg 1: Aktivera modern autentisering i katalogen
 
-Det första steget i att aktivera modern autentisering ser till att din katalog stöder modern autentisering. Modern autentisering är aktiverat som standard för kataloger som skapats den 1 augusti 2017. Om din katalog skapades före detta datum måste du aktivera modern autentisering för din katalog manuellt med hjälp av följande steg:
+Det första steget för att aktivera modern autentisering är att se till att din katalog stöder modern autentisering. Modern autentisering aktiveras som standard för kataloger som skapats den 1 augusti 2017 eller senare. Om katalogen skapades före det här datumet måste du manuellt aktivera modern autentisering för katalogen med hjälp av följande steg:
 
-1. Kontrol lera om din katalog redan stöder modern autentisering genom att köra `Get-CsOAuthConfiguration` från [Skype för företag – Online PowerShell-modulen](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Om kommandot returnerar en tom `OAuthServers` -egenskap inaktive ras modern autentisering. Uppdatera inställningen för att aktivera modern autentisering med hjälp av `Set-CsOAuthConfiguration`. Om din `OAuthServers` -egenskap innehåller en post, är du redo att sätta igång.
+1. Kontrollera om katalogen redan stöder modern `Get-CsOAuthConfiguration` autentisering genom att köras från [PowerShell-modulen Skype för företag – Online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Om kommandot returnerar `OAuthServers` en tom egenskap inaktiveras modern autentisering. Uppdatera inställningen för att `Set-CsOAuthConfiguration`aktivera modern autentisering med . Om `OAuthServers` din egendom innehåller en post är det bra att gå.
 
-Se till att slutföra det här steget innan du går vidare. Det är viktigt att dina webbplatskonfigurationer ändras först eftersom de avgör vilket protokoll som ska användas av alla Office-klienter. Även om du använder Office-klienter som har stöd för modern autentisering, kommer de att använda äldre protokoll om modern autentisering är inaktive rad i din katalog.
+Var noga med att slutföra det här steget innan du går vidare. Det är viktigt att katalogkonfigurationerna ändras först eftersom de dikterar vilket protokoll som ska användas av alla Office-klienter. Även om du använder Office-klienter som stöder modern autentisering används som standard äldre protokoll om modern autentisering är inaktiverad i katalogen.
 
 ### <a name="step-2-office-applications"></a>Steg 2: Office-program
 
-När du har aktiverat modern autentisering i din katalog kan du börja uppdatera program genom att aktivera modern autentisering för Office-klienter. Office 2016 eller senare klienter stöder modern autentisering som standard. Inga extra steg krävs.
+När du har aktiverat modern autentisering i katalogen kan du börja uppdatera program genom att aktivera modern autentisering för Office-klienter. Office 2016 eller senare klienter stöder modern autentisering som standard. Inga extra steg krävs.
 
-Om du använder Office 2013 Windows-klienter eller äldre rekommenderar vi att du uppgraderar till Office 2016 eller senare. Även när du har slutfört det tidigare steget i att aktivera modern autentisering i din katalog, fortsätter äldre Office-program att använda äldre autentiseringsprotokoll. Om du använder Office 2013-klienter och inte kan uppgradera direkt till Office 2016 eller senare följer du stegen i följande artikel för att [Aktivera modern autentisering för Office 2013 på Windows-enheter](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). För att skydda ditt konto när du använder äldre autentisering rekommenderar vi att du använder starka lösen ord i din katalog. Kolla in [Azure AD Password protection](../authentication/concept-password-ban-bad.md) för att förbjuda svaga lösen ord i katalogen.
+Om du använder Office 2013 Windows-klienter eller äldre rekommenderar vi att du uppgraderar till Office 2016 eller senare. Även efter att ha slutfört föregående steg för att aktivera modern autentisering i katalogen fortsätter de äldre Office-programmen att använda äldre autentiseringsprotokoll. Om du använder Office 2013-klienter och inte omedelbart kan uppgradera till Office 2016 eller senare följer du stegen i följande artikel för [Att aktivera modern autentisering för Office 2013 på Windows-enheter](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). För att skydda ditt konto medan du använder äldre autentisering rekommenderar vi att du använder starka lösenord i katalogen. Kolla in [Azure AD lösenordsskydd](../authentication/concept-password-ban-bad.md) för att förbjuda svaga lösenord i hela katalogen.
 
-Office 2010 stöder inte modern autentisering. Du måste uppgradera alla användare med Office 2010 till en nyare version av Office. Vi rekommenderar att du uppgraderar till Office 2016 eller senare, eftersom det blockerar äldre autentisering som standard.
+Office 2010 stöder inte modern autentisering. Du måste uppgradera alla användare med Office 2010 till en nyare version av Office. Vi rekommenderar att du uppgraderar till Office 2016 eller senare, eftersom den blockerar äldre autentisering som standard.
 
-Om du använder MacOS rekommenderar vi att du uppgraderar till Office för Mac 2016 eller senare. Om du använder den interna e-postklienten måste du ha MacOS version 10,14 eller senare på alla enheter.
+Om du använder MacOS rekommenderar vi att du uppgraderar till Office för Mac 2016 eller senare. Om du använder den inbyggda e-postklienten måste du ha MacOS version 10.14 eller senare på alla enheter.
 
 ### <a name="step-3-exchange-and-sharepoint"></a>Steg 3: Exchange och SharePoint
 
-För Windows-baserade Outlook-klienter för att använda modern autentisering måste Exchange Online vara modern autentisering även aktive rad. Om modern autentisering är inaktive rad för Exchange Online kommer Windows-baserade Outlook-klienter som stöder modern autentisering (Outlook 2013 eller senare) att använda grundläggande autentisering för att ansluta till Exchange Online-postlådor.
+För att Windows-baserade Outlook-klienter ska kunna använda modern autentisering måste Exchange Online också vara modern autentisering aktiverat. Om modern autentisering är inaktiverad för Exchange Online använder Windows-baserade Outlook-klienter som stöder modern autentisering (Outlook 2013 eller senare) grundläggande autentisering för att ansluta till Exchange Online-postlådor.
 
-SharePoint Online är aktiverat som standard för modern autentisering. För kataloger som skapats efter den 1 augusti 2017 aktive ras modern autentisering som standard i Exchange Online. Om du tidigare har inaktiverat modern autentisering eller använder en katalog som skapats före detta datum, följer du stegen i följande artikel för att [Aktivera modern autentisering i Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online är aktiverat för modern autentiseringsstandard. För kataloger som skapats efter den 1 augusti 2017 aktiveras modern autentisering som standard i Exchange Online. Om du tidigare har inaktiverat modern autentisering eller använder en katalog som skapats före det här datumet följer du stegen i följande artikel för att [aktivera modern autentisering i Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Steg 4: Skype för företag
 
-För att förhindra att äldre autentiseringsbegäranden som görs av Skype för företag, är det nödvändigt att aktivera modern autentisering för Skype för företag – online. För kataloger som skapats efter den 1 augusti 2017 är modern autentisering för Skype för företag aktiverat som standard.
+För att förhindra äldre autentiseringsbegäranden från Skype för företag är det nödvändigt att aktivera modern autentisering för Skype för företag – Online. För kataloger som skapats efter den 1 augusti 2017 aktiveras modern autentisering för Skype för företag som standard.
 
-Vi rekommenderar att du går över till Microsoft Teams, som har stöd för modern autentisering som standard. Men om du inte kan migrera just nu måste du aktivera modern autentisering för Skype för företag – online så att Skype för företag-klienter börjar använda modern autentisering. Följ stegen i den här artikeln [Skype for Business-topologier som stöds med modern autentisering](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported)för att aktivera modern autentisering för Skype för företag.
+Vi föreslår att du övergår till Microsoft Teams, som stöder modern autentisering som standard. Men om du inte kan migrera just nu måste du aktivera modern autentisering för Skype för företag – Online så att Skype för företag-klienter börjar använda modern autentisering. Följ stegen i den här artikeln [Skype för företag-topologier som stöds med modern autentisering](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported)för att aktivera modern autentisering för Skype för företag.
 
-Förutom att aktivera modern autentisering för Skype för företag Online rekommenderar vi att du aktiverar modern autentisering för Exchange Online när du aktiverar modern autentisering för Skype för företag. Den här processen hjälper till att synkronisera statusen för modern autentisering i Exchange Online och Skype för företag – Online och förhindrar flera inloggnings meddelanden för Skype för företag-klienter.
+Förutom att aktivera modern autentisering för Skype för företag – Online rekommenderar vi att du aktiverar modern autentisering för Exchange Online när du aktiverar modern autentisering för Skype för företag. Den här processen hjälper till att synkronisera tillståndet för modern autentisering i Exchange Online och Skype för företag online och förhindrar flera inloggningsan följande för Skype för företag-klienter.
 
-### <a name="step-5-using-mobile-devices"></a>Steg 5: använda mobila enheter
+### <a name="step-5-using-mobile-devices"></a>Steg 5: Använda mobila enheter
 
-Program på din mobila enhet behöver även blockera äldre autentisering. Vi rekommenderar att du använder Outlook för mobil. Outlook för Mobile stöder modern autentisering som standard och uppfyller andra MFA-principer för skydd mot flera principer.
+Program på din mobila enhet måste också blockera äldre autentisering. Vi rekommenderar att du använder Outlook för mobilen. Outlook för mobil stöder modern autentisering som standard och uppfyller andra principer för grundläggande skydd för MFA.Outlook for Mobile supports modern authentication by default and will satisfy other MFA baseline protection policies.
 
-För att kunna använda den interna iOS-e-postklienten måste du köra iOS version 11,0 eller senare för att säkerställa att e-postklienten har uppdaterats för att blockera äldre autentisering.
+För att kunna använda den inbyggda iOS-e-postklienten måste du köra iOS version 11.0 eller senare för att säkerställa att e-postklienten har uppdaterats för att blockera äldre autentisering.
 
-### <a name="step-6-on-premises-clients"></a>Steg 6: lokala klienter
+### <a name="step-6-on-premises-clients"></a>Steg 6: Lokala kunder
 
-Om du är en hybrid kund som använder Exchange Server lokalt och Skype för företag lokalt måste båda tjänsterna uppdateras för att aktivera modern autentisering. När du använder modern autentisering i en hybrid miljö autentiserar du fortfarande användare lokalt. Berättelsen om att auktorisera åtkomst till resurser (filer eller e-postmeddelanden) ändras.
+Om du är en hybridkund som använder Exchange Server lokalt och skype för företag lokalt måste båda tjänsterna uppdateras för att aktivera modern autentisering. När du använder modern autentisering i en hybridmiljö autentiserar du fortfarande användare lokalt. Historien om att tillåta deras åtkomst till resurser (filer eller e-post) ändras.
 
-Innan du kan börja aktivera modern autentisering lokalt måste du vara säker på att du uppfyller kraven. Nu är du redo att aktivera modern autentisering lokalt.
+Innan du kan börja aktivera modern autentisering lokalt ska du vara säker på att du har uppfyllt förutsättningarna. Du är nu redo att aktivera modern autentisering lokalt.
 
 Steg för att aktivera modern autentisering finns i följande artiklar:
 
-* [Så här konfigurerar du Exchange Server lokalt för att använda hybrid modern autentisering](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [Så här använder du modern Authentication (ADAL) med Skype för företag](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+* [Konfigurera Exchange Server lokalt för att använda hybridmodern autentisering](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [Så här använder du modern autentisering (ADAL) med Skype för företag](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här konfigurerar du Exchange Server lokalt för att använda hybrid modern autentisering](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-- [Så här använder du modern Authentication (ADAL) med Skype för företag](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+- [Konfigurera Exchange Server lokalt för att använda hybridmodern autentisering](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+- [Så här använder du modern autentisering (ADAL) med Skype för företag](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
 - [Blockera äldre autentisering](../conditional-access/block-legacy-authentication.md)

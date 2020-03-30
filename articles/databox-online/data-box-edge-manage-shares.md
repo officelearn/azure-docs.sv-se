@@ -1,6 +1,6 @@
 ---
-title: Hantering av Azure Data Box Edge resurs | Microsoft Docs
-description: Beskriver hur du använder Azure Portal för att hantera resurser på din Azure Data Box Edge.
+title: Azure Data Box Edge-resurshantering | Microsoft-dokument
+description: Beskriver hur du använder Azure-portalen för att hantera resurser på din Azure Data Box Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,22 +9,22 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: b25409c63806e203bd841b0373543b7cc2b96d9d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79212945"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Använd Azure Portal för att hantera resurser på din Azure Data Box Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Använda Azure-portalen för att hantera resurser på din Azure Data Box Edge
 
-Den här artikeln beskriver hur du hanterar resurser på Azure Data Box Edge. Du kan hantera Azure Data Box Edge via Azure Portal eller via det lokala webb gränssnittet. Använd Azure Portal för att lägga till, ta bort, uppdatera resurser eller synkronisera lagrings nyckeln för lagrings kontot som är kopplat till resurserna.
+I den här artikeln beskrivs hur du hanterar resurser på din Azure Data Box Edge. Du kan hantera Azure Data Box Edge via Azure-portalen eller via det lokala webbgränssnittet. Använd Azure-portalen för att lägga till, ta bort, uppdatera resurser eller synkronisera lagringsnyckel för lagringskonto som är associerat med resurserna.
 
 ## <a name="about-shares"></a>Om resurser
 
-Om du vill överföra data till Azure måste du skapa resurser på din Azure Data Box Edge. De resurser som du lägger till på den Data Box Edge enheten kan vara lokala resurser eller resurser som skickar data till molnet.
+Om du vill överföra data till Azure måste du skapa resurser på din Azure Data Box Edge. De resurser som du lägger till på Data Box Edge-enheten kan vara lokala resurser eller resurser som skickar data till molnet.
 
  - **Lokala resurser**: Använd dessa resurser när du vill att data ska bearbetas lokalt på enheten.
- - **Resurser**: Använd de här resurserna när du vill att enhets data ska skickas automatiskt till ditt lagrings konto i molnet. Alla moln funktioner, till exempel **lagrings nycklar** för **uppdatering** och synkronisering, gäller för resurserna.
+ - **Resurser**: Använd dessa resurser när du vill att enhetsdata automatiskt ska skickas till ditt lagringskonto i molnet. Alla molnfunktioner som **Uppdatera** och **synkronisera lagringsnycklar** gäller för resurserna.
 
 I den här artikeln kan du se hur du:
 
@@ -39,9 +39,9 @@ I den här artikeln kan du se hur du:
 
 Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
-1. I Azure Portal går du till din Data Box Edge-resurs och går sedan till **Gateway-> resurser**. Välj **+ Lägg till resurs** i kommando fältet.
+1. Gå till databoxkantsresursen i Azure-portalen och gå sedan till **Gateway > Shares**. Välj **+ Lägg till resurs** i kommandofältet.
 
-    ![Välj Lägg till resurs](media/data-box-edge-manage-shares/add-share-1.png)
+    ![Välj lägg till resurs](media/data-box-edge-manage-shares/add-share-1.png)
 
 2. I **Lägg till resurs** anger du inställningar för resursen. Ange ett unikt namn på resursen.
     
@@ -51,10 +51,10 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
 4. Ange ett **Lagringskonto** där resursen ska placeras. En container skapas på lagringskontot med resursnamnet om containern inte redan finns. Om containern redan finns används den befintliga containern.
 
-5. I list rutan väljer du **lagrings tjänsten** från Block Blob, Page BLOB eller Files. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I den här instansen vill vi till exempel att data ska finnas som block-blobbar i Azure, och därför väljer vi **Block-Blob**. Om du väljer **Page BLOB**måste du se till att dina data är 512 byte justerade. Använd **Page BLOB** för virtuella hård diskar eller VHDX som alltid är 512 byte-justerade.
+5. Välj **lagringstjänsten** från blockblob, sidblob eller filer i listrutan. Vilken typ av tjänst som väljs beror på vilket format du vill använda för data som lagras i Azure. I det här fallet vill vi till exempel att data ska finnas som blockblobar i Azure, därför väljer vi **Block Blob**. Om du väljer **Sidblobar**måste du se till att dina data är 512 byte justerade. Använd **sidblobb** för virtuella hårddiskar eller VHDX som alltid är 512 byte justerade.
 
    > [!IMPORTANT]
-   > Kontrol lera att Azure Storages kontot som du använder inte har oföränderlighets-principer inställda på det om du använder det med en Azure Stack Edge-eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera oföränderlighets-principer för Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Kontrollera att Azure Storage-kontot som du använder inte har principer för oföränderlighet som angetts för det om du använder det med en Azure Stack Edge- eller Data Box Gateway-enhet. Mer information finns i [Ange och hantera principer för oföränderlighet för bloblagring](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Det här steget beror på om du skapar en SMB- eller en NFS-resurs.
     - **Om du skapar en SMB-resurs** – I fältet för **lokal användare med fullständig behörighet** väljer du mellan **Skapa ny** eller **Använd befintlig**. Om du skapar en ny lokal användare anger du **användarnamn**, **lösenord** och sedan bekräfta lösenord. Detta tilldelar behörigheter till den lokala användaren. När du har tilldelat behörigheterna här kan du sedan använda Utforskaren till att ändra dessa behörigheter.
@@ -66,15 +66,15 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
         ![Lägga till NFS-resurs](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Använd den lokala monterings punkten för att enkelt få åtkomst till resurserna från Edge Compute-moduler. Välj **Använd resurs med Edge Compute** så att resursen monteras automatiskt när den har skapats. När det här alternativet är markerat kan Edge-modulen också använda beräkningen med den lokala monterings punkten.
+7. Använd den lokala monteringspunkten om du enkelt vill komma åt resurserna från Edge-beräkningsmoduler. Välj **Använd resursen med Edge-beräkning** så att resursen monteras automatiskt när den har skapats. När det här alternativet är markerat kan edge-modulen också använda beräkningen med den lokala monteringspunkten.
 
 8. Klicka på **Skapa** för att skapa resursen. Du får ett meddelande om att resursen skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
 
-## <a name="add-a-local-share"></a>Lägg till en lokal resurs
+## <a name="add-a-local-share"></a>Lägga till en lokal resurs
 
-1. I Azure Portal går du till din Data Box Edge-resurs och går sedan till **Gateway-> resurser**. Välj **+ Lägg till resurs** i kommando fältet.
+1. Gå till databoxkantsresursen i Azure-portalen och gå sedan till **Gateway > Shares**. Välj **+ Lägg till resurs** i kommandofältet.
 
-    ![Välj Lägg till resurs](media/data-box-edge-manage-shares/add-local-share-1.png)
+    ![Välj lägg till resurs](media/data-box-edge-manage-shares/add-local-share-1.png)
 
 2. I **Lägg till resurs** anger du inställningar för resursen. Ange ett unikt namn på resursen.
     
@@ -82,68 +82,68 @@ Skapa en resurs genom att utföra stegen nedan på Azure-portalen.
 
 3. Välj en **typ** för resursen. Typen kan vara **SMB** eller **NFS**, där SMB är standardvärdet. SMB är standard för Windows-klienter och NFS används för Linux-klienter. Beroende på om du väljer SMB- eller NFS-resurser visas alternativen lite olika.
 
-4. Använd den lokala monterings punkten för att enkelt få åtkomst till resurserna från Edge Compute-moduler. Välj **Använd resurs med Edge Compute** så att Edge-modulen kan använda beräkningen med den lokala monterings punkten.
+4. Använd den lokala monteringspunkten om du enkelt vill komma åt resurserna från Edge-beräkningsmoduler. Välj **Använd resursen med Edge-beräkning** så att Edge-modulen kan använda beräkningen med den lokala monteringspunkten.
 
-5. Välj **Konfigurera som lokala resurser i Edge**. Data i lokala resurser förblir lokalt på enheten. Du kan bearbeta dessa data lokalt.
+5. Välj **Konfigurera som lokala edge-resurser**. Data i lokala resurser kommer att finnas kvar lokalt på enheten. Du kan bearbeta dessa data lokalt.
 
-6. I fältet **all behörighet lokal användare** väljer du från **Skapa ny** eller **Använd befintlig**.
+6. I fältet **Alla privilegier lokalt användarfält** väljer du **från Skapa nytt** eller Använd **befintligt**.
 
 7. Välj **Skapa**. 
 
     ![Skapa lokal resurs](media/data-box-edge-manage-shares/add-local-share-2.png)
 
-    Du ser ett meddelande om att delningen håller på att skapas. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
+    Du ser ett meddelande om att skapande av resursen pågår. När resursen har skapats med de angivna inställningarna uppdateras bladet **Resurser** med den nya resursen.
 
-    ![Visa blad för uppdaterings resurser](media/data-box-edge-manage-shares/add-local-share-3.png)
+    ![Visa uppdateringar Resurser blad](media/data-box-edge-manage-shares/add-local-share-3.png)
     
-    Välj resursen för att visa den lokala monterings punkt för Edge Compute-modulerna för den här resursen.
+    Välj resursen om du vill visa den lokala monteringspunkten för Edge-beräkningsmodulerna för den här resursen.
 
-    ![Visa information om lokala resurser](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![Visa information om lokal resurs](media/data-box-edge-manage-shares/add-local-share-4.png)
 
 ## <a name="mount-a-share"></a>Montera en resurs
 
-Om du har skapat en resurs innan du konfigurerade Compute på din Data Box Edge-enhet måste du montera resursen. Utför följande steg för att montera en resurs.
+Om du skapade en resurs innan du konfigurerade beräkning på databoxkantsenheten måste du montera resursen. Gör så här för att montera en resurs.
 
 
-1. I Azure Portal går du till din Data Box Edge-resurs och går sedan till **Gateway-> resurser**. Välj den resurs som du vill montera från listan över resurser. I kolumnen **används för beräkning** visas statusen som **inaktive rad** för den valda resursen.
+1. Gå till databoxkantsresursen i Azure-portalen och gå sedan till **Gateway > Shares**. Välj den resurs som du vill montera i listan över resurser. Kolumnen **Används för beräkning** visar statusen som **Inaktiverad** för den valda resursen.
 
     ![Välja resurs](media/data-box-edge-manage-shares/select-share-mount.png)
 
-2. Välj **montera**.
+2. Välj **Montera**.
 
-    ![Välj montera](media/data-box-edge-manage-shares/select-mount.png)
+    ![Välj montering](media/data-box-edge-manage-shares/select-mount.png)
 
-3. Välj **Ja**när du uppmanas att bekräfta. Detta kommer att montera resursen.
+3. När du uppmanas att bekräfta väljer du **Ja**. Detta kommer att montera aktien.
 
     ![Bekräfta montering](media/data-box-edge-manage-shares/confirm-mount.png)
 
-4. När resursen har monterats går du till listan över resurser. Du ser att den **använda för beräknings** kolumnen visar resurs status som **aktive rad**.
+4. När aktien är monterad går du till listan över aktier. Du ser att kolumnen **Används för beräkning** visar resursstatusen som **Aktiverad**.
 
-    ![Resurs monterad](media/data-box-edge-manage-shares/share-mounted.png)
+    ![Dela monterad](media/data-box-edge-manage-shares/share-mounted.png)
 
-5. Välj resursen igen om du vill visa den lokala monterings punkt för resursen. Edge Compute module använder den här lokala monterings punkt för resursen.
+5. Välj resursen igen om du vill visa den lokala monteringspunkten för resursen. Edge-beräkningsmodul använder den här lokala monteringspunkten för resursen.
 
-    ![Lokala monterings punkt för resursen](media/data-box-edge-manage-shares/share-mountpoint.png)
+    ![Lokal monteringspunkt för resursen](media/data-box-edge-manage-shares/share-mountpoint.png)
 
-## <a name="unmount-a-share"></a>Demontera en resurs
+## <a name="unmount-a-share"></a>Avmontera en resurs
 
-Utför följande steg i Azure Portal för att demontera en resurs.
+Gör följande steg i Azure-portalen för att avmontera en resurs.
 
-1. I Azure Portal går du till din Data Box Edge-resurs och går sedan till **Gateway-> resurser**.
+1. Gå till databoxkantsresursen i Azure-portalen och gå sedan till **Gateway > Shares**.
 
     ![Välja resurs](media/data-box-edge-manage-shares/select-share-unmount.png)
 
-2. I listan över resurser väljer du den resurs som du vill demontera. Du vill se till att resursen som du demonterar inte används av några moduler. Om resursen används av en modul visas problem med motsvarande modul. Välj **demontera**.
+2. Välj den resurs som du vill avmontera i listan över resurser. Du vill vara säker på att resursen som du avmonterar inte används av några moduler. Om resursen används av en modul visas problem med motsvarande modul. Välj **Avmontera**.
 
-    ![Välj demontera](media/data-box-edge-manage-shares/select-unmount.png)
+    ![Välj avmontera](media/data-box-edge-manage-shares/select-unmount.png)
 
-3. Välj **Ja**när du uppmanas att bekräfta. Detta kommer att demontera resursen.
+3. När du uppmanas att bekräfta väljer du **Ja**. Detta kommer att avmontera resursen.
 
-    ![Bekräfta demontering](media/data-box-edge-manage-shares/confirm-unmount.png)
+    ![Bekräfta avmontera](media/data-box-edge-manage-shares/confirm-unmount.png)
 
-4. När resursen har demonterats går du till listan över resurser. Nu visas resurs status som **inaktive rad**i **beräknings** kolumnen.
+4. När resursen har avmonterats går du till listan över aktier. Du ser att kolumnen **Används för beräkning** visar delningsstatusen som **Inaktiverad**.
 
-    ![Dela demontera](media/data-box-edge-manage-shares/share-unmounted.png)
+    ![Resursen har inte monterats](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Ta bort en resurs
 
@@ -161,16 +161,16 @@ Utför följande steg på Azure-portalen om du vill ta bort en resurs.
 
     ![Bekräfta borttagning](media/data-box-edge-manage-shares/delete-share-3.png)
 
-Listan över resurser som uppdateras för att återspegla borttagningen.
+Listan över resurser uppdateras för att återspegla borttagningen.
 
 
 ## <a name="refresh-shares"></a>Uppdatera resurser
 
-Med uppdaterings funktionen kan du uppdatera innehållet i en resurs. När du uppdaterar en resurs initieras en sökning för att hitta alla Azure-objekt, inklusive blobar och filer som har lagts till i molnet sedan den senaste uppdateringen. De här ytterligare filerna hämtas sedan för att uppdatera innehållet i resursen på enheten.
+Med uppdateringsfunktionen kan du uppdatera innehållet i en resurs. När du uppdaterar en resurs initieras en sökning för att hitta alla Azure-objekt, inklusive blobar och filer som har lagts till i molnet sedan den senaste uppdateringen. Dessa ytterligare filer hämtas sedan för att uppdatera innehållet i resursen på enheten.
 
 > [!IMPORTANT]
 > - Du kan inte uppdatera lokala resurser.
-> - Behörigheter och åtkomst kontrol listor (ACL: er) bevaras inte i en uppdaterings åtgärd. 
+> - Behörigheter och åtkomstkontrollistor (ACL: er) bevaras inte över en uppdateringsåtgärd. 
 
 Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
 
@@ -188,7 +188,7 @@ Utför följande steg på Azure-portalen om du vill uppdatera en resurs.
  
 4.   Medan uppdateringen pågår nedtonas uppdateringsalternativet i snabbmenyn. Klicka på meddelandet för jobbet för att visa jobbstatus för uppdateringen.
 
-5.   Tiden för att uppdatera bestäms av antalet filer i Azure-containern samt filerna på enheten. När uppdateringen är klar uppdateras tidsstämpeln för resursen. Även om uppdateringen delvis har misslyckats anses åtgärden ha lyckats och tidsstämpeln uppdateras. Uppdaterings fel loggarna uppdateras också.
+5.   Tiden för att uppdatera bestäms av antalet filer i Azure-containern samt filerna på enheten. När uppdateringen är klar uppdateras tidsstämpeln för resursen. Även om uppdateringen delvis har misslyckats anses åtgärden ha lyckats och tidsstämpeln uppdateras. Uppdateringsfelloggarna uppdateras också.
 
     ![Uppdaterad tidsstämpel](media/data-box-edge-manage-shares/refresh-share-4.png)
  
@@ -203,11 +203,11 @@ Utför följande steg i Azure-portalen för att synkronisera din lagringsåtkoms
 
 1. Gå till **Översikt** i din resurs. Välj från listan över resurser och klicka på en resurs som är associerad med det lagringskonto som du vill synkronisera.
 
-    ![Välj Dela med relevant lagrings konto](media/data-box-edge-manage-shares/sync-storage-key-1.png)
+    ![Välj resurs med relevant lagringskonto](media/data-box-edge-manage-shares/sync-storage-key-1.png)
 
 2. Klicka på **Synkronisera lagringsnyckel**. Klicka på **Ja** när du uppmanas att bekräfta.
 
-     ![Välj synkronisera lagrings nyckel](media/data-box-edge-manage-shares/sync-storage-key-2.png)
+     ![Välj synkroniseringslagringsnyckel](media/data-box-edge-manage-shares/sync-storage-key-2.png)
 
 3. Avsluta dialogrutan när synkroniseringen är klar.
 

@@ -1,27 +1,27 @@
 ---
-title: Azure Stream Analytics fel vid diagnostikdata
-description: I den här artikeln förklaras de olika fel i indata och utdata som kan uppstå när du använder Azure Stream Analytics.
+title: Diagnostikloggdatafel i Azure Stream Analytics
+description: I den här artikeln beskrivs de olika indata- och utdatafel som kan uppstå när Du använder Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
 ms.openlocfilehash: 0546464b4d1bcc9eaa4fbffe265486985d9c58f3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75465025"
 ---
-# <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics data fel
+# <a name="azure-stream-analytics-data-errors"></a>Azure Stream Analytics-datafel
 
-Datafel är fel som uppstår vid bearbetning av data.  Dessa fel inträffar oftast under data avserialisering, serialisering och skriv åtgärder.  När data fel inträffar skriver Stream Analytics detaljerad information och exempel händelser till diagnostikloggar.  I vissa fall tillhandahålls Sammanfattning av denna information även via portal meddelanden.
+Datafel är fel som uppstår vid bearbetning av data.  Dessa fel uppstår oftast under datade serialisering, serialisering och skrivåtgärder.  När datafel inträffar skriver Stream Analytics detaljerad information och exempelhändelser till diagnostikloggarna.  I vissa fall kan även en sammanfattning av denna information tillhandahållas via portalmeddelanden.
 
-Den här artikeln beskriver de olika fel typerna, orsakerna och diagnostiska logg informationen för fel i indata och utdata.
+I den här artikeln beskrivs de olika feltyperna, orsakerna och diagnostikloggens information för in- och utdatafel.
 
-## <a name="diagnostic-log-schema"></a>Diagnostiskt logg schema
+## <a name="diagnostic-log-schema"></a>Schema för diagnostikloggar
 
-Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema) av diagnostikloggar för att se schemat för diagnostikloggar. Följande JSON är ett exempel värde för fältet **Egenskaper** i en diagnostisk logg för ett data fel.
+Se [Felsöka Azure Stream Analytics med hjälp av diagnostikloggar](stream-analytics-job-diagnostic-logs.md#diagnostics-logs-schema) för att se schemat för diagnostikloggar. Följande JSON är ett exempelvärde för fältet **Egenskaper** i en diagnostiklogg för ett datafel.
 
 ```json
 {
@@ -37,18 +37,18 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 }
 ```
 
-## <a name="input-data-errors"></a>Indata-fel
+## <a name="input-data-errors"></a>Indatafel
 
 ### <a name="inputdeserializererrorinvalidcompressiontype"></a>InputDeserializerError.InvalidCompressionType
 
-* Orsak: den angivna typen av typ komprimering matchar inte data.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Effekt: meddelanden med eventuella deserialiserings fel inklusive ogiltig komprimerings typ tas bort från indatamängden.
-* Logg information
-   * Meddelande-ID för indatamängd. För Event Hub är identifieraren PartitionId, offset och Sequence Number.
+* Orsak: Den valda indatakomprimeringstypen matchar inte data.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Meddelanden med eventuella deserialiseringsfel, inklusive ogiltig komprimeringstyp, tas bort från indata.
+* Logga information
+   * Indatameddelandeidentifierare. För Event Hub är identifieraren PartitionId, Offset och Sequence Number.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Unable to decompress events from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please ensure compression setting fits the data being processed."
@@ -56,15 +56,15 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
 
-* Orsak: rubriken på indata är ogiltig. En CSV-fil har till exempel kolumner med dubbla namn.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Effekt: meddelanden med eventuella deserialiserings fel, inklusive ogiltigt sidhuvud, tas bort från indatamängden.
-* Logg information
-   * Meddelande-ID för indatamängd. 
-   * Faktisk nytto Last upp till några kilobyte.
+* Orsak: Rubriken för indata är ogiltigt. En CSV har till exempel kolumner med dubblettnamn.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Meddelanden med eventuella deserialiseringsfel, inklusive ogiltigt huvud, tas bort från indata.
+* Logga information
+   * Indatameddelandeidentifierare. 
+   * Faktisk nyttolast upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Invalid CSV Header for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please make sure there are no duplicate field names."
@@ -72,14 +72,14 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
 
-* Orsak: de angivna kolumnerna som definierats med CREATE TABLE eller genom tidsstämpeln finns inte.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Effekt: händelser med saknade kolumner tas bort från indatamängden.
-* Logg information
-   * Meddelande-ID för indatamängd. 
-   * Namnen på kolumnerna som saknas. 
-   * Faktisk nytto Last upp till några kilobyte.
+* Orsak: Indatakolumnerna som definierats med SKAPA TABELL eller via TIMESTAMP BY finns inte.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Händelser med saknade kolumner tas bort från indata.
+* Logga information
+   * Indatameddelandeidentifierare. 
+   * Namn på de kolumner som saknas. 
+   * Faktisk nyttolast upp till några kilobyte.
 
 **Felmeddelanden**
 
@@ -93,13 +93,13 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 ### <a name="inputdeserializererrortypeconversionerror"></a>InputDeserializerError.TypeConversionError
 
-* Orsak: det gick inte att konvertera indatamängden till den typ som anges i instruktionen CREATE TABLE.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Påverkan: händelser med typ konverterings fel tas bort från indatamängden.
-* Logg information
-   * Meddelande-ID för indatamängd. 
-   * Namnet på kolumnen och den förväntade typen.
+* Orsak: Det gick inte att konvertera indata till den typ som anges i CREATE TABLE-satsen.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Händelser med typkonverteringsfel tas bort från indata.
+* Logga information
+   * Indatameddelandeidentifierare. 
+   * Namn på kolumnen och förväntad typ.
 
 **Felmeddelanden**
 
@@ -113,13 +113,13 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 ### <a name="inputdeserializererrorinvaliddata"></a>InputDeserializerError.InvalidData
 
-* Orsak: indata är inte i rätt format. Indatatypen är till exempel inte giltig JSON.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Effekt: alla händelser i meddelandet efter att ett ogiltigt data fel har påträffats ignoreras från indata.
-* Logg information
-   * Meddelande-ID för indatamängd. 
-   * Faktisk nytto Last upp till några kilobyte.
+* Orsak: Indata är inte i rätt format. Indata är till exempel inte giltig JSON.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Alla händelser i meddelandet efter att ett ogiltigt datafel har påträffats tas bort från indata.
+* Logga information
+   * Indatameddelandeidentifierare. 
+   * Faktisk nyttolast upp till några kilobyte.
 
 **Felmeddelanden**
 
@@ -131,33 +131,33 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 "Message": "Json input stream should either be an array of objects or line separated objects. Found token type: String"
 ```
 
-### <a name="invalidinputtimestamp"></a>InvalidInputTimeStamp
+### <a name="invalidinputtimestamp"></a>OgiltiginputTimeStamp
 
-* Orsak: det går inte att konvertera värdet för TIMESTAMP BY-uttrycket till DateTime.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Påverkan: händelser med ogiltig tidsstämpel tas bort från inmatade värden.
-* Logg information
-   * Meddelande-ID för indatamängd. 
+* Orsak: Värdet för TIMESTAMP BY-uttrycket kan inte konverteras till datetime.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Händelser med ogiltig indatatidsstämpel tas bort från indata.
+* Logga information
+   * Indatameddelandeidentifierare. 
    * Felmeddelande. 
-   * Faktisk nytto Last upp till några kilobyte.
+   * Faktisk nyttolast upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Unable to get timestamp for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' due to error 'Cannot convert string to datetime'"
 ```
 
-### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
+### <a name="invalidinputtimestampkey"></a>OgiltigInputTimeStampKey
 
-* Orsak: värdet för TIMESTAMP BY timestampColumn är NULL.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Effekt: händelser med ogiltig tids stämpling för inmatade tidsstämplar tas bort från indatamängden.
-* Logg information
-   * Den faktiska nytto lasten upp till några kilobyte.
+* Orsak: Värdet för TIMESTAMP BY OVER timestampColumn är NULL.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Händelser med ogiltig tidsstämpelnyckel tas bort från indata.
+* Logga information
+   * Den faktiska nyttolasten upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Unable to get value of TIMESTAMP BY OVER COLUMN"
@@ -165,15 +165,15 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 ### <a name="lateinputevent"></a>LateInputEvent
 
-* Orsak: skillnaden mellan kopplings tid och införsel tid är större än fönstret för sent införsel tolerans.
-* Portal meddelande har angetts: Nej
-* Diagnostisk loggnings nivå: information
-* Påverkan: sena ingångs händelser hanteras enligt inställningen hantera andra händelser i avsnittet händelse ordning i jobb konfigurationen. Mer information finns i [tids hanterings principer](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
-* Logg information
-   * Tid för program och tid för införsel. 
-   * Faktisk nytto Last upp till några kilobyte.
+* Orsak: Skillnaden mellan ansökningstid och ankomsttid är större än toleransfönstret för sen ankomst.
+* Portalmeddelande: Nej
+* Diagnostisk loggnivå: Information
+* Effekt: Sena indatahändelser hanteras enligt inställningen "Hantera andra händelser" i avsnittet Händelsebeställning i jobbkonfigurationen. Mer information finns i [Principer för tidshantering](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Logga information
+   * Ansökningstid och ankomsttid. 
+   * Faktisk nyttolast upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Input event with application timestamp '2019-01-01' and arrival time '2019-01-02' was sent later than configured tolerance."
@@ -181,47 +181,47 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 ### <a name="earlyinputevent"></a>EarlyInputEvent
 
-* Orsak: skillnaden mellan program tid och införsel tid är större än 5 minuter.
-* Portal meddelande har angetts: Nej
-* Diagnostisk loggnings nivå: information
-* Påverkan: tidiga ingångs händelser hanteras enligt inställningen hantera andra händelser i avsnittet händelse ordning i jobb konfigurationen. Mer information finns i [tids hanterings principer](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
-* Logg information
-   * Tid för program och tid för införsel. 
-   * Faktisk nytto Last upp till några kilobyte.
+* Orsak: Skillnaden mellan ansökningstid och ankomsttid är större än 5 minuter.
+* Portalmeddelande: Nej
+* Diagnostisk loggnivå: Information
+* Effekt: Tidiga indatahändelser hanteras enligt inställningen "Hantera andra händelser" i avsnittet Händelsebeställning i jobbkonfigurationen. Mer information finns i [Principer för tidshantering](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Logga information
+   * Ansökningstid och ankomsttid. 
+   * Faktisk nyttolast upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Input event arrival time '2019-01-01' is earlier than input event application timestamp '2019-01-02' by more than 5 minutes."
 ```
 
-### <a name="outoforderevent"></a>OutOfOrderEvent
+### <a name="outoforderevent"></a>UtanförOrderevent
 
-* Orsak: händelsen anses vara i ordning enligt den definierade tolerans perioden.
-* Portal meddelande har angetts: Nej
-* Diagnostisk loggnings nivå: information
-* Påverkan: händelser som inte är i ordning hanteras enligt inställningen hantera andra händelser i avsnittet händelse ordning i jobb konfigurationen. Mer information finns i [tids hanterings principer](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
-* Logg information
-   * Faktisk nytto Last upp till några kilobyte.
+* Orsak: Händelsen betraktas som i oordning enligt det definierade toleransfönstret i oordning.
+* Portalmeddelande: Nej
+* Diagnostisk loggnivå: Information
+* Effekt: Händelser i oordning hanteras enligt inställningen Hantera andra händelser i avsnittet Händelsebeställning i jobbkonfigurationen. Mer information finns i [Principer för tidshantering](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Logga information
+   * Faktisk nyttolast upp till några kilobyte.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "Message": "Out of order event(s) received."
 ```
 
-## <a name="output-data-errors"></a>Fel vid utdata
+## <a name="output-data-errors"></a>Datafel för utdata
 
 ### <a name="outputdataconversionerrorrequiredcolumnmissing"></a>OutputDataConversionError.RequiredColumnMissing
 
-* Orsak: kolumnen som krävs för utdata finns inte. Till exempel finns en kolumn som definierats som Azure Table PartitionKey does't.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Påverkan: alla fel konverterings fel, inklusive saknade obligatoriska kolumner, hanteras enligt princip inställningen för [utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
-* Logg information
-   * Kolumnens namn och antingen post-ID eller del av posten.
+* Orsak: Kolumnen som krävs för utdata finns inte. En kolumn som definieras som Azure Table PartitionKey finns till exempel inte.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Alla datakonverteringsfel, inklusive den saknade obligatoriska kolumnen, hanteras enligt inställningen [För utdataprincip.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Logga information
+   * Kolumnens namn och antingen postidentifieraren eller en del av posten.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "Message": "The output record does not contain primary key property: [deviceId] Ensure the query output contains the column [deviceId] with a unique non-empty string less than '255' characters."
@@ -229,14 +229,14 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 ### <a name="outputdataconversionerrorcolumnnameinvalid"></a>OutputDataConversionError.ColumnNameInvalid
 
-* Orsak: kolumnens värde stämmer inte med utdata. Kolumn namnet är till exempel inte en giltig Azure Table-kolumn.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Påverkan: alla fel vid konvertering av utdata, inklusive Ogiltigt kolumn namn hanteras enligt princip inställningen för [utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
-* Logg information
-   * Kolumnens namn och antingen post-ID eller del av posten.
+* Orsak: Kolumnvärdet överensstämmer inte med utdata. Kolumnnamnet är till exempel inte en giltig Azure-tabellkolumn.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Alla utdatakonverteringsfel inklusive ogiltigt kolumnnamn hanteras enligt inställningen [Utdataprincip.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Logga information
+   * Namn på kolumnen och antingen postidentifierare eller en del av posten.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "Message": "Invalid property name #deviceIdValue. Please refer MSDN for Azure table property naming convention."
@@ -244,30 +244,30 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 ### <a name="outputdataconversionerrortypeconversionerror"></a>OutputDataConversionError.TypeConversionError
 
-* Orsak: det går inte att konvertera en kolumn till en giltig typ i utdata. Värdet för kolumnen är till exempel inte kompatibelt med begränsningar eller typ som definierats i SQL-tabellen.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Påverkan: alla fel vid konvertering av utdata, inklusive typ konverterings fel, hanteras enligt [princip](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) inställningen för utdata.
-* Logg information
+* Orsak: Det går inte att konvertera en kolumn till en giltig typ i utdata. Värdet för kolumnen är till exempel inkompatibelt med begränsningar eller typ som definieras i SQL-tabellen.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Alla utdatakonverteringsfel, inklusive typkonverteringsfel, hanteras enligt inställningen [För utdataprincip.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Logga information
    * Kolumnens namn.
-   * Antingen post-ID eller del av posten.
+   * Antingen postidentifierare eller en del av posten.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "Message": "The column [id] value null or its type is invalid. Ensure to provide a unique non-empty string less than '255' characters."
 ```
 
-### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceededSizeLimit
+### <a name="outputdataconversionerrorrecordexceededsizelimit"></a>OutputDataConversionError.RecordExceedEdSizeLimit
 
-* Orsak: meddelandets värde är större än den tillåtna storleken för utdata. En post är till exempel större än 1 MB för en Event Hub-utdata.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Effekt: alla fel vid utgående data konvertering, inklusive poster som överskrider storleks gränsen, hanteras enligt princip inställningen för [utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
-* Logg information
-   * Antingen post-ID eller del av posten.
+* Orsak: Värdet för meddelandet är större än utdatastorleken som stöds. En post är till exempel större än 1 MB för en eventhubb-utdata.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Alla konverteringsfel för utdata, inklusive post överskred storleksgränsen, hanteras enligt inställningen [för utdataprincip.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Logga information
+   * Antingen postidentifierare eller en del av posten.
 
-**Fel meddelande**
+**Felmeddelande**
 
 ```json
 "BriefMessage": "Single output event exceeds the maximum message size limit allowed (262144 bytes) by Event Hub."
@@ -275,13 +275,13 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 ### <a name="outputdataconversionerrorduplicatekey"></a>OutputDataConversionError.DuplicateKey
 
-* Orsak: en post innehåller redan en kolumn med samma namn som en system kolumn. Till exempel är CosmosDB-utdata med en kolumn med namnet ID när ID kolumnen är till en annan kolumn.
-* Portal meddelande har angetts: Ja
-* Diagnostisk loggnings nivå: varning
-* Påverkan: alla fel vid konvertering av utdata, inklusive dubblettnyckel, hanteras enligt princip inställningen för [utdata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
-* Logg information
+* Orsak: En post innehåller redan en kolumn med samma namn som en systemkolumn. CosmosDB-utdata med en kolumn med namnet ID när ID-kolumnen är till en annan kolumn.
+* Portalmeddelande: Ja
+* Diagnostisk loggnivå: Varning
+* Effekt: Alla utdatakonverteringsfel inklusive dubblettnyckel hanteras enligt inställningen [Utdataprincip.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Logga information
    * Kolumnens namn.
-   * Antingen post-ID eller del av posten.
+   * Antingen postidentifierare eller en del av posten.
 
 ```json
 "BriefMessage": "Column 'devicePartitionKey' is being mapped to multiple columns."
@@ -291,4 +291,4 @@ Se [felsöka Azure Stream Analytics med hjälp](stream-analytics-job-diagnostic-
 
 * [Felsöka Azure Stream Analytics med hjälp av diagnostikloggar](stream-analytics-job-diagnostic-logs.md)
 
-* [Förstå Stream Analytics jobb övervakning och övervaka frågor](stream-analytics-monitoring.md)
+* [Förstå Stream Analytics jobbövervakning och hur du övervakar frågor](stream-analytics-monitoring.md)

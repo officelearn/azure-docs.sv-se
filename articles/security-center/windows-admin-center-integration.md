@@ -1,6 +1,6 @@
 ---
-title: Så här integrerar du Windows administrations Center med Azure Security Center | Microsoft Docs
-description: Den här artikeln förklarar hur du integrerar Azure Security Center med Windows administrations Center
+title: Så här integrerar du Windows Admin Center med Azure Security Center | Microsoft-dokument
+description: I den här artikeln beskrivs hur du integrerar Azure Security Center med Administrationscenter för Windows
 services: security-center
 author: memildin
 manager: rkarlin
@@ -9,66 +9,66 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
 ms.openlocfilehash: 5467794bf246fab4ff7ded9c445dbeee0c4093b8
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79139631"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integrera Azure Security Center med administrations Center för Windows
+# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integrera Azure Security Center med Administrationscenter för Windows
 
-Windows administrations Center är ett hanterings verktyg för dina Windows-servrar. Det är en enda plats för system administratörer som har till gång till de flesta av de vanligaste administratörs verktygen. Inifrån Windows administrations Center kan du direkt publicera dina lokal-servrar i Azure Security Center. Du kan sedan Visa en sammanfattning av dina säkerhets rekommendationer och aviseringar direkt i Windows administrations Center-upplevelsen.
+Windows Admin Center är ett hanteringsverktyg för dina Windows-servrar. Det är en enda plats för systemadministratörer att komma åt de flesta av de vanligaste administrationsverktygen. I Windows Admin Center kan du direkt gå in på dina on-prem-servrar till Azure Security Center. Du kan sedan visa en sammanfattning av dina säkerhetsrekommendationer och aviseringar direkt i windows admincenter-upplevelsen.
 
 > [!NOTE]
-> Din Azure-prenumeration och den associerade Log Analytics arbets ytan måste båda ha Security Center standard nivå aktive rad för att kunna aktivera integrering med Windows administrations Center.
-> Standard nivån är kostnads fri under de första 30 dagarna om du inte tidigare har använt den på prenumerationen och arbets ytan. Mer information finns [på sidan med pris information](security-center-pricing.md).
+> Din Azure-prenumeration och den associerade Log Analytics-arbetsytan måste båda ha Security Centers standardnivå aktiverad för att aktivera Integreringen av Windows Admin Center.
+> Standardnivån är kostnadsfri under de första 30 dagarna om du inte tidigare har använt den på prenumerationen och arbetsytan. Mer information finns [på sidan för prisinformation](security-center-pricing.md).
 >
 
-När du har registrerat en server från Windows administrations Center till Azure Security Center kan du:
+När du har installerat en server från Windows Admin Center till Azure Security Center kan du:
 
-* Visa säkerhets aviseringar och rekommendationer i Security Center tillägget i Windows administrations Center
-* Visa säkerhets position och hämta ytterligare detaljerad information om dina hanterade Windows administrations Center-servrar i Security Center inom Azure Portal (eller via ett API)
+* Visa säkerhetsaviseringar och rekommendationer i tillägget Security Center i Administrationscenter för Windows
+* Visa säkerhetspositionen och hämta ytterligare detaljerad information om dina Hanterade Servrar i Windows Admin Center i Security Center i Azure-portalen (eller via ett API)
 
-Genom att kombinera dessa två verktyg blir Security Center det enda fönstret av glas för att visa all din säkerhets information, oavsett resurs: skydda dina Windows administrations Center-hanterade lokal-servrar, dina virtuella datorer och eventuella ytterligare PaaS-arbetsbelastningar.
+Genom att kombinera dessa två verktyg blir Security Center din enda glasruta för att visa all säkerhetsinformation, oavsett resurs: skydda dina Windows Admin Center-hanterade on-prem-servrar, dina virtuella datorer och eventuella ytterligare PaaS-arbetsbelastningar.
 
-## <a name="onboarding-windows-admin-center-managed-servers-into-security-center"></a>Registrera Windows administrations Center-hanterade servrar i Security Center
+## <a name="onboarding-windows-admin-center-managed-servers-into-security-center"></a>Introduktion till hanterade servrar i Windows Admin Center i Security Center
 
-1. I Windows administrations Center väljer du en av dina servrar och i fönstret **verktyg** väljer du tillägget Azure Security Center:
+1. Välj en av dina servrar i serverpanelen i Windows och välj tillägget Azure Security Center i fönstret **Verktyg:**
 
-    ![Azure Security Center tillägget i Windows administrations Center](./media/windows-admin-center-integration/onboarding-from-wac.png)
-
-    > [!NOTE]
-    > Om servern redan har registrerats på Security Center visas inte konfigurations fönstret.
-
-1. Klicka på **Logga in på Azure och konfigurera**.
-    ![onboarding Windows Admin Center-tillägget till Azure Security Center](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
-
-1. Följ anvisningarna för att ansluta servern till Security Center. När du har angett nödvändig information och bekräftat, gör Security Center nödvändiga konfigurations ändringar för att säkerställa att alla följande är uppfyllda:
-    * En Azure-Gateway har registrerats.
-    * Servern har en arbets yta att rapportera till och en associerad prenumeration.
-    * Security Center standard nivån Log Analytics lösning är aktive rad på arbets ytan. Den här lösningen innehåller Security Center standard-nivå funktioner för *alla* servrar och virtuella datorer som rapporterar till den här arbets ytan.
-    * Security Center standard pris nivån för den virtuella datorn är aktive rad för prenumerationen.
-    * Microsoft Monitoring Agent (MMA) är installerat på servern och har kon figurer ATS för att rapportera till den valda arbets ytan. Om servern redan rapporterar till en annan arbets yta har den kon figurer ATS för att rapportera till den nyligen valda arbets ytan.
+    ![Azure Security Center-tillägg i Windows Admin Center](./media/windows-admin-center-integration/onboarding-from-wac.png)
 
     > [!NOTE]
-    > Det kan ta en stund innan rekommendationerna visas. Beroende på din server aktivitet får du faktiskt inte ta emot *några* aviseringar. Om du vill generera test aviseringar för att testa att dina aviseringar fungerar korrekt, följer du anvisningarna i [proceduren för att verifiera aviseringar](security-center-alert-validation.md).
+    > Om servern redan är inbyggd i Security Center visas inte inställningsfönstret.
+
+1. Klicka **på Logga in på Azure och konfigurera**.
+    ![Introduktion till Windows Admin Center-tillägg till Azure Security Center](./media/windows-admin-center-integration/onboarding-from-wac-welcome.png)
+
+1. Följ instruktionerna för att ansluta servern till Security Center. När du har angett nödvändiga uppgifter och bekräftat, security center gör nödvändiga konfigurationsändringar för att säkerställa att alla följande är sanna:
+    * En Azure Gateway har registrerats.
+    * Servern har en arbetsyta att rapportera till och en associerad prenumeration.
+    * Security Centers standardnivålogganalyslösning är aktiverad på arbetsytan. Den här lösningen tillhandahåller Security Centers standardnivåfunktioner för *alla* servrar och virtuella datorer som rapporterar till den här arbetsytan.
+    * Security Centers standardnivåpriser för virtuell dator är aktiverat för prenumerationen.
+    * Microsoft Monitoring Agent (MMA) installeras på servern och konfigureras för att rapportera till den valda arbetsytan. Om servern redan rapporterar till en annan arbetsyta är den konfigurerad att rapportera till den nyligen valda arbetsytan också.
+
+    > [!NOTE]
+    > Det kan ta lite tid efter introduktionen för rekommendationer att visas. Beroende på serveraktiviteten kanske du inte får *några* aviseringar. Om du vill generera testvarningar för att testa att aviseringarna fungerar korrekt följer du anvisningarna i [valideringsproceduren](security-center-alert-validation.md)för aviseringar .
 
 
-## <a name="viewing-security-recommendations-and-alerts-in-windows-admin-center"></a>Visa säkerhets rekommendationer och aviseringar i Windows administrations Center
+## <a name="viewing-security-recommendations-and-alerts-in-windows-admin-center"></a>Visa säkerhetsrekommendationer och aviseringar i Administrationscenter för Windows
 
-När du har registrerat dig kan du Visa aviseringar och rekommendationer direkt i Azure Security Centers delen av Windows administrations Center. Klicka på en rekommendation eller en avisering om du vill visa dem i Azure Portal. Där får du ytterligare information och lär dig hur du kan åtgärda problem.
+När du är ombord kan du visa dina aviseringar och rekommendationer direkt i Azure Security Center-området i Windows Admin Center. Klicka på en rekommendation eller en avisering om du vill visa dem i Azure-portalen. Där får du ytterligare information och lär dig hur du åtgärdar problem.
 
-[![Security Center rekommendationer och aviseringar som visas i administrations Center för Windows](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
+[![Rekommendationer och aviseringar i Security Center som visas i Administrationscenter för Windows](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
-## <a name="viewing-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Visa säkerhets rekommendationer och aviseringar för Windows administrations Center hanterade servrar i Security Center
+## <a name="viewing-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Visa säkerhetsrekommendationer och aviseringar för hanterade servrar i Administrationscenter i Windows Admin Center i Security Center
 Från Azure Security Center:
 
-* Öppna **compute &-appar** och klicka på fliken **virtuella datorer och datorer** om du vill se säkerhets rekommendationer för alla dina Windows administrations Center-servrar. gör så här:
+* Om du vill visa säkerhetsrekommendationer för alla Windows Admin Center-servrar öppnar du **& Appar** och klickar på fliken Virtuella datorer **och datorer.**
 
-    [![se säkerhets rekommendationer för hanterade servrar i Windows administrations Center](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+    [![Visa säkerhetsrekommendationer för hanterade servrar i Windows Admin Center](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
 
-* Öppna **säkerhets aviseringar**för att Visa säkerhets aviseringar för alla dina Windows administrations Center-servrar. Klicka på **filter** och se till att **endast** "icke-Azure" är valt:
+* Om du vill visa säkerhetsaviseringar för alla Windows Admin Center-servrar öppnar du **Säkerhetsvarningar**. Klicka på **Filter** och se till att **endast** "Icke-Azure" är markerat:
 
-    ![Filtrera säkerhets aviseringar för hanterade servrar i Windows administrations Center](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
+    ![Filtrera säkerhetsvarningar för hanterade servrar i Windows Admin Center](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
 
-    [![Visa säkerhets aviseringar för hanterade servrar i Windows administrations Center](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    [![Visa säkerhetsvarningar för hanterade servrar i Windows Admin Center](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)

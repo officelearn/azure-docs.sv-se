@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azures industriella IoT | Microsoft Docs
-description: Den här artikeln ger en översikt över industriella IoT. Den förklarar den anslutna fabriken, fabrikens golv anslutning och säkerhets komponenter i IIoT.
+title: Översikt över Azure industrial IoT | Microsoft-dokument
+description: Den här artikeln innehåller en översikt över industriell IoT. Det förklarar den anslutna fabriken, fabriksgolv anslutning och säkerhetskomponenter i IIoT.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -9,45 +9,45 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: c5d70e5a8784e88d3f2906d500768735dced1ee0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73828130"
 ---
-# <a name="what-is-industrial-iot-iiot"></a>Vad är industriella IoT (IIoT)
+# <a name="what-is-industrial-iot-iiot"></a>Vad är industriell IoT (IIoT)
 
-IIoT är den industriella Sakernas Internet. IIoT förbättrar bransch effektiviteten genom program varan för IoT i tillverknings branschen. 
+IIoT är det industriella sakernas internet. IIoT ökar den industriella effektiviteten genom tillämpning av IoT inom tillverkningsindustrin. 
 
-## <a name="improve-industrial-efficiencies"></a>Förbättra industriella effektivitets vinster
+## <a name="improve-industrial-efficiencies"></a>Förbättra den industriella effektiviteten
 
-Förbättra din operativa produktivitet och lönsamhet med en ansluten fabriks lösnings Accelerator. Anslut och övervaka industriell utrustning och enheter i molnet, även maskiner som redan används på verkstadsgolvet. Analysera IoT-data och få insikter som kan hjälpa dig att förbättra produktiviteten på hela verkstadsgolvet.
+Förbättra din operativa produktivitet och lönsamhet med en ansluten fabrikslösningsaccelerator. Anslut och övervaka din industriella utrustning och dina enheter i molnet – inklusive dina maskiner som redan arbetar på fabriksgolvet. Analysera dina IoT-data för insikter som hjälper dig att öka prestandan på hela fabriksgolvet.
 
-Minska tids krävande processen för att komma åt fabriks maskiner med OPC, och fokusera din tid på att bygga IIoT-lösningar. Effektivisera certifikat hanteringen och industriell till gångs integrering med OPC-valvet och var säker på att till gångs anslutningen är säker. Dessa mikrotjänster ger en REST-liknande API ovanpå [Azures industriella IoT-komponenter](https://github.com/Azure/azure-iiot-opc-ua). Med tjänst-API: t får du kontroll över funktionerna i Edge-modulen. 
+Minska den tidskrävande processen med att komma åt maskiner på fabriksgolvet med OPC Twin och fokusera din tid på att bygga IIoT-lösningar. Effektivisera certifikathantering och industriell tillgångsintegrering med OPC Vault och känna dig säker på att tillgångsanslutningen är säkrad. Dessa mikrotjänster ger ett REST-liknande API ovanpå [Azure Industrial IoT-komponenter](https://github.com/Azure/azure-iiot-opc-ua). Tjänst-API:et ger dig kontroll över edge-modulfunktioner. 
 
-![Översikt över industriella IoT](media/overview-iot-industrial/overview.png)
+![Översikt över branschanpassat IoT](media/overview-iot-industrial/overview.png)
 
 > [!NOTE]
-> Mer information om Azure industriella IoT-tjänster finns i GitHub- [lagringsplatsen](https://github.com/Azure/azure-iiot-services).
-Om du inte är bekant med hur Azure IoT Edge moduler fungerar börjar du med följande artiklar:
+> Mer information om Azure Industrial IoT-tjänster finns i [GitHub-databasen](https://github.com/Azure/azure-iiot-services).
+Om du inte är bekant med hur Azure IoT Edge-moduler fungerar börjar du med följande artiklar:
 - [Om Azure IoT Edge](../iot-edge/about-iot-edge.md)
-- [Azure IoT Edge moduler](../iot-edge/iot-edge-modules.md)
+- [Azure IoT Edge-moduler](../iot-edge/iot-edge-modules.md)
 
 ## <a name="connected-factory"></a>Ansluten fabrik
 
-[Ansluten fabrik](../iot-accelerators/iot-accelerators-connected-factory-features.md) är en implementering av Microsofts referens arkitektur för Azures industriella IoT som kan anpassas efter specifika affärs behov. Den fullständiga lösnings koden är öppen källkod och tillgänglig på den anslutna fabriken Solution Accelerator GitHub-lagringsplatsen. Du kan använda den som utgångspunkt för en kommersiell produkt och distribuera en fördefinierad lösning i din Azure-prenumeration på några minuter. 
+[Connected Factory](../iot-accelerators/iot-accelerators-connected-factory-features.md) är en implementering av Microsofts Azure Industrial IoT-referensarkitektur som kan anpassas för att uppfylla specifika affärskrav. Den fullständiga lösningskoden är öppen källkod och tillgänglig på Connected Factory-lösningsacceleratorn GitHub-databasen. Du kan använda den som utgångspunkt för en kommersiell produkt och distribuera en förbyggd lösning till din Azure-prenumeration på några minuter. 
 
-## <a name="factory-floor-connectivity"></a>Fabriks anslutning på fabriken
+## <a name="factory-floor-connectivity"></a>Anslutning på fabriksgolv
 
-OPC dubbla är en IIoT-komponent som automatiserar identifiering och registrering av enheter och ger fjärr styrning av industriella enheter via REST API: er. OPC är dubbla, använder Azure IoT Edge och IoT Hub för att ansluta molnet och fabriks nätverket. OPC med dubbla låter IIoT utvecklare fokusera på att skapa IIoT-program utan att behöva oroa dig för säker åtkomst till lokala datorer.
+OPC Twin är en IIoT-komponent som automatiserar identifiering och registrering av enheter och erbjuder fjärrstyrning av industriella enheter via REST-API:er. OPC Twin använder Azure IoT Edge och IoT Hub för att ansluta molnet och fabriksnätverket. OPC Twin gör det möjligt för IIoT-utvecklare att fokusera på att bygga IIoT-program utan att oroa dig för hur du på ett säkert sätt kommer åt de lokala datorerna.
 
 ## <a name="security"></a>Säkerhet
 
-OPC-valvet är en implementering av OPC UA global Discovery Server (GDS) som kan konfigurera, registrera och hantera certifikat livs cykeln för OPC UA-Server och klient program i molnet. OPC-valvet fören klar implementeringen och underhållet av säker till gångs anslutning i det industriella utrymmet. Genom att automatisera certifikat hanteringen frigör OPC-valvet fabriks operatörer från de manuella och komplexa processerna som är kopplade till anslutningen och certifikat hanteringen.
+OPC Vault är en implementering av OPC UA Global Discovery Server (GDS) som kan konfigurera, registrera och hantera certifikatlivscykeln för OPC UA-server- och klientprogram i molnet. OPC Vault förenklar implementeringen och underhållet av säker tillgångsanslutning i industriområdet. Genom att automatisera certifikathantering frigör OPC Vault fabriksoperatörer från de manuella och komplexa processer som är associerade med anslutning och certifikathantering.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har haft en introduktion till den industriella IoT-komponenten och dess komponenter, här är det föreslagna nästa steg:
+Nu när du har haft en introduktion till industriell IoT och dess komponenter, här är det föreslagna nästa steg:
 
 > [!div class="nextstepaction"]
-> [Vad är OPCt](overview-opc-twin.md)
+> [Vad är OPC-tvilling](overview-opc-twin.md)

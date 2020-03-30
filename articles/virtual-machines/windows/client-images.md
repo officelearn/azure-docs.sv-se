@@ -1,6 +1,6 @@
 ---
-title: Använda Windows Client-avbildningar i Azure
-description: Så här använder du fördelarna med Visual Studio-prenumerationer för att distribuera Windows 7, Windows 8 eller Windows 10 i Azure för utveckling/testnings scenarier
+title: Använda Windows-klientavbildningar i Azure
+description: Så här använder du prenumerationsförmåner för Visual Studio för att distribuera Windows 7, Windows 8 eller Windows 10 i Azure för utvecklings-/testscenarier
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -14,54 +14,54 @@ ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
 ms.openlocfilehash: 812e6d251943d4418666f221ad8b5d2b6e501736
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74039508"
 ---
-# <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Använda Windows-klienten i Azure för utveckling/testnings scenarier
-Du kan använda Windows 7, Windows 8 eller Windows 10 Enterprise (x64) i Azure för utveckling/testning-scenarier förutsatt att du har en lämplig Visual Studio-prenumeration (tidigare MSDN). Den här artikeln beskriver behörighets kraven för att köra Windows 7, Windows 8,1, Windows 10 Enterprise i Azure och använda följande Azure Gallery-avbildningar.
+# <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Använda en Windows-klient i Azure för dev/test-scenarier
+Du kan använda Windows 7, Windows 8 eller Windows 10 Enterprise (x64) i Azure för utvecklings-/testscenarier förutsatt att du har en lämplig Visual Studio-prenumeration (tidigare MSDN). I den här artikeln beskrivs berättigandekraven för att köra Windows 7, Windows 8.1, Windows 10 Enterprise i Azure och användning av följande Azure Gallery-avbildningar.
 
-![Avbildnings information från Azure Portal](./media/client-images/windows-client-msdn-images.png) 
+![Avbildningsinformation från Azure-portalen](./media/client-images/windows-client-msdn-images.png) 
 
 > [!NOTE]
-> För Windows 10 Pro-och Windows 10 Pro N-bilder i Azure-galleriet, se [hur du distribuerar Windows 10 på Azure med värd rättigheter för flera innehavare](windows-desktop-multitenant-hosting-deployment.md)
->![Pro-bildinformation från Azure Portal](./media/client-images/windows-client-pro-images.png) 
+> För Windows 10 Pro och Windows 10 Pro N-avbildning i Azure Gallery läser du Så här distribuerar du Windows 10 på Azure med information om [multitenant hosting rights](windows-desktop-multitenant-hosting-deployment.md)
+>![pro från Azure-portalen](./media/client-images/windows-client-pro-images.png) 
 >
 
-## <a name="subscription-eligibility"></a>Prenumerations berättigande
-Aktiva Visual Studio-prenumeranter (personer som har köpt en prenumerations licens för Visual Studio) kan använda Windows-klienten för utvecklings-och testnings ändamål. Windows-klienten kan användas på din egen maskin vara och virtuella Azure-datorer som körs i vilken typ av Azure-prenumeration som helst. Windows-klienten kan inte distribueras till eller användas på Azure för normal produktions användning eller används av personer som inte är aktiva Visual Studio-prenumeranter.
+## <a name="subscription-eligibility"></a>Behörighet för prenumeration
+Aktiva Visual Studio-prenumeranter (personer som har skaffat en Prenumerationslicens för Visual Studio) kan använda Windows-klienten i utvecklings- och testningssyfte. Windows-klienten kan användas på din egen maskinvara och virtuella Azure-datorer som körs i alla typer av Azure-prenumeration. Windows-klienten kanske inte distribueras till eller används på Azure för normal produktionsanvändning eller används av personer som inte är aktiva Visual Studio-prenumeranter.
 
-För din bekvämlighet är vissa Windows 10-avbildningar tillgängliga från Azure-galleriet inom [berättigade erbjudanden om utveckling/testning](#eligible-offers). Visual Studio-prenumeranter inom vilken typ av erbjudande som helst kan också [förbereda och skapa](prepare-for-upload-vhd-image.md) en 64-bitars Windows 7-, Windows 8-eller Windows 10-avbildning och sedan [Ladda upp till Azure](upload-generalized-managed.md). Användningen är begränsad till utveckling/testning av aktiva Visual Studio-prenumeranter.
+För din bekvämlighet är vissa Windows 10-avbildningar tillgängliga från Azure Gallery i [kvalificerade utvecklings-/testerbjudanden](#eligible-offers). Visual Studio-prenumeranter inom alla typer av erbjudanden kan också [förbereda och skapa](prepare-for-upload-vhd-image.md) en 64-bitars Windows 7-, Windows 8- eller Windows 10-avbildning och sedan ladda upp till [Azure](upload-generalized-managed.md). Användningen är begränsad till utveckling/test av aktiva Visual Studio-prenumeranter.
 
 ## <a name="eligible-offers"></a>Berättigade erbjudanden
-I följande tabell beskrivs de ID: n som är kvalificerade för att distribuera Windows 10 via Azure-galleriet. Windows 10-avbildningarna är bara synliga för följande erbjudanden. Visual Studio-prenumeranter som behöver köra Windows-klienten i en annan erbjudande typ kräver att du [förbereder och skapar](prepare-for-upload-vhd-image.md) en 64-bitars Windows 7-, Windows 8-eller Windows 10-avbildning och [laddar sedan upp till Azure](upload-generalized-managed.md).
+I följande tabell beskrivs de erbjudande-ID:er som är kvalificerade att distribuera Windows 10 via Azure Gallery. Windows 10-bilderna är endast synliga för följande erbjudanden. Visual Studio-prenumeranter som behöver köra Windows-klienten i en annan erbjudandetyp kräver att du [förbereder och skapar](prepare-for-upload-vhd-image.md) en 64-bitars Windows 7-, Windows 8- eller Windows 10-avbildning och sedan laddar upp till [Azure](upload-generalized-managed.md).
 
-| Erbjudandets namn | Erbjudandets nummer | Tillgängliga klient avbildningar |
+| Erbjudandets namn | Erbjudandenummer | Tillgängliga klientavbildningar |
 |:--- |:---:|:---:|
 | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p/) |0023P |Windows 10 |
-| [Prenumeranter på Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P |Windows 10 |
-| [Visual Studio Professional-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P |Windows 10 |
-| [Visual Studio Test Professional-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P |Windows 10 |
-| [Visual Studio Premium med MSDN (förmån)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |Windows 10 |
-| [Visual Studio Enterprise-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |Windows 10 |
-| [Visual Studio Enterprise-prenumeranter (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |Windows 10 |
+| [Visual Studio Enterprise-prenumeranter (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) |0029P (på andra sätt) |Windows 10 |
+| [Visual Studio Professional-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0059p/) |0059P (0059P) |Windows 10 |
+| [Visual Studio Test Professional-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0060p/) |0060P (0060P) |Windows 10 |
+| [Visual Studio Premium med MSDN (förmån)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P (0061P) |Windows 10 |
+| [Visual Studio Enterprise-prenumeranter](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P (0063P) |Windows 10 |
+| [Visual Studio Enterprise-prenumeranter (BizSpark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P (0064P) |Windows 10 |
 | [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P |Windows 10 |
 
-## <a name="check-your-azure-subscription"></a>Kontrol lera din Azure-prenumeration
-Om du inte känner till ditt erbjudande-ID kan du hämta det via Azure Portal på något av följande två sätt:  
+## <a name="check-your-azure-subscription"></a>Kontrollera din Azure-prenumeration
+Om du inte känner till ditt erbjudande-ID kan du hämta det via Azure-portalen på något av följande två sätt:  
 
-- I fönstret *prenumerationer* :
+- I fönstret *Prenumerationer:*
 
-  ![Erbjud ID-information från Azure Portal](./media/client-images/offer-id-azure-portal.png) 
+  ![Erbjudande-ID-information från Azure-portalen](./media/client-images/offer-id-azure-portal.png) 
 
-- Du kan också klicka på **fakturering** och sedan på ditt PRENUMERATIONS-ID. Erbjudande-ID visas i *fakturerings* fönstret.
+- Du kan också klicka på **Fakturering** och sedan på ditt prenumerations-ID. Erbjudande-ID:t visas i *fönstret Fakturering.*
 
-Du kan också Visa erbjudande-ID: t från [fliken prenumerationer](https://account.windowsazure.com/Subscriptions) i Azure-konto portalen:
+Du kan också visa erbjudande-ID:t från [fliken Prenumerationer](https://account.windowsazure.com/Subscriptions) på Azure Account-portalen:
 
-![Erbjud ID-information från Azure-konto portalen](./media/client-images/offer-id-azure-account-portal.png) 
+![Erbjudande-ID-information från Azure-kontoportalen](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Nästa steg
-Nu kan du distribuera dina virtuella datorer med hjälp av [PowerShell](quick-create-powershell.md), [Resource Manager-mallar](ps-template.md)eller [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+Du kan nu distribuera dina virtuella datorer med [PowerShell,](quick-create-powershell.md) [Resource Manager-mallar](ps-template.md)eller [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 

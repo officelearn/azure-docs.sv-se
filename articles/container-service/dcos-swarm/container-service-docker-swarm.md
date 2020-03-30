@@ -1,5 +1,5 @@
 ---
-title: FÖRÅLDRAD Hantera Azure Swarm-kluster med Docker-API
+title: (FÖRÅLDRAD) Hantera Azure Swarm-kluster med Docker API
 description: Distribuera behållare till ett Docker Swarm-kluster i Azure Container Service
 services: container-service
 author: rgardler
@@ -10,13 +10,13 @@ ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
 ms.openlocfilehash: c76701ce74aafcccdbb2f1a2454f9528b52fc096
-ms.sourcegitcommit: 05a650752e9346b9836fe3ba275181369bd94cf0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79136235"
 ---
-# <a name="deprecated-container-management-with-docker-swarm"></a>FÖRÅLDRAD Hantering av behållare med Docker Swarm
+# <a name="deprecated-container-management-with-docker-swarm"></a>(FÖRÅLDRAD) Containerhantering med Docker Swarm
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -69,7 +69,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 ## <a name="deploy-containers-by-using-docker-compose"></a>Distribuera containrar med Docker Compose
 Du kan använda Docker Compose för att automatisera distribution och konfiguration av flera containrar. Om du vill göra det måste du kontrollera att en SSH-tunnel (Secure Shell) har skapats och att variabeln DOCKER_HOST har angetts (se kraven ovan).
 
-Skapa filen docker-compose.yml på ditt lokala system. Använd följande exempel för att göra detta:
+Skapa filen docker-compose.yml på ditt lokala system. Det här exemplet gör du:
 
 ```dockerfile
 web:

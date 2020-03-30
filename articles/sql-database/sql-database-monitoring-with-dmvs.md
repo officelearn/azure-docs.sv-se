@@ -1,6 +1,6 @@
 ---
-title: 'Övervaka prestanda med DMV: er'
-description: Lär dig hur du identifierar och diagnostiserar vanliga prestanda problem med hjälp av dynamiska hanterings vyer för att övervaka Microsoft Azure SQL Database.
+title: Övervaka prestanda med hjälp av DMV:er
+description: Lär dig hur du identifierar och diagnostiserar vanliga prestandaproblem med hjälp av dynamiska hanteringsvyer för att övervaka Microsoft Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,57 +12,57 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/10/2020
 ms.openlocfilehash: 958dcd441d35b5c28746ff79a0b341e5aa7383a6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79214014"
 ---
-# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Övervaka prestanda Azure SQL Database med hjälp av vyer för dynamisk hantering
+# <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Övervaka prestanda Azure SQL Database med hjälp av dynamiska hanteringsvyer
 
-Microsoft Azure SQL Database aktiverar en delmängd av vyer för dynamisk hantering för att diagnostisera prestanda problem, vilket kan orsakas av blockerade eller långvariga frågor, resurs Flask halsar, dåliga fråge planer och så vidare. Det här avsnittet innehåller information om hur du identifierar vanliga prestanda problem med hjälp av dynamiska Management views.
+Microsoft Azure SQL Database gör det möjligt för en delmängd dynamiska hanteringsvyer att diagnostisera prestandaproblem, som kan orsakas av blockerade eller långvariga frågor, resursflaskhalsar, dåliga frågeplaner och så vidare. Det här avsnittet innehåller information om hur du identifierar vanliga prestandaproblem med hjälp av dynamiska hanteringsvyer.
 
-SQL Database delvis stöder tre kategorier med vyer för dynamisk hantering:
+SQL Database stöder delvis tre kategorier av dynamiska hanteringsvyer:
 
-- Databasbaserade vyer för dynamisk hantering.
-- Vyer för dynamisk hantering i körnings läge.
-- Transaktionsskyddade vyer för dynamisk hantering.
+- Databasrelaterade dynamiska hanteringsvyer.
+- Körningsrelaterade dynamiska hanteringsvyer.
+- Transaktionsrelaterade dynamiska hanteringsvyer.
 
-Detaljerad information om vyer för dynamisk hantering finns i [vyer och funktioner i dynamisk hantering (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) i SQL Server Books Online.
+Detaljerad information om dynamiska hanteringsvyer finns i [Dynamiska hanteringsvyer och funktioner (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) i SQL Server Books Online.
 
 ## <a name="permissions"></a>Behörigheter
 
-I SQL Database kräver en fråga till en dynamisk hanterings vy **Visa databas tillstånds** behörigheter. Behörigheten **Visa databas tillstånd** returnerar information om alla objekt i den aktuella databasen.
-Om du vill ge behörigheten **Visa databas tillstånd** till en speciell databas användare kör du följande fråga:
+I SQL Database kräver en dynamisk hanteringsvy **behörigheter för VYDATABASTILLSTÅND.** **Behörigheten VISA DATABASTILLSTÅND** returnerar information om alla objekt i den aktuella databasen.
+Om du vill bevilja behörigheten **VISA DATABASTILLSTÅND** till en viss databasanvändare kör du följande fråga:
 
 ```sql
 GRANT VIEW DATABASE STATE TO database_user;
 ```
 
-I en instans av lokala SQL Server returnerar vyer för dynamisk hantering information om Server tillstånd. I SQL Database returnerar de bara information om din aktuella logiska databas.
+I en instans av lokala SQL Server returnerar dynamiska hanteringsvyer information om servertillstånd. I SQL Database returnerar de endast information om den aktuella logiska databasen.
 
-Den här artikeln innehåller en samling av DMV-frågor som du kan köra med hjälp av SQL Server Management Studio eller Azure Data Studio för att identifiera följande typer av frågor om prestanda:
+Den här artikeln innehåller en samling DMV-frågor som du kan köra med SQL Server Management Studio eller Azure Data Studio för att identifiera följande typer av frågeprestandaproblem:
 
-- [Identifiera frågor som rör överdriven CPU-förbrukning](#identify-cpu-performance-issues)
-- [PAGELATCH_ * och WRITE_LOG väntar på IO-Flask halsar](#identify-io-performance-issues)
-- [PAGELATCH_ * väntar på att bytTempDB konkurrens orsakades](#identify-tempdb-performance-issues)
-- [RESOURCE_SEMAHPORE väntar på att vänta på minnes tilldelnings problem](#identify-memory-grant-wait-performance-issues)
-- [Identifiera databas-och objekt storlekar](#calculating-database-and-objects-sizes)
-- [Hämtar information om aktiva sessioner](#monitoring-connections)
-- [Hämta information om resursanvändning för hela systemet och databasen](#monitor-resource-use)
-- [Hämtar information om frågans prestanda](#monitoring-query-performance)
+- [Identifiera frågor relaterade till överdriven CPU-förbrukning](#identify-cpu-performance-issues)
+- [PAGELATCH_* och WRITE_LOG väntar i samband med i/o-flaskhalsar](#identify-io-performance-issues)
+- [PAGELATCH_* väntar på grund avtempDB påstående](#identify-tempdb-performance-issues)
+- [RESOURCE_SEMAHPORE väntar på grund av väntande problem med minnesbidrag](#identify-memory-grant-wait-performance-issues)
+- [Identifiera databas- och objektstorlekar](#calculating-database-and-objects-sizes)
+- [Hämta information om aktiva sessioner](#monitoring-connections)
+- [Hämta information om användning av systemomfattande resurser och databasresurser](#monitor-resource-use)
+- [Hämta information om frågeprestanda](#monitoring-query-performance)
 
-## <a name="identify-cpu-performance-issues"></a>Identifiera problem med processor prestanda
+## <a name="identify-cpu-performance-issues"></a>Identifiera problem med cpu-prestanda
 
-Om CPU-förbrukningen är över 80% under längre tid, bör du tänka på följande fel söknings steg:
+Om CPU-förbrukningen är över 80 % under längre tidsperioder bör du tänka på följande felsökningssteg:
 
 ### <a name="the-cpu-issue-is-occurring-now"></a>CPU-problemet uppstår nu
 
-Om problemet inträffar just nu finns det två möjliga scenarier:
+Om problemet uppstår just nu finns det två möjliga scenarier:
 
-#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Många enskilda frågor som sammantaget förbrukar hög CPU
+#### <a name="many-individual-queries-that-cumulatively-consume-high-cpu"></a>Många enskilda frågor som kumulativt förbrukar hög CPU
 
-Använd följande fråga för att identifiera Top-frågans hash-värden:
+Använd följande fråga för att identifiera de översta frågehÃ¤1en:
 
 ```sql
 PRINT '-- top 10 Active CPU Consuming Queries (aggregated)--';
@@ -75,7 +75,7 @@ FROM (SELECT query_stats.query_hash, SUM(query_stats.cpu_time) 'Total_Request_Cp
 ORDER BY Total_Request_Cpu_Time_Ms DESC;
 ```
 
-#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Tids krävande frågor som använder CPU körs fortfarande
+#### <a name="long-running-queries-that-consume-cpu-are-still-running"></a>Tidskrävande frågor som förbrukar CPU körs fortfarande
 
 Använd följande fråga för att identifiera dessa frågor:
 
@@ -88,9 +88,9 @@ ORDER BY cpu_time DESC;
 GO
 ```
 
-### <a name="the-cpu-issue-occurred-in-the-past"></a>PROCESSOR problemet inträffade tidigare
+### <a name="the-cpu-issue-occurred-in-the-past"></a>CPU-problemet uppstod tidigare
 
-Om problemet inträffade tidigare och du vill utföra rotor Saks analys, använder du [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Användare med databas åtkomst kan använda T-SQL för att fråga efter Query Store-data. Standardkonfigurationer för Query Store använder en kornig het på 1 timme. Använd följande fråga för att titta på aktivitet för frågor med hög CPU-användning. Den här frågan returnerar de högsta 15 processor krävande frågorna. Kom ihåg att ändra `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`:
+Om problemet uppstod tidigare och du vill göra grundorsaksanalys använder du [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store). Användare med databasåtkomst kan använda T-SQL för att fråga efter Frågelagringsdata. Standardkonfigurationer för Query Store använder en granularitet på 1 timme. Använd följande fråga för att titta på aktivitet för frågor som konsumerar hög CPU. Den här frågan returnerar de översta 15 CPU-tidskrävande frågorna. Kom ihåg `rsi.start_time >= DATEADD(hour, -2, GETUTCDATE()`att ändra:
 
 ```sql
 -- Top 15 CPU consuming queries by query hash
@@ -111,27 +111,27 @@ WHERE OD.RN<=15
 ORDER BY total_cpu_millisec DESC;
 ```
 
-När du har identifierat de problematiska frågorna är det dags att finjustera frågorna för att minska processor användningen.  Om du inte har tid att justera frågorna kan du också välja att uppgradera databasens service nivå mål för att lösa problemet.
+När du har identifierat de problematiska frågorna är det dags att ställa in dessa frågor för att minska CPU-användningen.  Om du inte har tid att ställa in frågorna kan du också välja att uppgradera SLO-för databasen för att komma runt problemet.
 
-## <a name="identify-io-performance-issues"></a>Identifiera problem med IO-prestanda
+## <a name="identify-io-performance-issues"></a>Identifiera I/O-prestandaproblem
 
-När du identifierar i/o-prestanda problem är de viktigaste vänte typerna som är kopplade till IO-problem följande:
+När du identifierar IO-prestandaproblem är de vanligaste väntetidstyperna som är associerade med I/O-problem:
 
 - `PAGEIOLATCH_*`
 
-  För data filens IO-problem (inklusive `PAGEIOLATCH_SH``PAGEIOLATCH_EX``PAGEIOLATCH_UP`).  Om vänte typens namn har **IO** i det, pekar den på ett i/o-problem. Om det inte finns någon **IO** i väntan på sid låsning, pekar den på en annan typ av problem (till exempel tempdb-konkurrens).
+  För problem med datafils-I/O (inklusive `PAGEIOLATCH_SH`, `PAGEIOLATCH_EX`, `PAGEIOLATCH_UP`).  Om namnet på väntatypen har **IO** i den pekar det på ett IO-problem. Om det inte finns någon **IO** i sidspärrens väntenamn pekar det på en annan typ av problem (till exempel tempdb-konkurrens).
 
 - `WRITE_LOG`
 
-  För transaktions loggens IO-problem.
+  För IO-ärenden för transaktionslogg.
 
-### <a name="if-the-io-issue-is-occurring-right-now"></a>Om IO-problemet inträffar just nu
+### <a name="if-the-io-issue-is-occurring-right-now"></a>Om IO-problemet uppstår just nu
 
-Använd [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) eller [sys. dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att se `wait_type` och `wait_time`.
+Använd [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) eller [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) för att se `wait_type` `wait_time`och .
 
-#### <a name="identify-data-and-log-io-usage"></a>Identifiera data-och logg-i/o-användning
+#### <a name="identify-data-and-log-io-usage"></a>Identifiera data- och logganvändning av I/O
 
-Använd följande fråga för att identifiera data-och logg-i/o-användning. Om data eller logg-i/o är över 80% innebär det att användarna har använt tillgänglig IO för SQL DB-tjänstenivån.
+Använd följande fråga för att identifiera data och logga IO-användning. Om data eller logg-IO är över 80 % betyder det att användarna har använt den tillgängliga I/O för SQL DB-tjänstnivån.
 
 ```sql
 SELECT end_time, avg_data_io_percent, avg_log_write_percent
@@ -139,14 +139,14 @@ FROM sys.dm_db_resource_stats
 ORDER BY end_time DESC;
 ```
 
-Om du har nått IO-gränsen har du två alternativ:
+Om IO-gränsen har nåtts har du två alternativ:
 
-- Alternativ 1: uppgradera beräknings storlek eller tjänst nivå
-- Alternativ 2: identifiera och finjustera de frågor som förbrukar de flesta i/o.
+- Alternativ 1: Uppgradera beräkningsstorleken eller tjänstnivån
+- Alternativ 2: Identifiera och justera de frågor som förbrukar mest IO.
 
-#### <a name="view-buffer-related-io-using-the-query-store"></a>Visa buffert-relaterad IO med Query Store
+#### <a name="view-buffer-related-io-using-the-query-store"></a>Visa buffertrelaterad I/o med frågearkivet
 
-För alternativ 2 kan du använda följande fråga mot Frågearkivet för buffert-relaterad IO för att visa de senaste två timmarna för spårade aktiviteter:
+För alternativ 2 kan du använda följande fråga mot Query Store för buffertrelaterad I/O för att visa de två senaste timmarnas spårad aktivitet:
 
 ```sql
 -- top queries that waited on buffer
@@ -167,9 +167,9 @@ ORDER BY total_wait_time_ms DESC;
 GO
 ```
 
-#### <a name="view-total-log-io-for-writelog-waits"></a>Visa total logg-IO för WRITELOG vänta
+#### <a name="view-total-log-io-for-writelog-waits"></a>Visa total logg-I/o för WRITELOG-väntetider
 
-Om wait-typen är `WRITELOG`använder du följande fråga för att visa total logg-IO enligt instruktion:
+Om väntetypen är `WRITELOG`använder du följande fråga för att visa total logg-I/O efter sats:
 
 ```sql
 -- Top transaction log consumers
@@ -246,21 +246,21 @@ ORDER BY total_log_bytes_used DESC;
 GO
 ```
 
-## <a name="identify-tempdb-performance-issues"></a>Identifiera problem med `tempdb` prestanda
+## <a name="identify-tempdb-performance-issues"></a>Identifiera `tempdb` prestandaproblem
 
-När du identifierar i/o-prestanda problem är de vanligaste vänte typerna som är kopplade till `tempdb` problem `PAGELATCH_*` (inte `PAGEIOLATCH_*`). `PAGELATCH_*` väntar dock inte alltid att du har `tempdb` konkurrens.  Detta kan betyda att du har innehålls sidan för användar objekts data på grund av samtidiga begär Anden som riktar sig mot samma data sida. Om du vill bekräfta `tempdb`-konkurrens ytterligare använder du [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att bekräfta att wait_resource svärdet börjar med `2:x:y` där 2 är `tempdb` är databas-id, `x` är fil-id och `y` är sid-ID.  
+När du identifierar IO-prestandaproblem är `tempdb` de `PAGELATCH_*` vanligaste `PAGEIOLATCH_*`väntetidstyperna som är associerade med problem (inte ). Men `PAGELATCH_*` väntar betyder inte alltid `tempdb` att du har stridigheter.  Den här väntetiden kan också innebära att du har konkurrens på datasidan för användarobjekt på grund av samtidiga begäranden som är inriktade på samma datasida. För att `tempdb` ytterligare bekräfta påstående, använd [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) för att bekräfta att `2:x:y` wait_resource värdet `tempdb` börjar med där `x` 2 är databas-ID, är fil-ID och `y` är sid-ID.  
 
-För tempdb-konkurrens är en vanlig metod att minska eller omskriva program kod som förlitar sig på `tempdb`.  Vanliga `tempdb` användnings områden är:
+För tempdb påstående, en vanlig metod är att minska eller `tempdb`skriva om programkod som bygger på .  Vanliga `tempdb` användningsområden är:
 
-- Temporära tabeller
-- Table-variabler
-- tabell värdes parametrar
-- Användning av versions lager (specifikt kopplat till tids krävande transaktioner)
-- Frågor med fråge planer som använder sortering, hash-kopplingar och buffertar
+- Temp-tabeller
+- Tabellvariabler
+- Tabellvärderade parametrar
+- Användning av versionsarkiv (som är särskilt associerad med långvariga transaktioner)
+- Frågor som har frågeplaner som använder sorterar, hash-kopplingar och buffrar
 
-### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>Vanligaste frågor som använder tabell variabler och temporära tabeller
+### <a name="top-queries-that-use-table-variables-and-temporary-tables"></a>De vanligaste frågorna som använder tabellvariabler och temporära tabeller
 
-Använd följande fråga för att identifiera de vanligaste frågorna som använder Table-variabler och temporära tabeller:
+Använd följande fråga för att identifiera de vanligaste frågorna som använder tabellvariabler och temporära tabeller:
 
 ```sql
 SELECT plan_handle, execution_count, query_plan
@@ -283,9 +283,9 @@ FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
     JOIN #tmpPlan AS t2 ON t.plan_handle=t2.plan_handle;
 ```
 
-### <a name="identify-long-running-transactions"></a>Identifiera tids krävande transaktioner
+### <a name="identify-long-running-transactions"></a>Identifiera tidskrävande transaktioner
 
-Använd följande fråga för att identifiera tids krävande transaktioner. Tids krävande transaktioner förhindrar rensning av versions arkiv.
+Använd följande fråga för att identifiera tidskrävande transaktioner. Tidskrävande transaktioner förhindrar rensning av versionsarkiv.
 
 ```sql
 SELECT DB_NAME(dtr.database_id) 'database_name',
@@ -341,13 +341,13 @@ WHERE atr.transaction_type != 2
 ORDER BY start_time ASC;
 ```
 
-## <a name="identify-memory-grant-wait-performance-issues"></a>Identifiera problem med väntande minnes tilldelnings prestanda
+## <a name="identify-memory-grant-wait-performance-issues"></a>Identifiera problem med väntande minnesbidrag
 
-Om den övre vänte typen är `RESOURCE_SEMAHPORE` och du inte har ett problem med hög CPU-användning kan det uppstå ett väntande minnes tilldelnings problem.
+Om din översta `RESOURCE_SEMAHPORE` vänta typ är och du inte har en hög CPU-användning problem, kan du ha ett minne bevilja väntar problem.
 
-### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Avgöra om en `RESOURCE_SEMAHPORE` väntar är en väntande vänta
+### <a name="determine-if-a-resource_semahpore-wait-is-a-top-wait"></a>Ta reda `RESOURCE_SEMAHPORE` på om en vänta är en toppväntan
 
-Använd följande fråga för att avgöra om en `RESOURCE_SEMAHPORE` väntar är en väntande vänta
+Använd följande fråga för `RESOURCE_SEMAHPORE` att avgöra om en vänta är en övre väntan
 
 ```sql
 SELECT wait_type,
@@ -360,9 +360,9 @@ GROUP BY wait_type
 ORDER BY SUM(wait_time) DESC;
 ```
 
-### <a name="identity-high-memory-consuming-statements"></a>Identity-uttryck med hög minnes användning
+### <a name="identity-high-memory-consuming-statements"></a>Identitetshög minnesförbrukande satser
 
-Använd följande fråga för att identifiera höga minnes krävande uttryck:
+Använd följande fråga för att identifiera hög minnesförbrukande satser:
 
 ```sql
 SELECT IDENTITY(INT, 1, 1) rowId,
@@ -396,9 +396,9 @@ FROM cte
 ORDER BY SerialDesiredMemory DESC;
 ```
 
-### <a name="identify-the-top-10-active-memory-grants"></a>Identifiera de 10 främsta aktiva minnes beviljarna
+### <a name="identify-the-top-10-active-memory-grants"></a>Identifiera de 10 bästa aktiva minnesbidragen
 
-Använd följande fråga för att identifiera de 10 viktigaste aktiva minnes beviljarna:
+Använd följande fråga för att identifiera de tio bästa aktiva minnesbidragen:
 
 ```sql
 SELECT TOP 10
@@ -470,7 +470,7 @@ FROM sys.dm_exec_requests AS r
 ORDER BY mg.granted_memory_kb DESC;
 ```
 
-## <a name="calculating-database-and-objects-sizes"></a>Beräkna databas-och objekt storlekar
+## <a name="calculating-database-and-objects-sizes"></a>Beräkna databas- och objektstorlekar
 
 Följande fråga returnerar databasens storlek (i megabyte):
 
@@ -495,7 +495,7 @@ GO
 
 ## <a name="monitoring-connections"></a>Övervaka anslutningar
 
-Du kan använda vyn [sys. dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) för att hämta information om de anslutningar som upprättats till en bestämd Azure SQL Database-Server och information om varje anslutning. Dessutom är [sys. dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) -vyn användbart när du hämtar information om alla aktiva användar anslutningar och interna uppgifter.
+Du kan använda [vyn sys.dm_exec_connections](https://msdn.microsoft.com/library/ms181509.aspx) för att hämta information om de anslutningar som upprättats till en viss Azure SQL Database-server och information om varje anslutning. Dessutom är [vyn sys.dm_exec_sessions](https://msdn.microsoft.com/library/ms176013.aspx) användbar när du hämtar information om alla aktiva användaranslutningar och interna uppgifter.
 Följande fråga hämtar information om den aktuella anslutningen:
 
 ```sql
@@ -512,22 +512,22 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> När du kör vyerna **sys. dm_exec_requests** och **sys. dm_exec_sessions**, om du har behörigheten **Visa databas tillstånd** för databasen, ser du alla pågående sessioner på databasen. annars visas bara den aktuella sessionen.
+> När du kör **vyerna sys.dm_exec_requests** och **sys.dm_exec_sessions**visas alla körsessioner i databasen om du har **behörigheten VISA DATABASTILLSTÅND.** Annars ser du bara den aktuella sessionen.
 
 ## <a name="monitor-resource-use"></a>Övervaka resursanvändning
 
-Du kan övervaka resursanvändningen med hjälp av [SQL Database Query Performance Insight](sql-database-query-performance.md) och [frågearkivet](https://msdn.microsoft.com/library/dn817826.aspx).
+Du kan övervaka resursanvändning med hjälp av [SQL Database Query Performance Insight](sql-database-query-performance.md) och Query [Store](https://msdn.microsoft.com/library/dn817826.aspx).
 
-Du kan också övervaka användningen med följande två vyer:
+Du kan också övervaka användningen med hjälp av dessa två vyer:
 
-- [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
-- [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
+- [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx)
+- [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
-Du kan använda [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) -vyn i varje SQL-databas. I vyn **sys. dm_db_resource_stats** visas senaste resurs användnings data i förhållande till tjänst nivån. Genomsnitts procent andelen för CPU, data-IO, logg skrivningar och minne registreras var 15: e sekund och bevaras i 1 timme.
+Du kan använda [vyn sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) i alla SQL-databaser. Vyn **sys.dm_db_resource_stats** visar de senaste resursanvändningsdata som är relativa till tjänstnivån. Genomsnittliga procentsatser för CPU, data-IO, loggskrivningar och minne registreras var 15:e sekund och underhålls i 1 timme.
 
-Eftersom den här vyn ger en mer detaljerad titt på resursanvändningen använder du **sys. dm_db_resource_stats** först för all analys av aktuella tillstånd eller fel sökning. Den här frågan visar till exempel den genomsnittliga och högsta resursanvändning som används för den aktuella databasen under den senaste timmen:
+Eftersom den här vyn ger en mer detaljerad titt på resursanvändning, använder **du sys.dm_db_resource_stats** först för analys eller felsökning i aktuella tillstånd. Den här frågan visar till exempel den genomsnittliga och maximala resursanvändningen för den aktuella databasen under den senaste timmen:
 
 ```sql
 SELECT  
@@ -542,26 +542,26 @@ SELECT
 FROM sys.dm_db_resource_stats;  
 ```
 
-För andra frågor, se exemplen i [sys. dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
+Andra frågor finns i exemplen i [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx).
 
-### <a name="sysresource_stats"></a>sys. resource_stats
+### <a name="sysresource_stats"></a>sys.resource_stats
 
-[Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) -vyn i **huvud** databasen har ytterligare information som kan hjälpa dig att övervaka prestanda för din SQL-databas på dess respektive tjänst nivå och beräknings storlek. Data samlas in var 5: e minut och bevaras i cirka 14 dagar. Den här vyn är användbar för en längre historisk analys av hur din SQL-databas använder resurser.
+Den [sys.resource_stats-vyn](https://msdn.microsoft.com/library/dn269979.aspx) i **huvuddatabasen** har ytterligare information som kan hjälpa dig att övervaka prestanda för DIN SQL-databas på dess specifika tjänstnivå och beräkningsstorlek. Uppgifterna samlas in var 5:e minut och bevaras i cirka 14 dagar. Den här vyn är användbar för en mer långsiktig historisk analys av hur SQL-databasen använder resurser.
 
-I följande diagram visas användningen av CPU-resurser för en Premium-databas med P2 Compute-storlek för varje timme under en vecka. Det här diagrammet startar på en måndag, visar 5 arbets dagar och visar sedan en helg, om det händer mycket mindre i programmet.
+Följande diagram visar cpu-resursanvändningen för en Premium-databas med P2-beräkningsstorleken för varje timme i en vecka. Det här diagrammet börjar på en måndag, visar 5 arbetsdagar och visar sedan en helg, när mycket mindre händer i programmet.
 
-![Användning av SQL Database-resurs](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
+![Användning av SQL-databasresurser](./media/sql-database-performance-guidance/sql_db_resource_utilization.png)
 
-Den här databasen har för närvarande en hög processor belastning på bara över 50 procent CPU-användning i förhållande till P2 Compute-storlek (kulminera på tisdag). Om CPU är den dominerande faktorn i programmets resurs profil, kan du bestämma att P2 är rätt beräknings storlek för att garantera att arbets belastningen alltid passar. Om du förväntar dig att ett program ska växa över tid, är det en bra idé att ha en extra resurs-buffert så att programmet aldrig når prestanda nivå gränsen. Om du ökar beräknings storleken kan du undvika kund synliga fel som kan uppstå när en databas inte har tillräckligt med ström för att bearbeta begär Anden på ett effektivt sätt, särskilt i svars känsliga miljöer. Ett exempel är en databas som stöder ett program som målar webb sidor baserat på resultaten av databas anrop.
+Från data har den här databasen för närvarande en topp CPU-belastning på drygt 50 procent CPU-användning i förhållande till P2-beräkningsstorleken (middag på tisdag). Om CPU är den dominerande faktorn i programmets resursprofil kan du bestämma att P2 är rätt beräkningsstorlek för att garantera att arbetsbelastningen alltid passar. Om du förväntar dig att ett program ska växa med tiden är det en bra idé att ha en extra resursbuffert så att programmet aldrig når gränsen för prestandanivå. Om du ökar beräkningsstorleken kan du undvika kund synliga fel som kan uppstå när en databas inte har tillräckligt med ström för att bearbeta begäranden effektivt, särskilt i latenskänsliga miljöer. Ett exempel är en databas som stöder ett program som målar webbsidor baserat på resultatet av databasanrop.
 
-Andra program typer kan tolka samma graf på olika sätt. Om ett program till exempel försöker bearbeta löne data varje dag och har samma diagram, kan den här typen av "batch job"-modell fungera i en beräknings storlek på P1. Beräknings storleken P1 har 100 DTU: er jämfört med 200 DTU: er vid P2 Compute-storlek. Beräknings storleken P1 ger hälften av prestandan för P2 Compute-storlek. Därför är 50 procent av CPU-användningen i P2 lika med 100 procent CPU-användning i P1. Om programmet inte har några tids gränser kanske det inte spelar någon roll om ett jobb tar 2 timmar eller 2,5 timmar att slutföras, om det blir klart idag. Ett program i den här kategorin kan förmodligen använda en beräknings storlek i P1. Du kan dra nytta av det faktum att det finns tids perioder under dagen då resurs användningen är lägre, så att alla "stora toppar" kan spilla i en av troughs senare under dagen. Beräknings storleken P1 kan vara lämplig för den typen av program (och spara pengar), så länge som jobben kan slutföras i tid varje dag.
+Andra programtyper kan tolka samma diagram på olika sätt. Om ett program till exempel försöker bearbeta lönedata varje dag och har samma diagram, kan den här typen av "batchjobb"-modell göra bra i p1-beräkningsstorleken. P1-beräkningsstorleken har 100 DTUs jämfört med 200 DTUs vid P2-beräkningsstorleken. P1-beräkningsstorleken ger hälften av prestandan för P2-beräkningsstorleken. Så, 50 procent av CPU-användning i P2 motsvarar 100 procent CPU-användning i P1. Om programmet inte har timeout, kanske det inte spelar någon roll om ett jobb tar 2 timmar eller 2,5 timmar att slutföra, om det blir gjort idag. Ett program i den här kategorin kan förmodligen använda en P1-beräkningsstorlek. Du kan dra nytta av det faktum att det finns perioder under dagen när resursanvändningen är lägre, så att alla "stora topp" kan spilla över till en av tråg senare under dagen. P1-beräkningsstorleken kan vara bra för den typen av program (och spara pengar), så länge jobben kan avslutas i tid varje dag.
 
-Azure SQL Database visar förbrukad resursinformation för varje aktiv databas i vyn **sys. resource_stats** i **huvud** databasen på varje server. Data i tabellen sammanställs i intervall om 5 minuter. På tjänst nivåerna Basic, standard och Premium kan data ta mer än 5 minuter visas i tabellen, så dessa data är mer användbara för historiska analyser i stället för i nära real tids analys. Fråga **sys. resource_stats** -vyn om du vill visa den senaste historiken för en databas och kontrol lera om den reservation du valde har levererat den prestanda du önskar när du behöver.
+Azure SQL Database visar förbrukad resursinformation för varje aktiv databas i **sys.resource_stats** vy av **huvuddatabasen** på varje server. Data i tabellen aggregeras för 5-minutersintervall. Med tjänstnivåerna Basic, Standard och Premium kan det ta mer än 5 minuter att visa data i tabellen, så dessa data är mer användbara för historisk analys snarare än analys i nära realtid. Fråga **vyn sys.resource_stats** för att se den senaste historiken för en databas och för att verifiera om den reservation du valde levererade det resultat du vill ha när det behövs.
 
 > [!NOTE]
-> Du måste vara ansluten till **huvud** databasen på SQL Databases servern för att fråga **sys. resource_stats** i följande exempel.
+> Du måste vara ansluten till **huvuddatabasen** för SQL Database-servern för att fråga **sys.resource_stats** i följande exempel.
 
-Det här exemplet visar hur data i den här vyn exponeras:
+I det här exemplet visas hur data i den här vyn är exponerade:
 
 ```sql
 SELECT TOP 10 *
@@ -570,11 +570,11 @@ WHERE database_name = 'resource1'
 ORDER BY start_time DESC
 ```
 
-![Vyn sys. resource_stats Catalog](./media/sql-database-performance-guidance/sys_resource_stats.png)
+![Katalogvyn sys.resource_stats](./media/sql-database-performance-guidance/sys_resource_stats.png)
 
-I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_stats** Catalog för att få information om hur din SQL-databas använder resurser:
+I nästa exempel visas olika sätt att använda **katalogvyn sys.resource_stats** för att få information om hur din SQL-databas använder resurser:
 
-1. Om du vill titta på den senaste vecko resurs användningen för databasen userdb1 kan du köra den här frågan:
+1. Om du vill titta på den senaste veckans resursanvändning för databasen userdb1 kan du köra den här frågan:
 
     ```sql
     SELECT *
@@ -584,7 +584,7 @@ I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_sta
     ORDER BY start_time DESC;
     ```
 
-2. Om du vill utvärdera hur bra arbets belastningen passar för beräknings storleken måste du öka detalj nivån för varje aspekt av resurs måtten: CPU, läsningar, skrivningar, antal arbetare och antal sessioner. Här är en reviderad fråga med hjälp av **sys. resource_stats** för att rapportera genomsnitts-och max värden för dessa resurs mått:
+2. För att utvärdera hur väl din arbetsbelastning passar beräkningsstorleken måste du öka detaljnivån i varje aspekt av resursmåtten: CPU, läsningar, skrivningar, antal arbetare och antal sessioner. Här är en reviderad fråga med **sys.resource_stats** för att rapportera medelvärden och högsta värden för dessa resursmått:
 
     ```sql
     SELECT
@@ -602,11 +602,11 @@ I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_sta
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. Med den här informationen om medelvärdet och Max värdet för varje resurs mått kan du utvärdera hur bra arbets belastningen passar in i den beräknade storlek du väljer. Vanligt vis ger genomsnitts värden från **sys. resource_stats** en lämplig bas linje att använda mot mål storleken. Det bör vara ditt primära Mät märke. Till exempel kanske du använder standard tjänst nivån med S2-beräknings storlek. Genomsnittlig användning i procent för CPU-och IO-läsningar och skrivningar är under 40 procent, det genomsnittliga antalet arbetare är lägre än 50 och det genomsnittliga antalet sessioner under 200. Din arbets belastning kan få plats i S1-Compute-storlek. Det är enkelt att se om din databas passar för arbets-och sessionsgränser. Om du vill se om en databas passar i en lägre beräknings storlek med avseende på CPU, läsning och skrivning, dividerar du DTU-numret för den lägre beräknings storleken med DTU-numret för din aktuella beräknings storlek och multiplicerar sedan resultatet med 100:
+3. Med den här informationen om de genomsnittliga och högsta värdena för varje resursmått kan du bedöma hur väl din arbetsbelastning passar in i den beräkningsstorlek du har valt. Vanligtvis ger medelvärden från **sys.resource_stats** dig en bra baslinje att använda mot målstorleken. Det bör vara din primära måttsticka. Du kan till exempel använda standardtjänstnivån med S2-beräkningsstorlek. Den genomsnittliga användningen procentsatser för CPU och IO läser och skriver är under 40 procent, det genomsnittliga antalet arbetstagare är under 50, och det genomsnittliga antalet sessioner är under 200. Din arbetsbelastning kan passa in i S1-beräkningsstorleken. Det är lätt att se om databasen passar i arbets- och sessionsgränserna. Om du vill se om en databas passar in i en lägre beräkningsstorlek när det gäller CPU, läsningar och skrivningar delar du DTU-numret för den lägre beräkningsstorleken med DTU-numret för din aktuella beräkningsstorlek och multiplicerar sedan resultatet med 100:
 
     ```S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40```
 
-    Resultatet är den relativa prestanda skillnaden mellan de två beräknings storlekarna i procent. Om din resurs använder inte överskrider den här mängden kan din arbets belastning få plats i den lägre beräknings storleken. Men du måste titta på alla intervall med resurs användnings värden och fastställa i procent hur ofta databas arbets belastningen skulle få plats i den lägre beräknings storleken. Följande fråga utvärderar anpassnings procent per resurs dimension baserat på tröskelvärdet på 40 procent som vi beräknade i det här exemplet:
+    Resultatet är den relativa prestandaskillnaden mellan de två beräkningsstorlekarna i procent. Om resursanvändningen inte överstiger det här beloppet kan arbetsbelastningen passa in i den lägre beräkningsstorleken. Du måste dock titta på alla intervall av resursanvändningsvärden och i procent bestämma hur ofta din databasarbetsbelastning skulle passa in i den lägre beräkningsstorleken. Följande fråga matar ut passningsprocenten per resursdimension, baserat på tröskelvärdet på 40 procent som vi beräknade i det här exemplet:
 
    ```sql
     SELECT
@@ -617,15 +617,15 @@ I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_sta
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    Baserat på databas tjänst nivån kan du bestämma om din arbets belastning passar i den lägre beräknings storleken. Om databasens arbets belastnings mål är 99,9 procent och föregående fråga returnerar värden som är större än 99,9 procent för alla tre resurs dimensionerna, kommer din arbets belastning antagligen att passa den lägre beräknings storleken.
+    Baserat på din databastjänstnivå kan du bestämma om din arbetsbelastning passar in i den lägre beräkningsstorleken. Om ditt mål för databasarbetsbelastning är 99,9 procent och föregående fråga returnerar värden som är större än 99,9 procent för alla tre resursdimensionerna, passar arbetsbelastningen sannolikt in i den lägre beräkningsstorleken.
 
-    När du tittar på den här procent andelen får du också information om huruvida du bör flytta till nästa högre beräknings storlek för att uppfylla ditt mål. Till exempel visar userdb1 följande CPU-användning för den senaste veckan:
+    Om du tittar på passningsprocenten får du också insikt i om du ska flytta till nästa högre beräkningsstorlek för att uppfylla ditt mål. Användardb1 visar till exempel följande CPU-användning för den senaste veckan:
 
-   | Genomsnittlig CPU-procent | Högsta processor procent |
+   | Genomsnittlig CPU-procent | Maximal CPU-procent |
    | --- | --- |
-   | 24.5 |100.00 |
+   | 24.5 |100,00 |
 
-    Den genomsnittliga CPU: n är ungefär ett kvartal av gränsen för beräknings storlek, vilket skulle passa in i databasens beräknings storlek. Men det maximala värdet visar att databasen når gränsen för beräknings storleken. Behöver du flytta till nästa högre beräknings storlek? Titta på hur många gånger din arbets belastning når 100 procent och jämför den sedan med databasens arbets belastnings mål.
+    Den genomsnittliga processorn är ungefär en fjärdedel av gränsen för beräkningsstorleken, vilket skulle passa långt in i databasens beräkningsstorlek. Men det maximala värdet visar att databasen når gränsen för beräkningsstorleken. Behöver du flytta till nästa högre beräkningsstorlek? Titta på hur många gånger din arbetsbelastning når 100 procent och jämför den sedan med ditt mål för databasarbetsbelastningen.
 
     ```sql
     SELECT
@@ -636,22 +636,22 @@ I nästa exempel visas olika sätt som du kan använda i vyn **sys. resource_sta
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-    Om frågan returnerar ett värde som är mindre än 99,9 procent för någon av de tre resurs dimensionerna kan du antingen flytta till nästa högre beräknings storlek eller använda program justerings tekniker för att minska belastningen på SQL-databasen.
+    Om den här frågan returnerar ett värde som är mindre än 99,9 procent för någon av de tre resursdimensionerna bör du överväga att antingen flytta till nästa högre beräkningsstorlek eller använda programjusteringstekniker för att minska belastningen på SQL-databasen.
 
-4. Den här övningen tar också hänsyn till din planerade arbets belastnings ökning i framtiden.
+4. Den här övningen tar också hänsyn till din beräknade arbetsbelastningsökning i framtiden.
 
 För elastiska pooler kan du övervaka individuella databaser i poolen med de tekniker som beskrivs i det här avsnittet. Men du kan också övervaka poolen som helhet. Mer information finns i [Övervaka och hantera en elastisk pool](sql-database-elastic-pool-manage-portal.md).
 
-### <a name="maximum-concurrent-requests"></a>Maximalt antal samtidiga förfrågningar
+### <a name="maximum-concurrent-requests"></a>Maximala samtidiga begäranden
 
-Om du vill se antalet samtidiga förfrågningar kör du den här Transact-SQL-frågan på SQL-databasen:
+Om du vill se antalet samtidiga begäranden kör du den här Transact-SQL-frågan i SQL-databasen:
 
 ```sql
 SELECT COUNT(*) AS [Concurrent_Requests]
 FROM sys.dm_exec_requests R;
 ```
 
-Om du vill analysera arbets belastningen för en lokal SQL Server databas ändrar du den här frågan för att filtrera på den angivna databasen som du vill analysera. Om du till exempel har en lokal databas med namnet databas, returnerar denna Transact-SQL-fråga antalet samtidiga begär anden i databasen:
+Om du vill analysera arbetsbelastningen för en lokal SQL Server-databas ändrar du den här frågan för att filtrera på den specifika databas som du vill analysera. Om du till exempel har en lokal databas med namnet MyDatabase returnerar den här Transact-SQL-frågan antalet samtidiga begäranden i databasen:
 
 ```sql
 SELECT COUNT(*) AS [Concurrent_Requests]
@@ -660,27 +660,27 @@ INNER JOIN sys.databases D ON D.database_id = R.database_id
 AND D.name = 'MyDatabase';
 ```
 
-Detta är bara en ögonblicks bild vid en enskild tidpunkt. För att få en bättre förståelse för arbets belastningen och krav för samtidiga begär Anden måste du samla in många prover över tid.
+Detta är bara en ögonblicksbild vid en enda tidpunkt. För att få en bättre förståelse för din arbetsbelastning och samtidiga krav begäran, måste du samla in många prover över tiden.
 
 ### <a name="maximum-concurrent-logins"></a>Maximalt antal samtidiga inloggningar
 
-Du kan analysera dina användar-och program mönster för att få en uppfattning om inloggnings frekvensen. Du kan också köra verkliga belastningar i en test miljö för att se till att du inte träffar detta eller andra gränser vi diskuterar i den här artikeln. Det finns inte en enstaka fråga eller dynamisk hanterings vy (DMV) som kan visa dig antal samtidiga inloggningar eller historik.
+Du kan analysera dina användar- och applikationsmönster för att få en uppfattning om frekvensen av inloggningar. Du kan också köra verkliga laster i en testmiljö för att se till att du inte träffar den här eller andra gränser som vi diskuterar i den här artikeln. Det finns inte en enda fråga eller dynamisk hanteringsvy (DMV) som kan visa dig samtidiga inloggningsantal eller historik.
 
-Om flera klienter använder samma anslutnings sträng, autentiserar tjänsten varje inloggning. Om 10 användare samtidigt ansluter till en databas med samma användar namn och lösen ord, blir det 10 samtidiga inloggningar. Den här gränsen gäller endast för varaktigheten för inloggningen och autentiseringen. Om samma 10 användare ansluter till databasen sekventiellt, skulle antalet samtidiga inloggningar aldrig vara större än 1.
+Om flera klienter använder samma anslutningssträng autentiserar tjänsten varje inloggning. Om 10 användare samtidigt ansluter till en databas med samma användarnamn och lösenord, skulle det finnas 10 samtidiga inloggningar. Den här gränsen gäller endast varaktigheten av inloggningen och autentiseringen. Om samma 10 användare ansluter till databasen sekventiellt, skulle antalet samtidiga inloggningar aldrig vara större än 1.
 
 > [!NOTE]
-> För närvarande gäller inte den här gränsen för databaser i elastiska pooler.
+> För närvarande gäller den här gränsen inte för databaser i elastiska pooler.
 
-### <a name="maximum-sessions"></a>Maximalt antal sessioner
+### <a name="maximum-sessions"></a>Maximala sessioner
 
-Om du vill se antalet aktuella aktiva sessioner kör du den här Transact-SQL-frågan på SQL-databasen:
+Om du vill se antalet aktuella aktiva sessioner kör du den här Transact-SQL-frågan i SQL-databasen:
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
 FROM sys.dm_exec_connections
 ```
 
-Om du analyserar en lokal SQL Server arbets belastning ändrar du frågan så att den fokuserar på en speciell databas. Den här frågan hjälper dig att fastställa möjliga sessions behov för databasen om du överväger att flytta den till Azure SQL Database.
+Om du analyserar en lokal SQL Server-arbetsbelastning ändrar du frågan så att den fokuserar på en viss databas. Den här frågan hjälper dig att avgöra möjliga sessionsbehov för databasen om du funderar på att flytta den till Azure SQL Database.
 
 ```sql
 SELECT COUNT(*) AS [Sessions]
@@ -690,17 +690,17 @@ INNER JOIN sys.databases D ON (D.database_id = S.database_id)
 WHERE D.name = 'MyDatabase'
 ```
 
-De här frågorna returnerar ett antal tidpunkter. Om du samlar flera prover över tid har du den bästa förståelsen av din sessions användning.
+Återigen returnerar dessa frågor ett antal point-in-time. Om du samlar in flera exempel över tid har du den bästa förståelsen för din sessionsanvändning.
 
-För SQL Database analys kan du hämta historisk statistik för sessioner genom att skicka frågor till [sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) Visa och granska **active_session_count** kolumn.
+För SQL Database-analys kan du få historisk statistik om sessioner genom att fråga [sys.resource_stats-vyn](https://msdn.microsoft.com/library/dn269979.aspx) och granska **active_session_count** kolumn.
 
-## <a name="monitoring-query-performance"></a>Övervaknings frågans prestanda
+## <a name="monitoring-query-performance"></a>Övervaka frågeprestanda
 
-Långsamma eller tids krävande frågor kan använda stora system resurser. Det här avsnittet visar hur du använder vyer för dynamisk hantering för att identifiera några vanliga problem med frågans prestanda. En äldre men användbar referens för fel sökning är [fel söknings prestanda problem i SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) -artikeln på Microsoft TechNet.
+Långsamma eller tidskrävande frågor kan förbruka betydande systemresurser. Det här avsnittet visar hur du använder dynamiska hanteringsvyer för att identifiera några vanliga frågeprestandaproblem. En äldre men ändå användbar referens för felsökning är [felsökningsprestandaproblemen i SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) på Microsoft TechNet.
 
-### <a name="finding-top-n-queries"></a>Hitta de N främsta frågorna
+### <a name="finding-top-n-queries"></a>Hitta de vanligaste N-frågorna
 
-I följande exempel returneras information om de fem främsta frågorna som rangordnas med Genomsnittlig CPU-tid. I det här exemplet sammanställs frågorna utifrån deras fråge-hash, så att logiskt likvärdiga frågor grupperas efter deras ackumulerade resursförbrukning.
+I följande exempel returneras information om de fem vanligaste frågorna rangordnade efter genomsnittlig CPU-tid. I det här exemplet sammanställs frågorna enligt frågehhen, så att logiskt likvärdiga frågor grupperas efter deras kumulativa resursförbrukning.
 
 ```sql
 SELECT TOP 5 query_stats.query_hash AS "Query Hash",
@@ -721,11 +721,11 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Övervaka blockerade frågor
 
-Långsamma eller långvariga frågor kan bidra till överdriven resurs förbrukning och vara en följd av blockerade frågor. Orsaken till blockeringen kan vara dåligt program design, dåliga fråge planer, avsaknad av användbara index och så vidare. Du kan använda vyn sys. dm_tran_locks för att hämta information om den aktuella lås aktiviteten i Azure SQL Database. Exempel kod finns i [sys. dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) i SQL Server Books Online.
+Långsamma eller tidskrävande frågor kan bidra till överdriven resursförbrukning och vara en följd av blockerade frågor. Orsaken till blockeringen kan vara dålig programdesign, dåliga frågeplaner, bristen på användbara index och så vidare. Du kan använda vyn sys.dm_tran_locks för att få information om den aktuella låsaktiviteten i din Azure SQL-databas. Till exempel kod, se [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx) i SQL Server Books Online.
 
-### <a name="monitoring-query-plans"></a>Övervaknings fråge planer
+### <a name="monitoring-query-plans"></a>Övervaka frågeplaner
 
-En ineffektiv frågeplan kan också öka CPU-förbrukningen. I följande exempel används [sys. dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) -vyn för att avgöra vilken fråga som använder den mest kumulativa processorn.
+En ineffektiv frågeplan kan också öka CPU-förbrukningen. I följande exempel används [vyn sys.dm_exec_query_stats](https://msdn.microsoft.com/library/ms189741.aspx) för att avgöra vilken fråga som använder den mest kumulativa processorn.
 
 ```sql
 SELECT

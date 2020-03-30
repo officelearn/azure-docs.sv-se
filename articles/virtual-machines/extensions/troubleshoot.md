@@ -1,6 +1,6 @@
 ---
-title: Fel sökning av problem med Windows VM-tillägg
-description: Lär dig mer om fel sökning av problem med Azure Windows VM-tillägg
+title: Felsöka windows VM-tilläggsfel
+description: Lär dig mer om felsökning av Azure Windows VM-tilläggsfel
 services: virtual-machines-windows
 documentationcenter: ''
 author: kundanap
@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
 ms.openlocfilehash: bc99a9c9e9ff985730ec97dbacd1d7c1de06a45e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073657"
 ---
-# <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Felsöka problem med Azure Windows VM-tillägg
+# <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Felsöka azure windows VM-tilläggsfel
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
 
-## <a name="viewing-extension-status"></a>Visa tilläggs status
-Azure Resource Manager mallar kan köras från Azure PowerShell. När mallen har körts kan tilläggets status visas från Azure Resource Explorer eller kommando rads verktygen.
+## <a name="viewing-extension-status"></a>Visa tilläggsstatus
+Azure Resource Manager-mallar kan köras från Azure PowerShell. När mallen har körts kan tilläggsstatusen visas från Azure Resource Explorer eller kommandoradsverktygen.
 
 Här är ett exempel:
 
@@ -58,13 +58,13 @@ Här är exempel på utdata:
     }
   ]
 
-## <a name="troubleshooting-extension-failures"></a>Felsöka tilläggs fel
-### <a name="rerun-the-extension-on-the-vm"></a>Kör tillägget på den virtuella datorn igen
-Om du kör skript på den virtuella datorn med ett anpassat skript tillägg kan du ibland stöta på ett fel där den virtuella datorn skapades men skriptet har misslyckats. Under dessa förhållanden är det rekommenderade sättet att återställa från det här felet att ta bort tillägget och köra mallen igen.
-Obs! i framtiden skulle den här funktionen förbättras för att ta bort behovet av att avinstallera tillägget.
+## <a name="troubleshooting-extension-failures"></a>Felsöka tilläggsfel
+### <a name="rerun-the-extension-on-the-vm"></a>Köra tillägget igen på den virtuella datorn
+Om du kör skript på den virtuella datorn med anpassat skripttillägg kan du ibland stöta på ett fel där den virtuella datorn skapades men skriptet har misslyckats. Under dessa förhållanden är det rekommenderade sättet att återställa från det här felet att ta bort tillägget och köra mallen igen.
+I framtiden skulle den här funktionen förbättras för att ta bort behovet av att avinstallera tillägget.
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>Ta bort tillägget från Azure PowerShell
     Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
-När tillägget har tagits bort kan mallen köras igen för att köra skripten på den virtuella datorn.
+När tillägget har tagits bort kan mallen köras på för att köra skripten på den virtuella datorn.
 

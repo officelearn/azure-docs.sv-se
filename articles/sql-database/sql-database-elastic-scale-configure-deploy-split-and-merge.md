@@ -1,6 +1,6 @@
 ---
 title: Distribuera en tjänst för att dela/sammanslå
-description: Använd dela-merge för att flytta data mellan shardade-databaser.
+description: Använd även delad koppling för att flytta data mellan fragmenterade databaser.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -12,70 +12,70 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
 ms.openlocfilehash: 50dbca0b3a761b72134eaa6cfed57e231be4ef13
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74421024"
 ---
-# <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för delad sammanslagning för att flytta data mellan shardade-databaser
+# <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för delad koppling för att flytta data mellan fragmenterade databaser
 
-Med verktyget Dela-sammanslagning kan du flytta data mellan shardade-databaser. Se [Flytta data mellan utskalade moln databaser](sql-database-elastic-scale-overview-split-and-merge.md)
+Med verktyget för delad koppling kan du flytta data mellan fragmenterade databaser. Se [Flytta data mellan utskalade molndatabaser](sql-database-elastic-scale-overview-split-and-merge.md)
 
-## <a name="download-the-split-merge-packages"></a>Hämta de delade sammanfognings paketen
+## <a name="download-the-split-merge-packages"></a>Ladda ned Split-Merge-paketen
 
-1. Hämta den senaste versionen av NuGet från [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
+1. Ladda ner den senaste NuGet-versionen från [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
-1. Öppna en kommando tolk och navigera till den katalog där du laddade ned NuGet. exe. Hämtningen innehåller PowerShell-kommandon.
+1. Öppna en kommandotolk och navigera till katalogen där du hämtade nuget.exe. Hämtningen innehåller PowerShell-kommandon.
 
-1. Hämta det senaste delade sammanslagnings paketet till den aktuella katalogen med kommandot nedan:
+1. Hämta det senaste Split-Merge-paketet till den aktuella katalogen med kommandot nedan:
 
    ```cmd
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-Filerna placeras i en katalog med namnet **Microsoft. Azure. SqlDatabase. ElasticScale. service. SplitMerge. x. x. xxx. x** där *x. x. xxx. x* visar versions numret. Hitta filerna för delade sammanslagna tjänster i **content\splitmerge\service** under katalog och PowerShell-skripten för delad sammanslagning (och obligatoriska klient-dll: er) i under katalogen för **content\splitmerge\powershell** .
+Filerna placeras i en katalog med namnet **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** där *x.x.xxx.x* återspeglar versionsnumret. Leta reda på tjänstfilerna för delad koppling i underkatalogen **content\splitmerge\service** och PowerShell-skripten för delad koppling (och obligatoriska klient-dlls) i **underkatalogen content\splitmerge\powershell.**
 
 ## <a name="prerequisites"></a>Krav
 
-1. Skapa en Azure SQL DB-databas som ska användas som databas för delad sammanslagnings status. Gå till [Azure-portalen](https://portal.azure.com). Skapa en ny **SQL Database**. Ge databasen ett namn och skapa en ny administratör och ett nytt lösen ord. Se till att du registrerar namnet och lösen ordet för senare användning.
+1. Skapa en Azure SQL DB-databas som ska användas som statusdatabas för delad koppling. Gå till [Azure-portalen](https://portal.azure.com). Skapa en ny **SQL-databas**. Ge databasen ett namn och skapa en ny administratör och ett nytt lösenord. Var noga med att registrera namn och lösenord för senare användning.
 
-1. Se till att Azure SQL DB-servern tillåter att Azure-tjänster ansluter till den. I **brand Väggs inställningarna**i portalen kontrollerar du att inställningen **Tillåt åtkomst till Azure-tjänster** är inställd på **på**. Klicka på ikonen "Spara".
+1. Kontrollera att din Azure SQL DB-server tillåter Azure Services att ansluta till den. I portalen, i **brandväggsinställningarna,** kontrollerar du att inställningen **Tillåt åtkomst till Azure Services** är inställd på **På**. Klicka på "spara"-ikonen.
 
-1. Skapa ett Azure Storage-konto för diagnostiska utdata.
+1. Skapa ett Azure Storage-konto för diagnostikutdata.
 
-1. Skapa en Azure-molnbaserad tjänst för tjänsten för delad sammanslagning.
+1. Skapa en Azure Cloud-tjänst för din Split-Merge-tjänst.
 
-## <a name="configure-your-split-merge-service"></a>Konfigurera tjänsten för delad sammanslagning
+## <a name="configure-your-split-merge-service"></a>Konfigurera tjänsten Split-Merge
 
-### <a name="split-merge-service-configuration"></a>Konfiguration av tjänsten för delad sammanslagning
+### <a name="split-merge-service-configuration"></a>Tjänstkonfiguration för delad koppling
 
-1. I mappen där du laddade ned de delade sammanfognings sammansättningarna skapar du en kopia av filen *ServiceConfiguration. template. cscfg* som levererades tillsammans med *SplitMergeService. cspkg* och byter namn på den *ServiceConfiguration. cscfg*.
+1. Skapa en kopia av filen *ServiceConfiguration.Template.cscfg* som levererades tillsammans med *SplitMergeService.cspkg* i mappen där du hämtade split-merge-sammansättningarna och döpa om den till *ServiceConfiguration.cscfg*.
 
-1. Öppna *ServiceConfiguration. cscfg* i en text redigerare, till exempel Visual Studio som validerar indata, till exempel formatet på certifikat tumavtrycken.
+1. Öppna *ServiceConfiguration.cscfg* i en textredigerare, till exempel Visual Studio, som validerar indata, till exempel formatet för certifikattumavtryck.
 
-1. Skapa en ny databas eller Välj en befintlig databas som ska fungera som status databas för delnings sammanslagnings åtgärder och hämta anslutnings strängen för databasen.
+1. Skapa en ny databas eller välj en befintlig databas som ska fungera som statusdatabas för Split-Merge-åtgärder och hämta anslutningssträngen för databasen.
 
    > [!IMPORTANT]
-   > För tillfället måste status databasen använda den latinska sorteringen (SQL\_Latin1\_General\_CP1\_CI\_AS). Mer information finns i [Windows sorterings namn (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > För närvarande måste statusdatabasen använda den latinska\_sorteringen (SQL\_Latin1 General\_CP1\_CI\_AS). Mer information finns i [Windows Collation Name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
 
-   Med Azure SQL DB är anslutnings strängen vanligt vis av formatet:
+   Med Azure SQL DB är anslutningssträngen vanligtvis av formuläret:
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. Ange den här anslutnings strängen i *. cscfg* -filen i både **SplitMergeWeb** -och **SplitMergeWorker** -roll-avsnittet i ElasticScaleMetadata-inställningen.
+1. Ange den här anslutningssträngen i *CSCFG-filen* i rollavsnitten **SplitMergeWeb** och **SplitMergeWorker** i inställningen ElasticScaleMetadata.
 
-1. För **SplitMergeWorker** -rollen anger du en giltig anslutnings sträng till Azure Storage för inställningen **WorkerRoleSynchronizationStorageAccountConnectionString** .
+1. För **rollen SplitMergeWorker** anger du en giltig anslutningssträng till Azure-lagring för inställningen **WorkerRoleSynchronizationStorageAccountConnectionString.**
 
 ### <a name="configure-security"></a>Konfigurera säkerhet
 
-Detaljerade anvisningar om hur du konfigurerar säkerheten för tjänsten finns i [säkerhets konfigurationen för delad sammanslagning](sql-database-elastic-scale-split-merge-security-configuration.md).
+Detaljerade instruktioner för att konfigurera tjänstens säkerhet finns i [säkerhetskonfigurationen för Split-Merge](sql-database-elastic-scale-split-merge-security-configuration.md).
 
-I samband med en enkel test distribution för den här självstudien utförs en minimal uppsättning konfigurations steg för att hämta och köra tjänsten. De här stegen gör det möjligt att bara köra en dator/ett konto för att kommunicera med tjänsten.
+För en enkel testdistribution för den här självstudien utförs en minimal uppsättning konfigurationssteg för att få igång tjänsten. Dessa steg gör det bara möjligt för en dator/konto som kör dem att kommunicera med tjänsten.
 
 ### <a name="create-a-self-signed-certificate"></a>Skapa ett självsignerat certifikat
 
-Skapa en ny katalog och från den här katalogen kör följande kommando med hjälp av en [kommando tolk för utvecklare i Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) -fönstret:
+Skapa en ny katalog och från den här katalogen kör följande kommando med hjälp av ett [fönstret Developer Command Prompt for Visual Studio:](https://msdn.microsoft.com/library/ms229859.aspx)
 
    ```cmd
    makecert ^
@@ -86,46 +86,46 @@ Skapa en ny katalog och från den här katalogen kör följande kommando med hj�
     -sv MyCert.pvk MyCert.cer
    ```
 
-Du uppmanas att ange ett lösen ord för att skydda den privata nyckeln. Ange ett starkt lösen ord och bekräfta det. Du uppmanas sedan att ange lösen ordet en gång till. Klicka på **Ja** i slutet för att importera det till rot arkivet betrodda certifikat utfärdare.
+Du ombeds ett lösenord för att skydda den privata nyckeln. Ange ett starkt lösenord och bekräfta det. Du uppmanas sedan att använda lösenordet en gång till efter det. Klicka på **Ja** i slutet om du vill importera det till rotarkivet för betrodda certifikatutfärdare.
 
 ### <a name="create-a-pfx-file"></a>Skapa en PFX-fil
 
-Kör följande kommando från samma fönster där MakeCert kördes. Använd samma lösen ord som du använde för att skapa certifikatet:
+Kör följande kommando från samma fönster där makecert kördes. använda samma lösenord som du använde för att skapa certifikatet:
 
    ```cmd
    pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
    ```
 
-### <a name="import-the-client-certificate-into-the-personal-store"></a>Importera klient certifikatet till det personliga arkivet
+### <a name="import-the-client-certificate-into-the-personal-store"></a>Importera klientcertifikatet till det personliga arkivet
 
-1. I Utforskaren dubbelklickar du på *cert. pfx*.
-2. Välj **Aktuell användare** i **guiden Importera certifikat** och klicka på **Nästa**.
+1. Dubbelklicka på *MyCert.pfx*i Utforskaren .
+2. Välj **Aktuell användare** i guiden **Importera certifikat** och klicka på **Nästa**.
 3. Bekräfta sökvägen till filen och klicka på **Nästa**.
-4. Skriv lösen ordet, lämna **ta med alla utökade egenskaper** markerade och klicka på **Nästa**.
-5. Lämna **automatiskt certifikat arkivet [...]** markerat och klicka på **Nästa**.
+4. Skriv lösenordet, lämna **Inkludera alla utökade egenskaper** markerade och klicka på **Nästa**.
+5. Lämna **Automatiskt det markerade certifikatarkivet[...]** markerat och klicka på **Nästa**.
 6. Klicka på **Slutför** och **OK**.
 
-### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Överför PFX-filen till moln tjänsten
+### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Ladda upp PFX-filen till molntjänsten
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
-2. Välj **Cloud Services**.
-3. Välj den moln tjänst som du skapade ovan för delnings-/sammanslagnings tjänsten.
-4. Klicka på **certifikat** på den översta menyn.
-5. Klicka på **överför** i det nedre fältet.
-6. Välj PFX-filen och ange samma lösen ord som ovan.
-7. När du är klar kopierar du tumavtryck för certifikatet från den nya posten i listan.
+2. Välj **Molntjänster**.
+3. Välj den molntjänst som du skapade ovan för tjänsten Dela/koppla.
+4. Klicka på **Certifikat** på den övre menyn.
+5. Klicka på **Ladda upp** i det nedre fältet.
+6. Markera PFX-filen och ange samma lösenord som ovan.
+7. När du är klar kopierar du certifikatets tumavtryck från den nya posten i listan.
 
-### <a name="update-the-service-configuration-file"></a>Uppdatera tjänst konfigurations filen
+### <a name="update-the-service-configuration-file"></a>Uppdatera tjänstkonfigurationsfilen
 
-Klistra in tumavtryck för certifikatet som kopierats ovan i attributen tumavtryck/Value för dessa inställningar.
-För arbets rollen:
+Klistra in det certifikat tumavtryck som kopierats ovan i tumavtrycks-/värdeattributet för dessa inställningar.
+För arbetarrollen:
 
    ```xml
     <Setting name="DataEncryptionPrimaryCertificateThumbprint" value="" />
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
    ```
 
-För webb rollen:
+För webbrollen:
 
    ```xml
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
@@ -136,50 +136,50 @@ För webb rollen:
     <Certificate name="DataEncryptionPrimary" thumbprint="" thumbprintAlgorithm="sha1" />
    ```
 
-Observera att för produktions distributioner bör separata certifikat användas för certifikat utfärdaren, för kryptering, Server certifikat och klient certifikat. Detaljerade anvisningar finns i [säkerhets konfiguration](sql-database-elastic-scale-split-merge-security-configuration.md).
+Observera att för produktionsdistributioner bör separata certifikat användas för certifikatutfärdaren, för kryptering, servercertifikat och klientcertifikat. Detaljerade instruktioner om detta finns i [Säkerhetskonfiguration](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## <a name="deploy-your-service"></a>Distribuera din tjänst
 
 1. Gå till [Azure Portal](https://portal.azure.com)
-2. Välj den moln tjänst som du skapade tidigare.
+2. Välj den molntjänst som du skapade tidigare.
 3. Klicka på **Översikt**.
-4. Välj mellanlagrings miljö och klicka sedan på **Ladda upp**.
-5. I dialog rutan anger du en distributions etikett. För både "paket" och "konfiguration" klickar du på "från lokal" och väljer filen *SplitMergeService. cspkg* och din cscfg-fil som du konfigurerade tidigare.
-6. Kontrol lera att kryss rutan **distribuera även om en eller flera roller innehåller en enda instans** har marker ATS.
-7. Tryck på knappen för skal streck längst ned till höger för att starta distributionen. Det tar några minuter att slutföra det.
+4. Välj mellanlagringsmiljön och klicka sedan på **Ladda upp**.
+5. Ange en distributionsetikett i dialogrutan. För både "Paket" och "Konfiguration" klickar du på "Från lokal" och väljer filen *SplitMergeService.cspkg* och din cscfg-fil som du konfigurerade tidigare.
+6. Kontrollera att kryssrutan **Distribuera även om en eller flera roller innehåller en enskild instans** är markerad.
+7. Tryck på kryssknappen längst ned till höger för att påbörja distributionen. Räkna med att det tar några minuter att slutföra.
 
 ## <a name="troubleshoot-the-deployment"></a>Felsöka distributionen
 
-Om din webb roll inte kan anslutas är det sannolikt ett problem med säkerhets konfigurationen. Kontrol lera att SSL har kon figurer ATS enligt beskrivningen ovan.
+Om webbrollen inte är online är det sannolikt ett problem med säkerhetskonfigurationen. Kontrollera att SSL är konfigurerat enligt beskrivningen ovan.
 
-Om din arbets roll inte kan anslutas, men din webb roll lyckas, är det förmodligen problem att ansluta till status databasen som du skapade tidigare.
+Om din arbetarroll inte är online, men webbrollen lyckas, är det troligen ett problem att ansluta till statusdatabasen som du skapade tidigare.
 
-- Kontrol lera att anslutnings strängen i din cscfg är korrekt.
-- Kontrol lera att servern och databasen finns och att användar-ID och lösen ord är korrekta.
-- För Azure SQL DB ska anslutnings strängen ha formatet:
+- Kontrollera att anslutningssträngen i cscfg är korrekt.
+- Kontrollera att det finns server och databas och att användar-ID och lösenord är korrekta.
+- För Azure SQL DB ska anslutningssträngen vara av formuläret:
 
    `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<user>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-- Se till att Server namnet inte börjar med **https://** .
-- Se till att Azure SQL DB-servern tillåter att Azure-tjänster ansluter till den. Det gör du genom att öppna din databas i portalen och kontrol lera att inställningen **Tillåt åtkomst till Azure-tjänster** är inställd på * * på * * * *.
+- Kontrollera att servernamnet inte börjar med **https://**.
+- Kontrollera att din Azure SQL DB-server tillåter Azure Services att ansluta till den. Det gör du genom att öppna databasen i portalen och se till att inställningen **Tillåt åtkomst till Azure Services** är inställd på **On****.
 
-## <a name="test-the-service-deployment"></a>Testa tjänst distributionen
+## <a name="test-the-service-deployment"></a>Testa tjänstdistributionen
 
-### <a name="connect-with-a-web-browser"></a>Ansluta till en webbläsare
+### <a name="connect-with-a-web-browser"></a>Anslut med en webbläsare
 
-Bestäm webb slut punkten för din tjänst för delad sammanslagning. Du hittar detta i portalen genom att gå till **översikten** över moln tjänsten och titta under webbplats- **URL** till höger. Ersätt **http://** med **https://** eftersom standard säkerhets inställningarna inaktiverar http-slutpunkten. Läs in sidan för denna URL i webbläsaren.
+Bestäm webbslutpunkten för din Split-Merge-tjänst. Du hittar detta i portalen genom att gå till **översikten över** din molntjänst och titta under **Webbadress** på höger sida. Ersätt **http://** med **https://** eftersom standardsäkerhetsinställningarna inaktiverar HTTP-slutpunkten. Läs in sidan för den här webbadressen i webbläsaren.
 
 ### <a name="test-with-powershell-scripts"></a>Testa med PowerShell-skript
 
-Du kan testa distributionen och din miljö genom att köra PowerShell-skript som ingår i exemplet.
+Distributionen och din miljö kan testas genom att köra det medföljande exemplet PowerShell-skript.
 
-De skript filer som ingår är:
+Skriptfilerna som ingår är:
 
-1. *SetupSampleSplitMergeEnvironment. ps1* – konfigurerar en test data nivå för delning/sammanslagning (se tabellen nedan för detaljerad beskrivning)
-2. *ExecuteSampleSplitMerge. ps1* – kör test åtgärder på test data nivån (se tabellen nedan för detaljerad beskrivning)
-3. *GetMappings. ps1* – exempel skriptet på den översta nivån som skriver ut det aktuella läget för Shard-mappningar.
-4. *ShardManagement. psm1* – hjälp skript som omsluter API för ShardManagement
-5. *SqlDatabaseHelpers. psm1* – hjälp skript för att skapa och hantera SQL-databaser
+1. *SetupSampleSplitMergeEnvironment.ps1* - ställer in en testdatanivå för Split/Merge (se tabellen nedan för detaljerad beskrivning)
+2. *ExecuteSampleSplitMerge.ps1* - utför teståtgärder på testdatanivån (se tabellen nedan för detaljerad beskrivning)
+3. *GetMappings.ps1* - exempelskript på den översta nivån som skriver ut det aktuella tillståndet för fragmentmappningarna.
+4. *ShardManagement.psm1* - hjälpskript som sveper in ShardManagement-API:et
+5. *SqlDatabaseHelpers.psm1* - hjälpskript för att skapa och hantera SQL-databaser
    
    <table style="width:100%">
      <tr>
@@ -187,20 +187,20 @@ De skript filer som ingår är:
        <th>Steg</th>
      </tr>
      <tr>
-       <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
-       <td>1. Skapar en Shard Map Manager-databas</td>
+       <th rowspan="5">SetupSampleSplitMergeMiljö.ps1</th>
+       <td>1. Skapar en databas för fragmentkarthanteraren</td>
      </tr>
      <tr>
-       <td>2. Skapar 2 Shard-databaser.
+       <td>2. Skapar 2 fragmentdatabaser.
      </tr>
      <tr>
-       <td>3. Skapar en Shard-karta för dessa databaser (tar bort alla befintliga Shard-mappningar i dessa databaser). </td>
+       <td>3. Skapar en fragmentkarta för dessa databaser (tar bort alla befintliga fragmentkartor i dessa databaser). </td>
      </tr>
      <tr>
-       <td>4. Skapar en liten exempel tabell i både Shards och fyller tabellen i en av Shards.</td>
+       <td>4. Skapar en liten exempeltabell i båda shards och fyller i tabellen i en av shards.</td>
      </tr>
      <tr>
-       <td>5. Deklarerar SchemaInfo för shardade-tabellen.</td>
+       <td>5. Deklarerar SchemaInfo för den fragmenterade tabellen.</td>
      </tr>
    </table>
    <table style="width:100%">
@@ -209,54 +209,54 @@ De skript filer som ingår är:
        <th>Steg</th>
      </tr>
    <tr>
-       <th rowspan="4">ExecuteSampleSplitMerge. ps1 </th>
-       <td>1. Skickar en delad begäran till webb klient delen för den delade sammanslagnings tjänsten, som delar upp hälften av data från den första Shard till den andra Shard.</td>
+       <th rowspan="4">KörSampleSplitMerge.ps1 </th>
+       <td>1. Skickar en delad begäran till webbfronten för Split-Merge Service, som delar hälften av data från den första fragmentet till den andra fragmentet.</td>
      </tr>
      <tr>
-       <td>2. Avsöker webb klient delen för status för delad begäran och väntar tills begäran har slutförts.</td>
+       <td>2. Söker efter webbfrontend för status för delad begäran och väntar tills begäran är klar.</td>
      </tr>
      <tr>
-       <td>3. Skickar en merge-begäran till webb klient delen för den delade sammanslagnings tjänsten, som flyttar data från den andra Shard tillbaka till den första Shard.</td>
+       <td>3. Skickar en begäran om koppling till webbfronten för Split-Merge Service, som flyttar data från den andra fragmentet tillbaka till den första fragmentet.</td>
      </tr>
      <tr>
-       <td>4. Avsöker webb klient delen för status för sammanslagnings begäran och väntar tills begäran har slutförts.</td>
+       <td>4. Söker efter webbklämningen efter status för kopplad begäran och väntar tills begäran är klar.</td>
      </tr>
    </table>
    
-## <a name="use-powershell-to-verify-your-deployment"></a>Använd PowerShell för att verifiera distributionen
+## <a name="use-powershell-to-verify-your-deployment"></a>Använda PowerShell för att verifiera distributionen
 
-1. Öppna ett nytt PowerShell-fönster och navigera till den katalog där du laddade ned det delade paketet och navigera sedan till katalogen "PowerShell".
+1. Öppna ett nytt PowerShell-fönster och navigera till katalogen där du hämtade Split-Merge-paketet och navigera sedan till katalogen "powershell".
 
-2. Skapa en Azure SQL Database Server (eller Välj en befintlig server) där mappnings hanteraren för Shard och Shards kommer att skapas.
+2. Skapa en Azure SQL Database-server (eller välj en befintlig server) där fragmentkarthanteraren och shards ska skapas.
 
    > [!NOTE]
-   > Skriptet *SetupSampleSplitMergeEnvironment. ps1* skapar alla dessa databaser på samma server som standard för att hålla skriptet enkelt. Detta är inte en begränsning för själva tjänsten för delad sammanslagning.
+   > *Skriptet SetupSampleSplitMergeEnvironment.ps1* skapar alla dessa databaser på samma server som standard för att hålla skriptet enkelt. Detta är inte en begränsning av själva split-merge-tjänsten.
 
-   En SQL-autentisering med Läs-och Skriv behörighet till databaser krävs för att tjänsten för delad sammanslagning ska flytta data och uppdatera Shard-kartan. Eftersom tjänsten för delad sammanslagning körs i molnet stöder den inte integrerad autentisering.
+   En SQL-autentiseringsinloggning med läs-/skrivåtkomst till DBs kommer att behövas för split-merge-tjänsten för att flytta data och uppdatera fragmentkartan. Eftersom Split-Merge-tjänsten körs i molnet stöder den för närvarande inte integrerad autentisering.
 
-   Kontrol lera att Azure SQL-servern är konfigurerad för att tillåta åtkomst från IP-adressen för den dator som kör dessa skript. Du kan hitta den här inställningen under Azure SQL Server/Configuration/Allowed IP-adresser.
+   Kontrollera att Azure SQL-servern är konfigurerad för att tillåta åtkomst från IP-adressen för den dator som kör dessa skript. Du hittar den här inställningen under Azure SQL-servern / konfiguration / tillåtna IP-adresser.
 
-3. Kör skriptet *SetupSampleSplitMergeEnvironment. ps1* för att skapa exempel miljön.
+3. Kör *skriptet SetupSampleSplitMergeEnvironment.ps1* för att skapa exempelmiljön.
 
-   Genom att köra det här skriptet raderas alla befintliga Shard för mappnings hanterings data i Shard Map Manager-databasen och Shards. Det kan vara användbart att köra skriptet igen om du vill initiera om Shard-kartan eller Shards.
+   Om du kör det här skriptet raderas alla befintliga datastrukturer för fragmentmappningshantering i databasen för fragmentkarthanteraren och shards. Det kan vara användbart att köra skriptet igen om du vill återinitera fragmentkartan eller shards.
 
-   Exempel kommando rad:
+   Exempel på kommandorad:
 
    ```cmd
    .\SetupSampleSplitMergeEnvironment.ps1
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-4. Kör skriptet Getmappings. ps1 för att visa de mappningar som finns i exempel miljön.
+4. Kör skriptet Getmappings.ps1 för att visa de mappningar som för närvarande finns i exempelmiljön.
 
    ```cmd
    .\GetMappings.ps1
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Kör skriptet *ExecuteSampleSplitMerge. ps1* för att köra en delad åtgärd (flytta hälften av data på de första Shard till den andra Shard) och sedan en sammanslagnings åtgärd (flytta tillbaka data till den första Shard). Om du har konfigurerat SSL och lämnat http-slutpunkten inaktive rad, se till att du använder https://-slutpunkten istället.
+5. Kör skriptet *ExecuteSampleSplitMerge.ps1* för att köra en delad åtgärd (flytta hälften av data på den första fragmentet till den andra fragmentet) och sedan en sammanfogningsåtgärd (flytta tillbaka data till den första fragmentet). Om du har konfigurerat SSL och lämnat http-slutpunkten inaktiverad kontrollerar du att du använder https:// slutpunkten i stället.
 
-   Exempel kommando rad:
+   Exempel på kommandorad:
 
    ```cmd
    .\ExecuteSampleSplitMerge.ps1
@@ -266,11 +266,11 @@ De skript filer som ingår är:
     -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
    ```
 
-   Om du får felet nedan är det förmodligen ett problem med webb slut punktens certifikat. Försök att ansluta till webb slut punkten med din favorit webbläsare och kontrol lera om det finns ett certifikat fel.
+   Om du får felet nedan är det troligen ett problem med webbslutpunktens certifikat. Prova att ansluta till webbslutpunkten med din favoritwebbläsare och kontrollera om det finns ett certifikatfel.
 
      `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.`
 
-   Om det lyckas bör utdata se ut så här:
+   Om det lyckades, bör utdata se ut som nedan:
 
    ```output
    > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
@@ -307,39 +307,39 @@ De skript filer som ingår är:
    > 
    ```
 
-6. Experimentera med andra data typer! Alla dessa skript tar en valfri-ShardKeyType-parameter som gör att du kan ange nyckel typen. Standardvärdet är Int32, men du kan också ange Int64, GUID eller Binary.
+6. Experimentera med andra datatyper! Alla dessa skript tar en valfri -ShardKeyType-parameter som gör att du kan ange nyckeltypen. Standard är Int32, men du kan också ange Int64, Guid eller Binary.
 
-## <a name="create-requests"></a>Startförfrågan
+## <a name="create-requests"></a>Skapa begäranden
 
-Tjänsten kan användas antingen med hjälp av webb gränssnittet eller genom att importera och använda PowerShell-modulen SplitMerge. psm1 som skickar dina begär Anden via webb rollen.
+Tjänsten kan användas antingen med hjälp av webbgränssnittet eller genom att importera och använda SplitMerge.psm1 PowerShell-modulen som skickar dina begäranden via webbrollen.
 
-Tjänsten kan flytta data i både shardade-tabeller och referens tabeller. En shardade-tabell har en horisontell partitionering-nyckel kolumn och har olika rad data för varje Shard. En referens tabell är inte shardade så den innehåller samma rad data på varje Shard. Referens tabeller är användbara för data som inte ändras ofta och som används för att ansluta till shardade-tabeller i frågor.
+Tjänsten kan flytta data i både fragmenterade tabeller och referenstabeller. En fragmenterad tabell har en fragmenteringsnyckelkolumn och har olika raddata för varje fragment. En referenstabell är inte fragmenterad så den innehåller samma raddata för varje shard. Referenstabeller är användbara för data som inte ändras ofta och som används för att sammanfoga med fragmenterade tabeller i frågor.
 
-För att kunna utföra en delnings sammanslagning måste du deklarera de shardade-tabeller och referens tabeller som du vill flytta. Detta åstadkoms med **SchemaInfo** -API: et. Detta API finns i namn området **Microsoft. Azure. SqlDatabase. ElasticScale. ShardManagement. schema** .
+För att kunna utföra en split-merge-åtgärd måste du deklarera de fragmenterade tabeller och referenstabeller som du vill ha flyttat. Detta åstadkoms med **SchemaInfo** API. Det här API:et finns i namnområdet **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema.**
 
-1. För varje shardade-tabell skapar du ett **ShardedTableInfo** -objekt som beskriver tabellens överordnade schema namn (valfritt, standardvärdet "dbo"), tabell namnet och kolumn namnet i den tabellen som innehåller horisontell partitionering-nyckeln.
-2. Skapa ett **ReferenceTableInfo** -objekt som beskriver tabellens överordnade schema namn (valfritt, standard är "dbo") och tabell namnet för varje referens tabell.
-3. Lägg till ovanstående TableInfo-objekt i ett nytt **SchemaInfo** -objekt.
-4. Hämta en referens till ett **ShardMapManager** -objekt och anropa **GetSchemaInfoCollection**.
-5. Lägg till **SchemaInfo** i **SchemaInfoCollection**och ange namnet på Shard-kartan.
+1. För varje fragmenterad tabell skapar du ett **ShardedTableInfo-objekt** som beskriver tabellens överordnade schemanamn (valfritt, standardvärdet "dbo"), tabellnamnet och kolumnnamnet i tabellen som innehåller fragmenteringsnyckeln.
+2. För varje referenstabell skapar du ett **ReferenceTableInfo-objekt** som beskriver tabellens överordnade schemanamn (valfritt, standardvärdet "dbo") och tabellnamnet.
+3. Lägg till ovanstående TableInfo-objekt i ett nytt **SchemaInfo-objekt.**
+4. Hämta en referens till ett **ShardMapManager-objekt** och anropa **GetSchemaInfoCollection**.
+5. Lägg till **SchemaInfo** i **SchemaInfoCollection**och ange fragmentmappningsnamnet.
 
-Ett exempel på detta kan visas i skriptet SetupSampleSplitMergeEnvironment. ps1.
+Ett exempel på detta kan ses i skriptet SetupSampleSplitMergeEnvironment.ps1.
 
-Tjänsten för delad sammanslagning skapar inte mål databasen (eller schemat för tabeller i databasen) åt dig. De måste skapas i förväg innan en begäran skickas till tjänsten.
+Tjänsten Split-Merge skapar inte måldatabasen (eller schemat för några tabeller i databasen) åt dig. De måste skapas i förväg innan en begäran skickas till tjänsten.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Du kan se meddelandet nedan när du kör PowerShell-skripten:
+Du kan se meddelandet nedan när du kör exempelskripten för powershell:
 
    `Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.`
 
-Det här felet innebär att SSL-certifikatet inte har kon figurer ATS korrekt. Följ anvisningarna i avsnittet ansluta till en webbläsare.
+Det här felet innebär att SSL-certifikatet inte är korrekt konfigurerat. Följ instruktionerna i avsnittet "Ansluta med en webbläsare".
 
-Om du inte kan skicka begär Anden kan du se följande:
+Om du inte kan skicka förfrågningar kan du se detta:
 
    `[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.`
 
-I det här fallet kontrollerar du konfigurations filen, i synnerhet inställningen för **WorkerRoleSynchronizationStorageAccountConnectionString**. Det här felet indikerar vanligt vis att arbets rollen inte kunde initiera metadata-databasen vid första användningen.
+I det här fallet kontrollerar du konfigurationsfilen, särskilt inställningen för **WorkerRoleSynchronizationStorageAccountConnectionString**. Det här felet anger vanligtvis att arbetarrollen inte kunde initiera metadatadatabasen vid första användningen.
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

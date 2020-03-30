@@ -1,6 +1,6 @@
 ---
-title: Konfigurera katastrof återställning för SQL Server med Azure Site Recovery
-description: I den här artikeln beskrivs hur du konfigurerar haveri beredskap för SQL Server med SQL Server och Azure Site Recovery.
+title: Konfigurera haveriberedskap för SQL Server med Azure Site Recovery
+description: I den hÃ¤r artikeln beskrivs hur du konfigurerar haveriã¤ndeering för SQL Server med hjälp av SQL Server och Azure Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -9,159 +9,159 @@ ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
 ms.openlocfilehash: 429f46156da728bbc24108090eac8c04f68da71c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74084742"
 ---
-# <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera katastrof återställning för SQL Server
+# <a name="set-up-disaster-recovery-for-sql-server"></a>Konfigurera haveriberedskap för SQL Server
 
-Den här artikeln beskriver hur du kan skydda SQL Server Server del i ett program. Du gör det genom att använda en kombination av SQL Server BCDR-teknik (affärs kontinuitet och haveri beredskap) och [Azure Site Recovery](site-recovery-overview.md).
+I den hÃ¤r artikeln beskrivs hur du skyddar SQL Server-server-server-server-baksidan av ett program. Du gör det genom att använda en kombination av BCDR-tekniker (SQL Server business continuity and disaster recovery) och [Azure Site Recovery](site-recovery-overview.md).
 
-Innan du börjar ska du kontrol lera att du förstår SQL Server haveri beredskap. Dessa funktioner är:
+Innan du börjar, se till att du förstår SQL Server katastrofåterställning kapacitet. Dessa funktioner är:
 
-* Kluster för växling vid fel
-* Always on-tillgänglighetsgrupper
+* Redundansklustring
+* Alltid på tillgänglighetsgrupper
 * Databasspegling
 * Loggöverföring
 * Aktiv geo-replikering
 * Automatiska redundansgrupper
 
-## <a name="combining-bcdr-technologies-with-site-recovery"></a>Kombinera BCDR-tekniker med Site Recovery
+## <a name="combining-bcdr-technologies-with-site-recovery"></a>Kombinera BCDR-teknik med site recovery
 
-Ditt val av BCDR-teknik för att återställa SQL Server-instanser bör baseras på ditt återställnings tids mål (RTO) och återställnings punkt mål (återställnings punkt mål) enligt beskrivningen i följande tabell. Kombinera Site Recovery med redundansväxling av den valda tekniken för att dirigera återställning av hela programmet.
+Ditt val av en BCDR-teknik för att återställa SQL Server-instanser bör baseras på dina återställningstidsmål (RTO) och återställningspunktsmål (RPO) som beskrivs i följande tabell. Kombinera Site Recovery med redundans drift av din valda teknik för att orkestrera återställning av hela ditt program.
 
-Distributionstyp | BCDR-teknik | Förväntad RTO för SQL Server | Förväntad återställnings punkt för SQL Server |
+Distributionstyp | BCDR-teknik | Förväntad RTO för SQL Server | Förväntad RPO för SQL Server |
 --- | --- | --- | ---
-SQL Server på en virtuell dator i Azure Infrastructure as a Service (VM) eller lokalt.| [Always On-tillgänglighetsgrupp](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | Den tid det tar att göra den sekundära repliken som primär. | Eftersom replikeringen till den sekundära repliken är asynkron finns det vissa data förluster.
-SQL Server på en virtuell Azure IaaS-dator eller lokalt.| [Kluster för växling vid fel (Always on FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | Den tid det tar att redundansväxla noderna. | Eftersom Always on FCI använder delad lagring, är samma vy av lagrings instansen tillgänglig vid redundansväxling.
-SQL Server på en virtuell Azure IaaS-dator eller lokalt.| [Databas spegling (högpresterande läge)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | Den tid det tar att framtvinga tjänsten, som använder speglings servern som en varm standby-Server. | Replikeringen är asynkron. Speglings databasen kan vara en fördröjning bakom huvud databasen. Fördröjningen är vanligt vis liten. Men den kan bli stor om huvud-eller speglings serverns system är hårt belastat.<br/><br/>Logg överföring kan vara ett tillägg till databas spegling. Det är ett fördelaktig alternativ till asynkron databas spegling.
-SQL as Platform as a Service (PaaS) på Azure.<br/><br/>Den här distributions typen innehåller elastiska pooler och Azure SQL Database-servrar. | Aktiv geo-replikering | 30 sekunder efter att redundansväxlingen har utlösts.<br/><br/>När redundans aktive ras för en av de sekundära databaserna, länkas alla andra sekundära sekundära automatiskt till den nya primära. | Återställningen av fem sekunder.<br/><br/>Aktiv geo-replikering använder alltid teknik på SQL Server. Den replikerar allokerade transaktioner asynkront på den primära databasen till en sekundär databas med hjälp av ögonblicks bild isolering.<br/><br/>Sekundär data garanteras att aldrig ha partiella transaktioner.
-SQL as-PaaS har kon figurer ATS med aktiv geo-replikering på Azure.<br/><br/>Den här distributions typen innehåller en SQL Database Hanterad instans, elastiska pooler och SQL Database-servrar. | Automatiska redundansgrupper | RTO på en timme. | Återställningen av fem sekunder.<br/><br/>Grupper för automatisk redundans ger gruppsemantiken ovanpå aktiv geo-replikering. Men samma mekanism för asynkron replikering används.
-SQL Server på en virtuell Azure IaaS-dator eller lokalt.| Replikering med Azure Site Recovery | RTO är vanligt vis mindre än 15 minuter. Läs mer i [RTO-SLA som tillhandahålls av Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | En timme för program konsekvens och fem minuter för krasch konsekvens. Om du vill ha lägre återställnings punkt använder du andra BCDR-tekniker.
+SQL Server på en Azure-infrastruktur som en virtuell tjänst (IaaS) virtuell dator (VM) eller lokalt.| [Always On-tillgänglighetsgrupp](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017) | Det tar att göra den sekundära repliken som primär. | Eftersom replikering till den sekundära repliken är asynkron, finns det en viss dataförlust.
+SQL Server på en Virtuell Azure IaaS eller lokalt.| [Redundanskluster (alltid på FCI)](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-2017) | Den tid det tar att växla över mellan noderna. | Eftersom Alltid på FCI använder delad lagring är samma vy av lagringsinstansen tillgänglig vid redundans.
+SQL Server på en Virtuell Azure IaaS eller lokalt.| [Databasspegling (högpresterande läge)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | Den tid det tar att tvinga tjänsten, som använder spegelservern som en varm standby-server. | Replikering är asynkron. Spegeldatabasen kan ligga något efter huvuddatabasen. Fördröjningen är vanligtvis liten. Men det kan bli stort om huvudmannen eller spegelserverns system är under en tung belastning.<br/><br/>Loggfrakt kan vara ett komplement till databasspegling. Det är ett gynnsamt alternativ till asynkron databas spegling.
+SQL som plattform som en tjänst (PaaS) på Azure.<br/><br/>Den här distributionstypen innehåller elastiska pooler och Azure SQL Database-servrar. | Aktiv geo-replikering | 30 sekunder efter att redundansen har utlösts.<br/><br/>När redundans aktiveras för en av de sekundära databaserna länkas alla andra sekundärfiler automatiskt till den nya primär. | RPO på fem sekunder.<br/><br/>Aktiv georeplikering använder alltid på-tekniken för SQL Server. Det replikerar asynkront genomförda transaktioner på den primära databasen till en sekundär databas med hjälp av ögonblicksbildisolering.<br/><br/>De sekundära data är garanterat att aldrig ha partiella transaktioner.
+SQL som PaaS konfigurerat med aktiv geo-replikering på Azure.<br/><br/>Den här distributionstypen innehåller en SQL Database-hanterad instans, elastiska pooler och SQL Database-servrar. | Automatiska redundansgrupper | RTO på en timme. | RPO på fem sekunder.<br/><br/>Grupper med automatisk redundans ger gruppsenmantiken ovanpå aktiv georeplikering. Men samma asynkrona replikeringsmekanism används.
+SQL Server på en Virtuell Azure IaaS eller lokalt.| Replikering med Azure Site Recovery | RTO är vanligtvis mindre än 15 minuter. Mer information finns i [RTO SLA som tillhandahålls av Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | En timme för programkonsekvens och fem minuter för kraschkonsekvens. Om du letar efter lägre RPO, använd andra BCDR-tekniker.
 
 > [!NOTE]
-> Några viktiga överväganden när du hjälper till att skydda SQL-arbetsbelastningar med Site Recovery:
-> * Site Recovery är Application oberoende. Site Recovery kan skydda alla versioner av SQL Server som distribueras på ett operativ system som stöds. Mer information finns i [support mat ris för återställning](vmware-physical-azure-support-matrix.md#replicated-machines) av replikerade datorer.
-> * Du kan välja att använda Site Recovery för alla distributioner på Azure, Hyper-V, VMware eller fysisk infrastruktur. Följ rikt linjerna i slutet av den här artikeln om [hur du skyddar ett SQL Server kluster](#how-to-help-protect-a-sql-server-cluster) med Site Recovery.
-> * Se till att data ändrings takten på datorn ligger inom [Site Recovery gränser](vmware-physical-azure-support-matrix.md#churn-limits). Ändrings takten mäts i skrivna byte per sekund. För datorer som kör Windows kan du Visa den här ändrings hastigheten genom att välja fliken **prestanda** i aktivitets hanteraren. Observera skriv hastigheten för varje disk.
-> * Site Recovery stöder replikering av instanser av redundanskluster på Lagringsdirigering. Mer information finns i [så här aktiverar du Lagringsdirigering replikering](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+> Några viktiga saker när du hjälper till att skydda SQL-arbetsbelastningar med Site Recovery:
+> * Site Recovery är programagnostiker. Site Recovery kan skydda alla versioner av SQL Server som distribueras på ett operativsystem som stöds. Mer information finns i [supportmatrisen för återställning](vmware-physical-azure-support-matrix.md#replicated-machines) av replikerade datorer.
+> * Du kan välja att använda Site Recovery för distribution på Azure, Hyper-V, VMware eller fysisk infrastruktur. Följ vägledningen i slutet av den här artikeln om [hur du skyddar ett SQL Server-kluster](#how-to-help-protect-a-sql-server-cluster) med Site Recovery.
+> * Kontrollera att den dataförändringshastighet som observerats på maskinen ligger inom [gränserna för platsåterställning](vmware-physical-azure-support-matrix.md#churn-limits). Förändringshastigheten mäts i skrivbyte per sekund. För datorer som kör Windows kan du visa den här ändringshastigheten genom att välja fliken **Prestanda** i Aktivitetshanteraren. Observera skrivhastigheten för varje disk.
+> * Site Recovery stöder replikering av Redundansklusterinstanser på Storage Spaces Direct. Mer information finns i [hur du aktiverar Storage Spaces Direct-replikering](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 
-## <a name="disaster-recovery-of-an-application"></a>Katastrof återställning av ett program
+## <a name="disaster-recovery-of-an-application"></a>Haveriberedskap för ett program
 
-Site Recovery dirigerar redundanstest och redundansväxlingen för hela programmet med hjälp av återställnings planer.
+Site Recovery orkestrerar testet redundans och redundans av hela programmet med hjälp av återställningsplaner.
 
-Det finns vissa krav för att se till att din återställnings plan är helt anpassad beroende på dina behov. En SQL Server distribution behöver vanligt vis en Active Directory-distribution. Den behöver också anslutning för program nivån.
+Det finns vissa förutsättningar för att säkerställa att din återhämtningsplan är helt anpassad efter dina behov. Alla SQL Server-distributioner behöver vanligtvis en Active Directory-distribution. Den behöver också anslutning för din programnivå.
 
-### <a name="step-1-set-up-active-directory"></a>Steg 1: konfigurera Active Directory
+### <a name="step-1-set-up-active-directory"></a>Steg 1: Konfigurera Active Directory
 
-Konfigurera Active Directory på den sekundära återställnings platsen för SQL Server att köras korrekt.
+Konfigurera Active Directory på den sekundära återställningsplatsen för SQL Server så att den körs korrekt.
 
-* **Litet företag**: du har ett litet antal program och en enda domänkontrollant för den lokala platsen. Om du vill redundansväxla hela platsen använder Site Recovery replikering. Den här tjänsten replikerar domänkontrollanten till det sekundära data centret eller till Azure.
-* **Medel stora till stora företag**: du kan behöva konfigurera ytterligare domänkontrollanter.
-  - Om du har ett stort antal program, har en Active Directory skog och vill växla över via program eller arbets belastning, konfigurerar du en annan domänkontrollant i det sekundära data centret eller i Azure.
-  -  Om du använder Always on-tillgänglighetsgrupper för att återställa till en fjärrplats, konfigurerar du en annan domänkontrollant på den sekundära platsen eller i Azure. Den här domänkontrollanten används för den återställda SQL Server-instansen.
+* **Småföretag:** Du har ett litet antal program och en enda domänkontrollant för den lokala platsen. Om du vill växla över hela platsen använder du Replikering av webbplatsåterställning. Den här tjänsten replikerar domänkontrollanten till det sekundära datacentret eller till Azure.
+* **Medelstort till stort företag:** Du kan behöva konfigurera ytterligare domänkontrollanter.
+  - Om du har ett stort antal program, har en Active Directory-skog och vill växla över av program eller arbetsbelastning konfigurerar du en annan domänkontrollant i det sekundära datacentret eller i Azure.
+  -  Om du använder alltid på tillgänglighetsgrupper för att återställa till en fjärrplats konfigurerar du en annan domänkontrollant på den sekundära platsen eller i Azure. Den här domänkontrollanten används för den återställda SQL Server-instansen.
 
-Anvisningarna i den här artikeln förutsätter att en domänkontrollant är tillgänglig på den sekundära platsen. Mer information finns i procedurerna för [att skydda Active Directory med Site Recovery](site-recovery-active-directory.md).
+Instruktionerna i den här artikeln förutsätter att en domänkontrollant är tillgänglig på den sekundära platsen. Mer information finns i procedurerna för [att skydda Active Directory med Site Recovery](site-recovery-active-directory.md).
 
-### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Steg 2: kontrol lera anslutningen till andra nivåer
+### <a name="step-2-ensure-connectivity-with-other-tiers"></a>Steg 2: Se till att anslutningen med andra nivåer
 
-När databas nivån körs i Azure-regionen måste du kontrol lera att du har anslutning till program-och webb nivåerna. Vidta nödvändiga åtgärder i förväg för att verifiera anslutningen med redundanstest.
+När databasnivån körs i Azure-regionen för mål, se till att du har anslutning till program- och webbnivåerna. Vidta nödvändiga åtgärder i förväg för att validera anslutningen med test redundans.
 
-För att förstå hur du kan utforma program för anslutnings överväganden, se följande exempel:
+Information om hur du kan utforma program för anslutningsöverväganden finns i följande exempel:
 
-* [Utforma ett program för haveri beredskap för molnet](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
-* [Katastrof återställnings strategier för elastisk pool](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+* [Utforma ett program för molnkatastrofåterställning](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+* [Elastisk pool Katastrofåterställning strategier](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
-### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Steg 3: samverka med Always on, aktiv geo-replikering och grupper för automatisk redundans
+### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>Steg 3: Samspela med grupper med Alltid på, aktiv geo-replikering och automatisk redundansgrupper
 
-BCDR Technologies Always on, Active geo-replikering och autofailover-grupper har sekundära repliker av SQL Server som körs i Azures mål region. Det första steget för din programredundans är att ange den här repliken som primär. Det här steget förutsätter att du redan har en domänkontrollant i den sekundära. Steget kanske inte behövs om du väljer att göra en automatisk redundansväxling. Redundansväxla bara dina webb-och program nivåer när databasen har redundans slutförts.
+BCDR-tekniker Alltid på, aktiva geo-replikering och automatisk redundansgrupper har sekundära repliker av SQL Server som körs i regionen Mål Azure. Det första steget för programmet redundans är att ange den här repliken som primär. Det här steget förutsätter att du redan har en domänkontrollant i den sekundära. Steget kanske inte är nödvändigt om du väljer att göra en automatisk redundans. Växla över webb- och programnivåerna först när databasens redundans har slutförts.
 
 > [!NOTE]
-> Om du har hjälpt att skydda SQL-datorerna med Site Recovery behöver du bara skapa en återställnings grupp för dessa datorer och lägga till redundansväxlingen i återställnings planen.
+> Om du har hjälpt till att skydda SQL-datorer med Site Recovery behöver du bara skapa en återställningsgrupp av dessa datorer och lägga till deras redundans i återställningsplanen.
 
-[Skapa en återställnings plan](site-recovery-create-recovery-plans.md) med virtuella program och virtuella datorer på webben. Följande steg visar hur du lägger till redundans för databas nivån:
+[Skapa en återställningsplan](site-recovery-create-recovery-plans.md) med virtuella datorer på program- och webbnivå. Följande steg visar hur du lägger till redundans på databasnivån:
 
-1. Importera skripten för att redundansväxla SQL tillgänglighets grupp i både en [virtuell Resource Manager-dator](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) och en [klassisk virtuell dator](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Importera skripten till ditt Azure Automation-konto.
+1. Importera skripten för att växla över SQL-tillgänglighetsgruppen i både en [virtuell resurshanteraredator](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) och en [klassisk virtuell dator](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Importera skripten till ditt Azure Automation-konto.
 
-    [![avbildning av en logo typ för "distribuera till Azure"](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Bild av logotypen "Distribuera till Azure"](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
-1. Lägg till skriptet ASR-SQL-FailoverAG som en för åtgärd för den första gruppen i återställnings planen.
+1. Lägg till ASR-SQL-FailoverAG-skriptet som en föråtgärd för den första gruppen i återställningsplanen.
 
-1. Följ instruktionerna som finns i skriptet för att skapa en Automation-variabel. Den här variabeln innehåller namnet på tillgänglighets grupperna.
+1. Följ instruktionerna i skriptet för att skapa en automatiseringsvariabel. Den här variabeln innehåller namnet på tillgänglighetsgrupperna.
 
-### <a name="step-4-conduct-a-test-failover"></a>Steg 4: utför ett redundanstest
+### <a name="step-4-conduct-a-test-failover"></a>Steg 4: Genomföra en test redundans
 
-Vissa BCDR-tekniker, som SQL Always on, stöder inte redundanstest. Vi rekommenderar att du använder den här metoden *endast när du använder sådan teknik*.
+Vissa BCDR-tekniker som SQL Always On stöder inte test redundans internt. Vi rekommenderar följande metod *endast när du använder sådan teknik*.
 
-1. Konfigurera [Azure Backup](../backup/backup-azure-arm-vms.md) på den virtuella datorn som är värd för tillgänglighets grupps repliken i Azure.
+1. Konfigurera [Azure Backup](../backup/backup-azure-arm-vms.md) på den virtuella datorn som är värd för tillgänglighetsgrupprepliken i Azure.
 
-1. Innan du aktiverar redundanstest för återställnings planen återställer du den virtuella datorn från säkerhets kopian som gjordes i föregående steg.
+1. Innan du utlöser test redundans för återställningsplanen återställer du den virtuella datorn från säkerhetskopian som togs i föregående steg.
 
-    ![Skärm bild som visar ett fönster för att återställa en konfiguration från Azure Backup](./media/site-recovery-sql/restore-from-backup.png)
+    ![Skärmbild som visar fönster för att återställa en konfiguration från Azure Backup](./media/site-recovery-sql/restore-from-backup.png)
 
-1. [Framtvinga ett kvorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) på den virtuella datorn som har återställts från säkerhets kopian.
+1. [Tvinga kvorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) i den virtuella datorn som återställdes från säkerhetskopiering.
 
-1. Uppdatera IP-adressen för lyssnaren så att den är en adress som är tillgänglig i nätverket för testning av redundans.
+1. Uppdatera IP-adressen för lyssnaren så att den blir en adress som är tillgänglig i testundanundannätverket.
 
-    ![Skärm bild av dialog rutan regel fönster och egenskaper för IP-adress](./media/site-recovery-sql/update-listener-ip.png)
+    ![Skärmbild av regelfönster och dialogrutan EGENSKAPER för IP-adress](./media/site-recovery-sql/update-listener-ip.png)
 
 1. Ta med lyssnaren online.
 
-    ![Skärm bild av fönster med etiketten Content_AG visar Server namn och status](./media/site-recovery-sql/bring-listener-online.png)
+    ![Skärmbild av fönster med etiketten Content_AG som visar servernamn och status](./media/site-recovery-sql/bring-listener-online.png)
 
-1. Se till att belastningsutjämnaren i redundansklustret har en IP-adress, från den frontend-IP-adresspool som motsvarar varje tillgänglighets grupps lyssnare och med SQL Server VM i backend-poolen.
+1. Kontrollera att belastningsutjämnaren i redundansnätverket har en IP-adress, från ip-adresspoolen som motsvarar varje tillgänglighetsgruppavlyssnare och med SQL Server-datorn i backend-poolen.
 
-     ![Skärm bild av fönstret med rubriken "SQL-AlwaysOn-LB-frontend-IP-pool](./media/site-recovery-sql/create-load-balancer1.png)
+     ![Skärmbild av fönstret med titeln "SQL-AlwaysOn-LB - Frontend IP Pool](./media/site-recovery-sql/create-load-balancer1.png)
 
-    ![Skärm bild av fönstret med rubriken "SQL-AlwaysOn-LB-backend IP-adresspool](./media/site-recovery-sql/create-load-balancer2.png)
+    ![Skärmbild av fönstret med titeln "SQL-AlwaysOn-LB - Backend IP Pool](./media/site-recovery-sql/create-load-balancer2.png)
 
-1. I senare återställnings grupper lägger du till redundans för program nivån följt av din webb nivå för den här återställnings planen.
+1. I senare återställningsgrupper lägger du till redundans för programnivån följt av webbnivån för den här återställningsplanen.
 
-1. Gör ett redundanstest för återställnings planen för att testa redundans från slut punkt till slut punkt för ditt program.
+1. Gör en testväxling av återställningsplanen för att testa end-to-end redundans av ditt program.
 
-## <a name="steps-to-do-a-failover"></a>Steg för att utföra en redundansväxling
+## <a name="steps-to-do-a-failover"></a>Steg för att göra en redundans
 
-När du har lagt till skriptet i steg 3 och verifierar det i steg 4, kan du utföra en redundansväxling av återställnings planen som du skapade i steg 3.
+När du har lagt till skriptet i steg 3 och validerat det i steg 4 kan du göra en redundansväxling av återställningsplanen som skapats i steg 3.
 
-Stegen för redundans för program-och webb nivåer bör vara samma i både redundanstest och återställnings planer för redundans.
+Redundansstegen för program- och webbnivåer bör vara desamma i både test redundans- och redundansökningsplaner.
 
-## <a name="how-to-help-protect-a-sql-server-cluster"></a>Skydda ett SQL Server kluster
+## <a name="how-to-help-protect-a-sql-server-cluster"></a>Skydda ett SQL Server-kluster
 
-För ett kluster som kör SQL Server Standard Edition eller SQL Server 2008 R2 rekommenderar vi att du använder Site Recovery replikering för att skydda SQL Server.
+För ett kluster som kör SQL Server Standard edition eller SQL Server 2008 R2 rekommenderar vi att du använder Site Recovery Replication för att skydda SQL Server.
 
 ### <a name="azure-to-azure-and-on-premises-to-azure"></a>Azure till Azure och lokalt till Azure
 
-Site Recovery ger inte gäst kluster stöd vid replikering till en Azure-region. SQL Server Standard Edition tillhandahåller inte heller en katastrof återställnings lösning med låg kostnad. I det här scenariot rekommenderar vi att du skyddar SQL Server-klustret till en fristående SQL Server instans på den primära platsen och återställer det i den sekundära.
+Site Recovery ger inte support för gästkluster när du replikerar till en Azure-region. SQL Server Standard Edition ger inte heller en billig katastrofåterställningslösning. I det här fallet rekommenderar vi att du skyddar SQL Server-klustret till en fristående SQL Server-instans på den primära platsen och återställa den i den sekundära.
 
-1. Konfigurera ytterligare en fristående SQL Server instans på den primära Azure-regionen eller på den lokala platsen.
+1. Konfigurera ytterligare en fristående SQL Server-instans i den primära Azure-regionen eller på lokal plats.
 
-1. Konfigurera instansen så att den fungerar som en spegling för de databaser som du vill skydda. Konfigurera spegling i hög säkerhets läge.
+1. Konfigurera instansen så att den fungerar som en spegel för de databaser som du vill skydda. Konfigurera spegling i högsäkerhetsläge.
 
-1. Konfigurera Site Recovery på den primära platsen för virtuella [Azure](azure-to-azure-tutorial-enable-replication.md)-, [Hyper-V-](site-recovery-hyper-v-site-to-azure.md)eller [VMware-datorer och fysiska servrar](site-recovery-vmware-to-azure-classic.md).
+1. Konfigurera platsåterställning på den primära platsen för virtuella [Azure-, Hyper-V-](site-recovery-hyper-v-site-to-azure.md)eller [VMware-datorer och fysiska servrar](site-recovery-vmware-to-azure-classic.md). [Azure](azure-to-azure-tutorial-enable-replication.md)
 
-1. Använd Site Recovery replikering för att replikera den nya SQL Server-instansen till den sekundära platsen. Eftersom det är en hög säkerhets kopia kommer den att synkroniseras med det primära klustret men replikeras med hjälp av Site Recovery replikering.
+1. Använd Site Recovery Replication för att replikera den nya SQL Server-instansen till den sekundära platsen. Eftersom det är en spegelkopia med hög säkerhet synkroniseras den med det primära klustret men replikeras med hjälp av Site Recovery-replikering.
 
-   ![Bild av ett standard kluster som visar relationen och flödet mellan en primär plats, Site Recovery och Azure](./media/site-recovery-sql/standalone-cluster-local.png)
+   ![Avbildning av ett standardkluster som visar relationen och flödet mellan en primär plats, Platsåterställning och Azure](./media/site-recovery-sql/standalone-cluster-local.png)
 
-### <a name="failback-considerations"></a>Anmärkningar om återställning
+### <a name="failback-considerations"></a>Överväganden om återgång
 
-För SQL Server Standard kluster kräver återställning efter fel efter en oplanerad redundansväxling en SQL Server säkerhets kopiering och återställning. Den här åtgärden görs från speglings instansen till det ursprungliga klustret med återetablering av speglingen.
+För SQL Server Standard-kluster kräver återställning efter en oplanerad redundans en SQL Server-säkerhetskopiering och återställning. Den här åtgärden utförs från speglingsinstansen till det ursprungliga klustret med ometablering av spegeln.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-### <a name="how-does-sql-server-get-licensed-when-used-with-site-recovery"></a>Hur får SQL Server licensieras när de används med Site Recovery?
+### <a name="how-does-sql-server-get-licensed-when-used-with-site-recovery"></a>Hur licensieras SQL Server när den används med Site Recovery?
 
-Site Recovery replikering för SQL Server omfattas av Disaster Recovery-förmånen för Software Assurance. Den här täckningen gäller för alla Site Recovery scenarier: lokalt till Azure haveri beredskap och Azure IaaS haveri beredskap över flera regioner. Mer information finns i [Azure Site Recovery priser](https://azure.microsoft.com/pricing/details/site-recovery/) .
+Site Recovery replikering för SQL Server omfattas av Software Assurance katastrofåterställning fördel. Den här täckningen gäller alla scenarier för webbplatsåterställning: lokal för Azure-haveriberedskap och azure IaaS-haveriberedskap mellan regioner. Se [Azure Site Recovery priser](https://azure.microsoft.com/pricing/details/site-recovery/) för mer.
 
-### <a name="will-site-recovery-support-my-sql-server-version"></a>Kommer Site Recovery att stödja SQL Server-versionen?
+### <a name="will-site-recovery-support-my-sql-server-version"></a>Stöder Site Recovery min SQL Server-version?
 
-Site Recovery är Application oberoende. Site Recovery kan skydda alla versioner av SQL Server som distribueras på ett operativ system som stöds. Mer information finns i [support mat ris för återställning](vmware-physical-azure-support-matrix.md#replicated-machines) av replikerade datorer.
+Site Recovery är programagnostiker. Site Recovery kan skydda alla versioner av SQL Server som distribueras på ett operativsystem som stöds. Mer information finns i [supportmatrisen för återställning](vmware-physical-azure-support-matrix.md#replicated-machines) av replikerade datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [Site Recovery arkitektur](site-recovery-components.md).
-* För SQL Server i Azure kan du läsa mer om [lösningar för hög tillgänglighet](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions) för återställning i en sekundär Azure-region.
-* För SQL Database kan du läsa mer om alternativen för [verksamhets kontinuitet](../sql-database/sql-database-business-continuity.md) och [hög tillgänglighet](../sql-database/sql-database-high-availability.md) för återställning i en sekundär Azure-region.
-* För SQL Server datorer på plats kan du läsa mer om alternativen för [hög tillgänglighet](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#hybrid-it-disaster-recovery-solutions) för återställning i Azure Virtual Machines.
+* Läs mer om [arkitekturen Webbplatsåterställning](site-recovery-components.md).
+* För SQL Server i Azure kan du läsa mer om lösningar med [hög tillgänglighet](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions) för återställning i en sekundär Azure-region.
+* För SQL Database kan du läsa mer om [affärskontinuitet](../sql-database/sql-database-business-continuity.md) och alternativ för [hög tillgänglighet](../sql-database/sql-database-high-availability.md) för återställning i en sekundär Azure-region.
+* För SQL Server-datorer lokalt kan du läsa mer om de [högtillgängliga alternativen](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md#hybrid-it-disaster-recovery-solutions) för återställning i virtuella Azure-datorer.

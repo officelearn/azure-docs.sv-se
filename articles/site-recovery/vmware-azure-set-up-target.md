@@ -1,6 +1,6 @@
 ---
-title: Förbered målet för VMware VM-replikering i Azure Site Recovery
-description: Den här artikeln beskriver hur du förbereder din Azure-miljö för VMware VM-replikering till Azure.
+title: Förbereda VMware VM-replikeringsmålet i Azure Site Recovery
+description: I den här artikeln beskrivs hur du förbereder din azure-målmiljö för VMware VM-replikering till Azure.
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
@@ -9,36 +9,36 @@ ms.topic: article
 ms.date: 03/03/2019
 ms.author: mayg
 ms.openlocfilehash: c721234f2e1d806d51d31f3466e441bf8360f6b8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73693161"
 ---
-# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Förbered mål miljön för haveri beredskap för virtuella VMware-datorer eller fysiska servrar till Azure
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Förbereda målmiljön för haveriberedskap av virtuella datorer eller fysiska servrar till Azure
 
-Den här artikeln beskriver hur du förbereder din Azure-miljö så att du kan börja replikera virtuella VMware-datorer eller fysiska servrar till Azure.
+I den här artikeln beskrivs hur du förbereder din Azure-målgrupp för att börja replikera virtuella VMware-datorer eller fysiska servrar till Azure.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Artikeln förutsätter:
-- Du har skapat ett Recovery Services-valv på [Azure Portal](https://portal.azure.com "Azure Portal") för att skydda dina käll datorer
-- Du har konfigurerat din lokala miljö för att replikera [virtuella VMware-datorer](vmware-azure-set-up-source.md) eller [fysiska servrar](physical-azure-set-up-source.md) till Azure.
+- Du har skapat ett Recovery Services Vault på [Azure-portalen](https://portal.azure.com "Azure Portal") för att skydda källdatorerna
+- Du har konfigurerat din lokala miljö för att replikera källan [VMware virtuella datorer](vmware-azure-set-up-source.md) eller [fysiska servrar](physical-azure-set-up-source.md) till Azure.
 
 ## <a name="prepare-target"></a>Förbered målet
 
-När du har slutfört **steg 1: Välj skydds mål** och **steg 2: förbereda källan**går du till **steg 3: mål**
+När du har slutfört **steg 1: Välj skyddsmål** och **steg 2: Förbered källa**tas du till steg **3: Mål**
 
 ![Förbered målet](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
 1. **Prenumeration:** På den nedrullningsbara menyn väljer du den prenumeration som du vill replikera dina virtuella datorer eller fysiska servrar till.
-2. **Distributions modell:** Välj distributions modell (klassisk eller Resource Manager)
+2. **Distributionsmodell:** Välj distributionsmodell (Classic eller Resource Manager)
 
-Baserat på den valda distributions modellen körs en verifiering för att se till att du har minst ett virtuellt nätverk i mål prenumerationen att replikera och Redundansväxla din virtuella dator eller fysiska server till.
+Baserat på den valda distributionsmodellen körs en validering för att säkerställa att du har minst ett virtuellt nätverk i målprenumerationen för att replikera och redundans din virtuella dator eller fysiska server till.
 
-När verifieringen har slutförts klickar du på OK för att gå till nästa steg.
+När valideringarna har slutförts klickar du på OK för att gå till nästa steg.
 
-Om du inte har ett virtuellt nätverk kan du skapa ett genom att klicka på knappen **+ nätverk** överst på sidan.
+Om du inte har ett virtuellt nätverk kan du skapa ett genom att klicka på knappen **+ Nätverk** högst upp på sidan.
 
 ## <a name="next-steps"></a>Nästa steg
 [Konfigurera replikeringsinställningar](vmware-azure-set-up-replication.md).

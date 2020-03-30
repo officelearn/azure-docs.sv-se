@@ -1,14 +1,14 @@
 ---
 title: Använda Azure Blockchain Workbench-data i Microsoft Excel
-description: Lär dig hur du läser in och visar Azure blockchain Workbench Preview SQL DB-data i Microsoft Excel.
+description: Lär dig hur du läser in och visar Azure Blockchain Workbench Preview SQL DB-data i Microsoft Excel.
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
 ms.openlocfilehash: a84858ead83782cc9b6ef1b1d7f905172600fb8a
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74326051"
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Visa Azure Blockchain Workbench-data med Microsoft Excel
@@ -19,7 +19,7 @@ Du kan använda Microsoft Excel för att visa data i SQL DB i Azure Blockchain W
 * Visa tabeller och vyer i Blockchain Workbench-databasen
 * Läsa in Blockchain Workbench-vydata till Excel
 
-## <a name="connect-to-the-blockchain-workbench-database"></a>Ansluta till Blockchain Workbench-databasen
+## <a name="connect-to-the-blockchain-workbench-database"></a>Anslut till Blockchain Workbench-databasen
 
 Så här ansluter du till en Blockchain Workbench-databas:
 
@@ -39,7 +39,7 @@ Så här ansluter du till en Blockchain Workbench-databas:
 5. Välj **Databas** i navigeringsfältet i dialogrutan **SQL Server-databas**. Ange ditt **användarnamn** och **lösenord** och välj sedan **Anslut**.
 
     > [!NOTE]
-    > Om du använder autentiseringsuppgifterna som skapades i samband med Azure Blockchain Workbench-distributionen är **Användarnamn** `dbadmin`. **Lösenord** är det lösenord som du skapade när du distribuerade Blockchain Workbench.
+    > Om du använder autentiseringsuppgifterna som skapades i samband med Azure Blockchain Workbench-distributionen är **Användarnamn**`dbadmin`. **Lösenord** är det lösenord som du skapade när du distribuerade Blockchain Workbench.
     
    ![Ange autentiseringsuppgifterna för åtkomst till databasen](./media/data-excel/provide-credentials.png)
 

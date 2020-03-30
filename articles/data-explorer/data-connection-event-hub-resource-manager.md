@@ -1,6 +1,6 @@
 ---
-title: Skapa en data anslutning för Händelsehubben för Azure Datautforskaren med hjälp av Azure Resource Manager mall
-description: I den här artikeln får du lära dig hur du skapar en data anslutning för Event Hub för Azure Datautforskaren med hjälp av Azure Resource Manager mall.
+title: Skapa en event hub-dataanslutning för Azure Data Explorer med hjälp av Azure Resource Manager-mall
+description: I den här artikeln får du lära dig hur du skapar en Event Hub-dataanslutning för Azure Data Explorer med hjälp av Azure Resource Manager-mallen.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -8,32 +8,32 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/28/2019
 ms.openlocfilehash: fec8ab7db85eefb1a614511a3f810cc39f69fb68
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74669212"
 ---
-# <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Skapa en data anslutning för Händelsehubben för Azure Datautforskaren med hjälp av Azure Resource Manager mall
+# <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-azure-resource-manager-template"></a>Skapa en event hub-dataanslutning för Azure Data Explorer med hjälp av Azure Resource Manager-mall
 
 > [!div class="op_single_selector"]
-> * [Portalen](ingest-data-event-hub.md)
+> * [Portal](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
 > * [Azure Resource Manager-mall](data-connection-event-hub-resource-manager.md)
 
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Datautforskaren erbjuder inmatning (data inläsning) från Event Hubs, IoT-hubbar och blobbar skrivna till BLOB-behållare. I den här artikeln skapar du en data anslutning för Event Hub för Azure Datautforskaren med hjälp av Azure Resource Manager mall.
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från eventhubbar, IoT-hubbar och blobbar skrivna till blob-behållare. I den här artikeln skapar du en Event Hub-dataanslutning för Azure Data Explorer med hjälp av Azure Resource Manager-mallen.
 
 ## <a name="prerequisites"></a>Krav
 
-* Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+* Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * Skapa [ett kluster och en databas](create-cluster-database-portal.md)
-* Skapa [en tabell och kolumn mappning](ingest-data-event-hub.md#create-a-target-table-in-azure-data-explorer)
-* Skapa [en händelsehubben](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+* Skapa [en tabell- och kolumnmappning](ingest-data-event-hub.md#create-a-target-table-in-azure-data-explorer)
+* Skapa [en händelsehubb](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-## <a name="azure-resource-manager-template-for-adding-an-event-hub-data-connection"></a>Azure Resource Manager mall för att lägga till en data anslutning för Event Hub
+## <a name="azure-resource-manager-template-for-adding-an-event-hub-data-connection"></a>Azure Resource Manager-mall för att lägga till en eventhubb-dataanslutning
 
-I följande exempel visas en Azure Resource Manager mall för att lägga till en data anslutning för Event Hub.  Du kan [Redigera och distribuera mallen i Azure Portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) med hjälp av formuläret.
+I följande exempel visas en Azure Resource Manager-mall för att lägga till en event hub-dataanslutning.  Du kan [redigera och distribuera mallen i Azure-portalen](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) med hjälp av formuläret.
 
 ```json
 {

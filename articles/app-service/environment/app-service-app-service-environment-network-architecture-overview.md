@@ -1,6 +1,6 @@
 ---
-title: Nätverks arkitektur v1
-description: Arkitektur översikt över nätverk sto pol Ogin i App Service miljöer. Detta dokument tillhandahålls endast för kunder som använder den äldre v1-ASE.
+title: Nätverksarkitektur v1
+description: Arkitektonisk översikt över nätverkstopologi för App Service-miljöer. Det här dokumentet tillhandahålls endast för kunder som använder den äldre v1 ASE.
 author: stefsch
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
 ms.topic: article
@@ -8,74 +8,74 @@ ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
 ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243853"
 ---
-# <a name="network-architecture-overview-of-app-service-environments"></a>Översikt över nätverks arkitektur i App Service miljöer
-App Service miljöer skapas alltid i ett undernät för ett [virtuellt nätverk][virtualnetwork] – appar som körs i en app service-miljön kan kommunicera med privata slut punkter i samma virtuella nätverk sto pol Ogin.  Eftersom kunder kan låsa delar av sin virtuella nätverks infrastruktur är det viktigt att förstå de typer av nätverks kommunikations flöden som sker med en App Service-miljön.
+# <a name="network-architecture-overview-of-app-service-environments"></a>Översikt över nätverksarkitektur för App Service-miljöer
+App Service-miljöer skapas alltid i ett undernät till ett [virtuellt nätverk][virtualnetwork] - appar som körs i en App Service-miljö kan kommunicera med privata slutpunkter som finns i samma virtuella nätverkstopologi.  Eftersom kunder kan låsa delar av sin virtuella nätverksinfrastruktur är det viktigt att förstå vilka typer av nätverkskommunikationsflöden som uppstår med en App Service-miljö.
 
-## <a name="general-network-flow"></a>Allmänt nätverks flöde
-När en App Service-miljön (ASE) använder en offentlig virtuell IP-adress (VIP) för appar kommer all inkommande trafik att tas emot på den offentliga VIP.  Detta inkluderar HTTP-och HTTPS-trafik för appar, samt annan trafik för FTP, fjärrfelsökning och hantering av Azure-åtgärder.  En fullständig lista över de angivna portarna (både obligatoriska och valfria) som är tillgängliga i offentlig VIP finns i artikeln om att [kontrol lera inkommande trafik][controllinginboundtraffic] till en app service-miljön. 
+## <a name="general-network-flow"></a>Allmänt nätverksflöde
+När en APP Service Environment (ASE) använder en offentlig virtuell IP-adress (VIP) för appar, anländer all inkommande trafik på den offentliga VIP.When an App Service Environment (ASE) uses a public virtual IP address (VIP) for apps, all inbound traffic arrives on that public VIP.  Detta inkluderar HTTP- och HTTPS-trafik för appar samt annan trafik för FTP, fjärrfelsökningsfunktioner och Azure-hanteringsåtgärder.  En fullständig lista över de specifika portar (både obligatoriska och valfria) som är tillgängliga på den offentliga VIP-webbplatsen finns i artikeln om [hur du kontrollerar inkommande trafik][controllinginboundtraffic] till en App Service-miljö. 
 
-App Service miljöer har även stöd för att köra appar som endast är kopplade till en intern adress för virtuella nätverk, även kallade en ILB (intern belastningsutjämnare).  På en ILB aktive rad ASE, HTTP-och HTTPS-trafik för appar samt fjärrfelsöknings anrop, kommer du till ILB-adressen.  För de flesta vanliga ILB-ASE-konfigurationer kommer FTP/FTPS-trafik också att komma till ILB-adressen.  Azure-hanterings åtgärder kommer dock fortfarande att flöda till portarna 454/455 på den offentliga VIP: en för en ILB-aktiverad ASE.
+App servicemiljöer stöder också att appar körs som endast är bundna till en intern adress för ett virtuellt nätverk, även kallad en ILB-adress (intern belastningsutjämnare).  På en ILB-aktiverad ASE-, HTTP- och HTTPS-trafik för appar samt fjärrfelsökningsanrop anländer du till ILB-adressen.  För de vanligaste ILB-ASE-konfigurationerna kommer FTP/FTPS-trafiken också att anlända till ILB-adressen.  Azure-hanteringsåtgärder kommer dock fortfarande att flöda till portar 454/455 på den offentliga VIP-adressen för en ILB-aktiverad ASE.
 
-Diagrammet nedan visar en översikt över de olika inkommande och utgående nätverks flödena för en App Service-miljön där apparna är bundna till en offentlig virtuell IP-adress:
+Diagrammet nedan visar en översikt över de olika inkommande och utgående nätverksflödena för en App Service-miljö där apparna är bundna till en offentlig virtuell IP-adress:
 
-![Allmänna nätverks flöden][GeneralNetworkFlows]
+![Allmänna nätverksflöden][GeneralNetworkFlows]
 
-En App Service-miljön kan kommunicera med en rad olika privata kund slut punkter.  Appar som körs i App Service-miljön kan till exempel ansluta till databas servrar som körs på virtuella IaaS-datorer i samma virtuella nätverk sto pol Ogin.
+En App Service-miljö kan kommunicera med en mängd olika slutpunkter för privata kunder.  Appar som körs i App Service-miljön kan till exempel ansluta till databasservrar som körs på virtuella IaaS-datorer i samma virtuella nätverkstopologi.
 
 > [!IMPORTANT]
-> När du tittar på nätverks diagrammet distribueras "andra beräknings resurser" i ett annat undernät än App Service-miljön. Om du distribuerar resurser i samma undernät med ASE blockeras anslutningen från ASE till dessa resurser (förutom för en bestämd ASE routning). Distribuera till ett annat undernät i stället (i samma VNET). App Service-miljön kommer sedan att kunna ansluta. Ingen ytterligare konfiguration krävs.
+> Om du tittar på nätverksdiagrammet distribueras "Andra beräkningsresurser" i ett annat undernät än App Service-miljön. Distribuera resurser i samma undernät med ASE blockerar anslutningen från ASE till dessa resurser (med undantag för specifik inom ASE-routning). Distribuera till ett annat undernät i stället (i samma virtuella nätverk). App servicemiljön kan sedan ansluta. Ingen ytterligare konfiguration är nödvändig.
 > 
 > 
 
-App Service miljöer kommunicerar också med SQL DB och Azure Storage resurser som krävs för att hantera och använda en App Service-miljön.  Några av de SQL-och lagrings resurser som en App Service-miljön kommunicerar med finns i samma region som App Service-miljön, medan andra finns i Azure-fjärrregionerna.  Det innebär att utgående anslutning till Internet alltid krävs för att en App Service-miljön ska fungera korrekt. 
+App Service-miljöer kommunicerar också med Sql DB- och Azure Storage-resurser som krävs för att hantera och driva en App Service-miljö.  Vissa av de Sql- och Lagringsresurser som en App Service-miljö kommunicerar med finns i samma region som App Service-miljön, medan andra finns i fjärr-Azure-regioner.  Därför krävs alltid utgående anslutning till Internet för att en App Service-miljö ska fungera korrekt. 
 
-Eftersom en App Service-miljön distribueras i ett undernät kan nätverks säkerhets grupper användas för att styra inkommande trafik till under nätet.  Mer information om hur du styr inkommande trafik till en App Service-miljön finns i följande [artikel][controllinginboundtraffic].
+Eftersom en App Service-miljö distribueras i ett undernät kan nätverkssäkerhetsgrupper användas för att styra inkommande trafik till undernätet.  Mer information om hur du kontrollerar inkommande trafik till en App Service-miljö finns i följande [artikel][controllinginboundtraffic].
 
-Mer information om hur du tillåter utgående Internet anslutning från en App Service-miljön finns i följande artikel om hur du arbetar med [Express Route][ExpressRoute].  Samma metod som beskrivs i artikeln gäller när du arbetar med plats-till-plats-anslutning och använder Tvingad tunnel trafik.
+Mer information om hur du tillåter utgående Internetanslutning från en App Service-miljö finns i följande artikel om hur du arbetar med [Express Route][ExpressRoute].  Samma metod som beskrivs i artikeln gäller när du arbetar med anslutning från plats till plats och användning av tvångstunneler.
 
-## <a name="outbound-network-addresses"></a>Utgående nätverks adresser
-När en App Service-miljön gör utgående samtal är en IP-adress alltid kopplad till utgående samtal.  Vilken speciell IP-adress som används beror på om slut punkten som anropas finns i den virtuella nätverk sto pol Ogin eller utanför den virtuella nätverk sto pol Ogin.
+## <a name="outbound-network-addresses"></a>Utgående nätverksadresser
+När en apptjänstmiljö lämnar utgående samtal associeras alltid en IP-adress med de utgående samtalen.  Vilken IP-adress som används beror på om slutpunkten som anropas finns i den virtuella nätverkstopologin eller utanför den virtuella nätverkstopologin.
 
-Om slut punkten som anropas ligger **utanför** den virtuella nätverk sto pol Ogin är den utgående adressen (aka utgående NAT-adress) som används den offentliga VIP för App Service-miljön.  Adressen finns i användar gränssnittet för portalen för App Service-miljön i egenskaper-bladet.
+Om slutpunkten som anropas ligger **utanför** den virtuella nätverkstopologin är den utgående adressen (aka den utgående NAT-adressen) som används den offentliga VIP-posten för App Service-miljön.  Den här adressen finns i portalanvändargränssnittet för bladet App Service i Egenskaper.
 
 ![Utgående IP-adress][OutboundIPAddress]
 
-Den här adressen kan också fastställas för ASE som bara har en offentlig VIP genom att skapa en app i App Service-miljön och sedan utföra ett *nslookup* på appens adress. Den resulterande IP-adressen är både den offentliga VIP-adressen och App Service-miljöns utgående NAT-adress.
+Den här adressen kan också bestämmas för ASE:er som bara har en offentlig VIP genom att skapa en app i apptjänstmiljön och sedan utföra en *nslookup* på appens adress. Den resulterande IP-adressen är både den offentliga VIP, liksom App Service Environment utgående NAT-adress.
 
-Om den slut punkt som anropas finns **inuti** den virtuella nätverk sto pol Ogin blir den utgående adressen för den anropande appen den interna IP-adressen för den enskilda beräknings resursen som kör appen.  Det finns dock ingen permanent mappning av virtuella nätverk interna IP-adresser till appar.  Appar kan förflytta sig över olika beräknings resurser och poolen med tillgängliga beräknings resurser i en App Service-miljön kan ändras på grund av skalnings åtgärder.
+Om slutpunkten som anropas finns **i** den virtuella nätverkstopologin, kommer den utgående adressen för den anropande appen att vara den interna IP-adressen för den enskilda beräkningsresursen som kör appen.  Det finns dock inte en beständig mappning av interna IP-adresser för virtuella nätverk till appar.  Appar kan flytta runt mellan olika beräkningsresurser och poolen med tillgängliga beräkningsresurser i en App Service-miljö kan ändras på grund av skalningsåtgärder.
 
-Men eftersom en App Service-miljön alltid finns i ett undernät garanterar du att den interna IP-adressen för en beräknings resurs som kör en app alltid ligger inom under nätets CIDR-intervall.  Det innebär att när detaljerade ACL: er eller nätverks säkerhets grupper används för att skydda åtkomsten till andra slut punkter inom det virtuella nätverket, måste under näts intervallet som innehåller App Service-miljön beviljas åtkomst.
+Men eftersom en App Service-miljö alltid finns i ett undernät, är du garanterad att den interna IP-adressen för en beräkningsresurs som kör en app alltid kommer att ligga inom CIDR-intervallet för undernätet.  När detaljerade ACL:er eller nätverkssäkerhetsgrupper används för att skydda åtkomst till andra slutpunkter i det virtuella nätverket måste därför undernätsområdet som innehåller App Service-miljön beviljas åtkomst.
 
-Följande diagram visar dessa begrepp i mer detalj:
+Följande diagram visar dessa begrepp mer i detalj:
 
-![Utgående nätverks adresser][OutboundNetworkAddresses]
+![Utgående nätverksadresser][OutboundNetworkAddresses]
 
 I diagrammet ovan:
 
-* Eftersom den offentliga VIP: en för App Service-miljön är 192.23.1.2, det vill säga den utgående IP-adressen som används vid anrop till "Internet"-slut punkter.
-* CIDR-intervallet för det innehåll ande under nätet för App Service-miljön är 10.0.1.0/26.  Andra slut punkter inom samma virtuella nätverks infrastruktur kommer att se anrop från appar som härstammar någonstans i det här adress intervallet.
+* Eftersom den offentliga VIP i App Service Environment är 192.23.1.2, det är den utgående IP-adress som används när du ringer samtal till "Internet" slutpunkter.
+* CIDR-intervallet för det innehållande undernätet för App Service-miljön är 10.0.1.0/26.  Andra slutpunkter inom samma virtuella nätverksinfrastruktur ser samtal från appar som kommer från någonstans inom det här adressintervallet.
 
-## <a name="calls-between-app-service-environments"></a>Anrop mellan App Service miljöer
-Ett mer komplext scenario kan uppstå om du distribuerar flera App Service miljöer i samma virtuella nätverk och gör utgående anrop från ett App Service-miljön till en annan App Service-miljön.  Dessa typer av kors App Service-miljöns anrop behandlas också som "Internet-anrop".
+## <a name="calls-between-app-service-environments"></a>Samtal mellan apptjänstmiljöer
+Ett mer komplext scenario kan uppstå om du distribuerar flera App Service-miljöer i samma virtuella nätverk och ringer utgående samtal från en App Service-miljö till en annan App Service-miljö.  Dessa typer av cross App Service Environment-samtal kommer också att behandlas som "Internet"-samtal.
 
-I följande diagram visas ett exempel på en lager arkitektur med appar på en App Service-miljön (t. ex. "Front dörr"-webbappar) som anropar appar på en andra App Service-miljön (t. ex. interna Server-API-appar som inte är avsedda att vara tillgängliga från Internet). 
+Följande diagram visar ett exempel på en arkitektur i lager med appar på en App Service Environment (t.ex. webbappar för ytterdörren) som anropar appar på en andra App Service Environment (t.ex. interna serverdels-API-appar som inte är avsedda att vara tillgängliga från Internet). 
 
-![Anrop mellan App Service miljöer][CallsBetweenAppServiceEnvironments] 
+![Samtal mellan apptjänstmiljöer][CallsBetweenAppServiceEnvironments] 
 
-I exemplet ovan har App Service-miljön "ASE One" en utgående IP-adress till 192.23.1.2.  Om en app som körs på den här App Service-miljön gör ett utgående anrop till en app som körs på en andra App Service-miljön ("ASE två") som finns i samma virtuella nätverk, behandlas det utgående anropet som ett "Internet-anrop".  Det innebär att nätverks trafiken som kommer till den andra App Service-miljön visas som från 192.23.1.2 (dvs. inte under nätets adress intervall för det första App Service-miljön).
+I exemplet ovan har App Service Environment "ASE One" en utgående IP-adress på 192.23.1.2.  Om en app som körs i den här App Service-miljön ringer ett utgående samtal till en app som körs på en andra App Service-miljö ("ASE Two") som finns i samma virtuella nätverk, behandlas det utgående samtalet som ett "Internet"-samtal.  Det innebär att nätverkstrafiken som anländer till den andra App Service-miljön visas som ursprung från 192.23.1.2 (dvs. inte undernätsadressintervallet för den första App Service-miljön).
 
-Även om anrop mellan olika App Service miljöer behandlas som "Internet"-anrop, när båda App Service miljöer finns i samma Azure-region, kommer nätverks trafiken att finnas kvar i det regionala Azure-nätverket och kommer inte att flöda över offentligt Internet.  Det innebär att du kan använda en nätverks säkerhets grupp i under nätet för den andra App Service-miljön för att bara tillåta inkommande anrop från den första App Service-miljön (vars utgående IP-adress är 192.23.1.2) och därigenom säkerställa säker kommunikation mellan appen Tjänst miljöer.
+Även om anrop mellan olika App Service-miljöer behandlas som "Internet"-anrop, kommer nätverkstrafiken att finnas i det regionala Azure-nätverket när båda App Service-miljöerna finns i samma Azure-region och kommer inte att flöda fysiskt över offentliga Internet.  Därför kan du använda en nätverkssäkerhetsgrupp i undernätet i den andra App Service-miljön för att endast tillåta inkommande samtal från den första App Service-miljön (vars utgående IP-adress är 192.23.1.2), vilket säkerställer säker kommunikation mellan Appen Servicemiljöer.
 
 ## <a name="additional-links-and-information"></a>Ytterligare länkar och information
-Information om inkommande portar som används av App Service miljöer och att använda nätverks säkerhets grupper för att kontrol lera inkommande trafik finns [här][controllinginboundtraffic].
+Information om inkommande portar som används av App Service-miljöer och använda nätverkssäkerhetsgrupper för att styra inkommande trafik finns [här][controllinginboundtraffic].
 
-Information om hur du använder användardefinierade vägar för att bevilja utgående Internet åtkomst till App Service miljöer finns i den här [artikeln][ExpressRoute]. 
+Information om hur du använder användardefinierade vägar för att bevilja utgående Internet-åtkomst till App Service-miljöer finns i den här [artikeln][ExpressRoute]. 
 
 <!-- LINKS -->
 [virtualnetwork]: https://azure.microsoft.com/services/virtual-network/

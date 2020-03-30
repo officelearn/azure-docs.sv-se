@@ -1,6 +1,6 @@
 ---
-title: Azure Event Grid händelse schema för Azure Key Vault
-description: Beskriver de egenskaper och schema som anges för Azure Key Vault händelser med Azure Event Grid
+title: Azure Event Grid-händelseschema för Azure Key Vault
+description: Beskriver de egenskaper och schema som tillhandahålls för Azure Key Vault-händelser med Azure Event Grid
 services: event-grid
 author: msmbaldwin
 ms.service: event-grid
@@ -8,35 +8,35 @@ ms.topic: reference
 ms.date: 10/25/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 17404388b2b6c3fee1c6ab666f7233a66817f642
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74082875"
 ---
-# <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Azure Event Grid händelse schema för Azure Key Vault (förhands granskning)
+# <a name="azure-event-grid-event-schema-for-azure-key-vault-preview"></a>Azure Event Grid-händelseschema för Azure Key Vault (förhandsversion)
 
-Den här artikeln innehåller egenskaper och schema för händelser i [Azure Key Vault](../key-vault/index.yml), för närvarande i för hands version. En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](event-schema.md).
+Den här artikeln innehåller egenskaper och schema för händelser i [Azure Key Vault](../key-vault/index.yml), för närvarande i förhandsversion. En introduktion till händelsescheman finns i [Azure Event Grid-händelseschema](event-schema.md).
 
-## <a name="available-event-types"></a>Tillgängliga händelse typer
+## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
-Ett Azure Key Vault konto genererar följande händelse typer:
+Ett Azure Key Vault-konto genererar följande händelsetyper:
 
-| Fullständigt händelse namn | Visnings namn för händelse | Beskrivning |
+| Evenemanget fullständigt namn | Namn på visning av händelser | Beskrivning |
 | ---------- | ----------- |---|
-| Microsoft. CertificateNewVersionCreated | En ny version av certifikatet har skapats | Utlöses när ett nytt certifikat eller en ny certifikat version skapas. |
-| Microsoft. CertificateNearExpiry | Certifikat snart upphör Ande | Utlöses när den aktuella versionen av certifikatet upphör att gälla. (Standardvärdet är 30 dagar före förfallo datumet.) |
-| Microsoft. CertificateExpired | Certifikatet har utgått | Utlöses när certifikatet har upphört att gälla. |
-| Microsoft. KeyNewVersionCreated | Den nya nyckel versionen har skapats | Utlöses när en ny nyckel eller ny nyckel version skapas. |
-| Microsoft. KeyNearExpiry | Nyckelns nära förfallo datum | Utlöses när den aktuella versionen av en nyckel håller på att gå ut. (Standardvärdet är 30 dagar före förfallo datumet.) |
-| Microsoft. nyckel-valvet har upphört att gälla | Nyckel upphörde | Utlöses när en nyckel har upphört att gälla. |
-| Microsoft. SecretNewVersionCreated | Den hemliga nya versionen har skapats | Utlöses när en ny hemlighet eller ny hemlig version skapas. |
-| Microsoft. SecretNearExpiry | Hemligt upphör Ande snart | Utlöses när den aktuella versionen av en hemlighet håller på att gå ut. (Standardvärdet är 30 dagar före förfallo datumet.) |
-| Microsoft. SecretExpired | Hemligt upphör Ande | Utlöses när en hemlighet har upphört att gälla. |
+| Microsoft.KeyVault.certificateNewVersionSkaperad | Certifikat ny version skapad | Utlöses när ett nytt certifikat eller ny certifikatversion skapas. |
+| Microsoft.KeyVault.certificateNearExpiry | Certifikat nära utgångsdatum | Utlöses när den aktuella versionen av certifikatet håller på att upphöra att gälla. (Standardvärdet är 30 dagar före utgångsdatumet.) |
+| Microsoft.KeyVault.certificateExpirerat | Certifikatet har utgått | Utlöses när certifikatet har upphört att gälla. |
+| Microsoft.KeyVault.KeyNewVersionSkaperad | Nyckel ny version skapad | Utlöses när en ny nyckel eller ny nyckelversion skapas. |
+| Microsoft.KeyVault.KeyNearExpiry | Nyckel nära utgångsdatum | Utlöses när den aktuella versionen av en nyckel håller på att upphöra att gälla. (Standardvärdet är 30 dagar före utgångsdatumet.) |
+| Microsoft.KeyVault.KeyExpirerad | Nyckeln har upphört att gälla | Utlöses när en nyckel har upphört att gälla. |
+| Microsoft.KeyVault.SecretNewVersionSkaperad | Hemlig ny version skapad | Utlöses när en ny hemlig eller ny hemlig version skapas. |
+| Microsoft.KeyVault.SecretNearExpiry | Hemlighet nära utgångsdatum | Utlöses när den aktuella versionen av en hemlighet håller på att upphöra att gälla. (Standardvärdet är 30 dagar före utgångsdatumet.) |
+| Microsoft.KeyVault.SecretExpirerad | Hemligheten har upphört att gälla | Utlöses när en hemlighet har upphört att gälla. |
 
-## <a name="event-examples"></a>Händelse exempel
+## <a name="event-examples"></a>Exempel på evenemang
 
-I följande exempel visas schema för **Microsoft. nyckel valv. SecretNewVersionCreated**:
+I följande exempel visas schema för **Microsoft.KeyVault.SecretNewVersionSkaperad:**
 
 ```JSON
 [
@@ -61,29 +61,29 @@ I följande exempel visas schema för **Microsoft. nyckel valv. SecretNewVersion
 ]
 ```
 
-## <a name="event-properties"></a>Händelse egenskaper
+## <a name="event-properties"></a>Händelseegenskaper
 
-En händelse har följande data på översta nivån:
+En händelse har följande data på den högsta nivån:
 
 | Egenskap | Typ | Beskrivning |
 | ---------- | ----------- |---|
-| id | sträng | ID för objektet som utlöste händelsen |
-| vaultName | sträng | Nyckel valv namnet för objektet som utlöste den här händelsen |
-| objectType | sträng | Typ av objekt som utlöste händelsen |
-| ObjectName | sträng | Namnet på objektet som utlöste händelsen |
-| version | sträng | Den version av objektet som utlöste händelsen |
-| nbf | nummer | Ej före-datum i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste händelsen |
-| exp | nummer | Utgångs datumet i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste händelsen |
+| id | sträng | ID för objektet som utlöste den här händelsen |
+| vaultName (valvNamn) | sträng | Nyckelvalvets namn på objektet som utlöste den här händelsen |
+| objectType (objekttyp) | sträng | Typen av objekt som utlöste den här händelsen |
+| Objektnamn | sträng | Namnet på objektet som utlöste den här händelsen |
+| version | sträng | Den version av objektet som utlöste den här händelsen |
+| Nbf | nummer | Ej-före-datumet i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste den här händelsen |
+| exp | nummer | Utgångsdatumet i sekunder sedan 1970-01-01T00:00:00Z för objektet som utlöste den här händelsen |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md).
-* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md).
-* Mer information om Key Vault-integrering med Event Grid finns i [övervaknings Key Vault med Azure Event Grid (för hands version)](../key-vault/event-grid-overview.md).
-* En själv studie kurs om Key Vault integration med Event Grid finns i [ta emot och svara på nyckel valvs meddelanden med Azure Event Grid (för hands version)](../key-vault/event-grid-tutorial.md).
-* Om du vill ha ytterligare vägledning för Key Vault och Azure Automation, se:
+* En introduktion till Azure Event Grid finns i [Vad är händelserutnät?](overview.md).
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Prenumerationsschema för Event Grid](subscription-creation-schema.md).
+* Mer information om Integrering av Key Vault med Event Grid finns i [Övervaka Nyckelvalv med Azure Event Grid (förhandsversion).](../key-vault/event-grid-overview.md)
+* En självstudiekurs om Integrering av Key Vault med Event Grid finns i [Ta emot och svara på viktiga valvmeddelanden med Azure Event Grid (förhandsversion).](../key-vault/event-grid-tutorial.md)
+* Mer information om hur du får ytterligare vägledning för Key Vault och Azure Automation finns i:
     - [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
-    - [Övervaka Key Vault med Azure Event Grid (förhands granskning)](../key-vault/event-grid-overview.md)
-    - [Ta emot och svara på meddelanden om nyckel valv med Azure Event Grid (för hands version)](../key-vault/event-grid-tutorial.md)
+    - [Övervaka nyckelvalv med Azure Event Grid (förhandsversion)](../key-vault/event-grid-overview.md)
+    - [Ta emot och svara på viktiga meddelande om nyckelvalv med Azure Event Grid (förhandsversion)](../key-vault/event-grid-tutorial.md)
     - [Översikt över Azure Automation](../automation/index.yml)

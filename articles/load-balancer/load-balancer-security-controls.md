@@ -1,6 +1,6 @@
 ---
-title: Säkerhets kontroller för Azure Load Balancer
-description: En check lista över säkerhets kontroller för utvärdering av Load Balancer
+title: Säkerhetskontroller för Azure Load Balancer
+description: En checklista över säkerhetskontroller för utvärdering av belastningsutjämnare
 services: load-balancer
 author: asudbring
 manager: KumudD
@@ -9,58 +9,58 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: allensu
 ms.openlocfilehash: 6043e574697489b6566641c352bc21a2b6d87f51
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74214905"
 ---
-# <a name="security-controls-for-azure-load-balancer"></a>Säkerhets kontroller för Azure Load Balancer
+# <a name="security-controls-for-azure-load-balancer"></a>Säkerhetskontroller för Azure Load Balancer
 
-I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azure Load Balancer.
+Den här artikeln dokumenterar de säkerhetskontroller som är inbyggda i Azure Load Balancer.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>Nätverk
 
-| Säkerhets kontroll | Ja/nej | Anteckningar |
+| Säkerhetskontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Stöd för tjänst slut punkt| Gäller inte | |
-| Stöd för VNet-injektering| Gäller inte | |
-| Stöd för nätverks isolering och brand vägg| Gäller inte |  |
-| Stöd för Tvingad tunnel trafik| Gäller inte | |
+| Support för tjänstens slutpunkt| Ej tillämpligt | |
+| Stöd för VNet-injektion| Ej tillämpligt | |
+| Stöd för nätverksisolering och brandväggar| Ej tillämpligt |  |
+| Stöd för påtvingad tunnelning| Ej tillämpligt | |
 
-## <a name="monitoring--logging"></a>Övervaka & loggning
+## <a name="monitoring--logging"></a>Övervakning & loggning
 
-| Säkerhets kontroll | Ja/nej | Anteckningar|
+| Säkerhetskontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [Azure Monitor-loggar för offentliga grundläggande Load Balancer](load-balancer-monitor-log.md). |
-| Loggning och granskning av kontroll-och hanterings plan| Ja | Se [Azure Monitor-loggar för offentliga grundläggande Load Balancer](load-balancer-monitor-log.md). |
-| Loggning och granskning av data planet | Gäller inte |  |
+| Azure övervakningsstöd (Logganalys, App insikter, etc.)| Ja | Se [Azure Monitor-loggar för offentliga grundläggande belastningsutjämnare](load-balancer-monitor-log.md). |
+| Kontroll- och hanteringsplan loggning och revision| Ja | Se [Azure Monitor-loggar för offentliga grundläggande belastningsutjämnare](load-balancer-monitor-log.md). |
+| Loggning och granskning av dataplan | Ej tillämpligt |  |
 
 ## <a name="identity"></a>Identitet
 
-| Säkerhets kontroll | Ja/nej | Anteckningar|
+| Säkerhetskontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Autentisering| Gäller inte |  |
-| Auktorisering| Gäller inte |  |
+| Autentisering| Ej tillämpligt |  |
+| Auktorisering| Ej tillämpligt |  |
 
 ## <a name="data-protection"></a>Dataskydd
 
-| Säkerhets kontroll | Ja/nej | Anteckningar |
+| Säkerhetskontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Gäller inte | |
-| Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Gäller inte | |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Gäller inte | |
-| Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |
-| Krypterade API-anrop| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| Kryptering på serversidan i vila: Microsoft-hanterade nycklar | Ej tillämpligt | |
+| Kryptering under överföring (till exempel ExpressRoute-kryptering, vnet-kryptering och VNet-VNet-kryptering)| Ej tillämpligt | |
+| Kryptering på serversidan i vila: kundhanterade nycklar (BYOK) | Ej tillämpligt | |
+| Kryptering på kolumnnivå (Azure Data Services)| Ej tillämpligt | |
+| API-anrop krypterade| Ja | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-| Säkerhets kontroll | Ja/nej | Anteckningar|
+| Säkerhetskontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Konfigurations hanterings stöd (konfigurations version osv.)| Gäller inte |  | 
+| Stöd för konfigurationshantering (versionshantering av konfiguration osv.)| Ej tillämpligt |  | 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om de [inbyggda säkerhets kontrollerna i Azure-tjänster](../security/fundamentals/security-controls.md).
+- Läs mer om de [inbyggda säkerhetskontrollerna för Azure-tjänster](../security/fundamentals/security-controls.md).

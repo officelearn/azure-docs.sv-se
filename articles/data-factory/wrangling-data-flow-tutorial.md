@@ -1,6 +1,6 @@
 ---
-title: Komma igång med datatransformering Data Flow i Azure Data Factory
-description: En själv studie kurs om hur du förbereder data i Azure Data Factory med datatransformering Data Flow
+title: Komma igång med käbbel dataflöde i Azure Data Factory
+description: En självstudiekurs om hur du förbereder data i Azure Data Factory med hjälp av käbbel dataflöde
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: gamal
@@ -8,53 +8,53 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.openlocfilehash: 8ae109045381dba77610dedc5bb95e233b213eee
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73682268"
 ---
-# <a name="prepare-data-with-wrangling-data-flow"></a>Förbereda data med datatransformering data flöde
+# <a name="prepare-data-with-wrangling-data-flow"></a>Förbereda data med käbbel dataflöde
 
-## <a name="create-a-wrangling-data-flow"></a>Skapa ett datatransformering-dataflöde
+## <a name="create-a-wrangling-data-flow"></a>Skapa ett käbbeldataflöde
 
-Det finns två sätt att skapa ett datatransformering-data flöde i Azure Data Factory. Ett sätt är att klicka på plus ikonen och välja **data flöde** i fönstret fabriks resurser.
+Det finns två sätt att skapa ett käbbeldataflöde i Azure Data Factory. Ett sätt är att klicka på plusikonen och välja **Dataflöde** i fabriksresursfönstret.
 
-![Datatransformering](media/wrangling-data-flow/tutorial7.png)
+![Gräl](media/wrangling-data-flow/tutorial7.png)
 
-Den andra metoden är i fönstret aktiviteter i pipeline-arbetsytan. Öppna draget **flytta och transformera** och dra **data flödes** aktiviteten till arbets ytan.
+Den andra metoden finns i aktivitetsfönstret på pipeline-arbetsytan. Öppna **dragspelet Flytta och omforma** och dra **dataflödesaktiviteten** till arbetsytan.
 
-I båda metoderna, i sidofönstret som öppnas, väljer du **Skapa nytt data flöde** och väljer **datatransformering Data Flow**. Klicka på OK.
+I båda metoderna väljer du **Skapa nytt dataflöde** i sidofönstret och väljer **Dataflöde för Käbbel**. Klicka på OK.
 
-![Datatransformering](media/wrangling-data-flow/tutorial1.png)
+![Gräl](media/wrangling-data-flow/tutorial1.png)
 
-## <a name="author-a-wrangling-data-flow"></a>Redigera ett datatransformering-dataflöde
+## <a name="author-a-wrangling-data-flow"></a>Skapa ett käbbeldataflöde
 
-Lägg till en **käll data uppsättning** för ditt datatransformering-dataflöde. Du kan antingen välja en befintlig data uppsättning eller skapa en ny. Du kan också välja en data uppsättning för mottagare. Du kan välja en eller flera käll data uppsättningar, men endast en mottagare tillåts för tillfället. Det är valfritt att välja en mottagar data uppsättning, men minst en käll data uppsättning krävs.
+Lägg till en **källdatauppsättning** för ditt käbbeldataflöde. Du kan antingen välja en befintlig datauppsättning eller skapa en ny. Du kan också välja en sink-datauppsättning. Du kan välja en eller flera källdatauppsättningar, men bara en diskho tillåts just nu. Det är valfritt att välja en sink-datauppsättning, men minst en källdatauppsättning krävs.
 
 > [!NOTE]
-> Endast ADLS gen 2-avgränsad text stöds för begränsad för hands version. 
+> Endast ADLS Gen 2 Avgränsad text stöds för begränsad förhandsgranskning. 
 
-![Datatransformering](media/wrangling-data-flow/tutorial4.png)
+![Gräl](media/wrangling-data-flow/tutorial4.png)
 
-Klicka på **skapa** för att öppna Power Query online mashup-redigeraren.
+Klicka på **Skapa** för att öppna Power Query Online-mashupredigeraren.
 
-![Datatransformering](media/wrangling-data-flow/tutorial5.png)
+![Gräl](media/wrangling-data-flow/tutorial5.png)
 
-Redigera ditt datatransformering-dataflöde med hjälp av kod fri förberedelse av data. En lista över tillgängliga funktioner finns i [Transformation functions](wrangling-data-flow-functions.md)/
+Skapa ditt käbbel dataflöde med hjälp av kodfria dataförberedelser. En lista över tillgängliga funktioner finns i [omformningsfunktioner](wrangling-data-flow-functions.md)/
 
-![Datatransformering](media/wrangling-data-flow/tutorial6.png)
+![Gräl](media/wrangling-data-flow/tutorial6.png)
 
-## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Köra och övervaka ett datatransformering-dataflöde
+## <a name="running-and-monitoring-a-wrangling-data-flow"></a>Köra och övervaka ett käbbeldataflöde
 
-Om du vill köra en fel söknings körning av en pipeline för ett datatransformering-dataflöde klickar du på **Felsök** i pipeline-arbetsytan. När du har publicerat ditt data flöde kör **utlösaren nu** en körning på begäran av den senast publicerade pipelinen. Datatransformering data flöden kan schemaläggas med alla befintliga Azure Data Factory-utlösare.
+Om du vill köra en pipeline-felsökningskörning av ett käbbeldataflöde klickar du på **Felsök på** pipeline-arbetsytan. När du har publicerat dataflödet kör **Utlösaren nu** en körning på begäran av den senast publicerade pipelinen. Käbbel dataflöden kan schemaläggas med alla befintliga Azure Data Factory-utlösare.
 
-![Datatransformering](media/wrangling-data-flow/tutorial3.png)
+![Gräl](media/wrangling-data-flow/tutorial3.png)
 
-Gå till fliken **övervaka** för att visualisera utdata från en utlöst datatransformering data flödes aktivitet körning.
+Gå till fliken **Bildskärm** om du vill visualisera utdata från en utlöst käbbeldataflödesaktivitetskörning.
 
-![Datatransformering](media/wrangling-data-flow/tutorial2.png)
+![Gräl](media/wrangling-data-flow/tutorial2.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [skapar ett data flöde för mappning](tutorial-data-flow.md).
+Lär dig hur du [skapar ett mappningsdataflöde](tutorial-data-flow.md).

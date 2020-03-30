@@ -1,16 +1,16 @@
 ---
 title: Hantera konsekvens i Azure Cosmos DB
-description: 'Lär dig hur du konfigurerar och hanterar konsekvens nivåer i Azure Cosmos DB att använda Azure Portal, .NET SDK, Java SDK och diverse andra SDK: er'
+description: Lär dig hur du konfigurerar och hanterar konsekvensnivåer i Azure Cosmos DB med Hjälp av Azure-portalen .Net SDK, Java SDK och flera andra SDK:er
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mjbrown
 ms.openlocfilehash: 651daa0af8188b386220d97390e7a61615f94120
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79369413"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Hantera konsekvensnivåer i Azure Cosmos DB
@@ -21,7 +21,7 @@ Den här artikeln förklarar hur du hanterar konsekvensnivåer i Azure Cosmos DB
 
 ## <a name="configure-the-default-consistency-level"></a>Konfigurera standardkonsekvensnivån
 
-[Standard konsekvens nivån](consistency-levels.md) är den konsekvens nivå som klienter använder som standard. Klienter kan alltid åsidosätta den.
+[Standardkonsekvensnivån](consistency-levels.md) är den konsekvensnivå som klienter använder som standard. Klienter kan alltid åsidosätta det.
 
 ### <a name="cli"></a>CLI
 
@@ -35,7 +35,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### <a name="powershell"></a>PowerShell
 
-Det här exemplet skapar ett nytt Azure Cosmos-konto med flera Skriv regioner aktiverade, i regionerna östra USA och västra USA. Standard konsekvens nivån är inställd på konsekvens av *sessioner* .
+I det här exemplet skapas ett nytt Azure Cosmos-konto med flera skrivregioner aktiverade i regioner i östra USA och västra USA. Standardkonsekvensnivån är inställd *på Sessionskonsekvens.*
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -61,15 +61,15 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill visa eller ändra standardkonsekvensnivån loggar du in på Azure-portalen. Hitta ditt Azure Cosmos-konto och öppna fönstret **standard konsekvens** . Välj den konsekvensnivå som du vill ha som den nya standarden, och välj sedan **Spara**. Azure Portal innehåller också en visualisering av olika konsekvens nivåer med noter. 
+Om du vill visa eller ändra standardkonsekvensnivån loggar du in på Azure-portalen. Hitta ditt Azure Cosmos-konto och öppna **fönstret Standardkonsekvens.** Välj den konsekvensnivå som du vill ha som den nya standarden, och välj sedan **Spara**. Azure-portalen tillhandahåller också en visualisering av olika konsekvensnivåer med noter. 
 
 ![Konsekvensmeny på Azure-portalen](./media/how-to-manage-consistency/consistency-settings.png)
 
 ## <a name="override-the-default-consistency-level"></a>Åsidosätta standardkonsekvensnivån
 
-Klienter kan åsidosätta standardkonsekvensnivån som anges av tjänsten. Konsekvens nivå kan ställas in per begäran, vilket åsidosätter standard konsekvens nivån som angetts på konto nivå.
+Klienter kan åsidosätta standardkonsekvensnivån som anges av tjänsten. Konsekvensnivå kan ställas in på en per begäran, vilket åsidosätter standardkonsekvensnivån som angetts på kontonivå.
 
-### <a id="override-default-consistency-dotnet"></a>.NET SDK V2
+### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>.NET SDK V2
 
 ```csharp
 // Override consistency at the client level
@@ -81,7 +81,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
 // Override consistency at the request level via request options
@@ -94,7 +94,7 @@ var response = await client.GetContainer(databaseName, containerName)
         requestOptions);
 ```
 
-### <a id="override-default-consistency-java-async"></a>Java Async SDK
+### <a name="java-async-sdk"></a><a id="override-default-consistency-java-async"></a>Java Async SDK
 
 ```java
 // Override consistency at the client level
@@ -108,7 +108,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="override-default-consistency-java-sync"></a>Java Sync SDK
+### <a name="java-sync-sdk"></a><a id="override-default-consistency-java-sync"></a>Java Sync SDK
 
 ```java
 // Override consistency at the client level
@@ -116,7 +116,7 @@ ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
 
-### <a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript SDK
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
 // Override consistency at the client level
@@ -129,7 +129,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a id="override-default-consistency-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="override-default-consistency-python"></a>Python SDK
 
 ```python
 # Override consistency at the client level
@@ -140,11 +140,11 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 
 ## <a name="utilize-session-tokens"></a>Använda sessionstoken
 
-En av konsekvens nivåerna i Azure Cosmos DB är konsekvens på *sessionen* . Detta är standard nivån som tillämpas på Cosmos-konton som standard. När du arbetar med konsekvens för *sessioner* använder klienten en session-token internt med varje Läs/fråga-begäran för att säkerställa att ange konsekvens nivå.
+En av konsekvensnivåerna i Azure Cosmos DB är *sessionskonsekvens.* Det här är standardnivån som används på Cosmos-konton som standard. När du arbetar med *sessionskonsekvens* använder klienten en sessionstoken internt med varje läs-/frågebegäran för att säkerställa att den inställda konsekvensnivån upprätthålls.
 
 Om du vill hantera sessionstoken manuellt hämtar du sessionstoken från svaret och anger dem per begäran. Om du inte behöver hantera sessionstoken manuellt behöver du inte använda de här exemplen. SDK håller reda på sessionstoken automatiskt. Om du inte anger sessionstoken manuellt använder SDK som standard den senaste sessionstoken.
 
-### <a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
+### <a name="net-sdk-v2"></a><a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -157,7 +157,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
+### <a name="net-sdk-v3"></a><a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -169,7 +169,7 @@ options.SessionToken = sessionToken;
 ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
 
-### <a id="utilize-session-tokens-java-async"></a>Java Async SDK
+### <a name="java-async-sdk"></a><a id="utilize-session-tokens-java-async"></a>Java Async SDK
 
 ```java
 // Get session token from response
@@ -191,7 +191,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a id="utilize-session-tokens-java-sync"></a>Java Sync SDK
+### <a name="java-sync-sdk"></a><a id="utilize-session-tokens-java-sync"></a>Java Sync SDK
 
 ```java
 // Get session token from response
@@ -204,7 +204,7 @@ options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
 
-### <a id="utilize-session-tokens-javascript"></a>Node.js/JavaScript/TypeScript SDK
+### <a name="nodejsjavascripttypescript-sdk"></a><a id="utilize-session-tokens-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
 // Get session token from response
@@ -215,7 +215,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a id="utilize-session-tokens-python"></a>Python SDK
+### <a name="python-sdk"></a><a id="utilize-session-tokens-python"></a>Python SDK
 
 ```python
 // Get the session token from the last response headers
@@ -231,7 +231,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Övervaka PBS-mått (probabilistiskt begränsad föråldring)
 
-Hur eventuell konsekvens fungerar? I genomsnitts fallet kan vi erbjuda inaktuella gränser med avseende på versions historik och-tid. Probabilistically-måttet för [**föråldrad (PBS)** ](https://pbs.cs.berkeley.edu/) försöker kvantifiera sannolikheten för inaktuellhet och visar det som ett mått. Om du vill visa PBS-måttet går du till ditt Azure Cosmos-konto i Azure Portal. Öppna fönstret **mått** och välj fliken **konsekvens** . titta på diagrammet med namnet **sannolikhet för starkt konsekventa läsningar baserat på din arbets belastning (se PBS)** .
+Hur slutlig är eventuell konsekvens? För det genomsnittliga fallet, kan vi erbjuda unkenhet gränser med avseende på versionshistorik och tid. [**Probabilistically Bounded Staleness (PBS)**](https://pbs.cs.berkeley.edu/) försöker kvantifiera sannolikheten för föråldring och visar det som ett mått. Om du vill visa PBS-måttet går du till ditt Azure Cosmos-konto i Azure-portalen. Öppna fönstret Mått och välj fliken **Konsekvens.** Titta på diagrammet **Sannolikheten för starkt konsekventa läsningar baserat på din arbetsbelastning (se PBS).** **Metrics**
 
 ![PBS-graf i Azure-portalen](./media/how-to-manage-consistency/pbs-metric.png)
 
@@ -240,9 +240,9 @@ Hur eventuell konsekvens fungerar? I genomsnitts fallet kan vi erbjuda inaktuell
 
 Läs mer om hur du hanterar datakonflikter eller gå vidare till nästa viktiga begrepp i Azure Cosmos DB. Se följande artiklar:
 
-* [Konsekvens nivåer i Azure Cosmos DB](consistency-levels.md)
+* [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md)
 * [Hantera konflikter mellan regioner](how-to-manage-conflicts.md)
 * [Partitionering och datadistribution](partition-data.md)
-* [Konsekvens i moderna distribuerade databas system design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [Konsekvens kompromisser i modern distribuerad databas system design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 * [Hög tillgänglighet](high-availability.md)
-* [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [DLA för Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

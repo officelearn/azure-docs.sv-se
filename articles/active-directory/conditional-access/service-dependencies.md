@@ -1,6 +1,6 @@
 ---
-title: Tjänst beroenden för villkorlig åtkomst – Azure Active Directory
-description: Lär dig hur villkor används i Azure Active Directory villkorlig åtkomst för att utlösa en princip.
+title: Tjänstberoenden för villkorlig åtkomst - Azure Active Directory
+description: Lär dig hur villkor används i Azure Active Directory Villkorlig åtkomst för att utlösa en princip.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,55 +12,55 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b39238575c05d35a2d87999e08c49c0c77e99bfb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74380016"
 ---
-# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Vad är tjänst beroenden i Azure Active Directory villkorlig åtkomst? 
+# <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Vad är tjänstberoenden i Azure Active Directory Villkorlig åtkomst? 
 
-Med principer för villkorlig åtkomst kan du ange åtkomst krav för webbplatser och tjänster. Åtkomst kraven kan till exempel innefatta krav på Multi-Factor Authentication (MFA) eller [hanterade enheter](require-managed-devices.md). 
+Med principer för villkorlig åtkomst kan du ange åtkomstkrav för webbplatser och tjänster. Dina åtkomstkrav kan till exempel omfatta krav på MFA (Multi Factor Authentication) eller [hanterade enheter](require-managed-devices.md). 
 
-När du ansluter till en webbplats eller tjänst direkt är effekten av en relaterad princip vanligt vis lätt att utvärdera. Om du till exempel har en princip som kräver MFA för SharePoint Online, tvingas MFA för varje inloggning till SharePoint-webbportalen. Det är dock inte alltid rakt framåt för att bedöma effekten av en princip eftersom det finns molnappar med beroenden till andra molnappar. Microsoft Teams kan till exempel ge åtkomst till resurser i SharePoint Online. När du har åtkomst till Microsoft Teams i vårt nuvarande scenario, omfattas du också av SharePoint MFA-principen.   
+När du öppnar en webbplats eller tjänst direkt är effekten av en relaterad princip vanligtvis lätt att bedöma. Om du till exempel har en princip som kräver att MFA för SharePoint Online är konfigurerad, tillämpas MFA för varje inloggning till SharePoint-webbportalen. Det är dock inte alltid rakt fram att bedöma effekten av en princip eftersom det finns molnappar med beroenden till andra molnappar. Microsoft Teams kan till exempel ge åtkomst till resurser i SharePoint Online. Så när du öppnar Microsoft Teams i vårt nuvarande scenario omfattas du också av SharePoint MFA-principen.   
 
 ## <a name="policy-enforcement"></a>Policyframtvingande 
 
-Om ett tjänst beroende har kon figurer ATS kan principen tillämpas med hjälp av en tidig eller sen begränsad tvångs åtgärd. 
+Om du har konfigurerat ett tjänstberoende kan principen tillämpas med hjälp av tidig eller sen tvingande efterlevnad. 
 
-- **Tidig bindning av principer** innebär att en användare måste uppfylla den beroende tjänst principen innan de får åtkomst till den anropande appen. En användare måste till exempel uppfylla SharePoint-principer innan de kan logga in på MS Teams. 
-- **Princip för sent kopplade principer** inträffar när användaren loggar in på den anropande appen. Tvångs åtgärd uppskjuts vid anrop av app-begäranden, en token för den underordnade tjänsten. Exempel är MS Teams som har åtkomst till Planner och Office.com åtkomst till SharePoint. 
+- **Tidig principförseleving** innebär att en användare måste uppfylla den beroende tjänstprincipen innan han öppnar den anropande appen. En användare måste till exempel uppfylla SharePoint-principen innan han eller hon loggar in på MS Teams. 
+- **Sen principkontroll** sker när användaren loggar in på den anropande appen. Tvingande skjuts upp till när appbegäranden anropas, en token för tjänsten nedströms. Exempel är MS Teams som använder Planner och Office.com åtkomst till SharePoint. 
 
-Diagrammet nedan illustrerar MS Teams tjänst beroenden. Fyllda pilar visar tidig, tvingande, den streckade pilen för Planner anger att tvångs tvångs åtgärd ska verkställas. 
+Diagrammet nedan illustrerar MS Teams tjänstberoenden. Heldragna pilar indikerar tidig bunden verkställighet den streckade pilen för Planner indikerar sen bunden verkställighet. 
 
-![MS Teams tjänst beroenden](./media/service-dependencies/01.png)
+![SERVICEberoenden för MS Teams](./media/service-dependencies/01.png)
 
-Som bästa praxis bör du ställa in gemensamma principer för relaterade appar och tjänster närhelst det är möjligt. Med en konsekvent säkerhets position får du den bästa användar upplevelsen. Om du till exempel anger en gemensam princip för Exchange Online, SharePoint Online, Microsoft Teams och Skype för företag, minskas avsevärt oväntade frågor som kan uppstå från olika principer som tillämpas på underordnade tjänster. 
+Du bör också ange gemensamma principer för relaterade appar och tjänster när det är möjligt. Att ha en konsekvent säkerhetsställning ger dig den bästa användarupplevelsen. Om du till exempel anger en gemensam princip i Exchange Online, SharePoint Online, Microsoft Teams och Skype för företag minskar antalet oväntade uppmaningar som kan uppstå från olika policyer som tillämpas på underordnade tjänster. 
 
-I tabellen nedan visas ytterligare tjänst beroenden där klient programmen måste uppfylla  
+I tabellen nedan visas ytterligare tjänstberoenden, där klientapparna måste uppfylla  
 
-| Klient program         | Underordnad tjänst                          | Lås |
+| Klientappar         | Nedströms tjänst                          | Verkställighet |
 | :--                 | :--                                         | ---         | 
-| Azure Data Lake     | Microsoft Azure hantering (portal och API) | Tidig bindning |
-| Microsoft Classroom | Exchange                                    | Tidig bindning |
-|                     | SharePoint                                  | Tidig bindning |
-| Microsoft Teams     | Exchange                                    | Tidig bindning |
-|                     | MS Planner                                  | Sent knuten  |
-|                     | SharePoint                                  | Tidig bindning |
-|                     | Skype för företag – Online                   | Tidig bindning |
-| Office-portalen       | Exchange                                    | Sent knuten  |
-|                     | SharePoint                                  | Sent knuten  |
-| Outlook-grupper      | Exchange                                    | Tidig bindning |
-|                     | SharePoint                                  | Tidig bindning |
-| PowerApps           | Microsoft Azure hantering (portal och API) | Tidig bindning |
-|                     | Windows Azure Active Directory              | Tidig bindning |
-| Project             | Dynamics CRM                                | Tidig bindning |
-| Skype för företag  | Exchange                                    | Tidig bindning |
-| Visual Studio       | Microsoft Azure hantering (portal och API) | Tidig bindning |
-| Microsoft Forms     | Exchange                                    | Tidig bindning |
-|                     | SharePoint                                  | Tidig bindning |
-| Microsoft To-Do     | Exchange                                    | Tidig bindning |
+| Azure Data Lake     | Microsoft Azure Management (portal och API) | Tidigt bunden |
+| Microsoft-klassrum | Exchange                                    | Tidigt bunden |
+|                     | SharePoint                                  | Tidigt bunden |
+| Microsoft Teams     | Exchange                                    | Tidigt bunden |
+|                     | MS-planerare                                  | Sen bunden  |
+|                     | SharePoint                                  | Tidigt bunden |
+|                     | Skype för företag – Online                   | Tidigt bunden |
+| Office-portal       | Exchange                                    | Sen bunden  |
+|                     | SharePoint                                  | Sen bunden  |
+| Outlook-grupper      | Exchange                                    | Tidigt bunden |
+|                     | SharePoint                                  | Tidigt bunden |
+| PowerApps           | Microsoft Azure Management (portal och API) | Tidigt bunden |
+|                     | Windows Azure Active Directory              | Tidigt bunden |
+| Project             | Dynamics CRM                                | Tidigt bunden |
+| Skype för företag  | Exchange                                    | Tidigt bunden |
+| Visual Studio       | Microsoft Azure Management (portal och API) | Tidigt bunden |
+| Microsoft Forms     | Exchange                                    | Tidigt bunden |
+|                     | SharePoint                                  | Tidigt bunden |
+| Microsoft To-Do     | Exchange                                    | Tidigt bunden |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du implementerar villkorlig åtkomst i din miljö finns i [Planera din distribution av villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md).
+Mer information om hur du implementerar villkorlig åtkomst i din miljö finns i [Planera distributionen för villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md).

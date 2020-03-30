@@ -1,6 +1,6 @@
 ---
-title: Expandera OS-enheten för en virtuell Windows-dator i en Azure
-description: Expandera storleken på operativ system enheten för en virtuell dator med hjälp av Azure PowerShell i distributions modellen för Resource Manager.
+title: Expandera os-enheten för en Windows-virtuell dator i en Azure
+description: Expandera storleken på OS-enheten för en virtuell dator med Azure Powershell i Resurshanterarens distributionsmodell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: kirpasingh
@@ -16,24 +16,24 @@ ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
 ms.openlocfilehash: c76f57d15cd4cbdad5ded3b7545aab4d57272a50
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74033503"
 ---
-# <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Expandera OS-enheten för en virtuell dator
+# <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Utöka operativsystemenheten för en virtuell dator
 
-När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en avbildning från [Azure Marketplace](https://azure.microsoft.com/marketplace/), är standard operativ system enheten ofta 127 GB (vissa avbildningar har mindre disk storlekar för operativ system som standard). Även om det är möjligt att lägga till datadiskar i den virtuella datorn (hur många beror på vilken SKU som har valts) rekommenderas du att installera program och processorintensiva arbetsbelastningar på de här tilläggsdiskarna eftersom kunder ofta behöver expandera operativsystemenheten för att kunna hantera följande typ av scenarier:
+När du skapar en ny virtuell dator (VM) i en resursgrupp genom att distribuera en avbildning från [Azure Marketplace](https://azure.microsoft.com/marketplace/)är standardoperativsystemet ofta 127 GB (vissa avbildningar har mindre diskstorlekar för operativsystem som standard). Även om det är möjligt att lägga till datadiskar i den virtuella datorn (hur många beror på vilken SKU som har valts) rekommenderas du att installera program och processorintensiva arbetsbelastningar på de här tilläggsdiskarna eftersom kunder ofta behöver expandera operativsystemenheten för att kunna hantera följande typ av scenarier:
 
 - Stöd för äldre program som installerar komponenter på operativsystemenheten.
 - Migrera en fysisk eller virtuell dator från lokal plats med större operativsystemenhet.
 
 
 > [!IMPORTANT]
-> Att ändra storlek på operativ system disken för en virtuell Azure-dator kräver att den virtuella datorn frigörs.
+> Om du ändrar storlek på OS-disken på en virtuell Azure-dator måste den virtuella datorn hanteras.
 >
-> När du har expanderat diskarna måste du [expandera volymen i operativ systemet](#expand-the-volume-within-the-os) för att dra nytta av den större disken.
+> När du har expanderat diskarna måste du [utöka volymen i operativsystemet](#expand-the-volume-within-the-os) för att dra nytta av den större disken.
 > 
 
 
@@ -44,7 +44,7 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
 
 Öppna Powershell ISE eller Powershell-fönstret i administrativt läge och följ anvisningarna nedan:
 
-1. Logga in på ditt Microsoft Azure-konto i resurs hanterings läge och välj din prenumeration på följande sätt:
+1. Logga in på ditt Microsoft Azure-konto i resurshanteringsläge och välj din prenumeration på följande sätt:
    
    ```powershell
    Connect-AzAccount
@@ -66,7 +66,7 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
     ```Powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. Hämta en referens till den hanterade OS-disken. Ställ in storleken på den hanterade OS-disken på önskat värde och uppdatera disken enligt följande:
+5. Hämta en referens till den hanterade OS-disken. Ange storleken på den hanterade OS-disken till önskat värde och uppdatera disken enligt följande:
    
    ```Powershell
    $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
@@ -74,7 +74,7 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
    Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
    ```   
    > [!WARNING]
-   > Den nya storleken måste vara större än den befintliga. Det högsta tillåtna antalet är 2048 GB för OS-diskar. (Det går att expandera VHD-blobben utöver den storleken, men operativ systemet kommer bara att kunna arbeta med de första 2048 GB utrymme.)
+   > Den nya storleken måste vara större än den befintliga. Det högsta tillåtna är 2048 GB för OS-diskar. (Det är möjligt att expandera VHD blob utöver den storleken, men operativsystemet kommer bara att kunna arbeta med den första 2048 GB utrymme.)
    > 
    > 
 6. Det kan ta några sekunder att uppdatera den virtuella datorn. När kommandot har körts klart startar du om den virtuella datorn på följande sätt:
@@ -85,11 +85,11 @@ När du skapar en ny virtuell dator i en resurs grupp genom att distribuera en a
 
 Klart! Anslut till den virtuella datorn via RDP, öppna Datorhantering (eller Diskhantering) och expandera enheten med det nya utrymmet.
 
-## <a name="resize-an-unmanaged-disk"></a>Ändra storlek på en ohanterad disk
+## <a name="resize-an-unmanaged-disk"></a>Ändra storlek på en ohanterlig disk
 
 Öppna Powershell ISE eller Powershell-fönstret i administrativt läge och följ anvisningarna nedan:
 
-1. Logga in på ditt Microsoft Azure-konto i resurs hanterings läge och välj din prenumeration på följande sätt:
+1. Logga in på ditt Microsoft Azure-konto i resurshanteringsläge och välj din prenumeration på följande sätt:
    
    ```Powershell
    Connect-AzAccount
@@ -111,7 +111,7 @@ Klart! Anslut till den virtuella datorn via RDP, öppna Datorhantering (eller Di
     ```Powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. Ange storleken på den ohanterade OS-disken till önskat värde och uppdatera den virtuella datorn enligt följande:
+5. Ange storleken på den ohanterat OS-disken till önskat värde och uppdatera den virtuella datorn enligt följande:
    
    ```Powershell
    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
@@ -119,7 +119,7 @@ Klart! Anslut till den virtuella datorn via RDP, öppna Datorhantering (eller Di
    ```
    
    > [!WARNING]
-   > Den nya storleken måste vara större än den befintliga. Det högsta tillåtna antalet är 2048 GB för OS-diskar. (Det går att expandera VHD-blobben utöver den storleken, men operativ systemet kommer bara att kunna arbeta med de första 2048 GB utrymme.)
+   > Den nya storleken måste vara större än den befintliga. Det högsta tillåtna är 2048 GB för OS-diskar. (Det är möjligt att expandera VHD blob utöver den storleken, men operativsystemet kommer bara att kunna arbeta med den första 2048 GB utrymme.)
    > 
    > 
    
@@ -164,9 +164,9 @@ Update-AzVM -ResourceGroupName $rgName -VM $vm
 Start-AzVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="resizing-data-disks"></a>Ändra storlek på data diskar
+## <a name="resizing-data-disks"></a>Ändra storlek på datadiskar
 
-Den här artikeln fokuserar främst på att utöka den virtuella datorns OS-disk, men skriptet kan också användas för att utöka data diskarna som är anslutna till den virtuella datorn. Om du exempelvis vill expandera den första disken som är ansluten till den virtuella datorn, ersätter du objektet `OSDisk` i `StorageProfile` med matrisen `DataDisks` och använder ett numeriskt index för att hämta en referens till den första anslutna disken, på följande sätt:
+Den här artikeln fokuserar främst på att utöka OS-disken för den virtuella datorn, men skriptet kan också användas för att expandera datadiskar som är anslutna till den virtuella datorn. Om du exempelvis vill expandera den första disken som är ansluten till den virtuella datorn, ersätter du objektet `OSDisk` i `StorageProfile` med matrisen `DataDisks` och använder ett numeriskt index för att hämta en referens till den första anslutna disken, på följande sätt:
 
 **Hanterad disk**
 
@@ -176,7 +176,7 @@ $disk.DiskSizeGB = 1023
 ```
 
 
-**Ohanterad disk**
+**Ohanterd disk**
 
 ```powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
@@ -184,7 +184,7 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 
 
 
-På samma sätt kan du referera till andra data diskar som är anslutna till den virtuella datorn, antingen genom att använda ett index som visas ovan eller på diskens **namn** egenskap:
+På samma sätt kan du referera till andra datadiskar som är kopplade till den virtuella datorn, antingen genom att använda ett index som visas ovan eller egenskapen **Name** på disken:
 
 
 **Hanterad disk**
@@ -193,27 +193,27 @@ På samma sätt kan du referera till andra data diskar som är anslutna till den
 (Get-AzDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```
 
-**Ohanterad disk**
+**Ohanterd disk**
 
 ```powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
 ```
 
-## <a name="expand-the-volume-within-the-os"></a>Expandera volymen i operativ systemet
+## <a name="expand-the-volume-within-the-os"></a>Expandera volymen i operativsystemet
 
-När du har expanderat disken för den virtuella datorn måste du gå till operativ systemet och expandera volymen för att omfatta det nya utrymmet. Det finns flera metoder för att expandera en partition. I det här avsnittet beskrivs hur du ansluter den virtuella datorn via en RDP-anslutning för att expandera partitionen med **DiskPart**.
+När du har expanderat disken för den virtuella datorn måste du gå in i operativsystemet och utöka volymen till att omfatta det nya utrymmet. Det finns flera metoder för att expandera en partition. Det här avsnittet omfattar anslutning av den virtuella datorn med en RDP-anslutning för att expandera partitionen med **DiskPart**.
 
 1. Öppna en RDP-anslutning till den virtuella datorn.
 
-2.  Öppna en kommando tolk och skriv **DiskPart**.
+2.  Öppna en kommandotolk och skriv **diskpart**.
 
-2.  Skriv `list volume`i **DiskPart** -prompten. Anteckna den volym som du vill utöka.
+2.  Skriv i `list volume` **diskpart-prompten** . Anteckna den volym som du vill utöka.
 
-3.  Skriv `select volume <volumenumber>`i **DiskPart** -prompten. Detta väljer den volym *volumenumber* som du vill utöka till ett sammanhängande, tomt utrymme på samma disk.
+3.  Skriv i `select volume <volumenumber>` **diskpart-prompten** . Då markeras det *volymvolymnummer* som du vill utöka till angränsande, tomt utrymme på samma disk.
 
-4.  Skriv `extend [size=<size>]`i **DiskPart** -prompten. Detta utökar den valda volymen efter *storlek* i megabyte (MB).
+4.  Skriv i `extend [size=<size>]` **diskpart-prompten** . Detta utökar den valda volymen efter *storlek* i megabyte (MB).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också ansluta diskar med hjälp av [Azure Portal](attach-managed-disk-portal.md).
+Du kan också bifoga diskar med [Azure-portalen](attach-managed-disk-portal.md).

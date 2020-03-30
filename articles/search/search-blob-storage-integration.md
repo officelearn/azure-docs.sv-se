@@ -1,7 +1,7 @@
 ---
-title: Lägg till fullständig texts ökning i Azure Blob Storage
+title: Lägga till fulltextsökning i Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Extrahera innehåll och Lägg till struktur i Azure-blobbar när du skapar ett fullständigt texts öknings index i Azure kognitiva ök.
+description: Extrahera innehåll och lägga till struktur i Azure-blobbar när du skapar ett fulltextsökindex i Azure Cognitive earch.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,66 +9,66 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: af7d04bd74ada296b9f0e0f7c149c2a781cec579
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73496486"
 ---
-# <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Lägg till fullständig texts ökning i Azure blob-data med Azure Kognitiv sökning
+# <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Lägga till fulltextsökning i Azure-blobdata med Azure Cognitive Search
 
-Det kan vara svårt att söka igenom olika innehålls typer som lagras i Azure Blob Storage. Du kan dock indexera och söka i innehållet i dina blobbar på bara några få klick genom att använda [Azure kognitiv sökning](search-what-is-azure-search.md). Azure Kognitiv sökning har inbyggd integrering för indexering av blob-lagring via en [*BLOB-indexerare*](search-howto-indexing-azure-blob-storage.md) som lägger till data käll känsliga funktioner för indexering.
+Att söka över de olika innehållstyper som lagras i Azure Blob-lagring kan vara ett svårt problem att lösa. Du kan dock indexera och söka efter innehållet i dina Blobbar med bara några klick med hjälp av [Azure Cognitive Search](search-what-is-azure-search.md). Azure Cognitive Search har inbyggd integrering för indexering av Blob-lagring via en [*Blob-indexerare*](search-howto-indexing-azure-blob-storage.md) som lägger till data-källmedvetna funktioner i indexeringen.
 
-## <a name="what-it-means-to-add-full-text-search-to-blob-data"></a>Det innebär att du kan lägga till full texts ökning till BLOB-data
+## <a name="what-it-means-to-add-full-text-search-to-blob-data"></a>Vad det innebär att lägga till fulltextsökning i blob-data
 
-Azure Kognitiv sökning är en moln Sök tjänst som tillhandahåller indexerings-och sökmotorer som använder användardefinierade index som finns på din Sök tjänst. Att samplacera ditt sökbara innehåll med frågemotor i molnet är nödvändigt för prestanda och returnerar resultat till en hastighet som användare har förväntat sig från Sök frågor.
+Azure Cognitive Search är en molnsöktjänst som tillhandahåller indexerings- och frågemotorer som fungerar över användardefinierade index som finns på söktjänsten. Att samlokalisera ditt sökbara innehåll med frågemotorn i molnet är nödvändigt för prestanda, och returnera resultat med en hastighet som användarna har kommit att förvänta sig av sökfrågor.
 
-Azure Kognitiv sökning integreras med Azure Blob Storage i indexerings skiktet, så att du kan importera ditt BLOB-innehåll som sökdokument som är indexerade i *inverterade index* och andra frågegrupper som stöder text frågor för fri formulär och filter uttryck . Eftersom ditt BLOB-innehåll är indexerat i ett sökindex kan åtkomst till BLOB-innehåll utnyttja hela antalet fråge funktioner i Azure Kognitiv sökning.
+Azure Cognitive Search integreras med Azure Blob-lagring på indexeringslagret och importerar blob-innehåll som sökdokument som indexeras *till inverterade index* och andra frågestrukturer som stöder textfrågor och filteruttryck i fri form. Eftersom blob-innehållet indexeras till ett sökindex kan åtkomst till blob-innehåll utnyttja hela skalan av frågefunktioner i Azure Cognitive Search.
 
-När indexet har skapats och fyllts i finns det oberoende av BLOB-behållaren, men du kan köra om indexerings åtgärder för att uppdatera indexet med ändringar i den underliggande behållaren. Tidsstämpel-information om enskilda blobbar används för ändrings identifiering. Du kan välja antingen schemalagd körning eller indexering på begäran som uppdaterings metod.
+När indexet har skapats och fyllts i finns det oberoende av blob-behållaren, men du kan köra indexeringsåtgärder igen för att uppdatera indexet med ändringar i den underliggande behållaren. Tidsstämpelinformation om enskilda blobbar används för ändringsidentifiering. Du kan välja antingen schemalagd körning eller indexering på begäran som uppdateringsmekanism.
 
-Indata är dina blobbar i en enda behållare i Azure Blob Storage. Blobbar kan vara nästan alla typer av text data. Om Blobbarna innehåller bilder kan du lägga till [AI-anrikning till BLOB-indexering](search-blob-ai-integration.md) för att skapa och extrahera text från bilder.
+Indata är dina blobbar, i en enda behållare, i Azure Blob-lagring. Blobbar kan vara nästan alla typer av textdata. Om blobbar innehåller bilder kan du lägga till [AI-anrikning i blobindexering](search-blob-ai-integration.md) för att skapa och extrahera text från bilder.
 
-Utdata är alltid ett Azure Kognitiv sökning-index som används för snabb texts ökning, hämtning och utforskning i klient program. I mellan är själva arkitekturen för indexerings pipelinen. Pipelinen baseras på *indexerings* funktionen, som beskrivs i den här artikeln.
+Utdata är alltid ett Azure Cognitive Search-index som används för snabb textsökning, hämtning och utforskning i klientprogram. Däremellan är indexering pipeline arkitekturen själv. Pipelinen är baserad på *indexerfunktionen,* som diskuteras vidare i den här artikeln.
 
-## <a name="start-with-services"></a>Starta med tjänster
+## <a name="start-with-services"></a>Börja med tjänster
 
-Du behöver Azure Kognitiv sökning och Azure Blob Storage. I Blob Storage behöver du en behållare som tillhandahåller käll innehåll.
+Du behöver Azure Cognitive Search och Azure Blob-lagring. I Blob-lagring behöver du en behållare som tillhandahåller källinnehåll.
 
-Du kan starta direkt på din Portal sida för lagrings konto. På den vänstra navigerings sidan, under **BLOB service** klickar du på **Lägg till Azure-kognitiv sökning** för att skapa en ny tjänst eller välja en befintlig. 
+Du kan börja direkt på portalsidan för lagringskontot. Klicka på **Lägg till Azure Cognitive Search** under **Blob-tjänsten** på den vänstra navigeringssidan för att skapa en ny tjänst eller välja en befintlig. 
 
-När du har lagt till Azure-Kognitiv sökning till ditt lagrings konto kan du följa standard processen för att indexera BLOB-data. Vi rekommenderar guiden **Importera data** i Azure kognitiv sökning för en enkel inledande introduktion eller anropa REST-API: er med hjälp av ett verktyg som Postman. I den här självstudien får du stegvisa anvisningar om hur du anropar REST API i Postman: [index och söker i semi-strukturerade data (JSON-blobbar) i Azure kognitiv sökning](search-semi-structured-data.md). 
+När du har lagt till Azure Cognitive Search i ditt lagringskonto kan du följa standardprocessen för att indexera blob-data. Vi rekommenderar **guiden Importera data** i Azure Cognitive Search för en enkel första introduktion, eller anropa REST-API:erna med ett verktyg som Postman. Den här självstudien går igenom stegen för att anropa REST API i Postman: [Index och sök efter semistrukturerade data (JSON-blobbar) i Azure Cognitive Search](search-semi-structured-data.md). 
 
-## <a name="use-a-blob-indexer"></a>Använda en BLOB-indexerare
+## <a name="use-a-blob-indexer"></a>Använda en Blob-indexerare
 
-En *indexerare* är en data källa medveten under tjänst som är utrustad med intern logik för att sampla data, läsa metadata, hämta data och serialisera data från interna format till JSON-dokument för efterföljande import. 
+En *indexerare* är en data-källmedveten undertjänst utrustad med intern logik för samplingsdata, läsning av metadatadata, hämtning av data och serialisering av data från inbyggda format i JSON-dokument för efterföljande import. 
 
-Blobbar i Azure Storage indexeras med hjälp av [Azure kognitiv sökning Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md). Du kan anropa denna indexerare med hjälp av guiden **Importera data** , en REST API eller .NET SDK. I kod använder du denna indexerare genom att ange typ och genom att tillhandahålla anslutnings information som innehåller ett Azure Storage konto tillsammans med en BLOB-behållare. Du kan ange en delmängd av Blobbarna genom att skapa en virtuell katalog som du sedan kan skicka som en parameter eller genom att filtrera efter fil typs tillägg.
+Blobbar i Azure Storage indexeras med hjälp av [Azure Cognitive Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md). Du kan anropa den här indexeraren med hjälp av **guiden Importera data,** ett REST API eller .NET SDK. I kod använder du den här indexeraren genom att ange typen och genom att tillhandahålla anslutningsinformation som innehåller ett Azure Storage-konto tillsammans med en blob-behållare. Du kan dela upp blobbar genom att skapa en virtuell katalog, som du sedan kan skicka som en parameter, eller genom att filtrera på ett filtypstillägg.
 
-En indexerare gör "dokument sprickor" och öppnar en BLOB för att granska innehåll. När du har anslutit till data källan är det första steget i pipelinen. För BLOB-data är detta var PDF, Office-dokument och andra innehålls typer identifieras. Dokument sprickor med text extrahering är ingen kostnad. Om dina blobbar innehåller bild innehåll, ignoreras bilderna om du inte [lägger till AI-berikning](search-blob-ai-integration.md). Standard indexering gäller endast för text innehåll.
+En indexerare gör "dokumentsprickor", vilket öppnar en blob för att granska innehållet. När du har anslutit till datakällan är det det första steget i pipelinen. För blob-data är det här PDF, office-dokument och andra innehållstyper identifieras. Dokumentsprickor med textextrahering är ingen kostnad. Om blobbar innehåller bildinnehåll ignoreras bilder om du inte [lägger till AI-anrikning](search-blob-ai-integration.md). Standardindexering gäller endast för textinnehåll.
 
-BLOB-indexeraren innehåller konfigurations parametrar och stöder ändrings spårning om underliggande data innehåller tillräckligt med information. Du kan lära dig mer om kärn funktionerna i [Azure kognitiv sökning Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md).
+Blob-indexeraren levereras med konfigurationsparametrar och stöder ändringsspårning om de underliggande data ger tillräcklig information. Du kan läsa mer om kärnfunktionerna i [Azure Cognitive Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md).
 
-### <a name="supported-content-types"></a>Innehålls typer som stöds
+### <a name="supported-content-types"></a>Innehållstyper som stöds
 
-Genom att köra en BLOB-indexerare över en behållare kan du extrahera text och metadata från följande innehålls typer med en enda fråga:
+Genom att köra en Blob-indexerare över en behållare kan du extrahera text och metadata från följande innehållstyper med en enda fråga:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-### <a name="indexing-blob-metadata"></a>Indexera BLOB-metadata
+### <a name="indexing-blob-metadata"></a>Indexera blobmetadata
 
-Ett vanligt scenario som gör det enkelt att sortera genom blobbar av vilken innehålls typ som helst är att indexera både anpassade metadata och system egenskaper för varje blob. På så sätt indexeras information för alla blobbar oavsett dokument typ, som lagras i ett index i din Sök tjänst. Med ditt nya index kan du fortsätta att sortera, filtrera och fasett över allt Blob Storage-innehåll.
+Ett vanligt scenario som gör det enkelt att sortera mellan blobbar av någon innehållstyp är att indexera både anpassade metadata och systemegenskaper för varje blob. På så sätt indexeras information för alla blobbar oavsett dokumenttyp, som lagras i ett index i söktjänsten. Med hjälp av det nya indexet kan du sedan fortsätta att sortera, filtrera och aspekt över allt Blob-lagringsinnehåll.
 
-### <a name="indexing-json-blobs"></a>Indexera JSON-blobbar
-Indexerare kan konfigureras för att extrahera strukturerat innehåll som finns i blobbar som innehåller JSON. En indexerare kan läsa JSON-blobbar och parsa det strukturerade innehållet i lämpliga fält i ett Sök dokument. Indexerare kan också ta blobbar som innehåller en matris med JSON-objekt och mappa varje element till ett separat Sök dokument. Du kan ställa in ett tolknings läge för att påverka typen av JSON-objekt som skapas av indexeraren.
+### <a name="indexing-json-blobs"></a>Indexering JSON blobbar
+Indexerare kan konfigureras för att extrahera strukturerat innehåll som finns i blobbar som innehåller JSON. En indexerare kan läsa JSON-blobbar och tolka det strukturerade innehållet i lämpliga fält i ett sökdokument. Indexerare kan också ta blobbar som innehåller en matris med JSON-objekt och mappa varje element till ett separat sökdokument. Du kan ställa in ett tolkningsläge så att det påverkar den typ av JSON-objekt som skapas av indexeraren.
 
-## <a name="search-blob-content-in-a-search-index"></a>Sök i BLOB-innehåll i ett Sök index 
+## <a name="search-blob-content-in-a-search-index"></a>Söka blob-innehåll i ett sökindex 
 
-Utdata från en indexering är ett sökindex som används för interaktiv utforskning med fri text och filtrerade frågor i en klient app. För inledande utforskning och kontroll av innehåll rekommenderar vi att du börjar med [Sök Utforskaren](search-explorer.md) i portalen för att undersöka dokument strukturen. Du kan använda [enkel](query-simple-syntax.md)frågesyntax, [fullständig frågesyntax](query-lucene-syntax.md)och [syntax för filter uttryck](query-odata-filter-orderby-syntax.md) i Sök Utforskaren.
+Utdata för en indexering är ett sökindex som används för interaktiv utforskning med hjälp av fritext och filtrerade frågor i en klientapp. För inledande utforskning och verifiering av innehåll rekommenderar vi att du börjar med [Search Explorer](search-explorer.md) i portalen för att undersöka dokumentstrukturen. Du kan använda [enkel frågesyntax,](query-simple-syntax.md) [fullständig frågesyntax](query-lucene-syntax.md)och [filteruttryckssyntax](query-odata-filter-orderby-syntax.md) i Sökutforskaren.
 
-En permanent lösning är att samla in indata från frågor och presentera svaret som Sök resultat i ett klient program. I följande C# självstudie förklaras hur du skapar ett sökprogram: [skapa ditt första program i Azure kognitiv sökning](tutorial-csharp-create-first-app.md).
+En mer permanent lösning är att samla in frågeindata och presentera svaret som sökresultat i ett klientprogram. Följande C#-självstudie förklarar hur du skapar ett sökprogram: [Skapa ditt första program i Azure Cognitive Search](tutorial-csharp-create-first-app.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-+ [Ladda upp, ladda ned och lista blobar med Azure Portal (Azure Blob Storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-+ [Konfigurera en BLOB-indexerare (Azure Kognitiv sökning)](search-howto-indexing-azure-blob-storage.md) 
++ [Ladda upp, hämta och lista blobbar med Azure-portalen (Azure Blob storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Konfigurera en blob-indexerare (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 

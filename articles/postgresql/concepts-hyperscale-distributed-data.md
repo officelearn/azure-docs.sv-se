@@ -1,6 +1,6 @@
 ---
-title: Distribuerade data – storskalig (citus) – Azure Database for PostgreSQL
-description: Lär dig mer om distribuerade tabeller, referens tabeller, lokala tabeller och Shards i Azure Database for PostgreSQL.
+title: Distribuerade data – Hyperskala (Citus) – Azure-databas för PostgreSQL
+description: Lär dig mer om distribuerade tabeller, referenstabeller, lokala tabeller och shards i Azure Database för PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,50 +8,50 @@ ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.openlocfilehash: ade7632dc042741a07bdb59e34e30b3fb464e0e9
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79243658"
 ---
-# <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Distribuerade data i Azure Database for PostgreSQL – storskalig (citus)
+# <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Distribuerade data i Azure Database för PostgreSQL – Hyperskala (Citus)
 
-Den här artikeln beskriver de tre tabell typerna i Azure Database for PostgreSQL – storskalig (citus).
-Det visar hur distribuerade tabeller lagras som Shards och hur Shards placeras på noder.
+I den här artikeln beskrivs de tre tabelltyperna i Azure Database for PostgreSQL – Hyperscale (Citus).
+Den visar hur distribuerade tabeller lagras som shards och hur shards placeras på noder.
 
-## <a name="table-types"></a>Tabell typer
+## <a name="table-types"></a>Tabelltyper
 
-Det finns tre typer av tabeller i en storskalig (citus) Server grupp som används för olika syfte.
+Det finns tre typer av tabeller i en citusservergrupp (Hyperscale), som alla används för olika ändamål.
 
-### <a name="type-1-distributed-tables"></a>Typ 1: distribuerade tabeller
+### <a name="type-1-distributed-tables"></a>Typ 1: Distribuerade tabeller
 
-Den första typen och vanligaste är distribuerade tabeller. De verkar vara normala tabeller i SQL-uttryck, men de är vågrätt partitionerade mellan arbetsnoder. Det innebär att raderna i tabellen lagras på olika noder i fragment tabeller som kallas Shards.
+Den första typen, och vanligaste, är distribuerade tabeller. De verkar vara normala tabeller till SQL-uttryck, men de är vågrätt partitionerade mellan arbetsnoder. Vad detta innebär är att raderna i tabellen lagras på olika noder, i fragmenttabeller som kallas shards.
 
-Storskalig (citus) kör inte bara SQL-och DDL-instruktioner i ett kluster.
-Ändra schemat för en distribuerad tabell sammanhängande för att uppdatera alla tabellens Shards över arbets tagarna.
+Hyperskala (Citus) kör inte bara SQL utan DDL-satser i ett kluster.
+Ändra schemat för en distribuerad tabell kaskad för att uppdatera alla tabellens shards över arbetare.
 
-#### <a name="distribution-column"></a>Distributions kolumn
+#### <a name="distribution-column"></a>Kolumnen Distribution
 
-Storskalig (citus) använder algoritmisk horisontell partitionering för att tilldela rader till Shards. Tilldelningen görs deterministiskt baserat på värdet för en tabell kolumn som kallas för distributions kolumnen. Kluster administratören måste ange den här kolumnen när du distribuerar en tabell.
-Att välja rätt är viktigt för prestanda och funktionalitet.
+Hyperskala (Citus) använder algoritmisk sharding för att tilldela rader till shards. Tilldelningen görs deterministiskt baserat på värdet i en tabellkolumn som kallas distributionskolumnen. Klusteradministratören måste ange den här kolumnen när en tabell distribueras.
+Att göra rätt val är viktigt för prestanda och funktionalitet.
 
-### <a name="type-2-reference-tables"></a>Typ 2: referens tabeller
+### <a name="type-2-reference-tables"></a>Typ 2: Referenstabeller
 
-En referens tabell är en typ av distribuerad tabell vars hela innehåll är koncentrerat till en enda Shard. Shard replikeras på varje arbets tagare. Frågor för alla anställda kan komma åt referensinformationen lokalt utan att det går att begära rader från en annan nod. Referens tabeller har ingen distributions kolumn eftersom det inte finns något behov av att skilja separata Shards per rad.
+En referenstabell är en typ av distribuerad tabell vars hela innehåll är koncentrerat till en enda shard. Fragmentet replikeras på varje arbetare. Frågor om alla arbetare kan komma åt referensinformationen lokalt, utan nätverkets omkostnader för att begära rader från en annan nod. Referenstabeller har ingen distributionskolumn eftersom det inte finns något behov av att skilja mellan separata shards per rad.
 
-Referens tabeller är vanligt vis små och används för att lagra data som är relevanta för frågor som körs på alla Worker-noder. Ett exempel är uppräknade värden som order status eller produkt kategorier.
+Referenstabeller är vanligtvis små och används för att lagra data som är relevanta för frågor som körs på en arbetsnod. Ett exempel är uppräknade värden som orderstatus eller produktkategorier.
 
-### <a name="type-3-local-tables"></a>Typ 3: lokala tabeller
+### <a name="type-3-local-tables"></a>Typ 3: Lokala tabeller
 
-När du använder citus (storskalig) är koordinator-noden som du ansluter till en vanlig PostgreSQL-databas. Du kan skapa vanliga tabeller på koordinatorn och välja att inte Shard dem.
+När du använder Hyperscale (Citus) är den koordinatornod som du ansluter till en vanlig PostgreSQL-databas. Du kan skapa vanliga tabeller på koordinatorn och välja att inte fragmentera dem.
 
-En bra kandidat för lokala tabeller är små administrativa tabeller som inte ingår i kopplings frågor. Ett exempel är en användar tabell för program inloggning och autentisering.
+En bra kandidat för lokala tabeller skulle vara små administrativa tabeller som inte deltar i anslutningsfrågor. Ett exempel är en användartabell för program inloggning och autentisering.
 
-## <a name="shards"></a>Shards
+## <a name="shards"></a>Skärvor
 
-I föregående avsnitt beskrivs hur distribuerade tabeller lagras som Shards på arbetsnoder. I det här avsnittet beskrivs mer teknisk information.
+I föregående avsnitt beskrivs hur distribuerade tabeller lagras som shards på arbetsnoder. I det här avsnittet beskrivs mer tekniska detaljer.
 
-Tabellen `pg_dist_shard` metadata i koordinatorn innehåller en rad för varje Shard för varje distribuerad tabell i systemet. Raden matchar ett Shard-ID med ett heltals intervall i ett hash-utrymme (shardminvalue, shardmaxvalue).
+Metadatatabellen `pg_dist_shard` på koordinatorn innehåller en rad för varje fragment i varje distribuerad tabell i systemet. Raden matchar ett fragment-ID med ett intervall av heltal i ett hash-utrymme (shardminvalue, shardmaxvalue).
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Om koordinator-noden vill bestämma vilken Shard som innehåller en rad med `github_events`hash-kodas värdet för distributions kolumnen på raden. Sedan kontrollerar noden vilken Shard\'s-intervall som innehåller det hashade värdet. Intervallen definieras så att avbildningen av hash-funktionen är sin osammanhängande Union.
+Om koordinatornsnoden vill avgöra vilken `github_events`fragment som innehåller en rad i hashar den värdet för distributionskolumnen på raden. Sedan kontrollerar noden\'vilket fragmentintervall som innehåller hash-värdet. Intervallen definieras så att bilden av hash-funktionen är deras osammanhängande förening.
 
 ### <a name="shard-placements"></a>Shard placeringar
 
-Anta att Shard 102027 är associerat med raden i fråga. Raden läses eller skrivs i en tabell med namnet `github_events_102027` i en av arbets tagarna. Vilken arbetare? Detta fastställs helt av metadata-tabellerna. Mappningen av Shard till Worker kallas för Shard-placering.
+Anta att fragment 102027 är associerad med raden i fråga. Raden läss eller skrivs `github_events_102027` i en tabell som kallas i en av arbetarna. Vilken arbetare? Det bestäms helt av metadatatabellerna. Mappningen av shard till arbetaren kallas fragmentplaceringen.
 
-Koordinator-noden skriver om frågor till fragment som refererar till de tabeller som `github_events_102027` och kör fragmenten på lämpliga arbetare. Här är ett exempel på en fråga som körs bakom kulisserna för att hitta noden som innehåller Shard-ID 102027.
+Koordinatorn nod skriver frågor till fragment som hänvisar `github_events_102027` till specifika tabeller som och kör dessa fragment på lämpliga arbetare. Här är ett exempel på en fråga som körs bakom kulisserna för att hitta noden som innehåller fragment-ID 102027.
 
 ```sql
 SELECT
@@ -91,4 +91,4 @@ WHERE shardid = 102027;
     └─────────┴───────────┴──────────┘
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig hur du [väljer en distributions kolumn](concepts-hyperscale-choose-distribution-column.md) för distribuerade tabeller.
+- Läs om hur du [väljer en distributionskolumn](concepts-hyperscale-choose-distribution-column.md) för distribuerade tabeller.

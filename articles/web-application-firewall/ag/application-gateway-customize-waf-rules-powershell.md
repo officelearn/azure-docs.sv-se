@@ -1,7 +1,7 @@
 ---
 title: Anpassa regler med PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Den här artikeln innehåller information om hur du anpassar brand Väggs regler för webb program i Application Gateway med PowerShell.
+description: Den här artikeln innehåller information om hur du anpassar webbprogram brandväggsregler i Application Gateway med PowerShell.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,23 +9,23 @@ ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
 ms.openlocfilehash: 55eea15da8c3a10b0421ff1576082d6b42fc7c56
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74048509"
 ---
-# <a name="customize-web-application-firewall-rules-using-powershell"></a>Anpassa brand Väggs regler för webb program med PowerShell
+# <a name="customize-web-application-firewall-rules-using-powershell"></a>Anpassa brandväggsregler för webbprogram med PowerShell
 
-Brand väggen för webbaserade program (WAF) i Azure Application Gateway tillhandahåller skydd för webb program. Dessa skydd tillhandahålls av OWASP (Open Web Application Security Project) Core regel set (DATORISERAt). Vissa regler kan orsaka falska positiva identifieringar och blockera verklig trafik. Därför ger Application Gateway möjlighet att anpassa regel grupper och regler. Mer information om de specifika regel grupperna och reglerna finns i [lista över regel grupper och regler för webb programs brand vägg](application-gateway-crs-rulegroups-rules.md)
+Azure Application Gateway Web Application Firewall (WAF) skyddar webbprogram. Dessa skydd tillhandahålls av OWASP-huvudregeluppsättningen (Open Web Application Security Project) (CRS). Vissa regler kan orsaka falska positiva identifieringar och blockera verklig trafik. Därför tillhandahåller Application Gateway möjligheten att anpassa regelgrupper och regler. Mer information om specifika regelgrupper och regler finns i [Lista över CRS-regelgrupper och regler för webbprogram brandvägg.](application-gateway-crs-rulegroups-rules.md)
 
-## <a name="view-rule-groups-and-rules"></a>Visa regel grupper och regler
+## <a name="view-rule-groups-and-rules"></a>Visa regelgrupper och regler
 
-Följande kod exempel visar hur du visar regler och regel grupper som kan konfigureras på en WAF-aktiverad Application Gateway.
+Följande kodexempel visar hur du visar regler och regelgrupper som kan konfigureras på en WAF-aktiverad programgateway.
 
-### <a name="view-rule-groups"></a>Visa regel grupper
+### <a name="view-rule-groups"></a>Visa regelgrupper
 
-I följande exempel visas hur du visar regel grupper:
+I följande exempel visas hur du visar regelgrupper:
 
 ```powershell
 Get-AzApplicationGatewayAvailableWafRuleSets
@@ -85,7 +85,7 @@ OWASP (Ver. 3.0):
 
 ## <a name="disable-rules"></a>Inaktivera regler
 
-I följande exempel inaktive ras regler `911011` och `911012` på en Application Gateway:
+I följande exempel `911011` inaktiveras regler och `911012` en programgateway:
 
 ```powershell
 $disabledrules=New-AzApplicationGatewayFirewallDisabledRuleGroupConfig -RuleGroupName REQUEST-911-METHOD-ENFORCEMENT -Rules 911011,911012
@@ -93,22 +93,22 @@ Set-AzApplicationGatewayWebApplicationFirewallConfiguration -ApplicationGateway 
 Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
-## <a name="mandatory-rules"></a>Obligatoriska regler
+## <a name="mandatory-rules"></a>Tvingande regler
 
-Följande lista innehåller villkor som gör att WAF blockerar begäran i förebyggande läge (i identifierings läge loggas de som undantag). De kan inte konfigureras eller inaktive ras:
+Följande lista innehåller villkor som gör att WAF blockerar begäran i förebyggande läge (i identifieringsläge loggas de som undantag). Dessa kan inte konfigureras eller inaktiveras:
 
-* Det gick inte att parsa begär ande bröd texten i begäran som blockeras, om inte kontroll av brödtext är inaktive rad (XML, JSON, formulär data)
-* Begär ande text (utan filer) data längden är större än den konfigurerade gränsen
-* Begär ande texten (inklusive filer) är större än gränsen
-* Ett internt fel uppstod i WAF-motorn
+* Om begäran inte tolkas resulterar det i att begäran blockeras, såvida inte kroppsinspektionen är inaktiverad (XML, JSON, formulärdata)
+* Datalängden för begäran (utan filer) är större än den konfigurerade gränsen
+* Begärantexten (inklusive filer) är större än gränsen
+* Ett internt fel inträffade i WAF-motorn
 
-Datoriserat boknings system 3. x:
+CRS 3.x specifik:
 
-* Inkommande avvikelse Poäng överskred tröskelvärdet
+* Inkommande avvikelsepoäng överskred tröskelvärdet
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har konfigurerat dina inaktiverade regler kan du lära dig hur du visar dina WAF-loggar. Mer information finns i [Application Gateway Diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+När du har konfigurerat dina inaktiverade regler kan du läsa om hur du visar dina WAF-loggar. Mer information finns i [Diagnostik för programgateway](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png
 [1]: ./media/application-gateway-customize-waf-rules-portal/figure1.png

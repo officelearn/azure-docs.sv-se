@@ -1,7 +1,7 @@
 ---
-title: Anpassat kunskaps exempel som använder API för entitetsökning i Bing
+title: Exempel på anpassad färdighet med api för sökning av Bing-entitet
 titleSuffix: Azure Cognitive Search
-description: Visar hur du använder tjänsten Entitetssökning i Bing i en anpassad färdighet som är mappad till en AI-fördefinierad indexerings pipeline i Azure Kognitiv sökning.
+description: Demonstrerar med hjälp av tjänsten Bing Entitetssökning i en anpassad färdighet som mappas till en AI-berikad indexeringspipeline i Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,47 +9,47 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74113812"
 ---
-# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exempel: skapa en anpassad kunskap med hjälp av API för entitetsökning i Bing
+# <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>Exempel: Skapa en anpassad färdighet med hjälp av API:et för sökning efter Bing-entitet
 
-I det här exemplet lär du dig hur du skapar en anpassad webb-API-färdighet. Den här kunskapen tar emot platser, offentliga uppgifter och organisationer och returnerar beskrivningar för dem. I exemplet används en [Azure-funktion](https://azure.microsoft.com/services/functions/) för att omsluta [API för entitetsökning i Bing](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) så att den implementerar det anpassade kunskaps gränssnittet.
+I det här exemplet lär du dig hur du skapar en anpassad webb-API-färdighet. Den här färdigheten accepterar platser, offentliga personer och organisationer och returnerar beskrivningar för dem. I exemplet används en [Azure-funktion](https://azure.microsoft.com/services/functions/) för att radbryt [API:et för Bing-entitetssökning](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) så att det implementerar det anpassade färdighetsgränssnittet.
 
 ## <a name="prerequisites"></a>Krav
 
-+ Läs om det [anpassade kunskaps gränssnitts](cognitive-search-custom-skill-interface.md) artikel om du inte är bekant med gränssnittet för indata/utdata som en anpassad färdighet ska implementera.
++ Läs om anpassade [färdighetsgränssnittsartikel](cognitive-search-custom-skill-interface.md) om du inte är bekant med indata-/utdatagränssnittet som en anpassad färdighet bör implementera.
 
 + [!INCLUDE [cognitive-services-bing-entity-search-signup-requirements](../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
-+ Installera [Visual Studio 2019](https://www.visualstudio.com/vs/) eller senare, inklusive arbets belastningen Azure Development.
++ Installera [Visual Studio 2019](https://www.visualstudio.com/vs/) eller senare, inklusive Azure-utvecklingsarbetsbelastningen.
 
 ## <a name="create-an-azure-function"></a>Skapa en Azure-funktion
 
-I det här exemplet används en Azure-funktion som värd för ett webb-API, men det är inte obligatoriskt.  Så länge du uppfyller [gränssnitts kraven för en kognitiv skicklighet](cognitive-search-custom-skill-interface.md), är den metod du tar oväsentlig. Azure Functions, gör det dock enkelt att skapa en anpassad färdighet.
+Även om det här exemplet använder en Azure-funktion som värd för ett webb-API, krävs det inte.  Så länge du uppfyller [gränssnittskraven för en kognitiv färdighet](cognitive-search-custom-skill-interface.md)är det tillvägagångssätt du tar oväsentligt. Azure Functions gör det dock enkelt att skapa en anpassad färdighet.
 
 ### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
-1. I Visual Studio väljer du **nytt** > **projekt** på Arkiv-menyn.
+1. Välj **Nytt** > **projekt** på Arkiv-menyn i Visual Studio.
 
-1. I dialog rutan nytt projekt väljer du **installerad** **, expanderar C#**  > **moln**, väljer **Azure Functions**, skriver ett namn för projektet och väljer **OK**. Namnet på Function-appen måste vara giltigt som C# ett namn område, så Använd inte under streck, bindestreck eller andra icke-alfanumeriska tecken.
+1. I dialogrutan Nytt projekt väljer du **Installerad**, expanderar **Visual C#** > **Cloud**, väljer **Azure Functions**, skriver ett namn för projektet och väljer **OK**. Funktionsappnamnet måste vara giltigt som ett C#-namnområde, så använd inte understreck, bindestreck eller andra icke-alfanumeriska tecken.
 
-1. Välj **Azure Functions v2 (.net Core)** . Du kan också göra det med version 1, men koden som skrivs nedan baseras på v2-mallen.
+1. Välj **Azure-funktioner v2 (.NET Core)**. Du kan också göra det med version 1, men koden nedan är baserad på v2-mallen.
 
-1. Välj den typ som ska vara **http-utlösare**
+1. Välj den typ som ska vara **HTTP-utlösare**
 
-1. För lagrings kontot kan du välja **ingen**eftersom du inte behöver något lagrings utrymme för den här funktionen.
+1. För lagringskonto kan du välja **Ingen**, eftersom du inte behöver någon lagring för den här funktionen.
 
-1. Välj **OK** för att skapa funktionen projekt och http-utlöst funktion.
+1. Välj **OK** om du vill skapa funktionen funktionsprojekt och HTTP-utlöst funktion.
 
-### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Ändra koden för att anropa tjänsten Entitetssökning i Bing
+### <a name="modify-the-code-to-call-the-bing-entity-search-service"></a>Ändra koden för att anropa söktjänsten för Bing-entitet
 
 Visual Studio skapar ett projekt och i det en klass som innehåller formaterad exempelkod för den valda typen. Attributet *FunctionName* i metoden anger namnet på funktionen. Attributet *HttpTrigger* anger att funktionen utlöses av en HTTP-förfrågan.
 
-Ersätt nu allt innehåll i filen *Function1.cs* med följande kod:
+Nu, ersätta allt innehåll i filen *Function1.cs* med följande kod:
 
 ```csharp
 using System;
@@ -311,15 +311,15 @@ namespace SampleSkills
 }
 ```
 
-Se till att ange ditt eget *nyckel* värde i `key` konstanten baserat på den nyckel du fick när du registrerade dig för API: et för sökning i Bing-entiteten.
+Se till att ange ditt `key` eget *nyckelvärde* i konstanten baserat på nyckeln du fick när du registrerar dig för Bing-entitetens sök-API.
 
-I det här exemplet ingår all nödvändig kod i en enda fil för enkelhetens skull. Du kan hitta en något mer strukturerad version av samma färdighet i [lagrings platsen för energi kunskaper](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+Det här exemplet innehåller all nödvändig kod i en enda fil för enkelhetens skull. Du kan hitta en något mer strukturerad version av samma färdighet i [power skills-databasen](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
 
-Självklart kan du byta namn på filen från `Function1.cs` till `BingEntitySearch.cs`.
+Naturligtvis kan du byta namn `Function1.cs` på `BingEntitySearch.cs`filen från till .
 
 ## <a name="test-the-function-from-visual-studio"></a>Testa funktionen från Visual Studio
 
-Tryck på **F5** för att köra program-och test funktions beteenden. I det här fallet använder vi funktionen nedan för att leta upp två entiteter. Använd Postman eller Fiddler för att utfärda ett anrop som det som visas nedan:
+Tryck på **F5** för att köra programmet och testa funktionsbeteenden. I det här fallet använder vi funktionen nedan för att slå upp två entiteter. Använd Postman eller Fiddler för att utfärda ett samtal som det som visas nedan:
 
 ```http
 POST https://localhost:7071/api/EntitySearch
@@ -371,23 +371,23 @@ Du bör se ett svar som liknar följande exempel:
 }
 ```
 
-## <a name="publish-the-function-to-azure"></a>Publicera funktionen till Azure
+## <a name="publish-the-function-to-azure"></a>Publicera funktionen i Azure
 
-När du är nöjd med funktions beteendet kan du publicera den.
+När du är nöjd med funktionsbeteendet kan du publicera det.
 
-1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. Välj **Skapa ny** > **publicera**.
+1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**. Välj **Skapa ny** > **publicering**.
 
 1. Om du inte redan har anslutit Visual Studio till ditt Azure-konto väljer du **Lägg till ett konto....**
 
-1. Följ anvisningarna på skärmen. Du uppmanas att ange ett unikt namn för din app service, Azure-prenumerationen, resurs gruppen, värd planen och det lagrings konto som du vill använda. Du kan skapa en ny resurs grupp, en ny värd plan och ett lagrings konto om du inte redan har dessa. När du är färdig väljer du **skapa**
+1. Följ anvisningarna på skärmen. Du uppmanas att ange ett unikt namn för din apptjänst, Azure-prenumerationen, resursgruppen, värdplanen och det lagringskonto som du vill använda. Du kan skapa en ny resursgrupp, en ny värdplan och ett lagringskonto om du inte redan har dessa. När du är klar väljer du **Skapa**
 
-1. När distributionen är klar, Lägg märke till webbplatsens URL. Det är adressen till din Function-app i Azure. 
+1. När distributionen är klar lägger du märke till webbadressen. Det är adressen till din funktionsapp i Azure. 
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till resurs gruppen och letar efter den `EntitySearch`-funktion som du har publicerat. Under avsnittet **Hantera** bör du se värd nycklar. Välj **kopierings** ikonen för *standard* värd nyckeln.  
+1. I [Azure-portalen](https://portal.azure.com)navigerar du till resursgruppen och letar efter den `EntitySearch` funktion som du publicerade. Under avsnittet **Hantera** bör du se Värdnycklar. Välj ikonen **Kopiera** för *standardvärden.*  
 
 ## <a name="test-the-function-in-azure"></a>Testa funktionen i Azure
 
-Nu när du har standard värd nyckeln testar du funktionen enligt följande:
+Nu när du har standardvärdentt för att testa funktionen på följande sätt:
 
 ```http
 POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?code=[enter default host key here]
@@ -415,10 +415,10 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 }
 ```
 
-Det här exemplet bör ge samma resultat som du såg tidigare när du körde funktionen i den lokala miljön.
+Det här exemplet bör ge samma resultat som du såg tidigare när du kör funktionen i den lokala miljön.
 
-## <a name="connect-to-your-pipeline"></a>Anslut till din pipeline
-Nu när du har en ny anpassad färdighet kan du lägga till den i din färdigheter. Exemplet nedan visar hur du anropar kunskapen för att lägga till beskrivningar till organisationer i dokumentet (det kan även utökas för att även fungera på platser och i personer). Ersätt `[your-entity-search-app-name]` med namnet på din app.
+## <a name="connect-to-your-pipeline"></a>Ansluta till pipelinen
+Nu när du har en ny anpassad färdighet kan du lägga till den i din kompetens. Exemplet nedan visar hur du anropar färdigheten för att lägga till beskrivningar till organisationer i dokumentet (detta kan utökas till att även arbeta på platser och personer). Ersätt `[your-entity-search-app-name]` med namnet på appen.
 
 ```json
 {
@@ -446,7 +446,7 @@ Nu när du har en ny anpassad färdighet kan du lägga till den i din färdighet
 }
 ```
 
-Här är vi inräknat på den inbyggda [enhets igenkännings kompetensen](cognitive-search-skill-entity-recognition.md) som ska finnas i färdigheter och för att kunna använda dokumentet med listan över organisationer. För referens är det här en kunskaps konfiguration för enhets extrahering som skulle räcka för att skapa data som vi behöver:
+Här räknar vi med att den inbyggda [entitetsigenkänningsfärdigheten](cognitive-search-skill-entity-recognition.md) ska finnas med i kompetensen och ha berikat dokumentet med organisationslistan. Som referens, här är en enhet extrahering kompetenskonfiguration som skulle vara tillräckligt för att generera de data vi behöver:
 
 ```json
 {
@@ -476,10 +476,10 @@ Här är vi inräknat på den inbyggda [enhets igenkännings kompetensen](cognit
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Gratulerar! Du har skapat din första anpassade färdighet. Nu kan du följa samma mönster för att lägga till dina egna anpassade funktioner. Klicka på följande länkar om du vill veta mer.
+Grattis! Du har skapat din första anpassade färdighet. Nu kan du följa samma mönster för att lägga till dina egna anpassade funktioner. Klicka på följande länkar om du vill veta mer.
 
-+ [Energi kunskaper: ett lager med anpassade kunskaper](https://github.com/Azure-Samples/azure-search-power-skills)
-+ [Lägg till en anpassad färdighet till en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)
-+ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
-+ [Skapa färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Så här mappar du omfattande fält](cognitive-search-output-field-mapping.md)
++ [Power Skills: en databas med anpassade färdigheter](https://github.com/Azure-Samples/azure-search-power-skills)
++ [Lägga till en anpassad färdighet i en AI-anrikningspipeline](cognitive-search-custom-skill-interface.md)
++ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
++ [Skapa skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Så här mappar du berikade fält](cognitive-search-output-field-mapping.md)

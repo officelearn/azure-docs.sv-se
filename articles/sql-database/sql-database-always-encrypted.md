@@ -1,7 +1,7 @@
 ---
-title: Always Encrypted-Windows certifikat Arkiv
-description: Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med databas kryptering med hjälp av guiden Always Encrypted i SQL Server Management Studio (SSMS). Det visar också hur du lagrar dina krypterings nycklar i Windows certifikat arkiv.
-keywords: kryptera data, SQL-kryptering, databas kryptering, känsliga data Always Encrypted
+title: Alltid krypterat – Windows-certifikatarkiv
+description: I den här artikeln visas hur du skyddar känsliga data i en SQL-databas med databaskryptering med hjälp av guiden Alltid krypterad i SQL Server Management Studio (SSMS). Den visar också hur du lagrar krypteringsnycklarna i Windows-certifikatarkivet.
+keywords: kryptera data, sql-kryptering, databaskryptering, känsliga data, Alltid krypterad
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -13,70 +13,70 @@ ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
 ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73822048"
 ---
-# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: skydda känsliga data och lagra krypterings nycklar i Windows certifikat Arkiv
+# <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Alltid krypterad: Skydda känsliga data och lagra krypteringsnycklar i Windows-certifikatarkivet
 
-Den här artikeln visar hur du skyddar känsliga data i en SQL-databas med databas kryptering med hjälp av [guiden Always Encrypted](https://msdn.microsoft.com/library/mt459280.aspx) i [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Det visar också hur du lagrar dina krypterings nycklar i Windows certifikat arkiv.
+I den här artikeln visas hur du skyddar känsliga data i en SQL-databas med databaskryptering med hjälp av [guiden Alltid krypterad](https://msdn.microsoft.com/library/mt459280.aspx) i [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Den visar också hur du lagrar krypteringsnycklarna i Windows-certifikatarkivet.
 
-Always Encrypted är en ny data krypterings teknik i Azure SQL Database och SQL Server som skyddar känsliga data i vila på servern, under förflyttning mellan klient och Server, medan data används, vilket säkerställer att känsliga data aldrig visas som klartext inuti databas systemet. När du har krypterat data kan endast klient program eller App-servrar som har åtkomst till nycklarna komma åt oformaterade data. Detaljerad information finns i [Always Encrypted (databas motor)](https://msdn.microsoft.com/library/mt163865.aspx).
+Always Encrypted är en ny datakrypteringsteknik i Azure SQL Database och SQL Server som hjälper till att skydda känsliga data i vila på servern, under förflyttning mellan klient och server, och medan data används, se till att känsliga data aldrig visas som klartext i databassystemet. När du har krypterat data kan endast klientprogram eller appservrar som har åtkomst till nycklarna komma åt oformaterade data. Detaljerad information finns [i Alltid krypterad (databasmotor).](https://msdn.microsoft.com/library/mt163865.aspx)
 
-När du har konfigurerat databasen att använda Always Encrypted skapar du ett klient program i C# med Visual Studio för att arbeta med krypterade data.
+När du har konfigurerat databasen så att den alltid är krypterad skapar du ett klientprogram i C# med Visual Studio för att arbeta med krypterade data.
 
-Följ stegen i den här artikeln för att lära dig hur du konfigurerar Always Encrypted för en Azure SQL-databas. I den här artikeln får du lära dig hur du utför följande uppgifter:
+Följ stegen i den här artikeln för att lära dig hur du konfigurerar Alltid krypterad för en Azure SQL-databas. I den här artikeln får du lära dig hur du utför följande uppgifter:
 
-* Skapa [Always Encrypted-nycklar](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3)med hjälp av guiden Always Encrypted i SSMS.
-  * Skapa en [kolumn huvud nyckel (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
-  * Skapa en [kolumn krypterings nyckel (CEK)](https://msdn.microsoft.com/library/mt146372.aspx).
-* Skapa en databas tabell och kryptera kolumner.
-* Skapa ett program som infogar, väljer och visar data från de krypterade kolumnerna.
+* Använd guiden Alltid krypterad i SSMS för att skapa [alltid krypterade nycklar](https://msdn.microsoft.com/library/mt163865.aspx#Anchor_3).
+  * Skapa en [kolumnnyckel (CMK)](https://msdn.microsoft.com/library/mt146393.aspx).
+  * Skapa en [kolumnkrypteringsnyckel (CEK)](https://msdn.microsoft.com/library/mt146372.aspx).
+* Skapa en databastabell och kryptera kolumner.
+* Skapa ett program som infogar, markerar och visar data från de krypterade kolumnerna.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-I den här självstudien behöver du:
+För den här självstudien behöver du:
 
-* Ett Azure-konto och prenumeration. Om du inte har någon kan du registrera dig för en [kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/).
+* Ett Azure-konto och prenumeration. Om du inte har en, registrera dig för en [gratis testperiod](https://azure.microsoft.com/pricing/free-trial/).
 * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) version 13.0.700.242 eller senare.
-* [.NET Framework 4,6](https://msdn.microsoft.com/library/w0x726c2.aspx) eller senare (på klient datorn).
+* [.NET Framework 4.6](https://msdn.microsoft.com/library/w0x726c2.aspx) eller senare (på klientdatorn).
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 ## <a name="create-a-blank-sql-database"></a>Skapa en tom SQL-databas
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Klicka på **skapa en resurs** > **Data + lagring** > **SQL Database**.
-3. Skapa en **Tom** databas med namnet **klinik** på en ny eller befintlig server. Detaljerade anvisningar om hur du skapar en databas i Azure Portal finns i [din första Azure SQL-databas](sql-database-single-database-get-started.md).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Klicka på **Skapa en resursdata** > +**lagrings-SQL-databas****Data + Storage** > .
+3. Skapa en **tom** databas med namnet **Clinic** på en ny eller befintlig server. Detaljerade instruktioner om hur du skapar en databas i Azure-portalen finns i [din första Azure SQL-databas](sql-database-single-database-get-started.md).
 
     ![Skapa en tom databas](./media/sql-database-always-encrypted/create-database.png)
 
-Du behöver anslutnings strängen senare i självstudien. När databasen har skapats går du till den nya klinik-databasen och kopierar anslutnings strängen. Du kan hämta anslutnings strängen när som helst, men det är enkelt att kopiera den när du befinner dig i Azure Portal.
+Du behöver anslutningssträngen senare i självstudien. När databasen har skapats går du till den nya klinikens databas och kopierar anslutningssträngen. Du kan hämta anslutningssträngen när som helst, men det är enkelt att kopiera den när du är i Azure-portalen.
 
-1. Klicka på **SQL-databaser** > **klinik** > **Visa databas anslutnings strängar**.
-2. Kopiera anslutnings strängen för **ADO.net**.
+1. Klicka på **SQL-databaser** > **Clinic** > **Visa databasanslutningssträngar**.
+2. Kopiera anslutningssträngen för **ADO.NET**.
 
     ![Kopiera anslutningssträngen](./media/sql-database-always-encrypted/connection-strings.png)
 
 ## <a name="connect-to-the-database-with-ssms"></a>Ansluta till databasen med SSMS
 
-Öppna SSMS och Anslut till servern med klinik-databasen.
+Öppna SSMS och anslut till servern med klinikens databas.
 
-1. Öppna SSMS. (Klicka på **anslut** > **Database Engine** för att öppna fönstret **Anslut till Server** om det inte är öppet).
-2. Ange server namn och autentiseringsuppgifter. Du hittar Server namnet på bladet SQL Database och i anslutnings strängen som du kopierade tidigare. Ange det fullständiga Server namnet, inklusive *Database.Windows.net*.
+1. Öppna SSMS. (Klicka på **Anslut** > **databasmotor** för att öppna fönstret **Anslut till server** om det inte är öppet).
+2. Ange servernamn och autentiseringsuppgifter. Servernamnet finns på SQL-databasbladet och i anslutningssträngen som du kopierade tidigare. Skriv in hela servernamnet inklusive *database.windows.net*.
 
     ![Kopiera anslutningssträngen](./media/sql-database-always-encrypted/ssms-connect.png)
 
-Om fönstret **ny brand Väggs regel** öppnas loggar du in på Azure och låter SSMS skapa en ny brand Väggs regel åt dig.
+Om fönstret **Ny brandväggsregel** öppnas loggar du in på Azure och låter SSMS skapa en ny brandväggsregel åt dig.
 
 ## <a name="create-a-table"></a>Skapa en tabell
 
-I det här avsnittet ska du skapa en tabell för att lagra patient data. Detta är en normal tabell – du kommer att konfigurera kryptering i nästa avsnitt.
+I det här avsnittet ska du skapa en tabell för att lagra patientdata. Detta kommer att vara en normal tabell inledningsvis - du kommer att konfigurera kryptering i nästa avsnitt.
 
 1. Expandera **databaser**.
-2. Högerklicka på **klinik** -databasen och klicka på **ny fråga**.
-3. Klistra in följande Transact-SQL (T-SQL) i fönstret ny fråga och **Kör** det.
+2. Högerklicka på **klinikens** databas och klicka på **Ny fråga**.
+3. Klistra in följande Transact-SQL (T-SQL) i det nya frågefönstret och **kör** det.
 
         CREATE TABLE [dbo].[Patients](
          [PatientId] [int] IDENTITY(1,1),
@@ -92,87 +92,87 @@ I det här avsnittet ska du skapa en tabell för att lagra patient data. Detta �
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
          GO
 
-## <a name="encrypt-columns-configure-always-encrypted"></a>Kryptera kolumner (Konfigurera Always Encrypted)
+## <a name="encrypt-columns-configure-always-encrypted"></a>Kryptera kolumner (konfigurera Alltid krypterad)
 
-SSMS innehåller en guide för att enkelt konfigurera Always Encrypted genom att konfigurera CMK, CEK och krypterade kolumner åt dig.
+SSMS innehåller en guide för att enkelt konfigurera Alltid krypterad genom att ställa in CMK, CEK och krypterade kolumner åt dig.
 
-1. Expandera **databaser** > **klinik** > **tabeller**.
-2. Högerklicka på tabellen **patienter** och välj **kryptera kolumner** för att öppna guiden Always Encrypted:
+1. Expandera **databaser** > **Clinic** > **Tabeller**.
+2. Högerklicka på tabellen **Patienter** och välj **Kryptera kolumner** för att öppna guiden Alltid krypterad:
 
     ![Kryptera kolumner](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-Guiden Always Encrypted innehåller följande avsnitt: **kolumn val**, **huvud nyckel konfiguration** (CMK), **verifiering**och **Sammanfattning**.
+Guiden Alltid krypterad innehåller följande avsnitt: **Kolumnval,** CMK **(Huvudnyckelkonfiguration),** **Validering**och **Sammanfattning**.
 
-### <a name="column-selection"></a>Kolumn val
+### <a name="column-selection"></a>Kolumnmarkering
 
-Klicka på **Nästa** på sidan **Introduktion** för att öppna sidan **kolumn val** . På den här sidan kan du välja vilka kolumner du vill kryptera, [vilken typ av kryptering och vilken kolumn krypterings nyckel (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) som ska användas.
+Klicka på **Nästa** på sidan **Introduktion** för att öppna sidan **Kolumnval.** På den här sidan väljer du vilka kolumner du vill kryptera, [vilken typ av kryptering och vilken kolumnkrypteringsnyckel (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) som ska användas.
 
-Kryptera uppgifter om **SSN** och **födelse datum** för varje patient. Kolumnen **SSN** använder deterministisk kryptering, som stöder likhets uppslag, kopplingar och gruppering av. Kolumnen **födelse datum** kommer att använda slumpmässig kryptering, som inte stöder åtgärder.
+Kryptera **SSN-** och **BirthDate-information** för varje patient. **SSN-kolumnen** använder deterministisk kryptering, som stöder likhetssökningar, kopplingar och gruppera efter. Kolumnen **BirthDate** använder randomiserad kryptering, som inte stöder åtgärder.
 
-Ange **krypterings typ** för kolumnen **SSN** till **deterministisk** och kolumnen **födelse datum** till **slumpmässig**. Klicka på **Nästa**.
+Ange **krypteringstypen** för **SSN-kolumnen** till **Deterministisk** och kolumnen **Födelsedatum** till **Randomiserad**. Klicka på **Nästa**.
 
 ![Kryptera kolumner](./media/sql-database-always-encrypted/column-selection.png)
 
-### <a name="master-key-configuration"></a>Huvud nyckel konfiguration
+### <a name="master-key-configuration"></a>Konfiguration av huvudnyckel
 
-På sidan **konfiguration av huvud nyckel** kan du konfigurera din CMK och välja den nyckel lagrings leverantör där CMK ska lagras. För närvarande kan du lagra en CMK i certifikat arkivet i Windows, Azure Key Vault eller en HSM (Hardware Security Module). I den här självstudien visas hur du lagrar dina nycklar i Windows certifikat arkiv.
+Sidan **Huvudnyckelkonfiguration** är där du ställer in cmk-enheten och väljer den nyckelbutiksleverantör där CMK ska lagras. För närvarande kan du lagra en CMK i Windows-certifikatarkivet, Azure Key Vault eller en maskinvarusäkerhetsmodul (HSM). Den här självstudien visar hur du lagrar nycklarna i Windows-certifikatarkivet.
 
-Kontrol lera att **Windows certifikat Arkiv** är markerat och klicka på **Nästa**.
+Kontrollera att **Windows-certifikatarkivet** är markerat och klicka på **Nästa**.
 
-![Huvud nyckel konfiguration](./media/sql-database-always-encrypted/master-key-configuration.png)
+![Konfiguration av huvudnyckel](./media/sql-database-always-encrypted/master-key-configuration.png)
 
 ### <a name="validation"></a>Validering
 
-Du kan kryptera kolumnerna nu eller spara ett PowerShell-skript för att köra senare. I den här självstudien väljer **du Fortsätt för att slutföra nu** och klickar på **Nästa**.
+Du kan kryptera kolumnerna nu eller spara ett PowerShell-skript för att köras senare. För den här självstudien väljer du **Fortsätt för att avsluta nu** och klickar på **Nästa**.
 
 ### <a name="summary"></a>Sammanfattning
 
-Kontrol lera att inställningarna är korrekta och klicka på **Slutför** för att slutföra installationen av Always Encrypted.
+Kontrollera att alla inställningar är korrekta och klicka på **Slutför** för att slutföra installationen för Alltid krypterad.
 
 ![Sammanfattning](./media/sql-database-always-encrypted/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Verifiera guidens åtgärder
 
-När guiden har slutförts konfigureras databasen för Always Encrypted. Följande åtgärder utfördes av guiden:
+När guiden är klar konfigureras databasen för Alltid krypterad. Guiden utförde följande åtgärder:
 
 * Skapade en CMK.
 * Skapade en CEK.
-* Konfigurerade de markerade kolumnerna för kryptering. Din **patienter** -tabell har för närvarande inga data, men alla befintliga data i de markerade kolumnerna är nu krypterade.
+* Konfigurerade de markerade kolumnerna för kryptering. Tabellen **Patienter** har för närvarande inga data, men alla befintliga data i de valda kolumnerna är nu krypterade.
 
-Du kan kontrol lera att nycklarna skapas i SSMS genom att gå till **klinik** > **säkerhets** > **Always Encrypted nycklar**. Nu kan du se de nya nycklar som skapas av guiden.
+Du kan verifiera att nycklarna skapas i SSMS genom att gå till **Clinic** > **Security** > **Always Encrypted Keys**. Nu kan du se de nya nycklarna som guiden har genererat.
 
-## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Skapa ett klient program som fungerar med krypterade data
+## <a name="create-a-client-application-that-works-with-the-encrypted-data"></a>Skapa ett klientprogram som fungerar med krypterade data
 
-Nu när Always Encrypted har kon figurer ATS kan du skapa ett program som utför *infogningar* och *väljer* i de krypterade kolumnerna. För att kunna köra exempel programmet måste du köra det på samma dator där du körde guiden Always Encrypted. Om du vill köra programmet på en annan dator måste du distribuera dina Always Encrypted certifikat till den dator som kör-klient programmet.  
+Nu när Alltid krypterad är konfigurerad kan du skapa ett program som utför *infogningar* och *väljer* på de krypterade kolumnerna. Om du vill köra exempelprogrammet måste du köra det på samma dator där guiden Alltid krypterad kördes. Om du vill köra programmet på en annan dator måste du distribuera alltid krypterade certifikat till den dator som kör klientappen.  
 
 > [!IMPORTANT]
-> Ditt program måste använda [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) -objekt när du skickar oformaterade data till servern med Always Encrypted kolumner. Att skicka litterala värden utan att använda SqlParameter-objekt resulterar i ett undantag.
+> Ditt program måste använda [SqlParameter-objekt](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) när du skickar klartextdata till servern med alltid krypterade kolumner. Om du skickar litterala värden utan att använda SqlParameter-objekt blir det ett undantag.
 
-1. Öppna Visual Studio och skapa ett nytt C# konsol program. Kontrol lera att ditt projekt är inställt på **.NET Framework 4,6** eller senare.
-2. Ge projektet namnet **AlwaysEncryptedConsoleApp** och klicka på **OK**.
+1. Öppna Visual Studio och skapa ett nytt C#-konsolprogram. Kontrollera att projektet är inställt på **.NET Framework 4.6** eller senare.
+2. Namnge projektet **AlwaysEncryptedConsoleApp** och klicka på **OK**.
 
-![Nytt konsol program](./media/sql-database-always-encrypted/console-app.png)
+![Nytt konsolprogram](./media/sql-database-always-encrypted/console-app.png)
 
-## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Ändra anslutnings strängen för att aktivera Always Encrypted
+## <a name="modify-your-connection-string-to-enable-always-encrypted"></a>Ändra anslutningssträngen så att den alltid är krypterad
 
-I det här avsnittet beskrivs hur du aktiverar Always Encrypted i databas anslutnings strängen. Du ändrar den-konsol app som du nyss skapade i nästa avsnitt, "Always Encrypted exempel konsol program".
+I det här avsnittet beskrivs hur du aktiverar Alltid krypterad i databasanslutningssträngen. Du kommer att ändra konsolappen som du just skapade i nästa avsnitt, "Alltid krypterat exempelkonsolprogram".
 
-Om du vill aktivera Always Encrypted måste du lägga till nyckelordet för **kolumn krypterings inställningen** i anslutnings strängen och ange det som **aktive rad**.
+Om du vill aktivera Alltid krypterad måste du lägga till nyckelordet **Kolumnkrypteringsinställning** i **anslutningssträngen**och ställa in det på Aktiverat .
 
-Du kan ställa in detta direkt i anslutnings strängen, eller så kan du ange den med hjälp av en [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). Exempel programmet i nästa avsnitt visar hur du använder **SqlConnectionStringBuilder**.
+Du kan ställa in detta direkt i anslutningssträngen eller ställa in det med hjälp av en [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx). Exempelprogrammet i nästa avsnitt visar hur du använder **SqlConnectionStringBuilder**.
 
 > [!NOTE]
-> Detta är den enda ändringen som krävs i ett klient program som är specifika för Always Encrypted. Om du har ett befintligt program som lagrar anslutnings strängen externt (det vill säga i en konfigurations fil) kanske du kan aktivera Always Encrypted utan att ändra någon kod.
+> Detta är den enda ändring som krävs i ett klientprogram som är specifikt för Alltid krypterat. Om du har ett befintligt program som lagrar anslutningssträngen externt (det vill säga i en config-fil) kanske du kan aktivera Alltid krypterad utan att ändra någon kod.
 
-### <a name="enable-always-encrypted-in-the-connection-string"></a>Aktivera Always Encrypted i anslutnings strängen
+### <a name="enable-always-encrypted-in-the-connection-string"></a>Aktivera alltid krypterad i anslutningssträngen
 
-Lägg till följande nyckelord i anslutnings strängen:
+Lägg till följande nyckelord i anslutningssträngen:
 
     Column Encryption Setting=Enabled
 
-### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>Aktivera Always Encrypted med en SqlConnectionStringBuilder
+### <a name="enable-always-encrypted-with-a-sqlconnectionstringbuilder"></a>Aktivera alltid krypterad med en SqlConnectionStringBuilder
 
-Följande kod visar hur du aktiverar Always Encrypted genom att ställa in funktionen [SqlConnectionStringBuilder. ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) på [aktive rad](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
+Följande kod visar hur du aktiverar Alltid krypterad genom att ställa in [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) till [Aktiverad](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
     // Instantiate a SqlConnectionStringBuilder.
     SqlConnectionStringBuilder connStringBuilder =
@@ -182,17 +182,17 @@ Följande kod visar hur du aktiverar Always Encrypted genom att ställa in funkt
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
 
-## <a name="always-encrypted-sample-console-application"></a>Always Encrypted exempel konsol program
+## <a name="always-encrypted-sample-console-application"></a>Alltid krypterat exempelkonsolprogram
 
 Det här exemplet visar hur du:
 
-* Ändra anslutnings strängen för att aktivera Always Encrypted.
+* Ändra anslutningssträngen så att den alltid är krypterad.
 * Infoga data i de krypterade kolumnerna.
-* Välj en post genom att filtrera efter ett särskilt värde i en krypterad kolumn.
+* Välj en post genom att filtrera efter ett visst värde i en krypterad kolumn.
 
-Ersätt innehållet i **Program.cs** med följande kod. Ersätt anslutnings strängen för den globala connectionString-variabeln på raden direkt ovanför huvud metoden med din giltiga anslutnings sträng från Azure Portal. Detta är den enda ändringen du behöver göra i den här koden.
+Ersätt innehållet i **Program.cs** med följande kod. Ersätt anslutningssträngen för den globala connectionString-variabeln på raden direkt ovanför huvudmetoden med din giltiga anslutningssträng från Azure-portalen. Detta är den enda ändring du behöver göra i den här koden.
 
-Kör appen för att se Always Encrypted i praktiken.
+Kör appen för att se Alltid krypterad i aktion.
 
 ```cs
 using System;
@@ -498,49 +498,49 @@ namespace AlwaysEncryptedConsoleApp
 }
 ```
 
-## <a name="verify-that-the-data-is-encrypted"></a>Verifiera att data är krypterade
+## <a name="verify-that-the-data-is-encrypted"></a>Kontrollera att data är krypterade
 
-Du kan snabbt kontrol lera att faktiska data på servern är krypterade genom att fråga **patienternas** data med SSMS. (Använd din aktuella anslutning där kolumn krypterings inställningen inte har Aktiver ATS än.)
+Du kan snabbt kontrollera att de faktiska data på servern krypteras genom att fråga **patientdata** med SSMS. (Använd den aktuella anslutningen där kolumnkrypteringsinställningen ännu inte är aktiverad.)
 
-Kör följande fråga i klinik-databasen.
+Kör följande fråga i klinikens databas.
 
     SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 Du kan se att de krypterade kolumnerna inte innehåller några oformaterade data.
 
-   ![Nytt konsol program](./media/sql-database-always-encrypted/ssms-encrypted.png)
+   ![Nytt konsolprogram](./media/sql-database-always-encrypted/ssms-encrypted.png)
 
-Om du vill använda SSMS för att komma åt data i klartext kan du lägga till **kolumn krypterings inställningen = aktive rad** parameter till anslutningen.
+Om du vill använda SSMS för att komma åt oformaterade data kan du lägga till parametern **Kolumnkryptering=aktiverad** i anslutningen.
 
-1. I SSMS högerklickar du på servern i **Object Explorer**och klickar sedan på **Koppla från**.
-2. Klicka på **anslut** > **Database Engine** för att öppna fönstret **Anslut till Server** och klicka sedan på **alternativ**.
-3. Klicka på **ytterligare anslutnings parametrar** och ange **kolumn krypterings inställning = aktive rad**.
+1. Högerklicka på servern i **Objektutforskaren**i SSMS och klicka sedan på **Koppla från**.
+2. Klicka på **Anslut** > **databasmotor** för att öppna fönstret **Anslut till server** och klicka sedan på **Alternativ**.
+3. Klicka på **Ytterligare anslutningsparametrar** och skriv **kolumnkrypteringsinställning=aktiverad**.
 
-    ![Nytt konsol program](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
-4. Kör följande fråga i **klinik** -databasen.
+    ![Nytt konsolprogram](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
+4. Kör följande fråga i **klinikens** databas.
 
         SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
-     Nu kan du se data i klartext i de krypterade kolumnerna.
+     Du kan nu se klartextdata i de krypterade kolumnerna.
 
-    ![Nytt konsol program](./media/sql-database-always-encrypted/ssms-plaintext.png)
+    ![Nytt konsolprogram](./media/sql-database-always-encrypted/ssms-plaintext.png)
 
 > [!NOTE]
-> Om du ansluter till SSMS (eller någon klient) från en annan dator, kommer den inte att ha åtkomst till krypterings nycklarna och kommer inte att kunna dekryptera data.
+> Om du ansluter till SSMS (eller någon klient) från en annan dator, kommer den inte att ha tillgång till krypteringsnycklarna och kommer inte att kunna dekryptera data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat en databas som använder Always Encrypted kanske du vill göra följande:
+När du har skapat en databas som använder Alltid krypterad kanske du vill göra följande:
 
-* Kör det här exemplet från en annan dator. Den har inte åtkomst till krypterings nycklarna, så den kommer inte att ha åtkomst till data i klartext och kommer inte att kunna köras.
-* [Rotera och rensa dina nycklar](https://msdn.microsoft.com/library/mt607048.aspx).
-* [Migrera data som redan är krypterade med Always Encrypted](https://msdn.microsoft.com/library/mt621539.aspx).
-* [Distribuera Always Encrypted certifikat till andra klient datorer](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (se avsnittet "göra certifikat tillgängliga för program och användare").
+* Kör det här exemplet från en annan dator. Den kommer inte att ha tillgång till krypteringsnycklarna, så den kommer inte att ha tillgång till klartextdata och kommer inte att köras.
+* [Rotera och rensa upp dina nycklar](https://msdn.microsoft.com/library/mt607048.aspx).
+* [Migrera data som redan är krypterade med Alltid krypterad](https://msdn.microsoft.com/library/mt621539.aspx).
+* [Distribuera alltid krypterade certifikat till andra klientdatorer](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (se avsnittet "Göra certifikat tillgängliga för program och användare".
 
 ## <a name="related-information"></a>Relaterad information
 
-* [Always Encrypted (klient utveckling)](https://msdn.microsoft.com/library/mt147923.aspx)
+* [Alltid krypterad (klientutveckling)](https://msdn.microsoft.com/library/mt147923.aspx)
 * [Transparent datakryptering](https://msdn.microsoft.com/library/bb934049.aspx)
-* [SQL Server kryptering](https://msdn.microsoft.com/library/bb510663.aspx)
-* [Always Encrypted guiden](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Always Encrypted blogg](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [SQL Server-kryptering](https://msdn.microsoft.com/library/bb510663.aspx)
+* [Alltid krypterad guide](https://msdn.microsoft.com/library/mt459280.aspx)
+* [Alltid krypterad blogg](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)

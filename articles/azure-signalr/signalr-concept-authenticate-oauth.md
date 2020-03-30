@@ -1,16 +1,16 @@
 ---
-title: Guide för autentisering av Azure SignalR service-klienter
-description: Lär dig hur du implementerar din egen autentisering och integrerar den med Azure SignalR service genom att följa E2E-exemplet.
+title: Guide för autentisering av Azure SignalR-tjänstklienter
+description: Lär dig hur du implementerar din egen autentisering och integrerar den med Azure SignalR-tjänsten genom att följa e2e-exemplet.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
 ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74158275"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service-autentisering
@@ -27,7 +27,7 @@ Mer information om API:er för OAuth-autentisering som tillhandahålls via GitHu
 
 Du kan använda valfritt kodredigeringsprogram för att slutföra stegen i den här snabbstarten. [Visual Studio Code](https://code.visualstudio.com/) är dock ett utmärkt alternativ som är tillgängligt på Windows-, macOS- och Linux-plattformar.
 
-Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub-lagringsplatsen för AzureSignalR-exempel](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
+Koden för de här självstudierna är tillgänglig för nedladdning på [GitHub-lagringsplatsen AzureSignalR-samples](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat).
 
 ![OAuth finns i Azure](media/signalr-concept-authenticate-oauth/signalr-oauth-complete-azure.png)
 
@@ -48,13 +48,13 @@ För att kunna slutföra den här självstudien behöver du följande:
 * [Git](https://git-scm.com/)
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
 * [Azure Cloud Shell konfigurerat](https://docs.microsoft.com/azure/cloud-shell/quickstart)
-* Ladda ned eller klona [GitHub-lagringsplatsen för AzureSignalR-exempel](https://github.com/aspnet/AzureSignalR-samples).
+* Ladda ned eller klona GitHub-lagringsplatsen [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples).
 
 ## <a name="create-an-oauth-app"></a>Skapa en OAuth-app
 
 1. Öppna en webbläsare och gå till `https://github.com` och logga in på ditt konto.
 
-2. För ditt konto går du till **Inställningar** > **Inställningar för utvecklare** och klickar på **Registrera ett nytt program** eller **Ny OAuth-app** under *OAuth-appar*.
+2. För ditt konto navigerar du till **Inställningar** > **För utvecklarinställningar** och klickar på **Registrera ett nytt program**eller En ny **OAuth-app** under *OAuth Apps*.
 
 3. Använd följande inställningar för den nya OAuth-appen och klicka sedan på **Registrera program**:
 
@@ -377,7 +377,7 @@ I det här avsnittet aktiverar du riktig autentisering genom att lägga till att
 
 ## <a name="deploy-the-app-to-azure"></a>distribuera appen till Azure
 
-I det här avsnittet ska du använda Azures kommando rads gränssnitt (CLI) från Azure Cloud Shell för att skapa en ny webbapp i [Azure App Service](https://docs.microsoft.com/azure/app-service/) som är värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
+I det här avsnittet använder du AZURE command-line interface (CLI) från Azure Cloud Shell för att skapa en ny webbapp i [Azure App Service](https://docs.microsoft.com/azure/app-service/) som värd för ditt ASP.NET-program i Azure. Webbappen konfigureras för att använda lokal Git-distribution. Webbappen ska också konfigureras med anslutningssträngen för SignalR, GitHub OAuth-apphemligheter och en distributionsanvändare.
 
 I stegen i det här avsnittet används tillägget *signalr* för Azure CLI. Utför följande kommando för att installera *signalr*-tillägget för Azure CLI:
 
@@ -539,7 +539,7 @@ För att distribuera din kod utför du följande kommandon i ett Git-gränssnitt
 
 Det sista du behöver göra är att uppdatera **webbsidans URL** och **URL-adressen för återanrop av auktorisering** för GitHub OAuth-appen för att peka på den nya värdbaserade appen.
 
-1. Öppna [https://github.com](https://github.com) i en webbläsare och gå till kontots **Inställningar** > **Utvecklarinställningar** > **Oauth-appar**.
+1. Öppna [https://github.com](https://github.com) i en webbläsare och navigera till kontots **inställningar** > **För utvecklarinställningar** > **Oauth Apps**.
 
 2. Klicka på autentiseringsappen och uppdatera **webbsidans URL** och **URL-adressen för återanrop av auktorisering** som det visas nedan:
 
@@ -559,11 +559,11 @@ Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du 
 Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader.
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 
 Logga in på [Azure Portal](https://portal.azure.com) och klicka på **Resursgrupper**.
 
-Skriv namnet på din resursgrupp i textrutan **Filtrera efter namn...** . Anvisningarna för den här artikeln använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
+Skriv namnet på din resursgrupp i textrutan **Filter by name...** (Filtrera efter namn...). Anvisningarna för den här artikeln använde en resursgrupp med namnet *SignalRTestResources*. På din resursgrupp i resultatlistan klickar du på **...** och därefter **Ta bort resursgrupp**.
 
 ![Ta bort](./media/signalr-concept-authenticate-oauth/signalr-delete-resource-group.png)
 

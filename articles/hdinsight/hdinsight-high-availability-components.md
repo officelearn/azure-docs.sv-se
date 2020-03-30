@@ -8,130 +8,130 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74069634"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Tjänster med hög tillgänglighet som stöds av Azure HDInsight
 
- För att ge dig optimala tillgänglighets nivåer för dina analys komponenter utvecklades HDInsight med en unik arkitektur för att säkerställa hög tillgänglighet för kritiska tjänster. Vissa komponenter i den här arkitekturen har utvecklats av Microsoft för att tillhandahålla automatisk redundans. Andra komponenter är standard Apache-komponenter som distribueras för att stödja vissa tjänster. I den här artikeln beskrivs arkitekturen hos HA-tjänst modellen i HDInsight, hur HDInsight stöder redundans för HA-tjänster och bästa praxis för att återställa från andra tjänst avbrott.
+ För att ge dig optimal tillgänglighet för dina analyskomponenter har HDInsight utvecklats med en unik arkitektur för att säkerställa hög tillgänglighet (HA) för kritiska tjänster. Vissa komponenter i den här arkitekturen har utvecklats av Microsoft för att tillhandahålla automatisk redundans. Andra komponenter är standard Apache-komponenter som distribueras för att stödja specifika tjänster. I den här artikeln beskrivs arkitekturen för HA-tjänstmodellen i HDInsight, hur HDInsight stöder redundans för HA-tjänster och bästa praxis för att återställa från andra avbrott i tjänsten.
 
 ## <a name="high-availability-infrastructure"></a>Infrastruktur med hög tillgänglighet
 
-HDInsight tillhandahåller anpassad infrastruktur för att säkerställa att fyra primära tjänster är hög tillgängliga med automatiska funktioner för redundans:
+HDInsight tillhandahåller anpassad infrastruktur för att säkerställa att fyra primära tjänster är hög tillgänglighet med automatisk redundansfunktioner:
 
-- Apache Ambari-Server
-- Program tids linje server för Apache-garn
-- Jobb historik Server för Hadoop-MapReduce
+- Apache Ambari server
+- Application Tidslinje Server för Apache YARN
+- Jobbhistorik server för Hadoop MapReduce
 - Apache Livy
 
-Den här infrastrukturen består av ett antal tjänster och program varu komponenter, varav vissa är utformade av Microsoft. Följande komponenter är unika för HDInsight-plattformen:
+Den här infrastrukturen består av ett antal tjänster och programvarukomponenter, varav vissa är designade av Microsoft. Följande komponenter är unika för HDInsight-plattformen:
 
-- Slav redundansväxling
-- Styrenhet för huvud fel
-- Slav tjänst för hög tillgänglighet
-- Huvud tjänst för hög tillgänglighet
+- Kontrollant för slavväxling
+- Styrenhet för hanterare av redundans
+- Slav tjänst med hög tillgänglighet
+- Master hög tillgänglighet service
 
-![Infrastruktur med hög tillgänglighet](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+![infrastruktur med hög tillgänglighet](./media/hdinsight-high-availability-components/high-availability-architecture.png)
 
-Det finns även andra tjänster med hög tillgänglighet som stöds av Apache-pålitliga komponenter med öppen källkod. Dessa komponenter finns också i HDInsight-kluster:
+Det finns också andra tjänster med hög tillgänglighet, som stöds av Apache-tillförlitlighetskomponenter med öppen källkod. Dessa komponenter finns också på HDInsight-kluster:
 
-- HDFS (Hadoop File System) NameNode
-- GARN resurs hanteraren
-- HBase Master
+- Psfs-namn (Hadoop File System)
+- GARN ResourceManager
+- HBase-hanterare
 
-I följande avsnitt får du mer information om hur dessa tjänster fungerar tillsammans.
+I följande avsnitt finns mer information om hur dessa tjänster fungerar tillsammans.
 
-## <a name="hdinsight-high-availability-services"></a>Tjänster för hög tillgänglighet för HDInsight
+## <a name="hdinsight-high-availability-services"></a>HDInsight tjänster med hög tillgänglighet
 
-Microsoft tillhandahåller support för de fyra Apache-tjänsterna i följande tabell i HDInsight-kluster. För att skilja dem från tjänster med hög tillgänglighet som stöds av komponenter från Apache kallas de för *HDInsight ha-tjänster*.
+Microsoft tillhandahåller stöd för de fyra Apache-tjänsterna i följande tabell i HDInsight-kluster. För att skilja dem från tjänster med hög tillgänglighet som stöds av komponenter från Apache kallas de *HDInsight HA-tjänster*.
 
-| Tjänst | Klusternoder | Kluster typer | Syfte |
+| Tjänst | Klusternoder | Klustertyper | Syfte |
 |---|---|---|---|
-| Apache Ambari-Server| Aktiva huvudnoden | Alla | Övervakar och hanterar klustret.|
-| Program tids linje server för Apache-garn | Aktiva huvudnoden | Alla utom Kafka | Upprätthåller felsöknings information om garn jobb som körs i klustret.|
-| Jobb historik Server för Hadoop-MapReduce | Aktiva huvudnoden | Alla utom Kafka | Upprätthåller felsöknings data för MapReduce-jobb.|
-| Apache Livy | Aktiva huvudnoden | Spark | Möjliggör enkel interaktion med ett Spark-kluster över ett REST-gränssnitt |
+| Apache Ambari server| Aktiv headnode | Alla | Övervakar och hanterar klustret.|
+| Application Tidslinje Server för Apache YARN | Aktiv headnode | Alla utom Kafka | Underhåller felsökningsinformation om YARN-jobb som körs i klustret.|
+| Jobbhistorik server för Hadoop MapReduce | Aktiv headnode | Alla utom Kafka | Underhåller felsökningsdata för MapReduce-jobb.|
+| Apache Livy | Aktiv headnode | Spark | Möjliggör enkel interaktion med ett Spark-kluster över ett REST-gränssnitt |
 
 >[!Note]
-> HDInsight Enterprise Security Package-kluster (ESP) tillhandahåller för närvarande endast Ambari-servern med hög tillgänglighet.
+> ESP-kluster (HDInsight Enterprise Security Package) ger för närvarande endast Ambari-servern hög tillgänglighet.
 
 ### <a name="architecture"></a>Arkitektur
 
-Varje HDInsight-kluster har två huvudnoderna i aktiva och vänte läge. HDInsight HA-tjänsterna körs endast på huvudnoderna. Dessa tjänster bör alltid köras på den aktiva huvudnoden och stoppas och placeras i underhålls läge på huvudnoden vänte läge.
+Varje HDInsight-kluster har två headnodes i aktiva respektive standby-lägen. HDInsight HA-tjänsterna körs endast på headnodes. Dessa tjänster ska alltid köras på den aktiva huvudnoden och stoppas och placeras i underhållsläge på standby-huvudnoden.
 
-För att upprätthålla rätt tillstånd för HA-tjänster och tillhandahålla snabb redundans, använder HDInsight Apache ZooKeeper, som är en koordinerings tjänst för distribuerade program, för att genomföra aktiv huvudnoden val. HDInsight tillhandahåller också några Java-processer i bakgrunden som koordinerar redundansväxlingen för HDInsight-tjänster. Dessa tjänster är följande: huvud fel kontroll panelen, den sekundära redundansväxlingen, *tjänsten master-ha*och den *slav-ha-tjänsten*.
+För att upprätthålla rätt tillstånd för HA-tjänster och ge en snabb redundans använder HDInsight Apache ZooKeeper, som är en samordningstjänst för distribuerade applikationer, för att genomföra aktivt headnode val. HDInsight innehåller också några bakgrunds-Java-processer, som samordnar redundansproceduren för HDInsight HA-tjänster. Dessa tjänster är följande: huvudstyrenheten för redundans, kontrollanten för slavundanundanställning, *master-ha-service*och *slav-ha-service*.
 
 ### <a name="apache-zookeeper"></a>Apache ZooKeeper
 
-Apache ZooKeeper är en högpresterande koordinerings tjänst för distribuerade program. I produktion körs ZooKeeper vanligt vis i replikerat läge där en replikerad grupp ZooKeeper-servrar bildar ett kvorum. Varje HDInsight-kluster har tre ZooKeeper-noder som gör att tre ZooKeeper-servrar kan bilda ett kvorum. HDInsight har två ZooKeeper-kvorum som körs parallellt med varandra. Ett kvorum bestämmer aktiva huvudnoden i ett kluster där HDInsight-tjänster ska köras. Ett annat kvorum används för att koordinera tjänster som tillhandahålls av Apache, enligt beskrivningen i senare avsnitt.
+Apache ZooKeeper är en högpresterande samordningstjänst för distribuerade program. I produktion körs ZooKeeper vanligtvis i replikerat läge där en replikerad grupp ZooKeeper-servrar utgör ett kvorum. Varje HDInsight-kluster har tre ZooKeeper-noder som gör att tre ZooKeeper-servrar kan skapa kvorum. HDInsight har två ZooKeeper kvorum som löper parallellt med varandra. Ett kvorum avgör den aktiva headnoden i ett kluster där HDInsight HA-tjänster ska köras. Ett annat kvorum används för att samordna HA-tjänster som tillhandahålls av Apache, som beskrivs i senare avsnitt.
 
-### <a name="slave-failover-controller"></a>Slav redundansväxling
+### <a name="slave-failover-controller"></a>Kontrollant för slavväxling
 
-Den sekundära redundansväxlingen körs på varje nod i ett HDInsight-kluster. Den här styrenheten ansvarar för att starta Ambari-agenten och *slav-ha-tjänsten* på varje nod. Den skickar regelbundet det första ZooKeeper-kvorumet om den aktiva huvudnoden. När den aktiva och vänte läges huvudnoderna ändras utför den sekundära redundansväxlingen följande:
+Slavundanstyrenheten körs på varje nod i ett HDInsight-kluster. Den här styrenheten ansvarar för att starta Ambari-agenten och *slav-ha-tjänsten* på varje nod. Den frågar regelbundet den första ZooKeeper kvorum om den aktiva headnode. När den aktiva och standby-headnoden ändras utför den slav-redundansstyrenheten följande:
 
-1. Uppdaterar värd konfigurations filen.
+1. Uppdaterar värdkonfigurationsfilen.
 1. Startar om Ambari-agenten.
 
-*Slaven-ha-tjänsten* ansvarar för att stoppa HDInsight-tjänster (utom Ambari-Server) på huvudnoden för vänte läge.
+*Slav-ha-tjänsten* ansvarar för att stoppa HDInsight HA-tjänsterna (utom Ambari-servern) i standby-nacknoden.
 
-### <a name="master-failover-controller"></a>Styrenhet för huvud fel
+### <a name="master-failover-controller"></a>Styrenhet för hanterare av redundans
 
-En styrenhet för huvud fel körning på båda huvudnoderna. Båda styrenheterna för huvud-redundansväxling kommunicerar med det första ZooKeeper-kvorumet för att nominera de huvudnoden som de kör som den aktiva huvudnoden.
+En huvudväxlingskontroller körs på båda headnodes. Båda master failover controllers kommunicera med den första ZooKeeper kvorum att nominera headnode att de körs på som aktiv headnode.
 
-Om t. ex. huvud fel kontrol Lanterna på huvudnoden 0 vinner valet, sker följande ändringar:
+Om till exempel huvudstyrenheten på headnode 0 vinner valet sker följande ändringar:
 
-1. Huvudnoden 0 aktive ras.
-1. Huvud fel kontroll enheten startar Ambari Server och *Master-ha-tjänsten* på huvudnoden 0.
-1. Den andra huvud fel kontroll enheten stoppar Ambari-servern och *Master-ha-tjänsten* på huvudnoden 1.
+1. Headnode 0 blir aktiv.
+1. Huvudstyrenheten startar Ambari-servern och *master-ha-servicen* på headnode 0.
+1. Den andra huvudstyrenheten stoppar Ambari-servern och *master-ha-tjänsten* på headnode 1.
 
-Master-ha-tjänsten körs bara på den aktiva huvudnoden, den stoppar HDInsight HA-tjänsterna (utom Ambari-Server) på standby-huvudnoden och startar dem på Active huvudnoden.
+Master-ha-tjänsten körs bara på den aktiva headnode, stoppar det HDInsight HA-tjänsterna (utom Ambari-servern) i vänteläge och startar dem på aktiv headnode.
 
-### <a name="the-failover-process"></a>Redundansväxlingen
+### <a name="the-failover-process"></a>Redundansprocessen
 
-![Redundansväxling](./media/hdinsight-high-availability-components/failover-steps.png)
+![redundansprocess](./media/hdinsight-high-availability-components/failover-steps.png)
 
-En hälso övervakare körs på varje huvudnoden tillsammans med huvud fel kontroll enheten för att skicka hearbeat-meddelanden till Zookeeper-kvorumet. Huvudnoden betraktas som en HA-tjänst i det här scenariot. Hälso övervakaren kontrollerar om varje tjänst för hög tillgänglighet är felfri och om den är redo att ansluta till det ledarskapde valet. Om ja, kommer den här huvudnoden att konkurrera i valet. Om inte, stängs valet tills det blir klart igen.
+En hälsoövervakare körs på varje headnode tillsammans med huvudbivikaren för att skicka hearbeat-meddelanden till Zookeeper-kvorumet. Headnode betraktas som en HA-tjänst i det här scenariot. Hälsoövervakaren kontrollerar om varje tjänst med hög tillgänglighet är hälsosam och om den är redo att delta i ledarskapsvalet. Om ja, kommer denna headnode att tävla i valet. Om inte, kommer det att avsluta valet tills det blir klart igen.
 
-Om vänte läges huvudnoden någonsin uppnår sitt ledarskap och blir aktivt (till exempel vid fel med den tidigare aktiva noden), kommer dess huvud fel hanterare att starta alla HDInsight-tjänster på den. Huvud-failover-styrenheten kommer också att stoppa dessa tjänster på de andra huvudnoden.
+Om standby-headnoden någonsin uppnår ledarskap och blir aktiv (till exempel vid ett fel med den tidigare aktiva noden), startar huvudstyrenheten för växlingstjänst alla HDInsight HA-tjänster på den. Huvudstyrenheten stoppar även dessa tjänster på den andra huvudnoden.
 
-För fel i HDInsight-tjänsten, t. ex. om en tjänst är avstängd eller inte felfri, bör huvud fel kontroll enheten automatiskt starta om eller stoppa tjänsterna enligt huvudnoden-status. Användare bör inte starta HDInsight-tjänster manuellt på båda Head-noderna. Tillåt i stället automatisk eller manuell redundans för att hjälpa tjänsten att återställa.
+För HDInsight HA-tjänstfel, till exempel en tjänst som är nere eller felaktig, bör huvudstyrenheten för redundans automatiskt starta om eller stoppa tjänsterna enligt headnode-statusen. Användare bör inte manuellt starta HDInsight HA-tjänster på båda huvudnoderna. Tillåt i stället automatisk eller manuell redundans för att hjälpa tjänsten att återställas.
 
-### <a name="inadvertent-manual-intervention"></a>Oavsiktlig manuell åtgärd
+### <a name="inadvertent-manual-intervention"></a>Oavsiktligt manuellt ingripande
 
-HDInsight HA-tjänster ska bara köras på den aktiva huvudnoden och startas om automatiskt när det behövs. Eftersom enskilda HA-tjänster inte har sin egen hälso övervakare kan inte redundans utlösas på nivån för den enskilda tjänsten. Redundansväxlingen säkerställs på nodnivå och inte på service nivå.
+HDInsight HA-tjänster bör endast köras på den aktiva huvudnoden och startas om automatiskt vid behov. Eftersom enskilda HA-tjänster inte har en egen hälsoövervakare kan redundans inte utlösas på nivån för den enskilda tjänsten. Redundans säkerställs på nodnivå och inte på servicenivå.
 
-### <a name="some-known-issues"></a>Kända problem
+### <a name="some-known-issues"></a>Några kända problem
 
-- När du startar en HA-tjänst manuellt på vänte läges huvudnoden stoppas den inte förrän nästa redundansväxling sker. När HA-tjänster körs på båda huvudnoderna kan vissa möjliga problem vara: Ambari-gränssnittet är inte tillgängligt, Ambari genererar fel, garn, Spark och Oozie jobb kan fastna.
+- När du startar en HA-tjänst manuellt i standby-nacknoden kommer den inte att stoppas förrän nästa redundans inträffar. När HA-tjänster körs på båda headnodes, vissa potentiella problem inkluderar: Ambari UI är otillgänglig, Ambari kastar fel, YARN, Spark och Oozie jobb kan fastna.
 
-- När en HA-tjänst på den aktiva huvudnoden stoppas startar den inte förrän nästa redundansväxling inträffar eller så startar huvud enheten för huvud fel styrning/Master-ha-tjänsten om. När en eller flera HA-tjänster stoppas på den aktiva huvudnoden, särskilt när Ambari-servern stannar, är Ambari-gränssnittet inte tillgängligt, andra potentiella problem är fel i samband med garn, Spark och Oozie.
+- När en HA-tjänst på den aktiva headnoden stoppas startas den inte om förrän nästa redundans händer eller huvudstyrenheten/master-ha-tjänsten startas om. När en eller flera HA-tjänster stannar på den aktiva headnoden, särskilt när Ambari-servern stannar, är Ambari UI otillgängligt, andra potentiella problem är yarn-, spark- och Oozie-jobbfel.
 
-## <a name="apache-high-availability-services"></a>Tjänster med hög tillgänglighet för Apache
+## <a name="apache-high-availability-services"></a>Apache tjänster med hög tillgänglighet
 
-Apache ger hög tillgänglighet för HDFS NameNode, garn-ResourceManager och HBase Master, som också är tillgängliga i HDInsight-kluster. Till skillnad från HDInsight-HA-tjänster stöds de i ESP-kluster. Apache HA-tjänster kommunicerar med det andra ZooKeeper-kvorumet (beskrivs i avsnittet ovan) för att välja aktiva/vänte läge och utföra automatisk redundans. Följande avsnitt innehåller information om hur dessa tjänster fungerar.
+Apache ger hög tillgänglighet för HDFS NameNode, YARN ResourceManager och HBase Master, som också finns i HDInsight-kluster. Till skillnad från HDInsight HA-tjänster stöds de i ESP-kluster. Apache HA-tjänster kommunicerar med den andra ZooKeeper-kvorumet (som beskrivs i ovanstående avsnitt) för att välja aktiva/standby-lägen och genomföra automatisk redundans. I följande avsnitt beskrivs hur dessa tjänster fungerar.
 
-### <a name="hadoop-distributed-file-system-hdfs-namenode"></a>Hadoop Distributed File System (HDFS) NameNode
+### <a name="hadoop-distributed-file-system-hdfs-namenode"></a>Psfs-namn (Distributed File System) (HADoop Distributed File System)
 
-HDInsight-kluster baserade på Apache Hadoop 2,0 eller högre ger NameNode hög tillgänglighet. Det finns två NameNodes som körs på huvudnoderna, som har kon figurer ATS för automatisk redundans. NameNodes använder *ZKFailoverController* för att kommunicera med Zookeeper för att välja för status aktiv/vänte läge. *ZKFailoverController* körs på båda huvudnoderna och fungerar på samma sätt som huvud styrenheten för redundansväxling ovan.
+HDInsight-kluster baserade på Apache Hadoop 2.0 eller senare ger NameNode hög tillgänglighet. Det finns två NameNodes som körs på headnodes, som är konfigurerade för automatisk redundans. NameNodes använder *ZKFailoverController* för att kommunicera med Zookeeper för att välja för aktiv/standby-status. *ZKFailoverController* körs på båda headnodes, och fungerar på samma sätt som befälhavaren redundans controller ovan.
 
-Det andra Zookeeper-kvorumet är oberoende av det första kvorumet, så den aktiva NameNode får inte köras på den aktiva huvudnoden. När den aktiva NameNode är i död läge eller ej felfri är vänte läge NameNode WINS och aktiv.
+Den andra Zookeeper kvorum är oberoende av den första kvorum, så den aktiva NameNode får inte köras på den aktiva headnode. När den aktiva NameNode är död eller ohälsosam vinner standby NameNode valet och blir aktivt.
 
-### <a name="yarn-resourcemanager"></a>GARN resurs hanteraren
+### <a name="yarn-resourcemanager"></a>GARN ResourceManager
 
-HDInsight-kluster baserade på Apache Hadoop 2,4 eller högre, stöder garn-ResourceManager med hög tillgänglighet. Det finns två ResourceManagers, RM1 och RM2, som körs på huvudnoden 0 respektive huvudnoden 1. Som NameNode konfigureras garn ResourceManager också för automatisk redundans. En annan resurs hanteraren väljs automatiskt som aktiv när den aktuella aktiva ResourceManager stängs av eller slutar fungera.
+HDInsight-kluster baserade på Apache Hadoop 2.4 eller senare stöder YARN ResourceManager hög tillgänglighet. Det finns två ResourceManagers, rm1 och rm2, som körs på headnode 0 respektive headnode 1. Precis som NameNode är YARN ResourceManager också konfigurerad för automatisk redundans. En annan ResourceManager väljs automatiskt för att vara aktiv när den aktuella aktiva ResourceManager går ner eller svarar inte.
 
-GARN resurs hanteraren använder sin inbäddade *ActiveStandbyElector* som en feldetektor och en val av ledare. Till skillnad från HDFS NameNode behöver inte garn resurs hanteraren en separat ZKFC-daemon. Den aktiva ResourceManager skriver sina tillstånd till Apache Zookeeper.
+YARN ResourceManager använder sin inbyggda *ActiveStandbyElector* som feldetektor och ledare väljare. Till skillnad från HDFS NameNode behöver YARN ResourceManager inte en separat ZKFC-demon. Den aktiva ResourceManager skriver sina tillstånd i Apache Zookeeper.
 
-Den höga tillgängligheten för garn resurs hanteraren är oberoende av NameNode och andra HDInsight-tjänster. Den aktiva ResourceManager kanske inte körs på den aktiva huvudnoden eller huvudnoden där den aktiva NameNode körs. Mer information om garn resurs hanteraren med hög tillgänglighet finns i [resurs hanteraren hög tillgänglighet](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
+Den höga tillgängligheten för YARN ResourceManager är oberoende av NameNode och andra HDInsight HA-tjänster. Den aktiva ResourceManager kanske inte körs på den aktiva headnoden eller headnode där den aktiva NameNode körs. Mer information om YARN ResourceManager hög tillgänglighet finns i [ResourceManager hög tillgänglighet](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html).
 
-### <a name="hbase-master"></a>HBase Master
+### <a name="hbase-master"></a>HBase-hanterare
 
-HDInsight HBase-kluster har stöd för HBase Master hög tillgänglighet. Till skillnad från andra HA-tjänster, som körs på huvudnoderna, körs HBase-huvudmasters på de tre Zookeeper-noderna, där en av dem är den aktiva huvud servern och de andra två är vänte läge. Som NameNode kan HBase Master koordineras med Apache Zookeeper för val av ledare och gör automatisk redundans när den aktuella aktiva huvud servern har problem. Det finns bara en aktiv HBase Master när som helst.
+HDInsight HBase-kluster stöder HBase Master hög tillgänglighet. Till skillnad från andra HA-tjänster, som körs på headnodes, körs HBase Masters på de tre Zookeeper-noderna, där en av dem är den aktiva mästaren och de andra två är i vänteläge. Liksom NameNode, HBase Master koordinater med Apache Zookeeper för ledare val och gör automatisk redundans när den nuvarande aktiva befälhavaren har problem. Det finns bara en aktiv HBase Master när som helst.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tillgänglighet och tillförlitlighet för Apache Hadoop kluster i HDInsight](hdinsight-high-availability-linux.md)
-- [Azure HDInsight Virtual Network-arkitektur](hdinsight-virtual-network-architecture.md)
+- [Tillgänglighet och tillförlitlighet för Apache Hadoop-kluster i HDInsight](hdinsight-high-availability-linux.md)
+- [Virtuell nätverksarkitektur i Azure HDInsight](hdinsight-virtual-network-architecture.md)

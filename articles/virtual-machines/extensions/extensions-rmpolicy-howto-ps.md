@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Policy för att begränsa installationen av VM-tillägg
-description: Använd Azure Policy för att begränsa tillägg för distribution.
+title: Använda Azure Policy för att begränsa installationen av vm-tillägg
+description: Använd Azure Policy för att begränsa tilläggsdistributioner.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -14,33 +14,33 @@ ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74073116"
 ---
-# <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Använd Azure Policy för att begränsa installationen av tillägg på virtuella Windows-datorer
+# <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Använda Azure Policy för att begränsa installationen av tillägg på virtuella datorer i Windows
 
-Om du vill förhindra användning eller installation av vissa tillägg på dina virtuella Windows-datorer kan du skapa en Azure-princip med hjälp av PowerShell för att begränsa tillägg för virtuella datorer i en resurs grupp. 
+Om du vill förhindra användning eller installation av vissa tillägg på dina virtuella Windows-datorer kan du skapa en Azure-princip med PowerShell för att begränsa tillägg för virtuella datorer inom en resursgrupp. 
 
-I den här självstudien används Azure PowerShell inom Cloud Shell, som uppdateras kontinuerligt till den senaste versionen. 
+Den här självstudien använder Azure PowerShell i Cloud Shell, som ständigt uppdateras till den senaste versionen. 
 
  
 
-## <a name="create-a-rules-file"></a>Skapa en regel fil
+## <a name="create-a-rules-file"></a>Skapa en regelfil
 
-För att begränsa vilka tillägg som kan installeras måste du ha en [regel](../../governance/policy/concepts/definition-structure.md#policy-rule) för att kunna identifiera tillägget.
+För att begränsa vilka tillägg som kan installeras måste du ha en [regel](../../governance/policy/concepts/definition-structure.md#policy-rule) för att ange logiken för att identifiera tillägget.
 
-Det här exemplet visar hur du nekar tillägg som publicerats av Microsoft. Compute genom att skapa en regel fil i Azure Cloud Shell, men om du arbetar i PowerShell lokalt kan du också skapa en lokal fil och ersätta sökvägen ($home/clouddrive) med sökvägen till lokal fil på din dator.
+I det här exemplet visas hur du nekar tillägg som publiceras av "Microsoft.Compute" genom att skapa en regelfil i Azure Cloud Shell, men om du arbetar i PowerShell lokalt kan du också skapa en lokal fil och ersätta sökvägen ($home/clouddrive) med sökvägen till den lokala filen på datorn.
 
-I en [Cloud Shell](https://shell.azure.com/powershell)skriver du:
+I ett [molnskal](https://shell.azure.com/powershell)skriver du:
 
 ```azurepowershell-interactive
 nano $home/clouddrive/rules.json
 ```
 
-Kopiera och klistra in följande. json i filen.
+Kopiera och klistra in följande .json i filen.
 
 ```json
 {
@@ -66,13 +66,13 @@ Kopiera och klistra in följande. json i filen.
 }
 ```
 
-När du är färdig trycker du på **CTRL + O** och **anger** sedan för att spara filen. Stäng filen och avsluta genom att trycka på **CTRL + X** .
+När du är klar trycker du på **Ctrl + O** och **sedan enter** för att spara filen. Tryck **på Ctrl + X** för att stänga filen och avsluta.
 
-## <a name="create-a-parameters-file"></a>Skapa en parameter fil
+## <a name="create-a-parameters-file"></a>Skapa en parameterfil
 
-Du behöver också en [parameter](../../governance/policy/concepts/definition-structure.md#parameters) fil som skapar en struktur som du kan använda för att skicka en lista över tillägg som ska blockeras. 
+Du behöver också en [parameterfil](../../governance/policy/concepts/definition-structure.md#parameters) som skapar en struktur som du kan använda för att skicka i en lista över de tillägg som ska blockeras. 
 
-Det här exemplet visar hur du skapar en parameter fil för virtuella datorer i Cloud Shell, men om du arbetar i PowerShell lokalt kan du också skapa en lokal fil och ersätta sökvägen ($home/clouddrive) med sökvägen till den lokala filen på din dator.
+I det här exemplet visas hur du skapar en parameterfil för virtuella datorer i Cloud Shell, men om du arbetar i PowerShell lokalt kan du också skapa en lokal fil och ersätta sökvägen ($home/clouddrive) med sökvägen till den lokala filen på datorn.
 
 I [Cloud Shell](https://shell.azure.com/powershell)skriver du:
 
@@ -80,7 +80,7 @@ I [Cloud Shell](https://shell.azure.com/powershell)skriver du:
 nano $home/clouddrive/parameters.json
 ```
 
-Kopiera och klistra in följande. json i filen.
+Kopiera och klistra in följande .json i filen.
 
 ```json
 {
@@ -95,13 +95,13 @@ Kopiera och klistra in följande. json i filen.
 }
 ```
 
-När du är färdig trycker du på **CTRL + O** och **anger** sedan för att spara filen. Stäng filen och avsluta genom att trycka på **CTRL + X** .
+När du är klar trycker du på **Ctrl + O** och **sedan enter** för att spara filen. Tryck **på Ctrl + X** för att stänga filen och avsluta.
 
 ## <a name="create-the-policy"></a>Skapa principen
 
-En princip definition är ett objekt som används för att lagra den konfiguration som du vill använda. Princip definitionen använder filerna regler och parametrar för att definiera principen. Skapa en princip definition med cmdleten [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition) .
+En principdefinition är ett objekt som används för att lagra den konfiguration som du vill använda. Principdefinitionen använder regel- och parameterfilerna för att definiera principen. Skapa en principdefinition med cmdleten [New-AzPolicyDefinition.](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition)
 
- Princip reglerna och parametrarna är de filer som du har skapat och lagrats som JSON-filer i Cloud Shell.
+ Principregler och parametrar är de filer som du har skapat och lagrat som .json-filer i molngränssnittet.
 
 
 ```azurepowershell-interactive
@@ -118,9 +118,9 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Tilldela principen
 
-I det här exemplet tilldelas principen en resurs grupp med hjälp av [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Alla virtuella datorer som skapats i resurs gruppen **myResourceGroup** kommer inte att kunna installera VM-agenttjänsten eller anpassade skript tillägg. 
+I det här exemplet tilldelas principen till en resursgrupp med [ny-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Alla virtuella datorer som skapas i resursgruppen **myResourceGroup** kan inte installera vm Access Agent- eller Custom Script-tilläggen. 
 
-Använd [Get-AzSubscription | Format – tabell-](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) cmdlet för att hämta ditt prenumerations-ID som ska användas i stället för det som visas i exemplet.
+Använd [Get-AzSubscription | Formatera-tabell-cmdlet](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) för att få ditt prenumerations-ID att använda i stället för det i exemplet.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testa principen
 
-Testa principen genom att försöka använda tillägget för VM-åtkomst. Följande bör inte utföras med meddelandet "Set-AzVMAccessExtension: Resource" myVMAccess "tilläts av principen".
+Testa principen genom att försöka använda vm Access-tillägget. Följande bör misslyckas med meddelandet "Set-AzVMAccessExtension: Resource 'myVMAccess' inte godkändes av principen."
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `
@@ -151,7 +151,7 @@ Set-AzVMAccessExtension `
    -Location EastUS 
 ```
 
-I portalen bör ändringen av lösen ordet Miss lyckas med "distribution av mallen misslyckades på grund av princip överträdelse." meddelande.
+I portalen bör lösenordsändringen misslyckas med "Malldistributionen misslyckades på grund av principöverträdelse". .
 
 ## <a name="remove-the-assignment"></a>Ta bort tilldelningen
 

@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2783c828f96eeb3539e2266eaf1d6d590a6af4c4
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: 4ea97e2dbee87f7ab129c4295276c9024c0212c7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79371019"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80116923"
 ---
-En ny funktion i VPN-klienten för Windows 10, Always on, är möjligheten att underhålla en VPN-anslutning. Med Always on kan den aktiva VPN-profilen ansluta automatiskt och förbli ansluten baserat på utlösare, till exempel användar inloggning, ändring av nätverks tillstånd eller enhets skärmen aktiv.
+En ny funktion i Windows 10 VPN-klienten, Always On, är möjligheten att upprätthålla en VPN-anslutning. Med Always On kan den aktiva VPN-profilen ansluta automatiskt och förbli ansluten baserat på utlösare, till exempel användarinloggning, ändring av nätverkstillstånd eller enhetsskärmen aktiv.
 
-Du kan använda Azures virtuella nätverks-gatewayer med Windows 10 Always on för att upprätta permanenta användar tunnlar och enhets tunnlar till Azure. Den här artikeln hjälper dig att konfigurera en Always on VPN-användar tunnel.
+Du kan använda gateways med Windows 10 Always On för att upprätta beständiga användartunnlar och enhetstunnlar till Azure. Den här artikeln hjälper dig att konfigurera en Alltid på VPN-användare tunnel.
 
-Always on VPN-anslutningar omfattar endera av två typer av tunnlar:
+Alltid på VPN-anslutningar innehåller någon av två typer av tunnlar:
 
-* **Enhets tunnel**: ansluter till angivna VPN-servrar innan användarna loggar in på enheten. I anslutnings scenarier för inloggning och enhets hantering används en enhets tunnel.
+* **Enhetstunnel:** Ansluter till angivna VPN-servrar innan användare loggar in på enheten. Förinstallera anslutningsscenarier och enhetshantering använder en enhetstunnel.
 
-* **Användar tunnel**: ansluter bara när användare loggar in på enheten. Med hjälp av användar tunnlar kan du få åtkomst till organisations resurser via VPN-servrar.
+* **Användartunnel:** Ansluts först när användare har loggat in på enheten. Genom att använda användartunnlar kan du komma åt organisationsresurser via VPN-servrar.
 
-Enhets tunnlar och användar tunnlar drivs oberoende av deras VPN-profiler. De kan vara anslutna samtidigt, och de kan använda olika autentiseringsmetoder och andra inställningar för VPN-konfigurationen.
+Enhetstunnlar och användartunnlar fungerar oberoende av sina VPN-profiler. De kan anslutas samtidigt, och de kan använda olika autentiseringsmetoder och andra VPN-konfigurationsinställningar, beroende på vad som är lämpligt.

@@ -2,16 +2,16 @@
 title: Exportera Azure Cosmos DB emulatorcertifikat
 description: När du utvecklar i språk och körningar som inte använder Windows-certifikatarkiv måste du exportera och hantera SSL-certifikat. Det här inlägget innehåller stegvisa instruktioner.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/23/2019
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: a398c10511fdd3891a2c429f0ef46869dcc48922
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 623837b30038ef8524aef1e87aeb5933204925a6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244439"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80156029"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Exportera Azure Cosmos DB emulatorcertifikat för användning med Java, Python och Node.js
 
@@ -44,7 +44,7 @@ Du kan återskapa båda certifikaten genom att klicka på **Återställ data** e
 
     ![Steg 2 för att exportera den lokala Azure Cosmos DB-emulatorn](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
 
-3. Klicka på **Kopiera till fil...** .
+3. Klicka på **Kopiera till fil...**.
 
     ![Steg 3 för att exportera den lokala Azure Cosmos DB-emulatorn](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
@@ -70,7 +70,7 @@ Du kan återskapa båda certifikaten genom att klicka på **Återställ data** e
 
 ## <a name="how-to-use-the-certificate-in-java"></a>Så här använder du certifikatet i Java
 
-När du kör Java-program eller MongoDB-program som använder Java-klient är det enklare att installera certifikatet i certifikatarkivet för Java-standard än skicka den `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` flaggor. Exempelvis kan det inkluderade [demonstrationsprogrammet för Java](https://localhost:8081/_explorer/index.html) ha beroenden till standardcertifikatarkivet.
+När du kör Java-program eller MongoDB-program som använder Java-klienten är det `-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"` lättare att installera certifikatet i Javas standardcertifikatarkiv än att skicka flaggorna. Exempelvis kan det inkluderade [demonstrationsprogrammet för Java](https://localhost:8081/_explorer/index.html) ha beroenden till standardcertifikatarkivet.
 
 Följ instruktionerna i avsnittet [om hur du lägger till ett certifikat i Java CA certifikatarkiv](https://docs.microsoft.com/azure/java-add-certificate-ca-store) för att importera X.509-certifikatet till standardcertifikatarkivet för Java. Observera att du kommer att arbeta i katalogen %JAVA_HOME% när du kör nyckelverktyget.
 

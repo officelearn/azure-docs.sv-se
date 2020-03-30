@@ -1,61 +1,61 @@
 ---
-title: Regional redundans och återställning av redundans med Azure HPC cache
-description: Tekniker för att tillhandahålla redundans för haveri beredskap med Azure HPC cache
+title: Regional redundans- och redundansåterställning med Azure HPC-cache
+description: Tekniker för att tillhandahålla redundansfunktioner för haveriberedskap med Azure HPC-cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
 ms.openlocfilehash: 4eb203915c8fedbef6af0e5a3bc14eff1835a92b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75982162"
 ---
-# <a name="use-multiple-caches-for-regional-failover-recovery"></a>Använd flera cacheminnen för regional redundansväxling
+# <a name="use-multiple-caches-for-regional-failover-recovery"></a>Använda flera cacheminnen för regional återställning av redundans
 
-Varje Azure HPC cache-instans körs inom en viss prenumeration och i en region. Det innebär att ditt cache-arbetsflöde kanske inte kan störas om regionen har ett fullständigt avbrott.
+Varje Azure HPC-cacheinstans körs inom en viss prenumeration och i en region. Det innebär att cachearbetsflödet eventuellt kan störas om regionen har ett fullständigt avbrott.
 
-I den här artikeln beskrivs en strategi för att minska risken för arbets avbrott genom att använda en andra region för cachelagring av redundans.
+I den här artikeln beskrivs en strategi för att minska risken för avbrott i arbetet genom att använda en andra region för cache-redundans.
 
-Nyckeln använder Server dels lagring som kan nås från flera regioner. Lagringen kan antingen vara ett lokalt NAS-system med lämpligt DNS-stöd eller Azure Blob Storage som finns i en annan region än cachen.
+Nyckeln använder backend-lagring som är tillgänglig från flera regioner. Den här lagringen kan vara antingen ett lokalt NAS-system med lämplig DNS-support eller Azure Blob-lagring som finns i en annan region än cachen.
 
-När arbets flödet fortsätter i din primära region, sparas data i den långsiktiga lagringen utanför regionen. Om cache-regionen blir otillgänglig kan du skapa en dubblett av Azure HPC-instansen i en sekundär region, ansluta till samma lagrings utrymme och återuppta arbetet från det nya cacheminnet.
+När arbetsflödet fortsätter i din primära region sparas data i långtidslagringen utanför regionen. Om cacheregionen blir otillgänglig kan du skapa en dubblett Azure HPC-cacheinstans i en sekundär region, ansluta till samma lagring och återuppta arbetet från den nya cachen.
 
-## <a name="planning-for-regional-failover"></a>Planera för regional redundans
+## <a name="planning-for-regional-failover"></a>Planering för regional redundans
 
-Följ dessa steg om du vill konfigurera ett cacheminne som är för berett för möjlig redundans:
+Så här konfigurerar du en cache som är förberedd för eventuell redundans:
 
-1. Se till att Server dels lagringen är tillgänglig i en andra region.
-1. När du planerar att skapa den primära cache-instansen bör du också förbereda för att replikera den här installations processen i den andra regionen. Ta med följande objekt:
+1. Kontrollera att backend-lagringen är tillgänglig i en andra region.
+1. När du planerar att skapa den primära cacheinstansen bör du också förbereda att replikera den här installationsprocessen i den andra regionen. Inkludera följande:
 
-   1. Virtuellt nätverk och en under näts struktur
-   1. Cache-kapacitet
-   1. Lagrings mål information, namn och sökvägar för namn områden
-   1. Information om klient datorer, om de finns i samma region som cachen
-   1. Monterings kommando för användning av cache-klienter
+   1. Virtuellt nätverk och nätstruktur
+   1. Cachekapacitet
+   1. Information om lagringsmål, namn och namnområde
+   1. Information om klientdatorer, om de finns i samma region som cachen
+   1. Kommandot Montera för användning av cacheklienter
 
    > [!NOTE]
-   > Azure HPC-cache kan skapas via programmering, antingen via en [Azure Resource Manager mall](../azure-resource-manager/templates/overview.md) eller genom direkt åtkomst till dess API. Kontakta Azure HPC-teamet för mer information.
+   > Azure HPC-cache kan skapas programmässigt, antingen via en [Azure Resource Manager-mall](../azure-resource-manager/templates/overview.md) eller genom direkt åtkomst till dess API. Kontakta Azure HPC-cacheteamet för mer information.
 
 ## <a name="failover-example"></a>Exempel på redundans
 
-Anta till exempel att du vill hitta din Azure HPC-cache i Azures region USA, östra. Den kommer att få åtkomst till data som lagras i ditt lokala data Center.
+Anta till exempel att du vill hitta din Azure HPC-cache i Azures region östra USA. Den kommer åt data som lagras i ditt lokala datacenter.
 
-Du kan använda en cache i regionen USA, västra 2 som en säkerhets kopia av redundans.
+Du kan använda en cache i regionen Västra USA 2 som en säkerhetskopiering av redundans.
 
-När du skapar cachen i östra USA förbereder du en andra cache för distribution i USA, västra 2. Du kan automatisera förberedelsen genom att använda skript eller mallar.
+När du skapar cacheminnet i östra USA förbereder du en andra cache för distribution i västra USA 2. Du kan använda skript eller mallar för att automatisera den här förberedelsen.
 
-Om det finns ett lands omfattande haveri i östra USA skapar du cachen som du har för berett i regionen USA, västra 2.
+I händelse av ett regionomfattande fel i östra USA skapar du cachen som du har förberett i regionen Västra USA 2.
 
-När cachen har skapats lägger du till lagrings mål som pekar på samma lokala data lager och använder samma aggregerade namn rymds sökvägar som den gamla cachens lagrings mål.
+När cacheminnet har skapats lägger du till lagringsmål som pekar på samma lokala datalager och använder samma aggregerade namnområdessökvägar som den gamla cachens lagringsmål.
 
-Om de ursprungliga klienterna påverkas skapar du nya klienter i regionen USA, västra 2, för användning med det nya cacheminnet.
+Om de ursprungliga klienterna påverkas skapar du nya klienter i regionen Västra USA 2 som kan användas med den nya cachen.
 
-Alla klienter måste montera det nya cacheminnet, även om klienterna inte påverkades av det här regions avbrottet. Den nya cachen har olika monterings adresser från den gamla.
+Alla klienter måste montera den nya cachen, även om klienterna inte påverkades av regionens avbrott. Den nya cachen har olika monteringsadresser än den gamla.
 
 ## <a name="learn-more"></a>Läs mer
 
-Azure Application Architecture-guiden innehåller mer information om hur du [återställer från ett brett tjänst avbrott](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>).
+Azure-programarkitekturguiden innehåller mer information om hur du [återställer från ett regionomfattande avbrott](<https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region>)i tjänsten .
 <!-- this should be an internal link instead of a URL but I can't find the tree  -->

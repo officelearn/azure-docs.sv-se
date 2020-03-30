@@ -8,30 +8,30 @@ ms.topic: include
 ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b1bbc11d7772e4f56d7dc6ead580b0a0cbd3cd8d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 266cd52117f36b282fdd4bc8615a15e451cc203f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68669845"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80132578"
 ---
-Med Functions är det enkelt att lägga till Application Insights integration till en Function-app från [Azure Portal].
+Funktioner gör det enkelt att lägga till Integrering av Application Insights i en funktionsapp från [Azure-portalen].
 
-1. I [portalen][azure portal]väljer du **alla tjänster > Function-appar**, väljer din Function-app och väljer sedan **Application Insightss** banderollen högst upp i fönstret
+1. I [portalen][Azure] `Function Apps` Portal skriver du i sökfältet högst upp på sidan, väljer din funktionsapp och väljer sedan **att programstatistiken inte är konfigurerad** högst upp i fönstret. Om du inte ser den här bannern har appen redan application insights aktiverat.
 
-    ![Aktivera Application Insights från portalen](media/functions-connect-new-app-insights/enable-application-insights.png)
+    ![Aktivera programinsikter från portalen](media/functions-connect-new-app-insights/enable-application-insights.png)
 
-1. Skapa en Application Insights resurs genom att använda de inställningar som anges i tabellen under bilden.
+1. Skapa en Application Insights-resurs med hjälp av de inställningar som anges i tabellen under bilden.
 
    ![Skapa en Application Insights-resurs](media/functions-connect-new-app-insights/ai-general.png)
 
     | Inställning      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Namn** | Unikt namn på App | Det är enklast att använda samma namn som din Function-app, vilket måste vara unikt i din prenumeration. | 
-    | **Location** | Västra Europa | Använd om möjligt samma [region](https://azure.microsoft.com/regions/) som din Function-app eller en som är nära den regionen. |
+    | **Namn** | Unikt appnamn | Det är enklast att använda samma namn som din funktionsapp, som måste vara unik i din prenumeration. | 
+    | **Location** | Europa, västra | Använd om möjligt samma [region](https://azure.microsoft.com/regions/) som funktionsappen eller en som ligger nära den regionen. |
 
-1. Välj **OK**. Application Insights resursen skapas i samma resurs grupp och prenumeration som din Function-app. När resursen har skapats stänger du Application Insightss fönstret.
+1. Välj **OK**. Application Insights-resursen skapas i samma resursgrupp och prenumeration som din funktionsapp. När resursen har skapats stänger du fönstret Programstatistik.
 
-1. Tillbaka i din Function-app väljer du **program inställningar**och rullar sedan ned till **program inställningar**. Om du ser en inställning med `APPINSIGHTS_INSTRUMENTATIONKEY`namnet är Application Insights integration aktive rad för din Function-app som körs i Azure.
+1. Tillbaka i funktionsappen väljer du **Programinställningar**och bläddrar sedan ned till **Programinställningar**. Om du ser `APPINSIGHTS_INSTRUMENTATIONKEY`en inställning med namnet är Application Insights-integrering aktiverad för din funktionsapp som körs i Azure.
 
 [Azure Portal]: https://portal.azure.com

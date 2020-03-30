@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 08/21/2019
 ms.author: alkohli
 ms.openlocfilehash: eb55d993ad8960f821c2b72f0a53602166b7cc7e
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69900614"
 ---
-För vilande data:
+För data i vila:
 
-- Åtkomst till data som lagras i resurser är begränsad.
+- Tillgången till data som lagras i aktier är begränsad.
 
-    - SMB-klienter som har åtkomst till resurs data måste ha användarautentiseringsuppgifter kopplade till resursen. Autentiseringsuppgifterna definieras när resursen skapas.
+    - SMB-klienter som använder delningsdata behöver användarautentiseringsuppgifter som är associerade med resursen. Dessa autentiseringsuppgifter definieras när resursen skapas.
     - IP-adresserna för NFS-klienter som har åtkomst till en resurs måste läggas till när resursen skapas.

@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: skicka Blob Storage-händelser till webb slut punkt – Portal'
-description: 'Snabb start: Använd Azure Event Grid och Azure Portal för att skapa Blob Storage-konto och prenumerera på dess händelser. Skicka händelserna till en Webhook.'
+title: 'Snabbstart: Skicka Blob-lagringshändelser till webbslutpunkten - portal'
+description: 'Snabbstart: Använd Azure Event Grid och Azure-portalen för att skapa Blob-lagringskonto och prenumerera på dess händelser. Skicka händelserna till en Webhook.'
 services: event-grid
 keywords: ''
 author: spelluru
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: 2daf17ccef1bca363fe92f71a332fbfa78637135
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76844792"
 ---
-# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabb start: dirigera Blob Storage-händelser till webb slut punkt med Azure Portal
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabbstart: Route Blob storage events to web endpoint with the Azure portal Snabbstart: Route Blob storage events to web endpoint with the Azure portal Snabbstart: Route Blob storage events to web endpoint with the Azure portal Snabbstart
 
 Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure Portal för att skapa ett Blob Storage-konto, prenumerera på händelser för blobblagringen och utlösa en händelse för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
@@ -28,7 +28,7 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 
 ## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Om du vill skapa ett Blob Storage-konto väljer du **Skapa en resurs**. 
 
@@ -43,7 +43,7 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
    ![Startsteg](./media/blob-event-quickstart-portal/provide-blob-values.png)
 
 >[!NOTE]
-> Endast lagrings konton av typen **StorageV2 (generell användning v2)** och **BlobStorage** -stöd för händelse integrering. **Lagring (Genral Purpose v1)** stöder *inte* integrering med event Grid.
+> Endast lagringskonton av typen **StorageV2 (general purpose v2)** och **BlobStorage** stöder händelseintegrering. **Lagring (genral syfte v1)** stöder *inte* integrering med Event Grid.
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 
@@ -105,7 +105,7 @@ Du kan utlösa en händelse för Blob Storage-kontot genom att ladda upp en fil.
 
 1. Bläddra till testfilen och ladda upp den.
 
-1. Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Meddelandet är i JSON-format och innehåller en matris med en eller flera händelser. I följande exempel innehåller JSON-meddelandet en matris med en händelse. Visa din webbapp och notera att en skapad blobhändelse tagits emot. 
+1. Du har utlöst händelsen och Event Grid skickade meddelandet till den slutpunkt som du konfigurerade när du prenumererade. Meddelandet är i JSON-format och det innehåller en matris med en eller flera händelser. I följande exempel innehåller JSON-meddelandet en matris med en händelse. Visa din webbapp och notera att en skapad blobhändelse tagits emot. 
 
    ```json
    [{

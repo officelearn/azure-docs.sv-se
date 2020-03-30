@@ -1,6 +1,6 @@
 ---
-title: StorSimple för virtuella matriser | Microsoft Docs
-description: Beskriver system begränsningar och rekommenderade storlekar för Microsoft Azure StorSimple virtuella matrisens komponenter och anslutningar.
+title: Begränsningar för StorSimple Virtual Array | Microsoft-dokument
+description: Beskriver systemgränser och rekommenderade storlekar för Microsoft Azure StorSimple Virtual Array-komponenter och -anslutningar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -16,20 +16,20 @@ ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1fe6b614aa05ab3e774aa2f946b78cabbc9f1a3b
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68516733"
 ---
-# <a name="what-are-storsimple-virtual-array-limits"></a>Vad är StorSimple virtuella matris gränser?
+# <a name="what-are-storsimple-virtual-array-limits"></a>Vad är Begränsningar för StorSimple Virtual Array?
 
 ## <a name="overview"></a>Översikt
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-Tänk på följande begränsningar när du planerar, distribuerar och använder din Microsoft Azure StorSimple virtuella matris. I följande tabell beskrivs de här gränserna för den virtuella enheten.
+Tänk på dessa gränser när du planerar, distribuerar och använder din Microsoft Azure StorSimple Virtual Array. I följande tabell beskrivs dessa gränser för den virtuella enheten.
 
-## <a name="storsimple-virtual-array-limits"></a>StorSimple virtuella mat ris gränser
+## <a name="storsimple-virtual-array-limits"></a>Begränsningar för StorSimple-virtuell matris
 [!INCLUDE [storsimple-virtual-array-limits](../../includes/storsimple-virtual-array-limits.md)]
 

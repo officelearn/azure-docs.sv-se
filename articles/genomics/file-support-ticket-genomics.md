@@ -1,8 +1,8 @@
 ---
-title: Så här arkiverar du en support förfrågan
+title: Så här lämnar du in en supportbegäran
 titleSuffix: Microsoft Genomics
-description: Den här artikeln beskriver hur du skickar en support förfrågan till kontakt Microsoft Genomics om du inte kan lösa problemet med fel söknings guiden eller vanliga frågor och svar.
-keywords: fel sökning, fel, fel sökning, support
+description: I den här artikeln beskrivs hur du skickar in en supportbegäran om att kontakta Microsoft Genomics om du inte kan lösa problemet med felsökningsguiden eller vanliga frågor och svar.
+keywords: felsökning, fel, felsökning, support
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -11,39 +11,39 @@ ms.service: genomics
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72248594"
 ---
 # <a name="how-to-contact-microsoft-genomics-for-support"></a>Så här kontaktar du Microsoft Genomics för support
-Den här översikten beskriver hur du kan skicka en supportbegäran till kontakt Microsoft Genomics. Detta kan vara användbart om du inte kan felsöka problemet med hjälp av [fel söknings guiden](troubleshooting-guide-genomics.md) eller [vanliga frågor och svar](frequently-asked-questions-genomics.md). 
+I den här översikten beskrivs hur du lämnar in en supportbegäran om att kontakta Microsoft Genomics. Detta kan vara användbart om du inte kan felsöka problemet med hjälp av [felsökningsguiden](troubleshooting-guide-genomics.md) eller [vanliga frågor och svar](frequently-asked-questions-genomics.md). 
 
 
-## <a name="file-a-support-ticket-through-the-azure-portal"></a>File a Support Ticket via Azure Portal
-Logga först in på ditt Azure-konto i Azure Portal. Klicka på frågetecknet i det övre högra hörnet och välj `Help + support`.
+## <a name="file-a-support-ticket-through-the-azure-portal"></a>Arkivera en supportbiljett via Azure-portalen
+Logga först in på ditt Azure-konto i Azure-portalen. Klicka på frågetecknet längst upp till `Help + support`höger och välj .
 
-![Kontakta supporten för Azure Portal](./media/file-support-ticket/genomics-contact-support.png "kontakta supporten på Azure Portal") 
-
-
-
-Välj sedan `New support request`. 
-
-![Nytt support ärende](./media/file-support-ticket/new-support-request.png "ny supportbegäran") 
-
-Fyll i `Basics`, inklusive `Issue type` och din `Subscription`. Välj det mest relevanta `Issue type` på ditt problem. som ett exempel på bilden nedan, `Technical` har marker ATS. Se till att välja `Microsoft Genomics` som relevant tjänst.  `Microsoft Genomics` visas under kategorin `Intelligence and Analytics`.   När du har valt `Microsoft Genomics` uppmanas du också att ange din `Support plan`-typ.
-
-Grunderna i ![Supportbegäran](./media/file-support-ticket/support-request-basics.png "supportbegäran")
+![Kontakta support på Azure Portal](./media/file-support-ticket/genomics-contact-support.png "Kontakta support på Azure Portal") 
 
 
-Lägg sedan till information om problemet. Verktyget för begäran kommer också att länka till befintlig dokumentation som kan hjälpa dig. I det här exemplet är problemet relaterat till `Genomics keys`, men flera andra alternativ är också tillgängliga.
 
-(./media/file-support-ticket/support-request-problem.png "Supportbegäran problem") med ![supportbegäran problem]
+Välj `New support request`sedan . 
 
-Sist lägger du till din kontakt information och väljer `Create` längst ned på skärmen för att skicka in din supportbegäran.
+![Ny supportbegäran](./media/file-support-ticket/new-support-request.png "Ny supportbegäran") 
 
-![Supportbegäran kontakt](./media/file-support-ticket/support-request-contact.png "supportbegäran kontakt")
+Fyll i `Basics`, `Issue type` inklusive `Subscription`och din . Välj den `Issue type` mest relevanta för ditt problem. som ett exempel i `Technical` bilden nedan, har valts. Var noga `Microsoft Genomics` med att välja som relevant tjänst.  `Microsoft Genomics`kommer att listas `Intelligence and Analytics` under kategorin.   När du `Microsoft Genomics`har valt blir du `Support plan` också ombedd att ange din typ.
+
+![Grunderna i supportbegäran](./media/file-support-ticket/support-request-basics.png "Grunderna i supportbegäran")
+
+
+Lägg sedan till information om ditt problem. Verktyget för begäran kommer också att länka till befintlig dokumentation som kan vara till hjälp för dig. I det här exemplet är `Genomics keys`problemet relaterat till , men flera andra alternativ är också tillgängliga.
+
+![Problem med supportbegäran](./media/file-support-ticket/support-request-problem.png "Problem med supportbegäran")
+
+Lägg slutligen till din `Create` kontaktinformation och välj längst ned på skärmen för att skicka din supportbegäran.
+
+![Kontakt med supportbegäran](./media/file-support-ticket/support-request-contact.png "Kontakt med supportbegäran")
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur du skickar in en support förfrågan. Du kan också lösa vanliga problem med våra [vanliga frågor och svar](frequently-asked-questions-genomics.md) och i [fel söknings guiden](troubleshooting-guide-genomics.md). 
+I den här artikeln fick du lära dig hur du skickar en supportbegäran. Du kan också lösa vanliga problem med hjälp av våra [vanliga frågor](frequently-asked-questions-genomics.md) och vår [felsökningsguide.](troubleshooting-guide-genomics.md) 

@@ -1,27 +1,27 @@
 ---
-title: Så här inaktiverar du funktioner i Azure Functions
+title: Inaktivera funktioner i Azure Functions
 description: Lär dig hur du inaktiverar och aktiverar funktioner i Azure Functions.
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.openlocfilehash: fb8edf635856078655b8640ba0e1723fdd5e8a5a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77116138"
 ---
-# <a name="how-to-disable-functions-in-azure-functions"></a>Så här inaktiverar du funktioner i Azure Functions
+# <a name="how-to-disable-functions-in-azure-functions"></a>Inaktivera funktioner i Azure Functions
 
-Den här artikeln förklarar hur du inaktiverar en funktion i Azure Functions. För att *inaktivera* en funktion innebär körningen att ignorera den automatiska utlösaren som definierats för funktionen. På så sätt kan du förhindra att en speciell funktion körs utan att stoppa hela Function-appen.
+I den här artikeln beskrivs hur du inaktiverar en funktion i Azure Functions. Om du vill *inaktivera* en funktion innebär det att köra bort den automatiska utlösaren som har definierats för funktionen. På så sätt kan du förhindra att en viss funktion körs utan att stoppa hela funktionsappen.
 
-Det rekommenderade sättet att inaktivera en funktion är genom att använda en app-inställning i formatet `AzureWebJobs.<FUNCTION_NAME>.Disabled`. Du kan skapa och ändra den här program inställningen på flera olika sätt, inklusive genom att använda [Azure CLI](/cli/azure/) och från funktionens **Hantera** -flik i [Azure Portal](https://portal.azure.com). 
+Det rekommenderade sättet att inaktivera en funktion är `AzureWebJobs.<FUNCTION_NAME>.Disabled`att använda en appinställning i formatet . Du kan skapa och ändra den här programinställningen på flera olika sätt, bland annat genom att använda [Azure CLI](/cli/azure/) och från fliken **Hantera** i [Azure-portalen](https://portal.azure.com). 
 
 > [!NOTE]  
-> När du inaktiverar en HTTP-utlöst funktion med hjälp av metoderna som beskrivs i den här artikeln, kan slut punkten fortfarande vara tillgänglig när den körs på den lokala datorn.  
+> När du inaktiverar en HTTP-utlöst funktion med hjälp av de metoder som beskrivs i den här artikeln kan slutpunkten fortfarande vara tillgänglig när den körs på den lokala datorn.  
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-I Azure CLI använder du kommandot [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) för att skapa och ändra appens inställning. Följande kommando inaktiverar en funktion med namnet `QueueTrigger` genom att skapa en app-inställning med namnet `AzureWebJobs.QueueTrigger.Disabled` ange den som `true`. 
+I Azure CLI använder [`az functionapp config appsettings set`](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) du kommandot för att skapa och ändra appinställningen. Följande kommando inaktiverar en `QueueTrigger` funktion som heter `AzureWebJobs.QueueTrigger.Disabled` genom `true`att skapa en appinställning med namnet set it till . 
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -29,7 +29,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
-Om du vill aktivera funktionen igen kör du samma kommando med värdet `false`.
+Om du vill återaktivera funktionen kör du `false`samma kommando igen med värdet .
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
@@ -39,17 +39,17 @@ az functionapp config appsettings set --name <myFunctionApp> \
 
 ## <a name="use-the-portal"></a>Använda portalen
 
-Du kan också använda **funktions tillstånds** växeln på funktionens **Hantera** -flik. Växeln fungerar genom att skapa och ta bort `AzureWebJobs.<FUNCTION_NAME>.Disabled` app-inställningen.
+Du kan också använda **funktionstillståndsknappen** på fliken **Hantera.** Växeln fungerar genom att `AzureWebJobs.<FUNCTION_NAME>.Disabled` skapa och ta bort appinställningen.
 
-![Funktions tillstånds växel](media/disable-function/function-state-switch.png)
+![Funktionstillståndsbrytare](media/disable-function/function-state-switch.png)
 
 ## <a name="other-methods"></a>Andra metoder
 
-Även om program inställnings metoden rekommenderas för alla språk och alla körnings versioner finns det flera andra sätt att inaktivera funktioner. Dessa metoder, som varierar beroende på språk-och körnings version, bevaras för bakåtkompatibilitet. 
+Även om programinställningsmetoden rekommenderas för alla språk och alla körningsversioner, finns det flera andra sätt att inaktivera funktioner. Dessa metoder, som varierar beroende på språk och runtime-version, bibehålls för bakåtkompatibilitet. 
 
-### <a name="c-class-libraries"></a>C#klass bibliotek
+### <a name="c-class-libraries"></a>C#-klassbibliotek
 
-I en klass biblioteks funktion kan du också använda attributet `Disable` för att förhindra att funktionen utlöses. Du kan använda attributet utan en konstruktor-parameter, som du ser i följande exempel:
+I en klassbiblioteksfunktion kan `Disable` du också använda attributet för att förhindra att funktionen utlöses. Du kan använda attributet utan en konstruktorparameter, som visas i följande exempel:
 
 ```csharp
 public static class QueueFunctions
@@ -65,7 +65,7 @@ public static class QueueFunctions
 }
 ```
 
-Attributet utan en konstruktor-parameter kräver att du kompilerar om och distribuerar om projektet för att ändra funktionens inaktiverade tillstånd. Ett mer flexibelt sätt att använda attributet är att inkludera en konstruktor-parameter som refererar till en boolesk app-inställning, som visas i följande exempel:
+Attributet utan en konstruktorparameter kräver att du kompilerar om och distribuerar om projektet för att ändra funktionens inaktiverade tillstånd. Ett mer flexibelt sätt att använda attributet är att inkludera en konstruktorparameter som refererar till en boolesk appinställning, som visas i följande exempel:
 
 ```csharp
 public static class QueueFunctions
@@ -81,18 +81,18 @@ public static class QueueFunctions
 }
 ```
 
-Med den här metoden kan du aktivera och inaktivera funktionen genom att ändra appens inställning utan att kompilera om eller distribuera om. Om du ändrar en app-inställning startar Function-appen om, så att den inaktiverade tillstånds ändringen kan identifieras direkt.
+Med den här metoden kan du aktivera och inaktivera funktionen genom att ändra appinställningen, utan att kompilera om eller distribuera om. Om du ändrar en appinställning startas funktionsappen om, så att ändringen av inaktiverat tillstånd känns igen omedelbart.
 
 > [!IMPORTANT]
-> Attributet `Disabled` är det enda sättet att inaktivera en klass biblioteks funktion. Den genererade *Function. JSON* -filen för en klass biblioteks funktion är inte avsedd att redige ras direkt. Om du redigerar filen får du ingen påverkan på vad du gör med egenskapen `disabled`.
+> Attributet `Disabled` är det enda sättet att inaktivera en klassbiblioteksfunktion. Den genererade *function.json-filen* för en klassbiblioteksfunktion är inte avsedd att redigeras direkt. Om du redigerar filen har `disabled` det du inte har någon effekt på det du gör med egenskapen.
 >
-> Samma sak gäller för **funktions tillstånds** växeln på fliken **Hantera** , eftersom den fungerar genom att ändra *Function. JSON* -filen.
+> Detsamma gäller för **funktionstillståndsknappen** på fliken **Hantera,** eftersom den fungerar genom att ändra *filen function.json.*
 >
-> Observera också att portalen kan indikera att funktionen är inaktive rad när den inte är det.
+> Observera också att portalen kan indikera att funktionen är inaktiverad när den inte är det.
 
-### <a name="functions-1x---scripting-languages"></a>Functions 1. x – skript språk
+### <a name="functions-1x---scripting-languages"></a>Funktioner 1.x - skriptspråk
 
-I version 1. x kan du också använda egenskapen `disabled` i filen *Function. JSON* för att se till att körnings miljön inte utlöser en funktion. Den här metoden fungerar bara för skript språk som C# skript och Java Script. Egenskapen `disabled` kan anges till `true` eller till namnet på en app-inställning:
+I version 1.x kan du `disabled` också använda egenskapen för *filen function.json* för att tala om för körningen att inte utlösa en funktion. Den här metoden fungerar bara för skriptspråk som C#-skript och JavaScript. Egenskapen `disabled` kan ställas `true` in på eller namnet på en appinställning:
 
 ```json
 {
@@ -117,12 +117,12 @@ eller
     "disabled": "IS_DISABLED"
 ```
 
-I det andra exemplet inaktive ras funktionen när det finns en app-inställning med namnet IS_DISABLED och är inställd på `true` eller 1.
+I det andra exemplet inaktiveras funktionen när det finns en appinställning som `true` heter IS_DISABLED och är inställd på eller 1.
 
-Du kan redigera filen i Azure Portal eller använda **funktions tillstånds** växeln på funktionens **Hantera** -flik. Portal växeln fungerar genom att ändra *Function. JSON* -filen.
+Du kan redigera filen i Azure-portalen eller använda **funktionstillståndsknappen** på fliken **Hantera.** Portalväxeln fungerar genom att ändra *filen function.json.*
 
-![Funktions tillstånds växel](media/disable-function/function-state-switch.png)
+![Funktionstillståndsbrytare](media/disable-function/function-state-switch.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln är att inaktivera automatiska utlösare. Mer information om utlösare finns i [utlösare och bindningar](functions-triggers-bindings.md).
+Den här artikeln handlar om att inaktivera automatiska utlösare. Mer information om utlösare finns i [Utlösare och bindningar](functions-triggers-bindings.md).

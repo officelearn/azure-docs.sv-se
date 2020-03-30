@@ -1,6 +1,6 @@
 ---
-title: OPC, dubbel arkitektur – Azure | Microsoft Docs
-description: Den här artikeln innehåller en översikt över OPCs dubbla arkitektur. Det beskriver om identifiering, aktivering, bläddring och övervakning av servern.
+title: OPC Twin-arkitektur – Azure | Microsoft-dokument
+description: Den här artikeln innehåller en översikt över OPC Twin-arkitekturen. Den beskriver om identifiering, aktivering, surfning och övervakning av servern.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -9,32 +9,32 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: b8d4424c92ff24c36650e34a5d050bdc5f0f9091
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "73819856"
 ---
-# <a name="opc-twin-architecture"></a>OPC, dubbel arkitektur
+# <a name="opc-twin-architecture"></a>OPC Twin-arkitektur
 
-Följande diagram illustrerar OPCs dubbla arkitektur.
+Följande diagram illustrerar OPC Twin-arkitekturen.
 
-## <a name="discover-and-activate"></a>Identifiera och aktivera
+## <a name="discover-and-activate"></a>Upptäck och aktivera
 
-1. Operatorn aktiverar nätverks genomsökning i modulen eller utför en engångs identifiering med en identifierings-URL. Identifierade slut punkter och programinformation skickas via telemetri till onboarding-agenten för bearbetning.  Onboarding-agenten för OPC UA Device bearbetar OPC UA Server Discovery-händelser som skickas av den dubbla IoT Edge-modulen i identifierings-eller genomsöknings läge. Identifierings händelser resulterar i program registrering och uppdateringar i OPC UA Device-registret.
+1. Operatören aktiverar nätverksskanning på modulen eller gör en engångsidentifiering med hjälp av en identifierings-URL. De identifierade slutpunkterna och programinformationen skickas via telemetri till introduktionsagenten för bearbetning.  OPC UA-enhetens introduktionsagent bearbetar identifieringshändelser för OPC UA-servrar som skickas av OPC Twin IoT Edge-modulen när den är i identifierings- eller skanningsläge. Identifieringshändelserna resulterar i programregistrering och uppdateringar i OPC UA-enhetsregistret.
 
-   ![Hur OPCs dubbla fungerar](media/overview-opc-twin-architecture/opc-twin1.png)
+   ![Så här fungerar OPC Twin](media/overview-opc-twin-architecture/opc-twin1.png)
 
-1. Operatorn kontrollerar certifikatet för den identifierade slut punkten och aktiverar den registrerade slut punkten för åtkomst. 
+1. Operatören inspekterar certifikatet för den identifierade slutpunkten och aktiverar den registrerade slutpunktstvillingen för åtkomst. 
 
-   ![Hur OPCs dubbla fungerar](media/overview-opc-twin-architecture/opc-twin2.png)
+   ![Så här fungerar OPC Twin](media/overview-opc-twin-architecture/opc-twin2.png)
 
 ## <a name="browse-and-monitor"></a>Bläddra och övervaka
 
-1. När den är aktive rad kan operatören använda den dubbla tjänst REST API för att bläddra i eller granska Server informations modellen, läsa/skriva-objektvariabler och anropa metoder.  Användaren använder ett förenklat OPC UA API som uttrycks fullständigt i HTTP och JSON.
+1. När operatören har aktiverats kan den använda REST API för dubbla tjänster för att bläddra i eller inspektera serverinformationsmodellen, läsa/skriva objektvariabler och anropa metoder.  Användaren använder ett förenklat OPC UA API uttryckt helt i HTTP och JSON.
 
-   ![Hur OPCs dubbla fungerar](media/overview-opc-twin-architecture/opc-twin3.png)
+   ![Så här fungerar OPC Twin](media/overview-opc-twin-architecture/opc-twin3.png)
 
-1. Det dubbla tjänst REST-gränssnittet kan också användas för att skapa övervakade objekt och prenumerationer i OPC-utgivaren. OPC-utgivaren tillåter att telemetri skickas från OPC UA server-system till IoT Hub. Mer information om OPC-utgivare finns i [Vad är OPC Publisher](overview-opc-publisher.md).
+1. REST-gränssnittet med dubbla tjänster kan också användas för att skapa övervakade objekt och prenumerationer i OPC Publisher. OPC Publisher gör att telemetri kan skickas från OPC UA-serversystem till IoT Hub. Mer information om OPC Publisher finns i [Vad är OPC Publisher](overview-opc-publisher.md).
 
-   ![Hur OPCs dubbla fungerar](media/overview-opc-twin-architecture/opc-twin4.png)
+   ![Så här fungerar OPC Twin](media/overview-opc-twin-architecture/opc-twin4.png)

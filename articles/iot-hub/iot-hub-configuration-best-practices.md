@@ -1,6 +1,6 @@
 ---
-title: Metod tips för enhets konfiguration för Azure IoT Hub | Microsoft Docs
-description: Lär dig mer om metod tips för att använda automatisk enhets hantering för att minimera repetitiva och komplexa uppgifter som används för att hantera IoT-enheter i stor skala
+title: Metodtips för enhetskonfiguration för Azure IoT Hub | Microsoft-dokument
+description: Lär dig mer om metodtips för att använda automatisk enhetshantering för att minimera repetitiva och komplexa uppgifter som är involverade i hanteringen av IoT-enheter i stor skala.
 author: chrisgre
 ms.author: chrisgre
 ms.date: 06/28/2019
@@ -8,86 +8,86 @@ ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
 ms.openlocfilehash: a3b70af71c2ce19835ac2ef8fc8ceed79ca5fe1a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889533"
 ---
-# <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Metod tips för enhets konfiguration i en IoT-lösning
+# <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Metodtips för enhetskonfiguration i en IoT-lösning
 
-Automatisk enhets hantering i Azure IoT Hub automatiserar många repetitiva och komplexa aktiviteter för att hantera stora enhets flottor över hela livs cykeln. Den här artikeln definierar många av de bästa metoderna för de olika rollerna som används för att utveckla och driva en IoT-lösning.
+Automatisk enhetshantering i Azure IoT Hub automatiserar många repetitiva och komplexa uppgifter för att hantera stora enhetsflottor under hela deras livscykler. Den här artikeln definierar många av de bästa metoderna för de olika roller som ingår i att utveckla och driva en IoT-lösning.
 
-* **IoT-maskin varu tillverkare/Integrator:** Tillverkare av IoT-maskinvara, integrerar maskin vara från olika tillverkare eller leverantörer som tillhandahåller maskin vara för en IoT-distribution som tillverkas eller integreras av andra leverantörer. Ingår i utveckling och integrering av inbyggd program vara, inbäddade operativ system och inbäddad program vara.
+* **IoT-maskinvarutillverkare/integratör:** Tillverkare av IoT-maskinvara, integratörer som monterar maskinvara från olika tillverkare eller leverantörer som tillhandahåller maskinvara för en IoT-distribution som tillverkas eller integreras av andra leverantörer. Involverad i utveckling och integration av firmware, inbyggda operativsystem och inbyggd programvara.
 
-* **IoT Solution Developer:** Utvecklingen av en IoT-lösning utförs vanligt vis av en lösnings utvecklare. Den här utvecklaren kan vara en del av ett internt team eller en System Integrator som är specialiserad i denna aktivitet. IoT Solution Developer kan utveckla olika komponenter i IoT-lösningen från grunden, integrera olika komponenter med standard eller öppen källkod eller anpassa en [IoT Solution Accelerator](/azure/iot-accelerators/).
+* **Utvecklareutvecklare av IoT-lösningar:** Utvecklingen av en IoT-lösning görs vanligtvis av en lösningsutvecklare. Den här utvecklaren kan ingå i ett internt team eller en systemintegratör som specialiserat sig på den här aktiviteten. IoT-lösningsutvecklaren kan utveckla olika komponenter i IoT-lösningen från grunden, integrera olika standard- eller komponenter med öppen källkod eller anpassa en [IoT-lösningsaccelerator](/azure/iot-accelerators/).
 
-* **IoT-lösnings operator:** När IoT-lösningen har distribuerats kräver den långsiktiga åtgärder, övervakning, uppgraderingar och underhåll. Dessa uppgifter kan utföras av ett internt team som består av informations teknik specialister, maskin varu åtgärder och underhålls team och domän specialister som övervakar rätt beteende för den övergripande IoT-infrastrukturen.
+* **IoT-lösningsoperatör:** När IoT-lösningen har distribuerats kräver den långsiktiga åtgärder, övervakning, uppgraderingar och underhåll. Dessa uppgifter kan utföras av ett internt team som består av it-specialister, maskinvaruoperationer och underhållsteam och domänspecialister som övervakar det korrekta beteendet hos den övergripande IoT-infrastrukturen.
 
-## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Förstå automatisk enhets hantering för att konfigurera IoT-enheter i stor skala
+## <a name="understand-automatic-device-management-for-configuring-iot-devices-at-scale"></a>Förstå automatisk enhetshantering för att konfigurera IoT-enheter i stor skala
 
-Automatisk enhets hantering omfattar de många fördelarna med [enheten](iot-hub-devguide-device-twins.md) , tillsammans med [modulernas dubblare](iot-hub-devguide-module-twins.md) , för att synkronisera önskade och rapporterade tillstånd mellan molnet och enheterna. [Automatisk enhets konfiguration](iot-hub-auto-device-config.md) uppdaterar automatiskt stora uppsättningar av dubbla och sammanfattande förlopp och efterlevnad. Följande avancerade steg beskriver hur automatisk enhets hantering utvecklas och används:
+Automatisk enhetshantering innehåller de många fördelarna med [enhetstvillingar](iot-hub-devguide-device-twins.md) och [modultvillingar](iot-hub-devguide-module-twins.md) för att synkronisera önskade och rapporterade tillstånd mellan molnet och enheterna. [Automatiska enhetskonfigurationer](iot-hub-auto-device-config.md) uppdaterar automatiskt stora uppsättningar tvillingar och sammanfattar förlopp och efterlevnad. Följande steg på hög nivå beskriver hur automatisk enhetshantering utvecklas och används:
 
-* **IoT Hardware Manufacturer/Integrator** implementerar enhets hanterings funktioner i ett inbäddat program med hjälp av [enheten](iot-hub-devguide-device-twins.md). Dessa funktioner kan omfatta uppdateringar av inbyggd program vara, program varu installation och uppdatering samt inställningar för hantering av inställningar.
+* **IoT-maskinvarutillverkaren/integratören** implementerar enhetshanteringsfunktioner i ett inbäddat program med hjälp av [enhetstvillingar](iot-hub-devguide-device-twins.md). Dessa funktioner kan omfatta uppdateringar av inbyggd programvara, installation och uppdatering av programvara samt inställningshantering.
 
-* **IoT Solution Developer** implementerar hanterings lagret för enhets hanterings åtgärder med hjälp av [enhets](iot-hub-devguide-device-twins.md) -och [Automatisk enhets konfiguration](iot-hub-auto-device-config.md). Lösningen bör innehålla definiera ett operatörs gränssnitt för att utföra enhets hanterings aktiviteter.
+* **IoT-lösningsutvecklaren** implementerar hanteringslagret för enhetshantering med hjälp av [enhetstvillingar](iot-hub-devguide-device-twins.md) och [automatiska enhetskonfigurationer](iot-hub-auto-device-config.md). Lösningen bör omfatta att definiera ett operatörsgränssnitt för att utföra enhetshanteringsuppgifter.
 
-* **IoT-lösningens operator** använder IoT-lösningen för att utföra enhets hanterings uppgifter, särskilt för att gruppera enheter, initiera konfigurations ändringar som uppdateringar av inbyggd program vara, övervaka förloppet och felsöka problem som uppstår.
+* **IoT-lösningsoperatören** använder IoT-lösningen för att utföra enhetshanteringsuppgifter, särskilt för att gruppera enheter tillsammans, initiera konfigurationsändringar som uppdateringar av inbyggd programvara, övervaka förlopp och felsöka problem som uppstår.
 
-## <a name="iot-hardware-manufacturerintegrator"></a>IoT-maskin varu tillverkare/Integrator
+## <a name="iot-hardware-manufacturerintegrator"></a>IoT-maskinvarutillverkare/integratör
 
-Följande är metod tips för maskin varu tillverkare och integratorer som hanterar inbäddad program varu utveckling:
+Följande är bästa praxis för maskinvarutillverkare och integratörer som arbetar med inbäddad programvaruutveckling:
 
-* **Implementera [enhets dubbla](iot-hub-devguide-device-twins.md):** Med enhets dubbla är det möjligt att synkronisera önskad konfiguration från molnet och för att rapportera aktuella konfigurations-och enhets egenskaper. Det bästa sättet att implementera enhets dubbla i inbäddade program är via [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks): er. Enhets uppflätade passar bäst för konfigurationen eftersom de:
-
-    * Stöd för dubbelriktad kommunikation.
-    * Tillåt både anslutna och frånkopplade enhets tillstånd.
-    * Följ principen om eventuell konsekvens.
-    * Är helt enhetsmetadata i molnet.
-
-* **Strukturera enheten med enhets hantering:** Enhetens måste vara strukturerad så att egenskaperna för enhets hantering grupperas logiskt i avsnitt. Detta gör att konfigurations ändringar kan isoleras utan att andra delar av den dubbla. Du kan till exempel skapa ett avsnitt i önskade egenskaper för inbyggd program vara, ett annat avsnitt för program vara och ett tredje avsnitt för nätverks inställningar. 
-
-* **Rapportera enhets attribut som är användbara för enhets hantering:** Attribut som fysisk enhets märke och modell, inbyggd program vara, operativ system, serie nummer och andra identifierare är användbara för rapportering och som parametrar för konfigurations ändringar för mål.
-
-* **Definiera huvud tillstånd för rapporterings status och förlopp:** De högsta nivå tillstånden bör räknas upp så att de kan rapporteras till operatören. Till exempel kan en uppdatering av inbyggd program vara rapportera status som aktuell, hämtning, tillämpning, pågående och fel. Definiera ytterligare fält för mer information om varje tillstånd.
-
-## <a name="iot-solution-developer"></a>IoT Solution-utvecklare
-
-Följande är metod tips för IoT Solution-utvecklare som bygger system baserade på Azure:
-
-* **Implementera [enhets dubbla](iot-hub-devguide-device-twins.md):** Med enhets dubbla är det möjligt att synkronisera önskad konfiguration från molnet och för att rapportera aktuella konfigurations-och enhets egenskaper. Det bästa sättet att implementera enhets dubbla i moln lösnings program är via [Azure IoT SDK](https://github.com/Azure/azure-iot-sdks): er. Enhets uppflätade passar bäst för konfigurationen eftersom de:
+* **Implementera [enhetstvillingar:](iot-hub-devguide-device-twins.md)** Enhetstvillingar möjliggör synkronisering av önskad konfiguration från molnet och för rapportering av aktuella konfigurations- och enhetsegenskaper. Det bästa sättet att implementera enhetstvillingar i inbäddade program är via [Azure IoT SDK:er](https://github.com/Azure/azure-iot-sdks). Enhetstvillingar är bäst lämpade för konfiguration eftersom de:
 
     * Stöd för dubbelriktad kommunikation.
-    * Tillåt både anslutna och frånkopplade enhets tillstånd.
+    * Tillåt både anslutna och frånkopplade enhetstillstånd.
     * Följ principen om eventuell konsekvens.
-    * Är helt enhetsmetadata i molnet.
+    * Är fullt köbara i molnet.
 
-* **Organisera enheter med enhets dubbla Taggar:** Lösningen ska tillåta operatören att definiera kvalitets ringar eller andra uppsättningar av enheter baserat på olika distributions strategier, till exempel Kanarie. Enhets organisation kan implementeras i din lösning med hjälp av enhetens dubbla Taggar och [frågor](iot-hub-devguide-query-language.md). Enhets organisation är nödvändig för att göra det möjligt att återställa konfigurationen på ett säkert och korrekt sätt.
+* **Strukturera enhetstvillingen för enhetshantering:** Enhetstvillingen bör struktureras så att enhetshanteringsegenskaperna logiskt grupperas i sektioner. Om du gör det kan konfigurationsändringar isoleras utan att andra delar av tvillingen påverkas. Skapa till exempel ett avsnitt i önskade egenskaper för inbyggd programvara, ett annat avsnitt för programvara och ett tredje avsnitt för nätverksinställningar. 
 
-* **Implementera [Automatisk enhets konfiguration](iot-hub-auto-device-config.md):** Automatisk enhets konfiguration distribuerar och övervakar konfigurations ändringar till stora uppsättningar IoT-enheter via enhets dubbla.
+* **Rapportera enhetsattribut som är användbara för enhetshantering:** Attribut som fysiskt enhetstillslag och modell, inbyggd programvara, operativsystem, serienummer och andra identifierare är användbara för rapportering och som parametrar för inriktning av konfigurationsändringar.
 
-   Automatisk enhets konfiguration mål uppsättningar av enheten är dubbla via **mål villkoret,** som är en fråga på enheten med dubbla taggar eller rapporterade egenskaper. **Mål innehållet** är en uppsättning av önskade egenskaper som anges inom den riktade enheten. Mål innehållet ska justeras med enhetens dubbla struktur som definieras av IoT Hardware Manufacturer/Integrator. **Måtten** är frågor på enhetens dubbla rapporterade egenskaper och bör också anpassas efter enhetens dubbla struktur som definieras av IoT Hardware Manufacturer/Integrator.
+* **Definiera huvudtillstånden för rapporteringsstatus och förlopp:** Toppnivåtillstånd bör räknas upp så att de kan rapporteras till operatören. En uppdatering av den inbyggda programvaran skulle till exempel rapportera status som Aktuell, Nedladdning, Tillämpning, Pågår och Fel. Definiera ytterligare fält för mer information om varje tillstånd.
 
-   Automatisk enhets konfiguration körs för första gången strax efter att konfigurationen har skapats och sedan fem minuters intervall. De kan också dra nytta av IoT Hub utföra enhets dubbla åtgärder med en hastighet som aldrig överskrider [begränsnings gränserna](iot-hub-devguide-quotas-throttling.md) för enhetens dubbla läsningar och uppdateringar.
+## <a name="iot-solution-developer"></a>Utvecklareutvecklare av IoT-lösningar
 
-* **Använd [enhets etablerings tjänsten](../iot-dps/how-to-manage-enrollments.md):** lösnings utvecklare bör använda enhets etablerings tjänsten för att tilldela enheter dubbla taggar till nya enheter, så att de konfigureras automatiskt av **automatiska enhets konfigurationer** som är riktade mot varandra med den taggen. 
+Följande är metodtips för IoT-lösningsutvecklare som bygger system baserade i Azure:
 
-## <a name="iot-solution-operator"></a>IoT Solution-operator
+* **Implementera [enhetstvillingar:](iot-hub-devguide-device-twins.md)** Enhetstvillingar möjliggör synkronisering av önskad konfiguration från molnet och för rapportering av aktuella konfigurations- och enhetsegenskaper. Det bästa sättet att implementera enhetstvillingar i molnlösningar program är genom [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks). Enhetstvillingar är bäst lämpade för konfiguration eftersom de:
 
-Följande är metod tips för IoT Solution-operatörer som använder en IoT-lösning som bygger på Azure:
+    * Stöd för dubbelriktad kommunikation.
+    * Tillåt både anslutna och frånkopplade enhetstillstånd.
+    * Följ principen om eventuell konsekvens.
+    * Är fullt köbara i molnet.
 
-* **Organisera enheter för hantering:** IoT-lösningen bör definiera eller tillåta att kvalitets ringar eller andra enhets uppsättningar skapas baserat på olika distributions strategier, till exempel Kanarie. Enhets uppsättningarna används för att distribuera konfigurations ändringar och utföra andra hanterings åtgärder för enhets hantering.
+* **Organisera enheter med hjälp av enhetstvillingtaggar:** Lösningen bör göra det möjligt för operatören att definiera kvalitetsringar eller andra uppsättningar av enheter baserat på olika distributionsstrategier såsom kanariefågel. Enhetsorganisationen kan implementeras i din lösning med hjälp av enhetstvillingtaggar och [-frågor](iot-hub-devguide-query-language.md). Enhetsorganisationen är nödvändig för att möjliggöra konfigurationsutrullningar på ett säkert och korrekt sätt.
 
-* **Utför konfigurations ändringar med hjälp av en** fördelad sammanslagning:  En stegvis distribution är en övergripande process där en operatör distribuerar ändringar till en större uppsättning IoT-enheter. Målet är att göra ändringar gradvis för att minska risken för att minska storleken på stora förändringar.  Operatören bör använda lösningens gränssnitt för att skapa en [Automatisk enhets konfiguration](iot-hub-auto-device-config.md) och mål villkoret bör rikta en första uppsättning enheter (till exempel en Kanarie grupp). Operatören bör sedan validera konfigurations ändringen i den första uppsättningen enheter.
+* **Implementera [automatiska enhetskonfigurationer:](iot-hub-auto-device-config.md)** Automatiska enhetskonfigurationer distribuerar och övervakar konfigurationsändringar till stora uppsättningar IoT-enheter via enhetstvillingar.
 
-   När verifieringen är klar uppdaterar operatören automatisk enhets konfiguration för att inkludera en större uppsättning enheter. Operatören bör också ställa in prioriteten för konfigurationen så att den är högre än andra konfigurationer som för närvarande är riktade till dessa enheter. Distributionen kan övervakas med hjälp av de mått som rapporteras av den automatiska enhets konfigurationen.
+   Automatisk enhetskonfigurationer måluppsättningar av enhetstvillingar via **målvillkoret,** som är en fråga på enhetstvillingtaggar eller rapporterade egenskaper. **Målinnehållet** är den uppsättning önskade egenskaper som ska ställas in i de riktade enhetstvillingarna. Målinnehållet bör anpassas till enhetens dubbla struktur som definieras av IoT-maskinvarutillverkaren/integratören. Måtten är frågor om enhetstvillingrapporterade egenskaper och bör också anpassas till **enhetens** tvillingstruktur som definieras av IoT-maskinvarutillverkaren/integratören.
 
-* **Utför återställningar i händelse av fel eller fel konfiguration:**  En automatisk enhets konfiguration som orsakar fel eller fel konfiguration kan återställas genom att ändra **mål villkor** så att enheterna inte längre uppfyller mål villkoret. Se till att en annan automatisk enhets konfiguration med lägre prioritet fortfarande är avsedd för enheterna. Kontrol lera att återställningen lyckades genom att visa måtten: den återställda konfigurationen ska inte längre Visa status för enheter som inte är riktade till, och den andra konfigurationens mått bör nu innehålla antal för de enheter som fortfarande är riktade.
+   Automatiska enhetskonfigurationer körs för första gången strax efter att konfigurationen har skapats och sedan med fem minuters intervall. De drar också nytta av IoT Hub utför enhetstvillingåtgärder med en hastighet som aldrig kommer att överskrida [begränsningsgränserna](iot-hub-devguide-quotas-throttling.md) för enhetstvillingläsningar och uppdateringar.
+
+* **Använd [enhetsetableringstjänsten](../iot-dps/how-to-manage-enrollments.md):** Lösningsutvecklare bör använda enhetsetableringstjänsten för att tilldela enhetstvillingtaggar till nya enheter, så att de automatiskt konfigureras av **automatiska enhetskonfigurationer** som är inriktade på tvillingar med den taggen. 
+
+## <a name="iot-solution-operator"></a>IoT-lösningsoperatör
+
+Följande är metodtips för IoT-lösningsoperatörer som använder en IoT-lösning som bygger på Azure:
+
+* **Organisera enheter för hantering:** IoT-lösningen bör definiera eller möjliggöra skapandet av kvalitetsringar eller andra uppsättningar enheter baserat på olika distributionsstrategier, till exempel kanariefågel. Uppsättningarna av enheter kommer att användas för att distribuera konfigurationsändringar och för att utföra andra åtgärder för enhetshantering i skala.
+
+* **Utför konfigurationsändringar med hjälp av en stegvis utrullning:**  En stegvis utrullning är en övergripande process där en operatör distribuerar ändringar till en breddning av IoT-enheter. Målet är att göra ändringar gradvis för att minska risken för att göra storskaliga bryta förändringar.Operatören bör använda lösningens gränssnitt för att skapa en [automatisk enhetskonfiguration](iot-hub-auto-device-config.md) och målvillkoret bör inriktas på en första uppsättning enheter (t.ex. en kanariefågelgrupp). Operatören bör sedan validera konfigurationsändringen i den första uppsättningen enheter.
+
+   När valideringen är klar uppdaterar operatören den automatiska enhetskonfigurationen så att den innehåller en större uppsättning enheter. Operatören bör också ange att prioriteten för konfigurationen ska vara högre än andra konfigurationer som för närvarande är inriktade på dessa enheter. Utrullningen kan övervakas med hjälp av de mått som rapporteras av den automatiska enhetskonfigurationen.
+
+* **Utför återställningar vid fel eller felkonfigurationer:**  En automatisk enhetskonfiguration som orsakar fel eller felkonfigurationer kan återställas genom att ändra **målvillkoret** så att enheterna inte längre uppfyller målvillkoret. Kontrollera att en annan automatisk enhetskonfiguration med lägre prioritet fortfarande är avsedd för dessa enheter. Kontrollera att återställningen lyckades genom att visa måtten: Den återställda konfigurationen bör inte längre visa status för oriktade enheter och den andra konfigurationens mått bör nu innehålla antal för de enheter som fortfarande är riktade.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om hur du implementerar enheten i en [förståelse och använder enheten i IoT Hub](iot-hub-devguide-device-twins.md).
+* Lär dig mer om hur du implementerar enhetstvillingar i [Förstå och använd enhetstvillingar i IoT Hub](iot-hub-devguide-device-twins.md).
 
-* Gå igenom stegen för att skapa, uppdatera eller ta bort en automatisk enhets konfiguration i [Konfigurera och övervaka IoT-enheter i stor skala](iot-hub-auto-device-config.md).
+* Gå igenom stegen för att skapa, uppdatera eller ta bort en automatisk enhetskonfiguration i [Konfigurera och övervaka IoT-enheter i stor skala](iot-hub-auto-device-config.md).
 
-* Implementera uppdaterings mönster för inbyggd program vara med enhets-och automatiska enhets konfiguration i [Självstudier: implementera en uppdaterings process för enhetens inbyggda program](tutorial-firmware-update.md).
+* Implementera ett uppdateringsmönster för inbyggd programvara med hjälp av enhetstvillingar och automatiska enhetskonfigurationer i [självstudiekurs: Implementera en uppdateringsprocess för inbyggd programvara](tutorial-firmware-update.md).

@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure VMware-lösningar (AVS) privat moln
-description: Beskriver de funktioner som är tillgängliga för hantering av moln resurser och aktiviteter i molnet
+title: Hantera Azure VMware-lösning via CloudSimple Private Cloud
+description: Beskriver de funktioner som är tillgängliga för att hantera dina CloudSimple Private Cloud-resurser och aktivitet
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/10/2019
@@ -8,87 +8,87 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 47bf2251f71204b99245c1a9d55ef87157c41dd8
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 620c0226d3aca907352658ebbe1b94c7673d91cd
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77014835"
 ---
-# <a name="manage-avs-private-cloud-resources-and-activities"></a>Hantera resurser och aktiviteter för molnets privata moln
+# <a name="manage-private-cloud-resources-and-activity"></a>Hantera privata molnresurser och aktiviteter
 
-AVS-privata moln hanteras från AVS-portalen. Kontrol lera status, tillgängliga resurser, aktivitet i molnets privata moln och andra inställningar från AVS-portalen.
+Privata moln hanteras från CloudSimple-portalen.  Kontrollera status, tillgängliga resurser, aktivitet i det privata molnet och andra inställningar från CloudSimple-portalen.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
+Logga in på Azure-portalen på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="access-the-avs-portal"></a>Åtkomst till AVS-portalen
+## <a name="access-the-cloudsimple-portal"></a>Få åtkomst till CloudSimple-portalen
 
-Få åtkomst till [AVS-portalen](access-cloudsimple-portal.md).
+Öppna [CloudSimple-portalen](access-cloudsimple-portal.md).
 
-## <a name="view-the-list-of-avs-private-clouds"></a>Visa listan över AVS-privata moln
+## <a name="view-the-list-of-private-clouds"></a>Visa listan över privata moln
 
-På fliken **AVS-privata moln** på sidan **resurser** visas alla moln privata moln i din prenumeration. Information inkluderar namn, antal vSphere-kluster, plats, nuvarande tillstånd för det privata moln molnet och resursinformation.
+På fliken **Privata moln** på sidan **Resurser** visas alla privata moln i din prenumeration. Informationen omfattar namn, antal vSphere-kluster, plats, aktuellt tillstånd för det privata molnet och resursinformation.
 
-![Sidan AVS-privat moln](media/manage-private-cloud.png)
+![Privat molnsida](media/manage-private-cloud.png)
 
-Välj ett privat AVS-moln för ytterligare information och åtgärder.
+Välj ett privat moln för ytterligare information och åtgärder.
 
-## <a name="avs-private-cloud-summary"></a>Sammanfattning av molnets privata moln
+## <a name="private-cloud-summary"></a>Sammanfattning av privat moln
 
-Visa en omfattande sammanfattning av det valda molnet i AVS-molnet. Sammanfattnings sidan innehåller de DNS-servrar som distribueras i det privata moln molnet. Du kan konfigurera DNS-vidarebefordran från lokala DNS-servrar till dina DNS-servrar för molnets privata moln. Mer information om vidarebefordring av DNS finns i [Konfigurera DNS för namn matchning för molnets privata moln vCenter från lokalt](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
+Visa en omfattande sammanfattning av det valda privata molnet.  Sammanfattningssidan innehåller DNS-servrar som distribueras i det privata molnet.  Du kan ställa in DNS-vidarebefordran från lokala DNS-servrar till dina privata DNS-servrar i molnet.  Mer information om DNS-vidarekoppling finns i [Konfigurera DNS för namnmatchning för Private Cloud vCenter från lokalt](https://docs.azure.cloudsimple.com/on-premises-dns-setup/).
 
-![Sammanfattning av molnets privata moln](media/private-cloud-summary.png)
+![Sammanfattning av privat moln](media/private-cloud-summary.png)
 
 ### <a name="available-actions"></a>Tillgängliga åtgärder
 
-* [Starta vSphere-klienten](https://docs.azure.cloudsimple.com/vsphere-access/). Få åtkomst till vCenter för det här AVS-privata molnet.
-* [Köpa noder](create-nodes.md). Lägg till noder i det här AVS-privata molnet.
-* [Expandera](expand-private-cloud.md). Lägg till noder i det här AVS-privata molnet.
+* [Starta vSphere-klient](https://docs.azure.cloudsimple.com/vsphere-access/). Öppna vCenter för det här privata molnet.
+* [Inköpsnoder](create-nodes.md). Lägg till noder i det här privata molnet.
+* [Expandera](expand-private-cloud.md). Lägg till noder i det här privata molnet.
 * **Uppdatera**. Uppdatera informationen på den här sidan.
-* **Ta bort**. Du kan när som helst ta bort det privata AVS-molnet. **Innan du tar bort kontrollerar du att du har säkerhetskopierat alla system och data.** Om du tar bort ett privat AVS-moln tas alla virtuella datorer, vCenter-konfiguration och data bort. Klicka på **ta bort** i sammanfattnings avsnittet för det valda AVS-molnet. Efter borttagning raderas alla data i molnets privata moln i en säker och mycket kompatibel radering-process.
-* [Ändra vSphere-privilegier](escalate-private-cloud-privileges.md). Eskalera dina privilegier på det här AVS-molnet.
+* **Ta bort**. Du kan ta bort det privata molnet när som helst. **Innan du tar bort det kontrollerar du att du har säkerhetskopierat alla system och data.** Om du tar bort ett privat moln tas alla virtuella datorer, vCenter-konfiguration och data bort. Klicka på **Ta bort** i sammanfattningsavsnittet för det markerade privata molnet. Efter borttagning raderas alla privata molndata i en säker och mycket kompatibel raderingsprocess.
+* [Ändra vSphere-privilegier](escalate-private-cloud-privileges.md).  Eskalera dina privilegier i det här privata molnet.
 
-## <a name="avs-private-cloud-vlanssubnets"></a>VLAN/undernät för moln-privata moln
+## <a name="private-cloud-vlanssubnets"></a>Privata moln-VLANS/undernät
 
-Visa listan över definierade VLAN/undernät för det valda molnets privata moln. Listan innehåller de hanterings-VLAN/-undernät som skapats när det privata moln molnet skapades.
+Visa listan över definierade VLAN/undernät för det valda privata molnet.  Listan innehåller hanterings-VLAN/undernät som skapades när det privata molnet skapades.
 
-![AVS-privat moln – VLAN/undernät](media/private-cloud-vlans-subnets.png) 
+![Privat moln – VLAN/undernät](media/private-cloud-vlans-subnets.png) 
 
 ### <a name="available-actions"></a>Tillgängliga åtgärder
 
-* [Lägg till VLAN/undernät](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Lägg till ett VLAN/en delmängd till det här AVS-privata molnet.
+* [Lägg till VLANS/undernät](https://docs.azure.cloudsimple.com/create-vlan-subnet/). Lägg till en VLAN/delmängd i det här privata molnet.
 
-Välj ett VLAN/undernät för följande åtgärder
-* [Koppla brand Väggs tabell](https://docs.azure.cloudsimple.com/firewall/). Koppla en brand Väggs tabell till det här AVS-molnet.
-* **Ras**
-* **Ta bort** (endast användardefinierade VLAN/undernät)
+Välj ett VLAN/-undernät för följande åtgärder
+* [Bifoga brandväggstabell](https://docs.azure.cloudsimple.com/firewall/). Bifoga en brandväggstabell till det här privata molnet.
+* **Redigera**
+* **Ta bort** (endast användardefinierade VLAN/-undernät)
 
-## <a name="avs-private-cloud-activity"></a>Aktivitet i molnets privata moln
+## <a name="private-cloud-activity"></a>Privat molnaktivitet
 
-Visa följande information för det valda AVS-molnet. Aktivitets informationen är en filtrerad lista över alla aktiviteter för det valda AVS-molnet. Den här sidan visar upp till 25 senaste aktiviteter.
+Visa följande information för det valda privata molnet.  Aktivitetsinformationen är en filtrerad lista över alla aktiviteter för det valda privata molnet.  Den här sidan visar upp till 25 nya aktiviteter.
 
 * Senaste aviseringar
-* Senaste händelser
-* Senaste aktiviteter
-* Senaste granskning
+* Senaste händelserna
+* Senaste uppgifter
+* Senaste revisionen
 
-![Molnets privata moln – aktivitet](media/private-cloud-activity.png)
+![Privat moln - Aktivitet](media/private-cloud-activity.png)
 
-## <a name="cloud-racks"></a>Moln räcken
+## <a name="cloud-racks"></a>Molnställ
 
-Moln räcken är Bygg stenarna i ditt AVS-privata moln. Varje rack tillhandahåller en kapacitets enhet. AVS konfigurerar automatiskt moln räcken baserat på dina val när du skapar eller utökar ett moln privat moln. Visa en fullständig lista över moln räcken, inklusive det AVS-privata moln som varje har tilldelats.
+Molnställ är byggstenarna i ditt privata moln. Varje rack ger en kapacitet. CloudSimple konfigurerar automatiskt molnrack baserat på dina val när du skapar eller expanderar ett privat moln.  Visa hela listan över molnställ, inklusive det privata molnet som var och en har tilldelats.
 
-![Molnets privata moln – moln räcken](media/private-cloud-cloudracks.png)
+![Privat moln - molnrack](media/private-cloud-cloudracks.png)
 
-## <a name="vsphere-management-network"></a>vSphere hanterings nätverk
+## <a name="vsphere-management-network"></a>vSphere Management Network
 
-Lista över VMware-hanterings resurser och virtuella datorer som för närvarande är konfigurerade i det privata moln molnet. Informationen omfattar program varu versionen, det fullständigt kvalificerade domän namnet (FQDN) och IP-adressen för resurserna.
+Lista över VMware-hanteringsresurser och virtuella datorer som för närvarande är konfigurerade i det privata molnet. Informationen omfattar programvaruversionen, fullständigt kvalificerat domännamn (FQDN) och IP-adressen för resurserna.
 
-![AVS-privat moln – vSphere hanterings nätverk](media/private-cloud-vsphere-management-network.png)
+![Privat moln – vSphere Management Network](media/private-cloud-vsphere-management-network.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda virtuella VMware-datorer i Azure](quickstart-create-vmware-virtual-machine.md)
-* Lär dig mer om [moln privata moln](cloudsimple-private-cloud.md)
+* [Använda virtuella VMware-datorer på Azure](quickstart-create-vmware-virtual-machine.md)
+* Läs mer om [privata moln](cloudsimple-private-cloud.md)

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera global VNet-peering för Azure Virtual WAN | Microsoft Docs
-description: Anslut ett VNet i en annan region till din virtuella WAN-hubb.
+title: Konfigurera Global VNet-peering för Azure Virtual WAN | Microsoft-dokument
+description: Anslut ett virtuellt nätverk i en annan region till din Virtuella WAN-hubb.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,41 +8,41 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.openlocfilehash: 340472f84d2dd2c4f46d180992745a57e8ad1884
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73588231"
 ---
-# <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Konfigurera global VNet-peering (VNet i flera regioner) för virtuellt WAN
+# <a name="configure-global-vnet-peering-cross-region-vnet-for-virtual-wan"></a>Konfigurera Global VNet-peering (VNet över flera regioner) för virtuellt WAN
 
-Du kan ansluta ett VNet i en annan region till din virtuella WAN-hubb.
+Du kan ansluta ett virtuellt nätverk i en annan region till din Virtuella WAN-hubb.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Kontrol lera att du har uppfyllt följande kriterier:
+Kontrollera att du har uppfyllt följande kriterier:
 
-* Cross-regions-VNet (eker) är inte anslutet till en annan virtuell WAN-hubb. En eker kan bara anslutas till ett virtuellt nav.
-* VNet (eker) innehåller ingen virtuell nätverksgateway (till exempel ett Azure VPN Gateway-eller ExpressRoute-Gateway för virtuella nätverk). Om VNet innehåller en virtuell nätverksgateway måste du ta bort gatewayen innan du ansluter det virtuella ekraret till hubben.
+* Vnet (eker) mellan regioner är inte anslutet till ett annat virtuellt WAN-nav. En eker kan bara anslutas till en virtuell hubb.
+* VNet (eker) innehåller inte en virtuell nätverksgateway (till exempel en Azure VPN Gateway eller ExpressRoute virtuell nätverksgateway). Om det virtuella nätverket innehåller en virtuell nätverksgateway måste du ta bort gatewayen innan du ansluter det eker-virtuella nätverket till navet.
 
-## <a name="register"></a>Registrera funktionen
+## <a name="register-this-feature"></a><a name="register"></a>Registrera funktionen
 
-Du kan registrera dig för den här funktionen med hjälp av PowerShell. Om du väljer "prova" från exemplet nedan öppnas Azure Cloud-Shell och du behöver inte installera PowerShell-cmdlets lokalt på datorn. Om det behövs kan du ändra prenumerationer med hjälp av cmdleten Select-AzSubscription-SubscriptionId <subid>.
+Du kan registrera dig för den här funktionen med PowerShell. Om du väljer "Prova" i exemplet nedan öppnas Azure Cloud-Shell och du behöver inte installera PowerShell-cmdlets lokalt på din dator. Om det behövs kan du ändra prenumerationer med cmdleten <subid>Select-AzSubscription -SubscriptionId.
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network
 Register-AzResourceProvider -ProviderNamespace 'Microsoft.Network'
 ```
 
-## <a name="verify"></a>Verifiera registrering
+## <a name="verify-registration"></a><a name="verify"></a>Verifiera registrering
 
 ```azurepowershell-interactive
 Get-AzProviderFeature -FeatureName AllowCortexGlobalVnetPeering -ProviderNamespace Microsoft.Network
 ```
 
-## <a name="hub"></a>Ansluta ett VNet till hubben
+## <a name="connect-a-vnet-to-the-hub"></a><a name="hub"></a>Ansluta ett virtuella nätverk till navet
 
-I det här steget skapar du peering-anslutningen mellan hubben och det virtuella nätverket för flera regioner. Upprepa de här stegen för varje virtuellt nätverk du vill ansluta.
+I det här steget skapar du peering-anslutningen mellan hubben och det virtuella nätverket mellan regioner. Upprepa de här stegen för varje virtuellt nätverk du vill ansluta.
 
 1. På sidan för det virtuella WAN-nätverket klickar du på **Virtuella nätverksanslutningar**.
 2. På sidan för virtuell nätverksanslutning klickar du på **+Lägg till anslutning**.
@@ -56,4 +56,4 @@ I det här steget skapar du peering-anslutningen mellan hubben och det virtuella
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om virtuellt WAN finns i [Översikt över virtuella WAN-nätverk](virtual-wan-about.md).
+Mer information om Virtuellt WAN finns i [Virtual WAN Översikt](virtual-wan-about.md).

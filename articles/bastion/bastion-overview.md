@@ -1,6 +1,6 @@
 ---
-title: Azure-skydds | Microsoft Docs
-description: Lär dig mer om Azure skydds
+title: Azure Bastion | Microsoft-dokument
+description: Läs mer om Azure Bastion
 services: bastion
 author: cherylmc
 ms.service: bastion
@@ -8,44 +8,44 @@ ms.topic: overview
 ms.date: 01/31/2020
 ms.author: cherylmc
 ms.openlocfilehash: e995cba1c2ba06333d7bee507182693002cf4bbf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/04/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "76989507"
 ---
 # <a name="what-is-azure-bastion"></a>Vad är Azure Bastion?
 
-Azure skydds-tjänsten är en ny helt plattforms oberoende PaaS-tjänst som du etablerar i det virtuella nätverket. Den ger säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure Portal via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte någon offentlig IP-adress.
+Azure Bastion-tjänsten är en ny fullständigt plattformshanterad PaaS-tjänst som du etablerar i ditt virtuella nätverk. Det ger säker och sömlös RDP/SSH-anslutning till dina virtuella datorer direkt i Azure-portalen via SSL. När du ansluter via Azure Bastion behöver dina virtuella datorer inte någon offentlig IP-adress.
 
-Skydds tillhandahåller säker RDP-och SSH-anslutning till alla virtuella datorer i det virtuella nätverk där den är etablerad. Med hjälp av Azure skydds kan du skydda dina virtuella datorer från att exponera RDP/SSH-portar till utsidan, samtidigt som du ger säker åtkomst med RDP/SSH. Med Azure skydds ansluter du till den virtuella datorn direkt från Azure Portal. Du behöver inte ytterligare en klient, en agent eller en program varu enhet.
+Bastion ger säker RDP- och SSH-anslutning till alla virtuella datorer i det virtuella nätverket där den etableras. Med Azure Bastion skyddas dina virtuella datorer från att exponera RDP/SSH-portar till omvärlden, samtidigt som du ger säker åtkomst med RDP/SSH. Med Azure Bastion ansluter du till den virtuella datorn direkt från Azure-portalen. Du behöver inte ytterligare en klient, agent eller programvara.
 
 ## <a name="architecture"></a>Arkitektur
 
-Azure skydds-distributionen är per virtuellt nätverk, inte per prenumeration/konto eller virtuell dator. När du har etablerat en Azure skydds-tjänst i det virtuella nätverket är RDP/SSH-upplevelsen tillgänglig för alla virtuella datorer i samma virtuella nätverk.
+Azure Bastion-distributionen är per virtuellt nätverk, inte per prenumeration/konto eller virtuell dator. När du har etablerat en Azure Bastion-tjänst i ditt virtuella nätverk är RDP/SSH-upplevelsen tillgänglig för alla dina virtuella datorer i samma virtuella nätverk.
 
-RDP och SSH är några av de grundläggande metoder som du kan använda för att ansluta till dina arbets belastningar som körs i Azure. Att exponera RDP/SSH-portar över Internet är inte önskas och visas som en betydande hot yta. Detta beror ofta på protokoll sårbarheter. För att kunna innehålla den här hot ytan kan du distribuera skydds-värdar (kallas även hopp servrar) på den offentliga sidan av perimeternätverket. Skydds-värd servrar är utformade och konfigurerade för att motstå attacker. Skydds-servrar tillhandahåller också RDP-och SSH-anslutningar till arbets belastningarna bakom skydds, och även i nätverket.
+RDP och SSH är några av de grundläggande sätt på vilka du kan ansluta till dina arbetsbelastningar som körs i Azure. Exponera RDP / SSH-portar över Internet är inte önskvärt och ses som en betydande hot yta. Detta beror ofta på protokollsårbarheter. Om du vill begränsa den här hotytan kan du distribuera skyddsvärdar (kallas även hoppservrar) på den offentliga sidan av perimeternätverket. Bastion värdservrar är utformade och konfigurerade för att motstå attacker. Bastion-servrar tillhandahåller också RDP- och SSH-anslutning till de arbetsbelastningar som sitter bakom bastionen, samt längre in i nätverket.
 
 ![Arkitektur](./media/bastion-overview/architecture.png)
 
-Den här bilden visar arkitekturen för en Azure skydds-distribution. I det här diagrammet:
+Den här bilden visar arkitekturen för en Azure Bastion-distribution. I det här diagrammet:
 
-* Skydds-värden har distribuerats i det virtuella nätverket.
-* Användaren ansluter till Azure Portal med valfri HTML5-webbläsare.
-* Användaren väljer den virtuella dator som du vill ansluta till.
+* Bastion-värden distribueras i det virtuella nätverket.
+* Användaren ansluter till Azure-portalen med valfri HTML5-webbläsare.
+* Användaren väljer den virtuella datorn att ansluta till.
 * Med ett enda klick öppnas RDP/SSH-sessionen i webbläsaren.
-* Ingen offentlig IP-adress krävs på den virtuella Azure-datorn.
+* Ingen offentlig IP krävs på den virtuella Azure-datorn.
 
 ## <a name="key-features"></a>Huvudfunktioner
 
 Följande funktioner är tillgängliga:
 
-* **RDP och SSH direkt i Azure Portal:** Du kan direkt komma åt RDP-och SSH-sessionen direkt i Azure Portal med ett enda klick sömlöst.
-* **Fjärrsession över SSL och brand Väggs överträdelse för RDP/SSH:** Azure-skydds använder en HTML5-baserad webb klient som automatiskt strömmas till din lokala enhet, så att du får din RDP/SSH-session över SSL på port 443, så att du kan förflytta företags brand väggar på ett säkert sätt.
-* **Ingen offentlig IP krävs på den virtuella Azure-datorn:** Azure skydds öppnar RDP/SSH-anslutningen till din virtuella Azure-dator med hjälp av privat IP på den virtuella datorn. Du behöver ingen offentlig IP-adress på den virtuella datorn.
-* **Inget krångel för att hantera NSG: er:** Azure skydds är en helt hanterad plattform PaaS-tjänst från Azure som är skärpt internt för att tillhandahålla säker RDP/SSH-anslutning. Du behöver inte använda någon NSG: er i Azure skydds-undernätet. Eftersom Azure skydds ansluter till dina virtuella datorer via privat IP-adress kan du konfigurera din NSG: er för att tillåta RDP/SSH från Azure skydds. Detta eliminerar besväret med att hantera NSG: er varje gången du behöver ansluta till dina virtuella datorer på ett säkert sätt.
-* **Skydd mot Port genomsökning:** Eftersom du inte behöver exponera dina virtuella datorer på offentliga Internet skyddas dina virtuella datorer mot Port genomsökning av falska och skadliga användare som finns utanför det virtuella nätverket.
-* **Skydda dig mot noll dagar. Härdning endast på ett enda ställe:** Azure skydds är en fullständigt plattforms oberoende PaaS-tjänst. Eftersom det finns i det virtuella nätverkets perimeter behöver du inte bekymra dig om att skärpa var och en av de virtuella datorerna i det virtuella nätverket. Azure-plattformen skyddar mot en noll-dagars sårbarhet genom att hålla Azure-skydds skärpt och alltid uppdaterat.
+* **RDP och SSH direkt i Azure-portalen:** Du kan direkt komma till RDP- och SSH-sessionen direkt i Azure-portalen med en sömlös upplevelse med ett enda klick.
+* **Fjärrsession över SSL och brandväggskörning för RDP/SSH:** Azure Bastion använder en HTML5-baserad webbklient som automatiskt strömmas till din lokala enhet, så att du får din RDP/SSH-session via SSL på port 443 så att du kan korsa företagets brandväggar på ett säkert sätt.
+* **Ingen offentlig IP krävs på den virtuella Azure-datorn:** Azure Bastion öppnar RDP/SSH-anslutningen till din virtuella Azure-dator med privat IP på din virtuella dator. Du behöver ingen offentlig IP på din virtuella dator.
+* **Inget krångel med att hantera NSGs:** Azure Bastion är en fullständigt hanterad paaS-tjänst från Azure som är härdade internt för att ge dig säker RDP/SSH-anslutning. Du behöver inte använda nsg:er på Azure Bastion-undernätet. Eftersom Azure Bastion ansluter till dina virtuella datorer via privat IP kan du konfigurera dina NSG så att endast RDP/SSH tillåts från Azure Bastion. Detta tar bort besväret med att hantera NSGs varje gång du behöver för att säkert ansluta till dina virtuella datorer.
+* **Skydd mot portskanning:** Eftersom du inte behöver exponera dina virtuella datorer för offentligt Internet skyddas dina virtuella datorer mot portskanning av oseriösa och skadliga användare som finns utanför det virtuella nätverket.
+* **Skydda mot zero-day bedrifter. Härdning på ett ställe:** Azure Bastion är en helt plattformshanterad PaaS-tjänst. Eftersom den sitter i omkretsen av ditt virtuella nätverk behöver du inte oroa dig för att härda var och en av de virtuella datorerna i det virtuella nätverket. Azure-plattformen skyddar mot zero-day-kryphål genom att hålla Azure Bastion härdade och alltid uppdaterade för dig.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
@@ -53,5 +53,5 @@ Följande funktioner är tillgängliga:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa en Azure skydds Host-resurs](bastion-create-host-portal.md).
+* [Skapa en Azure Bastion-värdresurs](bastion-create-host-portal.md).
 * Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.

@@ -1,6 +1,6 @@
 ---
-title: Alternativ för Azure data överföring för stora data uppsättningar, måttlig till hög nätverks bandbredd | Microsoft Docs
-description: Lär dig hur du väljer en Azure-lösning för data överföring när du har måttlig till hög nätverks bandbredd i din miljö och du planerar att överföra stora data mängder.
+title: Azure-dataöverföringsalternativ för stora datauppsättningar, måttlig till hög nätverksbandbredd| Microsoft-dokument
+description: Lär dig hur du väljer en Azure-lösning för dataöverföring när du har måttlig till hög nätverksbandbredd i din miljö och du planerar att överföra stora datauppsättningar.
 services: storage
 author: alkohli
 ms.service: storage
@@ -9,103 +9,103 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
 ms.openlocfilehash: f7177a95bdd585ff2822c9ac8c94a85d12f9259b
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69900372"
 ---
-# <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Data överföring för stora data uppsättningar med måttlig till hög nätverks bandbredd
+# <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Dataöverföring för stora datamängder med måttlig eller hög nätverksbandbredd
  
-Den här artikeln innehåller en översikt över data överförings lösningarna när du har måttlig till hög nätverks bandbredd i din miljö och du planerar att överföra stora data mängder. Artikeln beskriver också rekommenderade alternativ för data överföring och respektive nyckel funktions mat ris för det här scenariot.
+Den här artikeln innehåller en översikt över dataöverföringslösningarna när du har måttlig till hög nätverksbandbredd i din miljö och du planerar att överföra stora datauppsättningar. Artikeln beskriver också de rekommenderade dataöverföringsalternativen och respektive nyckelfunktionsmatris för det här scenariot.
 
-Om du vill veta en översikt över alla tillgängliga alternativ för data överföring går du till [Välj en Azure Data Transfer-lösning](storage-choose-data-transfer-solution.md).
+Om du vill förstå en översikt över alla tillgängliga dataöverföringsalternativ går du till [Välj en Azure-dataöverföringslösning](storage-choose-data-transfer-solution.md).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-Stora data uppsättningar syftar på data storlekar i ordningen TBs till PBs. Måttlig till hög nätverks bandbredd innebär 100 Mbit/s till 10 Gbit/s.
+Med stora datamängder avses datastorlekar i storleksordningen TBs till PBs. Måttlig till hög nätverksbandbredd refererar till 100 Mbit/s till 10 Gbit/s.
 
 ## <a name="recommended-options"></a>Rekommenderade alternativ
 
-Vilka alternativ som rekommenderas i det här scenariot beror på om du har måttlig nätverks bandbredd eller hög nätverks bandbredd.
+Vilka alternativ som rekommenderas i det här scenariot beror på om du har måttlig nätverksbandbredd eller hög nätverksbandbredd.
 
-### <a name="moderate-network-bandwidth-100-mbps---1-gbps"></a>Måttlig nätverks bandbredd (100 Mbit/s – 1 Gbit/s)
+### <a name="moderate-network-bandwidth-100-mbps---1-gbps"></a>Måttlig nätverksbandbredd (100 Mbit/s – 1 Gbit/s)
 
-Med måttlig nätverks bandbredd måste du projicera tiden för data överföring över nätverket.
+Med måttlig nätverksbandbredd måste du projicera tiden för dataöverföring över nätverket.
 
-Använd följande tabell för att beräkna tiden och utifrån det, Välj mellan en offline-överföring eller över nätverks överföringen. Tabellen visar den planerade tiden för nätverks data överföring för olika tillgängliga nätverks bandbredder (förutsatt 90% användning).  
+Använd följande tabell för att uppskatta tiden och baserat på den, välj mellan en offlineöverföring eller över nätverksöverföringen. Tabellen visar den beräknade tiden för nätverksdataöverföring, för olika tillgängliga nätverksbandbredder (förutsatt att 90 % används).  
 
-![Nätverks överföring eller offline-överföring](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
+![Nätverksöverföring eller offlineöverföring](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
-- Om nätverks överföringen projiceras för att bli långsam bör du använda en fysisk enhet. De rekommenderade alternativen i det här fallet är frånkopplade enheter från Azure Data Box-serien eller Azure import/export med hjälp av dina egna diskar.
+- Om nätverksöverföringen beräknas vara för långsam bör du använda en fysisk enhet. De rekommenderade alternativen i det här fallet är offlineöverföringsenheter från Azure Data Box-familjen eller Azure Import/Export med dina egna diskar.
 
-    - **Azure Data boxs familj för offline-överföringar** – Använd enheter från Microsoft-data Box-enhet enheter för att flytta stora mängder data till Azure när du är begränsad till tid, nätverks tillgänglighet eller kostnader. Kopiera lokala data med hjälp av verktyg som Robocopy. Beroende på data storleken som ska överföras kan du välja mellan Data Box Disk, Data Box-enhet eller Data Box Heavy.
-    - **Azure import/export** – Använd Azures import-/export tjänst genom att leverera egna disk enheter för att på ett säkert sätt importera stora mängder data till Azure Blob storage och Azure Files. Den här tjänsten kan också användas för att överföra data från Azure Blob Storage till disk enheter och leverera till dina lokala platser.
+    - **Azure Data Box-familjen för offlineöverföringar** – Använd enheter från Microsoft-levererade Data Box-enheter för att flytta stora mängder data till Azure när du är begränsad av tid, nätverkstillgänglighet eller kostnader. Kopiera lokala data med hjälp av verktyg som Robocopy. Beroende på vilken datastorlek som är avsedd för överföring kan du välja mellan Data Box Disk, Data Box eller Data Box Heavy.
+    - **Azure Import/Export** – Använd Azure Import/Export-tjänsten genom att skicka egna hårddiskar för att på ett säkert sätt importera stora mängder data till Azure Blob storage och Azure Files. Den här tjänsten kan också användas för att överföra data från Azure Blob-lagring till hårddiskar och leverera till dina lokala platser.
 
-- Om nätverks överföringen projiceras så att den är rimlig kan du använda något av följande verktyg som beskrivs i [hög nätverks bandbredd](#high-network-bandwidth).
+- Om nätverksöverföringen beräknas vara rimlig kan du använda något av följande verktyg som beskrivs i [Hög nätverksbandbredd](#high-network-bandwidth).
 
 
-### <a name="high-network-bandwidth-1-gbps---100-gbps"></a>Hög nätverks bandbredd (1 Gbit/s – 100 Gbit/s)
+### <a name="high-network-bandwidth-1-gbps---100-gbps"></a>Hög nätverksbandbredd (1 Gbit/s – 100 Gbit/s)
 
-Om den tillgängliga nätverks bandbredden är hög använder du något av följande verktyg.
+Om den tillgängliga nätverksbandbredden är hög använder du något av följande verktyg.
 
-- **AzCopy** – Använd det här kommando rads verktyget för att enkelt kopiera data till och från Azure-blobbar, filer och tabell lagring med optimala prestanda. AzCopy stöder samtidighet och parallellitet och möjligheten att återuppta kopierings åtgärder när de avbryts.
-- **Azure Storage REST-API: er/SDK:** er – när du skapar ett program kan du utveckla programmet mot Azure Storage REST API: er och använda de Azure-SDK: er som erbjuds på flera språk.
-- **Azure Data boxs familj för online-överföringar** – Data Box Edge och data Box Gateway är online nätverks enheter som kan flytta data till och från Azure. Använd Data Box Edge fysiska enheten när det finns ett samtidig behov av kontinuerlig inmatning och för bearbetning av data före uppladdning. Data Box Gateway är en virtuell version av enheten med samma funktioner för data överföring. I varje fall hanteras data överföringen av enheten.
-- **Azure Data Factory** – Data Factory ska användas för att skala ut en överförings åtgärd och om det behövs för att dirigera och övervaka funktioner i företags klass. Använd Data Factory för att regelbundet överföra filer mellan flera Azure-tjänster, lokalt eller en kombination av de två. med Data Factory kan du skapa och schemalägga data drivna arbets flöden (kallas pipelines) som matar in data från olika data lager och automatiserar data förflyttning och data omvandling.
+- **AzCopy** - Använd det här kommandoradsverktyget för att enkelt kopiera data till och från Azure Blobbar, Filer och Tabelllagring med optimal prestanda. AzCopy stöder samtidighet och parallellism, och möjligheten att återuppta kopieringsåtgärder när de avbryts.
+- **Azure Storage REST API:er/SDK: er** – När du skapar ett program kan du utveckla programmet mot Azure Storage REST-API:er och använda Azure SDK:er som erbjuds på flera språk.
+- **Azure Data Box-familjen för onlineöverföringar** – Data Box Edge och Data Box Gateway är onlinenätverksenheter som kan flytta data till och från Azure. Använd den fysiska enheten för Data Box Edge när det finns ett samtidigt behov av kontinuerligt intag och förbehandling av data före uppladdningen. Data Box Gateway är en virtuell version av enheten med samma dataöverföringsfunktioner. I varje enskilt fall hanteras dataöverföringen av enheten.
+- **Azure Data Factory** – Data Factory bör användas för att skala ut en överföringsåtgärd och om det finns ett behov av funktioner för orchestration och övervakning av företagsresultat. Använd Data Factory för att regelbundet överföra filer mellan flera Azure-tjänster, lokalt eller en kombination av de två. med Data Factory kan du skapa och schemalägga datadrivna arbetsflöden (så kallade pipelines) som matar in data från olika datalager och automatiserar dataförflyttning och dataomvandling.
 
-## <a name="comparison-of-key-capabilities"></a>Jämförelse av viktiga funktioner
+## <a name="comparison-of-key-capabilities"></a>Jämförelse av nyckelfunktioner
 
-I följande tabeller sammanfattas skillnaderna mellan viktiga funktioner för de rekommenderade alternativen.
+I följande tabeller sammanfattas skillnaderna i nyckelfunktioner för de rekommenderade alternativen.
 
 ### <a name="moderate-network-bandwidth"></a>Måttlig nätverksbandbredd
 
-Om du använder offline-dataöverföring kan du använda följande tabell för att förstå skillnaderna mellan viktiga funktioner.
+Om du använder offlinedataöverföring använder du följande tabell för att förstå skillnaderna i nyckelfunktioner.
 
 |                                     |    Data Box Disk      |    Data Box                                      |    Data Box – tung            |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Datastorlek                        |    Upp till 35 TBs                 |    Upp till 80 TBs per enhet                       |    Upp till 800 TB per enhet               |    Variabel                            |
-|    Datatyp                        |    Azure-blobbar                  |    Azure-blobbar<br>Azure Files                    |    Azure-blobbar<br>Azure Files            |    Azure-blobbar<br>Azure Files          |
-|    Form faktor                      |    5 SSD per order             |    1 X 50 – kg. enhet för Skriv bords storlek per beställning    |    1 X ~ 500 – kg. stor enhet per beställning    |    Upp till 10 hård diskar/SSD per beställning        |
-|    Första installations tid               |    Låg <br>(15 minuter)            |    Låg till måttlig <br> (< 30 minuter)               |    Medel<br>(1-2 timmar)               |    Måttligt till svårt<br>variabel |
+|    Datatyp                        |    Azure-blobar                  |    Azure-blobar<br>Azure Files                    |    Azure-blobar<br>Azure Files            |    Azure-blobar<br>Azure Files          |
+|    Formfaktor                      |    5 SSD per beställning             |    1 X 50 lbs. enhet i skrivbordsstorlek per beställning    |    1 X ~500 lbs. stor enhet per beställning    |    Upp till 10 hårddiskar/SSD per beställning        |
+|    Inledande inställningstid               |    Låg <br>(15 minuter)            |    Låg till måttlig <br> (<30 minuter)               |    Moderera<br>(1-2 timmar)               |    Måttlig till svår<br>(variabel) |
 |    Skicka data till Azure               |    Ja                          |    Ja                                           |    Ja                                   |    Ja                                 |
-|    Exportera data från Azure           |    Nej                           |    Nej                                            |    Nej                                    |    Ja                                 |
-|    Kryptering                       |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
-|    Maskinvara                         |     Microsoft tillhandahålls          |    Microsoft tillhandahålls                            |    Microsoft tillhandahålls                    |    Kunden har tillhandahållit                   |
-|    Nätverksgränssnitt                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP +                           |    SATA II/SATA III                    |
-|    Partnerintegration              |    Vissa                         |    [Högt](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Högt](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Vissa                                |
-|    Fraktas                         |    Microsoft-hanterat            |    Microsoft-hanterat                             |    Microsoft-hanterat                     |    Kund hantering                    |
-| Använd när data flyttas         |Inom en handels avgränsning|Inom en handels avgränsning|Inom en handels avgränsning|Över geografiska gränser, t. ex. USA till EU|
+|    Exportera data från Azure           |    Inga                           |    Inga                                            |    Inga                                    |    Ja                                 |
+|    Kryptering                       |    AES 128-bitars                  |    AES 256-bitars                                   |    AES 256-bitars                           |    AES 128-bitars                         |
+|    Maskinvara                         |     Microsoft levereras          |    Microsoft levereras                            |    Microsoft levereras                    |    Kunden levereras                   |
+|    Nätverksgränssnitt                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
+|    Partnerintegration              |    Vissa                         |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Hög](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Vissa                                |
+|    Frakt                         |    Microsoft hanterade            |    Microsoft hanterade                             |    Microsoft hanterade                     |    Hanterade kunder                    |
+| Använda när data flyttas         |Inom en handelsgräns|Inom en handelsgräns|Inom en handelsgräns|Över geografiska gränser, t.ex.|
 |    Prissättning                          |    [Prissättning](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Prissättning](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
-Om du använder data överföring online använder du tabellen i följande avsnitt för hög nätverks bandbredd.
+Om du använder dataöverföring online använder du tabellen i följande avsnitt för hög nätverksbandbredd.
 
 ### <a name="high-network-bandwidth"></a>Hög nätverksbandbredd
 
-|                                     |    Verktyg AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST API: er, SDK: er                   |    Data Box Gateway eller Data Box Edge          |    Azure Data Factory                                            |
+|                                     |    Verktyg AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    Azure Storage REST API:er, SDK:er                   |    Data Box Gateway eller Data Box Edge          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
-|    Datatyp                  |    Azure-blobbar, Azure Files, Azure-tabeller    |    Azure-blobbar, Azure Files, Azure-tabeller    |    Azure-blobbar, Azure Files                           |   Stöd för 70 + data anslutningar för data lager och format    |
-|    Form faktor                |    Kommandoradsverktyg                        |    Programmerings gränssnitt                    |    Microsoft tillhandahåller en virtuell <br>eller fysisk enhet     |    Tjänsten i Azure Portal                                            |
-|    Inledande eng ång slöin ställning     |    Enkelt               |    Medel                       |    Enkelt (< 30 minuter) till måttlig (1-2 timmar)            |    Bredd                                                          |
-|    För bearbetning av data              |    Nej                                        |    Nej                                        |    Ja (med Edge Compute)                               |    Ja                                                                |
-|    Överföring från andra moln       |    Nej                                        |    Nej                                        |    Nej                                                    |    Ja                                                                |
-|    Användartyp                        |    IT-proffs eller utveckling                                       |    Dev                                       |    IT-proffs                                                |    IT-proffs                                                             |
-|    Prissättning                          |    Kostnads fritt gäller avgifterna för utgående data         |    Kostnads fritt gäller avgifterna för utgående data         |    [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
+|    Datatyp                  |    Azure Blobbar, Azure-filer, Azure-tabeller    |    Azure Blobbar, Azure-filer, Azure-tabeller    |    Azure Blobbar, Azure-filer                           |   Stöder 70+ dataanslutningar för datalager och format    |
+|    Formfaktor                |    Kommandoradsverktyg                        |    Programmatiskt gränssnitt                    |    Microsoft tillhandahåller en virtuell <br>eller fysisk enhet     |    Tjänst i Azure-portalen                                            |
+|    Inledande engångsinställning     |    Lätt               |    Moderera                       |    Lätt (<30 minuter) till måttlig (1-2 timmar)            |    Omfattande                                                          |
+|    Förbehandling av data              |    Inga                                        |    Inga                                        |    Ja (med edge-beräkning)                               |    Ja                                                                |
+|    Överföring från andra moln       |    Inga                                        |    Inga                                        |    Inga                                                    |    Ja                                                                |
+|    Användartyp                        |    IT Pro eller dev                                       |    Dev                                       |    IT-proffs                                                |    IT-proffs                                                             |
+|    Prissättning                          |    Gratis avgifter för utgående data tillkommer         |    Gratis avgifter för utgående data tillkommer         |    [Prissättning](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Prissättning](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lär dig hur du överför data med import/export](/azure/storage/common/storage-import-export-data-to-blobs).
-- Förstå hur du
+- [Lär dig hur du överför data med Import/Export](/azure/storage/common/storage-import-export-data-to-blobs).
+- Förstå hur man
 
-    - [Överför data med data Box disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
-    - [Överför data med data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
-- [Överför data med AZCopy](/azure/storage/common/storage-use-azcopy-v10).
+    - [Överför data med Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
+    - [Överför data med dataruta](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
+- [Överför data med AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 - Förstå hur du:
-    - [Överför data med data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Transformera data med data Box Edge innan du skickar dem till Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
+    - [Överför data med Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
+    - [Omvandla data med Data Box Edge innan du skickar till Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
 - [Lär dig hur du överför data med Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).
-- Använd REST-API: er för att överföra data
+- Använda REST-API:erna för att överföra data
 
     - [I .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
     - [I Java](https://docs.microsoft.com/java/api/overview/azure/storage)

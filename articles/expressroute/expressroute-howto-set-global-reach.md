@@ -1,6 +1,6 @@
 ---
-title: 'Azure-ExpressRoute: Konfigurera Global Reach'
-description: Den här artikeln hjälper dig att länka ExpressRoute-kretsar tillsammans för att göra ett privat nätverk mellan ditt lokala nätverk och aktivera Global räckvidd.
+title: 'Azure ExpressRoute: Konfigurera global räckvidd'
+description: Den här artikeln hjälper dig att länka ExpressRoute-kretsar tillsammans för att skapa ett privat nätverk mellan dina lokala nätverk och aktivera Global Reach.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.openlocfilehash: 76de7a8854a58deb924cbbe3177ad5a7b5fd57a2
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74083469"
 ---
 # <a name="configure-expressroute-global-reach"></a>Konfigurera ExpressRoute Global Reach
 
-Den här artikeln hjälper dig att konfigurera ExpressRoute Global räckvidd med hjälp av PowerShell. Mer information finns i [ExpressRouteRoute Global räckvidd](expressroute-global-reach.md).
+Den här artikeln hjälper dig att konfigurera ExpressRoute Global Reach med PowerShell. Mer information finns i [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
 
  ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du startar konfigurationen kontrollerar du följande:
+Innan du startar konfigurationen bekräftar du följande:
 
-* Du förstår [arbets flöden](expressroute-workflows.md)för ExpressRoute-krets etablering.
-* Dina ExpressRoute-kretsar är i ett tillstånd som är etablerade.
-* Azures privata peering har kon figurer ATS på dina ExpressRoute-kretsar.
+* Du förstår ExpressRoute-kretsettablering [arbetsflöden](expressroute-workflows.md).
+* Dina ExpressRoute-kretsar är i ett etablerat tillstånd.
+* Azure private peering är konfigurerad på dina ExpressRoute-kretsar.
 * Om du vill köra PowerShell lokalt kontrollerar du att den senaste versionen av Azure PowerShell är installerad på datorn.
 
 ### <a name="working-with-azure-powershell"></a>Arbeta med Azure PowerShell
@@ -35,34 +35,34 @@ Innan du startar konfigurationen kontrollerar du följande:
 
 ## <a name="identify-circuits"></a>Identifiera kretsar
 
-1. För att starta konfigurationen loggar du in på ditt Azure-konto och väljer den prenumeration som du vill använda.
+1. Om du vill starta konfigurationen loggar du in på ditt Azure-konto och väljer den prenumeration som du vill använda.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identifiera de ExpressRoute-kretsar som du vill använda. Du kan aktivera ExpressRoute Global Reach mellan två ExpressRoute-kretsar så länge de befinner sig i de länder/regioner som stöds och har skapats på olika peering-platser. 
+2. Identifiera de ExpressRoute-kretsar som du vill använda. Du kan aktivera ExpressRoute Global Reach mellan två ExpressRoute-kretsar så länge de finns i de länder/regioner som stöds och har skapats på olika peering-platser. 
 
-   * Om din prenumeration äger båda kretsarna kan du välja någon av kretsarna för att köra konfigurationen i följande avsnitt.
-   * Om de två kretsarna finns i olika Azure-prenumerationer måste du auktorisera från en Azure-prenumeration. Sedan skickar du in verifierings nyckeln när du kör konfigurations kommandot i den andra Azure-prenumerationen.
+   * Om din prenumeration äger båda kretsarna kan du välja vilken krets som helst för att köra konfigurationen i följande avsnitt.
+   * Om de två kretsarna finns i olika Azure-prenumerationer behöver du auktorisering från en Azure-prenumeration. Sedan skickar du in auktoriseringsnyckeln när du kör konfigurationskommandot i den andra Azure-prenumerationen.
 
 ## <a name="enable-connectivity"></a>Aktivera anslutning
 
-Aktivera anslutningar mellan dina lokala nätverk. Det finns separata uppsättningar instruktioner för kretsar som finns i samma Azure-prenumeration och kretsar som är olika prenumerationer.
+Aktivera anslutning mellan lokala nätverk. Det finns separata uppsättningar instruktioner för kretsar som finns i samma Azure-prenumeration och kretsar som är olika prenumerationer.
 
 ### <a name="expressroute-circuits-in-the-same-azure-subscription"></a>ExpressRoute-kretsar i samma Azure-prenumeration
 
-1. Använd följande kommandon för att hämta krets 1 och 2-kretsen. Två kretsar är i samma prenumeration.
+1. Använd följande kommandon för att få krets 1 och krets 2. De två kretsarna är i samma abonnemang.
 
    ```azurepowershell-interactive
    $ckt_1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
    $ckt_2 = Get-AzExpressRouteCircuit -Name "Your_circuit_2_name" -ResourceGroupName "Your_resource_group"
    ```
-2. Kör följande kommando mot krets 1 och skicka in det privata peering-ID: t för krets 2. Tänk på följande när du kör kommandot:
+2. Kör följande kommando mot krets 1 och passera i det privata peering-ID:et för krets 2. När du kör kommandot bör du tänka på följande:
 
-   * Det privata peering-ID: t ser ut ungefär som i följande exempel: 
+   * Det privata peering-ID:t liknar följande exempel: 
 
      ```
      /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}/peerings/AzurePrivatePeering
      ```
-   * *-AddressPrefix* måste vara ett/29 IPv4-undernät, till exempel "10.0.0.0/29". Vi använder IP-adresser i det här under nätet för att upprätta anslutningar mellan de två ExpressRoute-kretsarna. Du bör inte använda adresserna i det här under nätet i dina virtuella Azure-nätverk eller i ditt lokala nätverk.
+   * *-AddressPrefix* måste vara ett IPv4-undernät /29, till exempel "10.0.0.0/29". Vi använder IP-adresser i det här undernätet för att upprätta anslutning mellan de två ExpressRoute-kretsarna. Du bör inte använda adresserna i det här undernätet i dina virtuella Azure-nätverk eller i ditt lokala nätverk.
 
      ```azurepowershell-interactive
      Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering $ckt_2.Peerings[0].Id -AddressPrefix '__.__.__.__/29'
@@ -73,11 +73,11 @@ Aktivera anslutningar mellan dina lokala nätverk. Det finns separata uppsättni
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-När föregående åtgärd har slutförts kommer du att ha anslutning mellan dina lokala nätverk på båda sidorna genom dina två ExpressRoute-kretsar.
+När den föregående åtgärden är klar har du anslutning mellan dina lokala nätverk på båda sidor via dina två ExpressRoute-kretsar.
 
 ### <a name="expressroute-circuits-in-different-azure-subscriptions"></a>ExpressRoute-kretsar i olika Azure-prenumerationer
 
-Om de två kretsarna inte finns i samma Azure-prenumeration behöver du behörighet. I följande konfiguration genereras auktorisering i krets 2-prenumerationen och auktoriseringsregeln skickas till kretsen 1.
+Om de två kretsarna inte finns i samma Azure-prenumeration behöver du auktorisering. I följande konfiguration genereras auktorisering i krets 2-prenumerationen och auktoriseringsnyckeln skickas till krets 1.
 
 1. Generera en auktoriseringsnyckel.
 
@@ -87,8 +87,8 @@ Om de två kretsarna inte finns i samma Azure-prenumeration behöver du behörig
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_2
    ```
 
-   Anteckna ID för privat peering för krets 2, samt verifierings nyckeln.
-2. Kör följande kommando mot krets 1. Skicka in det privata peering-ID: t för krets 2 och verifierings nyckeln.
+   Anteckna det privata peering-ID:et för krets 2, samt auktoriseringsnyckeln.
+2. Kör följande kommando mot krets 1. Passera i det privata peering-ID:et för krets 2 och auktoriseringsnyckeln.
 
    ```azurepowershell-interactive
    Add-AzExpressRouteCircuitConnectionConfig -Name 'Your_connection_name' -ExpressRouteCircuit $ckt_1 -PeerExpressRouteCircuitPeering "circuit_2_private_peering_id" -AddressPrefix '__.__.__.__/29' -AuthorizationKey '########-####-####-####-############'
@@ -99,20 +99,20 @@ Om de två kretsarna inte finns i samma Azure-prenumeration behöver du behörig
    Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
    ```
 
-När föregående åtgärd har slutförts kommer du att ha anslutning mellan dina lokala nätverk på båda sidorna genom dina två ExpressRoute-kretsar.
+När den föregående åtgärden är klar har du anslutning mellan dina lokala nätverk på båda sidor via dina två ExpressRoute-kretsar.
 
 ## <a name="verify-the-configuration"></a>Kontrollera konfigurationen
 
-Använd följande kommando för att kontrol lera konfigurationen på kretsen där konfigurationen gjordes (till exempel krets 1 i föregående exempel).
+Använd följande kommando för att verifiera konfigurationen på kretsen där konfigurationen gjordes (till exempel krets 1 i föregående exempel).
 ```azurepowershell-interactive
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
 ```
 
-Om du bara kör *$ckt 1* i PowerShell visas *CircuitConnectionStatus* i utdata. Det visar om anslutningen har upprättats, "ansluten" eller "frånkopplad". 
+Om du bara kör *$ckt1* i PowerShell visas *CircuitConnectionStatus* i utdata. Den talar om för dig om anslutningen är etablerad, "Ansluten" eller "Frånkopplad". 
 
-## <a name="disable-connectivity"></a>Inaktivera anslutning
+## <a name="disable-connectivity"></a>Inaktivera anslutningar
 
-Om du vill inaktivera anslutningar mellan dina lokala nätverk kör du kommandona mot den krets där konfigurationen gjordes (till exempel krets 1 i föregående exempel).
+Om du vill inaktivera anslutningen mellan dina lokala nätverk kör du kommandona mot den krets där konfigurationen gjordes (till exempel krets 1 i föregående exempel).
 
 ```azurepowershell-interactive
 $ckt1 = Get-AzExpressRouteCircuit -Name "Your_circuit_1_name" -ResourceGroupName "Your_resource_group"
@@ -120,11 +120,11 @@ Remove-AzExpressRouteCircuitConnectionConfig -Name "Your_connection_name" -Expre
 Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt_1
 ```
 
-Du kan köra Get-åtgärden för att kontrollera statusen.
+Du kan köra åtgärden Hämta för att verifiera statusen.
 
-När den föregående åtgärden har slutförts har du inte längre någon anslutning mellan ditt lokala nätverk via dina ExpressRoute-kretsar.
+När den föregående åtgärden är klar har du inte längre någon anslutning mellan det lokala nätverket via expressroutekretsarna.
 
 ## <a name="next-steps"></a>Nästa steg
-1. [Mer information om ExpressRoute Global räckvidd](expressroute-global-reach.md)
-2. [Kontrollera ExpressRoute-anslutningen](expressroute-troubleshooting-expressroute-overview.md)
+1. [Läs mer om ExpressRoute Global Reach](expressroute-global-reach.md)
+2. [Verifiera ExpressRoute-anslutning](expressroute-troubleshooting-expressroute-overview.md)
 3. [Länka en ExpressRoute-krets till ett virtuellt Azure-nätverk](expressroute-howto-linkvnet-arm.md)

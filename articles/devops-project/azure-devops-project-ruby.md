@@ -17,10 +17,10 @@ ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
 ms.openlocfilehash: 5cb47cdd76d1de284c4dc6dbdfbfedd0095653ab
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "70899573"
 ---
 # <a name="create-a-cicd-pipeline-for-ruby-on-rails-by-using-azure-devops-projects"></a>Skapa en CI/CD-pipeline för Ruby on Rails med hjälp av Azure DevOps Projects
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du skaffa en kostnadsfritt via [Visual
 
 Azure DevOps Projects skapar en CI/CD-pipeline i Azure Repos. Du kan skapa en ny Azure DevOps-organisation eller använda en befintlig organisation. DevOps Projects skapar även Azure-resurser i den Azure-prenumeration som du väljer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster.
 
@@ -79,7 +79,7 @@ Azure DevOps Projects skapar en Git-lagringsplats i Azure Pipelines eller GitHub
 
 1. Gör en ändring i filen. Du kan till exempel ändra text i en av div-taggarna.
 
-1. Välj **Checka in** och spara sedan ändringarna.
+1. Välj **Incheckning** och spara sedan ändringarna.
 
 1. I webbläsaren går du till DevOps Projects-instrumentpanelen.  
     En version bör pågå. De ändringar du utfört skapas och distribueras automatiskt via en CI/CD-pipeline.
@@ -103,7 +103,7 @@ Azure DevOps Projects konfigurerar automatiskt en fullständig Azure CI/CD-pipel
 
 1. Välj bygg-pipelinens namn längst upp i bygg-pipelinen.
 
-1. Ändra på din bygg-pipeline till något mer beskrivande och välj alternativet för att **spara och placera i kö**. Välj sedan **Spara**.
+1. Ändra på din bygg-pipeline till något mer beskrivande, välj **Spara och köa** och sedan **Spara**.
 
 1. Under ditt bygg-pipelinenamn väljer du **Historik**.  
     I den här fönsterrutan visas en spårningslogg över de senaste ändringarna för versionen. Azure DevOps spårar alla ändringar som görs av bygg-pipelinen, vilket innebär att du kan jämföra versioner.
@@ -117,7 +117,7 @@ Azure DevOps Projects konfigurerar automatiskt en fullständig Azure CI/CD-pipel
 1. Välj **Build and Release** (Byggen och versioner) och sedan **Versioner**.  
     DevOps Projects skapar en versionspipeline för att hantera distributioner till Azure.
 
-1. Välj ellipsen (...) intill din versionspipeline och välj sedan **Redigera**.  
+1. Välj ellipsen (...) bredvid din releasepipeline och välj sedan **Redigera**.  
     Versionspipelinen innehåller en *pipeline* som definierar släpprocessen.
 
 1. Under **Artefakter** väljer du **Släpp**.  
@@ -129,7 +129,7 @@ Azure DevOps Projects konfigurerar automatiskt en fullständig Azure CI/CD-pipel
 1. Till vänster väljer du **Uppgifter**.  
     Uppgifter är de aktiviteter som distributionsprocessen utför. I det här exemplet skapades en uppgift för att distribuera till Azure App-tjänsten.
 
-1. Till höger väljer du **Visa versioner** för att visa en historik över versioner.
+1. Till höger väljer du alternativet för att **visa versioner** för att visa en historik över versioner.
 
 1. Välj ellipsen (...) intill en version och välj sedan **Öppna**.  
     Du kan utforska flera menyer, till exempel en versionssammanfattning, tillhörande arbetsobjekt och tester.

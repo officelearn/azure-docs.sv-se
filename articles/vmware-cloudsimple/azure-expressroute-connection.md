@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösningar (AVS) – Anslut ett privat AVS-moln till Azure-nätverk med ExpressRoute
-description: Beskriver hur du ansluter din moln miljö för privata moln till det virtuella Azure-nätverket med ExpressRoute
+title: Azure VMware Solution by CloudSimple – Anslut privat moln till Azure-nätverk med ExpressRoute
+description: Beskriver hur du ansluter din CloudSimple Private Cloud-miljö till det virtuella Azure-nätverket med ExpressRoute
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,51 +8,51 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3d487794e219f63150142db8df4b0c1abf112947
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9bb68ec68f4de646239477ceeaac50a7a33989fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77015243"
 ---
-# <a name="connect-your-avs-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>Anslut din AVS-miljö med privata moln till det virtuella Azure-nätverket med ExpressRoute
+# <a name="connect-your-cloudsimple-private-cloud-environment-to-the-azure-virtual-network-using-expressroute"></a>Anslut din CloudSimple Private Cloud-miljö till det virtuella Azure-nätverket med ExpressRoute
 
-Ditt moln privata moln kan anslutas till ditt virtuella Azure-nätverk med Azure ExpressRoute. Med den här hög bandbredden kan du få åtkomst till tjänster som körs i din Azure-prenumeration från din moln miljö för privata moln.
+Ditt CloudSimple Private Cloud kan anslutas till ditt virtuella Azure-nätverk med Azure ExpressRoute.  Med den här anslutningen med låg bandbredd med låg latens kan du komma åt tjänster som körs i din Azure-prenumeration från din private cloud-miljö.
 
-Med anslutning till virtuellt nätverk kan du:
+Med virtual network-anslutning kan du:
 
-* Använd Azure som ett säkerhets kopierings mål för virtuella datorer i ditt moln privata moln.
-* Distribuera KMS-servrar i din Azure-prenumeration för att kryptera ditt molns virtuellt San data lager.
-* Använd hybrid program där webb nivån för programmet körs i det offentliga molnet medan program-och databas nivåerna körs i ditt moln privata moln.
+* Använd Azure som ett säkerhetskopieringsmål för virtuella datorer i ditt privata moln.
+* Distribuera KMS-servrar i din Azure-prenumeration för att kryptera ditt privata moln vSAN-datalager.
+* Använd hybridprogram där webbnivån för programmet körs i det offentliga molnet medan program- och databasnivåerna körs i ditt privata moln.
 
 ![Azure ExpressRoute-anslutning till virtuellt nätverk](media/cloudsimple-azure-network-connection.png)
 
-## <a name="set-up-a-virtual-network-connection"></a>Konfigurera en virtuell nätverks anslutning
+## <a name="set-up-a-virtual-network-connection"></a>Konfigurera en virtuell nätverksanslutning
 
-Om du vill konfigurera en virtuell nätverks anslutning till ditt moln i molnet, behöver du din verifierings nyckel, peer-krets-URI och åtkomst till din Azure-prenumeration. Den här informationen finns på sidan Virtual Network anslutning i AVS-portalen. Instruktioner finns i [Hämta peering-information för Azure Virtual Network till AVS-anslutning](virtual-network-connection.md). Om du har problem med att hämta informationen kan du skicka in en <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">support förfrågan</a>.
+Om du vill konfigurera den virtuella nätverksanslutningen till ditt privata moln behöver du din auktoriseringsnyckel, peer circuit URI och åtkomst till din Azure-prenumeration. Den här informationen är tillgänglig på sidan Anslutning till virtuellt nätverk i CloudSimple-portalen. Instruktioner finns i [Hämta peering-information för virtuella Azure-nätverk till CloudSimple-anslutning](virtual-network-connection.md). Om du har några problem med att få informationen skickar du en <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">supportbegäran</a>.
 
 > [!TIP]
-> Om du redan har ett virtuellt Azure-nätverk, Gateway-undernät och virtuell nätverksgateway kan du gå vidare till steg 4.
+> Om du redan har ett virtuellt Azure-nätverk, gateway-undernät och virtuell nätverksgateway kan du hoppa till steg 4.
 
-1. Skapa ett virtuellt nätverk i din Azure-prenumeration och kontrol lera att det adress utrymme som du väljer skiljer sig från adress utrymmet för ditt AVS-privata moln. Om du redan har ett virtuellt Azure-nätverk kan du använda det befintliga. Mer information finns i [skapa ett virtuellt nätverk med hjälp av Azure Portal](../virtual-network/quick-create-portal.md).
-2. Skapa Gateway-undernätet i det virtuella Azure-nätverket. Om du redan har ett Gateway-undernät i det virtuella Azure-nätverket kan du använda det befintliga. Mer information finns i [skapa Gateway-undernätet](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
-3. Skapa den virtuella Nätverksgatewayen på det virtuella nätverket. Om du har en befintlig virtuell nätverksgateway kan du använda den befintliga. Mer information finns i [skapa den virtuella Nätverksgatewayen](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway).
-4. Skapa anslutningen mellan ditt virtuella nätverk och ditt moln privata moln genom att lösa in verifierings nyckeln enligt beskrivningen i [ansluta ett virtuellt nätverk till en krets-annan prenumeration](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
+1. Skapa ett virtuellt nätverk på din Azure-prenumeration och kontrollera att adressutrymmet du väljer skiljer sig från adressutrymmet i ditt privata moln.  Om du redan har ett virtuellt Azure-nätverk kan du använda det befintliga.  Mer information finns i [Skapa ett virtuellt nätverk med Azure-portalen](../virtual-network/quick-create-portal.md).
+2. Skapa gateway-undernätet i ditt virtuella Azure-nätverk.  Om du redan har ett gateway-undernät i ditt virtuella Azure-nätverk kan du använda det befintliga. Mer information finns i [Skapa gateway-undernätet](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
+3. Skapa den virtuella nätverksgatewayen i det virtuella nätverket.  Om du har en befintlig virtuell nätverksgateway kan du använda den befintliga. Mer information finns i [Skapa den virtuella nätverksgatewayen](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway).
+4. Skapa anslutningen mellan ditt virtuella nätverk och ditt privata moln genom att lösa in auktoriseringsnyckeln enligt beskrivningen i [Anslut ett virtuellt nätverk till en krets - en annan prenumeration](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
 
 > [!WARNING]
-> Om du använder en befintlig virtuell nätverksgateway och den har en ExpressRoute-anslutning till samma plats som AVS-ExpressRoute-kretsen, upprättas inte anslutningen. Skapa ett nytt virtuellt nätverk och följ föregående steg.
+> Om du använder en befintlig virtuell nätverksgateway och den har en ExpressRoute-anslutning till samma plats som CloudSimple ExpressRoute-kretsen, upprättas inte anslutningen.  Skapa ett nytt virtuellt nätverk och följ föregående steg.
 
-## <a name="test-the-virtual-network-connection"></a>Testa anslutningen till det virtuella nätverket
+## <a name="test-the-virtual-network-connection"></a>Testa den virtuella nätverksanslutningen
 
-När anslutningen har skapats kan du kontrol lera status för anslutningen genom att välja **Egenskaper** under **Inställningar**. Status och etablerings status **bör visas.**
+När anslutningen har skapats kan du kontrollera anslutningens status genom att välja **Egenskaper** under **Inställningar**.  Status och etableringstillstånd ska visa **lyckades**.
 
-![Anslutnings status](media/azure-expressroute-connection.png)
+![Anslutningsstatus](media/azure-expressroute-connection.png)
 
-Så här testar du den virtuella nätverks anslutningen:
+Så här testar du den virtuella nätverksanslutningen:
 
 1. Skapa en virtuell dator i din Azure-prenumeration.
-2. Hitta IP-adressen för ditt molns privata moln vCenter (se Välkommen-e-postmeddelandet).
-3. Pinga din moln-vCenter från den virtuella datorn som skapades i det virtuella Azure-nätverket.
-4. Pinga din virtuella Azure-dator från en virtuell dator som körs i ditt molns privata moln vCenter.
+2. Hitta IP-adressen för ditt privata moln vCenter (se ditt välkomstmeddelande).
+3. Pinga ditt Cloud vCenter från den virtuella datorn som skapats i ditt virtuella Azure-nätverk.
+4. Pinga din virtuella Azure-dator från en virtuell dator som körs i ditt privata moln vCenter.
 
-Om du har problem med att upprätta anslutningen skickar du en <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">supportbegäran</a>.
+Om du har några problem med att upprätta anslutningen skickar du en <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">supportbegäran</a>.

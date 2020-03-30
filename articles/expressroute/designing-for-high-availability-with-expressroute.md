@@ -1,6 +1,6 @@
 ---
-title: 'Azure-ExpressRoute: design för hög tillgänglighet'
-description: Den här sidan innehåller arkitektur rekommendationer för hög tillgänglighet när du använder Azure-ExpressRoute.
+title: 'Azure ExpressRoute: Designa för hög tillgänglighet'
+description: Den här sidan innehåller arkitekturrekommendationer för hög tillgänglighet när du använder Azure ExpressRoute.
 services: expressroute
 author: rambk
 ms.service: expressroute
@@ -8,84 +8,84 @@ ms.topic: article
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4c3c6ae5fbdd91e6e44438be7fef2a3a91564a34
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74076685"
 ---
-# <a name="designing-for-high-availability-with-expressroute"></a>Design för hög tillgänglighet med ExpressRoute
+# <a name="designing-for-high-availability-with-expressroute"></a>Designa för hög tillgänglighet med ExpressRoute
 
-ExpressRoute har utformats för att ge hög tillgänglighet för att tillhandahålla bärvåg för privat nätverks anslutning till Microsoft-resurser. Det finns med andra ord ingen enskild felpunkt i ExpressRoute-sökvägen i Microsoft-nätverket. För att maximera tillgängligheten bör även kunden och service provider-segmentet för din ExpressRoute-krets vara konstruerat för hög tillgänglighet. I den här artikeln börjar vi med att titta på nätverks arkitektur för att skapa robust nätverks anslutning med en ExpressRoute, och sedan ska vi titta på de fin justerings funktioner som hjälper dig att förbättra din ExpressRoute-krets hög tillgänglighet.
+ExpressRoute är utformat för hög tillgänglighet för att tillhandahålla privat nätverksanslutning till Microsoft-resurser i operatörsklass. Med andra ord finns det ingen enskild felpunkt i ExpressRoute-sökvägen i Microsoft-nätverket. För att maximera tillgängligheten bör även kund- och tjänsteleverantörssegmentet i din ExpressRoute-krets vara arkitektför hög tillgänglighet. I den här artikeln ska vi först undersöka överväganden om nätverksarkitektur för att skapa robust nätverksanslutning med hjälp av en ExpressRoute, så låt oss sedan titta på de finjusteringsfunktioner som hjälper dig att förbättra den höga tillgängligheten för din ExpressRoute-krets.
 
 
-## <a name="architecture-considerations"></a>Arkitektur överväganden
+## <a name="architecture-considerations"></a>Hänsyn till arkitektur
 
 Följande bild illustrerar det rekommenderade sättet att ansluta med hjälp av en ExpressRoute-krets för att maximera tillgängligheten för en ExpressRoute-krets.
 
- [![1]][1]
+ [![1]][1.]
 
-För hög tillgänglighet är det viktigt att upprätthålla redundansen för ExpressRoute-kretsen hela tiden från slut punkt till slut punkt. Med andra ord måste du upprätthålla redundans i ditt lokala nätverk och inte kompromissa med redundans inom tjänst leverantörens nätverk. Att upprätthålla redundans med minsta möjliga orsak till att undvika enskilda punkter av nätverks haverier. Om du har redundant strömförsörjning och kylning för nätverks enheterna kommer hög tillgänglighet att förbättras ytterligare.
+För hög tillgänglighet är det viktigt att upprätthålla redundansen för ExpressRoute-kretsen i hela end-to-end-nätverket. Med andra ord måste du upprätthålla redundans inom det lokala nätverket och bör inte äventyra redundansen i tjänsteleverantörens nätverk. Att upprätthålla redundansen som minimum innebär att man undviker en enda punkt av nätverksfel. Att ha redundant strömförsörjning och kylning för nätverksenheterna kommer att ytterligare förbättra den höga tillgängligheten.
 
-### <a name="first-mile-physical-layer-design-considerations"></a>Design överväganden för första ommilering av fysiskt lager
+### <a name="first-mile-physical-layer-design-considerations"></a>Första milen fysiska lager design överväganden
 
- Om du avbryter både de primära och sekundära anslutningarna för en ExpressRoute-krets på samma kund lokal utrustning (CPE) kan du kompromissa med hög tillgänglighet i det lokala nätverket. Dessutom, om du konfigurerar både de primära och sekundära anslutningarna via samma port i en CPE (antingen genom att avsluta de två anslutningarna under olika under gränssnitt eller genom att sammanfoga de två anslutningarna i partner nätverket) tvingar du partnern för att kompromissa med hög tillgänglighet på nätverks segmentet också. Den här kompromissen illustreras i följande bild.
+ Om du avslutar både de primära och sekundära anslutningarna för en ExpressRoute-kretsar på samma CPE (Customer Premises Equipment) äventyrar du den höga tillgängligheten i ditt lokala nätverk. Om du konfigurerar både de primära och sekundära anslutningarna via samma port i en CPE (antingen genom att avsluta de två anslutningarna under olika undergränssnitt eller genom att slå samman de två anslutningarna i partnernätverket) tvingar du partnern att äventyra hög tillgänglighet på deras nätverkssegment också. Denna kompromiss illustreras i följande siffra.
 
 [![2]][2]
 
-Å andra sidan, om du avslutar de primära och sekundära anslutningarna för en ExpressRoute-krets på olika geografiska platser, kan du kompromissa med nätverks prestandan för anslutningen. Om trafiken aktivt belastningen bal anse ras över de primära och sekundära anslutningarna som har avslut ATS på olika geografiska platser, skulle potentiell stor skillnad i nätverks fördröjningen mellan de två Sök vägarna leda till ett underoptimerat nätverk historik. 
+Å andra sidan, om du avslutar de primära och sekundära anslutningarna för en ExpressRoute-kretsar på olika geografiska platser, kan du äventyra nätverksprestandan för anslutningen. Om trafiken aktivt belastningsutjämnas över de primära och sekundära anslutningarna som avslutas på olika geografiska platser, skulle potentiell betydande skillnad i nätverksfördröjning mellan de två banorna resultera i suboptimala nätverk Prestanda. 
 
-För geo-redundanta design överväganden, se [design för haveri beredskap med ExpressRoute][DR].
+Geo-redundant designöverväganden finns i [Designa för haveriberedskap med ExpressRoute][DR].
 
 ### <a name="active-active-connections"></a>Aktiva aktiva anslutningar
 
-Microsoft Network är konfigurerat för att använda de primära och sekundära anslutningarna till ExpressRoute-kretsar i aktivt-aktivt läge. Genom dina väg annonseringar kan du dock tvinga redundanta anslutningar för en ExpressRoute-krets att köras i aktivt läge. Annonsera mer exakta vägar och BGP AS-sökvägen är beroende av de vanliga tekniker som används för att göra en sökväg som föredras över den andra.
+Microsoft-nätverket är konfigurerat för att driva de primära och sekundära anslutningarna för ExpressRoute-kretsar i aktivt aktivt läge. Genom dina ruttannonser kan du dock tvinga de redundanta anslutningarna för en ExpressRoute-krets att fungera i aktivt passivt läge. Reklam mer specifika vägar och BGP AS-sökväg som väntar är de vanligaste teknikerna som används för att göra en väg att föredra framför den andra.
 
-För att förbättra hög tillgänglighet rekommenderar vi att du använder båda anslutningarna för en ExpressRoute-krets i aktivt-aktivt läge. Om du tillåter anslutningarna att köras i aktivt läge, kommer Microsoft Network att belastningsutjämna trafiken mellan anslutningarna per flöde.
+För att förbättra hög tillgänglighet rekommenderas att du använder båda anslutningarna för en ExpressRoute-krets i aktivt aktivt läge. Om du låter anslutningarna fungera i aktivt aktivt läge kommer Microsoft-nätverket att belastningsjämna trafiken över anslutningarna per flöde.
 
-Att köra de primära och sekundära anslutningarna för en ExpressRoute-krets i aktivt läge för passivt läge är risken för att båda anslutningarna Miss lyckas på grund av ett haveri i den aktiva sökvägen. Vanliga orsaker till växling vid växling är brist på aktiv hantering av den passiva anslutningen och passiv anslutning annonserar inaktuella vägar.
+Om du kör de primära och sekundära anslutningarna för en ExpressRoute-krets i aktivt passivt läge riskerar båda anslutningarna att misslyckas efter ett fel i den aktiva sökvägen. De vanligaste orsakerna till fel på att byta över är bristen på aktiv hantering av den passiva anslutningen och passiv anslutning reklam inaktuella vägar.
 
-Du kan också köra de primära och sekundära anslutningarna för en ExpressRoute-krets i aktivt-aktivt läge, vilket resulterar i endast hälften av flödena som Miss lyckas och som dirigeras om, efter ett ExpressRoute anslutnings problem. Det innebär att aktivt-aktivt läge bidrar avsevärt till att öka genomsnitts tiden för återställning (MTTR).
+Alternativt, kör de primära och sekundära anslutningarna för en ExpressRoute krets i aktivt aktivt läge, resulterar i endast ungefär hälften av flödena misslyckas och få omdirigeras, efter en ExpressRoute anslutningsfel. Aktivt aktivt läge kommer därför att avsevärt bidra till att förbättra tiden för att återställa (MTTR).
 
 ### <a name="nat-for-microsoft-peering"></a>NAT för Microsoft-peering 
 
-Microsoft-peering är utformad för kommunikation mellan offentliga slut punkter. Lokala privata slut punkter är vanligt vis översatta för nätverks adresser (NATed) med offentlig IP i kund-eller partner nätverket innan de kommunicerar via Microsoft-peering. Förutsatt att du använder både de primära och sekundära anslutningarna i aktivt-aktivt läge, där och hur du NAT har påverkan på hur snabbt du återställer efter ett fel i en av ExpressRoute-anslutningarna. Två olika NAT-alternativ illustreras i följande figur:
+Microsoft-peering är utformat för kommunikation mellan offentliga slutpunkter. Så vanliga privata slutpunkter är nätverksadressöversatta (NATed) med offentlig IP i kund- eller partnernätverket innan de kommunicerar via Microsoft-peering. Förutsatt att du använder både primära och sekundära anslutningar i aktivt aktivt läge, var och hur du NAT påverkar hur snabbt du återställer efter ett fel i en av ExpressRoute-anslutningarna. Två olika NAT-alternativ illustreras i följande bild:
 
 [![3]][3]
 
-I alternativ 1 tillämpas NAT när trafiken mellan de primära och sekundära anslutningarna i ExpressRoute har delats upp. För att uppfylla de tillstånds känsliga kraven i NAT används oberoende NAT-pooler mellan de primära och sekundära enheterna så att RETUR trafiken kommer till samma gräns enhet genom vilken flödet har passerat.
+I alternativ 1 används NAT efter att ha delat upp trafiken mellan de primära och sekundära anslutningarna för ExpressRoute. För att uppfylla nat-kraven används oberoende NAT-pooler mellan de primära och sekundära enheterna så att returtrafiken kommer fram till samma kantenhet genom vilken flödet gick ut.
 
-I alternativ 2 används en vanlig NAT-pool innan trafiken delas mellan de primära och sekundära anslutningarna i ExpressRoute. Det är viktigt att du är medveten om att den gemensamma NAT-poolen innan du delar upp trafiken inte innebär att det innebär att det inte går att införa en enskild felpunkt för att kompromissa med hög tillgänglighet.
+I alternativ 2 används en gemensam NAT-pool innan trafiken delas mellan de primära och sekundära anslutningarna för ExpressRoute. Det är viktigt att göra skillnaden att den gemensamma NAT-poolen innan du delar upp trafiken inte innebär att införa enstaka felpunkt och därmed äventyra hög tillgänglighet.
 
-Med alternativet 1, efter ett ExpressRoute-anslutningsfel, är möjligheten att kontakta motsvarande NAT-pool bruten. Därför måste alla brutna flöden återupprättas antingen av TCP-eller program lagret efter motsvarande tids gräns för fönster. Om någon av NAT-poolerna används för att ansluta till någon av de lokala servrarna och om motsvarande anslutning inte kunde slutföras, går det inte att nå lokala servrar från Azure förrän anslutningen har åtgärd ATS.
+Med alternativ 1, efter ett ExpressRoute-anslutningsfel, är möjligheten att nå motsvarande NAT-pool bruten. Därför måste alla trasiga flöden återupprättas antingen av TCP eller programlager efter motsvarande tidsgränsen för fönster. Om någon av NAT-poolerna används för att frontend någon av de lokala servrarna och om motsvarande anslutning skulle misslyckas, kan de lokala servrarna inte nås från Azure förrän anslutningen är fast.
 
-Med alternativet 2 kan NAT bli tillgängligt även efter ett primärt eller sekundärt anslutnings problem. Därför kan själva nätverks lagret omdirigera paketen och hjälpa till att snabbare återställa efter fel. 
+Med alternativ 2 kan NAT nås även efter ett primärt eller sekundärt anslutningsfel. Därför kan själva nätverkslagret omdirigera paketen och hjälpa till att återställa snabbare efter felet. 
 
 > [!NOTE]
-> Om du använder NAT-alternativ 1 (oberoende NAT-pooler för primära och sekundära ExpressRoute-anslutningar) och mappar en port för en IP-adress från en av NAT-poolen till en lokal server går det inte att komma åt servern via ExpressRoute-kretsen när motsvarande anslutningen misslyckades.
+> Om du använder NAT-alternativ 1 (oberoende NAT-pooler för primära och sekundära ExpressRoute-anslutningar) och mappar en port med en IP-adress från en av NAT-poolen till en lokal server, kan servern inte nås via ExpressRoute-kretsen när motsvarande anslutningen misslyckas.
 > 
 
-## <a name="fine-tuning-features-for-private-peering"></a>Fin justering av funktioner för privat peering
+## <a name="fine-tuning-features-for-private-peering"></a>Finjusterande funktioner för privat peering
 
-I det här avsnittet låter vi oss granska valfria (beroende på din Azure-distribution och hur känsligt du är att MTTR) funktioner som förbättrar hög tillgänglighet för din ExpressRoute-krets. Mer specifikt går vi igenom den zon medveten distribution av ExpressRoute virtuella nätverksgateway och BFD (dubbelriktad vidarebefordring).
+Låt oss i det här avsnittet granska valfria (beroende på din Azure-distribution och hur känslig du är för MTTR) funktioner som hjälper till att förbättra hög tillgänglighet för din ExpressRoute-krets. Anta särskilt en zonmedveten distribution av ExpressRoute-gateways för virtuella nätverk och BFD (Bidirectional Forwarding Detection).
 
-### <a name="availability-zone-aware-expressroute-virtual-network-gateways"></a>Tillgänglighets zon medveten ExpressRoute virtuella nätverksgateway
+### <a name="availability-zone-aware-expressroute-virtual-network-gateways"></a>Tillgänglighetszonsmedvetna ExpressRoute-gateways för virtuella nätverk
 
-En tillgänglighetszon i en Azure-region är en kombination av en feldomän och en uppdateringsdomän. Om du väljer att använda en zon-redundant Azure IaaS-distribution kan du också konfigurera zoner som är redundanta på virtuella nätverk som avslutar ExpressRoute-privata peering. Mer information finns i [om zoner-redundanta virtuella nätverksgateway i Azure-tillgänglighetszoner][zone redundant vgw]. Information om hur du konfigurerar en zon-redundant virtuell nätverksgateway finns [i skapa en zon-redundant virtuell nätverksgateway i Azure-tillgänglighetszoner][conf zone redundant vgw].
+En tillgänglighetszon i en Azure-region är en kombination av en feldomän och en uppdateringsdomän. Om du väljer zon redundant Azure IaaS-distribution kanske du också vill konfigurera zon redundanta virtuella nätverksgateways som avslutar ExpressRoute privat peering. Mer information finns i [Om zonsanta virtuella nätverksgatewayer i Azure-tillgänglighetszoner][zone redundant vgw]. Information om hur du konfigurerar zon redundant virtuell nätverksgateway finns i [Skapa en zon redundant virtuell nätverksgateway i Azure-tillgänglighetszoner][conf zone redundant vgw].
 
-### <a name="improving-failure-detection-time"></a>Förbättra identifierings tiden för problem
+### <a name="improving-failure-detection-time"></a>Förbättrad felidentifieringstid
 
-ExpressRoute stöder BFD över privat peering. BFD minskar identifierings tiden för fel i Layer 2-nätverket mellan Microsoft Enterprise Edge (msee) och deras BGP-grannar på den lokala sidan från cirka tre minuter (standard) till mindre än en sekund. Tid för snabb avkänning hjälper till att återställa hastening-haverier. Mer information finns i [Konfigurera BFD över ExpressRoute][BFD].
+ExpressRoute stöder BFD över privat peering. BFD minskar identifieringstiden för fel över Layer 2-nätverket mellan Microsoft Enterprise Edge (MSEEs) och deras BGP-grannar på den lokala sidan från cirka 3 minuter (standard) till mindre än en sekund. Snabbfelsidentifieringstid hjälper till att påskynda återställning av fel. Mer information finns i [Konfigurera BFD via ExpressRoute][BFD].
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln diskuterade vi hur du utformar för hög tillgänglighet för en ExpressRoute-krets anslutning. En peering-plats för ExpressRoute-kretsen fästs på en geografisk plats och kan därför påverkas av ett oåterkalleligt haveri som påverkar hela platsen. 
+I den här artikeln diskuterade vi hur man utformar för hög tillgänglighet av en ExpressRoute-kretsanslutning. En ExpressRoute-krets peering-punkt är fäst vid en geografisk plats och kan därför påverkas av katastrofala fel som påverkar hela platsen. 
 
-För design överväganden för att skapa Geo-redundant nätverks anslutning till Microsoft-stamnät som kan motstå katastrofer, som påverkar en hel region, se [design för haveri beredskap med ExpressRoute privat peering][DR].
+Designöverväganden om hur du skapar geouppsagbar nätverksanslutning till Microsofts stamnät som tål katastrofala fel, vilket påverkar en hel region, finns [i Designa för haveriberedskap med ExpressRoute privat peering][DR].
 
 <!--Image References-->
-[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "rekommenderat sätt att ansluta med ExpressRoute"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "bästa senaste mil anslutning"
+[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "Rekommenderat sätt att ansluta med ExpressRoute"
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "Suboptimal sista mil anslutning"
 [3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "NAT-alternativ"
 
 

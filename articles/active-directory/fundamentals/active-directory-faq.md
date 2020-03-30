@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor (FAQ) – Azure Active Directory | Microsoft Docs
+title: Vanliga frågor och svar (Vanliga frågor) - Azure Active Directory | Microsoft-dokument
 description: Vanliga frågor och svar om Azure och Azure Active Directory, lösenordshantering och programåtkomst.
 services: active-directory
 author: msaburnley
@@ -14,10 +14,10 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6eb0b5e37843413667e51112f52e6a69534e3425
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77063636"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Vanliga frågor och svar om Azure Active Directory
@@ -29,7 +29,7 @@ Mer information finns i [Vad är Azure Active Directory?](active-directory-whati
 ## <a name="access-azure-and-azure-active-directory"></a>Kom åt Azure och Azure Active Directory
 **F: Varför visas ett meddelande om att inga prenumerationer hittades när jag försöker komma åt Microsoft Azure Active Directory på Azure-portalen?**
 
-**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- eller Azure AD-prenumeration går du till [https://aka.ms/accessAAD](https://aka.ms/accessAAD) för att hitta stegen för engångsaktiveringen. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
+**S:** För att komma åt Azure-portalen behöver varje användare ha behörighet med en Azure-prenumeration. Om du har en betald Office 365- [https://aka.ms/accessAAD](https://aka.ms/accessAAD) eller Azure AD-prenumeration går du till för ett engångsaktiveringssteg. Annars måste du aktivera ett kostnadsfritt [Azure-konto](https://azure.microsoft.com/pricing/free-trial/) eller en betald prenumeration.
 
 Mer information finns i:
 
@@ -46,13 +46,13 @@ Azure AD-betaltjänsterna som Enterprise Mobility + Security kompletterar andra 
 
 ---
 
-**F: Vad är skillnaderna mellan ägare och global administratör?**
+**F: Vilka är skillnaderna mellan ägare och global administratör?**
 
-**A:** Som standard tilldelas den person som registrerar sig för en Azure-prenumeration ägar rollen för Azure-resurser. Ägare kan använda antingen ett Microsoft-konto eller ett arbets- eller skolkonto från den katalog som Azure-prenumerationen är associerad med.  Den här rollen har behörighet att hantera tjänster på Azure-portalen.
+**A.** Som standard tilldelas den person som registrerar sig för en Azure-prenumeration ägarrollen för Azure-resurser. En ägare kan använda antingen ett Microsoft-konto eller ett arbets- eller skolkonto från katalogen som Azure-prenumerationen är kopplad till.  Den här rollen har behörighet att hantera tjänster på Azure-portalen.
 
-Om andra behöver logga in och få åtkomst till tjänster med samma prenumeration kan du tilldela dem lämplig [inbyggd roll](../../role-based-access-control/built-in-roles.md). Mer information finns i [Hantera åtkomst med RBAC och Azure Portal](../../role-based-access-control/role-assignments-portal.md).
+Om andra behöver logga in och komma åt tjänster med samma prenumeration kan du tilldela dem lämplig [inbyggd roll](../../role-based-access-control/built-in-roles.md). Mer information finns i [Hantera åtkomst med RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
-Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen som Global administratör för katalogen. Globala administratörer har åtkomst till alla funktioner i Azure AD-katalog. Azure AD har en annan uppsättning administratörsroller för att hantera katalog- och identitetsrelaterade funktioner. Dessa administratörer har åtkomst till olika funktioner i Azure-portalen. Administratörens roll avgör vad de kan göra, som att skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser eller hantera domäner.  Mer information om Azure AD Directory-administratörer och deras roller finns i [tilldela en användare till administratörs roller i Azure Active Directory](active-directory-users-assign-role-azure-portal.md) och [tilldela administratörs roller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Som standard tilldelas den person som registrerar sig för en Azure-prenumeration rollen Global administratör för katalogen. Den globala administratören har åtkomst till alla Azure AD-katalogfunktioner. Azure AD har en annan uppsättning administratörsroller för att hantera katalog- och identitetsrelaterade funktioner. Dessa administratörer har åtkomst till olika funktioner i Azure-portalen. Administratörens roll avgör vad de kan göra, till exempel skapa eller redigera användare, tilldela administrativa roller till andra, återställa användarlösenord, hantera användarlicenser eller hantera domäner.  Mer information om Azure AD-katalogadministratörer och deras roller finns i [Tilldela en användare till administratörsroller i Azure Active Directory](active-directory-users-assign-role-azure-portal.md) och Tilldela [administratörsroller i Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 Dessutom kompletterar Azure AD-betaltjänster som Enterprise Mobility + Security andra webbtjänster, som Office 365 och Microsoft Azure, med heltäckande hanterings- och säkerhetslösningar i företagsklass.
 
@@ -82,14 +82,14 @@ Mer information finns i [Integrera dina lokala identiteter med Azure Active Dire
 
 **S:** Du behöver bara konfigurera enkel inloggning (SSO) mellan din lokala katalog och AD Azure. Så länge du kommer åt dina molnprogram via Azure AD ser tjänsten till att användarna autentiseras korrekt med deras lokala autentiseringsuppgifter.
 
-Det går lätt att implementera SSO från lokala datorer med Federations lösningar som Active Directory Federation Services (AD FS) (AD FS) eller genom att konfigurera hash-synkronisering av lösen ord. Du kan enkelt distribuera båda alternativen med hjälp av konfigurations guiden för Azure AD Connect.
+Implementering av SSO från lokala enheter kan enkelt uppnås med federationslösningar som AD FS (Active Directory Federation Services) eller genom att konfigurera synkronisering av lösenord hash.Implementing SSO from on-premises can be easily achieved with federation solutions such as Active Directory Federation Services (AD FS), or by configuring password hash sync. Du kan enkelt distribuera båda alternativen med hjälp av konfigurationsguiden för Azure AD Connect.
 
 Mer information finns i [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ---
 **F: Tillhandahåller Azure AD en självbetjäningsportal för användare i organisationen?**
 
-**S:** Ja, Azure AD ger tillgång till [Azure AD-åtkomstpanelen](https://myapps.microsoft.com) för självbetjäning och programåtkomst. Om du är en Office 365-kund kan du hitta många av funktionerna i [office 365-portalen](https://portal.office.com).
+**S:** Ja, Azure AD ger tillgång till [Azure AD-åtkomstpanelen](https://myapps.microsoft.com) för självbetjäning och programåtkomst. Om du är Office 365-kund kan du hitta många av samma funktioner i [Office 365-portalen](https://portal.office.com).
 
 Mer information finns i [Introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
@@ -102,7 +102,7 @@ Mer information finns i [Övervaka den lokala identitetsinfrastrukturen och synk
 
 ---
 ## <a name="password-management"></a>Lösenordshantering
-**F: kan jag använda tillbakaskrivning av lösen ord I Azure AD utan Lösenordssynkronisering? (I det här scenariot är det möjligt att använda Azure AD självbetjäning för återställning av lösen ord (SSPR) med lösen ords skrivning och inte lagra lösen ord i molnet?)**
+**F: Kan jag använda tillbakaskrivning av Azure AD-lösenord utan lösenordssynkronisering? (I det här fallet är det möjligt att använda Azure AD självbetjäning lösenordsåterställning (SSPR) med lösenordsskrivning och inte lagra lösenord i molnet?)**
 
 **S:** Du behöver inte synkronisera dina Active Directory-lösenord till Azure AD för att använda tillbakaskrivning. I en federerad miljö använder enkel inloggning (SSO) i Azure AD den lokala katalogen för att autentisera användaren. I det här scenariot måste inte det lokala lösenordet spåras i Azure AD.
 
@@ -118,7 +118,7 @@ Mer information finns i [Komma igång med lösenordshantering](../authentication
 
 **S:** Ja, om du har aktiverat tillbakaskrivning av lösenord skrivs lösenordsåtgärder som utförs av en administratör tillbaka till din lokala miljö.  
 
-<a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questionsauthenticationactive-directory-passwords-faqmd"></a>Fler svar på lösenordsrelaterade frågor finns i [Vanliga frågor och svar om lösenordshantering](../authentication/active-directory-passwords-faq.md).
+<a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questions"></a>Fler svar på lösenordsrelaterade frågor finns i [Vanliga frågor och svar om lösenordshantering](../authentication/active-directory-passwords-faq.md).
 ---
 **F: Vad gör jag om jag inte kommer ihåg mitt befintliga Office 365-/Azure AD-lösenord när jag försöker ändra mitt lösenord?**
 
@@ -174,7 +174,7 @@ Mer information finns i:
 * Direkt inloggning till federerade appar
 * Djuplänkar till federerade, lösenordsbaserade eller befintliga appar
 
-Mer information finns i [slut användar upplevelser för program](../manage-apps/end-user-experiences.md).
+Mer information finns i [Slutanvändarens upplevelser för program](../manage-apps/end-user-experiences.md).
 
 ---
 **F: På vilka sätt stöder Azure AD autentisering och enkel inloggning (SSO) i program?**
@@ -197,7 +197,7 @@ Mer information finns i [Ge säker fjärråtkomst till lokala program](../manage
 ---
 **F: Hur kräver jag Multi-Factor Authentication för användare som kommer åt ett visst program?**
 
-**A:** Med villkorlig åtkomst i Azure AD kan du tilldela en unik åtkomst princip för varje program. Du kan välja att alltid kräva Multi-Factor Authentication eller bara kräva det när användarna inte är anslutna till det lokala nätverket.  
+**A.** Med Azure AD-villkorlig åtkomst kan du tilldela en unik åtkomstprincip för varje program. Du kan välja att alltid kräva Multi-Factor Authentication eller bara kräva det när användarna inte är anslutna till det lokala nätverket.  
 
 Mer information finns i [Skydda åtkomsten till Office 365 och andra appar som är anslutna till Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
@@ -211,4 +211,4 @@ Mer information finns i [Automatisera användaretablering och avetablering för 
 ---
 **F: Kan jag skapa en säker LDAP-anslutning med Azure AD?**
 
-**S:** Nej. Azure AD stöder inte LDAP-protokollet (Lightweight Directory Access Protocol) eller säkert LDAP direkt. Det är dock möjligt att aktivera Azure AD Domain Services (Azure AD DS)-instansen på din Azure AD-klient med rätt konfigurerade nätverks säkerhets grupper via Azure-nätverk för att uppnå LDAP-anslutning. Mer information finns i https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.
+**A.**  Nej. Azure AD stöder inte LDAP-protokollet (Lightweight Directory Access Protocol) eller Secure LDAP direkt. Det är dock möjligt att aktivera Azure AD Domain Services (Azure AD DS) instans på din Azure AD-klient med korrekt konfigurerade nätverkssäkerhetsgrupper via Azure Networking för att uppnå LDAP-anslutning. Mer information finns i https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.

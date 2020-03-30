@@ -1,6 +1,6 @@
 ---
-title: Rekommenderade säkerhets metoder och mönster – Microsoft Azure | Microsoft Docs
-description: Den här artikeln länkar dig till rekommenderade säkerhets metoder och mönster för olika Azure-resurser.
+title: Metodtips och mönster för säkerhet – Microsoft Azure | Microsoft-dokument
+description: Den här artikeln länkar dig till bästa praxis och mönster för säkerhet för olika Azure-resurser.
 services: azure-security
 documentationcenter: na
 author: TerryLanfear
@@ -16,34 +16,34 @@ ms.workload: na
 ms.date: 5/03/2019
 ms.author: terrylan
 ms.openlocfilehash: 0bf9b4d3aa1926343ad25000a05762a31d49617d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889843"
 ---
-# <a name="azure-security-best-practices-and-patterns"></a>Metodtips och mönster för säkerhet i Azure
+# <a name="azure-security-best-practices-and-patterns"></a>Bästa praxis och mönster för Azure-säkerhet
 
-Artiklarna nedan innehåller rekommenderade säkerhets metoder som du kan använda när du utformar, distribuerar och hanterar dina moln lösningar med hjälp av Azure. Dessa bästa metoder kommer från vår erfarenhet av Azure-säkerhet och våra kunders upplevelser som du.
+Artiklarna nedan innehåller metodtips för säkerhet som ska användas när du utformar, distribuerar och hanterar dina molnlösningar med hjälp av Azure. Dessa metodtips kommer från vår erfarenhet av Azure-säkerhet och erfarenheter från kunder som du.
 
-De bästa metoderna är avsedda att vara en resurs för IT-proffs. Detta kan vara designers, arkitekter, utvecklare och testare som skapar och distribuerar säkra Azure-lösningar.
+De bästa metoderna är avsedda att vara en resurs för IT-proffs. Detta kan omfatta designers, arkitekter, utvecklare och testare som bygger och distribuerar säkra Azure-lösningar.
 
-* [Rekommenderade säkerhets metoder för Azure-gränser](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
-* [Metod tips för Azure Database-säkerhet](database-best-practices.md)
-* [Metod tips för Azure Data Security och kryptering](data-encryption-best-practices.md)
-* [Rekommenderade säkerhets metoder för Azure Identity Management och åtkomst kontroll](identity-management-best-practices.md)
-* [Metod tips för Azure nätverks säkerhet](network-best-practices.md)
-* [Metod tips för Azure drift säkerhet](operational-best-practices.md)
-* [Metod tips för Azure PaaS](paas-deployments.md)
-* [Metod tips för Azure Service Fabric Security](service-fabric-best-practices.md)
-* [Metod tips för säkerhet för virtuella Azure-datorer](iaas.md)
+* [Metodtips för gränssäkerhet i Azure](/azure/security/fundamentals/network-best-practices#adopt-a-zero-trust-approach)
+* [Metodtips för databassäkerhet](database-best-practices.md)
+* [Metodtips för Azure-datasäkerhet och kryptering](data-encryption-best-practices.md)
+* [Metodtips för Azure-identitetshantering och åtkomstkontroll styr säkerhet](identity-management-best-practices.md)
+* [Metodtips för Azure-nätverkssäkerhet](network-best-practices.md)
+* [Metodtips för operativ säkerhet i Azure](operational-best-practices.md)
+* [Metodtips för Azure PaaS](paas-deployments.md)
+* [Metodtips för Azure Service Fabric-säkerhet](service-fabric-best-practices.md)
+* [Metodtips för säkerhet för virtuella Azure-datorer](iaas.md)
 * [Implementera en säker hybridnätverksarkitektur i Azure](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
-* [Rekommenderade säkerhets metoder för Sakernas Internet](iot-best-practices.md)
+* [Metodtips för säkerhet för Sakernas Internet](iot-best-practices.md)
 * [Skydda PaaS-databaser i Azure](paas-applications-using-sql.md)
-* [Skydda PaaS-webb-och mobil program med hjälp av Azure App Service](paas-applications-using-app-services.md)
-* [Skydda PaaS-program (webb- och mobilprogram) med Azure Storage](paas-applications-using-storage.md)
-* [Rekommenderade säkerhets metoder för IaaS-arbetsbelastningar i Azure](iaas.md)
+* [Skydda PaaS-program för webb och mobil med Azure App Service](paas-applications-using-app-services.md)
+* [Skydda PaaS-program för webb och mobil med Azure Storage](paas-applications-using-storage.md)
+* [Säkerhetsmetodtips för IaaS-arbetsbelastningar i Azure](iaas.md)
 
-White paper de [rekommenderade säkerhets metoderna för Azure-lösningar](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) är en samling av de rekommenderade säkerhets metoderna i artiklarna som anges ovan.
+[Faktabladets metodtips för säkerhet för Azure-lösningar](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions) är en samling av de bästa säkerhetsrutinerna som finns i artiklarna ovan.
 
-[Ladda ned white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)
+[Ladda ner faktabladet](https://azure.microsoft.com/mediahandler/files/resourcefiles/security-best-practices-for-azure-solutions/Azure%20Security%20Best%20Practices.pdf)

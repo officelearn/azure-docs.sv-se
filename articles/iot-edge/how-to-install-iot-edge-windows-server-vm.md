@@ -1,6 +1,6 @@
 ---
-title: Kör Azure IoT Edge på Windows Server Virtual Machines | Microsoft Docs
-description: Azure IoT Edge installations anvisningar på Windows Server Marketplace Virtual Machines
+title: Kör Azure IoT Edge på virtuella Datorer med Windows Server | Microsoft-dokument
+description: Installationsinstruktioner för Azure IoT Edge på virtuella datorer i Windows Server Marketplace
 author: gregman-msft
 manager: arjmands
 ms.reviewer: kgremban
@@ -10,72 +10,72 @@ ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: philmea
 ms.openlocfilehash: 5f88a21efd04c9dd24fe31e925a3b911b5ec9df2
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/06/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77045907"
 ---
-# <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Köra Azure IoT Edge på Windows Server Virtual Machines
+# <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Köra Azure IoT Edge på virtuella Windows Server-datorer
 
-Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet.
+Azure IoT Edge-körningen är det som förvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter så små som en Raspberry Pi eller så stor som en industriell server. När en enhet har konfigurerats med IoT Edge-körningen kan du börja distribuera affärslogik till den från molnet.
 
-Mer information om hur IoT Edge runtime fungerar och vilka komponenter som ingår finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
+Mer information om hur IoT Edge-körningen fungerar och vilka komponenter som ingår finns [i Förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
 
-Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime på en virtuell Windows Server 2019-dator med hjälp av [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudandet. Följ anvisningarna i [installera Azure IoT Edge runtime](how-to-install-iot-edge-windows.md) i Windows för användning med andra versioner.
+I den här artikeln visas stegen för att köra Azure IoT Edge-körningen på en virtuell Windows Server 2019-dator med hjälp av Erbjudandet för [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace. Följ instruktionerna på [Installera Azure IoT Edge-körningen](how-to-install-iot-edge-windows.md) i Windows för användning med andra versioner.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Distribuera från Azure Marketplace
 
-1. Navigera till [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudandet eller genom att söka i Windows Server på [Azure Marketplace](https://azuremarketplace.microsoft.com/)
-2. Välj **Hämta nu**
-3. I **Software plan**letar du upp "Windows Server 2019 Data Center Server Core with Containers" och väljer sedan **Fortsätt** i nästa dialog ruta.
+1. Navigera till [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudandet eller genom att söka i "Windows Server" på Azure [Marketplace](https://azuremarketplace.microsoft.com/)
+2. Välj **HÄMTA DEN NU**
+3. I **Software plan**hittar du "Windows Server 2019 Datacenter Server Core med behållare" och väljer sedan **Fortsätt** i nästa dialogruta.
     * Du kan också använda dessa instruktioner för andra versioner av Windows Server med behållare
-4. När du är i Azure Portal väljer du **skapa** och följer guiden för att distribuera den virtuella datorn.
-    * Om det är första gången du försöker ta bort en virtuell dator är det enklast att använda ett lösen ord och att aktivera RDP och SSH på menyn för offentlig inkommande port.
-    * Om du har en resurs intensiv arbets belastning bör du uppgradera storleken på den virtuella datorn genom att lägga till fler processorer och/eller minne.
+4. En gång i Azure-portalen väljer du **Skapa** och följer guiden för att distribuera den virtuella datorn.
+    * Om det är första gången du provar en virtuell dator är det enklast att använda ett lösenord och aktivera RDP och SSH på menyn för inkommande inkommande användare.
+    * Om du har en resursintensiv arbetsbelastning bör du uppgradera storleken på den virtuella datorn genom att lägga till fler processorer och/eller minne.
 5. När den virtuella datorn har distribuerats konfigurerar du den så att den ansluter till din IoT Hub:
-    1. Kopiera enhets anslutnings strängen från IoT Edge enhet som skapats i IoT Hub. Se proceduren [Hämta anslutnings strängen i Azure Portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal).
-    1. Välj den virtuella dator resurs som du skapade nyligen från Azure Portal och öppna **kommando alternativet Kör**
+    1. Kopiera enhetens anslutningssträng från IoT Edge-enheten som skapats i IoT Hub. Se proceduren [Hämta anslutningssträngen i Azure-portalen](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal).
+    1. Välj din nyskapade resurs för virtuella datorer från Azure-portalen och öppna **kommandoalternativet kör**
     1. Välj alternativet **RunPowerShellScript**
-    1. Kopiera det här skriptet till kommando fönstret med enhets anslutnings strängen:
+    1. Kopiera skriptet till kommandofönstret med enhetsanslutningssträngen:
 
         ```powershell
         . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
         Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'
         ```
 
-    1. Kör skriptet för att installera IoT Edge Runtime och ange anslutnings strängen genom att välja **Kör**
-    1. Efter en minut eller två bör du se ett meddelande om att Edge Runtime har installerats och kon figurer ATS korrekt.
+    1. Kör skriptet för att installera IoT Edge-körningen och ange anslutningssträngen genom att välja **Kör**
+    1. Efter en minut eller två bör du se ett meddelande om att Edge-körningen har installerats och etablerats.
 
-## <a name="deploy-from-the-azure-portal"></a>Distribuera från Azure Portal
+## <a name="deploy-from-the-azure-portal"></a>Distribuera från Azure-portalen
 
-1. Från Azure Portal söker du efter "Windows Server" och väljer **Windows server 2019 Data Center** för att starta arbets flödet för skapande av virtuell dator.
-2. Välj **en program plan** Välj "Windows Server 2019 Data Center Server Core with Containers" och välj sedan **skapa**
-3. Slutför steg 5 i anvisningarna för att distribuera från Azure Marketplace ovan.
+1. Sök efter "Windows Server" från Azure-portalen och välj **Windows Server 2019 Datacenter** för att starta arbetsflödet för att skapa virtuella datorer.
+2. Välj "Windows Server 2019 Datacenter Server Core med behållare" från **Välj en programvaruplan** och välj sedan **Skapa**
+3. Fyll i steg 5 i instruktionerna "Distribuera från Azure Marketplace" ovan.
 
 ## <a name="deploy-from-azure-cli"></a>Distribuera från Azure CLI
 
-1. Om du använder Azure CLI på Skriv bordet startar du genom att logga in:
+1. Om du använder Azure CLI på skrivbordet börjar du med att logga in:
 
    ```azurecli-interactive
    az login
    ```
 
-1. Om du har flera prenumerationer väljer du den prenumeration som du vill använda:
-   1. Lista dina prenumerationer:
+1. Om du har flera prenumerationer väljer du den prenumeration du vill använda:
+   1. Visa dina prenumerationer:
 
       ```azurecli-interactive
       az account list --output table
       ```
 
-   1. Kopiera SubscriptionID-fältet för den prenumeration du vill använda
+   1. Kopiera fältet SubscriptionID för den prenumeration du vill använda
    1. Kör det här kommandot med det ID som du kopierade:
 
       ```azurecli-interactive
       az account set -s {SubscriptionId}
       ```
 
-1. Skapa en ny resurs grupp (eller ange en befintlig i nästa steg):
+1. Skapa en ny resursgrupp (eller ange en befintlig i nästa steg):
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
@@ -87,10 +87,10 @@ Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime 
    az vm create -g IoTEdgeResources -n EdgeVM --image MicrosoftWindowsServer:WindowsServer:2019-Datacenter-Core-with-Containers:latest  --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
-   * Med det här kommandot uppmanas du att ange ett lösen ord, men du kan lägga till alternativet `--admin-password` så att det blir enklare i ett skript
-   * Windows Server Core-avbildningen har endast stöd för kommando rad med fjärr skrivbord, så om du vill ha en fullständig Skriv bords upplevelse anger du `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` som avbildning
+   * Det här kommandot kommer att fråga dig om `--admin-password` ett lösenord, men du kan lägga till alternativet för att ställa in det lättare i ett skript
+   * Windows Server Core-avbildningen har endast stöd för kommandoraden med fjärrskrivbord, så om du vill ha hela skrivbordsupplevelsen anger du `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` som avbildning
 
-1. Ange anslutnings strängen för enheten (du kan följa proceduren [Hämta anslutnings strängen med Azure CLI](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) om du inte är bekant med den här processen):
+1. Ange enhetsanslutningssträngen (Du kan följa [anslutningssträngen med Azure CLI-proceduren](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) om du inte är bekant med den här processen):
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunPowerShellScript --script ". {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'"
@@ -98,12 +98,12 @@ Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge enhet som har installerats med körnings miljön kan du [distribuera IoT Edge moduler](how-to-deploy-modules-portal.md).
+Nu när du har etablerat en IoT Edge-enhet med körningen installerad kan du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
 
-Om du har problem med att Edge runtime installeras på rätt sätt kan du läsa [fel söknings](troubleshoot.md) sidan.
+Om du har problem med att Edge-körningen installeras korrekt kan du läsa [felsökningssidan.](troubleshoot.md)
 
-Om du vill uppdatera en befintlig installation till den senaste versionen av IoT Edge, se [uppdatera IoT Edge Security daemon och runtime](how-to-update-iot-edge.md).
+Information om hur du uppdaterar en befintlig installation till den senaste versionen av IoT Edge finns i [Uppdatera säkerhetsdemonen och körningen i IoT Edge](how-to-update-iot-edge.md).
 
-Läs mer om hur du använder virtuella Windows-datorer i [virtuella Windows-datorer-dokumentationen](https://docs.microsoft.com/azure/virtual-machines/windows/).
+Läs mer om hur du använder virtuella Windows-datorer i [dokumentationen till Windows virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/).
 
-Om du vill använda SSH i den här virtuella datorn efter installationen följer du [installationen av openssh för Windows Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse#installing-openssh-with-powershell) -guide med fjärr skrivbord eller fjärr-PowerShell.
+Om du vill SSH i den här virtuella datorn efter installationen följer du [guiden Installera OpenSSH för Windows Server](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse#installing-openssh-with-powershell) med fjärrskrivbord eller fjärrkraftskal.

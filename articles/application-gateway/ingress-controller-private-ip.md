@@ -1,6 +1,6 @@
 ---
-title: Använd privat IP-adress för intern routning för en ingress-slutpunkt
-description: Den här artikeln innehåller information om hur du använder privata IP-adresser för intern Routning och därmed exponerar slut punkten i ett kluster till resten av det virtuella nätverket.
+title: Använda privat IP-adress för intern routning för en ingångsslutpunkt
+description: Den här artikeln innehåller information om hur du använder privata IPs för intern routning och därmed exponera ingress-slutpunkten i ett kluster för resten av det virtuella nätverket.
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -8,32 +8,32 @@ ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
 ms.openlocfilehash: 570f28ce559ff1c1180ffaacb781b9120b1890a2
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73795496"
 ---
-# <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Använd privat IP för intern routning för en ingress-slutpunkt 
+# <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Använda privat IP för intern routning för en ingående slutpunkt 
 
-Den här funktionen gör det möjligt att exponera ingångs slut punkten inom `Virtual Network` med hjälp av en privat IP-adress.
+Den här funktionen gör det möjligt `Virtual Network` att exponera ingångsslutpunkten i en privat IP.
 
 ## <a name="pre-requisites"></a>Förutsättningar  
 Application Gateway med en [privat IP-konfiguration](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
 
-Det finns två sätt att konfigurera styrenheten att använda privat IP för ingress,
+Det finns två sätt att konfigurera styrenheten så att den använder Privat IP för inträngning,
 
-## <a name="assign-to-a-particular-ingress"></a>Tilldela till ett visst ingress
-Om du vill exponera ett visst ingress över privat IP använder du antecknings [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) i ingress.
+## <a name="assign-to-a-particular-ingress"></a>Tilldela en viss inträngning
+Om du vill exponera en viss inträngning [`appgw.ingress.kubernetes.io/use-private-ip`](./ingress-controller-annotations.md#use-private-ip) över Privat IP använder du anteckning i Ingress.
 
 ### <a name="usage"></a>Användning
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
 
-För programgatewayer utan privata IP-adresser ignoreras inträngande anteckningar med `appgw.ingress.kubernetes.io/use-private-ip: "true"`. Detta visas i loggen ingångs händelser och AGIC pod.
+För programgateways utan en privat IP ignoreras Ingresses som kommenteras med. `appgw.ingress.kubernetes.io/use-private-ip: "true"` Detta kommer att anges i ingress händelsen och AGIC pod logg.
 
-* Fel som anges i ingress-händelsen
+* Fel som anges i ingresshändelsen
 
     ```bash
     Events:
@@ -43,7 +43,7 @@ För programgatewayer utan privata IP-adresser ignoreras inträngande anteckning
     applicationgateway3026 has a private IP address
     ```
 
-* Fel som anges i AGIC-loggar
+* Fel som anges i AGIC Loggar
 
     ```bash
     E0730 18:57:37.914749       1 prune.go:65] Ingress default/hello-world-ingress requires Application Gateway applicationgateway3026 has a private IP address
@@ -51,7 +51,7 @@ För programgatewayer utan privata IP-adresser ignoreras inträngande anteckning
 
 
 ## <a name="assign-globally"></a>Tilldela globalt
-Om det är ett krav är det att begränsa alla ingångs händelser som ska exponeras över privat IP, använda `appgw.usePrivateIP: true` i `helm` config.
+Om kravet är att begränsa alla Ingresses att exponeras över privat IP, användning `appgw.usePrivateIP: true` i `helm` config.
 
 ### <a name="usage"></a>Användning
 ```yaml
@@ -62,8 +62,8 @@ appgw:
     usePrivateIP: true
 ```
 
-Detta gör att en ingångs kontroll filtrerar IP-adresserna för en privat IP-adress när du konfigurerar klient delens lyssnare på Application Gateway.
-AGIC kommer att panik och krascha om `usePrivateIP: true` och inget privat IP-adress har tilldelats.
+Detta gör att ingressstyrenheten filtrerar IP-adresskonfigurationerna för en privat IP när frontend-lyssnarna konfigureras på Application Gateway.
+AGIC kommer panik `usePrivateIP: true` och krasch om och ingen privat IP tilldelas.
 
 > [!NOTE]
-> Application Gateway v2-SKU kräver en offentlig IP-adress. Om du behöver Application Gateway vara privat, bifoga en [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) till Application gatewayens undernät för att begränsa trafiken.
+> Application Gateway v2 SKU kräver en offentlig IP. Om du kräver att Programgateway [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) ska vara privat, bifoga en till Programgateways undernät för att begränsa trafiken.

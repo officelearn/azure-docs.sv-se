@@ -1,6 +1,6 @@
 ---
-title: Store Analytics-arkitektur
-description: Lär dig att skapa ett program för analys i butiken med hjälp av mall för utcheckning i IoT Central
+title: Arkitektur för Store Analytics
+description: Lär dig att skapa ett analysprogram i butik med hjälp av kassaprogrammallen i IoT Central
 author: avneets
 ms.author: avneets
 ms.date: 10/13/2019
@@ -10,49 +10,49 @@ ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
 ms.openlocfilehash: 6c2514bd078cc3feee4bd2802cf314079b824311
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77022128"
 ---
-# <a name="in-store-analytics-architecture"></a>Arkitektur för i Store Analytics
+# <a name="in-store-analytics-architecture"></a>Analysarkitektur i butik
 
 
 
-Med lagrings analys lösningar kan du övervaka olika villkor i detalj handels miljön. Dessa lösningar kan skapas med hjälp av en av Programmallarna i IoT Central och arkitekturen nedan som vägledning.
+Med analyslösningar i butik kan du övervaka olika förhållanden i butiksmiljön. Dessa lösningar kan byggas med hjälp av en av programmallarna inom IoT Central och arkitekturen nedan som vägledning.
 
 
 ![Azure IoT Central Store Analytics](./media/architecture/store-analytics-architecture-frame.png)
 
 - Uppsättning IoT-sensorer som skickar telemetridata till en gateway-enhet
-- Gateway-enheter skickar telemetri och sammanställda insikter till IoT Central
-- Kontinuerlig data export till önskad Azure-tjänst för manipulering
-- Data kan struktureras i det önskade formatet och skickas till en lagrings tjänst
-- Företags program kan fråga data och generera insikter som Power Retail-åtgärder
+- Gateway-enheter som skickar telemetri och aggregerade insikter till IoT Central
+- Kontinuerlig dataexport till önskad Azure-tjänst för manipulering
+- Data kan struktureras i önskat format och skickas till en lagringstjänst
+- Affärsprogram kan fråga data och generera insikter som driver butiksverksamheten
  
-Låt oss ta en titt på viktiga komponenter som vanligt vis spelar en del i en analys lösning i butiken.
+Låt oss ta en titt på viktiga komponenter som i allmänhet spelar en roll i en analyslösning i butik.
 
-## <a name="condition-monitoring-sensors"></a>Villkor för övervakning av sensorer
+## <a name="condition-monitoring-sensors"></a>Sensorer för tillståndsövervakning
 
-En IoT-lösning börjar med en uppsättning sensorer som fångar in meningsfulla signaler inifrån en åter försäljare miljö. Den återspeglas av olika typer av sensorer längst till vänster i arkitektur diagrammet ovan.
+En IoT-lösning börjar med en uppsättning sensorer som fångar meningsfulla signaler inifrån en butiksmiljö. Det reflekteras av olika typer av sensorer längst till vänster i arkitekturdiagrammet ovan.
 
-## <a name="gateway-devices"></a>Gatewayenheter
+## <a name="gateway-devices"></a>Gateway-enheter
 
-Många IoT-sensorer kan mata ut RAW-signaler direkt till molnet eller till en gateway-enhet som finns nära dem. Gateway-enheten utför data agg regering på gränsen innan den skickar sammanfattnings information till ett IoT Central-program. Gateway-enheterna är också ansvariga för att vidarebefordra kommando-och kontroll åtgärder till sensor enheterna vid behov. 
+Många IoT-sensorer kan mata råsignaler direkt till molnet eller till en gateway-enhet som finns nära dem. Gateway-enheten utför dataaggregering vid kanten innan sammanfattningsstatistik skickas till ett IoT Central-program. Gateway-enheterna ansvarar också för att skicka ut kommando- och kontrollåtgärder till sensorenheterna när det är tillämpligt. 
 
-## <a name="iot-central-application"></a>IoT Central program
+## <a name="iot-central-application"></a>IoT Central ansökan
 
-Azure IoT Central-programmet matar in data från olika typer av IoT-sensorer som bra gateway-enheter i detalj handels miljön och genererar en uppsättning meningsfulla insikter.
+Azure IoT Central-programmet förtärer data från olika typer av IoT-sensorer samt gateway-enheter i butiksmiljön och genererar en uppsättning meningsfulla insikter.
 
-Azure IoT Central ger också en skräddarsydd upplevelse för Store-operatören som gör det möjligt för dem att fjärrövervaka och hantera infrastruktur enheter.
+Azure IoT Central ger också en skräddarsydd upplevelse för butiksoperatören så att de kan fjärrövervaka och hantera infrastrukturenheterna.
 
 ## <a name="data-transform"></a>Datatransformering
-Azure IoT Central-programmet i en lösning kan konfigureras för att exportera rå eller sammanställda insikter till en uppsättning med Azure PaaS-tjänster (Platform-as-a-Service) som kan utföra data manipulation och förbättra dessa insikter innan de informerar dem i ett företag applicering. 
+Azure IoT Central-programmet i en lösning kan konfigureras för att exportera råa eller aggregerade insikter till en uppsättning Azure PaaS -tjänster (Platform-as-a Service) som kan utföra datamanipulering och berika dessa insikter innan de skickas i ett företag Program. 
 
-## <a name="business-application"></a>Affärs program
-IoT-data kan användas för att driva olika typer av affärs program som distribueras i en detalj handels miljö. En butiks chef eller personal medlem kan använda dessa program för att visualisera affärs insikter och vidta meningsfulla åtgärder i real tid. Om du vill lära dig hur du skapar en instrument panel i real tid Power BI för din butiks grupp följer du [själv studie kursen](./tutorial-in-store-analytics-create-app-pnp.md).
+## <a name="business-application"></a>Affärsprogram
+IoT-data kan användas för att driva olika typer av affärsprogram som distribueras i en butiksmiljö. En butikschef eller anställd kan använda dessa program för att visualisera affärsinsikter och vidta meningsfulla åtgärder i realtid. Om du vill veta hur du skapar en Power BI-instrumentpanel i realtid för ditt detaljhandelsteam följer du [självstudien](./tutorial-in-store-analytics-create-app-pnp.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Kom igång med att [checka in-Store Analytics](https://aka.ms/checkouttemplate) och [in-Store Analytics-villkor för övervakning](https://aka.ms/conditiontemplate) . 
-* Ta en titt på [självstudien från slut punkt till slut punkt](https://aka.ms/storeanalytics-tutorial) som vägleder dig genom hur du skapar en lösning med hjälp av en av mallarna i Store Analytics-programmallar.
+* Kom igång med programmallarna [För analyssökning](https://aka.ms/checkouttemplate) i butik och programmallar [för analysövervakning i butik.](https://aka.ms/conditiontemplate) 
+* Ta en titt på [den end to end-självstudie som](https://aka.ms/storeanalytics-tutorial) hjälper dig att skapa en lösning med hjälp av en av programmallarna i Store Analytics.

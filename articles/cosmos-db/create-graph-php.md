@@ -9,28 +9,28 @@ ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: lbosq
 ms.openlocfilehash: e38f3e2029bdc8dc8c13ce330e37053d491317f3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "68736651"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Snabbstart: Skapa en grafdatabas i Azure Cosmos DB med hjälp av PHP och Azure-portalen
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Snabbstart: Skapa en diagramdatabas i Azure Cosmos DB med PHP och Azure-portalen
 
 > [!div class="op_single_selector"]
 > * [Gremlin-konsol](create-graph-gremlin-console.md)
-> * [NET](create-graph-dotnet.md)
+> * [.NET](create-graph-dotnet.md)
 > * [Java](create-graph-java.md)
 > * [Node.js](create-graph-nodejs.md)
 > * [Python](create-graph-python.md)
-> * [PHP](create-graph-php.md)
+> * [Php](create-graph-php.md)
 >  
 
 Den här snabbstarten visar hur du använder [Gremlin API](graph-introduction.md) i PHP och Azure Cosmos DB för att skapa en konsolapp genom att klona ett exempel från GitHub. Denna snabbstart visar dig också hur man skapar ett Azure Cosmos DB-konto med hjälp av den webbaserade Azure-portalen.   
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, tabeller, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.  
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Du kan även [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
@@ -50,7 +50,7 @@ Innan du kan börja skapa en grafdatabas måste du skapa ett Gremlin-databaskont
 
 ## <a name="clone-the-sample-application"></a>Klona exempelprogrammet
 
-Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Gremlin API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt.  
+Nu ska vi övergå till att arbeta med kod. Nu ska vi klona en Gremlin-API-app från GitHub, ange anslutningssträngen och köra appen. Du kommer att se hur lätt det är att arbeta med data programmässigt.  
 
 1. Öppna en kommandotolk, skapa en ny mapp som heter git-samples och stäng sedan kommandotolken.
 
@@ -194,7 +194,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
    ![Skapa nya dokument i datautforskaren i Azure Portal](./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png)
 
-2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **ben** och Lägg märke till att de är anslutna till tax. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
+2. I listan **Resultat** kan du se nya användare som har lagts till i grafen. Välj **Ben** och lägg märke till att de är anslutna till Robin. Du kan flytta hörnen genom att dra och släppa, zooma in och ut genom att bläddra med mushjulet, och utöka diagrammets storlek med hjälp av dubbelpilen. 
 
    ![Nya hörn i grafen i datautforskaren på Azure Portal](./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png)
 
@@ -204,13 +204,13 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 4. Ange en etikett för *person*.
 
-5. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast **ID-** nyckeln krävs.
+5. Klicka på Lägg till **egenskap** om du vill lägga till var och en av följande egenskaper. Tänk på att du kan skapa unika egenskaper för varje person i grafen. Endast **id-tangenten** krävs.
 
-    Nyckel | Value | Anteckningar
+    Nyckel | Värde | Anteckningar
     ----|----|----
-    **id** | ashley | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
+    **Id** | ashley | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     **kön** | kvinna | 
-    **Tech** | Java | 
+    **teknik** | Java | 
 
     > [!NOTE]
     > I den här snabbstartsguiden skapar du en icke-partitionerad samling. Men om du skapar en partitionerad samling genom att ange en partitionsnyckel när samlingen skapas, måste du lägga till partitionsnyckeln som nyckel i varje nytt hörn. 
@@ -223,11 +223,11 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
 9. Klicka på **Lägg till egenskap** för att lägga till var och en av följande egenskaper:
     
-    Nyckel | Value | Anteckningar
+    Nyckel | Värde | Anteckningar
     ----|----|----
-    **id** | rakesh | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
+    **Id** | rakesh | Den unika identifieraren för hörnet. Om du inte anger något id skapas ett automatiskt.
     **kön** | man | 
-    **bänk** | MIT | 
+    **skola** | MIT | 
 
 10. Klicka på **OK**. 
 
@@ -239,7 +239,7 @@ Nu kan du gå tillbaka till datautforskaren och se de hörn som lagts till i gra
 
     ![Ändra mål för ett hörn i en graf](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
-13. I rutan **Mål** skriver du *rakesh* och i rutan **Edge label**  (Kantetikett) skriver du *känner* och klickar sedan på kryssmarkeringen.
+13. I rutan **Mål** skriver du *rakesh* och i rutan **Edge label ** (Kantetikett) skriver du *känner* och klickar sedan på kryssmarkeringen.
 
     ![Lägg till en anslutning mellan Ashley och Rakesh i datautforskaren](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
 

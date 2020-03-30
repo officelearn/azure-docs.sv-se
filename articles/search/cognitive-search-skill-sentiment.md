@@ -1,7 +1,7 @@
 ---
-title: Sentiment kognitiva kunskaper
+title: Kognitiv skicklighet för känslor
 titleSuffix: Azure Cognitive Search
-description: Extrahera en positiv negativ sentiment Poäng från text i en AI-pipeline i Azure Kognitiv sökning.
+description: Extrahera en positiv negativ sentimentpoäng från text i en AI-anrikningspipeline i Azure Cognitive Search.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,52 +9,52 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: cc3aab703b9c5ffcb5f3280060417ce32fcec2fc
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72791903"
 ---
-# <a name="sentiment-cognitive-skill"></a>Sentiment kognitiva kunskaper
+# <a name="sentiment-cognitive-skill"></a>Kognitiv skicklighet för känslor
 
-**Sentiment** -kompetensen utvärderar ostrukturerad text längs ett positivt och negativt värde, och för varje post returneras ett numeriskt resultat mellan 0 och 1. Poäng nära 1 anger positiv känsla och poäng nära 0 anger negativ känsla. Den här kunskapen använder Machine Learning-modeller som tillhandahålls av [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
+**Sentiment-färdigheten** utvärderar ostrukturerad text längs ett positivt negativt kontinuum och returnerar för varje post en numerisk poäng mellan 0 och 1. Poäng nära 1 indikerar positivt sentiment och poäng nära 0 indikerar negativt sentiment. Den här färdigheten använder de maskininlärningsmodeller som tillhandahålls av [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) i Cognitive Services.
 
 > [!NOTE]
-> När du utökar omfattningen genom att öka frekvensen för bearbetning, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [koppla en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifterna påförs när API: er anropas i Cognitive Services, och för avbildnings extrahering som en del av stadiet för dokument sprickor i Azure Kognitiv sökning. Det finns inga kostnader för text extrahering från dokument.
+> När du utökar omfattningen genom att öka bearbetningsfrekvensen, lägga till fler dokument eller lägga till fler AI-algoritmer måste du [bifoga en fakturerbar Cognitive Services-resurs](cognitive-search-attach-cognitive-services.md). Avgifter ackumuleras när du anropar API:er i Cognitive Services och för bildutvinning som en del av dokumentsprickningsfasen i Azure Cognitive Search. Det finns inga avgifter för textextrahering från dokument.
 >
-> Körningen av inbyggda kunskaper debiteras enligt den befintliga [Cognitive Services betala per](https://azure.microsoft.com/pricing/details/cognitive-services/)användning-pris. Priser för avbildnings extrahering beskrivs på [sidan med priser för Azure kognitiv sökning](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Utförande av inbyggda färdigheter debiteras på den befintliga [Cognitive Services pay-as-you go pris](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättning för avbildningsextrahering beskrivs på [prissidan](https://go.microsoft.com/fwlink/?linkid=2042400)för Azure Cognitive Search .
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. färdigheter. text. SentimentSkill
+Microsoft.Skills.text.sentimentskill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 5000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+Den maximala storleken på en post bör vara 5000 tecken mätt med [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentimentanalysatorn använder du [textdelningsfärdigheten](cognitive-search-skill-textsplit.md).
 
 
-## <a name="skill-parameters"></a>Kunskaps parametrar
+## <a name="skill-parameters"></a>Färdighetsparametrar
 
-Parametrar är Skift läges känsliga.
+Parametrar är skiftlägeskänsliga.
 
 | Parameternamn |                      |
 |----------------|----------------------|
-| defaultLanguageCode | valfritt Språk koden som ska användas för dokument som inte uttryckligen anger språk. <br/> Se en [fullständig lista över språk som stöds](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
+| standardSpråkkod | (valfritt) Språkkoden som ska tillämpas på dokument som inte uttryckligen anger språk. <br/> Se [Fullständig lista över språk som stöds](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 
-## <a name="skill-inputs"></a>Kompetens inmatningar 
+## <a name="skill-inputs"></a>Indata för färdighet 
 
-| Inmatat namn | Beskrivning |
+| Indatanamn | Beskrivning |
 |--------------------|-------------|
-| text | Den text som ska analyseras.|
-| languageCode  |  Valfritt En sträng som anger språket för posterna. Om den här parametern inte anges är standardvärdet "en". <br/>Se en [fullständig lista över språk som stöds](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
+| text | Texten som ska analyseras.|
+| languageCode  |  (Valfritt) En sträng som anger posternas språk. Om den här parametern inte anges är standardvärdet "en". <br/>Se [Fullständig lista över språk som stöds](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
 
-## <a name="skill-outputs"></a>Kunskaps utmatningar
+## <a name="skill-outputs"></a>Utdata för färdighet
 
-| Namn på utdata | Beskrivning |
+| Utdatanamn | Beskrivning |
 |--------------------|-------------|
-| resultat | Ett värde mellan 0 och 1 som representerar sentiment för den analyserade texten. Värden som är nära 0 har negativa sentiment, nära 0,5 har neutral sentiment och värden nära 1 har positiva sentiment.|
+| poäng | Ett värde mellan 0 och 1 som representerar sentimentet i den analyserade texten. Värden nära 0 har negativa sentiment, nära 0,5 har neutrala sentiment och värden nära 1 har positiva sentiment.|
 
 
-##  <a name="sample-definition"></a>Exempel definition
+##  <a name="sample-definition"></a>Exempeldefinition
 
 ```json
 {
@@ -78,7 +78,7 @@ Parametrar är Skift läges känsliga.
 }
 ```
 
-##  <a name="sample-input"></a>Exempel på inmatade
+##  <a name="sample-input"></a>Exempelinmatning
 
 ```json
 {
@@ -111,12 +111,12 @@ Parametrar är Skift läges känsliga.
 ```
 
 ## <a name="notes"></a>Anteckningar
-Om värdet är tomt returneras ingen sentiment Poäng för dessa poster.
+Om den är tom returneras inte en sentimentpoäng för dessa poster.
 
-## <a name="error-cases"></a>Fel fall
-Om ett språk inte stöds genereras ett fel och inget sentiment Poäng returneras.
+## <a name="error-cases"></a>Felfall
+Om ett språk inte stöds genereras ett fel och ingen sentimentpoäng returneras.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-+ [Inbyggda kunskaper](cognitive-search-predefined-skills.md)
-+ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
++ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)

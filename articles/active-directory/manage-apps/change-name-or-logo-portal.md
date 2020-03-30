@@ -1,6 +1,6 @@
 ---
-title: Ändra namn eller logo typ för ett företags program i Azure AD
-description: Ändra namn eller logo typ för ett anpassat företags program i Azure Active Directory
+title: Ändra namn eller logotyp för ett företagsprogram i Azure AD
+description: Så här ändrar du namn eller logotyp för ett anpassat företagsprogram i Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -17,37 +17,37 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d23849df75d1ab239eb269b462abb21df196e7e5
-ms.sourcegitcommit: d322d0a9d9479dbd473eae239c43707ac2c77a77
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/12/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79138509"
 ---
-# <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Ändra namn eller logo typ för ett företags program i Azure Active Directory
+# <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Ändra namn eller logotyp för ett företagsprogram i Azure Active Directory
 
-Det är enkelt att ändra namn eller logo typ för ett anpassat företags program i Azure Active Directory (Azure AD). Du måste ha rätt behörighet för att göra dessa ändringar och du måste vara skaparen av det anpassade programmet.
+Det är enkelt att ändra namn eller logotyp för ett anpassat företagsprogram i Azure Active Directory (Azure AD). Du måste ha rätt behörighet för att kunna göra dessa ändringar och du måste vara skaparen av det anpassade programmet.
 
-## <a name="how-do-i-change-an-enterprise-applications-name-or-logo"></a>Hur gör jag för att ändra företags programmets namn eller logo typ?
+## <a name="how-do-i-change-an-enterprise-applications-name-or-logo"></a>Hur ändrar jag ett företags programs namn eller logotyp?
 
-1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com/) med ett konto som är en global administratör för katalogen. Sidan **Azure Active Directory administrations Center** visas.
-2. I den vänstra rutan väljer du **Företagsprogram**. Listan med dina företags program visas.
-3. Välj ett program. Sidan program översikt visas.
-4. I fönstret program översikt väljer du **Egenskaper**under rubriken **Hantera** . Sidan **Egenskaper** visas.
-5. Om du vill ändra namnet markerar du rutan **namn** , skriver det nya namnet och trycker på **RETUR**.
-6. Om du vill ändra logo typen letar du reda på fältet **logo typ** och väljer mappikonen bredvid rutan **Välj en fil** , som är under programmets aktuella logo typ bild.
+1. Logga in på [Azure Active Directory-portalen](https://aad.portal.azure.com/) med ett konto som är en global administratör för katalogen. Sidan **Azure Active Directory admin center** visas.
+2. I den vänstra rutan väljer du **Företagsprogram**. Listan över företagsprogram visas.
+3. Välj ett program. Sidan för programöversikt visas.
+4. Välj **Egenskaper**under rubriken Hantera i fönstret **Programöversikt.** Sidan **Egenskaper** visas.
+5. Om du vill ändra namnet markerar du rutan **Namn,** skriver det nya namnet och trycker på **Retur**.
+6. Om du vill ändra logotypen letar du reda på fältet **Logotyp** och väljer mappikonen bredvid rutan **Välj en fil,** som ligger under programmets aktuella logotypbild.
 
-   ![Välja egenskaper kommandot](./media/change-name-or-logo-portal/change-logo.png)
+   ![Markera kommandot egenskaper](./media/change-name-or-logo-portal/change-logo.png)
 
-   Annars, om du inte ändrar logo typen, går du till steg 8.
-7. I fil väljaren väljer du den fil som du vill använda som ny logo typ. Namnet på filen visas i rutan under den aktuella logo typ bilden.
+   Annars går du till steg 8 om du inte ändrar logotypen.
+7. Markera den fil du vill använda som ny logotyp i filväljaren. Namnet på filen visas i rutan under den aktuella logotypbilden.
 
    > [!NOTE]
-   > För Azure krävs att logo bilden är en PNG-fil och den använder gränser för bredd, höjd och fil storlek. Anpassade logo typer måste vara exakt 215 &times; 215 bild punkter i storlek och vara i PNG-format. Vi rekommenderar att du använder en solid färg bakgrund utan genomskinlighet i din program logo typ för att visa användare.
-8. Välj **Spara**. Om du väljer en ny logo typ, ändras **logo** fältets bild så att den återspeglar den nya logo typ filen.
+   > Azure kräver att logotypbilden är en PNG-fil och tillämpar begränsningar för bredd, höjd och filstorlek. Anpassade logotyper måste vara exakt &times; 215 215 pixlar i storlek och vara i PNG-format. Vi rekommenderar att du använder en enfärgad bakgrund utan genomskinlighet i programlogotypen för att visas bäst för användarna.
+8. Välj **Spara**. Om du väljer en **Logo** ny logotyp ändras logotypens bild för att återspegla den nya logotypfilen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabb start: Visa din organisations grupper och medlemmar i Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Tilldela en användare eller grupp till en företags app](assign-user-or-group-access-portal.md)
-* [Ta bort en användare eller grupp tilldelning från en företags app](remove-user-or-group-access-portal.md)
-* [Inaktivera användar inloggningar för en företags app](disable-user-sign-in-portal.md)
+* [Snabbstart: Visa organisationens grupper och medlemmar i Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Tilldela en användare eller grupp till en företagsapp](assign-user-or-group-access-portal.md)
+* [Ta bort en användar- eller grupptilldelning från en företagsapp](remove-user-or-group-access-portal.md)
+* [Inaktivera användarloggningar för en företagsapp](disable-user-sign-in-portal.md)

@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: skapa ett Sök index i Postman med hjälp av REST API: er'
+title: 'Snabbstart: Skapa ett sökindex i Postman med REST-API:er'
 titleSuffix: Azure Cognitive Search
-description: 'I den här REST API snabb starten lär du dig att anropa Azure Kognitiv sökning REST-API: er med Postman och exempel data och definitioner.'
+description: I den här REST API-snabbstarten får du lära dig hur du anropar Azure Cognitive Search REST API:er med Hjälp av Postman- och exempeldata och definitioner.
 author: tchristiani
 manager: nitinme
 ms.author: terrychr
@@ -10,89 +10,89 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 02/10/2020
 ms.openlocfilehash: c502886aac9d13f7a470a9b83f1fc12334913beb
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/11/2020
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "77121644"
 ---
-# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Snabb start: skapa ett Azure Kognitiv sökning-index i Postman med hjälp av REST API: er
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Snabbstart: Skapa ett Azure Cognitive Search-index i Postman med REST-API:er
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
 > * [Python](search-get-started-python.md)
-> * [Portalen](search-get-started-portal.md)
-> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Portal](search-get-started-portal.md)
+> * [Powershell](search-howto-dotnet-sdk.md)
 >*
 
-Ett av de enklaste sätten att utforska [Azure KOGNITIV sökning REST-API: er](https://docs.microsoft.com/rest/api/searchservice) är att använda Postman eller något annat webbtest-verktyg för att formulera HTTP-förfrågningar och inspektera svaren. Med hjälp av rätt verktyg och de här instruktionerna kan du skicka begäranden och visa svar innan du skriver någon kod.
+Ett av de enklaste sätten att utforska [Azure Cognitive Search REST API:er](https://docs.microsoft.com/rest/api/searchservice) är att använda Postman eller ett annat webbtestverktyg för att formulera HTTP-begäranden och granska svaren. Med hjälp av rätt verktyg och de här instruktionerna kan du skicka begäranden och visa svar innan du skriver någon kod.
 
-Den här artikeln förklarar hur du formulerar förfrågningar interaktivt. Du kan också [Hämta och importera en Postman-samling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) för att använda fördefinierade begär Anden.
+I den här artikeln beskrivs hur du formulerar begäranden interaktivt. Du kan också [hämta och importera en Postman-samling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) för att använda fördefinierade begäranden.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Följande tjänster och verktyg krävs för den här snabb starten. 
+Följande tjänster och verktyg krävs för den här snabbstarten. 
 
-+ [Postman Desktop-appen](https://www.getpostman.com/) används för att skicka begär anden till Azure kognitiv sökning.
++ [Postman-skrivbordsapp](https://www.getpostman.com/) används för att skicka begäranden till Azure Cognitive Search.
 
-+ [Skapa en Azure kognitiv sökning-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här snabb starten. 
++ [Skapa en Azure Cognitive Search-tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnadsfri tjänst för den här snabbstarten. 
 
-## <a name="get-a-key-and-url"></a>Hämta en nyckel och URL
+## <a name="get-a-key-and-url"></a>Hämta en nyckel och webbadress
 
-För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En Sök tjänst skapas med båda, så om du har lagt till Azure-Kognitiv sökning till din prenumeration följer du dessa steg för att få den information som krävs:
+För att kunna göra REST-anrop behöver du tjänstens webbadress och en åtkomstnyckel för varje begäran. En söktjänst skapas med båda, så om du har lagt till Azure Cognitive Search i din prenumeration följer du dessa steg för att få nödvändig information:
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och hämta URL: en på sidan **Översikt över** Sök tjänsten. Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
+1. [Logga in på Azure-portalen](https://portal.azure.com/)och hämta webbadressen i söktjänstens **översiktssida.** Här följer ett exempel på hur en slutpunkt kan se ut: `https://mydemo.search.windows.net`.
 
-1. I **inställningar** > **nycklar**får du en administratörs nyckel för fullständiga rättigheter till tjänsten. Det finns två utbytbara administratörs nycklar, som tillhandahålls för affärs kontinuitet om du behöver rulla en över. Du kan använda antingen den primära eller sekundära nyckeln på begär Anden för att lägga till, ändra och ta bort objekt.
+1. I **Inställningsnycklar** > **Keys**får du en administratörsnyckel för fullständiga rättigheter på tjänsten. Det finns två utbytbara admin nycklar, som tillhandahålls för kontinuitet i verksamheten om du behöver rulla en över. Du kan använda antingen primär- eller sekundärnyckeln på begäranden om att lägga till, ändra och ta bort objekt.
 
-![Hämta en HTTP-slutpunkt och åtkomst nyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomst nyckel")
+![Hämta en HTTP-slutpunkt och åtkomstnyckel](media/search-get-started-postman/get-url-key.png "Hämta en HTTP-slutpunkt och åtkomstnyckel")
 
-Alla begär Anden kräver en API-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
+Alla begäranden kräver en api-nyckel på varje begäran som skickas till din tjänst. En giltig nyckel upprättar förtroende, i varje begäran, mellan programmet som skickar begäran och tjänsten som hanterar den.
 
-## <a name="connect-to-azure-cognitive-search"></a>Ansluta till Azure Kognitiv sökning
+## <a name="connect-to-azure-cognitive-search"></a>Ansluta till Azure Cognitive Search
 
-I det här avsnittet använder du önskat webb verktyg för att konfigurera anslutningar till Azure Kognitiv sökning. Varje verktyg behåller information om begär ande huvud för sessionen, vilket innebär att du bara behöver ange API-nyckel och innehålls typ en gång.
+I det här avsnittet använder du ditt webbverktyg för att konfigurera anslutningar till Azure Cognitive Search. Varje verktyg behåller information om begäran om huvud för sessionen, vilket innebär att du bara behöver ange api-tangenten och Content-Type en gång.
 
-För något av verktygen måste du välja ett kommando (GET, POST, placering och så vidare), ange en URL-slutpunkt och för vissa uppgifter tillhandahåller du JSON i bröd texten i begäran. Ersätt Sök tjänst namnet (din-SEARCH-SERVICE-NAME) med ett giltigt värde. Lägg till `$select=name` för att returnera enbart namnet på varje index. 
+För båda verktygen måste du välja ett kommando (GET, POST, PUT och så vidare), tillhandahålla en URL-slutpunkt och för vissa uppgifter ange JSON i brödtexten för begäran. Ersätt söktjänstnamnet (DITT-SÖK-TJÄNSTNAMN) med ett giltigt värde. Lägg `$select=name` till för att bara returnera namnet på varje index. 
 
     https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name
 
-Lägg märke till HTTPS-prefixet, namnet på tjänsten, namnet på ett objekt (i det här fallet samlingen indexs) och [API-versionen](search-api-versions.md). API-versionen är en obligatorisk, gemen sträng som anges som `?api-version=2019-05-06` för den aktuella versionen. API-versioner uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
+Lägg märke till HTTPS-prefixet, namnet på tjänsten, namnet på ett objekt (i det här fallet indexsamlingen) och [api-versionen](search-api-versions.md). Api-versionen är en obligatorisk, gemen `?api-version=2019-05-06` sträng som anges som för den aktuella versionen. API-versionerna uppdateras regelbundet. När du inkluderar API-versionen för varje begäran får du fullständig kontroll över vilken version som används.  
 
-Rubrik sammansättning för begäran innehåller två element, innehålls typ, plus den API-nyckel som används för att autentisera till Azure Kognitiv sökning. Ersätt administrations-API-nyckeln (din-AZURE-SEARCH-ADMIN-API-nyckel) med ett giltigt värde. 
+Begär rubrikkomposition innehåller två element, innehållstyp, plus api-nyckeln som används för att autentisera till Azure Cognitive Search. Ersätt administratörs-API-nyckeln (YOUR-AZURE-SEARCH-ADMIN-API-KEY) med ett giltigt värde. 
 
     api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
     Content-Type: application/json
 
-I Postman formulerar du en begäran som ser ut som på följande skärm bild. Välj **Hämta** som verb, ange URL och klicka på **Skicka**. Det här kommandot ansluter till Azure Kognitiv sökning, läser samlingen Indexes och returnerar HTTP-statuskod 200 på en lyckad anslutning. Om din tjänst redan har index, innehåller svaret även index definitioner.
+I Postman formulerar du en begäran som ser ut som följande skärmbild. Välj **HÄMTA** som verb, ange webbadressen och klicka på **Skicka**. Det här kommandot ansluter till Azure Cognitive Search, läser indexsamlingen och returnerar HTTP-statuskod 200 på en lyckad anslutning. Om tjänsten redan har index innehåller svaret även indexdefinitioner.
 
-![URL och rubrik för Postman-begäran](media/search-get-started-postman/postman-url.png "URL och rubrik för Postman-begäran")
+![URL och rubrik för postmanbegäran](media/search-get-started-postman/postman-url.png "URL och rubrik för postmanbegäran")
 
 ## <a name="1---create-an-index"></a>1 – Skapa ett index
 
-I Azure Kognitiv sökning skapar du vanligt vis indexet innan du läser in det med data. [Create index-REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) används för den här aktiviteten. 
+I Azure Cognitive Search skapar du vanligtvis indexet innan du läser in det med data. [REST-API:et](https://docs.microsoft.com/rest/api/searchservice/create-index) skapa index används för den här uppgiften. 
 
-URL: en utökas till att inkludera `hotels` Indexets namn.
+URL:en utökas `hotels` så att indexnamnet ingår.
 
-Så här gör du i Postman:
+Så här gör du i Brevbäraren:
 
-1. Ändra verbet som ska **läggas**till.
+1. Ändra verbet till **PUT**.
 
-2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
+2. Kopiera i `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`den här webbadressen .
 
-3. Ange index definitionen (kopierings klar kod anges nedan) i bröd texten i begäran.
+3. Ange indexdefinitionen (kopieringsklar kod finns nedan) i brödtexten för begäran.
 
 4. Klicka på **Skicka**.
 
-![Indexera JSON-dokument i brödtext i begäran](media/search-get-started-postman/postman-request.png "Indexera JSON-dokument i brödtext i begäran")
+![Index JSON-dokument i förfrågelstexten](media/search-get-started-postman/postman-request.png "Index JSON-dokument i förfrågelstexten")
 
 ### <a name="index-definition"></a>Indexdefinition
 
-Fält samlingen definierar dokument strukturen. Varje dokument måste ha dessa fält och varje fält måste ha en datatyp. Strängfälten används vid fulltextsökningar, så det kan vara en bra idé att konvertera numeriska data till strängar om du vill att innehållet ska vara sökbart.
+Fältsamlingen definierar dokumentstrukturen. Varje dokument måste ha dessa fält och varje fält måste ha en datatyp. Strängfälten används vid fulltextsökningar, så det kan vara en bra idé att konvertera numeriska data till strängar om du vill att innehållet ska vara sökbart.
 
-Vilka åtgärder som tillåts fastställs av fältattributen. Med REST API:er kan du använda standardåtgärder i stor utsträckning. Alla strängar blir till exempel sökbara, hämtningsbara, filtrerbara och fasettbara som standard. Ofta behöver du bara ange attribut när du behöver stänga av ett beteende.
+Vilka åtgärder som tillåts fastställs av fältattributen. Med REST API:er kan du använda standardåtgärder i stor utsträckning. Alla strängar blir till exempel sökbara, hämtningsbara, filtrerbara och fasettbara som standard. Ofta behöver du bara ange attribut när du behöver inaktivera ett beteende.
 
 ```json
 {
@@ -119,30 +119,30 @@ Vilka åtgärder som tillåts fastställs av fältattributen. Med REST API:er ka
 }
 ```
 
-När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet har skapats. Du kan kontrollera detta i portalen, men observera att portalsidan uppdateras med bestämda intervall, så det kan dröja någon minut eller två innan informationen uppdateras.
+När du skickar denna begäran får du ett HTTP 201-svar som anger att indexet har skapats. Du kan kontrollera detta i portalen, men observera att portalsidan uppdateras med bestämda intervall, så det kan dröja någon minut eller två innan informationen dyker upp.
 
 > [!TIP]
 > Om HTTP 504 returneras kontrollerar du att HTTPS används i URL:en. Om HTTP 400 eller 404 returneras kontrollerar du att alla fält har kopierats och klistrats in korrekt i begärandetexten. HTTP 403 tyder vanligen på problem med API-nyckeln (antingen en ogiltig nyckel eller ett syntaxproblem när API-nyckeln angavs).
 
-## <a name="2---load-documents"></a>2 Läs in dokument
+## <a name="2---load-documents"></a>2 - Ladda dokument
 
-Att skapa ett index och att fylla det, är två separata steg. I Azure Kognitiv sökning innehåller indexet alla sökbara data som du kan ange som JSON-dokument. REST API för att [lägga till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) används för den här uppgiften. 
+Att skapa ett index och att fylla det, är två separata steg. I Azure Cognitive Search innehåller indexet alla sökbara data som du kan tillhandahålla som JSON-dokument. [REST-API:et för Lägg till, uppdatera eller ta bort dokument](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) används för den här uppgiften. 
 
-URL: en utökas till att omfatta `docs` samlingar och `index` åtgärden.
+URL:en utökas `docs` till `index` att omfatta samlingar och åtgärder.
 
-Så här gör du i Postman:
+Så här gör du i Brevbäraren:
 
 1. Byt till verbet **POST**.
 
-2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`.
+2. Kopiera i `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs/index?api-version=2019-05-06`den här webbadressen .
 
-3. Ange JSON-dokumenten (koden för kopierings klar nedan) i bröd texten i begäran.
+3. Ange JSON-dokumenten (kopieringsklar kod finns nedan) i brödtexten i begäran.
 
 4. Klicka på **Skicka**.
 
-![JSON-dokument i brödtext i begäran](media/search-get-started-postman/postman-docs.png "JSON-dokument i brödtext i begäran")
+![JSON dokument i begäran organ](media/search-get-started-postman/postman-docs.png "JSON dokument i begäran organ")
 
-### <a name="json-documents-to-load-into-the-index"></a>JSON-dokument som ska läsas in i indexet
+### <a name="json-documents-to-load-into-the-index"></a>JSON dokument för att ladda in i indexet
 
 Begärandetexten innehåller fyra dokument som ska läggas till i hotellindexet.
 
@@ -229,7 +229,7 @@ Begärandetexten innehåller fyra dokument som ska läggas till i hotellindexet.
 }
 ```
 
-Om några sekunder bör du se ett HTTP 201-svar i listan över sessioner. Detta anger att dokumenten har skapats. 
+Om några sekunder bör du se ett HTTP 201-svar i sessionslistan. Detta anger att dokumenten har skapats. 
 
 Om ett 207-svar returneras misslyckades uppladdningen av minst ett dokument. Om ett 404-svar returneras beror det på ett syntaxfel i begärandehuvudet eller i begärandetexten. Kontrollera att du har ändrat slutpunkten så att den inkluderar följande: `/docs/index`.
 
@@ -239,25 +239,25 @@ Om ett 207-svar returneras misslyckades uppladdningen av minst ett dokument. Om 
 
 ## <a name="3---search-an-index"></a>3 – Söka i ett index
 
-Nu när ett index och dokument har lästs in kan du skicka frågor mot dem med hjälp av [Sök dokument REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Nu när ett index och dokument läses in kan du utfärda frågor mot dem med REST [API för sökdokument](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-URL: en utökas till att innehålla ett frågeuttryck som anges med Sök operatorn.
+URL:en utökas till att omfatta ett frågeuttryck som anges med hjälp av sökoperatorn.
 
-Så här gör du i Postman:
+Så här gör du i Brevbäraren:
 
-1. Ändra verbet som ska **hämtas**.
+1. Ändra verbet till **GET**.
 
-2. Kopiera i denna URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`.
+2. Kopiera i `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`den här webbadressen .
 
 3. Klicka på **Skicka**.
 
-Den här frågan är tom och returnerar antalet dokument i Sök resultatet. Begäran och svar bör se ut som skärmbilden från Postman nedan efter att du klickat på **Skicka**. Statuskoden ska vara 200.
+Den här frågan är tom och returnerar antalet dokument i sökresultaten. Begäran och svar bör se ut som skärmbilden från Postman nedan efter att du klickat på **Skicka**. Statuskoden ska vara 200.
 
- ![Hämta med Sök sträng på URL: en](media/search-get-started-postman/postman-query.png "Hämta med Sök sträng på URL: en")
+ ![FÅ med söksträngen på webbadressen](media/search-get-started-postman/postman-query.png "FÅ med söksträngen på webbadressen")
 
-Testa några andra exempel frågor för att få en känsla för syntaxen. Du kan göra en strängs ökning, orda Grant $filter frågor, begränsa resultat uppsättningen, begränsa sökningen till vissa fält med mera.
+Prova några andra frågeexempel för att få en känsla för syntaxen. Du kan göra en strängsökning, fullständiga $filter frågor, begränsa resultatuppsättningen, begränsa sökningen till specifika fält med mera.
 
-Byt ut den aktuella URL: en till dem nedan och klicka på **Skicka** varje gång för att visa resultatet.
+Byt ut den aktuella webbadressen med de nedan, klicka på **Skicka** varje gång för att visa resultaten.
 
 ```
 # Query example 1 - Search on restaurant and wifi
@@ -275,30 +275,30 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating&api-version=2019-05-06
 ```
 
-## <a name="get-index-properties"></a>Hämta index egenskaper
-Du kan också använda [Hämta statistik](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) för frågor om antal dokument och index storlek: 
+## <a name="get-index-properties"></a>Hämta indexegenskaper
+Du kan också använda [Hämta statistik](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) för att fråga efter antal dokument och indexstorlek: 
 
 ```
 https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06
 ```
 
-Om du lägger till `/stats` i URL: en returneras index information. Din begäran i Postman borde se ut som på bilden nedan. Svaret innehåller ett dokumentantal och det diskutrymme som används uttryckt i byte.
+Om `/stats` du lägger till i webbadressen returneras indexinformation. Din begäran i Postman borde se ut som på bilden nedan. Svaret innehåller ett dokumentantal och det diskutrymme som används uttryckt i byte.
 
- ![Hämta index information](media/search-get-started-postman/postman-system-query.png "Hämta index information")
+ ![Hämta indexinformation](media/search-get-started-postman/postman-system-query.png "Hämta indexinformation")
 
-Observera att syntaxen för API-versionen ser annorlunda ut här. Denna begäran använder `?` för att lägga till API-versionen. `?` separerar URL-sökvägen från frågesträngen medan & separerar varje "Name = Value"-par i frågesträngen. I den här frågan är API-versionen det första och enda objektet i frågesträngen.
+Observera att syntaxen för API-versionen ser annorlunda ut här. Denna begäran använder `?` för att lägga till API-versionen. Url-sökvägen `?` separeras från frågesträngen, medan & separerar varje namn=värde-par i frågesträngen. I den här frågan är API-versionen det första och enda objektet i frågesträngen.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
+När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort enstaka resurser eller ta bort hela resursuppsättningen genom att ta bort resursgruppen.
 
-Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
+Du kan hitta och hantera resurser i portalen med hjälp av länken **Alla resurser** eller **Resursgrupper** i fönstret för vänsternavigering.
 
-Kom ihåg att du är begränsad till tre index, indexerare och data källor om du använder en kostnads fri tjänst. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
+Om du använder en kostnadsfri tjänst bör du komma ihåg att du är begränsad till tre index, indexerare och datakällor. Du kan ta bort enskilda objekt i portalen för att hålla dig under gränsen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet hur du utför grundläggande uppgifter kan du gå vidare med ytterligare REST API samtal för mer avancerade funktioner, till exempel indexerare eller konfigurera [en kognitiv Sök pipeline](cognitive-search-tutorial-blob.md). I nästa steg rekommenderar vi följande länk:
+Nu när du vet hur du utför kärnuppgifter kan du gå vidare med ytterligare REST API-anrop för mer avancerade funktioner, till exempel indexerare eller [konfigurera en kognitiv sökpipeline](cognitive-search-tutorial-blob.md). För nästa steg rekommenderar vi följande länk:
 
 > [!div class="nextstepaction"]
-> [REST-självstudie: indexera och Sök i halv strukturerade data (JSON-blobbar) i Azure Kognitiv sökning](search-semi-structured-data.md)
+> [REST-självstudiekurs: Indexera och sök semistrukturerade data (JSON-blobbar) i Azure Cognitive Search](search-semi-structured-data.md)

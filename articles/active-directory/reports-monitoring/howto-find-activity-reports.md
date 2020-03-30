@@ -1,6 +1,6 @@
 ---
-title: Hitta rapporter om användar aktiviteter i Azure Portal | Microsoft Docs
-description: Lär dig var Azure Active Directory användar aktivitets rapporter finns i Azure Portal.
+title: Hitta användaraktivitetsrapporter i Azure Portal | Microsoft-dokument
+description: Lär dig var Azure Active Directory-användaraktivitetsrapporterna finns i Azure-portalen.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,73 +15,73 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74008219"
 ---
-# <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitets rapporter i Azure Portal
+# <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitetsrapporter på Azure-portalen
 
-I den här artikeln får du lära dig att hitta Azure Active Directory (Azure AD) rapporter för användar aktiviteter i Azure Portal.
+I den här artikeln får du lära dig hur du hittar Azure Active Directory (Azure AD) användaraktivitetsrapporter i Azure-portalen.
 
 ## <a name="audit-logs-report"></a>Granskningsloggar
 
-Rapporten gransknings loggar kombinerar flera rapporter runt program aktiviteter i en enda vy för Sammanhangs beroende rapportering. Så här öppnar du rapporten gransknings loggar:
+Granskningsloggrapporten kombinerar flera rapporter kring programaktiviteter i en enda vy för kontextbaserad rapportering. Så här öppnar du granskningsloggrapporten:
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
-2. Välj din katalog i det övre högra hörnet och välj bladet **Azure Active Directory** i det vänstra navigerings fönstret.
-3. Välj **gransknings loggar** från avsnittet **aktivitet** på bladet Azure Active Directory. 
+2. Välj din katalog i det övre högra hörnet och välj sedan **Azure Active Directory-bladet** i det vänstra navigeringsfönstret.
+3. Välj **Granskningsloggar** från avsnittet **Aktivitet** i Azure Active Directory-bladet. 
 
     ![Granskningsloggar](./media/howto-find-activity-reports/482.png "Granskningsloggar")
 
-Rapporten gransknings loggar konsoliderar följande rapporter:
+Granskningsloggrapporten konsoliderar följande rapporter:
 
 * Granskningsrapport
 * Lösenordsåterställningsaktivitet
-* Registrerings aktivitet för lösen ords återställning
-* Aktivitet för självbetjänings grupper
-* Ändring av grupp namn för Office365
-* Konto etablerings aktivitet
-* Status för lösen ords förnyelse
+* Registreringsaktivitet för återställning av lösenord
+* Aktivitet för självbetjäningsgrupper
+* Ändringar av office365-gruppnamn
+* Kontotableringsaktivitet
+* Status för överrullning av lösenord
 * Kontoetableringsfel
 
-### <a name="filtering-on-audit-logs"></a>Filtrera efter gransknings loggar
+### <a name="filtering-on-audit-logs"></a>Filtrering i granskningsloggar
 
-Du kan använda avancerad filtrering i gransknings rapporten för att få åtkomst till en viss kategori av gransknings data genom att ange den i **kategori** filtret. Om du till exempel vill visa alla aktiviteter som är relaterade till användare väljer du kategorin **UserManagement** . 
+Du kan använda avancerad filtrering i granskningsrapporten för att komma åt en viss kategori av granskningsdata genom att ange den i **filtret Kategori.** Om du till exempel vill visa alla aktiviteter som är relaterade till användare väljer du kategorin **UserManagement.** 
 
 Kategorier inkluderar:
 
 - Alla
 - AdministrativeUnit
-- ApplicationManagement
+- ProgramManagement
 - Autentisering
 - Auktorisering
 - Kontakt
 - Enhet
 - DeviceConfiguration
-- DirectoryManagement
-- EntitlementManagement
-- GroupManagement
+- KatalogHanagement
+- Rättshantagement
+- GruppHantverk
 - Annat
 - Princip
-- ResourceManagement
-- RoleManagement
-- UserManagement
+- ResursHantering
+- RollHanagement
+- UserManagement Användare
 
-Du kan också filtrera på en tjänst med **hjälp av filter List filtret** . Om du till exempel vill få alla gransknings händelser relaterade till lösen ords hantering via självbetjäning väljer du filtret för **lösen ords hantering** via självbetjäning.
+Du kan också filtrera på en viss tjänst med hjälp av listrutan **Tjänst.** Om du till exempel vill hämta alla granskningshändelser relaterade till lösenordshantering med självbetjäning väljer du filtret **Lösenordshantering för självbetjäning.**
 
 Tjänsterna omfattar:
 
 - Alla
 - Åtkomstgranskningar
 - Kontoetablering 
-- SSO för program
+- Ansökan SSO
 - Autentiseringsmetoder
 - B2C
 - Villkorlig åtkomst
 - Kärnkatalog
-- Berättigandehantering
+- Hantering av rättigheter
 - Identity Protection
 - Inbjudna användare
 - PIM
@@ -91,33 +91,33 @@ Tjänsterna omfattar:
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar 
 
-I vyn **inloggningar** ingår alla användar inloggningar samt **program användnings** rapporten. Du kan också visa information om program användning i avsnittet **Hantera** i översikten över **företags program** .
+Vyn **Inloggningar** innehåller alla inloggningar för användare samt rapporten **Programanvändning.** Du kan också visa programanvändningsinformation i avsnittet **Hantera** i översikten **Företagsprogram.**
 
-Få åtkomst till inloggnings rapporten:
+Så här öppnar du inloggningsrapporten:
 
 1. Navigera till [Azure-portalen](https://portal.azure.com).
-2. Välj din katalog i det övre högra hörnet och välj bladet **Azure Active Directory** i det vänstra navigerings fönstret.
-3. Välj **inloggningar** från avsnittet **aktivitet** på bladet Azure Active Directory. 
+2. Välj din katalog i det övre högra hörnet och välj sedan **Azure Active Directory-bladet** i det vänstra navigeringsfönstret.
+3. Välj **Inloggningar i** avsnittet **Aktivitet** i Azure Active Directory-bladet. 
 
-    ![Vyn inloggningar](./media/howto-find-activity-reports/483.png "Vyn inloggningar")
+    ![Inloggningsvyn](./media/howto-find-activity-reports/483.png "Inloggningsvyn")
 
 
-### <a name="filtering-on-application-name"></a>Filtrera efter program namn
+### <a name="filtering-on-application-name"></a>Filtrering på programnamn
 
-Du kan använda inloggnings rapporten för att visa information om program användning, genom att filtrera efter användar namn eller program namn.
+Du kan använda inloggningsrapporten för att visa information om programanvändning genom att filtrera efter användarnamn eller programnamn.
 
-![Sidan filtrera inloggnings händelser](./media/howto-find-activity-reports/07.png "Sidan filtrera inloggnings händelser")
+![Sidan Filtrera inloggningshändelser](./media/howto-find-activity-reports/07.png "Sidan Filtrera inloggningshändelser")
 
 ## <a name="security-reports"></a>Säkerhetsrapporter
 
-### <a name="anomalous-activity-reports"></a>Avvikande aktivitets rapporter
+### <a name="anomalous-activity-reports"></a>Avvikande aktivitetsrapporter
 
-Avvikande aktivitets rapporter innehåller information om säkerhetsrelaterade risk identifieringar som Azure AD kan identifiera och rapportera om.
+Avvikande aktivitetsrapporter innehåller information om säkerhetsrelaterade riskidentifieringar som Azure AD kan identifiera och rapportera om.
 
-I följande tabell visas säkerhets rapporter i Azure AD-avvikande aktivitet och motsvarande typer av risk identifiering i Azure Portal. Mer information finns i [Azure Active Directory risk identifieringar](concept-risk-events.md).  
+I följande tabell visas de avvikande aktivitetssäkerhetsrapporterna för Azure AD och motsvarande riskidentifieringstyper i Azure-portalen. Mer information finns i [Azure Active Directory-riskidentifieringar](concept-risk-events.md).  
 
 
-| Rapport om avvikande aktiviteter i Azure AD |  Typ av risk identifiering för identitets skydd|
+| Avvikande aktivitetsrapport för Azure AD |  Typ av identifiering av identitetsskydd|
 | :--- | :--- |
 | Användare med läckta autentiseringsuppgifter | Läckta autentiseringsuppgifter |
 | Oregelbunden inloggningsaktivitet | Omöjliga resor till ovanliga platser |
@@ -126,40 +126,40 @@ I följande tabell visas säkerhets rapporter i Azure AD-avvikande aktivitet och
 | Inloggningar från IP-adresser med misstänkt aktivitet | Inloggningar från IP-adresser med misstänkt aktivitet |
 | - | Inloggningar från okända platser |
 
-Följande säkerhets rapporter i Azure AD-avvikande aktivitet ingår inte som identifieringar av risker i Azure Portal:
+Följande Azure AD-avvikande aktivitetssäkerhetsrapporter inkluderas inte som riskidentifieringar i Azure-portalen:
 
 * Inloggningar efter flera fel
 * Inloggningar från flera geografiska områden
 
 
-### <a name="detected-risk-detections"></a>Identifierade risk identifieringar
+### <a name="detected-risk-detections"></a>Upptäckta riskidentifieringar
 
-Du kan komma åt rapporter om identifierade risk identifieringar i avsnittet **säkerhet** på bladet **Azure Active Directory** i [Azure Portal](https://portal.azure.com). Identifierade risk identifieringar spåras i följande rapporter:   
+Du kan komma åt rapporter om identifierade riskidentifieringar i avsnittet **Säkerhet** i **Azure Active Directory-bladet** i [Azure-portalen](https://portal.azure.com). Identifierade riskidentifieringar spåras i följande rapporter:   
 
 - [Användare i riskzonen](concept-user-at-risk.md)
 - [Riskfyllda inloggningar](concept-risky-sign-ins.md)
 
     ![Säkerhetsrapporter](./media/howto-find-activity-reports/04.png "Säkerhetsrapporter")
 
-## <a name="troubleshoot-issues-with-activity-reports"></a>Felsöka problem med aktivitets rapporter
+## <a name="troubleshoot-issues-with-activity-reports"></a>Felsöka problem med aktivitetsrapporter
 
-### <a name="missing-data-in-the-downloaded-activity-logs"></a>Data som saknas i hämtade aktivitets loggar
+### <a name="missing-data-in-the-downloaded-activity-logs"></a>Data saknas i de nedladdade aktivitetsloggarna
 
 #### <a name="symptoms"></a>Symtom 
 
-Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför? 
+Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför det? 
 
  ![Rapportering](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Orsak
 
-När du hämtar aktivitets loggar i Azure Portal begränsar vi skalan till 250000 poster, sorterade efter senaste första. 
+När du hämtar aktivitetsloggar i Azure-portalen begränsar vi skalan till 250000 poster, sorterade efter den senaste först. 
 
 #### <a name="resolution"></a>Lösning
 
 Du kan använda [rapporterings-API:er för Azure AD](concept-reporting-api.md) att hämta upp till en miljoner poster när som helst.
 
-### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Gransknings data saknas för de senaste åtgärderna i Azure Portal
+### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Granskningsdata saknas för de senaste åtgärderna i Azure-portalen
 
 #### <a name="symptoms"></a>Symtom
 
@@ -180,7 +180,7 @@ Jag utförde vissa åtgärder i Azure Portal och förväntade att se gransknings
 
 Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. Om du inte ser loggarna även efter två timmar [skapar du en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) så undersöker vi problemet.
 
-### <a name="missing-logs-for-recent-user-sign-ins-in-the-azure-ad-sign-ins-activity-log"></a>Loggar som saknas för de senaste användar inloggningarna i aktivitets loggen för Azure AD-inloggning
+### <a name="missing-logs-for-recent-user-sign-ins-in-the-azure-ad-sign-ins-activity-log"></a>Loggar saknas för senaste användarloggningar i aktivitetsloggen för Azure AD-inloggningar
 
 #### <a name="symptoms"></a>Symtom
 
@@ -205,7 +205,7 @@ Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. O
 
 #### <a name="symptoms"></a>Symtom
 
-Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför? 
+Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför det? 
 
  ![Rapportering](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -226,6 +226,6 @@ Du har två alternativ för att behålla data längre än 30 dagar. Du kan anvä
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Översikt över gransknings loggar](concept-audit-logs.md)
+* [Översikt över granskningsloggar](concept-audit-logs.md)
 * [Översikt över inloggningar](concept-sign-ins.md)
 * [Översikt över riskfyllda händelser](concept-risk-events.md)

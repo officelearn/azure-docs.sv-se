@@ -1,22 +1,22 @@
 ---
-title: Aktivera brand vägg för webbaserade program – Azure CLI
-description: Lär dig hur du begränsar webb trafik med en brand vägg för webbaserade program på en Programgateway med hjälp av Azure CLI.
+title: Aktivera brandvägg för webbprogram – Azure CLI
+description: Lär dig hur du begränsar webbtrafik med en brandvägg för webbprogram i en programgateway med Hjälp av Azure CLI.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 78a8eaa75ec5eea33e27217f07439aae16ec4742
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4882ac51af271625b8e61d862890beb6d5f63213
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73502277"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80240070"
 ---
-# <a name="enable-web-application-firewall-using-the-azure-cli"></a>Aktivera brand vägg för webbaserade program med hjälp av Azure CLI
+# <a name="enable-web-application-firewall-using-the-azure-cli"></a>Aktivera brandvägg för webbprogram med Azure CLI
 
-Du kan begränsa trafiken på en Programgateway med en [brand vägg för webbaserade program](ag-overview.md) (WAF). I brandväggen används [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regler till att skydda programmet. De här reglerna kan exempelvis skydda mot attacker som SQL-inmatning, skriptattacker mellan webbplatser och sessionskapningar.
+Du kan begränsa trafiken på en programgateway med en [brandvägg för webbprogram](ag-overview.md) (WAF). I brandväggen används [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project)-regler till att skydda programmet. De här reglerna kan exempelvis skydda mot attacker som SQL-inmatning, skriptattacker mellan webbplatser och sessionskapningar.
 
 I den här artikeln kan du se hur du:
 
@@ -26,27 +26,27 @@ I den här artikeln kan du se hur du:
 > * Skapa en VM-skalningsuppsättning
 > * Skapa ett lagringskonto och konfigurera diagnostik
 
-![Exempel på brand vägg för webbaserade program](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
+![Exempel på brandvägg för webbprogram](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Om du vill kan du slutföra den här proceduren med hjälp av [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Om du vill kan du slutföra den här proceduren med [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI version 2.0.4 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
 En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en resursgrupp i Azure med namnet *myResourceGroup* med [az group create](/cli/azure/group#az-group-create).
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-Det virtuella nätverket och undernäten används till att ge programgatewayen och tillhörande resurser en nätverksanslutning. Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet*. Skapa sedan en offentlig IP-adress med namnet *myAGPublicIPAddress*.
+Det virtuella nätverket och undernäten används till att ge programgatewayen och tillhörande resurser en nätverksanslutning. Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet*. skapa sedan en offentlig IP-adress med namnet *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network vnet create \
@@ -72,7 +72,7 @@ az network public-ip create \
 
 ## <a name="create-an-application-gateway-with-a-waf"></a>Skapa en programgateway med en WAF
 
-Du kan använda [az network application-gateway create](/cli/azure/network/application-gateway) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen tilldelas till *myAGSubnet* och *myAGPublicIPAddress*.
+Du kan använda [az network application-gateway create](/cli/azure/network/application-gateway) till att skapa en programgateway med namnet *myAppGateway*. När du skapar en programgateway med hjälp av Azure CLI anger du konfigurationsinformation som kapacitet, sku och HTTP-inställningar. Programgatewayen är tilldelad *myAGSubnet* och *myAGPublicIPAddress*.
 
 ```azurecli-interactive
 az network application-gateway create \
@@ -139,9 +139,9 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Skapa ett lagringskonto och konfigurera diagnostik
 
-I den här artikeln använder Application Gateway ett lagrings konto för att lagra data för identifiering och förebyggande ändamål. Du kan även använda Azure Monitor-loggar eller Event Hub till att registrera data. 
+I den här artikeln använder programgatewayen ett lagringskonto för att lagra data för identifiering och förebyggande ändamål. Du kan även använda Azure Monitor-loggar eller Event Hub till att registrera data. 
 
-### <a name="create-a-storage-account"></a>skapar ett lagringskonto
+### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 Skapa ett lagringskonto med namnet *myagstore1* med [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create).
 
@@ -156,7 +156,7 @@ az storage account create \
 
 ### <a name="configure-diagnostics"></a>Konfigurera diagnostiken
 
-Konfigurera diagnostik för registrering av data i loggarna ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog och ApplicationGatewayFirewallLog. Ersätt `<subscriptionId>` med ditt prenumerations-ID och konfigurera sedan diagnostik med [AZ Monitor Diagnostic-Settings Create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
+Konfigurera diagnostik för registrering av data i loggarna ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog och ApplicationGatewayFirewallLog. Ersätt `<subscriptionId>` med prenumerationsidentifieraren och konfigurera sedan diagnostik med [az-monitordiagnostikinställningar skapa](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create).
 
 ```azurecli-interactive
 appgwid=$(az network application-gateway show --name myAppGateway --resource-group myResourceGroupAG --query id -o tsv)
@@ -172,7 +172,7 @@ az monitor diagnostic-settings create --name appgwdiag --resource $appgwid \
 
 Hämta den offentliga IP-adressen för programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). Kopiera den offentliga IP-adressen och klistra in den i webbläsarens adressfält.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -192,4 +192,4 @@ az group delete --name myResourceGroupAG
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa brand Väggs regler för webb program](application-gateway-customize-waf-rules-portal.md)
+[Anpassa regler för brandväggen för webbaserade program](application-gateway-customize-waf-rules-portal.md)

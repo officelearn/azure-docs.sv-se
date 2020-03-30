@@ -1,6 +1,6 @@
 ---
-title: Konfigurera autoskalning för en Azure API Management-instans | Microsoft Docs
-description: I det här avsnittet beskrivs hur du ställer in skalnings beteende för en Azure API Management-instans.
+title: Konfigurera automatisk skalning av en Azure API Management-instans | Microsoft-dokument
+description: I det här avsnittet beskrivs hur du konfigurerar beteende för automatisk skalning för en Azure API Management-instans.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -12,122 +12,122 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
 ms.openlocfilehash: 8c1c96fdb1f4f42c7592791881b855f74d411171
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70018264"
 ---
-# <a name="automatically-scale-an-azure-api-management-instance"></a>Skala automatiskt en Azure API Management-instans  
+# <a name="automatically-scale-an-azure-api-management-instance"></a>Skala en Azure API Management-instans automatiskt  
 
-Azure API Management Service-instansen kan skalas automatiskt baserat på en uppsättning regler. Det här beteendet kan aktive ras och konfigureras via Azure Monitor och stöds endast på **standard** -och **Premium** nivåer i Azure API Management-tjänsten.
+Azure API Management-tjänstinstansen kan skalas automatiskt baserat på en uppsättning regler. Det här problemet kan aktiveras och konfigureras via Azure Monitor och stöds endast i **standard-** och **premiumnivåer** för Azure API Management-tjänsten.
 
-Artikeln vägleder dig genom processen med att konfigurera autoskalning och föreslår en optimal konfiguration av regler för automatisk skalning.
+Artikeln går igenom processen att konfigurera automatisk skalning och föreslår optimal konfiguration av regler för automatisk skalning.
 
 > [!NOTE]
-> API Management tjänsten i **förbruknings** nivån skalas automatiskt utifrån trafiken – utan någon ytterligare konfiguration som behövs.
+> API Management-tjänsten i **förbrukningsnivån** skalar automatiskt baserat på trafiken - utan någon ytterligare konfiguration som behövs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att följa stegen i den här artikeln måste du:
+Om du vill följa stegen i den här artikeln måste du:
 
-+ Ha en aktiv Azure-prenumeration.
-+ Ha en Azure API Management-instans. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
-+ Förstå konceptet med [kapacitet för en Azure API Management-instans](api-management-capacity.md).
-+ Förstå [manuell skalnings process för en Azure API Management-instans](upgrade-and-scale.md), inklusive kostnads konsekvenser.
++ Har en aktiv Azure-prenumeration.
++ Har en Azure API Management-instans. Mer information finns i [Skapa en Azure API Management-instans](get-started-create-service-instance.md).
++ Förstå begreppet [kapacitet för en Azure API Management-instans](api-management-capacity.md).
++ Förstå [manuell skalningsprocess för en Azure API Management-instans](upgrade-and-scale.md), inklusive kostnadskonsekvenser.
 
 [!INCLUDE [premium-standard.md](../../includes/api-management-availability-premium-standard.md)]
 
-## <a name="azure-api-management-autoscale-limitations"></a>Begränsningar för autoskalning i Azure API Management
+## <a name="azure-api-management-autoscale-limitations"></a>Begränsningar för automatisk skalning av Azure API Management
 
-Vissa begränsningar och konsekvenser för skalnings beslut måste beaktas innan du konfigurerar funktionen för automatisk skalning.
+Vissa begränsningar och konsekvenser av skalningsbeslut måste beaktas innan du konfigurerar beteende för automatisk skalning.
 
-+ Autoskalning kan bara aktive ras för **standard** -och **Premium** nivåer i Azure API Management-tjänsten.
-+ Pris nivåer anger också det maximala antalet enheter för en tjänst instans.
-+ Processen för skalning tar minst 20 minuter.
-+ Om tjänsten har låsts av en annan åtgärd kommer skalnings förfrågan att Miss Miss läge och försöka igen automatiskt.
-+ I händelse av en tjänst med flera regionala distributioner kan endast enheter på den **primära platsen** skalas. Enheter på andra platser kan inte skalas.
++ Automatisk skalning kan endast aktiveras för **standard-** och **premiumnivåer** för Azure API Management-tjänsten.
++ Prisnivåer anger också det maximala antalet enheter för en tjänstinstans.
++ Skalningsprocessen tar minst 20 minuter.
++ Om tjänsten är låst av en annan åtgärd misslyckas skalningsbegäran och försöker igen automatiskt.
++ Vid en tjänst med flera regionala distributioner kan endast enheter på den **primära platsen** skalas. Enheter på andra platser kan inte skalas.
 
-## <a name="enable-and-configure-autoscale-for-azure-api-management-service"></a>Aktivera och konfigurera autoskalning för Azure API Management-tjänsten
+## <a name="enable-and-configure-autoscale-for-azure-api-management-service"></a>Aktivera och konfigurera automatisk skalning för Azure API Management-tjänst
 
-Följ stegen nedan för att konfigurera autoskalning för en Azure API Management-tjänst:
+Följ stegen nedan för att konfigurera automatisk skalning för en Azure API Management-tjänst:
 
-1. Gå till **övervaknings** instansen i Azure Portal.
+1. Navigera till **Övervaka** instans i Azure-portalen.
 
     ![Azure Monitor](media/api-management-howto-autoscale/01.png)
 
-2. Välj autoskalning från menyn till vänster.
+2. Välj **Automatisk skalning** på menyn till vänster.
 
-    ![Azure Monitor AutoScale-resurs](media/api-management-howto-autoscale/02.png)
+    ![Azure Monitor automatisk skalningsresurs](media/api-management-howto-autoscale/02.png)
 
-3. Leta upp din Azure API Management-tjänst baserat på filtren i list Rute menyerna.
+3. Hitta din Azure API Management-tjänst baserat på filtren i rullgardinsmenyerna.
 4. Välj önskad Azure API Management-tjänstinstans.
-5. Klicka på knappen **Aktivera** autoskalning i det nyligen öppnade avsnittet.
+5. Klicka på knappen Aktivera **automatisk skalning** i det nyöppnade avsnittet.
 
-    ![Aktivera Azure Monitor autoskalning](media/api-management-howto-autoscale/03.png)
+    ![Aktivera automatisk skalning i Azure Monitor](media/api-management-howto-autoscale/03.png)
 
-6. Klicka på **+ Lägg till en regel**i avsnittet **regler** .
+6. Klicka på + **Lägg till en regel**i avsnittet **Regler** .
 
-    ![Azure Monitor tilläggs regel för autoskalning](media/api-management-howto-autoscale/04.png)
+    ![Azure Monitor-regel för automatisk skalning](media/api-management-howto-autoscale/04.png)
 
-7. Definiera en ny utskalning regel.
+7. Definiera en ny utskalningsregel.
 
-   En skalbar regel kan till exempel utlösa ett tillägg av en Azure API Management-enhet, när genomsnitts kapacitets måttet under de senaste 30 minuterna överstiger 80%. Tabellen nedan innehåller konfiguration för en sådan regel.
+   En utskalningsregel kan till exempel utlösa ett tillägg av en Azure API Management-enhet, när medelkapacitetsmåttet under de senaste 30 minuterna överstiger 80 %. Tabellen nedan innehåller konfiguration för en sådan regel.
 
-    | Parameter             | Value             | Anteckningar                                                                                                                                                                                                                                                                           |
+    | Parameter             | Värde             | Anteckningar                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Måttkälla         | Aktuell resurs  | Definiera regeln baserat på aktuella Azure API Management resurs mått.                                                                                                                                                                                                     |
+    | Måttkälla         | Aktuell resurs  | Definiera regeln baserat på de aktuella Azure API Management-resursmåtten.                                                                                                                                                                                                     |
     | *Kriterie*            |                   |                                                                                                                                                                                                                                                                                 |
-    | Tidsmängd      | Average           |                                                                                                                                                                                                                                                                                 |
-    | Måttnamn           | Kapacitet          | Kapacitets mått är ett Azure API Management mått som återspeglar användningen av resurser i en Azure API Management-instans.                                                                                                                                                            |
-    | Tidsintervallstatistik  | Average           |                                                                                                                                                                                                                                                                                 |
+    | Tidsmängd      | Medel           |                                                                                                                                                                                                                                                                                 |
+    | Måttnamn           | Kapacitet          | Kapacitetsmått är ett Azure API Management-mått som återspeglar användningen av resurser för en Azure API Management-instans.                                                                                                                                                            |
+    | Tidsintervallstatistik  | Medel           |                                                                                                                                                                                                                                                                                 |
     | Operator              | Större än      |                                                                                                                                                                                                                                                                                 |
-    | Tröskelvärde             | 80 %               | Tröskelvärdet för det genomsnittliga kapacitets måttet.                                                                                                                                                                                                                                 |
-    | Varaktighet (i minuter) | 30                | TimeSpan till genomsnitt för kapacitets måttet över är bara för användnings mönster. Den längre tids perioden är, den jämnaare reaktionen blir-periodiska toppar får mindre inverkan på det skalbara beslutet. Det kommer dock även att fördröja utlösaren. |
+    | Tröskelvärde             | 80 %               | Tröskelvärdet för det genomsnittliga kapacitetsmåttet.                                                                                                                                                                                                                                 |
+    | Varaktighet (i minuter) | 30                | Tidsintervallet för att beräkna medelvärdet för kapacitetsmåttet över är specifikt för användningsmönster. Ju längre tidsperioden är, desto smidigare blir reaktionen - intermittenta spikar kommer att ha mindre effekt på utskalningsbeslutet. Men det kommer också att fördröja utskalningsutlösaren. |
     | *Åtgärd*              |                   |                                                                                                                                                                                                                                                                                 |
-    | Åtgärd             | Öka antal med |                                                                                                                                                                                                                                                                                 |
-    | Antal instanser        | 1                 | Skala ut Azure API Management-instansen med 1 enhet.                                                                                                                                                                                                                          |
-    | Låg frekvent (minuter)   | 60                | Det tar minst 20 minuter för Azure API Management-tjänsten att skala ut. I de flesta fall hindras den nedkylda perioden på 60 minuter från att utlösa många skalnings gränser.                                                                                                  |
+    | Åtgärd             | Öka antalet med |                                                                                                                                                                                                                                                                                 |
+    | Antal instanser        | 1                 | Skala ut Azure API Management-instansen efter 1 enhet.                                                                                                                                                                                                                          |
+    | Väntetid (minuter)   | 60                | Det tar minst 20 minuter för Azure API Management-tjänsten att skala ut. I de flesta fall förhindrar nedkylningsperioden på 60 minuter från att utlösa många utskalningar.                                                                                                  |
 
-8. Klicka på **Lägg till** för att spara regeln.
+8. Klicka på **Lägg till** om du vill spara regeln.
 
-    ![Regel för Azure Monitor skala ut](media/api-management-howto-autoscale/05.png)
+    ![Azure Monitor skala ut regel](media/api-management-howto-autoscale/05.png)
 
-9. Klicka på igen på **+ Lägg till en regel**.
+9. Klicka igen på **+ Lägg till en regel**.
 
-    Den här gången måste en skala i regeln definieras. Det ser till att resurserna inte slösas om, när användningen av API: er minskar.
+    Den här gången måste en regelskala definieras. Det kommer att se till att resurser inte slösas bort när användningen av API:er minskar.
 
-10. Definiera en ny skala i regeln.
+10. Definiera en ny skala i regel.
 
-    En skalning i regeln kan till exempel utlösa en borttagning av en Azure API Management-enhet när genomsnitts kapacitets måttet under de senaste 30 minuterna har varit lägre än 35%. Tabellen nedan innehåller konfiguration för en sådan regel.
+    En regelskala kan till exempel utlösa en borttagning av en Azure API Management-enhet, när medelkapacitetsmåttet under de senaste 30 minuterna har varit lägre än 35 %. Tabellen nedan innehåller konfiguration för en sådan regel.
 
-    | Parameter             | Value             | Anteckningar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | Parameter             | Värde             | Anteckningar                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Måttkälla         | Aktuell resurs  | Definiera regeln baserat på aktuella Azure API Management resurs mått.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+    | Måttkälla         | Aktuell resurs  | Definiera regeln baserat på de aktuella Azure API Management-resursmåtten.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *Kriterie*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Tidsmängd      | Average           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Måttnamn           | Kapacitet          | Samma mått som det som används för skala ut-regeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-    | Tidsintervallstatistik  | Average           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    | Tidsmängd      | Medel           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    | Måttnamn           | Kapacitet          | Samma mått som det som används för skalningsregeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+    | Tidsintervallstatistik  | Medel           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     | Operator              | Mindre än         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Tröskelvärde             | 35%               | På samma sätt som för skala ut-regeln beror detta värde kraftigt på användnings mönstren för Azure-API Management. |
-    | Varaktighet (i minuter) | 30                | Samma värde som det som används för skala ut-regeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+    | Tröskelvärde             | 35 %               | På samma sätt som skalningsregeln beror det här värdet i hög grad på användningsmönstren för Azure API Management. |
+    | Varaktighet (i minuter) | 30                | Samma värde som det som används för skalningsregeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
     | *Åtgärd*              |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-    | Åtgärd             | Minska antal med | Motsatt till vad som användes för skala ut-regeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-    | Antal instanser        | 1                 | Samma värde som det som används för skala ut-regeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-    | Låg frekvent (minuter)   | 90                | Skala i måste vara mer restriktiv än att skala ut, så den nedrullningsbara perioden ska vara längre.                                                                                                                                                                                                                                                                                                                                                                                                    |
+    | Åtgärd             | Minska antalet med | Motsatsen till vad som användes för skala ut regeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+    | Antal instanser        | 1                 | Samma värde som det som används för skalningsregeln.                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+    | Väntetid (minuter)   | 90                | Skala in bör vara mer konservativ än en skala ut, så nedkylningsperioden bör vara längre.                                                                                                                                                                                                                                                                                                                                                                                                    |
 
-11. Klicka på **Lägg till** för att spara regeln.
+11. Klicka på **Lägg till** om du vill spara regeln.
 
-    ![Azure Monitor skala i regel](media/api-management-howto-autoscale/06.png)
+    ![Azure Monitor-skala i regel](media/api-management-howto-autoscale/06.png)
 
 12. Ange det **maximala** antalet Azure API Management-enheter.
 
     > [!NOTE]
-    > Azure API Management har en gräns för enheter som en instans kan skala ut till. Gränsen är beroende av en tjänst nivå.
+    > Azure API Management har en gräns för enheter som en instans kan skala ut till. Gränsen beror på en tjänstnivå.
 
-    ![Azure Monitor skala i regel](media/api-management-howto-autoscale/07.png)
+    ![Azure Monitor-skala i regel](media/api-management-howto-autoscale/07.png)
 
-13. Klicka på **Spara**. Autoskalning har kon figurer ATS.
+13. Klicka på **Spara**. Din automatiska skalning har konfigurerats.
 
 ## <a name="next-steps"></a>Nästa steg
 

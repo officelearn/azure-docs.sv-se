@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 2e90d218aa6dc90746ba0e928fb3393f0bdb5e5a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "68966363"
 ---
 <!--
     Separate the generic requirement on Self-hosted Integration Runtime set-up from connector articles.
 -->
-Om ditt data lager har kon figurer ATS på något av följande sätt måste du konfigurera en [egen värd integration runtime](../articles/data-factory/create-self-hosted-integration-runtime.md) för att kunna ansluta till det här data lagret:
+Om ditt datalager är konfigurerat på något av följande sätt måste du konfigurera en [självvärderad integrationskörning för](../articles/data-factory/create-self-hosted-integration-runtime.md) att kunna ansluta till det här datalagret:
 
-- Data lagret finns i ett lokalt nätverk, inom Azure Virtual Network eller i ett Amazon-virtuellt privat moln.
-- Data lagret är en hanterad moln data tjänst där åtkomsten är begränsad till IP-vit listas i brand Väggs reglerna.
+- Datalagret finns i ett lokalt nätverk, i Azure Virtual Network eller i Amazon Virtual Private Cloud.
+- Datalagret är en hanterad molndatatjänst där åtkomsten är begränsad till IP-adresser som vitlistats i brandväggsreglerna.

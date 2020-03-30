@@ -1,38 +1,37 @@
 ---
-title: Concurrency-kontroll | Azure Marketplace
-description: 'Samtidiga kontroll strategier för API: erna för Cloud Partner Portal Publishing.'
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+title: Samtidighetskontroll | Azure Marketplace
+description: Strategier för samtidighetskontroll för API:er för molnpartnerportalen.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 6e2f8922d42e40d14338f06be983d3913b20859d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 6d0f035d77e74f157b793b9edf3ab5d3494096d7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819748"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80288656"
 ---
-# <a name="concurrency-control"></a>Concurrency-kontroll
+# <a name="concurrency-control"></a>Samtidighetskontroll
 
-Varje anrop till API: erna för Cloud Partner Portal publicering måste uttryckligen ange vilken strategi för concurrency-kontroll som ska användas. Om du inte kan ange **If-Match-** huvudet uppstår ett HTTP 400-felsvar. Vi erbjuder två strategier för samtidiga kontroller.
+Varje anrop till Cloud Partner Portal-publicerings-API:erna måste uttryckligen ange vilken samtidighetskontrollstrategi som ska användas. Om du inte anger **If-Match-huvudet** resulterar det i ett HTTP 400-felsvar. Vi erbjuder två strategier för samtidighetskontroll.
 
--   **Optimistiskt** – klienten som utför uppdateringen verifieras om data har ändrats sedan den senast läste data.
--   **Senaste en WINS** – klienten uppdaterar data direkt, oavsett om det har ändrats av ett annat program sedan den senaste läsnings tiden.
+-   **Optimistisk** - Klienten som utför uppdateringen verifierar om data har ändrats sedan den senast läste data.
+-   **Senaste vinner** - Klienten uppdaterar data direkt, oavsett om ett annat program har ändrat den sedan den senaste lästiden.
 
-<a name="optimistic-concurrency-workflow"></a>Optimistiskt concurrency-arbetsflöde
+<a name="optimistic-concurrency-workflow"></a>Arbetsflöde för optimistisk samtidighet
 -------------------------------
 
-Vi rekommenderar att du använder en optimistisk samtidighets strategi, med följande arbets flöde, för att garantera att inga oväntade ändringar görs i dina resurser.
+Vi rekommenderar att du använder den optimistiska samtidighetsstrategin, med följande arbetsflöde, för att garantera att inga oväntade ändringar görs i dina resurser.
 
-1.  Hämta en entitet med hjälp av API: erna. Svaret innehåller ett ETag-värde som identifierar den aktuella lagrade versionen av entiteten (vid tidpunkten för svaret).
-2.  Vid tidpunkten för uppdateringen inkluderar du samma ETag-värde i det obligatoriska **If-Match-** huvudet för begäran.
-3.  API: n jämför det ETag-värde som togs emot i begäran med det aktuella ETag-värdet för entiteten i en atomisk transaktion.
-    *   Om ETag-värdena skiljer sig, returnerar API: et ett `412 Precondition Failed` HTTP-svar. Det här felet anger att antingen en annan process har uppdaterat entiteten sedan klienten senast hämtade den eller att ETag-värdet som angavs i begäran är felaktigt.
-    *  Om ETag-värdena är identiska, eller **om-match-** huvudet innehåller jokertecknet asterisk (`*`), utför API: et den begärda åtgärden. API-åtgärden uppdaterar även det lagrade ETag-värdet för entiteten.
+1.  Hämta en entitet med API:erna. Svaret innehåller ett ETag-värde som identifierar den lagrade versionen av entiteten (vid tidpunkten för svaret).
+2.  Vid tidpunkten för uppdateringen, inkludera samma ETag-värde i det obligatoriska **if-match-begäranden.**
+3.  API:et jämför ETag-värdet som tas emot i begäran med det aktuella ETag-värdet för entiteten i en atomtransaktion.
+    *   Om ETag-värdena är olika `412 Precondition Failed` returnerar API:et ett HTTP-svar. Det här felet anger att antingen en annan process har uppdaterat entiteten sedan klienten senast hämtade den eller att ETag-värdet som angavs i begäran är felaktigt.
+    *  Om ETag-värdena är desamma eller **om-matchning-huvudet** innehåller jokertecknet asterisk (`*`) utför API:et den begärda åtgärden. API-åtgärden uppdaterar också det lagrade ETag-värdet för entiteten.
 
 
 > [!NOTE]
-> Om du anger jokertecken (*) i rubriken **If-Match** i API: et används den sista engångs-WINS-strategin. I detta fall uppstår inte ETag-jämförelsen och resursen uppdateras utan några kontroller. 
+> Ange jokertecknet (*) i **If-Match-huvudet** resulterar i API:et med hjälp av strategin Senaste en-vinner samtidighet. I det här fallet sker inte ETag-jämförelsen och resursen uppdateras utan några kontroller. 

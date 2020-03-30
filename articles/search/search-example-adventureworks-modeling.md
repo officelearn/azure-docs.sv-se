@@ -1,7 +1,7 @@
 ---
-title: 'Exempel: utforma AdventureWorks Inventory Database'
+title: 'Exempel: Modellera AdventureWorks Inventory-databasen'
 titleSuffix: Azure Cognitive Search
-description: Lär dig att modellera Relations data, omvandla dem till en utplattad data uppsättning för indexering och fullständig texts ökning i Azure Kognitiv sökning.
+description: Lär dig hur du modellerar relationsdata, omvandlar dem till en förenklad datauppsättning, för indexering och fulltextsökning i Azure Cognitive Search.
 author: HeidiSteen
 manager: nitinme
 ms.service: cognitive-search
@@ -9,65 +9,65 @@ ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist
 ms.openlocfilehash: edb6162724938962df8a7340afea6e930a0b1049
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72793000"
 ---
-# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exempel: utforma AdventureWorks Inventory Database för Azure Kognitiv sökning
+# <a name="example-model-the-adventureworks-inventory-database-for-azure-cognitive-search"></a>Exempel: Modellera AdventureWorks Inventory-databasen för Azure Cognitive Search
 
-Azure Kognitiv sökning accepterar en utplattad rad uppsättning som indata till [pipeline för indexering (data inmatning)](search-what-is-an-index.md). Om dina källdata härstammar från en SQL Server Relations databas, visar den här artikeln en metod för att skapa en utplattad rad uppsättning före indexering, med hjälp av AdventureWorks-exempel databasen som exempel.
+Azure Cognitive Search accepterar en förenklad raduppsättning som indata till [indexeringspipelinen (datainmatning).](search-what-is-an-index.md) Om källdata kommer från en SQL Server-relationsdatabas demonstrerar den här artikeln en metod för att skapa en förenklad raduppsättning före indexering, med hjälp av Exempeldatabasen AdventureWorks som exempel.
 
 ## <a name="about-adventureworks"></a>Om AdventureWorks
 
-Om du har en SQL Server-instans kan du bekanta dig med [AdventureWorks-exempel databasen](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Bland tabellerna som ingår i databasen finns fem tabeller som visar produkt information.
+Om du har en SQL Server-instans kan du känna till [exempeldatabasen AdventureWorks](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Bland de tabeller som ingår i den här databasen finns fem tabeller som exponerar produktinformation.
 
 + **ProductModel**: namn
-+ **Produkt**: namn, färg, kostnad, storlek, vikt, bild, kategori (varje rad kopplas till en viss ProductModel)
-+ **ProductDescription**: Beskrivning
-+ **ProductModelProductDescription**: locale (varje rad kopplar en ProductModel till en specifik ProductDescription för ett speciellt språk)
++ **Produkt:** namn, färg, kostnad, storlek, vikt, bild, kategori (varje rad går till en viss ProductModel)
++ **ProductDescription**: beskrivning
++ **ProductModelProductDescription**: språk (varje rad ansluter en ProductModel till en specifik ProductDescription för ett visst språk)
 + **ProductCategory**: namn, överordnad kategori
 
-Syftet med det här exemplet är att kombinera alla dessa data till en utplattad rad uppsättning som kan matas in i ett Sök index. 
+Att kombinera alla dessa data till en tillplattad raduppsättning som kan intas i ett sökindex är målet för det här exemplet. 
 
-## <a name="considering-our-options"></a>Överväg våra alternativ
+## <a name="considering-our-options"></a>Med tanke på våra alternativ
 
-Naïve-metoden skulle vara att indexera alla rader från produkt tabellen (där det är lämpligt) sedan produkt tabellen har den mest detaljerade informationen. Den metoden skulle dock innebära att Sök indexet uppfattar dubbletter i en resultat uppsättning. Till exempel är Road-650-modellen tillgänglig i två färger och sex storlekar. En fråga för "Road Bikes" kommer sedan att domineratss av tolv instanser av samma modell, differentierad enbart efter storlek och färg. De andra sex vägbaserade modellerna skulle alltid relegated till Nether-världen för Sök: sida två.
+Den naiva metoden skulle vara att indexera alla rader från tabellen Produkt (sammanfogad i förekommande fall) eftersom tabellen Produkt har den mest specifika informationen. Detta tillvägagångssätt skulle dock utsätta sökindex för upplevda dubbletter i en resultatuppsättning. Road-650-modellen finns till exempel i två färger och sex storlekar. En fråga om "landsvägscyklar" skulle då domineras av tolv instanser av samma modell, differentierade endast efter storlek och färg. De andra sex vägspecifika modellerna skulle alla förpassas till den nedre sökvärlden: sidan två.
 
-  ![Produkt lista](./media/search-example-adventureworks/products-list.png "Produkt lista")
+  ![Lista över produkter](./media/search-example-adventureworks/products-list.png "Lista över produkter")
  
-Observera att Road-650-modellen har tolv alternativ. En-till-många-enhets rader visas bäst som flervärdesfält eller föraggregerade-värde fält i Sök indexet.
+Observera att Road-650-modellen har tolv alternativ. 1:1:a entitetsrader representeras bäst som fält med flera värden eller föraggregerade värdefält i sökindexet.
 
-Att lösa det här problemet är inte lika enkelt som att flytta mål indexet till ProductModel-tabellen. Detta skulle ignorera viktiga data i produkt tabellen som fortfarande ska visas i Sök resultaten.
+Att lösa det här problemet är inte så enkelt som att flytta målindexet till tabellen ProductModel. Om du gör det ignoreras viktiga data i tabellen Produkt som fortfarande ska representeras i sökresultaten.
 
-## <a name="use-a-collection-data-type"></a>Använd en samlings data typ
+## <a name="use-a-collection-data-type"></a>Använda en datatyp för insamling
 
-"Rätt metod" är att använda en Sök schema funktion som inte har en direkt parallell i databas modellen: **Collection (EDM. String)** . Den här konstruktionen definieras i Azure Kognitiv sökning index-schemat. En samlings data typ används när du behöver representera en lista med enskilda strängar, i stället för en mycket lång (enkel) sträng. Om du har taggar eller nyckelord använder du en samlings data typ för det här fältet.
+Den "rätta metoden" är att använda en sökschema funktion som inte har en direkt parallell i databasmodellen: **Collection(Edm.String)**. Den här konstruktionen definieras i Indexschemat för Azure Cognitive Search. En insamlingsdatatyp används när du behöver representera en lista över enskilda strängar i stället för en mycket lång (enkel) sträng. Om du har taggar eller nyckelord använder du en insamlingsdatatyp för det här fältet.
 
-Genom att definiera flera värde index fält för **samling (EDM. String)** för "Color", "size" och "image", bevaras hjälp informationen för fasettering och filtrering utan att det förorenar indexet med dubbla poster. På samma sätt använder du mängd funktioner för de numeriska produkt fälten och indexerar **minListPrice** i stället för varje enskild produkt **listPrice**.
+Genom att definiera indexfält med flera värden i **Collection(Edm.String)** för "färg", "storlek" och "bild" behålls den underordnade informationen för att skapa och filtrera utan att index förorenas med dubblettposter. På samma sätt, tillämpa mängdfunktioner på numeriska produktfält, indexering **minListPrice** i stället för varje enskild **produktlistaPrice**.
 
-Med tanke på ett index med dessa strukturer skulle en sökning efter "Mountain Bikes" Visa modeller för diskreta cyklar, samtidigt som viktiga metadata som färg, storlek och lägsta pris betjänas. Följande skärm bild visar en illustration.
+Med tanke på ett index med dessa strukturer, en sökning efter "mountainbikes" skulle visa diskreta cykelmodeller, samtidigt som viktiga metadata som färg, storlek och lägsta pris. Följande skärmbild ger en illustration.
 
-  ![Exempel på Mountain Bike search](./media/search-example-adventureworks/mountain-bikes-visual.png "Exempel på Mountain Bike search")
+  ![Exempel på sökning på mountainbike](./media/search-example-adventureworks/mountain-bikes-visual.png "Exempel på sökning på mountainbike")
 
-## <a name="use-script-for-data-manipulation"></a>Använd skript för data behandling
+## <a name="use-script-for-data-manipulation"></a>Använda skript för datamanipulering
 
-Den här typen av modellering kan tyvärr inte enkelt uppnås genom SQL-uttryck. Använd i stället ett enkelt NodeJS-skript för att läsa in data och sedan mappa dem till sökvänliga JSON-entiteter.
+Tyvärr kan denna typ av modellering inte lätt uppnås genom SQL-satser ensam. Använd i stället ett enkelt NodeJS-skript för att läsa in data och sedan mappa det till sökvänliga JSON-entiteter.
 
-Den slutgiltiga databasen – Sök mappningen ser ut så här:
+Den slutliga mappningen för databassökning ser ut så här:
 
-+ modell (EDM. String: sökbar, Filterable, hämtnings bar) från "ProductModel.Name"
-+ description_en (EDM. String: sökbar) från "ProductDescription" för modellen där Culture = "en"
-+ färg (samling (EDM. String): sökbar, Filterable, aspekt bar, hämtnings bar): unika värden från "Product. Color" för modellen
-+ storlek (samling (EDM. String): sökbar, Filterable, aspekt bar, hämtnings bar): unika värden från "Product. size" för modellen
-+ bild (samling (EDM. String): hämtnings bar): unika värden från "Product. ThumbnailPhoto" för modellen
-+ minStandardCost (EDM. Double: Filterable, aspekt bar, sorterbar, hämtnings bar): sammanlagt minst alla "Product. StandardCost" för modellen
-+ minListPrice (EDM. Double: Filterable, aspekt bar, sorterbar, hämtnings bar): sammanlagt minst alla "Product. ListPrice" för modellen
-+ minWeight (EDM. Double: Filterable, aspekt bar, sorterbar, hämtnings bar): sammanlagt minimum för all produkt. vikt för modellen
-+ produkter (samling (EDM. String): sökbart, Filterable, hämtnings bar): unika värden från "Product.Name" för modellen
++ modell (Edm.String: sökbar, filterbar, hämtningsbar) från "ProductModel.Name"
++ description_en (Edm.String: sökbar) från "ProductDescription" för modellen där culture='en'
++ färg (Collection(Edm.String): sökbar, filterbar, ansiktstabell, hämtningsbar): unika värden från "Product.Color" för modellen
++ storlek (Collection(Edm.String): sökbar, filterbar, ansiktstablering, hämtningsbar): unika värden från "Product.Size" för modellen
++ bild (Collection(Edm.String): hämtningsbar): unika värden från "Product.ThumbnailPhoto" för modellen
++ minStandardCost (Edm.Double: filterbar, facetable, sorterbar, hämtningsbar): sammanlagd minimum av alla "Product.StandardCost" för modellen
++ minListPrice (Edm.Double: filterbar, facetable, sorterbar, hämtningsbar): sammanlagd minimum av alla "Product.ListPrice" för modellen
++ minVikt (Edm.Double: filterbar, facetable, sorterbar, hämtningsbar): sammanlagd minimum av alla "Product.Weight" för modellen
++ produkter (Collection(Edm.String): sökbara, filterbara, hämtningsbara): unika värden från "Product.Name" för modellen
 
-När du har gått med i ProductModel-tabellen med produkten och ProductDescription, använder du [lodash](https://lodash.com/) ( C#eller LINQ in) för att snabbt transformera resultat uppsättningen:
+När du har anslutit tabellen ProductModel med Product och ProductDescription använder du [lodash](https://lodash.com/) (eller Linq i C#) för att snabbt omvandla resultatuppsättningen:
 
 ```javascript
 var records = queryYourDatabase();
@@ -93,7 +93,7 @@ var models = _(records)
   .value();
 ```
 
-Den resulterande JSON-filen ser ut så här:
+Den resulterande JSON ser ut så här:
 
 ```json
 [
@@ -137,7 +137,7 @@ Den resulterande JSON-filen ser ut så här:
 ]
 ```
 
-Slutligen är det SQL-frågan för att returnera den första post uppsättningen. Jag använde modulen [MSSQL](https://www.npmjs.com/package/mssql) NPM för att läsa in data i min NodeJS-app.
+Slutligen, här är SQL-frågan för att returnera den första postmängden. Jag använde [mssql](https://www.npmjs.com/package/mssql) npm-modulen för att läsa in data i min NodeJS-app.
 
 ```T-SQL
 SELECT
@@ -163,4 +163,4 @@ WHERE
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Exempel: Face-taxonomi på flera nivåer i Azure Kognitiv sökning](search-example-adventureworks-multilevel-faceting.md)
+> [Exempel: Faktjonomier på flera nivåer i Azure Cognitive Search](search-example-adventureworks-multilevel-faceting.md)

@@ -1,6 +1,6 @@
 ---
-title: Princip guide för support och upphör Ande för Azure gäst operativ system | Microsoft Docs
-description: Ger information om vad Microsoft kommer att ha stöd för i det Azure gäst operativ system som används av Cloud Services.
+title: Support- och pensionspolicyguide för Azure Guest OS | Microsoft-dokument
+description: Innehåller information om vad Microsoft kommer att stödja när det gäller Azure Guest OS som används av Cloud Services.
 services: cloud-services
 documentationcenter: na
 author: raiye
@@ -14,68 +14,68 @@ ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
 ms.openlocfilehash: fbe9b3379799fe3cf0a56d921ab257bc87606ca9
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68945456"
 ---
-# <a name="azure-guest-os-supportability-and-retirement-policy"></a>Support och policy för Azure gäst operativ systemets support
-Informationen på den här sidan gäller Azure gäst operativ system ([gäst](cloud-services-guestos-update-matrix.md)operativ system) för Cloud Services Worker och webb roller (PaaS). Den gäller inte för Virtual Machines (IaaS).
+# <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure Guest OS support och pensionpolicy
+Informationen på den här sidan gäller Azure Guest-operativsystemet[(Guest OS)](cloud-services-guestos-update-matrix.md)för Cloud Services-arbetare och webbroller (PaaS). Det gäller inte för virtuella datorer (IaaS).
 
-Microsoft har en publicerad [support princip för gäst operativ systemet](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). Sidan som du läser beskriver nu hur principen implementeras.
+Microsoft har en publicerad [supportpolicy för Gästoperativsystemet](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). Sidan du läser nu beskriver hur principen implementeras.
 
-Principen är
+Policyn är
 
-1. Microsoft kommer att stödja **minst de senaste två familjerna av gäst operativ systemet**. När en familj dras tillbaka, har kunder 12 månader från det officiella datumet för indragningen för att uppdatera till en nyare gäst operativ system familj som stöds.
-2. Microsoft stöder **minst de senaste två versionerna av de gäst operativ system familjer som stöds**.
-3. Microsoft stöder **minst de senaste två versionerna av Azure SDK**. När en version av SDK: n har dragits tillbaka kommer kunderna att ha 12 månader från det officiella datumet för indragningen för att uppdatera till en nyare version.
+1. Microsoft kommer att stödja **minst de två senaste familjerna i Guest OS**. När en familj går i pension har kunderna 12 månader från det officiella pensionsdatumet att uppdatera till en nyare gäst-OS-familj som stöds.
+2. Microsoft stöder **minst de två senaste versionerna av de gäst-OS-familjer som stöds**.
+3. Microsoft stöder **åtminstone de två senaste versionerna av Azure SDK**. När en version av SDK dras tillbaka har kunderna 12 månader från det officiella pensionsdatumet att uppdatera till en nyare version.
 
-Ibland kan fler än två familjer eller versioner stödjas. Officiella gäst operativ systemets support information visas på [Azures OS-utgåvor och SDK-kompatibilitetens matris](cloud-services-guestos-update-matrix.md).
+Ibland kan mer än två familjer eller utgåvor stödjas. Officiell supportinformation för gästoperativsystem visas i [Azure Guest OS Releases och SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
-## <a name="when-a-guest-os-version-is-retired"></a>När en gäst operativ system version dras tillbaka
-Nya gäst operativ system **versioner** introduceras varannan månad för att införliva de senaste MSRC-uppdateringarna. På grund av de regelbundna månads uppdateringarna inaktive ras vanligt vis en version av gäst operativ systemet runt 60 dagar efter lanseringen. Den här aktiviteten behåller minst två gäst operativ system versioner för varje familj som är tillgänglig för användning.
+## <a name="when-a-guest-os-version-is-retired"></a>När en Gäst-OS-version dras tillbaka
+Nya Gäst **OS-versioner** introduceras ungefär varje månad för att införliva de senaste MSRC-uppdateringarna. På grund av de regelbundna månatliga uppdateringarna inaktiveras en Gäst-OS-version normalt cirka 60 dagar efter dess release. Den här aktiviteten håller minst två Gästoperativsystemversioner tillgängliga för varje familj tillgängligt för användning.
 
-### <a name="process-during-a-guest-os-family-retirement"></a>Bearbeta under en gäst operativ system familj
-När indragningen har meddelats har kunderna en 12-månaders "över gång"-period innan den äldre familjen tas bort från tjänsten officiellt. Den här över gångs tiden kan utökas enligt Microsofts gottfinnande. Uppdateringar publiceras på [Azure-gästens OS-utgåvor och SDK-kompabilitet](cloud-services-guestos-update-matrix.md).
+### <a name="process-during-a-guest-os-family-retirement"></a>Process under en gäst OS familj pensionering
+När pensioneringen tillkännages, kunder har en 12 månaders "övergångsperiod" innan den äldre familjen officiellt tas ur drift. Denna övergångstid kan förlängas efter Microsofts gottfinnande. Uppdateringar publiceras på [Azure Guest OS Releases och SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
-En gradvis indragnings process börjar sex (6) månader i över gångs perioden. Under den här tiden:
+En gradvis pensioneringsprocess kommer att inledas sex (6) månader in i övergångsperioden. Under denna tid:
 
-1. Microsoft meddelar kunderna om indragningen.
-2. Den nyare versionen av Azure SDK stöder inte den återkallade gäst operativ system familjen.
-3. Nya distributioner och omdistributioner av Cloud Services är inte tillåtna i den indragna familjen
+1. Microsoft meddelar kunderna om pensioneringen.
+2. Den nyare versionen av Azure SDK stöder inte den pensionerade Gästoperativsystemet-familjen.
+3. Nya distributioner och omfördelningar av molntjänster kommer inte att tillåtas i den pensionerade familjen
 
-Microsoft fortsätter att införa en ny gäst operativ system version som innehåller de senaste MSRC-uppdateringarna fram till den sista dagen i över gångs perioden, även kallat "förfallo datum". På förfallo datumet stöds inte Cloud Services fortfarande igång enligt Azure SLA. Microsoft har möjlighet att tvinga fram uppgradering, ta bort eller stoppa dessa tjänster efter det datumet.
+Microsoft kommer att fortsätta att introducera ny Gäst OS-version som innehåller de senaste MSRC-uppdateringarna fram till den sista dagen i övergångsperioden, så kallade "utgångsdatum". På utgångsdatumet kommer molntjänster som fortfarande körs inte att stödjas under Azure SLA. Microsoft har rätt att tvinga fram uppgradering, borttagning eller stopp av dessa tjänster efter detta datum.
 
-### <a name="process-during-a-guest-os-version-retirement"></a>Bearbeta under en gäst operativ system version
-Om kunderna anger att gäst operativ systemet ska uppdateras automatiskt behöver de inte bekymra sig om att hantera operativ system versioner. De kommer alltid att använda den senaste versionen av gäst operativ systemet.
+### <a name="process-during-a-guest-os-version-retirement"></a>Process under en gäst OS Version pensionering
+Om kunderna ställer in sina gästoperativsystem för att uppdatera automatiskt behöver de aldrig oroa sig för att hantera gäst-OS-versioner. De kommer alltid att använda den senaste Guest OS-versionen.
 
-Gäst operativ system versioner publiceras varje månad. På grund av frekvensen av regelbundna versioner har varje version en fast livs längd.
+Gäst OS-versioner släpps varje månad. På grund av graden av regelbundna utgåvor, har varje version en fast livslängd.
 
-Vid 60 dagar till livs längd är en version "inaktive*rad*". "Disabled" innebär att versionen tas bort från portalen. Versionen kan inte längre anges från CSCFG-konfigurationsfilen. Befintliga distributioner körs. Men nya distributioner och kod-och konfigurations uppdateringar för befintliga distributioner kommer inte att tillåtas.
+På 60 dagar in i livslängden, är en version "*handikappad*". "Inaktiverad" innebär att versionen tas bort från portalen. Det går inte längre att ange versionen från CSCFG-konfigurationsfilen. Befintliga distributioner körs. Men nya distributioner och kod- och konfigurationsuppdateringar till befintliga distributioner tillåts inte.
 
-När du har inaktiverat "inaktive rad" upphör gäst operativ systemets version, och alla installationer fortfarande att köra den utgångna versionen är utsatta för säkerhets-och sårbarhets problem. Normalt görs förfallo datum i batchar, så att perioden från inaktivitet kan variera.
+Någon gång efter att ha blivit "inaktiverad" ", Guest OS-versionen "upphör" och alla installationer som fortfarande körs som utgångna version utsätts för säkerhetsproblem och sårbarhetsproblem. I allmänhet sker förfallodatum i batchar, så perioden från inaktivering till förfallodatum kan variera.
 
-Kunder som konfigurerar sina tjänster för att uppdatera gäst operativ systemet manuellt bör se till att deras tjänster körs på ett gäst operativ system som stöds. Om en tjänst har kon figurer ATS för att uppdatera gäst operativ systemet automatiskt, garanterar den underliggande plattformen efterlevnad och uppgraderas till det senaste gäst operativ systemet.
+Kunder som konfigurerar sina tjänster för att uppdatera gästoperativsystemet manuellt bör se till att deras tjänster körs på ett gästoperativsystem som stöds. Om en tjänst har konfigurerats för att uppdatera gästoperativsystemet automatiskt, kommer den underliggande plattformen att säkerställa efterlevnad och uppgradera till det senaste gästoperativsystemet.
 
-Dessa perioder kan göras längre på Microsofts eget sätt att under lätta kunds över gångar. Eventuella ändringar kommer att meddelas på [Azures OS-utgåvor och SDK-kompatibilitet](cloud-services-guestos-update-matrix.md).
+Dessa perioder kan göras längre efter Microsofts gottfinnande för att underlätta kundövergångar. Alla ändringar kommer att meddelas på [Azure Guest OS Releases och SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
-### <a name="notifications-during-retirement"></a>Meddelanden under indragningen
-* **Familje Pension** <br>Microsoft kommer att använda blogg inlägg och Portal meddelanden. Kunder som fortfarande använder en kassed gäst operativ system familj meddelas via direkt kommunikation (e-post, Portal meddelanden, telefonsamtal) till tilldelade tjänst administratörer. Alla ändringar kommer att skickas till [Azure-gästens OS-utgåvor och SDK-kompatibilitet](cloud-services-guestos-update-matrix.md).
-* **Versions Pension** <br>Alla ändringar och de datum som de inträffar skickas till Azures [OS-utgåvor och SDK-kompatibilitet](cloud-services-guestos-update-matrix.md), inklusive version, inaktive rad och förfallo datum. Tjänste administratörer kommer att få e-postmeddelanden om de har distributioner som körs på en inaktive rad gäst operativ system version eller-serie. Tiden för dessa e-postmeddelanden kan variera. I allmänhet är de minst en månad före inaktivitet, men den här tids perioden är inte ett officiellt service avtal.
+### <a name="notifications-during-retirement"></a>Anmälningar vid pensionering
+* **Familjepension** <br>Microsoft kommer att använda blogginlägg och portalmeddelanden. Kunder som fortfarande använder en pensionerad gäst-OS-familj meddelas via direkt kommunikation (e-post, portalmeddelanden, telefonsamtal) till tilldelade tjänstadministratörer. Alla ändringar bokförs i [Azure Guest OS Releases och SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
+* **Version Pensionering** <br>Alla ändringar och datum de inträffar kommer att bokföras i [Azure Guest OS Releases och SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md), inklusive release, inaktiverad och förfallodatum. Tjänstadministratörer får e-postmeddelanden om de har distributioner som körs på en inaktiverad gäst-OS-version eller -familj. Tidpunkten för dessa e-postmeddelanden kan variera. Generellt de är minst en månad före invaliditet, även om denna tidpunkt är inte en officiell SLA.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-**Hur kan jag minimera påverkan på migreringen?**
+**Hur kan jag mildra effekterna av migrering?**
 
-Vi rekommenderar att du använder den senaste gäst operativ system familjen för att utforma din Cloud Services.
+Vi rekommenderar att du använder den senaste gästoperativsystemets familj för att utforma dina molntjänster.
 
-1. Börja planera migreringen till en nyare familj tidigt.
-2. Konfigurera tillfälliga test distributioner för att testa moln tjänsten som körs på den nya familjen.
-3. Ställ in din gäst operativ system version på **automatiskt** (osVersion = * i [. cscfg](cloud-services-model-and-package.md#cscfg) -filen) så att migreringen till nya gäst operativ system versioner sker automatiskt.
+1. Börja planera din migrering till en nyare familj tidigt.
+2. Konfigurera tillfälliga testdistributioner för att testa din molntjänst som körs på den nya familjen.
+3. Ställ in gästoperativsystemets version på **Automatisk** (osVersion=* i [CSCFG-filen)](cloud-services-model-and-package.md#cscfg) så att migreringen till nya Gästoperativsystem-versioner sker automatiskt.
 
-**Vad händer om mitt webb program kräver djupare integrering med operativ systemet?**
+**Vad händer om mitt webbprogram kräver djupare integration med operativsystemet?**
 
-Om din webb program arkitektur är beroende av underliggande funktioner i operativ systemet, använder du plattforms funktioner som stöds, till exempel [Start åtgärder](cloud-services-startup-tasks.md) eller andra utöknings metoder. Du kan också använda [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – infrastruktur som en tjänst), där du är ansvarig för att underhålla det underliggande operativ systemet.
+Om webbprogramarkitekturen är beroende av underliggande funktioner i operativsystemet använder du plattformsstödda funktioner som [startuppgifter](cloud-services-startup-tasks.md) eller andra utökningsmekanismer. Alternativt kan du också använda [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), där du är ansvarig för att underhålla det underliggande operativsystemet.
 
 ## <a name="next-steps"></a>Nästa steg
-Granska de senaste [versionerna av gäst operativ systemet](cloud-services-guestos-update-matrix.md).
+Granska de senaste [Gäst-OS-utgåvorna](cloud-services-guestos-update-matrix.md).

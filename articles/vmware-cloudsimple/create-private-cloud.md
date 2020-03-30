@@ -1,6 +1,6 @@
 ---
-title: Azure VMware-lösningar (AVS) – skapa ett privat AVS-moln
-description: Beskriver hur du skapar ett privat AVS-moln för att utöka VMware-arbetsbelastningar till molnet med drifts flexibilitet och kontinuitet
+title: Azure VMware-lösning från CloudSimple - Skapa CloudSimple Private Cloud
+description: Beskriver hur du skapar ett CloudSimple Private Cloud för att utöka VMware-arbetsbelastningar till molnet med operativ flexibilitet och kontinuitet
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -8,75 +8,71 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 128a0a1eec03878d0deba93048c54324aab7d888
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 4f700ac34b6c6e2a651366bee7dd1785c608064f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77024797"
 ---
-# <a name="create-an-avs-private-cloud"></a>Skapa ett privat AVS-moln
+# <a name="create-a-cloudsimple-private-cloud"></a>Skapa ett cloudsimple privat moln
 
-Ett privat AVS-moln är en isolerad VMware-stack som stöder ESXi-värdar, vCenter, virtuellt San och NSX. Molnets privata moln hanteras via AVS-portalen. De har sina egna vCenter-servrar i sin egen hanterings domän. Stacken körs på dedikerade noder och isolerade Bare Metal-maskinvarukonfigurationer.
+Ett privat moln är en isolerad VMware-stack som stöder ESXi-värdar, vCenter, vSAN och NSX. Privata moln hanteras via CloudSimple-portalen. De har sin egen vCenter-server i sin egen hanteringsdomän. Stacken körs på dedikerade noder och isolerade bare metal-maskinvarunoder.
 
-Genom att skapa ett privat moln moln kan du hantera olika vanliga behov för nätverks infrastruktur:
+Genom att skapa ett privat moln kan du tillgodose en mängd vanliga behov för nätverksinfrastruktur:
 
-* **Tillväxt**. Om du har nått en maskin varu uppdaterings plats för din befintliga infrastruktur kan du med ett privat moln moln expandera utan att behöva ny maskin varu investering.
+* **Tillväxt**. Om du har nått en uppdateringspunkt för maskinvara för din befintliga infrastruktur kan du med ett privat moln expandera utan att någon ny maskinvaruinvestering krävs.
 
-* **Snabb expansion**. Om det uppstår temporära eller oplanerade kapacitets behov kan du skapa ytterligare kapacitet utan fördröjning i ett privat moln moln.
+* **Snabb expansion**. Om någon tillfällig eller oplanerad kapacitet behöver uppstå, kan du med ett privat moln skapa ytterligare kapacitet utan fördröjning.
 
-* **Ökat skydd**. Med ett moln privat moln med tre eller fler noder får du automatisk redundans och skydd med hög tillgänglighet.
+* **Ökat skydd**. Med ett privat moln med tre eller fler noder får du automatisk redundans och skydd mot hög tillgänglighet.
 
-* **Långsiktiga infrastruktur behov**. Om dina data Center har kapacitet eller om du vill strukturera om för att sänka dina kostnader kan du dra tillbaka data Center och migrera till en molnbaserad lösning samtidigt som du inte är kompatibel med dina företags åtgärder.
+* **Långsiktiga infrastrukturbehov**. Om dina datacenter är på kapacitet eller om du vill omstrukturera för att sänka dina kostnader, kan du med ett privat moln dra tillbaka datacenter och migrera till en molnbaserad lösning samtidigt som du förblir kompatibel med företagets verksamhet.
 
-När du skapar ett moln privat moln får du ett enda vSphere-kluster och alla virtuella hanterings datorer som skapas i det klustret.
+När du skapar ett privat moln får du ett enda vSphere-kluster och alla virtuella hanterings-datorer som skapas i klustret.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Noder måste vara etablerade innan du kan skapa ditt privata moln i molnet. Mer information om hur du etablerar noder finns i [etablera noder för Azure VMware-lösningar (AVS)](create-nodes.md).
+Noder måste etableras innan du kan skapa ditt privata moln. Mer information om etablering av noder finns i [Etableringsnoder för Azure VMware-lösning av CloudSimple](create-nodes.md).
 
-Allokera ett CIDR-intervall för vSphere/virtuellt San-undernät för det privata AVS-molnet. Ett privat AVS-moln skapas som en isolerad VMware stack-miljö (med ESXi-värdar, vCenter, virtuellt San och NSX) som hanteras av en vCenter-Server. Hanterings komponenter distribueras i det nätverk som väljs för vSphere/virtuellt San-undernät CIDR. Nätverks-CIDR-intervallet är indelat i olika undernät under distributionen. Adress utrymmet för vSphere/virtuellt San-under nätet måste vara unikt. Det får inte överlappa något nätverk som kommunicerar med AVS-miljön. De nätverk som kommunicerar med AVS inkluderar lokala nätverk och virtuella Azure-nätverk. Mer information om vSphere/virtuellt San-undernät finns i Översikt över VLAN och undernät.
+Allokera ett CIDR-intervall för vSphere/vSAN-undernät för det privata molnet. Ett privat moln skapas som en isolerad VMware-stackmiljö (med ESXi-värdar, vCenter, vSAN och NSX) som hanteras av en vCenter-server. Hanteringskomponenter distribueras i nätverket som har valts för vSphere/vSAN-undernät CIDR. Nätverkets CIDR-område är indelat i olika undernät under distributionen. Adressutrymmet vSphere/vSAN måste vara unikt. Den får inte överlappa med något nätverk som kommunicerar med CloudSimple-miljön. De nätverk som kommunicerar med CloudSimple inkluderar lokala nätverk och virtuella Azure-nätverk. Mer information om vSphere/vSAN-undernät finns i VLAN och undernätsöversikt.
 
-* Minsta vSphere/virtuellt San-undernät CIDR-intervall prefix:/24
-* Maximalt vSphere/virtuellt San-undernät CIDR-intervall prefix:/21
+* Lägsta vSphere/vSAN-undernät CIDR-intervallprefix: /24
+* Högsta vSphere/vSAN-undernät CIDR-intervallprefix: /21
 
 
-## <a name="access-the-avs-portal"></a>Åtkomst till AVS-portalen
+## <a name="access-the-cloudsimple-portal"></a>Få åtkomst till CloudSimple-portalen
 
-Få åtkomst till [AVS-portalen](access-cloudsimple-portal.md).
+Öppna [CloudSimple-portalen](access-cloudsimple-portal.md).
 
-## <a name="create-a-new-avs-private-cloud"></a>Skapa ett nytt AVS-privat moln
+## <a name="create-a-new-private-cloud"></a>Skapa ett nytt privat moln
 
 1. Välj **Alla tjänster**.
-2. Sök efter **AVS-tjänster**.
-3. Välj den AVS-tjänst som du vill skapa ditt AVS-privata moln på.
-4. Från **Översikt**klickar du på **skapa AVS-privat moln** för att öppna en ny flik i webbläsaren för AVS-portalen. Logga in med dina inloggnings uppgifter för Azure om du uppmanas till detta.
+2. Sök efter **CloudSimple Services**.
+3. Välj den CloudSimple-tjänst som du vill skapa ditt privata moln på.
+4. Klicka på **Skapa privat moln i** **översikten**om du vill öppna en ny webbläsarflik för CloudSimple-portalen. Om du uppmanas till det loggar du in med dina Azure-inloggningsuppgifter.
 
-    ![Skapa ett privat AVS-moln från Azure](media/create-private-cloud-from-azure.png)
+    ![Skapa privat moln från Azure](media/create-private-cloud-from-azure.png)
 
-5. I AVS-portalen anger du ett namn för ditt AVS-privata moln.
-6. Välj **plats** för ditt AVS-privata moln.
-7. Välj **nodtyp**, konsekvent med det du köpte i Azure.
-8. Ange **antal noder**. Minst tre noder krävs för att skapa ett privat AVS-moln.
-5. I CloudSimple-portalen anger du ett namn för ditt privata moln.
-6. Välj **plats** för ditt privata moln.
-7. Välj **nodtyp**, konsekvent med det du etablerade i Azure.
-8. Ange **antal noder**.  Minst tre noder krävs för att skapa ett privat moln.
+5. Ange ett namn för ditt privata moln i CloudSimple-portalen.
+6. Välj **Plats** för ditt privata moln.
+7. Välj **Nodtyp**, i enlighet med vad du etablerat på Azure.
+8. Ange **antal nod**.  Minst tre noder krävs för att skapa ett privat moln.
 
-    ![Skapa ett privat AVS-moln – grundläggande information](media/create-private-cloud-basic-info.png)
+    ![Skapa privat moln – grundläggande information](media/create-private-cloud-basic-info.png)
 
-9. Klicka på **Nästa: avancerade alternativ**.
-10. Ange CIDR-intervallet för vSphere/virtuellt San-undernät. Se till att CIDR-intervallet inte överlappar något av dina lokala eller andra Azure-undernät (virtuella nätverk) eller med Gateway-undernätet.
+9. Klicka på **Nästa: Avancerade alternativ**.
+10. Ange CIDR-intervallet för vSphere/vSAN-undernät. Kontrollera att CIDR-intervallet inte överlappar något av dina lokala eller andra Azure-undernät (virtuella nätverk) eller med gateway-undernätet.
 
-    **Alternativ för CIDR-intervall:** /24,/23,/22 eller/21. Ett/24 CIDR-intervall stöder upp till nio noder, ett/23 CIDR-intervall stöder upp till 41 noder och ett/22-och/21 CIDR-intervall stöder upp till 64-noder (det maximala antalet noder i ett moln privat moln).
+    **CIDR-intervallalternativ:** /24, /23, /22 eller /21. Ett /24 CIDR-intervall stöder upp till nio noder, ett /23 CIDR-intervall stöder upp till 41 noder och ett /22 och /21 CIDR-intervall stöder upp till 64 noder (det maximala antalet noder i ett privat moln).
 
     > [!IMPORTANT]
-    > IP-adresser i CIDR-intervallet vSphere/virtuellt San är reserverade för användning av molnets privata moln infrastruktur. Använd inte IP-adressen i det här intervallet på någon virtuell dator.
+    > IP-adresser i vSphere/vSAN CIDR-intervallet är reserverade för användning av infrastrukturen Private Cloud.  Använd inte IP-adressen i det här intervallet på en virtuell dator.
 
-11. Klicka på **Nästa: granska och skapa**.
-12. Granska inställningarna. Om du behöver ändra några inställningar klickar du på **föregående**.
+11. Klicka på **Nästa: Granska och skapa**.
+12. Granska inställningarna. Om du behöver ändra några inställningar klickar du på **Föregående**.
 13. Klicka på **Skapa**.
 
-Etablerings processen för molnets privata moln startar. Det kan ta upp till två timmar för det privata moln molnet att tillhandahållas.
+Etableringsprocessen för privata moln startar. Det kan ta upp till två timmar innan det privata molnet etableras.
 
-Anvisningar om hur du expanderar ett befintligt moln privat moln finns i avsnittet [expandera ett privat moln i molnet](expand-private-cloud.md).
+Instruktioner om hur du expanderar ett befintligt privat moln finns i [Expandera ett privat moln](expand-private-cloud.md).

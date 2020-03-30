@@ -1,6 +1,6 @@
 ---
-title: Kopiera data från Cassandra med hjälp av Azure Data Factory
-description: Lär dig hur du kopierar data från Cassandra till mottagar data lager som stöds med hjälp av en kopierings aktivitet i en Azure Data Factory pipeline.
+title: Kopiera data från Cassandra med Azure Data Factory
+description: Lär dig hur du kopierar data från Cassandra till sink-datalager som stöds med hjälp av en kopieringsaktivitet i en Azure Data Factory-pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,64 +12,64 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
 ms.openlocfilehash: 9339fff820c0a0d915258ce3a0bc5371242ad50d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "75892835"
 ---
-# <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med hjälp av Azure Data Factory
+# <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Kopiera data från Cassandra med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-onprem-cassandra-connector.md)
 > * [Aktuell version](connector-cassandra.md)
 
-Den här artikeln beskriver hur du använder kopierings aktiviteten i Azure Data Factory för att kopiera data från en Cassandra-databas. Den bygger på den [översikt över Kopieringsaktivitet](copy-activity-overview.md) artikel som ger en allmän översikt över Kopieringsaktivitet.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att kopiera data från en Cassandra-databas. Den bygger på [kopian aktivitet översikt](copy-activity-overview.md) artikeln som presenterar en allmän översikt över kopieringsaktivitet.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-Den här Cassandra-anslutningen stöds för följande aktiviteter:
+Den här Cassandra-kopplingen stöds för följande aktiviteter:
 
-- [Kopierings aktivitet](copy-activity-overview.md) med [matrisen source/Sink som stöds](copy-activity-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitet](copy-activity-overview.md) med [käll-/sink-matris som stöds](copy-activity-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 
-Du kan kopiera data från Cassandra-databasen till alla mottagar data lager som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
+Du kan kopiera data från Cassandra-databasen till alla sink-datalager som stöds. En lista över datalager som stöds som källor/sänkor av kopieringsaktiviteten finns i tabellen [Datalager som stöds.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Mer specifikt stöder denna Cassandra-anslutning:
+Den här Cassandra-kontakten stöder:
 
-- Cassandra- **versionerna 2. x och 3. x**.
-- Kopiera data med **Basic** eller **Anonym** autentisering.
+- Cassandra **versionerna 2.x och 3.x**.
+- Kopiera data med **grundläggande** eller **anonym** autentisering.
 
 >[!NOTE]
->För att aktiviteter som körs på egen värd Integration Runtime, stöds Cassandra 3. x sedan IR version 3,7 och senare.
+>För aktiviteter som körs på Självvärderade Integration Runtime stöds Cassandra 3.x sedan IR version 3.7 och senare.
 
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-Integration Runtime innehåller en inbyggd Cassandra-drivrutin, och du behöver därför inte installera någon driv rutin manuellt när du kopierar data från/till Cassandra.
+Integration Runtime tillhandahåller en inbyggd Cassandra-drivrutin, därför behöver du inte installera någon drivrutin manuellt när du kopierar data från/till Cassandra.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-I följande avsnitt finns information om egenskaper som används för att definiera Data Factory entiteter som är speciella för Cassandra-anslutaren.
+I följande avsnitt finns information om egenskaper som används för att definiera datafabrikentiteter som är specifika för Cassandra-anslutningsappen.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper stöds för den länkade tjänsten Cassandra:
+Följande egenskaper stöds för Cassandra-länkad tjänst:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ |Egenskapen Type måste anges till: **Cassandra** |Ja |
-| värd |En eller flera IP-adresser eller värd namn för Cassandra-servrar.<br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn för att ansluta till alla servrar samtidigt. |Ja |
-| port |TCP-porten som Cassandra-servern använder för att lyssna efter klient anslutningar. |Nej (standard är 9042) |
-| authenticationType | Typ av autentisering som används för att ansluta till Cassandra-databasen.<br/>Tillåtna värden är: **Basic**och **Anonymous**. |Ja |
-| användarnamn |Ange användar namn för användar kontot. |Ja, om authenticationType har angetts till Basic. |
-| password |Ange lösen ordet för användar kontot. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja, om authenticationType har angetts till Basic. |
-| connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Inga |
+| typ |Egenskapen Type måste ställas in på: **Cassandra** |Ja |
+| värd |En eller flera IP-adresser eller värdnamn för Cassandra-servrar.<br/>Ange en kommaavgränsad lista med IP-adresser eller värdnamn som ska anslutas till alla servrar samtidigt. |Ja |
+| port |TCP-porten som Cassandra-servern använder för att lyssna efter klientanslutningar. |Nej (standard är 9042) |
+| authenticationType | Typ av autentisering som används för att ansluta till Cassandra-databasen.<br/>Tillåtna värden är: **Grundläggande**och **Anonym**. |Ja |
+| användarnamn |Ange användarnamn för användarkontot. |Ja, om authenticationType är inställt på Basic. |
+| password |Ange lösenord för användarkontot. Markera det här fältet som en SecureString för att lagra det säkert i Data Factory, eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja, om authenticationType är inställt på Basic. |
+| connectVia (på) | [Den integrationskörning som](concepts-integration-runtime.md) ska användas för att ansluta till datalagret. Läs mer från avsnittet [Förutsättningar.](#prerequisites) Om det inte anges används standardkörningen för Azure Integration. |Inga |
 
 >[!NOTE]
->Det finns inte stöd för anslutning till Cassandra med SSL.
+>För närvarande stöds inte anslutning till Cassandra med SSL.
 
 **Exempel:**
 
@@ -97,14 +97,14 @@ Följande egenskaper stöds för den länkade tjänsten Cassandra:
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Cassandra DataSet.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [datauppsättningsartikeln.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Cassandra-datauppsättning.
 
-Om du vill kopiera data från Cassandra anger du egenskapen type för data uppsättningen till **CassandraTable**. Följande egenskaper stöds:
+Om du vill kopiera data från Cassandra anger du egenskapen typ för datauppsättningen till **CassandraTable**. Följande egenskaper stöds:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens typ-egenskap måste anges till: **CassandraTable** | Ja |
-| keyspace |Namnet på det här utrymmet eller schemat i Cassandra-databasen. |Nej (om "fråga" för "CassandraSource" har angetts) |
+| typ | Datauppsättningens typegenskap måste anges till: **CassandraTable** | Ja |
+| nyckelutrymme |Namn på nyckelutrymmet eller schemat i Cassandra-databasen. |Nej (om "fråga" för "CassandraSource" har angetts) |
 | tableName |Namnet på tabellen i Cassandra-databasen. |Nej (om "fråga" för "CassandraSource" har angetts) |
 
 **Exempel:**
@@ -130,17 +130,17 @@ Om du vill kopiera data från Cassandra anger du egenskapen type för data upps�
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Cassandra-källan.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av Cassandra-källan.
 
 ### <a name="cassandra-as-source"></a>Cassandra som källa
 
-Om du vill kopiera data från Cassandra anger du käll typen i kopierings aktiviteten till **CassandraSource**. Följande egenskaper stöds i kopieringsaktiviteten **source** avsnittet:
+Om du vill kopiera data från Cassandra anger du källtypen i kopieringsaktiviteten till **CassandraSource**. Följande egenskaper stöds i källavsnittet för **kopieringsaktivitet:**
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Typ egenskapen för kopierings aktivitets källan måste anges till: **CassandraSource** | Ja |
-| DocumentDB |Använd den anpassade frågan för att läsa data. SQL-92 fråga eller CQL-fråga. Se [referens för CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-fråga anger du namnet på det **. tabell namn** som ska representera den tabell som du vill fråga. |Nej (om "tableName" och "tecken utrymme" i data uppsättningen har angetts). |
-| consistencyLevel |Konsekvens nivån anger hur många repliker som måste svara på en Read-begäran innan data returneras till klient programmet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla Read-begäran. Mer information finns i [Konfigurera data konsekvens](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) .<br/><br/>Tillåtna värden är: **ett**, **två**, **tre**, **kvorum**, **alla**, **LOCAL_QUORUM**, **EACH_QUORUM**och **LOCAL_ONE**. |Nej (standard är `ONE`) |
+| typ | Egenskapen type property för kopians aktivitet måste anges till: **CassandraSource** | Ja |
+| DocumentDB |Använd den anpassade frågan för att läsa data. SQL-92-fråga eller CQL-fråga. Se [CQL-referens](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>När du använder SQL-frågan anger du **namnet keyspace name.table** som ska representera den tabell som du vill fråga. |Nej (om "tableName" och "keyspace" i datauppsättningen anges). |
+| konsekvensNivå |Konsekvensnivån anger hur många repliker som måste svara på en läsbegäran innan data returneras till klientprogrammet. Cassandra kontrollerar det angivna antalet repliker för data för att uppfylla läsbegäran. Mer information [finns i Konfigurera datakonsekvens.](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html)<br/><br/>Tillåtna värden är: **ETT**, **TVÅ**, **TRE**, **KVORUM**, **ALLA**, **LOCAL_QUORUM**, **EACH_QUORUM**och **LOCAL_ONE**. |Nej (standard `ONE`är) |
 
 **Exempel:**
 
@@ -174,68 +174,68 @@ Om du vill kopiera data från Cassandra anger du käll typen i kopierings aktivi
 ]
 ```
 
-## <a name="data-type-mapping-for-cassandra"></a>Data typs mappning för Cassandra
+## <a name="data-type-mapping-for-cassandra"></a>Mappning av datatyp för Cassandra
 
-När du kopierar data från Cassandra används följande mappningar från Cassandra data typer för att Azure Data Factory interimistiska data typer. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
+När du kopierar data från Cassandra används följande mappningar från Cassandra-datatyper till Azure Data Factory interimsdatatyper. Se [Schema- och datatypsmappningar](copy-activity-schema-and-type-mapping.md) om du vill veta mer om hur du kopierar aktivitetsschemat och datatypen till diskhon.
 
-| Data typen Cassandra | Data factory tillfälliga datatyp |
+| Cassandra-datatyp | Data fabrik interim datatyp |
 |:--- |:--- |
 | ASCII |String |
 | BIGINT |Int64 |
-| BLOB |Byte[] |
-| BOOLEAN |Boolean |
+| Blob |Byte[] |
+| Boolean |Boolean |
 | DECIMAL |Decimal |
 | DOUBLE |Double |
-| FLOAT |Enkel |
-| INET |String |
+| Flyta |Enkel |
+| Inet |String |
 | INT |Int32 |
 | TEXT |String |
 | TIMESTAMP |DateTime |
-| TIMEUUID |GUID |
-| UUID |GUID |
+| TIMEUUID (PÅ LÄNGE) |GUID |
+| Uuid |GUID |
 | VARCHAR |String |
-| VARINT |Decimal |
+| VARINT (OLIKA) |Decimal |
 
 > [!NOTE]
-> För samlings typer (karta, uppsättning, lista osv.), se [arbeta med Cassandra-samlings typer med hjälp av virtuell tabell](#work-with-collections-using-virtual-table) avsnitt.
+> För samlingstyper (karta, uppsättning, lista osv.) finns [i Samlingstyper för Arbete med Cassandra med hjälp av avsnittet virtual table.](#work-with-collections-using-virtual-table)
 >
 > Användardefinierade typer stöds inte.
 >
-> Längden på binära kolumn-och sträng kolumn längder får inte vara större än 4000.
+> Längden på längderna binärkolumn och strängkolumn kan inte vara större än 4000.
 >
 
 ## <a name="work-with-collections-using-virtual-table"></a>Arbeta med samlingar med hjälp av virtuell tabell
 
-Azure Data Factory använder en inbyggd ODBC-drivrutin för att ansluta till och kopiera data från Cassandra-databasen. För samlings typer, inklusive karta, uppsättning och lista, normaliserar driv rutinen data till motsvarande virtuella tabeller. Mer specifikt, om en tabell innehåller alla samlings kolumner, genererar driv rutinen följande virtuella tabeller:
+Azure Data Factory använder en inbyggd ODBC-drivrutin för att ansluta till och kopiera data från cassandra-databasen. För samlingstyper, inklusive karta, uppsättning och lista, renormalizes drivrutinen till motsvarande virtuella tabeller. Om en tabell innehåller några samlingskolumner genererar drivrutinen följande virtuella tabeller:
 
-* En **bas tabell**som innehåller samma data som den verkliga tabellen, förutom samlings kolumnerna. Bas tabellen använder samma namn som den verkliga tabell som den representerar.
-* En **virtuell tabell** för varje samlings kolumn som utökar de kapslade data. De virtuella tabellerna som representerar samlingar namnges med hjälp av namnet på den verkliga tabellen, en avgränsare "*VT*" och namnet på kolumnen.
+* En **bastabell**som innehåller samma data som den verkliga tabellen utom samlingskolumnerna. Bastabellen använder samma namn som den verkliga tabellen som den representerar.
+* En **virtuell tabell** för varje samlingskolumn, som utökar de kapslade data. De virtuella tabeller som representerar samlingar namnges med namnet på den verkliga tabellen, en avgränsare "*vt*" och namnet på kolumnen.
 
-Virtuella tabeller refererar till datan i den verkliga tabellen, vilket gör att driv rutinen kan komma åt denormaliserade data. Mer information finns i avsnittet exempel. Du kan komma åt innehållet i Cassandra-samlingar genom att fråga och ansluta till de virtuella tabellerna.
+Virtuella tabeller refererar till data i den verkliga tabellen, vilket gör att drivrutinen kan komma åt denormaliserade data. Mer information finns i avsnittet Exempel. Du kan komma åt innehållet i Cassandra-samlingar genom att fråga och ansluta till de virtuella tabellerna.
 
 ### <a name="example"></a>Exempel
 
-Till exempel är följande "ExampleTable" en Cassandra-databas tabell som innehåller en heltals primär nyckel kolumn med namnet "pk_int", en text kolumn med namnet värde, en List kolumn, en kart kolumn och en Set-kolumn (med namnet "StringSet").
+Följande "Exempeltabell" är till exempel en Cassandra-databastabell som innehåller en heltalsnyckelkolumn med namnet "pk_int", en textkolumn med namnet värde, en listkolumn, en kartkolumn och en uppsättningskolumn (med namnet "StringSet").
 
-| pk_int | Värde | Lista | Karta | StringSet |
+| pk_int | Värde | Visa lista | Karta | StringSet |
 | --- | --- | --- | --- | --- |
-| 1 |"exempel värde 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
-| 3 |"exempel värde 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
+| 1 |"provvärde 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
+| 3 |"provvärde 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
 
-Driv rutinen skulle generera flera virtuella tabeller som representerar den här enskilda tabellen. Sekundär nyckel kolumnerna i de virtuella tabellerna refererar till primär nyckel kolumnerna i den verkliga tabellen och anger vilken verklig tabell rad den virtuella tabell raden motsvarar.
+Drivrutinen skulle generera flera virtuella tabeller för att representera den här enstaka tabellen. Kolumnerna för sekundärnyckel i de virtuella tabellerna refererar till primärnyckelkolumnerna i den verkliga tabellen och anger vilken verklig tabellrad den virtuella tabellraden motsvarar.
 
-Den första virtuella tabellen är bas tabellen med namnet "ExampleTable" som visas i följande tabell: 
+Den första virtuella tabellen är bastabellen "ExampleTable" visas i följande tabell: 
 
 | pk_int | Värde |
 | --- | --- |
-| 1 |"exempel värde 1" |
-| 3 |"exempel värde 3" |
+| 1 |"provvärde 1" |
+| 3 |"provvärde 3" |
 
-Bas tabellen innehåller samma data som den ursprungliga databas tabellen förutom samlingarna, som utelämnas från den här tabellen och expanderas i andra virtuella tabeller.
+Bastabellen innehåller samma data som den ursprungliga databastabellen förutom samlingarna, som utelämnas från den här tabellen och expanderas i andra virtuella tabeller.
 
-I följande tabeller visas de virtuella tabeller som normaliserar data från kolumnerna List, Map och StringSet. Kolumnerna med namn som slutar med "_index" eller "_key" visar positionen för data i den ursprungliga listan eller kartan. Kolumnerna med namn som slutar med "_value" innehåller utökade data från samlingen.
+I följande tabeller visas de virtuella tabeller som renormalize data från kolumnerna Lista, Karta och StringSet. Kolumnerna med namn som slutar med "_index" eller "_key" anger datas position i den ursprungliga listan eller kartan. Kolumnerna med namn som slutar med "_value" innehåller expanderade data från samlingen.
 
-**Tabell ExampleTable_vt_List:**
+**Tabell "ExampleTable_vt_List":**
 
 | pk_int | List_index | List_value |
 | --- | --- | --- |
@@ -247,7 +247,7 @@ I följande tabeller visas de virtuella tabeller som normaliserar data från kol
 | 3 |2 |102 |
 | 3 |3 |103 |
 
-**Tabell ExampleTable_vt_Map:**
+**Tabell "ExampleTable_vt_Map":**
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
@@ -255,7 +255,7 @@ I följande tabeller visas de virtuella tabeller som normaliserar data från kol
 | 1 |S2 |b |
 | 3 |S1 |t |
 
-**Tabell ExampleTable_vt_StringSet:**
+**Tabell "ExampleTable_vt_StringSet":**
 
 | pk_int | StringSet_value |
 | --- | --- |
@@ -265,9 +265,9 @@ I följande tabeller visas de virtuella tabeller som normaliserar data från kol
 | 3 |A |
 | 3 |E |
 
-## <a name="lookup-activity-properties"></a>Egenskaper för Sök aktivitet
+## <a name="lookup-activity-properties"></a>Egenskaper för uppslagsaktivitet
 
-Om du vill veta mer om egenskaperna kontrollerar du [söknings aktiviteten](control-flow-lookup-activity.md).
+Om du vill veta mer om egenskaperna kontrollerar du [uppslagsaktivitet](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Nästa steg
-En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+En lista över datalager som stöds som källor och sänkor av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

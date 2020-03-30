@@ -5,16 +5,16 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.openlocfilehash: 346f63109e673692d425ede6bdbcb6f633af80bb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "68857510"
 ---
-**.NET-ServerC#del ()** :
+**.NET-backend (C#):**
   
-1. Högerklicka på Server projektet i Visual Studio och klicka på **Hantera NuGet-paket**, Sök efter `Microsoft.Azure.NotificationHubs`och klicka sedan på **Installera**. Detta installerar Notification Hubs bibliotek för att skicka meddelanden från Server delen.
-2. Öppna **kontrollanter** > **TodoItemController.cs**i Server delen Visual Studio-projektet. Lägg till följande `using` -instruktion högst upp i filen:
+1. Högerklicka på serverprojektet i Visual Studio och klicka på Hantera `Microsoft.Azure.NotificationHubs` **NuGet-paket**, sök efter och klicka sedan på **Installera**. Detta installerar biblioteket Meddelandehubbar för att skicka meddelanden från serveringsbussen.
+2. Öppna **Controllers** > **TodoItemController.cs**i backends Visual Studio-projekt . Lägg till följande `using` programsats högst upp i filen:
 
     ```csharp
     using Microsoft.Azure.Mobile.Server.Config;
@@ -63,13 +63,13 @@ ms.locfileid: "68857510"
     }
     ```
 
-4. Publicera om Server projektet.
+4. Publicera om serverprojektet.
 
 **Node.js-serverdel**:
 
-1. Konfigurera ditt Server dels projekt.    
+1. Ställ in ditt backend-projekt.    
 
-2. Ersätt Table-skriptet todoitem. js med följande kod:
+2. Ersätt tabellskriptet todoitem.js med följande kod:
 
     ```javascript
     var azureMobileApps = require('azure-mobile-apps'),
@@ -110,4 +110,4 @@ ms.locfileid: "68857510"
     module.exports = table;
     ```
 
-3. Publicera om Server projektet när du redigerar filen på den lokala datorn.
+3. När du redigerar filen på den lokala datorn publicerar du om serverprojektet.

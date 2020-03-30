@@ -1,5 +1,5 @@
 ---
-title: 'Användardefinierade funktioner (UDF: er) i Azure Cosmos DB'
+title: Användardefinierade funktioner (UDFs) i Azure Cosmos DB
 description: Lär dig mer om användardefinierade funktioner i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: mjbrown
 ms.openlocfilehash: b67202da7293ef55cfe3390ca676f7944da80fba
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "69614328"
 ---
-# <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Användardefinierade funktioner (UDF: er) i Azure Cosmos DB
+# <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Användardefinierade funktioner (UDFs) i Azure Cosmos DB
 
-SQL API ger stöd för användardefinierade funktioner (UDF: er). Med skalär UDF: er kan du skicka med noll eller många argument och returnera ett enskilt argument resultat. API: et kontrollerar varje argument för att vara juridiska JSON-värden.  
+SQL API ger stöd för användardefinierade funktioner (UDFs). Med skalbara UDF:er kan du skicka in noll eller många argument och returnera ett enda argumentresultat. API:et kontrollerar varje argument för att vara lagliga JSON-värden.  
 
-API: et utökar SQL-syntaxen för att stödja anpassad program logik med UDF: er. Du kan registrera UDF: er med SQL-API: et och referera dem i SQL-frågor. Faktum är att UDF:er har utmärkt utformning för att anropas från frågor. UDF: er har inte åtkomst till objektet Context, t. ex. andra JavaScript-typer, till exempel lagrade procedurer och utlösare. Frågorna är skrivskyddade och kan köras antingen på primära eller sekundära repliker. UDF: er, till skillnad från andra JavaScript-typer, är utformade för att köras på sekundära repliker.
+API:et utökar SQL-syntaxen för att stödja anpassad programlogik med udfs. Du kan registrera UDFs med SQL API och referera till dem i SQL-frågor. Faktum är att UDF:er har utmärkt utformning för att anropas från frågor. Som en naturlig följd har UDF:er inte åtkomst till kontextobjektet som andra JavaScript-typer, till exempel lagrade procedurer och utlösare. Frågor är skrivskyddade och kan köras antingen på primära eller sekundära repliker. UDF:er, till skillnad från andra JavaScript-typer, är utformade för att köras på sekundära repliker.
 
-I följande exempel registreras en UDF under en objekt behållare i Cosmos-databasen. I exemplet skapas en UDF vars namn är `REGEX_MATCH`. Det accepterar två JSON- `input` sträng värden och `pattern`kontrollerar om det första matchar mönstret som anges i `string.match()` den andra med hjälp av JavaScript-funktionen.
+I följande exempel registreras en UDF under en artikelbehållare i Cosmos-databasen. Exemplet skapar en UDF vars namn är `REGEX_MATCH`. Den accepterar två JSON-strängvärden `input` och `pattern`, och kontrollerar om det första matchar `string.match()` det mönster som anges i det andra med JavaScript-funktionen.
 
 ## <a name="examples"></a>Exempel
 
@@ -37,14 +37,14 @@ I följande exempel registreras en UDF under en objekt behållare i Cosmos-datab
            regexMatchUdf).Result;  
 ```
 
-Använd nu denna UDF i en fråga-projektion. Du måste kvalificera UDF: er med Skift läges känsligt `udf.` prefix när du anropar dem inifrån frågor.
+Använd nu den här UDF:en i en frågeprojektion. Du måste kvalificera UDF:er `udf.` med det skiftlägeskänsliga prefixet när du anropar dem inifrån frågor.
 
 ```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [
@@ -57,7 +57,7 @@ Resultaten är:
     ]
 ```
 
-Du kan använda UDF-filen som är `udf.` kvalificerad med prefixet inuti ett filter, som i följande exempel:
+Du kan använda UDF-enheten som är kvalificerad med prefixet `udf.` i ett filter, som i följande exempel:
 
 ```sql
     SELECT Families.id, Families.address.city
@@ -65,7 +65,7 @@ Du kan använda UDF-filen som är `udf.` kvalificerad med prefixet inuti ett fil
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
     [{
@@ -74,9 +74,9 @@ Resultaten är:
     }]
 ```
 
-I själva verket är UDF: er giltiga skalära uttryck som du kan använda i både projektioner och filter.
+I huvudsak är UDF:er giltiga skaluttryck som du kan använda i både projektioner och filter.
 
-Om du vill utöka kraften i UDF: er kan du titta på ett annat exempel med villkorlig logik:
+Om du vill utöka kraften i UDF:er kan du titta på ett annat exempel med villkorsstyrd logik:
 
 ```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
@@ -100,14 +100,14 @@ Om du vill utöka kraften i UDF: er kan du titta på ett annat exempel med villk
                 seaLevelUdf);
 ```
 
-I följande exempel övningaras UDF:
+I följande exempel övnings UDF:
 
 ```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f
 ```
 
-Resultaten är:
+Resultatet är:
 
 ```json
      [
@@ -122,12 +122,12 @@ Resultaten är:
     ]
 ```
 
-Om egenskaperna som anges av UDF-parametrarna inte är tillgängliga i JSON-värdet betraktas parametern som odefinierad och UDF-anropet hoppas över. Om resultatet av UDF-filen är odefinierat inkluderas det inte i resultatet.
+Om egenskaperna som refereras till av UDF-parametrarna inte är tillgängliga i JSON-värdet betraktas parametern som odefinierad och UDF-anropet hoppas över. På samma sätt, om resultatet av UDF är odefinierat, ingår det inte i resultatet.
 
-Som föregående exempel visar UDF: er integrerar du kraften hos JavaScript-språket med SQL-API: et. UDF: er tillhandahåller ett omfattande programmerbart gränssnitt för att göra komplexa procedurer, villkorlig logik med hjälp av inbyggda funktioner för JavaScript-körning. SQL-API: et tillhandahåller argumenten för UDF: er för varje käll objekt med det aktuella WHERE-eller SELECT-sats stadiet bearbetning. Resultatet är sömlöst införlivat i den övergripande körnings pipelinen. I sammanfattning är UDF: er fantastiska verktyg för att utföra komplex affärs logik som en del av frågorna.
+Som de föregående exemplen visar integrerar UDFs kraften i JavaScript-språket med SQL API. UFS ger ett omfattande programmerbart gränssnitt för att göra komplexa procedurmässiga, villkorlig logik med hjälp av inbyggda JavaScript-körningsfunktioner. SQL API innehåller argumenten till UDF:erna för varje källobjekt i det aktuella VAR- eller SELECT-satsen i bearbetningen. Resultatet är sömlöst införlivat i den övergripande körningspipelinen. Sammanfattningsvis är UDF:er bra verktyg för att göra komplex affärslogik som en del av frågor.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Introduktion till Azure Cosmos DB](introduction.md)
-- [System funktioner](sql-query-system-functions.md)
-- [Agg regeringar](sql-query-aggregates.md)
+- [Systemfunktioner](sql-query-system-functions.md)
+- [Samlingar](sql-query-aggregates.md)

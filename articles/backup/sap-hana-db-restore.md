@@ -1,158 +1,158 @@
 ---
-title: Återställa SAP HANA databaser på virtuella Azure-datorer
-description: I den här artikeln får du lära dig hur du återställer SAP HANA databaser som körs på Azure Virtual Machines.
+title: Återställa SAP HANA-databaser på virtuella Azure-datorer
+description: I den här artikeln bör du ta reda på hur du återställer SAP HANA-databaser som körs på Virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: 999edba61177758ad9039e81e789efcef99ca1de
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "74287923"
 ---
-# <a name="restore-sap-hana-databases-on-azure-vms"></a>Återställa SAP HANA databaser på virtuella Azure-datorer
+# <a name="restore-sap-hana-databases-on-azure-vms"></a>Återställa SAP HANA-databaser på virtuella Azure-datorer
 
-Den här artikeln beskriver hur du återställer SAP HANA databaser som körs på den virtuella Azure-datorn (VM), att Azure Backup-tjänsten har säkerhetskopierats till ett Azure Backup Recovery Services-valv. Återställningar kan användas för att skapa kopior av data för utvecklings-och test scenarier eller för att återgå till ett tidigare tillstånd.
+I den här artikeln beskrivs hur du återställer SAP HANA-databaser som körs på Azure Virtual Machine (VM), som Azure Backup-tjänsten har säkerhetskopierat till ett Azure Backup Recovery Services-valv. Återställningar kan användas för att skapa kopior av data för utvecklings-/testscenarier eller för att återgå till ett tidigare tillstånd.
 
-Mer information om hur du säkerhetskopierar SAP HANA databaser finns i [säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
+Mer information om hur du säkerhetskopierar SAP HANA-databaser finns i [Säkerhetskopiera SAP HANA-databaser på virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database).
 
-## <a name="restore-to-a-point-in-time-or-to-a-recovery-point"></a>Återställa till en tidpunkt eller till en återställnings punkt
+## <a name="restore-to-a-point-in-time-or-to-a-recovery-point"></a>Återställa till en tidpunkt eller till en återställningspunkt
 
-Azure Backup kan återställa SAP HANA databaser som körs på virtuella Azure-datorer på följande sätt:
+Azure Backup kan återställa SAP HANA-databaser som körs på virtuella Azure-datorer enligt följande:
 
-* Återställ till ett visst datum eller en angiven tidpunkt (till den andra) med hjälp av logg säkerhets kopior. Azure Backup identifierar automatiskt lämpliga fullständiga, differentiella säkerhets kopior och kedja av logg säkerhets kopior som krävs för att återställa baserat på den valda tiden.
+* Återställ till ett visst datum eller en viss tid (till det andra) med hjälp av loggsäkerhetskopior. Azure Backup bestämmer automatiskt lämpliga fullständiga, differentiella säkerhetskopior och kedjan av loggsäkerhetskopior som krävs för att återställa baserat på den valda tiden.
 
-* Återställ till en viss fullständig eller differentiell säkerhets kopia för att återställa till en viss återställnings punkt.
+* Återställ till en specifik fullständig eller differentiell säkerhetskopiering för att återställa till en viss återställningspunkt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Observera följande innan du återställer en databas:
 
-* Du kan bara återställa databasen till en SAP HANA-instans i samma region
+* Du kan återställa databasen endast till en SAP HANA-instans som finns i samma region
 
-* Mål instansen måste registreras med samma valv som källan
+* Målinstansen måste registreras med samma valv som källan
 
-* Azure Backup kan inte identifiera två olika SAP HANAs instanser på samma virtuella dator. Därför är det inte möjligt att återställa data från en instans till en annan på samma virtuella dator
+* Azure Backup kan inte identifiera två olika SAP HANA-instanser på samma virtuella dator. Därför är det inte möjligt att återställa data från en instans till en annan på samma virtuella dator
 
-* Kontrol lera statusen för **säkerhets kopierings beredskap** för att säkerställa att mål SAP HANAs instansen är redo för återställning:
+* Kontrollera statusen för **säkerhetsberedskapen** för säkerhetskopiering för att säkerställa att SAP HANA-instansen är klar för återställning:
 
-  * Öppna valvet där mål SAP HANAs instansen är registrerad
+  * Öppna valvet där mål-SAP HANA-instansen är registrerad
 
-  * På instrument panelen för valvet, under **komma igång**, väljer du **säkerhets kopiering**
+  * Välj **Säkerhetskopiering**under Komma igång på **instrumentpanelen** för valvet
 
-![Säkerhets kopiering i valvets instrument panel](media/sap-hana-db-restore/getting-started-backup.png)
+![Säkerhetskopiering i instrumentpanelen i valvet](media/sap-hana-db-restore/getting-started-backup.png)
 
-* Under **säkerhets kopiering**under **vad vill du säkerhetskopiera? väljer du** **SAP HANA i virtuell Azure-dator**
+* I **Säkerhetskopiering**under Vad vill du **SAP HANA in Azure VM** **säkerhetskopiera?**
 
-![Välj SAP HANA i virtuell Azure-dator](media/sap-hana-db-restore/sap-hana-backup.png)
+![Välj SAP HANA i Azure VM](media/sap-hana-db-restore/sap-hana-backup.png)
 
-* Klicka på **Visa information** under **identifiera databaser i virtuella datorer**
+* Under **Upptäck DBs i virtuella datorer** klicka på Visa **information**
 
 ![Visa information](media/sap-hana-db-restore/view-details.png)
 
-* Granska **beredskap för säkerhets kopieringen** för den virtuella mål datorn
+* Granska **säkerhetskopieringsberedskapen** för måldatorn
 
 ![Skyddade servrar](media/sap-hana-db-restore/protected-servers.png)
 
-* Mer information om de återställnings typer som SAP HANA stöder finns i SAP HANA anmärkning [1642148](https://launchpad.support.sap.com/#/notes/1642148)
+* Mer information om de återställningstyper som SAP HANA stöder finns i SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148)
 
-## <a name="restore-a-database"></a>Återställa en databas
+## <a name="restore-a-database"></a>Återställ en databas
 
-* Öppna valvet där SAP HANA databas som ska återställas har registrerats
+* Öppna valvet där SAP HANA-databasen som ska återställas registreras
 
-* Välj **säkerhets kopierings objekt** under **skyddade objekt**på instrument panelen för valvet
+* På instrumentpanelen för **valvet,** under Skyddade objekt, väljer du **Säkerhetskopieringsobjekt**
 
-![Säkerhetskopiera objekt](media/sap-hana-db-restore/backup-items.png)
+![Säkerhetskopior](media/sap-hana-db-restore/backup-items.png)
 
-* Under **säkerhets kopierings objekt**, under **säkerhets kopierings hanterings typ** väljer du **SAP HANA i Azure VM**
+* I **Säkerhetskopieringsobjekt**väljer du **SAP HANA under** hantering **av säkerhetskopieringstyper** i Azure VM
 
-![Typ av säkerhets kopierings hantering](media/sap-hana-db-restore/backup-management-type.png)
+![Typ av säkerhetskopieringshantering](media/sap-hana-db-restore/backup-management-type.png)
 
-* Välj den databas som ska återställas
+* Markera den databas som ska återställas
 
  ![Databas som ska återställas](media/sap-hana-db-restore/database-to-restore.png)
 
-* Granska menyn databas. Den innehåller information om säkerhets kopiering av databasen, inklusive:
+* Granska databasmenyn. Den innehåller information om säkerhetskopiering av databaser, inklusive:
 
-  * De äldsta och senaste återställnings punkterna
+  * De äldsta och senaste återställningspunkterna
 
-  * Status för logg säkerhets kopiering under de senaste 24 och 72 timmarna för databasen
+  * Loggsäkerhetsstatus för de senaste 24 och 72 timmarna för databasen
 
-![Menyn databas](media/sap-hana-db-restore/database-menu.png)
+![Menyn Databas](media/sap-hana-db-restore/database-menu.png)
 
-* Välj **Återställ databas**
+* Välj **Återställ DB**
 
-* Under **Återställ konfiguration**anger du var (eller hur) du vill återställa data:
+* Under **Återställ konfiguration**anger du var (eller hur) som data ska återställas:
 
-  * **Alternativ plats**: Återställ databasen till en annan plats och behåll den ursprungliga käll databasen.
+  * **Alternativ plats**: Återställ databasen till en annan plats och behåll den ursprungliga källdatabasen.
 
-  * **Skriv över DB**: Återställ data till samma SAP HANA instans som den ursprungliga källan. Med det här alternativet skrivs den ursprungliga databasen över.
+  * **Skriv över DB:** Återställ data till samma SAP HANA-instans som den ursprungliga källan. Det här alternativet skriver över den ursprungliga databasen.
 
 ![Återställ konfiguration](media/sap-hana-db-restore/restore-configuration.png)
 
-### <a name="restore-to-alternate-location"></a>Återställ till en annan plats
+### <a name="restore-to-alternate-location"></a>Återställa till alternativ plats
 
-* I menyn **Återställ konfiguration** , under **återställnings**läge, väljer du **alternativ plats**.
+* Välj **Alternativ plats**under **Var du återställer**på menyn **Återställ konfiguration** .
 
-![Återställ till en annan plats](media/sap-hana-db-restore/restore-alternate-location.png)
+![Återställa till alternativ plats](media/sap-hana-db-restore/restore-alternate-location.png)
 
-* Välj det SAP HANA värddator namn och instans namn som du vill återställa databasen till.
-* Kontrol lera om mål SAP HANAs instansen är redo för återställning genom att se till att **säkerhets kopieringen** är klar. Mer information finns i [avsnittet krav](#prerequisites) .
+* Välj det SAP HANA-värdnamn och förekomstnamn som du vill återställa databasen till.
+* Kontrollera om mål-SAP HANA-instansen är klar för återställning genom att säkerställa **säkerhetskopieringsberedskapen.** Mer information finns i [avsnittet för förutsättningar.](#prerequisites)
 * I rutan **Restored DB Name** (Namn på återställd databas) anger du namnet på måldatabasen.
 
 > [!NOTE]
-> Återställningar av Enkel databas container (SDC) måste följa dessa [kontroller](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
+> SDC-återställningar (Single Database Container) måste följa dessa [kontroller](backup-azure-sap-hana-database-troubleshoot.md#single-container-database-sdc-restore).
 
-* Om det är tillämpligt väljer du **Skriv över om databasen med samma namn redan finns på den valda Hana-instansen**.
+* Om tillämpligt väljer du **Skriv över om db med samma namn redan finns på vald HANA-instans**.
 * Välj **OK**.
 
-![Återställa konfiguration – slutlig skärm](media/sap-hana-db-restore/restore-configuration-last.png)
+![Återställ konfiguration - sista skärmen](media/sap-hana-db-restore/restore-configuration-last.png)
 
-* I **Välj återställnings punkt**väljer du **loggar (tidpunkt)** för att [återställa till en viss tidpunkt](#restore-to-a-specific-point-in-time). Eller Välj **fullständig & differentiell** för att [återställa till en viss återställnings punkt](#restore-to-a-specific-recovery-point).
+* I **Välj återställningspunkt**väljer du **Loggar (Tidpunkt)** för att [återställa till en viss tidpunkt](#restore-to-a-specific-point-in-time). Eller välj **Fullständig & differential** för att återställa till en viss [återställningspunkt](#restore-to-a-specific-recovery-point).
 
-### <a name="restore-and-overwrite"></a>Återställ och skriv över
+### <a name="restore-and-overwrite"></a>Återställa och skriva över
 
-* I menyn **Återställ konfiguration** , under **återställnings**-menyn, väljer du **Skriv över DB** > **OK**.
+* Välj **Skriv över DB** > **OK**under Var **du återställer**på menyn **Återställ konfiguration** .
 
 ![Åsidosätt databas](media/sap-hana-db-restore/overwrite-db.png)
 
-* I **Välj återställnings punkt**väljer du **loggar (tidpunkt)** för att [återställa till en viss tidpunkt](#restore-to-a-specific-point-in-time). Eller Välj **fullständig & differentiell** för att [återställa till en viss återställnings punkt](#restore-to-a-specific-recovery-point).
+* I **Välj återställningspunkt**väljer du **Loggar (Tidpunkt)** för att [återställa till en viss tidpunkt](#restore-to-a-specific-point-in-time). Eller välj **Fullständig & differential** för att återställa till en viss [återställningspunkt](#restore-to-a-specific-recovery-point).
 
-### <a name="restore-to-a-specific-point-in-time"></a>Återställ till en viss tidpunkt
+### <a name="restore-to-a-specific-point-in-time"></a>Återställa till en viss tidpunkt
 
-Om du har valt **loggar (tidpunkt)** som återställnings typ gör du följande:
+Om du har valt **Loggar (Point in Time)** som återställningstyp gör du följande:
 
-* Välj en återställnings punkt i logg diagrammet och välj sedan **OK** för att välja återställnings punkten.
+* Välj en återställningspunkt i loggdiagrammet och välj **OK** för att välja återställningspunkt.
 
-![Återställnings punkt](media/sap-hana-db-restore/restore-point.png)
+![Återställningspunkt](media/sap-hana-db-restore/restore-point.png)
 
 * På menyn **Återställ** väljer du **Återställ** för att starta återställningsjobbet.
 
-![Välj Återställ](media/sap-hana-db-restore/restore-restore.png)
+![Välj återställning](media/sap-hana-db-restore/restore-restore.png)
 
-* Spåra återställnings förloppet i **aviserings** området eller spåra den genom att välja **återställnings jobb** på menyn databas.
+* Spåra återställningsstatusen i området **Meddelanden** eller spåra den genom att välja **Återställ jobb** på databasmenyn.
 
 ![Återställningen har utlösts](media/sap-hana-db-restore/restore-triggered.png)
 
-### <a name="restore-to-a-specific-recovery-point"></a>Återställa till en viss återställnings punkt
+### <a name="restore-to-a-specific-recovery-point"></a>Återställa till en viss återställningspunkt
 
-Om du har valt **fullständig & differentiell** som återställnings typ gör du följande:
+Om du har valt **Fullständig & Differential** som återställningstyp gör du följande:
 
-* Välj en återställnings punkt i listan och välj sedan **OK** för att välja återställnings punkten.
+* Välj en återställningspunkt i listan och välj **OK** för att välja återställningspunkten.
 
-![Återställa en viss återställnings punkt](media/sap-hana-db-restore/specific-recovery-point.png)
+![Återställa specifik återställningspunkt](media/sap-hana-db-restore/specific-recovery-point.png)
 
 * På menyn **Återställ** väljer du **Återställ** för att starta återställningsjobbet.
 
-![Starta återställnings jobb](media/sap-hana-db-restore/restore-specific.png)
+![Starta återställningsjobb](media/sap-hana-db-restore/restore-specific.png)
 
-* Spåra återställnings förloppet i **aviserings** området eller spåra den genom att välja **återställnings jobb** på menyn databas.
+* Spåra återställningsstatusen i området **Meddelanden** eller spåra den genom att välja **Återställ jobb** på databasmenyn.
 
-![Återställnings förlopp](media/sap-hana-db-restore/restore-progress.png)
+![Återställ förloppet](media/sap-hana-db-restore/restore-progress.png)
 
 > [!NOTE]
-> I MDC (Multiple Database container) återställs när system databasen har återställts till en mål instansen måste en köra skriptet för för registrering igen. Det går bara att återställa efterföljande klient databas återställningar. Mer information hittar du i [fel sökning – MDC Restore](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
+> I MDC (Multiple Database Container) återställs efter att system-DB har återställts till en målinstans måste man köra förregistreringsskriptet igen. Först då lyckas de efterföljande klient-DB-återställningarna. Mer information finns i [Felsökning – MDC Restore](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur](sap-hana-db-manage.md) du hanterar SAP HANA databaser som har säkerhetskopierats med Azure Backup
+* [Lär dig hur du](sap-hana-db-manage.md) hanterar SAP HANA-databaser som säkerhetskopierats med Azure Backup

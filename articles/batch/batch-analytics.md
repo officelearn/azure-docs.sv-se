@@ -1,6 +1,6 @@
 ---
-title: Azure Batch analys
-description: Ämnena i batch Analytics innehåller referensinformation om de händelser och aviseringar som är tillgängliga för batch-tjänstens resurser.
+title: Azure Batch-analys
+description: Avsnitten i Batch Analytics innehåller referensinformation för de händelser och aviseringar som är tillgängliga för batchtjänstresurser.
 services: batch
 author: LauraBrenner
 manager: evansma
@@ -12,27 +12,27 @@ ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: labrenne
 ms.openlocfilehash: d9538461dfa48a961f9325566b2adaf265e8daeb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/05/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77025970"
 ---
 # <a name="batch-analytics"></a>Batchanalys
-Ämnena i batch Analytics innehåller referensinformation om de händelser och aviseringar som är tillgängliga för batch-tjänstens resurser.
+Avsnitten i Batch Analytics innehåller referensinformation för de händelser och aviseringar som är tillgängliga för batchtjänstresurser.
 
-Mer information om hur du aktiverar och använder batch-diagnostikloggar finns i [Azure Batch diagnostisk loggning](https://azure.microsoft.com/documentation/articles/batch-diagnostics/) .
+Mer information om hur du aktiverar och förbrukar diagnostikloggar för Azure Batch finns i [Azure Batch-diagnostikloggar.](https://azure.microsoft.com/documentation/articles/batch-diagnostics/)
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Azure Batchs tjänsten genererar följande diagnostiska logg händelser under livstiden för vissa batch-resurser.
+Azure Batch-tjänsten avger följande diagnostiska logghändelser under livstiden för vissa batchresurser.
 
-**Tjänsten logghändelser**
-* [Skapande av pool](batch-pool-create-event.md)
-* [Start för borttagning av pool](batch-pool-delete-start-event.md)
-* [Pool ta bort klar](batch-pool-delete-complete-event.md)
-* [Start för storleksändring av pool](batch-pool-resize-start-event.md)
-* [Pool resize klar](batch-pool-resize-complete-event.md)
-* [Uppgiften start](batch-task-start-event.md)
-* [Uppgift slutförd](batch-task-complete-event.md)
+**Servicelogghändelser**
+* [Skapa pool](batch-pool-create-event.md)
+* [Start av poolborttagning](batch-pool-delete-start-event.md)
+* [Borttagning av pool har slutförts](batch-pool-delete-complete-event.md)
+* [Starta om poolen](batch-pool-resize-start-event.md)
+* [Ändrar storlek på poolen färdigt](batch-pool-resize-complete-event.md)
+* [Start av uppgift](batch-task-start-event.md)
+* [Uppgiften har slutförts](batch-task-complete-event.md)
 * [Aktiviteten misslyckas](batch-task-fail-event.md)

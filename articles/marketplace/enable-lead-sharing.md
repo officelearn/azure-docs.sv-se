@@ -1,58 +1,56 @@
 ---
-title: Aktivera delning av lead på Azure Marketplace | Azure
-description: Lär dig hur du aktiverar delning av lead för Azure Marketplace och AppSource, för app-och tjänst utgivare.
-services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Aktivera leaddelning på Azure Marketplace | Azure
+description: Lär dig hur du aktiverar leaddelning för Azure Marketplace och AppSource för app- och tjänstutgivare.
 author: jm-aditi-ms
-manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/05/2018
-ms.author: ellacroi
-ms.openlocfilehash: 4475f6aecb0fe80cd20138eb885b79b6e7e82208
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 09282f3a54eeded52c63fab6bfe13528eaace48a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818672"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80286310"
 ---
 # <a name="enable-lead-sharing"></a>Aktivera delning av lead
-Att se till att lead management har Aktiver ATS för din lista på [Azure Marketplace](https://azuremarketplace.microsoft.com) eller [Microsoft AppSource](https://appsource.microsoft.com) kan hjälpa dig att få kontakt information för följande mål grupper:
+Om du ser till att leadhantering är aktiverat för dina uppgifter på [Azure Marketplace](https://azuremarketplace.microsoft.com) eller [Microsoft AppSource](https://appsource.microsoft.com) kan du få kontaktinformation för följande målgrupper:
 
-| Butik | Målgrupp |
+| Skyltfönster | Målgrupp |
 |:--- |:--- |
-| AppSource | Företags kunder |
+| AppSource | Företagskunder |
 | Azure Marketplace | Alla kunder |
 
-Dina leads utgör grunden för de kampanjer som anges i följande tabell, för relaterade Sälj rörelser efter ditt fält Sälj personal och information om hur appen eller erbjudandet presterar:
+Dina leads utgör grunden för uppsökande verksamhet för de kampanjer som anges i följande tabell, för relaterade försäljningsrörelser av din fältsäljare och för information om hur appen eller erbjudandet presterar:
 
-| Butik | Kampanjmallar |
+| Skyltfönster | Kampanj |
 |:--- |:--- |
-| AppSource | Nurture |
-| Azure Marketplace | Generering på begäran |
+| AppSource | Befrämja |
+| Azure Marketplace | Efterfrågegenerering |
 
 Använd följande metoder för dina leads:
-*   Kvalificera dina leads och Poäng för leads som affärs möjligheter.
-*   Nurture dina leads för att ange en försäljnings pipeline.
-*   Anpassa dina ansträngningar med din övergripande strategi för marknadsförings kampanjer.
+*   Kvalificera dina leads och poäng leder som försäljningsmöjligheter.
+*   Vårda dina leder att ange en försäljning pipeline.
+*   Anpassa dina ansträngningar till din övergripande marknadsföringskampanj strategi.
 
-Dina leads visar kund intresse i följande listor:
+Dina leads visar kundernas intresse för följande listor:
 
-| Butik | Listor |
+| Skyltfönster | Lista |
 |:--- |:--- |
-| AppSource | <table> <tr><td>App</td></tr> <tr><td>Konsult tjänster</td></tr> </table> |
+| AppSource | <table> <tr><td>App</td></tr> <tr><td>Rådgivningstjänster</td></tr> </table> |
 | Azure Marketplace | <table> <tr><td>Erbjudande</td></tr> <tr><td>Teknologi</td></tr> </table> |
 
-Du måste ha en process på plats för att följa upp med dina leads enligt beskrivningen i följande tabell:
+Du bör ha en process på plats för att följa upp med dina leads enligt beskrivningen i följande tabell:
 
-| Butik | Potentiella |
+| Skyltfönster | Leads |
 |:--- |:--- |
-| AppSource | <table> <tr><td>Din CRM</td></tr> <tr><td>Microsoft Field näringsidkare CRM</td></tr> </table> |
-| Azure Marketplace | <table> <tr><td>Azure Marketplace</td></tr> <tr><td>Microsoft Field näringsidkare CRM</td></tr> </table> |
+| AppSource | <table> <tr><td>Din CRM</td></tr> <tr><td>Microsoft-fältsäljare CRM</td></tr> </table> |
+| Azure Marketplace | <table> <tr><td>Azure Marketplace</td></tr> <tr><td>Microsoft-fältsäljare CRM</td></tr> </table> |
 
-Dina leads i butiker i Marketplace skiljer sig från Microsofts säljares kvalificerade leads som är en funktion i Co-sälja-programmet.
+Dina leads i skyltfönster på Marketplace skiljer sig från Microsofts säljarkvalificerade leads som ingår i co-sell-programmet.
 
-Mer information om hur du kommer åt samförsäljnings programmet finns i [lansera ditt företag med Microsoft](./promote-your-business-with-microsoft.md).
+Mer information om hur du kommer åt samförsäljningsprogrammet finns i [Marknadsför ditt företag med Microsoft](./promote-your-business-with-microsoft.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Läs igenom [publicerings guiden för Azure Marketplace och AppSource](./marketplace-publishers-guide.md).
+Granska [publiceringsguiden för Azure Marketplace och AppSource](./marketplace-publishers-guide.md).

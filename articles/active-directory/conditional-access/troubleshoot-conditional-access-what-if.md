@@ -1,6 +1,6 @@
 ---
-title: Felsöka villkorlig åtkomst med hjälp av What If-verktyget – Azure Active Directory
-description: Var du hittar vilka villkorliga åtkomst principer som tillämpades och varför
+title: Felsöka villkorlig åtkomst med verktyget Vad händer - Azure Active Directory
+description: Var du hittar vilka principer för villkorlig åtkomst som tillämpades och varför
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -12,70 +12,70 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73175798"
 ---
-# <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Felsöka villkorlig åtkomst med hjälp av What If-verktyget
+# <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>Felsöka villkorlig åtkomst med verktyget Vad händer
 
-[What IFS verktyget](what-if-tool.md) i villkorlig åtkomst är kraftfullt vid försök att förstå varför en princip har eller inte tillämpats på en användare under en viss omständighet eller om en princip skulle gälla i ett känt tillstånd.
+[Verktyget Vad händer om](what-if-tool.md) i villkorlig åtkomst är kraftfullt när du försöker förstå varför en princip har tillämpats eller inte tillämpades på en användare under en viss omständighet eller om en princip skulle gälla i ett känt tillstånd.
 
-What If-verktyget finns i **Azure Portal** > **Azure Active Directory** > **villkorlig åtkomst** > **What If**.
+Verktyget Vad händer om finns i **Azure Portal** > **Azure Active Directory** > **Villkorlig åtkomst** > **Vad händer om**.
 
-![What If verktyget för villkorlig åtkomst i standard läge](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
+![Villkorad åtkomst vad händer om-verktyget i standardtillstånd](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
 
 > [!NOTE]
-> What If verktyget utvärderar för närvarande inte principer i endast rapport läge.
+> Verktyget Vad händer utvärderar för närvarande inte principer i rapportläge.
 
-## <a name="gathering-information"></a>Samlar in information
+## <a name="gathering-information"></a>Samla in information
 
-What If-verktyget kräver bara att en **användare** kommer igång. 
+Verktyget Vad händer om kräver bara en **användare** för att komma igång. 
 
-Följande ytterligare information är valfri, men kan hjälpa dig att begränsa omfattningen för specifika fall.
+Följande ytterligare information är valfri, men kommer att bidra till att begränsa utrymmet för specifika fall.
 
 * Molnappar eller åtgärder
 * IP-adress 
-* Land
-* Enhets plattform
-* Klient program (för hands version)
-* Enhets tillstånd (för hands version) 
-* Inloggnings risk
+* Land/region
+* Enhetsplattform
+* Klientappar (förhandsgranskning)
+* Enhetstillstånd (förhandsgranskning) 
+* Inanmälningsrisk
 
-Den här informationen kan samlas in från användaren, enheten eller inloggnings loggen för Azure AD.
+Den här informationen kan samlas in från användaren, deras enhet eller Azure AD-inloggningsloggen.
 
-## <a name="generating-results"></a>Genererar resultat
+## <a name="generating-results"></a>Generera resultat
 
-Ange de kriterier som samlats in i föregående avsnitt och välj **What If** för att generera en lista över resultat. 
+Ange de kriterier som samlats in i föregående avsnitt och välj **Vad händer om** du vill generera en resultatlista. 
 
-Du kan när som helst välja **Återställ** för att rensa eventuella inmatade villkor och återgå till standard läget.
+När som helst kan du välja **Återställ** för att rensa alla villkor indata och återgå till standardtillståndet.
 
-## <a name="evaluating-results"></a>Utvärderar resultat
+## <a name="evaluating-results"></a>Utvärdera resultat
 
-### <a name="policies-that-will-apply"></a>Principer som ska gälla
+### <a name="policies-that-will-apply"></a>Policyer som kommer att gälla
 
-I den här listan visas vilka principer för villkorlig åtkomst som gäller för villkoren. Listan innehåller både de bidrags kontroller och de sessionsnycklar som är tillämpliga. Exempel på detta är att kräva Multi-Factor Authentication för åtkomst till ett specifik program.
+Den här listan visar vilka principer för villkorlig åtkomst som skulle gälla med tanke på villkoren. Listan innehåller både de bidrags- och sessionskontroller som gäller. Exempel på detta är att kräva multifaktorautentisering för att komma åt ett visst program.
 
-### <a name="policies-that-will-not-apply"></a>Principer som inte kommer att gälla
+### <a name="policies-that-will-not-apply"></a>Policyer som inte gäller
 
-I den här listan visas principer för villkorlig åtkomst som inte gäller om villkoren tillämpas. Listan innehåller alla principer och orsaken till att de inte gäller. Exempel på detta är användare och grupper som kan uteslutas från en princip.
+Den här listan visar principer för villkorlig åtkomst som inte skulle gälla om villkoren tillämpas. Listan innehåller alla principer och anledningen till att de inte gäller. Exempel är användare och grupper som kan uteslutas från en princip.
 
 ## <a name="use-case"></a>Användningsfall
 
-Många organisationer skapar principer baserat på nätverks platser, som tillåter betrodda platser och blockerar platser där åtkomst inte ska ske.
+Många organisationer skapar principer baserat på nätverksplatser, tillåter betrodda platser och blockerar platser där åtkomst inte ska ske.
 
-För att verifiera att en konfiguration har gjorts på lämpligt sätt kan en administratör använda What If-verktyget för att efterlikna åtkomst, från en plats som ska tillåtas och från en plats som ska nekas.
+För att verifiera att en konfiguration har gjorts på rätt sätt kan en administratör använda verktyget Vad händer om för att efterlikna åtkomst, från en plats som ska tillåtas och från en plats som ska nekas.
 
-![What If verktyget visar resultat med blockera åtkomst](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
+![Vad händer om-verktyget som visar resultat med Blockera åtkomst](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-results.png)
 
-I den här instansen skulle användaren blockeras från att komma åt en molnbaserad app i sin resa till Nord Korea eftersom contoso har blockerat åtkomst från den platsen.
+I det här fallet skulle användaren blockeras från att komma åt någon molnapp på sin resa till Nordkorea eftersom Contoso har blockerat åtkomst från den platsen.
 
-Det här testet kan utökas för att omfatta andra data punkter för att begränsa omfattningen.
+Det här testet kan utökas till att omfatta andra datapunkter för att begränsa omfattningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vad är villkorlig åtkomst?](overview.md)
 * [Vad är Azure Active Directory Identity Protection?](../identity-protection/overview-v2.md)
-* [Vad är en enhets identitet?](../devices/overview.md)
+* [Vad är en enhetsidentitet?](../devices/overview.md)
 * [Så här fungerar Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

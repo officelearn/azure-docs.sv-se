@@ -1,6 +1,6 @@
 ---
 title: Vad hände med mitt ASP.NET-projekt?
-description: Beskriver vad som händer när du har lagt till Azure Storage i ett ASP.NET-projekt med hjälp av Visual Studio Connected Services
+description: Beskriver vad som händer när du har lagt till Azure Storage i ett ASP.NET projekt med hjälp av Visual Studio-anslutna tjänster
 services: storage
 author: ghogen
 manager: jillfra
@@ -14,28 +14,28 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 4374955d6d51c1ae44c211aaa93d0b5e8930fe5b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72300034"
 ---
-# <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>Vad hände med mitt ASP.NET-projekt (Visual Studio Azure Storage Connected service)?
+# <a name="what-happened-to-my-aspnet-project-visual-studio-azure-storage-connected-service"></a>Vad har hänt med mitt ASP.NET-projekt (Tjänsten Visual Studio Azure Storage connected)?
 ## <a name="references-added"></a>Tillagda referenser
-Azure Storage NuGet-paketet har lagts till i Visual Studio-projektet.  
-Det här paketet lägger till följande .NET-referenser:
+Azure Storage NuGet-paketet har lagts till i ditt Visual Studio-projekt.  
+I det här paketet läggs följande .NET-referenser till:
 
-* **Microsoft. data. EDM**
-* **Microsoft. data. OData**
-* **Microsoft. data. Services. client**
-* **Microsoft. WindowsAzure. Configuration**
-* **Microsoft. WindowsAzure. Storage**
-* **Newtonsoft. JSON**
-* **System. data**
-* **System. spatial**
+* **Microsoft.Data.Edm**
+* **Microsoft.Data.OData**
+* **Microsoft.Data.Services.Client**
+* **Microsoft.WindowsAzure.Konfiguration**
+* **Microsoft.WindowsAzure.Storage**
+* **Newtonsoft.Json**
+* **System.Data (Data)**
+* **System.Rumsligt**
 
-## <a name="connection-string-for-azure-storage-added"></a>Anslutnings sträng för Azure Storage tillagd
-I filen Web. config i projektet skapades ett element med det valda lagrings kontots anslutnings sträng och nyckel.
+## <a name="connection-string-for-azure-storage-added"></a>Anslutningssträng för Azure Storage har lagts till
+I filen web.config i projektet skapades ett element med det valda lagringskontots anslutningssträng och nyckel.
 
-Mer information finns i [ASP.net](https://www.asp.net).
+Mer information finns [i ASP.NET](https://www.asp.net).
 

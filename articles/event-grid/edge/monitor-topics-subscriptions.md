@@ -1,6 +1,6 @@
 ---
-title: Övervaka ämnen och händelse prenumerationer – Azure Event Grid IoT Edge | Microsoft Docs
-description: Övervaka ämnen och händelse prenumerationer
+title: Övervaka ämnen och händelseprenumerationer – Azure Event Grid IoT Edge | Microsoft-dokument
+description: Övervaka ämnen och händelseprenumerationer
 author: banisadr
 ms.author: babanisa
 ms.reviewer: spelluru
@@ -9,19 +9,19 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/08/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77086671"
 ---
-# <a name="monitor-topics-and-event-subscriptions"></a>Övervaka ämnen och händelse prenumerationer
+# <a name="monitor-topics-and-event-subscriptions"></a>Övervaka ämnen och händelseprenumerationer
 
-Event Grid på Edge exponerar ett antal mått för ämnen och händelse prenumerationer i formatet för [Prometheus-arbetsbok](https://prometheus.io/docs/instrumenting/exposition_formats/). I den här artikeln beskrivs tillgängliga mått och hur du aktiverar dem.
+Event Grid on Edge visar ett antal mått för ämnen och händelseprenumerationer i [Prometheus-utläggningsformatet](https://prometheus.io/docs/instrumenting/exposition_formats/). I den här artikeln beskrivs tillgängliga mått och hur du aktiverar dem.
 
 ## <a name="enable-metrics"></a>Aktivera mått
 
-Konfigurera modulen för att generera mått genom att ange `metrics__reporterType`-miljövariabeln till `prometheus` i behållar skapande alternativen:
+Konfigurera modulen så att måtten `metrics__reporterType` ska `prometheus` avges genom att ange miljövariabeln till i behållaren skapa alternativ:
 
  ```json
         {
@@ -40,32 +40,32 @@ Konfigurera modulen för att generera mått genom att ange `metrics__reporterTyp
         }
  ```    
 
-Mått är tillgängliga i `5888/metrics` av modulen för http och `4438/metrics` för https. Till exempel `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` för http. I det här läget kan en Metrics-modul avsöka slut punkten för att samla in mått som i den här [exempel arkitekturen](https://github.com/veyalla/ehm).
+Mått kommer att `5888/metrics` finnas tillgängliga på `4438/metrics` modulen för http och för https. Till exempel `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` för http. Vid denna punkt kan en måttmodul avsöka slutpunkten för att samla in mått som i den här [exempelarkitekturen](https://github.com/veyalla/ehm).
 
 ## <a name="available-metrics"></a>Tillgängliga mått
 
-Både ämnen och händelse prenumerationer genererar mått för att ge dig insikter om prestanda för händelse leverans och moduler.
+Både ämnen och händelseprenumerationer släpper ut mått för att ge dig insikter om händelseleverans och modulprestanda.
 
-### <a name="topic-metrics"></a>Ämnes mått
-
-| Mått | Beskrivning |
-| ------ | ----------- |
-| EventsReceived | Antal händelser som publicerats till ämnet
-| UnmatchedEvents | Antal händelser som publicerats till ämnet som inte matchar en händelse prenumeration och som tas bort
-| SuccessRequests | Antal inkommande publicerings begär Anden som tagits emot av ämnet
-| SystemErrorRequests | Antalet inkommande publicerings begär Anden som misslyckats på grund av ett internt systemfel
-| UserErrorRequests | Antal inkommande publicerings begär Anden som misslyckats på grund av ett användar fel, till exempel felaktigt felaktig JSON
-| SuccessRequestLatencyMs | Svars fördröjning för publicerings förfrågan i millisekunder
-
-
-### <a name="event-subscription-metrics"></a>Mått för händelse prenumeration
+### <a name="topic-metrics"></a>Ämnesmått
 
 | Mått | Beskrivning |
 | ------ | ----------- |
-| deliverySuccessCounts | Antal händelser som har levererats till den konfigurerade slut punkten
-| deliveryFailureCounts | Antal händelser som inte kunde levereras till den konfigurerade slut punkten
-| deliverySuccessLatencyMs | Svars tid för händelser som har levererats i millisekunder
-| deliveryFailureLatencyMs | Svars tid för händelse leverans problem i millisekunder
-| systemDelayForFirstAttemptMs | System fördröjning av händelser före första leverans försöket i millisekunder
-| deliveryAttemptsCount | Antal händelse leverans försök – lyckades och misslyckades
-| expiredCounts | Antal händelser som har upphört att gälla och inte levererats till den konfigurerade slut punkten
+| HändelserKom med | Antal händelser som publicerats i avsnittet
+| OmatchadeHändelser | Antal händelser som publicerats i ämnet som inte matchar en händelseprenumeration och som tas bort
+| FramgångRequests | Antal inkommande publiceringsbegäranden som tagits emot av ämnet
+| SystemErrorRequests | Antalet inkommande publiceringsbegäranden misslyckades på grund av ett internt systemfel
+| UserErrorRequests | Antalet på inkommande publiceringsbegäranden misslyckades på grund av användarfel som felaktigt formade JSON
+| LyckaRequestLatencyMs | Publicera svarssvarsfördröjning i millisekunder
+
+
+### <a name="event-subscription-metrics"></a>Mått för händelseprenumeration
+
+| Mått | Beskrivning |
+| ------ | ----------- |
+| LeveransSuccessCounts | Antal händelser som har levererats till den konfigurerade slutpunkten
+| DeliveryFailureCounts | Antal händelser som inte kunde levereras till den konfigurerade slutpunkten
+| LeveransSugsLatencyMs | Svarstiden för händelser som har levererats i millisekunder
+| DeliveryFailureLatencyMs | Svarstid för händelseleveransfel i millisekunder
+| SystemDelayForFirstAttemptMs | Systemfördröjning av händelser före första leveransförsöket i millisekunder
+| LeveransAttemptsCount | Antal händelseleveransförsök - lyckad och misslyckad
+| Utgångna antal | Antal händelser som har upphört att gälla och som inte levererades till den konfigurerade slutpunkten

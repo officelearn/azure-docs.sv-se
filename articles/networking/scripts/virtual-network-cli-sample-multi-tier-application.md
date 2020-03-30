@@ -13,10 +13,10 @@ ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
 ms.openlocfilehash: c211a476c31e386c9c74fcb0139fc61dad0a8eb8
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73889394"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>Skapa ett nätverk för program på flera nivåer
@@ -50,7 +50,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och klientdelsundernät. |
 | [az network subnet create](/cli/azure/network/vnet/subnet) | Skapar ett serverdelsundernät. |
-| [az network public-ip create](/cli/azure/network/public-ip) | Skapar en offentlig IP-adress för att få åtkomst till den virtuella datorn från Internet. |
+| [az network public-ip create](/cli/azure/network/public-ip) | Skapar en offentlig IP-adress för att komma åt den virtuella datorn från Internet. |
 | [az network nic create](/cli/azure/network/nic) | Skapar virtuella nätverksgränssnitt och kopplar dem till det virtuella nätverkets klient- och serverdelsundernät. |
 | [az network nsg create](/cli/azure/network/nsg) | Skapar nätverkssäkerhetsgrupper (NSG) som är kopplade till klient- och serverdelsundernäten. |
 | [az network nsg rule create](/cli/azure/network/nsg/rule) |Skapar NSG-regler som tillåter eller blockerar specifika portar till specifika undernät. |
@@ -61,4 +61,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](/cli/azure).
 
-Ytterligare Network CLI-skript exempel finns i [översikts dokumentationen för Azure-nätverk](../cli-samples.md)
+Ytterligare cli-skriptexempel för nätverk finns i dokumentationen för [Azure Networking Overview](../cli-samples.md)

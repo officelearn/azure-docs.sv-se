@@ -1,5 +1,5 @@
 ---
-title: Azure VM gäst-OS-brandväggen blockerar inkommande trafik | Microsoft Docs
+title: Azure VM Guest OS-brandväggen blockerar inkommande trafik | Microsoft-dokument
 description: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,113 +15,113 @@ ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
 ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72028790"
 ---
-# <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM gäst-OS-brandväggen blockerar inkommande trafik
+# <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM Guest OS-brandvägg blockerar inkommande trafik
 
-Den här artikeln beskriver hur du löser problemet Portal RDP (Remote Desktop) som uppstår om guest operating system brandväggen blockerar inkommande trafik.
+I den hÃ¤r artikeln beskrivs hur du åtgärdar problemet med rdp (Remote Desktop Portal) som uppstÃ¥r om den anvÃ¤nder operativsystemets brandvÃ¤rrã¥tkomst blockerar inkommande trafik.
 
 ## <a name="symptoms"></a>Symtom
 
-Du kan inte använda en RDP-anslutning för att ansluta till en Azure-dator (VM). Från Boot diagnostics -> skärmbild, den visar att operativsystemet har lästs in helt på välkomstskärmen (Ctrl + Alt + Del).
+Du kan inte använda en RDP-anslutning för att ansluta till en virtuell Azure-dator (VM). Från Boot diagnostics -> Screenshot visar det att operativsystemet är fullständigt laddat på välkomstskärmen (Ctrl+Alt+Del).
 
 ## <a name="cause"></a>Orsak
 
 ### <a name="cause-1"></a>Orsak 1
 
-RDP-regeln är inte ställts in för att tillåta RDP-trafik.
+RDP-regeln har inte konfigurerats för att tillåta RDP-trafik.
 
 ### <a name="cause-2"></a>Orsak 2
 
-Brandväggsprofiler för gäst-system är inställda att blockera alla inkommande anslutningar, inklusive RDP-trafik.
+Gästsystembrandväggsprofilerna är inställda för att blockera alla inkommande anslutningar, inklusive RDP-trafiken.
 
 ![Brandväggsinställning](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
 ## <a name="solution"></a>Lösning
 
-Innan du följer dessa steg kan du ta en ögonblicksbild av systemdisken på den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [ögonblicksbild av en disk](../windows/snapshot-copy-managed-disk.md).
+Innan du följer dessa steg ska du ta en ögonblicksbild av systemdisken för den berörda virtuella datorn som en säkerhetskopia. Mer information finns i [Ögonblicksbild en disk](../windows/snapshot-copy-managed-disk.md).
 
-Åtgärda problemet, kan du använda en av metoderna i [så Använd verktyg för att felsöka problem med Azure Virtuella](remote-tools-troubleshoot-azure-vm-issues.md) att fjärransluta till den virtuella datorn och sedan redigera brandväggsregler för gäst operativsystemet att **Tillåt** RDP-trafik .
+Du åtgärdar problemet genom att använda någon av metoderna i [Hur du använder fjärrverktyg för att felsöka Azure VM-problem](remote-tools-troubleshoot-azure-vm-issues.md) för att fjärransluta till den virtuella datorn på distans och redigera sedan brandväggsreglerna för gästoperativsystemet för att **tillåta** FJÄRRSKRIVBORDStrafik.
 
-### <a name="online-troubleshooting"></a>Felsökning av online
+### <a name="online-troubleshooting"></a>Felsökning online
 
-Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Om Seriekonsolen inte är aktiverad på den virtuella datorn går du till ”[reparera den virtuella datorn Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
+Anslut till [seriekonsolen och öppna sedan en PowerShell-instans](serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Om seriekonsolen inte är aktiverad på den virtuella datorn går du till "[Reparera den virtuella datorn offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
 
-#### <a name="mitigation-1"></a>Lösning 1
+#### <a name="mitigation-1"></a>Begränsning 1
 
-1.  Om Azure-agenten har installerats och fungerar korrekt på den virtuella datorn måste du använda alternativet ”endast återställning configuration” under **Support och felsökning** > **Återställ lösenord** på VM-menyn.
+1.  Om Azure Agent är installerat och fungerar korrekt på den virtuella datorn kan du använda alternativet "Endast återställningskonfiguration" under **Support + felsökning** > **Återställ lösenord** på vm-menyn.
 
-2.  Kör det här alternativet gör följande:
+2.  Om du kör det här återställningsalternativet gäller följande:
 
-    *   Aktiverar en RDP-komponenter om det har inaktiverats.
+    *   Aktiverar en RDP-komponent om den är inaktiverad.
 
-    *   Gör det möjligt för alla profiler för Windows-brandväggen.
+    *   Aktiverar alla Windows-brandväggsprofiler.
 
-    *   Se till att RDP-regeln är aktiverad i Windows-brandväggen.
+    *   Kontrollera att RDP-regeln är aktiverad i Windows-brandväggen.
 
-    *   Om föregående steg inte fungerar kan du manuellt återställa brandväggsregeln. Gör detta genom att fråga efter alla regler som innehåller namnet ”Remote Desktop” genom att köra följande kommando:
+    *   Om de föregående stegen inte fungerar återställer du brandväggsregeln manuellt. Det gör du genom att fråga alla regler som innehåller namnet "Fjärrskrivbord" genom att köra följande kommando:
 
         ```cmd
         netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(Name.*Remote Desktop)" -context 9,4 | more
         ```
 
-        Du måste hitta alla anpassade regler som kanske har skapats och angetts till den här porten om RDP-porten har angetts till någon annan port än 3389. Om du vill fråga efter alla inkommande regler som har en anpassad port, kör du följande kommando:
+        Om RDP-porten har angetts till någon annan port än 3389 måste du hitta alla anpassade regler som kan ha skapats och ställts in på den här porten. Om du vill fråga efter alla inkommande regler som har en anpassad port kör du följande kommando:
 
         ```cmd
         netsh advfirewall firewall show rule dir=in name=all | select-string -pattern "(LocalPort.*<CUSTOM PORT>)" -context 9,4 | more
         ```
 
-3.  Om du ser att regeln är inaktiverad, aktivera den. Om du vill öppna en hel grupp, till exempel gruppen inbyggda fjärrskrivbord, kör du följande kommando:
+3.  Om du ser att regeln är inaktiverad aktiverar du den. Om du vill öppna en hel grupp, till exempel den inbyggda gruppen Fjärrskrivbord, kör du följande kommando:
 
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
 
-    I annat fall öppna specifika fjärrskrivbord (TCP-In) regeln genom att köra följande kommando:
+    Om du vill öppna den specifika TCP-In-regeln (Remote Desktop) kör du följande kommando:
 
     ```cmd
     netsh advfirewall firewall set rule name="<CUSTOM RULE NAME>" new enable=yes
     ```
 
-4.  Du kan aktivera brandväggsprofiler till OFF för felsökning:
+4.  För felsökning kan du aktivera brandväggsprofilerna till AV:
 
     ```cmd
     netsh advfirewall set allprofiles state off
     ```
 
-    När du har slutfört felsökning och ställa in brandväggen korrekt återaktivera brandväggen.
+    När du har felsökt och ställt in brandväggen på rätt sätt aktiverar du brandväggen igen.
 
     > [!Note]
-    > Du behöver inte starta om den virtuella datorn för att tillämpa ändringarna.
+    > Du behöver inte starta om den virtuella datorn för att tillämpa dessa ändringar.
 
-5.  Om du försök göra en RDP-anslutning för att få åtkomst till den virtuella datorn.
+5.  Försök att göra en RDP-anslutning för att komma åt den virtuella datorn.
 
-#### <a name="mitigation-2"></a>Lösning 2
+#### <a name="mitigation-2"></a>Begränsning 2
 
-1.  Fråga brand Väggs profilerna för att avgöra om den inkommande brand Väggs principen är inställd på *BlockInboundAlways*:
+1.  Fråga brandväggsprofilerna för att avgöra om principen för inkommande brandvägg är inställd *på BlockInboundAlways:*
 
     ```cmd
     netsh advfirewall show allprofiles | more
     ```
 
-    ![AllProfiles](./media/guest-os-firewall-blocking-inbound-traffic/firewall-profiles.png)
+    ![Allaprofiler](./media/guest-os-firewall-blocking-inbound-traffic/firewall-profiles.png)
 
     > [!Note]
-    > Följande riktlinjer gäller för brandväggsprincipen, beroende på hur den är konfigurerad:
-    >    * *BlockInbound*: All inkommande trafik kommer att blockeras om du inte har en regel som tillåter att trafiken används.
-    >    * *BlockInboundAlways*: Alla brand Väggs regler kommer att ignoreras och all trafik kommer att blockeras.
+    > Följande riktlinjer gäller för brandväggsprincipen, beroende på hur den har konfigurerats:
+    >    * *Blockera inkommande*: All inkommande trafik blockeras om du inte har en regel som gäller för att tillåta den trafiken.
+    >    * *BlockInboundAlways*: Alla brandväggsregler ignoreras och all trafik blockeras.
 
-2.  Redigera *DefaultInboundAction* för att ställa in dessa profiler för att **tillåta** trafik. Gör detta genom att köra följande kommando:
+2.  Redigera *DefaultInboundAction* för att ange dessa profiler så att **trafik tillåts.** Gör detta genom att köra följande kommando:
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
     ```
 
-3.  Fråga efter profiler igen för att se till att ändringen är klar. Gör detta genom att köra följande kommando:
+3.  Fråga profilerna igen för att se till att ändringen har gjorts. Gör detta genom att köra följande kommando:
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -130,29 +130,29 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
     > [!Note]
     > Du behöver inte starta om den virtuella datorn för att tillämpa ändringarna.
 
-4.  Försök igen att få åtkomst till den virtuella datorn via RDP.
+4.  Försök igen för att komma åt din virtuella dator via RDP.
 
-### <a name="offline-mitigations"></a>Offline-åtgärder
+### <a name="offline-mitigations"></a>Offline mildrande åtgärder
 
-1.  [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Koppla systemdisken till en återställnings-VM](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
+2.  Starta en anslutning till återställningsdatorn till återställningsdatorn.
 
-3.  Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna systemdisken.
+3.  Kontrollera att disken är flaggad som **online** i konsolen Diskhantering. Observera enhetsbeteckningen som har tilldelats den bifogade systemdisken.
 
-#### <a name="mitigation-1"></a>Lösning 1
+#### <a name="mitigation-1"></a>Begränsning 1
 
-Se [Aktivera-inaktivera en brand Väggs regel på ett gäst operativ system](enable-disable-firewall-rule-guest-os.md).
+Se [Aktivera-inaktivera en brandväggsregel på ett gäst-OS](enable-disable-firewall-rule-guest-os.md).
 
-#### <a name="mitigation-2"></a>Lösning 2
+#### <a name="mitigation-2"></a>Begränsning 2
 
-1.  [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Koppla systemdisken till en återställnings-VM](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
+2.  Starta en anslutning till återställningsdatorn till återställningsdatorn.
 
-3.  När system disken är ansluten till den virtuella återställnings datorn kontrollerar du att disken är flaggad som **online** i disk hanterings konsolen. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
+3.  När systemdisken har anslutits till återställningsdatorn kontrollerar du att disken är flaggad som **online** i diskhanteringskonsolen. Observera enhetsbeteckningen som har tilldelats den bifogade OS-disken.
 
-4.  Öppna en upphöjd CMD-instans och kör följande skript:
+4.  Öppna en förhöjd CMD-förekomst och kör sedan följande skript:
 
     ```cmd
     REM Backup the registry prior doing any change

@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: troyhop
 ms.openlocfilehash: 68e0c3c89698bafbab65ca786231e0364900213a
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2019
+ms.lasthandoff: 03/26/2020
 ms.locfileid: "65467830"
 ---
 # <a name="quickstart-deploy-and-run-an-iot-device-simulation-in-azure"></a>Snabbstart: Distribuera och köra en IoT-enhetssimulering i Azure
@@ -22,7 +22,7 @@ Den här snabbstarten visar hur du distribuerar Azure IoT-enhetssimulering för 
 
 Du behöver en aktiv Azure-prenumeration för att kunna utföra den här snabbstarten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 ## <a name="deploy-device-simulation"></a>Distribuera enhetssimulering
 
@@ -40,7 +40,7 @@ Klicka på **Testa nu** på sidan med beskrivning av enhetssimulering:
 
 På sidan **Skapa enhetssimuleringslösning** anger du ett unikt **Lösningsnamn**.
 
-Välj den **prenumeration** och den **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
+Välj den **prenumeration** och **region** du vill använda för att distribuera lösningsacceleratorn. Normalt väljer du regionen närmast dig. Du måste vara [global administratör eller användare](iot-accelerators-permissions.md) i prenumerationen.
 
 Markera rutan för att distribuera en IoT Hub som ska användas med din enhetssimuleringslösning. Du kan alltid ändra den IoT Hub-simuleringen du använder senare.
 
@@ -48,7 +48,7 @@ Klicka på **Skapa** för att börja etablera din lösning. Processen tar minst 
 
 ![Detaljer för enhetssimuleringslösning](./media/quickstart-device-simulation-deploy/createform.png)
 
-## <a name="sign-in-to-the-solution"></a>Logga in på lösningen
+## <a name="sign-in-to-the-solution"></a>Logga in till lösningen
 
 När etableringsprocessen är klar kan du logga in på din instans av enhetssimulering genom att klicka på knappen **Starta**:
 

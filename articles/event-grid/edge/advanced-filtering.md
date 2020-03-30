@@ -1,6 +1,6 @@
 ---
-title: Avancerad filtrering – Azure Event Grid IoT Edge | Microsoft Docs
-description: Avancerad filtrering i Event Grid på IoT Edge.
+title: Avancerad filtrering – Azure Event Grid IoT Edge | Microsoft-dokument
+description: Avancerad filtrering i händelserutnät på IoT Edge.
 author: HiteshMadan
 manager: rajarv
 ms.author: himad
@@ -10,20 +10,20 @@ ms.topic: article
 ms.service: event-grid
 services: event-grid
 ms.openlocfilehash: d7fdc5074f3c92eea4f236a9b1f7c823b930f391
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72992566"
 ---
 # <a name="advanced-filtering"></a>Avancerad filtrering
-Med Event Grid kan du ange filter för alla egenskaper i JSON-nyttolasten. Dessa filter modelleras som en uppsättning `AND` villkor, med varje yttre villkor som har valfria inre `OR` villkor. För varje `AND` villkor anger du följande värden:
+Med Event Grid kan du ange filter på valfri egenskap i json-nyttolasten. Dessa filter modelleras `AND` som en uppsättning villkor, `OR` där varje yttre tillstånd har valfria inre förhållanden. För `AND` varje villkor anger du följande värden:
 
-* `OperatorType` – typen av jämförelse.
-* `Key`-JSON-sökvägen till egenskapen som filtret ska tillämpas på.
-* `Value`-referensvärdet som filtret körs mot (eller) `Values` – den uppsättning referens värden som filtret körs mot.
+* `OperatorType`- Typen av jämförelse.
+* `Key`- Json-sökvägen till den egenskap som filtret ska användas på.
+* `Value`- Referensvärdet som filtret körs mot `Values` (eller) - Den uppsättning referensvärden som filtret körs mot.
 
-## <a name="json-syntax"></a>JSON-syntax
+## <a name="json-syntax"></a>JSON syntax
 
 JSON-syntaxen för ett avancerat filter är följande:
 
@@ -44,55 +44,55 @@ JSON-syntaxen för ett avancerat filter är följande:
 }
 ```
 
-## <a name="filtering-on-array-values"></a>Filtrering av mat ris värden
+## <a name="filtering-on-array-values"></a>Filtrering på matrisvärden
 
-Event Grid stöder inte filtrering på en matris med värden idag. Om en inkommande händelse har ett mat ris värde för nyckeln för avancerad filter, Miss lyckas motsvarande åtgärd. Den inkommande händelsen slutar matcha inte med händelse prenumerationen.
+Event Grid stöder inte filtrering på en matris med värden idag. Om en inkommande händelse har ett matrisvärde för det avancerade filtrets nyckel misslyckas matchningsåtgärden. Den inkommande händelsen slutar inte matcha med händelseprenumerationen.
 
-## <a name="and-or-not-semantics"></a>OCH-inte semantiskt
+## <a name="and-or-not-semantics"></a>OCH-ELLER-INTE semantik
 
-Observera att i JSON-exemplet tidigare angavs `AdvancedFilters` en matris. Tänk på varje `AdvancedFilter` mat ris element som ett `AND` villkor.
+Observera att i json-exemplet `AdvancedFilters` som gavs tidigare är en matris. Tänk på `AdvancedFilter` varje matriselement som ett `AND` villkor.
 
-För operatörer som har stöd för flera värden (till exempel `NumberIn`, `NumberNotIn`, `StringIn`osv.) behandlas varje värde som ett `OR` villkor. Det innebär att en `StringBeginsWith("a", "b", "c")` matchar alla sträng värden som börjar med antingen `a` eller `b` eller `c`.
+För operatorer `NumberIn`som stöder flera värden `NumberNotIn` `StringIn`(till exempel , , , `OR` etc.) behandlas varje värde som ett villkor. Så kommer `StringBeginsWith("a", "b", "c")` en matchar alla strängvärde `a` `b` som `c`börjar med antingen eller eller .
 
 > [!CAUTION]
-> Operatorerna NOT-`NumberNotIn` och `StringNotIn` fungerar som och villkor för varje värde som anges i `Values`-fältet.
+> OPERATORERNA NOT `NumberNotIn` - `StringNotIn` och beter sig som `Values` VILLKOR FÖR varje värde som anges i fältet.
 >
-> Om du inte gör det blir filtret acceptera – alla filter och manipulation av filtrerings syftet.
+> Om du inte gör det blir filtret ett Accept-All-filter och det motverkar filtrningen.
 
-## <a name="floating-point-rounding-behavior"></a>Avrundat beteende för svävande punkt
+## <a name="floating-point-rounding-behavior"></a>Upprundning av flyttals avrundning
 
-Event Grid använder typen `decimal` .NET för att hantera alla numeriska värden. De numeriska värden som anges i JSON för händelse prenumerationen omfattas inte av beteendet för flytt ALS avrundning.
+Event Grid `decimal` använder TYPEN .NET för att hantera alla numeriska värden. De talvärden som anges i händelseprenumerationen JSON är inte föremål för flyttalsavrundning.
 
-## <a name="case-sensitivity-of-string-filters"></a>Skift läges känslighet för sträng filter
+## <a name="case-sensitivity-of-string-filters"></a>Strängfilters känslighet för skiftläge
 
-Alla sträng jämförelser är Skift läges känsliga. Det finns inget sätt att ändra det här beteendet idag.
+Alla strängjämförelser är skiftlägesokänsliga. Det finns inget sätt att ändra detta beteende idag.
 
-## <a name="allowed-advanced-filter-keys"></a>Tillåtna avancerade filter nycklar
+## <a name="allowed-advanced-filter-keys"></a>Tillåtna avancerade filternycklar
 
-Egenskapen `Key` kan antingen vara en välkänd egenskap på den översta nivån eller vara en JSON-sökväg med flera punkter, där varje punkt visar steg i ett kapslat JSON-objekt.
+Egenskapen `Key` kan antingen vara en välkänd egenskap på översta nivån eller vara en json-bana med flera punkter, där varje punkt innebär att du kliver in i ett kapslat json-objekt.
 
-Event Grid har ingen särskild betydelse för `$`-tecknen i nyckeln, till skillnad från JSONPath-specifikationen.
+Event Grid har ingen särskild betydelse `$` för tecknet i nyckeln, till skillnad från JSONPath-specifikationen.
 
-### <a name="event-grid-schema"></a>Event Grid-schema
+### <a name="event-grid-schema"></a>Schema för händelserutnät
 
-För händelser i Event Grid schemat:
+För händelser i event grid-schemat:
 
 * ID
-* Ämne
-* Ämne
-* Typ
-* dataVersion
-* Data. Prop1
-* Data. prop * Prop2. Prop3. Prop4. Prop5
+* Hjälpavsnitt
+* Subjekt
+* Eventtype
+* DataVersion (DataVersion)
+* Data.Prop1
+* Data.Prop*Prop2.Prop3.Prop4.Prop5
 
-### <a name="custom-event-schema"></a>Anpassat händelse schema
+### <a name="custom-event-schema"></a>Anpassat händelseschema
 
-Det finns ingen begränsning för `Key` i anpassat händelse schema eftersom Event Grid inte tvingar fram något kuvert schema på nytto lasten.
+Det finns ingen begränsning `Key` för det anpassade händelseschemat eftersom Event Grid inte framtvingar något kuvertschema på nyttolasten.
 
-## <a name="numeric-single-value-filter-examples"></a>Numeriska filter exempel med flera värden
+## <a name="numeric-single-value-filter-examples"></a>Numeriska filterexempel med ett värde
 
-* NumberGreaterThan
-* NumberGreaterThanOrEquals
+* AntalTörretr
+* Antal störrethanorEquals
 * NumberLessThan
 * NumberLessThanOrEquals
 
@@ -125,10 +125,10 @@ Det finns ingen begränsning för `Key` i anpassat händelse schema eftersom Eve
 }
 ```
 
-## <a name="numeric-range-value-filter-examples"></a>Exempel på numeriskt intervall värde filter
+## <a name="numeric-range-value-filter-examples"></a>Exempel på numeriskt områdesvärdefilter
 
-* Numberin
-* NumberNotIn
+* NumberIn (Olikartade)
+* Antal InteIn
 
 ```json
 {
@@ -149,12 +149,12 @@ Det finns ingen begränsning för `Key` i anpassat händelse schema eftersom Eve
 }
 ```
 
-## <a name="string-range-value-filter-examples"></a>Sträng intervall – exempel på värde filter
+## <a name="string-range-value-filter-examples"></a>Exempel på filter för strängområdesvärde
 
 * StringContains
 * StringBeginsWith
 * StringEndsWith
-* Strängin
+* StringIn (StringIn)
 * StringNotIn
 
 ```json
@@ -191,9 +191,9 @@ Det finns ingen begränsning för `Key` i anpassat händelse schema eftersom Eve
 }
 ```
 
-## <a name="boolean-single-value-filter-examples"></a>Booleska exempel på ett värde filter
+## <a name="boolean-single-value-filter-examples"></a>Booleska filterexempel med ett värde
 
-* BoolEquals
+* BoolEquals (olikartade)
 
 ```json
 {

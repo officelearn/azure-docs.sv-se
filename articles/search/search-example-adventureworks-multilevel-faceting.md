@@ -1,7 +1,7 @@
 ---
-title: 'Exempel: på flera nivåer'
+title: 'Exempel: Fasor på flera nivåer'
 titleSuffix: Azure Cognitive Search
-description: Lär dig hur du skapar aspekt strukturer för taxonomier på flera nivåer, skapa en kapslad navigerings struktur som du kan ta med på program sidor.
+description: Lär dig hur du skapar fasstrukturer för taxonomier på flera nivåer, vilket skapar en kapslad navigeringsstruktur som du kan inkludera på programsidor.
 author: HeidiSteen
 manager: nitinme
 ms.service: cognitive-search
@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72792946"
 ---
-# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Exempel: på flera nivåer i Azure Kognitiv sökning
+# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Exempel: Fasor på flera nivåer i Azure Cognitive Search
 
-Azure Kognitiv sökning-scheman stöder inte explicita kategoriserings kategorier med flera nivåer, men du kan uppskatta dem genom att ändra innehåll före indexeringen och sedan använda viss särskild hantering av resultaten. 
+Azure Cognitive Search-scheman stöder inte uttryckligen taxonomikategorier på flera nivåer, men du kan approximera dem genom att ändra innehåll före indexering och sedan tillämpa viss särskild hantering på resultaten. 
 
 ## <a name="start-with-the-data"></a>Börja med data
 
-Exemplet i den här artikeln bygger på ett tidigare exempel, [modell The AdventureWorks Inventory Database](search-example-adventureworks-modeling.md), för att demonstrera flera nivåer i Azure kognitiv sökning.
+Exemplet i den här artikeln bygger på ett tidigare exempel, [Modell adventureworks inventory-databasen,](search-example-adventureworks-modeling.md)för att demonstrera fasning på flera nivåer i Azure Cognitive Search.
 
-AdventureWorks har en enkel taxonomi med två nivåer med en överordnad-underordnad relation. För en enkel SQL-koppling i den här strukturen kan du använda en enkel SQL-kopplings fråga för att gruppera taxonomin:
+AdventureWorks har en enkel två-nivå taxonomi med en förälder-barn relation. För taxonomidjup med fast längd i den här strukturen kan en enkel SQL-kopplingsfråga användas för att gruppera taxonomin:
 
 ```T-SQL
 SELECT 
@@ -37,25 +37,25 @@ LEFT JOIN
 
   ![Frågeresultat](./media/search-example-adventureworks/prod-query-results.png "Frågeresultat")
 
-## <a name="indexing-to-a-collection-field"></a>Indexera till ett samlings fält
+## <a name="indexing-to-a-collection-field"></a>Indexera till ett samlingsfält
 
-I indexet som innehåller den här strukturen skapar du ett **samlings fält (EDM. String)** i Azure kognitiv sökning-schemat för att lagra dessa data, vilket säkerställer att Field-attributen är sökbara, filter bara, aspekt bara och kan hämtas.
+I indexet som innehåller den här strukturen skapar du ett **insamlingsfält(Edm.String)** i Azure Cognitive Search-schemat för att lagra dessa data och se till att fältattributen innehåller sökbara, filterbara, ansiktstablering och hämtningsbara.
 
-När du har indexerat innehåll som refererar till en viss taxonomi kategori skickar du taxonomin som en matris med text från varje nivå i taxonomin. För en entitet med `ProductCategoryId = 5 (Mountain Bikes)`skickar du till exempel fältet som `[ "Bikes", "Bikes|Mountain Bikes"]`
+När du nu indexerar innehåll som refererar till en viss taxonomikategori skickar du nu taxonomin som en matris som innehåller text från varje nivå i taxonomin. För en entitet `ProductCategoryId = 5 (Mountain Bikes)`med skickar du till exempel fältet som`[ "Bikes", "Bikes|Mountain Bikes"]`
 
-Observera att den överordnade kategorin "cyklar" ingår i den underordnade kategorins värde "Mountain Bikes". Varje under kategori ska bädda in hela sökvägen i förhållande till rot elementet. Pipe Character-avgränsaren är godtycklig, men måste vara konsekvent och ska inte visas i käll texten. Avgränsnings tecknet används i program koden för att återskapa taxonomi trädet från fasett-resultat.
+Observera att föräldrakategorin "Cyklar" ingår i barnkategorivärdet "Mountainbikes". Varje underkategori ska bädda in hela sökvägen i förhållande till rotelementet. Pipe-teckenavgränsaren är godtycklig, men den måste vara konsekvent och bör inte visas i källtexten. Avgränsningstecknet används i programkoden för att rekonstruera taxonominträdet från fasettresultat.
 
 ## <a name="construct-the-query"></a>Konstruera frågan
 
-Vid utfärdande av frågor inkluderar du följande aspekt specifikation (där taxonomi är ditt fasettable-fält för taxonomi): `facet = taxonomy,count:50,sort:value`
+När du utfärdar frågor, inkludera följande aspektspecifikation (där taxonomi är ditt facetable taxonomifält):`facet = taxonomy,count:50,sort:value`
 
-Count-värdet måste vara tillräckligt högt för att returnera alla möjliga taxonomi värden. AdventureWorks-data innehåller 41 distinkta värden för taxonomi, så `count:50` räcker.
+Räknevärdet måste vara tillräckligt högt för att returnera alla möjliga taxonomivärden. AdventureWorks-data innehåller 41 olika taxonomivärden, så `count:50` det räcker.
 
-  ![Fasett-filter](./media/search-example-adventureworks/facet-filter.png "Fasett-filter")
+  ![Fasterat filter](./media/search-example-adventureworks/facet-filter.png "Fasterat filter")
 
-## <a name="build-the-structure-in-client-code"></a>Bygg strukturen i klient koden
+## <a name="build-the-structure-in-client-code"></a>Skapa strukturen i klientkod
 
-I klient program koden konstruerar du om taxonomi trädet genom att dela varje fasett-värde på pipe-tecknet.
+Rekonstruera taxonominträdet i klientprogramkoden genom att dela upp varje nominellt värde på pipe-tecknet.
 
 ```javascript
 var sum = 0
@@ -82,21 +82,21 @@ results['@search.facets'][field].forEach(function(d) {
 categories.count = sum;
 ```
 
-Objektet **Kategorier** kan nu användas för att återge ett komprimerbart träd med korrekta antal:
+**Kategoriobjektet** kan nu användas för att återge ett hopfällbart taxonomiträd med korrekta antal:
 
-  ![fasettt filter med flera nivåer](./media/search-example-adventureworks/multi-level-facet.png "fasettt filter med flera nivåer")
+  ![fasat filter på flera nivåer](./media/search-example-adventureworks/multi-level-facet.png "fasat filter på flera nivåer")
 
  
-Varje länk i trädet bör använda det relaterade filtret. Exempel:
+Varje länk i trädet ska använda det relaterade filtret. Ett exempel:
 
-+ **taxonomi/alla** `(x:x eq 'Accessories')` returnerar alla dokument i tillbehörs grenen
-+ **taxonomi/** `(x:x eq 'Accessories|Bike Racks')` returnerar bara dokumenten med en under kategori av cykel rack under tillbehörs grenen.
++ **taxonomi/alla** `(x:x eq 'Accessories')` returnerar alla dokument i grenen Tillbehör
++ **taxonomi/eventuella** `(x:x eq 'Accessories|Bike Racks')` returnerar endast dokumenten med en underkategori av cykelställ under tillbehörsgrenen.
 
-Den här tekniken kommer att skalas för att avse mer komplexa scenarier som djupare taxonomi träd och duplicerade under kategorier som sker under olika överordnade kategorier (till exempel `Bike Components|Forks` och `Camping Equipment|Forks`).
+Den här tekniken skalas för att täcka mer komplexa scenarier som djupare taxonomiträd och `Bike Components|Forks` `Camping Equipment|Forks`duplicerade underkategorier som förekommer under olika överordnade kategorier (till exempel och ).
 
 > [!TIP]
-> Frågans hastighet påverkas av antalet ansikte som returneras. Om du vill ha stöd för mycket stora taxonomi uppsättningar kan du lägga till ett aspekt bara **EDM. String** -fält för att lagra det översta taxonomi-värdet för varje dokument. Använd sedan samma metod ovan, men utför bara insamlings aspekt frågan (filtrerat i fältet rot taxonomi) när användaren utökar en nod på den översta nivån. Eller, om 100% återkallande inte krävs, minska antalet fasetter till ett rimligt tal och se till att aspekt posterna sorteras efter antal.
+> Frågehastigheten påverkas av antalet aspekter som returneras. Om du vill stödja mycket stora taxonomiuppsättningar bör du överväga att lägga till ett **edm.String-fält** med facetable för att hålla taxonominvärdet på den översta nivån för varje dokument. Använd sedan samma teknik ovan, men utför bara insamlingsast-aspektfrågan (filtrerad i rottaxonomifältet) när användaren expanderar en nod på den översta nivån. Eller, om 100% återkallande inte krävs, helt enkelt minska aspekten räkna till ett rimligt antal, och se till att aspektposterna sorteras efter räkna.
 
-## <a name="see-also"></a>Se också
+## <a name="see-also"></a>Se även
 
-[Exempel: utforma AdventureWorks Inventory Database för Azure Kognitiv sökning](search-example-adventureworks-modeling.md)
+[Exempel: Modellera AdventureWorks Inventory-databasen för Azure Cognitive Search](search-example-adventureworks-modeling.md)

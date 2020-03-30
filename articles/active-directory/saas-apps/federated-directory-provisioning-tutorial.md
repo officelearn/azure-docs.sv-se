@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Konfigurera en federerad katalog för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
-description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till federerade kataloger.
+title: 'Självstudiekurs: Konfigurera Federerad katalog för automatisk användaretablering med Azure Active Directory | Microsoft-dokument'
+description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetableringa användarkonton till Federerad katalog.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -16,170 +16,170 @@ ms.topic: article
 ms.date: 07/12/2019
 ms.author: zhchia
 ms.openlocfilehash: 910aaac84dacb75cd76772a0bc2960d9bfa8bb70
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/07/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77057953"
 ---
-# <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en federerad katalog för automatisk användar etablering
+# <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera Federerad katalog för automatisk användaretablering
 
-Syftet med den här självstudien är att demonstrera de steg som ska utföras i den federerade katalogen och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetablera användare och/eller grupper till federerade kataloger.
+Syftet med den här självstudien är att demonstrera de steg som ska utföras i Federerad katalog och Azure Active Directory (Azure AD) för att konfigurera Azure AD för att automatiskt etablera och avetableras användare och/eller grupper till Federerad katalog.
 
 > [!NOTE]
->  I den här självstudien beskrivs en koppling som skapats ovanpå Azure AD-tjänsten för användar etablering. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
+>  Den här självstudien beskriver en anslutningsapp som skapats ovanpå Azure AD-tjänsten för användaretablering. Viktig information om vad den här tjänsten gör, hur den fungerar och vanliga frågor finns i [Automatisera etablering av användare och avetablering till SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
-> Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
+> Den här kopplingen är för närvarande i offentlig förhandsversion. Mer information om de allmänna användningsvillkoren för förhandsversionen av Microsoft Azure finns i [Tilläggsvillkor för Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande förutsättningar:
 
 * En Azure AD-klientorganisation.
 * [En federerad katalog](https://www.federated.directory/pricing).
-* Ett användar konto i en federerad katalog med administratörs behörighet.
+* Ett användarkonto i Federerad katalog med administratörsbehörighet.
 
 ## <a name="assign-users-to-federated-directory"></a>Tilldela användare till federerad katalog
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett koncept som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I samband med automatisk användaretablering synkroniseras endast användare och/eller grupper som har tilldelats ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till den federerade katalogen. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till en federerad katalog genom att följa anvisningarna här:
+Innan du konfigurerar och aktiverar automatisk användaretablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till Federerad katalog. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till Federerad katalog genom att följa instruktionerna här:
 
- * [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md) 
+ * [Tilldela en användare eller grupp till en företagsapp](../manage-apps/assign-user-or-group-access-portal.md) 
  
- ## <a name="important-tips-for-assigning-users-to-federated-directory"></a>Viktiga tips för att tilldela användare till federerade kataloger
- * Vi rekommenderar att en enda Azure AD-användare tilldelas en federerad katalog för att testa den automatiska konfigurationen av användar etablering. Ytterligare användare och/eller grupper kan tilldelas senare.
+ ## <a name="important-tips-for-assigning-users-to-federated-directory"></a>Viktiga tips för att tilldela användare till Federerad katalog
+ * Vi rekommenderar att en enda Azure AD-användare tilldelas Federerad katalog för att testa konfigurationen för automatisk användaretablering. Ytterligare användare och/eller grupper kan tilldelas senare.
 
-* När du tilldelar en användare till en federerad katalog måste du välja en giltig programspecifik roll (om tillgängligt) i tilldelnings dialog rutan. Användare med standard åtkomst rollen undantas från etablering.
+* När du tilldelar en användare till Federerad katalog måste du välja en giltig programspecifik roll (om sådan finns) i tilldelningsdialogrutan. Användare med rollen Standardåtkomst är undantagna från etablering.
     
- ## <a name="set-up-federated-directory-for-provisioning"></a>Konfigurera en federerad katalog för etablering
+ ## <a name="set-up-federated-directory-for-provisioning"></a>Ställ in Federerad katalog för etablering
 
-Innan du konfigurerar en federerad katalog för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering i federerade kataloger.
+Innan du konfigurerar Federerad katalog för automatisk användaretablering med Azure AD måste du aktivera SCIM-etablering på Federerad katalog.
 
-1. Logga in i den [federerade katalogens administratörs konsol](https://federated.directory/of)
+1. Logga in på [administratörskonsolen för federerad katalog](https://federated.directory/of)
 
-    ![Själv studie kurs om federerade kataloger](media/federated-directory-provisioning-tutorial/companyname.png)
+    ![Självstudiekurs för Federerad katalog](media/federated-directory-provisioning-tutorial/companyname.png)
 
-2. Navigera till **kataloger > användar kataloger** och välj din klient. 
+2. Navigera till **kataloger > användarkataloger** och välj din klient. 
 
     ![federerad katalog](media/federated-directory-provisioning-tutorial/ad-user-directories.png)
 
-3.  Om du vill skapa en permanent Bearer-token navigerar du till **Katalog nycklar > skapa ny nyckel.** 
+3.  Om du vill generera en permanent innehavartoken navigerar du till **katalognycklar > skapa ny nyckel.** 
 
     ![federerad katalog](media/federated-directory-provisioning-tutorial/federated01.png)
 
-4. Skapa en katalog nyckel. 
+4. Skapa en katalognyckel. 
 
     ![federerad katalog](media/federated-directory-provisioning-tutorial/federated02.png)
     
 
-5. Kopiera värdet **för åtkomsttoken.** Det här värdet anges i fältet **hemlig token** på fliken etablering i ditt federerade katalog program i Azure Portal. 
+5. Kopiera värdet **access token.** Det här värdet anges i fältet **Hemlig token** på fliken Etablering i ditt Federerade katalogprogram i Azure-portalen. 
 
     ![federerad katalog](media/federated-directory-provisioning-tutorial/federated03.png)
     
-## <a name="add-federated-directory-from-the-gallery"></a>Lägg till federerad katalog från galleriet
+## <a name="add-federated-directory-from-the-gallery"></a>Lägga till federerad katalog från galleriet
 
-Om du vill konfigurera en federerad katalog för automatisk användar etablering med Azure AD måste du lägga till en federerad katalog från Azure AD-programgalleriet i listan över hanterade SaaS-program.
+Om du vill konfigurera Federerad katalog för automatisk användaretablering med Azure AD måste du lägga till Federerad katalog från Azure AD-programgalleriet i listan över hanterade SaaS-program.
 
-**Gör så här om du vill lägga till en federerad katalog från Azure AD-programgalleriet:**
+**Så här lägger du till Federerad katalog från Azure AD-programgalleriet:**
 
-1. Välj **Azure Active Directory**i den vänstra navigerings panelen i **[Azure Portal](https://portal.azure.com)** .
+1. Välj **Azure Active Directory**i **[Azure-portalen](https://portal.azure.com)** i den vänstra navigeringspanelen .
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **företags program**och välj sedan **alla program**.
+2. Gå till **Enterprise-program**och välj sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
+3. Om du vill lägga till ett nytt program väljer du knappen **Nytt program** högst upp i fönstret.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I rutan Sök anger du **federerad katalog**och väljer **federerad katalog** i resultat panelen.
+4. I sökrutan anger du **Federerad katalog**, välj **Federerad katalog** på resultatpanelen.
 
-    ![Federerad katalog i resultat listan](common/search-new-app.png)
+    ![Federerad katalog i resultatlistan](common/search-new-app.png)
 
-5. Navigera till **URL:** en som marker ATS nedan i en separat webbläsare. 
+5. Navigera till **webbadressen** som markeras nedan i en separat webbläsare. 
 
     ![federerad katalog](media/federated-directory-provisioning-tutorial/loginpage1.png)
 
-6. Klicka på **Logga**in.
+6. Klicka på **LOGGA IN**.
 
     ![federerad katalog](media/federated-directory-provisioning-tutorial/federated04.png)
 
-7.  Eftersom den federerade katalogen är en OpenIDConnect-app väljer du att logga in på en federerad katalog med ditt Microsoft Work-konto.
+7.  Eftersom Federerad katalog är en OpenIDConnect-app väljer du att logga in på Federerad katalog med ditt Microsoft-arbetskonto.
     
     ![federerad katalog](media/federated-directory-provisioning-tutorial/loginpage3.png)
  
-8. När autentiseringen är klar godkänner du frågan om medgivande för sidan medgivande. Programmet läggs sedan till automatiskt i din klient organisation och du omdirigeras till ditt federerade katalog konto.
+8. Efter en lyckad autentisering godkänner du samtyckesprompten för samtyckessidan. Programmet läggs sedan automatiskt till din klient och du kommer att omdirigeras till ditt Federerade katalogkonto.
 
     ![federerad katalog Lägg till SCIM](media/federated-directory-provisioning-tutorial/premission.png)
 
 
 
-## <a name="configuring-automatic-user-provisioning-to-federated-directory"></a>Konfigurera automatisk användar etablering till federerad katalog 
+## <a name="configuring-automatic-user-provisioning-to-federated-directory"></a>Konfigurera automatisk användaretablering till Federerad katalog 
 
-Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i federerade kataloger baserat på användar-och/eller grupp tilldelningar i Azure AD.
+I det här avsnittet får du hjälp med stegen för att konfigurera Azure AD-etableringstjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i Federerad katalog baserat på användar- och/eller grupptilldelningar i Azure AD.
 
-### <a name="to-configure-automatic-user-provisioning-for-federated-directory-in-azure-ad"></a>Konfigurera automatisk användar etablering för federerad katalog i Azure AD:
+### <a name="to-configure-automatic-user-provisioning-for-federated-directory-in-azure-ad"></a>Så här konfigurerar du automatisk användaretablering för Federerad katalog i Azure AD:
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **Företagsprogram**och välj sedan **Alla program**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan program väljer du **federerad katalog**.
+2. Välj **Federerad katalog**i programlistan .
 
-    ![Länken federerad katalog i program listan](common/all-applications.png)
+    ![Länken Federerad katalog i programlistan](common/all-applications.png)
 
-3. Välj fliken **etablering** .
+3. Välj fliken **Etablering.**
 
-    ![Fliken etablering](common/provisioning.png)
+    ![Fliken Etablering](common/provisioning.png)
 
-4. Ställ in **etablerings läget** på **automatiskt**.
+4. Ställ in **etableringsläget** på **Automatiskt**.
 
-    ![Fliken etablering](common/provisioning-automatic.png)
+    ![Fliken Etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** , in`https://api.federated.directory/v2/` i klient-URL. Mata in det värde som du hämtade och sparade tidigare från den externa katalogen i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till den federerade katalogen. Om anslutningen Miss lyckas kontrollerar du att ditt federerade katalog konto har administratörs behörighet och försöker igen.
+5. Under avsnittet **Administratörsautentiseringsuppgifter** anger du i `https://api.federated.directory/v2/` klient-URL:en. Ange värdet som du hämtade och sparade tidigare från Federerad katalog i **hemlig token**. Klicka på **Testa anslutning** för att säkerställa att Azure AD kan ansluta till Federerad katalog. Om anslutningen misslyckas kontrollerar du att ditt Federerade katalogkonto har administratörsbehörighet och försöker igen.
 
-    ![Klient-URL + token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Url till klient + token](common/provisioning-testconnection-tenanturltoken.png)
 
-8. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
+8. I fältet **E-post för meddelanden** anger du e-postadressen till en person eller grupp som ska få meddelanden om etableringsfel och markerar kryssrutan - **Skicka ett e-postmeddelande när ett fel inträffar**.
 
     ![E-postmeddelande](common/provisioning-notification-email.png)
 
-9. Klicka på **Save** (Spara).
+9. Klicka på **Spara**.
 
-10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till federerad katalog**.
+10. Under avsnittet **Mappningar** väljer du **Synkronisera Azure Active Directory-användare till Federerad katalog**.
 
-    ![Själv studie kurs om federerade kataloger](media/federated-directory-provisioning-tutorial/user-mappings.png)
+    ![Självstudiekurs för Federerad katalog](media/federated-directory-provisioning-tutorial/user-mappings.png)
     
     
-11. Granska de användarattribut som synkroniseras från Azure AD till den federerade katalogen i avsnittet **Mappning av attribut** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i den federerade katalogen för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
+11. Granska användarattributen som synkroniseras från Azure AD till Federerad katalog i avsnittet **Attributmappning.** De attribut som valts som **matchande** egenskaper används för att matcha användarkontona i Federerad katalog för uppdateringsåtgärder. Välj knappen **Spara** om du vill utföra eventuella ändringar.
 
-    ![Själv studie kurs om federerade kataloger](media/federated-directory-provisioning-tutorial/user-attributes.png)
+    ![Självstudiekurs för Federerad katalog](media/federated-directory-provisioning-tutorial/user-attributes.png)
     
 
-12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Information om hur du konfigurerar omfångsfilter finns i följande instruktioner i [självstudiefilatkursen För att visa omfånget](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Om du vill aktivera Azure AD Provisioning-tjänsten för federerad katalog ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+13. Om du vill aktivera Azure AD-etableringstjänsten för Federerad katalog ändrar **du etableringsstatusen** till **På** i avsnittet **Inställningar.**
 
-    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+    ![Etableringsstatus växlad på](common/provisioning-toggle-on.png)
 
-14. Definiera de användare och/eller grupper som du vill etablera till den federerade katalogen genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+14. Definiera de användare och/eller grupper som du vill etablera till Federerad katalog genom att välja önskade värden i **Scope** i avsnittet **Inställningar.**
 
-    ![Etablerings omfång](common/provisioning-scope.png)
+    ![Etableringsomfång](common/provisioning-scope.png)
 
 15. När du är redo att etablera klickar du på **Spara**.
 
-    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+    ![Spara etableringskonfiguration](common/provisioning-configuration-save.png)
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som definierats i **området** i avsnittet **Inställningar** . Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge Azure AD Provisioning-tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablerings aktivitets rapporten, som beskriver alla åtgärder som utförs av Azure AD Provisioning-tjänsten på den federerade katalogen.
+Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som **definierats** i Scope i avsnittet **Inställningar.** Den första synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, som inträffar ungefär var 40:e minut så länge Azure AD-etableringstjänsten körs. Du kan använda avsnittet **Synkroniseringsinformation** för att övervaka förloppet och följa länkar till etableringsaktivitetsrapporten, som beskriver alla åtgärder som utförs av Azure AD-etableringstjänsten på Federerad katalog.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md)
+Mer information om hur du läser Azure AD-etableringsloggarna finns i [Rapportera om automatisk etablering av användarkonton](../app-provisioning/check-status-user-account-provisioning.md)
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Hantera etablering av användarkonton för Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Läs om hur du granskar loggar och hämtar rapporter om etableringsaktivitet](../app-provisioning/check-status-user-account-provisioning.md)

@@ -1,6 +1,6 @@
 ---
-title: Så här ringer du ett telefonsamtal från Twilio (Java) | Microsoft Docs
-description: Lär dig hur du ringer ett telefonsamtal från en webb sida med Twilio i ett Java-program på Azure.
+title: Hur man gör ett telefonsamtal från Twilio (Java) | Microsoft-dokument
+description: Läs om hur du ringer ett telefonsamtal från en webbsida med Twilio i ett Java-program på Azure.
 services: ''
 documentationcenter: java
 author: georgewallace
@@ -13,30 +13,30 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.openlocfilehash: 168ec65cfd0ff4e87c33324daa353b554111c8aa
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73838560"
 ---
-# <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Ringa ett telefonsamtal med Twilio i ett Java-program på Azure
-I följande exempel visas hur du kan använda Twilio för att ringa ett samtal från en webb sida som finns i Azure. Det resulterande programmet kommer att uppmana användaren att ange Telefonsamtals värden, som du ser i följande skärm bild.
+# <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Så här ringer du ett telefonsamtal med Twilio i ett Java-program på Azure
+I följande exempel visas hur du kan använda Twilio för att ringa ett samtal från en webbsida som finns i Azure. Det resulterande programmet kommer att uppmana användaren för telefonsamtal värden, som visas i följande skärmdump.
 
-![Anrops formulär för Azure med Twilio och Java][twilio_java]
+![Azure-samtalsformulär med Twilio och Java][twilio_java]
 
-Du måste göra följande för att använda koden i det här avsnittet:
+Du måste göra följande för att kunna använda koden i det här avsnittet:
 
-1. Hämta ett Twilio-konto och autentiseringstoken. För att komma igång med Twilio ska du utvärdera priserna på [https://www.twilio.com/pricing][twilio_pricing]. Du kan registrera dig på [https://www.twilio.com/try-twilio][try_twilio]. Information om det API som tillhandahålls av Twilio finns [https://www.twilio.com/api][twilio_api].
-2. Hämta Twilio-JAR. På [https://github.com/twilio/twilio-java][twilio_java_github]kan du ladda ned GitHub-källorna och skapa en egen jar-fil eller ladda ned en förbyggd jar-fil (med eller utan beroenden).
-   Koden i det här avsnittet skrevs med hjälp av den färdiga TwilioJava-3.3.8.
-3. Lägg till JAR i din Java-build-sökväg.
-4. Om du använder Sol förmörkelse för att skapa Java-programmet inkluderar du Twilio JAR i program distributions filen (WAR) med hjälp av funktionen distributions sammansättning i Sol förmörkelse. Om du inte använder Sol förmörkelse för att skapa Java-programmet ser du till att Twilio JAR ingår i samma Azure-roll som Java-programmet och läggs till i programmets klass Sök väg.
-5. Se till att ditt cacerts-Equifax innehåller certifikat utfärdarens säkra certifikat utfärdare med MD5 finger avtryck 67: CB: 9D: C0:13:24:8A: 82:9B: B2:17:1E: D1:1B: EG: D4 (serie numret är 35: DE: F4: CF och det SHA1-finger avtryck är D2:32:09: AD: 23: D 3:14:23:21:74: E4:0D: 7F: 9D: 62:13:97:86:63:3A). Detta är certifikat utfärdarens certifikat (CA) för [https://api.twilio.coms][twilio_api_service] tjänsten, som anropas när du använder Twilio-API: er. Information om hur du lägger till det här CA-certifikatet i din JDK CAcert-butik finns i [lägga till ett certifikat i certifikat arkivet för Java-ca][add_ca_cert].
+1. Skaffa ett Twilio-konto och en autentiseringstoken. För att komma igång med Twilio, utvärdera prissättning på [https://www.twilio.com/pricing][twilio_pricing]. Du kan registrera [https://www.twilio.com/try-twilio][try_twilio]dig på . Information om API:et som tillhandahålls [https://www.twilio.com/api][twilio_api]av Twilio finns i .
+2. Skaffa Twilio JAR. På [https://github.com/twilio/twilio-java][twilio_java_github]kan du hämta GitHub-källorna och skapa din egen JAR, eller ladda ner en färdig JAR (med eller utan beroenden).
+   Koden i det här avsnittet skrevs med hjälp av den färdiga TwilioJava-3.3.8-med-beroenden JAR.
+3. Lägg till JAR i din Java bygga sökväg.
+4. Om du använder Eclipse för att skapa det här Java-programmet inkluderar du Twilio-JAR:en i programdistributionsfilen (WAR) med Eclipses distributionsmonteringsfunktion. Om du inte använder Eclipse för att skapa det här Java-programmet kontrollerar du att Twilio-JAR:en ingår i samma Azure-roll som ditt Java-program och läggs till i klasssökvägen till ditt program.
+5. Kontrollera att din cacerts keystore innehåller Equifax Secure Certificate Authority certifikat med MD5 fingeravtryck 67:CB:9D:C0:13:24:8A:82:9B:B2:017:1E:D1:1B:EG:D4 (serienumret är 35:DE:F4:CF och SHA1-fingeravtrycket är D2:32:09:AD:23:D 3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Det här är certifikatutfärdarcertifikatet [https://api.twilio.com][twilio_api_service] för tjänsten, som anropas när du använder Twilio API:er. Information om hur du lägger till det här certifikatutfärdarcertifikatet i JDK:s cacert-arkiv finns i [Lägga till ett certifikat i Java CA Certificate Store][add_ca_cert].
 
-Dessutom rekommenderar vi att du [skapar ett Hello World program med hjälp av Azure Toolkit for Eclipse][azure_java_eclipse_hello_world]eller med andra metoder för att vara värd för Java-program i Azure om du inte använder Sol förmörkelse.
+Dessutom rekommenderas starkt information om hur du [skapar ett Hello World-program][azure_java_eclipse_hello_world]med hjälp av Azure Toolkit for Eclipse eller med andra tekniker för att vara värd för Java-program i Azure om du inte använder Eclipse.
 
-## <a name="create-a-web-form-for-making-a-call"></a>Skapa ett webb formulär för att ringa ett samtal
-Följande kod visar hur du skapar ett webb formulär för att hämta användar data för att ringa ett samtal. I det här exemplet har ett nytt dynamiskt webb projekt med namnet **TwilioCloud**skapats, och **callform. jsp** har lagts till som en JSP-fil.
+## <a name="create-a-web-form-for-making-a-call"></a>Skapa ett webbformulär för att ringa ett samtal
+Följande kod visar hur du skapar ett webbformulär för att hämta användardata för att ringa ett samtal. I det här exemplet skapades ett nytt dynamiskt webbprojekt med namnet **TwilioCloud**och **callform.jsp** lades till som en JSP-fil.
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
@@ -76,8 +76,8 @@ Följande kod visar hur du skapar ett webb formulär för att hämta användar d
     </body>
     </html>
 
-## <a name="create-the-code-to-make-the-call"></a>Skapa koden för att ringa
-Följande kod, som anropas när användaren fyller i formuläret som visas av callform. jsp, skapar ett anrops meddelande och genererar anropet. I det här exemplet heter JSP-filen **MakeCall. jsp** och lades till i **TwilioCloud** -projektet. (Använd ditt Twilio-konto och autentiseringstoken i stället för plats hållarens värden som tilldelats **accountSID** och **authToken** i koden nedan.)
+## <a name="create-the-code-to-make-the-call"></a>Skapa koden för att ringa samtalet
+Följande kod, som anropas när användaren fyller i formuläret som visas av callform.jsp, skapar samtalsmeddelandet och genererar samtalet. I det här exemplet heter JSP-filen **makecall.jsp** och lades till i **TwilioCloud-projektet.** (Använd ditt Twilio-konto och autentiseringstoken i stället för de platshållarvärden som tilldelats **accountSID** och **authToken** i koden nedan.)
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     import="java.util.*"
@@ -160,35 +160,35 @@ Följande kod, som anropas när användaren fyller i formuläret som visas av ca
     </body>
     </html>
 
-Förutom att ringa upp visar MakeCall. jsp Twilio-slutpunkten, API-versionen och anrops statusen. Ett exempel är följande skärm bild:
+Förutom att ringa samtalet visar makecall.jsp slutpunkten Twilio, API-versionen och anropsstatusen. Ett exempel är följande skärmdump:
 
-![Azure-samtals svar med Twilio och Java][twilio_java_response]
+![Azure-samtalssvar med Twilio och Java][twilio_java_response]
 
-## <a name="run-the-application"></a>Köra programmet
-Följande är de övergripande stegen för att köra programmet. information om de här stegen finns i [skapa ett Hello World program med hjälp av Azure Toolkit for Eclipse][azure_java_eclipse_hello_world].
+## <a name="run-the-application"></a>Köra appen
+Följande är de steg på hög nivå för att köra ditt program; information för dessa steg finns på [Skapa ett Hello World-program med hjälp av Azure Toolkit för Eclipse][azure_java_eclipse_hello_world].
 
-1. Exportera din TwilioCloud-krig till Azure **appens rot** -mappen. 
-2. Ändra **Start. cmd** för att packa upp din TWILIOCLOUD-krig.
-3. Kompilera ditt program för Compute-emulatorn.
-4. Starta distributionen i Compute-emulatorn.
-5. Öppna en webbläsare och kör `http://localhost:8080/TwilioCloud/callform.jsp`.
-6. Ange värden i formuläret, klicka på **gör detta samtal**och se resultatet i MakeCall. jsp.
+1. Exportera din TwilioCloud WAR till **Azure-approt-mappen.** 
+2. Ändra **startup.cmd** för att packa upp ditt TwilioCloud WAR.
+3. Kompilera ditt program för beräkningsemulatorn.
+4. Starta distributionen i beräkningsemulatorn.
+5. Öppna en webbläsare `http://localhost:8080/TwilioCloud/callform.jsp`och kör .
+6. Ange värden i formuläret, klicka på **Ring det här samtalet**och se sedan resultaten i makecall.jsp.
 
-När du är redo att distribuera till Azure omkompilerar du för distribution till molnet, distribuerar till Azure och kör http://*your_hosted_name*. cloudapp.net/TwilioCloud/callform.jsp i webbläsaren (Ersätt värdet för *your_hosted_name*).
+När du är redo att distribuera till Azure, kompilera om för distribution till molnet, distribuera till Azure och köra http://*your_hosted_name*.cloudapp.net/TwilioCloud/callform.jsp i webbläsaren (ersätta ditt värde med *your_hosted_name*).
 
 ## <a name="next-steps"></a>Nästa steg
-Den här koden angavs för att visa grundläggande funktioner med Twilio i Java på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till mer fel hantering eller andra funktioner. Till exempel:
+Den här koden tillhandahölls för att visa dig grundläggande funktioner med Twilio i Java på Azure. Innan du distribuerar till Azure i produktion kanske du vill lägga till fler felhantering eller andra funktioner. Ett exempel:
 
-* I stället för att använda ett webb formulär kan du använda Azure Storage-blobbar eller SQL Database för att lagra telefonnummer och samtals text. Information om hur du använder Azure Storage-blobar i Java finns i [så här använder du tjänsten Blob Storage från Java][howto_blob_storage_java]. 
-* Du kan använda **RoleEnvironment. getConfigurationSettings** för att hämta Twilio-konto-ID och autentiseringstoken från distributionens konfigurations inställningar, i stället för att hårdkoda värdena i MakeCall. jsp. Information om klassen **RoleEnvironment** finns i [använda Azure Service runtime-biblioteket i JSP][azure_runtime_jsp].
-* MakeCall. jsp-koden tilldelar en Twilio URL [https://twimlets.com/message][twimlet_message_url]till **URL** -variabeln. Den här URL: en innehåller ett TwiML-svar (Twilio Markup Language) som informerar Twilio hur du går vidare med anropet. Den TwiML som returneras kan till exempel innehålla ett **&lt;säger&gt;** verb som resulterar i att text läses till samtals mottagaren. I stället för att använda Twilio-URL: en kan du bygga din egen tjänst för att svara på Twilio: s begäran. Mer information finns i [så här använder du Twilio för röst-och SMS-funktioner i Java][howto_twilio_voice_sms_java]. Mer information om TwiML finns på [https://www.twilio.com/docs/api/twiml][twiml]och mer information om **&lt;säga&gt;** och andra Twilio-verb finns på [https://www.twilio.com/docs/api/twiml/say][twilio_say].
-* Läs rikt linjerna för Twilio-säkerhet på [https://www.twilio.com/docs/security][twilio_docs_security].
+* I stället för att använda ett webbformulär kan du använda Azure storage blobbar eller SQL Database för att lagra telefonnummer och samtalstext. Information om hur du använder Azure storage blobbar i Java finns i [Så här använder du Blob Storage Service från Java][howto_blob_storage_java]. 
+* Du kan använda **RoleEnvironment.getConfigurationSettings** för att hämta Twilio-konto-ID och autentiseringstoken från distributionens konfigurationsinställningar, i stället för att hårdkoda värdena i makecall.jsp. Information om klassen **RoleEnvironment** finns i [Använda Azure Service Runtime Library i JSP][azure_runtime_jsp].
+* Makecall.jsp-koden tilldelar en URL som [https://twimlets.com/message][twimlet_message_url]tillhandahålls av Twilio till **variabeln Url.** Den här webbadressen innehåller ett Twilio Markup Language (TwiML) som informerar Twilio om hur du går vidare med samtalet. TwiML som returneras kan till exempel innehålla ett ** &lt;Say-verb&gt; ** som resulterar i att texten blir uppläst till samtalsmottagaren. I stället för att använda webbadressen som tillhandahålls av Twilio kan du skapa din egen tjänst för att svara på Twilios begäran. Mer information finns i [Så här använder du Twilio för röst- och SMS-funktioner i Java][howto_twilio_voice_sms_java]. Mer information om TwiML [https://www.twilio.com/docs/api/twiml][twiml]finns på , och mer information om ** &lt;Say&gt; ** och [https://www.twilio.com/docs/api/twiml/say][twilio_say]andra Twilio verb finns på .
+* Läs Twilio säkerhetsriktlinjer på [https://www.twilio.com/docs/security][twilio_docs_security].
 
-Mer information om Twilio finns i [https://www.twilio.com/docs][twilio_docs].
+Mer information om Twilio [https://www.twilio.com/docs][twilio_docs]finns i .
 
 ## <a name="see-also"></a>Se även
-* [Använda Twilio för röst-och SMS-funktioner i Java][howto_twilio_voice_sms_java]
-* [Lägga till ett certifikat i certifikat arkivet för Java-CA][add_ca_cert]
+* [Hur man använder Twilio för röst- och SMS-funktioner i Java][howto_twilio_voice_sms_java]
+* [Lägga till ett certifikat i Java CA-certifikatarkivet][add_ca_cert]
 
 [twilio_pricing]: https://www.twilio.com/pricing
 [try_twilio]: https://www.twilio.com/try-twilio

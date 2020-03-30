@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell-skript: Skapa en Azure Data Share-inbjudan | Microsoft Docs'
-description: Det här PowerShell-skriptet skickar en inbjudan till data resursen.
+title: 'PowerShell-skript: Skapa en inbjudan till Azure-datadelning| Microsoft-dokument'
+description: Det här PowerShell-skriptet skickar en inbjudan för datadelning.
 services: data-share
 author: joannapea
 ms.service: data-share
@@ -10,15 +10,15 @@ ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
 ms.openlocfilehash: 9fd8d6428e94007002d524d9ade99f6b368b8201
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "70307237"
 ---
-# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Använd PowerShell för att övervaka användningen av en data resurs som skickats
+# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Använda PowerShell för att övervaka användningen av en skickad dataresurs
 
-Det här PowerShell-skriptet skapar en inbjudan till data resursen.
+Det här PowerShell-skriptet skapar en inbjudan för datadelning.
 
 ## <a name="sample-script"></a>Exempelskript
 
@@ -42,11 +42,11 @@ I det här skriptet används följande kommandon:
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation?view=azps-2.6.0) | Skapa en inbjudan till data delning. |
+| [Ny-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation?view=azps-2.6.0) | Skapa en inbjudan till datadelning. |
 |||
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/).
 
-Ytterligare exempel för Azure Data Share PowerShell-skript finns i [PowerShell-exemplen för Azure Data Share](../../samples-powershell.md).
+Ytterligare Azure Data Share PowerShell-skriptexempel finns i [Azure Data Share PowerShell-exemplen](../../samples-powershell.md).

@@ -1,6 +1,6 @@
 ---
-title: Konfigurera NewTek TriCaster-kodaren för att skicka en enda bit hastighet i real tid | Microsoft Docs
-description: Det här avsnittet visar hur du konfigurerar TriCaster Live Encoder för att skicka en enda bit ström till AMS kanaler som är aktiverade för Live encoding.
+title: Konfigurera NewTek TriCaster-kodaren för att skicka en enda bitrate live stream | Microsoft-dokument
+description: Det här avsnittet visar hur du konfigurerar Tricaster live-kodaren för att skicka en enda bithastighetsström till AMS-kanaler som är aktiverade för live-kodning.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -16,155 +16,155 @@ ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
 ms.openlocfilehash: 7909fbb958a66d00616d4ed1b844d02bb47d997e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/12/2020
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "77152507"
 ---
-# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Använda NewTek TriCaster-kodaren för att skicka en enda bit hastighet i real tid  
+# <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Använd NewTek TriCaster-kodaren för att skicka en enda bitrate live stream  
 > [!div class="op_single_selector"]
-> * [TriCaster](media-services-configure-tricaster-live-encoder.md)
-> * [Grundämne, Live](media-services-configure-elemental-live-encoder.md)
+> * [Tricaster (tre)](media-services-configure-tricaster-live-encoder.md)
+> * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
 >
 
-Den här artikeln visar hur du konfigurerar [NewTek TriCaster](https://newtek.com/products/tricaster-40.html) Live Encoder för att skicka en enda bit ström till AMS kanaler som är aktiverade för direktsänd kodning. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+Den här artikeln visar hur du konfigurerar [NewTek TriCaster](https://newtek.com/products/tricaster-40.html) live-kodaren för att skicka en enda bithastighetsström till AMS-kanaler som är aktiverade för live-kodning. Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
-Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE)-verktyget. Det här verktyget körs bara på Windows-dator. Om du använder Mac eller Linux använder du Azure Portal för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
+Den här självstudien visar hur du hanterar Azure Media Services (AMS) med Azure Media Services Explorer (AMSE) verktyg. Det här verktyget körs bara på Windows PC. Om du använder Mac eller Linux använder du Azure-portalen för att skapa [kanaler](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) och [program](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-När du använder TriCaster för att skicka en bidrags väg till AMS-kanaler som är aktiverade för Live encoding, kan det finnas video-/ljud fel i din Live-händelse om du använder vissa funktioner i TriCaster, t. ex. snabb styckning mellan matningar eller växlar till/från arbets flöden. AMS-teamet arbetar på att åtgärda de här problemen tills du har det inte rekommenderas att använda dessa funktioner.
+När du använder Tricaster för att skicka in ett bidrag foder till AMS-kanaler som är aktiverade för live kodning, kan det finnas video / ljud buggar i din live-händelse om du använder vissa funktioner i Tricaster, till exempel snabb skärning mellan flöden, eller byta till / från skiffer. AMS-teamet arbetar med att åtgärda dessa problem, tills dess rekommenderas det inte att använda dessa funktioner.
 
 > [!NOTE]
->  Överväg att flytta till TLS 1,2, prefferred TLS-versionen.
+>  Överväg att flytta till TLS 1.2, den prefferred TLS-versionen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* [Skapa ett Azure Media Services konto](media-services-portal-create-account.md)
-* Se till att det finns en slutpunkt för direktuppspelning som körs. Mer information finns i [Hantera strömnings slut punkter i ett Media Services konto](media-services-portal-manage-streaming-endpoints.md)
-* Installera den senaste versionen av [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) -verktyget.
-* Starta verktyget och ansluta till AMS-kontot.
+* [Skapa ett Azure Media Services-konto](media-services-portal-create-account.md)
+* Se till att en slutpunkt för direktuppspelning körs. Mer information finns [i Hantera slutpunkter för direktuppspelning i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md)
+* Installera den senaste versionen av [AMSE-verktyget.](https://github.com/Azure/Azure-Media-Services-Explorer)
+* Starta verktyget och anslut till ditt AMS-konto.
 
 ## <a name="tips"></a>Tips
 
-* När det är möjligt använda ett inbyggt internet-anslutning.
-* En bra tumregel när du fastställer kraven på nätverksbandbredd är att dubbla strömmande bithastighet. Detta är inte ett obligatoriskt krav, hjälper det att undvika påverkan av överbelastning på nätverket.
-* När du använder programvarubaserad kodare kan du stänga alla onödiga program.
+* Använd en direktkopplad internetanslutning när det är möjligt.
+* En bra tumregel för att bestämma bandbreddskrav är att dubblera sändningens bithastighet. Även om detta inte är ett obligatoriskt krav, hjälper det till att minska effekterna av överbelastning i nätverket.
+* När du använder programvarubaserade kodare stänger du alla onödiga program.
 
 ## <a name="create-a-channel"></a>Skapa en kanal
 
-1. I AMSE-verktyget går du till fliken **Live** och högerklickar i kanalområdet. Välj **skapa kanal...** på menyn.
+1. I AMSE-verktyget navigerar du till fliken **Live** och högerklickar inom kanalområdet. Välj **Skapa kanal...** från menyn.
 
-    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
+    ![tricaster (tre)](./media/media-services-tricaster-live-encoder/media-services-tricaster1.png)
 
-2. Ange ett Kanalnamn beskrivningsfältet är valfritt. Under kanal inställningar väljer du **standard** för alternativet Live encoding med inmatnings protokollet inställt på **RTMP**. Du kan lämna alla andra inställningar som är.
+2. Ange ett kanalnamn, beskrivningsfältet är valfritt. Under Kanalinställningar väljer du **Standard** för alternativet Direktkodning, med indataprotokollet inställt på **RTMP**. Du kan lämna alla andra inställningar som de är.
 
-    Kontrol lera att **starta den nya kanalen nu** är markerat.
+    Kontrollera att **starta den nya kanalen nu** är markerad.
 
-3. Klicka på **skapa kanal**.
+3. Klicka på **Skapa kanal**.
 
-   ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
+   ![tricaster (tre)](./media/media-services-tricaster-live-encoder/media-services-tricaster2.png)
 
 > [!NOTE]
 > Kanalen kan ta upp till 20 minuter att starta.
 >
 >
 
-När kanalen startas kan du [Konfigurera kodaren](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
+När kanalen startar kan du [konfigurera kodaren](media-services-configure-tricaster-live-encoder.md#configure_tricaster_rtmp).
 
 > [!IMPORTANT]
-> Debiteringen börjar när kanalen hamnar i tillståndet redo. Mer information finns i [kanalens tillstånd](media-services-manage-live-encoder-enabled-channels.md#states).
+> Faktureringen startar så fort kanalen går in i ett färdigt tillstånd. Mer information finns i [Kanalens tillstånd](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a name="a-idconfigure_tricaster_rtmpconfigure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>konfigurera NewTek TriCaster-kodare
+## <a name="configure-the-newtek-tricaster-encoder"></a><a id="configure_tricaster_rtmp"/>Konfigurera NewTek TriCaster-kodaren
 
-I den här självstudien används följande utdatainställningar för. Resten av det här avsnittet beskriver konfigurationssteg i detalj.
+I den här självstudien används följande utdatainställningar. I resten av det här avsnittet beskrivs konfigurationsstegen mer i detalj.
 
 **Video**:
 
 * Codec: H.264
 * Profil: Hög (nivå 4.0)
-* Med flera bithastigheter: 5000 kbit/s
-* Bildrutan: 2 sekunder (60 sekunder)
-* RAM-pris: 30
+* Bitrate: 5000 kbps
+* Nyckelbildruta: 2 sekunder (60 sekunder)
+* Bildhastighet: 30
 
-**Ljud**:
+**Ljud:**
 
 * Codec: AAC (LC)
-* Med flera bithastigheter: 192 kbit/s
-* Samplingshastighet: 44.1 kHz
+* Bithastighet: 192 kbit/s
+* Provhastighet: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Konfigurationssteg
 
-1. Skapa ett nytt **NewTek TriCaster** -projekt beroende på vilken video ingångs källa som används.
-2. När du är i projektet söker du efter **Stream** -knappen och klickar på kugg hjuls ikonen bredvid den för att få åtkomst till data Ströms konfigurations menyn.
+1. Skapa ett nytt **NewTek TriCaster-projekt** beroende på vilken videoingångskälla som används.
+2. En gång i det projektet, leta reda på **knappen Stream** och klicka på kugghjulsikonen bredvid den för att komma åt menyn för strömkonfiguration.
 
-    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
-3. När menyn har öppnats klickar du på **ny** under anslutnings rubriken. När du tillfrågas om anslutnings typen väljer du **Adobe Flash**.
+    ![tricaster (tre)](./media/media-services-tricaster-live-encoder/media-services-tricaster3.png)
+3. När menyn har öppnats klickar du på **Ny** under rubriken Anslutning. När du uppmanas att ange anslutningstypen väljer du **Adobe Flash**.
 
-    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
-4. Klicka på **OK**
-5. Nu kan du importera en FMLE-profil genom att klicka på listpilen under **strömmande profil** och navigera till **Bläddra**.
+    ![tricaster (tre)](./media/media-services-tricaster-live-encoder/media-services-tricaster4.png)
+4. Klicka på **OK**.
+5. En FMLE-profil kan nu importeras genom att klicka på nedpilen under **Strömmande profil** och navigera till **Bläddra**.
 
-    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
+    ![tricaster (tre)](./media/media-services-tricaster-live-encoder/media-services-tricaster5.png)
 6. Navigera till den plats där den konfigurerade FMLE-profilen sparades.
-7. Markera det och tryck på **OK**.
+7. Markera den och tryck på **OK**.
 
-    När profilen har laddats upp fortsätter du till nästa steg.
-8. Hämta kanalens inmatnings-URL för att tilldela den till TriCaster **RTMP-slutpunkten**.
+    När profilen har laddats upp går du vidare till nästa steg.
+8. Hämta kanalens indata-URL för att tilldela den till Tricaster **RTMP-slutpunkten**.
 
-    Gå tillbaka till AMSE-verktyget och kontrollera status för slutförande kanal. När statusen har ändrats från att **Starta** till **körs**kan du hämta INgångs-URL: en.
+    Navigera tillbaka till AMSE-verktyget och kontrollera kanalens slutförandestatus. När tillståndet har ändrats från **Start** till **Löpning**kan du hämta indata-URL:en.
 
-    När kanalen är igång, högerklickar du på kanal namnet, navigerar ned till hovra över **Kopiera ingångs-URL till Urklipp** och väljer sedan **primär ingångs-URL**.  
+    När kanalen körs högerklickar du på kanalnamnet, navigerar nedåt för att hovra över **Url för kopiera indata till Urklipp** och välj sedan **Url för primär inmatning**.  
 
-    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
-9. Klistra in den här informationen i fältet **plats** under **Flash server** i TriCaster-projektet. Tilldela också ett data ström namn i fältet **Stream-ID** .
+    ![tricaster (tre)](./media/media-services-tricaster-live-encoder/media-services-tricaster6.png)
+9. Klistra in den här informationen i fältet **Plats** under **Flash Server** i Tricaster-projektet. Tilldela också ett flödesnamn i fältet **Stream ID.**
 
-    Om strömmande information har lagts till i FMLE-profilen kan den också importeras till det här avsnittet genom att klicka på **Importera inställningar**, navigera till den sparade FMLE-profilen och klicka på **OK**. De relevanta Flash server-fälten fylls med informationen från FMLE.
+    Om strömmande information har lagts till i FMLE-profilen kan den också importeras till det här avsnittet genom att klicka på **Importera inställningar,** navigera till den sparade FMLE-profilen och klicka på **OK**. De relevanta Flash Server-fälten ska fyllas i med informationen från FMLE.
 
-    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
-10. När du är färdig klickar du på **OK** längst ned på skärmen. När video-och ljud inmatningar i TriCaster är klara, börjar du strömma till AMS genom att klicka på **ström** knappen.
+    ![tricaster (tre)](./media/media-services-tricaster-live-encoder/media-services-tricaster7.png)
+10. När du är klar klickar du på **OK** längst ned på skärmen. När video- och ljudingångarna till Tricaster är klara börjar **Stream** du strömma till AMS genom att klicka på stream-knappen.
 
-     ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
+     ![tricaster (tre)](./media/media-services-tricaster-live-encoder/media-services-tricaster11.png)
 
 > [!IMPORTANT]
 > Innan du klickar på **Stream** **måste** du se till att kanalen är klar.
-> Se dessutom till att du inte lämnar kanalen i tillståndet redo utan ett inkommande bidrag feed > 15 minuter.
+> Se också till att inte lämna kanalen i ett färdigt tillstånd utan inmatningsflöde längre än > 15 minuter.
 >
 >
 
 ## <a name="test-playback"></a>Testa uppspelning
 
-Gå till AMSE-verktyget och högerklicka på kanalen som ska testas. Hovra över **uppspelning av för hands versionen på** menyn och välj **med Azure Media Player**.  
+Navigera till AMSE-verktyget och högerklicka på den kanal som ska testas. Hovra över **Uppspelning av förhandsgranskningen** på menyn och välj **med Azure Media Player**.  
 
     ![tricaster](./media/media-services-tricaster-live-encoder/media-services-tricaster8.png)
 
-Om strömmen visas i spelaren, har sedan kodaren konfigurerats korrekt för att ansluta till AMS.
+Om strömmen visas i spelaren har kodaren konfigurerats korrekt för att ansluta till AMS.
 
-Om ett fel tas emot måste kanalen återställas och kodarens inställningar justeras. Se [fel söknings](media-services-troubleshooting-live-streaming.md) artikeln för vägledning.  
+Om ett fel tas emot måste kanalen återställas och kodarinställningarna justeras. Mer [information](media-services-troubleshooting-live-streaming.md) finns i felsökningsartikeln.  
 
 ## <a name="create-a-program"></a>Skapa ett program
 
-1. När kanalen uppspelning har bekräftats kan du skapa ett program. Under fliken **Live** i AMSE-verktyget högerklickar du i program arean och väljer **Skapa nytt program**.  
+1. När kanaluppspelningen har bekräftats skapar du ett program. Högerklicka inom programområdet under fliken **Live** i AMSE-verktyget och välj **Skapa nytt program**.  
 
-    ![TriCaster](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
-2. Ge programmet ett namn och, om det behövs, ändra **Arkiv fönstrets längd** (som är standardvärdet fyra timmar). Du kan också ange en lagringsplats eller lämna som standard.  
-3. Markera kryss rutan **starta programmet nu** .
-4. Klicka på **skapa program**.  
+    ![tricaster (tre)](./media/media-services-tricaster-live-encoder/media-services-tricaster9.png)
+2. Namnge programmet och justera **arkivfönstrets längd** om det behövs (som standard till fyra timmar). Du kan också ange en lagringsplats eller lämna som standard.  
+3. Markera rutan **Starta programmet nu.**
+4. Klicka på **Skapa program**.  
 
     >[!NOTE]
-    >Programmet tar mindre tid än att skapa en kanal.
+    >Det tar kortare tid än att skapa program.
         
-5. När programmet har körts bekräftar du uppspelningen genom att högerklicka på programmet och navigera för att **spela upp program** och välja **med Azure Media Player**.  
-6. När du har bekräftat, högerklickar du på programmet igen och väljer **Kopiera URL: en till Urklipp** (eller hämta informationen från **program information och inställnings** alternativ på menyn).
+5. När programmet körs bekräftar du uppspelningen genom att högerklicka på programmet och navigera till **Uppspelning av programmet/programen** och sedan välja **med Azure Media Player**.  
+6. När du har bekräftat det högerklickar du på programmet igen och väljer **Kopiera utdata-URL:en till Urklipp** (eller hämta den här informationen från alternativet **Programinformation och inställningar** på menyn).
 
-Dataströmmen är nu redo att vara inbäddad i en spelare eller distribueras till en målgrupp för visning av live.  
+Strömmen är nu redo att bäddas in i en spelare, eller distribueras till en publik för livevisning.  
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Se [fel söknings](media-services-troubleshooting-live-streaming.md) artikeln för vägledning.
+Mer [information](media-services-troubleshooting-live-streaming.md) finns i felsökningsartikeln.
 
 ## <a name="next-step"></a>Nästa steg
 

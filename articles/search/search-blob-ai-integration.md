@@ -1,7 +1,7 @@
 ---
-title: Använd AI för att förstå Blob Storage-data
+title: Använda AI för att förstå Blob-lagringsdata
 titleSuffix: Azure Cognitive Search
-description: Lägg till semantisk, naturlig språk bearbetning och bild analys till Azure-blobbar med hjälp av en pipeline för AI-anrikning i Azure Kognitiv sökning.
+description: Lägg till semantisk, bearbetning av naturligt språk och bildanalys i Azure-blobbar med hjälp av en AI-anrikningspipeline i Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -9,76 +9,76 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 591437eb3951164d53388b6164103948e9ad65e0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73496440"
 ---
-# <a name="use-ai-to-understand-blob-storage-data"></a>Använd AI för att förstå Blob Storage-data
+# <a name="use-ai-to-understand-blob-storage-data"></a>Använda AI för att förstå Blob-lagringsdata
 
-Data i Azure Blob Storage är ofta en mängd ostrukturerat innehåll, till exempel bilder, långa text, PDF-dokument och Office-dokument. Genom att använda AI-funktionerna i Azure Kognitiv sökning kan du förstå och extrahera värdefull information från blobbar på flera olika sätt. Exempel på att använda AI på BLOB-innehåll är:
+Data i Azure Blob-lagring är ofta en mängd ostrukturerat innehåll som bilder, lång text, PDF-filer och Office-dokument. Genom att använda AI-funktionerna i Azure Cognitive Search kan du förstå och extrahera värdefull information från blobbar på flera olika sätt. Exempel på att använda AI på blob-innehåll är:
 
-+ Extrahera text från bilder med hjälp av optisk tecken läsning (OCR)
-+ Skapa en scen beskrivning eller taggar från ett foto
++ Extrahera text från bilder med optisk teckenigenkänning (OCR)
++ Skapa en scenbeskrivning eller taggar från ett foto
 + Identifiera språk och översätta text till olika språk
-+ Bearbeta text med namngiven entitets igenkänning (NER) för att hitta referenser till personer, datum, platser eller organisationer 
++ Bearbeta text med namngiven entitetsigenkänning (NER) för att hitta referenser till personer, datum, platser eller organisationer 
 
-Även om du kanske behöver bara en av dessa AI-funktioner är det vanligt att kombinera flera av dem till samma pipeline (till exempel Extrahera text från en skannad bild och sedan hitta alla datum och platser som refereras till). 
+Även om du kanske behöver bara en av dessa AI-funktioner, är det vanligt att kombinera flera av dem till samma pipeline (till exempel extrahera text från en skannad bild och sedan hitta alla datum och platser som refereras i den). 
 
-AI-berikning skapar ny information, insamlad som text, lagrad i fält. Efter användningen kan du komma åt den här informationen från ett sökindex via fullständig texts ökning eller skicka berikade dokument tillbaka till Azure Storage för att få nya program upplevelser som innehåller utforska data för identifierings-eller analys scenarier. 
+AI-anrikning skapar ny information, fångad som text, lagrad i fält. Efter anrikning kan du komma åt den här informationen från ett sökindex genom fulltextsökning eller skicka tillbaka berikade dokument till Azure-lagring för att driva nya programupplevelser som inkluderar att utforska data för identifierings- eller analysscenarier. 
 
-I den här artikeln visar vi AI-berikning genom en bred lins så att du snabbt kan grepp hela processen, från att omvandla rå data i blobbar, till information som kan sökas i antingen ett sökindex eller i ett kunskaps lager.
+I den här artikeln visar vi AI-anrikning via ett brett objektiv så att du snabbt kan förstå hela processen, från att omvandla rådata i blobbar till frågebar information i antingen ett sökindex eller ett kunskapslager.
 
-## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>Vad det innebär att "utöka" BLOB-data med AI
+## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>Vad det innebär att "berika" blob data med AI
 
-*AI-anrikning* är en del av indexerings arkitekturen i Azure kognitiv sökning som integrerar inbyggda AI från Microsoft eller anpassat AI som du anger. Det hjälper dig att implementera scenarier med slut punkt till slut punkt där du behöver bearbeta blobbar (både befintliga och nya som de kommer in eller uppdateras), öppna alla fil format för att extrahera bilder och text, extrahera önskad information med olika AI-funktioner och indexera dem i ett Sök index för snabb sökning, hämtning och utforskning. 
+*AI-anrikning* är en del av indexeringsarkitekturen för Azure Cognitive Search som integrerar inbyggd AI från Microsoft eller anpassad AI som du tillhandahåller. Det hjälper dig att implementera helhetsscenarier där du behöver bearbeta blobbar (både befintliga och nya när de kommer in eller uppdateras), öppna alla filformat för att extrahera bilder och text, extrahera önskad information med hjälp av olika AI-funktioner och indexera dem i ett sökindex för snabb sökning, hämtning och utforskning. 
 
-Indata är dina blobbar i en enda behållare i Azure Blob Storage. Blobbar kan vara nästan alla typer av text-eller bilddata. 
+Indata är dina blobbar, i en enda behållare, i Azure Blob-lagring. Blobbar kan vara nästan alla typer av text- eller bilddata. 
 
-Utdata är alltid ett sökindex som används för snabb texts ökning, hämtning och utforskning i klient program. Dessutom kan utdata också vara ett *kunskaps lager* som Project innehåller dokument till Azure-blobbar eller Azure-tabeller för underordnad analys i verktyg som Power BI eller i arbets belastningar för data vetenskap.
+Utdata är alltid ett sökindex som används för snabb textsökning, hämtning och utforskning i klientprogram. Dessutom kan utdata också vara ett *kunskapslager* som projicerar utökade dokument till Azure-blobbar eller Azure-tabeller för nedströmsanalys i verktyg som Power BI eller i datavetenskapsarbetsbelastningar.
 
-I between är själva pipeline-arkitekturen. Pipelinen baseras på funktionen *Indexer* , som du kan använda för att tilldela en *färdigheter*, som består av en eller flera *kunskaper* som tillhandahåller AI. Syftet med pipelinen är att skapa *omfattande dokument* som anger som rå innehåll, men som hämtar ytterligare struktur, kontext och information samtidigt som du går igenom pipelinen. Omfattande dokument förbrukas under indexeringen för att skapa inverterade index och andra strukturer som används i full texts ökning eller utforskning och analys.
+Däremellan är pipeline arkitekturen själv. Pipelinen är baserad på *indexeringsfunktionen,* som du kan tilldela en *kompetens*, som består av en eller flera *färdigheter* som tillhandahåller AI. Syftet med pipelinen är att producera *berikade dokument* som anges som råinnehåll men plocka upp ytterligare struktur, kontext och information när du flyttar genom pipelinen. Berikade dokument förbrukas under indexeringen för att skapa inverterade index och andra strukturer som används i fulltextsökning eller utforskning och analys.
 
-## <a name="start-with-services"></a>Starta med tjänster
+## <a name="start-with-services"></a>Börja med tjänster
 
-Du behöver Azure Kognitiv sökning och Azure Blob Storage. I Blob Storage behöver du en behållare som tillhandahåller käll innehåll.
+Du behöver Azure Cognitive Search och Azure Blob-lagring. I Blob-lagring behöver du en behållare som tillhandahåller källinnehåll.
 
-Du kan starta direkt på din Portal sida för lagrings konto. På den vänstra navigerings sidan, under **BLOB service** klickar du på **Lägg till Azure-kognitiv sökning** för att skapa en ny tjänst eller välja en befintlig. 
+Du kan börja direkt på portalsidan för lagringskontot. Klicka på **Lägg till Azure Cognitive Search** under **Blob-tjänsten** på den vänstra navigeringssidan för att skapa en ny tjänst eller välja en befintlig. 
 
-När du har lagt till Azure-Kognitiv sökning till ditt lagrings konto kan du följa standard processen för att utöka data i alla Azure-Data källor. Vi rekommenderar guiden **Importera data** i Azure kognitiv sökning för en enkel första introduktion till AI-berikning. Den här snabb starten vägleder dig genom stegen: [skapa en pipeline för AI-anrikning i portalen](cognitive-search-quickstart-blob.md). 
+När du har lagt till Azure Cognitive Search i ditt lagringskonto kan du följa standardprocessen för att berika data i alla Azure-datakällor. Vi rekommenderar **guiden Importera data** i Azure Cognitive Search för en enkel första introduktion till AI-anrikning. Den här snabbstarten går igenom stegen: [Skapa en AI-anrikningspipeline i portalen](cognitive-search-quickstart-blob.md). 
 
-I följande avsnitt kommer vi att utforska fler komponenter och begrepp.
+I följande avsnitt utforskar vi fler komponenter och koncept.
 
-## <a name="use-a-blob-indexer"></a>Använda en BLOB-indexerare
+## <a name="use-a-blob-indexer"></a>Använda en Blob-indexerare
 
-AI-anrikning är ett tillägg till en indexerings pipeline, och i Azure Kognitiv sökning skapas dessa pipelines ovanpå en *indexerare*. En indexerare är en data källa medveten under tjänst som är utrustad med intern logik för att sampla data, läsa metadata, hämta data och serialisera data från interna format till JSON-dokument för efterföljande import. Indexerare används ofta av sig själva för import, separat från AI, men om du vill bygga en pipeline för AI-anrikning behöver du en indexerare och en färdigheter för att gå med den. I det här avsnittet beskrivs indexeraren. nästa avsnitt fokuserar på färdighetsuppsättningar.
+AI-anrikning är ett tillägg till en indexeringspipeline, och i Azure Cognitive Search byggs dessa pipelines ovanpå en *indexerare*. En indexerare är en data-källmedveten undertjänst utrustad med intern logik för samplingsdata, läsning av metadatadata, hämtning av data och serialisering av data från inbyggda format i JSON-dokument för efterföljande import. Indexerare används ofta av sig själva för import, separat från AI, men om du vill bygga en AI-anrikningspipeline behöver du en indexerare och en kompetens för att gå med den. I det här avsnittet framhålls indexeraren. nästa avsnitt fokuserar på kompetenser.
 
-Blobbar i Azure Storage indexeras med hjälp av [Azure kognitiv sökning Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md). Du kan anropa denna indexerare med hjälp av guiden **Importera data** , en REST API eller .NET SDK. I kod använder du denna indexerare genom att ange typ och genom att tillhandahålla anslutnings information som innehåller ett Azure Storage konto tillsammans med en BLOB-behållare. Du kan ange en delmängd av Blobbarna genom att skapa en virtuell katalog som du sedan kan skicka som en parameter eller genom att filtrera efter fil typs tillägg.
+Blobbar i Azure Storage indexeras med hjälp av [Azure Cognitive Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md). Du kan anropa den här indexeraren med hjälp av **guiden Importera data,** ett REST API eller .NET SDK. I kod använder du den här indexeraren genom att ange typen och genom att tillhandahålla anslutningsinformation som innehåller ett Azure Storage-konto tillsammans med en blob-behållare. Du kan dela upp blobbar genom att skapa en virtuell katalog, som du sedan kan skicka som en parameter, eller genom att filtrera på ett filtypstillägg.
 
-En indexerare gör "dokument sprickor" och öppnar en BLOB för att granska innehåll. När du har anslutit till data källan är det första steget i pipelinen. För BLOB-data är detta var PDF, Office-dokument, bild och andra innehålls typer identifieras. Dokument sprickor med text extrahering är ingen kostnad. Dokument sprickor med avbildnings extrahering debiteras enligt priser som du hittar på [prissättnings sidan](https://azure.microsoft.com/pricing/details/search/).
+En indexerare gör "dokumentsprickor", vilket öppnar en blob för att granska innehållet. När du har anslutit till datakällan är det det första steget i pipelinen. För blob-data är det här PDF, office docs, image och andra innehållstyper identifieras. Dokumentsprickor med textextrahering är ingen kostnad. Dokument sprickbildning med bildextrahering debiteras med priser som du hittar på [prissidan](https://azure.microsoft.com/pricing/details/search/).
 
-Även om alla dokument kommer att bli skadade, sker berikningen bara om du anger de kunskaper du behöver. Om din pipeline till exempel består av enbart bild analys, ignoreras texten i din behållare eller dina dokument.
+Även om alla dokument kommer att knäckas, sker berikning endast om du uttryckligen ger färdigheter för att göra det. Om pipelinen till exempel uteslutande består av bildanalys ignoreras text i behållaren eller dokumenten.
 
-BLOB-indexeraren innehåller konfigurations parametrar och stöder ändrings spårning om underliggande data innehåller tillräckligt med information. Du kan lära dig mer om kärn funktionerna i [Azure kognitiv sökning Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md).
+Blob-indexeraren levereras med konfigurationsparametrar och stöder ändringsspårning om de underliggande data ger tillräcklig information. Du kan läsa mer om kärnfunktionerna i [Azure Cognitive Search Blob storage indexer](search-howto-indexing-azure-blob-storage.md).
 
 ## <a name="add-ai-components"></a>Lägg till AI-komponenter
 
-AI-anrikning syftar på moduler som söker efter mönster eller egenskaper och utför sedan en åtgärd enligt detta. Ansikts igenkänning i foton, text beskrivningar av foton, identifiering av nyckel fraser i ett dokument och OCR (eller igenkänning av skriven text i binära filer) är exempel på exempel.
+AI-anrikning avser moduler som letar efter mönster eller egenskaper och sedan utför en operation därefter. Ansiktsigenkänning i foton, textbeskrivningar av foton, identifiering av nyckelfraser i ett dokument och OCR (eller känna igen tryckt eller handskriven text i binära filer) är belysande exempel.
 
-I Azure Kognitiv sökning är *färdigheter* de enskilda komponenterna i AI-bearbetning som du kan använda fristående eller i kombination med andra kunskaper. 
+I Azure Cognitive Search är *kunskaper* de enskilda komponenterna i AI-bearbetning som du kan använda fristående eller i kombination med andra kunskaper. 
 
-+ Inbyggda kunskaper backas upp av Cognitive Services, med bild analys baserat på Visuellt innehåll och naturlig språk bearbetning baserat på Textanalys. En fullständig lista finns i [inbyggda kunskaper för innehålls berikning](cognitive-search-predefined-skills.md).
++ Inbyggda färdigheter backas upp av Cognitive Services, med bildanalys baserad på datorseende och bearbetning av naturligt språk baserat på Text Analytics. Den fullständiga listan finns [i Inbyggda kunskaper för innehållsberikning](cognitive-search-predefined-skills.md).
 
-+ Anpassade kunskaper är anpassad kod, omsluten i en [gränssnitts definition](cognitive-search-custom-skill-interface.md) som möjliggör integrering i pipelinen. I kund lösningar är det vanligt att använda båda, med anpassade kunskaper som tillhandahåller AI-moduler med öppen källkod, tredje part eller första part.
++ Anpassade kunskaper är anpassad kod, insvept i en [gränssnittsdefinition](cognitive-search-custom-skill-interface.md) som möjliggör integrering i pipelinen. I kundlösningar är det vanligt att använda båda, med anpassade kunskaper som ger AI-moduler med öppen källkod, tredje part eller första part.
 
-En *färdigheter* är en samling kunskaper som används i en pipeline, och den anropas när dokumentets cracking-fas gör innehåll tillgängligt. En indexerare kan använda exakt en färdigheter, men det färdigheter finns oberoende av en indexerare så att du kan återanvända den i andra scenarier.
+En *kompetens* är en samling av färdigheter som används i en pipeline, och det anropas efter att dokumentsprickningsfasen gör innehållet tillgängligt. En indexerare kan använda exakt en kompetens, men den kompetensen finns oberoende av en indexerare så att du kan återanvända den i andra scenarier.
 
-Anpassade kunskaper kan vara komplicerade, men kan vara enkla och enkla när det gäller implementering. Om du har befintliga paket som tillhandahåller mönster matchnings-eller klassificerings modeller, kan det innehåll som du extraherar från blobbar skickas till dessa modeller för bearbetning. Eftersom AI-berikning är Azure-baserad bör din modell också vara på Azure. Några vanliga värd metoder är att använda [Azure Functions](cognitive-search-create-custom-skill-example.md) eller [behållare](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+Anpassade färdigheter kan låta komplexa men kan vara enkla och okomplicerade när det gäller implementering. Om du har befintliga paket som tillhandahåller mönstermatchnings- eller klassificeringsmodeller kan innehållet som du extraherar från blobbar skickas till dessa modeller för bearbetning. Eftersom AI-anrikning är Azure-baserad bör din modell också finnas på Azure. Några vanliga värdmetoder är att använda [Azure-funktioner](cognitive-search-create-custom-skill-example.md) eller [behållare](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-Inbyggda kunskaper som backas upp av Cognitive Services kräver en [bifogad Cognitive Services](cognitive-search-attach-cognitive-services.md) allt-i-ett-prenumerations nyckel som ger dig åtkomst till resursen. En allt-i-ett-nyckel ger dig bild analys, språk identifiering, text översättning och text analys. Andra inbyggda kunskaper är funktioner i Azure Kognitiv sökning och kräver ingen ytterligare tjänst eller nyckel. Text formaren, delar och fusion är exempel på hjälp kunskaper som ibland är nödvändiga när du skapar pipelinen.
+Inbyggda kunskaper som backas upp av Cognitive Services kräver en [bifogad Cognitive Services](cognitive-search-attach-cognitive-services.md) allt-i-ett-prenumerationsnyckel som ger dig åtkomst till resursen. En allt-i-ett-tangent ger dig bildanalys, språkidentifiering, textöversättning och textanalys. Andra inbyggda kunskaper är funktioner i Azure Cognitive Search och kräver ingen ytterligare tjänst eller nyckel. Textformare, splitter och sammanslagning är exempel på hjälpkunskaper som ibland är nödvändiga när du utformar pipelinen.
 
-Om du bara använder anpassade kunskaper och inbyggda verktygs kunskaper, finns det inget beroende eller kostnader som är relaterade till Cognitive Services.
+Om du bara använder anpassade kunskaper och inbyggda nyttighetskunskaper finns det inget beroende eller kostnader relaterade till Cognitive Services.
 
 <!-- ## Order of operations
 
@@ -94,26 +94,26 @@ For example, given a large blob of unstructured text, a sample order of operatio
 1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
 1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
-## <a name="consume-ai-enriched-output-in-downstream-solutions"></a>Använd AI – berikade utdata i underordnade lösningar
+## <a name="consume-ai-enriched-output-in-downstream-solutions"></a>Förbruka AI-berikad utgång i nedströmslösningar
 
-Utdata från AI-berikning är antingen ett sökindex på Azure Kognitiv sökning eller ett [kunskaps lager](knowledge-store-concept-intro.md) i Azure Storage.
+Utdata från AI-anrikning är antingen ett sökindex på Azure Cognitive Search eller ett [kunskapslager](knowledge-store-concept-intro.md) i Azure Storage.
 
-I Azure Kognitiv sökning används ett sökindex för interaktiv utforskning med fri text och filtrerade frågor i en klient app. Omfattande dokument som skapats via AI formateras i JSON och indexeras på samma sätt som alla dokument indexeras i Azure Kognitiv sökning och utnyttjar alla fördelar som en indexerare tillhandahåller. Vid indexering, till exempel, refererar BLOB-indexeraren till konfigurations parametrar och inställningar för att använda alla fält mappningar eller logik för ändrings identifiering. Sådana inställningar är helt tillgängliga för regelbundna indexering och AI-berikade arbets belastningar. Efter indexeringen, när innehåll lagras på Azure Kognitiv sökning, kan du bygga omfattande frågor och filter uttryck för att förstå ditt innehåll.
+I Azure Cognitive Search används ett sökindex för interaktiv utforskning med hjälp av fritext och filtrerade frågor i en klientapp. Berikade dokument som skapas via AI formateras i JSON och indexeras på samma sätt som alla dokument indexeras i Azure Cognitive Search, vilket utnyttjar alla fördelar som en indexerare ger. Under indexeringen refererar blob-indexeraren till exempel konfigurationsparametrar och inställningar för att använda alla fältmappningar eller ändra identifieringslogik. Sådana inställningar är fullt tillgängliga för regelbunden indexering och AI-berikade arbetsbelastningar. Efter indexering, när innehåll lagras på Azure Cognitive Search, kan du skapa omfattande frågor och filtrera uttryck för att förstå ditt innehåll.
 
-I Azure Storage har ett kunskaps lager två godsspecifikationer: en BLOB-behållare eller tabeller i Table Storage. 
+I Azure Storage har ett kunskapsarkiv två uttrycksplatser: en blob-behållare eller tabeller i Tabelllagring. 
 
-+ En BLOB-behållare fångar omfattande dokument i sin helhet, vilket är användbart om du vill mata in i andra processer. 
++ En blob-behållare fångar berikade dokument i sin helhet, vilket är användbart om du vill mata in andra processer. 
 
-+ Dessutom kan Table Storage hantera fysiska projektioner av förrikade dokument. Du kan skapa segment eller lager av omfattande dokument som inkluderar eller undantar vissa delar. För analys i Power BI blir tabellerna i Azure Table Storage data källan för ytterligare visualisering och utforskning.
++ Tabelllagring kan däremot hantera fysiska projektioner av berikade dokument. Du kan skapa segment eller lager med utökade dokument som innehåller eller utesluter specifika delar. För analys i Power BI blir tabellerna i Azure Table storage datakällan för ytterligare visualisering och utforskning.
 
-Ett berikat dokument i slutet av pipelinen skiljer sig från den ursprungliga indata-versionen genom förekomst av ytterligare fält som innehåller ny information som har extraherats eller genererats under berikning. Därför kan du arbeta med en kombination av ursprungligt och skapat innehåll, oavsett vilken utmatnings struktur du använder.
+Ett berikat dokument i slutet av rörledningen skiljer sig från den ursprungliga indataversionen genom att det finns ytterligare fält som innehåller ny information som extraherades eller genererades under anrikningen. Du kan därför arbeta med en kombination av originalinnehåll och skapat innehåll, oavsett vilken utdatastruktur du använder.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det finns mycket mer du kan göra med AI-anrikning för att få ut mesta möjliga av dina data i Azure Storage, inklusive att kombinera Cognitive Services på olika sätt och redigera anpassade kunskaper för fall där det inte finns någon befintlig kognitiv tjänst för scenariot. Du kan lära dig mer genom att följa länkarna nedan.
+Det finns mycket mer du kan göra med AI-anrikning för att få ut mestajförseln av dina data i Azure Storage, inklusive att kombinera Cognitive Services på olika sätt och skapa anpassade kunskaper för fall där det inte finns någon befintlig Cognitive Service för scenariot. Du kan läsa mer genom att följa länkarna nedan.
 
-+ [Ladda upp, ladda ned och lista blobar med Azure Portal (Azure Blob Storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-+ [Konfigurera en BLOB-indexerare (Azure Kognitiv sökning)](search-howto-indexing-azure-blob-storage.md) 
-+ [Översikt över AI-anrikning (Azure Kognitiv sökning)](cognitive-search-concept-intro.md) 
-+ [Skapa en färdigheter (Azure Kognitiv sökning)](cognitive-search-defining-skillset.md)
-+ [Mappa noder i ett antecknings träd (Azure Kognitiv sökning)](cognitive-search-output-field-mapping.md)
++ [Ladda upp, hämta och lista blobbar med Azure-portalen (Azure Blob storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Konfigurera en blob-indexerare (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 
++ [Översikt över AI-anrikning (Azure Cognitive Search)](cognitive-search-concept-intro.md) 
++ [Skapa en kompetens (Azure Cognitive Search)](cognitive-search-defining-skillset.md)
++ [Mappa noder i ett anteckningsträd (Azure Cognitive Search)](cognitive-search-output-field-mapping.md)

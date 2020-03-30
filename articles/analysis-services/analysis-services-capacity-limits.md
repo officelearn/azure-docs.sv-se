@@ -1,6 +1,6 @@
 ---
-title: Azure Analysis Services resurs-och objekt gränser | Microsoft Docs
-description: I den här artikeln beskrivs resurs-och objekt begränsningar för en Azure Analysis Services-server.
+title: Resurs- och objektgränser för Azure Analysis Services | Microsoft-dokument
+description: I den här artikeln beskrivs resurs- och objektgränser för en Azure Analysis Services-server.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
@@ -8,36 +8,36 @@ ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: f309c9863eb2f3065251537380a2977839f990d8
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73573198"
 ---
-# <a name="analysis-services-resource-and-object-limits"></a>Analysis Services resurs-och objekt gränser
+# <a name="analysis-services-resource-and-object-limits"></a>Resurs- och objektgränser för Analysis Services
 
-I den här artikeln beskrivs begränsningar för resurs och modell objekt.
+I den här artikeln beskrivs begränsningar för resurs- och modellobjekt.
 
-## <a name="tier-limits"></a>Nivå gränser
+## <a name="tier-limits"></a>Nivågränser
 
-För QPU-och minnes gränser för nivåerna Developer, Basic och standard, se [sidan Azure Analysis Services prissättning](https://azure.microsoft.com/pricing/details/analysis-services/).
+För QPU- och minnesgränser för utvecklare, grundläggande och standardnivåer finns på [prissidan för Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
 
-## <a name="object-limits"></a>Objekt gränser
+## <a name="object-limits"></a>Objektgränser
 
-Dessa gränser är teoretiska. Prestandan minskas med lägre siffror.
+Dessa gränser är teoretiska. Prestanda kommer att minska med lägre siffror.
 
-|Objekt|Max storlek/siffror|  
+|Objekt|Maximala storlekar/siffror|  
 |------------|----------------------------|  
 |Databaser i en instans|16 000|  
 |Kombinerat antal tabeller och kolumner i en databas|16 000|  
-|Rader i en tabell|Obegränsat<br /><br /> **Varning:** Med begränsningen ingen enskild kolumn i tabellen kan ha mer än 1 999 999 997 distinkta värden.|  
-|Hierarkier i en tabell|15 999|  
-|Nivåer i en hierarki|15 999|  
+|Rader i en tabell|Unlimited<br /><br /> **Varning:** Med begränsningen att ingen enskild kolumn i tabellen kan ha mer än 1 999 999 997 distinkta värden.|  
+|Hierarkier i en tabell|15,999|  
+|Nivåer i en hierarki|15,999|  
 |Relationer|8,000|  
-|Nyckel kolumner i alla tabeller|15 999|  
-|Mått i tabeller|2 ^ 31-1 = 2 147 483 647|  
-|Celler som returneras av en fråga|2 ^ 31-1 = 2 147 483 647|  
-|Post storlek för käll frågan|64 KB|  
-|Längd på objekt namn|512 tecken|  
+|Nyckelkolumner i alla tabell|15,999|  
+|Åtgärder i tabeller|2^31-1 = 2 147 483 647|  
+|Celler som returneras av en fråga|2^31-1 = 2 147 483 647|  
+|Poststorlek för källfrågan|64 K|  
+|Namn på objektnamn|512 tecken|  
 
 

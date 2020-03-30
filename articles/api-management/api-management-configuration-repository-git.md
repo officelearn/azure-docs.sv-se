@@ -1,6 +1,6 @@
 ---
-title: Konfigurera API Management tjänsten med git-Azure | Microsoft Docs
-description: Lär dig hur du sparar och konfigurerar API Management tjänst konfigurationen med git.
+title: Konfigurera din API Management-tjänst med Git - Azure | Microsoft-dokument
+description: Lär dig hur du sparar och konfigurerar api management-tjänstkonfigurationen med Git.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,173 +13,173 @@ ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
 ms.openlocfilehash: 9bbd62bc05e03641c2abe9308d9238bef23877c2
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "71104972"
 ---
-# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Spara och konfigurera API Management tjänst konfigurationen med git
+# <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Så gör du för att spara och konfigurera din API Management-tjänstkonfiguration med Git
 
-Varje API Management tjänst instans upprätthåller en konfigurations databas som innehåller information om konfiguration och metadata för tjänst instansen. Du kan göra ändringar i tjänst instansen genom att ändra en inställning i Azure Portal, använda en PowerShell-cmdlet eller göra ett REST API anrop. Förutom dessa metoder kan du även hantera din tjänst instans konfiguration med git, vilket möjliggör Service Management-scenarier som:
+Varje API Management-tjänstinstans har en konfigurationsdatabas som innehåller information om konfiguration och metadata för tjänstinstansen. Ändringar kan göras i tjänstinstansen genom att ändra en inställning i Azure-portalen, använda en PowerShell-cmdlet eller göra ett REST API-anrop. Utöver dessa metoder kan du även hantera konfigurationen av tjänstinstansen med Git, vilket aktiverar scenarier för tjänsthantering, till exempel:
 
-* Konfigurations version – Ladda ned och lagra olika versioner av tjänst konfigurationen
-* Ändringar i Mass konfiguration – gör ändringar i flera delar av tjänst konfigurationen på din lokala lagrings plats och integrera ändringarna till servern med en enda åtgärd
-* Välbekant git-verktygskedjan och arbets flöde – Använd git-verktyg och arbets flöden som du redan är van vid
+* Konfigurationsversionering – hämta och lagra olika versioner av tjänstkonfigurationen
+* Masskonfigurationsändringar – gör ändringar i flera delar av tjänstkonfigurationen i den lokala databasen och integrera ändringarna tillbaka till servern med en enda åtgärd
+* Välbekanta Git-verktygskedja och arbetsflöden – använd Git-verktyg och arbetsflöden som du redan är bekant med
 
-Följande diagram visar en översikt över olika sätt att konfigurera API Management tjänst instansen.
+Följande diagram visar en översikt över de olika sätten att konfigurera din API Management-tjänstinstans.
 
-![Git-konfiguration][api-management-git-configure]
+![Git konfigurera][api-management-git-configure]
 
-När du gör ändringar i tjänsten med hjälp av Azure Portal, PowerShell-cmdletar eller REST API, hanterar du tjänst konfigurations databasen med `https://{name}.management.azure-api.net` slut punkten, som visas på höger sida av diagrammet. Den vänstra sidan i diagrammet illustrerar hur du kan hantera tjänst konfigurationen med git och git-lagringsplatsen för din tjänst som finns `https://{name}.scm.azure-api.net`på.
+När du gör ändringar i tjänsten med Azure-portalen, PowerShell-cmdlets eller REST API `https://{name}.management.azure-api.net` hanterar du tjänstkonfigurationsdatabasen med hjälp av slutpunkten, som visas till höger i diagrammet. Den vänstra sidan av diagrammet illustrerar hur du kan hantera tjänstkonfigurationen med Git- och Git-databasen för din tjänst som finns på `https://{name}.scm.azure-api.net`.
 
-Följande steg ger en översikt över hur du hanterar din API Management tjänst instans med hjälp av git.
+Följande steg innehåller en översikt över hur du hanterar din API Management-tjänstinstans med Git.
 
-1. Få åtkomst till git-konfiguration i din tjänst
-2. Spara konfigurations databasen för tjänsten på git-lagringsplatsen
-3. Klona git-lagrings platsen till din lokala dator
-4. Hämta den senaste lagrings platsenen till din lokala dator och genomför och skicka tillbaka ändringar till din lagrings platsen
-5. Distribuera ändringarna från din lagrings platsen till tjänst konfigurations databasen
+1. Få tillgång till Git-konfiguration i din tjänst
+2. Spara tjänstkonfigurationsdatabasen i Git-databasen
+3. Klona Git-repoen till din lokala dator
+4. Dra den senaste repoen ner till din lokala maskin och begå och driva ändringar tillbaka till din repo
+5. Distribuera ändringarna från din repo till din tjänstkonfigurationsdatabas
 
-I den här artikeln beskrivs hur du aktiverar och använder Git för att hantera tjänst konfigurationen och innehåller en referens till filerna och mapparna på git-lagringsplatsen.
+I den här artikeln beskrivs hur du aktiverar och använder Git för att hantera tjänstkonfigurationen och innehåller en referens för filerna och mapparna i Git-databasen.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="access-git-configuration-in-your-service"></a>Få åtkomst till git-konfiguration i din tjänst
+## <a name="access-git-configuration-in-your-service"></a>Få tillgång till Git-konfiguration i din tjänst
 
-Om du vill visa och konfigurera inställningar för git-konfigurationen kan du klicka på menyn **säkerhet** och navigera till fliken **konfigurations databas** .
+Om du vill visa och konfigurera konfigurationsinställningarna för Git kan du klicka på **säkerhetsmenyn** och navigera till fliken **Konfigurationsdatabas.**
 
 ![Aktivera GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Alla hemligheter som inte definieras som namngivna värden lagras på lagrings platsen och behålls i historiken tills du inaktiverar och återaktiverar git-åtkomst. Namngivna värden ger en säker plats för att hantera konstanta sträng värden, inklusive hemligheter, i alla API-konfigurationer och-principer, så att du inte behöver lagra dem direkt i dina princip instruktioner. Mer information finns i [använda namngivna värden i Azure API Management-principer](api-management-howto-properties.md).
+> Alla hemligheter som inte definieras som namngivna värden lagras i databasen och kommer att finnas kvar i dess historik tills du inaktiverar och återaktiverar Git-åtkomst. Namngivna värden är en säker plats för att hantera konstanta strängvärden, inklusive hemligheter, i alla API-konfigurationer och principer, så att du inte behöver lagra dem direkt i dina principuttalanden. Mer information finns i [Så här använder du namngivna värden i Azure API Management-principer](api-management-howto-properties.md).
 >
 >
 
-Information om hur du aktiverar eller inaktiverar git-åtkomst med hjälp av REST API finns i [Aktivera eller inaktivera git-åtkomst med hjälp av REST API](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
+Information om hur du aktiverar eller inaktiverar Git-åtkomst med REST API finns i [Aktivera eller inaktivera Git-åtkomst med REST API](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
 
-## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Spara tjänst konfigurationen till git-lagringsplatsen
+## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Så här sparar du tjänstkonfigurationen i Git-databasen
 
-Det första steget innan du klonar lagrings platsen är att spara det aktuella läget för tjänst konfigurationen till lagrings platsen. Klicka på **Spara till lagrings plats**.
+Det första steget innan du klonar databasen är att spara det aktuella tillståndet för tjänstkonfigurationen i databasen. Klicka på **Spara i databasen**.
 
-Gör önskade ändringar på bekräftelse skärmen och klicka på **OK** för att spara.
+Gör önskade ändringar på bekräftelseskärmen och klicka på **Ok** för att spara.
 
-Efter en liten stund sparas konfigurationen och databasens konfigurations status visas, inklusive datum och tid för den senaste konfigurations ändringen och den senaste synkroniseringen mellan tjänst konfigurationen och lagrings platsen.
+Efter en stund sparas konfigurationen och konfigurationsstatusen för databasen visas, inklusive datum och tid för den senaste konfigurationsändringen och den senaste synkroniseringen mellan tjänstkonfigurationen och databasen.
 
-När konfigurationen har sparats i lagrings platsen kan den klonas.
+När konfigurationen har sparats i databasen kan den klonas.
 
-För information om hur du utför den här åtgärden med hjälp av REST API, se [Bekräfta konfiguration av ögonblicks bild med hjälp av REST API](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
+Information om hur du utför den här åtgärden med REST API finns i [Commit-konfigurationsögonblicksbild med REST API](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
 
-## <a name="to-clone-the-repository-to-your-local-machine"></a>För att klona lagrings platsen till din lokala dator
+## <a name="to-clone-the-repository-to-your-local-machine"></a>Så här klonar du databasen till den lokala datorn
 
-Om du vill klona en lagrings plats behöver du URL: en till din lagrings plats, ett användar namn och ett lösen ord. Om du vill hämta användar namn och andra autentiseringsuppgifter klickar du på behörigheter för **åtkomst** längst upp på sidan.
+Om du vill klona en databas behöver du URL:en till databasen, ett användarnamn och ett lösenord. Om du vill hämta användarnamn och andra autentiseringsuppgifter klickar du på **Åtkomstuppgifter** högst upp på sidan.
 
-Om du vill generera ett lösen ord måste du först se till att förfallo datum och- **tid har angetts** till önskad giltighets tid och klicka sedan på **generera**.
+Om du vill generera ett lösenord kontrollerar du först att **förfallodatumet** är inställt på önskat utgångsdatum och tid och klickar sedan på **Generera**.
 
 > [!IMPORTANT]
-> Anteckna det här lösen ordet. När du lämnar den här sidan visas inte lösen ordet igen.
+> Anteckna det här lösenordet. När du lämnar den här sidan visas inte lösenordet igen.
 >
 
-I följande exempel används git bash-verktyget från [git för Windows](https://www.git-scm.com/downloads) , men du kan använda ett git-verktyg som du känner till.
+I följande exempel används verktyget Git Bash från [Git för Windows,](https://www.git-scm.com/downloads) men du kan använda vilket Git-verktyg som du är bekant med.
 
-Öppna git-verktyget i önskad mapp och kör följande kommando för att klona git-lagringsplatsen till den lokala datorn med hjälp av kommandot som tillhandahålls av Azure Portal.
+Öppna Git-verktyget i önskad mapp och kör följande kommando för att klona git-databasen till den lokala datorn med hjälp av kommandot som tillhandahålls av Azure-portalen.
 
 ```
 git clone https://{name}.scm.azure-api.net/
 ```
 
-Ange användar namn och lösen ord när du uppmanas till det.
+Ange användarnamn och lösenord när du uppmanas att göra det.
 
-Om du får fel meddelanden kan du försöka att `git clone` ändra kommandot så att det innehåller användar namn och lösen ord, som du ser i följande exempel.
+Om du får några fel kan `git clone` du försöka ändra kommandot så att det innehåller användarnamnet och lösenordet, vilket visas i följande exempel.
 
 ```
 git clone https://username:password@{name}.scm.azure-api.net/
 ```
 
-Om detta är ett fel kan du prova URL: en och ange lösen ordets del av kommandot. Ett snabbt sätt att göra detta är att öppna Visual Studio och utfärda följande kommando i kommando **tolken**. Öppna **direkt fönstret**genom att öppna en lösning eller ett projekt i Visual Studio (eller skapa ett nytt tomt konsol program) och välj **Windows**, **omedelbart** från **fel söknings** menyn.
+Om detta ger ett fel kan du prova URL-kodning av lösenordsdelen av kommandot. Ett snabbt sätt att göra detta är att öppna Visual Studio och utfärda följande kommando i **det omedelbara fönstret**. Om du vill öppna **det omedelbara fönstret**öppnar du en lösning eller ett projekt i Visual Studio (eller skapar ett nytt tomt konsolprogram) och väljer **Windows**, **Omedelbar** på **Felsökningsmenyn.**
 
 ```
 ?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
-Använd det kodade lösen ordet tillsammans med ditt användar namn och din lagrings plats för att skapa git-kommandot.
+Använd det kodade lösenordet tillsammans med ditt användarnamn och din databasplats för att skapa kommandot git.
 
 ```
 git clone https://username:url encoded password@{name}.scm.azure-api.net/
 ```
 
-När lagrings platsen är klonad kan du Visa och arbeta med den i det lokala fil systemet. Mer information finns i [referens för fil-och mappstruktur för den lokala git-lagringsplatsen](#file-and-folder-structure-reference-of-local-git-repository).
+När databasen har klonats kan du visa och arbeta med den i det lokala filsystemet. Mer information finns i [Referens för fil- och mappstruktur i den lokala Git-databasen](#file-and-folder-structure-reference-of-local-git-repository).
 
-## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Uppdatera din lokala lagrings plats med den mest aktuella tjänst instans konfigurationen
+## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Så här uppdaterar du den lokala databasen med den senaste tjänstinstanskonfigurationen
 
-Om du gör ändringar i API Management tjänst instansen i Azure Portal eller använder REST API måste du spara ändringarna i lagrings platsen innan du kan uppdatera din lokala lagrings plats med de senaste ändringarna. Det gör du genom att klicka på **Spara konfiguration till databas** på fliken **konfigurations lagrings plats** i Azure Portal och sedan utfärda följande kommando i din lokala lagrings plats.
+Om du gör ändringar i din API Management-tjänstinstans i Azure-portalen eller använder REST API måste du spara dessa ändringar i databasen innan du kan uppdatera den lokala databasen med de senaste ändringarna. Det gör du genom att klicka på **Spara konfiguration till databas** på fliken **Konfigurationsdatabas** i Azure-portalen och sedan utfärda följande kommando i din lokala databas.
 
 ```
 git pull
 ```
 
-Innan du `git pull` börjar bör du se till att du är i mappen för din lokala lagrings plats. Om du precis har slutfört `git clone` kommandot måste du ändra katalogen till din lagrings platsen genom att köra ett kommando som liknar följande.
+Innan `git pull` du kör se till att du är i mappen för din lokala databas. Om du just `git clone` har slutfört kommandot måste du ändra katalogen till din repo genom att köra ett kommando som följande.
 
 ```
 cd {name}.scm.azure-api.net/
 ```
 
-## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Skicka ändringar från din lokala lagrings platsen till servern lagrings platsen
-Om du vill skicka ändringar från den lokala lagrings platsen till Server databasen måste du spara ändringarna och sedan skicka dem till Server databasen. Om du vill genomföra ändringarna öppnar du git-kommando verktyget, växlar till katalogen för din lokala lagrings plats och utfärdar följande kommandon.
+## <a name="to-push-changes-from-your-local-repo-to-the-server-repo"></a>Om du vill driva ändringar från din lokala repo till servern repo
+Om du vill skicka ändringar från den lokala databasen till serverdatabasen måste du genomföra ändringarna och sedan skicka dem till serverdatabasen. Om du vill genomföra ändringarna öppnar du kommandoverktyget Git, växlar till katalogen för den lokala databasen och utfärdar följande kommandon.
 
 ```
 git add --all
 git commit -m "Description of your changes"
 ```
 
-Kör följande kommando för att skicka alla incheckningar till servern.
+Om du vill skicka alla åtaganden till servern kör du följande kommando.
 
 ```
 git push
 ```
 
-## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Distribuera ändringar i tjänst konfigurationen till API Management tjänst instansen
+## <a name="to-deploy-any-service-configuration-changes-to-the-api-management-service-instance"></a>Så här distribuerar du ändringar av tjänstkonfigurationen till API Management-tjänstinstansen
 
-När dina lokala ändringar har genomförts och skickas till Server databasen kan du distribuera dem till din API Management tjänst instans.
+När dina lokala ändringar har genomförts och vidaresänts till serverdatabasen kan du distribuera dem till tjänstinstansen för API Management.
 
-Information om hur du utför den här åtgärden med hjälp av REST API finns i [distribuera git-ändringar till konfigurations databasen med hjälp av REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
+Information om hur du utför den här åtgärden med REST API finns i [Distribuera Git-ändringar i konfigurationsdatabasen med REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
 
-## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Fil-och mappstrukturs referens för lokal git-lagringsplats
+## <a name="file-and-folder-structure-reference-of-local-git-repository"></a>Fil- och mappstrukturreferens för lokal Git-databas
 
-Filerna och mapparna i den lokala git-lagringsplatsen innehåller konfigurations information om tjänst instansen.
+Filerna och mapparna i den lokala git-databasen innehåller konfigurationsinformation om tjänstinstansen.
 
 | Objekt | Beskrivning |
 | --- | --- |
-| rotmapps-API – hanterings mapp |Innehåller konfiguration på översta nivån för tjänst instansen |
-| API-mapp |Innehåller konfigurationen för API: erna i tjänst instansen |
-| mapp för grupper |Innehåller konfigurationen för grupperna i tjänst instansen |
-| mappen principer |Innehåller principerna i tjänst instansen |
-| portalStyles-mapp |Innehåller konfigurationen för anpassningar av utvecklings portalen i tjänst instansen |
-| mappen produkter |Innehåller konfigurationen för produkterna i tjänst instansen |
-| mappen Mallar |Innehåller konfigurationen för e-postmallarna i tjänst instansen |
+| rot api-hanteringsmapp |Innehåller konfiguration på den högsta nivån för tjänstinstansen |
+| apis-mappen |Innehåller konfigurationen för api:erna i tjänstinstansen |
+| mappen grupper |Innehåller konfigurationen för grupperna i tjänstinstansen |
+| mappen principer |Innehåller principerna i tjänstinstansen |
+| portalStyles-mappen |Innehåller konfigurationen för utvecklarportalens anpassningar i tjänstinstansen |
+| produktmapp |Innehåller konfigurationen för produkterna i tjänstinstansen |
+| mallar mapp |Innehåller konfigurationen för e-postmallarna i tjänstinstansen |
 
-Varje mapp kan innehålla en eller flera filer, och i vissa fall en eller flera mappar, till exempel en mapp för varje API, produkt eller grupp. Filerna i varje mapp är speciella för enhets typen som beskrivs av mappnamnet.
+Varje mapp kan innehålla en eller flera filer och i vissa fall en eller flera mappar, till exempel en mapp för varje API, produkt eller grupp. Filerna i varje mapp är specifika för den entitetstyp som beskrivs av mappnamnet.
 
 | Filtyp | Syfte |
 | --- | --- |
-| json |Konfigurations information om respektive entitet |
-| html |Beskrivningar av entiteten, som ofta visas i Developer-portalen |
+| json |Konfigurationsinformation om respektive entitet |
+| html |Beskrivningar om entiteten, som ofta visas i utvecklarportalen |
 | xml |Principrapporter |
-| mallar |Formatmallar för anpassning av utvecklings Portal |
+| css |Formatmallar för anpassning av utvecklarportalen |
 
-De här filerna kan skapas, tas bort, redige ras och hanteras i det lokala fil systemet och ändringarna distribueras tillbaka till API Management tjänst instansen.
+Dessa filer kan skapas, tas bort, redigeras och hanteras i det lokala filsystemet och ändringarna distribueras tillbaka till tjänstinstansen för API Management.
 
 > [!NOTE]
-> Följande entiteter ingår inte i git-lagringsplatsen och kan inte konfigureras med git.
+> Följande entiteter finns inte i Git-databasen och kan inte konfigureras med Git.
 >
 > * [Användare](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)
 > * [Prenumerationer](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
 > * [Namngivna värden](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/property)
-> * Andra utvecklare Portal-enheter än format
+> * Andra utvecklarportalenheter än formatmallar
 >
 
-### <a name="root-api-management-folder"></a>Rotmapps-API – hanterings mapp
-Rotmappen `api-management` innehåller en `configuration.json` fil som innehåller information på översta nivån för tjänst instansen i följande format.
+### <a name="root-api-management-folder"></a>Rot api-hanteringsmapp
+Rotmappen `api-management` innehåller `configuration.json` en fil som innehåller information på den högsta nivån om tjänstinstansen i följande format.
 
 ```json
 {
@@ -198,74 +198,74 @@ Rotmappen `api-management` innehåller en `configuration.json` fil som innehåll
 }
 ```
 
-De första fyra inställningarna (`RegistrationEnabled` `UserRegistrationTermsEnabled`, `UserRegistrationTerms`, `UserRegistrationTermsConsentRequired`och) mappas till följande inställningar på fliken **identiteter** i avsnittet **säkerhet** .
+De första fyra`RegistrationEnabled` `UserRegistrationTerms`inställningarna ( , , `UserRegistrationTermsEnabled`och `UserRegistrationTermsConsentRequired`) mappas till följande inställningar på fliken **Identiteter** i avsnittet **Säkerhet.**
 
-| Identitets inställning | Mappar till |
+| Identitetsinställning | Kartor till |
 | --- | --- |
-| RegistrationEnabled |Förekomst av providern **användar namn och lösen ord** identitet |
-| UserRegistrationTerms |Text ruta **för användningsvillkor på användar registrering** |
-| UserRegistrationTermsEnabled |Kryss rutan **Visa användnings villkoren på registrerings sidan** |
-| UserRegistrationTermsConsentRequired |Kryss rutan **Kräv medgivande** |
-| RequireUserSigninEnabled |Kryss rutan **omdirigera anonyma användare till inloggnings sidan** |
+| RegistrationEnabled |Närvaro av användarnamn och lösenordsidentitetsleverantör **Username and password** |
+| AnvändareRegistrationTerms |**Användningsvillkor för** textruta för användaranmälning |
+| UserRegistrationTermsEnabled |**Visa användningsvillkor på registreringssidan** |
+| UserRegistrationTermsConsentRequired |**Kräv kryssrutan Begär medgivande** |
+| KrävAnvändareSigninEnabled |**Omdirigera anonyma användare till** kryssrutan Logga in sida |
 
-De fyra följande inställningarna (`DelegationEnabled` `DelegatedSubscriptionEnabled`, `DelegationUrl`, `DelegationValidationKey`och) mappas till följande inställningar på fliken **delegering** i avsnittet **säkerhet** .
+De följande fyra`DelegationEnabled` `DelegationUrl`inställningarna ( `DelegatedSubscriptionEnabled`, , och `DelegationValidationKey`) mappas till följande inställningar på fliken **Delegering** i avsnittet **Säkerhet.**
 
-| Delegerings inställning | Mappar till |
+| Inställning för delegering | Kartor till |
 | --- | --- |
-| DelegationEnabled |Kryss ruta **för att delegera inloggning &** |
-| DelegationUrl |URL-text för **Delegerings slut punkt** |
-| DelegatedSubscriptionEnabled |Kryss rutan **delegera produkt prenumeration** |
-| DelegationValidationKey |Text ruta för att **delegera validerings nyckel** |
+| DelegationEnabled |**Kryssrutan Delegera inloggning & registreringsruta** |
+| DelegationUrl (på ett år) |**Textruta för url-textruta för delegering av slutpunkt** |
+| Delegerad PrenumerationEn kan nås |Kryssrutan **Delegera produktprenumeration** |
+| DelegationValidationKey |**Textruta för delegera valideringsnyckel** |
 
-Den sista inställningen, `$ref-policy`mappas till den globala princip deklarations filen för tjänst instansen.
+Den slutliga `$ref-policy`inställningen mappas till den globala principutdragsfilen för tjänstinstansen.
 
-### <a name="apis-folder"></a>API-mapp
-`apis` Mappen innehåller en mapp för varje API i tjänst instansen, som innehåller följande objekt.
+### <a name="apis-folder"></a>apis-mappen
+Mappen `apis` innehåller en mapp för varje API i tjänstinstansen, som innehåller följande objekt.
 
-* `apis\<api name>\configuration.json`– Det här är konfigurationen för API: et och innehåller information om Server dels tjänstens URL och åtgärder. Detta är samma information som skulle returneras om du anropar [Hämta ett särskilt API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) med `export=true` i `application/json` formatet.
-* `apis\<api name>\api.description.html`– Det här är en beskrivning av API: et och motsvarar `description` egenskapen för API- [entiteten](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\`-den här mappen `<operation name>.description.html` innehåller filer som mappar till åtgärderna i API: et. Varje fil innehåller en beskrivning av en enskild åtgärd i API: et, som mappar till `description` egenskapen för [entiteten åtgärd](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) i REST API.
+* `apis\<api name>\configuration.json`- Detta är konfigurationen för API och innehåller information om serverda tjänsten URL och åtgärder. Detta är samma information som skulle returneras om du skulle `export=true` `application/json` ringa Hämta ett [specifikt API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) med i format.
+* `apis\<api name>\api.description.html`- Detta är beskrivningen av API och `description` motsvarar egenskapen för [API-entiteten](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\`- Den här `<operation name>.description.html` mappen innehåller filer som mappas till åtgärderna i API:et. Varje fil innehåller en beskrivning av en enskild åtgärd `description` i API:et, som mappar till egenskapen för [operationsentiteten](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) i REST API.Each file contains the description of a single operation in the API, which maps to the property of the operation entity in the REST API.
 
-### <a name="groups-folder"></a>mapp för grupper
-`groups` Mappen innehåller en mapp för varje grupp som definierats i tjänst instansen.
+### <a name="groups-folder"></a>mappen grupper
+Mappen `groups` innehåller en mapp för varje grupp som definierats i tjänstinstansen.
 
-* `groups\<group name>\configuration.json`– Det här är konfigurationen för gruppen. Detta är samma information som skulle returneras om du anropar åtgärden [Hämta en enskild grupp](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get) .
-* `groups\<group name>\description.html`– Det här är en beskrivning av gruppen och motsvarar `description` egenskapen för [grupp entiteten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
+* `groups\<group name>\configuration.json`- Det här är gruppens konfiguration. Det här är samma information som skulle returneras om du skulle anropa [åtgärden Hämta en viss grupp.](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get)
+* `groups\<group name>\description.html`- Detta är beskrivningen av gruppen och `description` motsvarar [egenskapen](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)för koncernenheten .
 
 ### <a name="policies-folder"></a>mappen principer
-`policies` Mappen innehåller princip instruktionerna för din tjänst instans.
+Mappen `policies` innehåller principutdrag för tjänstinstansen.
 
-* `policies\global.xml`– innehåller principer som definierats i det globala omfånget för din tjänst instans.
-* `policies\apis\<api name>\`-Om du har definierat några principer i API-omfattning finns de i den här mappen.
-* `policies\apis\<api name>\<operation name>\`mapp – om du har definierat några principer i åtgärds omfattningen finns de i den här mappen i `<operation name>.xml` filer som mappar till princip instruktionerna för varje åtgärd.
-* `policies\products\`-Om du har några principer definierade i produktens omfattning finns de i den här mappen, som innehåller `<product name>.xml` filer som mappar till princip instruktionerna för varje produkt.
+* `policies\global.xml`- innehåller principer som definierats globalt för din tjänstinstans.
+* `policies\apis\<api name>\`- Om du har några principer definierade på API-scope, finns de i den här mappen.
+* `policies\apis\<api name>\<operation name>\`mapp - om du har några principer definierade vid åtgärdens `<operation name>.xml` omfattning, finns de i den här mappen i filer som mappas till principsatserna för varje åtgärd.
+* `policies\products\`- Om du har några principer definierade i produktomfattning finns `<product name>.xml` de i den här mappen, som innehåller filer som mappas till principuttalanden för varje produkt.
 
-### <a name="portalstyles-folder"></a>portalStyles-mapp
-`portalStyles` Mappen innehåller konfigurations-och formatmallar för anpassningar av utvecklings portalen för tjänst instansen.
+### <a name="portalstyles-folder"></a>portalStyles-mappen
+Mappen `portalStyles` innehåller konfigurations- och formatmallar för anpassningar av utvecklarportalen för tjänstinstansen.
 
-* `portalStyles\configuration.json`– innehåller namnen på formatmallarna som används av Developer-portalen
-* `portalStyles\<style name>.css`– varje `<style name>.css` fil innehåller format för Developer-portalen`Preview.css` ( `Production.css` och som standard).
+* `portalStyles\configuration.json`- innehåller namnen på de formatmallar som används av utvecklarportalen
+* `portalStyles\<style name>.css`- `<style name>.css` varje fil innehåller formatmallar`Preview.css` `Production.css` för utvecklarportalen (och som standard).
 
-### <a name="products-folder"></a>mappen produkter
-`products` Mappen innehåller en mapp för varje produkt som definierats i tjänst instansen.
+### <a name="products-folder"></a>produktmapp
+Mappen `products` innehåller en mapp för varje produkt som definierats i tjänstinstansen.
 
-* `products\<product name>\configuration.json`– Det här är konfigurationen för produkten. Detta är samma information som skulle returneras om du anropar åtgärden [Hämta en enskild produkt](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) .
-* `products\<product name>\product.description.html`– Det här är en beskrivning av produkten och motsvarar `description` egenskapen för [entiteten produkt](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) i REST API.
+* `products\<product name>\configuration.json`- Detta är konfigurationen för produkten. Detta är samma information som skulle returneras om du skulle ringa [hämta en viss produktåtgärd.](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get)
+* `products\<product name>\product.description.html`- detta är beskrivningen av produkten och `description` motsvarar [egenskapen](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) hos produktenheten i REST API.
 
 ### <a name="templates"></a>mallar
-Mappen innehåller konfiguration för [e-postmallarna](api-management-howto-configure-notifications.md) för tjänst instansen. `templates`
+Mappen `templates` innehåller konfiguration för [tjänstinstansens e-postmallar.](api-management-howto-configure-notifications.md)
 
-* `<template name>\configuration.json`– Det här är konfigurationen för e-postmallen.
-* `<template name>\body.html`– Det här är bröd texten i e-postmallen.
+* `<template name>\configuration.json`- Detta är konfigurationen för e-postmallen.
+* `<template name>\body.html`- Det här är e-postmallens brödtext.
 
 ## <a name="next-steps"></a>Nästa steg
-Information om andra sätt att hantera din tjänst instans finns i:
+Information om andra sätt att hantera din tjänstinstans finns i:
 
-* Hantera din tjänst instans med följande PowerShell-cmdletar
-  * [Referens för PowerShell-cmdlet för tjänst distribution](https://docs.microsoft.com/powershell/module/wds)
-  * [Referens för Service Management PowerShell-cmdlet](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
-* Hantera din tjänst instans med hjälp av REST API
-  * [API Management REST API referens](/rest/api/apimanagement/)
+* Hantera din tjänstinstans med följande PowerShell-cmdlets
+  * [Referens för PowerShell-cmdleten för tjänstdistribution](https://docs.microsoft.com/powershell/module/wds)
+  * [Referens för PowerShell-cmdleten för tjänsthantering](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
+* Hantera din tjänstinstans med REST API
+  * [API-referens för API-hantering för API](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

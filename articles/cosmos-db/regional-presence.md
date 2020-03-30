@@ -1,6 +1,6 @@
 ---
 title: Regional närvaro med Azure Cosmos DB
-description: I den här artikeln beskrivs regional förekomst av Azure Cosmos DB och olika moln miljöer.
+description: Den här artikeln förklarar om den regionala närvaron av Azure Cosmos DB och olika molnmiljöer.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,41 +8,41 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 95b9a9804fe1a9473d226912f178284f701a1547
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72753231"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Regional närvaro med Azure Cosmos DB
 
-Azure Cosmos DB är en grundläggande tjänst i Azure och är som standard alltid tillgänglig i alla regioner där Azure är tillgängligt. Azure är för närvarande tillgängligt i [54-regioner](https://azure.microsoft.com/global-infrastructure/regions/) över hela världen. 
+Azure Cosmos DB är en grundläggande tjänst i Azure och är som standard alltid tillgänglig i alla regioner där Azure är tillgängligt. För närvarande är Azure tillgängligt i [54 regioner](https://azure.microsoft.com/global-infrastructure/regions/) över hela världen. 
 
-[![regioner där Azure Cosmos DB är tillgängligt](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
+[![Regioner där Azure Cosmos DB är tillgängligt](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
 
-Cosmos DB är tillgängligt i alla fem olika Azure Cloud-miljöer som är tillgängliga för kunder:
+Cosmos DB är tillgängligt i alla fem olika Azure-molnmiljöer som är tillgängliga för kunder:
 
-* **Offentligt Azure** -moln, som är tillgängligt globalt.
+* **Azure offentligt** moln, som är tillgängligt globalt.
 
-* **Azure Kina 21Vianet** är tillgängligt via ett unikt partnerskap mellan Microsoft och 21Vianet, en av landets största Internet leverantörer i Kina.
+* **Azure China 21Vianet** är tillgängligt genom ett unikt partnerskap mellan Microsoft och 21Vianet, en av landets största internetleverantörer i Kina.
 
-* **Azure Germany** tillhandahåller tjänster under en data förvaltar modell, som säkerställer att kunddata förblir i Tyskland under kontroll av T-Systems International GmbH, ett dotter bolag till tyska telekom, som fungerar som den tyska data förvaltaren.
+* **Azure Germany** tillhandahåller tjänster enligt en dataförvaltare modell, som säkerställer att kunddata kvar i Tyskland under kontroll av T-Systems International GmbH, ett dotterbolag till Deutsche Telecom, som agerar som den tyska dataförvaltare.
 
-* **Azure Government** finns i fyra regioner i USA till myndigheter i myndigheter och deras partner. 
+* **Azure Government** är tillgängligt i fyra regioner i USA för amerikanska myndigheter och deras partner. 
 
-* **Azure Government för DoD (Department of försvar)** är tillgänglig i två regioner i USA till USA: s försvars departement.
+* **Azure Government for Department of Defense (DoD)** är tillgängligt i två regioner i USA till DET AMERIKANSKA försvarsdepartementet.
 
 ## <a name="regional-presence-with-global-distribution"></a>Regional närvaro med global distribution
 
-Alla API: er som exponeras av Azure Cosmos DB (inklusive SQL, MongoDB, Cassandra, Gremlin och Table) är tillgängliga i alla Azure-regioner som standard. Du kan till exempel ha MongoDB-och Cassandra-API: er som exponeras av Azure Cosmos DB inte bara i alla globala Azure-regioner, utan även i suveräna moln som Kina, Tyskland, myndigheter och DoD (Department of försvar).
+Alla API:er som exponeras av Azure Cosmos DB (inklusive SQL, MongoDB, Cassandra, Gremlin och Table) är som standard tillgängliga i alla Azure-regioner. Du kan till exempel ha MongoDB- och Cassandra-API:er som exponeras av Azure Cosmos DB inte bara i alla globala Azure-regioner, utan även i suveräna moln som Kina, Tyskland, regeringen och Försvarsdepartementet (DoD) regioner.
 
-Azure Cosmos DB är en [globalt distribuerad](distribute-data-globally.md) databas tjänst. Du kan associera ett valfritt antal Azure-regioner med ditt Azure Cosmos-konto så kommer dina data automatiskt att replikeras. Du kan när som helst lägga till eller ta bort en region i ditt Azure Cosmos-konto. Med den nyckel färdiga globala distributions funktionen och multi-masterd Replication-protokollet, Azure Cosmos DB erbjuda mindre än 10 MS-Läs-och skriv fördröjningar på 99: e percentilen, 99,999 Läs-och skriv tillgänglighet och möjlighet att elastiskt skala etablerade data flöde för läsningar och skrivningar i alla regioner som är kopplade till ditt Azure Cosmos-konto. Azure Cosmos DB erbjuder även fem väldefinierade konsekvens modeller och du kan välja att tillämpa en viss konsekvens modell för dina data. Slutligen är Azure Cosmos DB den enda databas tjänsten i branschen som ger en heltäckande [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) som omfattar tillhandahållet data flöde, svars tid vid 99 percentil, hög tillgänglighet och konsekvens. Ovanstående funktioner är tillgängliga i alla Azure-moln.
+Azure Cosmos DB är en [globalt distribuerad](distribute-data-globally.md) databastjänst. Du kan associera valfritt antal Azure-regioner med ditt Azure Cosmos-konto och dina data replikeras automatiskt och transparent. Du kan lägga till eller ta bort en region i ditt Azure Cosmos-konto när som helst. Med den nyckelfärdiga globala distributionskapaciteten och flerbehärskningsprotokollet erbjuder Azure Cosmos DB mindre än 10 ms läs- och skrivfördrevenden vid den 99:e percentilen, 99,999 läs- och skrivtillgänglighet och möjlighet att elastiskt skala etablerat dataflöde för läsningar och skrivningar i alla regioner som är associerade med ditt Azure Cosmos-konto. Azure Cosmos DB, erbjuder också fem väldefinierade konsekvensmodeller och du kan välja att tillämpa en specifik konsekvensmodell på dina data. Slutligen är Azure Cosmos DB den enda databastjänsten i branschen som tillhandahåller ett omfattande [servicenivåavtal (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) som omfattar etablerat dataflöde, svarstid vid den 99:e percentilen, hög tillgänglighet och konsekvens. Ovanstående funktioner är tillgängliga i alla Azure-moln.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu kan du lära dig mer om grundläggande begrepp för Azure Cosmos DB med följande artiklar:
+Du kan nu lära dig mer om grundläggande begrepp i Azure Cosmos DB med följande artiklar:
 
-* [Global data distribution](distribute-data-globally.md)
-* [Hantera ett Azure Cosmos DB konto](manage-account.md)
-* [Etablera data flöde för Azure Cosmos-behållare och databaser](set-throughput.md)
-* [Azure Cosmos DB service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Global datadistribution](distribute-data-globally.md)
+* [Hantera ett Azure Cosmos DB-konto](manage-account.md)
+* [Etablera dataflöde för Azure Cosmos-behållare och databaser](set-throughput.md)
+* [DLA för Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

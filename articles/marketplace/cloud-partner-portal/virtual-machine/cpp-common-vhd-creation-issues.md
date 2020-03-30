@@ -1,87 +1,86 @@
 ---
-title: Vanliga problem vid skapande av VHD (FAQ) för Azure Marketplace
-description: Vanliga frågor och svar om att skapa virtuella hård diskar och relaterade problem.
-services: Azure Marketplace
-author: MaggiePucciEvans
+title: Vanliga problem vid skapande av virtuella hårddiskar (Vanliga frågor) för Azure Marketplace
+description: Vanliga frågor och svar om skapande av virtuella hårddiskar och tillhörande problem.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/02/2018
-ms.author: evansma
+ms.author: dsindona
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 192fea4101fb972ec66bb5f21a2a83f9903f0855
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934267"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278117"
 ---
-# <a name="common-issues-during-vhd-creation-faq"></a>Vanliga problem vid skapande av virtuell hård disk (FAQ)
+# <a name="common-issues-during-vhd-creation-faq"></a>Vanliga problem vid skapande av virtuella hårddiskar (VANLIGA FRÅGOR)
 
-Följande vanliga frågor och svar (FAQ) omfattar vanliga problem som påträffas vid skapande av virtuell hård disk (VHD) och virtuell dator (VM) för VM-erbjudanden. 
+Följande vanliga frågor och svar (FAQ) täcker vanliga problem som uppstår under virtuella hårddiskar (VHD) och virtuell dator (VM) skapas för VM-erbjudanden. 
 
-## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Hur skapar du en virtuell dator från Azure Portal med den virtuella hård disk som överförs till Premium Storage?
+## <a name="how-do-you-create-a-vm-from-the-azure-portal-using-the-vhd-that-is-uploaded-to-premium-storage"></a>Hur skapar du en virtuell dator från Azure-portalen med den virtuella hårddisken som överförs till premiumlagring?
 
-Azure Marketplace har för närvarande inte stöd för att skapa virtuella dator erbjudanden från avbildningar som finns på hanterad lagring eller från Azure Premium Storage.  Mer information om dessa lagrings alternativ finns i [Översikt över Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+Azure Marketplace stöder för närvarande inte att skapa VM-erbjudanden från avbildningar som finns på hanterad lagring eller från Azure Premium Storage.  Mer information om dessa lagringsalternativ finns i [Översikt över hanterade diskar i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
 
-## <a name="can-you-use-generation-2-vms-for-offers"></a>Kan du använda virtuella datorer i generation 2 för erbjudanden?
+## <a name="can-you-use-generation-2-vms-for-offers"></a>Kan du använda generation 2 virtuella datorer för erbjudanden?
 
-Nej, endast generation 1-VHD: er stöds.  Men vi arbetar för närvarande med Microsoft Azure Platform-teamet för att undersöka stöd för virtuella datorer i generation 2.  Mer information om skillnaderna finns i [ska jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+Nej, endast generering 1 virtuella hårddiskar stöds.  Vi arbetar dock för närvarande med Microsoft Azure Platform Team för att undersöka stöd för virtuella generation 2-datorer.  Mer information om skillnaderna finns i Ska jag skapa en virtuell dator för [generation 1 eller 2 i Hyper-V?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
 
 
 ## <a name="how-do-you-change-the-name-of-the-host"></a>Hur ändrar du namnet på värden?
 
-Du kan inte.  När den virtuella datorn har skapats kan inte användare (inklusive ägare) uppdatera namnet på värden.
+Det kan du inte.  När den virtuella datorn har skapats kan användare (inklusive ägare) inte uppdatera namnet på värden.
 
 
-## <a name="how-do-you-reset-the-remote-desktop-service-or-its-sign-in-password"></a>Hur återställer du fjärr skrivbords tjänsten eller dess inloggnings lösen ord?
+## <a name="how-do-you-reset-the-remote-desktop-service-or-its-sign-in-password"></a>Hur återställer du tjänsten Fjärrskrivbord eller dess inloggningslösenord?
 
-I följande artiklar förklaras hur du utför RDS-återställning för Windows-och Linux-baserade virtuella datorer:   
+I följande artiklar beskrivs hur du utför RDS-återställningar för Windows- och Linux-baserade virtuella datorer:   
 
 - [Så här återställer du fjärrskrivbordstjänsten eller dess inloggningslösenord på en virtuell Windows-dator](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
-- [Så här återställer du ett Linux VM-lösenord eller SSH-nyckel, reparerar SSH-konfigurationen och kontrollerar disk konsekvens med VMAccess-tillägget](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+- [Så här återställer du ett Linux VM-lösenord eller SSH-nyckel, åtgärdar SSH-konfigurationen och kontrollerar diskkonsekvens med VMAccess-tillägget](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
 
 
-## <a name="how-do-you-generate-new-ssh-certificates"></a>Hur skapar jag nya SSH-certifikat?
+## <a name="how-do-you-generate-new-ssh-certificates"></a>Hur genererar du nya SSH-certifikat?
 
-Att skapa certifikat beskrivs i artikeln [Hämta signatur-URI för delad åtkomst för din VM-avbildning](./cpp-get-sas-uri.md) i det efterföljande avsnittet [skapa tekniska till gångar för ett erbjudande för virtuella datorer](./cpp-create-technical-assets.md).
-
-
-## <a name="how-do-you-configure-a-virtual-private-network-vpn-to-work-with-my-vms"></a>Hur konfigurerar jag ett virtuellt privat nätverk (VPN) så att det fungerar med mina virtuella datorer?
-
-Om du använder Azure Resource Manager distributions modell har du tre vanliga alternativ för att konfigurera ett VPN:
-- [Skapa en Route-baserad VPN-gateway med hjälp av Azure Portal](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
-- [Skapa en Route-baserad VPN-gateway med PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
-- [Skapa en Route-baserad VPN-gateway med CLI](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
+Generering av certifikat förklaras i artikeln [Hämta signatur-URI för den virtuella datorn i](./cpp-get-sas-uri.md) det efterföljande avsnittet Skapa tekniska resurser för ett [vm-erbjudande](./cpp-create-technical-assets.md).
 
 
-## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Vad är Microsofts support principer för att köra Microsoft Server-program på Azure-baserade virtuella datorer?
+## <a name="how-do-you-configure-a-virtual-private-network-vpn-to-work-with-my-vms"></a>Hur konfigurerar du ett virtuellt privat nätverk (VPN) för att arbeta med mina virtuella datorer?
 
-Dessa support principer beskrivs i artikeln [Microsoft Server Software support för Microsoft Azure virtuella datorer](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
-
-
-## <a name="do-virtual-machines-have-unique-identifiers-associated-with-them"></a>Har virtuella datorer unika identifierare som är associerade med dem?
-
-Ja, om det finns på Azure.  Azure tilldelar en unik identifierare med namnet unikt ID för den virtuella Azure-datorn till varje ny VM-resurs som skapas.  Mer information finns i blogg inlägget [unikt ID för virtuell Azure-dator](https://blogs.msdn.microsoft.com/wasimbloch/2016/10/20/azure-virtual-machine-unique-id/).  Du kan också hämta den här identifieraren genom programmering via [list-API: et](https://docs.microsoft.com/rest/api/compute/virtualmachines/list).
+Om du använder distributionsmodellen för Azure Resource Manager har du tre vanliga alternativ för att konfigurera ett VPN:
+- [Skapa en ruttbaserad VPN-gateway med Azure-portalen](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-portal)
+- [Skapa en ruttbaserad VPN-gateway med PowerShell](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-powershell)
+- [Skapa en ruttbaserad VPN-gateway med CLI](https://docs.microsoft.com/azure/vpn-gateway/create-routebased-vpn-gateway-cli)
 
 
-## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Hur hanterar du tillägget för anpassat skript i Start aktiviteten i en virtuell dator?
+## <a name="what-are-microsoft-support-policies-for-running-microsoft-server-software-on-azure-based-vms"></a>Vilka microsoftsupportprinciper gäller för att köra Microsoft-serverprogramvara på Azure-baserade virtuella datorer?
 
-Följande artikel beskriver hur du använder tillägget för anpassat skript med hjälp av Azure PowerShell-modulen, Azure Resource Manager mallar och information om fel söknings steg i Windows-system: [anpassat skript tillägg för Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+De här supportprinciperna beskrivs i artikeln [stöd för Microsoft Server-programvara för virtuella Datorer i Microsoft Azure](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 
-## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Är 32-bitars program eller tjänster som stöds på Azure Marketplace?
+## <a name="do-virtual-machines-have-unique-identifiers-associated-with-them"></a>Har virtuella datorer unika identifierare associerade med dem?
 
-Nej. I allmänhet inte.  De operativ system och standard tjänster som stöds för virtuella Azure-datorer är alla 64-bitars.  Men från en teknisk synpunkt har de flesta 64-bitars operativ system stöd för att köra 32-bitars versioner av program för bakåtkompatibilitet.  Användning av 32-bitars program som en del av din VM-lösning stöds dock inte *och rekommenderas därför inte.*  Kompilera i stället ditt program som ett 64-bitars projekt.
+Ja, om den finns på Azure.  Azure tilldelar en unik identifierare med namnet Azure Virtual Machine Unique ID till varje ny vm-resurs som skapas.  Mer information finns i blogginlägget [Azure Virtual Machine Unique ID](https://blogs.msdn.microsoft.com/wasimbloch/2016/10/20/azure-virtual-machine-unique-id/).  Du kan också hämta den här identifieraren programmässigt via [list-API:et](https://docs.microsoft.com/rest/api/compute/virtualmachines/list).
+
+
+## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>Hur hanterar du det anpassade skripttillägget i startuppgiften i en virtuell dator?
+
+I följande artikel beskrivs hur du använder tillägget Anpassat skript med Azure PowerShell-modulen, Azure Resource Manager-mallar och felsökningssteg för information om Windows-system: [Anpassat skripttillägg för Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+
+
+## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Stöds 32-bitarsprogram eller -tjänster på Azure Marketplace?
+
+Nej. I allmänhet inte.  De operativsystem och standardtjänster som stöds för virtuella Azure-datorer är alla 64-bitars.  Men ur teknisk synvinkel, de flesta 64-bitars operativsystem stöder kör 32-bitars versioner av program för bakåtkompatibilitet.  Användning av 32-bitarsprogram som en del av vm-lösningen stöds dock inte och är därför *mycket avskräckt.*  Kompilera i stället om programmet som ett 64-bitarsprojekt.
 
 Mer information finns i följande artiklar:
-- [Köra 32-bitars program](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
-- [Stöd för 32-bitars operativ system i Azure Virtual Machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
+- [Köra 32-bitarsprogram](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)
+- [Stöd för 32-bitars operativsystem i Azure Virtual Machines](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)
 - [Microsofts serverprogramsupport för Microsoft Azure Virtual Machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 
 
-## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Varje gång jag försöker skapa en avbildning från mina virtuella hård diskar får jag ett fel `.VHD is already registered with image repository as the resource` i PowerShell. Jag har inte skapat någon avbildning tidigare eller kunde inte hitta någon bild med det här namnet i Azure. Hur gör jag för att du lösa det här problemet?
+## <a name="every-time-i-try-to-create-an-image-from-my-vhds-i-get-the-error-vhd-is-already-registered-with-image-repository-as-the-resource-in-powershell-i-did-not-create-any-image-before-nor-did-i-find-any-image-with-this-name-in-azure-how-do-i-resolve-this-issue"></a>Varje gång jag försöker skapa en bild från mina `.VHD is already registered with image repository as the resource` virtuella hårddiskar får jag felet i PowerShell. Jag har inte skapat någon avbildning innan inte heller hittade jag någon avbildning med det här namnet i Azure. Hur löser jag problemet?
 
-Det här problemet uppstår vanligt vis om användaren har etablerad en virtuell dator från en virtuell hård disk som har låst den.  Kontrol lera att det inte finns någon virtuell dator som har allokerats från denna virtuella hård disk och försök sedan igen.  Om problemet kvarstår öppnar du ett support ärende enligt beskrivningen i [stöd för Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal). 
+Det här problemet uppstår vanligtvis om användaren etablerat en virtuell dator från en virtuell hårddisk som har ett lås på den.  Kontrollera att det inte finns någon virtuell dator allokerad från den här virtuella hårddisken och försök sedan igen.  Om problemet kvarstår öppnar du en supportbiljett enligt [Support för Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal). 
 

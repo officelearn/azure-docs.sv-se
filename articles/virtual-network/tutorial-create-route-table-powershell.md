@@ -1,6 +1,6 @@
 ---
-title: Dirigera nätverks trafik Azure PowerShell | Microsoft Docs
-description: I den här artikeln lär du dig hur du dirigerar nätverks trafik med en routningstabell med hjälp av PowerShell.
+title: Dirigera nätverkstrafik Azure PowerShell | Microsoft-dokument
+description: I den här artikeln får du lära dig hur du dirigerar nätverkstrafik med en rutttabell med PowerShell.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -18,13 +18,13 @@ ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
 ms.openlocfilehash: 986371e479f7718fff2e1699401987cb0ca8f623
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "73163984"
 ---
-# <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Dirigera nätverks trafik med en routningstabell med hjälp av PowerShell
+# <a name="route-network-traffic-with-a-route-table-using-powershell"></a>Dirigera nätverkstrafik med en rutttabell med PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -38,21 +38,21 @@ Azure dirigerar automatiskt trafik mellan alla undernät inom ett virtuella nät
 * Distribuera virtuella datorer till olika undernät
 * Dirigera trafik från ett undernät till ett annat via en NVA
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell module version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell-modul version 1.0.0 eller senare. Kör `Get-Module -ListAvailable Az` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="create-a-route-table"></a>Skapa en routningstabell
 
-Innan du kan skapa en routningstabell skapar du en resurs grupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resurs grupp med namnet *myResourceGroup* för alla resurser som skapats i den här artikeln.
+Innan du kan skapa en flödestabell skapar du en resursgrupp med [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* för alla resurser som skapas i den här artikeln.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-Skapa en routningstabell med [New-AzRouteTable](/powershell/module/az.network/new-azroutetable). I följande exempel skapas en routningstabell med namnet *myRouteTablePublic*.
+Skapa en rutttabell med [New-AzRouteTable](/powershell/module/az.network/new-azroutetable). I följande exempel skapas en vägtabell med namnet *myRouteTablePublic*.
 
 ```azurepowershell-interactive
 $routeTablePublic = New-AzRouteTable `
@@ -63,7 +63,7 @@ $routeTablePublic = New-AzRouteTable `
 
 ## <a name="create-a-route"></a>Skapa en väg
 
-Skapa en väg genom att hämta Route Table-objektet med [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable), skapa en väg med [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig)och skriv sedan väg konfigurationen till routningstabellen med [set-AzRouteTable](/powershell/module/az.network/set-azroutetable).
+Skapa en rutt genom att hämta flödestabellobjektet med [Get-AzRouteTable](/powershell/module/az.network/get-azroutetable), skapa en rutt med [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig)och skriv sedan flödeskonfigurationen till flödestabellen med [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable).
 
 ```azurepowershell-interactive
 Get-AzRouteTable `
@@ -89,7 +89,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-Skapa tre undernät genom att skapa tre undernät-konfigurationer med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). I följande exempel skapas tre Subnet-konfigurationer för *offentliga*, *privata*och *DMZ* undernät:
+Skapa tre undernät genom att skapa tre undernätskonfigurationer med [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). I följande exempel skapas tre undernätskonfigurationer för *offentliga,* *privata*och *DMZ-undernät:*
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -108,13 +108,13 @@ $subnetConfigDmz = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-Skriv under näts konfigurationerna till det virtuella nätverket med [set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), som skapar under näten i det virtuella nätverket:
+Skriv undernätskonfigurationerna till det virtuella nätverket med [Set-AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), som skapar undernäten i det virtuella nätverket:
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-Koppla *myRouteTablePublic* Route-tabellen till det *offentliga* under nätet med [set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) och skriv sedan under näts konfigurationen till det virtuella nätverket med [set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
+Associera vägtabellen *myRouteTablePublic* till det *offentliga* undernätet med [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) och skriv sedan undernätskonfigurationen till det virtuella nätverket med [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -129,11 +129,11 @@ Set-AzVirtualNetwork
 
 En NVA är en virtuell dator som utför en nätverksfunktion, som routning, brandvägg eller WAN-optimering.
 
-Skapa ett nätverks gränssnitt innan du skapar en virtuell dator.
+Skapa ett nätverksgränssnitt innan du skapar en virtuell dator.
 
-### <a name="create-a-network-interface"></a>Skapa ett nätverks gränssnitt
+### <a name="create-a-network-interface"></a>Skapa ett nätverksgränssnitt
 
-Innan du skapar ett nätverks gränssnitt måste du hämta det virtuella nätverks-ID: t med [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), sedan under nätets ID med [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig). Skapa ett nätverks gränssnitt med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) i *DMZ* -undernätet med IP-vidarebefordring aktiverat:
+Innan du skapar ett nätverksgränssnitt måste du hämta det virtuella nätverks-ID med [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)och sedan undernäts-ID med [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig). Skapa ett nätverksgränssnitt med [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) i *DMZ-undernätet* med IP-vidarebefordran aktiverat:
 
 ```azurepowershell-interactive
 # Retrieve the virtual network object into a variable.
@@ -157,7 +157,7 @@ $nic = New-AzNetworkInterface `
 
 ### <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Om du vill skapa en virtuell dator och koppla ett befintligt nätverks gränssnitt till det måste du först skapa en VM [-konfiguration med New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). Konfigurationen inkluderar det nätverks gränssnitt som skapades i föregående steg. När du uppmanas att ange ett användar namn och lösen ord väljer du det användar namn och lösen ord som du vill logga in på den virtuella datorn med.
+Om du vill skapa en virtuell dator och koppla ett befintligt nätverksgränssnitt till den måste du först skapa en [VM-konfiguration med New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig). Konfigurationen innehåller nätverksgränssnittet som skapades i föregående steg. När du uppmanas att ange ett användarnamn och lösenord väljer du det användarnamn och lösenord som du vill logga in på den virtuella datorn med.
 
 ```azurepowershell-interactive
 # Create a credential object.
@@ -178,7 +178,7 @@ $vmConfig = New-AzVMConfig `
   Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-Skapa den virtuella datorn med hjälp av VM [-konfigurationen med New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVmNva*.
+Skapa den virtuella datorn med vm-konfigurationen med [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVmNva*.
 
 ```azurepowershell-interactive
 $vmNva = New-AzVM `
@@ -188,13 +188,13 @@ $vmNva = New-AzVM `
   -AsJob
 ```
 
-Alternativet `-AsJob` skapar den virtuella datorn i bakgrunden, så du kan fortsätta till nästa steg.
+Alternativet `-AsJob` skapar den virtuella datorn i bakgrunden, så att du kan fortsätta till nästa steg.
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
-Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera att trafiken från det *offentliga* under nätet dirigeras till det *privata* under nätet via den virtuella nätverks enheten i ett senare steg.
+Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera att trafiken från det *offentliga* undernätet dirigeras till det *privata* undernätet via den virtuella nätverksinstallationen i ett senare steg.
 
-Skapa en virtuell dator i det *offentliga* under nätet med [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVmPublic* i det *offentliga* under nätet för det virtuella *myVirtualNetwork* -nätverket.
+Skapa en virtuell dator i det *offentliga* undernätet med [New-AzVM](/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVmPublic* i det *offentliga* undernätet i det virtuella *nätverket myVirtualNetwork.*
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -207,7 +207,7 @@ New-AzVm `
   -AsJob
 ```
 
-Skapa en virtuell dator i det *privata* under nätet.
+Skapa en virtuell dator i undernätet *Privat.*
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -223,7 +223,7 @@ Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med nästa
 
 ## <a name="route-traffic-through-an-nva"></a>Dirigera trafik via NVA
 
-Använd [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) för att returnera den offentliga IP-adressen för den virtuella datorn *myVmPrivate* . I följande exempel returneras den offentliga IP-adressen för den virtuella *myVmPrivate* -datorn:
+Använd [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) för att returnera den offentliga IP-adressen för *den virtuella datorn myVmPrivate.* I följande exempel returneras den offentliga IP-adressen för den virtuella datorn *myVmPrivate:*
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress `
@@ -232,7 +232,7 @@ Get-AzPublicIpAddress `
   | Select IpAddress
 ```
 
-Använd följande kommando för att skapa en fjärrskrivbordssession med den virtuella datorn *myVmPrivate* från den lokala datorn. Ersätt `<publicIpAddress>` med IP-adressen som returnerades från föregående kommando.
+Använd följande kommando för att skapa en fjärrskrivbordssession med *den virtuella datorn myVmPrivate* från den lokala datorn. Ersätt `<publicIpAddress>` med IP-adressen som returnerades från föregående kommando.
 
 ```
 mstsc /v:<publicIpAddress>
@@ -242,17 +242,17 @@ mstsc /v:<publicIpAddress>
 
 Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn (du kanske måste välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn) och välj **OK**. Du kan få en certifikatvarning under inloggningen. Välj **Ja** för att fortsätta med anslutningen.
 
-I ett senare steg används kommandot `tracert.exe` för att testa routningen. Tracert använder Internet Control Message Protocol (ICMP) som nekas via Windows-brandväggen. Aktivera ICMP via Windows-brandväggen genom att ange följande kommando från PowerShell på den virtuella datorn *myVmPrivate*:
+I ett senare `tracert.exe` steg används kommandot för att testa routning. Tracert använder ICMP (Internet Control Message Protocol), som nekas via Windows-brandväggen. Aktivera ICMP via Windows-brandväggen genom att ange följande kommando från PowerShell på den virtuella datorn *myVmPrivate*:
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-Även om spårnings vägen används för att testa routning i den här artikeln, rekommenderas inte att tillåta ICMP via Windows-brandväggen för produktions distributioner.
+Även om spårningsvägen används för att testa routning i den här artikeln, rekommenderas inte att tillåta ICMP via Windows-brandväggen för produktionsdistributioner.
 
-Du har aktiverat IP-vidarebefordring i Azure för den virtuella datorns nätverks gränssnitt i aktivera IP-vidarebefordring. I den virtuella datorn måste operativsystemet, eller ett program som körs i den virtuella datorn, kunna vidarebefordra nätverkstrafik. Aktivera IP-vidarebefordring i operativ systemet för *myVmNva*.
+Du aktiverade IP-vidarebefordran inom Azure för de virtuella datorernas nätverksgränssnitt i Aktivera IP-vidarebefordran. I den virtuella datorn måste operativsystemet, eller ett program som körs i den virtuella datorn, kunna vidarebefordra nätverkstrafik. Aktivera IP-vidarebefordran i operativsystemet *i myVmNva*.
 
-Från en kommando tolk på den virtuella datorn *myVmPrivate* , fjärr skrivbord till *myVmNva*:
+Från en kommandotolk på *myVmPrivate* VM, fjärrskrivbord till *myVmNva:*
 
 ``` 
 mstsc /v:myvmnva
@@ -323,7 +323,7 @@ Stäng fjärrskrivbordssessionen för den virtuella datorn *myVmPrivate*.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs kan du använda [Remove-AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resurs gruppen och alla resurser den innehåller.
+När det inte längre behövs använder du [Ta bort AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) för att ta bort resursgruppen och alla resurser som den innehåller.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force
@@ -331,6 +331,6 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du skapat en routningstabell och kopplat den till ett undernät. Du har skapat en enkel virtuell nätverks installation som dirigerade trafik från ett offentligt undernät till ett privat undernät. Distribuera en mängd förkonfigurerade virtuella nätverks enheter som utför nätverks funktioner som brand vägg och WAN-optimering från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Mer information om routning finns i [routningsöversikten](virtual-networks-udr-overview.md) och [Hantera en routningstabell](manage-route-table.md).
+I den här artikeln skapade du en flödestabell och associerade den till ett undernät. Du har skapat en enkel virtuell nätverksinstallation som dirigerade trafik från ett offentligt undernät till ett privat undernät. Distribuera en mängd förkonfigurerade virtuella nätverksinstallationer som utför nätverksfunktioner som brandvägg och WAN-optimering från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Mer information om routning finns i [routningsöversikten](virtual-networks-udr-overview.md) och [Hantera en routningstabell](manage-route-table.md).
 
-Du kan distribuera många Azure-resurser inom ett virtuellt nätverk, men resurser för vissa Azure PaaS-tjänster går inte att distribuera till ett virtuellt nätverk. Du kan fortfarande begränsa åtkomsten för resurserna i vissa Azure PaaS-tjänster till trafik enbart från ett undernät för ett virtuell dator. Mer information finns i [begränsa nätverks åtkomsten till PaaS-resurser](tutorial-restrict-network-access-to-resources-powershell.md).
+Du kan distribuera många Azure-resurser inom ett virtuellt nätverk, men resurser för vissa Azure PaaS-tjänster går inte att distribuera till ett virtuellt nätverk. Du kan fortfarande begränsa åtkomsten för resurserna i vissa Azure PaaS-tjänster till trafik enbart från ett undernät för ett virtuell dator. Mer information finns i [Begränsa nätverksåtkomst till PaaS-resurser](tutorial-restrict-network-access-to-resources-powershell.md).

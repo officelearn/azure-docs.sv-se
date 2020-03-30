@@ -1,5 +1,5 @@
 ---
-title: Skicka lokaliserade push-meddelanden till iOS med Azure Notification Hubs | Microsoft Docs
+title: Skicka lokaliserade push-meddelanden till iOS med Azure Notification Hubs | Microsoft-dokument
 description: Lär dig hur du använder push-lokaliserade meddelanden till iOS-enheter med hjälp av Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: ios
@@ -17,41 +17,41 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
 ms.openlocfilehash: a8614156be5d516d16aff698b604cf0e661d7311
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 03/27/2020
 ms.locfileid: "72385646"
 ---
-# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Självstudie: skicka lokaliserade push-meddelanden till iOS med Azure Notification Hubs
+# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>Självstudiekurs: Skicka lokaliserade push-meddelanden till iOS med Azure Notification Hubs
 
 > [!div class="op_single_selector"]
-> * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+> * [Windows Store C #](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-Den här självstudien visar hur du använder funktionen [mallar](notification-hubs-templates-cross-platform-push-messages.md) i Azure Notification Hubs för att skicka meddelanden om att skicka meddelanden som har lokaliserats av språk och enhet. I den här självstudien börjar du med iOS-appen som du skapade i [Använda Notification Hubs för att skicka de senaste nyheterna]. När du är klar kan du registrera dig för kategorier som du är intresse rad av, ange ett språk som du vill ta emot meddelanden från och endast ta emot push-meddelanden för de valda kategorierna på det språket.
+Den här självstudien visar hur du använder [mallfunktionen](notification-hubs-templates-cross-platform-push-messages.md) i Azure Notification Hubs för att sända senaste nyhetsmeddelanden som har lokaliserats efter språk och enhet. I den här självstudien börjar du med iOS-appen som skapats i [Använd meddelandehubbar för att skicka senaste nytt]. När du är klar kan du registrera dig för kategorier som du är intresserad av, ange ett språk som du vill ta emot aviseringarna på och endast få push-meddelanden för de valda kategorierna på det språket.
 
 Det finns två delar i det här scenariot:
 
-* med iOS-appen kan klient enheter ange ett språk och prenumerera på olika avbrutna nyhets kategorier.
-* Backend-servern skickar meddelanden med hjälp av funktionerna för **taggar** och **mallar** i Azure Notification Hubs.
+* iOS-appen gör det möjligt för klientenheter att ange ett språk och prenumerera på olika senaste nyhetskategorier.
+* Backend-sändningen sänder meddelandena med hjälp av **tagg-** och **mallfunktionerna** i Azure Notification Hubs.
 
 I den här självstudien gör du följande:
 
 > [!div class="checklist"]
-> * Uppdatera app-användargränssnittet
-> * Bygg iOS-appen
-> * Skicka meddelanden om lokaliserade mallar från .NET-konsol program
-> * Skicka meddelanden om lokaliserade mallar från enheten
+> * Uppdatera appens användargränssnitt
+> * Skapa iOS-appen
+> * Skicka lokaliserade mallmeddelanden från .NET-konsolappen
+> * Skicka lokaliserade mallmeddelanden från enheten
 
 ## <a name="overview"></a>Översikt
 
-När du [Använda Notification Hubs för att skicka de senaste nyheterna]avbrutna nyheter skapade du en app som använde **taggar** för att prenumerera på meddelanden för olika nyhets kategorier. Många appar är dock riktade till flera marknader och kräver lokalisering. Det innebär att innehållet i själva meddelandena måste lokaliseras och levereras till rätt uppsättning enheter. I den här självstudien får du lära dig hur du använder **mall** -funktionen i Notification Hubs för att enkelt leverera lokaliserade nyhets meddelanden.
+I [Använd meddelandehubbar för att skicka nyheter]har du skapat en app som använde **taggar** för att prenumerera på aviseringar för olika nyhetskategorier. Många appar riktar sig dock till flera marknader och kräver lokalisering. Det innebär att innehållet i anmälningarna själva måste lokaliseras och levereras till rätt uppsättning enheter. Den här självstudien visar hur du använder **mallfunktionen** i Meddelandehubbar för att enkelt leverera lokaliserade nyhetsmeddelanden.
 
 > [!NOTE]
-> Ett sätt att skicka lokaliserade meddelanden är att skapa flera versioner av varje tagg. Om du till exempel vill stödja engelska, franska och mandariner behöver du tre olika taggar för World nyheterna: "world_en", "world_fr" och "world_ch". Sedan måste du skicka en lokaliserad version av World nyheterna till var och en av dessa taggar. I det här avsnittet använder du mallar för att undvika spridning av taggar och kravet på att skicka flera meddelanden.
+> Ett sätt att skicka lokaliserade meddelanden är att skapa flera versioner av varje tagg. Till exempel, för att stödja engelska, franska och mandarin, skulle du behöva tre olika taggar för världsnyheter: "world_en", "world_fr" och "world_ch". Du skulle då behöva skicka en lokaliserad version av världen nyheter till var och en av dessa taggar. I det här avsnittet använder du mallar för att undvika spridning av taggar och kravet på att skicka flera meddelanden.
 
-Mallar är ett sätt att ange hur en speciell enhet ska ta emot ett meddelande. Mallen anger det exakta nyttolastformatet genom att referera till egenskaper som ingår i meddelandet som skickas av appserverdelen. I ditt fall skickar du ett oberoende-meddelande som innehåller alla språk som stöds:
+Mallar är ett sätt att ange hur en viss enhet ska få ett meddelande. Mallen anger det exakta nyttolastformatet genom att referera till egenskaper som ingår i meddelandet som skickas av appserverdelen. I ditt fall skickar du ett språk-agnostiker som innehåller alla språk som stöds:
 
 ```json
 {
@@ -61,7 +61,7 @@ Mallar är ett sätt att ange hur en speciell enhet ska ta emot ett meddelande. 
 }
 ```
 
-Sedan ser du till att enheterna registreras med en mall som refererar till rätt egenskap. Till exempel en iOS-app som vill registrera för franska nyhets register med hjälp av följande syntax:
+Sedan kan du se till att enheter registrerar sig med en mall som refererar till rätt egenskap. Till exempel en iOS-app som vill registrera sig för franska nyhetsregister med hjälp av följande syntax:
 
 ```json
 {
@@ -71,28 +71,28 @@ Sedan ser du till att enheterna registreras med en mall som refererar till rätt
 }
 ```
 
-Mer information om mallar finns i avsnittet [mallar](notification-hubs-templates-cross-platform-push-messages.md) .
+Mer information om mallar finns i artikel [Mallar.](notification-hubs-templates-cross-platform-push-messages.md)
 
 ## <a name="prerequisites"></a>Krav
 
-* Slutför självstudien om [push-meddelanden till specifika iOS-enheter](notification-hubs-ios-xplat-segmented-apns-push-notification.md) och har koden tillgänglig, eftersom den här självstudien bygger direkt på koden.
+* Slutför [push-meddelandena till specifika iOS-enheter](notification-hubs-ios-xplat-segmented-apns-push-notification.md) handledning och ha koden tillgänglig, eftersom den här självstudien bygger direkt på den koden.
 * Visual Studio 2019 är valfritt.
 
-## <a name="update-the-app-user-interface"></a>Uppdatera app-användargränssnittet
+## <a name="update-the-app-user-interface"></a>Uppdatera appens användargränssnitt
 
-I det här avsnittet ändrar du den nya appen med nya nyheter som du skapade i avsnittet [Använda Notification Hubs för att skicka de senaste nyheterna] nyheterna för att skicka översatta nyheter med mallar.
+I det här avsnittet ändrar du appen Breaking News som du skapade i avsnittet [Använd meddelandehubbar för att skicka senaste nytt] för att skicka lokaliserade nyheter med hjälp av mallar.
 
-I din `MainStoryboard_iPhone.storyboard` lägger du till en segmenterad kontroll med tre språk: engelska, franska och mandariner.
+Lägg `MainStoryboard_iPhone.storyboard`till en segmenterad kontroll med de tre språken: engelska, franska och mandarin i .
 
-![Skapar iOS-ANVÄNDARGRÄNSSNITTets storyboard][13]
+![Skapa iOS UI-storyboard][13]
 
-Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i följande bild:
+Se sedan till att lägga till en IBOutlet i ViewController.h som visas i följande bild:
 
-![Skapa utsändnings möjligheter för växlar][14]
+![Skapa uttag för switcharna][14]
 
-## <a name="build-the-ios-app"></a>Bygg iOS-appen
+## <a name="build-the-ios-app"></a>Skapa iOS-appen
 
-1. I din `Notification.h` lägger du till `retrieveLocale`-metoden och ändrar lagrings-och prenumerations metoderna enligt följande kod:
+1. `Notification.h`Lägg till `retrieveLocale` metoden och ändra metoderna för butik och prenumerera enligt följande kod:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -103,7 +103,7 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
 
     - (int) retrieveLocale;
     ```
-    I din `Notification.m` ändrar du `storeCategoriesAndSubscribe`-metoden genom att lägga till `locale`-parametern och lagra den i användarnas standardinställningar:
+    Ändra `Notification.m` `storeCategoriesAndSubscribe` metoden genom att lägga `locale` till parametern och lagra den i användarens standardvärden:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -116,7 +116,7 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
     }
     ```
 
-    Ändra sedan *prenumerations* metoden så att den inkluderar språkvarianten:
+    Ändra sedan *prenumerationsmetoden* så att den inkluderar språk:
 
     ```objc
     - (void) subscribeWithLocale: (int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion{
@@ -141,9 +141,9 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
     }
     ```
 
-    Du använder metoden `registerTemplateWithDeviceToken`, i stället för `registerNativeWithDeviceToken`. När du registrerar dig för en mall måste du ange JSON-mallen och ett namn för mallen (som appen kanske vill registrera olika mallar). Se till att registrera dina kategorier som taggar, som du vill se till att ta emot meddelanden för dessa nyheter.
+    Du använder `registerTemplateWithDeviceToken`metoden i `registerNativeWithDeviceToken`stället för . När du registrerar dig för en mall måste du ange json-mallen och även ett namn på mallen (eftersom appen kanske vill registrera olika mallar). Se till att registrera dina kategorier som taggar, eftersom du vill vara säker på att få meddelanden för dessa nyheter.
 
-    Lägg till en metod för att hämta språk inställningarna från användarnas standardinställningar:
+    Lägg till en metod för att hämta språkinställningen från användarens standardinställningar:
 
     ```objc
     - (int) retrieveLocale {
@@ -155,13 +155,13 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
     }
     ```
 
-2. Nu när du ändrade klassen `Notifications` måste du kontrol lera att `ViewController` använder den nya `UISegmentControl`. Lägg till följande rad i metoden `viewDidLoad` för att se till att visa de språk som är markerade för tillfället:
+2. Nu när du `Notifications` har ändrat klassen måste `ViewController` du se till `UISegmentControl`att den använder den nya . Lägg till följande `viewDidLoad` rad i metoden för att se till att visa det språk som för närvarande är markerat:
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    I din `subscribe`-metod ändrar du sedan anropet till `storeCategoriesAndSubscribe` till följande kod:
+    Ändra sedan `subscribe` samtalet till `storeCategoriesAndSubscribe` följande kod i din metod:
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
@@ -176,7 +176,7 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
     }];
     ```
 
-3. Slutligen måste du uppdatera metoden `didRegisterForRemoteNotificationsWithDeviceToken` i AppDelegate. m så att du kan uppdatera registreringen på rätt sätt när appen startar. Ändra ditt anrop till metoden `subscribe` för meddelanden med följande kod:
+3. Slutligen måste du uppdatera `didRegisterForRemoteNotificationsWithDeviceToken` metoden i din AppDelegate.m, så att du kan uppdatera din registrering korrekt när appen startar. Ändra samtalet till `subscribe` metoden för meddelanden med följande kod:
 
     ```obj-c
     NSSet* categories = [self.notifications retrieveCategories];
@@ -188,13 +188,13 @@ Se sedan till att lägga till en IBOutlet i din ViewController. h som visas i f�
     }];
     ```
 
-## <a name="optional-send-localized-template-notifications-from-net-console-app"></a>valfritt Skicka meddelanden om lokaliserade mallar från .NET-konsol program
+## <a name="optional-send-localized-template-notifications-from-net-console-app"></a>(valfritt) Skicka lokaliserade mallmeddelanden från .NET-konsolappen
 
 [!INCLUDE [notification-hubs-localized-back-end](../../includes/notification-hubs-localized-back-end.md)]
 
-## <a name="optional-send-localized-template-notifications-from-the-device"></a>valfritt Skicka meddelanden om lokaliserade mallar från enheten
+## <a name="optional-send-localized-template-notifications-from-the-device"></a>(valfritt) Skicka lokaliserade mallmeddelanden från enheten
 
-Om du inte har åtkomst till Visual Studio, eller om du bara vill testa att skicka meddelanden om lokaliserade mallar direkt från appen på enheten. Du kan lägga till lokaliserade mallparametrar till metoden `SendNotificationRESTAPI` som du definierade i föregående självstudie.
+Om du inte har tillgång till Visual Studio eller bara vill testa att skicka de lokaliserade mallmeddelandena direkt från appen på enheten. Du kan lägga till de `SendNotificationRESTAPI` lokaliserade mallparametrarna i den metod som du definierade i föregående självstudie.
 
 ```objc
 - (void)SendNotificationRESTAPI:(NSString*)categoryTag
@@ -263,7 +263,7 @@ Om du inte har åtkomst till Visual Studio, eller om du bara vill testa att skic
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du skickat lokaliserade meddelanden till iOS-enheter. Om du vill lära dig att skicka meddelanden till vissa användare av iOS-appar går du vidare till följande självstudie:
+I den här självstudien skickade du lokaliserade meddelanden till iOS-enheter. Om du vill veta hur du skickar meddelanden till specifika användare av iOS-appar går du vidare till följande självstudiekurs:
 
 > [!div class="nextstepaction"]
 >[Skicka meddelanden till specifika användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)

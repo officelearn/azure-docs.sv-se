@@ -9,41 +9,41 @@ ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
 ms.openlocfilehash: 3215f5952daef053c94432bc8fdef15e1775047a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "73171090"
 ---
-Att placera virtuella datorer i en enda region minskar det fysiska avståndet mellan instanserna. Att placera dem i en enda tillgänglighets zon kommer också att ta dem fysiskt närmare varandra. I takt med att Azure-utrymmet växer kan en enda tillgänglighets zon sträcka sig över flera fysiska data Center, vilket kan leda till en nätverks fördröjning som påverkar ditt program. 
+Om du placerar virtuella datorer i en enda region minskar det fysiska avståndet mellan instanserna. Placera dem inom en enda tillgänglighet zon kommer också att föra dem fysiskt närmare varandra. Men när Azure-fotavtrycket växer kan en enda tillgänglighetszon sträcka sig över flera fysiska datacenter, vilket kan resultera i en nätverksfördröjning som påverkar ditt program. 
 
-För att få virtuella datorer så nära som möjligt, vilket ger lägsta möjliga fördröjning, bör du distribuera dem i en närhets placerings grupp.
+Om du vill få virtuella datorer så nära som möjligt och uppnå lägsta möjliga svarstid bör du distribuera dem inom en närhetsplaceringsgrupp.
 
-En närhets placerings grupp är en logisk gruppering som används för att se till att Azure Compute-resurser är fysiskt placerade nära varandra. Placerings grupper för närhet är användbara för arbets belastningar där låg latens är ett krav.
+En närhetsplaceringsgrupp är en logisk gruppering som används för att se till att Azure-beräkningsresurser är fysiskt placerade nära varandra. Närhetsplaceringsgrupper är användbara för arbetsbelastningar där låg svarstid är ett krav.
 
 
 - Låg latens mellan fristående virtuella datorer.
-- Låg latens mellan virtuella datorer i en enda tillgänglighets uppsättning eller en skalnings uppsättning för virtuella datorer. 
-- Låg latens mellan fristående virtuella datorer, virtuella datorer i flera tillgänglighets uppsättningar eller flera skalnings uppsättningar. Du kan ha flera beräknings resurser i en enda placerings grupp för att sammanföra ett program med flera nivåer. 
-- Låg latens mellan flera program nivåer med olika maskin varu typer. Du kan till exempel köra Server delen med M-serien i en tillgänglighets uppsättning och klient delen på en D-seriens instans i en skalnings uppsättning i en enda närhets placerings grupp.
+- Låg svarstid mellan virtuella datorer i en enda tillgänglighetsuppsättning eller en skaluppsättning för virtuella datorer. 
+- Låg svarstid mellan fristående virtuella datorer, virtuella datorer i flera tillgänglighetsuppsättningar eller flera skalningsuppsättningar. Du kan ha flera beräkningsresurser i en enda placeringsgrupp för att samla ett program med flera nivåer. 
+- Låg latens mellan flera programnivåer med olika maskinvarutyper. Till exempel kör serverdelen med M-serien i en tillgänglighetsuppsättning och klientdelen på en D-serieinstans, i en skalningsuppsättning, i en enda närhetsplaceringsgrupp.
 
 
-![Bild för närhets placerings grupper](./media/virtual-machines-common-ppg/ppg.png)
+![Grafik för närhetsplaceringsgrupper](./media/virtual-machines-common-ppg/ppg.png)
 
-## <a name="using-proximity-placement-groups"></a>Använda närhets placerings grupper 
+## <a name="using-proximity-placement-groups"></a>Använda grupper för närhetsplacering 
 
-En närhets placerings grupp är en ny resurs typ i Azure. Du måste skapa ett innan du använder det med andra resurser. När den har skapats kan den användas med virtuella datorer, tillgänglighets uppsättningar eller skalnings uppsättningar för virtuella datorer. Du anger en närhets placerings grupp när du skapar beräknings resurser som ger närhets grupp-ID: t. 
+En närhetsplaceringsgrupp är en ny resurstyp i Azure. Du måste skapa en innan du använder den med andra resurser. När den har skapats kan den användas med virtuella datorer, tillgänglighetsuppsättningar eller skaluppsättningar för virtuella datorer. Du anger en närhetsplaceringsgrupp när du skapar beräkningsresurser som tillhandahåller närhetsplaceringsgrupp-ID. 
 
-Du kan också flytta en befintlig resurs till en närhets placerings grupp. När du flyttar en resurs till en närhets placerings grupp bör du stoppa (frigöra) till gången först eftersom den kommer att omdistribueras till ett annat data Center i regionen så att den uppfyller samplacerings begränsningen. 
+Du kan också flytta en befintlig resurs till en närhetsplaceringsgrupp. När du flyttar en resurs till en närhetsplaceringsgrupp bör du stoppa (deallocate) tillgången först eftersom den kommer att distribueras om eventuellt till ett annat datacenter i regionen så uppfyller samlokaliseringsbegränsningen. 
 
-Om det gäller tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer bör du ange placerings gruppen närhet på resurs nivå i stället för de enskilda virtuella datorerna. 
+När det gäller tillgänglighetsuppsättningar och skaluppsättningar för virtuella datorer bör du ange närhetsplaceringsgruppen på resursnivå i stället för de enskilda virtuella datorerna. 
 
-En närhets placerings grupp är en samplacerings begränsning snarare än en fäst funktion. Den fästs i ett Data Center med distributionen av den första resursen för att använda den. När alla resurser som använder närhets placerings gruppen har stoppats (frigjorts) eller tagits bort, är de inte längre fästa. När du använder en närhets placerings grupp med flera VM-serier är det därför viktigt att du anger alla nödvändiga typer som är aktiva i en mall när det är möjligt eller följer en distributions ordning som förbättrar risken för en lyckad distribution. Om distributionen Miss lyckas startar du om distributionen med den VM-storlek som har misslyckats som den första storleken som ska distribueras.
+En närhetsplaceringsgrupp är ett samlokaliseringsvillkor snarare än en fästmekanism. Den fästs i ett visst datacenter med distributionen av den första resursen som ska användas. När alla resurser som använder proximity placement-gruppen har stoppats (deallocated) eller tagits bort, är det inte längre fäst. När du använder en närhetsplaceringsgrupp med flera VM-serier är det därför viktigt att ange alla nödvändiga typer i förväg i en mall när det är möjligt eller följa en distributionssekvens som förbättrar dina chanser för en lyckad distribution. Om distributionen misslyckas startar du om distributionen med den virtuella datorns storlek som har misslyckats som den första storleken som ska distribueras.
 
 
-## <a name="best-practices"></a>Bästa metoder 
-- Använd närhets placerings grupper tillsammans med accelererat nätverk för lägsta latens. Mer information finns i [skapa en virtuell Linux-dator med accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [skapa en virtuell Windows-dator med accelererat nätverk](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-- Distribuera alla VM-storlekar i en enda mall. För att undvika landning på maskin vara som inte stöder alla VM-SKU: er och storlekar som du behöver, måste du ta med alla program nivåer i en enda mall så att de kan distribueras på samma gång.
-- Om du kör skript för distributionen med PowerShell, CLI eller SDK kan du få ett allokeringsfel `OverconstrainedAllocationRequest`. I det här fallet bör du stoppa/frigöra alla befintliga virtuella datorer och ändra ordningen i distributions skriptet så att den börjar med VM-SKU: n/storlekarna som misslyckades. 
-- När du återanvänder en befintlig placerings grupp som de virtuella datorerna togs bort från, väntar du tills borttagningen har slutförts innan du lägger till virtuella datorer i den.
-- Om svars tiden är din första prioritet ska du placera virtuella datorer i en närhets placerings grupp och hela lösningen i en tillgänglighets zon. Men om återhämtning är din högsta prioritet sprider du dina instanser över flera tillgänglighets zoner (en enda närhets placerings grupp kan inte omfatta zoner).
+## <a name="best-practices"></a>Bästa praxis 
+- Använd närhetsplaceringsgrupper tillsammans med accelererade nätverk för den lägsta svarstiden. Mer information finns i [Skapa en virtuell Linux-dator med Accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller Skapa en virtuell [Windows-dator med accelererat nätverk](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+- Distribuera alla VM-storlekar i en enda mall. För att undvika att landa på maskinvara som inte stöder alla vm-SKU:er och storlekar som du behöver, inkludera alla programnivåer i en enda mall så att de alla distribueras samtidigt.
+- Om du skriptar distributionen med PowerShell, CLI eller SDK `OverconstrainedAllocationRequest`kan du få ett allokeringsfel . I det här fallet bör du stoppa/frigöra alla befintliga virtuella datorer och ändra sekvensen i distributionsskriptet så att den börjar med vm SKU/-storlekarna som misslyckades. 
+- När du återanvänder en befintlig placeringsgrupp som virtuella datorer togs bort från väntar du på att borttagningen ska slutföras helt innan du lägger till virtuella datorer i den.
+- Om svarstid är din första prioritet placerar du virtuella datorer i en närhetsplaceringsgrupp och hela lösningen i en tillgänglighetszon. Men om återhämtning är din högsta prioritet, sprida dina instanser över flera tillgänglighetszoner (en enda närhetsplaceringsgrupp kan inte spänna över zoner).

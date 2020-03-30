@@ -1,6 +1,6 @@
 ---
-title: 'Hantera IoT Hub anslutning & Reliable Messaging med enhets-SDK: er'
-description: 'Lär dig hur du kan förbättra din enhets anslutning och dina meddelanden när du använder Azure IoT Hub-enhetens SDK: er'
+title: Hantera IoT Hub-anslutning & tillförlitliga meddelanden med SDK:er för enheter
+description: Lär dig hur du förbättrar enhetens anslutning och meddelanden när du använder SD:erna för Azure IoT Hub-enheten
 services: iot-hub
 author: robinsh
 ms.author: robinsh
@@ -8,23 +8,23 @@ ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
 ms.openlocfilehash: 1ca7219824a00a5af0bed7d42da75fc06ce2010d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79284452"
 ---
-# <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Hantera anslutningar och Reliable Messaging med hjälp av Azure IoT Hub enhets-SDK: er
+# <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Hantera anslutning och tillförlitliga meddelanden med hjälp av Azure IoT Hub-enhet SDK:er
 
-Den här artikeln innehåller rikt linjer som hjälper dig att utforma enhets program som är mer elastiska. Det visar hur du kan dra nytta av anslutningen och Reliable Messaging-funktionerna i Azure IoT-enhetens SDK: er. Målet med den här guiden är att hjälpa dig att hantera följande scenarier:
+Den här artikeln innehåller vägledning på hög nivå som hjälper dig att utforma enhetsprogram som är mer motståndskraftiga. Den visar hur du drar nytta av anslutnings- och tillförlitliga meddelandefunktioner i Azure IoT-enhetSDK:er. Syftet med den här guiden är att hjälpa dig att hantera följande scenarier:
 
-* Korrigera en avbruten nätverks anslutning
+* Åtgärda en bortsläppt nätverksanslutning
 
-* Växla mellan olika nätverks anslutningar
+* Växla mellan olika nätverksanslutningar
 
-* Återansluter på grund av tillfälliga anslutnings fel i tjänsten
+* Återanslut på grund av tillfälliga anslutningsfel för tjänsten
 
-Implementerings informationen kan variera beroende på språk. Mer information finns i API-dokumentationen eller i det angivna SDK:
+Implementeringsinformationen kan variera beroende på språk. Mer information finns i API-dokumentationen eller specifika SDK:
 
 * [C/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 
@@ -34,70 +34,70 @@ Implementerings informationen kan variera beroende på språk. Mer information f
 
 * [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
-* [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (pålitlighet ännu inte implementerat)
+* [Python SDK](https://github.com/Azure/azure-iot-sdk-python) (Tillförlitlighet ännu inte implementerad)
 
 ## <a name="designing-for-resiliency"></a>Designa för elasticitet
 
-IoT-enheter är ofta beroende av icke-kontinuerliga eller instabila nätverks anslutningar (till exempel GSM eller satellit). Fel kan uppstå när enheter interagerar med molnbaserade tjänster på grund av tillfällig tillgänglighet på tjänster och infrastruktur nivå eller tillfälliga fel. Ett program som körs på en enhet måste hantera mekanismerna för anslutning, åter anslutning och omprövnings logik för att skicka och ta emot meddelanden. Kraven på strategi för återförsök är också beroende av enhetens IoT-scenario, kontext, funktioner.
+IoT-enheter förlitar sig ofta på icke-kontinuerliga eller instabila nätverksanslutningar (till exempel GSM eller satellit). Fel kan uppstå när enheter interagerar med molnbaserade tjänster på grund av intermittent tjänsttillgänglighet och infrastrukturnivå eller tillfälliga fel. Ett program som körs på en enhet måste hantera mekanismerna för anslutning, återanslutning och logiken för återförsök för att skicka och ta emot meddelanden. Dessutom är kraven för återförsöksstrategi starkt beroende av enhetens IoT-scenario, kontext, funktioner.
 
-Med SDK: er för Azure IoT Hub-enheter kan du förenkla anslutning och kommunikation från moln till enhet och från enhet till moln. Dessa SDK: er ger ett robust sätt att ansluta till Azure IoT Hub och en omfattande uppsättning alternativ för att skicka och ta emot meddelanden. Utvecklare kan också ändra befintlig implementering för att anpassa en bättre strategi för återförsök i ett specifikt scenario.
+Azure IoT Hub-enheten SDK:er syftar till att förenkla anslutning och kommunikation från molnet till enheten och enhet till moln. Dessa SDK:er är ett robust sätt att ansluta till Azure IoT Hub och en omfattande uppsättning alternativ för att skicka och ta emot meddelanden. Utvecklare kan också ändra befintlig implementering för att anpassa en bättre strategi för återförsök för ett visst scenario.
 
-Relevanta SDK-funktioner som stöder anslutningar och Reliable Messaging beskrivs i följande avsnitt.
+De relevanta SDK-funktionerna som stöder anslutning och tillförlitliga meddelanden beskrivs i följande avsnitt.
 
 ## <a name="connection-and-retry"></a>Anslutning och försök igen
 
-Det här avsnittet ger en översikt över de mönster för anslutning och återförsök som är tillgängliga när du hanterar anslutningar. Den beskriver implementerings vägledningen för att använda en annan princip för återförsök i enhets programmet och listar relevanta API: er från enhetens SDK: er.
+Det här avsnittet innehåller en översikt över de återanslutnings- och återförsöksmönster som är tillgängliga när du hanterar anslutningar. Den beskriver implementeringsvägledning för att använda en annan återförsöksprincip i enhetsprogrammet och listar relevanta API:er från enhetens SDK:er.
 
-### <a name="error-patterns"></a>Fel mönster
+### <a name="error-patterns"></a>Felmönster
 
-Anslutnings problem kan inträffa på många nivåer:
+Anslutningsfel kan inträffa på många nivåer:
 
-* Nätverks fel: frånkopplade socket-och namn matchnings fel
+* Nätverksfel: frånkopplade socket- och namnmatchningsfel
 
-* Fel på protokoll nivå för HTTP-, AMQP-och MQTT-transport: frånkopplade länkar eller utgångna sessioner
+* Fel på protokollnivå för HTTP-, AMQP- och MQTT-transport: fristående länkar eller utgångna sessioner
 
-* Fel på program nivå som orsakas av antingen lokala misstag: ogiltiga autentiseringsuppgifter eller tjänst beteende (till exempel överskrida kvoten eller begränsningen)
+* Fel på programnivå som beror på lokala misstag: ogiltiga autentiseringsuppgifter eller tjänstbeteende (till exempel överskrider kvoten eller begränsningen)
 
-Enhets-SDK: erna identifierar fel på alla tre nivåer. OS-relaterade fel och maskin varu fel identifieras och hanteras inte av enhets-SDK: erna. SDK-designen baseras på [den tillfälliga fel hanterings vägledningen](/azure/architecture/best-practices/transient-faults#general-guidelines) från Azure Architecture Center.
+EnhetenSDK:er upptäcker fel på alla tre nivåer. OS-relaterade fel och maskinvarufel identifieras inte och hanteras inte av enhetens SDK:er. SDK-designen baseras på [vägledningen för tillfällig felhantering](/azure/architecture/best-practices/transient-faults#general-guidelines) från Azure Architecture Center.
 
-### <a name="retry-patterns"></a>Återförsöks mönster
+### <a name="retry-patterns"></a>Återförsöksmönster
 
-Följande steg beskriver processen för att försöka igen när anslutnings fel upptäcks:
+I följande steg beskrivs återförsöksprocessen när anslutningsfel upptäcks:
 
 1. SDK identifierar felet och det associerade felet i nätverket, protokollet eller programmet.
 
-2. SDK: n använder fel filtret för att fastställa feltypen och bestämmer om ett nytt försök krävs.
+2. SDK använder felfiltret för att fastställa feltypen och avgöra om ett nytt försök behövs.
 
-3. Om SDK: n identifierar ett **oåterkalleligt fel**, stoppas åtgärder som anslutning, skicka och ta emot. SDK meddelar användaren. Exempel på fel som inte går att återställa är ett autentiseringsfel och ett felaktigt slut punkts fel.
+3. Om SDK identifierar ett **oåterkalleligt fel**stoppas åtgärder som anslutning, skicka och ta emot. SDK meddelar användaren. Exempel på oåterkalleliga fel är ett autentiseringsfel och ett felaktigt slutpunktsfel.
 
-4. Om SDK: n identifierar ett **återställnings Bart fel**görs ett nytt försök enligt den angivna återförsöks principen tills den definierade tids gränsen har gått ut.  Observera att SDK använder **exponentiella säkerhets kopieringar med Darr-** återförsöks princip som standard.
-5. När den definierade tids gränsen går ut slutar SDK: n att försöka ansluta eller skicka. Användaren meddelas.
+4. Om SDK identifierar ett **fel som kan återställas**försöker den igen enligt den angivna återförsöksprincipen tills den definierade timeouten har gått ut.  Observera att SDK använder **Exponential back-off med jitter** retry princip som standard.
+5. När den definierade timeouten upphör att gälla slutar SDK att försöka ansluta eller skicka. Det meddelar användaren.
 
-6. Med SDK kan användaren bifoga en motringning för att ta emot ändringar av anslutnings status.
+6. Med SDK kan användaren bifoga en motringning för att ta emot ändringar i anslutningsstatus.
 
-SDK: er tillhandahåller tre principer för återförsök:
+SDK:erna innehåller tre principer för återförsök:
 
-* **Exponentiell säkerhets kopiering med Darr**: den här standard principen för återförsök tenderar att vara aggressiv vid starten och sakta ned över tid tills den når en maximal fördröjning. Designen baseras på vägledning om [återförsök från Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
+* **Exponentiell back-off med jitter**: Denna standard återförsök politik tenderar att vara aggressiv i början och sakta ner med tiden tills den når en maximal fördröjning. Designen baseras på [vägledning för återförsök från Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
 
-* **Anpassat återförsök**: för vissa SDK-språk kan du utforma en anpassad princip för återförsök som passar bäst för ditt scenario och sedan mata in det i RetryPolicy. Det anpassade återförsöket är inte tillgängligt på C SDK och stöds för närvarande inte på python SDK. Python SDK återansluter vid behov.
+* **Anpassat återförsök**: För vissa SDK-språk kan du utforma en anpassad återförsöksprincip som passar bättre för ditt scenario och sedan injicera den i RetryPolicy. Anpassat återförsök är inte tillgängligt på C SDK och stöds för närvarande inte på Python SDK. Python SDK återansluter efter behov.
 
-* **Inget återförsök**: du kan ställa in principen för återförsök till "ingen återförsök", vilket inaktiverar logiken för omförsök. SDK försöker ansluta en gång och skicka ett meddelande en gång, förutsatt att anslutningen upprättas. Den här principen används vanligt vis i scenarier med bandbredd eller kostnads problem. Om du väljer det här alternativet går det inte att återställa meddelanden som inte kan skickas.
+* **Inget försök igen**: Du kan ange återförsöksprincipen till "inget försök igen", vilket inaktiverar logiken för återförsök. SDK försöker ansluta en gång och skicka ett meddelande en gång, förutsatt att anslutningen är etablerad. Den här principen används vanligtvis i scenarier med bandbredd eller kostnadsproblem. Om du väljer det här alternativet går meddelanden som inte kan skicka förlorade och kan inte återställas.
 
-### <a name="retry-policy-apis"></a>Kör om princip-API: er
+### <a name="retry-policy-apis"></a>Api:er för återförsöksprincip
 
-   | SDK | SetRetryPolicy-metod | Princip implementeringar | Implementerings vägledning |
+   | SDK | Metoden SetRetryPolicy | Politiska genomföranden | Vägledning för genomförande |
    |-----|----------------------|--|--|
-   |  C/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **Standard**: [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Anpassad:** Använd tillgängliga [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Inga återförsök:** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [C/iOS-implementering](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
-   | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **Standard**: [ExponentialBackoffWithJitter-klass](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Anpassad:** implementera [RetryPolicy-gränssnitt](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Inga återförsök:** [noretry-klass](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java-implementering](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
-   | .NET| [DeviceClient. SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet) | **Standard**: [ExponentialBackoff-klass](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Anpassad:** implementera [IRetryPolicy-gränssnitt](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**Inga återförsök:** [noretry-klass](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [C#serverimplementeringar](https://github.com/Azure/azure-iot-sdk-csharp) | |
-   | Node| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **Standard**: [ExponentialBackoffWithJitter-klass](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Anpassad:** implementera [RetryPolicy-gränssnitt](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Inga återförsök:** [noretry-klass](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Node-implementering](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
-   | Python| Stöds inte för närvarande | Stöds inte för närvarande | Stöds inte för närvarande |
+   |  C/iOS  | [IOTHUB_CLIENT_RESULT IoTHubClient_SetRetryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/2018-05-04/iothub_client/inc/iothub_client.h#L188)        | **Standard:** [IOTHUB_CLIENT_RETRY_EXPONENTIAL_BACKOFF](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Anpassad:** använd tillgänglig [retryPolicy](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)<BR>**Inget nytt försök:** [IOTHUB_CLIENT_RETRY_NONE](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#connection-retry-policies)  | [C/iOS-implementering](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/connection_and_messaging_reliability.md#)  |
+   | Java| [SetRetryPolicy](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.deviceclientconfig.setretrypolicy?view=azure-java-stable)        | **Standard**: [Klassen ExponentialBackoffWithJitter](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)<BR>**Anpassat:** implementera [Gränssnittet RetryPolicy](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/RetryPolicy.java)<BR>**Inget nytt försök:** [klassen NoRetry](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/transport/NoRetry.java)  | [Java-implementering](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md) |
+   | .NET| [DeviceClient.SetRetryPolicy](/dotnet/api/microsoft.azure.devices.client.deviceclient.setretrypolicy?view=azure-dotnet) | **Standard**: [Klassen ExponentialBackoff](/dotnet/api/microsoft.azure.devices.client.exponentialbackoff?view=azure-dotnet)<BR>**Anpassat:** implementera [IRetryPolicy-gränssnittet](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.iretrypolicy?view=azure-dotnet)<BR>**Inget nytt försök:** [klassen NoRetry](/dotnet/api/microsoft.azure.devices.client.noretry?view=azure-dotnet) | [C# implementering](https://github.com/Azure/azure-iot-sdk-csharp) | |
+   | Node| [setRetryPolicy](/javascript/api/azure-iot-device/client?view=azure-iot-typescript-latest) | **Standard**: [Klassen ExponentialBackoffWithJitter](/javascript/api/azure-iot-common/exponentialbackoffwithjitter?view=azure-iot-typescript-latest)<BR>**Anpassat:** implementera [Gränssnittet RetryPolicy](/javascript/api/azure-iot-common/retrypolicy?view=azure-iot-typescript-latest)<BR>**Inget nytt försök:** [klassen NoRetry](/javascript/api/azure-iot-common/noretry?view=azure-iot-typescript-latest) | [Implementering av nod](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them) |
+   | Python| Stöds för närvarande inte | Stöds för närvarande inte | Stöds för närvarande inte |
 
-Följande kod exempel illustrerar det här flödet:
+Följande kodexempel illustrerar det här flödet:
 
-#### <a name="net-implementation-guidance"></a>Vägledning för .NET-implementering
+#### <a name="net-implementation-guidance"></a>.NET-implementeringsvägledning
 
-Följande kod exempel visar hur du definierar och anger standard principen för återförsök:
+I följande kodexempel visas hur du definierar och anger standardprincipen för återförsök:
 
    ```csharp
    // define/set default retry policy
@@ -105,9 +105,9 @@ Följande kod exempel visar hur du definierar och anger standard principen för 
    SetRetryPolicy(retryPolicy);
    ```
 
-För att undvika hög CPU-användning begränsas försöken om koden Miss lyckas omedelbart. Till exempel när det inte finns något nätverk eller dirigerar till målet. Minimi tiden för att köra nästa nytt försök är 1 sekund.
+För att undvika hög CPU-användning begränsas återförsöken om koden misslyckas omedelbart. Till exempel när det inte finns något nätverk eller väg till målet. Den minsta tiden för att köra nästa nytt försök är 1 sekund.
 
-Om tjänsten svarar med ett begränsnings fel är återförsöks principen annorlunda och kan inte ändras via offentliga API:
+Om tjänsten svarar med ett begränsningsfel är återförsöksprincipen annorlunda och kan inte ändras via offentligt API:
 
    ```csharp
    // throttled retry policy
@@ -115,11 +115,11 @@ Om tjänsten svarar med ett begränsnings fel är återförsöks principen annor
      TimeSpan.FromSeconds(60), TimeSpan.FromSeconds(5)); SetRetryPolicy(retryPolicy);
    ```
 
-Mekanismen för omförsök stoppas efter `DefaultOperationTimeoutInMilliseconds`, som för närvarande är 4 minuter.
+Återförsöksmekanismen stannar `DefaultOperationTimeoutInMilliseconds`efter , som för närvarande är inställd på 4 minuter.
 
 #### <a name="other-languages-implementation-guidance"></a>Vägledning om implementering av andra språk
 
-Granska följande implementerings dokument för kod exempel på andra språk. Lagrings platsen innehåller exempel som demonstrerar användningen av API: er för återförsök.
+För kodexempel på andra språk, granska följande implementeringsdokument. Databasen innehåller exempel som visar användningen av api:er för återförsöksprincip.
 
 * [C/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 
@@ -135,10 +135,10 @@ Granska följande implementerings dokument för kod exempel på andra språk. La
 
 * [Använd SDK:er för enhet och tjänst](./iot-hub-devguide-sdks.md)
 
-* [Använd SDK för IoT-enhet för C](./iot-hub-device-sdk-c-intro.md)
+* [Använda SDK för IoT-enheter för C](./iot-hub-device-sdk-c-intro.md)
 
 * [Utveckla för begränsade enheter](./iot-hub-devguide-develop-for-constrained-devices.md)
 
 * [Utveckla för mobila enheter](./iot-hub-how-to-develop-for-mobile-devices.md)
 
-* [Felsöka enhets koppling](iot-hub-troubleshoot-connectivity.md)
+* [Felsöka frånkoppling av enheten](iot-hub-troubleshoot-connectivity.md)

@@ -1,6 +1,6 @@
 ---
-title: Skapa en NFS-volym för Azure NetApp Files | Microsoft Docs
-description: Beskriver hur du skapar en NFS-volym för Azure NetApp Files.
+title: Skapa en NFS-volym för Azure NetApp-filer | Microsoft-dokument
+description: Beskriver hur du skapar en NFS-volym för Azure NetApp-filer.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 12/01/2019
 ms.author: b-juche
 ms.openlocfilehash: 9e8817f802ca1d73ca0f6bfa2b32b1b14b37d7da
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274091"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Skapa en NFS-volym för Azure NetApp Files
 
-Azure NetApp Files stöder NFS (NFSv3 och NFSv 4.1) och SMBv3-volymer. En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet. Den här artikeln visar hur du skapar en NFS-volym. Om du vill skapa en SMB-volym, se [skapa en SMB-volym för Azure NetApp Files](azure-netapp-files-create-volumes-smb.md). 
+Azure NetApp Files stöder NFS (NFSv3- och NFSv4.1) och SMBv3-volymer. En volyms kapacitetsförbrukning mäts mot dess pools etablerade kapacitet. Den här artikeln visar hur du skapar en NFS-volym. Om du vill skapa en SMB-volym läser du [Skapa en SMB-volym för Azure NetApp-filer](azure-netapp-files-create-volumes-smb.md). 
 
 ## <a name="before-you-begin"></a>Innan du börjar 
 Du måste redan ha konfigurerat en kapacitetspool.   
@@ -34,41 +34,41 @@ Ett undernät måste delegeras till Azure NetApp Files.
 ## <a name="considerations"></a>Överväganden 
 
 * Bestämma vilken NFS-version som ska användas  
-  NFSv3 kan hantera en mängd olika användnings fall och distribueras ofta i de flesta företags program. Du bör validera vilken version (NFSv3 eller NFSv 4.1) som programmet behöver och skapa din volym med lämplig version. Om du till exempel använder [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave)rekommenderas fil låsning med nfsv 4.1 över NFSv3. 
+  NFSv3 kan hantera en mängd olika användningsfall och distribueras ofta i de flesta företagsprogram. Du bör validera vilken version (NFSv3 eller NFSv4.1) ditt program kräver och skapa din volym med rätt version. Om du till exempel använder [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave)rekommenderas fillåsning med NFSv4.1 via NFSv3. 
 
 * Säkerhet  
-  Stöd för UNIX läges bitar (läsa, skriva och köra) är tillgängligt för NFSv3 och NFSv 4.1. Åtkomst till rot nivå krävs på NFS-klienten för att montera NFS-volymer.
+  Stöd för UNIX-läge bitar (läsa, skriva och köra) är tillgänglig för NFSv3 och NFSv4.1. Åtkomst på rotnivå krävs på NFS-klienten för att montera NFS-volymer.
 
-* Lokal användare/grupp och LDAP-stöd för NFSv 4.1  
-  För närvarande stöder NFSv 4.1 endast rot åtkomst till volymer. Se [Konfigurera nfsv 4.1 standard domän för Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md). 
+* Lokalt användar-/grupp- och LDAP-stöd för NFSv4.1  
+  För närvarande stöder NFSv4.1 endast root-åtkomst till volymer. Se [Konfigurera NFSv4.1-standarddomän för Azure NetApp-filer](azure-netapp-files-configure-nfsv41-domain.md). 
 
 ## <a name="best-practice"></a>Regelverk
 
-* Du bör se till att du använder rätt monterings instruktioner för volymen.  Se [montera eller demontera en volym för virtuella Windows-eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
+* Du bör se till att du använder rätt monteringsinstruktioner för volymen.  Se [Montera eller avmontera en volym för virtuella Windows- eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).
 
-* NFS-klienten ska finnas i samma VNet eller peer-VNet som Azure NetApp Files volym. Det finns stöd för att ansluta utanför VNet. den kommer dock att införa ytterligare svars tid och minska den övergripande prestandan.
+* NFS-klienten ska finnas i samma virtuella nätverk eller peer-virtuella nätverk som Azure NetApp Files-volymen. Anslutning utanför det virtuella nätverket stöds. Det kommer dock att införa ytterligare latens och minska den totala prestanda.
 
-* Du bör se till att NFS-klienten är uppdaterad och köra de senaste uppdateringarna för operativ systemet.
+* Du bör se till att NFS-klienten är uppdaterad och kör de senaste uppdateringarna för operativsystemet.
 
 ## <a name="create-an-nfs-volume"></a>Skapa en NFS-volym
 
-1.  Klicka på bladet **volymer** på bladet kapacitets pooler. 
+1.  Klicka på bladet **Volymer** från bladet Kapacitetspooler. 
 
     ![Navigera till volymer](../media/azure-netapp-files/azure-netapp-files-navigate-to-volumes.png)
 
 2.  Klicka på **+ Lägg till volym** för att skapa en volym.  
     Fönstret Skapa en volym visas.
 
-3.  I fönstret Skapa en volym klickar du på **skapa** och anger information för följande fält:   
-    * **Volym namn**      
+3.  Klicka på **Skapa** i fönstret Skapa en volym och ange information för följande fält:   
+    * **Volymnamn**      
         Ange namnet på den volym du skapar.   
 
-        Ett volym namn måste vara unikt inom varje pool för kapacitet. Det måste innehålla minst tre tecken. Du kan använda alla alfanumeriska tecken.   
+        Ett volymnamn måste vara unikt inom varje kapacitetspool. Det måste innehålla minst tre tecken. Du kan använda alla alfanumeriska tecken.   
 
-        Du kan inte använda `default` som volym namn.
+        Du kan `default` inte använda som volymnamn.
 
-    * **Pool för kapacitet**  
-        Ange den pool där du vill att volymen ska skapas.
+    * **Kapacitet pool**  
+        Ange den kapacitetspool där du vill att volymen ska skapas.
 
     * **Kvot**  
         Ange mängden logisk lagring som tilldelas till volymen.  
@@ -84,36 +84,36 @@ Ett undernät måste delegeras till Azure NetApp Files.
         Ange det undernät som du vill använda för volymen.  
         Det undernät som du anger måste delegeras till Azure NetApp Files. 
         
-        Om du inte har delegerat ett undernät kan du klicka på **Skapa nytt** på sidan Skapa en volym. På sidan Skapa undernät anger du sedan undernätsinformationen och väljer **Microsoft.NetApp/volumes** för att delegera undernätet för Azure NetApp Files. I varje VNet kan endast ett undernät delegeras till Azure NetApp Files.   
+        Om du inte har delegerat ett undernät kan du klicka på **Skapa nytt** på sidan Skapa en volym. På sidan Skapa undernät anger du sedan undernätsinformationen och väljer **Microsoft.NetApp/volumes** för att delegera undernätet för Azure NetApp Files. I varje Vnät kan endast ett undernät delegeras till Azure NetApp-filer.   
  
         ![Skapa en volym](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
         ![Skapa undernät](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
-4. Klicka på **protokoll**och utför följande åtgärder:  
-    * Välj **NFS** som protokoll typ för volymen.   
-    * Ange den **fil Sök väg** som ska användas för att skapa export Sök vägen för den nya volymen. Exportvägen används för att sätta upp och komma åt volymen.
+4. Klicka på **Protokoll**och slutför sedan följande åtgärder:  
+    * Välj **NFS** som protokolltyp för volymen.   
+    * Ange den **filsökväg** som ska användas för att skapa exportsökvägen för den nya volymen. Exportvägen används för att sätta upp och komma åt volymen.
 
         Filsökvägen får endast innehålla bokstäver, siffror och bindestreck (-). Det måste vara mellan 16 och 40 tecken långt. 
 
-        Fil Sök vägen måste vara unik inom varje prenumeration och varje region. 
+        Filsökvägen måste vara unik inom varje prenumeration och varje region. 
 
-    * Välj NFS-version (**NFSv3** eller **nfsv 4.1**) för volymen.  
-    * Du kan också [Konfigurera export princip för NFS-volymen](azure-netapp-files-configure-export-policy.md).
+    * Välj NFS-versionen **(NFSv3** eller **NFSv4.1)** för volymen.  
+    * Du kan också [konfigurera exportprincip för NFS-volymen](azure-netapp-files-configure-export-policy.md).
 
     ![Ange NFS-protokoll](../media/azure-netapp-files/azure-netapp-files-protocol-nfs.png)
 
-5. Granska volym informationen genom att klicka på **Granska + skapa** .  Klicka sedan på **skapa** för att skapa NFS-volymen.
+5. Klicka på **Granska + Skapa** om du vill granska volyminformationen.  Klicka sedan på **Skapa** för att skapa NFS-volymen.
 
-    Volymen som du skapade visas på sidan volymer. 
+    Volymen som du skapade visas på sidan Volymer. 
  
     En volym ärver prenumeration, resursgrupp och platsattribut från kapacitetspoolen. Du kan övervaka volymdistributionsstatusen via fliken Meddelanden.
 
 
 ## <a name="next-steps"></a>Nästa steg  
 
-* [Konfigurera NFSv 4.1 standard domän för Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
-* [Montera eller demontera en volym för virtuella Windows-eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Konfigurera NFSv4.1-standarddomän för Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
+* [Montera eller demontera en volym för virtuella Windows- eller Linux-datorer](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Konfigurera exportprincipen för en NFS-volym](azure-netapp-files-configure-export-policy.md)
 * [Resursbegränsningar för Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Läs om integrering av virtuella nätverk för Azure-tjänster](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

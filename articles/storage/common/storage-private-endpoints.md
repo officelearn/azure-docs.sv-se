@@ -1,7 +1,7 @@
 ---
-title: Använd privata slut punkter
+title: Använda privata slutpunkter
 titleSuffix: Azure Storage
-description: Översikt över privata slut punkter för säker åtkomst till lagrings konton från virtuella nätverk.
+description: Översikt över privata slutpunkter för säker åtkomst till lagringskonton från virtuella nätverk.
 services: storage
 author: santoshc
 ms.service: storage
@@ -11,135 +11,135 @@ ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
 ms.openlocfilehash: c51f2db698f30368c9d4090d3d571fa0c131178a
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299064"
 ---
-# <a name="use-private-endpoints-for-azure-storage"></a>Använd privata slut punkter för Azure Storage
+# <a name="use-private-endpoints-for-azure-storage"></a>Använda privata slutpunkter för Azure Storage
 
-Du kan använda [privata slut punkter](../../private-link/private-endpoint-overview.md) för dina Azure Storage-konton om du vill tillåta klienter i ett virtuellt nätverk (VNet) att säkert få åtkomst till data via en [privat länk](../../private-link/private-link-overview.md). Den privata slut punkten använder en IP-adress från VNet-adressutrymmet för din lagrings konto tjänst. Nätverks trafik mellan klienterna i VNet och lagrings kontot passerar över VNet och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet.
+Du kan använda [privata slutpunkter](../../private-link/private-endpoint-overview.md) för dina Azure Storage-konton för att tillåta klienter i ett virtuellt nätverk (VNet) att på ett säkert sätt komma åt data via en [privat länk](../../private-link/private-link-overview.md). Den privata slutpunkten använder en IP-adress från VNet-adressutrymmet för din lagringskontotjänst. Nätverkstrafik mellan klienterna på det virtuella nätverket och lagringskontot passerar över det virtuella nätverket och en privat länk i Microsofts stamnätsnätverk, vilket eliminerar exponering från det offentliga internet.
 
-Med hjälp av privata slut punkter för ditt lagrings konto kan du:
+Med hjälp av privata slutpunkter för ditt lagringskonto kan du:
 
-- Skydda ditt lagrings konto genom att konfigurera lagrings brand väggen för att blockera alla anslutningar på den offentliga slut punkten för lagrings tjänsten.
-- Öka säkerheten för det virtuella nätverket (VNet) genom att göra det möjligt att blockera exfiltrering av data från VNet.
-- Anslut säkert till lagrings konton från lokala nätverk som ansluter till VNet med [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoute](../../expressroute/expressroute-locations.md) med privat peering.
+- Skydda ditt lagringskonto genom att konfigurera lagringsbrandväggen så att alla anslutningar blockeras på den offentliga slutpunkten för lagringstjänsten.
+- Öka säkerheten för det virtuella nätverket (VNet) genom att du kan blockera exfiltration av data från det virtuella nätverket.
+- Anslut till lagringskonton från lokala nätverk som ansluter till det virtuella nätverket med HJÄLP AV [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) eller [ExpressRoutes](../../expressroute/expressroute-locations.md) med privat peering.
 
 ## <a name="conceptual-overview"></a>Konceptuell översikt
 
-![Översikt över privata slut punkter för Azure Storage](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
+![Översikt över privata slutpunkter för Azure Storage](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
-En privat slut punkt är ett särskilt nätverks gränssnitt för en Azure-tjänst i din [Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). När du skapar en privat slut punkt för ditt lagrings konto ger den säker anslutning mellan klienter i ditt VNet och ditt lagrings utrymme. Den privata slut punkten tilldelas en IP-adress från det virtuella nätverkets IP-adressintervall. Anslutningen mellan den privata slut punkten och lagrings tjänsten använder en säker privat länk.
+En privat slutpunkt är ett speciellt nätverksgränssnitt för en Azure-tjänst i ditt [virtuella nätverk](../../virtual-network/virtual-networks-overview.md) (VNet). När du skapar en privat slutpunkt för ditt lagringskonto ger den säker anslutning mellan klienter på ditt virtuella nätverk och din lagring. Den privata slutpunkten tilldelas en IP-adress från IP-adressintervallet för ditt virtuella nätverk. Anslutningen mellan den privata slutpunkten och lagringstjänsten använder en säker privat länk.
 
-Program i det virtuella nätverket kan ansluta till lagrings tjänsten via den privata slut punkten sömlöst **med samma anslutnings strängar och auktoriseringsbeslut som de skulle använda i övrigt**. Privata slut punkter kan användas med alla protokoll som stöds av lagrings kontot, inklusive REST och SMB.
+Program i det virtuella nätverket kan ansluta till lagringstjänsten via den privata slutpunkten sömlöst, **med samma anslutningssträngar och auktoriseringsmekanismer som de annars skulle använda**. Privata slutpunkter kan användas med alla protokoll som stöds av lagringskontot, inklusive REST och SMB.
 
-Privata slut punkter kan skapas i undernät som använder [tjänst slut punkter](../../virtual-network/virtual-network-service-endpoints-overview.md). Klienter i ett undernät kan därmed ansluta till ett lagrings konto med hjälp av privat slut punkt, samtidigt som tjänstens slut punkter används för att komma åt andra.
+Privata slutpunkter kan skapas i undernät som använder [Tjänstslutpunkter](../../virtual-network/virtual-network-service-endpoints-overview.md). Klienter i ett undernät kan på så sätt ansluta till ett lagringskonto med hjälp av privat slutpunkt, medan du använder tjänstslutpunkter för att komma åt andra.
 
-När du skapar en privat slutpunkt för en lagringstjänst i ditt VNet skickas en begäran om godkännande till lagringskontots ägare. Om användaren som begär att den privata slut punkten ska skapas även är ägare till lagrings kontot, godkänns den här medgivande förfrågningen automatiskt.
+När du skapar en privat slutpunkt för en lagringstjänst i ditt VNet skickas en begäran om godkännande till lagringskontots ägare. Om användaren som begär att den privata slutpunkten ska skapas också är ägare till lagringskontot godkänns den här begäran om medgivande automatiskt.
 
-Lagrings kontots ägare kan hantera medgivande förfrågningar och privata slut punkter via fliken "*privata slut punkter*" för lagrings kontot i [Azure Portal](https://portal.azure.com).
-
-> [!TIP]
-> Om du vill begränsa åtkomsten till ditt lagrings konto via enbart den privata slut punkten konfigurerar du lagrings brand väggen för att neka eller kontrol lera åtkomst via den offentliga slut punkten.
-
-Du kan skydda ditt lagrings konto så att det bara accepterar anslutningar från ditt VNet genom att [Konfigurera lagrings brand väggen](storage-network-security.md#change-the-default-network-access-rule) för att neka åtkomst via dess offentliga slut punkt som standard. Du behöver inte ha någon brand Väggs regel för att tillåta trafik från ett VNet som har en privat slut punkt, eftersom lagrings brand väggen bara kontrollerar åtkomst via den offentliga slut punkten. Privata slut punkter förlitar sig i stället på godkännande flödet för att ge undernät åtkomst till lagrings tjänsten.
-
-### <a name="private-endpoints-for-azure-storage"></a>Privata slut punkter för Azure Storage
-
-När du skapar den privata slut punkten måste du ange det lagrings konto och den lagrings tjänst som den ansluter till. Du behöver en separat privat slut punkt för varje lagrings tjänst i ett lagrings konto som du behöver komma åt, nämligen [blobbar](../blobs/storage-blobs-overview.md), [data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [filer](../files/storage-files-introduction.md), [köer](../queues/storage-queues-introduction.md), [tabeller](../tables/table-storage-overview.md)eller [statiska webbplatser](../blobs/storage-blob-static-website.md).
+Lagringskontoägare kan hantera begäranden om medgivande och de privata slutpunkterna, via fliken *" Privata slutpunkter*" för lagringskontot i [Azure-portalen](https://portal.azure.com).
 
 > [!TIP]
-> Skapa en separat privat slut punkt för den sekundära instansen av lagrings tjänsten för bättre Läs prestanda på RA-GRS-konton.
+> Om du bara vill begränsa åtkomsten till ditt lagringskonto via den privata slutpunkten konfigurerar du lagringsbrandväggen så att den nekar eller styr åtkomsten via den offentliga slutpunkten.
 
-Om du vill ha Läs behörighet till den sekundära regionen med ett lagrings konto som kon figurer ATS för Geo-redundant lagring, behöver du separata privata slut punkter för både den primära och sekundära tjänstens instanser av tjänsten. Du behöver inte skapa en privat slut punkt för den sekundära instansen för **redundansväxling**. Den privata slut punkten ansluts automatiskt till den nya primära instansen efter redundansväxlingen. Mer information om alternativ för redundans finns [Azure Storage redundans](storage-redundancy.md).
+Du kan skydda ditt lagringskonto så att det bara accepterar anslutningar från ditt virtuella nätverk genom att [konfigurera lagringsbrandväggen](storage-network-security.md#change-the-default-network-access-rule) så att den neka åtkomst via dess offentliga slutpunkt som standard. Du behöver inte en brandväggsregel för att tillåta trafik från ett virtuella nätverk som har en privat slutpunkt, eftersom lagringsbrandväggen bara styr åtkomsten via den offentliga slutpunkten. Privata slutpunkter förlitar sig i stället på medgivandeflödet för att bevilja undernät åtkomst till lagringstjänsten.
 
-Mer detaljerad information om hur du skapar en privat slut punkt för ditt lagrings konto finns i följande artiklar:
+### <a name="private-endpoints-for-azure-storage"></a>Privata slutpunkter för Azure Storage
 
-- [Anslut privat till ett lagrings konto från lagrings konto upplevelsen i Azure Portal](../../private-link/create-private-endpoint-storage-portal.md)
-- [Skapa en privat slut punkt med hjälp av det privata länk centret i Azure Portal](../../private-link/create-private-endpoint-portal.md)
-- [Skapa en privat slut punkt med Azure CLI](../../private-link/create-private-endpoint-cli.md)
-- [Skapa en privat slut punkt med hjälp av Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+När du skapar den privata slutpunkten måste du ange lagringskontot och lagringstjänsten som den ansluter till. Du behöver en separat privat slutpunkt för varje lagringstjänst i ett lagringskonto som du behöver komma åt, nämligen [Blobbar,](../blobs/storage-blobs-overview.md) [Datasjölagringsgenm2](../blobs/data-lake-storage-introduction.md), [Filer,](../files/storage-files-introduction.md) [Köer,](../queues/storage-queues-introduction.md) [Tabeller](../tables/table-storage-overview.md)eller [Statiska webbplatser](../blobs/storage-blob-static-website.md).
 
-### <a name="connecting-to-private-endpoints"></a>Ansluter till privata slut punkter
+> [!TIP]
+> Skapa en separat privat slutpunkt för den sekundära instansen av lagringstjänsten för bättre läsprestanda på RA-GRS-konton.
 
-Klienter i ett VNet som använder den privata slut punkten bör använda samma anslutnings sträng för lagrings kontot, som klienter som ansluter till den offentliga slut punkten. Vi förlitar sig på DNS-matchning för att automatiskt dirigera anslutningarna från VNet till lagrings kontot via en privat länk.
+För läsåtkomst till den sekundära regionen med ett lagringskonto konfigurerat för geoupptundssanta lagring behöver du separata privata slutpunkter för både tjänstens primära och sekundära instanser. Du behöver inte skapa en privat slutpunkt för den sekundära instansen för **redundans**. Den privata slutpunkten ansluter automatiskt till den nya primära instansen efter redundans. Mer information om lagringsredundansalternativ finns i [Azure Storage redundans](storage-redundancy.md).
+
+Mer detaljerad information om hur du skapar en privat slutpunkt för ditt lagringskonto finns i följande artiklar:
+
+- [Ansluta privat till ett lagringskonto från lagringskontoupplevelsen i Azure-portalen](../../private-link/create-private-endpoint-storage-portal.md)
+- [Skapa en privat slutpunkt med private link center i Azure-portalen](../../private-link/create-private-endpoint-portal.md)
+- [Skapa en privat slutpunkt med Azure CLI](../../private-link/create-private-endpoint-cli.md)
+- [Skapa en privat slutpunkt med Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+
+### <a name="connecting-to-private-endpoints"></a>Ansluta till privata slutpunkter
+
+Klienter på ett virtuella nätverk som använder den privata slutpunkten bör använda samma anslutningssträng för lagringskontot, som klienter som ansluter till den offentliga slutpunkten. Vi förlitar oss på DNS-lösning för att automatiskt dirigera anslutningarna från det virtuella nätverket till lagringskontot via en privat länk.
 
 > [!IMPORTANT]
-> Använd samma anslutnings sträng för att ansluta till lagrings kontot med privata slut punkter, som du annars skulle använda. Anslut inte till lagrings kontot med hjälp av URL: en för*privatelink*-underdomänen.
+> Använd samma anslutningssträng för att ansluta till lagringskontot med hjälp av privata slutpunkter, som du skulle använda annars. Anslut inte till lagringskontot med hjälp av dess underdomänadress för*privatelink.*
 
-Vi skapar en [privat DNS-zon](../../dns/private-dns-overview.md) som är kopplad till det virtuella nätverket med nödvändiga uppdateringar för privata slut punkter som standard. Men om du använder en egen DNS-server kan du behöva göra ytterligare ändringar i DNS-konfigurationen. Avsnittet om [DNS-ändringar](#dns-changes-for-private-endpoints) nedan beskriver de uppdateringar som krävs för privata slut punkter.
+Vi skapar en [privat DNS-zon](../../dns/private-dns-overview.md) kopplad till det virtuella nätverket med nödvändiga uppdateringar för de privata slutpunkterna, som standard. Om du använder din egen DNS-server kan du dock behöva göra ytterligare ändringar i DNS-konfigurationen. I avsnittet om [DNS-ändringar](#dns-changes-for-private-endpoints) nedan beskrivs de uppdateringar som krävs för privata slutpunkter.
 
-## <a name="dns-changes-for-private-endpoints"></a>DNS-ändringar för privata slut punkter
+## <a name="dns-changes-for-private-endpoints"></a>DNS-ändringar för privata slutpunkter
 
-När du skapar en privat slut punkt uppdateras DNS CNAME-resursposten för lagrings kontot till ett alias i en under domän med prefixet "*privatelink*". Som standard skapar vi också en [privat DNS-zon](../../dns/private-dns-overview.md)som motsvarar under domänen "*privatelink*" med DNS a-resursposter för de privata slut punkterna.
+När du skapar en privat slutpunkt uppdateras DNS CNAME-resursposten för lagringskontot till ett alias i en underdomän med prefixet '*privatelink*'. Som standard skapar vi också en [privat DNS-zon](../../dns/private-dns-overview.md), som motsvarar underdomänen '*privatelink*, med DNS A-resursposterna för de privata slutpunkterna.
 
-När du löser lagrings slut punktens URL från utanför det virtuella nätverket med den privata slut punkten matchas den offentliga slut punkten för lagrings tjänsten. Vid matchning från det VNet som är värd för den privata slut punkten matchas slut punktens URL-adress till den privata slut punktens IP-adress.
+När du matchar url:en för lagringsslutpunkt utanför det virtuella nätverket med den privata slutpunkten, matchas den till lagringstjänstens offentliga slutpunkt. När den matchas från det virtuella nätverket som är värd för den privata slutpunkten matchas url-url:en för lagring till den privata slutpunktens IP-adress.
 
-För det illustrerat exemplet ovan blir DNS-resursposterna för lagrings kontot StorageAccountA, när de löses från utanför det virtuella nätverket som är värd för den privata slut punkten,:
+För det illustrerade exemplet ovan kommer DNS-resursposterna för lagringskontot StorageAccountA, när de matchas utanför det virtuella nätverket som är värd för den privata slutpunkten, att vara:
 
 | Namn                                                  | Typ  | Värde                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<offentlig slut punkt för lagrings tjänst\>                   |
-| \<offentlig slut punkt för lagrings tjänst\>                   | A     | \<offentlig IP-adress för lagrings tjänst\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<offentliga slutpunkten för lagringstjänster\>                   |
+| \<offentliga slutpunkten för lagringstjänster\>                   | A     | \<public IP-adress för lagringstjänster\>                 |
 
-Som tidigare nämnts kan du neka eller kontrol lera åtkomsten för klienter utanför VNet via den offentliga slut punkten med hjälp av lagrings brand väggen.
+Som tidigare nämnts kan du neka eller kontrollera åtkomst för klienter utanför det virtuella nätverket via den offentliga slutpunkten med hjälp av lagringsbrandväggen.
 
-DNS-resursposterna för StorageAccountA, när de löses av en klient i det VNet som är värd för den privata slut punkten, blir:
+DNS-resursposterna för StorageAccountA, när de matchas av en klient i det virtuella nätverket som är värd för den privata slutpunkten, kommer att vara:
 
 | Namn                                                  | Typ  | Värde                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
-Den här metoden ger åtkomst till lagrings kontot **med samma anslutnings sträng** för klienter på det virtuella nätverk som är värd för privata slut punkter, samt klienter utanför VNet.
+Den här metoden ger åtkomst till lagringskontot **med samma anslutningssträng** för klienter på det virtuella nätverket som är värd för de privata slutpunkterna, samt klienter utanför det virtuella nätverket.
 
-Om du använder en anpassad DNS-server i ditt nätverk måste klienterna kunna matcha FQDN för lagrings kontots slut punkt till den privata slut punktens IP-adress. Du bör konfigurera DNS-servern för att delegera din privata länk under domän till den privata DNS-zonen för det virtuella nätverket eller konfigurera A-posterna för "*StorageAccountA.privatelink.blob.Core.Windows.net*" med den privata slut punkten IP-adress.
+Om du använder en anpassad DNS-server i nätverket måste klienter kunna matcha FQDN för slutpunkten för lagringskontot till den privata slutpunkts-IP-adressen. Du bör konfigurera DNS-servern så att den delegerar den privata länkunderdomänen till den privata DNS-zonen för det virtuella nätverket, eller konfigurera A-posterna för *' StorageAccountA.privatelink.blob.core.windows.net*' med den privata slutpunkts-IP-adressen.
 
 > [!TIP]
-> När du använder en anpassad eller lokal DNS-server bör du konfigurera DNS-servern för att matcha lagrings kontots namn i under domänen "privatelink" till IP-adressen för den privata slut punkten. Du kan göra detta genom att delegera privatelink-underdomänen till det virtuella nätverkets privata DNS-zon eller konfigurera DNS-zonen på DNS-servern och lägga till DNS-posterna.
+> När du använder en anpassad eller lokal DNS-server bör du konfigurera DNS-servern så att lagringskontonamnet i underdomänen "privatelink" matchas till den privata slutpunkts-IP-adressen. Du kan göra detta genom att delegera underdomänen "privatelink" till den privata DNS-zonen i det virtuella nätverket, eller konfigurera DNS-zonen på DNS-servern och lägga till DNS A-posterna.
 
-De rekommenderade DNS-zonnamn för privata slut punkter för lagrings tjänster är:
+De rekommenderade DNS-zonnamnen för privata slutpunkter för lagringstjänster är:
 
-| Lagrings tjänst        | Zonnamn                            |
+| Lagringstjänst        | Zonnamn                            |
 | :--------------------- | :----------------------------------- |
 | Blob Service           | `privatelink.blob.core.windows.net`  |
 | Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| Fil tjänst           | `privatelink.file.core.windows.net`  |
+| Filtjänst           | `privatelink.file.core.windows.net`  |
 | Kötjänst          | `privatelink.queue.core.windows.net` |
-| Table service          | `privatelink.table.core.windows.net` |
+| Tabelltjänst          | `privatelink.table.core.windows.net` |
 | Statiska webbplatser        | `privatelink.web.core.windows.net`   |
 
-Mer information om hur du konfigurerar en egen DNS-server för att stödja privata slut punkter finns i följande artiklar:
+Mer information om hur du konfigurerar din egen DNS-server för att stödja privata slutpunkter finns i följande artiklar:
 
 - [Namnmatchning för resurser i virtuella nätverk i Azure](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS-konfiguration för privata slut punkter](/azure/private-link/private-endpoint-overview#dns-configuration)
+- [DNS-konfiguration för privata slutpunkter](/azure/private-link/private-endpoint-overview#dns-configuration)
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
-Pris information finns i [priser för privata Azure-länkar](https://azure.microsoft.com/pricing/details/private-link).
+Information om priser finns i [Azure Private Link-priser](https://azure.microsoft.com/pricing/details/private-link).
 
 ## <a name="known-issues"></a>Kända problem
 
-Tänk på följande kända problem med privata slut punkter för Azure Storage.
+Tänk på följande kända problem om privata slutpunkter för Azure Storage.
 
-### <a name="copy-blob-support"></a>Kopiera BLOB-stöd
+### <a name="copy-blob-support"></a>Stöd för kopiera blob
 
-Om lagrings kontot skyddas av en brand vägg och kontot nås via privata slut punkter, kan det kontot inte fungera som källa för en [kopierings-BLOB](/rest/api/storageservices/copy-blob) -åtgärd.
+Om lagringskontot skyddas av en brandvägg och kontot nås via privata slutpunkter kan det kontot inte fungera som källa till en [kopierablobåtgärd.](/rest/api/storageservices/copy-blob)
 
-### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Begränsningar för lagrings åtkomst för klienter i virtuella nätverk med privata slut punkter
+### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Åtkomstbegränsningar för lagring för klienter i virtuella nätverk med privata slutpunkter
 
-Klienter i virtuella nätverk med befintliga privata slut punkter möter begränsningar vid åtkomst till andra lagrings konton som har privata slut punkter. Anta till exempel att ett VNet N1 har en privat slut punkt för ett lagrings konto a1 för Blob Storage. Om lagrings konto a2 har en privat slut punkt i en VNet-N2 för Blob Storage, måste klienter i VNet N1 också komma åt Blob Storage i konto a2 med en privat slut punkt. Om lagrings konto a2 inte har några privata slut punkter för Blob Storage, kan klienter i VNet N1 komma åt Blob Storage i det kontot utan en privat slut punkt.
+Klienter i virtuella nätverk med befintliga privata slutpunkter har begränsningar när de kommer åt andra lagringskonton som har privata slutpunkter. Anta till exempel att en VNet N1 har en privat slutpunkt för ett lagringskonto A1 för Blob-lagring. Om lagringskonto A2 har en privat slutpunkt i en VNet N2 för Blob-lagring måste klienter i VNet N1 också komma åt Blob-lagring i konto A2 med hjälp av en privat slutpunkt. Om lagringskonto A2 inte har några privata slutpunkter för Blob-lagring kan klienter i VNet N1 komma åt Blob-lagring på det kontot utan en privat slutpunkt.
 
-Den här begränsningen beror på DNS-ändringar som gjorts när konto a2 skapar en privat slut punkt.
+Det här villkoret är ett resultat av de DNS-ändringar som gjorts när konto A2 skapar en privat slutpunkt.
 
-### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regler för nätverks säkerhets grupper för undernät med privata slut punkter
+### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regler för nätverkssäkerhetsgrupper för undernät med privata slutpunkter
 
-För närvarande kan du inte konfigurera regler för [nätverks säkerhets grupper](../../virtual-network/security-overview.md) (NSG) och användardefinierade vägar för privata slut punkter. NSG-regler som tillämpas på det undernät som är värd för den privata slut punkten tillämpas på den privata slut punkten. En begränsad lösning för det här problemet är att implementera åtkomst regler för privata slut punkter på käll under näten, även om den här metoden kan kräva en högre hanterings kostnad.
+För närvarande kan du inte konfigurera NSG-regler [(Network Security Group)](../../virtual-network/security-overview.md) och användardefinierade vägar för privata slutpunkter. NSG-regler som tillämpas på undernätet som är värd för den privata slutpunkten tillämpas på den privata slutpunkten. En begränsad lösning på problemet är att implementera dina åtkomstregler för privata slutpunkter i källundernäten, även om den här metoden kan kräva en högre hanteringskostnader.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Konfigurera Azure Storage-brandväggar och virtuella nätverk](storage-network-security.md)
-- [Säkerhets rekommendationer för Blob Storage](../blobs/security-recommendations.md)
+- [Säkerhetsrekommendationer för Blob-lagring](../blobs/security-recommendations.md)

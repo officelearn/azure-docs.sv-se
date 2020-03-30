@@ -1,21 +1,21 @@
 ---
-title: ST_DISTANCE i Azure Cosmos DB frågespråk
-description: Lär dig mer om SQL system-funktionen ST_DISTANCE i Azure Cosmos DB.
+title: ST_DISTANCE i Azure Cosmos DB-frågespråk
+description: Lär dig mer om SQL-systemfunktion ST_DISTANCE i Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 03/12/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 972712d37c146ce288c49af7832919946f5503cd
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.openlocfilehash: 02844569137a46ea030b2189191b84a9db24ed22
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79297126"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537303"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
- Returnerar avståndet mellan två polyjson-punkter, polygoner, multipolygon-eller lin Est ring-uttryck. Mer information finns i artikeln om [geospatiala och geospatiala JSON-platser](sql-query-geospatial-intro.md) .
+ Returnerar avståndet mellan de två geojsonpunkts-, polygon-, multipolygon- eller radsträngsuttrycken. Mer information finns i artikeln [Geospatial och GeoJSON-platsdata.](sql-query-geospatial-intro.md)
   
 ## <a name="syntax"></a>Syntax
   
@@ -26,15 +26,15 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
 ## <a name="arguments"></a>Argument
   
 *spatial_expr*  
-   Är ett giltigt uttryck för GeoJSON punkt, Polygon eller LineString-objektet.  
+   Är ett giltigt geojson-punkt-, polygon- eller linestring-objektuttryck.  
   
-## <a name="return-types"></a>Retur typer
+## <a name="return-types"></a>Returtyper
   
-  Returnerar ett numeriskt uttryck som innehåller avståndet. Detta uttrycks i mätare för referenssystem standard.  
+  Returnerar ett numeriskt uttryck som innehåller avståndet. Detta uttrycks i mätare för standardreferenssystemet.  
   
 ## <a name="examples"></a>Exempel
   
-  I följande exempel visas hur du returnerar alla familje dokument som ligger inom 30 km från den angivna platsen med hjälp av den inbyggda funktionen `ST_DISTANCE`. .  
+  I följande exempel visas hur du returnerar alla familjedokument som finns `ST_DISTANCE` inom 30 km från den angivna platsen med hjälp av den inbyggda funktionen. .  
   
 ```sql
 SELECT f.id
@@ -52,10 +52,10 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 ## <a name="remarks"></a>Anmärkningar
 
-Den här systemfunktionen kommer att ha nytta av ett [geospatialt index](index-policy.md#spatial-indexes).
+Denna systemfunktion kommer att dra nytta av ett [geospatialt index](index-policy.md#spatial-indexes).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Spatiala funktioner Azure Cosmos DB](sql-query-spatial-functions.md)
-- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Rumsliga funktioner Azure Cosmos DB](sql-query-spatial-functions.md)
+- [Systemfunktioner Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduktion till Azure Cosmos DB](introduction.md)

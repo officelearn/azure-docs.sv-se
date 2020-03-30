@@ -1,41 +1,39 @@
 ---
-title: Metod tips för marknadsföring av test enheter | Azure Marketplace
-description: Test Drive, metod tips för utgivare
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
-manager: Ricardo.Villalobos
+title: Provkörning marknadsföring bästa praxis | Azure Marketplace
+description: Metodtips för testkörningsmarknadsföring för utgivare
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 177b4bd804ad878c8f983eefcd54399d1a72ba19
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: dsindona
+ms.openlocfilehash: 3520e2c16f9a0c891db0d641fa7c9b811cac7b10
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824546"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80278254"
 ---
-<a name="test-drive-marketing-and-best-practices"></a>Testa enhets marknadsföring och bästa praxis
+<a name="test-drive-marketing-and-best-practices"></a>Test Drive marknadsföring och bästa praxis
 =======================================
 
-Azure Marketplace-testenhet är ett utmärkt verktyg för marknads förare, och vi rekommenderar att du införlivar dina insatser till marknaden när du startar. Vi har flera bästa praxis vi rekommenderar att du gör omedelbart när du publicerar som gör att du kan skapa fler leads från test enheten avsevärt:
+Azure Marketplace Test Drive är ett bra verktyg för marknadsförare, och vi rekommenderar att du införlivas i dina go-to-market-insatser när du startar. Vi har flera metodtips som vi rekommenderar att du gör omedelbart när du publicerar som i hög grad kommer att stödja generera fler leads från Test Drive:
 
-- **Hänvisnings sida**: publicera en sida på din webb närvaro som pratar om din Azure-testenhet och publicera flera hänvisnings Länkar för att dirigera trafik till din test enhet
-- **Sociala medier**: skapa ett schema där du lägger upp på dina sociala medie kanaler om din test enhet regelbundet
-- **Bloggar**: Skriv ett blogg inlägg om din Azure test-enhet. Markera de funktioner och fördelar som användaren kommer att uppleva kostnads fritt och i mycket lite tid. Se till att länka till din Azure Test Drive-sida på flera platser i blogg kopian. Här är en länk till ett exempel på ett blogg inlägg om Azure Test Drive. Ännu bättre? Publicera länkar till ditt blogg inlägg på dina sociala medie kanaler.
-- **E-Nurturing**: informera leads som har deltagit i ditt varumärke via andra kanaler via e-post för att meddela dem om test enheten och uppmana dem att prova kostnads fritt.
-- **Utbildning och verktyg för försäljning**: Ställ in en övningssession med dina sälj team för att demonstrera test enhets upplevelsen och komma igång med några få sätt som de kan engagera sina leads och kunder med. Sales folk kan konfigurera en demonstration med flera kontakter i ett företag och sedan skicka varje länk till test enheten efteråt.
-- Med **mässor och konferenser**kan du hålla en monter om en bransch händelse som potentiella kunder deltar i? Konfigurera några få bärbara datorer i monter och låt dina test enheter köras så att kunderna kan ta test enheten i din Monte och sedan prata med dem om produkten under och efter deras upplevelse!
+- **Hänvisningssida**: Publicera en sida på din webbnärvaro som talar om din Azure Test Drive och lägga upp flera hänvisningslänkar som dirigerar trafik till din testenhet
+- **Sociala medier:** Skapa ett schema där du lägger upp på dina sociala medier kanaler om din provkörning på regelbunden basis
+- **Bloggar**: Skriv ett blogginlägg om din Azure-provkörning. Markera de funktioner och fördelar som användaren kommer att få uppleva gratis och på mycket kort tid. Var noga med att länka till din Azure-provkörningssida på flera ställen i bloggkopian. Här är en länk till ett exempel blogginlägg om Azure provkörning. Ännu bättre? Skicka länkar till ditt blogginlägg på dina sociala medier.
+- **E-vård:** Informera leder som har engagerat sig med ditt varumärke via andra kanaler via e-post för att informera dem om provkörningen och uppmuntra dem att prova det gratis.
+- **Säljutbildning och verktyg**: Skapa ett träningspass med säljteamen för att demonstrera provkörningsupplevelsen och komma på några sätt de kan engagera sina leads och kunder med den. Försäljning folk kan ställa in en demo med flera kontakter på ett företag sedan skicka var och en av dem länken till provkörningen efteråt för att ta det själva.
+- **Mässor och konferenser**: Fick en monter på en branschhändelse som potentiella kunder kommer att närvara? Ställ in några bärbara datorer i montern och få dina provkörningar igång så att kunderna kan ta provkörningen i din monter, sedan prata med dem om produkten under och efter deras erfarenhet!
 
-<a name="lead-management"></a>Hantering av lead
+<a name="lead-management"></a>Lead Management
 ---------------
 
-Nu när du skapar högkvalificerade leads från test enheten bör du se till att du har inkluderat dessa leads i dina försäljnings-och marknadsförings kanaler och du kan engagera kunderna för att göra dem till att betala kunderna. Här är några rekommenderade metoder för att föra leads genom din försäljnings cykel:
+Nu när du genererar högt kvalificerade leads från provkörning, du vill se till att du har införlivat dessa leder i din försäljning och marknadsföringskanaler och du engagera sig med framtidsutsikter för att förvandla dem till betalande kunder. Här är några rekommenderade metoder när det gäller att driva leder genom din säljcykel:
 
-- Lämna kontakt med lead inom 24 timmar från det att de tar test enheten. Du får leadet i din CRM-valmöjlighet direkt efter att kunden har distribuerat test enheten – var noga med att skicka ett e-postmeddelande inom de första 24 timmarna medan de fortfarande är varma. Schemalägga ett telefonsamtal med dem för att bättre förstå vilka problem de försöker lösa, och se om produkten kan hjälpa dig.
-- Följ upp några gånger, men Bombard dem inte. Vi rekommenderar att du skickar ut dessa lead några gånger innan du stänger dem, men som inte visas efter det första försöket. Kom ihåg – de här kunderna är direkt sysselsatta med din produkt och förbrukade tid i en kostnads fri utvärderings version.
-- De är fantastiska utsikter!
-- Om du stänger ett avtal med en Test Drive-enhet måste du registrera den på partner Sales Connect. Även--vi vill gärna höra om din kunds WINS där test enheten spelade en roll!
+- Ta kontakt med ledningen inom 24 timmar efter att de tagit provkörningen. Du kommer att få ledningen i din CRM val omedelbart efter att kunden distribuerar provkörningen - se till att skicka dem ett mail inom de första 24 timmarna medan de fortfarande är varma. Begär schemaläggning av ett telefonsamtal med dem för att bättre förstå vilka problem de försöker lösa och för att se om din produkt kan hjälpa till.
+- Följ upp ett par gånger, men bombardera dem inte. Vi rekommenderar att du skickar dessa lead via e-post några gånger innan du stänger dem, men ge inte upp efter det första försöket. Kom ihåg - dessa kunder direkt engagerade med din produkt och tillbringade tid i en gratis testperiod.
+- De är stora framtidsutsikter!
+- Om du avslutar ett avtal med en provkörning bly se till att registrera den på Partner försäljning ansluta. Dessutom - vi vill gärna höra om dina kunder vinner där provkörning spelat en roll!
 
-Vanliga frågor och svar om test enheter finns här: <https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices>
+Vanliga frågor om testkörning finns här:<https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices>

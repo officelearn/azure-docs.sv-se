@@ -1,6 +1,6 @@
 ---
-title: Använda .NET med Hadoop MapReduce på Linux-baserat HDInsight – Azure
-description: Lär dig hur du använder .NET-program för strömning av MapReduce på Linux-baserade HDInsight.
+title: Använd .NET med Hadoop MapReduce på Linux-baserad HDInsight - Azure
+description: Lär dig hur du använder .NET-program för streaming MapReduce på Linux-baserade HDInsight.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,66 +9,66 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: 4b402975a151d26e8f335c07930274c156ac52fb
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272375"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Migrera .NET-lösningar för Windows-baserade HDInsight till Linux-baserade HDInsight
 
-Linux-baserade HDInsight-kluster använder [mono (https://mono-project.com)](https://mono-project.com) för att köra .NET-program. Med mono kan du använda .NET-komponenter som MapReduce-program med Linux-baserade HDInsight. I det här dokumentet lär du dig hur du migrerar .NET-lösningar som skapats för Windows-baserade HDInsight-kluster och arbetar med mono på Linux-baserade HDInsight.
+Linux-baserade HDInsight-kluster använder [Mono (https://mono-project.com) ](https://mono-project.com) för att köra .NET-program. Mono kan du använda .NET komponenter såsom MapReduce applikationer med Linux-baserade HDInsight. I det här dokumentet kan du lära dig hur du migrerar .NET-lösningar som skapats för Windows-baserade HDInsight-kluster för att arbeta med Mono på Linux-baserad HDInsight.
 
-## <a name="mono-compatibility-with-net"></a>Mono-kompatibilitet med .NET
+## <a name="mono-compatibility-with-net"></a>Monokompatibilitet med .NET
 
-Mono version 4.2.1 ingår i HDInsight version 3,6. Mer information om den version av mono som ingår i HDInsight finns i [versioner av HDInsight-komponenter](hdinsight-component-versioning.md).
+Mono version 4.2.1 ingår i HDInsight version 3.6. Mer information om versionen av Mono som ingår i HDInsight finns i [HDInsight-komponentversioner](hdinsight-component-versioning.md).
 
-Mer information om kompatibilitet mellan mono och .NET finns i [mono-kompatibilitet (https://www.mono-project.com/docs/about-mono/compatibility/)-](https://www.mono-project.com/docs/about-mono/compatibility/) dokument.
+Mer information om kompatibilitet mellan Mono och .NET finns i [monokompatibilitetenhttps://www.mono-project.com/docs/about-mono/compatibility/) (dokumentet.](https://www.mono-project.com/docs/about-mono/compatibility/)
 
 > [!IMPORTANT]  
-> SCP.NET-ramverket är kompatibelt med mono. Mer information om hur du använder SCP.NET med mono finns i [använda Visual Studio för C# att utveckla topologier för Apache storm i HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
+> Det SCP.NET ramverket är kompatibelt med Mono. Mer information om hur du använder SCP.NET med Mono finns i [Använda Visual Studio för att utveckla C#-topologier för Apache Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md).
 
-## <a name="automated-portability-analysis"></a>Automatisk analys av portabilitet
+## <a name="automated-portability-analysis"></a>Automatiserad portabilitetsanalys
 
-[.Net-portabiliteten Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) kan användas för att generera en rapport över inkompatibiliteter mellan ditt program och mono. Använd följande steg för att konfigurera analys programmet för att kontrol lera om det finns en mono-portabilitet:
+[.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer) kan användas för att generera en rapport om inkompatibiliteter mellan ditt program och Mono. Använd följande steg för att konfigurera analysatorn så att programmet kan kontrolleras för monoportabilitet:
 
-1. Installera [.net-portbaserad analys](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Under installationen väljer du den version av Visual Studio som ska användas.
+1. Installera [.NET Portability Analyzer](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer). Under installationen väljer du den version av Visual Studio som ska användas.
 
-2. Från Visual Studio 2015 väljer du __analysera__ > __Inställningar för portabilitet-analysator__och kontrollerar att __4,5__ är markerat i __mono__ -avsnittet.
+2. Från Visual Studio 2015 väljer du __Analysera__ > __inställningar för portabilitetsanalysator__och se till att __4.5__ är markerat i avsnittet __Mono.__
 
-    ![4,5 kontrollerade i mono-sektionen för analys inställningarna](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
+    ![4.5 kontrollerat i Mono-sektionen för analysatorinställningarna](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-settings.png)
 
     Välj __OK__ för att spara konfigurationen.
 
-3. Välj __analysera__ > __analysera sammansättningens portabilitet__. Välj den sammansättning som innehåller din lösning och välj sedan __Öppna__ för att börja analysera.
+3. Välj __Analysera__ > __Analysera monteringsportbarhet__. Välj den sammansättning som innehåller lösningen och välj sedan __Öppna__ för att påbörja analysen.
 
-4. När analysen är klar väljer du __analysera__ > __Visa analys rapporter__. I __analys resultat för portabilitet__väljer du __Öppna rapport__ för att öppna en rapport.
+4. När analysen är klar väljer du__Analysrapporter för__ __Analysera__ > vy . I __Portabilitetsanalysresultat__väljer du __Öppna rapport__ för att öppna en rapport.
 
-    ![Dialog rutan resultat för portabilitet-analys](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
+    ![Dialogrutan Resultatdialog för portabilitetsanalysator](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]  
-> Analys verktyget kan inte fånga varje problem med lösningen. En fil Sök väg till `c:\temp\file.txt` anses till exempel vara OK om mono körs i Windows. Samma sökväg är inte giltig på en Linux-plattform.
+> Analysatorn kan inte fånga alla problem med din lösning. En filsökväg för `c:\temp\file.txt` anses till exempel VARA OK om Mono körs i Windows. Samma sökväg är inte giltig på en Linux-plattform.
 
-## <a name="manual-portability-analysis"></a>Manuell analys av portabilitet
+## <a name="manual-portability-analysis"></a>Manuell portabilitetsanalys
 
-Utföra en manuell granskning av koden med hjälp av informationen i [Application portabilitet (https://www.mono-project.com/docs/getting-started/application-portability/)-](https://www.mono-project.com/docs/getting-started/application-portability/) dokument.
+Utför en manuell granskning av koden med hjälp av informationen i [dokumentet Förhttps://www.mono-project.com/docs/getting-started/application-portability/) programportabilitet (](https://www.mono-project.com/docs/getting-started/application-portability/)
 
-## <a name="modify-and-build"></a>Ändra och bygg
+## <a name="modify-and-build"></a>Ändra och skapa
 
-Du kan fortsätta att använda Visual Studio för att bygga dina .NET-lösningar för HDInsight. Du måste dock se till att projektet är konfigurerat att använda .NET Framework 4,5.
+Du kan fortsätta att använda Visual Studio för att skapa dina .NET-lösningar för HDInsight. Du måste dock se till att projektet är konfigurerat för att använda .NET Framework 4.5.
 
 ## <a name="deploy-and-test"></a>Distribuera och testa
 
-När du har ändrat din lösning med hjälp av rekommendationerna från .NET Solution Analyzer eller från en manuell analys måste du testa den med HDInsight. Testning av lösningen i ett Linux-baserat HDInsight-kluster kan avslöja diskreta problem som behöver åtgärdas. Vi rekommenderar att du aktiverar ytterligare loggning i programmet när du testar det.
+När du har ändrat din lösning med hjälp av rekommendationerna från .NET Portability Analyzer eller från en manuell analys måste du testa den med HDInsight. Testa lösningen på en Linux-baserad HDInsight kluster kan avslöja subtila problem som måste korrigeras. Vi rekommenderar att du aktiverar ytterligare inloggning i ditt program när du testar det.
 
 Mer information om hur du kommer åt loggar finns i följande dokument:
 
-* [Åtkomst Apache Hadoop garn program loggar på Linux-baserade HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Få tillgång till Apache Hadoop YARN-programloggar på Linux-baserade HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda C# med MapReduce på HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
+* [Använd C# med MapReduce på HDInsight](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Använd C# användardefinierade funktioner med Apache Hive och Apache gris](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [Använd C# användardefinierade funktioner med Apache Hive och Apache Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [Utveckla C# topologier för Apache storm i HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [Utveckla C# topologier för Apache Storm på HDInsight](storm/apache-storm-develop-csharp-visual-studio-topology.md)

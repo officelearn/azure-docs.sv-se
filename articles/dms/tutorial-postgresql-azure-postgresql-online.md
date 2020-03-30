@@ -1,10 +1,10 @@
 ---
-title: 'Självstudie: Migrera PostgreSQL till Azure Database for PostgreSQL online via Azure CLI'
+title: 'Självstudiekurs: Migrera PostgreSQL till Azure Database för PostgreSQL online via Azure CLI'
 titleSuffix: Azure Database Migration Service
-description: Lär dig att utföra en online-migrering från PostgreSQL lokalt till Azure Database for PostgreSQL genom att använda Azure Database Migration Service via CLI.
+description: Lär dig att utföra en onlinemigrering från PostgreSQL lokalt till Azure Database för PostgreSQL med hjälp av Azure Database Migration Service via CLI.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,33 +12,33 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/17/2020
-ms.openlocfilehash: fc2852aaa77dec9537aa8fc42f7f08ca441a129a
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 44df35957dfbd3aa4856d256dc1a7d9e6527fde0
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255641"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240678"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Självstudie: Migrera PostgreSQL till Azure DB för PostgreSQL online med DMS via Azure CLI
+# <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Självstudiekurs: Migrera PostgreSQL till Azure DB för PostgreSQL online med DMS via Azure CLI
 
-Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal PostgreSQL-instans till [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal stillestånds tid. Med andra ord kan migreringen uppnås med minimal stillestånds tid för programmet. I den här självstudien migrerar du exempel databasen för **DVD-hyra** från en lokal instans av postgresql 9,6 till Azure Database for PostgreSQL med hjälp av aktiviteten online-migrering i Azure Database migration service.
+Du kan använda Azure Database Migration Service för att migrera databaserna från en lokal PostgreSQL-instans till [Azure Database för PostgreSQL](https://docs.microsoft.com/azure/postgresql/) med minimal stilleståndstid. Med andra ord kan migrering uppnås med minimal stilleståndstid till programmet. I den här självstudien migrerar du **exempeldatabasen för DVD-uthyrning** från en lokal instans av PostgreSQL 9.6 till Azure Database för PostgreSQL med hjälp av onlinemigreringsaktiviteten i Azure Database Migration Service.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 >
-> * Migrera exempel schema med hjälp av pg_dump-verktyget.
+> * Migrera exempelschemat med pg_dump verktyget.
 > * Skapa en instans av Azure Database Migration Service.
 > * Skapa ett migreringsprojekt med hjälp av Azure Database Migration Service.
 > * Köra migreringen.
 > * Övervaka migreringen.
 
 > [!NOTE]
-> Om du använder Azure Database Migration Service för att utföra en online-migrering måste du skapa en instans utifrån pris nivån Premium.
+> För att använda Azure Database Migration Service för att utföra en onlinemigrering måste du skapa en instans baserat på premiumprisnivån. Vi krypterar disk för att förhindra datastöld under migreringen.
 
 > [!IMPORTANT]
-> För en optimal migrering rekommenderar Microsoft att du skapar en instans av Azure Database Migration Service i samma Azure-region som mål databasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
+> För en optimal migreringsupplevelse rekommenderar Microsoft att du skapar en instans av Azure Database Migration Service i samma Azure-region som måldatabasen. Att flytta data mellan regioner eller geografiska områden kan göra migreringsprocessen långsammare och leda till fel.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
 
@@ -46,26 +46,26 @@ För att slutföra den här kursen behöver du:
 
     Dessutom måste den lokala PostgreSQL-version matcha Azure Database for PostgreSQL-versionen. Exempelvis kan PostgreSQL 9.5.11.5 endast migreras till Azure Database for PostgreSQL 9.5.11 och inte till version 9.6.7.
 
-* [Skapa en instans i Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) eller [skapa en citus-Server (Azure Database for PostgreSQL-Scale Scale)](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
-* Skapa en Microsoft Azure Virtual Network för Azure Database Migration Service med hjälp av Azure Resource Manager distributions modell, som tillhandahåller plats-till-plats-anslutning till dina lokala käll servrar genom att använda antingen [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett virtuellt nätverk finns i [Virtual Network-dokumentationen](https://docs.microsoft.com/azure/virtual-network/)och i synnerhet snabb starts artiklar med stegvisa anvisningar.
+* [Skapa en instans i Azure Database för PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) eller [Skapa en Azure-databas för Citus-server (Hyperscale).](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal)
+* Skapa en Microsoft Azure Virtual Network for Azure Database Migration Service med hjälp av distributionsmodellen för Azure Resource Manager, som tillhandahåller anslutning från plats till plats till dina lokala källservrar med hjälp av [Antingen ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Mer information om hur du skapar ett virtuellt nätverk finns i [dokumentationen](https://docs.microsoft.com/azure/virtual-network/)till det virtuella nätverket och särskilt snabbstartsartiklarna med steg-för-steg-information.
 
     > [!NOTE]
-    > Om du använder ExpressRoute med nätverks-peering till Microsoft under installationen av det virtuella nätverket lägger du till följande tjänst [slut punkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) i under nätet där tjänsten ska tillhandahållas:
+    > Om du använder ExpressRoute med nätverks peering i Microsoft under installationen av virtuella nätverk lägger du till följande [tjänstslutpunkter](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) i undernätet där tjänsten ska etableras:
     >
-    > * Slut punkt för mål databas (till exempel SQL-slutpunkt, Cosmos DB slut punkt och så vidare)
-    > * Lagrings slut punkt
-    > * Service Bus-slutpunkt
+    > * Slutpunkt för måldatabas (till exempel SQL-slutpunkt, Cosmos DB-slutpunkt och så vidare)
+    > * Slutpunkt för lagring
+    > * Ändpunkt för servicebuss
     >
-    > Den här konfigurationen är nödvändig eftersom Azure Database Migration Service saknar Internet anslutning.
+    > Den här konfigurationen är nödvändig eftersom Azure Database Migration Service saknar internetanslutning.
 
-* Se till att dina regler för nätverks säkerhets gruppen (NSG) för virtuella nätverk inte blockerar följande portar för inkommande kommunikation till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om NSG för trafik filtrering i virtuellt nätverk finns i artikeln [filtrera nätverks trafik med nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Kontrollera att dina NSG-regler (Virtual Network Network Security Group) inte blockerar följande inkommande kommunikationsportar till Azure Database Migration Service: 443, 53, 9354, 445, 12000. Mer information om filtrering av NSG-trafik i det virtuella nätverket finns i artikeln [Filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Konfigurera din [Windows-brandvägg för databasmotoråtkomst](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Öppna Windows-brandväggen för att tillåta Azure Database Migration Service att få åtkomst till PostgreSQL-servern, som standard är TCP-port 5432.
+* Öppna Windows-brandväggen så att Azure Database Migration Service kan komma åt källan PostgreSQL Server, som som standard är TCP-port 5432.
 * När du använder en brandväggsinstallation framför dina källdatabaser kanske du måste lägga till brandväggsregler för att tillåta Azure Database Migration Service att komma åt källdatabaserna för migrering.
-* Skapa en [brand Väggs regel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på server nivå för Azure Database for PostgreSQL för att tillåta Azure Database migration service åtkomst till mål databaserna. Ange under nätets intervall för det virtuella nätverk som används för Azure Database Migration Service.
+* Skapa en [brandväggsregel](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) på servernivå för Azure Database for PostgreSQL så att Azure Database Migration Service kan komma åt måldatabaserna. Ange undernätsområdet för det virtuella nätverk som används för Azure Database Migration Service.
 * Det finns två metoder för att anropa CLI:
 
-  * I det övre högra hörnet av Azure Portal väljer du knappen Cloud Shell:
+  * I det övre högra hörnet av Azure-portalen väljer du knappen Cloud Shell:
 
        ![Cloud Shell-knappen i Azure Portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
 
@@ -78,7 +78,7 @@ För att slutföra den här kursen behöver du:
 * Aktivera logisk replikering i filen postgresql.config och ange följande parametrar:
 
   * wal_level = **logical**
-  * max_replication_slots = [antal fack], rekommenderar att du ställer in på **fem platser**
+  * max_replication_slots = [antal platser], rekommenderar att du ställer in **på fem platser**
   * max_wal_senders = [antalet samtidiga uppgifter] – parametern max_wal_senders anger antal samtidiga aktiviteter som kan köras, rekommenderad inställning är **10 uppgifter**
 
 ## <a name="migrate-the-sample-schema"></a>Migrera exempelschemat
@@ -100,7 +100,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
 2. Skapa en tom databas i målmiljön, vilken är Azure Database for PostgreSQL.
 
-    Information om hur du ansluter och skapar en databas finns i artikeln [skapa en Azure Database for postgresql-server i Azure Portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) eller [skapa en Azure Database for PostgreSQL-för-citus-server i Azure Portal](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
+    Mer information om hur du ansluter och skapar en databas finns i artikeln [Skapa en Azure Database för PostgreSQL-server i Azure-portalen](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal) eller Skapa en [Azure-databas för PostgreSQL - Citus-server (Hyperscale) i Azure-portalen](https://docs.microsoft.com/azure/postgresql/quickstart-create-hyperscale-portal).
 
 3. Importera schemat till måldatabasen som du skapade genom att återställa schemadumpfilen.
 
@@ -108,7 +108,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     psql -h hostname -U db_username -d db_name < your_schema.sql 
     ```
 
-    Exempel:
+    Ett exempel:
 
     ```
     psql -h mypgserver-20170401.postgres.database.azure.com  -U postgres -d dvdrental < dvdrentalSchema.sql
@@ -144,7 +144,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
     Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 
-5. Utlösare i dina data (infoga eller uppdatera utlösare) tillämpar den dataintegritet i målet före replikerade data från källan. Vi rekommenderar att du inaktiverar utlösare i alla tabeller **vid målet** under migreringen och sedan aktiverar utlösarna igen när migreringen är klar.
+5. Utlösare i dina data (infoga eller uppdatera utlösare) tillämpar den dataintegritet i målet före replikerade data från källan. Vi rekommenderar att du inaktiverar utlösare i alla tabeller **vid målet** under migreringen och sedan återaktivera utlösarna när migreringen är klar.
 
     Om du vill inaktivera utlösare i måldatabasen använder du följande kommando:
 
@@ -153,13 +153,13 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
     from information_schema.triggers;
     ```
 
-6. Om det finns en uppräknings data typ i alla tabeller, rekommenderar vi att du uppdaterar den tillfälligt till data typen "Character varierande" i mål tabellen. När replikering av data är klar kan du återställa datatypen till ENUM.
+6. Om det finns ENUM-datatyp i alla tabeller rekommenderar vi att du tillfälligt uppdaterar den till en datatyp för teckenvarierande i måltabellen. När replikering av data är klar kan du återställa datatypen till ENUM.
 
 ## <a name="provisioning-an-instance-of-dms-using-the-cli"></a>Etablera en instans av DMS med hjälp av CLI
 
 1. Installera tillägget dms-synkronisering:
    * Logga in på Azure genom att köra följande kommando:
-       ```
+       ```azurecli
        az login
        ```
 
@@ -167,47 +167,47 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
    * Lägg till dms-tillägget:
        * Om du vill visa tillgängliga tillägg, kör du följande kommando:
 
-           ```
+           ```azurecli
            az extension list-available –otable
            ```
 
        * Kör följande kommando om du vill installera tillägget:
 
-           ```
+           ```azurecli
            az extension add –n dms-preview
            ```
 
    * För att verifiera att du har dms-tillägget installerat korrekt, kör du följande kommando:
 
-       ```
+       ```azurecli
        az extension list -otable
        ```
        Du bör se följande utdata:
 
-       ```
+       ```output
        ExtensionType    Name
        ---------------  ------
        whl              dms
        ```
 
       > [!IMPORTANT]
-      > Se till att tilläggs versionen är över 0.11.0.
+      > Kontrollera att tilläggsversionen är över 0.11.0.
 
    * Visa alla kommandon som stöds i DMS genom att köra:
 
-       ```
+       ```azurecli
        az dms -h
        ```
 
    * Om du har flera Azure-prenumerationer kör du följande kommando för att välja den prenumeration du vill använda för att etablera en instans av DMS-tjänsten.
 
-        ```
+        ```azurecli
        az account set -s 97181df2-909d-420b-ab93-1bff15acb6b7
         ```
 
 2. Etablera en instans av DMS genom att köra följande kommando:
 
-   ```
+   ```azurecli
    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name Premium_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
    ```
 
@@ -218,7 +218,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
    * Resursgruppsnamn: PostgresDemo
    * DMS-tjänstnamn: PostgresCLI
 
-   ```
+   ```azurecli
    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name Premium_4vCores
    ```
 
@@ -226,19 +226,19 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
 3. För att identifiera IP-adressen för DMS-agenten så att du kan lägga till den i filen Postgres pg_hba.conf, kör du följande kommando:
 
-    ```
+    ```azurecli
     az network nic list -g <ResourceGroupName>--query '[].ipConfigurations | [].privateIpAddress'
     ```
 
-    Exempel:
+    Ett exempel:
 
-    ```
+    ```azurecli
     az network nic list -g PostgresDemo --query '[].ipConfigurations | [].privateIpAddress'
     ```
 
     Du bör få ett resultat liknande följande adress: 
 
-    ```
+    ```output
     [
       "172.16.136.18"
     ]
@@ -256,7 +256,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
 5. Skapa sedan ett PostgreSQL-migreringsprojekt genom att köra följande kommando:
     
-    ```
+    ```azurecli
     az dms project create -l <location> -g <ResourceGroupName> --service-name <yourServiceName> --source-platform PostgreSQL --target-platform AzureDbforPostgreSQL -n <newProjectName>
     ```
 
@@ -269,7 +269,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
    * Källplattform: PostgreSQL
    * Målplattform: AzureDbForPostgreSql
 
-     ```
+     ```azurecli
      az dms project create -l westcentralus -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
@@ -279,7 +279,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
    * Om du vill se en fullständig lista över alternativ, kör du kommandot:
 
-       ```
+       ```azurecli
        az dms project task create -h
        ```
 
@@ -287,7 +287,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
        Formatet för anslutning till JSON-objekt för PostgreSQL-anslutningar.
         
-       ```
+       ```json
        {
                    "userName": "user name",    // if this is missing or null, you will be prompted
                    "password": null,           // if this is missing or null (highly recommended) you will
@@ -299,9 +299,9 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
                }
        ```
 
-   * Det finns också en JSON-fil för databas alternativ som visar JSON-objekten. För PostgreSQL visas formatet för JSON-objekt för databasalternativet nedan:
+   * Det finns också en databas alternativ json fil som listar json objekt. För PostgreSQL visas formatet för JSON-objekt för databasalternativet nedan:
 
-       ```
+       ```json
        [
            {
                "name": "source database",
@@ -313,7 +313,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
    * Skapa en json-fil i anteckningar, kopiera följande kommandon och klistra in dem i filen och spara filen på C:\DMS\source.json.
 
-        ```
+        ```json
        {
                    "userName": "postgres",    
                    "password": null,           
@@ -326,7 +326,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
    * Skapa en annan fil med namnet target.json och spara som C:\DMS\target.json. Inkludera följande kommandon:
 
-       ```
+       ```json
        {
                "userName": " dms@builddemotarget",    
                "password": null,           
@@ -338,7 +338,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
    * Skapa en json-fil för databasalternativ som visar inventeringen som den databas som ska migreras:
 
-       ``` 
+       ```json
        [
            {
                "name": "dvdrental",
@@ -349,7 +349,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
    * Kör följande kommando, som tar in källan, målet och DB-alternativet för json-filer.
 
-       ``` 
+       ```azurecli
        az dms project task create -g PostgresDemo --project-name PGMigration --source-platform postgresql --target-platform azuredbforpostgresql --source-connection-json c:\DMS\source.json --database-options-json C:\DMS\option.json --service-name PostgresCLI --target-connection-json c:\DMS\target.json –task-type OnlineMigration -n runnowtask    
        ```
 
@@ -357,19 +357,19 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
 7. Om du vill visa förloppet för uppgiften, kör du följande kommando:
 
-   ```
+   ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
    ```
 
    ELLER
 
-    ```
+    ```azurecli
    az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output
     ```
 
 8. Du kan också fråga efter migrationState från expanderade utdata:
 
-    ```
+    ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask --expand output --query 'properties.output[].migrationState | [0]' "READY_TO_COMPLETE"
     ```
 
@@ -377,7 +377,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
 Det finns flera parametrar som visar förloppet för migrering i utdatafilen. Använd udatafilen nedan som exempel:
 
-  ```
+  ```output
     "output": [                                 Database Level
           {
             "appliedChanges": 0,        //Total incremental sync applied after full load
@@ -472,19 +472,19 @@ För att säkerställa att alla data har samlats in, verifiera radantal mellan k
 
 1. Utför den snabba migreringen för databasen med hjälp av följande kommando:
 
-    ```
+    ```azurecli
     az dms project task cutover -h
     ```
 
-    Exempel:
+    Ett exempel:
 
-    ```
+    ```azurecli
     az dms project task cutover --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask  --object-name Inventory
     ```
 
 2. Du kan övervaka förloppet för den snabba migreringen med följande kommando:
 
-    ```
+    ```azurecli
     az dms project task show --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
 
@@ -499,28 +499,28 @@ Om du vill avbryta eller ta bort en DMS-aktivitet, ett projekt eller en tjänst,
 
 1. Om du vill avbryta en pågående aktivitet använder du följande kommando:
 
-    ```
+    ```azurecli
     az dms project task cancel --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
      ```
 
 2. Om du vill ta bort en pågående aktivitet använder du följande kommando:
-    ```
+    ```azurecli
     az dms project task delete --service-name PostgresCLI --project-name PGMigration --resource-group PostgresDemo --name Runnowtask
     ```
 
 3. Om du vill avbryta ett pågående projekt använder du följande kommando:
-     ```
+     ```azurecli
     az dms project task cancel -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
      ```
 
 4. Om du vill ta bort ett pågående projekt använder du följande kommando:
-    ```
+    ```azurecli
     az dms project task delete -n runnowtask --project-name PGMigration -g PostgresDemo --service-name PostgresCLI
     ```
 
 5. Om du vill ta bort en DMS-tjänst använder du följande kommando:
 
-     ```
+     ```azurecli
     az dms delete -g ProgresDemo -n PostgresCLI
      ```
 
@@ -528,4 +528,4 @@ Om du vill avbryta eller ta bort en DMS-aktivitet, ett projekt eller en tjänst,
 
 * Information om kända problem och begränsningar när du utför onlinemigreringar till Azure Database for PostgreSQL finns i artikeln [Kända problem och lösningar för Azure Database for PostgreSQL-onlinemigreringar](known-issues-azure-postgresql-online.md).
 * Mer information om Azure Database Migration Service finns i artikeln [What is the Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview) (Vad är Azure Database Migration Service?).
-* Mer information om Azure Database for PostgreSQL finns i artikeln [Vad är Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).
+* Information om Azure Database för PostgreSQL finns i artikeln [Vad är Azure Database för PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview).

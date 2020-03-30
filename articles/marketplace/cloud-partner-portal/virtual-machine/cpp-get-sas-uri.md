@@ -1,135 +1,131 @@
 ---
 title: Hämta signatur-URI för delad åtkomst för din Microsoft Azure-baserade VM-avbildning | Azure Marketplace
-description: 'Förklarar hur du hämtar URL: en för signaturen för delad åtkomst (SAS) för din VM-avbildning.'
-services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+description: I artikeln beskrivs hur du hjlar med SAS-signatur (Shared Access Signature) för avbildningen av den virtuella datorn.
+author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/19/2018
-ms.author: pabutler
-ms.openlocfilehash: cb6f1772c7c6f9abd268a8cb58550b253f095dbf
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.author: dsindona
+ms.openlocfilehash: 6fe15fb18d8865911363a4696e44dd7fe1d90c09
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132456"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80277811"
 ---
-# <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Hämta signatur-URI för delad åtkomst för din VM-avbildning
+# <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Skaffa signatur-URI för delad åtkomst för vm-avbildningen
 
-Under publicerings processen måste du ange en URI (Uniform Resource Identifier) för varje virtuell hård disk (VHD) som är associerad med dina SKU: er. Microsoft behöver åtkomst till dessa VHD:er under certifieringsprocessen. Den här artikeln beskriver hur du skapar en URL för signaturer för delad åtkomst (SAS) för varje virtuell hård disk. Du kommer att ange den här URI: n i fliken **SKU: er** i Cloud Partner Portal.
+Under publiceringsprocessen måste du ange en enhetlig resursidentifierare (URI) för varje virtuell hårddisk (VHD) som är associerad med sku:erna. Microsoft behöver åtkomst till dessa virtuella hårddiskar under certifieringsprocessen. I den här artikeln beskrivs hur du skapar en SAS-uri (Shared Access Signature) för varje virtuell hårddisk. Du kommer att ange den här URI:n på fliken **SKU:er** i Cloud Partner Portal.
 
-När du genererar SAS-URI: er för dina virtuella hård diskar följer du med följande krav:
+När du skapar SAS-urier för dina virtuella hårddiskar följer du följande krav:
 
-- Endast ohanterade virtuella hård diskar stöds.
-- `List`-och `Read`behörigheter är tillräckliga. Ange *inte* `Write`-eller `Delete`s åtkomst.
-- Tiden för åtkomst (*utgångs datum*) bör vara minst tre veckor från det att SAS-URI: n skapas.
-- För att skydda mot UTC-tidsvariationer ställer du in start datumet på en dag före det aktuella datumet. Om det aktuella datumet är till exempel 6 oktober 2014 väljer du 10/5/2014.
+- Endast ohanterat virtuella hårddiskar stöds.
+- `List`och `Read` behörigheter är tillräckliga. Ange *not* eller `Write` `Delete` inte ge åtkomst.
+- Åtkomsttiden *(utgångsdatum)* bör vara minst tre veckor från det att SAS URI skapas.
+- Om du vill skydda mot UTC-tidsvariationer ställer du in startdatumet till en dag före det aktuella datumet. Om det aktuella datumet till exempel är den 6 oktober 2014 väljer du 2014-05-05.
 
-## <a name="generate-the-sas-url"></a>Generera SAS-URL
+## <a name="generate-the-sas-url"></a>Generera SAS-URL:en
 
-SAS-URL: en kan genereras på två vanliga sätt med hjälp av följande verktyg:
+SAS-URL:en kan genereras på två vanliga sätt med hjälp av följande verktyg:
 
--   Microsoft Storage Explorer-grafiskt verktyg tillgängligt för Windows, macOS och Linux
--   Microsoft Azure CLI – rekommenderas för icke-Windows OSs och automatiserade eller kontinuerliga integrerings miljöer
-
+- Microsoft Storage Explorer – Grafiskt verktyg tillgängligt för Windows, macOS och Linux
+- Microsoft Azure CLI - Rekommenderas för OS-enheter som inte är windows och automatiska eller kontinuerliga integrationsmiljöer
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Använd följande steg för att skapa en SAS-URI med Azure CLI.
+Följ följande steg för att generera en SAS URI med Azure CLI.
 
-1. Hämta och installera [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Versioner är tillgängliga för Windows, macOS och olika distributioner i Linux.
-2. Skapa en PowerShell-fil (`.ps1` fil namns tillägg), kopiera i följande kod och spara den lokalt.
+1. Ladda ned och installera [Microsoft Azure CLI](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Versioner finns tillgängliga för Windows, macOS och olika distributioner av Linux.
+2. Skapa en PowerShell-fil ( filnamnstillägg),`.ps1` kopiera i följande kod och spara den sedan lokalt.
 
-   ``` powershell
+   ```azurecli-interactive
    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
    ```
 
-3. Redigera filen för att ange följande parameter värden.  Datum ska anges i UTC-format, till exempel `2016-10-25T00:00:00Z`.
-   - `<account-name>` – namnet på ditt Azure Storage-konto
-   - `<account-key>` – din lagrings konto nyckel för Azure
-   - `<vhd-name>` – ditt VHD-namn
-   - `<start-date>`-behörighetens start datum för VHD-åtkomst. Ange ett datum en dag före det aktuella datumet.
-   - `<expiry-date>`-behörighetens förfallo datum för VHD-åtkomst.  Ange ett datum minst tre veckor bortom det aktuella datumet.
+3. Redigera filen för att ange följande parametervärden.  Datum ska anges i UTC-datetime-format, till exempel `2016-10-25T00:00:00Z`.
+   - `<account-name>`- Namn på ditt Azure-lagringskonto
+   - `<account-key>`- Nyckeln till ditt Azure-lagringskonto
+   - `<vhd-name>`- Ditt VHD-namn
+   - `<start-date>`- Startdatum för start av virtuell hårddisk för vhd-åtkomst. Ange ett datum en dag före det aktuella datumet.
+   - `<expiry-date>`- Utgångsdatum för tillstånd för åtkomst till virtuell hårddisk.  Ange ett datum minst tre veckor efter det aktuella datumet.
 
-   I följande exempel visas lämpliga parameter värden (vid tidpunkten för skrivning).
+   I följande exempel visas rätt parametervärden (vid tidpunkten för detta skrivande).
 
-   ``` powershell
-       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```azurecli-interactive
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
    ```
 
 4. Spara ändringarna i det här PowerShell-skriptet.
-5. Kör det här skriptet med administratörs behörighet för att skapa en *SAS-anslutningssträng* för åtkomst till behållar nivån.  Du kan använda två grundläggande metoder:
-   - Kör skriptet från-konsolen.  Skriv till exempel i Windows och klicka på skriptet och välj **Kör som administratör**.
-   - Kör skriptet från en PowerShell-skriptfil, till exempel [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise), med administratörs behörighet.
-     Följande visar en SAS-anslutningssträng som skapas i den här redigeraren.
+5. Kör skriptet med administratörsbehörighet för att generera en *SAS-anslutningssträng* för åtkomst på behållarnivå.  Du kan använda två grundläggande metoder:
+   - Kör skriptet från konsolen.  I Windows skriver du till exempel på skriptet och väljer **Kör som administratör**.
+   - Kör skriptet från en PowerShell-skriptredigerare, till exempel [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise), med administratörsbehörighet.
+     Följande visar en SAS-anslutningssträng som genereras i den här redigeraren.
 
      ![SAS URI-generering i PowerShell ISE](./media/publishvm_032.png)
 
-6. Kopiera den resulterande SAS-anslutningssträngen och spara den i en textfil på en säker plats.  Du redigerar den här strängen för att lägga till associerad information om VHD-platsen i den för att skapa den sista SAS-URI: n.
-7. I Azure Portal navigerar du till blob-lagringen som innehåller den virtuella hård disk som är kopplad till den nyligen genererade URI: n.
-8. Kopiera URL-värdet för **BLOB service slut punkten**som visas nedan.
+6. Kopiera den resulterande SAS-anslutningssträngen och spara den i en textfil på en säker plats.  Du redigerar den här strängen om du vill lägga till den associerade VHD-platsinformationen i den för att skapa den slutliga SAS URI.You will edit this string to add the associated VHD location information to it to create the final SAS URI.
+7. I Azure-portalen navigerar du till blob-lagringen som innehåller den virtuella hårddisken som är associerad med den nyligen genererade URI.In the Azure portal, navigate to the blob storage that contains the VHD associated with the newly generated URI.
+8. Kopiera URL-värdet för **slutpunkten för Blob-tjänsten**, som visas nedan.
 
-    ![Blob Service slut punkt i Azure Portal](./media/publishvm_033.png)
+    ![Slutpunkt för Blob-tjänst i Azure-portalen](./media/publishvm_033.png)
 
-9. Redigera text filen med SAS-anslutningssträngen från steg 6.  Du kommer att skapa hela SAS-URI: n med följande format:
+9. Redigera textfilen med SAS-anslutningssträngen från steg 6.  Du ska konstruera hela SAS URI med följande format:
 
     `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
 
-    Om namnet på VDH till exempel är `TestRGVM2.vhd`, blir den resulterande SAS-URI:
+    Om namnet på VDH till `TestRGVM2.vhd`exempel är , blir den resulterande SAS URI:
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-Upprepa dessa steg för varje virtuell hård disk i de SKU: er som du planerar att publicera.
+Upprepa dessa steg för varje virtuell hårddisk i de SKU:er som du planerar att publicera.
 
+### <a name="microsoft-storage-explorer"></a>Utforskaren för Microsoft-lagring
 
-### <a name="microsoft-storage-explorer"></a>Microsoft Storage Explorer
-
-Använd följande steg för att skapa en SAS-URI med Microsoft Azure Storage Explorer.
+Följ följande steg för att generera en SAS-URI med Microsoft Azure Storage Explorer.
 
 1. Hämta och installera [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-2. Öppna Utforskaren och klicka på ikonen **Lägg till konto** i den vänstra meny raden.  Dialog rutan **Anslut till Azure Storage** visas.
-3. Välj **Lägg till ett Azure-konto** och klicka på **Logga in...** .  Fortsätt med de nödvändiga stegen för att logga in på ditt Azure-konto.
-4. I **fönstret till** vänster går du till dina **lagrings konton** och expanderar den här noden.
-5. Högerklicka på din virtuella hård disk och välj **Hämta signatur för resurs åtkomst** på snabb menyn.
+2. Öppna utforskaren och klicka på ikonen **Lägg till konto** i det vänstra menyfältet.  Dialogrutan **Anslut till Azure Storage** visas.
+3. Välj **Lägg till ett Azure-konto** och klicka på **Logga in...**.  Fortsätt de steg som krävs för att logga in på ditt Azure-konto.
+4. I fönstret **Utforskaren** till vänster navigerar du till dina **lagringskonton** och expanderar den här noden.
+5. Högerklicka på din virtuella hårddisk och välj **Hämta Share Access-signatur** på snabbmenyn.
 
-    ![Hämta SAS-objekt i Azure Explorer](./media/publishvm_034.png)
+    ![Skaffa SAS-objekt i Azure Explorer](./media/publishvm_034.png)
 
-6. Dialog rutan **signatur för delad åtkomst** visas. Ange värden för följande fält:
-   - **Start tid** – behörighet start datum för VHD-åtkomst. Ange ett datum som infaller en dag före det aktuella datumet.
-   - Förfallo **tid** -behörighetens förfallo datum för VHD-åtkomst.  Ange ett datum minst tre veckor bortom det aktuella datumet.
-   - **Behörigheter** – Välj `Read` och `List` behörigheter.
+6. Dialogrutan **Signatur för delad** åtkomst visas. Ange värden för följande fält:
+   - **Starttid** - Startdatum för virtuell hårddiskåtkomst. Ange ett datum som är en dag före det aktuella datumet.
+   - **Utgångstid** - Utgångsdatum för vhd-åtkomst.  Ange ett datum minst tre veckor efter det aktuella datumet.
+   - **Behörigheter** - `Read` Välj `List` behörigheter och.
 
-     ![Dialog rutan SAS i Azure Explorer](./media/publishvm_035.png)
+     ![DIALOGRUTAN SAS i Azure Explorer](./media/publishvm_035.png)
 
-7. Klicka på **skapa** för att skapa tillhör ande SAS-URI för den här virtuella hård disken.  Dialog rutan visar nu information om den här åtgärden.
-8. Kopiera **URL** -värdet och spara det i en textfil på en säker plats.
+7. Klicka på **Skapa** om du vill skapa den associerade SAS URI för den här virtuella hårddisken.  Dialogrutan visar nu information om den här åtgärden.
+8. Kopiera **URL-värdet** och spara det i en textfil på en säker plats.
 
-    ![SAS-URI-skapande i Azure Explorer](./media/publishvm_036.png)
+    ![SAS URI skapas i Azure Explorer](./media/publishvm_036.png)
 
-    Den här skapade SAS-URL: en är för åtkomst på container nivå.  För att göra den unik måste det associerade VHD-namnet läggas till i den.
+    Den här genererade SAS-URL:en är för åtkomst på behållarnivå.  För att göra det specifikt måste det associerade VHD-namnet läggas till i det.
 
-9. Redigera text filen. Infoga VHD-namnet efter `vhds` sträng i SAS-URL: en (inklusive inledande snedstreck).  Den sista SAS-URI: n ska ha formatet:
+9. Redigera textfilen. Infoga ditt VHD-namn efter strängen `vhds` i SAS-URL:en (inkludera ett inledande snedstreck).  Den slutliga SAS URI bör vara av formatet:
 
     `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
 
-    Om namnet på VDH till exempel är `TestRGVM2.vhd`, blir den resulterande SAS-URI:
+    Om namnet på VDH till `TestRGVM2.vhd`exempel är , blir den resulterande SAS URI:
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-Upprepa dessa steg för varje virtuell hård disk i de SKU: er som du planerar att publicera.
+Upprepa dessa steg för varje virtuell hårddisk i de SKU:er som du planerar att publicera.
 
+## <a name="verify-the-sas-uri"></a>Verifiera SAS URI
 
-## <a name="verify-the-sas-uri"></a>Verifiera SAS-URI: n
+Granska och verifiera varje genererad SAS URI med hjälp av följande checklista.  Kontrollera att:
 
-Granska och verifiera varje genererad SAS-URI med hjälp av följande check lista.  Kontrol lera att:
-- URI: n har formatet: `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
-- URI: n innehåller fil namnet för VHD-avbildningen, inklusive fil namns tillägget. VHD.
-- `sp=rl` visas i mitten av URI: n. Den här strängen anger att `Read` och `List` åtkomst har angetts.
-- Efter den punkten visas `sr=c` också. Den här strängen anger att åtkomst på behållare nivå har angetts.
-- Kopiera och klistra in URI: n i en webbläsare för att börja ladda ned den associerade blobben.  (Du kan avbryta åtgärden innan nedladdningen är klar.)
-
+- URI:en är av `<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + formen:`<sas-connection-string>`
+- URI:n innehåller filnamnet för VHD-avbildningen, inklusive filnamnstillägget ".vhd".
+- Mot mitten av URI, `sp=rl` visas. Den här strängen anger att `Read` och `List` åtkomst har angetts.
+- Efter den `sr=c` punkten, visas också. Den här strängen anger att åtkomst på behållarnivå har angetts.
+- Kopiera och klistra in URI i en webbläsare för att börja hämta den associerade blobben.  (Du kan avbryta åtgärden innan hämtningen är klar.)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har problem med att skapa en SAS-URI kan du läsa [vanliga SAS URL-problem](./cpp-common-sas-url-issues.md).  Annars sparar du SAS-URI: erna på en säker plats för senare användning. Du måste [publicera VM-erbjudandet](./cpp-publish-offer.md) i Cloud Partner Portal.
+Om du har problem med att generera en SAS URI läser du [Vanliga SAS-URL-problem](./cpp-common-sas-url-issues.md).  Annars sparar du SAS URI:er på en säker plats för senare användning. Det krävs för att [publicera ditt VM-erbjudande](./cpp-publish-offer.md) i Cloud Partner Portal.

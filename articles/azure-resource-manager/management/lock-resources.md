@@ -1,85 +1,85 @@
 ---
-title: Lås resurser för att förhindra ändringar
-description: Förhindra att användare uppdaterar eller tar bort kritiska Azure-resurser genom att använda ett lås för alla användare och roller.
+title: Låsa resurser för att förhindra ändringar
+description: Hindra användare från att uppdatera eller ta bort viktiga Azure-resurser genom att använda ett lås för alla användare och roller.
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274013"
 ---
-# <a name="lock-resources-to-prevent-unexpected-changes"></a>Lås resurser för att förhindra oväntade ändringar
+# <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsa resurser för att förhindra oväntade ändringar
 
-Som administratör kan du behöva låsa en prenumeration, resursgrupp eller resurs så att inga andra användare i organisationen tar bort eller ändrar viktiga resurser av misstag. Du kan ange låssnivån till **CanNotDelete** eller **ReadOnly**. I portalen kallas låsen **Delete** och **Read Only** .
+Som administratör kan du behöva låsa en prenumeration, resursgrupp eller resurs så att inga andra användare i organisationen tar bort eller ändrar viktiga resurser av misstag. Du kan ange låsnivån till **CanNotDelete** eller **ReadOnly**. I portalen kallas låsen **Ta bort** respektive **skrivskyddat.**
 
 * **CanNotDelete** innebär att behöriga användare fortfarande kan läsa och ändra en resurs, men de kan inte ta bort resursen. 
-* **ReadOnly** innebär att auktoriserade användare kan läsa en resurs, men de kan inte ta bort eller uppdatera resursen. Att använda det här låset liknar att begränsa alla behöriga användare till de behörigheter som har beviljats av rollen **läsare** .
+* **ReadOnly** innebär att behöriga användare kan läsa en resurs, men de kan inte ta bort eller uppdatera resursen. Att använda det här låset liknar att begränsa alla behöriga användare till de behörigheter som beviljas av **rollen Läsare.**
 
-## <a name="how-locks-are-applied"></a>Hur låsen används
+## <a name="how-locks-are-applied"></a>Hur lås används
 
-När du använder ett lås vid en överordnad omfattning ärver alla resurser inom den omfattningen samma lås. Även resurser som du lägger till senare ärver låset från det överordnade objektet. Det mest restriktiva låset i arv prioriteras.
+När du använder ett lås på ett överordnat scope ärver alla resurser i det omfånget samma lås. Även resurser som du lägger till senare ärver låset från den överordnade. Det mest restriktiva låset i arvet har företräde.
 
-Till skillnad från rollbaserad åtkomst kontroll använder du hanterings lås för att tillämpa en begränsning för alla användare och roller. Information om hur du ställer in behörigheter för användare och roller finns i [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
+Till skillnad från rollbaserad åtkomstkontroll använder du hanteringslås för att tillämpa en begränsning för alla användare och roller. Mer information om hur du anger behörigheter för användare och roller finns i [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).
 
-Resource Manager-lås gäller endast för åtgärder som sker i hanterings planet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsar inte hur resurser utför sina egna funktioner. Resurs ändringarna är begränsade, men resurs åtgärderna är inte begränsade. Ett skrivskyddat lås på en SQL Database hindrar dig till exempel från att ta bort eller ändra databasen. Det hindrar dig inte från att skapa, uppdatera eller ta bort data i databasen. Data transaktioner är tillåtna eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
+Resource Manager-lås gäller endast för åtgärder som sker i hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsar inte hur resurser utför sina egna funktioner. Resursändringar är begränsade, men resursåtgärder är inte begränsade. Ett ReadOnly-lås på en SQL-databas hindrar dig till exempel från att ta bort eller ändra databasen. Det hindrar dig inte från att skapa, uppdatera eller ta bort data i databasen. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
 
-Att använda **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärder som inte verkar ändra resursen verkligen kräver åtgärder som blockeras av låset. Det **skrivskyddade** låset kan tillämpas på resursen eller resurs gruppen som innehåller resursen. Några vanliga exempel på åtgärder som blockeras av ett **skrivskyddat** lås är:
+Om du använder **ReadOnly** kan det leda till oväntade resultat eftersom vissa åtgärder som inte verkar ändra resursen kräver åtgärder som blockeras av låset. **ReadOnly-låset** kan tillämpas på resursen eller på resursgruppen som innehåller resursen. Några vanliga exempel på de åtgärder som blockeras av ett **ReadOnly-lås** är:
 
-* Ett **skrivskyddat** lås på ett lagrings konto förhindrar att alla användare visar nycklarna. Åtgärden lista nycklar hanteras via en POST-begäran eftersom de returnerade nycklarna är tillgängliga för Skriv åtgärder.
+* Ett **ReadOnly-lås** på ett lagringskonto hindrar alla användare från att lista nycklarna. Åtgärden för att visa nycklar hanteras via en POST-begäran eftersom nycklarna som returneras är tillgängliga för skrivåtgärder.
 
-* Ett **skrivskyddat** lås på en app service resurs förhindrar att Visual Studio-Server Explorer visar filer för resursen, eftersom denna interaktion kräver skriv åtkomst.
+* Ett **ReadOnly-lås** på en App Service-resurs förhindrar att Visual Studio Server Explorer visar filer för resursen eftersom den interaktionen kräver skrivåtkomst.
 
-* Ett **skrivskyddat** lås på en resurs grupp som innehåller en virtuell dator hindrar alla användare från att starta eller starta om den virtuella datorn. De här åtgärderna kräver en POST-begäran.
+* Ett **ReadOnly-lås** på en resursgrupp som innehåller en virtuell dator hindrar alla användare från att starta eller starta om den virtuella datorn. Dessa åtgärder kräver en POST-begäran.
 
 ## <a name="who-can-create-or-delete-locks"></a>Vem kan skapa eller ta bort lås
 
-Om du vill skapa eller ta bort hanterings lås måste du ha åtkomst till `Microsoft.Authorization/*` eller `Microsoft.Authorization/locks/*` åtgärder. Av de inbyggda rollerna har endast **Ägare** och **Administratör för användaråtkomst** åtkomst till dessa åtgärder.
+Om du vill skapa eller ta `Microsoft.Authorization/*` bort `Microsoft.Authorization/locks/*` hanteringslås måste du ha åtkomst till eller åtgärder. Av de inbyggda rollerna har endast **Ägare** och **Administratör för användaråtkomst** åtkomst till dessa åtgärder.
 
 ## <a name="managed-applications-and-locks"></a>Hanterade program och lås
 
-Vissa Azure-tjänster, till exempel Azure Databricks, använder [hanterade program](../managed-applications/overview.md) för att implementera tjänsten. I så fall skapar tjänsten två resurs grupper. En resurs grupp innehåller en översikt över tjänsten och är inte låst. Den andra resurs gruppen innehåller infrastrukturen för tjänsten och är låst.
+Vissa Azure-tjänster, till exempel Azure Databricks, använder [hanterade program](../managed-applications/overview.md) för att implementera tjänsten. I så fall skapar tjänsten två resursgrupper. En resursgrupp innehåller en översikt över tjänsten och är inte låst. Den andra resursgruppen innehåller infrastrukturen för tjänsten och är låst.
 
-Om du försöker ta bort infrastruktur resurs gruppen får du ett fel meddelande om att resurs gruppen är låst. Om du försöker ta bort låset för infrastruktur resurs gruppen får du ett fel meddelande om att låset inte kan tas bort eftersom det ägs av ett system program.
+Om du försöker ta bort infrastrukturresursgruppen visas ett felmeddelande om att resursgruppen är låst. Om du försöker ta bort låset för infrastrukturresursgruppen visas ett felmeddelande om att låset inte kan tas bort eftersom det ägs av ett systemprogram.
 
-Ta i stället bort tjänsten, som också tar bort infrastruktur resurs gruppen.
+Ta i stället bort tjänsten, som också tar bort infrastrukturresursgruppen.
 
 För hanterade program väljer du den tjänst som du har distribuerat.
 
 ![Välj tjänst](./media/lock-resources/select-service.png)
 
-Observera att tjänsten innehåller en länk till en **hanterad resurs grupp**. Resurs gruppen innehåller infrastrukturen och är låst. Den kan inte tas bort direkt.
+Observera att tjänsten innehåller en länk för en **hanterad resursgrupp**. Resursgruppen innehåller infrastrukturen och är låst. Det går inte att ta bort det direkt.
 
 ![Visa hanterad grupp](./media/lock-resources/show-managed-group.png)
 
-Om du vill ta bort allt för tjänsten, inklusive resurs gruppen låst infrastruktur, väljer du **ta bort** för tjänsten.
+Om du vill ta bort allt för tjänsten, inklusive den låsta infrastrukturresursgruppen, väljer **du Ta bort** för tjänsten.
 
-![Ta bort tjänst](./media/lock-resources/delete-service.png)
+![Ta bort tjänsten](./media/lock-resources/delete-service.png)
 
-## <a name="azure-backups-and-locks"></a>Azure-säkerhetskopieringar och lås
+## <a name="azure-backups-and-locks"></a>Azure Säkerhetskopieringar och lås
 
-Om du låser resurs gruppen som skapats av Azure Backup tjänsten kommer säkerhets kopieringarna att Miss lyckas. Tjänsten har stöd för högst 18 återställnings punkter. Med ett **CanNotDelete** -lås kan säkerhets kopierings tjänsten inte rensa återställnings punkter. Mer information finns i vanliga frågor och svar om hur du [säkerhetskopierar virtuella Azure-datorer](../../backup/backup-azure-vm-backup-faq.md).
+Om du låser resursgruppen som skapats av Azure Backup Service, kommer säkerhetskopior att börja misslyckas. Tjänsten stöder högst 18 återställningspunkter. Med ett **CanNotDelete-lås** kan säkerhetskopieringstjänsten inte rensa återställningspunkter. Mer information finns i [Vanliga frågor och svar-Säkerhetskopiera virtuella Azure-datorer](../../backup/backup-azure-vm-backup-faq.md).
 
-## <a name="portal"></a>Portal
+## <a name="portal"></a>Portalen
 
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>Mall
 
-När du använder en Resource Manager-mall för att distribuera ett lås, använder du olika värden för namn och typ beroende på låsets omfång.
+När du använder en Resource Manager-mall för att distribuera ett lås använder du olika värden för namnet och typen beroende på låsets omfattning.
 
-Använd följande format när du använder ett lås på en **resurs**:
+När du använder ett lås på en **resurs**använder du följande format:
 
-* namn – `{resourceName}/Microsoft.Authorization/{lockName}`
-* typ `{resourceProviderNamespace}/{resourceType}/providers/locks`
+* namn -`{resourceName}/Microsoft.Authorization/{lockName}`
+* typ -`{resourceProviderNamespace}/{resourceType}/providers/locks`
 
-Använd följande format när du använder ett lås till en **resurs grupp** eller **prenumeration**:
+När du använder ett lås på en **resursgrupp** eller **prenumeration**använder du följande format:
 
-* namn – `{lockName}`
-* typ `Microsoft.Authorization/locks`
+* namn -`{lockName}`
+* typ -`Microsoft.Authorization/locks`
 
-I följande exempel visas en mall som skapar en app service-plan, en webbplats och ett lås på webbplatsen. Resurs typen för låset är resurs typen för den resurs som ska låsas och **/providers/Locks**. Namnet på låset skapas genom att resurs namnet kombineras med **/Microsoft.Authorization/** och namnet på låset.
+I följande exempel visas en mall som skapar en apptjänstplan, en webbplats och ett lås på webbplatsen. Resurstypen för låset är resurstypen för den resurs som ska låsas och **/providers/locks**. Namnet på låset skapas genom att resursnamnet sammanfogas med **/Microsoft.Authorization/** och namnet på låset.
 
 ```json
 {
@@ -136,36 +136,36 @@ I följande exempel visas en mall som skapar en app service-plan, en webbplats o
 }
 ```
 
-Ett exempel på att ställa in ett lås på en resurs grupp finns i [skapa en resurs grupp och låsa den](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
+Ett exempel på att ange ett lås för en resursgrupp finns i [Skapa en resursgrupp och låsa den](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment).
 
 ## <a name="powershell"></a>PowerShell
-Du låser distribuerade resurser med Azure PowerShell med kommandot [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) .
+Du låser distribuerade resurser med Azure PowerShell med kommandot [New-AzResourceLock.](/powershell/module/az.resources/new-azresourcelock)
 
-Om du vill låsa en resurs anger du namnet på resursen, resurs typ och dess resurs grupp namn.
+Om du vill låsa en resurs anger du namnet på resursen, dess resurstyp och dess resursgruppnamn.
 
 ```azurepowershell-interactive
 New-AzResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
-Ange namnet på resurs gruppen om du vill låsa en resurs grupp.
+Om du vill låsa en resursgrupp anger du namnet på resursgruppen.
 
 ```azurepowershell-interactive
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-Om du vill ha information om ett lås använder du [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). Använd följande för att hämta alla Lås i din prenumeration:
+Om du vill ha information om ett lås använder du [Get-AzResourceLock](/powershell/module/az.resources/get-azresourcelock). Om du vill ha alla lås i prenumerationen använder du:
 
 ```azurepowershell-interactive
 Get-AzResourceLock
 ```
 
-Om du vill hämta alla Lås för en resurs använder du:
+Om du vill hämta alla lås för en resurs använder du:
 
 ```azurepowershell-interactive
 Get-AzResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
-Om du vill hämta alla Lås för en resurs grupp använder du:
+Om du vill hämta alla lås för en resursgrupp använder du:
 
 ```azurepowershell-interactive
 Get-AzResourceLock -ResourceGroupName exampleresourcegroup
@@ -180,33 +180,33 @@ Remove-AzResourceLock -LockId $lockId
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Du låser distribuerade resurser med Azure CLI med hjälp av kommandot [AZ lock Create](/cli/azure/lock#az-lock-create) .
+Du låser distribuerade resurser med Azure CLI med kommandot [az lock create.](/cli/azure/lock#az-lock-create)
 
-Om du vill låsa en resurs anger du namnet på resursen, resurs typ och dess resurs grupp namn.
+Om du vill låsa en resurs anger du namnet på resursen, dess resurstyp och dess resursgruppnamn.
 
 ```azurecli
 az lock create --name LockSite --lock-type CanNotDelete --resource-group exampleresourcegroup --resource-name examplesite --resource-type Microsoft.Web/sites
 ```
 
-Ange namnet på resurs gruppen om du vill låsa en resurs grupp.
+Om du vill låsa en resursgrupp anger du namnet på resursgruppen.
 
 ```azurecli
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-Om du vill ha information om ett lås använder du [AZ lock List](/cli/azure/lock#az-lock-list). Använd följande för att hämta alla Lås i din prenumeration:
+Om du vill ha information om ett lås använder du [az-låslistan](/cli/azure/lock#az-lock-list). Om du vill ha alla lås i prenumerationen använder du:
 
 ```azurecli
 az lock list
 ```
 
-Om du vill hämta alla Lås för en resurs använder du:
+Om du vill hämta alla lås för en resurs använder du:
 
 ```azurecli
 az lock list --resource-group exampleresourcegroup --resource-name examplesite --namespace Microsoft.Web --resource-type sites --parent ""
 ```
 
-Om du vill hämta alla Lås för en resurs grupp använder du:
+Om du vill hämta alla lås för en resursgrupp använder du:
 
 ```azurecli
 az lock list --resource-group exampleresourcegroup
@@ -219,16 +219,16 @@ lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --re
 az lock delete --ids $lockid
 ```
 
-## <a name="rest-api"></a>REST-API
-Du kan låsa distribuerade resurser med [REST API för hanterings lås](https://docs.microsoft.com/rest/api/resources/managementlocks). Med REST API kan du skapa och ta bort lås och hämta information om befintliga lås.
+## <a name="rest-api"></a>REST API
+Du kan låsa distribuerade resurser med [REST API för hanteringslås](https://docs.microsoft.com/rest/api/resources/managementlocks). Med REST API kan du skapa och ta bort lås och hämta information om befintliga lås.
 
-Skapa ett lås genom att köra:
+Om du vill skapa ett lås kör du:
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-Omfånget kan vara en prenumeration, en resurs grupp eller en resurs. Namnet på låset är vad du vill för att anropa låset. Använd **2016-09-01**för API-version.
+Scopet kan vara en prenumeration, resursgrupp eller resurs. Låsnamnet är vad du vill kalla låset. Använd **2016-09-01**för api-version .
 
-I begäran inkluderar du ett JSON-objekt som anger egenskaperna för låset.
+I begäran ska du inkludera ett JSON-objekt som anger egenskaperna för låset.
 
     {
       "properties": {
@@ -238,7 +238,7 @@ I begäran inkluderar du ett JSON-objekt som anger egenskaperna för låset.
     } 
 
 ## <a name="next-steps"></a>Nästa steg
-* Information om hur du strukturerar dina resurser logiskt genom [att använda taggar för att organisera dina resurser](tag-resources.md)
+* Mer information om hur du ordnar resurserna logiskt finns i [Använda taggar för att ordna dina resurser](tag-resources.md)
 * Du kan tillämpa begränsningar och konventioner i din prenumeration med anpassade principer. Mer information finns i [Vad är Azure Policy?](../../governance/policy/overview.md).
 * Vägledning för hur företag kan använda resurshanteraren för att effektivt hantera prenumerationer finns i [Azure enterprise scaffold - förebyggande prenumerationsåtgärder](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

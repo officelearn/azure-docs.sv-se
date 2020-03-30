@@ -1,6 +1,6 @@
 ---
-title: Konfigurera en skalbar processerver under haveri beredskap för virtuella VMware-datorer och fysiska servrar med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du konfigurerar en skalbar processerver under haveri beredskap för virtuella VMware-datorer och fysiska servrar.
+title: Konfigurera en skalningsprocessserver vid haveriberedskap av virtuella datorer och fysiska servrar med Azure Site Recovery | Microsoft Dokument"
+description: I den här artikeln beskrivs hur du konfigurerar utskalningsprocessserver vid haveriberedskap av virtuella datorer och fysiska servrar.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
@@ -8,68 +8,68 @@ ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
 ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79257152"
 ---
-# <a name="scale-with-additional-process-servers"></a>Skala med ytterligare process servrar
+# <a name="scale-with-additional-process-servers"></a>Skala med ytterligare processservrar
 
-När du replikerar virtuella VMware-datorer eller fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md), installeras som standard en processerver på konfigurations servern och används för att koordinera data överföringen mellan Site Recovery och din lokala infrastruktur. Du kan lägga till ytterligare fristående process servrar för att öka kapaciteten och skala ut distributionen av replikering. Den här artikeln beskriver hur du installerar en skalbar processerver.
+När du replikerar virtuella datorer med VMware eller fysiska servrar till Azure med hjälp av [Site Recovery](site-recovery-overview.md)installeras som standard en processserver på konfigurationsserverdatorn och används för att samordna dataöverföring mellan platsåterställning och din lokala infrastruktur. Om du vill öka kapaciteten och skala ut replikeringsdistributionen kan du lägga till ytterligare fristående processservrar. I den här artikeln beskrivs hur du konfigurerar en utskalningsprocessserver.
 
 ## <a name="before-you-start"></a>Innan du börjar
 
 ### <a name="capacity-planning"></a>Kapacitetsplanering
 
-Kontrol lera att du har utfört [kapacitets planering](site-recovery-plan-capacity-vmware.md) för VMware-replikering. Detta hjälper dig att identifiera hur och när du ska distribuera ytterligare process servrar.
+Kontrollera att du har utfört [kapacitetsplanering](site-recovery-plan-capacity-vmware.md) för VMware-replikering. Detta hjälper dig att identifiera hur och när du bör distribuera ytterligare processservrar.
 
-Från 9,24-versionen läggs vägledningen till vid valet av processerver för nya replikeringar. Processervern markeras som felfri, varning och kritisk baserat på vissa kriterier. Om du vill förstå olika scenarier som kan påverka status för processervern granskar du [process Server aviseringarna](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
+Från 9.24-versionen läggs vägledning till vid val av processserver för nya replikeringar. Processservern markeras felfri, varning och kritisk baserat på vissa kriterier. Om du vill förstå olika scenarier som kan påverka processserverns tillstånd läser du [processserveraviseringarna](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
-> Det finns inte stöd för att använda en klonad process Server komponent. Följ stegen i den här artikeln för varje PS-utskalning.
+> Användning av en klonad Process Server-komponent stöds inte. Följ stegen i den här artikeln för varje PS-utskalning.
 
-### <a name="sizing-requirements"></a>Storleks krav 
+### <a name="sizing-requirements"></a>Storlekskrav 
 
-Kontrol lera storleks kraven som sammanfattas i tabellen. I allmänhet behöver du ytterligare process servrar för att hantera trafik volymen om du behöver skala distributionen till fler än 200 käll datorer, eller om du har en total daglig omsättnings taxa på mer än 2 TB.
+Kontrollera storlekskraven som sammanfattas i tabellen. Om du måste skala distributionen till mer än 200 källdatorer, eller om du har en total daglig omsättningshastighet på mer än 2 TB, behöver du i allmänhet ytterligare processservrar för att hantera trafikvolymen.
 
-| **Ytterligare processerver** | **Cachestorlek för cache** | **Data ändrings takt** | **Skyddade datorer** |
+| **Ytterligare processserver** | **Cachediskstorlek** | **Dataändringshastighet** | **Skyddade datorer** |
 | --- | --- | --- | --- |
-|4 virtuella processorer (2 Sockets * 2 kärnor \@ 2,5 GHz), 8 GB minne |300 GB |250 GB eller mindre |Replikera 85 eller färre datorer. |
-|8 virtuella processorer (2 Sockets * 4 kärnor \@ 2,5 GHz), 12 GB minne |600 GB |250 GB till 1 TB |Replikera mellan 85-150 datorer. |
-|12 virtuella processorer (2 Sockets * 6 kärnor \@ 2,5 GHz) 24 GB minne |1 TB |1 TB till 2 TB |Replikera mellan 150-225 datorer. |
+|4 vCPUs (2 uttag * \@ 2 kärnor 2,5 GHz), 8 GB minne |300 GB |250 GB eller mindre |Replikera 85 eller färre maskiner. |
+|8 virtuella processorer (2 uttag * \@ 4 kärnor 2,5 GHz), 12 GB minne |600 GB |250 GB till 1 TB |Replikera mellan 85-150 maskiner. |
+|12 virtuella processorer (2 uttag * \@ 6 kärnor 2,5 GHz) 24 GB minne |1 TB |1 TB till 2 TB |Replikera mellan 150-225 maskiner. |
 
-Var varje skyddad käll dator har kon figurer ATS med 3 diskar på 100 GB vardera.
+Där varje skyddad källdator är konfigurerad med 3 diskar på 100 GB vardera.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
-Kraven för den ytterligare processervern sammanfattas i följande tabell.
+Förutsättningarna för ytterligare processserver sammanfattas i följande tabell.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-## <a name="download-installation-file"></a>Ladda ned installations fil
+## <a name="download-installation-file"></a>Hämta installationsfil
 
-Ladda ned installations filen för processervern enligt följande:
+Hämta installationsfilen för processservern enligt följande:
 
-1. Logga in på Azure Portal och bläddra till Recovery Services-valvet.
-2. Öppna **Site Recovery infrastruktur** > **VMware och fysiska datorer** > **konfigurations servrar** (under för VMware & fysiska datorer).
-3. Välj konfigurations servern för att öka detalj nivån i Server informationen. Klicka sedan på **+ processerver**.
-4. I **Lägg till processerver** >  **väljer du var du vill distribuera processervern väljer du** **distribuera en skalbar processerver lokalt**.
+1. Logga in på Azure-portalen och bläddra till ditt Recovery Services Vault.
+2. Öppna > VMWare-infrastruktur för **platsåterställningsinfrastruktur****VMWare och konfigurationsservrar för fysiska** > **datorer** för fysiska datorer för fysiska datorer för VM &ware.
+3. Välj den konfigurationsserver som du vill öka detaljnivån i serverinformationen. Klicka sedan på **+ Process Server**.
+4. I **Lägg till processserver** >  **Välj var du vill distribuera processservern**väljer du **Distribuera en utskalningsprocessserver lokalt**.
 
    ![Sidan Lägg till servrar](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
-1. Klicka på **hämta Microsoft Azure Site Recovery enhetlig installation**. Detta laddar ned den senaste versionen av installations filen.
+1. Klicka på **Hämta installationsprogrammet för Enhetlig Microsoft Azure-webbplatsåterställning**. Detta hämtar den senaste versionen av installationsfilen.
 
    > [!WARNING]
-   > Installations versionen för processervern måste vara samma som, eller tidigare än, den konfigurations Server version som du kör. Ett enkelt sätt att se till att versionens kompatibilitet är att använda samma installations program, som du senast använde för att installera eller uppdatera konfigurations servern.
+   > Installationsversionen av processservern ska vara samma som eller tidigare än den konfigurationsserverversion som du har på körning. Ett enkelt sätt att säkerställa versionskompatibilitet är att använda samma installationsprogram, som du senast använde för att installera eller uppdatera konfigurationsservern.
 
-## <a name="install-from-the-ui"></a>Installera från användar gränssnittet
+## <a name="install-from-the-ui"></a>Installera från användargränssnittet
 
-Installera på följande sätt. När du har konfigurerat servern migrerar du käll datorerna för att använda den.
+Installera enligt följande. När du har konfigurerat servern migrerar du källdatorer för att använda den.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-add-process-server.md)]
 
 
-## <a name="install-from-the-command-line"></a>Installera från kommando raden
+## <a name="install-from-the-command-line"></a>Installera från kommandoraden
 
 Installera genom att köra följande kommando:
 
@@ -77,20 +77,20 @@ Installera genom att köra följande kommando:
 UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
 ```
 
-Där kommando rads parametrarna är följande:
+Om kommandoradsparametrarna är följande:
 
 [!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
 
-Exempel:
+Ett exempel:
 
 ```
 MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 cd C:\Temp\Extracted
 UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
 ```
-### <a name="create-a-proxy-settings-file"></a>Skapa en fil med proxyinställningar
+### <a name="create-a-proxy-settings-file"></a>Skapa en proxyinställningsfil
 
-Om du behöver konfigurera en proxyserver tar ProxySettingsFilePath-parametern en fil som indata. Du kan skapa filen på följande sätt och skicka den som en ProxySettingsFilePath-parameter för indata.
+Om du behöver konfigurera en proxy tar parametern ProxySettingsFilePath en fil som indata. Du kan skapa filen på följande sätt och skicka den som parameter ProxySettingsFilePath.
 
 ```
 * [ProxySettings]
@@ -102,4 +102,4 @@ Om du behöver konfigurera en proxyserver tar ProxySettingsFilePath-parametern e
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig mer om att [Hantera inställningar för processervern](vmware-azure-manage-process-server.md)
+Läs mer om hur du [hanterar inställningar för processserver](vmware-azure-manage-process-server.md)

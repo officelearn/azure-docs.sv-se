@@ -1,6 +1,6 @@
 ---
 title: Skapa en virtuell Linux-dator i Azure med flera nätverkskort
-description: Lär dig hur du skapar en virtuell Linux-dator med flera nätverkskort som är kopplade till den med hjälp av Azure CLI-eller Resource Manager-mallarna.
+description: Lär dig hur du skapar en virtuell Linux-dator med flera nätverkskort anslutna till den med azure CLI- eller Resource Manager-mallarna.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.subservice: networking
@@ -9,29 +9,29 @@ ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
 ms.openlocfilehash: ecbff4beadd9d10a8489c89cc322c0bb67ec5f40
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267188"
 ---
-# <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en virtuell Linux-dator i Azure med flera nätverks gränssnitts kort
+# <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en virtuell Linux-dator i Azure med flera nätverkskort
 
 
-Den här artikeln beskriver hur du skapar en virtuell dator med flera nätverkskort med Azure CLI.
+I den här artikeln beskrivs hur du skapar en virtuell dator med flera nätverkskort med Azure CLI.
 
-## <a name="create-supporting-resources"></a>Skapa stöd resurser
-Installera den senaste versionen av [Azure CLI](/cli/azure/install-az-cli2) och logga in på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
+## <a name="create-supporting-resources"></a>Skapa stödresurser
+Installera den senaste [Azure CLI](/cli/azure/install-az-cli2) och logga in på ett Azure-konto med [az login](/cli/azure/reference-index).
 
-Ersätt exempel parameter namn med dina egna värden i följande exempel. Exempel på parameter namn som ingår *myResourceGroup*, *mystorageaccount*och *myVM*.
+I följande exempel ersätter du exempelparameternamn med dina egna värden. Exempelparameternamn inkluderade *myResourceGroup,* *mystorageaccount*och *myVM*.
 
-Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på *eastus-platsen:*
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa det virtuella nätverket med [AZ Network VNet Create](/cli/azure/network/vnet). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* och under nätet med namnet *mySubnetFrontEnd*:
+Skapa det virtuella nätverket med [az nätverk vnet skapa](/cli/azure/network/vnet). I följande exempel skapas ett virtuellt nätverk med namnet *myVnet* och undernät med namnet *mySubnetFrontEnd:*
 
 ```azurecli
 az network vnet create \
@@ -42,7 +42,7 @@ az network vnet create \
     --subnet-prefix 10.0.1.0/24
 ```
 
-Skapa ett undernät för backend-trafiken med [AZ Network VNet Subnet Create](/cli/azure/network/vnet/subnet). I följande exempel skapas ett undernät med namnet *mySubnetBackEnd*:
+Skapa ett undernät för backend-trafik med [az network vnet-undernät skapa](/cli/azure/network/vnet/subnet). I följande exempel skapas ett undernät med namnet *mySubnetBackEnd:*
 
 ```azurecli
 az network vnet subnet create \
@@ -52,7 +52,7 @@ az network vnet subnet create \
     --address-prefix 10.0.2.0/24
 ```
 
-Skapa en nätverks säkerhets grupp med [AZ Network NSG Create](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
+Skapa en nätverkssäkerhetsgrupp med [az network nsg create](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \
@@ -61,7 +61,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Skapa och konfigurera flera nätverkskort
-Skapa två nätverkskort med [AZ Network NIC Create](/cli/azure/network/nic). I följande exempel skapas två nätverkskort, med namnet *myNic1* och *myNic2*, som är anslutna till nätverks säkerhets gruppen med ett nätverkskort som ansluter till varje undernät:
+Skapa två nätverkskort med [az nätverk nic skapa](/cli/azure/network/nic). I följande exempel skapas två nätverkskort med namnet *myNic1* och *myNic2*, anslutna till nätverkssäkerhetsgruppen, med ett nätverkskort som ansluter till varje undernät:
 
 ```azurecli
 az network nic create \
@@ -78,10 +78,10 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-## <a name="create-a-vm-and-attach-the-nics"></a>Skapa en virtuell dator och koppla nätverkskorten
-När du skapar den virtuella datorn anger du de nätverkskort som du skapade med `--nics`. Du måste också vara försiktig när du väljer storleken på den virtuella datorn. Det finns gränser för det totala antalet nätverkskort som du kan lägga till i en virtuell dator. Läs mer om [storlekar för virtuella Linux-datorer](sizes.md).
+## <a name="create-a-vm-and-attach-the-nics"></a>Skapa en virtuell dator och bifoga nätverkskort
+När du skapar den virtuella datorn anger `--nics`du de nätverkskort som du skapade med . Du måste också vara försiktig när du väljer vm-storlek. Det finns gränser för det totala antalet nätverkskort som du kan lägga till i en virtuell dator. Läs mer om [Linux VM storlekar](sizes.md).
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM*:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVM:*
 
 ```azurecli
 az vm create \
@@ -94,12 +94,12 @@ az vm create \
     --nics myNic1 myNic2
 ```
 
-Lägg till routningstabeller i gäst operativ systemet genom att slutföra stegen i [Konfigurera gäst operativ systemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
+Lägg till routningstabeller i gästoperativsystemet genom att slutföra stegen i [Konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-a-vm"></a>Lägga till ett nätverkskort till en virtuell dator
-Föregående steg skapade en virtuell dator med flera nätverkskort. Du kan också lägga till nätverkskort till en befintlig virtuell dator med Azure CLI. Olika [VM-storlekar](sizes.md) har stöd för olika antal nätverkskort, så storleken på den virtuella datorn. Om det behövs kan du [ändra storlek på en virtuell dator](change-vm-size.md).
+De tidigare stegen skapade en virtuell dator med flera nätverkskort. Du kan också lägga till nätverkskort till en befintlig virtuell dator med Azure CLI. Olika [vm-storlekar](sizes.md) stöder ett varierande antal nätverkskort, så storlek på den virtuella datorn därefter. Om det behövs kan du [ändra storlek på en virtuell dator](change-vm-size.md).
 
-Skapa ett annat nätverkskort med [AZ Network NIC Create](/cli/azure/network/nic). I följande exempel skapas ett nätverkskort med namnet *myNic3* som är anslutet till backend-undernätet och nätverks säkerhets gruppen som skapades i föregående steg:
+Skapa ett annat nätverkskort med [az-nätverksnic create](/cli/azure/network/nic). I följande exempel skapas ett nätverkskort med namnet *myNic3* som är anslutet till backend-undernätet och nätverkssäkerhetsgruppen som skapats i föregående steg:
 
 ```azurecli
 az network nic create \
@@ -110,14 +110,14 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-Om du vill lägga till ett nätverkskort i en befintlig virtuell dator avallokerar du först den virtuella datorn med [AZ VM-frigören](/cli/azure/vm). I följande exempel avallokeras den virtuella datorn med namnet *myVM*:
+Om du vill lägga till ett nätverkskort till en befintlig virtuell dator, först deallocate den virtuella datorn med [az vm deallocate](/cli/azure/vm). I följande exempel frigörs den virtuella datorn med namnet *myVM:*
 
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Lägg till NÄTVERKSKORTet med [AZ VM NIC Add](/cli/azure/vm/nic). I följande exempel läggs *myNic3* till *myVM*:
+Lägg till nätverkskortet med [az vm nic add](/cli/azure/vm/nic). I följande exempel läggs *myNic3* till *myVM:*
 
 ```azurecli
 az vm nic add \
@@ -126,22 +126,22 @@ az vm nic add \
     --nics myNic3
 ```
 
-Starta den virtuella datorn med [AZ VM start](/cli/azure/vm):
+Starta den virtuella datorn med [az vm-start:](/cli/azure/vm)
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
 ```
 
-Lägg till routningstabeller i gäst operativ systemet genom att slutföra stegen i [Konfigurera gäst operativ systemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
+Lägg till routningstabeller i gästoperativsystemet genom att slutföra stegen i [Konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-a-vm"></a>Ta bort ett nätverkskort från en virtuell dator
-Om du vill ta bort ett nätverkskort från en befintlig virtuell dator avallokerar du först den virtuella datorn med [AZ VM-frigören](/cli/azure/vm). I följande exempel avallokeras den virtuella datorn med namnet *myVM*:
+Om du vill ta bort ett nätverkskort från en befintlig virtuell dator, först deallocate den virtuella datorn med [az vm deallocate](/cli/azure/vm). I följande exempel frigörs den virtuella datorn med namnet *myVM:*
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Ta bort NÄTVERKSKORTet med [AZ VM NIC Remove](/cli/azure/vm/nic). I följande exempel tar bort *myNic3* från *myVM*:
+Ta bort nätverkskortet med [az vm nic remove](/cli/azure/vm/nic). I följande exempel tas *myNic3* bort från *myVM:*
 
 ```azurecli
 az vm nic remove \
@@ -150,7 +150,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-Starta den virtuella datorn med [AZ VM start](/cli/azure/vm):
+Starta den virtuella datorn med [az vm-start:](/cli/azure/vm)
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -158,7 +158,7 @@ az vm start --resource-group myResourceGroup --name myVM
 
 
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Skapa flera nätverkskort med Resource Manager-mallar
-Azure Resource Manager mallar använder deklarativ JSON-filer för att definiera din miljö. Du kan läsa en [Översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md). Resource Manager-mallar är ett sätt att skapa flera instanser av en resurs under distributionen, till exempel skapa flera nätverkskort. Du använder *copy* för att ange antalet instanser som ska skapas:
+Azure Resource Manager-mallar använder deklarativa JSON-filer för att definiera din miljö. Du kan läsa en [översikt över Azure Resource Manager](../../azure-resource-manager/management/overview.md). Resource Manager-mallar är ett sätt att skapa flera instanser av en resurs under distributionen, till exempel skapa flera nätverkskort. Du använder *kopia* för att ange hur många instanser som ska skapas:
 
 ```json
 "copy": {
@@ -167,23 +167,23 @@ Azure Resource Manager mallar använder deklarativ JSON-filer för att definiera
 }
 ```
 
-Läs mer om att [skapa flera instanser med hjälp av *Kopiera*](../../resource-group-create-multiple.md). 
+Läs mer om [hur du skapar flera instanser med hjälp av *kopia*](../../resource-group-create-multiple.md). 
 
-Du kan också använda en `copyIndex()` för att sedan lägga till en siffra till ett resurs namn, vilket gör att du kan skapa `myNic1`, `myNic2`osv. Nedan visas ett exempel på hur du lägger till indexvärdet:
+Du kan också `copyIndex()` använda en för att sedan lägga till ett `myNic1` `myNic2`nummer till ett resursnamn, vilket gör att du kan skapa , , etc. Följande visar ett exempel på att lägga till indexvärdet:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
-Du kan läsa ett fullständigt exempel på [hur du skapar flera nätverkskort med Resource Manager-mallar](../../virtual-network/template-samples.md).
+Du kan läsa ett komplett exempel på [hur du skapar flera nätverkskort med Hjälp av Resource Manager-mallar](../../virtual-network/template-samples.md).
 
-Lägg till routningstabeller i gäst operativ systemet genom att slutföra stegen i [Konfigurera gäst operativ systemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
+Lägg till routningstabeller i gästoperativsystemet genom att slutföra stegen i [Konfigurera gästoperativsystemet för flera nätverkskort](#configure-guest-os-for-multiple-nics).
 
-## <a name="configure-guest-os-for-multiple-nics"></a>Konfigurera gäst operativ system för flera nätverkskort
+## <a name="configure-guest-os-for-multiple-nics"></a>Konfigurera gästoperativ för flera nätverkskort
 
-Föregående steg skapade ett virtuellt nätverk och undernät, anslutna nätverkskort och skapade sedan en virtuell dator. En offentlig IP-adress och regler för nätverks säkerhets grupper som tillåter SSH-trafik har inte skapats. Om du vill konfigurera gäst operativ systemet för flera nätverkskort måste du tillåta fjärr anslutningar och köra kommandon lokalt på den virtuella datorn.
+De föregående stegen skapade ett virtuellt nätverk och undernät, bifogade nätverkskort och skapade sedan en virtuell dator. En offentlig IP-adress och nätverkssäkerhetsgruppsregler som tillåter SSH-trafik skapades inte. Om du vill konfigurera gästoperativsystemet för flera nätverkskort måste du tillåta fjärranslutningar och köra kommandon lokalt på den virtuella datorn.
 
-Om du vill tillåta SSH-trafik skapar du en regel för nätverks säkerhets grupp med [AZ Network NSG Rule Create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) enligt följande:
+Om du vill tillåta SSH-trafik skapar du en regel för nätverkssäkerhetsgrupper med [az-nätverks nsg-regel skapa](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) enligt följande:
 
 ```azurecli
 az network nsg rule create \
@@ -194,7 +194,7 @@ az network nsg rule create \
     --destination-port-ranges 22
 ```
 
-Skapa en offentlig IP-adress med [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create) och tilldela den till det första nätverkskortet med [AZ Network NIC IP-config Update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update):
+Skapa en offentlig [IP-adress med az network public-ip skapa](/cli/azure/network/public-ip#az-network-public-ip-create) och tilldela den till det första nätverkskortet med [az nätverk nic ip-config uppdatering:](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update)
 
 ```azurecli
 az network public-ip create --resource-group myResourceGroup --name myPublicIP
@@ -206,23 +206,23 @@ az network nic ip-config update \
     --public-ip myPublicIP
 ```
 
-Om du vill visa den offentliga IP-adressen för den virtuella datorn använder du [AZ VM (se](/cli/azure/vm#az-vm-show) nedan):
+Om du vill visa den offentliga IP-adressen för den virtuella datorn använder du [az vm-vyn](/cli/azure/vm#az-vm-show) enligt följande::
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-Nu kan du använda SSH till den offentliga IP-adressen för den virtuella datorn. Standard användar namnet som angavs i föregående steg var *azureuser*. Ange ditt eget användar namn och offentliga IP-adress:
+Nu SSH till den offentliga IP-adressen för din virtuella dator. Standardanvändarnamnet som angavs i ett tidigare steg var *azureuser*. Ange ditt eget användarnamn och offentliga IP-adress:
 
 ```bash
 ssh azureuser@137.117.58.232
 ```
 
-Om du vill skicka till eller från ett sekundärt nätverks gränssnitt måste du manuellt lägga till beständiga vägar till operativ systemet för varje sekundärt nätverks gränssnitt. I den här artikeln är *eth1* det sekundära gränssnittet. Instruktioner för att lägga till beständiga vägar till operativ systemet varierar från distribution. Instruktioner finns i dokumentationen för din distribution.
+Om du vill skicka till eller från ett sekundärt nätverksgränssnitt måste du manuellt lägga till beständiga vägar till operativsystemet för varje sekundärt nätverksgränssnitt. I den här artikeln är *eth1* det sekundära gränssnittet. Instruktioner för att lägga till beständiga vägar till operativsystemet varierar beroende på distribution. Se dokumentation för din distribution för instruktioner.
 
-När du lägger till vägen i operativ systemet är gateway-adressen 1 *för det undernät som nätverks* gränssnittet finns i. Om nätverks gränssnittet till exempel tilldelas adressen *10.0.2.4*, är den gateway som du anger för vägen *10.0.2.1*. Du kan definiera ett specifikt nätverk för vägens mål eller ange målet *0.0.0.0*om du vill att all trafik för gränssnittet ska gå via den angivna gatewayen. Gatewayen för varje undernät hanteras av det virtuella nätverket.
+När du lägger till vägen till operativsystemet är gateway-adressen *1* för vilket undernät nätverksgränssnittet är i. Om nätverksgränssnittet till exempel tilldelas adressen *10.0.2.4*är den gateway som du anger för vägen *10.0.2.1*. Du kan definiera ett specifikt nätverk för ruttens mål eller ange ett mål på *0.0.0.0,* om du vill att all trafik för gränssnittet ska gå igenom den angivna gatewayen. Gatewayen för varje undernät hanteras av det virtuella nätverket.
 
-När du har lagt till vägen för ett sekundärt gränssnitt kontrollerar du att vägen finns i routningstabellen med `route -n`. Följande exempel på utdata är för routningstabellen som har de två nätverks gränssnitt som har lagts till i den virtuella datorn i den här artikeln:
+När du har lagt till vägen för ett sekundärt gränssnitt kontrollerar du att vägen finns i din rutttabell med `route -n`. Följande exempelutdata är för vägtabellen som har de två nätverksgränssnitten tillagda i den virtuella datorn i den här artikeln:
 
 ```bash
 Kernel IP routing table
@@ -235,13 +235,13 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 169.254.169.254 10.0.1.1        255.255.255.255 UGH   0      0        0 eth0
 ```
 
-Bekräfta att vägen som du har lagt till kvarstår i omstarter genom att kontrol lera routningstabellen igen efter en omstart. Om du vill testa anslutningen kan du ange följande kommando, till exempel där *eth1* är namnet på ett sekundärt nätverks gränssnitt:
+Bekräfta att vägen som du lade till kvarstår över omstarter genom att kontrollera vägtabellen igen efter en omstart. Om du vill testa anslutningen kan du till exempel ange följande kommando där *eth1* är namnet på ett sekundärt nätverksgränssnitt:
 
 ```bash
 ping bing.com -c 4 -I eth1
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Granska [storleken på virtuella Linux-datorer](sizes.md) när du försöker skapa en virtuell dator med flera nätverkskort. Observera högsta antalet nätverkskort som varje virtuell dator stöder.
+Granska [Storlekar på virtuella linux-datorer](sizes.md) när du försöker skapa en virtuell dator med flera nätverkskort. Var uppmärksam på det maximala antalet nätverkskort som varje vm-storlek stöder.
 
-Använd just-in-Time-åtkomst för virtuella datorer för att skydda dina virtuella datorer ytterligare. Den här funktionen öppnar regler för nätverks säkerhets grupper för SSH-trafik vid behov, och under en angiven tids period. Mer information finns i [Manage virtual machine access using just in time](../../security-center/security-center-just-in-time.md) (Hantera åtkomsten till virtuella datorer med Just-In-Time).
+Om du vill skydda dina virtuella datorer ytterligare använder du just i tids-VM-åtkomst. Den här funktionen öppnar regler för nätverkssäkerhetsgrupp för SSH-trafik när det behövs och under en bestämd tidsperiod. Mer information finns i [Manage virtual machine access using just in time](../../security-center/security-center-just-in-time.md) (Hantera åtkomsten till virtuella datorer med Just-In-Time).

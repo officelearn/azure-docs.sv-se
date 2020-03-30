@@ -1,6 +1,6 @@
 ---
-title: OutOfMemoryError-undantag för Apache Spark i Azure HDInsight
-description: Olika OutOfMemoryError-undantag för Apache Spark kluster i Azure HDInsight
+title: Undantag för OutOfMemoryError för Apache Spark i Azure HDInsight
+description: Olika OutOfMemoryError undantag för Apache Spark kluster i Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
@@ -8,21 +8,21 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/15/2019
 ms.openlocfilehash: 31cdef281b1cb26d01a4690c815e3d3621e2c053
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79271972"
 ---
-# <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>OutOfMemoryError-undantag för Apache Spark i Azure HDInsight
+# <a name="outofmemoryerror-exceptions-for-apache-spark-in-azure-hdinsight"></a>Undantag för OutOfMemoryError för Apache Spark i Azure HDInsight
 
-I den här artikeln beskrivs fel söknings steg och möjliga lösningar på problem när du använder Apache Spark-komponenter i Azure HDInsight-kluster.
+I den här artikeln beskrivs felsökningssteg och möjliga lösningar för problem när du använder Apache Spark-komponenter i Azure HDInsight-kluster.
 
-## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Scenario: OutOfMemoryError-undantag för Apache Spark
+## <a name="scenario-outofmemoryerror-exception-for-apache-spark"></a>Scenario: OutOfMemoryError undantag för Apache Spark
 
 ### <a name="issue"></a>Problem
 
-Ditt Apache Spark-program misslyckades med ett OutOfMemoryError ohanterat undantag. Du kan få ett fel meddelande som liknar:
+Ditt Apache Spark-program misslyckades med ett oföränderliga undantag. Ett felmeddelande kan visas som liknar:
 
 ```error
 ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439)
@@ -54,17 +54,17 @@ java.lang.OutOfMemoryError
 
 ### <a name="cause"></a>Orsak
 
-Den mest troliga orsaken till det här undantaget är att det finns inte tillräckligt med heap-minne har allokerats till Java-datorer (JVMs). Dessa JVMs startas som körnings program eller driv rutiner som en del av Apache Spark-programmet.
+Den mest sannolika orsaken till detta undantag är att inte tillräckligt med heapminne allokeras till virtuella Java-datorer (JVMs). Dessa JVMs startas som executors eller drivrutiner som en del av Apache Spark-programmet.
 
 ### <a name="resolution"></a>Lösning
 
-1. Avgör maximal storlek för de data som Spark-programmet ska hantera. Gör en uppskattning av storleken baserat på den maximala storleken på indata, och de mellanliggande data som skapas genom att transformera indata och utdata som genererats ytterligare, omvandlas till mellanliggande data. Om den inledande uppskattningen inte räcker kan du öka storleken något och iterera fram till under sidan minnes fel.
+1. Avgör maximal storlek för de data som Spark-programmet ska hantera. Gör en uppskattning av storleken baserat på den maximala storleken på indata, mellanliggande data som produceras genom att omvandla indata och de utdata som produceras ytterligare omvandla mellanliggande data. Om den ursprungliga uppskattningen inte är tillräcklig, öka storleken något och iterera tills minnesfelen avtar.
 
-1. Se till att HDInsight-klustret som ska användas har tillräckligt med resurser när det gäller minne och tillräckligt med kärnor för Spark-programmet. Detta kan bestämmas genom att visa avsnittet kluster mått i garn gränssnittet för klustret för värden för **använt minne** jämfört med **minne totalt** och **virtuella kärnor som används** jämfört med **virtuella kärnor totalt**.
+1. Se till att HDInsight-klustret som ska användas har tillräckligt med resurser när det gäller minne och tillräckligt med kärnor för Spark-programmet. Detta kan bestämmas genom att visa avsnittet Klustermått i YARN-gränssnittet i klustret för värdena **minne som används** jämfört med totalt **minne** och **virtuella kärnor som används** jämfört med **VCores Total**.
 
-    ![kärn minnes visning för garn](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
+    ![garn kärna minne visa](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
 
-1. Ställ in följande Spark-konfigurationer på lämpliga värden. Balansera program kraven med de tillgängliga resurserna i klustret. Dessa värden får inte överstiga 90% av tillgängligt minne och kärnor som visas av garn, och det bör också uppfylla det lägsta minnes kravet för Spark-programmet:
+1. Ställ in följande Spark-konfigurationer till lämpliga värden. Balansera programkraven med de tillgängliga resurserna i klustret. Dessa värden bör inte överstiga 90% av det tillgängliga minnet och kärnorna enligt YARN, och bör också uppfylla minimikravet för Spark-programmet:
 
     ```
     spark.executor.instances (Example: 8 for 8 executor count)
@@ -76,13 +76,13 @@ Den mest troliga orsaken till det här undantaget är att det finns inte tillrä
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB)
     ```
 
-    Totalt minne som används av alla körningar =
+    Totalt minne som används av alla utförare =
 
     ```
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
 
-    Totalt minne som används av driv rutin =
+    Totalt minne som används av drivrutinen =
 
     ```
     spark.driver.memory + spark.yarn.driver.memoryOverhead
@@ -90,11 +90,11 @@ Den mest troliga orsaken till det här undantaget är att det finns inte tillrä
 
 ---
 
-## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Scenario: fel i Java heap vid försök att öppna Apache Spark historik Server
+## <a name="scenario-java-heap-space-error-when-trying-to-open-apache-spark-history-server"></a>Scenario: Java heap utrymme fel när man försöker öppna Apache Spark historia server
 
 ### <a name="issue"></a>Problem
 
-Du får följande fel meddelande när du öppnar händelser i Spark historik Server:
+Följande felmeddelande visas när du öppnar händelser på Spark History-servern:
 
 ```
 scala.MatchError: java.lang.OutOfMemoryError: Java heap space (of class java.lang.OutOfMemoryError)
@@ -102,9 +102,9 @@ scala.MatchError: java.lang.OutOfMemoryError: Java heap space (of class java.lan
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet orsakas ofta av brist på resurser när du öppnar stora Spark-Event-filer. Storleken på Spark-heapen är inställd på 1 GB som standard, men stora Spark-händelseloggar kan kräva mer än så.
+Det här problemet orsakas ofta av brist på resurser när stora spark-event-filer öppnas. Spark-högstorleken är inställd på 1 GB som standard, men stora Spark-händelsefiler kan kräva mer än så.
 
-Om du vill kontrol lera storleken på de filer som du försöker läsa in kan du utföra följande kommandon:
+Om du vill kontrollera storleken på de filer som du försöker läsa in kan du utföra följande kommandon:
 
 ```bash
 hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0274_1/
@@ -116,25 +116,25 @@ hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
 
 ### <a name="resolution"></a>Lösning
 
-Du kan öka Spark historik serverns minne genom att redigera `SPARK_DAEMON_MEMORY`-egenskapen i Spark-konfigurationen och starta om alla tjänster.
+Du kan öka Spark History Server-minnet genom att redigera egenskapen `SPARK_DAEMON_MEMORY` i Spark-konfigurationen och starta om alla tjänster.
 
-Det kan du göra i Ambari webb läsar gränssnitt genom att välja avsnittet Spark2/config/Advanced Spark2-miljö.
+Du kan göra detta inifrån webbläsaren Ambari genom att välja avsnittet Spark2/Config/Advanced spark2-env.
 
-![Avsnittet avancerad spark2-miljö](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
+![Avancerad spark2-env avsnitt](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png)
 
-Lägg till följande egenskap för att ändra server minnet för Spark-historik från 1G till 4G: `SPARK_DAEMON_MEMORY=4g`.
+Lägg till följande egenskap för att ändra Spark History Server-minnet från 1g till 4g: `SPARK_DAEMON_MEMORY=4g`.
 
-![Spark-egenskap](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
+![Egenskapen Spark](./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png)
 
 Se till att starta om alla berörda tjänster från Ambari.
 
 ---
 
-## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Scenario: livy-servern kan inte startas på Apache Spark kluster
+## <a name="scenario-livy-server-fails-to-start-on-apache-spark-cluster"></a>Scenario: Livy Server kan inte starta på Apache Spark kluster
 
 ### <a name="issue"></a>Problem
 
-Det går inte att starta livy-servern på en Apache Spark [(Spark 2,1 på Linux (HDI 3,6)]. Försök att starta om resultat i följande felstack från Livy-loggarna:
+Livy Server kan inte startas på en Apache Spark [(Spark 2.1 på Linux (HDI 3.6)]. Om du försöker starta om resulterar du i följande felstapel, från Livy-loggarna:
 
 ```log
 17/07/27 17:52:50 INFO CuratorFrameworkImpl: Starting
@@ -194,65 +194,65 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
 
 ### <a name="cause"></a>Orsak
 
-`java.lang.OutOfMemoryError: unable to create new native thread` visar att OS inte kan tilldela fler inbyggda trådar till JVMs. Bekräftat att detta undantag orsakas av överträdelsen av gränsen för antal trådar per process.
+`java.lang.OutOfMemoryError: unable to create new native thread`markerar os kan inte tilldela fler inbyggda trådar till JVMs. Bekräftat att det här undantaget orsakas av brott mot gränsen för per process trådantal.
 
-När livy-servern avslutas oväntad avslutas alla anslutningar till Spark-kluster också, vilket innebär att alla jobb och relaterade data går förlorade. I HDP 2,6-funktionen för att återställa sessionen lagrar livy sessionsinformation i Zookeeper för att återställas efter att livy-servern är tillbaka.
+När Livy Server avslutas oväntat avslutas även alla anslutningar till Spark-kluster, vilket innebär att alla jobb och relaterade data går förlorade. I HDP 2.6 session återvinnande mekanismen var introducerat, Livy lagren session detaljerna i Zookeeper till vara återvinna efter den Livy Servaren är rygg.
 
-När ett stort antal jobb skickas via livy, som en del av hög tillgänglighet för livy-servern, lagrar dessa sessionstillstånd i ZK (i HDInsight-kluster) och återställer dessa sessioner när livy-tjänsten startas om. Vid omstart efter en oväntad avslutning skapar livy en tråd per session och detta ackumulerar ett visst antal att återställa sessioner som orsakar att för många trådar skapas.
+När ett stort antal jobb skickas via Livy lagras dessa sessionstillstånd i ZK (på HDInsight-kluster) som en del av Hög tillgänglighet för Livy Server i ZK (på HDInsight-kluster) och återställer dessa sessioner när Livy-tjänsten startas om. Vid omstart efter oväntad avslutning skapar Livy en tråd per session och detta ackumulerar ett visst antal att återställa sessioner som orsakar för många trådar som skapas.
 
 ### <a name="resolution"></a>Lösning
 
-Ta bort alla poster med hjälp av stegen som beskrivs nedan.
+Ta bort alla poster med hjälp av stegen nedan.
 
-1. Hämta IP-adressen för Zookeeper-noderna med hjälp av
+1. Hämta IP-adressen för zookeeper noder med
 
     ```bash
     grep -R zk /etc/hadoop/conf  
     ```
 
-1. Kommandot ovan listade alla Zookeepers för mitt kluster
+1. Ovanstående kommando listade alla zookeepers för mitt kluster
 
     ```bash
     /etc/hadoop/conf/core-site.xml:      <value>zk1-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk2-      hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181,zk4-hwxspa.lnuwp5akw5ie1j2gi2amtuuimc.dx.internal.cloudapp.net:2181</value>
     ```
 
-1. Hämta alla IP-adresser för Zookeeper-noderna med ping eller så kan du också ansluta till Zookeeper från huvudnoden med ZK-namn
+1. Få alla IP-adressen för zookeeper noder med ping Eller så kan du också ansluta till zookeeper från headnode med zk namn
 
     ```bash
     /usr/hdp/current/zookeeper-client/bin/zkCli.sh -server zk2-hwxspa:2181
     ```
 
-1. När du är ansluten till Zookeeper kör du följande kommando för att visa en lista över alla sessioner som försöker starta om.
+1. När du är ansluten till zookeeper köra följande kommando för att lista alla sessioner som försöker starta om.
 
-    1. De flesta fall kan vara en lista över 8000 sessioner ####
+    1. De flesta fall kan detta vara en lista över mer än 8000 sessioner ####
 
         ```bash
         ls /livy/v1/batch
         ```
 
-    1. Följande kommando är för att ta bort alla sessioner som ska återställas. #####
+    1. Följande kommando är att ta bort alla att-vara-återvunna sessioner. #####
 
         ```bash
         rmr /livy/v1/batch
         ```
 
-1. Vänta tills kommandot ovan har slutförts och markören för att returnera prompten och starta sedan om livy-tjänsten från Ambari, som ska fungera.
+1. Vänta tills kommandot ovan har slutförts och markören returnerar prompten och startar sedan om Livy-tjänsten från Ambari, vilket bör lyckas.
 
 > [!NOTE]
-> `DELETE` livy-sessionen när körningen har slutförts. Livy batch-sessioner tas inte bort automatiskt så fort Spark-appen har slutförts, vilket är avsiktligt. En livy-session är en entitet som skapats av en POST-begäran mot livy rest-servern. Det krävs ett `DELETE`-anrop för att ta bort entiteten. Eller så bör vi vänta tills den globala katalogen är igång.
+> `DELETE`den liviga sessionen när den är avslutad sin avrättning. Livy-batchsessionerna tas inte bort automatiskt så snart spark-appen är klar, vilket är avsiktligt. En Livy-session är en entitet som skapas av en POST-begäran mot Livy Rest-server. Ett `DELETE` samtal behövs för att ta bort den entiteten. Eller så väntar vi på att GC ska sparka in.
 
 ---
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet eller inte kan lösa problemet kan du gå till någon av följande kanaler för mer support:
+Om du inte såg problemet eller inte kan lösa problemet besöker du någon av följande kanaler för mer support:
 
-* [Översikt över Spark-minnes hantering](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
+* [Översikt över hantering av sparkminne](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
 
-* [Felsöka Spark-program i HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
+* [Felsökning Spark-programmet på HDInsight-kluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
 
-* Få svar från Azure-experter via [Azure community support](https://azure.microsoft.com/support/community/).
+* Få svar från Azure-experter via [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport) – det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut [@AzureSupport](https://twitter.com/azuresupport) med – det officiella Microsoft Azure-kontot för att förbättra kundupplevelsen. Ansluta Azure-communityn till rätt resurser: svar, support och experter.
 
-* Om du behöver mer hjälp kan du skicka en support förfrågan från [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **stöd** på Meny raden eller öppna **Hjälp + Support** Hub. Mer detaljerad information finns [i så här skapar du en support förfrågan för Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerations hantering och fakturerings support ingår i din Microsoft Azure prenumeration och teknisk support tillhandahålls via ett av support avtalen för [Azure](https://azure.microsoft.com/support/plans/).
+* Om du behöver mer hjälp kan du skicka en supportbegäran från [Azure-portalen](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Välj **Stöd** i menyraden eller öppna **supporthubben Hjälp +.** Mer detaljerad information finns i [Så här skapar du en Azure-supportbegäran](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Åtkomst till prenumerationshantering och faktureringssupport ingår i din Microsoft Azure-prenumeration och teknisk support tillhandahålls via en av [Azure-supportplanerna](https://azure.microsoft.com/support/plans/).

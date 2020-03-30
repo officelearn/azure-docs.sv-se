@@ -1,6 +1,6 @@
 ---
-title: Ändra enhets konfigurationen för StorSimple 8000-serien | Microsoft Docs
-description: Beskriver hur du använder tjänsten StorSimple Enhetshanteraren för att konfigurera om en StorSimple-enhet som redan har distribuerats.
+title: Ändra enhetskonfigurationen i StorSimple 8000-serien | Microsoft-dokument
+description: Beskriver hur du använder Tjänsten StorSimple Device Manager för att konfigurera om en StorSimple-enhet som redan har distribuerats.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -15,152 +15,152 @@ ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
 ms.openlocfilehash: 774f5a73a5fc30352698c0af0c279fbbe488c480
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79267695"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Använd tjänsten StorSimple Enhetshanteraren för att ändra StorSimple-enhetens konfiguration
+# <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Använda Tjänsten StorSimple Device Manager för att ändra konfigurationen av StorSimple-enheten
 
 ## <a name="overview"></a>Översikt
 
-Avsnittet Azure Portal **enhets inställningar** i bladet **Inställningar** innehåller alla enhets parametrar som du kan konfigurera på en StorSimple-enhet som hanteras av en StorSimple Enhetshanteraren-tjänst. I den här självstudien beskrivs hur du kan använda bladet **Inställningar** för att utföra följande uppgifter på enhets nivå:
+Avsnittet Azure portal **Device-inställningar** i bladet **Inställningar** innehåller alla enhetsparametrar som du kan konfigurera om på en StorSimple-enhet som hanteras av en StorSimple Enhetshanteraren-tjänst. I den här självstudien beskrivs hur du kan använda **bladet Inställningar** för att utföra följande uppgifter på enhetsnivå:
 
-* Ändra eget namn på enhet
-* Ändra inställningar för enhets tid
+* Ändra enhetsvänligt namn
+* Ändra inställningar för enhetens tid
 * Tilldela en sekundär DNS
-* Ändra nätverks gränssnitt
-* Byta eller omtilldela IP-adresser
+* Ändra nätverksgränssnitt
+* Byta eller tilldela om IPs
 
-## <a name="modify-device-friendly-name"></a>Ändra eget namn på enhet
+## <a name="modify-device-friendly-name"></a>Ändra enhetsvänligt namn
 
-Du kan använda Azure Portal för att ändra enhetens namn och tilldela det ett unikt eget namn som du själv väljer. Använd bladet **allmänna inställningar** på enheten för att ändra enhetens egna namn. Det egna namnet får innehålla tecken och får innehålla högst 64 tecken.
+Du kan använda Azure-portalen för att ändra enhetens namn och tilldela den ett unikt eget namn som du väljer. Använd bladet **Allmänna inställningar** på enheten för att ändra enhetens eget namn. Det egna namnet kan innehålla alla tecken och kan vara högst 64 tecken långt.
 
 > [!NOTE] 
-> Du kan bara ändra enhets namnet i Azure Portal innan installationen av enheten är klar. När den lägsta enhets konfigurationen är klar kan du inte ändra enhetens namn.
+> Du kan bara ändra enhetsnamnet i Azure-portalen innan enhetskonfigurationen är klar. När den minsta enhetskonfigurationen är klar kan du inte ändra enhetsnamnet.
 
-![Enhets namn i allmänna inställningar](./media/storsimple-8000-modify-device-config/modify-general-settings3.png)
+![Enhetsnamn i allmänna inställningar](./media/storsimple-8000-modify-device-config/modify-general-settings3.png)
 
-En StorSimple-enhet som är ansluten till StorSimple Enhetshanteraren-tjänsten tilldelas ett standard namn. Standard namnet återspeglar vanligt vis enhetens serie nummer. Ett standardenhets namn som är 15 tecken långt, till exempel 8600-SHX0991003G44HT, anger följande:
+En StorSimple-enhet som är ansluten till Tjänsten StorSimple Device Manager tilldelas ett standardnamn. Standardnamnet återspeglar vanligtvis enhetens serienummer. Ett standardenhetsnamn som är 15 tecken långt, till exempel 8600-SHX0991003G44HT, anger till exempel följande:
 
-* **8600** – anger enhets modellen.
-* **SHX** – anger tillverknings platsen.
-* **0991003** -visar en speciell produkt.
-* **G44HT**– de sista 5 siffrorna ökar för att skapa unika serie nummer. Det kanske inte är en sekventiell uppsättning.
+* **8600** – Anger enhetsmodellen.
+* **SHX** – Anger tillverkningsanläggningen.
+* **0991003** - Anger en specifik produkt.
+* **G44HT**- De sista 5 siffrorna ökas för att skapa unika serienummer. Detta kanske inte är en sekventiell uppsättning.
 
-## <a name="modify-device-description"></a>Beskrivning av ändra enhet
+## <a name="modify-device-description"></a>Ändra enhetsbeskrivning
 
-Använd bladet **allmänna inställningar** på enheten för att ändra enhets beskrivningen.
+Använd bladet **Allmänna inställningar** på enheten för att ändra enhetsbeskrivningen.
 
-![Enhets beskrivning i allmänna inställningar](./media/storsimple-8000-modify-device-config/modify-general-settings4.png)
+![Enhetsbeskrivning i allmänna inställningar](./media/storsimple-8000-modify-device-config/modify-general-settings4.png)
 
-En enhets Beskrivning hjälper vanligt vis att identifiera ägaren och den fysiska platsen för enheten. Beskrivnings fältet måste innehålla färre än 256 tecken.
+En enhetsbeskrivning hjälper vanligtvis till att identifiera enhetens ägare och fysiska plats. Beskrivningsfältet måste innehålla färre än 256 tecken.
 
-## <a name="modify-time-settings"></a>Ändra tids inställningar
+## <a name="modify-time-settings"></a>Ändra tidsinställningar
 
-Enheten måste synkronisera tid för att kunna autentisera med din moln lagrings tjänst leverantör. Använd bladet **allmänna inställningar** på enheten för att ändra inställningarna för enhets tid.
+Enheten måste synkronisera tiden för att autentisera med din molnlagringstjänstleverantör. Använd bladet **Allmänna inställningar** på enheten för att ändra enhetstidsinställningarna.
 
-![Enhets beskrivning i allmänna inställningar](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![Enhetsbeskrivning i allmänna inställningar](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
- Välj din tidszon i list rutan. Du kan ange upp till två NTP-servrar (Network Time Protocol):
+ Välj tidszon i listrutan. Du kan ange upp till två NTP-servrar (Network Time Protocol):
 
- - **Primär NTP-server** – konfigurationen är obligatorisk och anges när du använder Windows PowerShell för StorSimple för att konfigurera enheten. Du kan ange standard- **Time.Windows.com** för Windows Server som NTP-server. Du kan visa den primära NTP-serverkonfigurationen via Azure Portal, men du måste använda Windows PowerShell-gränssnittet för att ändra det. Använd `Set-HcsNTPClientServerAddress`-cmdlet för att ändra enhetens primära NTP-server. Mer information finns i syntax för cmdleten [set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) .
+ - **Primär NTP-server** - Konfigurationen krävs och anges när du använder Windows PowerShell för StorSimple för att konfigurera enheten. Du kan ange standard- **Time.windows.com** För Windows Server som NTP-server. Du kan visa den primära NTP-serverkonfigurationen via Azure-portalen, men du måste använda Windows PowerShell-gränssnittet för att ändra den. Använd `Set-HcsNTPClientServerAddress` cmdleten för att ändra enhetens primära NTP-server. Mer information finns i syntaxen för [Cmdlet Set-HcsNTPClientServerAddress.](https://technet.microsoft.com/library/dn688138.aspx)
 
-- **Sekundär NTP-server** – konfigurationen är valfri. Du kan använda portalen för att konfigurera en sekundär NTP-server.
+- **Sekundär NTP-server** - Konfigurationen är valfri. Du kan använda portalen för att konfigurera en sekundär NTP-server.
 
-När du konfigurerar NTP-servern måste du kontrol lera att ditt nätverk tillåter att NTP-trafik skickas från ditt data Center till Internet. När du anger en offentlig NTP-server måste du kontrol lera att dina nätverks brand väggar och andra säkerhetsenheter har kon figurer ATS för att tillåta att NTP-trafik färdas till och från det externa nätverket. Om dubbelriktad NTP-trafik inte är tillåten måste du använda en intern NTP-server (en Windows-domänkontrollant tillhandahåller den här funktionen). Om enheten inte kan synkronisera tid kan det hända att den inte kan kommunicera med din moln lagrings leverantör.
+När du konfigurerar NTP-servern ska du se till att NTP-trafiken kan passera från ditt datacenter till Internet. När du anger en offentlig NTP-server måste du se till att nätverksbrandväggerna och andra säkerhetsenheter är konfigurerade så att NTP-trafik kan färdas till och från det externa nätverket. Om dubbelriktad NTP-trafik inte är tillåten måste du använda en intern NTP-server (en Windows-domänkontrollant tillhandahåller den här funktionen). Om enheten inte kan synkronisera tiden kanske den inte kan kommunicera med din molnlagringsleverantör.
 
-Om du vill se en lista över offentliga NTP-servrar går du till [webbplatsen NTP-servrar](https://support.ntp.org/bin/view/Servers/WebHome).
+Om du vill visa en lista över offentliga NTP-servrar går du till [NTP-servrarnas webb](https://support.ntp.org/bin/view/Servers/WebHome).
 
 ### <a name="what-happens-if-the-device-is-deployed-in-a-different-time-zone"></a>Vad händer om enheten distribueras i en annan tidszon?
 
-Om enheten distribueras i en annan tidszon kommer enhetens tidszon att ändras. Under förutsättning att alla säkerhets kopierings principer använder enhetens tidszon justeras säkerhets kopierings principerna automatiskt i enlighet med den nya tids zonen. Inga åtgärder från användaren krävs.
+Om enheten distribueras i en annan tidszon ändras enhetens tidszon. Med tanke på att alla principer för säkerhetskopiering använder enhetens tidszon justeras säkerhetskopieringsprinciperna automatiskt i enlighet med den nya tidszonen. Ingen åtgärd från användaren krävs.
 
 ## <a name="modify-dns-settings"></a>Ändra DNS-inställningar
 
-En DNS-server används när enheten försöker kommunicera med din moln lagrings tjänst leverantör. Använd bladet **nätverks inställningar** på din enhet för att visa och ändra de konfigurerade DNS-inställningarna. 
+En DNS-server används när enheten försöker kommunicera med din molnlagringstjänstleverantör. Använd **bladet Nätverksinställningar** på enheten för att visa och ändra de konfigurerade DNS-inställningarna. 
 
-![DNS-inställningar i nätverks inställningar](./media/storsimple-8000-modify-device-config/modify-network-settings1.png)
+![DNS-inställningar i Nätverksinställningar](./media/storsimple-8000-modify-device-config/modify-network-settings1.png)
 
-För hög tillgänglighet måste du konfigurera både den primära och sekundära DNS-servern under den första distributionen av enheten.
+För hög tillgänglighet måste du konfigurera både de primära och de sekundära DNS-servrarna under den första enhetsdistributionen.
 
-**Primär DNS-Server** – du använder Windows PowerShell för StorSimple för att först ange den primära DNS-servern under den första installationen. Du kan bara konfigurera om den primära DNS-servern via Windows PowerShell-gränssnittet. Använd `Set-HcsDNSClientServerAddress`-cmdlet för att ändra enhetens primära DNS-server. Mer information finns i syntax för cmdleten [set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) .
+**Primär DNS-server** - Du använder Windows PowerShell för StorSimple för att först ange den primära DNS-servern under den första installationen. Du kan bara konfigurera om den primära DNS-servern via Windows PowerShell-gränssnittet. Använd `Set-HcsDNSClientServerAddress` cmdleten för att ändra enhetens primära DNS-server. Mer information finns i syntaxen för [Cmdlet Set-HcsDNSClientServerAddress.](https://technet.microsoft.com/library/dn688138.aspx)
 
-**Sekundär DNS-Server** – om du vill ändra den sekundära DNS-servern använder du cmdleten `Set-HcsDNSClientServerAddress` i Windows PowerShell-gränssnittet på bladet enhet eller **nätverks inställningar** på din StorSimple-enhet i Azure Portal.
+**Sekundär DNS-server** – Om du vill `Set-HcsDNSClientServerAddress` ändra den sekundära DNS-servern använder du cmdleten i Windows PowerShell-gränssnittet för enheten eller **nätverksinställningsbladet** på din StorSimple-enhet i Azure-portalen.
 
-Om du vill ändra den sekundära DNS-servern i Azure Portal utför du följande steg.
+Om du vill ändra den sekundära DNS-servern i Azure-portalen utför du följande steg.
 
-1. Gå till StorSimple Device Manager-tjänsten. I listan med enheter väljer du och klickar på enheten.
+1. Gå till StorSimple Device Manager-tjänsten. Välj och klicka på enheten i listan över enheter.
 
-2. I bladet **Inställningar** går du till **enhets inställningar > nätverk**. Då öppnas bladet **nätverks inställningar** . Klicka på panelen **DNS-inställningar** . Ändra IP-adressen för den sekundära DNS-servern.
+2. Gå till **Enhetsinställningar > Nätverk**i bladet **Inställningar** . Då öppnas bladet **Nätverksinställningar.** Klicka på panelen **DNS-inställningar.** Ändra den sekundära IP-adressen för DNS-servern.
 
-    ![Ändra IP-adress för sekundär DNS-Server](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
+    ![Ändra sekundär IP-server-IP-adress för DNS-servern](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
 
-4. I kommando fältet klickar du på **Spara** och när du uppmanas att bekräfta klickar du på **OK**.
+4. Klicka på **Spara** i kommandofältet och klicka på **OK**när du uppmanas att bekräfta.
 
     ![Spara och bekräfta ändringar](./media/storsimple-8000-modify-device-config/modify-secondary-dns-2.png)
 
 
 
-## <a name="modify-network-interfaces"></a>Ändra nätverks gränssnitt
+## <a name="modify-network-interfaces"></a>Ändra nätverksgränssnitt
 
-Enheten har sex enhets nätverks gränssnitt, varav fyra är 1 GbE och två av som är 10 GbE. Dessa gränssnitt är märkta som DATA 0 – DATA 5. DATA 0, DATA 1, DATA 4 och DATA 5 är 1 GbE, medan DATA 2 och DATA 3 är 10 GbE-nätverkskort.
+Enheten har sex nätverksgränssnitt för enheter, varav fyra är 1 GbE och varav två är 10 GbE. Dessa gränssnitt är märkta som DATA 0 – DATA 5. DATA 0, DATA 1, DATA 4 och DATA 5 är 1 GbE, medan DATA 2 och DATA 3 är 10 GbE-nätverksgränssnitt.
 
-Använd bladet **nätverks inställningar** för att konfigurera var och en av de gränssnitt som ska användas.
+Använd **bladet Nätverksinställningar** för att konfigurera vart och ett av de gränssnitt som ska användas.
 
-![Konfigurera nätverks gränssnitt via nätverks inställningar](./media/storsimple-8000-modify-device-config/modify-network-settings3.png)
+![Konfigurera nätverksgränssnitt via nätverksinställningar](./media/storsimple-8000-modify-device-config/modify-network-settings3.png)
 
-För att säkerställa hög tillgänglighet rekommenderar vi att du har minst två iSCSI-gränssnitt och två moln aktiverade gränssnitt på enheten. Vi rekommenderar men kräver inte att oanvända gränssnitt inaktive ras.
+För att säkerställa hög tillgänglighet rekommenderar vi att du har minst två iSCSI-gränssnitt och två molnaktiverade gränssnitt på din enhet. Vi rekommenderar men kräver inte att oanvända gränssnitt inaktiveras.
 
-Följande parametrar visas för varje nätverks gränssnitt:
+För varje nätverksgränssnitt visas följande parametrar:
 
-* **Hastighet** – inte en användar konfigurerbar parameter. DATA 0, DATA 1, DATA 4 och DATA 5 är alltid 1 GbE, medan DATA 2 och DATA 3 är 10 GbE-gränssnitt.
+* **Hastighet** – Inte en användarkonfigurerbar parameter. DATA 0, DATA 1, DATA 4 och DATA 5 är alltid 1 GbE, medan DATA 2 och DATA 3 är 10 GbE-gränssnitt.
   
   > [!NOTE]
-  > Hastighet och duplex är alltid automatiskt förhandlade. Jumboramar-ramar stöds inte.
+  > Hastighet och duplex förhandlas alltid automatiskt. Jumboramar stöds inte.
   
-* **Gränssnitts tillstånd** – ett gränssnitt kan aktive ras eller inaktive ras. Om aktive rad kommer enheten att försöka använda gränssnittet. Vi rekommenderar att endast de gränssnitt som är anslutna till nätverket och används är aktiverade. Inaktivera alla gränssnitt som du inte använder.
-* **Gränssnitts typ** – med den här parametern kan du isolera iSCSI-trafik från moln lagrings trafik. Den här parametern kan vara något av följande:
+* **Gränssnittstillstånd** – Ett gränssnitt kan aktiveras eller inaktiveras. Om den är aktiverad försöker enheten använda gränssnittet. Vi rekommenderar att endast de gränssnitt som är anslutna till nätverket och används aktiveras. Inaktivera alla gränssnitt som du inte använder.
+* **Gränssnittstyp** – Med den här parametern kan du isolera iSCSI-trafik från molnlagringstrafik. Den här parametern kan vara något av följande:
   
-  * **Moln aktiverat** – när det här alternativet är aktiverat använder enheten det här gränssnittet för att kommunicera med molnet.
-  * **iSCSI aktiverat** – när den här inställningen är aktive rad använder enheten det här gränssnittet för att kommunicera med iSCSI-värden.
+  * **Moln aktiverat** – när det är aktiverat använder enheten det här gränssnittet för att kommunicera med molnet.
+  * **iSCSI aktiverat** – när det är aktiverat kommer enheten att använda det här gränssnittet för att kommunicera med iSCSI-värden.
     
-    Vi rekommenderar att du isolerar iSCSI-trafik från moln lagrings trafik. Observera också om din värd är i samma undernät som din enhet, behöver du inte tilldela en gateway. men om värden finns i ett annat undernät än din enhet måste du tilldela en gateway.
-* **IP-adress** – när du konfigurerar något av nätverks gränssnitten måste du konfigurera en virtuell IP-adress (VIP). Detta kan vara IPv4 eller IPv6 eller både och. Både IPv4-och IPv6-adress familjer stöds för enhetens nätverks gränssnitt. När du använder IPv4 anger du en 32-bitars IP-adress (*xxx.xxx.xxx.xxx*) i punkt-Decimal form. När du använder IPv6 kan du bara ange ett fyrsiffrigt prefix, och en 128-bitars adress genereras automatiskt för enhetens nätverks gränssnitt baserat på det prefixet.
-* **Undernät** – detta avser nät masken och konfigureras via Windows PowerShell-gränssnittet.
-* **Gateway** – det här är standard-gatewayen som ska användas av det här gränssnittet när den försöker kommunicera med noder som inte är inom samma IP-adressutrymme (undernät). Standard-gatewayen måste vara i samma adress utrymme (undernät) som gränssnittets IP-adress, som definieras av nät masken.
-* **Fast IP-adress** – det här fältet är endast tillgängligt när du konfigurerar data 0-gränssnittet. För åtgärder som uppdateringar eller fel sökning av enheten kan du behöva ansluta direkt till enhets styrenheten. Den fasta IP-adressen kan användas för att få åtkomst till både den aktiva och den passiva styrenheten på enheten.
+    Vi rekommenderar att du isolerar iSCSI-trafik från molnlagringstrafik. Observera också att om värden befinner sig i samma undernät som enheten behöver du inte tilldela en gateway. Men om värden finns i ett annat undernät än enheten måste du tilldela en gateway.
+* **IP-adress** – När du konfigurerar något av nätverksgränssnitten måste du konfigurera en virtuell IP (VIP). Detta kan vara IPv4 eller IPv6 eller båda. Både IPv4- och IPv6-adressfamiljerna stöds för enhetsnätverksgränssnitten. När du använder IPv4 anger du en 32-bitars IP-adress *(xxx.xxx.xxx.xxx*) i punkt decimalnotation. När du använder IPv6 anger du bara ett fyrsiffrigt prefix, och en 128-bitarsadress genereras automatiskt för enhetens nätverksgränssnitt baserat på prefixet.
+* **Undernät** – Detta refererar till nätmasken och konfigureras via Windows PowerShell-gränssnittet.
+* **Gateway** – Detta är standardgatewayen som ska användas av det här gränssnittet när den försöker kommunicera med noder som inte finns inom samma IP-adressutrymme (undernät). Standardgatewayen måste finnas i samma adressutrymme (undernät) som gränssnittets IP-adress, enligt vad som bestäms av nätmasken.
+* **Fast IP-adress** – Det här fältet är bara tillgängligt när du konfigurerar DATA 0-gränssnittet. För åtgärder som uppdateringar eller felsökning av enheten kan du behöva ansluta direkt till enhetsstyrenheten. Den fasta IP-adressen kan användas för att komma åt både den aktiva och den passiva styrenheten på enheten.
 
 > [!NOTE]
-> * För att säkerställa en korrekt åtgärd kontrollerar du gränssnittets hastighet och duplex på den växel som varje enhets gränssnitt är anslutet till. Växel gränssnitt bör antingen förhandlas med eller konfigureras för Gigabit Ethernet (1000 Mbit/s) och vara full duplex. Gränssnitt som körs med långsammare hastigheter eller i halv duplex leder till prestanda problem.
-> * För att minimera avbrott och drift stopp rekommenderar vi att du aktiverar PortFast på var och en av de växel portar som iSCSI-nätverkskortet på enheten ska ansluta till. Detta säkerställer att nätverks anslutningen kan upprättas snabbt i händelse av en redundansväxling.
+> * Kontrollera gränssnittets hastighet och dubbelsidighet på växeln som varje enhetsgränssnitt är anslutet till för att säkerställa att gränssnittet fungerar korrekt. Switch-gränssnitt bör antingen förhandla med eller konfigureras för Gigabit Ethernet (1000 Mbps) och vara full-duplex. Gränssnitt som arbetar med långsammare hastigheter eller i halv duplex kommer att resultera i prestandaproblem.
+> * För att minimera störningar och driftstopp rekommenderar vi att du aktiverar portfast på var och en av switchportarna som iSCSI-nätverksgränssnittet på enheten ansluter till. Detta säkerställer att nätverksanslutningen kan upprättas snabbt i händelse av en redundansväxling.
 
 ### <a name="configure-data-0"></a>Konfigurera DATA 0
 
-DATA 0 är Cloud-aktiverat som standard. När du konfigurerar DATA 0 måste du också konfigurera två fasta IP-adresser, en för varje kontrollant. Dessa fasta IP-adresser kan användas för att få åtkomst till enhetens styrenheter direkt och är användbara när du installerar uppdateringar på enheten, för att skräp insamling ska fungera korrekt eller när du får åtkomst till kontrollanterna i fel söknings syfte.
+DATA 0 är molnaktiverat som standard. När du konfigurerar DATA 0 måste du också konfigurera två fasta IP-adresser, en för varje styrenhet. Dessa fasta IP-adresser kan användas för att komma åt enhetskontrollanterna direkt och är användbara när du installerar uppdateringar på enheten, för att skräpinsamling ska fungera korrekt eller när du kommer åt styrenheterna i felsökningssyfte.
 
-Du kan konfigurera om de fasta IP-styrenheterna via bladet DATA 0 inställningar.
+Du kan konfigurera om de fasta IP-styrenheterna via bladet DATA 0-inställningar.
 
-![Konfigurera nätverks gränssnitt – DATA 0](./media/storsimple-8000-modify-device-config/modify-network-settings2.png)
+![Konfigurera nätverksgränssnitt - DATA 0](./media/storsimple-8000-modify-device-config/modify-network-settings2.png)
 
 > [!NOTE]
-> De fasta IP-adresserna för styrenheten används för att betjäna uppdateringar av enheten och för att utrymmes återtagnings algoritmer (skräp insamling) ska fungera korrekt. Därför måste de fasta IP-adresserna vara dirigerbara och kunna ansluta till Internet.
+> De fasta IP-adresserna för styrenheten används för att underhålla uppdateringarna till enheten och för att utrymmesåterkallningsalgoritmer (skräpinsamling) ska fungera korrekt. Därför måste de fasta IP-adresserna vara dirigerbara och kunna ansluta till Internet.
 
-### <a name="configure-data-1---data-5"></a>Konfigurera DATA 1 – DATA 5
+### <a name="configure-data-1---data-5"></a>Konfigurera DATA 1 - DATA 5
 
-För DATA 1 – DATA 5 nätverks gränssnitt kan du konfigurera alla nätverks inställningar som visas på följande skärm bild:
+För DATA 1 - DATA 5-nätverksgränssnitt kan du konfigurera alla nätverksinställningar som visas i följande skärmbild:
 
-![Konfigurera nätverks gränssnitt DATA 1 – DATA 5](./media/storsimple-8000-modify-device-config/modify-network-settings4.png)
+![Konfigurera nätverksgränssnitt DATA 1 - DATA 5](./media/storsimple-8000-modify-device-config/modify-network-settings4.png)
 
 
-## <a name="swap-or-reassign-ips"></a>Byta eller omtilldela IP-adresser
+## <a name="swap-or-reassign-ips"></a>Byta eller tilldela om IPs
 
-Om ett nätverks gränssnitt på styrenheten har tilldelats ett virtuellt nätverk som används (av samma enhet eller någon annan enhet i nätverket), redundansväxlas kontrollanten. Om du byter eller omtilldelar VIP för ett enhets nätverks gränssnitt måste du följa en lämplig procedur för att skapa en dubblett av IP-situationen.
+För närvarande, om något nätverksgränssnitt på styrenheten tilldelas en VIP som används (av samma enhet eller en annan enhet i nätverket), då styrenheten kommer att växla över. Om du byter eller återanvisar VIP-adresser för ett enhetsnätverksgränssnitt måste du följa en korrekt procedur eftersom du kan skapa en dubblett-IP-situation.
 
-Utför följande steg för att byta ut eller omtilldela VIP för något av nätverks gränssnitten:
+Utför följande steg för att byta eller tilldela om VIP-adresserna för något av nätverksgränssnitten:
 
-#### <a name="to-reassign-ips"></a>Tilldela om IP-adresser
+#### <a name="to-reassign-ips"></a>Så här återanvisar du IPs
 
 1. Rensa IP-adressen för båda gränssnitten.
 2. När IP-adresserna har rensats tilldelar du de nya IP-adresserna till respektive gränssnitt.
@@ -168,5 +168,5 @@ Utför följande steg för att byta ut eller omtilldela VIP för något av nätv
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du [konfigurerar MPIO för din StorSimple-enhet](storsimple-8000-configure-mpio-windows-server.md).
-* Lär dig hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Lär dig hur du [använder Tjänsten StorSimple Device Manager för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

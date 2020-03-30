@@ -1,6 +1,6 @@
 ---
-title: Hämta token för att anropa en webb-API (daemon-app) – Microsoft Identity Platform | Azure
-description: 'Lär dig hur du skapar en daemon-app som anropar webb-API: er (hämtar token)'
+title: Skaffa token för att anropa ett webb-API (daemonapp) – Microsoft identity platform | Azure
+description: Lär dig hur du skapar en daemon app som anropar webb-API:er (hämta token)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,19 +16,19 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79262651"
 ---
-# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app som anropar webb-API: er – hämta en token
+# <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon app som anropar webb-API: er - skaffa en token
 
-När du har skapat ett konfidentiellt klient program kan du hämta en token för appen genom att anropa `AcquireTokenForClient`, skicka omfånget och eventuellt framtvinga en uppdatering av token.
+När du har skapat ett konfidentiellt klientprogram kan du hämta `AcquireTokenForClient`en token för appen genom att anropa, skicka scopet och eventuellt tvinga fram en uppdatering av token.
 
-## <a name="scopes-to-request"></a>Omfattningar som ska begäras
+## <a name="scopes-to-request"></a>Scope att begära
 
-Omfånget för att begära ett flöde för klientautentiseringsuppgifter är namnet på resursen följt av `/.default`. Den här texten talar om för Azure Active Directory (Azure AD) att använda *behörigheter på program nivå* som har deklarerats statiskt under program registrering. Dessa API-behörigheter måste också beviljas av en innehavaradministratör.
+Scopet för att begära ett klientautentiseringsflöde är namnet `/.default`på resursen följt av . Den här notationen talar om för Azure Active Directory (Azure AD) att använda *behörigheterna på programnivå som deklarerats* statiskt under programregistreringen. Dessa API-behörigheter måste också beviljas av en klientadministratör.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -39,7 +39,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 # <a name="python"></a>[Python](#tab/python)
 
-I MSAL python ser konfigurations filen ut som detta kodfragment:
+I MSAL Python ser konfigurationsfilen ut så här kodavsnittet:
 
 ```Json
 {
@@ -55,17 +55,17 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ---
 
-### <a name="azure-ad-v10-resources"></a>Azure AD-resurser (v 1.0)
+### <a name="azure-ad-v10-resources"></a>Azure AD-resurser (v1.0)
 
-Det omfång som används för klientautentiseringsuppgifter bör alltid vara resurs-ID följt av `/.default`.
+Det scope som används för klientautentiseringsuppgifter ska `/.default`alltid vara resurs-ID följt av .
 
 > [!IMPORTANT]
-> När MSAL begär en åtkomsttoken för en resurs som accepterar en version 1,0-åtkomsttoken, parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID.
-> Om till exempel Azure SQL Database (**https:\//Database.Windows.net**) förväntar sig resursen en mål grupp som slutar med ett snedstreck (för Azure SQL Database `https://database.windows.net/`) måste du begära ett omfång för `https://database.windows.net//.default`. (Observera det dubbla snedstrecket.) Se även MSAL.NET problem [#747: resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
+> När MSAL begär en åtkomsttoken för en resurs som accepterar en version 1.0-åtkomsttoken tolkar Azure AD önskad målgrupp från det begärda omfånget genom att ta allt före det sista snedstrecket och använda den som resursidentifierare.
+> Så om, som Azure SQL Database (**https:\//database.windows.net**), resursen förväntar sig en `https://database.windows.net/`publik som slutar med ett `https://database.windows.net//.default`snedstreck (för Azure SQL Database, ), måste du begära ett omfång av . (Notera det dubbla snedstrecket.) Se även MSAL.NET problem [#747: Resurs url s avslutande snedstreck utelämnas, vilket orsakade SQL Auth misslyckande](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
-## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient-API
+## <a name="acquiretokenforclient-api"></a>Skaffa Api för att förvärvaTokenForClient
 
-Om du vill hämta en token för appen använder du `AcquireTokenForClient` eller motsvarande, beroende på plattform.
+Om du vill hämta en token `AcquireTokenForClient` för appen använder du eller motsvarande, beroende på plattform.
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -122,7 +122,7 @@ else:
 
 # <a name="java"></a>[Java](#tab/java)
 
-Den här koden extraheras från [MSAL java-dev-exempel](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
+Den här koden extraheras från [MSAL Java dev-exemplen](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
 
 ```Java
 private static IAuthenticationResult acquireToken() throws Exception {
@@ -173,9 +173,9 @@ private static IAuthenticationResult acquireToken() throws Exception {
 
 ### <a name="protocol"></a>Protokoll
 
-Om du ännu inte har ett bibliotek för ditt valda språk, kanske du vill använda protokollet direkt:
+Om du ännu inte har ett bibliotek för det språk du valt kan du använda protokollet direkt:
 
-#### <a name="first-case-access-the-token-request-by-using-a-shared-secret"></a>Första fallet: få åtkomst till Tokenbegäran med hjälp av en delad hemlighet
+#### <a name="first-case-access-the-token-request-by-using-a-shared-secret"></a>Första fallet: Få tillgång till tokenbegäran med hjälp av en delad hemlighet
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
@@ -188,7 +188,7 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials
 ```
 
-#### <a name="second-case-access-the-token-request-by-using-a-certificate"></a>Andra fallet: få åtkomst till Tokenbegäran med hjälp av ett certifikat
+#### <a name="second-case-access-the-token-request-by-using-a-certificate"></a>Andra fallet: Få tillgång till tokenbegäran med hjälp av ett certifikat
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
@@ -202,22 +202,22 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 &grant_type=client_credentials
 ```
 
-Mer information finns i protokoll dokumentationen: [Microsoft Identity Platform och OAuth 2,0-klientens autentiseringsuppgifter Flow](v2-oauth2-client-creds-grant-flow.md).
+Mer information finns i protokolldokumentationen: [Microsoft identity platform och OAuth 2.0-klientautentiseringsflödet](v2-oauth2-client-creds-grant-flow.md).
 
-## <a name="application-token-cache"></a>Cache för program-token
+## <a name="application-token-cache"></a>Cache för programtoken
 
-I MSAL.NET använder `AcquireTokenForClient` Application token cache. (Alla andra AcquireToken*XX* -metoder använder user token cache.) Anropa inte `AcquireTokenSilent` innan du anropar `AcquireTokenForClient`, eftersom `AcquireTokenSilent` använder *användartoken.* `AcquireTokenForClient` kontrollerar cacheminnet för *program* -token och uppdaterar det.
+I MSAL.NET `AcquireTokenForClient` använder programtokens cacheminnet. (Alla andra AcquireToken*XX-metoder* använder användartokencachen.) Ring `AcquireTokenSilent` inte innan du `AcquireTokenForClient`ringer `AcquireTokenSilent` , eftersom använder *användaren* token cache. `AcquireTokenForClient`kontrollerar *application* själva programtoken-cachen och uppdaterar den.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="did-you-use-the-resourcedefault-scope"></a>Har du använt Resource/. default-omfånget?
+### <a name="did-you-use-the-resourcedefault-scope"></a>Använde du resurs/.standardomfattning?
 
-Om du får ett fel meddelande om att du har använt ett ogiltigt omfång, använder du förmodligen inte `resource/.default` omfattningen.
+Om du får ett felmeddelande om att du har använt ett `resource/.default` ogiltigt scope har du förmodligen inte använt scopet.
 
-### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Glömde du att ge administratörs tillåtelse? Daemon-appar behöver!
+### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Har du glömt att ge admin samtycke? Daemon apps behöver det!
 
-Om du får **otillräcklig behörighet för att slutföra åtgärds** felet när du anropar API: t måste klient organisationens administratör bevilja behörighet till programmet. Se steg 6 i registrera klient programmet ovan.
-Du ser vanligt vis ett fel som ser ut ungefär så här:
+Om du får **otillräckliga privilegier för att slutföra åtgärdsfelet** när du anropar API:et måste klientadministratören bevilja behörigheter till programmet. Se steg 6 i Registrera klientappen ovan.
+Du ser vanligtvis ett fel som ser ut så här:
 
 ```JSon
 Failed to call the web API: Forbidden
@@ -238,16 +238,16 @@ Content: {
 # <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
-> [Daemon-app – anropar ett webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+> [Daemon app - ringa en webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
 
 # <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Daemon-app – anropar ett webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+> [Daemon app - ringa en webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
 
 # <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Daemon-app – anropar ett webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+> [Daemon app - ringa en webb-API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
 
 ---

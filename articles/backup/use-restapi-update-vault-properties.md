@@ -1,39 +1,39 @@
 ---
-title: Uppdatera Recovery Services valv konfiguration med REST API
-description: I den här artikeln lär du dig hur du uppdaterar valv konfigurationen med REST API.
+title: Uppdatera valvkonfiguration för Återställningstjänster med REST API
+description: I den här artikeln får du lära dig hur du uppdaterar valvens konfiguration med REST API.
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
 ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79252368"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Uppdatera Azure Recovery Services Vault-konfigurationer med REST API
 
-I den här artikeln beskrivs hur du uppdaterar säkerhets kopierings-relaterade konfigurationer i Azure Recovery Services Vault med REST API.
+I den hÃ¤r artikeln beskrivs hur du uppdaterar ã¤ã¤ringar på ã¤6ã¤ringar på ã¶r ã¤ã¶kning av relaterade konfigurationer i Azure Recovery Services-valv med REST API.
 
-## <a name="soft-delete-state"></a>Läge för mjuk borttagning
+## <a name="soft-delete-state"></a>Mjukt borttagningstillstånd
 
-Att ta bort säkerhets kopior av ett skyddat objekt är en viktig åtgärd som måste övervakas. För att skydda mot oavsiktlig borttagning har Azure Recovery Services Vault en funktion för mjuk borttagning. Den här funktionen gör det möjligt för kunder att återställa borttagna säkerhets kopior, om det behövs inom en tids period efter borttagningen.
+Att ta bort säkerhetskopior av ett skyddat objekt är en betydande åtgärd som måste övervakas. För att skydda mot oavsiktliga borttagningar har Azure Recovery Services-valvet en mjuk borttagningsfunktion. Med den här funktionen kan kunder återställa borttagna säkerhetskopior, om det behövs, inom en tidsperiod efter borttagningen.
 
-Men det finns scenarier där den här funktionen inte krävs. Det går inte att ta bort ett Azure Recovery Services-valv om det finns säkerhets kopierings objekt i det, även mjuk borttagning av dem. Detta kan innebära ett problem om valvet måste tas bort omedelbart. Till exempel: distributions åtgärder rensar ofta de skapade resurserna i samma arbets flöde. En distribution kan skapa ett valv, konfigurera säkerhets kopior för ett objekt, göra en test återställning och sedan fortsätta att ta bort säkerhets kopierings objekt och valvet. Om valvet inte kan tas bort kan hela distributionen Miss lyckas. Att inaktivera mjuk borttagning är det enda sättet att garantera omedelbar borttagning.
+Men det finns scenarier där den här funktionen inte krävs. Det går inte att ta bort ett Azure Recovery Services-valv om det finns säkerhetskopieringsobjekt i det, även mjuka bort. Detta kan utgöra ett problem om valvet måste tas bort omedelbart. Till exempel: distributionsåtgärder rensar ofta de skapade resurserna i samma arbetsflöde. En distribution kan skapa ett valv, konfigurera säkerhetskopior för ett objekt, göra en teståterställning och sedan fortsätta att ta bort säkerhetskopior och valvet. Om borttagningen av valvet misslyckas kan hela distributionen misslyckas. Att inaktivera mjuk borttagning är det enda sättet att garantera omedelbar borttagning.
 
-Kunden måste därför noggrant välja om du vill inaktivera mjuk borttagning för ett visst valv beroende på scenariot. Mer information finns i artikeln om [mjuk borttagning](backup-azure-security-feature-cloud.md#soft-delete).
+Därför måste kunden noggrant välja om att inaktivera mjuk-borttagning för ett visst valv beroende på scenariot. Mer information finns i [artikeln för mjuk borttagning](backup-azure-security-feature-cloud.md#soft-delete).
 
-### <a name="fetch-soft-delete-state-using-rest-api"></a>Hämta läget för mjuk borttagning med REST API
+### <a name="fetch-soft-delete-state-using-rest-api"></a>Hämta mjukt borttagningstillstånd med REST API
 
-Som standard aktive ras läget för mjuk borttagning för alla nyskapade Recovery Services-valv. Om du vill hämta/uppdatera status för mjuk borttagning för ett valv använder du säkerhets kopierings valvets konfiguration relaterad [REST API dokument](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs)
+Som standard aktiveras tillståndet för mjuk borttagning för alla nyligen skapade Recovery Services-valv. Om du vill hämta/uppdatera tillståndet för mjuk borttagning för ett valv använder du säkerhetskopieringsvalvets config-relaterade [REST API-dokument](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs)
 
-Om du vill hämta det aktuella läget för mjuk borttagning för ett valv använder du följande *Get* -åtgärd
+Om du vill hämta det aktuella tillståndet för mjuk borttagning för ett valv använder du följande *GET-åtgärd*
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-Hämta URI har `{subscriptionId}`, `{vaultName}``{vaultresourceGroupName}` parametrar. I det här exemplet är `{vaultName}` "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Eftersom alla parametrar som krävs anges i URI: n behöver du inte ha någon separat brödtext i begäran.
+GET-uri `{subscriptionId}`har `{vaultName}` `{vaultresourceGroupName}` parametrar för GET. I det `{vaultName}` här exemplet är "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Eftersom alla nödvändiga parametrar anges i URI finns det inget behov av ett separat begärandeorgan.
 
 ```http
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
@@ -41,7 +41,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 #### <a name="responses"></a>Svar
 
-Det framgångs bara svaret för GET-åtgärden visas nedan:
+Det lyckade svaret för GET-åtgärden visas nedan:
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
@@ -49,7 +49,7 @@ Det framgångs bara svaret för GET-åtgärden visas nedan:
 
 ##### <a name="example-response"></a>Exempelsvar
 
-När GET-begäran har skickats returneras ett 200-svar (lyckades).
+När GET-begäran har skickats returneras ett 200 -svar (lyckat) svar.
 
 ```json
 {
@@ -63,36 +63,36 @@ När GET-begäran har skickats returneras ett 200-svar (lyckades).
 }
 ```
 
-### <a name="update-soft-delete-state-using-rest-api"></a>Uppdatera läget för mjuk borttagning med REST API
+### <a name="update-soft-delete-state-using-rest-api"></a>Uppdatera mjukt borttagningstillstånd med REST API
 
-Om du vill uppdatera det mjuka borttagnings läget för Recovery Services-valvet med REST API använder du följande *korrigerings* åtgärd
+Om du vill uppdatera det mjuka borttagningstillståndet för återställningstjänstvalvet med REST API använder du följande *PATCH-åtgärd*
 
 ```http
 PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-KORRIGERINGs-URI: n har `{subscriptionId}``{vaultName}``{vaultresourceGroupName}` parametrar. I det här exemplet är `{vaultName}` "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Om vi ersätter URI: n med värdena ovan kommer URI: n att se ut så här.
+PATCH-urien `{subscriptionId}` `{vaultName}`har `{vaultresourceGroupName}` , , parametrar. I det `{vaultName}` här exemplet är "testVault" och `{vaultresourceGroupName}` är "testVaultRG". Om vi ersätter URI med värdena ovan, kommer URI att se ut så här.
 
 ```http
 PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
 ```
 
-#### <a name="create-the-request-body"></a>Skapa begär ande texten
+#### <a name="create-the-request-body"></a>Skapa förfrådetexten
 
-Följande vanliga definitioner används för att skapa en begär ande text
+Följande vanliga definitioner används för att skapa en begärandetext
 
-Mer information finns i REST API- [dokumentationen](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
+Mer information finns [i REST API-dokumentationen](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body)
 
 |Namn  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
-|eTag     |         |   String      |  Valfri eTag       |
-|location     |  true       |String         |   Resurs plats      |
+|Etag     |         |   String      |  Valfri eTag       |
+|location     |  true       |String         |   Resursplats      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
-|taggar     |         | Objekt        |     Resurstaggar    |
+|tags     |         | Objekt        |     Resurstaggar    |
 
-#### <a name="example-request-body"></a>Exempel på begär ande text
+#### <a name="example-request-body"></a>Exempel på begäran
 
-Följande exempel används för att uppdatera läget för mjuk borttagning till disabled.
+Följande exempel används för att uppdatera läget för mjuk borttagning till "inaktiverat".
 
 ```json
 {
@@ -105,7 +105,7 @@ Följande exempel används för att uppdatera läget för mjuk borttagning till 
 
 #### <a name="responses"></a>Svar
 
-Det framgångs bara svaret för åtgärden "PATCH" visas nedan:
+Det lyckade svaret för "PATCH"-åtgärden visas nedan:
 
 |Namn  |Typ  |Beskrivning  |
 |---------|---------|---------|
@@ -113,7 +113,7 @@ Det framgångs bara svaret för åtgärden "PATCH" visas nedan:
 
 ##### <a name="example-response"></a>Exempelsvar
 
-När PATCH-begäran har skickats returneras ett 200-svar (lyckades).
+När "PATCH"-begäran har skickats returneras ett 200 -svar (lyckat) svar.
 
 ```json
 {
@@ -129,9 +129,9 @@ När PATCH-begäran har skickats returneras ett 200-svar (lyckades).
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Skapa en säkerhets kopierings princip för säkerhets kopiering av en virtuell Azure-dator i det här valvet](backup-azure-arm-userestapi-createorupdatepolicy.md).
+[Skapa en princip för säkerhetskopiering av en Azure-dator i det här valvet](backup-azure-arm-userestapi-createorupdatepolicy.md).
 
-Mer information om Azure REST-API: er finns i följande dokument:
+Mer information om Azure REST API:er finns i följande dokument:
 
-- [Azure Recovery Services-Provider REST API](/rest/api/recoveryservices/)
+- [REST-API för Azure Recovery Services-provider](/rest/api/recoveryservices/)
 - [Komma igång med Azure REST API](/rest/api/azure/)

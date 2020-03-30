@@ -7,120 +7,120 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: a2eade6c5a9c826d28d435a09861ba58463ae8c4
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79280539"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integrering för Azure Red Hat OpenShift
 
-Om du inte redan har skapat en Azure Active Directory-klient (Azure AD) följer du anvisningarna i [skapa en Azure AD-klient för Azure Red Hat OpenShift](howto-create-tenant.md) innan du fortsätter med de här anvisningarna.
+Om du inte redan har skapat en Azure Active Directory-klientorganisation (Azure AD) följer du anvisningarna i [Skapa en Azure AD-klient för Azure Red Hat OpenShift](howto-create-tenant.md) innan du fortsätter med dessa instruktioner.
 
-Microsoft Azure Red Hat OpenShift måste ha behörighet att utföra åtgärder på uppdrag av klustret. Om din organisation inte redan har en Azure AD-användare, Azure AD-säkerhetsgrupp eller en Azure AD-App-registrering som ska användas som tjänstens huvud namn, följer du dessa anvisningar för att skapa dem.
+Microsoft Azure Red Hat OpenShift behöver behörigheter för att utföra uppgifter för ditt kluster. Om din organisation inte redan har en Azure AD-användare, Azure AD-säkerhetsgrupp eller en Azure AD-appregistrering som ska användas som tjänstens huvudnamn följer du dessa instruktioner för att skapa dem.
 
 ## <a name="create-a-new-azure-active-directory-user"></a>Skapa en ny Azure Active Directory-användare
 
-I [Azure Portal](https://portal.azure.com)kontrollerar du att klienten visas under ditt användar namn längst upp till höger i portalen:
+I [Azure-portalen](https://portal.azure.com)kontrollerar du att din klient visas under ditt användarnamn längst upp till höger i portalen:
 
-![skärm bild av portalen med klienten som visas uppe till höger](./media/howto-create-tenant/tenant-callout.png) om fel klient visas, klickar du på ditt användar namn längst upp till höger och klickar sedan på **Växla katalog**och väljer rätt klient i listan **alla kataloger** .
+![Skärmbild av portal med klienten överst till höger](./media/howto-create-tenant/tenant-callout.png) Om fel klient visas klickar du på ditt användarnamn längst upp till höger, klickar sedan på Växla **katalog**och väljer rätt klient i listan Alla **kataloger.**
 
-Skapa en ny Azure Active Directory global administratörs användare för att logga in på ditt Azure Red Hat OpenShift-kluster.
+Skapa en ny global Azure Active Directory-administratörsanvändare för att logga in på azure red hat OpenShift-klustret.
 
-1. Gå till bladet [användare – alla användare](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) .
-2. Klicka på **+ ny användare** för att öppna fönstret **användare** .
+1. Gå till bladet [Användare-Alla](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) användare.
+2. Klicka på **+Ny användare** för att öppna **användarfönstret.**
 3. Ange ett **namn** för den här användaren.
-4. Skapa ett **användar namn** baserat på namnet på den klient som du skapade, med `.onmicrosoft.com` bifogat i slutet. Till exempel `yourUserName@yourTenantName.onmicrosoft.com`. Skriv ned det här användar namnet. Du behöver den för att logga in på klustret.
-5. Klicka på **katalog roll** för att öppna fönstret katalog roll och välj **Global administratör** och klicka sedan på **OK** längst ned i fönstret.
-6. I fönstret **användare** klickar du på **Visa lösen ord** och registrerar det tillfälliga lösen ordet. När du har loggat in första gången uppmanas du att återställa den.
-7. Klicka på **skapa** längst ned i fönstret för att skapa användaren.
+4. Skapa ett **användarnamn** baserat på namnet på klienten som du skapade, med `.onmicrosoft.com` tillägg i slutet. Till exempel `yourUserName@yourTenantName.onmicrosoft.com`. Skriv ned det här användarnamnet. Du behöver den för att logga in på klustret.
+5. Klicka på **Katalogrollen** för att öppna katalogrollsfönstret och välj **Global administratör** och klicka sedan på **Ok** längst ned i fönstret.
+6. Klicka på Visa **lösenord** i **användarfönstret** och registrera det tillfälliga lösenordet. När du har loggat in första gången uppmanas du att återställa den.
+7. Klicka på **Skapa** längst ned i fönstret för att skapa användaren.
 
 ## <a name="create-an-azure-ad-security-group"></a>Skapa en Azure AD-säkerhetsgrupp
 
-Medlemskap i en Azure AD-säkerhetsgrupp synkroniseras i OpenShift-gruppen "OSA-Customer-admins" för att bevilja åtkomst till kluster administratören. Om inget anges beviljas ingen kluster administratörs åtkomst.
+För att bevilja klusteradministratörsåtkomst synkroniseras medlemskapen i en Azure AD-säkerhetsgrupp i OpenShift-gruppen "osa-customer-admins". Om inget klusteradministratörsbehör har angetts beviljas ingen åtkomst till klusteradministratören.
 
-1. Öppna bladet [Azure Active Directory grupper](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups) .
-2. Klicka på **+ ny grupp**.
-3. Ange ett grupp namn och en beskrivning.
-4. Ange **grupp typ** till **säkerhet**.
-5. Ange **medlemskaps typ** som **tilldelad**.
+1. Öppna bladet [Azure Active Directory-grupper.](https://portal.azure.com/#blade/Microsoft_AAD_IAM/GroupsManagementMenuBlade/AllGroups)
+2. Klicka på **+Ny grupp**.
+3. Ange ett gruppnamn och en beskrivning.
+4. Ange **grupptyp** till **Säkerhet**.
+5. Ange **medlemstyp** till **Tilldelad**.
 
-    Lägg till den Azure AD-användare som du skapade i det tidigare steget i den här säkerhets gruppen.
+    Lägg till Azure AD-användaren som du skapade i det tidigare steget i den här säkerhetsgruppen.
 
-6. Klicka på **medlemmar** för att öppna fönstret **Välj medlemmar** .
-7. I listan Medlemmar väljer du den Azure AD-användare som du skapade ovan.
-8. Längst ned i portalen klickar du på **Välj** och sedan **skapa** för att skapa säkerhets gruppen.
+6. Öppna fönstret **Välj medlemmar** genom att klicka på **Medlemmar.**
+7. I medlemslistan väljer du den Azure AD-användare som du skapade ovan.
+8. Längst ned i portalen klickar du på **Markera** och **sedan skapa** för att skapa säkerhetsgruppen.
 
-    Skriv ned värdet för grupp-ID.
+    Skriv ned grupp-ID-värdet.
 
-9. När gruppen har skapats visas den i listan över alla grupper. Klicka på den nya gruppen.
-10. På sidan som visas kopierar du **objekt-ID: t**. Vi kommer att referera till det här värdet som `GROUPID` i själv studie kursen [skapa en Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
+9. När gruppen skapas visas den i listan över alla grupper. Klicka på den nya gruppen.
+10. På sidan som visas kopierar du **objekt-ID:et**. Vi refererar till `GROUPID` det här värdet som i självstudien [Skapa en Azure Red Hat OpenShift-kluster.](tutorial-create-cluster.md)
 
 > [!IMPORTANT]
-> Om du vill synkronisera den här gruppen med OpenShift-gruppen OSA-Customer-admins skapar du klustret med hjälp av Azure CLI. Azure Portal för närvarande saknar ett fält för att ange den här gruppen.
+> Om du vill synkronisera den här gruppen med OpenShift-gruppen för osa-kundadministratörer skapar du klustret med hjälp av Azure CLI. Azure-portalen saknar för närvarande ett fält för att ange den här gruppen.
 
-## <a name="create-an-azure-ad-app-registration"></a>Skapa en Azure AD-App-registrering
+## <a name="create-an-azure-ad-app-registration"></a>Skapa en Azure AD-appregistrering
 
-Du kan automatiskt skapa en Azure Active Directory-klient (Azure AD) för program registrering som en del av att skapa klustret genom att utesluta flaggan `--aad-client-app-id` till `az openshift create` kommandot. I den här självstudien lär du dig hur du skapar Azure AD-appens registrering för att bli klar.
+Du kan automatiskt skapa en Azure Active Directory -appregistreringsklient (Azure AD) som en del av att skapa klustret genom att utelämna `--aad-client-app-id` flaggan till `az openshift create` kommandot. Den här självstudien visar hur du skapar Azure AD-appregistreringen för fullständighet.
 
-Om din organisation inte redan har en Azure Active Directory-app (Azure AD) som ska användas som tjänstens huvud namn, följer du dessa instruktioner för att skapa en.
+Om din organisation inte redan har en Azure Active Directory-appregistrering (Azure AD) som ska användas som tjänsthuvudnamn följer du dessa instruktioner för att skapa en.
 
-1. Öppna [bladet Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) och klicka på **+ ny registrering**.
-2. Ange ett namn för program registreringen i fönstret **Registrera ett program** .
-3. Se till att under **konto typer som stöds** som **konton i den här organisations katalogen endast** är markerad. Det här är det säkraste alternativet.
-4. Vi kommer att lägga till en omdirigerings-URI senare när vi känner till klustrets URI. Klicka på knappen **Registrera** för att skapa Azure AD-programregistrering.
-5. På sidan som visas kopierar du **program-ID: t (klient)** . Vi kommer att referera till det här värdet som `APPID` i själv studie kursen [skapa en Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
+1. Öppna [bladet Appregistreringar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) och klicka på **+Ny registrering**.
+2. Ange ett namn på din ansökan registrering i fönstret **Registrera ett program.**
+3. Kontrollera att konton **i den här organisationskatalogen endast** är markerade under **kontotyper som stöds.** Detta är det säkraste valet.
+4. Vi kommer att lägga till en omdirigera URI senare när vi känner till URI i klustret. Klicka på knappen **Registrera** för att skapa registreringen av Azure AD-program.
+5. På sidan som visas kopierar du **programmets (klient)-ID.** Vi refererar till `APPID` det här värdet som i självstudien [Skapa en Azure Red Hat OpenShift-kluster.](tutorial-create-cluster.md)
 
-![Skärm bild av sidan app-objekt](./media/howto-create-tenant/get-app-id.png)
+![Skärmbild av appobjektsida](./media/howto-create-tenant/get-app-id.png)
 
-### <a name="create-a-client-secret"></a>Skapa en klient hemlighet
+### <a name="create-a-client-secret"></a>Skapa en klienthemlighet
 
-Generera en klient hemlighet för autentisering av appen till Azure Active Directory.
+Generera en klienthemlighet för att autentisera din app till Azure Active Directory.
 
-1. I avsnittet **Hantera** på sidan registrerings program klickar du på **certifikat & hemligheter**.
-2. Klicka på **+ ny klient hemlighet**i fönstret **certifikat & hemligheter** .  Fönstret **Lägg till en klient hemlighet** visas.
-3. Ange en **Beskrivning**.
-4. Ange **förfallo datum** för den varaktighet du föredrar, till exempel **på två år**.
-5. Klicka på **Lägg till** och nyckelvärdet visas i avsnittet **klient hemligheter** på sidan.
-6. Kopiera värdet för nyckel. Vi kommer att referera till det här värdet som `SECRET` i själv studie kursen [skapa en Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
+1. Klicka på **Certifikat & hemligheter**på sidan Hantera på sidan **Hantera.**
+2. Klicka på **+Ny klienthemlighet**i fönstret **Certifikat & hemligheter.**  Fönstret **Lägg till en klienthemlighet** visas.
+3. Ange en **beskrivning**.
+4. Ange upphör att **gälla** till den tid du föredrar, till exempel **i 2 år**.
+5. Klicka på **Lägg till** så visas nyckelvärdet i avsnittet **Klienthemligheter** på sidan.
+6. Kopiera nyckelvärdet. Vi refererar till `SECRET` det här värdet som i självstudien [Skapa en Azure Red Hat OpenShift-kluster.](tutorial-create-cluster.md)
 
-![Skärm bild av fönstret certifikat och hemligheter](./media/howto-create-tenant/create-key.png)
+![Skärmbild av fönstret certifikat och hemligheter](./media/howto-create-tenant/create-key.png)
 
-Mer information om Azure Application objekt finns [i program-och tjänst huvud objekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Mer information om Azure Application Objects finns [i Principobjekt för program och tjänst i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 
-Mer information om hur du skapar ett nytt Azure AD-program finns i [Registrera en app med slut punkten för Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+Mer information om hur du skapar ett nytt Azure AD-program finns i [Registrera en app med slutpunkten Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
 
-## <a name="add-api-permissions"></a>Lägg till API-behörigheter
+## <a name="add-api-permissions"></a>Lägga till API-behörigheter
 
-[//]: # (Ändra inte till Microsoft Graph. Den fungerar inte med Microsoft Graph.)
-1. I avsnittet **Hantera** klickar du på **API-behörigheter**
-2. Klicka på **Lägg till behörighet** och välj **Azure Active Directory graf** sedan **delegerade behörigheter**.
+[//]: # (Ändra inte till Microsoft Graph. Det fungerar inte med Microsoft Graph.)
+1. Klicka på **API-behörigheter** i avsnittet **Hantera**
+2. Klicka på **Lägg till behörighet** och välj Azure Active Directory **Graph** och sedan **delegerade behörigheter**.
 > [!NOTE]
-> Se till att du har valt "Azure Active Directory Graf" och inte "Microsoft Graph"-panelen.
+> Kontrollera att du har valt "Azure Active Directory Graph" och inte panelen "Microsoft Graph".
 
-3. Expandera **användare** i listan nedan och aktivera **användaren. Läs** behörighet. Om **User. Read** är aktiverat som standard, se till att det är **Azure Active Directory Graph** behörighet **User. Read**.
-4. Rulla upp och välj **program behörigheter**.
-5. Expandera **katalogen** i listan nedan och aktivera **Directory. ReadAll**.
-6. Klicka på **Lägg till behörigheter** för att acceptera ändringarna.
-7. Panelen API-behörigheter bör nu visa både *User. Read* och *Directory. ReadAll*. Observera varningen i kolumnen **admin medgivande som krävs** bredvid *Directory. ReadAll*.
-8. Om du är *administratör för Azure-prenumeration*klickar du på **bevilja administratörs medgivande för *prenumerations namn***  nedan. Om du inte är *administratör för Azure-prenumerationen*ber du ditt medgivande från administratören.
+3. Expandera **Användare** i listan nedan och aktivera behörigheten **User.Read.** Om **User.Read** är aktiverat som standard, kontrollera att det är **Azure Active Directory Graph-behörigheten** **User.Read**.
+4. Rulla uppåt och välj **Programbehörigheter**.
+5. Expandera **katalogen** i listan nedan och aktivera **Directory.ReadAll**.
+6. Klicka på **Lägg till behörigheter** om du vill acceptera ändringarna.
+7. Api-behörighetspanelen ska nu visa både *User.Read* och *Directory.ReadAll*. Observera att varningen i **kolumnen Admin-medgivande krävs bredvid** *Directory.ReadAll*.
+8. Om du är *Azure-prenumerationsadministratör*klickar du på **Bevilja administratörsmedgivande för *prenumerationsnamn* ** nedan. Om du inte är *Azure-prenumerationsadministratör*begär du samtycke från administratören.
 
-![Skärm bild av panelen API-behörigheter. User. Read och Directory. ReadAll-behörigheter lades till, administratörs medgivande krävs för Directory. ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
+![Skärmbild av API-behörighetspanelen. User.Read och Directory.ReadAll behörigheter tillagda, admin samtycke krävs för Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
-> Synkronisering av gruppen kluster administratörer fungerar bara när medgivande har beviljats. En grön cirkel visas med en bock markering och ett meddelande "beviljat *prenumerations namn*" i kolumnen *admin medgivande krävs* .
+> Synkronisering av klusteradministratörsgruppen fungerar först när medgivande har beviljats. Du kommer att se en grön cirkel med en bock och meddelandet "Beviljad för *prenumerationsnamn"* i kolumnen *Administratörsmedgivande.*
 
-Mer information om hur du hanterar administratörer och andra roller finns i [lägga till eller ändra Azure-prenumerations administratörer](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+Mer information om hur du hanterar administratörer och andra roller finns i [Lägga till eller ändra Azure-prenumerationsadministratörer](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
 
 ## <a name="resources"></a>Resurser
 
-* [Program-och tjänst huvud objekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Snabb start: registrera en app med Azure Active Directory v 1.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Principobjekt för program och tjänst i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
+* [Snabbstart: Registrera en app med Azure Active Directory v1.0-slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har uppfyllt alla de [nödvändiga förutsättningarna för att skapa Azure Red Hat OpenShift](howto-setup-environment.md)är du redo att skapa ditt första kluster!
+Om du har uppfyllt alla [Azure Red Hat OpenShift-förutsättningar](howto-setup-environment.md)är du redo att skapa ditt första kluster!
 
-Prova själv studie kursen:
+Prova självstudien:
 > [!div class="nextstepaction"]
 > [Skapa ett Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md)

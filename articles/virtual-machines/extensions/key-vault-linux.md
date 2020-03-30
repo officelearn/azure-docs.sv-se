@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault VM-tillägg för Linux
-description: Distribuera en agent som utför automatisk uppdatering av Key Vault certifikat på virtuella datorer med ett tillägg för virtuell dator.
+title: VM-tillägg för Azure Key Vault för Linux
+description: Distribuera en agent som utför automatisk uppdatering av Key Vault-certifikat på virtuella datorer med hjälp av ett tillägg för virtuella datorer.
 services: virtual-machines-linux
 author: msmbaldwin
 tags: keyvault
@@ -9,32 +9,32 @@ ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
 ms.openlocfilehash: a4fb3ad2ce6225528910bbda9d98a38001242710
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79298996"
 ---
-# <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
+# <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault virtuell dator förlängning för Linux
 
-Key Vault VM-tillägget ger automatisk uppdatering av certifikat som lagras i ett Azure Key Vault. Mer specifikt övervakar tillägget en lista över observerade certifikat som lagras i nyckel valv.  Vid identifiering av en ändring, hämtar tillägget och installerar motsvarande certifikat. Key Vault VM-tillägget publiceras och stöds av Microsoft, för närvarande på virtuella Linux-datorer. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för Key Vault VM-tillägget för Linux. 
+Tillägget Key Vault VM ger automatisk uppdatering av certifikat som lagras i ett Azure-nyckelvalv. Närmare bestämt övervakar tillägget en lista över observerade certifikat som lagras i nyckelvalv.  När du upptäcker en ändring hämtas tillägget och installerar motsvarande certifikat. Key Vault VM-tillägget publiceras och stöds av Microsoft, som för närvarande finns på virtuella Linux-datorer. I det här dokumentet beskrivs de plattformar, konfigurationer och distributionsalternativ som stöds för VM-tillägget Key Vault för Linux. 
 
 ### <a name="operating-system"></a>Operativsystem
 
-Key Vault VM-tillägget stöder dessa Linux-distributioner:
+VM-tillägget Key Vault stöder dessa Linux-distributioner:
 
-- Ubuntu – 1604
-- Ubuntu – 1804
-- Debian – 9
-- SUSE-15 
+- Ubuntu-1604
+- Ubuntu-1804
+- Debian-9
+- Suse-15 
 
-### <a name="supported-certificate-content-types"></a>Innehålls typer för certifikat som stöds
+### <a name="supported-certificate-content-types"></a>Innehållstyper som stöds
 
-- PKCS-#12
+- PKCS #12
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver inte skyddade inställningar. alla dess inställningar betraktas som information utan att säkerheten påverkas. Tillägget kräver en lista över övervakade hemligheter, avsöknings frekvens och mål certifikat arkivet. Mer specifikt:  
+Följande JSON visar schemat för VM-tillägget Key Vault. Tillägget kräver inte skyddade inställningar - alla dess inställningar betraktas som information utan säkerhetspåverkan. Tillägget kräver en lista över övervakade hemligheter, avsökningsfrekvens och målcertifikatarkivet. Mer specifikt:  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -64,32 +64,32 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 ```
 
 > [!NOTE]
-> URL: er för dina observerade certifikat bör ha formatet `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> Webbadresserna för de observerade certifikaten `https://myVaultName.vault.azure.net/secrets/myCertName`ska vara av samma form .
 > 
-> Detta beror på att `/secrets` sökvägen returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates` Sök vägen inte gör det. Mer information om certifikat hittar du här: [Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Detta beror `/secrets` på att sökvägen returnerar hela certifikatet, inklusive den privata nyckeln, medan `/certificates` sökvägen inte gör det. Mer information om certifikat hittar du här: [Key Vault-certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Egenskapsvärden
 
-| Namn | Värdet / exempel | Datatyp |
+| Namn | Värde / Exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
-| publisher | Microsoft.Azure.KeyVault | sträng |
+| utgivare | Microsoft.Azure.KeyVault | sträng |
 | typ | KeyVaultForLinux | sträng |
-| typeHandlerVersion | 1.0 | int |
+| typHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | sträng |
-| Certifikat Arkiv | MY | sträng |
-| linkOnRenewal | false | boolean |
-| certificateStoreLocation  | LocalMachine | sträng |
+| certifikatStoreName | MY | sträng |
+| länkOnRenewal (olikartade) | false | boolean |
+| certifikatButiksplats  | LokalMaskin | sträng |
 | requiredInitialSync | true | boolean |
-| observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | Sträng mat ris
+| observeradeCertifierar  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | strängmatris
 
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver uppdatering av certifikat. Tillägget kan distribueras till enskilda virtuella datorer eller skalnings uppsättningar för virtuella datorer. Schemat och konfigurationen är gemensamma för båda typerna av mallar. 
+Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver uppdatering av certifikat efter distributionen. Tillägget kan distribueras till enskilda virtuella datorer eller skaluppsättningar för virtuella datorer. Schemat och konfigurationen är gemensamma för båda malltyperna. 
 
-JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []` objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella datorer under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objekt.
+JSON-konfigurationen för ett tillägg för virtuella datorer måste kapslas inuti `"resources": []` mallens resursfragment för den virtuella `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` datorn, särskilt objekt för den virtuella datorn-mallen och vid skalauppsättning för virtuella datorer under objekt.
 
 ```json
     {
@@ -118,9 +118,9 @@ JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den 
 ```
 
 
-## <a name="azure-powershell-deployment"></a>Azure PowerShell distribution
+## <a name="azure-powershell-deployment"></a>Azure PowerShell-distribution
 
-Azure PowerShell kan användas för att distribuera Key Vault VM-tillägget till en befintlig virtuell dator eller skalnings uppsättning för virtuella datorer. 
+Azure PowerShell kan användas för att distribuera VM-tillägget Key Vault till en befintlig virtuell dator eller skaluppsättning för virtuella datorer. 
 
 * Så här distribuerar du tillägget på en virtuell dator:
     
@@ -141,7 +141,7 @@ Azure PowerShell kan användas för att distribuera Key Vault VM-tillägget till
     
     ```
 
-* Distribuera tillägget på en skalnings uppsättning för virtuella datorer:
+* Så här distribuerar du tillägget på en skalningsuppsättning för virtuella datorer:
 
     ```powershell
     
@@ -166,7 +166,7 @@ Azure PowerShell kan användas för att distribuera Key Vault VM-tillägget till
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att distribuera Key Vault VM-tillägget till en befintlig virtuell dator eller skalnings uppsättning för virtuella datorer. 
+Azure CLI kan användas för att distribuera VM-tillägget Key Vault till en befintlig virtuell dator eller skaluppsättning för virtuell dator. 
  
 * Så här distribuerar du tillägget på en virtuell dator:
     
@@ -179,7 +179,7 @@ Azure CLI kan användas för att distribuera Key Vault VM-tillägget till en bef
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
-* Distribuera tillägget på en skalnings uppsättning för virtuella datorer:
+* Så här distribuerar du tillägget på en skalningsuppsättning för virtuella datorer:
 
    ```azurecli
         # Start the deployment
@@ -190,17 +190,17 @@ Azure CLI kan användas för att distribuera Key Vault VM-tillägget till en bef
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\ <observedCerts>\"] }}'
     ```
 
-Observera följande begränsningar/krav:
-- Key Vault begränsningar:
-  - Det måste finnas vid tidpunkten för distributionen 
-  - Key Vault åtkomst princip har angetts för VM/VMSS-identitet med MSI
+Tänk på följande begränsningar/krav:
+- Begränsningar för Nyckelvalv:
+  - Den måste finnas vid tidpunkten för distributionen 
+  - Åtkomstprincipen för key vault är inställd för VM/VMSS-identitet med MSI
 
 
-## <a name="troubleshoot-and-support"></a>Felsökning och support
+## <a name="troubleshoot-and-support"></a>Felsöka och support
 
 ### <a name="troubleshoot"></a>Felsöka
 
-Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell.
+Data om tillståndet för tilläggsdistributioner kan hämtas från Azure-portalen och med hjälp av Azure PowerShell. Om du vill se distributionstillståndet för tillägg för en viss virtuell dator kör du följande kommando med Azure PowerShell.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 ```powershell
@@ -214,4 +214,4 @@ Get-AzVMExtension -VMName <vmName> -ResourceGroupname <resource group name>
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna på [MSDN Azure- och Stack Overflow-forumen](https://azure.microsoft.com/support/forums/). Du kan också arkivera en Azure-supportincident. Gå till [Azure-supportwebbplatsen](https://azure.microsoft.com/support/options/) och välj Hämta support. Information om hur du använder Azure Support finns i [vanliga frågor och svar om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).

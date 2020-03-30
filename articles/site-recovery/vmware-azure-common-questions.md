@@ -1,54 +1,50 @@
 ---
-title: Vanliga frågor om katastrof återställning i VMware med Azure Site Recovery
-description: Få svar på vanliga frågor om haveri beredskap för lokala virtuella VMware-datorer till Azure med hjälp av Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+title: Vanliga frågor om VMware-haveriberedskap med Azure Site Recovery
+description: Få svar på vanliga frågor om haveriberedskap av lokala virtuella datorer med VMware till Azure med hjälp av Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 11f593bae6b3aab8355a8f39b56639cad8133b51
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: ae16138ae44262f53a8f9948d6287f0acf621244
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79257451"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80240025"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Vanliga frågor om replikering av VMware till Azure
 
-I den här artikeln besvaras vanliga frågor som kan uppstå när du distribuerar haveri beredskap för lokala virtuella VMware-datorer till Azure.
+Den här artikeln besvarar vanliga frågor som kan komma upp när du distribuerar haveriberedskap av lokala virtuella VMware-datorer (VMs) till Azure.
 
 ## <a name="general"></a>Allmänt
 
-### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>Vad behöver jag för haveri beredskap för virtuella VMware-datorer?
+### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>Vad behöver jag för VMware VM-haveriberedskap?
 
-[Läs om de komponenter som ingår](vmware-azure-architecture.md) i haveri beredskap för virtuella VMware-datorer.
+[Lär dig mer om komponenterna i](vmware-azure-architecture.md) katastrofåterställning av virtuella datorer med VMware.
 
-### <a name="can-i-use-site-recovery-to-migrate-vmware-vms-to-azure"></a>Kan jag använda Site Recovery för att migrera virtuella VMware-datorer till Azure?
+### <a name="can-i-use-site-recovery-to-migrate-vmware-vms-to-azure"></a>Kan jag använda Site Recovery för att migrera virtuella virtuella datorer med VMware till Azure?
 
-Ja. Förutom att använda Site Recovery för att konfigurera fullständig haveri beredskap för virtuella VMware-datorer kan du också använda Site Recovery för att migrera lokala virtuella VMware-datorer till Azure. I det här scenariot replikerar du lokala virtuella VMware-datorer till Azure Storage. Sedan växlar du över från en lokal plats till Azure. Efter redundansväxlingen är dina appar och arbets belastningar tillgängliga och körs på virtuella Azure-datorer. Processen är som att konfigurera fullständig haveri beredskap, förutom att i en migrering inte kan återställas från Azure.
+Ja. Förutom att använda Site Recovery för att ställa in fullständig haveriberedskap för virtuella datorer med VMware kan du också använda Site Recovery för att migrera lokala virtuella virtuella datorer med VMware till Azure. I det här fallet replikerar du lokala virtuella datorer med VMware till Azure Storage. Sedan kan du växla över från lokalt till Azure. Efter redundans är dina appar och arbetsbelastningar tillgängliga och körs på virtuella Azure-datorer. Processen är som att konfigurera fullständig haveriberedskap, förutom att i en migrering kan du inte växla tillbaka från Azure.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Behöver mitt Azure-konto behörigheter för att skapa virtuella datorer?
 
-Om du är prenumerations administratör har du de replikeringsinställningar du behöver. Om du inte är administratör måste du ha behörighet att vidta följande åtgärder:
+Om du är prenumerationsadministratör har du de replikeringsbehörigheter du behöver. Om du inte är administratör behöver du behörighet för att kunna vidta följande åtgärder:
 
-- Skapa en virtuell Azure-dator i resurs gruppen och det virtuella nätverk som du anger när du konfigurerar Site Recovery.
-- Skriv till det valda lagrings kontot eller den hanterade disken utifrån din konfiguration.
+- Skapa en virtuell Azure-dator i resursgruppen och det virtuella nätverket som du anger när du konfigurerar Platsåterställning.
+- Skriv till det valda lagringskontot eller den hanterade disken baserat på din konfiguration.
 
-[Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) om de behörigheter som krävs.
+[Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) om nödvändiga behörigheter.
 
 ### <a name="what-applications-can-i-replicate"></a>Vilka program kan jag replikera?
 
-Du kan replikera alla appar eller arbets belastningar som körs på en virtuell VMware-dator som uppfyller [kraven för replikering](vmware-physical-azure-support-matrix.md#replicated-machines).
+Du kan replikera alla appar eller arbetsbelastningar som körs på en virtuell virtuell vmware-dator som uppfyller [replikeringskraven](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-- Site Recovery stöder program medveten replikering, så att appar kan växlas över och växlas tillbaka till ett intelligent tillstånd.
-- Site Recovery integreras med Microsoft-program som SharePoint, Exchange, Dynamics, SQL Server och Active Directory. Det fungerar också nära ledande leverantörer, inklusive Oracle, SAP, IBM och Red Hat.
+- Site Recovery stöder programmedveten replikering, så att appar kan överföras och återställas till ett intelligent tillstånd.
+- Site Recovery integreras med Microsoft-program som SharePoint, Exchange, Dynamics, SQL Server och Active Directory. Det har också ett nära samarbete med ledande leverantörer, inklusive Oracle, SAP, IBM och Red Hat.
 
 [Lär dig mer](site-recovery-workload.md) om arbetsbelastningsskydd.
 
-### <a name="can-i-use-a-guest-os-server-license-on-azure"></a>Kan jag använda en licens för en gäst operativ system server på Azure?
+### <a name="can-i-use-a-guest-os-server-license-on-azure"></a>Kan jag använda en gästoperosserverlicens på Azure?
 
-Ja, Microsoft Software Assurance-kunder kan använda [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) för att spara licens kostnader för Windows Server-datorer som migreras till Azure, eller för att använda Azure för haveri beredskap.
+Ja, Microsoft Software Assurance-kunder kan använda [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) för att spara på licenskostnader för Windows Server-datorer som migreras till Azure eller för att använda Azure för haveriberedskap.
 
 ## <a name="security"></a>Säkerhet
 
@@ -56,108 +52,108 @@ Ja, Microsoft Software Assurance-kunder kan använda [Azure Hybrid-förmån](htt
 
 Site Recovery måste ha åtkomst till VMware-servrarna för att:
 
-- Konfigurera en virtuell VMware-dator som kör Site Recovery konfigurations servern.
+- Konfigurera en virtuell virtuell dator med VMware som kör konfigurationsservern för platsåterställning.
 - Identifiera virtuella datorer automatiskt för replikering.
 
-### <a name="what-access-to-vmware-vms-does-site-recovery-need"></a>Vilken åtkomst till virtuella VMware-datorer behöver Site Recovery?
+### <a name="what-access-to-vmware-vms-does-site-recovery-need"></a>Vilken åtkomst till virtuella datorer med VMware behöver Site Recovery?
 
-- För att replikera en virtuell VMware-dator måste tjänsten Site Recovery mobilitet vara installerad och igång. Du kan distribuera verktyget manuellt eller så kan du ange att Site Recovery göra en push-installation av tjänsten när du aktiverar replikering för en virtuell dator.
-- Under replikeringen kommunicerar virtuella datorer med Site Recovery enligt följande:
-    - Virtuella datorer kommunicerar med konfigurations servern på HTTPS-port 443 för hantering av replikering.
-    - Virtuella datorer skickar replikeringsdata till processervern på HTTPS-port 9443. (Den här inställningen kan ändras.)
-    - Om du aktiverar konsekvens för flera virtuella datorer kommunicerar de virtuella datorerna med varandra via port 20004.
+- Om du vill replikera måste en virtuell VMware-dator ha tjänsten Site Recovery Mobility installerad och körs. Du kan distribuera verktyget manuellt eller ange att Site Recovery gör en push-installation av tjänsten när du aktiverar replikering för en virtuell dator.
+- Under replikering kommunicerar virtuella datorer med site recovery enligt följande:
+    - Virtuella datorer kommunicerar med konfigurationsservern på HTTPS-port 443 för replikeringshantering.
+    - Virtuella datorer skickar replikeringsdata till processservern på HTTPS-port 9443. (Den här inställningen kan ändras.)
+    - Om du aktiverar konsekvens för flera virtuella datorer kommunicerar virtuella datorer med varandra via port 20004.
 
-### <a name="is-replication-data-sent-to-site-recovery"></a>Skickas replikeringsdata till Site Recovery?
+### <a name="is-replication-data-sent-to-site-recovery"></a>Skickas replikeringsdata till platsåterställning?
 
-Nej, Site Recovery inte fångar replikerade data och har inte någon information om vad som körs på dina virtuella datorer. Replikeringsdata utbyts mellan VMware-hypervisorer och Azure Storage. Site Recovery har inte möjlighet att fånga upp dessa data. Endast de metadata som behövs för att samordna replikeringen och redundansen skickas till Site Recovery-tjänsten.  
+Nej, site recovery avlyssnar inte replikerade data och har ingen information om vad som körs på dina virtuella datorer. Replikeringsdata utbyts mellan VMware-hypervisorer och Azure Storage. Site Recovery har inte möjlighet att fånga upp dessa data. Endast de metadata som behövs för att samordna replikeringen och redundansen skickas till Site Recovery-tjänsten.
 
-Site Recovery är certifierat för ISO 27001:2013 och 27018, HIPAA och DPA. Det håller på att utvärdera SOC2 och FedRAMP JAB.
+Site Recovery är certifierad för ISO 27001:2013 och 27018, HIPAA och DPA. Det är i färd med SOC2 och FedRAMP JAB bedömningar.
 
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
-### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Hur gör jag för att beräkna ungefärliga debiteringar för katastrof återställning i VMware?
+### <a name="how-do-i-calculate-approximate-charges-for-vmware-disaster-recovery"></a>Hur beräknar jag ungefärliga avgifter för VMware-haveriberedskap?
 
-Använd [pris kalkylatorn](https://aka.ms/asr_pricing_calculator) för att beräkna kostnaderna när du använder Site Recovery.
+Använd [priskalkylatorn](https://aka.ms/asr_pricing_calculator) för att uppskatta kostnaderna när du använder Site Recovery.
 
-Om du vill ha en detaljerad uppskattning av kostnaderna kör du verktyget Deployment Planner för [VMware](https://aka.ms/siterecovery_deployment_planner) och använder [kostnads uppskattnings rapporten](https://aka.ms/asr_DP_costreport).
+Om du vill ha en detaljerad uppskattning av kostnaderna kör du distributionsplaneraren för [VMware](https://aka.ms/siterecovery_deployment_planner) och använder [kostnadsuppskattningsrapporten](https://aka.ms/asr_DP_costreport).
 
-### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Kostar det någon skillnad mellan att replikera till lagring eller direkt till hanterade diskar?
+### <a name="is-there-any-difference-in-cost-between-replicating-to-storage-or-directly-to-managed-disks"></a>Finns det någon skillnad i kostnad mellan replikera till lagring eller direkt till hanterade diskar?
 
-Hanterade diskar debiteras något annorlunda än lagrings konton. [Läs mer](https://azure.microsoft.com/pricing/details/managed-disks/) om priser för hanterad disk.
+Hanterade diskar debiteras något annorlunda än lagringskonton. [Läs mer](https://azure.microsoft.com/pricing/details/managed-disks/) om priser för hanterade diskar.
 
-### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Finns det någon skillnad i kostnad vid replikering till Generell användning v2-lagrings konto?
+### <a name="is-there-any-difference-in-cost-when-replicating-to-general-purpose-v2-storage-account"></a>Finns det någon skillnad i kostnad vid replikera till Allmänt ändamål v2 lagringskonto?
 
-Du kan vanligt vis se en ökning av de transaktioner som debiteras för GPv2-lagrings konton eftersom Azure Site Recovery är transaktioner tungt. [Läs mer](../storage/common/storage-account-upgrade.md#pricing-and-billing) om du vill uppskatta ändringen.
+Du kommer vanligtvis att se en ökning av transaktionskostnaden som uppkommit på GPv2-lagringskonton eftersom Azure Site Recovery är transaktioner tunga. [Läs mer](../storage/common/storage-account-upgrade.md#pricing-and-billing) för att uppskatta förändringen.
 
 ## <a name="mobility-service"></a>Mobilitetstjänsten
 
-### <a name="where-can-i-find-the-mobility-service-installers"></a>Var kan jag hitta installations program för mobilitets tjänsten?
+### <a name="where-can-i-find-the-mobility-service-installers"></a>Var hittar jag mobilitetsserviceinstallationsarna?
 
-Installations programen finns i mappen%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository på konfigurations servern.
+Installationsprogrammet finns i mappen %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository på konfigurationsservern.
 
-## <a name="how-do-i-install-the-mobility-service"></a>Hur gör jag för att du installera mobilitets tjänsten?
+## <a name="how-do-i-install-the-mobility-service"></a>Hur installerar jag mobilitetstjänsten?
 
-På varje virtuell dator som du vill replikera installerar du tjänsten på något av flera sätt:
+Installera tjänsten på varje virtuell dator som du vill replikera med en av flera metoder:
 
 - [Push-installation](vmware-physical-mobility-service-overview.md#push-installation)
-- [Manuell installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) från användar gränssnittet eller PowerShell
-- Distribution med hjälp av ett distributions verktyg som [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
+- [Manuell installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) från användargränssnittet eller PowerShell
+- Distribution med hjälp av ett distributionsverktyg som [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## <a name="managed-disks"></a>Hanterade diskar
 
 ### <a name="where-does-site-recovery-replicate-data-to"></a>Var replikerar Site Recovery data till?
 
-Site Recovery replikerar lokala virtuella VMware-datorer och fysiska servrar till hanterade diskar i Azure.
+Site Recovery replikerar lokala virtuella datorer med VMware och fysiska servrar till hanterade diskar i Azure.
 
-- Site Recovery processervern skriver loggar till ett cache Storage-konto i mål regionen.
-- De här loggarna används för att skapa återställnings punkter på Azure-hanterade diskar som har prefixet **asrseeddisk**.
-- När redundans inträffar används den återställnings punkt som du väljer för att skapa en ny mål hanterad disk. Den här hanterade disken är ansluten till den virtuella datorn i Azure.
-- Virtuella datorer som tidigare har repliker ATS till ett lagrings konto (före mars 2019) påverkas inte.
+- Site Recovery process server skriver replikeringsloggar till ett cachelagringskonto i målregionen.
+- Dessa loggar används för att skapa återställningspunkter på Azure-hanterade diskar som har prefix för **asrseeddisk**.
+- När redundans inträffar används återställningspunkten som du väljer för att skapa en ny målhanterad disk. Den här hanterade disken är kopplad till den virtuella datorn i Azure.
+- Virtuella datorer som tidigare replikerats till ett lagringskonto (före mars 2019) påverkas inte.
 
-### <a name="can-i-replicate-new-machines-to-storage-accounts"></a>Kan jag replikera nya datorer till lagrings konton?
+### <a name="can-i-replicate-new-machines-to-storage-accounts"></a>Kan jag replikera nya datorer till lagringskonton?
 
-Nej. Från och med mars 2019 kan du bara replikera till Azure Managed disks i Azure Portal.
+Nej. Från och med mars 2019, i Azure-portalen, kan du replikera endast till Azure-hanterade diskar.
 
-Det går bara att replikera nya virtuella datorer till ett lagrings konto med hjälp av PowerShell eller REST API (version 2018-01-10 eller 2016-08-10).
+Replikering av nya virtuella datorer till ett lagringskonto är endast tillgängligt med PowerShell eller REST API (version 2018-01-10 eller 2016-08-10).
 
-### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Vilka är fördelarna med att replikera till Managed disks?
+### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Vilka är fördelarna med att replikera till hanterade diskar?
 
-[Lär dig hur](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/) Site Recovery fören klar haveri beredskap med hanterade diskar.
+[Läs mer](https://azure.microsoft.com/blog/simplify-disaster-recovery-with-managed-disks-for-vmware-and-physical-servers/) Site Recovery förenklar haveriberedskap med hanterade diskar.
 
-### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>Kan jag ändra typen av hanterad disk efter att datorn skyddas?
+### <a name="can-i-change-the-managed-disk-type-after-a-machine-is-protected"></a>Kan jag ändra typen av hanterad disk när en dator har skyddats?
 
-Ja, du kan enkelt [ändra vilken typ av hanterad disk](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) som ska användas för pågående replikeringar. Innan du ändrar typen måste du se till att ingen URL för signatur för delad åtkomst genereras på den hanterade disken:
+Ja, du kan enkelt [ändra typen av hanterad disk](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) för pågående replikeringar. Innan du ändrar typen bör du se till att ingen URL för signatur för delad åtkomst genereras på den hanterade disken:
 
-1. Gå till resursen för **hanterade diskar** på Azure Portal och kontrol lera om du har en URL-banderoll för signatur för delad åtkomst på bladet **Översikt** .
+1. Gå till resursen **Hanterad disk** på Azure-portalen och kontrollera om du har en URL-banner för signatur med delad åtkomst på **bladet Översikt.**
 1. Om banderollen finns väljer du den för att avbryta den pågående exporten.
-1. Ändra disk typen inom några minuter. Om du ändrar den hanterade disk typen väntar du tills de nya återställnings punkterna genereras av Azure Site Recovery.
-1. Använd de nya återställnings punkterna för redundanstest eller redundans i framtiden.
+1. Ändra diskens typ inom de närmaste minuterna. Om du ändrar typen av hanterad disk väntar du på att nya återställningspunkter ska genereras av Azure Site Recovery.
+1. Använd de nya återställningspunkterna för alla test redundans- eller redundansväxlingar i framtiden.
 
-### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Kan jag byta replikering från hanterade diskar till ohanterade diskar?
+### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Kan jag växla replikering från hanterade diskar till ohanterade diskar?
 
-Nej. Det finns inte stöd för att växla från hanterade till ohanterad.
+Nej. Det går inte att byta från hanterad till ohanterad.
 
 ## <a name="replication"></a>Replikering
 
-### <a name="what-are-the-replicated-vm-requirements"></a>Vilka är de replikerade VM-kraven?
+### <a name="what-are-the-replicated-vm-requirements"></a>Vilka är kraven för replikerad virtuell dator?
 
-[Läs mer](vmware-physical-azure-support-matrix.md#replicated-machines) om support krav för virtuella VMware-datorer och fysiska servrar.
+[Läs mer](vmware-physical-azure-support-matrix.md#replicated-machines) om supportkrav för virtuella datorer med VMware och fysiska servrar.
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Hur ofta kan jag replikera till Azure?
 
-Replikering är kontinuerlig när du replikerar virtuella VMware-datorer till Azure.
+Replikering är kontinuerligt när VMware-datorer replikeras till Azure.
 
-### <a name="can-i-extend-replication"></a>Kan jag utöka replikeringen?
+### <a name="can-i-extend-replication"></a>Kan jag förlänga replikeringen?
 
-Utökad eller länkad replikering stöds inte. Begär den här funktionen i [feedback-forumet](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Utökad eller länkad replikering stöds inte. Begär den här funktionen i [feedbackforumet](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
-### <a name="can-i-do-an-offline-initial-replication"></a>Kan jag göra en inledande replikering offline?
+### <a name="can-i-do-an-offline-initial-replication"></a>Kan jag göra en första offlinereplikering?
 
-Offline-replikering stöds inte. Begär den här funktionen i [feedback-forumet](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+Offlinereplikering stöds inte. Begär den här funktionen i [feedbackforumet](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="what-is-asrseeddisk"></a>Vad är asrseeddisk?
 
-För varje käll disk replikeras data till en hanterad disk i Azure. Den här disken har prefixet **asrseeddisk**. Den lagrar kopian av käll disken och alla ögonblicks bilder av återställnings punkter.
+För varje källdisk replikeras data till en hanterad disk i Azure. Den här disken har prefixet **asrseeddisk**. Den lagrar kopian av källdisken och alla ögonblicksbilder återställningspunkt.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>Kan jag utesluta diskar från replikering?
 
@@ -165,199 +161,203 @@ Ja, du kan utesluta diskar.
 
 ### <a name="can-i-replicate-vms-that-have-dynamic-disks"></a>Kan jag replikera virtuella datorer som har dynamiska diskar?
 
-Dynamiska diskar kan replikeras. Operativ system disken måste vara en standard disk.
+Dynamiska diskar kan replikeras. Operativsystemets disk måste vara en enkel disk.
 
-### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Kan jag lägga till en ny virtuell dator i en befintlig replikeringsgrupp om jag använder replikeringsgrupper för konsekvens för flera virtuella datorer?
+### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>Om jag använder replikeringsgrupper för konsekvens med flera virtuella datorer, kan jag lägga till en ny virtuell dator i en befintlig replikeringsgrupp?
 
-Ja, du kan lägga till nya virtuella datorer i en befintlig replikeringsgrupp när du aktiverar replikering för dem. Ändå
+Ja, du kan lägga till nya virtuella datorer i en befintlig replikeringsgrupp när du aktiverar replikering för dem. Emellertid:
 
-- Du kan inte lägga till en virtuell dator i en befintlig replikeringsgrupp efter att replikeringen har påbörjats.
+- Du kan inte lägga till en virtuell dator i en befintlig replikeringsgrupp när replikeringen har påbörjats.
 - Du kan inte skapa en replikeringsgrupp för befintliga virtuella datorer.
 
-### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Kan jag ändra virtuella datorer som replikeras genom att lägga till eller ändra storlek på diskar?
+### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Kan jag ändra virtuella datorer som replikerar genom att lägga till eller ändra storlek på diskar?
 
-För VMware-replikering till Azure kan du ändra disk storleken för virtuella käll datorer. Om du vill lägga till nya diskar måste du lägga till disken och återaktivera skyddet för den virtuella datorn.
+För VMware-replikering till Azure kan du ändra diskstorleken för virtuella käll-datorer. Om du vill lägga till nya diskar måste du lägga till disken och återanvändningsskydd för den virtuella datorn.
 
-### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Kan jag migrera lokala datorer till en ny vCenter Server utan att påverka pågående replikering?
+### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Kan jag migrera lokala datorer till en ny vCenter-server utan att påverka pågående replikering?
 
-Nej. En ändring av VMware vCenter eller migrering kommer att påverka pågående replikering. Konfigurera Site Recovery med den nya vCenter Server och aktivera replikering för datorer igen.
+Nej. En ändring av VMware Vcenter eller migrering påverkar pågående replikering. Konfigurera Site Recovery med den nya vCenter-servern och aktivera replikering för datorer igen.
 
-### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Kan jag replikera till ett cache-eller mål lagrings konto som har ett virtuellt nätverk (med Azure-brandväggar) konfigurerat?
+### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>Kan jag replikera till ett cache- eller mållagringskonto som har ett virtuellt nätverk (med Azure-brandväggar) konfigurerat på det?
 
-Nej, Site Recovery stöder inte replikering till Azure Storage i virtuella nätverk.
+Nej, site recovery stöder inte replikering till Azure Storage i virtuella nätverk.
 
-## <a name="component-upgrade"></a>Komponent uppgradering
+## <a name="component-upgrade"></a>Uppgradering av komponenter
 
-### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Min version av mobilitets tjänst agenten eller konfigurations servern är gammal och uppgraderingen misslyckades. Vad gör jag nu?
+### <a name="my-version-of-the-mobility-services-agent-or-configuration-server-is-old-and-my-upgrade-failed-what-do-i-do"></a>Min version av Mobility-tjänstagenten eller konfigurationsservern är gammal och uppgraderingen misslyckades. Vad gör jag nu?
 
-Site Recovery följer support modellen för N-4. [Läs mer](https://aka.ms/asr_support_statement) om hur du uppgraderar från mycket gamla versioner.
+Site Recovery följer N-4-supportmodellen. [Läs mer](https://aka.ms/asr_support_statement) om hur du uppgraderar från mycket gamla versioner.
 
-### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>Var hittar jag viktig information och Samlad uppdatering för Azure Site Recovery?
+### <a name="where-can-i-find-the-release-notes-and-update-rollups-for-azure-site-recovery"></a>Var hittar jag viktig information och samlade uppdateringar för Azure Site Recovery?
 
-[Lär dig mer om nya uppdateringar](site-recovery-whats-new.md)och [Hämta information om sammanslagning](service-updates-how-to.md).
+[Lär dig mer om nya uppdateringar](site-recovery-whats-new.md)och få [samlad information](service-updates-how-to.md).
 
-### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>Var hittar jag uppgraderings information för haveri beredskap till Azure?
+### <a name="where-can-i-find-upgrade-information-for-disaster-recovery-to-azure"></a>Var hittar jag uppgraderingsinformation för haveriberedskap till Azure?
 
-[Lär dig mer om att uppgradera](https://aka.ms/asr_vmware_upgrades).
+[Läs mer om att uppgradera](https://aka.ms/asr_vmware_upgrades).
 
-## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>Måste jag starta om käll datorerna för varje uppgradering?
+## <a name="do-i-need-to-reboot-source-machines-for-each-upgrade"></a>Måste jag starta om källdatorer för varje uppgradering?
 
-En omstart rekommenderas men är inte obligatorisk för varje uppgradering. [Läs mer](https://aka.ms/asr_vmware_upgrades).
+En omstart rekommenderas men inte obligatorisk för varje uppgradering. [Läs mer](https://aka.ms/asr_vmware_upgrades).
 
 ## <a name="configuration-server"></a>Konfigurationsserver
 
-### <a name="what-does-the-configuration-server-do"></a>Vad gör konfigurations servern?
+### <a name="what-does-the-configuration-server-do"></a>Vad gör konfigurationsservern?
 
-Konfigurations servern kör lokala Site Recovery-komponenter, inklusive:
+Konfigurationsservern kör de lokala site recovery-komponenterna, inklusive:
 
-- Själva konfigurations servern. Servern samordnar kommunikationen mellan lokala komponenter och Azure och hanterar datareplikering.
-- Processervern som fungerar som en gateway för replikering. Den här servern:
+- Själva konfigurationsservern. Servern samordnar kommunikationen mellan lokala komponenter och Azure och hanterar datareplikering.
+- Processservern, som fungerar som en replikeringsgateway. Den här servern:
     1. Tar emot replikeringsdata.
     2. Optimerar data med cachelagring, komprimering och kryptering.
     3. Skickar data till Azure Storage.
-  Processervern installerar också en push-installation av mobilitets tjänsten på virtuella datorer och utför automatisk identifiering av lokala virtuella VMware-datorer.
-- Huvud mål servern, som hanterar replikeringsdata under återställning efter fel från Azure.
+  Processservern gör också en push-installation av mobilitetstjänsten på virtuella datorer och utför automatisk identifiering av lokala virtuella virtuella datorer.
+- Huvudmålservern, som hanterar replikeringsdata under återställning efter fel från Azure.
 
-[Läs mer](vmware-azure-architecture.md) om konfigurations serverns komponenter och processer.
+[Läs mer](vmware-azure-architecture.md) om konfigurationsserverns komponenter och processer.
 
-### <a name="where-do-i-set-up-the-configuration-server"></a>Var konfigurerar jag konfigurations servern?
+### <a name="where-do-i-set-up-the-configuration-server"></a>Var konfigurerar jag konfigurationsservern?
 
-Du behöver en enda, lokal VMware VM för konfigurations servern med hög tillgänglighet. För haveri beredskap för fysiska servrar installerar du konfigurations servern på en fysisk dator.
+Du behöver en enda, mycket tillgänglig, lokal virtuell vmware-dator för konfigurationsservern. Installera konfigurationsservern på en fysisk dator för att återställa en fysisk server.
 
-### <a name="what-do-i-need-for-the-configuration-server"></a>Vad behöver jag för konfigurations servern?
+### <a name="what-do-i-need-for-the-configuration-server"></a>Vad behöver jag för konfigurationsservern?
 
-Granska [kraven](vmware-azure-deploy-configuration-server.md#prerequisites).
+Granska [förutsättningarna](vmware-azure-deploy-configuration-server.md#prerequisites).
 
-### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Kan jag konfigurera konfigurations servern manuellt i stället för att använda en mall?
+### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Kan jag konfigurera konfigurationsservern manuellt i stället för att använda en mall?
 
-Vi rekommenderar att du [skapar den virtuella datorns konfigurations Server](vmware-azure-deploy-configuration-server.md) med den senaste versionen av Open Virtualization format-mallen (OVF). Om du inte kan använda mallen (till exempel om du inte har åtkomst till VMware-servern) laddar du [ned](physical-azure-set-up-source.md) installations filen från portalen och konfigurerar konfigurations servern.
+Vi rekommenderar att du [skapar den virtuella konfigurationsservern](vmware-azure-deploy-configuration-server.md) med den senaste versionen av OVF-mallen (Open Virtualization Format). Om du inte kan använda mallen (till exempel om du inte har tillgång till VMware-servern) [hämtar du](physical-azure-set-up-source.md) installationsfilen från portalen och konfigurerar konfigurationsservern.
 
-### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Kan en konfigurations Server replikera till fler än en region?
+### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Kan en konfigurationsserver replikeras till mer än en region?
 
-Nej. Om du vill replikera till mer än en region behöver du en konfigurations server i varje region.
+Nej. Om du vill replikera till mer än en region behöver du en konfigurationsserver i varje region.
 
-### <a name="can-i-host-a-configuration-server-in-azure"></a>Kan jag vara värd för en konfigurations server i Azure?
+### <a name="can-i-host-a-configuration-server-in-azure"></a>Kan jag vara värd för en konfigurationsserver i Azure?
 
-Även om det är möjligt måste den virtuella Azure-datorn som kör konfigurations servern kommunicera med din lokala VMware-infrastruktur och virtuella datorer. Den här kommunikationen lägger till latens och påverkar pågående replikering.
+Även om det är möjligt måste den virtuella Azure-datorn som kör konfigurationsservern kommunicera med din lokala VMware-infrastruktur och virtuella datorer. Den här kommunikationen lägger till svarstid och påverkar pågående replikering.
 
-### <a name="how-do-i-update-the-configuration-server"></a>Hur gör jag för att uppdatera konfigurations servern?
+### <a name="how-do-i-update-the-configuration-server"></a>Hur uppdaterar jag konfigurationsservern?
 
-[Lär dig](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) hur du uppdaterar konfigurations servern.
+[Lär dig](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) hur du uppdaterar konfigurationsservern.
 
-- Du hittar den senaste uppdaterings informationen på [sidan med Azure-uppdateringar](https://azure.microsoft.com/updates/?product=site-recovery).
-- Du kan ladda ned den senaste versionen från portalen. Eller så kan du ladda ned den senaste versionen av konfigurations servern direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-- Om din version är mer än fyra versioner som är äldre än den aktuella versionen, se [support policyn](https://aka.ms/asr_support_statement) för uppgraderings vägledning.
+- Du hittar den senaste uppdateringsinformationen på [sidan Azure-uppdateringar](https://azure.microsoft.com/updates/?product=site-recovery).
+- Du kan ladda ner den senaste versionen från portalen. Du kan också hämta den senaste versionen av konfigurationsservern direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+- Om din version är fler än fyra versioner äldre än den aktuella versionen läser du [supportsatsen](https://aka.ms/asr_support_statement) för uppgraderingsvägledning.
 
-### <a name="should-i-back-up-the-configuration-server"></a>Bör jag säkerhetskopiera konfigurations servern?
+### <a name="should-i-back-up-the-configuration-server"></a>Ska jag säkerhetskopiera konfigurationsservern?
 
-Vi rekommenderar att du vidtar regelbundna schemalagda säkerhets kopieringar av konfigurations servern.
+Vi rekommenderar att du tar regelbundna schemalagda säkerhetskopior av konfigurationsservern.
 
-- För lyckad återställning efter fel måste den virtuella datorn som återställs finnas i konfigurations Server databasen.
-- Konfigurations servern måste köras och vara i anslutet tillstånd.
-- [Läs mer](vmware-azure-manage-configuration-server.md) om vanliga hanterings uppgifter för konfigurations servrar.
+- För en lyckad återställning efter fel måste den virtuella datorn som misslyckades tillbaka finnas i konfigurationsserverdatabasen.
+- Konfigurationsservern måste köras och vara ansluten.
+- [Läs mer](vmware-azure-manage-configuration-server.md) om vanliga konfigurationsserverhanteringsuppgifter.
 
-### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Kan jag hämta och installera MySQL manuellt när jag konfigurerar konfigurations servern?
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Kan jag hämta och installera MySQL manuellt när jag konfigurerar konfigurationsservern?
 
-Ja. Hämta MySQL och placera det i mappen C:\Temp\ASRSetup Installera den manuellt. När du ställer in konfigurations serverns virtuella dator och accepterar villkoren, visas MySQL som **redan är installerat** vid **nedladdning och installation**.
+Ja. Ladda ner MySQL och placera den i mappen C:\Temp\ASRSetup. Installera den sedan manuellt. När du konfigurerar den virtuella konfigurationsservern och accepterar villkoren visas MySQL som **Redan installerat** i Hämta **och installera**.
 
-### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan jag undvika att hämta MySQL men låta Site Recovery installera det?
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Kan jag undvika att ladda ner MySQL men låta Site Recovery installera det?
 
-Ja. Hämta MySQL-installationsprogrammet och placera det i mappen C:\Temp\ASRSetup När du ställer in konfigurations serverns virtuella dator accepterar du villkoren och väljer **Hämta och installera**. Portalen kommer att använda installations programmet som du har lagt till för att installera MySQL.
+Ja. Hämta MySQL-installationsprogrammet och placera den i mappen C:\Temp\ASRSetup. När du konfigurerar den virtuella konfigurationsservern godkänner du villkoren och väljer **Hämta och installera**. Portalen kommer att använda installationsprogrammet som du har lagt till för att installera MySQL.
 
-### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Kan jag använda den virtuella datorns konfigurations Server för något annat?
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>Kan jag använda den virtuella konfigurationsservern för något annat?
 
-Nej. Använd endast den virtuella datorn för konfigurations servern.
+Nej. Använd endast den virtuella datorn för konfigurationsservern.
 
-### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Kan jag klona en konfigurations Server och använda den för dirigering?
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>Kan jag klona en konfigurationsserver och använda den för orkestrering?
 
-Nej. Konfigurera en ny konfigurations Server för att undvika registrerings problem.
+Nej. Konfigurera en ny konfigurationsserver för att undvika registreringsproblem.
 
-### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>Kan jag ändra valvet som konfigurations servern är registrerad i?
+### <a name="can-i-change-the-vault-in-which-the-configuration-server-is-registered"></a>Kan jag ändra valvet där konfigurationsservern är registrerad?
 
-Nej. När ett valv är associerat med konfigurations servern kan det inte ändras. [Lär dig mer](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) om att registrera en konfigurations server med ett annat valv.
+Nej. När ett valv har associerats med konfigurationsservern kan det inte ändras. [Läs mer](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) om hur du registrerar en konfigurationsserver med ett annat valv.
 
-### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Kan jag använda samma konfigurations Server för haveri beredskap för både virtuella VMware-datorer och fysiska servrar?
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Kan jag använda samma konfigurationsserver för haveriberedskap för både virtuella datorer med VMware och fysiska servrar?
 
-Ja, men Observera att den fysiska datorn inte kan återställas till en virtuell VMware-dator.
+Ja, men observera att den fysiska datorn bara kan skickas tillbaka till en virtuell virtuell VMware-dator.
 
-### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Var kan jag hämta lösen frasen för konfigurations servern?
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Var kan jag hämta lösenfrasen för konfigurationsservern?
 
-[Lär dig](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) hur du hämtar lösen frasen.
+[Läs om](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) hur du laddar ned lösenfrasen.
 
-### <a name="where-can-i-download-vault-registration-keys"></a>Var kan jag hämta valv registrerings nycklar?
+### <a name="where-can-i-download-vault-registration-keys"></a>Var kan jag hämta valvregistreringsnycklar?
 
-I Recovery Services-valvet väljer du **konfigurations servrar** i **Site Recovery infrastruktur** > **Hantera**. I **servrar**väljer du sedan **Hämta registrerings nyckel** för att ladda ned valv filen med autentiseringsuppgifter.
+I valvet för återställningstjänster väljer du **Konfigurationsservrar** i**Hantering av**infrastruktur för **platsåterställning** > . Välj sedan Hämta **registreringsnyckel** i **Servrar**för att hämta autentiseringsfilen för valvautentiseringsuppgifter.
 
-### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Kan en enda konfigurations Server användas för att skydda flera vCenter-instanser?
+### <a name="can-a-single-configuration-server-be-used-to-protect-multiple-vcenter-instances"></a>Kan en enda konfigurationsserver användas för att skydda flera vCenter-instanser?
 
-Ja, en enda konfigurations Server kan skydda virtuella datorer över flera vCenter.  Det finns inte någon gräns för hur många vCenter-instanser som kan läggas till i konfigurations servern, men gränserna för hur många virtuella datorer en enda konfigurations Server kan skydda gäller.
+Ja, en enda konfigurationsserver kan skydda virtuella datorer i flera virtuellacenter.  Det finns ingen gräns för hur många vCenter-instanser som kan läggas till på konfigurationsservern, men gränserna för hur många virtuella datorer som en enda konfigurationsserver kan skydda gäller.
 
-### <a name="can-a-single-configuration-server-protect-multiple-clusters-within-vcenter"></a>Kan en enda konfigurations Server skydda flera kluster i vCenter?
+### <a name="can-a-single-configuration-server-protect-multiple-clusters-within-vcenter"></a>Kan en enda konfigurationsserver skydda flera kluster inom vCenter?
 
 Ja, Azure Site Recovery kan skydda virtuella datorer i olika kluster.
 
-## <a name="process-server"></a>Processerver
+## <a name="process-server"></a>Bearbeta server
 
-### <a name="why-am-i-unable-to-select-the-process-server-when-i-enable-replication"></a>Varför kan jag inte välja processervern när jag aktiverar replikering?
+### <a name="why-am-i-unable-to-select-the-process-server-when-i-enable-replication"></a>Varför kan jag inte välja processservern när jag aktiverar replikering?
 
-Uppdateringar i version 9,24 och senare visar nu [hälsan för processervern när du aktiverar replikering](vmware-azure-enable-replication.md#enable-replication). Den här funktionen hjälper till att undvika begränsning av process Server och minimera användningen av servrar med felaktig bearbetning.
+Uppdateringar i version 9.24 och senare visar nu [hälsotillståndet för processservern när du aktiverar replikering](vmware-azure-enable-replication.md#enable-replication). Den här funktionen hjälper till att undvika begränsning av processserver och minimera användningen av felaktiga processservrar.
 
-### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Vill du Hur gör jag för att uppdatera processervern till version 9,24 eller senare för att få korrekt hälso information?
+### <a name="how-do-i-update-the-process-server-to-version-924-or-later-for-accurate-health-information"></a>Hur uppdaterar jag processservern till version 9.24 eller senare för korrekt hälsoinformation?
 
-Från och med [version 9,24](service-updates-how-to.md#links-to-currently-supported-update-rollups)har fler aviseringar lagts till för att indikera hälso tillståndet för processervern. [Uppdatera Site Recovery-komponenter till version 9,24 eller senare](service-updates-how-to.md#links-to-currently-supported-update-rollups) så att alla aviseringar genereras.
+Från och med [version 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups)har fler aviseringar lagts till för att ange hälsotillståndet för processservern. [Uppdatera komponenterna för webbplatsåterställning till version 9.24 eller senare](service-updates-how-to.md#links-to-currently-supported-update-rollups) så att alla aviseringar genereras.
+
+### <a name="how-can-i-ensure-high-availability-of-the-process-server"></a>Hur kan jag säkerställa hög tillgänglighet för processservern?
+
+Genom att konfigurera mer än en processserver ger designen flexibilitet att flytta skyddade datorer från en felfritt processserver till arbetsprocessserver. Förflyttning av en dator från en processserver till en annan måste initieras uttryckligen/manuellt via de definierade stegen här: [att flytta virtuella datorer mellan processservrar](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
 
 ## <a name="failover-and-failback"></a>Redundans och återställning efter fel
 
-### <a name="can-i-use-the-on-premises-process-server-for-failback"></a>Kan jag använda den lokala processervern för återställning efter fel?
+### <a name="can-i-use-the-on-premises-process-server-for-failback"></a>Kan jag använda den lokala processservern för återställning efter fel?
 
-Vi rekommenderar starkt att du skapar en processerver i Azure för återställning efter fel för att undvika data överförings fördröjningar. Dessutom är det viktigt att använda processervern som skapats i Azure för återställning efter fel, om du har separerat det virtuella käll dator nätverket med Azure-nätverket på konfigurations servern.
+Vi rekommenderar starkt att du skapar en processserver i Azure för återställning efter fel, för att undvika dataöverföringsfördämningar. Om du dessutom separerar käll-virtuella datorer-nätverket med Azure-nätverket i konfigurationsservern är det viktigt att använda processservern som skapats i Azure för återställning efter fel.
 
 ### <a name="can-i-keep-the-ip-address-on-failover"></a>Kan jag behålla IP-adressen vid redundans?
 
-Ja, du kan behålla IP-adressen vid redundans. Se till att du anger mål-IP-adressen i **beräknings-och nätverks** inställningarna för den virtuella datorn före redundansväxlingen. Stäng också av datorerna vid redundansväxling för att undvika IP-adress konflikter under återställning efter fel.
+Ja, du kan behålla IP-adressen vid redundans. Se till att du anger mål-IP-adressen i **beräknings- och nätverksinställningarna** för den virtuella datorn före redundans. Stäng också av datorer vid tidpunkten för redundans för att undvika IP-adresskonflikter under återställning av fel.
 
-### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>Kan jag ändra storlek på virtuell måldator eller virtuell dator typ före redundans?
+### <a name="can-i-change-the-target-vm-size-or-vm-type-before-failover"></a>Kan jag ändra mål-VM-storlek eller VM-typ före redundans?
 
-Ja, du kan ändra den virtuella datorns typ eller storlek när som helst före redundansväxlingen. I portalen använder du **beräknings-och nätverks** inställningarna för den REPLIKERADE virtuella datorn.
+Ja, du kan ändra typ eller storlek på den virtuella datorn när som helst före redundans. I portalen använder du **beräknings- och nätverksinställningarna** för den replikerade virtuella datorn.
 
-### <a name="how-far-back-can-i-recover"></a>Hur långt tillbaka kan jag återställa?
+### <a name="how-far-back-can-i-recover"></a>Hur långt tillbaka kan jag återhämta mig?
 
-Den äldsta återställnings punkten för VMware till Azure kan du använda 72 timmar.
+För VMware till Azure är den äldsta återställningspunkten du kan använda 72 timmar.
 
-### <a name="how-do-i-access-azure-vms-after-failover"></a>Hur gör jag för att åtkomst till virtuella Azure-datorer efter redundans?
+### <a name="how-do-i-access-azure-vms-after-failover"></a>Hur kommer jag åt virtuella Azure-datorer efter redundans?
 
-Efter redundansväxlingen kan du komma åt virtuella Azure-datorer via en säker Internet anslutning via en VPN-anslutning från plats till plats eller via Azure ExpressRoute. För att ansluta måste du förbereda flera saker. [Läs mer](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+Efter redundans kan du komma åt virtuella Azure-datorer via en säker internetanslutning, via en VPN från plats till plats eller via Azure ExpressRoute. För att ansluta måste du förbereda flera saker. [Läs mer](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
-### <a name="is-failed-over-data-resilient"></a>Är det fel på data som är elastiska?
+### <a name="is-failed-over-data-resilient"></a>Är data som inte överskrids flexibel?
 
-Azure är utformat med flexibilitet i fokus. Site Recovery är utformad för redundans till ett sekundärt Azure-datacenter, enligt vad som krävs i Azure service avtal (SLA). När redundans inträffar ser vi till att dina metadata och valv finns kvar i samma geografiska region som du valde för ditt valv.
+Azure är utformat med flexibilitet i fokus. Site Recovery är konstruerad för redundans till ett sekundärt Azure-datacenter, som krävs av Azure service-level agreement (SLA). När redundans inträffar ser vi till att dina metadata och valv finns kvar i samma geografiska region som du har valt för ditt valv.
 
 ### <a name="is-failover-automatic"></a>Sker redundansväxlingen automatisk?
 
-[Redundans](site-recovery-failover.md) är inte automatiskt. Du startar en redundansväxling genom att göra ett val i portalen, eller så kan du använda [PowerShell](/powershell/module/az.recoveryservices) för att utlösa en redundansväxling.
+[Redundans](site-recovery-failover.md) är inte automatiskt. Du startar en redundans genom att göra en enda markering i portalen, eller så kan du använda [PowerShell](/powershell/module/az.recoveryservices) för att utlösa en redundans.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Kan jag växla tillbaka till en annan plats?
 
-Ja. Om du har växlat till Azure kan du växla tillbaka till en annan plats om den ursprungliga inte är tillgänglig. [Läs mer](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Ja. Om du misslyckades med Azure kan du växla tillbaka till en annan plats om den ursprungliga inte är tillgänglig. [Läs mer](concepts-types-of-failback.md#alternate-location-recovery-alr).
 
-### <a name="why-do-i-need-a-vpn-or-expressroute-with-private-peering-to-fail-back"></a>Varför behöver jag en VPN-eller ExpressRoute med privat peering för att återställa igen?
+### <a name="why-do-i-need-a-vpn-or-expressroute-with-private-peering-to-fail-back"></a>Varför behöver jag en VPN eller ExpressRoute med privat peering för att misslyckas tillbaka?
 
-När du växlar tillbaka från Azure kopieras data från Azure tillbaka till din lokala virtuella dator och privat åtkomst krävs.
+När du växlar tillbaka från Azure kopieras data från Azure tillbaka till den lokala virtuella datorn och privat åtkomst krävs.
 
 
 ## <a name="automation-and-scripting"></a>Automatisering och skript
 
-### <a name="can-i-set-up-replication-with-scripting"></a>Kan jag konfigurera replikering med skript?
+### <a name="can-i-set-up-replication-with-scripting"></a>Kan jag ställa in replikering med skript?
 
-Ja. Du kan automatisera Site Recovery arbets flöden med hjälp av REST API, PowerShell eller Azure SDK. [Läs mer](vmware-azure-disaster-recovery-powershell.md).
+Ja. Du kan automatisera arbetsflöden för webbplatsåterställning med hjälp av rest-API:et, PowerShell eller Azure SDK. [Läs mer](vmware-azure-disaster-recovery-powershell.md).
 
 ## <a name="performance-and-capacity"></a>Prestanda och kapacitet
 
-### <a name="can-i-throttle-replication-bandwidth"></a>Kan jag begränsa replikeringens bandbredd?
+### <a name="can-i-throttle-replication-bandwidth"></a>Kan jag begränsa replikeringsbandbredden?
 
 Ja. [Läs mer](site-recovery-plan-capacity-vmware.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Granska](vmware-physical-azure-support-matrix.md) support kraven.
-- [Konfigurera](vmware-azure-tutorial.md) VMware till Azure-replikering.
+- [Granska](vmware-physical-azure-support-matrix.md) supportkrav.
+- [Ställ in](vmware-azure-tutorial.md) VMware till Azure-replikering.

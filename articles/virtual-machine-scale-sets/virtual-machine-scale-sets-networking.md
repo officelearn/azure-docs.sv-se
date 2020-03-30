@@ -1,6 +1,6 @@
 ---
 title: Nätverk för skalningsuppsättningar för virtuella Azure-datorer
-description: Så här konfigurerar du några av de mer avancerade nätverks egenskaperna för skalnings uppsättningar för virtuella Azure-datorer.
+description: Konfigurera några av de mer avancerade nätverksegenskaperna för Azure-skalningsuppsättningar för virtuella datorer.
 author: mayanknayar
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 070e2108afb22539501c0e1808593c95a26b4576
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.openlocfilehash: d0b7288d5232e296a36708a08ea2ad9f8df5ee1a
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79254110"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79531064"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -22,7 +22,8 @@ När du distribuerar en skalningsuppsättning för en virtuell Azure-dator via p
 Du kan konfigurera alla funktioner som beskrivs i den här artikeln med hjälp av Azure Resource Manager-mallar. Azure CLI- och PowerShell-exempel ingår också i de valda funktionerna.
 
 ## <a name="accelerated-networking"></a>Accelererat nätverk
-Azure accelererat nätverk förbättrar nätverkets prestanda genom att aktivera SR-I/O-virtualisering till en virtuell dator. Mer information om hur du använder accelererat nätverk finns i artikeln Accelererat nätverk för virtuella [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md)- eller [Linux](../virtual-network/create-vm-accelerated-networking-cli.md)-datorer. Om du vill använda accelererat nätverk med skalningsuppsättningar ställer du in enableAcceleratedNetworking till **sant** i inställningarna för skalningsuppsättningens networkInterfaceConfigurations. Exempel:
+Azure accelererat nätverk förbättrar nätverkets prestanda genom att aktivera SR-I/O-virtualisering till en virtuell dator. Mer information om hur du använder accelererat nätverk finns i artikeln Accelererat nätverk för virtuella [Windows](../virtual-network/create-vm-accelerated-networking-powershell.md)- eller [Linux](../virtual-network/create-vm-accelerated-networking-cli.md)-datorer. Om du vill använda accelererat nätverk med skalningsuppsättningar ställer du in enableAcceleratedNetworking till **sant** i inställningarna för skalningsuppsättningens networkInterfaceConfigurations. Ett exempel:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -42,7 +43,8 @@ Azure accelererat nätverk förbättrar nätverkets prestanda genom att aktivera
 
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Skapa en skalningsuppsättning som refererar till en befintlig Azure Load Balancer
 När en skalningsuppsättning skapas med hjälp av Azure Portal skapas en ny lastbalanserare för de flesta konfigurationsalternativen. Om du skapar en skalningsuppsättning som måste referera till en befintlig lastbalanserare kan du göra detta med hjälp av CLI. Följande exempelskript skapar en lastbalanserare och sedan en skalningsuppsättning som refererar till den:
-```bash
+
+```azurecli
 az network lb create \
     -g lbtest \
     -n mylb \
@@ -64,11 +66,13 @@ az vmss create \
     --lb mylb \
     --backend-pool-name mybackendpool
 ```
+
 >[!NOTE]
-> När skalnings uppsättningen har skapats kan Server dels porten inte ändras för en belastnings Utjämnings regel som används av en hälso avsökning av belastningsutjämnaren. Om du vill ändra porten kan du ta bort hälso avsökningen genom att uppdatera skalnings uppsättningen för den virtuella Azure-datorn, uppdatera porten och sedan konfigurera hälso avsökningen igen. 
+> När skalningsuppsättningen har skapats kan serverdaporten inte ändras för en belastningsutjämningsregel som används av en hälsoavsökning av belastningsutjämnaren. Om du vill ändra porten kan du ta bort hälsoavsökningen genom att uppdatera Azure-skalauppsättningen för virtuella datorer, uppdatera porten och sedan konfigurera hälsoavsökningen igen. 
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Skapa en skalningsuppsättning som refererar till en programgateway
 Om du vill skapa en skalningsuppsättning som använder en programgateway refererar du till programgatewayens backend-adresspool i avsnittet ipConfigurations i skaluppsättningen, som i den här ARM-mallkonfigurationen:
+
 ```json
 "ipConfigurations": [{
   "name": "{config-name}",
@@ -90,11 +94,14 @@ Om du vill skapa en skalningsuppsättning som använder en programgateway refere
 Som standard tar skalningsuppsättningar över specifika DNS-inställningar från de VNET och undernät som de skapades i. Du kan dock konfigurera DNS-inställningar för en skalningsuppsättning direkt.
 
 ### <a name="creating-a-scale-set-with-configurable-dns-servers"></a>Skapa en skalningsuppsättning med konfigurerbara DNS-servrar
-Om du vill skapa en skalningsuppsättning med en anpassad DNS-konfiguration med hjälp av Azure CLI lägger du till argumentet --**dns-servers** till kommandot **vmss create** följt av ip-adresser som avgränsas av ett blanksteg. Exempel:
+Om du vill skapa en skalningsuppsättning med en anpassad DNS-konfiguration med hjälp av Azure CLI lägger du till argumentet --**dns-servers** till kommandot **vmss create** följt av ip-adresser som avgränsas av ett blanksteg. Ett exempel:
+
 ```bash
 --dns-servers 10.0.0.6 10.0.0.5
 ```
-Om du vill konfigurera anpassade DNS-servrar i en Azure-mall lägger du till en dnsSettings-egenskap till skalningsuppsättningens networkInterfaceConfigurations-avsnitt. Exempel:
+
+Om du vill konfigurera anpassade DNS-servrar i en Azure-mall lägger du till en dnsSettings-egenskap till skalningsuppsättningens networkInterfaceConfigurations-avsnitt. Ett exempel:
+
 ```json
 "dnsSettings":{
     "dnsServers":["10.0.0.6", "10.0.0.5"]
@@ -104,7 +111,7 @@ Om du vill konfigurera anpassade DNS-servrar i en Azure-mall lägger du till en 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Skapa en skalningsuppsättning med konfigurerbara domännamn för virtuella datorer
 För att skapa en skalningsuppsättning med ett anpassat DNS-namn för virtuella datorer med CLI lägger du till argumentet **--vm-domain-name** till kommandot **virtual machine scale set create** följt av en sträng som representerar domännamnet.
 
-Om du vill konfigurera domännamnet i en Azure-mall lägger du till en **dnsSettings**-egenskap till skalningsuppsättningens **networkInterfaceConfigurations**-avsnitt. Exempel:
+Om du vill ange domännamnet i en Azure-mall lägger du till en **dnsSettings-egenskap** i avsnittet scale set **networkInterfaceConfigurations.** Ett exempel:
 
 ```json
 "networkProfile": {
@@ -136,8 +143,9 @@ Om du vill konfigurera domännamnet i en Azure-mall lägger du till en **dnsSett
 }
 ```
 
-Utdata för en enskild virtuell dator dns-namn anges i följande format: 
-```
+Utdata för en enskild virtuell dator dns-namn anges i följande format:
+
+```output
 <vm><vmindex>.<specifiedVmssDomainNameLabel>
 ```
 
@@ -149,7 +157,7 @@ Men vissa scenarier kräver att skalningsuppsättningarna för virtuella datorer
 ### <a name="creating-a-scale-set-with-public-ip-per-virtual-machine"></a>Skapa en skalningsuppsättning med en offentlig IP per virtuell dator
 För att skapa en skalningsuppsättning som tilldelar varje virtuell dator en offentlig IP-adress med hjälp av CLI lägger du till parametern **--public-ip-per-vm** till kommandot **vmss create**. 
 
-Kontrollera att API-versionen av resursen Microsoft.Compute/virtualMachineScaleSets är minst från **2017-03-30** om du vill skapa en skalningsuppsättning med en Azure-mall och lägg till en **publicIpAddressConfiguration**-JSON-egenskap till skalningsuppsättningens ipConfigurations-avsnitt. Exempel:
+Om du vill skapa en skalningsuppsättning med en Azure-mall kontrollerar du att API-versionen av Microsoft.Compute/virtualMachineScaleSets-resursen är minst **2017-03-30**och lägger till en **publicIpAddressConfiguration** JSON-egenskap i avsnittet skaluppsättning ipConfigurations. Ett exempel:
 
 ```json
 "publicIpAddressConfiguration": {
@@ -159,17 +167,20 @@ Kontrollera att API-versionen av resursen Microsoft.Compute/virtualMachineScaleS
     }
 }
 ```
+
 Exempelmall: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Ställ frågor till de offentliga IP-adresserna för de virtuella datorerna i en skalningsuppsättning
 Om du vill se en lista över de offentliga IP-adresserna som tilldelats till skalningsuppsättningar för virtuella datorer med hjälp av CLI använder du kommandot **az vmss list-instance-public-ips**.
 
-För visa skaluppsättningens offentliga IP-adresser med hjälp av PowerShell använder du kommandot _Get-AzPublicIpAddress_. Exempel:
+För visa skaluppsättningens offentliga IP-adresser med hjälp av PowerShell använder du kommandot _Get-AzPublicIpAddress_. Ett exempel:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
-Du kan också fråga offentliga IP-adresser genom att referera till resurs-ID för den offentliga IP-adresskonfigurationen direkt. Exempel:
+Du kan också fråga offentliga IP-adresser genom att referera till resurs-ID för den offentliga IP-adresskonfigurationen direkt. Ett exempel:
+
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
@@ -195,6 +206,7 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 ```
 
 Exempel utdata från den [Azure Resource Explorer](https://resources.azure.com) och Azure REST API:
+
 ```json
 {
   "value": [
@@ -318,7 +330,8 @@ Nätverkssäkerhetsgrupper kan tillämpas direkt på en skalningsuppsättning ge
 
 Programsäkerhetsgrupper kan även anges direkt för en skalningsuppsättning. Lägg till en referens till nätverksgränssnittets IP-konfigurationsavsnitt i egenskaperna för skalningsuppsättningen för den virtuella datorn.
 
-Exempel: 
+Ett exempel:
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -362,7 +375,7 @@ Exempel:
 
 Verifiera att nätverkssäkerhetsgruppen är associerad med din skalningsuppsättning genom att använda kommandot `az vmss show`. I exemplet nedan används `--query` för att filtrera resultaten och visar endast relevanta avsnitt i utdata.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \
@@ -378,7 +391,7 @@ az vmss show \
 
 Verifiera att programsäkerhetsgruppen är associerad med din skalningsuppsättning genom att använda kommandot `az vmss show`. I exemplet nedan används `--query` för att filtrera resultaten och visar endast relevanta avsnitt i utdata.
 
-```bash
+```azurecli
 az vmss show \
     -g myResourceGroup \
     -n myScaleSet \

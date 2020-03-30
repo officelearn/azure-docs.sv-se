@@ -1,146 +1,262 @@
 ---
-title: REST API anspråks utbyten som verifiering
+title: REST API hävdar utbyten som validering
 titleSuffix: Azure AD B2C
-description: En genom gång för att skapa en Azure AD B2C användar resa som samverkar med RESTful-tjänster.
+description: En genomgång för att skapa en Azure AD B2C-användarresa som interagerar med RESTful-tjänster.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 03/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7100498d99068941bcd7ca48b6cbcaa271fbb095
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: a4902e96cd41a02953b6686b5d52d7912b27809f
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189080"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80330825"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som verifiering vid användarindata
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-to-validate-user-input"></a>Genomgång: Integrera REST API-anspråksutbyten i din Azure AD B2C-användarresa för att validera användarindata
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-IEF (Identity Experience Framework) Azure Active Directory B2C (Azure AD B2C) gör det möjligt för identitets utvecklaren att integrera en interaktion med ett RESTful-API i en användar resa.
+Identity Experience Framework (IEF) som ligger till grund för Azure Active Directory B2C (Azure AD B2C) gör det möjligt för identitetsutvecklare att integrera en interaktion med ett RESTful API i en användarresa.  I slutet av den här genomgången kan du skapa en Azure AD B2C-användarresa som interagerar med [RESTful-tjänster](custom-policy-rest-api-intro.md) för att validera användarindata.
 
-I slutet av den här genom gången kommer du att kunna skapa en Azure AD B2C användar resa som interagerar med RESTful-tjänster.
+I det här fallet lägger vi till möjligheten för användare att ange ett förmånsnummer på azure AD B2C-registreringssidan. Vi validerar om den här kombinationen av e-post och förmånsnummer mappas till en kampanjkod genom att skicka dessa data till ett REST API. Om REST API hittar en kampanjkod för den här användaren returneras den till Azure AD B2C. Slutligen infogas kampanjkoden i tokenanspråken för att programmet ska förbrukas.
 
-IEF skickar data i anspråk och tar emot data tillbaka i anspråk. Interaktionen med API: et:
+Du kan också utforma interaktionen som ett orchestration-steg. Detta är lämpligt när REST API inte kommer att validera data på skärmen, och alltid returnera fordringar. Mer information finns i [Genomgång: Integrera REST API-anspråksutbyten i din Azure AD B2C-användarresa som ett orchestration-steg](custom-policy-rest-api-claims-exchange.md).
 
-- Kan utformas som en REST API anspråk eller som en validerings profil, vilket sker i ett Orchestration-steg.
-- Validerar vanligt vis indata från användaren. Om värdet från användaren avvisas kan användaren försöka att ange ett giltigt värde med möjlighet att returnera ett fel meddelande.
+## <a name="prerequisites"></a>Krav
 
-Du kan också utforma interaktionen som ett Orchestration-steg. Mer information finns i [genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som ett Dirigerings steg](custom-policy-rest-api-claims-exchange.md).
+- Slutför stegen i [Komma igång med anpassade principer](custom-policy-get-started.md). Du bör ha en fungerande anpassad princip för registrering och inloggning med lokala konton.
+- Lär dig hur du [integrerar REST API-anspråksutbyten i din anpassade princip för Azure AD B2C](custom-policy-rest-api-intro.md).
 
-För exempel på validerings profil använder vi profil redigera användar resa i Start paket filen ProfileEdit. xml.
+## <a name="prepare-a-rest-api-endpoint"></a>Förbereda en REST API-slutpunkt
 
-Vi kan kontrol lera att namnet som anges av användaren i profil redigering inte ingår i en undantags lista.
+För den här genomgången bör du ha ett REST API som validerar om en e-postadress är registrerad i ditt serverdelssystem med ett förmåns-ID. Om REST API-API:et är registrerat ska det returnera en registreringskampanjkod som kunden kan använda för att köpa varor i din ansökan. I annat fall ska REST API:et returnera ett HTTP 409-felmeddelande: "Lojalitets-ID '{loyalty ID} är inte associerat med e-postadressen {email}.".
 
-## <a name="prerequisites"></a>Förutsättningar
+Följande JSON-kod illustrerar de data som Azure AD B2C skickar till din REST API-slutpunkt. 
 
-- En Azure AD B2C klient som har kon figurer ATS för att slutföra en lokal konto registrering/inloggning, enligt beskrivningen i [komma igång](custom-policy-get-started.md).
-- En REST API slut punkt att interagera med. I den här genom gången har vi konfigurerat en demo webbplats som heter [WingTipGames](https://wingtipgamesb2c.azurewebsites.net/) med en REST API-tjänst.
-
-## <a name="step-1-prepare-the-rest-api-function"></a>Steg 1: Förbered REST API-funktionen
-
-> [!NOTE]
-> Installationen av REST API funktioner ligger utanför omfånget för den här artikeln. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-reference) innehåller ett utmärkt verktyg för att skapa RESTful-tjänster i molnet.
-
-Vi har skapat en Azure-funktion som tar emot ett anspråk som förväntas som `playerTag`. Funktionen validerar om detta påstående finns. Du kan komma åt den fullständiga Azure Function-koden i [GitHub](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies/tree/master/AzureFunctionsSamples).
-
-```csharp
-if (requestContentAsJObject.playerTag == null)
+```json
 {
-  return request.CreateResponse(HttpStatusCode.BadRequest);
+    "email": "User email address",
+    "language": "Current UI language",
+    "loyaltyId": "User loyalty ID"
 }
-
-var playerTag = ((string) requestContentAsJObject.playerTag).ToLower();
-
-if (playerTag == "mcvinny" || playerTag == "msgates123" || playerTag == "revcottonmarcus")
-{
-  return request.CreateResponse<ResponseContent>(
-    HttpStatusCode.Conflict,
-    new ResponseContent
-    {
-      version = "1.0.0",
-      status = (int) HttpStatusCode.Conflict,
-      userMessage = $"The player tag '{requestContentAsJObject.playerTag}' is already used."
-    },
-    new JsonMediaTypeFormatter(),
-    "application/json");
-}
-
-return request.CreateResponse(HttpStatusCode.OK);
 ```
 
-IEF förväntar sig att det `userMessage` anspråk som Azure-funktionen returnerar. Detta anspråk visas som en sträng för användaren om verifieringen Miss lyckas, till exempel när en status för 409-konflikt returneras i föregående exempel.
+När REST API validerar data måste det returnera en HTTP 200 (Ok), med följande JSON-data:
 
-## <a name="step-2-configure-the-restful-api-claims-exchange-as-a-technical-profile-in-your-trustframeworkextensionsxml-file"></a>Steg 2: Konfigurera RESTful-API-anspråk Exchange som en teknisk profil i din TrustFrameworkExtensions. XML-fil
+```json
+{
+    "promoCode": "24534"
+}
+```
 
-En teknisk profil är den fullständiga konfigurationen av Exchange som önskas med RESTful-tjänsten. Öppna filen TrustFrameworkExtensions. xml och Lägg till följande XML-kodfragment inuti `<ClaimsProviders>`-elementet.
+Om valideringen misslyckades måste REST API returnera en HTTP 409 (Konflikt), med `userMessage` JSON-elementet. IEF förväntar `userMessage` sig påståendet att REST API returnerar. Det här anspråket visas som en sträng för användaren om valideringen misslyckas.
 
-> [!NOTE]
-> I följande XML beskrivs RESTful-providern `Version=1.0.0.0` som protokoll. Tänk på det som den funktion som ska interagera med den externa tjänsten. <!-- TODO: A full definition of the schema can be found...link to RESTful Provider schema definition>-->
+```json
+{
+    "version": "1.0.1",
+    "status": 409,
+    "userMessage": "LoyaltyId ID '1234' is not associated with 'david@contoso.com' email address."
+}
+```
+
+Inställningen av REST API-slutpunkten ligger utanför den här artikelns omfattning. Vi har skapat ett [Azure Functions-exempel.](https://docs.microsoft.com/azure/azure-functions/functions-reference) Du kan komma åt den fullständiga Azure-funktionskoden på [GitHub](https://github.com/azure-ad-b2c/rest-api/tree/master/source-code/azure-function).
+
+## <a name="define-claims"></a>Definiera anspråk
+
+Ett anspråk ger tillfällig lagring av data under en Azure AD B2C-principkörning. Du kan deklarera anspråk i avsnittet [anspråksschema.](claimsschema.md) 
+
+1. Öppna filen för tillägg i principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+1. Sök efter elementet [BuildingBlocks.](buildingblocks.md) Om elementet inte finns lägger du till det.
+1. Leta reda på elementet [ClaimsSchema.](claimsschema.md) Om elementet inte finns lägger du till det.
+1. Lägg till följande anspråk i elementet **ClaimsSchema.**  
+
+```xml
+<ClaimType Id="loyaltyId">
+  <DisplayName>Your loyalty ID</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>TextBox</UserInputType>
+</ClaimType>
+<ClaimType Id="promoCode">
+  <DisplayName>Your promo code</DisplayName>
+  <DataType>string</DataType>
+  <UserInputType>Paragraph</UserInputType>
+</ClaimType>
+  <ClaimType Id="userLanguage">
+  <DisplayName>User UI language (used by REST API to return localized error messages)</DisplayName>
+  <DataType>string</DataType>
+</ClaimType>
+```
+
+## <a name="configure-the-restful-api-technical-profile"></a>Konfigurera den tekniska PROFILEN för RESTful API 
+
+En [vilsam teknisk profil](restful-technical-profile.md) ger stöd för gränssnitt till din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i `InputClaims` `OutputClaims` en samling och tar emot data tillbaka i en samling. Hitta elementet **ClaimsProviders** och lägg till en ny anspråksleverantör enligt följande:
 
 ```xml
 <ClaimsProvider>
-    <DisplayName>REST APIs</DisplayName>
-    <TechnicalProfiles>
-        <TechnicalProfile Id="AzureFunctions-CheckPlayerTagWebHook">
-            <DisplayName>Check Player Tag Web Hook Azure Function</DisplayName>
-            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-            <Metadata>
-                <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
-                <Item Key="SendClaimsIn">Body</Item>
-                <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
-                <Item Key="AuthenticationType">None</Item>
-                <!-- REMOVE the following line in production environments -->
-                <Item Key="AllowInsecureAuthInProduction">true</Item>
-            </Metadata>
-            <InputClaims>
-                <InputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="playerTag" />
-            </InputClaims>
-            <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
-        </TechnicalProfile>
-        <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
-            <ValidationTechnicalProfiles>
-                <ValidationTechnicalProfile ReferenceId="AzureFunctions-CheckPlayerTagWebHook" />
-            </ValidationTechnicalProfiles>
-        </TechnicalProfile>
-    </TechnicalProfiles>
+  <DisplayName>REST APIs</DisplayName>
+  <TechnicalProfiles>
+    <TechnicalProfile Id="REST-ValidateProfile">
+      <DisplayName>Check loyaltyId Azure Function web hook</DisplayName>
+      <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+      <Metadata>
+        <Item Key="ServiceUrl">https://your-account.azurewebsites.net/api/ValidateProfile?code=your-code</Item>
+        <Item Key="SendClaimsIn">Body</Item>
+        <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+        <Item Key="AuthenticationType">None</Item>
+        <!-- REMOVE the following line in production environments -->
+        <Item Key="AllowInsecureAuthInProduction">true</Item>
+      </Metadata>
+      <InputClaims>
+        <!-- Claims sent to your REST API -->
+        <InputClaim ClaimTypeReferenceId="loyaltyId" />
+        <InputClaim ClaimTypeReferenceId="email" />
+        <InputClaim ClaimTypeReferenceId="userLanguage" PartnerClaimType="lang" DefaultValue="{Culture:LCID}" AlwaysUseDefaultValue="true" />
+      </InputClaims>
+      <OutputClaims>
+        <!-- Claims parsed from your REST API -->
+        <OutputClaim ClaimTypeReferenceId="promoCode" />
+      </OutputClaims>
+      <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
+    </TechnicalProfile>
+  </TechnicalProfiles>
 </ClaimsProvider>
 ```
 
-`InputClaims`-elementet definierar de anspråk som ska skickas från IEF till REST-tjänsten. I det här exemplet skickas innehållet i anspråks `givenName` till REST-tjänsten som `playerTag`. I det här exemplet förväntar sig IEF inte anspråk tillbaka. I stället väntar den på ett svar från REST-tjänsten och fungerar baserat på de status koder som den tar emot.
+I det här `userLanguage` exemplet skickas rest-tjänsten `lang` som inom JSON-nyttolasten. Värdet för `userLanguage` anspråket innehåller det aktuella användarspråks-ID:t. Mer information finns i [anspråkslösare](claim-resolver-overview.md).
 
-Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` anger vilka ändringar du ska göra när du flyttar till en produktions miljö. Information om hur du skyddar dina RESTful-API: er för produktion finns i [skydda RESTful-API: er med grundläggande autentisering](secure-rest-api-dotnet-basic-auth.md) och [säkra RESTful-API: er med certifikatbaserad autentisering](secure-rest-api-dotnet-certificate-auth.md).
+Kommentarerna ovan `AuthenticationType` `AllowInsecureAuthInProduction` och ange ändringar som du bör göra när du flyttar till en produktionsmiljö. Mer information om hur du skyddar dina RESTful API:er för produktion finns i [Secure RESTful API](secure-rest-api.md).
 
-## <a name="step-3-include-the-restful-service-claims-exchange-in-self-asserted-technical-profile-where-you-want-to-validate-the-user-input"></a>Steg 3: ta med RESTful service anspråk Exchange i självkontrollerad teknisk profil där du vill verifiera användarindata
+## <a name="validate-the-user-input"></a>Validera indata för användaren
 
-Den vanligaste användningen av validerings steget är i interaktionen med en användare. Alla interaktioner där användaren förväntas tillhandahålla indata är *självkontrollerade tekniska profiler*. I det här exemplet ska vi lägga till valideringen i den självkontrollerade ProfileUpdate tekniska profilen. Det här är den tekniska profil som den förlitande part (RP)-princip filen `Profile Edit` använder.
+Om du vill ha användarens förmånsnummer under registreringen måste du tillåta användaren att ange dessa data på skärmen. Lägg till anspråk på **loyaltyId-utdata** på registreringssidan genom att lägga `OutputClaims` till det i det befintliga avsnittet registrera teknisk profil element. Ange hela listan över utdataanspråk för att styra den ordning som anspråken visas på skärmen.  
 
-Så här lägger du till anspråks utbytet i den självkontrollerade tekniska profilen:
+Lägg till den tekniska profilreferensen för validering i `REST-ValidateProfile`den tekniska profilen för registrering, som anropar . Den nya tekniska profilen för validering läggs `<ValidationTechnicalProfiles>` till överst i samlingen som definieras i basprincipen. Det här problemet innebär att Azure AD B2C först efter lyckad validering går vidare för att skapa kontot i katalogen.   
 
-1. Öppna filen TrustFrameworkBase. xml och Sök efter `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
-2. Granska konfigurationen av den här tekniska profilen. Observera hur Exchange med användaren definieras som anspråk som kommer att uppmanas till användaren (ingående anspråk) och anspråk som kommer att förväntas från den självkontrollerade providern (utgående anspråk).
-3. Sök efter `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`och Lägg märke till att den här profilen anropas som dirigerings steg 5 i `<UserJourney Id="ProfileEdit">`.
+1. Leta reda på elementet **ClaimsProviders.** Lägg till en ny anspråksleverantör enligt följande:
 
-## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Steg 4: Ladda upp och testa profilen redigera RP-princip filen
+    ```xml
+    <ClaimsProvider>
+      <DisplayName>Local Account</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="Verified.Email" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="newPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surName"/>
+            <!-- Required to present the text box to collect the data from the user -->
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile" />
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    <ClaimsProvider>
+      <DisplayName>Self Asserted</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SelfAsserted-Social">
+          <InputClaims>
+            <InputClaim ClaimTypeReferenceId="email" />
+          </InputClaims>
+            <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="email" />
+            <OutputClaim ClaimTypeReferenceId="displayName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName"/>
+            <OutputClaim ClaimTypeReferenceId="surname"/>
+            <!-- Required to present the text box to collect the data from the user -->
+            <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
+            <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 
+            to subsequent orchestration steps and token issuance-->
+            <OutputClaim ClaimTypeReferenceId="promoCode" />
+          </OutputClaims>
+          <ValidationTechnicalProfiles>
+            <ValidationTechnicalProfile ReferenceId="REST-ValidateProfile"/>
+          </ValidationTechnicalProfiles>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
 
-1. Ladda upp den nya versionen av filen TrustFrameworkExtensions. xml.
-2. Använd **Kör nu** för att testa profilen redigera RP-principagenten.
-3. Testa verifieringen genom att ange ett av de befintliga namnen (till exempel mcvinny) i fältet med det **aktuella namnet** . Om allt är korrekt konfigurerat bör du få ett meddelande som meddelar användaren att Player-taggen redan används.
+## <a name="include-a-claim-in-the-token"></a>Inkludera ett anspråk i token 
+
+Om du vill returnera anspråket för kampanjkod tillbaka till <em> `SocialAndLocalAccounts/` </em> det förlitande part-programmet lägger du till ett utdataanspråk i filen. Utdataanspråket gör att anspråket kan läggas till i token efter en lyckad användarresa och skickas till programmet. Ändra det tekniska profilelementet i avsnittet `promoCode` förlitande part för att lägga till utdataanspråket.
+ 
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <OutputClaim ClaimTypeReferenceId="promoCode" DefaultValue="" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+## <a name="test-the-custom-policy"></a>Testa den anpassade principen
+
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Kontrollera att du använder katalogen som innehåller din Azure AD-klient genom att välja **katalog + prenumerationsfilter** i den övre menyn och välja den katalog som innehåller din Azure AD-klientorganisation.
+1. Välj **Alla tjänster** i det övre vänstra hörnet på Azure-portalen och sök sedan efter och välj **Appregistreringar**.
+1. Välj **Identity Experience Framework**.
+1. Välj **Ladda upp anpassad princip**och ladda sedan upp de principfiler som du har ändrat: *TrustFrameworkExtensions.xml*och *SignUpOrSignin.xml*. 
+1. Välj den registrerings- eller inloggningsprincip som du har laddat upp och klicka på knappen **Kör nu.**
+1. Du bör kunna registrera dig med en e-postadress.
+1. Klicka på länken **Registrera dig nu.**
+1. Skriv 1234 i **ditt förmåns-ID**och klicka på **Fortsätt**. Nu bör du få ett felmeddelande om validering.
+1. Ändra till ett annat värde och klicka på **Fortsätt**.
+1. Token som skickas tillbaka till `promoCode` din ansökan innehåller anspråket.
+
+```json
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dlNP4-c57dO6QGTVBwaNk"
+}.{
+  "exp": 1584295703,
+  "nbf": 1584292103,
+  "ver": "1.0",
+  "iss": "https://contoso.b2clogin.com/f06c2fe8-709f-4030-85dc-38a4bfd9e82d/v2.0/",
+  "aud": "e1d2612f-c2bc-4599-8e7b-d874eaca1ee1",
+  "acr": "b2c_1a_signup_signin",
+  "nonce": "defaultNonce",
+  "iat": 1584292103,
+  "auth_time": 1584292103,
+  "name": "Emily Smith",
+  "email": "emily@outlook.com",
+  "given_name": "Emily",
+  "family_name": "Smith",
+  "promoCode": "84362"
+  ...
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Ändra profil redigering och användar registrering för att samla in ytterligare information från dina användare](custom-policy-custom-attributes.md)
+Mer information om hur du skyddar API:erna finns i följande artiklar:
 
-[Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som ett Orchestration-steg](custom-policy-rest-api-claims-exchange.md)
-
-[Referens: RESTful teknisk profil](restful-technical-profile.md)
-
-Information om hur du skyddar dina API: er finns i följande artiklar:
-
-* [Skydda ditt RESTful-API med grundläggande autentisering (användar namn och lösen ord)](secure-rest-api-dotnet-basic-auth.md)
-* [Skydda ditt RESTful-API med klient certifikat](secure-rest-api-dotnet-certificate-auth.md)
+- [Genomgång: Integrera REST API-anspråksutbyten i din Azure AD B2C-användarresa som ett orchestration-steg](custom-policy-rest-api-claims-exchange.md)
+- [Skydda ditt RESTful API](secure-rest-api.md)
+- [Referens: RESTful teknisk profil](restful-technical-profile.md)

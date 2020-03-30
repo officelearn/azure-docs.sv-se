@@ -9,123 +9,123 @@ ms.date: 03/11/2020
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 3ba5d74aa245fbcd9d43f2b4398387d7f59e202c
-ms.sourcegitcommit: c29b7870f1d478cec6ada67afa0233d483db1181
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79299536"
 ---
-### <a name="portal"></a>Portal
+### <a name="portal"></a>Portalen
 
-Om du ställer in Kundhanterade nycklar för dina diskar måste du skapa resurser i en viss ordning, om du gör det för första gången. Först måste du skapa och konfigurera en Azure Key Vault.
+Om du konfigurerar kundhanterade nycklar för diskarna måste du skapa resurser i en viss ordning, om du gör det för första gången. Först måste du skapa och konfigurera ett Azure Key Vault.
 
-#### <a name="setting-up-your-azure-key-vault"></a>Konfigurera din Azure Key Vault
+#### <a name="setting-up-your-azure-key-vault"></a>Konfigurera ditt Azure Key Vault
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) och sök efter Key Vault
-1. Sök efter och välj **nyckel valv**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) och sök efter Key Vault
+1. Sök efter och välj **Nyckelvalv**.
 
-    [![SSE-Key-Vault-Portal-search. png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
+    [![sse-key-vault-portal-search.png](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search.png)](media/virtual-machines-disk-encryption-portal/sse-key-vault-portal-search-expanded.png#lightbox)
 
     > [!IMPORTANT]
-    > Ditt Azure Key Vault, disk krypterings uppsättning, virtuell dator, diskar och ögonblicks bilder måste vara i samma region och prenumeration för att distributionen ska lyckas.
+    > Ditt Azure-nyckelvalv, diskkrypteringsuppsättning, virtuell dator, diskar och ögonblicksbilder måste alla finnas i samma region och prenumeration för distribution för att lyckas.
 
-1. Välj **+ Lägg** till för att skapa en ny Key Vault.
+1. Välj **+Lägg till** om du vill skapa ett nytt nyckelvalv.
 1. Skapa en ny resursgrupp
-1. Ange ett nyckel valv namn, Välj en region och välj en pris nivå.
-1. Välj **Granska + skapa**, verifiera dina val och välj sedan **skapa**.
+1. Ange ett nyckelvalvsnamn, välj en region och välj en prisnivå.
+1. Välj **Granska + Skapa**, kontrollera dina val och välj sedan **Skapa**.
 
-    ![Skärm bild av Azure Key Vault skapande upplevelsen. Visar de specifika värden som du skapar](media/virtual-machines-disk-encryption-portal/sse-create-a-key-vault.png)
+    ![Skärmbild av skapandet av Azure Key Vault. Visa de specifika värden du skapar](media/virtual-machines-disk-encryption-portal/sse-create-a-key-vault.png)
 
-1. När du har slutfört distributionen av nyckel valvet väljer du det.
-1. Välj **nycklar** under **Inställningar**.
-1. Välj **generera/importera**
+1. När nyckelvalvet är klart väljer du det.
+1. Välj **Tangenter** under **Inställningar**.
+1. Välj **Generera/importera**
 
-    ![Skärm bild av fönstret Key Vault resurs inställningar. Visar knappen generera/importera i inställningar.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
+    ![Skärmbild av fönstret Resursinställningar för Key Vault. Visar knappen generera/importera inuti inställningarna.](media/virtual-machines-disk-encryption-portal/sse-key-vault-generate-settings.png)
 
-1. Lämna båda **nyckel typerna** inställd på **RSA** och **RSA-nyckel storleken** inställd på **2080**.
-1. Fyll i de återstående valen som du vill och välj sedan **skapa**.
+1. Lämna både **nyckeltyp** inställd på **RSA** och **RSA nyckelstorlek** inställd på **2080**.
+1. Fyll i de återstående valen som du vill och välj sedan **Skapa**.
 
-    ![Skärm bild av bladet skapa en nyckel som visas när knappen generera/importera har valts](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
+    ![Skärmbild av knappen Skapa ett nyckelblad som visas när knappen generera/importera är markerad](media/virtual-machines-disk-encryption-portal/sse-create-a-key-generate.png)
 
-#### <a name="setting-up-your-disk-encryption-set"></a>Konfigurera din disk krypterings uppsättning
+#### <a name="setting-up-your-disk-encryption-set"></a>Konfigurera diskkrypteringsuppsättningen
 
-Om du vill skapa och konfigurera disk krypterings uppsättningar måste du använda följande länk: https://aka.ms/diskencryptionsets. Om du befinner dig i Microsoft Azure Government regionerna måste du använda den här länken i stället: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff). Det går inte att skapa disk krypterings uppsättning ännu i den globala Azure Portal.
+Om du vill skapa och konfigurera diskkrypteringsuppsättningar måste du använda följande länk: https://aka.ms/diskencryptionsets. Om du befinner dig i Microsoft Azure Government-regionerna [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)måste du använda den här länken i stället: . Skapandet av diskkrypteringsuppsättning är ännu inte tillgängligt i den globala Azure-portalen.
 
-1. Öppna länken disk krypterings uppsättningar som är lämplig för din region:
+1. Öppna länken diskkrypteringsuppsättningar som är lämplig för din region:
 
-    Offentliga regioner: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+    Offentliga regioner:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
 
-    Azure Government regioner: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    Azure Government-regioner:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
-1. Välj **+ Lägg till**.
+1. Välj **+Lägg till**.
 
-    ![Skärm bild av disk krypterings portalens huvud skärm. Markera knappen Lägg till](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
+    ![Skärmbild av huvudskärmen för diskkrypteringsportalen. Markera knappen Lägg till](media/virtual-machines-disk-encryption-portal/sse-create-disk-encryption-set.png)
 
-1. Välj din resurs grupp, namnge krypterings uppsättningen och välj samma region som nyckel valvet.
-1. Välj **nyckel valv och nyckel**.
-1. Välj nyckel valvet och nyckeln som du skapade tidigare, samt versionen.
-1. Tryck på **Välj**.
-1. Välj **Granska + skapa** och sedan **skapa**.
+1. Välj din resursgrupp, namnge krypteringsuppsättningen och välj samma region som nyckelvalvet.
+1. Välj **Nyckelvalv och nyckel**.
+1. Välj det nyckelvalv och den nyckel som du skapade tidigare, samt versionen.
+1. Tryck **på Markera**.
+1. Välj **Granska + Skapa** och **skapa**sedan .
 
-    ![Skärm bild av bladet för att skapa disk kryptering. Visar prenumeration, resurs grupp, namn på disk krypterings uppsättning, region och nyckel valv + nyckel väljare.](media/virtual-machines-disk-encryption-portal/sse-disk-enc-set-blade-key.png)
+    ![Skärmbild av bladet för att skapa diskkryptering. Visar prenumeration, resursgrupp, diskkrypteringsuppsättningsnamn, region och nyckelvalv + nyckelväljare.](media/virtual-machines-disk-encryption-portal/sse-disk-enc-set-blade-key.png)
 
-1. Öppna disk krypterings uppsättningen när den har skapats och välj den avisering som visas.
+1. Öppna diskkrypteringsuppsättningen när den är klar med att skapa och välj den avisering som dyker upp.
 
-    ![Skärm bild av popup för avisering: "om du vill associera en disk, avbildning eller ögonblicks bild med en disk krypterings uppsättning måste du bevilja behörighet till nyckel valvet". Välj den här aviseringen om du vill fortsätta](media/virtual-machines-disk-encryption-portal/sse-disk-enc-alert-fix.png)
+    ![Skärmbild av varningspopup: "Om du vill associera en disk, bild eller ögonblicksbild med en diskkrypteringsuppsättning måste du bevilja behörigheter till nyckelvalvet". Välj den här aviseringen om du vill fortsätta](media/virtual-machines-disk-encryption-portal/sse-disk-enc-alert-fix.png)
 
-Två meddelanden bör visas och lyckas. På så sätt kan du använda disk krypterings uppsättningen med nyckel valvet.
+Två meddelanden ska dyka upp och lyckas. Om du gör det kan du använda diskkrypteringsuppsättningen med nyckelvalvet.
 
-![Skärm bild av lyckad behörighet och roll tilldelning för ditt nyckel valv.](media/virtual-machines-disk-encryption-portal/disk-enc-notification-success.png)
+![Skärmbild av lyckad behörighet och rolltilldelning för nyckelvalvet.](media/virtual-machines-disk-encryption-portal/disk-enc-notification-success.png)
 
 #### <a name="deploy-a-vm"></a>Distribuera en virtuell dator
 
-Nu när du har skapat och konfigurerat nyckel valvet och disk krypterings uppsättningen kan du distribuera en virtuell dator med hjälp av krypteringen.
-Processen för distribution av virtuella datorer liknar standard distributions processen, de enda skillnaderna är att du måste distribuera den virtuella datorn i samma region som dina andra resurser och du väljer att använda en kundhanterad nyckel.
+Nu när du har skapat och konfigurerat nyckelvalvet och diskkrypteringsuppsättningen kan du distribuera en virtuell dator med krypteringen.
+Den virtuella distributionsprocessen liknar standarddistributionsprocessen, de enda skillnaderna är att du behöver distribuera den virtuella datorn i samma region som dina andra resurser och du väljer att använda en kundhanterad nyckel.
 
-1. Öppna länken disk krypterings uppsättningar som är lämplig för din region:
+1. Öppna länken diskkrypteringsuppsättningar som är lämplig för din region:
 
-    Offentliga regioner: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+    Offentliga regioner:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
 
-    Azure Government regioner: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    Azure Government-regioner:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
 
-1. Sök efter **Virtual Machines** och välj **+ Lägg** till för att skapa en virtuell dator.
-1. På fliken **grundläggande** väljer du samma region som disk krypterings uppsättning och Azure Key Vault.
-1. Fyll i de andra värdena på fliken **grundläggande** som du vill.
+1. Sök efter **virtuella datorer** och välj + **Lägg till** för att skapa en virtuell dator.
+1. På fliken **Grundläggande** väljer du samma region som diskkrypteringsuppsättningen och Azure Key Vault.
+1. Fyll i de andra värdena på fliken **Grundläggande** som du vill.
 
-    ![Skärm bild av upplevelsen för att skapa virtuella datorer med värdet region markerat.](media/virtual-machines-disk-encryption-portal/sse-create-a-vm-region.png)
+    ![Skärmbild av den virtuella datorns skapandeupplevelse, med regionvärdet markerat.](media/virtual-machines-disk-encryption-portal/sse-create-a-vm-region.png)
 
-1. På fliken **diskar** väljer du **kryptering i vila med en kundhanterad nyckel**.
-1. Välj disk krypterings uppsättning i list rutan **disk krypterings uppsättning** .
+1. På fliken **Diskar** väljer du **Kryptering i vila med en kundhanterad nyckel**.
+1. Välj diskkrypteringsuppsättningen i listrutan **Diskkrypteringsuppsättning.**
 1. Gör de återstående valen som du vill.
 
-    ![Skärm bild av bladet för att skapa virtuella datorer, bladet diskar. Med list rutan disk krypterings uppsättning markerat.](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
+    ![Skärmbild av den virtuella datorns skapande av den virtuella hårddisken bladet. Med den nedrullningssna rullgardinsmenyn för diskkryptering markerad.](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
 
 #### <a name="enable-on-an-existing-disk"></a>Aktivera på en befintlig disk
 
-Om du vill hantera och konfigurera disk kryptering på befintliga diskar måste du använda följande länk: https://aka.ms/diskencryptionsets. Att aktivera Kundhanterade nycklar på befintliga diskar är ännu inte tillgängligt i den globala Azure Portal.
+Om du vill hantera och konfigurera diskkryptering på dina https://aka.ms/diskencryptionsetsbefintliga diskar måste du använda följande länk: . Det finns ännu inte tillgängligt att aktivera kundhanterade nycklar på befintliga diskar i den globala Azure-portalen.
 
 > [!CAUTION]
-> Att aktivera disk kryptering på alla diskar som är anslutna till en virtuell dator kräver att du stoppar den virtuella datorn.
+> Om du aktiverar diskkryptering på alla diskar som är anslutna till en virtuell dator måste du stoppa den virtuella datorn.
 
-1. Öppna länken disk krypterings uppsättningar som är lämplig för din region:
+1. Öppna länken diskkrypteringsuppsättningar som är lämplig för din region:
 
-    Offentliga regioner: [https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
+    Offentliga regioner:[https://aka.ms/diskencryptionsets](https://aka.ms/diskencryptionsets)
 
-    Azure Government regioner: [https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
+    Azure Government-regioner:[https://aka.ms/diskencryptionsetsff](https://aka.ms/diskencryptionsetsff)
     
-1. Navigera till en virtuell dator som finns i samma region som en av disk krypterings uppsättningarna.
-1. Öppna den virtuella datorn och välj **stoppa**.
+1. Navigera till en virtuell dator som finns i samma region som en av diskkrypteringsuppsättningarna.
+1. Öppna den virtuella datorn och välj **Stoppa**.
 
-    ![Skärm bild av huvud överlägg för ditt exempel-VM. Med knappen Stoppa markerad](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
+    ![Skärmbild av huvudöverlägget för din exempeld-vm. Med stoppknappen markerad](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
 
-1. När den virtuella datorn har stoppats väljer du **diskar** och väljer sedan den disk som du vill kryptera.
+1. När den virtuella datorn har stoppats väljer du **Diskar** och väljer sedan den disk som du vill kryptera.
 
-    ![Skärm bild av ditt exempel virtuella dator med bladet disk öppet. OS-disken är markerad som en exempel disk där du kan välja den.](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
+    ![Skärmbild av exempeldasss, med bladet Diskar öppet. OS-disken är markerad, som en exempeldisk som du kan välja.](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
 
-1. Välj **kryptering** och välj **kryptering i vila med en kundhanterad nyckel** och välj sedan disk krypterings uppsättningen i list rutan.
+1. Välj **Kryptering** och välj **Kryptering i vila med en kundhanterad nyckel** och välj sedan diskkrypteringsuppsättningen i listrutan.
 1. Välj **Spara**.
 
-    ![Skärm bild av exempel-OS-disken. Krypterings bladet är öppet, kryptering i vila med en kundhanterad nyckel har marker ATS, samt ditt exempel Azure Key Vault. När du har gjort dessa val markeras knappen Spara.](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
+    ![Skärmbild av exempeloperativsystemets disk. Krypteringsbladet är öppet, kryptering i vila med en kundhanterad nyckel väljs, liksom ditt exempel Azure Key Vault. När du har gjort dessa val markeras spara-knappen.](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
 
-1. Upprepa processen för alla andra diskar som är anslutna till den virtuella dator som du vill kryptera.
-1. När diskarna har växlat till Kundhanterade nycklar, och det inte finns några andra anslutna diskar som du vill kryptera, kan du starta den virtuella datorn.
+1. Upprepa den här processen för alla andra diskar som är anslutna till den virtuella datorn som du vill kryptera.
+1. När diskarna är klara med att växla över till kundhanterade nycklar, om det inte finns några andra anslutna diskar som du vill kryptera, kan du starta den virtuella datorn.

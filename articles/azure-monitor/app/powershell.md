@@ -1,56 +1,56 @@
 ---
-title: Automatisera Azure Application insikter med PowerShell | Microsoft Docs
-description: Automatisera att skapa och hantera resurser, aviseringar och tillgänglighets test i PowerShell med hjälp av en Azure Resource Manager mall.
+title: Automatisera Azure Application Insights med PowerShell | Microsoft-dokument
+description: Automatisera skapande och hantering av resurser, aviseringar och tillgänglighetstester i PowerShell med hjälp av en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 10/17/2019
 ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79275885"
 ---
-#  <a name="manage-application-insights-resources-using-powershell"></a>Hantera Application Insights-resurser med hjälp av PowerShell
+#  <a name="manage-application-insights-resources-using-powershell"></a>Hantera resurser för programinsikter med PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Den här artikeln visar hur du automatiserar skapandet och uppdateringen av [Application Insights](../../azure-monitor/app/app-insights-overview.md) resurser automatiskt med hjälp av Azure Resource Management. Du kan till exempel göra detta som en del av en build-process. Tillsammans med den grundläggande Application Insights-resursen kan du skapa [tillgänglighets webbtester](../../azure-monitor/app/monitor-web-app-availability.md), konfigurera [aviseringar](../../azure-monitor/app/alerts.md), ange [pris schema](pricing.md)och skapa andra Azure-resurser.
+Den här artikeln visar hur du automatiserar skapandet och uppdateringen av [Application Insights-resurser](../../azure-monitor/app/app-insights-overview.md) automatiskt med hjälp av Azure Resource Management. Du kan till exempel göra det som en del av en byggprocess. Tillsammans med den grundläggande Application Insights-resursen kan du skapa [tillgänglighetswebbtester,](../../azure-monitor/app/monitor-web-app-availability.md)ställa in [aviseringar,](../../azure-monitor/app/alerts.md)ange [prisschema](pricing.md)och skapa andra Azure-resurser.
 
-Nyckeln för att skapa dessa resurser är JSON-mallar för [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). Den grundläggande proceduren är: Ladda ned JSON-definitionerna för befintliga resurser. Parameterisera vissa värden, t. ex. namn; och kör sedan mallen när du vill skapa en ny resurs. Du kan paketera flera resurser för att skapa dem i en enda Go-till exempel en app monitor med tillgänglighets test, aviseringar och lagring för kontinuerlig export. Det finns vissa nyanser till vissa av parameterizations, som vi förklarar här.
+Nyckeln till att skapa dessa resurser är JSON-mallar för [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). Det grundläggande tillvägagångssättet är: ladda ner JSON-definitionerna av befintliga resurser; parameterisera vissa värden, till exempel namn. och kör sedan mallen när du vill skapa en ny resurs. Du kan paketera flera resurser tillsammans för att skapa dem på en gång , till exempel en appövervakare med tillgänglighetstester, aviseringar och lagring för kontinuerlig export. Det finns några nyanser till några av parameteriseringarna, som vi ska förklara här.
 
-## <a name="one-time-setup"></a>Konfiguration vid ett tillfälle
-Om du inte har använt PowerShell med din Azure-prenumeration tidigare än:
+## <a name="one-time-setup"></a>Engångsinställningar
+Om du inte har använt PowerShell med din Azure-prenumeration tidigare:
 
-Installera Azure PowerShell-modulen på den dator där du vill köra skripten:
+Installera Azure Powershell-modulen på datorn där du vill köra skripten:
 
-1. Installera [installations programmet för Microsoft Web Platform (V5 eller högre)](https://www.microsoft.com/web/downloads/platform.aspx).
-2. Använd den för att installera Microsoft Azure PowerShell.
+1. Installera [Installationsprogrammet för Microsoft Web Platform (v5 eller senare)](https://www.microsoft.com/web/downloads/platform.aspx).
+2. Använd den för att installera Microsoft Azure Powershell.
 
-Förutom att använda Resource Manager-mallar finns det en omfattande uppsättning [Application Insights PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights), vilket gör det enkelt att konfigurera Application Insights resurser program mässigt. Funktionerna som aktive ras av cmdletarna är:
+Förutom att använda Resource Manager-mallar finns det en omfattande uppsättning [Application Insights PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights), vilket gör det enkelt att konfigurera Application Insights-resurser programmässigt. De funktioner som aktiveras av cmdlets inkluderar:
 
-* Skapa och ta bort Application Insights resurser
-* Hämta listor över Application Insights resurser och deras egenskaper
+* Skapa och ta bort application insights-resurser
+* Hämta listor över Application Insights-resurser och deras egenskaper
 * Skapa och hantera kontinuerlig export
-* Skapa och hantera program nycklar
-* Ange dagligt tak
-* Ange pris Planen
+* Skapa och hantera programnycklar
+* Ställ in den dagliga tak
+* Ange prisplanen
 
-## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>Skapa Application Insights-resurser med hjälp av en PowerShell-cmdlet
+## <a name="create-application-insights-resources-using-a-powershell-cmdlet"></a>Skapa resurser för programstatistik med en PowerShell-cmdlet
 
-Så här skapar du en ny Application Insights-resurs i Azures Data Center för USA med cmdleten [New-AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights) :
+Så här skapar du en ny Application Insights-resurs i Azure East US-datacentret med cmdleten [New-AzApplicationInsights:](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights)
 
 ```PS
 New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
 ```
 
 
-## <a name="create-application-insights-resources-using-a-resource-manager-template"></a>Skapa Application Insights resurser med en Resource Manager-mall
+## <a name="create-application-insights-resources-using-a-resource-manager-template"></a>Skapa resurser för programstatistik med hjälp av en Resource Manager-mall
 
-Så här skapar du en ny Application Insights resurs med hjälp av en Resource Manager-mall.
+Så här skapar du en ny Application Insights-resurs med hjälp av en Resource Manager-mall.
 
 ### <a name="create-the-azure-resource-manager-template"></a>Skapa Azure Resource Manager-mallen
 
-Skapa en ny. JSON-fil – låt oss anropa den `template1.json` i det här exemplet. Kopiera det här innehållet till det:
+Skapa en ny .json-fil – `template1.json` låt oss kalla det i det här exemplet. Kopiera det här innehållet till det:
 
 ```JSON
     {
@@ -186,10 +186,10 @@ Skapa en ny. JSON-fil – låt oss anropa den `template1.json` i det här exempl
     }
 ```
 
-### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>Använd Resource Manager-mallen för att skapa en ny Application Insights resurs
+### <a name="use-the-resource-manager-template-to-create-a-new-application-insights-resource"></a>Använda resurshanterarens mall för att skapa en ny Application Insights-resurs
 
-1. Logga in på Azure med hjälp av `$Connect-AzAccount` i PowerShell
-2. Ange din kontext till en prenumeration med `Set-AzContext "<subscription ID>"`
+1. Logga in på Azure i PowerShell med`$Connect-AzAccount`
+2. Ange din kontext till en prenumeration med`Set-AzContext "<subscription ID>"`
 2. Kör en ny distribution för att skapa en ny Application Insights-resurs:
    
     ```PS
@@ -199,15 +199,15 @@ Skapa en ny. JSON-fil – låt oss anropa den `template1.json` i det här exempl
 
     ``` 
    
-   * `-ResourceGroupName` är den grupp där du vill skapa de nya resurserna.
-   * `-TemplateFile` måste inträffa innan de anpassade parametrarna.
-   * `-appName` namnet på den resurs som ska skapas.
+   * `-ResourceGroupName`är den grupp där du vill skapa de nya resurserna.
+   * `-TemplateFile`måste inträffa före de anpassade parametrarna.
+   * `-appName`Namnet på den resurs som ska skapas.
 
-Du kan lägga till andra parametrar – du hittar deras beskrivningar i avsnittet parametrar i mallen.
+Du kan lägga till andra parametrar - du hittar deras beskrivningar i parameteravsnittet i mallen.
 
-## <a name="get-the-instrumentation-key"></a>Hämta Instrumentation-nyckeln
+## <a name="get-the-instrumentation-key"></a>Hämta instrumenteringsnyckeln
 
-När du har skapat en program resurs vill du ha Instrumentation-nyckeln: 
+När du har skapat en programresurs vill du ha instrumenteringsnyckeln: 
 
 1. `$Connect-AzAccount`
 2. `Set-AzContext "<subscription ID>"`
@@ -215,35 +215,35 @@ När du har skapat en program resurs vill du ha Instrumentation-nyckeln:
 4. `$details = Get-AzResource -ResourceId $resource.ResourceId`
 5. `$details.Properties.InstrumentationKey`
 
-Om du vill se en lista över många andra egenskaper för din Application Insights-resurs använder du:
+Om du vill visa en lista över många andra egenskaper för application insights-resursen använder du:
 
 ```PS
 Get-AzApplicationInsights -ResourceGroupName Fabrikam -Name FabrikamProd | Format-List
 ```
 
-Ytterligare egenskaper är tillgängliga via cmdletarna:
+Ytterligare egenskaper finns tillgängliga via cmdlets:
 * `Set-AzApplicationInsightsDailyCap`
 * `Set-AzApplicationInsightsPricingPlan`
 * `Get-AzApplicationInsightsApiKey`
 * `Get-AzApplicationInsightsContinuousExport`
 
-Se den [detaljerade dokumentationen](https://docs.microsoft.com/powershell/module/az.applicationinsights) för parametrarna för dessa cmdletar.  
+Se detaljerad [dokumentation](https://docs.microsoft.com/powershell/module/az.applicationinsights) för parametrarna för dessa cmdlets.  
 
-## <a name="set-the-data-retention"></a>Ange data kvarhållning 
+## <a name="set-the-data-retention"></a>Ange datalagring 
 
-Om du vill hämta aktuell datakvarhållning för din Application Insights-resurs kan du använda OSS-verktyget [ARMClient](https://github.com/projectkudu/ARMClient).  (Läs mer om ARMClient från artiklar av [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) och [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Här är ett exempel som använder `ARMClient`för att hämta aktuell kvarhållning:
+Om du vill hämta den aktuella datalagringen för din Application Insights-resurs kan du använda OSS-verktyget [ARMClient](https://github.com/projectkudu/ARMClient).  (Läs mer om ARMClient från artiklar av [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) och [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Här är ett `ARMClient`exempel med , för att få den aktuella kvarhållningen:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
 ```
 
-Om du vill ställa in kvarhållning är kommandot ett liknande sätt:
+Om du vill ställa in kvarhållningen är kommandot ett liknande PUT:
 
 ```PS
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview "{location: 'eastus', properties: {'retentionInDays': 365}}"
 ```
 
-Om du vill ange data kvarhållning till 365 dagar med mallen ovan kör du:
+Om du vill ställa in datalagringen till 365 dagar med mallen ovan kör du:
 
 ```PS
 New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
@@ -252,7 +252,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
        -appName myApp
 ```
 
-Följande skript kan även användas för att ändra kvarhållning. Kopiera det här skriptet för att spara som `Set-ApplicationInsightsRetention.ps1`.
+Följande skript kan också användas för att ändra kvarhållning. Kopiera skriptet för `Set-ApplicationInsightsRetention.ps1`att spara som .
 
 ```PS
 Param(
@@ -302,7 +302,7 @@ $PutResponse = Invoke-RestMethod -Method "PUT" -Uri "$($RequestUri)" -Headers $H
 $PutResponse
 ```
 
-Skriptet kan sedan användas som:
+Det här skriptet kan sedan användas som:
 
 ```PS
 Set-ApplicationInsightsRetention `
@@ -312,50 +312,50 @@ Set-ApplicationInsightsRetention `
         [-RetentionInDays <Int>]
 ```
 
-## <a name="set-the-daily-cap"></a>Ange dagligt tak
+## <a name="set-the-daily-cap"></a>Ställ in det dagliga locket
 
-Använd cmdleten [set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) för att hämta egenskaperna för dagligt tak: 
+För att få de dagliga cap-egenskaperna använder du [cmdlet set-azapplicationInsightsPricingPlan:](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) 
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Använd samma cmdlet för att ange egenskaper för dagligt tak. Om du t. ex. vill ange 300 GB/dag för Cap
+Använd samma cmdlet för att ställa in de dagliga lockegenskaperna. Om du till exempel vill ställa in taket på 300 GB/dag
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
 ```
 
-Du kan också använda [ARMClient](https://github.com/projectkudu/ARMClient) för att hämta och ange dagliga Cap-parametrar.  Använd följande för att hämta de aktuella värdena:
+Du kan också använda [ARMClient](https://github.com/projectkudu/ARMClient) för att hämta och ställa in dagliga takparametrar.  Om du vill hämta de aktuella värdena använder du:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
 ```
 
-## <a name="set-the-daily-cap-reset-time"></a>Ange den dagliga återställnings tiden
+## <a name="set-the-daily-cap-reset-time"></a>Ställ in den dagliga återställningstiden för locket
 
-Om du vill ange den dagliga återställnings tiden kan du använda [ARMClient](https://github.com/projectkudu/ARMClient). Här är ett exempel som använder `ARMClient`för att ange återställnings tiden till en ny timme (i det här exemplet 12:00 UTC):
+Om du vill ställa in den dagliga återställningstiden för locket kan du använda [ARMClient](https://github.com/projectkudu/ARMClient). Här är ett `ARMClient`exempel med , för att ställa in återställningstiden till en ny timme (i det här exemplet 12:00 UTC):
 
 ```PS
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
 ```
 
 <a id="price"></a>
-## <a name="set-the-pricing-plan"></a>Ange pris Planen 
+## <a name="set-the-pricing-plan"></a>Ange prisplan 
 
-Använd cmdleten [set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) för att hämta aktuell pris sättnings plan:
+Om du vill hämta aktuell prisplan använder du [cmdlet set-azapplicationInsightsPricingPlan:](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan)
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Ange pris Planen genom att använda samma cmdlet med den angivna `-PricingPlan`:  
+Om du vill ställa in prisplanen `-PricingPlan` använder du samma cmdlet med den angivna:  
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> -PricingPlan Basic
 ```
 
-Du kan också ställa in pris Planen för en befintlig Application Insights resurs med hjälp av Resource Manager-mallen ovan, utan att använda resursen "Microsoft. Insights/Components" och noden `dependsOn` från fakturerings resursen. Om du till exempel vill ange den till per GB-plan (tidigare kallat bas planen) kör du:
+Du kan också ange prisplanen för en befintlig Application Insights-resurs med hjälp av resurshanterarens mall `dependsOn` ovan, genom att utelämna resursen "microsoft.insights/components" och noden från faktureringsresursen. Om du till exempel vill ange den på per GB-planen (tidigare kallad grundplan) kör du:
 
 ```PS
         New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
@@ -364,70 +364,70 @@ Du kan också ställa in pris Planen för en befintlig Application Insights resu
                -appName myApp
 ```
 
-`priceCode` definieras som:
+Definieras `priceCode` som:
 
-|priceCode|projektplan|
+|prisKoda|planera|
 |---|---|
-|1|Per GB (tidigare kallat Basic-planen)|
-|2|Per nod (tidigare namn företags planen)|
+|1|Per GB (tidigare kallad Basic-planen)|
+|2|Per nod (tidigare namn på Enterprise-planen)|
 
-Slutligen kan du använda [ARMClient](https://github.com/projectkudu/ARMClient) för att hämta och ange pris scheman och parametrar för dagligt tak.  Använd följande för att hämta de aktuella värdena:
+Slutligen kan du använda [ARMClient](https://github.com/projectkudu/ARMClient) för att få och ställa in prisplaner och dagliga takparametrar.  Om du vill hämta de aktuella värdena använder du:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
 ```
 
-Och du kan ange alla parametrarna med:
+Och du kan ställa in alla dessa parametrar med hjälp av:
 
 ```PS
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
 "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':200,'ResetTime':12,'StopSendNotificationWhenHitCap':true,'WarningThreshold':90,'StopSendNotificationWhenHitThreshold':true}}"
 ```
 
-Detta anger den dagliga gränsen till 200 GB/dag, konfigurerar den dagliga återställnings tiden till 12:00 UTC, skickar e-post både när höljet påträffas och varnings nivån uppfylls och anger varnings tröskeln till 90% av Cap.  
+Detta ställer in det dagliga taket till 200 GB/dag, konfigurerar den dagliga cap reset-tiden till 12:00 UTC, skickar e-postmeddelanden både när locket träffas och varningsnivån är uppfyllda och ställer in varningströskeln till 90% av taket.  
 
-## <a name="add-a-metric-alert"></a>Lägg till en måtta avisering
+## <a name="add-a-metric-alert"></a>Lägga till en måttavisering
 
-Information om hur du automatiserar skapandet av mått varningar finns i [artikeln om mall för mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
+Om du vill automatisera skapandet av måttaviseringar läser du [mallartikeln för måttaviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert)
 
 
-## <a name="add-an-availability-test"></a>Lägg till ett tillgänglighets test
+## <a name="add-an-availability-test"></a>Lägga till ett tillgänglighetstest
 
-Information om hur du automatiserar tillgänglighets test finns i [artikeln om mall för mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
+Om du vill automatisera tillgänglighetstester läser du [mallartikeln för måttaviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert).
 
-## <a name="add-more-resources"></a>Lägg till fler resurser
+## <a name="add-more-resources"></a>Lägga till fler resurser
 
-Om du vill automatisera skapandet av någon annan resurs av någon typ skapar du ett exempel manuellt och kopierar sedan och Parameterisera koden från [Azure Resource Manager](https://resources.azure.com/). 
+Om du vill automatisera skapandet av andra resurser av något slag skapar du ett exempel manuellt och kopierar och parameteriserar sedan dess kod från [Azure Resource Manager](https://resources.azure.com/). 
 
-1. Öppna [Azure Resource Manager](https://resources.azure.com/). Navigera till program resursen genom att gå till `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`. 
+1. Öppna [Azure Resource Manager](https://resources.azure.com/). Navigera nedåt `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`till programresursen. 
    
-    ![Navigering i Azure Resource Explorer](./media/powershell/01.png)
+    ![Navigering i Utforskaren för Azure Resource](./media/powershell/01.png)
    
-    *Komponenterna* är de grundläggande Application Insights resurserna för att visa program. Det finns separata resurser för tillhör ande aviserings regler och webb test för tillgänglighet.
-2. Kopiera JSON för komponenten till lämplig plats i `template1.json`.
-3. Ta bort följande egenskaper:
+    *Komponenter* är de grundläggande Application Insights-resurserna för att visa program. Det finns separata resurser för tillhörande aviseringsregler och tillgänglighetswebbtester.
+2. Kopiera komponentens JSON till lämplig `template1.json`plats i .
+3. Ta bort dessa egenskaper:
    
    * `id`
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. Öppna avsnitten `webtests` och `alertrules` och kopiera JSON för enskilda objekt till din mall. (Kopiera inte från `webtests` eller `alertrules` noderna: gå till objekten under dem.)
+4. Öppna `webtests` avsnitten och `alertrules` kopiera JSON för enskilda objekt i mallen. (Kopiera inte från `webtests` eller `alertrules` noderna: gå in i objekten under dem.)
    
-    Varje webb test har en associerad aviserings regel, så du måste kopiera båda.
+    Varje webbtest har en associerad varningsregel, så du måste kopiera dem båda.
    
-    Du kan även inkludera aviseringar för mått. [Mått namn](powershell-alerts.md#metric-names).
+    Du kan också inkludera aviseringar om mått. [Måttnamn](powershell-alerts.md#metric-names).
 5. Infoga den här raden i varje resurs:
    
     `"apiVersion": "2015-05-01",`
 
-### <a name="parameterize-the-template"></a>Parameterisera mallen
-Nu måste du ersätta de angivna namnen med parametrar. Om du vill [Parameterisera en mall](../../azure-resource-manager/templates/template-syntax.md)skriver du uttryck med hjälp av en [uppsättning hjälp funktioner](../../azure-resource-manager/templates/template-functions.md). 
+### <a name="parameterize-the-template"></a>Parametrin i mallen
+Nu måste du ersätta de specifika namnen med parametrar. Om du vill [parametriera en mall](../../azure-resource-manager/templates/template-syntax.md)skriver du uttryck med hjälp av en [uppsättning hjälpfunktioner](../../azure-resource-manager/templates/template-functions.md). 
 
-Du kan inte Parameterisera bara en del av en sträng, så Använd `concat()` för att bygga strängar.
+Du kan inte parameterisera bara en del `concat()` av en sträng, så använd för att skapa strängar.
 
-Här följer några exempel på de ersättningar du vill göra. Det finns flera förekomster av varje ersättning. Du kan behöva andra i din mall. I de här exemplen används de parametrar och variabler som vi definierade överst i mallen.
+Här är exempel på de ersättningar du vill göra. Det finns flera förekomster av varje ersättning. Du kan behöva andra i mallen. Dessa exempel använder de parametrar och variabler som vi definierade högst upp i mallen.
 
-| find | Ersätt med |
+| find | ersätta med |
 | --- | --- |
 | `"hidden-link:/subscriptions/.../../components/MyAppName"` |`"[concat('hidden-link:',`<br/>`resourceId('microsoft.insights/components',` <br/> `parameters('appName')))]"` |
 | `"/subscriptions/.../../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
@@ -435,27 +435,27 @@ Här följer några exempel på de ersättningar du vill göra. Det finns flera 
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"` (gemen) |`"[toLower(parameters('appName'))]"` |
+| `"myappname"`(gemener) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`|
 
 ### <a name="set-dependencies-between-the-resources"></a>Ange beroenden mellan resurserna
-Azure bör konfigurera resurserna i strikt ordning. För att se till att en installation är slutförd innan nästa börjar lägger du till beroende linjer:
+Azure bör ställa in resurserna i strikt ordning. Om du vill vara säker på att en inställning har slutförts innan nästa börjar lägger du till beroenderader:
 
-* I tillgänglighets test resursen:
+* I testresursen för tillgänglighet:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
-* I aviserings resursen för ett tillgänglighets test:
+* I aviseringsresursen för ett tillgänglighetstest:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Andra automatiserings artiklar:
+Andra automationsartiklar:
 
-* [Skapa en Application Insights resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) – snabb metod utan att använda en mall.
-* [Konfigurera aviseringar](powershell-alerts.md)
+* [Skapa en Application Insights-resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) - snabb metod utan att använda en mall.
+* [Ställ in aviseringar](powershell-alerts.md)
 * [Skapa webbtester](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Skicka Azure Diagnostics-data till Application Insights](powershell-azure-diagnostics.md)
 * [Distribuera till Azure från GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
-* [Skapa versions anteckningar](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Skapa versionsanteckningar](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)

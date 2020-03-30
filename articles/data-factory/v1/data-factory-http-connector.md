@@ -1,5 +1,5 @@
 ---
-title: Flytta data från en HTTP-källa – Azure
+title: Flytta data från en HTTP-källa - Azure
 description: Lär dig hur du flyttar data från en lokal eller moln-HTTP-källa med hjälp av Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -12,10 +12,10 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: e668f44bbc3d2e381edeb80c568a41355584a4ee
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260428"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Flytta data från en HTTP-källa med hjälp av Azure Data Factory
@@ -25,52 +25,52 @@ ms.locfileid: "79260428"
 > * [Version 2 (aktuell version)](../connector-http.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Azure Data Factory, se [http Connector i v2](../connector-http.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Azure Data Factory-tjänsten läser du [HTTP-anslutningsappen i V2](../connector-http.md).
 
 
-Den här artikeln beskriver hur du använder kopierings aktivitet i Azure Data Factory för att flytta data från en lokal eller moln-HTTP-slutpunkt till ett mottagar data lager som stöds. Den här artikeln bygger på [Flytta data med hjälp av kopierings aktivitet](data-factory-data-movement-activities.md), som visar en allmän översikt över data flyttningen med hjälp av kopierings aktiviteten. Artikeln innehåller även de data lager som kopierings aktiviteten stöder som källor och mottagare.
+I den här artikeln beskrivs hur du använder Kopiera aktivitet i Azure Data Factory för att flytta data från en lokal eller moln-HTTP-slutpunkt till ett diskbänksdatalager som stöds. Den här artikeln bygger på [Flytta data med hjälp av Kopiera aktivitet](data-factory-data-movement-activities.md), som ger en allmän översikt över data förflyttning med hjälp av Kopiera aktivitet. I artikeln visas också de datalager som Kopiera aktivitet stöder som källor och sänkor.
 
-Data Factory stöder för närvarande endast flytt av data från en HTTP-källa till andra data lager. Det går inte att flytta data från andra data lager till ett HTTP-mål.
+Data Factory stöder för närvarande endast att flytta data från en HTTP-källa till andra datalager. Det stöder inte att flytta data från andra datalager till ett HTTP-mål.
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Scenarier och autentiseringstyper som stöds
 
-Du kan använda den här HTTP-anslutningen för att hämta data från *både ett moln och en lokal http/S-slutpunkt* med hjälp av metoderna http **Get** eller **post** . Följande autentiseringstyper stöds: **Anonym**, **Basic**, **Digest**, **Windows**och **ClientCertificate**. Observera skillnaden mellan den här kopplingen och [webb tabell anslutningen](data-factory-web-table-connector.md). Webb tabells kopplingen extraherar tabell innehåll från en HTML-webbsida.
+Du kan använda den här HTTP-anslutningen för att hämta data från *både ett moln och en lokal HTTP/S-slutpunkt* med hjälp av HTTP **GET-** eller POST-metoderna. **POST** Följande autentiseringstyper stöds: **Anonym**, **Basic**, **Digest**, **Windows**och **ClientCertificate**. Observera skillnaden mellan den här kopplingen och [webbtabellkopplingen](data-factory-web-table-connector.md). Webbtabellkopplingen extraherar tabellinnehåll från en HTML-webbsida.
 
-När du kopierar data från en lokal HTTP-slutpunkt måste du installera Data Management Gateway i den lokala miljön eller i en virtuell Azure-dator. Mer information om Data Management Gateway och stegvisa anvisningar om hur du konfigurerar gatewayen finns i [Flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md).
+När du kopierar data från en lokal HTTP-slutpunkt måste du installera Data Management Gateway i den lokala miljön eller i en Azure VM.When you copy data from an on-premises HTTP endpoint, you must install Data Management Gateway in the on-premises environment or in an Azure VM. Mer information om Data Management Gateway och steg-för-steg-instruktioner om hur du konfigurerar gatewayen finns i [Flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md).
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Komma igång
 
-Du kan skapa en pipeline med en kopierings aktivitet för att flytta data från en HTTP-källa med hjälp av olika verktyg eller API: er:
+Du kan skapa en pipeline som har en kopieringsaktivitet för att flytta data från en HTTP-källa med hjälp av olika verktyg eller API:er:
 
-- Det enklaste sättet att skapa en pipeline är att använda guiden Kopiera data. En snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data finns i [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md).
+- Det enklaste sättet att skapa en pipeline är att använda guiden Kopiera data. En snabb genomgång av hur du skapar en pipeline med hjälp av guiden Kopiera data finns i [Självstudiekurs: Skapa en pipeline med hjälp av kopieringsguiden](data-factory-copy-data-wizard-tutorial.md).
 
-- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager mall**, **.NET-API**eller **REST API**. Stegvisa instruktioner om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). För JSON-exempel som kopierar data från en HTTP-källa till Azure Blob Storage, se [JSON-exempel](#json-examples).
+- Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, en **Azure Resource Manager-mall**, **.NET API**eller REST **API**. Stegvisa instruktioner om hur du skapar en pipeline som har en kopieringsaktivitet finns i [självstudien Kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). För JSON-exempel som kopierar data från en HTTP-källa till Azure Blob-lagring läser du [JSON-exempel](#json-examples).
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-I följande tabell beskrivs JSON-element som är speciella för den länkade HTTP-tjänsten:
+I följande tabell beskrivs JSON-element som är specifika för den HTTP-länkade tjänsten:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ | Egenskapen **Type** måste anges till **http**. | Ja |
-| url | Bas-URL: en till webb servern. | Ja |
-| authenticationType | Anger autentiseringstypen. Tillåtna värden är **Anonym**, **Basic**, **Digest**, **Windows**och **ClientCertificate**. <br><br> I senare avsnitt i den här artikeln hittar du fler egenskaper och JSON-exempel för de här typerna av autentisering. | Ja |
-| enableServerCertificateValidation | Anger om du vill aktivera verifiering av Server-SSL-certifikat om källan är en HTTPS-webbserver. När HTTPS-servern använder ett självsignerat certifikat ställer du in på **false**. | Nej<br /> (Standardvärdet är **Sant**) |
-| gatewayName | Namnet på Data Management Gateway-instansen som ska användas för att ansluta till en lokal HTTP-källa. | Ja, om du kopierar data från en lokal HTTP-källa |
-| encryptedCredential | Krypterade autentiseringsuppgifter för åtkomst till HTTP-slutpunkten. Värdet genereras automatiskt när du konfigurerar autentiseringsinformationen i kopierings guiden eller med hjälp av dialog rutan **ClickOnce** . | Nej<br /> (gäller endast när du kopierar data från en lokal HTTP-server) |
+| typ | **Egenskapen Type** måste anges till **Http**. | Ja |
+| url | Bas-URL:en till webbservern. | Ja |
+| authenticationType | Anger autentiseringstypen. Tillåtna värden är **Anonym**, **Basic,** **Digest**, **Windows**och **ClientCertificate**. <br><br> Mer information om följande avsnitt finns i senare avsnitt i den här artikeln för fler egenskaper och JSON-exempel för dessa autentiseringstyper. | Ja |
+| aktiveraServerCertificateValidation | Anger om server-SSL-certifikatvalidering ska aktiveras om källan är en HTTPS-webbserver. När HTTPS-servern använder ett självsignerat certifikat anger du att det är **falskt**. | Inga<br /> (standardvärdet är **sant)** |
+| gatewayName (gatewayName) | Namnet på den Data Management Gateway-instans som ska användas för att ansluta till en lokal HTTP-källa. | Ja, om du kopierar data från en lokal HTTP-källa |
+| krypteradKnuren | Den krypterade autentiseringsåtkomsten för åtkomst till HTTP-slutpunkten. Värdet skapas automatiskt när du konfigurerar autentiseringsinformationen i kopieringsguiden eller med hjälp av dialogrutan **ClickOnce.** | Inga<br /> (gäller endast när du kopierar data från en lokal HTTP-server) |
 
-Information om hur du anger autentiseringsuppgifter för en lokal HTTP-kopplings data källa finns i [Flytta data mellan lokala källor och molnet med hjälp av data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
+Mer information om hur du anger autentiseringsuppgifter för en lokal HTTP-anslutningsdatakälla finns i [Flytta data mellan lokala källor och molnet med hjälp av Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
-### <a name="using-basic-digest-or-windows-authentication"></a>Använda Basic-, Digest-eller Windows-autentisering
+### <a name="using-basic-digest-or-windows-authentication"></a>Använda autentisering av grundläggande, sammanfattning eller Windows
 
-Ange **authenticationType** som **Basic**, **Digest**eller **Windows**. Förutom de allmänna HTTP-kopplingens egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
+Ange **authenticationType** till **Basic,** **Digest**eller **Windows**. Förutom de allmänna HTTP-kopplingsegenskaperna som beskrivs i föregående avsnitt anger du följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| userName | Användar namnet som används för att få åtkomst till HTTP-slutpunkten. | Ja |
-| lösenord | Användarens lösen ord (**användar namn**). | Ja |
+| userName | Det användarnamn som ska användas för att komma åt HTTP-slutpunkten. | Ja |
+| password | Lösenordet för användaren (**användarnamn**). | Ja |
 
-**Exempel: använda Basic-, Digest-eller Windows-autentisering**
+**Exempel: Använda autentisering av grundläggande, sammanfattning eller Windows**
 
 ```json
 {
@@ -89,26 +89,26 @@ Ange **authenticationType** som **Basic**, **Digest**eller **Windows**. Förutom
 }
 ```
 
-### <a name="using-clientcertificate-authentication"></a>Använda ClientCertificate-autentisering
+### <a name="using-clientcertificate-authentication"></a>Använda clientcertificate-autentisering
 
-Om du vill använda grundläggande autentisering anger du **authenticationType** till **ClientCertificate**. Förutom de allmänna HTTP-kopplingens egenskaper som beskrivs i föregående avsnitt, anger du följande egenskaper:
+Om du vill använda grundläggande autentisering anger du **authenticationType** till **ClientCertificate**. Förutom de allmänna HTTP-kopplingsegenskaperna som beskrivs i föregående avsnitt anger du följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| embeddedCertData | Det Base64-kodade innehållet i binära data i PFX-filen. | Ange antingen **embeddedCertData** eller **certThumbprint** |
-| certThumbprint | Tumavtrycket för det certifikat som har installerats på din gateway-dators certifikat arkiv. Gäller endast när du kopierar data från en lokal HTTP-källa. | Ange antingen **embeddedCertData** eller **certThumbprint** |
-| lösenord | Lösen ordet som är associerat med certifikatet. | Nej |
+| inbäddadeCertData | Det Base64-kodade innehållet i binära data i PFX-filen. | Ange antingen **embeddedCertData** eller **certThumbprint** |
+| certThumbprint | Tumavtrycket för certifikatet som installerades på gateway-datorns cert-arkiv. Använd bara när du kopierar data från en lokal HTTP-källa. | Ange antingen **embeddedCertData** eller **certThumbprint** |
+| password | Lösenordet som är associerat med certifikatet. | Inga |
 
-Om du använder **certThumbprint** för autentisering och certifikatet är installerat i det personliga arkivet på den lokala datorn ger du Läs behörighet till Gateway-tjänsten:
+Om du använder **certThumbprint** för autentisering och certifikatet är installerat i den lokala datorns personliga arkiv beviljar du läsbehörighet till gateway-tjänsten:
 
-1. Öppna Microsoft Management Console (MMC). Lägg till snapin-modulen **certifikat** som är riktad mot den **lokala datorn**.
-2. Expandera **certifikat** > **personliga**och välj sedan **certifikat**.
-3. Högerklicka på certifikatet i det personliga arkivet och välj sedan **alla aktiviteter** >**hantera privata nycklar**.
-3. På fliken **säkerhet** lägger du till det användar konto som data Management Gateway värd tjänsten körs under, med Läs behörighet till certifikatet.  
+1. Öppna Microsoft Management Console (MMC). Lägg till snapin-modulen **Certifikat** som är inriktad på **lokal dator**.
+2. Expandera **Certifikat** > **Personal**och välj sedan **Certifikat**.
+3. Högerklicka på certifikatet från det personliga arkivet och välj sedan **Alla uppgifter** >**hantera privata nycklar**.
+3. Lägg till användarkontot som värdtjänsten för datahantering gateway körs under på fliken **Säkerhet,** med läsbehörighet till certifikatet.  
 
-**Exempel: använda ett klient certifikat**
+**Exempel: Använda ett klientcertifikat**
 
-Den här länkade tjänsten länkar din data fabrik till en lokal HTTP-webbserver. Det använder ett klient certifikat som är installerat på den dator som har Data Management Gateway installerat.
+Den här länkade tjänsten länkar datafabriken till en lokal HTTP-webbserver. Den använder ett klientcertifikat som är installerat på datorn som har Data Management Gateway installerat.
 
 ```json
 {
@@ -128,9 +128,9 @@ Den här länkade tjänsten länkar din data fabrik till en lokal HTTP-webbserve
 }
 ```
 
-**Exempel: använda ett klient certifikat i en fil**
+**Exempel: Använda ett klientcertifikat i en fil**
 
-Den här länkade tjänsten länkar din data fabrik till en lokal HTTP-webbserver. Den använder en klient certifikat fil på den dator som har Data Management Gateway installerat.
+Den här länkade tjänsten länkar datafabriken till en lokal HTTP-webbserver. Den använder en klientcertifikatfil på datorn som har Data Management Gateway installerat.
 
 ```json
 {
@@ -151,23 +151,23 @@ Den här länkade tjänsten länkar din data fabrik till en lokal HTTP-webbserve
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-Vissa delar av en data uppsättnings JSON-fil, till exempel struktur, tillgänglighet och princip, liknar alla typer av data uppsättningar (Azure SQL Database, Azure Blob Storage, Azure Table Storage).
+Vissa avsnitt i en datauppsättning JSON-fil, till exempel struktur, tillgänglighet och princip, är liknande för alla datauppsättningstyper (Azure SQL Database, Azure Blob storage, Azure Table storage).
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i [skapa data uppsättningar](data-factory-create-datasets.md).
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [Skapa datauppsättningar](data-factory-create-datasets.md).
 
-Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Avsnittet **typeProperties** innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för en data uppsättning av **http-** typen har följande egenskaper:
+Avsnittet **typeProperties** är olika för varje typ av datauppsättning. Avsnittet **typeProperties** innehåller information om platsen för data i datalagret. Avsnittet **typeProperties** för en datauppsättning av **typen Http** har följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Data uppsättningens **typ** måste anges till **http**. | Ja |
-| relativeUrl | En relativ URL till den resurs som innehåller data. När sökvägen inte anges används bara den URL som anges i den länkade tjänst definitionen. <br><br> Om du vill skapa en dynamisk URL kan du använda [Data Factory funktioner och systemvariabler](data-factory-functions-variables.md). Exempel: **relativeUrl**: **$ $text. format ('/My/Report? month = {0: åååå}-{0: mm} & fmt = CSV ', SliceStart)** . | Nej |
-| requestMethod | HTTP-metoden. Tillåtna värden är **Get** och **post**. | Nej <br />(standard är **Get**) |
-| additionalHeaders | Ytterligare rubriker för HTTP-begäran. | Nej |
-| RequestBody | Bröd texten för HTTP-begäran. | Nej |
-| format | Om du vill *Hämta data från en http-slutpunkt som-är* utan att parsa den, hoppar du över **format** inställningen. <br><br> Om du vill parsa innehållet i HTTP-svar under kopieringen, stöds följande format **typer: text**format, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Mer information finns i [text format](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), Orc- [format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parquet-format](data-factory-supported-file-and-compression-formats.md#parquet-format). |Nej |
-| compression | Ange typ och komprimeringsnivå för data. Typer som stöds: **gzip**, **DEFLATE**, **BZip2**och **ZipDeflate**. Nivåer som stöds: **optimal** och **snabbast**. Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| typ | Datauppsättningens **typ** måste anges till **Http**. | Ja |
+| släktingUrl | En relativ URL till resursen som innehåller data. När sökvägen inte anges används bara webbadressen som anges i den länkade tjänstdefinitionen. <br><br> Om du vill skapa en dynamisk URL kan du använda [datafabriksfunktioner och systemvariabler](data-factory-functions-variables.md). Exempel: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Inga |
+| begäranMethod | HTTP-metoden. Tillåtna värden är **GET** och **POST**. | Inga <br />(standard är **GET)** |
+| additionalHeaders | Ytterligare HTTP-begäranden. | Inga |
+| begäranKropp | Brödtexten för HTTP-begäran. | Inga |
+| format | Om du vill *hämta data från en HTTP-slutpunkt som den är* utan att tolka dem hoppar du över **formatinställningen.** <br><br> Om du vill tolka HTTP-svarsinnehållet under kopiering stöds följande formattyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**och **ParquetFormat**. Mer information finns i [Textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-format](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-format](data-factory-supported-file-and-compression-formats.md#orc-format)och [Parkettformat](data-factory-supported-file-and-compression-formats.md#parquet-format). |Inga |
+| komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds: **GZip**, **Deflate**, **BZip2**och **ZipDeflate**. Nivåer som stöds: **Optimal och** **snabbast**. Mer information finns [i Fil- och komprimeringsformat i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Inga |
 
-**Exempel: använda metoden GET (standard)**
+**Exempel: Använda metoden GET (standard)**
 
 ```json
 {
@@ -188,7 +188,7 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Avsn
 }
 ```
 
-**Exempel: använda POST-metoden**
+**Exempel: Använda metoden POST**
 
 ```json
 {
@@ -212,41 +212,41 @@ Avsnittet **typeProperties** är olika för varje typ av data uppsättning. Avsn
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
+Egenskaper som namn, beskrivning, indata- och utdatatabeller och princip är tillgängliga för alla typer av aktiviteter.
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipeliner](data-factory-create-pipelines.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [Skapa pipelines](data-factory-create-pipelines.md). 
 
-Egenskaper som är tillgängliga i **typeProperties** -avsnittet av aktiviteten varierar beroende på varje aktivitets typ. För en kopierings aktivitet varierar egenskaperna beroende på typerna av källor och mottagare.
+Egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten varierar beroende på varje aktivitetstyp. För en kopieringsaktivitet varierar egenskaperna beroende på vilka typer av källor och sänkor som finns.
 
-För närvarande stöds följande egenskaper när källan i kopierings aktiviteten är av typen **HttpSource** :
+När källan i Kopieringsaktivitet är av typen **HttpSource** stöds följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | Timeout ( **TimeSpan** -värdet) för http-begäran för att få ett svar. Det är tids gränsen för att få ett svar, inte tids gränsen för att läsa svars data. | Nej<br />(standardvärde: **00:01:40**) |
+| httpRequestTimeout (På) | Timeout **(TimeSpan-värdet)** för HTTP-begäran för att få ett svar. Det är tidsgränsen för att få ett svar, inte timeout för att läsa svarsdata. | Inga<br />(standardvärde: **00:01:40**) |
 
-## <a name="supported-file-and-compression-formats"></a>Fil-och komprimerings format som stöds
+## <a name="supported-file-and-compression-formats"></a>Fil- och komprimeringsformat som stöds
 
-Mer information finns i [fil-och komprimerings format i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) .
+Mer [information finns i fil- och komprimeringsformat i Azure Data Factory.](data-factory-supported-file-and-compression-formats.md)
 
-## <a name="json-examples"></a>JSON-exempel
+## <a name="json-examples"></a>JSON exempel
 
-I följande exempel finns exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). I exemplen visas hur du kopierar data från en HTTP-källa till Azure Blob Storage. Data kan dock kopieras *direkt* från någon av källorna till någon av de handfat [som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopierings aktiviteten i Azure Data Factory.
+Följande exempel innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data från en HTTP-källa till Azure Blob-lagring. Data kan dock kopieras *direkt* från någon av källorna till någon av de diskhoar [som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopiera aktivitet i Azure Data Factory.
 
-**Exempel: kopiera data från en HTTP-källa till Azure Blob Storage**
+**Exempel: Kopiera data från en HTTP-källa till Azure Blob-lagring**
 
-Data Factory-lösningen för det här exemplet innehåller följande Data Factory entiteter:
+Data Factory-lösningen för det här exemplet innehåller följande Data Factory-entiteter:
 
-*   En länkad tjänst av typen [http](#linked-service-properties).
+*   En länkad tjänst av typen [HTTP](#linked-service-properties).
 *   En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-*   En indata- [datauppsättning](data-factory-create-datasets.md) av typen [http](#dataset-properties).
-*   En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-*   En [pipeline](data-factory-create-pipelines.md) som har en kopierings aktivitet som använder [HttpSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+*   En [indatauppsättning](data-factory-create-datasets.md) av typen [Http](#dataset-properties).
+*   En [utdatauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+*   En [pipeline](data-factory-create-pipelines.md) som har en kopieringsaktivitet som använder [HttpSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Exemplet kopierar data från en HTTP-källa till en Azure-Blob varje timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitt som följer exemplen.
+Exemplet kopierar data från en HTTP-källa till en Azure-blob varje timme. JSON-egenskaperna som används i dessa exempel beskrivs i avsnitt som följer proverna.
 
-### <a name="http-linked-service"></a>Länkad HTTP-tjänst
+### <a name="http-linked-service"></a>HTTP-länkad tjänst
 
-I det här exemplet används den länkade HTTP-tjänsten med anonym autentisering. Se [http-länkad tjänst](#linked-service-properties) för olika typer av autentisering som du kan använda.
+I det här exemplet används den HTTP-länkade tjänsten med anonym autentisering. Se [HTTP-länkad tjänst](#linked-service-properties) för olika typer av autentisering som du kan använda.
 
 ```json
 {
@@ -263,7 +263,7 @@ I det här exemplet används den länkade HTTP-tjänsten med anonym autentiserin
 }
 ```
 
-### <a name="azure-storage-linked-service"></a>Länkad Azure Storage-tjänst
+### <a name="azure-storage-linked-service"></a>Azure-lagringslänkade tjänst
 
 ```json
 {
@@ -277,9 +277,9 @@ I det här exemplet används den länkade HTTP-tjänsten med anonym autentiserin
 }
 ```
 
-### <a name="http-input-dataset"></a>Data uppsättning för HTTP-indata
+### <a name="http-input-dataset"></a>HTTP-indatauppsättning
 
-Om du anger **external** till **True** informerar Data Factory tjänsten att data uppsättningen är extern i data fabriken och inte skapas av en aktivitet i data fabriken.
+Om du ställer **in externt** för **true** informerar datafabriken om att datauppsättningen är extern till datafabriken och inte produceras av en aktivitet i datafabriken.
 
 ```json
 {
@@ -303,7 +303,7 @@ Om du anger **external** till **True** informerar Data Factory tjänsten att dat
 
 ### <a name="azure-blob-output-dataset"></a>Utdatauppsättning för Azure-blob
 
-Data skrivs till en ny BLOB varje timme (**frekvens**: **timme**, **intervall**: **1**).
+Data skrivs till en ny blob varje timme **(frekvens:** **timme,** **intervall:** **1**).
 
 ```json
 {
@@ -325,11 +325,11 @@ Data skrivs till en ny BLOB varje timme (**frekvens**: **timme**, **intervall**:
 }
 ```
 
-### <a name="pipeline-that-uses-a-copy-activity"></a>Pipeline som använder en kopierings aktivitet
+### <a name="pipeline-that-uses-a-copy-activity"></a>Pipeline som använder en kopieringsaktivitet
 
-Pipelinen innehåller en kopierings aktivitet som är konfigurerad att använda data uppsättningar för indata och utdata. Kopierings aktiviteten är schemalagd att köras varje timma. I JSON-definitionen för pipelinen är **käll** typen inställt på **HttpSource** och **mottagar** typen är inställd på **BlobSink**.
+Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda in- och utdatauppsättningarna. Kopieringsaktiviteten är schemalagd att köras varje timme. I JSON-definitionen för pipelinen anges **källtypen** till **HttpSource** och **sink-typen** är inställd på **BlobSink**.
 
-En lista över egenskaper som stöds av **HttpSource** finns i [HttpSource](#copy-activity-properties).
+Information om listan över egenskaper som **HttpSource** stöder finns i [HttpSource](#copy-activity-properties).
 
 ```json
 {  
@@ -378,8 +378,8 @@ En lista över egenskaper som stöds av **HttpSource** finns i [HttpSource](#cop
 ```
 
 > [!NOTE]
-> Information om hur du mappar kolumner från en käll data uppsättning till kolumner från en Sink-datauppsättning finns [i mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).
+> Information om hur du mappar kolumner från en källdatauppsättning till kolumner från en sink-datauppsättning finns [i Mappa datauppsättningskolumner i Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="performance-and-tuning"></a>Prestanda- och justering
 
-Information om viktiga faktorer som påverkar prestandan för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den finns i [guiden Kopiera aktivitets prestanda och justering](data-factory-copy-activity-performance.md).
+Mer information om viktiga faktorer som påverkar prestanda för datarörelser (kopiera aktivitet) i Azure Data Factory och olika sätt att optimera den finns i [prestanda- och justeringsguiden för kopieringsaktivitet](data-factory-copy-activity-performance.md).

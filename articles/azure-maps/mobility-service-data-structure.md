@@ -1,70 +1,70 @@
 ---
-title: Mobilitets tjänstens data strukturer i Azure Maps | Microsoft Azure Maps
-description: I den här artikeln får du lära dig om gemensamma fält och data strukturer som returneras via Microsoft Azure Maps Mobility Services.
-author: farah-alyasari
-ms.author: v-faalya
+title: Datastrukturer för Mobilitetstjänsten i Azure Maps| Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om vanliga fält och datastrukturer som returneras via Microsoft Azure Maps Mobility Services.
+author: philmea
+ms.author: philmea
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 685810a6efa46c8eb3ad6cee0c2424299f0347d8
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 30696c5dcb3353ea468aa78dbc107dae4d292edb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209621"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80334450"
 ---
-# <a name="data-structures-in-azure-maps-mobility-service"></a>Data strukturer i Azure Maps Mobility Service
+# <a name="data-structures-in-azure-maps-mobility-service"></a>Datastrukturer i Azure Maps Mobility Service
 
-I den här artikeln beskrivs begreppet tunnelbane linje i [Azure Maps Mobility Service](https://aka.ms/AzureMapsMobilityService). Vi diskuterar några vanliga fält som returneras när den här tjänsten efter frågas för offentliga överförings stopp och-rader. Vi rekommenderar att du läser den här artikeln innan du utvecklar med mobilitets tjänstens API: er.
+Den här artikeln introducerar konceptet Metro Area i [Azure Maps Mobility Service](https://aka.ms/AzureMapsMobilityService). Vi diskuterar några av de vanliga fält som returneras när den här tjänsten efterfrågas för stopp och linjer för kollektivtrafik. Vi rekommenderar att du läser den här artikeln innan du utvecklar med MOBILITETSTJÄNST API:er.
 
-## <a name="metro-area"></a>Tunnelbane yta
+## <a name="metro-area"></a>Storstadsområde
 
-Mobilitets tjänstens data grupperas efter stödda Metro-områden. Metro-områden följer inte stads gränser. Ett tunnelbane område kan innehålla flera städer, tätt ifylld stad och omgivande städer. Ett land/region kan i själva verket vara ett tunnelbane område. 
+Mobilitetstjänstdata grupperas efter metroområden som stöds. Storstadsområden följer inte stadens gränser. Ett storstadsområde kan innehålla flera städer, tätbefolkade städer och omgivande städer. I själva verket kan ett land / region vara ett storstadsområde. 
 
-`metroID` är ett Metro-områdens ID som kan användas för att anropa API: t för att [Hämta information om Metro-ytan](https://aka.ms/AzureMapsMobilityMetroAreaInfo). Använd Azure Maps "Get Metro"-API för att begära överförings typer, transit myndigheter, aktiva aviseringar och ytterligare information för den valda tunnelbane linje. Du kan också begära de tunnelbane områden och metroIDs som stöds. Metro-områdes-ID: n kan komma att ändras.
+Det `metroID` är ett storstadsområde id som kan användas för att ringa [Get Metro Area Info API.](https://aka.ms/AzureMapsMobilityMetroAreaInfo) Använd Azure Maps "Get Metro"-API för att begära transittyper, transitbyråer, aktiva aviseringar och ytterligare information för den valda tunnelbanan. Du kan också begära metroområden och metro-ID som stöds. Id-3-4-4-4-4-4-4-4-4-4
 
 **metroID:** 522 **Namn:** Seattle-Tacoma-Bellevue
 
-![Seattle-metro-area](./media/mobility-service-data-structure/seattle-metro.png)
+![Seattle-metro-området](./media/mobility-service-data-structure/seattle-metro.png)
 
-## <a name="stop-ids"></a>Stopp-ID
+## <a name="stop-ids"></a>Stoppa ID:er
 
-Överförings stopp kan refereras till av två typer av ID: n, General GFTS-ID: t [(transport feed Specification)](https://gtfs.org/) och Azure Maps stopp-ID. GFTS-ID kallas för stopKey och Azure Maps stopp-ID kallas stopID. När du ofta hänvisar till överförings stopp rekommenderar vi att du använder Azure Maps stopp-ID. stopID är mer stabil och förmodligen kvar så länge det fysiska stoppet finns. Stopp-ID: t för GTFS uppdateras oftare. Till exempel kan GTFS Stop ID uppdateras per GTFS Provider-begäran eller när en ny GTFS-version släpps. Även om det fysiska stoppet inte hade någon ändring, kan stopp-ID: t för GTFS ändras.
+Transitstopp kan refereras till av två typer av ID:n, [GFTS-ID (General Transit Feed Specification)](https://gtfs.org/) och Azure Maps stop ID. GFTS-ID kallas stopKey och Azure Maps stop ID kallas stopID. När du ofta refererar till transitstopp uppmanas du att använda stopp-ID:n för Azure Maps. stopID är stabilare och sannolikt att förbli densamma så länge det fysiska stoppet finns. GTFS-stopp-ID uppdateras oftare. GTFS-stopp-ID kan till exempel uppdateras per GTFS-providerbegäran eller när en ny GTFS-version släpps. Även om det fysiska stoppet inte hade någon förändring kan GTFS-stopp-ID ändras.
 
-För att starta kan du begära att närliggande överföring slutar att använda [Get närbelägen överförings-API](https://aka.ms/AzureMapsMobilityNearbyTransit).
+Till att börja med kan du begära transitstopp i närheten med [Get Närliggande transit-API](https://aka.ms/AzureMapsMobilityNearbyTransit).
 
-## <a name="line-groups-and-lines"></a>Linje grupper och linjer
+## <a name="line-groups-and-lines"></a>Radgrupper och rader
 
-Mobilitets tjänsten använder en parallell data modell för linjer och linje grupper. Den här modellen används för att bättre hantera ändringar som ärvts från [GTFS](https://gtfs.org/) -vägar och TRIPs-data.
-
-
-### <a name="line-groups"></a>Linje grupper
-
-En linje grupp är en entitet som grupper samman alla rader som är logiskt indelade i samma grupp. Vanligt vis innehåller en linje grupp två rader, en från punkt A till B, och den andra som returnerar från punkt B till A. Båda raderna tillhör samma offentliga transport byrå och har samma rad nummer. Det kan dock finnas fall där en linje grupp har fler än två rader eller bara en enda rad i den.
+Mobilitetstjänsten använder en parallell datamodell för linjer och linjegrupper. Den här modellen används för att bättre hantera ändringar som ärvts från [GTFS-rutter](https://gtfs.org/) och trips-data.
 
 
-### <a name="lines"></a>Operationsföljdsrader
+### <a name="line-groups"></a>Radgrupper
 
-Som vi nämnt ovan består varje linje grupp av en uppsättning rader. Varje linje grupp består av två rader och varje rad beskriver en riktning.  Det finns dock fall där fler rader skapar en linje grupp. Det finns till exempel en rad som ibland deklarerar genom en viss plats och ibland inte. I båda fallen fungerar den under samma rad nummer. Dessutom kan en linje grupp bestå av en enda rad. En cirkulär linje med en enda riktning är en ling grupp med en rad.
+En radgrupp är en entitet som grupperar alla rader som logiskt sett ingår i samma grupp. Vanligtvis innehåller en radgrupp två rader, en från punkt A till B och den andra som returnerar från punkt B till A. Båda linjerna skulle tillhöra samma kollektivtrafikbyrå och ha samma radnummer. Det kan dock finnas fall där en radgrupp har fler än två rader eller bara en enda rad i den.
 
-För att börja kan du begära linje grupper med hjälp av [API: t get transport line](https://aka.ms/AzureMapsMobilityTransitLine).
+
+### <a name="lines"></a>Rader
+
+Som diskuterats ovan består varje radgrupp av en uppsättning rader. Varje radgrupp består av två rader och varje rad beskriver en riktning.  Det finns dock fall där fler rader utgör en radgrupp. Till exempel finns det en linje som ibland omvägar genom ett visst grannskap och ibland inte. I båda fallen fungerar den under samma radnummer. Även en linjegrupp kan bestå av en enda rad. En cirkulär linje med en enda riktning är en linggrupp med en rad.
+
+Till att börja med kan du begära radgrupper med hjälp av [API:et Hämta transitlinje](https://aka.ms/AzureMapsMobilityTransitLine).
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du begär överförings data med mobilitets tjänsten:
+Läs om hur du begär transitdata med Mobilitetstjänsten:
 
 > [!div class="nextstepaction"]
-> [Så här begär du överförings data](how-to-request-transit-data.md)
+> [Så här begär du transitdata](how-to-request-transit-data.md)
 
-Lär dig hur du begär data i real tid med mobilitets tjänsten:
-
-> [!div class="nextstepaction"]
-> [Så här begär du real tids data](how-to-request-real-time-data.md)
-
-Utforska dokumentationen för Azure Maps Mobility Service API
+Lär dig hur du begär realtidsdata med Mobilitetstjänsten:
 
 > [!div class="nextstepaction"]
-> [API-dokumentation för Mobility Service](https://aka.ms/AzureMapsMobilityService)
+> [Så här begär du realtidsdata](how-to-request-real-time-data.md)
+
+Utforska API-dokumentationen för Azure Maps Mobility Service
+
+> [!div class="nextstepaction"]
+> [API-dokumentation för Mobilitetstjänster](https://aka.ms/AzureMapsMobilityService)

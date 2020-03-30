@@ -1,6 +1,6 @@
 ---
-title: Data bearbetning och användardefinierade funktioner – Azure Digitals flätar | Microsoft Docs
-description: Översikt över data bearbetning,-matchningar och användardefinierade funktioner med Azure Digitals dubbla.
+title: Databehandling och användardefinierade funktioner - Azure Digital Twins| Microsoft-dokument
+description: Översikt över databearbetning, matchningar och användardefinierade funktioner med Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,42 +9,42 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79265186"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Databearbetning och användardefinierade funktioner
 
-Azure Digitals dubbla ger avancerade beräknings funktioner. Utvecklare kan definiera och köra anpassade funktioner mot inkommande telemetridata för att skicka händelser till fördefinierade slut punkter.
+Azure Digital Twins erbjuder avancerade beräkningsfunktioner. Utvecklare kan definiera och köra anpassade funktioner mot inkommande telemetrimeddelanden för att skicka händelser till fördefinierade slutpunkter.
 
-## <a name="data-processing-flow"></a>Data bearbetnings flöde
+## <a name="data-processing-flow"></a>Databehandlingsflöde
 
-När enheterna skickar telemetridata till Azure Digitals, kan utvecklare bearbeta data i fyra faser: *validera*, *matcha*, *Beräkna*och *Skicka*.
+När enheter har skickat telemetridata till Azure Digital Twins kan utvecklare bearbeta data i fyra faser: *validera*, *matcha,* *beräkna*och *skicka*.
 
-[![Azure Digitals informations bearbetnings flöde](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[![Azure Digital Twins databehandlingsflöde](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
-1. Validerings fasen transformerar meddelandet inkommande telemetri till ett vanligt [data överförings objekt](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) format. I den här fasen körs även enhets-och sensor validering.
-1. Matchnings fasen söker efter lämpliga användardefinierade funktioner som ska köras. Fördefinierade matchningar söker efter användardefinierade funktioner baserat på information om enhet, sensor och utrymme från meddelandet inkommande telemetri.
-1. Beräknings fasen kör de användardefinierade funktioner som matchar i föregående fas. Dessa funktioner kan läsa och uppdatera beräknade värden på spatiala diagram-noder och kan generera anpassade meddelanden.
-1. Sändnings fasen dirigerar eventuella anpassade meddelanden från beräknings fasen till slut punkter som definierats i diagrammet.
+1. Valideringsfasen omvandlar det inkommande telemetrimeddelandet till ett allmänt förstått [objektformat för dataöverföring.](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) Den här fasen kör även enhets- och sensorvalidering.
+1. Matchningsfasen hittar lämpliga användardefinierade funktioner som ska köras. Fördefinierade matchningars hitta användardefinierade funktioner baserat på enheten, sensorn och utrymmesinformation från det inkommande telemetrimeddelandet.
+1. Beräkningsfasen kör de användardefinierade funktioner som matchas i föregående fas. Dessa funktioner kan läsa och uppdatera beräknade värden på rumsliga grafnoder och kan avge anpassade meddelanden.
+1. Leveransfasen dirigerar alla anpassade meddelanden från beräkningsfasen till slutpunkter som definierats i diagrammet.
 
-## <a name="data-processing-objects"></a>Data bearbetnings objekt
+## <a name="data-processing-objects"></a>Objekt för databehandling
 
-Data bearbetning i digitala Digital-objekt i Azure består av att definiera tre objekt: *motsvarigheter*, *användardefinierade funktioner*och *roll tilldelningar*.
+Databearbetning i Azure Digital Twins består av att definiera tre objekt: *matchningar,* *användardefinierade funktioner*och *rolltilldelningar*.
 
-[![Azure Digitals dubbla data bearbetnings objekt](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[![Databearbetningsobjekt för Azure Digital Twins](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
-### <a name="matchers"></a>Matchningar
+### <a name="matchers"></a>Matchers (matcher)
 
-Motsvarigheter definierar en uppsättning villkor som utvärderar vilka åtgärder som sker baserat på inkommande sensor för telemetri. Villkor för att fastställa matchningen kan omfatta egenskaper från sensorn, sensorns överordnade enhet och sensorns överordnade utrymme. Villkoren uttrycks som jämförelser mot en [JSON-sökväg](https://jsonpath.com/) som beskrivs i det här exemplet:
+Matchers definierar en uppsättning villkor som utvärderar vilka åtgärder som sker baserat på inkommande sensortelemetri. Villkor för att bestämma matchningen kan omfatta egenskaper från sensorn, sensorns överordnade enhet och sensorns överordnade utrymme. Villkoren uttrycks som jämförelser mot en [JSON-väg](https://jsonpath.com/) som beskrivs i det här exemplet:
 
-- Alla sensorer av data typs **temperatur** som representeras av det undantagna sträng värdet `\"Temperature\"`
-- Ha `01` i sin port
-- Som tillhör enheter med **tillverkaren** av den utökade egenskaps nyckeln har angetts till det undantagna sträng värdet `\"Contoso\"`
-- Som hör till blank steg av den typ som anges av den undantagna strängen `\"Venue\"`
-- Som är underordnade för överordnade **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- Alla sensorer av datatyp **Temperatur** representeras av det förrymda strängvärdet`\"Temperature\"`
+- Att `01` ha i sin hamn
+- Som tillhör enheter med den utökade egenskapsnyckeln **Tillverkare** inställd på det förrymde strängvärdet`\"Contoso\"`
+- Som tillhör utrymmen av den typ som anges av den förrymde Strängen`\"Venue\"`
+- Som är underordnade till överordnad **SpaceId**`DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {
@@ -86,42 +86,42 @@ Motsvarigheter definierar en uppsättning villkor som utvärderar vilka åtgärd
 ```
 
 > [!IMPORTANT]
-> - JSON-sökvägar är Skift läges känsliga.
-> - JSON-nyttolasten är samma som den nytto last som returneras av:
->   - `/sensors/{id}?includes=properties,types` för sensorn.
->   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes` för sensorns överordnade enhet.
->   - `/spaces/{id}?includes=properties,types,location,timezone` för sensorns överordnade utrymme.
-> - Jämförelserna är Skift läges okänsliga.
+> - JSON-sökvägar är skiftlägeskänsliga.
+> - JSON-nyttolasten är densamma som nyttolasten som returneras av:
+>   - `/sensors/{id}?includes=properties,types`för sensorn.
+>   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes`för sensorns överordnade enhet.
+>   - `/spaces/{id}?includes=properties,types,location,timezone`för sensorns föräldrautrymme.
+> - Jämförelserna är skiftlägesokänsliga.
 
 ### <a name="user-defined-functions"></a>Användardefinierade funktioner
 
-En användardefinierad funktion är en anpassad funktion som körs i en isolerad Azure digital-miljö. Användardefinierade funktioner har åtkomst till meddelanden om RAW-telemetri när de tas emot. Användardefinierade funktioner har även åtkomst till spatial graf och dispatcher-tjänsten. När den användardefinierade funktionen har registrerats i ett diagram måste en matchandeare (detaljerad beskrivning [ovan](#matchers)) skapas för att ange när funktionen ska köras. Exempel: när Azure Digitals dubbla mottagare tar emot ny telemetri från en viss sensor, kan den matchade användardefinierade funktionen Beräkna ett glidande medelvärde för de senaste sensor avläsningarna.
+En användardefinierad funktion är en anpassad funktion som körs i en isolerad Azure Digital Twins-miljö. Användardefinierade funktioner har tillgång till telemetrimeddelande för råsensor när det tas emot. Användardefinierade funktioner har också tillgång till den rumsliga grafen och avsändare tjänsten. När den användardefinierade funktionen har registrerats i ett diagram måste en matchning (som beskrivs [ovan)](#matchers)skapas för att ange när funktionen körs. När Azure Digital Twins till exempel tar emot ny telemetri från en viss sensor kan den matchade användardefinierade funktionen beräkna ett glidande medelvärde av de senaste sensoravläsningarna.
 
-Användardefinierade funktioner kan skrivas i Java Script. Hjälp metod metoder interagerar med grafen i den användardefinierade körnings miljön. Utvecklare kan köra anpassade kod avsnitt mot meddelanden om sensor telemetri. Exempel:
+Användardefinierade funktioner kan skrivas i JavaScript. Hjälpmetoderna interagerar med diagrammet i den användardefinierade körningsmiljön. Utvecklare kan köra anpassade kodavsnitt mot sensortelemetrimeddelanden. Exempel på rekommendationer:
 
-- Ange sensorn som läser direkt till objektet sensor i grafen.
-- Utför en åtgärd baserat på olika sensor avläsningar inom ett utrymme i grafen.
-- Skapa ett meddelande när vissa villkor uppfylls för en inkommande sensor läsning.
-- Bifoga metadata till sensorn innan du skickar ut ett meddelande.
+- Ställ in sensoravläsningen direkt på sensorobjektet i diagrammet.
+- Utför en åtgärd baserat på olika sensoravläsningar inom ett utrymme i diagrammet.
+- Skapa ett meddelande när vissa villkor är uppfyllda för en inkommande sensoravläsning.
+- Bifoga grafmetadata till sensoravläsningen innan du skickar ut ett meddelande.
 
-Mer information finns [i så här använder du användardefinierade funktioner](./how-to-user-defined-functions.md).
+Mer information finns i [Så här använder du användardefinierade funktioner](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Exempel
 
-[GitHub-lagrings platsen för C# digitala dubbla exempel](https://github.com/Azure-Samples/digital-twins-samples-csharp/) innehåller några exempel på användardefinierade funktioner:
-- [Den här funktionen](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) söker efter värden för koldioxid, rörelse och temperatur för att avgöra om ett rum är tillgängligt med dessa värden inom räckhåll. I [självstudierna för digitala dubbla](tutorial-facilities-udf.md) , utforskar du den här funktionen i mer information. 
-- [Den här funktionen](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) söker efter data från flera rörelse sensorer och avgör att utrymmet är tillgängligt om ingen av dem identifierar någon rörelse. Du kan enkelt ersätta den användardefinierade funktionen som används i [snabb](quickstart-view-occupancy-dotnet.md)starten eller [självstudierna](tutorial-facilities-setup.md)genom att göra ändringarna som anges i avsnittet kommentarer i filen. 
+[GitHub-repo för Exemplet Digital Twins C#](https://github.com/Azure-Samples/digital-twins-samples-csharp/) innehåller några exempel på användardefinierade funktioner:
+- [Den här funktionen](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) letar efter koldioxid-, rörelse- och temperaturvärden för att avgöra om ett rum är tillgängligt med dessa värden inom räckhåll. [Självstudierna för Digital Twins](tutorial-facilities-udf.md) utforskar denna funktion mer detaljer. 
+- [Den här funktionen](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/multiplemotionsensors.js) söker efter data från flera rörelsesensorer och bestämmer att utrymmet är tillgängligt om ingen av dem upptäcker någon rörelse. Du kan enkelt ersätta den användardefinierade funktion som används i antingen [snabbstart](quickstart-view-occupancy-dotnet.md)eller [självstudier](tutorial-facilities-setup.md), genom att göra de ändringar som nämns i kommentarerna i filen. 
 
 ### <a name="role-assignment"></a>Rolltilldelning
 
-En användardefinierad funktions åtgärder är föremål för Azure Digitals [-rollbaserad åtkomst kontroll](./security-role-based-access-control.md) för att skydda data i tjänsten. Roll tilldelningar definierar vilka användardefinierade funktioner som har rätt behörighet för att interagera med Spatial graf och dess entiteter. En användardefinierad funktion kan till exempel ha behörighet att *skapa*, *läsa*, *Uppdatera*eller *ta bort* diagram data under ett givet utrymme. En användardefinierad funktions nivå för åtkomst kontrol leras när den användardefinierade funktionen ställer grafen för data eller försöker utföra en åtgärd. Mer information finns i [rollbaserad åtkomst kontroll](./security-create-manage-role-assignments.md).
+En användardefinierad funktions åtgärder omfattas av Azure Digital Twins [rollbaserad åtkomstkontroll](./security-role-based-access-control.md) för att skydda data inom tjänsten. Rolltilldelningar definierar vilka användardefinierade funktioner som har rätt behörighet att interagera med det rumsliga diagrammet och dess entiteter. En användardefinierad funktion kan till exempel ha möjlighet och behörighet att *skapa*, *läsa*, *uppdatera*eller *ta bort* diagramdata under ett visst utrymme. En användardefinierad funktions åtkomstnivå kontrolleras när den användardefinierade funktionen frågar diagrammet efter data eller försöker en åtgärd. Mer information finns i [Rollbaserad åtkomstkontroll](./security-create-manage-role-assignments.md).
 
-Det är möjligt för en matchning att utlösa en användardefinierad funktion som inte har några roll tilldelningar. I det här fallet kan den användardefinierade funktionen inte läsa några data från grafen.
+Det är möjligt för en matchning att utlösa en användardefinierad funktion som inte har några rolltilldelningar. I det här fallet kan den användardefinierade funktionen inte läsa några data från diagrammet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om hur du dirigerar händelser och telemetri till andra Azure-tjänster kan du läsa [dirigera händelser och meddelanden](./concepts-events-routing.md).
+- Om du vill veta mer om hur du dirigerar händelser och telemetrimeddelanden till andra Azure-tjänster läser du [Dirigera händelser och meddelanden](./concepts-events-routing.md).
 
-- Om du vill veta mer om hur du skapar motsvarigheter, användardefinierade funktioner och roll tilldelningar läser du [guiden för att använda användardefinierade funktioner](./how-to-user-defined-functions.md).
+- Om du vill veta mer om hur du skapar matchningar, användardefinierade funktioner och rolltilldelningar läser du [Guide för att använda användardefinierade funktioner](./how-to-user-defined-functions.md).
 
-- Granska den [användardefinierade funktionen klient biblioteks referens dokumentation](./reference-user-defined-functions-client-library.md).
+- Granska [referensdokumentationen för användardefinierat funktionsklientbibliotek](./reference-user-defined-functions-client-library.md).

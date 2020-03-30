@@ -14,34 +14,34 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
 ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79250990"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
 > [!NOTE]
-> Inga nya funktioner läggs till i Media Services v2. <br/>Upptäck den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [vägledning för migrering från v2 till v3](../latest/migrate-from-v2-to-v3.md)
+> Inga nya funktioner läggs till i Media Services v2. <br/>Kolla in den senaste versionen, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Se även [migreringsvägledning från v2 till v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure Media Services (AMS) gör det möjligt att på ett säkert sätt överföra, lagra, koda och paketera video- eller ljudinnehåll för att strömma både på begäran och live till olika klienter (till exempel TV, datorer och mobila enheter).
 
 AMS körs på flera datacenter över hela världen. Dessa datacenter är grupperade i geografiska regioner så att du kan välja var du vill bygga dina program. Se [listan över regioner och deras platser](https://azure.microsoft.com/regions/). 
 
-Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live](#live_scenarios) eller på begäran. Ämnet innehåller också information om tillgängligheten för mediefunktioner och tjänster i datacenter.
+Det här avsnittet visar vanliga scenarier för att leverera ditt innehåll [live](#live_scenarios) eller på begäran. Ämnet innehåller också information om tillgängligheten för mediefunktioner och tjänster i datacenter.
 
 ## <a name="overview"></a>Översikt
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 Om du vill börja använda Azure Media Services ska du ha följande:
 
-* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
+* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**.
 
-    När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning ha tillståndet **Körs**.
+    När ditt AMS-konto skapas läggs en **standardslutpunkt** för direktuppspelning till ditt konto i tillståndet **Stoppad.** Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning ha tillståndet **Körs**.
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Vanliga objekt när du utvecklar mot AMS OData-modellen
 
@@ -104,7 +104,7 @@ Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](
     Om du använder en SAS-positionerare hämtas innehåll från Azure Blob Storage. I så fall behöver du inte ha slutpunkter för direktuppspelning med tillståndet Startad.
 4. Progressivt hämtat innehåll
 
-## <a id="live_scenarios"></a>Leverera liveuppspelningshändelser 
+## <a name="delivering-live-streaming-events"></a><a id="live_scenarios"></a>Leverera liveuppspelningshändelser 
 
 1. Infoga innehåll via olika protokoll för liveuppspelning (till exempel RTMP eller Smooth Streaming).
 2. (Valfritt) Koda strömmen till ström med anpassningsbar bithastighet.
@@ -117,13 +117,13 @@ Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](
 
 Vid liveuppspelning kan du välja någon av följande vägar:
 
-### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot direktsänd ström med flera bithastigheter från lokala kodare (genomströmning)
+### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
 
 I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning**.
 
 ![Live-arbetsflöde](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
-Mer information finns i [Arbeta med kanaler som tar emot liveström i flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
+Mer information finns i [Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
 ### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services
 
@@ -143,7 +143,7 @@ Azure Media Services innehåller de verktyg du behöver för att skapa innehåll
 
 Media Services stöder integration med Azure CDN. Information om hur du aktiverar Azure CDN finns i [Hur du hanterar strömningsslutpunkter i ett Media Services-konto](media-services-portal-manage-streaming-endpoints.md).
 
-## <a id="scaling"></a>Skala ett Media Services-konto
+## <a name="scaling-a-media-services-account"></a><a id="scaling"></a>Skala ett Media Services-konto
 
 AMS-kunder kan skala slutpunkter för direktuppspelning, mediebearbetning och lagring i sina AMS-konton.
 
@@ -153,7 +153,7 @@ AMS-kunder kan skala slutpunkter för direktuppspelning, mediebearbetning och la
 
 * Ett Media Services-konto är kopplat till en typ av reserverad enhet som bestämmer hur snabbt mediebearbetningsuppgifter ska bearbetas. Du kan välja mellan följande typer av reserverade enheter: **S1**, **S2** och **S3**. Samma kodningsjobb körs till exempel snabbare om du använder typen **S2** än om du använder typen **S1**.
 
-    Förutom att ange typ av reserverad enhet kan du etablera **reserverade enheter** (RU:er) för ditt konto. Antalet etablerade RU:er anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto.
+    Förutom att ange den reserverade enhetstypen kan du ange att ditt konto ska etableras med reserverade enheter ( RU: **er).** Antalet etablerade RU:er anger antalet medieuppgifter som kan bearbetas samtidigt i en viss konto.
 
     >[!NOTE]
     >RU:er fungerar för parallellisera all bearbetning av media, inklusive indexeringsjobb med hjälp av Azure Media Indexer. Men till skillnad från kodning bearbetas inte indexeringsjobb snabbare med snabbare reserverade enheter.
@@ -161,7 +161,7 @@ AMS-kunder kan skala slutpunkter för direktuppspelning, mediebearbetning och la
     Mer information finns i [Skala mediebearbetning](media-services-portal-scale-media-processing.md).
 * Du kan även skala ditt Media Services-konto genom att lägga till lagringskonton. Varje lagringskonto är begränsat till 500 TB. Du kan välja att koppla flera lagringskonton för till ett enda Media Services-konto om du vill expandera din lagring utöver standardbegränsningarna. Mer information finns i [Hantera lagringskonton](meda-services-managing-multiple-storage-accounts.md).
 
-## <a id="availability"></a> Tillgänglighet för Media Services-funktioner i datacenter
+## <a name="availability-of-media-services-features-across-datacenters"></a><a id="availability"></a> Tillgänglighet för Media Services-funktioner i datacenter
 
 Det här avsnittet innehåller information om tillgängligheten för Media Services-funktioner i datacenter.
 
@@ -186,7 +186,7 @@ Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktu
 
 #### <a name="availability"></a>Tillgänglighet
 
-Tillgänglig i alla datacenter förutom: Tyskland, Brasilien, södra, Indien, västra, Indien, södra och Indien, centrala. 
+Finns i alla datacenter utom: Tyskland, Södra Brasilien, Västra Indien, Södra Indien och Indien Central. 
 
 ### <a name="encoding-media-processors"></a>Mediebearbetare för kodning
 
@@ -204,7 +204,7 @@ AMS erbjuder två kodare på begäran: **Media Encoder Standard** och **Media En
 Media Analytics är en samling tal- och visionskomponenter som gör det enklare för organisationer och företag att härleda insikter som det går att direkt agera utifrån från sina videofiler. Mer information finns i [Översikt över Azure Media Services Analytics](media-services-analytics-overview.md).
 
 > [!NOTE]
-> Vissa analys medie processorer kommer att dras tillbaka. Information om datum för indragning finns i avsnittet om [äldre komponenter](legacy-components.md) .
+> Vissa analysmedieprocessorer kommer att dras tillbaka. För pensioneringsdatumen finns i avsnittet [äldre komponenter.](legacy-components.md)
 
 #### <a name="availability"></a>Tillgänglighet
 
@@ -225,7 +225,7 @@ Med Microsoft Azure Media Services kan du skydda dina mediefiler från att filer
 
 |Kryptering|Status|Datacenter|
 |---|---|---| 
-|Storage|Allmän tillgänglighet (GA)|Alla|
+|Lagring|Allmän tillgänglighet (GA)|Alla|
 |128-bitars AES-nycklar|Allmän tillgänglighet (GA)|Alla|
 |Fairplay|Allmän tillgänglighet (GA)|Alla|
 |PlayReady|Allmän tillgänglighet (GA)|Alla|
@@ -257,7 +257,7 @@ Mer information finns i avsnittet om [skalning](#scaling).
 
 ## <a name="additional-notes"></a>Ytterligare information
 
-* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av villkoren i tjänste-och sekretess policyn för Google, Inc.
+* Widevine är en tjänst som tillhandahålls av Google Inc. och omfattas av användarvillkoren och sekretesspolicyn för Google, Inc.
 
 ## <a name="next-steps"></a>Nästa steg
 

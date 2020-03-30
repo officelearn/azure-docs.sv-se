@@ -1,6 +1,6 @@
 ---
 title: Kopiera data till/från Azure SQL Database
-description: Lär dig hur du kopierar data till/från Azure SQL Database med hjälp av Azure Data Factory.
+description: Lär dig hur du kopierar data till/från Azure SQL Database med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,10 +13,10 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7fc0b2822195d952c2a4f9c02bf3758c0e2b809a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260506"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med Azure Data Factory
@@ -25,87 +25,87 @@ ms.locfileid: "79260506"
 > * [Version 2 (aktuell version)](../connector-azure-sql-database.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [Azure SQL Database Connector i v2](../connector-azure-sql-database.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av datafabrikstjänsten läser du [Azure SQL Database-anslutningsappen i V2](../connector-azure-sql-database.md).
 
-Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att flytta data till och från Azure SQL Database. Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att flytta data till och från Azure SQL Database. Den bygger på [datarörelseaktiviteter](data-factory-data-movement-activities.md) artikeln, som presenterar en allmän översikt över data förflyttning med kopian aktivitet.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
-Du kan kopiera data **från Azure SQL Database** till följande data lager:
+Du kan kopiera data **från Azure SQL Database** till följande datalager:
 
 [!INCLUDE [data-factory-supported-sinks](../../../includes/data-factory-supported-sinks.md)]
 
-Du kan kopiera data från följande data lager **till Azure SQL Database**:
+Du kan kopiera data från följande datalager **till Azure SQL Database:**
 
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 ## <a name="supported-authentication-type"></a>Autentiseringstyp som stöds
-Azure SQL Database Connector stöder grundläggande autentisering.
+Azure SQL Database-anslutningsappen stöder grundläggande autentisering.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en kopierings aktivitet som flyttar data till/från en Azure SQL Database med hjälp av olika verktyg/API: er.
+Du kan skapa en pipeline med en kopieringsaktivitet som flyttar data till/från en Azure SQL-databas med hjälp av olika verktyg/API:er.
 
-Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
+Det enklaste sättet att skapa en pipeline är att använda **kopieringsguiden**. Se [självstudiekurs: Skapa en pipeline med hjälp av kopieringsguiden](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång när du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager mall**, .net- **API**och **REST API**. Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+Du kan också använda följande verktyg för att skapa en pipeline: **Visual Studio,** **Azure PowerShell,** **Azure Resource Manager-mall,** **.NET API**och REST **API**. Se [Kopiera aktivitetshandledning](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för steg-för-steg-instruktioner för att skapa en pipeline med en kopieringsaktivitet.
 
-Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
+Oavsett om du använder verktygen eller API:erna utför du följande steg för att skapa en pipeline som flyttar data från ett källdatalager till ett sink-datalager:
 
-1. Skapa en **data fabrik**. En data fabrik kan innehålla en eller flera pipeliner.
-2. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik. Om du t. ex. kopierar data från en Azure Blob-lagring till en Azure SQL-databas, skapar du två länkade tjänster för att länka ditt Azure Storage-konto och Azure SQL-databas till din data fabrik. För länkade tjänst egenskaper som är speciella för Azure SQL Database, se avsnittet [länkade tjänst egenskaper](#linked-service-properties) .
-3. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden. I exemplet som nämns i det sista steget skapar du en data uppsättning för att ange BLOB-behållaren och mappen som innehåller indata. Du kan också skapa en annan data uppsättning för att ange den SQL-tabell i Azure SQL-databasen som innehåller data som kopieras från blob-lagringen. För data uppsättnings egenskaper som är speciella för Azure Data Lake Store, se avsnittet [Egenskaper för data mängd](#dataset-properties) .
-4. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata. I exemplet ovan använder du BlobSource som källa och SqlSink som mottagare för kopierings aktiviteten. På samma sätt kan du använda SqlSource och BlobSink i kopierings aktiviteten om du kopierar från Azure SQL Database till Azure Blob Storage. Information om kopierings aktiviteter som är speciell för Azure SQL Database finns i avsnittet [Kopiera aktivitets egenskaper](#copy-activity-properties) . Om du vill ha mer information om hur du använder ett data lager som källa eller mottagare klickar du på länken i föregående avsnitt för ditt data lager.
+1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines.
+2. Skapa **länkade tjänster** för att länka in- och utdatalager till datafabriken. Om du till exempel kopierar data från en Azure-bloblagring till en Azure SQL-databas skapar du två länkade tjänster för att länka ditt Azure-lagringskonto och Azure SQL-databas till din datafabrik. För länkade tjänstegenskaper som är specifika för Azure SQL Database finns i avsnittet [länkade tjänstegenskaper.](#linked-service-properties)
+3. Skapa **datauppsättningar** för att representera in- och utdata för kopieringen. I exemplet som nämns i det sista steget skapar du en datauppsättning för att ange blob-behållaren och mappen som innehåller indata. Och du skapar en annan datauppsättning för att ange SQL-tabellen i Azure SQL-databasen som innehåller data som kopieras från blob-lagringen. För datauppsättningsegenskaper som är specifika för Azure Data Lake Store finns i avsnittet [egenskaper för datauppsättning.](#dataset-properties)
+4. Skapa en **pipeline** med en kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I det tidigare exemplet använder du BlobSource som källa och SqlSink som en mottagare för kopieringsaktiviteten. Om du kopierar från Azure SQL Database till Azure Blob Storage använder du sqlsource och blobSink i kopieringsaktiviteten. Information om egenskaper för kopieringsaktivitet som är specifika för Azure SQL Database finns i avsnittet [kopiera aktivitetsegenskaper.](#copy-activity-properties) Om du vill ha information om hur du använder ett datalager som källa eller en diskbänk klickar du på länken i föregående avsnitt för datalagret.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet. Exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data till/från en Azure SQL Database finns i avsnittet om [JSON-exempel](#json-examples-for-copying-data-to-and-from-sql-database) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa datafabrikentiteter (länkade tjänster, datauppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API:er (förutom .NET API) definierar du dessa datafabrikentiteter med hjälp av JSON-formatet. För exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till/från en Azure SQL-databas finns i avsnittet [JSON-exempel](#json-examples-for-copying-data-to-and-from-sql-database) i den här artikeln.
 
-I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för Azure SQL Database:
+I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för Azure SQL Database:
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
-En länkad Azure SQL-tjänst länkar en Azure SQL-databas till din data fabrik. Följande tabell innehåller en beskrivning av JSON-element som är speciella för den länkade Azure SQL-tjänsten.
+En Azure SQL-länkad tjänst länkar en Azure SQL-databas till din datafabrik. Följande tabell innehåller en beskrivning av JSON-element som är specifika för Azure SQL-länkade tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
 | typ |Egenskapen Type måste anges till: **AzureSqlDatabase** |Ja |
-| connectionString |Ange information som krävs för att ansluta till Azure SQL Database-instansen för egenskapen connectionString. Endast grundläggande autentisering stöds. |Ja |
+| Connectionstring |Ange information som behövs för att ansluta till Azure SQL Database-instansen för egenskapen connectionString. Endast grundläggande autentisering stöds. |Ja |
 
 > [!IMPORTANT]
-> Konfigurera [Azure SQL Database-brandväggen](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) som databas servern ska [tillåta Azure-tjänster att få åtkomst till servern](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Om du kopierar data till Azure SQL Database utanför Azure, inklusive från lokala data källor med Data Factory Gateway, konfigurerar du dessutom lämpligt IP-adressintervall för datorn som skickar data till Azure SQL Database.
+> Konfigurera [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) databasservern så att Azure Services kan komma åt [servern](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Om du kopierar data till Azure SQL Database utanför Azure, inklusive från lokala datakällor med datafabriksgateway, konfigurerar du dessutom lämpligt IP-adressintervall för den dator som skickar data till Azure SQL Database.
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-Om du vill ange en data uppsättning som representerar indata eller utdata i en Azure SQL-databas ställer du in data uppsättningens typ-egenskap på: **AzureSqlTable**. Ange egenskapen **linkedServiceName** för data uppsättningen till namnet på den länkade Azure SQL-tjänsten.
+Om du vill ange en datauppsättning som ska representera indata eller utdata i en Azure SQL-databas anger du typegenskapen för datauppsättningen till: **AzureSqlTable**. Ange egenskapen **linkedServiceName** för datauppsättningen till namnet på azure SQL-länkade tjänsten.
 
-En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar alla typer av data uppsättningar (Azure SQL, Azure Blob, Azure Table osv.).
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Skapa datauppsättningar.](data-factory-create-datasets.md) Avsnitt som struktur, tillgänglighet och princip för en datauppsättning JSON är liknande för alla datauppsättningstyper (Azure SQL, Azure blob, Azure-tabell osv.).
 
-Avsnittet typeProperties är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet **typeProperties** för data uppsättningen av typen **AzureSqlTable** har följande egenskaper:
+Avsnittet typeProperties är olika för varje typ av datauppsättning och ger information om platsen för data i datalagret. Avsnittet **typeProperties** för datauppsättningen av typen **AzureSqlTable** har följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på tabellen eller vyn i Azure SQL Database-instansen som den länkade tjänsten refererar till. |Ja |
+| tableName |Namnet på tabellen eller vyn i Azure SQL Database-instansen som länkade tjänsten refererar till. |Ja |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Skapa pipelines.](data-factory-create-pipelines.md) Egenskaper som namn, beskrivning, indata- och utdatatabeller och princip är tillgängliga för alla typer av aktiviteter.
 
 > [!NOTE]
-> Kopierings aktiviteten tar bara en indata och producerar bara ett resultat.
+> Kopieringsaktiviteten tar bara en indata och producerar bara en utdata.
 
-De egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten varierar beroende på varje aktivitets typ. För kopierings aktivitet varierar de beroende på typerna av källor och mottagare.
+Medan egenskaper som är tillgängliga i avsnittet **typeProperties** i aktiviteten varierar med varje aktivitetstyp. För kopieringsaktivitet varierar de beroende på vilka typer av källor och sänkor som finns.
 
-Om du flyttar data från en Azure SQL-databas anger du käll typen i kopierings aktiviteten till **SqlSource**. På samma sätt gäller att om du flyttar data till en Azure SQL-databas, ställer du in mottagar typen i kopierings aktiviteten till **SqlSink**. Det här avsnittet innehåller en lista över egenskaper som stöds av SqlSource och SqlSink.
+Om du flyttar data från en Azure SQL-databas anger du källtypen i kopieringsaktiviteten till **SqlSource**. Om du flyttar data till en Azure SQL-databas anger du på samma sätt sink-typen i kopieringsaktiviteten till **SqlSink**. Det här avsnittet innehåller en lista över egenskaper som stöds av SqlSource och SqlSink.
 
-### <a name="sqlsource"></a>SqlSource
-När källan är av typen **SqlSource**i kopierings aktivitet är följande egenskaper tillgängliga i avsnittet **typeProperties** :
+### <a name="sqlsource"></a>SqlSource (Påtkälla)
+När källan är av typen **SqlSource**i kopieringsaktivitet är följande egenskaper tillgängliga i avsnittet **typeProperties:**
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Nej |
-| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från käll tabellen. |Namnet på den lagrade proceduren. Den senaste SQL-instruktionen måste vara en SELECT-instruktion i den lagrade proceduren. |Nej |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
+| sqlReaderQuery |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Exempel: `select * from MyTable`. |Inga |
+| sqlReaderStoredProcedureName |Namnet på den lagrade proceduren som läser data från källtabellen. |Namnet på den lagrade proceduren. Det senaste SQL-uttrycket måste vara en SELECT-sats i den lagrade proceduren. |Inga |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värdepar. Namn och hölje av parametrar måste stämma överens med namn och hölje för de lagrade procedureparametrarna. |Inga |
 
-Om **sqlReaderQuery** har angetts för SqlSource kör kopierings aktiviteten den här frågan mot Azure SQL Database källan för att hämta data. Alternativt kan du ange en lagrad procedur genom att ange parametrarna **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar).
+Om **sqlReaderQuery** har angetts för SqlSource körs den här frågan mot Azure SQL Database-källan för att hämta data. Du kan också ange en lagrad procedur genom att ange **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar).
 
-Om du inte anger någon av sqlReaderQuery eller sqlReaderStoredProcedureName används kolumnerna som definierats i avsnittet struktur i JSON-datauppsättnings-JSON för att skapa en fråga (`select column1, column2 from mytable`) som ska köras mot Azure SQL Database. Om data uppsättnings definitionen inte har strukturen, väljs alla kolumner från tabellen.
+Om du inte anger antingen sqlReaderQuery eller sqlReaderStoredProcedureName används kolumnerna som definieras i strukturavsnittet`select column1, column2 from mytable`i datauppsättningen JSON för att skapa en fråga ( ) som ska köras mot Azure SQL Database. Om datauppsättningsdefinitionen inte har strukturen markeras alla kolumner i tabellen.
 
 > [!NOTE]
-> När du använder **sqlReaderStoredProcedureName**måste du fortfarande ange ett värde för egenskapen **TableName** i data uppsättnings-JSON. Det finns inga verifieringar som utförts i den här tabellen.
+> När du använder **sqlReaderStoredProcedureName**måste du fortfarande ange ett värde för **egenskapen tableName** i datauppsättningen JSON. Det finns inga valideringar som utförs mot den här tabellen dock.
 >
 >
 
@@ -122,7 +122,7 @@ Om du inte anger någon av sqlReaderQuery eller sqlReaderStoredProcedureName anv
 }
 ```
 
-**Definitionen för den lagrade proceduren:**
+**Den lagrade procedurens definition:**
 
 ```SQL
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -141,20 +141,20 @@ END
 GO
 ```
 
-### <a name="sqlsink"></a>SqlSink
+### <a name="sqlsink"></a>SqlSink (SqlSink)
 **SqlSink** stöder följande egenskaper:
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Vänte tid för att infoga batch-åtgärden ska slutföras innan tids gränsen uppnåddes. |TimeSpan<br/><br/> Exempel ”: 00: 30:00” (30 minuter). |Nej |
-| writeBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
-| sqlWriterCleanupScript |Ange en fråga för kopierings aktivitet som ska köras så att data i en angiven sektor rensas. Mer information finns i [repeterbar kopia](#repeatable-copy). |Ett frågeuttryck. |Nej |
-| sliceIdentifierColumnName |Ange ett kolumn namn för kopierings aktiviteten som ska fyllas med automatiskt genererad sektor identifierare, som används för att rensa data i en speciell sektor när den körs igen. Mer information finns i [repeterbar kopia](#repeatable-copy). |Kolumn namnet för en kolumn med data typen Binary (32). |Nej |
-| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur käll data ska användas i mål tabellen, t. ex. för att göra upsertar eller transformera med din egen affärs logik. <br/><br/>Observera att den lagrade proceduren **anropas per batch**. Om du vill utföra en åtgärd som bara körs en gång och inte har något att göra med källdata, t. ex. ta bort/trunkera, använder du `sqlWriterCleanupScript` egenskap. |Namnet på den lagrade proceduren. |Nej |
-| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värde-par. Namn och versaler och gemener i parametrar måste matcha namn och versaler och gemener i parametrarna för lagrade procedurer. |Nej |
-| sqlWriterTableType |Ange ett tabell typs namn som ska användas i den lagrade proceduren. Kopierings aktivitet gör data som flyttas tillgängliga i en temporär tabell med den här tabell typen. Den lagrade procedur koden kan sedan sammanfoga data som kopieras med befintliga data. |Ett namn på en tabell typ. |Nej |
+| skriverBatchTimeout |Vänta på att batchinsatsen ska slutföras innan den har klarats upp. |Gått<br/><br/> Exempel: "00:30:00" (30 minuter). |Inga |
+| skriverBatchSize |Infogar data i SQL-tabellen när buffertstorleken når writeBatchSize. |Heltal (antal rader) |Nej (standard: 10000) |
+| sqlWriterCleanupScript |Ange en fråga för Kopieringsaktivitet som ska köras så att data för ett visst segment rensas. Mer information finns i [repeterbar kopia](#repeatable-copy). |En frågesats. |Inga |
+| sliceIdentifierColumnName |Ange ett kolumnnamn för Kopiera aktivitet som ska fyllas med automatisk genererad segmentidentifierare, som används för att rensa data från ett visst segment när du kör igen. Mer information finns i [repeterbar kopia](#repeatable-copy). |Kolumnnamnet på en kolumn med datatyp av binär(32). |Inga |
+| sqlWriterStoredProcedureName |Namnet på den lagrade proceduren som definierar hur källdata ska användas i måltabellen, t.ex. <br/><br/>Observera att den här lagrade proceduren **anropas per batch**. Om du vill utföra åtgärder som bara körs en gång och inte har något att `sqlWriterCleanupScript` göra med källdata, t.ex. |Namnet på den lagrade proceduren. |Inga |
+| storedProcedureParameters |Parametrar för den lagrade proceduren. |Namn/värdepar. Namn och hölje av parametrar måste stämma överens med namn och hölje för de lagrade procedureparametrarna. |Inga |
+| sqlWriterTableType |Ange ett tabelltypnamn som ska användas i den lagrade proceduren. Kopieringsaktivitet gör de data som flyttas tillgängliga i en temp-tabell med den här tabelltypen. Lagrad procedurkod kan sedan sammanfoga data som kopieras med befintliga data. |Ett tabelltypnamn. |Inga |
 
-#### <a name="sqlsink-example"></a>SqlSink-exempel
+#### <a name="sqlsink-example"></a>Exempel på SqlSink
 
 ```JSON
 "sink": {
@@ -171,21 +171,21 @@ GO
 }
 ```
 
-## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>JSON-exempel för att kopiera data till och från SQL Database
-I följande exempel finns exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från Azure SQL Database och Azure Blob Storage. Data kan dock kopieras **direkt** från någon av källorna till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory.
+## <a name="json-examples-for-copying-data-to-and-from-sql-database"></a>JSON-exempel för kopiering av data till och från SQL Database
+Följande exempel innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data till och från Azure SQL Database och Azure Blob Storage. Data kan dock kopieras **direkt** från någon av källorna till någon av de diskhoar som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopieringsaktiviteten i Azure Data Factory.
 
-### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Exempel: kopiera data från Azure SQL Database till Azure-Blob
-Samma definierar följande Data Factory entiteter:
+### <a name="example-copy-data-from-azure-sql-database-to-azure-blob"></a>Exempel: Kopiera data från Azure SQL Database till Azure Blob
+Detsamma definierar följande datafabrikentiteter:
 
 1. En länkad tjänst av typen [AzureSqlDatabase](#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. En indata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureSqlTable](#dataset-properties).
-4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [Azure Blob](data-factory-azure-blob-connector.md#dataset-properties).
-5. En [pipeline](data-factory-create-pipelines.md) med en kopierings aktivitet som använder [SqlSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. En [indatauppsättning](data-factory-create-datasets.md) av typen [AzureSqlTable](#dataset-properties).
+4. En [utdatauppsättning](data-factory-create-datasets.md) av typen [Azure Blob](data-factory-azure-blob-connector.md#dataset-properties).
+5. En [pipeline](data-factory-create-pipelines.md) med en kopieringsaktivitet som använder [SqlSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Exemplet kopierar Time Series-data (varje timme, varje dag osv.) från en tabell i Azure SQL Database till en BLOB varje timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitten som följer efter exemplen.
+Exemplet kopierar tidsseriedata (per timme, dagligen osv.) från en tabell i Azure SQL-databas till en blob varje timme. De JSON-egenskaper som används i dessa prover beskrivs i avsnitt som följer proverna.
 
-**Azure SQL Database länkad tjänst:**
+**Azure SQL Database-länkad tjänst:**
 
 ```JSON
 {
@@ -198,9 +198,9 @@ Exemplet kopierar Time Series-data (varje timme, varje dag osv.) från en tabell
   }
 }
 ```
-I avsnittet om länkade Azure SQL-tjänster finns en lista över egenskaper som stöds av den här länkade tjänsten.
+Se avsnittet Azure SQL Linked Service för listan över egenskaper som stöds av den här länkade tjänsten.
 
-**Länkad Azure Blob Storage-tjänst:**
+**Azure Blob storage-länkad tjänst:**
 
 ```JSON
 {
@@ -213,14 +213,14 @@ I avsnittet om länkade Azure SQL-tjänster finns en lista över egenskaper som 
   }
 }
 ```
-I artikeln om [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) finns en lista över egenskaper som stöds av den här länkade tjänsten.
+Se azure [blob-artikeln](data-factory-azure-blob-connector.md#azure-storage-linked-service) för listan över egenskaper som stöds av den här länkade tjänsten.
 
 
-**Data uppsättning för Azure SQL-indata:**
+**Azure SQL-indatauppsättning:**
 
-Exemplet förutsätter att du har skapat en tabell "Tabell" i Azure SQL och innehåller en kolumn med namnet "timestampcolumn" för Time Series-data.
+Exemplet förutsätter att du har skapat en tabell "MyTable" i Azure SQL och den innehåller en kolumn som kallas "tidsstämpelpcolumn" för tidsseriedata.
 
-Inställningen "extern": "true" informerar den Azure Data Factory tjänsten att data uppsättningen är extern för data fabriken och inte produceras av en aktivitet i data fabriken.
+Om du ställer in "extern": "true" informeras Azure Data Factory-tjänsten om att datauppsättningen är extern till datafabriken och inte produceras av en aktivitet i datafabriken.
 
 ```JSON
 {
@@ -247,11 +247,11 @@ Inställningen "extern": "true" informerar den Azure Data Factory tjänsten att 
 }
 ```
 
-Se avsnittet typ egenskaper för Azure SQL-datamängd för listan över egenskaper som stöds av den här data uppsättnings typen.
+Se avsnittet Egenskaper för Azure SQL-datauppsättningstyp för listan över egenskaper som stöds av den här datauppsättningstypen.
 
-**Data uppsättning för Azure Blob-utdata:**
+**Azure Blob-utdatauppsättning:**
 
-Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsökvägen för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappens sökväg använder år, månad, dag och timmar delar av start tiden.
+Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Mappsökvägen för blobben utvärderas dynamiskt baserat på starttiden för det segment som bearbetas. Mappsökvägen använder delar av starttiden för år, månad, dag och timmar.
 
 ```JSON
 {
@@ -308,11 +308,11 @@ Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsö
   }
 }
 ```
-Se avsnittet [Egenskaper för Azure Blob-datamängd](data-factory-azure-blob-connector.md#dataset-properties) för listan över egenskaper som stöds av den här data uppsättnings typen.
+Se avsnittet Egenskaper för [Azure Blob-datauppsättningstyp](data-factory-azure-blob-connector.md#dataset-properties) för listan över egenskaper som stöds av den här datauppsättningstypen.
 
-**En kopierings aktivitet i en pipeline med SQL-källa och blob-mottagare:**
+**En kopieringsaktivitet i en pipeline med SQL-källa och Blob-mottagare:**
 
-Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **SqlSource** och **mottagar** typ är inställd på **BlobSink**. SQL-frågan som angetts för egenskapen **SqlReaderQuery** väljer data under den senaste timmen som ska kopieras.
+Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda in- och utdatauppsättningar och som är schemalagd att köras varje timme. I pipeline-JSON-definitionen anges **källtypen** till **SqlSource** och **sink-typen** är inställd på **BlobSink**. Sql-frågan som angetts för egenskapen **SqlReaderQuery** väljer de data som ska kopieras under den senaste timmen.
 
 ```JSON
 {
@@ -360,24 +360,24 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
   }
 }
 ```
-I exemplet anges **sqlReaderQuery** för SqlSource. Kopierings aktiviteten kör den här frågan mot Azure SQL Database källan för att hämta data. Alternativt kan du ange en lagrad procedur genom att ange parametrarna **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar).
+I exemplet anges **sqlReaderQuery** för SqlSource. Kopieringsaktiviteten kör den här frågan mot Azure SQL Database-källan för att hämta data. Du kan också ange en lagrad procedur genom att ange **sqlReaderStoredProcedureName** och **storedProcedureParameters** (om den lagrade proceduren tar parametrar).
 
-Om du inte anger någon av sqlReaderQuery eller sqlReaderStoredProcedureName används kolumnerna som definierats i avsnittet struktur i JSON-datauppsättnings-JSON för att skapa en fråga som ska köras mot Azure SQL Database. Till exempel: `select column1, column2 from mytable`. Om data uppsättnings definitionen inte har strukturen, väljs alla kolumner från tabellen.
+Om du inte anger antingen sqlReaderQuery eller sqlReaderStoredProcedureName används kolumnerna som definieras i strukturavsnittet i datauppsättningen JSON för att skapa en fråga som ska köras mot Azure SQL Database. Till exempel: `select column1, column2 from mytable`. Om datauppsättningsdefinitionen inte har strukturen markeras alla kolumner i tabellen.
 
-Se avsnittet [SQL-källa](#sqlsource) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) för listan över egenskaper som stöds av SqlSource och BlobSink.
+Se avsnittet [Sql Source](#sqlsource) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) för listan över egenskaper som stöds av SqlSource och BlobSink.
 
-### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Exempel: kopiera data från Azure blob till Azure SQL Database
-Exemplet definierar följande Data Factory entiteter:
+### <a name="example-copy-data-from-azure-blob-to-azure-sql-database"></a>Exempel: Kopiera data från Azure Blob till Azure SQL Database
+Exemplet definierar följande datafabrikentiteter:
 
 1. En länkad tjänst av typen [AzureSqlDatabase](#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. En indata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureSqlTable](#dataset-properties).
-5. En [pipeline](data-factory-create-pipelines.md) med kopierings aktivitet som använder [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) och [SqlSink](#copy-activity-properties).
+3. En [indatauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+4. En [utdatauppsättning](data-factory-create-datasets.md) av typen [AzureSqlTable](#dataset-properties).
+5. En [pipeline](data-factory-create-pipelines.md) med kopieringsaktivitet som använder [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) och [SqlSink](#copy-activity-properties).
 
-Exemplet kopierar Time Series-data (varje timme, varje dag osv.) från Azure blob till en tabell i Azure SQL Database varje timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitten som följer efter exemplen.
+Exemplet kopierar tidsseriedata (varje timme, dagligen osv.) från Azure-blob till en tabell i Azure SQL-databas varje timme. De JSON-egenskaper som används i dessa prover beskrivs i avsnitt som följer proverna.
 
-**Länkad Azure SQL-tjänst:**
+**Azure SQL-länkad tjänst:**
 
 ```JSON
 {
@@ -390,9 +390,9 @@ Exemplet kopierar Time Series-data (varje timme, varje dag osv.) från Azure blo
   }
 }
 ```
-I avsnittet om länkade Azure SQL-tjänster finns en lista över egenskaper som stöds av den här länkade tjänsten.
+Se avsnittet Azure SQL Linked Service för listan över egenskaper som stöds av den här länkade tjänsten.
 
-**Länkad Azure Blob Storage-tjänst:**
+**Azure Blob storage-länkad tjänst:**
 
 ```JSON
 {
@@ -405,12 +405,12 @@ I avsnittet om länkade Azure SQL-tjänster finns en lista över egenskaper som 
   }
 }
 ```
-I artikeln om [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) finns en lista över egenskaper som stöds av den här länkade tjänsten.
+Se azure [blob-artikeln](data-factory-azure-blob-connector.md#azure-storage-linked-service) för listan över egenskaper som stöds av den här länkade tjänsten.
 
 
-**Data uppsättning för Azure Blob-indata:**
+**Azure Blob-indatauppsättning:**
 
-Data hämtas från en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsökvägen och fil namnet för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappsökvägen använder året, månaden och dag delen av start tiden och fil namnet använder Tim delen av start tiden. inställningen "extern": "true" informerar Data Factory tjänsten som den här tabellen är extern i data fabriken och produceras inte av en aktivitet i data fabriken.
+Data hämtas från en ny blob varje timme (frekvens: timme, intervall: 1). Mappsökvägen och filnamnet för blobben utvärderas dynamiskt baserat på starttiden för det segment som bearbetas. Mappsökvägen använder år, månad och dag del av starttiden och filnamnet använder timdelen av starttiden. "extern": "true"-inställningen informerar datafabrikstjänsten om att den här tabellen är extern till datafabriken och inte produceras av en aktivitet i datafabriken.
 
 ```JSON
 {
@@ -476,11 +476,11 @@ Data hämtas från en ny BLOB varje timme (frekvens: timme, intervall: 1). Mapps
   }
 }
 ```
-Se avsnittet [Egenskaper för Azure Blob-datamängd](data-factory-azure-blob-connector.md#dataset-properties) för listan över egenskaper som stöds av den här data uppsättnings typen.
+Se avsnittet Egenskaper för [Azure Blob-datauppsättningstyp](data-factory-azure-blob-connector.md#dataset-properties) för listan över egenskaper som stöds av den här datauppsättningstypen.
 
-**Azure SQL Database data uppsättning för utdata:**
+**Utdatauppsättning för Azure SQL Database:**
 
-Exemplet kopierar data till en tabell med namnet "min tabell" i Azure SQL. Skapa tabellen i Azure SQL med samma antal kolumner som du förväntar dig att BLOB CSV-filen ska innehålla. Nya rader läggs till i tabellen varje timme.
+Exemplet kopierar data till en tabell med namnet "MyTable" i Azure SQL. Skapa tabellen i Azure SQL med samma antal kolumner som du förväntar dig att Blob CSV-filen ska innehålla. Nya rader läggs till i tabellen varje timme.
 
 ```JSON
 {
@@ -498,11 +498,11 @@ Exemplet kopierar data till en tabell med namnet "min tabell" i Azure SQL. Skapa
   }
 }
 ```
-Se avsnittet typ egenskaper för Azure SQL-datamängd för listan över egenskaper som stöds av den här data uppsättnings typen.
+Se avsnittet Egenskaper för Azure SQL-datauppsättningstyp för listan över egenskaper som stöds av den här datauppsättningstypen.
 
-**En kopierings aktivitet i en pipeline med BLOB-källa och SQL-mottagare:**
+**En kopieringsaktivitet i en pipeline med Blob-källa och SQL-mottagare:**
 
-Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **BlobSource** och **mottagar** typ är inställd på **SqlSink**.
+Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda in- och utdatauppsättningar och som är schemalagd att köras varje timme. I pipeline-JSON-definitionen anges **källtypen** till **BlobSource** och **sink-typen** är inställd på **SqlSink**.
 
 ```JSON
 {
@@ -550,12 +550,12 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
   }
 }
 ```
-Se avsnittet [SQL Sink](#sqlsink) och [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) för listan över egenskaper som stöds av SqlSink och BlobSource.
+Se avsnittet [Sql Sink](#sqlsink) och [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) för listan över egenskaper som stöds av SqlSink och BlobSource.
 
-## <a name="identity-columns-in-the-target-database"></a>Identitets kolumner i mål databasen
-Det här avsnittet innehåller ett exempel på hur du kopierar data från en käll tabell utan en identitets kolumn till en mål tabell med en identitets kolumn.
+## <a name="identity-columns-in-the-target-database"></a>Identitetskolumner i måldatabasen
+Det här avsnittet innehåller ett exempel på hur du kopierar data från en källtabell utan identitetskolumn till en måltabell med en identitetskolumn.
 
-**Käll tabell:**
+**Källtabell:**
 
 ```SQL
 create table dbo.SourceTbl
@@ -564,7 +564,7 @@ create table dbo.SourceTbl
     age int
 )
 ```
-**Mål tabell:**
+**Måltabell:**
 
 ```SQL
 create table dbo.TargetTbl
@@ -574,9 +574,9 @@ create table dbo.TargetTbl
     age int
 )
 ```
-Observera att mål tabellen innehåller en identitets kolumn.
+Observera att måltabellen har en identitetskolumn.
 
-**JSON-definition för käll data uppsättning**
+**JSON-definition av källdatauppsättning**
 
 ```JSON
 {
@@ -596,7 +596,7 @@ Observera att mål tabellen innehåller en identitets kolumn.
     }
 }
 ```
-**JSON-definition för mål data uppsättning**
+**JSON-definition av måldatauppsättning**
 
 ```JSON
 {
@@ -621,61 +621,61 @@ Observera att mål tabellen innehåller en identitets kolumn.
 }
 ```
 
-Observera att eftersom käll-och mål tabellen har ett annat schema (målet har en ytterligare kolumn med identitet). I det här scenariot måste du ange en **struktur** egenskap i definitionen av mål data uppsättningen, som inte innehåller identitets kolumnen.
+Observera att eftersom käll- och måltabellen har ett annat schema (målet har ytterligare en kolumn med identitet). I det här fallet måste du ange **egenskapen struktur** i måldatauppsättningsdefinitionen, som inte innehåller identitetskolumnen.
 
-## <a name="invoke-stored-procedure-from-sql-sink"></a>Anropa lagrad procedur från SQL-Sink
-Ett exempel på att anropa en lagrad procedur från SQL-Sink i en kopierings aktivitet i en pipeline finns i artikeln [anropa lagrad procedur för SQL-mottagare i Kopiera aktivitet](data-factory-invoke-stored-procedure-from-copy-activity.md) .
+## <a name="invoke-stored-procedure-from-sql-sink"></a>Anropa lagrad procedur från SQL-diskho
+Ett exempel på att anropa en lagrad procedur från SQL-mottagare i en kopieringsaktivitet för en pipeline finns [i Anropa lagrad procedur för SQL-mottagare i copy](data-factory-invoke-stored-procedure-from-copy-activity.md) activity-artikeln.
 
-## <a name="type-mapping-for-azure-sql-database"></a>Typ mappning för Azure SQL Database
-Som vi nämnt i artikel kopierings [aktiviteterna för data förflyttning](data-factory-data-movement-activities.md) utförs automatiska typ konverteringar från käll typer till mottagar typer med följande 2-stegs metod:
+## <a name="type-mapping-for-azure-sql-database"></a>Typmappning för Azure SQL Database
+Som nämnts i [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln Kopiera aktivitet utför automatiska typkonverteringar från källtyper till sinktyper med följande 2-stegsmetod:
 
-1. Konvertera från interna käll typer till .NET-typ
-2. Konvertera från .NET-typ till typ av intern mottagare
+1. Konvertera från ursprungliga källtyper till .NET-typ
+2. Konvertera från .NET-typ till inbyggt handfattyp
 
-När du flyttar data till och från Azure SQL Database används följande mappningar från SQL-typ till .NET-typ och vice versa. Mappningen är samma som SQL Server data typs mappning för ADO.NET.
+När du flyttar data till och från Azure SQL Database används följande mappningar från SQL-typ till .NET-typ och vice versa. Mappningen är samma som SQL Server Data Type Mapping för ADO.NET.
 
-| SQL Server typ av databas motor | .NET Framework typ |
+| Sql Server-databasmotortyp | .NET-ramtyp |
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
 | bit |Boolean |
-| char |String, Char[] |
+| char |Sträng, Röding[] |
 | date |DateTime |
-| Datum/tid |DateTime |
+| Datumtid |DateTime |
 | datetime2 |DateTime |
-| DateTimeOffset |DateTimeOffset |
-| decimaltal |decimaltal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Flyttal |Double-värde |
+| Datumtidsdatum |DateTimeOffset |
+| Decimal |Decimal |
+| FILESTREAM-attribut (varbinary(max)) |Byte[] |
+| Float (Flyttal) |Double |
 | image |Byte[] |
 | int |Int32 |
-| money |decimaltal |
-| nchar |String, Char[] |
-| ntext |String, Char[] |
-| numeric |decimaltal |
-| nvarchar |String, Char[] |
+| money |Decimal |
+| nchar |Sträng, Röding[] |
+| ntext |Sträng, Röding[] |
+| numeric |Decimal |
+| nvarchar |Sträng, Röding[] |
 | real |Enkel |
-| rowversion |Byte[] |
+| Rowversion |Byte[] |
 | smalldatetime |DateTime |
-| smallint |Int16 |
-| smallmoney |decimaltal |
-| sql_variant |Object * |
-| text |String, Char[] |
+| smallint |Int16 (int16) |
+| smallmoney |Decimal |
+| Sql_variant |Objekt * |
+| text |Sträng, Röding[] |
 | time |TimeSpan |
-| tidsstämpel |Byte[] |
+| timestamp |Byte[] |
 | tinyint |Byte |
-| uniqueidentifier |Guid |
+| uniqueidentifier |GUID |
 | varbinary |Byte[] |
-| varchar |String, Char[] |
+| varchar |Sträng, Röding[] |
 | xml |Xml |
 
-## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
-Information om hur du mappar kolumner i käll data uppsättningen till kolumner i data uppsättning för mottagare finns i [mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Kartkälla för att sänka kolumner
+Mer information om hur du mappar kolumner i källdatauppsättning till kolumner i sink-datauppsättning finns [i Mappa datauppsättningskolumner i Azure Data Factory](data-factory-map-columns.md).
 
 ## <a name="repeatable-copy"></a>Repeterbar kopia
-När du kopierar data till SQL Server databas lägger kopierings aktiviteten till data i tabellen mottagare som standard. Om du vill utföra en UPSERT i stället, se [upprepad skrivning till SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) -artikeln.
+När data kopieras till SQL Server Database läggs data till i sink-tabellen som standard. Om du vill utföra en UPSERT i stället, Se [Repeterbar skriva till SqlSink](data-factory-repeatable-copy.md#repeatable-write-to-sqlsink) artikel.
 
-När du kopierar data från Relations data lager bör du ha repeterbarhet i åtanke för att undvika oönskade resultat. I Azure Data Factory kan du köra om ett segment manuellt. Du kan också konfigurera principer för återförsök för en data uppsättning så att en sektor körs igen när ett fel uppstår. När en sektor körs på annat sätt måste du se till att samma data är lästa oavsett hur många gånger en sektor körs. Se [repeterbar läsning från Relations källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+När du kopierar data från relationsdatalager bör du tänka på repeterbarhet för att undvika oavsiktliga resultat. I Azure Data Factory kan du köra ett segment manuellt igen. Du kan också konfigurera återförsöksprincipen för en datauppsättning så att ett segment körs igen när ett fel inträffar. När ett segment körs på något sätt måste du se till att samma data läss oavsett hur många gånger ett segment körs. Se [Repeterbar läsning från relationskällor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Prestanda och justering
-Se [Kopiera aktivitets prestanda & justerings guide](data-factory-copy-activity-performance.md) för att lära dig mer om viktiga faktorer som påverkar prestanda för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den.
+Se [Kopiera aktivitetsprestanda & justeringsguide](data-factory-copy-activity-performance.md) om du vill veta mer om viktiga faktorer som påverkar prestanda för datarörelser (kopieringsaktivitet) i Azure Data Factory och olika sätt att optimera den.

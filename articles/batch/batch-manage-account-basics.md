@@ -1,6 +1,6 @@
 ---
-title: Hantera ditt konto – Azure Batch | Microsoft Docs
-description: Lär dig vad som omfattar ett Azure Batch konto
+title: Hantera ditt konto- Azure Batch | Microsoft-dokument
+description: Läs om vad som består av ett Azure Batch-konto
 services: batch
 documentationcenter: ''
 author: LauraBrenner
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72630a2003b63e60ba79882e1861283173840425
-ms.sourcegitcommit: 512d4d56660f37d5d4c896b2e9666ddcdbaf0c35
+ms.openlocfilehash: a4df2ec0439e659fd8dc1448c6209c9718114791
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/14/2020
-ms.locfileid: "79375192"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79479798"
 ---
-# <a name="manage-your-batch-account"></a>Hantera ditt batch-konto
+# <a name="manage-your-batch-account"></a>Hantera ditt batchkonto
 
 Ett Batch-konto är en unikt identifierad entitet i Batch-tjänsten. All bearbetning är associerad med ett Batch-konto.
 
@@ -29,35 +29,36 @@ Du kan skapa ett Azure Batch-konto med [Azure Portal](batch-account-create-porta
 
 Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuera dina arbetsbelastningar mellan Batch-konton som är i samma prenumeration, men i olika Azure-regioner.
 
-## <a name="components-of-the-batch-account"></a>Komponenter för batch-kontot
+## <a name="components-of-the-batch-account"></a>Komponenter i batchkontot
 
-Batch-kontot gör att du kan köra storskaliga batchjobb parallellt och HPC-jobb (data behandling med höga prestanda) i Azure. I det konto som du hanterar:
+Med batch-kontot kan du köra storskaliga globala och högpresterande datorjobb (HPC) effektivt i Azure. Inom kontot du hanterar:
 
 - de program du kör
 
-- allokering av pooler och noder i pooler
+- fördelningen av pooler och noder inom pooler
 
-- antalet och typerna av aktiviteter 
+- antal och typer av uppgifter 
 
-- indata och utdata för data. Du behöver inte installera ytterligare program vara för att hantera uppgifter.
+- datainmatning och utdata. Du behöver inte installera ytterligare programvara för att hantera uppgifter.
 
-- När du skapar batch-kontot uppmanas du att tilldela det ett namn. Det här namnet är dess ID och när det har tilldelats kan inte ändras.
+- När du skapar batchkontot uppmanas du att tilldela det ett namn. Det här namnet är dess ID och när det har tilldelats kan det inte ändras.
 
-- Om du vill ändra namnet på ett konto måste du ta bort det och skapa ett nytt batch-konto.
+- Om du vill ändra namnet på ett konto måste du ta bort det och skapa ett nytt batchkonto.
 
-- Kontot skapas i den prenumeration som du vill använda.
+- Kontot skapas i den prenumeration du vill använda.
 
-- Använd kontot för att identifiera och hämta primära och sekundära konto nycklar från alla batch-konton i din prenumeration.
+- Använd kontot för att identifiera och hämta primära och sekundära kontonycklar från alla Batch-konton i din prenumeration.
 
-- Kontot innehåller information om tilldelning av pooler och kärn kvoter.  
+- Kontot upprätthåller information om poolallokering och kärnkvoter.  
 
-- Kontot innehåller plats information.
+- Kontot innehåller platsinformation.
 
-- Kontot identifierar ditt lagrings konto.
+- Kontot identifierar ditt lagringskonto.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Skapa ett batch-konto med hjälp av [Azure Portal](batch-account-create-portal.md).
-- Skapa ett batch-konto program mässigt, till exempel med [batch Management .net-biblioteket](batch-management-dotnet.md).
-- [Konfigurera eller inaktivera fjärråtkomst för att beräkna noder i en Azure Batch pool](pool-endpoint-configuration.md).
-- [Kör jobb förberedelse-och jobb publicerings aktiviteter i batch Compute-noder](batch-job-prep-release.md)
+- Skapa ett batchkonto med [Azure-portalen](batch-account-create-portal.md).
+- Skapa ett batchkonto programmässigt, till exempel med [batchhantering .NET-biblioteket](batch-management-dotnet.md).
+- [Konfigurera eller inaktivera fjärråtkomst för beräkningsnoder i en Azure Batch-pool](pool-endpoint-configuration.md).
+- [Kör jobbförberedelse- och jobbfrisättningsuppgifter på batchberäkningsnoder](batch-job-prep-release.md)
+

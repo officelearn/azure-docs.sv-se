@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Storage Explorer | Microsoft Docs
-description: Hantera Azure Storage-resurser med Storage Explorer
+title: Komma igång med Storage Explorer | Microsoft-dokument
+description: Hantera Azure-lagringsresurser med Storage Explorer
 services: storage
 author: cawaMS
 ms.service: storage
@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 7886d5a1ad0745550767b7d6f19592ca3c84b00a
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79279798"
 ---
 # <a name="get-started-with-storage-explorer"></a>Kom igång med Storage Explorer
 
 ## <a name="overview"></a>Översikt
 
-Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med Azure Storage data på Windows, macOS och Linux. I den här artikeln lär du dig flera olika sätt att ansluta till och hantera dina Azure Storage-konton.
+Microsoft Azure Storage Explorer är en fristående app som gör det enkelt att arbeta med Azure Storage-data på Windows, macOS och Linux. I den här artikeln får du lära dig flera sätt att ansluta till och hantera dina Azure-lagringskonton.
 
 ![Microsoft Azure Storage Explorer][0]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
@@ -35,33 +35,33 @@ Följande versioner av Windows stöder Storage Explorer:
 
 För alla versioner av Windows kräver Storage Explorer .NET Framework 4.6.2 eller senare.
 
-# <a name="macos"></a>[macOS](#tab/macos)
+# <a name="macos"></a>[Macos](#tab/macos)
 
 Följande versioner av macOS stöder Storage Explorer:
 
-* macOS 10,12 Sierra och senare versioner
+* macOS 10.12 Sierra och senare versioner
 
 # <a name="linux"></a>[Linux](#tab/linux)
 
-Storage Explorer finns i [Snap Store](https://snapcraft.io/storage-explorer) för de vanligaste distributionerna av Linux. Vi rekommenderar Snap Store för den här installationen. Snapin-modulen Storage Explorer installerar alla dess beroenden och uppdateringar när nya versioner publiceras i Snap-arkivet.
+Storage Explorer är tillgängligt i [Snap Store](https://snapcraft.io/storage-explorer) för de vanligaste distributionerna av Linux. Vi rekommenderar Snap Store för den här installationen. Snap-snapen Storage Explorer installerar alla dess beroenden och uppdateringar när nya versioner publiceras i Snap Store.
 
-Information om vilka distributioner som stöds finns på [sidan för Snap-installation](https://snapcraft.io/docs/installing-snapd).
+För distributioner som stöds finns på sidan [för fäst installation](https://snapcraft.io/docs/installing-snapd).
 
-Storage Explorer kräver att du använder en lösen ords hanterare. Du kan behöva ansluta till en lösen ords hanterare manuellt. Du kan ansluta Storage Explorer till systemets lösen ords hanterare genom att köra följande kommando:
+Storage Explorer kräver användning av en lösenordshanterare. Du kanske måste ansluta till en lösenordshanterare manuellt. Du kan ansluta Storage Explorer till systemets lösenordshanterare genom att köra följande kommando:
 
 ```bash
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
-Storage Explorer är också tillgängligt som en *. tar. gz* -hämtning. Du måste installera beroenden manuellt. Följande distributioner av Linux-support *. tar. gz* -installation:
+Lagring Explorer finns också som en *.tar.gz* nedladdning. Du måste installera beroenden manuellt. Följande distributioner av Linux stöder *.tar.gz-installation:*
 
 * Ubuntu 18,04 x64
 * Ubuntu 16,04 x64
 * Ubuntu 14,04 x64
 
-Installationen av *. tar. gz* kan fungera på andra distributioner, men endast dessa listade stöds officiellt.
+*.tar.gz-installationen* kan fungera på andra distributioner, men endast dessa listade stöds officiellt.
 
-Mer hjälp med att installera Storage Explorer på Linux finns i [Linux-beroenden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies) i Azure Storage Explorer fel söknings guide.
+Mer hjälp med att installera Storage Explorer på Linux finns i [Linux-beroenden](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#linux-dependencies) i felsökningsguiden för Azure Storage Explorer.
 
 ---
 
@@ -73,204 +73,204 @@ Information om hur du hämtar och installerar Storage Explorer finns i [Azure St
 
 I Storage Explorer finns flera olika sätt att ansluta till lagringskonton. I allmänhet kan du antingen:
 
-* [Logga in på Azure för att få åtkomst till dina prenumerationer och deras resurser](#sign-in-to-azure)
-* [Anslut en speciell lagrings-eller CosmosDB-resurs](#attach-a-specific-resource)
+* [Logga in på Azure för att komma åt dina prenumerationer och deras resurser](#sign-in-to-azure)
+* [Koppla en specifik Storage- eller CosmosDB-resurs](#attach-a-specific-resource)
 
 ### <a name="sign-in-to-azure"></a>Logga in på Azure
 
 > [!NOTE]
-> För att få fullständig åtkomst till resurser när du har loggat in, kräver Storage Explorer både hantering (Azure Resource Manager) och data lager behörigheter. Det innebär att du behöver Azure Active Directory (Azure AD)-behörigheter, vilket ger dig åtkomst till ditt lagrings konto, behållarna i kontot och data i behållarna. Om du har behörighet för data lagret kan du överväga [att lägga till en resurs via Azure AD](#add-a-resource-via-azure-ad). Mer information om de speciella behörigheter som Storage Explorer kräver finns i [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues).
+> För att få fullständig åtkomst till resurser när du har loggat in kräver Storage Explorer både hantering (Azure Resource Manager) och datalagerbehörigheter. Det innebär att du behöver Azure Active Directory (Azure AD) behörigheter, som ger dig åtkomst till ditt lagringskonto, behållarna i kontot och data i behållarna. Om du bara har behörighet i datalagret bör du [överväga att lägga till en resurs via Azure AD](#add-a-resource-via-azure-ad). Mer information om de specifika behörigheter som Storage Explorer kräver finns i [felsökningsguiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting#rbac-permissions-issues).
 
-1. I Storage Explorer väljer du **visa** > **konto hantering** eller väljer knappen **Hantera konton** .
+1. I Storage Explorer väljer du **Visa** > **kontohantering** eller väljer knappen **Hantera konton.**
 
     ![Hantera konton][1]
 
-1. **Konto hantering** visar nu alla Azure-konton som du har loggat in på. Om du vill ansluta till ett annat konto väljer du **Lägg till ett konto**.
+1. **KONTOHANTERING** visar nu alla Azure-konton som du har loggat in på. Om du vill ansluta till ett annat konto väljer du **Lägg till ett konto**.
 
-1. I **Anslut till Azure Storage**väljer du ett Azure-moln från **Azure-miljön** för att logga in på ett nationellt moln eller en Azure Stack. När du har valt din miljö väljer du **Nästa**.
+1. I **Anslut till Azure Storage**väljer du ett Azure-moln från **Azure-miljö** för att logga in på ett nationellt moln eller en Azure Stack. När du har valt din miljö väljer du **Nästa**.
 
-    ![Alternativ för att logga in][2]
+    ![Möjlighet att logga in][2]
 
-    Storage Explorer öppnar en sida där du kan logga in. Mer information finns i [ansluta lagrings Utforskaren till en Azure Stack-prenumeration eller ett lagrings konto](/azure-stack/user/azure-stack-storage-connect-se).
+    Storage Explorer öppnar en sida där du kan logga in. Mer information finns i [Ansluta lagringsutforskaren till en Azure Stack-prenumeration eller ett lagringskonto](/azure-stack/user/azure-stack-storage-connect-se).
 
-1. När du har loggat in med ett Azure-konto visas kontot och de Azure-prenumerationer som är kopplade till kontot under **konto hantering**. Välj **alla prenumerationer** om du vill växla mellan alla eller inga av de listade Azure-prenumerationerna. Välj de Azure-prenumerationer som du vill arbeta med och välj sedan **Använd**.
+1. När du har loggat in med ett Azure-konto visas kontot och Azure-prenumerationerna som är associerade med kontot under **ACCOUNT MANAGEMENT**. Välj **Alla prenumerationer** för att växla ditt val mellan alla eller inga av de listade Azure-prenumerationerna. Välj de Azure-prenumerationer som du vill arbeta med och välj sedan **Använd**.
 
     ![Välja Azure-prenumerationer][3]
 
-    **Explorer** visar de lagrings konton som är kopplade till de valda Azure-prenumerationerna.
+    **EXPLORER** visar de lagringskonton som är associerade med de valda Azure-prenumerationerna.
 
     ![Valda Azure-prenumerationer][4]
 
-### <a name="attach-a-specific-resource"></a>Anslut en speciell resurs
+### <a name="attach-a-specific-resource"></a>Koppla en viss resurs
 
 Det finns flera sätt att koppla till en resurs i Storage Explorer:
 
-* [Lägg till en resurs via Azure AD](#add-a-resource-via-azure-ad). Om du har behörighet för data lagret kan du använda det här alternativet för att lägga till en BLOB-behållare eller en Azure Data Lake Storage Gen2 Blob Storage-behållare.
-* [Använd en anslutnings sträng](#use-a-connection-string). Använd det här alternativet om du har en anslutnings sträng till ett lagrings konto. Storage Explorer stöder anslutnings strängar för signaturer för både nyckel och [delad åtkomst](storage/common/storage-dotnet-shared-access-signature-part-1.md) .
-* [Använd en signatur-URI för delad åtkomst](#use-a-shared-access-signature-uri). Om du har en [signatur-URI för delad åtkomst](storage/common/storage-dotnet-shared-access-signature-part-1.md) till en BLOB-behållare, fil resurs, kö eller tabell, använder du den för att ansluta till resursen. Om du vill hämta en URI för signatur för delad åtkomst kan du antingen använda [Storage Explorer](#generate-a-sas-in-storage-explorer) eller [Azure Portal](https://portal.azure.com).
-* [Använd ett namn och en nyckel](#use-a-name-and-key). Om du känner till någon av konto nycklarna till ditt lagrings konto kan du använda det här alternativet för att snabbt ansluta. Hitta dina nycklar på sidan lagrings konto genom att välja **inställningar** > **åtkomst nycklar** i [Azure Portal](https://portal.azure.com).
-* [Anslut till en lokal emulator](#attach-to-a-local-emulator). Om du använder någon av de tillgängliga Azure Storage-emulatorerna kan du använda det här alternativet för att enkelt ansluta till emulatorn.
-* [Anslut till ett Azure Cosmos DB-konto med hjälp av en anslutnings sträng](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string). Använd det här alternativet om du har en anslutnings sträng till en CosmosDB-instans.
-* [Anslut till Azure Data Lake Store med URI](#connect-to-azure-data-lake-store-by-uri). Använd det här alternativet om du har en URI för att Azure Data Lake Store.
+* [Lägg till en resurs via Azure AD](#add-a-resource-via-azure-ad). Om du bara har behörighet i datalagret använder du det här alternativet för att lägga till en blob-behållare eller en Azure Data Lake Storage Gen2 Blob-lagringsbehållare.
+* [Använd en anslutningssträng](#use-a-connection-string). Använd det här alternativet om du har en anslutningssträng till ett lagringskonto. Storage Explorer stöder anslutningssträngar för både nyckel och delad åtkomstsignatur. [shared access signature](storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Använd en signatur för delad åtkomst URI](#use-a-shared-access-signature-uri). Om du har en [uri för delad åtkomstsignatur](storage/common/storage-dotnet-shared-access-signature-part-1.md) till en blob-behållare, filresurs, kö eller tabell använder du den för att koppla till resursen. Om du vill få en signatur-URI för delad åtkomst kan du antingen använda [Storage Explorer](#generate-a-sas-in-storage-explorer) eller [Azure-portalen](https://portal.azure.com).
+* [Använd ett namn och en nyckel](#use-a-name-and-key). Om du känner till någon av kontonycklarna till ditt lagringskonto kan du använda det här alternativet för att snabbt ansluta. Hitta dina nycklar på sidan för lagringskonto genom att välja **Inställningar** > **Access-nycklar** i [Azure-portalen](https://portal.azure.com).
+* [Anslut till en lokal emulator](#attach-to-a-local-emulator). Om du använder en av de tillgängliga Azure Storage-emulatorer, använd det här alternativet för att enkelt ansluta till din emulator.
+* [Anslut till ett Azure Cosmos DB-konto med hjälp av en anslutningssträng](#connect-to-an-azure-cosmos-db-account-by-using-a-connection-string). Använd det här alternativet om du har en anslutningssträng till en CosmosDB-förekomst.
+* [Anslut till Azure Data Lake Store med URI](#connect-to-azure-data-lake-store-by-uri). Använd det här alternativet om du har en URI till Azure Data Lake Store.
 
-#### <a name="add-a-resource-via-azure-ad"></a>Lägg till en resurs via Azure AD
+#### <a name="add-a-resource-via-azure-ad"></a>Lägga till en resurs via Azure AD
 
-1. Välj **kopplings** symbolen för att öppna **Anslut till Azure Storage**.
+1. Välj knappen **Anslut** för att öppna **Anslut till Azure Storage**.
 
     ![Alternativet Anslut till Azure Storage][9]
 
-1. Om du inte redan har gjort det använder du alternativet **Lägg till ett Azure-konto** för att logga in på det Azure-konto som har åtkomst till resursen. När du har loggat in går du tillbaka till **Anslut till Azure Storage**.
+1. Om du inte redan har gjort det använder du alternativet **Lägg till ett Azure-konto** för att logga in på Azure-kontot som har åtkomst till resursen. När du har loggat in går du tillbaka till **Anslut till Azure Storage**.
 
 1. Välj **Lägg till en resurs via Azure Active Directory (Azure AD)** och välj sedan **Nästa**.
 
-1. Välj ett Azure-konto och klient organisation. Dessa värden måste ha åtkomst till den lagrings resurs som du vill ansluta till. Välj **Nästa**.
+1. Välj ett Azure-konto och en klient. Dessa värden måste ha åtkomst till den lagringsresurs som du vill koppla till. Välj **Nästa**.
 
-1. Välj den resurs typ som du vill bifoga. Ange den information som krävs för att ansluta. 
+1. Välj den resurstyp som du vill koppla. Ange den information som behövs för att ansluta. 
 
-   Den information som du anger på den här sidan beror på vilken typ av resurs du lägger till. Se till att välja rätt typ av resurs. När du har angett den information som krävs väljer du **Nästa**.
+   Vilken information du anger på den här sidan beror på vilken typ av resurs du lägger till. Se till att välja rätt typ av resurs. När du har angett den information som krävs väljer du **Nästa**.
 
-1. Granska **anslutnings sammanfattningen** för att se till att all information är korrekt. Om det är det väljer du **Anslut**. Annars väljer du **tillbaka** för att återgå till föregående sidor för att åtgärda felaktig information.
+1. Granska **anslutningssammanfattningen** för att kontrollera att all information är korrekt. Om så ärdsar du **på Anslut**. Annars väljer du **Tillbaka** för att gå tillbaka till föregående sidor för att åtgärda felaktig information.
 
-När anslutningen har lagts till går resurs trädet till den nod som representerar anslutningen. Resursen visas under **lokala & anslutna** > **lagrings konton** >  **(anslutna behållare)**  > **BLOB-behållare**. Om Storage Explorer inte kan lägga till anslutningen, eller om du inte kan komma åt dina data när du har lagt till anslutningen, kan du läsa mer i [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+När anslutningen har lagts till går resursträdet till noden som representerar anslutningen. Resursen visas under **Lokala & bifogade** > **lagringskonton** > **(bifogade behållare)** > **Blob Containers**. Om Storage Explorer inte kunde lägga till anslutningen, eller om du inte kan komma åt dina data efter att anslutningen har lagts till, läser [du felsökningsguiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-connection-string"></a>Använd en anslutnings sträng
+#### <a name="use-a-connection-string"></a>Använda en anslutningssträng
 
-1. Välj **kopplings** symbolen för att öppna **Anslut till Azure Storage**.
-
-    ![Alternativet Anslut till Azure Storage][9]
-
-1. Välj **Använd en anslutnings sträng**och välj sedan **Nästa**.
-
-1. Välj ett visnings namn för anslutningen och ange din anslutnings sträng. Välj sedan **Nästa**.
-
-1. Granska **anslutnings sammanfattningen** för att se till att all information är korrekt. Om det är det väljer du **Anslut**. Annars väljer du **tillbaka** för att återgå till föregående sidor för att åtgärda felaktig information.
-
-När anslutningen har lagts till går resurs trädet till den nod som representerar anslutningen. Resursen visas under **lokala & anslutna** > **lagrings konton**. Om Storage Explorer inte kan lägga till anslutningen, eller om du inte kan komma åt dina data när du har lagt till anslutningen, kan du läsa mer i [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
-
-#### <a name="use-a-shared-access-signature-uri"></a>Använda en signatur-URI för delad åtkomst
-
-1. Välj **kopplings** symbolen för att öppna **Anslut till Azure Storage**.
+1. Välj knappen **Anslut** för att öppna **Anslut till Azure Storage**.
 
     ![Alternativet Anslut till Azure Storage][9]
 
-1. Välj **Använd en signatur för delad åtkomst-URI (SAS)** och välj sedan **Nästa**.
+1. Välj **Använd en anslutningssträng**och välj sedan **Nästa**.
 
-1. Välj ett visnings namn för anslutningen och ange din signatur-URI för delad åtkomst. Tjänst slut punkten för den typ av resurs som du lägger till ska Autofyll. Om du använder en anpassad slut punkt är det möjligt att den inte är det. Välj **Nästa**.
+1. Välj ett visningsnamn för anslutningen och ange anslutningssträngen. Välj sedan **Nästa**.
 
-1. Granska **anslutnings sammanfattningen** för att se till att all information är korrekt. Om det är det väljer du **Anslut**. Annars väljer du **tillbaka** för att återgå till föregående sidor för att åtgärda felaktig information.
+1. Granska **anslutningssammanfattningen** för att kontrollera att all information är korrekt. Om så ärdsar du **på Anslut**. Annars väljer du **Tillbaka** för att gå tillbaka till föregående sidor för att åtgärda felaktig information.
 
-När anslutningen har lagts till går resurs trädet till den nod som representerar anslutningen. Resursen visas under **lokala & anslutna** > **lagrings konton** >  **(anslutna behållare)**  > *noden tjänst för den typ av behållare som du har bifogat*. Om Storage Explorer inte kan lägga till din anslutning, se [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting). Se fel söknings guiden om du inte kan komma åt dina data när du har lagt till anslutningen.
+När anslutningen har lagts till går resursträdet till noden som representerar anslutningen. Resursen visas under **Lokala & bifogade** > **lagringskonton**. Om Storage Explorer inte kunde lägga till anslutningen, eller om du inte kan komma åt dina data efter att anslutningen har lagts till, läser [du felsökningsguiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="use-a-name-and-key"></a>Använd ett namn och en nyckel
+#### <a name="use-a-shared-access-signature-uri"></a>Använda en URI för delad åtkomst
 
-1. Välj **kopplings** symbolen för att öppna **Anslut till Azure Storage**.
+1. Välj knappen **Anslut** för att öppna **Anslut till Azure Storage**.
 
     ![Alternativet Anslut till Azure Storage][9]
 
-1. Välj **Använd ett lagrings konto namn och nyckel**och välj sedan **Nästa**.
+1. Välj **Använd en SAS-uri (Shared Access Signature)** och välj sedan **Nästa**.
 
-1. Välj ett visnings namn för anslutningen.
+1. Välj ett visningsnamn för anslutningen och ange signaturen URI för delad åtkomst. Tjänstslutpunkten för den typ av resurs som du kopplar ska fyllas i automatiskt. Om du använder en anpassad slutpunkt är det möjligt att det inte gör det. Välj **Nästa**.
 
-1. Ange ditt lagrings konto namn och någon av dess åtkomst nycklar.
+1. Granska **anslutningssammanfattningen** för att kontrollera att all information är korrekt. Om så ärdsar du **på Anslut**. Annars väljer du **Tillbaka** för att gå tillbaka till föregående sidor för att åtgärda felaktig information.
 
-1. Välj den **lagrings domän** som du vill använda och välj sedan **Nästa**.
+När anslutningen har lagts till går resursträdet till noden som representerar anslutningen. Resursen visas under **Lokala & Bifogade** > **lagringskonton** > **(Bifogade behållare)** > *tjänstnoden för den typ av behållare som du bifogade*. Om Storage Explorer inte kunde lägga till anslutningen läser du [felsökningsguiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting). Se felsökningsguiden om du inte kan komma åt dina data när du har lagt till anslutningen.
 
-1. Granska **anslutnings sammanfattningen** för att se till att all information är korrekt. Om det är det väljer du **Anslut**. Annars väljer du **tillbaka** för att återgå till föregående sidor för att åtgärda felaktig information.
+#### <a name="use-a-name-and-key"></a>Använda ett namn och en nyckel
 
-När anslutningen har lagts till går resurs trädet till den nod som representerar anslutningen. Resursen visas under **lokala & anslutna** > **lagrings konton**. Om Storage Explorer inte kan lägga till anslutningen, eller om du inte kan komma åt dina data när du har lagt till anslutningen, kan du läsa mer i [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+1. Välj knappen **Anslut** för att öppna **Anslut till Azure Storage**.
+
+    ![Alternativet Anslut till Azure Storage][9]
+
+1. Välj **Använd ett namn och en lagringskontonyckel**och välj sedan **Nästa**.
+
+1. Välj ett visningsnamn för anslutningen.
+
+1. Ange ditt lagringskontonamn och någon av dess åtkomstnycklar.
+
+1. Välj den **lagringsdomän** som ska användas och välj sedan **Nästa**.
+
+1. Granska **anslutningssammanfattningen** för att kontrollera att all information är korrekt. Om så ärdsar du **på Anslut**. Annars väljer du **Tillbaka** för att gå tillbaka till föregående sidor för att åtgärda felaktig information.
+
+När anslutningen har lagts till går resursträdet till noden som representerar anslutningen. Resursen visas under **Lokala & bifogade** > **lagringskonton**. Om Storage Explorer inte kunde lägga till anslutningen, eller om du inte kan komma åt dina data efter att anslutningen har lagts till, läser [du felsökningsguiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
 #### <a name="attach-to-a-local-emulator"></a>Anslut till en lokal emulator
 
-Storage Explorer stöder för närvarande två officiella lagrings emulatorer:
+Storage Explorer stöder för närvarande två officiella lagringsemulatorer:
 
-* [Azure Storage emulator](storage/common/storage-use-emulator.md) (endast Windows)
-* [Azurite](https://github.com/azure/azurite) (Windows, MacOS eller Linux)
+* [Azure Storage-emulatorn](storage/common/storage-use-emulator.md) (endast Windows)
+* [Azurite](https://github.com/azure/azurite) (Windows, macOS eller Linux)
 
-Om emulatorn lyssnar på standard portarna kan du använda noden **emulator-standard portar** för att få åtkomst till din emulator. Sök efter **emulator – standard portar** under **lokala & anslutna** > **lagrings konton**.
+Om emulatorn lyssnar på standardportarna kan du använda noden **Emulator - Standardportar** för att komma åt emulatorn. Leta efter **Emulator - Standardportar** under **Lokala & bifogade** > **lagringskonton**.
 
-Följ dessa steg om du vill använda ett annat namn för anslutningen, eller om emulatorn inte körs på standard portarna:
+Om du vill använda ett annat namn för anslutningen, eller om emulatorn inte körs på standardportarna, gör du så här:
 
-1. Starta din emulator. Ange kommandot `AzureStorageEmulator.exe status` för att visa portarna för varje typ av tjänst.
+1. Starta din emulator. Ange kommandot `AzureStorageEmulator.exe status` för att visa portarna för varje tjänsttyp.
 
    > [!IMPORTANT]
    > Storage Explorer startar inte emulatorn automatiskt. Du måste starta den manuellt.
 
-1. Välj **kopplings** symbolen för att öppna **Anslut till Azure Storage**.
+1. Välj knappen **Anslut** för att öppna **Anslut till Azure Storage**.
 
     ![Alternativet Anslut till Azure Storage][9]
 
-1. Välj **Anslut till en lokal emulator**och välj sedan **Nästa**.
+1. Välj **Koppla till en lokal emulator**och välj sedan **Nästa**.
 
-1. Välj ett visnings namn för anslutningen och ange de portar som din emulator lyssnar på för varje tjänst typ. **När du ansluter till en lokal emulator** föreslås standardvärdena för de flesta emulatorer. **Filernas port** är tom, eftersom ingen av de officiella emulatorerna för närvarande stöder fil tjänsten. Om emulatorn du använder stöder filer kan du ange den port som ska användas. Välj sedan **Nästa**.
+1. Välj ett visningsnamn för din anslutning och ange de portar som emulatorn lyssnar på för varje tjänsttyp. **Bifoga till en lokal emulator** föreslår standardportvärden för de flesta emulatorer. **Filporten** är tom, eftersom ingen av de officiella emulatorer för närvarande stöder filtjänsten. Om emulatorn du använder stöder filer kan du ange porten som ska användas. Välj sedan **Nästa**.
 
-1. Granska **anslutnings sammanfattningen** och se till att all information är korrekt. Om det är det väljer du **Anslut**. Annars väljer du **tillbaka** för att återgå till föregående sidor för att åtgärda felaktig information.
+1. Granska **anslutningssammanfattningen** och kontrollera att all information är korrekt. Om så ärdsar du **på Anslut**. Annars väljer du **Tillbaka** för att gå tillbaka till föregående sidor för att åtgärda felaktig information.
 
-När anslutningen har lagts till går resurs trädet till den nod som representerar anslutningen. Noden bör visas under **lokala & anslutna** > **lagrings konton**. Om Storage Explorer inte kan lägga till anslutningen, eller om du inte kan komma åt dina data när du har lagt till anslutningen, kan du läsa mer i [fel söknings guiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
+När anslutningen har lagts till går resursträdet till noden som representerar anslutningen. Noden ska visas under **Lokala & bifogade** > **lagringskonton**. Om Storage Explorer inte kunde lägga till anslutningen, eller om du inte kan komma åt dina data efter att anslutningen har lagts till, läser [du felsökningsguiden för Azure Storage Explorer](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting).
 
-#### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Ansluta till ett Azure Cosmos DB-konto med hjälp av en anslutnings sträng
+#### <a name="connect-to-an-azure-cosmos-db-account-by-using-a-connection-string"></a>Ansluta till ett Azure Cosmos DB-konto med hjälp av en anslutningssträng
 
-I stället för att hantera Azure Cosmos DB-konton via en Azure-prenumeration kan du ansluta till Azure Cosmos DB med hjälp av en anslutnings sträng. Följ dessa steg för att ansluta:
+I stället för att hantera Azure Cosmos DB-konton via en Azure-prenumeration kan du ansluta till Azure Cosmos DB med hjälp av en anslutningssträng. Gör så här för att ansluta:
 
-1. Under **Utforskaren**, expandera **lokala & anslutna**, högerklicka på **Cosmos DB konton**och välj **Anslut till Azure Cosmos DB**.
+1. Expandera Lokala **& Bifogade under** **EXPLORER**, högerklicka på **Cosmos DB-konton**och välj **Anslut till Azure Cosmos DB**.
 
     ![Ansluta till Azure Cosmos DB med hjälp av en anslutningssträng][21]
 
-1. Välj Azure Cosmos DB API, ange dina **anslutnings sträng** data och välj sedan **OK** för att ansluta Azure Cosmos DB-kontot. Information om hur du hämtar anslutnings strängen finns i [hantera ett Azure Cosmos-konto](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+1. Välj Azure Cosmos DB API, ange dina **anslutningssträngdata** och välj sedan **OK** för att ansluta Azure Cosmos DB-kontot. Information om hur du hämtar anslutningssträngen finns i [Hantera ett Azure Cosmos-konto](https://docs.microsoft.com/azure/cosmos-db/manage-account).
 
     ![Anslutningssträng][22]
 
-#### <a name="connect-to-azure-data-lake-store-by-uri"></a>Anslut till Azure Data Lake Store per URI
+#### <a name="connect-to-azure-data-lake-store-by-uri"></a>Ansluta till Azure Data Lake Store med URI
 
-Du kan komma åt en resurs som inte finns i din prenumeration. Du behöver någon som har åtkomst till den resursen för att ge resurs-URI: n. När du har loggat in ansluter du till Data Lake Store med hjälp av URI: n. Följ dessa steg för att ansluta:
+Du kan komma åt en resurs som inte finns i din prenumeration. Du behöver någon som har åtkomst till den resursen för att ge dig resursen URI. När du har loggat in ansluter du till DataSjöbutik med hjälp av URI:n. Gör så här för att ansluta:
 
-1. Under **Utforskaren**expanderar du **lokala & anslutna**.
+1. Expandera Lokala **& bifogade under** **EXPLORER**.
 
-1. Högerklicka på **data Lake Storage gen1**och välj **Anslut till data Lake Storage gen1**.
+1. Högerklicka på **Datasjölagring gen1**och välj **Anslut till datasjölagringgengen1**.
 
-    ![Ansluta till Data Lake Store snabb meny](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-connect-data-lake-storage.png)
+    ![Snabbmenyn Ansluta till DataSjö store](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-connect-data-lake-storage.png)
 
-1. Ange URI och välj sedan **OK**. Data Lake Store visas under **data Lake Storage**.
+1. Ange URI och välj sedan **OK**. Datasjöarkivet visas under **Lagring av Datasjö.**
 
-    ![Anslut till Data Lake Store resultat](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-attach-data-lake-finished.png)
+    ![Anslut till datasjölagringsresultat](./media/vs-azure-tools-storage-manage-with-storage-explorer/storage-explorer-attach-data-lake-finished.png)
 
-I det här exemplet används Data Lake Storage Gen1. Azure Data Lake Storage Gen2 är nu tillgängligt. Mer information finns i [Vad är Azure Data Lake Storage gen1](./data-lake-store/data-lake-store-overview.md).
+I det här exemplet används Gen1 för lagring av datasjö. Azure Data Lake Storage Gen2 är nu tillgänglig. Mer information finns i [Vad är Azure Data Lake Storage Gen1](./data-lake-store/data-lake-store-overview.md).
 
-## Generera en signatur för delad åtkomst i Storage Explorer<a name="generate-a-sas-in-storage-explorer"></a>
+## <a name="generate-a-shared-access-signature-in-storage-explorer"></a>Generera en signatur för delad åtkomst i Storage Explorer<a name="generate-a-sas-in-storage-explorer"></a>
 
-### <a name="account-level-shared-access-signature"></a>Signatur för delad åtkomst på konto nivå
+### <a name="account-level-shared-access-signature"></a>Signatur för delad åtkomst på kontonivå
 
-1. Högerklicka på det lagrings konto som du vill dela och välj sedan **Hämta signatur för delad åtkomst**.
+1. Högerklicka på det lagringskonto som du vill ha dela och välj sedan **Hämta signatur för delad åtkomst**.
 
-    ![Snabb meny alternativet Hämta signatur för delad åtkomst][14]
+    ![Snabbmenyalternativ för signatur för delad åtkomst][14]
 
-1. I **signaturen för delad åtkomst**anger du den tidsram och de behörigheter som du vill använda för kontot och väljer sedan **skapa**.
+1. I **Signature för delad åtkomst**anger du den tidsram och de behörigheter du vill använda för kontot och väljer sedan **Skapa**.
 
-    ![Hämta en signatur för delad åtkomst][15]
+    ![Skaffa en signatur för delad åtkomst][15]
 
-1. Kopiera antingen **anslutnings strängen** eller den råa **frågesträngen** till Urklipp.
+1. Kopiera antingen **anslutningssträngen** eller den råa **frågesträngen** till Urklipp.
 
-### <a name="service-level-shared-access-signature"></a>Signatur för delad åtkomst på service nivå
+### <a name="service-level-shared-access-signature"></a>Signatur för delad åtkomst på tjänstnivå
 
-Du kan få en signatur för delad åtkomst på tjänst nivå. Mer information finns i [Hämta SAS för en BLOB-behållare](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container).
+Du kan få en signatur för delad åtkomst på tjänstnivå. Mer information finns [i Hämta SAS för en blob-behållare](vs-azure-tools-storage-explorer-blobs.md#get-the-sas-for-a-blob-container).
 
 ## <a name="search-for-storage-accounts"></a>Söka efter lagringskonton
 
-Om du vill hitta en lagrings resurs kan du söka i fönstret **Utforskaren** .
+Om du vill hitta en lagringsresurs kan du söka i **EXPLORER-fönstret.**
 
-När du anger text i sökrutan visar Storage Explorer alla resurser som matchar Sök värdet som du har angett till den punkten. I det här exemplet visas en sökning efter **slut punkter**:
+När du skriver text i sökrutan visar Storage Explorer alla resurser som matchar sökvärdet som du har angett fram till den punkten. I det här exemplet visas en sökning efter **slutpunkter:**
 
 ![Lagringskontosökning][23]
 
 > [!NOTE]
-> Om du vill påskynda din sökning använder du **konto hantering** för att avmarkera alla prenumerationer som inte innehåller det objekt som du söker efter. Du kan också högerklicka på en nod och välja **Sök härifrån** för att börja söka från en speciell nod.
+> Om du vill snabba upp sökningen använder du **Kontohantering** för att avmarkera prenumerationer som inte innehåller objektet du söker efter. Du kan också högerklicka på en nod och välja **Sök härifrån** för att börja söka från en viss nod.
 >
 >
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Hantera Azure Blob Storage-resurser med Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
+* [Hantera Azure Blob-lagringsresurser med Storage Explorer](vs-azure-tools-storage-explorer-blobs.md)
 * [Arbeta med data med hjälp av Azure Storage Explorer](./cosmos-db/storage-explorer.md)
-* [Hantera Azure Data Lake Store resurser med Storage Explorer](./data-lake-store/data-lake-store-in-storage-explorer.md)
+* [Hantera Azure Data Lake Store-resurser med Storage Explorer](./data-lake-store/data-lake-store-in-storage-explorer.md)
 
 [0]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/Overview.png
 [1]: ./media/vs-azure-tools-storage-manage-with-storage-explorer/ManageAccounts.png

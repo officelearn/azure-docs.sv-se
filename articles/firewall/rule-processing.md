@@ -1,6 +1,6 @@
 ---
 title: Regelbearbetningslogik för Azure Firewall
-description: Azure-brandväggen har NAT-regler, nätverks regler och program regler. Reglerna bearbetas enligt regel typen.
+description: Azure-brandväggen har NAT-regler, nätverksregler och programregler. Reglerna bearbetas enligt regeltypen.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,92 +8,92 @@ ms.topic: article
 ms.date: 03/10/2020
 ms.author: victorh
 ms.openlocfilehash: d3f8e52b4582c9467ae3ec61ee984771b801fe4f
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79264783"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Regelbearbetningslogik för Azure Firewall
-Du kan konfigurera NAT-regler, nätverks regler och program regler på Azure-brandväggen. Reglerna bearbetas enligt regel typen. 
+Du kan konfigurera NAT-regler, nätverksregler och programregler på Azure-brandväggen. Reglerna bearbetas enligt regeltypen. 
 
 > [!NOTE]
-> Om du aktiverar Hot information-baserad filtrering är reglerna högst prioriterade och bearbetas alltid först. Hot-Intelligence-filtrering kan neka trafik innan eventuella konfigurerade regler bearbetas. Mer information finns i [Azure Firewall Threat Intelligence-baserad filtrering](threat-intel.md).
+> Om du aktiverar filtrering baserad på hotinformation har dessa regler högsta prioritet och bearbetas alltid först. Hot-intelligens filtrering kan neka trafik innan några konfigurerade regler bearbetas. Mer information finns i [Azure Firewall threat intelligence-baserad filtrering](threat-intel.md).
 
 ## <a name="outbound"></a>Utgående
 
-### <a name="network-rules-and-applications-rules"></a>Regler för nätverks regler och program
+### <a name="network-rules-and-applications-rules"></a>Regler för nätverk och program
 
-Om du konfigurerar nätverks regler och program regler tillämpas nätverks regler i prioritetsordning före program regler. Reglerna avslutas. Så om en matchning hittas i en nätverks regel bearbetas inga andra regler.  Om det inte finns någon nätverks regel matchning, och om protokollet är HTTP, HTTPS eller MSSQL utvärderas paketet av program reglerna i prioritetsordning. Om ingen matchning hittas utvärderas paketet mot [regel samlingen för infrastrukturen](infrastructure-fqdns.md). Om det fortfarande inte finns någon matchning nekas paketet som standard.
+Om du konfigurerar nätverksregler och programregler tillämpas nätverksregler i prioritetsordning före programregler. Reglerna är avslutande. Så om en matchning hittas i en nätverksregel bearbetas inga andra regler.  Om det inte finns någon nätverksregelmatchning, och om protokollet är HTTP, HTTPS eller MSSQL, utvärderas paketet sedan av programreglerna i prioritetsordning. Om det fortfarande inte finns någon matchning utvärderas paketet mot [infrastrukturregelsamlingen](infrastructure-fqdns.md). Om det fortfarande inte finns någon matchning nekas paketet som standard.
 
 ## <a name="inbound"></a>Inkommande
 
 ### <a name="nat-rules"></a>NAT-regler
 
-Inkommande Internet anslutning kan aktive ras genom konfiguration av mål nätverks adress översättning (DNAT) enligt beskrivningen i [Självstudier: filtrera inkommande trafik med Azure FIREWALL DNAt med hjälp av Azure Portal](tutorial-firewall-dnat.md). NAT-regler tillämpas i prioritetsordning före nätverks regler. Om en matchning hittas läggs en implicit motsvarande nätverks regel för att tillåta den översatta trafiken. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken.
+Inkommande Internet-anslutning kan aktiveras genom att konfigurera DNAT (Destination Network Address Translation) enligt beskrivningen i [Självstudiekurs: Filtrera inkommande trafik med Azure Firewall DNAT med Azure-portalen](tutorial-firewall-dnat.md). NAT-regler tillämpas i prioritet före nätverksregler. Om en matchning hittas läggs en implicit motsvarande nätverksregel för att tillåta den översatta trafiken till. Du kan åsidosätta det här beteendet genom att uttryckligen lägga till en nätverksregelsamling med neka-regler som matchar den översatta trafiken.
 
-Program regler tillämpas inte för inkommande anslutningar. Så om du vill filtrera inkommande HTTP/S-trafik bör du använda brand vägg för webbaserade program (WAF). Mer information finns i [Vad är en brand vägg för Azure Web Application?](../web-application-firewall/overview.md)
+Programregler tillämpas inte för inkommande anslutningar. Så om du vill filtrera inkommande HTTP / S-trafik, bör du använda Web Application Firewall (WAF). Mer information finns i [Vad är Azure Web Application Firewall?](../web-application-firewall/overview.md)
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel visas resultatet av några av de här regel kombinationerna.
+Följande exempel visar resultatet av några av dessa regelkombinationer.
 
 ### <a name="example-1"></a>Exempel 1
 
-Anslutning till google.com tillåts på grund av en matchande nätverks regel.
+Anslutning till google.com tillåts på grund av en matchande nätverksregel.
 
-**Nätverks regel**
+**Nätverksregel**
 
 - Åtgärd: Tillåt
 
 
-|namn  |Protokoll  |Typ av källa  |Källa  |Måltyp  |Mål adress  |Målportar|
+|namn  |Protokoll  |Källtyp  |Källa  |Måltyp  |Måladress  |Målportar|
 |---------|---------|---------|---------|----------|----------|--------|
-|Tillåt – webb     |TCP|IP-adress|*|IP-adress|*|80,443
+|Tillåt-webb     |TCP|IP-adress|*|IP-adress|*|80 443
 
-**Program regel**
+**Programregel**
 
-- Åtgärd: neka
+- Åtgärd: Neka
 
-|namn  |Typ av källa  |Källa  |Protokoll: port|Mål-FQDN|
+|namn  |Källtyp  |Källa  |Protokoll:Port|Mål-FQDN:er|
 |---------|---------|---------|---------|----------|----------|
-|Neka – Google     |IP-adress|*|http: 80, https: 443|google.com
+|Neka-google     |IP-adress|*|http:80,https:443|google.com
 
-**Medför**
+**Resultat**
 
-Anslutningen till google.com tillåts eftersom paketet matchar regeln *Allow-Web* Network. Regel bearbetningen stoppas nu.
+Anslutningen till google.com tillåts eftersom paketet matchar regeln *Tillåt-webbnätverk.* Regelbearbetningen stoppas vid denna punkt.
 
 ### <a name="example-2"></a>Exempel 2
 
-SSH-trafik nekas eftersom en högre *prioritet blockerar* nätverks regel samlingen.
+SSH-trafik nekas eftersom en högre prioritet *Neka* nätverksregelsamling blockerar den.
 
-**Nätverks regel samling 1**
+**Insamling av nätverksregel 1**
 
-- Namn: Tillåt-samling
+- Namn: Allow-collection
 - Prioritet: 200
 - Åtgärd: Tillåt
 
-|namn  |Protokoll  |Typ av källa  |Källa  |Måltyp  |Mål adress  |Målportar|
+|namn  |Protokoll  |Källtyp  |Källa  |Måltyp  |Måladress  |Målportar|
 |---------|---------|---------|---------|----------|----------|--------|
-|Tillåt – SSH     |TCP|IP-adress|*|IP-adress|*|22
+|Tillåt-SSH     |TCP|IP-adress|*|IP-adress|*|22
 
-**Nätverks regel samling 2**
+**Insamling av nätverksregel 2**
 
-- Namn: neka-samling
+- Namn: Deny-collection
 - Prioritet: 100
-- Åtgärd: neka
+- Åtgärd: Neka
 
-|namn  |Protokoll  |Typ av källa  |Källa  |Måltyp  |Mål adress  |Målportar|
+|namn  |Protokoll  |Källtyp  |Källa  |Måltyp  |Måladress  |Målportar|
 |---------|---------|---------|---------|----------|----------|--------|
-|Neka – SSH     |TCP|IP-adress|*|IP-adress|*|22
+|Neka-SSH     |TCP|IP-adress|*|IP-adress|*|22
 
-**Medför**
+**Resultat**
 
-SSH-anslutningar nekas eftersom en nätverks regel samling med högre prioritet blockerar den. Regel bearbetningen stoppas nu.
+SSH-anslutningar nekas eftersom en nätverksregelsamling med högre prioritet blockerar den. Regelbearbetningen stoppas vid denna punkt.
 
-## <a name="rule-changes"></a>Regel ändringar
+## <a name="rule-changes"></a>Regeländringar
 
-Om du ändrar en regel för att neka tidigare tillåten trafik, släpps alla relevanta befintliga sessioner.
+Om du ändrar en regel för att neka tidigare tillåten trafik tas alla relevanta befintliga sessioner bort.
 
 ## <a name="next-steps"></a>Nästa steg
 

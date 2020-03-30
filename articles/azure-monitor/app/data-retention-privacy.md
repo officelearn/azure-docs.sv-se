@@ -1,141 +1,141 @@
 ---
-title: Data kvarhållning och lagring i Azure Application Insights | Microsoft Docs
-description: Policy för kvarhållning och sekretess policy
+title: Datalagring och lagring i Azure Application Insights | Microsoft-dokument
+description: Uttalande om lagring och sekretesspolicy
 ms.topic: conceptual
 ms.date: 09/29/2019
 ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79276002"
 ---
-# <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
+# <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, lagring och lagring i Application Insights
 
-När du installerar [Azure Application Insights][start] SDK i appen skickas telemetri om din app till molnet. Välbekanta utvecklare vill veta exakt vilka data som skickas, vad som händer med data och hur de kan behålla kontrollen över dem. I synnerhet kan känsliga data skickas, där lagras det och hur säkert är det? 
+När du installerar [Azure Application Insights][start] SDK i din app skickar den telemetri om din app till molnet. Naturligtvis vill ansvariga utvecklare veta exakt vilka data som skickas, vad som händer med data och hur de kan behålla kontrollen över dem. I synnerhet kan känsliga uppgifter skickas, var lagras de och hur säkert är det? 
 
-Först, det korta svaret:
+Först det korta svaret:
 
-* Standardmodulerna för telemetri som körs "out of box" är osannolika att skicka känsliga data till tjänsten. Telemetrin är bekymrad med belastnings-, prestanda-och användnings statistik, undantags rapporter och andra diagnostikdata. De viktigaste användar data som visas i diagnostiska rapporter är URL: er. men appen bör inte i något fall lagra känsliga data i oformaterad text i en URL.
-* Du kan skriva kod som skickar ytterligare anpassad telemetri som hjälper dig med diagnostik-och övervaknings användningen. (Den här utökningen är en fantastisk funktion i Application Insights.) Det skulle vara möjligt att av misstag skriva den här koden så att den innehåller personliga och andra känsliga data. Om programmet fungerar med sådana data bör du använda en grundlig gransknings process för all kod du skriver.
-* När du utvecklar och testar din app är det enkelt att kontrol lera vad som skickas av SDK: n. Data visas i fönstret för fel sökning av utdata i IDE-och webbläsare. 
-* Data lagras i [Microsoft Azure](https://azure.com) -servrar i USA eller Europa. (Men din app kan köras var som helst.) Azure har [starka säkerhets processer och uppfyller en rad olika krav för efterlevnad](https://azure.microsoft.com/support/trust-center/). Endast du och ditt utsedda team har åtkomst till dina data. Microsoft-personal kan ha begränsad åtkomst till den endast under särskilda begränsade omständigheter med din vetskap. Den är krypterad under överföring och i vila.
-*   Granska insamlade data, eftersom detta kan innehålla data som tillåts i vissa fall, men inte andra.  Ett lämpligt exempel på detta är enhets namnet. Enhets namnet från en server har ingen sekretess påverkan och är användbart, men ett enhets namn från en telefon eller bärbar dator kan ha en sekretess påverkan och vara mindre användbar. Ett SDK som främst utvecklats för mål servrar, skulle samla in enhets namn som standard och det kan behöva skrivas över i både normala händelser och undantag.
+* Standardmodulerna för telemetri som körs "out of the box" är osannolikt att skicka känsliga data till tjänsten. Telemetrin gäller inläsnings-, prestanda- och användningsmått, undantagsrapporter och andra diagnostikdata. De viktigaste användardata som visas i diagnostikrapporterna är webbadresser. men din app bör inte i något fall placera känsliga data i oformaterad text i en webbadress.
+* Du kan skriva kod som skickar ytterligare anpassad telemetri för att hjälpa dig med diagnostik och övervakningsanvändning. (Denna utökningsbarhet är ett bra inslag i Application Insights.) Det skulle av misstag vara möjligt att skriva denna kod så att den innehåller personliga och andra känsliga uppgifter. Om ditt program fungerar med sådana data bör du tillämpa en grundlig granskningsprocess för all kod du skriver.
+* När du utvecklar och testar din app är det enkelt att granska vad som skickas av SDK. Data visas i debugging utdatafönstren i IDE och webbläsare. 
+* Data lagras på [Microsoft Azure-servrar](https://azure.com) i USA eller Europa. (Men appen kan köras var som helst.) Azure har [starka säkerhetsprocesser och uppfyller ett brett spektrum av efterlevnadsstandarder](https://azure.microsoft.com/support/trust-center/). Endast du och ditt utsedda team har tillgång till dina data. Microsofts personal kan ha begränsad åtkomst till den endast under särskilda begränsade omständigheter med din vetskap. Det är krypterat under transport och i vila.
+*   Granska insamlade data, eftersom detta kan inkludera data som är tillåtna under vissa omständigheter men inte andra.  Ett bra exempel på detta är Enhetsnamn. Enhetsnamnet från en server har ingen integritetspåverkan och är användbart, men ett enhetsnamn från en telefon eller bärbar dator kan ha en integritetseffekt och vara mindre användbart. En SDK som utvecklats främst för att rikta servrar, skulle samla enhetsnamn som standard, och detta kan behöva skrivas över i både normala händelser och undantag.
 
-Resten av den här artikeln är mer utförligare på svaren. Den är utformad för att vara fristående, så att du kan visa den för kollegor som inte ingår i ditt omedelbara team.
+Resten av denna artikel utvecklar mer fullständigt på dessa svar. Den är utformad för att vara fristående, så att du kan visa den för kollegor som inte ingår i ditt närmaste team.
 
 ## <a name="what-is-application-insights"></a>Vad är Application Insights?
-[Azure Application Insights][start] är en tjänst som tillhandahålls av Microsoft och som hjälper dig att förbättra prestanda och användbarhet för ditt Live-program. Den övervakar ditt program hela tiden den körs, både under testningen och när du har publicerat eller distribuerat det. Application Insights skapar diagram och tabeller som visar dig, till exempel vilka tider på dagen du får de flesta användare, hur appen är och hur väl den betjänas av externa tjänster som den är beroende av. Om det uppstår krascher, fel eller prestanda problem kan du söka igenom telemetridata i detalj för att diagnosticera orsaken. Tjänsten kommer att skicka e-postmeddelanden till dig om det finns några ändringar i appens tillgänglighet och prestanda.
+[Azure Application Insights][start] är en tjänst som tillhandahålls av Microsoft och som hjälper dig att förbättra prestanda och användbarhet för ditt liveprogram. Den övervakar ditt program hela tiden det körs, både under testning och efter att du har publicerat eller distribuerat det. Application Insights skapar diagram och tabeller som visar dig, till exempel vilka tider på dagen du får flest användare, hur lyhörd appen är och hur väl den betjänas av externa tjänster som den är beroende av. Om det finns krascher, fel eller prestandaproblem kan du söka igenom telemetridata i detalj för att diagnostisera orsaken. Och tjänsten kommer att skicka e-post om det finns några ändringar i tillgänglighet och prestanda för din app.
 
-För att få den här funktionen installerar du en Application Insights SDK i ditt program, som blir en del av koden. När din app körs övervakar SDK: n sin åtgärd och skickar telemetri till Application Insightss tjänsten. Det här är en moln tjänst som körs av [Microsoft Azure](https://azure.com). (Men Application Insights fungerar för alla program, inte bara program som finns i Azure.)
+För att få den här funktionen installerar du ett Application Insights SDK i ditt program, som blir en del av dess kod. När appen körs övervakar SDK dess funktion och skickar telemetri till application insights-tjänsten. Det här är en molntjänst som tillhandahålls av [Microsoft Azure](https://azure.com). (Men Application Insights fungerar för alla program, inte bara program som finns i Azure.)
 
-Tjänsten Application Insights lagrar och analyserar Telemetrin. Om du vill se analysen eller söka igenom den lagrade Telemetrin loggar du in på ditt Azure-konto och öppnar Application Insights resursen för ditt program. Du kan också dela åtkomst till data med andra medlemmar i din grupp eller med angivna Azure-prenumeranter.
+Tjänsten Application Insights lagrar och analyserar telemetrin. Om du vill se analysen eller sökningen via den lagrade telemetrin loggar du in på ditt Azure-konto och öppnar application insights-resursen för ditt program. Du kan också dela åtkomst till data med andra medlemmar i ditt team eller med angivna Azure-prenumeranter.
 
-Du kan ha exporterade data från tjänsten Application Insights, till exempel till en databas eller till externa verktyg. Du anger varje verktyg med en särskild nyckel som du får från tjänsten. Nyckeln kan återkallas vid behov. 
+Du kan exportera data från application insights-tjänsten, till exempel till en databas eller till externa verktyg. Du ger varje verktyg en speciell nyckel som du får från tjänsten. Nyckeln kan återkallas om det behövs. 
 
-Application Insights SDK: er är tillgängliga för en mängd olika program typer: webb tjänster som finns i dina egna Java-eller ASP.NET-servrar eller i Azure. webb klienter – det vill säga koden som körs på en webb sida. skrivbordsappar och tjänster, enhets program som Windows Phone, iOS och Android. Alla skickar telemetri till samma tjänst.
+Programinsikter SDK:er är tillgängliga för en rad olika programtyper: webbtjänster som finns i din egen Java EE- eller ASP.NET-servrar eller i Azure. webbklienter - det vill än koden som körs på en webbsida; Skrivbordsappar och -tjänster. enhetsappar som Windows Phone, iOS och Android. De skickar alla telemetri till samma tjänst.
 
-## <a name="what-data-does-it-collect"></a>Vilka data samlas in?
-Det finns tre data Källor:
+## <a name="what-data-does-it-collect"></a>Vilka data samlar den in?
+Det finns tre datakällor:
 
-* SDK, som du integrerar med din app, antingen [i utvecklings](../../azure-monitor/app/asp-net.md) -eller [körnings tid](../../azure-monitor/app/monitor-performance-live-website-now.md). Det finns olika SDK: er för olika program typer. Det finns också en [SDK för webb sidor](../../azure-monitor/app/javascript.md)som läses in i slutanvändarens webbläsare tillsammans med sidan.
+* SDK, som du integrerar med din app antingen [under utveckling](../../azure-monitor/app/asp-net.md) eller [vid körning](../../azure-monitor/app/monitor-performance-live-website-now.md). Det finns olika SDK:er för olika programtyper. Det finns också en [SDK för webbsidor](../../azure-monitor/app/javascript.md), som laddas i slutanvändarens webbläsare tillsammans med sidan.
   
   * Varje SDK har ett antal [moduler](../../azure-monitor/app/configuration-with-applicationinsights-config.md), som använder olika tekniker för att samla in olika typer av telemetri.
-  * Om du installerar SDK i utvecklingen kan du använda dess API för att skicka din egen telemetri, förutom standardmodulerna. Den här anpassade Telemetrin kan innehålla alla data som du vill skicka.
-* I vissa webb servrar finns det även agenter som körs tillsammans med appen och skicka telemetri om processor, minne och nätverks användning. Till exempel kan virtuella Azure-datorer, Docker-värdar och [Java-EE-servrar](../../azure-monitor/app/java-agent.md) ha sådana agenter.
-* [Tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) är processer som körs av Microsoft som skickar begär anden till din webbapp med jämna mellanrum. Resultaten skickas till Application Insights tjänsten.
+  * Om du installerar SDK under utveckling kan du använda dess API för att skicka din egen telemetri, utöver standardmodulerna. Den här anpassade telemetrin kan innehålla alla data som du vill skicka.
+* I vissa webbservrar finns det också agenter som körs tillsammans med appen och skickar telemetri om CPU, minne och nätverksbeläggning. Azure-virtuella datorer, Docker-värdar och [Java EE-servrar](../../azure-monitor/app/java-agent.md) kan till exempel ha sådana agenter.
+* [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) är processer som körs av Microsoft och som skickar förfrågningar till din webbapp med jämna mellanrum. Resultaten skickas till application insights-tjänsten.
 
 ### <a name="what-kinds-of-data-are-collected"></a>Vilka typer av data samlas in?
-Huvud kategorierna är:
+De viktigaste kategorierna är:
 
-* [Telemetri för webb server](../../azure-monitor/app/asp-net.md) – HTTP-begäranden.  URI, tids åtgång för att bearbeta begäran, svarskod, klientens IP-adress. `Session id`.
-* [Webb sidor](../../azure-monitor/app/javascript.md) – antal sidor, användare och sessioner. Sid inläsnings tider. Undantag. AJAX-anrop.
-* Prestanda räknare – minne, CPU, i/o, nätverks användning.
-* Klient-och Server kontext – operativ system, språk, enhets typ, webbläsare, skärmupplösning.
-* [Undantag](../../azure-monitor/app/asp-net-exceptions.md) och krascher – **stack dum par**, `build id`, CPU-typ. 
-* [Beroenden](../../azure-monitor/app/asp-net-dependencies.md) – anrop till externa tjänster som rest, SQL, Ajax. URI eller anslutnings sträng, varaktighet, lyckades, kommando.
-* [Tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) – varaktighet för test och steg, svar.
-* [Spårnings loggar](../../azure-monitor/app/asp-net-trace-logs.md) och [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md) - **allt du kodar till dina loggar eller telemetri**.
+* [Webbservertelemetri](../../azure-monitor/app/asp-net.md) - HTTP-begäranden.  Uri, det tar tid att behandla begäran, svarskod, klient-IP-adress. `Session id`.
+* [Webbsidor](../../azure-monitor/app/javascript.md) - Antal sidor, användare och sessions. Sidans laddningstider. Undantag. Ajax synar.
+* Prestandaräknare - Minne, CPU, IO, Nätverksbeläggning.
+* Klient- och serverkontext - OS, språk, enhetstyp, webbläsare, skärmupplösning.
+* [Undantag](../../azure-monitor/app/asp-net-exceptions.md) och krascher - `build id` **stack dumpar**, , CPU-typ. 
+* [Beroenden](../../azure-monitor/app/asp-net-dependencies.md) - anrop till externa tjänster som REST, SQL, AJAX. URI eller anslutningssträng, varaktighet, framgång, kommando.
+* [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md) - testtid och steg, svar.
+* [Spåra loggar](../../azure-monitor/app/asp-net-trace-logs.md) och [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md) - **allt du kodar i dina loggar eller telemetri**.
 
-[Mer information](#data-sent-by-application-insights).
+[Mer detaljerat](#data-sent-by-application-insights).
 
 ## <a name="how-can-i-verify-whats-being-collected"></a>Hur kan jag verifiera vad som samlas in?
-Om du utvecklar appen med Visual Studio kör du appen i fel söknings läge (F5). Telemetrin visas i fönstret utdata. Därifrån kan du kopiera den och formatera den som JSON för enkel granskning. 
+Om du utvecklar appen med Visual Studio kör du appen i felsökningsläge (F5). Telemetrin visas i utdatafönstret. Därifrån kan du kopiera den och formatera den som JSON för enkel inspektion. 
 
 ![](./media/data-retention-privacy/06-vs.png)
 
-Det finns också en mer lättläst vy i fönstret diagnostik.
+Det finns också en mer läsbar vy i diagnostikfönstret.
 
-För webb sidor öppnar du webbläsarens fel söknings fönster.
+Öppna webbläsarens felsökningsfönster för webbsidor.
 
-![Tryck på F12 och öppna fliken nätverk.](./media/data-retention-privacy/08-browser.png)
+![Tryck på F12 och öppna fliken Nätverk.](./media/data-retention-privacy/08-browser.png)
 
-### <a name="can-i-write-code-to-filter-the-telemetry-before-it-is-sent"></a>Kan jag skriva kod för att filtrera Telemetrin innan den skickas?
-Detta skulle vara möjligt genom att skriva ett [plugin-program för telemetri-processor](../../azure-monitor/app/api-filtering-sampling.md).
+### <a name="can-i-write-code-to-filter-the-telemetry-before-it-is-sent"></a>Kan jag skriva kod för att filtrera telemetrin innan den skickas?
+Detta skulle vara möjligt genom att skriva en [telemetri processor plugin](../../azure-monitor/app/api-filtering-sampling.md).
 
-## <a name="how-long-is-the-data-kept"></a>Hur länge sparas data?
-Rå data punkter (det vill säga objekt som du kan fråga i analyser och granska i sökningen) bevaras i upp till 730 dagar. Du kan [välja en Retentions tid](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) på 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. Om du behöver behålla data längre än 730 dagar kan du använda [kontinuerlig export](../../azure-monitor/app/export-telemetry.md) för att kopiera den till ett lagrings konto under data inmatningen. 
+## <a name="how-long-is-the-data-kept"></a>Hur länge sparas uppgifterna?
+Rådatapunkter (det vill säga objekt som du kan fråga i Analytics och inspektera i Sök) sparas i upp till 730 dagar. Du kan [välja en kvarhållningslängd på](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. Om du behöver behålla data längre än 730 dagar kan du använda [Kontinuerlig export](../../azure-monitor/app/export-telemetry.md) för att kopiera dem till ett lagringskonto under datainmatning. 
 
-Data som hålls längre än 90 dagar debiteras tilläggs avgifterna. Läs mer om Application Insights priser på [sidan för Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).
+Data som lagras längre än 90 dagar medför tilläggsavgifter. Läs mer om priser för Application Insights på [prissidan för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
-Sammanställda data (det vill säga antal, medelvärden och andra statistiska data som visas i Metric Explorer) behålls till en kornigt 1 minut i 90 dagar.
+Aggregerade data (det vill säga antal, medelvärden och andra statistiska data som visas i Metric Explorer) lagras på en korn av 1 minut i 90 dagar.
 
-[Fel söknings ögonblicks bilder](../../azure-monitor/app/snapshot-debugger.md) lagras i 15 dagar. Den här bevarandeprincipen är inställd på basis av per program. Om du vill öka det här värdet kan du begära en ökning genom att öppna ett supportärende i Azure-portalen.
+[Felsökningsögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md) lagras i 15 dagar. Den här bevarandeprincipen anges per program. Om du behöver öka det här värdet kan du begära en ökning genom att öppna ett supportärende i Azure-portalen.
 
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
-Informationen är synlig för dig och, om du har ett organisations konto, ditt team medlemmar. 
+Data är synliga för dig och, om du har ett organisationskonto, dina gruppmedlemmar. 
 
-Den kan exporteras av dig och dina team medlemmar och kan kopieras till andra platser och skickas till andra personer.
+Det kan exporteras av dig och dina gruppmedlemmar och kan kopieras till andra platser och vidarebefordras till andra personer.
 
 #### <a name="what-does-microsoft-do-with-the-information-my-app-sends-to-application-insights"></a>Vad gör Microsoft med den information som min app skickar till Application Insights?
 Microsoft använder endast data för att tillhandahålla tjänsten till dig.
 
-## <a name="where-is-the-data-held"></a>Var lagras data?
-* Du kan välja plats när du skapar en ny Application Insights-resurs. Lär dig mer om Application Insights tillgänglighet per region [här](https://azure.microsoft.com/global-infrastructure/services/?products=all).
+## <a name="where-is-the-data-held"></a>Var finns uppgifterna?
+* Du kan välja plats när du skapar en ny Application Insights-resurs. Läs mer om tillgänglighet för Application Insights per region [här](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Innebär det att min app måste finnas i USA, Europa eller Sydostasien?
-* Nej. Ditt program kan köras var som helst, antingen på dina egna lokala värdar eller i molnet.
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>Betyder det att min app måste vara värd i USA, Europa eller Sydostasien?
+* Nej. Ditt program kan köras var som helst, antingen i dina egna lokala värdar eller i molnet.
 
-## <a name="how-secure-is-my-data"></a>Hur säkert är mina data?
-Application Insights är en Azure-tjänst. Säkerhets principer beskrivs i [Azure-säkerhet, sekretess och efterlevnad White Paper](https://go.microsoft.com/fwlink/?linkid=392408).
+## <a name="how-secure-is-my-data"></a>Hur säkra är mina data?
+Application Insights är en Azure-tjänst. Säkerhetsprinciper beskrivs i [faktabladet för Azure Security, Sekretess och Efterlevnad](https://go.microsoft.com/fwlink/?linkid=392408).
 
-Data lagras i Microsoft Azure-servrar. För konton i Azure Portal beskrivs konto begränsningar i [dokumentet Azure säkerhet, sekretess och regelefterlevnad](https://go.microsoft.com/fwlink/?linkid=392408).
+Data lagras i Microsoft Azure-servrar. För konton i Azure-portalen beskrivs kontobegränsningar i [Azure Security, Privacy och Compliance-dokumentet](https://go.microsoft.com/fwlink/?linkid=392408).
 
-Åtkomst till dina data från Microsoft-personal är begränsad. Vi kommer endast åt dina data med din tillåtelse och om det är nödvändigt för att stödja din användning av Application Insights. 
+Åtkomsten till dina data av Microsofts personal är begränsad. Vi får endast tillgång till dina uppgifter med ditt tillstånd och om det är nödvändigt för att stödja din användning av Application Insights. 
 
-Data som sammanställs över alla våra kunders program (till exempel data hastigheter och den genomsnittliga storleken på spåren) används för att förbättra Application Insights.
+Data som aggregerats i alla våra kunders program (t.ex. datahastigheter och genomsnittlig storlek på spårningar) används för att förbättra Application Insights.
 
-#### <a name="could-someone-elses-telemetry-interfere-with-my-application-insights-data"></a>Kan någon annans telemetri störa mina Application Insights data?
-De kan skicka ytterligare telemetri till ditt konto genom att använda Instrumentation-nyckeln, som du hittar i koden för dina webb sidor. Med tillräckligt med ytterligare data, representerar dina mått inte korrekt din apps prestanda och användning.
+#### <a name="could-someone-elses-telemetry-interfere-with-my-application-insights-data"></a>Kan någon annans telemetri störa mina Application Insights-data?
+De kan skicka ytterligare telemetri till ditt konto med hjälp av instrumenteringsnyckeln, som finns i koden för dina webbsidor. Med tillräckligt med ytterligare data skulle dina mått inte korrekt representera appens prestanda och användning.
 
-Kom ihåg att ta bort Instrumentation-nyckeln om du delar kod med andra projekt.
+Om du delar kod med andra projekt bör du komma ihåg att ta bort instrumenteringsnyckeln.
 
 ## <a name="is-the-data-encrypted"></a>Är data krypterade?
-Alla data krypteras i vila och flyttas mellan data Center.
+Alla data krypteras i vila och när de flyttas mellan datacenter.
 
-#### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Är data krypterade från mitt program till Application Insights servrar?
-Ja, vi använder HTTPS för att skicka data till portalen från nästan alla SDK: er, inklusive webb servrar, enheter och HTTPS-webbsidor. 
+#### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Är data krypterade under överföring från mitt program till Application Insights-servrar?
+Ja, vi använder https för att skicka data till portalen från nästan alla SDK:er, inklusive webbservrar, enheter och HTTPS-webbsidor. 
 
-## <a name="does-the-sdk-create-temporary-local-storage"></a>Skapar SDK temporär lokal lagring?
+## <a name="does-the-sdk-create-temporary-local-storage"></a>Skapar SDK tillfällig lokal lagring?
 
-Ja, vissa telemetri-kanaler behåller data lokalt om det inte går att nå en slut punkt. Granska nedan för att se vilka ramverk och telemetri-kanaler som påverkas.
+Ja, vissa telemetrikanaler sparas data lokalt om en slutpunkt inte kan nås. Läs nedan för att se vilka ramverk och telemetrikanaler som påverkas.
 
-Telemetri kanaler som använder lokala lagrings platser för att skapa temporära filer i katalogen TEMP eller APPDATA, som är begränsade till det specifika konto som kör programmet. Detta kan inträffa när en slut punkt tillfälligt var otillgänglig eller om du träffar begränsnings gränsen. När problemet har lösts fortsätter telemetri-kanalen att skicka alla nya och sparade data.
+Telemetrikanaler som använder lokal lagring skapar temporära filer i TEMP- eller APPDATA-katalogerna, som är begränsade till det specifika konto som kör ditt program. Detta kan inträffa när en slutpunkt var tillfälligt otillgänglig eller om du når begränsningsgränsen. När problemet har lösts återupptas telemetrikanalen att skicka alla nya och beständiga data.
 
-Den här sparade informationen är inte krypterad lokalt. Om detta är ett problem, granskar du data och begränsar insamlingen av privata data. (Mer information finns i [Exportera och ta bort privata data](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
+Dessa beständiga data krypteras inte lokalt. Om detta är ett problem, granska data och begränsa insamlingen av privata data. (Mer information finns i [Så här exporterar och tar du bort privata data](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
 
-Om en kund behöver konfigurera den här katalogen med specifika säkerhets krav, kan den konfigureras per ramverk. Kontrol lera att processen som kör ditt program har Skriv behörighet till den här katalogen, men kontrol lera också att den här katalogen är skyddad för att undvika att telemetri läses av oönskade användare.
+Om en kund behöver konfigurera den här katalogen med specifika säkerhetskrav kan den konfigureras per ramverk. Kontrollera att processen som kör programmet har skrivbehörighet till den här katalogen, men se också till att den här katalogen är skyddad för att undvika att telemetri läses av oavsiktliga användare.
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp` används för att spara data. Den här platsen kan inte konfigureras från konfigurations katalogen och behörigheterna för åtkomst till den här mappen är begränsade till den aktuella användaren med nödvändiga autentiseringsuppgifter. (Mer information finns i [implementering](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
+`C:\Users\username\AppData\Local\Temp`används för beständiga data. Den här platsen kan inte konfigureras från konfigurationskatalogen och behörigheterna för att komma åt den här mappen är begränsade till den specifika användaren med nödvändiga autentiseringsuppgifter. (Mer information finns i [implementeringen](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72).)
 
 ###  <a name="net"></a>.Net
 
-Som standard använder `ServerTelemetryChannel` den aktuella användarens lokala app data-mapp `%localAppData%\Microsoft\ApplicationInsights` eller Temp-mappen `%TMP%`. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.)
+Som `ServerTelemetryChannel` standard använder den aktuella användarens lokala appdatamapp `%localAppData%\Microsoft\ApplicationInsights` eller tempmapp `%TMP%`. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.)
 
 
-Via konfigurations fil:
+Via konfigurationsfil:
 ```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
@@ -144,8 +144,8 @@ Via konfigurations fil:
 
 Via kod:
 
-- Ta bort ServerTelemetryChannel från konfigurations filen
-- Lägg till det här kodfragmentet i konfigurationen:
+- Ta bort ServerTelemetryChannel från konfigurationsfilen
+- Lägg till det här kodavsnittet i konfigurationen:
   ```csharp
   ServerTelemetryChannel channel = new ServerTelemetryChannel();
   channel.StorageFolder = @"D:\NewTestFolder";
@@ -153,35 +153,35 @@ Via kod:
   TelemetryConfiguration.Active.TelemetryChannel = channel;
   ```
 
-### <a name="netcore"></a>NetCore
+### <a name="netcore"></a>NetCore (på ett sätt)
 
-Som standard använder `ServerTelemetryChannel` den aktuella användarens lokala app data-mapp `%localAppData%\Microsoft\ApplicationInsights` eller Temp-mappen `%TMP%`. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.) I en Linux-miljö kommer lokal lagring att inaktive ras om inte en lagringsmapp anges.
+Som `ServerTelemetryChannel` standard använder den aktuella användarens lokala appdatamapp `%localAppData%\Microsoft\ApplicationInsights` eller tempmapp `%TMP%`. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) här.) I en Linux-miljö inaktiveras lokal lagring om inte en lagringsmapp anges.
 
-Följande kodfragment visar hur du ställer in `ServerTelemetryChannel.StorageFolder` i `ConfigureServices()`-metoden i `Startup.cs`-klassen:
+Följande kodavsnitt visar hur du `ServerTelemetryChannel.StorageFolder` ställer `ConfigureServices()` in `Startup.cs` i klassens metod:
 
 ```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
-(Mer information finns i [AspNetCore anpassad konfiguration](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).)
+(Mer information finns i [AspNetCore Custom Configuration](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration).)
 
 ### <a name="nodejs"></a>Node.js
 
-Som standard används `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` för att spara data. Behörigheter för åtkomst till den här mappen är begränsade till den aktuella användaren och administratörerna. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) här.)
+Som `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` standard används för beständiga data. Behörigheter för åtkomst till den här mappen är begränsade till den aktuella användaren och administratörer. (Se [implementering](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) här.)
 
-Prefixet `appInsights-node` kan åsidosättas genom att ändra körnings värdet för den statiska variabeln `Sender.TEMPDIR_PREFIX` som finns i [Sender. TS](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+Mappprefixet `appInsights-node` kan åsidosättas genom att ändra körningsvärdet för den statiska variabeln `Sender.TEMPDIR_PREFIX` som finns i [Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
-### <a name="javascript-browser"></a>Java Script (webbläsare)
+### <a name="javascript-browser"></a>JavaScript (webbläsare)
 
-[HTML5-session lagring](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) används för att bevara data. Två separata buffertar används: `AI_buffer` och `AI_sent_buffer`. Telemetri som är batch-och väntar på att skickas lagras i `AI_buffer`. Telemetri som precis har skickats placeras i `AI_sent_buffer` tills inmatnings servern svarar på att den har tagits emot. När telemetri har tagits emot tas den bort från alla buffertar. När ett tillfälligt fel (till exempel en användare förlorar nätverks anslutningen) är telemetri kvar i `AI_buffer` tills den har tagits emot eller om inmatnings servern svarar att Telemetrin är ogiltig (felaktigt schema eller för gammal, till exempel).
+[HTML5 Session Storage](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) används för att bevara data. Två separata buffertar `AI_buffer` används: och `AI_sent_buffer`. Telemetri som är batchat och väntar på `AI_buffer`att skickas lagras i . Telemetri som just skickats `AI_sent_buffer` placeras i tills inmatningsservern svarar att den har tagits emot. När telemetri har tagits emot tas den bort från alla buffertar. Vid tillfälliga fel (till exempel förlorar en användare nätverksanslutning), telemetri finns kvar tills `AI_buffer` den tas emot eller inmatningsservern svarar att telemetrin är ogiltig (dåligt schema eller för gammalt, till exempel).
 
-Telemetri-buffertar kan inaktive ras genom att ställa in [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) att `false`. När session Storage är inaktiverat, används en lokal matris i stället som beständig lagring. Eftersom JavaScript SDK körs på en klient enhet har användaren åtkomst till den här lagrings platsen via deras utvecklarverktyg.
+Telemetribuffertar kan inaktiveras [`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) `false`genom att ställa in på . När sessionslagring är inaktiverat används i stället en lokal matris som beständig lagring. Eftersom JavaScript SDK körs på en klientenhet har användaren åtkomst till den här lagringsplatsen via webbläsarens utvecklarverktyg.
 
-### <a name="opencensus-python"></a>Python-räkningar
+### <a name="opencensus-python"></a>OpenCensus Python
 
-Som standard använder du python SDK för den aktuella användaren `%username%/.opencensus/.azure/`. Behörigheter för åtkomst till den här mappen är begränsade till den aktuella användaren och administratörerna. (Se [implementering](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) här.) Mappen med dina sparade data kommer att namnges efter den python-fil som skapade Telemetrin.
+Som standard använder OpenCensus Python SDK den aktuella användarmappen `%username%/.opencensus/.azure/`. Behörigheter för åtkomst till den här mappen är begränsade till den aktuella användaren och administratörer. (Se [implementering](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) här.) Mappen med dina beständiga data kommer att namnges efter Python-filen som genererade telemetrin.
 
-Du kan ändra platsen för lagrings filen genom att skicka i `storage_path`-parametern i konstruktorn för den exportör som du använder.
+Du kan ändra lagringsfilens plats `storage_path` genom att skicka in parametern i konstruktorn för den exportör du använder.
 
 ```python
 AzureLogHandler(
@@ -190,106 +190,106 @@ AzureLogHandler(
 )
 ```
 
-## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Hur gör jag för att skicka data till Application Insights med TLS 1,2?
+## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Hur skickar jag data till Application Insights med TLS 1.2?
 
-För att säkerställa säkerheten för data som överförs till Application Insights slut punkter rekommenderar vi att kunderna konfigurerar sina program att använda minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**och branschen flyttas snabbt till överge support för dessa äldre protokoll. 
+För att försäkra säkerheten för data under överföring till application insights-slutpunkterna uppmuntrar vi starkt kunderna att konfigurera sitt program så att de använder minst Transport Layer Security (TLS) 1.2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har visat sig vara sårbara och medan de fortfarande arbetar för att tillåta bakåtkompatibilitet rekommenderas de **inte**och branschen flyttar snabbt för att överge stödet för dessa äldre protokoll. 
 
-[PCI Security Standards-rådet](https://www.pcisecuritystandards.org/) har angett en [tids gräns på 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) för att inaktivera äldre versioner av TLS/SSL och uppgradera till säkrare protokoll. När Azure har tagit över äldre support, om ditt program/klienter inte kan kommunicera via minst TLS 1,2 skulle du inte kunna skicka data till Application Insights. Den metod du behöver för att testa och verifiera att ditt programs TLS-stöd varierar beroende på operativ system/plattform och språk/ramverk som används i programmet.
+[PCI Security Standards Council](https://www.pcisecuritystandards.org/) har satt [en tidsfrist den 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) för att inaktivera äldre versioner av TLS/SSL och uppgradera till säkrare protokoll. När Azure släpper äldre support, om ditt program/klienter inte kan kommunicera över minst TLS 1.2 kan du inte skicka data till Application Insights. Hur du ska testa och validera programmets TLS-stöd varierar beroende på operativsystem/plattform samt vilket språk/ramverk ditt program använder.
 
-Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TLS 1,2 om det inte är nödvändigt eftersom det kan bryta säkerhets funktioner på plattforms nivå som gör att du automatiskt kan identifiera och dra nytta av nyare säkra protokoll när de blir tillgängliga, till exempel TLS 1,3. Vi rekommenderar att du utför en grundlig granskning av programmets kod för att söka efter hårdkoda av specifika TLS/SSL-versioner.
+Vi rekommenderar inte att du uttryckligen ställer in ditt program så att det bara använder TLS 1.2 om det inte är nödvändigt eftersom detta kan bryta säkerhetsfunktionerna på plattformsnivå som gör att du automatiskt kan upptäcka och dra nytta av nyare säkrare protokoll när de blir tillgängliga, till exempel TLS 1.3. Vi rekommenderar att du utför en grundlig granskning av programmets kod för att kontrollera om det finns hårdkodning av specifika TLS/SSL-versioner.
 
-### <a name="platformlanguage-specific-guidance"></a>Vägledning för plattform/språk specifik
+### <a name="platformlanguage-specific-guidance"></a>Plattforms-/språkspecifik vägledning
 
 |Plattform/språk | Support | Mer information |
 | --- | --- | --- |
-| Azure App Services  | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Azure Function-appar | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
-|.NET | Konfigurationen varierar beroende på version. | Detaljerad konfigurations information för .NET 4,7 och tidigare versioner finns i [de här anvisningarna](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Statusövervakare | Stöds, konfiguration krävs | Statusövervakare är beroende av [OS-konfigurationen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.net-konfigurationen](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) för att stödja TLS 1,2.
-|Node.js |  Konfigurationen kan krävas i v-10.5.0. | Använd den [officiella Node. js TLS/SSL-dokumentationen](https://nodejs.org/api/tls.html) för valfri programspecifik konfiguration. |
-|Java | Stöd för JDK-stöd för TLS 1,2 har lagts till i [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) och [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 använder [TLS 1,2 som standard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
-|Linux | Linux-distributioner tenderar att förlita sig på [openssl](https://www.openssl.org) för TLS 1,2-stöd.  | Kontrol lera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
-| Windows 8.0-10 | Stöds och aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012-2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte är aktiverad som standard. | På sidan [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
-| Windows Server 2008 SP2 | Stöd för TLS 1.2 kräver en uppdatering. | Se [Uppdatera för att lägga till stöd för TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
+| Azure App Services  | Konfiguration kan krävas. | Stödet tillkännagavs i april 2018. Läs meddelandet för [konfigurationsinformation](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
+| Azure-funktionsappar | Konfiguration kan krävas. | Stödet tillkännagavs i april 2018. Läs meddelandet för [konfigurationsinformation](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+|.NET | Konfigurationen varierar beroende på version som stöds. | Detaljerad konfigurationsinformation för .NET 4.7 och tidigare versioner finns i [följande instruktioner](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
+|Statusövervakare | Konfiguration som stöds krävs | Statusövervakaren är beroende av + [OS-konfiguration .NET-konfiguration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) för att stödja TLS 1.2. [OS Configuration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)
+|Node.js |  Konfiguration som stöds i v10.5.0 kan det krävas konfiguration. | Använd den [officiella Node.js TLS/SSL-dokumentationen](https://nodejs.org/api/tls.html) för alla programspecifika konfigurationer. |
+|Java | Stöds, JDK stöd för TLS 1.2 lades till i [JDK 6 uppdatering 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) och [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 använder [TLS 1.2 som standard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
+|Linux | Linux-distributioner tenderar att förlita sig på [OpenSSL](https://www.openssl.org) för TLS 1.2-stöd.  | Kontrollera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
+| Windows 8.0 - 10 | Stöds och aktiveras som standard. | Så här bekräftar du att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012 – 2016 | Stöds och aktiveras som standard. | Så här bekräftar du att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte aktiverat som standard. | Mer information om hur du aktiverar finns på [registerinställningssidan för Transport Layer Security (TLS).](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  |
+| Windows Server 2008 SP2 | Stöd för TLS 1.2 kräver en uppdatering. | Se [Uppdatera om du vill lägga till stöd för TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
 |Windows Vista | Stöds inte. | Ej tillämpligt
 
-### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrol lera vilken version av OpenSSL som din Linux-distribution körs på
+### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrollera vilken version av OpenSSL din Linux-distribution körs
 
-Du kan kontrol lera vilken version av OpenSSL du har installerat genom att öppna terminalen och köra:
+Om du vill kontrollera vilken version av OpenSSL du har installerat öppnar du terminalen och kör:
 
 ```terminal
 openssl version -a
 ```
 
-### <a name="run-a-test-tls-12-transaction-on-linux"></a>Kör en test-TLS 1,2-transaktion på Linux
+### <a name="run-a-test-tls-12-transaction-on-linux"></a>Kör en test-TLS 1.2-transaktion på Linux
 
-Om du vill köra ett preliminärt test för att se om ditt Linux-system kan kommunicera via TLS 1,2. öppnar du terminalen och kör:
+Om du vill köra ett preliminärt test för att se om ditt Linux-system kan kommunicera via TLS 1.2 öppnar du terminalen och kör:
 
 ```terminal
 openssl s_client -connect bing.com:443 -tls1_2
 ```
 
-## <a name="personal-data-stored-in-application-insights"></a>Person uppgifter som lagras i Application Insights
+## <a name="personal-data-stored-in-application-insights"></a>Personuppgifter som lagras i Application Insights
 
-I [artikeln Application Insights personliga data](../../azure-monitor/platform/personal-data-mgmt.md) beskrivs det här problemet i djupet.
+Vår artikel om personuppgifter om [programinsikter](../../azure-monitor/platform/personal-data-mgmt.md) beskriver det här problemet på djupet.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kan mina användare stänga av Application Insights?
-Inte direkt. Vi tillhandahåller inte en växel som användarna kan använda för att stänga av Application Insights.
+Inte direkt. Vi tillhandahåller inte en strömbrytare som användarna kan använda för att stänga av Application Insights.
 
-Du kan dock implementera en sådan funktion i ditt program. Alla SDK: er innehåller en API-inställning som inaktiverar telemetri-samlingen. 
+Du kan dock implementera en sådan funktion i ditt program. Alla SDK:er innehåller en API-inställning som inaktiverar telemetrisamlingen. 
 
-## <a name="data-sent-by-application-insights"></a>Data som skickats av Application Insights
-SDK: erna varierar mellan olika plattformar och det finns flera komponenter som du kan installera. (Se [Application Insights-översikt][start].) Varje komponent skickar olika data.
+## <a name="data-sent-by-application-insights"></a>Data som skickas av Application Insights
+SDK:erna varierar mellan plattformarna och det finns flera komponenter som du kan installera. (Se [Application Insights - översikt][start].) Varje komponent skickar olika data.
 
-#### <a name="classes-of-data-sent-in-different-scenarios"></a>Klasser för data som skickas i olika scenarier
+#### <a name="classes-of-data-sent-in-different-scenarios"></a>Klasser av data som skickas i olika scenarier
 
-| Din åtgärd | Insamlade data klasser (se nästa tabell) |
+| Din handling | Dataklasser som samlats in (se nästa tabell) |
 | --- | --- |
-| [Lägga till Application Insights SDK i ett .NET-webbprojekt][greenbrown] |ServerContext<br/>Härleda<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
-| [Installera Statusövervakare på IIS][redfield] |Beroenden<br/>ServerContext<br/>Härleda<br/>Prestandaräknare |
-| [Lägga till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härleda<br/>Förfrågan<br/>Session<br/>användare |
-| [Lägg till Java Script SDK på webb sidan][client] |ClientContext <br/>Härleda<br/>Tvåsidig<br/>ClientPerf<br/>Ajax |
-| [Definiera standard egenskaper][apiproperties] |**Egenskaper** för alla standard-och anpassade händelser |
-| [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaperna** |
-| [Samtals spår *][api] |Händelsenamn<br/>**Egenskaperna** |
-| [Anropa TrackException][api] |**Undantag**<br/>Stackdump<br/>**Egenskaperna** |
-| SDK kan inte samla in data. Exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
+| [Lägga till Programstatistik SDK i ett .NET-webbprojekt][greenbrown] |ServerContext<br/>Inneburit<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
+| [Installera statusövervakare på IIS][redfield] |Beroenden<br/>ServerContext<br/>Inneburit<br/>Prestandaräknare |
+| [Lägga till Programstatistik SDK i en Java-webbapp][java] |ServerContext<br/>Inneburit<br/>Förfrågan<br/>Session<br/>användare |
+| [Lägga till JavaScript SDK på webbsidan][client] |ClientContext (KlientKontext) <br/>Inneburit<br/>Sida<br/>ClientPerf (klientperf)<br/>Ajax |
+| [Definiera standardegenskaper][apiproperties] |**Egenskaper** för alla standard- och anpassade händelser |
+| [Ring TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
+| [Samtalsspår*][api] |Händelsenamn<br/>**Egenskaper** |
+| [Ring TrackException][api] |**Undantag**<br/>Stack dumpa<br/>**Egenskaper** |
+| SDK kan inte samla in data. Ett exempel: <br/> - kan inte komma åt perf räknare<br/> - undantag i telemetriinitierare |SDK-diagnostik |
 
-För [SDK: er för andra plattformar][platforms], se deras dokument.
+För [SDK:er för andra plattformar][platforms]finns i deras dokument.
 
-#### <a name="the-classes-of-collected-data"></a>Klasser för insamlade data
+#### <a name="the-classes-of-collected-data"></a>Klasserna av insamlade data
 
-| Insamlad data klass | Inkluderar (inte en fullständig lista) |
+| Insamlad dataklass | Inkluderar (inte en uttömmande lista) |
 | --- | --- |
-| **Egenskaperna** |**Alla data som bestäms av din kod** |
-| DeviceContext |`Id`, IP, locale, enhets modell, nätverk, nätverks typ, OEM-namn, skärmupplösning, roll instans, rollnamn, enhets typ |
-| ClientContext |OS, språk, språk, nätverk, fönster upplösning |
+| **Egenskaper** |**Alla data - bestäms av din kod** |
+| DeviceContext |`Id`, IP, Språk, Enhetsmodell, nätverk, nätverkstyp, OEM-namn, skärmupplösning, Rollinstans, Rollnamn, Enhetstyp |
+| ClientContext (KlientKontext) |OS, språk, språk, nätverk, fönsterupplösning |
 | Session |`session id` |
-| ServerContext |Dator namn, språk, operativ system, enhet, användarsession, användar kontext, åtgärd |
-| Härleda |Geo-plats från IP-adress, tidsstämpel, OS, webbläsare |
-| Mått |Metric-namn och-värde |
-| Händelser |Händelse namn och-värde |
-| pageViews |URL och sid namn eller skärm namn |
-| Klient prestanda |URL/sidnamn, webb läsar inläsnings tid |
-| Ajax |HTTP-anrop från webb sida till Server |
+| ServerContext |Maskinnamn, språk, OPERATIVSYSTEM, enhet, användarsession, användarkontext, åtgärd |
+| Inneburit |geografisk plats från IP-adress, tidsstämpel, OS, webbläsare |
+| Mått |Måttnamn och värde |
+| Händelser |Händelsenamn och värde |
+| Sidvisningar |URL- och sidnamn eller skärmnamn |
+| Klient perf |URL/sidnamn, inläsningstid för webbläsaren |
+| Ajax |HTTP-anrop från webbsida till server |
 | Begäranden |URL, varaktighet, svarskod |
-| Beroenden |Typ (SQL, HTTP,...), anslutnings sträng eller URI, Sync/async, varaktighet, lyckades, SQL-uttryck (med Statusövervakare) |
-| **Undantag** |Typ, **meddelande**, anrops stackar, käll fil, rad nummer, `thread id` |
-| Krascher |`Process id``parent process id``crash thread id`; program uppdatering, `id`, build;  undantags typ, adress, orsak; fördunklade symboler och register, start-och slut adresser, namn och sökväg för binärfiler, CPU-typ |
-| Spårning |**Meddelande** -och allvarlighets nivå |
-| Prestandaräknare |Processor tid, tillgängligt minne, begär ande frekvens, undantags frekvens, processens privata byte, i/o-hastighet, varaktighet för begäran, Kölängd för begäran |
-| Tillgänglighet |Svars kod för webbtest, varaktighet för varje test steg, testnamn, tidsstämpel, framgång, svars tid, test plats |
-| SDK-diagnostik |Spårnings meddelande eller undantag |
+| Beroenden |Type(SQL, HTTP, ...), anslutningssträng eller URI, synkronisering/async, varaktighet, framgång, SQL-uttryck (med Statusövervakare) |
+| **Undantag** |Typ, **meddelande,** samtalsstaplar, källfil, radnummer,`thread id` |
+| Kraschar |`Process id`, `parent process id`, `crash thread id`; programkorrigering, `id`, bygga;  undantagstyp, adress, orsak; fördunklade symboler och register, binära start- och slutadresser, binärt namn och sökväg, cpu-typ |
+| Spårning |**Meddelande-** och allvarlighetsgrad |
+| Prestandaräknare |Processortid, tillgängligt minne, begäranhastighet, undantagshastighet, process privata byte, IO-hastighet, varaktighet för begäran, kölängd för begäran |
+| Tillgänglighet |Webbtestsvarskod, varaktighet för varje teststeg, testnamn, tidsstämpel, framgång, svarstid, testplats |
+| SDK-diagnostik |Spåra meddelande eller undantag |
 
-Du kan [stänga av vissa data genom att redigera ApplicationInsights. config][config]
+Du kan [stänga av en del av data genom att redigera ApplicationInsights.config][config]
 
 > [!NOTE]
-> Klientens IP-adress används för att härleda geografisk plats, men som standard är IP-data inte längre lagrade och alla nollor skrivs till det associerade fältet. Om du vill veta mer om personlig data hantering rekommenderar vi den här [artikeln](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Om du behöver lagra IP-Datadata kommer vår [artikel för IP-adresser](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) att vägleda dig genom dina alternativ.
+> Klient-IP används för att härleda geografisk plats, men som standard lagras IP-data inte längre och alla nollor skrivs till det associerade fältet. För att förstå mer om hantering av personuppgifter rekommenderar vi den här [artikeln](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Om du behöver lagra IP-adressdata kommer vår artikel om insamling av [IP-adresser](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) att gå igenom dina alternativ.
 
 ## <a name="credits"></a>Krediter
-Den här produkten innehåller GeoLite2-data som skapats av MaxMind, som är tillgängliga från [https://www.maxmind.com](https://www.maxmind.com).
+Denna produkt innehåller GeoLite2 data som skapats av MaxMind, tillgänglig från [https://www.maxmind.com](https://www.maxmind.com).
 
 
 

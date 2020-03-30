@@ -1,90 +1,90 @@
 ---
-title: Säkerhet – Azure Cosmos DB-databas
-description: Lär dig hur Azure Cosmos DB ger skydd och data databassäkerhet för dina data.
+title: Databassäkerhet - Azure Cosmos DB
+description: Lär dig mer om hur Azure Cosmos DB tillhandahåller databasskydd och datasäkerhet för dina data.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 03/10/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0c97d70ea3e5c7fdd14b0f97c5e393359f2b948e
-ms.sourcegitcommit: 20429bc76342f9d365b1ad9fb8acc390a671d61e
+ms.openlocfilehash: 30991f17970eefe1a140cdd70e1f6b305160349c
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79087236"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79537337"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Säkerhet i Azure Cosmos DB – översikt
 
 I den här artikeln beskrivs metodtips för databassäkerhet och viktiga funktioner som erbjuds av Azure Cosmos DB som hjälper dig att förhindra, identifiera och reagera på databasintrång.
 
-## <a name="whats-new-in-azure-cosmos-db-security"></a>Vad är nytt i Azure Cosmos DB säkerhet
+## <a name="whats-new-in-azure-cosmos-db-security"></a>Nyheter i Azure Cosmos DB-säkerhet
 
-Vilande kryptering är nu tillgängligt för dokument och säkerhetskopior som lagras i Azure Cosmos DB i alla Azure-regioner. Kryptering i vila tillämpas automatiskt för både nya och befintliga kunder i dessa regioner. Behöver inte konfigurera något; Du får samma fantastiska svarstid, dataflöde, tillgänglighet och funktioner som innan med fördelen med vetskapen om att dina data är skyddad och säker med kryptering i vila.
+Kryptering i vila är nu tillgänglig för dokument och säkerhetskopior som lagras i Azure Cosmos DB i alla Azure-regioner. Kryptering i vila tillämpas automatiskt för både nya och befintliga kunder i dessa regioner. Det finns ingen anledning att konfigurera något; och du får samma stora latens, dataflöde, tillgänglighet och funktionalitet som tidigare med fördelen att veta att dina data är säkra och säkra med kryptering i vila.
 
-## <a name="how-do-i-secure-my-database"></a>Hur gör jag för att skydda min databas
+## <a name="how-do-i-secure-my-database"></a>Hur skyddar jag min databas
 
-Datasäkerhet är ett delat ansvar mellan dig, kunden och leverantören databas. Mängden ansvar som du utför kan variera beroende på vilken databasprovider som du väljer. Om du väljer en lokal lösning kan behöva du har allt från slutpunktsskydd till fysisk säkerhet maskinvara – vilket är ingen enkel aktivitet. Om du väljer en PaaS-databas leverantör, till exempel Azure Cosmos DB, minskar problem område avsevärt. Följande bild, som lånas från Microsofts [delade ansvar för molnbaserad data behandling](https://aka.ms/sharedresponsibility) White Paper, visar hur ditt ansvar minskar med en PaaS-provider som Azure Cosmos dB.
+Datasäkerhet är ett delat ansvar mellan dig, kunden och databasleverantören. Beroende på vilken databasleverantör du väljer kan det ansvar du bär variera. Om du väljer en lokal lösning måste du tillhandahålla allt från slutpunktsskydd till fysisk säkerhet för maskinvaran – vilket inte är någon lätt uppgift. Om du väljer en PaaS-molndatabasleverantör som Azure Cosmos DB minskar ditt problemområde avsevärt. Följande avbildning, som lånats från Microsofts [delade ansvar för cloud computing-faktablad,](https://aka.ms/sharedresponsibility) visar hur ditt ansvar minskar med en PaaS-leverantör som Azure Cosmos DB.
 
-![Kund- och databasen providern ansvarsområden](./media/database-security/nosql-database-security-responsibilities.png)
+![Ansvar för kund- och databasleverantörer](./media/database-security/nosql-database-security-responsibilities.png)
 
-Det föregående diagrammet visar övergripande molnet säkerhetskomponenter, men vilka objekt du behöver bekymra dig om specifikt för din databaslösning? Och hur kan man jämföra lösningar till varandra?
+Det föregående diagrammet visar säkerhetskomponenter på hög nivå, men vilka objekt behöver du oroa dig specifikt för databaslösningen? Och hur kan ni jämföra lösningar med varandra?
 
-Vi rekommenderar följande kontrollista om kraven som du vill jämföra databassystem:
+Vi rekommenderar följande checklista över krav som du kan jämföra databassystem på:
 
-- Nätverkssäkerhet och brandväggsinställningar
-- Autentisering av användare och de detaljerade användarkontroller
-- Möjligheten att replikera data globalt för regionala fel
-- Möjlighet att redundansväxla ett Data Center till ett annat
-- Replikering av lokala data inom ett datacenter
-- Automatiska säkerhetskopior
-- Återställning av borttagna data från säkerhetskopior
+- Inställningar för nätverkssäkerhet och brandvägg
+- Användarautentisering och detaljerade användarkontroller
+- Möjlighet att replikera data globalt för regionala fel
+- Möjlighet att växla över från ett datacenter till ett annat
+- Lokal datareplikering i ett datacenter
+- Automatiska säkerhetskopieringar av data
+- Återställande av borttagna data från säkerhetskopior
 - Skydda och isolera känsliga data
-- Övervakning för attacker
+- Övervakning av attacker
 - Svara på attacker
-- Möjlighet att geo-avgränsningstecken data följa databegränsningar för styrning
-- Fysiskt skydd av servrar i skyddade data centers
+- Möjlighet att geo-fence data för att följa begränsningar för datastyrning
+- Fysiskt skydd av servrar i skyddade datacenter
 - Certifieringar
 
-Och även om det kan verka självklart kan den senaste [storskaliga databasen](https://thehackernews.com/2017/01/mongodb-database-security.html) påminna oss om den enkla men viktiga betydelsen av följande krav:
+Och även om det kan tyckas uppenbart, påminner den senaste tidens [storskaliga databasöverträdelser](https://thehackernews.com/2017/01/mongodb-database-security.html) oss om den enkla men avgörande betydelsen av följande krav:
 
-- Korrigerade servrar som hålls aktuella
+- Lappade servrar som hålls uppdaterade
 - HTTPS som standard/SSL-kryptering
 - Administrativa konton med starka lösenord
 
-## <a name="how-does-azure-cosmos-db-secure-my-database"></a>Hur skyddar Azure Cosmos DB databasen
+## <a name="how-does-azure-cosmos-db-secure-my-database"></a>Hur skyddar Azure Cosmos DB min databas
 
-Nu ska vi gå tillbaka till föregående lista – hur många av dessa säkerhetskrav Azure Cosmos DB tillhandahåller? Varje enskild en.
+Låt oss se tillbaka på föregående lista - hur många av dessa säkerhetskrav tillhandahåller Azure Cosmos DB? Varenda en.
 
-Låt oss gå till var och en i detalj.
+Låt oss gräva i var och en i detalj.
 
-|Säkerhetskrav|Metoden för Azure Cosmos DB-säkerhet|
+|Säkerhetskrav|Azure Cosmos DB:s säkerhetsstrategi|
 |---|---|
-|Nätverkssäkerhet|Det första lagret för att skydda din databas är att använda en IP-brandvägg. Azure Cosmos DB stöder driven IP-baserade åtkomstkontroller för Brandvägg för inkommande trafik support-princip. IP-baserade åtkomst kontroller liknar de brand Väggs regler som används av traditionella databas system, men de expanderas så att ett Azure Cosmos Database-konto endast är tillgängligt från en godkänd uppsättning datorer eller moln tjänster. Läs mer i artikeln om [stöd för Azure Cosmos DB-brandvägg](firewall-support.md) .<br><br>Azure Cosmos DB kan du aktivera en specifik IP-adress (168.61.48.0), ett IP-adressintervall (168.61.48.0/8) och kombinationer av IP-adresser och intervall. <br><br>Alla begäranden från datorer utanför den här listan blockeras av Azure Cosmos DB. Begäranden från godkända datorer och molntjänster sedan slutföra autentiseringsprocessen för att få åtkomstkontroll till resurser.<br><br> Du kan använda [taggar för virtuella nätverks tjänster](../virtual-network/service-tags-overview.md) för att uppnå nätverks isolering och skydda dina Azure Cosmos DB resurser från det allmänna Internet. Använd tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (till exempel AzureCosmosDB) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst.|
-|Auktorisering|Azure Cosmos DB använder hashbaserad meddelandeautentiseringskod (HMAC) för auktorisering. <br><br>Varje begäran hashas med den hemliga nyckeln och efterföljande Base64-kodad Hash-värdet skickas med varje anrop till Azure Cosmos DB. För att verifiera begäran kan Azure Cosmos DB-tjänsten som använder rätt hemlig nyckel och egenskaper för att generera en hash och sedan den jämför värdet med det i begäran. Om de två värdena matchar, åtgärden är auktoriseringen är klar och begäran har bearbetats, annars är det ett autentiseringsfel och begäran avvisas.<br><br>Du kan antingen använda en [huvud nyckel](secure-access-to-data.md#master-keys)eller en [resurs-token](secure-access-to-data.md#resource-tokens) som ger detaljerad åtkomst till en resurs, till exempel ett dokument.<br><br>Läs mer om hur [du skyddar åtkomsten till Azure Cosmos DB resurser](secure-access-to-data.md).|
-|Användare och behörigheter|Med hjälp av huvud nyckeln för kontot kan du skapa användar resurser och behörighets resurser per databas. En Resource-token är associerad med en behörighet i en databas och avgör om användaren har åtkomst (Read-Write, skrivskyddad eller ingen åtkomst) till en program resurs i databasen. Resurser för programmet är behållare, dokument, bifogade filer, lagrade procedurer, utlösare och UDF: er. Resurstoken används sedan under autentiseringen för att tillhandahålla eller neka åtkomst till resursen.<br><br>Läs mer om hur [du skyddar åtkomsten till Azure Cosmos DB resurser](secure-access-to-data.md).|
-|Active directory-integrering (RBAC)| Du kan också ange eller begränsa åtkomsten till Cosmos-kontot, databasen, behållaren och erbjudandena (genom strömning) med åtkomst kontroll (IAM) i Azure Portal. IAM ger rollbaserad åtkomstkontroll och integreras med Active Directory. Du kan använda inbyggda roller eller anpassade roller för enskilda användare och grupper. Mer information finns i [Active Directory integrations](role-based-access-control.md) artikeln.|
-|Global replikering|Azure Cosmos DB erbjuder nyckelfärdig global distribution, där du kan replikera dina data till en av Azures globalt Datacenter genom att klicka på en knapp. Global replikering kan du skala globalt och ge låg latens åtkomst till dina data över hela världen.<br><br>I samband med säkerhet garanterar global replikering dataskydd mot regionala fel.<br><br>Läs mer i [Distribuera data globalt](distribute-data-globally.md).|
-|Regionala redundanstestningar|Om du har replikerat data i flera datacenter, samlar Azure Cosmos DB automatiskt över din verksamhet bör ett regionala Datacenter går offline. Du kan skapa en prioriterad lista över regioner för redundans med hjälp av de regioner där dina data replikeras. <br><br>Läs mer i [regional redundans i Azure Cosmos DB](high-availability.md).|
-|Lokal replikering|I ett enda data Center replikerar Azure Cosmos DB automatiskt data för hög tillgänglighet och ger dig möjlighet att välja [konsekvens nivåer](consistency-levels.md). Den här replikeringen garanterar ett [service avtal](https://azure.microsoft.com/support/legal/sla/cosmos-db) på 99,99% tillgänglighet för alla enkla region konton och alla konton med flera regioner med avslappnad konsekvens och 99,999% Läs tillgänglighet för alla databas konton i flera regioner.|
-|Automatiserad onlinesäkerhetskopieringar|Azure Cosmos-databaser säkerhets kopie ras regelbundet och lagras i en Geo-redundant lagring. <br><br>Läs mer i [Automatisk säkerhets kopiering och återställning online med Azure Cosmos DB](online-backup-and-restore.md).|
-|Återställa borttagna data|Automatiserad onlinesäkerhetskopieringar kan användas för att återställa data som du kanske har råkat ta bort upp till cirka 30 dagar efter evenemanget. <br><br>Läs mer i [Automatisk säkerhets kopiering och återställning online med Azure Cosmos DB](online-backup-and-restore.md)|
-|Skydda och isolera känsliga data|Alla data i de regioner som anges i vad är nytt? är nu krypterad i vila.<br><br>Personliga data och andra känsliga data kan isoleras specifika behållaren och Skriv- eller läsbehörighet kan begränsas till specifika användare.|
-|Övervakare för attacker|Genom att använda [gransknings loggning och aktivitets loggar](logging.md)kan du övervaka ditt konto för normal och onormal aktivitet. Du kan visa vilka åtgärder som vidtogs för dina resurser, vem som initierade åtgärden när åtgärden utfördes, status för åtgärden och mycket mer som visas i skärmbilden nedan.|
-|Svara på attacker|När du har kontaktat Azure-supporten om du vill rapportera ett potentiellt angrepp, har en 5-steget incidenthanteringsprocess startats. Målet med den 5 steg är att återställa normal drift säkerhets- och åtgärder så snabbt som möjligt när ett problem har identifierats och en undersökning har startats.<br><br>Läs mer i [Microsoft Azure säkerhets svar i molnet](https://aka.ms/securityresponsepaper).|
-|Geografiska avgränsningar|Azure Cosmos DB garanterar datastyrning för landsbaserade regioner (exempelvis Tyskland, Kina, USA-förvaltad region).|
-|Skyddade lokaler|Data i Azure Cosmos DB lagras på SSD: er i Azures skyddade datacenter.<br><br>Läs mer i [Microsofts globala data Center](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|HTTPS/SSL/TLS-kryptering|Alla anslutningar till Azure Cosmos DB stöd för HTTPS. Azure Cosmos DB stöder även TLS 1,2.<br>Det är möjligt att framtvinga en lägsta TLS-version på Server sidan. Om du vill göra det kontaktar du [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com).|
-|Vilande kryptering|Alla data som lagras i Azure Cosmos DB krypteras i vila. Läs mer i [Azure Cosmos DB kryptering i vila](./database-encryption-at-rest.md)|
-|Korrigerade servrar|Som en hanterad databas eliminerar Azure Cosmos DB behovet av att hantera och uppdatera servrar, som har utförts för dig, automatiskt.|
-|Administrativa konton med starka lösenord|Det är svårt att tro måste vi även nämner det här kravet, men till skillnad från vissa av våra konkurrenter, är det omöjligt att ha ett administrativt konto utan lösenord i Azure Cosmos DB.<br><br> Säkerhet via SSL och HMAC hemliga formulärbaserad autentisering är inbyggd i som standard.|
-|Säkerhet och data protection-certifieringar| Den senaste listan över certifieringar finns i den övergripande [Azure Compliance-webbplatsen](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) samt det senaste [Azure Compliance-dokumentet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) med alla certifieringar (Sök efter Cosmos). För en mer fokuserad läsning kolla den 25 april 2018 post [Azure #CosmosDB: säker, privat, kompatibel med SOCS 1/2 typ 2, HITRUST, PCI DSS nivå 1, ISO 27001, HIPAA, FedRAMP hög och många andra.
+|Nätverkssäkerhet|Att använda en IP-brandvägg är det första skyddslagret för att skydda databasen. Azure Cosmos DB stöder principdrivna IP-baserade åtkomstkontroller för stöd för inkommande brandvägg. IP-baserade åtkomstkontroller liknar brandväggsreglerna som används av traditionella databassystem, men de expanderas så att ett Azure Cosmos-databaskonto endast är tillgängligt från en godkänd uppsättning datorer eller molntjänster. Läs mer i azure [cosmos DB-brandväggens supportartikel.](firewall-support.md)<br><br>Med Azure Cosmos DB kan du aktivera en specifik IP-adress (168.61.48.0), ett IP-intervall (168.61.48.0/8) och kombinationer av IP-adresser och intervall. <br><br>Alla begäranden som kommer från datorer utanför den här tillåtna listan blockeras av Azure Cosmos DB. Begäranden från godkända datorer och molntjänster måste sedan slutföra autentiseringsprocessen för att få åtkomstkontroll till resurserna.<br><br> Du kan använda taggar för [virtuella nätverkstjänst för](../virtual-network/service-tags-overview.md) att uppnå nätverksisolering och skydda dina Azure Cosmos DB-resurser från det allmänna Internet. Använd tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange tjänsttagnamnet (till exempel AzureCosmosDB) i lämpligt käll- eller målfält för en regel kan du tillåta eller neka trafik för motsvarande tjänst.|
+|Auktorisering|Azure Cosmos DB använder hash-baserad meddelandeautentiseringskod (HMAC) för auktorisering. <br><br>Varje begäran hasheras med den hemliga kontonyckeln och den efterföljande bas-64-kodade hash-koden skickas med varje anrop till Azure Cosmos DB. För att validera begäran använder Azure Cosmos DB-tjänsten rätt hemlig nyckel och egenskaper för att generera en hash, sedan jämförs värdet med värdet i begäran. Om de två värdena matchar auktoriseras åtgärden och begäran bearbetas, annars finns det ett auktoriseringsfel och begäran avvisas.<br><br>Du kan använda antingen en [huvudnyckel](secure-access-to-data.md#master-keys)eller en [resurstoken](secure-access-to-data.md#resource-tokens) som ger finkornig åtkomst till en resurs, till exempel ett dokument.<br><br>Läs mer om hur du [skyddar åtkomsten till Azure Cosmos DB-resurser](secure-access-to-data.md).|
+|Användare och behörigheter|Med hjälp av huvudnyckeln för kontot kan du skapa användarresurser och behörighetsresurser per databas. En resurstoken associeras med en behörighet i en databas och avgör om användaren har åtkomst (skrivskyddad, skrivskyddad eller ingen åtkomst) till en programresurs i databasen. Programresurser omfattar behållare, dokument, bilagor, lagrade procedurer, utlösare och UDF:er. Resurstoken används sedan under autentisering för att tillhandahålla eller neka åtkomst till resursen.<br><br>Läs mer om hur du [skyddar åtkomsten till Azure Cosmos DB-resurser](secure-access-to-data.md).|
+|Active Directory-integrering (RBAC)| Du kan också ge eller begränsa åtkomsten till Cosmos-kontot, databasen, behållaren och erbjudandena (dataflöde) med hjälp av Access-kontrollen (IAM) i Azure-portalen. IAM tillhandahåller rollbaserad åtkomstkontroll och integreras med Active Directory. Du kan använda inbyggda roller eller anpassade roller för individer och grupper. Mer information finns i active [directory-integrationsartikeln.](role-based-access-control.md)|
+|Global replikering|Azure Cosmos DB erbjuder total global distribution, vilket gör att du kan replikera dina data till något av Azures globala datacenter med ett klick på en knapp. Med global replikering kan du skala globalt och ge åtkomst med låg latens till dina data runt om i världen.<br><br>När det gäller säkerhet säkerställer global replikering dataskydd mot regionala fel.<br><br>Läs mer i [Distribuera data globalt](distribute-data-globally.md).|
+|Regionala redundanstestningar|Om du har replikerat dina data i mer än ett datacenter rullar Azure Cosmos DB automatiskt över dina åtgärder om ett regionalt datacenter kopplas från. Du kan skapa en prioriterad lista över redundansregioner med hjälp av de regioner där dina data replikeras. <br><br>Läs mer i [regionala redundanser i Azure Cosmos DB](high-availability.md).|
+|Lokal replikering|Även inom ett enda datacenter replikerar Azure Cosmos DB automatiskt data för hög tillgänglighet, vilket ger dig möjlighet att välja [konsekvensnivåer](consistency-levels.md). Den här replikeringen garanterar ett [serviceavtal](https://azure.microsoft.com/support/legal/sla/cosmos-db) för tillgänglighet på 99,99 % för alla konton i en region och alla konton med flera regioner med avslappnad konsekvens och 99,999 % lästillgänglighet på alla databaskonton i flera regioner.|
+|Automatiserade säkerhetskopiering online|Azure Cosmos-databaser säkerhetskopieras regelbundet och lagras i ett geo redundant arkiv. <br><br>Läs mer i [Automatisk säkerhetskopiering och återställning online med Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md).|
+|Återställa borttagna data|De automatiska online-säkerhetskopiorna kan användas för att återställa data som du av misstag har tagit bort upp till ~ 30 dagar efter händelsen. <br><br>Läs mer i [Automatisk säkerhetskopiering och återställning online med Azure Cosmos DB](../synapse-analytics/sql-data-warehouse/backup-and-restore.md)|
+|Skydda och isolera känsliga data|Alla data i de regioner som anges i Nyheter? krypteras nu i vila.<br><br>Personuppgifter och andra konfidentiella uppgifter kan isoleras till specifik behållare och läs-och skriv-, eller skrivskyddad åtkomst kan begränsas till specifika användare.|
+|Övervaka för attacker|Genom att använda [granskningsloggning och aktivitetsloggar](logging.md)kan du övervaka ditt konto efter normal och onormal aktivitet. Du kan visa vilka åtgärder som utfördes på dina resurser, som initierade åtgärden, när åtgärden inträffade, åtgärdens status och mycket mer som visas i skärmbilden efter den här tabellen.|
+|Svara på attacker|När du har kontaktat Azure-supporten för att rapportera en potentiell attack, sparkas en 5-stegs incidentsvarsprocess igång. Målet med 5-stegsprocessen är att återställa normal servicesäkerhet och drift så snabbt som möjligt efter att ett problem har upptäckts och en undersökning har startats.<br><br>Läs mer i [Microsoft Azure Security Response i molnet](https://aka.ms/securityresponsepaper).|
+|Geo-stängsel|Azure Cosmos DB säkerställer datastyrning för suveräna regioner (till exempel Tyskland, Kina, US Gov).|
+|Skyddade anläggningar|Data i Azure Cosmos DB lagras på SSD:er i Azures skyddade datacenter.<br><br>Läs mer i [Microsofts globala datacenter](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
+|HTTPS/SSL/TLS-kryptering|Alla anslutningar till Azure Cosmos DB stöder HTTPS. Azure Cosmos DB stöder också TLS 1.2.<br>Det är möjligt att framtvinga en minsta TLS-version server-sida. För att göra [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)det, vänligen kontakta .|
+|Vilande kryptering|Alla data som lagras i Azure Cosmos DB krypteras i vila. Läs mer i [Azure Cosmos DB-kryptering](./database-encryption-at-rest.md) i vila|
+|Lappade servrar|Som en hanterad databas eliminerar Azure Cosmos DB behovet av att hantera och korrigera servrar, som görs för dig automatiskt.|
+|Administrativa konton med starka lösenord|Det är svårt att tro att vi ens behöver nämna detta krav, men till skillnad från vissa av våra konkurrenter är det omöjligt att ha ett administrativt konto utan lösenord i Azure Cosmos DB.<br><br> Säkerhet via SSL och HMAC hemlig baserad autentisering bakas in som standard.|
+|Säkerhets- och dataskyddscertifieringar| Den senaste [Azure Compliance-webbplatsen](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) finns för den senaste Azure [Compliance-dokumentet](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) med alla certifieringar (sök efter Cosmos). För en mer fokuserad läs kolla in inlägget den 25 april 2018 [Azure #CosmosDB: Secure, private, compliant that includes SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High och många andra.
 
-Följande skärm bild visar hur du kan använda gransknings loggning och aktivitets loggar för att övervaka ditt konto: ![aktivitets loggar för Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
+Följande skärmbild visar hur du kan använda granskningsloggning ![och aktivitetsloggar för att övervaka ditt konto: Aktivitetsloggar för Azure Cosmos DB](./media/database-security/nosql-database-security-application-logging.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om huvud nycklar och resurs-token finns i [Skydda åtkomsten till Azure Cosmos db data](secure-access-to-data.md).
+Mer information om huvudnycklar och resurstoken finns i [Skydda åtkomsten till Azure Cosmos DB-data](secure-access-to-data.md).
 
-Mer information om gransknings loggning finns i [Azure Cosmos DB diagnostisk loggning](logging.md).
+Mer information om granskningsloggning finns i [Azure Cosmos DB diagnostic logging](logging.md).
 
-Mer information om Microsoft-certifieringar finns [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/).
+Mer information om Microsoft-certifieringar finns i [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).

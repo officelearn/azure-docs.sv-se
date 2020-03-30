@@ -1,80 +1,80 @@
 ---
-title: Konfigurera data-i replikering – Azure Database for MariaDB
-description: I den här artikeln beskrivs hur du konfigurerar Datareplikering i Azure Database for MariaDB.
+title: Konfigurera data-in Replication - Azure Database för MariaDB
+description: I den här artikeln beskrivs hur du konfigurerar data-in Replication i Azure Database för MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 0dbbc9b09d5d4770296223db9dc909c17f574fe8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: 51b800dde140affd222f2bdb341c0fbf3a57d8cb
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767032"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530163"
 ---
-# <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurera Datareplikering i Azure Database for MariaDB
+# <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Konfigurera datainsamling i Azure Database för MariaDB
 
-I den här artikeln beskrivs hur du konfigurerar Datareplikering i Azure Database for MariaDB genom att konfigurera huvud-och replik servrar. Den här artikeln förutsätter att du har tidigare erfarenhet av MariaDB-servrar och-databaser.
+I den här artikeln beskrivs hur du konfigurerar data-in Replication i Azure Database för MariaDB genom att konfigurera huvud- och replikservrarna. Den här artikeln förutsätter att du har viss tidigare erfarenhet av MariaDB-servrar och databaser.
 
-Om du vill skapa en replik i Azure Database for MariaDB-tjänsten synkroniserar Datareplikering data från en lokal huvud-MariaDB-server i virtuella datorer (VM) eller i moln databas tjänster.
+Om du vill skapa en replik i Azure Database for MariaDB-tjänsten synkroniserar Data-in Replication data från en lokal huvudserver, i virtuella datorer eller i molndatabastjänster.
 
 > [!NOTE]
-> Om huvud servern är version 10,2 eller senare rekommenderar vi att du konfigurerar Datareplikering med hjälp av [globalt transaktions-ID](https://mariadb.com/kb/en/library/gtid/).
+> Om huvudservern är version 10.2 eller nyare rekommenderar vi att du ställer in datareplikering med hjälp av [globalt transaktions-ID](https://mariadb.com/kb/en/library/gtid/).
 
 
-## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Skapa en MariaDB-server som ska användas som en replik
+## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Skapa en MariaDB-server som ska användas som replik
 
-1. Skapa en ny Azure Database for MariaDB Server (till exempel replica.mariadb.database.azure.com). Servern är replik servern i Datareplikering.
+1. Skapa en ny Azure-databas för MariaDB-server (till exempel replica.mariadb.database.azure.com). Servern är replikservern i Data-in Replication.
 
-    Information om hur du skapar servrar finns i [skapa en Azure Database for MariaDB-server med hjälp av Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md).
+    Mer information om servergenerering finns i [Skapa en Azure-databas för MariaDB-server med hjälp av Azure-portalen](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
    > [!IMPORTANT]
-   > Du måste skapa Azure Database for MariaDB-servern på Generell användning eller minnesoptimerade pris nivåer.
+   > Du måste skapa Azure-databasen för MariaDB-servern på prisnivåerna Allmänt ändamål eller Minne optimerad.
 
-2. Skapa identiska användar konton och motsvarande privilegier.
+2. Skapa identiska användarkonton och motsvarande privilegier.
     
-    Användar konton replikeras inte från huvud servern till replik servern. Om du vill ge användare åtkomst till replik servern måste du manuellt skapa alla konton och motsvarande behörigheter på den nyskapade Azure Database for MariaDB-servern.
+    Användarkonton replikeras inte från huvudservern till replikservern. Om du vill ge användaråtkomst till replikservern måste du manuellt skapa alla konton och motsvarande privilegier på den nyligen skapade Azure-databasen för MariaDB-servern.
 
-## <a name="configure-the-master-server"></a>Konfigurera huvud servern
+## <a name="configure-the-master-server"></a>Konfigurera huvudservern
 
-Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt, i en virtuell dator eller i en moln databas tjänst för Datareplikering. MariaDB-servern är huvud servern i Datareplikering.
+Följande steg förbereder och konfigurerar MariaDB-servern som finns lokalt, i en virtuell dator eller i en molndatabastjänst för datareplikering. MariaDB-servern är huvudansvarig i Data-in Replication.
 
 1. Aktivera binär loggning.
     
-    Ange följande kommando för att se om binär loggning har Aktiver ATS på huvud servern:
+    Om du vill se om binär loggning är aktiverad på bakgrunden anger du följande kommando:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   Om variabeln [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) returnerar värdet `ON`, aktive ras binär loggning på servern.
+   Om variabeln [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) returnerar värdet `ON`aktiveras binär loggning på servern.
 
-   Om `log_bin` returnerar värdet `OFF`redigerar du filen **My. cnf** så att `log_bin=ON` aktiverar binär loggning. Starta om servern så att ändringen börjar gälla.
+   Om `log_bin` värdet `OFF`returneras redigerar du filen `log_bin=ON` **my.cnf** så att den aktiverar binär loggning. Starta om servern för att ändringen ska börja gälla.
 
-2. Konfigurera huvud Server inställningar.
+2. Konfigurera huvudserverinställningar.
 
-    Datareplikering kräver att parametern `lower_case_table_names` vara konsekvent mellan huvud-och replik servrar. Parametern `lower_case_table_names` anges som `1` som standard i Azure Database for MariaDB.
+    Data-in Replication kräver `lower_case_table_names` att parametern är konsekvent mellan huvud- och replikservrarna. Parametern `lower_case_table_names` är `1` inställd på som standard i Azure Database för MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Skapa en ny replikeringsprincip och konfigurera behörigheter.
+3. Skapa en ny replikeringsroll och ställ in behörigheter.
 
-   Skapa ett användar konto på huvud servern som har kon figurer ATS med behörighet för replikering. Du kan skapa ett konto med hjälp av SQL-kommandon eller MySQL Workbench. Om du planerar att replikera med SSL måste du ange detta när du skapar användar kontot.
+   Skapa ett användarkonto på huvudservern som är konfigurerad med replikeringsbehörighet. Du kan skapa ett konto med hjälp av SQL-kommandon eller MySQL Workbench. Om du planerar att replikera med SSL måste du ange detta när du skapar användarkontot.
    
-   Information om hur du lägger till användar konton på huvud servern finns i [MariaDB-dokumentationen](https://mariadb.com/kb/en/library/create-user/).
+   Mer information om hur du lägger till användarkonton på huvudservern finns i [MariaDB-dokumentationen](https://mariadb.com/kb/en/library/create-user/).
 
-   Genom att använda följande kommandon, kan den nya replikeringsprincipen komma åt originalet från vilken dator som helst, inte bara den dator som är värd för själva huvud servern. För den här åtkomsten anger du **syncuser\@%** i kommandot för att skapa en användare.
+   Genom att använda följande kommandon kan den nya replikeringsrollen komma åt mastern från vilken dator som helst, inte bara den dator som är värd för själva mastern. För den här åtkomsten anger du **syncuser\@'%'** i kommandot för att skapa en användare.
    
-   Mer information om MariaDB-dokumentationen finns i [Ange konto namn](https://mariadb.com/kb/en/library/create-user/#account-names).
+   Mer information om MariaDB-dokumentation finns i [ange kontonamn](https://mariadb.com/kb/en/library/create-user/#account-names).
 
    **SQL-kommando**
 
    - Replikering med SSL
 
-       Om du vill kräva SSL för alla användar anslutningar anger du följande kommando för att skapa en användare:
+       Om du vill kräva SSL för alla användaranslutningar anger du följande kommando för att skapa en användare:
 
        ```sql
        CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
@@ -83,7 +83,7 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
    - Replikering utan SSL
 
-       Om SSL inte krävs för alla anslutningar, anger du följande kommando för att skapa en användare:
+       Om SSL inte krävs för alla anslutningar anger du följande kommando för att skapa en användare:
     
        ```sql
        CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
@@ -92,61 +92,61 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
    **MySQL Workbench**
 
-   Om du vill skapa en replikeringsprincip i MySQL Workbench väljer du **användare och behörigheter**i fönstret **hantering** . Välj sedan **Lägg till konto**.
+   Om du vill skapa replikeringsrollen i MySQL Workbench väljer du Användare och privilegier i **hanteringsfönstret**. **Management** Välj sedan **Lägg till konto**.
  
-   ![Användare och behörigheter](./media/howto-data-in-replication/users_privileges.png)
+   ![Användare och privilegier](./media/howto-data-in-replication/users_privileges.png)
 
-   Ange ett användar namn i fältet **inloggnings namn** .
+   Ange ett användarnamn i fältet **Inloggningsnamn.**
 
    ![Synkronisera användare](./media/howto-data-in-replication/syncuser.png)
  
-   Välj panelen **administrativa roller** och välj **replikering slav**i listan över **globala privilegier**. Välj **Använd** för att skapa en replikeringsprincip.
+   Välj panelen **Administrativa roller** och välj sedan **Replikeringsslav**i listan över **globala privilegier**. Välj **Använd** om du vill skapa replikeringsrollen.
 
-   ![Replikering slav](./media/howto-data-in-replication/replicationslave.png)
+   ![Replikeringslav](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Ställ in huvud servern på skrivskyddat läge.
+4. Ställ in huvudservern i skrivskyddat läge.
 
-   Innan du dumpar en databas måste servern placeras i skrivskyddat läge. I skrivskyddat läge kan inte originalet bearbeta några Skriv transaktioner. För att undvika affärs påverkan kan du schemalägga det skrivskyddade fönstret under låg belastnings tid.
+   Innan du dumpar en databas måste servern placeras i skrivskyddat läge. I skrivskyddat läge kan befälhavaren inte bearbeta några skrivtransaktioner. Schemalägg skrivskyddat fönster under en lågbelastningstid för att undvika påverkan på verksamheten.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
    SET GLOBAL read_only = ON;
    ```
 
-5. Hämta den aktuella binära logg filens namn och offset.
+5. Hämta det aktuella binära loggfilsnamnet och förskjutningen.
 
-   Du kan ta reda på den aktuella binära logg filens namn och förskjutning genom att köra kommandot [`show master status`](https://mariadb.com/kb/en/library/show-master-status/).
+   Om du vill ta reda på det [`show master status`](https://mariadb.com/kb/en/library/show-master-status/)aktuella binära loggfilsnamnet och förskjutningen kör du kommandot .
     
    ```sql
    show master status;
    ```
    Resultaten bör likna följande tabell:
    
-   ![Huvud status resultat](./media/howto-data-in-replication/masterstatus.png)
+   ![Resultat av huvudstatus](./media/howto-data-in-replication/masterstatus.png)
 
-   Anteckna namnet på den binära filen, eftersom det används i senare steg.
+   Observera det binära filnamnet, eftersom det kommer att användas i senare steg.
    
-6. Hämta GTID position (valfritt, krävs för replikering med GTID).
+6. Hämta GTID-positionen (tillval, som behövs för replikering med GTID).
 
-   Kör funktionen [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) för att hämta GTID position för motsvarande BinLog-filnamn och offset.
+   Kör funktionen [`BINLOG_GTID_POS`](https://mariadb.com/kb/en/library/binlog_gtid_pos/) för att hämta GTID-positionen för motsvarande binlogfilnamn och förskjutning.
   
     ```sql
     select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
     ```
  
 
-## <a name="dump-and-restore-the-master-server"></a>Dumpa och Återställ huvud servern
+## <a name="dump-and-restore-the-master-server"></a>Dumpa och återställa huvudservern
 
-1. Dumpa alla databaser från huvud servern.
+1. Dumpa alla databaser från huvudservern.
 
-   Använd mysqldump för att dumpa alla databaser från huvud servern. Det är inte nödvändigt att dumpa MySQL-biblioteket och test biblioteket.
+   Använd mysqldump för att dumpa alla databaser från huvudservern. Det är inte nödvändigt att dumpa MySQL-biblioteket och testbiblioteket.
 
-    Mer information finns i [dumpa och Återställ](howto-migrate-dump-restore.md).
+    Mer information finns i [Dumpa och återställa](howto-migrate-dump-restore.md).
 
-2. Ställ in huvud servern på läsa/Skriv-läge.
+2. Ställ in huvudservern på läs-/skrivläge.
 
-   När databasen har dump ATS ändrar du tillbaka huvud MariaDB-servern till läsa/Skriv-läge.
+   När databasen har dumpats ändrar du tillbaka huvudservern för MariaDB till läs-/skrivläge.
 
    ```sql
    SET GLOBAL read_only = OFF;
@@ -155,17 +155,17 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
 3. Återställ dumpfilen till den nya servern.
 
-   Återställ dumpfilen till servern som skapats i Azure Database for MariaDB-tjänsten. Se [dump & Restore](howto-migrate-dump-restore.md) for How to Restore dump File to a MariaDB Server.
+   Återställ dumpfilen till servern som skapats i Azure Database for MariaDB-tjänsten. Se [Dumpa & Återställning](howto-migrate-dump-restore.md) för hur du återställer en dumpfil till en MariaDB-server.
 
-   Om dumpfilen är stor laddar du upp den till en virtuell dator i Azure inom samma region som replik servern. Återställ den till Azure Database for MariaDB-servern från den virtuella datorn.
+   Om dumpfilen är stor överför du den till en virtuell dator i Azure inom samma region som replikservern. Återställa den till Azure Database för MariaDB-servern från den virtuella datorn.
 
-## <a name="link-the-master-and-replica-servers-to-start-data-in-replication"></a>Länka huvud-och replik servrar för att starta Datareplikering
+## <a name="link-the-master-and-replica-servers-to-start-data-in-replication"></a>Länka huvud- och replikservrarna för att starta datainsamling
 
-1. Ange huvud servern.
+1. Ställ in huvudservern.
 
-   Alla Datareplikering funktioner utförs med lagrade procedurer. Du hittar alla procedurer på [datareplikering lagrade procedurer](reference-data-in-stored-procedures.md). Lagrade procedurer kan köras i MySQL-gränssnittet eller MySQL Workbench.
+   Alla funktioner för datareplikation utförs genom lagrade procedurer. Du hittar alla procedurer vid [datainsamlingsbetonade procedurer](reference-data-in-stored-procedures.md). Lagrade procedurer kan köras i MySQL-skalet eller MySQL Workbench.
 
-   Logga in på mål replik servern i Azure DB for MariaDB-tjänsten för att länka två servrar och starta replikering. Ange sedan den externa instansen som huvud server genom att använda `mysql.az_replication_change_master` eller `mysql.az_replication_change_master_with_gtid` lagrade proceduren på Azure DB för MariaDB-servern.
+   Om du vill länka två servrar och starta replikeringen loggar du in på målreplikservern i Azure DB för MariaDB-tjänsten. Ange sedan den externa instansen som `mysql.az_replication_change_master` huvudserver med hjälp av eller `mysql.az_replication_change_master_with_gtid` lagrad procedur på Azure DB för MariaDB-servern.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -177,16 +177,16 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
    CALL mysql.az_replication_change_master_with_gtid('<master_host>', '<master_user>', '<master_password>', 3306, '<master_gtid_pos>', '<master_ssl_ca>');
    ```
 
-   - master_host: värd namnet för huvud servern
-   - master_user: användar namn för huvud servern
-   - master_password: lösen ordet för huvud servern
-   - master_log_file: ett binärt logg fils namn körs `show master status`
-   - master_log_pos: binär logg position körs `show master status`
-   - master_gtid_pos: GTID position körs `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
-   - master_ssl_ca: certifikat utfärdarens kontext. Om du inte använder SSL skickar du en tom sträng. *
+   - master_host: värdnamn för huvudservern
+   - master_user: användarnamn för huvudservern
+   - master_password: lösenord för huvudservern
+   - master_log_file: binärt loggfilsnamn från att köras`show master status`
+   - master_log_pos: binär loggposition från att köras`show master status`
+   - master_gtid_pos: GTID-position från löpning`select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
+   - master_ssl_ca: CA-certifikatets kontext. Om du inte använder SSL skickar du en tom sträng.*
     
     
-    \* Vi rekommenderar att du skickar parametern master_ssl_ca som en variabel. Mer information finns i följande exempel.
+    *Vi rekommenderar att du skickar in parametern master_ssl_ca som en variabel. Mer information finns i följande exempel.
 
    **Exempel**
 
@@ -196,52 +196,52 @@ Följande steg förbereder och konfigurerar den MariaDB-server som finns lokalt,
 
        ```sql
        SET @cert = '-----BEGIN CERTIFICATE-----
-       PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
+       PLACE YOUR PUBLIC KEY CERTIFICATE'S CONTEXT HERE
        -----END CERTIFICATE-----'
        ```
 
-       Replikering med SSL konfigureras mellan en huvud server som finns i domänen companya.com och en replik server som är värd för Azure Database for MariaDB. Den här lagrade proceduren körs på repliken.
+       Replikering med SSL har konfigurerats mellan en huvudserver som finns i domänen companya.com och en replikserver som finns i Azure Database för MariaDB. Den här lagrade proceduren körs på repliken.
     
        ```sql
        CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
        ```
    - Replikering utan SSL
 
-       Replikering utan SSL konfigureras mellan en huvud server som finns i domänen companya.com och en replik server som är värd för Azure Database for MariaDB. Den här lagrade proceduren körs på repliken.
+       Replikering utan SSL ställs in mellan en huvudserver som finns i domänen companya.com och en replikserver som finns i Azure Database för MariaDB. Den här lagrade proceduren körs på repliken.
 
        ```sql
        CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, '');
        ```
 
-2. Starta replikering.
+2. Starta replikeringen.
 
-   Anropa den `mysql.az_replication_start` lagrade proceduren för att starta replikeringen.
+   Anropa `mysql.az_replication_start` den lagrade proceduren för att starta replikeringen.
 
    ```sql
    CALL mysql.az_replication_start;
    ```
 
-3. Kontrol lera replikeringsstatus.
+3. Kontrollera replikeringsstatus.
 
-   Anropa kommandot [`show slave status`](https://mariadb.com/kb/en/library/show-slave-status/) på replik servern för att visa replikeringsstatus.
+   Anropa [`show slave status`](https://mariadb.com/kb/en/library/show-slave-status/) kommandot på replikservern för att visa replikeringsstatusen.
     
    ```sql
    show slave status;
    ```
 
-   Om `Slave_IO_Running` och `Slave_SQL_Running` är i läget `yes`och värdet för `Seconds_Behind_Master` är `0`, fungerar replikeringen. `Seconds_Behind_Master` anger hur sen repliken är. Om värdet inte `0`, bearbetar repliken uppdateringar.
+   Om `Slave_IO_Running` `Slave_SQL_Running` och är `yes`i tillståndet och `Seconds_Behind_Master` `0`värdet för är , replikering fungerar. `Seconds_Behind_Master`anger hur sen repliken är. Om värdet inte `0`är bearbetar repliken uppdateringar.
 
-4. Uppdatera motsvarande servervariabler för att göra datareplikering säkrare (krävs endast för replikering utan GTID).
+4. Uppdatera motsvarande servervariabler för att göra data-in-replikering säkrare (krävs endast för replikering utan GTID).
     
-    På grund av en begränsning för ursprunglig replikering i MariaDB måste du ange [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) och [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variabler på replikering utan GTID-scenariot.
+    På grund av en inbyggd replikeringsbegränsning i MariaDB måste du ange [`sync_master_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) och [`sync_relay_log_info`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variabler för replikering utan GTID-scenariot.
 
-    Kontrol lera att den sekundära serverns `sync_master_info` och `sync_relay_log_info` variabler för att se till att datareplikeringen är stabil och ange variablerna som ska `1`s.
+    Kontrollera slavserverns `sync_master_info` och `sync_relay_log_info` variablerna för att se till att datainstalleringen `1`är stabil och ställ in variablerna på .
     
 ## <a name="other-stored-procedures"></a>Andra lagrade procedurer
 
 ### <a name="stop-replication"></a>Stoppa replikering
 
-Använd följande lagrade procedur för att stoppa replikeringen mellan huvud-och replik servern:
+Om du vill stoppa replikeringen mellan huvud- och replikservern använder du följande lagrade procedur:
 
 ```sql
 CALL mysql.az_replication_stop;
@@ -249,19 +249,19 @@ CALL mysql.az_replication_stop;
 
 ### <a name="remove-the-replication-relationship"></a>Ta bort replikeringsrelationen
 
-Använd följande lagrade procedur om du vill ta bort relationen mellan huvud-och replik servern:
+Om du vill ta bort relationen mellan huvud- och replikservern använder du följande lagrade procedur:
 
 ```sql
 CALL mysql.az_replication_remove_master;
 ```
 
-### <a name="skip-the-replication-error"></a>Hoppa över replikeringsfel
+### <a name="skip-the-replication-error"></a>Hoppa över replikeringsfelet
 
-Använd följande lagrade procedur om du vill hoppa över ett replikeringsfel och tillåta replikering:
+Om du vill hoppa över ett replikeringsfel och tillåta replikering använder du följande lagrade procedur:
     
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [datareplikering](concepts-data-in-replication.md) för Azure Database for MariaDB.
+Läs mer om [datareplikering](concepts-data-in-replication.md) för Azure-databas för MariaDB.

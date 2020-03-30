@@ -1,7 +1,7 @@
 ---
-title: Så här modellerar du komplexa data typer
+title: Så här modellerar du komplexa datatyper
 titleSuffix: Azure Cognitive Search
-description: Kapslade eller hierarkiska data strukturer kan modelleras i ett Azure Kognitiv sökning-index med data typerna ComplexType och Collection.
+description: Kapslade eller hierarkiska datastrukturer kan modelleras i ett Azure Cognitive Search-index med hjälp av Datatyper för ComplexType och Samlingar.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -10,30 +10,30 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: 2edd62825de08becf22f2f953a63a7f89f55e0a6
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79283061"
 ---
-# <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Så här modellerar du komplexa data typer i Azure Kognitiv sökning
+# <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Så här modellerar du komplexa datatyper i Azure Cognitive Search
 
-Externa data uppsättningar som används för att fylla ett Azure Kognitiv sökning-index kan komma i många former. Ibland innehåller de hierarkiska eller kapslade under strukturer. Exempel kan innehålla flera adresser för en enskild kund, flera färger och storlekar för en enda SKU, flera författare till en enda bok och så vidare. I modell villkor kan du se dessa strukturer som kallas *komplexa*, *sammansatta*, *sammansatta*eller *aggregerade* data typer. Termen Azure Kognitiv sökning används för det här konceptet är en **komplex typ**. I Azure Kognitiv sökning modelleras komplexa typer med hjälp av **komplexa fält**. Ett komplext fält är ett fält som innehåller underordnade (under fält) som kan vara av valfri datatyp, inklusive andra komplexa typer. Detta fungerar på samma sätt som strukturerade data typer i ett programmeringsspråk.
+Externa datauppsättningar som används för att fylla i ett Azure Cognitive Search-index kan finnas i många former. Ibland innehåller de hierarkiska eller kapslade understrukturer. Exempel kan vara flera adresser för en enskild kund, flera färger och storlekar för en enda SKU, flera författare till en enda bok och så vidare. I modelleringstermer kan du se dessa strukturer som kallas *komplexa,* *sammansatta,* *sammansatta*eller *aggregerade* datatyper. Termen Azure Cognitive Search använder för det här konceptet är **komplex typ**. I Azure Cognitive Search modelleras komplexa typer med komplexa **fält**. Ett komplext fält är ett fält som innehåller underordnade (underfält) som kan vara av vilken datatyp som helst, inklusive andra komplexa typer. Detta fungerar på ett liknande sätt som strukturerade datatyper i ett programmeringsspråk.
 
-Komplexa fält representerar antingen ett enda objekt i dokumentet eller en matris med objekt, beroende på data typen. Fält av typen `Edm.ComplexType` representerar enstaka objekt, medan fält av typen `Collection(Edm.ComplexType)` representerar matriser med objekt.
+Komplexa fält representerar antingen ett enskilt objekt i dokumentet eller en matris med objekt, beroende på datatypen. Fält av `Edm.ComplexType` typen representerar enstaka `Collection(Edm.ComplexType)` objekt, medan fält av typen representerar matriser med objekt.
 
-Azure Kognitiv sökning har inbyggt stöd för komplexa typer och samlingar. Med de här typerna kan du modellera nästan alla JSON-strukturer i ett Azure Kognitiv sökning-index. I tidigare versioner av Azure Kognitiv sökning-API: er kunde endast sammanslagna rad uppsättningar importeras. I den senaste versionen kan indexet nu bättre motsvara källdata. Med andra ord, om dina källdata har komplexa typer, kan indexet också ha komplexa typer.
+Azure Cognitive Search stöder inbyggt komplexa typer och samlingar. Med dessa typer kan du modellera nästan alla JSON-strukturer i ett Azure Cognitive Search-index. I tidigare versioner av Azure Cognitive Search API:er kan endast förenklade raduppsättningar importeras. I den senaste versionen kan ditt index nu närmare motsvara källdata. Med andra ord, om källdata har komplexa typer kan ditt index också ha komplexa typer.
 
-För att komma igång rekommenderar vi [hotell data uppsättningen](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), som du kan läsa in i guiden **importera data** i Azure Portal. Guiden identifierar komplexa typer i källan och föreslår ett index schema baserat på de identifierade strukturerna.
+För att komma igång rekommenderar vi [hotelldatauppsättningen](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md), som du kan läsa in i guiden **Importera data** i Azure-portalen. Guiden identifierar komplexa typer i källan och föreslår ett indexschema baserat på de identifierade strukturerna.
 
 > [!Note]
-> Stöd för komplexa typer är allmänt tillgängligt i `api-version=2019-05-06`. 
+> Stöd för komplexa typer `api-version=2019-05-06`är allmänt tillgängligt i . 
 >
-> Om din Sök lösning bygger på tidigare lösningar för förenklade data uppsättningar i en samling bör du ändra indexet så att det innehåller komplexa typer som stöds i den senaste API-versionen. Mer information om hur du uppgraderar API-versioner finns i [Uppgradera till den nyaste REST API-versionen](search-api-migration.md) eller [Uppgradera till den senaste versionen av .NET SDK](search-dotnet-sdk-migration-version-9.md).
+> Om söklösningen bygger på tidigare lösningar med tillplattade datauppsättningar i en samling bör du ändra indexet så att det innehåller komplexa typer som stöds i den senaste API-versionen. Mer information om hur du uppgraderar API-versioner finns i [Uppgradera till den senaste REST API-versionen](search-api-migration.md) eller [Uppgradera till den senaste .NET SDK-versionen](search-dotnet-sdk-migration-version-9.md).
 
 ## <a name="example-of-a-complex-structure"></a>Exempel på en komplex struktur
 
-Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fält som `Address` och `Rooms`har underordnade fält. `Address` har en enda uppsättning värden för de underordnade fälten, eftersom det är ett enda objekt i dokumentet. `Rooms` har däremot flera värde uppsättningar för de underordnade fälten, en för varje objekt i samlingen.
+Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fält, `Address` till `Rooms`exempel och , har underfält. `Address`har en enda uppsättning värden för dessa underfält, eftersom det är ett enda objekt i dokumentet. Däremot `Rooms` har flera uppsättningar värden för sina underfält, en för varje objekt i samlingen.
 
 ```json
 {
@@ -62,9 +62,9 @@ Följande JSON-dokument består av enkla fält och komplexa fält. Komplexa fäl
 
 ## <a name="creating-complex-fields"></a>Skapa komplexa fält
 
-Precis som med alla index definitioner kan du använda portalen, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) för att skapa ett schema som innehåller komplexa typer. 
+Precis som med alla indexdefinitioner kan du använda portalen, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)eller [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) för att skapa ett schema som innehåller komplexa typer. 
 
-I följande exempel visas ett index schema för JSON med enkla fält, samlingar och komplexa typer. Observera att varje under fält i en komplex typ har en typ och kan ha attribut, precis som fält på den översta nivån gör. Schemat motsvarar exempel data ovan. `Address` är ett komplext fält som inte är en samling (ett hotell har en adress). `Rooms` är ett komplext samlings fält (ett hotell har många rum).
+I följande exempel visas ett JSON-indexschema med enkla fält, samlingar och komplexa typer. Observera att i en komplex typ har varje underfält en typ och kan ha attribut, precis som fält på den översta nivån gör. Schemat motsvarar exempeldata ovan. `Address`är ett komplext fält som inte är en samling (ett hotell har en adress). `Rooms`är ett komplext samlingsfält (ett hotell har många rum).
 
 ```json
 {
@@ -91,71 +91,71 @@ I följande exempel visas ett index schema för JSON med enkla fält, samlingar 
 }
 ```
 
-## <a name="updating-complex-fields"></a>Uppdaterar komplexa fält
+## <a name="updating-complex-fields"></a>Uppdatera komplexa fält
 
-Alla [Omindexering regler](search-howto-reindex.md) som gäller för fält i allmänhet gäller fortfarande för komplexa fält. Genom att ändra några av huvud reglerna här krävs inte att ett index återskapas, men de flesta ändringar görs i ett fält.
+Alla [omindexeringsregler](search-howto-reindex.md) som gäller för fält i allmänhet gäller fortfarande för komplexa fält. Om du upprepar några av huvudreglerna här, kräver det inte en indexreprisning om du lägger till ett fält, men de flesta ändringar gör det.
 
 ### <a name="structural-updates-to-the-definition"></a>Strukturella uppdateringar av definitionen
 
-Du kan när som helst lägga till nya under fält i ett komplext fält utan att behöva skapa index igen. Till exempel är det tillåtet att lägga till "Postummer" till `Address` eller "bekvämligheterna" till `Rooms`, precis som att lägga till ett fält på översta nivån i ett index. Befintliga dokument har ett null-värde för nya fält tills du uttryckligen fyller i fälten genom att uppdatera dina data.
+Du kan lägga till nya underfält i ett komplext fält när som helst utan att behöva återskapa index. Till exempel, lägga till `Address` "Postnummer" till `Rooms` eller "Bekvämligheter" till är tillåtet, precis som att lägga till en toppnivå fält till ett index. Befintliga dokument har ett null-värde för nya fält tills du uttryckligen fyller i dessa fält genom att uppdatera dina data.
 
-Observera att varje under fält i en komplex typ har en typ och kan ha attribut, precis som fält på den översta nivån gör
+Observera att i en komplex typ har varje delfält en typ och kan ha attribut, precis som fält på den översta nivån
 
-### <a name="data-updates"></a>Data uppdateringar
+### <a name="data-updates"></a>Datauppdateringar
 
-Uppdatering av befintliga dokument i ett index med åtgärden `upload` fungerar på samma sätt för komplexa och enkla fält – alla fält ersätts. Men `merge` (eller `mergeOrUpload` när det används i ett befintligt dokument) fungerar inte likadant i alla fält. Mer specifikt har `merge` inte stöd för att sammanfoga element i en samling. Den här begränsningen finns för samlingar med primitiva typer och komplexa samlingar. Om du vill uppdatera en samling måste du hämta det fullständiga samling svärdet, göra ändringar och sedan ta med den nya samlingen i API-begäran för indexet.
+Att uppdatera befintliga dokument `upload` i ett index med åtgärden fungerar på samma sätt för komplexa och enkla fält – alla fält ersätts. `merge` (eller `mergeOrUpload` när det tillämpas på ett befintligt dokument) fungerar dock inte på samma sätt i alla fält. `merge` Specifikt stöder inte sammanslagning av element i en samling. Den här begränsningen finns för samlingar av primitiva typer och komplexa samlingar. Om du vill uppdatera en samling måste du hämta hela insamlingsvärdet, göra ändringar och sedan inkludera den nya samlingen i index-API-begäran.
 
-## <a name="searching-complex-fields"></a>Söker i komplexa fält
+## <a name="searching-complex-fields"></a>Söka i komplexa fält
 
-Sök uttryck med fri form fungerar som förväntat med komplexa typer. Om ett sökbart fält eller under fält var som helst i ett dokument matchar, är själva dokumentet en matchning.
+Fritt formulär sökuttryck fungerar som förväntat med komplexa typer. Om ett sökbart fält eller underfält någonstans i ett dokument matchar är själva dokumentet en matchning.
 
-Frågor får fler nyanserade när du har flera villkor och vissa villkor har angivna fält namn, vilket är möjligt med [Lucene-syntaxen](query-lucene-syntax.md). Den här frågan försöker till exempel matcha två villkor, "Göteborg" och "OR", mot två under fält i adress fältet:
+Frågor blir mer nyanserade när du har flera termer och operatorer, och vissa termer har angivna fältnamn, vilket är möjligt med [Lucene-syntaxen](query-lucene-syntax.md). Den här frågan försöker till exempel matcha två termer, "Portland" och "ELLER", mot två underfält i fältet Adress:
 
     search=Address/City:Portland AND Address/State:OR
 
-Frågor som detta är *korrelerade* för full texts ökning, till skillnad från filter. I filter korreleras frågor över underordnade fält i en komplex samling med hjälp av Range-variabler i [`any` eller `all`](search-query-odata-collection-operators.md). En Lucene-fråga ovan returnerar dokument som innehåller både "Göteborg, Maine" och "Göteborg, Göteborg", tillsammans med andra städer i Göteborg. Detta inträffar eftersom varje sats gäller för alla värden i sitt fält i hela dokumentet, så det finns inget sätt att använda ett "Aktuellt under dokument". Mer information finns i [förstå OData Collection filter i Azure kognitiv sökning](search-query-understand-collection-filters.md).
+Frågor som denna är *okorrelerade* för fulltextsökning, till skillnad från filter. I filter kororderas frågor över underfält i en komplex [ `any` samling `all` ](search-query-odata-collection-operators.md)med hjälp av intervallvariabler i eller . Lucene-frågan ovan returnerar dokument som innehåller både "Portland, Maine" och "Portland, Oregon", tillsammans med andra städer i Oregon. Detta beror på att varje sats gäller för alla värden i fältet i hela dokumentet, så det finns inget begrepp om ett "aktuellt underdokument". Mer information om detta finns [i Förstå OData-samlingsfilter i Azure Cognitive Search](search-query-understand-collection-filters.md).
 
-## <a name="selecting-complex-fields"></a>Välja komplexa fält
+## <a name="selecting-complex-fields"></a>Markera komplexa fält
 
-Parametern `$select` används för att välja vilka fält som returneras i Sök resultaten. Om du vill använda den här parametern för att välja vissa underordnade fält i ett komplext fält inkluderar du det överordnade fältet och under fältet avgränsat med ett snedstreck (`/`).
+Parametern `$select` används för att välja vilka fält som ska returneras i sökresultaten. Om du vill använda den här parametern för att välja specifika underfält i`/`ett komplext fält inkluderar du det överordnade fältet och underfältet avgränsade med ett snedstreck ( ).
 
     $select=HotelName, Address/City, Rooms/BaseRate
 
-Fält måste markeras som hämtnings bara i indexet om du vill ha dem i Sök resultaten. Endast fält som är markerade som hämtnings bara kan användas i en `$select`-instruktion.
+Fält måste markeras som Hämtningsbara i indexet om du vill ha dem i sökresultaten. Endast fält som är markerade som Hämtningsbara kan användas i en `$select` sats.
 
-## <a name="filter-facet-and-sort-complex-fields"></a>Filtrera, fasett och sortera komplexa fält
+## <a name="filter-facet-and-sort-complex-fields"></a>Filtrera, aspekt och sortera komplexa fält
 
-Samma [OData Path-syntax](query-odata-filter-orderby-syntax.md) som används för filtrering och fältade sökningar kan också användas för att fasetta, sortera och välja fält i en sökbegäran. För komplexa typer gäller reglerna som styr vilka under fält som kan markeras som sorterbara eller aspekt bara. Mer information om dessa regler finns i referens för [create index API](/rest/api/searchservice/create-index).
+Samma [OData-sökvägssyntax](query-odata-filter-orderby-syntax.md) som används för filtrering och fältvisita sökningar kan också användas för att faceting, sortera och välja fält i en sökbegäran. För komplexa typer gäller regler som styr vilka underfält som kan markeras som sorterbara eller facetable. Mer information om dessa regler finns i [referensen Skapa index-API](/rest/api/searchservice/create-index).
 
-### <a name="faceting-sub-fields"></a>Fasett-underfält
+### <a name="faceting-sub-fields"></a>Fasning av underfält
 
-Alla under fält kan markeras som fasettable, såvida det inte är av typen `Edm.GeographyPoint` eller `Collection(Edm.GeographyPoint)`.
+Alla delfält kan markeras som ansiktstabell om `Edm.GeographyPoint` `Collection(Edm.GeographyPoint)`det inte är av typ eller .
 
-Antalet dokument som returneras i fasett-resultaten beräknas för det överordnade dokumentet (ett hotell), inte under dokumenten i en komplex samling (rum). Anta till exempel att ett hotell har 20 rum av typen "Suite". Med den här aspekt parametern `facet=Rooms/Type`är aspekt antalet ett för hotellet, inte 20 för rummen.
+De dokumentantal som returneras i aspektresultaten beräknas för det överordnade dokumentet (ett hotell), inte underdokumenten i en komplex samling (rum). Anta till exempel att ett hotell har 20 rum av typen "svit". Med tanke på `facet=Rooms/Type`denna aspekt parameter, aspekten räkna kommer att vara en för hotellet, inte 20 för rummen.
 
 ### <a name="sorting-complex-fields"></a>Sortera komplexa fält
 
-Sorterings åtgärder gäller för dokument (hotell) och inte under dokument (rum). När du har en komplex typ samling, t. ex. rum, är det viktigt att du inser att du inte kan sortera på rum alls. I själva verket kan du inte sortera efter samlingar.
+Sorteringsåtgärder gäller dokument (Hotell) och inte underdokument (Rum). När du har en komplex typsamling, till exempel Rum, är det viktigt att inse att du inte kan sortera på rum alls. Faktum är att du inte kan sortera på någon samling.
 
-Sorterings åtgärder fungerar när fält har ett enda värde per dokument, om fältet är ett enkelt fält eller ett underordnat fält i en komplex typ. `Address/City` kan till exempel vara sorterbar eftersom det bara finns en adress per hotell, så `$orderby=Address/City` sorterar hotell efter ort.
+Sorteringsoperationer fungerar när fält har ett enda värde per dokument, om fältet är ett enkelt fält eller ett underfält i en komplex typ. Till exempel `Address/City` är tillåtet att vara sorterbar eftersom det bara `$orderby=Address/City` finns en adress per hotell, så kommer att sortera hotell efter stad.
 
-### <a name="filtering-on-complex-fields"></a>Filtrering av komplexa fält
+### <a name="filtering-on-complex-fields"></a>Filtrering på komplexa fält
 
-Du kan referera till underordnade fält i ett komplext fält i ett filter uttryck. Använd bara samma [OData Path-syntax](query-odata-filter-orderby-syntax.md) som används för att fasetta, sortera och välja fält. Följande filter kommer till exempel att returnera alla hotell i Kanada:
+Du kan referera till underfält i ett komplext fält i ett filteruttryck. Använd bara samma [OData-sökvägssyntax](query-odata-filter-orderby-syntax.md) som används för att visa, sortera och markera fält. Följande filter returnerar till exempel alla hotell i Kanada:
 
     $filter=Address/Country eq 'Canada'
 
-Om du vill filtrera efter ett komplext samlings fält kan du använda ett **lambda-uttryck** med [operatorerna`any` och `all`](search-query-odata-collection-operators.md). I så fall är **Range-variabeln** för Lambda-uttrycket ett objekt med under fält. Du kan referera till de underordnade fälten med standard-syntaxen för OData-sökvägen. Följande filter returnerar till exempel alla hotell med minst ett Deluxe-rum och alla non-rökning-rum:
+Om du vill filtrera på ett komplext [ `any` samlingsfält `all` ](search-query-odata-collection-operators.md)kan du använda ett **lambda-uttryck** med operatorerna och . I så fall är **intervallvariabeln** för lambda-uttrycket ett objekt med underfält. Du kan referera till dessa underfält med standardsyntaxen för OData-sökväg. Följande filter returnerar till exempel alla hotell med minst ett deluxerum och alla rökfria rum:
 
     $filter=Rooms/any(room: room/Type eq 'Deluxe Room') and Rooms/all(room: not room/SmokingAllowed)
 
-Precis som med enkla fält på översta nivån kan enkla under fält av komplexa fält bara tas med i filter om de har det **filter** bara attributet inställt på `true` i index definitionen. Mer information finns i referens för [create index API](/rest/api/searchservice/create-index).
+Precis som med enkla fält på den översta nivån kan enkla underfält i komplexa fält `true` endast inkluderas i filter om de har det **filterbara attributet** inställt på i indexdefinitionen. Mer information finns i [referensen Skapa index-API](/rest/api/searchservice/create-index).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova [hotell data uppsättningen](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) i guiden **Importera data** . Du behöver Cosmos DB anslutnings information som anges i Readme för att komma åt data.
+Prova [hotels-datauppsättningen](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/README.md) i guiden **Importera data.** Du behöver Cosmos DB-anslutningsinformationen som finns i readme för att komma åt data.
 
-Med den informationen i hand är ditt första steg i guiden att skapa en ny Azure Cosmos DB-datakälla. I guiden visas ett index med komplexa typer när du kommer till sidan mål index. Skapa och Läs in det här indexet och kör sedan frågor för att förstå den nya strukturen.
+Med den informationen i handen är ditt första steg i guiden att skapa en ny Azure Cosmos DB-datakälla. Längre fram i guiden visas ett index med komplexa typer när du kommer till målindexsidan. Skapa och ladda det här indexet och kör sedan frågor för att förstå den nya strukturen.
 
 > [!div class="nextstepaction"]
-> [Snabb start: Portal guide för import, indexering och frågor](search-get-started-portal.md)
+> [Snabbstart: portalguide för import, indexering och frågor](search-get-started-portal.md)

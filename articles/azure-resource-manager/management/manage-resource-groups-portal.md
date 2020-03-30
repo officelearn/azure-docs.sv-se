@@ -1,116 +1,116 @@
 ---
-title: Hantera resurs grupper – Azure Portal
-description: Använd Azure Portal för att hantera dina resurs grupper via Azure Resource Manager. Visar hur du skapar, listar och tar bort resurs grupper.
+title: Hantera resursgrupper - Azure-portal
+description: Använd Azure-portalen för att hantera dina resursgrupper via Azure Resource Manager. Visar hur du skapar, listar och tar bort resursgrupper.
 author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
 ms.openlocfilehash: 8087baf7595bfd2497f97fbff4822b356cd1b146
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79274572"
 ---
-# <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure Portal
+# <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Hantera Azure Resource Manager-resursgrupper med hjälp av Azure-portalen
 
-Lär dig hur du använder [Azure Portal](https://portal.azure.com) med [Azure Resource Manager](overview.md) för att hantera Azures resurs grupper. Information om hur du hanterar Azure-resurser finns i [Hantera Azure-resurser med hjälp av Azure Portal](manage-resources-portal.md).
+Lär dig hur du använder [Azure-portalen](https://portal.azure.com) med [Azure Resource Manager](overview.md) för att hantera dina Azure-resursgrupper. Information om hur du hanterar Azure-resurser finns i [Hantera Azure-resurser med hjälp av Azure-portalen](manage-resources-portal.md).
 
-Andra artiklar om att hantera resurs grupper:
+Andra artiklar om hantering av resursgrupper:
 
-- [Hantera Azure-resurs grupper med hjälp av Azure CLI](manage-resources-cli.md)
-- [Hantera Azure-resurs grupper med hjälp av Azure PowerShell](manage-resources-powershell.md)
+- [Hantera Azure-resursgrupper med hjälp av Azure CLI](manage-resources-cli.md)
+- [Hantera Azure-resursgrupper med hjälp av Azure PowerShell](manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="what-is-a-resource-group"></a>Vad är en resurs grupp?
+## <a name="what-is-a-resource-group"></a>Vad är en resursgrupp
 
-En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation. Lägg vanligt vis till resurser som delar samma livs cykel i samma resurs grupp så att du enkelt kan distribuera, uppdatera och ta bort dem som en grupp.
+En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppen kan innehålla alla resurser för lösningen, eller endast de resurser som du vill hantera som en grupp. Du bestämmer hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation. Lägg i allmänhet till resurser som delar samma livscykel i samma resursgrupp så att du enkelt kan distribuera, uppdatera och ta bort dem som en grupp.
 
 Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du därför var metadatan ska lagras. På grund av regelefterlevnadsskäl kan du behöva säkerställa att din data lagras inom en viss region.
 
-Resursgruppen lagrar metadata om resurserna. När du anger en plats för resurs gruppen anger du var metadata lagras.
+Resursgruppen lagrar metadata om resurserna. När du anger en plats för resursgruppen anger du var metadata lagras.
 
-## <a name="create-resource-groups"></a>Skapa resurs grupper
+## <a name="create-resource-groups"></a>Skapa resursgrupper
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **resurs grupper**
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Välj **resursgrupper**
 
-    ![Lägg till resurs grupp](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
+    ![lägga till resursgrupp](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
 3. Välj **Lägg till**.
 4. Ange följande värden:
 
    - **Prenumeration**: Välj din Azure-prenumeration. 
-   - **Resurs grupp**: Ange ett nytt resurs grupps namn. 
-   - **Region**: Välj en Azure-plats, till exempel **Central USA**.
+   - **Resursgrupp**: Ange ett nytt resursgruppnamn. 
+   - **Region**: Välj en Azure-plats, till exempel **Central US**.
 
-     ![Skapa resurs grupp](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
-5. Välj **Granska + skapa**
-6. Välj **Skapa**. Det tar några sekunder att skapa en resurs grupp.
-7. Välj **Uppdatera** på den översta menyn för att uppdatera resurs grupps listan och välj sedan den nya resurs gruppen som har skapats för att öppna den. Eller Välj **meddelande**(klock ikonen) ovanifrån och välj sedan **gå till resurs grupp** för att öppna den nyligen skapade resurs gruppen
+     ![skapa resursgrupp](./media/manage-resource-groups-portal/manage-resource-groups-create-group.png)
+5. Välj **recension + skapa**
+6. Välj **Skapa**. Det tar några sekunder att skapa en resursgrupp.
+7. Välj **Uppdatera** på den övre menyn om du vill uppdatera resursgruppslistan och välj sedan den nyskapade resursgruppen för att öppna den. Eller välj **Meddelande**(klockikonen) högst upp och välj sedan **Gå till resursgrupp** för att öppna den nyskapade resursgruppen
 
-    ![Gå till resurs grupp](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
+    ![gå till resursgrupp](./media/manage-resource-groups-portal/manage-resource-groups-add-group-go-to-resource-group.png)
 
-## <a name="list-resource-groups"></a>Lista resurs grupper
+## <a name="list-resource-groups"></a>Lista resursgrupper
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Om du vill visa en lista över resurs grupper väljer du **resurs grupper**
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. Om du vill visa resursgrupper väljer du **Resursgrupper**
 
-    ![Bläddra bland resurs grupper](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
+    ![bläddra i resursgrupper](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
 
-3. Om du vill anpassa informationen som visas för resurs grupperna väljer du **Redigera kolumner**. Följande skärm bild visar de ytterligare kolumner som du kan lägga till i visningen:
+3. Om du vill anpassa informationen som visas för resursgrupperna väljer du **Redigera kolumner**. Följande skärmbild visar de tilläggskolumner som du kan lägga till i displayen:
 
-## <a name="open-resource-groups"></a>Öppna resurs grupper
+## <a name="open-resource-groups"></a>Öppna resursgrupper
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Resursgrupper**.
-3. Välj den resurs grupp som du vill öppna.
+3. Markera den resursgrupp som du vill öppna.
 
 ## <a name="delete-resource-groups"></a>Ta bort resursgrupper
 
-1. Öppna den resurs grupp som du vill ta bort.  Se [Öppna resurs grupper](#open-resource-groups).
+1. Öppna den resursgrupp som du vill ta bort.  Se [Öppna resursgrupper](#open-resource-groups).
 2. Välj **Ta bort resursgrupp**.
 
-    ![ta bort Azure-resurs grupp](./media/manage-resource-groups-portal/delete-group.png)
+    ![ta bort azure-resursgrupp](./media/manage-resource-groups-portal/delete-group.png)
 
-Mer information om hur Azure Resource Manager beställer borttagningen av resurser finns i [Azure Resource Manager ta bort resurs grupp](delete-resource-group.md).
+Mer information om hur Azure Resource Manager beställer borttagning av resurser finns i [Azure Resource Manager-resursgruppborttagning](delete-resource-group.md).
 
-## <a name="deploy-resources-to-a-resource-group"></a>Distribuera resurser till en resurs grupp
+## <a name="deploy-resources-to-a-resource-group"></a>Distribuera resurser till en resursgrupp
 
-När du har skapat en Resource Manager-mall kan du använda Azure Portal för att distribuera dina Azure-resurser. Information om hur du skapar en mall finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../templates/quickstart-create-templates-use-the-portal.md). Information om hur du distribuerar en mall med hjälp av portalen finns i [distribuera resurser med Resource Manager-mallar och Azure Portal](../templates/deploy-portal.md).
+När du har skapat en Resource Manager-mall kan du använda Azure-portalen för att distribuera dina Azure-resurser. Information om hur du skapar en mall finns i [Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](../templates/quickstart-create-templates-use-the-portal.md). Information om hur du distribuerar en mall med hjälp av portalen finns i [Distribuera resurser med Resource Manager-mallar och Azure-portal](../templates/deploy-portal.md).
 
-## <a name="move-to-another-resource-group-or-subscription"></a>Flytta till en annan resurs grupp eller prenumeration
+## <a name="move-to-another-resource-group-or-subscription"></a>Flytta till en annan resursgrupp eller prenumeration
 
-Du kan flytta resurserna i gruppen till en annan resurs grupp. Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumeration](move-resource-group-and-subscription.md).
+Du kan flytta resurserna i gruppen till en annan resursgrupp. Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumeration](move-resource-group-and-subscription.md).
 
-## <a name="lock-resource-groups"></a>Lås resurs grupper
+## <a name="lock-resource-groups"></a>Låsa resursgrupper
 
-Låsning förhindrar att andra användare i organisationen oavsiktligt tar bort eller ändrar kritiska resurser, t. ex. Azure-prenumeration, resurs grupp eller resurs. 
+Låsning hindrar andra användare i organisationen från att oavsiktligt ta bort eller ändra kritiska resurser, till exempel Azure-prenumeration, resursgrupp eller resurs. 
 
-1. Öppna den resurs grupp som du vill ta bort.  Se [Öppna resurs grupper](#open-resource-groups).
-2. I det vänstra fönstret väljer du **Lås**.
-3. Om du vill lägga till ett lås i resurs gruppen väljer du **Lägg till**.
-4. Ange **Lås namn**, **Lås typ**och **anteckningar**. Lås typerna är **skrivskyddade**och **ta bort**.
+1. Öppna den resursgrupp som du vill ta bort.  Se [Öppna resursgrupper](#open-resource-groups).
+2. Välj **Lås**i den vänstra rutan .
+3. Om du vill lägga till ett lås i resursgruppen väljer du **Lägg till**.
+4. Ange **Låsnamn,** **Låstyp**och **Anteckningar**. Låstyperna inkluderar **Skrivskyddad**och **Ta bort**.
 
-    ![Lås Azure-resurs grupp](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
+    ![låsa azure-resursgrupp](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
-Mer information finns i [låsa resurser för att förhindra oväntade ändringar](lock-resources.md).
+Mer information finns i [Låsa resurser för att förhindra oväntade ändringar](lock-resources.md).
 
-## <a name="tag-resource-groups"></a>Tagga resurs grupper
+## <a name="tag-resource-groups"></a>Tagga resursgrupper
 
-Du kan använda taggar för resurs grupper och resurser för att logiskt organisera dina till gångar. Mer information finns i [använda taggar för att ordna dina Azure-resurser](tag-resources.md#portal).
+Du kan använda taggar på resursgrupper och resurser för att logiskt ordna dina resurser. Information finns i [Använda taggar för att ordna dina Azure-resurser](tag-resources.md#portal).
 
-## <a name="export-resource-groups-to-templates"></a>Exportera resurs grupper till mallar
+## <a name="export-resource-groups-to-templates"></a>Exportera resursgrupper till mallar
 
-Information om hur du exporterar mallar finns i [en och flera-resurs-export till mall-portalen](../templates/export-template-portal.md).
+Information om hur du exporterar mallar finns i [Enkel export och export med flera resurser till mallen - Portal](../templates/export-template-portal.md).
 
-## <a name="manage-access-to-resource-groups"></a>Hantera åtkomst till resurs grupper
+## <a name="manage-access-to-resource-groups"></a>Hantera åtkomst till resursgrupper
 
-[Rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md) är sättet som du hantera åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
+[Rollbaserad åtkomstkontroll (RBAC)](../../role-based-access-control/overview.md) är det sätt som du hanterar åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information Azure Resource Manager finns [Azure Resource Manager översikt](overview.md).
-- Information om syntaxen för Resource Manager-mallar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](../templates/template-syntax.md).
-- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](/azure/azure-resource-manager/).
-- Om du vill visa scheman för Azure Resource Manager mallar, se [referens för mallar](/azure/templates/).
+- Information om Azure Resource Manager finns i [Översikt över Azure Resource Manager](overview.md).
+- Information om hur du lär dig mallsyntaxen för Resurshanteraren finns [i Förstå strukturen och syntaxen för Azure Resource Manager-mallar](../templates/template-syntax.md).
+- Mer information om hur du utvecklar mallar finns i [steg-för-steg-självstudier](/azure/azure-resource-manager/).
+- Information om hur du visar mallscheman för Azure Resource Manager finns i [mallreferens](/azure/templates/).

@@ -1,6 +1,6 @@
 ---
-title: Azure ytterdörren Service – routning regel matchande övervakning | Microsoft Docs
-description: Den här artikeln hjälper dig att förstå hur Azure ytterdörren Service matchar vilken regel för vidarebefordran för en inkommande begäran
+title: Azure Ytterdörr - Routningsregel matchning övervakning | Microsoft-dokument
+description: Den här artikeln hjälper dig att förstå hur Azure Front Door matchar vilken routningsregel som ska användas för en inkommande begäran
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,52 +11,52 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: eec99bde0ea73a99a9dc1345f938b821a95a7c05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 605974e76c3ca878784129f7c9827a78d0642da6
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736299"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79471599"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Hur ytterdörren matchar begäranden till en regel för vidarebefordran
+# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Så här matchar Ytterdörren begäranden till en routningsregel
 
-När du upprättar en anslutning och gör en SSL-handskakning, när en begäran landar på en miljö med ytterdörren en av de första sakerna som ytterdörren gör är att bestämma från alla konfigurationer, vilka viss routningsregel att matcha begäran till och sedan vidta åtgärden som definierats. Följande dokument beskriver hur ytterdörren avgör vilken väg konfiguration som ska användas vid bearbetning av en HTTP-begäran.
+Efter att ha upprättat en anslutning och gjort en SSL-handskakning, när en begäran landar på en ytterdörr miljö en av de första sakerna som Ytterdörren gör är att bestämma från alla konfigurationer, som särskild routing regel för att matcha begäran till och sedan ta den definierade åtgärden. I följande dokument beskrivs hur Ytterdörren avgör vilken vägkonfiguration som ska användas vid bearbetning av en HTTP-begäran.
 
-## <a name="structure-of-a-front-door-route-configuration"></a>Struktur för en ytterdörren route-konfiguration
-En ytterdörren routning regelkonfigurationen består av två huvuddelar: en ”vänster” och en ”höger”. Vi matchar den inkommande begäran till vänster på vägen medan till höger som definierar hur vi behandla begäran.
+## <a name="structure-of-a-front-door-route-configuration"></a>Struktur för en konfiguration av ytterdörrens rutt
+En konfiguration av routningsregeln för ytterdörren består av två huvuddelar: en "vänster sida" och en "höger sida". Vi matchar den inkommande begäran till vänster sida av rutten medan den högra sidan definierar hur vi behandlar begäran.
 
-### <a name="incoming-match-left-hand-side"></a>Inkommande matchar (vänster)
-Följande egenskaper avgör om den inkommande begäranden matchar routningsregel (eller till vänster):
+### <a name="incoming-match-left-hand-side"></a>Inkommande matchning (vänster sida)
+Följande egenskaper avgör om den inkommande begäran matchar routningsregeln (eller vänster sida):
 
 * **HTTP-protokoll** (HTTP/HTTPS)
-* **Värdar** (till exempel www\.foo.com, \*. bar.com)
-* **Sökvägar** (till exempel /\*, /users/\*, /file.gif)
+* **Värdar** (till exempel\.www foo.com, \*.bar.com)
+* **Sökvägar** (till exempel\*/ ,\*/users/ , /file.gif)
 
-De här egenskaperna expanderas ut internt så att varje kombination av protokoll/Värdsökvägen är en potentiell matchningsuppsättning.
+Dessa egenskaper expanderas ut internt så att varje kombination av protokoll/värd/sökväg är en potentiell matchningsuppsättning.
 
-### <a name="route-data-right-hand-side"></a>Dirigera data (till höger)
-Beslut av behandla begäran, beror på om cachelagring är aktiverat eller inte för den specifika vägen. Om vi inte har ett cachelagrat svar för begäran, så kommer vi vidarebefordra begäran till den korrekta serverdelen i konfigurerade serverdelspoolen.
+### <a name="route-data-right-hand-side"></a>Ruttdata (höger sida)
+Beslutet om hur begäran ska behandlas beror på om cachelagring är aktiverat eller inte för den specifika vägen. Så om vi inte har ett cachelagrat svar för begäran vidarebefordrar vi begäran till lämplig serverning i den konfigurerade serverda poolen.
 
-## <a name="route-matching"></a>Dirigera matchar
-Det här avsnittet fokuserar på hur vi matchar till en viss ytterdörren routningsregel. Det grundläggande konceptet är att vi alltid matchar till den **de mest specifika matchar det första** söker bara på ”vänster”.  Vi först matcha baserat på HTTP-protokollet, sedan Frontend-värden och sedan sökvägen.
+## <a name="route-matching"></a>Ruttmatchning
+Det här avsnittet fokuserar på hur vi matchar en viss routningsregel för ytterdörren. Grundtanken är att vi alltid matchar den **mest specifika matchen först** och tittar bara på "vänstersidan".  Vi matchar först baserat på HTTP-protokoll, sedan Frontend värd, sedan sökvägen.
 
-### <a name="frontend-host-matching"></a>Frontend-värden som matchar
-När matchning Frontend-värdar, använder vi logiken enligt nedan:
+### <a name="frontend-host-matching"></a>Matchande klientdelsvärd
+När du matchar Frontend-värdar använder vi logiken enligt nedan:
 
-1. Sök efter eventuella routning med en exakt matchning på värden.
-2. Om inga exakta frontend-värdar matchar Avvisa begäran och skicka ett 400 Felaktig begäran-fel.
+1. Leta efter routning med en exakt matchning på värden.
+2. Om inga exakta klientdelsvärdar matchar, avvisar du begäran och skickar ett fel på 400 felaktiga begäranden.
 
-För att förklara ytterligare den här processen kan du nu ska vi titta på en exempelkonfiguration av ytterdörren vägar (endast vänster):
+För att förklara denna process ytterligare, låt oss titta på ett exempel konfiguration av Ytterdörren rutter (endast vänster sida):
 
-| Routingregeln | Frontend-värdar | `Path` |
+| Routingregeln | Frontend värdar | Sökväg |
 |-------|--------------------|-------|
 | A | foo.contoso.com | /\* |
-| B | foo.contoso.com | /Users/\* |
-| C | www\.fabrikam.com, foo.adventure works.com  | /\*, /images/\* |
+| B | foo.contoso.com | /användare/\* |
+| C | www\.fabrikam.com, foo.adventure-works.com  | /\*, /images/\* |
 
-Om följande förfrågningar skickades till ytterdörren, skulle de matchar mot följande regler för vidarebefordran ovan:
+Om följande inkommande begäranden skickades till Ytterdörren skulle de matcha mot följande routningsregler ovanifrån:
 
-| Inkommande frontend-värd | Matchade routning regler |
+| Värd för inkommande klientdel | Matchade routningsregeler |
 |---------------------|---------------|
 | foo.contoso.com | A, B |
 | www\.fabrikam.com | C |
@@ -66,32 +66,32 @@ Om följande förfrågningar skickades till ytterdörren, skulle de matchar mot 
 | www\.adventure-works.com | Fel 400: Felaktig begäran |
 | www\.northwindtraders.com | Fel 400: Felaktig begäran |
 
-### <a name="path-matching"></a>Sökvägsmatchning
-När du avgör den specifika frontend-värden och filtrering möjliga routningsregler och bara vägar med den frontend-värden, filtrerar ytterdörren sedan regler för routning baserat på sökvägen för begäran. Vi använder en liknande logik som frontend-värdar:
+### <a name="path-matching"></a>Matchning av sökväg
+När du har bestämt den specifika frontend-värden och filtrerat möjliga routningsregler till bara de vägar med den frontend-värden filtrerar ytterdörren sedan routningsreglerna baserat på sökvägen för begäran. Vi använder en liknande logik som frontend värdar:
 
-1. Leta efter någon regel för vidarebefordran med en exakt matchning i sökvägen
-2. Om ingen exakt matchning sökvägar, leta efter routningsregler med jokertecken sökväg som matchar
-3. Om det finns inga regler för routning med en matchande sökväg Avvisa begäran och returnera en 400: Felaktig fel HTTP-svar.
+1. Leta efter en routningsregel med en exakt matchning på banan
+2. Om ingen exakt matchning sökvägar, leta efter routningsregler med en jokerteckensökväg som matchar
+3. Om inga routningsregler hittas med en matchande sökväg, avvisa sedan begäran och returnera ett HTTP-svar på 400: Felbegäran.
 
 >[!NOTE]
-> Alla sökvägar utan jokertecken anses vara exakt matchning sökvägar. Även om sökvägen slutar med ett snedstreck, betraktas fortfarande exakt matchning.
+> Alla sökvägar utan jokertecken anses vara exakta matchningsvägar. Även om banan slutar i ett snedstreck anses den fortfarande vara exakt matchning.
 
-För att förklara ytterligare kan du nu ska vi titta på en annan uppsättning exempel:
+För att förklara ytterligare, låt oss titta på en annan uppsättning exempel:
 
-| Routingregeln | Frontend-värd    | `Path`     |
+| Routingregeln | Frontend värd    | Sökväg     |
 |-------|---------|----------|
 | A     | www\.contoso.com | /        |
 | B     | www\.contoso.com | /\*      |
-| C     | www\.contoso.com | /AB      |
-| D     | www\.contoso.com | /ABC     |
-| E     | www\.contoso.com | /ABC/    |
-| F     | www\.contoso.com | /ABC/\*  |
-| G     | www\.contoso.com | / abc/def |
-| H     | www\.contoso.com | /Path/   |
+| C     | www\.contoso.com | /ab      |
+| D     | www\.contoso.com | /abc (abc)     |
+| E     | www\.contoso.com | /abc/    |
+| F     | www\.contoso.com | /abc/\*  |
+| G     | www\.contoso.com | /abc/def |
+| H     | www\.contoso.com | /sökväg/   |
 
-Med denna konfiguration kan det skulle resultera i följande exempel matchande tabell:
+Med tanke på att konfigurationen, följande exempel matchande tabell skulle resultera:
 
-| Inkommande begäran    | Matchade väg |
+| Inkommande begäran    | Matchad rutt |
 |---------------------|---------------|
 | www\.contoso.com/            | A             |
 | www\.contoso.com/a           | B             |
@@ -108,22 +108,22 @@ Med denna konfiguration kan det skulle resultera i följande exempel matchande t
 | www\.contoso.com/path/zzz    | B             |
 
 >[!WARNING]
-> </br> Om det finns inga regler för routning för en exakt matchning frontend-värd med en allomfattande dirigera sökväg (`/*`), så inte att vara en matchning för att någon regel för vidarebefordran.
+> </br> Om det inte finns några routningsregler för en klientdel med exakt`/*`matchning med en catch-all-väg sökväg ( ) kommer det inte att finnas någon matchning till någon routningsregel.
 >
-> Exempel på konfiguration:
+> Exempel konfiguration:
 >
-> | Routa | Värd             | `Path`    |
+> | Routa | Värd             | Sökväg    |
 > |-------|------------------|---------|
-> | A     | profile.contoso.com | /API/\* |
+> | A     | profile.contoso.com | /api/\* |
 >
 > Matchande tabell:
 >
-> | Inkommande begäran       | Matchade väg |
+> | Inkommande begäran       | Matchad rutt |
 > |------------------------|---------------|
-> | profile.domain.com/other | Ingen. Fel 400: Felaktig begäran |
+> | profile.domain.com/other | Inga. Fel 400: Felaktig begäran |
 
 ### <a name="routing-decision"></a>Beslut om routning
-När vi har kopplats till en enda ytterdörren routningsregel kan behöver vi välja hur du vill bearbeta begäran. Om en matchande routningsregel ytterdörren har ett cachelagrat svar som är tillgängliga hämtar samma hanteras tillbaka till klienten. Annars hämtar utvärderas nästa sak är om du har konfigurerat [URL-Omskrivningsregler (anpassade vidarebefordran sökväg)](front-door-url-rewrite.md) för matchade routningen regel eller inte. Om det inte finns en anpassad vidarebefordran sökväg som definierats, hämtar begäran vidarebefordras till den korrekta serverdelen i konfigurerade serverdelspoolen skick. Annars begäran sökvägen uppdateras enligt den [sökvägen för anpassade vidarebefordran](front-door-url-rewrite.md) definierade och sedan vidare till serverdelen.
+När vi har matchat till en enda routningsregel för ytterdörren måste vi välja hur begäran ska behandlas. Om för den matchade routningsregeln har Ytterdörren ett cachelagrat svar tillgängligt så serveras samma tillbaka till klienten. Annars är nästa sak som utvärderas om du har konfigurerat [URL Skriv om (anpassad vidarebefordringssökväg)](front-door-url-rewrite.md) för den matchade routningsregeln eller inte. Om det inte finns en anpassad vidarebefordringssökväg definierad vidarebefordras begäran till lämplig serverning i den konfigurerade serverda poolen som den är. Annars uppdateras sökvägen för begäran enligt den [anpassade vidarebefordringssökvägen](front-door-url-rewrite.md) som definierats och sedan vidarebefordras till backend.
 
 ## <a name="next-steps"></a>Nästa steg
 

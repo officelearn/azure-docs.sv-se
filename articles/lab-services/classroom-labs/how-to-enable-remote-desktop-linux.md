@@ -1,6 +1,6 @@
 ---
-title: Aktivera fjärr skrivbord för Linux i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du aktiverar fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services.
+title: Aktivera fjärrskrivbord för Linux i Azure Lab Services | Microsoft-dokument
+description: Lär dig hur du aktiverar fjärrskrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -14,54 +14,54 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
 ms.openlocfilehash: cb9a3e2b9ddcd0f74bfa4978f0bc3f4eb0688257
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79270867"
 ---
-# <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services
-Den här artikeln visar hur du utför följande uppgifter:
+# <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Aktivera fjärrskrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services
+I den här artikeln visas hur du utför följande uppgifter:
 
-- Aktivera fjärr skrivbord för virtuell Linux-dator
-- Hur lärare kan ansluta till mallen VM via Anslutning till fjärrskrivbord (RDP).
+- Aktivera fjärrskrivbord för Virtuell Linux
+- Hur lärare kan ansluta till mallen VM via Fjärrskrivbordsanslutning (RDP).
 
-## <a name="enable-remote-desktop-for-linux-vm"></a>Aktivera fjärr skrivbord för virtuell Linux-dator
-Under labb skapandet kan lärare aktivera **anslutning till fjärr skrivbord** för **Linux** -avbildningar. Alternativet **aktivera anslutning till fjärrskrivbord** visas när en Linux-avbildning väljs för mallen. När det här alternativet är aktiverat kan lärare ansluta till mallen VM och student virtuella datorer via RDP (fjärr skrivbord). 
+## <a name="enable-remote-desktop-for-linux-vm"></a>Aktivera fjärrskrivbord för Virtuell Linux
+När labbet skapas kan lärare aktivera **fjärrskrivbordsanslutning** för **Linux-avbildningar.** Alternativet **Aktivera anslutning till fjärrskrivbord** visas när en Linux-avbildning är markerad för mallen. När det här alternativet är aktiverat kan lärare ansluta till virtuella datorer och virtuella datorer för elever via RDP (Remote Desktop). 
 
-![Aktivera anslutning till fjärr skrivbord för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+![Aktivera fjärrskrivbordsanslutning för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
-I rutan **aktivera anslutning till fjärrskrivbord** meddelande väljer du **Fortsätt med fjärr skrivbord**. 
+I meddelanderutan Aktivera anslutning **till fjärrskrivbord** väljer du **Fortsätt med fjärrskrivbord**. 
 
-![Aktivera anslutning till fjärr skrivbord för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
+![Aktivera fjärrskrivbordsanslutning för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enabling-remote-desktop-connection-dialog.png)
 
 > [!IMPORTANT] 
-> När du aktiverar **anslutning till fjärr skrivbord** öppnas **RDP** -porten på Linux-datorer. Om RDP redan har installerats och kon figurer ATS på avbildningen av den virtuella datorn (till exempel: Ubuntu Data Science Virtual Machine avbildning) kan du/studenter ansluta till virtuella datorer via RDP utan att följa ytterligare steg.
+> Om du aktiverar **fjärrskrivbordsanslutning** öppnas endast **RDP-porten** på Linux-datorer. Om RDP redan är installerat och konfigurerat på avbildningen för den virtuella datorn (till exempel Ubuntu Data Science Virtual Machine-avbildningen) kan du/eleverna ansluta till virtuella datorer via RDP utan att följa några ytterligare steg.
 > 
-> Om den virtuella dator avbildningen inte har RDP installerat och konfigurerad, måste du ansluta till Linux-datorn med SSH för första gången och installera RDP-och GUI-paket så att du/studenter kan ansluta till Linux-datorn med RDP senare. Mer information finns i [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md). Sedan publicerar du avbildningen så att eleverna kan RDP i de virtuella student Linux-datorerna. 
+> Om vm-avbildningen inte har RDP installerat och konfigurerat måste du ansluta till Linux-datorn med SSH för första gången och installera RDP- och GUI-paket så att du/eleverna kan ansluta till Linux-datorn med RDP senare. Mer information finns i [Installera och konfigurera Fjärrskrivbord för att ansluta till en Virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md). Sedan publicerar du avbildningen så att eleverna kan RDP i till studenten Linux virtuella datorer. 
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
-Anslutning till fjärr skrivbord stöds för följande operativ system:
+För närvarande stöds fjärrskrivbordsanslutningen för följande operativsystem:
 
-- openSUSE skottår 42,3
-- CentOS-baserad 7,5
-- Debian 9 "sträckning"
-- Ubuntu Server 16,04 LTS
+- openSUSE Leap 42,3
+- CentOS-baserade 7,5
+- Debian 9 "Stretch"
+- Ubuntu-server 16,04 LTS
 
 ## <a name="connect-to-the-template-vm"></a>Ansluta till den virtuella malldatorn 
-Lärare måste ansluta till mallen VM med SSH först och installera RDP-och GUI-paket på den. Sedan kan lärarna använda RDP för att ansluta till mallen VM: 
+Lärare måste ansluta till mallen VM med SSH först och installera RDP- och GUI-paket på den. Sedan kan lärarna använda RDP för att ansluta till mallen VM: 
 
-1. Om du ser **Anpassa mall** i verktygsfältet väljer du den. Välj sedan **Fortsätt** i dialog rutan **Anpassa mall** . Den här åtgärden startar mallen VM.  
+1. Om du ser **Anpassa mall** i verktygsfältet markerar du den. Välj sedan **Fortsätt** i dialogrutan **Anpassa mall.** Den här åtgärden startar mallen VM.  
 
     ![Anpassa mall](../media/how-to-enable-remote-desktop-linux/customize-template.png)
 2. När mallen VM har startats kan du välja **Anslut mall** och sedan **ansluta via SSH** i verktygsfältet. 
 
-    ![Anslut till Mall via RDP när labbet har skapats](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
-3. Du ser följande dialog ruta **för att ansluta till din virtuella dator** . Välj **kopierings** knappen bredvid text rutan för att kopiera den till Urklipp. Spara SSH-anslutningssträngen. Använd den här anslutnings strängen från en SSH-Terminal (t. ex. [SparaTillFil](https://www.putty.org/)) för att ansluta till den virtuella datorn.
+    ![Anslut till mall via RDP när labbet har skapats](../media/how-to-enable-remote-desktop-linux/rdp-after-lab-creation.png) 
+3. Du ser följande dialogrutan **Anslut till den virtuella datorn.** Markera knappen **Kopiera** bredvid textrutan om du vill kopiera den till Urklipp. Spara SSH-anslutningssträngen. Använd den här anslutningssträngen från en SSH-terminal (som [Putty)](https://www.putty.org/)för att ansluta till den virtuella datorn.
  
     ![SSH-anslutningssträng](../media/how-to-enable-remote-desktop-linux/ssh-connection-string.png)
-4. Installera RDP-och GUI-paket så att du/studenter kan ansluta till Linux-datorn med RDP senare. Mer information finns i [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md). Sedan publicerar du avbildningen så att eleverna kan RDP i de virtuella student Linux-datorerna.
-5. När paketen har installerats kan du använda **mallen Anslut till** i verktygsfältet och sedan välja **Anslut via RDP** för att ansluta till mallen VM via RDP. Spara RDP-filen och Använd den för att ansluta till mallen VM via RDP. 
+4. Installera RDP- och GUI-paket så att du/eleverna kan ansluta till Linux-datorn med RDP senare. Mer information finns i [Installera och konfigurera Fjärrskrivbord för att ansluta till en Virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md). Sedan publicerar du avbildningen så att eleverna kan RDP i till studenten Linux virtuella datorer.
+5. När dessa paket har installerats kan du använda **mallen Anslut till** i verktygsfältet och sedan välja **Anslut via RDP** för att ansluta till mallen VM via RDP. Spara RDP-filen och använd den för att ansluta till mallen VM via RDP. 
 
 ## <a name="next-steps"></a>Nästa steg
-När en instruktör har aktiverat funktionen anslutning till fjärr skrivbord kan eleverna ansluta till sina virtuella datorer via RDP/SSH. Mer information finns i [använda fjärr skrivbord för virtuella Linux-datorer i ett klass rums labb](how-to-use-remote-desktop-linux-student.md). 
+När en lärare har aktiverat anslutningsfunktionen för fjärrskrivbord kan deltagarna ansluta till sina virtuella datorer via RDP/SSH. Mer information finns i [Använda fjärrskrivbord för virtuella Linux-datorer i ett klassrumslabb](how-to-use-remote-desktop-linux-student.md). 

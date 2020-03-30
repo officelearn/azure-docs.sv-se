@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: data strömning med Azure Event Hubs med Kafka-protokollet'
-description: 'Snabb start: den här artikeln innehåller information om hur du strömmar till Azure Event Hubs med hjälp av Kafka-protokollet och API: erna.'
+title: 'Snabbstart: Datastreaming med Azure Event Hubs med Kafka-protokollet'
+description: 'Snabbstart: Den här artikeln innehåller information om hur du streamar till Azure Event Hubs med Kafka-protokollet och API:er.'
 services: event-hubs
 author: ShubhaVijayasarathy
 ms.author: shvija
@@ -8,20 +8,20 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 02/12/2020
-ms.openlocfilehash: 18976a29a716a0e5a627747d98edc0d3e1bf71e9
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 4a0d7d30ea02af222ab4a758c18b46d7488e1a8b
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587149"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "80280719"
 ---
-# <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Snabb start: data strömning med Event Hubs med Kafka-protokollet
-Den här snabbstarten visar hur du strömmar till Kafka-aktiverade Event Hubs utan att ändra protokoll-klienter eller köra dina egna kluster. Du lär dig att använda dina tillverkare och konsumenter för att kommunicera med Kafka-aktiverade Event Hubs med bara en konfigurationsändring i dina program. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
+# <a name="quickstart-data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Snabbstart: Datastreaming med eventhubbar med Kafka-protokollet
+Den här snabbstarten visar hur du streamar till eventhubbar utan att ändra dina protokollklienter eller köra egna kluster. Du lär dig hur du använder dina producenter och konsumenter för att prata med Event Hubs med bara en konfigurationsändring i dina program. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
 > Det här exemplet finns på [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/java)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att kunna slutföra den här snabbstarten behöver du följande:
 
@@ -33,10 +33,10 @@ För att kunna slutföra den här snabbstarten behöver du följande:
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Skapa ett Kafka-aktiverat Event Hubs-namnområde
-När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpunkten för namn området automatiskt. Du kan strömma händelser från dina program som använder Kafka-protokollet till standard nivå Event Hubs. Följ steg-för-steg-instruktionerna i [skapa en Event Hub med Azure Portal](event-hubs-create.md) för att skapa ett **standard** -nivå Event Hubs-namnområde. 
+När du skapar **ett** standardnivånamnområde för händelsehubbar aktiveras Kafka-slutpunkten för namnområdet automatiskt. Du kan strömma händelser från dina program som använder Kafka-protokollet till standardnivåhändelsehubbar. Följ steg-för-steg-instruktioner i [skapa en händelsehubb med Azure-portalen](event-hubs-create.md) för att skapa ett **standardnivånamnområde** för eventhubbar. 
 
 > [!NOTE]
-> Event Hubs för Kafka är bara tillgängligt på **standard** -och **dedikerade** nivåer. **Basic** -nivån har inte stöd för Kafka på Event Hubs.
+> Event Hubs för Kafka är endast tillgängligt på **standard-** och **dedikerade** nivåer. Den **grundläggande** nivån stöder inte Kafka på Event Hubs.
 
 ## <a name="send-and-receive-messages-with-kafka-in-event-hubs"></a>Skicka och ta emot meddelanden med Kafka i Event Hubs
 
@@ -46,7 +46,7 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
 
 3. Uppdatera konfigurationsinformationen för tillverkare i `src/main/resources/producer.config` på följande sätt:
 
-    **SSL**
+    **Ssl:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -54,7 +54,7 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
-    **Arbeta**
+    **Oauth:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -64,8 +64,8 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
     sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ```    
 
-    Du hittar käll koden för exempel hanterarens klass CustomAuthenticateCallbackHandler på GitHub [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
-4. Kör Producer-koden och Stream-händelserna i Kafka-aktiverade Event Hubs:
+    Du hittar källkoden för exempelhanterarklassen CustomAuthenticateCallbackHandler på GitHub [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/producer/src/main/java).
+4. Kör producentkoden och strömma händelser till Event Hubs:
    
     ```shell
     mvn clean package
@@ -76,7 +76,7 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
 
 6. Uppdatera konfigurationsinformationen för konsument i `src/main/resources/consumer.config` på följande sätt:
    
-    **SSL**
+    **Ssl:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -85,7 +85,7 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
 
-    **Arbeta**
+    **Oauth:**
 
     ```xml
     bootstrap.servers=NAMESPACENAME.servicebus.windows.net:9093
@@ -95,9 +95,9 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
     sasl.login.callback.handler.class=CustomAuthenticateCallbackHandler;
     ``` 
 
-    Du hittar käll koden för exempel hanterarens klass CustomAuthenticateCallbackHandler på GitHub [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
+    Du hittar källkoden för exempelhanterarklassen CustomAuthenticateCallbackHandler på GitHub [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/appsecret/consumer/src/main/java).
 
-    Du kan hitta alla OAuth-exempel för Event Hubs för Kafka [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
+    Du hittar alla OAuth-exempel för Event Hubs för Kafka [här](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth).
 7. Kör konsumentkoden och bearbeta från Kafka-aktiverade Event Hubs med dina Kafka-klienter:
 
     ```java
@@ -108,10 +108,10 @@ När du skapar en **standard** nivå Event Hubs-namnrymd aktive ras Kafka-slutpu
 Om dina Kafka-kluster för Event Hubs har händelser börjar du nu att få dem från konsumenten.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här artikeln har du lärt dig hur du strömmar till Kafka-aktiverade Event Hubs utan att ändra dina protokollklienter och utan att köra dina egna kluster. Mer information finns i följande artiklar och exempel:
+I den här artikeln lärde du dig att strömma till eventhubbar utan att ändra dina protokollklienter eller köra egna kluster. Mer information finns i följande artiklar och exempel:
 
 - [Läs om Event Hubs för Kafka](event-hubs-for-kafka-ecosystem-overview.md)
-- [Snabb starter för Event Hubs för Kafka på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart)
-- [Självstudier för Event Hubs för Kafka på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials)
-- Använd [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att [strömma händelser från Kafka lokalt till Kafka aktiverat Event Hubs i molnet.](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Snabbstarter för eventhubbar för Kafka på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart)
+- [Självstudier för eventhubbar för Kafka på GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials)
+- Använd [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) för att [strömma händelser från Kafka lokalt till Kafka-aktiverade eventhubbar i molnet.](event-hubs-kafka-mirror-maker-tutorial.md)
 - Lär dig att strömma till Kafka-aktiverade Event Hubs med hjälp av [Apache Flink](event-hubs-kafka-flink-tutorial.md) eller [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

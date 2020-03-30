@@ -1,6 +1,6 @@
 ---
-title: Upprepnings bar kopia i Azure Data Factory
-description: Lär dig hur du undviker dubbletter även om en sektor som kopierar data körs mer än en gång.
+title: Repeterbar kopia i Azure Data Factory
+description: Lär dig hur du undviker dubbletter även om ett segment som kopierar data körs mer än en gång.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,21 +13,21 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281150"
 ---
-# <a name="repeatable-copy-in-azure-data-factory"></a>Upprepnings bar kopia i Azure Data Factory
+# <a name="repeatable-copy-in-azure-data-factory"></a>Repeterbar kopia i Azure Data Factory
 
-## <a name="repeatable-read-from-relational-sources"></a>Repeterbar läsning från Relations källor
-När du kopierar data från Relations data lager bör du ha repeterbarhet i åtanke för att undvika oönskade resultat. I Azure Data Factory kan du köra om ett segment manuellt. Du kan också konfigurera principer för återförsök för en data uppsättning så att en sektor körs igen när ett fel uppstår. När en sektor körs på annat sätt måste du se till att samma data är lästa oavsett hur många gånger en sektor körs.  
+## <a name="repeatable-read-from-relational-sources"></a>Repeterbar läsning från relationskällor
+När du kopierar data från relationsdatalager bör du tänka på repeterbarhet för att undvika oavsiktliga resultat. I Azure Data Factory kan du köra ett segment manuellt igen. Du kan också konfigurera återförsöksprincipen för en datauppsättning så att ett segment körs igen när ett fel inträffar. När ett segment körs på något sätt måste du se till att samma data läss oavsett hur många gånger ett segment körs.  
  
 > [!NOTE]
-> Följande exempel gäller för Azure SQL men gäller för alla data lager som stöder rektangulära data uppsättningar. Du kanske måste ändra **typ** av källa och egenskapen **fråga** (till exempel: fråga i stället för sqlReaderQuery) för data lagret.   
+> Följande exempel är för Azure SQL men gäller för alla datalager som stöder rektangulära datauppsättningar. Du kan behöva justera **typen** av källa och frågeegenskapen (till exempel frågan i stället för sqlReaderQuery) för datalagret. **query**   
 
-När du läser från relationella butiker vill du vanligt vis läsa data som motsvarar den sektorn. Ett sätt att göra detta med hjälp av systemvariablerna WindowStart och WindowEnd finns i Azure Data Factory. Läs om variabler och funktioner i Azure Data Factory här i artikeln [Azure Data Factory-Functions och system Variables](data-factory-functions-variables.md) . Exempel: 
+När du läser från relationsarkiv vill du vanligtvis bara läsa de data som motsvarar segmentet. Ett sätt att göra det skulle vara att använda systemvariablerna WindowStart och WindowEnd som är tillgängliga i Azure Data Factory. Läs om variablerna och funktionerna i Azure Data Factory här i artikeln [Azure Data Factory - Functions and System Variables.](data-factory-functions-variables.md) Exempel: 
 
 ```json
 "source": {
@@ -35,9 +35,9 @@ När du läser från relationella butiker vill du vanligt vis läsa data som mot
     "sqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm\\'', WindowStart, WindowEnd)"
 },
 ```
-Den här frågan läser data som faller inom intervallet för sektorns varaktighet (WindowStart-> WindowEnd) från tabellen tabell tabell. Att köra om den här sektorn ser alltid till att samma data är lästa. 
+Den här frågan läser data som ligger i segmentets varaktighetsområde (WindowStart -> WindowEnd) från tabellen MyTable. Om du kör det här segmentet igen skulle du alltid se till att samma data läss. 
 
-I andra fall kanske du vill läsa hela tabellen och definiera sqlReaderQuery enligt följande:
+I andra fall kanske du vill läsa hela tabellen och kan definiera sqlReaderQuery enligt följande:
 
 ```json
 "source": 
@@ -47,10 +47,10 @@ I andra fall kanske du vill läsa hela tabellen och definiera sqlReaderQuery enl
 },
 ```
 
-## <a name="repeatable-write-to-sqlsink"></a>Repeterbar skrivning till SqlSink
-När du kopierar data till **Azure SQL/SQL Server** från andra data lager, måste du ha repeterbarhet i åtanke för att undvika oönskade resultat. 
+## <a name="repeatable-write-to-sqlsink"></a>Repeterbar skriva till SqlSink
+När du kopierar data till **Azure SQL/SQL Server** från andra datalager måste du tänka på repeterbarheten för att undvika oavsiktliga resultat. 
 
-När du kopierar data till Azure SQL/SQL Server Database lägger kopierings aktiviteten till data i tabellen mottagare som standard. Anta att du kopierar data från en CSV-fil (kommaavgränsade värden) som innehåller två poster till följande tabell i en Azure SQL/SQL Server-databas. När ett segment körs kopieras de två posterna till SQL-tabellen. 
+När data kopieras till Azure SQL/SQL Server Database läggs data till sink-tabellen som standard. Du kopierar data från en CSV-fil (kommaavgränsade värden) som innehåller två poster till följande tabell i en Azure SQL/SQL Server-databas. När ett segment körs kopieras de två posterna till SQL-tabellen. 
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -59,7 +59,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    2            2015-05-01 00:00:00
 ```
 
-Anta att du har hittat fel i käll filen och uppdaterat mängden av röret från 2 till 4. Om du kör om data sektorn manuellt, hittar du två nya poster som läggs till i Azure SQL/SQL Server Database. I det här exemplet förutsätts att ingen av kolumnerna i tabellen har begränsningen Primary Key.
+Anta att du hittade fel i källfilen och uppdaterade mängden Down Tube från 2 till 4. Om du kör datasegmentet igen för den perioden manuellt hittar du två nya poster som läggs till i Azure SQL/SQL Server Database. Det här exemplet förutsätter att ingen av kolumnerna i tabellen har primärnyckelbegränsningen.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -70,10 +70,10 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-För att undvika det här beteendet måste du ange UPSERT semantik genom att använda någon av följande två mekanismer:
+För att undvika detta måste du ange UPSERT-semantik med hjälp av någon av följande två mekanismer:
 
 ### <a name="mechanism-1-using-sqlwritercleanupscript"></a>Mekanism 1: använda sqlWriterCleanupScript
-Du kan använda egenskapen **sqlWriterCleanupScript** för att rensa data från tabellen Sink innan du infogar data när en sektor körs. 
+Du kan använda egenskapen **sqlWriterCleanupScript** för att rensa data från sink-tabellen innan du infogar data när ett segment körs. 
 
 ```json
 "sink":  
@@ -83,7 +83,7 @@ Du kan använda egenskapen **sqlWriterCleanupScript** för att rensa data från 
 }
 ```
 
-När en sektor körs körs rensnings skriptet först för att ta bort data som motsvarar sektorn från SQL-tabellen. Kopierings aktiviteten infogar sedan data i SQL-tabellen. Om sektorn körs om, uppdateras kvantiteten efter behov.
+När ett segment körs körs rensningsskriptet först för att ta bort data som motsvarar segmentet från SQL-tabellen. Kopieringsaktiviteten infogar sedan data i SQL-tabellen. Om segmentet körs igen uppdateras kvantiteten efter behov.
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -92,7 +92,7 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Anta att den platta tvätt posten tas bort från den ursprungliga CSV-filen. Sedan kan du köra sektorn följande resultat: 
+Anta att flat brickan posten tas bort från den ursprungliga csv. Sedan köra segmentet skulle ge följande resultat: 
 
 ```
 ID    Product        Quantity    ModifiedDate
@@ -100,20 +100,20 @@ ID    Product        Quantity    ModifiedDate
 7     Down Tube    4            2015-05-01 00:00:00
 ```
 
-Kopierings aktiviteten körde rensnings skriptet för att ta bort motsvarande data för den sektorn. Sedan läses indata från CSV-filen (som sedan endast innehåller en post) och infogas i tabellen. 
+Kopieringsaktiviteten körde rensningsskriptet för att ta bort motsvarande data för det segmentet. Sedan läste indata från csv (som sedan innehöll endast en post) och infogade den i tabellen. 
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Mekanism 2: använda sliceIdentifierColumnName
 > [!IMPORTANT]
-> SliceIdentifierColumnName stöds för närvarande inte för Azure SQL Data Warehouse. 
+> SegmentIdentifierColumnName stöds för närvarande inte för Azure SQL Data Warehouse. 
 
-Den andra mekanismen för att uppnå repeterbarhet är genom att ha en dedikerad kolumn (sliceIdentifierColumnName) i mål tabellen. Den här kolumnen används av Azure Data Factory för att säkerställa att källa och mål är synkroniserade. Den här metoden fungerar när det är flexibelt att ändra eller definiera mål SQL-tabellens schema. 
+Den andra mekanismen för att uppnå repeterbarhet är genom att ha en dedikerad kolumn (sliceIdentifierColumnName) i måltabellen. Den här kolumnen används av Azure Data Factory för att säkerställa att källan och målet förblir synkroniserade. Den här metoden fungerar när det finns flexibilitet i att ändra eller definiera mål-SQL Table-schemat. 
 
-Den här kolumnen används av Azure Data Factory i upprepnings syfte och i processen Azure Data Factory görs inga schema ändringar i tabellen. Sätt att använda den här metoden:
+Den här kolumnen används av Azure Data Factory för repeterbarhet och i processen Azure Data Factory inte göra några schemaändringar i tabellen. Sätt att använda denna metod:
 
-1. Definiera en kolumn av typen **Binary (32)** i mål-SQL-tabellen. Det får inte finnas några begränsningar i den här kolumnen. Låt oss ge den här kolumnen namnet AdfSliceIdentifier i det här exemplet.
+1. Definiera en kolumn av typen **binär (32)** i målet SQL Table. Det bör inte finnas några begränsningar för den här kolumnen. Låt oss namnge den här kolumnen som AdfSliceIdentifier för det här exemplet.
 
 
-    Käll tabell:
+    Källtabell:
 
     ```sql
     CREATE TABLE [dbo].[Student](
@@ -122,7 +122,7 @@ Den här kolumnen används av Azure Data Factory i upprepnings syfte och i proce
     )
     ```
 
-    Mål tabell: 
+    Måltabell: 
 
     ```sql
     CREATE TABLE [dbo].[Student](
@@ -132,7 +132,7 @@ Den här kolumnen används av Azure Data Factory i upprepnings syfte och i proce
     )
     ```
 
-1. Använd den i kopierings aktiviteten enligt följande:
+1. Använd den i kopieringsaktiviteten på följande sätt:
    
     ```json
     "sink":  
@@ -143,13 +143,13 @@ Den här kolumnen används av Azure Data Factory i upprepnings syfte och i proce
     }
     ```
 
-Azure Data Factory fyller i den här kolumnen efter behov för att se till att källan och målet är synkroniserat. Värdena i den här kolumnen ska inte användas utanför den här kontexten. 
+Azure Data Factory fyller i den här kolumnen enligt dess behov av att säkerställa att källan och målet förblir synkroniserade. Värdena i den här kolumnen bör inte användas utanför den här kontexten. 
 
-På samma sätt som för mekanism 1 rensar kopierings aktiviteten automatiskt data för den aktuella sektorn från mål-SQL-tabellen. Den infogar sedan data från källa i till mål tabellen. 
+I likhet med mekanism 1 rensar kopiera aktivitet automatiskt upp data för det angivna segmentet från målet SQL Table. Data infogas sedan från källan till måltabellen. 
 
 ## <a name="next-steps"></a>Nästa steg
-Läs följande artiklar om koppling för fullständiga JSON-exempel: 
+Läs följande kopplingsartiklar som för fullständiga JSON-exempel: 
 
 - [Azure SQL Database](data-factory-azure-sql-connector.md)
-- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure SQL-datalager](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

@@ -1,36 +1,35 @@
 ---
-title: Introduktion till Azure Web Application-brandvägg
-description: Den här artikeln innehåller en översikt över brand väggen för Azure Web Application (WAF)
+title: Introduktion till Brandvägg för Azure Web Application
+description: Den här artikeln innehåller en översikt över Brandvägg för Azure Web Application (WAF)
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 03/06/2020
+ms.date: 03/18/2020
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 44bc8db5d8ada0378f8f9d0911ed398ba491d289
-ms.sourcegitcommit: f5e4d0466b417fa511b942fd3bd206aeae0055bc
+ms.openlocfilehash: 49024c86d09f5cdd9e8b04d5a49f60021660b0c4
+ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/06/2020
-ms.locfileid: "78851184"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "79475795"
 ---
 # <a name="what-is-azure-web-application-firewall"></a>Vad är Azure-brandväggen för webbaserade program?
 
-Brandväggen för webbaserade program (WAF) tillhandahåller ett centraliserat skydd för dina webbprogram mot vanliga sårbarheter och hot. Webb program är alltmer riktade mot skadliga attacker som utnyttjar ofta kända sårbarheter. SQL-inmatning och Cross-Site-skript är bland de vanligaste angrepp.
+Brandväggen för webbaserade program (WAF) tillhandahåller ett centraliserat skydd för dina webbprogram mot vanliga sårbarheter och hot. Webbprogram blir alltmer inriktade på skadliga attacker som utnyttjar allmänt kända sårbarheter. SQL-injektion och skript över flera webbplatser är några av de vanligaste attackerna.
 
-![Översikt över WAF](media/overview/wafoverview.png)
+![WAF översikt](media/overview/wafoverview.png)
 
-Det är svårt att förhindra sådana angrepp i program koden. Det kan kräva rigoröst underhåll, uppdatering och övervakning på flera skikt i programtopologin. En centraliserad brand vägg för webbaserade program gör säkerhets hanteringen mycket enklare. En WAF ger också program administratörer bättre garantier för skydd mot hot och intrång.
+Att förhindra sådana attacker i programkoden är en utmaning. Det kan kräva rigoröst underhåll, korrigering och övervakning vid flera lager av programtopologin. En centraliserad brandvägg för webbprogram hjälper till att göra säkerhetshanteringen mycket enklare. En WAF ger också programadministratörer bättre garantier för skydd mot hot och intrång.
 
-En WAF-lösning kan reagera på ett säkerhetshot snabbare genom att centralt korrigera en känd sårbarhet, i stället för att skydda varje enskilt webb program.
+En WAF-lösning kan reagera snabbare på ett säkerhetshot genom att centralt korrigera ett känt säkerhetsproblem, i stället för att skydda varje enskilt webbprogram.
 
-## <a name="supported-services"></a>Tjänster som stöds
+## <a name="supported-service"></a>Service som stöds
 
-WAF kan distribueras med [Azure Application Gateway](../application-gateway/overview.md) och [Azures frontend-tjänst](../frontdoor/front-door-overview.md). Båda tjänsterna är belastningsutjämnare för Layer-7 (HTTP/S), men Application Gateway är en regional tjänst och en front dörr är en global tjänst. WAF har funktioner som är anpassade för varje enskild tjänst.
-
-Mer information finns i Översikt över WAF för varje tjänst.
+WAF kan distribueras med Azure Application Gateway, Azure Front Door och Azure Content Delivery Network (CDN) från Microsoft. WAF på Azure CDN är för närvarande under offentlig förhandsversion.  WAF har funktioner som är anpassade för varje specifik tjänst. Mer information om WAF-funktioner för varje tjänst finns i översikten för varje tjänst.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om brand vägg för webbaserade program på Application Gateway finns i [brand vägg för webbaserade program på Azure Application Gateway](./ag/ag-overview.md).
-- Mer information om brand vägg för webbaserade program i Azures frontend-tjänst finns i [brand vägg för webbaserade program i Azures frontend-tjänst](./afds/afds-overview.md).
+- Mer information om brandvägg för webbprogram i Application Gateway finns i [brandväggen för webbprogram på Azure Application Gateway](./ag/ag-overview.md).
+- Mer information om brandvägg för webbprogram i Azure Front Door Service finns i [brandväggen för webbprogram i Azure Front Door Service](./afds/afds-overview.md).
+- Mer information om brandvägg för webbprogram på Azure CDN Service finns i [brandväggen för webbprogram på Azure CDN-tjänsten](./cdn/cdn-overview.md)

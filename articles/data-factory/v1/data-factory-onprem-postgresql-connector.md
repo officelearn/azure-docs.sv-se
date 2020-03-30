@@ -1,6 +1,6 @@
 ---
-title: Flytta data från PostgreSQL med hjälp av Azure Data Factory
-description: Lär dig mer om hur du flyttar data från PostgreSQL Database med Azure Data Factory.
+title: Flytta data från PostgreSQL med Azure Data Factory
+description: Läs mer om hur du flyttar data från PostgreSQL-databasen med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,118 +13,118 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 37c83e77cadae002ff701a08c4b36a86f7cab9a0
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79281241"
 ---
-# <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med hjälp av Azure Data Factory
+# <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](data-factory-onprem-postgresql-connector.md)
 > * [Version 2 (aktuell version)](../connector-postgresql.md)
 
 > [!NOTE]
-> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av tjänsten Data Factory, se [postgresql Connector i v2](../connector-postgresql.md).
+> Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av datafabrikstjänsten läser du [PostgreSQL-anslutning i V2](../connector-postgresql.md).
 
 
-Den här artikeln förklarar hur du använder kopierings aktiviteten i Azure Data Factory för att flytta data från en lokal PostgreSQL-databas. Det bygger på artikeln [data förflyttnings aktiviteter](data-factory-data-movement-activities.md) , som visar en översikt över data förflyttning med kopierings aktiviteten.
+I den här artikeln beskrivs hur du använder kopieringsaktiviteten i Azure Data Factory för att flytta data från en lokal PostgreSQL-databas. Den bygger på [datarörelseaktiviteter](data-factory-data-movement-activities.md) artikeln, som presenterar en allmän översikt över data förflyttning med kopian aktivitet.
 
-Du kan kopiera data från ett lokalt PostgreSQL-data lager till alla mottagar data lager som stöds. En lista över data lager som stöds som mottagare av kopierings aktiviteten finns i [data lager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data Factory har för närvarande stöd för att flytta data från en PostgreSQL-databas till andra data lager, men inte för att flytta data från andra data lager till en PostgreSQL-databas.
+Du kan kopiera data från ett lokalt PostgreSQL-datalager till alla sink-datalager som stöds. En lista över datalager som stöds som sänkor av kopieringsaktiviteten finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory stöder för närvarande att flytta data från en PostgreSQL-databas till andra datalager, men inte för att flytta data från andra datalager till en PostgreSQL-databas.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Data Factory-tjänsten stöder anslutning till lokala PostgreSQL-källor med hjälp av Data Management Gateway. Se [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar om du vill lära dig mer om data Management Gateway och stegvisa anvisningar för hur du konfigurerar gatewayen.
+Data Factory-tjänsten stöder anslutning till lokala PostgreSQL-källor med hjälp av Data Management Gateway. Se [flytta data mellan lokala platser och molnartikel](data-factory-move-data-between-onprem-and-cloud.md) om du vill veta mer om Data Management Gateway och steg-för-steg-instruktioner om hur du konfigurerar gatewayen.
 
-Gateway krävs även om PostgreSQL-databasen finns i en virtuell Azure IaaS-dator. Du kan installera gateway på samma IaaS-VM som data lagret eller på en annan virtuell dator så länge som gatewayen kan ansluta till databasen.
+Gateway krävs även om PostgreSQL-databasen finns i en Azure IaaS VM. Du kan installera gateway på samma IaaS VM som datalagret eller på en annan virtuell dator så länge gatewayen kan ansluta till databasen.
 
 > [!NOTE]
-> Mer information om fel sökning av problem med anslutning/Gateway finns i [Felsöka Gateway-problem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) .
+> Se [Felsöka gatewayproblem](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) för tips om felsökning av anslutnings-/gatewayrelaterade problem.
 
 ## <a name="supported-versions-and-installation"></a>Versioner och installation som stöds
-För att Data Management Gateway ansluta till PostgreSQL-databasen installerar du [Ngpsql-dataprovidern för postgresql](https://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på samma system som data Management Gateway. PostgreSQL version 7,4 och senare stöds.
+För datahanteringsgateway för att ansluta till PostgreSQL-databasen installerar du [Ngpsql-dataleverantören för PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på samma system som Data Management Gateway. PostgreSQL version 7.4 och högre stöds.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en kopierings aktivitet som flyttar data från ett lokalt PostgreSQL data lager med hjälp av olika verktyg/API: er.
+Du kan skapa en pipeline med en kopieringsaktivitet som flyttar data från ett lokalt PostgreSQL-datalager med hjälp av olika verktyg/API:er.
 
-- Det enklaste sättet att skapa en pipeline är att använda **guiden Kopiera**. Se [Självstudier: skapa en pipeline med hjälp av guiden Kopiera](data-factory-copy-data-wizard-tutorial.md) för en snabb genom gång av hur du skapar en pipeline med hjälp av guiden Kopiera data.
+- Det enklaste sättet att skapa en pipeline är att använda **kopieringsguiden**. Se [självstudiekurs: Skapa en pipeline med hjälp av kopieringsguiden](data-factory-copy-data-wizard-tutorial.md) för en snabb genomgång när du skapar en pipeline med hjälp av guiden Kopiera data.
 - Du kan också använda följande verktyg för att skapa en pipeline:
   - Visual Studio
   - Azure PowerShell
   - Azure Resource Manager-mall
   - .NET-API
-  - REST-API
+  - REST API
 
-    Mer information om hur du skapar en pipeline med en kopierings aktivitet finns i [själv studie kursen kopiera aktivitet](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+    Se [Kopiera aktivitetshandledning](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för steg-för-steg-instruktioner för att skapa en pipeline med en kopieringsaktivitet.
 
-Oavsett om du använder verktygen eller API: erna utför du följande steg för att skapa en pipeline som flyttar data från ett käll data lager till ett mottagar data lager:
+Oavsett om du använder verktygen eller API:erna utför du följande steg för att skapa en pipeline som flyttar data från ett källdatalager till ett sink-datalager:
 
-1. Skapa **länkade tjänster** för att länka indata och utdata från data lager till din data fabrik.
-2. Skapa data **uppsättningar** som representerar indata och utdata för kopierings åtgärden.
-3. Skapa en **pipeline** med en kopierings aktivitet som tar en data uppsättning som indata och en data uppsättning som utdata.
+1. Skapa **länkade tjänster** för att länka in- och utdatalager till datafabriken.
+2. Skapa **datauppsättningar** för att representera in- och utdata för kopieringen.
+3. Skapa en **pipeline** med en kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory entiteter (länkade tjänster, data uppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API: er (förutom .NET API) definierar du dessa Data Factory entiteter med hjälp av JSON-formatet. Ett exempel med JSON-definitioner för Data Factory entiteter som används för att kopiera data från ett lokalt PostgreSQL data lager finns i [JSON-exempel: kopiera data från postgresql till Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa datafabrikentiteter (länkade tjänster, datauppsättningar och pipelinen) automatiskt åt dig. När du använder verktyg/API:er (förutom .NET API) definierar du dessa datafabrikentiteter med hjälp av JSON-formatet. Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett lokalt PostgreSQL-datalager finns i [JSON-exempel: Kopiera data från PostgreSQL till Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) i den här artikeln.
 
-I följande avsnitt finns information om JSON-egenskaper som används för att definiera Data Factory entiteter som är speciella för ett PostgreSQL-data lager:
+I följande avsnitt finns information om JSON-egenskaper som används för att definiera datafabrikentiteter som är specifika för ett PostgreSQL-datalager:
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
-Följande tabell innehåller en beskrivning av JSON-element som är speciella för PostgreSQL-länkade tjänster.
+I följande tabell beskrivs beskrivning av JSON-element som är specifika för PostgreSQL-länkad tjänst.
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| typ |Egenskapen Type måste anges till: **OnPremisesPostgreSql** |Ja |
+| typ |Egenskapen type måste anges till: **OnPremisesPostgreSql** |Ja |
 | server |Namnet på PostgreSQL-servern. |Ja |
-| database |Namnet på PostgreSQL-databasen. |Ja |
-| schema |Namnet på schemat i databasen. Schema namnet är Skift läges känsligt. |Nej |
+| databas |Namn på PostgreSQL-databasen. |Ja |
+| Schemat |Namnet på schemat i databasen. Schemanamnet är skiftlägeskänsligt. |Inga |
 | authenticationType |Typ av autentisering som används för att ansluta till PostgreSQL-databasen. Möjliga värden är: Anonym, Basic och Windows. |Ja |
-| användarnamn |Ange användar namn om du använder Basic-eller Windows-autentisering. |Nej |
-| lösenord |Ange lösen ordet för det användar konto som du har angett för användar namnet. |Nej |
-| gatewayName |Namnet på den gateway som Data Factorys tjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
+| användarnamn |Ange användarnamn om du använder Grundläggande autentisering eller Windows-autentisering. |Inga |
+| password |Ange lösenord för det användarkonto som du angav för användarnamnet. |Inga |
+| gatewayName (gatewayName) |Namn på den gateway som datafabrikstjänsten ska använda för att ansluta till den lokala PostgreSQL-databasen. |Ja |
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [skapa data uppsättningar](data-factory-create-datasets.md) . Avsnitt som struktur, tillgänglighet och princip för en data uppsättnings-JSON liknar samma för alla data uppsättnings typer.
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Skapa datauppsättningar.](data-factory-create-datasets.md) Avsnitt som struktur, tillgänglighet och princip för en datauppsättning JSON är liknande för alla datauppsättningstyper.
 
-Avsnittet typeProperties är olika för varje typ av data uppsättning och innehåller information om platsen för data i data lagret. Avsnittet typeProperties för data uppsättningen av typen **RelationalTable** (som innehåller postgresql-datauppsättningen) har följande egenskaper:
+Avsnittet typeProperties är olika för varje typ av datauppsättning och ger information om platsen för data i datalagret. Avsnittet typeProperties för datauppsättning av typen **RelationalTable** (som innehåller PostgreSQL-datauppsättning) har följande egenskaper:
 
 | Egenskap | Beskrivning | Krävs |
 | --- | --- | --- |
-| tableName |Namnet på den tabell i PostgreSQL-databas instansen som den länkade tjänsten refererar till. TableName är Skift läges känsligt. |Nej (om **fråga** för **RelationalSource** har angetts) |
+| tableName |Namnet på tabellen i postgreSQL-databasinstansen som länkad tjänst refererar till. TableName är skiftlägeskänsligt. |Nej (om **frågan om** **RelationalSource** har angetts) |
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
-En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [skapa pipeliner](data-factory-create-pipelines.md) . Egenskaper som namn, beskrivning, indata och utdata-tabeller och policy är tillgängliga för alla typer av aktiviteter.
+En fullständig lista över avsnitt & egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Skapa pipelines.](data-factory-create-pipelines.md) Egenskaper som namn, beskrivning, indata- och utdatatabeller och princip är tillgängliga för alla typer av aktiviteter.
 
-De egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten varierar beroende på varje aktivitets typ. För kopierings aktivitet varierar de beroende på typerna av källor och mottagare.
+Medan egenskaper som är tillgängliga i avsnittet typeProperties i aktiviteten varierar med varje aktivitetstyp. För kopieringsaktivitet varierar de beroende på vilka typer av källor och sänkor som finns.
 
-När källan är av typen **RelationalSource** (som innehåller postgresql) är följande egenskaper tillgängliga i avsnittet typeProperties:
+När källan är av typen **RelationalSource** (som innehåller PostgreSQL) är följande egenskaper tillgängliga i avsnittet typeProperties:
 
 | Egenskap | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| query |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **TableName** för **data uppsättningen** har angetts) |
+| DocumentDB |Använd den anpassade frågan för att läsa data. |SQL-frågesträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **tabellNamn för** datauppsättning har **angetts)** |
 
 > [!NOTE]
-> Schema-och tabell namn är Skift läges känsliga. Omslut dem i `""` (dubbla citat tecken) i frågan.
+> Schema- och tabellnamn är skiftlägeskänsliga. Bifoga dem i `""` (dubbla citattecken) i frågan.
 
 **Exempel:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
-## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON-exempel: kopiera data från PostgreSQL till Azure-Blob
-Det här exemplet innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från PostgreSQL Database till Azure Blob Storage. Data kan dock kopieras till någon av de handfat som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med kopierings aktiviteten i Azure Data Factory.
+## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON exempel: Kopiera data från PostgreSQL till Azure Blob
+Det här exemplet innehåller exempel på JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från PostgreSQL-databasen till Azure Blob Storage. Data kan dock kopieras till någon av de diskhoar som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av kopieringsaktiviteten i Azure Data Factory.
 
 > [!IMPORTANT]
-> Det här exemplet innehåller JSON-kodfragment. Det innehåller inga steg-för-steg-instruktioner för att skapa data fabriken. Se [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar för steg-för-steg-instruktioner.
+> Det här exemplet innehåller JSON-utdrag. Den innehåller inte steg-för-steg-instruktioner för att skapa datafabriken. Se [flytta data mellan lokala platser och molnartikel](data-factory-move-data-between-onprem-and-cloud.md) för steg-för-steg-instruktioner.
 
-Exemplet har följande data Factory-entiteter:
+Exemplet har följande datafabriksenheter:
 
 1. En länkad tjänst av typen [OnPremisesPostgreSql](data-factory-onprem-postgresql-connector.md#linked-service-properties).
 2. En länkad tjänst av typen [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties).
-3. En indata- [datauppsättning](data-factory-create-datasets.md) av typen [RelationalTable](data-factory-onprem-postgresql-connector.md#dataset-properties).
-4. En utdata- [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
-5. [Pipelinen](data-factory-create-pipelines.md) med kopierings aktivitet som använder [RelationalSource](data-factory-onprem-postgresql-connector.md#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
+3. En [indatauppsättning](data-factory-create-datasets.md) av typen [RelationalTable](data-factory-onprem-postgresql-connector.md#dataset-properties).
+4. En [utdatauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
+5. [Pipelinen](data-factory-create-pipelines.md) med kopiera aktivitet som använder [RelationalSource](data-factory-onprem-postgresql-connector.md#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Exemplet kopierar data från ett frågeresultat i PostgreSQL-databasen till en BLOB varje timme. De JSON-egenskaper som används i de här exemplen beskrivs i avsnitten som följer efter exemplen.
+Exemplet kopierar data från en fråga i PostgreSQL-databasen till en blob varje timme. De JSON-egenskaper som används i dessa prover beskrivs i avsnitt som följer proverna.
 
-Som ett första steg konfigurerar du gatewayen för data hantering. Anvisningarna finns i [Flytta data mellan lokala platser och moln](data-factory-move-data-between-onprem-and-cloud.md) artiklar.
+Som ett första steg ställer du in datahanteringsgatewayen. Instruktionerna finns i [flyttdata mellan lokala platser och molnartikel.](data-factory-move-data-between-onprem-and-cloud.md)
 
 **PostgreSQL länkad tjänst:**
 
@@ -145,7 +145,7 @@ Som ett första steg konfigurerar du gatewayen för data hantering. Anvisningarn
     }
 }
 ```
-**Länkad Azure Blob Storage-tjänst:**
+**Azure Blob storage-länkad tjänst:**
 
 ```json
 {
@@ -158,11 +158,11 @@ Som ett första steg konfigurerar du gatewayen för data hantering. Anvisningarn
     }
 }
 ```
-**PostgreSQL för data uppsättning:**
+**PostgreSQL indatauppsättning:**
 
-Exemplet förutsätter att du har skapat en tabell "Tabell" i PostgreSQL och att den innehåller en kolumn med namnet "timestamp" för Time Series-data.
+Exemplet förutsätter att du har skapat en tabell "MyTable" i PostgreSQL och den innehåller en kolumn som kallas "tidsstämpel" för tidsseriedata.
 
-Om du anger `"external": true` informerar den Data Factory tjänsten att data uppsättningen är extern i data fabriken och inte produceras av en aktivitet i data fabriken.
+Inställningen `"external": true` informerar datafabrikstjänsten om att datauppsättningen är extern till datafabriken och inte produceras av en aktivitet i datafabriken.
 
 ```json
 {
@@ -187,9 +187,9 @@ Om du anger `"external": true` informerar den Data Factory tjänsten att data up
 }
 ```
 
-**Data uppsättning för Azure Blob-utdata:**
+**Azure Blob-utdatauppsättning:**
 
-Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsökvägen och fil namnet för blobben utvärderas dynamiskt baserat på Start tiden för den sektor som bearbetas. Mappens sökväg använder år, månad, dag och timmar delar av start tiden.
+Data skrivs till en ny blob varje timme (frekvens: timme, intervall: 1). Mappsökvägen och filnamnet för blobben utvärderas dynamiskt baserat på starttiden för det segment som bearbetas. Mappsökvägen använder delar av starttiden för år, månad, dag och timmar.
 
 ```json
 {
@@ -247,9 +247,9 @@ Data skrivs till en ny BLOB varje timme (frekvens: timme, intervall: 1). Mappsö
 }
 ```
 
-**Pipeline med kopierings aktivitet:**
+**Pipeline med kopieringsaktivitet:**
 
-Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att använda data uppsättningar för indata och utdata och är schemalagda att köras varje timme. I JSON-definitionen för pipelinen är **käll** typen inställt på **RelationalSource** och **mottagar** typ är inställd på **BlobSink**. SQL-frågan som anges för egenskapen **fråga** väljer data från tabellen Public. Usstates i PostgreSQL-databasen.
+Pipelinen innehåller en kopieringsaktivitet som är konfigurerad för att använda in- och utdatauppsättningar och som är schemalagd att köras varje timme. I JSON-definitionen för pipelinen anges **källtypen** till **RelationalSource** och **sink-typen** är inställd på **BlobSink**. Den SQL-fråga som **query** angetts för frågeegenskapen väljer data från tabellen public.usstates i PostgreSQL-databasen.
 
 ```json
 {
@@ -294,62 +294,62 @@ Pipelinen innehåller en kopierings aktivitet som har kon figurer ATS för att a
     }
 }
 ```
-## <a name="type-mapping-for-postgresql"></a>Typ mappning för PostgreSQL
-Som vi nämnt i artikel kopierings [aktiviteterna för data förflyttning](data-factory-data-movement-activities.md) utförs automatiska typ konverteringar från käll typer till mottagar typer med följande 2-stegs metod:
+## <a name="type-mapping-for-postgresql"></a>Typmappning för PostgreSQL
+Som nämnts i [dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln Kopiera aktivitet utför automatiska typkonverteringar från källtyper till sinktyper med följande 2-stegsmetod:
 
-1. Konvertera från interna käll typer till .NET-typ
-2. Konvertera från .NET-typ till typ av intern mottagare
+1. Konvertera från ursprungliga källtyper till .NET-typ
+2. Konvertera från .NET-typ till inbyggt handfattyp
 
-När du flyttar data till PostgreSQL används följande mappningar från PostgreSQL-typ till .NET-typ.
+När data flyttas till PostgreSQL används följande mappningar från PostgreSQL-typ till .NET-typ.
 
-| Typ av PostgreSQL-databas | PostgresSQL alias | .NET Framework typ |
+| Databastyp för PostgreSQL | PostalgresSQL-alias | .NET-ramtyp |
 | --- | --- | --- |
-| abstime | |Datum/tid |
-| bigint |int8 |Int64 |
-| bigserial |serial8 |Int64 |
-| bit [(n)] | |Byte[], String |
-| bit varierande [(n)] |varbit |Byte[], String |
-| boolean |booleska |Boolean |
-| fältet | |Byte[], String |
-| bytea | |Byte[], String |
-| Character [(n)] |char [(n)] |String |
-| Character varierande [(n)] |varchar [(n)] |String |
+| abstime (mycket) | |Datumtid |
+| bigint |int8 (int8) |Int64 |
+| bigserial (bigserial) |seriell8 |Int64 |
+| bit [(n)] | |Byte[], Sträng |
+| lite varierande [ (n) ] |varbit (varbit) |Byte[], Sträng |
+| boolean |bool |Boolean |
+| Rutan | |Byte[], Sträng |
+| bytea (på ett sätt) | |Byte[], Sträng |
+| tecken [(n)] |tecken [(n)] |String |
+| teckenvariering [(n)] |varchar [(n)] |String |
 | Cid | |String |
-| CIDR | |String |
-| Division | |Byte[], String |
-| date | |Datum/tid |
-| DateRange | |String |
-| dubbel precision |float8 |Double-värde |
-| inet | |Byte[], String |
-| intarry | |String |
-| int4range | |String |
-| int8range | |String |
+| cidr | |String |
+| cirkel | |Byte[], Sträng |
+| date | |Datumtid |
+| datumområde | |String |
+| dubbel precision |float8 (flottör) |Double |
+| inet | |Byte[], Sträng |
+| intarry (intarry) | |String |
+| int4range (int4range) | |String |
+| int8range (int8range) | |String |
 | heltal |int, int4 |Int32 |
 | intervall [fält] [(p)] | |Tidsintervall |
 | json | |String |
-| jsonb | |Byte[] |
-| Online | |Byte[], String |
-| lseg | |Byte[], String |
-| macaddr | |Byte[], String |
-| money | |decimaltal |
-| numeriskt [(p, s)] |decimal [(p, s)] |decimaltal |
-| numrange | |String |
-| OID | |Int32 |
-| path | |Byte[], String |
+| jsonb (et) | |Byte[] |
+| linje | |Byte[], Sträng |
+| Lseg (0, 200 | |Byte[], Sträng |
+| macaddr (macaddr) | |Byte[], Sträng |
+| money | |Decimal |
+| numerisk [(p, s)] |decimal [(p, s)] |Decimal |
+| numrange (olika) | |String |
+| Oid | |Int32 |
+| path | |Byte[], Sträng |
 | pg_lsn | |Int64 |
-| plats | |Byte[], String |
-| Polygonlasso | |Byte[], String |
-| real |float4 |Enkel |
-| smallint |int2 |Int16 |
-| smallserial |serial2 |Int16 |
-| nummer |serial4 |Int32 |
+| Punkt | |Byte[], Sträng |
+| Polygon | |Byte[], Sträng |
+| real |float4 (flottör4) |Enkel |
+| smallint |int2 (int2) |Int16 (int16) |
+| smallserial |seriell2 |Int16 (int16) |
+| Seriell |serie 4 |Int32 |
 | text | |String |
 
-## <a name="map-source-to-sink-columns"></a>Mappa källa till mottagar kolumner
-Information om hur du mappar kolumner i käll data uppsättningen till kolumner i data uppsättning för mottagare finns i [mappa data mängds kolumner i Azure Data Factory](data-factory-map-columns.md).
+## <a name="map-source-to-sink-columns"></a>Kartkälla för att sänka kolumner
+Mer information om hur du mappar kolumner i källdatauppsättning till kolumner i sink-datauppsättning finns [i Mappa datauppsättningskolumner i Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="repeatable-read-from-relational-sources"></a>Repeterbar läsning från Relations källor
-När du kopierar data från Relations data lager bör du ha repeterbarhet i åtanke för att undvika oönskade resultat. I Azure Data Factory kan du köra om ett segment manuellt. Du kan också konfigurera principer för återförsök för en data uppsättning så att en sektor körs igen när ett fel uppstår. När en sektor körs på annat sätt måste du se till att samma data är lästa oavsett hur många gånger en sektor körs. Se [repeterbar läsning från Relations källor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
+## <a name="repeatable-read-from-relational-sources"></a>Repeterbar läsning från relationskällor
+När du kopierar data från relationsdatalager bör du tänka på repeterbarhet för att undvika oavsiktliga resultat. I Azure Data Factory kan du köra ett segment manuellt igen. Du kan också konfigurera återförsöksprincipen för en datauppsättning så att ett segment körs igen när ett fel inträffar. När ett segment körs på något sätt måste du se till att samma data läss oavsett hur många gånger ett segment körs. Se [Repeterbar läsning från relationskällor](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources).
 
 ## <a name="performance-and-tuning"></a>Prestanda och justering
-Se [Kopiera aktivitets prestanda & justerings guide](data-factory-copy-activity-performance.md) för att lära dig mer om viktiga faktorer som påverkar prestanda för data förflyttning (kopierings aktivitet) i Azure Data Factory och olika sätt att optimera den.
+Se [Kopiera aktivitetsprestanda & justeringsguide](data-factory-copy-activity-performance.md) om du vill veta mer om viktiga faktorer som påverkar prestanda för datarörelser (kopieringsaktivitet) i Azure Data Factory och olika sätt att optimera den.

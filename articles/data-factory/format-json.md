@@ -10,31 +10,31 @@ ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: jingwang
 ms.openlocfilehash: 7dac8d21e3b45307284ece15ca5ddbcc69db909b
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79260649"
 ---
 # <a name="json-format-in-azure-data-factory"></a>JSON-format i Azure Data Factory
 
-Följ den här artikeln när du vill **parsa JSON-filerna eller skriva data till JSON-format**. 
+Följ den här artikeln när du vill **tolka JSON-filerna eller skriva data i JSON-format**. 
 
-JSON-format stöds för följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [fil system](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).
+JSON-format stöds för följande kopplingar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)och [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av JSON-datauppsättningen.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i artikeln [Datauppsättningar.](concepts-datasets-linked-services.md) Det här avsnittet innehåller en lista över egenskaper som stöds av JSON-datauppsättningen.
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| typ             | Data uppsättningens typ-egenskap måste anges till **JSON**. | Ja      |
-| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har en egen plats typ och egenskaper som stöds under `location`. **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
-| encodingName     | Kodnings typen som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", " WINDOWS-1252 "," WINDOWS-1253 "," WINDOWS-1254 "," WINDOWS-1255 "," WINDOWS-1256 "," WINDOWS-1257 "," WINDOWS-1258 ".| Nej       |
-| compressionCodec | Komprimerings-codec som används för att läsa/skriva textfiler. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **fästfunktionen**eller **lz4**. att använda när du sparar filen. <br>Obs! kopierings aktiviteten stöder för närvarande inte "fästning" & "lz4".<br>Obs! när du använder kopierings aktivitet för att expandera ZipDeflate-filer och skriva till filbaserat mottagar data lager extraheras filerna till mappen: `<path specified in dataset>/<folder named as source zip file>/`. | Nej       |
-| compressionLevel | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **snabbast:** komprimerings åtgärden bör utföras så snart som möjligt, även om den resulterande filen inte är optimalt komprimerad.<br>- **optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nej       |
+| typ             | Datauppsättningens typegenskap måste anges till **Json**. | Ja      |
+| location         | Platsinställningar för filen/filerna. Varje filbaserad koppling har sin egen platstyp och egenskaper som stöds under `location`. **Se information i kopplingens artikel -> egenskaper för datauppsättning**. | Ja      |
+| encodingName     | Kodningstypen som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", " WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| Inga       |
+| komprimeringCodec | Komprimeringscodec som används för att läsa/skriva textfiler. <br>Tillåtna värden är **bzip2,** **gzip**, **deflate**, **ZipDeflate**, **snappy**eller **lz4**. att använda när du sparar filen. <br>Observera för närvarande Kopiera aktivitet stöder inte "snappy" & "lz4".<br>Observera att när du använder kopieringsaktivitet för att expandera ZipDeflate-filer och skriva till filbaserat `<path specified in dataset>/<folder named as source zip file>/`sink-datalager extraheras filerna till mappen: . | Inga       |
+| komprimeringNivå | Kompressionsförhållandet. <br>Tillåtna värden är **Optimal** eller **Snabbaste**.<br>- **Snabbast:** Komprimeringsåtgärden bör slutföras så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad.<br>- **Optimal**: Komprimeringsoperationen ska komprimeras optimalt, även om operationen tar längre tid att slutföra. Mer information finns i avsnittet [Komprimeringsnivå.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Inga       |
 
-Nedan visas ett exempel på en JSON-datauppsättning på Azure Blob Storage:
+Nedan följer ett exempel på JSON-datauppsättning på Azure Blob Storage:
 
 ```json
 {
@@ -61,42 +61,42 @@ Nedan visas ett exempel på en JSON-datauppsättning på Azure Blob Storage:
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av JSON-källan och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln [Pipelines.](concepts-pipelines-activities.md) Det här avsnittet innehåller en lista över egenskaper som stöds av JSON-källan och diskhon.
 
 ### <a name="json-as-source"></a>JSON som källa
 
-Följande egenskaper stöds i avsnittet Kopiera aktivitet ***\*käll\**** .
+Följande egenskaper stöds i källavsnittet för *** \*kopieringsaktivitet.\* ***
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **JSONSource**. | Ja      |
-| storeSettings | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
+| typ          | Egenskapen Type property för kopians aktivitetskälla måste anges till **JSONSource**. | Ja      |
+| storeInställningar | En grupp egenskaper för hur du läser data från ett datalager. Varje filbaserad anslutning har sina egna `storeSettings`läsinställningar som stöds under . **Se information i kopplingens artikel -> Kopiera aktivitetsegenskaper avsnitt**. | Inga       |
 
-### <a name="json-as-sink"></a>JSON som mottagare
+### <a name="json-as-sink"></a>JSON som sjunker
 
-Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*mottagare\**** .
+Följande egenskaper stöds i avsnittet kopiera *** \*aktivitetsmottagare.\* ***
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| typ          | Typ egenskapen för kopierings aktivitets källan måste anges till **JSONSink**. | Ja      |
-| formatSettings | En grupp med egenskaper. Se tabellen **JSON Write Settings** nedan. | Nej       |
-| storeSettings | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
+| typ          | Egenskapen Type property för kopians aktivitetskälla måste anges till **JSONSink**. | Ja      |
+| formateraInställningar | En grupp egenskaper. Se **JSON skrivinställningar** tabellen nedan. | Inga       |
+| storeInställningar | En grupp egenskaper för hur du skriver data till ett datalager. Varje filbaserad anslutning har sina egna `storeSettings`skrivinställningar som stöds under . **Se information i kopplingens artikel -> Kopiera aktivitetsegenskaper avsnitt**. | Inga       |
 
-**JSON-Skriv inställningar** som stöds under `formatSettings`:
+**JSON-skrivinställningar** `formatSettings`som stöds under:
 
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| typ          | Typen för formatSettings måste anges till **JsonWriteSettings**. | Ja                                                   |
-| filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Nej |
+| typ          | Typen av formatInställningar måste ställas in på **JsonWriteSettings**. | Ja                                                   |
+| filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Inga |
 
 ### <a name="json-file-patterns"></a>JSON-filmönster
 
-Kopierings aktiviteten kan automatiskt identifiera och parsa följande mönster i JSON-filer. 
+Kopieringsaktivitet kan automatiskt identifiera och tolka följande mönster för JSON-filer. 
 
 - **Typ I: setOfObjects**
 
     Varje fil som innehåller ett enskilt objekt eller flera radavgränsade/sammanfogade objekt. 
-    När det här alternativet väljs i Kopiera aktivitets mottagare skapar kopierings aktiviteten en enda JSON-fil med varje objekt per rad (tabbavgränsad).
+    När det här alternativet väljs i kopiera aktivitetsmottagare, skapar kopieringsaktivitet en enda JSON-fil med varje objekt per rad (radavgränsad).
 
     * **Exempel på JSON med enskilda objekt**
 
@@ -181,21 +181,21 @@ Kopierings aktiviteten kan automatiskt identifiera och parsa följande mönster 
     ]
     ```
 
-## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
+## <a name="mapping-data-flow-properties"></a>Mappa dataflödesegenskaper
 
-JSON-filtyper kan användas både som en mottagare och en källa i data flödet för mappning.
+JSON-filtyper kan användas både som en diskho och en källa vid mappning av dataflöde.
 
 ### <a name="creating-json-structures-in-a-derived-column"></a>Skapa JSON-strukturer i en härledd kolumn
 
-Du kan lägga till en komplex kolumn i ditt data flöde via uttrycks verktyget härledd kolumn. I den härledda kolumn omvandlingen lägger du till en ny kolumn och öppnar uttrycks verktyget genom att klicka på den blå rutan. Om du vill göra en kolumn komplex kan du ange JSON-strukturen manuellt eller använda UX för att lägga till under kolumner interaktivt.
+Du kan lägga till en komplex kolumn i dataflödet via den härledda kolumnuttrycksverktyget. Lägg till en ny kolumn i den härledda kolumnomformningen och öppna uttrycksverktyget genom att klicka på den blå rutan. Om du vill göra en kolumn komplex kan du ange JSON-strukturen manuellt eller använda användarupplevelsen för att lägga till underkolumner interaktivt.
 
-#### <a name="using-the-expression-builder-ux"></a>Använda Expression Builder UX
+#### <a name="using-the-expression-builder-ux"></a>Använda uttrycksverktyget UX
 
-Hovra över en kolumn i fönstret utdata schema och klicka på plus ikonen. Välj **Lägg till under kolumn** för att göra kolumnen till en komplex typ.
+Hovra över en kolumn i fönstret utdataschema och klicka på plusikonen. Välj **Lägg till underkolumn** om du vill göra kolumnen till en komplex typ.
 
-![Lägg till under kolumn](media/data-flow/addsubcolumn.png "Lägg till under kolumn")
+![Lägg till underkolumn](media/data-flow/addsubcolumn.png "Lägg till underkolumn")
 
-Du kan lägga till ytterligare kolumner och under kolumner på samma sätt. För varje icke-komplext fält kan ett uttryck läggas till i uttrycks redigeraren till höger.
+Du kan lägga till ytterligare kolumner och underkolumner på samma sätt. För varje icke-komplext fält kan ett uttryck läggas till i uttrycksredigeraren till höger.
 
 ![Komplex kolumn](media/data-flow/complexcolumn.png "Komplex kolumn")
 
@@ -212,7 +212,7 @@ Om du vill lägga till en JSON-struktur manuellt lägger du till en ny kolumn oc
 )
 ```
 
-Om det här uttrycket angavs för en kolumn med namnet "complexColumn", skrivs det till mottagaren som följande JSON:
+Om detta uttryck angavs för en kolumn med namnet "complexColumn", skulle det skrivas till diskhon som följande JSON:
 
 ```
 {
@@ -251,15 +251,15 @@ Om det här uttrycket angavs för en kolumn med namnet "complexColumn", skrivs d
 )
 ```
 
-### <a name="source-format-options"></a>Käll format alternativ
+### <a name="source-format-options"></a>Alternativ för källformat
 
-Genom att använda en JSON-datauppsättning som källa i ditt data flöde kan du ange fem ytterligare inställningar. De här inställningarna finns under inställningen för **JSON-inställningar** på fliken **käll alternativ** .  
+Med hjälp av en JSON-datauppsättning som källa i dataflödet kan du ange ytterligare fem inställningar. Dessa inställningar finns under **JSON-inställningarnas** dragspel på fliken **Källalternativ.**  
 
 ![JSON-inställningar](media/data-flow/json-settings.png "JSON-inställningar")
 
 #### <a name="default"></a>Default
 
-Som standard läses JSON-data in i följande format.
+Som standard läses JSON-data i följande format.
 
 ```
 { "json": "record 1" }
@@ -267,9 +267,9 @@ Som standard läses JSON-data in i följande format.
 { "json": "record 3" }
 ```
 
-#### <a name="single-document"></a>Enstaka dokument
+#### <a name="single-document"></a>Ett enda dokument
 
-Om **ett enstaka dokument** är markerat, kan mappning av data flöda ett JSON-dokument från varje fil. 
+Om **Ett enda dokument** är markerat läser mappningsdataflöden ett JSON-dokument från varje fil. 
 
 ``` json
 File1.json
@@ -286,9 +286,9 @@ File3.json
 }
 ```
 
-#### <a name="unquoted-column-names"></a>Icke-citerade kolumn namn
+#### <a name="unquoted-column-names"></a>Namn på ej citerad kolumn
 
-Om du väljer **icke-citerade kolumn namn** , läser mappningen av data flöden JSON-kolumner som inte omges av citat tecken. 
+Om **Namn på ej citerade kolumnnamn** är markerat läser mappningsdataflöden JSON-kolumner som inte omges av citattecken. 
 
 ```
 { json: "record 1" }
@@ -298,7 +298,7 @@ Om du väljer **icke-citerade kolumn namn** , läser mappningen av data flöden 
 
 #### <a name="has-comments"></a>Har kommentarer
 
-Välj **innehåller kommentarer** om JSON-data har C- C++ eller stil kommentarer.
+Välj **Har kommentarer** om JSON-data har C- eller C++-stilkommentarer.
 
 ``` json
 { "json": /** comment **/ "record 1" }
@@ -306,9 +306,9 @@ Välj **innehåller kommentarer** om JSON-data har C- C++ eller stil kommentarer
 { /** comment **/ "json": "record 3" }
 ```
 
-#### <a name="single-quoted"></a>Enkelt citat tecken
+#### <a name="single-quoted"></a>Singel citerad
 
-Välj **enkelt citat tecken** om JSON-fälten och-värdena använder enkla citat tecken i stället för dubbla citat tecken.
+Välj **Enkelciterad** om JSON-fälten och värdena använder enstaka citattecken i stället för dubbla citattecken.
 
 ```
 { 'json': 'record 1' }
@@ -316,9 +316,9 @@ Välj **enkelt citat tecken** om JSON-fälten och-värdena använder enkla citat
 { 'json': 'record 3' }
 ```
 
-#### <a name="backslash-escaped"></a>Omvänt snedstreck Escaped
+#### <a name="backslash-escaped"></a>Omvänt snedstreck flydde
 
-Välj **enkelt citat** tecken om omvända snedstreck används för att undanta tecken i JSON-data.
+Välj **Enstaka citerade** om omvänt snedstreck används för att escape tecken i JSON-data.
 
 ```
 { "json": "record 1" }
@@ -328,7 +328,7 @@ Välj **enkelt citat** tecken om omvända snedstreck används för att undanta t
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över kopierings aktivitet](copy-activity-overview.md)
-- [Mappa data flöde](concepts-data-flow-overview.md)
-- [Sökningsaktivitet](control-flow-lookup-activity.md)
+- [Kopiera aktivitetsöversikt](copy-activity-overview.md)
+- [Mappa dataflöde](concepts-data-flow-overview.md)
+- [Uppslagsaktivitet](control-flow-lookup-activity.md)
 - [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)

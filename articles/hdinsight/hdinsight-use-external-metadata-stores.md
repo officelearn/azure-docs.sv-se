@@ -1,6 +1,6 @@
 ---
-title: Använd externa metadata-butiker – Azure HDInsight
-description: Använd externa metadata butiker med Azure HDInsight-kluster och bästa praxis.
+title: Använda externa metadatalager - Azure HDInsight
+description: Använd externa metadataarkiv med Azure HDInsight-kluster och metodtips.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -9,105 +9,105 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/02/2020
 ms.openlocfilehash: edb2d256d3e5d98c52dbdff1162e0e030ebe2be3
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79272167"
 ---
-# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använd externa metadata butiker i Azure HDInsight
+# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
-Med HDInsight kan du ta kontroll över dina data och metadata genom att distribuera lösningar för nyckel metadata och hanterings databaser till externa data lager. Den här funktionen är för närvarande tillgänglig för [Apache Hive metaarkiv](#custom-metastore), [Apache Oozie Metaarkiv](#apache-oozie-metastore) och [Apache Ambari Database](#custom-ambari-db).
+HDInsight kan du ta kontroll över dina data och metadata genom att distribuera viktiga metadatalösningar och hanteringsdatabaser till externa datalager. Den här funktionen är för närvarande tillgänglig för [Apache Hive metabutik](#custom-metastore), [Apache Oozie metastore](#apache-oozie-metastore) och [Apache Ambari databas](#custom-ambari-db).
 
-Apache Hive metaarkiv i HDInsight är en viktig del av Apache Hadoop arkitekturen. En metaarkiv är den centrala schema lagrings platsen som kan användas av andra Big Data Access-verktyg som Apache Spark, Interactive Query (LLAP), Presto eller Apache gris. HDInsight använder en Azure SQL Database som Hive-metaarkiv.
+Apache Hive-metabutiken i HDInsight är en viktig del av Apache Hadoop-arkitekturen. En metabutik är den centrala schemalagringsplatsen som kan användas av andra big data-åtkomstverktyg som Apache Spark, Interactive Query (LLAP), Presto eller Apache Pig. HDInsight använder en Azure SQL-databas som Hive-metabutik.
 
-![HDInsight Hive metadata lager arkitektur](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
+![HdInsight Hive-metadatabutiksarkitektur](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
-Det finns två sätt att konfigurera en metaarkiv för dina HDInsight-kluster:
+Det finns två sätt att skapa en metabutik för dina HDInsight-kluster:
 
-* [Standard metaarkiv](#default-metastore)
-* [Anpassad metaarkiv](#custom-metastore)
+* [Standardmetastore](#default-metastore)
+* [Anpassad metabutik](#custom-metastore)
 
-## <a name="default-metastore"></a>Standard metaarkiv
+## <a name="default-metastore"></a>Standardmetastore
 
-Som standard skapar HDInsight en metaarkiv med varje kluster typ. I stället kan du ange en anpassad metaarkiv. Standard-metaarkiv innehåller följande överväganden:
+Som standard skapar HDInsight en metabutik med alla klustertyper. Du kan i stället ange en anpassad metabutik. Standardmetastore innehåller följande överväganden:
 
-* Ingen ytterligare kostnad. HDInsight skapar en metaarkiv med varje kluster typ utan ytterligare kostnad för dig.
+* Ingen extra kostnad. HDInsight skapar en metabutik med varje klustertyp utan extra kostnad för dig.
 
-* Varje standard-metaarkiv ingår i kluster livs cykeln. När du tar bort ett kluster raderas även motsvarande metaarkiv och metadata.
+* Varje standardmetastore är en del av klustrets livscykel. När du tar bort ett kluster tas även motsvarande metabutik och metadata bort.
 
-* Du kan inte dela standard-metaarkiv med andra kluster.
+* Du kan inte dela standardmetastore med andra kluster.
 
-* Standard-metaarkiv använder Basic Azure SQL DB, som har fem DTU-gränser (Database Transaction Unit).
-Den här standard metaarkiv används vanligt vis för relativt enkla arbets belastningar som inte kräver flera kluster och som inte behöver metadata som bevaras utanför klustrets livs cykel.
+* Standardmetastore använder den grundläggande Azure SQL DB, som har en gräns för fem DTU (databastransaktionsenhet).
+Den här standardmetastore används vanligtvis för relativt enkla arbetsbelastningar som inte kräver flera kluster och inte behöver metadata bevarade utanför klustrets livscykel.
 
-## <a name="custom-metastore"></a>Anpassad metaarkiv
+## <a name="custom-metastore"></a>Anpassad metabutik
 
-HDInsight har också stöd för anpassade metastores, vilket rekommenderas för produktions kluster:
+HDInsight stöder även anpassade metabutiker, som rekommenderas för produktionskluster:
 
-* Du anger din egen Azure SQL Database som metaarkiv.
+* Du anger din egen Azure SQL-databas som metabutik.
 
-* Livs cykeln för metaarkiv är inte knuten till en kluster livs cykel, så du kan skapa och ta bort kluster utan att förlora metadata. Metadata, till exempel Hive-scheman, sparas även när du har tagit bort och återskapat HDInsight-klustret.
+* Metabutikens livscykel är inte kopplad till en klustrets livscykel, så du kan skapa och ta bort kluster utan att förlora metadata. Metadata som Hive-scheman sparas även efter att du har tagit bort och återskapat HDInsight-klustret.
 
-* Med en anpassad metaarkiv kan du koppla flera kluster och kluster typer till den metaarkiv. Till exempel kan en enda metaarkiv delas mellan interaktiva Query-, Hive-och Spark-kluster i HDInsight.
+* Med en anpassad metabutik kan du koppla flera kluster och klustertyper till metabutiken. En enda metabutik kan till exempel delas i interaktiva fråge-, Hive- och Spark-kluster i HDInsight.
 
-* Du betalar för kostnaden för en metaarkiv (Azure SQL DB) enligt den prestanda nivå som du väljer.
+* Du betalar för kostnaden för en metabutik (Azure SQL DB) enligt den prestandanivå du väljer.
 
-* Du kan skala upp metaarkiv efter behov.
+* Du kan skala upp metabutiken efter behov.
 
-* Klustret och det externa metaarkiv måste finnas i samma region.
+* Klustret och den externa metabutiken måste vara värd i samma region.
 
-![Användnings fall för HDInsight Hive-metadatalagret](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+![HdInsight Hive Metadata Store Användningsfall](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
 
-### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Skapa och konfigurera Azure SQL Database för den anpassade metaarkiv
+### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>Skapa och konfigurera Azure SQL Database för den anpassade metabutiken
 
-Du måste skapa eller ha en befintlig Azure SQL Database innan du konfigurerar en anpassad Hive-metaarkiv för ett HDInsight-kluster.  Mer information finns i [snabb start: skapa en enskild databas i Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
+Du måste skapa eller ha en befintlig Azure SQL-databas innan du konfigurerar en anpassad Hive-metabutik för ett HDInsight-kluster.  Mer information finns i [Snabbstart: Skapa en enda databas i Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
-För att se till att ditt HDInsight-kluster har åtkomst till den anslutna Azure SQL Database konfigurerar du Azure SQL Database brand Väggs regler för att tillåta Azure-tjänster och-resurser åtkomst till servern.
+Om du vill vara säker på att ditt HDInsight-kluster kan komma åt den anslutna Azure SQL-databasen konfigurerar du Azure SQL Database-brandväggsregler så att Azure-tjänster och resurser kan komma åt servern.
 
-Du kan aktivera det här alternativet i Azure Portal genom att klicka på **Ange server brand vägg**och klicka **på** under **Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern** för Azure SQL Database servern eller databasen. Mer information finns i [skapa och hantera IP-brandväggens regler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+Du kan aktivera det här alternativet i Azure-portalen genom att klicka på **Ange serverbrandvägg**och klicka **på PÅ** under **Tillåt Azure-tjänster och resurser** för att komma åt den här servern för Azure SQL Database-servern eller -databasen. Mer information finns i [Skapa och hantera IP-brandväggsregler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
 
-![knappen Ange server brand vägg](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+![ange knappen serverbrandvägg](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
-![Tillåt åtkomst till Azure-tjänster](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
+![tillåt åtkomst till azure-tjänster](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
 
-### <a name="select-a-custom-metastore-during-cluster-creation"></a>Välj en anpassad metaarkiv när klustret skapas
+### <a name="select-a-custom-metastore-during-cluster-creation"></a>Välj en anpassad metabutik när klustret skapas
 
-Du kan peka klustret till ett tidigare skapat Azure SQL Database när klustret skapas, eller så kan du konfigurera SQL Database när klustret har skapats. Det här alternativet anges med **inställningarna för lagrings > metaarkiv** när du skapar ett nytt Hadoop-, Spark-eller Interactive Hive-kluster från Azure Portal.
+Du kan peka klustret på en tidigare skapad Azure SQL-databas när klustret skapas, eller så kan du konfigurera SQL-databasen när klustret har skapats. Det här alternativet anges med **inställningarna för Lagring > Metastore** när du skapar ett nytt Hadoop-, Spark- eller interaktivt Hive-kluster från Azure-portalen.
 
-![HDInsight Hive-metadatalagret Azure Portal](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
+![Azure-portal för HDInsight Hive-metadata store](./media/hdinsight-use-external-metadata-stores/azure-portal-cluster-storage-metastore.png)
 
-## <a name="hive-metastore-best-practices"></a>Metod tips för Hive-metaarkiv
+## <a name="hive-metastore-best-practices"></a>Hive metastore bästa praxis
 
-Här följer några allmänna HDInsight-Hive-metaarkiv bästa praxis:
+Här är några allmänna HDInsight Hive metastore bästa praxis:
 
-* Använd en anpassad metaarkiv när det är möjligt, för att hjälpa till att separera beräknings resurser (ditt kluster som körs) och metadata (lagrade i metaarkiv).
+* Använd en anpassad metabutik när det är möjligt för att hjälpa till att separera beräkningsresurser (ditt kluster som körs) och metadata (lagras i metabutiken).
 
-* Börja med en S2-nivå, som tillhandahåller 50 DTU och 250 GB lagrings utrymme. Om du ser en Flask hals kan du skala databasen uppåt.
+* Börja med en S2-nivå som ger 50 DTU och 250 GB lagringsutrymme. Om du ser en flaskhals kan du skala upp databasen.
 
-* Om du har flera HDInsight-kluster för åtkomst till separata data använder du en separat databas för metaarkiv på varje kluster. Om du delar en metaarkiv över flera HDInsight-kluster innebär det att klustren använder samma metadata och underliggande användar data filer.
+* Om du tänker att flera HDInsight-kluster ska komma åt separata data använder du en separat databas för metabutiken i varje kluster. Om du delar en metabutik i flera HDInsight-kluster innebär det att klustren använder samma metadata och underliggande användardatafiler.
 
-* Säkerhetskopiera dina anpassade metaarkiv med jämna mellanrum. Azure SQL Database skapar säkerhets kopior automatiskt, men tids perioden för säkerhets kopieringen varierar. Mer information finns i [Läs mer om automatisk SQL Database säkerhets kopiering](../sql-database/sql-database-automated-backups.md).
+* Säkerhetskopiera din anpassade metabutik med jämna mellanrum. Azure SQL Database genererar säkerhetskopior automatiskt, men tidsramen för lagring av säkerhetskopiering varierar. Mer information finns i [Lär dig mer om automatiska säkerhetskopieringar av SQL Database](../sql-database/sql-database-automated-backups.md).
 
-* Leta upp ditt metaarkiv-och HDInsight-kluster i samma region, för högsta prestanda och lägsta utgående kostnader för nätverket.
+* Leta reda på ditt metabutiks- och HDInsight-kluster i samma region, för högsta prestanda och lägsta nätverksutgående avgifter.
 
-* Övervaka dina metaarkiv för prestanda och tillgänglighet med hjälp av Azure SQL Database övervaknings verktyg, till exempel Azure Portal eller Azure Monitor loggar.
+* Övervaka din metabutik för prestanda och tillgänglighet med hjälp av Azure SQL Database Monitoring-verktyg, till exempel Azure-portalen eller Azure Monitor-loggarna.
 
-* När en ny, högre version av Azure HDInsight skapas mot en befintlig anpassad metaarkiv-databas, uppgraderas schemat för metaarkiv, vilket inte kan återställas utan att databasen återställs från säkerhets kopian.
+* När en ny, högre version av Azure HDInsight skapas mot en befintlig anpassad metabutiksdatabas uppgraderar systemet metabutikens schema, vilket är oåterkalleligt utan att återställa databasen från säkerhetskopiering.
 
-* Om du delar en metaarkiv över flera kluster ser du till att alla kluster har samma HDInsight-version. Olika Hive-versioner använder olika metaarkiv-databasschemat. Du kan till exempel inte dela en metaarkiv över Hive-kluster med Hive 2,1 och Hive 3,1-versioner.
+* Om du delar en metabutik över flera kluster kontrollerar du att alla kluster är samma HDInsight-version. Olika Hive-versioner använder olika metabutiksdatabasscheman. Du kan till exempel inte dela en metabutik i grupper i Hive 2.1 och Hive 3.1.
 
-* I HDInsight 4,0 använder Spark och Hive oberoende kataloger för åtkomst till SparkSQL-eller Hive-tabeller. En tabell som skapats av Spark finns i Spark-katalogen. En tabell som skapats av Hive finns i Hive-katalogen. Detta skiljer sig från HDInsight 3,6 där Hive och Spark delat gemensamt katalog. Hive-och Spark-integrering i HDInsight 4,0 förlitar sig på Hive Warehouse Connector (INSTANSEN). INSTANSEN fungerar som en brygga mellan Spark och Hive. [Lär dig mer om Hive lager koppling](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
+* I HDInsight 4.0 använder Spark och Hive oberoende kataloger för åtkomst till SparkSQL- eller Hive-tabeller. En tabell som skapats av Spark finns i Spark-katalogen. En tabell som skapats av Hive finns i Hive-katalogen. Detta skiljer sig från HDInsight 3.6 där Hive och Spark delade gemensam katalog. Hive- och Spark-integrering i HDInsight 4.0 är beroende av Hive Warehouse Connector (HWC). HWC fungerar som en bro mellan Spark och Hive. [Läs mer om Hive Warehouse Connector](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
 
-## <a name="apache-oozie-metastore"></a>Apache Oozie-metaarkiv
+## <a name="apache-oozie-metastore"></a>Apache Oozie metabutik
 
-Apache Oozie är ett system för arbets flödes koordinering som hanterar Hadoop-jobb.  Oozie stöder Hadoop-jobb för Apache MapReduce, gris, Hive och andra.  Oozie använder en metaarkiv för att lagra information om aktuella och slutförda arbets flöden. Om du vill öka prestandan när du använder Oozie kan du använda Azure SQL Database som en anpassad metaarkiv. Metaarkiv kan även ge åtkomst till Oozie-jobb data när du har tagit bort klustret.
+Apache Oozie är ett system för att koordinera arbetsflöden som hanterar Hadoop-jobb.  Oozie stöder Hadoop jobb för Apache MapReduce, Pig, Hive, och andra.  Oozie använder en metabutik för att lagra information om aktuella och slutförda arbetsflöden. Om du vill öka prestanda när du använder Oozie kan du använda Azure SQL Database som en anpassad metabutik. Metabutiken kan också ge åtkomst till Oozie-jobbdata när du har tagit bort klustret.
 
-Anvisningar om hur du skapar en Oozie-metaarkiv med Azure SQL Database finns i [använda Apache Oozie för arbets flöden](hdinsight-use-oozie-linux-mac.md).
+Instruktioner om hur du skapar en Oozie-metabutik med Azure SQL Database finns i [Använda Apache Oozie för arbetsflöden](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="custom-ambari-db"></a>Anpassad Ambari-databas
 
-Om du vill använda din egen externa databas med Apache Ambari på HDInsight, se [anpassad Apache Ambari-databas](hdinsight-custom-ambari-db.md).
+Om du vill använda din egen externa databas med Apache Ambari på HDInsight läser du [Custom Apache Ambari-databasen](hdinsight-custom-ambari-db.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,20 +1,20 @@
 ---
-title: Felsöka fråge prestanda – Azure Database for MariaDB
-description: Lär dig hur du använder förklaring för att felsöka fråge prestanda i Azure Database for MariaDB.
+title: Felsöka frågeprestanda – Azure Database för MariaDB
+description: Lär dig hur du använder EXPLAIN för att felsöka frågeprestanda i Azure Database för MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
-ms.date: 12/02/2019
-ms.openlocfilehash: 36571cc1ac4fbdcd5c0c6a4007a6c43858c97193
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 3/18/2020
+ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770993"
+ms.lasthandoff: 03/28/2020
+ms.locfileid: "79530061"
 ---
-# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Så här använder du förklaringar för att profilera frågor om prestanda i Azure Database for MariaDB
-**Förklaring** är ett användbart verktyg för att optimera frågor. FÖRKLARINGs instruktionen kan användas för att hämta information om hur SQL-uttryck körs. Följande utdata visar ett exempel på körning av en FÖRKLARINGs instruktion.
+# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Så här använder du EXPLAIN för att profilera frågeprestanda i Azure Database för MariaDB
+**EXPLAIN** är ett praktiskt verktyg för att optimera frågor. EXPLAIN-satsen kan användas för att få information om hur SQL-uttryck körs. Följande utdata visar ett exempel på körningen av en EXPLAIN-sats.
 
 ```sql
 mysql> EXPLAIN SELECT * FROM tb1 WHERE id=100\G
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-Som du kan se i det här exemplet är värdet för *nyckeln* null. Den här utmatningen innebär att MariaDB inte kan hitta några index som är optimerade för frågan och den utför en fullständig tabells ökning. Vi optimerar den här frågan genom att lägga till ett index i kolumnen **ID** .
+Som framgår av det här exemplet är värdet på *nyckeln* NULL. Den här utdata innebär att MariaDB inte kan hitta några index som är optimerade för frågan och att den utför en fullständig tabellgenomsökning. Låt oss optimera den här frågan genom att lägga till ett index i **ID-kolumnen.**
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -53,10 +53,10 @@ possible_keys: id
         Extra: NULL
 ```
 
-Den nya förklaringen visar att MariaDB nu använder ett index för att begränsa antalet rader till 1, vilket i sin tur förkortade Sök tiden dramatiskt.
+Den nya EXPLAIN visar att MariaDB nu använder ett index för att begränsa antalet rader till 1, vilket i sin tur dramatiskt förkortade söktiden.
  
-## <a name="covering-index"></a>Täcker index
-Ett täcker index består av alla kolumner i en fråga i indexet för att minska värde hämtningen från data tabeller. Här är en illustration i följande **Group by** -instruktion.
+## <a name="covering-index"></a>Täckindex
+Ett täckindex består av alla kolumner i en fråga i indexet för att minska värdehämtningen från datatabeller. Här är en illustration i följande **GROUP BY** uttalande.
  
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
@@ -75,9 +75,9 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Som kan ses från utdata använder MariaDB inte några index eftersom det inte finns några lämpliga index. Den visar också *användning av temporärt. Att använda fil sortering*, vilket innebär att MariaDB skapar en temporär tabell för att uppfylla **Group by** -satsen.
+Som framgår av utdata använder MariaDB inga index eftersom det inte finns några korrekta index tillgängliga. Det visar också *Använda tillfälliga; Använda filsortering*, vilket innebär att MariaDB skapar en tillfällig tabell för att uppfylla **GROUP BY-satsen.**
  
-Att skapa ett index för enbart Column **C2** gör ingen skillnad, och MariaDB måste fortfarande skapa en tillfällig tabell:
+Att skapa ett index enbart för kolumn **c2** gör ingen skillnad, och MariaDB behöver fortfarande skapa en temporär tabell:
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY (c2);
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-I det här fallet kan ett **index som omfattas** både **C1** och **C2** skapas, genom att lägga till värdet **C2**direkt i indexet för att eliminera ytterligare data sökning.
+I det här fallet kan ett **täckt index** på både **c1** och **c2** skapas, varvid värdet av **c2**" direkt i indexet för att eliminera ytterligare datasökning.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
@@ -117,10 +117,10 @@ possible_keys: covered
         Extra: Using where; Using index
 ```
 
-Som beskrivs ovan, använder MariaDB nu det skyddade indexet och undviker att skapa en temporär tabell. 
+Som framgår av ovanstående EXPLAIN använder MariaDB nu det täckta indexet och undviker att skapa en tillfällig tabell. 
 
 ## <a name="combined-index"></a>Kombinerat index
-Ett kombinerat index består av värden från flera kolumner och kan betraktas som en matris med rader som sorteras efter sammanfogning av värden för de indexerade kolumnerna. Den här metoden kan vara användbar i en **Group by** -instruktion.
+Ett kombinerat index består av värden från flera kolumner och kan betraktas som en matris med rader som sorteras efter sammanfogande värden för de indexerade kolumnerna.Den här metoden kan vara användbar i en **GROUP BY-sats.**
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -139,7 +139,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-MariaDB utför en *fil sorterings* åtgärd som är ganska långsam, särskilt när den måste sortera många rader. För att optimera den här frågan kan ett kombinerat index skapas i båda kolumnerna som sorteras.
+MariaDB utför en *filsorteringsåtgärd* som är ganska långsam, särskilt när den måste sortera många rader. För att optimera den här frågan kan ett kombinerat index skapas på båda kolumnerna som sorteras.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
@@ -159,11 +159,11 @@ possible_keys: NULL
         Extra: Using where; Using index
 ```
 
-FÖRKLARINGEN visar nu att MariaDB kan använda kombinerat index för att undvika ytterligare sortering eftersom indexet redan har sorterats.
+NU visar EXPLAIN att MariaDB kan använda kombinerat index för att undvika ytterligare sortering eftersom indexet redan är sorterat.
  
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
  
-Att använda förklaringar och olika typer av index kan öka prestandan avsevärt. Att ha ett index i tabellen innebär inte nödvändigt vis att MariaDB skulle kunna använda den för dina frågor. Validera alltid dina antaganden med hjälp av förklara och optimera dina frågor med hjälp av index.
+Med hjälp av EXPLAIN och olika typer av index kan öka prestanda avsevärt. Att ha ett index på bordet betyder inte nödvändigtvis att MariaDB skulle kunna använda det för dina frågor. Verifiera alltid dina antaganden med hjälp av FÖRKLARA och optimera dina frågor med hjälp av index.
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill hitta peer-svar på dina mest aktuella frågor eller publicera en ny fråga/svar, besök [MSDN-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+- Om du vill hitta peer-svar på dina mest berörda frågor eller lägga upp en ny fråga /svar besöker du [MSDN-forumet](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).

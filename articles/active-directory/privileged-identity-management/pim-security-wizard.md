@@ -1,6 +1,6 @@
 ---
-title: Guiden Azure AD-roller säkerhet i PIM-Azure Active Directory | Microsoft Docs
-description: Beskriver säkerhets guiden som du kan använda för att konvertera permanenta privilegierade Azure AD-roll tilldelningar till kvalificerade med Azure AD Privileged Identity Management (PIM).
+title: Säkerhetsguiden för Azure AD-roller i PIM – Azure Active Directory | Microsoft-dokument
+description: Beskriver säkerhetsguiden som du kan använda för att konvertera permanenta privilegierade Azure AD-rolltilldelningar som är kvalificerade med hjälp av Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,59 +15,59 @@ ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
-ms.sourcegitcommit: 7b25c9981b52c385af77feb022825c1be6ff55bf
+ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 03/28/2020
 ms.locfileid: "79266577"
 ---
-# <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Säkerhets guiden för Azure AD-roller i Privileged Identity Management
+# <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Säkerhetsguiden för Azure AD-roller i privilegierad identitetshantering
 
-Om du är den första personen som använder Privileged Identity Management (PIM) i din Azure Active Directory (Azure AD)-organisation visas en guide för att komma igång. Guiden hjälper dig att förstå säkerhets riskerna med privilegierade identiteter och hur du använder Privileged Identity Management för att minska riskerna. Du behöver inte göra några ändringar i de befintliga roll tilldelningarna i guiden, om du vill göra det senare.
+Om du är den första personen som använder PIM (Privileged Identity Management) i din Azure Active Directory -organisation (Azure AD) visas en guide för att komma igång. Guiden hjälper dig att förstå säkerhetsriskerna med privilegierade identiteter och hur du använder privilegierad identitetshantering för att minska dessa risker. Du behöver inte göra några ändringar i befintliga rolltilldelningar i guiden om du föredrar att göra det senare.
 
 ## <a name="wizard-overview"></a>Översikt över guiden
 
-Innan organisationen börjar använda Privileged Identity Management, är alla roll tilldelningar permanenta: användarna är alltid i dessa roller, även om de inte redan för närvarande behöver sina privilegier. Det första steget i guiden visar en lista över privilegierade roller och hur många användare som för närvarande finns i dessa roller. Du kan gå vidare till en viss roll för att lära dig mer om användare om en eller flera av dem är okända.
+Innan din organisation börjar använda Privilegierad identitetshantering är alla rolltilldelningar permanenta: användarna är alltid i dessa roller även om de för närvarande inte behöver sina privilegier. Det första steget i guiden visar en lista över högprivilegiiserade roller och hur många användare som för närvarande befinner sig i dessa roller. Du kan gå in på en viss roll om du vill veta mer om användare om en eller flera av dem inte är bekant.
 
-I det andra steget i guiden får du möjlighet att ändra administratörs roll tilldelningar.  
+Det andra steget i guiden ger dig möjlighet att ändra administratörens rolltilldelningar.  
 
 > [!WARNING]
-> Det är viktigt att du har minst en global administratör och fler än en privilegie rad roll administratör med ett organisations konto (inte en Microsoft-konto). Om det bara finns en privilegie rad roll administratör kan organisationen inte hantera Privileged Identity Management om kontot tas bort.
-> Håll också roll tilldelningarna permanenta om en användare har en Microsoft-konto (med andra ord, ett konto som de använder för att logga in på Microsoft-tjänster som Skype och Outlook.com). Om du planerar att kräva Multi-Factor Authentication för aktivering för den rollen kommer användaren att låsas upp.
+> Det är viktigt att du har minst en global administratör och mer än en administratör för privilegierad roll med ett organisationskonto (inte ett Microsoft-konto). Om det bara finns en administratör för privilegierad roll kan organisationen inte hantera privilegierad identitetshantering om kontot tas bort.
+> Håll också rolltilldelningar permanenta om en användare har ett Microsoft-konto (med andra ord ett konto som de använder för att logga in på Microsoft-tjänster som Skype och Outlook.com). Om du planerar att kräva multifaktorautentisering för aktivering för den rollen, kommer den användaren att vara utelåst.
 
 ## <a name="run-the-wizard"></a>Kör guiden
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. Öppna **Azure AD Privileged Identity Management**.
+1. Öppna **Azure AD-privilegierad identitetshantering**.
 
-1. Välj **Azure AD-roller** och välj sedan **Guide**.
+1. Välj **Azure AD-roller** och välj sedan **Guiden**.
 
-    ![Azure AD-roller – guide sidan visar de tre stegen för att köra guiden](./media/pim-security-wizard/wizard-start.png)
+    ![Azure AD-roller - Guidesida som visar de tre stegen för att köra guiden](./media/pim-security-wizard/wizard-start.png)
 
-1. Välj **1 identifiera privilegierade roller**.
+1. Välj **1 Upptäck privilegierade roller**.
 
-1. Granska listan över privilegierade roller för att se vilka användare som är permanenta eller berättigade.
+1. Granska listan över privilegierade roller för att se vilka användare som är permanenta eller kvalificerade.
 
-    ![Identifiera privilegierade roller – roll fönstret som visar permanenta och berättigade medlemmar](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Upptäck privilegierade roller – rollfönstret som visar permanenta och berättigade medlemmar](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
-1. Välj **Nästa** för att välja de användare eller grupper som du vill göra berättigade.
+1. Välj **Nästa** om du vill välja vilka användare eller grupper du vill göra kvalificerade.
 
-    ![Konvertera medlemmar till berättigade sidor med alternativ för att välja medlemmar som du vill ska vara berättigade till roller](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Konvertera medlemmar till kvalificerad sida med alternativ för att välja medlemmar som du vill göra kvalificerade för roller](./media/pim-security-wizard/convert-members-eligible.png)
 
-1. När du har valt användare eller grupper väljer du **Nästa**.
+1. När du har valt användarna eller grupperna väljer du **Nästa**.
 
-    ![Sidan granska ändringar som visar medlemmar med permanenta roll tilldelningar som kommer att konverteras](./media/pim-security-wizard/review-changes.png)
+    ![Sidan Granska ändringar som visar medlemmar med permanenta rolltilldelningar som ska konverteras](./media/pim-security-wizard/review-changes.png)
 
-1. Välj **OK** för att konvertera de permanenta tilldelningarna till stödberättigade.
+1. Välj **OK** om du vill konvertera de permanenta tilldelningarna till kvalificerade.
 
-    När konverteringen är klar visas ett meddelande.
+    När konverteringen är klar visas en avisering.
 
     ![Meddelande som visar status för en konvertering](./media/pim-security-wizard/notification-completion.png)
 
-Om du behöver konvertera andra privilegierade roll tilldelningar till giltig kan du köra guiden igen. Om du vill använda Privileged Identity Management-gränssnittet i stället för guiden, se [tilldela Azure AD-roller i Privileged Identity Management](pim-how-to-add-role-to-user.md).
+Om du behöver konvertera andra privilegierade rolltilldelningar till kvalificerade kan du köra guiden igen. Om du vill använda gränssnittet Privilegierad identitetshantering i stället för guiden läser du [Tilldela Azure AD-roller i Privilegierad identitetshantering](pim-how-to-add-role-to-user.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Tilldela Azure AD-roller i Privileged Identity Management](pim-how-to-add-role-to-user.md)
-- [Ge åtkomst till andra administratörer för att hantera Privileged Identity Management](pim-how-to-give-access-to-pim.md)
+- [Tilldela Azure AD-roller i privilegierad identitetshantering](pim-how-to-add-role-to-user.md)
+- [Bevilja åtkomst till andra administratörer för att hantera privilegierad identitetshantering](pim-how-to-give-access-to-pim.md)
